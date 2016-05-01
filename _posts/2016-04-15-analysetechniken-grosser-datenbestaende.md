@@ -448,8 +448,8 @@ Slides: `5-Evaluation.pdf`
         \(k\) Testfehler. Mittle diese am Ende. Das ist ein besserer Schätzwert
         für den realen Fehler als eine einmalige Unterteilung in Training- und
         Testmenge.</dd>
-    <dt><dfn>Stratification</dfn></dt>
-    <dd>Sicherstellen, dass bestimmte Eigenschaften (z.B. Klassenzugehörigkeit) in Partitiionen etwa gleich verteilt ist.</dd>
+    <dt><a href="https://en.wikipedia.org/wiki/Stratified_sampling" id="stratification"><dfn>Stratification</dfn></a></dt>
+    <dd>Sicherstellen, dass bestimmte Eigenschaften (z.B. Klassenzugehörigkeit) in Partitionen etwa gleich verteilt ist.</dd>
     <dt><dfn>Loss function</dfn></dt>
     <dd>Eine Funktion, die angibt, wie viel man durch eine unkorrekte
         Vorhersage verliert.</dd>
@@ -471,19 +471,25 @@ Slides: `5-Evaluation.pdf`
         und die Spalten für die vorhergesagten Klassen. Die Diagonalelemente
         zählen also die richtig vorhergesagten Datenobjekte; alle anderen
         Zellen zählen falsche Vorhersagen.</dd>
-    <dt><dfn>Kappa-Koeffizient</dfn></dt>
+    <dt><dfn>Kappa-Koeffizient</dfn> (<a href="https://de.wikipedia.org/wiki/Cohens_Kappa"><dfn>Cohens Kappa</dfn></a>)</dt>
     <dd>Vergleich mit Klassifier, der nur den Anteil der Klassenzugehörigkeit
-        schätzt.<br/>
-        Sei \(D\) die Menge der Datenobjekte, \(K\) die Menge der Klassen,
-        \(f: D \rightarrow K\) der Klassifizierer und \(k:D \rightarrow K\) die tatsächliche Klasse des Datenobjekts. Dann gilt:
-        Die Menge der richtig klassifizierten Datenobjekte:
-        \[R = |\{1|d \in D, f(d) = k(d)\}\|\]
+        schätzt:
+        \[\kappa =\frac{p_0-p_c}{1-p_c}\]
+        wobei \(p_0\) die gemessene Übereinstimmung ist und \(p_c\) die
+        erwartete Übereinstimmung bei Unabhängigkeit. Wenn also \(h_{ij}\) die
+        Anzahl der Datenobjekte ist, für die der erste Klassifizierer die Klasse
+        \(i\) und der zweite Klassifizierer die Klasse \(j\) vorhergesagt hat
+        sowie \(N\) die Gesamtzahl der Datenobjekte und \(z\) die Gesamtzahl
+        der Klassen, dann gilt:
 
-        Die Datenobjekte \(Z\), die ein zufälliger Klassifizierer richtig raten
-        würde.
-        \[\kappa(f, D) = \frac{R - Z}{|D|- Z}\]
-        Der Wertebereich ist also: \((-\infty; 1]\) (TODO: stimmt das?),
-        da \(R < |D|\)</dd>
+        \[p_0 = \frac{\sum_{i=1}^z h_{ii}}{N}\]
+
+        Die erwartete Übereinstimmung \(p_c\) wird über die Randhäufigkeiten
+        geschätzt:
+        \[p_c = \frac{1}{N^2} \sum_{i=1}^z h_{.i} \cdot h_{i.}\]
+
+        Der Wertebereich ist also: \(\kappa \in (-\infty; 1]\), wobei
+        der minimale Wert von \(\kappa\) nicht beliebig klein werden kann.</dd>
     <dt><a href="https://en.wikipedia.org/wiki/Association_rule_learning#Lift"><dfn>Lift-Faktor</dfn></a></dt>
     <dd>Faktor, um den sich die Rücklaufquote erhöht:
 
@@ -912,7 +918,7 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
     </dd>
     <dt><dfn>Reachability-Plot</dfn> (<dfn>Erreichbarkeitsdiagramm</dfn>)</dt>
     <dd>Der Reachability-Plot veranschaulicht die Cluster und zeigt, welche
-        Wahl von \(\epsilon\) zu verschiedenen Clustern in DBSCAN führen würde.
+        Wahl von \(\varepsilon\) zu verschiedenen Clustern in DBSCAN führen würde.
         Er veranschaulicht das Ergebnis von OPTICS.
 
         <figure class="wp-caption aligncenter img-thumbnail">
@@ -992,7 +998,9 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
     </dd>
     <dt><dfn>MetaCost</dfn></dt>
     <dd>MetaCost ist ein Verfahren zum Relabeling (TODO: Was ist Relabeling?).
-        MetaCost wendet Bagging an.
+        MetaCost wendet Bagging an.<br/>
+        <br/>
+        <a href="http://dl.acm.org/citation.cfm?id=312220">MetaCost: a general method for making classifiers cost-sensitive</a>
     </dd>
     <dt><dfn>Boosting</dfn></dt>
     <dd>Boosting ist eine Ensemble-Learning-Technik, die mehrere Modelle vom
