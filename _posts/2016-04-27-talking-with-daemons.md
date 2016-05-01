@@ -3,7 +3,7 @@ layout: post
 title: Talking with Daemons
 author: Martin Thoma
 date: 2016-04-27 23:26
-category: Programming
+category: Code
 tags: Python, RPC, daemon
 featured_image: logos/daemon.png
 ---

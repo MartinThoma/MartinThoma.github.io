@@ -3,7 +3,7 @@ layout: post
 title: Wasserrohrbruch in Karlsruhe
 author: Martin Thoma
 date: 2016-02-20 11:29
-category: German
+category: German posts
 tags: Water, Karlsruhe, Networks
 featured_image: logos/water.png
 ---
