@@ -26,7 +26,7 @@ Usage example:
 	<li><code>ultra thick</code></li>
 </ul>
 <h2>Text</h2>
-<p style="text-align: center;"><a href="../images/2012/09/text-sizes-latex.png"><img class="size-full wp-image-45921 aligncenter" title="Text sizes in LaTeX" src="../images/2012/09/text-sizes-latex.png" alt="" width="512" height="110" /></a></p>
+<p style="text-align: center;"><a href="../images/2012/09/text-sizes-latex.png"><img class="size-full wp-image-45921 aligncenter" title="Text sizes in LaTeX" src="../images/2012/09/text-sizes-latex.png" alt="Text sizes in LaTeX" width="512" height="110" /></a></p>
 Usage example:
 <code>\Huge $\varepsilon$</code>
 <ul>
