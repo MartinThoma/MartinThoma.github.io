@@ -1146,7 +1146,8 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
 * Wie findet man multidimensionale Association Rules?<br/>
   → TODO
 * In welchen Situationen ist Apriori teuer, und warum?<br/>
-  → TODO
+  → Apriori ist teuer, wenn es sehr große Itemsets gibt. Dann müssen alle
+     darin enthaltenen Itemsets gebildet werden.
 * Was kann man gegen die Schwächen von Apriori tun?<br/>
   → TODO
 * Was sind FP-Trees, und wie lassen sie sich für die Suche nach Frequent Itemsets verwenden?<br/>
