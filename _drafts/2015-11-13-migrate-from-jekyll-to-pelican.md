@@ -53,6 +53,14 @@ it's inside of an block-level HTML tag. This means inside of an HTML-Tag I have 
 The problem of using `$` for triggering MathJax is that PHP makes use of it and
 that it is the US-Dollar currency symbol.
 
+### Add plugin
+
+In the main directory, above `content`, execute
+
+```
+$ git submodule add https://github.com/barrysteyn/pelican_plugin-render_math
+```
+
 ### Inline Math
 
 Search for
