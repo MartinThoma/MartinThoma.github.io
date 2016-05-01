@@ -83,6 +83,17 @@ and replace it by the following
 ```
 
 
+## Header
+
+You have to adjust your posts headers. For example, pelican does not know
+`categories`, but only `category`.
+
+
+## Pelican Initialization
+
+Execute `pelican-quickstart` in your folder.
+
+
 ## See also
 
 * https://jawher.me/2012/10/19/moving-from-jekyll-to-pelican/

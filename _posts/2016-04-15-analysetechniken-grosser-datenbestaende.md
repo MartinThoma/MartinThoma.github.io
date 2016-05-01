@@ -3,8 +3,7 @@ layout: post
 title: Analysetechniken für große Datenbestände
 author: Martin Thoma
 date: 2016-04-15 11:22
-categories:
-- German posts
+category: German posts
 tags:
 - Klausur
 featured_image: logos/klausur.png
