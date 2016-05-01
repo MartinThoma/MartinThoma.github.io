@@ -3,12 +3,8 @@ layout: post
 title: ! 'Java Puzzle #8: Interfaces and Visibility'
 author: Martin Thoma
 date: 2012-08-09 17:00:42.000000000 +02:00
-categories:
-- Code
-tags:
-- Programming
-- Java
-- puzzle
+category: Code
+tags: Programming, Java, puzzle
 featured_image: 2012/07/java-thumb.png
 ---
 What is the output of the following snippets:

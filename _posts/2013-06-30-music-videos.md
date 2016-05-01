@@ -3,12 +3,8 @@ layout: post
 title: Music videos
 author: Martin Thoma
 date: 2013-06-30 21:21:51.000000000 +02:00
-categories:
-- Cyberculture
-tags:
-- Video
-- YouTube
-- Chatroulette
+category: Cyberculture
+tags: Video, YouTube, Chatroulette
 featured_image: 2013/06/paint-thumb.png
 ---
 <h2>Paint: Lord of the Rings</h2>

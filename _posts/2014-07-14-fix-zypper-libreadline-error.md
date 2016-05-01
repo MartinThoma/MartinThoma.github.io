@@ -3,10 +3,8 @@ layout: post
 title: Fix zypper readline error
 author: Martin Thoma
 date: 2014-07-14 11:34
-categories:
-- Code
-tags:
-- openSUSE
+category: Code
+tags: openSUSE
 featured_image: logos/open-suse.png
 ---
 

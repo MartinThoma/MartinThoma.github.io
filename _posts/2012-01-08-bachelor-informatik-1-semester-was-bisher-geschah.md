@@ -3,12 +3,8 @@ layout: post
 title: ! 'Bachelor Informatik, 1. Semester: Was bisher geschah'
 author: Martin Thoma
 date: 2012-01-08 20:38:41.000000000 +01:00
-categories:
-- German posts
-tags:
-- Computer science
-- mathematics
-- KIT
+category: German posts
+tags: Computer science, mathematics, KIT
 featured_image: 2011/10/KIT-Logo.png
 ---
 Die erste H&auml;lfte des Semesters ist nun vorbei und es wird Zeit zu wiederholen, was man wissen sollte. Eventuell ist diese Liste f&uuml;r ein paar Kommilitonen von nutzen. Wenn man gerade eines der Module macht, sollte man alles wissen, was in den Links steht. Naja, vielleicht nicht alles, aber man sollte auf jeden Fall die Begriffe im Schlaf definieren k&ouml;nnen. Die Links sind meist deutsche Wiki-Artikel, manchmal auch englische. Je nach dem, was ich besser fand.

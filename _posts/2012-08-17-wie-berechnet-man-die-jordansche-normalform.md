@@ -3,13 +3,8 @@ layout: post
 title: Wie berechnet man die Jordan'sche Normalform?
 author: Martin Thoma
 date: 2012-08-17 12:59:27.000000000 +02:00
-categories:
-- German posts
-tags:
-- Wolfram|Alpha
-- mathematics
-- Linear algebra
-- normal form
+category: German posts
+tags: Wolfram|Alpha, mathematics, Linear algebra, normal form
 featured_image: 2012/08/jordan-normal-form-block1.png
 ---
 Dieser Artikel beschreibt, wie die Jordansche Normalform einer Matrix sowie die dazugehörige Basiswechselmatrix gefunden werden kann. Dabei wird hier eine Jordansche Normalform erzeugt, bei der die 1er auf der oberen Nebendiagonale sind und die größten Jordankästchen zuerst kommen.

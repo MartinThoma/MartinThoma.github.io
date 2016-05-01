@@ -3,11 +3,8 @@ layout: post
 title: Get your programs assembly code and more information
 author: Martin Thoma
 date: 2012-03-01 19:40:43.000000000 +01:00
-categories:
-- Code
-tags:
-- C
-- Assembly language
+category: Code
+tags: C, Assembly language
 featured_image: 2012/05/assembly-thumb.png
 ---
 I've talked today with a fellow student about some system internals and we weren't sure what actually happens. So I needed the assembly code of some example programs.

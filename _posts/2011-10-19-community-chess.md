@@ -3,13 +3,8 @@ layout: post
 title: Community Chess
 author: Martin Thoma
 date: 2011-10-19 12:30:01.000000000 +02:00
-categories:
-- The Web
-tags:
-- Challenge
-- OpenSource
-- community-chess
-- project
+category: The Web
+tags: Challenge, OpenSource, community-chess, project
 featured_image: 2011/10/logo.png
 ---
 Community Chess is one of my projects. I can make something useful and play a bit.

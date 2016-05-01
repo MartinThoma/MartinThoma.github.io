@@ -3,10 +3,8 @@ layout: post
 title: Triangle area
 author: Martin Thoma
 date: 2013-04-25 10:13:15.000000000 +02:00
-categories:
-- My bits and bytes
-tags:
-- mathematics
+category: My bits and bytes
+tags: mathematics
 featured_image: 2013/04/triangle-heron-tricky-thumb.png
 ---
 I've just seen the following image on spikedmath.com:

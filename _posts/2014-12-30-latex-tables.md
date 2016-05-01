@@ -3,11 +3,8 @@ layout: post
 title: LaTeX and tables
 author: Martin Thoma
 date: 2014-12-30 21:57
-categories:
-- My bits and bytes
-tags:
-- LaTeX
-- tables
+category: My bits and bytes
+tags: LaTeX, tables
 featured_image: logos/latex.png
 ---
 

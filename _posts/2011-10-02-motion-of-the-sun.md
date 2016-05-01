@@ -3,10 +3,8 @@ layout: post
 title: Motion of the sun
 author: Martin Thoma
 date: 2011-10-02 09:25:07.000000000 +02:00
-categories:
-- The Web
-tags:
-- learning
+category: The Web
+tags: learning
 featured_image: 2011/10/Motions-of-the-sun-thumb.png
 ---
 How is the sun moving, according to our latitude, the time of the day and the time of the year?

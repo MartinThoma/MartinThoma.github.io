@@ -3,11 +3,8 @@ layout: post
 title: Plotting graphs with PGFplots (LaTeX and Tikz)
 author: Martin Thoma
 date: 2012-07-24 17:00:28.000000000 +02:00
-categories:
-- Code
-tags:
-- LaTeX
-- Tikz
+category: Code
+tags: LaTeX, Tikz
 featured_image: 2012/07/plot-thumb.png
 ---
 I guess many of you might need to plot functions or data once. So I've made one example that shows much of the features you might need:

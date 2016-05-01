@@ -4,9 +4,7 @@ title: Function Approximation
 author: Martin Thoma
 date: 2016-01-18 20:00
 category: Machine Learning
-tags:
-- Machine Learning
-- Regression
+tags: Machine Learning, Regression
 featured_image: logos/ml.png
 ---
 

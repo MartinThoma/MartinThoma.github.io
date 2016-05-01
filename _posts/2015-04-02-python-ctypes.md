@@ -3,11 +3,8 @@ layout: post
 title: Python ctypes
 author: Martin Thoma
 date: 2015-04-02 22:06
-categories:
-- Code
-tags:
-- Python
-- Rust
+category: Code
+tags: Python, Rust
 featured_image: logos/python.png
 ---
 

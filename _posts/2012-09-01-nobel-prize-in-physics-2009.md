@@ -3,15 +3,8 @@ layout: post
 title: Nobel Prize in Physics 2009
 author: Martin Thoma
 date: 2012-09-01 11:09:36.000000000 +02:00
-categories:
-- My bits and bytes
-tags:
-- YouTube
-- Clip
-- Physics
-- Science
-- CCD
-- Optical fiber
+category: My bits and bytes
+tags: YouTube, Clip, Physics, Science, CCD, Optical fiber
 featured_image: 2012/09/fiberoptic-thumb.png
 ---
 Did you know how the election for a <a href="http://en.wikipedia.org/wiki/Nobel_Prize">Nobel Prize</a> works? Have you ever heard of a <a href="http://en.wikipedia.org/wiki/Charge-coupled_device">CCD</a>? I guess you know <a href="http://en.wikipedia.org/wiki/Optical_fiber">fiberoptics</a>?

@@ -3,11 +3,8 @@ layout: post
 title: Logging in Python
 author: Martin Thoma
 date: 2014-08-01 21:15
-categories:
-- Code
-tags:
-- Python
-- Logging
+category: Code
+tags: Python, Logging
 featured_image: logos/python.png
 ---
 

@@ -3,12 +3,8 @@ layout: post
 title: ! 'Game: QWERTY Warriors 2'
 author: Martin Thoma
 date: 2011-10-08 21:44:24.000000000 +02:00
-categories:
-- The Web
-tags:
-- Flashgames
-- learning
-- ten finger type
+category: The Web
+tags: Flashgames, learning, ten finger type
 featured_image: 2011/10/QWERTY-Warriors-2-thumb.png
 ---
 {% caption align="aligncenter" width="549" caption="QWERTY Warriors 2" url="../images/2011/09/QWERTY-Warriors-2.png" alt="QWERTY Warriors 2"  height="547" class="size-full wp-image-4971" %}

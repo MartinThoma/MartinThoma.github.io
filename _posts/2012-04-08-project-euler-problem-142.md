@@ -3,12 +3,8 @@ layout: post
 title: ! 'Project Euler: Problem 142'
 author: Martin Thoma
 date: 2012-04-08 22:40:43.000000000 +02:00
-categories:
-- Code
-tags:
-- Challenge
-- mathematics
-- Project Euler
+category: Code
+tags: Challenge, mathematics, Project Euler
 featured_image: 2012/04/leonhard-euler.jpg
 ---
 <a href="http://en.wikipedia.org/wiki/Project_Euler">Project Euler</a> is a series of challenging mathematical/computer programming problems that will require more than just mathematical insights to solve. Although mathematics will help you arrive at elegant and efficient methods, the use of a computer and programming skills will be required to solve most problems.

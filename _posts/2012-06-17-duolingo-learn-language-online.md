@@ -3,10 +3,8 @@ layout: post
 title: Duolingo - Learn a Language Online
 author: Martin Thoma
 date: 2012-06-17 12:02:19.000000000 +02:00
-categories:
-- The Web
-tags:
-- learning
+category: The Web
+tags: learning
 ---
 <a href="http://duolingo.com/">Duolingo</a> is a great online protal for learning new languages online. They currently support German, Spanish, French, Portuguese, Italian and Chinese.
 

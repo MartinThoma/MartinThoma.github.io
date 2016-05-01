@@ -3,12 +3,8 @@ layout: post
 title: Analyzing PyPI Metadata
 author: Martin Thoma
 date: 2015-01-18 20:19
-categories:
-- Code
-tags:
-- Python
-- Community
-- SQL
+category: Code
+tags: Python, Community, SQL
 featured_image: logos/python.png
 ---
 

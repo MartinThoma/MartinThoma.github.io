@@ -3,10 +3,8 @@ layout: post
 title: Terror in Paris
 author: Martin Thoma
 date: 2015-11-15 10:29
-categories:
-- My Bits and Bytes
-tags:
-- politics
+category: My Bits and Bytes
+tags: politics
 featured_image: logos/france.png
 ---
 Recently, a huge terrorist attack happened in France (see

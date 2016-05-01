@@ -3,13 +3,8 @@ layout: post
 title: Wie berechnet man das charakteristische Polynom?
 author: Martin Thoma
 date: 2012-04-21 13:41:39.000000000 +02:00
-categories:
-- German posts
-tags:
-- Wolfram|Alpha
-- mathematics
-- lecture-notes
-- Linear algebra
+category: German posts
+tags: Wolfram|Alpha, mathematics, lecture-notes, Linear algebra
 featured_image: 2012/04/determinante.png
 ---
 Will man das charakteristische Polynom einer Abbildungsmatrix berechnen, so muss man zuerst sicher im Umgang mit Determinanten sein.

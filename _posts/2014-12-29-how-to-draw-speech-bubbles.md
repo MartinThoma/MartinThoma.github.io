@@ -3,10 +3,8 @@ layout: post
 title: How to draw speech bubbles
 author: Martin Thoma
 date: 2014-12-29 20:20
-categories:
-- Cyberculture
-tags:
-- Inkscape
+category: Cyberculture
+tags: Inkscape
 featured_image:
 ---
 

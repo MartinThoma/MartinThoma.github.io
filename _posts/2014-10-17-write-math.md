@@ -3,11 +3,8 @@ layout: post
 title: On-line Handwriting Recognition of Mathematical Symbols
 author: Martin Thoma
 date: 2014-10-17 12:25
-categories:
-- Code
-tags:
-- Python
-- Project Management
+category: Code
+tags: Python, Project Management
 featured_image: logos/write-math.png
 ---
 

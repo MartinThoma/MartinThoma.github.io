@@ -3,12 +3,8 @@ layout: post
 title: vrms - virtual Richard M. Stallman
 author: Martin Thoma
 date: 2011-12-23 01:38:37.000000000 +01:00
-categories:
-- Code
-- Cyberculture
-tags:
-- Linux
-- OpenSource
+category: Code
+tags: Cyberculture, Linux, OpenSource
 featured_image: 2011/12/Richard-Stallman1.jpg
 ---
 {% caption align="alignright" width="200" caption="Richard Stallman" url="../images/2011/12/Richard-Stallman-200x300.jpg" alt="Richard Stallman"  height="300" class="size-medium wp-image-10141 "  %}

@@ -3,13 +3,8 @@ layout: post
 title: Debugging a C program
 author: Martin Thoma
 date: 2012-11-30 17:00:15.000000000 +01:00
-categories:
-- Code
-tags:
-- C
-- debug
-- valgrind
-- gdb
+category: Code
+tags: C, debug, valgrind, gdb
 ---
 As I began with programming C, I had enormous difficulties to produce working code. Most of the time it didn't even compile, but when it compiled and I got a runtime error, I basically read my whole code again. I <strike>didn't</strike> don't know any good online resource for C, so I've always searched with Google for answers to questions that I couldn't properly formulate. One question that is important for beginners is <a href="http://stackoverflow.com/q/12949290/562769">How do I find missing C header files (without Internet)?</a> and another one might be: How can I debug my programs?
 

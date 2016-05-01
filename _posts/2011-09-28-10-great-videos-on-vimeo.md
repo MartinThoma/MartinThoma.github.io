@@ -3,12 +3,8 @@ layout: post
 title: 10 Great Videos on Vimeo
 author: Martin Thoma
 date: 2011-09-28 11:55:23.000000000 +02:00
-categories:
-- The Web
-tags:
-- Video
-- Vimeo
-- beautiful
+category: The Web
+tags: Video, Vimeo, beautiful
 featured_image: 2011/09/thought-of-you.png
 ---
 Vimeo is a video-sharing website like YouTube. The most obvious difference is the quality.

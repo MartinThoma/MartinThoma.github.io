@@ -3,13 +3,8 @@ layout: post
 title: ! 'Project Euler: Problem 26'
 author: Martin Thoma
 date: 2012-08-13 17:00:49.000000000 +02:00
-categories:
-- Code
-tags:
-- Challenge
-- mathematics
-- Project Euler
-- brute-force
+category: Code
+tags: Challenge, mathematics, Project Euler, brute-force
 featured_image: 2012/04/leonhard-euler.jpg
 ---
 The task in <a href="http://projecteuler.net/problem=26">Problem 26</a> of Project Euler is:

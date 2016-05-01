@@ -3,13 +3,8 @@ layout: post
 title: three.js is AWESOME!
 author: Martin Thoma
 date: 2013-07-01 16:21:44.000000000 +02:00
-categories:
-- Code
-- The Web
-tags:
-- JavaScript Game
-- JavaScript
-- three.js
+category: Code
+tags: JavaScript Game, JavaScript, three.js
 featured_image: 2013/07/threejs-reflection-thumb.png
 ---
 I recently discovered <a href="http://en.wikipedia.org/wiki/Three.js">three.js</a>, a JavaScript library/API used to create and display animated 3D computer graphics. 

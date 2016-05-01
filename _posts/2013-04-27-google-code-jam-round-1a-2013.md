@@ -3,13 +3,8 @@ layout: post
 title: Google Code Jam &ndash; Round 1A 2013
 author: Martin Thoma
 date: 2013-04-27 07:15:17.000000000 +02:00
-categories:
-- Code
-tags:
-- Python
-- Google Code Jam
-- NumPy
-- itertools
+category: Code
+tags: Python, Google Code Jam, NumPy, itertools
 featured_image: 2012/04/code-jam-logo.png
 ---
 <ul>

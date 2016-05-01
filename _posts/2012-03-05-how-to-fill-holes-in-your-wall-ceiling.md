@@ -3,11 +3,8 @@ layout: post
 title: How to fill holes in your wall / ceiling
 author: Martin Thoma
 date: 2012-03-05 22:08:41.000000000 +01:00
-categories:
-- My bits and bytes
-tags:
-- home improvement
-- do-it-yourself
+category: My bits and bytes
+tags: home improvement, do-it-yourself
 featured_image: 2011/10/do-it-yourself-thumb.jpg
 ---
 {% caption align="alignright" width="128" caption="Do-it-yourself - Some random tools (Thumbnail)" url="../images/2011/10/do-it-yourself-thumb.jpg" alt="Do-it-yourself - Some random tools (Thumbnail)"  height="128" class="size-full wp-image-4861 "  %}

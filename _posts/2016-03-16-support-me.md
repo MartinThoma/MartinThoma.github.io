@@ -4,8 +4,7 @@ title: Support Me
 author: Martin Thoma
 date: 2016-03-16 11:03
 category: Cyberculture
-tags:
-- Blog
+tags: Blog
 featured_image: logos/web.png
 ---
 Keeping my blog online costs money. When you like my blog, you should support

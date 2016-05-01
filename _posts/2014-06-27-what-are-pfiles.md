@@ -3,12 +3,8 @@ layout: post
 title: What are pfiles?
 author: Martin Thoma
 date: 2014-06-27 06:39
-categories:
-- Code
-tags:
-- ASR
-- pfile
-- ML
+category: Code
+tags: ASR, pfile, ML
 featured_image: logos/ai.png
 ---
 

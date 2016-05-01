@@ -3,12 +3,8 @@ layout: post
 title: Integration durch Substitution
 author: Martin Thoma
 date: 2012-09-16 11:32:43.000000000 +02:00
-categories:
-- German posts
-tags:
-- mathematics
-- analysis
-- Integral calculus
+category: German posts
+tags: mathematics, analysis, Integral calculus
 ---
 Integration durch Substitution ist eine elementare Methode zum finden von Stammfunktionen von Integralen bzw. zum berechnen von Integralen.
 

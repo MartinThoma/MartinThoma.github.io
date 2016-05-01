@@ -3,10 +3,8 @@ layout: post
 title: How fast are electrons moving?
 author: Martin Thoma
 date: 2012-12-28 07:04:47.000000000 +01:00
-categories:
-- Cyberculture
-tags:
-- Physics
+category: Cyberculture
+tags: Physics
 featured_image: 2012/12/atom-electron-bohr1.png
 ---
 I've recently learned something about electric circuits. The ideal model of circuits does ignore that electrons actually need time to pass the components of the circuit. So we introduced the "dead time model". So we added a model component for each real component that does only delay the incoming signal. But I've wondered if dead time of a cable wasn't important, too. So I thought the question would be <em>How fast are electrons moving in a cable?</em>, but I just realized that the question is <em>How fast does a signal move in a wire?</em>.

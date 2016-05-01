@@ -3,14 +3,8 @@ layout: post
 title: MediaViewer and Superprotect
 author: Martin Thoma
 date: 2014-08-15 14:35
-categories:
-- Cyberculture
-tags:
-- Wikipedia
-- Community
-- WMF
-- superprotect
-- MediaViewer
+category: Cyberculture
+tags: Wikipedia, Community, WMF, superprotect, MediaViewer
 featured_image: logos/wikipedia.png
 ---
 

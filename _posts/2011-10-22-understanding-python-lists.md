@@ -3,10 +3,8 @@ layout: post
 title: Understanding Python Lists
 author: Martin Thoma
 date: 2011-10-22 23:01:55.000000000 +02:00
-categories:
-- Code
-tags:
-- Python
+category: Code
+tags: Python
 featured_image: 2011/09/Python-Logo.png
 ---
 This article is about Python lists. I just want to show you some examples of the unexpected behavior (for non-python-programmers) of lists in Python.

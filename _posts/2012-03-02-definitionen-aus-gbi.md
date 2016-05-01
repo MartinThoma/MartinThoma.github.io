@@ -3,13 +3,8 @@ layout: post
 title: Definitionen aus GBI
 author: Martin Thoma
 date: 2012-03-02 16:16:02.000000000 +01:00
-categories:
-- German posts
-tags:
-- lecture-notes
-- KIT
-- Theoretical computer science
-- GBI
+category: German posts
+tags: lecture-notes, KIT, Theoretical computer science, GBI
 featured_image: 2011/10/deterministic-finite-state-machine-thumb.png
 ---
 <h2>Formale Sprachen</h2>

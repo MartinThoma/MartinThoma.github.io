@@ -3,12 +3,8 @@ layout: post
 title: ! 'Project Euler: Problem 32'
 author: Martin Thoma
 date: 2012-11-13 11:52:12.000000000 +01:00
-categories:
-- Code
-tags:
-- Challenge
-- Project Euler
-- brute-force
+category: Code
+tags: Challenge, Project Euler, brute-force
 featured_image: 2012/04/leonhard-euler.jpg
 ---
 The task in Problem 32 of Project Euler is:

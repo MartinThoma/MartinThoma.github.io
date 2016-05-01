@@ -3,12 +3,8 @@ layout: post
 title: ! 'Jordansche Normalform: 4x4 Matrizen'
 author: Martin Thoma
 date: 2012-09-10 11:28:08.000000000 +02:00
-categories:
-- German posts
-tags:
-- mathematics
-- Linear algebra
-- Matrix
+category: German posts
+tags: mathematics, Linear algebra, Matrix
 featured_image: 2012/08/jordan-normal-form-block1.png
 ---
 <div class="info">Hier sind $4 \times 4$ Beispiele zum Hauptartikel <a href="../wie-berechnet-man-die-jordansche-normalform/" title="Wie berechnet man die Jordan&rsquo;sche Normalform?">Wie berechnet man die Jordan&rsquo;sche Normalform?</a>.</div>

@@ -3,10 +3,8 @@ layout: post
 title: Create LaTeX timetable
 author: Martin Thoma
 date: 2011-10-18 16:10:55.000000000 +02:00
-categories:
-- Code
-tags:
-- LaTeX
+category: Code
+tags: LaTeX
 featured_image: 2012/01/latex-logo.png
 ---
 LaTeX is a quite cool document markup language and document preparation system. You can easily create mathematical formulas.

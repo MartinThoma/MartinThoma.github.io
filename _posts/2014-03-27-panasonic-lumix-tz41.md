@@ -3,11 +3,8 @@ layout: post
 title: Panasonic Lumix DMC-TZ41
 author: Martin Thoma
 date: 2014-03-27 22:31
-categories:
-- Cyberculture
-tags:
-- Review
-- Camera
+category: Cyberculture
+tags: Review, Camera
 featured_image: 2014/03/panasonic-lumix-tz41.jpg
 itemtype: http://schema.org/Review
 ---

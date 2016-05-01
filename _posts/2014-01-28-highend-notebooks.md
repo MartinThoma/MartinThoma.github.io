@@ -3,12 +3,8 @@ layout: post
 title: Highend Notebooks
 author: Martin Thoma
 date: 2014-01-28 16:00
-categories:
-- Cyberculture
-tags:
-- Notebook
-- Hardware
-- Review
+category: Cyberculture
+tags: Notebook, Hardware, Review
 featured_image: 2014/01/samsung-series-9-thumbnail.png
 ---
 My [Acer Travelmate 5744Z](../review-des-acer-travelmate-5744z/)

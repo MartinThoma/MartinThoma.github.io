@@ -3,18 +3,8 @@ layout: post
 title: Languages for Back Ends
 author: Martin Thoma
 date: 2015-06-24 12:43
-categories:
-- Code
-tags:
-- Programming
-- Internet
-- Java
-- JavaScript
-- Go
-- Rust
-- Python
-- PHP
-- Hack
+category: Code
+tags: Programming, Internet, Java, JavaScript, Go, Rust, Python, PHP, Hack
 featured_image: logos/java-programming.png
 ---
 What programming language would I use for the back end of a big, new project in

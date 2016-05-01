@@ -3,11 +3,8 @@ layout: post
 title: ! 'Myth: The Internet doesn''t forget'
 author: Martin Thoma
 date: 2013-03-14 12:01:58.000000000 +01:00
-categories:
-- The Web
-tags:
-- YouTube
-- Copyright
+category: The Web
+tags: YouTube, Copyright
 featured_image: 2013/03/youtube-logo.png
 ---
 I've created a <a href="http://www.youtube.com/watch?v=QDV4E9ldelM&list=PL1EB0B7290460E720">playlist</a> with 51 songs on YouTube about two years ago.

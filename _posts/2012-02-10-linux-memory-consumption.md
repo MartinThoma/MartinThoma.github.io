@@ -3,12 +3,8 @@ layout: post
 title: Linux Memory Consumption
 author: Martin Thoma
 date: 2012-02-10 21:04:45.000000000 +01:00
-categories:
-- Code
-tags:
-- Linux
-- Command Line
-- Memory
+category: Code
+tags: Linux, Command Line, Memory
 ---
 <h2>free</h2>
 I've you want to check your memory consumption on a Linux machine, you can use free.

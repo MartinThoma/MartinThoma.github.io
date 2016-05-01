@@ -3,11 +3,8 @@ layout: post
 title: Wie zeige ich Differenzierbarkeit?
 author: Martin Thoma
 date: 2012-12-05 11:59:08.000000000 +01:00
-categories:
-- German posts
-tags:
-- mathematics
-- analysis
+category: German posts
+tags: mathematics, analysis
 featured_image: 2012/12/ableitung-definition.png
 ---
 Weil das Thema so wichtig ist und man es doch recht leicht vergisst:

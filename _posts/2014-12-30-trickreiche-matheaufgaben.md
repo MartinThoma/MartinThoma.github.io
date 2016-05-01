@@ -3,10 +3,8 @@ layout: post
 title: Trickreiche Matheaufgaben
 author: Martin Thoma
 date: 2014-12-30 21:30
-categories: 
-- German posts
-tags: 
-- mathematics
+category: German posts
+tags: mathematics
 featured_image: 
 ---
 

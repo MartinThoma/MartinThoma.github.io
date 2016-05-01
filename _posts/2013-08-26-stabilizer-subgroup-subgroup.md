@@ -3,10 +3,8 @@ layout: post
 title: Why is the stabilizer subgroup a subgroup?
 author: Martin Thoma
 date: 2013-08-26 11:24:54.000000000 +02:00
-categories:
-- Mathematics
-tags:
-- Algebra
+category: Mathematics
+tags: Algebra
 featured_image: 2013/08/algebra-thumb.jpg
 ---
 <div class="definition">Let $(G, \cdot)$ be a group and $M$ a set. A <strong>group action</strong> is a function:

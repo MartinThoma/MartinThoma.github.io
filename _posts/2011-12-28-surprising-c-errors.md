@@ -3,12 +3,8 @@ layout: post
 title: Surprising C errors
 author: Martin Thoma
 date: 2011-12-28 15:18:43.000000000 +01:00
-categories:
-- Code
-tags:
-- Programming
-- learning
-- C
+category: Code
+tags: Programming, learning, C
 featured_image: 2011/12/compare-programming-languages.png
 ---
 Those errors might be surprising and a good exercise for C beginners:

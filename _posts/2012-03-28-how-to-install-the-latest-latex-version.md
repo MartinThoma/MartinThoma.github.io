@@ -3,10 +3,8 @@ layout: post
 title: How to install the latest LaTeX Version
 author: Martin Thoma
 date: 2012-03-28 11:29:41.000000000 +02:00
-categories:
-- My bits and bytes
-tags:
-- LaTeX
+category: My bits and bytes
+tags: LaTeX
 featured_image: 2012/01/latex-logo.png
 alias: /install-latex/index.html
 ---

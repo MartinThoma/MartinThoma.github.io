@@ -3,14 +3,8 @@ layout: post
 title: Internet at KIT
 author: Martin Thoma
 date: 2014-03-06 11:35
-categories:
-- Cyberculture
-tags:
-- Internet
-- WLAN
-- KIT
-- VPN
-- JNC
+category: Cyberculture
+tags: Internet, WLAN, KIT, VPN, JNC
 featured_image: 2011/10/KIT-Logo.png
 ---
 This article is about how to get internet at KIT with Linux.

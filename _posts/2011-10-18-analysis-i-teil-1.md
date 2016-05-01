@@ -3,11 +3,8 @@ layout: post
 title: Analysis I - Teil 1
 author: Martin Thoma
 date: 2011-10-18 17:50:21.000000000 +02:00
-categories:
-- German posts
-tags:
-- mathematics
-- lecture-notes
+category: German posts
+tags: mathematics, lecture-notes
 featured_image: 2012/07/math-symbol-thumb.png
 ---
 <h2>Begriffe und Bezeichnungen</h2>

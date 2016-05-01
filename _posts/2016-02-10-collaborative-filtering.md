@@ -4,8 +4,7 @@ title: Collaborative Filtering
 author: Martin Thoma
 date: 2016-02-10 21:35
 category: Machine Learning
-tags:
-- Rating
+tags: Rating
 featured_image: logos/ai.png
 ---
 

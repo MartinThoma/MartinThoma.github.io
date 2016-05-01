@@ -3,10 +3,8 @@ layout: post
 title: Numerik-Klausur
 author: Martin Thoma
 date: 2013-04-19 20:05:19.000000000 +02:00
-categories:
-- German posts
-tags:
-- Klausur
+category: German posts
+tags: Klausur
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesung &bdquo;Numerische Mathematik f&uuml;r die Fachrichtungen Informatik und Ingenieurwesen&ldquo; des Moduls &bdquo;Praktische Mathematik&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei Herrn Dr. Wei&szlig; im Sommersemester 2013 geh&ouml;rt.</div>

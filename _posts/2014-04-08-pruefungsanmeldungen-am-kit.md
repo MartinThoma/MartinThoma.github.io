@@ -3,10 +3,8 @@ layout: post
 title: Prüfungsverwaltung am KIT
 author: Martin Thoma
 date: 2014-04-08 16:09
-categories:
-- German posts
-tags:
-- KIT
+category: German posts
+tags: KIT
 featured_image: logos/kit.png
 ---
 

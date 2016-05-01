@@ -3,10 +3,8 @@ layout: post
 title: C++ Operator overloading
 author: Martin Thoma
 date: 2012-07-06 16:00:22.000000000 +02:00
-categories:
-- Code
-tags:
-- CPP
+category: Code
+tags: CPP
 featured_image: 2012/05/CPP-thumb.png
 alias: /c-operator-overloading/
 ---

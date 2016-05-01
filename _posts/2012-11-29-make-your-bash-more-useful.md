@@ -3,11 +3,8 @@ layout: post
 title: Make your Bash more useful
 author: Martin Thoma
 date: 2012-11-29 11:15:56.000000000 +01:00
-categories:
-- Code
-tags:
-- Linux
-- Bash
+category: Code
+tags: Linux, Bash
 featured_image: 2011/09/Gnome-Terminal.png
 ---
 I just had the problem, that the bash prompt of my universities 

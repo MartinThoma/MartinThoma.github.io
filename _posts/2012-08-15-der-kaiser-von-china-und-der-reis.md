@@ -3,11 +3,8 @@ layout: post
 title: Der Kaiser von China und der Reis
 author: Martin Thoma
 date: 2012-08-15 17:00:54.000000000 +02:00
-categories:
-- German posts
-tags:
-- mathematics
-- chess
+category: German posts
+tags: mathematics, chess
 featured_image: 2012/08/chess-thumbnail.png
 ---
 <a href="../images/2012/08/chessboard-rice.png"><img src="../images/2012/08/chessboard-rice.png" alt="" title="Schachbrett mit Reis" width="191" height="128" class="alignright size-full wp-image-46151" /></a>

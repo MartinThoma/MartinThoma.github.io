@@ -3,14 +3,8 @@ layout: post
 title: Google Code Jam 2012 &ndash; Round 1C 2012
 author: Martin Thoma
 date: 2012-05-06 14:03:54.000000000 +02:00
-categories:
-- Code
-tags:
-- Programming
-- Python
-- Google
-- Google Code Jam
-- competition
+category: Code
+tags: Programming, Python, Google, Google Code Jam, competition
 featured_image: 2012/04/code-jam-logo.png
 ---
 4230 tried the first problem, but only 3189 people are listed in the <a href="http://code.google.com/codejam/contest/1781488/scoreboard?c=1781488">scoreboard</a>.

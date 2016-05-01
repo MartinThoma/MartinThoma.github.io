@@ -3,12 +3,8 @@ layout: post
 title: Bundeswettbewerb Informatik
 author: Martin Thoma
 date: 2012-09-04 11:42:45.000000000 +02:00
-categories:
-- German posts
-tags:
-- BWInf
-- Bundeswettbewerb
-- Wettbewerb
+category: German posts
+tags: BWInf, Bundeswettbewerb, Wettbewerb
 featured_image: 2012/09/bwinf-thumb.png
 ---
 {% caption align="alignright" width="128" caption="Logo des BwInf" url="../images/2012/09/bwinf-thumb.png" alt="Logo des BwInf"  height="128" class="size-full wp-image-43131" %}Die erste Runde des 31. Bundeswettbewerb Informatik (kurz: BwInf) begann heute. Das bedeutet, bis zum 03.12.2012 haben Sch&uuml;ler mal wieder die Chance zu zeigen, was sie in der Informatik drauf haben. Es gibt keine verpflichtende Anmeldung, nur die Einsendung. Wenn ihr diesen Beitrag also vor dem 03.12.2012 lest, k&ouml;nnt ihr noch teilnehmen.

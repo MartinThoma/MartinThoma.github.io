@@ -3,10 +3,8 @@ layout: post
 title: Formatting Strings in Python
 author: Martin Thoma
 date: 2013-11-07 20:05:33.000000000 +01:00
-categories:
-- Code
-tags:
-- Python
+category: Code
+tags: Python
 featured_image: 2011/09/Python-Logo.png
 ---
 In Python, you can use the following ways to format Strings:

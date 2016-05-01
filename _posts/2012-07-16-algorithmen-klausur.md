@@ -3,10 +3,8 @@ layout: post
 title: Algorithmen-Klausur
 author: Martin Thoma
 date: 2012-07-16 09:00:25.000000000 +02:00
-categories:
-- German posts
-tags:
-- Klausur
+category: German posts
+tags: Klausur
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 F&uuml;r die Klausur in Algorithmen I sollte man Folgendes auf jeden Fall wissen:

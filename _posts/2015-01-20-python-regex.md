@@ -3,11 +3,8 @@ layout: post
 title: Regular Expressions with Python
 author: Martin Thoma
 date: 2015-01-20 13:35
-categories: 
-- Code
-tags: 
-- Python
-- RegEx
+category: Code
+tags: Python, RegEx
 featured_image: logos/python.png
 ---
 Python supports regular expressions (RegEx) just as any other general purpose

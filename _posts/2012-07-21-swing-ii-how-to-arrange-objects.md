@@ -3,12 +3,8 @@ layout: post
 title: ! 'Swing II: How to arrange Objects'
 author: Martin Thoma
 date: 2012-07-21 17:00:44.000000000 +02:00
-categories:
-- Code
-tags:
-- Programming
-- Java
-- Swing
+category: Code
+tags: Programming, Java, Swing
 featured_image: 2012/07/java-thumb.png
 ---
 <h2>Without GUI</h2>

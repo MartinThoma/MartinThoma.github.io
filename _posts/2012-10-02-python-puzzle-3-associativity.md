@@ -3,12 +3,8 @@ layout: post
 title: ! 'Python Puzzle #3: Associativity'
 author: Martin Thoma
 date: 2012-10-02 21:31:50.000000000 +02:00
-categories:
-- Code
-tags:
-- Programming
-- Python
-- puzzle
+category: Code
+tags: Programming, Python, puzzle
 featured_image: 2011/09/Python-Logo.png
 ---
 What is the output of

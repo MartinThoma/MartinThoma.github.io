@@ -3,13 +3,8 @@ layout: post
 title: Linux access rights and attributes
 author: Martin Thoma
 date: 2013-03-04 22:29:42.000000000 +01:00
-categories:
-- Cyberculture
-tags:
-- Linux
-- IT-Security
-- gedit
-- Bug
+category: Cyberculture
+tags: Linux, IT-Security, gedit, Bug
 ---
 <h2>RWX</h2>
 <h3>Files</h3>

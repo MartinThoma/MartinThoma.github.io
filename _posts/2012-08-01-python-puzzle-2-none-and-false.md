@@ -3,13 +3,8 @@ layout: post
 title: ! 'Python Puzzle #2: None and False'
 author: Martin Thoma
 date: 2012-08-01 17:00:55.000000000 +02:00
-categories:
-- Code
-tags:
-- Programming
-- Python
-- puzzle
-- boolean expression
+category: Code
+tags: Programming, Python, puzzle, boolean expression
 featured_image: 2011/09/Python-Logo.png
 ---
 Python automatically casts to boolean if you use another type of variable for a boolean expression.

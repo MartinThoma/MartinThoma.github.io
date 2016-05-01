@@ -3,12 +3,8 @@ layout: post
 title: Programmierparadigmen Klausur
 author: Martin Thoma
 date: 2013-10-24 12:46:16.000000000 +02:00
-categories:
-- German posts
-tags:
-- Haskell
-- Klausur
-- Programmierparadigmen
+category: German posts
+tags: Haskell, Klausur, Programmierparadigmen
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 alias: /programmierparadigmen/index.html
 ---

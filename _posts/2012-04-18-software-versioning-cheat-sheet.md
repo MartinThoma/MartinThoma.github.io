@@ -3,13 +3,8 @@ layout: post
 title: Software Versioning Cheat Sheet
 author: Martin Thoma
 date: 2012-04-18 07:00:59.000000000 +02:00
-categories:
-- Code
-tags:
-- cheat sheet
-- software versioning
-- svn
-- git
+category: Code
+tags: cheat sheet, software versioning, svn, git
 featured_image: 2012/04/svn-git-logo.png
 ---
 This <a href='../images/2012/04/versioning-cheat-sheet.pdf'>Software Versioning Cheat Sheet</a> has very basic information aboout the installation and usage of Subversion and Git. (The <a href='../images/2012/04/versioning-cheat-sheet.zip'>LaTeX Source Code</a> is here.)

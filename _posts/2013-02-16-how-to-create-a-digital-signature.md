@@ -3,14 +3,8 @@ layout: post
 title: How to create a digital signature
 author: Martin Thoma
 date: 2013-02-16 11:34:54.000000000 +01:00
-categories:
-- Cyberculture
-tags:
-- LaTeX
-- Inkscape
-- GIMP
-- signature
-- SVG
+category: Cyberculture
+tags: LaTeX, Inkscape, GIMP, signature, SVG
 featured_image: 2013/02/inkscape-remove-nodes-thumb.png
 ---
 At first, you have to write your signature on a white sheet of paper. You might have to make several tries:

@@ -3,11 +3,8 @@ layout: post
 title: Abschlussaufgaben Programmieren
 author: Martin Thoma
 date: 2012-03-10 16:00:13.000000000 +01:00
-categories:
-- German posts
-tags:
-- KIT
-- Klausur
+category: German posts
+tags: KIT, Klausur
 featured_image: 2011/11/java-programming.png
 ---
 <strong>Hinweis</strong>: Dieser Blogpost ist vermutlich nur f&uuml;r Informatik-Studenten am KIT im WS 2011 / 2012 interessant!

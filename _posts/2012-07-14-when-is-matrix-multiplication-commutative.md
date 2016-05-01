@@ -3,11 +3,8 @@ layout: post
 title: When is matrix multiplication commutative?
 author: Martin Thoma
 date: 2012-07-14 10:49:48.000000000 +02:00
-categories:
-- Mathematics
-tags:
-- mathematics
-- Linear algebra
+category: Mathematics
+tags: mathematics, Linear algebra
 featured_image: 2012/01/vector-space.png
 ---
 Matrix multiplication in general is not commutative. Here is an example:

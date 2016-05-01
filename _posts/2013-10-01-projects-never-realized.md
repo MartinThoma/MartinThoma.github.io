@@ -3,10 +3,8 @@ layout: post
 title: Projects I never realized
 author: Martin Thoma
 date: 2013-10-01 23:41:37.000000000 +02:00
-categories:
-- Cyberculture
-tags:
-- Idea
+category: Cyberculture
+tags: Idea
 ---
 The following is a collection of ideas for projects I had, but never realized.
 I would really love to do them, but they seem to be a little bit too time

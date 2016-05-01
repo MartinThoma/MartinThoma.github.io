@@ -3,11 +3,8 @@ layout: post
 title: 31. BwInf - Runde 1, Aufgabe 2
 author: Martin Thoma
 date: 2012-12-12 12:12:58.000000000 +01:00
-categories:
-- German posts
-tags:
-- BwInf
-- GLPK
+category: German posts
+tags: BwInf, GLPK
 featured_image: 2012/09/bwinf-thumb.png
 ---
 <h2>Die Aufgabenstellung</h2>

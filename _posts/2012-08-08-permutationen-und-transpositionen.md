@@ -3,10 +3,8 @@ layout: post
 title: Permutationen und Transpositionen
 author: Martin Thoma
 date: 2012-08-08 10:36:06.000000000 +02:00
-categories:
-- German posts
-tags:
-- Linear algebra
+category: German posts
+tags: Linear algebra
 featured_image: 2012/08/pi-thumbnail.png
 ---
 <h2>Permutation</h2>

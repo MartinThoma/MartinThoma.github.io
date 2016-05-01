@@ -3,12 +3,8 @@ layout: post
 title: Shortfilms, Part III
 author: Martin Thoma
 date: 2014-12-11 22:54
-categories: 
-- The Web
-tags:
-- Video
-- Vimeo
-- Shortfilm
+category: The Web
+tags: Video, Vimeo, Shortfilm
 featured_image: logos/egghunt.png
 ---
 <div class="info">Here is the second part "<a href="../shortfilms-part-ii/">Shortfilms, Part II</a>".</div>

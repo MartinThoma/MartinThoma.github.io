@@ -3,13 +3,8 @@ layout: post
 title: GUI programming with Python
 author: Martin Thoma
 date: 2015-01-23 14:39
-categories: 
-- Code
-tags: 
-- Python
-- GTK
-- Qt
-- tkinter
+category: Code
+tags: Python, GTK, Qt, tkinter
 featured_image: logos/gui-programming.png
 ---
 

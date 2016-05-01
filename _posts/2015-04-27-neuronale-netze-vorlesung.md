@@ -3,12 +3,8 @@ layout: post
 title: Neuronale Netze - Klausur
 author: Martin Thoma
 date: 2015-04-27 21:15
-categories:
-- German posts
-tags:
-- Klausur
-- Machine Learning
-- Neural Networks
+category: German posts
+tags: Klausur, Machine Learning, Neural Networks
 featured_image: logos/klausur.png
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Neuronale Netze&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://isl.anthropomatik.kit.edu/english/21_74.php">Herrn Prof. Dr. Alexander Waibel</a> im Sommersemester 2015 gehört.</div>

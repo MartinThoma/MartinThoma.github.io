@@ -3,13 +3,8 @@ layout: post
 title: Eine Sprache ist nicht regul&auml;r - Beweis mit dem Pumping-Lemma
 author: Martin Thoma
 date: 2011-11-10 16:05:33.000000000 +01:00
-categories:
-- German posts
-tags:
-- Computer science
-- mathematics
-- proof
-- Theoretical computer science
+category: German posts
+tags: Computer science, mathematics, proof, Theoretical computer science
 featured_image: 2011/10/deterministic-finite-state-machine-thumb.png
 ---
 Regul&auml;re Sprachen k&ouml;nnen von endlichen Automaten erkannt werden. Das bedeutet, dass eine endliche Anzahl an Zust&auml;nden ausreicht, um ein Wort der Sprache zu akzeptieren. Wenn also eine Sprache $L = \{a^i b^{2i} | i \in \mathbb{N}\}$ beschrieben wird, m&uuml;sste gez&auml;hlt werden, wie oft a vorkommt. a kann aber beliebig oft vorkommen. Das ist ein Indiz daf&uuml;r, dass es sich nicht um eine regul&auml;re Sprache handelt.

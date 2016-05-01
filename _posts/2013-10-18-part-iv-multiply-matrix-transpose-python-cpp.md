@@ -3,11 +3,8 @@ layout: post
 title: ! 'Part IV: How to multiply matrix with its transpose in Python and C++'
 author: Martin Thoma
 date: 2013-10-18 17:41:13.000000000 +02:00
-categories:
-- Code
-tags:
-- Python
-- C
+category: Code
+tags: Python, C
 featured_image: 2012/03/Matrix-Inverses.png
 ---
 <div class="info">This is Part IV of my matrix multiplication series. Part I was about simple implementations and libraries: <a href="../matrix-multiplication-python-java-cpp/">Performance of Matrix multiplication in Python, Java and C++</a>, Part II was about multiplication with the <a href="../strassen-algorithm-in-python-java-cpp/" title="Part II: The Strassen algorithm in Python, Java and C++">Strassen algorithm</a> and Part III will be about parallel matrix multiplication (I didn't write it yet).</div>

@@ -3,12 +3,8 @@ layout: post
 title: LaTeX Beamer
 author: Martin Thoma
 date: 2013-03-05 11:25:20.000000000 +01:00
-categories:
-- Cyberculture
-tags:
-- LaTeX
-- Beamer
-- Presentation
+category: Cyberculture
+tags: LaTeX, Beamer, Presentation
 featured_image: 2012/01/latex-logo.png
 ---
 I really enjoy creating presentations with LaTeX. The reasons are:

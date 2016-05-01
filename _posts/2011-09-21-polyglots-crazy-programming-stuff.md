@@ -3,14 +3,8 @@ layout: post
 title: Polyglots - Crazy Programming Stuff
 author: Martin Thoma
 date: 2011-09-21 19:28:02.000000000 +02:00
-categories:
-- Code
-tags:
-- Brainfuck
-- Esoteric programming language
-- Programming
-- Whitespace
-- Python
+category: Code
+tags: Brainfuck, Esoteric programming language, Programming, Whitespace, Python
 ---
 Have you ever heard of polyglots? This is so crazy. A <a href="http://en.wikipedia.org/wiki/Polyglot_(computing)">polyglot</a> is a program which can be interpreted as many programming languages. You don't believe me that something crazy like that is possible? Here is an example I've made:     
           

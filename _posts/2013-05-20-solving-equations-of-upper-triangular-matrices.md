@@ -3,14 +3,8 @@ layout: post
 title: Solving equations of upper triangular matrices
 author: Martin Thoma
 date: 2013-05-20 10:41:49.000000000 +02:00
-categories:
-- Code
-tags:
-- Python
-- mathematics
-- Matrix
-- systems of equations
-- numerics
+category: Code
+tags: Python, mathematics, Matrix, systems of equations, numerics
 featured_image: 2013/05/upper-triangular-matrix.png
 ---
 Suppose you have an equation like \\(R \cdot x = b\\) with \\(R \in \mathbb{R}^{n \times n}\\) and \\(x,b \in \mathbb{R}^n\\). \\(b\\) and \\(R\\) are given and you want to solve for \\(x\\).

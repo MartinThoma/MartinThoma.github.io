@@ -3,12 +3,8 @@ layout: post
 title: ! 'Swing I: How to use Swing'
 author: Martin Thoma
 date: 2012-07-20 17:00:41.000000000 +02:00
-categories:
-- Code
-tags:
-- Programming
-- Java
-- Swing
+category: Code
+tags: Programming, Java, Swing
 featured_image: 2012/07/java-thumb.png
 ---
 <a href="http://en.wikipedia.org/wiki/Swing_(Java)">Swing</a> is a Java package for creating graphical user interfaces (GUI). I will give you complete, runnable examples how you could use Swing. All examples are done in <code>test.java</code>

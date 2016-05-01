@@ -3,10 +3,8 @@ layout: post
 title: Colors in Vim
 author: Martin Thoma
 date: 2013-04-09 17:36:31.000000000 +02:00
-categories:
-- Code
-tags:
-- Vim
+category: Code
+tags: Vim
 featured_image: 2012/01/vim-logo.png
 ---
 <h2>ANSI Color codes</h2>

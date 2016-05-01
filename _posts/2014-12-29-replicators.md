@@ -3,13 +3,8 @@ layout: post
 title: Replicators
 author: Martin Thoma
 date: 2014-12-29 20:25
-categories:
-- Cyberculture
-tags:
-- Space
-- Cyberculture
-- A.I.
-- Science Fiction
+category: Cyberculture
+tags: Space, Cyberculture, A.I., Science Fiction
 featured_image: logos/space.png
 ---
 

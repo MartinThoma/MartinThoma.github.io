@@ -3,10 +3,8 @@ layout: post
 title: Python Generators
 author: Martin Thoma
 date: 2011-11-10 08:24:00.000000000 +01:00
-categories:
-- Code
-tags:
-- Python
+category: Code
+tags: Python
 featured_image: 2011/09/Python-Logo.png
 ---
 Python has a quite mighty tool: Generators.

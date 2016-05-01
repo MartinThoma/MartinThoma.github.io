@@ -3,11 +3,8 @@ layout: post
 title: ! 'Game: Winterbells'
 author: Martin Thoma
 date: 2011-09-25 10:12:43.000000000 +02:00
-categories:
-- The Web
-tags:
-- Flashgames
-- relaxing
+category: The Web
+tags: Flashgames, relaxing
 featured_image: 2011/09/Winterbells-300x200.png
 ---
 <b>Go to the Game</b>: <a href="http://www.ferryhalim.com/orisinal/g3/bells.htm" rel="nofollow">www.ferryhalim.com</a>

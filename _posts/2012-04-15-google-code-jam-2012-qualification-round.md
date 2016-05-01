@@ -3,14 +3,8 @@ layout: post
 title: Google Code Jam 2012 - Qualification Round
 author: Martin Thoma
 date: 2012-04-15 13:35:40.000000000 +02:00
-categories:
-- Code
-tags:
-- Programming
-- Python
-- Google
-- Google Code Jam
-- competition
+category: Code
+tags: Programming, Python, Google, Google Code Jam, competition
 featured_image: 2012/04/code-jam-logo.png
 ---
 I've passed the <a href="https://code.google.com/codejam/contest/1460488/dashboard">Qualification Round</a> of Google Code Jam 2012. I've learned, that I am not allowed to submit the large dataset after the first 8 minutes. 

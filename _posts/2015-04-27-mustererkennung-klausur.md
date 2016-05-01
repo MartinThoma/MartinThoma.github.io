@@ -3,10 +3,8 @@ layout: post
 title: Mustererkennung - Klausur
 author: Martin Thoma
 date: 2015-04-27 21:15
-categories:
-- German posts
-tags:
-- Klausur
+category: German posts
+tags: Klausur
 featured_image: logos/klausur.png
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Mustererkennung&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://ies.anthropomatik.kit.edu/mitarbeiter.php?person=beyerer">Herrn Prof. Dr.-Ing. Jürgen Beyerer</a> im Sommersemester 2015 gehört und einige Abschnitte direkt aus den Folien übernommen.</div>

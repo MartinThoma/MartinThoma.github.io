@@ -3,12 +3,8 @@ layout: post
 title: How to check if a point is inside of a polygon?
 author: Martin Thoma
 date: 2013-11-18 21:36:09.000000000 +01:00
-categories:
-- Code
-tags:
-- Python
-- algorithms
-- Geometry
+category: Code
+tags: Python, algorithms, Geometry
 featured_image: 2013/11/polygon-is-point-inside-thumb.png
 ---
 Suppose you have a with $n$ sides. This is called a $n$-glon.

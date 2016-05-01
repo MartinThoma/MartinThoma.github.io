@@ -3,13 +3,8 @@ layout: post
 title: Distribution of Random Variables when max gets applied
 author: Martin Thoma
 date: 2015-01-22 11:07
-categories: 
-- Mathematics
-tags: 
-- Probability Theory
-- Python
-- numpy
-- matplotlib
+category: Mathematics
+tags: Probability Theory, Python, numpy, matplotlib
 featured_image: logos/mathematics.png
 ---
 

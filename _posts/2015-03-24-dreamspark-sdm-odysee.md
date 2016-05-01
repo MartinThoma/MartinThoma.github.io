@@ -3,13 +3,8 @@ layout: post
 title: Dreamspark SDM Odysee
 author: Martin Thoma
 date: 2015-03-24 13:04
-categories:
-- Cyberculture
-tags:
-- Microsoft
-- Dreamspark
-- Windows 7
-- Windows 8.1
+category: Cyberculture
+tags: Microsoft, Dreamspark, Windows 7, Windows 8.1
 featured_image: logos/microsoft.png
 ---
 I need to have Windows for work. As a student I *should* have free access to

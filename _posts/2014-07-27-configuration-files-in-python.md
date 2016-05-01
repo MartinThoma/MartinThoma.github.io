@@ -3,15 +3,8 @@ layout: post
 title: Configuration files in Python
 author: Martin Thoma
 date: 2014-07-27 15:46
-categories:
-- Code
-tags:
-- Python
-- YAML
-- JSON
-- XML
-- INI
-- Configuration
+category: Code
+tags: Python, YAML, JSON, XML, INI, Configuration
 featured_image: logos/python.png
 ---
 

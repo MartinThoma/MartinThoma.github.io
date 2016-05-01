@@ -4,8 +4,7 @@ title: Get PDF pages
 author: Martin Thoma
 date: 2016-02-29 09:51
 category: Cyberculture
-tags:
-- PDF
+tags: PDF
 featured_image: logos/pdf.png
 ---
 

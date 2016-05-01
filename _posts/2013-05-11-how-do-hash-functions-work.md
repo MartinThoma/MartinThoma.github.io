@@ -3,15 +3,8 @@ layout: post
 title: How do hash functions work?
 author: Martin Thoma
 date: 2013-05-11 20:07:07.000000000 +02:00
-categories:
-- Code
-tags:
-- Programming
-- hash
-- C
-- datastructure
-- game tree
-- hashCode
+category: Code
+tags: Programming, hash, C, datastructure, game tree, hashCode
 featured_image: 2013/05/connect-four-thumb.gif
 ---
 Everybody who has written a noticeable amount of Java code should know the method <code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html#hashCode()">hashCode</a>()</code>. But most beginners have difficulties to understand the significance of this little method. The following article gives you one small example with some impressions how much hash functions influence execution time.

@@ -3,10 +3,8 @@ layout: post
 title: Install and configure computer
 author: Martin Thoma
 date: 2014-01-25 10:14
-categories:
-- Cyberculture
-tags:
-- Linux
+category: Cyberculture
+tags: Linux
 featured_image: 2011/11/computer-fix-it-guy.jpg
 ---
 When I reinstall my computer, I usually do these following steps:

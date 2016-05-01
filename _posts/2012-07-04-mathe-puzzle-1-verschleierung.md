@@ -3,12 +3,8 @@ layout: post
 title: ! 'Mathe Puzzle #1: Verschleierung'
 author: Martin Thoma
 date: 2012-07-04 20:54:42.000000000 +02:00
-categories:
-- German posts
-tags:
-- mathematics
-- Fibonacci
-- puzzle
+category: German posts
+tags: mathematics, Fibonacci, puzzle
 featured_image: 2012/07/math-symbol-thumb.png
 ---
 <strong>Die folgende Funktion ist sehr bekannt. Wie lautet ihr Name?</strong>

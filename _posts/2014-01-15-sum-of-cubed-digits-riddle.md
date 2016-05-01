@@ -3,12 +3,8 @@ layout: post
 title: Sum of cubed digits riddle
 author: Martin Thoma
 date: 2014-01-04 14:53
-categories:
-- Code
-tags:
-- Python
-- mathematics
-- riddle
+category: Code
+tags: Python, mathematics, riddle
 featured_image: 2014/01/math-riddle-thumb.png
 ---
 

@@ -3,12 +3,8 @@ layout: post
 title: Analyzing PyPI Data - 2
 author: Martin Thoma
 date: 2015-12-30 13:28
-categories:
-- Code
-tags:
-- Python
-- Community
-- SQL
+category: Code
+tags: Python, Community, SQL
 featured_image: logos/python.png
 ---
 

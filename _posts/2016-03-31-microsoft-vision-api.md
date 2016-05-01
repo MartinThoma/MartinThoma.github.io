@@ -4,9 +4,7 @@ title: Microsoft Vision API
 author: Martin Thoma
 date: 2016-03-31 14:49
 category: Cyberculture
-tags:
-- Machine Learning
-- Microsoft
+tags: Machine Learning, Microsoft
 featured_image: logos/ml.png
 ---
 Microsoft just released a Computer Vision API. I tried it with a couple of

@@ -3,13 +3,8 @@ layout: post
 title: How to draw a finite-state machine
 author: Martin Thoma
 date: 2011-10-29 09:37:50.000000000 +02:00
-categories:
-- My bits and bytes
-tags:
-- Computer science
-- LaTeX
-- Abstract machine
-- Tikz
+category: My bits and bytes
+tags: Computer science, LaTeX, Abstract machine, Tikz
 featured_image: 2011/10/deterministic-finite-state-machine-thumb.png
 ---
 <a href="http://en.wikipedia.org/wiki/Deterministic_finite-state_machine">Finite-state machines</a> are necessary to show that some problems are computable (or not).

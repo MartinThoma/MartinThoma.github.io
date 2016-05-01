@@ -3,13 +3,8 @@ layout: post
 title: Discussions with friends
 author: Martin Thoma
 date: 2014-05-10 02:04
-categories:
-- My bits and bytes
-tags:
-- Discussions
-- Friendship
-- Politics
-- Progress
+category: My bits and bytes
+tags: Discussions, Friendship, Politics, Progress
 featured_image:
 ---
 

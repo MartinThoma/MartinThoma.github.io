@@ -3,11 +3,8 @@ layout: post
 title: ! 'Lernkontrolle: Lineare Algebra I'
 author: Martin Thoma
 date: 2012-04-15 16:50:31.000000000 +02:00
-categories:
-- German posts
-tags:
-- lecture-notes
-- Linear algebra
+category: German posts
+tags: lecture-notes, Linear algebra
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 Hier sind ein paar <a href='../images/2012/04/lernkontrolle-lineare-algebra.pdf'>Fragen zur Linearen Algebra I</a> und die <a href='../images/2012/04/lernkontrolle-lineare-algebra-loesung.pdf'>Antworten</a> dazu. Die <a href='../images/2012/04/LA-lernkontrolle.zip'>LaTeX-Dokumente</a> gibts nat&uuml;rlich auch.

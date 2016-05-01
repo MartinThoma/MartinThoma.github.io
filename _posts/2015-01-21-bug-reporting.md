@@ -3,15 +3,8 @@ layout: post
 title: Bug Reporting - A users perspective
 author: Martin Thoma
 date: 2015-01-21 14:54
-categories:
-- Cyberculture
-tags:
-- Bugs
-- Issues
-- Software Quality
-- User Experience
-- Caja
-- Chrome
+category: Cyberculture
+tags: Bugs, Issues, Software Quality, User Experience, Caja, Chrome
 featured_image: logos/bug.png
 ---
 Bug reporting is extremely important. It helps developers to get aware of

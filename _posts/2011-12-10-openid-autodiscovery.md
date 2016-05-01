@@ -3,10 +3,8 @@ layout: post
 title: OpenID autodiscovery
 author: Martin Thoma
 date: 2011-12-10 11:08:56.000000000 +01:00
-categories:
-- The Web
-tags:
-- OpenID
+category: The Web
+tags: OpenID
 featured_image: 2011/10/OpenID.png
 ---
 <a href="../5-web-technologies-which-should-be-used-more-often/#OpenID">OpenID</a> is a web technology that gives the users the possibility to use one website for authentication on another web service. The <em>OpenID Attribute Exchange</em> makes registration processes simpler, as the user can automatically allow the website to get some information like the e-mail address, the gender and the full name.

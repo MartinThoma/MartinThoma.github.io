@@ -3,12 +3,8 @@ layout: post
 title: ! 'Java Puzzle #13: Absolute value weirdness'
 author: Martin Thoma
 date: 2012-10-19 17:00:00.000000000 +02:00
-categories:
-- Code
-tags:
-- Programming
-- Java
-- puzzle
+category: Code
+tags: Programming, Java, puzzle
 featured_image: 2012/07/java-thumb.png
 ---
 What does the following snippet output?

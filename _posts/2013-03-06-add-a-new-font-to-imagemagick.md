@@ -3,10 +3,8 @@ layout: post
 title: Add a new font to ImageMagick
 author: Martin Thoma
 date: 2013-03-06 23:15:26.000000000 +01:00
-categories:
-- Cyberculture
-tags:
-- ImageMagick
+category: Cyberculture
+tags: ImageMagick
 featured_image: 2013/03/Imagemagick-logo.png
 ---
 You can list all fonts that are known to ImageMagick by <code>identify -list font</code>. When your font isn't there, but it is installed, you might want to try these steps:

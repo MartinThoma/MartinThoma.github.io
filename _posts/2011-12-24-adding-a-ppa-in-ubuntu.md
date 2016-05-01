@@ -3,11 +3,8 @@ layout: post
 title: Adding a ppa in Ubuntu
 author: Martin Thoma
 date: 2011-12-24 15:30:06.000000000 +01:00
-categories:
-- Cyberculture
-tags:
-- Ubuntu
-- PPA
+category: Cyberculture
+tags: Ubuntu, PPA
 featured_image: 2011/09/Ubuntu-Logo.png
 ---
 PPAs (<a href="http://en.wikipedia.org/wiki/Personal_Package_Archive">Personal Package Archive</a>) provide additional resources. They are small repositories you can add to get some special content.

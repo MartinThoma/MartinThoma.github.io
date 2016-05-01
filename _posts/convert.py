@@ -81,5 +81,5 @@ def parse_and_convert(filename):
 
 if __name__ == '__main__':
     filenames = filter(lambda x: x.endswith(".md"), os.listdir("."))
-    for filename in sorted(filenames)[:10]:
+    for filename in sorted(filenames):
         parse_and_convert(filename)

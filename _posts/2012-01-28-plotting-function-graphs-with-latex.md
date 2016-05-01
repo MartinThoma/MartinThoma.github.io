@@ -3,10 +3,8 @@ layout: post
 title: Plotting function graphs with LaTeX
 author: Martin Thoma
 date: 2012-01-28 00:17:26.000000000 +01:00
-categories:
-- My bits and bytes
-tags:
-- LaTeX
+category: My bits and bytes
+tags: LaTeX
 featured_image: 2012/01/latex-logo.png
 ---
 It's crazy how much time I have wasted today just for searching for a working example how to plot a function within LaTeX. Here are two complete examples which worked for me. 

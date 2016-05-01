@@ -3,11 +3,8 @@ layout: post
 title: How to print Source Code with LaTeX
 author: Martin Thoma
 date: 2012-04-29 12:04:32.000000000 +02:00
-categories:
-- Code
-tags:
-- LaTeX
-- Documentation
+category: Code
+tags: LaTeX, Documentation
 featured_image: 2012/01/latex-logo.png
 ---
 I often need to print source code. Some years ago for a German competition called "Bundeswettbewerb Informatik", now for projects at my university. If you use LaTeX, you can simply include the source code into your document! Here are three examples with listings and minted. I've also included example PDF files.

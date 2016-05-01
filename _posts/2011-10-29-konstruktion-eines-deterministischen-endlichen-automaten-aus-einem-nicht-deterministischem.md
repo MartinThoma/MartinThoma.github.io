@@ -3,12 +3,8 @@ layout: post
 title: Konstruktion eines deterministischen endlichen Automaten aus einem nicht-deterministischem
 author: Martin Thoma
 date: 2011-10-29 10:21:43.000000000 +02:00
-categories:
-- German posts
-tags:
-- Computer science
-- Abstract machine
-- Theoretical computer science
+category: German posts
+tags: Computer science, Abstract machine, Theoretical computer science
 featured_image: 2011/10/deterministic-finite-state-machine-thumb.png
 alias: /potenzmengenkonstruktion/index.html
 ---

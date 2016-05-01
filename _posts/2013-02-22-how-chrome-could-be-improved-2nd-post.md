@@ -3,11 +3,8 @@ layout: post
 title: How Chrome could be improved - 2nd Post
 author: Martin Thoma
 date: 2013-02-22 09:55:07.000000000 +01:00
-categories:
-- Cyberculture
-tags:
-- Browser
-- Chrome
+category: Cyberculture
+tags: Browser, Chrome
 featured_image: 2012/04/google-chrome-logo.png
 ---
 Chrome 25 was just released and I would like to mention some features I am still missing. As I already wrote an article <a href="../how-chrome-could-be-improved/">How Chrome could be improved</a> for Chrome 18 I will also mention what  was realised meanwhile. If you're curious if you have the current version, just visit <a href="chrome://chrome/">chrome://chrome/</a>.

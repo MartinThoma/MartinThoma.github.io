@@ -4,14 +4,7 @@ title: GPUs - Supercomputers for your home
 author: Martin Thoma
 date: 2014-08-20 23:26
 category: Machine Learning
-tags:
-- Python
-- Theano
-- GPU
-- nVidea
-- CUDA
-- AI
-- Machine Learning
+tags: Python, Theano, GPU, nVidea, CUDA, AI, Machine Learning
 featured_image: logos/nvidia.png
 ---
 

@@ -3,12 +3,8 @@ layout: post
 title: Fibonacci, recursion and decorators
 author: Martin Thoma
 date: 2013-10-31 11:08:01.000000000 +01:00
-categories:
-- Code
-tags:
-- Python
-- Fibonacci
-- decorators
+category: Code
+tags: Python, Fibonacci, decorators
 featured_image: 2011/09/Python-Logo.png
 ---
 I think everybody who learned something about recursion has seen the Fibonacci sequence:

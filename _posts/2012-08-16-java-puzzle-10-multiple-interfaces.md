@@ -3,12 +3,8 @@ layout: post
 title: ! 'Java Puzzle #10: Multiple Interfaces'
 author: Martin Thoma
 date: 2012-08-16 17:00:25.000000000 +02:00
-categories:
-- Code
-tags:
-- Programming
-- Java
-- puzzle
+category: Code
+tags: Programming, Java, puzzle
 featured_image: 2012/07/java-thumb.png
 ---
 You have to following source code:

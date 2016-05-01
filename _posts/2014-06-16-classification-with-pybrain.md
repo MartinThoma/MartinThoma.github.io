@@ -4,13 +4,7 @@ title: Classification with PyBrain
 author: Martin Thoma
 date: 2014-06-16 01:02
 category: Machine Learning
-tags:
-- Python
-- PyBrain
-- Neural Network
-- Classification
-- AI
-- Machine Learning
+tags: Python, PyBrain, Neural Network, Classification, AI, Machine Learning
 featured_image: logos/pybrain.png
 ---
 

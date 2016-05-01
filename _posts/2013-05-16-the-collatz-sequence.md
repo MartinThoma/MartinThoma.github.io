@@ -3,12 +3,8 @@ layout: post
 title: The Collatz sequence
 author: Martin Thoma
 date: 2013-05-16 23:58:45.000000000 +02:00
-categories:
-- Code
-tags:
-- Visualization
-- mathematics
-- Project Euler
+category: Code
+tags: Visualization, mathematics, Project Euler
 featured_image: 2013/05/collatz-thumb.png
 ---
 The goal of this post is to show you some tools that allow you to visualize data. And I also want to analyze some basic characteristics of the Collatz sequence.

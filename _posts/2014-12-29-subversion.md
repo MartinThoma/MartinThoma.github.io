@@ -3,10 +3,8 @@ layout: post
 title: Subversion
 author: Martin Thoma
 date: 2014-12-29 20:57
-categories:
-- Code
-tags:
-- cheat sheet
+category: Code
+tags: cheat sheet
 featured_image:
 ---
 

@@ -3,10 +3,8 @@ layout: post
 title: Universal Rating System
 author: Martin Thoma
 date: 2014-11-22 17:19
-categories: 
-- Cyberculture
-tags: 
-- Rating
+category: Cyberculture
+tags: Rating
 featured_image: logos/star.png
 ---
 A key feature of Amazon is its rating system. Rating systems are relatively

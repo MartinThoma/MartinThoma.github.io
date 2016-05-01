@@ -3,11 +3,8 @@ layout: post
 title: Functional Programming in Python
 author: Martin Thoma
 date: 2012-06-12 17:00:09.000000000 +02:00
-categories:
-- Code
-tags:
-- Programming
-- Python
+category: Code
+tags: Programming, Python
 featured_image: 2011/09/Python-Logo.png
 ---
 Python has a few functional programming tools: Lambda functions and the three higher-order functions map, filter and reduce. I'll explain them now and I'll give some usage examples.

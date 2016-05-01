@@ -3,11 +3,8 @@ layout: post
 title: Cool features of Python
 author: Martin Thoma
 date: 2012-06-08 17:30:10.000000000 +02:00
-categories:
-- Code
-tags:
-- Programming
-- Python
+category: Code
+tags: Programming, Python
 featured_image: 2011/09/Python-Logo.png
 ---
 A friend wanted to know why I enjoy programming in Python so much more than programming in other languages. So I will describe some special features of Python which make it much easier to quickly implement algorithms.

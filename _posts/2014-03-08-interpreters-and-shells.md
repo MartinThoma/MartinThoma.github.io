@@ -3,10 +3,8 @@ layout: post
 title: Interpreters and Shells
 author: Martin Thoma
 date: 2014-03-08 11:49
-categories:
-- Code
-tags:
-- Shell
+category: Code
+tags: Shell
 featured_image: 2011/09/Gnome-Terminal.png
 ---
 Should you ever be in the position to write a shell or interpreter I hope you

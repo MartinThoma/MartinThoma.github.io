@@ -3,14 +3,8 @@ layout: post
 title: Why are Microsoft products so User unfriendly?
 author: Martin Thoma
 date: 2012-12-21 17:00:31.000000000 +01:00
-categories:
-- Code
-tags:
-- eclipse
-- windowsrage
-- Microsoft
-- Visual Studio
-- Windows 7
+category: Code
+tags: eclipse, windowsrage, Microsoft, Visual Studio, Windows 7
 featured_image: 2012/12/loading-times.png
 ---
 Another rage-post ...

@@ -3,12 +3,8 @@ layout: post
 title: Project Glooseberry
 author: Martin Thoma
 date: 2014-03-25 12:32
-categories:
-- Cyberculture
-tags:
-- Blender
-- Video
-- movie
+category: Cyberculture
+tags: Blender, Video, movie
 featured_image: logos/blender-open-movie.png
 ---
 

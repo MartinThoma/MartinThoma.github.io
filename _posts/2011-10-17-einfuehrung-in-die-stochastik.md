@@ -3,13 +3,8 @@ layout: post
 title: Einf&uuml;hrung in die Stochastik
 author: Martin Thoma
 date: 2011-10-17 21:19:55.000000000 +02:00
-categories:
-- German posts
-tags:
-- Visualization
-- mathematics
-- Stochastic
-- lecture-notes
+category: German posts
+tags: Visualization, mathematics, Stochastic, lecture-notes
 ---
 In diesem Artikel werde ich ein paar einfache Definitionen, die f&uuml;r die Stochastik wichtig sind, einf&uuml;hren.
 <h2>Basisdefinitionen bei Zufallsexperimenten</h2>

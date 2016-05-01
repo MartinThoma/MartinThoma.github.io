@@ -3,11 +3,8 @@ layout: post
 title: Die L&auml;nder der Erde
 author: Martin Thoma
 date: 2012-07-31 17:00:57.000000000 +02:00
-categories:
-- Cyberculture
-tags:
-- learning
-- Geography
+category: Cyberculture
+tags: learning, Geography
 featured_image: 2012/07/laender-der-erde1.png
 ---
 {% caption align="aligncenter" width="482" caption="L&auml;nder der Erde" url="../images/2012/07/laender-der-erde.png" alt="L&auml;nder der Erde"  height="280" class=" wp-image-35581 "  %}

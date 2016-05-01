@@ -3,11 +3,8 @@ layout: post
 title: Calculate square roots
 author: Martin Thoma
 date: 2013-06-06 20:54:10.000000000 +02:00
-categories:
-- Cyberculture
-tags:
-- CPP
-- GMP
+category: Cyberculture
+tags: CPP, GMP
 featured_image: 2013/06/sqrt-2.png
 ---
 Suppose you have an equation like this:

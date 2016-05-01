@@ -3,10 +3,8 @@ layout: post
 title: Rechnernetze-Klausur
 author: Martin Thoma
 date: 2013-04-25 09:32:06.000000000 +02:00
-categories:
-- German posts
-tags:
-- Klausur
+category: German posts
+tags: Klausur
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Einführung in Rechnernetze&ldquo; des Moduls &bdquo;Kommunikation und Datenhaltung&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn <a href="http://pcs.tm.kit.edu/21_beigl.php">Prof. Dr. Beigl</a> im Sommersemester 2013 gehört.</div>

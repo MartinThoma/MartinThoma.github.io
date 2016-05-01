@@ -3,13 +3,8 @@ layout: post
 title: Wie bestimme ich das Inverse einer Matrix?
 author: Martin Thoma
 date: 2012-03-20 16:07:50.000000000 +01:00
-categories:
-- German posts
-tags:
-- Wolfram|Alpha
-- mathematics
-- Linear algebra
-- Matrix
+category: German posts
+tags: Wolfram|Alpha, mathematics, Linear algebra, Matrix
 featured_image: 2012/03/Matrix-Inverses.png
 ---
 Nicht alle Matrizen sind invertierbar. Matrizen, die invertierbar sind, nennt man auch regul&auml;r. Die Menge aller invertierbaren $n \times n$&ndash;Matrizen &uuml;ber einem Grundk&ouml;rper (oder Grundring) K bildet eine Gruppe bez&uuml;glich der Matrixmultiplikation, die allgemeine lineare Gruppe $GL_n(K)$.

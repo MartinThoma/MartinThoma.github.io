@@ -3,11 +3,8 @@ layout: post
 title: Sublime Text
 author: Martin Thoma
 date: 2014-03-01 17:01
-categories:
-- Code
-tags:
-- Editor
-- Sublime Text
+category: Code
+tags: Editor, Sublime Text
 featured_image: logos/sublime-text.png
 ---
 Sublime Text is the coolest editor I have ever used. It has a lot of features,

@@ -3,12 +3,8 @@ layout: post
 title: Python and Encodings
 author: Martin Thoma
 date: 2015-02-14 14:28
-categories: 
-- Code
-tags: 
-- Python
-- Encodings
-- UTF8
+category: Code
+tags: Python, Encodings, UTF8
 featured_image: logos/python.png
 ---
 Working with encodings different from ASCII or UTF-8 has always been work

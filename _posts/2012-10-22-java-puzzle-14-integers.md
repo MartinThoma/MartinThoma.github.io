@@ -3,12 +3,8 @@ layout: post
 title: ! 'Java Puzzle #14: Integers'
 author: Martin Thoma
 date: 2012-10-22 12:00:44.000000000 +02:00
-categories:
-- Code
-tags:
-- Programming
-- Java
-- puzzle
+category: Code
+tags: Programming, Java, puzzle
 ---
 What is the output of the following script?
 

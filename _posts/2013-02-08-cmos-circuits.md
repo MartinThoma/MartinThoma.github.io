@@ -3,13 +3,8 @@ layout: post
 title: CMOS circuits
 author: Martin Thoma
 date: 2013-02-08 23:39:26.000000000 +01:00
-categories:
-- Cyberculture
-tags:
-- Digitaltechnik
-- CMOS
-- MOSFET
-- digital circuit
+category: Cyberculture
+tags: Digitaltechnik, CMOS, MOSFET, digital circuit
 featured_image: 2013/02/cmos-nand-thumbnail.jpg
 ---
 CMOS is a technology used to create digital circuits. The basic idea is to combine a pMOS circuit and a nMOS circuit.

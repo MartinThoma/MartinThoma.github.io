@@ -3,13 +3,8 @@ layout: post
 title: Search Engine Autodiscovery
 author: Martin Thoma
 date: 2011-10-22 11:12:07.000000000 +02:00
-categories:
-- Code
-tags:
-- Chrome
-- Firefox
-- Web Development
-- HTML5
+category: Code
+tags: Chrome, Firefox, Web Development, HTML5
 featured_image: 2011/10/firefox-add-search-engine-thumb.png
 ---
 Recently I read a very good post about search engine autodiscovery <a href="http://www.knallisworld.de/blog/2011/04/14/autodiscovery-der-searchengine-in-google-chrome-opensearch/">by Jan Phillip</a>. Did you know that many browsers can detect an internal search engine automatically? 

@@ -3,10 +3,8 @@ layout: post
 title: Wahrscheinlichkeitstheorie-Klausur
 author: Martin Thoma
 date: 2015-04-13 10:37
-categories:
-- German posts
-tags:
-- Klausur
+category: German posts
+tags: Klausur
 featured_image: logos/klausur.png
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Wahrscheinlichkeitstheorie&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr. Henze im Sommersemester 2015 gehört. Der Artikel wird bis zur Klausur laufend erweitert.</div>

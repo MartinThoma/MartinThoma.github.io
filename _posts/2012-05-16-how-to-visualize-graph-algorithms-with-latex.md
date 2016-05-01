@@ -3,11 +3,8 @@ layout: post
 title: How to visualize Graph algorithms with LaTeX
 author: Martin Thoma
 date: 2012-05-16 13:16:29.000000000 +02:00
-categories:
-- Code
-tags:
-- LaTeX
-- Tikz
+category: Code
+tags: LaTeX, Tikz
 featured_image: 2012/01/latex-logo.png
 ---
 Tkiz is a very powerful TeX package. You can easily create visualizations of graphs and graph algorithms (if you have a template ;-) ). This post should give you a template to visualize graph algorithms with LaTeX.

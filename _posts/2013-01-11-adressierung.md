@@ -3,13 +3,8 @@ layout: post
 title: Adressierung
 author: Martin Thoma
 date: 2013-01-11 17:15:56.000000000 +01:00
-categories:
-- German posts
-tags:
-- OS
-- Operating Systems
-- TLB
-- Cache
+category: German posts
+tags: OS, Operating Systems, TLB, Cache
 ---
 <div class="info">Dies ist eine Zusammenfassung von mir zu dem Themen Caches, Addressierung und TLB. Ich habe insbesondere bei dem letzem Teil (Cache-Typen und TLBs) das Gef&uuml;hl, dass ich das noch nicht richtig verstanden habe, deshalb ist der Inhalt hier mit Vorsicht zu genie&szlig;en. Bitte meldet mir Fehler oder Unstimmigkeiten (per E-Mail an info@martin-thoma.de oder direkt als Kommentar).</div>
 

@@ -3,12 +3,8 @@ layout: post
 title: How do Bitmasks work?
 author: Martin Thoma
 date: 2012-05-18 23:02:55.000000000 +02:00
-categories:
-- Code
-tags:
-- C
-- OS
-- Operating Systems
+category: Code
+tags: C, OS, Operating Systems
 featured_image: 2012/05/assembly-thumb.png
 ---
 <h2>What are Bitmasks?</h2>

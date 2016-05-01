@@ -3,14 +3,8 @@ layout: post
 title: ! 'Java Puzzle #9: Template method pattern'
 author: Martin Thoma
 date: 2012-08-10 17:00:33.000000000 +02:00
-categories:
-- Code
-tags:
-- Programming
-- Java
-- SWT I
-- puzzle
-- Design Pattern
+category: Code
+tags: Programming, Java, SWT I, puzzle, Design Pattern
 featured_image: 2012/07/java-thumb.png
 ---
 The following Java Puzzle is an example for the <a href="http://en.wikipedia.org/wiki/Template_method_pattern">template method pattern</a>. It is a design pattern by the <a href="http://en.wikipedia.org/wiki/Design_Patterns">Gang of Four</a>.

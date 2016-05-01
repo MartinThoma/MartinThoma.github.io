@@ -3,10 +3,8 @@ layout: post
 title: Incredible Optical Illusions
 author: Martin Thoma
 date: 2012-03-27 12:05:01.000000000 +02:00
-categories:
-- The Web
-tags:
-- illusion
+category: The Web
+tags: illusion
 featured_image: 2012/03/fraser-spiral-illusion-thumb.png
 ---
 Some really great and short examples of illusions. If you want an explanation of them, I have added a link to the corresponding Wikipedia article.

@@ -3,12 +3,8 @@ layout: post
 title: Improve German Public Transportation
 author: Martin Thoma
 date: 2013-07-06 20:45:32.000000000 +02:00
-categories:
-- Cyberculture
-tags:
-- Google
-- Public Transportation
-- Google Maps
+category: Cyberculture
+tags: Google, Public Transportation, Google Maps
 featured_image: 2013/07/bus.png
 ---
 Public transportation in Germany is much worse than it could be. I've got quite angry today because of that and thought about ways to improve the situation.

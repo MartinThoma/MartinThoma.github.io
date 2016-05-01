@@ -3,11 +3,8 @@ layout: post
 title: Wie bildet man den Schnitt zweier Vektorr&auml;ume?
 author: Martin Thoma
 date: 2012-01-08 20:27:37.000000000 +01:00
-categories:
-- German posts
-tags:
-- mathematics
-- Linear algebra
+category: German posts
+tags: mathematics, Linear algebra
 featured_image: 2012/01/vector-space.png
 ---
 <h2>Angaben</h2>

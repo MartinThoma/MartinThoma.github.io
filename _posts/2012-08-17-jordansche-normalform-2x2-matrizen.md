@@ -3,11 +3,8 @@ layout: post
 title: ! 'Jordansche Normalform: 2x2 Matrizen'
 author: Martin Thoma
 date: 2012-08-17 21:49:41.000000000 +02:00
-categories:
-- German posts
-tags:
-- mathematics
-- Linear algebra
+category: German posts
+tags: mathematics, Linear algebra
 featured_image: 2012/08/jordan-normal-form-block1.png
 ---
 <div class="info">Hier sind <span>\(2 \times 2\)</span> Beispiele zum Hauptartikel <a href="../wie-berechnet-man-die-jordansche-normalform/" title="Wie berechnet man die Jordan&rsquo;sche Normalform?">Wie berechnet man die Jordan&rsquo;sche Normalform?</a>.</div>

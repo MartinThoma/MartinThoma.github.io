@@ -3,10 +3,8 @@ layout: post
 title: Computergrafik - Klausur
 author: Martin Thoma
 date: 2015-10-23 11:30
-categories:
-- German posts
-tags:
-- Klausur
+category: German posts
+tags: Klausur
 featured_image: logos/klausur.png
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Computergrafik&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://cg.ivd.kit.edu/dachsbacher/">Herrn Prof. Dr. Ing. Carsten Dachsbacher</a> im Wintersemester 2015/2016 gehört.</div>

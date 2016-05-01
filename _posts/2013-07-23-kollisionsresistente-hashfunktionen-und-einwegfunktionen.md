@@ -3,10 +3,8 @@ layout: post
 title: Kollisionsresistente Hashfunktionen und Einwegfunktionen
 author: Martin Thoma
 date: 2013-07-23 10:05:24.000000000 +02:00
-categories:
-- German posts
-tags:
-- IT-Security
+category: German posts
+tags: IT-Security
 featured_image: 2013/04/cryptography-thumb.png
 ---
 <h2>Definitionen</h2>

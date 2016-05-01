@@ -3,11 +3,8 @@ layout: post
 title: Custom 404 error pages
 author: Martin Thoma
 date: 2011-10-22 20:50:47.000000000 +02:00
-categories:
-- Code
-- The Web
-tags:
-- Web Development
+category: The Web
+tags: Web Development
 featured_image: 2011/10/404-Not-Found.png
 ---
 <a href="../images/2011/10/404-Not-Found.png"><img src="../images/2011/10/404-Not-Found.png" alt="404 Not Found" title="404 Not Found" width="128" height="128" class="alignleft size-full wp-image-7061" /></a> A 404 http status code means that no document could be found at the given URL. The reason could be a misspelled URL or moved content.

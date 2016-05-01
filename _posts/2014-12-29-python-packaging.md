@@ -3,10 +3,8 @@ layout: post
 title: Packaging with Python
 author: Martin Thoma
 date: 2014-12-29 21:05
-categories:
-- Code
-tags:
-- Python
+category: Code
+tags: Python
 featured_image: logos/python.png
 ---
 

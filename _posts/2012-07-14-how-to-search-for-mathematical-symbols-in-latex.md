@@ -3,11 +3,8 @@ layout: post
 title: How to search for mathematical symbols in LaTeX
 author: Martin Thoma
 date: 2012-07-14 19:00:44.000000000 +02:00
-categories:
-- My bits and bytes
-tags:
-- mathematics
-- LaTeX
+category: My bits and bytes
+tags: mathematics, LaTeX
 featured_image: 2012/01/latex-logo.png
 ---
 <h2>Detexify</h2>

@@ -3,11 +3,8 @@ layout: post
 title: Logo Design Tournament
 author: Martin Thoma
 date: 2014-12-29 19:54
-categories: 
-- Cyberculture
-tags: 
-- Competition
-- Crowdsourcing
+category: Cyberculture
+tags: Competition, Crowdsourcing
 featured_image: logos/logotournament.png
 ---
 

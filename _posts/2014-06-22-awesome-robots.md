@@ -3,13 +3,8 @@ layout: post
 title: Awesome Robots
 author: Martin Thoma
 date: 2014-06-22 22:39
-categories:
-- Cyberculture
-tags:
-- Robots
-- Quadcopter
-- Neural Nets
-- Differential Equations
+category: Cyberculture
+tags: Robots, Quadcopter, Neural Nets, Differential Equations
 featured_image: logos/robot.png
 ---
 

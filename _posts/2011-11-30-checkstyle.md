@@ -3,11 +3,8 @@ layout: post
 title: Checkstyle
 author: Martin Thoma
 date: 2011-11-30 21:59:40.000000000 +01:00
-categories:
-- Code
-tags:
-- KIT
-- Java
+category: Code
+tags: KIT, Java
 featured_image: 2011/11/java-programming.png
 ---
 	<li></li>

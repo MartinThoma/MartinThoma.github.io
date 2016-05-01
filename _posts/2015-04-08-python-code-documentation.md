@@ -3,11 +3,8 @@ layout: post
 title: Python Code Documentation
 author: Martin Thoma
 date: 2015-04-08 19:39
-categories:
-- Code
-tags:
-- Python
-- Documentation
+category: Code
+tags: Python, Documentation
 featured_image: logos/python.png
 ---
 Documentating your code is important when you make non-trivial projects. The

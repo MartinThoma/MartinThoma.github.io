@@ -3,10 +3,8 @@ layout: post
 title: ! 'Karlsruhe: Oberb&uuml;rgermeisterwahl 2012'
 author: Martin Thoma
 date: 2012-11-27 14:17:39.000000000 +01:00
-categories:
-- German posts
-tags:
-- politics
+category: German posts
+tags: politics
 featured_image: 2012/11/Karlsruhe.png
 ---
 Da ich mein Erstwohnsitz inzwischen Karlsruhe ist, darf ich hier w&auml;hlen. Am Sonntag, den 2. Dezember 2012 ist die Wahl des Oberb&uuml;rgermeisters in Karlsruhe. Seit 1970 wird dieses Amt von einem CDU'ler besetzt.<small><sup><a href="#ref1" name="anchor1">[1]</a></sup></small> <a href="http://de.wikipedia.org/wiki/Heinz_Fenrich">Heinz Fenrich</a> (CDU) ist seit 1998 im Amt, hat aber die Altersgrenze erreicht und kann somit nicht wieder gew&auml;hlt werden.

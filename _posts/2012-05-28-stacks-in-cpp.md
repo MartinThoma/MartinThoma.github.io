@@ -3,12 +3,8 @@ layout: post
 title: Stacks in C++
 author: Martin Thoma
 date: 2012-05-28 11:45:40.000000000 +02:00
-categories:
-- Code
-tags:
-- CPP
-- Stack
-- STL
+category: Code
+tags: CPP, Stack, STL
 featured_image: 2012/05/CPP-thumb.png
 ---
 <h2>Minimum Example</h2>

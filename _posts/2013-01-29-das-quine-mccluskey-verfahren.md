@@ -3,10 +3,8 @@ layout: post
 title: Das Quine-McCluskey-Verfahren
 author: Martin Thoma
 date: 2013-01-29 14:34:06.000000000 +01:00
-categories:
-- German posts
-tags:
-- Digitaltechnik
+category: German posts
+tags: Digitaltechnik
 featured_image: 2013/01/quine-mccluskey.png
 ---
 Das Quine-McCluskey-Verfahren wird angewendet, wenn man eine Schaltfunktion minimieren will. Es muss also eine Schaltfunktion gegeben sein. Es sollte eigentlich zus&auml;tzlich Kostenfunktion gegeben sein, aber meist ist das nicht der Fall.

@@ -3,13 +3,8 @@ layout: post
 title: Citizen Science Projects
 author: Martin Thoma
 date: 2014-08-21 13:27
-categories: 
-- Cyberculture
-tags:
-- Science
-- CMU
-- Computer Science
-- Gamification
+category: Cyberculture
+tags: Science, CMU, Computer Science, Gamification
 featured_image: logos/galaxy.png
 ---
 

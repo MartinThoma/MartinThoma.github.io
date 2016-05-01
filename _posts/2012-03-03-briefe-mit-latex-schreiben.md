@@ -3,11 +3,8 @@ layout: post
 title: Briefe mit LaTeX schreiben
 author: Martin Thoma
 date: 2012-03-03 17:48:38.000000000 +01:00
-categories:
-- German posts
-tags:
-- LaTeX
-- scrlttr2
+category: German posts
+tags: LaTeX, scrlttr2
 featured_image: 2012/01/latex-logo.png
 ---
 Ich muss immer wieder mal Kündigungsschreiben aufsetzen. Dafür will ich eigentlich keine Zeit verschwenden, aber es sollte schon gut aussehen. Also habe ich mir gerade mal eine Vorlage für Kündigungsschreiben mit LaTeX und dem scrlttr2 Paket erstellt. Allerdings benutze ich noch die alten KOMA-Variablen. Ich finde mit KOMAold (siehe Beispiel-PDF <a href='../images/2012/03/kuendigung.pdf'>alt</a> und <a href='../images/2012/03/kuendigung-scrlttr2.pdf'>neu</a>) sieht es einfach besser aus als mit dem neuen. Obwohl der Unterschied nicht wirklich gro&szlig; ist.

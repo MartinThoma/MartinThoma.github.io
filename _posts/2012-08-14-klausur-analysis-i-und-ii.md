@@ -3,10 +3,8 @@ layout: post
 title: Klausur Analysis I und II
 author: Martin Thoma
 date: 2012-08-14 17:13:24.000000000 +02:00
-categories:
-- German posts
-tags:
-- Klausur
+category: German posts
+tags: Klausur
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel richtet sich vor allem an Studenten, die im Sommersemester 2012 bei Herrn Prof. Dr. Schmoeger am KIT die Klausur &uuml;ber Analysis schreiben werden.</div>

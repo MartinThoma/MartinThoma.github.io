@@ -3,11 +3,8 @@ layout: post
 title: William Shatner
 author: Martin Thoma
 date: 2014-08-06 07:42
-categories:
-- My bits and bytes
-tags:
-- William Shatner
-- Star Trek
+category: My bits and bytes
+tags: William Shatner, Star Trek
 featured_image: logos/scifi.png
 ---
 

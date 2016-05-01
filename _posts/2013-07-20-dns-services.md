@@ -3,10 +3,8 @@ layout: post
 title: DNS-Services
 author: Martin Thoma
 date: 2013-07-20 14:46:34.000000000 +02:00
-categories:
-- The Web
-tags:
-- DNS
+category: The Web
+tags: DNS
 featured_image: 2013/07/google-thumb.png
 ---
 I've just read (ok, now it's over 3 months ago) that <a href="http://en.wikipedia.org/wiki/Google_Public_DNS">Google Public DNS</a> now supports DNSSEC (<a href="http://googleonlinesecurity.blogspot.de/2013/03/google-public-dns-now-supports-dnssec.html">source</a>).

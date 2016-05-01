@@ -3,11 +3,8 @@ layout: post
 title: Scherzfragen
 author: Martin Thoma
 date: 2014-12-29 20:56
-categories: 
-- German posts
-tags: 
-- funny
-- Joke
+category: German posts
+tags: funny, Joke
 featured_image: 2012/03/face-grin-fun-joke-thumb.png
 ---
 

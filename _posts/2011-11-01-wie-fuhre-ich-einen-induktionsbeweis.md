@@ -3,13 +3,8 @@ layout: post
 title: Wie f&uuml;hre ich einen Induktionsbeweis?
 author: Martin Thoma
 date: 2011-11-01 01:29:35.000000000 +01:00
-categories:
-- German posts
-tags:
-- mathematics
-- lecture-notes
-- Mathematical induction
-- Structural induction
+category: German posts
+tags: mathematics, lecture-notes, Mathematical induction, Structural induction
 featured_image: 2011/10/eulers-formula.png
 ---
 Der Induktionsbeweis eignet sich h&auml;ufig, wenn es um Aussagen &uuml;ber die Nat&uuml;rlichen Zahlen $\mathbb{N}$ geht, allerdings kann er auch f&uuml;r die ganzen Zahlen $\mathbb{Z}$ verwendet werden.

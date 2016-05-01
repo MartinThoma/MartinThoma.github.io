@@ -3,15 +3,8 @@ layout: post
 title: Working with Terminal
 author: Martin Thoma
 date: 2013-10-22 10:40:46.000000000 +02:00
-categories:
-- Code
-tags:
-- Linux
-- Command Line
-- Bash
-- ZSH
-- Terminal
-- Shell
+category: Code
+tags: Linux, Command Line, Bash, ZSH, Terminal, Shell
 featured_image: 2011/09/Gnome-Terminal.png
 alias: [/working-terminal/bash-vs-zsh-spelling-correction/index.html,/working-terminal/bash-vs-zsh-time/]
 ---

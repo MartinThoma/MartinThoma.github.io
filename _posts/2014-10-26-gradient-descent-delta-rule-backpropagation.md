@@ -4,9 +4,7 @@ title: Gradient Descent, the Delta Rule and Backpropagation
 author: Martin Thoma
 date: 2014-10-26 21:06
 category: Machine Learning
-tags:
-- Machine Learning
-- AI
+tags: Machine Learning, AI
 featured_image: logos/ai.png
 ---
 

@@ -3,14 +3,8 @@ layout: post
 title: Review des Acer Travelmate 5744Z
 author: Martin Thoma
 date: 2012-10-19 18:57:30.000000000 +02:00
-categories:
-- Cyberculture
-tags:
-- Linux
-- Ubuntu
-- Review
-- Acer
-- Notebook
+category: Cyberculture
+tags: Linux, Ubuntu, Review, Acer, Notebook
 featured_image: 2011/09/Tux.png
 itemtype: http://schema.org/Review
 ---

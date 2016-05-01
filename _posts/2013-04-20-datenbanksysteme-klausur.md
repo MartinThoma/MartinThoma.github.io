@@ -3,10 +3,8 @@ layout: post
 title: Datenbanksysteme-Klausur
 author: Martin Thoma
 date: 2013-04-20 13:35:01.000000000 +02:00
-categories:
-- German posts
-tags:
-- Klausur
+category: German posts
+tags: Klausur
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesung &bdquo;Datenbanksysteme&ldquo; des Moduls &bdquo;Kommunikation und Datenhaltung&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://dbis.ipd.uni-karlsruhe.de/336.php">Herrn Prof. Dr. B&ouml;hm</a> im Sommersemester 2013 geh&ouml;rt.</div>

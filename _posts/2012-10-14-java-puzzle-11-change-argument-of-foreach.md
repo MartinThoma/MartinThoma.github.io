@@ -3,12 +3,8 @@ layout: post
 title: ! 'Java Puzzle #11: Change argument of foreach'
 author: Martin Thoma
 date: 2012-10-14 21:15:43.000000000 +02:00
-categories:
-- Code
-tags:
-- Programming
-- Java
-- puzzle
+category: Code
+tags: Programming, Java, puzzle
 featured_image: 2012/07/java-thumb.png
 ---
 What is the output of the following HelloWorld.java?

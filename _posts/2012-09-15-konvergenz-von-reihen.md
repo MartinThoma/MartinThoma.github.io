@@ -3,11 +3,8 @@ layout: post
 title: Konvergenz von Reihen
 author: Martin Thoma
 date: 2012-09-15 09:02:02.000000000 +02:00
-categories:
-- German posts
-tags:
-- mathematics
-- analysis
+category: German posts
+tags: mathematics, analysis
 featured_image: 2012/08/limes-thumbnail.png
 ---
 Die folgenden Definitionen sind wortw&ouml;rtlich aus dem <a href="http://mitschriebwiki.nomeata.de/Ana1.pdf">inoffiziellem Skript f&uuml;r Analysis I</a> bei Herrn Dr. Schmoeger &uuml;bernommen worden.

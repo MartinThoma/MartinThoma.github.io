@@ -3,10 +3,8 @@ layout: post
 title: Don't lose your stuff
 author: Martin Thoma
 date: 2014-12-29 21:07
-categories:
-- Cyberculture
-tags:
-- Device
+category: Cyberculture
+tags: Device
 featured_image: logos/tile.png
 ---
 

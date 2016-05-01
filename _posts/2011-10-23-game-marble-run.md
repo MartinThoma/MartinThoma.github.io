@@ -3,10 +3,8 @@ layout: post
 title: ! 'Game: Marble Run'
 author: Martin Thoma
 date: 2011-10-23 08:41:58.000000000 +02:00
-categories:
-- The Web
-tags:
-- JavaScript Game
+category: The Web
+tags: JavaScript Game
 featured_image: 2011/10/marblerun-thumb.png
 ---
 {% caption align="alignleft" width="584" caption="Marble Run" url="../images/2011/10/marblerun.png" alt="Marble Run"  height="558" class="size-full wp-image-7181" %}

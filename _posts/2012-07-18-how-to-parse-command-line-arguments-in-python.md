@@ -3,11 +3,8 @@ layout: post
 title: How to parse command line arguments in Python
 author: Martin Thoma
 date: 2012-07-18 17:00:03.000000000 +02:00
-categories:
-- Code
-tags:
-- Python
-- command line arguments
+category: Code
+tags: Python, command line arguments
 featured_image: 2011/09/Python-Logo.png
 ---
 <h2>Argparse</h2>

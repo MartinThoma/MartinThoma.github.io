@@ -3,14 +3,8 @@ layout: post
 title: k-nearest-neighbor classification and k-means - an interactive example
 author: Martin Thoma
 date: 2013-05-19 15:23:11.000000000 +02:00
-categories:
-- Code
-tags:
-- HTML5
-- KogSys
-- k-means
-- JavaScript
-- canvas
+category: Code
+tags: HTML5, KogSys, k-means, JavaScript, canvas
 featured_image: 2013/05/k-means-interesting-setting-thumb.png
 alias: /k-nearest-neighbor-clustering-interactive-example/index.html
 ---

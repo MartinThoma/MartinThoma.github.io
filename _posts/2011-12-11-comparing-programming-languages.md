@@ -3,10 +3,8 @@ layout: post
 title: Comparing programming languages
 author: Martin Thoma
 date: 2011-12-11 11:50:59.000000000 +01:00
-categories:
-- Code
-tags:
-- Programming
+category: Code
+tags: Programming
 featured_image: 2011/12/compare-programming-languages.png
 ---
 {% caption align="alignright" width="128" caption="Compare programming languages" url="../images/2011/12/compare-programming-languages.png" alt="Compare programming languages"  height="128" class="size-full wp-image-9801 "  %}

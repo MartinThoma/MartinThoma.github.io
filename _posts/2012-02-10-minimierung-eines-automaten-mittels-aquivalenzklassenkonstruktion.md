@@ -3,10 +3,8 @@ layout: post
 title: Minimierung eines Automaten mittels &Auml;quivalenzklassenkonstruktion
 author: Martin Thoma
 date: 2012-02-10 22:18:38.000000000 +01:00
-categories:
-- German posts
-tags:
-- Theoretical computer science
+category: German posts
+tags: Theoretical computer science
 featured_image: 2011/10/deterministic-finite-state-machine-thumb.png
 ---
 Wenn ein Endlicher Automat gegeben ist, kann durch die Konstruktion von &Auml;quivalenzklassen sehr einfach ein Automat mit gleichem Akzeptanzverhalten und minimaler Anzahl an Zust&auml;nden gefunden werden. Daf&uuml;r ben&ouml;tigt man im Wesentlichen sogar nur drei Schritte.

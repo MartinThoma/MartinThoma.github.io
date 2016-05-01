@@ -4,8 +4,7 @@ title: Explaining Away
 author: Martin Thoma
 date: 2016-01-04 23:52
 category: Cyberculture
-tags:
-- Mathematics
+tags: Mathematics
 featured_image: logos/statistics.png
 ---
 

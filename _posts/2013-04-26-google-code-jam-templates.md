@@ -3,14 +3,8 @@ layout: post
 title: Google Code Jam Templates
 author: Martin Thoma
 date: 2013-04-26 11:17:35.000000000 +02:00
-categories:
-- Code
-tags:
-- Python
-- PHP
-- C
-- Java
-- Google Code Jam
+category: Code
+tags: Python, PHP, C, Java, Google Code Jam
 featured_image: 2012/04/code-jam-logo.png
 ---
 Here are some templates that are a good start for Google Code Jam.

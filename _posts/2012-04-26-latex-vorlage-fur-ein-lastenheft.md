@@ -3,15 +3,8 @@ layout: post
 title: LaTeX-Vorlage f&uuml;r ein Lastenheft
 author: Martin Thoma
 date: 2012-04-26 13:51:07.000000000 +02:00
-categories:
-- German posts
-tags:
-- Software Development
-- LaTeX
-- KIT
-- SWT I
-- Lastenheft
-- MetaUML
+category: German posts
+tags: Software Development, LaTeX, KIT, SWT I, Lastenheft, MetaUML
 ---
 Ich habe gerade mal schnell eine Vorlage f&uuml;r ein Lastenheft mit LaTeX erstellt. Dieses Lastenheft beinhaltet sogar ein kleines Use-Case Beispiel, das mit MetaUML realisiert wurde. Hier ist die <a href='../images/2012/04/Lastenheft.pdf'>PDF</a>, hier der <a href='../images/2012/04/Lastenheft.zip'>LaTeX-Code</a>. 
 

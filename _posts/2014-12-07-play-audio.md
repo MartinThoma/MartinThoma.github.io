@@ -3,12 +3,8 @@ layout: post
 title: Play Audio
 author: Martin Thoma
 date: 2014-12-07 00:31
-categories:
-- Cyberculture
-tags:
-- Audio
-- Senses
-- HTML5
+category: Cyberculture
+tags: Audio, Senses, HTML5
 featured_image: logos/signal.png
 ---
 

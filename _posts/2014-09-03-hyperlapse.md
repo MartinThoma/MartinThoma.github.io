@@ -3,14 +3,8 @@ layout: post
 title: Hyperlapse
 author: Martin Thoma
 date: 2014-09-03 04:31
-categories:
-- Cyberculture
-tags:
-- Microsoft
-- research
-- kd-tree
-- structure from motion
-- spline
+category: Cyberculture
+tags: Microsoft, research, kd-tree, structure from motion, spline
 featured_image: logos/microsoft.png
 ---
 

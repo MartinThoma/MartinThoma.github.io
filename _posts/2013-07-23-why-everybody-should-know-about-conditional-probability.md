@@ -3,11 +3,8 @@ layout: post
 title: Why everybody should know about conditional probability
 author: Martin Thoma
 date: 2013-07-23 15:37:39.000000000 +02:00
-categories:
-- Mathematics
-tags:
-- Stochastic
-- probability
+category: Mathematics
+tags: Stochastic, probability
 featured_image: 2013/07/probability-tree.png
 ---
 Probability theory is difficult, but I think everybody should be taught basics in this subject. Why? Because it is relevant for everybody.

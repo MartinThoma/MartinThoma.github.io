@@ -3,12 +3,8 @@ layout: post
 title: Sets in C++
 author: Martin Thoma
 date: 2012-05-28 12:08:58.000000000 +02:00
-categories:
-- Code
-tags:
-- STL
-- Set
-- CPP
+category: Code
+tags: STL, Set, CPP
 featured_image: 2012/05/CPP-thumb.png
 ---
 ``` cpp

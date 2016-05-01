@@ -3,10 +3,8 @@ layout: post
 title: Wie berechne ich das multiplikativ Inverse einer komplexen Zahl?
 author: Martin Thoma
 date: 2012-04-04 16:57:06.000000000 +02:00
-categories:
-- German posts
-tags:
-- Complex number
+category: German posts
+tags: Complex number
 ---
 Im Folgenden werde ich kurz und b&uuml;ndig erkl&auml;ren, wie man das multiplikativ Inverse einer komplexen Zahl berechnet.
 

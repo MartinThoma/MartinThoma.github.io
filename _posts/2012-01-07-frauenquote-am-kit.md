@@ -3,10 +3,8 @@ layout: post
 title: Frauenquote am KIT
 author: Martin Thoma
 date: 2012-01-07 23:57:47.000000000 +01:00
-categories:
-- German posts
-tags:
-- KIT
+category: German posts
+tags: KIT
 featured_image: 2011/10/KIT-Logo.png
 ---
 Die Frauenquote am KIT wird oft genannt, allerdings hatte ich bisher nur grobe Zahlen. Nun habe ich eine <a href="http://www.kit.edu/downloads/Statistik_WS11.pdf">zuverl&auml;ssige Quelle</a> mit Zahlen zum WS 2011/2012. Das ist die Frauenquote:

@@ -3,10 +3,8 @@ layout: post
 title: ! 'JavaScript: WTF?!?'
 author: Martin Thoma
 date: 2013-06-26 22:51:52.000000000 +02:00
-categories:
-- Code
-tags:
-- JavaScript
+category: Code
+tags: JavaScript
 ---
 JavaScript is THE web programming language. It gets interpreted by your browser and web applications like Google Mail, Google Maps and Facebook make heavy use of them. Almost always, when you see something working smoothly / interactive, you see JavaScript in action.
 

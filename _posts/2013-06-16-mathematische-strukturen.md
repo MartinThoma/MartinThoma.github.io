@@ -3,11 +3,8 @@ layout: post
 title: Mathematische Strukturen
 author: Martin Thoma
 date: 2013-06-16 18:14:57.000000000 +02:00
-categories:
-- German posts
-tags:
-- mathematics
-- Algebra
+category: German posts
+tags: mathematics, Algebra
 featured_image: 2012/01/vector-space.png
 ---
 Es gibt einen ganzen Haufen an mathematischen Strukturen. Dieser Artikel soll jeweils die Definition und bekannte Beispiele sammeln. Weitere Strukturen bzw. Beispiele k&ouml;nnen gerne in den Kommentaren genannt werden.

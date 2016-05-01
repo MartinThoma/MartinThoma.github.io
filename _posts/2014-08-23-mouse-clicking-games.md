@@ -3,12 +3,8 @@ layout: post
 title: Mouse clicking games
 author: Martin Thoma
 date: 2014-08-23 14:15
-categories:
-- Cyberculture
-tags:
-- Python
-- Games
-- Cheat
+category: Cyberculture
+tags: Python, Games, Cheat
 featured_image: logos/cookie-clicker.png
 ---
 

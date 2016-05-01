@@ -3,13 +3,8 @@ layout: post
 title: Linux Scheduler
 author: Martin Thoma
 date: 2012-11-26 23:25:15.000000000 +01:00
-categories:
-- German posts
-tags:
-- Linux
-- OS
-- Operating Systems
-- Scheduler
+category: German posts
+tags: Linux, OS, Operating Systems, Scheduler
 featured_image: 2012/11/scheduler.png
 ---
 <div class="info">Der folgende Text wurde von <a href="http://klammler.eu/">Moritz Klammler</a>, einem Informatik-Studenten am KIT, als E-Mail an die interne Mailingliste der Vorlesung geschrieben. Ich habe nur ein paar Kleinigkeiten umformuliert und die Formattierung ge&auml;ndert.</div>

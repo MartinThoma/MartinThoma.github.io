@@ -3,14 +3,8 @@ layout: post
 title: Solving linear equations with Gaussian elimination
 author: Martin Thoma
 date: 2013-05-26 00:01:30.000000000 +02:00
-categories:
-- Code
-tags:
-- mathematics
-- Linear algebra
-- CPP
-- Python
-- PHP
+category: Code
+tags: mathematics, Linear algebra, CPP, Python, PHP
 featured_image: 2013/05/upper-triangular-matrix.png
 ---
 <div class="info">Please note that you should use LU-decomposition to solve linear equations. The following code produces valid solutions, but when your vector \\(b\\) changes you have to do all the work again. LU-decomposition is faster in those cases and not slower in case you don't have to solve equations with the same matrix twice.</div>

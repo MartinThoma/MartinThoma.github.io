@@ -3,11 +3,8 @@ layout: post
 title: How to solve linear congruence equations
 author: Martin Thoma
 date: 2013-09-01 17:43:49.000000000 +02:00
-categories:
-- Mathematics
-tags:
-- Python
-- mathematics
+category: Mathematics
+tags: Python, mathematics
 featured_image: 2013/08/algebra-thumb.jpg
 ---
 When you have a system of linear congruences like:

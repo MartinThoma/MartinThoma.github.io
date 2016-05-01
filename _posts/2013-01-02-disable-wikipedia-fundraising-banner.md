@@ -3,11 +3,8 @@ layout: post
 title: Disable Wikipedia fundraising banner
 author: Martin Thoma
 date: 2013-01-02 15:10:34.000000000 +01:00
-categories:
-- The Web
-tags:
-- Wikipedia
-- advertising
+category: The Web
+tags: Wikipedia, advertising
 featured_image: 2011/09/Wikipedia-logo.png
 ---
 I didn't spend this year for Wikipedia because of the advertising. It really got on my nerves:

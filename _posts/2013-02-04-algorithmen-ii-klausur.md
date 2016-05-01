@@ -3,10 +3,8 @@ layout: post
 title: Algorithmen II - Klausur
 author: Martin Thoma
 date: 2013-02-04 20:03:14.000000000 +01:00
-categories:
-- German posts
-tags:
-- Klausur
+category: German posts
+tags: Klausur
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesungen des Moduls &bdquo;Algorithmen II&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei Prof. Dr. Wagner gehört.</div>

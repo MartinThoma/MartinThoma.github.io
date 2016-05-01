@@ -3,12 +3,8 @@ layout: post
 title: Berechnung der euklidischen Normalform
 author: Martin Thoma
 date: 2012-09-10 07:57:50.000000000 +02:00
-categories:
-- German posts
-tags:
-- Linear algebra
-- Matrix
-- normal form
+category: German posts
+tags: Linear algebra, Matrix, normal form
 featured_image: 2012/09/math-euklidische-normalform1.png
 ---
 Die euklidische Normalform einer linearen Isometrie, manchmal auch lineare Normalform gennant, hat folgende Gestalt:

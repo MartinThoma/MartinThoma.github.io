@@ -3,13 +3,8 @@ layout: post
 title: Reference Management with JabRef
 author: Martin Thoma
 date: 2014-06-15 20:51
-categories:
-- Science
-tags:
-- Science
-- References
-- Software
-- LaTeX
+category: Science
+tags: Science, References, Software, LaTeX
 featured_image: logos/jabref.png
 ---
 

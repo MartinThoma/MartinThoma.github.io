@@ -3,10 +3,8 @@ layout: post
 title: Neil deGrasse Tyson
 author: Martin Thoma
 date: 2012-09-14 18:26:00.000000000 +02:00
-categories:
-- Cyberculture
-tags:
-- funny
+category: Cyberculture
+tags: funny
 featured_image: 2012/09/Neil_deGrasse_Tyson.jpg
 ---
 {% caption align="alignright" width="128" caption="Neil deGrasse Tyson" url="../images/2012/09/Neil_deGrasse_Tyson.jpg" alt="Neil deGrasse Tyson"  height="128" class="size-full wp-image-44861" %}

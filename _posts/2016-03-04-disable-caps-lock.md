@@ -4,8 +4,7 @@ title: Disable Caps Lock
 author: Martin Thoma
 date: 2016-03-04 10:59
 category: Cyberculture
-tags:
-- Ubuntu
+tags: Ubuntu
 featured_image: logos/caps-lock.png
 ---
 I've just hit caps lock accidentally. This key is so useless; I never ever

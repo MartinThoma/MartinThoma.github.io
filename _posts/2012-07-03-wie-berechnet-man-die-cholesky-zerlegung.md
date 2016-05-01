@@ -3,14 +3,8 @@ layout: post
 title: Wie berechnet man die Cholesky-Zerlegung?
 author: Martin Thoma
 date: 2012-07-03 19:09:22.000000000 +02:00
-categories:
-- German posts
-tags:
-- Python
-- Wolfram|Alpha
-- mathematics
-- Linear algebra
-- NumPy
+category: German posts
+tags: Python, Wolfram|Alpha, mathematics, Linear algebra, NumPy
 featured_image: 2012/01/vector-space.png
 ---
 Sei $A \in \mathbb{R}^{n \times n}$ eine symmetrische, positiv definite Matrix. Dann existiert eine Zerlegung $A = S \cdot D \cdot S^T$, wobei $S$ eine <a href="http://de.wikipedia.org/wiki/Dreiecksmatrix#Unipotente_Dreiecksmatrizen">unipotente Dreiecksmatrix</a> ist und D eine positiv definite Diagonalmatrix.

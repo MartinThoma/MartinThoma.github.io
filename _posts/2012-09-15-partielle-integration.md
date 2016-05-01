@@ -3,12 +3,8 @@ layout: post
 title: Partielle Integration
 author: Martin Thoma
 date: 2012-09-15 19:02:03.000000000 +02:00
-categories:
-- German posts
-tags:
-- mathematics
-- analysis
-- Integral calculus
+category: German posts
+tags: mathematics, analysis, Integral calculus
 featured_image: 2012/09/partielle-integration.png
 ---
 Die partielle Integration bietet eine sch&ouml;ne M&ouml;glichkeit, Stammfunktionen von Integralen zu bestimmen. Dazu muss man folgende Regel k&ouml;nnen:

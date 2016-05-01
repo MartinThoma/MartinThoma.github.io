@@ -3,11 +3,8 @@ layout: post
 title: Improvements for my University's Website
 author: Martin Thoma
 date: 2011-10-22 20:55:05.000000000 +02:00
-categories:
-- The Web
-tags:
-- Web Development
-- KIT
+category: The Web
+tags: Web Development, KIT
 featured_image: 2011/10/KIT-Logo.png
 ---
 I am now studying at the <a href="http://en.wikipedia.org/wiki/Karlsruhe_Institute_of_Technology">Karlsruhe Institute of Technology</a> (KIT). Although I think that the Websites of KIT is much better than the Website of most Universities,  I can imagine several possibilities how the online services could be improved:

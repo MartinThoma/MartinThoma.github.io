@@ -3,11 +3,8 @@ layout: post
 title: Beweise aus der booleschen Algebra
 author: Martin Thoma
 date: 2012-11-08 13:18:09.000000000 +01:00
-categories:
-- German posts
-tags:
-- mathematics
-- Boolean algebra
+category: German posts
+tags: mathematics, Boolean algebra
 ---
 ## Definition
 Edward Vermilye Huntington hat eine sehr kompakte Definition boolescher

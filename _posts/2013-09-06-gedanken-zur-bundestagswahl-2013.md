@@ -3,17 +3,8 @@ layout: post
 title: Gedanken zur Bundestagswahl 2013
 author: Martin Thoma
 date: 2013-09-06 11:54:58.000000000 +02:00
-categories:
-- German posts
-tags:
-- politics
-- SPD
-- CDU
-- CSU
-- Piratenpartei
-- LINKE
-- Grüne
-- FDP
+category: German posts
+tags: politics, SPD, CDU, CSU, Piratenpartei, LINKE, Grüne, FDP
 ---
 Am 22. September 2013 findet die Bundestagswahl 2013 statt. 
 

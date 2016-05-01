@@ -3,10 +3,8 @@ layout: post
 title: What can ArrayList / LinkedList do what List can't?
 author: Martin Thoma
 date: 2013-02-04 11:50:45.000000000 +01:00
-categories:
-- Code
-tags:
-- Java
+category: Code
+tags: Java
 featured_image: 2012/07/java-thumb.png
 ---
 I've told my students to write

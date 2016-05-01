@@ -3,11 +3,8 @@ layout: post
 title: Tribonacci-Folge
 author: Martin Thoma
 date: 2012-11-19 20:52:00.000000000 +01:00
-categories:
-- Code
-tags:
-- Programming
-- Java
+category: Code
+tags: Programming, Java
 ---
 Folgende Aufgabe gab es (sinngem&auml;&szlig;) f&uuml;r das Modul &bdquo;Programmieren&ldquo; im zweiten &Uuml;bungsblatt 2012:
 

@@ -3,14 +3,8 @@ layout: post
 title: Solving equations of lower unitriangular matrices
 author: Martin Thoma
 date: 2013-05-19 22:15:59.000000000 +02:00
-categories:
-- Code
-tags:
-- Python
-- mathematics
-- Matrix
-- systems of equations
-- numerics
+category: Code
+tags: Python, mathematics, Matrix, systems of equations, numerics
 featured_image: 2013/05/unipotent-lower-triangular-matrix.png
 ---
 Suppose you have an equation like $L \cdot x = b$ with $L \in \mathbb{R}^{n \times n}$ and $x,b \in \mathbb{R}^n$. $b$ and $L$ are given and you want to solve for $x$.

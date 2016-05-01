@@ -3,13 +3,8 @@ layout: post
 title: Generating many prime numbers
 author: Martin Thoma
 date: 2013-05-21 22:50:10.000000000 +02:00
-categories:
-- Cyberculture
-tags:
-- mathematics
-- Project Euler
-- CPP
-- prime number
+category: Cyberculture
+tags: mathematics, Project Euler, CPP, prime number
 featured_image: 2012/04/leonhard-euler.jpg
 ---
 Today, a fellow student claimed that it would take much time to check the first 1,000,000 numbers for primes. I claimed that it would be a matter of seconds to do so for the first 1,000,000,000 numbers.

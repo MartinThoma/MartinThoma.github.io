@@ -3,10 +3,8 @@ layout: post
 title: 7 mind-blowing artists you didn't know
 author: Martin Thoma
 date: 2012-02-23 19:56:14.000000000 +01:00
-categories:
-- My bits and bytes
-tags:
-- Art
+category: My bits and bytes
+tags: Art
 ---
 <h2>Anamorphic Art</h2>
 <a href="http://en.wikipedia.org/wiki/Anamorphosis">Anamorphosis</a> is a distorted projection or perspective requiring the viewer to use special devices or occupy a specific vantage point to reconstitute the image. 

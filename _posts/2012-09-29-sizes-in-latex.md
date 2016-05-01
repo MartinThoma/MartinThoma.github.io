@@ -3,11 +3,8 @@ layout: post
 title: Sizes in LaTeX
 author: Martin Thoma
 date: 2012-09-29 18:23:38.000000000 +02:00
-categories:
-- Code
-tags:
-- LaTeX
-- Tikz
+category: Code
+tags: LaTeX, Tikz
 featured_image: 2012/09/tikz-sizes-thumb.png
 ---
 Here is an overview of sizes in LaTeX:

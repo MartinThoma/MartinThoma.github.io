@@ -3,12 +3,8 @@ layout: post
 title: Sichtweite des Burdsch Chalifa
 author: Martin Thoma
 date: 2012-08-12 13:37:17.000000000 +02:00
-categories:
-- German posts
-tags:
-- mathematics
-- Physics
-- Geometry
+category: German posts
+tags: mathematics, Physics, Geometry
 featured_image: 2012/08/skizze-math-thumb.png
 ---
 <h2>Aufgabenstellung</h2>

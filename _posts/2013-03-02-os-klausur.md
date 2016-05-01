@@ -3,10 +3,8 @@ layout: post
 title: Betriebssysteme Klausur
 author: Martin Thoma
 date: 2013-03-02 19:06:15.000000000 +01:00
-categories:
-- German posts
-tags:
-- Klausur
+category: German posts
+tags: Klausur
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesungen des Moduls &bdquo;Betriebssysteme&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei Prof. Dr. Bellosa und sp&auml;ter bei Prof. Dr. Beigl geh&ouml;rt.</div>

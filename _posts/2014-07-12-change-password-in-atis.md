@@ -3,14 +3,8 @@ layout: post
 title: Change password in ATIS
 author: Martin Thoma
 date: 2014-07-12 17:24
-categories:
-- My bits and bytes
-tags:
-- ATIS
-- Linux
-- bug
-- SSH
-- KIT
+category: My bits and bytes
+tags: ATIS, Linux, bug, SSH, KIT
 featured_image: logos/atis.png
 ---
 

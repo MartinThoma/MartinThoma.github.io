@@ -3,12 +3,8 @@ layout: post
 title: If Computer Problems Were Real
 author: Martin Thoma
 date: 2011-09-30 13:39:27.000000000 +02:00
-categories:
-- Cyberculture
-tags:
-- funny
-- Video
-- YouTube
+category: Cyberculture
+tags: funny, Video, YouTube
 featured_image: 2011/09/LOL-cup.jpg
 ---
 Before the computer ...

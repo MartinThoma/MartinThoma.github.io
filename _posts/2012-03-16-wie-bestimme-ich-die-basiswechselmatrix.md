@@ -3,12 +3,8 @@ layout: post
 title: Wie bestimme ich die Basiswechselmatrix?
 author: Martin Thoma
 date: 2012-03-16 17:06:11.000000000 +01:00
-categories:
-- German posts
-tags:
-- mathematics
-- Linear algebra
-- Matrix
+category: German posts
+tags: mathematics, Linear algebra, Matrix
 featured_image: 2012/03/Basiswechselmatrix.png
 ---
 Eine Basiswechselmatrix oder auch Übergangsmatrix dient dem Basiswechsel.

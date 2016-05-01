@@ -3,10 +3,8 @@ layout: post
 title: Reading and Writing Files with Python
 author: Martin Thoma
 date: 2015-02-12 22:11
-categories:
-- Code
-tags:
-- Python
+category: Code
+tags: Python
 featured_image: logos/python.png
 ---
 Reading (and writing) files with Python is very easy. Here are some

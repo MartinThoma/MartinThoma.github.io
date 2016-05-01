@@ -3,12 +3,8 @@ layout: post
 title: Web Engineering
 author: Martin Thoma
 date: 2013-01-03 13:57:06.000000000 +01:00
-categories:
-- The Web
-- German posts
-tags:
-- Web Development
-- Klausur
+category: German posts
+tags: Web Development, Klausur
 featured_image: 2012/07/web-graph-thumb.jpg
 ---
 <div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesung &bdquo;Web Engineering&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe Web Engineering bei Dr. Nussbaumer geh&ouml;rt.</div>

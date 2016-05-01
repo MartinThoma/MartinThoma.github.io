@@ -3,10 +3,8 @@ layout: post
 title: One-on-One Tutoring
 author: Martin Thoma
 date: 2014-09-10 10:03
-categories:
-- My bits and bytes
-tags:
-- KIT
+category: My bits and bytes
+tags: KIT
 featured_image: logos/kit.png
 ---
 

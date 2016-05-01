@@ -3,11 +3,8 @@ layout: post
 title: Formale Systeme Klausur
 author: Martin Thoma
 date: 2014-11-16 17:05
-categories:
-- German posts
-tags:
-- Klausur
-- Formale Systeme
+category: German posts
+tags: Klausur, Formale Systeme
 featured_image: logos/klausur.png
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Formale Systeme&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr. Beckert im Wintersemester 2014/2015 gehört.</div>

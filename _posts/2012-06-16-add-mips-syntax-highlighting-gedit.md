@@ -3,11 +3,8 @@ layout: post
 title: Add MIPS syntax highlighting to gEdit
 author: Martin Thoma
 date: 2012-06-16 10:27:09.000000000 +02:00
-categories:
-- Code
-tags:
-- Assembly language
-- MIPS
+category: Code
+tags: Assembly language, MIPS
 featured_image: 2012/06/MIPS-Ingenic_JZ4730.jpg
 ---
 I have to code some little programs in MIPS assembly language for university. So I liked to have some syntax highlighting for my favorite editor: gEdit.

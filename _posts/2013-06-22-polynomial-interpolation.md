@@ -3,15 +3,8 @@ layout: post
 title: Polynomial interpolation
 author: Martin Thoma
 date: 2013-06-22 18:41:43.000000000 +02:00
-categories:
-- Code
-tags:
-- mathematics
-- numerical analysis
-- JavaScript
-- numerics
-- polynomial
-- canvas
+category: Code
+tags: mathematics, numerical analysis, JavaScript, numerics, polynomial, canvas
 featured_image: 2013/06/polynom.png
 ---
 Suppose you have a list of $n+1$ given point $(x_i, y_i)$ with $i \in \{0, \dots, n\}$ and $\forall i,j \in \{0, \dots, n\}: i \neq j \Rightarrow x_i \neq x_j$. 

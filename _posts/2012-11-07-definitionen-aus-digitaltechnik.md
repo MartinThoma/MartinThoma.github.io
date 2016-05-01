@@ -3,10 +3,8 @@ layout: post
 title: Definitionen aus Digitaltechnik
 author: Martin Thoma
 date: 2012-11-07 13:33:53.000000000 +01:00
-categories:
-- German posts
-tags:
-- Digitaltechnik
+category: German posts
+tags: Digitaltechnik
 ---
 <div class="info">Dieser Blogpost ist vor allem f&uuml;r H&ouml;rer von Prof. Dr. Asfour im WS 2012 / 2013 interessant. Ich h&ouml;re momentan die Vorlesung bei ihm. Deshalb sind die Inhalte teilweise identisch oder zumindest sehr &auml;hnlich.</div>
 

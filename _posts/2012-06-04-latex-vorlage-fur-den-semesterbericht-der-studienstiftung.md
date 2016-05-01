@@ -3,11 +3,8 @@ layout: post
 title: LaTeX-Vorlage für den Semesterbericht der Studienstiftung
 author: Martin Thoma
 date: 2012-06-04 07:31:36.000000000 +02:00
-categories:
-- German posts
-tags:
-- LaTeX
-- Studienstiftung
+category: German posts
+tags: LaTeX, Studienstiftung
 featured_image: 2012/06/Studienstiftung-Logo.png
 ---
 Stipendiaten der Studienstiftung des deutschen Volkes müssen jedes Semester einen Studienbericht schreiben.

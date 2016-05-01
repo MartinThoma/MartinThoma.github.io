@@ -3,10 +3,8 @@ layout: post
 title: Impact of SOPA protests
 author: Martin Thoma
 date: 2012-01-24 08:06:41.000000000 +01:00
-categories:
-- The Web
-tags:
-- SOPA
+category: The Web
+tags: SOPA
 ---
 It seems as if the SOPA protests were quite effective. 162 Millionen visitors of Wikipedia did see the message. <a href="http://www.facebook.com/zuck/posts/10100210345757211">Zuckerbergs Facebook post</a> got half a million Likes. Thousands bloggers downloaded protest plugins which blacked out their blog.
 

@@ -3,11 +3,8 @@ layout: post
 title: Increase the maximum file upload size in PHP
 author: Martin Thoma
 date: 2015-06-07 09:13
-categories:
-- Cyberculture
-tags:
-- PHP
-- apache
+category: Cyberculture
+tags: PHP, apache
 featured_image: logos/php.png
 ---
 

@@ -3,11 +3,8 @@ layout: post
 title: Einf&uuml;hrung in die abz&auml;hlende Kombinatorik
 author: Martin Thoma
 date: 2011-10-24 20:53:41.000000000 +02:00
-categories:
-- German posts
-tags:
-- mathematics
-- lecture-notes
+category: German posts
+tags: mathematics, lecture-notes
 featured_image: 2011/10/eulers-formula.png
 ---
 Die abz&auml;hlende Kombinatorik besch&auml;ftigt sich mit der Bestimmung der Anzahl m&ouml;glicher Anordnungen oder Auswahlen.

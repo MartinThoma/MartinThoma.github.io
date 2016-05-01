@@ -4,10 +4,7 @@ title: Talking with Daemons
 author: Martin Thoma
 date: 2016-04-27 23:26
 category: Programming
-tags:
-- Python
-- RPC
-- daemon
+tags: Python, RPC, daemon
 featured_image: logos/daemon.png
 ---
 Everybody knows that training big machine learning models takes a lot of

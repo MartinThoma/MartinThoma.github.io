@@ -3,11 +3,8 @@ layout: post
 title: Vertex coloring
 author: Martin Thoma
 date: 2014-12-30 21:29
-categories: 
-- My bits and bytes
-tags: 
-- graph theory
-- IT-Security
+category: My bits and bytes
+tags: graph theory, IT-Security
 featured_image: 2013/06/three-color-example-graph.png
 ---
 

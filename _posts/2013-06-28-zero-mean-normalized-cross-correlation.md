@@ -3,11 +3,8 @@ layout: post
 title: Zero Mean Normalized Cross-Correlation
 author: Martin Thoma
 date: 2013-06-28 22:15:45.000000000 +02:00
-categories:
-- Code
-- The Web
-tags:
-- KogSys
+category: Code
+tags: KogSys
 featured_image: 2013/06/image-correlation.png
 ---
 {% caption align="alignright" width="128" caption="An image from Tsukuba University. This is one of hundreds of images that you can use to test your algorithms. Link is below." url="../images/2013/06/image-correlation.png" alt="Image correlation test image"  height="128" class="size-full wp-image-71931" %}

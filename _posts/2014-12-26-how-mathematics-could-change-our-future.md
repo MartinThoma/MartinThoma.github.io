@@ -3,12 +3,8 @@ layout: post
 title: How mathematics could change our future
 author: Martin Thoma
 date: 2014-12-26 00:56
-categories: 
-- Cyberculture
-tags: 
-- Mathematics
-- AI
-- algorithms
+category: Cyberculture
+tags: Mathematics, AI, algorithms
 featured_image: logos/ai.png
 ---
 

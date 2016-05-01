@@ -3,11 +3,8 @@ layout: post
 title: The Impact of strong AIs
 author: Martin Thoma
 date: 2014-12-02 15:18
-categories:
-- Cyberculture
-tags:
-- AI
-- Politics
+category: Cyberculture
+tags: AI, Politics
 featured_image: logos/ai.png
 ---
 

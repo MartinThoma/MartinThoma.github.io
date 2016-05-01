@@ -3,12 +3,8 @@ layout: post
 title: Rename Script
 author: Martin Thoma
 date: 2015-09-16 16:15
-categories:
-- Cyberculture
-tags:
-- File
-- Rename
-- Python
+category: Cyberculture
+tags: File, Rename, Python
 featured_image: logos/python.png
 ---
 Once in a while I have to bulk rename files. For example, when I have holiday

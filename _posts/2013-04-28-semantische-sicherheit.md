@@ -3,11 +3,8 @@ layout: post
 title: Semantische Sicherheit
 author: Martin Thoma
 date: 2013-04-28 15:06:53.000000000 +02:00
-categories:
-- German posts
-tags:
-- IT-Security
-- Theoretical computer science
+category: German posts
+tags: IT-Security, Theoretical computer science
 featured_image: 2013/04/cryptography-thumb.png
 ---
 In der <a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL03.pdf">Vorlesung vom 25.04.2013</a> hat Prof. Hofheinz gesagt, dass man semantische Sicherheit praktisch nicht beweisen kann, da man zuerst <span markdown="0">\(\mathcal{P} \neq \mathcal{NP}\)</span> beweisen müsste. Warum das so ist, versuche ich nun zu erläutern.

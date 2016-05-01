@@ -3,13 +3,8 @@ layout: post
 title: ! 'Project Euler: Problem 35'
 author: Martin Thoma
 date: 2012-11-17 13:23:01.000000000 +01:00
-categories:
-- Code
-tags:
-- Programming
-- Python
-- Challenge
-- Project Euler
+category: Code
+tags: Programming, Python, Challenge, Project Euler
 featured_image: 2012/04/leonhard-euler.jpg
 ---
 The task in <a href="http://projecteuler.net/problem=35">Problem 35</a> of Project Euler is:

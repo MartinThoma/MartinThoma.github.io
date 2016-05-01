@@ -3,10 +3,8 @@ layout: post
 title: KV-Diagramme
 author: Martin Thoma
 date: 2013-03-25 23:37:00.000000000 +01:00
-categories:
-- German posts
-tags:
-- Digitaltechnik
+category: German posts
+tags: Digitaltechnik
 featured_image: 2013/03/karnaugh-map-300x300.png
 ---
 <div class="info">Ich setze im Folgenden vorraus, dass man schon mal was von KV-Diagrammen geh&ouml;rt hat und vielleicht schon ein paar gezeichnet hat. Insbesondere erkl&auml;re ich nicht wie man aus dem KV-Diagramm der Gr&ouml;&szlig;e 16 eines der Gr&ouml;&szlig;e 32 bekomt und was die Beschriftung bedeutet.</div>

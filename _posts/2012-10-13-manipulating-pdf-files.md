@@ -3,11 +3,8 @@ layout: post
 title: Manipulating PDF files
 author: Martin Thoma
 date: 2012-10-13 10:24:01.000000000 +02:00
-categories:
-- Cyberculture
-tags:
-- PDF
-- pdftk
+category: Cyberculture
+tags: PDF, pdftk
 featured_image: 2012/10/pdf-icon.png
 ---
 I just wanted to get some pages out of a bigger PDF file. The tool that can be used for this task is called <code>pdftk</code>. It is in the standard Ubuntu repsitory.

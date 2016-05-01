@@ -3,11 +3,8 @@ layout: post
 title: Software Licenses
 author: Martin Thoma
 date: 2013-01-26 09:59:46.000000000 +01:00
-categories:
-- Code
-tags:
-- OpenSource
-- license
+category: Code
+tags: OpenSource, license
 featured_image: 2013/01/TLDRLegal-thumb.png
 ---
 Do you know the difference between MIT-license and BSD license? I don't. And I don't want to read the <a href="http://en.wikipedia.org/wiki/MIT_License">MIT license</a>, although it is very short. And I definitely don't want to read the <a href="http://directory.fsf.org/wiki/License:Apache2.0">Apache 2.0 license</a>.

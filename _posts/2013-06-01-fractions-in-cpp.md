@@ -3,10 +3,8 @@ layout: post
 title: Fractions in C++
 author: Martin Thoma
 date: 2013-06-01 12:00:34.000000000 +02:00
-categories:
-- Code
-tags:
-- CPP
+category: Code
+tags: CPP
 featured_image: 2012/05/CPP-thumb.png
 ---
 Today, I thought I should try to implement a class in C++ that deals with fractions. This is actually quite easy as I'll show you.

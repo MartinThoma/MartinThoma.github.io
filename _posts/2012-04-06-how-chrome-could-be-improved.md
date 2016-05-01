@@ -3,11 +3,8 @@ layout: post
 title: How Chrome could be improved
 author: Martin Thoma
 date: 2012-04-06 14:19:31.000000000 +02:00
-categories:
-- The Web
-tags:
-- Browser
-- Chrome
+category: The Web
+tags: Browser, Chrome
 featured_image: 2012/04/google-chrome-logo.png
 ---
 Google Chrome is the browser of my choice. It is fast, has developer tools and looks great. But it could be improved. I'll describe some features I miss.

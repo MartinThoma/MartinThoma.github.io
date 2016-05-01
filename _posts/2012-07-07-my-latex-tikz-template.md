@@ -3,11 +3,8 @@ layout: post
 title: My LaTeX Tikz Template
 author: Martin Thoma
 date: 2012-07-07 17:38:13.000000000 +02:00
-categories:
-- Code
-tags:
-- LaTeX
-- Tikz
+category: Code
+tags: LaTeX, Tikz
 featured_image: 2012/01/latex-logo.png
 ---
 Sometimes I would like to create a single picture with Tikz for later usage on Wikipedia or my Blog. This is my LaTeX Tikz template I use in such a situation:

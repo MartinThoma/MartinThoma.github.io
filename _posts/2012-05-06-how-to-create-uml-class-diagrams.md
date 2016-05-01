@@ -3,13 +3,8 @@ layout: post
 title: How to create UML class diagrams
 author: Martin Thoma
 date: 2012-05-06 20:38:01.000000000 +02:00
-categories:
-- My bits and bytes
-tags:
-- LaTeX
-- MetaUML
-- UML
-- Dia
+category: My bits and bytes
+tags: LaTeX, MetaUML, UML, Dia
 featured_image: 2012/05/UML-thumb.png
 ---
 <h2>Dia</h2>

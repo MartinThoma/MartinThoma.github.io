@@ -3,11 +3,8 @@ layout: post
 title: Entwurfsmuster-Beispiele
 author: Martin Thoma
 date: 2012-08-11 17:00:03.000000000 +02:00
-categories:
-- German posts
-tags:
-- SWT I
-- Design Pattern
+category: German posts
+tags: SWT I, Design Pattern
 featured_image: 2012/05/UML-thumb.png
 ---
 <h2>Singleton</h2>

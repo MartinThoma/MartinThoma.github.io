@@ -3,11 +3,8 @@ layout: post
 title: Wie bestimme ich den Kern einer linearen Abbildung?
 author: Martin Thoma
 date: 2012-08-16 15:54:15.000000000 +02:00
-categories:
-- German posts
-tags:
-- mathematics
-- Linear algebra
+category: German posts
+tags: mathematics, Linear algebra
 featured_image: 2012/03/Matrix-Inverses.png
 ---
 <h2>Definition</h2>

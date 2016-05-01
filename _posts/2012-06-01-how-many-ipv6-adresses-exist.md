@@ -3,10 +3,8 @@ layout: post
 title: How many IPv6 adresses exist?
 author: Martin Thoma
 date: 2012-06-01 18:43:22.000000000 +02:00
-categories:
-- The Web
-tags:
-- Numbers
+category: The Web
+tags: Numbers
 ---
 <h2>Some general information</h2>
 <iframe width="512" height="288" src="http://www.youtube.com/embed/-Uwjt32NvVA" frameborder="0" allowfullscreen></iframe>

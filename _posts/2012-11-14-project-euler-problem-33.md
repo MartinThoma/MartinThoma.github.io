@@ -3,13 +3,8 @@ layout: post
 title: ! 'Project Euler: Problem 33'
 author: Martin Thoma
 date: 2012-11-14 15:43:35.000000000 +01:00
-categories:
-- Code
-tags:
-- Programming
-- Python
-- Challenge
-- Project Euler
+category: Code
+tags: Programming, Python, Challenge, Project Euler
 featured_image: 2012/04/leonhard-euler.jpg
 ---
 The task in <a href="http://projecteuler.net/problem=33">Problem 33</a> of Project Euler is:

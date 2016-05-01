@@ -3,12 +3,8 @@ layout: post
 title: Vectors in C++
 author: Martin Thoma
 date: 2012-05-28 12:40:52.000000000 +02:00
-categories:
-- Code
-tags:
-- CPP
-- STL
-- Vector
+category: Code
+tags: CPP, STL, Vector
 featured_image: 2012/05/CPP-thumb.png
 ---
 <h2>Minimal Example</h2>

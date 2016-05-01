@@ -3,11 +3,8 @@ layout: post
 title: Unreal Tournament 2004
 author: Martin Thoma
 date: 2012-12-31 13:49:40.000000000 +01:00
-categories:
-- Cyberculture
-tags:
-- Unreal Tournament
-- Games
+category: Cyberculture
+tags: Unreal Tournament, Games
 featured_image: 2012/12/ut2004-logo.png
 ---
 I am currently at home and I found <a href="http://en.wikipedia.org/wiki/Unreal_Tournament_2004">Unreal Tournament 2004</a> in my old stuff. Of course, I had to play it again ☺

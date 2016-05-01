@@ -3,11 +3,8 @@ layout: post
 title: Wie wendet man den Transformationssatz an?
 author: Martin Thoma
 date: 2012-12-22 22:43:11.000000000 +01:00
-categories:
-- Cyberculture
-tags:
-- mathematics
-- analysis
+category: Cyberculture
+tags: mathematics, analysis
 featured_image: 2012/12/transformationssatz-thumb.png
 ---
 <div class="info">Folgender Artikel basiert auf meinem Mitschrieb der Analysis III &Uuml;bung bei Herrn Bolleyer.</div>

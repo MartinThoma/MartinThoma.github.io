@@ -3,11 +3,8 @@ layout: post
 title: Python and CSV
 author: Martin Thoma
 date: 2015-02-08 12:48
-categories: 
-- Code
-tags: 
-- Python
-- CSV
+category: Code
+tags: Python, CSV
 featured_image: logos/python.png
 ---
 Python has a very nice module called

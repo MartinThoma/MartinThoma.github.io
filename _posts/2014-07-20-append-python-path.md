@@ -3,11 +3,8 @@ layout: post
 title: Append Python PATH
 author: Martin Thoma
 date: 2014-07-20 14:04
-categories:
-- Code
-tags:
-- Python
-- PATH
+category: Code
+tags: Python, PATH
 featured_image: logos/python.png
 ---
 

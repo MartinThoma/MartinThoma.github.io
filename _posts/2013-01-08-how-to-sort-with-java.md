@@ -3,12 +3,8 @@ layout: post
 title: How to sort with Java
 author: Martin Thoma
 date: 2013-01-08 21:49:47.000000000 +01:00
-categories:
-- Code
-tags:
-- Programming
-- Java
-- sorting
+category: Code
+tags: Programming, Java, sorting
 featured_image: 2012/07/java-thumb.png
 ---
 Sorting is a very basic task that every programmer should be able to solve. In Python, you have sort and sorted. In C++, you can use <a href="../cpp-operator-overloading/#Sorting">operator overloading</a>. I'll now tell you how to do basic sorting with Java. I will not write about <a href="http://www.codinghorror.com/blog/2007/12/sorting-for-humans-natural-sort-order.html">natural language sorting</a> or language-aware sorting. This is only about simple sorting with Java.

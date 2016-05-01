@@ -3,10 +3,8 @@ layout: post
 title: Famous Software Bugs
 author: Martin Thoma
 date: 2014-12-29 20:32
-categories: 
-- Cyberculture
-tags:
-- bug
+category: Cyberculture
+tags: bug
 featured_image: 2012/06/mars-climate-orbiter.jpg
 ---
 

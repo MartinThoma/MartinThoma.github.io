@@ -3,14 +3,8 @@ layout: post
 title: Eigenwerte, Eigenvektoren und Eigenr&auml;ume
 author: Martin Thoma
 date: 2012-04-16 08:15:32.000000000 +02:00
-categories:
-- German posts
-tags:
-- Linear algebra
-- Eigenwert
-- Eigenvektor
-- Eigenraum
-- Eigenwertproblem
+category: German posts
+tags: Linear algebra, Eigenwert, Eigenvektor, Eigenraum, Eigenwertproblem
 featured_image: 2012/01/vector-space.png
 ---
 <strong>Eigenwerte</strong> sind Elemente des K&ouml;rpers $\mathbb{K}$ zu einem Endomorphismus $\Phi:V \rightarrow V$, die folgende Eigenschaft erf&uuml;llen:

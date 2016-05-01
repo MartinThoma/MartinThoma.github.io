@@ -4,10 +4,7 @@ title: Comparing Classifiers
 author: Martin Thoma
 date: 2016-01-19 20:13
 category: Machine Learning
-tags:
-- Python
-- Machine Learning
-- Classification
+tags: Python, Machine Learning, Classification
 featured_image: logos/ml.png
 ---
 Classification problems occur quite often and many different classification

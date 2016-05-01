@@ -3,11 +3,8 @@ layout: post
 title: HTML5 Template
 author: Martin Thoma
 date: 2014-05-03 20:43
-categories:
-- Code
-tags:
-- HTML5
-- Sublime
+category: Code
+tags: HTML5, Sublime
 featured_image: logos/html.png
 ---
 

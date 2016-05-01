@@ -3,11 +3,8 @@ layout: post
 title: SWT I Klausur
 author: Martin Thoma
 date: 2012-08-02 20:16:12.000000000 +02:00
-categories:
-- German posts
-tags:
-- SWT I
-- Klausur
+category: German posts
+tags: SWT I, Klausur
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 F&uuml;r die Klausur in Softwaretechnik I 2012 bei Herrn Prof. Dr. Tichy sollte man Folgendes auf jeden Fall wissen:

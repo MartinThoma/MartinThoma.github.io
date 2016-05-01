@@ -3,10 +3,8 @@ layout: post
 title: ! 'Mathe-Aufgabe: Blutspende'
 author: Martin Thoma
 date: 2012-08-14 17:00:16.000000000 +02:00
-categories:
-- German posts
-tags:
-- mathematics
+category: German posts
+tags: mathematics
 featured_image: 2012/08/blood.png
 ---
 <h2>Aufgabenstellung</h2>

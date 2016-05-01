@@ -3,15 +3,8 @@ layout: post
 title: Cyclic references kill Nautilus
 author: Martin Thoma
 date: 2013-01-20 21:46:34.000000000 +01:00
-categories:
-- Code
-- Cyberculture
-tags:
-- OS
-- Operating Systems
-- GNOME
-- file manager
-- Bug
+category: Code
+tags: OS, Operating Systems, GNOME, file manager, Bug
 featured_image: 2013/01/Nautilus.png
 ---
 I just wanted to answer an assignment and noticed that cyclic references kill Nautilus.

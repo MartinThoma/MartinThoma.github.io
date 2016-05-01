@@ -3,10 +3,8 @@ layout: post
 title: Gau&szlig;'sche Zahlen und verwandte Ringe
 author: Martin Thoma
 date: 2013-09-04 09:16:41.000000000 +02:00
-categories:
-- Mathematics
-tags:
-- Algebra
+category: Mathematics
+tags: Algebra
 featured_image: 2013/08/algebra-thumb.jpg
 ---
 Sei $\mathbb{Z}[\sqrt{z}]$ mit $z \in \mathbb{Z}$ der kleinste Ring, der $\mathbb{Z}$ und $\sqrt{z}$ enthält.

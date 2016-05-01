@@ -3,11 +3,8 @@ layout: post
 title: Balanzan Theme
 author: Martin Thoma
 date: 2012-10-09 18:20:35.000000000 +02:00
-categories:
-- Cyberculture
-tags:
-- Ubuntu
-- Theme
+category: Cyberculture
+tags: Ubuntu, Theme
 featured_image: 2012/10/balazan-thumb.png
 ---
 I don't understand why all desktop environment seem to lack a good theme chooser/editor and good themes. I have one favorite theme - called "<a href="http://www.bisigi-project.org/?p=28&lang=en">Balanzan Theme</a>" which should be available in every distribution. The Balanzan Theme is part of the <a href="http://www.bisigi-project.org/?lang=en">bisigi-project</a>. According to <a href="https://launchpad.net/~bisigi/+archive/ppa/+files/balanzan-theme_1.8.1.natty.ppa1.tar.gz">the package</a>, it is licensed under GPL. So I think I can upload some of its content here.

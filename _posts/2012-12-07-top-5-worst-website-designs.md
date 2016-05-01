@@ -3,11 +3,8 @@ layout: post
 title: ! 'TOP 5: Worst Website Designs'
 author: Martin Thoma
 date: 2012-12-07 08:27:28.000000000 +01:00
-categories:
-- The Web
-tags:
-- Design
-- TOP
+category: The Web
+tags: Design, TOP
 featured_image: 2012/12/dokimos-thumb.png
 ---
 Here are some screenshots of the worst websites I have ever seen. Most of them use too many colors, something moves or the background is black. One uses frames.

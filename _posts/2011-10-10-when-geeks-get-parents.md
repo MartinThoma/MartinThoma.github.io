@@ -3,11 +3,8 @@ layout: post
 title: When Geeks get Parents
 author: Martin Thoma
 date: 2011-10-10 07:54:07.000000000 +02:00
-categories:
-- The Web
-tags:
-- Geek
-- Funny
+category: The Web
+tags: Geek, Funny
 featured_image: 2011/10/baby-ogre-thumb.jpg
 ---
 It's so funny what happens when Geeks get parents. 

@@ -3,10 +3,8 @@ layout: post
 title: URL shortener
 author: Martin Thoma
 date: 2012-04-16 15:12:57.000000000 +02:00
-categories:
-- The Web
-tags:
-- Web Service
+category: The Web
+tags: Web Service
 ---
 URL shortening services are Websites, which offer redirections from one of
 their pages with short URLs to your page (with a long URL). URL shortening

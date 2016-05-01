@@ -3,11 +3,8 @@ layout: post
 title: ! 'Tricks with .htaccess '
 author: Martin Thoma
 date: 2011-09-21 22:02:59.000000000 +02:00
-categories:
-- Code
-tags:
-- htaccess
-- Apache
+category: Code
+tags: htaccess, Apache
 featured_image: 2011/09/Apache-Logo.png
 ---
 If your Website is running on an Apache2 Webserver, you can change the behavior of this server with .htaccess-files. 

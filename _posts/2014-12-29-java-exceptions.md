@@ -3,11 +3,8 @@ layout: post
 title: Java Exceptions
 author: Martin Thoma
 date: 2014-12-29 20:39
-categories: 
-- Code
-tags: 
-- Exception
-- Java
+category: Code
+tags: Exception, Java
 featured_image: logos/java-programming.png
 ---
 
