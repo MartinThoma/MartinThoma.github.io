@@ -30,7 +30,8 @@ featured_image: 2012/04/code-jam-logo.png
 More information are on <a href="http://www.go-hero.net/jam/13/round/2">go-hero.net</a>.
 
 <h2>Osmos</h2>
-{% highlight python %}
+
+```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
@@ -73,7 +74,8 @@ if __name__ == "__main__":
         if solution > N:
             solution = N
         print("Case #%i: %s" % (caseNr, solution))
-{% endhighlight %}
+```
+
 
 <h2>Falling Diamonds</h2>
 Oncee you've read the task, you should understand some very basic ideas:
@@ -95,7 +97,8 @@ What I've forgot: You should also catch the case that you can fill up the next b
 
 The rest is simple math. You have $rest$ diamonds left after you've build the base (yellow). Then you need $y+1$ diamonds slide to the right side. The probability that you have exactly $k$ hits while making $N$ tries with a probability of 50% is $\binom{N}{k} \cdot (\frac{1}{2})^N$. You want at least $k$ hits, so you want $\sum_{i=k}^N \binom{N}{i} \cdot (\frac{1}{2})^N$.
 
-{% highlight python %}
+
+```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
@@ -153,4 +156,5 @@ if __name__ == "__main__":
     for caseNr in xrange(1, testcases+1):
         N, x, y = map(int,raw_input().split(" "))
         print("Case #%i: %.9Lf" % (caseNr, solve(N, abs(x), y)))
-{% endhighlight %}
+```
+
