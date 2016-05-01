@@ -78,11 +78,11 @@ if __name__ == "__main__":
 
 
 <h2>Falling Diamonds</h2>
-Oncee you've read the task, you should understand some very basic ideas:
+Once you've read the task, you should understand some very basic ideas:
 
 <ul>
-  <li>First of all, diamonds only fall at $x=0$!</li>
-  <li>If your target coordinates are $(x,y)$, you have the same output as for $(-x,y)$, as everything is symmetric.</li>
+  <li>First of all, diamonds only fall at $x=0$ !</li>
+  <li>If your target coordinates are $(x,y)$ , you have the same output as for $(-x,y)$ , as everything is symmetric.</li>
   <li>You have to get a basis for your diamonds pyramid. I've colored the basis in yellow in the images below.</li>
   <li>When your target is above the ground, you can let the diamond slide down to calculate the size of the basis.</li>
 </ul>
@@ -108,12 +108,12 @@ import gmpy
 def binomial(n, k):
     return gmpy.comb(n,k)
 
-""" 
+def solve(N, x, y):
+    """
     @param N: Number of diamonds
     @param x,y: Target coordinate
-    @return: possiblity, that a diamond will be at coordinate (x,y) 
-"""
-def solve(N, x, y):
+    @return: possiblity, that a diamond will be at coordinate (x,y)
+    """
     if x == 0:
         n = y+1
         if N >= (n*n+n)/2:
