@@ -3,11 +3,8 @@ layout: post
 title: Introduction to Octave
 author: Martin Thoma
 date: 2014-07-18 17:40
-categories:
-- Code
-tags:
-- Octave
-- ML
+category: Code
+tags: Octave, ML
 featured_image: logos/octave.png
 ---
 

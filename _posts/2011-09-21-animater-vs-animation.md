@@ -3,13 +3,8 @@ layout: post
 title: Animater vs. Animation
 author: Martin Thoma
 date: 2011-09-21 19:56:55.000000000 +02:00
-categories:
-- Cyberculture
-tags:
-- funny
-- Video
-- Deviantart
-- YouTube
+category: Cyberculture
+tags: funny, Video, Deviantart, YouTube
 featured_image: 2011/09/Animator-vs-Animation.png
 ---
 An animator faces his own animation in deadly combat. The battlefield? The Flash interface itself.

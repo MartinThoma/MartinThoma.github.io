@@ -3,15 +3,8 @@ layout: post
 title: Funny Commercials
 author: Martin Thoma
 date: 2011-09-21 22:24:17.000000000 +02:00
-categories:
-- The Web
-tags:
-- funny
-- Video
-- YouTube
-- advertising
-- commercial
-- Vimeo
+category: The Web
+tags: funny, Video, YouTube, advertising, commercial, Vimeo
 featured_image: 2011/09/Nando-Commercial-300x300.png
 ---
 Those commercials are so funny! I have never seen commercials which are that funny in TV. Did you? Although I know some good IKEA commercials, I have never heard of most of the other companies.

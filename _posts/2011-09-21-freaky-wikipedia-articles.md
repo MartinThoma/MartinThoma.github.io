@@ -3,11 +3,8 @@ layout: post
 title: Freaky Wikipedia Articles
 author: Martin Thoma
 date: 2011-09-21 19:44:21.000000000 +02:00
-categories:
-- Cyberculture
-tags:
-- Wikipedia
-- funny
+category: Cyberculture
+tags: Wikipedia, funny
 featured_image: 2011/09/Wikipedia-logo.png
 ---
 Wikipedia has <a href="http://en.wikipedia.org/wiki/Special:Statistics" rel="nofollow">a lot of articles</a> (> 3.7 million). Sometimes, people have <a href="http://en.wikipedia.org/wiki/Wikipedia:Deleted_articles_with_freaky_titles" rel="nofollow">funny ideas for redirections / new articles</a>:
