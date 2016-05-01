@@ -116,11 +116,11 @@ def captiontag(filename):
     with open(filename) as f:
         content = f.read()
 
-    single_math = re.compile('\{% caption align="aligncenter" width="(.+?)" caption="(.+?)" url="(.+?)" alt="(.+?)" height="(.+?)" class="(.+?)" %\}')
-    content = single_math.sub(lambda m: """<figure class="{class}">
-            <a href="{url}"><img src="{url}" alt="{alt}" width="{width}" height="{height}"/></a>
+    captiontag = re.compile('\{% caption align="aligncenter"\s+width="(.+?)"\s+caption="(.+?)"\s+url="(.+?)"\s+alt="(.+?)"\s+height="(.+?)"\s+class="(.+?)" %\}')
+    content = captiontag.sub(lambda m: """<figure class="aligncenter">
+            <a href="{url}"><img src="{url}" alt="{alt}" style="max-width:{width}px;max-height:{height}px" class="{classl}"/></a>
             <figcaption class="text-center">{caption}</figcaption>
-        </figure>""".format(class=m.group(6),
+        </figure>""".format(classl=m.group(6),
                             url=m.group(3),
                             alt=m.group(4),
                             caption=m.group(2),
