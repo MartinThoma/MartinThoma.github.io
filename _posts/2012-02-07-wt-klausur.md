@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Wahrscheinlichkeitstheorie - Klausur
+title: Wahrscheinlichkeitstheorie - Klausur (Info)
 author: Martin Thoma
 date: 2012-02-07 16:29:52.000000000 +01:00
 categories:
