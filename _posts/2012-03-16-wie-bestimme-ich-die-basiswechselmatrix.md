@@ -9,7 +9,7 @@ featured_image: 2012/03/Basiswechselmatrix.png
 ---
 Eine Basiswechselmatrix oder auch Übergangsmatrix dient dem Basiswechsel.
 
-Angenommen man hat zwei Basen des <span markdown="0">\(\mathbb{R}^2\)</span>-Vektorraumes:
+Angenommen man hat zwei Basen des <span markdown="0">$\mathbb{R}^2$</span>-Vektorraumes:
 
 <div>\[B = \{\overbrace{\begin{pmatrix} 1 \\ 2 \end{pmatrix}}^{b_1}, \overbrace{\begin{pmatrix} 2 \\ 3 \end{pmatrix}}^{b_2} \}\]</div>
 
@@ -17,14 +17,14 @@ und
 
 <div>\[\bar B = \{\underbrace{\begin{pmatrix} 3 \\ 5 \end{pmatrix}}_{\bar b_1}, \underbrace{\begin{pmatrix} 8 \\ 13 \end{pmatrix}}_{\bar b_2} \}\]</div>
 
-Sei nun <span markdown="0">\(v := \begin{pmatrix} 1 \\ 1 \end{pmatrix}\)</span> ein Vektor zur Standardbasis.
-Da <span markdown="0">\(B\)</span> und <span markdown="0">\(\bar B\)</span> auch Basen des <span markdown="0">\(\mathbb{R}^2\)</span> sind, kann man v auch zu diesen Basen darstellen:
-<span markdown="0">\(\Theta_{B}(v) = \begin{pmatrix} -1 \\ 1 \end{pmatrix}\)</span> und
-<span markdown="0">\(\Theta_{\bar B}(v) = \begin{pmatrix} -5 \\ 2 \end{pmatrix}\)</span>
+Sei nun <span markdown="0">$v := \begin{pmatrix} 1 \\ 1 \end{pmatrix}$</span> ein Vektor zur Standardbasis.
+Da <span markdown="0">$B$</span> und <span markdown="0">$\bar B$</span> auch Basen des <span markdown="0">$\mathbb{R}^2$</span> sind, kann man v auch zu diesen Basen darstellen:
+<span markdown="0">$\Theta_{B}(v) = \begin{pmatrix} -1 \\ 1 \end{pmatrix}$</span> und
+<span markdown="0">$\Theta_{\bar B}(v) = \begin{pmatrix} -5 \\ 2 \end{pmatrix}$</span>
 
 Wie kann man nun diese neue Darstellung berechnen?
 Nun, wir bestimmen eine Matrix A für die gilt:
-<span markdown="0">\(A \cdot \Theta_B(v) = \Theta_{\bar B}(v) ~~~ \forall v \in \mathbb{R}^2\)</span>. Diese Matrix findet man, indem man beide geordneten Basen nebeneinander schreibt und die rechte Seite "durchgaußt":
+<span markdown="0">$A \cdot \Theta_B(v) = \Theta_{\bar B}(v) ~~~ \forall v \in \mathbb{R}^2$</span>. Diese Matrix findet man, indem man beide geordneten Basen nebeneinander schreibt und die rechte Seite "durchgaußt":
 
 <span markdown="0">\(\left( \begin{array}{c c | c c}
   1 & 2 & 3 &  8 \\
@@ -56,7 +56,7 @@ Nun, wir bestimmen eine Matrix A für die gilt:
   -1 & 1 & 0 &  1
 \end{array} \right)\)</span>
 
-Links steht die geordnete Basis B und rechts die geordnete Basis <span markdown="0">\(\bar B\)</span>, also (von \| nach) und rechts wendet man Gauß an.
+Links steht die geordnete Basis B und rechts die geordnete Basis <span markdown="0">$\bar B$</span>, also (von \| nach) und rechts wendet man Gauß an.
 
 Nun noch die Kontrolle, ob es stimmen kann:
 

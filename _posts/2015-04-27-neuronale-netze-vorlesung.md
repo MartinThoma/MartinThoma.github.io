@@ -47,7 +47,7 @@ featured_image: logos/klausur.png
 <tr>
     <td>13.05.2015</td>
     <td>Deep Learning</td>
-    <td>Momentum, Rprop, Newbob, L1/L2-Regularisierung (\(|w|\), \(w^2\)), weight decay</td>
+    <td>Momentum, Rprop, Newbob, L1/L2-Regularisierung ($|w|$, $w^2$), weight decay</td>
 </tr>
 <tr>
     <td>19.05.2015</td>
@@ -96,7 +96,7 @@ featured_image: logos/klausur.png
 
 <dl>
   <dt><a href="https://en.wikipedia.org/wiki/Bayes%27_rule"><dfn>Bayes-Rule</dfn></a></dt>
-  <dd>Given events \(A_1\), \(A_2\) and \(B\), Bayes' rule states that the conditional odds of \(A_1:A_2\) given \(B\) are equal to the marginal odds of \(A_1:A_2\) multiplied by the Bayes factor or likelihood ratio \(\Lambda\):
+  <dd>Given events $A_1$, $A_2$ and $B$, Bayes' rule states that the conditional odds of $A_1:A_2$ given $B$ are equal to the marginal odds of $A_1:A_2$ multiplied by the Bayes factor or likelihood ratio $\Lambda$:
 
 \[O(A_1:A_2|B) = \Lambda(A_1:A_2|B) \cdot O(A_1:A_2) ,\]
 
@@ -110,15 +110,15 @@ where
       Satz von Bayes unter der naiven Annahme der Unabhängigkeit der Features
       benutzt.</dd>
   <dt><dfn>Normalverteilung</dfn></dt>
-  <dd>Eine stetige Zufallsvariable \(X\) mit der Wahrscheinlichkeitsdichte
-      \(f\colon\mathbb{R}\to\mathbb{R}\), gegeben durch<br/>
-      \(f(x) = \frac {1}{\sigma\sqrt{2\pi}} e^{-\frac {1}{2} \left(\frac{x-\mu}{\sigma}\right)^2}\)<br/>
-      heißt \(\mathcal N\left(\mu, \sigma^2\right)\)-verteilt, normalverteilt
-      mit den Erwartungswert \(\mu\) und Varianz \(\sigma^2\).</dd>
+  <dd>Eine stetige Zufallsvariable $X$ mit der Wahrscheinlichkeitsdichte
+      $f\colon\mathbb{R}\to\mathbb{R}$, gegeben durch<br/>
+      $f(x) = \frac {1}{\sigma\sqrt{2\pi}} e^{-\frac {1}{2} \left(\frac{x-\mu}{\sigma}\right)^2}$<br/>
+      heißt $\mathcal N\left(\mu, \sigma^2\right)$-verteilt, normalverteilt
+      mit den Erwartungswert $\mu$ und Varianz $\sigma^2$.</dd>
   <dt><a href="https://de.wikipedia.org/wiki/Mehrdimensionale_Normalverteilung"><dfn>Multivariate Normalverteilung</dfn></a></dt>
-  <dd>Eine \(p\)-dimensionale reelle Zufallsvariable \(X\) ist normalverteilt
-      mit Erwartungswertvektor \(\mu\) und  (positiv definiter) Kovarianzmatrix
-      \(\Sigma\), wenn sie eine Dichtefunktion der Form
+  <dd>Eine $p$-dimensionale reelle Zufallsvariable $X$ ist normalverteilt
+      mit Erwartungswertvektor $\mu$ und  (positiv definiter) Kovarianzmatrix
+      $\Sigma$, wenn sie eine Dichtefunktion der Form
       \[f_X(x)=\frac{1}{ \sqrt{(2\pi)^p \det(\Sigma)} } \exp \left( -\frac{1}{2}(x-\mu)^{T}\Sigma^{-1}(x-\mu) \right)\]
 besitzt. Man schreibt
 \[X\sim \mathcal N_p(\mu, \Sigma).\]</dd>
@@ -127,20 +127,20 @@ besitzt. Man schreibt
       ausgeht heißt <i>Gauß'scher Klassifizierer</i>.</dd>
   <dt><a href="https://en.wikipedia.org/wiki/Principal_component_analysis" name="pca"><dfn>Principal Component Analysis</dfn></a> (<dfn>PCA</dfn>, <dfn>Hauptkomponentenanalyse</dfn>)</dt>
   <dd>Die Hauptkomponentenanalyse ist ein Verfahren zur
-      Dimensionalitätsreduktion von ungelabelten Daten im \(\mathbb{R}^n\).
+      Dimensionalitätsreduktion von ungelabelten Daten im $\mathbb{R}^n$.
       Sie projeziert die Daten auf diejenige Hyperebene im
-      \(\mathbb{R}^d\), die den durch die Projektion stattfindenden
+      $\mathbb{R}^d$, die den durch die Projektion stattfindenden
       Datenverlust minimal hält.
-      Dabei ist \(d \in 1, \dots, n\) beliebig wählbar.
+      Dabei ist $d \in 1, \dots, n$ beliebig wählbar.
 
-      Die Transformation der Daten \(X\) findet durch eine Matrixmultiplikation
-      \(Y = P \cdot X\) statt. Die Matrix \(P\) besteht aus den ersten \(d\)
-      Eigenvektoren der Kovarianzmatrix der Features \(X\):
+      Die Transformation der Daten $X$ findet durch eine Matrixmultiplikation
+      $Y = P \cdot X$ statt. Die Matrix $P$ besteht aus den ersten $d$
+      Eigenvektoren der Kovarianzmatrix der Features $X$:
 
-      \(P = (v_1, \dots, v_d)\) mit
-      \(\lambda_j v_j = C_X v_j\) für \(j=1,\dots,d\)
+      $P = (v_1, \dots, v_d)$ mit
+      $\lambda_j v_j = C_X v_j$ für $j=1,\dots,d$
 
-      Außerdem gilt: \(C_X = \frac{1}{n-1} X X^T\) </dd>
+      Außerdem gilt: $C_X = \frac{1}{n-1} X X^T$ </dd>
 </dl>
 
 ### V03: LVQ
@@ -160,32 +160,32 @@ Slide name: `V04_2015-04-28_Perceptron.pdf`
 <dl>
   <dt><dfn>McCulloch–Pitts (MCP) Neuron</dfn></dt>
   <dd>Ein MLP-Neuron is ein Algorithmus zur binären Klassifizierung. Er hat
-      \(m+1\), mit \(m \in \mathbb{N}_{> 0}\) inputs \(x_i \in \{0, 1\}\). Davon
+      $m+1$, mit $m \in \mathbb{N}_{> 0}$ inputs $x_i \in \{0, 1\}$. Davon
       ist der erste (nullte) Konstant gleich Eins und wird <i>Bias</i> genannt.
-      Jeder Input wird mit eingem Gewicht \(w_i \in \mathbb{R}\) multipliziert,
+      Jeder Input wird mit eingem Gewicht $w_i \in \mathbb{R}$ multipliziert,
       alle gewichteten Inputs werden addiert und schließlich wird die
       Stufenfunktion
-      \(\varphi(x) = \begin{cases}1 &\text{falls } x > 0\\0 &\text{sonst} \end{cases}\)
+      $\varphi(x) = \begin{cases}1 &\text{falls } x > 0\\0 &\text{sonst} \end{cases}$
       angewendet.
 
       Man lernt mit MCP Neuronen, indem man
       \[\Delta w = \eta \delta x\]
       \[w \gets w + \Delta w\]
-      berechnet, wobei \(\eta \in (0, 1)\) die Lernrate ist, \(x\) ein Trainingsdatum
-      und \(\delta = y_{\text{target}} - y\) die Abweichung vom gewünschten
+      berechnet, wobei $\eta \in (0, 1)$ die Lernrate ist, $x$ ein Trainingsdatum
+      und $\delta = y_{\text{target}} - y$ die Abweichung vom gewünschten
       Ergebnis ist. Diese Regel wird auch Perceptron Learning Rule genannt.
   </dd>
   <dt><dfn>Rosenblatt-Perzeptron</dfn></dt>
-  <dd>Wie das McCulloch–Pitts (MCP) Neuron, nur ist \(x_i \in \mathbb{R}\) und
+  <dd>Wie das McCulloch–Pitts (MCP) Neuron, nur ist $x_i \in \mathbb{R}$ und
       ein Lernalgorithmus ist gegeben. Dieser addiert den
-      \(\eta \in (0, 1)\) gewichteten, fehlklassifizierten Vektor auf die
-      Gewichte \(w_i\). \(\eta\) heißt die <i>Lernrate</i>.
+      $\eta \in (0, 1)$ gewichteten, fehlklassifizierten Vektor auf die
+      Gewichte $w_i$. $\eta$ heißt die <i>Lernrate</i>.
 
       Man lernt mit MCP Neuronen, indem man
       \[\Delta w = \eta \delta x\]
       \[w \gets w + \Delta w\]
-      berechnet, wobei \(\eta \in (0, 1)\) die Lernrate ist, \(x\) ein Trainingsdatum
-      und \(\delta = - \frac{\partial E}{\partial w}\) der Gradient auf der
+      berechnet, wobei $\eta \in (0, 1)$ die Lernrate ist, $x$ ein Trainingsdatum
+      und $\delta = - \frac{\partial E}{\partial w}$ der Gradient auf der
       Fehleroberfläche in Abhängigkeit von den Gewichten ist. Es wird also
       Gradient descent verwendet.
   </dd>
@@ -194,10 +194,10 @@ Slide name: `V04_2015-04-28_Perceptron.pdf`
       Gewichten, welche die wenigsten Beispiele falsch klassifiziert.
   </dd>
   <dt><dfn>Sigmoid-Funktion</dfn></dt>
-  <dd>\(\varphi(x) = \frac{1}{1+e^{-x}}\)</dd>
+  <dd>$\varphi(x) = \frac{1}{1+e^{-x}}$</dd>
   <dt><dfn>Softmax-Funktion</dfn></dt>
-  <dd>\(\varphi(a_i) = \frac{e^{a_i}}{\sum_{k} e^{a_k}}\) wobei \(a_i\) die
-      Aktivierung des \(i\)-ten Neurons der selben Schicht ist.</dd>
+  <dd>$\varphi(a_i) = \frac{e^{a_i}}{\sum_{k} e^{a_k}}$ wobei $a_i$ die
+      Aktivierung des $i$-ten Neurons der selben Schicht ist.</dd>
   <dt><dfn>Perzeptron</dfn> / <dfn>Logistic Neuron</dfn></dt>
   <dd><abbr title="Mean Squared Error">MSE</abbr> + Sigmoid activation function</dd>
 </dl>
@@ -221,11 +221,11 @@ Slide name: `V05_2015-04-29_Features.pdf`
 
 <dl>
   <dt><dfn>Rectified Linear Unit</dfn> (<dfn>ReLU</dfn>)</dt>
-  <dd>\(\varphi(x) = \max(0, x)\)</dd>
+  <dd>$\varphi(x) = \max(0, x)$</dd>
   <dt><dfn>Leaky ReLU</dfn></dt>
-  <dd>\(\varphi(x) = \max(0.01x, x)\)</dd>
+  <dd>$\varphi(x) = \max(0.01x, x)$</dd>
   <dt><dfn>Softplus</dfn></dt>
-  <dd>\(\varphi(x) = \log(1 + e^x)\)</dd>
+  <dd>$\varphi(x) = \log(1 + e^x)$</dd>
   <dt><dfn>Feed Forward Neural Network</dfn></dt>
   <dd>A Feed Forward Neural Network is a learning algorithm which takes
       a fixed-size input feature vector, applies varous matrix multiplications
@@ -244,24 +244,24 @@ Slide name: `V05_2015-04-29_Features.pdf`
       </figure>
   </dd>
   <dt><a href="https://de.wikipedia.org/wiki/Metrischer_Raum#Formale_Definition"><dfn>Metrik</dfn></a></dt>
-  <dd>Sei \(X\) eine Menge und \(d:X \times X \rightarrow \mathbb{R}\) eine
-      Abbildung. \(d\) heißt Metrik auf \(X\), wenn gilt:
+  <dd>Sei $X$ eine Menge und $d:X \times X \rightarrow \mathbb{R}$ eine
+      Abbildung. $d$ heißt Metrik auf $X$, wenn gilt:
       <ul>
-          <li>\(d(x, y) = 0 \geq x=y \;\;\; \forall x, y \in X\)</li>
-          <li>\(d(x,y)=d(y,x)\)</li>
-          <li>\(d(x,y) \leq d(x,z) + d(z,y)\)</li>
+          <li>$d(x, y) = 0 \geq x=y \;\;\; \forall x, y \in X$</li>
+          <li>$d(x,y)=d(y,x)$</li>
+          <li>$d(x,y) \leq d(x,z) + d(z,y)$</li>
       </ul>
   </dd>
   <dt><a href="https://de.wikipedia.org/wiki/Jaccard-Koeffizient#Jaccard-Metrik"><dfn>Jaccard-Metrik</dfn></a></dt>
-  <dd>Es seien \(A, B\) Mengen und \(J(A, B) := \frac{|A \cup B| - |A \cap B|}{|A \cup B|}\).
-      Dann heißt \(J\) die Jaccard-Metrik.
+  <dd>Es seien $A, B$ Mengen und $J(A, B) := \frac{|A \cup B| - |A \cap B|}{|A \cup B|}$.
+      Dann heißt $J$ die Jaccard-Metrik.
   </dd>
   <dt><a href="https://de.wikipedia.org/wiki/Levenshtein-Distanz"><dfn>Levenshtein-Distanz</dfn></a></dt>
-  <dd>Es seien \(a, b\) Zeichenketten, \(|a|\) die Länge der Zeichenkette \(a\)
-      und \(\delta_{a_i \neq b_j}\) genau dann 1, wenn das \(i\)-te Zeichen von
-      \(a\) und das \(j\)-te Zeichen von \(b\) sich unterscheiden.
+  <dd>Es seien $a, b$ Zeichenketten, $|a|$ die Länge der Zeichenkette $a$
+      und $\delta_{a_i \neq b_j}$ genau dann 1, wenn das $i$-te Zeichen von
+      $a$ und das $j$-te Zeichen von $b$ sich unterscheiden.
 
-      Dann heißt \(d_L(a, b)\) die Levenshtein-Distanz:
+      Dann heißt $d_L(a, b)$ die Levenshtein-Distanz:
       \[d_L(a,b) := lev_{a,b}(|a|, |b|)\]
       \[\text{lev}_{a,b}(i, j) = \begin{cases}\max(i,j) &\text{falls} \min(i,j) = 0,\\
         \min \begin{cases}\text{lev}_{a,b}(i-1,j)+1\\
@@ -293,9 +293,9 @@ Slide name: `V06_2015-05-05_Backpropagation.pdf`
     <dt><a href="https://de.wikipedia.org/wiki/Kreuzentropie"><dfn>Kreuzentropie Fehlerfunktion</dfn></a>
         (<dfn>Cross-Entropy</dfn>)</dt>
     <dd>\[E_{-x} = - \sum_{k}[t_k^x \log(o_k^x) + (1-t_k^x) \log (1- o_k^x)]\]
-        wobei \(x\) der Feature-Vektor ist, \(k\) ein Neuron des letzen
-        Layers, \(t\) der wahre Wert (d.h. der gewünschte Output),
-        \(o\) der tatsächliche Output ist.</dd>
+        wobei $x$ der Feature-Vektor ist, $k$ ein Neuron des letzen
+        Layers, $t$ der wahre Wert (d.h. der gewünschte Output),
+        $o$ der tatsächliche Output ist.</dd>
 </dl>
 
 * Stochastic Gradient Descent
@@ -316,7 +316,7 @@ Slide name: `V07_12-05-2015_Feature_Learning.pdf`
         und nachfolgende Schicht.</dd>
     <dt><a href="https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence"><dfn>Kullback-Leibler-Divergenz</dfn></a></dt>
     <dd>Die Kullback-Leibler-Divergenz ist ein Maß für die Unterschiedlichkeit
-        zweier Wahrscheinlichkeitsverteilungen \(P, Q\). Für
+        zweier Wahrscheinlichkeitsverteilungen $P, Q$. Für
         diskrete Verteilungen ist sie definiert als:
         \[KL(P||Q) := \sum_{x \in X} P(x) \cdot \log \frac{P(x)}{Q(x)}\]</dd>
     <dt><dfn>Denoising Autoencoder</dfn></dt>
@@ -345,12 +345,12 @@ Slide name: `V08_2015-05-13_Deep_Learning.pdf`
     <dd>Neural Networks with at least two hidden layers with nonlinear
         activation functions.</dd>
     <dt><dfn>Hyperparameter</dfn></dt>
-    <dd>Hyperparameter \(\theta\) eines neuronalen Netzes sind Parameter,
+    <dd>Hyperparameter $\theta$ eines neuronalen Netzes sind Parameter,
         welche nicht gelernt werden.</dd>
     <dt><a id="scheduling"></a><dfn>Learning Rate Scheduling</dfn></dt>
-    <dd>Start with a learning rate \(\eta\) and reduce it while training.</dd>
+    <dd>Start with a learning rate $\eta$ and reduce it while training.</dd>
     <dt><dfn>Exponential Decay Learning Rate</dfn></dt>
-    <dd>\(\eta_t = \eta_{t-1} \cdot \alpha = \eta_0 \cdot \alpha^t\) mit \(\alpha \in (0, 1)\)</dd>
+    <dd>$\eta_t = \eta_{t-1} \cdot \alpha = \eta_0 \cdot \alpha^t$ mit $\alpha \in (0, 1)$</dd>
     <dt><dfn>Performance Scheduling</dfn></dt>
     <dd>Measure the error on the cross validation set and decrease the learning
         rate when the algorithm stops improving.</dd>
@@ -363,26 +363,26 @@ Slide name: `V08_2015-05-13_Deep_Learning.pdf`
     <dt><a href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent#AdaGrad"><dfn><abbr title="adaptive gradient">AdaGrad</abbr></dfn></a> (vgl. Folie 34)</dt>
     <dd>\[\eta_{tij} = \frac{\eta_0}{\sqrt{1 + \sum_k {(\frac{\partial E^{t-k}}{\partial w_{ij}})}^2}}\]
 
-    where \(\eta_0\) is an initial learning rate, \(t\) is the epoch, \(i,j\) refer to neurons.</dd>
+    where $\eta_0$ is an initial learning rate, $t$ is the epoch, $i,j$ refer to neurons.</dd>
     <dt><dfn>Newbob Scheduling</dfn></dt>
     <dd>Newbob scheduling is a combination of exponential decay learning rate
         scheduling and performance scheduling. It starts with a learning rate
-        \(\eta_0\). When the validation error stops decreasing, switch to
+        $\eta_0$. When the validation error stops decreasing, switch to
         exponentially decaying learning rate. Terminate when the validation
         error stops decreasing again.</dd>
     <dt><a name="dfn-cross-entropy"></a><dfn>Cross Entropy Error function</dfn> (CE)</dt>
     <dd>\[E_{CE}(w) = - \sum_{x \in X} \sum_{k} [t_k^x \log(o_k^x) + (1-t_k^x) \log(1-o_k^x)]\]
-        where \(w\) is the weight vector, \(X\) is the set of training
+        where $w$ is the weight vector, $X$ is the set of training
         examples (feature vectors),
-        \(t_k^x = \begin{cases}1 &\text{if } x \text{ is of class }k\\0&\text{otherwise}\end{cases}\)
-        and \(o_k^x\) is the output at neuron \(k\) of the network for the
-        feature vector \(x\).</dd>
+        $t_k^x = \begin{cases}1 &\text{if } x \text{ is of class }k\\0&\text{otherwise}\end{cases}$
+        and $o_k^x$ is the output at neuron $k$ of the network for the
+        feature vector $x$.</dd>
     <dt><dfn>Mean Squared Error function</dfn> (MSE)</dt>
     <dd>\[E_{MSE}(w) = \frac{1}{2}\sum_{x \in X} \sum_{k} (t_k^x - o_k^x)^2\]
-        where \(w\) is the weight vector, \(X\) is the set of training
-        examples (feature vectors), \(k\) is the range of output neurons,
-        \(t_k^x = \begin{cases}1 &\text{if } x \text{ is of class }k\\0&\text{otherwise}\end{cases}\) and \(o_k^x\) is the output
-        at neuron \(k\) of the network for the feature vector \(x\).</dd>
+        where $w$ is the weight vector, $X$ is the set of training
+        examples (feature vectors), $k$ is the range of output neurons,
+        $t_k^x = \begin{cases}1 &\text{if } x \text{ is of class }k\\0&\text{otherwise}\end{cases}$ and $o_k^x$ is the output
+        at neuron $k$ of the network for the feature vector $x$.</dd>
     <dt><dfn>Convolutional Neural Networks</dfn> (<dfn>CNNs</dfn>)</dt>
     <dd>Feed-Forward Neuronale Netze, welche durch geteilte Gewichte (weight
         sharing) grafische Filter lernen. CNNs sind aktuell in der Computer
@@ -421,66 +421,66 @@ Slide name: `V09_2015-05-26-Reinforcement-Learning.pdf`
 <dl>
     <dt><a href="https://de.wikipedia.org/wiki/Markow-Entscheidungsproblem"><dfn>Markov Decision Process</dfn></a> (<dfn>MDP</dfn>)</dt>
     <dd>Ein Markovscher Entscheidungsprozess ist ein 5-Tupel
-        \((S, A, T, r, p_0)\), wobei
+        $(S, A, T, r, p_0)$, wobei
         <ul>
-            <li>\(S\) eine endliche Zustandsmenge,</li>
-            <li>\(A\) eine endliche Menge von Aktionen,</li>
-            <li>\(T_a(s, s') = T(s_{t+1}=s'|s_t = s, a_t = a)\) die
+            <li>$S$ eine endliche Zustandsmenge,</li>
+            <li>$A$ eine endliche Menge von Aktionen,</li>
+            <li>$T_a(s, s') = T(s_{t+1}=s'|s_t = s, a_t = a)$ die
                 Wahrscheinlichkeit zu einem beliebigen Zeitpunkt von Zustand
-                \(s\) mit der Aktion \(a\) in den Zustand \(a'\) zu kommen
+                $s$ mit der Aktion $a$ in den Zustand $a'$ zu kommen
                 (engl. Transition),</li>
-            <li>\(r_a(s, s')\) ist die Belohnung (Reward), die man direkt
-                erhält wenn man erhält wenn man von Zustand \(s\) mit Aktion
-                \(a\) in Zustand \(s'\) kommt,</li>
-            <li>\(p_0\) ist die Startverteilung auf die Zustände \(S\)</li>
+            <li>$r_a(s, s')$ ist die Belohnung (Reward), die man direkt
+                erhält wenn man erhält wenn man von Zustand $s$ mit Aktion
+                $a$ in Zustand $s'$ kommt,</li>
+            <li>$p_0$ ist die Startverteilung auf die Zustände $S$</li>
         </ul>
     </dd>
     <dt><dfn>Diskontierungsfaktor</dfn></dt>
     <dd>Ein Diskontierungsfaktor
-        <span markdown="0">\(\gamma \in [0, 1]\)</span> encodiert
+        <span markdown="0">$\gamma \in [0, 1]$</span> encodiert
         den Bedeutungsverlust zwischen einer direkten Belohnung und
         einer späteren Belohnung. Es sollte
-        <span markdown="0">\(\gamma &lt; 1\)</span> gelten um
+        <span markdown="0">$\gamma &lt; 1$</span> gelten um
         unendliche Belohnungen zu vermeiden.</dd>
     <dt><dfn>Strategie</dfn> (engl. <dfn>Policy</dfn>)</dt>
-    <dd>Eine Strategie \(\pi:S \rightarrow A\) sagt einem Agenten welche
+    <dd>Eine Strategie $\pi:S \rightarrow A$ sagt einem Agenten welche
         Aktion er in welchem Zustand ausführen soll.</dd>
     <dt><dfn>Q-Funktion</dfn> (Action-Value function)</dt>
-    <dd>Die Q-Funktion \(Q^\pi: S \times A \rightarrow \mathbb{R}\) weißt jeder
+    <dd>Die Q-Funktion $Q^\pi: S \times A \rightarrow \mathbb{R}$ weißt jeder
         Aktion in jedem Zustand einen Wert zu unter der Annahme, dass
-        die Strategie \(\pi\) genutzt wird.</dd>
+        die Strategie $\pi$ genutzt wird.</dd>
     <dt><dfn>V-Funktion</dfn> (State-Value function)</dt>
-    <dd>Die V-Funktion \(V^\pi: S \rightarrow \mathbb{R}\) weißt jeder
+    <dd>Die V-Funktion $V^\pi: S \rightarrow \mathbb{R}$ weißt jeder
         jedem Zustand die Erwartete Belohnung zu unter der Annahme, dass
-        die Strategie \(\pi\) genutzt wird.</dd>
-    <dt><dfn>\(\varepsilon\)-Greedy Strategy</dfn></dt>
-    <dd>Explore \(\varepsilon\)% of the time. Otherwise, follow what you
+        die Strategie $\pi$ genutzt wird.</dd>
+    <dt><dfn>$\varepsilon$-Greedy Strategy</dfn></dt>
+    <dd>Explore $\varepsilon$% of the time. Otherwise, follow what you
         currently believe is best.</dd>
-    <dt><dfn>\(\varepsilon\)-decreasing Strategy</dfn></dt>
-    <dd>Explore \(\varepsilon\)% of the time. Otherwise, follow what you
-        currently believe is best. Reduce \(\varepsilon\) over time.</dd>
-    <dt><dfn>\(\varepsilon\)-first Strategy</dfn></dt>
-    <dd>Explore for \(\varepsilon\) steps and then do what you think is best.</dd>
-    <dt><dfn>Adaptive \(\varepsilon\)-greedy Strategy</dfn></dt>
-    <dd>Explore \(\varepsilon\)% of the time. Otherwise, follow what you
-        currently believe is best. Reduce \(\varepsilon\) based on what you
+    <dt><dfn>$\varepsilon$-decreasing Strategy</dfn></dt>
+    <dd>Explore $\varepsilon$% of the time. Otherwise, follow what you
+        currently believe is best. Reduce $\varepsilon$ over time.</dd>
+    <dt><dfn>$\varepsilon$-first Strategy</dfn></dt>
+    <dd>Explore for $\varepsilon$ steps and then do what you think is best.</dd>
+    <dt><dfn>Adaptive $\varepsilon$-greedy Strategy</dfn></dt>
+    <dd>Explore $\varepsilon$% of the time. Otherwise, follow what you
+        currently believe is best. Reduce $\varepsilon$ based on what you
         learn.</dd>
     <dt><dfn>Episode</dfn></dt>
     <dd>A run through an <abbr title="Markov Decision Process">MDP</abbr> from
         a start state to an end state.</dd>
     <dt><dfn>Monte Carlo Policy Evaluation</dfn></dt>
-    <dd>Initialize state values \(V^\pi\) and iterate:
+    <dd>Initialize state values $V^\pi$ and iterate:
         <ol>
             <li>Generate an episode</li>
-            <li>foreach state \(s\) in episode:
+            <li>foreach state $s$ in episode:
             <ol>
-                <li>Get the reward \(\hat{R}\) from that state on</li>
-                <li>\(\hat{R} = \sum_{j=0}^\infty \gamma^j r_j\)</li>
-                <li>\(V_{k+1}^\pi (s) \leftarrow V_k^pi (s) (1-\alpha)+\alpha \hat{R}\)</li>
+                <li>Get the reward $\hat{R}$ from that state on</li>
+                <li>$\hat{R} = \sum_{j=0}^\infty \gamma^j r_j$</li>
+                <li>$V_{k+1}^\pi (s) \leftarrow V_k^pi (s) (1-\alpha)+\alpha \hat{R}$</li>
             </ol>
             </li>
         </ol>
-        where \(\alpha\) is the learning rate.
+        where $\alpha$ is the learning rate.
     </dd>
     <dt><dfn>Temporal Difference Learning</dfn> (<dfn>TD-Learning</dfn>)</dt>
     <dd>Siehe <a href="../machine-learning-1-course/#td-learning">ML1</a></dd>
@@ -498,19 +498,19 @@ Slide name: `V09_2015-05-26-Reinforcement-Learning.pdf`
 
 Konvention:
 
-* Eine optimale Strategie wird mit <span markdown="0">\(\pi^*\)</span> bezeichnet.
+* Eine optimale Strategie wird mit <span markdown="0">$\pi^*$</span> bezeichnet.
 
 
 Fragen:
 
 * Was bedeutet es, wenn in einem MDP der Diskontierungsfaktor
-  <span markdown="0">\(\gamma = 0\)</span>
+  <span markdown="0">$\gamma = 0$</span>
   ist?<br/>
   → Nur der aktuelle Reward ist wichtig. Effektiv nimmt der Agent immer
   das nächste Feld, welche den höchsten Reward bietet (bzw. die Aktion, die
   den größten 1-Aktion Erwartungswert liefert).
 * Was bedeutet es, wenn in einem MDP der Diskontierungsfaktor
-  <span markdown="0">\(\gamma = 1\)</span>
+  <span markdown="0">$\gamma = 1$</span>
   ist?<br/>
   → Der Agent versucht die Summe der Belohnungen insgesamt zu maximieren.
 
@@ -540,17 +540,17 @@ Slide name: `V10_2015-05-26_SOM.pdf`
     Training:
     <ol>
         <li><b>Initialisierung</b>: Die Gewichte
-            <span markdown="0">\(w_{ji}\)</span> von dem
-            <span markdown="0">\(i\)</span>-ten Input-Neuron zum Neuron (<span markdown="0">\(i = 1, ..., n\)</span>)
-            <span markdown="0">\(j\)</span> auf dem Gitter werden zufällig
+            <span markdown="0">$w_{ji}$</span> von dem
+            <span markdown="0">$i$</span>-ten Input-Neuron zum Neuron (<span markdown="0">$i = 1, ..., n$</span>)
+            <span markdown="0">$j$</span> auf dem Gitter werden zufällig
             initialisiert.</li>
         <li><b>Sampling</b>: Nehme ein zufälliges Beispiel
-            <span markdown="0">\(x\)</span> der Trainingsdaten.</li>
+            <span markdown="0">$x$</span> der Trainingsdaten.</li>
         <li><b>Matching</b>: Finde das Neuron
-            <span markdown="0">\(j_{\text{min}}\)</span>, für das die Gewichte
+            <span markdown="0">$j_{\text{min}}$</span>, für das die Gewichte
             dem Input am ähnlichsten sind:
             <div>\[j_{\text{min}} = \text{arg min}_j \sum_{i=1}^n (x_i - w_{ji})^2\]</div></li>
-        <li><b>Update</b>: Passe die Gewichte des gewinnenden Neurons \(i\) sowie der Nachbarschaft \(j\) an: \(w_j = w_j + \eta h(j, i(x))(x - w)\)</li>
+        <li><b>Update</b>: Passe die Gewichte des gewinnenden Neurons $i$ sowie der Nachbarschaft $j$ an: $w_j = w_j + \eta h(j, i(x))(x - w)$</li>
         <li><b>Repeat</b>: Und zurück zu Schritt 2.</li>
     </ol>
 
@@ -578,8 +578,8 @@ Slide name: `V11_2015-05-27_RBMs`
         gleichzeitig als Ein- und Ausgabeschicht.
 
         Hopfield-Netze werden in einem einzigen durchgang Trainiert. Dabei wird
-        auf das Gewicht von Neuron \(i\) zu Neuron \(j\) + 1 addiert, wenn
-        das Bit \(i\) des Trainingsmusters gleich ist. Falls das nicht der Fall
+        auf das Gewicht von Neuron $i$ zu Neuron $j$ + 1 addiert, wenn
+        das Bit $i$ des Trainingsmusters gleich ist. Falls das nicht der Fall
         ist, wird von dem Gewicht 1 subtrahiert:
 
         \[w_{ij} = \sum_{p} (2 a^{(i)}_p - 1) \cdot (2 a^{(j)}_p - 1)\]
@@ -617,9 +617,9 @@ Slide name: `V11_2015-05-27_RBMs`
 
       Die Energie des Netzwerkes ist
       \[- \sum_{i < j} w_{ij} s_i s_j - \sum_i b_i s_i\]
-      wobei \(s_i, s_j\) die binären Zustände der Knoten \(i, j\) sind. Der
+      wobei $s_i, s_j$ die binären Zustände der Knoten $i, j$ sind. Der
       Name "Boltzmann" kommt von dieser Energie (man kann den Netzwerkzuständen
-      wahrscheinlichkeiten zuweisen, die direkt Proportional zu \(e^{-E}\))
+      wahrscheinlichkeiten zuweisen, die direkt Proportional zu $e^{-E}$)
       sind.
 
       <figure class="wp-caption aligncenter">
@@ -631,20 +631,20 @@ Slide name: `V11_2015-05-27_RBMs`
       <br/>
       Siehe <a href="https://www.cs.toronto.edu/~hinton/absps/guideTR.pdf">A Practical Guide to Training Restricted Boltzmann Machines</a> von Hinton, 2010.</dd>
       sowie <a href="https://www.youtube.com/watch?v=lekCh_i32iE">Interence in RBMs</a>
-  <dt><a name="contrastive-divergence"></a><dfn>Contrastive Divergence</dfn> (<dfn>CD</dfn>, <dfn>CD-\(k\)</dfn>, siehe <a href="https://www.youtube.com/watch?v=MD8qXWucJBY">YouTube Video</a>, <a href="https://www.youtube.com/watch?v=wMb7cads0go">2</a> von Hugo Larochelle)</dt>
+  <dt><a name="contrastive-divergence"></a><dfn>Contrastive Divergence</dfn> (<dfn>CD</dfn>, <dfn>CD-$k$</dfn>, siehe <a href="https://www.youtube.com/watch?v=MD8qXWucJBY">YouTube Video</a>, <a href="https://www.youtube.com/watch?v=wMb7cads0go">2</a> von Hugo Larochelle)</dt>
   <dd>Contrastive Divergence ist ein Trainingsalgorithmus für RBMs.
 
-      Ein Hyperparameter ist \(k \in \mathbb{N}\).
+      Ein Hyperparameter ist $k \in \mathbb{N}$.
 
       Er geht wie folgt vor:
 
       <ol>
-          <li>Lege den Trainingsvektor \(x^{(t)}\) an die Eingabeknoten an.</li>
+          <li>Lege den Trainingsvektor $x^{(t)}$ an die Eingabeknoten an.</li>
           <li>Berechne die Wahrscheinlichkeit für jede Hidden Unit, dass diese gleich 1 ist. Setze sie mit dieser Wahrscheinlichkeit gleich 1.</li>
           <li>Berechne die Wahrscheinlichkeit für jeden Eingabeknoten, dass dieser gleich 1 ist. Setze ihn mit dieser Wahrscheinlichkeit gleich 1.</li>
-          <li>Gehe zu Schritt 2. Wiederhole dies für \(k\) Schritte (dies wird auch Gibbs-Sampling genannt).
-              Das, was nach dem \(k\)-fachem Gibbs-Sampling in der Eingabeschicht
-              steht wird auch "negative sample \(\tilde x\)" genannt.</li>
+          <li>Gehe zu Schritt 2. Wiederhole dies für $k$ Schritte (dies wird auch Gibbs-Sampling genannt).
+              Das, was nach dem $k$-fachem Gibbs-Sampling in der Eingabeschicht
+              steht wird auch "negative sample $\tilde x$" genannt.</li>
           <li>Update der Parameter:
             \[\begin{align}
                 W &\leftarrow W + \eta (h(x^{(t)}) {x^{(t)}}^T - h(\tilde x) {\tilde x}^T)\\
@@ -652,36 +652,36 @@ Slide name: `V11_2015-05-27_RBMs`
                 b_v &\leftarrow b_v + \eta (x^{(t)} - \tilde x)
               \end{align}
             \]
-            wobei \(\eta \in (0, 1) \) die Lernrate ist,
-            \(b_h \in \mathbb{R}^n_h\) der Bias-Vektor der Hidden Units und
-            \(b_v \in \mathbb{R}^{n_v}\) der Bias-Vektor der Eingabeknoten ist.
-            \(h = \text{sigmoid}(b_h + W x)\) ist ein Vektor, welcher für die
+            wobei $\eta \in (0, 1) $ die Lernrate ist,
+            $b_h \in \mathbb{R}^n_h$ der Bias-Vektor der Hidden Units und
+            $b_v \in \mathbb{R}^{n_v}$ der Bias-Vektor der Eingabeknoten ist.
+            $h = \text{sigmoid}(b_h + W x)$ ist ein Vektor, welcher für die
             einzelnen Hidden Units sagt wie wahrscheinlich es ist, dass diese
             gleich 1 sind.
           </li>
       </ol>
 
-      In der Praxis funktioniert es schon mit \(k=1\) für Pre-Training. Wenn
-      \(k\) groß ist konvergiert \(\tilde x\) gegen den wahren Modellwert. Das
+      In der Praxis funktioniert es schon mit $k=1$ für Pre-Training. Wenn
+      $k$ groß ist konvergiert $\tilde x$ gegen den wahren Modellwert. Das
       wäre dann eine Monte-Carlo Estimation.
   </dd>
     <dt><a href="https://de.wikipedia.org/wiki/Simulated_annealing"><dfn>Simulated annealing</dfn></a></dt>
     <dd>Simulated annealing ist ein heuristisches Optimierungsverfahren.
 
-        Sei \(D\) ein Wertebereich einer Funktion \(f: D \rightarrow \mathbb{R}\)
-        und \(U: D \rightarrow \mathcal{P}(D)\) eine Funktion, welche die
-        Umgebung eines Punktes angibt. Sei \(T: \mathbb{N}_0 \rightarrow \mathbb{R}_{> 0}\)
-        die Temperatur zum Zeitpunkt \(t \in \mathbb{N}_0\).
+        Sei $D$ ein Wertebereich einer Funktion $f: D \rightarrow \mathbb{R}$
+        und $U: D \rightarrow \mathcal{P}(D)$ eine Funktion, welche die
+        Umgebung eines Punktes angibt. Sei $T: \mathbb{N}_0 \rightarrow \mathbb{R}_{> 0}$
+        die Temperatur zum Zeitpunkt $t \in \mathbb{N}_0$.
 
-        Gesucht ist \(\text{arg min}_{x \in D} f(x)\).
+        Gesucht ist $\text{arg min}_{x \in D} f(x)$.
 
-        Wähle zum Zeitpunkt \(t=0\) einen zufälligen Startwert \(x \in D\).
+        Wähle zum Zeitpunkt $t=0$ einen zufälligen Startwert $x \in D$.
 
         Gehe nun iterativ vor und jeweils einen Zeitschritt weiter:
 
-        Nehme einen Punkt aus der Umgebung \(y \in U(x)\). Wenn
-        \(f(y) \leq f(x)\), dann überschreibe \(x \leftarrow y\). Falls nicht,
-        dann überschreibe es mit der Wahrscheinlichkeit \(\exp \left (-\frac{f(y)-f(x)}{T(t)} \right )\).
+        Nehme einen Punkt aus der Umgebung $y \in U(x)$. Wenn
+        $f(y) \leq f(x)$, dann überschreibe $x \leftarrow y$. Falls nicht,
+        dann überschreibe es mit der Wahrscheinlichkeit $\exp \left (-\frac{f(y)-f(x)}{T(t)} \right )$.
 
         Speichere in jedem Schritt den bisher besten Wert.
         </dd>
@@ -744,23 +744,23 @@ Slide name: `V13_2015-06-09_NNlearning-tricks.pdf`
 
 <dl>
     <dt><dfn>Momentum</dfn></dt>
-    <dd>In der Update-Regel \(\Delta w_{ij}^* (t+1) = \Delta w_{ij} (t+1) + \alpha \Delta w_{ij}(t)\) wird der Term \(\Delta w_{ij}(t)\) als <i>Momentum</i> bezeichnet.
-        Der Skalar \(\alpha \in [0, 1]\) gewichtet diesen und ist ein
+    <dd>In der Update-Regel $\Delta w_{ij}^* (t+1) = \Delta w_{ij} (t+1) + \alpha \Delta w_{ij}(t)$ wird der Term $\Delta w_{ij}(t)$ als <i>Momentum</i> bezeichnet.
+        Der Skalar $\alpha \in [0, 1]$ gewichtet diesen und ist ein
         Hyperparameter.</dd>
     <dt><a href="https://en.wikipedia.org/wiki/Quickprop"><dfn>Quickprop</dfn></a></dt>
     <dd>Quickprop ist ein Trainingsverfahren für neuronale Netze. Der Lernalgorithmus
         nimmt an, dass die Fehlerebene lokal durch eine parabel approximiert
-        werden kann. Das Gewichtsupdate im Schritt \(k\) ist demnach vom
+        werden kann. Das Gewichtsupdate im Schritt $k$ ist demnach vom
         Gradienten und dem Gewichtsupdate das vorherigen Schrittes abhängig:
 
         \[\Delta^{(k)} \, w_{ij} = \Delta^{(k-1)} \, w_{ij} \left ( \frac{\nabla_{ij} \, E^{(k)}}{\nabla_{ij} \, E^{(k-1)} - \nabla_{ij} \, E^{(k)}} \right)\]</dd>
     <dt><dfn>Weight Decay</dfn></dt>
-    <dd>Passe die Fehlerfunktion an: \(E = MSE + \lambda \sum_{i,j} w_{ij}^2\)</dd>
+    <dd>Passe die Fehlerfunktion an: $E = MSE + \lambda \sum_{i,j} w_{ij}^2$</dd>
     <dt><dfn>Weight Elimination</dfn></dt>
-    <dd>Passe die Fehlerfunktion an: \(E = MSE + \lambda \sum_{i,j} \frac{w_{ij}^2}{1+w_{ij}^2}\)</dd>
+    <dd>Passe die Fehlerfunktion an: $E = MSE + \lambda \sum_{i,j} \frac{w_{ij}^2}{1+w_{ij}^2}$</dd>
     <dt><dfn>Optimal Brain Damage</dfn> (<dfn>OBD</dfn>)</dt>
     <dd>Optimal Brain Damage entfernt nach dem Training Verbindungen die
-        sehr kleine \(|w_{ij}|\) haben.
+        sehr kleine $|w_{ij}|$ haben.
 
         Besser: Entferne Verbindungen, die geringen Einfluss auf die
         Fehlerfunktion haben.</dd>
@@ -795,9 +795,9 @@ Slide name: `V13_2015-06-09_NNlearning-tricks.pdf`
         \[E_{CFM}(w) = \sum_k \frac{\alpha}{1 + e^{-\beta \Delta_k + \gamma}}\]
         wobei
         <ul>
-            <li>\(k\): Klasse</li>
-            <li>\(\alpha, \beta, \gamma\): Hyperparameter</li>
-            <li>\(\Delta_k = o_t - o_k\): Differenz des wahren (true) nodes und des anderen Knotens.</li>
+            <li>$k$: Klasse</li>
+            <li>$\alpha, \beta, \gamma$: Hyperparameter</li>
+            <li>$\Delta_k = o_t - o_k$: Differenz des wahren (true) nodes und des anderen Knotens.</li>
         </ul>
     </dd>
 </dl>
@@ -806,9 +806,9 @@ Speed-ups des Trainings sind möglich durch:
 
 * Momentum
 * Überspringen von bereits gut gelernten Beispielen
-* Dynamische Anpassung der Lernrate <span markdown="0">\(\eta\)</span>
+* Dynamische Anpassung der Lernrate <span markdown="0">$\eta$</span>
 * Quickprop
-* Gute Initialisierung (z.b. <span markdown="0">\(w \sim U(- 4 \cdot \sqrt{\frac{6}{n_j + n_{j+1}}}, 4 \cdot \sqrt{\frac{6}{n_j + n_{j+1}}})\)</span>)
+* Gute Initialisierung (z.b. <span markdown="0">$w \sim U(- 4 \cdot \sqrt{\frac{6}{n_j + n_{j+1}}}, 4 \cdot \sqrt{\frac{6}{n_j + n_{j+1}}})$</span>)
 
 Lernen kann getweakt werden:
 
@@ -898,10 +898,10 @@ training data will help you with your problem.
   <thead>
     <tr>
         <th>Name</th>
-        <th>Function <span markdown="0">\(\varphi(x)\)</span></th>
+        <th>Function <span markdown="0">$\varphi(x)$</span></th>
         <th>Range of values</th>
         <th>Differentiable</th>
-        <th><span markdown="0">\(\varphi'(x)\)</span></th>
+        <th><span markdown="0">$\varphi'(x)$</span></th>
         <th>Layer</th>
         <th>Comment</th>
     </tr>
@@ -909,80 +909,80 @@ training data will help you with your problem.
   <tbody>
     <tr>
         <td>Signum</td>
-        <td><span markdown="0">\(\varphi(x) = \begin{cases}+1 &\text{if } x > 0\\-1 &\text{if } x < 0\end{cases}\)</span></td>
-        <td style="text-align: center;"><span markdown="0">\(\{-1, 1\}\)</span></td>
+        <td><span markdown="0">$\varphi(x) = \begin{cases}+1 &\text{if } x > 0\\-1 &\text{if } x < 0\end{cases}$</span></td>
+        <td style="text-align: center;"><span markdown="0">$\{-1, 1\}$</span></td>
         <td style="text-align: center;">Yes<br/>(except 0)</td>
-        <td><span markdown="0">\(\varphi'(x) = 0\)</span></td>
+        <td><span markdown="0">$\varphi'(x) = 0$</span></td>
         <td style="text-align: center;">No</td>
         <td>&nbsp;</td>
     </tr>
     <tr>
         <td>Heavy-Side Step function</td>
-        <td><span markdown="0">\(\varphi(x) = \begin{cases}+1 &\text{if } x > 0\\0 &\text{if } x < 0\end{cases}\)</span></td>
-        <td style="text-align: center;"><span markdown="0">\(\{0, 1\}\)</span></td>
+        <td><span markdown="0">$\varphi(x) = \begin{cases}+1 &\text{if } x > 0\\0 &\text{if } x < 0\end{cases}$</span></td>
+        <td style="text-align: center;"><span markdown="0">$\{0, 1\}$</span></td>
         <td style="text-align: center;">Yes<br/>(except 0)</td>
-        <td><span markdown="0">\(\varphi'(x) = 0\)</span></td>
+        <td><span markdown="0">$\varphi'(x) = 0$</span></td>
         <td style="text-align: center;">No</td>
         <td>McCullch-Pitts; Rosenblatt</td>
     </tr>
     <tr>
         <td>Sigmoid</td>
-        <td><span markdown="0">\(\varphi(x) = \frac{1}{1+e^{-x}}\)</span></td>
-        <td style="text-align: center;"><span markdown="0">\([0, 1]\)</span></td>
+        <td><span markdown="0">$\varphi(x) = \frac{1}{1+e^{-x}}$</span></td>
+        <td style="text-align: center;"><span markdown="0">$[0, 1]$</span></td>
         <td style="text-align: center;">Yes</td>
-        <td><span markdown="0">\(\varphi'(x) = \frac{e^x}{(e^x +1)^2}\)</span></td>
+        <td><span markdown="0">$\varphi'(x) = \frac{e^x}{(e^x +1)^2}$</span></td>
         <td style="text-align: center;">No</td>
         <td>Smoothed version of the heavy-side step function</td>
     </tr>
     <tr>
         <td><abbr title="Tangens Hyperbolicus">tanh</abbr></td>
-        <td><span markdown="0">\(\varphi(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}} = \tanh(x)\)</span></td>
-        <td style="text-align: center;"><span markdown="0">\([-1, 1]\)</span></td>
+        <td><span markdown="0">$\varphi(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}} = \tanh(x)$</span></td>
+        <td style="text-align: center;"><span markdown="0">$[-1, 1]$</span></td>
         <td style="text-align: center;">Yes</td>
-        <td><span markdown="0">\(\varphi'(x) = \text{sech}^2(x)\)</span></td>
+        <td><span markdown="0">$\varphi'(x) = \text{sech}^2(x)$</span></td>
         <td style="text-align: center;">No</td>
         <td>Smoothed version of the signum function</td>
     </tr>
     <tr>
         <td><abbr title="Rectified Linear Unit">ReLU</abbr></td>
-        <td><span markdown="0">\(\varphi(x) = \max(0, x)\)</span></td>
-        <td style="text-align: center;"><span markdown="0">\([0, \infty)\)</span></td>
+        <td><span markdown="0">$\varphi(x) = \max(0, x)$</span></td>
+        <td style="text-align: center;"><span markdown="0">$[0, \infty)$</span></td>
         <td style="text-align: center;">Yes<br/>(except 0)</td>
-        <td><span markdown="0">\(\varphi'(x) = \begin{cases}1 &\text{if } x > 0\\0 &\text{if } x < 0\end{cases}\)</span></td>
+        <td><span markdown="0">$\varphi'(x) = \begin{cases}1 &\text{if } x > 0\\0 &\text{if } x < 0\end{cases}$</span></td>
         <td style="text-align: center;">No</td>
         <td>Standard in CNNs</td>
     </tr>
     <tr>
         <td>Leaky ReLU</td>
-        <td><span markdown="0">\(\varphi(x) = \max(\alpha x, x)\)</span> mit typischerweise <span markdown="0">\(\alpha = 0.01\)</span></td>
-        <td style="text-align: center;"><span markdown="0">\((-\infty, +\infty)\)</span></td>
+        <td><span markdown="0">$\varphi(x) = \max(\alpha x, x)$</span> mit typischerweise <span markdown="0">$\alpha = 0.01$</span></td>
+        <td style="text-align: center;"><span markdown="0">$(-\infty, +\infty)$</span></td>
         <td style="text-align: center;">Yes<br/>(except 0)</td>
-        <td><span markdown="0">\(\varphi'(x) = \begin{cases}1 &\text{if } x > 0\\0.01 &\text{if } x < 0\end{cases}\)</span></td>
+        <td><span markdown="0">$\varphi'(x) = \begin{cases}1 &\text{if } x > 0\\0.01 &\text{if } x < 0\end{cases}$</span></td>
         <td style="text-align: center;">No</td>
         <td>Fixes the dying ReLU problem<sup>[<a href="http://datascience.stackexchange.com/q/5706/8820">1</a>]</sup></td>
     </tr>
     <tr>
         <td>Softplus</td>
-        <td><span markdown="0">\(\varphi(x) = \log(e^x + 1)\)</span></td>
-        <td style="text-align: center;"><span markdown="0">\((0, \infty)\)</span></td>
+        <td><span markdown="0">$\varphi(x) = \log(e^x + 1)$</span></td>
+        <td style="text-align: center;"><span markdown="0">$(0, \infty)$</span></td>
         <td style="text-align: center;">Yes</td>
-        <td><span markdown="0">\(\varphi'(x) = \frac{e^x}{e^x + 1}\)</span></td>
+        <td><span markdown="0">$\varphi'(x) = \frac{e^x}{e^x + 1}$</span></td>
         <td style="text-align: center;">No</td>
         <td>Smoothed ReLU</td>
     </tr>
     <tr>
         <td><abbr title="Exponential Linear Unit">ELU</abbr></td>
-        <td><span markdown="0">\(\varphi(\mathbf{x}) = \begin{cases}x &\text{if } x > 0\\\alpha (e^x - 1) &\text{otherwise}\end{cases}\)</span></td>
-        <td style="text-align: center;"><span markdown="0">\((-\infty, +\infty)\)</span></td>
+        <td><span markdown="0">$\varphi(\mathbf{x}) = \begin{cases}x &\text{if } x > 0\\\alpha (e^x - 1) &\text{otherwise}\end{cases}$</span></td>
+        <td style="text-align: center;"><span markdown="0">$(-\infty, +\infty)$</span></td>
         <td style="text-align: center;">Yes</td>
-        <td><span markdown="0">\(\varphi'(x) = \begin{cases}1 &\text{if } x > 0\\\alpha e^x &\text{otherwise}\end{cases}\)</span></td>
+        <td><span markdown="0">$\varphi'(x) = \begin{cases}1 &\text{if } x > 0\\\alpha e^x &\text{otherwise}\end{cases}$</span></td>
         <td style="text-align: center;">No</td>
         <td>&nbsp;</td>
     </tr>
     <tr>
         <td><a href="../softmax">Softmax</a></td>
-        <td><span markdown="0">\(o(\mathbf{z})_j = \frac{e^{z_j}}{\sum_{k=1}^K e^{z_k}}\)</span></td>
-        <td style="text-align: center;"><span markdown="0">\([0, 1]^K\)</span></td>
+        <td><span markdown="0">$o(\mathbf{z})_j = \frac{e^{z_j}}{\sum_{k=1}^K e^{z_k}}$</span></td>
+        <td style="text-align: center;"><span markdown="0">$[0, 1]^K$</span></td>
         <td style="text-align: center;">Yes</td>
         <td>differentiable</td>
         <td style="text-align: center;">Yes</td>
@@ -990,8 +990,8 @@ training data will help you with your problem.
     </tr>
     <tr>
         <td>Maxout</td>
-        <td><span markdown="0">\(o(\mathbf{z}) = \max_{z \in \mathbf{z}} z\)</span></td>
-        <td style="text-align: center;"><span markdown="0">\((-\infty, +\infty)\)</span></td>
+        <td><span markdown="0">$o(\mathbf{z}) = \max_{z \in \mathbf{z}} z$</span></td>
+        <td style="text-align: center;"><span markdown="0">$(-\infty, +\infty)$</span></td>
         <td style="text-align: center;">No</td>
         <td style="text-align: center;">-</td>
         <td style="text-align: center;">Yes</td>
@@ -1129,9 +1129,9 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
     <tr>
         <th><abbr title="Restricted Boltzmann Machines">RBMs</abbr></th>
         <td>stochastic</td>
-        <td><span markdown="0">\(p(h_j=1|x) = \text{sigmoid}(b_{v,j} + W_j x)\)</span><br/>
-            <span markdown="0">\(p(x_k=1|h) = \text{sigmoid}(b_{h,k} + h^T W_k)\)</span></td>
-        <td><a href="#contrastive-divergence">Contrastive Divergence</a>&nbsp;(CD-\(k\))</td>
+        <td><span markdown="0">$p(h_j=1|x) = \text{sigmoid}(b_{v,j} + W_j x)$</span><br/>
+            <span markdown="0">$p(x_k=1|h) = \text{sigmoid}(b_{h,k} + h^T W_k)$</span></td>
+        <td><a href="#contrastive-divergence">Contrastive Divergence</a>&nbsp;(CD-$k$)</td>
         <td><a href="http://www.cs.toronto.edu/~rsalakhu/papers/rbmcf.pdf">Collaborative Filtering</a></td>
     </tr>
   </tbody>
@@ -1179,7 +1179,7 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
   * [Are there studies which examine dropout vs other regularizations?](http://datascience.stackexchange.com/q/9195/8820)
   * [How do subsequent convolution layers work?](http://datascience.stackexchange.com/q/9175/8820)
   * ✓ [Is Maxout the same as max pooling?](http://datascience.stackexchange.com/q/9212/8820)
-  * [What is \\(\alpha \sin(\theta) + \beta \frac{d \theta}{d t}\\) in the inverted pole problem?](http://robotics.stackexchange.com/q/8617/11257)
+  * [What is \$\alpha \sin(\theta) + \beta \frac{d \theta}{d t}\$ in the inverted pole problem?](http://robotics.stackexchange.com/q/8617/11257)
   * ✓ [(Why) do activation functions have to be monotonic?](http://datascience.stackexchange.com/q/9233/8820)
   * [The cross-entropy error function in neural networks](http://datascience.stackexchange.com/q/9302/8820)
   * [What is the “dying ReLU” problem in neural networks?](http://datascience.stackexchange.com/q/5706/8820) and [How does rectilinear activation function solve the vanishing gradient problem in neural networks?](http://stats.stackexchange.com/q/176794/25741)

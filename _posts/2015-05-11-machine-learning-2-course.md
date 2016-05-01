@@ -109,43 +109,43 @@ Slides: `03_Semi-supervised+Active-learning.pdf`
       Orakel befragen, was das Label ist.</dd>
   <dt><dfn>Selective Sampling</dfn> (Selektive Entnahme, siehe <a href="http://dl.acm.org/citation.cfm?id=2503327">Selective sampling and active learning from single and multiple teachers</a>)</dt>
   <dd>Selective Sampling ist eine Methode des aktiven Lernens. Dabei wird
-      jede Runde \(t\) dem Lerner ein Feature-Vektor \(x_t \in \mathbb{R}^n\)
+      jede Runde $t$ dem Lerner ein Feature-Vektor $x_t \in \mathbb{R}^n$
       präsentiert. Der Lerner muss sich jede Runde entscheiden, ob er einen
       Preis bezahlt um das Label zu sehen. Der Lerner hat also zwei Ziele, die
       miteinander in Konflikt stehen: Er will alles richtig klassifizieren,
       aber zugleich die Kosten so niedrig wie möglich halten.</dd>
   <dt><dfn>Pool-Based Active Learning</dfn></dt>
   <dd>Pool-Based Active Learning ist eine Methode des aktiven Lernens. Dabei
-      wird von einem Pool an ungelabelten Daten \(\mathcal{U}\) ausgegangen
-      und einem deutlich kleineren Pool \(\mathcal{L}\) an gelabelten Daten.
-      Queries werden aus \(\mathcal{U}\) gezogen. Dabei wird ganz
-      \(\mathcal{U}\) evaluiert und für den hilfreichsten Feature-Vektor
-      \(x \in \mathcal{U}\) nach einem Label gefragt.</dd>
+      wird von einem Pool an ungelabelten Daten $\mathcal{U}$ ausgegangen
+      und einem deutlich kleineren Pool $\mathcal{L}$ an gelabelten Daten.
+      Queries werden aus $\mathcal{U}$ gezogen. Dabei wird ganz
+      $\mathcal{U}$ evaluiert und für den hilfreichsten Feature-Vektor
+      $x \in \mathcal{U}$ nach einem Label gefragt.</dd>
   <dt><dfn>Hinge-Funktion</dfn></dt>
   <dd>\[f(x) = \max(x, 0)\]</dd>
   <dt>Query-by-Committee (<dfn>QBC</dfn>)</dt>
-  <dd>Es wird ein Committee \(\mathcal{C}\) an Klassifikatoren trainiert,
+  <dd>Es wird ein Committee $\mathcal{C}$ an Klassifikatoren trainiert,
       welches gemeinsam (z.B. durch majority vote) eine Klassifikation trifft.
 
     Allgemeiner Ansatz:
     <ul>
-        <li>Trainiere eine Menge \(\mathcal{C}\) an Klassifikatoren</li>
+        <li>Trainiere eine Menge $\mathcal{C}$ an Klassifikatoren</li>
         <li>Wähle neue Daten, wenn die Hypothesen Wiedersprüchlich sind</li>
     </ul>
 
     Selektive Entnahme:
     <ol>
-        <li>Beobachte neue Instanz \(x\) und werte diese mit \(\mathcal{C}\) aus</li>
+        <li>Beobachte neue Instanz $x$ und werte diese mit $\mathcal{C}$ aus</li>
         <li>Frage das Label ab, falls es einen Wiederspruch in den Hypothesen
-            von \(\mathcal{C}\) für \(x\) gibt.</li>
+            von $\mathcal{C}$ für $x$ gibt.</li>
         <li>Neu trainiren, zurück zu 1</li>
     </ol>
 
     Pool-based Active Learning:
     <ol>
-        <li>Messung des Wiederspruchs der Hypothesen für alle Instanzen \(x\)</li>
+        <li>Messung des Wiederspruchs der Hypothesen für alle Instanzen $x$</li>
         <li>Ranking (z.B. Entropie)</li>
-        <li>Abfrage der Labels für die \(k\) widersprüchlichsten Instanzen</li>
+        <li>Abfrage der Labels für die $k$ widersprüchlichsten Instanzen</li>
         <li>Neu trainiren, zurück zu 1</li>
     </ol>
   </dd>
@@ -173,32 +173,32 @@ Siehe auch:
 <dl>
   <dt><a href="https://de.wikipedia.org/wiki/Markow-Entscheidungsproblem"><dfn>Markov Decision Process</dfn></a> (<dfn>MDP</dfn>)</dt>
   <dd>Ein Markovscher Entscheidungsprozess ist ein 5-Tupel
-      \((S, A, T, r, p_0)\), wobei
+      $(S, A, T, r, p_0)$, wobei
       <ul>
-          <li>\(S\) eine endliche Zustandsmenge,</li>
-          <li>\(A\) eine endliche Menge von Aktionen,</li>
-          <li>\(T_a(s, s') = T(s_{t+1}=s'|s_t = s, a_t = a)\) die
+          <li>$S$ eine endliche Zustandsmenge,</li>
+          <li>$A$ eine endliche Menge von Aktionen,</li>
+          <li>$T_a(s, s') = T(s_{t+1}=s'|s_t = s, a_t = a)$ die
               Wahrscheinlichkeit zu einem beliebigen Zeitpunkt von Zustand
-              \(s\) mit der Aktion \(a\) in den Zustand \(a'\) zu kommen
+              $s$ mit der Aktion $a$ in den Zustand $a'$ zu kommen
               (engl. Transition),</li>
-          <li>\(r_a(s, s')\) ist die Belohnung (Reward), die man direkt
-              erhält wenn man erhält wenn man von Zustand \(s\) mit Aktion
-              \(a\) in Zustand \(s'\) kommt,</li>
-          <li>\(p_0\) ist die Startverteilung auf die Zustände \(S\)</li>
+          <li>$r_a(s, s')$ ist die Belohnung (Reward), die man direkt
+              erhält wenn man erhält wenn man von Zustand $s$ mit Aktion
+              $a$ in Zustand $s'$ kommt,</li>
+          <li>$p_0$ ist die Startverteilung auf die Zustände $S$</li>
       </ul>
   </dd>
   <dt><dfn>Partially observable Markov decision process</dfn> (<dfn>POMDP</dfn>)<a name="pomdp-definition"></a></dt>
   <dd>Ein <i>partially observable Markov decision process</i> ist ein
-      7-tupel <span markdown="0">\(S, A, T, R, \Omega, O, \gamma\)</span>, wobei
+      7-tupel <span markdown="0">$S, A, T, R, \Omega, O, \gamma$</span>, wobei
 
       <ul>
-          <li>\(S\) die Zustandsmenge,</li>
-          <li>\(A\) die Aktionsmenge,</li>
-          <li>\(T: S \times A \times S \rightarrow \mathbb{R}\) die probabilisitische Zustandsübergangsfunktion (transition function) ist,</li>
-          <li>\(R: S \times A \rightarrow \mathbb{R}\) die Reward-Funktion,</li>
-          <li>\(\Omega\) die Menge der möglichen Beobachtungen,</li>
-          <li>\(O\) die Wahrscheinlichkeit der Beobachtungen, gegeben ein Zustand und eine Aktion und</li>
-          <li>\(\gamma \in [0, 1]\) der Diskontierungsfaktor</li>
+          <li>$S$ die Zustandsmenge,</li>
+          <li>$A$ die Aktionsmenge,</li>
+          <li>$T: S \times A \times S \rightarrow \mathbb{R}$ die probabilisitische Zustandsübergangsfunktion (transition function) ist,</li>
+          <li>$R: S \times A \rightarrow \mathbb{R}$ die Reward-Funktion,</li>
+          <li>$\Omega$ die Menge der möglichen Beobachtungen,</li>
+          <li>$O$ die Wahrscheinlichkeit der Beobachtungen, gegeben ein Zustand und eine Aktion und</li>
+          <li>$\gamma \in [0, 1]$ der Diskontierungsfaktor</li>
       </ul>
       ist.
   </dd>
@@ -210,13 +210,13 @@ Siehe auch:
       Aktionen.</dd>
   <dt><dfn>Hierarchien Abstrakter Maschinen</dfn> (<dfn>HAM</dfn>)</dt>
   <dd>Ein <abbr title="Markov Decision Process">MDP</abbr> wird mit
-      Maschinen \(\{M_i\}\) kombiniert. Jede Maschine repräsentiert einen
-      Teil der Policy. Jede Maschine verwendet eigene Zustände \(m_t^i\)
-      und globale Zustände \(s_t\). Maschinen werden durch Zustandsautomaten
+      Maschinen $\{M_i\}$ kombiniert. Jede Maschine repräsentiert einen
+      Teil der Policy. Jede Maschine verwendet eigene Zustände $m_t^i$
+      und globale Zustände $s_t$. Maschinen werden durch Zustandsautomaten
       abgebildet.</dd>
   <dt><dfn>MaxQ-Dekomposition</dfn> (siehe [<a href="#ref-die00" name="ref-die00-anchor">Die00</a>])</dt>
-  <dd>Das zu lösende MDP \(M\) wird als Menge von Unteraufgaben \(\{M_0, \dots, M_n\}\)
-      interpretiert. Dabei ist \(M_0\) das Haupt-MDP.
+  <dd>Das zu lösende MDP $M$ wird als Menge von Unteraufgaben $\{M_0, \dots, M_n\}$
+      interpretiert. Dabei ist $M_0$ das Haupt-MDP.
 
       TODO.</dd>
 </dl>
@@ -232,22 +232,22 @@ Slides: `05_DynamischeBayesscheNetze.pdf`
 
 <dl>
   <dt><a href="https://de.wikipedia.org/wiki/Bedingte_Wahrscheinlichkeit#Multiplikationssatz"><dfn>Multiplikationssatz</dfn></a></dt>
-  <dd>Seien \(A, B, X_i\) Ereignisse. Dann gilt:
+  <dd>Seien $A, B, X_i$ Ereignisse. Dann gilt:
       \[P(X_1, \dots, X_n) = P(X_1) \cdot \prod_{k=2}^n P(X_k | X_{k-1}, \dots, X_1)\]
       und insbesondere
       \[P(A\cap B) = P(A, B) = P(A\mid B) \cdot P(B)\]</dd>
   <dt><a href="https://de.wikipedia.org/wiki/Bedingte_Wahrscheinlichkeit#Gesetz_der_totalen_Wahrscheinlichkeit"><dfn>Gesetz der totalen Wahrscheinlichkeit</dfn></a></dt>
-  <dd>Seien \(A_1, \dots, A_n\) paarweise disjunkte Ereignisse mit
-      \(A = \sum_{i=1}^n A_i\). Dann gilt für jedes beliebige Ereignis \(B\):
+  <dd>Seien $A_1, \dots, A_n$ paarweise disjunkte Ereignisse mit
+      $A = \sum_{i=1}^n A_i$. Dann gilt für jedes beliebige Ereignis $B$:
       \[P(B) = \sum_{i=1}^n P(B | A_i) \cdot P(A_i) = P(A_i, B)\]</dd>
   <dt><a href="https://de.wikipedia.org/wiki/Satz_von_Bayes"><dfn>Satz von Bayes</dfn></a></dt>
-  <dd>Seinen \(A, B\) Ereignisse mit \(P(B) > 0\). Dann gilt
+  <dd>Seinen $A, B$ Ereignisse mit $P(B) > 0$. Dann gilt
       \[P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}\]
 
-      Hierbei heißt \(P(A|B)\) die <i>a posteriori Wahrscheinlichkeit</i>,
-      \(P(B|A)\) die <i>likelihood</i>, \(P(A)\) die
-      <i>a priori Verteilung über \(A\)</i> und \(P(B)\) die
-      <i>a priori Verteilung über \(B\)</i>.</dd>
+      Hierbei heißt $P(A|B)$ die <i>a posteriori Wahrscheinlichkeit</i>,
+      $P(B|A)$ die <i>likelihood</i>, $P(A)$ die
+      <i>a priori Verteilung über $A$</i> und $P(B)$ die
+      <i>a priori Verteilung über $B$</i>.</dd>
   <dt><a href="https://de.wikipedia.org/wiki/Bayessches_Netz"><dfn>Bayessches Netz</dfn></a> (Siehe <a href="https://www.youtube.com/watch?v=VfyxPtlqZh4">Lecture 13: Bayes Nets</a>)</dt>
   <dd>Ein <i>Bayessches Netz</i> ist ein <abbr title="Directed Acyclical
       Graph">DAG</abbr>, bei dem die Knoten Zufallsvariablen und die Kanten
@@ -260,17 +260,17 @@ Slides: `05_DynamischeBayesscheNetze.pdf`
   <dd><i>Dynamische Bayessche Netze</i> sind Bayessche Netze zur Beschreibung
       dynamischer Prozesse.</dd>
   <dt><a href="https://en.wikipedia.org/wiki/Markov_blanket"><dfn>Markov Blanket</dfn></a></dt>
-  <dd>Sei \(G=(V,E)\) ein DAG zu einem Bayesschen Netz und \(v_S \in V\).
-      Dann ist der Markov Blanket die folgende Knotenmenge \(B \subseteq V \setminus \{v_S\}\):
+  <dd>Sei $G=(V,E)$ ein DAG zu einem Bayesschen Netz und $v_S \in V$.
+      Dann ist der Markov Blanket die folgende Knotenmenge $B \subseteq V \setminus \{v_S\}$:
 
       <ul>
-          <li>Die Elternknoten von \(v_S\) sind in \(B\).</li>
-          <li>Die Kindknoten \(K = \{v_{K_1}, \dots, v_{K_n}\}\) sind in \(B\)</li>
-          <li>Die Elternknoten von \(K\), ausgenommen von \(v_S\), sind in
-              \(B\)</li>
+          <li>Die Elternknoten von $v_S$ sind in $B$.</li>
+          <li>Die Kindknoten $K = \{v_{K_1}, \dots, v_{K_n}\}$ sind in $B$</li>
+          <li>Die Elternknoten von $K$, ausgenommen von $v_S$, sind in
+              $B$</li>
       </ul>
 
-      Diese Knotenmenge macht \(v_S\) unabhängig von anderen Knoten.</dd>
+      Diese Knotenmenge macht $v_S$ unabhängig von anderen Knoten.</dd>
   <dt><a href="https://en.wikipedia.org/wiki/Naive_Bayes_spam_filtering"><dfn>Naive Bayes Spam Filter</dfn></a></dt>
   <dd>Ein naiver Bayes Spamfilter nutzt häufig Bag-of-Words Features. Man berechnet die Wahrscheinlichkeit,
       dass eine gegebene E-Mail Spam ist. Dazu geht man davon aus, dass die
@@ -280,22 +280,22 @@ Slides: `05_DynamischeBayesscheNetze.pdf`
       für eine detailiertere Beschreibung.</dd>
   <dt><dfn>Bayes Filter</dfn></dt>
   <dd>Ein Bayes Filter ist eine Familie von Zufallsvariablen. Das könnte z.B.
-      die \((x,y,z)\) Position eines GPS-Sensors sein. Diese Position ist
+      die $(x,y,z)$ Position eines GPS-Sensors sein. Diese Position ist
       verrauscht.
 
       Nun gibt es drei mögliche Anfragen:
 
       <ul>
-          <li><b>Filtern</b>: Es liegen Messungen \(Z_0, \dots, Z_t\) vor,
-              sage die aktuelle Position \(X_t\) vorher. Also <i>filtere das
-              Rauschen</i> aus \(Z_t\) unter berücksichtigung, dass wir uns
+          <li><b>Filtern</b>: Es liegen Messungen $Z_0, \dots, Z_t$ vor,
+              sage die aktuelle Position $X_t$ vorher. Also <i>filtere das
+              Rauschen</i> aus $Z_t$ unter berücksichtigung, dass wir uns
               noch nicht teleportieren können:
               \[P(X_t | Z_t, \dots, Z_0)\]</li>
-          <li><b>Prädizieren</b>: Es liegen Messungen \(Z_0, \dots, Z_t\) vor,
-              sage die Position \(X_{t+k}\) vorher:
+          <li><b>Prädizieren</b>: Es liegen Messungen $Z_0, \dots, Z_t$ vor,
+              sage die Position $X_{t+k}$ vorher:
               \[P(X_{t+k} | Z_t, \dots, Z_0)\]</li>
-          <li><b>Glätten</b>: Es liegen Messungen \(Z_0, \dots, Z_t\) vor,
-              sage die Position \(P(X_{t-k} | Z_t, \dots, Z_0)\) vorher.</li>
+          <li><b>Glätten</b>: Es liegen Messungen $Z_0, \dots, Z_t$ vor,
+              sage die Position $P(X_{t-k} | Z_t, \dots, Z_0)$ vorher.</li>
       </ul>
 
       Beispiele für Bayes-Filter sind
@@ -353,17 +353,17 @@ Slides: `05_DynamischeBayesscheNetze.pdf`
             <li><b>Expectation</b>: Schätze für jeden Datenpunkte die
                 Clusterzugehörigkeit.</li>
             <li><strong>Maximization</strong>: Parameter der Cluster neu
-                berechnen. Also für jeden Cluster \(A\)
+                berechnen. Also für jeden Cluster $A$
                 <ul>
-                    <li>\(\mu_A = \frac{\sum_{i=1}^N w_{i, A} \cdot x_i}{\sum_{i=1}^N w_{i, A}}\)</li>
-                    <li>\(\sigma_A^2 = \frac{\sum_{i=1}^N w_{i,A} (x_i + \mu_A)^2}{\sum_{i=1}^N w_{i,A}}\)</li>
+                    <li>$\mu_A = \frac{\sum_{i=1}^N w_{i, A} \cdot x_i}{\sum_{i=1}^N w_{i, A}}$</li>
+                    <li>$\sigma_A^2 = \frac{\sum_{i=1}^N w_{i,A} (x_i + \mu_A)^2}{\sum_{i=1}^N w_{i,A}}$</li>
                 </ul>
-                wobei \(w_{i,A}\) die Wahrscheinlichkeit der Zugehörigkeit des
-                Punktes \(i\) zu Cluster \(A\) ist.
+                wobei $w_{i,A}$ die Wahrscheinlichkeit der Zugehörigkeit des
+                Punktes $i$ zu Cluster $A$ ist.
                 </li>
         </ul>
 
-        Der EM-Algorithmus ist mit \(k\)-means verwandt.
+        Der EM-Algorithmus ist mit $k$-means verwandt.
 
         Siehe <a href="https://www.youtube.com/watch?v=REypj2sy_5U">Mixture Models 1: the EM algorithm</a>
 
@@ -418,11 +418,11 @@ Siehe auch:
   <dd>Ein OPRM besteht nach [<a href="#ref-schu15" name="ref-schu15-anchor">Schu15</a>] aus
 
   <ul>
-      <li>Eine Klassenmenge \(\mathbf{C} = \{C_1, \dots, C_n\}\),</li>
+      <li>Eine Klassenmenge $\mathbf{C} = \{C_1, \dots, C_n\}$,</li>
       <li>einer partiellen Ordnung über C, welche die Klassenhierarchie definiert,</li>
-      <li>einer Menge einfacher, nicht probabilisitscher Attribute \(\Lambda_C = \{\lambda_1, \dots, \lambda_n \forall C \in \mathbf{C}\}\),</li>
-      <li>einer Menge beschreibender Attribute \(\Delta_C = \{\delta_1, \dots, \delta_n\} \forall C \in \mathbf{C}\),</li>
-      <li>einer Menge komplexer Attribute \(\Phi_C = \{\phi_1, \dots, \phi_n\} \forall C \in \mathbf{C}\).
+      <li>einer Menge einfacher, nicht probabilisitscher Attribute $\Lambda_C = \{\lambda_1, \dots, \lambda_n \forall C \in \mathbf{C}\}$,</li>
+      <li>einer Menge beschreibender Attribute $\Delta_C = \{\delta_1, \dots, \delta_n\} \forall C \in \mathbf{C}$,</li>
+      <li>einer Menge komplexer Attribute $\Phi_C = \{\phi_1, \dots, \phi_n\} \forall C \in \mathbf{C}$.
           Die komplexen Attribute beschreiben funktionale Beziehungen zwischen Klassen.</li>
   </ul>
 
@@ -448,9 +448,9 @@ See also:
 <dl>
   <dt><a href="https://de.wikipedia.org/wiki/Lineare_Regression"><dfn>Lineare Regression</dfn></a></dt>
   <dd>Die lineare Regression ist ein Modell zur approximation von Datenpunkten
-      \((x, y) \in \mathbb{R}^n \times \mathbb{R}\) durch eine
-      lineare Funktion, d.h. einer Funktion der Form \(f(x) = x^T \cdot w\).
-      Dabei ist \(w \in \mathbb{R}^n\).<br/>
+      $(x, y) \in \mathbb{R}^n \times \mathbb{R}$ durch eine
+      lineare Funktion, d.h. einer Funktion der Form $f(x) = x^T \cdot w$.
+      Dabei ist $w \in \mathbb{R}^n$.<br/>
       <br/>
       Wenn man als Optimierungskriterium den quadratischen Abstand
       \[E(f, data) = \sum_{(x,y) \in data} (f(x) - y)^2\]
@@ -458,20 +458,20 @@ See also:
       \[w = (X^T X)^{-1} X^T y\]
       gegeben.<br/>
       <br/>
-      Siehe auch: <a href="http://math.stackexchange.com/q/691812/6876">Proof of when is \(A=X^T X\) invertible?</a>
+      Siehe auch: <a href="http://math.stackexchange.com/q/691812/6876">Proof of when is $A=X^T X$ invertible?</a>
       sowie <a href="http://math.stackexchange.com/q/1626052/6876">Does a transformation + linear regression give the same regression as fitting a quadratic function?</a>
       </dd>
   <dt><dfn>Affine Regression</dfn></dt>
   <dd>Die affine Regression ist ein Modell zur approximation von Datenpunkten
-      \((x, y) \in \mathbb{R}^n \times \mathbb{R}\) durch eine
-      affine Funktion, d.h. einer Funktion der Form \(f(x) = x^T \cdot w + b\).
-      Dabei ist \(w \in \mathbb{R}^n, b \in \mathbb{R}\). Um das Problem auf
-      ein lineares zu reduzieren kann man den Feature-Vektor \(x\) durch ein
-      konstantes Feature \(x_0 = 1\) erweitern.
+      $(x, y) \in \mathbb{R}^n \times \mathbb{R}$ durch eine
+      affine Funktion, d.h. einer Funktion der Form $f(x) = x^T \cdot w + b$.
+      Dabei ist $w \in \mathbb{R}^n, b \in \mathbb{R}$. Um das Problem auf
+      ein lineares zu reduzieren kann man den Feature-Vektor $x$ durch ein
+      konstantes Feature $x_0 = 1$ erweitern.
       </dd>
   <dt><dfn>Korrelationskoeffizient</dfn></dt>
-  <dd>Der Korrelationskoeffizient \(\kappa(X, Y) \in [-1, 1]\) ist ein Maß für
-      den linearen Zusammenhang zwischen zwei Zufallsvariablen \(X, Y\). Er
+  <dd>Der Korrelationskoeffizient $\kappa(X, Y) \in [-1, 1]$ ist ein Maß für
+      den linearen Zusammenhang zwischen zwei Zufallsvariablen $X, Y$. Er
       ist definiert als
       \[\kappa(X, Y) := \frac{Cov(X, Y)}{\sigma(X) \cdot \sigma(Y)}\]</dd>
   <dt><a href="https://de.wikipedia.org/wiki/Gau%C3%9F-Prozess"><dfn>Gausscher Prozess</dfn></a> (<dfn>Kriging</dfn>, <a href="https://www.youtube.com/watch?v=4vGiHC35j9s">Machine learning - Introduction to Gaussian processes</a> by Nando De Freitas)</dt>
@@ -497,7 +497,7 @@ Siehe auch:
       graphisches Modell.</dd>
   <dt><dfn>Restricted Boltzmann machine</dfn> (<dfn>RBM</dfn>)</dt>
   <dd>Siehe <a href="../neuronale-netze-vorlesung/#rbm">Neuronale Netze</a></dd>
-  <dt><dfn>Contrastive Divergence</dfn> (<dfn>CD</dfn>, <dfn>CD-\(k\)</dfn>)</dt>
+  <dt><dfn>Contrastive Divergence</dfn> (<dfn>CD</dfn>, <dfn>CD-$k$</dfn>)</dt>
   <dd>Siehe <a href="../neuronale-netze-vorlesung/#contrastive-divergence">Neuronale Netze</a></dd>
   <dt><dfn>Contrastive Wake-Sleep Algorithm</dfn> (siehe <a href="https://www.youtube.com/watch?v=znQfKBOGnJ8">The wake-sleep algorithm</a> von Hinton - Lecture 13d aus "<a href="https://www.coursera.org/course/neuralnets">Neural Networks for Machine Learning</a>")</dt>
   <dd>Der Wake-Sleep Algorithmus ist ein Trainingsalgorithmus für gerichtete
@@ -556,8 +556,8 @@ Siehe auch: [Neuronale Netze Vorlesung](//martin-thoma.com/neuronale-netze-vorle
       Dieser hat folgende Parameter:
       <ul>
           <li>Padding: None, Zero, Copy</li>
-          <li>Stride: \(s \in \mathbb{N}_{> 0}\)</li>
-          <li>Filter Size: \((x,y) \in \mathbb{N}^2\)</li>
+          <li>Stride: $s \in \mathbb{N}_{> 0}$</li>
+          <li>Filter Size: $(x,y) \in \mathbb{N}^2$</li>
           <li>Number of filters: How many filters should get learned?</li>
       </ul></dd>
   <dt><dfn>Feature Map</dfn></dt>
@@ -570,13 +570,13 @@ Siehe auch: [Neuronale Netze Vorlesung](//martin-thoma.com/neuronale-netze-vorle
       Features zusammenfasst. Pooling Schichten haben folgende Parameter:
 
       <ul>
-          <li>Größe: Typischerweise \(3 \times 3\)</li>
-          <li>Stride \(s \in \mathbb{N}\): Typischerweise gleich der Größe des Pooling-Bereichs (also 3).</li>
+          <li>Größe: Typischerweise $3 \times 3$</li>
+          <li>Stride $s \in \mathbb{N}$: Typischerweise gleich der Größe des Pooling-Bereichs (also 3).</li>
           <li>Art: max, mean</li>
       </ul>
 
       Typischerweise reduziert sie die Anzahl der Features, da typischerweise
-      ein \(s > 1\) gewählt wird.</dd>
+      ein $s > 1$ gewählt wird.</dd>
 </dl>
 
 
@@ -622,7 +622,7 @@ Slides: `11_Evaluation.pdf`
       Wert angeben. So kann für beliebig viele Klassen gezeigt werden, wie gut
       der Klassifikator ist und welche Art der Verwechslung er macht.</dd>
   <dt><dfn>Klassifikationsfehler</dfn></dt>
-  <dd>\(\text{Klassifikationsfehler} = \frac{\text{Fehlerhafte Hypothesen}}{\text{Anzahl aller Beispiele}} \in [0, 1]\)</dd>
+  <dd>$\text{Klassifikationsfehler} = \frac{\text{Fehlerhafte Hypothesen}}{\text{Anzahl aller Beispiele}} \in [0, 1]$</dd>
   <dt><dfn>Klassifikationsgüte</dfn></dt>
   <dd>Klassifikationsgüte = 1 - Klassifikationsfehler</dd>
   <dt><dfn>False Alarm Rate</dfn> (<dfn>FA</dfn>, <dfn>Falsch Positiv Rate</dfn>, <dfn>FPR</dfn>)</dt>
@@ -654,7 +654,7 @@ Slides: `11_Evaluation.pdf`
   <dd>Der ROC-Graph gibt für einen Klassifikator, bei dem man einen Parameter
       einstellen kann, den Fehler an.
 
-      Die \(x\)-Achse ist dabei die FPR, die \(y\)-Achse die TPR.</dd>
+      Die $x$-Achse ist dabei die FPR, die $y$-Achse die TPR.</dd>
   <dt><dfn>Spezifität</dfn></dt>
   <dd>Der Begriff der <i>Spezifität</i> ist in der Medizin üblich und
       ist definiert durch
@@ -664,7 +664,7 @@ Slides: `11_Evaluation.pdf`
       medizinischen Tests wäre das der Anteil der Gesunden, bei denen
       tatsächlich auch die Diagnose "Gesund" gestellt wurde.</dd>
   <dt><dfn>PRC-Graph</dfn> (<dfn>Precision-Recall-Graph</dfn>)</dt>
-  <dd>Die \(x\)-Achse ist Recall, die \(y\)-Achse ist Precision.</dd>
+  <dd>Die $x$-Achse ist Recall, die $y$-Achse ist Precision.</dd>
   <dt><dfn>F-Maß</dfn></dt>
   <dd>\[F_\alpha = \frac{precision \cdot recall}{\alpha^2 \cdot precision + recall}\]</dd>
 </dl>
@@ -672,8 +672,8 @@ Slides: `11_Evaluation.pdf`
 Alternative:
 
 * Aufstellen einer Kostenfunktion und optimieren nach Kosten.
-* Plotten der Anzahl der Trainingsdaten (<span markdown="0">\(x\)</span>-Achse) und des Fehlers
-  (<span markdown="0">\(y\)</span>-Achse). Die Kurven sollten der Test-Fehler sowie der Trainingsfehler
+* Plotten der Anzahl der Trainingsdaten (<span markdown="0">$x$</span>-Achse) und des Fehlers
+  (<span markdown="0">$y$</span>-Achse). Die Kurven sollten der Test-Fehler sowie der Trainingsfehler
   sein. Damit lässt sich abschätzen, ob mehr Trainingsdaten ohne eine
   Veränderung des Modells hilfreich sind.
 
@@ -714,7 +714,7 @@ Alternative:
         und
         \[\forall j \in 1, \dots, k: y_j^* (w \cdot x_j^* -b) \geq 1\text{ with }y_j^* \in \{-1, 1\}\]
 
-        Dabei sind \(D^* = \{x_i^* | i = 1, \dots, k\}\) ungelabelte Daten.
+        Dabei sind $D^* = \{x_i^* | i = 1, \dots, k\}$ ungelabelte Daten.
     </li>
     <li>Was macht man im Reinforcement Learning, wenn Aktionen länger dauern?<br/>
         → Options verwenden (TODO: Wie ändert sich die Value Iteration Formel
@@ -730,9 +730,9 @@ Alternative:
     <li>Wie funktioniert aktives Lernen bei SVMs?<br/>
         → Bei SVMs gibt es die Dualität zwischen dem Feature-Space und dem
            Hypothesenraum. In dem Feature-Space stellen
-           die Achsen <span markdown="0">\(x_i\)</span> die Features dar, Trainingsdaten Punkte sind und
+           die Achsen <span markdown="0">$x_i$</span> die Features dar, Trainingsdaten Punkte sind und
            die SVM durch die Trennebene visualisiert wird. Im Hypothesenraum
-           sind die Achsen <span markdown="0">\(w_i\)</span> zusammen der
+           sind die Achsen <span markdown="0">$w_i$</span> zusammen der
            Normalenvektor der SVM, die verschiedenen Trennebenen der SVMs sind
            hier Punkte. Die Daten geben Bedingungen an die SVM vor, welche
            in diesem Raum als Hyperebenen dargestellt werden können. Der Margin ist

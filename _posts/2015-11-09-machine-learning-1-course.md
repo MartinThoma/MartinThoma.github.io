@@ -43,7 +43,7 @@ Slide name: `ML-Einordnungskriterien.pdf`
     </thead>
     <tbody>
         <tr>
-            <td colspan="2"><abbr title="k nearest neighbor"><span markdown="0">\(k\)</span>-NN</abbr></td>
+            <td colspan="2"><abbr title="k nearest neighbor"><span markdown="0">$k$</span>-NN</abbr></td>
             <td style="text-align: center;">x</td>
             <td style="text-align: center; border-right: solid;">&nbsp;</td>
             <td style="text-align: center;">&nbsp;</td>
@@ -302,7 +302,7 @@ Slide name: `MLI_01_Einfuehrung_slides1.pdf`
       „Schluss vom Allgemeinen auf das Besondere“ verstanden worden.</dd>
   <dt><dfn>Modus ponens</dfn></dt>
   <dd>Der Modus ponens ist eine Art des logischen Schließens. Er besagt: Wenn
-      die Prämissen \(A \rightarrow B\) und \(A\) gelten, dann gilt auch \(B\).</dd>
+      die Prämissen $A \rightarrow B$ und $A$ gelten, dann gilt auch $B$.</dd>
   <dt><dfn>Abduktion</dfn> by Peirce</dt>
   <dd>Deduction proves that something must be; Induction shows that something
       actually is operative; Abduction merely suggests that something may
@@ -320,8 +320,8 @@ Slide name: `MLI_02_InduktivesLernen_slides1.pdf`
     <dt><dfn>Version Space Algorithmus</dfn></dt>
     <dd>Der Version Space Algorithmus ist ein binärer Klassifikator für
         diskrete Feature-Spaces. Er startet mit der generellsten Hypothese
-        \(G = (?, \dots, ?)\) - alles ist wahr - und der speziellsten Hypothese
-        \(S = (\#, \dots, \#)\) - nichts ist wahr. Wenn ein Beispiel mit dem Label
+        $G = (?, \dots, ?)$ - alles ist wahr - und der speziellsten Hypothese
+        $S = (\#, \dots, \#)$ - nichts ist wahr. Wenn ein Beispiel mit dem Label
         <code>true</code> gesehen wird, dann wird die speziellste Hypothese
         angepasst und veralgemeinert. Wenn ein Beispiel mit dem Label
         <code>false</code> gesehen wird, wird die generellste Hypothese spezialisiert.<br/>
@@ -382,17 +382,17 @@ Siehe auch:
 
 <dl>
   <dt><a href="https://de.wikipedia.org/wiki/Markow-Entscheidungsproblem"><dfn>Markovsches Entscheidungsproblem</dfn></a> (<dfn>Markov Decision Process</dfn>, <dfn>MDP</dfn>)</dt>
-  <dd>Ein Markovsches Entscheidungsproblem ist ein 5-Tupel \(S, A, P, R, \gamma\)
+  <dd>Ein Markovsches Entscheidungsproblem ist ein 5-Tupel $S, A, P, R, \gamma$
       mit:
 
       <ul>
-          <li>\(S\): Endliche Zustandsmenge (states)</li>
-          <li>\(A(s)\): Die Menge von möglichen Aktionen im Zustand \(s\)</li>
-          <li>\(P(s, s', a) = P(s_{t+1} = s' | s_t = s, a_t = a)\): Die Wahrscheinlichkeit
-              im Zeitschritt \(t+1\) im Zustand \(s'\) zu sein, wenn man zum Zeitpunkt
-              \(t\) im Zustand \(s\) ist und die Aktion \(a\) ausführt</li>
-          <li>\(R(s, s', a) \in \mathbb{R}\): Die direkte Belohnung, wenn durch die Aktion \(a\) vom Zustand \(s\) in den Zustand \(s'\) gekommen ist.</li>
-          <li>\(\gamma \in [0, 1]\): Der Diskontierungsfaktor, welche die
+          <li>$S$: Endliche Zustandsmenge (states)</li>
+          <li>$A(s)$: Die Menge von möglichen Aktionen im Zustand $s$</li>
+          <li>$P(s, s', a) = P(s_{t+1} = s' | s_t = s, a_t = a)$: Die Wahrscheinlichkeit
+              im Zeitschritt $t+1$ im Zustand $s'$ zu sein, wenn man zum Zeitpunkt
+              $t$ im Zustand $s$ ist und die Aktion $a$ ausführt</li>
+          <li>$R(s, s', a) \in \mathbb{R}$: Die direkte Belohnung, wenn durch die Aktion $a$ vom Zustand $s$ in den Zustand $s'$ gekommen ist.</li>
+          <li>$\gamma \in [0, 1]$: Der Diskontierungsfaktor, welche die
               Bedeutung von direkten Belohnungen im Vergleich zu künftigen
               Belohnungen anzeigt.</li>
       </ul></dd>
@@ -401,22 +401,22 @@ Siehe auch:
       Es gibt also einen Agenten, der Aktionen ausführen kann. Diese können
       (nicht notwendigerweise sofort) bewertet werden.</dd>
   <dt><dfn>Policy</dfn></dt>
-  <dd>Eine <b>policy \(\pi: S \rightarrow A\)</b> ist die Vorschrift, in
+  <dd>Eine <b>policy $\pi: S \rightarrow A$</b> ist die Vorschrift, in
       welchem Zustand welche Aktion ausgeführt werden soll.</dd>
   <dt><dfn>Policy Learning</dfn></dt>
   <dd>Unter <i>Policy Learning</i> versteht man die Suche nach einer
-      optimalen Policy \(\pi^*\).</dd>
+      optimalen Policy $\pi^*$.</dd>
   <dt><dfn>Value-Funktion</dfn></dt>
-  <dd>Die Funktion \(V^\pi: S \rightarrow \mathbb{R}\) heißt Value-Funktion.
+  <dd>Die Funktion $V^\pi: S \rightarrow \mathbb{R}$ heißt Value-Funktion.
       Sie gibt den erwarteten Wert (nicht die Belohnung, da bei der V-Funktion
-      noch der Diskontierungsfaktor eingeht!) eines Zustands \(s\) unter der
-      policy \(\pi\) an.
+      noch der Diskontierungsfaktor eingeht!) eines Zustands $s$ unter der
+      policy $\pi$ an.
 
-      Mit \(V^*\) wird der Wert unter der optimalen policy bezeichnet.</dd>
+      Mit $V^*$ wird der Wert unter der optimalen policy bezeichnet.</dd>
   <dt><dfn>Q-Funktion</dfn></dt>
-  <dd>Die Funktion \(Q^\pi: S \times A \rightarrow \mathbb{R}\) gibt den erwarteten
-      Wert einer eines Zustandes \(s\) unter der policy \(\pi\), wenn die
-      Aktion \(a\) ausgeführt wird an.
+  <dd>Die Funktion $Q^\pi: S \times A \rightarrow \mathbb{R}$ gibt den erwarteten
+      Wert einer eines Zustandes $s$ unter der policy $\pi$, wenn die
+      Aktion $a$ ausgeführt wird an.
 
       Es gilt: \[Q^\pi(s, \pi(s)) = V^\pi(s)\]</dd>
    <dt><a name="rl-eligibility-trace"></a><dfn>Eligibility Traces</dfn></dt>
@@ -457,7 +457,7 @@ Algorithmen:
     <dt><dfn>Simple Temporal Difference Learning</dfn></dt>
     <dd>Simple Temporal Difference Learning is just like
         Simple Value Iteration, but now the Value function is updated with
-        a learning rate \(\alpha\):
+        a learning rate $\alpha$:
         \[\hat{V}^*(s_t) \leftarrow (1-\alpha) \cdot \hat{V}^*(s_t) + \alpha(r_t + \gamma \hat{V}^*(s_{t+1}))\]
 
         Mehr dazu im <a href="#td-learning">nächsten Abschnitt</a>.
@@ -469,12 +469,12 @@ Algorithmen:
 
     \[Q(s_t,a_t) \leftarrow (1-\alpha) \cdot Q(s_t,a_t) + \alpha [r_{t+1} + \gamma Q(s_{t+1}, a_{t+1})]\]
 
-    where \(\alpha \in (0, 1)\) is the learning rate and \(\gamma \in [0, 1]\)
+    where $\alpha \in (0, 1)$ is the learning rate and $\gamma \in [0, 1]$
     is the discount factor.
 
     </dd>
-    <dt><dfn>SARSA(\(\lambda\))</dfn></dt>
-    <dd>SARSA(\(\lambda\)) ist SARSA mit Eligibility Traces.
+    <dt><dfn>SARSA($\lambda$)</dfn></dt>
+    <dd>SARSA($\lambda$) ist SARSA mit Eligibility Traces.
 
     TODO
     </dd>
@@ -502,7 +502,7 @@ repeat:
     s ← s'
 ```
 
-where \\(\alpha \in (0, 1]\\) is a learning rate and \\(\gamma\\) is a discount
+where \$\alpha \in (0, 1]\$ is a learning rate and \$\gamma\$ is a discount
 factor.
 
 See also:
@@ -515,7 +515,7 @@ See also:
 * R. Sutton und A. Barto: [Temporal-Difference Learning](https://webdocs.cs.ualberta.ca/~sutton/book/ebook/node60.html). 1998.
 
 Der TD-Learning Algorithmus beschäftigt sich mit dem Schätzen der Value-Funktion
-\\(V^\pi\\) für eine gegebene Policy \\(\pi\\). Das wird auch <i>policy evaluation</i>
+\$V^\pi\$ für eine gegebene Policy \$\pi\$. Das wird auch <i>policy evaluation</i>
 oder <i>prediction</i> genannt.
 
 * [TD-Learning](https://de.wikipedia.org/wiki/Temporal_Difference_Learning) (Temporal Difference Learning)
@@ -547,42 +547,42 @@ Slide name: `MLI_04_Lerntheorie_slides1.pdf`
       auf den Trainingsdaten besser funktioniert aber eventuell mehr unter
       Overfitting leidet.</dd>
   <dt><dfn>Vapnik-Chervonenkis Dimension</dfn> (<dfn>VC-Dimension</dfn>)</dt>
-  <dd>Die <abbr title="Vapnik-Chervonenkis">VC</abbr>-Dimension \(VC(H, X) \in \mathbb{N} \cup \infty\)
-      eines Hypothesenraumes \(H\) ist gleich der maximalen Anzahl an
-      Datenpunkten aus \(X\), die von \(H\) beliebig in zwei Mengen gespalten
-      werden können. Dabei muss es nur eine Teilmenge \(X' \subseteq X \) der
-      Größe \(n\) geben, damit \(VC(H, X) \geq n\) gilt.
+  <dd>Die <abbr title="Vapnik-Chervonenkis">VC</abbr>-Dimension $VC(H, X) \in \mathbb{N} \cup \infty$
+      eines Hypothesenraumes $H$ ist gleich der maximalen Anzahl an
+      Datenpunkten aus $X$, die von $H$ beliebig in zwei Mengen gespalten
+      werden können. Dabei muss es nur eine Teilmenge $X' \subseteq X $ der
+      Größe $n$ geben, damit $VC(H, X) \geq n$ gilt.
 
-      Falls beliebige Teilmengen von \(X\) durch \(H\) separiert werden können,
-      so gilt \(VC(H, X) = \infty\).
+      Falls beliebige Teilmengen von $X$ durch $H$ separiert werden können,
+      so gilt $VC(H, X) = \infty$.
 
-      Praktisch gesehen ist \(X\), die Menge aller möglichen Features, sowie
-      \(H\), die Menge aller möglichen Trennlinien im Feature-Space, vorgegeben.
-      Die Frage ist ob man eine Teilmenge \(X' \subseteq X\) findet mit
-      \(|X'| = n\), sodass man für \(X'\) jede Mögliche Teilung in zwei
-      Mengen durch \(H\) realisieren kann.</dd>
+      Praktisch gesehen ist $X$, die Menge aller möglichen Features, sowie
+      $H$, die Menge aller möglichen Trennlinien im Feature-Space, vorgegeben.
+      Die Frage ist ob man eine Teilmenge $X' \subseteq X$ findet mit
+      $|X'| = n$, sodass man für $X'$ jede Mögliche Teilung in zwei
+      Mengen durch $H$ realisieren kann.</dd>
   <dt><a href="https://en.wikipedia.org/wiki/Probably_approximately_correct_learning">Probably approximately correct learning</a> (<dfn>PAC</dfn>)</dt>
   <dd>PAC macht eine Aussage über die Anzahl der benötigten Stichproben, wenn
       man einen bestimmten realen Fehler mit einer frei zu wählenden
       Wahrscheinlichkeit bekommen will.</dd>
 </dl>
 
-* Lernmaschine wird definiert durch Hypothesenraum \\(\{h_\alpha: \alpha \in A\}\\)
-  und Lernverfahren. Das Lernverfahren ist die Methode um \\(\alpha_{\text{opt}}\\)
+* Lernmaschine wird definiert durch Hypothesenraum \$\{h_\alpha: \alpha \in A\}\$
+  und Lernverfahren. Das Lernverfahren ist die Methode um \$\alpha_{\text{opt}}\$
   mit Hilfe von Lernbeispielen zu finden.
 * Probleme beim Lernen:
     * Größe des Hypothesenraums im Vergleich zur Anzahl der Trainingsdaten.
     * Das Verfahren könnte nur suboptimale Lösungen finden.
     * Das Verfahren könnte die passende Hypothese nicht beinhalten.
-* Lernproblemtypen: Sei die Menge der Lernbeispiele in \\(X \times Y\\), mit \\(X \times Y =\\)...
-    * \\(\\{Attribut_1, Attribut_2, ...\\} \times \\{True, False\\}\\): Konzeptlernen
-    * \\(\mathbb{R}^n \times \\{Klasse_1, ..., Klasse_n\\}\\): Klassifikation
-    * \\(\mathbb{R}^n \times \mathbb{R}\\): Regression
+* Lernproblemtypen: Sei die Menge der Lernbeispiele in \$X \times Y\$, mit \$X \times Y =\$...
+    * \$\\{Attribut_1, Attribut_2, ...\\} \times \\{True, False\\}\$: Konzeptlernen
+    * \$\mathbb{R}^n \times \\{Klasse_1, ..., Klasse_n\\}\$: Klassifikation
+    * \$\mathbb{R}^n \times \mathbb{R}\$: Regression
 * Gradientenabstieg, Overfitting
 * Kreuzvalidierung
 * PAC
-    * Folie 35: Was ist eine Instanz der Länge \\(n\\)?<br/>
-      Eine Hypothese mit \\(n\\) Literalen.
+    * Folie 35: Was ist eine Instanz der Länge \$n\$?<br/>
+      Eine Hypothese mit \$n\$ Literalen.
 
 
 #### Boosting
@@ -599,12 +599,12 @@ Slide name: `MLI_04_Lerntheorie_slides1.pdf`
 </dl>
 
 * Folie 22:
-    * Wofür steht \\(i\\) und welchen Wertebereich hat \\(i\\)?<br/>
-      → \\(i\\) ist eine Zählvariable, welche die Trainingsdaten durchnummeriert.
-    * Stellt \\(W_k(i)\\) die Wahrscheinlichkeit dar, dass Beispiel \\(i\\) im \\(k\\)-ten
+    * Wofür steht \$i\$ und welchen Wertebereich hat \$i\$?<br/>
+      → \$i\$ ist eine Zählvariable, welche die Trainingsdaten durchnummeriert.
+    * Stellt \$W_k(i)\$ die Wahrscheinlichkeit dar, dass Beispiel \$i\$ im \$k\$-ten
       Durchlauf für das Training verwendet wird?<br/>
-      → Nein. \\(W_k(i)\\) ist das Gewicht des \\(i\\)-ten Trainingsbeispiels
-      für den \\(k\\)-ten klassifikator. Siehe Folie&nbsp;24 und folgende für
+      → Nein. \$W_k(i)\$ ist das Gewicht des \$i\$-ten Trainingsbeispiels
+      für den \$k\$-ten klassifikator. Siehe Folie&nbsp;24 und folgende für
       ein Beispiel.
 
 
@@ -620,13 +620,13 @@ Siehe auch:
 
 <dl>
   <dt><dfn>VC-Dimension</dfn>, siehe <a href="https://youtu.be/puDzy2XmR5c">YouTube</a> und [<a href="#ref-mit97" name="ref-mit97-anchor">Mit97</a>]</dt>
-  <dd>Sei \(H^\alpha = \{h_\alpha : \alpha \in A\}\) der Hypothesenraum. Die
-      VC-Dimension \(VC(h_\alpha)\) von \(H^\alpha\) ist gleich der maximalen
-      Anzahl von beliebig platzierten Datenpunkten, die von \(H^\alpha\) separiert
+  <dd>Sei $H^\alpha = \{h_\alpha : \alpha \in A\}$ der Hypothesenraum. Die
+      VC-Dimension $VC(h_\alpha)$ von $H^\alpha$ ist gleich der maximalen
+      Anzahl von beliebig platzierten Datenpunkten, die von $H^\alpha$ separiert
       werden können.</dd>
 </dl>
 
-* Folie 44: \\(\eta \in [0, 1]\\) ist ein Parameter, der beliebig gewählt
+* Folie 44: \$\eta \in [0, 1]\$ ist ein Parameter, der beliebig gewählt
   werden kann. Siehe Info-Box <a href="#fehlerabschaetzung">Abschätzung des realen Fehlers</a>.
 
 
@@ -662,13 +662,13 @@ Slide name: `MLI_05_Neuronale_Netze_slides1.pdf`
         betrachtet nur das Vorzeichen des Gradienten, jedoch nicht den Betrag.
         Jedes Gewicht wird unabhängig von den anderen behandelt.
 
-        Der Algorithmus hat Konstanten \(\eta^- \in \mathbb{R}_{\le 1}\) sowie
-        \(\eta^+ \in \mathbb{R}_{\ge 1}\). Für jedes Gewicht ist außerdem
-        \(\eta=1\) zu Beginn.
+        Der Algorithmus hat Konstanten $\eta^- \in \mathbb{R}_{\le 1}$ sowie
+        $\eta^+ \in \mathbb{R}_{\ge 1}$. Für jedes Gewicht ist außerdem
+        $\eta=1$ zu Beginn.
 
         Bei jedem Gewichtsupdate wird überprüft, ob sich das Vorzeichen des
         Gradienten für dieses Gewicht geändert hat. Falls ja, wird das Gewicht
-        um \(\eta \cdot \eta^+\) bzw \(\eta \cdot \eta^-\) geändert. Außerdem
+        um $\eta \cdot \eta^+$ bzw $\eta \cdot \eta^-$ geändert. Außerdem
         kann eine minimale bzw. eine Maximale Änderung gesetzt werden.
         </dd>
     <dt><a href="https://en.wikipedia.org/wiki/Delta_rule"><dfn>Delta-Regel</dfn></a>, siehe <a href="http://www.neuronalesnetz.de/delta.html">neuronalesnetz.de</a></dt>
@@ -679,25 +679,25 @@ Slide name: `MLI_05_Neuronale_Netze_slides1.pdf`
         wobei
 
         <ul>
-        <li>\(\Delta w_{ji} \in \mathbb{R}\) die Änderung des Gewichts von Input \(i\)
-        zum Neuron \(j\),</li>
-        <li>\(\alpha \in [0, 1]\) die Lernrate (typischerweise \(\alpha \approx 0.1\)),</li>
-        <li>\(t_j \in \mathbb{R}\) der Zielwert des Neurons \(j\),</li>
-        <li>\(y_j \in \mathbb{R}\) die tatsächliche Ausgabe,</li>
-        <li>\(\varphi'\) die Ableitung der Aktivierungsfunktion des Neurons,</li>
-        <li>\(h_j \in \mathbb{R}\) die gewichtete Summe der Eingaben des Neurons und</li>
-        <li>\(x_i \in \mathbb{R}\) der \(i\)-te Input</li>
+        <li>$\Delta w_{ji} \in \mathbb{R}$ die Änderung des Gewichts von Input $i$
+        zum Neuron $j$,</li>
+        <li>$\alpha \in [0, 1]$ die Lernrate (typischerweise $\alpha \approx 0.1$),</li>
+        <li>$t_j \in \mathbb{R}$ der Zielwert des Neurons $j$,</li>
+        <li>$y_j \in \mathbb{R}$ die tatsächliche Ausgabe,</li>
+        <li>$\varphi'$ die Ableitung der Aktivierungsfunktion des Neurons,</li>
+        <li>$h_j \in \mathbb{R}$ die gewichtete Summe der Eingaben des Neurons und</li>
+        <li>$x_i \in \mathbb{R}$ der $i$-te Input</li>
         </ul>
 
         ist.
     </dd>
     <dt><dfn>Gradient-Descent Algorithmus</dfn></dt>
     <dd>Der Gradient-Descent Algorithmus ist ein Optimierungsalgorithmus für
-        differenzierbare Funktionen. Er startet an einer zufälligen Stelle \(x_0\).
+        differenzierbare Funktionen. Er startet an einer zufälligen Stelle $x_0$.
         Dann wird folgender Schritt mehrfach ausgeführt:
         \[x_0 \gets x_0 - \alpha \cdot \text(grad) f (x_0)\]
-        wobei \(\alpha \in (0, 1]\) die Lernrate ist und \(f\) die zu
-        optimierende Funktion. Dabei könnte \(\alpha\) mit der Zeit auch
+        wobei $\alpha \in (0, 1]$ die Lernrate ist und $f$ die zu
+        optimierende Funktion. Dabei könnte $\alpha$ mit der Zeit auch
         kleiner gemacht werden.
     </dd>
     <dt><dfn>Backpropagation</dfn> (siehe <a href="http://neuralnetworksanddeeplearning.com/chap2.html">neuralnetworksanddeeplearning.com</a>)</dt>
@@ -715,15 +715,15 @@ Slide name: `MLI_05_Neuronale_Netze_slides1.pdf`
         Variante des Gradient-Descent Algorithmus, da die Gradienten im
         Backpropagation-Algorithmus auf geschickte Weise berechnet werden.</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Radiale_Basisfunktion"><dfn>Radiale Basisfunktion</dfn></a> (<dfn>Radial Basis Function</dfn>, <dfn>RBF</dfn>)</dt>
-    <dd>Eine <i>radiale Basisfunktion</i> ist eine Funktion \(f: D \rightarrow \mathbb{R}\),
-        für die \(f(x) = f(\|x\|)\) gilt bzw. allgemeiner, für die ein \(c \in D\)
-        existiert, sodass \(f(x, c) = f(\|x - c\|)\) gilt.
+    <dd>Eine <i>radiale Basisfunktion</i> ist eine Funktion $f: D \rightarrow \mathbb{R}$,
+        für die $f(x) = f(\|x\|)$ gilt bzw. allgemeiner, für die ein $c \in D$
+        existiert, sodass $f(x, c) = f(\|x - c\|)$ gilt.
 
         Der Wert der Funktion hängt also nur von der Distanz zum Ursprung bzw.
-        allgemeiner zu einem Punkt \(c \in D\) ab.
+        allgemeiner zu einem Punkt $c \in D$ ab.
 
         Ein typisches Beispiel sind gaußsche RBFs:
-        \(f(x) = e^{-(a (x - c)^2)}\), wobei \(a, c\) Konstanten sind.</dd>
+        $f(x) = e^{-(a (x - c)^2)}$, wobei $a, c$ Konstanten sind.</dd>
     <dt><a href="https://en.wikipedia.org/wiki/Radial_basis_function_network"><dfn>Radial-Basis Funktion Netz</dfn></a> (<dfn>RBF-Netz</dfn>)</dt>
     <dd>Ein <i>Radial-Basis Funktion Netz</i> ist eine neuronales Netz,
         welches als Aktivierungsfunktionen RBFs verwendet. Dabei gibt es dann
@@ -739,15 +739,15 @@ Slide name: `MLI_05_Neuronale_Netze_slides1.pdf`
         Das scheinen einfach Neuronen mit RBF-Aktivierungsfunktionen zu sein,
         welche für eine Klasse stehen.
 
-        Zwei Schwellwerte, \(\theta^+\) und \(\theta^-\), werden eingeführt.
-        Der Schwellwert \(\theta^+\) muss beim Training eines Beispiels der
-        Klasse \(y_1\) von einem Neuron der Klasse \(y_1\) überschritten
+        Zwei Schwellwerte, $\theta^+$ und $\theta^-$, werden eingeführt.
+        Der Schwellwert $\theta^+$ muss beim Training eines Beispiels der
+        Klasse $y_1$ von einem Neuron der Klasse $y_1$ überschritten
         werden. Falls das nicht der Fall ist, wird ein neues Neuron
         hinzugefügt.<br/>
-        Der Schwellwert \(\theta^-\) ist eine obere Grenze für die Aktivierung
+        Der Schwellwert $\theta^-$ ist eine obere Grenze für die Aktivierung
         von Neuronen, die zu anderen Klassen gehören. Ist eine Aktivierung
         höher, wird der Radius des zugehörigen Neurons verringert.<br/>
-        \(\theta^+ = 0.4\) und \(\theta^- = 0.2\) sind sinnvolle Werte.
+        $\theta^+ = 0.4$ und $\theta^- = 0.2$ sind sinnvolle Werte.
         <br/>
         Laut einem Prüfungsprotokoll lernt DDA nach Vapnik korrekt.<br/>
         <br/>
@@ -782,7 +782,7 @@ Slide name: `MLI_06_InstanzbasiertesLernen_slides1.pdf`
       auf andere Fälle oder Güteinformationen enthalten.</dd>
 </dl>
 
-* Beispiel für Lazy Learning: <abbr title="k Nearest Neighbors">\(k\)-NN</abbr>,
+* Beispiel für Lazy Learning: <abbr title="k Nearest Neighbors">$k$-NN</abbr>,
   <abbr title="Case-based Reasoning">CBR</abbr>
 
 * NODO: Folie 3: „Fleißige“ Lernalgorithmen mit dem gleichen Hypothesenraum sind
@@ -801,11 +801,11 @@ findet sich im Artikel [Using SVMs with sklearn](//martin-thoma.com/svm-with-skl
 * SVMs sind laut Vapnik die Lernmaschine mit der kleinsten möglichen VC-
   Dimension, falls die Klassen linear trennbar sind.
 * Primäres Optimierungsproblem: Finde einen Sattelpunkt der Funktion<br/>
-  \\(L_P = L(\vec{w}, b, \vec{\alpha}) = \frac{1}{2}\|\vec{w}\|^2 - \sum_{i=1}^N \alpha_i (y_i(\vec{w}\vec{x_i}+b)-1)\\)
-  wobei \\(\alpha_1, \dots, \alpha_N \geq 0\\) Lagrange-Multiplikatoren sind
+  \$L_P = L(\vec{w}, b, \vec{\alpha}) = \frac{1}{2}\|\vec{w}\|^2 - \sum_{i=1}^N \alpha_i (y_i(\vec{w}\vec{x_i}+b)-1)\$
+  wobei \$\alpha_1, \dots, \alpha_N \geq 0\$ Lagrange-Multiplikatoren sind
 * Soft Margin Hyperebene
-* Der Parameter \(C\) dient der Regularisierung. Ist \(C\) groß gibt es wenige
-  Missklassifikationen in der Trainingsdatenmenge. Ist \(C\) klein, werden die
+* Der Parameter $C$ dient der Regularisierung. Ist $C$ groß gibt es wenige
+  Missklassifikationen in der Trainingsdatenmenge. Ist $C$ klein, werden die
   Margins größer.
 * Nichtlineare Kernelmethoden
 * Kernel-Trick
@@ -815,19 +815,19 @@ findet sich im Artikel [Using SVMs with sklearn](//martin-thoma.com/svm-with-skl
 Der reale Fehler kann durch den empirischen Fehler und die VC-Dimension wie
 folgt abgeschätzt werden:
 
-Mit Wahrscheinlichkeit \(P(1-\eta)\) gilt:
+Mit Wahrscheinlichkeit $P(1-\eta)$ gilt:
 \[E(h_\alpha) \leq E_{emp}(h_\alpha) + \sqrt{\frac{VC(h_\alpha)}{N} \cdot (\log(2 N / VC(h_\alpha)) + 1) - \frac{\log(\eta  / 4)}{N}}\]
 
 wobei gilt:
 
 <ul>
-    <li>\(E(h_\alpha)\) ist der reale Fehler der mit der Hypothese \(h_\alpha\)
+    <li>$E(h_\alpha)$ ist der reale Fehler der mit der Hypothese $h_\alpha$
         gemacht wird</li>
-    <li>\(E_{emp}(h_\alpha)\) ist der empirische Fehler der mit der Hypothese \(h_\alpha\)
+    <li>$E_{emp}(h_\alpha)$ ist der empirische Fehler der mit der Hypothese $h_\alpha$
         gemacht wird</li>
-    <li>\(VC(h_\alpha)\) ist die VC-Dimension der Lernmaschine</li>
-    <li>\(N\) ist die Anzahl der Lernbeispiele</li>
-    <li>\(0 \leq \eta \leq 1\)</li>
+    <li>$VC(h_\alpha)$ ist die VC-Dimension der Lernmaschine</li>
+    <li>$N$ ist die Anzahl der Lernbeispiele</li>
+    <li>$0 \leq \eta \leq 1$</li>
 </ul>
 
 Dieser Term wird in der <i>Structural Risc Minimization</i> minimiert.
@@ -865,8 +865,8 @@ Slide name: `MLI_08_Entscheidungsbaeume_slides1.pdf`
 * C4.5 unterstützt - im Gegensatz zu ID3 - kontinuierliche Attributwerte.
   Außerdem kann C4.5 mit fehlenden Attributwerten umgehen.
 * Mögliches Qualtitätsmaß ist Entropie:<br/>
-  \\(Entropie(S) = - p_\oplus \log_2 p_\oplus - p_\ominus \log_2 p_\ominus\\)
-  wobei \\(\oplus\\) die positiven Beispiele und \\(\ominus\\) die negativen Beispiele
+  \$Entropie(S) = - p_\oplus \log_2 p_\oplus - p_\ominus \log_2 p_\ominus\$
+  wobei \$\oplus\$ die positiven Beispiele und \$\ominus\$ die negativen Beispiele
   bezeichnet.
 * Folie 41: Wo ist der Vorteil von ID5R im Vergleich zu ID3, wenn das
   Ergebnis äquivalent ist?<br/>
@@ -887,37 +887,37 @@ Siehe auch:
 
 <dl>
   <dt><dfn>Satz von Bayes</dfn></dt>
-  <dd>Seien \(A, B\) Ereignisse, \(P(B) > 0\). Dann gilt:
-      \(P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}\)<br/>
-      Dabei wird \(P(A)\) a priori Wahrscheinlichkeit, \(P(B|A)\) likelihood,
-      und \(P(A|B)\) a posteriori Wahrscheinlichkeit genannt.</dd>
+  <dd>Seien $A, B$ Ereignisse, $P(B) > 0$. Dann gilt:
+      $P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}$<br/>
+      Dabei wird $P(A)$ a priori Wahrscheinlichkeit, $P(B|A)$ likelihood,
+      und $P(A|B)$ a posteriori Wahrscheinlichkeit genannt.</dd>
   <dt><dfn>Naiver Bayes-Klassifikator</dfn></dt>
   <dd>Ein Klassifizierer heißt naiver Bayes-Klassifikator, wenn er den
       Satz von Bayes unter der naiven Annahme der Unabhängigkeit der Features
       benutzt.</dd>
   <dt><dfn>Produktregel</dfn></dt>
-  <dd>\(P(A \land B) = P(A|B) \cdot P(B) = P(B|A) \cdot P(A)\)</dd>
+  <dd>$P(A \land B) = P(A|B) \cdot P(B) = P(B|A) \cdot P(A)$</dd>
   <dt><dfn>Summenregel</dfn></dt>
-  <dd>\(P(A \lor B) = P(A) + P(B) - P(A \land P)\)</dd>
+  <dd>$P(A \lor B) = P(A) + P(B) - P(A \land P)$</dd>
   <dt><dfn>Theorem der totalen Wahrscheinlichkeit</dfn></dt>
-  <dd>Es seien \(A_1, \dots, A_n\) Ereignisse mit \(i \neq j \Rightarrow A_i \cap A_j = \emptyset \;\;\;\forall i, j \in 1, \dots, n\) und \(\sum_{i=1}^n A_i = 1\). Dann gilt:<br/>
-      \(P(B) = \sum_{i=1}^n P(B|A_i) P(A_i)\)</dd>
+  <dd>Es seien $A_1, \dots, A_n$ Ereignisse mit $i \neq j \Rightarrow A_i \cap A_j = \emptyset \;\;\;\forall i, j \in 1, \dots, n$ und $\sum_{i=1}^n A_i = 1$. Dann gilt:<br/>
+      $P(B) = \sum_{i=1}^n P(B|A_i) P(A_i)$</dd>
   <dt><dfn>Maximum A Posteriori Hypothese</dfn> (MAP-Hypothese)</dt>
-  <dd>Sei \(H\) der Raum aller Hypothesen und \(D\) die Menge der beobachteten
+  <dd>Sei $H$ der Raum aller Hypothesen und $D$ die Menge der beobachteten
       Daten. Dann heißt<br/>
-      \(h_{MAP} = \text{arg max}_{h \in H} P(h|D) \cdot P(h)\)<br/>
+      $h_{MAP} = \text{arg max}_{h \in H} P(h|D) \cdot P(h)$<br/>
       die Menge der Maximum A Posteriori Hypothesen.</dd>
   <dt><dfn>Maximum Likelihood Hypothese</dfn> (ML-Hypothese)</dt>
-  <dd>Sei \(H\) der Raum aller Hypothesen und \(D\) die Menge der beobachteten
+  <dd>Sei $H$ der Raum aller Hypothesen und $D$ die Menge der beobachteten
       Daten. Dann heißt<br/>
-      \(h_{ML} = \text{arg max}_{h \in H} P(h|D)\)<br/>
+      $h_{ML} = \text{arg max}_{h \in H} P(h|D)$<br/>
       die Menge der Maximum Likelihood Hypothesen.</dd>
   <dt><dfn>Normalverteilung</dfn></dt>
-  <dd>Eine stetige Zufallsvariable \(X\) mit der Wahrscheinlichkeitsdichte
-      \(f\colon\mathbb{R}\to\mathbb{R}\), gegeben durch<br/>
-      \(f(x) = \frac {1}{\sigma\sqrt{2\pi}} e^{-\frac {1}{2} \left(\frac{x-\mu}{\sigma}\right)^2}\)<br/>
-      heißt \(\mathcal N\left(\mu, \sigma^2\right)\)-verteilt, normalverteilt
-      mit den Erwartungswert \(\mu\) und Varianz \(\sigma^2\).</dd>
+  <dd>Eine stetige Zufallsvariable $X$ mit der Wahrscheinlichkeitsdichte
+      $f\colon\mathbb{R}\to\mathbb{R}$, gegeben durch<br/>
+      $f(x) = \frac {1}{\sigma\sqrt{2\pi}} e^{-\frac {1}{2} \left(\frac{x-\mu}{\sigma}\right)^2}$<br/>
+      heißt $\mathcal N\left(\mu, \sigma^2\right)$-verteilt, normalverteilt
+      mit den Erwartungswert $\mu$ und Varianz $\sigma^2$.</dd>
   <dt><a href="https://de.wikipedia.org/wiki/Minimum_Description_Length"><dfn>Prinzip der minimalen Beschreibungslänge</dfn></a></dt>
   <dd>Das Prinzip der minimalen Beschreibungslänge ist eine formale
       Beschreibung von Ockhams Rasiermesser. Nach diesem Prinzip werden
@@ -928,34 +928,34 @@ Siehe auch:
       Verteilungen zu erzeugen.
   </dd>
   <dt><a href="https://de.wikipedia.org/wiki/Bedingte_Unabh%C3%A4ngigkeit"><dfn>Bedingte Unabhängigkeit</dfn></a></dt>
-  <dd>Seien \(X, Y, Z\) Zufallsvariablen. Dann heißt \(X\) bedingt unabhängig
-      von \(Y\) gegeben \(Z\), wenn \[P(X|Y,Z) = P(X|Z)\] gilt.
+  <dd>Seien $X, Y, Z$ Zufallsvariablen. Dann heißt $X$ bedingt unabhängig
+      von $Y$ gegeben $Z$, wenn \[P(X|Y,Z) = P(X|Z)\] gilt.
   </dd>
-  <dt><a href="https://en.wikipedia.org/wiki/Additive_smoothing"><dfn>Add \(k\) smoothing</dfn></a></dt>
-  <dd>Unter Add-\(k\)-smoothing versteht man eine Technik, durch die
+  <dt><a href="https://en.wikipedia.org/wiki/Additive_smoothing"><dfn>Add $k$ smoothing</dfn></a></dt>
+  <dd>Unter Add-$k$-smoothing versteht man eine Technik, durch die
       sichergestellt wird, dass die geschätzte Wahrscheinlichkeit für kein
-      Ereignis gleich null ist. Wenn man \(d \in \mathbb{N}\) mögliche
-      Ergebnisse eines Experiments hat, \(N \in \mathbb{N}\) experimente
+      Ereignis gleich null ist. Wenn man $d \in \mathbb{N}$ mögliche
+      Ergebnisse eines Experiments hat, $N \in \mathbb{N}$ experimente
       durchgeführt werden, dann schätzt man die Wahrscheinlichkeit von dem
-      Ergebnis \(i\) mit
+      Ergebnis $i$ mit
       \[\hat{\theta_i} = \frac{x_i + k}{N+ kd}, \]
-      wobei \(x_i\) die Anzahl der Beobachtungen von \(i\) ist und \(k \geq 0\)
+      wobei $x_i$ die Anzahl der Beobachtungen von $i$ ist und $k \geq 0$
       der Glättungsparameter ist.
   </dd>
   <dt><a href="https://de.wikipedia.org/wiki/Bayessches_Netz" id="bayes-net"><dfn>Bayessches Netz</dfn></a> (Quelle: [<a href="#ref-dar09" name="ref-dar09-anchor">Dar09</a>])</dt>
-  <dd>Ein bayessches Netz ist ein Tupel \((G, \Theta)\) mit:
+  <dd>Ein bayessches Netz ist ein Tupel $(G, \Theta)$ mit:
 
   <ul>
-      <li>\(G = (\mathbf{X}, E)\) ist ein <abbr title="Directed Acyclical Graph">DAG</abbr>
+      <li>$G = (\mathbf{X}, E)$ ist ein <abbr title="Directed Acyclical Graph">DAG</abbr>
           der <b>Struktur</b> des Bayesschen Netzwerks genant wird. Dabei
-          ist \(\mathbf{X} = \{X_1, X_2, \dots, X_n\}\) die Menge der Knoten.
+          ist $\mathbf{X} = \{X_1, X_2, \dots, X_n\}$ die Menge der Knoten.
           Jeder Knoten entspricht einer Zufallsvariablen (z.B. Attribut).<br/>
           <br/>
-          Existiert eine gerichtete Kante \((X_i, X_j) \in E\), so existiert
-          eine direkte Abhängigkeit zwischen \(X_i\) und \(X_j\).</li>
-      <li>\(\Theta\) ist die Menge der bedingten Wahrscheinlichkeitsverteilungen
+          Existiert eine gerichtete Kante $(X_i, X_j) \in E$, so existiert
+          eine direkte Abhängigkeit zwischen $X_i$ und $X_j$.</li>
+      <li>$\Theta$ ist die Menge der bedingten Wahrscheinlichkeitsverteilungen
           und heißt <b>Parametrisierung</b> des bayesschen Netzwerks. Es
-          existiert für jedes \(X_i\) genau eine Verteilung in \(\Theta\),
+          existiert für jedes $X_i$ genau eine Verteilung in $\Theta$,
           welche in Abhängigkeit der Elternknoten beschrieben wird.</li>
   </ul>
 
@@ -966,16 +966,16 @@ Siehe auch:
   Die Modelierung von Bayesschen Netzen erfolgt meist durch den Menschen mit
   Expertenwissen. Alternativ kann die Struktur durch
   <abbr title="Markov Chain Monte Carlo">MCMC</abbr> bestimmt werden.
-  Sobald die Struktur gegeben ist wird die Menge der Verteilungen \(\Theta\)
+  Sobald die Struktur gegeben ist wird die Menge der Verteilungen $\Theta$
   durch den Expectation Maximization Algorithmus bestimmt.
   </dd>
 </dl>
 
 Fragen:
 
-* Folie 23: Warum ist \\(h_{MAP(x)}\\) nicht die wahrscheinlichste
+* Folie 23: Warum ist \$h_{MAP(x)}\$ nicht die wahrscheinlichste
   Klassifikation?
-* Folie 24: Was ist \\(V\\)?
+* Folie 24: Was ist \$V\$?
 * [Is there any domain where Bayesian Networks outperform neural networks?](http://datascience.stackexchange.com/q/9818/8820)
 
 
@@ -985,32 +985,32 @@ Slide name: `MLI_10_HMM_slides1.pdf`
 
 <dl>
   <dt><dfn>Markov-Bedingung</dfn> (Beschränkter Horizont)</dt>
-  <dd>\(P(q_{t+1}=S_{t+1}|q_t = S_t, q_{t-1} = S_{t-1}, \dots) = P(q_{t+1}=S_{t+1}|q_t = S_t)\)</dd>
+  <dd>$P(q_{t+1}=S_{t+1}|q_t = S_t, q_{t-1} = S_{t-1}, \dots) = P(q_{t+1}=S_{t+1}|q_t = S_t)$</dd>
   <dt><dfn>Hidden Markov Modell</dfn> (<dfn>HMM</dfn>)</dt>
-  <dd>Eine HMM ist ein Tupel \(\lambda = (S, V, A, B, \Pi)\):
+  <dd>Eine HMM ist ein Tupel $\lambda = (S, V, A, B, \Pi)$:
       <ul>
-          <li>\(S = \{S_1, \dots, S_n\}\): Menge der Zustände</li>
-          <li>\(V = \{v_1, \dots, v_m\}\): Menge der Ausgabezeichen</li>
-          <li>\(A \in [0,1]^{n \times n}\) = (a_{ij}): Übergangsmatrix, die die Wahrscheinlichkeit von Zustand \(i\) in Zustand \(j\) zu kommen beinhaltet</li>
-          <li>\(B = (b_{ik})\) die Emissionswahrscheinlichkeit \(v_k\) im Zustand \(S_i\) zu beobachten</li>
-          <li>\(\Pi = (\pi_i) = P(q_1 = i)\): Die Startverteilung, wobei \(q_t\) den Zustand zum Zeitpunkt \(t\) bezeichnet</li>
+          <li>$S = \{S_1, \dots, S_n\}$: Menge der Zustände</li>
+          <li>$V = \{v_1, \dots, v_m\}$: Menge der Ausgabezeichen</li>
+          <li>$A \in [0,1]^{n \times n}$ = (a_{ij}): Übergangsmatrix, die die Wahrscheinlichkeit von Zustand $i$ in Zustand $j$ zu kommen beinhaltet</li>
+          <li>$B = (b_{ik})$ die Emissionswahrscheinlichkeit $v_k$ im Zustand $S_i$ zu beobachten</li>
+          <li>$\Pi = (\pi_i) = P(q_1 = i)$: Die Startverteilung, wobei $q_t$ den Zustand zum Zeitpunkt $t$ bezeichnet</li>
       </ul></dd>
   <dt><a href="https://de.wikipedia.org/wiki/Forward-Algorithmus"><dfn>Vorwärts-Algorithmus</dfn></a></dt>
   <dd>Der Vorwärts-Algorithmus löst das Evaluierungsproblem. Er benutzt dazu
-      dynamische Programmierung: Die Variablen \(\alpha_t(i) = P(o_1 o_2 \dots o_t; q_t = s_i | \lambda)\) gibt die Wahrscheinlichkeit
-      an zum Zeitpunkt \(t \in 1 \leq t \leq T\) im Zustand \(s_i \in S\) zu
-      sein und die Sequenz \(o_1 o_2 \dots o_t\) beobachtet zu haben. Diese
-      werden rekursiv berechnet. Dabei beginnt man mit Zeitpunkt \(t=1\), berechnet
-      die Wahrscheinlichkeit \(o_1\) beobachtet zu haben für jeden Zustand.
+      dynamische Programmierung: Die Variablen $\alpha_t(i) = P(o_1 o_2 \dots o_t; q_t = s_i | \lambda)$ gibt die Wahrscheinlichkeit
+      an zum Zeitpunkt $t \in 1 \leq t \leq T$ im Zustand $s_i \in S$ zu
+      sein und die Sequenz $o_1 o_2 \dots o_t$ beobachtet zu haben. Diese
+      werden rekursiv berechnet. Dabei beginnt man mit Zeitpunkt $t=1$, berechnet
+      die Wahrscheinlichkeit $o_1$ beobachtet zu haben für jeden Zustand.
       <br/>
-      Die Wahrscheinlichkeit der beobachteten Sequenz, gegeben die HMM \(\lambda\),
-      ist dann einfach die Summe der \(\alpha_i\) des letzten Zeitschritts.</dd>
+      Die Wahrscheinlichkeit der beobachteten Sequenz, gegeben die HMM $\lambda$,
+      ist dann einfach die Summe der $\alpha_i$ des letzten Zeitschritts.</dd>
   <dt><a href="https://de.wikipedia.org/wiki/Backward-Algorithmus"><dfn>Rückwärts-Algorithmus</dfn></a></dt>
   <dd>Der Rückwärts-Algorithmus löst das Dekodierungsproblem. Er benutzt dazu
-      dynamische Programmierung: Die Variablen \(\beta_t(i) = P(o_{t+1} o_{t+2} \dots o_{T}|q_t = s_i, \lambda)\) geben
-      die Wahrscheinlichkeit an, dass die Sequenz \(o_{t+1} o_{t+2} \dots o_{T}\)
-      beobachtet werden wird, gegeben das HMM&nbsp;\(\lambda\) und den
-      Startzustand&nbsp;\(s_i\).</dd>
+      dynamische Programmierung: Die Variablen $\beta_t(i) = P(o_{t+1} o_{t+2} \dots o_{T}|q_t = s_i, \lambda)$ geben
+      die Wahrscheinlichkeit an, dass die Sequenz $o_{t+1} o_{t+2} \dots o_{T}$
+      beobachtet werden wird, gegeben das HMM&nbsp;$\lambda$ und den
+      Startzustand&nbsp;$s_i$.</dd>
   <dt><dfn>Forward-Backward Algorithm</dfn></dt>
   <dd>Der Forward-Backward Algorithmus berechnet für jeden Zeitpunkt die
       Wahrscheinlichkeitsverteilung der Zustände. Dafür glättet er die Werte
@@ -1026,7 +1026,7 @@ Slide name: `MLI_10_HMM_slides1.pdf`
   <dt><a href="https://de.wikipedia.org/wiki/Baum-Welch-Algorithmus"><dfn>Baum-Welch-Algorithmus</dfn></a></dt>
   <dd>Löst P3:
 
-      Gegeben sei eine Trainingssequenz \(O_{\text{train}}\) und ein Modell
+      Gegeben sei eine Trainingssequenz $O_{\text{train}}$ und ein Modell
       \[\lambda = \{S, V, A, B, \Pi\}\]
 
 
@@ -1037,8 +1037,8 @@ Slide name: `MLI_10_HMM_slides1.pdf`
       Der Baum-Welch-Algorithmus geht wie folgt vor:
 
       <ol>
-          <li>Bestimme \(P(O_{\text{train}} | \lambda)\)</li>
-          <li>Schätze ein besseres Modell \(\bar \lambda\): TODO - Genauer! (Folie 31 - 36)</li>
+          <li>Bestimme $P(O_{\text{train}} | \lambda)$</li>
+          <li>Schätze ein besseres Modell $\bar \lambda$: TODO - Genauer! (Folie 31 - 36)</li>
       </ol>
 
       Iteriere diese Schritte so lange, bis ein lokales Maximum gefunden wurde.
@@ -1052,16 +1052,16 @@ Slide name: `MLI_10_HMM_slides1.pdf`
       <abbr title="Hidden Markov Models">HMMs</abbr> eine Links-nach-Rechts
       Topologie, bei der maximal ein Zustand übersprungen werden kann.
       Das bedeutet, es gibt eine Ordnung über den Zuständen. Von einem
-      Zustand \(i\) kommt man in die Zustände \(i, i+1, i+2\).</dd>
+      Zustand $i$ kommt man in die Zustände $i, i+1, i+2$.</dd>
 </dl>
 
 Die drei Probleme von HMMs sind
 
 * **P1 - Evaluierungsproblem**: Wie wahrscheinlich ist eine Sequenz
-  \\(\bf{o} = o_1 o_2 \dots o_T\\)
-  gegeben ein HMM \\(\lambda\\), also \\(P(\bf{o}|\lambda)\\).
-* **P2 - Dekodierungsproblem**: Finden der wahrscheinlichsten Zustandssequenz <span markdown="0">\(s_1, \dots, s_T\)</span>,
-  gegeben eine Sequenz von Beobachtungen \\(\bf{o} = o_1 o_2 \dots o_T\\).
+  \$\bf{o} = o_1 o_2 \dots o_T\$
+  gegeben ein HMM \$\lambda\$, also \$P(\bf{o}|\lambda)\$.
+* **P2 - Dekodierungsproblem**: Finden der wahrscheinlichsten Zustandssequenz <span markdown="0">$s_1, \dots, s_T$</span>,
+  gegeben eine Sequenz von Beobachtungen \$\bf{o} = o_1 o_2 \dots o_T\$.
 * **P3 - Lernproblem**: Optimieren der Modellparameter
 
 
@@ -1075,7 +1075,7 @@ Anwendungen:
 
 Slides: `MLI_11-MLN_slides1`
 
-Markov Logik Netze sind Sammlungen von Tupeln aus Gewichten \\(w_i\\) und
+Markov Logik Netze sind Sammlungen von Tupeln aus Gewichten \$w_i\$ und
 prädikatenlogischen Formeln. Die Idee hinter Markov Logik Netzen ist ein
 aufweichen der harten Bedingungen der Prädikatenlogik. Eine prädikatenlogische
 Formel ist entweder wahr oder falsch. Eine Formel in MLNs kann auch "meistens"
@@ -1083,13 +1083,13 @@ erfüllt sein. Das wird durch das Gewicht repräsentiert.
 
 <dl>
   <dt><a href="https://de.wikipedia.org/wiki/Markov_Logik_Netze"><dfn>Markov Logik Netze</dfn></a> (<dfn>MLN</dfn>)</dt>
-  <dd>Ein Markov Logik Netz ist ein Menge aus Tupeln \(L = (F_i, w_i)\), wobei \(F_i\) eine Formel der Prädikatenlogik erster Ordnung und \(w_i \in \mathbb{R}\) ein Gewicht ist.
+  <dd>Ein Markov Logik Netz ist ein Menge aus Tupeln $L = (F_i, w_i)$, wobei $F_i$ eine Formel der Prädikatenlogik erster Ordnung und $w_i \in \mathbb{R}$ ein Gewicht ist.
       Ein MLN ist eine Schablone für ein MRF.</dd>
   <dt><a name="mrf-definition"></a><dfn>Markov Random Field</dfn> (<dfn>Markov Netzwerk</dfn>, <dfn>MRF</dfn>)</dt>
   <dd>Ein MRF ist ein ungerichtetes Probabilistisches Grafisches Modell.<br/>
       MRFs sind zur Modellierung von Korrelation geeignet.</dd>
   <dt><a name="mln-jpd"></a><dfn>Verbundwahrscheinlichkeit in MLNs</dfn></dt>
-  <dd>\(P(x) = \frac{1}{Z} \exp(\sum_{i} w_i f_i(x))\) wobei \(f_i\) das \(i\)-te Feature und \(w_i\) ein
+  <dd>$P(x) = \frac{1}{Z} \exp(\sum_{i} w_i f_i(x))$ wobei $f_i$ das $i$-te Feature und $w_i$ ein
            Gewicht ist. Beispielsweise könnte \[f_i(x) = f_i(\text{smoking}, \text{cancer}) = \begin{cases}1 &\text{if } \neg \text{smoking} \lor \text{cancer}\\ 0 &\text{otherwise}\end{cases}\]
            gelten.</dd>
   <dt><a name="mln-inference"></a><dfn>Inferenz in MLNs</dfn></dt>
@@ -1255,14 +1255,14 @@ Siehe auch: [Formale Systeme](//martin-thoma.com/formale-systeme/)
         <ul>
              <li>Dabei wird pro Instanzattribut ein Netz-Input verwendet. Für
                  jede Klausel wird ein Neuron hinzugefügt.</li>
-             <li>Dieses ist mit dem Instanzattribut durch das Gewicht \(w\)
+             <li>Dieses ist mit dem Instanzattribut durch das Gewicht $w$
                  verbunden wenn es nicht negiert ist, sonst durch das Gewicht
-                 \(-w\).</li>
+                 $-w$.</li>
              <li>Der Schwellwert der Aktivierungsfunktion wird auf
-                 \(-(n- 0.5)w\) gesetzt, wobei \(n\) die Anzahl der nicht-negierten
+                 $-(n- 0.5)w$ gesetzt, wobei $n$ die Anzahl der nicht-negierten
                  Bedingungsteile ist.</li>
-            <li>Verbinde die restlichen Neuronen von Schicht \(i\) mit Schicht
-                \(i+1\) indem zufällige kleine Gewichte gesetzt werden.</li>
+            <li>Verbinde die restlichen Neuronen von Schicht $i$ mit Schicht
+                $i+1$ indem zufällige kleine Gewichte gesetzt werden.</li>
          </ul>
 
          Angewendet werden kann KBANN:
@@ -1279,35 +1279,35 @@ Siehe auch: [Formale Systeme](//martin-thoma.com/formale-systeme/)
 Slides: `MLI_14_UnueberwachtesLernen_slides1.pdf`
 
 <dl>
-    <dt><dfn>\(k\)-means Clustering</dfn></dt>
-    <dd>Der \(k\)-means Clustering Algorithmus finden \(k\) Cluster in einem
-        Datensatz. Dabei ist \(k \in \mathbb{N}_{\geq 1}\) vom Benutzer zu
+    <dt><dfn>$k$-means Clustering</dfn></dt>
+    <dd>Der $k$-means Clustering Algorithmus finden $k$ Cluster in einem
+        Datensatz. Dabei ist $k \in \mathbb{N}_{\geq 1}$ vom Benutzer zu
         wählen.
 
-        Zuerst initialisert \(k\)-means die Zentroiden, also zentrale Punkte
-        für Cluster, zufällig. Dann geht \(k\)-means geht iterativ vor:
+        Zuerst initialisert $k$-means die Zentroiden, also zentrale Punkte
+        für Cluster, zufällig. Dann geht $k$-means geht iterativ vor:
 
         <ol>
             <li>Weise jeden Datenpunkt seinem nächsten Cluster zu.</li>
-            <li>Verschiebe die \(k\) Zentroide in ihr Clusterzentrum</li>
+            <li>Verschiebe die $k$ Zentroide in ihr Clusterzentrum</li>
         </ol>
 
         Siehe auch: <a href="//martin-thoma.com/k-nearest-neighbor-classification-interactive-example/">Interaktives Beispiel</a>
     </dd>
-    <dt><dfn>Fuzzy \(k\)-means</dfn></dt>
-    <dd>Im Gegensatz zum \(k\)-means Algorithmus, wo jeder Datenpunkt in genau
-        einem Cluster ist, weißt der Fuzzy \(k\)-means Algorithmus jedem
+    <dt><dfn>Fuzzy $k$-means</dfn></dt>
+    <dd>Im Gegensatz zum $k$-means Algorithmus, wo jeder Datenpunkt in genau
+        einem Cluster ist, weißt der Fuzzy $k$-means Algorithmus jedem
         Datenpunkte eine Zugehörigkeitswahrscheinlichkeit zu. Je weiter
         der Datenpunkt vom Zentroid entfernt ist, desto unwahrscheinlicher
         wird die Zugehörigkeit.
 
-        Die Cluster-Zugehörigkeit des Datenpunktes \(x_i\) zum Cluster \(c_j\)
+        Die Cluster-Zugehörigkeit des Datenpunktes $x_i$ zum Cluster $c_j$
         kann als Wahrscheinlichkeit in Abhängigkeit der Distanz
         \[d_{ij} = |x_i - z_j|^2\]
         zum Zentroiden
-        \(z_j\) ausgedrückt werden:
+        $z_j$ ausgedrückt werden:
         \[P(c_j | x_i) = \frac{(\frac{1}{d_{ij}})^{\frac{1}{b-1}}}{\sum_{r=1}^k (\frac{1}{d_{ir}})^{\frac{1}{b-1}}}\]
-        wobei \(b \in \mathbb{R}_{\geq 1}\) ein frei zu wählender Parameter ist.
+        wobei $b \in \mathbb{R}_{\geq 1}$ ein frei zu wählender Parameter ist.
 
         Die Zentroide werden dann wie folgt neu berechnet:
 
@@ -1324,8 +1324,8 @@ Slides: `MLI_14_UnueberwachtesLernen_slides1.pdf`
     <dt><dfn>Agglomerative Hierarchical Clustering</dfn> (<dfn>AHC</dfn>)</dt>
     <dd>AHC ist ein hierarchisches Clusteringverfahren.
 
-    Dabei ist ein Clusterdistanz-Schwellwert \(t \in \mathbb{R}\) und eine
-    minimale Cluster-Anzahl \(k \in \mathbb{N}\) zu wählen. Auch ein Distanzmaß
+    Dabei ist ein Clusterdistanz-Schwellwert $t \in \mathbb{R}$ und eine
+    minimale Cluster-Anzahl $k \in \mathbb{N}$ zu wählen. Auch ein Distanzmaß
     für Cluster (nearest neighbor, farest neighor, mean distance, ...) ist
     als Hyperparameter zu wählen.
 
@@ -1358,9 +1358,9 @@ until c = c'
     <dt><a href="https://en.wikipedia.org/wiki/Cobweb_(clustering)"><dfn>COBWEB</dfn></a></dt>
     <dd>Cobweb ist ein Algorithmus zur begrifflichen Ballung. Er lernt durch
         inkrementelles Aufbauen eines Strukturbaumes. Dabei sind nominale
-        Attribute gestattet. Dabei wird ein Datenpunkt \(x_i\) zum Cluster
-        \(c_j\) geclustert, wenn man die Attributwerte von \(x_i\) durch die
-        Kentniss von \(c_j\) gut vorhersagen kann (<span markdown="0">\(P(x_i | c_j)\)</span>,
+        Attribute gestattet. Dabei wird ein Datenpunkt $x_i$ zum Cluster
+        $c_j$ geclustert, wenn man die Attributwerte von $x_i$ durch die
+        Kentniss von $c_j$ gut vorhersagen kann (<span markdown="0">$P(x_i | c_j)$</span>,
         predictability) und zugleich der Cluster gut vorhergesagt werden kann,
         wenn die Attributwerte gegeben sind (<span markdown="0">\(P(c_j|x_i)</span>, predictiveness).
 
@@ -1375,12 +1375,12 @@ until c = c'
         Dabei gilt:
 
         <ul>
-            <li>\(K\): Anzahl der Cluster</li>
-            <li>\(I\): Anzahl der Attribute</li>
-            <li>\(J(i)\): Anzahl der Attributwerte des \(i\)-ten Attributs</li>
-            <li>\(V_{ji}\): \(j\)-ter möglicher Wert für Attribut \(i\)</li>
-            <li>\(P(A_i = V_ij | C_k)\): Predictability</li>
-            <li>\(P(C_k | A_i = V_{ij}\): Predictiveness</li>
+            <li>$K$: Anzahl der Cluster</li>
+            <li>$I$: Anzahl der Attribute</li>
+            <li>$J(i)$: Anzahl der Attributwerte des $i$-ten Attributs</li>
+            <li>$V_{ji}$: $j$-ter möglicher Wert für Attribut $i$</li>
+            <li>$P(A_i = V_ij | C_k)$: Predictability</li>
+            <li>$P(C_k | A_i = V_{ij}$: Predictiveness</li>
         </ul>
 
         Anwendung: Interpretation von <abbr title="Elektromyographie">EMGs</abbr>
@@ -1405,9 +1405,9 @@ until c = c'
                wird minimiert.</li>
         <li>Warum lernen SVMs "korrekt"?<br/>
             → Es gibt ein Theorem (TODO: Welches?) das besagt, dass die VC-Dimension
-            eines Klassifiers, welcher Datenpunkte im \(n\)-Dimensionalen Raum
-            innerhalb einer Kugel mit Radius \(D\) durch eine Hyperebene mit
-            mindestens Abstand \(\Delta\) trennen will, durch \((\frac{D}{\Delta})^2\)
+            eines Klassifiers, welcher Datenpunkte im $n$-Dimensionalen Raum
+            innerhalb einer Kugel mit Radius $D$ durch eine Hyperebene mit
+            mindestens Abstand $\Delta$ trennen will, durch $(\frac{D}{\Delta})^2$
             beschränkt ist. Die SVM minimiert genau diesen Quotienten, da sie den
             Margin maximiert.
 
@@ -1418,12 +1418,12 @@ until c = c'
     <li>Reinforcement Learning
         <ul>
             <li>Wie lautet die Bellman-Gleichung?<br/>
-                → \(Q(s, a) = r + \gamma \max_{a'} Q(s', a')\) wobei \(\gamma\) ein
-                Diskontierungsfaktor ist, \(s'\) der Zustand in den man kommt, wenn
-                man \(a\) ausführt und \(r\) der Reward nach ausführen von \(a\) in
-                \(s\) ist.</li>
+                → $Q(s, a) = r + \gamma \max_{a'} Q(s', a')$ wobei $\gamma$ ein
+                Diskontierungsfaktor ist, $s'$ der Zustand in den man kommt, wenn
+                man $a$ ausführt und $r$ der Reward nach ausführen von $a$ in
+                $s$ ist.</li>
             <li>Was ist Value Iteration und wie lautet die Formel?<br/>
-                → Schätzen der Value-Funktion durch iteratives anwenden von \(\hat{V}^*(s_t) \leftarrow r_t + \gamma \hat{V}^*(s_{t+1})\)</li>
+                → Schätzen der Value-Funktion durch iteratives anwenden von $\hat{V}^*(s_t) \leftarrow r_t + \gamma \hat{V}^*(s_{t+1})$</li>
             <li>Was sind Eligibility Traces im Kontext von Reinforcement Learning?<br/>
                 → Siehe <a href="#rl-eligibility-trace">oben</a></li>
             <li>Wie funktioniert Q-Learning?<br/>
@@ -1460,7 +1460,7 @@ until c = c'
         → Der Agent lernt keine neuen Konzepte, aber er lernt über Verbindungen
            bekannter Konzepte.</li>
     <li>Wie lautet die Formel für Entropie / Information Gain?<br/>
-        → \(\text{Entropie} = - \sum_{i} p_i \log p_i\) und \(KL(P, Q) = \sum_{x \in X} P(x) \cdot \log \frac{P(x)}{Q(x)}\)</li>
+        → $\text{Entropie} = - \sum_{i} p_i \log p_i$ und $KL(P, Q) = \sum_{x \in X} P(x) \cdot \log \frac{P(x)}{Q(x)}$</li>
     <li>Was ist Cobweb?<br/>
         → Siehe <a href="#unsupervised-learning">Unsupervised Learning</a></li>
 </ul>

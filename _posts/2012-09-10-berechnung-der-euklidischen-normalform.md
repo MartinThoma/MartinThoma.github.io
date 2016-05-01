@@ -11,19 +11,19 @@ Die euklidische Normalform einer linearen Isometrie, manchmal auch lineare Norma
 
 {% caption align="aligncenter" width="512" caption="Euklidische Normalform" url="../images/2012/09/math-euklidische-normalform.png" alt="Euklidische Normalform"  height="291" class="size-full wp-image-43911 "  %}
 
-Bei einer <span>\(n \times n\)</span>-Matrix gilt also folgende Gleichung:
-<span>\(n = p + q + 2r\)</span>
+Bei einer <span>$n \times n$</span>-Matrix gilt also folgende Gleichung:
+<span>$n = p + q + 2r$</span>
 
 <h2>Bestimmung der Normalform</h2>
-Sei <span>\(\Phi\)</span> eine lineare Isometrie eines euklidischen Vektorraumes. Dann habe <span>\(\Phi\)</span> die Abbildungsmatrix <span>\(A\)</span>.
-Sei <span>\(B := A + A^T\)</span>.
-Wenn man die euklidische Normalform bilden will, bestimmt man zuerst das charakteristische Polynom von <span>\(B\)</span>. Die Nullstellen davon sind die Eigenwerte. Die algebraische Vielfachheit des Eigenwertes 2 von <span>\(B\)</span> (die Potenz im charakteristischen Polynom) gibt die Anzahl der 1er an, genauso gibt die Vielfachheit des Eigenwertes -2 die Anzahl der -1er an.
+Sei <span>$\Phi$</span> eine lineare Isometrie eines euklidischen Vektorraumes. Dann habe <span>$\Phi$</span> die Abbildungsmatrix <span>$A$</span>.
+Sei <span>$B := A + A^T$</span>.
+Wenn man die euklidische Normalform bilden will, bestimmt man zuerst das charakteristische Polynom von <span>$B$</span>. Die Nullstellen davon sind die Eigenwerte. Die algebraische Vielfachheit des Eigenwertes 2 von <span>$B$</span> (die Potenz im charakteristischen Polynom) gibt die Anzahl der 1er an, genauso gibt die Vielfachheit des Eigenwertes -2 die Anzahl der -1er an.
 
-Die restlichen Eigenwerte <span>\(\lambda_1, \dots, \lambda_r\)</span> geben die Drehkästchen an.
+Die restlichen Eigenwerte <span>$\lambda_1, \dots, \lambda_r$</span> geben die Drehkästchen an.
 
 Es gilt:
-<span>\(\cos \omega = \frac{\lambda}{2}\)</span>
-<span>\(\sin \omega = \sqrt{1 - \frac{\lambda^2}{4}}\)</span>
+<span>$\cos \omega = \frac{\lambda}{2}$</span>
+<span>$\sin \omega = \sqrt{1 - \frac{\lambda^2}{4}}$</span>
 
 Mit diesen Angaben kann man direkt die euklidische Normalform angeben.
 
@@ -32,11 +32,11 @@ Mit diesen Angaben kann man direkt die euklidische Normalform angeben.
 <h3>Eigenräume bestimmen</h3>
 Die Eigenräume berechnet man wie gewohnt:
 
-<span>\(\text{Eig}(\lambda_i) = \text{Kern}(B- \lambda_i \cdot E)\)</span>
+<span>$\text{Eig}(\lambda_i) = \text{Kern}(B- \lambda_i \cdot E)$</span>
 
 <h3>ONB bestimmen</h3>
 Nun wählt man für jeden Eigenraum eine Basis Orthonormalbasis aus Eigenvektoren. Das kann man mit dem Gram-Schmidtsches Orthogonalisierungsverfahren machen, also:
-Wähle ein beliebiges <span>\(w_1 \in \text{Eig}(\lambda_i)\)</span>.
+Wähle ein beliebiges <span>$w_1 \in \text{Eig}(\lambda_i)$</span>.
 
 <div>\[w_j = v_j - \sum_{i=1}^{j-1} \frac{\langle v_j, w_i \rangle}{\langle w_i, w_i \rangle} \cdot w_i\]</div>
 

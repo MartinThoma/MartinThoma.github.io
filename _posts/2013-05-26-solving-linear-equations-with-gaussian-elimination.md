@@ -7,9 +7,9 @@ category: Code
 tags: mathematics, Linear algebra, CPP, Python, PHP
 featured_image: 2013/05/upper-triangular-matrix.png
 ---
-<div class="info">Please note that you should use LU-decomposition to solve linear equations. The following code produces valid solutions, but when your vector \\(b\\) changes you have to do all the work again. LU-decomposition is faster in those cases and not slower in case you don't have to solve equations with the same matrix twice.</div>
+<div class="info">Please note that you should use LU-decomposition to solve linear equations. The following code produces valid solutions, but when your vector \$b\$ changes you have to do all the work again. LU-decomposition is faster in those cases and not slower in case you don't have to solve equations with the same matrix twice.</div>
 
-Suppose you have a system of \\(n \in \mathbb{N_{\geq 1}}\\) linear equations and variables \\(x_1, x_2, \dots, x_n \in \mathbb{R}\\):
+Suppose you have a system of \$n \in \mathbb{N_{\geq 1}}\$ linear equations and variables \$x_1, x_2, \dots, x_n \in \mathbb{R}\$:
 
 <div>\[
 \begin{align}
@@ -22,15 +22,15 @@ a_{n,1} \cdot x_1 + a_{n,2} x_2 + \dots + a_{n,n} \cdot x_{n} &= b_n
 
 
 
-All factors \\(a_{i,j} \in \mathbb{R}\\) for \\(i,j \in 1, \dots, n\\) can be written in one matrix \\(A \in \mathbb{R}^{n \times n}\\) and all \\(b_i\\) can be written as a vector \\(b\\). You combine all \\(x_i\\) in the same way to a vector \\(x\\).
+All factors \$a_{i,j} \in \mathbb{R}\$ for \$i,j \in 1, \dots, n\$ can be written in one matrix \$A \in \mathbb{R}^{n \times n}\$ and all \$b_i\$ can be written as a vector \$b\$. You combine all \$x_i\$ in the same way to a vector \$x\$.
 
 So you can write the system of equations as:
 
-\\(A \cdot x = b\\)
+\$A \cdot x = b\$
 
 
 <h2>How Gaussian elimination works</h2>
-First, you write \\(A\\) and \(b\) in an augmented matrix \\((A|b)\\):
+First, you write \$A\$ and $b$ in an augmented matrix \$(A|b)\$:
 
 <div>\[
   \left(\begin{array}{cccc|c}
@@ -435,7 +435,7 @@ var_dump($result);
 
 ### Time complexity
 
-Time complexity is in \\(\mathcal{O}(n^3)\\) (lines 44 - 53):
+Time complexity is in \$\mathcal{O}(n^3)\$ (lines 44 - 53):
 
 <div>\[\begin{align}
 Operations &= \sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} \sum_{j=i}^{n} 1\\
@@ -449,6 +449,6 @@ Operations &= \sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} \sum_{j=i}^{n} 1\\
 
 ### Space complexity
 
-Space complexity of this implementation is in \\(\mathcal{O}(n)\\), but you can
-easily come down to \\(\mathcal{O}(1)\\) when you use <code>A[n]</code> for
+Space complexity of this implementation is in \$\mathcal{O}(n)\$, but you can
+easily come down to \$\mathcal{O}(1)\$ when you use <code>A[n]</code> for
 storing <code>x</code>.

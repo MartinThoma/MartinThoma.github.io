@@ -22,7 +22,7 @@ featured_image: logos/klausur.png
 <tr>
     <td>15.04.2015</td>
     <td><a href="https://ies.anthropomatik.kit.edu/ies/download/lehre/me/ME-Kap1_V33.pdf">Einleitung</a></td>
-    <td>\(\hat{w}\) - das <code>^</code> bedeutet, dass die Klasse geschätzt ist.</td>
+    <td>$\hat{w}$ - das <code>^</code> bedeutet, dass die Klasse geschätzt ist.</td>
 </tr>
 <tr>
     <td>22.04.2015</td>
@@ -271,7 +271,7 @@ sind:
   - Unterschiedliche Skalen (→ Teilen durch Varianz oder durch Wertebereich)
   - Unterschiedliche Wertebereiche (→ Durchschnitt abziehen)
 * Wie funktioniert MDA?<br/>
-  → Sie maximiert <span markdown=0>\(J(w) = \frac{|m'_1 - m'_2|^2}{s'_1^2 - s'_2^2}\)</span>
+  → Sie maximiert <span markdown=0>$J(w) = \frac{|m'_1 - m'_2|^2}{s'_1^2 - s'_2^2}$</span>
   (im 2-Klassen Fall, wobei $w$ die Ebene ist, auf die projeziert wird)
 * Wie unterscheidet sich PCA/MDA von dem suboptimalen Algorithmus zur
   Merkmalsauswahl?<br/>

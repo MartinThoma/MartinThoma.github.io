@@ -144,7 +144,7 @@ Die Regelstudienzeit des Bachelor-Informatik-Studium beträgt 6 Semester und 180
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td><span markdown="0">\(\sum\)</span></td>
+    <td><span markdown="0">$\sum$</span></td>
     <td>124</td>
     <td>&nbsp;</td>
   </tr>

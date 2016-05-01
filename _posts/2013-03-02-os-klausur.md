@@ -117,7 +117,7 @@ Quelle: <a href="http://wiki.answers.com/Q/What_is_the_difference_between_Page_a
 <li>Mutual exclusion: Eine Ressource kann nicht gleichzeitig von mehreren Prozessen benutzt werden</li>
 <li>Hold and wait: Ein Prozess, der bereits mindestens eine Ressource h&auml;lt, wartet auf mindestens eine andere Ressource</li>
 <li>No preemption: Zugeteilte Ressourcen k&ouml;nnen einem Prozess nicht wieder entzogen werden. Er muss diese selbst freigeben.</li>
-<li>Circular wait: Es gibt eine Menge von Prozessen \(\{P_0, P_1, \dots, P_n\}\), wobei \(P_0\) auf eine Ressource wartet, die \(P_1\) h&auml;lt, \(P_1\) auf eine Ressource wartet, die \(P_2\) h&auml;lt, ..., \(P_n\) auf eine Ressource wartet, die \(P_0\) h&auml;lt.</li>
+<li>Circular wait: Es gibt eine Menge von Prozessen $\{P_0, P_1, \dots, P_n\}$, wobei $P_0$ auf eine Ressource wartet, die $P_1$ h&auml;lt, $P_1$ auf eine Ressource wartet, die $P_2$ h&auml;lt, ..., $P_n$ auf eine Ressource wartet, die $P_0$ h&auml;lt.</li>
 </ul>
 </div>
 </div>
@@ -168,13 +168,13 @@ Falls man es wirklich genau wissen will, sollte man wohl die <a href="http://www
 <span class="question">Einstufige Seitentabellen sind deutlich einfacher zu verstehen und zu implementieren. Warum verwendet man sie nicht auf 64 Bit Systemen?</span>
 <div class="answer">Sie w&uuml;rden zu viel Speicher ben&ouml;tigen. Es wird eine Seitentabelle pro Prozess ben&ouml;tigt. Die Gr&ouml;&szlig;e einer einstufigen Seitentabelle berechnet sich wie folgt:
 
-Sei \(m\) die Gr&ouml;&szlig;e des Hauptspeichers in Byte, \(p\) die Gr&ouml;&szlig;e einer Seite in Byte und \(a\) die Anzahl der zus&auml;tzlichen Bit pro Seite (Access Control bits, validity. Siehe <a href="http://unix.stackexchange.com/q/68148/4784">StackExchange</a>).
+Sei $m$ die Gr&ouml;&szlig;e des Hauptspeichers in Byte, $p$ die Gr&ouml;&szlig;e einer Seite in Byte und $a$ die Anzahl der zus&auml;tzlichen Bit pro Seite (Access Control bits, validity. Siehe <a href="http://unix.stackexchange.com/q/68148/4784">StackExchange</a>).
 Dann gilt:
 
 Gr&ouml;&szlig;e der Seitentabelle = Gr&ouml;&szlig;e eines Seiteneintrages &middot; Anzahl der Seiten
-\(= \lceil \frac{\log_2(\frac{m}{p}) + a}{8}\rceil \text{Byte} \cdot \frac{2^{64} \text{ Byte}}{p \text{ Byte}}\)
+$= \lceil \frac{\log_2(\frac{m}{p}) + a}{8}\rceil \text{Byte} \cdot \frac{2^{64} \text{ Byte}}{p \text{ Byte}}$
 
-Typischerweise gilt: \(m = 4 GB = 4 \cdot 2^{30} \text{ Byte} = 2^{32} \text{ Byte}\), \(p = 4096 \text{ Byte}\) und \(a = 8\). Daraus folgt eine Seitengr&ouml;&szlig;e von 4 Byte und 4.503.599.627.370.496 Seiten. Das ergibt eine Seitentabellengr&ouml;&szlig;e von 16 Petabyte.
+Typischerweise gilt: $m = 4 GB = 4 \cdot 2^{30} \text{ Byte} = 2^{32} \text{ Byte}$, $p = 4096 \text{ Byte}$ und $a = 8$. Daraus folgt eine Seitengr&ouml;&szlig;e von 4 Byte und 4.503.599.627.370.496 Seiten. Das ergibt eine Seitentabellengr&ouml;&szlig;e von 16 Petabyte.
 </div>
 </div>
 
@@ -195,9 +195,9 @@ Typischerweise gilt: \(m = 4 GB = 4 \cdot 2^{30} \text{ Byte} = 2^{32} \text{ By
 <div class="question">
 <span class="question">Wie gro&szlig; kann eine Datei maximal werden, wenn man Inodes mit jeweils einem indirekten, doppelt indirektem und dreifach indirektem Block hat?</span>
 <div class="answer">
-Sei \(b\) die Gr&ouml;&szlig;e eines Blocks in Byte und ein Zeiger belege 4 Byte.
+Sei $b$ die Gr&ouml;&szlig;e eines Blocks in Byte und ein Zeiger belege 4 Byte.
 Dann berechnet sich die maximale Dateigr&ouml;&szlig;e in Byte wie folgt:
-\(12 \cdot b + \frac{b}{4} \cdot b+ \frac{\frac{b}{4} \cdot b}{4} \cdot b + \frac{\frac{\frac{b}{4} \cdot b}{4} \cdot b}{4} \cdot b = 12 \cdot b + \frac{b^2}{4} + \frac{b^3}{16} + \frac{b^4}{64}\)
+$12 \cdot b + \frac{b}{4} \cdot b+ \frac{\frac{b}{4} \cdot b}{4} \cdot b + \frac{\frac{\frac{b}{4} \cdot b}{4} \cdot b}{4} \cdot b = 12 \cdot b + \frac{b^2}{4} + \frac{b^3}{16} + \frac{b^4}{64}$
 
 Bei einer Blockgr&ouml;&szlig;e von 1024 Byte sind das 17,25 GB (<a href="http://www.wolframalpha.com/input/?i=12*1024%2B1024%5E2%2F4%2B1024%5E3%2F16%2B1024%5E4%2F64+byte">Rechnung</a>), bei einer Blockgr&ouml;&szlig;e von 4096 Byte sogar 4,40 TB (<a href="http://www.wolframalpha.com/input/?i=12*4096%2B4096%5E2%2F4%2B4096%5E3%2F16%2B4096%5E4%2F64+byte">Rechnung</a>)!
 

@@ -7,10 +7,10 @@ category: Code
 tags: Python, mathematics, Matrix, systems of equations, numerics
 featured_image: 2013/05/upper-triangular-matrix.png
 ---
-Suppose you have an equation like \\(R \cdot x = b\\) with \\(R \in \mathbb{R}^{n \times n}\\) and \\(x,b \in \mathbb{R}^n\\). \\(b\\) and \\(R\\) are given and you want to solve for \\(x\\).
+Suppose you have an equation like \$R \cdot x = b\$ with \$R \in \mathbb{R}^{n \times n}\$ and \$x,b \in \mathbb{R}^n\$. \$b\$ and \$R\$ are given and you want to solve for \$x\$.
 
 <h2>Example</h2>
-With \\(n=5\\), the problem could look like this:
+With \$n=5\$, the problem could look like this:
 
 \\[\begin{pmatrix}
 2 & 7 & 1 & 8 & 2\\
@@ -34,12 +34,12 @@ This is only a shorthand for:
 \\]
 
 
-<h3>First step: Solve for \\(x_5\\)</h3>
-First you see that \\(x_5 = \frac{5}{4}\\). So you divide \\(b\\) by the current row.
+<h3>First step: Solve for \$x_5\$</h3>
+First you see that \$x_5 = \frac{5}{4}\$. So you divide \$b\$ by the current row.
 
 <div class="important">Don't divide through 0. When you would have to divide by 0 and b is 0, this system has an infinite amount of solutions. When you would have to divide by 0 and b is not 0, then this system has no solution.</div>
 
-Now you replace every occurrence of \\(x_5\\) in the system of equations above:
+Now you replace every occurrence of \$x_5\$ in the system of equations above:
 
 \\[\begin{align}
 2 \cdot x_1 + 7 \cdot x_2 + 1 \cdot x_3 + 8 \cdot x_4 + 2 \cdot \frac{5}{4} &= 3\\
@@ -72,7 +72,7 @@ Get the constant factors to the right side of the equations:
 \end{align}
 \\]
 
-You're now in the same situation as in the first step. Next you will solve for \\(x_4\\), then for \\(x_3, x_2\\) and finally for \\(x_1\\).
+You're now in the same situation as in the first step. Next you will solve for \$x_4\$, then for \$x_3, x_2\$ and finally for \$x_1\$.
 
 This is called "back substitution".
 
@@ -197,9 +197,9 @@ So: Using Fractions needs some computing time, but you will get better results.
 <h2>Time complexity</h2>
 I'll analyze the second algorithm.
 
-The conversion of our input data is obviously in \\(\mathcal{O}(n^2)\\). Let's only analyse the part after the conversion.
+The conversion of our input data is obviously in \$\mathcal{O}(n^2)\$. Let's only analyse the part after the conversion.
 
-Assume that there is exactly one solution and that line 15-21 take \\(c_1\\) operations and line 24 takes \\(c_2\\) operations.
+Assume that there is exactly one solution and that line 15-21 take \$c_1\$ operations and line 24 takes \$c_2\$ operations.
 
 Then we would have a total of
 
@@ -213,10 +213,10 @@ Then we would have a total of
 &= n \cdot c_1 + (n^2-n) \cdot \frac{c_2}{2}\\
 \end{align}\\]
 
-So the algorithms time complexity is in \\(\Theta(n^2) \subsetneq \mathcal{O}(n^2)\\).
+So the algorithms time complexity is in \$\Theta(n^2) \subsetneq \mathcal{O}(n^2)\$.
 
 <h2>Space complexity</h2>
-Please note that I take advantage of Pythons dynamic typing system. I think it's difficult to see space complexity in python programs. But when you make the same in C++, you will see that you will need space in \\(\mathcal{O}(n)\\) when you do the conversion. Without the conversion, you're in \\(\mathcal{O}(1)\\).
+Please note that I take advantage of Pythons dynamic typing system. I think it's difficult to see space complexity in python programs. But when you make the same in C++, you will see that you will need space in \$\mathcal{O}(n)\$ when you do the conversion. Without the conversion, you're in \$\mathcal{O}(1)\$.
 
 I guess you might want to leave this choice to the user of your functions. When he wants better results, he should give the input as Fraction. When he wants to get results rather faster, he should give the input as float.
 

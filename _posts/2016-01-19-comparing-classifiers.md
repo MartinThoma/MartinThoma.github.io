@@ -90,11 +90,11 @@ GPU.
 
 ## MNIST
 
-MNIST is a dataset of <span markdown="0">\(28\text{px} \times 28\text{px}\)</span> greyscale images.
+MNIST is a dataset of <span markdown="0">$28\text{px} \times 28\text{px}$</span> greyscale images.
 Each of the images contains a digit (0, 1, 2, 3, 4, 5, 6, 7, 8, 9). The
 task is to classify the image into one of the 10 digit classes.
 
-Guessing randomly will give an accuracy of <span markdown="0">\(\frac{1}{10} = 0.1\)</span>.
+Guessing randomly will give an accuracy of <span markdown="0">$\frac{1}{10} = 0.1$</span>.
 
 
 ### Neural Networks

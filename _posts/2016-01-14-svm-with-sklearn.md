@@ -34,8 +34,8 @@ with an example how to use SVMs with sklearn.
           make the data not separable. The introduction of <i>slack&nbsp;variables</i>
           to relax the requirement of linear separability solves
           this problem. The trade-off between accepting some errors and a more
-          complex model is weighted by a parameter \(C \in \mathbb{R}_0^+\). The
-          bigger \(C\), the more errors are accepted. The new optimization
+          complex model is weighted by a parameter $C \in \mathbb{R}_0^+$. The
+          bigger $C$, the more errors are accepted. The new optimization
           problem is:
           \[
           \begin{aligned}
@@ -43,20 +43,20 @@ with an example how to use SVMs with sklearn.
               \text{s.t. }& \forall_{i=1}^m y_i \cdot (\langle \mathbf{w}, \mathbf{x}_i\rangle + b) \geq 1 - \xi_i
           \end{aligned}\]
 
-          Note that \(0 \le \xi_i \le 1\) means that the data point is within
-          the margin, whereas \(\xi_i \ge 1\) means it is misclassified. An
-          SVM with \(C > 0\) is also called a <i>soft-margin SVM</i>.</li>
-    <li><b>Dual Problem</b>: The primal problem is to find the normal vector \(\mathbf{w}\) and the
-          bias \(b\). The dual problem is to express \(\mathbf{w}\) as a linear
-          combination of the training data \(\mathbf{x}_i\):
+          Note that $0 \le \xi_i \le 1$ means that the data point is within
+          the margin, whereas $\xi_i \ge 1$ means it is misclassified. An
+          SVM with $C > 0$ is also called a <i>soft-margin SVM</i>.</li>
+    <li><b>Dual Problem</b>: The primal problem is to find the normal vector $\mathbf{w}$ and the
+          bias $b$. The dual problem is to express $\mathbf{w}$ as a linear
+          combination of the training data $\mathbf{x}_i$:
           \[\mathbf{w} = \sum_{i=1}^m \alpha_i y_i \mathbf{x}_i\]
-          where \(y_i \in \{-1, 1\}\) represents the class of the training
-          example and \(\alpha_i\) are Lagrange multipliers. The usage of
+          where $y_i \in \{-1, 1\}$ represents the class of the training
+          example and $\alpha_i$ are Lagrange multipliers. The usage of
           Lagrange multipliers is explained with some examples
           in [<a href="#ref-smi04" name="ref-smi04-anchor">Smi04</a>]. The usage of the Lagrange multipliers
-          \(\alpha_i\) changes the optimization problem depend on the
-          \(\alpha_i\) which are weights for the feature vectors. It turns
-          out that most \(\alpha_i\) will be zero. The non-zero weighted vectors
+          $\alpha_i$ changes the optimization problem depend on the
+          $\alpha_i$ which are weights for the feature vectors. It turns
+          out that most $\alpha_i$ will be zero. The non-zero weighted vectors
           are called <i>support&nbsp;vectors</i>.
 
           The optimization problem is now, according to [<a href="#ref-bur98" name="ref-bur98-anchor">Bur98</a>] (a great read; if you really want to understand it I can recommend it!):
@@ -67,24 +67,24 @@ with an example how to use SVMs with sklearn.
               \text{s.t. } & \sum_{i=1}^m \alpha_i y_i = 0
           \end{aligned}\]</li>
     <li><b>Kernel-Trick</b>: Not every dataset is linearly separable. This problem is approached
-          by transforming the feature vectors \(\mathbf{x}\) with a non-linear
-          mapping \(\Phi\) into a higher dimensional (probably
-          \(\infty\)-dimensional) space. As the feature vectors \(\mathbf{x}\)
+          by transforming the feature vectors $\mathbf{x}$ with a non-linear
+          mapping $\Phi$ into a higher dimensional (probably
+          $\infty$-dimensional) space. As the feature vectors $\mathbf{x}$
           are only used within scalar product
-          \(\langle \mathbf{x}_i, \mathbf{x}_j \rangle\), it is not necessary to
+          $\langle \mathbf{x}_i, \mathbf{x}_j \rangle$, it is not necessary to
           do the transformation. It is enough to do the calculation
           \[K(\mathbf{x}_i, \mathbf{x}_j) = \langle \mathbf{x}_i, \mathbf{x}_j \rangle\]
 
-          This function \(K\) is called a <i>kernel</i>. The idea of never
-          explicitly transforming the vectors \(\mathbf{x}_i\) to the higher
+          This function $K$ is called a <i>kernel</i>. The idea of never
+          explicitly transforming the vectors $\mathbf{x}_i$ to the higher
           dimensional space is called the <i>kernel&nbsp;trick</i>. Common kernels
           include the polynomial kernel
           \[K_P(\mathbf{x}_i, \mathbf{x}_j) = (\langle \mathbf{x}_i, \mathbf{x}_j \rangle + r)^p\]
-          of degree \(p\) and coefficient \(r\), the Gaussian <abbr title="Radial Basis Function">RBF</abbr> kernel
+          of degree $p$ and coefficient $r$, the Gaussian <abbr title="Radial Basis Function">RBF</abbr> kernel
           \[K_{\text{Gauss}}(\mathbf{x}_i, \mathbf{x}_j) = e^{\frac{-\gamma\|\mathbf{x}_i - \mathbf{x}_j\|^2}{2 \sigma^2}}\]
           and the sigmoid kernel
           \[K_{\text{tanh}}(\mathbf{x}_i, \mathbf{x}_j) = \tanh(\gamma \langle \mathbf{x}_i, \mathbf{x}_j \rangle - r)\]
-          where the parameter \(\gamma\) determines how much influence single
+          where the parameter $\gamma$ determines how much influence single
           training examples have.</li>
     <li><b>Multiple Classes</b>: By using the <i>one-vs-all</i> or the
         <i>one-vs-one</i> strategy it is possible to get a classifying system

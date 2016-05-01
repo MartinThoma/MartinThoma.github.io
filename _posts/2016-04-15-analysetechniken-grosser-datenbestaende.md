@@ -44,7 +44,7 @@ von großer Bedeutung. Ein weiteres großes Kapitel sind Bayessche Netze.
 <tr>
     <td>27.10.2015, 08:00</td>
     <td>Statistische Tests (Folie 38 - )</td>
-    <td>\(\chi^2\)-Test, \(\chi^2 = \sum_{i=1}^{m_1} \sum_{j=1}^{m_2} \frac{(h_{ij}- e_{ij})^2}{e_{ij}}\) mit erwartetem Wert \(e\) (Sind zwei Zufallsvariablen unabhängig)<br/>
+    <td>$\chi^2$-Test, $\chi^2 = \sum_{i=1}^{m_1} \sum_{j=1}^{m_2} \frac{(h_{ij}- e_{ij})^2}{e_{ij}}$ mit erwartetem Wert $e$ (Sind zwei Zufallsvariablen unabhängig)<br/>
     Kolmogorov-Smirnov-Test (Sind 2 Verteilungen unabhängig; bei kontinuierlichen Zufallsvariablen)<br/>
     Wilcoxon-Wann-Whitney Test<br/>
     Bernoulli-Experiment (Folie 53?)<br/>
@@ -162,7 +162,7 @@ Slides: `1-Einleitung.pdf`
   </dd>
   <dt><a href="https://en.wikipedia.org/wiki/Association_rule_learning"><dfn>Association Rules</dfn></a></dt>
   <dd>Association Rules sind Regeln der Form:
-      Wenn eine Transaktion A enthält, dann auch B (formal: \(A \Rightarrow B\)).
+      Wenn eine Transaktion A enthält, dann auch B (formal: $A \Rightarrow B$).
       <br/>
       Association rules werden z.B. in der Market Basket Analysis eingesetzt.
       Sie können aus Frequent item sets relativ einfach erzeugt werden.
@@ -205,13 +205,13 @@ Slides: `2-statistGrundlagen.pdf`
         </ul>
     </dd>
     <dt><dfn>Metrische Daten</dfn></dt>
-    <dd>Ein Metrischer Raum ist eine Menge \(M\) mit einer Funktion
-        \(d: M \times M \rightarrow \mathbb{R}_0^+\) für die gilt:
+    <dd>Ein Metrischer Raum ist eine Menge $M$ mit einer Funktion
+        $d: M \times M \rightarrow \mathbb{R}_0^+$ für die gilt:
 
         <ul>
-            <li>Symmetrie: \(\forall p,q \in M: d(p, q) = d(q, p) \)</li>
-            <li>Definitheit: \(\forall p,q \in M: d(p, q) = 0 \Leftrightarrow p = q\)</li>
-            <li>Dreiecksungleichung: \(\forall p,q,r \in M: d(p, r) \leq d(p,q) + d(q, r)\)</li>
+            <li>Symmetrie: $\forall p,q \in M: d(p, q) = d(q, p) $</li>
+            <li>Definitheit: $\forall p,q \in M: d(p, q) = 0 \Leftrightarrow p = q$</li>
+            <li>Dreiecksungleichung: $\forall p,q,r \in M: d(p, r) \leq d(p,q) + d(q, r)$</li>
         </ul>
 
     </dd>
@@ -225,24 +225,24 @@ Slides: `2-statistGrundlagen.pdf`
     </dd>
     <dt><dfn>Distributive Aggregatfunktion</dfn></dt>
     <dd>
-        Es gibt eine Funktion \(G\), so dass
+        Es gibt eine Funktion $G$, so dass
         \[F(\{X_{i,j}\}) = G(\{F(X_{i,j} | i=1, \dots, l) | j = 1, \dots, J\})\]
 
         MIN, MAX und COUNT sind distributive Aggregatfunktionen.
     </dd>
     <dt><dfn>Algebraische Aggregatfunktion</dfn></dt>
-    <dd>Es gibt eine Funktion \(G\), die ein \(M\)-Tupel liefert und \(H\),
+    <dd>Es gibt eine Funktion $G$, die ein $M$-Tupel liefert und $H$,
         so dass
         \[F(\{X_{i,j}\}) = H(\{G(\{X_{i,j} | i=1, \dots, l\}) | j=1, \dots, J\})\]
 
-        AVG ist eine Algebraische Aggregatfunktion. Hier berechnet \(G\) die
-        Summe und gibt zusätzlich die Anzahl der Werte zurück. \(H\) summiert
+        AVG ist eine Algebraische Aggregatfunktion. Hier berechnet $G$ die
+        Summe und gibt zusätzlich die Anzahl der Werte zurück. $H$ summiert
         die Summen auf und teilt das Ergebnis durch die Gesamtzahl.<br/>
         <br/>
         Weitere: Truncated Average</dd>
     <dt><dfn>Holistische Aggregatfunktion</dfn></dt>
     <dd>Man kann keine Beschränkung des Speicherbedarfs für Sub-Aggregate,
-        d.h. Aggregate über \(\{X_{i,j}| i=1, \dots, l\}\), angeben.<br/>
+        d.h. Aggregate über $\{X_{i,j}| i=1, \dots, l\}$, angeben.<br/>
         <br/>
         Der häufigste Wert und der Median sind holistische Aggregatfunktionen.</dd>
     <dt><dfn>Self-Maintainable Aggregatfunktion</dfn></dt>
@@ -258,8 +258,8 @@ Slides: `2-statistGrundlagen.pdf`
     <dt><dfn>Entropie</dfn></dt>
     <dd>\[E(S) = - \sum_{j} p_j \cdot \log p_j\]
 
-        \(E(S)=0\) ist minimal, wenn es ein \(j\) gibt mit \(p_j = 1\).
-        \(E(S)=\log(n)\) ist maximal, wenn \(p_i = p_j\) gilt für \(i, j\).</dd>
+        $E(S)=0$ ist minimal, wenn es ein $j$ gibt mit $p_j = 1$.
+        $E(S)=\log(n)$ ist maximal, wenn $p_i = p_j$ gilt für $i, j$.</dd>
     <dt><dfn>Korrelationsmaße</dfn></dt>
     <dd>Sind üblicherweise auf [-1, 1] normiert. Die Kovarianz ist ein
         nicht-normiertes Korrelationsmaß.</dd>
@@ -274,21 +274,21 @@ Slides: `2-statistGrundlagen.pdf`
     <dt><a href="https://de.wikipedia.org/wiki/Chi-Quadrat-Test#Unabh.C3.A4ngigkeitstest"><dfn>Chi-Quadrat-Test</dfn></a></dt>
     <dd>Oberbegriff für mehrere Tests; hier nur der Unabhängigkeitstest.<br/>
         <br/>
-        Gegeben sind zwei Verteilungen von Zufallsvariablen \(X, Y\). Die Frage
+        Gegeben sind zwei Verteilungen von Zufallsvariablen $X, Y$. Die Frage
         ist, ob sie unabhängig sind.<br/>
-        Dazu zählt man die Ausprägungen \(i=1, \dots, m_1\) des Merkmals \(X\)
-        und die Ausprägungen \(j=1, \dots, m_2\) des Merkmals \(Y\) sowie
-        wie häufig diese in Kombination auftreten (\(n_{ij}\)). Man schätzt den
-        erwarteten Wert durch \(e_{ij} = \frac{1}{n} \left(\sum_{k=1}^{m_2} n_{ik} \right) \cdot \left (\sum_{k=1}^{m_2} n_{kj}\right )\). Der Chi-Quadrat wert ist dann:
+        Dazu zählt man die Ausprägungen $i=1, \dots, m_1$ des Merkmals $X$
+        und die Ausprägungen $j=1, \dots, m_2$ des Merkmals $Y$ sowie
+        wie häufig diese in Kombination auftreten ($n_{ij}$). Man schätzt den
+        erwarteten Wert durch $e_{ij} = \frac{1}{n} \left(\sum_{k=1}^{m_2} n_{ik} \right) \cdot \left (\sum_{k=1}^{m_2} n_{kj}\right )$. Der Chi-Quadrat wert ist dann:
 
         \[\chi^2 = \sum_{i=1}^{m_1} \sum_{j=1}^{m_2} \frac{(n_{ij} - e_{ij})^2}{e_{ij}}\]
 
-        Daraus wird ein \(p\)-Wert abgeleitet. Wenn dieser unter einem
-        Schwellwert wie \(\alpha = 0.01\) ist, dann wird die Hypothese, dass
+        Daraus wird ein $p$-Wert abgeleitet. Wenn dieser unter einem
+        Schwellwert wie $\alpha = 0.01$ ist, dann wird die Hypothese, dass
         die Verteilungen unabhängig sind, zurückgewiesen.
 
-        Die Nullhypothese, dass \(X, Y\) unabhängig sind wird auf dem
-        Signifikanzniveau \(\alpha\) verworfen, falls
+        Die Nullhypothese, dass $X, Y$ unabhängig sind wird auf dem
+        Signifikanzniveau $\alpha$ verworfen, falls
 
         \[\chi^2 > \chi^2_{(1-\alpha; (m_1-1)(m_2-1))}\]
 
@@ -297,21 +297,21 @@ Slides: `2-statistGrundlagen.pdf`
     <dd>Test auf unabhängigkeit kontinuierlicher Verteilungen, also:
         \[H_0: F_X(x) = F_0(x)\]
 
-        Es wird die empirsche Verteilungsfunktion \(S\) gebildet und diese mit
-        der hypothetischen Verteilungsfunktion \(F_0\) verglichen, wobei
-        \(S(x_0) = 0\) gesetzt wird:
+        Es wird die empirsche Verteilungsfunktion $S$ gebildet und diese mit
+        der hypothetischen Verteilungsfunktion $F_0$ verglichen, wobei
+        $S(x_0) = 0$ gesetzt wird:
         \[d_{\max} = \max(\max_{i=1, \dots, n}|S(x_i) - F_0(x_i)|, \max_{i=1, \dots, n} |S(x_{i-1} - F_0(x_i))|)\]
-        \(H_0\) wird verworfen, wenn \(d_{\max} > d_\alpha\), wobei \(d_\alpha\)
-        bis zu \(n=35\) tabelliert vorliegt. Bei großerem \(n\) kann
+        $H_0$ wird verworfen, wenn $d_{\max} > d_\alpha$, wobei $d_\alpha$
+        bis zu $n=35$ tabelliert vorliegt. Bei großerem $n$ kann
         näherungsweise
         \[d_\alpha = \sqrt{\frac{-\frac{1}{2} \ln(\frac{\alpha}{2})}{n}}\]
         </dd>
-    <dt><a href="https://de.wikipedia.org/wiki/Wilcoxon-Mann-Whitney-Test"><dfn>Wilcoxon-Mann-Whitney-Test</dfn></a> (\(U\)-Test)</dt>
-    <dd>Es seien \(X,Y\) Zufallsvariablen mit Verteilungsfunktionen
-        \(F_X(x) = F_Y(x-a)\) für ein \(a \in \mathbb{R}\).<br/>
+    <dt><a href="https://de.wikipedia.org/wiki/Wilcoxon-Mann-Whitney-Test"><dfn>Wilcoxon-Mann-Whitney-Test</dfn></a> ($U$-Test)</dt>
+    <dd>Es seien $X,Y$ Zufallsvariablen mit Verteilungsfunktionen
+        $F_X(x) = F_Y(x-a)$ für ein $a \in \mathbb{R}$.<br/>
         <br/>
-        \(H_0: a = 0\) vs \(H_1: a \neq 0\)<br/>
-        Vorgehen: Gemeinsame Stichprobe sortieren, Rangsumme für \(X\) und \(Y\)
+        $H_0: a = 0$ vs $H_1: a \neq 0$<br/>
+        Vorgehen: Gemeinsame Stichprobe sortieren, Rangsumme für $X$ und $Y$
         bilden, Betrag der Differenz mit Tabelleneintrag vergleichen.
     </dd>
     <dt><dfn>Datenreduktion</dfn></dt>
@@ -352,7 +352,7 @@ Weitere
 <ul>
     <li>Boxplots: Whiskers</li>
     <li>Histogramme: Nicht geeignet für viele Dimensionen.</li>
-    <li>Wahrscheinlichkeitsraum, Ereignis, Ergebnis, Ergebnismenge \(\Omega\),
+    <li>Wahrscheinlichkeitsraum, Ereignis, Ergebnis, Ergebnismenge $\Omega$,
         Wahrscheinlichkeitsmaß, Kovarianzmatrix, Bernoulli-Experiment</li>
 </ul>
 
@@ -437,13 +437,13 @@ Slides: `5-Evaluation.pdf`
 <dl>
     <dt><dfn>Resubsitution Error</dfn></dt>
     <dd>Trainingsfehler</dd>
-    <dt><a id="cross-validation"></a><dfn>\(k\)-Fold Cross-Validation</dfn> (<dfn>Kreuzvalidierung</dfn>)</dt>
-    <dd>Unterteile den Datensatz in \(k\) Teile. Dabei sollten die Klassen in
+    <dt><a id="cross-validation"></a><dfn>$k$-Fold Cross-Validation</dfn> (<dfn>Kreuzvalidierung</dfn>)</dt>
+    <dd>Unterteile den Datensatz in $k$ Teile. Dabei sollten die Klassen in
         etwa gleich häufig in allen Teilen vorkommen.
 
-        Mache nun \(k\) durchläufe, wobei der \(k\)-te Datensatz immer zum
+        Mache nun $k$ durchläufe, wobei der $k$-te Datensatz immer zum
         Testen und alle anderen zum Trainieren verwendet werden. Berechne die
-        \(k\) Testfehler. Mittle diese am Ende. Das ist ein besserer Schätzwert
+        $k$ Testfehler. Mittle diese am Ende. Das ist ein besserer Schätzwert
         für den realen Fehler als eine einmalige Unterteilung in Training- und
         Testmenge.</dd>
     <dt><a href="https://en.wikipedia.org/wiki/Stratified_sampling" id="stratification"><dfn>Stratification</dfn></a></dt>
@@ -454,8 +454,8 @@ Slides: `5-Evaluation.pdf`
     <dt><dfn>Informational Loss function</dfn></dt>
     <dd>\[- \log_2 p_i\] - Wahrscheinlichkeiten der nicht-eintretenden Klassen spielen keine Rolle</dd>
     <dt><dfn>Quadratic Loss function</dfn></dt>
-    <dd>\[\sum_{j} (p_j - a_j)^2\] mit tatsächlichem Label \(a_j \in \{0,1\}\)
-        und geschätzter Wahrscheinlichkeit \(p_j\) für die Klasse \(j\).</dd>
+    <dd>\[\sum_{j} (p_j - a_j)^2\] mit tatsächlichem Label $a_j \in \{0,1\}$
+        und geschätzter Wahrscheinlichkeit $p_j$ für die Klasse $j$.</dd>
     <dt><dfn>Bias</dfn></dt>
     <dd>Das Verfahren an sich funktioniert nicht gut. Selbst beliebig viele
         Trainingsdaten beheben dieses Problem nicht. Der Fehler ist
@@ -473,27 +473,27 @@ Slides: `5-Evaluation.pdf`
     <dd>Vergleich mit Klassifier, der nur den Anteil der Klassenzugehörigkeit
         schätzt:
         \[\kappa =\frac{p_0-p_c}{1-p_c}\]
-        wobei \(p_0\) die gemessene Übereinstimmung ist und \(p_c\) die
-        erwartete Übereinstimmung bei Unabhängigkeit. Wenn also \(h_{ij}\) die
+        wobei $p_0$ die gemessene Übereinstimmung ist und $p_c$ die
+        erwartete Übereinstimmung bei Unabhängigkeit. Wenn also $h_{ij}$ die
         Anzahl der Datenobjekte ist, für die der erste Klassifizierer die Klasse
-        \(i\) und der zweite Klassifizierer die Klasse \(j\) vorhergesagt hat
-        sowie \(N\) die Gesamtzahl der Datenobjekte und \(z\) die Gesamtzahl
+        $i$ und der zweite Klassifizierer die Klasse $j$ vorhergesagt hat
+        sowie $N$ die Gesamtzahl der Datenobjekte und $z$ die Gesamtzahl
         der Klassen, dann gilt:
 
         \[p_0 = \frac{\sum_{i=1}^z h_{ii}}{N}\]
 
-        Die erwartete Übereinstimmung \(p_c\) wird über die Randhäufigkeiten
+        Die erwartete Übereinstimmung $p_c$ wird über die Randhäufigkeiten
         geschätzt:
         \[p_c = \frac{1}{N^2} \sum_{i=1}^z h_{.i} \cdot h_{i.}\]
 
-        Der Wertebereich ist also: \(\kappa \in (-\infty; 1]\), wobei
-        der minimale Wert von \(\kappa\) nicht beliebig klein werden kann.</dd>
+        Der Wertebereich ist also: $\kappa \in (-\infty; 1]$, wobei
+        der minimale Wert von $\kappa$ nicht beliebig klein werden kann.</dd>
     <dt><a href="https://en.wikipedia.org/wiki/Association_rule_learning#Lift"><dfn>Lift-Faktor</dfn></a></dt>
     <dd>Faktor, um den sich die Rücklaufquote erhöht:
 
         \[\mathrm{lift}(X\Rightarrow Y) = \frac{ \mathrm{supp}(X \cup Y)}{ \mathrm{supp}(X) \cdot \mathrm{supp}(Y) }\]
 
-        Der Lift ist ein Indiz für die Unabhängigkeit von \(X\) und \(Y\).
+        Der Lift ist ein Indiz für die Unabhängigkeit von $X$ und $Y$.
         Ist der Lift nahe bei 1, dann spricht das für die Unabhängigkeit. Ein
         Lift-Faktor kleiner als 1 bedeutet, dass die Itemsets zusammen seltener
         vorkommen als bei Unabhängigkeit zu erwarten wäre. Ein Lift-Faktor von
@@ -502,8 +502,8 @@ Slides: `5-Evaluation.pdf`
 
     </dd>
     <dt><a href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic"><dfn>ROC</dfn></a> (<dfn>Receiver Operator Characteristic</dfn>)</dt>
-    <dd>x-Achse: \(\frac{FP}{FP+TN} \cdot 100\) (FP-Rate),<br/>
-        y-Achse: \(\frac{TP}{TP+FN} \cdot 100\) (TP-Rate)
+    <dd>x-Achse: $\frac{FP}{FP+TN} \cdot 100$ (FP-Rate),<br/>
+        y-Achse: $\frac{TP}{TP+FN} \cdot 100$ (TP-Rate)
 
         Siehe auch: <a href="https://www.reddit.com/r/answers/comments/4g2wgx/where_does_the_name_receiver_operating/">Namensherkunft</a></dd>
     <dt><dfn>Recall</dfn> (<dfn>True Positive Rate</dfn>, <dfn>TPR</dfn>, <dfn>Sensitivität</dfn>)</dt>
@@ -522,11 +522,11 @@ Slides: `5-Evaluation.pdf`
     <dd>\[\frac{2 \cdot \text{precision} \cdot \text{recall}}{\text{recall} + \text{precision}}\]</dd>
     <dt><dfn>Correlation Coefficient</dfn></dt>
     <dd>Der Correlation Coefficient ist kein Fehlermaß. Der
-        \(CC(p, a)\) ist groß, wenn sich \(p\) und \(a\) ähnlich sind.
+        $CC(p, a)$ ist groß, wenn sich $p$ und $a$ ähnlich sind.
 
         \[CC(p, a) = \frac{COV(p, a)}{\sigma(p) \cdot \sigma(a)}\]
 
-        Mit \(\sigma(x) = \frac{1}{n-1} \cdot \sum_{i} (x_i - \bar{x})^2\)</dd>
+        Mit $\sigma(x) = \frac{1}{n-1} \cdot \sum_{i} (x_i - \bar{x})^2$</dd>
     <dt><dfn>Code</dfn></dt>
     <dd>Abbildung, die jedem Element des Alphabets eine Folge aus 0en und
         1en zuweist.
@@ -579,16 +579,16 @@ Anwendungen von Association Rules denkbar:
 
         Beispiel: Wer Bier kauft, der kauft auch Chips.</dd>
     <dt><a id="support"></a><dfn>Support</dfn></dt>
-    <dd>Die Anzahl der Transaktionen, die das Itemset \(I\) enthalten wird
-    <i>Support von \(I\)</i> genannt.<br/>
+    <dd>Die Anzahl der Transaktionen, die das Itemset $I$ enthalten wird
+    <i>Support von $I$</i> genannt.<br/>
         Es gilt:
         \[\text{support}(A \Rightarrow B) = \text{support}(A \cup B)\)\]</dd>
     <dt><dfn>Closed Itemset</dfn></dt>
-    <dd>Ein Itemset \(I\) heißt closed, wenn es keine echte Obermenge \(I' \supsetneq I\) gibt,
-        die den gleichen support \(\text{supp}(I') = \text{supp}(I)\) hat.</dd>
+    <dd>Ein Itemset $I$ heißt closed, wenn es keine echte Obermenge $I' \supsetneq I$ gibt,
+        die den gleichen support $\text{supp}(I') = \text{supp}(I)$ hat.</dd>
     <dt><a id="confidence"></a><dfn>Confidence</dfn></dt>
-    <dd>Confidence von \(A \Rightarrow B\) ist der Anteil der Transaktionen,
-        die \(A\) und \(B\) enthalten, von den Transaktione die \(A\) enthalten:
+    <dd>Confidence von $A \Rightarrow B$ ist der Anteil der Transaktionen,
+        die $A$ und $B$ enthalten, von den Transaktione die $A$ enthalten:
 
         \[\text{conf}(A \Rightarrow B) = \frac{\text{support}(A \cup B)}{\text{support}(A)} \in [0, 1]\]</dd>
     <dt><dfn>Apriori Algorithmus</dfn></dt>
@@ -597,13 +597,13 @@ Anwendungen von Association Rules denkbar:
 
         <ol>
             <li>Erzeuge alle einelementigen Frequent Itemsets</li>
-            <li>for k in range(2, n): Erzeuge die \(k\)-elementigen frequent
+            <li>for k in range(2, n): Erzeuge die $k$-elementigen frequent
                 Itemsets (join, prune, support counting)</li>
             <li>Frequent itemsets: Association Rules</li>
         </ol>
 
         Der Algorithmus nutzt aus, dass eine notwendige Bedingung für
-        \(k\)-elementige Frequent Itemsets ist, dass alle \(k-1\)-elementigen
+        $k$-elementige Frequent Itemsets ist, dass alle $k-1$-elementigen
         Frequent Itemsets auch Frequent sein müssen.
 
         Verbesserungen:
@@ -620,11 +620,11 @@ Anwendungen von Association Rules denkbar:
         repräsentiert ein Item. Jeder Knoten speichert zusätzlich die
         Häufigkeit des Präfixes, welcher durch den Pfad von der Wurzel zu dem
         Knoten dargestellt wird. Zusätzlich speichert jeder Knoten des Items
-        \(i\) einen Zeiger auf einen anderen Knoten mit einem Item \(i\). Jede
+        $i$ einen Zeiger auf einen anderen Knoten mit einem Item $i$. Jede
         Transaktion entspricht einem Pfad im FP-Tree.<br/>
         Zusätzlich zum FP-Tree gibt es eine Header-Tabelle. Die Zeilen dieser
-        Tabelle sind einzelne Items \(i\), denen jeweils ein Zeiger auf einen
-        Knoten im FP-Tree zugeordnet sind, der auch das Item \(i\)
+        Tabelle sind einzelne Items $i$, denen jeweils ein Zeiger auf einen
+        Knoten im FP-Tree zugeordnet sind, der auch das Item $i$
         repräsentiert.<br/>
         Für jedes Item gibt es also eine verkettete Liste, die das Vorkommen im
         Baum angibt.<br/>
@@ -647,7 +647,7 @@ Anwendungen von Association Rules denkbar:
             den Präfix auf den erwarteten support. Gehe dazu alle Elemente
             dieses Items durch (alle Präfix-Pfade im Baum) und wende eine Art
             Apriori-Algorithmus an um in diesen Präfix-Pfaden mit dem Item
-            \(i\) die Frequent-Itemsets zu finden.</li>
+            $i$ die Frequent-Itemsets zu finden.</li>
     </ol>
 
     Siehe auch: [Mining Frequent Patterns without Candidate Generation](https://www.cs.sfu.ca/~jpei/publications/sigmod00.pdf)
@@ -689,20 +689,20 @@ Slides: `8-ConstrainedAssociationRules.pdf`
     <dd>Beide Seiten (links und rechts) der Association Rule werden
         eingeschränkt.</dd>
     <dt><dfn>Anti-Monotonizität</dfn></dt>
-    <dd>Ein 1-var Constraint heißt anti-monoton, wenn für alle Mengen \(S, S'\)
+    <dd>Ein 1-var Constraint heißt anti-monoton, wenn für alle Mengen $S, S'$
         gilt:
 
         \[(S \supseteq S' \land (S \text{ erfüllt } C )) \Rightarrow S' \text{ erfüllt } C\]
 
-        Wenn also ein Constraint \(C\) für eine Menge \(S\) erfüllt ist, dann
-        auch für jede Teilmenge \(S'\).
+        Wenn also ein Constraint $C$ für eine Menge $S$ erfüllt ist, dann
+        auch für jede Teilmenge $S'$.
 
         Beispiele:
         <ul>
-            <li>\(\min(S) \geq v, \;\;\; v \in \mathbb{R}\) ist anti-monoton</li>
-            <li>\(\max(s) \geq v, \;\;\; v \in \mathbb{R}\) ist nicht anti-monoton</li>
-            <li>\(\text{size}(s) \leq v, \;\;\; v \in \mathbb{N}\) ist anti-monoton</li>
-            <li>\(\text{size}(s) \geq v, \;\;\; v \in \mathbb{N}\) ist nicht anti-monoton</li>
+            <li>$\min(S) \geq v, \;\;\; v \in \mathbb{R}$ ist anti-monoton</li>
+            <li>$\max(s) \geq v, \;\;\; v \in \mathbb{R}$ ist nicht anti-monoton</li>
+            <li>$\text{size}(s) \leq v, \;\;\; v \in \mathbb{N}$ ist anti-monoton</li>
+            <li>$\text{size}(s) \geq v, \;\;\; v \in \mathbb{N}$ ist nicht anti-monoton</li>
         </ul>
 
         Eine gutartige Eigenschaft von Constraints. Hier kann das
@@ -726,7 +726,7 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
 
 <dl>
     <dt><dfn>Silhouette-Koeffizient</dfn></dt>
-    <dd>Sei \(C = (C_1, \dots, C_k)\) ein Clustering.
+    <dd>Sei $C = (C_1, \dots, C_k)$ ein Clustering.
 
     <ul>
         <li>Durchschnittlicher Abstand zwischen Objekt o und anderen Objekten in seinem Cluster:
@@ -738,7 +738,7 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
                     \frac{b(o)-a(o)}{\max(a(o), b(o))} &\text{otherwise}\end{cases}\]
             Es gilt:
             \[s(o) \in [-1, 1]\]</li>
-        <li>\(\text{silh}(C) = \frac{1}{|C|} \sum_{C_i \in C} \frac{1}{|C_i|} \sum_{o \in C_i} s(o)\).
+        <li>$\text{silh}(C) = \frac{1}{|C|} \sum_{C_i \in C} \frac{1}{|C_i|} \sum_{o \in C_i} s(o)$.
             Es gilt:
             \[\text{silh}(C) \in [-1; 1]\]
             Es ist ein möglichst großer Wert gewünscht. Alles kleiner als 0 ist schlecht.</li>
@@ -746,35 +746,35 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
     </dd>
     <dt><dfn>Distanzfunktionen für Cluster</dfn></dt>
     <dd>
-        Seien \(X, Y\) Cluster.
+        Seien $X, Y$ Cluster.
 
         <ul>
-            <li>Durschnittlicher Objektabstand: \(\text{dist}_{avg}(X, Y) = \frac{1}{|X| \cdot |Y|} \cdot \sum_{x in X, y\in Y} \text{dist}(x, y)\)</li>
-            <li>Single Link: \(\text{dist}_{sl}(X, Y) = \min_{x \in X, y \in Y} \text{dist}(x, y)\)</li>
-            <li>Complete Link: \(\text{dist}_{cl}(X, Y) = \max_{x \in X, y \in Y} \text{dist}(x, y)\)</li>
+            <li>Durschnittlicher Objektabstand: $\text{dist}_{avg}(X, Y) = \frac{1}{|X| \cdot |Y|} \cdot \sum_{x in X, y\in Y} \text{dist}(x, y)$</li>
+            <li>Single Link: $\text{dist}_{sl}(X, Y) = \min_{x \in X, y \in Y} \text{dist}(x, y)$</li>
+            <li>Complete Link: $\text{dist}_{cl}(X, Y) = \max_{x \in X, y \in Y} \text{dist}(x, y)$</li>
         </ul>
     </dd>
-    <dt><dfn id="kmeans">\(k\)-means Clustering</dfn></dt>
+    <dt><dfn id="kmeans">$k$-means Clustering</dfn></dt>
     <dd>Siehe <a href="https://martin-thoma.com/machine-learning-1-course/#tocAnchor-1-1-15">ML 1</a>.</dd>
     <dt><dfn id="clarans">CLARANS</dfn></dt>
-    <dd>CLARANS ist ein Clustering-Algorithmus, der mit \(k\)-Means
-        verwandt ist. Auch er erwartet einen Parameter \(k \in \mathbb{N}\),
+    <dd>CLARANS ist ein Clustering-Algorithmus, der mit $k$-Means
+        verwandt ist. Auch er erwartet einen Parameter $k \in \mathbb{N}$,
         der die erwartete Anzahl an Clustern angibt. Dann geht CLARANS davon
         aus, dass jeder Medeoid durch einen Datenpunkt im Datensatz
-        repräsentiert werden kann. Für eine zufällige Wahl von \(k\) Punkten
-        \(M = \{p_1, \dots, p_k\}\) wird ein Score berechnet. Dann überprüft
-        man, was der Tausch eines Punktes \(p_i\) durch den Punkt \(p_j\)
-        für beliebige \(p_i \in M\) und \(p_j \notin M\) am Score ändern würde.
+        repräsentiert werden kann. Für eine zufällige Wahl von $k$ Punkten
+        $M = \{p_1, \dots, p_k\}$ wird ein Score berechnet. Dann überprüft
+        man, was der Tausch eines Punktes $p_i$ durch den Punkt $p_j$
+        für beliebige $p_i \in M$ und $p_j \notin M$ am Score ändern würde.
         Den besten Tausch führt man durch.</dd>
     <dt><dfn>CF-Tree</dfn> (<dfn>Clustering Feature Tree</dfn>)</dt>
     <dd>Ein CF-Tree ist ein höhenbalancierter Baum. Jeder Knoten des Baums
         entspricht ein Cluster.<br/>
         <br/>
-        Clustering-Feature (N, LS, SS) für Cluster \(C_i\) mit
+        Clustering-Feature (N, LS, SS) für Cluster $C_i$ mit
         <ul>
-            <li>\(N = |C_i|\): Anzahl der Punkte im Cluster</li>
-            <li>\(LS = \sum_{i \in C_i} X_i\)</li>
-            <li>\(SS = \sum_{i \in C_i} X_i^2\)</li>
+            <li>$N = |C_i|$: Anzahl der Punkte im Cluster</li>
+            <li>$LS = \sum_{i \in C_i} X_i$</li>
+            <li>$SS = \sum_{i \in C_i} X_i^2$</li>
         </ul>
         </dd>
     <dt><a id="birch" href="https://en.wikipedia.org/wiki/BIRCH"><dfn>BIRCH</dfn> (<dfn>Balanced Iterative Reducing and Clustering using Hierarchies</dfn>)</a></dt>
@@ -787,7 +787,7 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         <br/>
         Parameter von BIRCH:
         <ul>
-            <li>\(k \in \mathbb{N}^+\): Anzahl der Cluster</li>
+            <li>$k \in \mathbb{N}^+$: Anzahl der Cluster</li>
             <li>B: (Fan-out), maximale anzahl an Kindknoten</li>
             <li>B': maximale Blatt-Kapazität (Anzahl Elementarcluster)</li>
             <li>T (Schwellwert): Maximaler Radius (oder Durchmesser), bevor ein
@@ -828,14 +828,14 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
     <dd>
 
         <ul>
-            <li>Jedes Objekt ist ein Cluster. Füge die Cluster in die Menge \(M\) ein.</li>
-            <li>Berechne alle paarweise Abstände zwischen Clustern in \(M\). Das ist in \(\mathcal{O}(|M|^2)\).</li>
-            <li>Merge das Paar \(A, B\) mit kleinstem Abstand zu \(C = A \cup B\). Entferne \(A, B\) aus \(M\) und füge \(C\) ein.</li>
-            <li>Abbruch, wenn \(|M| = 1\)</li>
+            <li>Jedes Objekt ist ein Cluster. Füge die Cluster in die Menge $M$ ein.</li>
+            <li>Berechne alle paarweise Abstände zwischen Clustern in $M$. Das ist in $\mathcal{O}(|M|^2)$.</li>
+            <li>Merge das Paar $A, B$ mit kleinstem Abstand zu $C = A \cup B$. Entferne $A, B$ aus $M$ und füge $C$ ein.</li>
+            <li>Abbruch, wenn $|M| = 1$</li>
             <li>Gehe zu Schritt 2.</li>
         </ul>
 
-        Gesamtkomplexität: \(\mathcal{O}(n^2)\)
+        Gesamtkomplexität: $\mathcal{O}(n^2)$
     </dd>
     <dt><a id="divisive-clustering"></a><dfn>Divisives Clustering</dfn> (<dfn id="diana">DIANA</dfn>, <dfn>DIvisive ANAlysis</dfn>)</dt>
     <dd>Divisives Clustering ist ein hierarchisches Clusteringverfahren. Es
@@ -851,13 +851,13 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         </ul>
     </dd>
     <dt><dfn>Projected Clustering</dfn></dt>
-    <dd>Input sind die Anzahl \(k\) der Cluster, die gefunden werden sollen und
-        die durchschnittliche Anzahl der Dimensionen pro Cluster \(l\).
+    <dd>Input sind die Anzahl $k$ der Cluster, die gefunden werden sollen und
+        die durchschnittliche Anzahl der Dimensionen pro Cluster $l$.
 
-        Output ist eine Partitionierung der Daten in \(k+1\) Mengen</dd>
+        Output ist eine Partitionierung der Daten in $k+1$ Mengen</dd>
     <dt><dfn>Manhatten Segmental Distance</dfn></dt>
-    <dd>\(d(x_1, x_2) = \frac{1}{n} \cdot \sum_{i=1}^n |x_1^{(i)} - x_2^{(i)}|\) wobei
-        \(n\) die Anzahl der Dimensionen von \(x_1, x_2\) ist.</dd>
+    <dd>$d(x_1, x_2) = \frac{1}{n} \cdot \sum_{i=1}^n |x_1^{(i)} - x_2^{(i)}|$ wobei
+        $n$ die Anzahl der Dimensionen von $x_1, x_2$ ist.</dd>
     <dt><dfn>Jaccard Koeffizient</dfn></dt>
     <dd>\[J(A, B) = \frac{|A \cap B|}{|A \cup B|} \in [0; 1]\]</dd>
     <dt><a href="https://de.wikipedia.org/wiki/DBSCAN" id="dbscan"><dfn>DBSCAN</dfn></a></dt>
@@ -871,11 +871,11 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         <li>Ausreißer: Weder dicht noch dichte-erreichbar.</li>
     </ul>
 
-    Idee: Gehe über alle Punkte \(p \in P\) genau ein mal. Sei \(P' \leftarrow P\) die
-    Menge der nicht-markierten Punkte. Solange \(|P'| > 0\) wird ein Punkt
+    Idee: Gehe über alle Punkte $p \in P$ genau ein mal. Sei $P' \leftarrow P$ die
+    Menge der nicht-markierten Punkte. Solange $|P'| > 0$ wird ein Punkt
     entnommen. Ist er dicht, so ist es ein neues Cluster. Von diesem Punkt aus
-    wird rekursiv alles in der \(\varepsilon\)-Umgebung zum Cluster hinzugefügt.
-    Hat der Punkt weniger als min_point Punkte in seiner \(\varepsilon\)-Umgebung,
+    wird rekursiv alles in der $\varepsilon$-Umgebung zum Cluster hinzugefügt.
+    Hat der Punkt weniger als min_point Punkte in seiner $\varepsilon$-Umgebung,
     so wird er als Ausreißer markiert.
 
     Siehe auch: <a href="http://www.dbs.ifi.lmu.de/Publikationen/Papers/KDD-96.final.frame.pdf">A density-based algorithm for discovering clusters in large spatial databases with noise</a>
@@ -885,22 +885,22 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
     <dt><dfn>Outlier</dfn></dt>
     <dd>Noise, welcher weit von jedem Objekt entfernt ist.</dd>
     <dt><dfn>Core-Distanz</dfn></dt>
-    <dd>\(C(o) = \min\{\varepsilon \in \mathbb{R} | o \text{ ist mit DBSCAN und } \varepsilon \text{ dicht}\}\).<br/>
-        Die Core-Distanz eines Objekts \(o\) ist also die kleinste Distanz, sodass
-        \(o\) noch ein dichtes Objekt ist.</dd>
+    <dd>$C(o) = \min\{\varepsilon \in \mathbb{R} | o \text{ ist mit DBSCAN und } \varepsilon \text{ dicht}\}$.<br/>
+        Die Core-Distanz eines Objekts $o$ ist also die kleinste Distanz, sodass
+        $o$ noch ein dichtes Objekt ist.</dd>
     <dt><dfn>Reachability-Distanz</dfn></dt>
-    <dd>Seien \(p, o\) Datenpunkte.
+    <dd>Seien $p, o$ Datenpunkte.
 
     \[\text{reach\_d}(p, o) = \begin{cases}\max(d(p, o), \text{coreDist}(p, o)) &\text{if } d(p, o) < \varepsilon\\
                                  \text{undefined} &\text{otherwise}\]</dd>
     <dt><a href="https://de.wikipedia.org/wiki/OPTICS" id="optics"><dfn>OPTICS</dfn></a></dt>
     <dd>OPTICS ist ein Algorithmus, der mit den Parametern min_points und
-        \(\varepsilon\) (maximaler Radius für Cluster-Distanz) automatisch
+        $\varepsilon$ (maximaler Radius für Cluster-Distanz) automatisch
         Cluster findet. Er startet dabei bei einem beliebigen Punkt. Dieser
         Punkt definiert ein Cluster, wenn mindestens min_points von ihm aus
-        maximal \(\varepsilon\) entfernt sind. Dann wird der naheste Punkt zu
+        maximal $\varepsilon$ entfernt sind. Dann wird der naheste Punkt zu
         dem Cluster hinzugefügt. Dies wird so lange gemacht, wie die Punkte
-        maximal \(\varepsilon\) von einem Punkt im Cluster entfernt sind.
+        maximal $\varepsilon$ von einem Punkt im Cluster entfernt sind.
         Dann wird ein bisher nicht betrachteter Punkt als genommen und man
         macht für diesen Outlier / neuen Cluster so weiter wie zuvor.
 
@@ -916,7 +916,7 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
     </dd>
     <dt><dfn>Reachability-Plot</dfn> (<dfn>Erreichbarkeitsdiagramm</dfn>)</dt>
     <dd>Der Reachability-Plot veranschaulicht die Cluster und zeigt, welche
-        Wahl von \(\varepsilon\) zu verschiedenen Clustern in DBSCAN führen würde.
+        Wahl von $\varepsilon$ zu verschiedenen Clustern in DBSCAN führen würde.
         Er veranschaulicht das Ergebnis von OPTICS.
 
         <figure class="wp-caption aligncenter img-thumbnail">
@@ -941,8 +941,8 @@ Slides: `10-StatistModellierung.pdf`
     <dt><dfn>Naive Baies</dfn></dt>
     <dd>\[P(H | E) = \frac{P(E_1 | H) \cdot \dots \cdot P(E_n | H) \cdot P(H)}{P(E)}\]</dd>
     <dt><dfn>Laplace-Smoothing</dfn></dt>
-    <dd>Um Wahrscheinlichkeiten von 0 zu vermeiden, werden die Zähler mit \(k\) initilisiert.
-        Beachte, dass man auch die Gesamtzahl dann um \(k\) erhöhen muss.</dd>
+    <dd>Um Wahrscheinlichkeiten von 0 zu vermeiden, werden die Zähler mit $k$ initilisiert.
+        Beachte, dass man auch die Gesamtzahl dann um $k$ erhöhen muss.</dd>
     <dt><dfn>Bayessche Netze</dfn></dt>
     <dd>Siehe <a href="https://martin-thoma.com/machine-learning-1-course/#bayes-net">ML 1</a>.</dd>
     <dt><dfn>Duplikateleminierung</dfn></dt>
@@ -962,8 +962,8 @@ Slides: `11-SupportVectorMachines.pdf`
 
 <dl>
     <dt><dfn>Lineare Regression</dfn></dt>
-    <dd>Model \(y = M x\), wobei \(x \in \mathbb{R}^n\) die Features sind,
-        \(y \in \mathbb{R}^m\) die Vorhersage und \(M \in \mathbb{R}^{n \times m}\)
+    <dd>Model $y = M x$, wobei $x \in \mathbb{R}^n$ die Features sind,
+        $y \in \mathbb{R}^m$ die Vorhersage und $M \in \mathbb{R}^{n \times m}$
         die Modellparameter.</dd>
     <dt><dfn>Cross Entropy Fehlermaß</dfn></dt>
     <dd>\[E_{CE}(w) = \sum_{i=1}^n [(1-y_i) \cdot \log (1-p) + y_i \cdot \log p]\]</dd>
@@ -1006,7 +1006,7 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
         nimmt Boosting Rücksicht auf zuvor falsch Klassifizierte Beispiele
         und gewichtet diese stärker.
 
-        Gewichtungsänderung für korrekte Objekte bei Fehllerrate e: \(\frac{e}{1-e}\)</dd>
+        Gewichtungsänderung für korrekte Objekte bei Fehllerrate e: $\frac{e}{1-e}$</dd>
 </dl>
 
 
@@ -1014,8 +1014,8 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
 
 * Was ist Overfitting?<br/>
   → Siehe <a href="https://martin-thoma.com/machine-learning-1-course/#overfitting">ML 1</a>
-* Wie berechnet man die Covarianz zweier Zufallsvariablen <span markdown="0">\(X, Y\)</span>?<br/>
-  → <span markdown="0">\(\operatorname{Cov}(X,Y) := \operatorname E\bigl[(X - \operatorname E(X)) \cdot (Y - \operatorname E(Y))\bigr]\)</span>
+* Wie berechnet man die Covarianz zweier Zufallsvariablen <span markdown="0">$X, Y$</span>?<br/>
+  → <span markdown="0">$\operatorname{Cov}(X,Y) := \operatorname E\bigl[(X - \operatorname E(X)) \cdot (Y - \operatorname E(Y))\bigr]$</span>
 * Warum muss man für NN-Anfragen mit kD-Bäumen nur ein paar Rechtecke anschauen?<br/>
   → Weil man mit der Priority-Queue Algorithmus nur Rechtecke betrachten muss,
     die von der Sphäre, welchen durch den Anfragepunkt un den tatsächlichen
@@ -1047,7 +1047,7 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
   die NN-Sphere überlappen?<br/>
   → Weil alle anderen Knoten in der Priority Queue weiter hinten liegen.
 * Welche Classifier kennen Sie?<br/>
-  → Decision Stumps (1-Rules), Entscheidungsbäume, SVMs, Neuronale Netze, <span markdown="0">\(k\)</span>-nearest neighbor (es gibt <a href="https://martin-thoma.com/comparing-classifiers/">mehr Classifier</a>)
+  → Decision Stumps (1-Rules), Entscheidungsbäume, SVMs, Neuronale Netze, <span markdown="0">$k$</span>-nearest neighbor (es gibt <a href="https://martin-thoma.com/comparing-classifiers/">mehr Classifier</a>)
 * Was ist der Vorteil von Postpruning verglichen mit Prepruning?<br/>
   → Es könnte sein, dass ein Feature nur in Kombination mit einem anderen
     deutliche Vorteile bringt. Dies kann man bei Prepruning nicht erkennen,
@@ -1066,10 +1066,10 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
   → Mehr Trainingsdaten für den schlimmeren Fehler. (TODO, vgl. <a href="http://datascience.stackexchange.com/q/11379/8820">How can decision trees be tuned for non-symmetrical loss?</a>)
 * Was ist Wertebereich der FP-Rate?<br/>
   → [0, 1]: Die FP-Rate ist definiert als <span
-  markdown="0">\(\frac{FP}{FP+TN}\)</span>. Offensichtlich sind alle Werte
+  markdown="0">$\frac{FP}{FP+TN}$</span>. Offensichtlich sind alle Werte
   nicht-negativ, also kann der Bruch nicht negativ werden. Deshalb ist auch der
   Nenner mindestens so groß wie der Zähler. Wenn TN=0 und <span
-  markdown="0">\(FP \neq 0\)</span>, dann ist die FP-Rate gleich 1. Das geht,
+  markdown="0">$FP \neq 0$</span>, dann ist die FP-Rate gleich 1. Das geht,
   wenn man z.B. immer "True" vorhersagt. Wenn man immer "False" vorhersagt ist
   die FP-Rate gleich 0.
 * Wie berechnet man den Korrelationskoeffizienten?
@@ -1097,42 +1097,42 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
   Anwendung?<br/>
   → Die Logarithmusfunktion hat die gewünschte Form: Bei perfekter
      Klassifizierung soll der Loss gleich 0 sein. Wenn es nicht perfekt ist,
-     also \(0 \leq p_i < 1\), dann soll der Loss streng monoton fallen.
+     also $0 \leq p_i < 1$, dann soll der Loss streng monoton fallen.
 
 
 ### Association Rules
 * Was sind Association Rules?<br/>
   → Association Rules sind im Kontext von Transaktionen von Items zu verstehen.
-     Eine Association Rule ist eine Regel <span markdown="0">\(A \Rightarrow B\)</span>,
+     Eine Association Rule ist eine Regel <span markdown="0">$A \Rightarrow B$</span>,
      wobei A und B Item-Mengen sind.
 * Wie findet man Association Rules?<br/>
   → In der Warenkorbanalyse / in Transaktionen.
 * Wie überprüft man rasch für viele Transaktionen, welche Kandidaten sie enthalten?<br/>
   → TODO
 * Wie muss der Datenbestand beschaffen sein, damit eine Association Rule
-  <span markdown="0">\(A \Rightarrow B\)</span> hohen
+  <span markdown="0">$A \Rightarrow B$</span> hohen
   <a href="#support">Support</a> und hohe <a href="#confidence">Confidence</a>
   hat?<br/>
-  → Viele Transaktionen müssen <span markdown="0">\(A \cup B\)</span> enthalten.
-     Wenn <span markdown="0">\(A\)</span> vorkommt, muss auch
-     <span markdown="0">\(B\)</span> häufig vorkommen.
+  → Viele Transaktionen müssen <span markdown="0">$A \cup B$</span> enthalten.
+     Wenn <span markdown="0">$A$</span> vorkommt, muss auch
+     <span markdown="0">$B$</span> häufig vorkommen.
 * Wie muss der Datenbestand beschaffen sein, damit eine Association Rule
-  <span markdown="0">\(A \Rightarrow B\)</span> hohen
+  <span markdown="0">$A \Rightarrow B$</span> hohen
   Support und geringe Confidence hat?<br/>
-  → Viele Transaktionen müssen <span markdown="0">\(A \cup B\)</span>
-  enthalten, aber noch deutlich mehr nur \(A\).
+  → Viele Transaktionen müssen <span markdown="0">$A \cup B$</span>
+  enthalten, aber noch deutlich mehr nur $A$.
 * Wie muss der Datenbestand beschaffen sein, damit eine Association Rule
-  <span markdown="0">\(A \Rightarrow B\)</span>
+  <span markdown="0">$A \Rightarrow B$</span>
   geringen Support und hohe Confidence hat?<br/>
-  → Wenige Transaktionen müssen <span markdown="0">\(A \cup B\)</span>
-  enthalten, wenn <span markdown="0">\(A\)</span> mal vorkommt, dann immer
-  auch <span markdown="0">\(B\)</span>.
+  → Wenige Transaktionen müssen <span markdown="0">$A \cup B$</span>
+  enthalten, wenn <span markdown="0">$A$</span> mal vorkommt, dann immer
+  auch <span markdown="0">$B$</span>.
 * Wie muss der Datenbestand beschaffen sein, damit eine Association Rule
-  <span markdown="0">\(A \Rightarrow B\)</span>
+  <span markdown="0">$A \Rightarrow B$</span>
   geringen Support und geringe Confidence hat?<br/>
-  → Wenige Transaktionen müssen <span markdown="0">\(A \cup B\)</span>
-  enthalten. Wenn <span markdown="0">\(A\)</span> mal vorkommt, dann sehr
-  selten auch <span markdown="0">\(B\)</span>.
+  → Wenige Transaktionen müssen <span markdown="0">$A \cup B$</span>
+  enthalten. Wenn <span markdown="0">$A$</span> mal vorkommt, dann sehr
+  selten auch <span markdown="0">$B$</span>.
 * Im Apriori-Algorithmus hat man bei k=2 keinen Prune-Schritt. Warum?<br/>
   → (Antwort: 24.11.2015, 14:34)
 * Wie groß sollte man die Hash-Tabelle machen?<br/>
@@ -1140,7 +1140,7 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
   Grenze.
 * Was sind multidimensionale Association Rules?<br/>
   → Association Rules die auf verschiedenen Begriffsebenenen sind, z.B.
-    <span markdown="0">Oreo \(\Rightarrow\) Milch</span>
+    <span markdown="0">Oreo $\Rightarrow$ Milch</span>
 * Wie findet man multidimensionale Association Rules?<br/>
   → TODO
 * In welchen Situationen ist Apriori teuer, und warum?<br/>
@@ -1173,22 +1173,22 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
 ### Clustering
 * BIRCH-Algorithmus: Wie kann man die Interclusterdistanz aus N, LS, SS
   herleiten?<br/>
-  → \(R(C_i) = \sqrt{\frac{1}{N} (SS - 2 \frac{LS}{N} \cdot LS + N (\frac{LS}{N})^2)}\)
+  → $R(C_i) = \sqrt{\frac{1}{N} (SS - 2 \frac{LS}{N} \cdot LS + N (\frac{LS}{N})^2)}$
 * BIRCH-Algorithmus: Wie kann man den Durchmesser aus N, LS, SS herleiten?<br/>
-  → \(\sqrt{\frac{1}{N \cdot (N-1)} (N \cdot SS - 2 LS^2 + N^2 \cdot SS)}\)
+  → $\sqrt{\frac{1}{N \cdot (N-1)} (N \cdot SS - 2 LS^2 + N^2 \cdot SS)}$
 * BIRCH-Algorithmus: Wie kann man die Interclusterdistanz aus N, LS, SS
   herleiten?<br/>
-  → \(D(C_1, C_2) = \sqrt{\frac{SS_{C_1} - 2 LS_{C_2} LS_{C_1} + SS_{C_2}}{N_{C_1} \cdot N_{C_2}}}\)
+  → $D(C_1, C_2) = \sqrt{\frac{SS_{C_1} - 2 LS_{C_2} LS_{C_1} + SS_{C_2}}{N_{C_1} \cdot N_{C_2}}}$
 * BIRCH-Algorithmus: Wie lassen sich die Clustering-Features eines Zusammengefügten
-  Clusters <span markdown="0">\(C_{12} = C_1 \cup C_2\)</span> aus den
+  Clusters <span markdown="0">$C_{12} = C_1 \cup C_2$</span> aus den
   Komponenten berechnen?<br/>
   → Durch Addition der jeweiligen Features der Einzelcluster.
-* Was spricht dagegen, <span markdown="0">\(\mathbf{\varepsilon}\)</span> in
+* Was spricht dagegen, <span markdown="0">$\mathbf{\varepsilon}$</span> in
   OPTICS riesig zu wählen?<br/>
   → Dann sind gleich am Anfang mit dem ersten Objekt alle Datenobjekte in der
      Priority-Queue. Damit wäre der Aufwand für die Queue zu hoch.
 * Welche Clustering-Verfahren kennen Sie?<br/>
-  → <a href="#kmeans">\(k\)-means</a>, <a href="#clarans">CLARANS</a>,
+  → <a href="#kmeans">$k$-means</a>, <a href="#clarans">CLARANS</a>,
      <a href="#dbscan">DBSCAN</a>, <a href="#optics">OPTICS</a>,
      <a href="#birch">BIRCH</a>, <a href="#diana">DIANA</a>, <a href="#em">EM</a>
 * Gegeben Szenario X, welche Clustering-Verfahren sind sinnvoll, und warum?<br/>

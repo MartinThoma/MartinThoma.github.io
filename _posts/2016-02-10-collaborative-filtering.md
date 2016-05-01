@@ -8,9 +8,9 @@ tags: Rating
 featured_image: logos/ai.png
 ---
 
-Suppose you are in the Netflix setting: You have <span markdown="0">\(M\)</span>
-movies, <span markdown="0">\(N\)</span> users and integer ratings
-<span markdown="0">\(1, \dots, K\)</span> for some movies by some users.
+Suppose you are in the Netflix setting: You have <span markdown="0">$M$</span>
+movies, <span markdown="0">$N$</span> users and integer ratings
+<span markdown="0">$1, \dots, K$</span> for some movies by some users.
 
 You want to predict all missing values. This means you want to say how the
 users would rate movies they have not actually rated.
@@ -24,7 +24,7 @@ situation. It might also be similar to the StumbleUpon rating.
 * **Much Data**: You have 17&thinsp;000 movies, 480&thinsp;000 users and
   100&thinsp;000&thinsp;000 ratings of movies by those users.
 * **Missing Data**: Although you have a lot of ratings, a complete dataset
-  would be <span markdown="0">\(17\cdot 10^3 \cdot 480 \cdot 10^3 = 8160 \cdot 10^6\)</span>
+  would be <span markdown="0">$17\cdot 10^3 \cdot 480 \cdot 10^3 = 8160 \cdot 10^6$</span>
   ratings. This means you only have about 12% of all possible ratings. There
   is a lot of data missing.
 
@@ -35,7 +35,7 @@ Train one RBM per user, but share weights amongst the RBMs. This simply means
 the weights are averaged.
 
 The visible units are movies. But instead of having binary visible units, the
-units have <span markdown="0">\(K=5\)</span> states on which softmax is applied.
+units have <span markdown="0">$K=5$</span> states on which softmax is applied.
 
 The hidden units (about 100) model dependencies between movie ratings.
 

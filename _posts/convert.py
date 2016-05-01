@@ -90,7 +90,7 @@ def math(filename):
     with open(filename) as f:
         content = f.read()
 
-    single_math = re.compile("\\((.+?)\\)")
+    single_math = re.compile("\\\\\((.+?)\\\\\)")
     content = single_math.sub(lambda m: "${math}$".format(math=m.group(1)),
                               content)
 

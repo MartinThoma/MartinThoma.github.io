@@ -7,10 +7,10 @@ category: German posts
 tags: mathematics, Linear algebra
 featured_image: 2012/08/jordan-normal-form-block1.png
 ---
-<div class="info">Hier sind <span>\(2 \times 2\)</span> Beispiele zum Hauptartikel <a href="../wie-berechnet-man-die-jordansche-normalform/" title="Wie berechnet man die Jordan&rsquo;sche Normalform?">Wie berechnet man die Jordan&rsquo;sche Normalform?</a>.</div>
+<div class="info">Hier sind <span>$2 \times 2$</span> Beispiele zum Hauptartikel <a href="../wie-berechnet-man-die-jordansche-normalform/" title="Wie berechnet man die Jordan&rsquo;sche Normalform?">Wie berechnet man die Jordan&rsquo;sche Normalform?</a>.</div>
 
 <h2>Beispiel 1</h2>
-Gegeben sei die Matrix <span>\(A \in \mathbb{R}^{2 \times 2}\)</span>:
+Gegeben sei die Matrix <span>$A \in \mathbb{R}^{2 \times 2}$</span>:
 <div>\[A := \begin{pmatrix}
 11 & -4\\
 25 & -9
@@ -18,10 +18,10 @@ Gegeben sei die Matrix <span>\(A \in \mathbb{R}^{2 \times 2}\)</span>:
 
 <h3>Jordannormalform bestimmen</h3>
 <strong>1. Charakteristisches Polynom berechnen:</strong>
-<span>\(p_A(\lambda) = (\lambda - 1)^2\)</span>.
+<span>$p_A(\lambda) = (\lambda - 1)^2$</span>.
 
-Daraus folgt: <span>\(\lambda = 1\)</span> ist einziger Eigenwert
-<span>\(\Rightarrow\)</span> 1 Jordanblock
+Daraus folgt: <span>$\lambda = 1$</span> ist einziger Eigenwert
+<span>$\Rightarrow$</span> 1 Jordanblock
 
 <strong>2. Anzahl der Jordankästchen bestimmen:</strong>
 
@@ -40,7 +40,7 @@ Daraus folgt: <span>\(\lambda = 1\)</span> ist einziger Eigenwert
 &= 1
 \end{align}\]</div>
 
-<span>\(\Rightarrow\)</span> es gibt genau 1 Jordankästchen in diesem Jordanblock.
+<span>$\Rightarrow$</span> es gibt genau 1 Jordankästchen in diesem Jordanblock.
 
 <div>\[\Rightarrow
 J =
@@ -109,7 +109,7 @@ Wähle <div>\[b_1^1 \in U_1: b_1^1 = \begin{pmatrix}1 \\0 \end{pmatrix} \Rightar
 \end{pmatrix}\]</div>
 
 <h2>Beispiel 2</h2>
-Gegeben sei die Matrix <span>\(A \in \mathbb{R}^{2 \times 2}\)</span>:
+Gegeben sei die Matrix <span>$A \in \mathbb{R}^{2 \times 2}$</span>:
 <div>\[A := \begin{pmatrix}
 1 & 2\\
 3 & 6
@@ -152,7 +152,7 @@ Daraus folgt: Die Jordansche Normalform der Matrix ist:
 <div>\[S^{-1} = \frac{1}{7} \cdot \begin{pmatrix}3 & -1 \\ 1 & 2 \end{pmatrix}\]</div>
 
 <h3>Anmerkung</h3>
-Man hätte übrigens jeden Vektor aus <span>\(\left [ \begin{pmatrix}2 \\ -1 \end{pmatrix} \right ] \)</span> nehmen können. Angenommen, man hätte den Vektor <span>\(\begin{pmatrix}-14 \\ 7 \end{pmatrix}\)</span> gewählt:
+Man hätte übrigens jeden Vektor aus <span>$\left [ \begin{pmatrix}2 \\ -1 \end{pmatrix} \right ] $</span> nehmen können. Angenommen, man hätte den Vektor <span>$\begin{pmatrix}-14 \\ 7 \end{pmatrix}$</span> gewählt:
 
 <div>\[S = \begin{pmatrix}-14 & 1 \\ 7 & 3 \end{pmatrix}\]</div>
 <div>\[S^{-1} = \frac{1}{49} \cdot \begin{pmatrix}-3 & 1 \\ 7 & 14 \end{pmatrix}\]</div>

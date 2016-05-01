@@ -103,14 +103,14 @@ Slide: `01_ Bilder, Farbe, Perzeption - Teil1.pdf`
     <dt><a href="https://de.wikipedia.org/wiki/Gammakorrektur"><dfn>Gamma-Korrektur</dfn></a></dt>
     <dd>\[I_{\text{out}} = I_{\text{in}}^\gamma\]</dd>
     <dt><dfn>Transferfunktion</dfn></dt>
-    <dd>Eine Abbildung \(f\) von Farbwerten auf Helligeit:
+    <dd>Eine Abbildung $f$ von Farbwerten auf Helligeit:
         \[f: [0, N] \rightarrow [I_{\text{min}}, I_{\text{max}}]\]
         Diese Abbildung ist abhängig vom Display.</dd>
     <dt><dfn>Dynamikumfang</dfn></dt>
     <dd>Der Dynamikumfang beschreibt den erreichbaren Kontrast eines Wiedergabegrätes (Bildschirm, Beamer):
         \[R_d = \frac{I_{\text{max}} + k}{I_{\text{min}} + k}\]
 
-        \(k\) ist dabei das Umgebungslicht, \(I_{max} / I_{min}\) sind
+        $k$ ist dabei das Umgebungslicht, $I_{max} / I_{min}$ sind
         Konstanten des Displays und geben die maximale bzw. minimale Helligkeit
         an.</dd>
     <dt><dfn>Gammut</dfn> (<dfn>Farbgammut</dfn>)</dt>
@@ -145,8 +145,8 @@ Slide: `01_ Bilder, Farbe, Perzeption - Teil2.pdf`
 
         \[E = c \cdot \frac{R}{R_0}\]
 
-        wobei \(E\) die empfundene Reizstärke, \(c\) eine Konstante, \(R\) die
-        tatsächliche Reizstärke und \(R_0\) eine Referenzreizstärke ist.</dd>
+        wobei $E$ die empfundene Reizstärke, $c$ eine Konstante, $R$ die
+        tatsächliche Reizstärke und $R_0$ eine Referenzreizstärke ist.</dd>
 </dl>
 
 * RGB-Farbraum: Addition der Spektren, wird bei CRT/LCD-Farbmonitoren verwendet.
@@ -178,16 +178,16 @@ Side: `02_ Raytracing (enthalt Abtastung aus Kapitel 1).pdf`
     <dt><dfn>Phong-Beleuchtungsmodell</dfn></dt>
     <dd>Das Phong-Beleuchtungsmodell besteht aus 3&nbsp;Komponenten:
         <ul>
-            <li>Ambiente Beleuchtung: Materialkoeffizient \(k_a\). Ambiente Beleuchtung ist indirekte Beleuchtung, also Licht von anderen Oberflächen</li>
-            <li>Diffuse Beleuchtung: Materialkoeffizient \(k_d\). Diffuse Beleuchtung ist die Streuung des Lichts nahe beim "Streupunkt" (nach dem Lambertschen Gesetz).</li>
-            <li>Spekulare Beleuchtung: Materialkoeffizient \(k_s\) sowie Phong-Exponent \(n\). Unter spekularer Beleuchtung versteht man direkte Spiegelung der Lichtquelle (imperfekte Spiegelung)</li>
+            <li>Ambiente Beleuchtung: Materialkoeffizient $k_a$. Ambiente Beleuchtung ist indirekte Beleuchtung, also Licht von anderen Oberflächen</li>
+            <li>Diffuse Beleuchtung: Materialkoeffizient $k_d$. Diffuse Beleuchtung ist die Streuung des Lichts nahe beim "Streupunkt" (nach dem Lambertschen Gesetz).</li>
+            <li>Spekulare Beleuchtung: Materialkoeffizient $k_s$ sowie Phong-Exponent $n$. Unter spekularer Beleuchtung versteht man direkte Spiegelung der Lichtquelle (imperfekte Spiegelung)</li>
         </ul>
 
-        Das Ergibt folgende Formel für die Intensität \(I\):
+        Das Ergibt folgende Formel für die Intensität $I$:
 
        \[I = \overbrace{k_a \cdot I_L}^{\text{ambient}} + \overbrace{k_d \cdot I_L \cdot (N \cdot L)}^{\text{diffus}} + \overbrace{k_s \cdot I_L \cdot (R_L \cdot V)^n}^{\text{spekular}}\]
 
-       hierbei ist \(I_L\) die Lichtintensität, die Richtung die das Licht nimmt \(L\) sowie die Oberflächennormale \(N\) und der Lichtreflektionsvektor \(R_L\). Der Vektor \(R_L\) liegt in der selben Ebene wie \(N\) und \(L\). Es gilt \(R_L = 2N \cdot (N \cdot L) - L\).</dd>
+       hierbei ist $I_L$ die Lichtintensität, die Richtung die das Licht nimmt $L$ sowie die Oberflächennormale $N$ und der Lichtreflektionsvektor $R_L$. Der Vektor $R_L$ liegt in der selben Ebene wie $N$ und $L$. Es gilt $R_L = 2N \cdot (N \cdot L) - L$.</dd>
     <dt><dfn>Z-Fighting</dfn></dt>
     <dd>Polygone, welche in der selben Ebene liegen führen zu einem Flackern
         welches der beiden Polygone nun angezeigt wird. Dies kann verhindert
@@ -257,11 +257,11 @@ Slide: `03_ Transformationen und homogene Koordinaten.pdf`
 
 <dl>
     <dt><dfn>Orthogonale Matrix</dfn></dt>
-    <dd>Eine quadratische Matrix \(M \in \mathbb{R}^{n \times n}\) heißt
+    <dd>Eine quadratische Matrix $M \in \mathbb{R}^{n \times n}$ heißt
         genau dann orthogonal, wenn
         \[M^T \cdot M = M \cdot M^T = I_{n \times n}\]
 
-        Für orthogonale Matrizen gilt also \(M^{-1} = M^T\)</dd>
+        Für orthogonale Matrizen gilt also $M^{-1} = M^T$</dd>
     <dt><dfn>Homogene Koordinaten</dfn></dt>
     <dd>Der euklidische bzw. affine Raum wird um sog. <i>Fernpunkte</i>
         ergänzt.</dd>
@@ -286,10 +286,10 @@ Slide: `03_ Transformationen und homogene Koordinaten.pdf`
         </ul>
 
         Der Ursprung des Welt-Koordiantensystems wird mit 0 bezeichnet.
-        Die Basisvektoren mit \(x, y\).
+        Die Basisvektoren mit $x, y$.
 
-        Das Modellkoordinatensystem hat den Ursprung \(e\) und die Basisvektoren
-        \(u, v\)
+        Das Modellkoordinatensystem hat den Ursprung $e$ und die Basisvektoren
+        $u, v$
     </dd>
 </dl>
 
@@ -297,8 +297,8 @@ Slide: `03_ Transformationen und homogene Koordinaten.pdf`
     <li>Transformationen werden grundsätzlich so dargestellt: \[x' \gets M \cdot x\]
 
         Es wird also der zu transformierende Vektor von rechts mit der
-        Transformationsmatrix \(M\) multipliziert.</li>
-    <li>Spiegelung an der \(y\)-Achse ist eine Multiplikation der \(x\)-Koordinaten mit (-1)</li>
+        Transformationsmatrix $M$ multipliziert.</li>
+    <li>Spiegelung an der $y$-Achse ist eine Multiplikation der $x$-Koordinaten mit (-1)</li>
     <li>Hierarchisches Modellieren, Szenengraph</li>
 </ul>
 
@@ -350,8 +350,8 @@ Slide: `04_ Texturen.pdf`
         <li>Geometrie (Displacement Mapping)</li>
     </ul>
 
-    Texturkoordinaten werden üblicherweise mit \((s, t)\) bezeichnet. Manchmal
-    auch mit \((u, v)\).
+    Texturkoordinaten werden üblicherweise mit $(s, t)$ bezeichnet. Manchmal
+    auch mit $(u, v)$.
 
     Eine Textur ist im Einheitsquadrat.
 
@@ -399,21 +399,21 @@ Slide: `04_ Texturen.pdf`
     </dd>
     <dt><dfn>Cube Map</dfn></dt>
     <dd>Um den Hintergrund darzustellen, kann man die Szene in einen von
-        innen texturierten Cubus stecken. Ein Reflektionsrichtung \(\mathbf{r} = (r_x, r_y, r_z)\)
+        innen texturierten Cubus stecken. Ein Reflektionsrichtung $\mathbf{r} = (r_x, r_y, r_z)$
         bestimmt den Punkt auf dem Mantel des Würfels.
 
-        Die betragsmäßig größte Komponente von \(\mathbf{r}\) bestimmt, welche
+        Die betragsmäßig größte Komponente von $\mathbf{r}$ bestimmt, welche
         Würfelfläche (links, rechts, vorne, hinten, oben, unten) genommen wird.
 
         Abhängig von der orientierung des koordinatensystems in bezug auf die
         Cube map kann sich dann also folgende Regel ergeben:
         <ul>
-            <li>Wenn \(|r_x|\) am größten ist, ist es rechts (&lt; 0) oder links (&gt; 0),</li>
-            <li>wenn \(|r_y|\) am größten ist, ist es vorne (&lt; 0) oder hinten (&gt; 0)</li>
-            <li>wenn \(|r_z|\) am größten ist, ist es oben (&lt; 0) oder unten (&gt; 0)</li>
+            <li>Wenn $|r_x|$ am größten ist, ist es rechts (&lt; 0) oder links (&gt; 0),</li>
+            <li>wenn $|r_y|$ am größten ist, ist es vorne (&lt; 0) oder hinten (&gt; 0)</li>
+            <li>wenn $|r_z|$ am größten ist, ist es oben (&lt; 0) oder unten (&gt; 0)</li>
         </ul>
 
-        Die Texturkoordinaten \((s, t)\) werden z.B. für (right) wie folgt erechnet:
+        Die Texturkoordinaten $(s, t)$ werden z.B. für (right) wie folgt erechnet:
 
         \[s = \frac{r_y}{2 \cdot  r_x}, \;\;\; t = \frac{r_z}{2 \cdot  r_x}\]
         </dd>
@@ -427,13 +427,13 @@ Slide: `04_ Texturen.pdf`
         ersten Stufe eine Textur welche in beiden Dimensionen auf die hälfte
         verkleinert wurde (also 1/4 der ursprünglichen Größe).
 
-        Es wird diejenige Mip-Map Stufe \(n\) gewählt, sodass gilt
+        Es wird diejenige Mip-Map Stufe $n$ gewählt, sodass gilt
 
         \[\text{Texelgröße}(n) \leq \text{Größe Pixelfootprint auf Textur} < Texelgröße(n+1)\]
 
         Dann wird eine Trilineare Interpolation der 8 nächsten Texel durchgeführt:
         <ul>
-            <li>Bilinear auf Stufe \(n\), bilinear auf Stufe \(n+1\)</li>
+            <li>Bilinear auf Stufe $n$, bilinear auf Stufe $n+1$</li>
             <li>linear zwischen diesen beiden Farben</li>
         </ul>
 
@@ -519,8 +519,8 @@ Slide: `05_ Raumliche Datenstrukturen.pdf` (10.12.2015)
     <dt><dfn>Bounding-Volume-Hierachies</dfn> (<dfn>BVH</dfn>)</dt>
     <dd>BVHs sind eine Datenstruktur, welche den Raum in Hüllkörper unterteilt.
         Man hat also komplexe Objekte. Für diese Objekte muss man Schnittests
-        machen. Das bedeutet im einfachsten Fall, dass man für \(n\) Dreiecke
-        und einen Strahl genau \(n\) Schnittests machen muss.
+        machen. Das bedeutet im einfachsten Fall, dass man für $n$ Dreiecke
+        und einen Strahl genau $n$ Schnittests machen muss.
 
         Interessanterweise dürfen sich Hüllkörper überlappen.
 
@@ -593,8 +593,8 @@ Side: `06_ Rasterisierung, Clipping und Projektionstransformationen.pdf`
 
 <dl>
     <dt>Clipping von Linien</dt>
-    <dd>Ein Rechteck \((x_{\text{min}}, x_{\text{max}}, y_{\text{min}}, y_{\text{max}})\)
-        und eine Linie \(P_1 = (x_1, y_1), P_2 = (x_2, y_2)\) ist gegeben.
+    <dd>Ein Rechteck $(x_{\text{min}}, x_{\text{max}}, y_{\text{min}}, y_{\text{max}})$
+        und eine Linie $P_1 = (x_1, y_1), P_2 = (x_2, y_2)$ ist gegeben.
 
         Es gibt den "trivial reject" Fall, bei dem die komplette Linie
         außerhalb liegt und den "trivial accept" Fall, bei dem die komplette
@@ -613,14 +613,14 @@ Side: `06_ Rasterisierung, Clipping und Projektionstransformationen.pdf`
         Mit den Outcodes gilt nun:
 
         <ul>
-            <li>Trivial Accept: Outcode(\(P_1\)) \(\lor\) Outcode(\(P_2\)) = 0</li>
-            <li>Trivial Reject: Outcode(\(P_1\)) \(\land\) Outcode(\(P_2\)) \(\neq\) 0</li>
+            <li>Trivial Accept: Outcode($P_1$) $\lor$ Outcode($P_2$) = 0</li>
+            <li>Trivial Reject: Outcode($P_1$) $\land$ Outcode($P_2$) $\neq$ 0</li>
         </ul>
 
         Interessant ist, dass in den nicht-trivialen Fällen zwar immer ein Teil
         der Strecke außerhalb des Rechtecks liegt, aber nicht unbedingt auch
         ein Teil innerhalb des Rechtecks liegen muss.</dd>
-    <dt><dfn>\(\alpha\)-Clipping</dfn></dt>
+    <dt><dfn>$\alpha$-Clipping</dfn></dt>
     <dd>Führe Window Edge Coordinates (WEC) ein. Diese sind ein
         vorzeichenbehafteter Abstand zu den Clipping-Kanten. Wenn eine
         Koordinate negativ ist, dann liegt der Punkt außerhalb des
@@ -798,7 +798,7 @@ Slides: `08_ Prozedurale Modellierung, Content Creation.pdf` am 19.01.2016
             <li><b>Periodenfrei</b>: Eine Rauschfunktion darf keine sichtbare
                 Periodizität aufweisen.</li>
             <li><b>Räumliche Korrelation</b>:
-                \(n(\mathbf{x}) \approx n(\mathbf{x} + \varepsilon)\)</li>
+                $n(\mathbf{x}) \approx n(\mathbf{x} + \varepsilon)$</li>
             <li>definierte Frequenzverteilung, bandlimitiert (Aliasing reduzieren)</li>
         </ul>
      </dd>
@@ -807,7 +807,7 @@ Slides: `08_ Prozedurale Modellierung, Content Creation.pdf` am 19.01.2016
     <dt><dfn>Oktave</dfn></dt>
     <dd>Sammlung von Rauschfunktionen</dd>
     <dt><dfn>Turbulenzfunktion</dfn></dt>
-    <dd>Eine <i>Turbulenzfunktion</i> summiert \(k\) Ergebnisse (Oktave) mehrerer
+    <dd>Eine <i>Turbulenzfunktion</i> summiert $k$ Ergebnisse (Oktave) mehrerer
         Rauschfunktionen auf:
 
         \[\text{turbulence}(x) = \sum_k \left (\frac{1}{2} \right )^k \cdot n (2^k \cdot x)\]
@@ -829,14 +829,14 @@ Slides: `08_ Prozedurale Modellierung, Content Creation.pdf` am 19.01.2016
     <dd>Verwende bei der Texturgenerierung nicht nur einzelne Pixel aus dem
         Beispiel, sondern größere Patches.</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Lindenmayer-System"><dfn>Lindenmayer-System</dfn></a> (<dfn>L-System</dfn>)</dt>
-    <dd>Ein Lindenmayer-System ist eine Grammatik \(G = (V, \Sigma, \omega, P)\),
+    <dd>Ein Lindenmayer-System ist eine Grammatik $G = (V, \Sigma, \omega, P)$,
         wobei
 
         <ul>
-            <li>\(V \neq \emptyset\) das Alphabet ist,</li>
-            <li>\(\Sigma \subseteq V\) die Menge der Konstanten ist,</li>
-            <li>\(\omega \in V^*\) das Startwort ist,</li>
-            <li>\(P \subseteq (V^* \setminus \Sigma^*) \times V^*\) die Menge der Ersetzungsregeln ist</li>
+            <li>$V \neq \emptyset$ das Alphabet ist,</li>
+            <li>$\Sigma \subseteq V$ die Menge der Konstanten ist,</li>
+            <li>$\omega \in V^*$ das Startwort ist,</li>
+            <li>$P \subseteq (V^* \setminus \Sigma^*) \times V^*$ die Menge der Ersetzungsregeln ist</li>
         </ul>
         </dd>
 </dl>
@@ -863,26 +863,26 @@ Slides: `09_ Kurven und Flachen.pdf`
     <dt><dfn>Kubische Bézierkurven</dfn></dt>
     <dd>Kubische Bézierkurven sind von der Form
         \[f(u) = (1-u)^3 b_0 + 3u (1-u)^2 b_1 + 3u^2 (1-u) b_2 + u^3 b_3\]
-        wobei \(b_0, b_1, b_2 \in \mathbb{R}^n\) und \(u \in [0, 1]\) gilt.
+        wobei $b_0, b_1, b_2 \in \mathbb{R}^n$ und $u \in [0, 1]$ gilt.
 
-        Diese Faktoren (also \((1-u)^3, 3u (1-u)^2, 3u^2 (1-u), u^3\))
+        Diese Faktoren (also $(1-u)^3, 3u (1-u)^2, 3u^2 (1-u), u^3$)
         werden auch Bernstein-Polynome genannt. Genau wie die Monome sind sie
         eine Basis für Polynome.</dd>
     <dt><dfn>Bernstein-Polynome</dfn></dt>
     <dd>\[B_i^n(u) = \binom{n}{i} u^i (1-u)^{n-i}\]</dd>
     <dt><dfn>Béziersplines</dfn></dt>
     <dd>Ein Bézierspline ist eine Liste von Bézierkurven.</dd>
-    <dt><dfn>\(C^k\)-stetige Splines</dfn></dt>
+    <dt><dfn>$C^k$-stetige Splines</dfn></dt>
     <dd>Es seien
     <div>\[\begin{align}F(u) &= \sum_{i=0}^n B_i^n(u) \mathbf{f}_i\\
                         G(u) &= \sum_{i=0}^n B_i^n(u) \mathbf{g}_i\end{align}\]
 
-    Der Spline aus \(F, G\) heißt
+    Der Spline aus $F, G$ heißt
 
     <ul>
-        <li>\(C^0\) stetig \(:\Leftrightarrow F(1) = G(0) \Leftrightarrow \mathbf{f}_n = \mathbf{g}_0\)</li>
-        <li>\(C^1\) stetig \(:\Leftrightarrow F'(1) = G'(0) \land C^0 \Leftrightarrow \mathbf{f}_n - f_{n-1} = \mathbf{g}_1 - \mathbf{g}_0 \land C^0\)</li>
-        <li>\(C^2\) stetig \(:\Leftrightarrow F''(1) = G''(0) \land C^1 \Leftrightarrow \mathbf{f}_{n-1} + (\mathbf{f}_{n-1} - \mathbf{f}_{n-2}) = \mathbf{g}_{1} + (\mathbf{g}_{1} - \mathbf{g}_{2}) \land C^1\)</li>
+        <li>$C^0$ stetig $:\Leftrightarrow F(1) = G(0) \Leftrightarrow \mathbf{f}_n = \mathbf{g}_0$</li>
+        <li>$C^1$ stetig $:\Leftrightarrow F'(1) = G'(0) \land C^0 \Leftrightarrow \mathbf{f}_n - f_{n-1} = \mathbf{g}_1 - \mathbf{g}_0 \land C^0$</li>
+        <li>$C^2$ stetig $:\Leftrightarrow F''(1) = G''(0) \land C^1 \Leftrightarrow \mathbf{f}_{n-1} + (\mathbf{f}_{n-1} - \mathbf{f}_{n-2}) = \mathbf{g}_{1} + (\mathbf{g}_{1} - \mathbf{g}_{2}) \land C^1$</li>
     </ul>
     </div>
     </dd>
