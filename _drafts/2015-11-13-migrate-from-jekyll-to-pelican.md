@@ -98,13 +98,14 @@ You have to adjust your posts headers. For example, pelican does not know
 
 ## Liquid tags
 
-* `{% caption`
+* `{% caption ...` and `{% gallery ...`
 
 
 ## TODO
 
 * ! 'Game: Marble Run'
-
+* Search page
+* custom CSS
 
 
 ## Pelican Initialization
