@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ! 'Clip: Bob the Hamster'
+title: Clip: Bob the Hamster
 author: Martin Thoma
 date: 2011-10-22 08:35:27.000000000 +02:00
 category: The Web

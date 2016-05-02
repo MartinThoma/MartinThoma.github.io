@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ! '&Uuml;bersicht &uuml;ber Sortieralgorithmen'
+title: &Uuml;bersicht &uuml;ber Sortieralgorithmen
 author: Martin Thoma
 date: 2012-07-15 15:00:12.000000000 +02:00
 category: German posts

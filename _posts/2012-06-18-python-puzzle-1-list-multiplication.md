@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ! 'Python Puzzle #1: List multiplication'
+title: Python Puzzle #1: List multiplication
 author: Martin Thoma
 date: 2012-06-18 15:06:48.000000000 +02:00
 category: Code

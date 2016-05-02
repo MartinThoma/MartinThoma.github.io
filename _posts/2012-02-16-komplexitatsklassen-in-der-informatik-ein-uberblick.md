@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ! 'Komplexit&auml;tsklassen in der Informatik: Ein &Uuml;berblick'
+title: Komplexit&auml;tsklassen in der Informatik: Ein &Uuml;berblick
 author: Martin Thoma
 date: 2012-02-16 15:51:04.000000000 +01:00
 category: German posts

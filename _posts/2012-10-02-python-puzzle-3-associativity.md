@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ! 'Python Puzzle #3: Associativity'
+title: Python Puzzle #3: Associativity
 author: Martin Thoma
 date: 2012-10-02 21:31:50.000000000 +02:00
 category: Code

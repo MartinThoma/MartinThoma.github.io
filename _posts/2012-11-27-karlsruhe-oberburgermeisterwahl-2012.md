@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ! 'Karlsruhe: Oberb&uuml;rgermeisterwahl 2012'
+title: Karlsruhe: Oberb&uuml;rgermeisterwahl 2012
 author: Martin Thoma
 date: 2012-11-27 14:17:39.000000000 +01:00
 category: German posts

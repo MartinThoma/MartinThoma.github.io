@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ! 'Java Puzzle #1: Pre- and Postincrement'
+title: Java Puzzle #1: Pre- and Postincrement
 author: Martin Thoma
 date: 2012-07-11 16:07:02.000000000 +02:00
 category: Code

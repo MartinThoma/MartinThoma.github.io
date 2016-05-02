@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ! 'Swing II: How to arrange Objects'
+title: Swing II: How to arrange Objects
 author: Martin Thoma
 date: 2012-07-21 17:00:44.000000000 +02:00
 category: Code

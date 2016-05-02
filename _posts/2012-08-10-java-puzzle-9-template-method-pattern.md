@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ! 'Java Puzzle #9: Template method pattern'
+title: Java Puzzle #9: Template method pattern
 author: Martin Thoma
 date: 2012-08-10 17:00:33.000000000 +02:00
 category: Code

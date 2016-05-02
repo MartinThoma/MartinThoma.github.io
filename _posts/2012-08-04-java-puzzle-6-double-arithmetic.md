@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ! 'Java Puzzle #6: Double Arithmetic'
+title: Java Puzzle #6: Double Arithmetic
 author: Martin Thoma
 date: 2012-08-04 17:00:27.000000000 +02:00
 category: Code

@@ -182,6 +182,24 @@ def codelisting(filename):
         o.write(content)
 
 
+def fixtitles(filename):
+    """Fix titles such as "title: ! 'Tricks with .htaccess '"."""
+    with open(filename) as f:
+        lines = f.read().split("\n")
+
+    counter = 0
+    for i, line in enumerate(lines):
+        if line == "---":
+            counter += 1
+        if line.startswith('title: ! '):
+            lines[i] = 'title: %s' % line[len("title: ! '"):-1].strip()
+        if counter == 2:
+            break
+
+    with open(filename, "w") as o:
+        o.write("\n".join(lines))
+
+
 if __name__ == '__main__':
     filenames = filter(lambda x: x.endswith(".md"), os.listdir("."))
     for filename in sorted(filenames):

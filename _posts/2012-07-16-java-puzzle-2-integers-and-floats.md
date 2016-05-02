@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ! 'Java Puzzle #2: Integers and Floats'
+title: Java Puzzle #2: Integers and Floats
 author: Martin Thoma
 date: 2012-07-16 17:00:35.000000000 +02:00
 category: Code

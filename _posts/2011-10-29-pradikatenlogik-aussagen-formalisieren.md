@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ! 'Pr&auml;dikatenlogik: Aussagen formalisieren'
+title: Pr&auml;dikatenlogik: Aussagen formalisieren
 author: Martin Thoma
 date: 2011-10-29 15:12:33.000000000 +02:00
 category: German posts

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ! 'Swing I: How to use Swing'
+title: Swing I: How to use Swing
 author: Martin Thoma
 date: 2012-07-20 17:00:41.000000000 +02:00
 category: Code

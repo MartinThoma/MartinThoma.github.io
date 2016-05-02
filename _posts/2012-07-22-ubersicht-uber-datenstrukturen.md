@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ! '&Uuml;bersicht &uuml;ber Datenstrukturen'
+title: &Uuml;bersicht &uuml;ber Datenstrukturen
 author: Martin Thoma
 date: 2012-07-22 17:38:04.000000000 +02:00
 category: German posts

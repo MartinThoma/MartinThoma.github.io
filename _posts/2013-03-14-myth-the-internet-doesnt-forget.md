@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ! 'Myth: The Internet doesn''t forget'
+title: Myth: The Internet doesn''t forget
 author: Martin Thoma
 date: 2013-03-14 12:01:58.000000000 +01:00
 category: The Web

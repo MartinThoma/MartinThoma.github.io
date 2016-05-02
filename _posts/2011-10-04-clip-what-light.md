@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ! 'Clip: What Light'
+title: Clip: What Light
 author: Martin Thoma
 date: 2011-10-04 23:07:51.000000000 +02:00
 category: The Web

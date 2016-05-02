@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ! 'What does #!/usr/bin/python mean?'
+title: What does #!/usr/bin/python mean?
 author: Martin Thoma
 date: 2013-04-16 18:23:17.000000000 +02:00
 category: Code

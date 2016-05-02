@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ! 'Improving lecture notes: Job (almost) done!'
+title: Improving lecture notes: Job (almost) done!
 author: Martin Thoma
 date: 2013-08-10 15:50:09.000000000 +02:00
 category: My bits and bytes

@@ -82,7 +82,7 @@ sed 's/search/replace/'
 
 So we pipe the output to sed:
 ```bash
-python output.py | sed 's/\[ERROR\]/MYLOOOOOOOOOOOOOOOOOONGTEST/'
+python output.py | sed 's/$$ERROR$$/MYLOOOOOOOOOOOOOOOOOONGTEST/'
 ```
 
 And now we bring it all together:
@@ -93,7 +93,7 @@ python output.py | sed 's/[ERROR]/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/'
 Doesn't work? Well, lets analyse it. Instead of replacing `tput setaf 1` it gets printed directly. This means, something we did prevented the bash of replacing our command. If you look carefully at the command, you might see that I used ' instead of ". If you change this, everything is fine:
 
 ```bash
-python output.py | sed "s/\[ERROR\]/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/"
+python output.py | sed "s/$$ERROR$$/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/"
 ```
 
 <h2>Colorize C / C++ output</h2>

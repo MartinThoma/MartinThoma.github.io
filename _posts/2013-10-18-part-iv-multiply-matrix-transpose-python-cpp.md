@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ! 'Part IV: How to multiply matrix with its transpose in Python and C++'
+title: Part IV: How to multiply matrix with its transpose in Python and C++
 author: Martin Thoma
 date: 2013-10-18 17:41:13.000000000 +02:00
 category: Code

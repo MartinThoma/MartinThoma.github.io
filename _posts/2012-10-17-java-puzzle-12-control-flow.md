@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ! 'Java Puzzle #12: Control-flow'
+title: Java Puzzle #12: Control-flow
 author: Martin Thoma
 date: 2012-10-17 17:00:19.000000000 +02:00
 category: Code

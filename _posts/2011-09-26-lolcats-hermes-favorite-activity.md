@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ! 'Lolcats: Hermes'' Favorite Activity'
+title: Lolcats: Hermes'' Favorite Activity
 author: Martin Thoma
 date: 2011-09-26 09:45:45.000000000 +02:00
 category: Cyberculture

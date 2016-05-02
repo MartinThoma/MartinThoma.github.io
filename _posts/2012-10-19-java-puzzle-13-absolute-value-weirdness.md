@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ! 'Java Puzzle #13: Absolute value weirdness'
+title: Java Puzzle #13: Absolute value weirdness
 author: Martin Thoma
 date: 2012-10-19 17:00:00.000000000 +02:00
 category: Code

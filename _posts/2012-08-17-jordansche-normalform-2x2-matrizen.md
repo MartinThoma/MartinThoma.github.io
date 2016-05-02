@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ! 'Jordansche Normalform: 2x2 Matrizen'
+title: Jordansche Normalform: 2x2 Matrizen
 author: Martin Thoma
 date: 2012-08-17 21:49:41.000000000 +02:00
 category: German posts

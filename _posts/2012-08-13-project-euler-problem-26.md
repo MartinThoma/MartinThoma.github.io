@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ! 'Project Euler: Problem 26'
+title: Project Euler: Problem 26
 author: Martin Thoma
 date: 2012-08-13 17:00:49.000000000 +02:00
 category: Code

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ! 'Jordansche Normalform: 4x4 Matrizen'
+title: Jordansche Normalform: 4x4 Matrizen
 author: Martin Thoma
 date: 2012-09-10 11:28:08.000000000 +02:00
 category: German posts

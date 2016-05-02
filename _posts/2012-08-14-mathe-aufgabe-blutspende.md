@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ! 'Mathe-Aufgabe: Blutspende'
+title: Mathe-Aufgabe: Blutspende
 author: Martin Thoma
 date: 2012-08-14 17:00:16.000000000 +02:00
 category: German posts

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ! 'Project Euler: Problem 142'
+title: Project Euler: Problem 142
 author: Martin Thoma
 date: 2012-04-08 22:40:43.000000000 +02:00
 category: Code

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ! 'Java Puzzle #10: Multiple Interfaces'
+title: Java Puzzle #10: Multiple Interfaces
 author: Martin Thoma
 date: 2012-08-16 17:00:25.000000000 +02:00
 category: Code

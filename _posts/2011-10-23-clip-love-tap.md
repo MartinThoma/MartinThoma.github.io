@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ! 'Clip: Love Tap'
+title: Clip: Love Tap
 author: Martin Thoma
 date: 2011-10-23 16:27:19.000000000 +02:00
 category: The Web

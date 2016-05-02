@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ! 'Typography: Word as Image'
+title: Typography: Word as Image
 author: Martin Thoma
 date: 2012-03-12 14:06:34.000000000 +01:00
 category: Cyberculture

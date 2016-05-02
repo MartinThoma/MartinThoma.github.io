@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ! '&Uuml;bersicht der Pfeile in UML'
+title: &Uuml;bersicht der Pfeile in UML
 author: Martin Thoma
 date: 2012-08-04 09:23:29.000000000 +02:00
 category: German posts
