@@ -90,7 +90,8 @@ public class test {
 <tr>
 <td>
 
-{% highlight text %}
+```text
+
 A
 C
 B
@@ -110,12 +111,14 @@ D
 B
 B
 D
-{% endhighlight %}
+
+```
 
 </td>
 <td>
 
-{% highlight text %}
+```text
+
 A
 B
 C
@@ -135,12 +138,14 @@ A
 B
 C
 D
-{% endhighlight %}
+
+```
 
 </td>
 <td>
 
-{% highlight text %}
+```text
+
 A
 B
 C
@@ -160,7 +165,8 @@ A
 B
 C
 D
-{% endhighlight %}
+
+```
 
 </td>
 </tr>
@@ -241,7 +247,8 @@ public class test {
 <tr>
 <td>
 
-{% highlight text %}
+```text
+
 A
 B
 D
@@ -261,12 +268,14 @@ A
 B
 C
 D
-{% endhighlight %}
+
+```
 
 </td>
 <td>
 
-{% highlight text %}
+```text
+
 A
 B
 C
@@ -286,12 +295,14 @@ A
 B
 C
 D
-{% endhighlight %}
+
+```
 
 </td>
 <td>
 
-{% highlight text %}
+```text
+
 A
 B
 C
@@ -311,7 +322,8 @@ A
 B
 C
 D
-{% endhighlight %}
+
+```
 
 </td>
 </tr>

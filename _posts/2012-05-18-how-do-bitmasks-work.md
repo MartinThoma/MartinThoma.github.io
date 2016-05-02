@@ -82,16 +82,24 @@ This is how the operators work:
 Lets say I have any variable named "variable" with 32 bit.
 
 Get the last bit:
-{% highlight c %}return variable &amp; 1;{% endhighlight %}
+```c
+return variable &amp; 1;
+```
 
 Get the first bit:
-{% highlight c %}return variable >> 31;{% endhighlight %}
+```c
+return variable >> 31;
+```
 
 Get the bits 4 - 14 (11 bits):
-{% highlight c %}return (variable  >> 4) &amp; ((1<<11) - 1);{% endhighlight %}
+```c
+return (variable  >> 4) &amp; ((1<<11) - 1);
+```
 
 Getting the pow(2,11):
-{% highlight c %}return 1<<11;{% endhighlight %}
+```c
+return 1<<11;
+```
 
 <h2>See also</h2>
 <ul>

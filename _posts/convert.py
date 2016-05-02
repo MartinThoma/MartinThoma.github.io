@@ -130,6 +130,17 @@ def captiontag(filename):
                             width=m.group(1),
                             height=m.group(5)), content)
 
+    captiontag = re.compile('\{% caption align="aligncenter"\s+'
+                            'width="(.+?)"\s+alt="(.+?)"\s+text="(.+?)"\s+'
+                            'url="(.+?)" %\}')
+    content = captiontag.sub(lambda m: """<figure class="aligncenter">
+            <a href="{url}"><img src="{url}" alt="{alt}" style="max-width:{width}px;" class=""/></a>
+            <figcaption class="text-center">{caption}</figcaption>
+        </figure>""".format(url=m.group(4),
+                            alt=m.group(2),
+                            caption=m.group(3),
+                            width=m.group(1)), content)
+
     with open(filename, "w") as o:
         o.write(content)
 
@@ -163,3 +174,4 @@ if __name__ == '__main__':
         categories_and_tags(filename)
         math(filename)
         captiontag(filename)
+        codelisting(filename)

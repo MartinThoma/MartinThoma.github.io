@@ -28,13 +28,15 @@ A for loop usually consists of an initialization part, a condition and an iterat
 
 <h2>Pythons special structure</h2>
 Python uses a generator or lists to loop:
-{% highlight python %}#!/usr/bin/python
+```python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 for i in xrange(0, 10):
 	print("In loop: %i" % i)
 
-print("Out of loop: %i" % i){% endhighlight %}
+print("Out of loop: %i" % i)
+```
 
 <h2>Scoping</h2>
 Does the loop counter still exist after the loop was executed?
@@ -62,7 +64,8 @@ What is the last value of i?
 Many languages provide a special for loop. This special for loop is sometimes called "foreach" as you iterate over each element in a collection (e.g. an array).
 
 <h3>Java</h3>
-{% highlight java %}int[] array = new int[5];
+```java
+int[] array = new int[5];
 array[0] = 0;
 array[1] = 1;
 array[2] = 2;
@@ -71,14 +74,17 @@ array[4] = 4;
 
 for (int item: array) {
     System.out.println("Foreach: " + item);
-}{% endhighlight %}
+}
+```
 
 <h3>JavaScript</h3>
-{% highlight javascript %}var array = new Array(0, 1, 2, 3, 4);
+```javascript
+var array = new Array(0, 1, 2, 3, 4);
 
 for (var value in array) {
     document.write('Foreach: ' + value + '<br/>' );
-}{% endhighlight %}
+}
+```
 
 <h3>PHP</h3>
 ```php

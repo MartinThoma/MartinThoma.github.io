@@ -8,11 +8,17 @@ tags: Python
 featured_image: 2011/09/Python-Logo.png
 ---
 A python module is a container for some definitions and statements. You generally call it like this:
-{% highlight python %}import math{% endhighlight %}
+```python
+import math
+```
 or like that
-{% highlight python %}from math import ceil{% endhighlight %}
+```python
+from math import ceil
+```
 or
-{% highlight python %}import math as mymath{% endhighlight %}
+```python
+import math as mymath
+```
 
 Python modules can also be written in C or C++, but I'll only explain how to write the module in Python. Modules can be written in C++ for performance reasons. Just take a look at <code>/usr/lib/python3.1/lib-dynload</code> with all the *.so files (shared libraries).
 
@@ -25,14 +31,17 @@ When you try to import a module, Python looks at these directories in the given 
 </ul>
 
 You get your PYTHONPATH and your default search path like this:
-{% highlight python %}import os
+```python
+import os
 os.environ['PATH'].split(os.pathsep)
-os.environ['PYTHONPATH'].split(os.pathsep){% endhighlight %}
+os.environ['PYTHONPATH'].split(os.pathsep)
+```
 
 <h2>Example</h2>
 I've just searched for a Python module for primes. It seems as if no such module existed. So I wrote the module <strong>primes.py</strong>.
 
-{% highlight python %}"""
+```python
+"""
 This module offers some functions related to primes.
 """
 
@@ -115,7 +124,8 @@ def getPrimeFactors(n):
 
 if __name__ == "__main__":
     import doctest
-    doctest.testmod(){% endhighlight %}
+    doctest.testmod()
+```
 
 <h2>See also</h2>
 <ul>

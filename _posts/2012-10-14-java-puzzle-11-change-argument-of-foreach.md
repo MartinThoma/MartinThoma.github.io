@@ -9,7 +9,8 @@ featured_image: 2012/07/java-thumb.png
 ---
 What is the output of the following HelloWorld.java?
 
-{% highlight java %}import java.util.LinkedList;
+```java
+import java.util.LinkedList;
 
 public class HelloWorld {
     public static void main(String[] args) {
@@ -27,7 +28,8 @@ public class HelloWorld {
             }
         }
     }
-}{% endhighlight %}
+}
+```
 
 
 .
@@ -56,8 +58,10 @@ public class HelloWorld {
 .
 
 <h2>Answer</h2>
-{% highlight java %}1
+```java
+1
 Exception in thread "main" java.util.ConcurrentModificationException
 	at java.util.LinkedList$ListItr.checkForComodification(LinkedList.java:761)
 	at java.util.LinkedList$ListItr.next(LinkedList.java:696)
-	at HelloWorld.main(HelloWorld.java:10){% endhighlight %}
+	at HelloWorld.main(HelloWorld.java:10)
+```

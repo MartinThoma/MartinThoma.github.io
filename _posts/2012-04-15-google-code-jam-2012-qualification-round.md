@@ -16,7 +16,8 @@ These are my solutions:
 <h2>Problem A: Speaking in Tongues</h2>
 This one was easy. It's a <a href="http://en.wikipedia.org/wiki/Simple_substitution#Simple_substitution">simple substitution cipher</a>:
 
-{% highlight python %}#!/usr/bin/python
+```python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
  
 def decode(ciphertext, key="ynficwlbkuomxsevzpdrjgthaq", 
@@ -38,10 +39,12 @@ if __name__ == "__main__":
 	 
 	for caseNr in xrange(0, testcases):
 		cipher = raw_input()
-		print("Case #%i: %s" % (caseNr+1, decode(cipher))){% endhighlight %}
+		print("Case #%i: %s" % (caseNr+1, decode(cipher)))
+```
 
 A minimalistic python solution for this one was suggested by Niklas B. He makes use of <a href="http://docs.python.org/reference/expressions.html#lambda">Lambdas</a>, <a href="http://docs.python.org/library/stdtypes.html#str.translate">str.translate()</a> and <a href="http://docs.python.org/library/string.html#string.maketrans">str.maketrans()</a>:
-{% highlight python %}#!/usr/bin/python
+```python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 import string as s
@@ -52,10 +55,12 @@ key = "ynficwlbkuomxsevzpdrjgthaq"
 decode= lambda c: s.translate(c, s.maketrans(key, s.ascii_lowercase))
 
 for i in range(0, testcases):
-	print decode(raw_input()){% endhighlight %}
+	print decode(raw_input())
+```
 
 <h2>Problem B: Dancing With the Googlers</h2>
-{% highlight python %}#!/usr/bin/python
+```python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 from math import ceil, floor
@@ -105,14 +110,16 @@ if __name__ == "__main__":
 		surprising = originalList[1]
 		p = originalList[2]
 		points = originalList[3:]
-		print("Case #%i: %i" % (caseNr+1, maxGooglers(nrOfGooglers, surprising, p, points))){% endhighlight %}
+		print("Case #%i: %i" % (caseNr+1, maxGooglers(nrOfGooglers, surprising, p, points)))
+```
 
 <h2>Problem C: Recycled Numbers</h2>
 The small dataset of this one was easy, but I had to change my code a bit to make it work for the large dataset. Sadly, I didn't know that I only have 8 minutes to get it work ☹
 
 I've tried cPickle for the 2,000,000 list. It took 128.7 MB and 1 minute 6.287s for the large data set after it was pickled. Without pickling it took 1 minute 31.900s.
 
-{% highlight python %}#!/usr/bin/python
+```python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 try:
@@ -185,7 +192,8 @@ if __name__ == "__main__":
  
 	for caseNr in xrange(0, testcases):
 		A, B = line2intlist(raw_input())
-		print("Case #%i: %i" % (caseNr+1, recycled(A, B, liste))){% endhighlight %}
+		print("Case #%i: %i" % (caseNr+1, recycled(A, B, liste)))
+```
 
 <h2>Problem D: Hall of Mirrors</h2>
 This one was very hard. I had some ideas, but none of them seemed to work. 
@@ -194,7 +202,8 @@ This is a solution based on the solution of "dwenzel". At the moment, I've only 
 
 You might also be interested in the <a href="http://code.google.com/codejam/contest/1460488/dashboard#s=a&a=3">official Contest Analysis</a> with some hints to this challenge.
 
-{% highlight python %}#!/usr/bin/python
+```python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 from math import floor, ceil, sqrt
@@ -381,7 +390,8 @@ if __name__ == "__main__":
     for caseNr in xrange(0, testcases):
         H, W, D = line2intlist(raw_input())
         map = getMap(H, W)
-        print("Case #%i: %i" % (caseNr+1, process_case(map, H, W, D))){% endhighlight %}
+        print("Case #%i: %i" % (caseNr+1, process_case(map, H, W, D)))
+```
 
 <h2>See also</h2>
 <ul>

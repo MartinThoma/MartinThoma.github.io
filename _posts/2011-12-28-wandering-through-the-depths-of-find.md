@@ -22,7 +22,9 @@ You might get some "Permission denied" errors. They are very bothersome if you c
 <h2>Real life example</h2>
 I am also a developer who likes to have good names for constants, database tables and variables. Sometimes, like today, I think it's time to change a database table a bit. It got a lot more rows and the old name doesn't really fit any longer. I used a constant for the table name in all scripts. This constant was SOFTWARE_USER_TABLE and should now be USER_INFO_TABLE. So I have to search recursively and case-sensitive in my project and replace all occurrences in all strings by the new string. Except for .svn-directories, of course.
 The easiest way to achieve this is via find, xargs and sed:
-{% highlight bash %}find . -path '*/.svn' -prune -o -type f -print0 | xargs -0 sed -i 's/SOFTWARE_USER_TABLE/USER_INFO_TABLE/g'{% endhighlight %}
+```bash
+find . -path '*/.svn' -prune -o -type f -print0 | xargs -0 sed -i 's/SOFTWARE_USER_TABLE/USER_INFO_TABLE/g'
+```
 
 Now the explanation of the different commands:
 <strong>find:</strong>
@@ -42,13 +44,19 @@ Now the explanation of the different commands:
 
 <h2>Snippets</h2>
 move all files in subdirectories to a single directory:
-{% highlight bash %}find -type f -exec mv {} collection/ \;{% endhighlight %}
+```bash
+find -type f -exec mv {} collection/ \;
+```
 
 find all files which are bigger than 20MB and print their location and size. Maybe you could use du for this one, but I don't know how:
-{% highlight bash %}find / -type f -size +20000k -exec ls -lh {} \; 2>/dev/null | awk '{ print $5 ":\t" $8 }'{% endhighlight %}
+```bash
+find / -type f -size +20000k -exec ls -lh {} \; 2>/dev/null | awk '{ print $5 ":\t" $8 }'
+```
 
 find files in the home folder owned by alice:
-{% highlight bash %}find /home -user alice{% endhighlight %}
+```bash
+find /home -user alice
+```
 
 <h2>Further reading</h2>
 Note that you should use grep if you want to search for patterns in single files.

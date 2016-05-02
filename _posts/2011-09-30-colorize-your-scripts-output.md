@@ -16,65 +16,90 @@ This is the way you do it:
 The mini-program tput can initialize a terminal or query terminfo database. If you want to know more about it, you can take a look at the <a href="http://linux.die.net/man/1/tput">tput manpage</a>.
 
 <h2>A quick example</h2>
-{% highlight bash %}# Text color variables
+```bash
+# Text color variables
 txtred=$(tput setaf 1)    # Red
 txtreset=$(tput sgr0)     # Reset your text
-echo "Roses are ${txtred}red${txtreset}."{% endhighlight %}
+echo "Roses are ${txtred}red${txtreset}."
+```
 
 Simply copy this example line by line and then you'll see the expected example.
 
 A shorter way would be
-{% highlight bash %}echo "Roses are `tput setaf 1`red`tput sgr0`."{% endhighlight %}
+```bash
+echo "Roses are `tput setaf 1`red`tput sgr0`."
+```
 
 <h2>The sgr attribuge</h2>
-{% highlight bash %}tput sgr 0 1     turn off standout; turn on underline
+```bash
+tput sgr 0 1     turn off standout; turn on underline
 tput sgr 0 0     turn off standout; turn off underline
 tput sgr 1 1     turn on standout; turn on underline
 tput sgr 1 0     turn on standout; turn off underline
-tput sgr0        short for sgr 0 0{% endhighlight %}
+tput sgr0        short for sgr 0 0
+```
 
 <h2>The setaf attribute</h2>
-{% highlight bash %}setaf 1 Red
+```bash
+setaf 1 Red
 setaf 2 Green
 setaf 3 Yellow
 setaf 4 Blue
 setaf 5 Purple
 setaf 6 Cyan
-setaf 7 Gray{% endhighlight %}
+setaf 7 Gray
+```
 
 <h2>Misc</h2>
 Make your text bold:
-{% highlight bash %}tput bold{% endhighlight %}
+```bash
+tput bold
+```
 
 Reset your style:
-{% highlight bash %}tput sgr0{% endhighlight %}
+```bash
+tput sgr0
+```
 
 <h2>Advanced Example</h2>
 Imagine you had a script which generated much output. All messages are important for you, but some are more important than others. You definitely want to see all "[ERROR]" output. So you want to apply a red and bold modification to the stream.
 
 This is the way how "[ERROR]" gets red and bold:
-{% highlight bash %}`tput setaf 1``tput bold`[ERROR]`tput sgr0`{% endhighlight %}
+```bash
+`tput setaf 1``tput bold`[ERROR]`tput sgr0`
+```
 You can test it with
-{% highlight bash %}echo "`tput setaf 1``tput bold`[ERROR]`tput sgr0`"{% endhighlight %}
+```bash
+echo "`tput setaf 1``tput bold`[ERROR]`tput sgr0`"
+```
 
 I've created a little python script called output.py for testing purposes. It simply outputs a quite long <a href="http://en.wikipedia.org/wiki/Lorem_ipsum">Lorem ipsum</a> text with some random [ERROR] messages.
 
 The next task is to replace the [ERROR] messages. The tool of my choice is sed. See the <a href="http://linux.die.net/man/1/sed">sed man page</a> for more information. The basic usage is 
-{% highlight bash %}sed 's/search/replace/'{% endhighlight %}
+```bash
+sed 's/search/replace/'
+```
 
 So we pipe the output to sed:
-{% highlight bash %}python output.py | sed 's/\[ERROR\]/MYLOOOOOOOOOOOOOOOOOONGTEST/'{% endhighlight %}
+```bash
+python output.py | sed 's/\[ERROR\]/MYLOOOOOOOOOOOOOOOOOONGTEST/'
+```
 
 And now we bring it all together:
-{% highlight bash %}python output.py | sed 's/[ERROR]/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/'{% endhighlight %}
+```bash
+python output.py | sed 's/[ERROR]/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/'
+```
 
 Doesn't work? Well, lets analyse it. Instead of replacing `tput setaf 1` it gets printed directly. This means, something we did prevented the bash of replacing our command. If you look carefully at the command, you might see that I used ' instead of ". If you change this, everything is fine:
 
-{% highlight bash %}python output.py | sed "s/\[ERROR\]/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/"{% endhighlight %}
+```bash
+python output.py | sed "s/\[ERROR\]/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/"
+```
 
 <h2>Colorize C / C++ output</h2>
 You need <a href="http://en.wikipedia.org/wiki/ANSI_escape_code">ANSI color codes</a>:
-{% highlight c %}#include <stdio.h>
+```c
+#include <stdio.h>
 
 int main()
 {
@@ -93,7 +118,8 @@ int main()
     printf("\\033[4m%s\\033[0m\n", "underlined");
     printf("\\033[9m%s\\033[0m\n", "strike");
     return 0;
-}{% endhighlight %}
+}
+```
 
 \033 is the ASCII 27 ESC character. It has to be followed by "[". After that you can write one or two numbers separated by ";". Then you have to write "m". You can get back to standard output with "\033[0m".
 The numbers 30&ndash;37 change the color, 4 is a single underline.

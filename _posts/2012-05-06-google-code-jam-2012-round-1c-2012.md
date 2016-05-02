@@ -31,7 +31,8 @@ featured_image: 2012/04/code-jam-logo.png
 </ul>
 
 <h2>Diamond Inheritance</h2>
-{% highlight python %}#!/usr/bin/python
+```python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 import psyco
@@ -66,7 +67,8 @@ for i in xrange(0, testcases):
 	for classNr in xrange(1, N+1):
 		liste = line2intlist(raw_input())
 		classDict[classNr] = liste[1:]
-	print("Case #%i: %s" % (i+1, getAnswer(classDict, N))){% endhighlight %}
+	print("Case #%i: %s" % (i+1, getAnswer(classDict, N)))
+```
 
 <h2>See also</h2>
 <ul>

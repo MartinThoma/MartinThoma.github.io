@@ -19,7 +19,8 @@ You look at the rest. If you've seen the rest before, you are just about to get 
 <h2>My solution</h2>
 This brute force solution finds the solution instantly.
 
-{% highlight python %}#!/usr/bin/python
+```python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 import unittest
@@ -75,4 +76,5 @@ class TestSequenceFunctions(unittest.TestCase):
 
 if __name__ == '__main__':
     #unittest.main()
-    print euler26(1000){% endhighlight %}
+    print euler26(1000)
+```

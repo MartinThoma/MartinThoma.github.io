@@ -14,32 +14,46 @@ So it is a good idea to test the files on my machine before uploading them.
 
 <h2>Installation</h2>
 You can install it on an Ubuntu system with this command:
-{% highlight bash %}sudo apt-get install checkstyle{% endhighlight %}
+```bash
+sudo apt-get install checkstyle
+```
 
 <h2>Usage</h2>
 You can call checkstyle with this command:
-{% highlight bash %}checkstyle -c /usr/share/checkstyle/sun_checks.xml YourCode.java{% endhighlight %}
+```bash
+checkstyle -c /usr/share/checkstyle/sun_checks.xml YourCode.java
+```
 
 Another example would be:
-{% highlight bash %}checkstyle -c /path/to/config/Progr_WS11_Checkstyle1.xml KITBook.java{% endhighlight %}
+```bash
+checkstyle -c /path/to/config/Progr_WS11_Checkstyle1.xml KITBook.java
+```
 
 It will generate some output similar to this:
-{% highlight bash %}Starting audit...
+```bash
+Starting audit...
 KITBook.java:173:64: '{' is not preceded with whitespace.
 KITBook.java:174:69: '-' is not preceded with whitespace.
 KITBook.java:174:70: '-' is not followed by whitespace.
 Audit done.
-{% endhighlight %}
+
+```
 
 <h2>Resolve warnings</h2>
-{% highlight bash %}[warning] /usr/bin/checkstyle: No java runtime was found
-[warning] /usr/bin/checkstyle: No JAVA_CMD set for run_java, falling back to JAVA_CMD = java{% endhighlight %}
+```bash
+[warning] /usr/bin/checkstyle: No java runtime was found
+[warning] /usr/bin/checkstyle: No JAVA_CMD set for run_java, falling back to JAVA_CMD = java
+```
 You have to set the path:
-{% highlight bash %}JAVA_CMD=/usr/lib/jvm/java-6-sun/bin/java
-export JAVA_CMD{% endhighlight %}
+```bash
+JAVA_CMD=/usr/lib/jvm/java-6-sun/bin/java
+export JAVA_CMD
+```
 
 <h2>Check all files in a folder</h2>
-{% highlight bash %}checkstyle -c /home/moose/Downloads/Progr_WS11_Checkstyle1.xml -r .{% endhighlight %}
+```bash
+checkstyle -c /home/moose/Downloads/Progr_WS11_Checkstyle1.xml -r .
+```
 
 <h2>Checkstyle and eclipse</h2>
 Go to <code><u>H</u>elp &rarr; Install New <u>S</u>oftware ...</code>
@@ -80,12 +94,18 @@ If you are a student at KIT and you can download the KIT checkstyle-files from <
 These commands work fine on Ubuntu and I guess on every Linux machine. If you use Windows, you will have to install Putty or something similar.
 
 Login with your personal account that begins with u. I'll use uabcd in this example.
-{% highlight bash %}ssh uabcd@rzstud.stud.uni-karlsruhe.de{% endhighlight %}
+```bash
+ssh uabcd@rzstud.stud.uni-karlsruhe.de
+```
 
 Then download the files with wget:
-{% highlight bash %}wget ftp://ftp.ira.uka.de/pub/ZVI/KIT/programmieren_ws11/material/Progr_WS11_Checkstyle1.xml
-wget ftp://ftp.ira.uka.de/pub/ZVI/KIT/programmieren_ws11/material/Progr_WS11_Checkstyle2.xml{% endhighlight %}
+```bash
+wget ftp://ftp.ira.uka.de/pub/ZVI/KIT/programmieren_ws11/material/Progr_WS11_Checkstyle1.xml
+wget ftp://ftp.ira.uka.de/pub/ZVI/KIT/programmieren_ws11/material/Progr_WS11_Checkstyle2.xml
+```
 
 Now you can exit the bash with <code>exit</code> and download the files from your account with <code>scp</code>:
-{% highlight bash %}scp uabcd@rzstud.stud.uni-karlsruhe.de:~/Progr_WS11_Checkstyle1.xml ~/Progr_WS11_Checkstyle1.xml
-scp uabcd@rzstud.stud.uni-karlsruhe.de:~/Progr_WS11_Checkstyle1.xml ~/Progr_WS11_Checkstyle1.xml{% endhighlight %}
+```bash
+scp uabcd@rzstud.stud.uni-karlsruhe.de:~/Progr_WS11_Checkstyle1.xml ~/Progr_WS11_Checkstyle1.xml
+scp uabcd@rzstud.stud.uni-karlsruhe.de:~/Progr_WS11_Checkstyle1.xml ~/Progr_WS11_Checkstyle1.xml
+```

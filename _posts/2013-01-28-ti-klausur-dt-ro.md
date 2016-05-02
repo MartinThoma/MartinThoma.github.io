@@ -174,11 +174,13 @@ In der Fetch-Phase muss das die neue Instruktion ins <abbr title="Instruktionsre
 </ol>
 
 Das zugeh&ouml;rige Mikroprogramm ist:
-{% highlight text %}0010 0001 0000 1000 1000 0000 0001
+```text
+0010 0001 0000 1000 1000 0000 0001
 0001 0100 0000 0000 1000 0000 0010
 0000 0000 0000 0001 1000 0000 0011
 0000 1010 0000 0000 0000 0000 0100
-0000 0000 1001 0000 0000 0000 0101{% endhighlight %}
+0000 0000 1001 0000 0000 0000 0101
+```
 
 <h2>Fragen</h2>
 <div class="question">

@@ -8,7 +8,9 @@ tags: gedit, GNOME
 featured_image: 2011/12/gedit.png
 ---
 Start <code>gconf-editor</code>:
-{% highlight bash %}gconf-editor{% endhighlight %}
+```bash
+gconf-editor
+```
 
 Go to <code>/apps/gnome-settings/gedit/history-gedit2_search_for_entry</code> and <code>/apps/gnome-settings/gedit/history-gedit2_replace_entry_with</code> and remove the content there:
 

@@ -55,7 +55,8 @@ $V_i \geq \frac{N-1}{X \cdot N} \cdot (avg - p_i + X)$
 Unfortunately, its possible that the other players can't get an equal number of points. So this approach is useless in this case.
 
 Here is an approach with an approximation, which also works for the large input set.
-{% highlight cpp %}#include <iostream>
+```cpp
+#include <iostream>
 #include <cstdio>
 using namespace std;
 
@@ -108,13 +109,15 @@ int main() {
 
 		printf("\n");
 	}
-}{% endhighlight %}
+}
+```
 
 <h2>Tide Goes In, Tide Goes Out</h2>
 This one could be solved with Graphs. You calculate one Graph, where every node is one cell. Every cell / node is connected to adjacent cells. Every cell has a value which is the time when you can enter them.
 
 After you've created the graph, you can make something like that:
-{% highlight python %}
+```python
+
 graph = createGraph(floorHeight, ceilingHeight)
 endReached = False
 nodesReached = []
@@ -122,7 +125,8 @@ while (not endReached):
     tmp = getMinimumAdjacentNode(graph, nodesReached)
     nodesReached.append(tmp)
 return maxTime(nodesReached)
-{% endhighlight %}
+
+```
 
 <h2>Equal Sums</h2>
 A trivial solution for the small one is to try every combination. You might want to take a look at Pythonss <a href="http://docs.python.org/library/itertools.html#itertools.combinations">itertools.combinations()</a>.

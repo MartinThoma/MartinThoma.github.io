@@ -37,7 +37,8 @@ First of all, I would like to mention that you can <a href="#How_is_this_realate
 
 Lets say our game situation looks like this:
 
-{% highlight c %}
+```c
+
 struct gamesituation {
     /** How does the board currently look like? */
     char board[BOARD_WIDTH][BOARD_HEIGHT];
@@ -58,10 +59,12 @@ struct gamesituation {
     unsigned char winRed;   // Did red win?
     unsigned char winBlack; // Did black win?
 };
-{% endhighlight %}
+
+```
 
 You need a check if one player won:
-{% highlight c %}
+```c
+
 /*
  * Check if player has won by placing a disc on (x,y). 
  * with direction (xDir, yDir)
@@ -127,11 +130,13 @@ int isBoardFinished(char board[BOARD_WIDTH][BOARD_HEIGHT],
 
     return NOT_FINISHED;
 }
-{% endhighlight %}
+
+```
 If you need an explanation for this, you should read <a href="../check-x-in-a-row-for-board-games/" title="Check x-in-a-row for board games">this article</a>.
 
 And you need a function that can mirror boards (to get rid of identical, but mirrored situations) and one that can compare boards:
-{% highlight c %}
+```c
+
 char isSameBoard(char a[BOARD_WIDTH][BOARD_HEIGHT], 
                  char b[BOARD_WIDTH][BOARD_HEIGHT]) {
     for (int x = 0; x < BOARD_WIDTH; x++) {
@@ -153,10 +158,12 @@ void mirrorBoard(char board[BOARD_WIDTH][BOARD_HEIGHT],
         }
     }
 }
-{% endhighlight %}
+
+```
 
 You need a function that makes all possible moves for the players:
-{% highlight c %}
+```c
+
 
 /*
  * Make all possible turns that the player can make in this
@@ -245,7 +252,8 @@ void makeTurns(char board[BOARD_WIDTH][BOARD_HEIGHT],
         }
     }
 }
-{% endhighlight %}
+
+```
 
 <h2>How is this realated to hash functions?</h2>
 You might have noticed a few functions that I didn't explain by now:
@@ -261,7 +269,8 @@ How would you implement <code>didBoardAlreadyOccur(board)</code>? This function 
 <h2>A hash function</h2>
 Most of the time you can create hash functions by mapping values to integers. In my case, I mapped the board - which is a two-dimensional char array - to one integer by thinking of it as a very long number. I think of a red disc as the digit 1, a black disc as the digit 2 and an empty field as 0:
 
-{% highlight c %}
+```c
+
 unsigned int charToInt(char x) {
     if (x == RED) {
         return 1;
@@ -271,7 +280,8 @@ unsigned int charToInt(char x) {
         return 0;
     }
 }
-{% endhighlight %}
+
+```
 
 When you want to get the board number, you can get it like this:
 <figure class="aligncenter">
@@ -281,7 +291,8 @@ When you want to get the board number, you can get it like this:
 
 For most game situations, this number will be much too big to store it in an integer. Also, we would like to get an index for our array so that we know where to store this board. The simplest solution to this problem is to calculate <code>NUMBER % ARRAY_SIZE</code>:
 
-{% highlight c %}unsigned int getFirstIndex(char board[BOARD_WIDTH][BOARD_HEIGHT]) {
+```c
+unsigned int getFirstIndex(char board[BOARD_WIDTH][BOARD_HEIGHT]) {
     unsigned int index = 0;
 
     for (int x = 0; x < BOARD_WIDTH; x++) {
@@ -293,7 +304,8 @@ For most game situations, this number will be much too big to store it in an int
 
     index = index % MAXIMUM_SITUATIONS;
     return index;
-}{% endhighlight %}
+}
+```
 
 The function <code>getFirstIndex</code> maps an char Array with BOARD_WIDTH * BOARD_HEIGHT = 7 * 6 = 42 elements to an integer interval [0, MAXIMUM_SITUATIONS] = [0, 20000000]. Although I only use three values for the char array, that is $3^{42} = 109418989131512359209 \approx 1.09 \cdot 10^{20}$. There are many game situation numbers that can never occur (e.g. two more red than black dists), but we still map a significantly larger space to [0,20000000]. You can't change that. You can probably find (much) better mappings, but as we know that there are $4.5 \cdot 10^{12}$ game situations, you will always have the problem that your codomain is much smaller than the domain of your hash function. That's a fundamental problem of hash functions.
 

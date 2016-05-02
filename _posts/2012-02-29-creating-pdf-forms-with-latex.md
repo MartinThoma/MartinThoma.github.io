@@ -71,7 +71,9 @@ Sex: 	\>
 ```
 
 You can save this as pdf-form.tex and run this command in Linux:
-{% highlight bash %}pdflatex pdf-form.tex -output-format=pdf{% endhighlight %}
+```bash
+pdflatex pdf-form.tex -output-format=pdf
+```
 
 It seems as if the \ChoiceMenu radio option is buggy at the moment. Does anybody know how to fix that?
 edit: Hmm ... it works in Chromes PDF reader, but not in Document Viewer. Mayby Document Viewer is buggy.

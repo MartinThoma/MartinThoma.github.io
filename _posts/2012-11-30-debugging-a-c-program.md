@@ -20,15 +20,21 @@ You might make multiple errors. Simple typos or syntax errors are almost always 
 <h2>gdb</h2>
 If you want to find runtime errors, you should deactivate all optimization flags and add debugging symbols. A gcc call might look like this:
 
-{% highlight bash %}gcc mySourceFile.c -g{% endhighlight %}
+```bash
+gcc mySourceFile.c -g
+```
 
 This produces a binary file called "a.out".
 
 Now should run gdb - GNU debug:
-{% highlight bash %}gdb ./a.out{% endhighlight %}
+```bash
+gdb ./a.out
+```
 
 Within the command line program GNU debug you have to enter:
-{% highlight bash %}run ./a.out{% endhighlight %}
+```bash
+run ./a.out
+```
 
 You should now be able to see the line in which the runtime-error occurs.
 

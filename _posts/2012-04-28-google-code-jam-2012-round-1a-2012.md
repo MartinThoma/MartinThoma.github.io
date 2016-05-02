@@ -31,13 +31,16 @@ tags: Programming, Python, Google, Google Code Jam, competition
 
 
 Just as last time, you can execute these scripts by
-{% highlight bash %}python jam.py < A-small-practice.in > results.txt{% endhighlight %}
+```bash
+python jam.py < A-small-practice.in > results.txt
+```
 
 <a id="more"></a><a id="more-23361"></a>
 
 <h2>Passwords</h2>
 This works only for the small input set:
-{% highlight python %}#!/usr/bin/python
+```python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 def line2floatlist(line):
@@ -78,11 +81,13 @@ if __name__ == "__main__":
 		probabilities = line2floatlist(raw_input())
 		#print ((A+1), B)
 		#print probabilities
-		print("Case #%i: %.6lf" % (caseNr+1, prob(A, B, probabilities))){% endhighlight %}
+		print("Case #%i: %.6lf" % (caseNr+1, prob(A, B, probabilities)))
+```
 
 <h2>Kingdom Rush</h2>
 My solution works only for the small input set:
-{% highlight python %}#!/usr/bin/python
+```python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 from copy import deepcopy
@@ -168,13 +173,15 @@ if __name__ == "__main__":
 		if not isSolvable(starDict):
 			print("Case #%i: Too Bad" % (caseNr+1))
 		else:
-			print("Case #%i: %s" % (caseNr+1, king(starDict))){% endhighlight %}
+			print("Case #%i: %s" % (caseNr+1, king(starDict)))
+```
 
 <h2>Cruise Controll</h2>
 Only 22 people have a perfect solution for this one. 
 
 This is the solution of royf:
-{% highlight python %}
+```python
+
 import itertools
 import math
 import numpy
@@ -346,7 +353,8 @@ solve_large = solve_small
 
 DEBUG = 'i'
 
-from run import *{% endhighlight %}
+from run import *
+```
 
 <h2>See also</h2>
 <ul>

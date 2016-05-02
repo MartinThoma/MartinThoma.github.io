@@ -25,7 +25,8 @@ You can put the part that can get executed concurrently in a separate class that
 Here is an example:
 
 <h2>Sum</h2>
-{% highlight java %}public class Sum implements Runnable {
+```java
+public class Sum implements Runnable {
     private final int UpperEnd;
 
     public Sum(int upperEnd) {
@@ -38,10 +39,12 @@ Here is an example:
             RaceCondition.bigSum++;
         }
     }
-}{% endhighlight %}
+}
+```
 
 <h2>Main</h2>
-{% highlight java %}import java.util.ArrayList;
+```java
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
@@ -94,10 +97,13 @@ public class Main {
         System.out.println(RaceCondition.bigSum);
 
     }
-}{% endhighlight %}
+}
+```
 
 Call it like this:
-{% highlight bash %}java Main 5 2000{% endhighlight %}
+```bash
+java Main 5 2000
+```
 
 <h2>Race Conditions</h2>
 When you execute the code above, the output will vary. Why is this the case?
@@ -120,7 +126,9 @@ Ok, we can obviously get values in $[\text{BIG}\_\text{NR}, \text{NR}\_\text{THR
 Can we get smaller values? Yes, we can!
 
 Execute:
-{% highlight bash %}java Main 50 20000{% endhighlight %}
+```bash
+java Main 50 20000
+```
 
 <ul>
   <li>Thread 1 loads <code>bigSum</code>. It's 0.</li>
@@ -147,7 +155,8 @@ If you want to execute this more often, you could save it as a executable JAR an
 
 The script executes the program $$1 \cdot $2$ times. The output gets divided by the number of threads and the result is saved in raceCondition.tmp. Every line is one execution of the program. When the second number is BIG_NR, then no race conditions occured.
 
-{% highlight bash %}
+```bash
+
 rm raceCondition.tmp
 touch raceCondition.tmp
 
@@ -163,4 +172,5 @@ do
         echo -e $threads"\t"$normalizedSum >> raceCondition.tmp
     done
 done
-{% endhighlight %}
+
+```

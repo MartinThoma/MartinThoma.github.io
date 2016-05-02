@@ -58,7 +58,8 @@ Wie man am Bild sehr sch&ouml;n sehen kann, definiert ein Stack keine Ordnung &u
 
 Stacks werden mit dynamischen Arrays realisiert. Dazu mal ein kleines Beispiel:
 
-{% highlight java %}
+```java
+
 import java.util.Stack;
 
 public class test {
@@ -81,11 +82,13 @@ public class test {
         }
     }
 }
-{% endhighlight %}
+
+```
 
 
 Ausgabe:
-{% highlight bash %}
+```bash
+
 size: 3 	 capacity: 10
 size: 4 	 capacity: 10
 size: 5 	 capacity: 10
@@ -288,7 +291,8 @@ Element: 1 	 size: 3 	 capacity: 160
 Element: 0 	 size: 2 	 capacity: 160
 Element: 13 	 size: 1 	 capacity: 160
 Element: 12 	 size: 0 	 capacity: 160
-{% endhighlight %}
+
+```
 
 
 

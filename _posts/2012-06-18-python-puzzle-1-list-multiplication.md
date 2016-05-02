@@ -29,17 +29,22 @@ $\begin{pmatrix}
 \end{pmatrix}$
 
 You might also have heard of Pythons overloaded multiplication:
-{% highlight python %}print([0]*4)
+```python
+print([0]*4)
 print([[0]*4]*4)
-print("abc"*4){% endhighlight %}
+print("abc"*4)
+```
 Output:
-{% highlight text %}[0, 0, 0, 0]
+```text
+[0, 0, 0, 0]
 [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
-abcabcabcabc{% endhighlight %}
+abcabcabcabc
+```
 
 <h2>Question</h2>
 What do you think does the following piece of Python-Code print?
-{% highlight python %}#!/usr/bin/python
+```python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 def standardMatrixProduct(A, B):
@@ -53,7 +58,8 @@ def standardMatrixProduct(A, B):
 
 A = [[1,2], [3,4]]
 B = [[5,6], [7,8]]
-print standardMatrixProduct(A, B){% endhighlight %}
+print standardMatrixProduct(A, B)
+```
 
 
 .
@@ -104,11 +110,14 @@ print standardMatrixProduct(A, B){% endhighlight %}
 
 
 <h2>Answer</h2>
-{% highlight text %}[[32, 32], [32, 32]]{% endhighlight %}
+```text
+[[32, 32], [32, 32]]
+```
 Python creates only one list and makes pointers to it!
 
 So this is one that works:
-{% highlight python %}def standardMatrixProduct(A, B):
+```python
+def standardMatrixProduct(A, B):
 	n = len(A)
 	C = [[0 for i in xrange(n)] for j in xrange(n)]
 	for i in xrange(n):
@@ -116,4 +125,5 @@ So this is one that works:
 			for k in xrange(n):
 				print C
 				C[i][j] += A[i][k] * B[k][j]
-	return C{% endhighlight %}
+	return C
+```

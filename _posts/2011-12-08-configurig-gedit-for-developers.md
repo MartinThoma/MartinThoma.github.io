@@ -17,7 +17,9 @@ It belongs to GNOME, but it is also available for Windows. This is how it looks 
         </figure>
 
 You might want to install gedit-plugins:
-{% highlight bash %}sudo apt-get install gedit-plugins{% endhighlight %}
+```bash
+sudo apt-get install gedit-plugins
+```
 
 <h2>External Tools</h2>
 gedit allows you to run external command line tools by pressing shortcuts. You can find the external tools plugins in your preferences:
@@ -33,14 +35,16 @@ You can assign shortcuts by clicking into an input field and simply using the sh
         </figure>
 
 <h3>Java</h3>
-{% highlight bash %}#!/bin/sh
+```bash
+#!/bin/sh
 cd $GEDIT_CURRENT_DOCUMENT_DIR
 if javac $GEDIT_CURRENT_DOCUMENT_NAME;
 then
 java ${GEDIT_CURRENT_DOCUMENT_NAME%\.java}
 else
 echo "Failed to compile"
-fi{% endhighlight %}
+fi
+```
 
 <h2>Code Comment</h2>
 This neat little plugin detects which programming language you are using. If you select a code block and press ctrl+m it gets marked as a comment. If you press ctrl+shift+m a block of comments gets "decommented" to a block of code. It uses # for Python and // for Java.

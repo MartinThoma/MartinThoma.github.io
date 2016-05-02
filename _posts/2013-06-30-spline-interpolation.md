@@ -90,7 +90,8 @@ I will store splines as a list of maps. Each map is one piece of the spline and 
 
 Please note that I didn't test the code below. It's likely that there are errors with indices.
 
-{% highlight python %}
+```python
+
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
@@ -191,7 +192,8 @@ if __name__ == "__main__":
         tmp = "[%.2f, %.2f]:" % (p["u"], p["v"])
         tmp += niceCubicPolynomial(p)
         print(tmp)
-{% endhighlight %}
+
+```
 
 <h2>See also</h2>
 <ul>

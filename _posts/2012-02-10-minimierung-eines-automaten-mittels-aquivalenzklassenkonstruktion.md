@@ -59,7 +59,8 @@ Im n&auml;chsten Schritt sehen wir, dass "1" nicht mehr trennt und "0" auch nich
 
 <h2>LaTeX</h2>
 Das ist der LaTeX-Code f&uuml;r die Automaten:
-{% highlight python %}\documentclass{scrartcl}
+```python
+\documentclass{scrartcl}
 \usepackage{amsmath}
 \usepackage{tikz}
 \usepackage{pst-node}
@@ -135,10 +136,12 @@ Minimal:
   \path[->]          (D)  edge              node {0,1}  (S);
 \end{tikzpicture}
 
-\end{document}{% endhighlight %}
+\end{document}
+```
 
 Und hier die Bilder mit den Pfeilchen:
-{% highlight python %}\documentclass{article}
+```python
+\documentclass{article}
 \usepackage{amsmath}
 
 \usepackage{tikz}
@@ -178,4 +181,5 @@ Schritt 3 - 2.0:
 \begin{gather*}
 \{\tikzmark{a}A\} ~ \{C\tikzmark{c}\} ~ \{D\tikzmark{d}\} ~ \{\tikzmark{s}S, \tikzmark{b}B, E\tikzmark{e}, F\tikzmark{f}\} \DrawBoxi{red}{blue}{green}{purple}{orange}\\
 \end{gather*}
-\end{document}{% endhighlight %}
+\end{document}
+```

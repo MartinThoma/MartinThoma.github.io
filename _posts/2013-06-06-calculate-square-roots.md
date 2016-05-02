@@ -25,7 +25,8 @@ Write a program that takes two parameters $a, n \in \mathbb{N}_{\geq 1}$:
 Your program should output exactly one positive floating point number. The decimal separator is a point. At the end of the number should be a newline character <code>\n</code>.
 
 <h2>Reference code</h2>
-{% highlight c %}
+```c
+
 // Thanks to http://stackoverflow.com/a/15363123/562769
 #include <stdio.h>
 #include <gmp.h>
@@ -40,16 +41,20 @@ int main(int argc, char *argv[]) {
     gmp_printf("%.1000Ff\n\n", res); // Increase this number.
     return 0;
 }
-{% endhighlight %}
+
+```
 
 You need <a href="http://gmplib.org/manual">GMP</a> (<code>libgmp-dev</code>) to compile this. 
 
 Compile it like this:
 
-{% highlight bash %}gcc sqrt-reference.c  -lgmp -lm -O0 -g3 -o reference.out{% endhighlight %}
+```bash
+gcc sqrt-reference.c  -lgmp -lm -O0 -g3 -o reference.out
+```
 
 This is the script I use to get the number of correct digits:
-{% highlight python %}
+```python
+
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
@@ -94,13 +99,15 @@ if __name__ == "__main__":
     args = parser.parse_args()
  
 print("Points for a=%i and n=%i: %i" % (args.a, args.n, getScore(args.program, args.a, args.n)))
-{% endhighlight %}
+
+```
 
 <h2>Newton's method</h2>
 How should be choose the initial value? I thought $\frac{a}{2}$ could be ok. In a good implementation you'll probably do this with a lookup table.
 
 With long double:
-{% highlight cpp %}
+```cpp
+
 #include <iostream>
 #include <cmath>
  
@@ -124,7 +131,8 @@ int main(int argc, char *argv[]) {
     printf("%.80Lf\n", newton(a, n));
     return 0;
 }
-{% endhighlight %}
+
+```
 
 I failed to convert this to a version that uses GMP :-/
 
@@ -151,7 +159,8 @@ $\displaystyle \ln(1+x) =- \sum_{k=0}^\infty \frac{(-x)^{k+1}}{k+1}$
 
 So I gave it a try:
 
-{% highlight cpp %}
+```cpp
+
 #include <iostream>
 #include <cmath>
  
@@ -195,7 +204,8 @@ int main(int argc, char *argv[]) {
     printf("%.80Lf\n", sqrt(a, n));
     return 0;
 }
-{% endhighlight %}
+
+```
 
 This converges VERY slow: For $a = 2$
 

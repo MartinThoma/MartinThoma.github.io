@@ -194,7 +194,8 @@ With this image in mind, it is obvious that the bounding boxes need to intersect
 
 It is much easier to check if two bounding boxes intersect. It's simply:
 
-{% highlight java %}/**
+```java
+/**
  * Check if bounding boxes do intersect. If one bounding box
  * touches the other, they do intersect.
  * @param a first bounding box
@@ -207,7 +208,8 @@ public boolean doBoundingBoxesIntersect(Point[] a, Point[] b) {
         && a[1].x >= b[0].x 
         && a[0].y <= b[1].y
         && a[1].y >= b[0].y;
-}{% endhighlight %}
+}
+```
 
 If you have difficulties to understand why this works, take a look at this great <a href="http://silentmatt.com/rectangle-intersection/">animation for this formula</a>.
 
@@ -469,7 +471,8 @@ function getIntersection(a, b) {
 <h2>TL;DR</h2>
 The complete, tested code is on <a href="https://github.com/MartinThoma/algorithms/tree/master/crossingLineCheck/Geometry/src">GitHub</a>. Here is the most important part:
 
-{% highlight java %}public class Geometry {
+```java
+public class Geometry {
 
     public static final double EPSILON = 0.000001;
 
@@ -562,7 +565,8 @@ The complete, tested code is on <a href="https://github.com/MartinThoma/algorith
                 && lineSegmentTouchesOrCrossesLine(b, a);
     }
 }
-{% endhighlight %}
+
+```
 
 <h2>Addendum</h2>
 Some notes for me:

@@ -48,9 +48,11 @@ public class SomeClass {
 .
 
 <h2>Answer</h2>
-{% highlight text %}It's weird:
+```text
+It's weird:
 x   = 2147483647
-2*x = -2{% endhighlight %}
+2*x = -2
+```
 
 <h2>Explanation</h2>
 `2*x` is out of Java Integer range, so it comes back at the other end.

@@ -14,7 +14,8 @@ featured_image: 2013/08/algebra-thumb.jpg
         </figure>
 
 <h2>Python</h2>
-{% highlight python %}
+```python
+
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
@@ -90,7 +91,8 @@ def calculateLegendre(a, p):
 if __name__ == "__main__":
 	import doctest
 	doctest.testmod()
-{% endhighlight %}
+
+```
 
 <h2>More</h2>
 <ul>

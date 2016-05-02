@@ -11,15 +11,21 @@ If you have a working program and you want to improve its execution speed, you m
 
 <h2>valgrind and kcachegrind</h2>
 Install valgrind and kcachegrind. For Ubuntu users:
-{% highlight bash %}sudo apt-get install valgrind kcachegrind{% endhighlight %}
+```bash
+sudo apt-get install valgrind kcachegrind
+```
 
 Create a profile:
-{% highlight bash %}valgrind --tool=callgrind ./connectfour{% endhighlight %}
+```bash
+valgrind --tool=callgrind ./connectfour
+```
 (I've profiled a connect four application. Replace that with your application)
 This command will create a file called similar to "callgrind.out.4846".
 
 Take a look at the profile:
-{% highlight bash %}kcachegrind callgrind.out.4846{% endhighlight %}
+```bash
+kcachegrind callgrind.out.4846
+```
 
 You can also create a call-graph:
 <figure class="aligncenter">

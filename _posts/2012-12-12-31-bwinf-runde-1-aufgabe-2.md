@@ -27,7 +27,8 @@ Quelle: <a href="http://www.bundeswettbewerb-informatik.de/fileadmin/templates/b
 <h2>L&ouml;sung mit GLPK</h2>
 Der folgende Code muss als partition.mod gespeichert werden:
 
-{% highlight text %}
+```text
+
 /* PARTITION */
 
 /* Written in GNU MathProg by Martin Thoma <info@martin-thoma.de> */
@@ -117,23 +118,28 @@ param v := 1 672000, 2 10000, 3 10000, 4 10000, 5 10000, 6 10000, 7 10000, 8 244
 param c := 10000;
 
 end;
-{% endhighlight %}
+
+```
 
 Jetzt muss man folgendes ausf&uuml;hren:
-{% highlight bash %}glpsol --output example.out --log example.log --math partition.mod{% endhighlight %}
+```bash
+glpsol --output example.out --log example.log --math partition.mod
+```
 
 Das ben&ouml;tigt f&uuml;r die gr&ouml;&szlig;te Eingabe etwa 18 Sekunden.
 
 Wenn man nun in die example.out schaut, sieht man unter anderem folgendes:
 
-{% highlight text %}
+```text
+
 Problem:    partition
 Rows:       47
 Columns:    80 (80 integer, 80 binary)
 Non-zeros:  640
 Status:     INTEGER OPTIMAL
 Objective:  obj = 5 (MINimum)
-{% endhighlight %}
+
+```
 
 Die interessante Zahl ist die 5. Das ist das Minimum, das in dieser Aufgabe gesucht war. Wie es zu erreichen ist, sieht  man in der Ausgabe darunter.
 

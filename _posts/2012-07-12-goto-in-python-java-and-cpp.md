@@ -23,7 +23,8 @@ Source: <a href="http://java.sun.com/docs/white/langenv/Simple.doc2.html#5550">j
 GOTO works in C++. Here is a minimal example:
 
 <h3>Minimal Example</h3>
-{% highlight cpp %}#include <iostream>
+```cpp
+#include <iostream>
 
 using namespace std;
 
@@ -43,14 +44,18 @@ int main(){
     cout << "test: " << test << endl;
 
     return 0;
-}{% endhighlight %}
+}
+```
 
 Output:
-{% highlight bash %}test: 14{% endhighlight %}
+```bash
+test: 14
+```
 
 <h3>Euclidean GCD algorithm</h3>
 Most of you might know the <a href="http://en.wikipedia.org/wiki/Euclidean_algorithm">euclidean algorithm</a> for calculating the greatest common divisor in a version like this one:
-{% highlight cpp %}#include <iostream>
+```cpp
+#include <iostream>
 
 using namespace std;
 
@@ -68,10 +73,12 @@ int main(){
     cout << "GCD of 340 and 32760: " << euclidGCD(340, 32760) <<endl;
 
     return 0;
-}{% endhighlight %}
+}
+```
 
 Here is a goto-version that works perfectly fine:
-{% highlight cpp %}#include <iostream>
+```cpp
+#include <iostream>
 
 using namespace std;
 
@@ -91,12 +98,14 @@ int main(){
     cout << "GCD of 340 and 32760: " << euclidGCD(340, 32760) <<endl;
 
     return 0;
-}{% endhighlight %}
+}
+```
 Source: <a href="http://en.literateprograms.org/Euclidean_algorithm_(C)">literateprograms.org</a>
 
 <h3>Try bad things</h3>
 You can't jump into a function:
-{% highlight cpp %}#include <iostream>
+```cpp
+#include <iostream>
 
 using namespace std;
 
@@ -115,12 +124,15 @@ int main(){
     cout << "test: " << test << endl;
 
     return 0;
-}{% endhighlight %}
+}
+```
 
 Compiler error:
-{% highlight bash %}gotoExample.cpp: In function &lsquo;int myFunction(int)&rsquo;:
+```bash
+gotoExample.cpp: In function &lsquo;int myFunction(int)&rsquo;:
 gotoExample.cpp:7: warning: label &lsquo;inFunctionLabel&rsquo; defined but not used
 gotoExample.cpp: In function &lsquo;int main()&rsquo;:
-gotoExample.cpp:15: error: label &lsquo;inFunctionLabel&rsquo; used but not defined{% endhighlight %}
+gotoExample.cpp:15: error: label &lsquo;inFunctionLabel&rsquo; used but not defined
+```
 
 So goto is at least bound to its scope.

@@ -80,7 +80,8 @@ But I have written a piece of pseudocode to make it even easier to code this alg
 {% caption class="size-full wp-image-76716" width="500" height="494" alt="WER calculation" text="WER calculation" url="../images/2013/11/WER-calculation.png" %}
 
 <h2>Python</h2>
-{% highlight python %}
+```python
+
 #!/usr/bin/env python
 
 def wer(r, h):
@@ -123,7 +124,8 @@ def wer(r, h):
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
-{% endhighlight %}
+
+```
 
 <h2>Explanation</h2>
 No matter at what stage of the code you are, the following is always true:

@@ -81,7 +81,8 @@ I have to know that $1 \leq r$ and $1 \geq x \in \mathbb{N}$. So you have to rou
 
 Did you know that Python has (in numpy) a method to calculate roots of a quadratic equation? See <a href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.roots.html">numpy.roots</a> for reference.
 
-{% highlight python %}
+```python
+
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
  
@@ -106,14 +107,16 @@ if __name__ == "__main__":
         line = raw_input()
         r, t = map(int, line.split(' '))
         print("Case #%i: %s" % (caseNr, solveFast(r, t)))
-{% endhighlight %}
+
+```
 
 <h2>Good Luck</h2>
 This one solves at least the first test case, but not the second one.
 
 I love <a href="http://docs.python.org/2/library/itertools.html">itertools</a> ☺
 
-{% highlight python %}
+```python
+
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
@@ -190,4 +193,5 @@ if __name__ == "__main__":
         for r in xrange(R):
             products = [int(el) for el in raw_input().split(' ') if int(el) != 1]
             print(''.join(map(str, sorted(solve(N, M, products, productToBuildungs)))))
-{% endhighlight %}
+
+```

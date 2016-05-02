@@ -10,7 +10,8 @@ featured_image: 2012/03/Matrix-Inverses.png
 Suppose you have a matrix $A \in \mathbb{R}^{n \times n}$ and you want to invert it. I've already explained <a href="../wie-bestimme-ich-das-inverse-einer-matrix/">how to invert a matrix</a> (<a href="http://www.purplemath.com/modules/mtrxinvr.htm">English explanation</a>), but I didn't provide any code and / or runtime analysis.
 
 <h2>C++ Code</h2>
-{% highlight cpp %}
+```cpp
+
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -112,7 +113,8 @@ int main() {
     cout << "Result:" << endl;
     print(A);
 }
-{% endhighlight %}
+
+```
 
 This code is VERY similar to the code of <a href="../solving-linear-equations-with-gaussian-elimination/" title="Solving linear equations with Gaussian elimination">Gaussian elimination</a>. In fact, I've only changed all occurrences of <code>n+1</code> to <code>2*n</code>. I also had to change lines 57-70, as we need to do all operations now on a matrix instead of a vector.
 

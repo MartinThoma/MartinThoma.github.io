@@ -10,7 +10,8 @@ featured_image: 2012/06/MIPS-Ingenic_JZ4730.jpg
 <h2>Perfect number check</h2>
 The perfect number check in MIPS is quite easy to realize. Here is some pythonic Pseudocode
 
-{% highlight python %}n = input() 			# read a positive integer n from the user
+```python
+n = input() 			# read a positive integer n from the user
 sumOfDivisors = 0
 for i in range(1, n):	# go from 1 to n-1
 	if n % i == 0:		# if i is a divisor
@@ -19,10 +20,12 @@ for i in range(1, n):	# go from 1 to n-1
 if sumOfDivisors == n:
 	print "1"
 else:
-	print "0"{% endhighlight %}
+	print "0"
+```
 
 And here is the MIPS-Code:
-{% highlight text %}#####################################################################
+```text
+#####################################################################
 # Perfect number check												#
 # @param int the number you would like to check						#
 # @result int 0 if the number is not perfect, otherwise 1			#
@@ -58,12 +61,14 @@ eval: seq $s0, $s0, $s1	# Compare the sum of divisors with A
 	la $v0 , 1			# |
 	move $a0 , $s0		# |
 	syscall				# |=> Print $s0
-	jr $ra{% endhighlight %}
+	jr $ra
+```
 
 <h2>ROT-13 encryption</h2>
 
 The basic idea for encrypting a string with ROT-13 is to loop over all characters and use the ASCII-Table to shift them. Here is the ROT-13 MIPS-Code:
-{% highlight text %}#####################################################################
+```text
+#####################################################################
 # @param string a &#92;&#48; terminated string								#
 # @return string the ROT-13 encrypted string						#
 #####################################################################
@@ -123,7 +128,8 @@ out:
 	la 		$v0, 4		# |
 	la 		$a0, plain	# |
 	syscall				# |=> Print plain
-    jr      $ra{% endhighlight %}
+    jr      $ra
+```
 
 A syntax-highlighted version of both code pieces is here: <a href='../images/2012/06/mips-rot-13-perfect-number.pdf'>MIPS Assembly Code for a perfect number check and ROT-13 encryption</a>.
 

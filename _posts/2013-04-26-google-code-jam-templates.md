@@ -10,7 +10,8 @@ featured_image: 2012/04/code-jam-logo.png
 Here are some templates that are a good start for Google Code Jam.
 
 <h2>C++</h2>
-{% highlight cpp %}
+```cpp
+
 #include <stdio.h>
 #include <string>
 #include <iostream>
@@ -34,13 +35,18 @@ int main(void) {
 
     return 0;
 }
-{% endhighlight %}
+
+```
 
 Compile
-{% highlight bash %}g++ A.cpp{% endhighlight %}
+```bash
+g++ A.cpp
+```
 
 Execute
-{% highlight bash %}./a.out < A-small-practice.in > result.txt{% endhighlight %}
+```bash
+./a.out < A-small-practice.in > result.txt
+```
 
 <h2>Python</h2>
 <ul>
@@ -48,7 +54,8 @@ Execute
   <li>String parsing: <a href="http://docs.python.org/2/library/stdtypes.html#str.strip">strip()</a>, <a href="http://docs.python.org/2/library/stdtypes.html#str.split">split()</a></li>
 </ul>
 
-{% highlight python %}
+```python
+
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
@@ -58,14 +65,18 @@ if __name__ == "__main__":
 	for caseNr in xrange(1, testcases+1):
 		cipher = raw_input()
 		print("Case #%i: %s" % (caseNr, solve(cipher)))
-{% endhighlight %}
+
+```
 
 Execute
-{% highlight bash %}python A.py < A-small-practice.in > result.txt{% endhighlight %}
+```bash
+python A.py < A-small-practice.in > result.txt
+```
 
 <h2>Java</h2>
 This is an ajusted version of mystics solution for "Dancing with Googlers". You might want to take a look at <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Scanner.html">Scanner</a> and <a href="http://docs.oracle.com/javase/7/docs/api/java/io/PrintWriter.html">PrintWriter</a>.
-{% highlight java %}
+```java
+
 import java.util.*;
 import java.io.*;
 
@@ -130,7 +141,8 @@ public class DancingWithGoogle {
 		sc.close();
 	}
 }
-{% endhighlight %}
+
+```
 
 Adjust the path and execute it within Eclipse.
 
@@ -142,13 +154,16 @@ Input / output:
 </ul>
 
 Execute:
-{% highlight bash %}php A.php input.txt > output.txt{% endhighlight %}
+```bash
+php A.php input.txt > output.txt
+```
 
 <h2>JavaScript</h2>
 Did you know that you can also solve those tasks with JavaScript? I've explained <a href="http://stackoverflow.com/a/16242806/562769">how to install v8</a>.
 
 Here is a <a href="http://www.go-hero.net/jam/13/name/aditsu">solution from aditsu</a>:
-{% highlight javascript %}
+```javascript
+
 // run with v8: d8 file.js < file.in
 
 var m, res, dot
@@ -187,4 +202,5 @@ for (var i = 1; i <= t; ++i) {
 	res = res ? res + ' won' : dot ? 'Game has not completed' : 'Draw'
 	print('Case #' + i + ': ' + res)
 }
-{% endhighlight %}
+
+```

@@ -14,38 +14,51 @@ Here are some examples:
 <h2>
 Enable htaccess-files</h2>
 Set <a href="http://httpd.apache.org/docs/2.0/mod/core.html#allowoverride" rel="nofollow">AllowOverride</a> to "All":
-{% highlight bash %}sudo gedit /etc/apache2/sites-available/default{% endhighlight %}
+```bash
+sudo gedit /etc/apache2/sites-available/default
+```
 
 Restart Apache:
-{% highlight bash %}sudo /etc/init.d/apache2 reload{% endhighlight %}
+```bash
+sudo /etc/init.d/apache2 reload
+```
 
 <h2>
 Enable ExpiresOn / mod_rewrite</h2>
 This is for Ubuntu:
-{% highlight bash %}sudo a2enmod
+```bash
+sudo a2enmod
 rewrite expires
 sudo /etc/init.d/apache2 restart
-{% endhighlight %}
+
+```
 
 <h2>
 Prevent or allow directory listing</h2>
 Add the following line to your .htaccess-file to allow directory listing:
-{% highlight bash %}Options +Indexes{% endhighlight %}
+```bash
+Options +Indexes
+```
 Add the following line to your .htaccess-file to prevent directory listing:
-{% highlight bash %}Options -Indexes{% endhighlight %}
+```bash
+Options -Indexes
+```
 
 <h2>
 Prevent Hot Linking</h2>
-{% highlight bash %}RewriteEngine on
+```bash
+RewriteEngine on
 RewriteCond %{HTTP_REFERER} !^$
 RewriteCond %{HTTP_REFERER} !^http://(www.)?your-domain.com/.*$ [NC]
 RewriteRule \.(gif|jpe?g|png)$ - [F]
-{% endhighlight %}
+
+```
 
 <h2>
 Prevent Direct Access</h2>
 If you include some files with PHP, you might want that others can't access this file directly. So add the following to your .htaccess-file:
-{% highlight bash %}<FilesMatch "\.(inc)\.(php)$">
+```bash
+<FilesMatch "\.(inc)\.(php)$">
     Order deny,allow
     Deny from all
 </FilesMatch>
@@ -53,4 +66,5 @@ If you include some files with PHP, you might want that others can't access this
     Order deny,allow
     Deny from all
 </FilesMatch>
-{% endhighlight %}
+
+```

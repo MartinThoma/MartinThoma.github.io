@@ -49,7 +49,8 @@ For this algorithm, I'll find the polynomial in its monomial from $p(x) = \sum_{
 
 You might want to take a look at my article about <a href="../solving-linear-equations-with-gaussian-elimination/" title="Solving linear equations with Gaussian elimination">Gaussian elimination</a>.
 
-{% highlight python %}
+```python
+
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
   
@@ -149,11 +150,13 @@ if __name__ == "__main__":
   
     # Print result
     pprintPolynomial(x)
-{% endhighlight %}
+
+```
 
 It is also interesting to get the value of $p(x)$ at any given point $x \in \mathbb{R}$:
 
-{% highlight python %}
+```python
+
 def evaluatePolynomial(p, x):
     y = 0
     xi = 1
@@ -161,7 +164,8 @@ def evaluatePolynomial(p, x):
         y += a * xi
         xi *= x
     return y
-{% endhighlight %}
+
+```
 
 Time complexity to get the polynomial: $\frac{1}{3} n^3 + \mathcal{O}(n^2)$ (where $n$ is the number of points)
 Space complexity for the polynomial: $\mathcal{O}(n^2)$ (where $n$ is the number of points)
@@ -198,7 +202,8 @@ The polynomials $L_i(x)$ form another base for $\mathbb{R}_n[X]$.
 
 Lagranges way to interpolate polynomials can be implemented like this:
 
-{% highlight python %}
+```python
+
 def lagrangeInterpolation(points):
     p = []
     for i in range(len(points)):
@@ -221,7 +226,8 @@ def evaluateLagrangePolynomial(p, x):
             prod *= (x - term["sub"])/term["divisor"]
         y += Li["y"]*prod
     return y
-{% endhighlight %}
+
+```
 
 Time complexity to get the polynomial: $n^2 + \mathcal{O}(n)$ (where $n$ is the number of points)
 Space complexity for the polynomial: $\mathcal{O}(n^2)$ (where $n$ is the number of points)
@@ -255,7 +261,8 @@ $\begin{pmatrix}
 = \begin{pmatrix} f_0 \\ \vdots \\ f_n \end{pmatrix}$
 
 You can get this lower triangular matrix like this:
-{% highlight python %}
+```python
+
 def getGaussSystemForNewton(points):
     n = len(points) - 1
     A = [[0 for i in range(n+2)] for j in range(n+1)]
@@ -269,7 +276,8 @@ def getGaussSystemForNewton(points):
             for i in range(0, n):
                 A[i][j] = points[i]["y"]
     return A
-{% endhighlight %}
+
+```
 
 From my previous posts about <a href="../solving-equations-of-upper-triangular-matrices/">solving equations of upper triangular matrices</a> and <a href="../solving-equations-of-unipotent-lower-triangular-matrices/">lower unitriangular matrices</a> you know that the space complexity of this is in $\Theta(n^2)$.
 

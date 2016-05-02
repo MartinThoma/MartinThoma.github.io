@@ -31,7 +31,8 @@ More information is on <a href="http://www.go-hero.net/jam/13/round/3">go-hero.n
 
 <h2>Consonants</h2>
 A solution from <a href="http://www.go-hero.net/jam/13/name/nip">nip</a>:
-{% highlight python %}
+```python
+
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
@@ -57,7 +58,8 @@ if __name__ == "__main__":
     for caseNr in xrange(1, testcases+1):
         name, n = raw_input().split(" ")
         print("Case #%i: %s" % (caseNr, solve(name, int(n))))
-{% endhighlight %}
+
+```
 
 <h2>Pogo</h2>
 This is a very clever solution from xiaowuc1 (translated from Java to Python).
@@ -70,7 +72,8 @@ You can calculate this with a simple loop (see code below).
 
 After you know the maximum number of steps, you can apply a greedy solution: Start from $(x|y)$ and always go into the direction that is farer away from the origin.
 
-{% highlight python %}
+```python
+
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
@@ -111,12 +114,14 @@ if __name__ == "__main__":
         x,y = raw_input().split(" ")
         x,y = int(x),int(y)
         print("Case #%i: %s" % (caseNr, solve(x,y)))
-{% endhighlight %}
+
+```
 
 <h2>The Great Wall</h2>
 The following solution is not applicable for the large input set, but it works fine for the small one:
 
-{% highlight python %}
+```python
+
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
@@ -182,6 +187,7 @@ if __name__ == "__main__":
             "delta_si": int(delta_si) # the change in strength between subsequent attacks
             })
         print("Case #%i: %s" % (caseNr, solve(tribes)))
-{% endhighlight %}
+
+```
 
 By the way, nobody has solved the large input set of this one with Python! But here is a <a href="http://www.go-hero.net/jam/13/name/eatmore">Java solution</a>.

@@ -10,7 +10,8 @@ featured_image: 2011/09/Python-Logo.png
 Python automatically casts to boolean if you use another type of variable for a boolean expression.
 
 Here is an example:
-{% highlight python %}#!/usr/bin/python
+```python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 if [1]:
@@ -33,18 +34,21 @@ if not False:
 if not 0:
     print("not ")
 if not []:
-    print("true."){% endhighlight %}
+    print("true.")
+```
 
 Everything gets printed.
 
 Now the riddle. What is the output of the following script:
-{% highlight python %}#!/usr/bin/python
+```python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 if None == False:
     print("None is false.")
 else:
-    print("None and false are not equal."){% endhighlight %}
+    print("None and false are not equal.")
+```
 
 .
 .
@@ -72,7 +76,9 @@ else:
 .
 
 <h2>Answer</h2>
-{% highlight bash %}None and false are not equal.{% endhighlight %}
+```bash
+None and false are not equal.
+```
 
 <h2>Explanation</h2>
 Although <code>None</code> and <code>False</code> evaluate to <code>False</code> if they are used in a boolean expression, <code>None</code> is not the same as <code>False</code>.

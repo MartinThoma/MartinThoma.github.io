@@ -25,11 +25,13 @@ $a_0 = a_1 = a_2 = 1, a_3 = 3, a_4 = 5, a_5 = 9, a_6 = 17, a_7 = 31, a_8 = 57$
 <h2>Rekursive L&ouml;sung</h2>
 Solche Aufgaben lassen sich h&auml;ufig sehr einfach rekursiv l&ouml;sen:
 
-{% highlight python %}def tribonacci(n):
+```python
+def tribonacci(n):
     if n < 3:
         return n
     else:
-        return tribonacci(n-1) + tribonacci(n-2) + tribonacci(n-3){% endhighlight %}
+        return tribonacci(n-1) + tribonacci(n-2) + tribonacci(n-3)
+```
 
 Allerdings hat diese rekursive L&ouml;sung den riesigen nachteil, dass viele Berechnungen redundant sind.
 Angenommen, wir wollen <code>tribonacci(5)</code> berechnen. Dann l&auml;uft folgendes ab:
@@ -69,7 +71,8 @@ Wie kann man so was verbessern?
 <h2>Bottom-Up Ansatz</h2>
 Wir ben&ouml;tigen f&uuml;r ein neues Folgenglied immer nur das vorhergehende. Das kann dann so aussehen:
 
-{% highlight python %}def tribonacciBottomUp(n):
+```python
+def tribonacciBottomUp(n):
     last = 1
     secondLast = 1
     thirdLast = 1
@@ -78,7 +81,8 @@ Wir ben&ouml;tigen f&uuml;r ein neues Folgenglied immer nur das vorhergehende. D
         thirdLast = secondLast
         secondLast = last
         last = new
-    return last{% endhighlight %}
+    return last
+```
 
 <h2>Fill it</h2>
 Eine weitere M&ouml;glichkeit w&auml;re die schw&auml;che des rekursiven Ansatzes zu eliminieren, indem man alle bisher berechneten Werte in einem Array speichert.
@@ -132,7 +136,8 @@ Eine weitere M&ouml;glichkeit w&auml;re die schw&auml;che des rekursiven Ansatze
 <h2>Java</h2>
 Java-Nutzer m&uuml;ssen sich dar&uuml;ber im klaren sein, dass alle Elemente, die gr&ouml;&szlig;er als 36 sind, die <code>int</code>-Grenzen sprengen. Eine L&ouml;sung f&uuml;r das &Uuml;bungsblatt k&ouml;nnte ungef&auml;hr so aussehen:
 
-{% highlight java %}/** This class calculates numbers of the Tribonacci sequence. */
+```java
+/** This class calculates numbers of the Tribonacci sequence. */
 public final class Tribonacci {
     /**
      * Utility classes should not have a public or default 
@@ -176,4 +181,5 @@ public final class Tribonacci {
     }
 
 }
-{% endhighlight %}
+
+```

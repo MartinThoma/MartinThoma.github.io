@@ -40,7 +40,8 @@ int main(){
 ```
 
 <h2>Maximum number of elements</h2>
-{% highlight cpp %}
+```cpp
+
 #include <iostream>
 #include <stack>
 
@@ -56,11 +57,14 @@ int main() {
 
 	cout << "Size of stack: " << s.size() << endl;
 }
-{% endhighlight %}
 
-{% highlight bash %}
+```
+
+```bash
+
 Size of stack: 100000000
-{% endhighlight %}
+
+```
 100,000,000 could be added without any problems.
 
 <h2>See also</h2>

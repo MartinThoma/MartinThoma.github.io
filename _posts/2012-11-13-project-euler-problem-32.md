@@ -20,7 +20,8 @@ HINT: Some products can be obtained in more than one way so be sure to only incl
 <h2>How to solve it</h2>
 We have to get a check, if a number is pandigital. It could look like this:
 
-{% highlight python %}def isPandigitalString(string):
+```python
+def isPandigitalString(string):
     """ Check if string contains a pandigital number. """
     digits = len(string)
 
@@ -30,17 +31,21 @@ We have to get a check, if a number is pandigital. It could look like this:
     for i in xrange(1,digits+1):
         if str(i) not in string:
             return False
-    return True{% endhighlight %}
+    return True
+```
 
 We also need a check if a product of two numbers is 9-pandigital:
-{% highlight python %}def gives9PandigitalProduct(a, b):
+```python
+def gives9PandigitalProduct(a, b):
     numbers = str(a) + str(b) + str(a*b)
     if len(numbers) != 9:
         return False
-    return isPandigitalString(numbers){% endhighlight %}
+    return isPandigitalString(numbers)
+```
 
 Now you need to figure out how to go through all possible combinations:
-{% highlight python %}products = []
+```python
+products = []
 for a in xrange(0, 100000):
     for b in xrange(a, 100000):
         if len(str(a*b) + str(a) + str(b)) > 9:
@@ -49,11 +54,14 @@ for a in xrange(0, 100000):
             products.append(a*b)
             print("%i x %i = %i" % (a, b, a*b))
 
-print(sum(set(products))){% endhighlight %}
+print(sum(set(products)))
+```
 
 <h2>One-liner</h2>
 This is from Thaddeus Abiye from Ethiopia:
-{% highlight python %}print sum(set(map(lambda x:int(x[0:4]),filter(lambda x:sorted([i for i in x])==map(str,range(1,10)),[str(a*b)+str(a)+str(b) for a in range(1,2000) for b in range(1,100)])))){% endhighlight %}
+```python
+print sum(set(map(lambda x:int(x[0:4]),filter(lambda x:sorted([i for i in x])==map(str,range(1,10)),[str(a*b)+str(a)+str(b) for a in range(1,2000) for b in range(1,100)]))))
+```
 
 It needs one line and 173 characters, but I think it's hard to read.
 

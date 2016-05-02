@@ -11,25 +11,37 @@ This <a href='../images/2012/04/versioning-cheat-sheet.pdf'>Software Versioning 
 
 If you're at the KIT and you have SWT, then you'll probably need this command:
 
-{% highlight bash %}svn checkout https://svn.ipd.kit.edu/lehre/vorlesung/SWT1/SS12/stud/ SWT/ --username swt1{% endhighlight %}
+```bash
+svn checkout https://svn.ipd.kit.edu/lehre/vorlesung/SWT1/SS12/stud/ SWT/ --username swt1
+```
 You will be asked for a password. I hope you remember it.
 
 <h2>SVN</h2>
-{% highlight bash %}svn co URL LocalTarget --username yourUserName{% endhighlight %}
+```bash
+svn co URL LocalTarget --username yourUserName
+```
 Source: <a href="http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.checkout.html">svn checkout</a>
 
-{% highlight bash %}svn up{% endhighlight %}
+```bash
+svn up
+```
 Source: <a href="http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.update.html">svn update</a>
 
-{% highlight bash %}svn log -l 4{% endhighlight %}
+```bash
+svn log -l 4
+```
 Source: <a href="http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.log.html">svn log</a>
 
 <h3>Updating the repository</h3>
 You can update a SVN repository with this command:
-{% highlight bash %}svn up [path]{% endhighlight %}
+```bash
+svn up [path]
+```
 
 If you need to execute the command often, you might want to define an alias. aliases are shorthands for long commands in the bash. To create a permanent one, add the following line to your ~/.bashrc file:
-{% highlight bash %}alias swt='svn up /home/moose/Studium/SWT'{% endhighlight %}
+```bash
+alias swt='svn up /home/moose/Studium/SWT'
+```
 Now you only have to enter "swt" to execute "svn up /home/moose/Studium/SWT".
 
 <h3>Nice diffs</h3>
@@ -42,7 +54,9 @@ gedit ~/.subversion/config
 and change <code>diff-cmd</code> to <code>meld</code>.
 
 <h3>Compare revisions</h3>
-{% highlight bash %}svn diff -r 63:64{% endhighlight %}
+```bash
+svn diff -r 63:64
+```
 
 compares revision number 63 with revision number 64 with the tool you defined (see Nice diffs).
 
@@ -73,10 +87,14 @@ meld "$2" "$5"
 ```
 
 Make it executable:
-{% highlight bash %}chmod +x git-meld{% endhighlight %}
+```bash
+chmod +x git-meld
+```
 
 Add it to your git configuration:
-{% highlight bash %}git config --global diff.external git-meld{% endhighlight %}
+```bash
+git config --global diff.external git-meld
+```
 
 Enjoy this experience when entering <code>git diff</code>:
 <figure class="aligncenter">
@@ -90,21 +108,29 @@ See also <a href="http://jeetworks.org/node/90">jeetworks.org</a> for some other
 <h4>Preparation</h4>
 Read the guide "<a href="https://help.github.com/articles/generating-ssh-keys">Generating SSH keys</a>" for more information on SSH and "<a href="http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup">Getting Started - First-Time Git Setup</a>" for Git-specific questions.
 
-{% highlight bash %}cd ~/.ssh
+```bash
+cd ~/.ssh
 ssh-keygen -t rsa -C "info@martin-thoma.de"
 git config --global user.name "Martin Thoma"
-git config --global user.email info@martin-thoma.de{% endhighlight %}
+git config --global user.email info@martin-thoma.de
+```
 
 <h4>Clone</h4>
 Clone a GITHub repository:
-{% highlight bash %}git clone git@github.com:MartinThoma/matrix-multiplication.git{% endhighlight %}
+```bash
+git clone git@github.com:MartinThoma/matrix-multiplication.git
+```
 
 <h3>Snippets</h3>
 Reset a single file to the latest revision on the server:
-{% highlight bash %}git checkout HEAD file/to/restore{% endhighlight %}
+```bash
+git checkout HEAD file/to/restore
+```
 
 Get the latest diff:
-{% highlight bash %}git diff HEAD @{1}{% endhighlight %}
+```bash
+git diff HEAD @{1}
+```
 
 <h2>Resources</h2>
 <ul>

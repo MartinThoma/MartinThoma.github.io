@@ -52,7 +52,8 @@ If you post a solution, please consider these restrictions:
 <h2>Python</h2>
 I&rsquo;ve used Python 2.6.5.
 
-{% highlight python %}#!/usr/bin/python
+```python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 from optparse import OptionParser
@@ -218,22 +219,26 @@ if __name__ == "__main__":
     A, B = read(options.filename)
 
     C = strassen(A, B)
-    printMatrix(C){% endhighlight %}
+    printMatrix(C)
+```
 
 The execution-times were the same as with the ikj-algorithm, no matter what the leaf size was:
-{% highlight bash %}
+```bash
+
 ikj-algorithm	44m13.458s
 LEAF_SIZE	Time
 2	47m45.983s
 8	47m41.311s
 16	48m5.472s
 32	48m5.624s
-64	47m55.076s{% endhighlight %}
+64	47m55.076s
+```
 
 <h2>Java</h2>
 The Java-code is a little bit long and has three classes. I'll only past the important methods. If you're interested in a full, working example, please look at <a href="https://github.com/MartinThoma/matrix-multiplication/tree/master/Java">GitHub</a>.
 
-{% highlight java %}public static int[][] ikjAlgorithm(int[][] A, int[][] B) {
+```java
+public static int[][] ikjAlgorithm(int[][] A, int[][] B) {
     int n = A.length;
 
     // initialise C
@@ -395,7 +400,8 @@ private static int[][] strassenR(int[][] A, int[][] B) {
         }
         return C;
     }
-}{% endhighlight %}
+}
+```
 
 Here are the results for different leaf-sizes:
 <figure class="aligncenter">
@@ -404,7 +410,8 @@ Here are the results for different leaf-sizes:
         </figure>
 
 <h2>C++</h2>
-{% highlight cpp %}#include <sstream>
+```cpp
+#include <sstream>
 #include <string>
 #include <fstream>
 #include <iostream>
@@ -668,7 +675,8 @@ int main (int argc, char* argv[]) {
     strassen(A, B, C, n);
     printMatrix(C, n);
     return 0;
-}{% endhighlight %}
+}
+```
 
 For C++, you get those user-times for the different leaf-sizes:
 <figure class="aligncenter">

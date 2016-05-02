@@ -53,14 +53,17 @@ If you post a solution, please consider these restrictions:
 <h2>The Tests</h2>
 I will check the speed of a multiplication of two big matrices following for Python, Java and C++ for all algorithms like this:
 
-{% highlight bash %}time python scriptABC.py -i ../2000.in > result.txt
-diff result.txt bigMatrix.out{% endhighlight %}
+```bash
+time python scriptABC.py -i ../2000.in > result.txt
+diff result.txt bigMatrix.out
+```
 
 The <code>bigMatrix.out</code> was produced by the Python ijk-implementation. I make the diff to test if the result is correct.
 
 <h2>The Setting</h2>
 I created two "random" matrices $A, B \in \mathbb{N}^{2000 \times 2000}$ with this script. The file that was created needs about 29.7 MB and is also in the GIT-Hub repository. But you can also create the matrices with this script:
-{% highlight python %}#!/usr/bin/python
+```python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 import random
@@ -83,7 +86,8 @@ def saveMatrix(matrixA, matrixB, filename):
 n = 3
 matrixA = createRandomMatrix(n)
 matrixB = createRandomMatrix(n)
-saveMatrix(matrixA, matrixB, "2000.in"){% endhighlight %}
+saveMatrix(matrixA, matrixB, "2000.in")
+```
 
 All scripts are tested on my computer:
 <table>
@@ -112,7 +116,8 @@ All scripts are tested on my computer:
 I've used Python 2.6.5.
 
 <h3>ijk-algorithm</h3>
-{% highlight python %}#!/usr/bin/python
+```python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 from optparse import OptionParser
@@ -148,34 +153,45 @@ def standardMatrixProduct(A, B):
 
 A, B = read(options.filename)
 C = standardMatrixProduct(A, B)
-printMatrix(C){% endhighlight %}
+printMatrix(C)
+```
 
-{% highlight bash %}real	56m49.266s
+```bash
+real	56m49.266s
 user	56m30.524s
-sys	0m2.980s{% endhighlight %}
+sys	0m2.980s
+```
 
 <h3>ikj-algorithm</h3>
-{% highlight python %}def ikjMatrixProduct(A, B):
+```python
+def ikjMatrixProduct(A, B):
 	n = len(A)
 	C = [[0 for i in xrange(n)] for j in xrange(n)]
 	for i in xrange(n):
 		for k in xrange(n):
 			for j in xrange(n):
 				C[i][j] += A[i][k] * B[k][j]
-	return C{% endhighlight %}
+	return C
+```
 
-{% highlight bash %}real	44m36.507s
+```bash
+real	44m36.507s
 user	44m13.458s
-sys	0m2.000s{% endhighlight %}
+sys	0m2.000s
+```
 
 <h3>Psyco ikj-algorithm</h3>
 <a href="http://en.wikipedia.org/wiki/Psyco">Psyco</a> is a just in time compiler, which makes my scripts MUCH faster. It is very simple to use. Add these two lines at the top of the ikj-script:
-{% highlight python %}import psyco
-psyco.full(){% endhighlight %}
+```python
+import psyco
+psyco.full()
+```
 
-{% highlight bash %}real	6m14.820s
+```bash
+real	6m14.820s
 user	6m12.959s
-sys	0m0.620s{% endhighlight %}
+sys	0m0.620s
+```
 
 Amazing, isn't it?
 
@@ -183,7 +199,8 @@ Amazing, isn't it?
 <h4>NumPy</h4>
 NumPy-Version: 1.3.0 (Current version is 1.6.2, see <a href="http://en.wikipedia.org/wiki/NumPy">Wiki</a>)
 
-{% highlight python %}#!/usr/bin/python
+```python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 import numpy
@@ -215,16 +232,20 @@ A, B = read(options.filename)
 A = numpy.matrix(A)
 B = numpy.matrix(B)
 C = A * B # easy and intuitive, isn't it?
-printMatrix(C){% endhighlight %}
+printMatrix(C)
+```
 
-{% highlight bash %}real	1m38.425s
+```bash
+real	1m38.425s
 user	1m36.066s
-sys	0m0.520s{% endhighlight %}
+sys	0m0.520s
+```
 
 <h4>SciPy</h4>
 You might need to install <code>python-scitools</code>.
 
-{% highlight python %}#!/usr/bin/python
+```python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 import numpy
@@ -257,11 +278,14 @@ A, B = read(options.filename)
 A = scipy.matrix(A)
 B = scipy.matrix(B)
 C = A * B # easy and intuitive, isn't it?
-printMatrix(C){% endhighlight %}
+printMatrix(C)
+```
 
-{% highlight bash %}real	1m35.795s
+```bash
+real	1m35.795s
 user	1m33.438s
-sys	0m0.488s{% endhighlight %}
+sys	0m0.488s
+```
 
 <h3>Conclusion for Python</h3>
 <figure class="aligncenter">
@@ -274,12 +298,15 @@ By the way, it is useless to combine Psyco and NumPy. It gets a little bit faste
 
 <h2>Java</h2>
 I am using this Java version:
-{% highlight bash %}$ java -version
+```bash
+$ java -version
 java version "1.6.0_20"
 OpenJDK Runtime Environment (IcedTea6 1.9.13) (6b20-1.9.13-0ubuntu1~10.04.1)
-OpenJDK Server VM (build 19.0-b09, mixed mode){% endhighlight %}
+OpenJDK Server VM (build 19.0-b09, mixed mode)
+```
 <h3>ijk-algorithm</h3>
-{% highlight java %}import java.io.BufferedReader;
+```java
+import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.LinkedList;
@@ -378,31 +405,41 @@ public class Shell {
         printMatrix(C);
     }
 
-}{% endhighlight %}
+}
+```
 
-{% highlight bash %}real	27m21.295s
+```bash
+real	27m21.295s
 user	26m53.877s
-sys	0m4.368s{% endhighlight %}
+sys	0m4.368s
+```
 
 Note: Java is not C++! If you use <a href="http://docs.oracle.com/javase/6/docs/api/java/util/Vector.html">Vector</a> instead of <a href="http://docs.oracle.com/javase/6/docs/api/java/util/ArrayList.html">ArrayList</a>, you get these results:
-{% highlight bash %}real	82m26.754s
+```bash
+real	82m26.754s
 user	80m42.003s
-sys	0m24.598s{% endhighlight %}
+sys	0m24.598s
+```
 One reason might be that Vector is synchronized.
 
 <h3>ikj-algoirthm</h3>
 I've only switched line 60 and line 61.
-{% highlight bash %}real	2m9.478s
+```bash
+real	2m9.478s
 user	1m26.369s
-sys	0m39.162s{% endhighlight %}
+sys	0m39.162s
+```
 
 <h3>Library: JAMA</h3>
 I've searched in Google for "java matrix multiplication". The first 10 results were only implementations of the ijk-algorithm. Although the ijk-algorithm is very easy, most of the results were only questions where people tried to implement it.
 
 After some search (20 minutes minimum) I've found <a href="http://math.nist.gov/javanumerics/jama/">JAMA</a>. They also have a <a href="http://math.nist.gov/javanumerics/jama/doc/">documentation</a>. You might need to install this for the following code:
-{% highlight bash %}sudo apt-get install libjama-*{% endhighlight %}
+```bash
+sudo apt-get install libjama-*
+```
 
-{% highlight java %}import java.io.BufferedReader;
+```java
+import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -509,14 +546,19 @@ public class Shell {
         printMatrix(CM, n);
     }
 
-}{% endhighlight %}
+}
+```
 
-{% highlight bash %}real	1m36.506s
+```bash
+real	1m36.506s
 user	0m51.367s
-sys	0m45.043s{% endhighlight %}
+sys	0m45.043s
+```
 
 It took me about two hours to get it work. I had to add the JAMA-JAR to eclipse, export my project as a JAR and run it with
-{% highlight bash %}time java -jar jama-shell.jar -i ../2000.in > jama-result.out{% endhighlight %}
+```bash
+time java -jar jama-shell.jar -i ../2000.in > jama-result.out
+```
 
 I still have no idea how to compile it with bash only.
 
@@ -531,10 +573,13 @@ You should definitely know if some Java-datastructures are synchronised or not. 
 
 <h2>C++</h2>
 I have gcc 4.4.3 and compiled everything with these options:
-{% highlight bash %}g++ -std=c++98 -Wall -O3 -g myScript.cpp -o $(PROBLEM).out -pedantic{% endhighlight %}
+```bash
+g++ -std=c++98 -Wall -O3 -g myScript.cpp -o $(PROBLEM).out -pedantic
+```
 
 <h3>ijk-algorithm</h3>
-{% highlight cpp %}#include <sstream>
+```cpp
+#include <sstream>
 #include <string>
 #include <fstream>
 #include <iostream>
@@ -628,23 +673,31 @@ int main (int argc, char* argv[]) {
 	vector< vector<int> > C = ijkalgorithm(result.A, result.B);
 	printMatrix(C);
 	return 0;
-}{% endhighlight %}
-{% highlight bash %}real	1m40.439s
+}
+```
+```bash
+real	1m40.439s
 user	1m38.642s
-sys	0m0.280s{% endhighlight %}
+sys	0m0.280s
+```
 
 <h3>ikj-algorithm</h3>
 Again, I've only switched line 61 and 62.
 
-{% highlight bash %}real	0m15.172s
+```bash
+real	0m15.172s
 user	0m14.877s
-sys	0m0.248s{% endhighlight %}
+sys	0m0.248s
+```
 
 <h3>Library: Boost</h3>
 If you want to compile these scripts, you might have to install the boost libraries first. On Ubuntu you can enter:
-{% highlight bash %}sudo apt-get install libboost-math*{% endhighlight %}
+```bash
+sudo apt-get install libboost-math*
+```
 
-{% highlight cpp %}#include <sstream>
+```cpp
+#include <sstream>
 #include <string>
 #include <fstream>
 #include <iostream>
@@ -741,15 +794,20 @@ int main (int argc, char* argv[]) {
 	printMatrix(C);
 
 	return 0;
-}{% endhighlight %}
+}
+```
 
-{% highlight bash %}real	4m15.388s
+```bash
+real	4m15.388s
 user	4m10.272s
-sys	0m0.588s{% endhighlight %}
+sys	0m0.588s
+```
 
 <h3>Library: Blitz</h3>
 This is a great example of useless library. I've installed the library:
-{% highlight bash %}sudo apt-get install libblitz*{% endhighlight %}
+```bash
+sudo apt-get install libblitz*
+```
 Then I wanted to use it. Well, I have no clue how I could exactly use it! See my StackOverflow Question: <a href="http://stackoverflow.com/questions/11113993/is-a-documentation-of-blitz-matrices-available">Is a documentation of Blitz++ matrices available?</a>
 
 <h3>Conclusion for C++</h3>

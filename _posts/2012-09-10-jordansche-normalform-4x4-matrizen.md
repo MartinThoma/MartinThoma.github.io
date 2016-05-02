@@ -206,7 +206,8 @@ $S^{-1} \cdot A \cdot S = \frac{1}{101700} \cdot \begin{pmatrix}
 <h3>Programmierung</h3>
 Bei diesem Beispiel haben sowohl Python (numpy) als auch Wolfram|Alpha und Mathematica versagt:
 
-{% highlight python %}#!/usr/bin/python
+```python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 import numpy
@@ -220,7 +221,8 @@ S = numpy.matrix(S)
 
 numpy.set_printoptions(precision=2, suppress=True, linewidth=120)
 print("S^{-1} * A * S")
-print(linalg.inv(S) * A * S){% endhighlight %}
+print(linalg.inv(S) * A * S)
+```
 
 Wolfram|Alpha hatte eine zu kleine Eingabegr&ouml;&szlig;e, Mathematica hat einfach gar nicht mehr reagiert und Python hat ein falsches Ergebnis ausgespuckt.
 
@@ -335,7 +337,8 @@ $S = \begin{pmatrix}b_3 & b_4 & b_2 & b_1\end{pmatrix} = \begin{pmatrix}
 
 <h3>Programmierung</h3>
 Hier kann man mal sch&ouml;n ein paar Variationen ausprobieren:
-{% highlight python %}#!/usr/bin/python
+```python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 import numpy
@@ -359,7 +362,8 @@ S = numpy.matrix(S)
 
 numpy.set_printoptions(precision=2, suppress=True, linewidth=120)
 print("S^{-1} * B * S")
-print(linalg.inv(S) * B * S){% endhighlight %}
+print(linalg.inv(S) * B * S)
+```
 
 <h2>Beispiel 3</h2>
 Die Matrix aus diesem Beispiel ist aus der Klausur vom Fr&uuml;hjahr 2012 bei Prof. Dr. Wildericht Tuschmann.
@@ -514,7 +518,8 @@ S^{-1} \cdot C \cdot S &= \begin{pmatrix}
 
 <h3>Programmierung</h3>
 Hier habe ich mal f&uuml;r Leute, die kein Python haben, als Kommentar das Ergebnis pr&auml;sentiert. Ich denke damit ist klar, welchen Einfluss die Reihenfolge der Basisvektoren hat.
-{% highlight python %}#!/usr/bin/python
+```python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
  
 import numpy
@@ -562,4 +567,5 @@ S = numpy.matrix([b3,b2,b1,b4]).transpose() # [[ 1  1  0  0]
 print("3214")                               #  [ 0  1  1  0]
 print(linalg.inv(S) * C * S)                #  [ 0  0  1  0]
                                             #  [ 0  0  0  1]]
-{% endhighlight %}
+
+```

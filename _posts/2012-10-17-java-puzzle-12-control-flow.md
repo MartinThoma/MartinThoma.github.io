@@ -9,13 +9,15 @@ featured_image: 2012/07/java-thumb.png
 ---
 What is the output of the following <strong>HelloWorld.java</strong>?
 
-{% highlight java %}public class HelloWorld {
+```java
+public class HelloWorld {
     public static void main(String[] args) {
         if (2 < 1); {
             System.out.println("Yes");
         }
     }
-}{% endhighlight %}
+}
+```
 
 .
 .

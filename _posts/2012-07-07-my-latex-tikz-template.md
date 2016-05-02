@@ -116,10 +116,14 @@ This program built for i486-pc-linux-gnu
 ```
 
 The command <code>inkscape --version</code> should return:
-{% highlight bash %}Inkscape 0.47 r22583 (Apr  4 2010){% endhighlight %}
+```bash
+Inkscape 0.47 r22583 (Apr  4 2010)
+```
 
 And <code>pdf2svg --version</code> should return:
-{% highlight bash %}Usage: pdf2svg <in file.pdf> <out file.svg> [<page no>]{% endhighlight %}
+```bash
+Usage: pdf2svg <in file.pdf> <out file.svg> [<page no>]
+```
 
 <h2>How to use it</h2>
 You have to place the Makefile in the same folder as latex-document.tex. If you have done this and if you meet the requirements, you can execute:

@@ -18,13 +18,15 @@ $
 
 The simplest solution to get this number is:
 
-{% highlight python %}
+```python
+
 def fib(n):
     if n < 2:
         return n
     else:
         return fib(n-1) + fib(n-2)
-{% endhighlight %}
+
+```
 
 The problem is, of course, that the number of evaluations goes wild. Here is a table of the number of function calls
 
@@ -77,7 +79,8 @@ One way to solve the problem much faster (in fact in $\mathcal{O}(n)$ time and s
 
 A very neat way to achieve this are decorators. It might be a common problem that you have a recursive, mathematical function with no side effects. So you can write a wrapper that checks if the value has already been calculated. If not, the function proceeds as usual. It it has already been calculated, you can simply look it up:
 
-{% highlight python %}
+```python
+
 def memoize(obj):
     cache = {}
 
@@ -93,24 +96,29 @@ def fib(n):
         return n
     else:
         return fib(n-1) + fib(n-2)
-{% endhighlight %}
+
+```
 
 Notice that I've only added <code>@memoize</code> over the function definiton of <code>fib</code>! I love Python ☺
 
 By the way, this formula has also some limitations. Python has a fixed maximum recursion depth. So <code>fib(332)</code> worked fine, but <code>fib(333)</code> gave:
-{% highlight bash %}
+```bash
+
 RuntimeError: maximum recursion depth exceeded in comparison
-{% endhighlight %}
+
+```
 
 You can get around this limitation by successive calls of fib:
 
-{% highlight python %}
+```python
+
 # Call to fill array
 fib(332)
 
 # The number of recursive steps is now much smaller:
 print(fib(500))
-{% endhighlight %}
+
+```
 
 That gave 139423224561697880139724382870407283950070256587697307264108962948325571622863290691557658876222521294125. A pretty big number.
 
@@ -123,7 +131,8 @@ $f(n) = \frac{\varphi^n - \psi^n}{\phi - \psi}$
 
 Although this is mathematically exact, it will not work on computers due to a fixed floating point precision. Lets check how long it works:
 
-{% highlight python %}
+```python
+
 #!/usr/bin/env python
 
 import functools
@@ -158,7 +167,8 @@ for i in count(0):
              + "gives due to precicion error %i (delta=%i).") 
                  % (i, exact, constTime, abs(exact-constTime)))
         break
-{% endhighlight %}
+
+```
 
 So the answer is:
 
@@ -169,14 +179,16 @@ This is a reason to prefer the $\mathcal{O}(n)$ solution over the $\mathcal{O}(1
 <h2>Very high numbers</h2>
 The following solution is fast and works 0.075 seconds for the 20000 Fibonacci number (which has 4180 digits).
 
-{% highlight python %}
+```python
+
 def fib(n):
     def accFib(n, Nm2=0, Nm1=1):
         for i in range(n):
             Nm2, Nm1 = Nm1, Nm1+Nm2
         return Nm2   
     return accFib(n)
-{% endhighlight %}
+
+```
 
 <h2>Additional ressources</h2>
 The article on <a href="http://en.literateprograms.org/Fibonacci_numbers_(Python)">literate programs</a> is worth reading. They show some very different programs that calculate Fibonacci numbers.

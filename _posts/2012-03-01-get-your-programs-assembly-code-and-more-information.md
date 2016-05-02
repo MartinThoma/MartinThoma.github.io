@@ -12,9 +12,13 @@ I've talked today with a fellow student about some system internals and we weren
 <h2>General Information</h2>
 It is important to know that I will use <strong>AT&T syntax</strong> in this article!
 This is AT&T Syntax: 
-{% highlight text %}movl %esp, %ebp{% endhighlight %}
+```text
+movl %esp, %ebp
+```
 And this is Intel Syntax:
-{% highlight text %}MOVL EBP, ESP{% endhighlight %}
+```text
+MOVL EBP, ESP
+```
 
 <h3>Pointers</h3>
 <ul>
@@ -56,20 +60,25 @@ Many instructions have suffixes. This is what they mean<small><sup><a href="#ref
 <h2>Simple example</h2>
 <h3>C-Code</h3>
 This program simply outputs 
-{% highlight c %}#include <stdio.h>
+```c
+#include <stdio.h>
 
 int main(void)
 {
     printf("%i", 1337*42);
     return 0;
-}{% endhighlight %}
+}
+```
 
 <h3>Assembly</h3>
 Now I compile it and I save the assembly code:
-{% highlight bash %}gcc -S test.c; gcc test.c -o test{% endhighlight %}
+```bash
+gcc -S test.c; gcc test.c -o test
+```
 This gives me test.s (the assembly code) and an executable called "test".
 
-{% highlight text %}	.file	"test.c"
+```text
+	.file	"test.c"
 	.section	.rodata
 .LC0:
 	.string	"%i"
@@ -90,7 +99,8 @@ main:
 	ret
 	.size	main, .-main
 	.ident	"GCC: (Ubuntu 4.4.3-4ubuntu5) 4.4.3"
-	.section	.note.GNU-stack,"",@progbits{% endhighlight %}
+	.section	.note.GNU-stack,"",@progbits
+```
 This is code of the <a href="http://en.wikipedia.org/wiki/GNU_Assembler">GNU Assembler</a>. I guess other assemblers might produce other code. Could anybody please give me an example of other assemblers?
 
 The first and most important thing you might notice is that neither "1337" nor "42" appear in the assembly code, but 56154 which is 1337*42. I didn't use any optimization options! You might also notice that constants begin with a dollar sign and registers (esp, ebp) begin with a percent sign.
@@ -107,17 +117,22 @@ Line 14: I'm not quite sure why you need the 4. I thought the integer size could
 <code>objdump</code> gives even more information!
 
 Archive header information: objdump -a test
-{% highlight text %}test:     file format elf32-i386
-test{% endhighlight %}
+```text
+test:     file format elf32-i386
+test
+```
 
 File header information: objdump -f test
-{% highlight text %}test:     file format elf32-i386
+```text
+test:     file format elf32-i386
 architecture: i386, flags 0x00000112:
 EXEC_P, HAS_SYMS, D_PAGED
-start address 0x08048330{% endhighlight %}
+start address 0x08048330
+```
 
 Object specific file header contents: objdump -p test
-{% highlight text %}test:     file format elf32-i386
+```text
+test:     file format elf32-i386
 
 Program Header:
     PHDR off    0x00000034 vaddr 0x08048034 paddr 0x08048034 align 2**2
@@ -161,10 +176,12 @@ Dynamic Section:
 
 Version References:
   required from libc.so.6:
-    0x0d696910 0x00 02 GLIBC_2.0{% endhighlight %}
+    0x0d696910 0x00 02 GLIBC_2.0
+```
 
 Display the contents of the section headers: objdump -h test
-{% highlight text %}test:     file format elf32-i386
+```text
+test:     file format elf32-i386
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
@@ -219,20 +236,24 @@ Idx Name          Size      VMA       LMA       File off  Algn
  24 .bss          00000008  0804a014  0804a014  00001014  2**2
                   ALLOC
  25 .comment      00000023  00000000  00000000  00001014  2**0
-                  CONTENTS, READONLY{% endhighlight %}
+                  CONTENTS, READONLY
+```
 
 Display DWARF info in the file: objdump --dwarf test
-{% highlight text %}test:     file format elf32-i386
+```text
+test:     file format elf32-i386
 
 Contents of the .eh_frame section:
 
-00000000 ZERO terminator{% endhighlight %}
+00000000 ZERO terminator
+```
 By the way, <a href="http://en.wikipedia.org/wiki/Executable_and_Linkable_Format">ELF</a> is an executable file format and <a href="http://en.wikipedia.org/wiki/DWARF">DWARF</a> is a debugging file format. I guess they had to think quite long to find this <a href="http://en.wikipedia.org/wiki/Backronym">backronym</a>.
 
 <h2>Fibonacci</h2>
 <h3>C-Code</h3>
 This is the most simple version of Fibonacci I could find:<small><sup><a href="#ref7" name="anchor7">[7]</a></sup></small>
-{% highlight c %}#include <stdio.h>
+```c
+#include <stdio.h>
 
 unsigned int fib(unsigned int n)
 {
@@ -243,10 +264,12 @@ int main(void)
 {
 	printf("%i", fib(13));
 	return 0;
-}{% endhighlight %}
+}
+```
 
 <h3>Assembly</h3>
-{% highlight text %}	.file	"test.c"
+```text
+	.file	"test.c"
 	.text
 .globl fib
 	.type	fib, @function
@@ -298,7 +321,8 @@ main:
 	ret
 	.size	main, .-main
 	.ident	"GCC: (Ubuntu 4.4.3-4ubuntu5) 4.4.3"
-	.section	.note.GNU-stack,"",@progbits{% endhighlight %}
+	.section	.note.GNU-stack,"",@progbits
+```
 
 <h2>References</h2>
 <ol>

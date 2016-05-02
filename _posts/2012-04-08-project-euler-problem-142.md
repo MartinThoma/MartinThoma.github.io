@@ -21,7 +21,8 @@ I don't want to post the solution (if you want to cheat, I guess you could easil
 <h2>First thought: Brute-force</h2>
 <a href="http://en.wikipedia.org/wiki/Brute-force_search">Brute-force</a> is the easiest way that could give you the solution. So I wrote this piece of code:
 
-{% highlight python %}#!/usr/bin/python
+```python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 import sys
@@ -46,7 +47,8 @@ for x in xrange(3,1000):
 					and is_square(y + z)
 					and is_square(y - z)):
 						print ("%i - %i - %i" % (x, y, z))
-						sys.exit(){% endhighlight %}
+						sys.exit()
+```
 
 This is quite fast until you reach about 500. So this is not a good way to solve it.
 

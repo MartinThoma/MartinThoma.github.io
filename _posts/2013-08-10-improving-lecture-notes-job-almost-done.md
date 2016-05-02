@@ -39,7 +39,8 @@ svn log -qvr 1:HEAD|perl -nle 'print if /^Changed paths:/ ... /^-+$/ and /^\s/' 
     | sort | uniq -c | sort -n
 ``` 
 
-{% highlight bash %}
+```bash
+
       1    M /ti1.bib
       2    M /
       2    M /anhang-1.tex
@@ -60,7 +61,8 @@ svn log -qvr 1:HEAD|perl -nle 'print if /^Changed paths:/ ... /^-+$/ and /^\s/' 
      19    M /sn.tex
      22    M /README.txt
      28    M /skript.pdf
-{% endhighlight %}
+
+```
 
 With <a href="https://sourceforge.net/projects/codeanalyze-gpl/">CodeAnalyzer</a> over all .tex files:
 <table>

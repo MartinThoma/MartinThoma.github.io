@@ -30,25 +30,30 @@ More about parallel matrix multiplication:
 Because of global interpreter lock (GIL), you need to start new processes in Python (<a href="http://stackoverflow.com/a/9786225/562769">source</a>).
 
 The ikj single core algorithm implemented in Python needs:
-{% highlight bash %}
+```bash
+
 time python ikjMultiplication.py -i 2000.in > 2000-nonparallel.out
 
 real	36m0.699s
 user	35m53.463s
 sys	0m2.356s
-{% endhighlight %}
+
+```
 
 The most simple way to parallelize the ikj algorith is to use the <a href="http://docs.python.org/2/library/multiprocessing.html">multiprocessing module</a> and compute every line of the result matrix C with a new process. But for the 2000x2000-example, this would mean we started 2000 processes. The overhead is much worse than the benefit:
-{% highlight bash %}
+```bash
+
 time python ikjMultiplication.py -i 2000.in > 2000-parallel.out
 
 real	20m47.693s
 user	40m34.460s
 sys	0m2.092s
-{% endhighlight %}
+
+```
 
 When we share memory, the code looks like this:
-{% highlight python %}
+```python
+
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
@@ -126,20 +131,24 @@ if __name__ == "__main__":
     mp_arr = multiprocessing.Array(ctypes.c_int, n*p)
     C = ikjMatrixProduct(A, B, threadNumber)
     printMatrix(C, args.output)
-{% endhighlight %}
+
+```
 
 and it needs MUCH more time:
-{% highlight bash %}
+```bash
+
 time python ikjMultiplication-shared.py -i 2000.in > 2000-parallel-2threads.out
 
 real	131m35.433s
 user	250m36.820s
 sys	0m9.533s
-{% endhighlight %}
+
+```
 
 When we don't use shared memory, things run faster:
 
-{% highlight python %}
+```python
+
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
@@ -210,20 +219,24 @@ if __name__ == "__main__":
     C = [[0 for i in xrange(n)] for j in xrange(n)]
     C = ikjMatrixProduct(A, B, threadNumber)
     printMatrix(C, args.output)
-{% endhighlight %}
 
-{% highlight bash %}
+```
+
+```bash
+
 time python ikjMultiplication.py -i 2000.in > 2000-parallel-4threads.out
 
 real	22m46.066s
 user	41m42.396s
 sys	0m2.324s
 
-{% endhighlight %}
+
+```
 
 <h2>Java</h2>
 Shell.java:
-{% highlight java %}
+```java
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -354,10 +367,12 @@ public class Shell {
 		printMatrix(C);
 	}
 }
-{% endhighlight %}
+
+```
 
 LineMultiplier.java:
-{% highlight java %}
+```java
+
 import java.util.ArrayList;
 import java.util.concurrent.Callable;
 
@@ -389,10 +404,12 @@ public class LineMultiplier implements Callable<int[][]> {
 		return C;
 	}
 }
-{% endhighlight %}
+
+```
 
 Execute it with only one thread:
-{% highlight bash %}
+```bash
+
 time java Shell -i 2000.in 1 > 2000-paralllel.out
 Number of cores:	2
 0
@@ -400,10 +417,12 @@ Number of cores:	2
 real	0m40.571s
 user	0m42.259s
 sys	0m0.388s
-{% endhighlight %}
+
+```
 
 Execute it with two threads:
-{% highlight bash %}
+```bash
+
 time java Shell -i 2000.in 2 > 2000-paralllel.out
 Number of cores:	2
 0
@@ -412,7 +431,8 @@ Number of cores:	2
 real	0m30.188s
 user	0m54.999s
 sys	0m0.512s
-{% endhighlight %}
+
+```
 
 Note that real time is lower than user time. The reason is simply that the execution time on each processor is added. So user time might be double as high as real time!
 
@@ -429,13 +449,15 @@ We got from 40.571s down to 0m30.188s!
 Making the ikj-algorithm parallel is trivial with C++. You only need to add <code>#pragma omp parallel for</code> before the outer most for loop and add <code>-fopenmp</code> as a compile flag!
 (If you really want to see the code, go to <a href="https://github.com/MartinThoma/matrix-multiplication/tree/master/C%2B%2B/Parallel">my Git repository</a>.)
 
-{% highlight bash %}
+```bash
+
 $ time ./ikj-algorithm.out 2 2000.in > 2000-parallel.out
 
 real	0m12.563s
 user	0m20.569s
 sys	0m0.156s
-{% endhighlight %}
+
+```
 
 So we got from 20.407 seconds down to 12.563 seconds by adding only one line!
 

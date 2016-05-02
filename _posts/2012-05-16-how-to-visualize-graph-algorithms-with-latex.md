@@ -72,13 +72,19 @@ You should get something similar to this:
 
 <h3>Animate</h3>
 Animations can be created with Tikz by working with layers. You don't want to redraw the whole graph every time. Most of the time you want to overlay/underlay some parts of the graph. This can be achieved by declaring a new layer:
-{% highlight latex %}\pgfdeclarelayer{NAME}{% endhighlight %}
+```latex
+\pgfdeclarelayer{NAME}
+```
 Then you need to tell PGF which layers are to use in the next figure:
-{% highlight latex %}\pgfsetlayers{LAYER LIST}{% endhighlight %}
+```latex
+\pgfsetlayers{LAYER LIST}
+```
 The layer main should always be part of the list. Here is an example:
-{% highlight latex %}\pgfdeclarelayer{background}
+```latex
+\pgfdeclarelayer{background}
 \pgfdeclarelayer{foreground}
-\pgfsetlayers{background,main,foreground}{% endhighlight %}
+\pgfsetlayers{background,main,foreground}
+```
 
 Now the magic begins. You consecutively add frames to the layer:
 
@@ -144,9 +150,13 @@ The number (2, 10 and 12 in this example) indicate the frame in which it should 
 
 <h3>Simplify it</h3>
 You can make some definitions, e.g.:
-{% highlight latex %}draw,line width=5pt,-,red!50{% endhighlight %}
+```latex
+draw,line width=5pt,-,red!50
+```
 can be replaced by
-{% highlight latex %}\tikzstyle{selected edge} = [draw,line width=5pt,-,red!50]{% endhighlight %}
+```latex
+\tikzstyle{selected edge} = [draw,line width=5pt,-,red!50]
+```
 
 You can make loops:
 

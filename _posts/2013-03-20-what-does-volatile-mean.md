@@ -40,7 +40,8 @@ that field.</blockquote>
 <h3>Thermometer</h3>
 Imagine you want to build your own thermometer. So you have to access hardware. Now you only want to print the temperature periodically. Something like this:
 
-{% highlight c %}
+```c
+
 #include <stdio.h>
 #include <unistd.h>
 
@@ -57,7 +58,8 @@ int main() {
 	}
 
 	return 0;
-}{% endhighlight %}
+}
+```
 
 Now, as you always access the same register and you don't change it, the CPU could cache the result. That would be bad, because another source (the hardware) changes the value. So you don't want to cache it. This is - if I understand it correctly - what volatile is good for. It makes sure that you really access memory and not some registers, because it got optimized or cached.
 

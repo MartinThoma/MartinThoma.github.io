@@ -103,7 +103,8 @@ range is from '1970-01-01 00:00:01' UTC to '2038-01-19 03:14:07' UTC</li>
 </ul>
 
 Those examples show more than a long explanation:
-{% highlight bash %}mysql> SELECT CURTIME();
+```bash
+mysql> SELECT CURTIME();
         -> '23:50:26'
 # Adding zero will NOT convert it to a UNIX timestamp:
 mysql> SELECT CURTIME() + 0;
@@ -121,7 +122,8 @@ mysql> SELECT UNIX_TIMESTAMP('2011-10-04 18:33:45');
         -> 1317746025
 # You can also convert it:
 mysql> SELECT UNIX_TIMESTAMP(`my_datetime_row`) FROM `my_table`
-{% endhighlight %}
+
+```
 
 <h3>Comparisons</h3>
 You can compare two DATETIMEs like this:

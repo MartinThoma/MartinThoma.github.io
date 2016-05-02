@@ -8,9 +8,13 @@ tags: Java
 featured_image: 2012/07/java-thumb.png
 ---
 I've told my students to write
-{% highlight java %}List<MyClass> myList = new ArrayList<MyClass>();{% endhighlight %}
+```java
+List<MyClass> myList = new ArrayList<MyClass>();
+```
 instead of
-{% highlight java %}ArrayList<MyClass> myList = new ArrayList<MyClass>();{% endhighlight %}
+```java
+ArrayList<MyClass> myList = new ArrayList<MyClass>();
+```
 as this allows them to switch to any Class that implements List without having to change more code.
 
 This does always make sense, except if you need methods from ArrayList or LinkedList. But which methods does <a href="http://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html">ArrayList</a> / <a href="http://docs.oracle.com/javase/7/docs/api/java/util/LinkedList.html">LinkedList</a> offer that <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html">List</a> doesn't have?

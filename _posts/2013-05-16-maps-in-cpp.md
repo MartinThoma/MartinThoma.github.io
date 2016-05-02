@@ -11,7 +11,8 @@ Maps are one of the most useful datastructures in C++ and there is no excuse for
 
 Here is a basic example that shows how you can use it:
 
-{% highlight cpp %}
+```cpp
+
 #include <iostream> // cout
 #include <string>
 
@@ -53,7 +54,8 @@ int main() {
         cout << "\t" << "No." << endl;
     }
 }
-{% endhighlight %}
+
+```
 
 <h2>See also</h2>
 <ul>

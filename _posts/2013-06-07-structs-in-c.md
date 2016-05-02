@@ -11,7 +11,8 @@ I guess this article isn't very interesting, except if you have VERY little expe
 
 <h2>Point</h2>
 <h3>Basic example</h3>
-{% highlight cpp %}
+```cpp
+
 #include <iostream>
 
 using namespace std;
@@ -26,10 +27,12 @@ int main() {
     printf("(%.2f|%.2f)\n", a.x, a.y);
     return 0;
 }
-{% endhighlight %}
+
+```
 
 <h3>Functions</h3>
-{% highlight cpp %}
+```cpp
+
 #include <iostream>
 #define ABS(a) (a < 0 ? -(a) : a)
 
@@ -52,7 +55,8 @@ int main() {
     printf("Distance: %.2f\n", getManhattanDistance(a, b));
     return 0;
 }
-{% endhighlight %}
+
+```
 
 <h2>More stuff</h2>
 <h3>Initialization</h3>
@@ -61,7 +65,8 @@ int main() {
 <h3>Constructors</h3>
 You can write constructors for structs:
 
-{% highlight cpp %}
+```cpp
+
 #include <iostream>
 #define ABS(a) (a < 0 ? -(a) : a)
 
@@ -89,22 +94,26 @@ int main() {
     printf("Distance: %.2f\n", getManhattanDistance(a, b));
     return 0;
 }
-{% endhighlight %}
+
+```
 
 Which gives:
 
-{% highlight bash %}
+```bash
+
 ./struct-example.out 
 (2.00|5.00)
 (3.00|-4.00)
 (2.00|5.00)
 Distance: 10.00
-{% endhighlight %}
+
+```
 
 <h3>Functions in structs</h3>
 You can also add functions to structs:
 
-{% highlight cpp %}
+```cpp
+
 #include <iostream>
 #define ABS(a) (a < 0 ? -(a) : a)
 
@@ -132,14 +141,17 @@ int main() {
     printf("Distance: %.2f\n", a.getZeroDist());
     return 0;
 }
-{% endhighlight %}
+
+```
 
 Result:
-{% highlight bash %}
+```bash
+
 ./struct-example.out 
 (3.00|-10.00)
 Distance: 13.00
-{% endhighlight %}
+
+```
 
 <h2>Read also</h2>
 <ul>

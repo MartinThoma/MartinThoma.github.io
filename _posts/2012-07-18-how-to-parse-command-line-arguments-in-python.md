@@ -61,17 +61,20 @@ Every option has some values like:
 </ul>
 
 argparse automatically generates a help text. So if you call <code>python myScript.py --help</code> you will get something like that:
-{% highlight bash %}usage: ikjMultiplication.py [-h] [-i FILE]
+```bash
+usage: ikjMultiplication.py [-h] [-i FILE]
 
 ikjMatrix multiplication
 
 optional arguments:
   -h, --help  show this help message and exit
-  -i FILE     input file with two matrices{% endhighlight %}
+  -i FILE     input file with two matrices
+```
 
 <h3>Example 1: Fibonacci</h3>
 It is absolutely no problem to calculate the 100,000st Fibonacci number.
-{% highlight python %}#!/usr/bin/env python
+```python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 def mul(A, B):
@@ -96,7 +99,8 @@ if __name__ == "__main__":
                         help="print the N-th fibonacci number")
 
     args = parser.parse_args()
-    print fib(args.n){% endhighlight %}
+    print fib(args.n)
+```
 
 Note that it uses <code>type=int</code> not <code>type="int"</code> as it was in optparse.
 

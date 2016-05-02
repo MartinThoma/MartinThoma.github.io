@@ -27,7 +27,8 @@ Johannes Schickling has written a very nice <a href="http://schickling.github.io
         </figure>
 
 <h2>Python</h2>
-{% highlight python %}
+```python
+
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
@@ -77,7 +78,8 @@ def solveLinearCongruenceEquations(rests, modulos):
 if __name__ == "__main__":
 	import doctest
 	doctest.testmod()
-{% endhighlight %}
+
+```
 
 <h2>Links</h2>
 <ul>

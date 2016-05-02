@@ -42,7 +42,8 @@ The higher the ZNCC gets, the more are those two images correlated.
 
 Here is some Python code:
 
-{% highlight python %}
+```python
+
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
@@ -80,7 +81,8 @@ if __name__ == "__main__":
     B2 = [[1,2,3],[4,5,6],[7,8,7]]
     print(zncc(A, B1, 1,1,1,1, 1))
     print(zncc(A, B2, 1,1,1,1, 1))
-{% endhighlight %}
+
+```
 
 <h2>See also</h2>
 <ul>

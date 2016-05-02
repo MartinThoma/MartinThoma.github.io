@@ -23,7 +23,8 @@ The solution to this task is pretty straight forward. As the nominator has to ha
 How do we check a given nominator / denominator pair? Well, we can go through each digit of the nominator and check if it is also in the denominator. If it is there, we have to check if the resulting fraction has the same value as before. If it has, we can print it.
 
 <h2>My solution</h2>
-{% highlight python %}#!/usr/bin/python
+```python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 def isCuriousFraction(numerator, denomiator):
@@ -47,7 +48,8 @@ if __name__ == "__main__":
         if i % 10 == 0: # those are not interesting
             continue
         for j in xrange(i+1, 100):
-            isCuriousFraction(i, j){% endhighlight %}
+            isCuriousFraction(i, j)
+```
 
 <h2>Solving it without programming</h2>
 You can also solve this without programming at all: See <a href="http://projecteuler.net/thread=33;page=8#86864">post</a>.

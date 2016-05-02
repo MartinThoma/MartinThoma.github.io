@@ -11,7 +11,11 @@ I just wanted to get some pages out of a bigger PDF file. The tool that can be u
 
 <h2>Usage</h2>
 Split the file, so that every page becomes a new PDF file:
-{% highlight bash %}pdftk myfile.pdf burst{% endhighlight %}
+```bash
+pdftk myfile.pdf burst
+```
 
 Extract pages 10 to 12 from <tt>bigPDF.pdf</tt>:
-{% highlight bash %}pdftk bigPDF.pdf cat 10-12 output output.pdf{% endhighlight %}
+```bash
+pdftk bigPDF.pdf cat 10-12 output output.pdf
+```

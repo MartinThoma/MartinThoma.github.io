@@ -10,18 +10,26 @@ featured_image: 2011/09/Ubuntu-Logo.png
 PPAs (<a href="http://en.wikipedia.org/wiki/Personal_Package_Archive">Personal Package Archive</a>) provide additional resources. They are small repositories you can add to get some special content.
 
 You can add them with Bash:
-{% highlight bash %}sudo add-apt-repository ppa:<repository-name>{% endhighlight %}
+```bash
+sudo add-apt-repository ppa:<repository-name>
+```
 
 Lets make an example:
 
 If you want to install <a href="http://clipgrab.de/en">Clipgrab</a>, you add the repository first:
-{% highlight bash %}sudo add-apt-repository ppa:clipgrab{% endhighlight %}
+```bash
+sudo add-apt-repository ppa:clipgrab
+```
 
 Then you have to update your sources:
-{% highlight bash %}sudo apt-get update{% endhighlight %}
+```bash
+sudo apt-get update
+```
 
 Now you can install clipgrab the usual way:
-{% highlight bash %}sudo apt-get install clipgrab{% endhighlight %}
+```bash
+sudo apt-get install clipgrab
+```
 
 <h2>Further Reading</h2>
 <ul>

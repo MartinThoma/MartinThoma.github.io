@@ -34,7 +34,8 @@ You can calculate the greatest common divisor with <a href="http://en.wikipedia.
 Knowing the greatest common divisor is important, because we want that our Faction class automatically cancels those factors so that the numerator and denominator are as small as possible.
 
 <h2>C++ Code</h2>
-{% highlight cpp %}
+```cpp
+
 #include <iostream>
 
 using namespace std;
@@ -193,7 +194,8 @@ int main() {
 
     return 0;
 }
-{% endhighlight %}
+
+```
 
 <h2>See also</h2>
 You might also be interested in my article about <a href="../cpp-operator-overloading/" title="C++ Operator overloading">operator overloading</a>.

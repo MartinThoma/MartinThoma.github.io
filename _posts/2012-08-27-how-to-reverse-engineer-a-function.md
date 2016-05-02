@@ -72,7 +72,8 @@ And here is an approximation:
         </figure>
 
 <h2>The LaTeX Code</h2>
-{% highlight text %}\documentclass{article}
+```text
+\documentclass{article}
 \usepackage[pdftex,active,tightpage]{preview}
 \setlength\PreviewBorder{2mm}
 \usepackage{pgfplots}
@@ -135,7 +136,8 @@ And here is an approximation:
     \end{axis} 
 \end{tikzpicture}
 \end{preview}
-\end{document}{% endhighlight %}
+\end{document}
+```
 
 <h2>The result</h2>
 <figure class="aligncenter">

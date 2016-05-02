@@ -37,7 +37,8 @@ Sobald man keine neuen Zeilen / Bl&ouml;cke mehr bilden kann, ist man fertig. Di
 <h2>Code</h2>
 Ich finde Algorithmen werden am eindeutigsten durch Implementierungen beschrieben. Hier ist meine f&uuml;r das Consensus-Verfahren:
 
-{% highlight python %}
+```python
+
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
@@ -159,10 +160,12 @@ def consensus(terme):
 
 consensus(['-0-00', '--00-', '-1-00', '010-1', '1-11-', '110-1'])
 #consensus(['-00-', '-011', '0100'])
-{% endhighlight %}
+
+```
 
 Ausgabe:
-{% highlight text %}
+```text
+
 Nr	 Gebildet aus 	 W&uuml;rfel	 Gestrichen wegen
 1			-0-00	7
 2			--00-	
@@ -183,7 +186,8 @@ Nr	 Gebildet aus 	 W&uuml;rfel	 Gestrichen wegen
 		10, 8	1111-	5
 		10, 2	1--00	7
 --------------------------------------------------
-{% endhighlight %}
+
+```
 
 <h2>Quellen</h2>
 Die Folien von Dr. Asfour (DT-VL12) sowie die Vorlesung (auf <a href="http://www.youtube.com/watch?v=K1NAj4ecPDw#t=31m18s">YouTube</a> verf&uuml;gbar. Der <a href="http://www.youtube.com/watch?v=K1NAj4ecPDw#t=47m30s">interessante Teil</a> beginnt erst sehr sp&auml;t.). Es wurde sogar <a href="http://www.youtube.com/watch?v=4X1w0B4w65k#t=1h10m38s">sp&auml;ter nochmals von Herrn Prof. Dr. Asfour erkl&auml;rt</a>.

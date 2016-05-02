@@ -73,7 +73,8 @@ You can now easily see that you're in the same situation as in the first step! N
 This is the reason why solving such a system of equations is sometimes called "forward substitution".
 
 <h2>Python straightforward algorithm</h2>
-{% highlight python %}
+```python
+
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
@@ -94,7 +95,8 @@ if __name__ == "__main__":
     b =  [3, 1, 4, 1, 5]
 
     print(solveLowerUnitriangularMatrix(L, b))
-{% endhighlight %}
+
+```
 
 Pretty easy, isn't it? But can we even do better?
 
@@ -103,7 +105,8 @@ Yes, we can!
 
 Take a look at what's happening when row = 0 in line 9. We make a step that is not necessary. Also, we can take the space of b to store x!
 
-{% highlight python %}
+```python
+
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
@@ -122,7 +125,8 @@ if __name__ == "__main__":
 
     solveLowerUnitriangularMatrix(L, b)
     print(b)
-{% endhighlight %}
+
+```
 
 Now it looks super clean, doesn't it ☺
 
@@ -156,7 +160,8 @@ I do ignore the size of the input. So $\mathcal{O}(1)$ means: For variable sized
 In the last algorithm I've presented you can see that we actually don't check the values on or above of the diagonal. 
 This means, the following two function calls do give the same b:
 
-{% highlight python %}
+```python
+
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
@@ -184,6 +189,7 @@ if __name__ == "__main__":
     b =  [3, 1, 4, 1, 5]
     solveLowerUnitriangularMatrix(L, b)
     print(b)
-{% endhighlight %}
+
+```
 
 So, theoretically, we could store some other information on and above of the diagonal. We also don't change L. Keep this in mind, this might be important in later articles.

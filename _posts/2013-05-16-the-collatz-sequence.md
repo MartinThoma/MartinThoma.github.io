@@ -49,7 +49,8 @@ When you go through all possible Collatz sequences with $n \in 1, \dots, 15$, th
 
 This image was created with the following Python script:
 
-{% highlight python %}
+```python
+
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
@@ -108,11 +109,14 @@ if __name__ == "__main__":
     writeDotfile(args.filename, args.limit, set([1]))
     import os
     createPng(args.filename, os.path.splitext(args.filename)[0], args.program)
-{% endhighlight %}
+
+```
 
 called like this:
 
-{% highlight bash %}python small-numbers.py -n 15 -p fdp{% endhighlight %}
+```bash
+python small-numbers.py -n 15 -p fdp
+```
 
 <h2>$n=27$</h2>
 $n=27$ is an enourmously long sequence:
@@ -123,7 +127,8 @@ $n=27$ is an enourmously long sequence:
         </figure>
 
 It was created with pgfplots:
-{% highlight text %}
+```text
+
 \documentclass[varwidth=true, border=2pt]{standalone}
 \usepackage[margin=2.5cm]{geometry} %layout
 
@@ -147,7 +152,8 @@ It was created with pgfplots:
     \end{axis}
 \end{tikzpicture}
 \end{document}
-{% endhighlight %}
+
+```
 
 <h2>How long are Collatz sequences?</h2>
 I've been interested in the question how long Collatz sequences are. Of course, they will be longer when $n$ is bigger. But how does the choice of $n$ influence the number of steps it takes until you reach $c^n_i = 1$?
@@ -163,7 +169,8 @@ For every hexagon, you check how many datapoints $(n,steps)$ you have there. Thi
 
 The data was created as a 116.9 MB csv file with this C++ code:
 
-{% highlight cpp %}
+```cpp
+
 #include <iostream>
 #include <string>
 #include <map>
@@ -301,14 +308,18 @@ int main(int argc, char* argv[]) {
 
     return 0;
 }
-{% endhighlight %}
+
+```
 
 Then I've processed it with R:
 
-{% highlight bash %}R -f analyze.R{% endhighlight %}
+```bash
+R -f analyze.R
+```
 
 analyze.R:
-{% highlight text %}
+```text
+
 library(ggplot2)
 memory.limit(4000)
 
@@ -322,10 +333,13 @@ p<-p + opts(panel.background = theme_rect(fill='white', colour='white'))
 
 # This will save the result in a pdf file called Rplots.pdf
 p
-{% endhighlight %}
+
+```
 
 And finally, I've converted it to png:
-{% highlight bash %}inkscape Rplots.pdf -w 512 --export-png=collatz-sequence-steps.png{% endhighlight %}
+```bash
+inkscape Rplots.pdf -w 512 --export-png=collatz-sequence-steps.png
+```
 
 I've explained this a bit more detailed on <a href="http://tex.stackexchange.com/a/114577/5645">StackExchange</a>.
 
@@ -337,7 +351,8 @@ In the following plot you can see $n \in 1, \dots, 10,000,000$ on the $x$-axis a
             <figcaption class="text-center">Hexagonal binpacking plot for maximum in sequence</figcaption>
         </figure>
 
-{% highlight text %}
+```text
+
 library(ggplot2)
 
 mydata = read.csv("../collatz-maxNumber.csv")
@@ -350,18 +365,21 @@ p<-p + opts(panel.background = theme_rect(fill='white', colour='white'))
 
 # This will save the result in a pdf file called Rplots.pdf
 p
-{% endhighlight %}
+
+```
 
 <h2>Execution times</h2>
 Generating all Collatz sequences up to 10,000,000 items took about 50 seconds. But R needed about 10 minutes to generate images from that.
 
 Inkscape didn't like the heavy plot:
 
-{% highlight bash %}moose@pc07$ inkscape Rplots.pdf -w 512 --export-png=maxInSequence.png
+```bash
+moose@pc07$ inkscape Rplots.pdf -w 512 --export-png=maxInSequence.png
 
 (inkscape:26733): GLib-ERROR **: /build/buildd/glib2.0-2.34.1/./glib/gmem.c:165: failed to allocate 3440640 bytes
 ^CTrace/breakpoint trap (core dumped)
-{% endhighlight %}
+
+```
 
 <h2>Maximum in sequence and steps</h2>
 

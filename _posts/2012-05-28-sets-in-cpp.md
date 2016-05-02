@@ -54,12 +54,14 @@ As find is logarithmic in `size()` (source: <a href="http://www.cplusplus.com/re
 <h2>Sets of structs</h2>
 If you want to create a set of structs, you have to create a comperator:
 
-{% highlight cpp %}
+```cpp
+
 bool operator<(const Edge&amp; left, const Edge&amp; right)
 {
     return left.uniqueEdge < right.uniqueEdge;
 }
-{% endhighlight %}
+
+```
 <h2>See also</h2>
 <ul>
   <li>C++ Reference: <a href="http://www.cplusplus.com/reference/stl/set/">general information</a> and <a href="http://www.cplusplus.com/reference/stl/set/set/">example</a></li>

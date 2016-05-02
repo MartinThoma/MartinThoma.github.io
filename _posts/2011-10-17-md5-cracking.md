@@ -48,7 +48,9 @@ The other two hashes weren't cracked.
 
 <h2>John the Ripper</h2>
 Ubuntu-Users can easily install John the Ripper (sudo apt-get install john) and use it for cracking hashes. To do so, the have to create a file in their working directory (let's call it md5.txt) and execute the following command:
-{% highlight bash %}john --format=raw-MD5 md5.txt{% endhighlight %}
+```bash
+john --format=raw-MD5 md5.txt
+```
 
 Here is the time, john needed to crack the hashes:
 <ul>

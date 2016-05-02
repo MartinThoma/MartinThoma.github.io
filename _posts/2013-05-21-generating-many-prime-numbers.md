@@ -12,7 +12,8 @@ Today, a fellow student claimed that it would take much time to check the first 
 So, lets prove my claim.
 
 <h2>Trivial approach</h2>
-{% highlight cpp %}
+```cpp
+
 #include <iostream> // cin, cout
 #include <cmath> // sqrt
 #include <vector>
@@ -47,32 +48,38 @@ int main(int argc, char* argv[]) {
 
     return 0;
 }
-{% endhighlight %}
+
+```
 
 Execute it for 100,000,000:
 
-{% highlight bash %}time ./generate-prime-list.out 100000000 > primes.txt
+```bash
+time ./generate-prime-list.out 100000000 > primes.txt
 
 real	0m57.274s
 user	0m41.855s
 sys	0m15.229s
-{% endhighlight %}
+
+```
 
 So 41 seconds for all primes not bigger than 100,000,000. 
 
 Now, lets test it for 1,000,000,000:
-{% highlight bash %}time ./generate-prime-list.out 1000000000 > primes.txt
+```bash
+time ./generate-prime-list.out 1000000000 > primes.txt
 
 real	18m18.205s
 user	15m56.904s
 sys	2m12.500s
-{% endhighlight %}
+
+```
 
 16 minutes ... not exactly "seconds". But please keep in mind that I also wrote the result to a txt-file. This txt file is 502.0 MB big. It takes quite a lot of time to write such an amount of data from memory to disk.
 
 <h2>Sieve of Eratosthenes</h2>
 <h3>A first try</h3>
-{% highlight cpp %}
+```cpp
+
 #include <iostream> // cin, cout
 #include <vector>
  
@@ -96,24 +103,28 @@ int main(int argc, char* argv[]) {
     sieveOfEratosthenes(n);
     return 0;
 }
-{% endhighlight %}
+
+```
 
 This one takes 1 minute 5 seconds:
-{% highlight bash %}
+```bash
+
 make;time ./generate-prime-list.out 1000000000 > testPrimes.txt
 g++ -std=c++0x -Wall -pedantic -O3 -D NDEBUG generate-prime-list.cpp -o generate-prime-list.out
 
 real	3m20.436s
 user	1m4.908s
 sys	2m11.748s
-{% endhighlight %}
+
+```
 
 I'm getting closer to "seconds". ☺
 
 <h3>ofstream, endl, \n and buffers</h3>
 Writing 502.0 MB takes some time. It's not getting better when I pipe this through bash. So lets write it directly:
 
-{% highlight cpp %}#include <fstream> // ofstream
+```cpp
+#include <fstream> // ofstream
 #include <vector>
  
 using namespace std;
@@ -138,14 +149,17 @@ int main(int argc, char* argv[]) {
     unsigned long long n = (unsigned long long) atoi(argv[1]);
     sieveOfEratosthenes(n);
     return 0;
-}{% endhighlight %}
+}
+```
 
-{% highlight bash %}time ./generate-prime-list.out 1000000000
+```bash
+time ./generate-prime-list.out 1000000000
 
 real	3m21.249s
 user	1m4.016s
 sys	2m12.332s
-{% endhighlight %}
+
+```
 
 Ok, no real change :-/
 
@@ -153,16 +167,19 @@ Another idea is to replace <code>endl</code> by <code>\n</code> (see <a href="ht
 
 That was a good try. Now it needs only 46 seconds:
 
-{% highlight bash %}time ./generate-prime-list.out 1000000000
+```bash
+time ./generate-prime-list.out 1000000000
 
 real	0m49.539s
 user	0m46.619s
 sys	0m0.920s
-{% endhighlight %}
+
+```
 
 Another reason why this might be slow could be too many system calls. So I could buffer some and write them in blocks. I could also just write blocks of unsigned long numbers instead of a string representation. This might lead to a much smaller file size which in consequence is faster to write:
 
-{% highlight cpp %}
+```cpp
+
 #include <stdio.h> // fopen
 #include <iostream> // atoi
 #include <vector>
@@ -194,16 +211,19 @@ int main(int argc, char* argv[]) {
     sieveOfEratosthenes(n);
     return 0;
 }
-{% endhighlight %}
+
+```
 
 And execute it:
-{% highlight bash %}
+```bash
+
 time ./generate-prime-list.out 1000000000
 
 real	0m39.700s
 user	0m38.546s
 sys	0m0.640s
-{% endhighlight %}
+
+```
 
 38 seconds for all primes from 2 to 1,000,000,000. The file size is now only 203.4 MB.
 
@@ -211,7 +231,8 @@ By the way, simply setting this with <code>setbuf(pFile, NULL);</code> to unbuff
 
 You can get the list with this snippet:
 
-{% highlight cpp %}
+```cpp
+
 #include <iostream>
 #include <fstream>
 
@@ -237,14 +258,16 @@ int main(int argc, char* argv[]) {
         fclose(pFile);
     }
 }
-{% endhighlight %}
+
+```
 
 <h3>Improve sieving</h3>
 The following change was suggested by <em>Niklas B.</em>. Thanks!
 
 Take a look at the inner for loop. This one does the sieving, so it gets executed very often. In this loop, you have to calculate <code>j*i</code> for checking the condition of the loop and again for setting it to false. You can get rid of one of those operations. Additionally, you don't have to start sieving at <code>2*p</code>, but you can start at <code>p*p</code> as you already sieved out all multiples of the first, second, ..., current-1-th prime. 
 
-{% highlight cpp %}
+```cpp
+
 #include <stdio.h> // fopen
 #include <iostream> // atoi
 #include <vector>
@@ -280,16 +303,19 @@ int main(int argc, char* argv[]) {
     }
     return 0;
 }
-{% endhighlight %}
+
+```
 
 Execute:
-{% highlight bash %}
+```bash
+
 time ./generate-prime-list.out 1000000000
 
 real	0m24.222s
 user	0m23.485s
 sys	0m0.436s
-{% endhighlight %}
+
+```
 
 <h3>primesieve</h3>
 <a href="https://code.google.com/p/primesieve/">Primesieve</a> is a free software program and C++ library that generates prime numbers and prime k-tuplets (twin primes, prime triplets, ...) $< 2^{64}$ using a highly optimized implementation of the sieve of Eratosthenes.
@@ -300,7 +326,8 @@ According to the GUI, it finds all 50,847,534 primes below 1,000,000,000 in 0.16
 Arthur Oliver Lonsdale Atkin (July 31, 1925 &ndash; December 28, 2008) was a British mathematician who invented this sieve. I've implemented it according to the <a href="http://en.wikipedia.org/wiki/Sieve_of_Atkin#Pseudocode">pseudocode provided in Wikipedia</a>. A <a href="http://stackoverflow.com/a/12066272/562769">very long explanation of Atkins sieve</a> is on StackOverflow
 
 <h3>My first implementation</h3>
-{% highlight cpp %}
+```cpp
+
 #include <stdio.h> // fopen
 #include <iostream> // atoi
 #include <vector>
@@ -377,17 +404,20 @@ int main(int argc, char* argv[]) {
     }
     return 0;
 }
-{% endhighlight %}
+
+```
 
 Atkins sieve has a much worse performance than Sieve of Eratosthenes:
 
-{% highlight bash %}
+```bash
+
 time ./generate-prime-list.out 1000000000
 
 real	1m6.001s
 user	1m4.724s
 sys	0m0.604s
-{% endhighlight %}
+
+```
 
 <h3>Primegen</h3>
 <a href="http://cr.yp.to/primegen.html">Primegen</a> is an implementation by <a href="http://en.wikipedia.org/wiki/Daniel_J._Bernstein">Daniel J. Bernstein</a>. It's a little bit cluttered with 80 files and 3854 LOC in total.
@@ -395,13 +425,15 @@ sys	0m0.604s
 When I have some time, I'll update this article and create a new version of my sieve with ideas from Primegen.
 
 Primegen is fast:
-{% highlight bash %}
+```bash
+
 time ./primes > primes.txt
 
 real	0m11.677s
 user	0m10.649s
 sys	0m0.708s
-{% endhighlight %}
+
+```
 About 11 seconds for writing all primes between 2 and 1,000,000,000 to a txt file.
 
 <h2>See also</h2>

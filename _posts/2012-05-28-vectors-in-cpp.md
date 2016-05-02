@@ -8,7 +8,8 @@ tags: CPP, STL, Vector
 featured_image: 2012/05/CPP-thumb.png
 ---
 <h2>Minimal Example</h2>
-{% highlight cpp %}#include <iostream>
+```cpp
+#include <iostream>
 #include <vector>
 #include <algorithm>
  
@@ -50,23 +51,31 @@ int main() {
 	cout << endl;
  
     return 0;
-}{% endhighlight %}
+}
+```
 
 Output:
-{% highlight bash %}
+```bash
+
 third element: 1337
 5 1337 42 31415 
-{% endhighlight %}
+
+```
 
 <h2>Vector initialization</h2>
-{% highlight cpp %}// create a vector with 100 zeroes
-vector<int> myVector (100);{% endhighlight %}
+```cpp
+// create a vector with 100 zeroes
+vector<int> myVector (100);
+```
 
-{% highlight cpp %}// create a vector which has 42 times the integer 100
-vector<int> myVector (42, 100);{% endhighlight %}
+```cpp
+// create a vector which has 42 times the integer 100
+vector<int> myVector (42, 100);
+```
 
 <h2>Nested Vectors</h2>
-{% highlight cpp %}#include <iostream>
+```cpp
+#include <iostream>
 #include <vector>
 
 using namespace std;
@@ -92,33 +101,43 @@ int main() {
     }
 
 	return 0;
-}{% endhighlight %}
+}
+```
 Output:
-{% highlight bash %}Inner vector: 1 2 
+```bash
+Inner vector: 1 2 
 Inner vector: 3 
 Inner vector: 
-Inner vector: {% endhighlight %}
+Inner vector: 
+```
 
 <h3>Initialize nested vectors</h3>
-{% highlight cpp %}vector<int> myInnerVector(5, 3);
-vector<vector<int> > myVector(8,myInnerVector);{% endhighlight %}
+```cpp
+vector<int> myInnerVector(5, 3);
+vector<vector<int> > myVector(8,myInnerVector);
+```
 Output with the script above:
-{% highlight bash %}Inner vector: 3 3 3 3 3 
+```bash
 Inner vector: 3 3 3 3 3 
 Inner vector: 3 3 3 3 3 
 Inner vector: 3 3 3 3 3 
 Inner vector: 3 3 3 3 3 
 Inner vector: 3 3 3 3 3 
 Inner vector: 3 3 3 3 3 
-Inner vector: 3 3 3 3 3 {% endhighlight %}
+Inner vector: 3 3 3 3 3 
+Inner vector: 3 3 3 3 3 
+```
 
 You could also do it this way:
-{% highlight cpp %}vector< vector<int> > myVector(8, vector<int>(5, 3));{% endhighlight %}
+```cpp
+vector< vector<int> > myVector(8, vector<int>(5, 3));
+```
 
 <h2>Some more</h2>
 <h3>Reverse the order</h3>
 With reverse (<a href="http://www.cplusplus.com/reference/algorithm/reverse/">source</a>):
-{% highlight cpp %}#include <algorithm>
+```cpp
+#include <algorithm>
 #include <vector>
 
 using namespace std;
@@ -140,7 +159,8 @@ int main () {
   cout << endl;
 
   return 0;
-}{% endhighlight %}
+}
+```
 
 <h2>See also</h2>
 <ul>

@@ -20,7 +20,8 @@ $S_{ij} = \frac{1}{D_j} \left( A_{ij} - \sum_{k=1}^{j-1} S_{ik} S_{jk} D_k \righ
 <h2>Programmierer-Hinweise</h2>
 <h3>Implementierung</h3>
 Eine Python-Implementierung sieht so aus:
-{% highlight python %}#!/usr/bin/env python
+```python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 def getSD(A):
@@ -40,15 +41,20 @@ def getSD(A):
         D[j][j] = A[j][j] - _summe
         _summe  = sum(S[i][k]*S[j][k]*D[k][k] for k in range(j))
         S[i][j] = 1.0 / D[j][j] * (A[i][j] - _summe)
-    return S, D{% endhighlight %}
+    return S, D
+```
 
 <h3>Bibliotheken</h3>
 Ich habe mich mal nach Bibliotheken umgesehen, die die Cholesky-Zerlegung direkt beherrschen. NumPy kann es nat&uuml;rlich:
-{% highlight python %}from numpy import linalg
-print(linalg.cholesky([[5,1],[1,1]])){% endhighlight %}
+```python
+from numpy import linalg
+print(linalg.cholesky([[5,1],[1,1]]))
+```
 Gibt aus:
-{% highlight bash %}array([[ 2.23606798,  0.        ],
-       [ 0.4472136 ,  0.89442719]]){% endhighlight %}
+```bash
+array([[ 2.23606798,  0.        ],
+       [ 0.4472136 ,  0.89442719]])
+```
 
 Das ist NICHT die Zerlegung $A = S \cdot D \cdot S^T$, sondern $A = G \cdot G^T$.
 
@@ -75,7 +81,8 @@ Die Cholesky-Zerlegung kann man folgenderma&szlig;en berechnen:
 
 In Python sieht das dann so aus:
 
-{% highlight python %}
+```python
+
 def getL(A):
     n = len(A)
     L = [[0 for i in range(n)] for j in range(n)]
@@ -89,7 +96,8 @@ def getL(A):
                         - sum([L[i][j]*L[k][j] for j in range(k)])) \
                       / L[k][k]
     return L
-{% endhighlight %}
+
+```
 
 <h2>Siehe auch</h2>
 <ul>

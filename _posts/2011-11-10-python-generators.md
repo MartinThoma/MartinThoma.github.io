@@ -13,7 +13,8 @@ Generators help you to program iterators. They look almost like normal functions
 
 Imagine you wanted to display n Fibonacci numbers. This could be your normal approach:
 
-{% highlight python %}#!/usr/bin/python
+```python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 def fibonacci(n):
@@ -27,11 +28,13 @@ def fibonacci(n):
     return fibList
 
 for nr, fib in enumerate(fibonacci(100)):
-    print("The %i-th Fibonacci-Nr is %i" % (nr, fib)){% endhighlight %}
+    print("The %i-th Fibonacci-Nr is %i" % (nr, fib))
+```
 
 The disadvantage of this approach is that you have to keep every element of the sequence in memory. Of course, you could write something like this:
 
-{% highlight python %}#!/usr/bin/python
+```python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 def fib(n):
@@ -44,12 +47,14 @@ def fib(n):
         return fib(n-1) + fib(n-2)
 
 for nr in xrange(1, 100):
-    print("The %i-th Fibonacci-Nr is %i" % (nr, fib(nr))){% endhighlight %}
+    print("The %i-th Fibonacci-Nr is %i" % (nr, fib(nr)))
+```
 
 This needs much less memory, but much more time. You have to recalculate the first few fibonacci numbers every time.
 
 A generator could look like this:
-{% highlight python %}#!/usr/bin/python
+```python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 def fibGenerator():
@@ -62,7 +67,8 @@ def fibGenerator():
 myGenerator = fibGenerator()
 
 for nr in xrange(1,100):
-    print("The %i-th Fibonacci-Nr is %i" % (nr, myGenerator.next())){% endhighlight %}
+    print("The %i-th Fibonacci-Nr is %i" % (nr, myGenerator.next()))
+```
 
 <h2>Further Reading</h2>
 <ul>

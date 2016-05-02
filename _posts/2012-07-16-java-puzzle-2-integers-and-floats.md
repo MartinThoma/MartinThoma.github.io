@@ -22,7 +22,8 @@ $T_C = (T_F &minus; 32) &middot; \frac{5}{9}$
 <h2>The puzzle</h2>
 What is the output of the following script?
 
-{% highlight java %}public class test {
+```java
+public class test {
     static double fahrenheitToCelsius(double fahrenheit) {
         return (fahrenheit - 32) * (5 / 9);
     }
@@ -38,7 +39,8 @@ What is the output of the following script?
         System.out.format("%.2f&deg; Fahrenheit is %.2f&deg; C\n", 
                 fahrenheit, celsius);
     }
-}{% endhighlight %}
+}
+```
 
 .
 .
@@ -67,18 +69,24 @@ What is the output of the following script?
 .
 
 <h2>Answer</h2>
-{% highlight bash %}100.00&deg; Fahrenheit is 0.00&deg; C
-30.00&deg; Fahrenheit is -0.00&deg; C{% endhighlight %}
+```bash
+100.00&deg; Fahrenheit is 0.00&deg; C
+30.00&deg; Fahrenheit is -0.00&deg; C
+```
 
 <h2>Explanation</h2>
 The problem is integer division.
 
-{% highlight java %}public class test {
+```java
+public class test {
     public static void main(String[] args) {
         System.out.format("5 / 9 = %.2f\n", (double) (5 / 9));
     }
-}{% endhighlight %}
+}
+```
 This outputs:
-{% highlight bash %}5 / 9 = 0.00{% endhighlight %}
+```bash
+5 / 9 = 0.00
+```
 
 So you are multiplying with $\pm 0$ instead of $0.55555$.

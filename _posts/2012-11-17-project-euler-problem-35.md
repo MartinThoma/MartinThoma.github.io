@@ -40,7 +40,8 @@ First, this is the way the sieve of Eratosthenes works:
         </figure>
 
 For example, this implementation is not good:
-{% highlight python %}
+```python
+
 def getPrimesBelowN(n=1000000):
     """ Sieve of Eratosthenes """
     from math import ceil
@@ -53,13 +54,15 @@ def getPrimesBelowN(n=1000000):
             if noPrime in primes: 
                 primes.remove(noPrime)
     return primes
-{% endhighlight %}
+
+```
 
 Whats bad with this code? 
 Well, just think about what it does: For every <code>noPrime</code> Python has to go through the whole list. I couldn't find how <code>in</code> is implemented, but I guess it is linear. So Python has to go through the whole list for <code>in</code>. Additionally, <code>remove</code> could also be expensive.
 
 How could this get improved? Here is a better solution:
-{% highlight python %}
+```python
+
 def getPrimesBelowN(n=1000000):
     """ Sieve of Eratosthenes """
     from math import ceil
@@ -77,7 +80,8 @@ def getPrimesBelowN(n=1000000):
         for multiplicant in xrange(2, roundUp(n, currentPrime)):
             primes[multiplicant * currentPrime] = False
     return primeList
-{% endhighlight %}
+
+```
 
 This solution does not need to search for <code>noPrime</code>, it simply jumps there in the list.
 
@@ -85,17 +89,20 @@ A generator version of the sieve of Erasthostenes can be found on <a href="http:
 
 <h3>isCircularPrime</h3>
 Rotation the digits of a number is the same as cutting the number into two pieces and switching the position of the pieces:
-{% highlight python %}def isCircularPrime(primes, number):
+```python
+def isCircularPrime(primes, number):
     number = str(number)
     for i in xrange(0, len(number)):
         rotatedNumber = number[i:len(number)] + number[0:i]
         if int(rotatedNumber) not in primes:
             return False
-    return True{% endhighlight %}
+    return True
+```
 
 Here is the same problem as above, in the sieving algorithm: Searching through the list takes much more time than jumping to a position in the list. So this one is better:
 
-{% highlight python %}
+```python
+
 def isCircularPrime(primes, number):
     number = str(number)
     for i in xrange(0, len(number)):
@@ -103,7 +110,8 @@ def isCircularPrime(primes, number):
         if not primes[int(rotatedNumber)]:
             return False
     return True
-{% endhighlight %}
+
+```
 
 <h3>Some more speedups</h2>
 Every prime that contains one of the digits 0, 2, 4, 6 or 8 can't be a circular prime, because one rotation exist where that digit is at the end. This rotation would be divisible by 2 and thus not be a prime (except for 2, of course).
@@ -112,7 +120,8 @@ You can use the same thought for the digit 5.
 So you can skip those digits
 
 <h3>The final snippet</h3>
-{% highlight python %}
+```python
+
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
  
@@ -168,6 +177,7 @@ if __name__ == "__main__":
             numberOfPrimes += 1
  
     print("Number of circular primes: %i" % numberOfPrimes)
-{% endhighlight %}
+
+```
 
 It takes about 1.096 seconds (in comparison: having the version of <code>isCircularPrime</code> that searches through the list of primes took over 5 minutes!)

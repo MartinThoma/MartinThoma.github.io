@@ -44,7 +44,8 @@ Of course, you can include a diagram created with Dia:
 <h3>MetaUML</h3>
 A MetaUML class diagram looks like that in code (saved as myMetaDiagram.mp):
 
-{% highlight text %}input metauml;
+```text
+input metauml;
 beginfig(1);
 	Class.World("World")
 		   ("-age: int",
@@ -66,7 +67,8 @@ beginfig(1);
 	item(iAssoc)("0..*")(obj.n  = .8[World.e,NoHuman.w]);
 
 endfig;
-end{% endhighlight %}
+end
+```
 
 You have to execute mpost before you can compile LaTeX. A working example is in this <a href='../images/2012/05/UML.zip'>UML Archive</a>.
 

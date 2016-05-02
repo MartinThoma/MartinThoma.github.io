@@ -19,7 +19,8 @@ The most important options are:
 
 
 An empty file:
-{% highlight bash %}moose@pc07:~$ ab localhost/empty.php
+```bash
+moose@pc07:~$ ab localhost/empty.php
 This is ApacheBench, Version 2.3 &amp;lt;$Revision: 655654 $&amp;gt;
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
 Licensed to The Apache Software Foundation, http://www.apache.org/
@@ -52,10 +53,13 @@ Connect:        0    0   0.0      0       0
 Processing:     2    2   0.0      2       2
 Waiting:        0    0   0.0      0       0
 Total:          2    2   0.0      2       2
-{% endhighlight %}
+
+```
 
 Now I make 1000 requests to this empty file: 
-{% highlight bash %}ab -n 1000 -c 1 localhost/empty.php{% endhighlight %}
+```bash
+ab -n 1000 -c 1 localhost/empty.php
+```
 Time per request:       1.158 [ms] (mean)
 
 With a document of two bytes, I get 1.324 ms. A HTML-Document with 300 kB has 4.287 ms.

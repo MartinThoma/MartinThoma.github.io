@@ -71,64 +71,84 @@ When you build your own objects, you should add an implementation for the method
 <tr>
   <td><code>%i</code></td>
   <td>Integer</td>
-  <td>{% highlight python %}>>> print("%i" % (123))
+  <td>```python
+>>> print("%i" % (123))
 123
-{% endhighlight %}</td>
+
+```</td>
 </tr>
 <tr>
   <td><code>%s</code></td>
   <td>String</td>
-  <td>{% highlight python %}>>> print("%s" % ("Martin"))
+  <td>```python
+>>> print("%s" % ("Martin"))
 Martin
-{% endhighlight %}</td>
+
+```</td>
 </tr>
 <tr>
   <td><code>%o</code></td>
   <td>Int as octal</td>
-  <td>{% highlight python %}>>> print("%o" % (123.123))
-173{% endhighlight %}</td>
+  <td>```python
+>>> print("%o" % (123.123))
+173
+```</td>
 </tr>
 <tr>
   <td><code>%x</code></td>
   <td>Int as hexadecimal (lower case)</td>
-  <td>{% highlight python %}>>> print("%x" % (123.123))
-7b{% endhighlight %}</td>
+  <td>```python
+>>> print("%x" % (123.123))
+7b
+```</td>
 </tr>
 <tr>
   <td><code>%X</code></td>
   <td>Int as hexadecimal (upper case)</td>
-  <td>{% highlight python %}>>> print("%X" % (123.123))
-7B{% endhighlight %}</td>
+  <td>```python
+>>> print("%X" % (123.123))
+7B
+```</td>
 </tr>
 <tr>
   <td><code>%f</code></td>
   <td>Floating point</td>
-  <td>{% highlight python %}>>> print("%f" % (123.123))
-123.123000{% endhighlight %}</td>
+  <td>```python
+>>> print("%f" % (123.123))
+123.123000
+```</td>
 </tr>
 <tr>
   <td><code>%.2f</code></td>
   <td>Floating point with two decimal places</td>
-  <td>{% highlight python %}>>> print("%.2f" % (123.123))
-123.12{% endhighlight %}</td>
+  <td>```python
+>>> print("%.2f" % (123.123))
+123.12
+```</td>
 </tr>
 <tr>
   <td><code>%e</code></td>
   <td>Floating point in scientific notation</td>
-  <td>{% highlight python %}>>> print("%e" % (123.123))
-1.231230e+02{% endhighlight %}</td>
+  <td>```python
+>>> print("%e" % (123.123))
+1.231230e+02
+```</td>
 </tr>
 <tr>
   <td><code>%%</code></td>
   <td>Percent sign</td>
-  <td>{% highlight python %}>>> print("%i%%" % (65))
-65%{% endhighlight %}</td>
+  <td>```python
+>>> print("%i%%" % (65))
+65%
+```</td>
 </tr>
 <tr>
   <td><code>%6.2f</code></td>
   <td>Print a float with 2 decimal places. Add spaces if this has less than 6 characters.</td>
-  <td>{% highlight python %}>>> print("%6.2f" % (65.123))
- 65.12{% endhighlight %}</td>
+  <td>```python
+>>> print("%6.2f" % (65.123))
+ 65.12
+```</td>
 </tr>
 </table>
 

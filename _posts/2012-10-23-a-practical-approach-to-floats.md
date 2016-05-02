@@ -22,7 +22,8 @@ If you make a computer science degree, you will have to learn how numbers are in
 You will (have to) learn how <a href="http://en.wikipedia.org/wiki/IEEE_floating_point">IEEE 754 floats</a> are structured on a bit-wise level. But I also like to check if it is correct, what I've learned.
 
 So this is how you can check it: 
-{% highlight c %}#include <stdint.h>
+```c
+#include <stdint.h>
 #include <stdio.h> // printf
 #include <limits.h> // INT_MAX, UINT_MAX, ...
 #include <math.h>   // needed for NAN
@@ -89,7 +90,8 @@ int main() {
 	printf("The example above and switched first bit on\n");
     testVar.i = 0xbf200000;
 	printValue(testVar);
-}{% endhighlight %}
+}
+```
 
 I think I have tried all interesting values. Have fun trying it yourself ☺
 
