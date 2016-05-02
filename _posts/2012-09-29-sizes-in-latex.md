@@ -59,7 +59,7 @@ The size of brackets `[ ]`, (curly) braces `{ }` and parentheses `( )` can be
 adjusted with these commands:
 
 ```latex
-\[-1+x ( x \big( 1+ x\Big(2 + x \bigg(3+ x\Bigg(4+x \Bigg) \bigg) \Big) \big) )\]
+$$-1+x ( x \big( 1+ x\Big(2 + x \bigg(3+ x\Bigg(4+x \Bigg) \bigg) \Big) \big) )$$
 ```
 
 The result will look like this

@@ -16,7 +16,10 @@ an example similar to the following one:
 
 This results in the following Bayesian Network:
 
-{% caption align="aligncenter" width="99" alt="A common effect" text="A common effect" url="../images/2016/01/Common-effect.png" %}
+<figure class="aligncenter">
+            <a href="../images/2016/01/Common-effect.png"><img src="../images/2016/01/Common-effect.png" alt="A common effect" style="max-width:99px;" class=""/></a>
+            <figcaption class="text-center">A common effect</figcaption>
+        </figure>
 Now assume you know that the engine does not fail (\$X=0\$). This guarantees
 that the battery is not dead (\$Y=0\$) and the fuel pump is not blocked
 (\$Z=0\$).

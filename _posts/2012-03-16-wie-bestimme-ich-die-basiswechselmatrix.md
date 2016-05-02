@@ -11,11 +11,11 @@ Eine Basiswechselmatrix oder auch Übergangsmatrix dient dem Basiswechsel.
 
 Angenommen man hat zwei Basen des <span markdown="0">$\mathbb{R}^2$</span>-Vektorraumes:
 
-<div>\[B = \{\overbrace{\begin{pmatrix} 1 \\ 2 \end{pmatrix}}^{b_1}, \overbrace{\begin{pmatrix} 2 \\ 3 \end{pmatrix}}^{b_2} \}\]</div>
+<div>$$B = \{\overbrace{\begin{pmatrix} 1 \\ 2 \end{pmatrix}}^{b_1}, \overbrace{\begin{pmatrix} 2 \\ 3 \end{pmatrix}}^{b_2} \}$$</div>
 
 und
 
-<div>\[\bar B = \{\underbrace{\begin{pmatrix} 3 \\ 5 \end{pmatrix}}_{\bar b_1}, \underbrace{\begin{pmatrix} 8 \\ 13 \end{pmatrix}}_{\bar b_2} \}\]</div>
+<div>$$\bar B = \{\underbrace{\begin{pmatrix} 3 \\ 5 \end{pmatrix}}_{\bar b_1}, \underbrace{\begin{pmatrix} 8 \\ 13 \end{pmatrix}}_{\bar b_2} \}$$</div>
 
 Sei nun <span markdown="0">$v := \begin{pmatrix} 1 \\ 1 \end{pmatrix}$</span> ein Vektor zur Standardbasis.
 Da <span markdown="0">$B$</span> und <span markdown="0">$\bar B$</span> auch Basen des <span markdown="0">$\mathbb{R}^2$</span> sind, kann man v auch zu diesen Basen darstellen:

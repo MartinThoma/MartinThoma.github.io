@@ -47,11 +47,17 @@ if __name__ == '__main__':
 
 and here is the plot for $n = 2$
 
-{% caption align="aligncenter" width="500" alt="Plot of the maximum of 2 uniformly distributed variables with 10000 samples" text="Plot of the maximum of 2 uniformly distributed variables with 10000 samples" url="../images/2015/01/random-max-uniform-distribution-n-2.png" %}
+<figure class="aligncenter">
+            <a href="../images/2015/01/random-max-uniform-distribution-n-2.png"><img src="../images/2015/01/random-max-uniform-distribution-n-2.png" alt="Plot of the maximum of 2 uniformly distributed variables with 10000 samples" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Plot of the maximum of 2 uniformly distributed variables with 10000 samples</figcaption>
+        </figure>
 
 If you increase to $n = 3$ you get:
 
-{% caption align="aligncenter" width="500" alt="Plot of the maximum of 3 uniformly distributed variables with 10000 samples" text="Plot of the maximum of 3 uniformly distributed variables with 10000 samples" url="../images/2015/01/random-max-uniform-distribution-n-3.png" %}
+<figure class="aligncenter">
+            <a href="../images/2015/01/random-max-uniform-distribution-n-3.png"><img src="../images/2015/01/random-max-uniform-distribution-n-3.png" alt="Plot of the maximum of 3 uniformly distributed variables with 10000 samples" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Plot of the maximum of 3 uniformly distributed variables with 10000 samples</figcaption>
+        </figure>
 
 
 ## Improved version
@@ -120,7 +126,10 @@ $ ./plot-random-variable.py -n 4 --samples 100000
 
 it gives
 
-{% caption align="aligncenter" width="500" alt="Plot of the maximum of 1 - 4 uniformly distributed variables with 10000 samples" text="Plot of the maximum of 1 - 4 uniformly distributed variables with 10000 samples" url="../images/2015/01/random-max-uniform-distribution-n-4.png" %}
+<figure class="aligncenter">
+            <a href="../images/2015/01/random-max-uniform-distribution-n-4.png"><img src="../images/2015/01/random-max-uniform-distribution-n-4.png" alt="Plot of the maximum of 1 - 4 uniformly distributed variables with 10000 samples" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Plot of the maximum of 1 - 4 uniformly distributed variables with 10000 samples</figcaption>
+        </figure>
 
 ## See also
 

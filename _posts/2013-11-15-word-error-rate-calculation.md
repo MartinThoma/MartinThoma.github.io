@@ -9,7 +9,7 @@ featured_image: 2013/11/wer-thumb.png
 ---
 The Word Error Rate (short: WER) is a way to measure performance of an <abbr title="Automatic Speech Recognizer">ASR</abbr>. It compares a reference to an hypothesis and is defined like this:
 
-\[\mathit{WER} = \frac{S+D+I}{N}\]
+$$\mathit{WER} = \frac{S+D+I}{N}$$
 
 where
 <ul>

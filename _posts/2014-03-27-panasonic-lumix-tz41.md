@@ -57,9 +57,15 @@ has an [<span itemprop="sameAs">official data sheet</span>](http://www.panasonic
 Panasonic doesn't use the standard european charger / cable combination that is
 used for smartphones.
 
-{% caption align="aligncenter" width="500" alt="Loading works via microUSB, but not via standard charger." text="Loading works via microUSB, but not via standard charger." url="../images/2014/03/panasonic-lumix-tz-41-charger.jpg" %}
+<figure class="aligncenter">
+            <a href="../images/2014/03/panasonic-lumix-tz-41-charger.jpg"><img src="../images/2014/03/panasonic-lumix-tz-41-charger.jpg" alt="Loading works via microUSB, but not via standard charger." style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Loading works via microUSB, but not via standard charger.</figcaption>
+        </figure>
 
-{% caption align="aligncenter" width="500" alt="Panasonic does not use standard microUSB2USB cables for charging / data exchange" text="Panasonic does not use standard microUSB2USB cables for charging / data exchange" url="../images/2014/03/panasonic-cable-standard-cable.jpg" %}
+<figure class="aligncenter">
+            <a href="../images/2014/03/panasonic-cable-standard-cable.jpg"><img src="../images/2014/03/panasonic-cable-standard-cable.jpg" alt="Panasonic does not use standard microUSB2USB cables for charging / data exchange" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Panasonic does not use standard microUSB2USB cables for charging / data exchange</figcaption>
+        </figure>
 
 ### Software
 

@@ -17,9 +17,9 @@ Es ist nun egal, ob ich die Permutationen von {1, 2, 3} oder {42, 1337, ABC} ans
 
 Ein einzelnes Element aus <span markdown="0">$S_m$</span> wird meist <span markdown="0">$\pi$</span> oder <span markdown="0">$\sigma$</span> genannt, also <span markdown="0">$\pi \in S_m$</span>. Da <span markdown="0">$\pi$</span> eine Permutation ist, ist es insbesondere eine bijektive Selbstabbildung, also:
 
-\\[M = {1, ..., m}\\]
-\\[\pi: M \rightarrow M\\]
-\\[i \mapsto \pi(i)\\]
+$$M = {1, ..., m}$$
+$$\pi: M \rightarrow M$$
+$$i \mapsto \pi(i)$$
 
 Kurz schreibt man auch:
 <span markdown="0">\(\pi =

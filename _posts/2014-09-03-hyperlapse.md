@@ -44,7 +44,10 @@ point in time where you want to get an image. The 6 dimensions are:
 In case you have a problem with imagining roll, pitch and yaw you should take
 a look at the following image:
 
-{% caption align="aligncenter" width="320" alt="Roll, pitch and yaw<br/>By ZeroOne" text="Roll, pitch and yaw<br/>By [ZeroOne](https://commons.wikimedia.org/wiki/File:Flight_dynamics_with_text.png)" url="../images/2014/09/Flight_dynamics_with_text.png" %}
+<figure class="aligncenter">
+            <a href="../images/2014/09/Flight_dynamics_with_text.png"><img src="../images/2014/09/Flight_dynamics_with_text.png" alt="Roll, pitch and yaw<br/>By ZeroOne" style="max-width:320px;" class=""/></a>
+            <figcaption class="text-center">Roll, pitch and yaw<br/>By [ZeroOne](https://commons.wikimedia.org/wiki/File:Flight_dynamics_with_text.png)</figcaption>
+        </figure>
 
 The chosen path should meet several criteria:
 

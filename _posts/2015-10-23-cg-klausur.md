@@ -101,14 +101,14 @@ Slide: `01_ Bilder, Farbe, Perzeption - Teil1.pdf`
     <dt><a href="https://de.wikipedia.org/wiki/Dithering_(Bildbearbeitung)"><dfn>Ditherhing</dfn> (<dfn>Fehlerdiffusion</dfn>)</a></dt>
     <dd>Ditherhing ist eine Methode zur Illusion einer größeren Farbtiefe.</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Gammakorrektur"><dfn>Gamma-Korrektur</dfn></a></dt>
-    <dd>\[I_{\text{out}} = I_{\text{in}}^\gamma\]</dd>
+    <dd>$$I_{\text{out}} = I_{\text{in}}^\gamma$$</dd>
     <dt><dfn>Transferfunktion</dfn></dt>
     <dd>Eine Abbildung $f$ von Farbwerten auf Helligeit:
-        \[f: [0, N] \rightarrow [I_{\text{min}}, I_{\text{max}}]\]
+        $$f: [0, N] \rightarrow [I_{\text{min}}, I_{\text{max}}]$$
         Diese Abbildung ist abhängig vom Display.</dd>
     <dt><dfn>Dynamikumfang</dfn></dt>
     <dd>Der Dynamikumfang beschreibt den erreichbaren Kontrast eines Wiedergabegrätes (Bildschirm, Beamer):
-        \[R_d = \frac{I_{\text{max}} + k}{I_{\text{min}} + k}\]
+        $$R_d = \frac{I_{\text{max}} + k}{I_{\text{min}} + k}$$
 
         $k$ ist dabei das Umgebungslicht, $I_{max} / I_{min}$ sind
         Konstanten des Displays und geben die maximale bzw. minimale Helligkeit
@@ -143,7 +143,7 @@ Slide: `01_ Bilder, Farbe, Perzeption - Teil2.pdf`
         empfundene Stärke von Sinneseindrücken im Abhängigkeit von der
         Intensität des Helligkeitsunterschiedes:
 
-        \[E = c \cdot \frac{R}{R_0}\]
+        $$E = c \cdot \frac{R}{R_0}$$
 
         wobei $E$ die empfundene Reizstärke, $c$ eine Konstante, $R$ die
         tatsächliche Reizstärke und $R_0$ eine Referenzreizstärke ist.</dd>
@@ -185,7 +185,7 @@ Side: `02_ Raytracing (enthalt Abtastung aus Kapitel 1).pdf`
 
         Das Ergibt folgende Formel für die Intensität $I$:
 
-       \[I = \overbrace{k_a \cdot I_L}^{\text{ambient}} + \overbrace{k_d \cdot I_L \cdot (N \cdot L)}^{\text{diffus}} + \overbrace{k_s \cdot I_L \cdot (R_L \cdot V)^n}^{\text{spekular}}\]
+       $$I = \overbrace{k_a \cdot I_L}^{\text{ambient}} + \overbrace{k_d \cdot I_L \cdot (N \cdot L)}^{\text{diffus}} + \overbrace{k_s \cdot I_L \cdot (R_L \cdot V)^n}^{\text{spekular}}$$
 
        hierbei ist $I_L$ die Lichtintensität, die Richtung die das Licht nimmt $L$ sowie die Oberflächennormale $N$ und der Lichtreflektionsvektor $R_L$. Der Vektor $R_L$ liegt in der selben Ebene wie $N$ und $L$. Es gilt $R_L = 2N \cdot (N \cdot L) - L$.</dd>
     <dt><dfn>Z-Fighting</dfn></dt>
@@ -259,7 +259,7 @@ Slide: `03_ Transformationen und homogene Koordinaten.pdf`
     <dt><dfn>Orthogonale Matrix</dfn></dt>
     <dd>Eine quadratische Matrix $M \in \mathbb{R}^{n \times n}$ heißt
         genau dann orthogonal, wenn
-        \[M^T \cdot M = M \cdot M^T = I_{n \times n}\]
+        $$M^T \cdot M = M \cdot M^T = I_{n \times n}$$
 
         Für orthogonale Matrizen gilt also $M^{-1} = M^T$</dd>
     <dt><dfn>Homogene Koordinaten</dfn></dt>
@@ -267,15 +267,15 @@ Slide: `03_ Transformationen und homogene Koordinaten.pdf`
         ergänzt.</dd>
     <dt><dfn>Rotation</dfn></dt>
     <dd>Die Rotation um (0, 0) in homogenen Koordinaten geht wie folgt:
-        \[\begin{pmatrix}\cos \alpha & -\sin \alpha & 0\\ \sin \alpha & \cos \alpha & 0 \\ 0 '& 0 & 1\end{pmatrix}\]
+        $$\begin{pmatrix}\cos \alpha & -\sin \alpha & 0\\ \sin \alpha & \cos \alpha & 0 \\ 0 '& 0 & 1\end{pmatrix}$$
     </dd>
     <dt><dfn>Skalierung</dfn></dt>
     <dd>Eine Skalierung in homogenen Koordinaten geht wie folgt:
-        \[\begin{pmatrix}s_x & 0 & 0 & 0\\ 0 & s_y & 0 & 0\\ 0 & 0 & s_x & 0\\ 0 & 0 & 0 & 1\end{pmatrix}\]
+        $$\begin{pmatrix}s_x & 0 & 0 & 0\\ 0 & s_y & 0 & 0\\ 0 & 0 & s_x & 0\\ 0 & 0 & 0 & 1\end{pmatrix}$$
     </dd>
     <dt><dfn>Scherung</dfn></dt>
     <dd>Eine Scherung in homogenen Koordinaten geht wie folgt:
-        \[\begin{pmatrix}1 & 0 & d_x & 0\\ 0 & 1 & d_y & 0\\ 0 & 0 & 1 & 0\\ 0 & 0 & 0 & 1\end{pmatrix}\]
+        $$\begin{pmatrix}1 & 0 & d_x & 0\\ 0 & 1 & d_y & 0\\ 0 & 0 & 1 & 0\\ 0 & 0 & 0 & 1\end{pmatrix}$$
     </dd>
     <dt><dfn>Koordinatensysteme</dfn></dt>
     <dd>
@@ -294,7 +294,7 @@ Slide: `03_ Transformationen und homogene Koordinaten.pdf`
 </dl>
 
 <ul>
-    <li>Transformationen werden grundsätzlich so dargestellt: \[x' \gets M \cdot x\]
+    <li>Transformationen werden grundsätzlich so dargestellt: $$x' \gets M \cdot x$$
 
         Es wird also der zu transformierende Vektor von rechts mit der
         Transformationsmatrix $M$ multipliziert.</li>
@@ -415,7 +415,7 @@ Slide: `04_ Texturen.pdf`
 
         Die Texturkoordinaten $(s, t)$ werden z.B. für (right) wie folgt erechnet:
 
-        \[s = \frac{r_y}{2 \cdot  r_x}, \;\;\; t = \frac{r_z}{2 \cdot  r_x}\]
+        $$s = \frac{r_y}{2 \cdot  r_x}, \;\;\; t = \frac{r_z}{2 \cdot  r_x}$$
         </dd>
     <dt><dfn>Mip-Map</dfn> (<dfn>Mip map</dfn>, <dfn>Mipmap</dfn>, <dfn>Auflösungspyramide</dfn>)</dt>
     <dd>Mip steht für lat. <i>multum in parvo</i> (viel in wenig). Eine
@@ -429,7 +429,7 @@ Slide: `04_ Texturen.pdf`
 
         Es wird diejenige Mip-Map Stufe $n$ gewählt, sodass gilt
 
-        \[\text{Texelgröße}(n) \leq \text{Größe Pixelfootprint auf Textur} < Texelgröße(n+1)\]
+        $$\text{Texelgröße}(n) \leq \text{Größe Pixelfootprint auf Textur} < Texelgröße(n+1)$$
 
         Dann wird eine Trilineare Interpolation der 8 nächsten Texel durchgeführt:
         <ul>
@@ -585,7 +585,7 @@ Side: `06_ Rasterisierung, Clipping und Projektionstransformationen.pdf`
         der Szene, der sichtbar ist.</dd>
     <dt><dfn>Outcodes</dfn></dt>
     <dd>Outcodes sind ein 4-Bit binärcode für die Bereiche um die Zeichenebene:
-        \[(x < x_{\text{min}}, x > x_{\text{max}}, y < y_{\text{min}}, y > y_{\text{max}})\]
+        $$(x < x_{\text{min}}, x > x_{\text{max}}, y < y_{\text{min}}, y > y_{\text{max}})$$
     </dd>
 </dl>
 
@@ -608,7 +608,7 @@ Side: `06_ Rasterisierung, Clipping und Projektionstransformationen.pdf`
         Die Punkte bekommen nun jeweils einen "Outcode" der ihre Position
         bzgl. dieser Bereiche bestimmt:
 
-        \[\text{Outcode} = (x < x_{\text{min}}, x > x_{\text{max}}, y < y_{\text{min}}, y > y_{\text{max}})\]
+        $$\text{Outcode} = (x < x_{\text{min}}, x > x_{\text{max}}, y < y_{\text{min}}, y > y_{\text{max}})$$
 
         Mit den Outcodes gilt nun:
 
@@ -791,7 +791,7 @@ Slides: `08_ Prozedurale Modellierung, Content Creation.pdf` am 19.01.2016
 <dl>
     <dt><dfn>Rauschfunktion</dfn> (<dfn>Noise-Funktion</dfn>)</dt>
     <dd>Eine Funktion
-        \[n: \mathbb{R}^n \rightarrow [a, b] \subsetneq \mathbb{R}\]
+        $$n: \mathbb{R}^n \rightarrow [a, b] \subsetneq \mathbb{R}$$
         heißt Rauschfunktion, wenn gilt:
 
         <ul>
@@ -810,7 +810,7 @@ Slides: `08_ Prozedurale Modellierung, Content Creation.pdf` am 19.01.2016
     <dd>Eine <i>Turbulenzfunktion</i> summiert $k$ Ergebnisse (Oktave) mehrerer
         Rauschfunktionen auf:
 
-        \[\text{turbulence}(x) = \sum_k \left (\frac{1}{2} \right )^k \cdot n (2^k \cdot x)\]
+        $$\text{turbulence}(x) = \sum_k \left (\frac{1}{2} \right )^k \cdot n (2^k \cdot x)$$
 
         Einsatzgebiete:
 
@@ -862,14 +862,14 @@ Slides: `09_ Kurven und Flachen.pdf`
 <dl>
     <dt><dfn>Kubische Bézierkurven</dfn></dt>
     <dd>Kubische Bézierkurven sind von der Form
-        \[f(u) = (1-u)^3 b_0 + 3u (1-u)^2 b_1 + 3u^2 (1-u) b_2 + u^3 b_3\]
+        $$f(u) = (1-u)^3 b_0 + 3u (1-u)^2 b_1 + 3u^2 (1-u) b_2 + u^3 b_3$$
         wobei $b_0, b_1, b_2 \in \mathbb{R}^n$ und $u \in [0, 1]$ gilt.
 
         Diese Faktoren (also $(1-u)^3, 3u (1-u)^2, 3u^2 (1-u), u^3$)
         werden auch Bernstein-Polynome genannt. Genau wie die Monome sind sie
         eine Basis für Polynome.</dd>
     <dt><dfn>Bernstein-Polynome</dfn></dt>
-    <dd>\[B_i^n(u) = \binom{n}{i} u^i (1-u)^{n-i}\]</dd>
+    <dd>$$B_i^n(u) = \binom{n}{i} u^i (1-u)^{n-i}$$</dd>
     <dt><dfn>Béziersplines</dfn></dt>
     <dd>Ein Bézierspline ist eine Liste von Bézierkurven.</dd>
     <dt><dfn>$C^k$-stetige Splines</dfn></dt>

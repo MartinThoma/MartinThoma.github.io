@@ -36,7 +36,10 @@ able to get the information what such messages mean.
 
 I was curious, so I clicked on it. Then this appeared:
 
-{% caption align="aligncenter" width="500" alt="Apport 'examine locally' window" text="Apport 'examine locally' window" url="../images/2015/01/apport-examine-locally.png" %}
+<figure class="aligncenter">
+            <a href="../images/2015/01/apport-examine-locally.png"><img src="../images/2015/01/apport-examine-locally.png" alt="Apport 'examine locally' window" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Apport 'examine locally' window</figcaption>
+        </figure>
 
 > This will launch apport-retrace in a terminal window to examine the crash.
 
@@ -56,7 +59,10 @@ For example:
 
 Lets try 'Run gdb session'. By the way, 'gdb' is the GNU project debugger.
 
-{% caption align="aligncenter" width="500" alt="Error creating child process" text="Error creating child process" url="../images/2015/01/run-gdb-session.png" %}
+<figure class="aligncenter">
+            <a href="../images/2015/01/run-gdb-session.png"><img src="../images/2015/01/run-gdb-session.png" alt="Error creating child process" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Error creating child process</figcaption>
+        </figure>
 
 Hrmpf. Seems as if I found a bug while trying to report a bug...
 This happens for every option.
@@ -64,7 +70,10 @@ This happens for every option.
 Ok. Let's see if I can report the bug. As the automatic tools did not help,
 I check for a program version via *Help > About*:
 
-{% caption align="aligncenter" width="323" alt="Caja About window" text="Caja About window" url="../images/2015/01/caja-about.png" %}
+<figure class="aligncenter">
+            <a href="../images/2015/01/caja-about.png"><img src="../images/2015/01/caja-about.png" alt="Caja About window" style="max-width:323px;" class=""/></a>
+            <figcaption class="text-center">Caja About window</figcaption>
+        </figure>
 
 Nice! It is obvious which version I use and how the program is called
 (Caja 1.8.2). There is even a link to a website where I could eventually report
@@ -79,7 +88,10 @@ That seems to be a blog article which explains they are moving to GitHub with a
 link to [github.com/mate-desktop](https://github.com/mate-desktop). There are
 many repositories, so I have to search. Hrmpf. Then I get:
 
-{% caption align="aligncenter" width="500" alt="Caja Repositories" text="Caja Repositories" url="../images/2015/01/caja-github.png" %}
+<figure class="aligncenter">
+            <a href="../images/2015/01/caja-github.png"><img src="../images/2015/01/caja-github.png" alt="Caja Repositories" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Caja Repositories</figcaption>
+        </figure>
 
 5 repositories. Hrmpf. I guess it is simply 'caja'. When I click on this
 repository, I have to click on 'issues'.

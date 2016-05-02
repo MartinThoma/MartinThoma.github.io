@@ -11,7 +11,10 @@ featured_image: logos/cookie-clicker.png
 Do you know games like [cookie clicker](http://orteil.dashnet.org/cookieclicker/)
 where you only have to click a lot?
 
-{% caption align="aligncenter" width="500" alt="Cookie Clicker" text="Cookie Clicker" url="../images/2014/08/cookie-cliker.png" %}
+<figure class="aligncenter">
+            <a href="../images/2014/08/cookie-cliker.png"><img src="../images/2014/08/cookie-cliker.png" alt="Cookie Clicker" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Cookie Clicker</figcaption>
+        </figure>
 
 You can do that automatically with the following Python script.
 
@@ -69,6 +72,9 @@ if __name__ == '__main__':
 
 ```
 
-{% caption align="aligncenter" width="500" alt="Cookie Clicker after 5 minutes with a script" text="Cookie Clicker after 5 minutes with a script" url="../images/2014/08/cookie-clicker-5min.png" %}
+<figure class="aligncenter">
+            <a href="../images/2014/08/cookie-clicker-5min.png"><img src="../images/2014/08/cookie-clicker-5min.png" alt="Cookie Clicker after 5 minutes with a script" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Cookie Clicker after 5 minutes with a script</figcaption>
+        </figure>
 
 Have fun playing those games now!

@@ -184,7 +184,10 @@ if __name__ == "__main__":
 
 resulting in about 0.004s from sending to receiving.
 
-{% caption align="aligncenter" width="500" alt="About 0.004s from sending to receiving" text="About 0.004s from sending to receiving" url="../images/2016/04/daemon.png" %}
+<figure class="aligncenter">
+            <a href="../images/2016/04/daemon.png"><img src="../images/2016/04/daemon.png" alt="About 0.004s from sending to receiving" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">About 0.004s from sending to receiving</figcaption>
+        </figure>
 
 
 ## A small chat

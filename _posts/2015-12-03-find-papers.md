@@ -26,7 +26,10 @@ Automated journal rankings like the h5-index used by Google Scholar (see
 lack of domain knowledge. Google Scholar even publishes a list of journals
 per field (see [Top publications in Computer Vision and Pattern Recognition](https://scholar.google.com/citations?view_op=top_venues&hl=en&vq=eng_computervisionpatternrecognition)).
 
-{% caption align="aligncenter" width="500" alt="Google Scholar Journal ranking" text="Google Scholar Journal ranking" url="../images/2015/12/google-scholar-top-publications.png" %}
+<figure class="aligncenter">
+            <a href="../images/2015/12/google-scholar-top-publications.png"><img src="../images/2015/12/google-scholar-top-publications.png" alt="Google Scholar Journal ranking" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Google Scholar Journal ranking</figcaption>
+        </figure>
 
 ### Algorithmic Ideas
 
@@ -67,10 +70,16 @@ them.
 The other nice thing is that Google Scholar makes citing publications
 incredibly easy:
 
-{% caption align="aligncenter" width="500" alt="Searching for a publication on Google Scholar" text="Searching for a publication on Google Scholar" url="../images/2015/12/google-scholar-paper.png" %}
+<figure class="aligncenter">
+            <a href="../images/2015/12/google-scholar-paper.png"><img src="../images/2015/12/google-scholar-paper.png" alt="Searching for a publication on Google Scholar" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Searching for a publication on Google Scholar</figcaption>
+        </figure>
 
 
-{% caption align="aligncenter" width="500" alt="Citing a publication via Google Scholar" text="Citing a publication via Google Scholar" url="../images/2015/12/citation.png" %}
+<figure class="aligncenter">
+            <a href="../images/2015/12/citation.png"><img src="../images/2015/12/citation.png" alt="Citing a publication via Google Scholar" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Citing a publication via Google Scholar</figcaption>
+        </figure>
 
 ### The arXiv
 
@@ -93,7 +102,10 @@ days, there is nothing interesting, on other days like today quite a bit:
 Efficient Video Classification with Minimal Supervision](http://arxiv.org/pdf/1512.00517.pdf)
 * [Attribute2Image: Conditional Image Generation from Visual Attributes](http://arxiv.org/pdf/1512.00570.pdf)
 
-{% caption align="aligncenter" width="500" alt="Latest submissions on arXiv in Pattern Recognition and Computer Vision" text="Latest submissions on arXiv in Pattern Recognition and Computer Vision" url="../images/2015/12/latest-arxiv-publications.png" %}
+<figure class="aligncenter">
+            <a href="../images/2015/12/latest-arxiv-publications.png"><img src="../images/2015/12/latest-arxiv-publications.png" alt="Latest submissions on arXiv in Pattern Recognition and Computer Vision" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Latest submissions on arXiv in Pattern Recognition and Computer Vision</figcaption>
+        </figure>
 
 
 ## Filtering

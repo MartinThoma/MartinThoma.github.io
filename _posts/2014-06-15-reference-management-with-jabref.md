@@ -30,7 +30,10 @@ is my bachelors thesis (work is still in (slow) progress).
 [JabRef](https://en.wikipedia.org/wiki/JabRef) is a reference management
 software that uses BibTeX as its native format. It looks like this:
 
-{% caption align="aligncenter" width="500" alt="JabRef" text="JabRef" url="../images/2014/06/jabref.png" %}
+<figure class="aligncenter">
+            <a href="../images/2014/06/jabref.png"><img src="../images/2014/06/jabref.png" alt="JabRef" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">JabRef</figcaption>
+        </figure>
 
 ## How can I get it?
 
@@ -49,18 +52,27 @@ where you have a JVM (thus: good news Windows / Mac users!).
 You can easily add the information where the PDF is located on your system and
 open the PDF directly via JabRef:
 
-{% caption align="aligncenter" width="500" alt="Adding PDF with JabRef" text="Adding PDF with JabRef" url="../images/2014/06/jabref-pdf.png" %}
+<figure class="aligncenter">
+            <a href="../images/2014/06/jabref-pdf.png"><img src="../images/2014/06/jabref-pdf.png" alt="Adding PDF with JabRef" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Adding PDF with JabRef</figcaption>
+        </figure>
 
 This is especially powerfull with the search. As you can add quite a lot of
 information to the entries (such as the abstract and comments) and searching
 that is faster / easier than searching folders of PDFs, it's very convenient
 to use JabRef for opening your PDFs:
 
-{% caption align="aligncenter" width="500" alt="Searching with JabRef" text="Searching with JabRef" url="../images/2014/06/jabref-searching.png" %}
+<figure class="aligncenter">
+            <a href="../images/2014/06/jabref-searching.png"><img src="../images/2014/06/jabref-searching.png" alt="Searching with JabRef" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Searching with JabRef</figcaption>
+        </figure>
 
 The preview also helps you to see how it might appear in your document:
 
-{% caption align="aligncenter" width="500" alt="JabRef preview" text="JabRef preview" url="../images/2014/06/jabref-preview.png" %}
+<figure class="aligncenter">
+            <a href="../images/2014/06/jabref-preview.png"><img src="../images/2014/06/jabref-preview.png" alt="JabRef preview" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">JabRef preview</figcaption>
+        </figure>
 
 Another nice feature is the autocompletion of authors names and titles.
 

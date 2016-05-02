@@ -20,7 +20,10 @@ and part of the Crystal Clear project by Everaldo Coelho.
 
 Now it should looke like this:
 
-{% caption align="aligncenter" width="512" alt="Speech bubbles" text="Preparation" url="../images/2014/01/inkscape-speech-bubble-step-1.png" %}
+<figure class="aligncenter">
+            <a href="../images/2014/01/inkscape-speech-bubble-step-1.png"><img src="../images/2014/01/inkscape-speech-bubble-step-1.png" alt="Speech bubbles" style="max-width:512px;" class=""/></a>
+            <figcaption class="text-center">Preparation</figcaption>
+        </figure>
 
 ## Rectangle ##
 Now you have to put a rectangle (<kbd>F2</kbd>) or an ellipses (<kbd>F5</kbd>)
@@ -34,20 +37,32 @@ To make positioning easier, group the text and the surrounding box:
 3. Group with <kbd>Ctrl</kbd> + <kbd>G</kbd>
 
 Now it should looke like this:
-{% caption align="aligncenter" width="512" alt="Speech bubbles" text="Preparation" url="../images/2014/01/inkscape-speech-bubble-step-2.png" %}
+<figure class="aligncenter">
+            <a href="../images/2014/01/inkscape-speech-bubble-step-2.png"><img src="../images/2014/01/inkscape-speech-bubble-step-2.png" alt="Speech bubbles" style="max-width:512px;" class=""/></a>
+            <figcaption class="text-center">Preparation</figcaption>
+        </figure>
 
 ## Indicator ##
 To add the "indicator" that shows who spoke, press <kbd>Shift</kbd>
 + <kbd>F6</kbd> and add a triangle that overlaps with the box:
 
-{% caption align="aligncenter" width="315" alt="Speech bubbles" text="Preparation" url="../images/2014/01/inkscape-speech-bubble-step-3.png" %}
+<figure class="aligncenter">
+            <a href="../images/2014/01/inkscape-speech-bubble-step-3.png"><img src="../images/2014/01/inkscape-speech-bubble-step-3.png" alt="Speech bubbles" style="max-width:315px;" class=""/></a>
+            <figcaption class="text-center">Preparation</figcaption>
+        </figure>
 
 Then press <kbd>F2</kbd> to modify the path by nodes. Add some controll
 nodes in between by double-clicking on the path in between:
 
-{% caption align="aligncenter" width="315" alt="Speech bubbles" text="Preparation" url="../images/2014/01/inkscape-speech-bubble-step-4.png" %}
+<figure class="aligncenter">
+            <a href="../images/2014/01/inkscape-speech-bubble-step-4.png"><img src="../images/2014/01/inkscape-speech-bubble-step-4.png" alt="Speech bubbles" style="max-width:315px;" class=""/></a>
+            <figcaption class="text-center">Preparation</figcaption>
+        </figure>
 
 Then delete them. Now you have those round curves that can be manipulated
 with the little circles:
 
-{% caption align="aligncenter" width="315" alt="Speech bubbles" text="Preparation" url="../images/2014/01/inkscape-speech-bubble-step-5.png" %}
+<figure class="aligncenter">
+            <a href="../images/2014/01/inkscape-speech-bubble-step-5.png"><img src="../images/2014/01/inkscape-speech-bubble-step-5.png" alt="Speech bubbles" style="max-width:315px;" class=""/></a>
+            <figcaption class="text-center">Preparation</figcaption>
+        </figure>

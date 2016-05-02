@@ -30,7 +30,10 @@ The raw data can be downloaded with this toolkit.
 The toolkit can be used to classify data on your computer (without internet
 connection):
 
-{% caption align="aligncenter" width="500" alt="Write math: Interactive Browser Interface (offline)" text="Write math: Interactive Browser Interface (offline)" url="../images/2015/01/write-math-browser-ui.png" %}
+<figure class="aligncenter">
+            <a href="../images/2015/01/write-math-browser-ui.png"><img src="../images/2015/01/write-math-browser-ui.png" alt="Write math: Interactive Browser Interface (offline)" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Write math: Interactive Browser Interface (offline)</figcaption>
+        </figure>
 
 ## nntoolkit
 

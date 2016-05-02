@@ -37,12 +37,18 @@ installed. It makes installation of other packages so much easier. After you
 have installed it, you can press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>
 to get this dialog:
 
-{% caption align="aligncenter" width="500" alt="Sublime Tabs" text="Sublime Tabs" url="../images/2014/03/sublime-package-control-install.png" %}
+<figure class="aligncenter">
+            <a href="../images/2014/03/sublime-package-control-install.png"><img src="../images/2014/03/sublime-package-control-install.png" alt="Sublime Tabs" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Sublime Tabs</figcaption>
+        </figure>
 
 ## Configuration
 Sublime Text offers plenty of configuration options. You can apply them to projects, users or system wide. Most of the time, I change my preferences for me via Preferences > Settings - User:
 
-{% caption align="aligncenter" width="500" alt="Preferences > Settings - User" text="Preferences > Settings - User" url="../images/2014/03/sublime-user-preferences.png" %}
+<figure class="aligncenter">
+            <a href="../images/2014/03/sublime-user-preferences.png"><img src="../images/2014/03/sublime-user-preferences.png" alt="Preferences > Settings - User" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Preferences > Settings - User</figcaption>
+        </figure>
 
 Here is what I have changed:
 
@@ -76,7 +82,10 @@ Note that you have to install the color scheme and the font ([source](http://fon
 You can get to the command palette by <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>.
 This opens such a dialog:
 
-{% caption align="aligncenter" width="500" alt="Command Palette" text="automatical alignment" url="../images/2014/03/sublime-command-palette.png" %}
+<figure class="aligncenter">
+            <a href="../images/2014/03/sublime-command-palette.png"><img src="../images/2014/03/sublime-command-palette.png" alt="Command Palette" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">automatical alignment</figcaption>
+        </figure>
 
 This will do a fuzzy search through all elements in the menu. So you don't need
 to use <kbd>Alt</kbd> + arrow keys no longer. I love it ☺
@@ -92,14 +101,20 @@ more.
 [BracketHighlighter](https://github.com/facelessuser/BracketHighlighter) adds
 brackets on the left side. It looks like this:
 
-{% caption align="aligncenter" width="328" alt="Highlight braces" text="Highlight braces" url="../images/2014/03/sublime-braces.png" %}
+<figure class="aligncenter">
+            <a href="../images/2014/03/sublime-braces.png"><img src="../images/2014/03/sublime-braces.png" alt="Highlight braces" style="max-width:328px;" class=""/></a>
+            <figcaption class="text-center">Highlight braces</figcaption>
+        </figure>
 
 ### Alignment
 [Sublime Alignment](http://wbond.net/sublime_packages/alignment) gives you the
 possibility to mark text, press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>a</kbd> to
 align:
 
-{% caption align="aligncenter" width="500" alt="automatical alignment" text="automatical alignment" url="../images/2014/03/sublime-align.gif" %}
+<figure class="aligncenter">
+            <a href="../images/2014/03/sublime-align.gif"><img src="../images/2014/03/sublime-align.gif" alt="automatical alignment" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">automatical alignment</figcaption>
+        </figure>
 
 ### Colorsublime
 
@@ -171,14 +186,23 @@ was written Jonathan Page: [Creating Snippets in Sublime Text 2 for LaTeX](http:
 
 <kbd>Ctrl</kbd> + <kbd>r</kbd>: Goto section
 
-{% caption align="aligncenter" width="500" alt="Ctrl+R in Sublime Text" text="Ctrl+R in Sublime Text (LaTeX)" url="../images/2014/03/sublime-latextools-jump-ctrl-r.png" %}
-{% caption align="aligncenter" width="500" alt="Ctrl+R in Sublime Text" text="Ctrl+R in Sublime Text (Markdown)" url="../images/2014/03/sublime-jump-markdown-ctrl-r.png" %}
+<figure class="aligncenter">
+            <a href="../images/2014/03/sublime-latextools-jump-ctrl-r.png"><img src="../images/2014/03/sublime-latextools-jump-ctrl-r.png" alt="Ctrl+R in Sublime Text" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Ctrl+R in Sublime Text (LaTeX)</figcaption>
+        </figure>
+<figure class="aligncenter">
+            <a href="../images/2014/03/sublime-jump-markdown-ctrl-r.png"><img src="../images/2014/03/sublime-jump-markdown-ctrl-r.png" alt="Ctrl+R in Sublime Text" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Ctrl+R in Sublime Text (Markdown)</figcaption>
+        </figure>
 
 <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Up / Down</kbd>: Move the current line one line up / down
 
 <kbd>Shift</kbd> + <kbd>F11</kbd>: Distraction free mode
 
-{% caption align="aligncenter" width="500" alt="Distraction free mode" text="Distraction free mode" url="../images/2014/03/sublime-text-distraction-free.png" %}
+<figure class="aligncenter">
+            <a href="../images/2014/03/sublime-text-distraction-free.png"><img src="../images/2014/03/sublime-text-distraction-free.png" alt="Distraction free mode" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Distraction free mode</figcaption>
+        </figure>
 
 <kbd>Ctrl</kbd> + <kbd>D</kbd>: Multi-Select
 
@@ -189,18 +213,27 @@ was written Jonathan Page: [Creating Snippets in Sublime Text 2 for LaTeX](http:
 ### Chrome-like Tabs
 Look at this:
 
-{% caption align="aligncenter" width="500" alt="Sublime Tabs" text="Sublime Tabs" url="../images/2014/03/sublime-text-tabs.png" %}
+<figure class="aligncenter">
+            <a href="../images/2014/03/sublime-text-tabs.png"><img src="../images/2014/03/sublime-text-tabs.png" alt="Sublime Tabs" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Sublime Tabs</figcaption>
+        </figure>
 
 Now compare it to this:
 
-{% caption align="aligncenter" width="500" alt="Chrome Tabs" text="Chrome Tabs" url="../images/2014/03/chrome-tabs.png" %}
+<figure class="aligncenter">
+            <a href="../images/2014/03/chrome-tabs.png"><img src="../images/2014/03/chrome-tabs.png" alt="Chrome Tabs" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Chrome Tabs</figcaption>
+        </figure>
 
 Chrome tabs look much cleaner, don't they? Many others seem to think that, too ([source](http://sublimetext.userecho.com/topic/19361-move-tabs-to-the-title-bar-like-in-google-chrome/)).
 
 ### Line Wrapping
 Sublime Text 3 does wrap points and commas to the next line:
 
-{% caption align="aligncenter" width="500" alt="line wrapping" text="line wrapping" url="../images/2014/03/sublime-word-wrapping.png" %}
+<figure class="aligncenter">
+            <a href="../images/2014/03/sublime-word-wrapping.png"><img src="../images/2014/03/sublime-word-wrapping.png" alt="line wrapping" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">line wrapping</figcaption>
+        </figure>
 
 This behaviour is bad and not liked by the community ([source](http://www.sublimetext.com/forum/viewtopic.php?f=3&t=5214)).
 

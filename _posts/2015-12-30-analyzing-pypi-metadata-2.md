@@ -55,7 +55,10 @@ LIMIT 20
 
 which gives
 
-{% caption align="aligncenter" width="500" alt="This bar chart displays which Python modules get imported by most Python packages" text="This bar chart displays which Python modules get imported by most Python packages" url="../images/2015/12/pypi-imported-packages-count.png" %}
+<figure class="aligncenter">
+            <a href="../images/2015/12/pypi-imported-packages-count.png"><img src="../images/2015/12/pypi-imported-packages-count.png" alt="This bar chart displays which Python modules get imported by most Python packages" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">This bar chart displays which Python modules get imported by most Python packages</figcaption>
+        </figure>
 
 and without the system packages:
 
@@ -105,7 +108,10 @@ LIMIT 20
 2&nbsp;seconds later I've got the result:
 
 
-{% caption align="aligncenter" width="500" alt="Number of imports of Python packages" text="Number of imports of Python packages" url="../images/2015/12/pypi-imported-packages.png" %}
+<figure class="aligncenter">
+            <a href="../images/2015/12/pypi-imported-packages.png"><img src="../images/2015/12/pypi-imported-packages.png" alt="Number of imports of Python packages" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Number of imports of Python packages</figcaption>
+        </figure>
 
 
 
@@ -131,7 +137,10 @@ LIMIT 20
 
 which gives me about 2&nbsp;seconds later the following result:
 
-{% caption align="aligncenter" width="500" alt="Number of imports of Python packages, excluding system packages" text="Number of imports of Python packages, excluding system packages" url="../images/2015/12/pypi-imported-packages-excluding-system.png" %}
+<figure class="aligncenter">
+            <a href="../images/2015/12/pypi-imported-packages-excluding-system.png"><img src="../images/2015/12/pypi-imported-packages-excluding-system.png" alt="Number of imports of Python packages, excluding system packages" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Number of imports of Python packages, excluding system packages</figcaption>
+        </figure>
 
 
 ## Non-functional packages

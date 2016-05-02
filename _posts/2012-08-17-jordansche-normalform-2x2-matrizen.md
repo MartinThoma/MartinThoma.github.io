@@ -57,7 +57,7 @@ J =
 \end{pmatrix}
 \]</div>,
 
-<div>\[K_1 = \text{Kern } \Omega^1 = \left [ \begin{pmatrix}2 \\ 5 \end{pmatrix} \right ]\]</div>
+<div>$$K_1 = \text{Kern } \Omega^1 = \left [ \begin{pmatrix}2 \\ 5 \end{pmatrix} \right ]$$</div>
 <div>\[K_2 = \text{Kern } \Omega^2 = \text{Kern } (\begin{pmatrix}10 & -4\\ 25 & -10 \end{pmatrix} \cdot \begin{pmatrix}10 & -4\\ 25 & -10 \end{pmatrix}) = \text{Kern } (\begin{pmatrix}0 & 0\\ 0 & 0 \end{pmatrix})
 =
 \left[
@@ -78,7 +78,7 @@ J =
             <figcaption class="text-center">Schema zum finden der Basiswechselmatrix</figcaption>
         </figure>
 
-Wähle <div>\[b_1^1 \in U_1: b_1^1 = \begin{pmatrix}1 \\0 \end{pmatrix} \Rightarrow \Omega(b_1^1) = \begin{pmatrix}10 \\ 25 \end{pmatrix}\]</div>
+Wähle <div>$$b_1^1 \in U_1: b_1^1 = \begin{pmatrix}1 \\0 \end{pmatrix} \Rightarrow \Omega(b_1^1) = \begin{pmatrix}10 \\ 25 \end{pmatrix}$$</div>
 <div>\[\Rightarrow S =
 \begin{pmatrix}
 10 & 1 \\
@@ -90,7 +90,7 @@ Wähle <div>\[b_1^1 \in U_1: b_1^1 = \begin{pmatrix}1 \\0 \end{pmatrix} \Rightar
 1 & -\frac{2}{5}
 \end{pmatrix}\]</div>
 
-<div>\[A = S \cdot J \cdot S^{-1}\]</div>
+<div>$$A = S \cdot J \cdot S^{-1}$$</div>
 <div>\[\Leftrightarrow
 \begin{pmatrix}
 11 & -4\\
@@ -151,13 +151,13 @@ Daraus folgt: Die Jordansche Normalform der Matrix ist:
 \end{pmatrix} = \left [ \begin{pmatrix}1 \\ 3 \end{pmatrix} \right ] \]</div>
 
 <strong>Zusammensetzen:</strong>
-<div>\[S = \begin{pmatrix}2 & 1 \\ -1 & 3 \end{pmatrix}\]</div>
-<div>\[S^{-1} = \frac{1}{7} \cdot \begin{pmatrix}3 & -1 \\ 1 & 2 \end{pmatrix}\]</div>
+<div>$$S = \begin{pmatrix}2 & 1 \\ -1 & 3 \end{pmatrix}$$</div>
+<div>$$S^{-1} = \frac{1}{7} \cdot \begin{pmatrix}3 & -1 \\ 1 & 2 \end{pmatrix}$$</div>
 
 <h3>Anmerkung</h3>
 Man hätte übrigens jeden Vektor aus <span>$\left [ \begin{pmatrix}2 \\ -1 \end{pmatrix} \right ] $</span> nehmen können. Angenommen, man hätte den Vektor <span>$\begin{pmatrix}-14 \\ 7 \end{pmatrix}$</span> gewählt:
 
-<div>\[S = \begin{pmatrix}-14 & 1 \\ 7 & 3 \end{pmatrix}\]</div>
-<div>\[S^{-1} = \frac{1}{49} \cdot \begin{pmatrix}-3 & 1 \\ 7 & 14 \end{pmatrix}\]</div>
+<div>$$S = \begin{pmatrix}-14 & 1 \\ 7 & 3 \end{pmatrix}$$</div>
+<div>$$S^{-1} = \frac{1}{49} \cdot \begin{pmatrix}-3 & 1 \\ 7 & 14 \end{pmatrix}$$</div>
 
 Das gleiche gilt natürlich für jeden anderen gewählten Vektor. Die inverse Matrix ändert sich selbstverständlich, jedoch nicht die Jordansche Normalform oder die ursprüngliche Matrix.

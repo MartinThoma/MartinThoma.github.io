@@ -50,11 +50,20 @@ shorteners:
 The user interface should be minimalistic. Goo.gl is a good example, bitly
 and tinyurl are still ok:
 
-{% caption align="aligncenter" width="500" alt="Goo.gl url shortener" text="Goo.gl url shortener" url="../images/2015/01/googl.png" %}
+<figure class="aligncenter">
+            <a href="../images/2015/01/googl.png"><img src="../images/2015/01/googl.png" alt="Goo.gl url shortener" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Goo.gl url shortener</figcaption>
+        </figure>
 
-{% caption align="aligncenter" width="500" alt="Tinyurl url shortener" text="Tinyurl url shortener" url="../images/2015/01/tinyurl.png" %}
+<figure class="aligncenter">
+            <a href="../images/2015/01/tinyurl.png"><img src="../images/2015/01/tinyurl.png" alt="Tinyurl url shortener" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Tinyurl url shortener</figcaption>
+        </figure>
 
-{% caption align="aligncenter" width="500" alt="Bit.ly url shortener" text="Bit.ly url shortener" url="../images/2015/01/bitly.png" %}
+<figure class="aligncenter">
+            <a href="../images/2015/01/bitly.png"><img src="../images/2015/01/bitly.png" alt="Bit.ly url shortener" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Bit.ly url shortener</figcaption>
+        </figure>
 
 ### Choose your own name
 

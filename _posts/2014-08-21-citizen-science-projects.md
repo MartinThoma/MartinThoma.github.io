@@ -23,7 +23,10 @@ You get some images of Galaxies and you should see some characteristics by
 looking at them. You get about three possible answers to every question. 
 
 It looks like that:
-{% caption align="aligncenter" width="500" alt="Galaxy Zoo" text="Galaxy Zoo" url="../images/2014/08/galaxyzoo.png" %}
+<figure class="aligncenter">
+            <a href="../images/2014/08/galaxyzoo.png"><img src="../images/2014/08/galaxyzoo.png" alt="Galaxy Zoo" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Galaxy Zoo</figcaption>
+        </figure>
 
 ## Moon Zoo
 > High-resolution images of the Moon's surface provided by the Lunar
@@ -36,7 +39,10 @@ Source: [Wikipedia](https://en.wikipedia.org/wiki/Moon_Zoo#Active_projects)
 
 It looks like this:
 
-{% caption align="aligncenter" width="500" alt="Moon Zoo" text="Moon Zoo" url="../images/2014/08/moonzoo.png" %}
+<figure class="aligncenter">
+            <a href="../images/2014/08/moonzoo.png"><img src="../images/2014/08/moonzoo.png" alt="Moon Zoo" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Moon Zoo</figcaption>
+        </figure>
 
 ## EteRNA
 
@@ -46,7 +52,10 @@ that engages users to solve puzzles related to the folding of RNA molecules.
 
 It looks like this:
 
-{% caption align="aligncenter" width="500" alt="EteRNA" text="EteRNA" url="../images/2014/08/eterna.png" %}
+<figure class="aligncenter">
+            <a href="../images/2014/08/eterna.png"><img src="../images/2014/08/eterna.png" alt="EteRNA" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">EteRNA</figcaption>
+        </figure>
 
 ## Write Math
 
@@ -60,7 +69,10 @@ end of October (2014).
 
 It looks like this:
 
-{% caption align="aligncenter" width="500" alt="write math" text="write math" url="../images/2014/08/write-math-front-page.png" %}
+<figure class="aligncenter">
+            <a href="../images/2014/08/write-math-front-page.png"><img src="../images/2014/08/write-math-front-page.png" alt="write math" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">write math</figcaption>
+        </figure>
 
 The most interesting part might be the [interactive preprocessing experiments](http://write-math.com/render/?raw_data_id=19181).
 

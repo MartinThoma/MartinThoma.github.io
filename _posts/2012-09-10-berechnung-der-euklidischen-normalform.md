@@ -38,7 +38,7 @@ Die Eigenräume berechnet man wie gewohnt:
 Nun wählt man für jeden Eigenraum eine Basis Orthonormalbasis aus Eigenvektoren. Das kann man mit dem Gram-Schmidtsches Orthogonalisierungsverfahren machen, also:
 Wähle ein beliebiges <span>$w_1 \in \text{Eig}(\lambda_i)$</span>.
 
-<div>\[w_j = v_j - \sum_{i=1}^{j-1} \frac{\langle v_j, w_i \rangle}{\langle w_i, w_i \rangle} \cdot w_i\]</div>
+<div>$$w_j = v_j - \sum_{i=1}^{j-1} \frac{\langle v_j, w_i \rangle}{\langle w_i, w_i \rangle} \cdot w_i$$</div>
 
 
 ## Quellen

@@ -49,7 +49,7 @@ with an example how to use SVMs with sklearn.
     <li><b>Dual Problem</b>: The primal problem is to find the normal vector $\mathbf{w}$ and the
           bias $b$. The dual problem is to express $\mathbf{w}$ as a linear
           combination of the training data $\mathbf{x}_i$:
-          \[\mathbf{w} = \sum_{i=1}^m \alpha_i y_i \mathbf{x}_i\]
+          $$\mathbf{w} = \sum_{i=1}^m \alpha_i y_i \mathbf{x}_i$$
           where $y_i \in \{-1, 1\}$ represents the class of the training
           example and $\alpha_i$ are Lagrange multipliers. The usage of
           Lagrange multipliers is explained with some examples
@@ -73,17 +73,17 @@ with an example how to use SVMs with sklearn.
           are only used within scalar product
           $\langle \mathbf{x}_i, \mathbf{x}_j \rangle$, it is not necessary to
           do the transformation. It is enough to do the calculation
-          \[K(\mathbf{x}_i, \mathbf{x}_j) = \langle \mathbf{x}_i, \mathbf{x}_j \rangle\]
+          $$K(\mathbf{x}_i, \mathbf{x}_j) = \langle \mathbf{x}_i, \mathbf{x}_j \rangle$$
 
           This function $K$ is called a <i>kernel</i>. The idea of never
           explicitly transforming the vectors $\mathbf{x}_i$ to the higher
           dimensional space is called the <i>kernel&nbsp;trick</i>. Common kernels
           include the polynomial kernel
-          \[K_P(\mathbf{x}_i, \mathbf{x}_j) = (\langle \mathbf{x}_i, \mathbf{x}_j \rangle + r)^p\]
+          $$K_P(\mathbf{x}_i, \mathbf{x}_j) = (\langle \mathbf{x}_i, \mathbf{x}_j \rangle + r)^p$$
           of degree $p$ and coefficient $r$, the Gaussian <abbr title="Radial Basis Function">RBF</abbr> kernel
-          \[K_{\text{Gauss}}(\mathbf{x}_i, \mathbf{x}_j) = e^{\frac{-\gamma\|\mathbf{x}_i - \mathbf{x}_j\|^2}{2 \sigma^2}}\]
+          $$K_{\text{Gauss}}(\mathbf{x}_i, \mathbf{x}_j) = e^{\frac{-\gamma\|\mathbf{x}_i - \mathbf{x}_j\|^2}{2 \sigma^2}}$$
           and the sigmoid kernel
-          \[K_{\text{tanh}}(\mathbf{x}_i, \mathbf{x}_j) = \tanh(\gamma \langle \mathbf{x}_i, \mathbf{x}_j \rangle - r)\]
+          $$K_{\text{tanh}}(\mathbf{x}_i, \mathbf{x}_j) = \tanh(\gamma \langle \mathbf{x}_i, \mathbf{x}_j \rangle - r)$$
           where the parameter $\gamma$ determines how much influence single
           training examples have.</li>
     <li><b>Multiple Classes</b>: By using the <i>one-vs-all</i> or the

@@ -79,10 +79,10 @@ ND.: "Nicht Deterministisch"
 <span style="background-color:#90EE90;">entscheidbar</span>, es kann also in endlicher Zeit entschieden werden, ob ein Wort in der Sprache liegt (vgl. <a href="http://de.wikipedia.org/wiki/Wortproblem">Wortproblem</a>).
 <br/>
 <strong>Nicht-Abeschlossenheit der Kontextfreien Sprachen:</strong>
-<span markdown="0">\[L_1 = \{a^jb^ic^i | j \in \mathbb{N}_0, i \in \mathbb{N}_0\}\]</span>
-<span markdown="0">\[L_2 = \{a^ib^ic^j | j \in \mathbb{N}_0, i \in \mathbb{N}_0\}\]</span>
-<span markdown="0">\[L_1 \cap L_2 = \{a^ib^ic^i | i \in \mathbb{N}_0\}\]</span>
-<span markdown="0">\[(L_1 \cup L_2)^C = L_1^C \cap L_2^C\]</span>
+<span markdown="0">$$L_1 = \{a^jb^ic^i | j \in \mathbb{N}_0, i \in \mathbb{N}_0\}$$</span>
+<span markdown="0">$$L_2 = \{a^ib^ic^j | j \in \mathbb{N}_0, i \in \mathbb{N}_0\}$$</span>
+<span markdown="0">$$L_1 \cap L_2 = \{a^ib^ic^i | i \in \mathbb{N}_0\}$$</span>
+<span markdown="0">$$(L_1 \cup L_2)^C = L_1^C \cap L_2^C$$</span>
 
 <h2>Weitere Aussagen</h2>
 Sei L eine Sprache.

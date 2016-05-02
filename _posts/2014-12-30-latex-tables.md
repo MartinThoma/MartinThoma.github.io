@@ -66,7 +66,10 @@ venenatis, vel tristique risus blandit.
 
 It will look like this:
 
-{% caption align="aligncenter" width="500" alt="Standard LaTeX table" text="Standard LaTeX table" url="../images/2014/09/latex-standard-table.png" %}
+<figure class="aligncenter">
+            <a href="../images/2014/09/latex-standard-table.png"><img src="../images/2014/09/latex-standard-table.png" alt="Standard LaTeX table" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Standard LaTeX table</figcaption>
+        </figure>
 
 You can see two environments: `table` and `tabular`. Let's focus on `tabular`
 first. It is always followed by a list of characters `l`, `c`, `r` which
@@ -135,7 +138,10 @@ venenatis, vel tristique risus blandit.
 
 which looks like this:
 
-{% caption align="aligncenter" width="500" alt="LaTeX table with booktabs" text="LaTeX table with booktabs" url="../images/2014/09/latex-table-booktabs.png" %}
+<figure class="aligncenter">
+            <a href="../images/2014/09/latex-table-booktabs.png"><img src="../images/2014/09/latex-table-booktabs.png" alt="LaTeX table with booktabs" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">LaTeX table with booktabs</figcaption>
+        </figure>
 
 ### Combining cells
 
@@ -191,7 +197,10 @@ venenatis, vel tristique risus blandit.
 
 which looks like this:
 
-{% caption align="aligncenter" width="500" alt="LaTeX table with multicols" text="LaTeX table with multicols" url="../images/2014/09/latex-multicols.png" %}
+<figure class="aligncenter">
+            <a href="../images/2014/09/latex-multicols.png"><img src="../images/2014/09/latex-multicols.png" alt="LaTeX table with multicols" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">LaTeX table with multicols</figcaption>
+        </figure>
 
 Note the `\cmidrule{2-4}` which draws a rule from cell 2 to 4 (LaTeX starts
 to count at 1).

@@ -25,7 +25,10 @@ elektrisch neutral. Alle diese Elementarteilchen haben Masse. Elektronen sind
 extrem leicht, Protonen und Neutronen sind etwa gleich schwer und beide jeweils
 deutlich schwerer als Elektronen.
 
-{% caption align="aligncenter" width="500" alt="Visualisierung eines Atoms" text="Visualisierung eines Atoms<br/>Bildquelle: <a href='https://commons.wikimedia.org/wiki/File:EisenatomLichteffekt.svg'>Wikipedia - Fornax, Halfdan, Groogokk</a>" url="../images/2016/03/atom.png" %}
+<figure class="aligncenter">
+            <a href="../images/2016/03/atom.png"><img src="../images/2016/03/atom.png" alt="Visualisierung eines Atoms" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Visualisierung eines Atoms<br/>Bildquelle: <a href='https://commons.wikimedia.org/wiki/File:EisenatomLichteffekt.svg'>Wikipedia - Fornax, Halfdan, Groogokk</a></figcaption>
+        </figure>
 
 Die Anzahl der Protonen und Elektronen ist gleich, sodass ein Atom insgesamt
 elektrisch neutral geladen ist. Die Anzahl der Protonen (bzw. Elektronen) macht
@@ -86,7 +89,7 @@ Atom - werden weitere Neutronen abgestoßen.
 Eine solche Spaltung kann man formal wie folgt darstellen:
 
 
-<div markdown="0">\[\mathrm{^{235}_{\ 92}U + ^{1}_{0}n \longrightarrow ^{133}_{\ 52}Te + ^{101}_{\ 40}Zr + 2\ ^{1}_{0}n}\]</div>
+<div markdown="0">$$\mathrm{^{235}_{\ 92}U + ^{1}_{0}n \longrightarrow ^{133}_{\ 52}Te + ^{101}_{\ 40}Zr + 2\ ^{1}_{0}n}$$</div>
 
 Was diese Gleichung verschweigt, ist die Tatsache, dass auch Energie frei wird.
 Diese kann man zum erhitzen von Wasser verwenden. Das erhitzte Wasser kann dann
@@ -221,7 +224,7 @@ paar:
 
 Wir haben also mindestens
 
-<div markdown="0">\[11 \text{ Jahre } \cdot 400 \frac{\text{Tonnen}}{\text{Jahr}} = 4400\text{ Tonnen}\]</div>
+<div markdown="0">$$11 \text{ Jahre } \cdot 400 \frac{\text{Tonnen}}{\text{Jahr}} = 4400\text{ Tonnen}$$</div>
 
 an Atommüll. Hinzu kommen diese [Kokillen](https://de.wikipedia.org/wiki/Kokille) von
 vor 2005, von denen ich leider nicht weiß wie groß die sind.
@@ -237,7 +240,7 @@ wurden in vielen Quellen als "Jährlich anfallender Atommüll" genannt. Als ob
 das jedes Jahr gleich wäre. Dann hätten wir heute keine ~17&thinsp;000&nbsp;Tonnen
 Atommüll sondern
 
-<div markdown="0">\[(2016-1960) \cdot 450 \text{ Tonnen} = 25200\text{ Tonnen}\]</div>
+<div markdown="0">$$(2016-1960) \cdot 450 \text{ Tonnen} = 25200\text{ Tonnen}$$</div>
 
 
 ## Siehe auch

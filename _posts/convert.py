@@ -90,8 +90,22 @@ def math(filename):
     with open(filename) as f:
         content = f.read()
 
-    single_math = re.compile("\\\\\((.+?)\\\\\)")
+    backslash = '\\\\'
+
+    single_math = re.compile(2*backslash + "\((.+?)" + 2*backslash + "\)")
     content = single_math.sub(lambda m: "${math}$".format(math=m.group(1)),
+                              content)
+
+    single_math = re.compile(backslash + "\((.+?)" + backslash + "\)")
+    content = single_math.sub(lambda m: "${math}$".format(math=m.group(1)),
+                              content)
+
+    single_math = re.compile(2*backslash + "\[(.+?)" + 2*backslash + "\]")
+    content = single_math.sub(lambda m: "$${math}$$".format(math=m.group(1)),
+                              content)
+
+    single_math = re.compile(backslash + "\[(.+?)" + backslash + "\]")
+    content = single_math.sub(lambda m: "$${math}$$".format(math=m.group(1)),
                               content)
 
     with open(filename, "w") as o:
@@ -175,3 +189,4 @@ if __name__ == '__main__':
         math(filename)
         captiontag(filename)
         codelisting(filename)
+        fixtitles(filename)

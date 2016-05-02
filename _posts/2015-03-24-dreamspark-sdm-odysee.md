@@ -33,7 +33,10 @@ What I am currently trying: Installing Windows 7 on another computer.*argh*
 
 Using the Windows 8 systems at my university gives:
 
-{% caption align="aligncenter" width="500" alt="Error message when trying to install SDM" text="Error message when trying to install SDM" url="../images/2015/03/windows-sdm-screenshot.png" %}
+<figure class="aligncenter">
+            <a href="../images/2015/03/windows-sdm-screenshot.png"><img src="../images/2015/03/windows-sdm-screenshot.png" alt="Error message when trying to install SDM" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Error message when trying to install SDM</figcaption>
+        </figure>
 
 > Das Feature, das Sie verwenden möchten, befindet sich auf einer Netzressource,
 > die nicht zur Verfügung steht.
@@ -101,7 +104,10 @@ my link to download stuff)
 However, I cannot simply download it there. There is a page with two downloads,
 but when I click on download nothing happens.
 
-{% caption align="aligncenter" width="500" alt="SDM download page" text="SDM download page" url="../images/2015/03/sdm-download-page.png" %}
+<figure class="aligncenter">
+            <a href="../images/2015/03/sdm-download-page.png"><img src="../images/2015/03/sdm-download-page.png" alt="SDM download page" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">SDM download page</figcaption>
+        </figure>
 
 So I use Chrome developer tools
 (<kbd>Ctrl</kbd>+<kbd>shift</kbd>+<kbd>i</kbd>) to see the request.
@@ -134,7 +140,10 @@ https://www.modern.ie/en-us/virtualization-tools#downloads
 I downloaded IE11, Win 8.1. Importing the VM took about 15 minutes on my computer.
 Then I got another error:
 
-{% caption align="aligncenter" width="500" alt="VM import error" text="VM import error" url="../images/2015/03/vm-critical-error.png" %}
+<figure class="aligncenter">
+            <a href="../images/2015/03/vm-critical-error.png"><img src="../images/2015/03/vm-critical-error.png" alt="VM import error" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">VM import error</figcaption>
+        </figure>
 
 
 ## Installing Windows 7

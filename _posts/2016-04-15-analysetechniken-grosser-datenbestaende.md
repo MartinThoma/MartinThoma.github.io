@@ -226,14 +226,14 @@ Slides: `2-statistGrundlagen.pdf`
     <dt><dfn>Distributive Aggregatfunktion</dfn></dt>
     <dd>
         Es gibt eine Funktion $G$, so dass
-        \[F(\{X_{i,j}\}) = G(\{F(X_{i,j} | i=1, \dots, l) | j = 1, \dots, J\})\]
+        $$F(\{X_{i,j}\}) = G(\{F(X_{i,j} | i=1, \dots, l) | j = 1, \dots, J\})$$
 
         MIN, MAX und COUNT sind distributive Aggregatfunktionen.
     </dd>
     <dt><dfn>Algebraische Aggregatfunktion</dfn></dt>
     <dd>Es gibt eine Funktion $G$, die ein $M$-Tupel liefert und $H$,
         so dass
-        \[F(\{X_{i,j}\}) = H(\{G(\{X_{i,j} | i=1, \dots, l\}) | j=1, \dots, J\})\]
+        $$F(\{X_{i,j}\}) = H(\{G(\{X_{i,j} | i=1, \dots, l\}) | j=1, \dots, J\})$$
 
         AVG ist eine Algebraische Aggregatfunktion. Hier berechnet $G$ die
         Summe und gibt zusätzlich die Anzahl der Werte zurück. $H$ summiert
@@ -254,9 +254,9 @@ Slides: `2-statistGrundlagen.pdf`
         <br/>
         MIN und MAX ist self-maintainable bzgl. Einfügen.</dd>
     <dt><dfn>Mid-Range</dfn></dt>
-    <dd>\[\frac{MAX-MIN}{2}\]</dd>
+    <dd>$$\frac{MAX-MIN}{2}$$</dd>
     <dt><dfn>Entropie</dfn></dt>
-    <dd>\[E(S) = - \sum_{j} p_j \cdot \log p_j\]
+    <dd>$$E(S) = - \sum_{j} p_j \cdot \log p_j$$
 
         $E(S)=0$ ist minimal, wenn es ein $j$ gibt mit $p_j = 1$.
         $E(S)=\log(n)$ ist maximal, wenn $p_i = p_j$ gilt für $i, j$.</dd>
@@ -264,9 +264,9 @@ Slides: `2-statistGrundlagen.pdf`
     <dd>Sind üblicherweise auf [-1, 1] normiert. Die Kovarianz ist ein
         nicht-normiertes Korrelationsmaß.</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Kovarianz_(Stochastik)#Definition"><dfn>Kovarianz</dfn></a></dt>
-    <dd>\[\operatorname{Cov}(X,Y) := \operatorname E\bigl[(X - \operatorname E(X)) \cdot (Y - \operatorname E(Y))\bigr]\]</dd>
+    <dd>$$\operatorname{Cov}(X,Y) := \operatorname E\bigl[(X - \operatorname E(X)) \cdot (Y - \operatorname E(Y))\bigr]$$</dd>
     <dt><a id="korrelationskoeffizient" href="https://de.wikipedia.org/wiki/Korrelationskoeffizient#Definitionen"><dfn>Korrelationskoeffizient</dfn></a></dt>
-    <dd>\[\varrho(X,Y) =\frac{\operatorname{Cov}(X,Y)}{\sigma(X)\sigma(Y)} \in [-1, 1]\]</dd>
+    <dd>$$\varrho(X,Y) =\frac{\operatorname{Cov}(X,Y)}{\sigma(X)\sigma(Y)} \in [-1, 1]$$</dd>
     <dt><dfn>PCA</dfn> (<dfn>Principal Component Analysis</dfn>)</dt>
     <dd>PCA ist ein Algorithmus zur Reduktion von Daten durch das Entfernen von
         Attributen. Er projeziert die Datenobjekte auf eine Hyperebene, sodass
@@ -281,7 +281,7 @@ Slides: `2-statistGrundlagen.pdf`
         wie häufig diese in Kombination auftreten ($n_{ij}$). Man schätzt den
         erwarteten Wert durch $e_{ij} = \frac{1}{n} \left(\sum_{k=1}^{m_2} n_{ik} \right) \cdot \left (\sum_{k=1}^{m_2} n_{kj}\right )$. Der Chi-Quadrat wert ist dann:
 
-        \[\chi^2 = \sum_{i=1}^{m_1} \sum_{j=1}^{m_2} \frac{(n_{ij} - e_{ij})^2}{e_{ij}}\]
+        $$\chi^2 = \sum_{i=1}^{m_1} \sum_{j=1}^{m_2} \frac{(n_{ij} - e_{ij})^2}{e_{ij}}$$
 
         Daraus wird ein $p$-Wert abgeleitet. Wenn dieser unter einem
         Schwellwert wie $\alpha = 0.01$ ist, dann wird die Hypothese, dass
@@ -290,21 +290,21 @@ Slides: `2-statistGrundlagen.pdf`
         Die Nullhypothese, dass $X, Y$ unabhängig sind wird auf dem
         Signifikanzniveau $\alpha$ verworfen, falls
 
-        \[\chi^2 > \chi^2_{(1-\alpha; (m_1-1)(m_2-1))}\]
+        $$\chi^2 > \chi^2_{(1-\alpha; (m_1-1)(m_2-1))}$$
 
         </dd>
     <dt><a href="https://de.wikipedia.org/wiki/Kolmogorow-Smirnow-Test"><dfn>Kolmogorow-Smirnow-Test</dfn></a> (<dfn>KSA-Test</dfn>)</dt>
     <dd>Test auf unabhängigkeit kontinuierlicher Verteilungen, also:
-        \[H_0: F_X(x) = F_0(x)\]
+        $$H_0: F_X(x) = F_0(x)$$
 
         Es wird die empirsche Verteilungsfunktion $S$ gebildet und diese mit
         der hypothetischen Verteilungsfunktion $F_0$ verglichen, wobei
         $S(x_0) = 0$ gesetzt wird:
-        \[d_{\max} = \max(\max_{i=1, \dots, n}|S(x_i) - F_0(x_i)|, \max_{i=1, \dots, n} |S(x_{i-1} - F_0(x_i))|)\]
+        $$d_{\max} = \max(\max_{i=1, \dots, n}|S(x_i) - F_0(x_i)|, \max_{i=1, \dots, n} |S(x_{i-1} - F_0(x_i))|)$$
         $H_0$ wird verworfen, wenn $d_{\max} > d_\alpha$, wobei $d_\alpha$
         bis zu $n=35$ tabelliert vorliegt. Bei großerem $n$ kann
         näherungsweise
-        \[d_\alpha = \sqrt{\frac{-\frac{1}{2} \ln(\frac{\alpha}{2})}{n}}\]
+        $$d_\alpha = \sqrt{\frac{-\frac{1}{2} \ln(\frac{\alpha}{2})}{n}}$$
         </dd>
     <dt><a href="https://de.wikipedia.org/wiki/Wilcoxon-Mann-Whitney-Test"><dfn>Wilcoxon-Mann-Whitney-Test</dfn></a> ($U$-Test)</dt>
     <dd>Es seien $X,Y$ Zufallsvariablen mit Verteilungsfunktionen
@@ -416,7 +416,7 @@ Dieses Kapitel beschäftigt sich mit der Klassifikation mit Entscheidungsbäumen
     <dt><dfn>Wahl der Split-Attribute</dfn></dt>
     <dd>Entropie eines Splits minimieren:
 
-    \[E(S_1, S_2) = \frac{n_1}{n} E(S_1) + \frac{n_2}{n} E(S_2)\]
+    $$E(S_1, S_2) = \frac{n_1}{n} E(S_1) + \frac{n_2}{n} E(S_2)$$
 
     </dd>
     <dt><dfn>Overfitting</dfn></dt>
@@ -452,9 +452,9 @@ Slides: `5-Evaluation.pdf`
     <dd>Eine Funktion, die angibt, wie viel man durch eine unkorrekte
         Vorhersage verliert.</dd>
     <dt><dfn>Informational Loss function</dfn></dt>
-    <dd>\[- \log_2 p_i\] - Wahrscheinlichkeiten der nicht-eintretenden Klassen spielen keine Rolle</dd>
+    <dd>$$- \log_2 p_i$$ - Wahrscheinlichkeiten der nicht-eintretenden Klassen spielen keine Rolle</dd>
     <dt><dfn>Quadratic Loss function</dfn></dt>
-    <dd>\[\sum_{j} (p_j - a_j)^2\] mit tatsächlichem Label $a_j \in \{0,1\}$
+    <dd>$$\sum_{j} (p_j - a_j)^2$$ mit tatsächlichem Label $a_j \in \{0,1\}$
         und geschätzter Wahrscheinlichkeit $p_j$ für die Klasse $j$.</dd>
     <dt><dfn>Bias</dfn></dt>
     <dd>Das Verfahren an sich funktioniert nicht gut. Selbst beliebig viele
@@ -463,7 +463,7 @@ Slides: `5-Evaluation.pdf`
     <dt><dfn>Varianz</dfn></dt>
     <dd>Fehler welcher durch das Fehlen von Trainingsdaten verursacht wird.</dd>
     <dt><a id="erfolgsquote"></a><dfn>Gesamt-Erfolgsquote</dfn></dt>
-    <dd>\[\frac{TP+TN}{TP+TN+FP+FN}\]</dd>
+    <dd>$$\frac{TP+TN}{TP+TN+FP+FN}$$</dd>
     <dt><dfn>Konfusionsmatrix</dfn> (<dfn>Confusion matrix</dfn>)</dt>
     <dd>Eine Tabelle, in der jede Zeile für die tatsächlichen Klassen stehen
         und die Spalten für die vorhergesagten Klassen. Die Diagonalelemente
@@ -472,7 +472,7 @@ Slides: `5-Evaluation.pdf`
     <dt><dfn>Kappa-Koeffizient</dfn> (<a href="https://de.wikipedia.org/wiki/Cohens_Kappa"><dfn>Cohens Kappa</dfn></a>)</dt>
     <dd>Vergleich mit Klassifier, der nur den Anteil der Klassenzugehörigkeit
         schätzt:
-        \[\kappa =\frac{p_0-p_c}{1-p_c}\]
+        $$\kappa =\frac{p_0-p_c}{1-p_c}$$
         wobei $p_0$ die gemessene Übereinstimmung ist und $p_c$ die
         erwartete Übereinstimmung bei Unabhängigkeit. Wenn also $h_{ij}$ die
         Anzahl der Datenobjekte ist, für die der erste Klassifizierer die Klasse
@@ -480,18 +480,18 @@ Slides: `5-Evaluation.pdf`
         sowie $N$ die Gesamtzahl der Datenobjekte und $z$ die Gesamtzahl
         der Klassen, dann gilt:
 
-        \[p_0 = \frac{\sum_{i=1}^z h_{ii}}{N}\]
+        $$p_0 = \frac{\sum_{i=1}^z h_{ii}}{N}$$
 
         Die erwartete Übereinstimmung $p_c$ wird über die Randhäufigkeiten
         geschätzt:
-        \[p_c = \frac{1}{N^2} \sum_{i=1}^z h_{.i} \cdot h_{i.}\]
+        $$p_c = \frac{1}{N^2} \sum_{i=1}^z h_{.i} \cdot h_{i.}$$
 
         Der Wertebereich ist also: $\kappa \in (-\infty; 1]$, wobei
         der minimale Wert von $\kappa$ nicht beliebig klein werden kann.</dd>
     <dt><a href="https://en.wikipedia.org/wiki/Association_rule_learning#Lift"><dfn>Lift-Faktor</dfn></a></dt>
     <dd>Faktor, um den sich die Rücklaufquote erhöht:
 
-        \[\mathrm{lift}(X\Rightarrow Y) = \frac{ \mathrm{supp}(X \cup Y)}{ \mathrm{supp}(X) \cdot \mathrm{supp}(Y) }\]
+        $$\mathrm{lift}(X\Rightarrow Y) = \frac{ \mathrm{supp}(X \cup Y)}{ \mathrm{supp}(X) \cdot \mathrm{supp}(Y) }$$
 
         Der Lift ist ein Indiz für die Unabhängigkeit von $X$ und $Y$.
         Ist der Lift nahe bei 1, dann spricht das für die Unabhängigkeit. Ein
@@ -507,24 +507,24 @@ Slides: `5-Evaluation.pdf`
 
         Siehe auch: <a href="https://www.reddit.com/r/answers/comments/4g2wgx/where_does_the_name_receiver_operating/">Namensherkunft</a></dd>
     <dt><dfn>Recall</dfn> (<dfn>True Positive Rate</dfn>, <dfn>TPR</dfn>, <dfn>Sensitivität</dfn>)</dt>
-    <dd>\[TPR = \frac{TP}{TP + FN} = 1 - FNR \in [0, 1]\]
+    <dd>$$TPR = \frac{TP}{TP + FN} = 1 - FNR \in [0, 1]$$
 
         Der Recall gibt den Anteil der erkannten positiven aus allen positiven
         an.
 
         <i>Sensitivität</i> ist ein in der Medizin üblicher Begriff.</dd>
     <dt><dfn>Precision</dfn> (<dfn>Genauigkeit</dfn>)</dt>
-    <dd>\[Precision = \frac{TP}{TP + FP} \in [0, 1]\]
+    <dd>$$Precision = \frac{TP}{TP + FP} \in [0, 1]$$
 
         Die Precision gibt den Anteil der real positiven aus den als positiv
         erkannten an.</dd>
     <dt><a href="https://en.wikipedia.org/wiki/F1_score"><dfn>F-Measure</dfn></a> (<dfn>F1 score</dfn>)</dt>
-    <dd>\[\frac{2 \cdot \text{precision} \cdot \text{recall}}{\text{recall} + \text{precision}}\]</dd>
+    <dd>$$\frac{2 \cdot \text{precision} \cdot \text{recall}}{\text{recall} + \text{precision}}$$</dd>
     <dt><dfn>Correlation Coefficient</dfn></dt>
     <dd>Der Correlation Coefficient ist kein Fehlermaß. Der
         $CC(p, a)$ ist groß, wenn sich $p$ und $a$ ähnlich sind.
 
-        \[CC(p, a) = \frac{COV(p, a)}{\sigma(p) \cdot \sigma(a)}\]
+        $$CC(p, a) = \frac{COV(p, a)}{\sigma(p) \cdot \sigma(a)}$$
 
         Mit $\sigma(x) = \frac{1}{n-1} \cdot \sum_{i} (x_i - \bar{x})^2$</dd>
     <dt><dfn>Code</dfn></dt>
@@ -582,7 +582,7 @@ Anwendungen von Association Rules denkbar:
     <dd>Die Anzahl der Transaktionen, die das Itemset $I$ enthalten wird
     <i>Support von $I$</i> genannt.<br/>
         Es gilt:
-        \[\text{support}(A \Rightarrow B) = \text{support}(A \cup B)\)\]</dd>
+        $$\text{support}(A \Rightarrow B) = \text{support}(A \cup B)\)$$</dd>
     <dt><dfn>Closed Itemset</dfn></dt>
     <dd>Ein Itemset $I$ heißt closed, wenn es keine echte Obermenge $I' \supsetneq I$ gibt,
         die den gleichen support $\text{supp}(I') = \text{supp}(I)$ hat.</dd>
@@ -590,7 +590,7 @@ Anwendungen von Association Rules denkbar:
     <dd>Confidence von $A \Rightarrow B$ ist der Anteil der Transaktionen,
         die $A$ und $B$ enthalten, von den Transaktione die $A$ enthalten:
 
-        \[\text{conf}(A \Rightarrow B) = \frac{\text{support}(A \cup B)}{\text{support}(A)} \in [0, 1]\]</dd>
+        $$\text{conf}(A \Rightarrow B) = \frac{\text{support}(A \cup B)}{\text{support}(A)} \in [0, 1]$$</dd>
     <dt><dfn>Apriori Algorithmus</dfn></dt>
     <dd>Der Apriori-Algorithmus ist ein Generate-and-Test-Algorithmus zum
         Finden von Frequent Itemsets.
@@ -692,7 +692,7 @@ Slides: `8-ConstrainedAssociationRules.pdf`
     <dd>Ein 1-var Constraint heißt anti-monoton, wenn für alle Mengen $S, S'$
         gilt:
 
-        \[(S \supseteq S' \land (S \text{ erfüllt } C )) \Rightarrow S' \text{ erfüllt } C\]
+        $$(S \supseteq S' \land (S \text{ erfüllt } C )) \Rightarrow S' \text{ erfüllt } C$$
 
         Wenn also ein Constraint $C$ für eine Menge $S$ erfüllt ist, dann
         auch für jede Teilmenge $S'$.
@@ -730,17 +730,17 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
 
     <ul>
         <li>Durchschnittlicher Abstand zwischen Objekt o und anderen Objekten in seinem Cluster:
-            \[a(o) = \frac{1}{|C(o)|} \sum_{p \in C(o)} dist(o, p)\]</li>
+            $$a(o) = \frac{1}{|C(o)|} \sum_{p \in C(o)} dist(o, p)$$</li>
         <li>Durchschnittlicher Abstand zum zweitnächsten Cluster:
-            \[b(o) = \min_{C_i \in \text{Cluster} \setminus C(o)}(\frac{1}{C_i}) \sum_{p\in C_i} \sum_{p \in C_i} \text{dist}(o, p)\]</li>
+            $$b(o) = \min_{C_i \in \text{Cluster} \setminus C(o)}(\frac{1}{C_i}) \sum_{p\in C_i} \sum_{p \in C_i} \text{dist}(o, p)$$</li>
         <li>Silhouette eines Objekts:
             \[s(o) = \begin{cases}0  &\text{if } a(o) = 0, \text{i.e. } |C_i|=1\\
                     \frac{b(o)-a(o)}{\max(a(o), b(o))} &\text{otherwise}\end{cases}\]
             Es gilt:
-            \[s(o) \in [-1, 1]\]</li>
+            $$s(o) \in [-1, 1]$$</li>
         <li>$\text{silh}(C) = \frac{1}{|C|} \sum_{C_i \in C} \frac{1}{|C_i|} \sum_{o \in C_i} s(o)$.
             Es gilt:
-            \[\text{silh}(C) \in [-1; 1]\]
+            $$\text{silh}(C) \in [-1; 1]$$
             Es ist ein möglichst großer Wert gewünscht. Alles kleiner als 0 ist schlecht.</li>
     </ul>
     </dd>
@@ -815,15 +815,15 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         weich (also mit einer gewissen Wahrscheinlichkeit) jedem Cluster
         zugeordnet.</dd>
     <dt><dfn>Zentrum eines Centroids</dfn></dt>
-    <dd>\[Z_{i} = \frac{1}{|C_i|} \sum_{i \in C_i} X_i\]</dd>
+    <dd>$$Z_{i} = \frac{1}{|C_i|} \sum_{i \in C_i} X_i$$</dd>
     <dt><dfn>Radius eines Centroids</dfn></dt>
-    <dd>\[R(C_i) = \sqrt{\frac{1}{|C_i|} \sum_{j \in C_i} {(X_j - Z_i)}^2}\]</dd>
+    <dd>$$R(C_i) = \sqrt{\frac{1}{|C_i|} \sum_{j \in C_i} {(X_j - Z_i)}^2}$$</dd>
     <dt><dfn>Durchmesser eines Centroids</dfn></dt>
-    <dd>\[D(C_i) = \sqrt{\frac{1}{|C_i| \cdot (|C_i|-1)} \sum_{j \in C_i} \sum_{k \in C_i} {(X_j - X_k)}^2}\]</dd>
+    <dd>$$D(C_i) = \sqrt{\frac{1}{|C_i| \cdot (|C_i|-1)} \sum_{j \in C_i} \sum_{k \in C_i} {(X_j - X_k)}^2}$$</dd>
     <dt><dfn>Interclusterdistanz</dfn></dt>
     <dd>Durchschnittliche Inter-Clusterdistanz von Cluster 1 und Cluster 2:
 
-        \[D(C_1, C_2) = \sqrt{\frac{\sum_{i \in C_1} \sum_{j \in C_2} {(X_i - X_j)}^2}{|C_1| \cdot |C_2|}}\]</dd>
+        $$D(C_1, C_2) = \sqrt{\frac{\sum_{i \in C_1} \sum_{j \in C_2} {(X_i - X_j)}^2}{|C_1| \cdot |C_2|}}$$</dd>
     <dt><a id="agglomerative-clustering"></a><dfn>Agglomeratives Clustering</dfn></dt>
     <dd>
 
@@ -859,7 +859,7 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
     <dd>$d(x_1, x_2) = \frac{1}{n} \cdot \sum_{i=1}^n |x_1^{(i)} - x_2^{(i)}|$ wobei
         $n$ die Anzahl der Dimensionen von $x_1, x_2$ ist.</dd>
     <dt><dfn>Jaccard Koeffizient</dfn></dt>
-    <dd>\[J(A, B) = \frac{|A \cap B|}{|A \cup B|} \in [0; 1]\]</dd>
+    <dd>$$J(A, B) = \frac{|A \cap B|}{|A \cup B|} \in [0; 1]$$</dd>
     <dt><a href="https://de.wikipedia.org/wiki/DBSCAN" id="dbscan"><dfn>DBSCAN</dfn></a></dt>
     <dd>DBSCAN ist ein Algorithmus zum finden von Clustern.
 
@@ -929,7 +929,7 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
     <dd>Siehe <a href="https://martin-thoma.com/machine-learning-2-course#em-algorithmus">ML 2</a>.</dd>
     <dt><dfn>Overall Likelihood</dfn></dt>
     <dd>Die Overall Likelihood ist ein Gütemaß für Clusterings.
-        \[\prod_{i} \left ( p_A P(x_i | A) + p_B P(x_i | B) \right )\]</dd>
+        $$\prod_{i} \left ( p_A P(x_i | A) + p_B P(x_i | B) \right )$$</dd>
 </dl>
 
 
@@ -939,7 +939,7 @@ Slides: `10-StatistModellierung.pdf`
 
 <dl>
     <dt><dfn>Naive Baies</dfn></dt>
-    <dd>\[P(H | E) = \frac{P(E_1 | H) \cdot \dots \cdot P(E_n | H) \cdot P(H)}{P(E)}\]</dd>
+    <dd>$$P(H | E) = \frac{P(E_1 | H) \cdot \dots \cdot P(E_n | H) \cdot P(H)}{P(E)}$$</dd>
     <dt><dfn>Laplace-Smoothing</dfn></dt>
     <dd>Um Wahrscheinlichkeiten von 0 zu vermeiden, werden die Zähler mit $k$ initilisiert.
         Beachte, dass man auch die Gesamtzahl dann um $k$ erhöhen muss.</dd>
@@ -966,7 +966,7 @@ Slides: `11-SupportVectorMachines.pdf`
         $y \in \mathbb{R}^m$ die Vorhersage und $M \in \mathbb{R}^{n \times m}$
         die Modellparameter.</dd>
     <dt><dfn>Cross Entropy Fehlermaß</dfn></dt>
-    <dd>\[E_{CE}(w) = \sum_{i=1}^n [(1-y_i) \cdot \log (1-p) + y_i \cdot \log p]\]</dd>
+    <dd>$$E_{CE}(w) = \sum_{i=1}^n [(1-y_i) \cdot \log (1-p) + y_i \cdot \log p]$$</dd>
     <dt><dfn>SVM</dfn> (<dfn>Support Vector Machine</dfn>)</dt>
     <dd>See <a href="https://martin-thoma.com/svm-with-sklearn/">SVM article</a>.</dd>
 </dl>

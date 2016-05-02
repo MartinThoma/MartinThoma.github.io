@@ -418,7 +418,7 @@ Siehe auch:
       Wert einer eines Zustandes $s$ unter der policy $\pi$, wenn die
       Aktion $a$ ausgeführt wird an.
 
-      Es gilt: \[Q^\pi(s, \pi(s)) = V^\pi(s)\]</dd>
+      Es gilt: $$Q^\pi(s, \pi(s)) = V^\pi(s)$$</dd>
    <dt><a name="rl-eligibility-trace"></a><dfn>Eligibility Traces</dfn></dt>
    <dd>Die Idee scheint einfach zu sein, dass man ein späteres Update auch auf
        frühere Ereignisse "zurückpropagiert".
@@ -437,14 +437,14 @@ Algorithmen:
     <dd>Simple Value Iteration estimates the value function by updating it
         as long as necessary to converge:
 
-        \[\hat{V}^*(s_t) \leftarrow r_t + \gamma \hat{V}^*(s_{t+1})\]
+        $$\hat{V}^*(s_t) \leftarrow r_t + \gamma \hat{V}^*(s_{t+1})$$
 
         "Simple" means that the transition function is deterministic.
         <!--
         In the
         non-deterministic case the update rule is
 
-        \[\hat{V}^*(s_t) \leftarrow r_t + \gamma E(\hat{V}^*(s_{t+1}))\] -->
+        $$\hat{V}^*(s_t) \leftarrow r_t + \gamma E(\hat{V}^*(s_{t+1}))$$ -->
 
         It is explained in
 
@@ -458,7 +458,7 @@ Algorithmen:
     <dd>Simple Temporal Difference Learning is just like
         Simple Value Iteration, but now the Value function is updated with
         a learning rate $\alpha$:
-        \[\hat{V}^*(s_t) \leftarrow (1-\alpha) \cdot \hat{V}^*(s_t) + \alpha(r_t + \gamma \hat{V}^*(s_{t+1}))\]
+        $$\hat{V}^*(s_t) \leftarrow (1-\alpha) \cdot \hat{V}^*(s_t) + \alpha(r_t + \gamma \hat{V}^*(s_{t+1}))$$
 
         Mehr dazu im <a href="#td-learning">nächsten Abschnitt</a>.
     </dd>
@@ -467,7 +467,7 @@ Algorithmen:
     <dt><a name="sarsa" href="https://en.wikipedia.org/wiki/State-Action-Reward-State-Action"><dfn>SARSA</dfn></a> (<dfn>State-Action-Reward-State-Action</dfn>)</dt>
     <dd>SARSA is a learning algorithm which updates the Q-function:
 
-    \[Q(s_t,a_t) \leftarrow (1-\alpha) \cdot Q(s_t,a_t) + \alpha [r_{t+1} + \gamma Q(s_{t+1}, a_{t+1})]\]
+    $$Q(s_t,a_t) \leftarrow (1-\alpha) \cdot Q(s_t,a_t) + \alpha [r_{t+1} + \gamma Q(s_{t+1}, a_{t+1})]$$
 
     where $\alpha \in (0, 1)$ is the learning rate and $\gamma \in [0, 1]$
     is the discount factor.
@@ -613,7 +613,10 @@ Siehe auch:
 * Alexander Ihler: <a href="https://www.youtube.com/watch?v=ix6IvwbVpw0">AdaBoost</a>.
 
 
-{% caption align="aligncenter" width="500" alt="Ensemble Learning Techniques: Boosting, Bagging, Random Subspaces, Pasting, Random Patches" text="Ensemble Learning Techniques: Boosting, Bagging, Random Subspaces, Pasting, Random Patches" url="../images/2015/12/ml-ensemble-learning.png" %}
+<figure class="aligncenter">
+            <a href="../images/2015/12/ml-ensemble-learning.png"><img src="../images/2015/12/ml-ensemble-learning.png" alt="Ensemble Learning Techniques: Boosting, Bagging, Random Subspaces, Pasting, Random Patches" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Ensemble Learning Techniques: Boosting, Bagging, Random Subspaces, Pasting, Random Patches</figcaption>
+        </figure>
 
 
 #### VC-Dimension
@@ -675,7 +678,7 @@ Slide name: `MLI_05_Neuronale_Netze_slides1.pdf`
     <dd>Die Delta-Regel ist ein Lernalgorithmus für neuronale Netze mit nur
         einer Schicht. Sie ist ein Spezialfall des algemeineren
         Backpropagation-Algorithmus und lautet wie folgt:
-        \[\Delta w_{ji} = \alpha (t_j - y_j) \varphi'(h_j) x_i\]
+        $$\Delta w_{ji} = \alpha (t_j - y_j) \varphi'(h_j) x_i$$
         wobei
 
         <ul>
@@ -695,7 +698,7 @@ Slide name: `MLI_05_Neuronale_Netze_slides1.pdf`
     <dd>Der Gradient-Descent Algorithmus ist ein Optimierungsalgorithmus für
         differenzierbare Funktionen. Er startet an einer zufälligen Stelle $x_0$.
         Dann wird folgender Schritt mehrfach ausgeführt:
-        \[x_0 \gets x_0 - \alpha \cdot \text(grad) f (x_0)\]
+        $$x_0 \gets x_0 - \alpha \cdot \text(grad) f (x_0)$$
         wobei $\alpha \in (0, 1]$ die Lernrate ist und $f$ die zu
         optimierende Funktion. Dabei könnte $\alpha$ mit der Zeit auch
         kleiner gemacht werden.
@@ -816,7 +819,7 @@ Der reale Fehler kann durch den empirischen Fehler und die VC-Dimension wie
 folgt abgeschätzt werden:
 
 Mit Wahrscheinlichkeit $P(1-\eta)$ gilt:
-\[E(h_\alpha) \leq E_{emp}(h_\alpha) + \sqrt{\frac{VC(h_\alpha)}{N} \cdot (\log(2 N / VC(h_\alpha)) + 1) - \frac{\log(\eta  / 4)}{N}}\]
+$$E(h_\alpha) \leq E_{emp}(h_\alpha) + \sqrt{\frac{VC(h_\alpha)}{N} \cdot (\log(2 N / VC(h_\alpha)) + 1) - \frac{\log(\eta  / 4)}{N}}$$
 
 wobei gilt:
 
@@ -929,7 +932,7 @@ Siehe auch:
   </dd>
   <dt><a href="https://de.wikipedia.org/wiki/Bedingte_Unabh%C3%A4ngigkeit"><dfn>Bedingte Unabhängigkeit</dfn></a></dt>
   <dd>Seien $X, Y, Z$ Zufallsvariablen. Dann heißt $X$ bedingt unabhängig
-      von $Y$ gegeben $Z$, wenn \[P(X|Y,Z) = P(X|Z)\] gilt.
+      von $Y$ gegeben $Z$, wenn $$P(X|Y,Z) = P(X|Z)$$ gilt.
   </dd>
   <dt><a href="https://en.wikipedia.org/wiki/Additive_smoothing"><dfn>Add $k$ smoothing</dfn></a></dt>
   <dd>Unter Add-$k$-smoothing versteht man eine Technik, durch die
@@ -938,7 +941,7 @@ Siehe auch:
       Ergebnisse eines Experiments hat, $N \in \mathbb{N}$ experimente
       durchgeführt werden, dann schätzt man die Wahrscheinlichkeit von dem
       Ergebnis $i$ mit
-      \[\hat{\theta_i} = \frac{x_i + k}{N+ kd}, \]
+      $$\hat{\theta_i} = \frac{x_i + k}{N+ kd}, $$
       wobei $x_i$ die Anzahl der Beobachtungen von $i$ ist und $k \geq 0$
       der Glättungsparameter ist.
   </dd>
@@ -961,7 +964,7 @@ Siehe auch:
 
   In einem bayesschem Netz berechnet sich die gemeinsame Verteilung wie folgt:
 
-  \[P(X_1, \dots, X_N) = \prod_{i=1}^N P(X_i | \text{Eltern}(X_i))\]
+  $$P(X_1, \dots, X_N) = \prod_{i=1}^N P(X_i | \text{Eltern}(X_i))$$
 
   Die Modelierung von Bayesschen Netzen erfolgt meist durch den Menschen mit
   Expertenwissen. Alternativ kann die Struktur durch
@@ -1015,7 +1018,7 @@ Slide name: `MLI_10_HMM_slides1.pdf`
   <dd>Der Forward-Backward Algorithmus berechnet für jeden Zeitpunkt die
       Wahrscheinlichkeitsverteilung der Zustände. Dafür glättet er die Werte
       des Vorwärts- und des Rückwärts-Algorithmus:
-      \[\gamma_t(i) = \frac{\alpha_t(i) \beta_t(i)}{P(O|\lambda)}\]
+      $$\gamma_t(i) = \frac{\alpha_t(i) \beta_t(i)}{P(O|\lambda)}$$
 
       Er findet jedoch nicht die wahrscheinlichste Zustandssequenz.
       </dd>
@@ -1027,12 +1030,12 @@ Slide name: `MLI_10_HMM_slides1.pdf`
   <dd>Löst P3:
 
       Gegeben sei eine Trainingssequenz $O_{\text{train}}$ und ein Modell
-      \[\lambda = \{S, V, A, B, \Pi\}\]
+      $$\lambda = \{S, V, A, B, \Pi\}$$
 
 
       Gesucht ist ein Modell
 
-      \[\bar \lambda = \text{arg max}_{\bar \lambda = \{S, V, \bar A, \bar B, \bar Pi\}} P(O_{\text{train}}|\lambda)\]
+      $$\bar \lambda = \text{arg max}_{\bar \lambda = \{S, V, \bar A, \bar B, \bar Pi\}} P(O_{\text{train}}|\lambda)$$
 
       Der Baum-Welch-Algorithmus geht wie folgt vor:
 
@@ -1090,7 +1093,7 @@ erfüllt sein. Das wird durch das Gewicht repräsentiert.
       MRFs sind zur Modellierung von Korrelation geeignet.</dd>
   <dt><a name="mln-jpd"></a><dfn>Verbundwahrscheinlichkeit in MLNs</dfn></dt>
   <dd>$P(x) = \frac{1}{Z} \exp(\sum_{i} w_i f_i(x))$ wobei $f_i$ das $i$-te Feature und $w_i$ ein
-           Gewicht ist. Beispielsweise könnte \[f_i(x) = f_i(\text{smoking}, \text{cancer}) = \begin{cases}1 &\text{if } \neg \text{smoking} \lor \text{cancer}\\ 0 &\text{otherwise}\end{cases}\]
+           Gewicht ist. Beispielsweise könnte $$f_i(x) = f_i(\text{smoking}, \text{cancer}) = \begin{cases}1 &\text{if } \neg \text{smoking} \lor \text{cancer}\\ 0 &\text{otherwise}\end{cases}$$
            gelten.</dd>
   <dt><a name="mln-inference"></a><dfn>Inferenz in MLNs</dfn></dt>
   <dd><abbr title="Maximum a posteriori">MAP</abbr>:
@@ -1216,7 +1219,7 @@ Siehe auch: [Formale Systeme](//martin-thoma.com/formale-systeme/)
 
 <dl>
     <dt><dfn>Modus Ponens</dfn></dt>
-    <dd>\[\frac{A, A \rightarrow B}{B}\]</dd>
+    <dd>$$\frac{A, A \rightarrow B}{B}$$</dd>
     <dt><dfn>Erklärungsbasiertes Lernen</dfn> (<dfn>EBL</dfn>, <dfn>Explanation Based Learning</dfn> by [<a href="#ref-mit97" name="ref-mit97-anchor">Mit97</a>])</dt>
     <dd>The key insight behind explanation-based generalization is that it is
         possible to form a justified generalization of a single positive
@@ -1303,15 +1306,15 @@ Slides: `MLI_14_UnueberwachtesLernen_slides1.pdf`
 
         Die Cluster-Zugehörigkeit des Datenpunktes $x_i$ zum Cluster $c_j$
         kann als Wahrscheinlichkeit in Abhängigkeit der Distanz
-        \[d_{ij} = |x_i - z_j|^2\]
+        $$d_{ij} = |x_i - z_j|^2$$
         zum Zentroiden
         $z_j$ ausgedrückt werden:
-        \[P(c_j | x_i) = \frac{(\frac{1}{d_{ij}})^{\frac{1}{b-1}}}{\sum_{r=1}^k (\frac{1}{d_{ir}})^{\frac{1}{b-1}}}\]
+        $$P(c_j | x_i) = \frac{(\frac{1}{d_{ij}})^{\frac{1}{b-1}}}{\sum_{r=1}^k (\frac{1}{d_{ir}})^{\frac{1}{b-1}}}$$
         wobei $b \in \mathbb{R}_{\geq 1}$ ein frei zu wählender Parameter ist.
 
         Die Zentroide werden dann wie folgt neu berechnet:
 
-        \[z_j = \frac{\sum_{i=1}^n [P(z_j|x_i)]^b \cdot x_i}{\sum_{i=1}^n [P(z_j | x_i)]^b}\]
+        $$z_j = \frac{\sum_{i=1}^n [P(z_j|x_i)]^b \cdot x_i}{\sum_{i=1}^n [P(z_j | x_i)]^b}$$
     </dd>
     <dt><a href="https://de.wikipedia.org/wiki/Hierarchische_Clusteranalyse"><dfn>Hierarchisches Clustern</dfn></a></dt>
     <dd>Die Idee des hierarchischen Clusterns ist die iterative Vereinigung
@@ -1369,7 +1372,7 @@ until c = c'
         Category Utility verwendet:
 
         <div>
-        \[\text{CU} = \sum_{k=1}^K \sum_{i=1}^I \sum_{j=1}^{J(i)} P(A_i = V_{ij}) \cdot P(A_i = V_ij | C_k) \cdot P(C_k | A_i = V_{ij})\]
+        $$\text{CU} = \sum_{k=1}^K \sum_{i=1}^I \sum_{j=1}^{J(i)} P(A_i = V_{ij}) \cdot P(A_i = V_ij | C_k) \cdot P(C_k | A_i = V_{ij})$$
         </div>
 
         Dabei gilt:

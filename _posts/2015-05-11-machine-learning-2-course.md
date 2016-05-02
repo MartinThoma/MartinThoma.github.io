@@ -122,7 +122,7 @@ Slides: `03_Semi-supervised+Active-learning.pdf`
       $\mathcal{U}$ evaluiert und für den hilfreichsten Feature-Vektor
       $x \in \mathcal{U}$ nach einem Label gefragt.</dd>
   <dt><dfn>Hinge-Funktion</dfn></dt>
-  <dd>\[f(x) = \max(x, 0)\]</dd>
+  <dd>$$f(x) = \max(x, 0)$$</dd>
   <dt>Query-by-Committee (<dfn>QBC</dfn>)</dt>
   <dd>Es wird ein Committee $\mathcal{C}$ an Klassifikatoren trainiert,
       welches gemeinsam (z.B. durch majority vote) eine Klassifikation trifft.
@@ -233,16 +233,16 @@ Slides: `05_DynamischeBayesscheNetze.pdf`
 <dl>
   <dt><a href="https://de.wikipedia.org/wiki/Bedingte_Wahrscheinlichkeit#Multiplikationssatz"><dfn>Multiplikationssatz</dfn></a></dt>
   <dd>Seien $A, B, X_i$ Ereignisse. Dann gilt:
-      \[P(X_1, \dots, X_n) = P(X_1) \cdot \prod_{k=2}^n P(X_k | X_{k-1}, \dots, X_1)\]
+      $$P(X_1, \dots, X_n) = P(X_1) \cdot \prod_{k=2}^n P(X_k | X_{k-1}, \dots, X_1)$$
       und insbesondere
-      \[P(A\cap B) = P(A, B) = P(A\mid B) \cdot P(B)\]</dd>
+      $$P(A\cap B) = P(A, B) = P(A\mid B) \cdot P(B)$$</dd>
   <dt><a href="https://de.wikipedia.org/wiki/Bedingte_Wahrscheinlichkeit#Gesetz_der_totalen_Wahrscheinlichkeit"><dfn>Gesetz der totalen Wahrscheinlichkeit</dfn></a></dt>
   <dd>Seien $A_1, \dots, A_n$ paarweise disjunkte Ereignisse mit
       $A = \sum_{i=1}^n A_i$. Dann gilt für jedes beliebige Ereignis $B$:
-      \[P(B) = \sum_{i=1}^n P(B | A_i) \cdot P(A_i) = P(A_i, B)\]</dd>
+      $$P(B) = \sum_{i=1}^n P(B | A_i) \cdot P(A_i) = P(A_i, B)$$</dd>
   <dt><a href="https://de.wikipedia.org/wiki/Satz_von_Bayes"><dfn>Satz von Bayes</dfn></a></dt>
   <dd>Seinen $A, B$ Ereignisse mit $P(B) > 0$. Dann gilt
-      \[P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}\]
+      $$P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}$$
 
       Hierbei heißt $P(A|B)$ die <i>a posteriori Wahrscheinlichkeit</i>,
       $P(B|A)$ die <i>likelihood</i>, $P(A)$ die
@@ -290,10 +290,10 @@ Slides: `05_DynamischeBayesscheNetze.pdf`
               sage die aktuelle Position $X_t$ vorher. Also <i>filtere das
               Rauschen</i> aus $Z_t$ unter berücksichtigung, dass wir uns
               noch nicht teleportieren können:
-              \[P(X_t | Z_t, \dots, Z_0)\]</li>
+              $$P(X_t | Z_t, \dots, Z_0)$$</li>
           <li><b>Prädizieren</b>: Es liegen Messungen $Z_0, \dots, Z_t$ vor,
               sage die Position $X_{t+k}$ vorher:
-              \[P(X_{t+k} | Z_t, \dots, Z_0)\]</li>
+              $$P(X_{t+k} | Z_t, \dots, Z_0)$$</li>
           <li><b>Glätten</b>: Es liegen Messungen $Z_0, \dots, Z_t$ vor,
               sage die Position $P(X_{t-k} | Z_t, \dots, Z_0)$ vorher.</li>
       </ul>
@@ -475,9 +475,9 @@ See also:
       Dabei ist $w \in \mathbb{R}^n$.<br/>
       <br/>
       Wenn man als Optimierungskriterium den quadratischen Abstand
-      \[E(f, data) = \sum_{(x,y) \in data} (f(x) - y)^2\]
+      $$E(f, data) = \sum_{(x,y) \in data} (f(x) - y)^2$$
       nimmt, dann ist eine optimale Lösung durch
-      \[w = (X^T X)^{-1} X^T y\]
+      $$w = (X^T X)^{-1} X^T y$$
       gegeben.<br/>
       <br/>
       Siehe auch: <a href="http://math.stackexchange.com/q/691812/6876">Proof of when is $A=X^T X$ invertible?</a>
@@ -495,7 +495,7 @@ See also:
   <dd>Der Korrelationskoeffizient $\kappa(X, Y) \in [-1, 1]$ ist ein Maß für
       den linearen Zusammenhang zwischen zwei Zufallsvariablen $X, Y$. Er
       ist definiert als
-      \[\kappa(X, Y) := \frac{Cov(X, Y)}{\sigma(X) \cdot \sigma(Y)}\]</dd>
+      $$\kappa(X, Y) := \frac{Cov(X, Y)}{\sigma(X) \cdot \sigma(Y)}$$</dd>
   <dt><a href="https://de.wikipedia.org/wiki/Gau%C3%9F-Prozess"><dfn>Gausscher Prozess</dfn></a> (<dfn>Kriging</dfn>, <a href="https://www.youtube.com/watch?v=4vGiHC35j9s">Machine learning - Introduction to Gaussian processes</a> by Nando De Freitas)</dt>
   <dd>Gaussche Prozesse approximieren eine Funktion dadurch, dass sie an jedem
       Punkt eine Normalverteilung (Gauss-Verteilung) annehmen.<br/>
@@ -654,21 +654,21 @@ Slides: `11_Evaluation.pdf`
       korrekterweise negative vorhergesagt wurde.
 
       Dann ist die <i>FPR</i> definiert als
-      \[\text{FPR} := \frac{FP}{FP + TN} \in [0, 1]\]
+      $$\text{FPR} := \frac{FP}{FP + TN} \in [0, 1]$$
 
       Die FPR gibt also den Anteil an, wie viele der tatsächlich negativen
       fälschlicherweise als positiv erkannt wurden.</dd>
   <dt><dfn>Miss-Rate</dfn> (<dfn>MR</dfn>, <dfn>Falsch Negativ Rate</dfn>, <dfn>FNR</dfn>)</dt>
-  <dd>\[FNR := \frac{FN}{TP + FN} \in [0, 1]\]</dd>
+  <dd>$$FNR := \frac{FN}{TP + FN} \in [0, 1]$$</dd>
   <dt><dfn>Recall</dfn> (<dfn>True Positive Rate</dfn>, <dfn>TPR</dfn>, <dfn>Sensitivität</dfn>)</dt>
-  <dd>\[TPR = \frac{TP}{TP + FN} = 1 - FNR \in [0, 1]\]
+  <dd>$$TPR = \frac{TP}{TP + FN} = 1 - FNR \in [0, 1]$$
 
       Der Recall gibt den Anteil der erkannten positiven aus allen positiven
       an.
 
       <i>Sensitivität</i> ist ein in der Medizin üblicher Begriff.</dd>
   <dt><dfn>Precision</dfn> (<dfn>Genauigkeit</dfn>)</dt>
-  <dd>\[Precision = \frac{TP}{TP + FP} \in [0, 1]\]
+  <dd>$$Precision = \frac{TP}{TP + FP} \in [0, 1]$$
 
       Die Precision gibt den Anteil der real positiven aus den als positiv
       erkannten an.</dd>
@@ -680,7 +680,7 @@ Slides: `11_Evaluation.pdf`
   <dt><dfn>Spezifität</dfn></dt>
   <dd>Der Begriff der <i>Spezifität</i> ist in der Medizin üblich und
       ist definiert durch
-      \[Spezifität = \frac{TN}{TN + FP} = 1 - FPR\]
+      $$Spezifität = \frac{TN}{TN + FP} = 1 - FPR$$
 
       Es ist eine Art recall für die negative Klasse. Im Beispiel eines
       medizinischen Tests wäre das der Anteil der Gesunden, bei denen
@@ -688,7 +688,7 @@ Slides: `11_Evaluation.pdf`
   <dt><dfn>PRC-Graph</dfn> (<dfn>Precision-Recall-Graph</dfn>)</dt>
   <dd>Die $x$-Achse ist Recall, die $y$-Achse ist Precision.</dd>
   <dt><dfn>F-Maß</dfn></dt>
-  <dd>\[F_\alpha = \frac{precision \cdot recall}{\alpha^2 \cdot precision + recall}\]</dd>
+  <dd>$$F_\alpha = \frac{precision \cdot recall}{\alpha^2 \cdot precision + recall}$$</dd>
 </dl>
 
 Alternative:
@@ -704,11 +704,11 @@ Alternative:
 
 <dl>
     <dt><dfn>Mittlerer Quadratischer Fehler</dfn> (<dfn>MSE</dfn>, <dfn>Mean Squared Error</dfn>)</dt>
-    <dd>\[E(f, data) = \frac{1}{|data|} \sum_{(x, y) \in data} (f(x) - y)^2\]</dd>
+    <dd>$$E(f, data) = \frac{1}{|data|} \sum_{(x, y) \in data} (f(x) - y)^2$$</dd>
     <dt><dfn>Relativer Quadratischer Fehler</dfn></dt>
-    <dd>\[E(f, data) = \frac{\sum_{(x, y) \in data} (f(x) - y)^2}{\sum_{(x,y) \in data} (y - \mu)^2}\]</dd>
+    <dd>$$E(f, data) = \frac{\sum_{(x, y) \in data} (f(x) - y)^2}{\sum_{(x,y) \in data} (y - \mu)^2}$$</dd>
     <dt><dfn>Mittlerer Absoluter Fehler</dfn></dt>
-    <dd>\[E(f, data) = \frac{1}{|data|} \sum_{(x, y) \in data} |f(x) - y|\]</dd>
+    <dd>$$E(f, data) = \frac{1}{|data|} \sum_{(x, y) \in data} |f(x) - y|$$</dd>
 </dl>
 
 
@@ -730,11 +730,11 @@ Alternative:
        welche neben gelabelten Daten auch noch ungelabelte benutzt. Sie versucht
        die Trennebene durch eine Region geringer Dichte zu legen.</li>
     <li>Wie lautet die Optimierungsformel der transductive SVM?<br/>
-        → \[\text{minimize}_{w, b, y^*} \frac{1}{2} \|w\|^2\]
+        → $$\text{minimize}_{w, b, y^*} \frac{1}{2} \|w\|^2$$
         unter den Nebenbedingungen
-        \[\forall i \in 1, \dots, n: y_i (w \cdot x_i - b) \geq 1\]
+        $$\forall i \in 1, \dots, n: y_i (w \cdot x_i - b) \geq 1$$
         und
-        \[\forall j \in 1, \dots, k: y_j^* (w \cdot x_j^* -b) \geq 1\text{ with }y_j^* \in \{-1, 1\}\]
+        $$\forall j \in 1, \dots, k: y_j^* (w \cdot x_j^* -b) \geq 1\text{ with }y_j^* \in \{-1, 1\}$$
 
         Dabei sind $D^* = \{x_i^* | i = 1, \dots, k\}$ ungelabelte Daten.
     </li>

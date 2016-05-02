@@ -85,7 +85,10 @@ featured_image: logos/klausur.png
 
 ### NN02-Classification.pdf
 
-{% caption align="aligncenter" width="500" alt="Rosenblatt-Perceptron which realizes logical or" text="Rosenblatt-Perceptron which realizes logical or" url="../images/2015/12/perceptron-or.png" %}
+<figure class="aligncenter">
+            <a href="../images/2015/12/perceptron-or.png"><img src="../images/2015/12/perceptron-or.png" alt="Rosenblatt-Perceptron which realizes logical or" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Rosenblatt-Perceptron which realizes logical or</figcaption>
+        </figure>
 
 * McCullch-Pitts Neuron (weights, bias, activation function is step function)
 * Rosenblatt Perceptron Algorithmus
@@ -98,11 +101,11 @@ featured_image: logos/klausur.png
   <dt><a href="https://en.wikipedia.org/wiki/Bayes%27_rule"><dfn>Bayes-Rule</dfn></a></dt>
   <dd>Given events $A_1$, $A_2$ and $B$, Bayes' rule states that the conditional odds of $A_1:A_2$ given $B$ are equal to the marginal odds of $A_1:A_2$ multiplied by the Bayes factor or likelihood ratio $\Lambda$:
 
-\[O(A_1:A_2|B) = \Lambda(A_1:A_2|B) \cdot O(A_1:A_2) ,\]
+$$O(A_1:A_2|B) = \Lambda(A_1:A_2|B) \cdot O(A_1:A_2) ,$$
 
 where
 
-\[\Lambda(A_1:A_2|B) = \frac{P(B|A_1)}{P(B|A_2)}.\]</dd>
+$$\Lambda(A_1:A_2|B) = \frac{P(B|A_1)}{P(B|A_2)}.$$</dd>
   <dt><dfn>Parametrischer Klassifizierer</dfn></dt>
   <dd>Ein Klassifizierer heißt <i>parametrisch</i>, wenn er eine Wahrscheinlichkeitsverteilungsannahme macht.</dd>
   <dt><dfn>Naiver Bayes-Klassifikator</dfn></dt>
@@ -119,9 +122,9 @@ where
   <dd>Eine $p$-dimensionale reelle Zufallsvariable $X$ ist normalverteilt
       mit Erwartungswertvektor $\mu$ und  (positiv definiter) Kovarianzmatrix
       $\Sigma$, wenn sie eine Dichtefunktion der Form
-      \[f_X(x)=\frac{1}{ \sqrt{(2\pi)^p \det(\Sigma)} } \exp \left( -\frac{1}{2}(x-\mu)^{T}\Sigma^{-1}(x-\mu) \right)\]
+      $$f_X(x)=\frac{1}{ \sqrt{(2\pi)^p \det(\Sigma)} } \exp \left( -\frac{1}{2}(x-\mu)^{T}\Sigma^{-1}(x-\mu) \right)$$
 besitzt. Man schreibt
-\[X\sim \mathcal N_p(\mu, \Sigma).\]</dd>
+$$X\sim \mathcal N_p(\mu, \Sigma).$$</dd>
   <dt><dfn>Gauß'scher Klassifizierer</dfn></dt>
   <dd>Ein (naiver) Bayes-Klassifikator, welcher von normalverteilten Daten
       ausgeht heißt <i>Gauß'scher Klassifizierer</i>.</dd>
@@ -169,8 +172,8 @@ Slide name: `V04_2015-04-28_Perceptron.pdf`
       angewendet.
 
       Man lernt mit MCP Neuronen, indem man
-      \[\Delta w = \eta \delta x\]
-      \[w \gets w + \Delta w\]
+      $$\Delta w = \eta \delta x$$
+      $$w \gets w + \Delta w$$
       berechnet, wobei $\eta \in (0, 1)$ die Lernrate ist, $x$ ein Trainingsdatum
       und $\delta = y_{\text{target}} - y$ die Abweichung vom gewünschten
       Ergebnis ist. Diese Regel wird auch Perceptron Learning Rule genannt.
@@ -182,8 +185,8 @@ Slide name: `V04_2015-04-28_Perceptron.pdf`
       Gewichte $w_i$. $\eta$ heißt die <i>Lernrate</i>.
 
       Man lernt mit MCP Neuronen, indem man
-      \[\Delta w = \eta \delta x\]
-      \[w \gets w + \Delta w\]
+      $$\Delta w = \eta \delta x$$
+      $$w \gets w + \Delta w$$
       berechnet, wobei $\eta \in (0, 1)$ die Lernrate ist, $x$ ein Trainingsdatum
       und $\delta = - \frac{\partial E}{\partial w}$ der Gradient auf der
       Fehleroberfläche in Abhängigkeit von den Gewichten ist. Es wird also
@@ -262,7 +265,7 @@ Slide name: `V05_2015-04-29_Features.pdf`
       $a$ und das $j$-te Zeichen von $b$ sich unterscheiden.
 
       Dann heißt $d_L(a, b)$ die Levenshtein-Distanz:
-      \[d_L(a,b) := lev_{a,b}(|a|, |b|)\]
+      $$d_L(a,b) := lev_{a,b}(|a|, |b|)$$
       \[\text{lev}_{a,b}(i, j) = \begin{cases}\max(i,j) &\text{falls} \min(i,j) = 0,\\
         \min \begin{cases}\text{lev}_{a,b}(i-1,j)+1\\
                           \text{lev}_{a,b}(i,j-1)+1\\
@@ -292,7 +295,7 @@ Slide name: `V06_2015-05-05_Backpropagation.pdf`
 <dl>
     <dt><a href="https://de.wikipedia.org/wiki/Kreuzentropie"><dfn>Kreuzentropie Fehlerfunktion</dfn></a>
         (<dfn>Cross-Entropy</dfn>)</dt>
-    <dd>\[E_{-x} = - \sum_{k}[t_k^x \log(o_k^x) + (1-t_k^x) \log (1- o_k^x)]\]
+    <dd>$$E_{-x} = - \sum_{k}[t_k^x \log(o_k^x) + (1-t_k^x) \log (1- o_k^x)]$$
         wobei $x$ der Feature-Vektor ist, $k$ ein Neuron des letzen
         Layers, $t$ der wahre Wert (d.h. der gewünschte Output),
         $o$ der tatsächliche Output ist.</dd>
@@ -318,7 +321,7 @@ Slide name: `V07_12-05-2015_Feature_Learning.pdf`
     <dd>Die Kullback-Leibler-Divergenz ist ein Maß für die Unterschiedlichkeit
         zweier Wahrscheinlichkeitsverteilungen $P, Q$. Für
         diskrete Verteilungen ist sie definiert als:
-        \[KL(P||Q) := \sum_{x \in X} P(x) \cdot \log \frac{P(x)}{Q(x)}\]</dd>
+        $$KL(P||Q) := \sum_{x \in X} P(x) \cdot \log \frac{P(x)}{Q(x)}$$</dd>
     <dt><dfn>Denoising Autoencoder</dfn></dt>
     <dd>Ein Autoencoder, welcher trainiert wird rauschen zu entfernen.</dd>
 </dl>
@@ -361,7 +364,7 @@ Slide name: `V08_2015-05-13_Deep_Learning.pdf`
         gradient changes. Rprop has an own learning rate for every single
         feature.</dd>
     <dt><a href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent#AdaGrad"><dfn><abbr title="adaptive gradient">AdaGrad</abbr></dfn></a> (vgl. Folie 34)</dt>
-    <dd>\[\eta_{tij} = \frac{\eta_0}{\sqrt{1 + \sum_k {(\frac{\partial E^{t-k}}{\partial w_{ij}})}^2}}\]
+    <dd>$$\eta_{tij} = \frac{\eta_0}{\sqrt{1 + \sum_k {(\frac{\partial E^{t-k}}{\partial w_{ij}})}^2}}$$
 
     where $\eta_0$ is an initial learning rate, $t$ is the epoch, $i,j$ refer to neurons.</dd>
     <dt><dfn>Newbob Scheduling</dfn></dt>
@@ -371,14 +374,14 @@ Slide name: `V08_2015-05-13_Deep_Learning.pdf`
         exponentially decaying learning rate. Terminate when the validation
         error stops decreasing again.</dd>
     <dt><a name="dfn-cross-entropy"></a><dfn>Cross Entropy Error function</dfn> (CE)</dt>
-    <dd>\[E_{CE}(w) = - \sum_{x \in X} \sum_{k} [t_k^x \log(o_k^x) + (1-t_k^x) \log(1-o_k^x)]\]
+    <dd>$$E_{CE}(w) = - \sum_{x \in X} \sum_{k} [t_k^x \log(o_k^x) + (1-t_k^x) \log(1-o_k^x)]$$
         where $w$ is the weight vector, $X$ is the set of training
         examples (feature vectors),
         $t_k^x = \begin{cases}1 &\text{if } x \text{ is of class }k\\0&\text{otherwise}\end{cases}$
         and $o_k^x$ is the output at neuron $k$ of the network for the
         feature vector $x$.</dd>
     <dt><dfn>Mean Squared Error function</dfn> (MSE)</dt>
-    <dd>\[E_{MSE}(w) = \frac{1}{2}\sum_{x \in X} \sum_{k} (t_k^x - o_k^x)^2\]
+    <dd>$$E_{MSE}(w) = \frac{1}{2}\sum_{x \in X} \sum_{k} (t_k^x - o_k^x)^2$$
         where $w$ is the weight vector, $X$ is the set of training
         examples (feature vectors), $k$ is the range of output neurons,
         $t_k^x = \begin{cases}1 &\text{if } x \text{ is of class }k\\0&\text{otherwise}\end{cases}$ and $o_k^x$ is the output
@@ -397,7 +400,10 @@ Slide name: `V08_2015-05-13_Deep_Learning.pdf`
         hybride Netze (so wie HMM-DeepNN Hybrids von Mircosoft).</dd>
 </dl>
 
-{% caption align="aligncenter" width="500" alt="RProp by Ryan Harris" text="RProp by Ryan Harris (<a href='https://www.youtube.com/watch?v=Cy2g9_hR-5Y'>source</a>). Rot ist der Gradientenabstieg, blau ist mit momentum, rosa ist RProp" url="../images/2016/02/visualizing-opt-algorithms-rprop-gradient-descent-momentum.png" %}
+<figure class="aligncenter">
+            <a href="../images/2016/02/visualizing-opt-algorithms-rprop-gradient-descent-momentum.png"><img src="../images/2016/02/visualizing-opt-algorithms-rprop-gradient-descent-momentum.png" alt="RProp by Ryan Harris" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">RProp by Ryan Harris (<a href='https://www.youtube.com/watch?v=Cy2g9_hR-5Y'>source</a>). Rot ist der Gradientenabstieg, blau ist mit momentum, rosa ist RProp</figcaption>
+        </figure>
 
 * Pretraining
 * Design choices (hyperparameters):
@@ -491,9 +497,9 @@ Slide name: `V09_2015-05-26-Reinforcement-Learning.pdf`
     <dt><dfn>Policy Iteration</dfn> (Siehe <a href="https://www.cs.cmu.edu/afs/cs/project/jair/pub/volume4/kaelbling96a-html/node20.html">CMU</a>)</dt>
     <dd>Die Policy iteration verbessert die V-Funktion indem die
         Gleichungen
-        \[V^\pi(s) = R(s, \pi(s)) + \gamma \sum_{s'} T(s, \pi(s), s') V^\pi(s')\]
+        $$V^\pi(s) = R(s, \pi(s)) + \gamma \sum_{s'} T(s, \pi(s), s') V^\pi(s')$$
         gelöst werden und dann für jeden Zustand eine neue policy gesetz wird:
-        \[\pi'(s) = \text{arg max}_a (R(s, a) + \gamma \sum_{s'} T(s, a, s') V^\pi(s'))\]</dd>
+        $$\pi'(s) = \text{arg max}_a (R(s, a) + \gamma \sum_{s'} T(s, a, s') V^\pi(s'))$$</dd>
 </dl>
 
 Konvention:
@@ -549,7 +555,7 @@ Slide name: `V10_2015-05-26_SOM.pdf`
         <li><b>Matching</b>: Finde das Neuron
             <span markdown="0">$j_{\text{min}}$</span>, für das die Gewichte
             dem Input am ähnlichsten sind:
-            <div>\[j_{\text{min}} = \text{arg min}_j \sum_{i=1}^n (x_i - w_{ji})^2\]</div></li>
+            <div>$$j_{\text{min}} = \text{arg min}_j \sum_{i=1}^n (x_i - w_{ji})^2$$</div></li>
         <li><b>Update</b>: Passe die Gewichte des gewinnenden Neurons $i$ sowie der Nachbarschaft $j$ an: $w_j = w_j + \eta h(j, i(x))(x - w)$</li>
         <li><b>Repeat</b>: Und zurück zu Schritt 2.</li>
     </ol>
@@ -582,7 +588,7 @@ Slide name: `V11_2015-05-27_RBMs`
         das Bit $i$ des Trainingsmusters gleich ist. Falls das nicht der Fall
         ist, wird von dem Gewicht 1 subtrahiert:
 
-        \[w_{ij} = \sum_{p} (2 a^{(i)}_p - 1) \cdot (2 a^{(j)}_p - 1)\]
+        $$w_{ij} = \sum_{p} (2 a^{(i)}_p - 1) \cdot (2 a^{(j)}_p - 1)$$
 
         Jedes Gewicht ist zum start des Trainings 0. Das Training ist also
         einfach nur ein Zählen, wie häufig die Stellen übereinstimmen.
@@ -616,7 +622,7 @@ Slide name: `V11_2015-05-27_RBMs`
       Trainingsverfahren (Contrastive Divergence).
 
       Die Energie des Netzwerkes ist
-      \[- \sum_{i < j} w_{ij} s_i s_j - \sum_i b_i s_i\]
+      $$- \sum_{i < j} w_{ij} s_i s_j - \sum_i b_i s_i$$
       wobei $s_i, s_j$ die binären Zustände der Knoten $i, j$ sind. Der
       Name "Boltzmann" kommt von dieser Energie (man kann den Netzwerkzuständen
       wahrscheinlichkeiten zuweisen, die direkt Proportional zu $e^{-E}$)
@@ -753,7 +759,7 @@ Slide name: `V13_2015-06-09_NNlearning-tricks.pdf`
         werden kann. Das Gewichtsupdate im Schritt $k$ ist demnach vom
         Gradienten und dem Gewichtsupdate das vorherigen Schrittes abhängig:
 
-        \[\Delta^{(k)} \, w_{ij} = \Delta^{(k-1)} \, w_{ij} \left ( \frac{\nabla_{ij} \, E^{(k)}}{\nabla_{ij} \, E^{(k-1)} - \nabla_{ij} \, E^{(k)}} \right)\]</dd>
+        $$\Delta^{(k)} \, w_{ij} = \Delta^{(k-1)} \, w_{ij} \left ( \frac{\nabla_{ij} \, E^{(k)}}{\nabla_{ij} \, E^{(k-1)} - \nabla_{ij} \, E^{(k)}} \right)$$</dd>
     <dt><dfn>Weight Decay</dfn></dt>
     <dd>Passe die Fehlerfunktion an: $E = MSE + \lambda \sum_{i,j} w_{ij}^2$</dd>
     <dt><dfn>Weight Elimination</dfn></dt>
@@ -792,7 +798,7 @@ Slide name: `V13_2015-06-09_NNlearning-tricks.pdf`
     </dd>
     <dt><dfn>Classification Figure of Merit</dfn> (<dfn>CFM</dfn>, siehe [<a href="#ref-ham90" name="ref-ham90-anchor">Ham90</a>])</dt>
     <dd>
-        \[E_{CFM}(w) = \sum_k \frac{\alpha}{1 + e^{-\beta \Delta_k + \gamma}}\]
+        $$E_{CFM}(w) = \sum_k \frac{\alpha}{1 + e^{-\beta \Delta_k + \gamma}}$$
         wobei
         <ul>
             <li>$k$: Klasse</li>

@@ -11,11 +11,17 @@ featured_image: logos/atis.png
 Recently, the [Heartbleed bug](https://en.wikipedia.org/wiki/Heartbleed) was
 discovered. It works like this:
 
-{% caption align="aligncenter" width="500" alt="Heartbleed Explanation" text="Heartbleed Explanation<br/>From <a href='http://xkcd.com/1354/'>xkcd</a>" url="../images/xkcd/heartbleed_explanation.png" %}
+<figure class="aligncenter">
+            <a href="../images/xkcd/heartbleed_explanation.png"><img src="../images/xkcd/heartbleed_explanation.png" alt="Heartbleed Explanation" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Heartbleed Explanation<br/>From <a href='http://xkcd.com/1354/'>xkcd</a></figcaption>
+        </figure>
 
 One effect of that bug is that you have to change your password.
 
-{% caption align="aligncenter" width="500" alt="Heartbleed" text="From <a href='http://xkcd.com/1353/'>xkcd</a>" url="../images/xkcd/heartbleed.png" %}
+<figure class="aligncenter">
+            <a href="../images/xkcd/heartbleed.png"><img src="../images/xkcd/heartbleed.png" alt="Heartbleed" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">From <a href='http://xkcd.com/1353/'>xkcd</a></figcaption>
+        </figure>
 
 You can do that from home via SSH. Just replace `s_thoma` by `s_[your last name]`:
 

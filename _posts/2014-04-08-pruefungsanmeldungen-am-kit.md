@@ -36,13 +36,22 @@ Zur Verbesserung dieser Situation schlage ich folgendes vor:
 Studenten sollen die Möglichkeit bekommen, einen öffentlichen Schlüssel
 hochzuladen:
 
-{% caption align="aligncenter" width="500" alt="Einen Schlüssel hinzufügen" text="Einen Schlüssel hinzufügen" url="../images/2014/04/kit-pgp-personal-data.png" %}
+<figure class="aligncenter">
+            <a href="../images/2014/04/kit-pgp-personal-data.png"><img src="../images/2014/04/kit-pgp-personal-data.png" alt="Einen Schlüssel hinzufügen" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Einen Schlüssel hinzufügen</figcaption>
+        </figure>
 
-{% caption align="aligncenter" width="500" alt="Einen Schlüssel hinzufügen" text="Einen Schlüssel hinzufügen" url="../images/2014/04/kit-pgp-personal-management.png" %}
+<figure class="aligncenter">
+            <a href="../images/2014/04/kit-pgp-personal-management.png"><img src="../images/2014/04/kit-pgp-personal-management.png" alt="Einen Schlüssel hinzufügen" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Einen Schlüssel hinzufügen</figcaption>
+        </figure>
 
 Mit diesem signieren sie Prüfungsanmeldungen:
 
-{% caption align="aligncenter" width="500" alt="Prüfungsanmeldung signieren" text="Prüfungsanmeldung signieren" url="../images/2014/04/kit-pgp-pruefungsanmeldung-signieren.png" %}
+<figure class="aligncenter">
+            <a href="../images/2014/04/kit-pgp-pruefungsanmeldung-signieren.png"><img src="../images/2014/04/kit-pgp-pruefungsanmeldung-signieren.png" alt="Prüfungsanmeldung signieren" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Prüfungsanmeldung signieren</figcaption>
+        </figure>
 
 Bei jeder Prüfungsanmeldung soll innerhalb von 24h eine E-Mail in Textform
 (keine PDF) an u****@student.kit.edu, also die KIT E-Mail-Adresse des Studenten,
@@ -187,7 +196,10 @@ CREATE TABLE IF NOT EXISTS "openpgp_keys" (
 
 oder graphisch:
 
-{% caption align="aligncenter" width="188" alt="openpgp_keys Tabelle" text="openpgp_keys Tabelle" url="../images/2014/04/openpgp_keys.png" %}
+<figure class="aligncenter">
+            <a href="../images/2014/04/openpgp_keys.png"><img src="../images/2014/04/openpgp_keys.png" alt="openpgp_keys Tabelle" style="max-width:188px;" class=""/></a>
+            <figcaption class="text-center">openpgp_keys Tabelle</figcaption>
+        </figure>
 
 ### Ressourcen
 

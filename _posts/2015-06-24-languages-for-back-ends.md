@@ -307,7 +307,10 @@ A big advantage of PHP is that it is easy to learn. You can run PHP everywhere
 and hosting is cheap. Wikipedia makes use of PHP, so it is obviously possible
 to create systems which have HUGE numbers of requests and still work fine.
 
-{% caption align="aligncenter" width="500" alt="The right tool for the right job" text="The right tool for the right job - by <a href='http://www.commitstrip.com/en/2015/01/12/the-right-tool-for-the-right-job/'>commitstrip.com</a>" url="../images/2015/05/Strip-PHP-doute650-Webenglsih.jpg" %}
+<figure class="aligncenter">
+            <a href="../images/2015/05/Strip-PHP-doute650-Webenglsih.jpg"><img src="../images/2015/05/Strip-PHP-doute650-Webenglsih.jpg" alt="The right tool for the right job" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">The right tool for the right job - by <a href='http://www.commitstrip.com/en/2015/01/12/the-right-tool-for-the-right-job/'>commitstrip.com</a></figcaption>
+        </figure>
 
 
 ## Hack

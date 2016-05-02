@@ -10,7 +10,10 @@ featured_image: logos/usb.png
 Once in a while I think it is time to reduce the damage being done by the loss
 of a USB stick.
 
-{% caption align="aligncenter" width="500" alt="USB sticks" text="USB sticks" url="../images/2016/01/usb-sticks.jpg" %}
+<figure class="aligncenter">
+            <a href="../images/2016/01/usb-sticks.jpg"><img src="../images/2016/01/usb-sticks.jpg" alt="USB sticks" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">USB sticks</figcaption>
+        </figure>
 
 
 ## Remove all data

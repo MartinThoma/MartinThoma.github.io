@@ -18,7 +18,10 @@ see if there is malware on PyPI (related to
 
 The database looks like this:
 
-{% caption align="aligncenter" width="500" alt="PyPI metadata database schema" text="PyPI metadata" url="../images/2015/01/pypi-metadata-db.png" %}
+<figure class="aligncenter">
+            <a href="../images/2015/01/pypi-metadata-db.png"><img src="../images/2015/01/pypi-metadata-db.png" alt="PyPI metadata database schema" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">PyPI metadata</figcaption>
+        </figure>
 
 
 ## Exploring the data
@@ -292,11 +295,20 @@ This one is very important. Users should have an easy possibility to report
 bugs. So please help them by added your bug tracker URL wherever it makes
 sense. Here is how you add it on PyPI:
 
-{% caption align="aligncenter" width="500" alt="Go to your packages PyPI page" text="Go to your packages PyPI page" url="../images/2015/01/pypi-bugtrack-url.png" %}
+<figure class="aligncenter">
+            <a href="../images/2015/01/pypi-bugtrack-url.png"><img src="../images/2015/01/pypi-bugtrack-url.png" alt="Go to your packages PyPI page" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Go to your packages PyPI page</figcaption>
+        </figure>
 
-{% caption align="aligncenter" width="500" alt="Add your bugtracker / issue tracker url" text="Add your bugtracker / issue tracker url" url="../images/2015/01/pypi-add-bugtrack-url.png" %}
+<figure class="aligncenter">
+            <a href="../images/2015/01/pypi-add-bugtrack-url.png"><img src="../images/2015/01/pypi-add-bugtrack-url.png" alt="Add your bugtracker / issue tracker url" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Add your bugtracker / issue tracker url</figcaption>
+        </figure>
 
-{% caption align="aligncenter" width="500" alt="Check if you really added it" text="Check if you really added it" url="../images/2015/01/pypi-added-bugtracker.png" %}
+<figure class="aligncenter">
+            <a href="../images/2015/01/pypi-added-bugtracker.png"><img src="../images/2015/01/pypi-added-bugtracker.png" alt="Check if you really added it" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Check if you really added it</figcaption>
+        </figure>
 
 
 ### License

@@ -29,7 +29,10 @@ I did a couple of very quick examples which look promising.
 
 Approximating \$f(x) = x^2\$ worked very good:
 
-{% caption align="aligncenter" width="500" alt="f(x) = x^2" text="f(x) = x^2" url="../images/2016/01/gauss-x2.png" %}
+<figure class="aligncenter">
+            <a href="../images/2016/01/gauss-x2.png"><img src="../images/2016/01/gauss-x2.png" alt="f(x) = x^2" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">f(x) = x^2</figcaption>
+        </figure>
 
 I've tried if with higher order polynomials, more complex polynomials. No
 problem.
@@ -39,7 +42,10 @@ problem.
 
 Approximating \$f(x) = \sin(3x)\$ seems to be more complicated:
 
-{% caption align="aligncenter" width="500" alt="f(x) = sin(3x)" text="f(x) = sin(3x)" url="../images/2016/01/gaussian-process-sin-3x.png" %}
+<figure class="aligncenter">
+            <a href="../images/2016/01/gaussian-process-sin-3x.png"><img src="../images/2016/01/gaussian-process-sin-3x.png" alt="f(x) = sin(3x)" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">f(x) = sin(3x)</figcaption>
+        </figure>
 
 I guess a human would see the wave pattern and do a better job here.
 
@@ -51,7 +57,10 @@ that it does not perfectly fit it, but compared the the range of values seen
 before and the distance from the last seen value I think this is absolutely
 acceptable:
 
-{% caption align="aligncenter" width="500" alt="f(x) = e^x" text="f(x) = e^x" url="../images/2016/01/gauss-exponential.png" %}
+<figure class="aligncenter">
+            <a href="../images/2016/01/gauss-exponential.png"><img src="../images/2016/01/gauss-exponential.png" alt="f(x) = e^x" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">f(x) = e^x</figcaption>
+        </figure>
 
 
 ### noise
@@ -60,13 +69,16 @@ It is claimed that Gaussian processes implicitly model noise so that they can
 easily deal with noise. However, in my experients this seems not to work so
 great. The reason might be that I had points in \$[-3, 3]\$ of the function
 
-\\[f(x) = x^2\\]
+$$f(x) = x^2$$
 
 with point-wise gaussian noise \$N \sim \mathcal{N}(0, 1)\$. So the noise is
 quite domintant on that intervall. One of the examples where it worked better
 is:
 
-{% caption align="aligncenter" width="500" alt="f(x) = x^2 with gaussian noise" text="f(x) = x^2 with gaussian noise" url="../images/2016/01/gauss-noise.png" %}
+<figure class="aligncenter">
+            <a href="../images/2016/01/gauss-noise.png"><img src="../images/2016/01/gauss-noise.png" alt="f(x) = x^2 with gaussian noise" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">f(x) = x^2 with gaussian noise</figcaption>
+        </figure>
 
 
 ### Make it brake
@@ -74,9 +86,12 @@ is:
 I was a bit suspicious if I had another mistake here. So I wanted it to break.
 This was the reason why I created the following function
 
-\\[f(x) = \begin{cases}x^2 &\text{if } x \geq 0\\\\-1 &\text{otherwise}\end{cases}\\]
+$$f(x) = \begin{cases}x^2 &\text{if } x \geq 0\\\\-1 &\text{otherwise}\end{cases}$$
 
-{% caption align="aligncenter" width="500" alt="Function with discontinuity" text="Function with discontinuity" url="../images/2016/01/gauss-cases.png" %}
+<figure class="aligncenter">
+            <a href="../images/2016/01/gauss-cases.png"><img src="../images/2016/01/gauss-cases.png" alt="Function with discontinuity" style="max-width:500px;" class=""/></a>
+            <figcaption class="text-center">Function with discontinuity</figcaption>
+        </figure>
 
 The predicted value is obviously not correct, but you should note that almost
 all function values are within the 95% confidence intervall!
