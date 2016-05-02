@@ -101,11 +101,15 @@ You have to adjust your posts headers. For example, pelican does not know
 * `{% caption ...` and `{% gallery ...`
 
 
+## Theme
+
+Make sure it uses `CUSTOM_CSS`. Set the path to yours and add all the custom
+CSS you had before.
+
+
 ## TODO
 
-* ! 'Game: Marble Run'
 * Search page
-* custom CSS
 
 
 ## Pelican Initialization
