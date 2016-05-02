@@ -181,14 +181,20 @@ Typischerweise gilt: $m = 4 GB = 4 \cdot 2^{30} \text{ Byte} = 2^{32} \text{ Byt
 <div class="question">
 <span class="question">Wenn man nur Segmentierung nutzt, wie kommt man dann von der logischen Adresse auf die physische?</span>
 <div class="answer">
-{% caption align="aligncenter" width="300" caption="Segmentation: Logical to linear address (<a href='http://download.intel.com/products/processor/manual/325462.pdf'>source</a>)" url="../images/2013/03/segmentation-logical-to-linear-address-300x176.png" alt="Segmentation: Logical to linear address"  height="176" class="size-medium wp-image-61751" %}
+<figure class="aligncenter">
+            <a href="../images/2013/03/segmentation-logical-to-linear-address-300x176.png"><img src="../images/2013/03/segmentation-logical-to-linear-address-300x176.png" alt="Segmentation: Logical to linear address" style="max-width:300px;max-height:176px" class="size-medium wp-image-61751"/></a>
+            <figcaption class="text-center">Segmentation: Logical to linear address (<a href='http://download.intel.com/products/processor/manual/325462.pdf'>source</a>)</figcaption>
+        </figure>
 </div>
 </div>
 
 <div class="question">
 <span class="question">Wie ist ein Inode aufgebaut?</span>
 <div class="answer">
-{% caption align="aligncenter" width="256" caption="Struktur eines Inodes" url="../images/2013/03/inode-struktur-256x300.png" alt="Struktur eines Inodes"  height="300" class="size-medium wp-image-61871" %}
+<figure class="aligncenter">
+            <a href="../images/2013/03/inode-struktur-256x300.png"><img src="../images/2013/03/inode-struktur-256x300.png" alt="Struktur eines Inodes" style="max-width:256px;max-height:300px" class="size-medium wp-image-61871"/></a>
+            <figcaption class="text-center">Struktur eines Inodes</figcaption>
+        </figure>
 </div>
 </div>
 
@@ -219,7 +225,10 @@ Block size:               4096
 <div class="question">
 <span class="question">Depict the common memory layout of a process. Give an example of the data that is stored in each section.</span>
 <div class="answer">
-{% caption align="aligncenter" width="300" caption="Common process memory layout" url="../images/2013/03/process-memory-layout-300x165.jpg" alt="Common process memory layout"  height="165" class="size-medium wp-image-61931" %}
+<figure class="aligncenter">
+            <a href="../images/2013/03/process-memory-layout-300x165.jpg"><img src="../images/2013/03/process-memory-layout-300x165.jpg" alt="Common process memory layout" style="max-width:300px;max-height:165px" class="size-medium wp-image-61931"/></a>
+            <figcaption class="text-center">Common process memory layout</figcaption>
+        </figure>
 
 Ich sehe gerade, dass bei rodata wohl das Schl&uuml;sselwort <code>const</code> mit dabei stehen sollte. Statische Variablen k&ouml;nnen nat&uuml;rlich ge&auml;ndert werden.
 </div>
@@ -274,4 +283,7 @@ LPIC-1 - Vorbereitung auf die Pr&uuml;fung des Linux Professinal Institute. ISBN
 <strike>H&auml;ngen noch nicht aus (Stand: 15.03.2013)</strike>
 H&auml;ngen nun aus (Stand: 08.04.2013) und <a href="https://studium.kit.edu/sites/vab/0xC1937D6957186A468FE059ECE05D74B8/vorlesungsunterlagen_pwg/Ergebnisse/klausur__18_03_2013.pdf">sind im VAB</a>
 
-{% caption align="aligncenter" width="300" caption="Ergebnisse der OS-Klausur vom WS 2012 / 2013" url="../images/2013/03/os-klausur-ws201213-ergebnisse-300x227.png" alt="Ergebnisse der OS-Klausur vom WS 2012 / 2013"  height="227" class="size-medium wp-image-63331" %}
+<figure class="aligncenter">
+            <a href="../images/2013/03/os-klausur-ws201213-ergebnisse-300x227.png"><img src="../images/2013/03/os-klausur-ws201213-ergebnisse-300x227.png" alt="Ergebnisse der OS-Klausur vom WS 2012 / 2013" style="max-width:300px;max-height:227px" class="size-medium wp-image-63331"/></a>
+            <figcaption class="text-center">Ergebnisse der OS-Klausur vom WS 2012 / 2013</figcaption>
+        </figure>

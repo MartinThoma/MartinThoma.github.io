@@ -51,32 +51,62 @@ Additionally I needed a hammer to get the wall plugs into the wall, some differe
 
 {% caption align="aligncenter" width="225" caption="Heating pipes" url="../images/2011/10/kitchen-after-heating-pipe-225x300.jpg" alt="Heating pipes"  height="300" class="size-medium wp-image-4671  "  %}
 
-{% caption align="aligncenter" width="300" caption="To save some money and to be sure that it really fits, I waited with the renovation until the washing machine was delivered. After it was here I had to move it quite often to get the ledge at it&#039;s place." url="../images/2011/10/kitchen-working-washing-machine-300x225.jpg" alt="Washing machine"  height="225" class="size-medium wp-image-4741" %}
+<figure class="aligncenter">
+            <a href="../images/2011/10/kitchen-working-washing-machine-300x225.jpg"><img src="../images/2011/10/kitchen-working-washing-machine-300x225.jpg" alt="Washing machine" style="max-width:300px;max-height:225px" class="size-medium wp-image-4741"/></a>
+            <figcaption class="text-center">To save some money and to be sure that it really fits, I waited with the renovation until the washing machine was delivered. After it was here I had to move it quite often to get the ledge at it&#039;s place.</figcaption>
+        </figure>
 
-{% caption align="aligncenter" width="300" caption="As I removed the old countertop, I saw that a tube was loose. This had to be fixed. So I mounted it to the wall." url="../images/2011/10/kitchen-working-loose-tube-300x225.jpg" alt="A loose tube was mounted to the wall with some new (longer) screws."  height="225" class="size-medium wp-image-4821" %}
+<figure class="aligncenter">
+            <a href="../images/2011/10/kitchen-working-loose-tube-300x225.jpg"><img src="../images/2011/10/kitchen-working-loose-tube-300x225.jpg" alt="A loose tube was mounted to the wall with some new (longer) screws." style="max-width:300px;max-height:225px" class="size-medium wp-image-4821"/></a>
+            <figcaption class="text-center">As I removed the old countertop, I saw that a tube was loose. This had to be fixed. So I mounted it to the wall.</figcaption>
+        </figure>
 
-{% caption align="aligncenter" width="300" caption="Adding a working ledge is very important. I simply took some wood which was about the right size (4cm x 1cm) / length (about 1.5m). It gives your countertop the needed stability and you can make sure that it&#039;s exactly horizontally.  Therefore you should use a spirit level. I drilled a small, long hole in the wall and used long wall plugs / screws. They are about 4cm in the wall. As you don't see those later, it doesn't have to look nice, but it has to be stable." url="../images/2011/10/kitchen-working-ledge2-300x225.jpg" alt="Adding a working ledge"  height="225" class="size-medium wp-image-4721" %}
+<figure class="aligncenter">
+            <a href="../images/2011/10/kitchen-working-ledge2-300x225.jpg"><img src="../images/2011/10/kitchen-working-ledge2-300x225.jpg" alt="Adding a working ledge" style="max-width:300px;max-height:225px" class="size-medium wp-image-4721"/></a>
+            <figcaption class="text-center">Adding a working ledge is very important. I simply took some wood which was about the right size (4cm x 1cm) / length (about 1.5m). It gives your countertop the needed stability and you can make sure that it&#039;s exactly horizontally.  Therefore you should use a spirit level. I drilled a small, long hole in the wall and used long wall plugs / screws. They are about 4cm in the wall. As you don't see those later, it doesn't have to look nice, but it has to be stable.</figcaption>
+        </figure>
 
-{% caption align="aligncenter" width="300" caption="You have to connect both countertops very good. If you don&#039;t do so, you will get water in there which will destroy the countertop over time. So we filled the space in between with wood glue and pressed them together with this screw construction." url="../images/2011/10/kitchen-working-connection-300x214.jpg" alt="Connect countertops"  height="214" class="size-medium wp-image-4811" %}
+<figure class="aligncenter">
+            <a href="../images/2011/10/kitchen-working-connection-300x214.jpg"><img src="../images/2011/10/kitchen-working-connection-300x214.jpg" alt="Connect countertops" style="max-width:300px;max-height:214px" class="size-medium wp-image-4811"/></a>
+            <figcaption class="text-center">You have to connect both countertops very good. If you don&#039;t do so, you will get water in there which will destroy the countertop over time. So we filled the space in between with wood glue and pressed them together with this screw construction.</figcaption>
+        </figure>
 
-{% caption align="aligncenter" width="259" caption="This little metal plate fixates the tap to the countertop. I put it for two days into vinegar to get rid of most of the rust, dirt and chalk. Before I did so, the whole plate was brown." url="../images/2011/10/kitchen-working-tab-259x300.jpg" alt="The tab was fixed to the countertop."  height="300" class="size-medium wp-image-4831" %}
+<figure class="aligncenter">
+            <a href="../images/2011/10/kitchen-working-tab-259x300.jpg"><img src="../images/2011/10/kitchen-working-tab-259x300.jpg" alt="The tab was fixed to the countertop." style="max-width:259px;max-height:300px" class="size-medium wp-image-4831"/></a>
+            <figcaption class="text-center">This little metal plate fixates the tap to the countertop. I put it for two days into vinegar to get rid of most of the rust, dirt and chalk. Before I did so, the whole plate was brown.</figcaption>
+        </figure>
 
-{% caption align="aligncenter" width="300" caption="Angle joints fix the countertop to the wall. I used 23 angle joints with 46 screws. Nothing will separate my countertop from the wall :D" url="../images/2011/10/kitchen-working-angle-joints-300x225.jpg" alt="Angle joints for crabbing the countertop to the wall"  height="225" class="size-medium wp-image-4801" %}
+<figure class="aligncenter">
+            <a href="../images/2011/10/kitchen-working-angle-joints-300x225.jpg"><img src="../images/2011/10/kitchen-working-angle-joints-300x225.jpg" alt="Angle joints for crabbing the countertop to the wall" style="max-width:300px;max-height:225px" class="size-medium wp-image-4801"/></a>
+            <figcaption class="text-center">Angle joints fix the countertop to the wall. I used 23 angle joints with 46 screws. Nothing will separate my countertop from the wall :D</figcaption>
+        </figure>
 
-{% caption align="aligncenter" width="300" caption="Removing silicone leftovers is a pretty time intensive work. You can remove a lot with a knife, but if the underground is tender you have to use some chemicals." url="../images/2011/10/kitchen-working-silicone-leftovers-300x225.jpg" alt="Silicone leftovers"  height="225" class="size-medium wp-image-4711" %}
+<figure class="aligncenter">
+            <a href="../images/2011/10/kitchen-working-silicone-leftovers-300x225.jpg"><img src="../images/2011/10/kitchen-working-silicone-leftovers-300x225.jpg" alt="Silicone leftovers" style="max-width:300px;max-height:225px" class="size-medium wp-image-4711"/></a>
+            <figcaption class="text-center">Removing silicone leftovers is a pretty time intensive work. You can remove a lot with a knife, but if the underground is tender you have to use some chemicals.</figcaption>
+        </figure>
 
 The chemicals I used are called "Max Bahr - Silikon Entferner". It seems to be
 called "Caulk Remover" in English. I had to apply mine with a brush which was
 in the package. After 10 minutes, I could remove some more of the caulk.
 
-{% caption align="aligncenter" width="300" caption="If you want to make a clean silicone clogging, you should mask the surrounding area." url="../images/2011/10/kitchen-masked-countertop-300x225.jpg" alt="Masked countertop"  height="225" class="size-medium wp-image-4701" %}
+<figure class="aligncenter">
+            <a href="../images/2011/10/kitchen-masked-countertop-300x225.jpg"><img src="../images/2011/10/kitchen-masked-countertop-300x225.jpg" alt="Masked countertop" style="max-width:300px;max-height:225px" class="size-medium wp-image-4701"/></a>
+            <figcaption class="text-center">If you want to make a clean silicone clogging, you should mask the surrounding area.</figcaption>
+        </figure>
 
-{% caption align="aligncenter" width="300" caption="Adding a baseboard was one of the last steps. This small piece of would should prevent water from touching the wallpaper. Moreover it looks nice ☺" url="../images/2011/10/kitchen-after-baseboard-300x225.jpg" alt="Adding a baseboard"  height="225" class="size-medium wp-image-4781" %}
+<figure class="aligncenter">
+            <a href="../images/2011/10/kitchen-after-baseboard-300x225.jpg"><img src="../images/2011/10/kitchen-after-baseboard-300x225.jpg" alt="Adding a baseboard" style="max-width:300px;max-height:225px" class="size-medium wp-image-4781"/></a>
+            <figcaption class="text-center">Adding a baseboard was one of the last steps. This small piece of would should prevent water from touching the wallpaper. Moreover it looks nice ☺</figcaption>
+        </figure>
 
 <h2>The new kitchen</h2>
 {% caption align="aligncenter" width="600" caption="Kitchen after renovation" url="../images/2011/10/kitchen-after.png" alt="Kitchen after renovation"  height="450" class="size-full wp-image-4651"  %}
 
-{% caption align="aligncenter" width="300" caption="Exact work: It fitted only with a few millimeters left. Good that I added some space to make sure it will fit. If I made the plate exactly as big as it could have been according to my first plan, I would have been in trouble." url="../images/2011/10/kitchen-after-exact-work-300x225.jpg" alt="Exact work: It fitted only with a few millimeters left"  height="225" class="size-medium wp-image-4771" %}
+<figure class="aligncenter">
+            <a href="../images/2011/10/kitchen-after-exact-work-300x225.jpg"><img src="../images/2011/10/kitchen-after-exact-work-300x225.jpg" alt="Exact work: It fitted only with a few millimeters left" style="max-width:300px;max-height:225px" class="size-medium wp-image-4771"/></a>
+            <figcaption class="text-center">Exact work: It fitted only with a few millimeters left. Good that I added some space to make sure it will fit. If I made the plate exactly as big as it could have been according to my first plan, I would have been in trouble.</figcaption>
+        </figure>
 
 <h2>Conclusion</h2>
 I am proud of the result. The new kitchen looks nice, the countertop is very exact horizontally, no water drips out. Some parts could have been done better (like the silicone clogging), but I guess most could not be much better.

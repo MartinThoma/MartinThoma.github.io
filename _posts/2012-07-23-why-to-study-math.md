@@ -32,16 +32,25 @@ Although I guess you could continue this list, but the most important reason is 
 
 
 ## Jobs are better
-{% caption align="aligncenter" width="395" caption="What you earn with a math-degree ;-)" url="../images/2012/07/reddit-math-degree.png" alt="What you earn with a math-degree ;-)"  height="398" class="size-full wp-image-34701" %}
+<figure class="aligncenter">
+            <a href="../images/2012/07/reddit-math-degree.png"><img src="../images/2012/07/reddit-math-degree.png" alt="What you earn with a math-degree ;-)" style="max-width:395px;max-height:398px" class="size-full wp-image-34701"/></a>
+            <figcaption class="text-center">What you earn with a math-degree ;-)</figcaption>
+        </figure>
 
 
 ## Math is worth a lot of money
 <iframe width="512" height="384" src="http://www.youtube.com/embed/BbX44YSsQ2I" frameborder="0" allowfullscreen></iframe>
 
 ## Math is fun
-{% caption align="aligncenter" width="400" caption="Only topologists really understand this joke, I guess..." url="../images/2012/07/topologist-cup.jpg" alt="Only topologists really understand this joke, I guess..."  height="300" class="size-full wp-image-34721" %}
+<figure class="aligncenter">
+            <a href="../images/2012/07/topologist-cup.jpg"><img src="../images/2012/07/topologist-cup.jpg" alt="Only topologists really understand this joke, I guess..." style="max-width:400px;max-height:300px" class="size-full wp-image-34721"/></a>
+            <figcaption class="text-center">Only topologists really understand this joke, I guess...</figcaption>
+        </figure>
 
-{% caption align="aligncenter" width="640" caption="The top 10 signs you&rsquo;re a mathematician/computer scientist" url="../images/2012/07/456-top-10-signs-you-are-a-mathematician.png" alt="The top 10 signs you&rsquo;re a mathematician/computer scientist"  height="303" class="size-full wp-image-34741" %}
+<figure class="aligncenter">
+            <a href="../images/2012/07/456-top-10-signs-you-are-a-mathematician.png"><img src="../images/2012/07/456-top-10-signs-you-are-a-mathematician.png" alt="The top 10 signs you&rsquo;re a mathematician/computer scientist" style="max-width:640px;max-height:303px" class="size-full wp-image-34741"/></a>
+            <figcaption class="text-center">The top 10 signs you&rsquo;re a mathematician/computer scientist</figcaption>
+        </figure>
 
 <iframe width="512" height="288" src="http://www.youtube.com/embed/mpITo-RN-bY" frameborder="0" allowfullscreen></iframe>
 

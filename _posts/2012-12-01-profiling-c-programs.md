@@ -22,6 +22,9 @@ Take a look at the profile:
 {% highlight bash %}kcachegrind callgrind.out.4846{% endhighlight %}
 
 You can also create a call-graph:
-{% caption align="aligncenter" width="512" caption="Call graph of connect four game graph creation program" url="../images/2012/11/call-graph2.png" alt="Call graph of connect four game graph creation program"  height="601" class="size-full wp-image-49691" %}
+<figure class="aligncenter">
+            <a href="../images/2012/11/call-graph2.png"><img src="../images/2012/11/call-graph2.png" alt="Call graph of connect four game graph creation program" style="max-width:512px;max-height:601px" class="size-full wp-image-49691"/></a>
+            <figcaption class="text-center">Call graph of connect four game graph creation program</figcaption>
+        </figure>
 
 Just take a look at it by yourself. You will see much more than I could tell you now.

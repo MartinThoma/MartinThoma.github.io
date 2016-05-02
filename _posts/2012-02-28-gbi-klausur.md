@@ -102,4 +102,7 @@ Alle wichtigen Informationen stehen auf der <a href="http://gbi.ira.uka.de/pruef
 Die <a href="http://gbi.ira.uka.de/pruefungen/aushang.pdf">Ergebnisse</a> sind nun hier verf&uuml;gbar.
 
 Das ist eine Notenverteilung, die mir ein Kommilitone zugeschickt hat:
-{% caption align="aligncenter" width="300" caption="GBI Ergebnisse" url="../images/2012/02/gbi-ergebnisse-300x231.jpg" alt="GBI Ergebnisse"  height="231" class="size-medium wp-image-19301" %}
+<figure class="aligncenter">
+            <a href="../images/2012/02/gbi-ergebnisse-300x231.jpg"><img src="../images/2012/02/gbi-ergebnisse-300x231.jpg" alt="GBI Ergebnisse" style="max-width:300px;max-height:231px" class="size-medium wp-image-19301"/></a>
+            <figcaption class="text-center">GBI Ergebnisse</figcaption>
+        </figure>

@@ -9,7 +9,10 @@ featured_image: 2013/04/triangle-heron-tricky-thumb.png
 ---
 I've just seen the following image on spikedmath.com:
 
-{% caption align="aligncenter" width="512" caption="Some geometry questions.<br />Source: <a href='http://spikedmath.com/549.html'>spikedmath.com</a>" url="../images/2013/04/549-simple-area-quizz.png" alt="Some geometry questions"  height="109" class="size-full wp-image-64221" %}
+<figure class="aligncenter">
+            <a href="../images/2013/04/549-simple-area-quizz.png"><img src="../images/2013/04/549-simple-area-quizz.png" alt="Some geometry questions" style="max-width:512px;max-height:109px" class="size-full wp-image-64221"/></a>
+            <figcaption class="text-center">Some geometry questions.<br />Source: <a href='http://spikedmath.com/549.html'>spikedmath.com</a></figcaption>
+        </figure>
 
 The second answers seem to be obviously the correct ones, right? Wrong.
 
@@ -31,4 +34,7 @@ Both triangles have the same area!
 
 When you draw it, it looks like this:
 
-{% caption align="aligncenter" width="512" caption="Both triangles in one picture" url="../images/2013/04/triangle-heron-tricky1.png" alt="Both triangles in one picture"  height="423" class="size-full wp-image-64341" %}
+<figure class="aligncenter">
+            <a href="../images/2013/04/triangle-heron-tricky1.png"><img src="../images/2013/04/triangle-heron-tricky1.png" alt="Both triangles in one picture" style="max-width:512px;max-height:423px" class="size-full wp-image-64341"/></a>
+            <figcaption class="text-center">Both triangles in one picture</figcaption>
+        </figure>

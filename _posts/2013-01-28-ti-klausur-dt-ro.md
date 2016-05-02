@@ -107,7 +107,10 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 
 <h3>MIPS</h3>
 <h4>Befehlsformate</h4>
-{% caption align="aligncenter" width="300" caption="MIPS Befehlsformate<br />Quelle: <a href='http://ti.ira.uka.de/TI-2/Vorlesung/Vorlesung.php'>Folien von Prof. Dr. Asfour</a>" url="../images/2013/01/mips-befehlsformate-300x136.png" alt="MIPS Befehlsformate"  height="136" class="size-medium wp-image-62151" %}
+<figure class="aligncenter">
+            <a href="../images/2013/01/mips-befehlsformate-300x136.png"><img src="../images/2013/01/mips-befehlsformate-300x136.png" alt="MIPS Befehlsformate" style="max-width:300px;max-height:136px" class="size-medium wp-image-62151"/></a>
+            <figcaption class="text-center">MIPS Befehlsformate<br />Quelle: <a href='http://ti.ira.uka.de/TI-2/Vorlesung/Vorlesung.php'>Folien von Prof. Dr. Asfour</a></figcaption>
+        </figure>
 
 Typ-R Befehle sind arithmetisch-logische Befehle wie add, sub, and, or sowie Vergleichsbefehle wie <abbr title="set on less than">slt</abbr>.
 
@@ -154,7 +157,10 @@ Typ-I Befehle sind Lade- und Speicherbefehle sowie Verzweigungsbefehle:
 
 <h3>MiMa</h3>
 
-{% caption align="aligncenter" width="300" caption="Mikrobefehlsformat der MiMa<br />Quelle: <a href='http://ti.ira.uka.de/TI-2/Vorlesung/RO-U01.pdf#page=15'>Folien von Prof. Dr. Asfour</a>" url="../images/2013/01/mima-microbefehlsformat-300x35.png" alt="Mikrobefehlsformat der MiMa"  height="35" class="size-medium wp-image-62571" %}
+<figure class="aligncenter">
+            <a href="../images/2013/01/mima-microbefehlsformat-300x35.png"><img src="../images/2013/01/mima-microbefehlsformat-300x35.png" alt="Mikrobefehlsformat der MiMa" style="max-width:300px;max-height:35px" class="size-medium wp-image-62571"/></a>
+            <figcaption class="text-center">Mikrobefehlsformat der MiMa<br />Quelle: <a href='http://ti.ira.uka.de/TI-2/Vorlesung/RO-U01.pdf#page=15'>Folien von Prof. Dr. Asfour</a></figcaption>
+        </figure>
 
 <h4>Fetch-Phase</h4>
 In der Fetch-Phase muss das die neue Instruktion ins <abbr title="Instruktionsregister">IR</abbr> geladen werden und der <abbr title="Program counter">PC</abbr> um eins erh&ouml;ht werden:
@@ -178,14 +184,20 @@ Das zugeh&ouml;rige Mikroprogramm ist:
 <div class="question">
 <span class="question">Zeichnen Sie ein Y-Diagramm.</span>
 <div class="answer">
-{% caption align="aligncenter" width="300" caption="Y-Diagramm<br />Quelle: <a href='http://ti.ira.uka.de/TI-2/Vorlesung/Vorlesung.php'>Folien von Prof. Dr. Asfour</a>" url="../images/2013/01/y-diagramm-300x206.png" alt="Y-Diagramm"  height="206" class="size-medium wp-image-61531" %}
+<figure class="aligncenter">
+            <a href="../images/2013/01/y-diagramm-300x206.png"><img src="../images/2013/01/y-diagramm-300x206.png" alt="Y-Diagramm" style="max-width:300px;max-height:206px" class="size-medium wp-image-61531"/></a>
+            <figcaption class="text-center">Y-Diagramm<br />Quelle: <a href='http://ti.ira.uka.de/TI-2/Vorlesung/Vorlesung.php'>Folien von Prof. Dr. Asfour</a></figcaption>
+        </figure>
 </div>
 </div>
 
 <div class="question">
 <span class="question">Wie ist ein Von-Neumann-Rechner aufgebaut?</span>
 <div class="answer">
-{% caption align="aligncenter" width="300" caption="Von-Neumann-Architektur" url="../images/2013/01/von-neumann-architektur-300x228.png" alt="Von-Neumann-Architektur"  height="228" class="size-medium wp-image-61711" %}
+<figure class="aligncenter">
+            <a href="../images/2013/01/von-neumann-architektur-300x228.png"><img src="../images/2013/01/von-neumann-architektur-300x228.png" alt="Von-Neumann-Architektur" style="max-width:300px;max-height:228px" class="size-medium wp-image-61711"/></a>
+            <figcaption class="text-center">Von-Neumann-Architektur</figcaption>
+        </figure>
 
 Das Steuerwerk wird auch &bdquo;Leitwerk&ldquo; genannt, das Rechenwerk auch &bdquo;<strong>A</strong>rithmetic <strong>L</strong>ogic <strong>U</strong>nit&ldquo;.
 
@@ -198,7 +210,10 @@ Im Gegensatz zur Harvard-Architektur wird beim Speicher in der Von-Neumann-Archi
 <div class="question">
 <span class="question">Wie ist ein Mikroprozessor aufgebaut?</span>
 <div class="answer">
-{% caption align="aligncenter" width="300" caption="Aufbau eines Mikroprozessors<br />Quelle: <a href='http://ti.ira.uka.de/TI-2/Vorlesung/RO-VL06.pdf#page=10'>Folien von Prof. Dr. Asfour</a>" url="../images/2013/01/aufbau-mikroprozessor-300x212.png" alt="Aufbau eines Mikroprozessors"  height="212" class="size-medium wp-image-61841" %}
+<figure class="aligncenter">
+            <a href="../images/2013/01/aufbau-mikroprozessor-300x212.png"><img src="../images/2013/01/aufbau-mikroprozessor-300x212.png" alt="Aufbau eines Mikroprozessors" style="max-width:300px;max-height:212px" class="size-medium wp-image-61841"/></a>
+            <figcaption class="text-center">Aufbau eines Mikroprozessors<br />Quelle: <a href='http://ti.ira.uka.de/TI-2/Vorlesung/RO-VL06.pdf#page=10'>Folien von Prof. Dr. Asfour</a></figcaption>
+        </figure>
 </div>
 </div>
 
@@ -234,21 +249,30 @@ In der ungepackten Darstellung wird in einem Byte nur eine BCD-Zahl dargestellt.
 <div class="question">
 <span class="question">Pipeline-Konflikte: Welche Forwarding-Techniken gibt es und wie werden sie umgesetzt?</span>
 <div class="answer">
-{% caption align="aligncenter" width="300" caption="Forwarding-Techniken<br />Quelle: Quelle: <a href='http://ti.ira.uka.de/TI-2/Vorlesung/RO-VL06.pdf#page=10'>Folien von Prof. Dr. Asfour</a>" url="../images/2013/01/forwarding-techniken2-300x249.png" alt="Forwarding-Techniken"  height="249" class="size-medium wp-image-62451" %}
+<figure class="aligncenter">
+            <a href="../images/2013/01/forwarding-techniken2-300x249.png"><img src="../images/2013/01/forwarding-techniken2-300x249.png" alt="Forwarding-Techniken" style="max-width:300px;max-height:249px" class="size-medium wp-image-62451"/></a>
+            <figcaption class="text-center">Forwarding-Techniken<br />Quelle: Quelle: <a href='http://ti.ira.uka.de/TI-2/Vorlesung/RO-VL06.pdf#page=10'>Folien von Prof. Dr. Asfour</a></figcaption>
+        </figure>
 </div>
 </div>
 
 <div class="question">
 <span class="question">Welche Halbleiterspeichertypen gibt es?</span>
 <div class="answer">
-{% caption align="aligncenter" width="300" caption="Klassifizierung von Halbleiterspeicher" url="../images/2013/01/halbleiterspeicher-klassifizierung-300x77.png" alt="Klassifizierung von Halbleiterspeicher"  height="77" class="size-medium wp-image-62511" %}
+<figure class="aligncenter">
+            <a href="../images/2013/01/halbleiterspeicher-klassifizierung-300x77.png"><img src="../images/2013/01/halbleiterspeicher-klassifizierung-300x77.png" alt="Klassifizierung von Halbleiterspeicher" style="max-width:300px;max-height:77px" class="size-medium wp-image-62511"/></a>
+            <figcaption class="text-center">Klassifizierung von Halbleiterspeicher</figcaption>
+        </figure>
 </div>
 </div>
 
 <div class="question">
 <span class="question">Skizzieren Sie eine SRAM-Zelle.</span>
 <div class="answer">
-{% caption align="aligncenter" width="300" caption="CMOS SRAM Zelle" url="../images/2013/01/cmos-sram-cell-300x300.png" alt="CMOS SRAM Zelle"  height="300" class="size-medium wp-image-62521" %}
+<figure class="aligncenter">
+            <a href="../images/2013/01/cmos-sram-cell-300x300.png"><img src="../images/2013/01/cmos-sram-cell-300x300.png" alt="CMOS SRAM Zelle" style="max-width:300px;max-height:300px" class="size-medium wp-image-62521"/></a>
+            <figcaption class="text-center">CMOS SRAM Zelle</figcaption>
+        </figure>
 </div>
 </div>
 
@@ -299,14 +323,20 @@ In der ungepackten Darstellung wird in einem Byte nur eine BCD-Zahl dargestellt.
 <div class="question">
 <span class="question">Wie sieht das Schaltsymbol eines Halbaddierers aus?</span>
 <div class="answer">
-{% caption align="aligncenter" width="288" caption="Schaltsymbol eines Halbaddierers" url="../images/2013/01/addierer-schaltsymbol.png" alt="Schaltsymbol eines Halbaddierers"  height="184" class="size-full wp-image-62671" %}
+<figure class="aligncenter">
+            <a href="../images/2013/01/addierer-schaltsymbol.png"><img src="../images/2013/01/addierer-schaltsymbol.png" alt="Schaltsymbol eines Halbaddierers" style="max-width:288px;max-height:184px" class="size-full wp-image-62671"/></a>
+            <figcaption class="text-center">Schaltsymbol eines Halbaddierers</figcaption>
+        </figure>
 </div>
 </div>
 
 <div class="question">
 <span class="question">Wie kann man die Datenabh&auml;ngigkeiten einer Pipeline spezifizieren und erkennen?</span>
 <div class="answer">
-{% caption align="aligncenter" width="300" caption="Datenabhaengigkeiten in einer Pipeline" url="../images/2013/01/ti-pipeline-datenabhaengigkeit-300x121.jpg" alt="Datenabhaengigkeiten in einer Pipeline"  height="121" class="size-medium wp-image-62791" %}
+<figure class="aligncenter">
+            <a href="../images/2013/01/ti-pipeline-datenabhaengigkeit-300x121.jpg"><img src="../images/2013/01/ti-pipeline-datenabhaengigkeit-300x121.jpg" alt="Datenabhaengigkeiten in einer Pipeline" style="max-width:300px;max-height:121px" class="size-medium wp-image-62791"/></a>
+            <figcaption class="text-center">Datenabhaengigkeiten in einer Pipeline</figcaption>
+        </figure>
 
 Erkennen kann man sie sehr schnell, indem man eine Tabelle mit den Spalten Befehl, Ziel-Register und Operanden-Register macht. Dabei muss man insbesondere bei der Multiplikation, <code>sw</code> und <code>lw</code> aufpassen. Folgendes (sehr gekrizeltes) Beispiel f&uuml;r die <a href="http://ti.ira.uka.de/Klausur/AlteKlausuren/k_ss_12.pdf#page=11">Klausur vom 26. Juli 2012</a>:
 {% caption align="alignnone" width="512" caption="Datenabh&auml;ngigkeiten schnell erkennen" url="../images/2013/01/datenabhaengigkeiten-erkennen.jpg" alt="Datenabh&auml;ngigkeiten schnell erkennen"  height="249" class="size-full wp-image-63101" %}

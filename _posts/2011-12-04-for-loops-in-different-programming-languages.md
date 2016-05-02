@@ -21,7 +21,10 @@ For loops have some properties you simply have to define:
 <h2>General structure</h2>
 A for loop usually consists of an initialization part, a condition and an iteration step:
 
-{% caption align="aligncenter" width="285" caption="The structure of a for loop." url="../images/2011/11/for-loop-structure1.png" alt="for loop structure"  height="176" class="size-full wp-image-9251" %}
+<figure class="aligncenter">
+            <a href="../images/2011/11/for-loop-structure1.png"><img src="../images/2011/11/for-loop-structure1.png" alt="for loop structure" style="max-width:285px;max-height:176px" class="size-full wp-image-9251"/></a>
+            <figcaption class="text-center">The structure of a for loop.</figcaption>
+        </figure>
 
 <h2>Pythons special structure</h2>
 Python uses a generator or lists to loop:

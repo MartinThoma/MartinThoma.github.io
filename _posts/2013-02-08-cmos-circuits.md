@@ -31,10 +31,16 @@ Four <abbr title="metal&ndash;oxide&ndash;semiconductor field-effect transistor"
 </table>
 
 <h2>Inverter</h2>
-{% caption align="aligncenter" width="434" caption="Inverter in CMOS technology" url="../images/2013/02/cmos-inverter.jpg" alt="Inverter in CMOS technology"  height="512" class="size-full wp-image-56721" %}
+<figure class="aligncenter">
+            <a href="../images/2013/02/cmos-inverter.jpg"><img src="../images/2013/02/cmos-inverter.jpg" alt="Inverter in CMOS technology" style="max-width:434px;max-height:512px" class="size-full wp-image-56721"/></a>
+            <figcaption class="text-center">Inverter in CMOS technology</figcaption>
+        </figure>
 
 <h2>NAND</h2>
-{% caption align="aligncenter" width="512" caption="NAND gate in CMOS technology" url="../images/2013/02/cmos-nand.jpg" alt="NAND gate in CMOS technology"  height="488" class="size-full wp-image-56731" %}
+<figure class="aligncenter">
+            <a href="../images/2013/02/cmos-nand.jpg"><img src="../images/2013/02/cmos-nand.jpg" alt="NAND gate in CMOS technology" style="max-width:512px;max-height:488px" class="size-full wp-image-56731"/></a>
+            <figcaption class="text-center">NAND gate in CMOS technology</figcaption>
+        </figure>
 
 <h2>Images</h2>
 I tried to find good software to create those images. I didn't find any that allowed me to create those images. I've tried this:

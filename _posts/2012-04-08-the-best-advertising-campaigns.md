@@ -38,28 +38,55 @@ featured_image: 2012/04/mr-clean-ad-thumb.jpg
 </table>
 
 <h2>FedEx</h2>
-{% caption align="aligncenter" width="410" caption="FedEx vs UPS" url="../images/2012/04/fedex-ad.jpg" alt="FedEx vs UPS"  height="274" class="size-full wp-image-21661" %}
+<figure class="aligncenter">
+            <a href="../images/2012/04/fedex-ad.jpg"><img src="../images/2012/04/fedex-ad.jpg" alt="FedEx vs UPS" style="max-width:410px;max-height:274px" class="size-full wp-image-21661"/></a>
+            <figcaption class="text-center">FedEx vs UPS</figcaption>
+        </figure>
 
 <h2>Mr. Clean</h2>
-{% caption align="aligncenter" width="425" caption="Mr. Clean Advertising" url="../images/2012/04/mr-clean-ad.jpg" alt="Mr. Clean Advertising"  height="289" class="size-full wp-image-21671" %}
+<figure class="aligncenter">
+            <a href="../images/2012/04/mr-clean-ad.jpg"><img src="../images/2012/04/mr-clean-ad.jpg" alt="Mr. Clean Advertising" style="max-width:425px;max-height:289px" class="size-full wp-image-21671"/></a>
+            <figcaption class="text-center">Mr. Clean Advertising</figcaption>
+        </figure>
 
 <h2>Tip Ex</h2>
-{% caption align="aligncenter" width="425" caption="TipEx advertising" url="../images/2012/04/tipex-ad.jpg" alt="TipEx advertising"  height="531" class="size-full wp-image-21691" %}
+<figure class="aligncenter">
+            <a href="../images/2012/04/tipex-ad.jpg"><img src="../images/2012/04/tipex-ad.jpg" alt="TipEx advertising" style="max-width:425px;max-height:531px" class="size-full wp-image-21691"/></a>
+            <figcaption class="text-center">TipEx advertising</figcaption>
+        </figure>
 
 <h2>National Geographic Channel</h2>
-{% caption align="aligncenter" width="425" caption="National Geographic Channel Advertising" url="../images/2012/04/national-geographic-channel-ad.png" alt="National Geographic Channel Advertising"  height="449" class="size-full wp-image-21681" %}
+<figure class="aligncenter">
+            <a href="../images/2012/04/national-geographic-channel-ad.png"><img src="../images/2012/04/national-geographic-channel-ad.png" alt="National Geographic Channel Advertising" style="max-width:425px;max-height:449px" class="size-full wp-image-21681"/></a>
+            <figcaption class="text-center">National Geographic Channel Advertising</figcaption>
+        </figure>
 
 <h2>Tampax</h2>
-{% caption align="aligncenter" width="425" caption="Tampax advertising" url="../images/2012/04/tampax-ad.jpg" alt="Tampax advertising"  height="407" class="size-full wp-image-21701" %}
+<figure class="aligncenter">
+            <a href="../images/2012/04/tampax-ad.jpg"><img src="../images/2012/04/tampax-ad.jpg" alt="Tampax advertising" style="max-width:425px;max-height:407px" class="size-full wp-image-21701"/></a>
+            <figcaption class="text-center">Tampax advertising</figcaption>
+        </figure>
 
 <h2>3M Security Glass</h2>
-{% caption align="aligncenter" width="425" caption="3M Security Glass" url="../images/2012/04/3m-ad.jpg" alt="3M Security Glass"  height="529" class="size-full wp-image-21711" %}
+<figure class="aligncenter">
+            <a href="../images/2012/04/3m-ad.jpg"><img src="../images/2012/04/3m-ad.jpg" alt="3M Security Glass" style="max-width:425px;max-height:529px" class="size-full wp-image-21711"/></a>
+            <figcaption class="text-center">3M Security Glass</figcaption>
+        </figure>
 
 <h2>Coffee</h2>
-{% caption align="aligncenter" width="425" caption="Coffee advertising" url="../images/2012/04/coffee-ad.jpg" alt="Coffee advertising"  height="676" class="size-full wp-image-21721" %}
+<figure class="aligncenter">
+            <a href="../images/2012/04/coffee-ad.jpg"><img src="../images/2012/04/coffee-ad.jpg" alt="Coffee advertising" style="max-width:425px;max-height:676px" class="size-full wp-image-21721"/></a>
+            <figcaption class="text-center">Coffee advertising</figcaption>
+        </figure>
 
 <h2>Funeral ad</h2>
-{% caption align="aligncenter" width="425" caption="Funeral advertising" url="../images/2012/04/funeral-ad.jpg" alt="Funeral advertising"  height="319" class="size-full wp-image-21731" %}
+<figure class="aligncenter">
+            <a href="../images/2012/04/funeral-ad.jpg"><img src="../images/2012/04/funeral-ad.jpg" alt="Funeral advertising" style="max-width:425px;max-height:319px" class="size-full wp-image-21731"/></a>
+            <figcaption class="text-center">Funeral advertising</figcaption>
+        </figure>
 
 <h2>Ravensburger</h2>
-{% caption align="aligncenter" width="425" caption="Ravensburger Puzzle advertising" url="../images/2012/04/ravensburger-puzzle-ad.jpg" alt="Ravensburger Puzzle advertising"  height="293" class="size-full wp-image-21751" %}
+<figure class="aligncenter">
+            <a href="../images/2012/04/ravensburger-puzzle-ad.jpg"><img src="../images/2012/04/ravensburger-puzzle-ad.jpg" alt="Ravensburger Puzzle advertising" style="max-width:425px;max-height:293px" class="size-full wp-image-21751"/></a>
+            <figcaption class="text-center">Ravensburger Puzzle advertising</figcaption>
+        </figure>

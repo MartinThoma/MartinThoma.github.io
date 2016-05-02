@@ -16,7 +16,10 @@ Everybody who has written a noticeable amount of Java code should know the metho
 
 It looks like this:
 
-{% caption align="aligncenter" width="320" caption="Connect Four<br />Source: <a href='http://commons.wikimedia.org/wiki/File:Connect_Four.gif'>commons.wikimedia.org</a>" url="../images/2013/05/connect-four.gif" alt="Connect Four"  height="190" class="size-full wp-image-65311" %}
+<figure class="aligncenter">
+            <a href="../images/2013/05/connect-four.gif"><img src="../images/2013/05/connect-four.gif" alt="Connect Four" style="max-width:320px;max-height:190px" class="size-full wp-image-65311"/></a>
+            <figcaption class="text-center">Connect Four<br />Source: <a href='http://commons.wikimedia.org/wiki/File:Connect_Four.gif'>commons.wikimedia.org</a></figcaption>
+        </figure>
 
 <h2>The task</h2>
 Imagine you would like to find a good strategy where to drop your disk. A simple brute-force method is to create a so called <a href="http://en.wikipedia.org/wiki/Game_tree">game tree</a>. This means you go through each possibility at each situation that could occur in the game for both players. 
@@ -271,7 +274,10 @@ unsigned int charToInt(char x) {
 {% endhighlight %}
 
 When you want to get the board number, you can get it like this:
-{% caption align="aligncenter" width="320" caption="Empty=0, red=1, yellow=2<br />The board number is 00000000000000000210000211210112212" url="../images/2013/05/connect-four-to-number.png" alt="Empty=0, red=1, yellow=2"  height="380" class="size-full wp-image-65761" %}
+<figure class="aligncenter">
+            <a href="../images/2013/05/connect-four-to-number.png"><img src="../images/2013/05/connect-four-to-number.png" alt="Empty=0, red=1, yellow=2" style="max-width:320px;max-height:380px" class="size-full wp-image-65761"/></a>
+            <figcaption class="text-center">Empty=0, red=1, yellow=2<br />The board number is 00000000000000000210000211210112212</figcaption>
+        </figure>
 
 For most game situations, this number will be much too big to store it in an integer. Also, we would like to get an index for our array so that we know where to store this board. The simplest solution to this problem is to calculate <code>NUMBER % ARRAY_SIZE</code>:
 
@@ -341,7 +347,10 @@ BUT you have to make sure that $Pr[h(x)=h(y) \land h'(x)=h'(y)] = \frac{1}{m^2}$
 <h2>Performance</h2>
 You can use linear probing, quadratic probing and double hashing in my example and measure how many game situations get stored. The more game situations you can store in the same amount of time, the better:
 
-{% caption align="aligncenter" width="512" caption="Linear probing, quadratic probing and double hashing for connect four" url="../images/2013/05/connectfour-probing.png" alt="Linear probing, quadratic probing and double hashing for connect four"  height="334" class="size-full wp-image-65871" %}
+<figure class="aligncenter">
+            <a href="../images/2013/05/connectfour-probing.png"><img src="../images/2013/05/connectfour-probing.png" alt="Linear probing, quadratic probing and double hashing for connect four" style="max-width:512px;max-height:334px" class="size-full wp-image-65871"/></a>
+            <figcaption class="text-center">Linear probing, quadratic probing and double hashing for connect four</figcaption>
+        </figure>
 
 You can see that linear probing performs much worse than quadratic probing and double hashing. When you compare quadratic probing with double hashing, there seems not to be a big difference. But note that my second hash function is almost the same as the first one. You could probably choose a better second hash function and get better results (suggestions are welcome).
 

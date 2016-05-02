@@ -82,11 +82,20 @@ Almost every challenge could also be in the "Information Gathering" category. Wh
 
 Basic tasks are to get to know something about the owner of a specific website or about the content of a website a few years ago.
 <h2>Some examples</h2>
-{% caption align="aligncenter" width="300" caption="<a href='http://www.bright-shadows.net/'>www.bright-shadows.net</a> - The Back Sheep" url="../images/2011/10/bright-shadows-300x138.png" alt="Bright Shadows - The Back Sheep"  height="138" class="size-medium wp-image-5301" %}
+<figure class="aligncenter">
+            <a href="../images/2011/10/bright-shadows-300x138.png"><img src="../images/2011/10/bright-shadows-300x138.png" alt="Bright Shadows - The Back Sheep" style="max-width:300px;max-height:138px" class="size-medium wp-image-5301"/></a>
+            <figcaption class="text-center"><a href='http://www.bright-shadows.net/'>www.bright-shadows.net</a> - The Back Sheep</figcaption>
+        </figure>
 
-{% caption align="aligncenter" width="300" caption="<a href='http://www.hacker.org/'>hacker.org</a>" url="../images/2011/10/hacker.org_-300x175.png" alt="hacker.org"  height="175" class="size-medium wp-image-5311" %}
+<figure class="aligncenter">
+            <a href="../images/2011/10/hacker.org_-300x175.png"><img src="../images/2011/10/hacker.org_-300x175.png" alt="hacker.org" style="max-width:300px;max-height:175px" class="size-medium wp-image-5311"/></a>
+            <figcaption class="text-center"><a href='http://www.hacker.org/'>hacker.org</a></figcaption>
+        </figure>
 
-{% caption align="aligncenter" width="300" caption="<a href='http://www.wechall.net/'>WeChall</a>" url="../images/2011/10/wechall-300x140.png" alt="WeChall"  height="140" class="size-medium wp-image-5321" %}
+<figure class="aligncenter">
+            <a href="../images/2011/10/wechall-300x140.png"><img src="../images/2011/10/wechall-300x140.png" alt="WeChall" style="max-width:300px;max-height:140px" class="size-medium wp-image-5321"/></a>
+            <figcaption class="text-center"><a href='http://www.wechall.net/'>WeChall</a></figcaption>
+        </figure>
 
 
 <a href="http://projecteuler.net/">ProjectEuler</a> - for people who are interested in math challenges:

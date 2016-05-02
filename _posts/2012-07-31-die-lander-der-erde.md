@@ -25,4 +25,7 @@ This beats or equals 67.6% of test takers.
 The average score is 77.
 Your high score is 90.
 
-{% caption align="aligncenter" width="512" caption="L&auml;nder der Erde - zweiter Versuch" url="../images/2012/07/laender-der-erde-2.png" alt="L&auml;nder der Erde - zweiter Versuch"  height="298" class="size-full wp-image-37601" %}
+<figure class="aligncenter">
+            <a href="../images/2012/07/laender-der-erde-2.png"><img src="../images/2012/07/laender-der-erde-2.png" alt="L&auml;nder der Erde - zweiter Versuch" style="max-width:512px;max-height:298px" class="size-full wp-image-37601"/></a>
+            <figcaption class="text-center">L&auml;nder der Erde - zweiter Versuch</figcaption>
+        </figure>

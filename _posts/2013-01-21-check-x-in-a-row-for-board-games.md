@@ -9,11 +9,44 @@ featured_image: 2013/01/queens-moves.png
 ---
 In board games, you have quite often the situation that you want to check something in different directions. Most of the time, the implementation I see for situations like this is very redundant and prone to off-by-one errors. Some simple ideas can improve the quality of codes (code that is easier to understand and less <abbr title="lines of code">loc</abbr>) and reduce the probability of tiny mistakes.
 
-{% gallery %}
-    ../images/2013/01/tic-tac-toe.png   "Tic Tac Toe"
-    ../images/2013/01/battleships.png   "Battleships"
-    ../images/2013/01/queens-moves.png  "Moves of the queen in chess"
-{% endgallery %}
+<ul class="gallery mw-gallery-traditional">
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2013/01/tic-tac-toe.png" class="image">
+                  <img src="../images/2013/01/tic-tac-toe.png" alt="Tic Tac Toe" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Tic Tac Toe</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2013/01/battleships.png" class="image">
+                  <img src="../images/2013/01/battleships.png" alt="Battleships" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Battleships</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2013/01/queens-moves.png" class="image">
+                  <img src="../images/2013/01/queens-moves.png" alt="Moves of the queen in chess" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Moves of the queen in chess</div>
+      </div>
+   </li>
+</ul>
 
 <h2>isOnBoard(int x, int y)</h2>
 You should create a method that checks if a coordinate is on your board. This can be as simple as this:
@@ -30,13 +63,13 @@ You can create a method like this:
 ```java
 /**
  * This method checks XYZ and does XYZ.
- * 
+ *
  * @param player the current player
- * @param xDir -1 if you want to go to the left, 0 if you don't want 
- *            to move in x-direction and 1 if you want to go to 
+ * @param xDir -1 if you want to go to the left, 0 if you don't want
+ *            to move in x-direction and 1 if you want to go to
  *            the right
- * @param yDir -1 if you want to go to the bottom, 0 if you don't 
- *            want to move in y-direction and 1 if you want to go 
+ * @param yDir -1 if you want to go to the bottom, 0 if you don't
+ *            want to move in y-direction and 1 if you want to go
  *            to the top
  */
 private void myBoardAction(Player player, int xDir, int yDir) {
@@ -66,5 +99,5 @@ myBoardAction(player, 1, 0); // vertical
 myBoardAction(player, 0, 1); // horizontal
 ```
 
-This is enough. You don't need more, as you go through the whole board. 
+This is enough. You don't need more, as you go through the whole board.
 No need to write redundant code ☺

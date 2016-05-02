@@ -10,7 +10,10 @@ context: post
 ---
 Animals are quite often in some web memes:
 <h2>Lame Pun Coon</h2>
-{% caption align="aligncenter" width="310" caption="Lame Pun Coon" url="../images/2011/09/Lame-pun-coon.jpg" alt="Lame Pun Coon"  height="308" class="size-full wp-image-1001" %}
+<figure class="aligncenter">
+            <a href="../images/2011/09/Lame-pun-coon.jpg"><img src="../images/2011/09/Lame-pun-coon.jpg" alt="Lame Pun Coon" style="max-width:310px;max-height:308px" class="size-full wp-image-1001"/></a>
+            <figcaption class="text-center">Lame Pun Coon</figcaption>
+        </figure>
 
 <h2>Philosoraptor</h2>
 {% caption align="alignnone" width="300" caption="Philosoraptor" url="../images/2011/09/Philosoraptor-300x300.jpg" alt="If he's a vegan since birth ... Does that mean he wasn't breast fed?"  height="300" class="size-medium wp-image-381"  %}

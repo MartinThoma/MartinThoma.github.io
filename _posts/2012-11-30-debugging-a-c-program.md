@@ -10,7 +10,10 @@ As I began with programming C, I had enormous difficulties to produce working co
 
 <h2>Compile time vs. runtime</h2>
 A typical C workflow looks like this: You have an idea, you write your code, you compile it and you run it.
-{% caption align="aligncenter" width="512" caption="C workflow" url="../images/2012/11/c-workflow.png" alt="C workflow"  height="229" class="size-full wp-image-49641" %}
+<figure class="aligncenter">
+            <a href="../images/2012/11/c-workflow.png"><img src="../images/2012/11/c-workflow.png" alt="C workflow" style="max-width:512px;max-height:229px" class="size-full wp-image-49641"/></a>
+            <figcaption class="text-center">C workflow</figcaption>
+        </figure>
 
 You might make multiple errors. Simple typos or syntax errors are almost always detected at compile time. They are called "compile time errors". Others, like the access of an array-index that isn't in the array might only occur sometimes at runtime, depending on the input. Those are runtime errors and they are much more difficult to detect. Additionally, they can not be reproduced that easily as compile time errors can.
 

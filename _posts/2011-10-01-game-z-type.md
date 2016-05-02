@@ -7,7 +7,10 @@ category: The Web
 tags: learning, JavaScript Game
 featured_image: 2011/10/z-type-168x300.png
 ---
-{% caption align="aligncenter" width="168" caption="Z-Type" url="../images/2011/10/z-type-168x300.png" alt="Z-Type"  height="300" class="size-medium wp-image-3311" %}
+<figure class="aligncenter">
+            <a href="../images/2011/10/z-type-168x300.png"><img src="../images/2011/10/z-type-168x300.png" alt="Z-Type" style="max-width:168px;max-height:300px" class="size-medium wp-image-3311"/></a>
+            <figcaption class="text-center">Z-Type</figcaption>
+        </figure>
 
 <b>Go to the Game</b>: <a href="http://www.phoboslab.org/ztype/" rel="nofollow">www.phoboslab.org/ztype</a>
 <b>Task</b>: Survive as long as possible

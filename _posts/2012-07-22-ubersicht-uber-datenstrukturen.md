@@ -10,7 +10,10 @@ featured_image: 2012/07/tree-thumb.png
 Diese &Uuml;bersicht beinhaltet grundlegende Datenstrukturen. Es gibt weitaus <a href="http://de.wikipedia.org/wiki/Kategorie:Datenstruktur">mehr Datenstrukturen</a> (z.B. <a href="http://de.wikipedia.org/wiki/Bloomfilter">Bloomfilter</a>), als ich hier erw&auml;hne. Diese Datenstrukturen wurden in der Vorlesung Algorithmen I bei Frau Zitterbart am KIT erkl&auml;rt.
 
 <h2>Array</h2>
-{% caption align="aligncenter" width="500" caption="Array" url="../images/2012/07/array.png" alt="Array"  height="225" class="size-full wp-image-34531" %}
+<figure class="aligncenter">
+            <a href="../images/2012/07/array.png"><img src="../images/2012/07/array.png" alt="Array" style="max-width:500px;max-height:225px" class="size-full wp-image-34531"/></a>
+            <figcaption class="text-center">Array</figcaption>
+        </figure>
 Ein Array, auch <a href="http://de.wikipedia.org/wiki/Feld_(Datentyp)">Feld</a> genannt, ist eine Datenstruktur. 
 Charakteristika:
 <ul>
@@ -339,7 +342,10 @@ Eine Warteschlange l&auml;sst sich als doppelt verkettete, zyklische Liste imple
 Wie bei allen Datenstrukturen, kann man f&uuml;r verkettete Listen mehr Operationen definieren und umsetzen, als ich hier aufliste. Eine gute Menge von Operationen wird durch das <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html">Java List Interface</a> vorgegeben.
 
 <h3>Einfach verkettete Liste</h3>
-{% caption align="aligncenter" width="500" caption="Singly linked list" url="../images/2012/07/singly-linked-list.png" alt="Singly linked list"  height="71" class="size-full wp-image-34051" %}
+<figure class="aligncenter">
+            <a href="../images/2012/07/singly-linked-list.png"><img src="../images/2012/07/singly-linked-list.png" alt="Singly linked list" style="max-width:500px;max-height:71px" class="size-full wp-image-34051"/></a>
+            <figcaption class="text-center">Singly linked list</figcaption>
+        </figure>
 
 Sei $n$ die Anzahl der Elemente der Liste.
 <table>
@@ -391,7 +397,10 @@ Sei $n$ die Anzahl der Elemente der Liste.
 </table>
 
 <h3>Doppelt verkettete Liste</h3>
-{% caption align="aligncenter" width="500" caption="Doubly linked list" url="../images/2012/07/doubly-linked-list.png" alt="Doubly linked list"  height="54" class="size-full wp-image-34031" %}
+<figure class="aligncenter">
+            <a href="../images/2012/07/doubly-linked-list.png"><img src="../images/2012/07/doubly-linked-list.png" alt="Doubly linked list" style="max-width:500px;max-height:54px" class="size-full wp-image-34031"/></a>
+            <figcaption class="text-center">Doubly linked list</figcaption>
+        </figure>
 
 Sei $n$ die Anzahl der Elemente der Liste.
 <table>
@@ -463,7 +472,10 @@ $x$ hei&szlig;t <strong>Elternknoten</strong> von $y :\Leftrightarrow x$ liegt a
 $x$ hei&szlig;t <strong>Kindknoten</strong> von $y :\Leftrightarrow y$ ist Elternknoten von $x$.</div>
 
 <h3>Bin&auml;re B&auml;ume</h3>
-{% caption align="aligncenter" width="500" caption="Binary tree datastructure" url="../images/2012/07/binary-tree.png" alt="Binary tree datastructure"  height="277" class="size-full wp-image-33851" %}
+<figure class="aligncenter">
+            <a href="../images/2012/07/binary-tree.png"><img src="../images/2012/07/binary-tree.png" alt="Binary tree datastructure" style="max-width:500px;max-height:277px" class="size-full wp-image-33851"/></a>
+            <figcaption class="text-center">Binary tree datastructure</figcaption>
+        </figure>
 
 <div class="definition">Sei $G = (V, E)$ ein Baum.
 $G$ hei&szlig;t <strong>bin&auml;rer Baum</strong> $:\Leftrightarrow \forall_{x \in V}: x$ hat h&ouml;chstens zwei Kindknoten.</div>
@@ -515,7 +527,10 @@ Wie w&uuml;rde man das implementieren? Im Prinzip wie eine doppelt verkettete Li
 </table>
 
 <h3>Suchb&auml;ume</h3>
-{% caption align="aligncenter" width="500" caption="Binary search tree" url="../images/2012/07/binary-search-tree.png" alt="Binary search tree"  height="361" class="size-full wp-image-33871" %}
+<figure class="aligncenter">
+            <a href="../images/2012/07/binary-search-tree.png"><img src="../images/2012/07/binary-search-tree.png" alt="Binary search tree" style="max-width:500px;max-height:361px" class="size-full wp-image-33871"/></a>
+            <figcaption class="text-center">Binary search tree</figcaption>
+        </figure>
 Dieser Baum hat die gleichen Werte wie der Baum oberhalb, aber es gilt nun:
 Der Wert aller Knoten links vom aktuellen Konten ist kleiner oder gleich dem des aktuelle, der Wert aller Knoten rechts davon ist echt gr&ouml;&szlig;er.
 
@@ -568,7 +583,10 @@ Jeder Knoten kennt seine Kinder- <strong>und</strong> seinen Vaterknoten.
 </table>
 
 <h4>Rot-Schwarz-B&auml;ume</h4>
-{% caption align="aligncenter" width="500" caption="Red Black Tree" url="../images/2012/07/red-black-tree1.png" alt="Red Black Tree"  height="244" class="size-full wp-image-34071" %}
+<figure class="aligncenter">
+            <a href="../images/2012/07/red-black-tree1.png"><img src="../images/2012/07/red-black-tree1.png" alt="Red Black Tree" style="max-width:500px;max-height:244px" class="size-full wp-image-34071"/></a>
+            <figcaption class="text-center">Red Black Tree</figcaption>
+        </figure>
 
 Sei $G = (V, E)$ ein bin&auml;rer Suchbaum.
 G hei&szlig;t Rot-Schwarz-Baum $: \Leftrightarrow$ F&uuml;r G gilt:
@@ -626,7 +644,10 @@ G hei&szlig;t Rot-Schwarz-Baum $: \Leftrightarrow$ F&uuml;r G gilt:
 Eine Python-Implementation ist hier zu finden: <a href="https://github.com/MartinThoma/algorithms/blob/master/datastructures/redBlackTree.py">https://github.com/MartinThoma/algorithms</a>
 
 <h3>Heaps</h3>
-{% caption align="aligncenter" width="500" caption="Ein bin&auml;rer Min-Heap" url="../images/2012/07/heap.png" alt="Ein bin&auml;rer Min-Heap"  height="254" class="size-full wp-image-34361" %}
+<figure class="aligncenter">
+            <a href="../images/2012/07/heap.png"><img src="../images/2012/07/heap.png" alt="Ein bin&auml;rer Min-Heap" style="max-width:500px;max-height:254px" class="size-full wp-image-34361"/></a>
+            <figcaption class="text-center">Ein bin&auml;rer Min-Heap</figcaption>
+        </figure>
 
 Ich beschr&auml;nke mich im folgenden auf <a href="http://de.wikipedia.org/wiki/Bin%C3%A4rer_Heap">bin&auml;re Min-Heaps</a>.
 <table>
@@ -678,8 +699,14 @@ Ich beschr&auml;nke mich im folgenden auf <a href="http://de.wikipedia.org/wiki/
 </table>
 
 <h3>B-B&auml;ume</h3>
-{% caption align="aligncenter" width="500" caption="B-Baum der Ordnung 2" url="../images/2012/07/b-tree-2.png" alt="B-Baum der Ordnung 2"  height="124" class="size-full wp-image-34581" %}
-{% caption align="aligncenter" width="500" caption="B-Baum der Ordnung 3" url="../images/2012/07/b-tree-3.png" alt="B-Baum der Ordnung 3"  height="187" class="size-full wp-image-34591" %}
+<figure class="aligncenter">
+            <a href="../images/2012/07/b-tree-2.png"><img src="../images/2012/07/b-tree-2.png" alt="B-Baum der Ordnung 2" style="max-width:500px;max-height:124px" class="size-full wp-image-34581"/></a>
+            <figcaption class="text-center">B-Baum der Ordnung 2</figcaption>
+        </figure>
+<figure class="aligncenter">
+            <a href="../images/2012/07/b-tree-3.png"><img src="../images/2012/07/b-tree-3.png" alt="B-Baum der Ordnung 3" style="max-width:500px;max-height:187px" class="size-full wp-image-34591"/></a>
+            <figcaption class="text-center">B-Baum der Ordnung 3</figcaption>
+        </figure>
 
 <blockquote>Ein B-Baum ist ein immer vollst&auml;ndig balancierter Baum, der Daten sortiert nach Schl&uuml;sseln speichert. Er kann bin&auml;r sein, ist aber im Allgemeinen kein Bin&auml;rbaum. Das Einf&uuml;gen, Suchen und L&ouml;schen von Daten in B-B&auml;umen ist in amortisiert logarithmischer Zeit m&ouml;glich. B-B&auml;ume wachsen &ndash; und schrumpfen &ndash; anders als viele Suchb&auml;ume von den Bl&auml;ttern hin zur Wurzel.</blockquote>
 Quelle: <a href="http://de.wikipedia.org/wiki/B-Baum">Wikipedia</a>
@@ -699,7 +726,10 @@ Die beiden B-B&auml;ume habe ich mit <a href="https://gist.github.com/3159687">d
 Mehr zu B-B&auml;umen gibt es in diesem <a href="../b-baume/" title="B-B&auml;ume">Artikel &uuml;ber B-B&auml;ume</a>.
 
 <h3>Tries</h3>
-{% caption align="aligncenter" width="200" caption="Trie" url="../images/2012/07/trie.png" alt="Trie"  height="285" class="size-full wp-image-34621" %}
+<figure class="aligncenter">
+            <a href="../images/2012/07/trie.png"><img src="../images/2012/07/trie.png" alt="Trie" style="max-width:200px;max-height:285px" class="size-full wp-image-34621"/></a>
+            <figcaption class="text-center">Trie</figcaption>
+        </figure>
 Bildquelle: <a href="http://commons.wikimedia.org/wiki/File:Trie.svg">Wikipedia</a>
 
 Ein Trie ist ein spezieller digitaler Baum. 

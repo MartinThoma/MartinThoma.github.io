@@ -10,7 +10,10 @@ The goal of the Viterbi algorithm is find the most likely sequence of hidden sta
 
 Lets say this is your <abbr title="Hidden Markov model">HMM</abbr>:
 
-{% caption align="aligncenter" width="512" caption="A hidden Markov model (HMM) example" url="../images/2013/09/hidden-markov-model-abc-2.png" alt="A hidden Markov model (HMM) example"  height="252" class="size-full wp-image-76518" %}
+<figure class="aligncenter">
+            <a href="../images/2013/09/hidden-markov-model-abc-2.png"><img src="../images/2013/09/hidden-markov-model-abc-2.png" alt="A hidden Markov model (HMM) example" style="max-width:512px;max-height:252px" class="size-full wp-image-76518"/></a>
+            <figcaption class="text-center">A hidden Markov model (HMM) example</figcaption>
+        </figure>
 
 We always start in \$x\$ and always end in \$z\$.
 
@@ -25,7 +28,10 @@ Candidates are:
 
 If you're learing this because you will write the exam at KIT, you might have such an diagram:
 
-{% caption align="aligncenter" width="751" caption="Scheme of the Viterbi algorithm" url="../images/2013/09/viterbi-algorithm.png" alt="Scheme of the Viterbi algorithm"  height="300" class="size-full wp-image-76520" %}
+<figure class="aligncenter">
+            <a href="../images/2013/09/viterbi-algorithm.png"><img src="../images/2013/09/viterbi-algorithm.png" alt="Scheme of the Viterbi algorithm" style="max-width:751px;max-height:300px" class="size-full wp-image-76520"/></a>
+            <figcaption class="text-center">Scheme of the Viterbi algorithm</figcaption>
+        </figure>
 
 In this case, the bold path is the Viterbi path. You can see this when you get backwards from the last state:
 

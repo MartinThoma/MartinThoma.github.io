@@ -8,7 +8,10 @@ tags: Python, Algebra
 featured_image: 2013/08/algebra-thumb.jpg
 ---
 <h2>Pseudocode</h2>
-{% caption align="aligncenter" width="500" caption="Pseudocode: Calculate Legendre symbol" url="../images/2013/09/Calculate-Legendre.png" alt="Pseudocode: Calculate Legendre symbol"  height="528" class="size-full wp-image-76379" %}
+<figure class="aligncenter">
+            <a href="../images/2013/09/Calculate-Legendre.png"><img src="../images/2013/09/Calculate-Legendre.png" alt="Pseudocode: Calculate Legendre symbol" style="max-width:500px;max-height:528px" class="size-full wp-image-76379"/></a>
+            <figcaption class="text-center">Pseudocode: Calculate Legendre symbol</figcaption>
+        </figure>
 
 <h2>Python</h2>
 {% highlight python %}

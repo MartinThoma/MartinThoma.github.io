@@ -19,7 +19,10 @@ Unser Transporter hat links und rechts je einen Kofferraum. F&uuml;r jeden Koffe
 Quelle: <a href="http://www.bundeswettbewerb-informatik.de/fileadmin/templates/bwinf/aufgaben/bwinf31/Aufgabenblatt311_Aufgaben.pdf">www.bundeswettbewerb-informatik.de</a>
 
 <h2>Vollst&auml;ndiger Pseudocode</h2>
-{% caption align="aligncenter" width="512" caption="Pseudocode zum 31. BwInf, Runde 1, Aufgabe 2" url="../images/2012/12/pseudocode-31.1.2-bwinf.png" alt="Pseudocode zum 31. BwInf, Runde 1, Aufgabe 2"  height="412" class="size-full wp-image-46861" %}
+<figure class="aligncenter">
+            <a href="../images/2012/12/pseudocode-31.1.2-bwinf.png"><img src="../images/2012/12/pseudocode-31.1.2-bwinf.png" alt="Pseudocode zum 31. BwInf, Runde 1, Aufgabe 2" style="max-width:512px;max-height:412px" class="size-full wp-image-46861"/></a>
+            <figcaption class="text-center">Pseudocode zum 31. BwInf, Runde 1, Aufgabe 2</figcaption>
+        </figure>
 
 <h2>L&ouml;sung mit GLPK</h2>
 Der folgende Code muss als partition.mod gespeichert werden:

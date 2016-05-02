@@ -14,7 +14,10 @@ We want to find a function that goes through those points and approximates the u
 <h2>Polynomial interpolation</h2>
 The problem of polynomial interpolation were oscillations at the end of the interval you wanted to interpolate (see <a href="../html5/polynom-interpolation.htm?function=1%2F(25*x*x%2B1)&evaluationSteps=0.01&X_MIN=-1.5&X_MAX=1.5&Y_MAX=1.2&Y_MIN=-1.2&X_TICKS_STEPS=0.2&Y_TICKS_STEPS=0.2&X_FROM=-1&X_TO=1&N_EVALUATION_POINTS=10&points=%5B%5D&tschebyscheffSwitch=true&equallySwitch=true">interactive example</a>):
 
-{% caption align="aligncenter" width="300" caption="Oscillations you get with polynomial interpolation" url="../images/2013/06/polynomial-interpolation-oscillation-300x105.png" alt="Oscillations you get with polynomial interpolation"  height="105" class="size-medium wp-image-72001" %}
+<figure class="aligncenter">
+            <a href="../images/2013/06/polynomial-interpolation-oscillation-300x105.png"><img src="../images/2013/06/polynomial-interpolation-oscillation-300x105.png" alt="Oscillations you get with polynomial interpolation" style="max-width:300px;max-height:105px" class="size-medium wp-image-72001"/></a>
+            <figcaption class="text-center">Oscillations you get with polynomial interpolation</figcaption>
+        </figure>
 
 As you can see, polynomial interpolation with equally spaced points is very, very bad at the ends of the interval. Tschebyscheff spaced points are much better, but you can still see that the interpolated function is different from the original.
 
@@ -72,7 +75,10 @@ But at the moment, we only have $2n+2\cdot(n-1) = 4n -2$ equations, but we have 
 
 George MacKerron shows how the results can differ in his article <a href="http://blog.mackerron.com/2011/01/01/javascript-cubic-splines/">Cubic splines in JavaScript (via CoffeeScript)</a>:
 
-{% caption align="aligncenter" width="500" caption="Different results for different ancillary conditions" url="../images/2013/06/ancillary-conditions-splines-results.png" alt="Different results for different ancillary conditions"  height="267" class="size-full wp-image-72221" %}
+<figure class="aligncenter">
+            <a href="../images/2013/06/ancillary-conditions-splines-results.png"><img src="../images/2013/06/ancillary-conditions-splines-results.png" alt="Different results for different ancillary conditions" style="max-width:500px;max-height:267px" class="size-full wp-image-72221"/></a>
+            <figcaption class="text-center">Different results for different ancillary conditions</figcaption>
+        </figure>
 
 <h2>Code for natural splines</h2>
 I will store splines as a list of maps. Each map is one piece of the spline and has:

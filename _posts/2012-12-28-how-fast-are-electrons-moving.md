@@ -34,7 +34,10 @@ $v = \frac{c}{\sqrt{0.999994 \cdot 3}} = 0.577352 \cdot c$
 <h2>How fast are electrons moving around an atom?</h2>
 Well, first of all I have to mention, that electrons seem not to move around a nucleus as this image suggests:
 
-{% caption align="aligncenter" width="300" caption="Atom according to Bohrs model" url="../images/2012/12/atom-electron-bohr-300x300.png" alt="Atom according to Bohrs model"  height="300" class="size-medium wp-image-52041" %}
+<figure class="aligncenter">
+            <a href="../images/2012/12/atom-electron-bohr-300x300.png"><img src="../images/2012/12/atom-electron-bohr-300x300.png" alt="Atom according to Bohrs model" style="max-width:300px;max-height:300px" class="size-medium wp-image-52041"/></a>
+            <figcaption class="text-center">Atom according to Bohrs model</figcaption>
+        </figure>
 
 A model with <a href="http://en.wikipedia.org/wiki/Atomic_orbital">atomic orbitals</a> seems to be more accurate. However, you can calulate the speed $v$ an electron would have in Bohrs model.
 

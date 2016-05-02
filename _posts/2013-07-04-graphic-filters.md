@@ -94,18 +94,61 @@ You need a webcam for this:
 </div>
 
 This is what it should look like:
-{% caption align="aligncenter" width="664" caption="Webcam example" url="../images/2013/07/graphic-webcam-html5-js-example.png" alt="Webcam example"  height="395" class="size-full wp-image-72801" %}
+<figure class="aligncenter">
+            <a href="../images/2013/07/graphic-webcam-html5-js-example.png"><img src="../images/2013/07/graphic-webcam-html5-js-example.png" alt="Webcam example" style="max-width:664px;max-height:395px" class="size-full wp-image-72801"/></a>
+            <figcaption class="text-center">Webcam example</figcaption>
+        </figure>
 
 And it gives these results:
-{% gallery %}
-    ../images/2013/07/prewitt-x-filter-example.png  "Prewitt x-filter example"
-    ../images/2013/07/prewitt-y-filter-example.png  "Prewitt y-filter example"
-    ../images/2013/07/laplace-filter-example.png    "Laplace filter example"
-{% endgallery %}
+
+<ul class="gallery mw-gallery-traditional">
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2013/07/prewitt-x-filter-example.png" class="image">
+                  <img src="../images/2013/07/prewitt-x-filter-example.png" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Prewitt x-filter example</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2013/07/prewitt-y-filter-example.png" class="image">
+                  <img src="../images/2013/07/prewitt-y-filter-example.png" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Prewitt y-filter example</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2013/07/laplace-filter-example.png" class="image">
+                  <img src="../images/2013/07/laplace-filter-example.png" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Laplace filter example</div>
+      </div>
+   </li>
+</ul>
 
 By the way, you can check if a website is currently accessing your webcam (with Google Chrome):
 
-{% caption align="aligncenter" width="370" caption="Webcam indicator on tab in Google Chrome" url="../images/2013/07/webcam-red-dot.png" alt="Webcam indicator on tab in Google Chrome"  height="125" class="size-full wp-image-72811" %}
+<figure class="aligncenter">
+            <a href="../images/2013/07/webcam-red-dot.png"><img src="../images/2013/07/webcam-red-dot.png" alt="Webcam indicator on tab in Google Chrome" style="max-width:370px;max-height:125px" class="size-full wp-image-72811"/></a>
+            <figcaption class="text-center">Webcam indicator on tab in Google Chrome</figcaption>
+        </figure>
 
 If you want to use these examples from your Android phone, you might have to enable getUserMedia. To do this, enable "Web RTC" in "chrome://flags":
-{% caption align="aligncenter" width="180" caption="Enamble Web-RTC in Chrome for Android" url="../images/2013/07/enable-webrtc-180x300.png" alt="Enamble Web-RTC in Chrome for Android"  height="300" class="size-medium wp-image-73191" %}
+<figure class="aligncenter">
+            <a href="../images/2013/07/enable-webrtc-180x300.png"><img src="../images/2013/07/enable-webrtc-180x300.png" alt="Enamble Web-RTC in Chrome for Android" style="max-width:180px;max-height:300px" class="size-medium wp-image-73191"/></a>
+            <figcaption class="text-center">Enamble Web-RTC in Chrome for Android</figcaption>
+        </figure>

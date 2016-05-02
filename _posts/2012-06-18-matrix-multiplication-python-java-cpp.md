@@ -264,7 +264,10 @@ user	1m33.438s
 sys	0m0.488s{% endhighlight %}
 
 <h3>Conclusion for Python</h3>
-{% caption align="aligncenter" width="512" caption="Python execution times for matrix multiplication" url="../images/2012/06/python-execution-times.png" alt="Python execution times for matrix multiplication"  height="315" class="size-full wp-image-28301" %}
+<figure class="aligncenter">
+            <a href="../images/2012/06/python-execution-times.png"><img src="../images/2012/06/python-execution-times.png" alt="Python execution times for matrix multiplication" style="max-width:512px;max-height:315px" class="size-full wp-image-28301"/></a>
+            <figcaption class="text-center">Python execution times for matrix multiplication</figcaption>
+        </figure>
 Using NumPy is by far the easiest and fastest option. I've needed about five minutes for each of the non-library scripts and about 10 minutes for the NumPy/SciPy scripts.
 
 By the way, it is useless to combine Psyco and NumPy. It gets a little bit faster (1 minute and 28 seconds), but this could also be a random effect. If you execute it many times, you will see that the execution time is never the same.
@@ -519,7 +522,10 @@ I still have no idea how to compile it with bash only.
 
 <h3>Conclusion for Java</h3>
 
-{% caption align="aligncenter" width="512" caption="Java execution times for matrix multiplication" url="../images/2012/06/java-execution-time.png" alt="Java execution times for matrix multiplication"  height="287" class="size-full wp-image-28331" %}
+<figure class="aligncenter">
+            <a href="../images/2012/06/java-execution-time.png"><img src="../images/2012/06/java-execution-time.png" alt="Java execution times for matrix multiplication" style="max-width:512px;max-height:287px" class="size-full wp-image-28331"/></a>
+            <figcaption class="text-center">Java execution times for matrix multiplication</figcaption>
+        </figure>
 
 You should definitely know if some Java-datastructures are synchronised or not. And you should know how the computer / caches work.
 
@@ -747,7 +753,10 @@ This is a great example of useless library. I've installed the library:
 Then I wanted to use it. Well, I have no clue how I could exactly use it! See my StackOverflow Question: <a href="http://stackoverflow.com/questions/11113993/is-a-documentation-of-blitz-matrices-available">Is a documentation of Blitz++ matrices available?</a>
 
 <h3>Conclusion for C++</h3>
-{% caption align="aligncenter" width="512" caption="C++ execution times for matrix multiplication" url="../images/2012/06/cpp-execution-time.png" alt="C++ execution times for matrix multiplication"  height="249" class="size-full wp-image-28351" %}
+<figure class="aligncenter">
+            <a href="../images/2012/06/cpp-execution-time.png"><img src="../images/2012/06/cpp-execution-time.png" alt="C++ execution times for matrix multiplication" style="max-width:512px;max-height:249px" class="size-full wp-image-28351"/></a>
+            <figcaption class="text-center">C++ execution times for matrix multiplication</figcaption>
+        </figure>
 
 Again, it brings a performance boost if you know how your CPU works. I was very astonished, that the library Boost is slower (actually MUCH slower) than my simplest approach was.
 

@@ -62,11 +62,17 @@ Beispiele sind:
 </ul>
 
 <h2>Objektdiagramme</h2>
-{% caption align="aligncenter" width="404" caption="UML: instanceOf beziehung in einem Objektdiagramm" url="../images/2012/07/objektdiagramm-instance-of.png" alt="UML: instanceOf beziehung in einem Objektdiagramm"  height="77" class="size-full wp-image-36561" %}
+<figure class="aligncenter">
+            <a href="../images/2012/07/objektdiagramm-instance-of.png"><img src="../images/2012/07/objektdiagramm-instance-of.png" alt="UML: instanceOf beziehung in einem Objektdiagramm" style="max-width:404px;max-height:77px" class="size-full wp-image-36561"/></a>
+            <figcaption class="text-center">UML: instanceOf beziehung in einem Objektdiagramm</figcaption>
+        </figure>
 
 <h2>Sequenzdiagramme</h2>
 <a href="http://de.wikipedia.org/wiki/Sequenzdiagramm">Sequenzdiagramme</a> haben wieder eigene Pfeile. 
-{% caption align="aligncenter" width="421" caption="UML Sequenzdiagramm" url="../images/2012/07/sequenzdiagram.png" alt="UML Sequenzdiagramm"  height="259" class="size-full wp-image-32951" %}
+<figure class="aligncenter">
+            <a href="../images/2012/07/sequenzdiagram.png"><img src="../images/2012/07/sequenzdiagram.png" alt="UML Sequenzdiagramm" style="max-width:421px;max-height:259px" class="size-full wp-image-32951"/></a>
+            <figcaption class="text-center">UML Sequenzdiagramm</figcaption>
+        </figure>
 Der Pfeil mit der ausgef&uuml;llten Spitze ist eine Synchrone Nachricht, der gestrichelte mit der nicht-ausgef&uuml;llten Spitze ist eine Antwort  und der durchgezogenen Pfeil mit der nicht-ausgef&uuml;llten Spitze ist eine asynchrone Nachricht.
 <strong>ACHTUNG</strong>: In der Vorlesung bei Herrn Prof. Tichy hat die Antwort (Folie 42) auch keinen ausgef&uuml;llten Kopf, im gegensatz zu dem hier gezeigtem Bild!
 

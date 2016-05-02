@@ -46,9 +46,15 @@ You may use it for free, but you should add a link to this article.
 
 <h2>See also</h2>
 
-{% caption align="aligncenter" width="401" caption="One interesting setting for k=2" url="../images/2013/05/k-nearest-neighbor-interesting-setting.png" alt="One interesting setting for k=2"  height="401" class="size-full wp-image-66811" %}
+<figure class="aligncenter">
+            <a href="../images/2013/05/k-nearest-neighbor-interesting-setting.png"><img src="../images/2013/05/k-nearest-neighbor-interesting-setting.png" alt="One interesting setting for k=2" style="max-width:401px;max-height:401px" class="size-full wp-image-66811"/></a>
+            <figcaption class="text-center">One interesting setting for k=2</figcaption>
+        </figure>
 
-{% caption align="aligncenter" width="800" caption="k-means: Good vs. Bad" url="../images/2013/05/k-means-good-vs-bad.png" alt="k-means: Good vs. Bad"  height="379" class="size-full wp-image-67701" %}
+<figure class="aligncenter">
+            <a href="../images/2013/05/k-means-good-vs-bad.png"><img src="../images/2013/05/k-means-good-vs-bad.png" alt="k-means: Good vs. Bad" style="max-width:800px;max-height:379px" class="size-full wp-image-67701"/></a>
+            <figcaption class="text-center">k-means: Good vs. Bad</figcaption>
+        </figure>
 
 <ul>
   <li><a href="http://en.wikipedia.org/wiki/Voronoi_diagram">Voronoi diagram</a></li>

@@ -8,7 +8,10 @@ tags: SOPA
 ---
 It seems as if the SOPA protests were quite effective. 162 Millionen visitors of Wikipedia did see the message. <a href="http://www.facebook.com/zuck/posts/10100210345757211">Zuckerbergs Facebook post</a> got half a million Likes. Thousands bloggers downloaded protest plugins which blacked out their blog.
 
-{% caption align="aligncenter" width="240" caption="Members of Congress position on SOPA/PIPA (found on <a href=http://boingboing.net/wp-content/uploads/2012/01/201201191642.jpg>boingboing.net</a>)" url="../images/2012/01/sopa-protests-congress-supporters-opponents-240x300.jpg" alt="Members of Congress position on SOPA/PIPA (found on boingboing.net)"  height="300" class="size-medium wp-image-12661" %}
+<figure class="aligncenter">
+            <a href="../images/2012/01/sopa-protests-congress-supporters-opponents-240x300.jpg"><img src="../images/2012/01/sopa-protests-congress-supporters-opponents-240x300.jpg" alt="Members of Congress position on SOPA/PIPA (found on boingboing.net)" style="max-width:240px;max-height:300px" class="size-medium wp-image-12661"/></a>
+            <figcaption class="text-center">Members of Congress position on SOPA/PIPA (found on <a href=http://boingboing.net/wp-content/uploads/2012/01/201201191642.jpg>boingboing.net</a>)</figcaption>
+        </figure>
 
 <h2>See also</h2>
 <ul>

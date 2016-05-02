@@ -9,7 +9,7 @@ featured_image: logos/pybrain.png
 ---
 
 The <abbr title="Mixed National Institute of Standards and Technology">MNIST</abbr>
-database is a huge database of handwritten digits that is commonly used for 
+database is a huge database of handwritten digits that is commonly used for
 training, evaluating and comparing classifiers.
 
 It has a training set of 60,000 instances and a test set of 10,000 instances.
@@ -27,12 +27,12 @@ MNIST comes in 4 files ([download here](http://yann.lecun.com/exdb/mnist/)):
 Both label files are like this:
 
 ```
-[offset] [type]          [value]          [description] 
-0000     32 bit integer  0x00000801(2049) magic number (MSB first) 
-0004     32 bit integer  60000            number of items 
-0008     unsigned byte   ??               label 
-0009     unsigned byte   ??               label 
-........ 
+[offset] [type]          [value]          [description]
+0000     32 bit integer  0x00000801(2049) magic number (MSB first)
+0004     32 bit integer  60000            number of items
+0008     unsigned byte   ??               label
+0009     unsigned byte   ??               label
+........
 xxxx     unsigned byte   ??               label
 The labels values are 0 to 9.
 ```
@@ -40,14 +40,14 @@ The labels values are 0 to 9.
 and both image containers are like that:
 
 ```
-[offset] [type]          [value]          [description] 
-0000     32 bit integer  0x00000803(2051) magic number 
-0004     32 bit integer  60000            number of images 
-0008     32 bit integer  28               number of rows 
-0012     32 bit integer  28               number of columns 
-0016     unsigned byte   ??               pixel 
-0017     unsigned byte   ??               pixel 
-........ 
+[offset] [type]          [value]          [description]
+0000     32 bit integer  0x00000803(2051) magic number
+0004     32 bit integer  60000            number of images
+0008     32 bit integer  28               number of rows
+0012     32 bit integer  28               number of columns
+0016     unsigned byte   ??               pixel
+0017     unsigned byte   ??               pixel
+........
 xxxx     unsigned byte   ??               pixel
 ```
 
@@ -134,10 +134,32 @@ def view_image(image, label=""):
 
 It tooks like this:
 
-{% gallery size="medium" columns="2" %}
-    ../images/2014/06/mnist-1.png "7"
-    ../images/2014/06/mnist-2.png   "2"
-{% endgallery %}
+<ul class="gallery mw-gallery-traditional" style="max-width: 326px; width: 326px;">
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2014/06/mnist-1.png" class="image">
+                  <img src="../images/2014/06/mnist-1.png" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">7</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2014/06/mnist-2.png" class="image">
+                  <img src="../images/2014/06/mnist-2.png" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">2</div>
+      </div>
+   </li>
+</ul>
 
 ## Classify data
 

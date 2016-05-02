@@ -95,10 +95,32 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 | Keyboard           | ?                  | Chiclet-keyboard without numblock   |
 | Noise              | ?                  | 29.5 dB in normal mode, 40 dB max   |
 
-{% gallery columns="2" %}
-   ../images/2014/01/samsung-serie-9-keyboard-layout.png   "Samsung Series 9"
-   ../images/2014/01/macbook-pro-retina-keyboard-layout.jpg   "Macbook Pro"
-{% endgallery %}
+<ul class="gallery mw-gallery-traditional" style="max-width: 326px; width: 326px;">
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2014/01/samsung-serie-9-keyboard-layout.png" class="image">
+                  <img src="../images/2014/01/samsung-serie-9-keyboard-layout.png" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Samsung Series 9</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2014/01/macbook-pro-retina-keyboard-layout.jpg" class="image">
+                  <img src="../images/2014/01/macbook-pro-retina-keyboard-layout.jpg" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Macbook Pro</div>
+      </div>
+   </li>
+</ul>
 
 The WLAN chipset of the Samsung Serie 9 seems to cause trouble with
 Linux, but it also seems to be solved by a firmware update.[^5]

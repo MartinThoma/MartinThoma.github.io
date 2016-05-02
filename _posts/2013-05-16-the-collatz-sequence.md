@@ -42,7 +42,10 @@ We also don't know if the Collatz graph is connected. When it is not connected, 
 <h2>Small $n$</h2>
 When you go through all possible Collatz sequences with $n \in 1, \dots, 15$, this is what you get:
 
-{% caption align="aligncenter" width="512" caption="A graph for all Collatz sequences $(c^n_i)$ with $n\leq15$" url="../images/2013/05/collatz-graph.png" alt="A graph for all Collatz sequences $(c^n_i)$ with $n\leq15$"  height="410" class="size-full wp-image-66201" %}
+<figure class="aligncenter">
+            <a href="../images/2013/05/collatz-graph.png"><img src="../images/2013/05/collatz-graph.png" alt="A graph for all Collatz sequences $(c^n_i)$ with $n\leq15$" style="max-width:512px;max-height:410px" class="size-full wp-image-66201"/></a>
+            <figcaption class="text-center">A graph for all Collatz sequences $(c^n_i)$ with $n\leq15$</figcaption>
+        </figure>
 
 This image was created with the following Python script:
 
@@ -114,7 +117,10 @@ called like this:
 <h2>$n=27$</h2>
 $n=27$ is an enourmously long sequence:
 
-{% caption align="aligncenter" width="512" caption="Collatz sequence $c^{27}_i$" url="../images/2013/05/collatz-27.png" alt="Collatz sequence $c^{27}_i$"  height="227" class="size-full wp-image-66351" %}
+<figure class="aligncenter">
+            <a href="../images/2013/05/collatz-27.png"><img src="../images/2013/05/collatz-27.png" alt="Collatz sequence $c^{27}_i$" style="max-width:512px;max-height:227px" class="size-full wp-image-66351"/></a>
+            <figcaption class="text-center">Collatz sequence $c^{27}_i$</figcaption>
+        </figure>
 
 It was created with pgfplots:
 {% highlight text %}
@@ -148,7 +154,10 @@ I've been interested in the question how long Collatz sequences are. Of course, 
 
 I've tested all Collatz sequences with $n \leq 10,000,000$. This is the result:
 
-{% caption align="aligncenter" width="512" caption="Collatz sequence steps" url="../images/2013/05/collatz-sequence-steps.png" alt="Collatz sequence steps"  height="512" class="size-full wp-image-66231" %}
+<figure class="aligncenter">
+            <a href="../images/2013/05/collatz-sequence-steps.png"><img src="../images/2013/05/collatz-sequence-steps.png" alt="Collatz sequence steps" style="max-width:512px;max-height:512px" class="size-full wp-image-66231"/></a>
+            <figcaption class="text-center">Collatz sequence steps</figcaption>
+        </figure>
 
 For every hexagon, you check how many datapoints $(n,steps)$ you have there. This leads to the count. As you can see, step numbers from 50-120 are very common, the rest is very uncommon. The number of steps increases very slow.
 
@@ -323,7 +332,10 @@ I've explained this a bit more detailed on <a href="http://tex.stackexchange.com
 <h2>Maximum in sequence</h2>
 In the following plot you can see $n \in 1, \dots, 10,000,000$ on the $x$-axis and the maximum $y = \max(\{a^n_i | i \in \mathbb{N}_{> 0}\})$:
 
-{% caption align="aligncenter" width="512" caption="Hexagonal binpacking plot for maximum in sequence" url="../images/2013/05/maxInSequence.png" alt="Hexagonal binpacking plot for maximum in sequence"  height="512" class="size-full wp-image-66391" %}
+<figure class="aligncenter">
+            <a href="../images/2013/05/maxInSequence.png"><img src="../images/2013/05/maxInSequence.png" alt="Hexagonal binpacking plot for maximum in sequence" style="max-width:512px;max-height:512px" class="size-full wp-image-66391"/></a>
+            <figcaption class="text-center">Hexagonal binpacking plot for maximum in sequence</figcaption>
+        </figure>
 
 {% highlight text %}
 library(ggplot2)
@@ -353,7 +365,10 @@ Inkscape didn't like the heavy plot:
 
 <h2>Maximum in sequence and steps</h2>
 
-{% caption align="aligncenter" width="512" caption="Maximum value and number of steps for n up to 10,000" url="../images/2013/05/collatz-sequence-and-steps-for-n.png" alt="Maximum value and number of steps for n up to 10,000"  height="512" class="size-full wp-image-66481" %}
+<figure class="aligncenter">
+            <a href="../images/2013/05/collatz-sequence-and-steps-for-n.png"><img src="../images/2013/05/collatz-sequence-and-steps-for-n.png" alt="Maximum value and number of steps for n up to 10,000" style="max-width:512px;max-height:512px" class="size-full wp-image-66481"/></a>
+            <figcaption class="text-center">Maximum value and number of steps for n up to 10,000</figcaption>
+        </figure>
 
 <h2>Read more</h2>
 <ul>

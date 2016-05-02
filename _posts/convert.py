@@ -116,7 +116,10 @@ def captiontag(filename):
     with open(filename) as f:
         content = f.read()
 
-    captiontag = re.compile('\{% caption align="aligncenter"\s+width="(.+?)"\s+caption="(.+?)"\s+url="(.+?)"\s+alt="(.+?)"\s+height="(.+?)"\s+class="(.+?)" %\}')
+    captiontag = re.compile('\{% caption align="aligncenter"\s+'
+                            'width="(.+?)"\s+caption="(.+?)"\s+'
+                            'url="(.+?)"\s+alt="(.+?)"\s+'
+                            'height="(.+?)"\s+class="(.+?)" %\}')
     content = captiontag.sub(lambda m: """<figure class="aligncenter">
             <a href="{url}"><img src="{url}" alt="{alt}" style="max-width:{width}px;max-height:{height}px" class="{classl}"/></a>
             <figcaption class="text-center">{caption}</figcaption>
@@ -125,8 +128,30 @@ def captiontag(filename):
                             alt=m.group(4),
                             caption=m.group(2),
                             width=m.group(1),
-                            height=m.group(5)),
-                            content)
+                            height=m.group(5)), content)
+
+    with open(filename, "w") as o:
+        o.write(content)
+
+
+def codelisting(filename):
+    """
+    Convert Liquid captiontags to HTML.
+
+    {% highlight bash %}packstrap -i /mnt base base base-dvl{% endhighlight %}
+
+
+    """
+    import re
+    with open(filename) as f:
+        content = f.read()
+
+    captiontag = re.compile('\{% highlight (.+?) %\}(.+?)'
+                            '{% endhighlight %}', re.DOTALL)
+    content = captiontag.sub(lambda m: """```{language}
+{content}
+```""".format(language=m.group(1),
+              content=m.group(2)), content)
 
     with open(filename, "w") as o:
         o.write(content)

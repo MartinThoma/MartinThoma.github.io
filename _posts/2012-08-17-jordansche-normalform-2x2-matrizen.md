@@ -73,7 +73,10 @@ J =
 \end{pmatrix}
 \right ] ~~~ U_0 = K_1\]</div>
 
-{% caption align="aligncenter" width="300" caption="Schema zum finden der Basiswechselmatrix" url="../images/2012/08/jordan-normal-form-scheme-small.png" alt="Schema zum finden der Basiswechselmatrix"  height="116" class="size-full wp-image-40961" %}
+<figure class="aligncenter">
+            <a href="../images/2012/08/jordan-normal-form-scheme-small.png"><img src="../images/2012/08/jordan-normal-form-scheme-small.png" alt="Schema zum finden der Basiswechselmatrix" style="max-width:300px;max-height:116px" class="size-full wp-image-40961"/></a>
+            <figcaption class="text-center">Schema zum finden der Basiswechselmatrix</figcaption>
+        </figure>
 
 Wähle <div>\[b_1^1 \in U_1: b_1^1 = \begin{pmatrix}1 \\0 \end{pmatrix} \Rightarrow \Omega(b_1^1) = \begin{pmatrix}10 \\ 25 \end{pmatrix}\]</div>
 <div>\[\Rightarrow S =

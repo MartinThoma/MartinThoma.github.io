@@ -22,21 +22,33 @@ I don't know where I can change the language in Windows 7, so lets search in the
 [10 minutes pass]
 
 Well, lets google for the right way to achieve a simple language change:
-{% caption align="aligncenter" width="512" caption="Google search for language change in Windows. About 5 minutes." url="../images/2012/12/google-search-language-change.png" alt="Google search for language change in Windows"  height="400" class="size-full wp-image-50661" %}
+<figure class="aligncenter">
+            <a href="../images/2012/12/google-search-language-change.png"><img src="../images/2012/12/google-search-language-change.png" alt="Google search for language change in Windows" style="max-width:512px;max-height:400px" class="size-full wp-image-50661"/></a>
+            <figcaption class="text-center">Google search for language change in Windows. About 5 minutes.</figcaption>
+        </figure>
 
 So, it seems as if I needed Windows 7 Ultimate or Windows 7 Enterprise edition. Which version do I have?
 Let's search ... hm, seeems as there are some versions:
-{% caption align="aligncenter" width="510" caption="Windows 7 editions" url="../images/2012/12/windows-7-editions.jpg" alt="Windows 7 editions"  height="510" class="size-full wp-image-50681" %}
+<figure class="aligncenter">
+            <a href="../images/2012/12/windows-7-editions.jpg"><img src="../images/2012/12/windows-7-editions.jpg" alt="Windows 7 editions" style="max-width:510px;max-height:510px" class="size-full wp-image-50681"/></a>
+            <figcaption class="text-center">Windows 7 editions</figcaption>
+        </figure>
 
 And also
 <a href="../images/2012/12/windows-7-enterprise.jpg"><img src="../images/2012/12/windows-7-enterprise-300x295.jpg" alt="Windows 7 enterprise edition" title="Windows 7 enterprise edition" width="300" height="295" class="aligncenter size-medium wp-image-50691" /></a>
 and Windows 7 Starter, Windows 7 Home Basic. Did I already mention the family pack? It's so complicated ... there is even a Wikipedia page about <a href="http://en.wikipedia.org/wiki/Windows_7_editions">Windows 7 editions</a>!
 
 Find out which version I have (another 15 minutes of searching how to do so):
-{% caption align="aligncenter" width="432" caption="winver search" url="../images/2012/12/winver-search.png" alt="winver search"  height="573" class="size-full wp-image-50641" %}
+<figure class="aligncenter">
+            <a href="../images/2012/12/winver-search.png"><img src="../images/2012/12/winver-search.png" alt="winver search" style="max-width:432px;max-height:573px" class="size-full wp-image-50641"/></a>
+            <figcaption class="text-center">winver search</figcaption>
+        </figure>
 
 And finally:
-{% caption align="aligncenter" width="474" caption="winver" url="../images/2012/12/winver.png" alt="winver"  height="412" class="size-full wp-image-50651" %}
+<figure class="aligncenter">
+            <a href="../images/2012/12/winver.png"><img src="../images/2012/12/winver.png" alt="winver" style="max-width:474px;max-height:412px" class="size-full wp-image-50651"/></a>
+            <figcaption class="text-center">winver</figcaption>
+        </figure>
 
 Aaaaargh! I don't have the right edition to be able to change my language to English. I have to reinstall the whole system to get it in English!
 
@@ -44,7 +56,10 @@ Well, but as there are so many different editions, there have to be some differe
 [5 minutes later]
 Oh, Microsoft offers some nice-looking information at <a href="http://windows.microsoft.com/en-US/windows7/products/compare">windows.microsoft.com</a>:
 
-{% caption align="aligncenter" width="300" caption="Windows 7 editions differences" url="../images/2012/12/windows-7-editions-differences-300x152.png" alt="Windows 7 editions differences"  height="152" class="size-medium wp-image-50731" %}
+<figure class="aligncenter">
+            <a href="../images/2012/12/windows-7-editions-differences-300x152.png"><img src="../images/2012/12/windows-7-editions-differences-300x152.png" alt="Windows 7 editions differences" style="max-width:300px;max-height:152px" class="size-medium wp-image-50731"/></a>
+            <figcaption class="text-center">Windows 7 editions differences</figcaption>
+        </figure>
 
 What the #$@&%*!? Why do they write down similarities? I don't want to know what's the same, I want to know the difference!
 And even the similarities are meaningless.

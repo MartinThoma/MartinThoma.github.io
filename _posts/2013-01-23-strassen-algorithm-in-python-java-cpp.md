@@ -398,7 +398,10 @@ private static int[][] strassenR(int[][] A, int[][] B) {
 }{% endhighlight %}
 
 Here are the results for different leaf-sizes:
-{% caption align="aligncenter" width="500" caption="Matrix multiplication with Java: Execution time in seconds for different leafsizes" url="../images/2013/01/bchart-simple.png" alt="Matrix multiplication with Java: Execution time in seconds for different leafsizes"  height="349" class="size-full wp-image-54901" %}
+<figure class="aligncenter">
+            <a href="../images/2013/01/bchart-simple.png"><img src="../images/2013/01/bchart-simple.png" alt="Matrix multiplication with Java: Execution time in seconds for different leafsizes" style="max-width:500px;max-height:349px" class="size-full wp-image-54901"/></a>
+            <figcaption class="text-center">Matrix multiplication with Java: Execution time in seconds for different leafsizes</figcaption>
+        </figure>
 
 <h2>C++</h2>
 {% highlight cpp %}#include <sstream>
@@ -668,7 +671,10 @@ int main (int argc, char* argv[]) {
 }{% endhighlight %}
 
 For C++, you get those user-times for the different leaf-sizes:
-{% caption align="aligncenter" width="500" caption="Execution times in seconds with differen leafsizes with C++" url="../images/2013/01/cpp-leaf-size-times.png" alt="Execution times in seconds with differen leafsizes with C++"  height="333" class="size-full wp-image-54921" %}
+<figure class="aligncenter">
+            <a href="../images/2013/01/cpp-leaf-size-times.png"><img src="../images/2013/01/cpp-leaf-size-times.png" alt="Execution times in seconds with differen leafsizes with C++" style="max-width:500px;max-height:333px" class="size-full wp-image-54921"/></a>
+            <figcaption class="text-center">Execution times in seconds with differen leafsizes with C++</figcaption>
+        </figure>
 
 <h2>Conclusion</h2>
 As always, C++ is the fastest solution. 

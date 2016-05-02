@@ -21,7 +21,10 @@ you can solve it quite easily.
 Johannes Schickling has written a very nice <a href="http://schickling.github.io/algorithms/#/chinese-remainder-theorem">JavaScript Application</a> that applies the following algorithm online. I've used his source code to write the following Python code.
 
 <h2>Pseudocode</h2>
-{% caption align="aligncenter" width="500" caption="Solve a system of linear congruences" url="../images/2013/09/SolveLinearCongruences.png" alt="Solve a system of linear congruences"  height="247" class="size-full wp-image-76382" %}
+<figure class="aligncenter">
+            <a href="../images/2013/09/SolveLinearCongruences.png"><img src="../images/2013/09/SolveLinearCongruences.png" alt="Solve a system of linear congruences" style="max-width:500px;max-height:247px" class="size-full wp-image-76382"/></a>
+            <figcaption class="text-center">Solve a system of linear congruences</figcaption>
+        </figure>
 
 <h2>Python</h2>
 {% highlight python %}

@@ -9,7 +9,10 @@ featured_image: 2011/10/firefox-add-search-engine-thumb.png
 ---
 Recently I read a very good post about search engine autodiscovery <a href="http://www.knallisworld.de/blog/2011/04/14/autodiscovery-der-searchengine-in-google-chrome-opensearch/">by Jan Phillip</a>. Did you know that many browsers can detect an internal search engine automatically? 
 Firefox gives you the possibility to add such a search engine to your browser:
-{% caption align="aligncenter" width="294" caption="Firefox: Add search engine detected via autodiscovery" url="../images/2011/10/firefox-add-search-engine.png" alt="Firefox: Add search engine detected via autodiscovery"  height="236" class="size-full wp-image-6921" %}
+<figure class="aligncenter">
+            <a href="../images/2011/10/firefox-add-search-engine.png"><img src="../images/2011/10/firefox-add-search-engine.png" alt="Firefox: Add search engine detected via autodiscovery" style="max-width:294px;max-height:236px" class="size-full wp-image-6921"/></a>
+            <figcaption class="text-center">Firefox: Add search engine detected via autodiscovery</figcaption>
+        </figure>
 
 <h2>OpenSearch</h2>
 <a href="http://en.wikipedia.org/wiki/OpenSearch">OpenSearch</a> is a collection of technologies. This project aims to create a standard for publishing the metadata which describes a search engine: name, description, URL-pattern, language, ...
@@ -44,13 +47,22 @@ Additionally, you can add this little piece of JavaScript to tell Firefox 2+ and
 <h2>Google Chrome Autodiscovery</h2>
 Google doesn't provide a <abbr title="user interface">UI</abbr> for adding an internal search engine. Instead, you can add it via Settings:
 
-{% caption align="aligncenter" width="300" caption="Add Search Engines via Settings in Google Chrome" url="../images/2011/10/google-chrome-add-search-300x206.png" alt="Add Search Engines via Settings in Google Chrome"  height="206" class="size-medium wp-image-6891" %}
+<figure class="aligncenter">
+            <a href="../images/2011/10/google-chrome-add-search-300x206.png"><img src="../images/2011/10/google-chrome-add-search-300x206.png" alt="Add Search Engines via Settings in Google Chrome" style="max-width:300px;max-height:206px" class="size-medium wp-image-6891"/></a>
+            <figcaption class="text-center">Add Search Engines via Settings in Google Chrome</figcaption>
+        </figure>
 
 Chrome also adds the sites internal search engine automatically. Did you ever notice this? Here are some screenshots:
 
-{% caption align="aligncenter" width="659" caption="Google Chrome Search - Hit tab to search this site" url="../images/2011/10/google-chrome-search-1.png" alt="Google Chrome Search - Hit tab to search this site"  height="31" class="size-full wp-image-6841" %}
+<figure class="aligncenter">
+            <a href="../images/2011/10/google-chrome-search-1.png"><img src="../images/2011/10/google-chrome-search-1.png" alt="Google Chrome Search - Hit tab to search this site" style="max-width:659px;max-height:31px" class="size-full wp-image-6841"/></a>
+            <figcaption class="text-center">Google Chrome Search - Hit tab to search this site</figcaption>
+        </figure>
 
-{% caption align="aligncenter" width="656" caption="Google Chrome Search - Search with the websites internal search engine" url="../images/2011/10/google-chrome-search-2.png" alt="Google Chrome Search - Search with the websites internal search engine"  height="30" class="size-full wp-image-6851" %}
+<figure class="aligncenter">
+            <a href="../images/2011/10/google-chrome-search-2.png"><img src="../images/2011/10/google-chrome-search-2.png" alt="Google Chrome Search - Search with the websites internal search engine" style="max-width:656px;max-height:30px" class="size-full wp-image-6851"/></a>
+            <figcaption class="text-center">Google Chrome Search - Search with the websites internal search engine</figcaption>
+        </figure>
 
 Interestingly the auto discovery only works if the search engine is at the homepage. You have to have either an input field of the type `search` or of the type `text` with the name `s`:
 

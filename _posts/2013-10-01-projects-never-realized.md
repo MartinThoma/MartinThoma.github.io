@@ -188,11 +188,17 @@ Now clients should store information like this and share it.
 When information is presented like this, it is quite useless. But what about
 this kind of presentation:
 
-{% caption align="aligncenter" width="267" caption="Pride and prejudice infobox (defined <a href='https://en.wikipedia.org/wiki/Template:Infobox_book'>here</a>)" url="../images/2013/10/pride-and-prejudice-infobox.png" alt="Pride and prejudice infobox"  height="549" class="size-full wp-image-76576" %}
+<figure class="aligncenter">
+            <a href="../images/2013/10/pride-and-prejudice-infobox.png"><img src="../images/2013/10/pride-and-prejudice-infobox.png" alt="Pride and prejudice infobox" style="max-width:267px;max-height:549px" class="size-full wp-image-76576"/></a>
+            <figcaption class="text-center">Pride and prejudice infobox (defined <a href='https://en.wikipedia.org/wiki/Template:Infobox_book'>here</a>)</figcaption>
+        </figure>
 
 Or, for example [ark.intel.com](http://ark.intel.com/compare/75133,50176):
 
-{% caption align="aligncenter" width="643" caption="Intel Arc compare processors" url="../images/2013/10/intel-ark-compare.png" alt="Intel Arc compare processors"  height="591" class="size-full wp-image-76577" %}
+<figure class="aligncenter">
+            <a href="../images/2013/10/intel-ark-compare.png"><img src="../images/2013/10/intel-ark-compare.png" alt="Intel Arc compare processors" style="max-width:643px;max-height:591px" class="size-full wp-image-76577"/></a>
+            <figcaption class="text-center">Intel Arc compare processors</figcaption>
+        </figure>
 
 So another required feature of such a client are "views". A view is defined by
 an identifier (so that you can tag views just like any other object) and an

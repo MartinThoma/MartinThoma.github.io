@@ -20,7 +20,10 @@ Best of all: I didn't use anything which is not in LaTeX ☺ (Well, the generati
 The complete source is in the <a href='../images/2012/07/birthday-paradox.zip'>Birthday Paradox Archive</a>.
 
 <h2>Result</h2>
-{% caption align="aligncenter" width="500" caption="Plot of the birthday paradox" url="../images/2012/07/birthday-paradox.png" alt="Plot of the birthday paradox"  height="264" class="size-full wp-image-34821" %}
+<figure class="aligncenter">
+            <a href="../images/2012/07/birthday-paradox.png"><img src="../images/2012/07/birthday-paradox.png" alt="Plot of the birthday paradox" style="max-width:500px;max-height:264px" class="size-full wp-image-34821"/></a>
+            <figcaption class="text-center">Plot of the birthday paradox</figcaption>
+        </figure>
 
 <h2>LaTeX-Code</h2>
 The following LaTeX-Code used TikZ and PGFplots:

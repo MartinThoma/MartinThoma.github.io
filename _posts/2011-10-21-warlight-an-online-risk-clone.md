@@ -10,7 +10,10 @@ featured_image: 2011/10/Warlight_thumb.png
 <a href="http://en.wikipedia.org/wiki/Risk_(game)">Risk</a> is a great strategic game in which you have to conquer the world.
 
 Now I've found a clone called "Warlight":
-{% caption align="aligncenter" width="300" caption="Warlight" url="../images/2011/10/Warlight-300x206.png" alt="Warlight"  height="206" class="size-medium wp-image-6511" %}
+<figure class="aligncenter">
+            <a href="../images/2011/10/Warlight-300x206.png"><img src="../images/2011/10/Warlight-300x206.png" alt="Warlight" style="max-width:300px;max-height:206px" class="size-medium wp-image-6511"/></a>
+            <figcaption class="text-center">Warlight</figcaption>
+        </figure>
 
 <strong>Go to the Game</strong>: <a href="http://www.kongregate.com/games/FizzerWL/warlight">WarLight</a> on Kongregate
 <strong>Task</strong>: Conquer the world.

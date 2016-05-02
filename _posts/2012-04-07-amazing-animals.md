@@ -10,12 +10,18 @@ featured_image: 2012/04/axolotl-thumb.jpg
 Some animals are truly amazing. Just take a look at them. I've also included some video clips of funny individuals.
 
 <h2>Axoltotl</h2>
-{% caption align="aligncenter" width="300" caption="Axoltol" url="../images/2012/04/axolotl-300x269.jpg" alt="Axoltol"  height="269" class="size-medium wp-image-21171" %}
+<figure class="aligncenter">
+            <a href="../images/2012/04/axolotl-300x269.jpg"><img src="../images/2012/04/axolotl-300x269.jpg" alt="Axoltol" style="max-width:300px;max-height:269px" class="size-medium wp-image-21171"/></a>
+            <figcaption class="text-center">Axoltol</figcaption>
+        </figure>
 
 The <a href="http://en.wikipedia.org/wiki/Axolotl">axoltotl</a> is capable of the <strong>regeneration</strong> of entire lost appendages in a period of months, and, in certain cases, more vital structures. Some have indeed been found restoring the less vital parts of their brains. They can also readily accept transplants from other individuals, including eyes and parts of the brain&mdash;restoring these alien organs to full functionality. In some cases, axolotls have been known to repair a damaged limb as well as regenerating an additional one, ending up with an extra appendage that makes them attractive to pet owners as a novelty. In metamorphosed individuals, however, the ability to regenerate is greatly diminished. The axolotl is therefore used as a model for the development of limbs in vertebrates.
 
 <h2>Platypus</h2>
-{% caption align="aligncenter" width="300" caption="Platypus" url="../images/2012/04/Platypus-300x201.jpg" alt="Platypus"  height="201" class="size-medium wp-image-21181" %}
+<figure class="aligncenter">
+            <a href="../images/2012/04/Platypus-300x201.jpg"><img src="../images/2012/04/Platypus-300x201.jpg" alt="Platypus" style="max-width:300px;max-height:201px" class="size-medium wp-image-21181"/></a>
+            <figcaption class="text-center">Platypus</figcaption>
+        </figure>
 Together with the four species of echidna, the <a href="http://en.wikipedia.org/wiki/Platypus">platypus</a> is one of the five extant species of monotremes, the only <strong>mammals that lay eggs</strong> instead of giving birth to live young. It is one of the few <a href="http://en.wikipedia.org/wiki/Venomous_mammals">venomous mammals</a>.
 
 <h2>Mimic Octopus</h2>

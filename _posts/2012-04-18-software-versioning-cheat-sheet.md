@@ -79,7 +79,10 @@ Add it to your git configuration:
 {% highlight bash %}git config --global diff.external git-meld{% endhighlight %}
 
 Enjoy this experience when entering <code>git diff</code>:
-{% caption align="aligncenter" width="300" caption="Using Meld with GIT" url="../images/2012/04/git-meld-300x129.png" alt="Using Meld with GIT"  height="129" class="size-medium wp-image-35541" %}
+<figure class="aligncenter">
+            <a href="../images/2012/04/git-meld-300x129.png"><img src="../images/2012/04/git-meld-300x129.png" alt="Using Meld with GIT" style="max-width:300px;max-height:129px" class="size-medium wp-image-35541"/></a>
+            <figcaption class="text-center">Using Meld with GIT</figcaption>
+        </figure>
 
 See also <a href="http://jeetworks.org/node/90">jeetworks.org</a> for some other solutions.
 

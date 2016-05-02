@@ -911,11 +911,44 @@ Wenn ihr den Fehler
 bekommt, dann solltet ihr einfach die obigen Pakete installieren, den
 `build`-Ordner löschen und es neu versuchen.
 
-{% gallery columns="3" size="medium" %}
-    ../images/2015/11/color-cube.png     "Color cube"
-    ../images/2015/11/gravity-field.png  "Gravity field"
-    ../images/2015/11/temperature.png    "Temperature of a black body"
-{% endgallery %}
+<ul class="gallery mw-gallery-traditional" style="max-width: 489px; width: 489px;">
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2015/11/color-cube.png" class="image">
+                  <img src="../images/2015/11/color-cube.png" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Color cube</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2015/11/gravity-field.png" class="image">
+                  <img src="../images/2015/11/gravity-field.png" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Gravity field</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2015/11/temperature.png" class="image">
+                  <img src="../images/2015/11/temperature.png" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Temperature of a black body</div>
+      </div>
+   </li>
+</ul>
 
 Außerdem:
 

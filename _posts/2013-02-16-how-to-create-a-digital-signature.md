@@ -9,36 +9,63 @@ featured_image: 2013/02/inkscape-remove-nodes-thumb.png
 ---
 At first, you have to write your signature on a white sheet of paper. You might have to make several tries:
 
-{% caption align="aligncenter" width="512" caption="Some tries for a nice signature" url="../images/2013/02/signature-tries.jpg" alt="Some tries for a nice signature"  height="230" class="size-full wp-image-57241" %}
+<figure class="aligncenter">
+            <a href="../images/2013/02/signature-tries.jpg"><img src="../images/2013/02/signature-tries.jpg" alt="Some tries for a nice signature" style="max-width:512px;max-height:230px" class="size-full wp-image-57241"/></a>
+            <figcaption class="text-center">Some tries for a nice signature</figcaption>
+        </figure>
 
 Then you should scan it in a high quality. Now crop the image to the size you like. I have used <a href="http://www.gimp.org/">GIMP</a> for this task:
 
-{% caption align="aligncenter" width="300" caption="Crop the image to the correct section with GIMP" url="../images/2013/02/crop-to-selection-300x216.png" alt="Crop the image to the correct section with GIMP"  height="216" class="size-medium wp-image-57251" %}
+<figure class="aligncenter">
+            <a href="../images/2013/02/crop-to-selection-300x216.png"><img src="../images/2013/02/crop-to-selection-300x216.png" alt="Crop the image to the correct section with GIMP" style="max-width:300px;max-height:216px" class="size-medium wp-image-57251"/></a>
+            <figcaption class="text-center">Crop the image to the correct section with GIMP</figcaption>
+        </figure>
 
 Now you should have an image like this one:
-{% caption align="aligncenter" width="300" caption="Cropped signature" url="../images/2013/02/max-mustermann-cropped-signature-300x60.jpg" alt="Cropped signature"  height="60" class="size-medium wp-image-57261" %}
+<figure class="aligncenter">
+            <a href="../images/2013/02/max-mustermann-cropped-signature-300x60.jpg"><img src="../images/2013/02/max-mustermann-cropped-signature-300x60.jpg" alt="Cropped signature" style="max-width:300px;max-height:60px" class="size-medium wp-image-57261"/></a>
+            <figcaption class="text-center">Cropped signature</figcaption>
+        </figure>
 
 <h2>Inkscape</h2>
 Open it with <a href="http://inkscape.org/download">Inkscape</a>, click on the image go to the menu "Path > Trace Bitmap":
 
-{% caption align="aligncenter" width="300" caption="Trace Bitmap in Inkscape" url="../images/2013/02/inkscape-trace-bitmap-300x244.png" alt="Trace Bitmap in Inkscape"  height="244" class="size-medium wp-image-57271" %}
+<figure class="aligncenter">
+            <a href="../images/2013/02/inkscape-trace-bitmap-300x244.png"><img src="../images/2013/02/inkscape-trace-bitmap-300x244.png" alt="Trace Bitmap in Inkscape" style="max-width:300px;max-height:244px" class="size-medium wp-image-57271"/></a>
+            <figcaption class="text-center">Trace Bitmap in Inkscape</figcaption>
+        </figure>
 
 Now choose "Colors", check "Remove background" and click on "Update":
-{% caption align="aligncenter" width="300" caption="Trace Bitmap: Settings" url="../images/2013/02/trace-bitmap-settings-300x216.png" alt="Trace Bitmap: Settings"  height="216" class="size-medium wp-image-57291" %}
+<figure class="aligncenter">
+            <a href="../images/2013/02/trace-bitmap-settings-300x216.png"><img src="../images/2013/02/trace-bitmap-settings-300x216.png" alt="Trace Bitmap: Settings" style="max-width:300px;max-height:216px" class="size-medium wp-image-57291"/></a>
+            <figcaption class="text-center">Trace Bitmap: Settings</figcaption>
+        </figure>
 
 Close the window and look closely at the image. It should now look like this:
-{% caption align="aligncenter" width="300" caption="Traced bitmap in Inkscape" url="../images/2013/02/traced-bitmap-in-inkscape-300x73.png" alt="Traced bitmap in Inkscape"  height="73" class="size-medium wp-image-57301" %}
+<figure class="aligncenter">
+            <a href="../images/2013/02/traced-bitmap-in-inkscape-300x73.png"><img src="../images/2013/02/traced-bitmap-in-inkscape-300x73.png" alt="Traced bitmap in Inkscape" style="max-width:300px;max-height:73px" class="size-medium wp-image-57301"/></a>
+            <figcaption class="text-center">Traced bitmap in Inkscape</figcaption>
+        </figure>
 
 You have to click at a part of the image that is currently not selected and then hit the remove key. 
 
 Now select the "Edit path by nodes" tool:
-{% caption align="aligncenter" width="300" caption="Edit path by nodes" url="../images/2013/02/edit-path-by-nodes-300x167.png" alt="Edit path by nodes"  height="167" class="size-medium wp-image-57311" %}
+<figure class="aligncenter">
+            <a href="../images/2013/02/edit-path-by-nodes-300x167.png"><img src="../images/2013/02/edit-path-by-nodes-300x167.png" alt="Edit path by nodes" style="max-width:300px;max-height:167px" class="size-medium wp-image-57311"/></a>
+            <figcaption class="text-center">Edit path by nodes</figcaption>
+        </figure>
 
 Click on the gray area. The image will look like this:
-{% caption align="aligncenter" width="300" caption="Remove nodes" url="../images/2013/02/remove-nodes-in-inkscape-300x204.png" alt="Remove nodes"  height="204" class="size-medium wp-image-57321" %}
+<figure class="aligncenter">
+            <a href="../images/2013/02/remove-nodes-in-inkscape-300x204.png"><img src="../images/2013/02/remove-nodes-in-inkscape-300x204.png" alt="Remove nodes" style="max-width:300px;max-height:204px" class="size-medium wp-image-57321"/></a>
+            <figcaption class="text-center">Remove nodes</figcaption>
+        </figure>
 
 Remove nodes of areas that have to many or where you don't want to have this gray area. This will take some time.
-{% caption align="aligncenter" width="300" caption="Some nodes you should remove" url="../images/2013/02/inkscape-remove-nodes-300x247.png" alt="Some nodes you should remove"  height="247" class="size-medium wp-image-57331" %}
+<figure class="aligncenter">
+            <a href="../images/2013/02/inkscape-remove-nodes-300x247.png"><img src="../images/2013/02/inkscape-remove-nodes-300x247.png" alt="Some nodes you should remove" style="max-width:300px;max-height:247px" class="size-medium wp-image-57331"/></a>
+            <figcaption class="text-center">Some nodes you should remove</figcaption>
+        </figure>
 
 As soon as you're finished, you should save your signature as SVG (if you want to edit it later) and as PDF (for LaTeX).
 
@@ -77,6 +104,9 @@ Max Mustermann
 <h2>Result</h2>
 The result looks like this:
 
-{% caption align="aligncenter" width="300" caption="A signed document, created with LaTeX" url="../images/2013/02/latex-signed-300x141.png" alt="A signed document, created with LaTeX"  height="141" class="size-medium wp-image-57351" %}
+<figure class="aligncenter">
+            <a href="../images/2013/02/latex-signed-300x141.png"><img src="../images/2013/02/latex-signed-300x141.png" alt="A signed document, created with LaTeX" style="max-width:300px;max-height:141px" class="size-medium wp-image-57351"/></a>
+            <figcaption class="text-center">A signed document, created with LaTeX</figcaption>
+        </figure>
 
 It looks even better if you make the image a little bit darker in the first step with GIMP.

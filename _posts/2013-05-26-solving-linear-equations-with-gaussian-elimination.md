@@ -64,7 +64,10 @@ You want to get a triangular matrix. So you subsequently eliminate one variable 
 
 It's actually quite simple to get this form:
 
-{% caption align="aligncenter" width="500" caption="Pseudocode for Gaussian elimination" url="../images/2013/05/Gaussian-elimination.png" alt="Pseudocode for Gaussian elimination"  height="772" class="size-full wp-image-68071" %}
+<figure class="aligncenter">
+            <a href="../images/2013/05/Gaussian-elimination.png"><img src="../images/2013/05/Gaussian-elimination.png" alt="Pseudocode for Gaussian elimination" style="max-width:500px;max-height:772px" class="size-full wp-image-68071"/></a>
+            <figcaption class="text-center">Pseudocode for Gaussian elimination</figcaption>
+        </figure>
 
 <h2>C++ Code</h2>
 

@@ -19,23 +19,81 @@ Für <strong>10 Euro</strong> bekommt man eine <strong>1-Monat-Festnetzflat</str
 <h2>Die Bestellung</h2>
 Die Bestellung auf <a href="https://www.simquadrat.de/signup">simquadrat.de</a> ist extrem einfach.
 
-{% caption align="aligncenter" width="300" caption="Bestellung bei Simquadrat" url="../images/2013/07/simquadrat-bestellung-300x168.png" alt="Bestellung bei Simquadrat"  height="168" class="size-medium wp-image-74541" %}
+<figure class="aligncenter">
+            <a href="../images/2013/07/simquadrat-bestellung-300x168.png"><img src="../images/2013/07/simquadrat-bestellung-300x168.png" alt="Bestellung bei Simquadrat" style="max-width:300px;max-height:168px" class="size-medium wp-image-74541"/></a>
+            <figcaption class="text-center">Bestellung bei Simquadrat</figcaption>
+        </figure>
 
 Nach drei Schritten ist man wirklich fertig. Die beiden E-Mails, die man dann
 bekommt, sind auch schön kurz:
 
-{% gallery columns="2" %}
-    ../images/2013/07/simquadrat-bestaetigung.png   "Simquadrat: Bestätigung"
-    ../images/2013/07/simquadrat-rechnung.png   "Simquadrat: Rechnung"
-{% endgallery %}
+<ul class="gallery mw-gallery-traditional" style="max-width: 326px; width: 326px;">
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2013/07/simquadrat-bestaetigung.png" class="image">
+                  <img src="../images/2013/07/simquadrat-bestaetigung.png" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Simquadrat: Bestätigung</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2013/07/simquadrat-rechnung.png" class="image">
+                  <img src="../images/2013/07/simquadrat-rechnung.png" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Simquadrat: Rechnung</div>
+      </div>
+   </li>
+</ul>
 
 Nach wenigen Tagen ist dann die Simkarte angekommen:
 
-{% gallery %}
-    ../images/2013/07/simquadrat-brief-1.jpg    "Brief, Seite 1"
-    ../images/2013/07/simquadrat-brief-2.jpg    "Brief, Seite 2"
-    ../images/2013/07/sipgate-simkarte.jpg  "Simkarte von Sipgate"
-{% endgallery %}
+<ul class="gallery mw-gallery-traditional">
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2013/07/simquadrat-brief-1.jpg" class="image">
+                  <img src="../images/2013/07/simquadrat-brief-1.jpg" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Brief, Seite 1</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2013/07/simquadrat-brief-2.jpg" class="image">
+                  <img src="../images/2013/07/simquadrat-brief-2.jpg" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Brief, Seite 2</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2013/07/sipgate-simkarte.jpg" class="image">
+                  <img src="../images/2013/07/sipgate-simkarte.jpg" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Simkarte von Sipgate</div>
+      </div>
+   </li>
+</ul>
 
 
 Wie man sieht, bekommt man eine Simkarte, wo man sich die richtige Grö&szlig;e herausbrechen kann. Micro- und Mini-Simkarten gehen also (bei Nano-Sim fürs iPhone bin ich mir nicht sicher, aber ich glaube auch das konnte man angeben).
@@ -43,7 +101,10 @@ Wie man sieht, bekommt man eine Simkarte, wo man sich die richtige Grö&szlig;e 
 <h2>Der Dienst</h2>
 Simquadrat hat sofort funktioniert. Ich konnte telefonieren und SMS schreiben (die aber nicht bei meiner Freundin angekommen sind ... aber das könnte auch gut an ihrem Handy/Anbieter liegen). Auch die Online-Benutzeroberfläche ist gut:
 
-{% caption align="aligncenter" width="261" caption="Simquadrat - So siehts aus, wenn man eingeloggt ist" url="../images/2013/07/simquadrat-eingeloggt-261x300.png" alt="Simquadrat - So siehts aus, wenn man eingeloggt ist"  height="300" class="size-medium wp-image-74601" %}
+<figure class="aligncenter">
+            <a href="../images/2013/07/simquadrat-eingeloggt-261x300.png"><img src="../images/2013/07/simquadrat-eingeloggt-261x300.png" alt="Simquadrat - So siehts aus, wenn man eingeloggt ist" style="max-width:261px;max-height:300px" class="size-medium wp-image-74601"/></a>
+            <figcaption class="text-center">Simquadrat - So siehts aus, wenn man eingeloggt ist</figcaption>
+        </figure>
 
 ABER: Die <strong>Telefonqualität ist unterirdisch</strong>. Ich erwarte, dass der Zugangsanbieter mein Gespräch in so guter Qualität überträgt, wie es mein Handy unterstützt. Mit Simyo ist die Qualität genauso gut wie über das Festnetz-Telefon.
 Laut prepaid-wiki nutzt Simquadrat wie Simyo das E-Plus-Netz. Ich habe mit meiner Freundin mit meinem Nexus 4 am selben Tag (mit einem Abstand von 10 Minuten für dem Simkartenwechsel) einmal mit Simyo und einmal mit Simquadrat telefoniert.  Das ist, im Bezug auf die Qualität der Sprachübertragung, ein himmelweiter Unterschied.

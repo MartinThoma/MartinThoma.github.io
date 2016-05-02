@@ -19,13 +19,19 @@ Wenn ein Endlicher Automat gegeben ist, kann durch die Konstruktion von &Auml;qu
 <h2>Beispiel</h2>
 Gegeben sei folgender Endlicher Automat A: 
 $A = (\{0,1\}, \{S, A, B, C, D, E, F, G, H, I\}, S, \sigma, \{D\})$ mit folgender &Uuml;bergangsfunktion $\sigma$:
-{% caption align="aligncenter" width="392" caption="Endlicher Automat mit &uuml;berfl&uuml;ssigen Zust&auml;nden" url="../images/2012/02/endlicher-automat-gross.png" alt="Endlicher Automat mit &uuml;berfl&uuml;ssigen Zust&auml;nden"  height="389" class="size-full wp-image-13451" %}
+<figure class="aligncenter">
+            <a href="../images/2012/02/endlicher-automat-gross.png"><img src="../images/2012/02/endlicher-automat-gross.png" alt="Endlicher Automat mit &uuml;berfl&uuml;ssigen Zust&auml;nden" style="max-width:392px;max-height:389px" class="size-full wp-image-13451"/></a>
+            <figcaption class="text-center">Endlicher Automat mit &uuml;berfl&uuml;ssigen Zust&auml;nden</figcaption>
+        </figure>
 
 Es ist offensichtlich, dass I nicht erreicht werden kann. Da der Graph gerichtet ist, kann man schnell sehen, dass auch  H und G nicht erreicht werden k&ouml;nnen. Algorithmisch kann man diese Zust&auml;nde durch eine Tiefensuche bestimmen.
 
 Nach Schritt 1 haben wir also den Automaten 
 $A_1 = (\{0,1\}, \{S, A, B, C, D, E, F\}, S, \sigma, \{D\})$:
-{% caption align="aligncenter" width="340" caption="Keine &uuml;berfl&uuml;ssen Zust&auml;nde im Endlichen Automaten" url="../images/2012/02/endlicher-automat-kleiner.png" alt="Keine &uuml;berfl&uuml;ssen Zust&auml;nde im Endlichen Automaten"  height="381" class="size-full wp-image-13471" %}
+<figure class="aligncenter">
+            <a href="../images/2012/02/endlicher-automat-kleiner.png"><img src="../images/2012/02/endlicher-automat-kleiner.png" alt="Keine &uuml;berfl&uuml;ssen Zust&auml;nde im Endlichen Automaten" style="max-width:340px;max-height:381px" class="size-full wp-image-13471"/></a>
+            <figcaption class="text-center">Keine &uuml;berfl&uuml;ssen Zust&auml;nde im Endlichen Automaten</figcaption>
+        </figure>
 
 In Schritt 2 erstellen wir also zuerst eine &Auml;quivalenzklasse der Zust&auml;nde:
 $\{S, A, B, C, D, E, F\}$.

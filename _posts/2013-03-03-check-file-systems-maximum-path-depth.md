@@ -163,4 +163,7 @@ You should probably not execute the script above, as <a href="http://unix.stacke
 
 By the way, I got a new error message that I didn't know before:
 
-{% caption align="aligncenter" width="498" caption="Cannot move file to trash - Filename too long!" url="../images/2013/03/cannot-move-to-trash-filename.png" alt="Cannot move file to trash - Filename too long!"  height="269" class="size-full wp-image-58951" %}
+<figure class="aligncenter">
+            <a href="../images/2013/03/cannot-move-to-trash-filename.png"><img src="../images/2013/03/cannot-move-to-trash-filename.png" alt="Cannot move file to trash - Filename too long!" style="max-width:498px;max-height:269px" class="size-full wp-image-58951"/></a>
+            <figcaption class="text-center">Cannot move file to trash - Filename too long!</figcaption>
+        </figure>

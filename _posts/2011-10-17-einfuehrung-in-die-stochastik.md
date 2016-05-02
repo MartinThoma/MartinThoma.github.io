@@ -69,7 +69,10 @@ Quartilsabstand: $\tilde x_{0,75} - \tilde x_{0,25}$
 Spannweite: $x_n - x_1$
 
 <h2>Visualisierungen</h2>
-{% caption align="aligncenter" width="300" caption="<a href='http://de.wikipedia.org/wiki/Boxplot'>Boxplot</a>" url="../images/2011/10/boxplot-300x119.png" alt="Boxplot"  height="119" class="size-medium wp-image-5981" %}
+<figure class="aligncenter">
+            <a href="../images/2011/10/boxplot-300x119.png"><img src="../images/2011/10/boxplot-300x119.png" alt="Boxplot" style="max-width:300px;max-height:119px" class="size-medium wp-image-5981"/></a>
+            <figcaption class="text-center"><a href='http://de.wikipedia.org/wiki/Boxplot'>Boxplot</a></figcaption>
+        </figure>
 
 Weitere Visualisierungsm&ouml;glichkeiten:
 <ul>

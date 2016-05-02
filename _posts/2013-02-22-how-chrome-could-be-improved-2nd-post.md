@@ -28,7 +28,10 @@ Chrome uses WebKit and WebKit didn't support MathML for quite a long time. A qui
 </ul>
 
 Here is an image where you can see some of the problems:
-{% caption align="aligncenter" width="621" caption="MathML rendered with Chrome 24" url="../images/2013/01/mathml-chrome24-rendering.png" alt="MathML rendered with Chrome 24"  height="60" class="size-full wp-image-53981" %}
+<figure class="aligncenter">
+            <a href="../images/2013/01/mathml-chrome24-rendering.png"><img src="../images/2013/01/mathml-chrome24-rendering.png" alt="MathML rendered with Chrome 24" style="max-width:621px;max-height:60px" class="size-full wp-image-53981"/></a>
+            <figcaption class="text-center">MathML rendered with Chrome 24</figcaption>
+        </figure>
 
 In Chrome 25, MathML was deactivated.
 
@@ -49,13 +52,19 @@ It would also be nice if you were able to stop all animations on the page. Regre
 Sometimes I watch a movie while I play a flash game. Some flash games don't offer an option to mute them. So I would like to get the possibility to disable sound for one tab.
 
 It could look like this.
-{% caption align="aligncenter" width="300" caption="Disable the sound of a tab" url="../images/2012/04/disable-tab-sound-300x172.png" alt="Disable the sound of a tab"  height="172" class="size-medium wp-image-20981" %}
+<figure class="aligncenter">
+            <a href="../images/2012/04/disable-tab-sound-300x172.png"><img src="../images/2012/04/disable-tab-sound-300x172.png" alt="Disable the sound of a tab" style="max-width:300px;max-height:172px" class="size-medium wp-image-20981"/></a>
+            <figcaption class="text-center">Disable the sound of a tab</figcaption>
+        </figure>
 
 UPDATE: This is <a href="https://code.google.com/p/chromium/issues/detail?id=3541">issue 3541</a>.
 
 <h3>Spell checker</h3>
 I write Blogs in German and in English. So I would like a spell-checker option at the bottom-left corner to switch languages:
-{% caption align="aligncenter" width="698" caption="Spell checker" url="../images/2012/04/spell-checker.png" alt="Spell checker"  height="91" class="size-full wp-image-21021" %}
+<figure class="aligncenter">
+            <a href="../images/2012/04/spell-checker.png"><img src="../images/2012/04/spell-checker.png" alt="Spell checker" style="max-width:698px;max-height:91px" class="size-full wp-image-21021"/></a>
+            <figcaption class="text-center">Spell checker</figcaption>
+        </figure>
 
 <h3>PDF page numbers</h3>
 It would be great, if I could see the number of the page your currently on. Sometimes PDF-Documents don't even have numbers (e.g. LaTeX beamer slides). What do you do if you have a question to one slide if there are dozens of slides? Manually count them, to get the page number you're looking for?
@@ -74,13 +83,19 @@ Auto-Disable extensions for https. Only PayPal, Amazon, Ebay, GMail and my bank 
 <h4>Password Reuse Visualizer</h4>
 Firefox offers a tool which helps to identify passwords, that get reused often. It is called '<a href='https://addons.mozilla.org/de/firefox/addon/password-reuse-visualizer/'>Password Reuse Visualizer</a>' and looks like this:
 
-{% caption align="aligncenter" width="300" caption="Password Reuse Visualizer" url="../images/2012/04/password-reuse.png" alt="Password Reuse Visualizer"  height="269" class="size-full wp-image-21101" %}
+<figure class="aligncenter">
+            <a href="../images/2012/04/password-reuse.png"><img src="../images/2012/04/password-reuse.png" alt="Password Reuse Visualizer" style="max-width:300px;max-height:269px" class="size-full wp-image-21101"/></a>
+            <figcaption class="text-center">Password Reuse Visualizer</figcaption>
+        </figure>
 
 <h2>What was realized?</h2>
 <h3>Rotate PDF</h3>
 You can view <a href="http://cloud.github.com/downloads/MartinThoma/free-books/01-A-Study-in-Scarlet.pdf">this PDF</a> online as an example. If you make a right-click on it, you can rotate it now.
 
-{% caption align="aligncenter" width="412" caption="Rightclick menu of Google Chrome" url="../images/2012/08/pdf-chrome-rightclick-menu.png" alt="Rightclick menu of Google Chrome"  height="338" class="size-full wp-image-42081" %}
+<figure class="aligncenter">
+            <a href="../images/2012/08/pdf-chrome-rightclick-menu.png"><img src="../images/2012/08/pdf-chrome-rightclick-menu.png" alt="Rightclick menu of Google Chrome" style="max-width:412px;max-height:338px" class="size-full wp-image-42081"/></a>
+            <figcaption class="text-center">Rightclick menu of Google Chrome</figcaption>
+        </figure>
 
 <h3>HTML5 input elements - partly</h3>
 Chrome 25 does still not support the <a href="http://www.w3schools.com/html5/html5_form_input_types.asp">datetime input element</a>, tel input element, .
@@ -88,12 +103,21 @@ They have added a very nice color input element:
 <input type="color" />
 Some Screenshots for non-Chrome users:
 The button gets displayed like that:
-{% caption align="aligncenter" width="55" caption="Google Chrome input type color element" url="../images/2012/08/chrome-color-chooser.png" alt="Google Chrome input type color element"  height="33" class="size-full wp-image-42051" %}
+<figure class="aligncenter">
+            <a href="../images/2012/08/chrome-color-chooser.png"><img src="../images/2012/08/chrome-color-chooser.png" alt="Google Chrome input type color element" style="max-width:55px;max-height:33px" class="size-full wp-image-42051"/></a>
+            <figcaption class="text-center">Google Chrome input type color element</figcaption>
+        </figure>
 If you click on it, this dialog box gets displayed:
-{% caption align="aligncenter" width="540" caption="Google Chrome Color Dialog Box" url="../images/2012/08/chrome-color-dialog.png" alt="Google Chrome Color Dialog Box"  height="315" class="size-full wp-image-42061" %}
+<figure class="aligncenter">
+            <a href="../images/2012/08/chrome-color-dialog.png"><img src="../images/2012/08/chrome-color-dialog.png" alt="Google Chrome Color Dialog Box" style="max-width:540px;max-height:315px" class="size-full wp-image-42061"/></a>
+            <figcaption class="text-center">Google Chrome Color Dialog Box</figcaption>
+        </figure>
 
 They have added support to many of the time-elements like week:
-{% caption align="aligncenter" width="462" caption="HTML5 input type 'week'" url="../images/2013/02/html5-week.png" alt="HTML5 input type 'week'"  height="298" class="size-full wp-image-58061" %}
+<figure class="aligncenter">
+            <a href="../images/2013/02/html5-week.png"><img src="../images/2013/02/html5-week.png" alt="HTML5 input type 'week'" style="max-width:462px;max-height:298px" class="size-full wp-image-58061"/></a>
+            <figcaption class="text-center">HTML5 input type 'week'</figcaption>
+        </figure>
 
 If you want to check how your browser displays the different input types, here is a <a href="http://www.martin-thoma.de/html5/input.php">test page for input elements</a>.
 

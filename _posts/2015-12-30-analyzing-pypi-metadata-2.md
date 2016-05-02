@@ -231,15 +231,92 @@ Please let me know when you do something interesting with the data.
 
 I've only got some crappy images with Gephi / GraphViz:
 
-{% gallery columns="3" size="medium" %}
-    ../images/2015/12/pypi-rendered.png
-    ../images/2015/12/pypi-rendered-circo-5000-x-small.png
-    ../images/2015/12/pypi-rendered-twopi.png
-    ../images/2015/12/pypi-rendered-x.png
-    ../images/2015/12/gephi-1.png
-    ../images/2015/12/gephi-2.png
-    ../images/2015/12/pypi-graph-small.png
-{% endgallery %}
+<ul class="gallery mw-gallery-traditional" style="max-width: 489px; width: 489px;">
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2015/12/pypi-rendered.png" class="image">
+                  <img src="../images/2015/12/pypi-rendered.png" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext"></div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2015/12/pypi-rendered-circo-5000-x-small.png" class="image">
+                  <img src="../images/2015/12/pypi-rendered-circo-5000-x-small.png" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext"></div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2015/12/pypi-rendered-twopi.png" class="image">
+                  <img src="../images/2015/12/pypi-rendered-twopi.png" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext"></div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2015/12/pypi-rendered-x.png" class="image">
+                  <img src="../images/2015/12/pypi-rendered-x.png" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext"></div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2015/12/gephi-1.png" class="image">
+                  <img src="../images/2015/12/gephi-1.png" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext"></div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2015/12/gephi-2.png" class="image">
+                  <img src="../images/2015/12/gephi-2.png" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext"></div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2015/12/pypi-graph-small.png" class="image">
+                  <img src="../images/2015/12/pypi-graph-small.png" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext"></div>
+      </div>
+   </li>
+</ul>
 
 
 ## Code

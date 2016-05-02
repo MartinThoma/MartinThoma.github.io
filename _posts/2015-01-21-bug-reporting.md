@@ -95,13 +95,68 @@ about the crash.
 
 Just a few images...
 
-{% gallery columns="3" size="medium" %}
-    ../images/2015/01/bug-chrome-ubuntu-closed-unexpectedly.png    "Step 1"
-    ../images/2015/01/bug-chrome-details-1.png    "Details 1"
-    ../images/2015/01/bug-chrome-details-2-dependencies.png    "Details 2"
-    ../images/2015/01/bug-chrome-details-3.png    "Details 3"
-    ../images/2015/01/bug-chrome-details-4.png    "Details 4"
-{% endgallery %}
+<ul class="gallery mw-gallery-traditional" style="max-width: 489px; width: 489px;">
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2015/01/bug-chrome-ubuntu-closed-unexpectedly.png" class="image">
+                  <img src="../images/2015/01/bug-chrome-ubuntu-closed-unexpectedly.png" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Step 1</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2015/01/bug-chrome-details-1.png" class="image">
+                  <img src="../images/2015/01/bug-chrome-details-1.png" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Details 1</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2015/01/bug-chrome-details-2-dependencies.png" class="image">
+                  <img src="../images/2015/01/bug-chrome-details-2-dependencies.png" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Details 2</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2015/01/bug-chrome-details-3.png" class="image">
+                  <img src="../images/2015/01/bug-chrome-details-3.png" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Details 3</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2015/01/bug-chrome-details-4.png" class="image">
+                  <img src="../images/2015/01/bug-chrome-details-4.png" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Details 4</div>
+      </div>
+   </li>
+</ul>
 
 
 ## What's wrong and how to fix it

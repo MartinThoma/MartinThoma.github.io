@@ -34,9 +34,15 @@ Dann muss man Subversive installieren:
 Auch hier macht man es wie mit CheckStyle.
 
 Sobald alles klappt, sieht es etwa so aus:
-{% caption align="aligncenter" width="666" caption="Subversive plugin in Eclipse" url="../images/2012/04/eclipse-subversive.png" alt="Subversive plugin in Eclipse"  height="434" class="size-full wp-image-23271" %}
+<figure class="aligncenter">
+            <a href="../images/2012/04/eclipse-subversive.png"><img src="../images/2012/04/eclipse-subversive.png" alt="Subversive plugin in Eclipse" style="max-width:666px;max-height:434px" class="size-full wp-image-23271"/></a>
+            <figcaption class="text-center">Subversive plugin in Eclipse</figcaption>
+        </figure>
 
-{% caption align="aligncenter" width="300" caption="Commit mit Subversive unter Eclipse" url="../images/2012/04/subversive-300x290.png" alt="Commit mit Subversive unter Eclipse"  height="290" class="size-medium wp-image-23751" %}
+<figure class="aligncenter">
+            <a href="../images/2012/04/subversive-300x290.png"><img src="../images/2012/04/subversive-300x290.png" alt="Commit mit Subversive unter Eclipse" style="max-width:300px;max-height:290px" class="size-medium wp-image-23751"/></a>
+            <figcaption class="text-center">Commit mit Subversive unter Eclipse</figcaption>
+        </figure>
 
 <h2>Grundeinstellungen</h2>
 Als erstes sollte man mal auf "Window" -> "Open Perspective" -> "Java" klicken.

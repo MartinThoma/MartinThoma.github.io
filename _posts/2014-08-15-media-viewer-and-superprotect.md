@@ -28,14 +28,80 @@ to get a feeling what this is all about.
 
 You can view some images of the MediaViewer here:
 
-{% gallery size="medium" columns="2" %}
-    ../images/2014/08/wikipedia-first-view.png "Article"
-    ../images/2014/08/media-viewer-first-click.png "First click on image with MediaViewer"
-    ../images/2014/08/without-media-viewer-first-click.png "First click on image without MediaViewer"
-    ../images/2014/08/media-viewer-first-click-notes.png "notes to the MediaViewer interface"
-    ../images/2014/08/media-viewer-more-information.png "MediaViewer Bottom 'Tab'"
-    ../images/2014/08/media-viewer-use-this-file.png "MediaViewer 'Use this file'"
-{% endgallery %}
+<ul class="gallery mw-gallery-traditional" style="max-width: 326px; width: 326px;">
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2014/08/wikipedia-first-view.png" class="image">
+                  <img src="../images/2014/08/wikipedia-first-view.png" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Article</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2014/08/media-viewer-first-click.png" class="image">
+                  <img src="../images/2014/08/media-viewer-first-click.png" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">First click on image with MediaViewer</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2014/08/without-media-viewer-first-click.png" class="image">
+                  <img src="../images/2014/08/without-media-viewer-first-click.png" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">First click on image without MediaViewer</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2014/08/media-viewer-first-click-notes.png" class="image">
+                  <img src="../images/2014/08/media-viewer-first-click-notes.png" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">notes to the MediaViewer interface</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2014/08/media-viewer-more-information.png" class="image">
+                  <img src="../images/2014/08/media-viewer-more-information.png" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">MediaViewer Bottom 'Tab'</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2014/08/media-viewer-use-this-file.png" class="image">
+                  <img src="../images/2014/08/media-viewer-use-this-file.png" alt="" style="max-width: 120px; max-height: 120px;">
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">MediaViewer 'Use this file'</div>
+      </div>
+   </li>
+</ul>
 
 There has been a survey that suggests that 60% of all users like the MediaViewer ([source](https://www.mediawiki.org/wiki/Multimedia/Media_Viewer/Survey)).
 However, there are concerns that the survey was biased ([source](https://en.wikipedia.org/wiki/Wikipedia:Media_Viewer/June_2014_RfC#Biased_survey_wording)).

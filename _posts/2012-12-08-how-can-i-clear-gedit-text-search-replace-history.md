@@ -12,4 +12,7 @@ Start <code>gconf-editor</code>:
 
 Go to <code>/apps/gnome-settings/gedit/history-gedit2_search_for_entry</code> and <code>/apps/gnome-settings/gedit/history-gedit2_replace_entry_with</code> and remove the content there:
 
-{% caption align="aligncenter" width="512" caption="gedit: Clear text search / replace history" url="../images/2012/12/gedit-remove-text-search-history.png" alt="gedit: Clear text search / replace history"  height="392" class="size-full wp-image-50181" %}
+<figure class="aligncenter">
+            <a href="../images/2012/12/gedit-remove-text-search-history.png"><img src="../images/2012/12/gedit-remove-text-search-history.png" alt="gedit: Clear text search / replace history" style="max-width:512px;max-height:392px" class="size-full wp-image-50181"/></a>
+            <figcaption class="text-center">gedit: Clear text search / replace history</figcaption>
+        </figure>

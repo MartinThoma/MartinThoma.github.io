@@ -48,12 +48,12 @@ CATEGORY_SAVE_AS = 'category/{slug}/index.html'
 TAG_URL = 'tag/{slug}/'
 TAG_SAVE_AS = 'tag/{slug}/index.html'
 
-PLUGIN_PATHS = ['./pelican_plugin-render_math',
+PLUGIN_PATHS = ['./pelican_plugin-render_math'
                 # './pelican-bootstrapify',
                 #                 './simple_footnotes',
                 #                 './pelican-toc'
                 ]
-PLUGINS = ['pelican_plugin-render_math',
+PLUGINS = ['pelican_plugin-render_math'
            # 'bootstrapify',
            #            'simple_footnotes',
            #            'toc'

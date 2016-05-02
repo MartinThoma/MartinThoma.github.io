@@ -123,7 +123,10 @@ i += ((1 + 2) + 2) + 4;{% endhighlight %}
 So you end up with <code>9</code>.
 
 A <a href="http://en.wikipedia.org/wiki/Parse_tree">parse tree</a> of this evaluation would look like this:
-{% caption align="aligncenter" width="454" caption="Parse tree" url="../images/2012/07/evaluation-tree.gif" alt="Parse tree"  height="638" class="size-full wp-image-30711" %}
+<figure class="aligncenter">
+            <a href="../images/2012/07/evaluation-tree.gif"><img src="../images/2012/07/evaluation-tree.gif" alt="Parse tree" style="max-width:454px;max-height:638px" class="size-full wp-image-30711"/></a>
+            <figcaption class="text-center">Parse tree</figcaption>
+        </figure>
 
 The explanation for the other three ones is similar.
 

@@ -17,32 +17,50 @@ They all worked smooth on my Notebook (<a href="http://ark.intel.com/products/50
 
 <h2>Stemkoski</h2>
 <h3>Textures</h3>
-{% caption align="aligncenter" width="512" caption="Three.js textures example" url="../images/2013/07/threejs-textures.png" alt="Three.js textures example"  height="228" class="size-full wp-image-72431" %}
+<figure class="aligncenter">
+            <a href="../images/2013/07/threejs-textures.png"><img src="../images/2013/07/threejs-textures.png" alt="Three.js textures example" style="max-width:512px;max-height:228px" class="size-full wp-image-72431"/></a>
+            <figcaption class="text-center">Three.js textures example</figcaption>
+        </figure>
 
 <a href="http://stemkoski.github.io/Three.js/Textures.html">Demonstration</a>
 
 <h3>Three.js</h3>
-{% caption align="aligncenter" width="512" caption="Threejs Skybox example" url="../images/2013/07/threejs-skybox.png" alt="Threejs Skybox example"  height="286" class="size-full wp-image-72441" %}
+<figure class="aligncenter">
+            <a href="../images/2013/07/threejs-skybox.png"><img src="../images/2013/07/threejs-skybox.png" alt="Threejs Skybox example" style="max-width:512px;max-height:286px" class="size-full wp-image-72441"/></a>
+            <figcaption class="text-center">Threejs Skybox example</figcaption>
+        </figure>
 
 <a href="http://stemkoski.github.io/Three.js/Skybox.html">Demonstration</a>
 
 <h3>Reflection</h3>
-{% caption align="aligncenter" width="512" caption="Reflection example" url="../images/2013/07/threejs-reflection.png" alt="Reflection example"  height="278" class="size-full wp-image-72451" %}
+<figure class="aligncenter">
+            <a href="../images/2013/07/threejs-reflection.png"><img src="../images/2013/07/threejs-reflection.png" alt="Reflection example" style="max-width:512px;max-height:278px" class="size-full wp-image-72451"/></a>
+            <figcaption class="text-center">Reflection example</figcaption>
+        </figure>
 
 <a href="http://stemkoski.github.io/Three.js/Reflection.html">Demonstration</a>
 
 <h3>Webcam</h3>
-{% caption align="aligncenter" width="512" caption="Webcam example" url="../images/2013/07/threejs-webcam.png" alt="Webcam example"  height="263" class="size-full wp-image-72461" %}
+<figure class="aligncenter">
+            <a href="../images/2013/07/threejs-webcam.png"><img src="../images/2013/07/threejs-webcam.png" alt="Webcam example" style="max-width:512px;max-height:263px" class="size-full wp-image-72461"/></a>
+            <figcaption class="text-center">Webcam example</figcaption>
+        </figure>
 
 <a href="http://stemkoski.github.io/Three.js/Many-Cameras.html">Demonstration</a>
 
 <h3>Motion detection</h3>
-{% caption align="aligncenter" width="556" caption="Motion detection with three.js!" url="../images/2013/07/threejs-motion.png" alt="Motion detection with three.js!"  height="326" class="size-full wp-image-72471" %}
+<figure class="aligncenter">
+            <a href="../images/2013/07/threejs-motion.png"><img src="../images/2013/07/threejs-motion.png" alt="Motion detection with three.js!" style="max-width:556px;max-height:326px" class="size-full wp-image-72471"/></a>
+            <figcaption class="text-center">Motion detection with three.js!</figcaption>
+        </figure>
 
 <a href="http://stemkoski.github.io/Three.js/Webcam-Motion-Detection.html">Demonstration</a>
 
 <h3>3D function plotter</h3>
-{% caption align="aligncenter" width="512" caption="3D function plotter" url="../images/2013/07/threejs-3d-function.png" alt="3D function plotter"  height="312" class="size-full wp-image-72481" %}
+<figure class="aligncenter">
+            <a href="../images/2013/07/threejs-3d-function.png"><img src="../images/2013/07/threejs-3d-function.png" alt="3D function plotter" style="max-width:512px;max-height:312px" class="size-full wp-image-72481"/></a>
+            <figcaption class="text-center">3D function plotter</figcaption>
+        </figure>
 
 <a href="http://stemkoski.github.io/Three.js/Graphulus-Function.html">Demonstration</a>
 
@@ -52,12 +70,18 @@ They all worked smooth on my Notebook (<a href="http://ark.intel.com/products/50
 <a href="http://hexgl.bkcore.com/">Demonstration</a>
 
 <h2>Solar System</h2>
-{% caption align="aligncenter" width="512" caption="Solar system simulation" url="../images/2013/07/solar-system-simulation.png" alt="Solar system simulation"  height="323" class="size-full wp-image-72501" %}
+<figure class="aligncenter">
+            <a href="../images/2013/07/solar-system-simulation.png"><img src="../images/2013/07/solar-system-simulation.png" alt="Solar system simulation" style="max-width:512px;max-height:323px" class="size-full wp-image-72501"/></a>
+            <figcaption class="text-center">Solar system simulation</figcaption>
+        </figure>
 
 <a href="http://www.webdev20.pl/skins/default/js/demos/solar_system/index.html">Demonstration</a>
 
 <h2>Planet Maker</h2>
-{% caption align="aligncenter" width="512" caption="PlanetMaker" url="../images/2013/07/PlanetMaker.png" alt="PlanetMaker"  height="313" class="size-full wp-image-72521" %}
+<figure class="aligncenter">
+            <a href="../images/2013/07/PlanetMaker.png"><img src="../images/2013/07/PlanetMaker.png" alt="PlanetMaker" style="max-width:512px;max-height:313px" class="size-full wp-image-72521"/></a>
+            <figcaption class="text-center">PlanetMaker</figcaption>
+        </figure>
 
 <a href="http://planetmaker.wthr.us/?model=51b8d1021fef93.32065956">Demonstration</a> - takes ages to load, but when its loaded it is fast
 

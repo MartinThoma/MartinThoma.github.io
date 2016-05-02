@@ -12,7 +12,10 @@ Do you know the difference between MIT-license and BSD license? I don't. And I d
 Instead of reading all licenses, you could first read <a href="http://www.smashingmagazine.com/2010/03/24/a-short-guide-to-open-source-and-similar-licenses/">A Short Guide To Open-Source And Similar Licenses</a>.
 
 Even shorter: <a href="http://www.tldrlegal.com/">TL;DR - Open Source Licenses Explained in Plain English</a>.
-{% caption align="aligncenter" width="300" caption="TL;DR Legal" url="../images/2013/01/TLDRLegal-300x158.png" alt="TL;DR Legal"  height="158" class="size-medium wp-image-55141" %}
+<figure class="aligncenter">
+            <a href="../images/2013/01/TLDRLegal-300x158.png"><img src="../images/2013/01/TLDRLegal-300x158.png" alt="TL;DR Legal" style="max-width:300px;max-height:158px" class="size-medium wp-image-55141"/></a>
+            <figcaption class="text-center">TL;DR Legal</figcaption>
+        </figure>
 
 Licenses are important for OpenSource, because if you don't provide a license, nobody may use your source (<a href="http://stackoverflow.com/a/13669816/562769">source</a>). So even if everybody can see your code, it is not OpenSource if you don't choose an OpenSource license.
 
