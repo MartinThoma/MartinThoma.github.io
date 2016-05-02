@@ -34,7 +34,9 @@ DEFAULT_PAGINATION = 10
 # Uncomment following line if you want document-relative URLs when developing
 # RELATIVE_URLS = True
 
-THEME = '/home/moose/GitHub/pelican-themes/elegant'
+THEME = './pelican-elegant'
+PYGMENTS_STYLE = 'monokai'        # Syntax highlighting theme
+CUSTOM_CSS = 'static/custom.css'
 
 DISQUS_SITENAME = "martinthoma"
 
@@ -59,6 +61,8 @@ PLUGINS = ['pelican_plugin-render_math'
            #            'toc'
            ]
 
-STATIC_PATHS = ['images', 'extra/CNAME']
-EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'}, }
+STATIC_PATHS = ['images', 'extra/CNAME', 'extra/custom.css']
+EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},
+                       'extra/custom.css': {'path': 'static/custom.css'}}
+OUTPUT_PATH = '/var/www/blog'
 # SUMMARY_MAX_LENGTH = 0
