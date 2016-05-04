@@ -14,6 +14,10 @@ TIMEZONE = 'Europe/Berlin'
 DEFAULT_LANG = u'en'
 
 # Feed generation is usually not desired when developing
+FEED_ALL_RSS = 'feeds/index.xml'
+CATEGORY_FEED_RSS = 'feeds/%s.rss.xml'
+FEED_USE_SUMMARY = False
+
 FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
@@ -25,9 +29,11 @@ LINKS = (('Pelican', 'http://getpelican.com/'), )
 
 # Social widget
 SOCIAL = (('Twitter', 'https://twitter.com/themoosemind'),
+          ('Email', 'mailto:info@martin-thoma.de'),
           ('Github', 'https://github.com/MartinThoma'),
           ('Stackoverflow',
-           'http://stackoverflow.com/users/562769/martin-thoma'))
+           'http://stackoverflow.com/users/562769/martin-thoma'),
+          )
 
 DEFAULT_PAGINATION = 10
 
@@ -52,21 +58,34 @@ TAG_SAVE_AS = 'tag/{slug}/index.html'
 
 PLUGIN_PATHS = ['./pelican_plugin-render_math',
                 './pelican-tipue_search',
+                '/home/moose/GitHub/pelican-plugins/tipue_search',
+                '/home/moose/GitHub/pelican-toc',
+                '/home/moose/GitHub/pelican-plugins/headerid',
                 # './pelican-bootstrapify',
                 #                 './simple_footnotes',
                 #                 './pelican-toc'
                 ]
 PLUGINS = ['pelican_plugin-render_math',
            'tipue_search',
+           'toc',
+           'headerid',
            # 'bootstrapify',
            #            'simple_footnotes',
-           #            'toc'
            ]
+
+MD_EXTENSIONS = ["codehilite(css_class=highlight)", "extra", "headerid", "toc"]
+
+TOC = {'TOC_HEADERS': '^h[2-3]',
+       'TOC_RUN': 'true'}
 
 DIRECT_TEMPLATES = (('index', 'tags', 'categories', 'archives', 'search', '404'))
 
-STATIC_PATHS = ['images', 'extra/CNAME', 'extra/custom.css']
+STATIC_PATHS = ['images',
+                'extra/CNAME',
+                'extra/custom.css',
+                'extra/favicon.ico']
 EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},
-                       'extra/custom.css': {'path': 'static/custom.css'}}
+                       'extra/custom.css': {'path': 'static/custom.css'},
+                       'extra/favicon.ico': {'path': 'favicon.ico'}}
 OUTPUT_PATH = '/var/www/blog/'
 # SUMMARY_MAX_LENGTH = 0

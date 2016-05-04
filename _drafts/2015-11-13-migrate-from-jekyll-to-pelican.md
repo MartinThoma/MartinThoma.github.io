@@ -109,7 +109,7 @@ CSS you had before.
 
 ## TODO
 
-* Search page
+* https://github.com/barrysteyn/pelican_plugin-render_math/issues/32
 
 
 ## Pelican Initialization

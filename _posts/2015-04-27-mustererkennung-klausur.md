@@ -44,7 +44,7 @@ featured_image: logos/klausur.png
 
 * Beispiele für Klassifikation: Blumen/Schmetterlinge in Arten; Schrauben in Schraubentypen; Schüttgut in Mineralien, Pflanzen, Glasscheiben, Diamante, ...
 * Formalismen
-  * Domäne $\Omega \subseteq $ Welt, Elemente der Domäne heißen Objekte, Objekte werden in paarweise disjunkte Äquivalenzklassen $\omega_i$ gruppiert, sodass jedes Objekt genau eine Äquivalenzklasse hat.
+  * Domäne $\Omega \subseteq$ Welt, Elemente der Domäne heißen Objekte, Objekte werden in paarweise disjunkte Äquivalenzklassen $\omega_i$ gruppiert, sodass jedes Objekt genau eine Äquivalenzklasse hat.
   * Man beobachtet / misst Eigenschaften realer Objekte. Dies kann als Funktion
     **m** aufgefasst werden, die von der Domäne in den Merkmalsraum abbildet.
     Optimalerweise ist diese Abbildung injektiv, bei ungünstig gewählten

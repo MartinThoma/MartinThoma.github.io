@@ -793,7 +793,11 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
             <li>T (Schwellwert): Maximaler Radius (oder Durchmesser), bevor ein
                 Elementar-Cluster gesplittet wird</li>
         </ul>
-
+        Siehe auch:
+        <ul>
+            <li><a href="https://www.youtube.com/watch?v=FAVETO6EK9E">YouTube</a> (7:24min)</li>
+            <li></li>
+        </ul>
     </dd>
     <dt><dfn>Hierarchisches Clustering</dfn></dt>
     <dd>Beim hierarchischen Clustern werden Datenpunkte Baumartig zu Clustern
@@ -814,12 +818,22 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
     <dd>Datenobjekte werden nicht hart zu einem Cluster zugeordnet sondern
         weich (also mit einer gewissen Wahrscheinlichkeit) jedem Cluster
         zugeordnet.</dd>
-    <dt><dfn>Zentrum eines Centroids</dfn></dt>
+    <dt><dfn>Zentrum eines Clusters</dfn></dt>
     <dd>$$Z_{i} = \frac{1}{|C_i|} \sum_{i \in C_i} X_i$$</dd>
-    <dt><dfn>Radius eines Centroids</dfn></dt>
-    <dd>$$R(C_i) = \sqrt{\frac{1}{|C_i|} \sum_{j \in C_i} {(X_j - Z_i)}^2}$$</dd>
-    <dt><dfn>Durchmesser eines Centroids</dfn></dt>
-    <dd>$$D(C_i) = \sqrt{\frac{1}{|C_i| \cdot (|C_i|-1)} \sum_{j \in C_i} \sum_{k \in C_i} {(X_j - X_k)}^2}$$</dd>
+    <dt><dfn>Radius eines Clusters</dfn></dt>
+    <dd>
+
+    Der Radius enes Centroids ist der durchschnittliche Abstand zum Centroiden:
+
+    $$R(C_i) = \sqrt{\frac{1}{|C_i|} \sum_{j \in C_i} {(X_j - Z_i)}^2}$$
+
+    </dd>
+    <dt><dfn>Durchmesser eines Clusters</dfn></dt>
+    <dd>
+
+    Der Durchmesser eines Centroiden ist die durchschnittle paarweise Distanz:
+
+    $$D(C_i) = \sqrt{\frac{1}{|C_i| \cdot (|C_i|-1)} \sum_{j \in C_i} \sum_{k \in C_i} {(X_j - X_k)}^2}$$</dd>
     <dt><dfn>Interclusterdistanz</dfn></dt>
     <dd>Durchschnittliche Inter-Clusterdistanz von Cluster 1 und Cluster 2:
 

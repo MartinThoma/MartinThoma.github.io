@@ -15,7 +15,7 @@ featured_image: logos/klausur.png
 
 Slide name: `ML-Einordnungskriterien.pdf`
 
-<table class="table">
+<table class="table" style="font-size: 0.8em;table-layout:initial;">
     <thead>
         <tr>
             <th rowspan="2" colspan="2">Algorithmus</th>
