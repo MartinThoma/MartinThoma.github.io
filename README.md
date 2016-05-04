@@ -1,3 +1,9 @@
+Prerequisites
+=============
+* `git clone git@github.com:MartinThoma/MartinThoma.github.io.git --recursive` to get the blog data
+* `pip install -r requirements.txt --user` to install the required software
+* `make html-local` and `make serve` to see the result on http://127.0.0.1:8000/
+
 TODO
 =====
 
