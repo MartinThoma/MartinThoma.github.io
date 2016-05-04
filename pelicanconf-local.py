@@ -51,7 +51,7 @@ TAG_URL = 'tag/{slug}/'
 TAG_SAVE_AS = 'tag/{slug}/index.html'
 
 PLUGIN_PATHS = ['./pelican_plugin-render_math',
-                '/home/moose/GitHub/pelican-plugins/tipue_search',
+                './pelican-tipue_search',
                 # './pelican-bootstrapify',
                 #                 './simple_footnotes',
                 #                 './pelican-toc'
