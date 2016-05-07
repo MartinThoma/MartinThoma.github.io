@@ -61,6 +61,9 @@ In the main directory, above `content`, execute
 $ git submodule add https://github.com/barrysteyn/pelican_plugin-render_math
 ```
 
+Then I had https://github.com/barrysteyn/pelican_plugin-render_math/issues/32,
+but by adding my own code it worked.
+
 ### Inline Math
 
 Search for
@@ -109,7 +112,8 @@ CSS you had before.
 
 ## TODO
 
-* https://github.com/barrysteyn/pelican_plugin-render_math/issues/32
+* https://martin-thoma.com/author/martin-thoma/ and https://github.com/getpelican/pelican/issues/1735
+* http://127.0.0.1:8000/5-online-comic-websites/
 
 
 ## Pelican Initialization
