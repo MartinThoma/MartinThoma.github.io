@@ -59,25 +59,24 @@ TAG_SAVE_AS = 'tag/{slug}/index.html'
 PLUGIN_PATHS = ['./pelican_plugin-render_math',
                 './pelican-tipue_search',
                 './pelican-toc',
-                '/home/moose/GitHub/pelican-plugins/headerid',
                 # './pelican-bootstrapify',
                 #                 './simple_footnotes',
-                #                 './pelican-toc'
                 ]
 PLUGINS = ['pelican_plugin-render_math',
            'tipue_search',
            'toc',
-           'headerid',
            # 'bootstrapify',
            #            'simple_footnotes',
            ]
 
 MD_EXTENSIONS = ["codehilite(css_class=highlight)", "extra", "headerid", "toc"]
+MATH_JAX = {'auto_insert': False}
 
 TOC = {'TOC_HEADERS': '^h[2-3]',
        'TOC_RUN': 'true'}
 
-DIRECT_TEMPLATES = (('index', 'tags', 'categories', 'archives', 'search', '404'))
+DIRECT_TEMPLATES = (('index', 'tags', 'categories', 'archives', 'search',
+                     '404'))
 
 STATIC_PATHS = ['images',
                 'extra/CNAME',
