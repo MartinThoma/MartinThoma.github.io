@@ -12,7 +12,7 @@ featured_image: logos/klausur.png
 In der Vorlesung 'Analysetechniken für große Datenbestände' werden vor allem
 Association Rule Mining und Clustering-Techniken besprochen. Zum Association
 Rule minining ist vor allem der Apriori-Algorithmus sowie die Verbesserung mit
-FP-Trees zu nennen. Beim Clustering ist k-Means, EM, DBSCAN, OPTICS und BIRCH
+FP-Trees zu nennen. Beim Clustering ist k-means, EM, DBSCAN, OPTICS und BIRCH
 von großer Bedeutung. Ein weiteres großes Kapitel sind Bayessche Netze.
 
 ## Behandelter Stoff
@@ -582,7 +582,7 @@ Anwendungen von Association Rules denkbar:
     <dd>Die Anzahl der Transaktionen, die das Itemset $I$ enthalten wird
     <i>Support von $I$</i> genannt.<br/>
         Es gilt:
-        $$\text{support}(A \Rightarrow B) = \text{support}(A \cup B)\)$$</dd>
+        $$\text{support}(A \Rightarrow B) = \text{support}(A \cup B)$$</dd>
     <dt><dfn>Closed Itemset</dfn></dt>
     <dd>Ein Itemset $I$ heißt closed, wenn es keine echte Obermenge $I' \supsetneq I$ gibt,
         die den gleichen support $\text{supp}(I') = \text{supp}(I)$ hat.</dd>
@@ -614,7 +614,7 @@ Anwendungen von Association Rules denkbar:
             <li>Hashfilter</li>
         </ul>
     </dd>
-    <dt><dfn>FP-Trees</dfn></dt>
+    <dt><dfn id="fp-tree">FP-Trees</dfn></dt>
     <dd>FP-Trees (FP für "frequent pattern") sind eine Datenstrutkur zum
         schnellen Finden von Frequent Itemsets. Jeder Knoten im Baum
         repräsentiert ein Item. Jeder Knoten speichert zusätzlich die
@@ -650,7 +650,7 @@ Anwendungen von Association Rules denkbar:
             $i$ die Frequent-Itemsets zu finden.</li>
     </ol>
 
-    Siehe auch: [Mining Frequent Patterns without Candidate Generation](https://www.cs.sfu.ca/~jpei/publications/sigmod00.pdf)
+    Siehe auch: <a href="https://www.cs.sfu.ca/~jpei/publications/sigmod00.pdf">Mining Frequent Patterns without Candidate Generation</a>
     </dd>
     <dt><dfn>Sampling</dfn></dt>
     <dd>Berechnung auf einer Stichprobe durchführen</dd>
@@ -754,7 +754,7 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
             <li>Complete Link: $\text{dist}_{cl}(X, Y) = \max_{x \in X, y \in Y} \text{dist}(x, y)$</li>
         </ul>
     </dd>
-    <dt><dfn id="kmeans">$k$-means Clustering</dfn></dt>
+    <dt><dfn id="k-means">$k$-means Clustering</dfn></dt>
     <dd>Siehe <a href="https://martin-thoma.com/machine-learning-1-course/#tocAnchor-1-1-15">ML 1</a>.</dd>
     <dt><dfn id="clarans">CLARANS</dfn></dt>
     <dd>CLARANS ist ein Clustering-Algorithmus, der mit $k$-Means
@@ -765,7 +765,10 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         $M = \{p_1, \dots, p_k\}$ wird ein Score berechnet. Dann überprüft
         man, was der Tausch eines Punktes $p_i$ durch den Punkt $p_j$
         für beliebige $p_i \in M$ und $p_j \notin M$ am Score ändern würde.
-        Den besten Tausch führt man durch.</dd>
+        Den besten Tausch führt man durch.<br/>
+        <br/>
+        Siehe auch: <a href="http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=1033770&url=http%3A%2F%2Fieeexplore.ieee.org%2Fiel5%2F69%2F22199%2F01033770.pdf%3Farnumber%3D1033770">CLARANS: a method for clustering objects for spatial data mining</a>
+        </dd>
     <dt><dfn>CF-Tree</dfn> (<dfn>Clustering Feature Tree</dfn>)</dt>
     <dd>Ein CF-Tree ist ein höhenbalancierter Baum. Jeder Knoten des Baums
         entspricht ein Cluster.<br/>
@@ -788,9 +791,9 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         Parameter von BIRCH:
         <ul>
             <li>$k \in \mathbb{N}^+$: Anzahl der Cluster</li>
-            <li>B: (Fan-out), maximale anzahl an Kindknoten</li>
-            <li>B': maximale Blatt-Kapazität (Anzahl Elementarcluster)</li>
-            <li>T (Schwellwert): Maximaler Radius (oder Durchmesser), bevor ein
+            <li>$B \in \mathbb{N}^+$: (Fan-out), maximale Anzahl an Kindknoten</li>
+            <li>$B' \in \mathbb{N}^+$: maximale Blatt-Kapazität (Anzahl Elementarcluster)</li>
+            <li>$T  \in \mathbb{R}^+$ (Schwellwert): Maximaler Radius (oder Durchmesser), bevor ein
                 Elementar-Cluster gesplittet wird</li>
         </ul>
         Siehe auch:
@@ -856,7 +859,14 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         startet mit einem großen Cluster und unterteilt diesen rekursiv immer
         weiter in je zwei kleine Cluster.<br/>
         <br/>
-         TODO (Splinter group)<br/>
+        Das Unterteilen funktioniert wie folgt: Wähle in einem Cluster $C$ das
+        Datenobjekt $o$, welches den höchsten durchschnittlichen Abstand von
+        allen anderen Datenobjekten $o' \in C \setminus \{o\}$ hat. Dieses ist
+        nun das erste Objekt einer neu erstellten sogenannten Splittergruppe
+        $S = \{o\}$
+        (engl. <i>splinter group</i>). Nun gibt es noch das Maß
+        $$D(o) = \sum_{o' \in C \setminus S} \frac{d(o, o')}{|C \setminus S|} - \sum_{o'} \frac{d(o, o')}{|S|}$$
+        Solange $D(o) > 0$ für ein $o \in C \setminus S$ wird $o^* = \text{arg max}_{o \in C \setminus S} D(o)$ aus dem Cluster in die Splittergruppe gesteckt.
         <br/>
         Siehe auch:
         <ul>
@@ -906,7 +916,7 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
     <dd>Seien $p, o$ Datenpunkte.
 
     \[\text{reach\_d}(p, o) = \begin{cases}\max(d(p, o), \text{coreDist}(p, o)) &\text{if } d(p, o) < \varepsilon\\
-                                 \text{undefined} &\text{otherwise}\]</dd>
+                                 \text{undefined} &\text{otherwise}\end{cases}\]</dd>
     <dt><a href="https://de.wikipedia.org/wiki/OPTICS" id="optics"><dfn>OPTICS</dfn></a></dt>
     <dd>OPTICS ist ein Algorithmus, der mit den Parametern min_points und
         $\varepsilon$ (maximaler Radius für Cluster-Distanz) automatisch
@@ -945,6 +955,77 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
     <dd>Die Overall Likelihood ist ein Gütemaß für Clusterings.
         $$\prod_{i} \left ( p_A P(x_i | A) + p_B P(x_i | B) \right )$$</dd>
 </dl>
+
+Verfahren im Überblick:
+
+Im Folgenden sei $k \in \mathbb{N}$ die Anzahl der Cluster, $d \in \mathbb{N}$
+die Dimension der $n \in \mathbb{N}$ Datenpunkte.
+
+<table class="table" id="clustering-overview">
+    <tr>
+        <th>Algorithm</th>
+        <th>Parameters</th>
+        <th>Category</th>
+        <th>Complexity</th>
+        <th>Comment</th>
+    </tr>
+    <tr>
+        <td><a href="#k-means">$k$-means</a></td>
+        <td>$k$</td>
+        <td>next neighbor based</td>
+        <td>$\mathcal{O}(dkni)$</td>
+        <td>$i$ is the number of iterations</td>
+    </tr>
+    <tr>
+        <td>$k$-medoids</td>
+        <td>$k$</td>
+        <td>next neighbor based</td>
+        <td>$\mathcal{O}(dkni)$</td>
+        <td>$i$ is the number of iterations</td>
+    </tr>
+    <tr>
+        <td><a href="#em">EM</a></td>
+        <td>$k$, distribution-type</td>
+        <td>probabilisitc</td>
+        <td>O(dkni)</td>
+        <td>i is the number of iterations</td>
+    </tr>
+    <tr>
+        <td><a href="#dbscan">DBSCAN</a></td>
+        <td>$\varepsilon$, min-points</td>
+        <td>density-based</td>
+        <td>$\mathcal{O}(n \log n)$</td>
+        <td>requires existing index structure which executes neighborhood-query in log n</td>
+    </tr>
+    <tr>
+        <td><a href="#optics">OPTICS</a></td>
+        <td>$\varepsilon$, min_points</td>
+        <td>density-based</td>
+        <td>$\mathcal{O}(n \log n)$</td>
+        <td>$\varepsilon$ heavily influences the runtime</td>
+    </tr>
+    <tr>
+        <td><a href="#diana">DIANA</a></td>
+        <td></td>
+        <td>hierarchical</td>
+        <td>$\mathcal{O}(n)$</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="#birch">BIRCH</a></td>
+        <td>$k$, branching factor $B$, threshold $T$</td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="#clarans">CLARANS</a></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
 
 
 ### Statistische Modellierung
@@ -1012,7 +1093,7 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
     <dd>MetaCost ist ein Verfahren zum Relabeling (TODO: Was ist Relabeling?).
         MetaCost wendet Bagging an.<br/>
         <br/>
-        <a href="http://dl.acm.org/citation.cfm?id=312220">MetaCost: a general method for making classifiers cost-sensitive</a>
+        <a href="http://dl.acm.org/citation.cfm?id=312220">MetaCost: a general method for making classifiers cost-sensitive</a> (<a href="http://www.shortscience.org/paper?bibtexKey=conf/kdd/Domingos99">summary</a>)
     </dd>
     <dt><dfn>Boosting</dfn></dt>
     <dd>Boosting ist eine Ensemble-Learning-Technik, die mehrere Modelle vom
@@ -1161,9 +1242,9 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
   → Apriori ist teuer, wenn es sehr große Itemsets gibt. Dann müssen alle
      darin enthaltenen Itemsets gebildet werden.
 * Was kann man gegen die Schwächen von Apriori tun?<br/>
-  → TODO
+  → Laufzeit: Hash-Filter, FP-Trees, Apriori-B, Sampling; TODO
 * Was sind FP-Trees, und wie lassen sie sich für die Suche nach Frequent Itemsets verwenden?<br/>
-  → TODO
+  → Erklärung von <a href="#fp-tree">FP-Trees</a>
 * Was kann man tun, wenn FP-Trees für den Hauptspeicher zu groß sind?<br/>
   → TODO (Sampling, Projektion)
 * Was ist Constraint-basiertes Mining? Was sind die Vorteile?<br/>
@@ -1202,7 +1283,7 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
   → Dann sind gleich am Anfang mit dem ersten Objekt alle Datenobjekte in der
      Priority-Queue. Damit wäre der Aufwand für die Queue zu hoch.
 * Welche Clustering-Verfahren kennen Sie?<br/>
-  → <a href="#kmeans">$k$-means</a>, <a href="#clarans">CLARANS</a>,
+  → <a href="#k-means">$k$-means</a>, <a href="#clarans">CLARANS</a>,
      <a href="#dbscan">DBSCAN</a>, <a href="#optics">OPTICS</a>,
      <a href="#birch">BIRCH</a>, <a href="#diana">DIANA</a>, <a href="#em">EM</a>
 * Gegeben Szenario X, welche Clustering-Verfahren sind sinnvoll, und warum?<br/>
@@ -1236,10 +1317,10 @@ Die Vorlesung wurde gestreamt und ist unter
 * [Vorlesungswebsite](https://dbis.ipd.kit.edu/2261.php)
 * [Ilias](https://ilias.studium.kit.edu/goto_produktiv_crs_477914.html)
 
+Literatur:
 
-## Übungsbetrieb
-
-?
+* Harvey J. Miller,Jiawei Han: Geographic Data Mining and Knowledge Discovery
+  (Clustering)
 
 
 ## Vorlesungsempfehlungen
