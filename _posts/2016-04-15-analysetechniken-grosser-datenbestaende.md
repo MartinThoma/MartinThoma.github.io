@@ -688,7 +688,7 @@ Slides: `8-ConstrainedAssociationRules.pdf`
     <dt><dfn>2-var Constraint</dfn></dt>
     <dd>Beide Seiten (links und rechts) der Association Rule werden
         eingeschränkt.</dd>
-    <dt><dfn>Anti-Monotonizität</dfn></dt>
+    <dt><dfn id="anti-monoton">Anti-Monotonizität</dfn></dt>
     <dd>Ein 1-var Constraint heißt anti-monoton, wenn für alle Mengen $S, S'$
         gilt:
 
@@ -707,7 +707,7 @@ Slides: `8-ConstrainedAssociationRules.pdf`
 
         Eine gutartige Eigenschaft von Constraints. Hier kann das
         Constraint sehr früh überprüft werden.</dd>
-    <dt><dfn>Succinctness</dfn></dt>
+    <dt><dfn id="succinctness">Succinctness</dfn></dt>
     <dd>Ein Constraint heißt succinct, wenn alle Itemsets die es erfüllen
         schnell erzeugt werden können.<br/>
         <br/>
@@ -1089,9 +1089,13 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
     <dd>Ensemble-Learning Technik, bei der Stichproben des
         Trainingsdatenbestandes für die Classifier verwendet werden.
     </dd>
+    <dt><dfn>Relabeling</dfn></dt>
+    <dd>Überschreiben der Originalen Labels, z.B. wenn man eine
+        Attributkombination mehrfach hat, aber mit unterschiedlichen Labels,
+        dann kann dieser Kombination mit einer gewissen Wahrscheinlichkeit das
+        jeweilige Label zugewiesen werden.</dd>
     <dt><dfn>MetaCost</dfn></dt>
-    <dd>MetaCost ist ein Verfahren zum Relabeling (TODO: Was ist Relabeling?).
-        MetaCost wendet Bagging an.<br/>
+    <dd>MetaCost ist ein Verfahren zum Relabeling, welches Bagging anwendet.<br/>
         <br/>
         <a href="http://dl.acm.org/citation.cfm?id=312220">MetaCost: a general method for making classifiers cost-sensitive</a> (<a href="http://www.shortscience.org/paper?bibtexKey=conf/kdd/Domingos99">summary</a>)
     </dd>
@@ -1117,7 +1121,7 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
     nachsten Nachbarn gebildet wird, geschnitten werden.
 * Warum kann man für räumliche Anfragen nicht ohne weiteres auswerten, wenn man
   für jede Dimension separat einen B-Baum angelegt hat?<br/>
-  → TODO: Fragestellung nicht klar. War B-Baum und nicht R-Baum / kdB-Baum gemeint?
+  → Fragestellung nicht klar. War B-Baum und nicht R-Baum / kdB-Baum gemeint?
 * Wie ist ein R-Baum aufgebaut?<br/>
   → Siehe <a href="#r-tree">oben</a>.
 * Wie funktioniert die Suche nach dem nächsten Nachbarn mit dem R-Baum?<br/>
@@ -1203,7 +1207,7 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
 * Wie findet man Association Rules?<br/>
   → In der Warenkorbanalyse / in Transaktionen.
 * Wie überprüft man rasch für viele Transaktionen, welche Kandidaten sie enthalten?<br/>
-  → TODO
+  → <a href="#fp-tree">FP-Trees</a>
 * Wie muss der Datenbestand beschaffen sein, damit eine Association Rule
   <span markdown="0">$A \Rightarrow B$</span> hohen
   <a href="#support">Support</a> und hohe <a href="#confidence">Confidence</a>
@@ -1237,12 +1241,12 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
   → Association Rules die auf verschiedenen Begriffsebenenen sind, z.B.
     <span markdown="0">Oreo $\Rightarrow$ Milch</span>
 * Wie findet man multidimensionale Association Rules?<br/>
-  → TODO
+  → Hinzufügen von Transaktionen deranderen Dimensionen, nutzen von "Leveln" (TODO)
 * In welchen Situationen ist Apriori teuer, und warum?<br/>
   → Apriori ist teuer, wenn es sehr große Itemsets gibt. Dann müssen alle
      darin enthaltenen Itemsets gebildet werden.
 * Was kann man gegen die Schwächen von Apriori tun?<br/>
-  → Laufzeit: Hash-Filter, FP-Trees, Apriori-B, Sampling; TODO
+  → Laufzeit: Hash-Filter, FP-Trees, Apriori-B, Sampling
 * Was sind FP-Trees, und wie lassen sie sich für die Suche nach Frequent Itemsets verwenden?<br/>
   → Erklärung von <a href="#fp-tree">FP-Trees</a>
 * Was kann man tun, wenn FP-Trees für den Hauptspeicher zu groß sind?<br/>
@@ -1252,7 +1256,7 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
 * Was für Arten von Constraints kennen sie? Beispiele hierfür.<br/>
   → TODO
 * Was ist Anti-Monotonizität, Succinctness? <Für ein bestimmtes Constraint sagen/begründen, ob anti-monoton/succinct.><br/>
-  → TODO
+  → vgl. <a href="#anti-monoton">Anti-Monotonizität</a>, <a href="#succinctness">Succinctness</a>
 * Wie lässt sich Apriori für das Mining von Teilfolgen verallgemeinern?<br/>
   → TODO
 * Antagonismus von Support-basiertem und Constraint-basiertem Pruning erklären können.<br/>
