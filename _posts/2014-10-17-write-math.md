@@ -1,6 +1,7 @@
 ---
 layout: post
 title: On-line Handwriting Recognition of Mathematical Symbols
+slug: write-math
 author: Martin Thoma
 date: 2014-10-17 12:25
 category: Code

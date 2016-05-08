@@ -1,6 +1,7 @@
 ---
 layout: post
 title: How to solve linear congruence equations
+slug: solve-linear-congruence-equations
 author: Martin Thoma
 date: 2013-09-01 17:43:49.000000000 +02:00
 category: Mathematics

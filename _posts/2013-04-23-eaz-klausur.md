@@ -1,6 +1,7 @@
 ---
 layout: post
 title: E.i.d. Algebra und Zahlentheorie-Klausur
+slug: eaz-klausur
 author: Martin Thoma
 date: 2013-04-23 22:49:50.000000000 +02:00
 category: German posts

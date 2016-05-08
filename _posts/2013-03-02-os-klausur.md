@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Betriebssysteme Klausur
+slug: os-klausur
 author: Martin Thoma
 date: 2013-03-02 19:06:15.000000000 +01:00
 category: German posts

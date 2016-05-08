@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Why is the intersection of two normal subgroups a normal subgroup?
+slug: intersection-two-normal-subgroups-normal-subgroup/
 author: Martin Thoma
 date: 2013-08-25 18:04:56.000000000 +02:00
 category: Mathematics

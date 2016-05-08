@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Panasonic Lumix DMC-TZ41
+slug: panasonic-lumix-tz41
 author: Martin Thoma
 date: 2014-03-27 22:31
 category: Cyberculture
@@ -116,7 +117,7 @@ works like this:
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2014/03/gps-assist-tool.png" class="image">
-                  <img src="../images/2014/03/casio-exilim-ex-z200/gps-assist-tool.png" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2014/03/gps-assist-tool.png" alt="" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -210,7 +211,7 @@ with my old Casio Lumix Exilim EX-Z200.
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/blume-blau-1.jpg" class="image">
-                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/blume-blau-1-2.jpg" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/blume-blau-1.jpg" alt="" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -251,7 +252,7 @@ with my old Casio Lumix Exilim EX-Z200.
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/bank.jpg" class="image">
-                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/bank-2.jpg" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/bank.jpg" alt="" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>

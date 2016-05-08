@@ -91,13 +91,14 @@ STATIC_PATHS = ['images',
                 'extra/custom.css',
                 'extra/favicon.ico',
                 'pdf',
+                'audio',
                 'html5',
-                'audio']
+                'js']
 EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},
                        'extra/custom.css': {'path': 'static/custom.css'},
                        'extra/favicon.ico': {'path': 'favicon.ico'},
                        'pdf': {'path': 'pdf'},
-                       'html5': {'path': 'html5'},
-                       'audio': {'path': 'audio'}}
+                       'audio': {'path': 'audio'},
+                       'js': {'path': 'js'}}
 OUTPUT_PATH = '/var/www/blog/'
 # SUMMARY_MAX_LENGTH = 0
