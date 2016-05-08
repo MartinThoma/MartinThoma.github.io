@@ -1,6 +1,7 @@
 ---
 layout: post
 title: How do I calculate a Histogram equalization?
+slug: calculate-histogram-equalization
 author: Martin Thoma
 date: 2013-09-11 13:17:39.000000000 +02:00
 category: My bits and bytes

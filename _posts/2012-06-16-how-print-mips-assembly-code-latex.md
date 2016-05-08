@@ -1,6 +1,7 @@
 ---
 layout: post
 title: How to print MIPS assembly code in LaTeX
+slug: how-print-mips-assembly-code-latex
 author: Martin Thoma
 date: 2012-06-16 11:33:11.000000000 +02:00
 category: Code

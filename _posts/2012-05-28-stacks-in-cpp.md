@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Stacks in C++
+slug: stacks-in-cpp
 author: Martin Thoma
 date: 2012-05-28 11:45:40.000000000 +02:00
 category: Code

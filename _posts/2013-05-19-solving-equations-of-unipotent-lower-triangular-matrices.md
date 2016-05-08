@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Solving equations of lower unitriangular matrices
+slug: solving-equations-of-unipotent-lower-triangular-matrices
 author: Martin Thoma
 date: 2013-05-19 22:15:59.000000000 +02:00
 category: Code

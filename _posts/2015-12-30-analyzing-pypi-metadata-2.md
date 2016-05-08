@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Analyzing PyPI Data - 2
+slug: analyzing-pypi-metadata-2
 author: Martin Thoma
 date: 2015-12-30 13:28
 category: Code

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Formale Systeme Klausur
+slug: formale-systeme
 author: Martin Thoma
 date: 2014-11-16 17:05
 category: German posts
