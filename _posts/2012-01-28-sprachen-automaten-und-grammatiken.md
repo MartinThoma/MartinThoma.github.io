@@ -18,11 +18,11 @@ Die folgende Tabelle gibt einen Überblick über formale Sprachen, die Automaten
 
 <table>
 <tr>
-<th rowspan="2">Typ</td>
-<th rowspan="2">Bezeichnung</td>
-<th rowspan="2">Regeln</td>
-<th colspan="4">Abgeschlossen unter</td>
-<th rowspan="2">Modell</td>
+<th rowspan="2">Typ</th>
+<th rowspan="2">Bezeichnung</th>
+<th rowspan="2">Regeln</th>
+<th colspan="4">Abgeschlossen unter</th>
+<th rowspan="2">Modell</th>
 </tr>
 <tr>
 <th>$\cup$</th>

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: How to apply the Viterbi algorithm
+slug: apply-viterbi-algorithm
 author: Martin Thoma
 date: 2013-09-11 17:46:22.000000000 +02:00
 category: My bits and bytes

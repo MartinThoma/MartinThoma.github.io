@@ -15,7 +15,7 @@ Here is an overview of sizes in LaTeX:
             <figcaption class="text-center">TikZ thicknes</figcaption>
         </figure>
 Usage example:
-<code>\draw[ultra thick, blue,dashed](a -| current plot begin) -- (a);</code>
+`\draw[ultra thick, blue,dashed](a -| current plot begin) -- (a);`
 <ul>
 	<li><code>ultra thin</code></li>
 	<li><code>very thin</code></li>

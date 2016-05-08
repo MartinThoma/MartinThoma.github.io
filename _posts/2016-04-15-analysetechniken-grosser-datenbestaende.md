@@ -1252,7 +1252,7 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
 * Was sind FP-Trees, und wie lassen sie sich für die Suche nach Frequent Itemsets verwenden?<br/>
   → Erklärung von <a href="#fp-tree">FP-Trees</a>
 * Was kann man tun, wenn FP-Trees für den Hauptspeicher zu groß sind?<br/>
-  → TODO (Sampling, Projektion)
+  → Sampling, Projektion
 * Was ist Constraint-basiertes Mining? <br/>
   → Das minen von Assosication Rules unter Nebenbedingungen. Diese können
      entweder an die Daten oder an die Regeln gestellt werden. Eine
@@ -1311,8 +1311,8 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
 
 ### Bayes
 
-* <Gegeben ein beispielhafter Datenbestand, vergleichbar mit dem
-auf Folie 10, Vorhersage mit Naive Bayes erklären/vorführen können.><br/>
+* Gegeben ein beispielhafter Datenbestand, vergleichbar mit dem
+auf Folie 10, Vorhersage mit Naive Bayes erklären/vorführen können.<br/>
   → TODO
 * Was ändert sich, wenn die Attribute nicht voneinander unabhängig sind?<br/>
   → TODO

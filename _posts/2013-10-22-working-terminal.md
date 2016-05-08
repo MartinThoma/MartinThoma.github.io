@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Working with Terminal
+slug: working-terminal
 author: Martin Thoma
 date: 2013-10-22 10:40:46.000000000 +02:00
 category: Code

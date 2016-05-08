@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Why is the stabilizer subgroup a subgroup?
+slug: stabilizer-subgroup-subgroup
 author: Martin Thoma
 date: 2013-08-26 11:24:54.000000000 +02:00
 category: Mathematics

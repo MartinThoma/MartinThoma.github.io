@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Fractions in C++
+slug: fractions-in-cpp
 author: Martin Thoma
 date: 2013-06-01 12:00:34.000000000 +02:00
 category: Code

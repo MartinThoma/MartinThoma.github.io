@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Formatting Strings in Python
+slug: formatting-strings-python
 author: Martin Thoma
 date: 2013-11-07 20:05:33.000000000 +01:00
 category: Code

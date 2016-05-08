@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Part II: The Strassen algorithm in Python, Java and C++
+slug: strassen-algorithm-in-python-java-cpp
 author: Martin Thoma
 date: 2013-01-23 10:35:55.000000000 +01:00
 category: Code

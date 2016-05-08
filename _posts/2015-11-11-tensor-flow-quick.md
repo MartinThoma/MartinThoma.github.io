@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Tensor Flow - A quick impression
+slug: tensor-flow-quick
 author: Martin Thoma
 date: 2015-11-11 22:33
 category: Machine Learning
@@ -194,11 +195,11 @@ Not so nice:
 ### PEP8
 
 * Whitespace
-  * `W = tf.Variable(tf.zeros([784,10]))` should be
+  * `W = tf.Variable(tf.zeros([784, 10]))` should be
     `W = tf.Variable(tf.zeros([784, 10]))`.
     Missing whitespaces happened quite often.
   * Indent with 2&nbsp;spaces instead of 4&nbsp;spaces. The Google guide seems
-    also to use 4 ([example](W = tf.Variable(tf.zeros([784,10])))).
+    also to use 4.
   * Newlines between functions are missing.
 * Print statement instead of a print function was used &rightarrow;
   only Python&nbsp;2, not Python&nbsp;3.
