@@ -60,18 +60,24 @@ TAG_SAVE_AS = 'tag/{slug}/index.html'
 PLUGIN_PATHS = ['./pelican_plugin-render_math',
                 './pelican-tipue_search',
                 './pelican-toc',
+                './pelican-sitemap',
                 # './pelican-bootstrapify',
                 # './simple_footnotes',
                 ]
 PLUGINS = ['pelican_plugin-render_math',
            'tipue_search',
            'toc',
+           'sitemap',
            # 'bootstrapify',
            #            'simple_footnotes',
            ]
 
 MD_EXTENSIONS = ["codehilite(css_class=highlight)", "extra", "headerid", "toc"]
 MATH_JAX = {'auto_insert': False}
+
+SITEMAP = {
+    'exclude': ['tag/', 'category/']
+}
 
 TOC = {'TOC_HEADERS': '^h[2-3]',
        'TOC_RUN': 'true'}
