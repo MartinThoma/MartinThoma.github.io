@@ -6794,23 +6794,23 @@ When you forget to use &lt;code&gt;var&lt;/code&gt; inside of &lt;code&gt;test()
 &lt;p&gt;&lt;strong&gt;Theorem&lt;/strong&gt;: When you have a list of &lt;span class="math"&gt;\(n+1\)&lt;/span&gt; points with mutually different &lt;span class="math"&gt;\(x_i\)&lt;/span&gt; there is exactly one polynom of degree &lt;span class="math"&gt;\(\leq n\)&lt;/span&gt; that fits those points.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Proof&lt;/strong&gt;:&lt;/p&gt;
 &lt;p&gt;You can formulate a linear system of equations:&lt;/p&gt;
-&lt;p&gt;&lt;span class="math"&gt;\(\underbrace{&lt;div class="math"&gt;\begin{pmatrix}
+&lt;div class="math"&gt;$$\underbrace{\begin{pmatrix}
  x_0^0 &amp;amp; \cdots &amp;amp; x_0^n \\
 \vdots &amp;amp; \ddots &amp;amp; \vdots \\
  x_n^0 &amp;amp; \cdots &amp;amp; x_n^n
-\end{pmatrix}&lt;/div&gt;
+\end{pmatrix}
 }_{:= A \in \mathbb{R}^{(n+1) \times (n+1)}}
-&lt;div class="math"&gt;\begin{pmatrix}
+\begin{pmatrix}
 a_0 \\
 \vdots \\
 a_n
-\end{pmatrix}&lt;/div&gt;
+\end{pmatrix}
 = 
-&lt;div class="math"&gt;\begin{pmatrix}
+\begin{pmatrix}
 y_0 \\
 \vdots \\
 y_n
-\end{pmatrix}&lt;/div&gt;\)&lt;/span&gt;&lt;/p&gt;
+\end{pmatrix}$$&lt;/div&gt;
 &lt;p&gt;A matrix of the form of &lt;span class="math"&gt;\(A\)&lt;/span&gt; is called &lt;a href="https://en.wikipedia.org/wiki/Vandermonde_matrix"&gt;Vandermonde matrix&lt;/a&gt;. When the data points &lt;span class="math"&gt;\(x_i\)&lt;/span&gt; are mutually different, it is known that the Vandermonde matrix is invertible (&lt;a href="http://math.stackexchange.com/q/426932/6876"&gt;source&lt;/a&gt;).&lt;/p&gt;
 &lt;p&gt;This means, the solution &lt;span class="math"&gt;\((a_0 \dots a_n)^T\)&lt;/span&gt; of this linear equation gives the polynom &lt;span class="math"&gt;\(p(x) = \sum_{i=0}^n a_i x^i\)&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;So the solution exists and is unique &lt;span class="math"&gt;\(\blacksquare\)&lt;/span&gt;&lt;/p&gt;
@@ -6941,8 +6941,7 @@ Space complexity for the polynomial: &lt;span class="math"&gt;\(\mathcal{O}(n^2)
 &lt;p&gt;&lt;span class="math"&gt;\(\displaystyle L_{i}(x_i) := \prod_{j=0 \atop j \neq i}^n \frac{x_i-x_j}{x_i - x_j} = 1\)&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;and&lt;/p&gt;
 &lt;p&gt;&lt;span class="math"&gt;\(\displaystyle L_{i}(x_p) := \prod_{j=0 \atop j \neq i}^n \frac{x_p-x_j}{x_i - x_j} = 0 \;\; p \in \{0, \dots, n\} \setminus \{i\}\)&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;So the polynomial &lt;span class="math"&gt;\(y_i \cdot L_{i}(x)\)&lt;/span&gt; fits the point &lt;span class="math"&gt;\((x_i, y_i)\)&lt;/span&gt; and is zero for all other points. This implies that &lt;/p&gt;
-&lt;p&gt;&lt;span class="math"&gt;\(\displaystyle p(x) = \sum_{i=0}^n y_i \cdot L_i(x)\)&lt;/span&gt; is an interpolation of our data points. The degree of &lt;span class="math"&gt;\(p(x)\)&lt;/span&gt; is not higher than &lt;span class="math"&gt;\(n\)&lt;/span&gt;. You can see that easily when you take a look at the definition of &lt;span class="math"&gt;\(p(x)\)&lt;/span&gt; and &lt;span class="math"&gt;\(L_i(x)\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;So the polynomial &lt;span class="math"&gt;\(y_i \cdot L_{i}(x)\)&lt;/span&gt; fits the point &lt;span class="math"&gt;\((x_i, y_i)\)&lt;/span&gt; and is zero for all other points. This implies that &lt;span class="math"&gt;\(\displaystyle p(x) = \sum_{i=0}^n y_i \cdot L_i(x)\)&lt;/span&gt; is an interpolation of our data points. The degree of &lt;span class="math"&gt;\(p(x)\)&lt;/span&gt; is not higher than &lt;span class="math"&gt;\(n\)&lt;/span&gt;. You can see that easily when you take a look at the definition of &lt;span class="math"&gt;\(p(x)\)&lt;/span&gt; and &lt;span class="math"&gt;\(L_i(x)\)&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;The polynomials &lt;span class="math"&gt;\(L_i(x)\)&lt;/span&gt; form another base for &lt;span class="math"&gt;\(\mathbb{R}_n[X]\)&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;Lagranges way to interpolate polynomials can be implemented like this:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;lagrangeInterpolation&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;points&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
@@ -6979,16 +6978,16 @@ Space complexity for the polynomial: &lt;span class="math"&gt;\(\mathcal{O}(n^2)
 &lt;p&gt;So your polynomial is&lt;/p&gt;
 &lt;p&gt;&lt;span class="math"&gt;\(\displaystyle p(x) = \sum_{i=0}^n c_i \cdot N_i(x)\)&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;for the correct &lt;span class="math"&gt;\(c_i\)&lt;/span&gt;. You can do this by solving the following system of equations. Please note that you don't have to store that matrix to get those &lt;span class="math"&gt;\(c_i\)&lt;/span&gt;, &lt;a href="http://en.wikipedia.org/wiki/Divided_differences"&gt;divided differences&lt;/a&gt; are better.&lt;/p&gt;
-&lt;p&gt;&lt;span class="math"&gt;\(&lt;div class="math"&gt;\begin{pmatrix}
+&lt;div class="math"&gt;$$\begin{pmatrix}
 1 &amp;amp; &amp;amp; &amp;amp; &amp;amp; 0 \\
 1 &amp;amp; (x_1 - x_0) &amp;amp; &amp;amp; &amp;amp; \\
 1 &amp;amp; (x_2 - x_0) &amp;amp; (x_2 - x_0)(x_2 - x_1) &amp;amp; &amp;amp; \\
 \vdots &amp;amp; \vdots &amp;amp; &amp;amp; \ddots &amp;amp; \\
 1 &amp;amp; (x_n - x_0) &amp;amp; \cdots &amp;amp; &amp;amp; \prod_{i=0}^{n-1}(x_n - x_i) \\
-\end{pmatrix}&lt;/div&gt;
+\end{pmatrix}
 \cdot
-  &lt;div class="math"&gt;\begin{pmatrix} c_0 \\ \vdots \\ c_n \end{pmatrix}&lt;/div&gt;
-= &lt;div class="math"&gt;\begin{pmatrix} f_0 \\ \vdots \\ f_n \end{pmatrix}&lt;/div&gt;\)&lt;/span&gt;&lt;/p&gt;
+  \begin{pmatrix} c_0 \\ \vdots \\ c_n \end{pmatrix}
+= \begin{pmatrix} f_0 \\ \vdots \\ f_n \end{pmatrix}$$&lt;/div&gt;
 &lt;p&gt;You can get this lower triangular matrix like this:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;getGaussSystemForNewton&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;points&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;points&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
@@ -15362,7 +15361,7 @@ This program built &lt;span class="k"&gt;for&lt;/span&gt; i486-pc-linux-gnu
 &lt;li&gt;&lt;a href="../how-to-print-source-code-with-latex/" title="How to print Source Code with LaTeX"&gt;How to print Source Code with LaTeX&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="../briefe-mit-latex-schreiben/" title="Briefe mit LaTeX schreiben"&gt;Briefe mit LaTeX schreiben&lt;/a&gt; (A template for letters)&lt;/li&gt;
 &lt;li&gt;&lt;a href="../plotting-function-graphs-with-latex/" title="Plotting function graphs with LaTeX"&gt;Plotting function graphs with LaTeX&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="LaTeX"></category><category term="Tikz"></category></entry><entry><title>C++ Operator overloading</title><link href="https://martin-thoma.com/c-operator-overloading/" rel="alternate"></link><updated>2012-07-06T16:00:22+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2012-07-06:c-operator-overloading/</id><summary type="html">&lt;p&gt;Operator overloading is heavily used in math. One of the most famous examples I know is "+". If you add two elements from &lt;span class="math"&gt;\(\mathbb{N}\)&lt;/span&gt; you will use the same character "+" as you use for adding two numbers from &lt;span class="math"&gt;\(\mathbb{R}\)&lt;/span&gt;. You even use the plus-sign if you add matrices (which is obviously something different than adding single numbers).&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="LaTeX"></category><category term="Tikz"></category></entry><entry><title>C++ Operator overloading</title><link href="https://martin-thoma.com/cpp-operator-overloading/" rel="alternate"></link><updated>2012-07-06T16:00:22+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2012-07-06:cpp-operator-overloading/</id><summary type="html">&lt;p&gt;Operator overloading is heavily used in math. One of the most famous examples I know is "+". If you add two elements from &lt;span class="math"&gt;\(\mathbb{N}\)&lt;/span&gt; you will use the same character "+" as you use for adding two numbers from &lt;span class="math"&gt;\(\mathbb{R}\)&lt;/span&gt;. You even use the plus-sign if you add matrices (which is obviously something different than adding single numbers).&lt;/p&gt;
 &lt;p&gt;In some programming languages, like C++, you can overload operators by yourself.&lt;/p&gt;
 &lt;h2 id="first-simple-example"&gt;First simple example&lt;/h2&gt;
 &lt;p&gt;Imagine you wanted to store some data - lets say the prename, surname and age - about people you know. This could be done in a &lt;code&gt;struct&lt;/code&gt;. After you've stored it, you would like to print this information. Obviously, you don't want to do something like this:&lt;/p&gt;
@@ -15983,7 +15982,7 @@ out:
 &lt;li&gt;&lt;a href="../how-print-mips-assembly-code-latex/" title="How to print MIPS assembly code in LaTeX"&gt;How to print MIPS assembly code in LaTeX&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="../add-mips-syntax-highlighting-gedit/" title="Add MIPS syntax highlighting to gEdit"&gt;Add MIPS syntax highlighting to gEdit&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="../images/2012/06/mips-archive.zip"&gt;Archive with MIPS assembly Code and LaTeX file&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="Assembly language"></category><category term="MIPS"></category></entry><entry><title>Part I: Performance of Matrix multiplication in Python, Java and C++</title><link href="https://martin-thoma.com/part-i-performance-of-matrix-multiplication-in-python-java-and-c/" rel="alternate"></link><updated>2012-06-18T21:37:46+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2012-06-18:part-i-performance-of-matrix-multiplication-in-python-java-and-c/</id><summary type="html">&lt;div class="info"&gt;This is Part I of my matrix multiplication series. &lt;a href="../matrix-multiplication-python-java-cpp/"&gt;Part I&lt;/a&gt; was about simple matrix multiplication algorithms and &lt;a href="../strassen-algorithm-in-python-java-cpp/"&gt;Part II&lt;/a&gt; was about the Strassen algorithm.
+&lt;/ul&gt;</summary><category term="Assembly language"></category><category term="MIPS"></category></entry><entry><title>Part I: Performance of Matrix multiplication in Python, Java and C++</title><link href="https://martin-thoma.com/matrix-multiplication-python-java-cpp/" rel="alternate"></link><updated>2012-06-18T21:37:46+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2012-06-18:matrix-multiplication-python-java-cpp/</id><summary type="html">&lt;div class="info"&gt;This is Part I of my matrix multiplication series. &lt;a href="../matrix-multiplication-python-java-cpp/"&gt;Part I&lt;/a&gt; was about simple matrix multiplication algorithms and &lt;a href="../strassen-algorithm-in-python-java-cpp/"&gt;Part II&lt;/a&gt; was about the Strassen algorithm.
 &lt;a href="../part-iii-matrix-multiplication-on-multiple-cores-in-python-java-and-c/"&gt;Part III&lt;/a&gt; is about parallel matrix multiplication.&lt;/div&gt;
 &lt;p&gt;This post is about simple implementations of matrix multiplications. The goal of this post is to find out how easy it is to implement a matrix multiplication in Python, Java and C++. Additionally, I want to get to know how good these solutions are.&lt;/p&gt;
 &lt;p&gt;The second post will be an implementation of the Strassen algorithm for matrix multiplication. &lt;a href="http://en.wikipedia.org/wiki/Strassen_algorithm"&gt;Strassen algorithm&lt;/a&gt; does matrix multiplication in &lt;span class="math"&gt;\(\cal O(n^{log_2(7)+o(1)}) \approx \cal O(n^{2.807})\)&lt;/span&gt; instead of &lt;span class="math"&gt;\(\cal O(n^3)\)&lt;/span&gt;. I am quite sure this will outperform almost every other change. See Part II: &lt;a href="../strassen-algorithm-in-python-java-cpp/"&gt;The Strassen algorithm in Python, Java and C++&lt;/a&gt;.&lt;/p&gt;
@@ -16910,7 +16909,7 @@ abcabcabcabc
 &lt;li&gt;&lt;a href="../how-to-print-source-code-with-latex/" title="How to print Source Code with LaTeX"&gt;How to print Source Code with LaTeX"&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://blog.xvx.ca/typesetting-mips-assembly-with-latex"&gt;Typesetting MIPS Assembly Code in LaTeX&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="../add-mips-syntax-highlighting-gedit/" title="Add MIPS syntax highlighting to gEdit"&gt;Add MIPS syntax highlighting to gEdit&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="LaTeX"></category><category term="Assembly language"></category><category term="MIPS"></category></entry><entry><title>Add MIPS syntax highlighting to gEdit</title><link href="https://martin-thoma.com/add-mips-syntax-highlighting-to-gedit/" rel="alternate"></link><updated>2012-06-16T10:27:09+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2012-06-16:add-mips-syntax-highlighting-to-gedit/</id><summary type="html">&lt;p&gt;I have to code some little programs in MIPS assembly language for university. So I liked to have some syntax highlighting for my favorite editor: gEdit.&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="LaTeX"></category><category term="Assembly language"></category><category term="MIPS"></category></entry><entry><title>Add MIPS syntax highlighting to gEdit</title><link href="https://martin-thoma.com/add-mips-syntax-highlighting-gedit/" rel="alternate"></link><updated>2012-06-16T10:27:09+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2012-06-16:add-mips-syntax-highlighting-gedit/</id><summary type="html">&lt;p&gt;I have to code some little programs in MIPS assembly language for university. So I liked to have some syntax highlighting for my favorite editor: gEdit.&lt;/p&gt;
 &lt;p&gt;The following steps were tested on Ubuntu 10.04.4 LTS.&lt;/p&gt;
 &lt;p&gt;This adds MIPS syntax highlighting to gEdit and every editor, that uses gtksourceview.&lt;/p&gt;
 &lt;p&gt;Create the following file: &lt;code&gt;/usr/share/gtksourceview-2.0/language-specs/sal.lang&lt;/code&gt;&lt;/p&gt;

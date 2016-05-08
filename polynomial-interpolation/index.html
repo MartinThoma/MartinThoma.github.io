@@ -111,23 +111,23 @@ MathJax.Hub.Queue(function() {
 <p><strong>Theorem</strong>: When you have a list of <span class="math">\(n+1\)</span> points with mutually different <span class="math">\(x_i\)</span> there is exactly one polynom of degree <span class="math">\(\leq n\)</span> that fits those points.</p>
 <p><strong>Proof</strong>:</p>
 <p>You can formulate a linear system of equations:</p>
-<p><span class="math">\(\underbrace{<div class="math">\begin{pmatrix}
+<div class="math">$$\underbrace{\begin{pmatrix}
  x_0^0 &amp; \cdots &amp; x_0^n \\
 \vdots &amp; \ddots &amp; \vdots \\
  x_n^0 &amp; \cdots &amp; x_n^n
-\end{pmatrix}</div>
+\end{pmatrix}
 }_{:= A \in \mathbb{R}^{(n+1) \times (n+1)}}
-<div class="math">\begin{pmatrix}
+\begin{pmatrix}
 a_0 \\
 \vdots \\
 a_n
-\end{pmatrix}</div>
+\end{pmatrix}
 = 
-<div class="math">\begin{pmatrix}
+\begin{pmatrix}
 y_0 \\
 \vdots \\
 y_n
-\end{pmatrix}</div>\)</span></p>
+\end{pmatrix}$$</div>
 <p>A matrix of the form of <span class="math">\(A\)</span> is called <a href="https://en.wikipedia.org/wiki/Vandermonde_matrix">Vandermonde matrix</a>. When the data points <span class="math">\(x_i\)</span> are mutually different, it is known that the Vandermonde matrix is invertible (<a href="http://math.stackexchange.com/q/426932/6876">source</a>).</p>
 <p>This means, the solution <span class="math">\((a_0 \dots a_n)^T\)</span> of this linear equation gives the polynom <span class="math">\(p(x) = \sum_{i=0}^n a_i x^i\)</span></p>
 <p>So the solution exists and is unique <span class="math">\(\blacksquare\)</span></p>
@@ -258,8 +258,7 @@ Space complexity for the polynomial: <span class="math">\(\mathcal{O}(n^2)\)</sp
 <p><span class="math">\(\displaystyle L_{i}(x_i) := \prod_{j=0 \atop j \neq i}^n \frac{x_i-x_j}{x_i - x_j} = 1\)</span></p>
 <p>and</p>
 <p><span class="math">\(\displaystyle L_{i}(x_p) := \prod_{j=0 \atop j \neq i}^n \frac{x_p-x_j}{x_i - x_j} = 0 \;\; p \in \{0, \dots, n\} \setminus \{i\}\)</span></p>
-<p>So the polynomial <span class="math">\(y_i \cdot L_{i}(x)\)</span> fits the point <span class="math">\((x_i, y_i)\)</span> and is zero for all other points. This implies that </p>
-<p><span class="math">\(\displaystyle p(x) = \sum_{i=0}^n y_i \cdot L_i(x)\)</span> is an interpolation of our data points. The degree of <span class="math">\(p(x)\)</span> is not higher than <span class="math">\(n\)</span>. You can see that easily when you take a look at the definition of <span class="math">\(p(x)\)</span> and <span class="math">\(L_i(x)\)</span>.</p>
+<p>So the polynomial <span class="math">\(y_i \cdot L_{i}(x)\)</span> fits the point <span class="math">\((x_i, y_i)\)</span> and is zero for all other points. This implies that <span class="math">\(\displaystyle p(x) = \sum_{i=0}^n y_i \cdot L_i(x)\)</span> is an interpolation of our data points. The degree of <span class="math">\(p(x)\)</span> is not higher than <span class="math">\(n\)</span>. You can see that easily when you take a look at the definition of <span class="math">\(p(x)\)</span> and <span class="math">\(L_i(x)\)</span>.</p>
 <p>The polynomials <span class="math">\(L_i(x)\)</span> form another base for <span class="math">\(\mathbb{R}_n[X]\)</span>.</p>
 <p>Lagranges way to interpolate polynomials can be implemented like this:</p>
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">lagrangeInterpolation</span><span class="p">(</span><span class="n">points</span><span class="p">):</span>
@@ -296,16 +295,16 @@ Space complexity for the polynomial: <span class="math">\(\mathcal{O}(n^2)\)</sp
 <p>So your polynomial is</p>
 <p><span class="math">\(\displaystyle p(x) = \sum_{i=0}^n c_i \cdot N_i(x)\)</span></p>
 <p>for the correct <span class="math">\(c_i\)</span>. You can do this by solving the following system of equations. Please note that you don't have to store that matrix to get those <span class="math">\(c_i\)</span>, <a href="http://en.wikipedia.org/wiki/Divided_differences">divided differences</a> are better.</p>
-<p><span class="math">\(<div class="math">\begin{pmatrix}
+<div class="math">$$\begin{pmatrix}
 1 &amp; &amp; &amp; &amp; 0 \\
 1 &amp; (x_1 - x_0) &amp; &amp; &amp; \\
 1 &amp; (x_2 - x_0) &amp; (x_2 - x_0)(x_2 - x_1) &amp; &amp; \\
 \vdots &amp; \vdots &amp; &amp; \ddots &amp; \\
 1 &amp; (x_n - x_0) &amp; \cdots &amp; &amp; \prod_{i=0}^{n-1}(x_n - x_i) \\
-\end{pmatrix}</div>
+\end{pmatrix}
 \cdot
-  <div class="math">\begin{pmatrix} c_0 \\ \vdots \\ c_n \end{pmatrix}</div>
-= <div class="math">\begin{pmatrix} f_0 \\ \vdots \\ f_n \end{pmatrix}</div>\)</span></p>
+  \begin{pmatrix} c_0 \\ \vdots \\ c_n \end{pmatrix}
+= \begin{pmatrix} f_0 \\ \vdots \\ f_n \end{pmatrix}$$</div>
 <p>You can get this lower triangular matrix like this:</p>
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">getGaussSystemForNewton</span><span class="p">(</span><span class="n">points</span><span class="p">):</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
