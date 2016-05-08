@@ -1251,10 +1251,17 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
   → Erklärung von <a href="#fp-tree">FP-Trees</a>
 * Was kann man tun, wenn FP-Trees für den Hauptspeicher zu groß sind?<br/>
   → TODO (Sampling, Projektion)
-* Was ist Constraint-basiertes Mining? Was sind die Vorteile?<br/>
-  → TODO
+* Was ist Constraint-basiertes Mining? <br/>
+  → Das minen von Assosication Rules unter Nebenbedingungen. Diese können
+     entweder an die Daten oder an die Regeln gestellt werden. Eine
+     Nebenbedingung an die Daten wäre z.B. dass nur Items betrachtet werden,
+     die mindestens 100&nbsp;Euro Wert sind. Eine Nebenbedingung an die Regeln
+     wäre, dass es mindestens 3 Elemente auf der rechten Seite sind.
+* Was sind die Vorteile von Constraint-basiertem Association-rule Mining?<br/>
+  → Durch die Regeln kann man gegebenenfalls das Minen beschleunigen und für
+    den Nutzer interessantere Regeln finden.
 * Was für Arten von Constraints kennen sie? Beispiele hierfür.<br/>
-  → TODO
+  → Data-Constraints (Wert der Items über 100&nbsp;Euro) und Rule-Constraints (min. 3 Elemente auf der rechten Seite).
 * Was ist Anti-Monotonizität, Succinctness? <Für ein bestimmtes Constraint sagen/begründen, ob anti-monoton/succinct.><br/>
   → vgl. <a href="#anti-monoton">Anti-Monotonizität</a>, <a href="#succinctness">Succinctness</a>
 * Wie lässt sich Apriori für das Mining von Teilfolgen verallgemeinern?<br/>
