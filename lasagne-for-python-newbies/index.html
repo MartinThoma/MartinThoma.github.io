@@ -1,56 +1,38 @@
-<!doctype html>
-<html lang="en">
-  <!-- type: head.html -->
-  <head>
-    <meta charset="utf-8">
-    
-    
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
 
-    
-        <meta name="image" content="https://martin-thoma.com/images/logos/python.png" />
-        <meta name="thumbnail" content="//martin-thoma.com/images/logos/python.png" />
-        <meta property="og:image" content="//martin-thoma.com/images/logos/python.png" />
-    
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
 
-    <meta property="og:type" content="blog"/>
+<meta name="keywords" content="Python, Machine Learning, Machine Learning, " />
 
-    <title>Lasagne for Python Newbies</title>
-    <meta property="og:title" content="Lasagne for Python Newbies" />
-    <meta property="og:url" content="//martin-thoma.com/lasagne-for-python-newbies" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/screen.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/style.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/pygments.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/tocplus-screen.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/print.css" type="text/css" media="print" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-width: 480px)" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="Lasagne for Python Newbies "/>
+<meta property="og:url" content="../lasagne-for-python-newbies/" />
+<meta property="og:description" content="Lasagne is a Python package for training neural networks. The nice thing about Lasagne is that it is possible to write Python code and execute the training on nVidea GPUs with automatically generated CUDA code. However, installing Lasagne is not that easy. Especially if you are not familiar with Python ..." />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2015-04-17T19:26:00+02:00" />
+<meta name="twitter:title" content="Lasagne for Python Newbies ">
+<meta name="twitter:description" content="Lasagne is a Python package for training neural networks. The nice thing about Lasagne is that it is possible to write Python code and execute the training on nVidea GPUs with automatically generated CUDA code. However, installing Lasagne is not that easy. Especially if you are not familiar with Python ...">
+<meta property="og:image" content="logos/python.png" />
+<meta name="twitter:image" content="logos/python.png" >
 
-    <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="//martin-thoma.com/feed/" /><!--TODO-->
-    <link rel="shortcut icon" href="//martin-thoma.com/favicon.ico" type="image/x-icon" />
+        <title>Lasagne for Python Newbies  · Martin Thoma
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
 
-    <link rel="canonical" href="//martin-thoma.com/lasagne-for-python-newbies" />
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:site" content="@themoosemind"/>
-<meta name="twitter:creator" content="@themoosemind"/>
-<meta name="twitter:title" content="Lasagne for Python Newbies"/>
-
-    <meta name="twitter:description" content="A blog about Code, the Web and Cyberculture" />
-
-
-    <meta name="twitter:image" content="//martin-thoma.com/images/logos/python.png"/>
-
-
-
-<meta name="twitter:url" content="//martin-thoma.com/lasagne-for-python-newbies"/>
-<meta name="twitter:domain" content="Martin Thoma.com"/>
-
-
-    <script type='text/javascript' src="//martin-thoma.com/js/jquery.js"></script>
-    <script type='text/javascript' src="//martin-thoma.com/js/jquery-migrate.min.js"></script>
-    <style type="text/css">div#toc_container {width: 275px;}</style>
-    <style type="text/css" id="syntaxhighlighteranchor"></style>
-
-<!-- MathJax -->
+        <!-- MathJax -->
 <script type="text/x-mathjax-config">
 <!--
 MathJax.Hub.Config({
@@ -74,150 +56,111 @@ MathJax.Hub.Queue(function() {
 <script type="text/javascript" async
   src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
-
-<!-- Latest compiled and minified CSS bootstrap -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-</head>
-
-<!-- type: post.html -->
-<body>
-    <div id="wrapper">
-        <div id="container" class="container">
-            <div class="span-16">
-                <!-- type: header.html -->
-<div id="header" role="banner">
-    <h1><a href="//martin-thoma.com">Martin Thoma</a></h1>
-    <h2 style="margin-top: 0;">A blog about Code, the Web and Cyberculture.</h2>
+        
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="../"><span class=site-name>Martin Thoma</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="../lasagne-for-python-newbies/"> Lasagne for Python Newbies  </a></h1>
+    </header>
 </div>
-<nav class="navcontainer" role="navigation">
-    <ul id="nav">
-        <li class=""><a href="//martin-thoma.com">Home</a></li>
-        <li class="page_item page-item-41 "><a href="//martin-thoma.com/author/martin-thoma/">About Me</a></li>
-        <li class="page_item page-item-91 "><a href="//martin-thoma.com/imprint/">Imprint</a></li>
-    </ul>
-</nav>
 
-                <div id="content">
-                    <article class="post type-post format-standard hentry clearfix" itemscope itemType="http://schema.org/BlogPosting">
-                        <h2 class="title entry-title" itemprop="name headline">Lasagne for Python Newbies</h2>
-                        <link itemprop="mainEntityOfPage" href="//martin-thoma.com/lasagne-for-python-newbies" />
-                        <div class="postdate entry-date date-header">
-                            <time datetime="2015-04-17T19:26:00+02:00" itemprop="datePublished">
-                                April
-                                17th,
-                                  
-                                2015
-                            </time>
-                        </div>
+<div class="row-fluid">
+    <div class="span2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#python" title="Python">Python</a></li><li><a class="toc-href" href="#sklearn" title="sklearn">sklearn</a></li><li><a class="toc-href" href="#graphics-drivers-and-cuda" title="Graphics drivers and CUDA">Graphics drivers and CUDA</a></li><li><a class="toc-href" href="#theano" title="Theano">Theano</a></li><li><a class="toc-href" href="#lasagne" title="Lasagne">Lasagne</a></li><li><a class="toc-href" href="#nolearn" title="nolearn">nolearn</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="span8 article-content" id="contentAfterTitle">
 
-                        <div class="entry post-body" id="contentAfterTitle" itemprop="articleBody">
-                            <p>Lasagne is a Python package for training neural networks. The nice thing about
+            
+            <p>Lasagne is a Python package for training neural networks. The nice thing about
 Lasagne is that it is possible to write Python code and execute the training
 on nVidea GPUs with automatically generated CUDA code.</p>
-
 <p>However, installing Lasagne is not that easy. Especially if you are not
 familiar with Python. This article aims to guide you through the installation
 process.</p>
-
-<div id="toc_container" class="toc_light_blue no_bullets">
-   <p class="toc_title">Contents</p>
-   <ul class="toc_list">
-      <li class="toc_level-1 toc_section-1">
-         <a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">Python</span></a>
-      </li>
-      <li class="toc_level-1 toc_section-2">
-         <a href="#tocAnchor-1-2"><span class="tocnumber">2</span> <span class="toctext">sklearn</span></a>
-      </li>
-      <li class="toc_level-1 toc_section-3">
-         <a href="#tocAnchor-1-3"><span class="tocnumber">3</span> <span class="toctext">Graphics drivers and CUDA</span></a>
-      </li>
-      <li class="toc_level-1 toc_section-4">
-         <a href="#tocAnchor-1-4"><span class="tocnumber">4</span> <span class="toctext">Theano</span></a>
-      </li>
-      <li class="toc_level-1 toc_section-5">
-         <a href="#tocAnchor-1-5"><span class="tocnumber">5</span> <span class="toctext">Lasagne</span></a>
-      </li>
-      <li class="toc_level-1 toc_section-6">
-         <a href="#tocAnchor-1-6"><span class="tocnumber">6</span> <span class="toctext">nolearn</span></a>
-      </li>
-      <li class="toc_level-1 toc_section-7">
-         <a href="#tocAnchor-1-7"><span class="tocnumber">7</span> <span class="toctext">See also</span></a>
-      </li>
-   </ul>
-</div><h2 id="tocAnchor-1-1">Python</h2>
-
-<p>Ubuntu-based systems will have Python installed, but I’m not too sure about
+<h2 id="python">Python</h2>
+<p>Ubuntu-based systems will have Python installed, but I'm not too sure about
 pip. You can get it with</p>
-
-<pre><code>$ sudo apt-get install python-pip
-</code></pre>
-
+<div class="highlight"><pre>$ sudo apt-get install python-pip
+</pre></div>
 <p>Make sure you have Python and <code>pip</code>, the standard Python package installer.
 Type the following commands to check if you have both:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ python --version
+<div class="highlight"><pre>$ python --version
 Python 2.7.8
 
 $ pip --version
-pip 6.1.1 from /usr/local/lib/python2.7/dist-packages (python 2.7)
+pip 6.1.1 from /usr/local/lib/python2.7/dist-packages <span class="o">(</span>python 2.7<span class="o">)</span>
 </pre></div>
-</div>
-</div>
-
-<h2 id="tocAnchor-1-2">sklearn</h2>
-
+<h2 id="sklearn">sklearn</h2>
 <p><a href="http://scikit-learn.org/stable/">sklearn</a> is a nice package for machine
 learning. You can install it with</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ pip install scikit-learn
+<div class="highlight"><pre>$ pip install scikit-learn
 </pre></div>
-</div>
-</div>
-
 <p>(When I write commands like this you either have to execute
 <code>sudo pip install scikit-learn</code> or <code>pip install scikit-learn --user</code>).</p>
-
 <p>This should work without problems.</p>
-
 <p>Each classifier has a <code>fit</code> method and a <code>predict</code> method. See
 <a href="http://scikit-learn.org/stable/auto_examples/svm/plot_iris.html">iris example</a>
 to get a feeling how to use it. It provides a lot of useful functions like
 <a href="http://scikit-learn.org/stable/modules/generated/sklearn.cross_validation.train_test_split.html"><code>train_test_split</code></a>
 and has an awesome documentation.</p>
-
-<p>You don’t need this for Lasagne, but it might be good to use sklearn and
+<p>You don't need this for Lasagne, but it might be good to use sklearn and
 Lasagne in combination.</p>
-
-<h2 id="tocAnchor-1-3">Graphics drivers and CUDA</h2>
-
+<h2 id="graphics-drivers-and-cuda">Graphics drivers and CUDA</h2>
 <p>Make sure CUDA runs on your system by the following commands.
-If it doesn’t run, you could try the following guides:</p>
-
+If it doesn't run, you could try the following guides:</p>
 <ul>
-  <li><a href="http://askubuntu.com/q/451672/10425">Installing and testing CUDA in Ubuntu 14.04</a></li>
-  <li><a href="http://www.r-tutor.com/gpu-computing/cuda-installation/cuda6.5-ubuntu">Installing CUDA Toolkit 6.5 on Ubuntu 14.04 Linux</a></li>
-  <li><a href="http://docs.nvidia.com/cuda/cuda-getting-started-guide-for-linux/#axzz3XaMVcNwV">NVIDIA CUDA Getting Started Guide for Linux</a></li>
+<li><a href="http://askubuntu.com/q/451672/10425">Installing and testing CUDA in Ubuntu 14.04</a></li>
+<li><a href="http://www.r-tutor.com/gpu-computing/cuda-installation/cuda6.5-ubuntu">Installing CUDA Toolkit 6.5 on Ubuntu 14.04 Linux</a></li>
+<li><a href="http://docs.nvidia.com/cuda/cuda-getting-started-guide-for-linux/#axzz3XaMVcNwV">NVIDIA CUDA Getting Started Guide for Linux</a></li>
 </ul>
-
 <p>Run</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ nvidia-smi -L
-GPU 0: GeForce GTX TITAN Black (UUID: GPU-abcdef12-abcd-1234-1234-01234567890a)
+<div class="highlight"><pre>$ nvidia-smi -L
+GPU 0: GeForce GTX TITAN Black <span class="o">(</span>UUID: GPU-abcdef12-abcd-1234-1234-01234567890a<span class="o">)</span>
 
 $ nvcc --version
-nvcc: NVIDIA (R) Cuda compiler driver
-Copyright (c) 2005-2013 NVIDIA Corporation
+nvcc: NVIDIA <span class="o">(</span>R<span class="o">)</span> Cuda compiler driver
+Copyright <span class="o">(</span>c<span class="o">)</span> 2005-2013 NVIDIA Corporation
 Built on Thu_Mar_13_11:58:58_PDT_2014
 Cuda compilation tools, release 6.0, V6.0.1
 
 $ nvidia-smi -a
 
-==============NVSMI LOG==============
+<span class="o">==============</span>NVSMI <span class="nv">LOG</span><span class="o">==============</span>
 
-Timestamp                           : Fri Apr 17 18:44:41 2015
+Timestamp                           : Fri Apr <span class="m">17</span> 18:44:41 2015
 Driver Version                      : 331.79
 
 Attached GPUs                       : 1
@@ -260,13 +203,13 @@ GPU 0000:01:00.0
         Bridge Chip
             Type                    : N/A
             Firmware                : N/A
-    Fan Speed                       : 26 %
+    Fan Speed                       : <span class="m">26</span> %
     Performance State               : N/A
     Clocks Throttle Reasons         : N/A
     FB Memory Usage
-        Total                       : 6143 MiB
-        Used                        : 39 MiB
-        Free                        : 6104 MiB
+        Total                       : <span class="m">6143</span> MiB
+        Used                        : <span class="m">39</span> MiB
+        Free                        : <span class="m">6104</span> MiB
     BAR1 Memory Usage
         Total                       : N/A
         Used                        : N/A
@@ -314,7 +257,7 @@ GPU 0000:01:00.0
         Double Bit ECC              : N/A
         Pending                     : N/A
     Temperature
-        Gpu                         : 29 C
+        Gpu                         : <span class="m">29</span> C
     Power Readings
         Power Management            : N/A
         Power Draw                  : N/A
@@ -339,105 +282,69 @@ GPU 0000:01:00.0
         Memory                      : N/A
     Compute Processes               : N/A
 </pre></div>
-</div>
-</div>
-
 <p>to see if CUDA was installed correctly.</p>
-
-<h2 id="tocAnchor-1-4">Theano</h2>
-
-<p>The installation of Theano is a bit tricky (see <a href="http://deeplearning.net/software/theano/install.html">official page</a>). I don’t remember if I installed additional packages, but try</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ sudo -H pip install theano
+<h2 id="theano">Theano</h2>
+<p>The installation of Theano is a bit tricky (see <a href="http://deeplearning.net/software/theano/install.html">official page</a>). I don't remember if I installed additional packages, but try</p>
+<div class="highlight"><pre>$ sudo -H pip install theano
 </pre></div>
-</div>
-</div>
-
 <p>Make sure that your <code>~/.theanorc</code> exists and looks like this:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>[global]
+<div class="highlight"><pre>[global]
 device=gpu
 floatX=float32
 </pre></div>
-</div>
-</div>
-
 <p>Note that <code>float32</code> is required, even if you have a 64bit system.</p>
-
 <p>To test your installation, save the following as <code>theanotest.py</code> and execute
 it with <code>python theanotest.py</code>:</p>
+<div class="highlight"><pre><span class="ch">#!/usr/bin/env python</span>
+<span class="kn">from</span> <span class="nn">theano</span> <span class="kn">import</span> <span class="n">function</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">shared</span><span class="p">,</span> <span class="n">sandbox</span>
+<span class="kn">import</span> <span class="nn">theano.tensor</span> <span class="kn">as</span> <span class="nn">T</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">time</span>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#777">#!/usr/bin/env python</span>
-<span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">theano</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">function</span>, <span style="color:#B44;font-weight:bold">config</span>, <span style="color:#B44;font-weight:bold">shared</span>, <span style="color:#B44;font-weight:bold">sandbox</span>
-<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">theano.tensor</span> <span style="color:#080;font-weight:bold">as</span> T
-<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">numpy</span>
-<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">time</span>
+<span class="n">vlen</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="mi">30</span> <span class="o">*</span> <span class="mi">768</span>  <span class="c1"># 10 x #cores x # threads per core</span>
+<span class="n">iters</span> <span class="o">=</span> <span class="mi">1000</span>
 
-vlen = <span style="color:#00D">10</span> * <span style="color:#00D">30</span> * <span style="color:#00D">768</span>  <span style="color:#777"># 10 x #cores x # threads per core</span>
-iters = <span style="color:#00D">1000</span>
-
-rng = numpy.random.RandomState(<span style="color:#00D">22</span>)
-x = shared(numpy.asarray(rng.rand(vlen), config.floatX))
-f = function([], T.exp(x))
-<span style="color:#080;font-weight:bold">print</span> f.maker.fgraph.toposort()
-t0 = time.time()
-<span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">xrange</span>(iters):
-    r = f()
-t1 = time.time()
-<span style="color:#080;font-weight:bold">print</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Looping %d times took</span><span style="color:#710">'</span></span> % iters, t1 - t0, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">seconds</span><span style="color:#710">'</span></span>
-<span style="color:#080;font-weight:bold">print</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Result is</span><span style="color:#710">'</span></span>, r
-<span style="color:#080;font-weight:bold">if</span> numpy.any([<span style="color:#369;font-weight:bold">isinstance</span>(x.op, T.Elemwise) <span style="color:#080;font-weight:bold">for</span> x <span style="color:#080;font-weight:bold">in</span> f.maker.fgraph.toposort()]):
-    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Used the cpu</span><span style="color:#710">'</span></span>)
-<span style="color:#080;font-weight:bold">else</span>:
-    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Used the gpu</span><span style="color:#710">'</span></span>)
+<span class="n">rng</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">22</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">shared</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">vlen</span><span class="p">),</span> <span class="n">config</span><span class="o">.</span><span class="n">floatX</span><span class="p">))</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">function</span><span class="p">([],</span> <span class="n">T</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="k">print</span> <span class="n">f</span><span class="o">.</span><span class="n">maker</span><span class="o">.</span><span class="n">fgraph</span><span class="o">.</span><span class="n">toposort</span><span class="p">()</span>
+<span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">iters</span><span class="p">):</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">f</span><span class="p">()</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="k">print</span> <span class="s1">'Looping </span><span class="si">%d</span><span class="s1"> times took'</span> <span class="o">%</span> <span class="n">iters</span><span class="p">,</span> <span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">,</span> <span class="s1">'seconds'</span>
+<span class="k">print</span> <span class="s1">'Result is'</span><span class="p">,</span> <span class="n">r</span>
+<span class="k">if</span> <span class="n">numpy</span><span class="o">.</span><span class="n">any</span><span class="p">([</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">op</span><span class="p">,</span> <span class="n">T</span><span class="o">.</span><span class="n">Elemwise</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">maker</span><span class="o">.</span><span class="n">fgraph</span><span class="o">.</span><span class="n">toposort</span><span class="p">()]):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'Used the cpu'</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'Used the gpu'</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
-
 <p>It should print the following (well, something similar):</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>Using gpu device 0: GeForce GTX TITAN Black
+<div class="highlight"><pre>Using gpu device 0: GeForce GTX TITAN Black
 [GpuElemwise{exp,no_inplace}(&lt;CudaNdarrayType(float32, vector)&gt;), HostFromGpu(GpuElemwise{exp,no_inplace}.0)]
 Looping 1000 times took 0.38205909729 seconds
 Result is [ 1.23178029  1.61879349  1.52278066 ...,  2.20771813  2.29967761
   1.62323296]
 Used the gpu
 </pre></div>
-</div>
-</div>
-
-<p>Especially “used the gpu” is important. Theano code work on both, CPU and GPU.
+<p>Especially "used the gpu" is important. Theano code work on both, CPU and GPU.
 If you have a GPU and it does not currently work on a task and it is configured
 correctly, then Theano should automatically use the GPU.</p>
-
-<p>(Don’t try to run two Theano scripts at a time … weird things could happen.)</p>
-
-<h2 id="tocAnchor-1-5">Lasagne</h2>
-
+<p>(Don't try to run two Theano scripts at a time ... weird things could happen.)</p>
+<h2 id="lasagne">Lasagne</h2>
 <p>Lasagne is hosted at Github: <a href="https://github.com/Lasagne/Lasagne">https://github.com/Lasagne/Lasagne</a></p>
-
 <p>Currently, it is not on pip as Sander wants to wait until we get to version
 1.0. So you have to install it manually:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ git clone https://github.com/Lasagne/Lasagne.git
-$ cd Lasagne
+<div class="highlight"><pre>$ git clone https://github.com/Lasagne/Lasagne.git
+$ <span class="nb">cd</span> Lasagne
 Lasagne$ sudo -H python setup.py install
 </pre></div>
-</div>
-</div>
-
 <p>Now you can test if it worked by executing the MNIST example in Lasagne
 (<a href="http://yann.lecun.com/exdb/mnist/">MNIST</a> is a huge digit dataset). This
 might first take some time to download, but should then run quite fast. If
 your machine does not use the GPU it will take ages (e.g. on my laptop it takes
 about a minute for one epoch)</p>
-
-<pre><code>Lasagne/examples$ python mnist.py
+<div class="highlight"><pre>Lasagne/examples$ python mnist.py
 Loading data...
 Downloading MNIST dataset
 Building model and compiling functions...
@@ -450,138 +357,123 @@ Epoch 1 of 500 took 72.593s
   training loss:        1.330231
   validation loss:        0.470251
   validation accuracy:        87.54 %%
-</code></pre>
-
-<h2 id="tocAnchor-1-6">nolearn</h2>
-
+</pre></div>
+<h2 id="nolearn">nolearn</h2>
 <p><a href="https://github.com/dnouri/nolearn">nolearn</a> is another Python package. It was
 created to make using Lasagne even simpler.</p>
-
 <p>You can install it via</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ git clone https://github.com/dnouri/nolearn.git
-$ cd nolearn
+<div class="highlight"><pre>$ git clone https://github.com/dnouri/nolearn.git
+$ <span class="nb">cd</span> nolearn
 $ python setup.py install --user
 </pre></div>
-</div>
-</div>
-
 <p>For example, the following code downloads the MNIST dataset, trains a model on
 it and evaluates the result for a single image:</p>
+<div class="highlight"><pre><span class="ch">#!/usr/bin/env python</span>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#777">#!/usr/bin/env python</span>
+<span class="kn">import</span> <span class="nn">lasagne</span>
+<span class="kn">from</span> <span class="nn">lasagne</span> <span class="kn">import</span> <span class="n">layers</span>
+<span class="kn">from</span> <span class="nn">lasagne.updates</span> <span class="kn">import</span> <span class="n">nesterov_momentum</span>
+<span class="kn">from</span> <span class="nn">nolearn.lasagne</span> <span class="kn">import</span> <span class="n">NeuralNet</span>
 
-<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">lasagne</span>
-<span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">lasagne</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">layers</span>
-<span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">lasagne.updates</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">nesterov_momentum</span>
-<span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">nolearn.lasagne</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">NeuralNet</span>
-
-<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">sys</span>
-<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">os</span>
-<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">gzip</span>
-<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">pickle</span>
-<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">numpy</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">gzip</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
 
 
-PY2 = sys.version_info[<span style="color:#00D">0</span>] == <span style="color:#00D">2</span>
+<span class="n">PY2</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span>
 
-<span style="color:#080;font-weight:bold">if</span> PY2:
-    <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">urllib</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">urlretrieve</span>
+<span class="k">if</span> <span class="n">PY2</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">urllib</span> <span class="kn">import</span> <span class="n">urlretrieve</span>
 
-    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">pickle_load</span>(f, encoding):
-        <span style="color:#080;font-weight:bold">return</span> pickle.load(f)
-<span style="color:#080;font-weight:bold">else</span>:
-    <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">urllib.request</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">urlretrieve</span>
+    <span class="k">def</span> <span class="nf">pickle_load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">encoding</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlretrieve</span>
 
-    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">pickle_load</span>(f, encoding):
-        <span style="color:#080;font-weight:bold">return</span> pickle.load(f, encoding=encoding)
+    <span class="k">def</span> <span class="nf">pickle_load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">encoding</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">)</span>
 
-DATA_URL = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">http://deeplearning.net/data/mnist/mnist.pkl.gz</span><span style="color:#710">'</span></span>
-DATA_FILENAME = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mnist.pkl.gz</span><span style="color:#710">'</span></span>
-
-
-<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">_load_data</span>(url=DATA_URL, filename=DATA_FILENAME):
-    <span style="color:#D42"><span style="color:black">"""</span><span>Load data from `url` and store the result in `filename`.</span><span style="color:black">"""</span></span>
-    <span style="color:#080;font-weight:bold">if</span> <span style="color:#080;font-weight:bold">not</span> os.path.exists(filename):
-        print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Downloading MNIST dataset</span><span style="color:#710">"</span></span>)
-        urlretrieve(url, filename)
-
-    <span style="color:#080;font-weight:bold">with</span> gzip.open(filename, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">rb</span><span style="color:#710">'</span></span>) <span style="color:#080;font-weight:bold">as</span> f:
-        <span style="color:#080;font-weight:bold">return</span> pickle_load(f, encoding=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">latin-1</span><span style="color:#710">'</span></span>)
+<span class="n">DATA_URL</span> <span class="o">=</span> <span class="s1">'http://deeplearning.net/data/mnist/mnist.pkl.gz'</span>
+<span class="n">DATA_FILENAME</span> <span class="o">=</span> <span class="s1">'mnist.pkl.gz'</span>
 
 
-<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">load_data</span>():
-    <span style="color:#D42"><span style="color:black">"""</span><span>Get data with labels, split into training, validation and test set.</span><span style="color:black">"""</span></span>
-    data = _load_data()
-    X_train, y_train = data[<span style="color:#00D">0</span>]
-    X_valid, y_valid = data[<span style="color:#00D">1</span>]
-    X_test, y_test = data[<span style="color:#00D">2</span>]
-    y_train = numpy.asarray(y_train, dtype=numpy.int32)
-    y_valid = numpy.asarray(y_valid, dtype=numpy.int32)
-    y_test = numpy.asarray(y_test, dtype=numpy.int32)
+<span class="k">def</span> <span class="nf">_load_data</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">DATA_URL</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">DATA_FILENAME</span><span class="p">):</span>
+    <span class="sd">"""Load data from `url` and store the result in `filename`."""</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">"Downloading MNIST dataset"</span><span class="p">)</span>
+        <span class="n">urlretrieve</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
 
-    <span style="color:#080;font-weight:bold">return</span> <span style="color:#369;font-weight:bold">dict</span>(
-        X_train=X_train,
-        y_train=y_train,
-        X_valid=X_valid,
-        y_valid=y_valid,
-        X_test=X_test,
-        y_test=y_test,
-        num_examples_train=X_train.shape[<span style="color:#00D">0</span>],
-        num_examples_valid=X_valid.shape[<span style="color:#00D">0</span>],
-        num_examples_test=X_test.shape[<span style="color:#00D">0</span>],
-        input_dim=X_train.shape[<span style="color:#00D">1</span>],
-        output_dim=<span style="color:#00D">10</span>,
-    )
+    <span class="k">with</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">pickle_load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'latin-1'</span><span class="p">)</span>
 
 
-<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">nn_example</span>(data):
-    net1 = NeuralNet(
-        layers=[(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">input</span><span style="color:#710">'</span></span>, layers.InputLayer),
-                (<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">hidden</span><span style="color:#710">'</span></span>, layers.DenseLayer),
-                (<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">output</span><span style="color:#710">'</span></span>, layers.DenseLayer),
-                ],
-        <span style="color:#777"># layer parameters:</span>
-        input_shape=(<span style="color:#069">None</span>, <span style="color:#00D">28</span>*<span style="color:#00D">28</span>),
-        hidden_num_units=<span style="color:#00D">100</span>,  <span style="color:#777"># number of units in 'hidden' layer</span>
-        output_nonlinearity=lasagne.nonlinearities.softmax,
-        output_num_units=<span style="color:#00D">10</span>,  <span style="color:#777"># 10 target values for the digits 0, 1, 2, ..., 9</span>
+<span class="k">def</span> <span class="nf">load_data</span><span class="p">():</span>
+    <span class="sd">"""Get data with labels, split into training, validation and test set."""</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">_load_data</span><span class="p">()</span>
+    <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">X_valid</span><span class="p">,</span> <span class="n">y_valid</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">y_train</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+    <span class="n">y_valid</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+    <span class="n">y_test</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
 
-        <span style="color:#777"># optimization method:</span>
-        update=nesterov_momentum,
-        update_learning_rate=<span style="color:#60E">0.01</span>,
-        update_momentum=<span style="color:#60E">0.9</span>,
-
-        max_epochs=<span style="color:#00D">10</span>,
-        verbose=<span style="color:#00D">1</span>,
-        )
-
-    <span style="color:#777"># Train the network</span>
-    net1.fit(data[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">X_train</span><span style="color:#710">'</span></span>], data[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">y_train</span><span style="color:#710">'</span></span>])
-
-    <span style="color:#777"># Try the network on new data</span>
-    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Feature vector (100-110): %s</span><span style="color:#710">"</span></span> % data[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">X_test</span><span style="color:#710">'</span></span>][<span style="color:#00D">0</span>][<span style="color:#00D">100</span>:<span style="color:#00D">110</span>])
-    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Label: %s</span><span style="color:#710">"</span></span> % <span style="color:#369;font-weight:bold">str</span>(data[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">y_test</span><span style="color:#710">'</span></span>][<span style="color:#00D">0</span>]))
-    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Predicted: %s</span><span style="color:#710">"</span></span> % <span style="color:#369;font-weight:bold">str</span>(net1.predict([data[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">X_test</span><span style="color:#710">'</span></span>][<span style="color:#00D">0</span>]])))
+    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span>
+        <span class="n">X_train</span><span class="o">=</span><span class="n">X_train</span><span class="p">,</span>
+        <span class="n">y_train</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span>
+        <span class="n">X_valid</span><span class="o">=</span><span class="n">X_valid</span><span class="p">,</span>
+        <span class="n">y_valid</span><span class="o">=</span><span class="n">y_valid</span><span class="p">,</span>
+        <span class="n">X_test</span><span class="o">=</span><span class="n">X_test</span><span class="p">,</span>
+        <span class="n">y_test</span><span class="o">=</span><span class="n">y_test</span><span class="p">,</span>
+        <span class="n">num_examples_train</span><span class="o">=</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">num_examples_valid</span><span class="o">=</span><span class="n">X_valid</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">num_examples_test</span><span class="o">=</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">input_dim</span><span class="o">=</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="n">output_dim</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="p">)</span>
 
 
-<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">main</span>():
-    data = load_data()
-    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Got %i testing datasets.</span><span style="color:#710">"</span></span> % <span style="color:#369;font-weight:bold">len</span>(data[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">X_train</span><span style="color:#710">'</span></span>]))
-    nn_example(data)
+<span class="k">def</span> <span class="nf">nn_example</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">net1</span> <span class="o">=</span> <span class="n">NeuralNet</span><span class="p">(</span>
+        <span class="n">layers</span><span class="o">=</span><span class="p">[(</span><span class="s1">'input'</span><span class="p">,</span> <span class="n">layers</span><span class="o">.</span><span class="n">InputLayer</span><span class="p">),</span>
+                <span class="p">(</span><span class="s1">'hidden'</span><span class="p">,</span> <span class="n">layers</span><span class="o">.</span><span class="n">DenseLayer</span><span class="p">),</span>
+                <span class="p">(</span><span class="s1">'output'</span><span class="p">,</span> <span class="n">layers</span><span class="o">.</span><span class="n">DenseLayer</span><span class="p">),</span>
+                <span class="p">],</span>
+        <span class="c1"># layer parameters:</span>
+        <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="mi">28</span><span class="o">*</span><span class="mi">28</span><span class="p">),</span>
+        <span class="n">hidden_num_units</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>  <span class="c1"># number of units in 'hidden' layer</span>
+        <span class="n">output_nonlinearity</span><span class="o">=</span><span class="n">lasagne</span><span class="o">.</span><span class="n">nonlinearities</span><span class="o">.</span><span class="n">softmax</span><span class="p">,</span>
+        <span class="n">output_num_units</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>  <span class="c1"># 10 target values for the digits 0, 1, 2, ..., 9</span>
 
-<span style="color:#080;font-weight:bold">if</span> __name__ == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">__main__</span><span style="color:#710">'</span></span>:
-    main()
+        <span class="c1"># optimization method:</span>
+        <span class="n">update</span><span class="o">=</span><span class="n">nesterov_momentum</span><span class="p">,</span>
+        <span class="n">update_learning_rate</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
+        <span class="n">update_momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
+
+        <span class="n">max_epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Train the network</span>
+    <span class="n">net1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'X_train'</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">'y_train'</span><span class="p">])</span>
+
+    <span class="c1"># Try the network on new data</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Feature vector (100-110): </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">data</span><span class="p">[</span><span class="s1">'X_test'</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">100</span><span class="p">:</span><span class="mi">110</span><span class="p">])</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Label: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'y_test'</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Predicted: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">net1</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="s1">'X_test'</span><span class="p">][</span><span class="mi">0</span><span class="p">]])))</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Got </span><span class="si">%i</span><span class="s2"> testing datasets."</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'X_train'</span><span class="p">]))</span>
+    <span class="n">nn_example</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
 </pre></div>
-</div>
-</div>
-
 <p>The output is</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre># Neural Network with 79510 learnable parameters
+<div class="highlight"><pre># Neural Network with 79510 learnable parameters
 
 ## Layer information
 
@@ -607,136 +499,99 @@ Feature vector (100-110): [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
 Label: 7
 Predicted: [7]
 </pre></div>
-</div>
-</div>
-
-<h2 id="tocAnchor-1-7">See also</h2>
-
+<h2 id="see-also">See also</h2>
 <ul>
-  <li><a href="http://www.pyimagesearch.com/2014/09/22/getting-started-deep-learning-python/">Getting Started with Deep Learning and Python</a></li>
+<li><a href="http://www.pyimagesearch.com/2014/09/22/getting-started-deep-learning-python/">Getting Started with Deep Learning and Python</a></li>
 </ul>
-
-                        </div>
-                        <div class="postmeta">Posted in
-                            
-                                <a href="//martin-thoma.com/category/machine-learning/">machine learning</a><!--TODO: Displayed category name should be upper case! -->
-                             | Tags:
-                            
-                                
-                                    <a href="//martin-thoma.com/tag/python/">Python</a>
-                                
-                            
-                                , <a href="//martin-thoma.com/tag/machine-learning/">Machine Learning</a>
-                                
-                             by <a rel="author" class="vcard author post-author" itemprop="author" href="//martin-thoma.com/author/martin-thoma/"><span class="fn" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a> on <span class="updated"><span class="value-title" title="2015-04-17 19:26:00 +0200">
-                                April
-                                17th
-                                  ,
-                                2015</span></span></div>
-
-                            <div class="navigation clearfix">
-                                <div class="alignleft">
-                                
-                                    &laquo; <a href="//martin-thoma.com/echtzeitsysteme-klausur/" rel="prev">Echtzeitsysteme - Klausur</a>
-                                
-                                </div>
-                                <div class="alignright">
-                                
-                                    <a href="//martin-thoma.com/mustererkennung-klausur/" rel="next">Mustererkennung - Klausur</a> &raquo;
-                                
-                                </div>
-                            </div>
-
-                        </article>
-                        <div id="respond">
-                            <h3>Leave a Reply</h3>
-                                <!-- comment discuss code -->
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'martinthoma'; // required: replace example with your forum shortname
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="//disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    <!-- comment discuss code -->
-
-                        </div>
-                    </div>
-                </div>
-            <div class="span-8 last">
-                <div id="subscriptions">
-<a href="//martin-thoma.com/feed/"><img src="//martin-thoma.com/css/images/rss.png" alt="Subscribe to RSS Feed" title="Subscribe to RSS Feed" width="72" height="47" /></a>
-<a href="https://twitter.com/#!/themoosemind" title="Follow me on Twitter!"><img src="//martin-thoma.com/css/images/twitter.png" title="Follow me on Twitter!" alt="Follow me on Twitter!"  width="76" height="47" /></a>
-</div>
-
-                <div id="sidebar">
-                <!-- type: searchbox.html - TODO-->
-<ul>
-    <li id="search">
-        <div class="searchlayout">
-            <form method="get" id="searchform" action="//google.com/cse" role="search">
-                <input type="hidden" name="cx" value="017345337424948206369:qrnnnentkkk" />
-                <input type="search" value="" name="q" id="s" placeholder="Search with Google"/>
-                <input type="image" src="//martin-thoma.com/css/images/search.gif" style="border:0; vertical-align: top;" alt="search"/>
-            </form>
+            
+            <section>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                href="../lasagne-for-python-newbies/#disqus_thread">
+                Comments
+            </a>
         </div>
-    </li>
-</ul>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'martinthoma';
+        var disqus_identifier = '../lasagne-for-python-newbies/';
+    var disqus_url = '../lasagne-for-python-newbies/';
 
-                <div class="addthis_toolbox">
-    <div class="custom_images">
-            <a href="//twitter.com/share?url=https://martin-thoma.com/lasagne-for-python-newbies&amp;hashtags=python,machine-learning,&amp;via=themoosemind" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/twitter.png" width="32" height="32" alt="Twitter" /></a>
-            <a href="//del.icio.us/post?url=//martin-thoma.com/lasagne-for-python-newbies&amp;title=Lasagne%20for%20Python%20Newbies" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/delicious.png" width="32" height="32" alt="Delicious" /></a>
-            <a href="//www.facebook.com/sharer.php?u=//martin-thoma.com/lasagne-for-python-newbies" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/facebook.png" width="32" height="32" alt="Facebook" /></a>
-            <a href="//digg.com/submit?phase=2&amp;url=//martin-thoma.com/lasagne-for-python-newbies&amp;title=Lasagne%20for%20Python%20Newbies" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/digg.png" width="32" height="32" alt="Digg" /></a>
-            <a href="//www.stumbleupon.com/submit?url=//martin-thoma.com/lasagne-for-python-newbies&amp;title=Lasagne%20for%20Python%20Newbies" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/stumbleupon.png" width="32" height="32" alt="Stumbleupon" /></a>
-            <a href="//plusone.google.com/_/+1/confirm?hl=en&amp;url=//martin-thoma.com/lasagne-for-python-newbies" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/gplus.png" width="32" height="32" alt="Google Plus" /></a>
-            <a href="//reddit.com/submit?url=//martin-thoma.com/lasagne-for-python-newbies&amp;title=Lasagne%20for%20Python%20Newbies" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/reddit.png" width="32" height="32" alt="Reddit" /></a>
-    </div>
-</div>
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-                <ul>
-                    <li id="categories-3" class="widget widget_categories">
-                        <!-- type: categories -->
-<h2 class="widgettitle">Categories</h2>
-    <ul>
-        <li class="cat-item cat-item-11"><a href="//martin-thoma.com/category/code/" title="Tipps for coding in different languages like Python oder C++.">Code</a></li>
-        <li class="cat-item cat-item-21"><a href="//martin-thoma.com/category/web/" title="New emerging websites and technologies.">The Web</a></li>
-        <li class="cat-item cat-item-31"><a href="//martin-thoma.com/category/cyberculture/" title="Lolcats, planking, Trollfaces, ...">Cyberculture</a></li>
-        <li class="cat-item cat-item-3404"><a href="//martin-thoma.com/category/maths/" title="View all posts filed under Mathematics">Mathematics</a></li>
-        <li class="cat-item cat-item-881"><a href="//martin-thoma.com/category/bits-and-bytes/" title="Sometimes posts don&#039;t fit in any category.">My bits and bytes</a></li>
-        <li class="cat-item cat-item-41"><a href="//martin-thoma.com/category/deutschland/" title="[All Posts here are written in German about German topics] - Die Bahn, unsere Politik und Europa.">German posts</a></li>
-    </ul>
-
-                    </li>
-                </ul>
                 </div>
             </div>
-        </div><!--/container-->
-            <footer id="footer">
-                <a href="//martin-thoma.com"><strong>Martin Thoma</strong></a> -  A blog about Code, the Web and Cyberculture. <br />
-                <div class="footer-credits">
-                    <a href="http://flexithemes.com/themes/modern-style/">Modern Style</a> theme by <a href="http://flexithemes.com/">FlexiThemes</a>
-                </div>
-            </footer><!--/footer-->
+        </div>
+    </div>
+</div>
+</section>
 
-    </div><!--/wrapper-->
-<!-- type: footer -->
-<!-- TOC Plus -->
-<script type='text/javascript'>
-/* <![CDATA[ */
-var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"};
-/* ]]> */
-</script>
-<script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
-<script>
+            <hr/>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2015-04-17T19:26:00+02:00">Apr 17, 2015</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="http://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#machine-learning-ref">Machine Learning</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#machine-learning-ref">Machine Learning
+                    <span>15</span>
+</a></li>
+                <li><a href="../tags.html#python-ref">Python
+                    <span>70</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
 (function(){
     'use strict';
 
@@ -769,6 +624,47 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 
   })();
 </script>
-</body>
-</html>
 
+            <script type="text/javascript">
+var disqus_shortname = 'martinthoma';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

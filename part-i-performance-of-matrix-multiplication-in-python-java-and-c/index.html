@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Python, CPP, Java, Linear algebra, NumPy, Boost, SciPy, matrix multiplication, Code, " />
+
+<meta property="og:title" content="Part I: Performance of Matrix multiplication in Python, Java and C++ "/>
+<meta property="og:url" content="../part-i-performance-of-matrix-multiplication-in-python-java-and-c/" />
+<meta property="og:description" content="This is Part I of my matrix multiplication series. Part I was about simple matrix multiplication algorithms and Part II was about the Strassen algorithm. Part III is about parallel matrix multiplication. This post is about simple implementations of matrix multiplications. The goal of this post is to find out ..." />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2012-06-18T21:37:46+02:00" />
+<meta name="twitter:title" content="Part I: Performance of Matrix multiplication in Python, Java and C++ ">
+<meta name="twitter:description" content="This is Part I of my matrix multiplication series. Part I was about simple matrix multiplication algorithms and Part II was about the Strassen algorithm. Part III is about parallel matrix multiplication. This post is about simple implementations of matrix multiplications. The goal of this post is to find out ...">
+<meta property="og:image" content="2011/09/Python-Logo.png" />
+<meta name="twitter:image" content="2011/09/Python-Logo.png" >
+
+        <title>Part I: Performance of Matrix multiplication in Python, Java and C++  · Martin Thoma
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+        
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="../"><span class=site-name>Martin Thoma</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="../part-i-performance-of-matrix-multiplication-in-python-java-and-c/"> Part I: Performance of Matrix multiplication in Python, Java and C++  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+    <div class="span2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#the-implementations" title="The implementations">The implementations</a></li><li><a class="toc-href" href="#the-tests" title="The Tests">The Tests</a></li><li><a class="toc-href" href="#the-setting" title="The Setting">The Setting</a></li><li><a class="toc-href" href="#python" title="Python">Python</a><ul><li><a class="toc-href" href="#ijk-algorithm" title="ijk-algorithm">ijk-algorithm</a></li><li><a class="toc-href" href="#ikj-algorithm" title="ikj-algorithm">ikj-algorithm</a></li><li><a class="toc-href" href="#psyco-ikj-algorithm" title="Psyco ikj-algorithm">Psyco ikj-algorithm</a></li><li><a class="toc-href" href="#libraries" title="Libraries">Libraries</a></li><li><a class="toc-href" href="#conclusion-for-python" title="Conclusion for Python">Conclusion for Python</a></li></ul></li><li><a class="toc-href" href="#java_1" title="Java">Java</a><ul><li><a class="toc-href" href="#ijk-algorithm_1" title="ijk-algorithm">ijk-algorithm</a></li><li><a class="toc-href" href="#ikj-algoirthm" title="ikj-algoirthm">ikj-algoirthm</a></li><li><a class="toc-href" href="#library-jama" title="Library: JAMA">Library: JAMA</a></li><li><a class="toc-href" href="#conclusion-for-java" title="Conclusion for Java">Conclusion for Java</a></li></ul></li><li><a class="toc-href" href="#c_1" title="C++">C++</a><ul><li><a class="toc-href" href="#ijk-algorithm_2" title="ijk-algorithm">ijk-algorithm</a></li><li><a class="toc-href" href="#ikj-algorithm_1" title="ikj-algorithm">ikj-algorithm</a></li><li><a class="toc-href" href="#library-boost" title="Library: Boost">Library: Boost</a></li><li><a class="toc-href" href="#library-blitz" title="Library: Blitz">Library: Blitz</a></li><li><a class="toc-href" href="#conclusion-for-c" title="Conclusion for C++">Conclusion for C++</a></li></ul></li><li><a class="toc-href" href="#conclusion_1" title="Conclusion">Conclusion</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="span8 article-content" id="contentAfterTitle">
+
+            
+            <div class="info">This is Part I of my matrix multiplication series. <a href="../matrix-multiplication-python-java-cpp/">Part I</a> was about simple matrix multiplication algorithms and <a href="../strassen-algorithm-in-python-java-cpp/">Part II</a> was about the Strassen algorithm.
+<a href="../part-iii-matrix-multiplication-on-multiple-cores-in-python-java-and-c/">Part III</a> is about parallel matrix multiplication.</div>
+<p>This post is about simple implementations of matrix multiplications. The goal of this post is to find out how easy it is to implement a matrix multiplication in Python, Java and C++. Additionally, I want to get to know how good these solutions are.</p>
+<p>The second post will be an implementation of the Strassen algorithm for matrix multiplication. <a href="http://en.wikipedia.org/wiki/Strassen_algorithm">Strassen algorithm</a> does matrix multiplication in <span class="math">\(\cal O(n^{log_2(7)+o(1)}) \approx \cal O(n^{2.807})\)</span> instead of <span class="math">\(\cal O(n^3)\)</span>. I am quite sure this will outperform almost every other change. See Part II: <a href="../strassen-algorithm-in-python-java-cpp/">The Strassen algorithm in Python, Java and C++</a>.</p>
+<p>The third post will be about parallel programming. I have two cores and I want to see if it will be significantly faster if I use both of them.</p>
+<h2 id="the-implementations">The implementations</h2>
+<p>I will post all scripts for this test and I've added a <a href="https://github.com/MartinThoma/matrix-multiplication">GIT repository</a>, so feel free to test it on your machine. I am also happy if you post some of your solutions with running times ☺ I am quite sure that my Java and C++ code can be written much better. If you know how, please leave a comment.
+If you know other languages, you could create a script for these. I focus on Python, Java and C++ as they are very often used.</p>
+<p>I have implemented these three types of algorithms for this post:
+<ul>
+<li><strong>ijk-algorithm</strong>: This is a simple, straight forward implementation of a matrix multiplication. I've used the definition of matrix multiplication. I didn't use multiple threads.</li>
+<li><strong>ikj-algorithm</strong>: just like the ijk-algorithm, but I've switched two of the three the for-loops.</li>
+<li><strong>Library-functions</strong>: I always prefer libraries over self-implemented solutions. I think they are faster than anything I could come up with in a reasonable amount of time.</li>
+</ul></p>
+<p>If you post a solution, please consider these restrictions:
+<ul>
+<li><strong>Input</strong>: The input file should get passed with the parameter <code>-i</code>, e.g.: 
+    <code>python -i 2000.in</code> or <code>java Shell -i 2000.in</code></li>
+<li>The standard value for the command line parameter -i should be "2000.in" (a <span class="math">\(2000 \times 2000\)</span> matrix)</li>
+<li>The user should <em>not</em> have to give the size of the matrix!</li>
+<li>The two square-matrices that should get multiplied are ...
+    <ul>
+<li>... read from a text-file.</li>
+<li>... represented like this:
+        <ul>
+<li>Every line of one matrix is one line in the text-file.</li>
+<li>Newlines are only "\n".</li>
+<li>Every number is separated by "\t".</li>
+<li>The both matrices are separated by one newline.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Output</strong>: The result has to get printed to standard output.</li>
+<li>The result has to be formatted like the input (tabs for separation of number, \n for marks a new line)</li>
+</ul></p>
+<h2 id="the-tests">The Tests</h2>
+<p>I will check the speed of a multiplication of two big matrices following for Python, Java and C++ for all algorithms like this:</p>
+<div class="highlight"><pre><span class="nb">time</span> python scriptABC.py -i ../2000.in &gt; result.txt
+diff result.txt bigMatrix.out
+</pre></div>
+<p>The <code>bigMatrix.out</code> was produced by the Python ijk-implementation. I make the diff to test if the result is correct.</p>
+<h2 id="the-setting">The Setting</h2>
+<p>I created two "random" matrices <span class="math">\(A, B \in \mathbb{N}^{2000 \times 2000}\)</span> with this script. The file that was created needs about 29.7 MB and is also in the GIT-Hub repository. But you can also create the matrices with this script:</p>
+<div class="highlight"><pre><span class="ch">#!/usr/bin/python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">createRandomMatrix</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">maxVal</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1"># I don't want to get Java / C++ into trouble</span>
+    <span class="n">matrix</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">matrix</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">maxVal</span><span class="p">)</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">)])</span>
+    <span class="k">return</span> <span class="n">matrix</span>
+
+<span class="k">def</span> <span class="nf">saveMatrix</span><span class="p">(</span><span class="n">matrixA</span><span class="p">,</span> <span class="n">matrixB</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">matrix</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="n">matrixA</span><span class="p">,</span> <span class="n">matrixB</span><span class="p">]):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">matrix</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">line</span><span class="p">))</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">matrixA</span> <span class="o">=</span> <span class="n">createRandomMatrix</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">matrixB</span> <span class="o">=</span> <span class="n">createRandomMatrix</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">saveMatrix</span><span class="p">(</span><span class="n">matrixA</span><span class="p">,</span> <span class="n">matrixB</span><span class="p">,</span> <span class="s2">"2000.in"</span><span class="p">)</span>
+</pre></div>
+<p>All scripts are tested on my computer:
+<table>
+<tr>
+<td colspan="2" style="background-color:#cdcdcd">Acer TravelMate 5735Z</td>
+</tr>
+<tr>
+<td style="background-color:#efefef">CPU</td>
+<td>2x Pentium(R) Dual-Core CPU T4500 @2.30GHz</td>
+</tr>
+<tr>
+<td style="background-color:#efefef">RAM</td>
+<td>4 GB</td>
+</tr>
+<tr>
+<td style="background-color:#efefef">Video Card</td>
+<td>Intel GMA 4500MHD</td>
+</tr>
+<tr>
+<td style="background-color:#efefef">System</td>
+<td>Ubuntu 10.10.04 LTS</td>
+</tr>
+</table></p>
+<h2 id="python">Python</h2>
+<p>I've used Python 2.6.5.</p>
+<h3 id="ijk-algorithm">ijk-algorithm</h3>
+<div class="highlight"><pre><span class="ch">#!/usr/bin/python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">from</span> <span class="nn">optparse</span> <span class="kn">import</span> <span class="n">OptionParser</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">OptionParser</span><span class="p">()</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s2">"-i"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"filename"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">"2000.in"</span><span class="p">,</span>
+     <span class="n">help</span><span class="o">=</span><span class="s2">"input file with two matrices"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s2">"FILE"</span><span class="p">)</span>
+<span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">matrix</span> <span class="o">=</span> <span class="n">A</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">line</span> <span class="o">!=</span> <span class="s2">""</span><span class="p">:</span>
+            <span class="n">matrix</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="p">)))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">matrix</span> <span class="o">=</span> <span class="n">B</span>
+    <span class="k">return</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span>
+
+<span class="k">def</span> <span class="nf">printMatrix</span><span class="p">(</span><span class="n">matrix</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">matrix</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="n">line</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">standardMatrixProduct</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+                <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">C</span>
+
+<span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="n">options</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">standardMatrixProduct</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+<span class="n">printMatrix</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+</pre></div>
+<div class="highlight"><pre>real    56m49.266s
+user    56m30.524s
+sys 0m2.980s
+</pre></div>
+<h3 id="ikj-algorithm">ikj-algorithm</h3>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">ikjMatrixProduct</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+                <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">C</span>
+</pre></div>
+<div class="highlight"><pre>real    44m36.507s
+user    44m13.458s
+sys 0m2.000s
+</pre></div>
+<h3 id="psyco-ikj-algorithm">Psyco ikj-algorithm</h3>
+<p><a href="http://en.wikipedia.org/wiki/Psyco">Psyco</a> is a just in time compiler, which makes my scripts MUCH faster. It is very simple to use. Add these two lines at the top of the ikj-script:</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">psyco</span>
+<span class="n">psyco</span><span class="o">.</span><span class="n">full</span><span class="p">()</span>
+</pre></div>
+<div class="highlight"><pre>real    6m14.820s
+user    6m12.959s
+sys 0m0.620s
+</pre></div>
+<p>Amazing, isn't it?</p>
+<h3 id="libraries">Libraries</h3>
+<h4>NumPy</h4>
+<p>NumPy-Version: 1.3.0 (Current version is 1.6.2, see <a href="http://en.wikipedia.org/wiki/NumPy">Wiki</a>)</p>
+<div class="highlight"><pre><span class="ch">#!/usr/bin/python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="kn">from</span> <span class="nn">optparse</span> <span class="kn">import</span> <span class="n">OptionParser</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">OptionParser</span><span class="p">()</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s2">"-i"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"filename"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">"2000.in"</span><span class="p">,</span>
+     <span class="n">help</span><span class="o">=</span><span class="s2">"input file with two matrices"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s2">"FILE"</span><span class="p">)</span>
+<span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">matrix</span> <span class="o">=</span> <span class="n">A</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">line</span> <span class="o">!=</span> <span class="s2">""</span><span class="p">:</span>
+            <span class="n">matrix</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="p">)))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">matrix</span> <span class="o">=</span> <span class="n">B</span>
+    <span class="k">return</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span>
+
+<span class="k">def</span> <span class="nf">printMatrix</span><span class="p">(</span><span class="n">matrix</span><span class="p">):</span>
+    <span class="n">matrix</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">matrix</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="n">line</span><span class="p">))</span>
+
+<span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="n">options</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="n">B</span> <span class="c1"># easy and intuitive, isn't it?</span>
+<span class="n">printMatrix</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+</pre></div>
+<div class="highlight"><pre>real    1m38.425s
+user    1m36.066s
+sys 0m0.520s
+</pre></div>
+<h4>SciPy</h4>
+<p>You might need to install <code>python-scitools</code>.</p>
+<div class="highlight"><pre><span class="ch">#!/usr/bin/python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
+
+<span class="kn">from</span> <span class="nn">optparse</span> <span class="kn">import</span> <span class="n">OptionParser</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">OptionParser</span><span class="p">()</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s2">"-i"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"filename"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">"2000.in"</span><span class="p">,</span>
+     <span class="n">help</span><span class="o">=</span><span class="s2">"input file with two matrices"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s2">"FILE"</span><span class="p">)</span>
+<span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">matrix</span> <span class="o">=</span> <span class="n">A</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">line</span> <span class="o">!=</span> <span class="s2">""</span><span class="p">:</span>
+            <span class="n">matrix</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="p">)))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">matrix</span> <span class="o">=</span> <span class="n">B</span>
+    <span class="k">return</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span>
+
+<span class="k">def</span> <span class="nf">printMatrix</span><span class="p">(</span><span class="n">matrix</span><span class="p">):</span>
+    <span class="n">matrix</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">matrix</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="n">line</span><span class="p">))</span>
+
+<span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="n">options</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="n">B</span> <span class="c1"># easy and intuitive, isn't it?</span>
+<span class="n">printMatrix</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+</pre></div>
+<div class="highlight"><pre>real    1m35.795s
+user    1m33.438s
+sys 0m0.488s
+</pre></div>
+<h3 id="conclusion-for-python">Conclusion for Python</h3>
+<figure class="aligncenter">
+<a href="../images/2012/06/python-execution-times.png"><img alt="Python execution times for matrix multiplication" class="size-full wp-image-28301" src="../images/2012/06/python-execution-times.png" style="max-width:512px;max-height:315px"/></a>
+<figcaption class="text-center">Python execution times for matrix multiplication</figcaption>
+</figure>
+<p>Using NumPy is by far the easiest and fastest option. I've needed about five minutes for each of the non-library scripts and about 10 minutes for the NumPy/SciPy scripts.</p>
+<p>By the way, it is useless to combine Psyco and NumPy. It gets a little bit faster (1 minute and 28 seconds), but this could also be a random effect. If you execute it many times, you will see that the execution time is never the same.</p>
+<h2 id="java_1">Java</h2>
+<p>I am using this Java version:</p>
+<div class="highlight"><pre>$ java -version
+java version <span class="s2">"1.6.0_20"</span>
+OpenJDK Runtime Environment <span class="o">(</span>IcedTea6 1.9.13<span class="o">)</span> <span class="o">(</span>6b20-1.9.13-0ubuntu1~10.04.1<span class="o">)</span>
+OpenJDK Server VM <span class="o">(</span>build 19.0-b09, mixed mode<span class="o">)</span>
+</pre></div>
+<h3 id="ijk-algorithm_1">ijk-algorithm</h3>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.FileReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Shell</span> <span class="o">{</span>
+    <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;&gt;</span> <span class="nf">read</span><span class="o">(</span><span class="n">String</span> <span class="n">filename</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">A</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;();</span>
+        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">B</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;();</span>
+
+        <span class="n">String</span> <span class="n">thisLine</span><span class="o">;</span>
+
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="o">(</span>
+                    <span class="k">new</span> <span class="n">FileReader</span><span class="o">(</span><span class="n">filename</span><span class="o">));</span>
+
+            <span class="c1">// Begin reading A</span>
+            <span class="k">while</span> <span class="o">((</span><span class="n">thisLine</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">thisLine</span><span class="o">.</span><span class="na">trim</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">""</span><span class="o">))</span> <span class="o">{</span>
+                    <span class="k">break</span><span class="o">;</span>
+                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                    <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">line</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;();</span>
+                    <span class="n">String</span><span class="o">[]</span> <span class="n">lineArray</span> <span class="o">=</span> <span class="n">thisLine</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">"\t"</span><span class="o">);</span>
+                    <span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">number</span> <span class="o">:</span> <span class="n">lineArray</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="n">line</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">number</span><span class="o">));</span>
+                    <span class="o">}</span>
+                    <span class="n">A</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">line</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Begin reading B</span>
+            <span class="k">while</span> <span class="o">((</span><span class="n">thisLine</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">line</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;();</span>
+                <span class="n">String</span><span class="o">[]</span> <span class="n">lineArray</span> <span class="o">=</span> <span class="n">thisLine</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">"\t"</span><span class="o">);</span>
+                <span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">number</span> <span class="o">:</span> <span class="n">lineArray</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">line</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">number</span><span class="o">));</span>
+                <span class="o">}</span>
+                <span class="n">B</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">line</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="n">br</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Error: "</span> <span class="o">+</span> <span class="n">e</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;&gt;</span> <span class="n">res</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;&gt;();</span>
+        <span class="n">res</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">A</span><span class="o">);</span>
+        <span class="n">res</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">B</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">res</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">static</span> <span class="kt">int</span><span class="o">[][]</span> <span class="nf">ijkAlgorithm</span><span class="o">(</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">A</span><span class="o">,</span>
+            <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">B</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
+
+        <span class="c1">// initialise C</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">C</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="n">n</span><span class="o">];</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">k</span><span class="o">++)</span> <span class="o">{</span>
+                    <span class="n">C</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">+=</span> <span class="n">A</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">).</span><span class="na">get</span><span class="o">(</span><span class="n">k</span><span class="o">)</span> <span class="o">*</span> <span class="n">B</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">k</span><span class="o">).</span><span class="na">get</span><span class="o">(</span><span class="n">j</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">C</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printMatrix</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">matrix</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">line</span> <span class="o">:</span> <span class="n">matrix</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+            <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">(</span><span class="n">matrix</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">number</span> <span class="o">:</span> <span class="n">line</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">"\t"</span><span class="o">);</span>
+                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                    <span class="n">i</span><span class="o">++;</span>
+                <span class="o">}</span>
+                <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">number</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">String</span> <span class="n">filename</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">args</span><span class="o">.</span><span class="na">length</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="s">"2000.in"</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">];</span>
+        <span class="o">}</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;&gt;</span> <span class="n">matrices</span> <span class="o">=</span> <span class="n">read</span><span class="o">(</span><span class="n">filename</span><span class="o">);</span>
+        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">A</span> <span class="o">=</span> <span class="n">matrices</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">B</span> <span class="o">=</span> <span class="n">matrices</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">C</span> <span class="o">=</span> <span class="n">ijkAlgorithm</span><span class="o">(</span><span class="n">A</span><span class="o">,</span> <span class="n">B</span><span class="o">);</span>
+        <span class="n">printMatrix</span><span class="o">(</span><span class="n">C</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+<div class="highlight"><pre>real    27m21.295s
+user    26m53.877s
+sys 0m4.368s
+</pre></div>
+<p>Note: Java is not C++! If you use <a href="http://docs.oracle.com/javase/6/docs/api/java/util/Vector.html">Vector</a> instead of <a href="http://docs.oracle.com/javase/6/docs/api/java/util/ArrayList.html">ArrayList</a>, you get these results:</p>
+<div class="highlight"><pre>real    82m26.754s
+user    80m42.003s
+sys 0m24.598s
+</pre></div>
+<p>One reason might be that Vector is synchronized.</p>
+<h3 id="ikj-algoirthm">ikj-algoirthm</h3>
+<p>I've only switched line 60 and line 61.</p>
+<div class="highlight"><pre>real    2m9.478s
+user    1m26.369s
+sys 0m39.162s
+</pre></div>
+<h3 id="library-jama">Library: JAMA</h3>
+<p>I've searched in Google for "java matrix multiplication". The first 10 results were only implementations of the ijk-algorithm. Although the ijk-algorithm is very easy, most of the results were only questions where people tried to implement it.</p>
+<p>After some search (20 minutes minimum) I've found <a href="http://math.nist.gov/javanumerics/jama/">JAMA</a>. They also have a <a href="http://math.nist.gov/javanumerics/jama/doc/">documentation</a>. You might need to install this for the following code:</p>
+<div class="highlight"><pre>sudo apt-get install libjama-*
+</pre></div>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.FileReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">Jama.Matrix</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Shell</span> <span class="o">{</span>
+    <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;&gt;&gt;</span> <span class="nf">read</span><span class="o">(</span><span class="n">String</span> <span class="n">filename</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;&gt;</span> <span class="n">A</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;&gt;();</span>
+        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;&gt;</span> <span class="n">B</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;&gt;();</span>
+
+        <span class="n">String</span> <span class="n">thisLine</span><span class="o">;</span>
+
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="n">FileReader</span><span class="o">(</span><span class="n">filename</span><span class="o">));</span>
+
+            <span class="c1">// Begin reading A</span>
+            <span class="k">while</span> <span class="o">((</span><span class="n">thisLine</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">thisLine</span><span class="o">.</span><span class="na">trim</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">""</span><span class="o">))</span> <span class="o">{</span>
+                    <span class="k">break</span><span class="o">;</span>
+                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                    <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span> <span class="n">line</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;();</span>
+                    <span class="n">String</span><span class="o">[]</span> <span class="n">lineArray</span> <span class="o">=</span> <span class="n">thisLine</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">"\t"</span><span class="o">);</span>
+                    <span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">number</span> <span class="o">:</span> <span class="n">lineArray</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="n">line</span><span class="o">.</span><span class="na">add</span><span class="o">((</span><span class="kt">double</span><span class="o">)</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">number</span><span class="o">));</span>
+                    <span class="o">}</span>
+                    <span class="n">A</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">line</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+
+            <span class="c1">// Begin reading B</span>
+            <span class="k">while</span> <span class="o">((</span><span class="n">thisLine</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span> <span class="n">line</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;();</span>
+                <span class="n">String</span><span class="o">[]</span> <span class="n">lineArray</span> <span class="o">=</span> <span class="n">thisLine</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">"\t"</span><span class="o">);</span>
+                <span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">number</span> <span class="o">:</span> <span class="n">lineArray</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">line</span><span class="o">.</span><span class="na">add</span><span class="o">((</span><span class="kt">double</span><span class="o">)</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">number</span><span class="o">));</span>
+                <span class="o">}</span>
+                <span class="n">B</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">line</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Error: "</span> <span class="o">+</span> <span class="n">e</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;&gt;&gt;</span> <span class="n">res</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;&gt;&gt;();</span>
+        <span class="n">res</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">A</span><span class="o">);</span>
+        <span class="n">res</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">B</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">res</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">static</span> <span class="kt">int</span><span class="o">[][]</span> <span class="nf">ijkAlgorithm</span><span class="o">(</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">A</span><span class="o">,</span>
+            <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">B</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
+
+        <span class="c1">// initialise C</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">C</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="n">n</span><span class="o">];</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">k</span><span class="o">++)</span> <span class="o">{</span>
+                    <span class="n">C</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">+=</span> <span class="n">A</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">).</span><span class="na">get</span><span class="o">(</span><span class="n">k</span><span class="o">)</span> <span class="o">*</span> <span class="n">B</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">k</span><span class="o">).</span><span class="na">get</span><span class="o">(</span><span class="n">j</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">C</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printMatrix</span><span class="o">(</span><span class="n">Matrix</span> <span class="n">matrix</span><span class="o">,</span> <span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">j</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"\t"</span><span class="o">);</span>
+                <span class="o">}</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"%.0f"</span><span class="o">,</span> <span class="n">matrix</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">));</span>
+            <span class="o">}</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">String</span> <span class="n">filename</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">args</span><span class="o">.</span><span class="na">length</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="s">"2000.in"</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">];</span>
+        <span class="o">}</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;&gt;&gt;</span> <span class="n">matrices</span> <span class="o">=</span> <span class="n">read</span><span class="o">(</span><span class="n">filename</span><span class="o">);</span>
+        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;&gt;</span> <span class="n">A</span> <span class="o">=</span> <span class="n">matrices</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;&gt;</span> <span class="n">B</span> <span class="o">=</span> <span class="n">matrices</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
+        <span class="kt">double</span><span class="o">[][]</span> <span class="n">Aarray</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">double</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="n">n</span><span class="o">];</span>
+        <span class="kt">double</span><span class="o">[][]</span> <span class="n">Barray</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">double</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="n">n</span><span class="o">];</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="n">Aarray</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">).</span><span class="na">get</span><span class="o">(</span><span class="n">j</span><span class="o">);</span>
+                <span class="n">Barray</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">B</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">).</span><span class="na">get</span><span class="o">(</span><span class="n">j</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="n">Matrix</span> <span class="n">AM</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Matrix</span><span class="o">(</span><span class="n">Aarray</span><span class="o">);</span>
+        <span class="n">Matrix</span> <span class="n">BM</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Matrix</span><span class="o">(</span><span class="n">Aarray</span><span class="o">);</span>
+        <span class="n">Matrix</span> <span class="n">CM</span> <span class="o">=</span> <span class="n">AM</span><span class="o">.</span><span class="na">times</span><span class="o">(</span><span class="n">BM</span><span class="o">);</span>
+
+        <span class="n">printMatrix</span><span class="o">(</span><span class="n">CM</span><span class="o">,</span> <span class="n">n</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+<div class="highlight"><pre>real    1m36.506s
+user    0m51.367s
+sys 0m45.043s
+</pre></div>
+<p>It took me about two hours to get it work. I had to add the JAMA-JAR to eclipse, export my project as a JAR and run it with</p>
+<div class="highlight"><pre><span class="nb">time</span> java -jar jama-shell.jar -i ../2000.in &gt; jama-result.out
+</pre></div>
+<p>I still have no idea how to compile it with bash only.</p>
+<h3 id="conclusion-for-java">Conclusion for Java</h3>
+<figure class="aligncenter">
+<a href="../images/2012/06/java-execution-time.png"><img alt="Java execution times for matrix multiplication" class="size-full wp-image-28331" src="../images/2012/06/java-execution-time.png" style="max-width:512px;max-height:287px"/></a>
+<figcaption class="text-center">Java execution times for matrix multiplication</figcaption>
+</figure>
+<p>You should definitely know if some Java-datastructures are synchronised or not. And you should know how the computer / caches work.</p>
+<h2 id="c_1">C++</h2>
+<p>I have gcc 4.4.3 and compiled everything with these options:</p>
+<div class="highlight"><pre>g++ -std<span class="o">=</span>c++98 -Wall -O3 -g myScript.cpp -o <span class="k">$(</span>PROBLEM<span class="k">)</span>.out -pedantic
+</pre></div>
+<h3 id="ijk-algorithm_2">ijk-algorithm</h3>
+<div class="highlight"><pre><span class="cp">#include</span> <span class="cpf">&lt;sstream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="k">struct</span> <span class="n">Result</span> <span class="p">{</span>
+    <span class="n">vector</span><span class="o">&lt;</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">A</span><span class="p">;</span>
+    <span class="n">vector</span><span class="o">&lt;</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">B</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n">Result</span> <span class="nf">read</span><span class="p">(</span><span class="n">string</span> <span class="n">filename</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">vector</span><span class="o">&lt;</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">;</span>
+    <span class="n">Result</span> <span class="n">ab</span><span class="p">;</span>
+    <span class="n">string</span> <span class="n">line</span><span class="p">;</span>
+    <span class="n">ifstream</span> <span class="n">infile</span><span class="p">;</span>
+    <span class="n">infile</span><span class="p">.</span><span class="n">open</span> <span class="p">(</span><span class="n">filename</span><span class="p">.</span><span class="n">c_str</span><span class="p">());</span>
+
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">getline</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="o">!</span><span class="n">line</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">istringstream</span> <span class="n">iss</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+        <span class="n">A</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">A</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">iss</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+            <span class="n">j</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">getline</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="n">line</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">istringstream</span> <span class="n">iss</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+        <span class="n">B</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">B</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">iss</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+            <span class="n">j</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">infile</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+    <span class="n">ab</span><span class="p">.</span><span class="n">A</span> <span class="o">=</span> <span class="n">A</span><span class="p">;</span>
+    <span class="n">ab</span><span class="p">.</span><span class="n">B</span> <span class="o">=</span> <span class="n">B</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">ab</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">vector</span><span class="o">&lt;</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">ijkalgorithm</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">A</span><span class="p">,</span> 
+                                    <span class="n">vector</span><span class="o">&lt;</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">B</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+
+    <span class="c1">// initialise C with 0s</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">tmp</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">vector</span><span class="o">&lt;</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">C</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">tmp</span><span class="p">);</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">C</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">printMatrix</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">matrix</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">vector</span><span class="o">&lt;</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&gt;::</span><span class="n">iterator</span> <span class="n">it</span><span class="p">;</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">iterator</span> <span class="n">inner</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">it</span><span class="o">=</span><span class="n">matrix</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">matrix</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">it</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">inner</span> <span class="o">=</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">begin</span><span class="p">();</span> <span class="n">inner</span> <span class="o">!=</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">end</span><span class="p">();</span> <span class="n">inner</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">inner</span><span class="p">;</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">inner</span><span class="o">+</span><span class="mi">1</span> <span class="o">!=</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">end</span><span class="p">())</span> <span class="p">{</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s">"</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="n">string</span> <span class="n">filename</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="s">"2000.in"</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="n">Result</span> <span class="n">result</span> <span class="o">=</span> <span class="n">read</span> <span class="p">(</span><span class="n">filename</span><span class="p">);</span>
+    <span class="n">vector</span><span class="o">&lt;</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">C</span> <span class="o">=</span> <span class="n">ijkalgorithm</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">A</span><span class="p">,</span> <span class="n">result</span><span class="p">.</span><span class="n">B</span><span class="p">);</span>
+    <span class="n">printMatrix</span><span class="p">(</span><span class="n">C</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+<div class="highlight"><pre>real    1m40.439s
+user    1m38.642s
+sys 0m0.280s
+</pre></div>
+<h3 id="ikj-algorithm_1">ikj-algorithm</h3>
+<p>Again, I've only switched line 61 and 62.</p>
+<div class="highlight"><pre>real    0m15.172s
+user    0m14.877s
+sys 0m0.248s
+</pre></div>
+<h3 id="library-boost">Library: Boost</h3>
+<p>If you want to compile these scripts, you might have to install the boost libraries first. On Ubuntu you can enter:</p>
+<div class="highlight"><pre>sudo apt-get install libboost-math*
+</pre></div>
+<div class="highlight"><pre><span class="cp">#include</span> <span class="cpf">&lt;sstream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;boost/numeric/ublas/matrix.hpp&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;boost/numeric/ublas/io.hpp&gt;</span><span class="cp"></span>
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="k">struct</span> <span class="n">Result</span> <span class="p">{</span>
+    <span class="n">boost</span><span class="o">::</span><span class="n">numeric</span><span class="o">::</span><span class="n">ublas</span><span class="o">::</span><span class="n">matrix</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">A</span><span class="p">;</span>
+    <span class="n">boost</span><span class="o">::</span><span class="n">numeric</span><span class="o">::</span><span class="n">ublas</span><span class="o">::</span><span class="n">matrix</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">B</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">getMatrixSize</span><span class="p">(</span><span class="n">string</span> <span class="n">filename</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">string</span> <span class="n">line</span><span class="p">;</span>
+    <span class="n">ifstream</span> <span class="n">infile</span><span class="p">;</span>
+    <span class="n">infile</span><span class="p">.</span><span class="n">open</span> <span class="p">(</span><span class="n">filename</span><span class="p">.</span><span class="n">c_str</span><span class="p">());</span>
+    <span class="n">getline</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="n">line</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">count</span><span class="p">(</span><span class="n">line</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">line</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="sc">'\t'</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">printMatrix</span><span class="p">(</span><span class="n">boost</span><span class="o">::</span><span class="n">numeric</span><span class="o">::</span><span class="n">ublas</span><span class="o">::</span><span class="n">matrix</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">matrix</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">matrix</span><span class="p">.</span><span class="n">size1</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">matrix</span><span class="p">.</span><span class="n">size2</span><span class="p">();</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">matrix</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span> <span class="o">!=</span> <span class="n">matrix</span><span class="p">.</span><span class="n">size2</span><span class="p">())</span> <span class="p">{</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s">"</span><span class="p">;</span>
+            <span class="p">}</span>   
+        <span class="p">}</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">Result</span> <span class="nf">read</span><span class="p">(</span><span class="n">string</span> <span class="n">filename</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Result</span> <span class="n">ab</span><span class="p">;</span>
+    <span class="n">string</span> <span class="n">line</span><span class="p">;</span>
+    <span class="n">ifstream</span> <span class="n">infile</span><span class="p">;</span>
+    <span class="n">infile</span><span class="p">.</span><span class="n">open</span> <span class="p">(</span><span class="n">filename</span><span class="p">.</span><span class="n">c_str</span><span class="p">());</span>
+
+    <span class="c1">// get dimension</span>
+    <span class="n">getline</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="n">line</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">getMatrixSize</span><span class="p">(</span><span class="n">filename</span><span class="p">);</span>
+
+    <span class="n">boost</span><span class="o">::</span><span class="n">numeric</span><span class="o">::</span><span class="n">ublas</span><span class="o">::</span><span class="n">matrix</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">A</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">),</span> <span class="n">B</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">);</span>
+
+    <span class="c1">// process first line</span>
+    <span class="n">istringstream</span> <span class="n">iss</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">iss</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+        <span class="n">j</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="n">getline</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="o">!</span><span class="n">line</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">istringstream</span> <span class="n">iss</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">iss</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+            <span class="n">j</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">getline</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="n">line</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">istringstream</span> <span class="n">iss</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">iss</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+            <span class="n">j</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">infile</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+    <span class="n">ab</span><span class="p">.</span><span class="n">A</span> <span class="o">=</span> <span class="n">A</span><span class="p">;</span>
+    <span class="n">ab</span><span class="p">.</span><span class="n">B</span> <span class="o">=</span> <span class="n">B</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">ab</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="n">string</span> <span class="n">filename</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="s">"2000.in"</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="n">Result</span> <span class="n">result</span> <span class="o">=</span> <span class="n">read</span> <span class="p">(</span><span class="n">filename</span><span class="p">);</span>
+
+    <span class="n">boost</span><span class="o">::</span><span class="n">numeric</span><span class="o">::</span><span class="n">ublas</span><span class="o">::</span><span class="n">matrix</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">C</span><span class="p">;</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">boost</span><span class="o">::</span><span class="n">numeric</span><span class="o">::</span><span class="n">ublas</span><span class="o">::</span><span class="n">prod</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">A</span><span class="p">,</span> <span class="n">result</span><span class="p">.</span><span class="n">B</span><span class="p">);</span>
+    <span class="n">printMatrix</span><span class="p">(</span><span class="n">C</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+<div class="highlight"><pre>real    4m15.388s
+user    4m10.272s
+sys 0m0.588s
+</pre></div>
+<h3 id="library-blitz">Library: Blitz</h3>
+<p>This is a great example of useless library. I've installed the library:</p>
+<div class="highlight"><pre>sudo apt-get install libblitz*
+</pre></div>
+<p>Then I wanted to use it. Well, I have no clue how I could exactly use it! See my StackOverflow Question: <a href="http://stackoverflow.com/questions/11113993/is-a-documentation-of-blitz-matrices-available">Is a documentation of Blitz++ matrices available?</a></p>
+<h3 id="conclusion-for-c">Conclusion for C++</h3>
+<figure class="aligncenter">
+<a href="../images/2012/06/cpp-execution-time.png"><img alt="C++ execution times for matrix multiplication" class="size-full wp-image-28351" src="../images/2012/06/cpp-execution-time.png" style="max-width:512px;max-height:249px"/></a>
+<figcaption class="text-center">C++ execution times for matrix multiplication</figcaption>
+</figure>
+<p>Again, it brings a performance boost if you know how your CPU works. I was very astonished, that the library Boost is slower (actually MUCH slower) than my simplest approach was.</p>
+<h2 id="conclusion_1">Conclusion</h2>
+<p>If I want to create a working piece of code in a minimum amount of time, I will always take Python. It has been very easy to solve this task with the given restrictions. But C++ is amazing when speed is important.</p>
+<p>It was astonishingly difficult to find working code examples for this task for Java and C++. I was searching for libraries and found some, but the search results were not satisfying.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="http://www.boost.org/doc/libs/1_49_0/libs/numeric/ublas/doc/matrix.htm">Boost Matrix multiplication</a></li>
+<li><a href="http://rosettacode.org/wiki/Matrix_multiplication">Rosetta Code: Matrix multiplication</a> (Implementations in 63 programming languages!)</li>
+<li><a href="http://stackoverflow.com/questions/10442365/why-is-matrix-multiplication-faster-with-numpy-than-with-ctypes-in-python">Why is matrix multiplication faster with numpy than with ctypes in Python?</a></li>
+<li><a href="http://stackoverflow.com/questions/11110604/why-is-boosts-matrix-multiplication-slower-than-mine">Why is boosts matrix multiplication slower than mine?</a></li>
+</ul>
+<div class="info">Continue reading with Part II: <a href="../strassen-algorithm-in-python-java-cpp/">The Strassen algorithm in Python, Java and C++</a></div>
+            
+            <section>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                href="../part-i-performance-of-matrix-multiplication-in-python-java-and-c/#disqus_thread">
+                Comments
+            </a>
+        </div>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'martinthoma';
+        var disqus_identifier = '../part-i-performance-of-matrix-multiplication-in-python-java-and-c/';
+    var disqus_url = '../part-i-performance-of-matrix-multiplication-in-python-java-and-c/';
+
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2012-06-18T21:37:46+02:00">Jun 18, 2012</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="http://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#boost-ref">Boost
+                    <span>1</span>
+</a></li>
+                <li><a href="../tags.html#cpp-ref">CPP
+                    <span>10</span>
+</a></li>
+                <li><a href="../tags.html#java-ref">Java
+                    <span>36</span>
+</a></li>
+                <li><a href="../tags.html#linear-algebra-ref">Linear algebra
+                    <span>18</span>
+</a></li>
+                <li><a href="../tags.html#matrix-multiplication-ref">matrix multiplication
+                    <span>3</span>
+</a></li>
+                <li><a href="../tags.html#numpy-ref">NumPy
+                    <span>4</span>
+</a></li>
+                <li><a href="../tags.html#python-ref">Python
+                    <span>70</span>
+</a></li>
+                <li><a href="../tags.html#scipy-ref">SciPy
+                    <span>1</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+            <script type="text/javascript">
+var disqus_shortname = 'martinthoma';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

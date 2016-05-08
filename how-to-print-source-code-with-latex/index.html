@@ -1,56 +1,38 @@
-<!doctype html>
-<html lang="en">
-  <!-- type: head.html -->
-  <head>
-    <meta charset="utf-8">
-    
-    
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
 
-    
-        <meta name="image" content="https://martin-thoma.com/images/2012/01/latex-logo.png" />
-        <meta name="thumbnail" content="//martin-thoma.com/images/2012/01/latex-logo.png" />
-        <meta property="og:image" content="//martin-thoma.com/images/2012/01/latex-logo.png" />
-    
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
 
-    <meta property="og:type" content="blog"/>
+<meta name="keywords" content="LaTeX, Documentation, Code, " />
 
-    <title>How to print Source Code with LaTeX</title>
-    <meta property="og:title" content="How to print Source Code with LaTeX" />
-    <meta property="og:url" content="//martin-thoma.com/how-to-print-source-code-with-latex" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/screen.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/style.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/pygments.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/tocplus-screen.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/print.css" type="text/css" media="print" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-width: 480px)" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="How to print Source Code with LaTeX "/>
+<meta property="og:url" content="../how-to-print-source-code-with-latex/" />
+<meta property="og:description" content="I often need to print source code. Some years ago for a German competition called &#34;Bundeswettbewerb Informatik&#34;, now for projects at my university. If you use LaTeX, you can simply include the source code into your document! Here are three examples with listings and minted. I&#39;ve also included example ..." />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2012-04-29T12:04:32+02:00" />
+<meta name="twitter:title" content="How to print Source Code with LaTeX ">
+<meta name="twitter:description" content="I often need to print source code. Some years ago for a German competition called &#34;Bundeswettbewerb Informatik&#34;, now for projects at my university. If you use LaTeX, you can simply include the source code into your document! Here are three examples with listings and minted. I&#39;ve also included example ...">
+<meta property="og:image" content="2012/01/latex-logo.png" />
+<meta name="twitter:image" content="2012/01/latex-logo.png" >
 
-    <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="//martin-thoma.com/feed/" /><!--TODO-->
-    <link rel="shortcut icon" href="//martin-thoma.com/favicon.ico" type="image/x-icon" />
+        <title>How to print Source Code with LaTeX  · Martin Thoma
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
 
-    <link rel="canonical" href="//martin-thoma.com/how-to-print-source-code-with-latex" />
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:site" content="@themoosemind"/>
-<meta name="twitter:creator" content="@themoosemind"/>
-<meta name="twitter:title" content="How to print Source Code with LaTeX"/>
-
-    <meta name="twitter:description" content="A blog about Code, the Web and Cyberculture" />
-
-
-    <meta name="twitter:image" content="//martin-thoma.com/images/2012/01/latex-logo.png"/>
-
-
-
-<meta name="twitter:url" content="//martin-thoma.com/how-to-print-source-code-with-latex"/>
-<meta name="twitter:domain" content="Martin Thoma.com"/>
-
-
-    <script type='text/javascript' src="//martin-thoma.com/js/jquery.js"></script>
-    <script type='text/javascript' src="//martin-thoma.com/js/jquery-migrate.min.js"></script>
-    <style type="text/css">div#toc_container {width: 275px;}</style>
-    <style type="text/css" id="syntaxhighlighteranchor"></style>
-
-<!-- MathJax -->
+        <!-- MathJax -->
 <script type="text/x-mathjax-config">
 <!--
 MathJax.Hub.Config({
@@ -74,197 +56,159 @@ MathJax.Hub.Queue(function() {
 <script type="text/javascript" async
   src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
-
-<!-- Latest compiled and minified CSS bootstrap -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-</head>
-
-<!-- type: post.html -->
-<body>
-    <div id="wrapper">
-        <div id="container" class="container">
-            <div class="span-16">
-                <!-- type: header.html -->
-<div id="header" role="banner">
-    <h1><a href="//martin-thoma.com">Martin Thoma</a></h1>
-    <h2 style="margin-top: 0;">A blog about Code, the Web and Cyberculture.</h2>
+        
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="../"><span class=site-name>Martin Thoma</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="../how-to-print-source-code-with-latex/"> How to print Source Code with LaTeX  </a></h1>
+    </header>
 </div>
-<nav class="navcontainer" role="navigation">
-    <ul id="nav">
-        <li class=""><a href="//martin-thoma.com">Home</a></li>
-        <li class="page_item page-item-41 "><a href="//martin-thoma.com/author/martin-thoma/">About Me</a></li>
-        <li class="page_item page-item-91 "><a href="//martin-thoma.com/imprint/">Imprint</a></li>
-    </ul>
-</nav>
 
-                <div id="content">
-                    <article class="post type-post format-standard hentry clearfix" itemscope itemType="http://schema.org/BlogPosting">
-                        <h2 class="title entry-title" itemprop="name headline">How to print Source Code with LaTeX</h2>
-                        <link itemprop="mainEntityOfPage" href="//martin-thoma.com/how-to-print-source-code-with-latex" />
-                        <div class="postdate entry-date date-header">
-                            <time datetime="2012-04-29T12:04:32+02:00" itemprop="datePublished">
-                                April
-                                29th,
-                                  
-                                2012
-                            </time>
-                        </div>
+<div class="row-fluid">
+    <div class="span2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#listings" title="listings">listings</a><ul><li><a class="toc-href" href="#minimal-example" title="Minimal example">Minimal example</a></li><li><a class="toc-href" href="#my-template" title="My Template">My Template</a></li><li><a class="toc-href" href="#supported-languages" title="Supported Languages">Supported Languages</a></li></ul></li><li><a class="toc-href" href="#minted_1" title="minted">minted</a><ul><li><a class="toc-href" href="#supported-languages_1" title="Supported Languages">Supported Languages</a></li><li><a class="toc-href" href="#example" title="Example">Example</a></li></ul></li><li><a class="toc-href" href="#material_1" title="Material">Material</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="span8 article-content" id="contentAfterTitle">
 
-                        <div class="entry post-body" id="contentAfterTitle" itemprop="articleBody">
-                            <p>I often need to print source code. Some years ago for a German competition called “Bundeswettbewerb Informatik”, now for projects at my university. If you use LaTeX, you can simply include the source code into your document! Here are three examples with listings and minted. I’ve also included example PDF files.</p>
-
-<div id="toc_container" class="toc_light_blue no_bullets">
-   <p class="toc_title">Contents</p>
-   <ul class="toc_list">
-      <li class="toc_level-1 toc_section-1">
-         <a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">listings</span></a>
-         <ul>
-            <li class="toc_level-2 toc_section-2">
-               <a href="#tocAnchor-1-1-1"><span class="tocnumber">1.1</span> <span class="toctext">Minimal example</span></a>
-            </li>
-            <li class="toc_level-2 toc_section-3">
-               <a href="#tocAnchor-1-1-2"><span class="tocnumber">1.2</span> <span class="toctext">My Template</span></a>
-            </li>
-            <li class="toc_level-2 toc_section-4">
-               <a href="#tocAnchor-1-1-3"><span class="tocnumber">1.3</span> <span class="toctext">Supported Languages</span></a>
-            </li>
-         </ul>
-      </li>
-      <li class="toc_level-1 toc_section-5">
-         <a href="#tocAnchor-1-5"><span class="tocnumber">2</span> <span class="toctext">minted</span></a>
-         <ul>
-            <li class="toc_level-2 toc_section-6">
-               <a href="#tocAnchor-1-5-1"><span class="tocnumber">2.1</span> <span class="toctext">Supported Languages</span></a>
-            </li>
-            <li class="toc_level-2 toc_section-7">
-               <a href="#tocAnchor-1-5-2"><span class="tocnumber">2.2</span> <span class="toctext">Example</span></a>
-            </li>
-         </ul>
-      </li>
-      <li class="toc_level-1 toc_section-8">
-         <a href="#tocAnchor-1-8"><span class="tocnumber">3</span> <span class="toctext">Material</span></a>
-      </li>
-      <li class="toc_level-1 toc_section-9">
-         <a href="#tocAnchor-1-9"><span class="tocnumber">4</span> <span class="toctext">See also</span></a>
-      </li>
-   </ul>
-</div><h2 id="tocAnchor-1-1">listings</h2>
-<h3 id="tocAnchor-1-1-1">Minimal example</h3>
-<div style="width: 600px" class="wp-caption aligncenter">
-   <a href="../images/2012/04/latex-java-source-listings.png">
-      <img src="../images/2012/04/latex-java-source-listings.png" alt="LaTeX Java Source Code: listings" width="" height="" class="size-full wp-image-23851" />
-   </a>
-   <p class="wp-caption-text">LaTeX Java Source Code: listings</p>
-</div>
+            
+            <p>I often need to print source code. Some years ago for a German competition called "Bundeswettbewerb Informatik", now for projects at my university. If you use LaTeX, you can simply include the source code into your document! Here are three examples with listings and minted. I've also included example PDF files.</p>
+<h2 id="listings">listings</h2>
+<h3 id="minimal-example">Minimal example</h3>
+<figure class="aligncenter">
+<a href="../images/2012/04/latex-java-source-listings.png"><img alt="LaTeX Java Source Code: listings" class="size-full wp-image-23851" src="../images/2012/04/latex-java-source-listings.png" style="max-width:590px;max-height:185px"/></a>
+<figcaption class="text-center">LaTeX Java Source Code: listings</figcaption>
+</figure>
 <p>Here is an minimal example how you could print Source Code with LaTeX:
 <a id="more"></a><a id="more-23541"></a></p>
+<div class="highlight"><pre><span class="k">\documentclass</span><span class="na">[a4paper,12pt]</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>amssymb<span class="nb">}</span> <span class="c">% needed for math</span>
+<span class="k">\usepackage</span><span class="nb">{</span>amsmath<span class="nb">}</span> <span class="c">% needed for math</span>
+<span class="k">\usepackage</span><span class="na">[utf8]</span><span class="nb">{</span>inputenc<span class="nb">}</span> <span class="c">% this is needed for german umlauts</span>
+<span class="k">\usepackage</span><span class="na">[ngerman]</span><span class="nb">{</span>babel<span class="nb">}</span> <span class="c">% this is needed for german umlauts</span>
+<span class="c">% this is needed for correct output of umlauts in pdf</span>
+<span class="k">\usepackage</span><span class="na">[T1]</span><span class="nb">{</span>fontenc<span class="nb">}</span>    
+<span class="k">\usepackage</span><span class="na">[margin=2.5cm]</span><span class="nb">{</span>geometry<span class="nb">}</span> <span class="c">%layout</span>
+<span class="k">\usepackage</span><span class="nb">{</span>listings<span class="nb">}</span> <span class="c">% needed for the inclusion of source code</span>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>\documentclass[a4paper,12pt]{article}
-\usepackage{amssymb} % needed for math
-\usepackage{amsmath} % needed for math
-\usepackage[utf8]{inputenc} % this is needed for german umlauts
-\usepackage[ngerman]{babel} % this is needed for german umlauts
-% this is needed for correct output of umlauts in pdf
-\usepackage[T1]{fontenc}    
-\usepackage[margin=2.5cm]{geometry} %layout
-\usepackage{listings} % needed for the inclusion of source code
+<span class="c">% this is needed for forms and links within the text</span>
+<span class="k">\usepackage</span><span class="nb">{</span>hyperref<span class="nb">}</span>  
 
-% this is needed for forms and links within the text
-\usepackage{hyperref}  
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% THE DOCUMENT BEGINS                      %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{document}
-        \lstinputlisting[language=Java]{Othello.java}
-\end{document}
+<span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="c">% THE DOCUMENT BEGINS                      %</span>
+<span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+    <span class="k">\lstinputlisting</span><span class="na">[language=Java]</span><span class="nb">{</span>Othello.java<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
 </pre></div>
-</div>
-</div>
-
-<h3 id="tocAnchor-1-1-2">My Template</h3>
+<h3 id="my-template">My Template</h3>
 <p>If you want to customize a little bit more and if you want to get highlighted (colorized) source code, you could use the following template. It looks like this as a <a href="../images/2012/04/LaTeX-Source-Code.pdf">PDF-file</a>.</p>
+<div class="highlight"><pre><span class="k">\documentclass</span><span class="na">[a4paper,12pt]</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>amssymb<span class="nb">}</span> <span class="c">% needed for math</span>
+<span class="k">\usepackage</span><span class="nb">{</span>amsmath<span class="nb">}</span> <span class="c">% needed for math</span>
+<span class="k">\usepackage</span><span class="na">[utf8]</span><span class="nb">{</span>inputenc<span class="nb">}</span> <span class="c">% this is needed for german umlauts</span>
+<span class="k">\usepackage</span><span class="na">[ngerman]</span><span class="nb">{</span>babel<span class="nb">}</span> <span class="c">% this is needed for german umlauts</span>
+<span class="k">\usepackage</span><span class="na">[T1]</span><span class="nb">{</span>fontenc<span class="nb">}</span>    <span class="c">% this is needed for correct output of umlauts in pdf</span>
+<span class="k">\usepackage</span><span class="na">[margin=2.5cm]</span><span class="nb">{</span>geometry<span class="nb">}</span> <span class="c">%layout</span>
+<span class="k">\usepackage</span><span class="nb">{</span>listings<span class="nb">}</span> <span class="c">% needed for the inclusion of source code</span>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>\documentclass[a4paper,12pt]{article}
-\usepackage{amssymb} % needed for math
-\usepackage{amsmath} % needed for math
-\usepackage[utf8]{inputenc} % this is needed for german umlauts
-\usepackage[ngerman]{babel} % this is needed for german umlauts
-\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
-\usepackage[margin=2.5cm]{geometry} %layout
-\usepackage{listings} % needed for the inclusion of source code
+<span class="c">% the following is needed for syntax highlighting</span>
+<span class="k">\usepackage</span><span class="nb">{</span>color<span class="nb">}</span>
 
-% the following is needed for syntax highlighting
-\usepackage{color}
- 
-\definecolor{dkgreen}{rgb}{0,0.6,0}
-\definecolor{gray}{rgb}{0.5,0.5,0.5}
-\definecolor{mauve}{rgb}{0.58,0,0.82}
+<span class="k">\definecolor</span><span class="nb">{</span>dkgreen<span class="nb">}{</span>rgb<span class="nb">}{</span>0,0.6,0<span class="nb">}</span>
+<span class="k">\definecolor</span><span class="nb">{</span>gray<span class="nb">}{</span>rgb<span class="nb">}{</span>0.5,0.5,0.5<span class="nb">}</span>
+<span class="k">\definecolor</span><span class="nb">{</span>mauve<span class="nb">}{</span>rgb<span class="nb">}{</span>0.58,0,0.82<span class="nb">}</span>
 
-\lstset{ %
-  language=Java,                  % the language of the code
-  basicstyle=\footnotesize,       % the size of the fonts that are used for the code
-  numbers=left,                   % where to put the line-numbers
-  numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
-  stepnumber=1,                   % the step between two line-numbers. If it's 1, each line 
-                                  % will be numbered
-  numbersep=5pt,                  % how far the line-numbers are from the code
-  backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
-  showspaces=false,               % show spaces adding particular underscores
-  showstringspaces=false,         % underline spaces within strings
-  showtabs=false,                 % show tabs within strings adding particular underscores
-  frame=single,                   % adds a frame around the code
-  rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
-  tabsize=4,                      % sets default tabsize to 2 spaces
-  captionpos=b,                   % sets the caption-position to bottom
-  breaklines=true,                % sets automatic line breaking
-  breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
-  title=\lstname,                 % show the filename of files included with \lstinputlisting;
-                                  % also try caption instead of title
-  keywordstyle=\color{blue},          % keyword style
-  commentstyle=\color{dkgreen},       % comment style
-  stringstyle=\color{mauve},         % string literal style
-  escapeinside={\%*}{*)},            % if you want to add a comment within your code
-  morekeywords={*,...}               % if you want to add more keywords to the set
-}
+<span class="k">\lstset</span><span class="nb">{</span> <span class="c">%</span>
+  language=Java,                  <span class="c">% the language of the code</span>
+  basicstyle=<span class="k">\footnotesize</span>,       <span class="c">% the size of the fonts that are used for the code</span>
+  numbers=left,                   <span class="c">% where to put the line-numbers</span>
+  numberstyle=<span class="k">\tiny\color</span><span class="nb">{</span>gray<span class="nb">}</span>,  <span class="c">% the style that is used for the line-numbers</span>
+  stepnumber=1,                   <span class="c">% the step between two line-numbers. If it's 1, each line </span>
+                                  <span class="c">% will be numbered</span>
+  numbersep=5pt,                  <span class="c">% how far the line-numbers are from the code</span>
+  backgroundcolor=<span class="k">\color</span><span class="nb">{</span>white<span class="nb">}</span>,  <span class="c">% choose the background color. You must add \usepackage{color}</span>
+  showspaces=false,               <span class="c">% show spaces adding particular underscores</span>
+  showstringspaces=false,         <span class="c">% underline spaces within strings</span>
+  showtabs=false,                 <span class="c">% show tabs within strings adding particular underscores</span>
+  frame=single,                   <span class="c">% adds a frame around the code</span>
+  rulecolor=<span class="k">\color</span><span class="nb">{</span>black<span class="nb">}</span>,        <span class="c">% if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))</span>
+  tabsize=4,                      <span class="c">% sets default tabsize to 2 spaces</span>
+  captionpos=b,                   <span class="c">% sets the caption-position to bottom</span>
+  breaklines=true,                <span class="c">% sets automatic line breaking</span>
+  breakatwhitespace=false,        <span class="c">% sets if automatic breaks should only happen at whitespace</span>
+  title=<span class="k">\lstname</span>,                 <span class="c">% show the filename of files included with \lstinputlisting;</span>
+                                  <span class="c">% also try caption instead of title</span>
+  keywordstyle=<span class="k">\color</span><span class="nb">{</span>blue<span class="nb">}</span>,          <span class="c">% keyword style</span>
+  commentstyle=<span class="k">\color</span><span class="nb">{</span>dkgreen<span class="nb">}</span>,       <span class="c">% comment style</span>
+  stringstyle=<span class="k">\color</span><span class="nb">{</span>mauve<span class="nb">}</span>,         <span class="c">% string literal style</span>
+  escapeinside=<span class="nb">{</span><span class="k">\%*</span><span class="nb">}{</span>*)<span class="nb">}</span>,            <span class="c">% if you want to add a comment within your code</span>
+  morekeywords=<span class="nb">{</span>*,...<span class="nb">}</span>               <span class="c">% if you want to add more keywords to the set</span>
+<span class="nb">}</span>
 
-% this is needed for forms and links within the text
-\usepackage{hyperref}  
+<span class="c">% this is needed for forms and links within the text</span>
+<span class="k">\usepackage</span><span class="nb">{</span>hyperref<span class="nb">}</span>  
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Variablen                                                                                  %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\authorName}{Martin Thoma}
-\newcommand{\tags}{\authorName, my, tags}
-\title{This is the title}
-\author{\authorName}
-\date{\today}
+<span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="c">% Variablen                                                          %</span>
+<span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\authorName</span><span class="nb">}{</span>Martin Thoma<span class="nb">}</span>
+<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\tags</span><span class="nb">}{</span><span class="k">\authorName</span>, my, tags<span class="nb">}</span>
+<span class="k">\title</span><span class="nb">{</span>This is the title<span class="nb">}</span>
+<span class="k">\author</span><span class="nb">{</span><span class="k">\authorName</span><span class="nb">}</span>
+<span class="k">\date</span><span class="nb">{</span><span class="k">\today</span><span class="nb">}</span>
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% PDF Meta information                                                                  %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\hypersetup{
-  pdfauthor   = {\authorName},
-  pdfkeywords = {\tags},
-  pdftitle    = {This is the title}
-} 
+<span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="c">% PDF Meta information                                               %</span>
+<span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="k">\hypersetup</span><span class="nb">{</span>
+  pdfauthor   = <span class="nb">{</span><span class="k">\authorName</span><span class="nb">}</span>,
+  pdfkeywords = <span class="nb">{</span><span class="k">\tags</span><span class="nb">}</span>,
+  pdftitle    = <span class="nb">{</span>This is the title<span class="nb">}</span>
+<span class="nb">}</span> 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% THE DOCUMENT BEGINS                                                            %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{document}
-        \lstinputlisting[language=Java]{Othello.java}
-\end{document}
+<span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="c">% THE DOCUMENT BEGINS                                                %</span>
+<span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+    <span class="k">\lstinputlisting</span><span class="na">[language=Java]</span><span class="nb">{</span>Othello.java<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
 </pre></div>
-</div>
-</div>
-
-<h3 id="tocAnchor-1-1-3">Supported Languages</h3>
+<h3 id="supported-languages">Supported Languages</h3>
 <p>The LaTeX listings package provides quite a lot of language and dialects. Each bold dialect is the default dialect:</p>
-
-<p>First the interesting ones:</p>
+<p>First the interesting ones:
 <ul>
 <li>Assembler (Motorola68k, x86masm)</li>
 <li>bash</li>
@@ -275,33 +219,19 @@ MathJax.Hub.Queue(function() {
 <li>SQL</li>
 <li>TeX (AlLaTeX, common, LaTeX, <strong>plain</strong>, primitive)</li>
 <li>XML</li>
-</ul>
-
+</ul></p>
 <p>And the rest:
 ABAP (R/2 4.3, R/2 5.0, R/3 3.1, R/3 4.6C, <strong>R/3 6.10</strong>), ACSL, Ada (<strong>2005</strong>, 83, 95), Algol (60, <strong>68</strong>), Ant, Awk (<strong>gnu</strong>, POSIX), Basic (Visual), Caml (<strong>light</strong>, Objective), CIL, Clean, Cobol (1974, <strong>1985</strong>, ibm), Comal 80, command.com (WinXP), Comsol, csh, Delphi, Eiffel, Elan, erlang, Euphoria, Fortran (77, 90, <strong>95</strong>), GCL, Gnuplot, Haskell, HTML, IDL (empty, CORBA), inform, JVMIS, ksh, Lingo, Lisp (empty, Auto), Logo, make (empty, gnu), Mathematica (1.0, 3.0, <strong>5.2</strong>), Matlab, Mercury, MetaPost, Miranda, Mizar, ML, Modula-2, MuPAD, NASTRAN, Oberon-2, OCL (decorative, OMG), Octave, Oz, Pascal (Borland6, Standard, XSC), Perl, PHP, PL/I, Plasm, PostScript, POV, Prolog, Promela, PSTricks, R, Reduce, Rexx, RSL, Ruby, S (empty, PLUS), SAS, Scilab, sh, SHELXL, Simula (<strong>67</strong>, CII, DEC, IBM), SPARQL, tcl (empty, tk), VBScript, Verilog, VHDL (empty, AMS), VRML (97), XSLT</p>
-
-<h2 id="tocAnchor-1-5">minted</h2>
+<h2 id="minted_1">minted</h2>
 <p>Minted needs the package pygments:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>sudo apt-get install python-pygments
+<div class="highlight"><pre>sudo apt-get install python-pygments
 </pre></div>
-</div>
-</div>
-
-<h3 id="tocAnchor-1-5-1">Supported Languages</h3>
+<h3 id="supported-languages_1">Supported Languages</h3>
 <p>Minted supports quite a lot of languages. You can get the supported languages with this command:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>moose@pc07:~$ pygmentize -L lexers
+<div class="highlight"><pre>moose@pc07:~$ pygmentize -L lexers
 </pre></div>
-</div>
-</div>
-
 <p>This is my output:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>Pygments version 1.2.2, (c) 2006-2008 by Georg Brandl.
+<div class="highlight"><pre>Pygments version 1.2.2, (c) 2006-2008 by Georg Brandl.
 
 Lexers:
 ~~~~~~~
@@ -547,179 +477,130 @@ Lexers:
 * yaml:
     YAML (filenames *.yaml, *.yml)
 </pre></div>
-</div>
-</div>
-<h3 id="tocAnchor-1-5-2">Example</h3>
-<div style="width: 623px" class="wp-caption aligncenter">
-   <a href="../images/2012/04/latex-java-source-minted.png">
-      <img src="../images/2012/04/latex-java-source-minted.png" alt="LaTeX Java Source Code: minted" width="" height="" class="size-full wp-image-23841" />
-   </a>
-   <p class="wp-caption-text">LaTeX Java Source Code: minted</p>
-</div>
+<h3 id="example">Example</h3>
+<figure class="aligncenter">
+<a href="../images/2012/04/latex-java-source-minted.png"><img alt="LaTeX Java Source Code: minted" class="size-full wp-image-23841" src="../images/2012/04/latex-java-source-minted.png" style="max-width:613px;max-height:232px"/></a>
+<figcaption class="text-center">LaTeX Java Source Code: minted</figcaption>
+</figure>
 <p>This is the <a href="../images/2012/04/minted-source-code.pdf">PDF-file</a> produced by the following LaTeX-Code:</p>
+<div class="highlight"><pre><span class="k">\documentclass</span><span class="na">[a4paper,12pt]</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>amssymb<span class="nb">}</span> <span class="c">% needed for math</span>
+<span class="k">\usepackage</span><span class="nb">{</span>amsmath<span class="nb">}</span> <span class="c">% needed for math</span>
+<span class="k">\usepackage</span><span class="na">[utf8]</span><span class="nb">{</span>inputenc<span class="nb">}</span> <span class="c">% this is needed for german umlauts</span>
+<span class="k">\usepackage</span><span class="na">[ngerman]</span><span class="nb">{</span>babel<span class="nb">}</span> <span class="c">% this is needed for german umlauts</span>
+<span class="k">\usepackage</span><span class="na">[T1]</span><span class="nb">{</span>fontenc<span class="nb">}</span>    <span class="c">% this is needed for correct output of umlauts in pdf</span>
+<span class="k">\usepackage</span><span class="na">[margin=2cm]</span><span class="nb">{</span>geometry<span class="nb">}</span> <span class="c">%layout</span>
+<span class="k">\usepackage</span><span class="nb">{</span>minted<span class="nb">}</span> <span class="c">% needed for the inclusion of source code</span>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>\documentclass[a4paper,12pt]{article}
-\usepackage{amssymb} % needed for math
-\usepackage{amsmath} % needed for math
-\usepackage[utf8]{inputenc} % this is needed for german umlauts
-\usepackage[ngerman]{babel} % this is needed for german umlauts
-\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
-\usepackage[margin=2cm]{geometry} %layout
-\usepackage{minted} % needed for the inclusion of source code
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\renewcommand</span><span class="nb">{</span><span class="k">\theFancyVerbLine</span><span class="nb">}{</span>
+  <span class="k">\sffamily\textcolor</span><span class="na">[rgb]</span><span class="nb">{</span>0.5,0.5,0.5<span class="nb">}{</span><span class="k">\scriptsize\arabic</span><span class="nb">{</span>FancyVerbLine<span class="nb">}}}</span>
 
-\begin{document}
-\renewcommand{\theFancyVerbLine}{
-  \sffamily\textcolor[rgb]{0.5,0.5,0.5}{\scriptsize\arabic{FancyVerbLine}}}
+<span class="k">\inputminted</span><span class="na">[linenos, numbersep=5pt, tabsize=4, frame=lines, label=Othello.java]</span><span class="nb">{</span>java<span class="nb">}{</span>Othello.java<span class="nb">}</span>
 
-\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=Othello.java]{java}{Othello.java}
-
-\end{document}
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
 </pre></div>
-</div>
-</div>
-
-<h2 id="tocAnchor-1-8">Material</h2>
+<h2 id="material_1">Material</h2>
 <p>All files can be found in <a href="../images/2012/04/LaTeX-Source-Code.zip">LaTeX-Source-Code Archive</a>.</p>
-
-<h2 id="tocAnchor-1-9">See also</h2>
+<h2 id="see-also">See also</h2>
 <ul>
-  <li>WikiBook: <a href="http://en.wikibooks.org/wiki/LaTeX/Packages/Listings">LaTeX/Packages/Listings</a></li>
-  <li><a href="ftp://ftp.fu-berlin.de/tex/CTAN/macros/latex/contrib/listings/listings.pdf">CTAN lisings documentation</a></li>
-  <li><a href="http://ftp.fernuni-hagen.de/ftp-dir/pub/mirrors/www.ctan.org/macros/latex/contrib/minted/minted.pdf">CTAN minted documentation</a></li>
+<li>WikiBook: <a href="http://en.wikibooks.org/wiki/LaTeX/Packages/Listings">LaTeX/Packages/Listings</a></li>
+<li><a href="ftp://ftp.fu-berlin.de/tex/CTAN/macros/latex/contrib/listings/listings.pdf">CTAN lisings documentation</a></li>
+<li><a href="http://ftp.fernuni-hagen.de/ftp-dir/pub/mirrors/www.ctan.org/macros/latex/contrib/minted/minted.pdf">CTAN minted documentation</a></li>
 </ul>
-
 <p>You might also want to try</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>texdoc listings
+<div class="highlight"><pre>texdoc listings
 </pre></div>
-</div>
-</div>
-
 <p>This command will show a manual as a PDF.</p>
-
-                        </div>
-                        <div class="postmeta">Posted in
-                            
-                                <a href="//martin-thoma.com/category/code/">code</a><!--TODO: Displayed category name should be upper case! -->
-                             | Tags:
-                            
-                                
-                                    <a href="//martin-thoma.com/tag/latex/">LaTeX</a>
-                                
-                            
-                                , <a href="//martin-thoma.com/tag/documentation/">Documentation</a>
-                                
-                             by <a rel="author" class="vcard author post-author" itemprop="author" href="//martin-thoma.com/author/martin-thoma/"><span class="fn" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a> on <span class="updated"><span class="value-title" title="2012-04-29 12:04:32 +0200">
-                                April
-                                29th
-                                  ,
-                                2012</span></span></div>
-
-                            <div class="navigation clearfix">
-                                <div class="alignleft">
-                                
-                                    &laquo; <a href="//martin-thoma.com/google-code-jam-2012-round-1a-2012/" rel="prev">Google Code Jam 2012 &ndash; Round 1A 2012</a>
-                                
-                                </div>
-                                <div class="alignright">
-                                
-                                    <a href="//martin-thoma.com/google-code-jam-2012-round-1b-2012/" rel="next">Google Code Jam 2012 &ndash; Round 1B 2012</a> &raquo;
-                                
-                                </div>
-                            </div>
-
-                        </article>
-                        <div id="respond">
-                            <h3>Leave a Reply</h3>
-                                <!-- comment discuss code -->
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'martinthoma'; // required: replace example with your forum shortname
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="//disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    <!-- comment discuss code -->
-
-                        </div>
-                    </div>
-                </div>
-            <div class="span-8 last">
-                <div id="subscriptions">
-<a href="//martin-thoma.com/feed/"><img src="//martin-thoma.com/css/images/rss.png" alt="Subscribe to RSS Feed" title="Subscribe to RSS Feed" width="72" height="47" /></a>
-<a href="https://twitter.com/#!/themoosemind" title="Follow me on Twitter!"><img src="//martin-thoma.com/css/images/twitter.png" title="Follow me on Twitter!" alt="Follow me on Twitter!"  width="76" height="47" /></a>
-</div>
-
-                <div id="sidebar">
-                <!-- type: searchbox.html - TODO-->
-<ul>
-    <li id="search">
-        <div class="searchlayout">
-            <form method="get" id="searchform" action="//google.com/cse" role="search">
-                <input type="hidden" name="cx" value="017345337424948206369:qrnnnentkkk" />
-                <input type="search" value="" name="q" id="s" placeholder="Search with Google"/>
-                <input type="image" src="//martin-thoma.com/css/images/search.gif" style="border:0; vertical-align: top;" alt="search"/>
-            </form>
+            
+            <section>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                href="../how-to-print-source-code-with-latex/#disqus_thread">
+                Comments
+            </a>
         </div>
-    </li>
-</ul>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'martinthoma';
+        var disqus_identifier = '../how-to-print-source-code-with-latex/';
+    var disqus_url = '../how-to-print-source-code-with-latex/';
 
-                <div class="addthis_toolbox">
-    <div class="custom_images">
-            <a href="//twitter.com/share?url=https://martin-thoma.com/how-to-print-source-code-with-latex&amp;hashtags=latex,documentation,&amp;via=themoosemind" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/twitter.png" width="32" height="32" alt="Twitter" /></a>
-            <a href="//del.icio.us/post?url=//martin-thoma.com/how-to-print-source-code-with-latex&amp;title=How%20to%20print%20Source%20Code%20with%20LaTeX" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/delicious.png" width="32" height="32" alt="Delicious" /></a>
-            <a href="//www.facebook.com/sharer.php?u=//martin-thoma.com/how-to-print-source-code-with-latex" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/facebook.png" width="32" height="32" alt="Facebook" /></a>
-            <a href="//digg.com/submit?phase=2&amp;url=//martin-thoma.com/how-to-print-source-code-with-latex&amp;title=How%20to%20print%20Source%20Code%20with%20LaTeX" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/digg.png" width="32" height="32" alt="Digg" /></a>
-            <a href="//www.stumbleupon.com/submit?url=//martin-thoma.com/how-to-print-source-code-with-latex&amp;title=How%20to%20print%20Source%20Code%20with%20LaTeX" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/stumbleupon.png" width="32" height="32" alt="Stumbleupon" /></a>
-            <a href="//plusone.google.com/_/+1/confirm?hl=en&amp;url=//martin-thoma.com/how-to-print-source-code-with-latex" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/gplus.png" width="32" height="32" alt="Google Plus" /></a>
-            <a href="//reddit.com/submit?url=//martin-thoma.com/how-to-print-source-code-with-latex&amp;title=How%20to%20print%20Source%20Code%20with%20LaTeX" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/reddit.png" width="32" height="32" alt="Reddit" /></a>
-    </div>
-</div>
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-                <ul>
-                    <li id="categories-3" class="widget widget_categories">
-                        <!-- type: categories -->
-<h2 class="widgettitle">Categories</h2>
-    <ul>
-        <li class="cat-item cat-item-11"><a href="//martin-thoma.com/category/code/" title="Tipps for coding in different languages like Python oder C++.">Code</a></li>
-        <li class="cat-item cat-item-21"><a href="//martin-thoma.com/category/web/" title="New emerging websites and technologies.">The Web</a></li>
-        <li class="cat-item cat-item-31"><a href="//martin-thoma.com/category/cyberculture/" title="Lolcats, planking, Trollfaces, ...">Cyberculture</a></li>
-        <li class="cat-item cat-item-3404"><a href="//martin-thoma.com/category/maths/" title="View all posts filed under Mathematics">Mathematics</a></li>
-        <li class="cat-item cat-item-881"><a href="//martin-thoma.com/category/bits-and-bytes/" title="Sometimes posts don&#039;t fit in any category.">My bits and bytes</a></li>
-        <li class="cat-item cat-item-41"><a href="//martin-thoma.com/category/deutschland/" title="[All Posts here are written in German about German topics] - Die Bahn, unsere Politik und Europa.">German posts</a></li>
-    </ul>
-
-                    </li>
-                </ul>
                 </div>
             </div>
-        </div><!--/container-->
-            <footer id="footer">
-                <a href="//martin-thoma.com"><strong>Martin Thoma</strong></a> -  A blog about Code, the Web and Cyberculture. <br />
-                <div class="footer-credits">
-                    <a href="http://flexithemes.com/themes/modern-style/">Modern Style</a> theme by <a href="http://flexithemes.com/">FlexiThemes</a>
-                </div>
-            </footer><!--/footer-->
+        </div>
+    </div>
+</div>
+</section>
 
-    </div><!--/wrapper-->
-<!-- type: footer -->
-<!-- TOC Plus -->
-<script type='text/javascript'>
-/* <![CDATA[ */
-var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"};
-/* ]]> */
-</script>
-<script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
-<script>
+            <hr/>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2012-04-29T12:04:32+02:00">Apr 29, 2012</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="http://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#documentation-ref">Documentation
+                    <span>2</span>
+</a></li>
+                <li><a href="../tags.html#latex-ref">LaTeX
+                    <span>25</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
 (function(){
     'use strict';
 
@@ -752,6 +633,47 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 
   })();
 </script>
-</body>
-</html>
 
+            <script type="text/javascript">
+var disqus_shortname = 'martinthoma';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

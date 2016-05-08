@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Python, Machine Learning, SVM, Classification, Machine Learning, " />
+
+<meta property="og:title" content="Using SVMs with sklearn "/>
+<meta property="og:url" content="../using-svms-with-sklearn/" />
+<meta property="og:description" content="Support Vector Machines (SVMs) is a group of powerful classifiers. In this article, I will give a short impression of how they work. I continue with an example how to use SVMs with sklearn. SVM theory SVMs can be described with 5 ideas in mind: Linear, binary classifiers: If data ..." />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2016-01-14T12:25:00+01:00" />
+<meta name="twitter:title" content="Using SVMs with sklearn ">
+<meta name="twitter:description" content="Support Vector Machines (SVMs) is a group of powerful classifiers. In this article, I will give a short impression of how they work. I continue with an example how to use SVMs with sklearn. SVM theory SVMs can be described with 5 ideas in mind: Linear, binary classifiers: If data ...">
+<meta property="og:image" content="logos/ai.png" />
+<meta name="twitter:image" content="logos/ai.png" >
+
+        <title>Using SVMs with sklearn  · Martin Thoma
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+        
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="../"><span class=site-name>Martin Thoma</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="../using-svms-with-sklearn/"> Using SVMs with sklearn  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+    <div class="span2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#svm-theory" title="SVM theory">SVM theory</a></li><li><a class="toc-href" href="#sklearn" title="sklearn">sklearn</a></li><li><a class="toc-href" href="#results" title="Results">Results</a></li><li><a class="toc-href" href="#references" title="References">References</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="span8 article-content" id="contentAfterTitle">
+
+            
+            <p>Support Vector Machines (SVMs) is a group of powerful classifiers. In this
+article, I will give a short impression of how they work. I continue
+with an example how to use SVMs with sklearn.</p>
+<h2 id="svm-theory">SVM theory</h2>
+<p><abbr title="Support Vector Machines">SVMs</abbr> can be described with
+5&nbsp;ideas in mind:</p>
+<ol>
+<li><b>Linear, binary classifiers</b>: If data is linearly separable, it
+        can be separated by a hyperplane. There is one hyperplane which
+        maximizes the distance to the next datapoints (support vectors). This
+        hyperplane should be taken:<br/>
+<div>
+          $$
+          \begin{aligned}
+              \text{minimize}_{\mathbf{w}, b}\,&amp;\frac{1}{2} \|\mathbf{w}\|^2\\
+              \text{s.t. }&amp; \forall_{i=1}^m y_i \cdot \underbrace{(\langle \mathbf{w}, \mathbf{x}_i\rangle + b)}_{\text{Classification}} \geq 1
+          \end{aligned}$$</div></li>
+<li><b>Slack variables</b>: Even if the underlying process which generates
+          the features for the two classes is linearly separable, noise can
+          make the data not separable. The introduction of <i>slack&nbsp;variables</i>
+          to relax the requirement of linear separability solves
+          this problem. The trade-off between accepting some errors and a more
+          complex model is weighted by a parameter $C \in \mathbb{R}_0^+$. The
+          bigger $C$, the more errors are accepted. The new optimization
+          problem is:
+          $$
+          \begin{aligned}
+              \text{minimize}_{\mathbf{w}, b}\,&amp;\frac{1}{2} \|\mathbf{w}\|^2 + C \cdot \sum_{i=1}^m \xi_i\\
+              \text{s.t. }&amp; \forall_{i=1}^m y_i \cdot (\langle \mathbf{w}, \mathbf{x}_i\rangle + b) \geq 1 - \xi_i
+          \end{aligned}$$
+
+          Note that $0 \le \xi_i \le 1$ means that the data point is within
+          the margin, whereas $\xi_i \ge 1$ means it is misclassified. An
+          SVM with $C &gt; 0$ is also called a <i>soft-margin SVM</i>.</li>
+<li><b>Dual Problem</b>: The primal problem is to find the normal vector $\mathbf{w}$ and the
+          bias $b$. The dual problem is to express $\mathbf{w}$ as a linear
+          combination of the training data $\mathbf{x}_i$:
+          $$\mathbf{w} = \sum_{i=1}^m \alpha_i y_i \mathbf{x}_i$$
+          where $y_i \in \{-1, 1\}$ represents the class of the training
+          example and $\alpha_i$ are Lagrange multipliers. The usage of
+          Lagrange multipliers is explained with some examples
+          in [<a href="#ref-smi04" name="ref-smi04-anchor">Smi04</a>]. The usage of the Lagrange multipliers
+          $\alpha_i$ changes the optimization problem depend on the
+          $\alpha_i$ which are weights for the feature vectors. It turns
+          out that most $\alpha_i$ will be zero. The non-zero weighted vectors
+          are called <i>support&nbsp;vectors</i>.
+
+          The optimization problem is now, according to [<a href="#ref-bur98" name="ref-bur98-anchor">Bur98</a>] (a great read; if you really want to understand it I can recommend it!):
+          $$
+          \begin{aligned}
+              \text{maximize}_{\alpha_i}\,&amp; \sum_{i=1}^m \alpha_i - \frac{1}{2} \sum_{i=1}^m \sum_{j=1}^m \alpha_i \alpha_j y_i y_j \langle \mathbf{x}_i, \mathbf{x}_j \rangle\\
+              \text{s.t. } &amp; \forall_{i=1}^m 0 \leq \alpha_i \leq C\\
+              \text{s.t. } &amp; \sum_{i=1}^m \alpha_i y_i = 0
+          \end{aligned}$$</li>
+<li><b>Kernel-Trick</b>: Not every dataset is linearly separable. This problem is approached
+          by transforming the feature vectors $\mathbf{x}$ with a non-linear
+          mapping $\Phi$ into a higher dimensional (probably
+          $\infty$-dimensional) space. As the feature vectors $\mathbf{x}$
+          are only used within scalar product
+          $\langle \mathbf{x}_i, \mathbf{x}_j \rangle$, it is not necessary to
+          do the transformation. It is enough to do the calculation
+          $$K(\mathbf{x}_i, \mathbf{x}_j) = \langle \mathbf{x}_i, \mathbf{x}_j \rangle$$
+
+          This function $K$ is called a <i>kernel</i>. The idea of never
+          explicitly transforming the vectors $\mathbf{x}_i$ to the higher
+          dimensional space is called the <i>kernel&nbsp;trick</i>. Common kernels
+          include the polynomial kernel
+          $$K_P(\mathbf{x}_i, \mathbf{x}_j) = (\langle \mathbf{x}_i, \mathbf{x}_j \rangle + r)^p$$
+          of degree $p$ and coefficient $r$, the Gaussian <abbr title="Radial Basis Function">RBF</abbr> kernel
+          $$K_{\text{Gauss}}(\mathbf{x}_i, \mathbf{x}_j) = e^{\frac{-\gamma\|\mathbf{x}_i - \mathbf{x}_j\|^2}{2 \sigma^2}}$$
+          and the sigmoid kernel
+          $$K_{\text{tanh}}(\mathbf{x}_i, \mathbf{x}_j) = \tanh(\gamma \langle \mathbf{x}_i, \mathbf{x}_j \rangle - r)$$
+          where the parameter $\gamma$ determines how much influence single
+          training examples have.</li>
+<li><b>Multiple Classes</b>: By using the <i>one-vs-all</i> or the
+        <i>one-vs-one</i> strategy it is possible to get a classifying system
+        which can distinguish many classes.</li>
+</ol>
+<p>A nice visualization of the transformation of the data in a higher-dimensional
+space was done by</p>
+<p>TeamGrizzly's channel: <a href="https://youtu.be/9NrALgHFwTo">Performing nonlinear classification via linear separation in higher dimensional space</a> on YouTube. 22.11.2010.</p>
+<p>See also:</p>
+<ul>
+<li><a href="http://math.stackexchange.com/a/1620256/6876">What is an example of a SVM kernel, where one implicitly uses an infinity-dimensional space?</a></li>
+<li><a href="http://stackoverflow.com/a/4630731/562769">SVM - hard or soft margins?</a></li>
+</ul>
+<h2 id="sklearn">sklearn</h2>
+<p><code>sklearn</code> is the machine learning toolkit to get started for Python. It has
+a very good documentation and many functions. You can find <a href="http://scikit-learn.org/stable/install.html">installation
+instructions</a> on their website.</p>
+<p>It also includes <a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC"><code>sklearn.svm.SVC</code></a>.
+SVC is short for <em>support vector classifier</em> and this is how you use it for
+the MNIST dataset.</p>
+<p>Parameters for which you might want a further explanation:</p>
+<ul>
+<li><code>cache_size</code>: <a href="http://datascience.stackexchange.com/a/996/8820">datascience.stackexchange.com</a></li>
+</ul>
+<div class="highlight"><pre><span class="ch">#!/usr/bin/env python</span>
+
+<span class="sd">"""</span>
+<span class="sd">Train a SVM to categorize 28x28 pixel images into digits (MNIST dataset).</span>
+<span class="sd">"""</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="sd">"""Orchestrate the retrival of data, training and testing."""</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">()</span>
+
+    <span class="c1"># Get classifier</span>
+    <span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
+    <span class="n">clf</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">probability</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>  <span class="c1"># cache_size=200,</span>
+              <span class="n">kernel</span><span class="o">=</span><span class="s2">"rbf"</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mf">2.8</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=.</span><span class="mo">0073</span><span class="p">)</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Start fitting. This may take a while"</span><span class="p">)</span>
+
+    <span class="c1"># take all of it - make that number lower for experiments</span>
+    <span class="n">examples</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'train'</span><span class="p">][</span><span class="s1">'X'</span><span class="p">])</span>
+    <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'train'</span><span class="p">][</span><span class="s1">'X'</span><span class="p">][:</span><span class="n">examples</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">'train'</span><span class="p">][</span><span class="s1">'y'</span><span class="p">][:</span><span class="n">examples</span><span class="p">])</span>
+
+    <span class="n">analyze</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">analyze</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Analyze how well a classifier performs on data.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    clf : classifier object</span>
+<span class="sd">    data : dict</span>
+<span class="sd">    """</span>
+    <span class="c1"># Get confusion matrix</span>
+    <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+    <span class="n">predicted</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'test'</span><span class="p">][</span><span class="s1">'X'</span><span class="p">])</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Confusion matrix:</span><span class="se">\n</span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span>
+          <span class="n">metrics</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'test'</span><span class="p">][</span><span class="s1">'y'</span><span class="p">],</span>
+                                   <span class="n">predicted</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Accuracy: </span><span class="si">%0.4f</span><span class="s2">"</span> <span class="o">%</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'test'</span><span class="p">][</span><span class="s1">'y'</span><span class="p">],</span>
+                                                     <span class="n">predicted</span><span class="p">))</span>
+
+    <span class="c1"># Print example</span>
+    <span class="n">try_id</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'test'</span><span class="p">][</span><span class="s1">'X'</span><span class="p">][</span><span class="n">try_id</span><span class="p">])</span>  <span class="c1"># clf.predict_proba</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"out: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">out</span><span class="p">)</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'test'</span><span class="p">][</span><span class="s1">'X'</span><span class="p">][</span><span class="n">try_id</span><span class="p">])</span><span class="o">**</span><span class="p">(</span><span class="mf">0.5</span><span class="p">))</span>
+    <span class="n">view_image</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'test'</span><span class="p">][</span><span class="s1">'X'</span><span class="p">][</span><span class="n">try_id</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">size</span><span class="p">,</span> <span class="n">size</span><span class="p">)),</span>
+               <span class="n">data</span><span class="p">[</span><span class="s1">'test'</span><span class="p">][</span><span class="s1">'y'</span><span class="p">][</span><span class="n">try_id</span><span class="p">])</span>
+
+
+<span class="k">def</span> <span class="nf">view_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    View a single image.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    image : numpy array</span>
+<span class="sd">        Make sure this is of the shape you want.</span>
+<span class="sd">    label : str</span>
+<span class="sd">    """</span>
+    <span class="kn">from</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">import</span> <span class="n">show</span><span class="p">,</span> <span class="n">imshow</span><span class="p">,</span> <span class="n">cm</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Label: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">label</span><span class="p">)</span>
+    <span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">gray</span><span class="p">)</span>
+    <span class="n">show</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">get_data</span><span class="p">():</span>
+    <span class="sd">"""</span>
+<span class="sd">    Get data ready to learn with.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dict</span>
+<span class="sd">    """</span>
+    <span class="n">simple</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="k">if</span> <span class="n">simple</span><span class="p">:</span>  <span class="c1"># Load the simple, but similar digits dataset</span>
+        <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_digits</span>
+        <span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">shuffle</span>
+        <span class="n">digits</span> <span class="o">=</span> <span class="n">load_digits</span><span class="p">()</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">el</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">digits</span><span class="o">.</span><span class="n">images</span><span class="p">]</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">digits</span><span class="o">.</span><span class="n">target</span>
+
+        <span class="c1"># Scale data to [-1, 1] - This is of mayor importance!!!</span>
+        <span class="c1"># In this case, I know the range and thus I can (and should) scale</span>
+        <span class="c1"># manually. However, this might not always be the case.</span>
+        <span class="c1"># Then try sklearn.preprocessing.MinMaxScaler or</span>
+        <span class="c1"># sklearn.preprocessing.StandardScaler</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">/</span><span class="mf">255.0</span><span class="o">*</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span>
+
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">shuffle</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="kn">from</span> <span class="nn">sklearn.cross_validation</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+        <span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span>
+                                                            <span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span>
+                                                            <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'train'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'X'</span><span class="p">:</span> <span class="n">x_train</span><span class="p">,</span>
+                          <span class="s1">'y'</span><span class="p">:</span> <span class="n">y_train</span><span class="p">},</span>
+                <span class="s1">'test'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'X'</span><span class="p">:</span> <span class="n">x_test</span><span class="p">,</span>
+                         <span class="s1">'y'</span><span class="p">:</span> <span class="n">y_test</span><span class="p">}}</span>
+    <span class="k">else</span><span class="p">:</span>  <span class="c1"># Load the original dataset</span>
+        <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_mldata</span>
+        <span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">shuffle</span>
+        <span class="n">mnist</span> <span class="o">=</span> <span class="n">fetch_mldata</span><span class="p">(</span><span class="s1">'MNIST original'</span><span class="p">)</span>
+
+        <span class="n">x</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">data</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">target</span>
+
+        <span class="c1"># Scale data to [-1, 1] - This is of mayor importance!!!</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">/</span><span class="mf">255.0</span><span class="o">*</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span>
+
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">shuffle</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="kn">from</span> <span class="nn">sklearn.cross_validation</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+        <span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span>
+                                                            <span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span>
+                                                            <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'train'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'X'</span><span class="p">:</span> <span class="n">x_train</span><span class="p">,</span>
+                          <span class="s1">'y'</span><span class="p">:</span> <span class="n">y_train</span><span class="p">},</span>
+                <span class="s1">'test'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'X'</span><span class="p">:</span> <span class="n">x_test</span><span class="p">,</span>
+                         <span class="s1">'y'</span><span class="p">:</span> <span class="n">y_test</span><span class="p">}}</span>
+    <span class="k">return</span> <span class="n">data</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+<h2 id="results">Results</h2>
+<p>The script from above gives the following results:</p>
+<table>
+<caption>Confusion matrix for an SVM classifier on the MNIST dataset</caption>
+<thead>
+<tr>
+<th></th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>2258</td>
+<td>1</td>
+<td>4</td>
+<td>1</td>
+<td>2</td>
+<td>2</td>
+<td>3</td>
+<td>1</td>
+<td>4</td>
+<td>2</td>
+</tr>
+<tr>
+<th>1</th>
+<td>1</td>
+<td>2566</td>
+<td>9</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>7</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<th>2</th>
+<td>4</td>
+<td>1</td>
+<td>2280</td>
+<td>5</td>
+<td>4</td>
+<td>0</td>
+<td>1</td>
+<td>9</td>
+<td>8</td>
+<td>2</td>
+</tr>
+<tr>
+<th>3</th>
+<td>0</td>
+<td>0</td>
+<td>14</td>
+<td>2304</td>
+<td>1</td>
+<td>13</td>
+<td>0</td>
+<td>6</td>
+<td>8</td>
+<td>2</td>
+</tr>
+<tr>
+<th>4</th>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>0</td>
+<td>2183</td>
+<td>0</td>
+<td>7</td>
+<td>5</td>
+<td>0</td>
+<td>10</td>
+</tr>
+<tr>
+<th>5</th>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>16</td>
+<td>3</td>
+<td>2026</td>
+<td>12</td>
+<td>1</td>
+<td>4</td>
+<td>3</td>
+</tr>
+<tr>
+<th>6</th>
+<td>7</td>
+<td>5</td>
+<td>3</td>
+<td>0</td>
+<td>5</td>
+<td>2</td>
+<td>2245</td>
+<td>0</td>
+<td>4</td>
+<td>0</td>
+</tr>
+<tr>
+<th>7</th>
+<td>1</td>
+<td>6</td>
+<td>11</td>
+<td>2</td>
+<td>5</td>
+<td>1</td>
+<td>0</td>
+<td>2373</td>
+<td>5</td>
+<td>13</td>
+</tr>
+<tr>
+<th>8</th>
+<td>3</td>
+<td>9</td>
+<td>4</td>
+<td>9</td>
+<td>4</td>
+<td>10</td>
+<td>2</td>
+<td>3</td>
+<td>2166</td>
+<td>5</td>
+</tr>
+<tr>
+<th>9</th>
+<td>3</td>
+<td>2</td>
+<td>2</td>
+<td>6</td>
+<td>19</td>
+<td>6</td>
+<td>0</td>
+<td>12</td>
+<td>10</td>
+<td>2329</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Accuracy: 98.40%</li>
+<li>Error: 1.60%</li>
+</ul>
+<p>Looks pretty good to me. However, note that there are much better results.
+The best on <a href="http://yann.lecun.com/exdb/mnist/">the official website</a> has an
+error of 0.23% and is a committee of 35 convolutional neural networks.</p>
+<p>The best SVM I could find has an error of 0.56% and applies a polynomial kernel
+of degree&nbsp;9 as well as some preprocessing.</p>
+<h2 id="references">References</h2>
+<ul>
+<li>[<a href="#ref-smi04-anchor" name="ref-smi04">Smi04</a>] B. T. Smith, &ldquo;Lagrange multipliers tutorial in the context of support
+  vector machines,&rdquo; Memorial University of Newfoundland St. John&rsquo;s,
+  Newfoundland, Canada, Jun. 2004.</li>
+<li>[<a href="#ref-bur98-anchor" name="ref-bur98">Bur98</a>] C. J. Burges, &ldquo;<a href="http://research.microsoft.com/pubs/67119/svmtutorial.pdf">A tutorial on support vector machines for pattern recognition</a>&rdquo;, Data&nbsp;mining and knowledge discovery, vol. 2, no. 2, pp.
+  121&ndash;167, 1998.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="http://scikit-learn.org/stable/auto_examples/classification/plot_digits_classification.html">Recognizing hand-written digits</a></li>
+<li>Trung Huynh's tech blog: <a href="http://www.trungh.com/2013/04/digit-recognition-using-svm-in-python/">Digit Recognition using SVM in Python</a></li>
+<li><a href="http://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html">Classifier comparison</a></li>
+<li><a href="http://scikit-learn.org/stable/supervised_learning.html">Supervised learning</a></li>
+<li><a href="http://stats.stackexchange.com/questions/80398/how-can-svm-find-an-infinite-feature-space-where-linear-separation-is-always-p">How can SVM 'find' an infinite feature space where linear separation is always possible?</a></li>
+</ul>
+            
+            <section>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                href="../using-svms-with-sklearn/#disqus_thread">
+                Comments
+            </a>
+        </div>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'martinthoma';
+        var disqus_identifier = '../using-svms-with-sklearn/';
+    var disqus_url = '../using-svms-with-sklearn/';
+
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2016-01-14T12:25:00+01:00">Jan 14, 2016</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="http://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#machine-learning-ref">Machine Learning</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#classification-ref">Classification
+                    <span>4</span>
+</a></li>
+                <li><a href="../tags.html#machine-learning-ref">Machine Learning
+                    <span>15</span>
+</a></li>
+                <li><a href="../tags.html#python-ref">Python
+                    <span>70</span>
+</a></li>
+                <li><a href="../tags.html#svm-ref">SVM
+                    <span>1</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+            <script type="text/javascript">
+var disqus_shortname = 'martinthoma';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

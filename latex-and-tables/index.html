@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="LaTeX, tables, My bits and bytes, " />
+
+<meta property="og:title" content="LaTeX and tables "/>
+<meta property="og:url" content="../latex-and-tables/" />
+<meta property="og:description" content="This is a quick article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it. LaTeX is an awesome typesetting language: It is powerful enough to let you do anything you want, it has a ..." />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2014-12-30T21:57:00+01:00" />
+<meta name="twitter:title" content="LaTeX and tables ">
+<meta name="twitter:description" content="This is a quick article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it. LaTeX is an awesome typesetting language: It is powerful enough to let you do anything you want, it has a ...">
+<meta property="og:image" content="logos/latex.png" />
+<meta name="twitter:image" content="logos/latex.png" >
+
+        <title>LaTeX and tables  · Martin Thoma
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+        
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="../"><span class=site-name>Martin Thoma</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="../latex-and-tables/"> LaTeX and tables  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+    <div class="span2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#how-to-make-tables" title="How to make tables">How to make tables</a><ul><li><a class="toc-href" href="#the-simple-way" title="The simple way">The simple way</a></li><li><a class="toc-href" href="#the-standard-way" title="The standard way">The standard way</a></li><li><a class="toc-href" href="#combining-cells" title="Combining cells">Combining cells</a></li><li><a class="toc-href" href="#page-breaking-tables" title="Page breaking tables">Page breaking tables</a></li></ul></li><li><a class="toc-href" href="#tools_1" title="Tools">Tools</a></li><li><a class="toc-href" href="#what-could-be-better" title="What could be better">What could be better</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="span8 article-content" id="contentAfterTitle">
+
+            
+            <div class="info">This is a quick article I had for quite a while as a draft.
+It might not be finished or have other problems, but I still want to share
+it.</div>
+<p>LaTeX is an awesome typesetting language: It is powerful enough to let you
+do anything you want, it has a great community and standard solutions for
+every common problem as it is quite old. But tables... well, let's say there
+is much room for improvement.</p>
+<h2 id="how-to-make-tables">How to make tables</h2>
+<h3 id="the-simple-way">The simple way</h3>
+<p>The most basic table I could think of is generated like this:</p>
+<div class="highlight"><pre><span class="k">\documentclass</span><span class="na">[a4paper]</span><span class="nb">{</span>scrartcl<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>amssymb, amsmath<span class="nb">}</span>  <span class="c">% needed for math</span>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis malesuada 
+efficitur volutpat. Proin eget dui in lacus fermentum pharetra. Sed ut 
+facilisis leo, sed consectetur urna. Phasellus eget tempus eros, vitae 
+sagittis mi. Nullam pharetra, dolor a efficitur blandit, nisl velit interdum 
+turpis, vel posuere lorem justo nec elit. Donec mattis massa auctor mattis 
+varius. Nunc sed volutpat sapien, at finibus lectus. Phasellus auctor vehicula 
+auctor. Nam vitae purus ut orci accumsan auctor. Fusce volutpat, tortor 
+consectetur convallis aliquam, enim velit gravida sapien, id convallis nisi 
+nunc ac leo.
+
+    <span class="k">\begin</span><span class="nb">{</span>table<span class="nb">}</span>[ht]
+        <span class="k">\centering</span>
+        <span class="k">\begin</span><span class="nb">{</span>tabular<span class="nb">}{</span>l|rrr<span class="nb">}</span>
+        Country / Property <span class="nb">&amp;</span> Population       <span class="nb">&amp;</span> Area     <span class="nb">&amp;</span> HDI <span class="k">\\\hline</span>
+        France             <span class="nb">&amp;</span> <span class="s">$</span><span class="m">66</span><span class="nb"> </span><span class="nv">\cdot</span><span class="nb"> </span><span class="m">10</span><span class="nb">^</span><span class="m">6</span><span class="s">$</span>  <span class="nb">&amp;</span> <span class="s">$</span><span class="m">668763</span><span class="nv">\text</span><span class="nb">{km}^</span><span class="m">2</span><span class="s">$</span>  <span class="nb">&amp;</span> 0.89 <span class="k">\\</span>
+        Germany            <span class="nb">&amp;</span> <span class="s">$</span><span class="m">81</span><span class="nb"> </span><span class="nv">\cdot</span><span class="nb"> </span><span class="m">10</span><span class="nb">^</span><span class="m">6</span><span class="s">$</span>  <span class="nb">&amp;</span> <span class="s">$</span><span class="m">357167</span><span class="nv">\text</span><span class="nb">{km}^</span><span class="m">2</span><span class="s">$</span>  <span class="nb">&amp;</span> 0.92 <span class="k">\\</span>
+        United States      <span class="nb">&amp;</span> <span class="s">$</span><span class="m">317</span><span class="nb"> </span><span class="nv">\cdot</span><span class="nb"> </span><span class="m">10</span><span class="nb">^</span><span class="m">6</span><span class="s">$</span> <span class="nb">&amp;</span> <span class="s">$</span><span class="m">9629091</span><span class="nv">\text</span><span class="nb">{km}^</span><span class="m">2</span><span class="s">$</span> <span class="nb">&amp;</span> 0.94 <span class="k">\\</span>
+        <span class="k">\end</span><span class="nb">{</span>tabular<span class="nb">}</span>
+        <span class="k">\caption</span><span class="nb">{</span>Information about countries<span class="nb">}</span>
+        <span class="k">\label</span><span class="nb">{</span>table:countries<span class="nb">}</span>
+    <span class="k">\end</span><span class="nb">{</span>table<span class="nb">}</span>
+
+Aenean sit amet felis eu urna accumsan consectetur. Sed hendrerit ultrices 
+turpis nec fringilla. Pellentesque sagittis neque placerat, pharetra ante 
+quis, maximus eros. Nam ultrices lacinia magna, eget interdum tortor ornare 
+ut. Praesent semper tristique consectetur. Sed auctor, orci accumsan imperdiet 
+vestibulum, nunc augue sagittis purus, sed dapibus neque arcu sit amet enim. 
+Aliquam fermentum dui eu efficitur condimentum. Maecenas viverra metus ut 
+bibendum pellentesque. Integer non interdum massa. Vestibulum non enim 
+vulputate, sodales nunc ac, ultricies tortor. Suspendisse non vehicula ipsum, 
+quis consequat elit. Quisque rutrum tincidunt lorem id semper. Phasellus 
+bibendum nulla sit amet purus tempus, vitae tincidunt ligula ornare. Nunc quis 
+felis non ex consequat elementum nec sit amet magna. In lacinia nulla nec neque 
+venenatis, vel tristique risus blandit.
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+<p>It will look like this:</p>
+<figure class="aligncenter">
+<a href="../images/2014/09/latex-standard-table.png"><img alt="Standard LaTeX table" class="" src="../images/2014/09/latex-standard-table.png" style="max-width:500px;"/></a>
+<figcaption class="text-center">Standard LaTeX table</figcaption>
+</figure>
+<p>You can see two environments: <code>table</code> and <code>tabular</code>. Let's focus on <code>tabular</code>
+first. It is always followed by a list of characters <code>l</code>, <code>c</code>, <code>r</code> which
+define if the column is left-aligned, centered or right-aligned. You can add <code>|</code>
+to tell LaTeX if there should be a line to distinguish columns.
+After that you get to the first cells. <code>&amp;</code> starts a new cell and <code>\\</code> starts
+a new line. If you want a drawn line / rule, you can use <code>\hline</code>.</p>
+<p>Let's check out <code>table</code>:
+<code>table</code> has options after it which are commonly <code>ht</code> where <code>h</code> means
+"here" and <code>t</code> means "top". So LaTeX tries to place the table where it is in
+the text and if that doesn't work out it places the table on the top of the
+page. It can get a caption
+<code>\caption{Description of the contents of the table}</code> and a 
+<code>\label{table:your-label-for-internal-usage}</code>.</p>
+<h3 id="the-standard-way">The standard way</h3>
+<p>I always use <code>\usepackage{booktabs}</code> to get <code>\toprule</code>, <code>\midrule</code> and <code>\bottomrule</code>:</p>
+<div class="highlight"><pre><span class="k">\documentclass</span><span class="na">[a4paper]</span><span class="nb">{</span>scrartcl<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>amssymb, amsmath<span class="nb">}</span>  <span class="c">% needed for math</span>
+
+<span class="k">\usepackage</span><span class="nb">{</span>booktabs<span class="nb">}</span>  <span class="c">% for \toprule, \midrule and \bottomrule</span>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis malesuada 
+efficitur volutpat. Proin eget dui in lacus fermentum pharetra. Sed ut 
+facilisis leo, sed consectetur urna. Phasellus eget tempus eros, vitae 
+sagittis mi. Nullam pharetra, dolor a efficitur blandit, nisl velit interdum 
+turpis, vel posuere lorem justo nec elit. Donec mattis massa auctor mattis 
+varius. Nunc sed volutpat sapien, at finibus lectus. Phasellus auctor vehicula 
+auctor. Nam vitae purus ut orci accumsan auctor. Fusce volutpat, tortor 
+consectetur convallis aliquam, enim velit gravida sapien, id convallis nisi 
+nunc ac leo.
+
+    <span class="k">\begin</span><span class="nb">{</span>table<span class="nb">}</span>[ht]
+        <span class="k">\centering</span>
+        <span class="k">\begin</span><span class="nb">{</span>tabular<span class="nb">}{</span>l|rrr<span class="nb">}</span>
+        <span class="k">\toprule</span>
+        Country / Property <span class="nb">&amp;</span> Population       <span class="nb">&amp;</span> Area     <span class="nb">&amp;</span> HDI <span class="k">\\\midrule</span>
+        France             <span class="nb">&amp;</span> <span class="s">$</span><span class="m">66</span><span class="nb"> </span><span class="nv">\cdot</span><span class="nb"> </span><span class="m">10</span><span class="nb">^</span><span class="m">6</span><span class="s">$</span>  <span class="nb">&amp;</span> <span class="s">$</span><span class="m">668763</span><span class="nv">\text</span><span class="nb">{km}^</span><span class="m">2</span><span class="s">$</span>  <span class="nb">&amp;</span> 0.89 <span class="k">\\</span>
+        Germany            <span class="nb">&amp;</span> <span class="s">$</span><span class="m">81</span><span class="nb"> </span><span class="nv">\cdot</span><span class="nb"> </span><span class="m">10</span><span class="nb">^</span><span class="m">6</span><span class="s">$</span>  <span class="nb">&amp;</span> <span class="s">$</span><span class="m">357167</span><span class="nv">\text</span><span class="nb">{km}^</span><span class="m">2</span><span class="s">$</span>  <span class="nb">&amp;</span> 0.92 <span class="k">\\</span>
+        United States      <span class="nb">&amp;</span> <span class="s">$</span><span class="m">317</span><span class="nb"> </span><span class="nv">\cdot</span><span class="nb"> </span><span class="m">10</span><span class="nb">^</span><span class="m">6</span><span class="s">$</span> <span class="nb">&amp;</span> <span class="s">$</span><span class="m">9629091</span><span class="nv">\text</span><span class="nb">{km}^</span><span class="m">2</span><span class="s">$</span> <span class="nb">&amp;</span> 0.94 <span class="k">\\</span>
+        <span class="k">\bottomrule</span>
+        <span class="k">\end</span><span class="nb">{</span>tabular<span class="nb">}</span>
+        <span class="k">\caption</span><span class="nb">{</span>Information about countries<span class="nb">}</span>
+        <span class="k">\label</span><span class="nb">{</span>table:countries<span class="nb">}</span>
+    <span class="k">\end</span><span class="nb">{</span>table<span class="nb">}</span>
+
+Aenean sit amet felis eu urna accumsan consectetur. Sed hendrerit ultrices 
+turpis nec fringilla. Pellentesque sagittis neque placerat, pharetra ante 
+quis, maximus eros. Nam ultrices lacinia magna, eget interdum tortor ornare 
+ut. Praesent semper tristique consectetur. Sed auctor, orci accumsan imperdiet 
+vestibulum, nunc augue sagittis purus, sed dapibus neque arcu sit amet enim. 
+Aliquam fermentum dui eu efficitur condimentum. Maecenas viverra metus ut 
+bibendum pellentesque. Integer non interdum massa. Vestibulum non enim 
+vulputate, sodales nunc ac, ultricies tortor. Suspendisse non vehicula ipsum, 
+quis consequat elit. Quisque rutrum tincidunt lorem id semper. Phasellus 
+bibendum nulla sit amet purus tempus, vitae tincidunt ligula ornare. Nunc quis 
+felis non ex consequat elementum nec sit amet magna. In lacinia nulla nec neque 
+venenatis, vel tristique risus blandit.
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+<p>which looks like this:</p>
+<figure class="aligncenter">
+<a href="../images/2014/09/latex-table-booktabs.png"><img alt="LaTeX table with booktabs" class="" src="../images/2014/09/latex-table-booktabs.png" style="max-width:500px;"/></a>
+<figcaption class="text-center">LaTeX table with booktabs</figcaption>
+</figure>
+<h3 id="combining-cells">Combining cells</h3>
+<p>It is much nicer when you combine cells. To do so, you can use <code>\multicolumn</code>:</p>
+<div class="highlight"><pre><span class="k">\documentclass</span><span class="na">[a4paper]</span><span class="nb">{</span>scrartcl<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>amssymb, amsmath<span class="nb">}</span>  <span class="c">% needed for math</span>
+
+<span class="k">\usepackage</span><span class="nb">{</span>booktabs<span class="nb">}</span>  <span class="c">% for \toprule, \midrule and \bottomrule</span>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis malesuada 
+efficitur volutpat. Proin eget dui in lacus fermentum pharetra. Sed ut 
+facilisis leo, sed consectetur urna. Phasellus eget tempus eros, vitae 
+sagittis mi. Nullam pharetra, dolor a efficitur blandit, nisl velit interdum 
+turpis, vel posuere lorem justo nec elit. Donec mattis massa auctor mattis 
+varius. Nunc sed volutpat sapien, at finibus lectus. Phasellus auctor vehicula 
+auctor. Nam vitae purus ut orci accumsan auctor. Fusce volutpat, tortor 
+consectetur convallis aliquam, enim velit gravida sapien, id convallis nisi 
+nunc ac leo.
+
+<span class="k">\begin</span><span class="nb">{</span>table<span class="nb">}</span>[ht]
+    <span class="k">\centering</span>
+    <span class="k">\begin</span><span class="nb">{</span>tabular<span class="nb">}{</span>llll<span class="nb">}</span>
+    <span class="k">\toprule</span>
+    Country <span class="nb">&amp;</span> <span class="k">\multicolumn</span><span class="nb">{</span>3<span class="nb">}{</span>c<span class="nb">}{</span>Property<span class="nb">}</span><span class="k">\\</span>
+              <span class="k">\cmidrule</span><span class="nb">{</span>2-4<span class="nb">}</span>
+            <span class="nb">&amp;</span> <span class="nb">{</span>Population<span class="nb">}</span> <span class="nb">&amp;</span> <span class="nb">{</span>Area<span class="nb">}</span> <span class="nb">&amp;</span> <span class="nb">{</span>HDI<span class="nb">}</span> <span class="k">\\</span>
+            <span class="nb">&amp;</span> <span class="nb">{</span>(mio.)<span class="nb">}</span> <span class="nb">&amp;</span> <span class="nb">{</span>(km<span class="k">\textsuperscript</span><span class="nb">{</span>2<span class="nb">}</span>)<span class="nb">}</span><span class="k">\\</span>
+    <span class="k">\midrule</span>
+    France             <span class="nb">&amp;</span> <span class="k">\multirow</span><span class="nb">{</span>2<span class="nb">}{</span>c<span class="nb">}{</span>66<span class="nb">}</span>  <span class="nb">&amp;</span> 668763  <span class="nb">&amp;</span> 0.89 <span class="k">\\</span>
+    Germany            <span class="nb">&amp;</span> 81  <span class="nb">&amp;</span> 357167  <span class="nb">&amp;</span> 0.92 <span class="k">\\</span>
+    United States      <span class="nb">&amp;</span> 317 <span class="nb">&amp;</span> 9629091 <span class="nb">&amp;</span> 0.94 <span class="k">\\</span>
+    <span class="k">\bottomrule</span>
+    <span class="k">\end</span><span class="nb">{</span>tabular<span class="nb">}</span>
+    <span class="k">\caption</span><span class="nb">{</span>Information about countries<span class="nb">}</span>
+    <span class="k">\label</span><span class="nb">{</span>table:countries<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>table<span class="nb">}</span>
+Aenean sit amet felis eu urna accumsan consectetur. Sed hendrerit ultrices 
+turpis nec fringilla. Pellentesque sagittis neque placerat, pharetra ante 
+quis, maximus eros. Nam ultrices lacinia magna, eget interdum tortor ornare 
+ut. Praesent semper tristique consectetur. Sed auctor, orci accumsan imperdiet 
+vestibulum, nunc augue sagittis purus, sed dapibus neque arcu sit amet enim. 
+Aliquam fermentum dui eu efficitur condimentum. Maecenas viverra metus ut 
+bibendum pellentesque. Integer non interdum massa. Vestibulum non enim 
+vulputate, sodales nunc ac, ultricies tortor. Suspendisse non vehicula ipsum, 
+quis consequat elit. Quisque rutrum tincidunt lorem id semper. Phasellus 
+bibendum nulla sit amet purus tempus, vitae tincidunt ligula ornare. Nunc quis 
+felis non ex consequat elementum nec sit amet magna. In lacinia nulla nec neque 
+venenatis, vel tristique risus blandit.
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+<p>which looks like this:</p>
+<figure class="aligncenter">
+<a href="../images/2014/09/latex-multicols.png"><img alt="LaTeX table with multicols" class="" src="../images/2014/09/latex-multicols.png" style="max-width:500px;"/></a>
+<figcaption class="text-center">LaTeX table with multicols</figcaption>
+</figure>
+<p>Note the <code>\cmidrule{2-4}</code> which draws a rule from cell 2 to 4 (LaTeX starts
+to count at 1).</p>
+<p>If you want to combine multiple rows you need to use <code>\usepackage{multirow}</code>.</p>
+<h3 id="page-breaking-tables">Page breaking tables</h3>
+<p>If you want your tables to be able to break over pages, you have to use
+<a href="ftp://ftp.tex.ac.uk/tex-archive/macros/latex/required/tools/longtable.pdf"><code>\usepackage{longtable}</code></a> which has <a href="http://users.sdsc.edu/~ssmallen/latex/longtable.html">an example</a>.</p>
+<p>Another option is <a href="http://ctan.org/pkg/supertabular">supertabular</a>.</p>
+<p>When you use them, you should add <code>\endhead</code> so that the head can get repeated.</p>
+<h2 id="tools_1">Tools</h2>
+<p><a href="http://truben.no/table/">truben.no/table</a> is an awesome page to create tables
+for different formats.</p>
+<h2 id="what-could-be-better">What could be better</h2>
+<p><strong>Page-breaking</strong>: I understand that you don't want to have page breaking of
+tables most of the time. But rather than never allowing page-breaking, I would
+expect an optimization with the following thoughts in mind:</p>
+<ul>
+<li>It is best to have the table where it was specified.</li>
+<li>The content should have at least 2 times as many rows as the header. So when
+  there is only one header row, there should be at least 2 content rows.</li>
+<li>The farer a table is away from its "original" position, the worse it is.</li>
+</ul>
+<p><strong>Headers</strong>: A semantic way to define the header and a tail would be very good.
+<code>\endhead</code> is ok.</p>
+<p><strong>Semantics, Styles and Classes</strong>: LaTeX hides some of the formatting for semantic codes.
+For example, you write <code>\section{MySection}</code> instead of
+<code>{\fontsize{12}{15}\textbf{MySection}}</code>
+or something similar. That should be more often the case. In fact, I think it
+would be very nice if LaTeX had some built-in support for pure stylesheets
+(like CSS for HTML). It would be very nice if I only had to define that I
+want to make a standard table and it inserts <code>\toprule</code>, <code>\midrule</code> and
+<code>\bottomrule</code> automatically. But to get an automatic <code>\midrule</code> we need
+a command to tell LaTeX where the header ends.</p>
+<p>Everything of the above should be standard. There should not be the need to
+use new packages for that. Also, <code>\multirow</code>, <code>\toprule</code>, <code>\midrule</code>,
+<code>\bottomrule</code> should not be "hidden" in a package but be there by default.</p>
+<p><strong>Table seperator</strong>: It is unfortunate that the table cell seperator(s) <code>\\</code>
+and <code>&amp;</code> have problems with matrices. I think one environment should get closed
+before the other one can continue parsing, so I don't quite understand where the
+problem is. But there certainly is a problem (see <a href="http://stackoverflow.com/q/25971178/562769">this question</a>).</p>
+<p><strong>Tools</strong>: I don't know any tools that can export LaTeX tables and merge cells.
+Such tools should be able to import and export LaTeX tables</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="https://www.tug.org/TUGboat/tb28-3/tb90hoeppner.pdf">Typesetting tables with LaTeX</a></li>
+<li><a href="https://en.wikibooks.org/wiki/LaTeX/Tables">LaTeX/Tables</a></li>
+</ul>
+            
+            <section>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                href="../latex-and-tables/#disqus_thread">
+                Comments
+            </a>
+        </div>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'martinthoma';
+        var disqus_identifier = '../latex-and-tables/';
+    var disqus_url = '../latex-and-tables/';
+
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2014-12-30T21:57:00+01:00">Dez 30, 2014</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="http://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#my-bits-and-bytes-ref">My bits and bytes</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#latex-ref">LaTeX
+                    <span>25</span>
+</a></li>
+                <li><a href="../tags.html#tables-ref">tables
+                    <span>1</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+            <script type="text/javascript">
+var disqus_shortname = 'martinthoma';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

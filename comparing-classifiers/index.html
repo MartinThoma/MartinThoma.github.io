@@ -1,56 +1,38 @@
-<!doctype html>
-<html lang="en">
-  <!-- type: head.html -->
-  <head>
-    <meta charset="utf-8">
-    
-    
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
 
-    
-        <meta name="image" content="https://martin-thoma.com/images/logos/ml.png" />
-        <meta name="thumbnail" content="//martin-thoma.com/images/logos/ml.png" />
-        <meta property="og:image" content="//martin-thoma.com/images/logos/ml.png" />
-    
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
 
-    <meta property="og:type" content="blog"/>
+<meta name="keywords" content="Python, Machine Learning, Classification, Machine Learning, " />
 
-    <title>Comparing Classifiers</title>
-    <meta property="og:title" content="Comparing Classifiers" />
-    <meta property="og:url" content="//martin-thoma.com/comparing-classifiers" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/screen.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/style.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/pygments.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/tocplus-screen.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/print.css" type="text/css" media="print" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-width: 480px)" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="Comparing Classifiers "/>
+<meta property="og:url" content="../comparing-classifiers/" />
+<meta property="og:description" content="Classification problems occur quite often and many different classification algorithms have been described and implemented. But what is the best algorithm for a given error function and dataset? I read questions like &#34;I have problem X. What is the best classifier?&#34; quite often and my first impulse is always to ..." />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2016-01-19T20:13:00+01:00" />
+<meta name="twitter:title" content="Comparing Classifiers ">
+<meta name="twitter:description" content="Classification problems occur quite often and many different classification algorithms have been described and implemented. But what is the best algorithm for a given error function and dataset? I read questions like &#34;I have problem X. What is the best classifier?&#34; quite often and my first impulse is always to ...">
+<meta property="og:image" content="logos/ml.png" />
+<meta name="twitter:image" content="logos/ml.png" >
 
-    <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="//martin-thoma.com/feed/" /><!--TODO-->
-    <link rel="shortcut icon" href="//martin-thoma.com/favicon.ico" type="image/x-icon" />
+        <title>Comparing Classifiers  · Martin Thoma
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
 
-    <link rel="canonical" href="//martin-thoma.com/comparing-classifiers" />
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:site" content="@themoosemind"/>
-<meta name="twitter:creator" content="@themoosemind"/>
-<meta name="twitter:title" content="Comparing Classifiers"/>
-
-    <meta name="twitter:description" content="A blog about Code, the Web and Cyberculture" />
-
-
-    <meta name="twitter:image" content="//martin-thoma.com/images/logos/ml.png"/>
-
-
-
-<meta name="twitter:url" content="//martin-thoma.com/comparing-classifiers"/>
-<meta name="twitter:domain" content="Martin Thoma.com"/>
-
-
-    <script type='text/javascript' src="//martin-thoma.com/js/jquery.js"></script>
-    <script type='text/javascript' src="//martin-thoma.com/js/jquery-migrate.min.js"></script>
-    <style type="text/css">div#toc_container {width: 275px;}</style>
-    <style type="text/css" id="syntaxhighlighteranchor"></style>
-
-<!-- MathJax -->
+        <!-- MathJax -->
 <script type="text/x-mathjax-config">
 <!--
 MathJax.Hub.Config({
@@ -74,906 +56,748 @@ MathJax.Hub.Queue(function() {
 <script type="text/javascript" async
   src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
-
-<!-- Latest compiled and minified CSS bootstrap -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-</head>
-
-<!-- type: post.html -->
-<body>
-    <div id="wrapper">
-        <div id="container" class="container">
-            <div class="span-16">
-                <!-- type: header.html -->
-<div id="header" role="banner">
-    <h1><a href="//martin-thoma.com">Martin Thoma</a></h1>
-    <h2 style="margin-top: 0;">A blog about Code, the Web and Cyberculture.</h2>
+        
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="../"><span class=site-name>Martin Thoma</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="../comparing-classifiers/"> Comparing Classifiers  </a></h1>
+    </header>
 </div>
-<nav class="navcontainer" role="navigation">
-    <ul id="nav">
-        <li class=""><a href="//martin-thoma.com">Home</a></li>
-        <li class="page_item page-item-41 "><a href="//martin-thoma.com/author/martin-thoma/">About Me</a></li>
-        <li class="page_item page-item-91 "><a href="//martin-thoma.com/imprint/">Imprint</a></li>
-    </ul>
-</nav>
 
-                <div id="content">
-                    <article class="post type-post format-standard hentry clearfix" itemscope itemType="http://schema.org/BlogPosting">
-                        <h2 class="title entry-title" itemprop="name headline">Comparing Classifiers</h2>
-                        <link itemprop="mainEntityOfPage" href="//martin-thoma.com/comparing-classifiers" />
-                        <div class="postdate entry-date date-header">
-                            <time datetime="2016-01-19T20:13:00+01:00" itemprop="datePublished">
-                                January
-                                19th,
-                                  
-                                2016
-                            </time>
-                        </div>
+<div class="row-fluid">
+    <div class="span2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#tutorial-example" title="Tutorial example">Tutorial example</a></li><li><a class="toc-href" href="#the-hardware" title="The hardware">The hardware</a></li><li><a class="toc-href" href="#mnist" title="MNIST">MNIST</a><ul><li><a class="toc-href" href="#neural-networks" title="Neural Networks">Neural Networks</a></li><li><a class="toc-href" href="#svm" title="SVM">SVM</a></li><li><a class="toc-href" href="#random-forest" title="Random Forest">Random Forest</a></li><li><a class="toc-href" href="#k-nearest-neightbors" title="k nearest neightbors">k nearest neightbors</a></li><li><a class="toc-href" href="#decision-tree" title="Decision Tree">Decision Tree</a></li><li><a class="toc-href" href="#adaboost" title="Adaboost">Adaboost</a></li><li><a class="toc-href" href="#gradient-boosting" title="Gradient Boosting">Gradient Boosting</a></li><li><a class="toc-href" href="#naive-bayes" title="Naive Bayes">Naive Bayes</a></li><li><a class="toc-href" href="#lda" title="LDA">LDA</a></li><li><a class="toc-href" href="#qda" title="QDA">QDA</a></li></ul></li><li><a class="toc-href" href="#mnist-summary_1" title="MNIST Summary">MNIST Summary</a></li><li><a class="toc-href" href="#iris-summary" title="IRIS summary">IRIS summary</a></li><li><a class="toc-href" href="#tldr" title="TL;DR">TL;DR</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="span8 article-content" id="contentAfterTitle">
 
-                        <div class="entry post-body" id="contentAfterTitle" itemprop="articleBody">
-                            <p>Classification problems occur quite often and many different classification
+            
+            <p>Classification problems occur quite often and many different classification
 algorithms have been described and implemented. But what is the best algorithm
 for a given error function and dataset?</p>
-
-<p>I read questions like “I have problem X. What is the best classifier?” quite
+<p>I read questions like "I have problem X. What is the best classifier?" quite
 often and my first impulse is always to write: Just try them!</p>
-
 <p>I guess people asking this question might think that it is super difficult to
 do so. However, the sklearn tutorial contains a very nice example where
 many classifiers are compared (<a href="http://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html">source</a>).</p>
-
 <p>This article gives you an overview over some classifiers:</p>
-
 <ul>
-  <li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html">SVM</a></li>
-  <li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html">k-nearest neighbors</a></li>
-  <li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">Random Forest</a></li>
-  <li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html">AdaBoost Classifier</a></li>
-  <li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html">Gradient Boosting</a></li>
-  <li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html">Naive Bayes</a></li>
-  <li><a href="http://scikit-learn.org/0.16/modules/generated/sklearn.lda.LDA.html">LDA</a></li>
-  <li><a href="http://scikit-learn.org/0.16/modules/generated/sklearn.qda.QDA.html">QDA</a></li>
-  <li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.neural_network.BernoulliRBM.html">RBMs</a></li>
-  <li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html">Logistic Regression</a></li>
-  <li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.neural_network.BernoulliRBM.html">RBM</a> + Logistic Regression Classifier</li>
+<li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html">SVM</a></li>
+<li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html">k-nearest neighbors</a></li>
+<li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">Random Forest</a></li>
+<li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html">AdaBoost Classifier</a></li>
+<li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html">Gradient Boosting</a></li>
+<li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html">Naive Bayes</a></li>
+<li><a href="http://scikit-learn.org/0.16/modules/generated/sklearn.lda.LDA.html">LDA</a></li>
+<li><a href="http://scikit-learn.org/0.16/modules/generated/sklearn.qda.QDA.html">QDA</a></li>
+<li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.neural_network.BernoulliRBM.html">RBMs</a></li>
+<li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html">Logistic Regression</a></li>
+<li><a href="http://scikit-learn.org/stable/modules/generated/sklearn.neural_network.BernoulliRBM.html">RBM</a> + Logistic Regression Classifier</li>
 </ul>
-
 <p>Of course, neural networks are also one very powerful ML classifier I may not
-forget. As sklearn does not have neural networks, I’ve installed
+forget. As sklearn does not have neural networks, I've installed
 <a href="https://github.com/tensorflow/skflow"><code>skflow</code></a>.</p>
-
-<div id="toc_container" class="toc_light_blue no_bullets">
-   <p class="toc_title">Contents</p>
-   <ul class="toc_list">
-      <li class="toc_level-1 toc_section-1">
-         <a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">Tutorial example</span></a>
-      </li>
-      <li class="toc_level-1 toc_section-2">
-         <a href="#tocAnchor-1-2"><span class="tocnumber">2</span> <span class="toctext">The hardware</span></a>
-      </li>
-      <li class="toc_level-1 toc_section-3">
-         <a href="#tocAnchor-1-3"><span class="tocnumber">3</span> <span class="toctext">MNIST</span></a>
-         <ul>
-            <li class="toc_level-2 toc_section-4">
-               <a href="#tocAnchor-1-3-1"><span class="tocnumber">3.1</span> <span class="toctext">Neural Networks</span></a>
-            </li>
-            <li class="toc_level-2 toc_section-5">
-               <a href="#tocAnchor-1-3-2"><span class="tocnumber">3.2</span> <span class="toctext">SVM</span></a>
-            </li>
-            <li class="toc_level-2 toc_section-6">
-               <a href="#tocAnchor-1-3-3"><span class="tocnumber">3.3</span> <span class="toctext">Random Forest</span></a>
-            </li>
-            <li class="toc_level-2 toc_section-7">
-               <a href="#tocAnchor-1-3-4"><span class="tocnumber">3.4</span> <span class="toctext">k nearest neightbors</span></a>
-            </li>
-            <li class="toc_level-2 toc_section-8">
-               <a href="#tocAnchor-1-3-5"><span class="tocnumber">3.5</span> <span class="toctext">Decision Tree</span></a>
-            </li>
-            <li class="toc_level-2 toc_section-9">
-               <a href="#tocAnchor-1-3-6"><span class="tocnumber">3.6</span> <span class="toctext">Adaboost</span></a>
-            </li>
-            <li class="toc_level-2 toc_section-10">
-               <a href="#tocAnchor-1-3-7"><span class="tocnumber">3.7</span> <span class="toctext">Gradient Boosting</span></a>
-            </li>
-            <li class="toc_level-2 toc_section-11">
-               <a href="#tocAnchor-1-3-8"><span class="tocnumber">3.8</span> <span class="toctext">Naive Bayes</span></a>
-            </li>
-            <li class="toc_level-2 toc_section-12">
-               <a href="#tocAnchor-1-3-9"><span class="tocnumber">3.9</span> <span class="toctext">LDA</span></a>
-            </li>
-            <li class="toc_level-2 toc_section-13">
-               <a href="#tocAnchor-1-3-10"><span class="tocnumber">3.10</span> <span class="toctext">QDA</span></a>
-            </li>
-         </ul>
-      </li>
-      <li class="toc_level-1 toc_section-14">
-         <a href="#tocAnchor-1-14"><span class="tocnumber">4</span> <span class="toctext">MNIST Summary</span></a>
-      </li>
-      <li class="toc_level-1 toc_section-15">
-         <a href="#tocAnchor-1-15"><span class="tocnumber">5</span> <span class="toctext">IRIS summary</span></a>
-      </li>
-      <li class="toc_level-1 toc_section-16">
-         <a href="#tocAnchor-1-16"><span class="tocnumber">6</span> <span class="toctext">TL;DR</span></a>
-      </li>
-   </ul>
-</div><h2 id="tocAnchor-1-1">Tutorial example</h2>
-
-<p>The sklearn tutorial creates three datasets with 100 points per dataset and
-2 dimensions per point:</p>
-
+<h2 id="tutorial-example">Tutorial example</h2>
+<p>The sklearn tutorial creates three datasets with 100&nbsp;points per dataset and
+2&nbsp;dimensions per point:</p>
 <ol>
-  <li><strong>Moons</strong>: Two interleaving half-circles</li>
-  <li><strong>Circles</strong>: A larger circle containing the smaller one</li>
-  <li><strong>Linear</strong>: A linearly seperable dataset</li>
+<li><strong>Moons</strong>: Two interleaving half-circles</li>
+<li><strong>Circles</strong>: A larger circle containing the smaller one</li>
+<li><strong>Linear</strong>: A linearly seperable dataset</li>
 </ol>
-
 <p>Each of those three datasets has added noise. This means for some points there
 might be no way of classifying them correclty.</p>
-
 <p>Here are the results</p>
-
-<div style="width: 510px" class="wp-caption aligncenter">
-   <a href="../images/2016/01/ml-classifiers-1.png">
-      <img src="//martin-thoma.com/captions/ml-classifiers-1.png" alt="k nearest neighbors, linear and RBFSVM" width="500" height="357" class="" />
-   </a>
-   <p class="wp-caption-text">k nearest neighbors, linear and RBFSVM</p>
-</div>
-
+<figure class="aligncenter">
+<a href="../images/2016/01/ml-classifiers-1.png"><img alt="k nearest neighbors, linear and RBFSVM" class="" src="../images/2016/01/ml-classifiers-1.png" style="max-width:500px;"/></a>
+<figcaption class="text-center">k nearest neighbors, linear and RBFSVM</figcaption>
+</figure>
 <p>One can see that k nearest neighbors gives arbitrary decision boundaries.
 Overall, they look reasonable. However, there are often strange zig-zag
 patterns.</p>
-
 <p>The linear SVM in contrast has a very easy decision boundary: a line. It is no
-suprise that it can’t deal with the moons dataset. Note that a random guess
+suprise that it can't deal with the moons dataset. Note that a random guess
 would be right in 50% of the cases.</p>
-
 <p>The RBF SVM has very nice decision boundary. It is smooth, matches the pattern
 and is able to adjust to all three examles.</p>
-
-<div style="width: 510px" class="wp-caption aligncenter">
-   <a href="../images/2016/01/ml-classifiers-2.png">
-      <img src="//martin-thoma.com/captions/ml-classifiers-2.png" alt="Decision Tree, Random Forest, AdaBoost" width="500" height="363" class="" />
-   </a>
-   <p class="wp-caption-text">Decision Tree, Random Forest, AdaBoost</p>
-</div>
-
+<figure class="aligncenter">
+<a href="../images/2016/01/ml-classifiers-2.png"><img alt="Decision Tree, Random Forest, AdaBoost" class="" src="../images/2016/01/ml-classifiers-2.png" style="max-width:500px;"/></a>
+<figcaption class="text-center">Decision Tree, Random Forest, AdaBoost</figcaption>
+</figure>
 <p>Decision Trees, Decision Forests and AdaBoost all show very similar
 patterns. The boundaries change in parallel to the coordinate axes which looks
 very unnatural.</p>
-
-<div style="width: 510px" class="wp-caption aligncenter">
-   <a href="../images/2016/01/ml-classifiers-3.png">
-      <img src="//martin-thoma.com/captions/ml-classifiers-3.png" alt="Naive Bayes, LDA, QDA" width="500" height="342" class="" />
-   </a>
-   <p class="wp-caption-text">Naive Bayes, LDA, QDA</p>
-</div>
-
+<figure class="aligncenter">
+<a href="../images/2016/01/ml-classifiers-3.png"><img alt="Naive Bayes, LDA, QDA" class="" src="../images/2016/01/ml-classifiers-3.png" style="max-width:500px;"/></a>
+<figcaption class="text-center">Naive Bayes, LDA, QDA</figcaption>
+</figure>
 <p>Naive Bayes shows nice, smooth patterns. However, those patterns seem to be
 a bit too simple. LDA is again linear (see linear SVM). Comparing QDA to
 Naive Bayes is interesting. Although they get similar performance for the first
 dataset, I would argue that the naive bayes classifier is much better as it is
 much more confident for its classification. Even more extrem is the last example.
-I’m astonished that the QDA gets 93% with that boundary; Naive Bayes seems to
+I'm astonished that the QDA gets 93% with that boundary; Naive Bayes seems to
 find a much better boundary.</p>
-
-<h2 id="tocAnchor-1-2">The hardware</h2>
-
+<h2 id="the-hardware">The hardware</h2>
 <p>The following comparison is done on a PC with an <a href="http://ark.intel.com/de/products/77781/Intel-Core-i7-4820K-Processor-10M-Cache-up-to-3_90-GHz">Intel i7-4820K CPU</a> and a NVIDIA GeForce GTX Titan Black
 GPU.</p>
-
-<h2 id="tocAnchor-1-3">MNIST</h2>
-
-<p>MNIST is a dataset of <span>\(28\text{px} \times 28\text{px}\)</span> greyscale images.
+<h2 id="mnist">MNIST</h2>
+<p>MNIST is a dataset of <span markdown="0"><span class="math">\(28\text{px} \times 28\text{px}\)</span></span> greyscale images.
 Each of the images contains a digit (0, 1, 2, 3, 4, 5, 6, 7, 8, 9). The
 task is to classify the image into one of the 10 digit classes.</p>
-
-<p>Guessing randomly will give an accuracy of <span>\(\frac{1}{10} = 0.1\)</span>.</p>
-
-<h3 id="tocAnchor-1-3-1">Neural Networks</h3>
-
+<p>Guessing randomly will give an accuracy of <span markdown="0"><span class="math">\(\frac{1}{10} = 0.1\)</span></span>.</p>
+<h3 id="neural-networks">Neural Networks</h3>
 <p>Please note that there are neural networks which get much better accuracy.
 Most notably the <a href="https://www.tensorflow.org/versions/master/tutorials/mnist/pros/index.html#deep-mnist-for-experts">MNIST Expert tutorial</a> with 99.2% accuracy.</p>
-
 <h4 id="simple-network">Simple Network</h4>
-
-<pre><code>Classifier: NN 500:200
-Training time: 79.5696s
-Testing time: 0.3480s
-Confusion matrix:
-[[2248    1    5    1    2    4    8    2    5    2]
- [   1 2565   10    1    1    0    2    7    1    0]
- [   7    2 2258   14    5    0    9    6   10    3]
- [   0    0   12 2294    0   23    0    6    3   10]
- [   0    3    3    0 2161    0    8    5    1   30]
- [   4    1    1   16    1 2014   17    1    5    9]
- [  11    7    1    0    5    6 2237    0    4    0]
- [   3    6   14    7    3    1    0 2355   10   18]
- [   3    7    3   14    2   17    4    1 2161    3]
- [   4    4    0    4   16    8    0    7    6 2340]]
-Accuracy: 0.9798
-</code></pre>
-
+<div class="highlight"><pre><span class="n">Classifier</span><span class="o">:</span> <span class="n">NN</span> <span class="mi">500</span><span class="o">:</span><span class="mi">200</span>
+<span class="n">Training</span> <span class="n">time</span><span class="o">:</span> <span class="mf">79.5696</span><span class="n">s</span>
+<span class="n">Testing</span> <span class="n">time</span><span class="o">:</span> <span class="mf">0.3480</span><span class="n">s</span>
+<span class="n">Confusion</span> <span class="n">matrix</span><span class="o">:</span>
+<span class="o">[[</span><span class="mi">2248</span>    <span class="mi">1</span>    <span class="mi">5</span>    <span class="mi">1</span>    <span class="mi">2</span>    <span class="mi">4</span>    <span class="mi">8</span>    <span class="mi">2</span>    <span class="mi">5</span>    <span class="mi">2</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">1</span> <span class="mi">2565</span>   <span class="mi">10</span>    <span class="mi">1</span>    <span class="mi">1</span>    <span class="mi">0</span>    <span class="mi">2</span>    <span class="mi">7</span>    <span class="mi">1</span>    <span class="mi">0</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">7</span>    <span class="mi">2</span> <span class="mi">2258</span>   <span class="mi">14</span>    <span class="mi">5</span>    <span class="mi">0</span>    <span class="mi">9</span>    <span class="mi">6</span>   <span class="mi">10</span>    <span class="mi">3</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">0</span>    <span class="mi">0</span>   <span class="mi">12</span> <span class="mi">2294</span>    <span class="mi">0</span>   <span class="mi">23</span>    <span class="mi">0</span>    <span class="mi">6</span>    <span class="mi">3</span>   <span class="mi">10</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">0</span>    <span class="mi">3</span>    <span class="mi">3</span>    <span class="mi">0</span> <span class="mi">2161</span>    <span class="mi">0</span>    <span class="mi">8</span>    <span class="mi">5</span>    <span class="mi">1</span>   <span class="mi">30</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">4</span>    <span class="mi">1</span>    <span class="mi">1</span>   <span class="mi">16</span>    <span class="mi">1</span> <span class="mi">2014</span>   <span class="mi">17</span>    <span class="mi">1</span>    <span class="mi">5</span>    <span class="mi">9</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">11</span>    <span class="mi">7</span>    <span class="mi">1</span>    <span class="mi">0</span>    <span class="mi">5</span>    <span class="mi">6</span> <span class="mi">2237</span>    <span class="mi">0</span>    <span class="mi">4</span>    <span class="mi">0</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">3</span>    <span class="mi">6</span>   <span class="mi">14</span>    <span class="mi">7</span>    <span class="mi">3</span>    <span class="mi">1</span>    <span class="mi">0</span> <span class="mi">2355</span>   <span class="mi">10</span>   <span class="mi">18</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">3</span>    <span class="mi">7</span>    <span class="mi">3</span>   <span class="mi">14</span>    <span class="mi">2</span>   <span class="mi">17</span>    <span class="mi">4</span>    <span class="mi">1</span> <span class="mi">2161</span>    <span class="mi">3</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">4</span>    <span class="mi">4</span>    <span class="mi">0</span>    <span class="mi">4</span>   <span class="mi">16</span>    <span class="mi">8</span>    <span class="mi">0</span>    <span class="mi">7</span>    <span class="mi">6</span> <span class="mi">2340</span><span class="o">]]</span>
+<span class="n">Accuracy</span><span class="o">:</span> <span class="mf">0.9798</span>
+</pre></div>
 <h4 id="dropout-network">Dropout Network</h4>
-
-<pre><code>Classifier: NN 500:200 dropout
-Training time: 118.2654s
-Testing time: 0.3918s
-Confusion matrix:
-[[2250    1    7    1    1    1    5    4    4    4]
- [   1 2567    9    1    1    0    0    3    5    1]
- [   6    6 2272    3    2    1    3   10    8    3]
- [   0    0   26 2260    0   24    0   10   19    9]
- [   0    3    5    0 2152    0    7    3    1   40]
- [   8    3    3   12    2 1983   20    6   21   11]
- [  11    6    3    0    7    1 2237    0    6    0]
- [   2    7   13    3   11    0    1 2363    5   12]
- [   7    7    9    5    3    3    1    2 2170    8]
- [   3    3    1    3   13    2    0   19    8 2337]]
-Accuracy: 0.9780
-</code></pre>
-
+<div class="highlight"><pre><span class="n">Classifier</span><span class="o">:</span> <span class="n">NN</span> <span class="mi">500</span><span class="o">:</span><span class="mi">200</span> <span class="n">dropout</span>
+<span class="n">Training</span> <span class="n">time</span><span class="o">:</span> <span class="mf">118.2654</span><span class="n">s</span>
+<span class="n">Testing</span> <span class="n">time</span><span class="o">:</span> <span class="mf">0.3918</span><span class="n">s</span>
+<span class="n">Confusion</span> <span class="n">matrix</span><span class="o">:</span>
+<span class="o">[[</span><span class="mi">2250</span>    <span class="mi">1</span>    <span class="mi">7</span>    <span class="mi">1</span>    <span class="mi">1</span>    <span class="mi">1</span>    <span class="mi">5</span>    <span class="mi">4</span>    <span class="mi">4</span>    <span class="mi">4</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">1</span> <span class="mi">2567</span>    <span class="mi">9</span>    <span class="mi">1</span>    <span class="mi">1</span>    <span class="mi">0</span>    <span class="mi">0</span>    <span class="mi">3</span>    <span class="mi">5</span>    <span class="mi">1</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">6</span>    <span class="mi">6</span> <span class="mi">2272</span>    <span class="mi">3</span>    <span class="mi">2</span>    <span class="mi">1</span>    <span class="mi">3</span>   <span class="mi">10</span>    <span class="mi">8</span>    <span class="mi">3</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">0</span>    <span class="mi">0</span>   <span class="mi">26</span> <span class="mi">2260</span>    <span class="mi">0</span>   <span class="mi">24</span>    <span class="mi">0</span>   <span class="mi">10</span>   <span class="mi">19</span>    <span class="mi">9</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">0</span>    <span class="mi">3</span>    <span class="mi">5</span>    <span class="mi">0</span> <span class="mi">2152</span>    <span class="mi">0</span>    <span class="mi">7</span>    <span class="mi">3</span>    <span class="mi">1</span>   <span class="mi">40</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">8</span>    <span class="mi">3</span>    <span class="mi">3</span>   <span class="mi">12</span>    <span class="mi">2</span> <span class="mi">1983</span>   <span class="mi">20</span>    <span class="mi">6</span>   <span class="mi">21</span>   <span class="mi">11</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">11</span>    <span class="mi">6</span>    <span class="mi">3</span>    <span class="mi">0</span>    <span class="mi">7</span>    <span class="mi">1</span> <span class="mi">2237</span>    <span class="mi">0</span>    <span class="mi">6</span>    <span class="mi">0</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">2</span>    <span class="mi">7</span>   <span class="mi">13</span>    <span class="mi">3</span>   <span class="mi">11</span>    <span class="mi">0</span>    <span class="mi">1</span> <span class="mi">2363</span>    <span class="mi">5</span>   <span class="mi">12</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">7</span>    <span class="mi">7</span>    <span class="mi">9</span>    <span class="mi">5</span>    <span class="mi">3</span>    <span class="mi">3</span>    <span class="mi">1</span>    <span class="mi">2</span> <span class="mi">2170</span>    <span class="mi">8</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">3</span>    <span class="mi">3</span>    <span class="mi">1</span>    <span class="mi">3</span>   <span class="mi">13</span>    <span class="mi">2</span>    <span class="mi">0</span>   <span class="mi">19</span>    <span class="mi">8</span> <span class="mi">2337</span><span class="o">]]</span>
+<span class="n">Accuracy</span><span class="o">:</span> <span class="mf">0.9780</span>
+</pre></div>
 <h4 id="cnn">CNN</h4>
-
-<pre><code>Classifier: CNN
-Training time: 391.8810s
-Testing time: 1.2035s
-Confusion matrix:
-[[2243    0    5    0    0    5    9    1   12    3]
- [   1 2548   20    4    2    0    1    6    6    0]
- [   3    8 2253    9    3    1    4   17   14    2]
- [   0    4   13 2290    0   12    0    9   11    9]
- [   2    4    5    0 2164    0    8    5    3   20]
- [   6    2    3   15    0 2016    9    3    9    6]
- [  12   12    1    1    6    6 2227    0    6    0]
- [   3    4   11    3    4    1    0 2374    4   13]
- [   3   15    6   13    4   11    3    8 2145    7]
- [   6    5    0   11   16    8    0   24   13 2306]]
-Accuracy: 0.9769
-</code></pre>
-
-<h3 id="tocAnchor-1-3-2">SVM</h3>
-
+<div class="highlight"><pre><span class="n">Classifier</span><span class="o">:</span> <span class="n">CNN</span>
+<span class="n">Training</span> <span class="n">time</span><span class="o">:</span> <span class="mf">391.8810</span><span class="n">s</span>
+<span class="n">Testing</span> <span class="n">time</span><span class="o">:</span> <span class="mf">1.2035</span><span class="n">s</span>
+<span class="n">Confusion</span> <span class="n">matrix</span><span class="o">:</span>
+<span class="o">[[</span><span class="mi">2243</span>    <span class="mi">0</span>    <span class="mi">5</span>    <span class="mi">0</span>    <span class="mi">0</span>    <span class="mi">5</span>    <span class="mi">9</span>    <span class="mi">1</span>   <span class="mi">12</span>    <span class="mi">3</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">1</span> <span class="mi">2548</span>   <span class="mi">20</span>    <span class="mi">4</span>    <span class="mi">2</span>    <span class="mi">0</span>    <span class="mi">1</span>    <span class="mi">6</span>    <span class="mi">6</span>    <span class="mi">0</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">3</span>    <span class="mi">8</span> <span class="mi">2253</span>    <span class="mi">9</span>    <span class="mi">3</span>    <span class="mi">1</span>    <span class="mi">4</span>   <span class="mi">17</span>   <span class="mi">14</span>    <span class="mi">2</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">0</span>    <span class="mi">4</span>   <span class="mi">13</span> <span class="mi">2290</span>    <span class="mi">0</span>   <span class="mi">12</span>    <span class="mi">0</span>    <span class="mi">9</span>   <span class="mi">11</span>    <span class="mi">9</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">2</span>    <span class="mi">4</span>    <span class="mi">5</span>    <span class="mi">0</span> <span class="mi">2164</span>    <span class="mi">0</span>    <span class="mi">8</span>    <span class="mi">5</span>    <span class="mi">3</span>   <span class="mi">20</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">6</span>    <span class="mi">2</span>    <span class="mi">3</span>   <span class="mi">15</span>    <span class="mi">0</span> <span class="mi">2016</span>    <span class="mi">9</span>    <span class="mi">3</span>    <span class="mi">9</span>    <span class="mi">6</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">12</span>   <span class="mi">12</span>    <span class="mi">1</span>    <span class="mi">1</span>    <span class="mi">6</span>    <span class="mi">6</span> <span class="mi">2227</span>    <span class="mi">0</span>    <span class="mi">6</span>    <span class="mi">0</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">3</span>    <span class="mi">4</span>   <span class="mi">11</span>    <span class="mi">3</span>    <span class="mi">4</span>    <span class="mi">1</span>    <span class="mi">0</span> <span class="mi">2374</span>    <span class="mi">4</span>   <span class="mi">13</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">3</span>   <span class="mi">15</span>    <span class="mi">6</span>   <span class="mi">13</span>    <span class="mi">4</span>   <span class="mi">11</span>    <span class="mi">3</span>    <span class="mi">8</span> <span class="mi">2145</span>    <span class="mi">7</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">6</span>    <span class="mi">5</span>    <span class="mi">0</span>   <span class="mi">11</span>   <span class="mi">16</span>    <span class="mi">8</span>    <span class="mi">0</span>   <span class="mi">24</span>   <span class="mi">13</span> <span class="mi">2306</span><span class="o">]]</span>
+<span class="n">Accuracy</span><span class="o">:</span> <span class="mf">0.9769</span>
+</pre></div>
+<h3 id="svm">SVM</h3>
 <p>There is a ton of literature / papers about <abbr title="Support Vector Machines">SVMs</abbr>.
-I’ve summed up the basics on <a href="https://martin-thoma.com/svm-with-sklearn/">Using SVMs with sklearn</a>.</p>
-
-<p>I’ve trained two SVMs: A simple, linear one and one with an RBF kernel as I
-found it online (I’m sorry, I don’t remember where I found those parameters :-/).</p>
-
+I've summed up the basics on <a href="https://martin-thoma.com/svm-with-sklearn/">Using SVMs with sklearn</a>.</p>
+<p>I've trained two SVMs: A simple, linear one and one with an RBF kernel as I
+found it online (I'm sorry, I don't remember where I found those parameters :-/).</p>
 <p>Please note the the SVM implementation of sklearn does not use the GPU.
 However, there are <a href="http://fastml.com/running-things-on-a-gpu/">GPU implmentations of SVMs</a>
 around.</p>
-
 <h4 id="linear-svm">Linear SVM</h4>
-
-<pre><code>Classifier: linear SVM
-Training time: 168.6950s
-Testing time: 158.0101s
-Confusion matrix:
-[[2226    0    9    2    6   12    8    3   11    1]
- [   1 2537   18    3    3    1    1    7   17    0]
- [  12   16 2158   25   24    6   27   19   25    2]
- [   3    7   46 2188    4   47    3   18   27    5]
- [   2    5   19    1 2117    1    8    6    3   49]
- [  18   13   11   73   20 1872   31    0   26    5]
- [  20    6   22    1   10   30 2179    0    3    0]
- [   5   10   32   11   30    5    0 2268    5   51]
- [  11   39   26   47   10   40    7    7 2018   10]
- [  11    9    9   24   64    8    0   61   14 2189]]
-Accuracy: 0.9416
-</code></pre>
-
+<div class="highlight"><pre><span class="n">Classifier</span><span class="o">:</span> <span class="n">linear</span> <span class="n">SVM</span>
+<span class="n">Training</span> <span class="n">time</span><span class="o">:</span> <span class="mf">168.6950</span><span class="n">s</span>
+<span class="n">Testing</span> <span class="n">time</span><span class="o">:</span> <span class="mf">158.0101</span><span class="n">s</span>
+<span class="n">Confusion</span> <span class="n">matrix</span><span class="o">:</span>
+<span class="o">[[</span><span class="mi">2226</span>    <span class="mi">0</span>    <span class="mi">9</span>    <span class="mi">2</span>    <span class="mi">6</span>   <span class="mi">12</span>    <span class="mi">8</span>    <span class="mi">3</span>   <span class="mi">11</span>    <span class="mi">1</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">1</span> <span class="mi">2537</span>   <span class="mi">18</span>    <span class="mi">3</span>    <span class="mi">3</span>    <span class="mi">1</span>    <span class="mi">1</span>    <span class="mi">7</span>   <span class="mi">17</span>    <span class="mi">0</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">12</span>   <span class="mi">16</span> <span class="mi">2158</span>   <span class="mi">25</span>   <span class="mi">24</span>    <span class="mi">6</span>   <span class="mi">27</span>   <span class="mi">19</span>   <span class="mi">25</span>    <span class="mi">2</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">3</span>    <span class="mi">7</span>   <span class="mi">46</span> <span class="mi">2188</span>    <span class="mi">4</span>   <span class="mi">47</span>    <span class="mi">3</span>   <span class="mi">18</span>   <span class="mi">27</span>    <span class="mi">5</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">2</span>    <span class="mi">5</span>   <span class="mi">19</span>    <span class="mi">1</span> <span class="mi">2117</span>    <span class="mi">1</span>    <span class="mi">8</span>    <span class="mi">6</span>    <span class="mi">3</span>   <span class="mi">49</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">18</span>   <span class="mi">13</span>   <span class="mi">11</span>   <span class="mi">73</span>   <span class="mi">20</span> <span class="mi">1872</span>   <span class="mi">31</span>    <span class="mi">0</span>   <span class="mi">26</span>    <span class="mi">5</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">20</span>    <span class="mi">6</span>   <span class="mi">22</span>    <span class="mi">1</span>   <span class="mi">10</span>   <span class="mi">30</span> <span class="mi">2179</span>    <span class="mi">0</span>    <span class="mi">3</span>    <span class="mi">0</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">5</span>   <span class="mi">10</span>   <span class="mi">32</span>   <span class="mi">11</span>   <span class="mi">30</span>    <span class="mi">5</span>    <span class="mi">0</span> <span class="mi">2268</span>    <span class="mi">5</span>   <span class="mi">51</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">11</span>   <span class="mi">39</span>   <span class="mi">26</span>   <span class="mi">47</span>   <span class="mi">10</span>   <span class="mi">40</span>    <span class="mi">7</span>    <span class="mi">7</span> <span class="mi">2018</span>   <span class="mi">10</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">11</span>    <span class="mi">9</span>    <span class="mi">9</span>   <span class="mi">24</span>   <span class="mi">64</span>    <span class="mi">8</span>    <span class="mi">0</span>   <span class="mi">61</span>   <span class="mi">14</span> <span class="mi">2189</span><span class="o">]]</span>
+<span class="n">Accuracy</span><span class="o">:</span> <span class="mf">0.9416</span>
+</pre></div>
 <h4 id="adjusted-svm">Adjusted SVM</h4>
-
-<pre><code>Classifier: adj. SVM
-Training time: 347.1539s
-Testing time: 234.5724s
-Confusion matrix:
-[[2258    1    4    1    2    2    3    1    4    2]
- [   1 2566    9    1    1    0    0    7    3    0]
- [   4    1 2280    5    4    0    1    9    8    2]
- [   0    0   14 2304    1   13    0    6    8    2]
- [   2    2    2    0 2183    0    7    5    0   10]
- [   4    0    0   16    3 2026   12    1    4    3]
- [   7    5    3    0    5    2 2245    0    4    0]
- [   1    6   11    2    5    1    0 2373    5   13]
- [   3    9    4    9    4   10    2    3 2166    5]
- [   3    2    2    6   19    6    0   12   10 2329]]
-Accuracy: 0.9840
-</code></pre>
-
-<h3 id="tocAnchor-1-3-3">Random Forest</h3>
-
+<div class="highlight"><pre><span class="n">Classifier</span><span class="o">:</span> <span class="n">adj</span><span class="o">.</span> <span class="n">SVM</span>
+<span class="n">Training</span> <span class="n">time</span><span class="o">:</span> <span class="mf">347.1539</span><span class="n">s</span>
+<span class="n">Testing</span> <span class="n">time</span><span class="o">:</span> <span class="mf">234.5724</span><span class="n">s</span>
+<span class="n">Confusion</span> <span class="n">matrix</span><span class="o">:</span>
+<span class="o">[[</span><span class="mi">2258</span>    <span class="mi">1</span>    <span class="mi">4</span>    <span class="mi">1</span>    <span class="mi">2</span>    <span class="mi">2</span>    <span class="mi">3</span>    <span class="mi">1</span>    <span class="mi">4</span>    <span class="mi">2</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">1</span> <span class="mi">2566</span>    <span class="mi">9</span>    <span class="mi">1</span>    <span class="mi">1</span>    <span class="mi">0</span>    <span class="mi">0</span>    <span class="mi">7</span>    <span class="mi">3</span>    <span class="mi">0</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">4</span>    <span class="mi">1</span> <span class="mi">2280</span>    <span class="mi">5</span>    <span class="mi">4</span>    <span class="mi">0</span>    <span class="mi">1</span>    <span class="mi">9</span>    <span class="mi">8</span>    <span class="mi">2</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">0</span>    <span class="mi">0</span>   <span class="mi">14</span> <span class="mi">2304</span>    <span class="mi">1</span>   <span class="mi">13</span>    <span class="mi">0</span>    <span class="mi">6</span>    <span class="mi">8</span>    <span class="mi">2</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">2</span>    <span class="mi">2</span>    <span class="mi">2</span>    <span class="mi">0</span> <span class="mi">2183</span>    <span class="mi">0</span>    <span class="mi">7</span>    <span class="mi">5</span>    <span class="mi">0</span>   <span class="mi">10</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">4</span>    <span class="mi">0</span>    <span class="mi">0</span>   <span class="mi">16</span>    <span class="mi">3</span> <span class="mi">2026</span>   <span class="mi">12</span>    <span class="mi">1</span>    <span class="mi">4</span>    <span class="mi">3</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">7</span>    <span class="mi">5</span>    <span class="mi">3</span>    <span class="mi">0</span>    <span class="mi">5</span>    <span class="mi">2</span> <span class="mi">2245</span>    <span class="mi">0</span>    <span class="mi">4</span>    <span class="mi">0</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">1</span>    <span class="mi">6</span>   <span class="mi">11</span>    <span class="mi">2</span>    <span class="mi">5</span>    <span class="mi">1</span>    <span class="mi">0</span> <span class="mi">2373</span>    <span class="mi">5</span>   <span class="mi">13</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">3</span>    <span class="mi">9</span>    <span class="mi">4</span>    <span class="mi">9</span>    <span class="mi">4</span>   <span class="mi">10</span>    <span class="mi">2</span>    <span class="mi">3</span> <span class="mi">2166</span>    <span class="mi">5</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">3</span>    <span class="mi">2</span>    <span class="mi">2</span>    <span class="mi">6</span>   <span class="mi">19</span>    <span class="mi">6</span>    <span class="mi">0</span>   <span class="mi">12</span>   <span class="mi">10</span> <span class="mi">2329</span><span class="o">]]</span>
+<span class="n">Accuracy</span><span class="o">:</span> <span class="mf">0.9840</span>
+</pre></div>
+<h3 id="random-forest">Random Forest</h3>
 <p>Data:</p>
-
 <ul>
-  <li><code>n_estimators=50</code></li>
-  <li><code>n_jobs=10</code></li>
+<li><code>n_estimators=50</code></li>
+<li><code>n_jobs=10</code></li>
 </ul>
-
-<pre><code>Classifier: Random Forest
-Training time: 2.1359s
-Testing time: 26.0763s
-Confusion matrix:
-[[2246    1    4    1    4    2    7    2   11    0]
- [   1 2543   18    5    5    2    3    7    4    0]
- [   7    2 2233   20    9    2    9   16   14    2]
- [   0    3   36 2240    0   20    3   16   19   11]
- [   3    1    5    0 2142    1   11    3    7   38]
- [   7    4    4   30    6 1977   16    3   14    8]
- [  13   11    4    0   10   15 2210    0    8    0]
- [   3    8   29    2   19    0    0 2315    7   34]
- [   3   12   18   17    9   26    4    7 2103   16]
- [  10    6    6   24   27   13    3   20   18 2262]]
-Accuracy: 0.9641
-</code></pre>
-
+<div class="highlight"><pre><span class="n">Classifier</span><span class="o">:</span> <span class="n">Random</span> <span class="n">Forest</span>
+<span class="n">Training</span> <span class="n">time</span><span class="o">:</span> <span class="mf">2.1359</span><span class="n">s</span>
+<span class="n">Testing</span> <span class="n">time</span><span class="o">:</span> <span class="mf">26.0763</span><span class="n">s</span>
+<span class="n">Confusion</span> <span class="n">matrix</span><span class="o">:</span>
+<span class="o">[[</span><span class="mi">2246</span>    <span class="mi">1</span>    <span class="mi">4</span>    <span class="mi">1</span>    <span class="mi">4</span>    <span class="mi">2</span>    <span class="mi">7</span>    <span class="mi">2</span>   <span class="mi">11</span>    <span class="mi">0</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">1</span> <span class="mi">2543</span>   <span class="mi">18</span>    <span class="mi">5</span>    <span class="mi">5</span>    <span class="mi">2</span>    <span class="mi">3</span>    <span class="mi">7</span>    <span class="mi">4</span>    <span class="mi">0</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">7</span>    <span class="mi">2</span> <span class="mi">2233</span>   <span class="mi">20</span>    <span class="mi">9</span>    <span class="mi">2</span>    <span class="mi">9</span>   <span class="mi">16</span>   <span class="mi">14</span>    <span class="mi">2</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">0</span>    <span class="mi">3</span>   <span class="mi">36</span> <span class="mi">2240</span>    <span class="mi">0</span>   <span class="mi">20</span>    <span class="mi">3</span>   <span class="mi">16</span>   <span class="mi">19</span>   <span class="mi">11</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">3</span>    <span class="mi">1</span>    <span class="mi">5</span>    <span class="mi">0</span> <span class="mi">2142</span>    <span class="mi">1</span>   <span class="mi">11</span>    <span class="mi">3</span>    <span class="mi">7</span>   <span class="mi">38</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">7</span>    <span class="mi">4</span>    <span class="mi">4</span>   <span class="mi">30</span>    <span class="mi">6</span> <span class="mi">1977</span>   <span class="mi">16</span>    <span class="mi">3</span>   <span class="mi">14</span>    <span class="mi">8</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">13</span>   <span class="mi">11</span>    <span class="mi">4</span>    <span class="mi">0</span>   <span class="mi">10</span>   <span class="mi">15</span> <span class="mi">2210</span>    <span class="mi">0</span>    <span class="mi">8</span>    <span class="mi">0</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">3</span>    <span class="mi">8</span>   <span class="mi">29</span>    <span class="mi">2</span>   <span class="mi">19</span>    <span class="mi">0</span>    <span class="mi">0</span> <span class="mi">2315</span>    <span class="mi">7</span>   <span class="mi">34</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">3</span>   <span class="mi">12</span>   <span class="mi">18</span>   <span class="mi">17</span>    <span class="mi">9</span>   <span class="mi">26</span>    <span class="mi">4</span>    <span class="mi">7</span> <span class="mi">2103</span>   <span class="mi">16</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">10</span>    <span class="mi">6</span>    <span class="mi">6</span>   <span class="mi">24</span>   <span class="mi">27</span>   <span class="mi">13</span>    <span class="mi">3</span>   <span class="mi">20</span>   <span class="mi">18</span> <span class="mi">2262</span><span class="o">]]</span>
+<span class="n">Accuracy</span><span class="o">:</span> <span class="mf">0.9641</span>
+</pre></div>
 <p>Alternatively:</p>
-
 <ul>
-  <li><code>max_depth=5</code></li>
-  <li><code>n_estimators=10</code></li>
-  <li><code>max_features=1</code></li>
+<li><code>max_depth=5</code></li>
+<li><code>n_estimators=10</code></li>
+<li><code>max_features=1</code></li>
 </ul>
-
-<pre><code>Classifier: Random Forest 2
-Training time: 0.2077s
-Testing time: 22.2770s
-Confusion matrix:
-[[1955   32   63   64   12    4  109   21   13    5]
- [   1 2524   20   14    1    6   10    6    6    0]
- [ 252  425 1198  151   64    1  145   15   55    8]
- [ 136  195  140 1641   28   11   22   95   65   15]
- [  92  320   21   45 1199    9   76  153    8  288]
- [ 312  383   67  655   78  268   47   94  134   31]
- [ 199  364  125   58   96   13 1408    5    2    1]
- [  83  424   10   70  101    1   19 1555   56   98]
- [ 392  574   44  147   52   17   71  106  773   39]
- [  71  338   11   43  579    2    8  632   24  681]]
-Accuracy: 0.5715
-</code></pre>
-
-<h3 id="tocAnchor-1-3-4">k nearest neightbors</h3>
-
-<pre><code>Classifier: k nn
-Training time: 4.6439s
-Testing time: 1261.7815s
-Confusion matrix:
-[[2260    1    4    0    0    1    6    2    2    2]
- [   0 2572    5    0    0    0    1    8    1    1]
- [  16   15 2235    9    1    0    5   26    5    2]
- [   2    5   14 2276    0   27    1    8    9    6]
- [   4   19    0    0 2131    0    8    4    0   45]
- [  10    5    3   28    5 1977   25    2    4   10]
- [  12    9    0    0    4    7 2239    0    0    0]
- [   1   18    4    1   12    0    0 2349    3   29]
- [  11   32    8   36   11   34    5    7 2053   18]
- [   6    8    4   14   26    4    0   19    5 2303]]
-Accuracy: 0.9695
-</code></pre>
-
-<h3 id="tocAnchor-1-3-5">Decision Tree</h3>
-
+<div class="highlight"><pre><span class="n">Classifier</span><span class="o">:</span> <span class="n">Random</span> <span class="n">Forest</span> <span class="mi">2</span>
+<span class="n">Training</span> <span class="n">time</span><span class="o">:</span> <span class="mf">0.2077</span><span class="n">s</span>
+<span class="n">Testing</span> <span class="n">time</span><span class="o">:</span> <span class="mf">22.2770</span><span class="n">s</span>
+<span class="n">Confusion</span> <span class="n">matrix</span><span class="o">:</span>
+<span class="o">[[</span><span class="mi">1955</span>   <span class="mi">32</span>   <span class="mi">63</span>   <span class="mi">64</span>   <span class="mi">12</span>    <span class="mi">4</span>  <span class="mi">109</span>   <span class="mi">21</span>   <span class="mi">13</span>    <span class="mi">5</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">1</span> <span class="mi">2524</span>   <span class="mi">20</span>   <span class="mi">14</span>    <span class="mi">1</span>    <span class="mi">6</span>   <span class="mi">10</span>    <span class="mi">6</span>    <span class="mi">6</span>    <span class="mi">0</span><span class="o">]</span>
+ <span class="o">[</span> <span class="mi">252</span>  <span class="mi">425</span> <span class="mi">1198</span>  <span class="mi">151</span>   <span class="mi">64</span>    <span class="mi">1</span>  <span class="mi">145</span>   <span class="mi">15</span>   <span class="mi">55</span>    <span class="mi">8</span><span class="o">]</span>
+ <span class="o">[</span> <span class="mi">136</span>  <span class="mi">195</span>  <span class="mi">140</span> <span class="mi">1641</span>   <span class="mi">28</span>   <span class="mi">11</span>   <span class="mi">22</span>   <span class="mi">95</span>   <span class="mi">65</span>   <span class="mi">15</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">92</span>  <span class="mi">320</span>   <span class="mi">21</span>   <span class="mi">45</span> <span class="mi">1199</span>    <span class="mi">9</span>   <span class="mi">76</span>  <span class="mi">153</span>    <span class="mi">8</span>  <span class="mi">288</span><span class="o">]</span>
+ <span class="o">[</span> <span class="mi">312</span>  <span class="mi">383</span>   <span class="mi">67</span>  <span class="mi">655</span>   <span class="mi">78</span>  <span class="mi">268</span>   <span class="mi">47</span>   <span class="mi">94</span>  <span class="mi">134</span>   <span class="mi">31</span><span class="o">]</span>
+ <span class="o">[</span> <span class="mi">199</span>  <span class="mi">364</span>  <span class="mi">125</span>   <span class="mi">58</span>   <span class="mi">96</span>   <span class="mi">13</span> <span class="mi">1408</span>    <span class="mi">5</span>    <span class="mi">2</span>    <span class="mi">1</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">83</span>  <span class="mi">424</span>   <span class="mi">10</span>   <span class="mi">70</span>  <span class="mi">101</span>    <span class="mi">1</span>   <span class="mi">19</span> <span class="mi">1555</span>   <span class="mi">56</span>   <span class="mi">98</span><span class="o">]</span>
+ <span class="o">[</span> <span class="mi">392</span>  <span class="mi">574</span>   <span class="mi">44</span>  <span class="mi">147</span>   <span class="mi">52</span>   <span class="mi">17</span>   <span class="mi">71</span>  <span class="mi">106</span>  <span class="mi">773</span>   <span class="mi">39</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">71</span>  <span class="mi">338</span>   <span class="mi">11</span>   <span class="mi">43</span>  <span class="mi">579</span>    <span class="mi">2</span>    <span class="mi">8</span>  <span class="mi">632</span>   <span class="mi">24</span>  <span class="mi">681</span><span class="o">]]</span>
+<span class="n">Accuracy</span><span class="o">:</span> <span class="mf">0.5715</span>
+</pre></div>
+<h3 id="k-nearest-neightbors">k nearest neightbors</h3>
+<div class="highlight"><pre><span class="n">Classifier</span><span class="o">:</span> <span class="n">k</span> <span class="n">nn</span>
+<span class="n">Training</span> <span class="n">time</span><span class="o">:</span> <span class="mf">4.6439</span><span class="n">s</span>
+<span class="n">Testing</span> <span class="n">time</span><span class="o">:</span> <span class="mf">1261.7815</span><span class="n">s</span>
+<span class="n">Confusion</span> <span class="n">matrix</span><span class="o">:</span>
+<span class="o">[[</span><span class="mi">2260</span>    <span class="mi">1</span>    <span class="mi">4</span>    <span class="mi">0</span>    <span class="mi">0</span>    <span class="mi">1</span>    <span class="mi">6</span>    <span class="mi">2</span>    <span class="mi">2</span>    <span class="mi">2</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">0</span> <span class="mi">2572</span>    <span class="mi">5</span>    <span class="mi">0</span>    <span class="mi">0</span>    <span class="mi">0</span>    <span class="mi">1</span>    <span class="mi">8</span>    <span class="mi">1</span>    <span class="mi">1</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">16</span>   <span class="mi">15</span> <span class="mi">2235</span>    <span class="mi">9</span>    <span class="mi">1</span>    <span class="mi">0</span>    <span class="mi">5</span>   <span class="mi">26</span>    <span class="mi">5</span>    <span class="mi">2</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">2</span>    <span class="mi">5</span>   <span class="mi">14</span> <span class="mi">2276</span>    <span class="mi">0</span>   <span class="mi">27</span>    <span class="mi">1</span>    <span class="mi">8</span>    <span class="mi">9</span>    <span class="mi">6</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">4</span>   <span class="mi">19</span>    <span class="mi">0</span>    <span class="mi">0</span> <span class="mi">2131</span>    <span class="mi">0</span>    <span class="mi">8</span>    <span class="mi">4</span>    <span class="mi">0</span>   <span class="mi">45</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">10</span>    <span class="mi">5</span>    <span class="mi">3</span>   <span class="mi">28</span>    <span class="mi">5</span> <span class="mi">1977</span>   <span class="mi">25</span>    <span class="mi">2</span>    <span class="mi">4</span>   <span class="mi">10</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">12</span>    <span class="mi">9</span>    <span class="mi">0</span>    <span class="mi">0</span>    <span class="mi">4</span>    <span class="mi">7</span> <span class="mi">2239</span>    <span class="mi">0</span>    <span class="mi">0</span>    <span class="mi">0</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">1</span>   <span class="mi">18</span>    <span class="mi">4</span>    <span class="mi">1</span>   <span class="mi">12</span>    <span class="mi">0</span>    <span class="mi">0</span> <span class="mi">2349</span>    <span class="mi">3</span>   <span class="mi">29</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">11</span>   <span class="mi">32</span>    <span class="mi">8</span>   <span class="mi">36</span>   <span class="mi">11</span>   <span class="mi">34</span>    <span class="mi">5</span>    <span class="mi">7</span> <span class="mi">2053</span>   <span class="mi">18</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">6</span>    <span class="mi">8</span>    <span class="mi">4</span>   <span class="mi">14</span>   <span class="mi">26</span>    <span class="mi">4</span>    <span class="mi">0</span>   <span class="mi">19</span>    <span class="mi">5</span> <span class="mi">2303</span><span class="o">]]</span>
+<span class="n">Accuracy</span><span class="o">:</span> <span class="mf">0.9695</span>
+</pre></div>
+<h3 id="decision-tree">Decision Tree</h3>
 <p>Data:</p>
-
 <ul>
-  <li><code>max_depth=5</code></li>
+<li><code>max_depth=5</code></li>
 </ul>
-
-<pre><code>Classifier: Decision Tree
-Training time: 3.1346s
-Testing time: 0.0313s
-Confusion matrix:
-[[1767    0   11   25   12  120  137   71  114   21]
- [   1 2065  128  108   13   17   41   66  131   18]
- [  42   44 1248   37  121   21  227   76  339  159]
- [  33   22   32 1484   33  107   52   81  266  238]
- [   0   15   45   33 1284   42   42   45  213  492]
- [  42   10   21  229  166  577  137  123  254  510]
- [  34   33   66   24  103   65 1734   24  102   86]
- [  10   14  179   57   53   21   19 1775   79  210]
- [   1   98  129   43   43   42  160   29 1439  231]
- [   4    8   86   59  125   95   36   75  167 1734]]
-Accuracy: 0.6540
-</code></pre>
-
-<h3 id="tocAnchor-1-3-6">Adaboost</h3>
-
+<div class="highlight"><pre><span class="n">Classifier</span><span class="o">:</span> <span class="n">Decision</span> <span class="n">Tree</span>
+<span class="n">Training</span> <span class="n">time</span><span class="o">:</span> <span class="mf">3.1346</span><span class="n">s</span>
+<span class="n">Testing</span> <span class="n">time</span><span class="o">:</span> <span class="mf">0.0313</span><span class="n">s</span>
+<span class="n">Confusion</span> <span class="n">matrix</span><span class="o">:</span>
+<span class="o">[[</span><span class="mi">1767</span>    <span class="mi">0</span>   <span class="mi">11</span>   <span class="mi">25</span>   <span class="mi">12</span>  <span class="mi">120</span>  <span class="mi">137</span>   <span class="mi">71</span>  <span class="mi">114</span>   <span class="mi">21</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">1</span> <span class="mi">2065</span>  <span class="mi">128</span>  <span class="mi">108</span>   <span class="mi">13</span>   <span class="mi">17</span>   <span class="mi">41</span>   <span class="mi">66</span>  <span class="mi">131</span>   <span class="mi">18</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">42</span>   <span class="mi">44</span> <span class="mi">1248</span>   <span class="mi">37</span>  <span class="mi">121</span>   <span class="mi">21</span>  <span class="mi">227</span>   <span class="mi">76</span>  <span class="mi">339</span>  <span class="mi">159</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">33</span>   <span class="mi">22</span>   <span class="mi">32</span> <span class="mi">1484</span>   <span class="mi">33</span>  <span class="mi">107</span>   <span class="mi">52</span>   <span class="mi">81</span>  <span class="mi">266</span>  <span class="mi">238</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">0</span>   <span class="mi">15</span>   <span class="mi">45</span>   <span class="mi">33</span> <span class="mi">1284</span>   <span class="mi">42</span>   <span class="mi">42</span>   <span class="mi">45</span>  <span class="mi">213</span>  <span class="mi">492</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">42</span>   <span class="mi">10</span>   <span class="mi">21</span>  <span class="mi">229</span>  <span class="mi">166</span>  <span class="mi">577</span>  <span class="mi">137</span>  <span class="mi">123</span>  <span class="mi">254</span>  <span class="mi">510</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">34</span>   <span class="mi">33</span>   <span class="mi">66</span>   <span class="mi">24</span>  <span class="mi">103</span>   <span class="mi">65</span> <span class="mi">1734</span>   <span class="mi">24</span>  <span class="mi">102</span>   <span class="mi">86</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">10</span>   <span class="mi">14</span>  <span class="mi">179</span>   <span class="mi">57</span>   <span class="mi">53</span>   <span class="mi">21</span>   <span class="mi">19</span> <span class="mi">1775</span>   <span class="mi">79</span>  <span class="mi">210</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">1</span>   <span class="mi">98</span>  <span class="mi">129</span>   <span class="mi">43</span>   <span class="mi">43</span>   <span class="mi">42</span>  <span class="mi">160</span>   <span class="mi">29</span> <span class="mi">1439</span>  <span class="mi">231</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">4</span>    <span class="mi">8</span>   <span class="mi">86</span>   <span class="mi">59</span>  <span class="mi">125</span>   <span class="mi">95</span>   <span class="mi">36</span>   <span class="mi">75</span>  <span class="mi">167</span> <span class="mi">1734</span><span class="o">]]</span>
+<span class="n">Accuracy</span><span class="o">:</span> <span class="mf">0.6540</span>
+</pre></div>
+<h3 id="adaboost">Adaboost</h3>
 <p>You should note that you can use arbitrary base classifiers with Adaboost.
 The default ones of <a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html"><code>sklearn.ensemble.AdaBoostClassifier</code></a> is <a href="http://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html"><code>sklearn.tree.DecisionTreeClassifies</code></a></p>
-
-<pre><code>Classifier: AdaBoost
-Training time: 37.6443s
-Testing time: 1.5815s
-Confusion matrix:
-[[1994    0   75    8    6  113   51    3   15   13]
- [   0 2435   27   22    2   10   12   37   42    1]
- [  97   39 1341   85   39   38  416   39  196   24]
- [ 108   52   37 1508   13  313   66   64  122   65]
- [  11   16   48   23 1662   49   23  134   90  155]
- [  81   56   30  309   51 1255   57   17  129   84]
- [  29   28  151    7   80   43 1914    2   17    0]
- [  25   37   33   36   70   30    0 1761   37  388]
- [  30   80   48  215   16   85   30   19 1615   77]
- [  13   29   68   66  356   74    1  171   78 1533]]
-Accuracy: 0.7367
-</code></pre>
-
-<h3 id="tocAnchor-1-3-7">Gradient Boosting</h3>
-
+<div class="highlight"><pre><span class="n">Classifier</span><span class="o">:</span> <span class="n">AdaBoost</span>
+<span class="n">Training</span> <span class="n">time</span><span class="o">:</span> <span class="mf">37.6443</span><span class="n">s</span>
+<span class="n">Testing</span> <span class="n">time</span><span class="o">:</span> <span class="mf">1.5815</span><span class="n">s</span>
+<span class="n">Confusion</span> <span class="n">matrix</span><span class="o">:</span>
+<span class="o">[[</span><span class="mi">1994</span>    <span class="mi">0</span>   <span class="mi">75</span>    <span class="mi">8</span>    <span class="mi">6</span>  <span class="mi">113</span>   <span class="mi">51</span>    <span class="mi">3</span>   <span class="mi">15</span>   <span class="mi">13</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">0</span> <span class="mi">2435</span>   <span class="mi">27</span>   <span class="mi">22</span>    <span class="mi">2</span>   <span class="mi">10</span>   <span class="mi">12</span>   <span class="mi">37</span>   <span class="mi">42</span>    <span class="mi">1</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">97</span>   <span class="mi">39</span> <span class="mi">1341</span>   <span class="mi">85</span>   <span class="mi">39</span>   <span class="mi">38</span>  <span class="mi">416</span>   <span class="mi">39</span>  <span class="mi">196</span>   <span class="mi">24</span><span class="o">]</span>
+ <span class="o">[</span> <span class="mi">108</span>   <span class="mi">52</span>   <span class="mi">37</span> <span class="mi">1508</span>   <span class="mi">13</span>  <span class="mi">313</span>   <span class="mi">66</span>   <span class="mi">64</span>  <span class="mi">122</span>   <span class="mi">65</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">11</span>   <span class="mi">16</span>   <span class="mi">48</span>   <span class="mi">23</span> <span class="mi">1662</span>   <span class="mi">49</span>   <span class="mi">23</span>  <span class="mi">134</span>   <span class="mi">90</span>  <span class="mi">155</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">81</span>   <span class="mi">56</span>   <span class="mi">30</span>  <span class="mi">309</span>   <span class="mi">51</span> <span class="mi">1255</span>   <span class="mi">57</span>   <span class="mi">17</span>  <span class="mi">129</span>   <span class="mi">84</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">29</span>   <span class="mi">28</span>  <span class="mi">151</span>    <span class="mi">7</span>   <span class="mi">80</span>   <span class="mi">43</span> <span class="mi">1914</span>    <span class="mi">2</span>   <span class="mi">17</span>    <span class="mi">0</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">25</span>   <span class="mi">37</span>   <span class="mi">33</span>   <span class="mi">36</span>   <span class="mi">70</span>   <span class="mi">30</span>    <span class="mi">0</span> <span class="mi">1761</span>   <span class="mi">37</span>  <span class="mi">388</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">30</span>   <span class="mi">80</span>   <span class="mi">48</span>  <span class="mi">215</span>   <span class="mi">16</span>   <span class="mi">85</span>   <span class="mi">30</span>   <span class="mi">19</span> <span class="mi">1615</span>   <span class="mi">77</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">13</span>   <span class="mi">29</span>   <span class="mi">68</span>   <span class="mi">66</span>  <span class="mi">356</span>   <span class="mi">74</span>    <span class="mi">1</span>  <span class="mi">171</span>   <span class="mi">78</span> <span class="mi">1533</span><span class="o">]]</span>
+<span class="n">Accuracy</span><span class="o">:</span> <span class="mf">0.7367</span>
+</pre></div>
+<h3 id="gradient-boosting">Gradient Boosting</h3>
 <p>Gradient boosting with <code>xgboost</code> has won in the Rossmann Store Sales prediction
 (<a href="http://blog.kaggle.com/2015/12/21/rossmann-store-sales-winners-interview-1st-place-gert/">source</a>).</p>
-
 <p>See also:</p>
-
 <ul>
-  <li><a href="http://blog.kaggle.com/2015/09/22/caterpillar-winners-interview-1st-place-gilberto-josef-leustagos-mario/">Caterpillar Winners’ Interview</a></li>
-  <li><a href="http://blog.kaggle.com/2015/10/20/caterpillar-winners-interview-3rd-place-team-shift-workers/">Caterpillar Winners’ Interview: 3rd place</a></li>
-  <li><a href="http://blog.kaggle.com/2015/09/28/liberty-mutual-property-inspection-winners-interview-qingchen-wang/">Liberty Mutual Property Inspection, Winner’s Interview</a></li>
-  <li><a href="http://blog.kaggle.com/2015/10/21/recruit-coupon-purchase-winners-interview-2nd-place-halla-yang/">Recruit Coupon Purchase Winner’s Interview: 2nd place</a></li>
-  <li><a href="http://blog.kaggle.com/2015/10/30/dato-winners-interview-2nd-place-mortehu/">Dato Truly Native? Winner’s Interview: 2nd place</a></li>
+<li><a href="http://blog.kaggle.com/2015/09/22/caterpillar-winners-interview-1st-place-gilberto-josef-leustagos-mario/">Caterpillar Winners' Interview</a></li>
+<li><a href="http://blog.kaggle.com/2015/10/20/caterpillar-winners-interview-3rd-place-team-shift-workers/">Caterpillar Winners' Interview: 3rd place</a></li>
+<li><a href="http://blog.kaggle.com/2015/09/28/liberty-mutual-property-inspection-winners-interview-qingchen-wang/">Liberty Mutual Property Inspection, Winner's Interview</a></li>
+<li><a href="http://blog.kaggle.com/2015/10/21/recruit-coupon-purchase-winners-interview-2nd-place-halla-yang/">Recruit Coupon Purchase Winner's Interview: 2nd place</a></li>
+<li><a href="http://blog.kaggle.com/2015/10/30/dato-winners-interview-2nd-place-mortehu/">Dato Truly Native? Winner's Interview: 2nd place</a></li>
 </ul>
-
-<pre><code>Classifier: Gradient Boosting
-Training time: 2409.8094s
-Testing time: 0.4159s
-Confusion matrix:
-[[2214    1    3    5   10    8    9    3   24    1]
- [   1 2528   16   11    3    5    5    7    9    3]
- [   8    5 2165   34   16    5   12   22   37   10]
- [   1    9   27 2182    4   42    1   22   37   23]
- [   5    4   16    1 2088    5   12    5   10   65]
- [   9    6    7   41    8 1928   27    6   18   19]
- [  15    7    4    1   19   29 2181    1   14    0]
- [   6   16   27   15   22    6    0 2246    8   71]
- [   5   20   14   25   15   29    6    6 2057   38]
- [   6   10    8   24   49   15    1   54   17 2205]]
-Accuracy: 0.9435
-</code></pre>
-
-<h3 id="tocAnchor-1-3-8">Naive Bayes</h3>
-
-<pre><code>Classifier: Naive Bayes
-Training time: 0.3814s
-Testing time: 0.8863s
-Confusion matrix:
-[[2094    4   11   10    6    7   56    3   69   18]
- [   4 2432    9   11    2    4   28    1   77   20]
- [ 278   64  703  143    6    4  558    4  528   26]
- [ 202  136   18  791    5    5  106   21  886  178]
- [  96   26   16   14  296    8  169   13  535 1038]
- [ 327   63   15   39   14   87  100    5 1253  166]
- [  34   51   17    1    1    5 2109    0   52    1]
- [  19   21    3   23   20    2    7  737  123 1462]
- [  39  326   13   16    8   18   25    7 1482  281]
- [  15   26    8    2   14    2    1   41   40 2240]]
-Accuracy: 0.5615
-</code></pre>
-
-<h3 id="tocAnchor-1-3-9">LDA</h3>
-
-<pre><code>Classifier: LDA
-Training time: 20.6464s
-Testing time: 0.0910s
-Confusion matrix:
-[[2131    2   10   14   12   47   20    4   36    2]
- [   0 2454   20   10    5   16    5    5   71    2]
- [  22   71 1873   77   51    8   82   20  101    9]
- [   5   32   56 1992   11   77   11   40   80   44]
- [   1   21   17    0 1983   12   12    2   21  142]
- [  19   18   11  112   18 1682   37   11  103   58]
- [  28   30   32    3   43   51 2046    0   37    1]
- [  16   57   25   20   70    8    0 1990   11  220]
- [   9  113   16   64   33  115   13   10 1781   61]
- [  15   10    6   35  133   14    0  122   22 2032]]
-Accuracy: 0.8642
-</code></pre>
-
-<h3 id="tocAnchor-1-3-10">QDA</h3>
-
-<pre><code>Classifier: QDA
-Training time: 23.0527s
-Testing time: 6.2259s
-Confusion matrix:
-[[2212    3   12   14    1    4   20    5    6    1]
- [  66 2409   12   10    0    0   32    2   39   18]
- [ 961   25  689  143    3    1  310    2  166   14]
- [1231   48   29  606    3   13   66   10  232  110]
- [ 810   22   25   27  250    4  143   17  345  568]
- [ 909   15   13   33    1  214  140    4  666   74]
- [  83   18   14    1    1    2 2146    0    6    0]
- [  81   13    6   52   14    2    1  776  120 1352]
- [ 487  181   18   20    6   17   58    3 1320  105]
- [  65   14   12    7   10    0    0   23   33 2225]]
-Accuracy: 0.5561
-</code></pre>
-
-<h2 id="tocAnchor-1-14">MNIST Summary</h2>
-
+<div class="highlight"><pre><span class="n">Classifier</span><span class="o">:</span> <span class="n">Gradient</span> <span class="n">Boosting</span>
+<span class="n">Training</span> <span class="n">time</span><span class="o">:</span> <span class="mf">2409.8094</span><span class="n">s</span>
+<span class="n">Testing</span> <span class="n">time</span><span class="o">:</span> <span class="mf">0.4159</span><span class="n">s</span>
+<span class="n">Confusion</span> <span class="n">matrix</span><span class="o">:</span>
+<span class="o">[[</span><span class="mi">2214</span>    <span class="mi">1</span>    <span class="mi">3</span>    <span class="mi">5</span>   <span class="mi">10</span>    <span class="mi">8</span>    <span class="mi">9</span>    <span class="mi">3</span>   <span class="mi">24</span>    <span class="mi">1</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">1</span> <span class="mi">2528</span>   <span class="mi">16</span>   <span class="mi">11</span>    <span class="mi">3</span>    <span class="mi">5</span>    <span class="mi">5</span>    <span class="mi">7</span>    <span class="mi">9</span>    <span class="mi">3</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">8</span>    <span class="mi">5</span> <span class="mi">2165</span>   <span class="mi">34</span>   <span class="mi">16</span>    <span class="mi">5</span>   <span class="mi">12</span>   <span class="mi">22</span>   <span class="mi">37</span>   <span class="mi">10</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">1</span>    <span class="mi">9</span>   <span class="mi">27</span> <span class="mi">2182</span>    <span class="mi">4</span>   <span class="mi">42</span>    <span class="mi">1</span>   <span class="mi">22</span>   <span class="mi">37</span>   <span class="mi">23</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">5</span>    <span class="mi">4</span>   <span class="mi">16</span>    <span class="mi">1</span> <span class="mi">2088</span>    <span class="mi">5</span>   <span class="mi">12</span>    <span class="mi">5</span>   <span class="mi">10</span>   <span class="mi">65</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">9</span>    <span class="mi">6</span>    <span class="mi">7</span>   <span class="mi">41</span>    <span class="mi">8</span> <span class="mi">1928</span>   <span class="mi">27</span>    <span class="mi">6</span>   <span class="mi">18</span>   <span class="mi">19</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">15</span>    <span class="mi">7</span>    <span class="mi">4</span>    <span class="mi">1</span>   <span class="mi">19</span>   <span class="mi">29</span> <span class="mi">2181</span>    <span class="mi">1</span>   <span class="mi">14</span>    <span class="mi">0</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">6</span>   <span class="mi">16</span>   <span class="mi">27</span>   <span class="mi">15</span>   <span class="mi">22</span>    <span class="mi">6</span>    <span class="mi">0</span> <span class="mi">2246</span>    <span class="mi">8</span>   <span class="mi">71</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">5</span>   <span class="mi">20</span>   <span class="mi">14</span>   <span class="mi">25</span>   <span class="mi">15</span>   <span class="mi">29</span>    <span class="mi">6</span>    <span class="mi">6</span> <span class="mi">2057</span>   <span class="mi">38</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">6</span>   <span class="mi">10</span>    <span class="mi">8</span>   <span class="mi">24</span>   <span class="mi">49</span>   <span class="mi">15</span>    <span class="mi">1</span>   <span class="mi">54</span>   <span class="mi">17</span> <span class="mi">2205</span><span class="o">]]</span>
+<span class="n">Accuracy</span><span class="o">:</span> <span class="mf">0.9435</span>
+</pre></div>
+<h3 id="naive-bayes">Naive Bayes</h3>
+<div class="highlight"><pre><span class="n">Classifier</span><span class="o">:</span> <span class="n">Naive</span> <span class="n">Bayes</span>
+<span class="n">Training</span> <span class="n">time</span><span class="o">:</span> <span class="mf">0.3814</span><span class="n">s</span>
+<span class="n">Testing</span> <span class="n">time</span><span class="o">:</span> <span class="mf">0.8863</span><span class="n">s</span>
+<span class="n">Confusion</span> <span class="n">matrix</span><span class="o">:</span>
+<span class="o">[[</span><span class="mi">2094</span>    <span class="mi">4</span>   <span class="mi">11</span>   <span class="mi">10</span>    <span class="mi">6</span>    <span class="mi">7</span>   <span class="mi">56</span>    <span class="mi">3</span>   <span class="mi">69</span>   <span class="mi">18</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">4</span> <span class="mi">2432</span>    <span class="mi">9</span>   <span class="mi">11</span>    <span class="mi">2</span>    <span class="mi">4</span>   <span class="mi">28</span>    <span class="mi">1</span>   <span class="mi">77</span>   <span class="mi">20</span><span class="o">]</span>
+ <span class="o">[</span> <span class="mi">278</span>   <span class="mi">64</span>  <span class="mi">703</span>  <span class="mi">143</span>    <span class="mi">6</span>    <span class="mi">4</span>  <span class="mi">558</span>    <span class="mi">4</span>  <span class="mi">528</span>   <span class="mi">26</span><span class="o">]</span>
+ <span class="o">[</span> <span class="mi">202</span>  <span class="mi">136</span>   <span class="mi">18</span>  <span class="mi">791</span>    <span class="mi">5</span>    <span class="mi">5</span>  <span class="mi">106</span>   <span class="mi">21</span>  <span class="mi">886</span>  <span class="mi">178</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">96</span>   <span class="mi">26</span>   <span class="mi">16</span>   <span class="mi">14</span>  <span class="mi">296</span>    <span class="mi">8</span>  <span class="mi">169</span>   <span class="mi">13</span>  <span class="mi">535</span> <span class="mi">1038</span><span class="o">]</span>
+ <span class="o">[</span> <span class="mi">327</span>   <span class="mi">63</span>   <span class="mi">15</span>   <span class="mi">39</span>   <span class="mi">14</span>   <span class="mi">87</span>  <span class="mi">100</span>    <span class="mi">5</span> <span class="mi">1253</span>  <span class="mi">166</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">34</span>   <span class="mi">51</span>   <span class="mi">17</span>    <span class="mi">1</span>    <span class="mi">1</span>    <span class="mi">5</span> <span class="mi">2109</span>    <span class="mi">0</span>   <span class="mi">52</span>    <span class="mi">1</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">19</span>   <span class="mi">21</span>    <span class="mi">3</span>   <span class="mi">23</span>   <span class="mi">20</span>    <span class="mi">2</span>    <span class="mi">7</span>  <span class="mi">737</span>  <span class="mi">123</span> <span class="mi">1462</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">39</span>  <span class="mi">326</span>   <span class="mi">13</span>   <span class="mi">16</span>    <span class="mi">8</span>   <span class="mi">18</span>   <span class="mi">25</span>    <span class="mi">7</span> <span class="mi">1482</span>  <span class="mi">281</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">15</span>   <span class="mi">26</span>    <span class="mi">8</span>    <span class="mi">2</span>   <span class="mi">14</span>    <span class="mi">2</span>    <span class="mi">1</span>   <span class="mi">41</span>   <span class="mi">40</span> <span class="mi">2240</span><span class="o">]]</span>
+<span class="n">Accuracy</span><span class="o">:</span> <span class="mf">0.5615</span>
+</pre></div>
+<h3 id="lda">LDA</h3>
+<div class="highlight"><pre><span class="n">Classifier</span><span class="o">:</span> <span class="n">LDA</span>
+<span class="n">Training</span> <span class="n">time</span><span class="o">:</span> <span class="mf">20.6464</span><span class="n">s</span>
+<span class="n">Testing</span> <span class="n">time</span><span class="o">:</span> <span class="mf">0.0910</span><span class="n">s</span>
+<span class="n">Confusion</span> <span class="n">matrix</span><span class="o">:</span>
+<span class="o">[[</span><span class="mi">2131</span>    <span class="mi">2</span>   <span class="mi">10</span>   <span class="mi">14</span>   <span class="mi">12</span>   <span class="mi">47</span>   <span class="mi">20</span>    <span class="mi">4</span>   <span class="mi">36</span>    <span class="mi">2</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">0</span> <span class="mi">2454</span>   <span class="mi">20</span>   <span class="mi">10</span>    <span class="mi">5</span>   <span class="mi">16</span>    <span class="mi">5</span>    <span class="mi">5</span>   <span class="mi">71</span>    <span class="mi">2</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">22</span>   <span class="mi">71</span> <span class="mi">1873</span>   <span class="mi">77</span>   <span class="mi">51</span>    <span class="mi">8</span>   <span class="mi">82</span>   <span class="mi">20</span>  <span class="mi">101</span>    <span class="mi">9</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">5</span>   <span class="mi">32</span>   <span class="mi">56</span> <span class="mi">1992</span>   <span class="mi">11</span>   <span class="mi">77</span>   <span class="mi">11</span>   <span class="mi">40</span>   <span class="mi">80</span>   <span class="mi">44</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">1</span>   <span class="mi">21</span>   <span class="mi">17</span>    <span class="mi">0</span> <span class="mi">1983</span>   <span class="mi">12</span>   <span class="mi">12</span>    <span class="mi">2</span>   <span class="mi">21</span>  <span class="mi">142</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">19</span>   <span class="mi">18</span>   <span class="mi">11</span>  <span class="mi">112</span>   <span class="mi">18</span> <span class="mi">1682</span>   <span class="mi">37</span>   <span class="mi">11</span>  <span class="mi">103</span>   <span class="mi">58</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">28</span>   <span class="mi">30</span>   <span class="mi">32</span>    <span class="mi">3</span>   <span class="mi">43</span>   <span class="mi">51</span> <span class="mi">2046</span>    <span class="mi">0</span>   <span class="mi">37</span>    <span class="mi">1</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">16</span>   <span class="mi">57</span>   <span class="mi">25</span>   <span class="mi">20</span>   <span class="mi">70</span>    <span class="mi">8</span>    <span class="mi">0</span> <span class="mi">1990</span>   <span class="mi">11</span>  <span class="mi">220</span><span class="o">]</span>
+ <span class="o">[</span>   <span class="mi">9</span>  <span class="mi">113</span>   <span class="mi">16</span>   <span class="mi">64</span>   <span class="mi">33</span>  <span class="mi">115</span>   <span class="mi">13</span>   <span class="mi">10</span> <span class="mi">1781</span>   <span class="mi">61</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">15</span>   <span class="mi">10</span>    <span class="mi">6</span>   <span class="mi">35</span>  <span class="mi">133</span>   <span class="mi">14</span>    <span class="mi">0</span>  <span class="mi">122</span>   <span class="mi">22</span> <span class="mi">2032</span><span class="o">]]</span>
+<span class="n">Accuracy</span><span class="o">:</span> <span class="mf">0.8642</span>
+</pre></div>
+<h3 id="qda">QDA</h3>
+<div class="highlight"><pre><span class="n">Classifier</span><span class="o">:</span> <span class="n">QDA</span>
+<span class="n">Training</span> <span class="n">time</span><span class="o">:</span> <span class="mf">23.0527</span><span class="n">s</span>
+<span class="n">Testing</span> <span class="n">time</span><span class="o">:</span> <span class="mf">6.2259</span><span class="n">s</span>
+<span class="n">Confusion</span> <span class="n">matrix</span><span class="o">:</span>
+<span class="o">[[</span><span class="mi">2212</span>    <span class="mi">3</span>   <span class="mi">12</span>   <span class="mi">14</span>    <span class="mi">1</span>    <span class="mi">4</span>   <span class="mi">20</span>    <span class="mi">5</span>    <span class="mi">6</span>    <span class="mi">1</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">66</span> <span class="mi">2409</span>   <span class="mi">12</span>   <span class="mi">10</span>    <span class="mi">0</span>    <span class="mi">0</span>   <span class="mi">32</span>    <span class="mi">2</span>   <span class="mi">39</span>   <span class="mi">18</span><span class="o">]</span>
+ <span class="o">[</span> <span class="mi">961</span>   <span class="mi">25</span>  <span class="mi">689</span>  <span class="mi">143</span>    <span class="mi">3</span>    <span class="mi">1</span>  <span class="mi">310</span>    <span class="mi">2</span>  <span class="mi">166</span>   <span class="mi">14</span><span class="o">]</span>
+ <span class="o">[</span><span class="mi">1231</span>   <span class="mi">48</span>   <span class="mi">29</span>  <span class="mi">606</span>    <span class="mi">3</span>   <span class="mi">13</span>   <span class="mi">66</span>   <span class="mi">10</span>  <span class="mi">232</span>  <span class="mi">110</span><span class="o">]</span>
+ <span class="o">[</span> <span class="mi">810</span>   <span class="mi">22</span>   <span class="mi">25</span>   <span class="mi">27</span>  <span class="mi">250</span>    <span class="mi">4</span>  <span class="mi">143</span>   <span class="mi">17</span>  <span class="mi">345</span>  <span class="mi">568</span><span class="o">]</span>
+ <span class="o">[</span> <span class="mi">909</span>   <span class="mi">15</span>   <span class="mi">13</span>   <span class="mi">33</span>    <span class="mi">1</span>  <span class="mi">214</span>  <span class="mi">140</span>    <span class="mi">4</span>  <span class="mi">666</span>   <span class="mi">74</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">83</span>   <span class="mi">18</span>   <span class="mi">14</span>    <span class="mi">1</span>    <span class="mi">1</span>    <span class="mi">2</span> <span class="mi">2146</span>    <span class="mi">0</span>    <span class="mi">6</span>    <span class="mi">0</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">81</span>   <span class="mi">13</span>    <span class="mi">6</span>   <span class="mi">52</span>   <span class="mi">14</span>    <span class="mi">2</span>    <span class="mi">1</span>  <span class="mi">776</span>  <span class="mi">120</span> <span class="mi">1352</span><span class="o">]</span>
+ <span class="o">[</span> <span class="mi">487</span>  <span class="mi">181</span>   <span class="mi">18</span>   <span class="mi">20</span>    <span class="mi">6</span>   <span class="mi">17</span>   <span class="mi">58</span>    <span class="mi">3</span> <span class="mi">1320</span>  <span class="mi">105</span><span class="o">]</span>
+ <span class="o">[</span>  <span class="mi">65</span>   <span class="mi">14</span>   <span class="mi">12</span>    <span class="mi">7</span>   <span class="mi">10</span>    <span class="mi">0</span>    <span class="mi">0</span>   <span class="mi">23</span>   <span class="mi">33</span> <span class="mi">2225</span><span class="o">]]</span>
+<span class="n">Accuracy</span><span class="o">:</span> <span class="mf">0.5561</span>
+</pre></div>
+<h2 id="mnist-summary_1">MNIST Summary</h2>
 <table class="table">
-  <thead>
-    <tr>
-        <th>Classifier</th>
-        <th>Accuracy</th>
-        <th>Training Time</th>
-        <th>Testing Time</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-        <td>MLP (500:200)</td>
-        <td style="text-align: right">97.98%</td>
-        <td style="text-align: right">79.5696s</td>
-        <td style="text-align: right">0.3480s</td>
-    </tr>
-    <tr>
-        <td>Dropout NN (500:200)</td>
-        <td style="text-align: right">97.80%</td>
-        <td style="text-align: right">118.2654s</td>
-        <td style="text-align: right">0.3918s</td>
-    </tr>
-    <tr>
-        <td>CNN<br />(32 5×5 filters : 2×2 max pool : 64 5×5 filters : 2×2 max pool : 1024)</td>
-        <td style="text-align: right">97.69%</td>
-        <td style="text-align: right">391.8810s</td>
-        <td style="text-align: right">1.2035s</td>
-    </tr>
-    <tr>
-        <td>Adjusted SVM</td>
-        <td style="text-align: right"><b>98.40%</b></td>
-        <td style="text-align: right">347.1539s</td>
-        <td style="text-align: right" class="danger">234.5724s</td>
-    </tr>
-    <tr>
-        <td>Linear SVM</td>
-        <td style="text-align: right">94.16%</td>
-        <td style="text-align: right">168.6950s</td>
-        <td style="text-align: right" class="danger">158.0101s</td>
-    </tr>
-    <tr>
-        <td>Random Forest (n_estimators=50, n_jobs=10)</td>
-        <td style="text-align: right">96.41%</td>
-        <td style="text-align: right">2.1359s</td>
-        <td style="text-align: right" class="danger">26.0763s</td>
-    </tr>
-    <tr>
-        <td>Random Forest (n_estimators=10, max_features=1, max_depth=5)</td>
-        <td style="text-align: right" class="danger">57.15%</td>
-        <td style="text-align: right"><b>0.2077s</b></td>
-        <td style="text-align: right" class="danger">22.2770s</td>
-    </tr>
-    <tr>
-        <td>k nearest neightbors (k=3)</td>
-        <td style="text-align: right">96.95%</td>
-        <td style="text-align: right">4.6439s</td>
-        <td style="text-align: right" class="danger">1261.7815s</td>
-    </tr>
-    <tr>
-        <td>Decision Tree(max_depth=5)</td>
-        <td style="text-align: right" class="danger">65.40%</td>
-        <td style="text-align: right">3.1346s</td>
-        <td style="text-align: right"><b>0.0313s</b></td>
-    </tr>
-    <tr>
-        <td>Adaboost</td>
-        <td style="text-align: right" class="danger">73.67%</td>
-        <td style="text-align: right">37.6443s</td>
-        <td style="text-align: right">1.5815s</td>
-    </tr>
-    <tr>
-        <td>Naive Bayes</td>
-        <td style="text-align: right" class="danger">56.15%</td>
-        <td style="text-align: right">0.3814s</td>
-        <td style="text-align: right">0.8863s</td>
-    </tr>
-    <tr>
-        <td>LDA</td>
-        <td style="text-align: right">86.42%</td>
-        <td style="text-align: right">20.6464s</td>
-        <td style="text-align: right">0.0910s</td>
-    </tr>
-    <tr>
-        <td>QDA</td>
-        <td style="text-align: right" class="danger">55.61%</td>
-        <td style="text-align: right">23.0527s</td>
-        <td style="text-align: right" class="danger">6.2259s</td>
-    </tr>
-    <tr>
-        <td>Gradient Boosting</td>
-        <td style="text-align: right">94.35%</td>
-        <td style="text-align: right">2409.8094s</td>
-        <td style="text-align: right">0.4159s</td>
-    </tr>
-    <tr>
-        <td>Logistic Regression (C=1)</td>
-        <td style="text-align: right">91.47%</td>
-        <td style="text-align: right">272.1309s</td>
-        <td style="text-align: right">0.0531s</td>
-    </tr>
-    <tr>
-        <td>Logistic Regression (C=10000)</td>
-        <td style="text-align: right">91.23%</td>
-        <td style="text-align: right">1807.0624s</td>
-        <td style="text-align: right">0.0529s</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="tocAnchor-1-15">IRIS summary</h2>
-
-<p>Just for fun, I tried the script from above with very minor adjustments to the
-<a href="https://en.wikipedia.org/wiki/Iris_flower_data_set">IRIS flower dataset</a>:</p>
-
-<table class="table">
-  <thead>
-    <tr>
-        <th>Classifier</th>
-        <th>Accuracy</th>
-        <th>Training Time</th>
-        <th>Testing Time</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-        <td>AdaBoost</td>
-        <td style="text-align: right">92.00%</td>
-        <td style="text-align: right">0.1203s</td>
-        <td style="text-align: right">0.0101s</td>
-    </tr>
-    <tr>
-        <td>Decision Tree</td>
-        <td style="text-align: right">92.00%</td>
-        <td style="text-align: right">0.0005s</td>
-        <td style="text-align: right"><b>0.0001s</b></td>
-    </tr>
-    <tr>
-        <td>Gradient Boosting</td>
-        <td style="text-align: right">92.00%</td>
-        <td style="text-align: right">0.2227s</td>
-        <td style="text-align: right">0.0007s</td>
-    </tr>
-    <tr>
-        <td>LDA</td>
-        <td style="text-align: right"><b>96.00%</b></td>
-        <td style="text-align: right">0.0027s</td>
-        <td style="text-align: right">0.0002s</td>
-    </tr>
-    <tr>
-        <td>NN 20:5</td>
-        <td style="text-align: right">90.00%</td>
-        <td style="text-align: right">1.6628s</td>
-        <td style="text-align: right">0.0046s</td>
-    </tr>
-    <tr>
-        <td>Naive Bayes</td>
-        <td style="text-align: right">90.00%</td>
-        <td style="text-align: right">0.0010s</td>
-        <td style="text-align: right">0.0004s</td>
-    </tr>
-    <tr>
-        <td>QDA</td>
-        <td style="text-align: right">94.00%</td>
-        <td style="text-align: right">0.0009s</td>
-        <td style="text-align: right">0.0003s</td>
-    </tr>
-    <tr>
-        <td>Random Forest</td>
-        <td style="text-align: right">90.00%</td>
-        <td style="text-align: right">0.2147s</td>
-        <td style="text-align: right">0.1395s</td>
-    </tr>
-    <tr>
-        <td>Random Forest 2</td>
-        <td style="text-align: right">90.00%</td>
-        <td style="text-align: right">0.1481s</td>
-        <td style="text-align: right">0.1249s</td>
-    </tr>
-    <tr>
-        <td>SVM, adj.</td>
-        <td style="text-align: right">90.00%</td>
-        <td style="text-align: right">0.0010s</td>
-        <td style="text-align: right">0.0004s</td>
-    </tr>
-    <tr>
-        <td>SVM, linear</td>
-        <td style="text-align: right" class="danger">88.00%</td>
-        <td style="text-align: right">0.0006s</td>
-        <td style="text-align: right">0.0002s</td>
-    </tr>
-    <tr>
-        <td>k nn</td>
-        <td style="text-align: right">92.00%</td>
-        <td style="text-align: right">0.0007s</td>
-        <td style="text-align: right">0.0009s</td>
-    </tr>
-    <tr>
-        <td>Logistic Regression (C=1)</td>
-        <td style="text-align: right" class="danger">88.00%</td>
-        <td style="text-align: right">0.0011s</td>
-        <td style="text-align: right"><b>0.0001s</b></td>
-    </tr>
-    <tr>
-        <td>Logistic Regression (C=1000)</td>
-        <td style="text-align: right">92.00%</td>
-        <td style="text-align: right">0.0010s</td>
-        <td style="text-align: right">0.0002s</td>
-    </tr>
-    <tr>
-        <td>RBM 100</td>
-        <td style="text-align: right" class="danger">78.00%</td>
-        <td style="text-align: right">0.0233s</td>
-        <td style="text-align: right">0.0003s</td>
-    </tr>
-    <tr>
-        <td>RBM 100, n_iter=20</td>
-        <td style="text-align: right" class="danger">70.00%</td>
-        <td style="text-align: right">0.0427s</td>
-        <td style="text-align: right">0.0003s</td>
-    </tr>
-    <tr>
-        <td>RBM 200, n_iter=40, LR=0.01, Reg: C=1</td>
-        <td style="text-align: right" class="danger">88.00%</td>
-        <td style="text-align: right">0.2463s</td>
-        <td style="text-align: right">0.0005s</td>
-    </tr>
-    <tr>
-        <td>RBM 200, n_iter=40, LR=0.01, Reg: C=10000</td>
-        <td style="text-align: right">90.00%</td>
-        <td style="text-align: right">0.2437s</td>
-        <td style="text-align: right">0.0005s</td>
-    </tr>
-    <tr>
-        <td>RBM 256</td>
-        <td style="text-align: right" class="danger">84.00%</td>
-        <td style="text-align: right">0.0424s</td>
-        <td style="text-align: right">0.0006s</td>
-    </tr>
-    <tr>
-        <td>RBM 512, n_iter=100</td>
-        <td style="text-align: right" class="danger">84.00%</td>
-        <td style="text-align: right">0.0723s</td>
-        <td style="text-align: right">0.0010s</td>
-    </tr>
+<thead>
+<tr>
+<th>Classifier</th>
+<th>Accuracy</th>
+<th>Training Time</th>
+<th>Testing Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MLP (500:200)</td>
+<td style="text-align: right">97.98%</td>
+<td style="text-align: right">79.5696s</td>
+<td style="text-align: right">0.3480s</td>
+</tr>
+<tr>
+<td>Dropout NN (500:200)</td>
+<td style="text-align: right">97.80%</td>
+<td style="text-align: right">118.2654s</td>
+<td style="text-align: right">0.3918s</td>
+</tr>
+<tr>
+<td>CNN<br/>(32 5&times;5 filters : 2&times;2 max pool : 64 5&times;5 filters : 2&times;2 max pool : 1024)</td>
+<td style="text-align: right">97.69%</td>
+<td style="text-align: right">391.8810s</td>
+<td style="text-align: right">1.2035s</td>
+</tr>
+<tr>
+<td>Adjusted SVM</td>
+<td style="text-align: right"><b>98.40%</b></td>
+<td style="text-align: right">347.1539s</td>
+<td class="danger" style="text-align: right">234.5724s</td>
+</tr>
+<tr>
+<td>Linear SVM</td>
+<td style="text-align: right">94.16%</td>
+<td style="text-align: right">168.6950s</td>
+<td class="danger" style="text-align: right">158.0101s</td>
+</tr>
+<tr>
+<td>Random Forest (n_estimators=50, n_jobs=10)</td>
+<td style="text-align: right">96.41%</td>
+<td style="text-align: right">2.1359s</td>
+<td class="danger" style="text-align: right">26.0763s</td>
+</tr>
+<tr>
+<td>Random Forest (n_estimators=10, max_features=1, max_depth=5)</td>
+<td class="danger" style="text-align: right">57.15%</td>
+<td style="text-align: right"><b>0.2077s</b></td>
+<td class="danger" style="text-align: right">22.2770s</td>
+</tr>
+<tr>
+<td>k nearest neightbors (k=3)</td>
+<td style="text-align: right">96.95%</td>
+<td style="text-align: right">4.6439s</td>
+<td class="danger" style="text-align: right">1261.7815s</td>
+</tr>
+<tr>
+<td>Decision Tree(max_depth=5)</td>
+<td class="danger" style="text-align: right">65.40%</td>
+<td style="text-align: right">3.1346s</td>
+<td style="text-align: right"><b>0.0313s</b></td>
+</tr>
+<tr>
+<td>Adaboost</td>
+<td class="danger" style="text-align: right">73.67%</td>
+<td style="text-align: right">37.6443s</td>
+<td style="text-align: right">1.5815s</td>
+</tr>
+<tr>
+<td>Naive Bayes</td>
+<td class="danger" style="text-align: right">56.15%</td>
+<td style="text-align: right">0.3814s</td>
+<td style="text-align: right">0.8863s</td>
+</tr>
+<tr>
+<td>LDA</td>
+<td style="text-align: right">86.42%</td>
+<td style="text-align: right">20.6464s</td>
+<td style="text-align: right">0.0910s</td>
+</tr>
+<tr>
+<td>QDA</td>
+<td class="danger" style="text-align: right">55.61%</td>
+<td style="text-align: right">23.0527s</td>
+<td class="danger" style="text-align: right">6.2259s</td>
+</tr>
+<tr>
+<td>Gradient Boosting</td>
+<td style="text-align: right">94.35%</td>
+<td style="text-align: right">2409.8094s</td>
+<td style="text-align: right">0.4159s</td>
+</tr>
+<tr>
+<td>Logistic Regression (C=1)</td>
+<td style="text-align: right">91.47%</td>
+<td style="text-align: right">272.1309s</td>
+<td style="text-align: right">0.0531s</td>
+</tr>
+<tr>
+<td>Logistic Regression (C=10000)</td>
+<td style="text-align: right">91.23%</td>
+<td style="text-align: right">1807.0624s</td>
+<td style="text-align: right">0.0529s</td>
+</tr>
 </tbody>
 </table>
-
-<h2 id="tocAnchor-1-16">TL;DR</h2>
-
+<h2 id="iris-summary">IRIS summary</h2>
+<p>Just for fun, I tried the script from above with very minor adjustments to the
+<a href="https://en.wikipedia.org/wiki/Iris_flower_data_set">IRIS flower dataset</a>:</p>
+<table class="table">
+<thead>
+<tr>
+<th>Classifier</th>
+<th>Accuracy</th>
+<th>Training Time</th>
+<th>Testing Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AdaBoost</td>
+<td style="text-align: right">92.00%</td>
+<td style="text-align: right">0.1203s</td>
+<td style="text-align: right">0.0101s</td>
+</tr>
+<tr>
+<td>Decision Tree</td>
+<td style="text-align: right">92.00%</td>
+<td style="text-align: right">0.0005s</td>
+<td style="text-align: right"><b>0.0001s</b></td>
+</tr>
+<tr>
+<td>Gradient Boosting</td>
+<td style="text-align: right">92.00%</td>
+<td style="text-align: right">0.2227s</td>
+<td style="text-align: right">0.0007s</td>
+</tr>
+<tr>
+<td>LDA</td>
+<td style="text-align: right"><b>96.00%</b></td>
+<td style="text-align: right">0.0027s</td>
+<td style="text-align: right">0.0002s</td>
+</tr>
+<tr>
+<td>NN 20:5</td>
+<td style="text-align: right">90.00%</td>
+<td style="text-align: right">1.6628s</td>
+<td style="text-align: right">0.0046s</td>
+</tr>
+<tr>
+<td>Naive Bayes</td>
+<td style="text-align: right">90.00%</td>
+<td style="text-align: right">0.0010s</td>
+<td style="text-align: right">0.0004s</td>
+</tr>
+<tr>
+<td>QDA</td>
+<td style="text-align: right">94.00%</td>
+<td style="text-align: right">0.0009s</td>
+<td style="text-align: right">0.0003s</td>
+</tr>
+<tr>
+<td>Random Forest</td>
+<td style="text-align: right">90.00%</td>
+<td style="text-align: right">0.2147s</td>
+<td style="text-align: right">0.1395s</td>
+</tr>
+<tr>
+<td>Random Forest 2</td>
+<td style="text-align: right">90.00%</td>
+<td style="text-align: right">0.1481s</td>
+<td style="text-align: right">0.1249s</td>
+</tr>
+<tr>
+<td>SVM, adj.</td>
+<td style="text-align: right">90.00%</td>
+<td style="text-align: right">0.0010s</td>
+<td style="text-align: right">0.0004s</td>
+</tr>
+<tr>
+<td>SVM, linear</td>
+<td class="danger" style="text-align: right">88.00%</td>
+<td style="text-align: right">0.0006s</td>
+<td style="text-align: right">0.0002s</td>
+</tr>
+<tr>
+<td>k nn</td>
+<td style="text-align: right">92.00%</td>
+<td style="text-align: right">0.0007s</td>
+<td style="text-align: right">0.0009s</td>
+</tr>
+<tr>
+<td>Logistic Regression (C=1)</td>
+<td class="danger" style="text-align: right">88.00%</td>
+<td style="text-align: right">0.0011s</td>
+<td style="text-align: right"><b>0.0001s</b></td>
+</tr>
+<tr>
+<td>Logistic Regression (C=1000)</td>
+<td style="text-align: right">92.00%</td>
+<td style="text-align: right">0.0010s</td>
+<td style="text-align: right">0.0002s</td>
+</tr>
+<tr>
+<td>RBM 100</td>
+<td class="danger" style="text-align: right">78.00%</td>
+<td style="text-align: right">0.0233s</td>
+<td style="text-align: right">0.0003s</td>
+</tr>
+<tr>
+<td>RBM 100, n_iter=20</td>
+<td class="danger" style="text-align: right">70.00%</td>
+<td style="text-align: right">0.0427s</td>
+<td style="text-align: right">0.0003s</td>
+</tr>
+<tr>
+<td>RBM 200, n_iter=40, LR=0.01, Reg: C=1</td>
+<td class="danger" style="text-align: right">88.00%</td>
+<td style="text-align: right">0.2463s</td>
+<td style="text-align: right">0.0005s</td>
+</tr>
+<tr>
+<td>RBM 200, n_iter=40, LR=0.01, Reg: C=10000</td>
+<td style="text-align: right">90.00%</td>
+<td style="text-align: right">0.2437s</td>
+<td style="text-align: right">0.0005s</td>
+</tr>
+<tr>
+<td>RBM 256</td>
+<td class="danger" style="text-align: right">84.00%</td>
+<td style="text-align: right">0.0424s</td>
+<td style="text-align: right">0.0006s</td>
+</tr>
+<tr>
+<td>RBM 512, n_iter=100</td>
+<td class="danger" style="text-align: right">84.00%</td>
+<td style="text-align: right">0.0723s</td>
+<td style="text-align: right">0.0010s</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tldr">TL;DR</h2>
 <p>Neural networks take their time to train and a feeling for the topology, but
 their classification results are nice and the testing time is good as well.</p>
-
 <p>Random Forests and SVMs are also a model a type of model one should think of.
 However, the stard implementation is very slow compared to neural networks.</p>
-
 <p><a href="http://scikit-learn.org/0.16/modules/generated/sklearn.lda.LDA.html"><code>sklearn.lda.LDA</code></a>
 might also be worth a try. The rest seems to be quite bad compared with those
 classifiers.</p>
-
 <p>The code which generated the examples from above is <a href="https://github.com/MartinThoma/algorithms/tree/master/ML/mnist/many-classifiers">here</a>.</p>
-
-                        </div>
-                        <div class="postmeta">Posted in
-                            
-                                <a href="//martin-thoma.com/category/machine-learning/">machine learning</a><!--TODO: Displayed category name should be upper case! -->
-                             | Tags:
-                            
-                                
-                                    <a href="//martin-thoma.com/tag/python/">Python</a>
-                                
-                            
-                                , <a href="//martin-thoma.com/tag/machine-learning/">Machine Learning</a>
-                                
-                            
-                                , <a href="//martin-thoma.com/tag/classification/">Classification</a>
-                                
-                             by <a rel="author" class="vcard author post-author" itemprop="author" href="//martin-thoma.com/author/martin-thoma/"><span class="fn" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a> on <span class="updated"><span class="value-title" title="2016-01-19 20:13:00 +0100">
-                                January
-                                19th
-                                  ,
-                                2016</span></span></div>
-
-                            <div class="navigation clearfix">
-                                <div class="alignleft">
-                                
-                                    &laquo; <a href="//martin-thoma.com/function-approximation/" rel="prev">Function Approximation</a>
-                                
-                                </div>
-                                <div class="alignright">
-                                
-                                    <a href="//martin-thoma.com/softmax/" rel="next">Softmax</a> &raquo;
-                                
-                                </div>
-                            </div>
-
-                        </article>
-                        <div id="respond">
-                            <h3>Leave a Reply</h3>
-                                <!-- comment discuss code -->
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'martinthoma'; // required: replace example with your forum shortname
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="//disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    <!-- comment discuss code -->
-
-                        </div>
-                    </div>
-                </div>
-            <div class="span-8 last">
-                <div id="subscriptions">
-<a href="//martin-thoma.com/feed/"><img src="//martin-thoma.com/css/images/rss.png" alt="Subscribe to RSS Feed" title="Subscribe to RSS Feed" width="72" height="47" /></a>
-<a href="https://twitter.com/#!/themoosemind" title="Follow me on Twitter!"><img src="//martin-thoma.com/css/images/twitter.png" title="Follow me on Twitter!" alt="Follow me on Twitter!"  width="76" height="47" /></a>
-</div>
-
-                <div id="sidebar">
-                <!-- type: searchbox.html - TODO-->
-<ul>
-    <li id="search">
-        <div class="searchlayout">
-            <form method="get" id="searchform" action="//google.com/cse" role="search">
-                <input type="hidden" name="cx" value="017345337424948206369:qrnnnentkkk" />
-                <input type="search" value="" name="q" id="s" placeholder="Search with Google"/>
-                <input type="image" src="//martin-thoma.com/css/images/search.gif" style="border:0; vertical-align: top;" alt="search"/>
-            </form>
+            
+            <section>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                href="../comparing-classifiers/#disqus_thread">
+                Comments
+            </a>
         </div>
-    </li>
-</ul>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'martinthoma';
+        var disqus_identifier = '../comparing-classifiers/';
+    var disqus_url = '../comparing-classifiers/';
 
-                <div class="addthis_toolbox">
-    <div class="custom_images">
-            <a href="//twitter.com/share?url=https://martin-thoma.com/comparing-classifiers&amp;hashtags=python,machine-learning,classification,&amp;via=themoosemind" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/twitter.png" width="32" height="32" alt="Twitter" /></a>
-            <a href="//del.icio.us/post?url=//martin-thoma.com/comparing-classifiers&amp;title=Comparing%20Classifiers" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/delicious.png" width="32" height="32" alt="Delicious" /></a>
-            <a href="//www.facebook.com/sharer.php?u=//martin-thoma.com/comparing-classifiers" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/facebook.png" width="32" height="32" alt="Facebook" /></a>
-            <a href="//digg.com/submit?phase=2&amp;url=//martin-thoma.com/comparing-classifiers&amp;title=Comparing%20Classifiers" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/digg.png" width="32" height="32" alt="Digg" /></a>
-            <a href="//www.stumbleupon.com/submit?url=//martin-thoma.com/comparing-classifiers&amp;title=Comparing%20Classifiers" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/stumbleupon.png" width="32" height="32" alt="Stumbleupon" /></a>
-            <a href="//plusone.google.com/_/+1/confirm?hl=en&amp;url=//martin-thoma.com/comparing-classifiers" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/gplus.png" width="32" height="32" alt="Google Plus" /></a>
-            <a href="//reddit.com/submit?url=//martin-thoma.com/comparing-classifiers&amp;title=Comparing%20Classifiers" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/reddit.png" width="32" height="32" alt="Reddit" /></a>
-    </div>
-</div>
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-                <ul>
-                    <li id="categories-3" class="widget widget_categories">
-                        <!-- type: categories -->
-<h2 class="widgettitle">Categories</h2>
-    <ul>
-        <li class="cat-item cat-item-11"><a href="//martin-thoma.com/category/code/" title="Tipps for coding in different languages like Python oder C++.">Code</a></li>
-        <li class="cat-item cat-item-21"><a href="//martin-thoma.com/category/web/" title="New emerging websites and technologies.">The Web</a></li>
-        <li class="cat-item cat-item-31"><a href="//martin-thoma.com/category/cyberculture/" title="Lolcats, planking, Trollfaces, ...">Cyberculture</a></li>
-        <li class="cat-item cat-item-3404"><a href="//martin-thoma.com/category/maths/" title="View all posts filed under Mathematics">Mathematics</a></li>
-        <li class="cat-item cat-item-881"><a href="//martin-thoma.com/category/bits-and-bytes/" title="Sometimes posts don&#039;t fit in any category.">My bits and bytes</a></li>
-        <li class="cat-item cat-item-41"><a href="//martin-thoma.com/category/deutschland/" title="[All Posts here are written in German about German topics] - Die Bahn, unsere Politik und Europa.">German posts</a></li>
-    </ul>
-
-                    </li>
-                </ul>
                 </div>
             </div>
-        </div><!--/container-->
-            <footer id="footer">
-                <a href="//martin-thoma.com"><strong>Martin Thoma</strong></a> -  A blog about Code, the Web and Cyberculture. <br />
-                <div class="footer-credits">
-                    <a href="http://flexithemes.com/themes/modern-style/">Modern Style</a> theme by <a href="http://flexithemes.com/">FlexiThemes</a>
-                </div>
-            </footer><!--/footer-->
+        </div>
+    </div>
+</div>
+</section>
 
-    </div><!--/wrapper-->
-<!-- type: footer -->
-<!-- TOC Plus -->
-<script type='text/javascript'>
-/* <![CDATA[ */
-var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"};
-/* ]]> */
-</script>
-<script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
-<script>
+            <hr/>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2016-01-19T20:13:00+01:00">Jan 19, 2016</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="http://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#machine-learning-ref">Machine Learning</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#classification-ref">Classification
+                    <span>4</span>
+</a></li>
+                <li><a href="../tags.html#machine-learning-ref">Machine Learning
+                    <span>15</span>
+</a></li>
+                <li><a href="../tags.html#python-ref">Python
+                    <span>70</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
 (function(){
     'use strict';
 
@@ -1006,6 +830,47 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 
   })();
 </script>
-</body>
-</html>
 
+            <script type="text/javascript">
+var disqus_shortname = 'martinthoma';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

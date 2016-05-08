@@ -1,56 +1,38 @@
-<!doctype html>
-<html lang="en">
-  <!-- type: head.html -->
-  <head>
-    <meta charset="utf-8">
-    
-    
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
 
-    
-        <meta name="image" content="https://martin-thoma.com/images/2011/10/PHP-logo.png" />
-        <meta name="thumbnail" content="//martin-thoma.com/images/2011/10/PHP-logo.png" />
-        <meta property="og:image" content="//martin-thoma.com/images/2011/10/PHP-logo.png" />
-    
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
 
-    <meta property="og:type" content="blog"/>
+<meta name="keywords" content="PHP, MySQL, Code, " />
 
-    <title>Comparing Dates in PHP and MySQL</title>
-    <meta property="og:title" content="Comparing Dates in PHP and MySQL" />
-    <meta property="og:url" content="//martin-thoma.com/comparing-dates-in-php-and-mysql" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/screen.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/style.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/pygments.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/tocplus-screen.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/print.css" type="text/css" media="print" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-width: 480px)" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="Comparing Dates in PHP and MySQL "/>
+<meta property="og:url" content="../comparing-dates-in-php-and-mysql/" />
+<meta property="og:description" content="Sometimes you need to know compare PHP dates. You need to know what is later or if both dates are the same. PHP time formats and functions PHP knows these time / date formats: UNIX Timestamp: Integer - The number of seconds after 1970. Related functions are int mktime([ int \$hour = date ..." />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2011-10-04T20:22:12+02:00" />
+<meta name="twitter:title" content="Comparing Dates in PHP and MySQL ">
+<meta name="twitter:description" content="Sometimes you need to know compare PHP dates. You need to know what is later or if both dates are the same. PHP time formats and functions PHP knows these time / date formats: UNIX Timestamp: Integer - The number of seconds after 1970. Related functions are int mktime([ int \$hour = date ...">
+<meta property="og:image" content="2011/10/PHP-logo.png" />
+<meta name="twitter:image" content="2011/10/PHP-logo.png" >
 
-    <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="//martin-thoma.com/feed/" /><!--TODO-->
-    <link rel="shortcut icon" href="//martin-thoma.com/favicon.ico" type="image/x-icon" />
+        <title>Comparing Dates in PHP and MySQL  · Martin Thoma
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
 
-    <link rel="canonical" href="//martin-thoma.com/comparing-dates-in-php-and-mysql" />
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:site" content="@themoosemind"/>
-<meta name="twitter:creator" content="@themoosemind"/>
-<meta name="twitter:title" content="Comparing Dates in PHP and MySQL"/>
-
-    <meta name="twitter:description" content="A blog about Code, the Web and Cyberculture" />
-
-
-    <meta name="twitter:image" content="//martin-thoma.com/images/2011/10/PHP-logo.png"/>
-
-
-
-<meta name="twitter:url" content="//martin-thoma.com/comparing-dates-in-php-and-mysql"/>
-<meta name="twitter:domain" content="Martin Thoma.com"/>
-
-
-    <script type='text/javascript' src="//martin-thoma.com/js/jquery.js"></script>
-    <script type='text/javascript' src="//martin-thoma.com/js/jquery-migrate.min.js"></script>
-    <style type="text/css">div#toc_container {width: 275px;}</style>
-    <style type="text/css" id="syntaxhighlighteranchor"></style>
-
-<!-- MathJax -->
+        <!-- MathJax -->
 <script type="text/x-mathjax-config">
 <!--
 MathJax.Hub.Config({
@@ -74,376 +56,266 @@ MathJax.Hub.Queue(function() {
 <script type="text/javascript" async
   src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
-
-<!-- Latest compiled and minified CSS bootstrap -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-</head>
-
-<!-- type: post.html -->
-<body>
-    <div id="wrapper">
-        <div id="container" class="container">
-            <div class="span-16">
-                <!-- type: header.html -->
-<div id="header" role="banner">
-    <h1><a href="//martin-thoma.com">Martin Thoma</a></h1>
-    <h2 style="margin-top: 0;">A blog about Code, the Web and Cyberculture.</h2>
+        
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="../"><span class=site-name>Martin Thoma</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="../comparing-dates-in-php-and-mysql/"> Comparing Dates in PHP and MySQL  </a></h1>
+    </header>
 </div>
-<nav class="navcontainer" role="navigation">
-    <ul id="nav">
-        <li class=""><a href="//martin-thoma.com">Home</a></li>
-        <li class="page_item page-item-41 "><a href="//martin-thoma.com/author/martin-thoma/">About Me</a></li>
-        <li class="page_item page-item-91 "><a href="//martin-thoma.com/imprint/">Imprint</a></li>
-    </ul>
-</nav>
 
-                <div id="content">
-                    <article class="post type-post format-standard hentry clearfix" itemscope itemType="http://schema.org/BlogPosting">
-                        <h2 class="title entry-title" itemprop="name headline">Comparing Dates in PHP and MySQL</h2>
-                        <link itemprop="mainEntityOfPage" href="//martin-thoma.com/comparing-dates-in-php-and-mysql" />
-                        <div class="postdate entry-date date-header">
-                            <time datetime="2011-10-04T20:22:12+02:00" itemprop="datePublished">
-                                October
-                                4th,
-                                  
-                                2011
-                            </time>
-                        </div>
+<div class="row-fluid">
+    <div class="span2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#php" title="PHP">PHP</a><ul><li><a class="toc-href" href="#time-formats-and-functions" title="time formats and functions">time formats and functions</a></li><li><a class="toc-href" href="#comparisons" title="Comparisons">Comparisons</a></li></ul></li><li><a class="toc-href" href="#mysql_1" title="MySQL">MySQL</a><ul><li><a class="toc-href" href="#time-formats-and-functions_1" title="time formats and functions">time formats and functions</a></li><li><a class="toc-href" href="#comparisons_1" title="Comparisons">Comparisons</a></li></ul></li><li><a class="toc-href" href="#comparing-mysql-types-with-php-types_1" title="Comparing MySQL types with PHP types">Comparing MySQL types with PHP types</a></li><li><a class="toc-href" href="#from-php-to-mysql" title="From PHP to MySQL">From PHP to MySQL</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="span8 article-content" id="contentAfterTitle">
 
-                        <div class="entry post-body" id="contentAfterTitle" itemprop="articleBody">
-                            <p>Sometimes you need to know compare PHP dates. You need to know what is later or if both dates are the same.</p>
-
-<div id="toc_container" class="toc_light_blue no_bullets">
-   <p class="toc_title">Contents</p>
-   <ul class="toc_list">
-      <li class="toc_level-1 toc_section-1">
-         <a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">PHP</span></a>
-         <ul>
-            <li class="toc_level-2 toc_section-2">
-               <a href="#tocAnchor-1-1-1"><span class="tocnumber">1.1</span> <span class="toctext">time formats and functions</span></a>
-            </li>
-            <li class="toc_level-2 toc_section-3">
-               <a href="#tocAnchor-1-1-2"><span class="tocnumber">1.2</span> <span class="toctext">Comparisons</span></a>
-            </li>
-         </ul>
-      </li>
-      <li class="toc_level-1 toc_section-4">
-         <a href="#tocAnchor-1-4"><span class="tocnumber">2</span> <span class="toctext">MySQL</span></a>
-         <ul>
-            <li class="toc_level-2 toc_section-5">
-               <a href="#tocAnchor-1-4-1"><span class="tocnumber">2.1</span> <span class="toctext">time formats and functions</span></a>
-            </li>
-            <li class="toc_level-2 toc_section-6">
-               <a href="#tocAnchor-1-4-2"><span class="tocnumber">2.2</span> <span class="toctext">Comparisons</span></a>
-            </li>
-         </ul>
-      </li>
-      <li class="toc_level-1 toc_section-7">
-         <a href="#tocAnchor-1-7"><span class="tocnumber">3</span> <span class="toctext">Comparing MySQL types with PHP types</span></a>
-      </li>
-      <li class="toc_level-1 toc_section-8">
-         <a href="#tocAnchor-1-8"><span class="tocnumber">4</span> <span class="toctext">From PHP to MySQL</span></a>
-      </li>
-   </ul>
-</div><h2 id="tocAnchor-1-1">PHP</h2>
-<h3 id="tocAnchor-1-1-1">time formats and functions</h3>
-<p>PHP knows these time / date formats:</p>
+            
+            <p>Sometimes you need to know compare PHP dates. You need to know what is later or if both dates are the same.</p>
+<h2 id="php">PHP</h2>
+<h3 id="time-formats-and-functions">time formats and functions</h3>
+<p>PHP knows these time / date formats:
 <ul>
-  <li>UNIX Timestamp: Integer - The number of seconds after 1970. Related functions are 
+<li>UNIX Timestamp: Integer - The number of seconds after 1970. Related functions are 
     <ul>
-       <li>int <a href="http://www.php.net/manual/en/function.mktime.php">`mktime([ int \`$hour = date("H") [, int \$`minute = date("i") [, int \`$second = date("s") [, int \$`month = date("n") [, int \`$day = date("j") [, int \$`year = date("Y") [, int \`$is_dst = -1 ]]]]]]])`</a></li>
-       <li>int <a href="http://www.php.net/manual/en/function.time.php">`time()`</a></li>
-       <li>string <a href="http://www.php.net/manual/en/function.date.php">`date( string \$`format [, int `$timestamp = time() ] )`</a></li>
-       <li>int <a href="http://www.php.net/manual/en/function.strtotime.php">`strtotime( string \$`time [, int \`$now ] )`</a>
-I recommend using `YYYY-MM-DD HH:mm:ss` if possible.</li>
-    </ul>
-  </li>
-  <li>Associative Arrays. The array looks like this 
-
-```php
-Array
-(
-    [year] =&gt; 2006
-    [month] =&gt; 12
-    [day] =&gt; 12
-    [hour] =&gt; 10
-    [minute] =&gt; 0
-    [second] =&gt; 0
-    [fraction] =&gt; 0.5
-    [warning_count] =&gt; 0
-    [warnings] =&gt; Array()
-    [error_count] =&gt; 0
-    [errors] =&gt; Array()
-    [is_localtime] =&gt; 
-)
-```
-
-The related functions are:
-    <ul>
-        <li>array <a href="http://www.php.net/manual/en/function.date-parse.php">date_parse</a> (string $`date)</li>
-        <li>array <a href="http://php.net/manual/en/function.getdate.php">getdate</a> ([ int `$timestamp = time() ] )</li>
-    </ul>
-  </li>
-  <li><a href="http://php.net/manual/en/class.datetime.php">DateTime Class</a>: This class can do quite a lot. You should read the manual if you're interested in using it.</li>
+<li>int <a href="http://www.php.net/manual/en/function.mktime.php"><code>mktime([ int \$hour = date("H") [, int \$minute = date("i") [, int \$second = date("s") [, int \$month = date("n") [, int \$day = date("j") [, int \$year = date("Y") [, int \$is_dst = -1 ]]]]]]])</code></a></li>
+<li>int <a href="http://www.php.net/manual/en/function.time.php"><code>time()</code></a></li>
+<li>string <a href="http://www.php.net/manual/en/function.date.php"><code>date( string \$format [, int $timestamp = time() ] )</code></a></li>
+<li>int <a href="http://www.php.net/manual/en/function.strtotime.php"><code>strtotime( string \$time [, int \$now ] )</code></a>
+I recommend using <code>YYYY-MM-DD HH:mm:ss</code> if possible.</li>
 </ul>
+</li>
+<li>Associative Arrays. The array looks like this </li></ul></p>
+<div class="highlight"><pre><span class="x">Array</span>
+<span class="x">(</span>
+<span class="x">    [year] =&gt; 2006</span>
+<span class="x">    [month] =&gt; 12</span>
+<span class="x">    [day] =&gt; 12</span>
+<span class="x">    [hour] =&gt; 10</span>
+<span class="x">    [minute] =&gt; 0</span>
+<span class="x">    [second] =&gt; 0</span>
+<span class="x">    [fraction] =&gt; 0.5</span>
+<span class="x">    [warning_count] =&gt; 0</span>
+<span class="x">    [warnings] =&gt; Array()</span>
+<span class="x">    [error_count] =&gt; 0</span>
+<span class="x">    [errors] =&gt; Array()</span>
+<span class="x">    [is_localtime] =&gt; </span>
+<span class="x">)</span>
+</pre></div>
+<p>The related functions are:
+    <ul>
+<li>array <a href="http://www.php.net/manual/en/function.date-parse.php">date_parse</a> (string $date)</li>
+<li>array <a href="http://php.net/manual/en/function.getdate.php">getdate</a> ([ int $timestamp = time() ] )</li>
+</ul>
+</p>
+<li><a href="http://php.net/manual/en/class.datetime.php">DateTime Class</a>: This class can do quite a lot. You should read the manual if you're interested in using it.</li>
 
-<h3 id="tocAnchor-1-1-2">Comparisons</h3>
-<p>Comparing UNIX Timestamps is like comparing integers. No problem.</p>
-
+<h3 id="comparisons">Comparisons</h3>
+<p>Comparing UNIX Timestamps is like comparing integers. No problem. </p>
 <p>Comparing Arrays is more interesting. What do you think will the following script print?</p>
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="font-weight:bold;color:#666">&lt;?php</span>
+<span class="nv">$d1</span> <span class="o">=</span> <span class="nb">date_parse</span> <span class="p">(</span><span class="s2">"2011-05-11"</span><span class="p">);</span>
+<span class="nv">$d2</span> <span class="o">=</span> <span class="nb">date_parse</span> <span class="p">(</span><span class="s2">"2011-05-11 13:00:00"</span><span class="p">);</span>
 
-<span style="color:#950">$d1</span> = date_parse (<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">2011-05-11</span><span style="color:#710">"</span></span>);
-<span style="color:#950">$d2</span> = date_parse (<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">2011-05-11 13:00:00</span><span style="color:#710">"</span></span>);
+<span class="nb">print_r</span><span class="p">(</span><span class="nv">$d1</span><span class="p">);</span>
+<span class="nb">print_r</span><span class="p">(</span><span class="nv">$d2</span><span class="p">);</span>
 
-<span style="color:#369;font-weight:bold">print_r</span>(<span style="color:#950">$d1</span>);
-<span style="color:#369;font-weight:bold">print_r</span>(<span style="color:#950">$d2</span>);
+<span class="k">if</span> <span class="p">(</span><span class="nv">$d1</span> <span class="o">&lt;</span> <span class="nv">$d2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s1">'$d1 is less than $d2.'</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$d1</span> <span class="o">==</span> <span class="nv">$d2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s1">'$d1 is equal to $d2.'</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s1">'$d1 is greater than $d2.'</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span style="color:#080;font-weight:bold">if</span> (<span style="color:#950">$d1</span> &lt; <span style="color:#950">$d2</span>) {
-    <span style="color:#369;font-weight:bold">echo</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">$d1 is less than $d2.</span><span style="color:#710">'</span></span>;
-} <span style="color:#080;font-weight:bold">else</span> <span style="color:#080;font-weight:bold">if</span> (<span style="color:#950">$d1</span> == <span style="color:#950">$d2</span>) {
-    <span style="color:#369;font-weight:bold">echo</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">$d1 is equal to $d2.</span><span style="color:#710">'</span></span>;
-} <span style="color:#080;font-weight:bold">else</span> {
-    <span style="color:#369;font-weight:bold">echo</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">$d1 is greater than $d2.</span><span style="color:#710">'</span></span>;
-}
-
-<span style="font-weight:bold;color:#666">?&gt;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
 </pre></div>
-</div>
-</div>
-
-<p>It prints ‘$<code>d1 is less than </code>$d2.’ as</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>date_parse (<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">2011-05-11</span><span style="color:#710">"</span></span>);
+<p>It prints '$d1 is less than $d2.' as </p>
+<div class="highlight"><pre><span class="x">date_parse ("2011-05-11");</span>
 </pre></div>
-</div>
-</div>
-
-<p>is basically the same as</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>date_parse (<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">2011-05-11 00:00:00</span><span style="color:#710">"</span></span>);
+<p>is basically the same as </p>
+<div class="highlight"><pre><span class="x">date_parse ("2011-05-11 00:00:00");</span>
 </pre></div>
-</div>
-</div>
-
-<p>You can compare the Array to an integer, but I don’t know what PHP does. It seems as if the array would always be considered as being greater. If you use the functions you’ll be fine.</p>
-
-<h2 id="tocAnchor-1-4">MySQL</h2>
-<h3 id="tocAnchor-1-4-1">time formats and functions</h3>
-<p>MySQL knows these date and time <a href="http://dev.mysql.com/doc/refman/5.5/en/date-and-time-types.html">types</a> and those <a href="http://dev.mysql.com/doc/refman/5.5/en/date-and-time-functions.html">functions</a>. Here is a very short overview:</p>
+<p>You can compare the Array to an integer, but I don't know what PHP does. It seems as if the array would always be considered as being greater. If you use the functions you'll be fine.</p>
+<h2 id="mysql_1">MySQL</h2>
+<h3 id="time-formats-and-functions_1">time formats and functions</h3>
+<p>MySQL knows these date and time <a href="http://dev.mysql.com/doc/refman/5.5/en/date-and-time-types.html">types</a> and those <a href="http://dev.mysql.com/doc/refman/5.5/en/date-and-time-functions.html">functions</a>. Here is a very short overview:
 <ul>
-    <li><a href="http://dev.mysql.com/doc/refman/5.5/en/datetime.html">DATETIME</a>: 'YYYY-MM-DD HH:MM:SS'
+<li><a href="http://dev.mysql.com/doc/refman/5.5/en/datetime.html">DATETIME</a>: 'YYYY-MM-DD HH:MM:SS'
 range is from '1000-01-01 00:00:00' to '9999-12-31 23:59:59'</li>
-    <li><a href="http://dev.mysql.com/doc/refman/5.5/en/datetime.html">DATE</a>: 'YYYY-MM-DD'
+<li><a href="http://dev.mysql.com/doc/refman/5.5/en/datetime.html">DATE</a>: 'YYYY-MM-DD'
 range is from '1000-01-01' to '9999-12-31'</li>
-    <li><a href="http://dev.mysql.com/doc/refman/5.5/en/datetime.html">TIMESTAMP</a>: like DATETIME, but
+<li><a href="http://dev.mysql.com/doc/refman/5.5/en/datetime.html">TIMESTAMP</a>: like DATETIME, but
 range is from '1970-01-01 00:00:01' UTC to '2038-01-19 03:14:07' UTC</li>
-</ul>
-
+</ul></p>
 <p>Those examples show more than a long explanation:</p>
-
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">mysql&gt; SELECT CURTIME<span class="o">()</span><span class="p">;</span>
+<div class="highlight"><pre>mysql&gt; SELECT CURTIME<span class="o">()</span><span class="p">;</span>
         -&gt; <span class="s1">'23:50:26'</span>
-<span class="c"># Adding zero will NOT convert it to a UNIX timestamp:</span>
+<span class="c1"># Adding zero will NOT convert it to a UNIX timestamp:</span>
 mysql&gt; SELECT CURTIME<span class="o">()</span> + 0<span class="p">;</span>
-        -&gt; 235026.000000 <span class="c"># An "integered" TIME</span>
+        -&gt; 235026.000000 <span class="c1"># An "integered" TIME</span>
 
 mysql&gt; SELECT NOW<span class="o">(</span> <span class="o">)</span>
         -&gt; <span class="s1">'2011-10-04 18:33:45'</span>
-<span class="c"># Adding zero is a bad idea here, too:</span>
+<span class="c1"># Adding zero is a bad idea here, too:</span>
 mysql&gt; SELECT NOW<span class="o">(</span> <span class="o">)</span> +0
-        -&gt; 20111004190945.000000 <span class="c"># An "integered" DATETIME</span>
-<span class="c"># If you want a UNIX Timestamp, use this function</span>
+        -&gt; 20111004190945.000000 <span class="c1"># An "integered" DATETIME</span>
+<span class="c1"># If you want a UNIX Timestamp, use this function</span>
 mysql&gt; SELECT UNIX_TIMESTAMP<span class="o">()</span><span class="p">;</span>
         -&gt; 1317746025
 mysql&gt; SELECT UNIX_TIMESTAMP<span class="o">(</span><span class="s1">'2011-10-04 18:33:45'</span><span class="o">)</span><span class="p">;</span>
         -&gt; 1317746025
-<span class="c"># You can also convert it:</span>
-mysql&gt; SELECT UNIX_TIMESTAMP<span class="o">(</span><span class="sb">`</span>my_datetime_row<span class="sb">`</span><span class="o">)</span> FROM <span class="sb">`</span>my_table<span class="sb">`</span></code></pre>
-</div>
-
-<h3 id="tocAnchor-1-4-2">Comparisons</h3>
+<span class="c1"># You can also convert it:</span>
+mysql&gt; SELECT UNIX_TIMESTAMP<span class="o">(</span><span class="sb">`</span>my_datetime_row<span class="sb">`</span><span class="o">)</span> FROM <span class="sb">`</span>my_table<span class="sb">`</span>
+</pre></div>
+<h3 id="comparisons_1">Comparisons</h3>
 <p>You can compare two DATETIMEs like this:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#B06;font-weight:bold">SELECT</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">my_row</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">FROM</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">my_table</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">WHEN</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">datetime1</span><span style="color:#710">`</span></span> &lt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">datetime2</span><span style="color:#710">`</span></span>
+<div class="highlight"><pre><span class="k">SELECT</span> <span class="o">`</span><span class="n">my_row</span><span class="o">`</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">my_table</span><span class="o">`</span> <span class="k">WHEN</span> <span class="o">`</span><span class="n">datetime1</span><span class="o">`</span> <span class="o">&lt;</span> <span class="o">`</span><span class="n">datetime2</span><span class="o">`</span>
 </pre></div>
-</div>
-</div>
-
-<p>It’s of course not problem if you compare two UNIX Timestamps which are stored as integers in the database:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#B06;font-weight:bold">SELECT</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">my_row</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">FROM</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">my_table</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">WHEN</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">int1</span><span style="color:#710">`</span></span> &lt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">int2</span><span style="color:#710">`</span></span>
+<p>It's of course not problem if you compare two UNIX Timestamps which are stored as integers in the database:</p>
+<div class="highlight"><pre><span class="k">SELECT</span> <span class="o">`</span><span class="n">my_row</span><span class="o">`</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">my_table</span><span class="o">`</span> <span class="k">WHEN</span> <span class="o">`</span><span class="n">int1</span><span class="o">`</span> <span class="o">&lt;</span> <span class="o">`</span><span class="n">int2</span><span class="o">`</span>
 </pre></div>
-</div>
-</div>
-
 <p>But what happens if you compare a DATETIME with a Timestamp (integer)?</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#B06;font-weight:bold">SELECT</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">my_row</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">FROM</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">my_table</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">WHEN</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">datetime1</span><span style="color:#710">`</span></span> &lt; UNIX_TIMESTAMP()
+<div class="highlight"><pre><span class="k">SELECT</span> <span class="o">`</span><span class="n">my_row</span><span class="o">`</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">my_table</span><span class="o">`</span> <span class="k">WHEN</span> <span class="o">`</span><span class="n">datetime1</span><span class="o">`</span> <span class="o">&lt;</span> <span class="n">UNIX_TIMESTAMP</span><span class="p">()</span>
 </pre></div>
-</div>
-</div>
-
 <p>This is basically:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#B06;font-weight:bold">SELECT</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">my_row</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">FROM</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">my_table</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">WHEN</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">datetime1</span><span style="color:#710">`</span></span> &lt; <span style="color:#00D">1317750167</span>
+<div class="highlight"><pre><span class="k">SELECT</span> <span class="o">`</span><span class="n">my_row</span><span class="o">`</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">my_table</span><span class="o">`</span> <span class="k">WHEN</span> <span class="o">`</span><span class="n">datetime1</span><span class="o">`</span> <span class="o">&lt;</span> <span class="mi">1317750167</span>
 </pre></div>
-</div>
-</div>
-
-<p>And it compares the “integered” DATETIME 20111004210710 for 2011-10-04 21:07:10 with 1317750167. This is obviously crap. Don’t do it. Never.
+<p>And it compares the "integered" DATETIME 20111004210710 for 2011-10-04 21:07:10 with 1317750167. This is obviously crap. Don't do it. Never.
 Instead you should convert your dates with UNIX_TIMESTAMP(your_datetime) or  FROM_UNIXTIME(unix_timestamp).</p>
-
-<h2 id="tocAnchor-1-7">Comparing MySQL types with PHP types</h2>
-<p>The simplest way to compare MySQL DATE formats with PHP types is using strtotime(…) or date(…) if needed. If you have a DATETIME and you want to know if it’s in the past, you can use</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#080;font-weight:bold">if</span> (<span style="color:#369;font-weight:bold">strtotime</span>(<span style="color:#950">$datetime</span>) &lt; <span style="color:#369;font-weight:bold">time</span>()) {
-   <span style="color:#369;font-weight:bold">echo</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">$datetime is in the past.</span><span style="color:#710">'</span></span>;
-}
+<h2 id="comparing-mysql-types-with-php-types_1">Comparing MySQL types with PHP types</h2>
+<p>The simplest way to compare MySQL DATE formats with PHP types is using strtotime(...) or date(...) if needed. If you have a DATETIME and you want to know if it's in the past, you can use</p>
+<div class="highlight"><pre><span class="x">if (strtotime($datetime) &lt; time()) {</span>
+<span class="x">   echo '$datetime is in the past.';</span>
+<span class="x">}</span>
 </pre></div>
-</div>
-</div>
-
-<h2 id="tocAnchor-1-8">From PHP to MySQL</h2>
+<h2 id="from-php-to-mysql">From PHP to MySQL</h2>
 <p>If you have a date you got via an date input field and want to submit it to MySQL, just use this piece of code:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#950">$mysqlFormat</span> = <span style="color:#369;font-weight:bold">date</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Y-m-d H:i:s</span><span style="color:#710">'</span></span>, <span style="color:#369;font-weight:bold">strtotime</span>(<span style="color:#369;font-weight:bold">$_POST</span>[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">my_date</span><span style="color:#710">'</span></span>]));
+<div class="highlight"><pre><span class="x">$mysqlFormat = date('Y-m-d H:i:s', strtotime($_POST['my_date']));</span>
 </pre></div>
-</div>
-</div>
-
-                        </div>
-                        <div class="postmeta">Posted in
-                            
-                                <a href="//martin-thoma.com/category/code/">code</a><!--TODO: Displayed category name should be upper case! -->
-                             | Tags:
-                            
-                                
-                                    <a href="//martin-thoma.com/tag/php/">PHP</a>
-                                
-                            
-                                , <a href="//martin-thoma.com/tag/mysql/">MySQL</a>
-                                
-                             by <a rel="author" class="vcard author post-author" itemprop="author" href="//martin-thoma.com/author/martin-thoma/"><span class="fn" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a> on <span class="updated"><span class="value-title" title="2011-10-04 20:22:12 +0200">
-                                October
-                                4th
-                                  ,
-                                2011</span></span></div>
-
-                            <div class="navigation clearfix">
-                                <div class="alignleft">
-                                
-                                    &laquo; <a href="//martin-thoma.com/motion-of-the-sun/" rel="prev">Motion of the sun</a>
-                                
-                                </div>
-                                <div class="alignright">
-                                
-                                    <a href="//martin-thoma.com/clip-what-light/" rel="next">Clip: What Light</a> &raquo;
-                                
-                                </div>
-                            </div>
-
-                        </article>
-                        <div id="respond">
-                            <h3>Leave a Reply</h3>
-                                <!-- comment discuss code -->
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'martinthoma'; // required: replace example with your forum shortname
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="//disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    <!-- comment discuss code -->
-
-                        </div>
-                    </div>
-                </div>
-            <div class="span-8 last">
-                <div id="subscriptions">
-<a href="//martin-thoma.com/feed/"><img src="//martin-thoma.com/css/images/rss.png" alt="Subscribe to RSS Feed" title="Subscribe to RSS Feed" width="72" height="47" /></a>
-<a href="https://twitter.com/#!/themoosemind" title="Follow me on Twitter!"><img src="//martin-thoma.com/css/images/twitter.png" title="Follow me on Twitter!" alt="Follow me on Twitter!"  width="76" height="47" /></a>
-</div>
-
-                <div id="sidebar">
-                <!-- type: searchbox.html - TODO-->
-<ul>
-    <li id="search">
-        <div class="searchlayout">
-            <form method="get" id="searchform" action="//google.com/cse" role="search">
-                <input type="hidden" name="cx" value="017345337424948206369:qrnnnentkkk" />
-                <input type="search" value="" name="q" id="s" placeholder="Search with Google"/>
-                <input type="image" src="//martin-thoma.com/css/images/search.gif" style="border:0; vertical-align: top;" alt="search"/>
-            </form>
+            
+            <section>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                href="../comparing-dates-in-php-and-mysql/#disqus_thread">
+                Comments
+            </a>
         </div>
-    </li>
-</ul>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'martinthoma';
+        var disqus_identifier = '../comparing-dates-in-php-and-mysql/';
+    var disqus_url = '../comparing-dates-in-php-and-mysql/';
 
-                <div class="addthis_toolbox">
-    <div class="custom_images">
-            <a href="//twitter.com/share?url=https://martin-thoma.com/comparing-dates-in-php-and-mysql&amp;hashtags=php,mysql,&amp;via=themoosemind" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/twitter.png" width="32" height="32" alt="Twitter" /></a>
-            <a href="//del.icio.us/post?url=//martin-thoma.com/comparing-dates-in-php-and-mysql&amp;title=Comparing%20Dates%20in%20PHP%20and%20MySQL" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/delicious.png" width="32" height="32" alt="Delicious" /></a>
-            <a href="//www.facebook.com/sharer.php?u=//martin-thoma.com/comparing-dates-in-php-and-mysql" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/facebook.png" width="32" height="32" alt="Facebook" /></a>
-            <a href="//digg.com/submit?phase=2&amp;url=//martin-thoma.com/comparing-dates-in-php-and-mysql&amp;title=Comparing%20Dates%20in%20PHP%20and%20MySQL" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/digg.png" width="32" height="32" alt="Digg" /></a>
-            <a href="//www.stumbleupon.com/submit?url=//martin-thoma.com/comparing-dates-in-php-and-mysql&amp;title=Comparing%20Dates%20in%20PHP%20and%20MySQL" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/stumbleupon.png" width="32" height="32" alt="Stumbleupon" /></a>
-            <a href="//plusone.google.com/_/+1/confirm?hl=en&amp;url=//martin-thoma.com/comparing-dates-in-php-and-mysql" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/gplus.png" width="32" height="32" alt="Google Plus" /></a>
-            <a href="//reddit.com/submit?url=//martin-thoma.com/comparing-dates-in-php-and-mysql&amp;title=Comparing%20Dates%20in%20PHP%20and%20MySQL" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/reddit.png" width="32" height="32" alt="Reddit" /></a>
-    </div>
-</div>
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-                <ul>
-                    <li id="categories-3" class="widget widget_categories">
-                        <!-- type: categories -->
-<h2 class="widgettitle">Categories</h2>
-    <ul>
-        <li class="cat-item cat-item-11"><a href="//martin-thoma.com/category/code/" title="Tipps for coding in different languages like Python oder C++.">Code</a></li>
-        <li class="cat-item cat-item-21"><a href="//martin-thoma.com/category/web/" title="New emerging websites and technologies.">The Web</a></li>
-        <li class="cat-item cat-item-31"><a href="//martin-thoma.com/category/cyberculture/" title="Lolcats, planking, Trollfaces, ...">Cyberculture</a></li>
-        <li class="cat-item cat-item-3404"><a href="//martin-thoma.com/category/maths/" title="View all posts filed under Mathematics">Mathematics</a></li>
-        <li class="cat-item cat-item-881"><a href="//martin-thoma.com/category/bits-and-bytes/" title="Sometimes posts don&#039;t fit in any category.">My bits and bytes</a></li>
-        <li class="cat-item cat-item-41"><a href="//martin-thoma.com/category/deutschland/" title="[All Posts here are written in German about German topics] - Die Bahn, unsere Politik und Europa.">German posts</a></li>
-    </ul>
-
-                    </li>
-                </ul>
                 </div>
             </div>
-        </div><!--/container-->
-            <footer id="footer">
-                <a href="//martin-thoma.com"><strong>Martin Thoma</strong></a> -  A blog about Code, the Web and Cyberculture. <br />
-                <div class="footer-credits">
-                    <a href="http://flexithemes.com/themes/modern-style/">Modern Style</a> theme by <a href="http://flexithemes.com/">FlexiThemes</a>
-                </div>
-            </footer><!--/footer-->
+        </div>
+    </div>
+</div>
+</section>
 
-    </div><!--/wrapper-->
-<!-- type: footer -->
-<!-- TOC Plus -->
-<script type='text/javascript'>
-/* <![CDATA[ */
-var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"};
-/* ]]> */
-</script>
-<script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
-<script>
+            <hr/>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2011-10-04T20:22:12+02:00">Okt 4, 2011</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="http://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#mysql-ref">MySQL
+                    <span>2</span>
+</a></li>
+                <li><a href="../tags.html#php-ref">PHP
+                    <span>9</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
 (function(){
     'use strict';
 
@@ -476,6 +348,47 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 
   })();
 </script>
-</body>
-</html>
 
+            <script type="text/javascript">
+var disqus_shortname = 'martinthoma';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

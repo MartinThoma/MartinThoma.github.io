@@ -1,56 +1,38 @@
-<!doctype html>
-<html lang="en">
-  <!-- type: head.html -->
-  <head>
-    <meta charset="utf-8">
-    
-    
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
 
-    
-        <meta name="image" content="https://martin-thoma.com/images/2013/05/collatz-thumb.png" />
-        <meta name="thumbnail" content="//martin-thoma.com/images/2013/05/collatz-thumb.png" />
-        <meta property="og:image" content="//martin-thoma.com/images/2013/05/collatz-thumb.png" />
-    
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
 
-    <meta property="og:type" content="blog"/>
+<meta name="keywords" content="Visualization, mathematics, Project Euler, Code, " />
 
-    <title>The Collatz sequence</title>
-    <meta property="og:title" content="The Collatz sequence" />
-    <meta property="og:url" content="//martin-thoma.com/the-collatz-sequence" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/screen.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/style.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/pygments.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/tocplus-screen.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/print.css" type="text/css" media="print" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-width: 480px)" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="The Collatz sequence "/>
+<meta property="og:url" content="../the-collatz-sequence/" />
+<meta property="og:description" content="The goal of this post is to show you some tools that allow you to visualize data. And I also want to analyze some basic characteristics of the Collatz sequence. The Collatz sequences \((c^n_i)\) of a number \(n \in \mathbb{N}_{&gt; 0}\) is defined like this: \(f:\mathbb{N}_{&gt;0} \rightarrow \mathbb{N}_{&gt; 0}\;\;\;\;f(n) := \begin{cases} \frac{n}{2} &amp; \text{if } n \text{ is even}\\ 3 \cdot n + 1 &amp; \text{if } n \text{ is odd} \end{cases}\) ...if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2013-05-16T23:58:45+02:00" />
+<meta name="twitter:title" content="The Collatz sequence ">
+<meta name="twitter:description" content="The goal of this post is to show you some tools that allow you to visualize data. And I also want to analyze some basic characteristics of the Collatz sequence. The Collatz sequences \((c^n_i)\) of a number \(n \in \mathbb{N}_{&gt; 0}\) is defined like this: \(f:\mathbb{N}_{&gt;0} \rightarrow \mathbb{N}_{&gt; 0}\;\;\;\;f(n) := \begin{cases} \frac{n}{2} &amp; \text{if } n \text{ is even}\\ 3 \cdot n + 1 &amp; \text{if } n \text{ is odd} \end{cases}\) ...if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width">
+<meta property="og:image" content="2013/05/collatz-thumb.png" />
+<meta name="twitter:image" content="2013/05/collatz-thumb.png" >
 
-    <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="//martin-thoma.com/feed/" /><!--TODO-->
-    <link rel="shortcut icon" href="//martin-thoma.com/favicon.ico" type="image/x-icon" />
+        <title>The Collatz sequence  · Martin Thoma
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
 
-    <link rel="canonical" href="//martin-thoma.com/the-collatz-sequence" />
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:site" content="@themoosemind"/>
-<meta name="twitter:creator" content="@themoosemind"/>
-<meta name="twitter:title" content="The Collatz sequence"/>
-
-    <meta name="twitter:description" content="A blog about Code, the Web and Cyberculture" />
-
-
-    <meta name="twitter:image" content="//martin-thoma.com/images/2013/05/collatz-thumb.png"/>
-
-
-
-<meta name="twitter:url" content="//martin-thoma.com/the-collatz-sequence"/>
-<meta name="twitter:domain" content="Martin Thoma.com"/>
-
-
-    <script type='text/javascript' src="//martin-thoma.com/js/jquery.js"></script>
-    <script type='text/javascript' src="//martin-thoma.com/js/jquery-migrate.min.js"></script>
-    <style type="text/css">div#toc_container {width: 275px;}</style>
-    <style type="text/css" id="syntaxhighlighteranchor"></style>
-
-<!-- MathJax -->
+        <!-- MathJax -->
 <script type="text/x-mathjax-config">
 <!--
 MathJax.Hub.Config({
@@ -74,125 +56,85 @@ MathJax.Hub.Queue(function() {
 <script type="text/javascript" async
   src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
-
-<!-- Latest compiled and minified CSS bootstrap -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-</head>
-
-<!-- type: post.html -->
-<body>
-    <div id="wrapper">
-        <div id="container" class="container">
-            <div class="span-16">
-                <!-- type: header.html -->
-<div id="header" role="banner">
-    <h1><a href="//martin-thoma.com">Martin Thoma</a></h1>
-    <h2 style="margin-top: 0;">A blog about Code, the Web and Cyberculture.</h2>
+        
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="../"><span class=site-name>Martin Thoma</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="../the-collatz-sequence/"> The Collatz sequence  </a></h1>
+    </header>
 </div>
-<nav class="navcontainer" role="navigation">
-    <ul id="nav">
-        <li class=""><a href="//martin-thoma.com">Home</a></li>
-        <li class="page_item page-item-41 "><a href="//martin-thoma.com/author/martin-thoma/">About Me</a></li>
-        <li class="page_item page-item-91 "><a href="//martin-thoma.com/imprint/">Imprint</a></li>
-    </ul>
-</nav>
 
-                <div id="content">
-                    <article class="post type-post format-standard hentry clearfix" itemscope itemType="http://schema.org/BlogPosting">
-                        <h2 class="title entry-title" itemprop="name headline">The Collatz sequence</h2>
-                        <link itemprop="mainEntityOfPage" href="//martin-thoma.com/the-collatz-sequence" />
-                        <div class="postdate entry-date date-header">
-                            <time datetime="2013-05-16T23:58:45+02:00" itemprop="datePublished">
-                                May
-                                16th,
-                                  
-                                2013
-                            </time>
-                        </div>
+<div class="row-fluid">
+    <div class="span2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#collatz-conjecture" title="Collatz conjecture">Collatz conjecture</a></li><li><a class="toc-href" href="#small-n" title="Small $n$">Small $n$</a></li><li><a class="toc-href" href="#n27" title="$n=27$">$n=27$</a></li><li><a class="toc-href" href="#how-long-are-collatz-sequences" title="How long are Collatz sequences?">How long are Collatz sequences?</a></li><li><a class="toc-href" href="#maximum-in-sequence" title="Maximum in sequence">Maximum in sequence</a></li><li><a class="toc-href" href="#execution-times" title="Execution times">Execution times</a></li><li><a class="toc-href" href="#maximum-in-sequence-and-steps" title="Maximum in sequence and steps">Maximum in sequence and steps</a></li><li><a class="toc-href" href="#read-more" title="Read more">Read more</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="span8 article-content" id="contentAfterTitle">
 
-                        <div class="entry post-body" id="contentAfterTitle" itemprop="articleBody">
-                            <p>The goal of this post is to show you some tools that allow you to visualize data. And I also want to analyze some basic characteristics of the Collatz sequence.</p>
-
-<p>The Collatz sequences $(c^n_i)$ of a number $n \in \mathbb{N}_{&gt; 0}$ is defined like this:</p>
-
-<p>
-   $f:\mathbb{N}_{&gt;0} \rightarrow \mathbb{N}_{&gt; 0}\;\;\;\;f(n) := \begin{cases}
+            
+            <p>The goal of this post is to show you some tools that allow you to visualize data. And I also want to analyze some basic characteristics of the Collatz sequence.</p>
+<p>The Collatz sequences <span class="math">\((c^n_i)\)</span> of a number <span class="math">\(n \in \mathbb{N}_{&gt; 0}\)</span> is defined like this:</p>
+<p><span class="math">\(f:\mathbb{N}_{&gt;0} \rightarrow \mathbb{N}_{&gt; 0}\;\;\;\;f(n) := <div class="math">\begin{cases}
 \frac{n}{2}   &amp; \text{if } n \text{ is even}\\
 3 \cdot n + 1 &amp; \text{if } n \text{ is odd}
-\end{cases}$
-</p>
-
-<p>So the sequence $(c^n_{i})$ is defined as:</p>
-
-<p>
-   $c^n_{i} := \begin{cases}
+\end{cases}</div>\)</span></p>
+<p>So the sequence <span class="math">\((c^n_{i})\)</span> is defined as:</p>
+<p><span class="math">\(c^n_{i} := <div class="math">\begin{cases}
 n   &amp; \text{if } i = 0\\
 f(c^n_i) &amp; \text{otherwise} 
-\end{cases}$
-</p>
-
-<p>You can define a directed graph $G=(V, E)$ like this:</p>
-
-<p>
-   $V = \mathbb{N}_{&gt;0}, \;\;\; E = \{(n, f(n)) | n \in V\}$
-</p>
-
+\end{cases}</div>\)</span></p>
+<p>You can define a directed graph <span class="math">\(G=(V, E)\)</span> like this:</p>
+<p><span class="math">\(V = \mathbb{N}_{&gt;0}, \;\;\; E = \{(n, f(n)) | n \in V\}\)</span></p>
 <p>I will call this the <em>Collatz graph</em>.</p>
-
-<div id="toc_container" class="toc_light_blue no_bullets">
-   <p class="toc_title">Contents</p>
-   <ul class="toc_list">
-      <li class="toc_level-1 toc_section-1">
-         <a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">Collatz conjecture</span></a>
-      </li>
-      <li class="toc_level-1 toc_section-2">
-         <a href="#tocAnchor-1-2"><span class="tocnumber">2</span> <span class="toctext">Small `$n$`</span></a>
-      </li>
-      <li class="toc_level-1 toc_section-3">
-         <a href="#tocAnchor-1-3"><span class="tocnumber">3</span> <span class="toctext">`$n=27$`</span></a>
-      </li>
-      <li class="toc_level-1 toc_section-4">
-         <a href="#tocAnchor-1-4"><span class="tocnumber">4</span> <span class="toctext">How long are Collatz sequences?</span></a>
-      </li>
-      <li class="toc_level-1 toc_section-5">
-         <a href="#tocAnchor-1-5"><span class="tocnumber">5</span> <span class="toctext">Maximum in sequence</span></a>
-      </li>
-      <li class="toc_level-1 toc_section-6">
-         <a href="#tocAnchor-1-6"><span class="tocnumber">6</span> <span class="toctext">Execution times</span></a>
-      </li>
-      <li class="toc_level-1 toc_section-7">
-         <a href="#tocAnchor-1-7"><span class="tocnumber">7</span> <span class="toctext">Maximum in sequence and steps</span></a>
-      </li>
-      <li class="toc_level-1 toc_section-8">
-         <a href="#tocAnchor-1-8"><span class="tocnumber">8</span> <span class="toctext">Read more</span></a>
-      </li>
-   </ul>
-</div><h2 id="tocAnchor-1-1">Collatz conjecture</h2>
+<h2 id="collatz-conjecture">Collatz conjecture</h2>
 <div class="important">
-`$\forall_{n \in \mathbb{N}_{&gt;0}} \exists_{i \in \mathbb{N}_{&gt;0}}: c^n_i = 1$`
+$\forall_{n \in \mathbb{N}_{&gt;0}} \exists_{i \in \mathbb{N}_{&gt;0}}: c^n_i = 1$
 </div>
-
 <p>The Collatz conjecture was not (dis)proved by now. This is astonishing, as it was proposed in 1937 and I think it is very easy to understand.</p>
-
-<p>We also don’t know if the Collatz graph is connected. When it is not connected, it could be that one sequence $(c^n_i)$ goes to infinity or that there is another circle ($4,2,1,4$ is a circle in the Collatz graph).</p>
-
-<h2 id="tocAnchor-1-2">Small `$n$`</h2>
-<p>When you go through all possible Collatz sequences with $n \in 1, \dots, 15$, this is what you get:</p>
-
-<div style="width: 522px" class="wp-caption aligncenter">
-   <a href="../images/2013/05/collatz-graph.png">
-      <img src="../images/2013/05/collatz-graph.png" alt="A graph for all Collatz sequences `$(c^n_i)$` with `$n\leq15$`" width="" height="" class="size-full wp-image-66201" />
-   </a>
-   <p class="wp-caption-text">A graph for all Collatz sequences `$(c^n_i)$` with `$n\leq15$`</p>
-</div>
-
+<p>We also don't know if the Collatz graph is connected. When it is not connected, it could be that one sequence <span class="math">\((c^n_i)\)</span> goes to infinity or that there is another circle (<span class="math">\(4,2,1,4\)</span> is a circle in the Collatz graph).</p>
+<h2 id="small-n">Small $n$</h2>
+<p>When you go through all possible Collatz sequences with <span class="math">\(n \in 1, \dots, 15\)</span>, this is what you get:</p>
+<figure class="aligncenter">
+<a href="../images/2013/05/collatz-graph.png"><img alt="A graph for all Collatz sequences $(c^n_i)$ with $n\leq15$" class="size-full wp-image-66201" src="../images/2013/05/collatz-graph.png" style="max-width:512px;max-height:410px"/></a>
+<figcaption class="text-center">A graph for all Collatz sequences $(c^n_i)$ with $n\leq15$</figcaption>
+</figure>
 <p>This image was created with the following Python script:</p>
+<div class="highlight"><pre><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
 
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
-<span class="c"># -*- coding: utf-8 -*-</span>
-
-<span class="c"># Based on: http://en.wikipedia.org/wiki/File:Collatz-graph-all-30-no27.svg</span>
+<span class="c1"># Based on: http://en.wikipedia.org/wiki/File:Collatz-graph-all-30-no27.svg</span>
 
 <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -201,74 +143,64 @@ f(c^n_i) &amp; \text{otherwise}
         <span class="k">return</span> <span class="mi">3</span><span class="o">*</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
 
 <span class="k">def</span> <span class="nf">writeDotfile</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span> <span class="n">explored</span><span class="p">):</span>
-    <span class="n">dotfile</span> <span class="o">=</span> <span class="nb">file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
+    <span class="n">dotfile</span> <span class="o">=</span> <span class="nb">file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span>
 
-    <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">'digraph {</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
-    <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">'node[style=filled,color=".7 .3 1.0"];</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
-    <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">'1</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
-    <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">'node[style=filled,color=".95 .1 1"];</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
-    <span class="c">#dotfile.write('size="15,8";\n')</span>
+    <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'digraph {</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+    <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'node[style=filled,color=".7 .3 1.0"];</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+    <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'1</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+    <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'node[style=filled,color=".95 .1 1"];</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+    <span class="c1">#dotfile.write('size="15,8";\n')</span>
 
     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">limit</span><span class="p">):</span>
         <span class="k">while</span> <span class="n">n</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">explored</span><span class="p">:</span>
-            <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="s">' -&gt; '</span><span class="p">)</span>
+            <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' -&gt; '</span><span class="p">)</span>
             <span class="n">explored</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
             <span class="n">n</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-        <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="s">';</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
-    <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">'}</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+        <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="s1">';</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+    <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'}</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">createPng</span><span class="p">(</span><span class="n">dotfile</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">program</span><span class="p">):</span>
     <span class="kn">import</span> <span class="nn">os</span>
-    <span class="n">command</span> <span class="o">=</span> <span class="n">program</span> <span class="o">+</span> <span class="s">" -Tsvg "</span> <span class="o">+</span> <span class="n">dotfile</span> <span class="o">+</span> <span class="s">" -o "</span> <span class="o">+</span> <span class="n">base</span> <span class="o">+</span> <span class="s">".svg"</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Execute command: </span><span class="si">%s</span><span class="s">"</span> <span class="o">%</span> <span class="n">command</span><span class="p">)</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="n">program</span> <span class="o">+</span> <span class="s2">" -Tsvg "</span> <span class="o">+</span> <span class="n">dotfile</span> <span class="o">+</span> <span class="s2">" -o "</span> <span class="o">+</span> <span class="n">base</span> <span class="o">+</span> <span class="s2">".svg"</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Execute command: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">command</span><span class="p">)</span>
     <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
 
-    <span class="n">command</span> <span class="o">=</span> <span class="s">"inkscape "</span><span class="o">+</span><span class="n">base</span><span class="o">+</span><span class="s">".svg"</span><span class="o">+</span><span class="s">" -w 512 --export-png="</span><span class="o">+</span><span class="n">base</span><span class="o">+</span><span class="s">".png"</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Execute command: </span><span class="si">%s</span><span class="s">"</span> <span class="o">%</span> <span class="n">command</span><span class="p">)</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="s2">"inkscape "</span><span class="o">+</span><span class="n">base</span><span class="o">+</span><span class="s2">".svg"</span><span class="o">+</span><span class="s2">" -w 512 --export-png="</span><span class="o">+</span><span class="n">base</span><span class="o">+</span><span class="s2">".png"</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Execute command: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">command</span><span class="p">)</span>
     <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">argparse</span>
- 
+
     <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span>
-        <span class="n">description</span><span class="o">=</span><span class="s">"Graph for small Collatz sequences"</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">"Graph for small Collatz sequences"</span>
     <span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-f"</span><span class="p">,</span> <span class="s">"--file"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">"filename"</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="s">"collatz-graph.gv"</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">"write dot-FILE"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">"FILE"</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-p"</span><span class="p">,</span> <span class="s">"--program"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">"program"</span><span class="p">,</span>
-                  <span class="n">help</span><span class="o">=</span><span class="s">"dot, neato, twopi, circo, fdp, sfdp, osage"</span><span class="p">,</span> 
-                  <span class="n">metavar</span><span class="o">=</span><span class="s">"PROGRAM"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">"dot"</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-n"</span><span class="p">,</span> 
-                      <span class="n">dest</span><span class="o">=</span><span class="s">"limit"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> 
-                      <span class="n">help</span><span class="o">=</span><span class="s">"limit"</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-f"</span><span class="p">,</span> <span class="s2">"--file"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"filename"</span><span class="p">,</span>
+                        <span class="n">default</span><span class="o">=</span><span class="s2">"collatz-graph.gv"</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s2">"write dot-FILE"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s2">"FILE"</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-p"</span><span class="p">,</span> <span class="s2">"--program"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"program"</span><span class="p">,</span>
+                  <span class="n">help</span><span class="o">=</span><span class="s2">"dot, neato, twopi, circo, fdp, sfdp, osage"</span><span class="p">,</span> 
+                  <span class="n">metavar</span><span class="o">=</span><span class="s2">"PROGRAM"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">"dot"</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-n"</span><span class="p">,</span> 
+                      <span class="n">dest</span><span class="o">=</span><span class="s2">"limit"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> 
+                      <span class="n">help</span><span class="o">=</span><span class="s2">"limit"</span><span class="p">)</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-    
+
     <span class="n">writeDotfile</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">limit</span><span class="p">,</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">]))</span>
     <span class="kn">import</span> <span class="nn">os</span>
-    <span class="n">createPng</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">filename</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">args</span><span class="o">.</span><span class="n">program</span><span class="p">)</span></code></pre>
-</div>
-
+    <span class="n">createPng</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">filename</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">args</span><span class="o">.</span><span class="n">program</span><span class="p">)</span>
+</pre></div>
 <p>called like this:</p>
-
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">python small-numbers.py -n <span class="m">15</span> -p fdp</code></pre>
-</div>
-
-<h2 id="tocAnchor-1-3">`$n=27$`</h2>
-<p>$n=27$ is an enourmously long sequence:</p>
-
-<div style="width: 522px" class="wp-caption aligncenter">
-   <a href="../images/2013/05/collatz-27.png">
-      <img src="../images/2013/05/collatz-27.png" alt="Collatz sequence `$c^{27}_i$`" width="" height="" class="size-full wp-image-66351" />
-   </a>
-   <p class="wp-caption-text">Collatz sequence `$c^{27}_i$`</p>
-</div>
-
+<div class="highlight"><pre>python small-numbers.py -n <span class="m">15</span> -p fdp
+</pre></div>
+<h2 id="n27">$n=27$</h2>
+<p><span class="math">\(n=27\)</span> is an enourmously long sequence:</p>
+<figure class="aligncenter">
+<a href="../images/2013/05/collatz-27.png"><img alt="Collatz sequence $c^{27}_i$" class="size-full wp-image-66351" src="../images/2013/05/collatz-27.png" style="max-width:512px;max-height:227px"/></a>
+<figcaption class="text-center">Collatz sequence $c^{27}_i$</figcaption>
+</figure>
 <p>It was created with pgfplots:</p>
-
-<div class="highlight">
-   <pre><code class="language-text" data-lang="text">\documentclass[varwidth=true, border=2pt]{standalone}
+<div class="highlight"><pre>\documentclass[varwidth=true, border=2pt]{standalone}
 \usepackage[margin=2.5cm]{geometry} %layout
 
 \usepackage{pgfplots}
@@ -283,49 +215,40 @@ f(c^n_i) &amp; \text{otherwise}
             width=15cm, height=8cm, % size of the image
             grid = major,
             grid style={dashed, gray!30},
-            ylabel=`$c^{27}_i$`,
-            xlabel=`$i$`,
+            ylabel=$c^{27}_i$,
+            xlabel=$i$,
             legend style={at={(0.1,-0.1)}, anchor=north}
          ]
           \addplot[sharp plot, mark=x, blue] table [x=steps, y=n, col sep=comma] {../collatz27.csv};
     \end{axis}
 \end{tikzpicture}
-\end{document}</code></pre>
-</div>
-
-<h2 id="tocAnchor-1-4">How long are Collatz sequences?</h2>
-<p>I’ve been interested in the question how long Collatz sequences are. Of course, they will be longer when $n$ is bigger. But how does the choice of $n$ influence the number of steps it takes until you reach $c^n_i = 1$?</p>
-
-<p>I’ve tested all Collatz sequences with $n \leq 10,000,000$. This is the result:</p>
-
-<div style="width: 522px" class="wp-caption aligncenter">
-   <a href="../images/2013/05/collatz-sequence-steps.png">
-      <img src="../images/2013/05/collatz-sequence-steps.png" alt="Collatz sequence steps" width="" height="" class="size-full wp-image-66231" />
-   </a>
-   <p class="wp-caption-text">Collatz sequence steps</p>
-</div>
-
-<p>For every hexagon, you check how many datapoints $(n,steps)$ you have there. This leads to the count. As you can see, step numbers from 50-120 are very common, the rest is very uncommon. The number of steps increases very slow.</p>
-
+\end{document}
+</pre></div>
+<h2 id="how-long-are-collatz-sequences">How long are Collatz sequences?</h2>
+<p>I've been interested in the question how long Collatz sequences are. Of course, they will be longer when <span class="math">\(n\)</span> is bigger. But how does the choice of <span class="math">\(n\)</span> influence the number of steps it takes until you reach <span class="math">\(c^n_i = 1\)</span>?</p>
+<p>I've tested all Collatz sequences with <span class="math">\(n \leq 10,000,000\)</span>. This is the result:</p>
+<figure class="aligncenter">
+<a href="../images/2013/05/collatz-sequence-steps.png"><img alt="Collatz sequence steps" class="size-full wp-image-66231" src="../images/2013/05/collatz-sequence-steps.png" style="max-width:512px;max-height:512px"/></a>
+<figcaption class="text-center">Collatz sequence steps</figcaption>
+</figure>
+<p>For every hexagon, you check how many datapoints <span class="math">\((n,steps)\)</span> you have there. This leads to the count. As you can see, step numbers from 50-120 are very common, the rest is very uncommon. The number of steps increases very slow.</p>
 <p>The data was created as a 116.9 MB csv file with this C++ code:</p>
-
-<div class="highlight">
-   <pre><code class="language-cpp" data-lang="cpp"><span class="cp">#include &lt;iostream&gt;</span>
-<span class="cp">#include &lt;string&gt;</span>
-<span class="cp">#include &lt;map&gt;</span>
-<span class="cp">#include &lt;vector&gt;</span>
-<span class="cp">#include &lt;climits&gt; </span><span class="c1">// get maximum value of unsigned long long</span>
-<span class="cp">#include &lt;cstdlib&gt; </span><span class="c1">// exit</span>
+<div class="highlight"><pre><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;map&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;climits&gt; // get maximum value of unsigned long long</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;cstdlib&gt; // exit</span><span class="cp"></span>
 
 <span class="cp">#define SURPRESS_OUTPUT true</span>
 <span class="cp">#define SHOW_DICT_CREATION false</span>
- 
+
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 
 <span class="k">struct</span> <span class="n">element</span> <span class="p">{</span>
     <span class="cm">/** What is the next collatz number? */</span>
     <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">next</span><span class="p">;</span>
-    
+
     <span class="cm">/** How many steps does it take until you reach 1? */</span>
     <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">steps</span><span class="p">;</span>
 <span class="p">};</span>
@@ -428,7 +351,7 @@ f(c^n_i) &amp; \text{otherwise}
     <span class="n">collatz</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">e</span><span class="p">;</span>
 
     <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">maxCollatz</span> <span class="o">=</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span><span class="p">)</span> <span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
- 
+
     <span class="k">for</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">maxCollatz</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">insertCollatz</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
         <span class="n">saveULong</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
@@ -441,24 +364,18 @@ f(c^n_i) &amp; \text{otherwise}
     <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">"maxStepsToOne: "</span> <span class="o">&lt;&lt;</span> <span class="n">maxStepsToOne</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
     <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">"maxEntry: "</span> <span class="o">&lt;&lt;</span> <span class="n">maxEntry</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
     <span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">"entries: "</span> <span class="o">&lt;&lt;</span> <span class="n">collatz</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    
+
     <span class="c1">//printCollatz();</span>
     <span class="n">printSteps</span><span class="p">(</span><span class="n">maxCollatz</span><span class="p">);</span>
 
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span></code></pre>
-</div>
-
-<p>Then I’ve processed it with R:</p>
-
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">R -f analyze.R</code></pre>
-</div>
-
+<span class="p">}</span>
+</pre></div>
+<p>Then I've processed it with R:</p>
+<div class="highlight"><pre>R -f analyze.R
+</pre></div>
 <p>analyze.R:</p>
-
-<div class="highlight">
-   <pre><code class="language-text" data-lang="text">library(ggplot2)
+<div class="highlight"><pre>library(ggplot2)
 memory.limit(4000)
 
 mydata = read.csv("/home/moose/Downloads/algorithms/collatz/steps.csv")
@@ -470,29 +387,19 @@ p&lt;-p + geom_hex(bins=30)
 p&lt;-p + opts(panel.background = theme_rect(fill='white', colour='white'))
 
 # This will save the result in a pdf file called Rplots.pdf
-p</code></pre>
-</div>
-
-<p>And finally, I’ve converted it to png:</p>
-
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">inkscape Rplots.pdf -w <span class="m">512</span> --export-png<span class="o">=</span>collatz-sequence-steps.png</code></pre>
-</div>
-
-<p>I’ve explained this a bit more detailed on <a href="http://tex.stackexchange.com/a/114577/5645">StackExchange</a>.</p>
-
-<h2 id="tocAnchor-1-5">Maximum in sequence</h2>
-<p>In the following plot you can see $n \in 1, \dots, 10,000,000$ on the $x$-axis and the maximum $y = \max(\{a^n_i | i \in \mathbb{N}_{&gt; 0}\})$:</p>
-
-<div style="width: 522px" class="wp-caption aligncenter">
-   <a href="../images/2013/05/maxInSequence.png">
-      <img src="../images/2013/05/maxInSequence.png" alt="Hexagonal binpacking plot for maximum in sequence" width="" height="" class="size-full wp-image-66391" />
-   </a>
-   <p class="wp-caption-text">Hexagonal binpacking plot for maximum in sequence</p>
-</div>
-
-<div class="highlight">
-   <pre><code class="language-text" data-lang="text">library(ggplot2)
+p
+</pre></div>
+<p>And finally, I've converted it to png:</p>
+<div class="highlight"><pre>inkscape Rplots.pdf -w <span class="m">512</span> --export-png<span class="o">=</span>collatz-sequence-steps.png
+</pre></div>
+<p>I've explained this a bit more detailed on <a href="http://tex.stackexchange.com/a/114577/5645">StackExchange</a>.</p>
+<h2 id="maximum-in-sequence">Maximum in sequence</h2>
+<p>In the following plot you can see <span class="math">\(n \in 1, \dots, 10,000,000\)</span> on the <span class="math">\(x\)</span>-axis and the maximum <span class="math">\(y = \max(\{a^n_i | i \in \mathbb{N}_{&gt; 0}\})\)</span>:</p>
+<figure class="aligncenter">
+<a href="../images/2013/05/maxInSequence.png"><img alt="Hexagonal binpacking plot for maximum in sequence" class="size-full wp-image-66391" src="../images/2013/05/maxInSequence.png" style="max-width:512px;max-height:512px"/></a>
+<figcaption class="text-center">Hexagonal binpacking plot for maximum in sequence</figcaption>
+</figure>
+<div class="highlight"><pre>library(ggplot2)
 
 mydata = read.csv("../collatz-maxNumber.csv")
 
@@ -503,162 +410,120 @@ p&lt;-p + geom_hex(bins=50)
 p&lt;-p + opts(panel.background = theme_rect(fill='white', colour='white'))
 
 # This will save the result in a pdf file called Rplots.pdf
-p</code></pre>
-</div>
-
-<h2 id="tocAnchor-1-6">Execution times</h2>
+p
+</pre></div>
+<h2 id="execution-times">Execution times</h2>
 <p>Generating all Collatz sequences up to 10,000,000 items took about 50 seconds. But R needed about 10 minutes to generate images from that.</p>
-
-<p>Inkscape didn’t like the heavy plot:</p>
-
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">moose@pc07<span class="nv">$ </span>inkscape Rplots.pdf -w <span class="m">512</span> --export-png<span class="o">=</span>maxInSequence.png
+<p>Inkscape didn't like the heavy plot:</p>
+<div class="highlight"><pre>moose@pc07$ inkscape Rplots.pdf -w <span class="m">512</span> --export-png<span class="o">=</span>maxInSequence.png
 
 <span class="o">(</span>inkscape:26733<span class="o">)</span>: GLib-ERROR **: /build/buildd/glib2.0-2.34.1/./glib/gmem.c:165: failed to allocate <span class="m">3440640</span> bytes
-^CTrace/breakpoint <span class="nb">trap</span> <span class="o">(</span>core dumped<span class="o">)</span></code></pre>
-</div>
-
-<h2 id="tocAnchor-1-7">Maximum in sequence and steps</h2>
-
-<div style="width: 522px" class="wp-caption aligncenter">
-   <a href="../images/2013/05/collatz-sequence-and-steps-for-n.png">
-      <img src="../images/2013/05/collatz-sequence-and-steps-for-n.png" alt="Maximum value and number of steps for n up to 10,000" width="" height="" class="size-full wp-image-66481" />
-   </a>
-   <p class="wp-caption-text">Maximum value and number of steps for n up to 10,000</p>
-</div>
-
-<h2 id="tocAnchor-1-8">Read more</h2>
+^CTrace/breakpoint <span class="nb">trap</span> <span class="o">(</span>core dumped<span class="o">)</span>
+</pre></div>
+<h2 id="maximum-in-sequence-and-steps">Maximum in sequence and steps</h2>
+<figure class="aligncenter">
+<a href="../images/2013/05/collatz-sequence-and-steps-for-n.png"><img alt="Maximum value and number of steps for n up to 10,000" class="size-full wp-image-66481" src="../images/2013/05/collatz-sequence-and-steps-for-n.png" style="max-width:512px;max-height:512px"/></a>
+<figcaption class="text-center">Maximum value and number of steps for n up to 10,000</figcaption>
+</figure>
+<h2 id="read-more">Read more</h2>
 <ul>
-  <li><a href="https://github.com/MartinThoma/algorithms/tree/master/collatz">All sources</a> of this article are on GitHub</li>
-  <li><a href="http://www.graphviz.org/Documentation/dotguide.pdf">Dot guide</a>, <a href="http://www.graphviz.org/doc/info/shapes.html">Node shapes</a></li>
-  <li><a href="http://wiki.ubuntuusers.de/R">R on UbuntuUsers</a> (German)</li>
-  <li><a href="http://projecteuler.net/problem=14">Project Euler 14</a></li>
+<li><a href="https://github.com/MartinThoma/algorithms/tree/master/collatz">All sources</a> of this article are on GitHub</li>
+<li><a href="http://www.graphviz.org/Documentation/dotguide.pdf">Dot guide</a>, <a href="http://www.graphviz.org/doc/info/shapes.html">Node shapes</a></li>
+<li><a href="http://wiki.ubuntuusers.de/R">R on UbuntuUsers</a> (German)</li>
+<li><a href="http://projecteuler.net/problem=14">Project Euler 14</a></li>
 </ul>
-
-                        </div>
-                        <div class="postmeta">Posted in
-                            
-                                <a href="//martin-thoma.com/category/code/">code</a><!--TODO: Displayed category name should be upper case! -->
-                             | Tags:
-                            
-                                
-                                    <a href="//martin-thoma.com/tag/visualization/">Visualization</a>
-                                
-                            
-                                , <a href="//martin-thoma.com/tag/mathematics/">mathematics</a>
-                                
-                            
-                                , <a href="//martin-thoma.com/tag/project-euler/">Project Euler</a>
-                                
-                             by <a rel="author" class="vcard author post-author" itemprop="author" href="//martin-thoma.com/author/martin-thoma/"><span class="fn" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a> on <span class="updated"><span class="value-title" title="2013-05-16 23:58:45 +0200">
-                                May
-                                16th
-                                  ,
-                                2013</span></span></div>
-
-                            <div class="navigation clearfix">
-                                <div class="alignleft">
-                                
-                                    &laquo; <a href="//martin-thoma.com/maps-in-cpp/" rel="prev">Maps in C++</a>
-                                
-                                </div>
-                                <div class="alignright">
-                                
-                                    <a href="//martin-thoma.com/k-nearest-neighbor-classification-interactive-example/" rel="next">k-nearest-neighbor classification and k-means - an interactive example</a> &raquo;
-                                
-                                </div>
-                            </div>
-
-                        </article>
-                        <div id="respond">
-                            <h3>Leave a Reply</h3>
-                                <!-- comment discuss code -->
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'martinthoma'; // required: replace example with your forum shortname
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="//disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    <!-- comment discuss code -->
-
-                        </div>
-                    </div>
-                </div>
-            <div class="span-8 last">
-                <div id="subscriptions">
-<a href="//martin-thoma.com/feed/"><img src="//martin-thoma.com/css/images/rss.png" alt="Subscribe to RSS Feed" title="Subscribe to RSS Feed" width="72" height="47" /></a>
-<a href="https://twitter.com/#!/themoosemind" title="Follow me on Twitter!"><img src="//martin-thoma.com/css/images/twitter.png" title="Follow me on Twitter!" alt="Follow me on Twitter!"  width="76" height="47" /></a>
-</div>
-
-                <div id="sidebar">
-                <!-- type: searchbox.html - TODO-->
-<ul>
-    <li id="search">
-        <div class="searchlayout">
-            <form method="get" id="searchform" action="//google.com/cse" role="search">
-                <input type="hidden" name="cx" value="017345337424948206369:qrnnnentkkk" />
-                <input type="search" value="" name="q" id="s" placeholder="Search with Google"/>
-                <input type="image" src="//martin-thoma.com/css/images/search.gif" style="border:0; vertical-align: top;" alt="search"/>
-            </form>
+            
+            <section>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                href="../the-collatz-sequence/#disqus_thread">
+                Comments
+            </a>
         </div>
-    </li>
-</ul>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'martinthoma';
+        var disqus_identifier = '../the-collatz-sequence/';
+    var disqus_url = '../the-collatz-sequence/';
 
-                <div class="addthis_toolbox">
-    <div class="custom_images">
-            <a href="//twitter.com/share?url=https://martin-thoma.com/the-collatz-sequence&amp;hashtags=visualization,mathematics,project-euler,&amp;via=themoosemind" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/twitter.png" width="32" height="32" alt="Twitter" /></a>
-            <a href="//del.icio.us/post?url=//martin-thoma.com/the-collatz-sequence&amp;title=The%20Collatz%20sequence" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/delicious.png" width="32" height="32" alt="Delicious" /></a>
-            <a href="//www.facebook.com/sharer.php?u=//martin-thoma.com/the-collatz-sequence" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/facebook.png" width="32" height="32" alt="Facebook" /></a>
-            <a href="//digg.com/submit?phase=2&amp;url=//martin-thoma.com/the-collatz-sequence&amp;title=The%20Collatz%20sequence" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/digg.png" width="32" height="32" alt="Digg" /></a>
-            <a href="//www.stumbleupon.com/submit?url=//martin-thoma.com/the-collatz-sequence&amp;title=The%20Collatz%20sequence" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/stumbleupon.png" width="32" height="32" alt="Stumbleupon" /></a>
-            <a href="//plusone.google.com/_/+1/confirm?hl=en&amp;url=//martin-thoma.com/the-collatz-sequence" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/gplus.png" width="32" height="32" alt="Google Plus" /></a>
-            <a href="//reddit.com/submit?url=//martin-thoma.com/the-collatz-sequence&amp;title=The%20Collatz%20sequence" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/reddit.png" width="32" height="32" alt="Reddit" /></a>
-    </div>
-</div>
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-                <ul>
-                    <li id="categories-3" class="widget widget_categories">
-                        <!-- type: categories -->
-<h2 class="widgettitle">Categories</h2>
-    <ul>
-        <li class="cat-item cat-item-11"><a href="//martin-thoma.com/category/code/" title="Tipps for coding in different languages like Python oder C++.">Code</a></li>
-        <li class="cat-item cat-item-21"><a href="//martin-thoma.com/category/web/" title="New emerging websites and technologies.">The Web</a></li>
-        <li class="cat-item cat-item-31"><a href="//martin-thoma.com/category/cyberculture/" title="Lolcats, planking, Trollfaces, ...">Cyberculture</a></li>
-        <li class="cat-item cat-item-3404"><a href="//martin-thoma.com/category/maths/" title="View all posts filed under Mathematics">Mathematics</a></li>
-        <li class="cat-item cat-item-881"><a href="//martin-thoma.com/category/bits-and-bytes/" title="Sometimes posts don&#039;t fit in any category.">My bits and bytes</a></li>
-        <li class="cat-item cat-item-41"><a href="//martin-thoma.com/category/deutschland/" title="[All Posts here are written in German about German topics] - Die Bahn, unsere Politik und Europa.">German posts</a></li>
-    </ul>
-
-                    </li>
-                </ul>
                 </div>
             </div>
-        </div><!--/container-->
-            <footer id="footer">
-                <a href="//martin-thoma.com"><strong>Martin Thoma</strong></a> -  A blog about Code, the Web and Cyberculture. <br />
-                <div class="footer-credits">
-                    <a href="http://flexithemes.com/themes/modern-style/">Modern Style</a> theme by <a href="http://flexithemes.com/">FlexiThemes</a>
-                </div>
-            </footer><!--/footer-->
+        </div>
+    </div>
+</div>
+</section>
 
-    </div><!--/wrapper-->
-<!-- type: footer -->
-<!-- TOC Plus -->
-<script type='text/javascript'>
-/* <![CDATA[ */
-var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"};
-/* ]]> */
-</script>
-<script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
-<script>
+            <hr/>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2013-05-16T23:58:45+02:00">Mai 16, 2013</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="http://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#mathematics-ref">mathematics
+                    <span>55</span>
+</a></li>
+                <li><a href="../tags.html#project-euler-ref">Project Euler
+                    <span>9</span>
+</a></li>
+                <li><a href="../tags.html#visualization-ref">Visualization
+                    <span>4</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
 (function(){
     'use strict';
 
@@ -691,6 +556,47 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 
   })();
 </script>
-</body>
-</html>
 
+            <script type="text/javascript">
+var disqus_shortname = 'martinthoma';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

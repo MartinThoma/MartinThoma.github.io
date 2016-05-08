@@ -1,56 +1,38 @@
-<!doctype html>
-<html lang="en">
-  <!-- type: head.html -->
-  <head>
-    <meta charset="utf-8">
-    
-    
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
 
-    
-        <meta name="image" content="https://martin-thoma.com/images/2013/01/queens-moves.png" />
-        <meta name="thumbnail" content="//martin-thoma.com/images/2013/01/queens-moves.png" />
-        <meta property="og:image" content="//martin-thoma.com/images/2013/01/queens-moves.png" />
-    
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
 
-    <meta property="og:type" content="blog"/>
+<meta name="keywords" content="Programming, short-circuit evaluation, Code, " />
 
-    <title>Check x-in-a-row for board games</title>
-    <meta property="og:title" content="Check x-in-a-row for board games" />
-    <meta property="og:url" content="//martin-thoma.com/check-x-in-a-row-for-board-games" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/screen.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/style.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/pygments.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/tocplus-screen.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/print.css" type="text/css" media="print" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-width: 480px)" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="Check x-in-a-row for board games "/>
+<meta property="og:url" content="../check-x-in-a-row-for-board-games/" />
+<meta property="og:description" content="In board games, you have quite often the situation that you want to check something in different directions. Most of the time, the implementation I see for situations like this is very redundant and prone to off-by-one errors. Some simple ideas can improve the quality of codes (code that is ..." />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2013-01-21T21:59:28+01:00" />
+<meta name="twitter:title" content="Check x-in-a-row for board games ">
+<meta name="twitter:description" content="In board games, you have quite often the situation that you want to check something in different directions. Most of the time, the implementation I see for situations like this is very redundant and prone to off-by-one errors. Some simple ideas can improve the quality of codes (code that is ...">
+<meta property="og:image" content="2013/01/queens-moves.png" />
+<meta name="twitter:image" content="2013/01/queens-moves.png" >
 
-    <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="//martin-thoma.com/feed/" /><!--TODO-->
-    <link rel="shortcut icon" href="//martin-thoma.com/favicon.ico" type="image/x-icon" />
+        <title>Check x-in-a-row for board games  · Martin Thoma
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
 
-    <link rel="canonical" href="//martin-thoma.com/check-x-in-a-row-for-board-games" />
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:site" content="@themoosemind"/>
-<meta name="twitter:creator" content="@themoosemind"/>
-<meta name="twitter:title" content="Check x-in-a-row for board games"/>
-
-    <meta name="twitter:description" content="A blog about Code, the Web and Cyberculture" />
-
-
-    <meta name="twitter:image" content="//martin-thoma.com/images/2013/01/queens-moves.png"/>
-
-
-
-<meta name="twitter:url" content="//martin-thoma.com/check-x-in-a-row-for-board-games"/>
-<meta name="twitter:domain" content="Martin Thoma.com"/>
-
-
-    <script type='text/javascript' src="//martin-thoma.com/js/jquery.js"></script>
-    <script type='text/javascript' src="//martin-thoma.com/js/jquery-migrate.min.js"></script>
-    <style type="text/css">div#toc_container {width: 275px;}</style>
-    <style type="text/css" id="syntaxhighlighteranchor"></style>
-
-<!-- MathJax -->
+        <!-- MathJax -->
 <script type="text/x-mathjax-config">
 <!--
 MathJax.Hub.Config({
@@ -74,265 +56,224 @@ MathJax.Hub.Queue(function() {
 <script type="text/javascript" async
   src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
-
-<!-- Latest compiled and minified CSS bootstrap -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-</head>
-
-<!-- type: post.html -->
-<body>
-    <div id="wrapper">
-        <div id="container" class="container">
-            <div class="span-16">
-                <!-- type: header.html -->
-<div id="header" role="banner">
-    <h1><a href="//martin-thoma.com">Martin Thoma</a></h1>
-    <h2 style="margin-top: 0;">A blog about Code, the Web and Cyberculture.</h2>
-</div>
-<nav class="navcontainer" role="navigation">
-    <ul id="nav">
-        <li class=""><a href="//martin-thoma.com">Home</a></li>
-        <li class="page_item page-item-41 "><a href="//martin-thoma.com/author/martin-thoma/">About Me</a></li>
-        <li class="page_item page-item-91 "><a href="//martin-thoma.com/imprint/">Imprint</a></li>
-    </ul>
-</nav>
-
-                <div id="content">
-                    <article class="post type-post format-standard hentry clearfix" itemscope itemType="http://schema.org/BlogPosting">
-                        <h2 class="title entry-title" itemprop="name headline">Check x-in-a-row for board games</h2>
-                        <link itemprop="mainEntityOfPage" href="//martin-thoma.com/check-x-in-a-row-for-board-games" />
-                        <div class="postdate entry-date date-header">
-                            <time datetime="2013-01-21T21:59:28+01:00" itemprop="datePublished">
-                                January
-                                21st,
-                                  
-                                2013
-                            </time>
-                        </div>
-
-                        <div class="entry post-body" id="contentAfterTitle" itemprop="articleBody">
-                            <p>In board games, you have quite often the situation that you want to check something in different directions. Most of the time, the implementation I see for situations like this is very redundant and prone to off-by-one errors. Some simple ideas can improve the quality of codes (code that is easier to understand and less <abbr title="lines of code">loc</abbr>) and reduce the probability of tiny mistakes.</p>
-
-<ul class="gallery mw-gallery-traditional">
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/01/tic-tac-toe.png" class="image">
-                  <img src="//martin-thoma.com/captions/tic-tac-toe.png" alt="" style="max-width: 120px; max-height: 120px;" />
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Tic Tac Toe</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/01/battleships.png" class="image">
-                  <img src="//martin-thoma.com/captions/battleships.png" alt="" style="max-width: 120px; max-height: 120px;" />
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Battleships</div>
-      </div>
-   </li>
-   <li class="gallerybox" style="width: 155px">
-      <div style="width: 155px">
-         <div class="thumb" style="width: 150px;">
-            <div style="margin:21px auto;height: 113px;line-height: 150px;">
-               <a href="../images/2013/01/queens-moves.png" class="image">
-                  <img src="//martin-thoma.com/captions/queens-moves.png" alt="" style="max-width: 120px; max-height: 120px;" />
-               </a>
-            </div>
-         </div>
-         <div class="gallerytext">Moves of the queen in chess</div>
-      </div>
-   </li>
-</ul>
-
-<h2 id="tocAnchor-1-1">isOnBoard(int x, int y)</h2>
-<p>You should create a method that checks if a coordinate is on your board. This can be as simple as this:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">boolean</span> isOnBoard(<span style="color:#339;font-weight:bold">int</span> x, <span style="color:#339;font-weight:bold">int</span> y) {
-    <span style="color:#080;font-weight:bold">return</span> <span style="color:#00D">0</span> &lt;= x &amp;&amp; x &lt; width &amp;&amp; <span style="color:#00D">0</span> &lt;= y &amp;&amp; y &lt; height;
-}
-</pre></div>
-</div>
-</div>
-
-<h2 id="tocAnchor-1-2">Diagonal, horizontal and vertical</h2>
-<p>You can create a method like this:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#777">/**
- * This method checks XYZ and does XYZ.
- * 
- * @param player the current player
- * @param xDir -1 if you want to go to the left, 0 if you don't want 
- *            to move in x-direction and 1 if you want to go to 
- *            the right
- * @param yDir -1 if you want to go to the bottom, 0 if you don't 
- *            want to move in y-direction and 1 if you want to go 
- *            to the top
- */</span>
-<span style="color:#088;font-weight:bold">private</span> <span style="color:#339;font-weight:bold">void</span> myBoardAction(Player player, <span style="color:#339;font-weight:bold">int</span> xDir, <span style="color:#339;font-weight:bold">int</span> yDir) {
-    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#339;font-weight:bold">int</span> x = <span style="color:#00D">0</span>; x &lt; board.width; x++) {
-        <span style="color:#080;font-weight:bold">for</span> (<span style="color:#339;font-weight:bold">int</span> y = <span style="color:#00D">0</span>; y &lt; board.height; y++) {
-            <span style="color:#080;font-weight:bold">for</span> (<span style="color:#339;font-weight:bold">int</span> c = <span style="color:#00D">0</span>; c &lt; SOME_CONSTANT; c++) {
-                <span style="color:#080;font-weight:bold">if</span> (board.isOnBoard(x + c * xDir, y + c * yDir)
-                   &amp;&amp; board.checkXYZ(x + c * xDir, y + c * yDir)) {
-                    doXYZ();
-                }
-            }
-        }
-    }
-}
-</pre></div>
-</div>
-</div>
-
-<p>What’s so special about it? Well, note how the <code>xDir</code> and <code>yDir</code> parameters change the behavior of the method. If you want to move only to the right, you will call <code>myBoardAction(player, 1, 0)</code>. If you want to go to the top left, you will call <code>myBoardAction(player, -1, 1)</code>. Of course, you can’t simply take this piece of code and only change <code>doXYZ()</code> and <code>checkXYZ</code>. You will have to change the starting and and position and maybe add a break. But this thought can be applied to board games quite nice.</p>
-
-<p>Please also note that I go from <code>(0|0)</code> to <code>(board.width|board.height)</code> and even add in the inner loop something. So some calls will be out of bound. But because of <a href="http://en.wikipedia.org/wiki/Short-circuit_evaluation">short-circuit evaluation</a> this works. I don’t bother about ends, I simply include the critical parts. Most of the time, it is not much work to check if the call is within the boundary, but finding (and fixing) a bug is much work. Yes, I know, this is more efficient if you use the correct boundaries. But it’s only a constant in time difference. And I guess this constant is very small for most games.</p>
-
-<p>Ah, and if you want to check a condition for all diagonals, horizontals and verticals the hole board, you can call it like this:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>myBoardAction(player, <span style="color:#00D">1</span>, <span style="color:#00D">1</span>); <span style="color:#777">// top right</span>
-myBoardAction(player,-<span style="color:#00D">1</span>, <span style="color:#00D">1</span>); <span style="color:#777">// top left</span>
-myBoardAction(player, <span style="color:#00D">1</span>, <span style="color:#00D">0</span>); <span style="color:#777">// vertical</span>
-myBoardAction(player, <span style="color:#00D">0</span>, <span style="color:#00D">1</span>); <span style="color:#777">// horizontal</span>
-</pre></div>
-</div>
-</div>
-
-<p>This is enough. You don’t need more, as you go through the whole board. 
-No need to write redundant code ☺</p>
-
-                        </div>
-                        <div class="postmeta">Posted in
-                            
-                                <a href="//martin-thoma.com/category/code/">code</a><!--TODO: Displayed category name should be upper case! -->
-                             | Tags:
-                            
-                                
-                                    <a href="//martin-thoma.com/tag/programming/">Programming</a>
-                                
-                            
-                                , <a href="//martin-thoma.com/tag/short-circuit-evaluation/">short-circuit evaluation</a>
-                                
-                             by <a rel="author" class="vcard author post-author" itemprop="author" href="//martin-thoma.com/author/martin-thoma/"><span class="fn" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a> on <span class="updated"><span class="value-title" title="2013-01-21 21:59:28 +0100">
-                                January
-                                21st
-                                  ,
-                                2013</span></span></div>
-
-                            <div class="navigation clearfix">
-                                <div class="alignleft">
-                                
-                                    &laquo; <a href="//martin-thoma.com/cyclic-references-kill-nautilus/" rel="prev">Cyclic references kill Nautilus</a>
-                                
-                                </div>
-                                <div class="alignright">
-                                
-                                    <a href="//martin-thoma.com/strassen-algorithm-in-python-java-cpp/" rel="next">Part II: The Strassen algorithm in Python, Java and C++</a> &raquo;
-                                
-                                </div>
-                            </div>
-
-                        </article>
-                        <div id="respond">
-                            <h3>Leave a Reply</h3>
-                                <!-- comment discuss code -->
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'martinthoma'; // required: replace example with your forum shortname
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="//disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    <!-- comment discuss code -->
-
-                        </div>
+        
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="../"><span class=site-name>Martin Thoma</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
                     </div>
                 </div>
-            <div class="span-8 last">
-                <div id="subscriptions">
-<a href="//martin-thoma.com/feed/"><img src="//martin-thoma.com/css/images/rss.png" alt="Subscribe to RSS Feed" title="Subscribe to RSS Feed" width="72" height="47" /></a>
-<a href="https://twitter.com/#!/themoosemind" title="Follow me on Twitter!"><img src="//martin-thoma.com/css/images/twitter.png" title="Follow me on Twitter!" alt="Follow me on Twitter!"  width="76" height="47" /></a>
-</div>
-
-                <div id="sidebar">
-                <!-- type: searchbox.html - TODO-->
-<ul>
-    <li id="search">
-        <div class="searchlayout">
-            <form method="get" id="searchform" action="//google.com/cse" role="search">
-                <input type="hidden" name="cx" value="017345337424948206369:qrnnnentkkk" />
-                <input type="search" value="" name="q" id="s" placeholder="Search with Google"/>
-                <input type="image" src="//martin-thoma.com/css/images/search.gif" style="border:0; vertical-align: top;" alt="search"/>
-            </form>
+            </div>
         </div>
-    </li>
-</ul>
-
-                <div class="addthis_toolbox">
-    <div class="custom_images">
-            <a href="//twitter.com/share?url=https://martin-thoma.com/check-x-in-a-row-for-board-games&amp;hashtags=programming,short-circuit-evaluation,&amp;via=themoosemind" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/twitter.png" width="32" height="32" alt="Twitter" /></a>
-            <a href="//del.icio.us/post?url=//martin-thoma.com/check-x-in-a-row-for-board-games&amp;title=Check%20x-in-a-row%20for%20board%20games" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/delicious.png" width="32" height="32" alt="Delicious" /></a>
-            <a href="//www.facebook.com/sharer.php?u=//martin-thoma.com/check-x-in-a-row-for-board-games" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/facebook.png" width="32" height="32" alt="Facebook" /></a>
-            <a href="//digg.com/submit?phase=2&amp;url=//martin-thoma.com/check-x-in-a-row-for-board-games&amp;title=Check%20x-in-a-row%20for%20board%20games" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/digg.png" width="32" height="32" alt="Digg" /></a>
-            <a href="//www.stumbleupon.com/submit?url=//martin-thoma.com/check-x-in-a-row-for-board-games&amp;title=Check%20x-in-a-row%20for%20board%20games" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/stumbleupon.png" width="32" height="32" alt="Stumbleupon" /></a>
-            <a href="//plusone.google.com/_/+1/confirm?hl=en&amp;url=//martin-thoma.com/check-x-in-a-row-for-board-games" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/gplus.png" width="32" height="32" alt="Google Plus" /></a>
-            <a href="//reddit.com/submit?url=//martin-thoma.com/check-x-in-a-row-for-board-games&amp;title=Check%20x-in-a-row%20for%20board%20games" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/reddit.png" width="32" height="32" alt="Reddit" /></a>
-    </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="../check-x-in-a-row-for-board-games/"> Check x-in-a-row for board games  </a></h1>
+    </header>
 </div>
 
-                <ul>
-                    <li id="categories-3" class="widget widget_categories">
-                        <!-- type: categories -->
-<h2 class="widgettitle">Categories</h2>
-    <ul>
-        <li class="cat-item cat-item-11"><a href="//martin-thoma.com/category/code/" title="Tipps for coding in different languages like Python oder C++.">Code</a></li>
-        <li class="cat-item cat-item-21"><a href="//martin-thoma.com/category/web/" title="New emerging websites and technologies.">The Web</a></li>
-        <li class="cat-item cat-item-31"><a href="//martin-thoma.com/category/cyberculture/" title="Lolcats, planking, Trollfaces, ...">Cyberculture</a></li>
-        <li class="cat-item cat-item-3404"><a href="//martin-thoma.com/category/maths/" title="View all posts filed under Mathematics">Mathematics</a></li>
-        <li class="cat-item cat-item-881"><a href="//martin-thoma.com/category/bits-and-bytes/" title="Sometimes posts don&#039;t fit in any category.">My bits and bytes</a></li>
-        <li class="cat-item cat-item-41"><a href="//martin-thoma.com/category/deutschland/" title="[All Posts here are written in German about German topics] - Die Bahn, unsere Politik und Europa.">German posts</a></li>
-    </ul>
+<div class="row-fluid">
+    <div class="span2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#isonboardint-x-int-y" title="isOnBoard(int x, int y)">isOnBoard(int x, int y)</a></li><li><a class="toc-href" href="#diagonal-horizontal-and-vertical" title="Diagonal, horizontal and vertical">Diagonal, horizontal and vertical</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="span8 article-content" id="contentAfterTitle">
 
-                    </li>
-                </ul>
+            
+            <p>In board games, you have quite often the situation that you want to check something in different directions. Most of the time, the implementation I see for situations like this is very redundant and prone to off-by-one errors. Some simple ideas can improve the quality of codes (code that is easier to understand and less <abbr title="lines of code">loc</abbr>) and reduce the probability of tiny mistakes.</p>
+<ul class="gallery mw-gallery-traditional">
+<li class="gallerybox" style="width: 155px">
+<div style="width: 155px">
+<div class="thumb" style="width: 150px;">
+<div style="margin:21px auto;height: 113px;line-height: 150px;">
+<a class="image" href="../images/2013/01/tic-tac-toe.png">
+<img alt="Tic Tac Toe" src="../images/2013/01/tic-tac-toe.png" style="max-width: 120px; max-height: 120px;">
+</img></a>
+</div>
+</div>
+<div class="gallerytext">Tic Tac Toe</div>
+</div>
+</li>
+<li class="gallerybox" style="width: 155px">
+<div style="width: 155px">
+<div class="thumb" style="width: 150px;">
+<div style="margin:21px auto;height: 113px;line-height: 150px;">
+<a class="image" href="../images/2013/01/battleships.png">
+<img alt="Battleships" src="../images/2013/01/battleships.png" style="max-width: 120px; max-height: 120px;">
+</img></a>
+</div>
+</div>
+<div class="gallerytext">Battleships</div>
+</div>
+</li>
+<li class="gallerybox" style="width: 155px">
+<div style="width: 155px">
+<div class="thumb" style="width: 150px;">
+<div style="margin:21px auto;height: 113px;line-height: 150px;">
+<a class="image" href="../images/2013/01/queens-moves.png">
+<img alt="Moves of the queen in chess" src="../images/2013/01/queens-moves.png" style="max-width: 120px; max-height: 120px;">
+</img></a>
+</div>
+</div>
+<div class="gallerytext">Moves of the queen in chess</div>
+</div>
+</li>
+</ul>
+<h2 id="isonboardint-x-int-y">isOnBoard(int x, int y)</h2>
+<p>You should create a method that checks if a coordinate is on your board. This can be as simple as this:</p>
+<div class="highlight"><pre><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isOnBoard</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">width</span> <span class="o">&amp;&amp;</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">y</span> <span class="o">&amp;&amp;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">height</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+<h2 id="diagonal-horizontal-and-vertical">Diagonal, horizontal and vertical</h2>
+<p>You can create a method like this:</p>
+<div class="highlight"><pre><span class="cm">/**</span>
+<span class="cm"> * This method checks XYZ and does XYZ.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @param player the current player</span>
+<span class="cm"> * @param xDir -1 if you want to go to the left, 0 if you don't want</span>
+<span class="cm"> *            to move in x-direction and 1 if you want to go to</span>
+<span class="cm"> *            the right</span>
+<span class="cm"> * @param yDir -1 if you want to go to the bottom, 0 if you don't</span>
+<span class="cm"> *            want to move in y-direction and 1 if you want to go</span>
+<span class="cm"> *            to the top</span>
+<span class="cm"> */</span>
+<span class="kd">private</span> <span class="kt">void</span> <span class="nf">myBoardAction</span><span class="o">(</span><span class="n">Player</span> <span class="n">player</span><span class="o">,</span> <span class="kt">int</span> <span class="n">xDir</span><span class="o">,</span> <span class="kt">int</span> <span class="n">yDir</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">board</span><span class="o">.</span><span class="na">width</span><span class="o">;</span> <span class="n">x</span><span class="o">++)</span> <span class="o">{</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">board</span><span class="o">.</span><span class="na">height</span><span class="o">;</span> <span class="n">y</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="n">SOME_CONSTANT</span><span class="o">;</span> <span class="n">c</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">board</span><span class="o">.</span><span class="na">isOnBoard</span><span class="o">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">c</span> <span class="o">*</span> <span class="n">xDir</span><span class="o">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">c</span> <span class="o">*</span> <span class="n">yDir</span><span class="o">)</span>
+                   <span class="o">&amp;&amp;</span> <span class="n">board</span><span class="o">.</span><span class="na">checkXYZ</span><span class="o">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">c</span> <span class="o">*</span> <span class="n">xDir</span><span class="o">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">c</span> <span class="o">*</span> <span class="n">yDir</span><span class="o">))</span> <span class="o">{</span>
+                    <span class="n">doXYZ</span><span class="o">();</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+<p>What's so special about it? Well, note how the <code>xDir</code> and <code>yDir</code> parameters change the behavior of the method. If you want to move only to the right, you will call <code>myBoardAction(player, 1, 0)</code>. If you want to go to the top left, you will call <code>myBoardAction(player, -1, 1)</code>. Of course, you can't simply take this piece of code and only change <code>doXYZ()</code> and <code>checkXYZ</code>. You will have to change the starting and and position and maybe add a break. But this thought can be applied to board games quite nice.</p>
+<p>Please also note that I go from <code>(0|0)</code> to <code>(board.width|board.height)</code> and even add in the inner loop something. So some calls will be out of bound. But because of <a href="http://en.wikipedia.org/wiki/Short-circuit_evaluation">short-circuit evaluation</a> this works. I don't bother about ends, I simply include the critical parts. Most of the time, it is not much work to check if the call is within the boundary, but finding (and fixing) a bug is much work. Yes, I know, this is more efficient if you use the correct boundaries. But it's only a constant in time difference. And I guess this constant is very small for most games.</p>
+<p>Ah, and if you want to check a condition for all diagonals, horizontals and verticals the hole board, you can call it like this:</p>
+<div class="highlight"><pre><span class="n">myBoardAction</span><span class="o">(</span><span class="n">player</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span> <span class="c1">// top right</span>
+<span class="n">myBoardAction</span><span class="o">(</span><span class="n">player</span><span class="o">,-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span> <span class="c1">// top left</span>
+<span class="n">myBoardAction</span><span class="o">(</span><span class="n">player</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span> <span class="c1">// vertical</span>
+<span class="n">myBoardAction</span><span class="o">(</span><span class="n">player</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span> <span class="c1">// horizontal</span>
+</pre></div>
+<p>This is enough. You don't need more, as you go through the whole board.
+No need to write redundant code ☺</p>
+            
+            <section>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                href="../check-x-in-a-row-for-board-games/#disqus_thread">
+                Comments
+            </a>
+        </div>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'martinthoma';
+        var disqus_identifier = '../check-x-in-a-row-for-board-games/';
+    var disqus_url = '../check-x-in-a-row-for-board-games/';
+
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
                 </div>
             </div>
-        </div><!--/container-->
-            <footer id="footer">
-                <a href="//martin-thoma.com"><strong>Martin Thoma</strong></a> -  A blog about Code, the Web and Cyberculture. <br />
-                <div class="footer-credits">
-                    <a href="http://flexithemes.com/themes/modern-style/">Modern Style</a> theme by <a href="http://flexithemes.com/">FlexiThemes</a>
-                </div>
-            </footer><!--/footer-->
+        </div>
+    </div>
+</div>
+</section>
 
-    </div><!--/wrapper-->
-<!-- type: footer -->
-<!-- TOC Plus -->
-<script type='text/javascript'>
-/* <![CDATA[ */
-var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"};
-/* ]]> */
-</script>
-<script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
-<script>
+            <hr/>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2013-01-21T21:59:28+01:00">Jan 21, 2013</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="http://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#programming-ref">Programming
+                    <span>43</span>
+</a></li>
+                <li><a href="../tags.html#short-circuit-evaluation-ref">short-circuit evaluation
+                    <span>1</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
 (function(){
     'use strict';
 
@@ -365,6 +306,47 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 
   })();
 </script>
-</body>
-</html>
 
+            <script type="text/javascript">
+var disqus_shortname = 'martinthoma';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

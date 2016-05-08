@@ -1,56 +1,38 @@
-<!doctype html>
-<html lang="en">
-  <!-- type: head.html -->
-  <head>
-    <meta charset="utf-8">
-    
-    
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
 
-    
-        <meta name="image" content="https://martin-thoma.com/images/2012/09/rectangle-thumb.png" />
-        <meta name="thumbnail" content="//martin-thoma.com/images/2012/09/rectangle-thumb.png" />
-        <meta property="og:image" content="//martin-thoma.com/images/2012/09/rectangle-thumb.png" />
-    
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
 
-    <meta property="og:type" content="blog"/>
+<meta name="keywords" content="Python, Geometry, Code, " />
 
-    <title>How to check if a point is inside a rectangle</title>
-    <meta property="og:title" content="How to check if a point is inside a rectangle" />
-    <meta property="og:url" content="//martin-thoma.com/how-to-check-if-a-point-is-inside-a-rectangle" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/screen.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/style.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/pygments.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/tocplus-screen.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/print.css" type="text/css" media="print" />
-    <link rel="stylesheet" href="//martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-width: 480px)" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="How to check if a point is inside a rectangle "/>
+<meta property="og:url" content="../how-to-check-if-a-point-is-inside-a-rectangle/" />
+<meta property="og:description" content="A rectangle I&#39;ve just found this interesting question on StackExchange: If you have a rectangle ABCD and point P. Is P inside ABCD? The idea The idea how to solve this problem is simply beautiful. If the point is in the rectangle, it divides it into four triangles: Divided ..." />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2012-09-07T21:28:38+02:00" />
+<meta name="twitter:title" content="How to check if a point is inside a rectangle ">
+<meta name="twitter:description" content="A rectangle I&#39;ve just found this interesting question on StackExchange: If you have a rectangle ABCD and point P. Is P inside ABCD? The idea The idea how to solve this problem is simply beautiful. If the point is in the rectangle, it divides it into four triangles: Divided ...">
+<meta property="og:image" content="2012/09/rectangle-thumb.png" />
+<meta name="twitter:image" content="2012/09/rectangle-thumb.png" >
 
-    <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="//martin-thoma.com/feed/" /><!--TODO-->
-    <link rel="shortcut icon" href="//martin-thoma.com/favicon.ico" type="image/x-icon" />
+        <title>How to check if a point is inside a rectangle  · Martin Thoma
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
 
-    <link rel="canonical" href="//martin-thoma.com/how-to-check-if-a-point-is-inside-a-rectangle" />
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:site" content="@themoosemind"/>
-<meta name="twitter:creator" content="@themoosemind"/>
-<meta name="twitter:title" content="How to check if a point is inside a rectangle"/>
-
-    <meta name="twitter:description" content="A blog about Code, the Web and Cyberculture" />
-
-
-    <meta name="twitter:image" content="//martin-thoma.com/images/2012/09/rectangle-thumb.png"/>
-
-
-
-<meta name="twitter:url" content="//martin-thoma.com/how-to-check-if-a-point-is-inside-a-rectangle"/>
-<meta name="twitter:domain" content="Martin Thoma.com"/>
-
-
-    <script type='text/javascript' src="//martin-thoma.com/js/jquery.js"></script>
-    <script type='text/javascript' src="//martin-thoma.com/js/jquery-migrate.min.js"></script>
-    <style type="text/css">div#toc_container {width: 275px;}</style>
-    <style type="text/css" id="syntaxhighlighteranchor"></style>
-
-<!-- MathJax -->
+        <!-- MathJax -->
 <script type="text/x-mathjax-config">
 <!--
 MathJax.Hub.Config({
@@ -74,337 +56,265 @@ MathJax.Hub.Queue(function() {
 <script type="text/javascript" async
   src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
-
-<!-- Latest compiled and minified CSS bootstrap -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-</head>
-
-<!-- type: post.html -->
-<body>
-    <div id="wrapper">
-        <div id="container" class="container">
-            <div class="span-16">
-                <!-- type: header.html -->
-<div id="header" role="banner">
-    <h1><a href="//martin-thoma.com">Martin Thoma</a></h1>
-    <h2 style="margin-top: 0;">A blog about Code, the Web and Cyberculture.</h2>
-</div>
-<nav class="navcontainer" role="navigation">
-    <ul id="nav">
-        <li class=""><a href="//martin-thoma.com">Home</a></li>
-        <li class="page_item page-item-41 "><a href="//martin-thoma.com/author/martin-thoma/">About Me</a></li>
-        <li class="page_item page-item-91 "><a href="//martin-thoma.com/imprint/">Imprint</a></li>
-    </ul>
-</nav>
-
-                <div id="content">
-                    <article class="post type-post format-standard hentry clearfix" itemscope itemType="http://schema.org/BlogPosting">
-                        <h2 class="title entry-title" itemprop="name headline">How to check if a point is inside a rectangle</h2>
-                        <link itemprop="mainEntityOfPage" href="//martin-thoma.com/how-to-check-if-a-point-is-inside-a-rectangle" />
-                        <div class="postdate entry-date date-header">
-                            <time datetime="2012-09-07T21:28:38+02:00" itemprop="datePublished">
-                                September
-                                7th,
-                                  
-                                2012
-                            </time>
-                        </div>
-
-                        <div class="entry post-body" id="contentAfterTitle" itemprop="articleBody">
-                            <div style="width: 522px" class="wp-caption aligncenter">
-   <a href="../images/2012/09/rectangle.png">
-      <img src="../images/2012/09/rectangle.png" alt="A rectangle" width="" height="" class="size-full wp-image-43611 " />
-   </a>
-   <p class="wp-caption-text">A rectangle</p>
-</div>
-
-<p>I’ve just found this interesting question on <a href="http://math.stackexchange.com/q/190111/6876">StackExchange</a>:</p>
-
-<p>If you have a rectangle ABCD and point P. Is P inside ABCD?</p>
-
-<div id="toc_container" class="toc_light_blue no_bullets">
-   <p class="toc_title">Contents</p>
-   <ul class="toc_list">
-      <li class="toc_level-1 toc_section-1">
-         <a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">The idea</span></a>
-      </li>
-      <li class="toc_level-1 toc_section-2">
-         <a href="#tocAnchor-1-2"><span class="tocnumber">2</span> <span class="toctext">Formulae</span></a>
-      </li>
-      <li class="toc_level-1 toc_section-3">
-         <a href="#tocAnchor-1-3"><span class="tocnumber">3</span> <span class="toctext">Python</span></a>
-      </li>
-      <li class="toc_level-1 toc_section-4">
-         <a href="#tocAnchor-1-4"><span class="tocnumber">4</span> <span class="toctext">Triangle</span></a>
-      </li>
-      <li class="toc_level-1 toc_section-5">
-         <a href="#tocAnchor-1-5"><span class="tocnumber">5</span> <span class="toctext">Credits</span></a>
-      </li>
-   </ul>
-</div><h2 id="tocAnchor-1-1">The idea</h2>
-<p>The idea how to solve this problem is simply beautiful.</p>
-
-<p>If the point is in the rectangle, it divides it into four triangles:</p>
-
-<div style="width: 522px" class="wp-caption aligncenter">
-   <a href="../images/2012/09/rectangle-2.png">
-      <img src="../images/2012/09/rectangle-2.png" alt="Divided rectangle" width="" height="" class="size-full wp-image-43651 " />
-   </a>
-   <p class="wp-caption-text">Divided rectangle</p>
-</div>
-
-<p>If P is not inside of ABCD, you end up with somethink like this:</p>
-
-<div style="width: 522px" class="wp-caption aligncenter">
-   <a href="../images/2012/09/rectangle-3.png">
-      <img src="../images/2012/09/rectangle-3.png" alt="Point is outside of rectangle " width="" height="" class="size-full wp-image-43661 " />
-   </a>
-   <p class="wp-caption-text">Point is outside of rectangle</p>
-</div>
-
-<p>You might note that the area of the four triangles in is bigger than the area of the rectangle. So if the area is bigger, you know that the point is outside of the rectangle.</p>
-
-<h2 id="tocAnchor-1-2">Formulae</h2>
-<p>If you know the coordinates of the points, you can calculate the area of the rectangle like this:</p>
-
-<p>
-   $A_\text{rectangle} = \frac{1}{2} \left| (y_{A}-y_{C})\cdot(x_{D}-x_{B}) + (y_{B}-y_{D})\cdot(x_{A}-x_{C})\right|$
-</p>
-
-<p>The area of a triangle is:
-$A_\text{triangle} = \frac{1}{2} (x_1(y_2-y_3) + x_2(y_3-y_1) + x_3(y_1-y_2))$</p>
-
-<h2 id="tocAnchor-1-3">Python</h2>
-<div class="important">Please look at Jans comment. There is an error in my Python code, but I don't have the time to correct it.</div>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">isPinRectangle</span>(r, P):
-    <span style="color:#D42"><span style="color:black">"""</span><span>
-</span><span>        r: A list of four points, each has a x- and a y- coordinate</span><span>
-</span><span>        P: A point</span><span>
-</span><span>    </span><span style="color:black">"""</span></span>
-
-    areaRectangle = <span style="color:#60E">0.5</span>*<span style="color:#369;font-weight:bold">abs</span>(
-        <span style="color:#777">#                 y_A      y_C      x_D      x_B</span>
-                        (r[<span style="color:#00D">0</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">2</span>][<span style="color:#00D">1</span>])*(r[<span style="color:#00D">3</span>][<span style="color:#00D">0</span>]-r[<span style="color:#00D">1</span>][<span style="color:#00D">0</span>])
-        <span style="color:#777">#                  y_B     y_D       x_A     x_C</span>
-                      + (r[<span style="color:#00D">1</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">3</span>][<span style="color:#00D">1</span>])*(r[<span style="color:#00D">0</span>][<span style="color:#00D">0</span>]-r[<span style="color:#00D">2</span>][<span style="color:#00D">0</span>])
-                    )
-
-    ABP = <span style="color:#60E">0.5</span>*(
-             r[<span style="color:#00D">0</span>][<span style="color:#00D">0</span>]*(r[<span style="color:#00D">1</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">2</span>][<span style="color:#00D">1</span>])
-            +r[<span style="color:#00D">1</span>][<span style="color:#00D">0</span>]*(r[<span style="color:#00D">2</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">0</span>][<span style="color:#00D">1</span>])
-            +r[<span style="color:#00D">2</span>][<span style="color:#00D">0</span>]*(r[<span style="color:#00D">0</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">1</span>][<span style="color:#00D">1</span>])
-          )
-    BCP = <span style="color:#60E">0.5</span>*(
-             r[<span style="color:#00D">1</span>][<span style="color:#00D">0</span>]*(r[<span style="color:#00D">2</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">3</span>][<span style="color:#00D">1</span>])
-            +r[<span style="color:#00D">2</span>][<span style="color:#00D">0</span>]*(r[<span style="color:#00D">3</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">1</span>][<span style="color:#00D">1</span>])
-            +r[<span style="color:#00D">3</span>][<span style="color:#00D">0</span>]*(r[<span style="color:#00D">1</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">2</span>][<span style="color:#00D">1</span>])
-          )
-    CDP = <span style="color:#60E">0.5</span>*(
-             r[<span style="color:#00D">2</span>][<span style="color:#00D">0</span>]*(r[<span style="color:#00D">3</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">0</span>][<span style="color:#00D">1</span>])
-            +r[<span style="color:#00D">3</span>][<span style="color:#00D">0</span>]*(r[<span style="color:#00D">0</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">2</span>][<span style="color:#00D">1</span>])
-            +r[<span style="color:#00D">0</span>][<span style="color:#00D">0</span>]*(r[<span style="color:#00D">2</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">3</span>][<span style="color:#00D">1</span>])
-          )
-    DAP = <span style="color:#60E">0.5</span>*(
-             r[<span style="color:#00D">3</span>][<span style="color:#00D">0</span>]*(r[<span style="color:#00D">0</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">1</span>][<span style="color:#00D">1</span>])
-            +r[<span style="color:#00D">0</span>][<span style="color:#00D">0</span>]*(r[<span style="color:#00D">1</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">3</span>][<span style="color:#00D">1</span>])
-            +r[<span style="color:#00D">1</span>][<span style="color:#00D">0</span>]*(r[<span style="color:#00D">3</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">0</span>][<span style="color:#00D">1</span>])
-          )
-    <span style="color:#080;font-weight:bold">return</span> areaRectangle == (ABP+BCP+CDP+DAP)
-</pre></div>
-</div>
-</div>
-
-<h2 id="tocAnchor-1-4">Triangle</h2>
-<p>The same idea can easily be adopted to triangles:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#777">#!/usr/bin/env python</span>
-<span style="color:#777"># -*- coding: utf-8 -*-</span>
-
-<span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Point</span>:
-    <span style="color:#D42"><span style="color:black">"""</span><span>Represents a two dimensional point.</span><span style="color:black">"""</span></span>
-
-    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">__init__</span>(<span style="color:#069">self</span>, x, y):
-        <span style="color:#069">self</span>.x = x
-        <span style="color:#069">self</span>.y = y
-
-    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">__get__</span>(<span style="color:#069">self</span>, obj, cls=<span style="color:#069">None</span>):
-        <span style="color:#080;font-weight:bold">return</span> obj
-
-    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">__repr__</span>(<span style="color:#069">self</span>):
-        <span style="color:#080;font-weight:bold">return</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">P(%.2lf|%.2lf)</span><span style="color:#710">"</span></span> % (<span style="color:#069">self</span>.x, <span style="color:#069">self</span>.y)
-
-    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">__str__</span>(<span style="color:#069">self</span>):
-        <span style="color:#080;font-weight:bold">return</span> <span style="color:#369;font-weight:bold">repr</span>(<span style="color:#069">self</span>)
-
-<span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Triangle</span>:
-    <span style="color:#D42"><span style="color:black">"""</span><span>Represents a triangle in R^2.</span><span style="color:black">"""</span></span>
-
-    epsilon = <span style="color:#60E">0.001</span>
-
-    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">__init__</span>(<span style="color:#069">self</span>, a, b, c):
-        <span style="color:#080;font-weight:bold">assert</span> <span style="color:#369;font-weight:bold">isinstance</span>(a, Point)
-        <span style="color:#080;font-weight:bold">assert</span> <span style="color:#369;font-weight:bold">isinstance</span>(b, Point)
-        <span style="color:#080;font-weight:bold">assert</span> <span style="color:#369;font-weight:bold">isinstance</span>(c, Point)
-        <span style="color:#069">self</span>.a = a
-        <span style="color:#069">self</span>.b = b
-        <span style="color:#069">self</span>.c = c
-
-    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">getArea</span>(<span style="color:#069">self</span>):
-        <span style="color:#D42"><span style="color:black">"""</span><span>Get area of this triangle.</span><span>
-</span><span>           &gt;&gt;&gt; Triangle(Point(0.,0.), Point(10.,0.), Point(10.,10.)).getArea()</span><span>
-</span><span>           50.0</span><span>
-</span><span>           &gt;&gt;&gt; Triangle(Point(-10.,0.), Point(10.,0.), Point(10.,10.)).getArea()</span><span>
-</span><span>           100.0</span><span>
-</span><span>        </span><span style="color:black">"""</span></span>
-        a, b, c = <span style="color:#069">self</span>.a, <span style="color:#069">self</span>.b, <span style="color:#069">self</span>.c
-        <span style="color:#080;font-weight:bold">return</span> <span style="color:#369;font-weight:bold">abs</span>(a.x*(b.y-c.y)+b.x*(c.y-a.y)+c.x*(a.y-b.y))/<span style="color:#00D">2</span>
-
-    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">isInside</span>(<span style="color:#069">self</span>, p):
-        <span style="color:#D42"><span style="color:black">"""</span><span>Check if p is inside this triangle.</span><span style="color:black">"""</span></span>
-        <span style="color:#080;font-weight:bold">assert</span> <span style="color:#369;font-weight:bold">isinstance</span>(p, Point)
-        currentArea = <span style="color:#069">self</span>.getArea()
-        pab = Triangle(p,<span style="color:#069">self</span>.a, <span style="color:#069">self</span>.b)
-        pac = Triangle(p,<span style="color:#069">self</span>.a, <span style="color:#069">self</span>.c)
-        pbc = Triangle(p,<span style="color:#069">self</span>.b, <span style="color:#069">self</span>.c)
-        newArea = pab.getArea()+pac.getArea()+pbc.getArea()
-        <span style="color:#080;font-weight:bold">return</span> (<span style="color:#369;font-weight:bold">abs</span>(currentArea - newArea) &lt; Triangle.epsilon)
-
-<span style="color:#080;font-weight:bold">if</span> __name__ == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">__main__</span><span style="color:#710">"</span></span>:
-    <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">doctest</span>
-    doctest.testmod()
-</pre></div>
-</div>
-</div>
-
-<h2 id="tocAnchor-1-5">Credits</h2>
-
-<p>Thank you Teon Brooks for reporting an error (I wrote “rectangles” instead of
-“triangles”)</p>
-
-                        </div>
-                        <div class="postmeta">Posted in
-                            
-                                <a href="//martin-thoma.com/category/code/">code</a><!--TODO: Displayed category name should be upper case! -->
-                             | Tags:
-                            
-                                
-                                    <a href="//martin-thoma.com/tag/python/">Python</a>
-                                
-                            
-                                , <a href="//martin-thoma.com/tag/geometry/">Geometry</a>
-                                
-                             by <a rel="author" class="vcard author post-author" itemprop="author" href="//martin-thoma.com/author/martin-thoma/"><span class="fn" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a> on <span class="updated"><span class="value-title" title="2012-09-07 21:28:38 +0200">
-                                September
-                                7th
-                                  ,
-                                2012</span></span></div>
-
-                            <div class="navigation clearfix">
-                                <div class="alignleft">
-                                
-                                    &laquo; <a href="//martin-thoma.com/bundeswettbewerb-informatik/" rel="prev">Bundeswettbewerb Informatik</a>
-                                
-                                </div>
-                                <div class="alignright">
-                                
-                                    <a href="//martin-thoma.com/berechnung-der-euklidischen-normalform/" rel="next">Berechnung der euklidischen Normalform</a> &raquo;
-                                
-                                </div>
-                            </div>
-
-                        </article>
-                        <div id="respond">
-                            <h3>Leave a Reply</h3>
-                                <!-- comment discuss code -->
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'martinthoma'; // required: replace example with your forum shortname
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="//disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    <!-- comment discuss code -->
-
-                        </div>
+        
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="../"><span class=site-name>Martin Thoma</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
                     </div>
                 </div>
-            <div class="span-8 last">
-                <div id="subscriptions">
-<a href="//martin-thoma.com/feed/"><img src="//martin-thoma.com/css/images/rss.png" alt="Subscribe to RSS Feed" title="Subscribe to RSS Feed" width="72" height="47" /></a>
-<a href="https://twitter.com/#!/themoosemind" title="Follow me on Twitter!"><img src="//martin-thoma.com/css/images/twitter.png" title="Follow me on Twitter!" alt="Follow me on Twitter!"  width="76" height="47" /></a>
-</div>
-
-                <div id="sidebar">
-                <!-- type: searchbox.html - TODO-->
-<ul>
-    <li id="search">
-        <div class="searchlayout">
-            <form method="get" id="searchform" action="//google.com/cse" role="search">
-                <input type="hidden" name="cx" value="017345337424948206369:qrnnnentkkk" />
-                <input type="search" value="" name="q" id="s" placeholder="Search with Google"/>
-                <input type="image" src="//martin-thoma.com/css/images/search.gif" style="border:0; vertical-align: top;" alt="search"/>
-            </form>
+            </div>
         </div>
-    </li>
-</ul>
-
-                <div class="addthis_toolbox">
-    <div class="custom_images">
-            <a href="//twitter.com/share?url=https://martin-thoma.com/how-to-check-if-a-point-is-inside-a-rectangle&amp;hashtags=python,geometry,&amp;via=themoosemind" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/twitter.png" width="32" height="32" alt="Twitter" /></a>
-            <a href="//del.icio.us/post?url=//martin-thoma.com/how-to-check-if-a-point-is-inside-a-rectangle&amp;title=How%20to%20check%20if%20a%20point%20is%20inside%20a%20rectangle" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/delicious.png" width="32" height="32" alt="Delicious" /></a>
-            <a href="//www.facebook.com/sharer.php?u=//martin-thoma.com/how-to-check-if-a-point-is-inside-a-rectangle" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/facebook.png" width="32" height="32" alt="Facebook" /></a>
-            <a href="//digg.com/submit?phase=2&amp;url=//martin-thoma.com/how-to-check-if-a-point-is-inside-a-rectangle&amp;title=How%20to%20check%20if%20a%20point%20is%20inside%20a%20rectangle" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/digg.png" width="32" height="32" alt="Digg" /></a>
-            <a href="//www.stumbleupon.com/submit?url=//martin-thoma.com/how-to-check-if-a-point-is-inside-a-rectangle&amp;title=How%20to%20check%20if%20a%20point%20is%20inside%20a%20rectangle" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/stumbleupon.png" width="32" height="32" alt="Stumbleupon" /></a>
-            <a href="//plusone.google.com/_/+1/confirm?hl=en&amp;url=//martin-thoma.com/how-to-check-if-a-point-is-inside-a-rectangle" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/gplus.png" width="32" height="32" alt="Google Plus" /></a>
-            <a href="//reddit.com/submit?url=//martin-thoma.com/how-to-check-if-a-point-is-inside-a-rectangle&amp;title=How%20to%20check%20if%20a%20point%20is%20inside%20a%20rectangle" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/reddit.png" width="32" height="32" alt="Reddit" /></a>
-    </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="../how-to-check-if-a-point-is-inside-a-rectangle/"> How to check if a point is inside a rectangle  </a></h1>
+    </header>
 </div>
 
-                <ul>
-                    <li id="categories-3" class="widget widget_categories">
-                        <!-- type: categories -->
-<h2 class="widgettitle">Categories</h2>
-    <ul>
-        <li class="cat-item cat-item-11"><a href="//martin-thoma.com/category/code/" title="Tipps for coding in different languages like Python oder C++.">Code</a></li>
-        <li class="cat-item cat-item-21"><a href="//martin-thoma.com/category/web/" title="New emerging websites and technologies.">The Web</a></li>
-        <li class="cat-item cat-item-31"><a href="//martin-thoma.com/category/cyberculture/" title="Lolcats, planking, Trollfaces, ...">Cyberculture</a></li>
-        <li class="cat-item cat-item-3404"><a href="//martin-thoma.com/category/maths/" title="View all posts filed under Mathematics">Mathematics</a></li>
-        <li class="cat-item cat-item-881"><a href="//martin-thoma.com/category/bits-and-bytes/" title="Sometimes posts don&#039;t fit in any category.">My bits and bytes</a></li>
-        <li class="cat-item cat-item-41"><a href="//martin-thoma.com/category/deutschland/" title="[All Posts here are written in German about German topics] - Die Bahn, unsere Politik und Europa.">German posts</a></li>
-    </ul>
+<div class="row-fluid">
+    <div class="span2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#the-idea" title="The idea">The idea</a></li><li><a class="toc-href" href="#formulae" title="Formulae">Formulae</a></li><li><a class="toc-href" href="#python" title="Python">Python</a></li><li><a class="toc-href" href="#triangle" title="Triangle">Triangle</a></li><li><a class="toc-href" href="#credits" title="Credits">Credits</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="span8 article-content" id="contentAfterTitle">
 
-                    </li>
-                </ul>
+            
+            <figure class="aligncenter">
+<a href="../images/2012/09/rectangle.png"><img alt="A rectangle" class="size-full wp-image-43611 " src="../images/2012/09/rectangle.png" style="max-width:512px;max-height:409px;"/></a>
+<figcaption class="text-center">A rectangle</figcaption>
+</figure>
+<p>I've just found this interesting question on <a href="http://math.stackexchange.com/q/190111/6876">StackExchange</a>:</p>
+<p>If you have a rectangle ABCD and point P. Is P inside ABCD?</p>
+<h2 id="the-idea">The idea</h2>
+<p>The idea how to solve this problem is simply beautiful.</p>
+<p>If the point is in the rectangle, it divides it into four triangles:</p>
+<figure class="aligncenter">
+<a href="../images/2012/09/rectangle-2.png"><img alt="Divided rectangle" class="size-full wp-image-43651 " src="../images/2012/09/rectangle-2.png" style="max-width:512px;max-height:409px;"/></a>
+<figcaption class="text-center">Divided rectangle</figcaption>
+</figure>
+<p>If P is not inside of ABCD, you end up with somethink like this:</p>
+<figure class="aligncenter">
+<a href="../images/2012/09/rectangle-3.png"><img alt="Point is outside of rectangle " class="size-full wp-image-43661 " src="../images/2012/09/rectangle-3.png" style="max-width:512px;max-height:409px;"/></a>
+<figcaption class="text-center">Point is outside of rectangle</figcaption>
+</figure>
+<p>You might note that the area of the four triangles in is bigger than the area of the rectangle. So if the area is bigger, you know that the point is outside of the rectangle.</p>
+<h2 id="formulae">Formulae</h2>
+<p>If you know the coordinates of the points, you can calculate the area of the rectangle like this:</p>
+<p><span class="math">\(A_\text{rectangle} = \frac{1}{2} \left| (y_{A}-y_{C})\cdot(x_{D}-x_{B}) + (y_{B}-y_{D})\cdot(x_{A}-x_{C})\right|\)</span></p>
+<p>The area of a triangle is:
+<span class="math">\(A_\text{triangle} = \frac{1}{2} (x_1(y_2-y_3) + x_2(y_3-y_1) + x_3(y_1-y_2))\)</span></p>
+<h2 id="python">Python</h2>
+<p><div class="important">Please look at Jans comment. There is an error in my Python code, but I don't have the time to correct it.</div></p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">isPinRectangle</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">P</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">        r: A list of four points, each has a x- and a y- coordinate</span>
+<span class="sd">        P: A point</span>
+<span class="sd">    """</span>
+
+    <span class="n">areaRectangle</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="nb">abs</span><span class="p">(</span>
+        <span class="c1">#                 y_A      y_C      x_D      x_B</span>
+                        <span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+        <span class="c1">#                  y_B     y_D       x_A     x_C</span>
+                      <span class="o">+</span> <span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">r</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="p">)</span>
+
+    <span class="n">ABP</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span>
+             <span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+            <span class="o">+</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+            <span class="o">+</span><span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+          <span class="p">)</span>
+    <span class="n">BCP</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span>
+             <span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">r</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+            <span class="o">+</span><span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+            <span class="o">+</span><span class="n">r</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+          <span class="p">)</span>
+    <span class="n">CDP</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span>
+             <span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+            <span class="o">+</span><span class="n">r</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+            <span class="o">+</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">r</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+          <span class="p">)</span>
+    <span class="n">DAP</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span>
+             <span class="n">r</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+            <span class="o">+</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">r</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+            <span class="o">+</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+          <span class="p">)</span>
+    <span class="k">return</span> <span class="n">areaRectangle</span> <span class="o">==</span> <span class="p">(</span><span class="n">ABP</span><span class="o">+</span><span class="n">BCP</span><span class="o">+</span><span class="n">CDP</span><span class="o">+</span><span class="n">DAP</span><span class="p">)</span>
+</pre></div>
+<h2 id="triangle">Triangle</h2>
+<p>The same idea can easily be adopted to triangles:</p>
+<div class="highlight"><pre><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
+    <span class="sd">"""Represents a two dimensional point."""</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+
+    <span class="k">def</span> <span class="nf">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">cls</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">obj</span>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">"P(</span><span class="si">%.2lf</span><span class="s2">|</span><span class="si">%.2lf</span><span class="s2">)"</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Triangle</span><span class="p">:</span>
+    <span class="sd">"""Represents a triangle in R^2."""</span>
+
+    <span class="n">epsilon</span> <span class="o">=</span> <span class="mf">0.001</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">Point</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">Point</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">Point</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">a</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">b</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">c</span> <span class="o">=</span> <span class="n">c</span>
+
+    <span class="k">def</span> <span class="nf">getArea</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">"""Get area of this triangle.</span>
+<span class="sd">           &gt;&gt;&gt; Triangle(Point(0.,0.), Point(10.,0.), Point(10.,10.)).getArea()</span>
+<span class="sd">           50.0</span>
+<span class="sd">           &gt;&gt;&gt; Triangle(Point(-10.,0.), Point(10.,0.), Point(10.,10.)).getArea()</span>
+<span class="sd">           100.0</span>
+<span class="sd">        """</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span>
+        <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">y</span><span class="o">-</span><span class="n">c</span><span class="o">.</span><span class="n">y</span><span class="p">)</span><span class="o">+</span><span class="n">b</span><span class="o">.</span><span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">y</span><span class="o">-</span><span class="n">a</span><span class="o">.</span><span class="n">y</span><span class="p">)</span><span class="o">+</span><span class="n">c</span><span class="o">.</span><span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">y</span><span class="o">-</span><span class="n">b</span><span class="o">.</span><span class="n">y</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span>
+
+    <span class="k">def</span> <span class="nf">isInside</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+        <span class="sd">"""Check if p is inside this triangle."""</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">Point</span><span class="p">)</span>
+        <span class="n">currentArea</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getArea</span><span class="p">()</span>
+        <span class="n">pab</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">)</span>
+        <span class="n">pac</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="p">)</span>
+        <span class="n">pbc</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="p">)</span>
+        <span class="n">newArea</span> <span class="o">=</span> <span class="n">pab</span><span class="o">.</span><span class="n">getArea</span><span class="p">()</span><span class="o">+</span><span class="n">pac</span><span class="o">.</span><span class="n">getArea</span><span class="p">()</span><span class="o">+</span><span class="n">pbc</span><span class="o">.</span><span class="n">getArea</span><span class="p">()</span>
+        <span class="k">return</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">currentArea</span> <span class="o">-</span> <span class="n">newArea</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">Triangle</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">doctest</span>
+    <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
+</pre></div>
+<h2 id="credits">Credits</h2>
+<p>Thank you Teon Brooks for reporting an error (I wrote "rectangles" instead of
+"triangles")</p>
+            
+            <section>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                href="../how-to-check-if-a-point-is-inside-a-rectangle/#disqus_thread">
+                Comments
+            </a>
+        </div>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'martinthoma';
+        var disqus_identifier = '../how-to-check-if-a-point-is-inside-a-rectangle/';
+    var disqus_url = '../how-to-check-if-a-point-is-inside-a-rectangle/';
+
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
                 </div>
             </div>
-        </div><!--/container-->
-            <footer id="footer">
-                <a href="//martin-thoma.com"><strong>Martin Thoma</strong></a> -  A blog about Code, the Web and Cyberculture. <br />
-                <div class="footer-credits">
-                    <a href="http://flexithemes.com/themes/modern-style/">Modern Style</a> theme by <a href="http://flexithemes.com/">FlexiThemes</a>
-                </div>
-            </footer><!--/footer-->
+        </div>
+    </div>
+</div>
+</section>
 
-    </div><!--/wrapper-->
-<!-- type: footer -->
-<!-- TOC Plus -->
-<script type='text/javascript'>
-/* <![CDATA[ */
-var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"};
-/* ]]> */
-</script>
-<script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
-<script>
+            <hr/>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2012-09-07T21:28:38+02:00">Sep 7, 2012</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="http://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#geometry-ref">Geometry
+                    <span>5</span>
+</a></li>
+                <li><a href="../tags.html#python-ref">Python
+                    <span>70</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
 (function(){
     'use strict';
 
@@ -437,6 +347,47 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 
   })();
 </script>
-</body>
-</html>
 
+            <script type="text/javascript">
+var disqus_shortname = 'martinthoma';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

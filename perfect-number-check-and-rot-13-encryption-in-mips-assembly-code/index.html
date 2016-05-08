@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Assembly language, MIPS, Code, " />
+
+<meta property="og:title" content="Perfect number check and ROT-13 encryption in MIPS-assembly code "/>
+<meta property="og:url" content="../perfect-number-check-and-rot-13-encryption-in-mips-assembly-code/" />
+<meta property="og:description" content="Perfect number check The perfect number check in MIPS is quite easy to realize. Here is some pythonic Pseudocode n = input() # read a positive integer n from the user sumOfDivisors = 0 for i in range(1, n): # go from 1 to n-1 if n % i == 0: # if i is a ..." />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2012-06-22T10:43:49+02:00" />
+<meta name="twitter:title" content="Perfect number check and ROT-13 encryption in MIPS-assembly code ">
+<meta name="twitter:description" content="Perfect number check The perfect number check in MIPS is quite easy to realize. Here is some pythonic Pseudocode n = input() # read a positive integer n from the user sumOfDivisors = 0 for i in range(1, n): # go from 1 to n-1 if n % i == 0: # if i is a ...">
+<meta property="og:image" content="2012/06/MIPS-Ingenic_JZ4730.jpg" />
+<meta name="twitter:image" content="2012/06/MIPS-Ingenic_JZ4730.jpg" >
+
+        <title>Perfect number check and ROT-13 encryption in MIPS-assembly code  · Martin Thoma
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+        
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="../"><span class=site-name>Martin Thoma</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="../perfect-number-check-and-rot-13-encryption-in-mips-assembly-code/"> Perfect number check and ROT-13 encryption in MIPS-assembly code  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+    <div class="span2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#perfect-number-check" title="Perfect number check">Perfect number check</a></li><li><a class="toc-href" href="#rot-13-encryption" title="ROT-13 encryption">ROT-13 encryption</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="span8 article-content" id="contentAfterTitle">
+
+            
+            <h2 id="perfect-number-check">Perfect number check</h2>
+<p>The perfect number check in MIPS is quite easy to realize. Here is some pythonic Pseudocode</p>
+<div class="highlight"><pre><span class="n">n</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>             <span class="c1"># read a positive integer n from the user</span>
+<span class="n">sumOfDivisors</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>   <span class="c1"># go from 1 to n-1</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>      <span class="c1"># if i is a divisor</span>
+        <span class="n">sumOfDivisors</span> <span class="o">+=</span> <span class="n">i</span>
+
+<span class="k">if</span> <span class="n">sumOfDivisors</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s2">"1"</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s2">"0"</span>
+</pre></div>
+<p>And here is the MIPS-Code:</p>
+<div class="highlight"><pre>#####################################################################
+# Perfect number check                                              #
+# @param int the number you would like to check                     #
+# @result int 0 if the number is not perfect, otherwise 1           #
+#####################################################################
+
+.data
+    prompt: .asciiz "Positive integer you would like to check : "
+    output: .asciiz "Is a perfect number (1: Yes, 0: No): "
+.text
+.globl main
+main: li $v0 , 4        # |
+    la $a0 , prompt     # |
+    syscall             # |=&gt; Print string "prompt"
+    li $v0 , 5          # |
+    syscall             # |=&gt; Ask for integer A
+
+    # Initialise variables
+    move $s0 , $v0      # =&gt; Store A in $s0
+    li $s1 , 0          # =&gt; The sum of all proper divisors of A
+    li $s2 , 1          # =&gt; start here with checks for devisors
+
+s:  bgeu $s2, $s0, eval # while $s2 &lt; $s0
+    rem $t0, $s0, $s2   # $t0 = $s0 % $s2
+    bne $t0, $0, w
+    addu $s1, $s1, $s2  # $s1 += $s2
+w:  addi $s2, $s2, 1    # $s2++
+    j s;                # /endwhile 
+
+eval: seq $s0, $s0, $s1 # Compare the sum of divisors with A    
+    li $v0 , 4          # |
+    la $a0 , output     # |
+    syscall             # |=&gt; Print string "output"
+    la $v0 , 1          # |
+    move $a0 , $s0      # |
+    syscall             # |=&gt; Print $s0
+    jr $ra
+</pre></div>
+<h2 id="rot-13-encryption">ROT-13 encryption</h2>
+<p>The basic idea for encrypting a string with ROT-13 is to loop over all characters and use the ASCII-Table to shift them. Here is the ROT-13 MIPS-Code:</p>
+<div class="highlight"><pre>#####################################################################
+# @param string a &amp;#92;&amp;#48; terminated string                              #
+# @return string the ROT-13 encrypted string                        #
+#####################################################################
+
+.data
+    prompt: .asciiz "Please enter string: "
+    output: .asciiz "ROT-13: "
+    plain:  .space 64
+.text
+.globl main
+main:
+    li      $v0, 4      # |
+    la      $a0, prompt # |
+    syscall             # |=&gt; Print string "prompt"
+    li      $v0, 8      # |
+    la      $a0, plain  # | =&gt; Ask for string plain
+    li      $a1, 64     # |
+    syscall             # | =&gt; read a string with max. 64 chars
+    li      $t2, 10     # Stop by \n
+
+    # Loop over all characters
+    la      $t1, ($a0)  #=&gt;$t1:the current adress that gets modified
+
+s:  lb      $t0, ($t1)  # =&gt; $t0: the current value (char)
+    beq $t0, $t2, out   # while $t1 != '\n'
+    li $t3, 64
+    bge $t3, $t0, w     # if $t0 &lt;= 64: jump to w
+    li $t3, 123
+    bge $t0, $t3, w     # if $t0 &gt;= 123: jump to w
+    li $t3, 90
+    bge $t3, $t0, big   # if $t0 &lt;= 90: jump to big
+    li $t3, 96
+    bge $t3, $t0, w     # if $t0 &lt;= 96: jump to w
+    j small
+w:  addi $t1, $t1, 1    # $t1++
+    j s;                # /endwhile 
+
+small:
+    addi    $t0, -84    # -97 + 13
+    rem     $t0, $t0, 26 # $t0 %= 26
+    addi    $t0, 97
+    sb      $t0, ($t1)
+    j w
+
+big:
+    addi    $t0, -52    # -65 + 13
+    rem     $t0, $t0, 26 # $t0 %= 26
+    addi    $t0, 65
+    sb      $t0, ($t1)
+    j w
+
+out:
+    li      $v0, 4      # |
+    la      $a0, output # |
+    syscall             # |=&gt; Print string "output"
+
+    la      $v0, 4      # |
+    la      $a0, plain  # |
+    syscall             # |=&gt; Print plain
+    jr      $ra
+</pre></div>
+<p>A syntax-highlighted version of both code pieces is here: <a href="../images/2012/06/mips-rot-13-perfect-number.pdf">MIPS Assembly Code for a perfect number check and ROT-13 encryption</a>.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="https://sourceforge.net/projects/spimsimulator/files/">SPIM MIPS Simulator</a></li>
+<li><a href="../how-print-mips-assembly-code-latex/" title="How to print MIPS assembly code in LaTeX">How to print MIPS assembly code in LaTeX</a></li>
+<li><a href="../add-mips-syntax-highlighting-gedit/" title="Add MIPS syntax highlighting to gEdit">Add MIPS syntax highlighting to gEdit</a></li>
+<li><a href="../images/2012/06/mips-archive.zip">Archive with MIPS assembly Code and LaTeX file</a></li>
+</ul>
+            
+            <section>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                href="../perfect-number-check-and-rot-13-encryption-in-mips-assembly-code/#disqus_thread">
+                Comments
+            </a>
+        </div>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'martinthoma';
+        var disqus_identifier = '../perfect-number-check-and-rot-13-encryption-in-mips-assembly-code/';
+    var disqus_url = '../perfect-number-check-and-rot-13-encryption-in-mips-assembly-code/';
+
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2012-06-22T10:43:49+02:00">Jun 22, 2012</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="http://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#assembly-language-ref">Assembly language
+                    <span>5</span>
+</a></li>
+                <li><a href="../tags.html#mips-ref">MIPS
+                    <span>3</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+
+            <script type="text/javascript">
+var disqus_shortname = 'martinthoma';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
