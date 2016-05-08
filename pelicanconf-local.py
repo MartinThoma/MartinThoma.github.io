@@ -49,6 +49,7 @@ DISQUS_SITENAME = "martinthoma"
 
 ARTICLE_URL = '{slug}/'
 ARTICLE_SAVE_AS = '{slug}/index.html'
+AUTHOR_URL = 'author/{slug}/'
 PAGE_URL = 'pages/{slug}/'
 PAGE_SAVE_AS = 'pages/{slug}/index.html'
 CATEGORY_URL = 'category/{slug}/'
@@ -81,9 +82,11 @@ DIRECT_TEMPLATES = (('index', 'tags', 'categories', 'archives', 'search',
 STATIC_PATHS = ['images',
                 'extra/CNAME',
                 'extra/custom.css',
-                'extra/favicon.ico']
+                'extra/favicon.ico',
+                'pdf']
 EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},
                        'extra/custom.css': {'path': 'static/custom.css'},
-                       'extra/favicon.ico': {'path': 'favicon.ico'}}
+                       'extra/favicon.ico': {'path': 'favicon.ico'},
+                       'pdf': {'path': 'pdf'}}
 OUTPUT_PATH = '/var/www/blog/'
 # SUMMARY_MAX_LENGTH = 0
