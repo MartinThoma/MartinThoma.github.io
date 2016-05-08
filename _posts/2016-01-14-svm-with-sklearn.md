@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Using SVMs with sklearn
+slug: svm-with-sklearn
 author: Martin Thoma
 date: 2016-01-14 12:25
 category: Machine Learning

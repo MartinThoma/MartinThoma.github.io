@@ -705,8 +705,8 @@ Slides: `8-ConstrainedAssociationRules.pdf`
             <li>$\text{size}(s) \geq v, \;\;\; v \in \mathbb{N}$ ist nicht anti-monoton</li>
         </ul>
 
-        Eine gutartige Eigenschaft von Constraints. Hier kann das
-        Constraint sehr früh überprüft werden.</dd>
+        Anti-Monotonizität ist eine gutartige Eigenschaft von Constraints. Hier
+        kann das Constraint sehr früh überprüft werden.</dd>
     <dt><dfn id="succinctness">Succinctness</dfn></dt>
     <dd>Ein Constraint heißt succinct, wenn alle Itemsets die es erfüllen
         schnell erzeugt werden können.<br/>
@@ -1241,7 +1241,8 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
   → Association Rules die auf verschiedenen Begriffsebenenen sind, z.B.
     <span markdown="0">Oreo $\Rightarrow$ Milch</span>
 * Wie findet man multidimensionale Association Rules?<br/>
-  → Hinzufügen von Transaktionen deranderen Dimensionen, nutzen von "Leveln" (TODO)
+  → Hinzufügen von Transaktionen der anderen Dimensionen, nutzen von "Leveln"
+  (TODO)
 * In welchen Situationen ist Apriori teuer, und warum?<br/>
   → Apriori ist teuer, wenn es sehr große Itemsets gibt. Dann müssen alle
      darin enthaltenen Itemsets gebildet werden.
