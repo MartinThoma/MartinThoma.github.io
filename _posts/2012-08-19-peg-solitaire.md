@@ -11,7 +11,10 @@ Solit&auml;r (auch Solitaire, Steck- oder Solohalma, Springer, Jumper, Nonnenspi
 In der Mitte fehlt die Kugel, alle anderen 32 Felder sind besetzt.
 
 <h2>Die Bezeichnungen</h2>
-{% caption align="alignright" width="300" caption="Peg Solitaire - Spielfeld" url="../images/2012/08/Peg-solitaire-board.png" alt="Peg Solitaire - Spielfeld"  height="300" class=" wp-image-41441 "  %}
+<figure class="alignright">
+            <a href="../images/2012/08/Peg-solitaire-board.png"><img src="../images/2012/08/Peg-solitaire-board.png" alt="Peg Solitaire - Spielfeld" style="max-width:300px;max-height:300px;" class=" wp-image-41441 "/></a>
+            <figcaption class="text-center">Peg Solitaire - Spielfeld</figcaption>
+        </figure>
 
 Dieses Brett ist hier mit den Bezeichnungen f&uuml;r die Felder dargestellt. Der Buchstabe bezeichnet das Feld (<strong>o</strong>ben, <strong>u</strong>nten, <strong>l</strong>inks, <strong>r</strong>echts, <strong>m</strong>ittig) und die Zahl die genaue Position, wenn man das Brett so dreht, dass das aktuelle Feld oben nur zwei Kugeln hat, sind in der obersten Zeile die Zahlen 1 und 2, in der mittigen 3, 4 und 5 und in der untersten 6, 7 und 8:
 <h2>Die Regeln</h2>
@@ -57,10 +60,16 @@ Der erste Zug muss mit einer 2er-Kugel gemacht werden. Sagen wir, es ist o4.
 </table>
 Die momentane Situation sieht folgenderma&szlig;en aus:
 
-{% caption align="aligncenter" width="300" caption="Peg Solitaire: Board Situation" url="../images/2012/08/Peg-solitaire-board-situation-1.png" alt="Peg Solitaire: Board Situation"  height="300" class="wp-image-41461 "  %}
+<figure class="aligncenter">
+            <a href="../images/2012/08/Peg-solitaire-board-situation-1.png"><img src="../images/2012/08/Peg-solitaire-board-situation-1.png" alt="Peg Solitaire: Board Situation" style="max-width:300px;max-height:300px;" class="wp-image-41461 "/></a>
+            <figcaption class="text-center">Peg Solitaire: Board Situation</figcaption>
+        </figure>
 
 Nun kann man u1 einmal im Krei (auf r3, r5, o1, l3, l5 und dann wieder auf u1) wandern lassen. Es bleibt eine T-Form &uuml;brig:
 
-{% caption align="aligncenter" width="300" caption="Peg Solitaire: Board Situation 2" url="../images/2012/08/Peg-solitaire-board-situation-2.png" alt="Peg Solitaire: Board Situation 2"  height="300" class=" wp-image-41491 "  %}
+<figure class="aligncenter">
+            <a href="../images/2012/08/Peg-solitaire-board-situation-2.png"><img src="../images/2012/08/Peg-solitaire-board-situation-2.png" alt="Peg Solitaire: Board Situation 2" style="max-width:300px;max-height:300px;" class=" wp-image-41491 "/></a>
+            <figcaption class="text-center">Peg Solitaire: Board Situation 2</figcaption>
+        </figure>
 
 Nun muss nur noch m &uuml;ber l1, dann u4, r1 und schlie&szlig;lich l4.

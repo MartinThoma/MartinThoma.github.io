@@ -13,10 +13,16 @@ Chrome 25 was just released and I would like to mention some features I am still
 It's annoying to have caps lock on while typing passwords. So an indicator is needed.
 
 I would prefer a caps icon indicator solution:
-{% caption align="alignnone" width="160" caption="Password field caps icon indicator" url="../images/2013/02/password-field-caps-icon-indicator.png" alt="Password field caps icon indicator"  height="29" class="size-full wp-image-76613" %}
+<figure class="alignnone">
+            <a href="../images/2013/02/password-field-caps-icon-indicator.png"><img src="../images/2013/02/password-field-caps-icon-indicator.png" alt="Password field caps icon indicator" style="max-width:160px;max-height:29px;" class="size-full wp-image-76613"/></a>
+            <figcaption class="text-center">Password field caps icon indicator</figcaption>
+        </figure>
 
 Another way to indicate it would be by text:
-{% caption align="alignnone" width="236" caption="Password field caps lock warning" url="../images/2013/02/password-field-caps-warning.png" alt="Password field caps lock warning"  height="67" class="size-full wp-image-76614" %}
+<figure class="alignnone">
+            <a href="../images/2013/02/password-field-caps-warning.png"><img src="../images/2013/02/password-field-caps-warning.png" alt="Password field caps lock warning" style="max-width:236px;max-height:67px;" class="size-full wp-image-76614"/></a>
+            <figcaption class="text-center">Password field caps lock warning</figcaption>
+        </figure>
 
 <h2>Improve MathML support</h2>
 Chrome uses WebKit and WebKit didn't support MathML for quite a long time. A quite good work-around is <a href="http://www.mathjax.org/">MathJax</a>, but it is a work-around. Native support would be nice. With Chrome 24, they have added MathML support, but its still not optimal:

@@ -7,7 +7,10 @@ category: Cyberculture
 tags: funny
 featured_image: 2012/09/Neil_deGrasse_Tyson.jpg
 ---
-{% caption align="alignright" width="128" caption="Neil deGrasse Tyson" url="../images/2012/09/Neil_deGrasse_Tyson.jpg" alt="Neil deGrasse Tyson"  height="128" class="size-full wp-image-44861" %}
+<figure class="alignright">
+            <a href="../images/2012/09/Neil_deGrasse_Tyson.jpg"><img src="../images/2012/09/Neil_deGrasse_Tyson.jpg" alt="Neil deGrasse Tyson" style="max-width:128px;max-height:128px;" class="size-full wp-image-44861"/></a>
+            <figcaption class="text-center">Neil deGrasse Tyson</figcaption>
+        </figure>
 <a href="http://en.wikipedia.org/wiki/Neil_degrasse">Neil deGrasse Tyson</a> is an American astrophysicist and science communicator. He is currently the Frederick P. Rose Director of the Hayden Planetarium at the Rose Center for Earth and Space and a research associate in the department of astrophysics at the American Museum of Natural History. And he gives hilarious talks and interviews.
 
 <h2>Death By Black Hole</h2>

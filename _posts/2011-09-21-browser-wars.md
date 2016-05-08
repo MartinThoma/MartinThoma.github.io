@@ -18,7 +18,10 @@ As Google has stopped to support Internet Explorer 6 I hope the decline of its u
 Here are two cool websites, that track browser versions:
 
 <h2>IE6 Countdown</h2>
-{% caption align="alignnone" width="500" caption="<a href='http://www.ie6countdown.com/'>IE6 Countdown</a>" url="../images/2011/09/ie6countdown.png" alt="IE6 Countdown"  height="406" class="size-full wp-image-691" %}
+<figure class="alignnone">
+            <a href="../images/2011/09/ie6countdown.png"><img src="../images/2011/09/ie6countdown.png" alt="IE6 Countdown" style="max-width:500px;max-height:406px;" class="size-full wp-image-691"/></a>
+            <figcaption class="text-center"><a href='http://www.ie6countdown.com/'>IE6 Countdown</a></figcaption>
+        </figure>
 
 <h2>Stat Counter</h2>
 <div id="browser_version-na-monthly-201002-201102" width="600" height="400" style="width:600px; height: 400px;"></div><!-- You may change the values of width and height above to resize the chart --><p>Source: <a href="http://gs.statcounter.com/#browser_version-na-monthly-201002-201102">StatCounter Global Stats - Browser Version Market Share</a></p><script type="text/javascript" src="http://www.statcounter.com/js/FusionCharts.js"></script><script type="text/javascript" src="http://gs.statcounter.com/chart.php?browser_version-na-monthly-201002-201102"></script>

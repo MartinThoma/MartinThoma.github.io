@@ -50,7 +50,10 @@ Folgende Begriffe sollte man kennen:
 </ul>
 
 <h2>Stack</h2>
-{% caption align="alignright" width="101" caption="Stack a capacity of 5 elements and size of 4." url="../images/2012/07/stack-101x300.png" alt="Stack a capacity of 5 elements and size of 4."  height="300" class="size-medium wp-image-34421" %}
+<figure class="alignright">
+            <a href="../images/2012/07/stack-101x300.png"><img src="../images/2012/07/stack-101x300.png" alt="Stack a capacity of 5 elements and size of 4." style="max-width:101px;max-height:300px;" class="size-medium wp-image-34421"/></a>
+            <figcaption class="text-center">Stack a capacity of 5 elements and size of 4.</figcaption>
+        </figure>
 
 Stacks, auch "<a href="http://de.wikipedia.org/wiki/Stapelspeicher">Stapelspeicher</a>" oder "Kellerspeicher" genannt, sind eine elementare Datenstruktur. Es sollte sie in jeder Sprache geben. In Java ist es in <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Stack.html">java.util.Stack</a>, in Python sind es <a href="http://docs.python.org/tutorial/datastructures.html#using-lists-as-stacks">Listen</a> und nat&uuml;rlich gibt es auch in <a href="../stacks-in-cpp/" title="Stacks in C++">C++ Stacks</a>.
 

@@ -7,14 +7,20 @@ category: My bits and bytes
 tags: home improvement, do-it-yourself
 featured_image: 2011/10/do-it-yourself-thumb.jpg
 ---
-{% caption align="alignright" width="128" caption="Do-it-yourself - Some random tools (Thumbnail)" url="../images/2011/10/do-it-yourself-thumb.jpg" alt="Do-it-yourself - Some random tools (Thumbnail)"  height="128" class="size-full wp-image-4861 "  %}
+<figure class="alignright">
+            <a href="../images/2011/10/do-it-yourself-thumb.jpg"><img src="../images/2011/10/do-it-yourself-thumb.jpg" alt="Do-it-yourself - Some random tools (Thumbnail)" style="max-width:128px;max-height:128px;" class="size-full wp-image-4861 "/></a>
+            <figcaption class="text-center">Do-it-yourself - Some random tools (Thumbnail)</figcaption>
+        </figure>
 
 I've decided to fill some holes in my ceiling and my wall today. I don't want to paint my room the next time as it is too cold at the moment, but the holes were really ugly. I've added a photo of them. So I went to the next hardware store and asked what could be done. I thought I needed to use gypsum which is gray, so it wouldn't look very good. Additionally you can buy gypsum only in 1.5 kg bags. 
 <br/>
 <br/>
 <br/>
 <h2>Situation before</h2>
-{% caption align="aligncenter" width="614" caption="Holes in the ceiling" url="../images/2012/03/loch-in-der-decke-1024x563.jpg" alt="Holes in the ceiling before I fixed it."  height="338" class=" wp-image-17171 "  %}
+<figure class="aligncenter">
+            <a href="../images/2012/03/loch-in-der-decke-1024x563.jpg"><img src="../images/2012/03/loch-in-der-decke-1024x563.jpg" alt="Holes in the ceiling before I fixed it." style="max-width:614px;max-height:338px;" class=" wp-image-17171 "/></a>
+            <figcaption class="text-center">Holes in the ceiling</figcaption>
+        </figure>
 
 <h2>The tools</h2>
 The guy at the hardware store suggested to use acrylic paint. So I did. These were the tools I needed:

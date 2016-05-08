@@ -14,7 +14,10 @@ If you are the owner of one of these websites and don't want me to publish your 
 <h2>We are the 99%</h2>
 <a href="http://en.wikipedia.org/wiki/We_are_the_99%25">We are the 99%</a> is a political slogan of "Occupy" protesters. It refers to the vast concentration of wealth among the top 1% of income earners compared to the other 99%, and indicates that most people are paying the price for the mistakes of a tiny minority.
 
-{% caption align="aligncenter" width="300" caption="We are the 99% - Caricature from mattbors.com" url="../images/2011/12/99-percent-300x217.jpg" alt="We are the 99% - Caricature from mattbors.com"  height="217" class="size-medium wp-image-10371 "  %}
+<figure class="aligncenter">
+            <a href="../images/2011/12/99-percent-300x217.jpg"><img src="../images/2011/12/99-percent-300x217.jpg" alt="We are the 99% - Caricature from mattbors.com" style="max-width:300px;max-height:217px;" class="size-medium wp-image-10371 "/></a>
+            <figcaption class="text-center">We are the 99% - Caricature from mattbors.com</figcaption>
+        </figure>
 (mattbors.com has some more caricatures from the occupy protesters)
 
 <figure class="aligncenter">

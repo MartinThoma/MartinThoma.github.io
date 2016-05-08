@@ -7,13 +7,19 @@ category: The Web
 tags: Web Development, OpenID, RSS, Gravatar, Ajax, Labels, Tags
 featured_image: 2011/10/OpenID.png
 ---
-{% caption align="alignright" width="100" caption="RSS-Feeds" url="../images/2011/10/RSS-Feeds.png" alt="RSS-Feeds"  height="100" class="size-full wp-image-4411" %}
+<figure class="alignright">
+            <a href="../images/2011/10/RSS-Feeds.png"><img src="../images/2011/10/RSS-Feeds.png" alt="RSS-Feeds" style="max-width:100px;max-height:100px;" class="size-full wp-image-4411"/></a>
+            <figcaption class="text-center">RSS-Feeds</figcaption>
+        </figure>
 
 
 ## RSS-Feeds
 Everyone who wants to get informed about updates on websites has to use RSS Feeds. Every time any website you have in your Feed Reader makes an update, you can get instantly a little notice. Its a bit like e-mail, but you have the possibility to stop this service. You can't get spam, as the Feed owner doesn't get an identifier for you.
 
-{% caption align="alignright" width="100" caption="OpenID" url="../images/2011/10/OpenID.png" alt="OpenID"  height="100" class="size-full wp-image-4431" %}
+<figure class="alignright">
+            <a href="../images/2011/10/OpenID.png"><img src="../images/2011/10/OpenID.png" alt="OpenID" style="max-width:100px;max-height:100px;" class="size-full wp-image-4431"/></a>
+            <figcaption class="text-center">OpenID</figcaption>
+        </figure>
 
 
 ## OpenID
@@ -58,7 +64,10 @@ The document you a re searching for could be in Word; in School/English, in Docu
 
 I wrote "Hierarchical Labels", because sometimes you have one label, that comes always with another one, but not the other way round. As I am not very interested in chemistry, all files about chemistry were for school. So if I tagged a file with "chemistry" it should automatically get the "school"-tag.
 
-{% caption align="alignright" width="63" caption="Gravatar-Logo" url="../images/2011/10/Gravatar-Logo.png" alt="Gravatar-Logo"  height="63" class="size-full wp-image-4441" %}
+<figure class="alignright">
+            <a href="../images/2011/10/Gravatar-Logo.png"><img src="../images/2011/10/Gravatar-Logo.png" alt="Gravatar-Logo" style="max-width:63px;max-height:63px;" class="size-full wp-image-4441"/></a>
+            <figcaption class="text-center">Gravatar-Logo</figcaption>
+        </figure>
 <h2>Gravatar</h2>
 Have you ever noticed <a href="http://www.sembeo.com/ninja/comment-page-2/" rel="nofollow">blogs</a> or <a href="http://stackoverflow.com/questions/4880891/javascript-settimeout-and-changes-to-system-time-cause-problems" rel="nofollow">other</a> sites where some people have avatars and others don't? Sometimes, if a possibility to login is provided this is not really amazing. But where does the website get the pictures from if there is no possibility to log in?
 

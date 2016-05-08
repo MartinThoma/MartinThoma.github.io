@@ -44,7 +44,10 @@ Usage example:
 
 ## Math
 ### Formulas
-{% caption align="aligncenter" width="309" caption="Sizes of different math modes" url="../images/2012/09/latex-math-sizes.png" alt="Sizes of different math modes"  height="145" class="size-full wp-image-45931"  %}
+<figure class="aligncenter">
+            <a href="../images/2012/09/latex-math-sizes.png"><img src="../images/2012/09/latex-math-sizes.png" alt="Sizes of different math modes" style="max-width:309px;max-height:145px;" class="size-full wp-image-45931"/></a>
+            <figcaption class="text-center">Sizes of different math modes</figcaption>
+        </figure>
 Usage example:
 <code>$\scriptstyle \lim_{n \rightarrow \infty} (1 + \frac{1}{n})^n$</code>
 <ul>
@@ -64,4 +67,7 @@ $$-1+x ( x \big( 1+ x\Big(2 + x \bigg(3+ x\Bigg(4+x \Bigg) \bigg) \Big) \big) )$
 
 The result will look like this
 
-{% caption align="aligncenter" width="500" caption="Sizes of parentheses" url="../images/2012/09/latex-parentheses-sizes.png" alt="Sizes of parentheses" class="size-full" %}
+<figure class="aligncenter">
+            <a href="../images/2012/09/latex-parentheses-sizes.png"><img src="../images/2012/09/latex-parentheses-sizes.png" alt="Sizes of parentheses" style="max-width:500px;" class="size-full"/></a>
+            <figcaption class="text-center">Sizes of parentheses</figcaption>
+        </figure>

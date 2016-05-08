@@ -15,7 +15,10 @@ $\delta = \text{siehe Grafik}$
 $F = \{S\}$
 $NEA = \left( Q, \Sigma, \delta, S, F \right)$
 
-{% caption align="aligncenter" width="365" caption="Nondeterministic finite-state machine" url="../images/2011/10/myFiniteStateMachine1.png" alt="Nondeterministic finite-state machine"  height="119" class="size-full wp-image-8141 "  %}
+<figure class="aligncenter">
+            <a href="../images/2011/10/myFiniteStateMachine1.png"><img src="../images/2011/10/myFiniteStateMachine1.png" alt="Nondeterministic finite-state machine" style="max-width:365px;max-height:119px;" class="size-full wp-image-8141 "/></a>
+            <figcaption class="text-center">Nondeterministic finite-state machine</figcaption>
+        </figure>
 
 Will man daraus nun den endlichen Automaten konstruieren, l&auml;uft das im Prinzip &uuml;ber eine Potenzmengenkonstruktion.
 

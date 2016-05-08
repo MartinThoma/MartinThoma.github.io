@@ -64,7 +64,10 @@ Here are some of the icons:
 <h2>Background</h2>
 The background is based on "<a href="http://ubuntu.damianvila.com/">Lion Claar</a>" background by Dami&aacute;n Vila:
 
-{% caption align="alignright" width="150" caption="Balanzan 4:3 wallpaper" url="../images/2012/10/balanzan_4_3-150x150.png" alt="Balanzan 4:3 wallpaper"  height="150" class="size-thumbnail wp-image-46491" %}
+<figure class="alignright">
+            <a href="../images/2012/10/balanzan_4_3-150x150.png"><img src="../images/2012/10/balanzan_4_3-150x150.png" alt="Balanzan 4:3 wallpaper" style="max-width:150px;max-height:150px;" class="size-thumbnail wp-image-46491"/></a>
+            <figcaption class="text-center">Balanzan 4:3 wallpaper</figcaption>
+        </figure>
 
 <figure class="aligncenter">
             <a href="../images/2012/10/balanzan-150x150.png"><img src="../images/2012/10/balanzan-150x150.png" alt="Balanzan 16:9 wallpaper" style="max-width:150px;max-height:150px" class="size-thumbnail wp-image-46481"/></a>

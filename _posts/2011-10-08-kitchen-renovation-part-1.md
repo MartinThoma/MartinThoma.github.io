@@ -19,37 +19,76 @@ The flat is shared by students. My hirer told me that he will pay all cost of ma
 	<li>The tube for hot water was loose.</li>
 </ul>
 <h3>Some photos</h3>
-{% caption align="aligncenter" width="600" caption="Old countertop of our kitchen" url="../images/2011/10/kitchen-before-countertop.jpg" alt="Old countertop of our kitchen"  height="450" class="size-full wp-image-4281"  %}
+<figure class="aligncenter">
+            <a href="../images/2011/10/kitchen-before-countertop.jpg"><img src="../images/2011/10/kitchen-before-countertop.jpg" alt="Old countertop of our kitchen" style="max-width:600px;max-height:450px;" class="size-full wp-image-4281"/></a>
+            <figcaption class="text-center">Old countertop of our kitchen</figcaption>
+        </figure>
 
-{% caption align="aligncenter" width="375" caption="The old countertop" url="../images/2011/10/kitchen-before-countertop-old.jpg" alt="The old countertop"  height="500" class="size-full wp-image-4301"  %}
+<figure class="aligncenter">
+            <a href="../images/2011/10/kitchen-before-countertop-old.jpg"><img src="../images/2011/10/kitchen-before-countertop-old.jpg" alt="The old countertop" style="max-width:375px;max-height:500px;" class="size-full wp-image-4301"/></a>
+            <figcaption class="text-center">The old countertop</figcaption>
+        </figure>
 
-{% caption align="aligncenter" width="600" caption="Top of the old countertop" url="../images/2011/10/kitchen-before-countertop-old-top.jpg" alt="Top of the old countertop"  height="450" class="size-full wp-image-4331"  %}
+<figure class="aligncenter">
+            <a href="../images/2011/10/kitchen-before-countertop-old-top.jpg"><img src="../images/2011/10/kitchen-before-countertop-old-top.jpg" alt="Top of the old countertop" style="max-width:600px;max-height:450px;" class="size-full wp-image-4331"/></a>
+            <figcaption class="text-center">Top of the old countertop</figcaption>
+        </figure>
 <h2>Plans</h2>
-{% caption align="aligncenter" width="674" caption="Kitchen before renovation" url="../images/2011/10/kitchen-before-plan.png" alt="Kitchen before renovation"  height="458" class="size-full wp-image-4551"  %}
+<figure class="aligncenter">
+            <a href="../images/2011/10/kitchen-before-plan.png"><img src="../images/2011/10/kitchen-before-plan.png" alt="Kitchen before renovation" style="max-width:674px;max-height:458px;" class="size-full wp-image-4551"/></a>
+            <figcaption class="text-center">Kitchen before renovation</figcaption>
+        </figure>
 
-{% caption align="aligncenter" width="675" caption="Kitchen after renovation" url="../images/2011/10/kitchen-after-plan.png" alt="Kitchen after renovation"  height="459" class="size-full wp-image-4561"  %}
+<figure class="aligncenter">
+            <a href="../images/2011/10/kitchen-after-plan.png"><img src="../images/2011/10/kitchen-after-plan.png" alt="Kitchen after renovation" style="max-width:675px;max-height:459px;" class="size-full wp-image-4561"/></a>
+            <figcaption class="text-center">Kitchen after renovation</figcaption>
+        </figure>
 <h2>The renovation</h2>
 <h3>Tools</h3>
 I needed quite a lot of tools. I had to buy most of them when I saw that I couldn't continue without them:
 
-{% caption align="aligncenter" width="400" caption="Drilling machine" url="../images/2011/10/tool-drilling-machine.jpg" alt="Drilling machine"  height="255" class="size-full wp-image-4571"  %}
+<figure class="aligncenter">
+            <a href="../images/2011/10/tool-drilling-machine.jpg"><img src="../images/2011/10/tool-drilling-machine.jpg" alt="Drilling machine" style="max-width:400px;max-height:255px;" class="size-full wp-image-4571"/></a>
+            <figcaption class="text-center">Drilling machine</figcaption>
+        </figure>
 
-{% caption align="aligncenter" width="400" caption="Plumber wrench" url="../images/2011/10/tool-plumber-wrench.jpg" alt="Plumber wrench"  height="127" class="size-full wp-image-4581"  %}
+<figure class="aligncenter">
+            <a href="../images/2011/10/tool-plumber-wrench.jpg"><img src="../images/2011/10/tool-plumber-wrench.jpg" alt="Plumber wrench" style="max-width:400px;max-height:127px;" class="size-full wp-image-4581"/></a>
+            <figcaption class="text-center">Plumber wrench</figcaption>
+        </figure>
 
-{% caption align="aligncenter" width="400" caption="Screwdrivers" url="../images/2011/10/tool-screwdriver.jpg" alt="Screwdrivers"  height="198" class="size-full wp-image-4591"  %}
+<figure class="aligncenter">
+            <a href="../images/2011/10/tool-screwdriver.jpg"><img src="../images/2011/10/tool-screwdriver.jpg" alt="Screwdrivers" style="max-width:400px;max-height:198px;" class="size-full wp-image-4591"/></a>
+            <figcaption class="text-center">Screwdrivers</figcaption>
+        </figure>
 
-{% caption align="aligncenter" width="500" caption="Silicone cartridge" url="../images/2011/10/tool-silicone-cartridge.jpg" alt="Silicone cartridge"  height="254" class="size-full wp-image-4611"  %}
+<figure class="aligncenter">
+            <a href="../images/2011/10/tool-silicone-cartridge.jpg"><img src="../images/2011/10/tool-silicone-cartridge.jpg" alt="Silicone cartridge" style="max-width:500px;max-height:254px;" class="size-full wp-image-4611"/></a>
+            <figcaption class="text-center">Silicone cartridge</figcaption>
+        </figure>
 
-{% caption align="aligncenter" width="600" caption="Spirit level" url="../images/2011/10/tool-spirit-level.jpg" alt="Spirit level"  height="120" class="size-full wp-image-4621"  %}
+<figure class="aligncenter">
+            <a href="../images/2011/10/tool-spirit-level.jpg"><img src="../images/2011/10/tool-spirit-level.jpg" alt="Spirit level" style="max-width:600px;max-height:120px;" class="size-full wp-image-4621"/></a>
+            <figcaption class="text-center">Spirit level</figcaption>
+        </figure>
 
-{% caption align="aligncenter" width="290" caption="Wrench" url="../images/2011/10/tool-wrench.jpg" alt="Wrench"  height="350" class="size-full wp-image-4631"  %}
+<figure class="aligncenter">
+            <a href="../images/2011/10/tool-wrench.jpg"><img src="../images/2011/10/tool-wrench.jpg" alt="Wrench" style="max-width:290px;max-height:350px;" class="size-full wp-image-4631"/></a>
+            <figcaption class="text-center">Wrench</figcaption>
+        </figure>
 
 Additionally I needed a hammer to get the wall plugs into the wall, some different screws and wall plugs, pliers, some tubes and some <a href="http://en.wikipedia.org/wiki/O-ring">O-rings</a>.
 
 <h3>Photos while working</h3>
-{% caption align="aligncenter" width="196" caption="Crooked wall" url="../images/2011/10/kitchen-working-crooked-wall2-196x300.jpg" alt="Crooked wall"  height="300" class="size-medium wp-image-4641 "  %}
+<figure class="aligncenter">
+            <a href="../images/2011/10/kitchen-working-crooked-wall2-196x300.jpg"><img src="../images/2011/10/kitchen-working-crooked-wall2-196x300.jpg" alt="Crooked wall" style="max-width:196px;max-height:300px;" class="size-medium wp-image-4641 "/></a>
+            <figcaption class="text-center">Crooked wall</figcaption>
+        </figure>
 
-{% caption align="aligncenter" width="225" caption="Heating pipes" url="../images/2011/10/kitchen-after-heating-pipe-225x300.jpg" alt="Heating pipes"  height="300" class="size-medium wp-image-4671  "  %}
+<figure class="aligncenter">
+            <a href="../images/2011/10/kitchen-after-heating-pipe-225x300.jpg"><img src="../images/2011/10/kitchen-after-heating-pipe-225x300.jpg" alt="Heating pipes" style="max-width:225px;max-height:300px;" class="size-medium wp-image-4671  "/></a>
+            <figcaption class="text-center">Heating pipes</figcaption>
+        </figure>
 
 <figure class="aligncenter">
             <a href="../images/2011/10/kitchen-working-washing-machine-300x225.jpg"><img src="../images/2011/10/kitchen-working-washing-machine-300x225.jpg" alt="Washing machine" style="max-width:300px;max-height:225px" class="size-medium wp-image-4741"/></a>
@@ -101,7 +140,10 @@ in the package. After 10 minutes, I could remove some more of the caulk.
         </figure>
 
 <h2>The new kitchen</h2>
-{% caption align="aligncenter" width="600" caption="Kitchen after renovation" url="../images/2011/10/kitchen-after.png" alt="Kitchen after renovation"  height="450" class="size-full wp-image-4651"  %}
+<figure class="aligncenter">
+            <a href="../images/2011/10/kitchen-after.png"><img src="../images/2011/10/kitchen-after.png" alt="Kitchen after renovation" style="max-width:600px;max-height:450px;" class="size-full wp-image-4651"/></a>
+            <figcaption class="text-center">Kitchen after renovation</figcaption>
+        </figure>
 
 <figure class="aligncenter">
             <a href="../images/2011/10/kitchen-after-exact-work-300x225.jpg"><img src="../images/2011/10/kitchen-after-exact-work-300x225.jpg" alt="Exact work: It fitted only with a few millimeters left" style="max-width:300px;max-height:225px" class="size-medium wp-image-4771"/></a>

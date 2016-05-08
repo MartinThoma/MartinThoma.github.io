@@ -8,16 +8,31 @@ tags: Comic, Webcomic
 ---
 All of those Websites offer one small comic strip each day. Some of them are a bit geeky, so you might not understand them if you don't know anything about Linux / D&amp;D.
 <h2>xkcd</h2>
-{% caption align="aligncenter" width="320" text="<a href='http://xkcd.com/'>xkcd</a>" url="../images/2011/09/xkcd.png" alt="xkcd" title="xkcd" height="174" class="size-medium" %}
+<figure class="aligncenter">
+            <a href="../images/2011/09/xkcd.png"><img src="../images/2011/09/xkcd.png" alt="xkcd" style="max-width:320px;max-height:174px;" class="size-medium"/></a>
+            <figcaption class="text-center"><a href='http://xkcd.com/'>xkcd</a></figcaption>
+        </figure>
 
 <h2>hijinks ensue</h2>
-{% caption align="aligncenter" width="320" text="<a href='http://hijinksensue.com/2011/01/11/failed-enterprises/' rel='nofollow'>www.hijinksensue.com</a>" url="../images/2011/09/hijinksensue.png" alt="hijinks ensue" title="hijinks ensue" height="174" class="size-medium" %}
+<figure class="aligncenter">
+            <a href="../images/2011/09/hijinksensue.png"><img src="../images/2011/09/hijinksensue.png" alt="hijinks ensue" style="max-width:320px;max-height:174px;" class="size-medium"/></a>
+            <figcaption class="text-center"><a href='http://hijinksensue.com/2011/01/11/failed-enterprises/' rel='nofollow'>www.hijinksensue.com</a></figcaption>
+        </figure>
 
 <h2>Penny Arcade</h2>
-{% caption align="aligncenter" width="320" text="<a href='http://www.penny-arcade.com/comic/2010/10/13/' rel='nofollow'>www.penny-arcade.com/comic</a>" url="../images/2011/09/penny-arcade.png" alt="Penny Arcade" title="Penny Arcade" height="174" class="size-medium" %}
+<figure class="aligncenter">
+            <a href="../images/2011/09/penny-arcade.png"><img src="../images/2011/09/penny-arcade.png" alt="Penny Arcade" style="max-width:320px;max-height:174px;" class="size-medium"/></a>
+            <figcaption class="text-center"><a href='http://www.penny-arcade.com/comic/2010/10/13/' rel='nofollow'>www.penny-arcade.com/comic</a></figcaption>
+        </figure>
 
 <h2>The Perry Bible Fellowship Comics</h2>
-{% caption align="aligncenter" width="320" text="<a href='http://www.pbfcomics.com/' rel='nofollow'>www.pbfcomics.com</a>" url="../images/2011/09/pbfcomics.png" alt="The Perry Bible Fellowship Comics" title="The Perry Bible Fellowship Comics" height="174" class="size-medium" %}
+<figure class="aligncenter">
+            <a href="../images/2011/09/pbfcomics.png"><img src="../images/2011/09/pbfcomics.png" alt="The Perry Bible Fellowship Comics" style="max-width:320px;max-height:174px;" class="size-medium"/></a>
+            <figcaption class="text-center"><a href='http://www.pbfcomics.com/' rel='nofollow'>www.pbfcomics.com</a></figcaption>
+        </figure>
 
 <h2>Realm of Atland</h2>
-{% caption align="aligncenter" width="320" text="<a href='http://www.realmofatland.com/?p=235' rel='nofollow'>www.realmofatland.com</a>" url="../images/2011/09/realm-of-atland.png" alt="Realm of Atland" title="Realm of Atland" height="174" class="size-medium" %}
+<figure class="aligncenter">
+            <a href="../images/2011/09/realm-of-atland.png"><img src="../images/2011/09/realm-of-atland.png" alt="Realm of Atland" style="max-width:320px;max-height:174px;" class="size-medium"/></a>
+            <figcaption class="text-center"><a href='http://www.realmofatland.com/?p=235' rel='nofollow'>www.realmofatland.com</a></figcaption>
+        </figure>

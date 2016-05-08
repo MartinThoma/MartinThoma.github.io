@@ -77,7 +77,11 @@ D_{i - 1, j}&+ 1 \ {\rm(Deletion)}
 
 But I have written a piece of pseudocode to make it even easier to code this algorithm:
 
-{% caption class="size-full wp-image-76716" width="500" height="494" alt="WER calculation" text="WER calculation" url="../images/2013/11/WER-calculation.png" %}
+<figure class="aligncenter">
+    <img src="../images/2013/11/WER-calculation.png" style="max-width: 500px; max-height: 494px;" class="size-full" alt="WER calculation"/>
+    <figcaption>WER calculation</figcaption>
+</figure>
+
 
 <h2>Python</h2>
 ```python

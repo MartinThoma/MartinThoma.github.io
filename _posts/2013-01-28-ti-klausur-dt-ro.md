@@ -341,7 +341,10 @@ In der ungepackten Darstellung wird in einem Byte nur eine BCD-Zahl dargestellt.
         </figure>
 
 Erkennen kann man sie sehr schnell, indem man eine Tabelle mit den Spalten Befehl, Ziel-Register und Operanden-Register macht. Dabei muss man insbesondere bei der Multiplikation, <code>sw</code> und <code>lw</code> aufpassen. Folgendes (sehr gekrizeltes) Beispiel f&uuml;r die <a href="http://ti.ira.uka.de/Klausur/AlteKlausuren/k_ss_12.pdf#page=11">Klausur vom 26. Juli 2012</a>:
-{% caption align="alignnone" width="512" caption="Datenabh&auml;ngigkeiten schnell erkennen" url="../images/2013/01/datenabhaengigkeiten-erkennen.jpg" alt="Datenabh&auml;ngigkeiten schnell erkennen"  height="249" class="size-full wp-image-63101" %}
+<figure class="alignnone">
+            <a href="../images/2013/01/datenabhaengigkeiten-erkennen.jpg"><img src="../images/2013/01/datenabhaengigkeiten-erkennen.jpg" alt="Datenabh&auml;ngigkeiten schnell erkennen" style="max-width:512px;max-height:249px;" class="size-full wp-image-63101"/></a>
+            <figcaption class="text-center">Datenabh&auml;ngigkeiten schnell erkennen</figcaption>
+        </figure>
 </div>
 </div>
 

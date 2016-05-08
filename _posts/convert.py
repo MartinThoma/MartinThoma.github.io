@@ -130,10 +130,10 @@ def captiontag(filename):
     with open(filename) as f:
         content = f.read()
 
-    captiontag = re.compile('\{% caption align="aligncenter"\s+'
+    captiontag = re.compile('\{%\s+caption align="aligncenter"\s+'
                             'width="(.+?)"\s+caption="(.+?)"\s+'
                             'url="(.+?)"\s+alt="(.+?)"\s+'
-                            'height="(.+?)"\s+class="(.+?)" %\}')
+                            'height="(.+?)"\s+class="(.+?)"\s+%\}')
     content = captiontag.sub(lambda m: """<figure class="aligncenter">
             <a href="{url}"><img src="{url}" alt="{alt}" style="max-width:{width}px;max-height:{height}px" class="{classl}"/></a>
             <figcaption class="text-center">{caption}</figcaption>
@@ -144,9 +144,9 @@ def captiontag(filename):
                             width=m.group(1),
                             height=m.group(5)), content)
 
-    captiontag = re.compile('\{% caption align="aligncenter"\s+'
+    captiontag = re.compile('\{%\s+caption align="aligncenter"\s+'
                             'width="(.+?)"\s+alt="(.+?)"\s+text="(.+?)"\s+'
-                            'url="(.+?)" %\}')
+                            'url="(.+?)"\s+%\}')
     content = captiontag.sub(lambda m: """<figure class="aligncenter">
             <a href="{url}"><img src="{url}" alt="{alt}" style="max-width:{width}px;" class=""/></a>
             <figcaption class="text-center">{caption}</figcaption>
@@ -154,6 +154,89 @@ def captiontag(filename):
                             alt=m.group(2),
                             caption=m.group(3),
                             width=m.group(1)), content)
+
+    captiontag = re.compile('\{%\s+caption align="(.+?)"\s+'
+                            'width="(.+?)"\s+caption="(.+?)"\s+url="(.+?)"\s+'
+                            'alt="(.+?)"\s+height="(.+?)"\s+class="(.+?)"\s+%\}')
+    content = captiontag.sub(lambda m: """<figure class="{alignc}">
+            <a href="{url}"><img src="{url}" alt="{alt}" style="max-width:{width}px;max-height:{height}px;" class="{classimg}"/></a>
+            <figcaption class="text-center">{caption}</figcaption>
+        </figure>""".format(alignc=m.group(1),
+                            url=m.group(4),
+                            alt=m.group(5),
+                            caption=m.group(3),
+                            width=m.group(2),
+                            height=m.group(6),
+                            classimg=m.group(7)), content)
+
+    captiontag = re.compile('\{%\s+caption align="(.+?)"\s+'
+                            'width="(.+?)"\s+caption="(.+?)"\s+url="(.+?)"\s+'
+                            'alt="(.+?)"\s+height="(.+?)"\s+class="(.+?)"\s+%\}')
+    content = captiontag.sub(lambda m: """<figure class="{alignc}">
+            <a href="{url}"><img src="{url}" alt="{alt}" style="max-width:{width}px;max-height:{height}px;" class="{classimg}"/></a>
+            <figcaption class="text-center">{caption}</figcaption>
+        </figure>""".format(alignc=m.group(1),
+                            url=m.group(4),
+                            alt=m.group(5),
+                            caption=m.group(3),
+                            width=m.group(2),
+                            height=m.group(6),
+                            classimg=m.group(7)), content)
+
+    captiontag = re.compile('\{%\s+caption '
+                            'align="(.+?)"\s+'
+                            'width="(.+?)"\s+'
+                            'caption="(.+?)"\s+'
+                            'url="(.+?)"\s+'
+                            'alt="(.+?)"\s+'
+                            'height="(.+?)"\s+'
+                            'class="(.+?)"\s+%\}')
+    content = captiontag.sub(lambda m: """<figure class="{alignc}">
+            <a href="{url}"><img src="{url}" alt="{alt}" style="max-width:{width}px;max-height:{height}px;" class="{classimg}"/></a>
+            <figcaption class="text-center">{caption}</figcaption>
+        </figure>""".format(alignc=m.group(1),
+                            url=m.group(4),
+                            alt=m.group(5),
+                            caption=m.group(3),
+                            width=m.group(2),
+                            height=m.group(6),
+                            classimg=m.group(7)), content)
+
+    captiontag = re.compile('\{%\s+caption '
+                            'align="(.+?)"\s+'
+                            'width="(.+?)"\s+'
+                            'text="(.+?)"\s+'
+                            'url="(.+?)"\s+'
+                            'alt="(.+?)"\s+'
+                            'title=".+?"\s+'
+                            'height="(.+?)"\s+'
+                            'class="(.+?)"\s+%\}')
+    content = captiontag.sub(lambda m: """<figure class="{alignc}">
+            <a href="{url}"><img src="{url}" alt="{alt}" style="max-width:{width}px;max-height:{height}px;" class="{classimg}"/></a>
+            <figcaption class="text-center">{caption}</figcaption>
+        </figure>""".format(alignc=m.group(1),
+                            url=m.group(4),
+                            alt=m.group(5),
+                            caption=m.group(3),
+                            width=m.group(2),
+                            height=m.group(6),
+                            classimg=m.group(7)), content)
+
+    captiontag = re.compile('\{%\s+caption '
+                            'align="(.+?)"\s+'
+                            'width="(.+?)"\s+'
+                            'alt="(.+?)"\s+'
+                            'caption="(.+?)"\s+'
+                            'url="(.+?)"\s+'
+                            '%\}')
+    content = captiontag.sub(lambda m: """<figure class="{alignc}">
+            <a href="{url}"><img src="{url}" alt="{alt}" style="max-width:{width}px;"/></a>
+            <figcaption class="text-center">{caption}</figcaption>
+        </figure>""".format(alignc=m.group(1),
+                            url=m.group(5),
+                            alt=m.group(3),
+                            caption=m.group(4),
+                            width=m.group(2)), content)
 
     with open(filename, "w") as o:
         o.write(content)

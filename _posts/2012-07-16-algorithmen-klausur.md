@@ -34,7 +34,10 @@ F&uuml;r die Klausur in Algorithmen I sollte man Folgendes auf jeden Fall wissen
 <h2>Some Random Facts</h2>
 Das ist ein Graph, bei dem der Algorithmus von Dijkstra fehlschl&auml;gt:
 
-{% caption align="aligncenter" width="278" caption="Minimales Beispiel f&uuml;r einen Graphen, bei dem der Dijkstra-Algorithmus fehlschl&auml;gt." url="../images/2012/07/dijkstra-fail.gif" alt="Minimales Beispiel f&uuml;r einen Graphen, bei dem der Dijkstra-Algorithmus fehlschl&auml;gt."  height="278" class=" wp-image-31761 "  %}
+<figure class="aligncenter">
+            <a href="../images/2012/07/dijkstra-fail.gif"><img src="../images/2012/07/dijkstra-fail.gif" alt="Minimales Beispiel f&uuml;r einen Graphen, bei dem der Dijkstra-Algorithmus fehlschl&auml;gt." style="max-width:278px;max-height:278px;" class=" wp-image-31761 "/></a>
+            <figcaption class="text-center">Minimales Beispiel f&uuml;r einen Graphen, bei dem der Dijkstra-Algorithmus fehlschl&auml;gt.</figcaption>
+        </figure>
 
 <h2>Termine</h2>
 <strong>Datum</strong>: Dienstag, der 31.07.2012 um 17:00 Uhr<br/>
