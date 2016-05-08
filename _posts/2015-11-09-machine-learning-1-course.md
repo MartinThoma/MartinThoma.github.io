@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Machine Learning 1
+slug: machine-learning-1-course
 author: Martin Thoma
 date: 2015-11-09 16:02
 category: German posts

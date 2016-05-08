@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Neuronale Netze - Klausur
+slug: neuronale-netze-vorlesung
 author: Martin Thoma
 date: 2015-04-27 21:15
 category: German posts

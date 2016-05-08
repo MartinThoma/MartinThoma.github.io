@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Machine Learning 2
+slug: machine-learning-2-course
 author: Martin Thoma
 date: 2015-05-11 11:00
 category: German posts

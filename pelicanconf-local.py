@@ -76,7 +76,8 @@ MD_EXTENSIONS = ["codehilite(css_class=highlight)", "extra", "headerid", "toc"]
 MATH_JAX = {'auto_insert': False}
 
 SITEMAP = {
-    'exclude': ['tag/', 'category/']
+    'exclude': ['tag/', 'category/'],
+    'format': 'xml'
 }
 
 TOC = {'TOC_HEADERS': '^h[2-3]',

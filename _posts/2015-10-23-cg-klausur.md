@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Computergrafik - Klausur
+slug: cg-klausur
 author: Martin Thoma
 date: 2015-10-23 11:30
 category: German posts

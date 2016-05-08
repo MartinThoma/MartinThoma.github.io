@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Analysetechniken für große Datenbestände
+slug: analysetechniken-grosser-datenbestaende
 author: Martin Thoma
 date: 2016-04-15 11:22
 category: German posts
