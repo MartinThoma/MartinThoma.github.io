@@ -61,7 +61,7 @@ PLUGIN_PATHS = ['./pelican_plugin-render_math',
                 './pelican-tipue_search',
                 './pelican-toc',
                 # './pelican-bootstrapify',
-                #                 './simple_footnotes',
+                # './simple_footnotes',
                 ]
 PLUGINS = ['pelican_plugin-render_math',
            'tipue_search',
