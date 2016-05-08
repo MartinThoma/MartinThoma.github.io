@@ -51,21 +51,18 @@ Interestingly, the WER is just the Levenshtein distance for words.
 
 I've understood it after I saw this on the German Wikipedia:
 
-\[
 \begin{align}
 m &= |r|\\
 n &= |h|\\
 \end{align}
-\]
 
-\[
 \begin{align}
 D_{0, 0} &= 0\\
 D_{i, 0} &= i, 1 \leq i \leq m\\
 D_{0, j} &= j, 1 \leq j \leq n
-\end{align}\]
+\end{align}
 
-\[
+$$
 \text{For } 1 \leq i\leq m, 1\leq j \leq n\\
 D_{i, j} = \min \begin{cases}
 D_{i - 1, j - 1}&+ 0 \ {\rm if}\ u_i = v_j\\
@@ -73,7 +70,7 @@ D_{i - 1, j - 1}&+ 1 \ {\rm(Replacement)} \\
 D_{i, j - 1}&+ 1 \ {\rm(Insertion)} \\
 D_{i - 1, j}&+ 1 \ {\rm(Deletion)}
 \end{cases}
-\]
+$$
 
 But I have written a piece of pseudocode to make it even easier to code this algorithm:
 

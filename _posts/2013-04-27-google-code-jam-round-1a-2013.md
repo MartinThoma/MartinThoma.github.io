@@ -64,7 +64,7 @@ while($line = fgets ($fp)) {
 *Argh* I've copied the wrong equation from my pad to my computer 
 
 You basically have to solve this:
-$\begin{align}
+\begin{align}
 t - \sum_{i=0}^x ((r+1+2i)^2 - (r+2i)^2) &\geq 0\\
 \Leftrightarrow t - (x+1)(2x+2r+1) &\geq 0 \\
 \Leftrightarrow (-2)x^2 + (2r+3)x + (t-2r-1) &\geq 0 \\
@@ -75,7 +75,6 @@ t - \sum_{i=0}^x ((r+1+2i)^2 - (r+2i)^2) &\geq 0\\
 &= \frac{1}{4} \cdot (2r+3 \pm \sqrt{(2r-1)^2+8t})\\
 &= \frac{1}{4} \cdot (2r+3 \pm \sqrt{(2r-1)^2+8t})\\
 \end{align}
-$
 
 I have to know that $1 \leq r$ and $1 \geq x \in \mathbb{N}$. So you have to round $x_1, x_2$ to the nearest solution.
 

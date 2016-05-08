@@ -50,10 +50,10 @@ $F_C = \frac{e^2}{4 \pi \varepsilon_0 r^2}$
 where $\varepsilon_0 \approx 8.8541 \cdot 10^{-12} \frac{F}{m}$ is <a href="http://en.wikipedia.org/wiki/Permittivity">permittivity</a>.
 
 Now you calculate:
-$\begin{align}F_\mathrm{C} = F_\mathrm{Z} \quad 
+\begin{align}F_\mathrm{C} = F_\mathrm{Z} \quad 
   &\Leftrightarrow \quad \frac{e^2}{4 \pi \varepsilon_0 r^2} = \frac{m_{e}v^2}{r}\\
   &\Leftrightarrow \quad v^2 = \frac{e^2}{4 \pi \varepsilon_0 r m_e} = \frac{e^2}{4 \pi \varepsilon_0 m_e} \cdot \frac{1}{r}
-\end{align}$
+\end{align}
 
 Ok, we're almost there. But how do we get $r$? Well, you have to know this equation:
 $ m_{e} v r = n \hbar$
@@ -62,10 +62,10 @@ So you get:
 $\Leftrightarrow r = \frac{n \hbar}{v m_e}$
 
 Now insert this in the equation above:
-$\begin{align}
+\begin{align}
 v^2 &=  \frac{e^2}{4 \pi \varepsilon_0 m_e} \cdot \frac{1}{\frac{n \hbar}{v m_e}}\\
 \Rightarrow v &= \frac{e^2}{4 \pi \varepsilon_0 n \hbar}
-\end{align}$
+\end{align}
 
 Lets take a hydrogen nucleus ($n=1$): 
 We get $2.19 \cdot 10^6 \frac{m}{s} \approx 7.88 \cdot 10^6 \frac{km}{h}$ (see <a href="http://www.wolframalpha.com/input/?i=%28charge+of+electron%29%5E2%2F%284+pi+epsilon_0+h+bar%29">Wolfram|Alpha</a>).

@@ -20,7 +20,7 @@ So I try to fix all manual styled citations when I edit an article. Doing this m
 should be 
 
 ```html
-<ref>{% raw %}{{Citation |url=http://peter.mapledesign.co.uk/weblog/archives/python-is-slow |title=Python is... slow? |accessdate=September 24, 2011}}{% endraw %}</ref>
+<ref>{{Citation |url=http://peter.mapledesign.co.uk/weblog/archives/python-is-slow |title=Python is... slow? |accessdate=September 24, 2011}}</ref>
 ```
 
 ```html
@@ -30,7 +30,7 @@ should be
 should be 
 
 ```html
-<ref>{% raw %}{{Citation |url=http://www.nongnu.org/pydbc/ |title=Contracts for Python |accessdate=September 24, 2011}}{% endraw %}</ref>
+<ref>{{Citation |url=http://www.nongnu.org/pydbc/ |title=Contracts for Python |accessdate=September 24, 2011}}</ref>
 ```
 
 So, all that has to be done is 
@@ -111,7 +111,6 @@ def getRef(page):
 Now the single references have to get parsed and the user has to confirm or edit the results:
 
 ```python
-{% raw %}
 import readline
 from datetime import date
 
@@ -147,13 +146,11 @@ def improve(references, page):
         print ""
 
     return page
-{% endraw %}
 ```
 
 Here is the full script:
 
 ```python
-{% raw %}
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
  
@@ -261,7 +258,6 @@ if __name__ == '__main__':
     f.write(page)
     f.close()
     print("Page has been written to %s." % options.filename)
-{% endraw %}
 ```
 
 This can be improved in several ways:

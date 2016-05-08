@@ -17,7 +17,8 @@ $ijk=-1$
 
 <h2>Basic rules</h2>
 From these rules follows:
-$\begin{align} ij &= k\\ ji &= -k\\ jk &= i\\ kj &= -i\\ ki &= j\\ ik &= -j \end{align}$
+
+\begin{align} ij &= k\\ ji &= -k\\ jk &= i\\ kj &= -i\\ ki &= j\\ ik &= -j \end{align}
 
 (<a href="http://math.stackexchange.com/q/487245/6876">proof</a>)
 
@@ -28,32 +29,32 @@ But for numbers in $\mathbb{R}$, it is commutative (<a href="http://math.stackex
 
 The multiplication is:
 
-$\begin{align}
+\begin{align}
 x  y 
 &=( x_0 y_0 - x_1 y_1 - x_2 y_2 - x_3 y_3)\\
 &+( x_0 y_1 + x_1 y_0 + x_2 y_3 - x_3 y_2) \mathrm i\\
 &+( x_0 y_2 - x_1 y_3 + x_2 y_0 + x_3 y_1) \mathrm j\\
 &+( x_0 y_3 + x_1 y_2 - x_2 y_1 + x_3 y_0) \mathrm k
-\end{align}$
+\end{align}
 
 <h3>Calculating multiplicative inverse</h3>
 This means, when you're given an element $x = x_0 + x_1 \mathrm i + x_2 \mathrm j + x_3 \mathrm k$ its inverse $y$ can be calculated by solving the following linear system of equations:
 
-$\begin{align}
+\begin{align}
 x_0 y_0 - x_1 y_1 - x_2 y_2 - x_3 y_3 &= 1\\
 x_0 y_1 + x_1 y_0 + x_2 y_3 - x_3 y_2 &= 0\\
 x_0 y_2 - x_1 y_3 + x_2 y_0 + x_3 y_1 &= 0\\ 
 x_0 y_3 + x_1 y_2 - x_2 y_1 + x_3 y_0 &= 0\\
-\end{align}$
+\end{align}
 
 which can be written as:
 
-$\left(\begin{array}{cccc|c} 
+$$\left(\begin{array}{cccc|c} 
     x_0 & -x_1 & -x_2 & -x_3 & 1\\
     x_1 &  x_0 & -x_3 &  x_2 & 0\\
     x_2 &  x_3 &  x_0 & -x_1 & 0\\
     x_3 & -x_2 &  x_1 &  x_0 & 0
-  \end{array}\right).$
+  \end{array}\right).$$
 
 According to <a href="http://www.mathworks.de/de/help/aeroblks/quaternioninverse.html">mathworks</a> it is 
 
@@ -78,7 +79,7 @@ Pretty simple, isn't it?
 
 For example, if you had the point (2,0,0) and you wanted to rotated it by $q = (\frac{\sqrt{2}}{2}, 0, \frac{\sqrt{2}}{2}, 0)$ you would transform (2,0,0) to (2i+0k+0j) and calculate
 
-$\begin{align}
+\begin{align}
 x' &= q x \overline{q}\\
 &= (\frac{\sqrt{2}}{2}+\frac{\sqrt{2}}{2} \mathrm j) \cdot 2 \mathrm i \cdot (\frac{\sqrt{2}}{2} - \frac{\sqrt{2}}{2} \mathrm j)\\
 &= (\sqrt{2} \mathrm i + \sqrt{2} \mathrm{ji}) \cdot (\frac{\sqrt{2}}{2} - \frac{\sqrt{2}}{2} \mathrm j)\\
@@ -87,7 +88,7 @@ x' &= q x \overline{q}\\
 &= \mathrm{i - k -k - i}\\
 &= -2 \mathrm k\\
 &\Rightarrow x' = (0,0,-2)
-\end{align}$
+\end{align}
 
 <h3>Rotation matrix to quaternion</h3>
 Let $M$ be a rotation matrix and $m_{ij}$ be an entry of this matrix.
@@ -106,11 +107,11 @@ resulting in the quaternion $(s, x, y, z)$.
 <h4>Special rule</h4>
 A rotation matrix
 
-$R_y = \begin{pmatrix}
+$$R_y = \begin{pmatrix}
 \cos(\theta)  & 0 & \sin(\theta)\\
 0             & 1 & 0\\
 -\sin(\theta) & 0 & \cos(\theta)
-\end{pmatrix}$
+\end{pmatrix}$$
 
 can be transformed to a quaternion
 
@@ -118,5 +119,6 @@ $q = (\cos(\frac{\theta}{2}), \vec u \sin (\frac{\theta}{2}))$
 
 where $\vec u$ describes the axis you rotate by.
 
-In this case $R_y$ is the y-axis, so $\vec u = \begin{pmatrix}0\\1\\0\end{pmatrix}$.
+In this case $R_y$ is the y-axis, so
+$$\vec u = \begin{pmatrix}0\\1\\0\end{pmatrix}$$.
 

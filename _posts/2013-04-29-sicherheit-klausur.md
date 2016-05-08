@@ -290,11 +290,11 @@ Folgender Angriff ist für $e=3$ möglich:
 <div class="answer">
 Homomorphie ist folgende (unerwünschte) Eigenschaft:
 
-$\begin{align}
+\begin{align}
 Enc(pk, m_1) \cdot Enc(pk, m_2) &= m_1^e \cdot m_2^e\\
 &= (m_1 \cdot m_2)^e \\
 &= Enc(pk, m_1 \cdot m_2)
-\end{align}$
+\end{align}
 
 Diese Eigenschaft ist z.B. in folgendem Szenario problematisch:
 Angenommen bei einer Auktion werden die gebotenen Geldbeträge verschlüsselt. Dann kann ein Angreifer das Chiffrat (gültig) verändern. So kann er den Geldbetrag ohne Probleme verdoppeln.

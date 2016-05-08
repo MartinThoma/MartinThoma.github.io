@@ -24,11 +24,11 @@ with an example how to use SVMs with sklearn.
         maximizes the distance to the next datapoints (support vectors). This
         hyperplane should be taken:<br/>
         <div>
-          \[
+          $$
           \begin{aligned}
               \text{minimize}_{\mathbf{w}, b}\,&\frac{1}{2} \|\mathbf{w}\|^2\\
               \text{s.t. }& \forall_{i=1}^m y_i \cdot \underbrace{(\langle \mathbf{w}, \mathbf{x}_i\rangle + b)}_{\text{Classification}} \geq 1
-          \end{aligned}\]</div></li>
+          \end{aligned}$$</div></li>
     <li><b>Slack variables</b>: Even if the underlying process which generates
           the features for the two classes is linearly separable, noise can
           make the data not separable. The introduction of <i>slack&nbsp;variables</i>
@@ -37,11 +37,11 @@ with an example how to use SVMs with sklearn.
           complex model is weighted by a parameter $C \in \mathbb{R}_0^+$. The
           bigger $C$, the more errors are accepted. The new optimization
           problem is:
-          \[
+          $$
           \begin{aligned}
               \text{minimize}_{\mathbf{w}, b}\,&\frac{1}{2} \|\mathbf{w}\|^2 + C \cdot \sum_{i=1}^m \xi_i\\
               \text{s.t. }& \forall_{i=1}^m y_i \cdot (\langle \mathbf{w}, \mathbf{x}_i\rangle + b) \geq 1 - \xi_i
-          \end{aligned}\]
+          \end{aligned}$$
 
           Note that $0 \le \xi_i \le 1$ means that the data point is within
           the margin, whereas $\xi_i \ge 1$ means it is misclassified. An
@@ -60,12 +60,12 @@ with an example how to use SVMs with sklearn.
           are called <i>support&nbsp;vectors</i>.
 
           The optimization problem is now, according to [<a href="#ref-bur98" name="ref-bur98-anchor">Bur98</a>] (a great read; if you really want to understand it I can recommend it!):
-          \[
+          $$
           \begin{aligned}
               \text{maximize}_{\alpha_i}\,& \sum_{i=1}^m \alpha_i - \frac{1}{2} \sum_{i=1}^m \sum_{j=1}^m \alpha_i \alpha_j y_i y_j \langle \mathbf{x}_i, \mathbf{x}_j \rangle\\
               \text{s.t. } & \forall_{i=1}^m 0 \leq \alpha_i \leq C\\
               \text{s.t. } & \sum_{i=1}^m \alpha_i y_i = 0
-          \end{aligned}\]</li>
+          \end{aligned}$$</li>
     <li><b>Kernel-Trick</b>: Not every dataset is linearly separable. This problem is approached
           by transforming the feature vectors $\mathbf{x}$ with a non-linear
           mapping $\Phi$ into a higher dimensional (probably

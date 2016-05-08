@@ -11,10 +11,10 @@ featured_image: 2012/08/jordan-normal-form-block1.png
 
 <h2>Beispiel 1</h2>
 Gegeben sei die Matrix <span>$A \in \mathbb{R}^{2 \times 2}$</span>:
-<div>\[A := \begin{pmatrix}
+<div>$$A := \begin{pmatrix}
 11 & -4\\
 25 & -9
-\end{pmatrix}\]</div>.
+\end{pmatrix}$$</div>.
 
 <h3>Jordannormalform bestimmen</h3>
 <strong>1. Charakteristisches Polynom berechnen:</strong>
@@ -25,7 +25,6 @@ Daraus folgt: <span>$\lambda = 1$</span> ist einziger Eigenwert
 
 <strong>2. Anzahl der Jordankästchen bestimmen:</strong>
 
-<div>\[
 \begin{align}
 \dim E_{1} &= \dim \text{Kern}(A -1 \cdot I) \\
 &= \dim \text{Kern} \begin{pmatrix}
@@ -38,40 +37,40 @@ Daraus folgt: <span>$\lambda = 1$</span> ist einziger Eigenwert
 \end{pmatrix}\\
 &= \dim \left [ \begin{pmatrix}2\\5\end{pmatrix} \right ] \\
 &= 1
-\end{align}\]</div>
+\end{align}
 
 <span>$\Rightarrow$</span> es gibt genau 1 Jordankästchen in diesem Jordanblock.
 
-<div>\[\Rightarrow
+<div>$$\Rightarrow
 J =
 \begin{pmatrix}1 & 1\\
 0 & 1
-\end{pmatrix}\]</div>.
+\end{pmatrix}$$</div>.
 
 <h3>Basiswechselmatrix bestimmen</h3>
 <strong>Basisvektoren für den Eigenwert 1 bestimmen:</strong>
-<div>\[\Omega = \Phi_{| H_\lambda} - \lambda \cdot id =
+<div>$$\Omega = \Phi_{| H_\lambda} - \lambda \cdot id =
 \begin{pmatrix}
 10 & - 4\\
 25 & -10
 \end{pmatrix}
-\]</div>,
+$$</div>,
 
 <div>$$K_1 = \text{Kern } \Omega^1 = \left [ \begin{pmatrix}2 \\ 5 \end{pmatrix} \right ]$$</div>
-<div>\[K_2 = \text{Kern } \Omega^2 = \text{Kern } (\begin{pmatrix}10 & -4\\ 25 & -10 \end{pmatrix} \cdot \begin{pmatrix}10 & -4\\ 25 & -10 \end{pmatrix}) = \text{Kern } (\begin{pmatrix}0 & 0\\ 0 & 0 \end{pmatrix})
+<div>$$K_2 = \text{Kern } \Omega^2 = \text{Kern } (\begin{pmatrix}10 & -4\\ 25 & -10 \end{pmatrix} \cdot \begin{pmatrix}10 & -4\\ 25 & -10 \end{pmatrix}) = \text{Kern } (\begin{pmatrix}0 & 0\\ 0 & 0 \end{pmatrix})
 =
 \left[
 \begin{pmatrix}1 \\ 0 \end{pmatrix},
 \begin{pmatrix}0 \\ 1 \end{pmatrix}
-\right]\]</div>
+\right]$$</div>
 
-<div>\[K_2 \stackrel{!}{=} U_1 \oplus K_1
+<div>$$K_2 \stackrel{!}{=} U_1 \oplus K_1
 \Rightarrow
 \left [
 \begin{pmatrix}
 1 \\ 0
 \end{pmatrix}
-\right ] ~~~ U_0 = K_1\]</div>
+\right ] ~~~ U_0 = K_1$$</div>
 
 <figure class="aligncenter">
             <a href="../images/2012/08/jordan-normal-form-scheme-small.png"><img src="../images/2012/08/jordan-normal-form-scheme-small.png" alt="Schema zum finden der Basiswechselmatrix" style="max-width:300px;max-height:116px" class="size-full wp-image-40961"/></a>
@@ -79,19 +78,19 @@ J =
         </figure>
 
 Wähle <div>$$b_1^1 \in U_1: b_1^1 = \begin{pmatrix}1 \\0 \end{pmatrix} \Rightarrow \Omega(b_1^1) = \begin{pmatrix}10 \\ 25 \end{pmatrix}$$</div>
-<div>\[\Rightarrow S =
+<div>$$\Rightarrow S =
 \begin{pmatrix}
 10 & 1 \\
 25 & 0
-\end{pmatrix}\]</div>
-<div>\[\Rightarrow S^{-1} =
+\end{pmatrix}$$</div>
+<div>$$\Rightarrow S^{-1} =
 \begin{pmatrix}
 0 & \frac{1}{25} \\
 1 & -\frac{2}{5}
-\end{pmatrix}\]</div>
+\end{pmatrix}$$</div>
 
 <div>$$A = S \cdot J \cdot S^{-1}$$</div>
-<div>\[\Leftrightarrow
+<div>$$\Leftrightarrow
 \begin{pmatrix}
 11 & -4\\
 25 & -9
@@ -109,46 +108,46 @@ Wähle <div>$$b_1^1 \in U_1: b_1^1 = \begin{pmatrix}1 \\0 \end{pmatrix} \Rightar
 \begin{pmatrix}
 0 & \frac{1}{25} \\
 1 & -\frac{2}{5}
-\end{pmatrix}\]</div>
+\end{pmatrix}$$</div>
 
 <h2>Beispiel 2</h2>
 Gegeben sei die Matrix <span>$A \in \mathbb{R}^{2 \times 2}$</span>:
-<div>\[A := \begin{pmatrix}
+<div>$$A := \begin{pmatrix}
 1 & 2\\
 3 & 6
-\end{pmatrix}\]</div>.
+\end{pmatrix}$$</div>.
 
 <h3>Jordannormalform bestimmen</h3>
 <strong>1. Charakteristisches Polynom berechnen:</strong>
-<div>\[p_A(\lambda) = \det \begin{pmatrix}
+<div>$$p_A(\lambda) = \det \begin{pmatrix}
 1 -\lambda & 2\\
 3 & 6 - \lambda
-\end{pmatrix} = (1- \lambda) \cdot (6 - \lambda) - 6 = 6-6\lambda-\lambda+\lambda^2-6=\lambda^2-7\lambda = \lambda \cdot (\lambda - 7)\]</div>
+\end{pmatrix} = (1- \lambda) \cdot (6 - \lambda) - 6 = 6-6\lambda-\lambda+\lambda^2-6=\lambda^2-7\lambda = \lambda \cdot (\lambda - 7)$$</div>
 Daraus folgt: 0 und 1 sind Eigenwerte. Sie haben jeweils die algebraischen Vielfachheit 1.
 Daraus folgt: Die Jordansche Normalform hat genau zwei Jordanblöcke, die beide die Grö&szlig;e 1x1 haben.
 Daraus folgt: Beide Jordanblöcke haben genau ein Jordankästchen der Grö&szlig;e 1x1.
 Daraus folgt: Die Jordansche Normalform der Matrix ist:
 
-<div>\[J = \begin{pmatrix}
+<div>$$J = \begin{pmatrix}
 0 & 0\\
 0 & 7
-\end{pmatrix}\]</div>
+\end{pmatrix}$$</div>
 
 <h3>Basiswechselmatrix bestimmen</h3>
 <strong>Basisvektoren für den Eigenwert 0 bestimmen:</strong>
-<div>\[K_1 = \text{Kern }(A- 0 \cdot E) = \text{Kern } \begin{pmatrix}
+<div>$$K_1 = \text{Kern }(A- 0 \cdot E) = \text{Kern } \begin{pmatrix}
 1 & 2\\
 3 & 6
-\end{pmatrix} = \left [ \begin{pmatrix}2 \\ -1 \end{pmatrix} \right ] \]</div>
+\end{pmatrix} = \left [ \begin{pmatrix}2 \\ -1 \end{pmatrix} \right ] $$</div>
 
 <strong>Basisvektoren für den Eigenwert 7 bestimmen:</strong>
-<div>\[K_1 = \text{Kern }(A- 7 \cdot E) = \text{Kern } \begin{pmatrix}
+<div>$$K_1 = \text{Kern }(A- 7 \cdot E) = \text{Kern } \begin{pmatrix}
 -6 & 2\\
 3 & -1
 \end{pmatrix} = \text{Kern } \begin{pmatrix}
 1 & -\frac{1}{3}\\
 0 & 0
-\end{pmatrix} = \left [ \begin{pmatrix}1 \\ 3 \end{pmatrix} \right ] \]</div>
+\end{pmatrix} = \left [ \begin{pmatrix}1 \\ 3 \end{pmatrix} \right ] $$</div>
 
 <strong>Zusammensetzen:</strong>
 <div>$$S = \begin{pmatrix}2 & 1 \\ -1 & 3 \end{pmatrix}$$</div>

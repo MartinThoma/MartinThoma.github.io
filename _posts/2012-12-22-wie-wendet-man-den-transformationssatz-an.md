@@ -38,11 +38,12 @@ Dann ist $A^0 = (1,2) \times (0,2 \pi)$ und$ \phi$ auf $A^0$ injektiv. Au&szlig;
 F&uuml;r $f:Y \rightarrow \mathbb{R}$ mit $f(Y_1, Y_2) := Y_1 - Y_2$ gilt $f \in \mathfrak{L}^1(Y)$ ($Y$ kompakt, $f$ stetig)
 
 Au&szlig;erdem: 
-$\begin{align}
+
+\begin{align}
 \int_Y f(y) dy &= \int_\phi(A) f(y) dy \\
 &\stackrel{Tr}{=} \int_A f(\phi(r, \varphi)) |\det \phi'(r, \varphi)| d(r, \varphi) \\
 &= \int_A r(2 + r \cos(y) - 2 - r \sin(\varphi)) d(r, \varphi) \\
 &= \int_1^2 (\int_0^{2\pi} r^2 (\cos \varphi - \sin \varphi d \varphi) dr \\
 &= \underbrace{(\int_1^2 r^2 dr)}_{< \infty} \underbrace{(\int_0^{2\pi} \cos \varphi - \sin \varphi d \varphi)}_{= 0}\\
 &= 0
-\end{align}$
+\end{align}

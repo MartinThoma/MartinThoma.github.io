@@ -19,22 +19,21 @@ $
 $\Theta (g(n))  := \{f(n) | \exists_{c_0 > 0} \exists_{c_1 > 0} \exists_{n_0 > 0} \forall_{n > n_0}: c_0 \cdot g(n) < f(n) < c_1 \cdot g(n) \}$
 
 <h2>Wichtige Aussagen der Mengen</h2>
-$\begin{align}
+\begin{align}
 f(n) \in {\cal O}(g(n)) &\Leftrightarrow g(n) \in \Omega(f(n)) \\
 f(n) \in {\cal o}(g(n)) &\Leftrightarrow g(n) \in \omega(f(n)) \\
 f(n) \in {\cal O}(g(n)) \land f(n) \in \Omega(g(n)) &\Leftrightarrow f(n) \in \Theta(g(n)) \\
 f(n) \in o(g(n))        &\Leftrightarrow \lim \frac{f(n)}{g(n)} = 0 \\
 f(n) \in \Theta ( g(n)) &\Leftrightarrow g(n) \in \Theta(f(n)) \\
 f(n) \in \omega(g(n))   &\Leftrightarrow \lim \frac{g(n)}{f(n)} = 0
-\end{align}$ 
+\end{align}
 
 <h2>Logarithmusgesetze</h2>
-$
 \begin{align}
   \log(x \cdot y)   &= \log(x) + \log(y) \\
   \log(\frac{x}{y}) &= \log(x) &ndash; \log(y) \\
   \log(x^r)         &= r \cdot \log(x)
-\end{align}$
+\end{align}
 
 
 <h2>Wichtige Beziehungen von Funktionen</h2>

@@ -23,7 +23,6 @@ $\begin{pmatrix}
 \begin{pmatrix}   3 \\ 1   \\ 4   \\ 1   \\ 5   \end{pmatrix}$
 
 This is only a shorthand for:
-$
 \begin{align}
 &1 \cdot x_1 &= 3 \\
 &2 \cdot x_1 + 1 \cdot x_2 &= 1\\
@@ -31,42 +30,37 @@ $
 &8 \cdot x_1 + 2 \cdot x_2 + 8 \cdot x_3 + 1 \cdot x_4 &= 1\\
 &1 \cdot x_1 + 8 \cdot x_2 + 2 \cdot x_3 + 8 \cdot x_4 + 1 \cdot x_5 &= 5
 \end{align}
-$
 
 This is easy to solve, isn't it?
 <h3>First step: Solve for $x_1$</h3>
 First you see that $x_1 = 3$. Now you replace every occurence of $x_1$ in the system of equations above:
 
-$
 \begin{align}
 &1 \cdot 3 &= 3 \\
 &2 \cdot 3 + 1 \cdot x_2 &= 1\\
 &7 \cdot 3 + 1 \cdot x_2 + 1 \cdot x_3 &= 4\\
 &8 \cdot 3 + 2 \cdot x_2 + 8 \cdot x_3 + 1 \cdot x_4 &= 1\\
 &1 \cdot 3 + 8 \cdot x_2 + 2 \cdot x_3 + 8 \cdot x_4 + 1 \cdot x_5 &= 5
-\end{align}$
+\end{align}
 
 Now you make the multiplications and remove the first trivial line.
 
-$
 \begin{align}
 &6 + 1 \cdot x_2 &= 1\\
 &21 + 1 \cdot x_2 + 1 \cdot x_3 &= 4\\
 &24 + 2 \cdot x_2 + 8 \cdot x_3 + 1 \cdot x_4 &= 1\\
 &3 + 8 \cdot x_2 + 2 \cdot x_3 + 8 \cdot x_4 + 1 \cdot x_5 &= 5
 \end{align}
-$
 
 <h3>Second step: update</h3>
 Get the constant factors to the right side of the equations:
-$
+
 \begin{align}
 &1 \cdot x_2 &= 1-6=-5\\
 &1 \cdot x_2 + 1 \cdot x_3 &= 4-21=-17\\
 &2 \cdot x_2 + 8 \cdot x_3 + 1 \cdot x_4 &= 1-24=-23\\
 &8 \cdot x_2 + 2 \cdot x_3 + 8 \cdot x_4 + 1 \cdot x_5 &= 5-3=2
 \end{align}
-$
 
 You can now easily see that you're in the same situation as in the first step! Next you will solve for $x_2$, then for $x_3, x_4$ and finally for $x_5$.
 
@@ -140,14 +134,14 @@ Let's assume that line 7 takes $c$ operations and $n$ is the size of $L \in \mat
 
 Then we would have a total of 
 
-$\begin{align}
+\begin{align}
 \text{Operations} &= \sum_{i=1}^n \left ( \sum_{j=i+1}^n c \right )\\
 &= c \cdot \sum_{i=1}^n \left ( \sum_{j=i+1}^n 1 \right )\\
 &= c \cdot \sum_{i=1}^n (n - i)\\
 &= c \cdot \left ( \sum_{i=1}^n n - \sum_{i=1}^n i \right )\\
 &= c \cdot \left ( n^2 - \frac{n^2+n}{2} \right )\\
 &= \frac{c}{2} (n^2 - n)
-\end{align}$
+\end{align}
 
 So the algorithms time complexity is in $\Theta(n^2) \subsetneq \mathcal{O}(n^2)$.
 

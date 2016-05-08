@@ -53,11 +53,11 @@ Die Existenz von mindestens einem Nullelement wird durch H3 garantiert.
 
 Seien $n_1, n_2$ Nullelemente auf $\mathcal{B}$. Dann gilt:
 
-$\begin{align}
+\begin{align}
                            & \forall a \in B: a \sqcup n_1 \stackrel{H3}{=} a\\
 \Rightarrow                & n_2 \sqcup n_1 = n_2\\
 \stackrel{H3}{\Rightarrow} & n_1 = n_2 \blacksquare
-\end{align} $
+\end{align}
 
 ### Eindeutigkeit des Einselements
 <u>Behauptung:</u> Es exisitiert genau ein Einselement f&uuml;r $\mathcal{B}$.<br/>
@@ -67,11 +67,11 @@ Die Existenz von mindestens einem Einselement wird durch H3 garantiert.
 
 Seien $e_1, e_2$ Einselemente auf $\mathcal{B}$. Dann gilt:
 
-$\begin{align}
+\begin{align}
                            & \forall a \in B: a \sqcap e_1 \stackrel{H3}{=} a\\
 \Rightarrow                & e_2 \sqcup e_1 = e_2\\
 \stackrel{H3}{\Rightarrow} & e_1 = e_2 \blacksquare
-\end{align}$
+\end{align}
 
 ### Eindeutigkeit der komplement&auml;ren Elemente
 <u>Behauptung:</u> Die komplement&auml;ren Elemente bzgl. $\sqcup$ sind eindeutig<br/>
@@ -83,20 +83,20 @@ $a \sqcap \bar a_1 = 1$ und $a \sqcap \bar a_2 = 1$
 Schritt 1<br/>
 Es gilt:
 
-$\begin{align}
+\begin{align}
  \bar a_1 \sqcap (a \sqcup \bar a_2) &\stackrel{H2}{=} (\bar a_1 \sqcap a) \sqcup (\bar a_1 \sqcap \bar a_2)\\
 \Leftrightarrow \bar a_1 \sqcap 1    &= 0 \sqcup (\bar a_1 \sqcap \bar a_2)\\
 \Leftrightarrow \bar a_1             &= \bar a_1 \sqcap \bar a_2
-\end{align}$
+\end{align}
 
 Schritt 2<br/>
 Au&szlig;erdem gilt:
 
-$\begin{align}
+\begin{align}
 \bar a_2 \sqcap (a \sqcup \bar a_1) &\stackrel{H2}{=} (\bar a_2 \sqcap a) \sqcup (\bar a_2 \sqcap \bar a_1)\\
 \Leftrightarrow \bar a_2 \sqcap 1   &= 0 \sqcup (\bar a_2 \sqcap \bar a_1)\\
 \Leftrightarrow \bar a_2            &= (\bar a_2 \sqcap \bar a_1) \stackrel{H1}{=} \bar a_1 \sqcap \bar a_2
-\end{align}$
+\end{align}
 
 Aus den Ergebnissen von Schritt 1 und Schritt 2 folgt:
 $\bar a_1 = \bar a_2$.

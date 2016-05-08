@@ -60,7 +60,7 @@ $(a+b)^{n+1} = (a+b)(a+b)^n = (a+b) \underbrace{\sum_{k=0}^{n} \binom{n}{k} a^{n
 <strong>I.V.</strong>: Sei $n \in \mathbb{N}$ und es gelte $(a+b)^{n+1} = (a+b)(a+b)^n = (a+b) \sum_{k=0}^{n} \binom{n}{k} a^{n-k} b^k$
 
 <strong>I.S.</strong>: 
-$
+
 \begin{align} 
 (a+b)^{k+1} &= (a+b)(a+b)^n \\
 &= (a+b) \sum_{k=0}^{n} \binom{n}{k} a^{n-k} b^k \\
@@ -68,7 +68,7 @@ $
 &= \underbrace{\binom{n}{0}}_{\binom{n+1}{0}} a^{n+1} + \sum_{k=1}^n \binom{n}{k} a^{n+1-k} b^k + \underbrace{\sum_{k=0}^{n-1} \binom{n}{k} a^{n-k} b^{k+1}}_\text{Vorbemerkung} + \binom{n}{n} b^{n+1} \\
 &= \binom{n+1}{0} a^{n+1} + \sum_{k=1}^{n} [\binom{n}{k} + \binom{n}{k-1}] a^{n+1} b^k + \binom{n+1}{n+1} b^{n+1} \\
 &= \sum_{k=0}^{n+1} \binom{n+1}{k} a^{n+1-k} b^k
-\end{align}$
+\end{align}
 
 <h3>Rekursive Folgen</h3>
 Der Grenzwert rekursiv definierter Folgen l&auml;sst sich h&auml;ufig sehr sch&ouml;n mit mehreren Induktionsbeweisen beweisen.

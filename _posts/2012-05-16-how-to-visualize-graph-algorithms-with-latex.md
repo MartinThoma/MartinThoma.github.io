@@ -161,10 +161,10 @@ can be replaced by
 You can make loops:
 
 ```latex
-{% raw %}	% Draw the vertices.
+	% Draw the vertices.
 	\foreach \pos / \identifier / \name in {{(0,0)/a/a (this is text)}, 
 		{(0,1)/b/b}, {(1,1)/c/c}, {(1,0)/d/d}, {(3,1)/e/d}}
-		\node (\identifier) at \pos {$\name$};{% endraw %}
+		\node (\identifier) at \pos {$\name$};
 ```
 
 
@@ -208,10 +208,10 @@ You can make loops:
 	\begin{figure}
 		\begin{tikzpicture}[->,scale=1.8, auto,swap]
 			% Draw the vertices. First you define a list.
-			\foreach \pos/\name in {% raw %}{{(0,0)/a}, {(0,2)/b}, {(1,2)/c},
+			\foreach \pos/\name in {{(0,0)/a}, {(0,2)/b}, {(1,2)/c},
 				                    {(1,0)/d}, {(2,1)/e}, {(3,1)/f}, 
 									{(4,2)/g}, {(5,2)/h}, {(4,0)/i},
-									{(5,0)/j}}{% endraw %}
+									{(5,0)/j}}
 				\node[vertex] (\name) at \pos {$\name$};
 
 			% Connect vertices with edges and draw weights

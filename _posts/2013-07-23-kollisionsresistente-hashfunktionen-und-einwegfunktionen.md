@@ -24,7 +24,7 @@ Jeder effiziente Algorithmus findet nur mit kleiner Wahrscheinlichkeit eine Koll
 </div>
 
 Was heißt &bdquo;kleine Wahrscheinlichkeit&ldquo;?
-Nach dem Auswerten der Funktion $H$ für $x_1, x_2, \dots x_n$ sollte die Wahrscheinlichkeit nicht signifikant höher sein als {% raw %}$\displaystyle 1-\frac{n!\cdot{{2^k} \choose n}}{{2^k}^n}${% endraw %}
+Nach dem Auswerten der Funktion $H$ für $x_1, x_2, \dots x_n$ sollte die Wahrscheinlichkeit nicht signifikant höher sein als $\displaystyle 1-\frac{n!\cdot{{2^k} \choose n}}{{2^k}^n}$
 Diese Wahrscheinlichkeit kommt von dem <a href="http://de.wikipedia.org/wiki/Geburtstagsparadoxon">Geburtstagsparadoxon</a> bzw. dem <a href="http://de.wikipedia.org/wiki/Schubfachprinzip">Schubfachprinzip</a>. Wir haben $2^k$ Schubfächer (Funktionswerte) in die wir die $x_i$ (Urbilder) einordnen können.
 
 <h2>Satz</h2>

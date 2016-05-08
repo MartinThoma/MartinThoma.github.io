@@ -84,13 +84,25 @@ and replace it by the following
 Search for
 
 ```text
-\\[([\s\S]*?)\]$
+\\\[([\s\S]*?)\\\]
 ```
 
 and replace it by the following
 
 ```text
-<div>\\[\1\\]</div>
+<div>$$$\1$$$</div>
+```
+
+Search for
+
+```text
+\$[\s]*?\\begin{align}([\s\S]*?)\\end{align}[\s]*?\$
+```
+
+and replace it by the following
+
+```text
+\\begin{align}\1\\end{align}
 ```
 
 

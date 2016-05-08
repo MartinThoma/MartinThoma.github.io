@@ -45,7 +45,7 @@ $\underbrace{2}_{\geq 0} + \underbrace{\frac{1}{n}}_{\geq 0} \Rightarrow a_n \ge
 $(a_n)_{n \in \mathbb{N}}$ ist monoton fallend:
 Beweis von $a_n \geq a_{n+1} ~~~ \forall_{n \in \mathbb{N}}$:
 
-$\begin{align}
+\begin{align}
                             1        & \geq 0 ~~~ \forall_{n \in \mathbb{N}^+} \\
 \Leftrightarrow 2n^2 + 3n + 1        & \geq 2 n^2 + 3n ~~~ \forall_{n \in \mathbb{N}^+} \\
 \Leftrightarrow 2n^2 + n + 2n + 1    & \geq n \cdot (2n + 3) ~~~ \forall_{n \in \mathbb{N}^+} \\
@@ -53,7 +53,7 @@ $\begin{align}
 \Leftrightarrow \frac{2n+1}{n}       & \geq \frac{2 \cdot(n+1)+1}{n+1} ~~~ \forall_{n \in \mathbb{N}^+} \\
 \Leftrightarrow 2 + \frac{1}{n}      & \geq 2 + \frac{1}{n+1} ~~~ \forall_{n \in \mathbb{N}^+} \\
 \Leftrightarrow a_n                  & \geq a_{n+1}~~~ \forall_{n \in \mathbb{N}^+}
-\end{align}$
+\end{align}
 
 $(a_n)_{n \in \mathbb{N}}$ ist also monoton fallend und hat eine untere Schranke. $(a_n)_{n \in \mathbb{N}}$ konvergiert also.
 

@@ -33,12 +33,11 @@ Partielle Integration mit:
   <li>$g'(x)= x^{-2} \rightarrow g(x) = -x^{-1}$</li>
 </ul>
 
-$
 \begin{align}
 \int_1^2 \frac{\arctan(x)}{x^2} dx
 &= \left [ \arctan(x) \cdot (- \frac{1}{x}) \right ]_1^2 - \int_1^2 \frac{-1}{x \cdot (1+x^2)} dx\\
 &= - \frac{1}{2} \arctan(2) + \underbrace{\arctan(1)}_{\frac{1}{4}} + \int_1^2 \frac{1}{x \cdot (1+x^2)} dx
-\end{align}$
+\end{align}
 
 Partialbruchzerlegung mit:
 $\frac{A}{x} + \frac{B}{1+x^2} = \frac{1}{x \cdot (1+x^2)}\\
@@ -47,10 +46,10 @@ $\frac{A}{x} + \frac{B}{1+x^2} = \frac{1}{x \cdot (1+x^2)}\\
 \Rightarrow A= 1  \land B = -x:\\
 \frac{1}{x} + \frac{-x}{1+x^2} = \frac{1}{x \cdot (1+x^2)}$
 
-$\begin{align}
+\begin{align}
 \int_1^2 \frac{\arctan(x)}{x^2} dx
 &= \frac{1}{4} - \frac{1}{2} \arctan(2) + \int_1^2 \frac{1}{x} dx - \int_1^2 \frac{x}{1+x^2} dx\\
-\end{align}$
+\end{align}
 
 Substitution mit:
 <ul>
@@ -58,7 +57,7 @@ Substitution mit:
   <li>$\frac{du}{dx} = u' = 2x \rightarrow dx = \frac{du}{2x}$</li>
 </ul>
 
-$\begin{align}
+\begin{align}
 \int_1^2 \frac{\arctan(x)}{x^2} dx
 &= \frac{1}{4} - \frac{1}{2} \arctan(2) + \left [ \log x \right ]_1^2 - \int_2^5 \frac{1}{2u} du\\
 &= \frac{1}{4} - \frac{1}{2} \arctan(2) + \log 2 - \frac{1}{2} \int_2^5 x dx\\
@@ -66,7 +65,7 @@ $\begin{align}
 &= \frac{1}{4} - \frac{1}{2} \arctan(2) + \log 2 - \frac{1}{2} \log 5 + \frac{1}{2} \log 2\\
 &= \frac{1}{4} - \frac{1}{2} \arctan(2) + \frac{3}{2} \log 2 - \frac{1}{2} \log 5\\
 &= \frac{1}{2} \cdot \left (\frac{1}{2} - \arctan(2) + 3 \log 2 - \log 5 \right )
-\end{align}$
+\end{align}
 
 <strong>Kontrolle</strong>: <a href="http://www.wolframalpha.com/input/?i=int+arctan%28x%29%2Fx%5E2+dx">Wolfram|Alpha</a>
 

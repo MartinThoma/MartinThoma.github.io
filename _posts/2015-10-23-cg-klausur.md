@@ -645,20 +645,20 @@ Slides: `07_ OpenGL (freiwilliges Bonusmaterial).pdf`, `07_ OpenGL (Teil 1).pdf`
     <dd>
         <ul>
             <li>Flat shading:
-                \[\begin{align}
+                \begin{align}
         n &= \langle x_1-x_2, x_3-x_2\rangle\\
         f &= \langle n , L \rangle^+ \cdot (\lambda_1 c_1 + \lambda_2 c_2 + \lambda_3 c_3)
-        \end{align}\]</li>
+        \end{align}</li>
             <li>Gouraud-Shading
-                \[\begin{align}
+                \begin{align}
         c'_i &= c_i \langle n_i, L \rangle^+\\
         f &= \lambda_1 c'_1 + \lambda_2 c'_2 + \lambda_3 c'_3
-        \end{align}\]</li>
+        \end{align}</li>
             <li>Phong-Shading
-                \[\begin{align}
+                \begin{align}
         n &= \lambda_1 n_1 + \lambda_2 n_2 + \lambda_3 n_3\\
         f &=\langle n , L \rangle^+ \cdot (\lambda_1 c_1 + \lambda_2 c_2 + \lambda_3 c_3)
-        \end{align}\]</li>
+        \end{align}</li>
         </ul>
 
 
@@ -874,8 +874,8 @@ Slides: `09_ Kurven und Flachen.pdf`
     <dd>Ein Bézierspline ist eine Liste von Bézierkurven.</dd>
     <dt><dfn>$C^k$-stetige Splines</dfn></dt>
     <dd>Es seien
-    <div>\[\begin{align}F(u) &= \sum_{i=0}^n B_i^n(u) \mathbf{f}_i\\
-                        G(u) &= \sum_{i=0}^n B_i^n(u) \mathbf{g}_i\end{align}\]
+    <div>\begin{align}F(u) &= \sum_{i=0}^n B_i^n(u) \mathbf{f}_i\\
+                        G(u) &= \sum_{i=0}^n B_i^n(u) \mathbf{g}_i\end{align}
 
     Der Spline aus $F, G$ heißt
 

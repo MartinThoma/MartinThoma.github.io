@@ -60,9 +60,9 @@ Links steht die geordnete Basis B und rechts die geordnete Basis <span markdown=
 
 Nun noch die Kontrolle, ob es stimmen kann:
 
-<div>\[\underbrace{\begin{pmatrix} 3 & -2 \\ -1 & 1 \end{pmatrix}}_{A_{B \bar B}}
+<div>$$\underbrace{\begin{pmatrix} 3 & -2 \\ -1 & 1 \end{pmatrix}}_{A_{B \bar B}}
 \cdot
-\underbrace{\begin{pmatrix} -1 \\ 1 \end{pmatrix}}_{\Theta_{B}(v)} = \underbrace{\begin{pmatrix} -5 \\ 2 \end{pmatrix}}_{\Theta_{\bar B}(v)}\]</div>
+\underbrace{\begin{pmatrix} -1 \\ 1 \end{pmatrix}}_{\Theta_{B}(v)} = \underbrace{\begin{pmatrix} -5 \\ 2 \end{pmatrix}}_{\Theta_{\bar B}(v)}$$</div>
 
 <h2>Siehe auch</h2>
 <ul>

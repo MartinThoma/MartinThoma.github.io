@@ -266,10 +266,10 @@ Slide name: `V05_2015-04-29_Features.pdf`
 
       Dann heißt $d_L(a, b)$ die Levenshtein-Distanz:
       $$d_L(a,b) := lev_{a,b}(|a|, |b|)$$
-      \[\text{lev}_{a,b}(i, j) = \begin{cases}\max(i,j) &\text{falls} \min(i,j) = 0,\\
+      $$\text{lev}_{a,b}(i, j) = \begin{cases}\max(i,j) &\text{falls} \min(i,j) = 0,\\
         \min \begin{cases}\text{lev}_{a,b}(i-1,j)+1\\
                           \text{lev}_{a,b}(i,j-1)+1\\
-                          \text{lev}_{a,b}(i-1,j-1)+\delta_{(a_i \neq b_j)}\\\end{cases} &\text{sonst}\end{cases}\]
+                          \text{lev}_{a,b}(i-1,j-1)+\delta_{(a_i \neq b_j)}\\\end{cases} &\text{sonst}\end{cases}$$
   </dd>
 </dl>
 
@@ -652,12 +652,11 @@ Slide name: `V11_2015-05-27_RBMs`
               Das, was nach dem $k$-fachem Gibbs-Sampling in der Eingabeschicht
               steht wird auch "negative sample $\tilde x$" genannt.</li>
           <li>Update der Parameter:
-            \[\begin{align}
+            \begin{align}
                 W &\leftarrow W + \eta (h(x^{(t)}) {x^{(t)}}^T - h(\tilde x) {\tilde x}^T)\\
                 b_h &\leftarrow b_h + \eta (h(x^{(t)}) - h(\tilde x))\\
                 b_v &\leftarrow b_v + \eta (x^{(t)} - \tilde x)
               \end{align}
-            \]
             wobei $\eta \in (0, 1) $ die Lernrate ist,
             $b_h \in \mathbb{R}^n_h$ der Bias-Vektor der Hidden Units und
             $b_v \in \mathbb{R}^{n_v}$ der Bias-Vektor der Eingabeknoten ist.
@@ -1185,7 +1184,7 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
   * [Are there studies which examine dropout vs other regularizations?](http://datascience.stackexchange.com/q/9195/8820)
   * [How do subsequent convolution layers work?](http://datascience.stackexchange.com/q/9175/8820)
   * ✓ [Is Maxout the same as max pooling?](http://datascience.stackexchange.com/q/9212/8820)
-  * [What is \$\alpha \sin(\theta) + \beta \frac{d \theta}{d t}\$ in the inverted pole problem?](http://robotics.stackexchange.com/q/8617/11257)
+  * [What is $\alpha \sin(\theta) + \beta \frac{d \theta}{d t}$ in the inverted pole problem?](http://robotics.stackexchange.com/q/8617/11257)
   * ✓ [(Why) do activation functions have to be monotonic?](http://datascience.stackexchange.com/q/9233/8820)
   * [The cross-entropy error function in neural networks](http://datascience.stackexchange.com/q/9302/8820)
   * [What is the “dying ReLU” problem in neural networks?](http://datascience.stackexchange.com/q/5706/8820) and [How does rectilinear activation function solve the vanishing gradient problem in neural networks?](http://stats.stackexchange.com/q/176794/25741)

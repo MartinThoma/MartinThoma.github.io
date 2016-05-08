@@ -27,7 +27,7 @@ I did a couple of very quick examples which look promising.
 
 ### Square
 
-Approximating \$f(x) = x^2\$ worked very good:
+Approximating $f(x) = x^2$ worked very good:
 
 <figure class="aligncenter">
             <a href="../images/2016/01/gauss-x2.png"><img src="../images/2016/01/gauss-x2.png" alt="f(x) = x^2" style="max-width:500px;" class=""/></a>
@@ -40,7 +40,7 @@ problem.
 
 ### Sin
 
-Approximating \$f(x) = \sin(3x)\$ seems to be more complicated:
+Approximating $f(x) = \sin(3x)$ seems to be more complicated:
 
 <figure class="aligncenter">
             <a href="../images/2016/01/gaussian-process-sin-3x.png"><img src="../images/2016/01/gaussian-process-sin-3x.png" alt="f(x) = sin(3x)" style="max-width:500px;" class=""/></a>
@@ -52,7 +52,7 @@ I guess a human would see the wave pattern and do a better job here.
 
 ### exp
 
-Approximating \$f(x) = e^x\$ works similar well as polynomials. One can see
+Approximating $f(x) = e^x$ works similar well as polynomials. One can see
 that it does not perfectly fit it, but compared the the range of values seen
 before and the distance from the last seen value I think this is absolutely
 acceptable:
@@ -67,11 +67,11 @@ acceptable:
 
 It is claimed that Gaussian processes implicitly model noise so that they can
 easily deal with noise. However, in my experients this seems not to work so
-great. The reason might be that I had points in \$[-3, 3]\$ of the function
+great. The reason might be that I had points in $[-3, 3]$ of the function
 
 $$f(x) = x^2$$
 
-with point-wise gaussian noise \$N \sim \mathcal{N}(0, 1)\$. So the noise is
+with point-wise gaussian noise $N \sim \mathcal{N}(0, 1)$. So the noise is
 quite domintant on that intervall. One of the examples where it worked better
 is:
 

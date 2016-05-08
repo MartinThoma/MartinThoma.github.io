@@ -27,14 +27,13 @@ Some fundamental theorems (which I'm not going to prove) are:
 You can map $1$ to $n$ values $\stackrel{(IV)}{\Rightarrow}$ there can't be more than $n$ homomorphisms.
 
 For every $i \in \{0, \dots, n-1\}$ exists an homomorphism $\varphi_i(1) = i$:
-$
+
 \begin{align}
 \varphi(a) + \varphi(b) &= (ai \mod n) + (bi \mod n)\\
 &= ai + bi \mod n\\
 &= (a+b)i \mod n\\
 &= \varphi(a+b)
-\end{align} 
-$
+\end{align}
 
 This means, that all of them are actually homomorphisms. For different $i,j \in \{0, \dots, n-1\}$ the homomorphisms $\varphi_i$ and $\varphi_j$ are different. So we really have $n$ homomorphisms $\blacksquare$
 
@@ -60,17 +59,17 @@ This follows directly from (V).
 <u>Part 2</u>: $|H| \leq 1$
 
 We know that
-$\begin{align}
+\begin{align}
 \stackrel{(I)+(III)}{\Rightarrow}        &\# \varphi(M) | \# N\\
 \stackrel{n \in \mathbb{P}}{\Rightarrow} &\# \varphi(M) \in \{1, n\}
-\end{align}$
+\end{align}
 
 and
 
-$\begin{align}
+\begin{align}
 \stackrel{(II)+(III)}{\Rightarrow}       &\# K_\varphi | \# M\\
 \stackrel{m \in \mathbb{P}}{\Rightarrow} &\# K_\varphi \in \{1, m\}
-\end{align}$
+\end{align}
 
 Case 1: $m > n$
 

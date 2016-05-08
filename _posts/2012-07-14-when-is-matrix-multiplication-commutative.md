@@ -10,26 +10,27 @@ featured_image: 2012/01/vector-space.png
 Matrix multiplication in general is not commutative. Here is an example:
 
 $A, B \in R^{2 \times 2}$
-$A := \begin{pmatrix} 
+
+$$A := \begin{pmatrix} 
  1 & 2 \\
  3 & 4
-\end{pmatrix}$
-$B := \begin{pmatrix} 
+\end{pmatrix}$$
+$$B := \begin{pmatrix} 
  5 & 6 \\
  7 & 8
-\end{pmatrix}$
+\end{pmatrix}$$
 
-$A \cdot B = \begin{pmatrix} 
+$$A \cdot B = \begin{pmatrix} 
  19 & 22 \\
  43 & 50
 \end{pmatrix} \neq 
 \begin{pmatrix} 
  23 & 34 \\
  31 & 46
-\end{pmatrix} = B \cdot A$
+\end{pmatrix} = B \cdot A$$
 
 <h2>When is 2x2 matrix multiplication commutative?</h2>
-$\begin{pmatrix} 
+$$\begin{pmatrix} 
  a & b \\
  c & d
 \end{pmatrix} \cdot 
@@ -40,9 +41,9 @@ $\begin{pmatrix}
 \begin{pmatrix}
 ae + bg & af + bh \\
 ce + dg & cf + dh
-\end{pmatrix}$
+\end{pmatrix}$$
 
-$\begin{pmatrix} 
+$$\begin{pmatrix} 
  e & f \\
  g & h
 \end{pmatrix} \cdot
@@ -53,37 +54,37 @@ $\begin{pmatrix}
 \begin{pmatrix}
 ae + cf & be + df \\
 ag + ch & bg + dh
-\end{pmatrix}$
+\end{pmatrix}$$
 
 So you get four equations:
-$\begin{eqnarray*}
+$$\begin{eqnarray*}
 I)   & ae + bg &= ae + cf &\Leftrightarrow bg = cf \\
 II)  & af + bh &= be + df\\
 III) & ce + dg &= ag + ch\\
 IV)  & cf + dh &= bg + dh &\Leftrightarrow cf = bg
-\end{eqnarray*}$
+\end{eqnarray*}$$
 
 You might note that (I) is the same as (IV). So you have those equations:
-$\begin{eqnarray*}
+$$\begin{eqnarray*}
 I)   & bg = cf \\
 II)  & af + bh &= be + df & \Leftrightarrow f (a - d) = b (e - h)\\
 III) & ce + dg &= ag + ch & \Leftrightarrow g (a - d) = c (e - h)
-\end{eqnarray*}$
+\end{eqnarray*}$$
 
 <h3>Case #1: a != d and e != h</h3>
-$\begin{eqnarray*}
+$$\begin{eqnarray*}
 I)   & bg          &= cf \\
 II)  & \frac{f}{g} &= \frac{b}{c} \Leftrightarrow cf = bg
-\end{eqnarray*}$
+\end{eqnarray*}$$
 
 Now (I) and (II) are essentially the same. So we only demand that $ bg = cf$ and $a \neq d$ and $e \neq h$ for commutative matrix multiplication of $2 \times 2$ matrices.
 
 <h3>Case #2.1: a == d</h3>
-$\begin{eqnarray*}
+\begin{eqnarray*}
 I)   & bg &= cf \\
 II)  & 0  &= b (e - h)\\
 III) & 0  &= c (e - h)
-\end{eqnarray*}$
+\end{eqnarray*}
 
 So you end up with:
 ($e = h$ and $bg = cf$) or ($b = c = 0$)
@@ -114,28 +115,25 @@ Two matrices $A, B \in R^{n \times n}$ are called simultaneous diagonalizable $:
 <strong>Proof</strong>:
 As A and B are simultaneous diagonalizable, a matrix $T \in \mathbb{R}^{n \times n}$ exists, such that $D_A = S^{-1} \cdot A \cdot S$ and $D_B = S^{-1} \cdot B \cdot S$ with $D_A$ and $D_B$ are diagonal matrices.
 
-$
 \begin{align}
 \Rightarrow A \cdot B &= S \cdot D_A S^{-1} \cdot  S \cdot D_B \cdot S^{-1} \\
 &= S \cdot D_A \cdot D_B \cdot S^{-1} \\
 &= S \cdot D_B \cdot D_A \cdot S^{-1} \\
 &= S \cdot D_B \cdot S^{-1} \cdot  S \cdot D_A \cdot S^{-1} \\
 &= B \cdot A \blacksquare
-\end{align} 
-$
+\end{align}
 
 <strong>Statement</strong>: $A \cdot B = B \cdot A \nRightarrow A, B \in \mathbb{R}^{n \times n}$ are simultaneous diagonalizable.
 <strong>Proof</strong>: by Counter-Example
-$\begin{pmatrix}0 & 1 \\
+$$\begin{pmatrix}0 & 1 \\
 0 & 0\end{pmatrix} \cdot
 \begin{pmatrix}1 & 0 \\
 0 & 1\end{pmatrix} = 
 \begin{pmatrix}1 & 0 \\
 0 & 1\end{pmatrix} \cdot 
 \begin{pmatrix}0 & 1 \\
-0 & 0\end{pmatrix}$, but
-$\begin{pmatrix}0 & 1 \\
-0 & 0\end{pmatrix}$ is not diagonalizable. $\blacksquare$
+0 & 0\end{pmatrix}$$
+but \begin{pmatrix}0 & 1 \\ 0 & 0\end{pmatrix} is not diagonalizable. $\blacksquare$
 
 <h2>See also</h2>
 <ul>

@@ -17,12 +17,12 @@ Angenommen, die Erde w&auml;re eine perfekte Kugel mit einem Radius von 6370 km 
 Gesucht ist die L&auml;nge des neongr&uuml;n hervorgehobenen Kreisbogens x.
 
 <h3>Rechenweg</h3>
-$\begin{align}
+\begin{align}
         x &= \text{Umfang} \cdot \frac{\varphi}{360^\circ} \\
           &= 2 \cdot r \cdot \pi \cdot \frac{\cos^{-1}(\frac{r}{r+h})}{360^\circ} \\
           &= 2 \cdot 6370 \text{km} \cdot \pi \cdot \frac{\cos^{-1}(\frac{6370}{6370,83})}{360^\circ} \\
           &= 102,8 \text{km}
-    \end{align}$
+    \end{align}
 
 <h3>Antwort</h3>
 Bei optimalen, also unrealistischen, Bedingungen k&ouml;nnte man die Spitze des Burdsch Chalifa noch in 102,8 km entfernung sehen. Dies entspricht &uuml;brigens auch dem Punkt auf der Erdoberfl&auml;che, der vom Burdsch Chalifa am weitesten entfernt und zu sehen ist.

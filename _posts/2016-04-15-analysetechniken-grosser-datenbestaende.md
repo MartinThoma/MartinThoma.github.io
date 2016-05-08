@@ -734,8 +734,8 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         <li>Durchschnittlicher Abstand zum zweitnächsten Cluster:
             $$b(o) = \min_{C_i \in \text{Cluster} \setminus C(o)}(\frac{1}{C_i}) \sum_{p\in C_i} \sum_{p \in C_i} \text{dist}(o, p)$$</li>
         <li>Silhouette eines Objekts:
-            \[s(o) = \begin{cases}0  &\text{if } a(o) = 0, \text{i.e. } |C_i|=1\\
-                    \frac{b(o)-a(o)}{\max(a(o), b(o))} &\text{otherwise}\end{cases}\]
+            $$s(o) = \begin{cases}0  &\text{if } a(o) = 0, \text{i.e. } |C_i|=1\\
+                    \frac{b(o)-a(o)}{\max(a(o), b(o))} &\text{otherwise}\end{cases}$$
             Es gilt:
             $$s(o) \in [-1, 1]$$</li>
         <li>$\text{silh}(C) = \frac{1}{|C|} \sum_{C_i \in C} \frac{1}{|C_i|} \sum_{o \in C_i} s(o)$.
@@ -915,8 +915,8 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
     <dt><dfn>Reachability-Distanz</dfn></dt>
     <dd>Seien $p, o$ Datenpunkte.
 
-    \[\text{reach\_d}(p, o) = \begin{cases}\max(d(p, o), \text{coreDist}(p, o)) &\text{if } d(p, o) < \varepsilon\\
-                                 \text{undefined} &\text{otherwise}\end{cases}\]</dd>
+    $$\text{reach\_d}(p, o) = \begin{cases}\max(d(p, o), \text{coreDist}(p, o)) &\text{if } d(p, o) < \varepsilon\\
+                                 \text{undefined} &\text{otherwise}\end{cases}$$</dd>
     <dt><a href="https://de.wikipedia.org/wiki/OPTICS" id="optics"><dfn>OPTICS</dfn></a></dt>
     <dd>OPTICS ist ein Algorithmus, der mit den Parametern min_points und
         $\varepsilon$ (maximaler Radius für Cluster-Distanz) automatisch

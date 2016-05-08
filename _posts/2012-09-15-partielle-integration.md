@@ -28,7 +28,7 @@ $\int \sin(x) \cdot \cos(x) \,\mathrm{d}x = -\cos^2(x) - \int \sin(x) \cdot \cos
 
 
 Addiert man auf beiden Seiten der Gleichung das Ausgangsintegral, ergibt sich:
-$\begin{align}
+\begin{align}
               2 \int \sin(x) \cdot \cos(x) \,\mathrm{d}x &= - \cos^2(x)\\
 \Leftrightarrow \int \sin(x) \cdot \cos(x) \,\mathrm{d}x &= -\tfrac12\cos^2(x)
-\end{align}$
+\end{align}

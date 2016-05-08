@@ -17,6 +17,7 @@ I will show this in two steps:
 
 <h2>Intersection of two subgroups is a subgroup</h2>
 <strong>Theorem</strong>: $(X \cap Y) \leq G$
+
 <strong>Proof</strong>:
 
 $X \cap Y$ is not empty:

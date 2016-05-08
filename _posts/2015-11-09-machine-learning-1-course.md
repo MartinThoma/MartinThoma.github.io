@@ -502,7 +502,7 @@ repeat:
     s ← s'
 ```
 
-where \$\alpha \in (0, 1]\$ is a learning rate and \$\gamma\$ is a discount
+where $\alpha \in (0, 1]$ is a learning rate and $\gamma$ is a discount
 factor.
 
 See also:
@@ -515,7 +515,7 @@ See also:
 * R. Sutton und A. Barto: [Temporal-Difference Learning](https://webdocs.cs.ualberta.ca/~sutton/book/ebook/node60.html). 1998.
 
 Der TD-Learning Algorithmus beschäftigt sich mit dem Schätzen der Value-Funktion
-\$V^\pi\$ für eine gegebene Policy \$\pi\$. Das wird auch <i>policy evaluation</i>
+$V^\pi$ für eine gegebene Policy $\pi$. Das wird auch <i>policy evaluation</i>
 oder <i>prediction</i> genannt.
 
 * [TD-Learning](https://de.wikipedia.org/wiki/Temporal_Difference_Learning) (Temporal Difference Learning)
@@ -567,22 +567,22 @@ Slide name: `MLI_04_Lerntheorie_slides1.pdf`
       Wahrscheinlichkeit bekommen will.</dd>
 </dl>
 
-* Lernmaschine wird definiert durch Hypothesenraum \$\{h_\alpha: \alpha \in A\}\$
-  und Lernverfahren. Das Lernverfahren ist die Methode um \$\alpha_{\text{opt}}\$
+* Lernmaschine wird definiert durch Hypothesenraum $\{h_\alpha: \alpha \in A\}$
+  und Lernverfahren. Das Lernverfahren ist die Methode um $\alpha_{\text{opt}}$
   mit Hilfe von Lernbeispielen zu finden.
 * Probleme beim Lernen:
     * Größe des Hypothesenraums im Vergleich zur Anzahl der Trainingsdaten.
     * Das Verfahren könnte nur suboptimale Lösungen finden.
     * Das Verfahren könnte die passende Hypothese nicht beinhalten.
-* Lernproblemtypen: Sei die Menge der Lernbeispiele in \$X \times Y\$, mit \$X \times Y =\$...
-    * \$\\{Attribut_1, Attribut_2, ...\\} \times \\{True, False\\}\$: Konzeptlernen
-    * \$\mathbb{R}^n \times \\{Klasse_1, ..., Klasse_n\\}\$: Klassifikation
-    * \$\mathbb{R}^n \times \mathbb{R}\$: Regression
+* Lernproblemtypen: Sei die Menge der Lernbeispiele in $X \times Y$, mit $X \times Y =$...
+    * $\\{Attribut_1, Attribut_2, ...\\} \times \\{True, False\\}$: Konzeptlernen
+    * $\mathbb{R}^n \times \\{Klasse_1, ..., Klasse_n\\}$: Klassifikation
+    * $\mathbb{R}^n \times \mathbb{R}$: Regression
 * Gradientenabstieg, Overfitting
 * Kreuzvalidierung
 * PAC
-    * Folie 35: Was ist eine Instanz der Länge \$n\$?<br/>
-      Eine Hypothese mit \$n\$ Literalen.
+    * Folie 35: Was ist eine Instanz der Länge $n$?<br/>
+      Eine Hypothese mit $n$ Literalen.
 
 
 #### Boosting
@@ -599,12 +599,12 @@ Slide name: `MLI_04_Lerntheorie_slides1.pdf`
 </dl>
 
 * Folie 22:
-    * Wofür steht \$i\$ und welchen Wertebereich hat \$i\$?<br/>
-      → \$i\$ ist eine Zählvariable, welche die Trainingsdaten durchnummeriert.
-    * Stellt \$W_k(i)\$ die Wahrscheinlichkeit dar, dass Beispiel \$i\$ im \$k\$-ten
+    * Wofür steht $i$ und welchen Wertebereich hat $i$?<br/>
+      → $i$ ist eine Zählvariable, welche die Trainingsdaten durchnummeriert.
+    * Stellt $W_k(i)$ die Wahrscheinlichkeit dar, dass Beispiel $i$ im $k$-ten
       Durchlauf für das Training verwendet wird?<br/>
-      → Nein. \$W_k(i)\$ ist das Gewicht des \$i\$-ten Trainingsbeispiels
-      für den \$k\$-ten klassifikator. Siehe Folie&nbsp;24 und folgende für
+      → Nein. $W_k(i)$ ist das Gewicht des $i$-ten Trainingsbeispiels
+      für den $k$-ten klassifikator. Siehe Folie&nbsp;24 und folgende für
       ein Beispiel.
 
 
@@ -629,7 +629,7 @@ Siehe auch:
       werden können.</dd>
 </dl>
 
-* Folie 44: \$\eta \in [0, 1]\$ ist ein Parameter, der beliebig gewählt
+* Folie 44: $\eta \in [0, 1]$ ist ein Parameter, der beliebig gewählt
   werden kann. Siehe Info-Box <a href="#fehlerabschaetzung">Abschätzung des realen Fehlers</a>.
 
 
@@ -804,8 +804,8 @@ findet sich im Artikel [Using SVMs with sklearn](//martin-thoma.com/svm-with-skl
 * SVMs sind laut Vapnik die Lernmaschine mit der kleinsten möglichen VC-
   Dimension, falls die Klassen linear trennbar sind.
 * Primäres Optimierungsproblem: Finde einen Sattelpunkt der Funktion<br/>
-  \$L_P = L(\vec{w}, b, \vec{\alpha}) = \frac{1}{2}\|\vec{w}\|^2 - \sum_{i=1}^N \alpha_i (y_i(\vec{w}\vec{x_i}+b)-1)\$
-  wobei \$\alpha_1, \dots, \alpha_N \geq 0\$ Lagrange-Multiplikatoren sind
+  $L_P = L(\vec{w}, b, \vec{\alpha}) = \frac{1}{2}\|\vec{w}\|^2 - \sum_{i=1}^N \alpha_i (y_i(\vec{w}\vec{x_i}+b)-1)$
+  wobei $\alpha_1, \dots, \alpha_N \geq 0$ Lagrange-Multiplikatoren sind
 * Soft Margin Hyperebene
 * Der Parameter $C$ dient der Regularisierung. Ist $C$ groß gibt es wenige
   Missklassifikationen in der Trainingsdatenmenge. Ist $C$ klein, werden die
@@ -868,8 +868,8 @@ Slide name: `MLI_08_Entscheidungsbaeume_slides1.pdf`
 * C4.5 unterstützt - im Gegensatz zu ID3 - kontinuierliche Attributwerte.
   Außerdem kann C4.5 mit fehlenden Attributwerten umgehen.
 * Mögliches Qualtitätsmaß ist Entropie:<br/>
-  \$Entropie(S) = - p_\oplus \log_2 p_\oplus - p_\ominus \log_2 p_\ominus\$
-  wobei \$\oplus\$ die positiven Beispiele und \$\ominus\$ die negativen Beispiele
+  $Entropie(S) = - p_\oplus \log_2 p_\oplus - p_\ominus \log_2 p_\ominus$
+  wobei $\oplus$ die positiven Beispiele und $\ominus$ die negativen Beispiele
   bezeichnet.
 * Folie 41: Wo ist der Vorteil von ID5R im Vergleich zu ID3, wenn das
   Ergebnis äquivalent ist?<br/>
@@ -976,9 +976,9 @@ Siehe auch:
 
 Fragen:
 
-* Folie 23: Warum ist \$h_{MAP(x)}\$ nicht die wahrscheinlichste
+* Folie 23: Warum ist $h_{MAP(x)}$ nicht die wahrscheinlichste
   Klassifikation?
-* Folie 24: Was ist \$V\$?
+* Folie 24: Was ist $V$?
 * [Is there any domain where Bayesian Networks outperform neural networks?](http://datascience.stackexchange.com/q/9818/8820)
 
 
@@ -1061,10 +1061,10 @@ Slide name: `MLI_10_HMM_slides1.pdf`
 Die drei Probleme von HMMs sind
 
 * **P1 - Evaluierungsproblem**: Wie wahrscheinlich ist eine Sequenz
-  \$\bf{o} = o_1 o_2 \dots o_T\$
-  gegeben ein HMM \$\lambda\$, also \$P(\bf{o}|\lambda)\$.
+  $\bf{o} = o_1 o_2 \dots o_T$
+  gegeben ein HMM $\lambda$, also $P(\bf{o}|\lambda)$.
 * **P2 - Dekodierungsproblem**: Finden der wahrscheinlichsten Zustandssequenz <span markdown="0">$s_1, \dots, s_T$</span>,
-  gegeben eine Sequenz von Beobachtungen \$\bf{o} = o_1 o_2 \dots o_T\$.
+  gegeben eine Sequenz von Beobachtungen $\bf{o} = o_1 o_2 \dots o_T$.
 * **P3 - Lernproblem**: Optimieren der Modellparameter
 
 
@@ -1078,7 +1078,7 @@ Anwendungen:
 
 Slides: `MLI_11-MLN_slides1`
 
-Markov Logik Netze sind Sammlungen von Tupeln aus Gewichten \$w_i\$ und
+Markov Logik Netze sind Sammlungen von Tupeln aus Gewichten $w_i$ und
 prädikatenlogischen Formeln. Die Idee hinter Markov Logik Netzen ist ein
 aufweichen der harten Bedingungen der Prädikatenlogik. Eine prädikatenlogische
 Formel ist entweder wahr oder falsch. Eine Formel in MLNs kann auch "meistens"
@@ -1097,8 +1097,8 @@ erfüllt sein. Das wird durch das Gewicht repräsentiert.
            gelten.</dd>
   <dt><a name="mln-inference"></a><dfn>Inferenz in MLNs</dfn></dt>
   <dd><abbr title="Maximum a posteriori">MAP</abbr>:
-      \[\begin{align}\text{arg max}_y P(y | x) &= \frac{1}{Z} \exp(\sum_{i} w_i n_i(x, y))\\
-         &= \sum_{i} w_i n_i(x, y) \end{align}\]</dd>
+      \begin{align}\text{arg max}_y P(y | x) &= \frac{1}{Z} \exp(\sum_{i} w_i n_i(x, y))\\
+         &= \sum_{i} w_i n_i(x, y) \end{align}</dd>
 </dl>
 
 
@@ -1365,7 +1365,7 @@ until c = c'
         $c_j$ geclustert, wenn man die Attributwerte von $x_i$ durch die
         Kentniss von $c_j$ gut vorhersagen kann (<span markdown="0">$P(x_i | c_j)$</span>,
         predictability) und zugleich der Cluster gut vorhergesagt werden kann,
-        wenn die Attributwerte gegeben sind (<span markdown="0">\(P(c_j|x_i)</span>, predictiveness).
+        wenn die Attributwerte gegeben sind (<span markdown="0">$P(c_j|x_i)$</span>, predictiveness).
 
         Es soll also in inter-Klassenähnlichkeit minimiert und die
         intra-Klassenähnlichkeit maximimiert werden. Dafür wird die
@@ -1414,10 +1414,8 @@ until c = c'
             beschränkt ist. Die SVM minimiert genau diesen Quotienten, da sie den
             Margin maximiert.
 
-            Alternativ: Erklärung durch Strukturierung des Hypothesenraumes (TODO).
-            </li>
-    </ul>
-    </li>
+            Alternativ: Erklärung durch Strukturierung des Hypothesenraumes (TODO).</li>
+    </ul></li>
     <li>Reinforcement Learning
         <ul>
             <li>Wie lautet die Bellman-Gleichung?<br/>

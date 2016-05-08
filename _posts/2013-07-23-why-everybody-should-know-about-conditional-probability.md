@@ -70,10 +70,10 @@ You can see that the correct results are much more likely than the wrong ones.
 
 <h2>Some intermediate results</h2>
 How likely is a positive / negative test result?
-$\begin{align}
+\begin{align}
 Pr[+] &= Pr[+|C] \cdot Pr[C] + Pr[+| \neg C] \cdot Pr[\neg C] = 0.207\\
 Pr[-] &= Pr[-|C] \cdot Pr[C] + Pr[-| \neg C] \cdot Pr[\neg C] = 0.793
-\end{align}$
+\end{align}
 
 How likely are the combinations? (This time you don't know if you have cancer):
 
@@ -100,20 +100,20 @@ How likely are the combinations? (This time you don't know if you have cancer):
 <h2>Reversing it</h2>
 It is quite likely that you would like to know how likely it is that you have cancer. Without a test, you know:
 
-$\begin{align}
+\begin{align}
 Pr[C]      &= 0.01\\
 Pr[\neg C] &= 0.99
-\end{align}$
+\end{align}
 
 
 Now you get a positive test result. How likely is it that you have cancer? In other words: Calculate $Pr[C|+]$
 
-$\begin{align}
+\begin{align}
 Pr[C|+]      &= \frac{Pr[C, +]}{Pr[+]} = \frac{0.009}{0.207} = \frac{1}{23} \approx 0.043\\
 Pr[\neg C|+] &= 1 - \frac{1}{23} = \frac{22}{23} \approx 0.957\\
 Pr[C|-]      &= \frac{0.001}{0.793} = \frac{1}{793} \approx 0.001\\
 Pr[\neg C|-] &= 1 - \frac{1}{793} = \frac{792}{793} \approx 0.999
-\end{align}$
+\end{align}
 
 How would you interpret these results? I'd say:
 When you get a positive result you shouldn't really worry. But perhaps you should make other tests.
@@ -139,7 +139,7 @@ There are four possibilities what could have happened:
 </ul>
 
 First of all, I compare some intermediate results
-$
+
 \begin{align}
 Pr[++] &= Pr[C] \cdot Pr[+|C] \cdot Pr[+|C] + Pr[\neg C] \cdot Pr[+|\neg C] \cdot Pr[+|\neg C]\\
        &= 0.477 \neq 0.042849 = 0.207^2 = (Pr[+])^2\\
@@ -151,7 +151,6 @@ Pr[C,+,-] &= Pr[C] \cdot Pr[+ | C] \cdot Pr[-|C] = 0.01 \cdot 0.9 \cdot 0.1 = 0.
 Pr[C|++] &= \frac{Pr[C,+,+]}{Pr[++]} = \frac{0.0081}{0.207^2} = \frac{9}{530} \approx 0.170\\
 Pr[C|+-] &= \frac{Pr[C,+,-]}{Pr[+-]} = \frac{0.0009}{0.1593} = \frac{1}{177} \approx 0.006
 \end{align}
-$
 
 Woooha! So if one test says you have cancer, don't worry. When two tests say you have cancer, you have a 17% chance of having cancer.
 

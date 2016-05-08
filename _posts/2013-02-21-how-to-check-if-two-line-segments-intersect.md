@@ -226,10 +226,10 @@ Well, you might notice that you need to check if one line intersects with a give
 
 You can definie a cross product for points:
 
-$$\begin{align}
+\begin{align}
   \times_P&: Point \times Point \rightarrow \mathbb{R}\\
   \times_P(a, b) &:= a.x \cdot b.y - b.x \cdot a.y;
-\end{align}$$
+\end{align}
 
 This cross product has one nice characteristics:
 

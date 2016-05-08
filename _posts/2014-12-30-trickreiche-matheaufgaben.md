@@ -41,13 +41,13 @@ Der Lehrling ist also derjenige, der das Problem trickreich macht, wenn man nich
 <h3>Aufgabenstellung</h3>
 <blockquote>Sei $x$ das Gewicht des Elefanten und $y$ das Gewicht der Mücke. Sei $d$ der Unterschied.<br/>
 
-$\begin{align}
+\begin{align}
 x             &= y + d | \cdot (x-y)\\
 x^2 - xy      &= xy + xd - y^2 - yd | -xd \\
 x^2 - xy - xd &= xy - y^2 - yd\\
 x(x-y-d)      &= y \cdot (x-y-d) |:(x-y-d)\\
 x             &=y
-\end{align}$
+\end{align}
 
 Das Gewicht der Mücke ist also gleich dem Gewicht des Elefanten!</blockquote>
 Quelle: <a href="http://dsm-faq.wikidot.com/denksport">dsm-faq.wikidot.com/denksport</a>
@@ -63,13 +63,13 @@ Dann gilt offensichtlich:
 $x = y + u$
 
 Nun kann man umformen:
-$\begin{align}
+\begin{align}
                 x             &= y + u | \cdot (x - y)\\
 \Leftrightarrow x^2 - xy      &= xy + xu - y^2 - uy | -xu\\
 \Leftrightarrow x^2 - xy - xu &= xy - y^2 - uy\\
 \Leftrightarrow x \cdot (x - y - u) &= y \cdot (x - y - u) | : (x-y-u)\\
 \Leftrightarrow x &= y
-\end{align}$
+\end{align}
 
 Jeder Mensch hat also sein Idealgewicht!
 

@@ -7,11 +7,22 @@ category: My bits and bytes
 tags: funny, weather, hot
 featured_image: 2013/07/wetter1.png
 ---
-{% gallery %}
-    ../images/2013/07/wetter.png    "Weather map"
-    ../images/2013/07/wetterkarte-2013-07-26.png    "Wetterkarte vom 26.07.2013"
-    ../images/2013/07/wetterkarte-2015-07-04.png    "Wetterkarte vom 04.07.2015"
-{% endgallery %}
+
+<figure>
+    <img src="../images/2013/07/wetter.png" style="max-width:500px;" alt="Weather ma"/>
+    <figcaption>Weather map</figcaption>
+</figure>
+
+<figure>
+    <img src="../images/2013/07/wetterkarte-2013-07-26.png" style="max-width:500px;" alt="Wetterkarte vom 26.07.2013"/>
+    <figcaption>Wetterkarte vom 26.07.2013</figcaption>
+</figure>
+
+<figure>
+    <img src="../images/2013/07/wetterkarte-2015-07-04.png" style="max-width:500px;" alt="Wetterkarte vom 04.07.2015"/>
+    <figcaption>Wetterkarte vom 04.07.2015</figcaption>
+</figure>
+
 
 <h2>See also</h2>
 <ul>

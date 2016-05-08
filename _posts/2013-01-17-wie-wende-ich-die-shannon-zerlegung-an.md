@@ -24,7 +24,7 @@ Die Shannon-Zerlegung ist hilfreich, um die disjunktive bzw. konjunktive Form ei
 </ol>
 
 <h2>Beispiel 1</h2>
-$\begin{align} 
+\begin{align} 
 f(c, b, a) :&= (c \land b) \barwedge a) \Leftrightarrow (b \lor a)\\ 
 \text{Entwickeln nach c:} &= c[((1 \land b) \barwedge a) \Leftrightarrow (b \lor a)] \lor \bar c [((0 \land b) \barwedge a) \Leftrightarrow (b \lor a)]\\ 
 &= c[(b \barwedge a) \Leftrightarrow (b \lor a)] \lor \bar c [(0 \barwedge a) \Leftrightarrow (b \lor a)]\\ 
@@ -37,12 +37,12 @@ f(c, b, a) :&= (c \land b) \barwedge a) \Leftrightarrow (b \lor a)\\
 &=a(b \bar c \lor \bar b) \lor \bar ab\\ 
 &= ab \bar c \lor a \bar b \lor \bar a b\\ 
 &= ab \bar c \lor a \bar b c \lor a \bar b \bar c \lor \bar a b c \lor \bar a b \bar c 
-\end{align}$
+\end{align}
 
 Die letzte Darstellung der Funktion $f$ wird Disjunktive Normalform (DNF) genannt. Die vorletzte ist einfach nur eine disjunktion von Konjunktionen.
 
 <h2>Beispiel 2</h2>
-$\begin{align}
+\begin{align}
 f(c,b,a) &:= ab \lor \bar c\\
 \text{Entwickeln nach b:} &= b[a \lor \bar c] \lor \bar b[\bar c]\\
 &= b(a \lor \bar c) \lor \bar b \bar c\\
@@ -50,6 +50,6 @@ f(c,b,a) &:= ab \lor \bar c\\
 &= a(b \lor \bar b \bar c) \lor \bar a \bar c\\
 &= ab \lor a \bar b \bar c \lor \bar a \bar c\\
 &= (abc \lor ab \bar c) \lor a \bar b \bar c \lor (\bar a b \bar c  \lor \bar a \bar b \bar c)
-\end{align}$ 
+\end{align} 
 
 Man muss auch nicht immer Entwicklen, um das Ergebnis zu erhalten. Die Klammern im Ergebnis verdeutlichen, wie man den letzten Schritt durchf&uuml;hrt. Also wie man von einer Disjunktiven Form auf die Disjunktive Normalform kommt.
