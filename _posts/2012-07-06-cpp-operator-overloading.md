@@ -1,6 +1,7 @@
 ---
 layout: post
 title: C++ Operator overloading
+slug: cpp-operator-overloading
 author: Martin Thoma
 date: 2012-07-06 16:00:22.000000000 +02:00
 category: Code

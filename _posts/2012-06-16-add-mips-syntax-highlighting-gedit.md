@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Add MIPS syntax highlighting to gEdit
+slug: add-mips-syntax-highlighting-gedit
 author: Martin Thoma
 date: 2012-06-16 10:27:09.000000000 +02:00
 category: Code

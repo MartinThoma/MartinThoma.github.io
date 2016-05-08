@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Part III: Matrix multiplication on multiple cores in Python, Java and C++
+slug: part-iii-matrix-multiplication-on-multiple-cores-in-python-java-and-c
 author: Martin Thoma
 date: 2013-10-21 16:39:35.000000000 +02:00
 category: Code

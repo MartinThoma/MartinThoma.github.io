@@ -7,6 +7,7 @@ Prerequisites
 TODO
 =====
 
+* `linkchecker https://martin-thoma.com -F csv`
 * add pagination for category pages / tag pages
 * Semantic anchors created by TOC
 * Newlines

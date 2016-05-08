@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Sprachen, Automaten und Grammatiken: Ein Überblick
+slug: sprachen-automaten-und-grammatiken
 author: Martin Thoma
 date: 2012-01-28 10:52:34.000000000 +01:00
 category: German posts

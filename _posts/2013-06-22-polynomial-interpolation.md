@@ -20,7 +20,7 @@ $\forall i \in \{0, \dots, n\}: p(x_i) = y_i$
 
 You can formulate a linear system of equations:
 
-$\underbrace{\begin{pmatrix}
+$$\underbrace{\begin{pmatrix}
  x_0^0 & \cdots & x_0^n \\
 \vdots & \ddots & \vdots \\
  x_n^0 & \cdots & x_n^n
@@ -36,7 +36,7 @@ a_n
 y_0 \\
 \vdots \\
 y_n
-\end{pmatrix}$
+\end{pmatrix}$$
 
 A matrix of the form of $A$ is called <a href="https://en.wikipedia.org/wiki/Vandermonde_matrix">Vandermonde matrix</a>. When the data points $x_i$ are mutually different, it is known that the Vandermonde matrix is invertible (<a href="http://math.stackexchange.com/q/426932/6876">source</a>).
 
@@ -194,9 +194,7 @@ and
 
 $\displaystyle L_{i}(x_p) := \prod_{j=0 \atop j \neq i}^n \frac{x_p-x_j}{x_i - x_j} = 0 \;\; p \in \{0, \dots, n\} \setminus \{i\}$
 
-So the polynomial $y_i \cdot L_{i}(x)$ fits the point $(x_i, y_i)$ and is zero for all other points. This implies that 
-
-$\displaystyle p(x) = \sum_{i=0}^n y_i \cdot L_i(x)$ is an interpolation of our data points. The degree of $p(x)$ is not higher than $n$. You can see that easily when you take a look at the definition of $p(x)$ and $L_i(x)$.
+So the polynomial $y_i \cdot L_{i}(x)$ fits the point $(x_i, y_i)$ and is zero for all other points. This implies that $\displaystyle p(x) = \sum_{i=0}^n y_i \cdot L_i(x)$ is an interpolation of our data points. The degree of $p(x)$ is not higher than $n$. You can see that easily when you take a look at the definition of $p(x)$ and $L_i(x)$.
 
 The polynomials $L_i(x)$ form another base for $\mathbb{R}_n[X]$.
 
@@ -249,7 +247,7 @@ $\displaystyle p(x) = \sum_{i=0}^n c_i \cdot N_i(x)$
 
 for the correct $c_i$. You can do this by solving the following system of equations. Please note that you don't have to store that matrix to get those $c_i$, <a href="http://en.wikipedia.org/wiki/Divided_differences">divided differences</a> are better.
 
-$\begin{pmatrix}
+$$\begin{pmatrix}
 1 & & & & 0 \\
 1 & (x_1 - x_0) & & & \\
 1 & (x_2 - x_0) & (x_2 - x_0)(x_2 - x_1) & & \\
@@ -258,7 +256,7 @@ $\begin{pmatrix}
 \end{pmatrix}
 \cdot
   \begin{pmatrix} c_0 \\ \vdots \\ c_n \end{pmatrix}
-= \begin{pmatrix} f_0 \\ \vdots \\ f_n \end{pmatrix}$
+= \begin{pmatrix} f_0 \\ \vdots \\ f_n \end{pmatrix}$$
 
 You can get this lower triangular matrix like this:
 ```python

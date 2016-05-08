@@ -8,11 +8,6 @@ category: My bits and bytes
 tags: about
 context: about
 description: Profile page of Martin Thoma
-gplus: https://plus.google.com/+MartinThoma/about
-twitter: https://twitter.com/#!/themoosemind
-stackoverflow: https://careers.stackoverflow.com/thoma
-arxiv: http://arxiv.org/a/thoma_m_1.html
-linkedin: https://www.linkedin.com/in/themoosemind
 alias: /author/moose/index.html
 ---
 <div class="vcard">
@@ -28,10 +23,11 @@ alias: /author/moose/index.html
 
 <h2>Other Profiles</h2>
 <ul>
-	<li><a href="{{ page.gplus }}" rel="me">Google+</a></li>
-	<li><a href="{{ page.twitter }}" rel="me">Twitter</a></li>
-    <li><a href="{{ page.stackoverflow }}" rel="me">StackOverflow</a></li>
-    <li><a href="{{ page.arxiv }}" rel="me">arxiv</a></li>
-    <li><a href="{{ page.linkedin }}" rel="me">linkedin</a></li>
+    <li><a href="http://orcid.org/0000-0002-6517-1690" rel="me">ORCiD</a></li>
+    <li><a href="https://plus.google.com/+MartinThoma/about" rel="me">Google+</a></li>
+    <li><a href="https://twitter.com/#!/themoosemind" rel="me">Twitter</a></li>
+    <li><a href="https://careers.stackoverflow.com/thoma" rel="me">StackOverflow</a></li>
+    <li><a href="http://arxiv.org/a/thoma_m_1.html" rel="me">arxiv</a></li>
+    <li><a href="https://www.linkedin.com/in/themoosemind" rel="me">linkedin</a></li>
 </ul>
 </div>
