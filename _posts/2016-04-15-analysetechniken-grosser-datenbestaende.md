@@ -551,7 +551,7 @@ Fragen:
 
 * Folie 23: Wo kommt die 140 her?<br/>
   → Summe der Diagonalelemente auf Folie 21.
-* TODO, Folie 27: Lift Faktor ist 2 wenn man nur die 400 anschreibt, oder?
+* Folie 27: Lift Faktor ist 2 wenn man nur die 400 anschreibt, oder?
 
 
 ### Association Rules
@@ -853,7 +853,9 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
             <li>Gehe zu Schritt 2.</li>
         </ul>
 
-        Gesamtkomplexität: $\mathcal{O}(n^2)$
+        Gesamtkomplexität: $\mathcal{O}(n^2)$<br/>
+
+        Siehe auch: <a href="https://stat.ethz.ch/R-manual/R-devel/library/cluster/html/agnes.html">AGNES</a>
     </dd>
     <dt><a id="divisive-clustering"></a><dfn>Divisives Clustering</dfn> (<dfn id="diana">DIANA</dfn>, <dfn>DIvisive ANAlysis</dfn>)</dt>
     <dd>Divisives Clustering ist ein hierarchisches Clusteringverfahren. Es
@@ -875,7 +877,7 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
             <li><a href="http://onlinelibrary.wiley.com/book/10.1002/9780470316801">Leonard Kaufman, Peter J. Rousseeuw: Finding Groups in Data: An Introduction to Cluster Analysis.</a></li>
         </ul>
     </dd>
-    <dt><dfn>Projected Clustering</dfn></dt>
+    <dt><dfn id="projected-clustering">Projected Clustering</dfn></dt>
     <dd>Input sind die Anzahl $k$ der Cluster, die gefunden werden sollen und
         die durchschnittliche Anzahl der Dimensionen pro Cluster $l$.
 
@@ -1006,11 +1008,18 @@ die Dimension der $n \in \mathbb{N}$ Datenpunkte.
         <td>$\varepsilon$ heavily influences the runtime</td>
     </tr>
     <tr>
+        <td><a href="#agglomerative-clustering">Agglomeratives hier. Clustering</a></td>
+        <td>number of clusters, linkage type, distance</td>
+        <td>hierarchical</td>
+        <td>$\mathcal{O}(n^2)$</td>
+        <td>Related to Kruskals algorithm for constructing a minimal spanning tree; looks at local patterns</td>
+    </tr>
+    <tr>
         <td><a href="#diana">DIANA</a></td>
         <td></td>
         <td>hierarchical</td>
-        <td>$\mathcal{O}(n)$</td>
-        <td></td>
+        <td>$\mathcal{O}(2^n)$ (?)</td>
+        <td>Looks at global patterns</td>
     </tr>
     <tr>
         <td><a href="#birch">BIRCH</a></td>
@@ -1024,9 +1033,18 @@ die Dimension der $n \in \mathbb{N}$ Datenpunkte.
         <td></td>
         <td></td>
         <td></td>
+        <td>like $k$-means, but jumps on graph</td>
+    </tr>
+    <tr>
+        <td><a href="#projected-clustering">Projected Clustering</a></td>
+        <td>$k$, average number of dimensions per cluster $I$</td>
         <td></td>
+        <td></td>
+        <td>for high-dimensional data, extension of $k$-means</td>
     </tr>
 </table>
+
+Siehe auch: <a href="http://scikit-learn.org/stable/modules/clustering.html">Sklearn über clustering</a>
 
 
 ### Statistische Modellierung
@@ -1263,14 +1281,23 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
   → Durch die Regeln kann man gegebenenfalls das Minen beschleunigen und für
     den Nutzer interessantere Regeln finden.
 * Was für Arten von Constraints kennen sie? Beispiele hierfür.<br/>
-  → Data-Constraints (Wert der Items über 100&nbsp;Euro) und Rule-Constraints (min. 3 Elemente auf der rechten Seite).
-* Was ist Anti-Monotonizität, Succinctness? <Für ein bestimmtes Constraint sagen/begründen, ob anti-monoton/succinct.><br/>
-  → vgl. <a href="#anti-monoton">Anti-Monotonizität</a>, <a href="#succinctness">Succinctness</a>
+  → Data-Constraints (Wert der Items über 100&nbsp;Euro) und Rule-Constraints
+  (min. 3 Elemente auf der rechten Seite).
+* Was ist Anti-Monotonizität, Succinctness? Für ein bestimmtes Constraint
+  sagen/begründen, ob anti-monoton/succinct.<br/>
+  → vgl. <a href="#anti-monoton">Anti-Monotonizität</a>,
+         <a href="#succinctness">Succinctness</a>
 * Wie lässt sich Apriori für das Mining von Teilfolgen verallgemeinern?<br/>
-  → TODO
-* Antagonismus von Support-basiertem und Constraint-basiertem Pruning erklären können.<br/>
-  → TODO
-* Alternativen für Constraint-basiertes Pruning (wenn Constraint nicht anti-monoton) erklären können.<br/>
+  → Endlicher Automat (TODO)
+* Was versteht man unter dem Antagonismus von Support-basiertem und
+  Constraint-basiertem Pruning?<br/>
+  → Wenn man A-Rules unter Nebenbedingungen mit dem Apriori-Algorithmus sucht,
+     könnte man versucht sein die Kandidaten schon früh auf die Constraints zu
+     überprüfen. Obwohl jede Teilmenge eines Frequent Itemsets (FI) auch
+     Frequent sein muss, muss nicht für jede Teilmenge das Constraint erfüllt
+     sein. Dies gilt jedoch nicht für die Nebenbedingungen.
+* Alternativen für Constraint-basiertes Pruning (wenn Constraint nicht
+  anti-monoton) erklären können.<br/>
   → TODO
 * Welche zwei Sprachen haben wir für die Formulierung der Constraints
   kennengelernt?<br/>
@@ -1304,7 +1331,9 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
     (Hierarchisches Clustering), finden von neuen Symbolen (TODO).
 * Warum funktionieren herkömmliche Clustering-Verfahren in hochdimensionalen
   Merkmalsräumen nicht? Skizzieren Sie eine mögliche Lösung.<br/>
-  → TODO
+  → Weil Datenobjekte in hochdimensionalen Räumen typischerweise alle weit
+     auseinander liegen / nicht dicht sind. Man kann
+     <a href="#projected-clustering">projected Clustering</a> anwenden.
 * Erklären Sie, warum Clustering mit kategorischen Attributen besonders ist?
   Warum ist Link-basiertes Clustering hier hilfreich?<br/>
   → TODO
@@ -1318,10 +1347,6 @@ auf Folie 10, Vorhersage mit Naive Bayes erklären/vorführen können.<br/>
   → TODO
 
 
-## Übungen
-
-Kommt noch.
-
 ## Material und Links
 
 Die Vorlesung wurde gestreamt und ist unter
@@ -1332,7 +1357,9 @@ Die Vorlesung wurde gestreamt und ist unter
 
 Literatur:
 
-* Harvey J. Miller,Jiawei Han: Geographic Data Mining and Knowledge Discovery
+* Ian H. Witten, Eibe Frank: Data Mining. Practical Machine Learning Tools and
+  Techniques.
+* Harvey J. Miller, Jiawei Han: Geographic Data Mining and Knowledge Discovery
   (Clustering)
 
 
