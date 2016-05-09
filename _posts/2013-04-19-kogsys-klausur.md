@@ -261,7 +261,7 @@ Offiziell nicht Klausurrelevant.
   <li>Artikel:
     <ul>
       <li><a href="../graphic-filters/">Graphic filters</a>: Mit einem interaktiven Beispiel aller Filter!</li>
-      <li><a href="../k-nearest-neighbor-clustering-interactive-example/">Clustering-Algorithmen</a>: Mit interaktivem Beispiel</li>
+      <li><a href="../k-nearest-neighbor-classification-interactive-example/">Clustering-Algorithmen</a>: Mit interaktivem Beispiel</li>
       <li><a href="../calculations-with-quaternions/">Calculations with quaternions</a></li>
       <li><a href="../calculate-histogram-equalization/">How do I calculate a histogram equalization?</a></li>
       <li><a href="../apply-viterbi-algorithm/">How to apply the Viterbi algorithm</a></li>
