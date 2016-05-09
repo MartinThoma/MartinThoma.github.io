@@ -102,11 +102,11 @@ $Q_2 := Q_1 \cup \{q_0^2, q_F\}$, wobei $q_0^2$ Anfangszustand von ${\cal K}_2$ 
 $\Gamma_2 := \Gamma_1 \cup \{Z_0^2\}$, wobei $Z_0^2$ Initialisierung des STACKS von ${\cal K}_2$ ist und $\delta_2$ festgelegt durch:
 
 Zuerst sorgen wir daf&uuml;r, dass $Z_0^2$ ganz unten im STACK ist:
-$\delta_2(q_0^2, a, X) = 
+$$\delta_2(q_0^2, a, X) = 
 \begin{cases}
 \{q_0^1, Z_0^1, Z_0^2\} & \text{falls } a= \varepsilon \text{ und } X = Z_0^2\\
 \emptyset               & \text{sonst}
-\end{cases}$
+\end{cases}$$
 
 Dann wie gehabt:
 $\delta_2(q, a, Z) = \delta_1(q, a, Z) \text{, falls } q \in Q_1, a \in \Sigma \cup \{\varepsilon\} \text{ und } Z \in \Gamma_1$
