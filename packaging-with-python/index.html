@@ -117,7 +117,7 @@ packages in form of "eggs". You can install them with easy_install or with pip.<
 <h2 id="package-management-tools">Package Management Tools</h2>
 <h3 id="distutils">Distutils</h3>
 <p>Distutils is part of the standard library. When you run</p>
-<div class="highlight"><pre>python setup.py install
+<div class="highlight"><pre><span></span>python setup.py install
 </pre></div>
 <p>then distutils is running.</p>
 <p>Major disadvantages of distutils are:</p>
@@ -129,7 +129,7 @@ packages in form of "eggs". You can install them with easy_install or with pip.<
 </ul>
 <h3 id="setuptools">Setuptools</h3>
 <p>Setuptools are startet when you install a package with <code>easy_install</code>:</p>
-<div class="highlight"><pre>easy_install package
+<div class="highlight"><pre><span></span>easy_install package
 </pre></div>
 <p>Setuptools are an extension for distutils. Setuptools offers dependency management.
 With setuptools, so called 'egg files' were introduced. Those files are comparable
@@ -157,14 +157,14 @@ so it does not support egg files.</p>
 <p>It might be the case that you have to have a Django 1.4 and a Django 1.5 project.
 In that case, you need different environments.</p>
 <h3 id="virtualenv">Virtualenv</h3>
-<div class="highlight"><pre>$ pip freeze
+<div class="highlight"><pre><span></span>$ pip freeze
 $ virtualenv my_env
 $ <span class="nb">source</span> my_env/bin/activate
 </pre></div>
 <h3 id="virtualenvwrapper">Virtualenvwrapper</h3>
 <h2 id="creating-packages_1">Creating packages</h2>
 <p>A project could have this structure:</p>
-<div class="highlight"><pre>$ tree
+<div class="highlight"><pre><span></span>$ tree
 .
 ├── LICENSE
 ├── MANIFEST
@@ -174,15 +174,15 @@ $ <span class="nb">source</span> my_env/bin/activate
 └── setup.py
 </pre></div>
 <p>With this setup.py:</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">distutils.core</span> <span class="kn">import</span> <span class="n">setup</span>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">distutils.core</span> <span class="kn">import</span> <span class="n">setup</span>
 <span class="n">setup</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"pycon2013news"</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s2">"0.1"</span><span class="p">,</span> <span class="n">py_modules</span><span class="o">=</span><span class="p">[</span><span class="s2">"pycon2013news"</span><span class="p">],)</span>
 </pre></div>
 <p>This can directly be registered on PyPi:</p>
-<div class="highlight"><pre>python setup.py register
+<div class="highlight"><pre><span></span>python setup.py register
 </pre></div>
 <p>But a problem of this code is that it does not show the dependencies. So you
 should rather use setuptools for your setup.py:</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
 <span class="n">setup</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"pycon2013news"</span><span class="p">,</span>
       <span class="n">version</span><span class="o">=</span><span class="s2">"0.1"</span><span class="p">,</span>
       <span class="n">py_modules</span><span class="o">=</span><span class="p">[</span><span class="s2">"pycon2013news"</span><span class="p">],</span>

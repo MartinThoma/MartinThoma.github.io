@@ -107,15 +107,15 @@ MathJax.Hub.Queue(function() {
             <p>Wikipedia articles are full of references. Those references should be formatted the same way. It is much easier to use a template for citations than trying to guess the right way how to cite. Unfortunately most Wikipedia users don't know the <a href="http://en.wikipedia.org/wiki/Template:Citation" title="Template:Citation">Template:Citation</a>. </p>
 <p>So I try to fix all manual styled citations when I edit an article. Doing this manually is quite time intensive. This is the reason why I wrote a little Python-script.</p>
 <h2 id="examples">Examples</h2>
-<div class="highlight"><pre><span class="p">&lt;</span><span class="nt">ref</span><span class="p">&gt;</span>[http://peter.mapledesign.co.uk/weblog/archives/python-is-slow Python is... slow?] December 21st, 2004 <span class="ni">&amp;mdash;</span> Peter Bowyer<span class="ni">&amp;rsquo;</span>s weblog]<span class="p">&lt;/</span><span class="nt">ref</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">ref</span><span class="p">&gt;</span>[http://peter.mapledesign.co.uk/weblog/archives/python-is-slow Python is... slow?] December 21st, 2004 <span class="ni">&amp;mdash;</span> Peter Bowyer<span class="ni">&amp;rsquo;</span>s weblog]<span class="p">&lt;/</span><span class="nt">ref</span><span class="p">&gt;</span>
 </pre></div>
 <p>should be </p>
-<div class="highlight"><pre><span class="p">&lt;</span><span class="nt">ref</span><span class="p">&gt;</span>{{Citation |url=http://peter.mapledesign.co.uk/weblog/archives/python-is-slow |title=Python is... slow? |accessdate=September 24, 2011}}<span class="p">&lt;/</span><span class="nt">ref</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">ref</span><span class="p">&gt;</span>{{Citation |url=http://peter.mapledesign.co.uk/weblog/archives/python-is-slow |title=Python is... slow? |accessdate=September 24, 2011}}<span class="p">&lt;/</span><span class="nt">ref</span><span class="p">&gt;</span>
 </pre></div>
-<div class="highlight"><pre><span class="p">&lt;</span><span class="nt">ref</span><span class="p">&gt;</span>[http://www.nongnu.org/pydbc/ Contracts for Python], PyDBC<span class="p">&lt;/</span><span class="nt">ref</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">ref</span><span class="p">&gt;</span>[http://www.nongnu.org/pydbc/ Contracts for Python], PyDBC<span class="p">&lt;/</span><span class="nt">ref</span><span class="p">&gt;</span>
 </pre></div>
 <p>should be </p>
-<div class="highlight"><pre><span class="p">&lt;</span><span class="nt">ref</span><span class="p">&gt;</span>{{Citation |url=http://www.nongnu.org/pydbc/ |title=Contracts for Python |accessdate=September 24, 2011}}<span class="p">&lt;/</span><span class="nt">ref</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">ref</span><span class="p">&gt;</span>{{Citation |url=http://www.nongnu.org/pydbc/ |title=Contracts for Python |accessdate=September 24, 2011}}<span class="p">&lt;/</span><span class="nt">ref</span><span class="p">&gt;</span>
 </pre></div>
 <p>So, all that has to be done is 
 <ol>
@@ -127,7 +127,7 @@ MathJax.Hub.Queue(function() {
 </ol></p>
 <h2 id="downloading-wiki-source-code">Downloading wiki source code</h2>
 <p>Wikipedia offers an <a href="http://en.wikipedia.org/w/api.php" title="Wikipedia API">API</a> for accessing the needed information. I will use this API and Pythons <a href="http://docs.python.org/library/optparse.html">optparse</a>, <a href="http://www.crummy.com/software/BeautifulSoup/documentation.html">BeautifulSoup</a> and <a href="http://docs.python.org/library/htmlparser.html">HTMLParser</a> to get the raw wiki text in UTF-8 encoding:</p>
-<div class="highlight"><pre><span class="ch">#!/usr/bin/python</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="kn">import</span> <span class="nn">urllib2</span>
@@ -176,7 +176,7 @@ MathJax.Hub.Queue(function() {
     <span class="k">return</span> <span class="n">text</span>
 </pre></div>
 <p>We are now able to access the needed information. Now we need to get the references without templates. To do so, I will use the <a href="http://docs.python.org/library/re.html">Python re module</a>:</p>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">re</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 
 <span class="k">def</span> <span class="nf">getRef</span><span class="p">(</span><span class="n">page</span><span class="p">):</span>
     <span class="sd">""" Get all references without templates """</span>
@@ -186,7 +186,7 @@ MathJax.Hub.Queue(function() {
     <span class="k">return</span> <span class="n">m</span>
 </pre></div>
 <p>Now the single references have to get parsed and the user has to confirm or edit the results:</p>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">readline</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">readline</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
 
 <span class="k">def</span> <span class="nf">rlinput</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">prefill</span><span class="o">=</span><span class="s1">''</span><span class="p">):</span>
@@ -223,7 +223,7 @@ MathJax.Hub.Queue(function() {
     <span class="k">return</span> <span class="n">page</span>
 </pre></div>
 <p>Here is the full script:</p>
-<div class="highlight"><pre><span class="ch">#!/usr/bin/python</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="kn">import</span> <span class="nn">urllib2</span>

@@ -106,56 +106,56 @@ MathJax.Hub.Queue(function() {
             
             <p>This <a href="../images/2012/04/versioning-cheat-sheet.pdf">Software Versioning Cheat Sheet</a> has very basic information aboout the installation and usage of Subversion and Git. (The <a href="../images/2012/04/versioning-cheat-sheet.zip">LaTeX Source Code</a> is here.)</p>
 <p>If you're at the KIT and you have SWT, then you'll probably need this command:</p>
-<div class="highlight"><pre>svn checkout https://svn.ipd.kit.edu/lehre/vorlesung/SWT1/SS12/stud/ SWT/ --username swt1
+<div class="highlight"><pre><span></span>svn checkout https://svn.ipd.kit.edu/lehre/vorlesung/SWT1/SS12/stud/ SWT/ --username swt1
 </pre></div>
 <p>You will be asked for a password. I hope you remember it.</p>
 <h2 id="svn">SVN</h2>
-<div class="highlight"><pre>svn co URL LocalTarget --username yourUserName
+<div class="highlight"><pre><span></span>svn co URL LocalTarget --username yourUserName
 </pre></div>
 <p>Source: <a href="http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.checkout.html">svn checkout</a></p>
-<div class="highlight"><pre>svn up
+<div class="highlight"><pre><span></span>svn up
 </pre></div>
 <p>Source: <a href="http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.update.html">svn update</a></p>
-<div class="highlight"><pre>svn log -l 4
+<div class="highlight"><pre><span></span>svn log -l 4
 </pre></div>
 <p>Source: <a href="http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.log.html">svn log</a></p>
 <h3 id="updating-the-repository">Updating the repository</h3>
 <p>You can update a SVN repository with this command:</p>
-<div class="highlight"><pre>svn up <span class="o">[</span>path<span class="o">]</span>
+<div class="highlight"><pre><span></span>svn up <span class="o">[</span>path<span class="o">]</span>
 </pre></div>
 <p>If you need to execute the command often, you might want to define an alias. aliases are shorthands for long commands in the bash. To create a permanent one, add the following line to your ~/.bashrc file:</p>
-<div class="highlight"><pre><span class="nb">alias</span> <span class="nv">swt</span><span class="o">=</span><span class="s1">'svn up /home/moose/Studium/SWT'</span>
+<div class="highlight"><pre><span></span><span class="nb">alias</span> <span class="nv">swt</span><span class="o">=</span><span class="s1">'svn up /home/moose/Studium/SWT'</span>
 </pre></div>
 <p>Now you only have to enter "swt" to execute "svn up /home/moose/Studium/SWT".</p>
 <h3 id="nice-diffs">Nice diffs</h3>
 <p>You can modify your config file:</p>
-<div class="highlight"><pre>gedit ~/.subversion/config
+<div class="highlight"><pre><span></span>gedit ~/.subversion/config
 </pre></div>
 <p>and change <code>diff-cmd</code> to <code>meld</code>.</p>
 <h3 id="compare-revisions">Compare revisions</h3>
-<div class="highlight"><pre>svn diff -r 63:64
+<div class="highlight"><pre><span></span>svn diff -r 63:64
 </pre></div>
 <p>compares revision number 63 with revision number 64 with the tool you defined (see Nice diffs).</p>
 <h2 id="git_1">Git</h2>
 <h3 id="global-configuration">Global configuration</h3>
-<div class="highlight"><pre>$ git config --global user.name <span class="s2">"Martin Thoma"</span>
+<div class="highlight"><pre><span></span>$ git config --global user.name <span class="s2">"Martin Thoma"</span>
 $ git config --global user.email info@martin-thoma.de
 $ git config --global color.ui <span class="nb">true</span>
 </pre></div>
 <h3 id="nice-diffs_1">Nice diffs</h3>
 <p>If you want a GUI for <code>git diff</code>, then you should do the following:</p>
 <p>Install meld:</p>
-<div class="highlight"><pre>sudo apt-get install meld
+<div class="highlight"><pre><span></span>sudo apt-get install meld
 </pre></div>
 <p>Got to <code>/bin</code> and create a Shell-Script called <strong>git-meld</strong> with the following content:</p>
-<div class="highlight"><pre><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 meld <span class="s2">"</span><span class="nv">$2</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$5</span><span class="s2">"</span>
 </pre></div>
 <p>Make it executable:</p>
-<div class="highlight"><pre>chmod +x git-meld
+<div class="highlight"><pre><span></span>chmod +x git-meld
 </pre></div>
 <p>Add it to your git configuration:</p>
-<div class="highlight"><pre>git config --global diff.external git-meld
+<div class="highlight"><pre><span></span>git config --global diff.external git-meld
 </pre></div>
 <p>Enjoy this experience when entering <code>git diff</code>:
 <figure class="aligncenter">
@@ -166,21 +166,21 @@ meld <span class="s2">"</span><span class="nv">$2</span><span class="s2">"</span
 <h3 id="github">GitHub</h3>
 <h4>Preparation</h4>
 <p>Read the guide "<a href="https://help.github.com/articles/generating-ssh-keys">Generating SSH keys</a>" for more information on SSH and "<a href="http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup">Getting Started - First-Time Git Setup</a>" for Git-specific questions.</p>
-<div class="highlight"><pre><span class="nb">cd</span> ~/.ssh
+<div class="highlight"><pre><span></span><span class="nb">cd</span> ~/.ssh
 ssh-keygen -t rsa -C <span class="s2">"info@martin-thoma.de"</span>
 git config --global user.name <span class="s2">"Martin Thoma"</span>
 git config --global user.email info@martin-thoma.de
 </pre></div>
 <h4>Clone</h4>
 <p>Clone a GITHub repository:</p>
-<div class="highlight"><pre>git clone git@github.com:MartinThoma/matrix-multiplication.git
+<div class="highlight"><pre><span></span>git clone git@github.com:MartinThoma/matrix-multiplication.git
 </pre></div>
 <h3 id="snippets">Snippets</h3>
 <p>Reset a single file to the latest revision on the server:</p>
-<div class="highlight"><pre>git checkout HEAD file/to/restore
+<div class="highlight"><pre><span></span>git checkout HEAD file/to/restore
 </pre></div>
 <p>Get the latest diff:</p>
-<div class="highlight"><pre>git diff HEAD @<span class="o">{</span>1<span class="o">}</span>
+<div class="highlight"><pre><span></span>git diff HEAD @<span class="o">{</span>1<span class="o">}</span>
 </pre></div>
 <h2 id="resources_1">Resources</h2>
 <ul>

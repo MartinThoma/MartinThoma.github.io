@@ -107,14 +107,14 @@ MathJax.Hub.Queue(function() {
             <p>I have to run a very simple Python script on an Apache2 web server. These were
 the steps with which I made it work:</p>
 <h2 id="find-the-apache2-config">Find the Apache2 config</h2>
-<div class="highlight"><pre>$ /usr/sbin/apache2 -V
+<div class="highlight"><pre><span></span>$ /usr/sbin/apache2 -V
 </pre></div>
 <p>It is in <code>/etc/apache2/apache2.conf</code></p>
 <h2 id="add-cgi">Add CGI</h2>
 <p>Somewhere in the <code>/etc/apache2/apache2.conf</code> there is a <code>&lt;Directory ...&gt;</code> part.
 I've added <code>Options ExecCGI</code> and <code>AddHandler cgi-script .py</code>. Now this part
 looks like this:</p>
-<div class="highlight"><pre>&lt;Directory /var/www/&gt;
+<div class="highlight"><pre><span></span>&lt;Directory /var/www/&gt;
     Options Indexes FollowSymLinks ExecCGI
     AddHandler cgi-script .py
     AllowOverride None
@@ -123,7 +123,7 @@ looks like this:</p>
 </pre></div>
 <h2 id="test-it">Test it</h2>
 <p>Create the following <code>test.py</code> file:</p>
-<div class="highlight"><pre><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: UTF-8 -*-</span>
 
 <span class="k">print</span><span class="p">(</span><span class="s2">"Content-Type: text/html</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
@@ -132,7 +132,7 @@ looks like this:</p>
 </pre></div>
 <p>Now call <code>http://localhost/test.py</code>.</p>
 <p>If that doesn't work, take a look at the apache log files:</p>
-<div class="highlight"><pre>$ tail -f /var/log/apache2/error.log
+<div class="highlight"><pre><span></span>$ tail -f /var/log/apache2/error.log
 </pre></div>
             
             <section>

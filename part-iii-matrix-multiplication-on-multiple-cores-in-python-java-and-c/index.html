@@ -121,21 +121,21 @@ MathJax.Hub.Queue(function() {
 <h2 id="python">Python</h2>
 <p>Because of global interpreter lock (GIL), you need to start new processes in Python (<a href="http://stackoverflow.com/a/9786225/562769">source</a>).</p>
 <p>The ikj single core algorithm implemented in Python needs:</p>
-<div class="highlight"><pre><span class="nb">time</span> python ikjMultiplication.py -i 2000.in &gt; 2000-nonparallel.out
+<div class="highlight"><pre><span></span><span class="nb">time</span> python ikjMultiplication.py -i 2000.in &gt; 2000-nonparallel.out
 
 real    36m0.699s
 user    35m53.463s
 sys 0m2.356s
 </pre></div>
 <p>The most simple way to parallelize the ikj algorith is to use the <a href="http://docs.python.org/2/library/multiprocessing.html">multiprocessing module</a> and compute every line of the result matrix C with a new process. But for the 2000x2000-example, this would mean we started 2000 processes. The overhead is much worse than the benefit:</p>
-<div class="highlight"><pre><span class="nb">time</span> python ikjMultiplication.py -i 2000.in &gt; 2000-parallel.out
+<div class="highlight"><pre><span></span><span class="nb">time</span> python ikjMultiplication.py -i 2000.in &gt; 2000-parallel.out
 
 real    20m47.693s
 user    40m34.460s
 sys 0m2.092s
 </pre></div>
 <p>When we share memory, the code looks like this:</p>
-<div class="highlight"><pre><span class="ch">#!/usr/bin/python</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="kn">import</span> <span class="nn">multiprocessing</span><span class="o">,</span> <span class="nn">numpy</span><span class="o">,</span> <span class="nn">ctypes</span>
@@ -214,14 +214,14 @@ sys 0m2.092s
     <span class="n">printMatrix</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
 </pre></div>
 <p>and it needs MUCH more time:</p>
-<div class="highlight"><pre><span class="nb">time</span> python ikjMultiplication-shared.py -i 2000.in &gt; 2000-parallel-2threads.out
+<div class="highlight"><pre><span></span><span class="nb">time</span> python ikjMultiplication-shared.py -i 2000.in &gt; 2000-parallel-2threads.out
 
 real    131m35.433s
 user    250m36.820s
 sys 0m9.533s
 </pre></div>
 <p>When we don't use shared memory, things run faster:</p>
-<div class="highlight"><pre><span class="ch">#!/usr/bin/python</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="kn">import</span> <span class="nn">multiprocessing</span><span class="o">,</span> <span class="nn">numpy</span><span class="o">,</span> <span class="nn">ctypes</span>
@@ -292,7 +292,7 @@ sys 0m9.533s
     <span class="n">C</span> <span class="o">=</span> <span class="n">ikjMatrixProduct</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">threadNumber</span><span class="p">)</span>
     <span class="n">printMatrix</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
 </pre></div>
-<div class="highlight"><pre><span class="nb">time</span> python ikjMultiplication.py -i 2000.in &gt; 2000-parallel-4threads.out
+<div class="highlight"><pre><span></span><span class="nb">time</span> python ikjMultiplication.py -i 2000.in &gt; 2000-parallel-4threads.out
 
 real    22m46.066s
 user    41m42.396s
@@ -300,7 +300,7 @@ sys 0m2.324s
 </pre></div>
 <h2 id="java">Java</h2>
 <p>Shell.java:</p>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.io.FileReader</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
@@ -432,7 +432,7 @@ sys 0m2.324s
 <span class="o">}</span>
 </pre></div>
 <p>LineMultiplier.java:</p>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.concurrent.Callable</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">LineMultiplier</span> <span class="kd">implements</span> <span class="n">Callable</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[][]&gt;</span> <span class="o">{</span>
@@ -465,7 +465,7 @@ sys 0m2.324s
 <span class="o">}</span>
 </pre></div>
 <p>Execute it with only one thread:</p>
-<div class="highlight"><pre><span class="nb">time</span> java Shell -i 2000.in <span class="m">1</span> &gt; 2000-paralllel.out
+<div class="highlight"><pre><span></span><span class="nb">time</span> java Shell -i 2000.in <span class="m">1</span> &gt; 2000-paralllel.out
 Number of cores:    2
 0
 
@@ -474,7 +474,7 @@ user    0m42.259s
 sys 0m0.388s
 </pre></div>
 <p>Execute it with two threads:</p>
-<div class="highlight"><pre><span class="nb">time</span> java Shell -i 2000.in <span class="m">2</span> &gt; 2000-paralllel.out
+<div class="highlight"><pre><span></span><span class="nb">time</span> java Shell -i 2000.in <span class="m">2</span> &gt; 2000-paralllel.out
 Number of cores:    2
 0
 1000
@@ -494,7 +494,7 @@ sys 0m0.512s
 <h2 id="c_1">C++</h2>
 <p>Making the ikj-algorithm parallel is trivial with C++. You only need to add <code>#pragma omp parallel for</code> before the outer most for loop and add <code>-fopenmp</code> as a compile flag!
 (If you really want to see the code, go to <a href="https://github.com/MartinThoma/matrix-multiplication/tree/master/C%2B%2B/Parallel">my Git repository</a>.)</p>
-<div class="highlight"><pre>$ <span class="nb">time</span> ./ikj-algorithm.out <span class="m">2</span> 2000.in &gt; 2000-parallel.out
+<div class="highlight"><pre><span></span>$ <span class="nb">time</span> ./ikj-algorithm.out <span class="m">2</span> 2000.in &gt; 2000-parallel.out
 
 real    0m12.563s
 user    0m20.569s

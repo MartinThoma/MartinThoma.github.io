@@ -118,7 +118,7 @@ Every instance is a 28 &times; 28 pixel grayscale image.</p>
 <li>t10k-labels-idx1-ubyte.gz:   test set labels (4.43 kB, 10000 labels)</li>
 </ul>
 <p>Both label files are like this:</p>
-<div class="highlight"><pre><span class="k">[offset] [type]          [value]          [description]</span>
+<div class="highlight"><pre><span></span><span class="k">[offset] [type]          [value]          [description]</span>
 <span class="err">0000</span>     <span class="err">32</span> <span class="err">bit</span> <span class="err">integer</span>  <span class="err">0x00000801(2049)</span> <span class="err">magic</span> <span class="err">number</span> <span class="err">(MSB</span> <span class="err">first)</span>
 <span class="err">0004</span>     <span class="err">32</span> <span class="err">bit</span> <span class="err">integer</span>  <span class="err">60000</span>            <span class="err">number</span> <span class="err">of</span> <span class="err">items</span>
 <span class="err">0008</span>     <span class="err">unsigned</span> <span class="err">byte</span>   <span class="err">??</span>               <span class="err">label</span>
@@ -128,7 +128,7 @@ Every instance is a 28 &times; 28 pixel grayscale image.</p>
 <span class="err">The</span> <span class="err">labels</span> <span class="err">values</span> <span class="err">are</span> <span class="err">0</span> <span class="err">to</span> <span class="err">9.</span>
 </pre></div>
 <p>and both image containers are like that:</p>
-<div class="highlight"><pre><span class="k">[offset] [type]          [value]          [description]</span>
+<div class="highlight"><pre><span></span><span class="k">[offset] [type]          [value]          [description]</span>
 <span class="err">0000</span>     <span class="err">32</span> <span class="err">bit</span> <span class="err">integer</span>  <span class="err">0x00000803(2051)</span> <span class="err">magic</span> <span class="err">number</span>
 <span class="err">0004</span>     <span class="err">32</span> <span class="err">bit</span> <span class="err">integer</span>  <span class="err">60000</span>            <span class="err">number</span> <span class="err">of</span> <span class="err">images</span>
 <span class="err">0008</span>     <span class="err">32</span> <span class="err">bit</span> <span class="err">integer</span>  <span class="err">28</span>               <span class="err">number</span> <span class="err">of</span> <span class="err">rows</span>
@@ -149,7 +149,7 @@ Every instance is a 28 &times; 28 pixel grayscale image.</p>
 </ul>
 <p>As the training and the testing dataset is structured the same way, we can
 create a method thad retrives the data for both files.</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">struct</span> <span class="kn">import</span> <span class="n">unpack</span>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">struct</span> <span class="kn">import</span> <span class="n">unpack</span>
 <span class="kn">import</span> <span class="nn">gzip</span>
 <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">zeros</span><span class="p">,</span> <span class="n">uint8</span>
 
@@ -201,7 +201,7 @@ create a method thad retrives the data for both files.</p>
 <h2 id="viewing-data">Viewing data</h2>
 <p>You might want to take a look at an image. This is easily possible with
 <a href="http://wiki.scipy.org/PyLab">PyLab</a> (which is a part of Matplotlib):</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="n">imshow</span><span class="p">,</span> <span class="n">show</span><span class="p">,</span> <span class="n">cm</span>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="n">imshow</span><span class="p">,</span> <span class="n">show</span><span class="p">,</span> <span class="n">cm</span>
 
 
 <span class="k">def</span> <span class="nf">view_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
@@ -247,7 +247,7 @@ layer and an output layer.</p>
 Every training step is followed by an evaluation step.</p>
 <p>By the way, <a href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.ravel.html"><code>numpy.ravel</code></a>
 simply flattens a list.</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">ravel</span>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">ravel</span>
 
 <span class="kn">from</span> <span class="nn">pybrain.datasets</span> <span class="kn">import</span> <span class="n">ClassificationDataSet</span>
 <span class="kn">from</span> <span class="nn">pybrain.utilities</span> <span class="kn">import</span> <span class="n">percentError</span>
@@ -295,7 +295,7 @@ simply flattens a list.</p>
 probably <a href="https://docs.python.org/2/library/pickle.html#module-cPickle">pickle</a>
 the data.</p>
 <h2 id="final-complete-code">Final complete code</h2>
-<div class="highlight"><pre><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 
 <span class="kn">from</span> <span class="nn">struct</span> <span class="kn">import</span> <span class="n">unpack</span>
 <span class="kn">import</span> <span class="nn">gzip</span>
@@ -446,7 +446,7 @@ the data.</p>
 </pre></div>
 <h2 id="results">Results</h2>
 <p>I'll update that tomorrow:</p>
-<div class="highlight"><pre>python pybrainmnist.py -e <span class="m">10000</span> -H 300
+<div class="highlight"><pre><span></span>python pybrainmnist.py -e <span class="m">10000</span> -H 300
 Get testset
 Got <span class="m">10000</span> testing datasets.
 Get trainingset

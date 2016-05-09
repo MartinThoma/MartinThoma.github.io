@@ -111,16 +111,16 @@ MathJax.Hub.Queue(function() {
 <p>The Arch Linux installation setup is command line based.</p>
 <h2 id="keyboard-layout">Keyboard layout</h2>
 <p>You can switch to a German keyboard layout with this command:</p>
-<div class="highlight"><pre>loadkeys de
+<div class="highlight"><pre><span></span>loadkeys de
 </pre></div>
 <h2 id="partitioning-and-mounting">Partitioning and mounting</h2>
 <p>You need a bootable partition and a swap partition (that is at least as big as much RAM you have). Partitioning can be done with <code>cfdisk</code> (configure disk).</p>
 <p>Check the result with</p>
-<div class="highlight"><pre>parted /dev/sda print
+<div class="highlight"><pre><span></span>parted /dev/sda print
 fdisk -l
 </pre></div>
 <p>Afterwards:</p>
-<div class="highlight"><pre>mkfs.ext4 /dev/sda1
+<div class="highlight"><pre><span></span>mkfs.ext4 /dev/sda1
 mkfs.ext4 /dev/sda3
 mkswap /dev/sda2
 swapon /dev/sda2
@@ -130,22 +130,22 @@ mount /dev/sda3 /mnt/home/
 </pre></div>
 <h2 id="getting-internet">Getting internet</h2>
 <p>I only have WLAN at the moment, which makes things more difficult:</p>
-<div class="highlight"><pre>wpa_passphrase <span class="s2">"SSID"</span> PASSWORD &gt; /etc/wpa_supplicant/wpa_supplicant.conf
+<div class="highlight"><pre><span></span>wpa_passphrase <span class="s2">"SSID"</span> PASSWORD &gt; /etc/wpa_supplicant/wpa_supplicant.conf
 wpa_supplicant -i wlp4so -D wext -c /etc/wpa_supplicant/wpa_supplicant.conf -B
 dhcpcd wlp4s0
 </pre></div>
 <p>wlp4s0 is the wlan interface (which is wlan0 most of the time). You get it with <code>ip link</code>.</p>
 <p>I had a lot of fun at this point as you can see <a href="http://unix.stackexchange.com/questions/93851/can-i-connet-to-internet-with-one-pc-and-give-over-lan-switch-internet-to-othe">here</a>.</p>
 <h2 id="install-base-system">Install base system</h2>
-<div class="highlight"><pre>packstrap -i /mnt base base base-devel
+<div class="highlight"><pre><span></span>packstrap -i /mnt base base base-devel
 </pre></div>
 <p>After accepting all defaults (by pressing enter) and letting it download:</p>
-<div class="highlight"><pre>genfstab -U -p /mnt  :  sed <span class="s1">'s/rw,realtime,data=ordered/defaults,realtime/'</span> &gt;&gt; /mnt/etc/fstab
+<div class="highlight"><pre><span></span>genfstab -U -p /mnt  :  sed <span class="s1">'s/rw,realtime,data=ordered/defaults,realtime/'</span> &gt;&gt; /mnt/etc/fstab
 arch-chroot /mnt
 nano /etc/locale.gen
 </pre></div>
 <p>Uncomment your language (from now on, your promt should be "sh-4.2#").</p>
-<div class="highlight"><pre><span class="nv">locale</span><span class="o">=</span>gen
+<div class="highlight"><pre><span></span><span class="nv">locale</span><span class="o">=</span>gen
 <span class="nb">echo</span> <span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8 &gt; /etc/locale.conf
 <span class="nb">export</span> <span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
 ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime
@@ -153,18 +153,18 @@ hwclock --systohc --utc
 systemctl <span class="nb">enable</span> dhcpcd.service
 </pre></div>
 <p>Now edit and uncomment multilib. Then:</p>
-<div class="highlight"><pre>mkinitcpio -p linux
+<div class="highlight"><pre><span></span>mkinitcpio -p linux
 </pre></div>
 <p>Now set the password by entering <code>passwd</code>.
 Create your user:</p>
-<div class="highlight"><pre>useradd -m -g users -G wheel -s /bin/bash moose
+<div class="highlight"><pre><span></span>useradd -m -g users -G wheel -s /bin/bash moose
 passwd moose
 </pre></div>
 <p>Synchronise caches:</p>
-<div class="highlight"><pre>pacman -Syy
+<div class="highlight"><pre><span></span>pacman -Syy
 </pre></div>
 <p>Install grub:</p>
-<div class="highlight"><pre>pacman -S grub-bios
+<div class="highlight"><pre><span></span>pacman -S grub-bios
 pacman -S os-prober
 grub-install /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
@@ -172,22 +172,22 @@ grub-mkconfig -o /boot/grub/grub.cfg
 restart
 </pre></div>
 <p>Give yourself sudo:</p>
-<div class="highlight"><pre>pacman -S sudo
+<div class="highlight"><pre><span></span>pacman -S sudo
 nano /etc/sudoers
 </pre></div>
 <p>Add your user to the bottom section "User privilege specification"</p>
 <h2 id="install-gnome">Install GNOME</h2>
-<div class="highlight"><pre>pacman -S gnome xorg
+<div class="highlight"><pre><span></span>pacman -S gnome xorg
 systemctl <span class="nb">enable</span> gdm.service
 </pre></div>
 <h2 id="mate">MATE</h2>
 <p>Add the following to your /etc/pacman.conf:</p>
-<div class="highlight"><pre>[mate]
+<div class="highlight"><pre><span></span>[mate]
 SigLevel = Optional TrustAll
 Server = http://repo.mate-desktop.org/archlinux/$arch
 </pre></div>
 <p>Run</p>
-<div class="highlight"><pre><span class="c1"># pacman -Syy</span>
+<div class="highlight"><pre><span></span><span class="c1"># pacman -Syy</span>
 <span class="c1"># pacman -S mate mate-extras</span>
 </pre></div>
 <p>Lets see if I get an answer to <a href="https://bbs.archlinux.org/viewtopic.php?id=170911">some essential basic questions</a>.</p>

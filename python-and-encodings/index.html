@@ -110,17 +110,17 @@ read a file / print some output.</p>
 <p>In the following, I will describe some strategies which might help you.</p>
 <h2 id="test-script">Test script</h2>
 <p>Copy the following text to a text file <code>test.txt</code>:</p>
-<div class="highlight"><pre>Die s&uuml;&szlig;e, kleine, l&auml;rmende &Uuml;berfliegerin lebt in der Haute-C&ocirc;te-Nord.
+<div class="highlight"><pre><span></span>Die s&uuml;&szlig;e, kleine, l&auml;rmende &Uuml;berfliegerin lebt in der Haute-C&ocirc;te-Nord.
 Dort hat es momemtan 32&deg;C.
 </pre></div>
 <p>On Debian based systems you will get the information which type of encoding it
 has like this:</p>
-<div class="highlight"><pre>$ file test.txt
+<div class="highlight"><pre><span></span>$ file test.txt
 test.txt: UTF-8 Unicode text
 </pre></div>
 <p>This is probably the best result. But to make sure that we know how to deal
 with other encodings, you can change the encoding like this:</p>
-<div class="highlight"><pre>$ iconv -f UTF-8 -t ISO-8859-1 test.txt &gt; test-iso-8859-1.txt
+<div class="highlight"><pre><span></span>$ iconv -f UTF-8 -t ISO-8859-1 test.txt &gt; test-iso-8859-1.txt
 $ file test-iso-8859-1.txt 
 test-iso-8859-1.txt: ISO-8859 text
 </pre></div>
@@ -128,21 +128,21 @@ test-iso-8859-1.txt: ISO-8859 text
 <p>A first important step is to define the source code encoding. This is done
 with a comment. The first lines of Python code should probably always look
 like this:</p>
-<div class="highlight"><pre><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: UTF-8 -*-</span>
 </pre></div>
 <p><a href="https://www.python.org/dev/peps/pep-0263/">PEP-0263</a> explains it.</p>
 <h2 id="printing-encoding-problems">Printing encoding problems</h2>
 <p>The following error occurs when you try to print non-UTF-8 stuff with Python
 via Sublime Text:</p>
-<div class="highlight"><pre>[Decode error - output not utf-8]
+<div class="highlight"><pre><span></span>[Decode error - output not utf-8]
 </pre></div>
 <p>The same code, executed via ZSH, gives:</p>
-<div class="highlight"><pre>Die s��e, kleine, l�rmende �berfliegerin lebt in der Haute-C�te-Nord.
+<div class="highlight"><pre><span></span>Die s��e, kleine, l�rmende �berfliegerin lebt in der Haute-C�te-Nord.
 Dort hat es momemtan 32�C.
 </pre></div>
 <p>You can fix that by adjusting the code the following way:</p>
-<div class="highlight"><pre><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: UTF-8 -*-</span>
 
 <span class="c1"># Make it work with Python 2 and Python 3</span>

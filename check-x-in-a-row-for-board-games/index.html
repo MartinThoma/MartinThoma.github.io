@@ -145,13 +145,13 @@ MathJax.Hub.Queue(function() {
 </ul>
 <h2 id="isonboardint-x-int-y">isOnBoard(int x, int y)</h2>
 <p>You should create a method that checks if a coordinate is on your board. This can be as simple as this:</p>
-<div class="highlight"><pre><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isOnBoard</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isOnBoard</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>
     <span class="k">return</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">width</span> <span class="o">&amp;&amp;</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">y</span> <span class="o">&amp;&amp;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">height</span><span class="o">;</span>
 <span class="o">}</span>
 </pre></div>
 <h2 id="diagonal-horizontal-and-vertical">Diagonal, horizontal and vertical</h2>
 <p>You can create a method like this:</p>
-<div class="highlight"><pre><span class="cm">/**</span>
+<div class="highlight"><pre><span></span><span class="cm">/**</span>
 <span class="cm"> * This method checks XYZ and does XYZ.</span>
 <span class="cm"> *</span>
 <span class="cm"> * @param player the current player</span>
@@ -178,7 +178,7 @@ MathJax.Hub.Queue(function() {
 <p>What's so special about it? Well, note how the <code>xDir</code> and <code>yDir</code> parameters change the behavior of the method. If you want to move only to the right, you will call <code>myBoardAction(player, 1, 0)</code>. If you want to go to the top left, you will call <code>myBoardAction(player, -1, 1)</code>. Of course, you can't simply take this piece of code and only change <code>doXYZ()</code> and <code>checkXYZ</code>. You will have to change the starting and and position and maybe add a break. But this thought can be applied to board games quite nice.</p>
 <p>Please also note that I go from <code>(0|0)</code> to <code>(board.width|board.height)</code> and even add in the inner loop something. So some calls will be out of bound. But because of <a href="http://en.wikipedia.org/wiki/Short-circuit_evaluation">short-circuit evaluation</a> this works. I don't bother about ends, I simply include the critical parts. Most of the time, it is not much work to check if the call is within the boundary, but finding (and fixing) a bug is much work. Yes, I know, this is more efficient if you use the correct boundaries. But it's only a constant in time difference. And I guess this constant is very small for most games.</p>
 <p>Ah, and if you want to check a condition for all diagonals, horizontals and verticals the hole board, you can call it like this:</p>
-<div class="highlight"><pre><span class="n">myBoardAction</span><span class="o">(</span><span class="n">player</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span> <span class="c1">// top right</span>
+<div class="highlight"><pre><span></span><span class="n">myBoardAction</span><span class="o">(</span><span class="n">player</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span> <span class="c1">// top right</span>
 <span class="n">myBoardAction</span><span class="o">(</span><span class="n">player</span><span class="o">,-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span> <span class="c1">// top left</span>
 <span class="n">myBoardAction</span><span class="o">(</span><span class="n">player</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span> <span class="c1">// vertical</span>
 <span class="n">myBoardAction</span><span class="o">(</span><span class="n">player</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span> <span class="c1">// horizontal</span>

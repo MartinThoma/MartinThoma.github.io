@@ -111,13 +111,13 @@ MathJax.Hub.Queue(function() {
 <li>E<strong>x</strong>ecute</li>
 </ul></p>
 <p>If you want to mark a file as executable, you can add the x-right:</p>
-<div class="highlight"><pre>chmod +x
+<div class="highlight"><pre><span></span>chmod +x
 </pre></div>
 <p>When you want to mark a file as readable, you can dd the r-right:</p>
-<div class="highlight"><pre>chmod +r
+<div class="highlight"><pre><span></span>chmod +r
 </pre></div>
 <p>You can remove rights in a similar way:</p>
-<div class="highlight"><pre>chmod -x testfile
+<div class="highlight"><pre><span></span>chmod -x testfile
 </pre></div>
 <p>Now, often this is expressed numerically. Three bits determine if the file is readable (4), writable (2) or executable (1). Did you notice that all of them are powers of two?</p>
 <h3 id="folders">Folders</h3>
@@ -129,7 +129,7 @@ MathJax.Hub.Queue(function() {
 </ul></p>
 <h2 id="user-group-others_1">User, Group, Others</h2>
 <p>The rights above can be set for the user who created the file (sometimes also called the owner). Then the group that owns the file and all others. This is the reason why you have three times the rights from above:</p>
-<div class="highlight"><pre>moose@pc07:~/Downloads$ ls -l
+<div class="highlight"><pre><span></span>moose@pc07:~/Downloads$ ls -l
 total 29624
 drwxr-xr-x  <span class="m">8</span> moose moose     <span class="m">4096</span> 2013-02-22 14:18 algorithms
 -rw-r--r--  <span class="m">1</span> moose moose    <span class="m">60058</span> 2013-02-11 08:00 args4j-2.0.21.jar
@@ -157,7 +157,7 @@ drwxr-xr-x  <span class="m">5</span> moose moose     <span class="m">4096</span>
 <h2 id="suid-sgid-sticky-bit">SUID, SGID, Sticky Bit</h2>
 <h3 id="files_1">Files</h3>
 <p>Sometimes, you want to execute programs as root, although the user who started the execution isn't root. Take passwd, the program that allows users to change passwords, for example:</p>
-<div class="highlight"><pre>moose@pc07:/usr/bin$ ls -l <span class="p">|</span> grep passwd$
+<div class="highlight"><pre><span></span>moose@pc07:/usr/bin$ ls -l <span class="p">|</span> grep passwd$
 -rwsr-xr-x <span class="m">1</span> root   root       <span class="m">53812</span> 2011-02-14 23:11 gpasswd
 -rwxr-xr-x <span class="m">1</span> root   root       <span class="m">13612</span> 2012-11-06 21:41 htpasswd
 -rwsr-xr-x <span class="m">1</span> root   lpadmin    <span class="m">13540</span> 2012-12-04 16:24 lppasswd
@@ -166,7 +166,7 @@ drwxr-xr-x  <span class="m">5</span> moose moose     <span class="m">4096</span>
 -rwxr-xr-x <span class="m">1</span> root   root        <span class="m">9688</span> 2013-01-18 17:59 vino-passwd
 </pre></div>
 <p>Instead of "x" in the user-execution-row, it states "s". That means, you can execute it and it has the SUID-bit set. If "x" wasn't set, the "S" would be in a capital letter. When you change your password, you need to edit <code>/etc/shadow</code>. This file has very limited access rights: <code>-rw-r-----</code> and is owned by "root" and group "shadow":</p>
-<div class="highlight"><pre>moose@pc07:/etc$ ls -l <span class="p">|</span> grep shadow$
+<div class="highlight"><pre><span></span>moose@pc07:/etc$ ls -l <span class="p">|</span> grep shadow$
 -rw-r-----  <span class="m">1</span> root    shadow     <span class="m">813</span> 2013-01-24 06:21 gshadow
 -rw-r-----  <span class="m">1</span> root    shadow    <span class="m">1274</span> 2013-01-24 06:21 shadow
 </pre></div>
@@ -174,10 +174,10 @@ drwxr-xr-x  <span class="m">5</span> moose moose     <span class="m">4096</span>
 <p>The SGID (set group id) bit works similar to the SUID (set user id) bit. When you want to execute something with as the group of the file, you set the SGID bit.</p>
 <p>The sticky bit seems to be used for programs to stick in memory after it was finished.</p>
 <p>You can set the sticky bit like this:</p>
-<div class="highlight"><pre>chmod +t testfile
+<div class="highlight"><pre><span></span>chmod +t testfile
 </pre></div>
 <p>or like that:</p>
-<div class="highlight"><pre>chmod <span class="m">1777</span> testfile
+<div class="highlight"><pre><span></span>chmod <span class="m">1777</span> testfile
 </pre></div>
 <h3 id="folders_1">Folders</h3>
 <ul>
@@ -196,7 +196,7 @@ drwxr-xr-x  <span class="m">5</span> moose moose     <span class="m">4096</span>
 <li>p: pipe</li>
 <li>s: a socket</li>
 </ul>
-<div class="highlight"><pre>moose@pc07:/dev$ ls -l
+<div class="highlight"><pre><span></span>moose@pc07:/dev$ ls -l
 total 0
 crw-------  <span class="m">1</span> root video    10, <span class="m">175</span> 2013-03-04 10:01 agpgart
 crw-rw----+ <span class="m">1</span> root audio    14,   <span class="m">4</span> 2013-03-04 10:01 audio
@@ -223,7 +223,7 @@ brw-rw----  <span class="m">1</span> root disk      7,   <span class="m">0</span
 </pre></div>
 <h2 id="stat">stat</h2>
 <p>You can display quite a lot of information of a file with stat:</p>
-<div class="highlight"><pre>moose@pc07:~/Desktop/Test$ stat testfile
+<div class="highlight"><pre><span></span>moose@pc07:~/Desktop/Test$ stat testfile
   File: <span class="sb">`</span>testfile<span class="err">'</span>
   Size: <span class="m">13</span>          Blocks: <span class="m">8</span>          IO Block: <span class="m">4096</span>   regular file
 Device: 801h/2049d  Inode: <span class="m">923339</span>      Links: 1
@@ -238,19 +238,19 @@ Change: 2013-03-04 21:31:51.154184098 +0100
 <blockquote>The `c', 's',  and `u' attributes are not honored by the ext2 and ext3 filesystems as implemented in the current mainline Linux kernels. These attributes may be implemented in future versions of the ext2 and ext3 filesystems.</blockquote>
 <h3 id="version">Version</h3>
 <p>I've just learned that you can give files version-attributes:</p>
-<div class="highlight"><pre>moose@pc07:~/Desktop/Test$ lsattr -v
+<div class="highlight"><pre><span></span>moose@pc07:~/Desktop/Test$ lsattr -v
  <span class="m">1338</span> -----------------e- ./testfile
 </pre></div>
 <p>You can set the version like this:</p>
-<div class="highlight"><pre>chattr -v <span class="m">1339</span> testfile
+<div class="highlight"><pre><span></span>chattr -v <span class="m">1339</span> testfile
 </pre></div>
 <h3 id="append-only">Append only</h3>
 <p>This one is weird. Theoretically, it should allow me to append to a file, but not to change / delete anything in the file.</p>
 <p>First of all, I had to use sudo to add this attribute:</p>
-<div class="highlight"><pre>sudo chattr +a testfile
+<div class="highlight"><pre><span></span>sudo chattr +a testfile
 </pre></div>
 <p>Then, I had all permissions:</p>
-<div class="highlight"><pre>moose@pc07:~/Desktop/Test$ stat testfile
+<div class="highlight"><pre><span></span>moose@pc07:~/Desktop/Test$ stat testfile
   File: <span class="sb">`</span>testfile<span class="err">'</span>
   Size: <span class="m">13</span>          Blocks: <span class="m">8</span>          IO Block: <span class="m">4096</span>   regular file
 Device: 801h/2049d  Inode: <span class="m">923339</span>      Links: 1
@@ -262,7 +262,7 @@ moose@pc07:~/Desktop/Test$ lsattr
 -----a-----------e- ./testfile
 </pre></div>
 <p>But I couldn't append to the file with gedit. With bash, it worked fine:</p>
-<div class="highlight"><pre>moose@pc07:~/Desktop/Test$ <span class="nb">echo</span> <span class="s2">"One more line "</span> &gt;&gt; testfile
+<div class="highlight"><pre><span></span>moose@pc07:~/Desktop/Test$ <span class="nb">echo</span> <span class="s2">"One more line "</span> &gt;&gt; testfile
 moose@pc07:~/Desktop/Test$ cat testfile
 Hello World.
 One more line

@@ -134,7 +134,7 @@ character.</li>
 <li><code>docs_url</code>: Either begins with <code>http://pythonhosted.org</code> or is empty.</li>
 </ul>
 <h3 id="most-active-authors">Most active authors</h3>
-<div class="highlight"><pre><span class="k">SELECT</span>
+<div class="highlight"><pre><span></span><span class="k">SELECT</span>
     <span class="o">`</span><span class="n">author</span><span class="o">`</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span> <span class="k">as</span> <span class="o">`</span><span class="n">created_packages</span><span class="o">`</span>
 <span class="k">FROM</span>
     <span class="o">`</span><span class="n">packages</span><span class="o">`</span>
@@ -233,13 +233,13 @@ character.</li>
 </tbody>
 </table>
 <p>The total number of authors is 28&thinsp;183 (06.12.2015):</p>
-<div class="highlight"><pre><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span> <span class="o">`</span><span class="n">author</span><span class="o">`</span><span class="p">)</span> <span class="k">AS</span> <span class="o">`</span><span class="n">total_authors</span><span class="o">`</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">packages</span><span class="o">`</span>
+<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span> <span class="o">`</span><span class="n">author</span><span class="o">`</span><span class="p">)</span> <span class="k">AS</span> <span class="o">`</span><span class="n">total_authors</span><span class="o">`</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">packages</span><span class="o">`</span>
 </pre></div>
 <h3 id="maximum-length">Maximum Length</h3>
 <p>I guess many values are stored on PyPI as <code>Varchar(255)</code>. To check if I might
 have missed some values, I checked which entry was the longest one for all
 columns. I did this with</p>
-<div class="highlight"><pre><span class="k">SELECT</span> <span class="o">`</span><span class="n">name</span><span class="o">`</span><span class="p">,</span> <span class="k">LENGTH</span><span class="p">(</span><span class="o">`</span><span class="n">name</span><span class="o">`</span><span class="p">)</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">packages</span><span class="o">`</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="k">LENGTH</span><span class="p">(</span><span class="o">`</span><span class="n">name</span><span class="o">`</span><span class="p">)</span> <span class="k">DESC</span>
+<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">`</span><span class="n">name</span><span class="o">`</span><span class="p">,</span> <span class="k">LENGTH</span><span class="p">(</span><span class="o">`</span><span class="n">name</span><span class="o">`</span><span class="p">)</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">packages</span><span class="o">`</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="k">LENGTH</span><span class="p">(</span><span class="o">`</span><span class="n">name</span><span class="o">`</span><span class="p">)</span> <span class="k">DESC</span>
 </pre></div>
 <table>
 <tr>
@@ -381,7 +381,7 @@ rarely used:</p>
 <p><code>maintainer</code> and <code>maintainer_email</code> is interesting for people who want to send
 bug reports. If this is empty, I would guess the package is dead.</p>
 <h3 id="platform">Platform</h3>
-<div class="highlight"><pre><span class="k">SELECT</span>
+<div class="highlight"><pre><span></span><span class="k">SELECT</span>
     <span class="o">`</span><span class="n">platform</span><span class="o">`</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span>
 <span class="k">FROM</span>
     <span class="o">`</span><span class="n">packages</span><span class="o">`</span>
@@ -469,7 +469,7 @@ sense. Here is how you add it on PyPI:</p>
 </figure>
 <h3 id="license">License</h3>
 <p>Another important one. Add a license to your software!</p>
-<div class="highlight"><pre><span class="k">SELECT</span>
+<div class="highlight"><pre><span></span><span class="k">SELECT</span>
     <span class="o">`</span><span class="n">license</span><span class="o">`</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span>
 <span class="k">FROM</span>
     <span class="n">packages</span>
@@ -644,7 +644,7 @@ and listed <a href="https://pypi.python.org/pypi?%3Aaction=list_classifiers">her
 </table>
 <p>When you analyze the licenses with the trove classifiers you get a different
 image:</p>
-<div class="highlight"><pre><span class="k">SELECT</span>
+<div class="highlight"><pre><span></span><span class="k">SELECT</span>
     <span class="o">`</span><span class="n">classifier</span><span class="o">`</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span> <span class="o">/</span> <span class="mi">53533</span>
 <span class="k">FROM</span>
     <span class="o">`</span><span class="n">package_classifiers</span><span class="o">`</span>
@@ -688,7 +688,7 @@ image:</p>
 <p>There are 94 trove classifiers with five or less packages which use this
 classifier. I guess many of them are not in the official list of classifiers.</p>
 <h2 id="package-type">Package type</h2>
-<div class="highlight"><pre><span class="k">SELECT</span>
+<div class="highlight"><pre><span></span><span class="k">SELECT</span>
     <span class="o">`</span><span class="n">packagetype</span><span class="o">`</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span>
 <span class="k">FROM</span>
     <span class="o">`</span><span class="n">urls</span><span class="o">`</span>
@@ -742,7 +742,7 @@ classifier. I guess many of them are not in the official list of classifiers.</p
 </table>
 <p>Can anybody explain what this means?</p>
 <h2 id="downloads">Downloads</h2>
-<div class="highlight"><pre><span class="k">SELECT</span>
+<div class="highlight"><pre><span></span><span class="k">SELECT</span>
     <span class="o">`</span><span class="n">name</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">url</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">downloads</span><span class="o">`</span>
 <span class="k">FROM</span>
     <span class="o">`</span><span class="n">urls</span><span class="o">`</span>
@@ -804,7 +804,7 @@ classifier. I guess many of them are not in the official list of classifiers.</p
 </tbody>
 </table>
 <p>and</p>
-<div class="highlight"><pre><span class="k">SELECT</span>
+<div class="highlight"><pre><span></span><span class="k">SELECT</span>
     <span class="o">`</span><span class="n">name</span><span class="o">`</span><span class="p">,</span> <span class="k">SUM</span><span class="p">(</span><span class="o">`</span><span class="n">downloads</span><span class="o">`</span><span class="p">)</span>
 <span class="k">FROM</span>
     <span class="o">`</span><span class="n">releases</span><span class="o">`</span>
@@ -868,7 +868,7 @@ classifier. I guess many of them are not in the official list of classifiers.</p
 </table>
 <h2 id="size">Size</h2>
 <p>What is the biggest Python package?</p>
-<div class="highlight"><pre><span class="k">SELECT</span>
+<div class="highlight"><pre><span></span><span class="k">SELECT</span>
     <span class="o">`</span><span class="n">name</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">release_number</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="k">size</span><span class="o">`</span>
 <span class="k">FROM</span>
     <span class="o">`</span><span class="n">releases</span><span class="o">`</span>

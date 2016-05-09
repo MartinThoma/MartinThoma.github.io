@@ -114,7 +114,7 @@ f(n-1) + f(n-2) &amp;\text{otherwise}
 <p>
 $</p>
 <p>The simplest solution to get this number is:</p>
-<div class="highlight"><pre><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">n</span>
     <span class="k">else</span><span class="p">:</span>
@@ -166,7 +166,7 @@ $</p>
 <h2 id="memorization-with-decorators">Memorization with decorators</h2>
 <p>One way to solve the problem much faster (in fact in <span class="math">\(\mathcal{O}(n)\)</span> time and space complexity) by storing values we already calculated.</p>
 <p>A very neat way to achieve this are decorators. It might be a common problem that you have a recursive, mathematical function with no side effects. So you can write a wrapper that checks if the value has already been calculated. If not, the function proceeds as usual. It it has already been calculated, you can simply look it up:</p>
-<div class="highlight"><pre><span class="k">def</span> <span class="nf">memoize</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">memoize</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
     <span class="n">cache</span> <span class="o">=</span> <span class="p">{}</span>
 
     <span class="k">def</span> <span class="nf">memoizer</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -184,10 +184,10 @@ $</p>
 </pre></div>
 <p>Notice that I've only added <code>@memoize</code> over the function definiton of <code>fib</code>! I love Python ☺</p>
 <p>By the way, this formula has also some limitations. Python has a fixed maximum recursion depth. So <code>fib(332)</code> worked fine, but <code>fib(333)</code> gave:</p>
-<div class="highlight"><pre>RuntimeError: maximum recursion depth exceeded in comparison
+<div class="highlight"><pre><span></span>RuntimeError: maximum recursion depth exceeded in comparison
 </pre></div>
 <p>You can get around this limitation by successive calls of fib:</p>
-<div class="highlight"><pre><span class="c1"># Call to fill array</span>
+<div class="highlight"><pre><span></span><span class="c1"># Call to fill array</span>
 <span class="n">fib</span><span class="p">(</span><span class="mi">332</span><span class="p">)</span>
 
 <span class="c1"># The number of recursive steps is now much smaller:</span>
@@ -200,7 +200,7 @@ $</p>
 <span class="math">\(\psi = 1 - \varphi\)</span>
 <span class="math">\(f(n) = \frac{\varphi^n - \psi^n}{\phi - \psi}\)</span></p>
 <p>Although this is mathematically exact, it will not work on computers due to a fixed floating point precision. Lets check how long it works:</p>
-<div class="highlight"><pre><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 
 <span class="kn">import</span> <span class="nn">functools</span>
 <span class="k">def</span> <span class="nf">memoize</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
@@ -240,7 +240,7 @@ $</p>
 <p>This is a reason to prefer the <span class="math">\(\mathcal{O}(n)\)</span> solution over the <span class="math">\(\mathcal{O}(1)\)</span> solution. If you're only exact for 72 numbers, you could also simply store them. Looking number up form an array is always faster than any calculation.</p>
 <h2 id="very-high-numbers">Very high numbers</h2>
 <p>The following solution is fast and works 0.075 seconds for the 20000 Fibonacci number (which has 4180 digits).</p>
-<div class="highlight"><pre><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">accFib</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">Nm2</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">Nm1</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
             <span class="n">Nm2</span><span class="p">,</span> <span class="n">Nm1</span> <span class="o">=</span> <span class="n">Nm1</span><span class="p">,</span> <span class="n">Nm1</span><span class="o">+</span><span class="n">Nm2</span>

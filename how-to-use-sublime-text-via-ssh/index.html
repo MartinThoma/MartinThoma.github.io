@@ -118,7 +118,7 @@ Sublime Text.</p>
 <li>Start SSH with <code>ssh myname</code>.</li>
 </ol>
 <p>This is how the <code>config</code> file should look like:</p>
-<div class="highlight"><pre>Host myname
+<div class="highlight"><pre><span></span>Host myname
   Hostname pc123.your.network.com
   RemoteForward 52698 127.0.0.1:52698
 </pre></div>
@@ -135,16 +135,16 @@ Sublime Text.</p>
 <h3 id="with-root-access">With Root access</h3>
 <p>It's not so nice to open files with <code>~/rmate filename</code> all the time. You can
 use <code>rmate filename</code> after executing this command:</p>
-<div class="highlight"><pre><span class="c1"># This creates a symlink</span>
+<div class="highlight"><pre><span></span><span class="c1"># This creates a symlink</span>
 sudo ln -s ~/rmate /usr/local/bin/
 </pre></div>
 <p>You can use other paths than <code>/usr/local/bin/</code>. Look at your <code>PATH</code> for candidates:</p>
-<div class="highlight"><pre><span class="nb">echo</span> $PATH
+<div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="nv">$PATH</span>
 </pre></div>
 <h3 id="without-root-access">Without Root access</h3>
 <p>When you don't have root access, you can't create a symlink for most (eventually even all)
 folders in your <code>PATH</code>. But you can expand your <code>PATH</code>:</p>
-<div class="highlight"><pre>mkdir -p ~/bin        <span class="c1"># create folder if it doesn't exist</span>
+<div class="highlight"><pre><span></span>mkdir -p ~/bin        <span class="c1"># create folder if it doesn't exist</span>
 ln -s ~/rmate ~/bin/  <span class="c1"># create symlink</span>
 </pre></div>
 <p>Now expand your <code>PATH</code> so that it includes <code>~/bin</code>. There are at least two ways
@@ -155,10 +155,10 @@ to do so:</p>
 </ul>
 <p>As many shells source <code>.profile</code> I'll explain this way. First, open <code>~/.profile</code>.
 Then add</p>
-<div class="highlight"><pre><span class="c1"># First check if that folder exists</span>
-<span class="k">if</span> <span class="o">[</span> -d <span class="s2">"</span>$<span class="s2">HOME/bin"</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
+<div class="highlight"><pre><span></span><span class="c1"># First check if that folder exists</span>
+<span class="k">if</span> <span class="o">[</span> -d <span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/bin"</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
     <span class="c1"># Add your home folder to the end of the current path</span>
-    <span class="nv">PATH</span><span class="o">=</span><span class="s2">"</span>$<span class="s2">PATH:</span>$<span class="s2">HOME/bin"</span>
+    <span class="nv">PATH</span><span class="o">=</span><span class="s2">"</span><span class="nv">$PATH</span><span class="s2">:</span><span class="nv">$HOME</span><span class="s2">/bin"</span>
 <span class="k">fi</span>
 </pre></div>
             

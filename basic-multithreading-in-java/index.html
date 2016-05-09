@@ -116,7 +116,7 @@ MathJax.Hub.Queue(function() {
 <p>You can put the part that can get executed concurrently in a separate class that implements the interface <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Runnable.html">Runnable</a>. This class has a method called run(). You can create a new <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html#Thread(java.lang.Runnable)">Thread(Runnable)</a> by calling <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html#start()">start()</a>.</p>
 <p>Here is an example:</p>
 <h2 id="sum">Sum</h2>
-<div class="highlight"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Sum</span> <span class="kd">implements</span> <span class="n">Runnable</span> <span class="o">{</span>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Sum</span> <span class="kd">implements</span> <span class="n">Runnable</span> <span class="o">{</span>
     <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">UpperEnd</span><span class="o">;</span>
 
     <span class="kd">public</span> <span class="nf">Sum</span><span class="o">(</span><span class="kt">int</span> <span class="n">upperEnd</span><span class="o">)</span> <span class="o">{</span>
@@ -132,7 +132,7 @@ MathJax.Hub.Queue(function() {
 <span class="o">}</span>
 </pre></div>
 <h2 id="main">Main</h2>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
@@ -188,7 +188,7 @@ MathJax.Hub.Queue(function() {
 <span class="o">}</span>
 </pre></div>
 <p>Call it like this:</p>
-<div class="highlight"><pre>java Main <span class="m">5</span> 2000
+<div class="highlight"><pre><span></span>java Main <span class="m">5</span> 2000
 </pre></div>
 <h2 id="race-conditions">Race Conditions</h2>
 <p>When you execute the code above, the output will vary. Why is this the case?</p>
@@ -205,7 +205,7 @@ MathJax.Hub.Queue(function() {
 <p>Ok, we can obviously get values in <span class="math">\([\text{BIG}\_\text{NR}, \text{NR}\_\text{THREADS} \cdot \text{BIG}\_\text{NR}]\)</span>.</p>
 <p>Can we get smaller values? Yes, we can!</p>
 <p>Execute:</p>
-<div class="highlight"><pre>java Main <span class="m">50</span> 20000
+<div class="highlight"><pre><span></span>java Main <span class="m">50</span> 20000
 </pre></div>
 <ul>
 <li>Thread 1 loads <code>bigSum</code>. It's 0.</li>
@@ -227,7 +227,7 @@ MathJax.Hub.Queue(function() {
 <li>$3: BIG_NR</li>
 </ul></p>
 <p>The script executes the program <span class="math">\($1 \cdot $2\)</span> times. The output gets divided by the number of threads and the result is saved in raceCondition.tmp. Every line is one execution of the program. When the second number is BIG_NR, then no race conditions occured.</p>
-<div class="highlight"><pre>rm raceCondition.tmp
+<div class="highlight"><pre><span></span>rm raceCondition.tmp
 touch raceCondition.tmp
 
 <span class="c1"># Up to $2 threads</span>
@@ -236,10 +236,10 @@ touch raceCondition.tmp
     <span class="k">for</span> <span class="o">((</span> <span class="nv">c</span><span class="o">=</span>1<span class="p">;</span> c&lt;<span class="o">=</span><span class="nv">$1</span><span class="p">;</span> c++ <span class="o">))</span>
     <span class="k">do</span>
         <span class="c1"># $threads threads, count up to $3 in each thread</span>
-        <span class="nv">thisExecutionSum</span><span class="o">=</span><span class="sb">`</span>java -jar RaceCondition.jar $threads <span class="nv">$3</span><span class="sb">`</span>
+        <span class="nv">thisExecutionSum</span><span class="o">=</span><span class="sb">`</span>java -jar RaceCondition.jar <span class="nv">$threads</span> <span class="nv">$3</span><span class="sb">`</span>
         <span class="c1"># Normalize: thisExecutionSum / number of threads</span>
-        <span class="nv">normalizedSum</span><span class="o">=</span><span class="sb">`</span>awk -vsome<span class="o">=</span>$thisExecutionSum -vtotal<span class="o">=</span>$threads <span class="s1">'BEGIN { printf("%d\n", some/total); exit } '</span><span class="sb">`</span>
-        <span class="nb">echo</span> -e $threads<span class="s2">"\t"</span>$normalizedSum &gt;&gt; raceCondition.tmp
+        <span class="nv">normalizedSum</span><span class="o">=</span><span class="sb">`</span>awk -vsome<span class="o">=</span><span class="nv">$thisExecutionSum</span> -vtotal<span class="o">=</span><span class="nv">$threads</span> <span class="s1">'BEGIN { printf("%d\n", some/total); exit } '</span><span class="sb">`</span>
+        <span class="nb">echo</span> -e <span class="nv">$threads</span><span class="s2">"\t"</span><span class="nv">$normalizedSum</span> &gt;&gt; raceCondition.tmp
     <span class="k">done</span>
 <span class="k">done</span>
 </pre></div>

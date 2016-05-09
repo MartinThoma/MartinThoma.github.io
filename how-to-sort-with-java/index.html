@@ -129,7 +129,7 @@ MathJax.Hub.Queue(function() {
 <p>Note that you can compare some objects, like countries, by many measures. You could look at the population, the birth rate or the area. No matter what you use to compare, the this will not influence the way you sort.</p>
 <h2 id="collections">Collections</h2>
 <p>One way to sort is to implement the interface <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html">List</a>. For all datastructures, that implement the interface List or one of its sub-interfaces you can use <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collections.html">Collections</a> an go on like this:</p>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
 
@@ -148,13 +148,13 @@ MathJax.Hub.Queue(function() {
 <span class="o">}</span>
 </pre></div>
 <p>Output:</p>
-<div class="highlight"><pre><span class="o">[</span>I, think, therefore, I, am<span class="o">]</span>
+<div class="highlight"><pre><span></span><span class="o">[</span>I, think, therefore, I, am<span class="o">]</span>
 <span class="o">[</span>I, I, am, therefore, think<span class="o">]</span>
 </pre></div>
 <p>Note that I didn't write a Comparator or implement Comparable as String has one by default.
 Don't mix <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collections.html">Collections</a> and <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html">Collection</a>! A Set is a Collection, but it is not sortable. Collections is a class that you can use for sorting. Like <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Math.html">Math</a>, that has utilities like <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Math.html#sqrt(double)">sqrt</a></p>
 <h2 id="arrays">Arrays</h2>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
@@ -174,7 +174,7 @@ Don't mix <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection
 <h2 id="interface-comparable">Interface Comparable</h2>
 <p>This is an example how you could implement <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html">Comparable</a>.</p>
 <p>Country.java</p>
-<div class="highlight"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Country</span> <span class="kd">implements</span> <span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Country</span><span class="o">&gt;</span> <span class="o">{</span>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Country</span> <span class="kd">implements</span> <span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Country</span><span class="o">&gt;</span> <span class="o">{</span>
     <span class="kt">int</span> <span class="n">population</span><span class="o">;</span>
     <span class="kt">double</span> <span class="n">area</span><span class="o">;</span>
     <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
@@ -200,7 +200,7 @@ Don't mix <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection
 <span class="o">}</span>
 </pre></div>
 <p>Main.java</p>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
 
@@ -219,13 +219,13 @@ Don't mix <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection
 <span class="o">}</span>
 </pre></div>
 <p>Output:</p>
-<div class="highlight"><pre><span class="o">[</span>Germany: 81903000, France: 64667000, Norway: 4985900, Sweden: 9514406, Spain: 47212990, Switzerland: 8014000, Monaco: 36371<span class="o">]</span>
+<div class="highlight"><pre><span></span><span class="o">[</span>Germany: 81903000, France: 64667000, Norway: 4985900, Sweden: 9514406, Spain: 47212990, Switzerland: 8014000, Monaco: 36371<span class="o">]</span>
 <span class="o">[</span>France: 64667000, Germany: 81903000, Monaco: 36371, Norway: 4985900, Spain: 47212990, Sweden: 9514406, Switzerland: 8014000<span class="o">]</span>
 </pre></div>
 <p>You should definitely add JavaDoc and comment what you've compared.
 Note that it would sort the list in reverse order if you switched <code>this.population - o.population;</code> to <code>o.population - this.population;</code>. This would be bad style, as the JavaDoc of Comparable define the order. If you would like to sort in reverse, you should use <code>Collections.reverse(europe);</code>.</p>
 <p>You can also use compareTo() within compareTo():</p>
-<div class="highlight"><pre>    <span class="nd">@Override</span>
+<div class="highlight"><pre><span></span>    <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="o">(</span><span class="n">Country</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
         <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="n">o</span><span class="o">.</span><span class="na">name</span><span class="o">);</span>
     <span class="o">}</span>
@@ -234,7 +234,7 @@ Note that it would sort the list in reverse order if you switched <code>this.pop
 <p>If you need to compare objects in multiple ways, you might need to implement <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Comparator.html#compare(T, T)">Comperator</a>. If you only have to compare objects in one way, I would always use the Interface Comparable. It's easier to use.</p>
 <h3 id="external-comparator">External Comparator</h3>
 <p>An external Comparator PopulationDensityComperator.java could look like this:</p>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">java.util.Comparator</span><span class="o">;</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.Comparator</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">PopulationDensityComperator</span> <span class="kd">implements</span>
         <span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Country</span><span class="o">&gt;</span> <span class="o">{</span>
@@ -254,7 +254,7 @@ Note that it would sort the list in reverse order if you switched <code>this.pop
 <span class="o">}</span>
 </pre></div>
 <p>and you would use it like this in the Main.java:</p>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
 
@@ -277,13 +277,13 @@ Note that it would sort the list in reverse order if you switched <code>this.pop
 <span class="o">}</span>
 </pre></div>
 <p>Your output would be:</p>
-<div class="highlight"><pre><span class="o">[</span>Germany: 81903000, France: 64667000, Norway: 4985900, Sweden: 9514406, Spain: 47212990, Switzerland: 8014000, Monaco: 36371<span class="o">]</span>
+<div class="highlight"><pre><span></span><span class="o">[</span>Germany: 81903000, France: 64667000, Norway: 4985900, Sweden: 9514406, Spain: 47212990, Switzerland: 8014000, Monaco: 36371<span class="o">]</span>
 <span class="o">[</span>France: 64667000, Germany: 81903000, Monaco: 36371, Norway: 4985900, Spain: 47212990, Sweden: 9514406, Switzerland: 8014000<span class="o">]</span>
 <span class="o">[</span>Norway: 4985900, Sweden: 9514406, Spain: 47212990, France: 64667000, Switzerland: 8014000, Germany: 81903000, Monaco: 36371<span class="o">]</span>
 </pre></div>
 <h3 id="internal-anonymous-comparator">Internal (anonymous) Comparator</h3>
 <p>You can also directly implement the comperator where you need it:</p>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.Comparator</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
@@ -321,7 +321,7 @@ Note that it would sort the list in reverse order if you switched <code>this.pop
 <span class="o">}</span>
 </pre></div>
 <p>Your output would be:</p>
-<div class="highlight"><pre><span class="o">[</span>Germany: 81903000, France: 64667000, Norway: 4985900, Sweden: 9514406, Spain: 47212990, Switzerland: 8014000, Monaco: 36371<span class="o">]</span>
+<div class="highlight"><pre><span></span><span class="o">[</span>Germany: 81903000, France: 64667000, Norway: 4985900, Sweden: 9514406, Spain: 47212990, Switzerland: 8014000, Monaco: 36371<span class="o">]</span>
 <span class="o">[</span>France: 64667000, Germany: 81903000, Monaco: 36371, Norway: 4985900, Spain: 47212990, Sweden: 9514406, Switzerland: 8014000<span class="o">]</span>
 <span class="o">[</span>Norway: 4985900, Sweden: 9514406, Spain: 47212990, France: 64667000, Switzerland: 8014000, Germany: 81903000, Monaco: 36371<span class="o">]</span>
 </pre></div>

@@ -108,14 +108,14 @@ MathJax.Hub.Queue(function() {
 prototyping language for machine learning tasks. It is dynamically typed.</p>
 <h2 id="installation">Installation</h2>
 <p>Octave is in the package repositories, so it can be installed by</p>
-<div class="highlight"><pre>$ sudo apt-get install octave gnuplot-x11 octave-epstk
+<div class="highlight"><pre><span></span>$ sudo apt-get install octave gnuplot-x11 octave-epstk
 </pre></div>
 <p>and started with</p>
-<div class="highlight"><pre>$ octave
+<div class="highlight"><pre><span></span>$ octave
 </pre></div>
 <h2 id="configuration">Configuration</h2>
 <p>Create a file <code>~/.octaverc</code> in your home folder. Write </p>
-<div class="highlight"><pre>PS1('&gt;&gt;');
+<div class="highlight"><pre><span></span>PS1('&gt;&gt;');
 setenv("GNUTERM","x11");
 </pre></div>
 <p>in it to get a nicer prompt and make sure that plots will work.</p>
@@ -123,10 +123,10 @@ setenv("GNUTERM","x11");
 <h3 id="vectors-and-matrices">Vectors and Matrices</h3>
 <p>Octave has a lot of neat matrix manipulation features. You can create a matrix
 <span class="math">\(A = <div class="math">\begin{pmatrix} 1 &amp; 2\\ 3 &amp; 4\end{pmatrix}</div>\)</span> with</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">A</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span><span class="p">;</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">];</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">A</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span><span class="p">;</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">];</span>
 </pre></div>
 <p>When you want to transpose a vector / a matrix, you simply add an apostrophe:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">A</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span><span class="p">;</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">];</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">A</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span><span class="p">;</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">];</span>
 <span class="o">&gt;&gt;</span> <span class="n">A</span><span class="o">'</span>
 <span class="n">ans</span> <span class="p">=</span>
 
@@ -135,23 +135,23 @@ setenv("GNUTERM","x11");
 </pre></div>
 <p>You can multiply two matrices with <code>A*B</code> or use the dot product with <code>A .* B</code>.</p>
 <p>The identity matrix <span class="math">\(I \in \mathbb{R}^{n \times n}\)</span> can be created with</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="no">I</span> <span class="p">=</span> <span class="nb">eye</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="no">I</span> <span class="p">=</span> <span class="nb">eye</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
 </pre></div>
 <p>You can get a part of the matrix by slicing:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="no">I</span> <span class="p">=</span> <span class="nb">eye</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="no">I</span> <span class="p">=</span> <span class="nb">eye</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
 <span class="o">&gt;&gt;</span> <span class="no">I</span><span class="p">(:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">);</span>
 </pre></div>
 <p>But be careful: Vectors and matrices are 1-indexed, not 0-indexed as you might
 expect!</p>
 <p>You can get the size of a matrix with the function <code>size</code> which returns a matrix:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">;</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span><span class="p">];</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">;</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span><span class="p">];</span>
 <span class="o">&gt;&gt;</span> <span class="nb">size</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="n">ans</span> <span class="p">=</span>
 
    <span class="mi">2</span>   <span class="mi">3</span>
 </pre></div>
 <p>If you simple want the "length" you can directly access the first element:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="nb">size</span><span class="p">(</span><span class="n">a</span><span class="p">)(</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="nb">size</span><span class="p">(</span><span class="n">a</span><span class="p">)(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">ans</span> <span class="p">=</span>  <span class="mi">2</span>
 </pre></div>
 <h3 id="sequences">Sequences</h3>
@@ -159,7 +159,7 @@ expect!</p>
 <p>The sequence <code>0.2 0.3 0.4 0.5</code> can be created with <code>[0.2:0.1:0.5]</code>.
 In general: <code>[&lt;start&gt;:&lt;step&gt;:&lt;end&gt;]</code> where <code>&lt;start&gt;</code> and <code>&lt;end&gt;</code> are included.</p>
 <p>You can also very simple apply functions to each element:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">t</span> <span class="p">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">:</span><span class="mf">0.1</span><span class="p">:</span><span class="mf">0.5</span><span class="p">];</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">t</span> <span class="p">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">:</span><span class="mf">0.1</span><span class="p">:</span><span class="mf">0.5</span><span class="p">];</span>
 <span class="o">&gt;&gt;</span> <span class="nb">sin</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
 <span class="n">ans</span> <span class="p">=</span>
 
@@ -168,33 +168,33 @@ In general: <code>[&lt;start&gt;:&lt;step&gt;:&lt;end&gt;]</code> where <code>&l
 <p>The output can be suppressed with <code>;</code>.</p>
 <h3 id="plotting">Plotting</h3>
 <p>I have never seen a language where plotting is so easy:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">x</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mf">0.01</span><span class="p">:</span><span class="nb">pi</span><span class="p">];</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">x</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mf">0.01</span><span class="p">:</span><span class="nb">pi</span><span class="p">];</span>
 <span class="o">&gt;&gt;</span> <span class="n">y</span> <span class="p">=</span> <span class="nb">sin</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
 <span class="o">&gt;&gt;</span> <span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
 </pre></div>
 <p>You can add labels and a legend to it, too:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="nb">xlabel</span> <span class="p">=</span> <span class="s">"x"</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="nb">xlabel</span> <span class="p">=</span> <span class="s">"x"</span><span class="p">;</span>
 <span class="o">&gt;&gt;</span> <span class="nb">ylabel</span> <span class="p">=</span> <span class="s">"value"</span><span class="p">;</span>
 <span class="o">&gt;&gt;</span> <span class="nb">legend</span><span class="p">(</span><span class="s">'sin'</span><span class="p">,</span> <span class="s">'cos'</span><span class="p">)</span>
 <span class="o">&gt;&gt;</span> <span class="nb">title</span><span class="p">(</span><span class="s">"sin and cos"</span><span class="p">)</span>
 </pre></div>
 <p>And finally, you can store the image:</p>
-<div class="highlight"><pre><span class="nb">print</span> <span class="o">-</span><span class="n">dpng</span> <span class="s">'my_plot.png'</span>
+<div class="highlight"><pre><span></span><span class="nb">print</span> <span class="o">-</span><span class="n">dpng</span> <span class="s">'my_plot.png'</span>
 </pre></div>
 <h3 id="control-statements">Control statements</h3>
 <h4 id="for">for</h4>
-<div class="highlight"><pre><span class="k">for</span> <span class="n">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">;</span>
     <span class="nb">printf</span><span class="p">(</span><span class="s">"%i: %i\n"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span>^<span class="mi">2</span><span class="p">)</span>
 <span class="k">end</span>
 </pre></div>
 <h4 id="while">while</h4>
-<div class="highlight"><pre><span class="n">i</span><span class="p">=</span><span class="mi">1</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="n">i</span><span class="p">=</span><span class="mi">1</span><span class="p">;</span>
 <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span><span class="p">=</span> <span class="mi">10</span><span class="p">,</span>
     <span class="nb">printf</span><span class="p">(</span><span class="s">"%i: %i\n"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span>^<span class="mi">2</span><span class="p">)</span>
 <span class="k">end</span><span class="p">;</span>
 </pre></div>
 <h4 id="if">if</h4>
-<div class="highlight"><pre><span class="k">if</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span>
     <span class="nb">printf</span><span class="p">(</span><span class="s">"True\n"</span><span class="p">);</span>
 <span class="k">elseif</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span>
     <span class="nb">printf</span><span class="p">(</span><span class="s">"Else true"</span><span class="p">);</span>
@@ -206,7 +206,7 @@ In general: <code>[&lt;start&gt;:&lt;step&gt;:&lt;end&gt;]</code> where <code>&l
 <p>Functions have to be saved in a file called <code>[filename].m</code>. One other special
 thing about functions is that you define the variable with the output at the
 beginning:</p>
-<div class="highlight"><pre><span class="k">function</span><span class="w"> </span>y <span class="p">=</span><span class="w"> </span><span class="nf">fibonacci</span><span class="p">(</span>n<span class="p">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>y <span class="p">=</span><span class="w"> </span><span class="nf">fibonacci</span><span class="p">(</span>n<span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">,</span>
         <span class="n">y</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
     <span class="k">else</span>
@@ -214,7 +214,7 @@ beginning:</p>
     <span class="k">end</span><span class="p">;</span>
 </pre></div>
 <p>You can also group values you want to give back like this:</p>
-<div class="highlight"><pre><span class="k">function</span><span class="w"> </span>[succ, pred] <span class="p">=</span><span class="w"> </span><span class="nf">succ_and_pred</span><span class="p">(</span>n<span class="p">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>[succ, pred] <span class="p">=</span><span class="w"> </span><span class="nf">succ_and_pred</span><span class="p">(</span>n<span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="n">succ</span> <span class="p">=</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
     <span class="n">pred</span> <span class="p">=</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
 </pre></div>

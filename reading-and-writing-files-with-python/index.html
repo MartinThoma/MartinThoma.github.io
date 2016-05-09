@@ -111,7 +111,7 @@ minimalistic code examples for beginners.</p>
 completely and then working with a single big string. The only reason not to
 do so is because your file is too big. For your information, this is how long
 reading a file takes (all times are in seconds, reading is executed 100 times):</p>
-<div class="highlight"><pre>file size         min       max    median   average
+<div class="highlight"><pre><span></span>file size         min       max    median   average
 ---------------------------------------------------
 10 KiB         0.0000    0.0008    0.0000    0.0002
 100 KiB        0.0000    0.0009    0.0001    0.0002
@@ -128,17 +128,17 @@ computer has).</p>
 <p>See <a href="https://gist.github.com/MartinThoma/eb1e56405009839804e7">source code</a>
 for details how I measured it.</p>
 <h3 id="completely">Completely</h3>
-<div class="highlight"><pre><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'filename.txt'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'filename.txt'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 </pre></div>
 <p>is all you need to read a text file completely in a Python string variable
 <code>content</code>. You could, for example, split the whole string to a list of lines:</p>
-<div class="highlight"><pre><span class="n">lines</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="n">lines</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 </pre></div>
 <h3 id="line-by-line">Line by line</h3>
 <p>You can read a text file line by line, but keep in mind that this will still
 have the endline character <code>\n</code> in each <code>line</code>!</p>
-<div class="highlight"><pre><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'filename.txt'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'filename.txt'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 </pre></div>
@@ -146,17 +146,17 @@ have the endline character <code>\n</code> in each <code>line</code>!</p>
 <p>To open files, you have to specify a mode. This is either reading, writing or
 appending (binary or text data). If you don't specify it, the default value
 is reading. So for writing you have to specify it:</p>
-<div class="highlight"><pre><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'filename.txt'</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'filename.txt'</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"Hello world!"</span><span class="p">)</span>
 </pre></div>
 <h2 id="python-3">Python 3</h2>
 <p>Python 3 has some new features which are very nice to have. To get them in
 Python 2, you have to add</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
 </pre></div>
 <p>at the beginning of your code before other imports happen. Now you can print to
 files:</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'file.txt'</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">"Hello World!"</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>

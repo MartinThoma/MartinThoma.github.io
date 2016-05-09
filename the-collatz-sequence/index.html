@@ -131,7 +131,7 @@ $\forall_{n \in \mathbb{N}_{&gt;0}} \exists_{i \in \mathbb{N}_{&gt;0}}: c^n_i = 
 <figcaption class="text-center">A graph for all Collatz sequences $(c^n_i)$ with $n\leq15$</figcaption>
 </figure>
 <p>This image was created with the following Python script:</p>
-<div class="highlight"><pre><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="c1"># Based on: http://en.wikipedia.org/wiki/File:Collatz-graph-all-30-no27.svg</span>
@@ -191,7 +191,7 @@ $\forall_{n \in \mathbb{N}_{&gt;0}} \exists_{i \in \mathbb{N}_{&gt;0}}: c^n_i = 
     <span class="n">createPng</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">filename</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">args</span><span class="o">.</span><span class="n">program</span><span class="p">)</span>
 </pre></div>
 <p>called like this:</p>
-<div class="highlight"><pre>python small-numbers.py -n <span class="m">15</span> -p fdp
+<div class="highlight"><pre><span></span>python small-numbers.py -n <span class="m">15</span> -p fdp
 </pre></div>
 <h2 id="n27">$n=27$</h2>
 <p><span class="math">\(n=27\)</span> is an enourmously long sequence:</p>
@@ -200,7 +200,7 @@ $\forall_{n \in \mathbb{N}_{&gt;0}} \exists_{i \in \mathbb{N}_{&gt;0}}: c^n_i = 
 <figcaption class="text-center">Collatz sequence $c^{27}_i$</figcaption>
 </figure>
 <p>It was created with pgfplots:</p>
-<div class="highlight"><pre>\documentclass[varwidth=true, border=2pt]{standalone}
+<div class="highlight"><pre><span></span>\documentclass[varwidth=true, border=2pt]{standalone}
 \usepackage[margin=2.5cm]{geometry} %layout
 
 \usepackage{pgfplots}
@@ -233,7 +233,7 @@ $\forall_{n \in \mathbb{N}_{&gt;0}} \exists_{i \in \mathbb{N}_{&gt;0}}: c^n_i = 
 </figure>
 <p>For every hexagon, you check how many datapoints <span class="math">\((n,steps)\)</span> you have there. This leads to the count. As you can see, step numbers from 50-120 are very common, the rest is very uncommon. The number of steps increases very slow.</p>
 <p>The data was created as a 116.9 MB csv file with this C++ code:</p>
-<div class="highlight"><pre><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;map&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
@@ -372,10 +372,10 @@ $\forall_{n \in \mathbb{N}_{&gt;0}} \exists_{i \in \mathbb{N}_{&gt;0}}: c^n_i = 
 <span class="p">}</span>
 </pre></div>
 <p>Then I've processed it with R:</p>
-<div class="highlight"><pre>R -f analyze.R
+<div class="highlight"><pre><span></span>R -f analyze.R
 </pre></div>
 <p>analyze.R:</p>
-<div class="highlight"><pre>library(ggplot2)
+<div class="highlight"><pre><span></span>library(ggplot2)
 memory.limit(4000)
 
 mydata = read.csv("/home/moose/Downloads/algorithms/collatz/steps.csv")
@@ -390,7 +390,7 @@ p&lt;-p + opts(panel.background = theme_rect(fill='white', colour='white'))
 p
 </pre></div>
 <p>And finally, I've converted it to png:</p>
-<div class="highlight"><pre>inkscape Rplots.pdf -w <span class="m">512</span> --export-png<span class="o">=</span>collatz-sequence-steps.png
+<div class="highlight"><pre><span></span>inkscape Rplots.pdf -w <span class="m">512</span> --export-png<span class="o">=</span>collatz-sequence-steps.png
 </pre></div>
 <p>I've explained this a bit more detailed on <a href="http://tex.stackexchange.com/a/114577/5645">StackExchange</a>.</p>
 <h2 id="maximum-in-sequence">Maximum in sequence</h2>
@@ -399,7 +399,7 @@ p
 <a href="../images/2013/05/maxInSequence.png"><img alt="Hexagonal binpacking plot for maximum in sequence" class="size-full wp-image-66391" src="../images/2013/05/maxInSequence.png" style="max-width:512px;max-height:512px"/></a>
 <figcaption class="text-center">Hexagonal binpacking plot for maximum in sequence</figcaption>
 </figure>
-<div class="highlight"><pre>library(ggplot2)
+<div class="highlight"><pre><span></span>library(ggplot2)
 
 mydata = read.csv("../collatz-maxNumber.csv")
 
@@ -415,7 +415,7 @@ p
 <h2 id="execution-times">Execution times</h2>
 <p>Generating all Collatz sequences up to 10,000,000 items took about 50 seconds. But R needed about 10 minutes to generate images from that.</p>
 <p>Inkscape didn't like the heavy plot:</p>
-<div class="highlight"><pre>moose@pc07$ inkscape Rplots.pdf -w <span class="m">512</span> --export-png<span class="o">=</span>maxInSequence.png
+<div class="highlight"><pre><span></span>moose@pc07$ inkscape Rplots.pdf -w <span class="m">512</span> --export-png<span class="o">=</span>maxInSequence.png
 
 <span class="o">(</span>inkscape:26733<span class="o">)</span>: GLib-ERROR **: /build/buildd/glib2.0-2.34.1/./glib/gmem.c:165: failed to allocate <span class="m">3440640</span> bytes
 ^CTrace/breakpoint <span class="nb">trap</span> <span class="o">(</span>core dumped<span class="o">)</span>

@@ -113,11 +113,11 @@ process.</p>
 <h2 id="python">Python</h2>
 <p>Ubuntu-based systems will have Python installed, but I'm not too sure about
 pip. You can get it with</p>
-<div class="highlight"><pre>$ sudo apt-get install python-pip
+<div class="highlight"><pre><span></span>$ sudo apt-get install python-pip
 </pre></div>
 <p>Make sure you have Python and <code>pip</code>, the standard Python package installer.
 Type the following commands to check if you have both:</p>
-<div class="highlight"><pre>$ python --version
+<div class="highlight"><pre><span></span>$ python --version
 Python 2.7.8
 
 $ pip --version
@@ -126,7 +126,7 @@ pip 6.1.1 from /usr/local/lib/python2.7/dist-packages <span class="o">(</span>py
 <h2 id="sklearn">sklearn</h2>
 <p><a href="http://scikit-learn.org/stable/">sklearn</a> is a nice package for machine
 learning. You can install it with</p>
-<div class="highlight"><pre>$ pip install scikit-learn
+<div class="highlight"><pre><span></span>$ pip install scikit-learn
 </pre></div>
 <p>(When I write commands like this you either have to execute
 <code>sudo pip install scikit-learn</code> or <code>pip install scikit-learn --user</code>).</p>
@@ -147,7 +147,7 @@ If it doesn't run, you could try the following guides:</p>
 <li><a href="http://docs.nvidia.com/cuda/cuda-getting-started-guide-for-linux/#axzz3XaMVcNwV">NVIDIA CUDA Getting Started Guide for Linux</a></li>
 </ul>
 <p>Run</p>
-<div class="highlight"><pre>$ nvidia-smi -L
+<div class="highlight"><pre><span></span>$ nvidia-smi -L
 GPU 0: GeForce GTX TITAN Black <span class="o">(</span>UUID: GPU-abcdef12-abcd-1234-1234-01234567890a<span class="o">)</span>
 
 $ nvcc --version
@@ -285,17 +285,17 @@ GPU 0000:01:00.0
 <p>to see if CUDA was installed correctly.</p>
 <h2 id="theano">Theano</h2>
 <p>The installation of Theano is a bit tricky (see <a href="http://deeplearning.net/software/theano/install.html">official page</a>). I don't remember if I installed additional packages, but try</p>
-<div class="highlight"><pre>$ sudo -H pip install theano
+<div class="highlight"><pre><span></span>$ sudo -H pip install theano
 </pre></div>
 <p>Make sure that your <code>~/.theanorc</code> exists and looks like this:</p>
-<div class="highlight"><pre>[global]
+<div class="highlight"><pre><span></span>[global]
 device=gpu
 floatX=float32
 </pre></div>
 <p>Note that <code>float32</code> is required, even if you have a 64bit system.</p>
 <p>To test your installation, save the following as <code>theanotest.py</code> and execute
 it with <code>python theanotest.py</code>:</p>
-<div class="highlight"><pre><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="kn">from</span> <span class="nn">theano</span> <span class="kn">import</span> <span class="n">function</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">shared</span><span class="p">,</span> <span class="n">sandbox</span>
 <span class="kn">import</span> <span class="nn">theano.tensor</span> <span class="kn">as</span> <span class="nn">T</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
@@ -320,7 +320,7 @@ it with <code>python theanotest.py</code>:</p>
     <span class="k">print</span><span class="p">(</span><span class="s1">'Used the gpu'</span><span class="p">)</span>
 </pre></div>
 <p>It should print the following (well, something similar):</p>
-<div class="highlight"><pre>Using gpu device 0: GeForce GTX TITAN Black
+<div class="highlight"><pre><span></span>Using gpu device 0: GeForce GTX TITAN Black
 [GpuElemwise{exp,no_inplace}(&lt;CudaNdarrayType(float32, vector)&gt;), HostFromGpu(GpuElemwise{exp,no_inplace}.0)]
 Looping 1000 times took 0.38205909729 seconds
 Result is [ 1.23178029  1.61879349  1.52278066 ...,  2.20771813  2.29967761
@@ -335,7 +335,7 @@ correctly, then Theano should automatically use the GPU.</p>
 <p>Lasagne is hosted at Github: <a href="https://github.com/Lasagne/Lasagne">https://github.com/Lasagne/Lasagne</a></p>
 <p>Currently, it is not on pip as Sander wants to wait until we get to version
 1.0. So you have to install it manually:</p>
-<div class="highlight"><pre>$ git clone https://github.com/Lasagne/Lasagne.git
+<div class="highlight"><pre><span></span>$ git clone https://github.com/Lasagne/Lasagne.git
 $ <span class="nb">cd</span> Lasagne
 Lasagne$ sudo -H python setup.py install
 </pre></div>
@@ -344,7 +344,7 @@ Lasagne$ sudo -H python setup.py install
 might first take some time to download, but should then run quite fast. If
 your machine does not use the GPU it will take ages (e.g. on my laptop it takes
 about a minute for one epoch)</p>
-<div class="highlight"><pre>Lasagne/examples$ python mnist.py
+<div class="highlight"><pre><span></span>Lasagne/examples$ python mnist.py
 Loading data...
 Downloading MNIST dataset
 Building model and compiling functions...
@@ -362,13 +362,13 @@ Epoch 1 of 500 took 72.593s
 <p><a href="https://github.com/dnouri/nolearn">nolearn</a> is another Python package. It was
 created to make using Lasagne even simpler.</p>
 <p>You can install it via</p>
-<div class="highlight"><pre>$ git clone https://github.com/dnouri/nolearn.git
+<div class="highlight"><pre><span></span>$ git clone https://github.com/dnouri/nolearn.git
 $ <span class="nb">cd</span> nolearn
 $ python setup.py install --user
 </pre></div>
 <p>For example, the following code downloads the MNIST dataset, trains a model on
 it and evaluates the result for a single image:</p>
-<div class="highlight"><pre><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 
 <span class="kn">import</span> <span class="nn">lasagne</span>
 <span class="kn">from</span> <span class="nn">lasagne</span> <span class="kn">import</span> <span class="n">layers</span>
@@ -473,7 +473,7 @@ it and evaluates the result for a single image:</p>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
 <p>The output is</p>
-<div class="highlight"><pre># Neural Network with 79510 learnable parameters
+<div class="highlight"><pre><span></span># Neural Network with 79510 learnable parameters
 
 ## Layer information
 

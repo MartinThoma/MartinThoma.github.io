@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
 
             
             <p>Today, I've wondered how deep a path could be at maximum. I've guessed the file system may be limiting that, but perhaps also some tools that I use for basic operations like listing a folders contents would fail before. So I've created the following C-Snippet to test it:</p>
-<div class="highlight"><pre><span class="cp">#include</span> <span class="cpf">&lt;sys/stat.h&gt;</span><span class="cp"></span>
+<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;sys/stat.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;sys/types.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
@@ -148,7 +148,7 @@ MathJax.Hub.Queue(function() {
 <span class="p">}</span>
 </pre></div>
 <p>Now run it:</p>
-<div class="highlight"><pre>$ <span class="nb">time</span> ./createDirectories 
+<div class="highlight"><pre><span></span>$ <span class="nb">time</span> ./createDirectories 
 
 <span class="k">return</span> code     : -1
 Created sub-directories : 1018
@@ -159,7 +159,7 @@ user    0m0.004s
 sys 0m0.180s
 </pre></div>
 <p>Ok, something went wrong at the end. Lets see what crashes when I enter this path in Gnome terminal</p>
-<div class="highlight"><pre>$ <span class="nb">cd</span> one/one/one .... one/
+<div class="highlight"><pre><span></span>$ <span class="nb">cd</span> one/one/one .... one/
 $ mkdir two
 $ <span class="nb">cd</span> two
 cd: error retrieving current directory: getcwd: cannot access 
@@ -171,14 +171,14 @@ Now I created a folder called "three" and one called "this". I entered both of t
 <p>Contents, according to nautilus: <code>1,016 items, totalling 4.0 MB</code></p>
 <p>Then I've opened the folder "one" and double clicked as fast as I could. CPU utilization: 100%, but no crash. And 995 items are left ☺ Now a single double click causes 100% CPU utilization for about 25 seconds.</p>
 <p>When I use a single character for sub-directories, I get:</p>
-<div class="highlight"><pre>moose@pc07:~/Desktop/Test$ ./createDirectories 
+<div class="highlight"><pre><span></span>moose@pc07:~/Desktop/Test$ ./createDirectories 
 <span class="k">return</span> code     : -1
 Created sub-directories : 2036
 length of pathname  : 4096
 </pre></div>
 <h2 id="number-of-directories-in-one-directory">Number of directories in one directory</h2>
 <p>Do you know how many folders can fit into one folder? Well, lets find out:</p>
-<div class="highlight"><pre><span class="cp">#include</span> <span class="cpf">&lt;sys/stat.h&gt;</span><span class="cp"></span>
+<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;sys/stat.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;sys/types.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
@@ -235,7 +235,7 @@ length of pathname  : 4096
 <span class="p">}</span>
 </pre></div>
 <p>I've executed it and after eight minutes I canceled the execution.</p>
-<div class="highlight"><pre>$ ls <span class="p">|</span> wc -l
+<div class="highlight"><pre><span></span>$ ls <span class="p">|</span> wc -l
 378463
 </pre></div>
 <p>Ok, not a million folders, but 378.463 is also quite a lot. When I try to open this folder with Nautilus, I get 140% CPU utilization by Nautilus. Quite impressive, for only showing some folders.</p>
