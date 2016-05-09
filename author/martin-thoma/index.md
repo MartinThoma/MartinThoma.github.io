@@ -1,6 +1,7 @@
 ---
 layout: page
 title: About Martin Thoma
+slug: author/martin-thoma
 save_as: author/martin-thoma/index.html
 author: Martin Thoma
 date: 2011-09-21 18:35:30.000000000 +02:00

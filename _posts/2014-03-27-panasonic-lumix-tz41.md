@@ -572,7 +572,7 @@ with my old Casio Lumix Exilim EX-Z200.
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/schloss-zoom-spitze.jpg" class="image">
-                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/schloss-zoom-spitze-2.jpg" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/schloss-zoom-spitze.jpg" alt="" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>

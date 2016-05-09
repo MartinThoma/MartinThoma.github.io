@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Python and CSV
+slug: python-csv
 author: Martin Thoma
 date: 2015-02-08 12:48
 category: Code
