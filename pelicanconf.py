@@ -23,6 +23,7 @@ CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
+READERS = {'html': None, 'htm': None}
 
 # Blogroll
 LINKS = (('Pelican', 'http://getpelican.com/'), )
