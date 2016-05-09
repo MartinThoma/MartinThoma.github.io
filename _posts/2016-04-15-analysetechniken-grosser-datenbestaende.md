@@ -885,6 +885,16 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
     <dt><dfn>Manhatten Segmental Distance</dfn></dt>
     <dd>$d(x_1, x_2) = \frac{1}{n} \cdot \sum_{i=1}^n |x_1^{(i)} - x_2^{(i)}|$ wobei
         $n$ die Anzahl der Dimensionen von $x_1, x_2$ ist.</dd>
+    <dt><dfn id="link-based-clustering">Link-based Clustering</dfn></dt>
+    <dd>
+
+        <ul>
+            <li>Connect all data objects which are closter than $d$</li>
+            <li>Remove all data objects which have less than $c$ edges</li>
+            <li>Clusters are now connected data objects. The removed elements are noise.</li>
+        </ul>
+
+    </dd>
     <dt><dfn>Jaccard Koeffizient</dfn></dt>
     <dd>$$J(A, B) = \frac{|A \cap B|}{|A \cup B|} \in [0; 1]$$</dd>
     <dt><a href="https://de.wikipedia.org/wiki/DBSCAN" id="dbscan"><dfn>DBSCAN</dfn></a></dt>
@@ -1041,6 +1051,13 @@ die Dimension der $n \in \mathbb{N}$ Datenpunkte.
         <td></td>
         <td></td>
         <td>for high-dimensional data, extension of $k$-means</td>
+    </tr>
+    <tr>
+        <td><a href="#link-based-clustering">Link-based Clustering</a></td>
+        <td>Threshold distance $d$ for a link, minimal number of clusters $c$</td>
+        <td></td>
+        <td></td>
+        <td></td>
     </tr>
 </table>
 
