@@ -68,6 +68,7 @@ PLUGINS = ['pelican_plugin-render_math',
            'tipue_search',
            'toc',
            'sitemap',
+           'pelican_alias',
            # 'bootstrapify',
            #            'simple_footnotes',
            ]
