@@ -1,7 +1,7 @@
 ---
 layout: post
 title: k-nearest-neighbor classification and k-means - an interactive example
-slug: k-nearest-neighbor-classification-interactive-example
+slug: k-nearest-neighbor-clustering-interactive-example/
 author: Martin Thoma
 date: 2013-05-19 15:23:11.000000000 +02:00
 category: Code

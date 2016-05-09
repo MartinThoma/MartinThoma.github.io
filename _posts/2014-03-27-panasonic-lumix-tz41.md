@@ -276,7 +276,7 @@ with my old Casio Lumix Exilim EX-Z200.
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/blume-front-unschaerfe.jpg" class="image">
-                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/blume-front-unschaerfe-2.jpg" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/blume-front-unschaerfe.jpg" alt="" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -300,7 +300,7 @@ with my old Casio Lumix Exilim EX-Z200.
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/schlossplatz.jpg" class="image">
-                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/schlossplatz-2.jpg" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/schlossplatz.jpg" alt="" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -324,7 +324,7 @@ with my old Casio Lumix Exilim EX-Z200.
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/springbrunnen-ganz.jpg" class="image">
-                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/springbrunnen-ganz-2.jpg" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/springbrunnen-ganz.jpg" alt="" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -524,7 +524,7 @@ with my old Casio Lumix Exilim EX-Z200.
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/ente-zoom.jpg" class="image">
-                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/ente-zoom-2.jpg" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/ente-zoom.jpg" alt="" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
@@ -548,7 +548,7 @@ with my old Casio Lumix Exilim EX-Z200.
          <div class="thumb" style="width: 150px;">
             <div style="margin:21px auto;height: 113px;line-height: 150px;">
                <a href="../images/2014/03/panasonic-lumix-dmc-tz-41/schlosstor-zoom.jpg" class="image">
-                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/schlosstor-zoom-2.jpg" alt="" style="max-width: 120px; max-height: 120px;">
+                  <img src="../images/2014/03/panasonic-lumix-dmc-tz-41/schlosstor-zoom.jpg" alt="" style="max-width: 120px; max-height: 120px;">
                </a>
             </div>
          </div>
