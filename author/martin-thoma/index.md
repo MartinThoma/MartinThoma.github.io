@@ -24,11 +24,9 @@ alias: /author/moose/index.html
 
 <h2>Other Profiles</h2>
 <ul>
-    <li><a href="http://orcid.org/0000-0002-6517-1690" rel="me">ORCiD</a></li>
-    <li><a href="https://plus.google.com/+MartinThoma/about" rel="me">Google+</a></li>
-    <li><a href="https://twitter.com/#!/themoosemind" rel="me">Twitter</a></li>
+    <li>Science: <a href="http://orcid.org/0000-0002-6517-1690" rel="me">ORCiD</a>, <a href="http://arxiv.org/a/thoma_m_1.html" rel="me">arxiv</a> and <a href="http://www.shortscience.org/user?name=MartinThoma">Shortscience</a></li>
+    <li>Social: <a href="https://plus.google.com/+MartinThoma/about" rel="me">Google+</a> and <a href="https://twitter.com/#!/themoosemind" rel="me">Twitter</a></li>
     <li><a href="https://careers.stackoverflow.com/thoma" rel="me">StackOverflow</a></li>
-    <li><a href="http://arxiv.org/a/thoma_m_1.html" rel="me">arxiv</a></li>
     <li><a href="https://www.linkedin.com/in/themoosemind" rel="me">linkedin</a></li>
 </ul>
 </div>
