@@ -8,7 +8,7 @@ category: German posts
 tags: Klausur
 featured_image: logos/klausur.png
 ---
-<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Analysetechniken für große Datenbestände&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="https://dbis.ipd.kit.edu/english/336.php">Herrn Prof. Dr.-Ing. Klemens Böhm</a> im Wintersemester 2015/2016 gehört. Der Artikel ist noch am Entstehen.</div>
+<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Analysetechniken für große Datenbestände&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="https://dbis.ipd.kit.edu/english/336.php">Herrn Prof. Dr.-Ing. Klemens Böhm</a> im Wintersemester 2015/2016 gehört.</div>
 
 In der Vorlesung 'Analysetechniken für große Datenbestände' werden vor allem
 Association Rule Mining und Clustering-Techniken besprochen. Zum Association
@@ -323,7 +323,7 @@ Slides: `2-statistGrundlagen.pdf`
                 Datenobjekte
             <ul>
                 <li>Parametrische Verfahren: Nehme eine bekannte
-                    Wahrscheinlichkeitsverteilung der Datenobjekte an und
+                    Wahrscheinlichkeits&shy;verteilung der Datenobjekte an und
                     schätze deren Paramter. Arbeite  dann nur mit der
                     Verteilung</li>
                 <li>Nichtparametrische Verfahren: Sampling, Clustering,
@@ -354,7 +354,7 @@ Weitere
     <li>Boxplots: Whiskers</li>
     <li>Histogramme: Nicht geeignet für viele Dimensionen.</li>
     <li>Wahrscheinlichkeitsraum, Ereignis, Ergebnis, Ergebnismenge $\Omega$,
-        Wahrscheinlichkeitsmaß, Kovarianzmatrix, Bernoulli-Experiment</li>
+        Wahrscheinlichkeits&shy;maß, Kovarianzmatrix, Bernoulli-Experiment</li>
 </ul>
 
 
@@ -586,7 +586,7 @@ Anwendungen von Association Rules denkbar:
         $$\text{support}(A \Rightarrow B) = \text{support}(A \cup B)$$</dd>
     <dt><dfn>Closed Itemset</dfn></dt>
     <dd>Ein Itemset $I$ heißt closed, wenn es keine echte Obermenge $I' \supsetneq I$ gibt,
-        die den gleichen support $\text{supp}(I') = \text{supp}(I)$ hat.</dd>
+        die den gleichen Support $\text{supp}(I') = \text{supp}(I)$ hat.</dd>
     <dt><a id="confidence"></a><dfn>Confidence</dfn></dt>
     <dd>Confidence von $A \Rightarrow B$ ist der Anteil der Transaktionen,
         die $A$ und $B$ enthalten, von den Transaktione die $A$ enthalten:
@@ -615,6 +615,20 @@ Anwendungen von Association Rules denkbar:
             <li>Hashfilter</li>
         </ul>
     </dd>
+    <dt><dfn id="hash-tree">Hash Tree</dfn></dt>
+    <dd>Wenn man viele Kandidaten für $k$-elementige Frequent Itemsets hat,
+        dann kann das support counting lange dauern. Deshalb baut man sich
+        vor dem Support Counting für alle Kandidaten einen Hash-Tree mit
+        $k$ Ebenen auf. Man sortiert die Items der Kandidaten auf, indem
+        man einen Pfad für jeden Kandidaten im Baum hinzufügt. Jeder
+        Knoten im Hash-Tree enspricht also einem Item. Ein Item $i$ in Ebene
+        $j$ steht dafür, dass der Kandidat an Stelle $j$ das Item $i$ hat.
+        Allerdings kann man auch früher aufhören, wenn es keine Kollisionen
+        gibt.<br/>
+        <br/>
+        Der Hash-Tree repräsentiert also die Kandidaten, nicht die Transaktionen.<br/>
+        <br/>
+        </dd>
     <dt><dfn id="fp-tree">FP-Trees</dfn></dt>
     <dd>FP-Trees (FP für "frequent pattern") sind eine Datenstrutkur zum
         schnellen Finden von Frequent Itemsets. Jeder Knoten im Baum
@@ -645,13 +659,13 @@ Anwendungen von Association Rules denkbar:
         </ol>
         </li>
         <li>Starte mit dem niedrigsten Element in der Header-Tabelle. Überprüfe
-            den Präfix auf den erwarteten support. Gehe dazu alle Elemente
+            den Präfix auf den erwarteten Support. Gehe dazu alle Elemente
             dieses Items durch (alle Präfix-Pfade im Baum) und wende eine Art
             Apriori-Algorithmus an um in diesen Präfix-Pfaden mit dem Item
             $i$ die Frequent-Itemsets zu finden.</li>
     </ol>
 
-    Siehe auch: <a href="https://www.cs.sfu.ca/~jpei/publications/sigmod00.pdf">Mining Frequent Patterns without Candidate Generation</a>
+    Siehe auch: <a href="https://www.cs.sfu.ca/~jpei/publications/sigmod00.pdf">Mining Frequent Patterns without Candidate Generation</a> und <a href="http://www.singularities.com/blog/2015/08/apriori-vs-fpgrowth-for-frequent-item-set-mining">ein sehr guter Blog post</a>
     </dd>
     <dt><dfn>Sampling</dfn></dt>
     <dd>Berechnung auf einer Stichprobe durchführen</dd>
@@ -800,7 +814,7 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         Siehe auch:
         <ul>
             <li><a href="https://www.youtube.com/watch?v=FAVETO6EK9E">YouTube</a> (7:24min)</li>
-            <li></li>
+            <li><a href="http://dl.acm.org/citation.cfm?id=233324">BIRCH: an efficient data clustering method for very large databases</a></li>
         </ul>
     </dd>
     <dt><dfn>Hierarchisches Clustering</dfn></dt>
@@ -957,7 +971,7 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         Er veranschaulicht das Ergebnis von OPTICS.
 
         <figure class="wp-caption aligncenter img-thumbnail">
-            <a href="https://commons.wikimedia.org/wiki/File:OPTICS.svg"><img src="../images/2016/04/optics.png" alt="OPTICS" /></a>
+            <a href="https://commons.wikimedia.org/wiki/File:OPTICS.svg"><img src="../images/2016/04/optics.png" alt="OPTICS" style="max-width:512px;"/></a>
             <figcaption class="text-center">OPTICS: Der Reachability-Plot ist ganz unten.</figcaption>
         </figure>
 
@@ -1000,8 +1014,8 @@ die Dimension der $n \in \mathbb{N}$ Datenpunkte.
         <td><a href="#em">EM</a></td>
         <td>$k$, distribution-type</td>
         <td>probabilisitc</td>
-        <td>O(dkni)</td>
-        <td>i is the number of iterations</td>
+        <td>$\mathcal{O}(dkni)$</td>
+        <td>$i$ is the number of iterations</td>
     </tr>
     <tr>
         <td><a href="#dbscan">DBSCAN</a></td>
@@ -1114,8 +1128,7 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
     Vorteile:
 
     <ul>
-        <li>Overfitting wird minimiert.</li>
-        <li>Besseres Gesamtsystem</li>
+        <li>Overfitting wird minimiert &rightarrow; Besseres Gesamtsystem</li>
         <li>Parallelisierbarkeit</li>
         <li>Wahrscheinlichkeiten können genauer geschätzt werden</li>
     </ul>
@@ -1361,7 +1374,9 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
 auf Folie 10, Vorhersage mit Naive Bayes erklären/vorführen können.<br/>
   → TODO
 * Was ändert sich, wenn die Attribute nicht voneinander unabhängig sind?<br/>
-  → TODO
+  → Dann ist die naive Unabhängigkeitsannahme nicht mehr gegeben und man sollte
+    ein bayessches Netz nehmen. Damit lassen sich dann wieder bessere Vorhersagen
+    machen.
 
 
 ## Material und Links
@@ -1378,6 +1393,10 @@ Literatur:
   Techniques.
 * Harvey J. Miller, Jiawei Han: Geographic Data Mining and Knowledge Discovery
   (Clustering)
+
+More:
+
+* [What is the relationship between clustering and association rule mining?](http://datascience.stackexchange.com/q/11657/8820)
 
 
 ## Vorlesungsempfehlungen
