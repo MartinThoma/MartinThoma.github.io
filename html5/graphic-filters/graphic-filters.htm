@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Graphic filters - an interactive example</title>
+        <style type="text/css">
+            span.hint {
+                border-bottom:1px dotted #666;
+            }
+
+            table.setting {
+                margin: 5px;
+                float:left;
+            }
+
+            table.setting caption {
+                background-color: #e0e0e0;
+                font-weight:bold;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="" id="form" name="form">
+            <label for="refreshRate">Refresh rate in ms</label>
+            <input type="number" name="refreshRate" id="refreshRate" value="1000" min="50" onchange="updateTimer()" />
+            <a href="graphic-filters.htm" target="_blank" id="newWindow" onclick="modifyURL()">open in window</a>
+
+            <table>
+                <tr>
+                    <td><input type="number" name="k1" id="k1" value="0"/></td>
+                    <td><input type="number" name="k2" id="k2" value="0"/></td>
+                    <td><input type="number" name="k3" id="k3" value="0"/></td>
+                </tr>
+                <tr>
+                    <td><input type="number" name="k4" id="k4" value="0"/></td>
+                    <td><input type="number" name="k5" id="k5" value="1"/></td>
+                    <td><input type="number" name="k6" id="k6" value="0"/></td>
+                </tr>
+                <tr>
+                    <td><input type="number" name="k7" id="k7" value="0"/></td>
+                    <td><input type="number" name="k8" id="k8" value="0"/></td>
+                    <td><input type="number" name="k9" id="k9" value="0"/></td>
+                </tr>
+            </table>
+        </form>
+
+        Apply filter:
+        <select  id="filter">
+            <option value="None">None</option>
+            <optgroup label="Edge detection">
+                <option value="prewitt-x">Prewitt-x</option>
+                <option value="prewitt-y">Prewitt-y</option>
+                <option value="prewitt-y-switched">Prewit-y * (-1)</option>
+                <option value="sobel-x">Sobel-x</option>
+                <option value="sobel-y">Sobel-y</option>
+                <option value="kirsh-x">Kirsh-x</option>
+                <option value="kirsh-y">Kirsh-y</option>
+                <option value="laplace">Laplace</option>
+                <option value="canny-edge-detector">Canny edge detector</option>
+                <option value="custom" selected="selected">Custom</option>
+            </optgroup>
+        <!--not ready yet    <optgroup label="Corner detection">
+                <option value="harris">Harris</option>
+            </optgroup> -->
+        </select><br/>
+        <video autoplay id="vid" style="display:none;"></video>
+        <canvas id="canvas" width="640" height="480" style="border:1px solid #d3d3d3;"></canvas>
+        <script type="text/javascript" src="graphic-filter.js"></script>
+    </body>
+</html>

@@ -507,7 +507,7 @@ von gro&amp;szlig;er Bedeutung. Ein weiteres gro&amp;szlig;es Kapitel sind Bayes
 &lt;ul&gt;
 &lt;li&gt;Folie 23: Wo kommt die 140 her?&lt;br/&gt;
   &amp;rarr; Summe der Diagonalelemente auf Folie 21.&lt;/li&gt;
-&lt;li&gt;TODO, Folie 27: Lift Faktor ist 2 wenn man nur die 400 anschreibt, oder?&lt;/li&gt;
+&lt;li&gt;Folie 27: Lift Faktor ist 2 wenn man nur die 400 anschreibt, oder?&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="association-rules"&gt;Association Rules&lt;/h3&gt;
 &lt;p&gt;Slides: &lt;code&gt;6-Association-Rules-1.pdf&lt;/code&gt; und &lt;code&gt;7-Association-Rules-2.pdf&lt;/code&gt;&lt;/p&gt;
@@ -796,8 +796,10 @@ Anwendungen von Association Rules denkbar:&lt;/p&gt;
 &lt;li&gt;Gehe zu Schritt 2.&lt;/li&gt;
 &lt;/ul&gt;
 
-        Gesamtkomplexit&amp;auml;t: $\mathcal{O}(n^2)$
-    &lt;/dd&gt;
+        Gesamtkomplexit&amp;auml;t: $\mathcal{O}(n^2)$&lt;br/&gt;
+
+        Siehe auch: &lt;a href="https://stat.ethz.ch/R-manual/R-devel/library/cluster/html/agnes.html"&gt;AGNES&lt;/a&gt;
+&lt;/dd&gt;
 &lt;dt&gt;&lt;a id="divisive-clustering"&gt;&lt;/a&gt;&lt;dfn&gt;Divisives Clustering&lt;/dfn&gt; (&lt;dfn id="diana"&gt;DIANA&lt;/dfn&gt;, &lt;dfn&gt;DIvisive ANAlysis&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;Divisives Clustering ist ein hierarchisches Clusteringverfahren. Es
         startet mit einem gro&amp;szlig;en Cluster und unterteilt diesen rekursiv immer
@@ -818,7 +820,7 @@ Anwendungen von Association Rules denkbar:&lt;/p&gt;
 &lt;li&gt;&lt;a href="http://onlinelibrary.wiley.com/book/10.1002/9780470316801"&gt;Leonard Kaufman, Peter J. Rousseeuw: Finding Groups in Data: An Introduction to Cluster Analysis.&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;Projected Clustering&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dt&gt;&lt;dfn id="projected-clustering"&gt;Projected Clustering&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Input sind die Anzahl $k$ der Cluster, die gefunden werden sollen und
         die durchschnittliche Anzahl der Dimensionen pro Cluster $l$.
 
@@ -945,11 +947,18 @@ die Dimension der &lt;span class="math"&gt;\(n \in \mathbb{N}\)&lt;/span&gt; Dat
 &lt;td&gt;$\varepsilon$ heavily influences the runtime&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
+&lt;td&gt;&lt;a href="#agglomerative-clustering"&gt;Agglomeratives hier. Clustering&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;number of clusters, linkage type, distance&lt;/td&gt;
+&lt;td&gt;hierarchical&lt;/td&gt;
+&lt;td&gt;$\mathcal{O}(n^2)$&lt;/td&gt;
+&lt;td&gt;Related to Kruskals algorithm for constructing a minimal spanning tree; looks at local patterns&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
 &lt;td&gt;&lt;a href="#diana"&gt;DIANA&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;hierarchical&lt;/td&gt;
-&lt;td&gt;$\mathcal{O}(n)$&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;$\mathcal{O}(2^n)$ (?)&lt;/td&gt;
+&lt;td&gt;Looks at global patterns&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;a href="#birch"&gt;BIRCH&lt;/a&gt;&lt;/td&gt;
@@ -963,9 +972,17 @@ die Dimension der &lt;span class="math"&gt;\(n \in \mathbb{N}\)&lt;/span&gt; Dat
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
+&lt;td&gt;like $k$-means, but jumps on graph&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="#projected-clustering"&gt;Projected Clustering&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;$k$, average number of dimensions per cluster $I$&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;for high-dimensional data, extension of $k$-means&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
+&lt;p&gt;Siehe auch: &lt;a href="http://scikit-learn.org/stable/modules/clustering.html"&gt;Sklearn &amp;uuml;ber clustering&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id="statistische-modellierung"&gt;Statistische Modellierung&lt;/h3&gt;
 &lt;p&gt;Slides: &lt;code&gt;10-StatistModellierung.pdf&lt;/code&gt;&lt;/p&gt;
 &lt;dl&gt;
@@ -1186,14 +1203,23 @@ die Dimension der &lt;span class="math"&gt;\(n \in \mathbb{N}\)&lt;/span&gt; Dat
   &amp;rarr; Durch die Regeln kann man gegebenenfalls das Minen beschleunigen und f&amp;uuml;r
     den Nutzer interessantere Regeln finden.&lt;/li&gt;
 &lt;li&gt;Was f&amp;uuml;r Arten von Constraints kennen sie? Beispiele hierf&amp;uuml;r.&lt;br/&gt;
-  &amp;rarr; Data-Constraints (Wert der Items &amp;uuml;ber 100&amp;nbsp;Euro) und Rule-Constraints (min. 3 Elemente auf der rechten Seite).&lt;/li&gt;
-&lt;li&gt;Was ist Anti-Monotonizit&amp;auml;t, Succinctness? &lt;für anti-monoton="" begründen,="" bestimmtes="" constraint="" ein="" ob="" sagen="" succinct.=""&gt;&lt;br/&gt;
-  &amp;rarr; vgl. &lt;a href="#anti-monoton"&gt;Anti-Monotonizit&amp;auml;t&lt;/a&gt;, &lt;a href="#succinctness"&gt;Succinctness&lt;/a&gt;&lt;/für&gt;&lt;/li&gt;
+  &amp;rarr; Data-Constraints (Wert der Items &amp;uuml;ber 100&amp;nbsp;Euro) und Rule-Constraints
+  (min. 3 Elemente auf der rechten Seite).&lt;/li&gt;
+&lt;li&gt;Was ist Anti-Monotonizit&amp;auml;t, Succinctness? F&amp;uuml;r ein bestimmtes Constraint
+  sagen/begr&amp;uuml;nden, ob anti-monoton/succinct.&lt;br/&gt;
+  &amp;rarr; vgl. &lt;a href="#anti-monoton"&gt;Anti-Monotonizit&amp;auml;t&lt;/a&gt;,
+         &lt;a href="#succinctness"&gt;Succinctness&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Wie l&amp;auml;sst sich Apriori f&amp;uuml;r das Mining von Teilfolgen verallgemeinern?&lt;br/&gt;
-  &amp;rarr; TODO&lt;/li&gt;
-&lt;li&gt;Antagonismus von Support-basiertem und Constraint-basiertem Pruning erkl&amp;auml;ren k&amp;ouml;nnen.&lt;br/&gt;
-  &amp;rarr; TODO&lt;/li&gt;
-&lt;li&gt;Alternativen f&amp;uuml;r Constraint-basiertes Pruning (wenn Constraint nicht anti-monoton) erkl&amp;auml;ren k&amp;ouml;nnen.&lt;br/&gt;
+  &amp;rarr; Endlicher Automat (TODO)&lt;/li&gt;
+&lt;li&gt;Was versteht man unter dem Antagonismus von Support-basiertem und
+  Constraint-basiertem Pruning?&lt;br/&gt;
+  &amp;rarr; Wenn man A-Rules unter Nebenbedingungen mit dem Apriori-Algorithmus sucht,
+     k&amp;ouml;nnte man versucht sein die Kandidaten schon fr&amp;uuml;h auf die Constraints zu
+     &amp;uuml;berpr&amp;uuml;fen. Obwohl jede Teilmenge eines Frequent Itemsets (FI) auch
+     Frequent sein muss, muss nicht f&amp;uuml;r jede Teilmenge das Constraint erf&amp;uuml;llt
+     sein. Dies gilt jedoch nicht f&amp;uuml;r die Nebenbedingungen.&lt;/li&gt;
+&lt;li&gt;Alternativen f&amp;uuml;r Constraint-basiertes Pruning (wenn Constraint nicht
+  anti-monoton) erkl&amp;auml;ren k&amp;ouml;nnen.&lt;br/&gt;
   &amp;rarr; TODO&lt;/li&gt;
 &lt;li&gt;Welche zwei Sprachen haben wir f&amp;uuml;r die Formulierung der Constraints
   kennengelernt?&lt;br/&gt;
@@ -1228,7 +1254,9 @@ die Dimension der &lt;span class="math"&gt;\(n \in \mathbb{N}\)&lt;/span&gt; Dat
     (Hierarchisches Clustering), finden von neuen Symbolen (TODO).&lt;/li&gt;
 &lt;li&gt;Warum funktionieren herk&amp;ouml;mmliche Clustering-Verfahren in hochdimensionalen
   Merkmalsr&amp;auml;umen nicht? Skizzieren Sie eine m&amp;ouml;gliche L&amp;ouml;sung.&lt;br/&gt;
-  &amp;rarr; TODO&lt;/li&gt;
+  &amp;rarr; Weil Datenobjekte in hochdimensionalen R&amp;auml;umen typischerweise alle weit
+     auseinander liegen / nicht dicht sind. Man kann
+     &lt;a href="#projected-clustering"&gt;projected Clustering&lt;/a&gt; anwenden.&lt;/li&gt;
 &lt;li&gt;Erkl&amp;auml;ren Sie, warum Clustering mit kategorischen Attributen besonders ist?
   Warum ist Link-basiertes Clustering hier hilfreich?&lt;br/&gt;
   &amp;rarr; TODO&lt;/li&gt;
@@ -1241,9 +1269,7 @@ auf Folie 10, Vorhersage mit Naive Bayes erkl&amp;auml;ren/vorf&amp;uuml;hren k&
 &lt;li&gt;Was &amp;auml;ndert sich, wenn die Attribute nicht voneinander unabh&amp;auml;ngig sind?&lt;br/&gt;
   &amp;rarr; TODO&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="ubungen_1"&gt;&amp;Uuml;bungen&lt;/h2&gt;
-&lt;p&gt;Kommt noch.&lt;/p&gt;
-&lt;h2 id="material-und-links"&gt;Material und Links&lt;/h2&gt;
+&lt;h2 id="material-und-links_1"&gt;Material und Links&lt;/h2&gt;
 &lt;p&gt;Die Vorlesung wurde gestreamt und ist unter
 &lt;a href="http://mml-streamdb01.ira.uka.de/"&gt;mml-streamdb01.ira.uka.de&lt;/a&gt; verf&amp;uuml;gbar.&lt;/p&gt;
 &lt;ul&gt;
@@ -1252,7 +1278,9 @@ auf Folie 10, Vorhersage mit Naive Bayes erkl&amp;auml;ren/vorf&amp;uuml;hren k&
 &lt;/ul&gt;
 &lt;p&gt;Literatur:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Harvey J. Miller,Jiawei Han: Geographic Data Mining and Knowledge Discovery
+&lt;li&gt;Ian H. Witten, Eibe Frank: Data Mining. Practical Machine Learning Tools and
+  Techniques.&lt;/li&gt;
+&lt;li&gt;Harvey J. Miller, Jiawei Han: Geographic Data Mining and Knowledge Discovery
   (Clustering)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="vorlesungsempfehlungen"&gt;Vorlesungsempfehlungen&lt;/h2&gt;
