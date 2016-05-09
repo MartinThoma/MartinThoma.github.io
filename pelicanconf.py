@@ -89,6 +89,9 @@ TOC = {'TOC_HEADERS': '^h[2-3]',
 DIRECT_TEMPLATES = (('index', 'tags', 'categories', 'archives', 'search',
                      '404'))
 
+ARTICLE_EXCLUDES = ['html5', 'js', 'python']
+PAGE_EXCLUDES = ['html5', 'js', 'python']
+
 STATIC_PATHS = ['images',
                 'extra/CNAME',
                 'extra/custom.css',
