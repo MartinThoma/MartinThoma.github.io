@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Martin Thoma</title><link>https://martin-thoma.com/</link><description>A blog about Code, the Web and Cyberculture</description><lastBuildDate>Fri, 15 Apr 2016 11:22:00 +0200</lastBuildDate><item><title>Analysetechniken für große Datenbestände</title><link>https://martin-thoma.com/analysetechniken-grosser-datenbestaende/</link><description>&lt;div class="info"&gt;Dieser Artikel besch&amp;auml;ftigt sich mit der Vorlesung &amp;bdquo;Analysetechniken f&amp;uuml;r gro&amp;szlig;e Datenbest&amp;auml;nde&amp;ldquo; am KIT. Er dient als Pr&amp;uuml;fungsvorbereitung. Ich habe die Vorlesungen bei &lt;a href="https://dbis.ipd.kit.edu/english/336.php"&gt;Herrn Prof. Dr.-Ing. Klemens B&amp;ouml;hm&lt;/a&gt; im Wintersemester 2015/2016 geh&amp;ouml;rt. Der Artikel ist noch am Entstehen.&lt;/div&gt;
+<rss version="2.0"><channel><title>Martin Thoma</title><link>https://martin-thoma.com/</link><description>A blog about Code, the Web and Cyberculture</description><lastBuildDate>Fri, 15 Apr 2016 11:22:00 +0200</lastBuildDate><item><title>Analysetechniken für große Datenbestände</title><link>https://martin-thoma.com/analysetechniken-grosser-datenbestaende/</link><description>&lt;div class="info"&gt;Dieser Artikel besch&amp;auml;ftigt sich mit der Vorlesung &amp;bdquo;Analysetechniken f&amp;uuml;r gro&amp;szlig;e Datenbest&amp;auml;nde&amp;ldquo; am KIT. Er dient als Pr&amp;uuml;fungsvorbereitung. Ich habe die Vorlesungen bei &lt;a href="https://dbis.ipd.kit.edu/english/336.php"&gt;Herrn Prof. Dr.-Ing. Klemens B&amp;ouml;hm&lt;/a&gt; im Wintersemester 2015/2016 geh&amp;ouml;rt.&lt;/div&gt;
 &lt;p&gt;In der Vorlesung 'Analysetechniken f&amp;uuml;r gro&amp;szlig;e Datenbest&amp;auml;nde' werden vor allem
 Association Rule Mining und Clustering-Techniken besprochen. Zum Association
 Rule minining ist vor allem der Apriori-Algorithmus sowie die Verbesserung mit
@@ -300,7 +300,7 @@ von gro&amp;szlig;er Bedeutung. Ein weiteres gro&amp;szlig;es Kapitel sind Bayes
                 Datenobjekte
             &lt;ul&gt;
 &lt;li&gt;Parametrische Verfahren: Nehme eine bekannte
-                    Wahrscheinlichkeitsverteilung der Datenobjekte an und
+                    Wahrscheinlichkeits&amp;shy;verteilung der Datenobjekte an und
                     sch&amp;auml;tze deren Paramter. Arbeite  dann nur mit der
                     Verteilung&lt;/li&gt;
 &lt;li&gt;Nichtparametrische Verfahren: Sampling, Clustering,
@@ -328,7 +328,7 @@ von gro&amp;szlig;er Bedeutung. Ein weiteres gro&amp;szlig;es Kapitel sind Bayes
 &lt;li&gt;Boxplots: Whiskers&lt;/li&gt;
 &lt;li&gt;Histogramme: Nicht geeignet f&amp;uuml;r viele Dimensionen.&lt;/li&gt;
 &lt;li&gt;Wahrscheinlichkeitsraum, Ereignis, Ergebnis, Ergebnismenge $\Omega$,
-        Wahrscheinlichkeitsma&amp;szlig;, Kovarianzmatrix, Bernoulli-Experiment&lt;/li&gt;
+        Wahrscheinlichkeits&amp;shy;ma&amp;szlig;, Kovarianzmatrix, Bernoulli-Experiment&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="raumliche-indexstrutkuren"&gt;R&amp;auml;umliche Indexstrutkuren&lt;/h3&gt;
 &lt;p&gt;Slides: &lt;code&gt;3-Informatik-Grundlagen.pdf&lt;/code&gt;&lt;/p&gt;
@@ -539,7 +539,7 @@ Anwendungen von Association Rules denkbar:&lt;/p&gt;
         $$\text{support}(A \Rightarrow B) = \text{support}(A \cup B)$$&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Closed Itemset&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Ein Itemset $I$ hei&amp;szlig;t closed, wenn es keine echte Obermenge $I' \supsetneq I$ gibt,
-        die den gleichen support $\text{supp}(I') = \text{supp}(I)$ hat.&lt;/dd&gt;
+        die den gleichen Support $\text{supp}(I') = \text{supp}(I)$ hat.&lt;/dd&gt;
 &lt;dt&gt;&lt;a id="confidence"&gt;&lt;/a&gt;&lt;dfn&gt;Confidence&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Confidence von $A \Rightarrow B$ ist der Anteil der Transaktionen,
         die $A$ und $B$ enthalten, von den Transaktione die $A$ enthalten:
@@ -567,6 +567,20 @@ Anwendungen von Association Rules denkbar:&lt;/p&gt;
 &lt;li&gt;Aggressiver durch Datenbestand gehen (z.B. von k=3 zu k=6 springen)&lt;/li&gt;
 &lt;li&gt;Hashfilter&lt;/li&gt;
 &lt;/ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="hash-tree"&gt;Hash Tree&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;Wenn man viele Kandidaten f&amp;uuml;r $k$-elementige Frequent Itemsets hat,
+        dann kann das support counting lange dauern. Deshalb baut man sich
+        vor dem Support Counting f&amp;uuml;r alle Kandidaten einen Hash-Tree mit
+        $k$ Ebenen auf. Man sortiert die Items der Kandidaten auf, indem
+        man einen Pfad f&amp;uuml;r jeden Kandidaten im Baum hinzuf&amp;uuml;gt. Jeder
+        Knoten im Hash-Tree enspricht also einem Item. Ein Item $i$ in Ebene
+        $j$ steht daf&amp;uuml;r, dass der Kandidat an Stelle $j$ das Item $i$ hat.
+        Allerdings kann man auch fr&amp;uuml;her aufh&amp;ouml;ren, wenn es keine Kollisionen
+        gibt.&lt;br/&gt;
+&lt;br/&gt;
+        Der Hash-Tree repr&amp;auml;sentiert also die Kandidaten, nicht die Transaktionen.&lt;br/&gt;
+&lt;br/&gt;
 &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="fp-tree"&gt;FP-Trees&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;FP-Trees (FP f&amp;uuml;r "frequent pattern") sind eine Datenstrutkur zum
@@ -598,13 +612,13 @@ Anwendungen von Association Rules denkbar:&lt;/p&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;li&gt;Starte mit dem niedrigsten Element in der Header-Tabelle. &amp;Uuml;berpr&amp;uuml;fe
-            den Pr&amp;auml;fix auf den erwarteten support. Gehe dazu alle Elemente
+            den Pr&amp;auml;fix auf den erwarteten Support. Gehe dazu alle Elemente
             dieses Items durch (alle Pr&amp;auml;fix-Pfade im Baum) und wende eine Art
             Apriori-Algorithmus an um in diesen Pr&amp;auml;fix-Pfaden mit dem Item
             $i$ die Frequent-Itemsets zu finden.&lt;/li&gt;
 &lt;/ol&gt;
 
-    Siehe auch: &lt;a href="https://www.cs.sfu.ca/~jpei/publications/sigmod00.pdf"&gt;Mining Frequent Patterns without Candidate Generation&lt;/a&gt;
+    Siehe auch: &lt;a href="https://www.cs.sfu.ca/~jpei/publications/sigmod00.pdf"&gt;Mining Frequent Patterns without Candidate Generation&lt;/a&gt; und &lt;a href="http://www.singularities.com/blog/2015/08/apriori-vs-fpgrowth-for-frequent-item-set-mining"&gt;ein sehr guter Blog post&lt;/a&gt;
 &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Sampling&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Berechnung auf einer Stichprobe durchf&amp;uuml;hren&lt;/dd&gt;
@@ -745,7 +759,7 @@ Anwendungen von Association Rules denkbar:&lt;/p&gt;
         Siehe auch:
         &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=FAVETO6EK9E"&gt;YouTube&lt;/a&gt; (7:24min)&lt;/li&gt;
-&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://dl.acm.org/citation.cfm?id=233324"&gt;BIRCH: an efficient data clustering method for very large databases&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Hierarchisches Clustering&lt;/dfn&gt;&lt;/dt&gt;
@@ -898,7 +912,7 @@ Anwendungen von Association Rules denkbar:&lt;/p&gt;
         Er veranschaulicht das Ergebnis von OPTICS.
 
         &lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
-&lt;a href="https://commons.wikimedia.org/wiki/File:OPTICS.svg"&gt;&lt;img alt="OPTICS" src="../images/2016/04/optics.png"/&gt;&lt;/a&gt;
+&lt;a href="https://commons.wikimedia.org/wiki/File:OPTICS.svg"&gt;&lt;img alt="OPTICS" src="../images/2016/04/optics.png" style="max-width:512px;"/&gt;&lt;/a&gt;
 &lt;figcaption class="text-center"&gt;OPTICS: Der Reachability-Plot ist ganz unten.&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/dd&gt;
@@ -937,8 +951,8 @@ die Dimension der &lt;span class="math"&gt;\(n \in \mathbb{N}\)&lt;/span&gt; Dat
 &lt;td&gt;&lt;a href="#em"&gt;EM&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;$k$, distribution-type&lt;/td&gt;
 &lt;td&gt;probabilisitc&lt;/td&gt;
-&lt;td&gt;O(dkni)&lt;/td&gt;
-&lt;td&gt;i is the number of iterations&lt;/td&gt;
+&lt;td&gt;$\mathcal{O}(dkni)$&lt;/td&gt;
+&lt;td&gt;$i$ is the number of iterations&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;a href="#dbscan"&gt;DBSCAN&lt;/a&gt;&lt;/td&gt;
@@ -1038,8 +1052,7 @@ die Dimension der &lt;span class="math"&gt;\(n \in \mathbb{N}\)&lt;/span&gt; Dat
     Vorteile:
 
     &lt;ul&gt;
-&lt;li&gt;Overfitting wird minimiert.&lt;/li&gt;
-&lt;li&gt;Besseres Gesamtsystem&lt;/li&gt;
+&lt;li&gt;Overfitting wird minimiert &amp;amp;rightarrow; Besseres Gesamtsystem&lt;/li&gt;
 &lt;li&gt;Parallelisierbarkeit&lt;/li&gt;
 &lt;li&gt;Wahrscheinlichkeiten k&amp;ouml;nnen genauer gesch&amp;auml;tzt werden&lt;/li&gt;
 &lt;/ul&gt;
@@ -1282,7 +1295,9 @@ die Dimension der &lt;span class="math"&gt;\(n \in \mathbb{N}\)&lt;/span&gt; Dat
 auf Folie 10, Vorhersage mit Naive Bayes erkl&amp;auml;ren/vorf&amp;uuml;hren k&amp;ouml;nnen.&lt;br/&gt;
   &amp;rarr; TODO&lt;/li&gt;
 &lt;li&gt;Was &amp;auml;ndert sich, wenn die Attribute nicht voneinander unabh&amp;auml;ngig sind?&lt;br/&gt;
-  &amp;rarr; TODO&lt;/li&gt;
+  &amp;rarr; Dann ist die naive Unabh&amp;auml;ngigkeitsannahme nicht mehr gegeben und man sollte
+    ein bayessches Netz nehmen. Damit lassen sich dann wieder bessere Vorhersagen
+    machen.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="material-und-links_1"&gt;Material und Links&lt;/h2&gt;
 &lt;p&gt;Die Vorlesung wurde gestreamt und ist unter
@@ -1297,6 +1312,10 @@ auf Folie 10, Vorhersage mit Naive Bayes erkl&amp;auml;ren/vorf&amp;uuml;hren k&
   Techniques.&lt;/li&gt;
 &lt;li&gt;Harvey J. Miller, Jiawei Han: Geographic Data Mining and Knowledge Discovery
   (Clustering)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;More:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://datascience.stackexchange.com/q/11657/8820"&gt;What is the relationship between clustering and association rule mining?&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="vorlesungsempfehlungen"&gt;Vorlesungsempfehlungen&lt;/h2&gt;
 &lt;p&gt;Folgende Vorlesungen sind &amp;auml;hnlich:&lt;/p&gt;
@@ -17385,11 +17404,12 @@ Wir wollen einen neuen Automaten &lt;span class="math"&gt;\({\cal K}_2 (Q_2, \Si
 &lt;span class="math"&gt;\(Q_2 := Q_1 \cup \{q_0^2, q_F\}\)&lt;/span&gt;, wobei &lt;span class="math"&gt;\(q_0^2\)&lt;/span&gt; Anfangszustand von &lt;span class="math"&gt;\({\cal K}_2\)&lt;/span&gt; ist und &lt;span class="math"&gt;\(F_2 := \{q_F\}\)&lt;/span&gt;
 &lt;span class="math"&gt;\(\Gamma_2 := \Gamma_1 \cup \{Z_0^2\}\)&lt;/span&gt;, wobei &lt;span class="math"&gt;\(Z_0^2\)&lt;/span&gt; Initialisierung des STACKS von &lt;span class="math"&gt;\({\cal K}_2\)&lt;/span&gt; ist und &lt;span class="math"&gt;\(\delta_2\)&lt;/span&gt; festgelegt durch:&lt;/p&gt;
 &lt;p&gt;Zuerst sorgen wir daf&amp;uuml;r, dass &lt;span class="math"&gt;\(Z_0^2\)&lt;/span&gt; ganz unten im STACK ist:
-&lt;span class="math"&gt;\(\delta_2(q_0^2, a, X) = 
-&lt;div class="math"&gt;\begin{cases}
+&lt;/p&gt;
+&lt;div class="math"&gt;$$\delta_2(q_0^2, a, X) = 
+\begin{cases}
 \{q_0^1, Z_0^1, Z_0^2\} &amp;amp; \text{falls } a= \varepsilon \text{ und } X = Z_0^2\\
 \emptyset               &amp;amp; \text{sonst}
-\end{cases}&lt;/div&gt;\)&lt;/span&gt;&lt;/p&gt;
+\end{cases}$$&lt;/div&gt;
 &lt;p&gt;Dann wie gehabt:
 &lt;span class="math"&gt;\(\delta_2(q, a, Z) = \delta_1(q, a, Z) \text{, falls } q \in Q_1, a \in \Sigma \cup \{\varepsilon\} \text{ und } Z \in \Gamma_1\)&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;Und am Schluss auch akzeptieren:
