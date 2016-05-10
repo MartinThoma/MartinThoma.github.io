@@ -172,7 +172,7 @@ von gro&amp;szlig;er Bedeutung. Ein weiteres gro&amp;szlig;es Kapitel sind Bayes
 &lt;h3 id="statistische-grundlagen"&gt;Statistische Grundlagen&lt;/h3&gt;
 &lt;p&gt;Slides: &lt;code&gt;2-statistGrundlagen.pdf&lt;/code&gt;&lt;/p&gt;
 &lt;dl&gt;
-&lt;dt&gt;&lt;dfn&gt;Skalen&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dt&gt;&lt;dfn&gt;Skalen von Merkmalen&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Siehe &lt;a href="https://martin-thoma.com/mustererkennung-klausur/#merkmale"&gt;Mustererkennung&lt;/a&gt;&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Kennzahlen f&amp;uuml;r Daten&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;
@@ -322,14 +322,27 @@ von gro&amp;szlig;er Bedeutung. Ein weiteres gro&amp;szlig;es Kapitel sind Bayes
 &lt;li&gt;Diskretisierung: Reduziere die Werte pro Attribut.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
-&lt;/dl&gt;
-&lt;p&gt;Weitere&lt;/p&gt;
+&lt;dt&gt;&lt;dfn&gt;Visualisierung von Daten&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
 &lt;ul&gt;
 &lt;li&gt;Boxplots: Whiskers&lt;/li&gt;
 &lt;li&gt;Histogramme: Nicht geeignet f&amp;uuml;r viele Dimensionen.&lt;/li&gt;
-&lt;li&gt;Wahrscheinlichkeitsraum, Ereignis, Ergebnis, Ergebnismenge $\Omega$,
-        Wahrscheinlichkeits&amp;shy;ma&amp;szlig;, Kovarianzmatrix, Bernoulli-Experiment&lt;/li&gt;
+&lt;li&gt;Dendogramme&lt;/li&gt;
 &lt;/ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Grundbegriffe der Wahrscheinlichkeitstheorie&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;ul&gt;
+&lt;li&gt;Wahrscheinlichkeitsraum&lt;/li&gt;
+&lt;li&gt;Ereignis&lt;/li&gt;
+&lt;li&gt;Ergebnis&lt;/li&gt;
+&lt;li&gt;Ergebnismenge $\Omega$&lt;/li&gt;
+&lt;li&gt;Wahrscheinlichkeits&amp;shy;ma&amp;szlig;&lt;/li&gt;
+&lt;li&gt;Kovarianzmatrix&lt;/li&gt;
+&lt;li&gt;Bernoulli-Experiment&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
 &lt;h3 id="raumliche-indexstrutkuren"&gt;R&amp;auml;umliche Indexstrutkuren&lt;/h3&gt;
 &lt;p&gt;Slides: &lt;code&gt;3-Informatik-Grundlagen.pdf&lt;/code&gt;&lt;/p&gt;
 &lt;dl&gt;
@@ -449,7 +462,7 @@ von gro&amp;szlig;er Bedeutung. Ein weiteres gro&amp;szlig;es Kapitel sind Bayes
 &lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Association_rule_learning#Lift"&gt;&lt;dfn&gt;Lift-Faktor&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
 &lt;dd&gt;Faktor, um den sich die R&amp;uuml;cklaufquote erh&amp;ouml;ht:
 
-        $$\mathrm{lift}(X\Rightarrow Y) = \frac{ \mathrm{supp}(X \cup Y)}{ \mathrm{supp}(X) \cdot \mathrm{supp}(Y) }$$
+        $$\mathrm{lift}(X\Rightarrow Y) = \frac{ \mathrm{support}(X \cup Y)}{ \mathrm{support}(X) \cdot \mathrm{support}(Y) }$$
 
         Der Lift ist ein Indiz f&amp;uuml;r die Unabh&amp;auml;ngigkeit von $X$ und $Y$.
         Ist der Lift nahe bei 1, dann spricht das f&amp;uuml;r die Unabh&amp;auml;ngigkeit. Ein
@@ -539,7 +552,7 @@ Anwendungen von Association Rules denkbar:&lt;/p&gt;
         $$\text{support}(A \Rightarrow B) = \text{support}(A \cup B)$$&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Closed Itemset&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Ein Itemset $I$ hei&amp;szlig;t closed, wenn es keine echte Obermenge $I' \supsetneq I$ gibt,
-        die den gleichen Support $\text{supp}(I') = \text{supp}(I)$ hat.&lt;/dd&gt;
+        die den gleichen Support $\text{support}(I') = \text{support}(I)$ hat.&lt;/dd&gt;
 &lt;dt&gt;&lt;a id="confidence"&gt;&lt;/a&gt;&lt;dfn&gt;Confidence&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Confidence von $A \Rightarrow B$ ist der Anteil der Transaktionen,
         die $A$ und $B$ enthalten, von den Transaktione die $A$ enthalten:
@@ -685,7 +698,7 @@ Anwendungen von Association Rules denkbar:&lt;/p&gt;
 &lt;h3 id="clustering"&gt;Clustering&lt;/h3&gt;
 &lt;p&gt;Slides: &lt;code&gt;9-Clustering-1.pdf&lt;/code&gt; und &lt;code&gt;9-Clustering-2.pdf&lt;/code&gt;&lt;/p&gt;
 &lt;dl&gt;
-&lt;dt&gt;&lt;dfn&gt;Silhouette-Koeffizient&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dt&gt;&lt;a href="Silhouettenkoeffizient" id="silhouette"&gt;&lt;dfn&gt;Silhouette-Koeffizient&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
 &lt;dd&gt;Sei $C = (C_1, \dots, C_k)$ ein Clustering.
 
     &lt;ul&gt;
@@ -744,9 +757,6 @@ Anwendungen von Association Rules denkbar:&lt;/p&gt;
 &lt;dd&gt;BIRCH ist ein Clustering-Algorithmus, welcher CF-Trees benutzt und
         mit wenig Speicherplatz auskommt. Der CF-Tree wird im ersten Schritt
         aufgebaut.&lt;br/&gt;
-&lt;br/&gt;
-        BIRCH ist KEIN hierarchisches Clustering ("hierarchies" bezieht sich
-        auf den Baum, nicht auf das Clusteringergebnis).&lt;br/&gt;
 &lt;br/&gt;
         Parameter von BIRCH:
         &lt;ul&gt;
@@ -904,8 +914,13 @@ Anwendungen von Association Rules denkbar:&lt;/p&gt;
 &lt;li&gt;Rekursiv expandieren wie bei DBSCAN.&lt;/li&gt;
 &lt;/ul&gt;
 
-        Siehe &lt;a href="http://www.dbs.informatik.uni-muenchen.de/Publikationen/Papers/OPTICS.pdf"&gt;OPTICS: Ordering Points To Identify the Clustering Structure&lt;/a&gt;.
-    &lt;/dd&gt;
+        Siehe
+
+        &lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.dbs.informatik.uni-muenchen.de/Publikationen/Papers/OPTICS.pdf"&gt;OPTICS: Ordering Points To Identify the Clustering Structure&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://datascience.stackexchange.com/q/11628/8820"&gt;Why does OPTICS use the core-distance as a minimum for the reachability distance?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Reachability-Plot&lt;/dfn&gt; (&lt;dfn&gt;Erreichbarkeitsdiagramm&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;Der Reachability-Plot veranschaulicht die Cluster und zeigt, welche
         Wahl von $\varepsilon$ zu verschiedenen Clustern in DBSCAN f&amp;uuml;hren w&amp;uuml;rde.
@@ -922,7 +937,7 @@ Anwendungen von Association Rules denkbar:&lt;/p&gt;
 &lt;dd&gt;Die Overall Likelihood ist ein G&amp;uuml;tema&amp;szlig; f&amp;uuml;r Clusterings.
         $$\prod_{i} \left ( p_A P(x_i | A) + p_B P(x_i | B) \right )$$&lt;/dd&gt;
 &lt;/dl&gt;
-&lt;p&gt;Verfahren im &amp;Uuml;berblick:&lt;/p&gt;
+&lt;h4 id="clustering-algorithmen"&gt;Clustering-Algorithmen&lt;/h4&gt;
 &lt;p&gt;Im Folgenden sei &lt;span class="math"&gt;\(k \in \mathbb{N}\)&lt;/span&gt; die Anzahl der Cluster, &lt;span class="math"&gt;\(d \in \mathbb{N}\)&lt;/span&gt;
 die Dimension der &lt;span class="math"&gt;\(n \in \mathbb{N}\)&lt;/span&gt; Datenpunkte.&lt;/p&gt;
 &lt;table class="table" id="clustering-overview"&gt;
@@ -941,10 +956,10 @@ die Dimension der &lt;span class="math"&gt;\(n \in \mathbb{N}\)&lt;/span&gt; Dat
 &lt;td&gt;$i$ is the number of iterations&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;$k$-medoids&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://en.wikipedia.org/wiki/K-medoids#Algorithms"&gt;$k$-medoids&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;$k$&lt;/td&gt;
 &lt;td&gt;next neighbor based&lt;/td&gt;
-&lt;td&gt;$\mathcal{O}(dkni)$&lt;/td&gt;
+&lt;td&gt;$\mathcal{O}(dk n^2 i)$&lt;/td&gt;
 &lt;td&gt;$i$ is the number of iterations&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -984,10 +999,10 @@ die Dimension der &lt;span class="math"&gt;\(n \in \mathbb{N}\)&lt;/span&gt; Dat
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;a href="#birch"&gt;BIRCH&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;$k$, branching factor $B$, threshold $T$&lt;/td&gt;
+&lt;td&gt;$k$, branching factor $B$, leaf capacity $B'$, threshold $T$&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Makes use of CF-Trees&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;a href="#clarans"&gt;CLARANS&lt;/a&gt;&lt;/td&gt;
@@ -1210,7 +1225,7 @@ die Dimension der &lt;span class="math"&gt;\(n \in \mathbb{N}\)&lt;/span&gt; Dat
   &amp;rarr; Association Rules die auf verschiedenen Begriffsebenenen sind, z.B.
     &lt;span markdown="0"&gt;Oreo &lt;span class="math"&gt;\(\Rightarrow\)&lt;/span&gt; Milch&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;Wie findet man multidimensionale Association Rules?&lt;br/&gt;
-  &amp;rarr; Hinzuf&amp;uuml;gen von Transaktionen der anderen Dimensionen, nutzen von "Leveln"
+  &amp;rarr; Hinzuf&amp;uuml;gen von Transaktionen der anderen Dimensionen, Nutzen von "Leveln"
   (TODO)&lt;/li&gt;
 &lt;li&gt;In welchen Situationen ist Apriori teuer, und warum?&lt;br/&gt;
   &amp;rarr; Apriori ist teuer, wenn es sehr gro&amp;szlig;e Itemsets gibt. Dann m&amp;uuml;ssen alle
@@ -1238,7 +1253,7 @@ die Dimension der &lt;span class="math"&gt;\(n \in \mathbb{N}\)&lt;/span&gt; Dat
   &amp;rarr; vgl. &lt;a href="#anti-monoton"&gt;Anti-Monotonizit&amp;auml;t&lt;/a&gt;,
          &lt;a href="#succinctness"&gt;Succinctness&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Wie l&amp;auml;sst sich Apriori f&amp;uuml;r das Mining von Teilfolgen verallgemeinern?&lt;br/&gt;
-  &amp;rarr; Endlicher Automat (TODO)&lt;/li&gt;
+  &amp;rarr; Endlicher Automat&lt;/li&gt;
 &lt;li&gt;Was versteht man unter dem Antagonismus von Support-basiertem und
   Constraint-basiertem Pruning?&lt;br/&gt;
   &amp;rarr; Wenn man A-Rules unter Nebenbedingungen mit dem Apriori-Algorithmus sucht,
@@ -1248,12 +1263,14 @@ die Dimension der &lt;span class="math"&gt;\(n \in \mathbb{N}\)&lt;/span&gt; Dat
      sein. Dies gilt jedoch nicht f&amp;uuml;r die Nebenbedingungen.&lt;/li&gt;
 &lt;li&gt;Alternativen f&amp;uuml;r Constraint-basiertes Pruning (wenn Constraint nicht
   anti-monoton) erkl&amp;auml;ren k&amp;ouml;nnen.&lt;br/&gt;
-  &amp;rarr; TODO&lt;/li&gt;
+  &amp;rarr; Support-basiertes Pruning&lt;/li&gt;
 &lt;li&gt;Welche zwei Sprachen haben wir f&amp;uuml;r die Formulierung der Constraints
   kennengelernt?&lt;br/&gt;
   &amp;rarr; 1-var und 2-var bzw. MetaRule Guided&lt;/li&gt;
 &lt;li&gt;Warum ist SQL nicht geeignet um Constraints zu formulieren?&lt;br/&gt;
-  &amp;rarr; Weil SQL keine Aussage &amp;uuml;ber die Struktur machen kann (TODO)&lt;/li&gt;
+  &amp;rarr; Weil SQL keine Aussage &amp;uuml;ber die Struktur machen kann. So ist es in SQL
+     nicht m&amp;ouml;glich zu sagen, dass die rechte Seite mindestens 3 Elemente
+     beinhalten soll.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="clustering_1"&gt;Clustering&lt;/h3&gt;
 &lt;ul&gt;
@@ -1279,7 +1296,7 @@ die Dimension der &lt;span class="math"&gt;\(n \in \mathbb{N}\)&lt;/span&gt; Dat
      &lt;a href="#birch"&gt;BIRCH&lt;/a&gt;, &lt;a href="#diana"&gt;DIANA&lt;/a&gt;, &lt;a href="#em"&gt;EM&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Gegeben Szenario X, welche Clustering-Verfahren sind sinnvoll, und warum?&lt;br/&gt;
   &amp;rarr; Autohersteller will Anzahl der Teile minimieren um Kosten zu senken
-    (Hierarchisches Clustering), finden von neuen Symbolen (TODO).&lt;/li&gt;
+    (Hierarchisches Clustering), finden von neuen Symbolen.&lt;/li&gt;
 &lt;li&gt;Warum funktionieren herk&amp;ouml;mmliche Clustering-Verfahren in hochdimensionalen
   Merkmalsr&amp;auml;umen nicht? Skizzieren Sie eine m&amp;ouml;gliche L&amp;ouml;sung.&lt;br/&gt;
   &amp;rarr; Weil Datenobjekte in hochdimensionalen R&amp;auml;umen typischerweise alle weit
@@ -4600,7 +4617,7 @@ Bonuspunkte.&lt;/p&gt;
 &lt;th colspan="5"&gt;Skala&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;th colspan="2"&gt;qualitativ&lt;/th&gt;
+&lt;th colspan="2"&gt;qualitativ (kategorial)&lt;/th&gt;
 &lt;th colspan="3"&gt;quantitativ (metrisch)&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
