@@ -630,6 +630,11 @@ Anwendungen von Association Rules denkbar:
             <li>Hashfilter</li>
         </ul>
     </dd>
+    <dt><dfn>Hash-Filter</dfn> (<dfn>Hash-Tabelle</dfn>)</dt>
+    <dd>Unterstützt das Support-Counting für viele Kandidaten.
+        Die Hash-Tabelle wird einmalig für alle Kandidaten der Länge $k$
+        aufgebaut und stellt eine notwendige, aber keine hinreichnde
+        Bedingung für Frequent Itemsets dar.</dd>
     <dt><dfn id="hash-tree">Hash Tree</dfn></dt>
     <dd>Wenn man viele Kandidaten für $k$-elementige Frequent Itemsets hat,
         dann kann das support counting lange dauern. Deshalb baut man sich
@@ -787,7 +792,8 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
     <dt><dfn id="k-means">$k$-means Clustering</dfn></dt>
     <dd>Siehe <a href="https://martin-thoma.com/machine-learning-1-course/#tocAnchor-1-1-15">ML 1</a>.</dd>
     <dt><dfn id="clarans">CLARANS</dfn></dt>
-    <dd>CLARANS ist ein Clustering-Algorithmus, der mit $k$-Means
+    <dd>CLARANS (Clustering Lge AplicationNs based on RANdomized Search) ist
+        ein Clustering-Algorithmus, der mit $k$-Means
         verwandt ist. Auch er erwartet einen Parameter $k \in \mathbb{N}$,
         der die erwartete Anzahl an Clustern angibt. Dann geht CLARANS davon
         aus, dass jeder Medeoid durch einen Datenpunkt im Datensatz
