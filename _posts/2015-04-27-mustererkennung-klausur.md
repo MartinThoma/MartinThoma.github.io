@@ -76,7 +76,7 @@ In diesem Foliensatz geht es um **Merkmale** und ihre Eigenschaften.
         <th colspan="5">Skala</th>
     </tr>
     <tr>
-        <th colspan="2">qualitativ</th>
+        <th colspan="2">qualitativ (kategorial)</th>
         <th colspan="3">quantitativ (metrisch)</th>
     </tr>
     <tr>

@@ -193,7 +193,7 @@ Slides: `1-Einleitung.pdf`
 Slides: `2-statistGrundlagen.pdf`
 
 <dl>
-    <dt><dfn>Skalen</dfn></dt>
+    <dt><dfn>Skalen von Merkmalen</dfn></dt>
     <dd>Siehe <a href="https://martin-thoma.com/mustererkennung-klausur/#merkmale">Mustererkennung</a></dd>
     <dt><dfn>Kennzahlen für Daten</dfn></dt>
     <dd>
@@ -346,16 +346,31 @@ Slides: `2-statistGrundlagen.pdf`
         </ul>
 
     </dd>
+    <dt><dfn>Visualisierung von Daten</dfn></dt>
+    <dd>
+
+        <ul>
+            <li>Boxplots: Whiskers</li>
+            <li>Histogramme: Nicht geeignet für viele Dimensionen.</li>
+            <li>Dendogramme</li>
+        </ul>
+
+    </dd>
+    <dt><dfn>Grundbegriffe der Wahrscheinlichkeitstheorie</dfn></dt>
+    <dd>
+
+        <ul>
+            <li>Wahrscheinlichkeitsraum</li>
+            <li>Ereignis</li>
+            <li>Ergebnis</li>
+            <li>Ergebnismenge $\Omega$</li>
+            <li>Wahrscheinlichkeits&shy;maß</li>
+            <li>Kovarianzmatrix</li>
+            <li>Bernoulli-Experiment</li>
+        </ul>
+
+    </dd>
 </dl>
-
-Weitere
-
-<ul>
-    <li>Boxplots: Whiskers</li>
-    <li>Histogramme: Nicht geeignet für viele Dimensionen.</li>
-    <li>Wahrscheinlichkeitsraum, Ereignis, Ergebnis, Ergebnismenge $\Omega$,
-        Wahrscheinlichkeits&shy;maß, Kovarianzmatrix, Bernoulli-Experiment</li>
-</ul>
 
 
 ### Räumliche Indexstrutkuren
@@ -492,7 +507,7 @@ Slides: `5-Evaluation.pdf`
     <dt><a href="https://en.wikipedia.org/wiki/Association_rule_learning#Lift"><dfn>Lift-Faktor</dfn></a></dt>
     <dd>Faktor, um den sich die Rücklaufquote erhöht:
 
-        $$\mathrm{lift}(X\Rightarrow Y) = \frac{ \mathrm{supp}(X \cup Y)}{ \mathrm{supp}(X) \cdot \mathrm{supp}(Y) }$$
+        $$\mathrm{lift}(X\Rightarrow Y) = \frac{ \mathrm{support}(X \cup Y)}{ \mathrm{support}(X) \cdot \mathrm{support}(Y) }$$
 
         Der Lift ist ein Indiz für die Unabhängigkeit von $X$ und $Y$.
         Ist der Lift nahe bei 1, dann spricht das für die Unabhängigkeit. Ein
@@ -586,7 +601,7 @@ Anwendungen von Association Rules denkbar:
         $$\text{support}(A \Rightarrow B) = \text{support}(A \cup B)$$</dd>
     <dt><dfn>Closed Itemset</dfn></dt>
     <dd>Ein Itemset $I$ heißt closed, wenn es keine echte Obermenge $I' \supsetneq I$ gibt,
-        die den gleichen Support $\text{supp}(I') = \text{supp}(I)$ hat.</dd>
+        die den gleichen Support $\text{support}(I') = \text{support}(I)$ hat.</dd>
     <dt><a id="confidence"></a><dfn>Confidence</dfn></dt>
     <dd>Confidence von $A \Rightarrow B$ ist der Anteil der Transaktionen,
         die $A$ und $B$ enthalten, von den Transaktione die $A$ enthalten:
@@ -740,7 +755,7 @@ Slides: `8-ConstrainedAssociationRules.pdf`
 Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
 
 <dl>
-    <dt><dfn>Silhouette-Koeffizient</dfn></dt>
+    <dt><a href="Silhouettenkoeffizient" id="silhouette"><dfn>Silhouette-Koeffizient</dfn></a></dt>
     <dd>Sei $C = (C_1, \dots, C_k)$ ein Clustering.
 
     <ul>
@@ -799,9 +814,6 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
     <dd>BIRCH ist ein Clustering-Algorithmus, welcher CF-Trees benutzt und
         mit wenig Speicherplatz auskommt. Der CF-Tree wird im ersten Schritt
         aufgebaut.<br/>
-        <br/>
-        BIRCH ist KEIN hierarchisches Clustering ("hierarchies" bezieht sich
-        auf den Baum, nicht auf das Clusteringergebnis).<br/>
         <br/>
         Parameter von BIRCH:
         <ul>
@@ -963,7 +975,12 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
             <li>Rekursiv expandieren wie bei DBSCAN.</li>
         </ul>
 
-        Siehe <a href="http://www.dbs.informatik.uni-muenchen.de/Publikationen/Papers/OPTICS.pdf">OPTICS: Ordering Points To Identify the Clustering Structure</a>.
+        Siehe
+
+        <ul>
+            <li><a href="http://www.dbs.informatik.uni-muenchen.de/Publikationen/Papers/OPTICS.pdf">OPTICS: Ordering Points To Identify the Clustering Structure</a></li>
+            <li><a href="http://datascience.stackexchange.com/q/11628/8820">Why does OPTICS use the core-distance as a minimum for the reachability distance?</a></li>
+        </ul>
     </dd>
     <dt><dfn>Reachability-Plot</dfn> (<dfn>Erreichbarkeitsdiagramm</dfn>)</dt>
     <dd>Der Reachability-Plot veranschaulicht die Cluster und zeigt, welche
@@ -983,7 +1000,8 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         $$\prod_{i} \left ( p_A P(x_i | A) + p_B P(x_i | B) \right )$$</dd>
 </dl>
 
-Verfahren im Überblick:
+
+#### Clustering-Algorithmen
 
 Im Folgenden sei $k \in \mathbb{N}$ die Anzahl der Cluster, $d \in \mathbb{N}$
 die Dimension der $n \in \mathbb{N}$ Datenpunkte.
@@ -1004,10 +1022,10 @@ die Dimension der $n \in \mathbb{N}$ Datenpunkte.
         <td>$i$ is the number of iterations</td>
     </tr>
     <tr>
-        <td>$k$-medoids</td>
+        <td><a href="https://en.wikipedia.org/wiki/K-medoids#Algorithms">$k$-medoids</a></td>
         <td>$k$</td>
         <td>next neighbor based</td>
-        <td>$\mathcal{O}(dkni)$</td>
+        <td>$\mathcal{O}(dk n^2 i)$</td>
         <td>$i$ is the number of iterations</td>
     </tr>
     <tr>
@@ -1047,10 +1065,10 @@ die Dimension der $n \in \mathbb{N}$ Datenpunkte.
     </tr>
     <tr>
         <td><a href="#birch">BIRCH</a></td>
-        <td>$k$, branching factor $B$, threshold $T$</td>
+        <td>$k$, branching factor $B$, leaf capacity $B'$, threshold $T$</td>
         <td></td>
         <td></td>
-        <td></td>
+        <td>Makes use of CF-Trees</td>
     </tr>
     <tr>
         <td><a href="#clarans">CLARANS</a></td>
@@ -1290,7 +1308,7 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
   → Association Rules die auf verschiedenen Begriffsebenenen sind, z.B.
     <span markdown="0">Oreo $\Rightarrow$ Milch</span>
 * Wie findet man multidimensionale Association Rules?<br/>
-  → Hinzufügen von Transaktionen der anderen Dimensionen, nutzen von "Leveln"
+  → Hinzufügen von Transaktionen der anderen Dimensionen, Nutzen von "Leveln"
   (TODO)
 * In welchen Situationen ist Apriori teuer, und warum?<br/>
   → Apriori ist teuer, wenn es sehr große Itemsets gibt. Dann müssen alle
@@ -1318,7 +1336,7 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
   → vgl. <a href="#anti-monoton">Anti-Monotonizität</a>,
          <a href="#succinctness">Succinctness</a>
 * Wie lässt sich Apriori für das Mining von Teilfolgen verallgemeinern?<br/>
-  → Endlicher Automat (TODO)
+  → Endlicher Automat
 * Was versteht man unter dem Antagonismus von Support-basiertem und
   Constraint-basiertem Pruning?<br/>
   → Wenn man A-Rules unter Nebenbedingungen mit dem Apriori-Algorithmus sucht,
@@ -1328,12 +1346,14 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
      sein. Dies gilt jedoch nicht für die Nebenbedingungen.
 * Alternativen für Constraint-basiertes Pruning (wenn Constraint nicht
   anti-monoton) erklären können.<br/>
-  → TODO
+  → Support-basiertes Pruning
 * Welche zwei Sprachen haben wir für die Formulierung der Constraints
   kennengelernt?<br/>
   → 1-var und 2-var bzw. MetaRule Guided
 * Warum ist SQL nicht geeignet um Constraints zu formulieren?<br/>
-  → Weil SQL keine Aussage über die Struktur machen kann (TODO)
+  → Weil SQL keine Aussage über die Struktur machen kann. So ist es in SQL
+     nicht möglich zu sagen, dass die rechte Seite mindestens 3 Elemente
+     beinhalten soll.
 
 ### Clustering
 * BIRCH-Algorithmus: Wie kann man die Interclusterdistanz aus N, LS, SS
@@ -1358,7 +1378,7 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
      <a href="#birch">BIRCH</a>, <a href="#diana">DIANA</a>, <a href="#em">EM</a>
 * Gegeben Szenario X, welche Clustering-Verfahren sind sinnvoll, und warum?<br/>
   → Autohersteller will Anzahl der Teile minimieren um Kosten zu senken
-    (Hierarchisches Clustering), finden von neuen Symbolen (TODO).
+    (Hierarchisches Clustering), finden von neuen Symbolen.
 * Warum funktionieren herkömmliche Clustering-Verfahren in hochdimensionalen
   Merkmalsräumen nicht? Skizzieren Sie eine mögliche Lösung.<br/>
   → Weil Datenobjekte in hochdimensionalen Räumen typischerweise alle weit
