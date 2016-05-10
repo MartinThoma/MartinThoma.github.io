@@ -406,7 +406,7 @@ Slides: `3-Informatik-Grundlagen.pdf`
         egal ob es wieder ein AABB oder Datenpunkte sind - ist darin.
         Diese AABBs können sich überschneiden.<br/>
         <br/>
-        TODO <a href="http://cs.stackexchange.com/q/56337/2914">What is the difference between a R-tree and a BVH?</a></dd>
+        Siehe auch: <a href="http://cs.stackexchange.com/q/56337/2914">What is the difference between a R-tree and a BVH?</a></dd>
     <dt><dfn>Nearest Neighbor in R-Tree</dfn></dt>
     <dd>Siehe <a href="https://github.com/MartinThoma/algorithms/blob/master/nearest-neighbor-r-tree/nn_r_tree_pseudo.py">Pseudo-Code</a>.</dd>
 </dl>
@@ -1235,7 +1235,7 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
   → Prepruning oder Postpruning.
 * Wie kann man beim Aufbau des Entscheidungsbaums berücksichtigen, dass
   unterschiedliche Fehlerarten unterschiedlich schlimm sind?<br/>
-  → Mehr Trainingsdaten für den schlimmeren Fehler. (TODO, vgl. <a href="http://datascience.stackexchange.com/q/11379/8820">How can decision trees be tuned for non-symmetrical loss?</a>)
+  → Mehr Trainingsdaten für den schlimmeren Fehler. (vgl. <a href="http://datascience.stackexchange.com/q/11379/8820">How can decision trees be tuned for non-symmetrical loss?</a>)
 * Was ist Wertebereich der FP-Rate?<br/>
   → [0, 1]: Die FP-Rate ist definiert als <span
   markdown="0">$\frac{FP}{FP+TN}$</span>. Offensichtlich sind alle Werte
@@ -1314,8 +1314,7 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
   → Association Rules die auf verschiedenen Begriffsebenenen sind, z.B.
     <span markdown="0">Oreo $\Rightarrow$ Milch</span>
 * Wie findet man multidimensionale Association Rules?<br/>
-  → Hinzufügen von Transaktionen der anderen Dimensionen, Nutzen von "Leveln"
-  (TODO)
+  → Hinzufügen von Transaktionen der anderen Dimensionen, Nutzen von "Leveln" (Encodierte Transaktionstabelle)
 * In welchen Situationen ist Apriori teuer, und warum?<br/>
   → Apriori ist teuer, wenn es sehr große Itemsets gibt. Dann müssen alle
      darin enthaltenen Itemsets gebildet werden.
@@ -1391,14 +1390,13 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
      auseinander liegen / nicht dicht sind. Man kann
      <a href="#projected-clustering">projected Clustering</a> anwenden.
 * Erklären Sie, warum Clustering mit kategorischen Attributen besonders ist?
-  Warum ist Link-basiertes Clustering hier hilfreich?<br/>
-  → TODO
+  Warum ist Link-basiertes Clustering hier hilfreich?
+
 
 ### Bayes
 
 * Gegeben ein beispielhafter Datenbestand, vergleichbar mit dem
-auf Folie 10, Vorhersage mit Naive Bayes erklären/vorführen können.<br/>
-  → TODO
+auf Folie 10, Vorhersage mit Naive Bayes erklären/vorführen können.
 * Was ändert sich, wenn die Attribute nicht voneinander unabhängig sind?<br/>
   → Dann ist die naive Unabhängigkeitsannahme nicht mehr gegeben und man sollte
     ein bayessches Netz nehmen. Damit lassen sich dann wieder bessere Vorhersagen
