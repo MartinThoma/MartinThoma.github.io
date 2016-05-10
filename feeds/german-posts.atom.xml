@@ -372,7 +372,7 @@ von gro&amp;szlig;er Bedeutung. Ein weiteres gro&amp;szlig;es Kapitel sind Bayes
         egal ob es wieder ein AABB oder Datenpunkte sind - ist darin.
         Diese AABBs k&amp;ouml;nnen sich &amp;uuml;berschneiden.&lt;br/&gt;
 &lt;br/&gt;
-        TODO &lt;a href="http://cs.stackexchange.com/q/56337/2914"&gt;What is the difference between a R-tree and a BVH?&lt;/a&gt;&lt;/dd&gt;
+        Siehe auch: &lt;a href="http://cs.stackexchange.com/q/56337/2914"&gt;What is the difference between a R-tree and a BVH?&lt;/a&gt;&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Nearest Neighbor in R-Tree&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Siehe &lt;a href="https://github.com/MartinThoma/algorithms/blob/master/nearest-neighbor-r-tree/nn_r_tree_pseudo.py"&gt;Pseudo-Code&lt;/a&gt;.&lt;/dd&gt;
 &lt;/dl&gt;
@@ -581,6 +581,11 @@ Anwendungen von Association Rules denkbar:&lt;/p&gt;
 &lt;li&gt;Hashfilter&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Hash-Filter&lt;/dfn&gt; (&lt;dfn&gt;Hash-Tabelle&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dd&gt;Unterst&amp;uuml;tzt das Support-Counting f&amp;uuml;r viele Kandidaten.
+        Die Hash-Tabelle wird einmalig f&amp;uuml;r alle Kandidaten der L&amp;auml;nge $k$
+        aufgebaut und stellt eine notwendige, aber keine hinreichnde
+        Bedingung f&amp;uuml;r Frequent Itemsets dar.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="hash-tree"&gt;Hash Tree&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Wenn man viele Kandidaten f&amp;uuml;r $k$-elementige Frequent Itemsets hat,
         dann kann das support counting lange dauern. Deshalb baut man sich
@@ -730,7 +735,8 @@ Anwendungen von Association Rules denkbar:&lt;/p&gt;
 &lt;dt&gt;&lt;dfn id="k-means"&gt;$k$-means Clustering&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Siehe &lt;a href="https://martin-thoma.com/machine-learning-1-course/#tocAnchor-1-1-15"&gt;ML 1&lt;/a&gt;.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="clarans"&gt;CLARANS&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;CLARANS ist ein Clustering-Algorithmus, der mit $k$-Means
+&lt;dd&gt;CLARANS (Clustering Lge AplicationNs based on RANdomized Search) ist
+        ein Clustering-Algorithmus, der mit $k$-Means
         verwandt ist. Auch er erwartet einen Parameter $k \in \mathbb{N}$,
         der die erwartete Anzahl an Clustern angibt. Dann geht CLARANS davon
         aus, dass jeder Medeoid durch einen Datenpunkt im Datensatz
@@ -1148,7 +1154,7 @@ die Dimension der &lt;span class="math"&gt;\(n \in \mathbb{N}\)&lt;/span&gt; Dat
   &amp;rarr; Prepruning oder Postpruning.&lt;/li&gt;
 &lt;li&gt;Wie kann man beim Aufbau des Entscheidungsbaums ber&amp;uuml;cksichtigen, dass
   unterschiedliche Fehlerarten unterschiedlich schlimm sind?&lt;br/&gt;
-  &amp;rarr; Mehr Trainingsdaten f&amp;uuml;r den schlimmeren Fehler. (TODO, vgl. &lt;a href="http://datascience.stackexchange.com/q/11379/8820"&gt;How can decision trees be tuned for non-symmetrical loss?&lt;/a&gt;)&lt;/li&gt;
+  &amp;rarr; Mehr Trainingsdaten f&amp;uuml;r den schlimmeren Fehler. (vgl. &lt;a href="http://datascience.stackexchange.com/q/11379/8820"&gt;How can decision trees be tuned for non-symmetrical loss?&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;Was ist Wertebereich der FP-Rate?&lt;br/&gt;
   &amp;rarr; [0, 1]: Die FP-Rate ist definiert als &lt;span markdown="0"&gt;&lt;span class="math"&gt;\(\frac{FP}{FP+TN}\)&lt;/span&gt;&lt;/span&gt;. Offensichtlich sind alle Werte
   nicht-negativ, also kann der Bruch nicht negativ werden. Deshalb ist auch der
@@ -1225,8 +1231,7 @@ die Dimension der &lt;span class="math"&gt;\(n \in \mathbb{N}\)&lt;/span&gt; Dat
   &amp;rarr; Association Rules die auf verschiedenen Begriffsebenenen sind, z.B.
     &lt;span markdown="0"&gt;Oreo &lt;span class="math"&gt;\(\Rightarrow\)&lt;/span&gt; Milch&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;Wie findet man multidimensionale Association Rules?&lt;br/&gt;
-  &amp;rarr; Hinzuf&amp;uuml;gen von Transaktionen der anderen Dimensionen, Nutzen von "Leveln"
-  (TODO)&lt;/li&gt;
+  &amp;rarr; Hinzuf&amp;uuml;gen von Transaktionen der anderen Dimensionen, Nutzen von "Leveln" (Encodierte Transaktionstabelle)&lt;/li&gt;
 &lt;li&gt;In welchen Situationen ist Apriori teuer, und warum?&lt;br/&gt;
   &amp;rarr; Apriori ist teuer, wenn es sehr gro&amp;szlig;e Itemsets gibt. Dann m&amp;uuml;ssen alle
      darin enthaltenen Itemsets gebildet werden.&lt;/li&gt;
@@ -1303,14 +1308,12 @@ die Dimension der &lt;span class="math"&gt;\(n \in \mathbb{N}\)&lt;/span&gt; Dat
      auseinander liegen / nicht dicht sind. Man kann
      &lt;a href="#projected-clustering"&gt;projected Clustering&lt;/a&gt; anwenden.&lt;/li&gt;
 &lt;li&gt;Erkl&amp;auml;ren Sie, warum Clustering mit kategorischen Attributen besonders ist?
-  Warum ist Link-basiertes Clustering hier hilfreich?&lt;br/&gt;
-  &amp;rarr; TODO&lt;/li&gt;
+  Warum ist Link-basiertes Clustering hier hilfreich?&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="bayes"&gt;Bayes&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Gegeben ein beispielhafter Datenbestand, vergleichbar mit dem
-auf Folie 10, Vorhersage mit Naive Bayes erkl&amp;auml;ren/vorf&amp;uuml;hren k&amp;ouml;nnen.&lt;br/&gt;
-  &amp;rarr; TODO&lt;/li&gt;
+auf Folie 10, Vorhersage mit Naive Bayes erkl&amp;auml;ren/vorf&amp;uuml;hren k&amp;ouml;nnen.&lt;/li&gt;
 &lt;li&gt;Was &amp;auml;ndert sich, wenn die Attribute nicht voneinander unabh&amp;auml;ngig sind?&lt;br/&gt;
   &amp;rarr; Dann ist die naive Unabh&amp;auml;ngigkeitsannahme nicht mehr gegeben und man sollte
     ein bayessches Netz nehmen. Damit lassen sich dann wieder bessere Vorhersagen
