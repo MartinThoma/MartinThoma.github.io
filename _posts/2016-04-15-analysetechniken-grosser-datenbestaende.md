@@ -47,7 +47,7 @@ von großer Bedeutung. Ein weiteres großes Kapitel sind Bayessche Netze.
     <td>Statistische Tests (Folie 38 - )</td>
     <td>$\chi^2$-Test, $\chi^2 = \sum_{i=1}^{m_1} \sum_{j=1}^{m_2} \frac{(h_{ij}- e_{ij})^2}{e_{ij}}$ mit erwartetem Wert $e$ (Sind zwei Zufallsvariablen unabhängig)<br/>
     Kolmogorov-Smirnov-Test (Sind 2 Verteilungen unabhängig; bei kontinuierlichen Zufallsvariablen)<br/>
-    Wilcoxon-Wann-Whitney Test<br/>
+    Wilcoxon-Mann-Whitney Test<br/>
     Bernoulli-Experiment (Folie 53?)<br/>
     Datenreduktion (Attribute entfernen, z.B. PCA; Datensätze entfernen, z.B. Clustering; Attributsgenauigkeit reduzieren)<br/>
     Diskretisierung: Zielfunktion ist Information Gain. Dieser soll minimiert werden.
@@ -412,7 +412,7 @@ Slides: `3-Informatik-Grundlagen.pdf`
 </dl>
 
 
-### Entscheidungsbäume
+### Entscheidungs&shy;bäume
 
 Slides: `4-Entscheidungsbaeume.pdf`
 

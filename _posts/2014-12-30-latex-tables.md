@@ -1,6 +1,7 @@
 ---
 layout: post
 title: LaTeX and tables
+slug: latex-tables
 author: Martin Thoma
 date: 2014-12-30 21:57
 category: My bits and bytes
