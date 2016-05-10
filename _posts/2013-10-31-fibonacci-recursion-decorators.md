@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Fibonacci, recursion and decorators
+slug: fibonacci-recursion-decorators
 author: Martin Thoma
 date: 2013-10-31 11:08:01.000000000 +01:00
 category: Code
@@ -9,12 +10,12 @@ featured_image: 2011/09/Python-Logo.png
 ---
 I think everybody who learned something about recursion has seen the Fibonacci sequence:
 
-$
+$$
 f(n) := \begin{cases}
 n               &\text{if } n \leq 1\\
 f(n-1) + f(n-2) &\text{otherwise}
 \end{cases}
-$
+$$
 
 The simplest solution to get this number is:
 
@@ -65,12 +66,12 @@ The problem is, of course, that the number of evaluations goes wild. Here is a t
 
 To be exact, the number of calls of the fib-function is:
 
-$
+$$
 f(n) := \begin{cases}
 1               &\text{if } n \leq 1\\
 f(n-1) + f(n-2) + 1 &\text{otherwise}
 \end{cases}
-$
+$$
 
 This means the dumb function is in $\mathcal{O}(2^n)$! (I'm not quite sure, but this I think this is not only time complexity, but also space complexity. I think it is not <a href="https://en.wikipedia.org/wiki/Tail_recursion">tail recursive</a>, so the complete stackframe has to be saved.)
 
