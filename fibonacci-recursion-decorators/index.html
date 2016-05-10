@@ -14,12 +14,12 @@
 
 <meta property="og:title" content="Fibonacci, recursion and decorators "/>
 <meta property="og:url" content="../fibonacci-recursion-decorators/" />
-<meta property="og:description" content="I think everybody who learned something about recursion has seen the Fibonacci sequence: $ f(n) := \begin{cases} n &amp;\text{if } n \leq 1\\ f(n-1) + f(n-2) &amp;\text{otherwise} \end{cases} $ The simplest solution to get this number is: def fib(n): if n &lt; 2: return n else: return fib ...if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width" />
+<meta property="og:description" content="I think everybody who learned something about recursion has seen the Fibonacci sequence: $$ f(n) := \begin{cases} n &amp;\text{if } n \leq 1\\ f(n-1) + f(n-2) &amp;\text{otherwise} \end{cases} $$ The simplest solution to get this number is: def fib(n): if n &lt; 2: return n else: return fib ...if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2013-10-31T11:08:01+01:00" />
 <meta name="twitter:title" content="Fibonacci, recursion and decorators ">
-<meta name="twitter:description" content="I think everybody who learned something about recursion has seen the Fibonacci sequence: $ f(n) := \begin{cases} n &amp;\text{if } n \leq 1\\ f(n-1) + f(n-2) &amp;\text{otherwise} \end{cases} $ The simplest solution to get this number is: def fib(n): if n &lt; 2: return n else: return fib ...if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width">
+<meta name="twitter:description" content="I think everybody who learned something about recursion has seen the Fibonacci sequence: $$ f(n) := \begin{cases} n &amp;\text{if } n \leq 1\\ f(n-1) + f(n-2) &amp;\text{otherwise} \end{cases} $$ The simplest solution to get this number is: def fib(n): if n &lt; 2: return n else: return fib ...if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width">
 <meta property="og:image" content="2011/09/Python-Logo.png" />
 <meta name="twitter:image" content="2011/09/Python-Logo.png" >
 
@@ -105,14 +105,12 @@ MathJax.Hub.Queue(function() {
 
             
             <p>I think everybody who learned something about recursion has seen the Fibonacci sequence:</p>
-<p>$
-f(n) := </p>
-<div class="math">\begin{cases}
+<div class="math">$$
+f(n) := \begin{cases}
 n               &amp;\text{if } n \leq 1\\
 f(n-1) + f(n-2) &amp;\text{otherwise}
-\end{cases}</div>
-<p>
-$</p>
+\end{cases}
+$$</div>
 <p>The simplest solution to get this number is:</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
@@ -154,14 +152,12 @@ $</p>
 </tr>
 </table>
 <p>To be exact, the number of calls of the fib-function is:</p>
-<p>$
-f(n) := </p>
-<div class="math">\begin{cases}
+<div class="math">$$
+f(n) := \begin{cases}
 1               &amp;\text{if } n \leq 1\\
 f(n-1) + f(n-2) + 1 &amp;\text{otherwise}
-\end{cases}</div>
-<p>
-$</p>
+\end{cases}
+$$</div>
 <p>This means the dumb function is in <span class="math">\(\mathcal{O}(2^n)\)</span>! (I'm not quite sure, but this I think this is not only time complexity, but also space complexity. I think it is not <a href="https://en.wikipedia.org/wiki/Tail_recursion">tail recursive</a>, so the complete stackframe has to be saved.)</p>
 <h2 id="memorization-with-decorators">Memorization with decorators</h2>
 <p>One way to solve the problem much faster (in fact in <span class="math">\(\mathcal{O}(n)\)</span> time and space complexity) by storing values we already calculated.</p>
