@@ -77,15 +77,15 @@ The following snippets help to create new articles fast. To install them, go to
 ---
 layout: post
 title: ${1:}
+slug: ${2:}
 author: Martin Thoma
-date: 2014-11-22 17:19
-categories:
-- ${2:Cyberculture}
-tags:
-- ${3:Rating}
-featured_image: logos/${4:star.png}
+status: draft
+date: ${3:2016}-${4:04}-${5:31} 20:00
+category: ${6:Cyberculture}
+tags: ${7:Rating}
+featured_image: logos/${8:star.png}
 ---
-${5:}
+${9:}
 ]]></content>
     <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
     <tabTrigger>---</tabTrigger>
