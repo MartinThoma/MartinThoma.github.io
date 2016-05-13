@@ -1,5 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Martin Thoma</title><link>https://martin-thoma.com/</link><description>A blog about Code, the Web and Cyberculture</description><lastBuildDate>Fri, 15 Apr 2016 11:22:00 +0200</lastBuildDate><item><title>Analysetechniken für große Datenbestände</title><link>https://martin-thoma.com/analysetechniken-grosser-datenbestaende/</link><description>&lt;div class="info"&gt;Dieser Artikel besch&amp;auml;ftigt sich mit der Vorlesung &amp;bdquo;Analysetechniken f&amp;uuml;r gro&amp;szlig;e Datenbest&amp;auml;nde&amp;ldquo; am KIT. Er dient als Pr&amp;uuml;fungsvorbereitung. Ich habe die Vorlesungen bei &lt;a href="https://dbis.ipd.kit.edu/english/336.php"&gt;Herrn Prof. Dr.-Ing. Klemens B&amp;ouml;hm&lt;/a&gt; im Wintersemester 2015/2016 geh&amp;ouml;rt.&lt;/div&gt;
+<rss version="2.0"><channel><title>Martin Thoma</title><link>https://martin-thoma.com/</link><description>A blog about Code, the Web and Cyberculture</description><lastBuildDate>Wed, 11 May 2016 20:00:00 +0200</lastBuildDate><item><title>Probabilistische Planung</title><link>https://martin-thoma.com/probabilistische-planung/</link><description>&lt;div class="info"&gt;Dieser Artikel besch&amp;auml;ftigt sich mit der Vorlesung &amp;bdquo;Probabilistische Planung&amp;ldquo; am KIT. Er dient als Pr&amp;uuml;fungsvorbereitung. Ich habe die Vorlesungen bei &lt;a href="http://ies.anthropomatik.kit.edu/mitarbeiter.php?person=huber"&gt;Herrn Dr.-Ing. Marco Huber&lt;/a&gt; im Sommersemester 2015 und 2016 geh&amp;ouml;rt. Der Artikel dient als Pr&amp;uuml;fungsvorbereitung und ist noch am Entstehen.&lt;/div&gt;
+&lt;p&gt;In der Vorlesung 'Probabilistische Planung' werden drei Themen besprochen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Markov'sche Entscheidungsprobleme&lt;/li&gt;
+&lt;li&gt;Planung bei Messunsicherheiten&lt;/li&gt;
+&lt;li&gt;Reinforcement Learning&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="behandelter-stoff"&gt;Behandelter Stoff&lt;/h2&gt;
+&lt;h3 id="ubersicht"&gt;&amp;Uuml;bersicht&lt;/h3&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Datum&lt;/th&gt;
+&lt;th&gt;Kapitel&lt;/th&gt;
+&lt;th&gt;Inhalt&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;26.04.2016&lt;/td&gt;
+&lt;td&gt;Grundlagen&lt;/td&gt;
+&lt;td&gt;Wahrscheinlichkeitsraum, Grundraum, Ereignis&amp;shy;raum, Resultate,
+        Elementar&amp;shy;ereignis, $\sigma$-Algebra, Wahrscheinlichkeits&amp;shy;ma&amp;szlig;,
+        Bedingte Wahrscheinlichkeit, Ziegenproblem, Dichtefunktion&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;28.04.2016&lt;/td&gt;
+&lt;td&gt;Grundlagen&lt;/td&gt;
+&lt;td&gt;Allais-Paradoxon, TODO&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;06.05.2016&lt;/td&gt;
+&lt;td&gt;Grundlagen&lt;/td&gt;
+&lt;td&gt;TODO&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;11.05.2016&lt;/td&gt;
+&lt;td&gt;MDPs&lt;/td&gt;
+&lt;td&gt;Definition eines MDP, Plan vs. Strategie, &lt;abbr title="Dynamische Programmierung"&gt;DP&lt;/abbr&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;h3 id="grundlagen"&gt;Grundlagen&lt;/h3&gt;
+&lt;p&gt;Slides: &lt;code&gt;ProPlan-1-Anschrieb.pdf&lt;/code&gt;&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;dfn&gt;$\sigma$-Algebra&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;Sei $S$ eine Menge und $\mathcal{A}$ ein Menge aus Teilmengen von $S$.
+      $\mathcal{A}$ hei&amp;szlig;t eine $\sigma$-Algebra &amp;uuml;ber $S$, genau dann, wenn
+      gilt:
+
+      &lt;ul&gt;
+&lt;li&gt;$S \in \mathcal{A}$&lt;/li&gt;
+&lt;li&gt;$\forall M \in \mathcal{A} \Rightarrow (S \setminus M) \in \mathcal{A}$&lt;/li&gt;
+&lt;li&gt;$M_1, M_2, \dots \in \mathcal{A} \Rightarrow \bigcup_{n \in \mathbb{N}} M_n \in \mathcal{A}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Wahrscheinlichkeitsma&amp;szlig;&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;Eine Funktion $P: A \rightarrow \mathbb{R}$ hei&amp;szlig;t Wahrscheinlichkeitsma&amp;szlig;,
+      wenn die Kolmogorov'schen Axiome gelten:
+
+      &lt;ul&gt;
+&lt;li&gt;$\forall M \in \mathcal{A}: P(M) \geq 0$&lt;/li&gt;
+&lt;li&gt;$\forall P(S) = 1$&lt;/li&gt;
+&lt;li&gt;$M_1, M_2, \in \mathcal{A} \land M_1 \cap M_2 = \emptyset \Rightarrow P(M_1 \cup M_2) = P(M_1) + P(M_2)$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Normalverteilung&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;Die Normalverteilung $\mathcal{N}(\mu, \sigma^2)$ ist eine
+      kontinuierliche Verteilung mit der Dichtefunktion
+
+      $$f(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} e^{- \frac{(x - \mu)^2}{2\sigma^2}}$$
+
+
+      &lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h3 id="markovsche-entscheidungsprobleme"&gt;Markov'sche Entscheidungsprobleme&lt;/h3&gt;
+&lt;p&gt;Slides: &lt;code&gt;11.05.2016 - TODO&lt;/code&gt;&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;dfn id="mdp"&gt;Markov'sches Entscheidungsproblem&lt;/dfn&gt; (&lt;dfn&gt;Markov Decision Process&lt;/dfn&gt;, &lt;dfn&gt;MDP&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dd&gt;Ein MDP wird durch 8&amp;nbsp;Eigenschaften gekennzeichnet:
+
+      &lt;ol&gt;
+&lt;li&gt;Zustandsraum $X \subseteq \mathbb{R}^n$ mit Zust&amp;auml;nden
+              $x \in \mathcal{X}$.&lt;/li&gt;
+&lt;li&gt;Diskrete Zeitschritte $k=0, 1, \dots, N$ mit Endzeitpunkt
+              $N$. Dabei ist der 0-te Schritt gegeben.&lt;/li&gt;
+&lt;li&gt;Initialzustand $x_o \in \mathcal{X}$ des Agenten zum Zeitpunkt $k=0$.&lt;/li&gt;
+&lt;li&gt;Nichtleere Aktionsmenge $A_k(x_0) \subseteq A$ mit Aktion $a_k$.
+              H&amp;auml;ufig $A_k(x_k)=A$ f&amp;uuml;r alle $k=0, \dots, N$ (Zeit- und Zustandsinvarianz)&lt;/li&gt;
+&lt;li&gt;&amp;Uuml;bergangswahrscheinlichkeit $x_{k+1} \leadsto P_x(\cdot | x_k, a_k)$.&lt;br/&gt;
+              Markov-Annahme: $P_x(\cdot | x_k, a_k) = P(\cdot | x_{0:k}, a_{0:k})$,
+              wobei die Notation $x_{0:k} = x_0, x_1, \dots, x_k$ bedeutet.
+              Das hei&amp;szlig;t, der Folgezustand ist nur vom Zustand $x_k$ und
+              der gew&amp;auml;hlten Aktion $a_k$ abh&amp;auml;ngig.&lt;br/&gt;
+              Im Fall diskreter Zust&amp;auml;nde ist die
+              &amp;Uuml;bergangs&amp;shy;wahrscheinlichkeit eine bedingte Z&amp;auml;hldichte:
+              $$f(x_{k+1} | x_k, a_k) = P_x(x=x_{k+1} | x_k, a_k)$$&lt;br/&gt;
+              Bei kontinuierlichen Zust&amp;auml;nden eine bedingte Wahrscheinlichkeits&amp;shy;dichte:
+              $$f(x_{k+1} | x_k, a_k) = \frac{\partial F(x | x_k, a_k)}{\partial x} |_{x=x_{k+1}}$$&lt;/li&gt;
+&lt;li&gt;Additive Kostenfunktion
+              $$g_N (x_N) + L_{k=0}^{N-1} g_k(x_k, a_k)$$
+              wobei $g_N$ die terminalen Kosten und $g_k$ Schrittkosten genannt
+              werden.&lt;/li&gt;
+&lt;li&gt;Der Zustand ist f&amp;uuml;r jedes $k$ &lt;strong&gt;direkt beobachtbar&lt;/strong&gt;.
+
+              &lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Vor&lt;/strong&gt; Anwendung bzw Auswahl einer Aktion
+                      $a_k$ zum Zeitpunkt $k$
+                      $$x_{k+1} \sim P_x(\cdot | x_k, a_k)$$
+                      wobei $x_k, a_k$ exakt bekannt sind.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Nach&lt;/strong&gt; Anwendung der Aktion $a_k$ zum
+                      Zeitpunkt $k+1$ ist $x_{k+1}$ exakt bekannt.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ziel&lt;/strong&gt;: Minimierung der erwarteten Kosten
+              $$J_{\pi_{0:N-1}}(x_0) := \mathbb{E}(g_N(x_k) + \sum_{k=0}^{N-1} g_k (x_k, \pi_k(x_k))$$
+              bzgl. einer Strategie $\pi_{0:N-1} = (\pi_0, \pi_1, \dots, \pi_{N-1})$
+              mit Funktionen $\pi_k(x_k) = a_k \in A_k(x_k).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Strategie&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;Eine Strategie ist ein Plan mit Zustandsr&amp;uuml;ckf&amp;uuml;hrung&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h2 id="prufungsfragen_1"&gt;Pr&amp;uuml;fungsfragen&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Welche 3 Themengebiete wurden in der Vorlesung behandelt und was sind die
+  Unterschiede?&lt;br/&gt;
+  &amp;rarr; &lt;a href="#mdp"&gt;MDP&lt;/a&gt;, POMDP, RL&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="material-und-links"&gt;Material und Links&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://ies.anthropomatik.kit.edu/lehre_proplan.php"&gt;Vorlesungswebsite&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="vorlesungsempfehlungen"&gt;Vorlesungsempfehlungen&lt;/h2&gt;
+&lt;p&gt;Folgende Vorlesungen sind &amp;auml;hnlich:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/"&gt;Analysetechniken gro&amp;szlig;er Datenbest&amp;auml;nde&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://martin-thoma.com/machine-learning-1-course/"&gt;Machine Learning 1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://martin-thoma.com/machine-learning-2-course/"&gt;Machine Learning 2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://martin-thoma.com/mustererkennung-klausur/"&gt;Mustererkennung&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://martin-thoma.com/neuronale-netze-vorlesung/"&gt;Neuronale Netze&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Lokalisierung Mobiler Agenten&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://martin-thoma.com/probabilistische-planung/"&gt;Probabilistische Planung&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="termine-und-klausurablauf"&gt;Termine und Klausurablauf&lt;/h2&gt;
+&lt;p&gt;Die Veranstaltung wird m&amp;uuml;ndlich gepr&amp;uuml;ft.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Martin Thoma</dc:creator><pubDate>Wed, 11 May 2016 20:00:00 +0200</pubDate><guid isPermaLink="false">tag:martin-thoma.com,2016-05-11:probabilistische-planung/</guid><category>Klausur</category></item><item><title>Analysetechniken für große Datenbestände</title><link>https://martin-thoma.com/analysetechniken-grosser-datenbestaende/</link><description>&lt;div class="info"&gt;Dieser Artikel besch&amp;auml;ftigt sich mit der Vorlesung &amp;bdquo;Analysetechniken f&amp;uuml;r gro&amp;szlig;e Datenbest&amp;auml;nde&amp;ldquo; am KIT. Er dient als Pr&amp;uuml;fungsvorbereitung. Ich habe die Vorlesungen bei &lt;a href="https://dbis.ipd.kit.edu/english/336.php"&gt;Herrn Prof. Dr.-Ing. Klemens B&amp;ouml;hm&lt;/a&gt; im Wintersemester 2015/2016 geh&amp;ouml;rt.&lt;/div&gt;
 &lt;p&gt;In der Vorlesung 'Analysetechniken f&amp;uuml;r gro&amp;szlig;e Datenbest&amp;auml;nde' werden vor allem
 Association Rule Mining und Clustering-Techniken besprochen. Zum Association
 Rule minining ist vor allem der Apriori-Algorithmus sowie die Verbesserung mit
@@ -1346,6 +1487,7 @@ auf Folie 10, Vorhersage mit Naive Bayes erkl&amp;auml;ren/vorf&amp;uuml;hren k&
 &lt;li&gt;&lt;a href="https://martin-thoma.com/mustererkennung-klausur/"&gt;Mustererkennung&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://martin-thoma.com/neuronale-netze-vorlesung/"&gt;Neuronale Netze&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Lokalisierung Mobiler Agenten&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://martin-thoma.com/probabilistische-planung/"&gt;Probabilistische Planung&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="termine-und-klausurablauf"&gt;Termine und Klausurablauf&lt;/h2&gt;
 &lt;p&gt;Es ist noch nicht klar, ob es eine m&amp;uuml;ndliche oder eine schriftliche Pr&amp;uuml;fung
@@ -2836,6 +2978,8 @@ Bonuspunkte.&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://martin-thoma.com/machine-learning-2-course/"&gt;Machine Learning 2&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://martin-thoma.com/mustererkennung-klausur/"&gt;Mustererkennung&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://martin-thoma.com/neuronale-netze-vorlesung/"&gt;Neuronale Netze&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Lokalisierung Mobiler Agenten&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://martin-thoma.com/probabilistische-planung/"&gt;Probabilistische Planung&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="termine-und-klausurablauf"&gt;Termine und Klausurablauf&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Datum&lt;/strong&gt;: M&amp;uuml;ndliche Pr&amp;uuml;fung (in Zukunft schriftlich)&lt;br/&gt;
@@ -4548,6 +4692,8 @@ Bonuspunkte.&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://martin-thoma.com/machine-learning-2-course/"&gt;Machine Learning 2&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://martin-thoma.com/mustererkennung-klausur/"&gt;Mustererkennung&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://martin-thoma.com/neuronale-netze-vorlesung/"&gt;Neuronale Netze&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Lokalisierung Mobiler Agenten&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://martin-thoma.com/probabilistische-planung/"&gt;Probabilistische Planung&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="kontakt"&gt;Kontakt&lt;/h2&gt;
 &lt;ul&gt;
@@ -4847,11 +4993,13 @@ Bonuspunkte.&lt;/p&gt;
 &lt;h2 id="vorlesungsempfehlungen"&gt;Vorlesungsempfehlungen&lt;/h2&gt;
 &lt;p&gt;Folgende Vorlesungen sind &amp;auml;hnlich:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="https://martin-thoma.com/mustererkennung-klausur/"&gt;Mustererkennung&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/"&gt;Analysetechniken gro&amp;szlig;er Datenbest&amp;auml;nde&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://martin-thoma.com/machine-learning-1-course/"&gt;Machine Learning 1&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://martin-thoma.com/machine-learning-2-course/"&gt;Machine Learning 2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://martin-thoma.com/mustererkennung-klausur/"&gt;Mustererkennung&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://martin-thoma.com/neuronale-netze-vorlesung/"&gt;Neuronale Netze&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/"&gt;Analysetechniken gro&amp;szlig;er Datenbest&amp;auml;nde&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Lokalisierung Mobiler Agenten&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://martin-thoma.com/probabilistische-planung/"&gt;Probabilistische Planung&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="termine-und-klausurablauf"&gt;Termine und Klausurablauf&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Datum&lt;/strong&gt;: Donnerstag, der 10.09.2015 von 11:00-13:00 Uhr (Quelle: Wurde in der Vorlesung vom 22.04.2015 gesagt)&lt;br/&gt;
@@ -6018,6 +6166,8 @@ training data will help you with your problem.&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://martin-thoma.com/machine-learning-2-course/"&gt;Machine Learning 2&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://martin-thoma.com/mustererkennung-klausur/"&gt;Mustererkennung&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://martin-thoma.com/neuronale-netze-vorlesung/"&gt;Neuronale Netze&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Lokalisierung Mobiler Agenten&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://martin-thoma.com/probabilistische-planung/"&gt;Probabilistische Planung&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="ubungsbetrieb"&gt;&amp;Uuml;bungsbetrieb&lt;/h2&gt;
 &lt;p&gt;&amp;Uuml;bungsbl&amp;auml;tter sind freiwillig.&lt;/p&gt;
