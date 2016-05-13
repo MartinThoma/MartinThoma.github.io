@@ -1433,6 +1433,7 @@ Folgende Vorlesungen sind ähnlich:
 * [Mustererkennung](https://martin-thoma.com/mustererkennung-klausur/)
 * [Neuronale Netze](https://martin-thoma.com/neuronale-netze-vorlesung/)
 * Lokalisierung Mobiler Agenten
+* [Probabilistische Planung](https://martin-thoma.com/probabilistische-planung/)
 
 ## Termine und Klausurablauf
 
