@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Internet, Traffic, Volume, DSL, Cyberculture, " />
+
+<meta property="og:title" content="Internet Traffic "/>
+<meta property="og:url" content="../drafts/internet-traffic.html" />
+<meta property="og:description" content="Do you have any idea how much internet traffic (volume) you need? How much do you download / upload on a usual day? I didn&#39;t have any idea, so I started recording it. In this article I will show you the results. For the context: I am a computer science ..." />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2016-05-13T20:00:00+02:00" />
+<meta name="twitter:title" content="Internet Traffic ">
+<meta name="twitter:description" content="Do you have any idea how much internet traffic (volume) you need? How much do you download / upload on a usual day? I didn&#39;t have any idea, so I started recording it. In this article I will show you the results. For the context: I am a computer science ...">
+<meta property="og:image" content="logos/internet.png" />
+<meta name="twitter:image" content="logos/internet.png" >
+
+        <title>Internet Traffic  · Martin Thoma
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+        
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="../"><span class=site-name>Martin Thoma</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="../drafts/internet-traffic.html"> Internet Traffic  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+    <div class="span2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#how-to-measure" title="How to measure">How to measure</a></li><li><a class="toc-href" href="#results" title="Results">Results</a><ul><li><a class="toc-href" href="#watching-news" title="Watching News">Watching News</a></li><li><a class="toc-href" href="#publishing-blog-articles" title="Publishing Blog articles">Publishing Blog articles</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="span8 article-content" id="contentAfterTitle">
+
+            
+            <p>Do you have any idea how much internet traffic (volume) you need? How much do
+you download / upload on a usual day?</p>
+<p>I didn't have any idea, so I started recording it. In this article I will show
+you the results.</p>
+<p>For the context: I am a computer science student from Karlsruhe, Germany.</p>
+<h2 id="how-to-measure">How to measure</h2>
+<p>Install <code>vnstat</code> and <code>vnstati</code>:</p>
+<div class="highlight"><pre><span></span>$ sudo apt-get install vnstat vnstati
+</pre></div>
+<p>Then execute</p>
+<div class="highlight"><pre><span></span>$ ip link
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu <span class="m">65536</span> qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: enp0s31f6: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu <span class="m">1500</span> qdisc pfifo_fast state DOWN mode DEFAULT group default qlen 1000
+    link/ether 98:76:54:32:10:45 brd ff:ff:ff:ff:ff:ff
+3: wlp3s0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span class="m">1500</span> qdisc mq state UP mode DORMANT group default qlen 1000
+    link/ether 12:34:56:78:90:ab brd ff:ff:ff:ff:ff:ff
+</pre></div>
+<p>to find your network interface. In my case, it is <code>wlp3s0</code>. In most cases, it
+will be <code>wlan0</code> or <code>eth0</code> if you use a cable.</p>
+<p>To get the nice images, you have to execute the following code (with your
+network interface). It will create a <code>summary.png</code> image:</p>
+<div class="highlight"><pre><span></span>$ vnstati -vs -i wlp3s0 -o ~/summary.png
+</pre></div>
+<h2 id="results">Results</h2>
+<p>To interpret the following, you should know that <code>rx</code> is the received traffic
+and <code>tx</code> is the transferred traffic.</p>
+<h3 id="watching-news">Watching News</h3>
+<p>Watching the German 20 o'clock news (15 minutes on tagesschau.de) is about
+200&thinsp;MiB rx and about 3&thinsp;MiB tx.</p>
+<h3 id="publishing-blog-articles">Publishing Blog articles</h3>
+<p>For <a href="https://ml-ka.de/">ml-ka.de</a> it is less than 10&thinsp;KiB.</p>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2016-05-13T20:00:00+02:00">Mai 13, 2016</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#cyberculture-ref">Cyberculture</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#dsl-ref">DSL
+</a></li>
+                <li><a href="../tags.html#internet-ref">Internet
+                    <span>2</span>
+</a></li>
+                <li><a href="../tags.html#traffic-ref">Traffic
+</a></li>
+                <li><a href="../tags.html#volume-ref">Volume
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
