@@ -68,7 +68,7 @@ sind (das ist nicht immer eine Einheitsmatrix!), Dann heißt die Matrix links
 oben $Q$ und rechts oben $R$. Dann gilt:
 
 * $(E-Q)^{-1} \cdot R$: Absorptionszeit
-* $(E-Q)^{-1} \cdot \begin{pmatrix}1\\\vdots\\1\end{pmatrix}$: Schritte bis zur Absorption.
+* $$(E-Q)^{-1} \cdot \begin{pmatrix}1\\\vdots\\1\end{pmatrix}$$: Schritte bis zur Absorption.
 * Invariantes Maß finden: $\pi P = \pi$ bzw. $\pi Q = 0$ im zeitkontinuierlichen Fall
 
 ## Übungsbetrieb
