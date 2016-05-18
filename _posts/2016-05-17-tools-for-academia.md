@@ -25,6 +25,8 @@ I know that a couple of people recently liked
 [control.kylemcdonald.net/arxiv](http://control.kylemcdonald.net/arxiv/), but
 I'm not using that too much.
 
+See also: [How to find new Papers](https://martin-thoma.com/how-to-find-new-papers/)
+
 
 ## Search
 
@@ -76,7 +78,7 @@ of my choice.
 
 ### Spell- and Stylechecking
 
-I use `aspell` for spellchecking and
+I use [`aspell`](http://aspell.net/) for spellchecking and
 [Academic-Writing-Check](https://github.com/devd/Academic-Writing-Check) to get
 some ideas where I might improve my writing style.
 
