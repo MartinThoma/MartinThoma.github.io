@@ -144,7 +144,7 @@ MathJax.Hub.Queue(function() {
 <tr>
 <td>18.05.2016</td>
 <td>MDPs</td>
-<td>TODO</td>
+<td>Endliche Planungsprobleme</td>
 </tr>
 </table>
 <h3 id="grundlagen">Grundlagen</h3>
@@ -222,7 +222,7 @@ MathJax.Hub.Queue(function() {
 <li><strong>Ziel</strong>: Minimierung der erwarteten Kosten
               $$J_{\pi_{0:N-1}}(x_0) := \mathbb{E}(g_N(x_k) + \sum_{k=0}^{N-1} g_k (x_k, \pi_k(x_k))$$
               bzgl. einer Strategie $\pi_{0:N-1} = (\pi_0, \pi_1, \dots, \pi_{N-1})$
-              mit Funktionen $\pi_k(x_k) = a_k \in A_k(x_k).</li>
+              mit Funktionen $\pi_k(x_k) = a_k \in A_k(x_k)$.</li>
 </ol>
 </dd>
 <dt><dfn>Strategie</dfn></dt>
@@ -293,12 +293,97 @@ MathJax.Hub.Queue(function() {
 
         Dies kann man mit DP l&ouml;sen, indem man eine Vorw&auml;rtsrekursion macht:
 
-        $$J_k(1) = \min_{a \in A(i)}(g(i, a) + \alpha \sum_{j=1}^{n_x} f_{ij}(a) \cdot J_{k-1}(j))$$
-        $$J_0(i) = g(i)$$
+        $$
+        \begin{align}
+        J_k(1) &amp;= \min_{a \in A(i)}(g(i, a) + \alpha \sum_{j=1}^{n_x} f_{ij}(a) \cdot J_{k-1}(j))\\
+        J_0(i) &amp;= g(i)
+        \end{align}
+        $$
 
         Das ist m&ouml;glich, da das Problem zeitinvariant ist. Dies kann man durch
         Indexverschiebung zeigen.
     </dd>
+<dt><dfn>Bellman-Operator</dfn></dt>
+<dd>$$(T J) (i) = \min_{a \in A(i)} (g(i,a) + \alpha \cdot \sum_j f_{ij}(a) \cdot J(j))$$
+
+        $$T^k J = \begin{cases}(T(T^{k-1} J)) &amp;\text{if } k \geq 1\\
+                               J              &amp;\text{otherwise}
+                  \end{cases}$$
+
+        Es gilt: $$J^* = \lim_{N \rightarrow \infty} T^N J \text{ f&uuml;r beliebiges } J$$
+    </dd>
+<dt><dfn>Strategiebewertung</dfn></dt>
+<dd>$$(T_\pi J)(i) = g(i, \pi(i)) + \alpha \cdot \sum_j f_{ij} (\pi(i)) \cdot J(j)$$
+
+        F&uuml;r eine optimale Strategie $\pi^*$ gilt:
+
+        $$(T J)(i) = (T_{\pi^*} J)(i)$$
+    </dd>
+<dt><dfn>Wertevektor</dfn></dt>
+<dd>$$J = (J(1), \dots, J(nx))^T$$</dd>
+<dt><a href="https://de.wikipedia.org/wiki/Kontraktion_(Mathematik)"><dfn>Kontraktion</dfn></a></dt>
+<dd>Eine Funktion $f: M \rightarrow M$ in einem metrischen Raum $(M, d)$
+        hei&szlig;t Kontraktion genau dann, wenn
+        $$\exists \lambda \in [0, 1) \forall x, y \in M: d(f(x), f(y)) \leq \lambda d(x, y)$$
+        gilt.</dd>
+<dt><a href="https://de.wikipedia.org/wiki/Fixpunktsatz_von_Banach"><dfn>Banach'scher Fixpunktsatz</dfn></a></dt>
+<dd>
+
+        Sei $(M, d)$ ein vollst&auml;ndig metrischer Raum und $f$ eine Kontraktion,
+        welche Lipschitz-Stetig ist mit Konstante $0 \leq \lambda &lt; 1$.
+        Dann gilt:
+
+        <ul>
+<li>Es gibt genau einen Fixpunkt $\xi \in M$ mit $f(\xi) = \xi$.</li>
+<li>TODO (Absch&auml;tzung)</li>
+</ul>
+</dd>
+<dt><dfn>T-Kontraktion</dfn></dt>
+<dd>F&uuml;r beliebige Wertevektoren $J, J'$, eine beliebige Strategie $\pi$
+        und f&uuml;r alle $k=0,1, \dots$ gilt:
+
+        $$d(T^k J, T^k J') = \leq \alpha^k \cdot d(J, J')$$
+        $$d(T^k_\pi J, T_T^k J') \leq \alpha^k \cdot d (TODO)$$
+    </dd>
+<dt><dfn id="value-iteration">Werteiteration</dfn> (<dfn>Value Iteration</dfn>)</dt>
+<dd>$$J^* = \lim_{N \rightarrow \infty} T^N J$$
+        wobei $J^*$ die optimalen Kosten, $T$ der Bellman-Operator und $N$
+        der Planungshorizont ist.
+
+        TODO: Pseudocode
+
+        </dd>
+<dt><dfn>Satz von der Sation&auml;ren Strategie</dfn></dt>
+<dd>
+<ol>
+<li>F&uuml;r jede station&auml;re Strategie $\pi = \pi_{0:N-1}$ erf&uuml;llt der
+                dazugeh&ouml;rige Wertevektor $J_\pi$ die Fixpunktgleichung
+                $J_\pi = T_\pi J_\pi$.
+                Dabei ist $J_\pi$ der eindeutige Fixpunkt.</li>
+<li>Eine sation&auml;re Strategie $\pi^*$ ist genau dann optimal, wenn
+                $\pi^*$
+
+                $$T J^* = T_{\pi^*} J^*$$
+
+                erf&uuml;llt. (Also: Die optimale Strategie ist eine station&auml;re Strategie)</li>
+</ol>
+
+        Der Beweis f&uuml;r (1) folgt aus dem Banach'schen Fixpunktsatz.
+    </dd>
+<dt><dfn id="policy-iteration">Strategieiteration</dfn></dt>
+<dd>Man kann beobachten, dass bei der Werteiteration die Stategie schneller
+        konvergiert als der Wertevektor. Au&szlig;erdem ist die Anzahl der
+        Strategien endlich, aber es gibt unendlich viele Wertevektoren.<br/>
+<br/>
+        (TODO: Pseudocode)
+        <br/>
+        Die folgenden beiden Schritte werden alternierend ausgef&uuml;hrt:
+
+        <ol>
+<li>Strategieauswertung</li>
+<li>Strategieverbesserung</li>
+</ol>
+</dd>
 </dl>
 <h3 id="pomdps">POMDPs</h3>
 <dl>
@@ -306,12 +391,15 @@ MathJax.Hub.Queue(function() {
 <dd>TODO</dd>
 </dl>
 <h3 id="reinforcement-learning">Reinforcement Learning</h3>
-<p>Kommt noch.</p>
+<dl>
+<dt><dfn id="rl">Reinforcement Learning</dfn></dt>
+<dd>TODO</dd>
+</dl>
 <h2 id="prufungsfragen_1">Pr&uuml;fungsfragen</h2>
 <ul>
 <li>Welche 3 Themengebiete wurden in der Vorlesung behandelt und was sind die
   Unterschiede?<br/>
-  &rarr; <a href="#mdp">MDP</a>, <a href="#pomdp">POMDP</a>, RL (TODO: Agent-Umfeld-Diagram)</li>
+  &rarr; <a href="#mdp">MDP</a>, <a href="#pomdp">POMDP</a>, <a href="#rl">RL</a> (TODO: Agent-Umfeld-Diagram)</li>
 <li>Wie ist eine Nutzenfunktion definiert?
   &rarr; TODO</li>
 <li>Wie l&ouml;st man Optimierungsprobleme ohne Nebenbedingungen?<br/>
@@ -320,34 +408,34 @@ MathJax.Hub.Queue(function() {
   &rarr; TODO</li>
 <li>Wie l&ouml;st man Optimierungsprobleme mit Nebenbedingungen?<br/>
   &rarr; Lagrange (TODO)</li>
-<li>Wann ist es leichter / schwerer das Optimierungsproblem zu l&ouml;sen?
+<li>Wann ist es leichter / schwerer das Optimierungsproblem zu l&ouml;sen?<br/>
   &rarr; TODO</li>
-<li>Welche numerischen Methoden zur Optimierung kennen sie?
+<li>Welche numerischen Methoden zur Optimierung kennen sie?<br/>
   &rarr; TODO</li>
 </ul>
 <h3 id="mdp">MDP</h3>
 <ul>
-<li>Wie lautet die Definition eines MDP?
+<li>Wie lautet die Definition eines MDP?<br/>
   &rarr; Siehe <a href="#mdp">oben</a>.</li>
-<li>Was versteht man unter dynamischer Programmierenung?
+<li>Was versteht man unter dynamischer Programmierenung?<br/>
   &rarr; Siehe <a href="#dynamic-programming">oben</a>.</li>
-<li>Wie lauten die Bellman-Gleichungen?
+<li>Wie lauten die Bellman-Gleichungen?<br/>
   &rarr; Siehe <a href="#bellman-equation">oben</a>.</li>
-<li>Was ist an den Bellman-Gleichungen problematisch?
+<li>Was ist an den Bellman-Gleichungen problematisch?<br/>
   &rarr; TODO</li>
 </ul>
 <h3 id="pomdp">POMDP</h3>
 <ul>
-<li>Wie lautet die Definition eines POMDP?
+<li>Wie lautet die Definition eines POMDP?<br/>
   &rarr; TODO</li>
-<li>Wie lautet die Kostenfunktion eines POMDP?
+<li>Wie lautet die Kostenfunktion eines POMDP?<br/>
   &rarr; TODO</li>
-<li>Was ist PWLC?
+<li>Was ist PWLC?<br/>
   &rarr; TODO</li>
 </ul>
 <h3 id="rl">RL</h3>
 <ul>
-<li>Welche Arten von RL gibt es?
+<li>Welche Arten von RL gibt es?<br/>
   &rarr; TODO</li>
 </ul>
 <h2 id="material-und-links_1">Material und Links</h2>

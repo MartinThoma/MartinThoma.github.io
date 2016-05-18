@@ -39,7 +39,7 @@
 &lt;tr&gt;
 &lt;td&gt;18.05.2016&lt;/td&gt;
 &lt;td&gt;MDPs&lt;/td&gt;
-&lt;td&gt;TODO&lt;/td&gt;
+&lt;td&gt;Endliche Planungsprobleme&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
 &lt;h3 id="grundlagen"&gt;Grundlagen&lt;/h3&gt;
@@ -117,7 +117,7 @@
 &lt;li&gt;&lt;strong&gt;Ziel&lt;/strong&gt;: Minimierung der erwarteten Kosten
               $$J_{\pi_{0:N-1}}(x_0) := \mathbb{E}(g_N(x_k) + \sum_{k=0}^{N-1} g_k (x_k, \pi_k(x_k))$$
               bzgl. einer Strategie $\pi_{0:N-1} = (\pi_0, \pi_1, \dots, \pi_{N-1})$
-              mit Funktionen $\pi_k(x_k) = a_k \in A_k(x_k).&lt;/li&gt;
+              mit Funktionen $\pi_k(x_k) = a_k \in A_k(x_k)$.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Strategie&lt;/dfn&gt;&lt;/dt&gt;
@@ -188,12 +188,97 @@
 
         Dies kann man mit DP l&amp;ouml;sen, indem man eine Vorw&amp;auml;rtsrekursion macht:
 
-        $$J_k(1) = \min_{a \in A(i)}(g(i, a) + \alpha \sum_{j=1}^{n_x} f_{ij}(a) \cdot J_{k-1}(j))$$
-        $$J_0(i) = g(i)$$
+        $$
+        \begin{align}
+        J_k(1) &amp;amp;= \min_{a \in A(i)}(g(i, a) + \alpha \sum_{j=1}^{n_x} f_{ij}(a) \cdot J_{k-1}(j))\\
+        J_0(i) &amp;amp;= g(i)
+        \end{align}
+        $$
 
         Das ist m&amp;ouml;glich, da das Problem zeitinvariant ist. Dies kann man durch
         Indexverschiebung zeigen.
     &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Bellman-Operator&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;$$(T J) (i) = \min_{a \in A(i)} (g(i,a) + \alpha \cdot \sum_j f_{ij}(a) \cdot J(j))$$
+
+        $$T^k J = \begin{cases}(T(T^{k-1} J)) &amp;amp;\text{if } k \geq 1\\
+                               J              &amp;amp;\text{otherwise}
+                  \end{cases}$$
+
+        Es gilt: $$J^* = \lim_{N \rightarrow \infty} T^N J \text{ f&amp;uuml;r beliebiges } J$$
+    &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Strategiebewertung&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;$$(T_\pi J)(i) = g(i, \pi(i)) + \alpha \cdot \sum_j f_{ij} (\pi(i)) \cdot J(j)$$
+
+        F&amp;uuml;r eine optimale Strategie $\pi^*$ gilt:
+
+        $$(T J)(i) = (T_{\pi^*} J)(i)$$
+    &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Wertevektor&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;$$J = (J(1), \dots, J(nx))^T$$&lt;/dd&gt;
+&lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Kontraktion_(Mathematik)"&gt;&lt;dfn&gt;Kontraktion&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
+&lt;dd&gt;Eine Funktion $f: M \rightarrow M$ in einem metrischen Raum $(M, d)$
+        hei&amp;szlig;t Kontraktion genau dann, wenn
+        $$\exists \lambda \in [0, 1) \forall x, y \in M: d(f(x), f(y)) \leq \lambda d(x, y)$$
+        gilt.&lt;/dd&gt;
+&lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Fixpunktsatz_von_Banach"&gt;&lt;dfn&gt;Banach'scher Fixpunktsatz&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
+&lt;dd&gt;
+
+        Sei $(M, d)$ ein vollst&amp;auml;ndig metrischer Raum und $f$ eine Kontraktion,
+        welche Lipschitz-Stetig ist mit Konstante $0 \leq \lambda &amp;lt; 1$.
+        Dann gilt:
+
+        &lt;ul&gt;
+&lt;li&gt;Es gibt genau einen Fixpunkt $\xi \in M$ mit $f(\xi) = \xi$.&lt;/li&gt;
+&lt;li&gt;TODO (Absch&amp;auml;tzung)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;T-Kontraktion&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;F&amp;uuml;r beliebige Wertevektoren $J, J'$, eine beliebige Strategie $\pi$
+        und f&amp;uuml;r alle $k=0,1, \dots$ gilt:
+
+        $$d(T^k J, T^k J') = \leq \alpha^k \cdot d(J, J')$$
+        $$d(T^k_\pi J, T_T^k J') \leq \alpha^k \cdot d (TODO)$$
+    &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="value-iteration"&gt;Werteiteration&lt;/dfn&gt; (&lt;dfn&gt;Value Iteration&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dd&gt;$$J^* = \lim_{N \rightarrow \infty} T^N J$$
+        wobei $J^*$ die optimalen Kosten, $T$ der Bellman-Operator und $N$
+        der Planungshorizont ist.
+
+        TODO: Pseudocode
+
+        &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Satz von der Sation&amp;auml;ren Strategie&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;ol&gt;
+&lt;li&gt;F&amp;uuml;r jede station&amp;auml;re Strategie $\pi = \pi_{0:N-1}$ erf&amp;uuml;llt der
+                dazugeh&amp;ouml;rige Wertevektor $J_\pi$ die Fixpunktgleichung
+                $J_\pi = T_\pi J_\pi$.
+                Dabei ist $J_\pi$ der eindeutige Fixpunkt.&lt;/li&gt;
+&lt;li&gt;Eine sation&amp;auml;re Strategie $\pi^*$ ist genau dann optimal, wenn
+                $\pi^*$
+
+                $$T J^* = T_{\pi^*} J^*$$
+
+                erf&amp;uuml;llt. (Also: Die optimale Strategie ist eine station&amp;auml;re Strategie)&lt;/li&gt;
+&lt;/ol&gt;
+
+        Der Beweis f&amp;uuml;r (1) folgt aus dem Banach'schen Fixpunktsatz.
+    &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="policy-iteration"&gt;Strategieiteration&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;Man kann beobachten, dass bei der Werteiteration die Stategie schneller
+        konvergiert als der Wertevektor. Au&amp;szlig;erdem ist die Anzahl der
+        Strategien endlich, aber es gibt unendlich viele Wertevektoren.&lt;br/&gt;
+&lt;br/&gt;
+        (TODO: Pseudocode)
+        &lt;br/&gt;
+        Die folgenden beiden Schritte werden alternierend ausgef&amp;uuml;hrt:
+
+        &lt;ol&gt;
+&lt;li&gt;Strategieauswertung&lt;/li&gt;
+&lt;li&gt;Strategieverbesserung&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h3 id="pomdps"&gt;POMDPs&lt;/h3&gt;
 &lt;dl&gt;
@@ -201,12 +286,15 @@
 &lt;dd&gt;TODO&lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h3 id="reinforcement-learning"&gt;Reinforcement Learning&lt;/h3&gt;
-&lt;p&gt;Kommt noch.&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;dfn id="rl"&gt;Reinforcement Learning&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;TODO&lt;/dd&gt;
+&lt;/dl&gt;
 &lt;h2 id="prufungsfragen_1"&gt;Pr&amp;uuml;fungsfragen&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Welche 3 Themengebiete wurden in der Vorlesung behandelt und was sind die
   Unterschiede?&lt;br/&gt;
-  &amp;rarr; &lt;a href="#mdp"&gt;MDP&lt;/a&gt;, &lt;a href="#pomdp"&gt;POMDP&lt;/a&gt;, RL (TODO: Agent-Umfeld-Diagram)&lt;/li&gt;
+  &amp;rarr; &lt;a href="#mdp"&gt;MDP&lt;/a&gt;, &lt;a href="#pomdp"&gt;POMDP&lt;/a&gt;, &lt;a href="#rl"&gt;RL&lt;/a&gt; (TODO: Agent-Umfeld-Diagram)&lt;/li&gt;
 &lt;li&gt;Wie ist eine Nutzenfunktion definiert?
   &amp;rarr; TODO&lt;/li&gt;
 &lt;li&gt;Wie l&amp;ouml;st man Optimierungsprobleme ohne Nebenbedingungen?&lt;br/&gt;
@@ -215,34 +303,34 @@
   &amp;rarr; TODO&lt;/li&gt;
 &lt;li&gt;Wie l&amp;ouml;st man Optimierungsprobleme mit Nebenbedingungen?&lt;br/&gt;
   &amp;rarr; Lagrange (TODO)&lt;/li&gt;
-&lt;li&gt;Wann ist es leichter / schwerer das Optimierungsproblem zu l&amp;ouml;sen?
+&lt;li&gt;Wann ist es leichter / schwerer das Optimierungsproblem zu l&amp;ouml;sen?&lt;br/&gt;
   &amp;rarr; TODO&lt;/li&gt;
-&lt;li&gt;Welche numerischen Methoden zur Optimierung kennen sie?
+&lt;li&gt;Welche numerischen Methoden zur Optimierung kennen sie?&lt;br/&gt;
   &amp;rarr; TODO&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="mdp"&gt;MDP&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Wie lautet die Definition eines MDP?
+&lt;li&gt;Wie lautet die Definition eines MDP?&lt;br/&gt;
   &amp;rarr; Siehe &lt;a href="#mdp"&gt;oben&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Was versteht man unter dynamischer Programmierenung?
+&lt;li&gt;Was versteht man unter dynamischer Programmierenung?&lt;br/&gt;
   &amp;rarr; Siehe &lt;a href="#dynamic-programming"&gt;oben&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Wie lauten die Bellman-Gleichungen?
+&lt;li&gt;Wie lauten die Bellman-Gleichungen?&lt;br/&gt;
   &amp;rarr; Siehe &lt;a href="#bellman-equation"&gt;oben&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Was ist an den Bellman-Gleichungen problematisch?
+&lt;li&gt;Was ist an den Bellman-Gleichungen problematisch?&lt;br/&gt;
   &amp;rarr; TODO&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="pomdp"&gt;POMDP&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Wie lautet die Definition eines POMDP?
+&lt;li&gt;Wie lautet die Definition eines POMDP?&lt;br/&gt;
   &amp;rarr; TODO&lt;/li&gt;
-&lt;li&gt;Wie lautet die Kostenfunktion eines POMDP?
+&lt;li&gt;Wie lautet die Kostenfunktion eines POMDP?&lt;br/&gt;
   &amp;rarr; TODO&lt;/li&gt;
-&lt;li&gt;Was ist PWLC?
+&lt;li&gt;Was ist PWLC?&lt;br/&gt;
   &amp;rarr; TODO&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="rl"&gt;RL&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Welche Arten von RL gibt es?
+&lt;li&gt;Welche Arten von RL gibt es?&lt;br/&gt;
   &amp;rarr; TODO&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="material-und-links_1"&gt;Material und Links&lt;/h2&gt;
