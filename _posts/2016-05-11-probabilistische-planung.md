@@ -12,9 +12,9 @@ featured_image: logos/klausur.png
 
 In der Vorlesung 'Probabilistische Planung' werden drei Themen besprochen:
 
-* Markov'sche Entscheidungsprobleme
+* Markov'sche Entscheidungsprobleme (MDPs)
 * Planung bei Messunsicherheiten
-* Reinforcement Learning
+* Reinforcement Learning (RL)
 
 
 ## Behandelter Stoff
@@ -48,6 +48,11 @@ In der Vorlesung 'Probabilistische Planung' werden drei Themen besprochen:
     <td>11.05.2016</td>
     <td>MDPs</td>
     <td>Definition eines MDP, Plan vs. Strategie, <abbr title="Dynamische Programmierung">DP</abbr></td>
+</tr>
+<tr>
+    <td>18.05.2016</td>
+    <td>MDPs</td>
+    <td>Endliche Planungsprobleme, Value- und Policy-Iteration</td>
 </tr>
 </table>
 
@@ -135,11 +140,201 @@ Slides: `11.05.2016 - TODO`
           <li><strong>Ziel</strong>: Minimierung der erwarteten Kosten
               $$J_{\pi_{0:N-1}}(x_0) := \mathbb{E}(g_N(x_k) + \sum_{k=0}^{N-1} g_k (x_k, \pi_k(x_k))$$
               bzgl. einer Strategie $\pi_{0:N-1} = (\pi_0, \pi_1, \dots, \pi_{N-1})$
-              mit Funktionen $\pi_k(x_k) = a_k \in A_k(x_k).</li>
+              mit Funktionen $\pi_k(x_k) = a_k \in A_k(x_k)$.</li>
       </ol>
   </dd>
   <dt><dfn>Strategie</dfn></dt>
   <dd>Eine Strategie ist ein Plan mit Zustandsrückführung</dd>
+  <dt><dfn id="nutzenfunktion">Nutzenfunktion</dfn></dt>
+  <dd>TODO</dd>
+  <dt><a href="https://en.wikipedia.org/wiki/Bellman_equation"><dfn id="bellman-equation">Bellman-Gleichungen</dfn></a></dt>
+  <dd>TODO</dd>
+  <dt><dfn id="q-function">Q-Funktion</dfn></dt>
+  <dd>TODO</dd>
+  <dt><a href="https://de.wikipedia.org/wiki/Dynamische_Programmierung"><dfn id="dynamic-programming">Dynamische Programmierung</dfn></a></dt>
+  <dd>TODO
+
+      Laufzeitkomplexität $\mathcal{O}(N |\mathcal{X}|^2 |A|)$
+
+  </dd>
+</dl>
+
+18.05.2016
+
+<dl>
+    <dt><dfn>Endliche Planungsproblem</dfn></dt>
+    <dd>Hat man einen endlichen Zustandsraum $\mathcal{X} = \{1, 2, \dots, n_x\} \subsetneq \mathbb{N}$ und eine endliche Aktionsmenge $A = \{1, 2, \dots, n_a\} \subsetneq \mathbb{N}$,
+        in einem Planungsproblem, so spricht man von einem endlichen
+        Planungsproblem.</dd>
+    <dt><dfn>Markov-Kette</dfn></dt>
+    <dd>Übergangswahrscheinlichkeiten in einem endlichen Planungsproblem
+        sind gegeben.
+
+        Die naive Lösung mit Brute-Force ist in $\mathcal{O}(|A|^{N \cdot |X|})$.
+
+    </dd>
+    <dt><dfn>Planungsprobleme nach Horizont</dfn></dt>
+    <dd>
+
+        <ul>
+            <li>$N=1$: Gierige Planung, ein einschrittiges Planungsproblem.
+                       Hat geringe Komplexität, aber zukünftige Effekte werden
+                       nicht berücksichtig. Bei submodularen Kostenfunktionen
+                       kann man die Kosten, die durch die gierige Planung
+                       entstehen, abschätzen.</li>
+            <li>$N<\infty$: Wurde bisher betrachtet und betrifft die meisten
+                       Planungsprobleme. Nachteil ist, dass die Strategie $\pi_k$
+                       zeitinvariant ist.</li>
+            <li>$N = \infty$: Bei Planungsproblemen mit sehr langem Horizont,
+                       wenn ein Ende nicht abzulesen ist. Beispiele sind die
+                       kürzeste-Wege-Suche sowie bei Reinforcement Learning.
+                       Probleme sind unendliche Kosten und die Zeitabhängigkeit
+                       der Schrittkosten und Übergangswahrscheinlichkeiten.</li>
+        </ul>
+
+    </dd>
+    <dt><dfn>Diskontiertes Planungsproblem</dfn></dt>
+    <dd>
+
+        <ol>
+            <li>Übergangswahrscheinlichkeiten und Schrittkosten sind
+                Zeitinvariant, dh. $f_{ij}^k(a) = f_{ij}(a)$ und
+                $g_k(i,a) = g(i, a) \forall k$.</li>
+            <li>Es gilt die optimale Wertefunktion $J^*$ zu finden, welche
+                durch
+                $$J^*(x_0) = \min_{\pi_0, \pi_1, \dots} (J_{\pi_0}(x_0))$$
+
+                definiert ist. Diese minimiert die erwarteten <i>diskontierten
+                Kosten</i>
+
+                $$J_{\pi_0} (x_0) = \lim_{N \rightarrow \infty} \mathbb{E}(\alpha^N g(x_N)+ \sum_{k=0}^{N-1} \alpha^k \cdot g(x_k, \pi_k(x_k)))$$
+
+                Dabei heißt $\alpha \in (0, 1)$ ein <i>Diskontierungsfaktor</i>.
+                Er verhindert, dass die Kosten unendlich werden.
+            </li>
+        </ol>
+
+        Dies kann man mit DP lösen, indem man eine Vorwärtsrekursion macht:
+
+        $$
+        \begin{align}
+        J_k(1) &= \min_{a \in A(i)}(g(i, a) + \alpha \sum_{j=1}^{n_x} f_{ij}(a) \cdot J_{k-1}(j))\\
+        J_0(i) &= g(i)
+        \end{align}
+        $$
+
+        Das ist möglich, da das Problem zeitinvariant ist. Dies kann man durch
+        Indexverschiebung zeigen.
+    </dd>
+    <dt><dfn>Bellman-Operator</dfn></dt>
+    <dd>$$(T J) (i) = \min_{a \in A(i)} (g(i,a) + \alpha \cdot \sum_j f_{ij}(a) \cdot J(j))$$
+
+        $$T^k J = \begin{cases}(T(T^{k-1} J)) &\text{if } k \geq 1\\
+                               J              &\text{otherwise}
+                  \end{cases}$$
+
+        Es gilt: $$J^* = \lim_{N \rightarrow \infty} T^N J \text{ für beliebiges } J$$
+    </dd>
+    <dt><dfn>Strategiebewertung</dfn></dt>
+    <dd>$$(T_\pi J)(i) = g(i, \pi(i)) + \alpha \cdot \sum_j f_{ij} (\pi(i)) \cdot J(j)$$
+
+        Für eine optimale Strategie $\pi^*$ gilt:
+
+        $$(T J)(i) = (T_{\pi^*} J)(i)$$
+    </dd>
+    <dt><dfn>Wertevektor</dfn></dt>
+    <dd>$$J = (J(1), \dots, J(nx))^T$$</dd>
+    <dt><a href="https://de.wikipedia.org/wiki/Kontraktion_(Mathematik)"><dfn>Kontraktion</dfn></a></dt>
+    <dd>Eine Funktion $f: M \rightarrow M$ in einem metrischen Raum $(M, d)$
+        heißt Kontraktion genau dann, wenn
+        $$\exists \lambda \in [0, 1) \forall x, y \in M: d(f(x), f(y)) \leq \lambda d(x, y)$$
+        gilt.</dd>
+    <dt><a href="https://de.wikipedia.org/wiki/Fixpunktsatz_von_Banach"><dfn>Banach'scher Fixpunktsatz</dfn></a></dt>
+    <dd>
+
+        Sei $(M, d)$ ein vollständig metrischer Raum und $f$ eine Kontraktion,
+        welche Lipschitz-Stetig ist mit Konstante $0 \leq \lambda < 1$.
+        Dann gilt:
+
+        <ul>
+            <li>Es gibt genau einen Fixpunkt $\xi \in M$ mit $f(\xi) = \xi$.</li>
+            <li>TODO (Abschätzung)</li>
+        </ul>
+
+    </dd>
+    <dt><dfn>T-Kontraktion</dfn></dt>
+    <dd>Für beliebige Wertevektoren $J, J'$, eine beliebige Strategie $\pi$
+        und für alle $k=0,1, \dots$ gilt:
+
+        $$d(T^k J, T^k J') = \leq \alpha^k \cdot d(J, J')$$
+        $$d(T^k_\pi J, T_T^k J') \leq \alpha^k \cdot d (TODO)$$
+    </dd>
+    <dt><dfn id="value-iteration">Werteiteration</dfn> (<dfn>Value Iteration</dfn>)</dt>
+    <dd>$$J^* = \lim_{N \rightarrow \infty} T^N J$$
+        wobei $J^*$ die optimalen Kosten, $T$ der Bellman-Operator und $N$
+        der Planungshorizont ist.
+
+        TODO: Pseudocode
+
+        </dd>
+    <dt><dfn>Satz von der Sationären Strategie</dfn></dt>
+    <dd>
+
+        <ol>
+            <li>Für jede stationäre Strategie $\pi = \pi_{0:N-1}$ erfüllt der
+                dazugehörige Wertevektor $J_\pi$ die Fixpunktgleichung
+                $J_\pi = T_\pi J_\pi$.
+                Dabei ist $J_\pi$ der eindeutige Fixpunkt.</li>
+            <li>Eine sationäre Strategie $\pi^*$ ist genau dann optimal, wenn
+                $\pi^*$
+
+                $$T J^* = T_{\pi^*} J^*$$
+
+                erfüllt. (Also: Die optimale Strategie ist eine stationäre Strategie)</li>
+        </ol>
+
+        Der Beweis für (1) folgt aus dem Banach'schen Fixpunktsatz.
+    </dd>
+    <dt><dfn id="policy-iteration">Strategieiteration</dfn></dt>
+    <dd>Man kann beobachten, dass bei der Werteiteration die Stategie schneller
+        konvergiert als der Wertevektor. Außerdem ist die Anzahl der
+        Strategien endlich, aber es gibt unendlich viele Wertevektoren.<br/>
+        <br/>
+        (TODO: Pseudocode)
+        <br/>
+        Die folgenden beiden Schritte werden alternierend ausgeführt:
+
+        <ol>
+            <li>Strategieauswertung</li>
+            <li>Strategieverbesserung</li>
+        </ol>
+
+        Vergleich zwischen Werte- und Strategieiteration:
+
+        <ul>
+            <li>Strategieiteration konvergiert in weniger Schritten</li>
+            <li>Jeder Schritt der Strategieiteration ist teurer als in der
+                Werteoperation, da die Strategieauswertung die Lösung eines
+                LGS ist (in $\mathcal{O}(n_x^3)$). Außerdem ist
+                die Strategieiteration nie für $\alpha=1$ lösbar (kann auch
+                sonst passieren).</li>
+        </ul>
+    </dd>
+</dl>
+
+### POMDPs
+
+<dl>
+    <dt><a href="https://en.wikipedia.org/wiki/Partially_observable_Markov_decision_process"><dfn id="pomdp">Partially observable Markov decision process</dfn></a> (POMDP)</dt>
+    <dd>TODO</dd>
+</dl>
+
+
+### Reinforcement Learning
+
+<dl>
+    <dt><dfn id="rl">Reinforcement Learning</dfn></dt>
+    <dd>TODO</dd>
 </dl>
 
 
@@ -147,7 +342,46 @@ Slides: `11.05.2016 - TODO`
 
 * Welche 3 Themengebiete wurden in der Vorlesung behandelt und was sind die
   Unterschiede?<br/>
-  → <a href="#mdp">MDP</a>, POMDP, RL
+  → <a href="#mdp">MDP</a>, <a href="#pomdp">POMDP</a>, <a href="#rl">RL</a> (TODO: Agent-Umfeld-Diagram)
+* Wie ist eine Nutzenfunktion definiert?<br/>
+  → TODO
+* Wie löst man Optimierungsprobleme ohne Nebenbedingungen?<br/>
+  → TODO
+* Beweisen Sie, dass der Gradient senkrecht auf die Höhenlinien steht.<br/>
+  → TODO
+* Wie löst man Optimierungsprobleme mit Nebenbedingungen?<br/>
+  → Lagrange (TODO)
+* Wann ist es leichter / schwerer das Optimierungsproblem zu lösen?<br/>
+  → TODO
+* Welche numerischen Methoden zur Optimierung kennen sie?<br/>
+  → TODO
+
+### MDP
+
+* Wie lautet die Definition eines MDP?<br/>
+  → Siehe <a href="#mdp">oben</a>.
+* Was versteht man unter dynamischer Programmierenung?<br/>
+  → Siehe <a href="#dynamic-programming">oben</a>.
+* Wie lauten die Bellman-Gleichungen?<br/>
+  → Siehe <a href="#bellman-equation">oben</a>.
+* Was ist an den Bellman-Gleichungen problematisch?<br/>
+  → TODO
+
+### POMDP
+
+* Wie lautet die Definition eines POMDP?<br/>
+  → TODO
+* Wie lautet die Kostenfunktion eines POMDP?<br/>
+  → TODO
+* Was ist PWLC?<br/>
+  → TODO
+
+
+### RL
+
+* Welche Arten von RL gibt es?<br/>
+  → TODO
+
 
 ## Material und Links
 
