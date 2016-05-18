@@ -2,9 +2,9 @@
 <rss version="2.0"><channel><title>Martin Thoma</title><link>https://martin-thoma.com/</link><description>A blog about Code, the Web and Cyberculture</description><lastBuildDate>Wed, 11 May 2016 20:00:00 +0200</lastBuildDate><item><title>Probabilistische Planung</title><link>https://martin-thoma.com/probabilistische-planung/</link><description>&lt;div class="info"&gt;Dieser Artikel besch&amp;auml;ftigt sich mit der Vorlesung &amp;bdquo;Probabilistische Planung&amp;ldquo; am KIT. Er dient als Pr&amp;uuml;fungsvorbereitung. Ich habe die Vorlesungen bei &lt;a href="http://ies.anthropomatik.kit.edu/mitarbeiter.php?person=huber"&gt;Herrn Dr.-Ing. Marco Huber&lt;/a&gt; im Sommersemester 2015 und 2016 geh&amp;ouml;rt. Der Artikel dient als Pr&amp;uuml;fungsvorbereitung und ist noch am Entstehen.&lt;/div&gt;
 &lt;p&gt;In der Vorlesung 'Probabilistische Planung' werden drei Themen besprochen:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Markov'sche Entscheidungsprobleme&lt;/li&gt;
+&lt;li&gt;Markov'sche Entscheidungsprobleme (MDPs)&lt;/li&gt;
 &lt;li&gt;Planung bei Messunsicherheiten&lt;/li&gt;
-&lt;li&gt;Reinforcement Learning&lt;/li&gt;
+&lt;li&gt;Reinforcement Learning (RL)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="behandelter-stoff"&gt;Behandelter Stoff&lt;/h2&gt;
 &lt;h3 id="ubersicht"&gt;&amp;Uuml;bersicht&lt;/h3&gt;
@@ -35,6 +35,11 @@
 &lt;td&gt;11.05.2016&lt;/td&gt;
 &lt;td&gt;MDPs&lt;/td&gt;
 &lt;td&gt;Definition eines MDP, Plan vs. Strategie, &lt;abbr title="Dynamische Programmierung"&gt;DP&lt;/abbr&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;18.05.2016&lt;/td&gt;
+&lt;td&gt;MDPs&lt;/td&gt;
+&lt;td&gt;TODO&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
 &lt;h3 id="grundlagen"&gt;Grundlagen&lt;/h3&gt;
@@ -117,14 +122,130 @@
 &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Strategie&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Eine Strategie ist ein Plan mit Zustandsr&amp;uuml;ckf&amp;uuml;hrung&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="nutzenfunktion"&gt;Nutzenfunktion&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;TODO&lt;/dd&gt;
+&lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Bellman_equation"&gt;&lt;dfn id="bellman-equation"&gt;Bellman-Gleichungen&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
+&lt;dd&gt;TODO&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="q-function"&gt;Q-Funktion&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;TODO&lt;/dd&gt;
+&lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Dynamische_Programmierung"&gt;&lt;dfn id="dynamic-programming"&gt;Dynamische Programmierung&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
+&lt;dd&gt;TODO
+
+      Laufzeitkomplexit&amp;auml;t $\mathcal{O}(N |\mathcal{X}|^2 |A|)$
+
+  &lt;/dd&gt;
 &lt;/dl&gt;
+&lt;p&gt;18.05.2016&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;dfn&gt;Endliche Planungsproblem&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;Hat man einen endlichen Zustandsraum $\mathcal{X} = \{1, 2, \dots, n_x\} \subsetneq \mathbb{N}$ und eine endliche Aktionsmenge $A = \{1, 2, \dots, n_a\} \subsetneq \mathbb{N}$,
+        in einem Planungsproblem, so spricht man von einem endlichen
+        Planungsproblem.&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Markov-Kette&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;&amp;Uuml;bergangswahrscheinlichkeiten in einem endlichen Planungsproblem
+        sind gegeben.
+
+        Die naive L&amp;ouml;sung mit Brute-Force ist in $\mathcal{O}(|A|^{N \cdot |X|})$.
+
+    &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Planungsprobleme nach Horizont&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;ul&gt;
+&lt;li&gt;$N=1$: Gierige Planung, ein einschrittiges Planungsproblem.
+                       Hat geringe Komplexit&amp;auml;t, aber zuk&amp;uuml;nftige Effekte werden
+                       nicht ber&amp;uuml;cksichtig. Bei submodularen Kostenfunktionen
+                       kann man die Kosten, die durch die gierige Planung
+                       entstehen, absch&amp;auml;tzen.&lt;/li&gt;
+&lt;li&gt;$N&amp;lt;\infty$: Wurde bisher betrachtet und betrifft die meisten
+                       Planungsprobleme. Nachteil ist, dass die Strategie $\pi_k$
+                       zeitinvariant ist.&lt;/li&gt;
+&lt;li&gt;$N = \infty$: Bei Planungsproblemen mit sehr langem Horizont,
+                       wenn ein Ende nicht abzulesen ist. Beispiele sind die
+                       k&amp;uuml;rzeste-Wege-Suche sowie bei Reinforcement Learning.
+                       Probleme sind unendliche Kosten und die Zeitabh&amp;auml;ngigkeit
+                       der Schrittkosten und &amp;Uuml;bergangswahrscheinlichkeiten.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Diskontiertes Planungsproblem&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;ol&gt;
+&lt;li&gt;&amp;Uuml;bergangswahrscheinlichkeiten und Schrittkosten sind
+                Zeitinvariant, dh. $f_{ij}^k(a) = f_{ij}(a)$ und
+                $g_k(i,a) = g(i, a) \forall k$.&lt;/li&gt;
+&lt;li&gt;Es gilt die optimale Wertefunktion $J^*$ zu finden, welche
+                durch
+                $$J^*(x_0) = \min_{\pi_0, \pi_1, \dots} (J_{\pi_0}(x_0))$$
+
+                definiert ist. Diese minimiert die erwarteten &lt;i&gt;diskontierten
+                Kosten&lt;/i&gt;
+
+                $$J_{\pi_0} (x_0) = \lim_{N \rightarrow \infty} \mathbb{E}(\alpha^N g(x_N)+ \sum_{k=0}^{N-1} \alpha^k \cdot g(x_k, \pi_k(x_k)))$$
+
+                Dabei hei&amp;szlig;t $\alpha \in (0, 1)$ ein &lt;i&gt;Diskontierungsfaktor&lt;/i&gt;.
+                Er verhindert, dass die Kosten unendlich werden.
+            &lt;/li&gt;
+&lt;/ol&gt;
+
+        Dies kann man mit DP l&amp;ouml;sen, indem man eine Vorw&amp;auml;rtsrekursion macht:
+
+        $$J_k(1) = \min_{a \in A(i)}(g(i, a) + \alpha \sum_{j=1}^{n_x} f_{ij}(a) \cdot J_{k-1}(j))$$
+        $$J_0(i) = g(i)$$
+
+        Das ist m&amp;ouml;glich, da das Problem zeitinvariant ist. Dies kann man durch
+        Indexverschiebung zeigen.
+    &lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h3 id="pomdps"&gt;POMDPs&lt;/h3&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Partially_observable_Markov_decision_process"&gt;&lt;dfn id="pomdp"&gt;Partially observable Markov decision process&lt;/dfn&gt;&lt;/a&gt; (POMDP)&lt;/dt&gt;
+&lt;dd&gt;TODO&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h3 id="reinforcement-learning"&gt;Reinforcement Learning&lt;/h3&gt;
+&lt;p&gt;Kommt noch.&lt;/p&gt;
 &lt;h2 id="prufungsfragen_1"&gt;Pr&amp;uuml;fungsfragen&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Welche 3 Themengebiete wurden in der Vorlesung behandelt und was sind die
   Unterschiede?&lt;br/&gt;
-  &amp;rarr; &lt;a href="#mdp"&gt;MDP&lt;/a&gt;, POMDP, RL&lt;/li&gt;
+  &amp;rarr; &lt;a href="#mdp"&gt;MDP&lt;/a&gt;, &lt;a href="#pomdp"&gt;POMDP&lt;/a&gt;, RL (TODO: Agent-Umfeld-Diagram)&lt;/li&gt;
+&lt;li&gt;Wie ist eine Nutzenfunktion definiert?
+  &amp;rarr; TODO&lt;/li&gt;
+&lt;li&gt;Wie l&amp;ouml;st man Optimierungsprobleme ohne Nebenbedingungen?&lt;br/&gt;
+  &amp;rarr; TODO&lt;/li&gt;
+&lt;li&gt;Beweisen Sie, dass der Gradient senkrecht auf die H&amp;ouml;henlinien steht.
+  &amp;rarr; TODO&lt;/li&gt;
+&lt;li&gt;Wie l&amp;ouml;st man Optimierungsprobleme mit Nebenbedingungen?&lt;br/&gt;
+  &amp;rarr; Lagrange (TODO)&lt;/li&gt;
+&lt;li&gt;Wann ist es leichter / schwerer das Optimierungsproblem zu l&amp;ouml;sen?
+  &amp;rarr; TODO&lt;/li&gt;
+&lt;li&gt;Welche numerischen Methoden zur Optimierung kennen sie?
+  &amp;rarr; TODO&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="material-und-links"&gt;Material und Links&lt;/h2&gt;
+&lt;h3 id="mdp"&gt;MDP&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Wie lautet die Definition eines MDP?
+  &amp;rarr; Siehe &lt;a href="#mdp"&gt;oben&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Was versteht man unter dynamischer Programmierenung?
+  &amp;rarr; Siehe &lt;a href="#dynamic-programming"&gt;oben&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Wie lauten die Bellman-Gleichungen?
+  &amp;rarr; Siehe &lt;a href="#bellman-equation"&gt;oben&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Was ist an den Bellman-Gleichungen problematisch?
+  &amp;rarr; TODO&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="pomdp"&gt;POMDP&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Wie lautet die Definition eines POMDP?
+  &amp;rarr; TODO&lt;/li&gt;
+&lt;li&gt;Wie lautet die Kostenfunktion eines POMDP?
+  &amp;rarr; TODO&lt;/li&gt;
+&lt;li&gt;Was ist PWLC?
+  &amp;rarr; TODO&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="rl"&gt;RL&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Welche Arten von RL gibt es?
+  &amp;rarr; TODO&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="material-und-links_1"&gt;Material und Links&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://ies.anthropomatik.kit.edu/lehre_proplan.php"&gt;Vorlesungswebsite&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;

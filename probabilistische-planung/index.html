@@ -98,7 +98,7 @@ MathJax.Hub.Queue(function() {
     <div class="span2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#behandelter-stoff" title="Behandelter Stoff">Behandelter Stoff</a><ul><li><a class="toc-href" href="#ubersicht" title="&Uuml;bersicht">&Uuml;bersicht</a></li><li><a class="toc-href" href="#grundlagen" title="Grundlagen">Grundlagen</a></li><li><a class="toc-href" entscheidungs­probleme'="" href="#markovsche-entscheidungsprobleme" sche="" title="Markov">Markov'sche Entscheidungs&shy;probleme</a></li></ul></li><li><a class="toc-href" href="#prufungsfragen_1" title="Pr&uuml;fungsfragen">Pr&uuml;fungsfragen</a></li><li><a class="toc-href" href="#material-und-links" title="Material und Links">Material und Links</a></li><li><a class="toc-href" href="#vorlesungsempfehlungen" title="Vorlesungsempfehlungen">Vorlesungsempfehlungen</a></li><li><a class="toc-href" href="#termine-und-klausurablauf" title="Termine und Klausurablauf">Termine und Klausurablauf</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#behandelter-stoff" title="Behandelter Stoff">Behandelter Stoff</a><ul><li><a class="toc-href" href="#ubersicht" title="&Uuml;bersicht">&Uuml;bersicht</a></li><li><a class="toc-href" href="#grundlagen" title="Grundlagen">Grundlagen</a></li><li><a class="toc-href" entscheidungs­probleme'="" href="#markovsche-entscheidungsprobleme" sche="" title="Markov">Markov'sche Entscheidungs&shy;probleme</a></li><li><a class="toc-href" href="#pomdps" title="POMDPs">POMDPs</a></li><li><a class="toc-href" href="#reinforcement-learning" title="Reinforcement Learning">Reinforcement Learning</a></li></ul></li><li><a class="toc-href" href="#prufungsfragen_1" title="Pr&uuml;fungsfragen">Pr&uuml;fungsfragen</a><ul><li><a class="toc-href" href="#mdp" title="MDP">MDP</a></li><li><a class="toc-href" href="#pomdp" title="POMDP">POMDP</a></li><li><a class="toc-href" href="#rl" title="RL">RL</a></li></ul></li><li><a class="toc-href" href="#material-und-links_1" title="Material und Links">Material und Links</a></li><li><a class="toc-href" href="#vorlesungsempfehlungen" title="Vorlesungsempfehlungen">Vorlesungsempfehlungen</a></li><li><a class="toc-href" href="#termine-und-klausurablauf" title="Termine und Klausurablauf">Termine und Klausurablauf</a></li></ul></div>
         </nav>
     </div>
     <div class="span8 article-content" id="contentAfterTitle">
@@ -107,9 +107,9 @@ MathJax.Hub.Queue(function() {
             <div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesung &bdquo;Probabilistische Planung&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://ies.anthropomatik.kit.edu/mitarbeiter.php?person=huber">Herrn Dr.-Ing. Marco Huber</a> im Sommersemester 2015 und 2016 geh&ouml;rt. Der Artikel dient als Pr&uuml;fungsvorbereitung und ist noch am Entstehen.</div>
 <p>In der Vorlesung 'Probabilistische Planung' werden drei Themen besprochen:</p>
 <ul>
-<li>Markov'sche Entscheidungsprobleme</li>
+<li>Markov'sche Entscheidungsprobleme (MDPs)</li>
 <li>Planung bei Messunsicherheiten</li>
-<li>Reinforcement Learning</li>
+<li>Reinforcement Learning (RL)</li>
 </ul>
 <h2 id="behandelter-stoff">Behandelter Stoff</h2>
 <h3 id="ubersicht">&Uuml;bersicht</h3>
@@ -140,6 +140,11 @@ MathJax.Hub.Queue(function() {
 <td>11.05.2016</td>
 <td>MDPs</td>
 <td>Definition eines MDP, Plan vs. Strategie, <abbr title="Dynamische Programmierung">DP</abbr></td>
+</tr>
+<tr>
+<td>18.05.2016</td>
+<td>MDPs</td>
+<td>TODO</td>
 </tr>
 </table>
 <h3 id="grundlagen">Grundlagen</h3>
@@ -222,14 +227,130 @@ MathJax.Hub.Queue(function() {
 </dd>
 <dt><dfn>Strategie</dfn></dt>
 <dd>Eine Strategie ist ein Plan mit Zustandsr&uuml;ckf&uuml;hrung</dd>
+<dt><dfn id="nutzenfunktion">Nutzenfunktion</dfn></dt>
+<dd>TODO</dd>
+<dt><a href="https://en.wikipedia.org/wiki/Bellman_equation"><dfn id="bellman-equation">Bellman-Gleichungen</dfn></a></dt>
+<dd>TODO</dd>
+<dt><dfn id="q-function">Q-Funktion</dfn></dt>
+<dd>TODO</dd>
+<dt><a href="https://de.wikipedia.org/wiki/Dynamische_Programmierung"><dfn id="dynamic-programming">Dynamische Programmierung</dfn></a></dt>
+<dd>TODO
+
+      Laufzeitkomplexit&auml;t $\mathcal{O}(N |\mathcal{X}|^2 |A|)$
+
+  </dd>
 </dl>
+<p>18.05.2016</p>
+<dl>
+<dt><dfn>Endliche Planungsproblem</dfn></dt>
+<dd>Hat man einen endlichen Zustandsraum $\mathcal{X} = \{1, 2, \dots, n_x\} \subsetneq \mathbb{N}$ und eine endliche Aktionsmenge $A = \{1, 2, \dots, n_a\} \subsetneq \mathbb{N}$,
+        in einem Planungsproblem, so spricht man von einem endlichen
+        Planungsproblem.</dd>
+<dt><dfn>Markov-Kette</dfn></dt>
+<dd>&Uuml;bergangswahrscheinlichkeiten in einem endlichen Planungsproblem
+        sind gegeben.
+
+        Die naive L&ouml;sung mit Brute-Force ist in $\mathcal{O}(|A|^{N \cdot |X|})$.
+
+    </dd>
+<dt><dfn>Planungsprobleme nach Horizont</dfn></dt>
+<dd>
+<ul>
+<li>$N=1$: Gierige Planung, ein einschrittiges Planungsproblem.
+                       Hat geringe Komplexit&auml;t, aber zuk&uuml;nftige Effekte werden
+                       nicht ber&uuml;cksichtig. Bei submodularen Kostenfunktionen
+                       kann man die Kosten, die durch die gierige Planung
+                       entstehen, absch&auml;tzen.</li>
+<li>$N&lt;\infty$: Wurde bisher betrachtet und betrifft die meisten
+                       Planungsprobleme. Nachteil ist, dass die Strategie $\pi_k$
+                       zeitinvariant ist.</li>
+<li>$N = \infty$: Bei Planungsproblemen mit sehr langem Horizont,
+                       wenn ein Ende nicht abzulesen ist. Beispiele sind die
+                       k&uuml;rzeste-Wege-Suche sowie bei Reinforcement Learning.
+                       Probleme sind unendliche Kosten und die Zeitabh&auml;ngigkeit
+                       der Schrittkosten und &Uuml;bergangswahrscheinlichkeiten.</li>
+</ul>
+</dd>
+<dt><dfn>Diskontiertes Planungsproblem</dfn></dt>
+<dd>
+<ol>
+<li>&Uuml;bergangswahrscheinlichkeiten und Schrittkosten sind
+                Zeitinvariant, dh. $f_{ij}^k(a) = f_{ij}(a)$ und
+                $g_k(i,a) = g(i, a) \forall k$.</li>
+<li>Es gilt die optimale Wertefunktion $J^*$ zu finden, welche
+                durch
+                $$J^*(x_0) = \min_{\pi_0, \pi_1, \dots} (J_{\pi_0}(x_0))$$
+
+                definiert ist. Diese minimiert die erwarteten <i>diskontierten
+                Kosten</i>
+
+                $$J_{\pi_0} (x_0) = \lim_{N \rightarrow \infty} \mathbb{E}(\alpha^N g(x_N)+ \sum_{k=0}^{N-1} \alpha^k \cdot g(x_k, \pi_k(x_k)))$$
+
+                Dabei hei&szlig;t $\alpha \in (0, 1)$ ein <i>Diskontierungsfaktor</i>.
+                Er verhindert, dass die Kosten unendlich werden.
+            </li>
+</ol>
+
+        Dies kann man mit DP l&ouml;sen, indem man eine Vorw&auml;rtsrekursion macht:
+
+        $$J_k(1) = \min_{a \in A(i)}(g(i, a) + \alpha \sum_{j=1}^{n_x} f_{ij}(a) \cdot J_{k-1}(j))$$
+        $$J_0(i) = g(i)$$
+
+        Das ist m&ouml;glich, da das Problem zeitinvariant ist. Dies kann man durch
+        Indexverschiebung zeigen.
+    </dd>
+</dl>
+<h3 id="pomdps">POMDPs</h3>
+<dl>
+<dt><a href="https://en.wikipedia.org/wiki/Partially_observable_Markov_decision_process"><dfn id="pomdp">Partially observable Markov decision process</dfn></a> (POMDP)</dt>
+<dd>TODO</dd>
+</dl>
+<h3 id="reinforcement-learning">Reinforcement Learning</h3>
+<p>Kommt noch.</p>
 <h2 id="prufungsfragen_1">Pr&uuml;fungsfragen</h2>
 <ul>
 <li>Welche 3 Themengebiete wurden in der Vorlesung behandelt und was sind die
   Unterschiede?<br/>
-  &rarr; <a href="#mdp">MDP</a>, POMDP, RL</li>
+  &rarr; <a href="#mdp">MDP</a>, <a href="#pomdp">POMDP</a>, RL (TODO: Agent-Umfeld-Diagram)</li>
+<li>Wie ist eine Nutzenfunktion definiert?
+  &rarr; TODO</li>
+<li>Wie l&ouml;st man Optimierungsprobleme ohne Nebenbedingungen?<br/>
+  &rarr; TODO</li>
+<li>Beweisen Sie, dass der Gradient senkrecht auf die H&ouml;henlinien steht.
+  &rarr; TODO</li>
+<li>Wie l&ouml;st man Optimierungsprobleme mit Nebenbedingungen?<br/>
+  &rarr; Lagrange (TODO)</li>
+<li>Wann ist es leichter / schwerer das Optimierungsproblem zu l&ouml;sen?
+  &rarr; TODO</li>
+<li>Welche numerischen Methoden zur Optimierung kennen sie?
+  &rarr; TODO</li>
 </ul>
-<h2 id="material-und-links">Material und Links</h2>
+<h3 id="mdp">MDP</h3>
+<ul>
+<li>Wie lautet die Definition eines MDP?
+  &rarr; Siehe <a href="#mdp">oben</a>.</li>
+<li>Was versteht man unter dynamischer Programmierenung?
+  &rarr; Siehe <a href="#dynamic-programming">oben</a>.</li>
+<li>Wie lauten die Bellman-Gleichungen?
+  &rarr; Siehe <a href="#bellman-equation">oben</a>.</li>
+<li>Was ist an den Bellman-Gleichungen problematisch?
+  &rarr; TODO</li>
+</ul>
+<h3 id="pomdp">POMDP</h3>
+<ul>
+<li>Wie lautet die Definition eines POMDP?
+  &rarr; TODO</li>
+<li>Wie lautet die Kostenfunktion eines POMDP?
+  &rarr; TODO</li>
+<li>Was ist PWLC?
+  &rarr; TODO</li>
+</ul>
+<h3 id="rl">RL</h3>
+<ul>
+<li>Welche Arten von RL gibt es?
+  &rarr; TODO</li>
+</ul>
+<h2 id="material-und-links_1">Material und Links</h2>
 <ul>
 <li><a href="http://ies.anthropomatik.kit.edu/lehre_proplan.php">Vorlesungswebsite</a></li>
 </ul>
