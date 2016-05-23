@@ -760,7 +760,7 @@ Slides: `8-ConstrainedAssociationRules.pdf`
 Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
 
 <dl>
-    <dt><a href="Silhouettenkoeffizient" id="silhouette"><dfn>Silhouette-Koeffizient</dfn></a></dt>
+    <dt><a href="https://de.wikipedia.org/wiki/Silhouettenkoeffizient" id="silhouette"><dfn>Silhouette-Koeffizient</dfn></a></dt>
     <dd>Sei $C = (C_1, \dots, C_k)$ ein Clustering.
 
     <ul>
