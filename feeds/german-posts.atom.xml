@@ -39,7 +39,7 @@
 &lt;tr&gt;
 &lt;td&gt;18.05.2016&lt;/td&gt;
 &lt;td&gt;MDPs&lt;/td&gt;
-&lt;td&gt;Endliche Planungsprobleme&lt;/td&gt;
+&lt;td&gt;Endliche Planungsprobleme, Value- und Policy-Iteration&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
 &lt;h3 id="grundlagen"&gt;Grundlagen&lt;/h3&gt;
@@ -278,6 +278,17 @@
 &lt;li&gt;Strategieauswertung&lt;/li&gt;
 &lt;li&gt;Strategieverbesserung&lt;/li&gt;
 &lt;/ol&gt;
+
+        Vergleich zwischen Werte- und Strategieiteration:
+
+        &lt;ul&gt;
+&lt;li&gt;Strategieiteration konvergiert in weniger Schritten&lt;/li&gt;
+&lt;li&gt;Jeder Schritt der Strategieiteration ist teurer als in der
+                Werteoperation, da die Strategieauswertung die L&amp;ouml;sung eines
+                LGS ist (in $\mathcal{O}(n_x^3)$). Au&amp;szlig;erdem ist
+                die Strategieiteration nie f&amp;uuml;r $\alpha=1$ l&amp;ouml;sbar (kann auch
+                sonst passieren).&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h3 id="pomdps"&gt;POMDPs&lt;/h3&gt;
@@ -295,11 +306,11 @@
 &lt;li&gt;Welche 3 Themengebiete wurden in der Vorlesung behandelt und was sind die
   Unterschiede?&lt;br/&gt;
   &amp;rarr; &lt;a href="#mdp"&gt;MDP&lt;/a&gt;, &lt;a href="#pomdp"&gt;POMDP&lt;/a&gt;, &lt;a href="#rl"&gt;RL&lt;/a&gt; (TODO: Agent-Umfeld-Diagram)&lt;/li&gt;
-&lt;li&gt;Wie ist eine Nutzenfunktion definiert?
+&lt;li&gt;Wie ist eine Nutzenfunktion definiert?&lt;br/&gt;
   &amp;rarr; TODO&lt;/li&gt;
 &lt;li&gt;Wie l&amp;ouml;st man Optimierungsprobleme ohne Nebenbedingungen?&lt;br/&gt;
   &amp;rarr; TODO&lt;/li&gt;
-&lt;li&gt;Beweisen Sie, dass der Gradient senkrecht auf die H&amp;ouml;henlinien steht.
+&lt;li&gt;Beweisen Sie, dass der Gradient senkrecht auf die H&amp;ouml;henlinien steht.&lt;br/&gt;
   &amp;rarr; TODO&lt;/li&gt;
 &lt;li&gt;Wie l&amp;ouml;st man Optimierungsprobleme mit Nebenbedingungen?&lt;br/&gt;
   &amp;rarr; Lagrange (TODO)&lt;/li&gt;
@@ -1053,7 +1064,7 @@ Anwendungen von Association Rules denkbar:&lt;/p&gt;
 &lt;h3 id="clustering"&gt;Clustering&lt;/h3&gt;
 &lt;p&gt;Slides: &lt;code&gt;9-Clustering-1.pdf&lt;/code&gt; und &lt;code&gt;9-Clustering-2.pdf&lt;/code&gt;&lt;/p&gt;
 &lt;dl&gt;
-&lt;dt&gt;&lt;a href="Silhouettenkoeffizient" id="silhouette"&gt;&lt;dfn&gt;Silhouette-Koeffizient&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
+&lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Silhouettenkoeffizient" id="silhouette"&gt;&lt;dfn&gt;Silhouette-Koeffizient&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
 &lt;dd&gt;Sei $C = (C_1, \dots, C_k)$ ein Clustering.
 
     &lt;ul&gt;
@@ -6731,7 +6742,8 @@ sind (das ist nicht immer eine Einheitsmatrix!), Dann hei&amp;szlig;t die Matrix
 oben &lt;span class="math"&gt;\(Q\)&lt;/span&gt; und rechts oben &lt;span class="math"&gt;\(R\)&lt;/span&gt;. Dann gilt:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;span class="math"&gt;\((E-Q)^{-1} \cdot R\)&lt;/span&gt;: Absorptionszeit&lt;/li&gt;
-&lt;li&gt;&lt;span class="math"&gt;\((E-Q)^{-1} \cdot &lt;div class="math"&gt;\begin{pmatrix}1\\\vdots\\1\end{pmatrix}&lt;/div&gt;\)&lt;/span&gt;: Schritte bis zur Absorption.&lt;/li&gt;
+&lt;li&gt;
+&lt;div class="math"&gt;$$(E-Q)^{-1} \cdot \begin{pmatrix}1\\\vdots\\1\end{pmatrix}$$&lt;/div&gt;: Schritte bis zur Absorption.&lt;/li&gt;
 &lt;li&gt;Invariantes Ma&amp;szlig; finden: &lt;span class="math"&gt;\(\pi P = \pi\)&lt;/span&gt; bzw. &lt;span class="math"&gt;\(\pi Q = 0\)&lt;/span&gt; im zeitkontinuierlichen Fall&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="ubungsbetrieb_1"&gt;&amp;Uuml;bungsbetrieb&lt;/h2&gt;
