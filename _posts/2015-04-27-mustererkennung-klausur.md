@@ -325,11 +325,12 @@ Bonuspunkte.
 Folgende Vorlesungen sind ähnlich:
 
 * [Analysetechniken großer Datenbestände](https://martin-thoma.com/analysetechniken-grosser-datenbestaende/)
+* [Informationsfusion](https://martin-thoma.com/informationsfusion/)
 * [Machine Learning 1](https://martin-thoma.com/machine-learning-1-course/)
 * [Machine Learning 2](https://martin-thoma.com/machine-learning-2-course/)
 * [Mustererkennung](https://martin-thoma.com/mustererkennung-klausur/)
 * [Neuronale Netze](https://martin-thoma.com/neuronale-netze-vorlesung/)
-* Lokalisierung Mobiler Agenten
+* [Lokalisierung Mobiler Agenten](https://martin-thoma.com/lma/)
 * [Probabilistische Planung](https://martin-thoma.com/probabilistische-planung/)
 
 
