@@ -116,10 +116,50 @@ Signal, usw. eingef&uuml;hrt.</p>
 <li>Wahrscheinlichkeitsraum, Zufallsvariable</li>
 <li>Kalmann-Filter</li>
 <li>Extended Kalmann-Filter</li>
+<li>GUM</li>
+<li>Bayessche Methodik</li>
 </ul>
 <dl>
-<dt><a href="https://de.wikipedia.org/wiki/Kalman-Filter"><dfn>Kalman-Filter</dfn></a></dt>
-<dd></dd>
+<dt><a href="https://de.wikipedia.org/wiki/Kalman-Filter"><dfn id="kalman-filter">Kalman-Filter</dfn></a></dt>
+<dd>Der Kalman-Filter ist eine Menge mathematischer Gleichungen. Sie
+        ben&ouml;tigen unsicherheitsbehaftete Messungen unter dem Einfluss von
+        St&ouml;rungen und erlauben es eine gute Sch&auml;tzung f&uuml;r den tats&auml;chlichen
+        Wert anzugeben. So geht es z.B. darum die aktuelle Position eines
+        sich mit gleichm&auml;&szlig;iger Geschwindigkeit bewegenden Agenten zu
+        bestimmen. Dabei gibt es zwei St&ouml;rungen: Zum einen die Messung der
+        Position, zum anderen ist die Geschwindigkeit nicht perfekt gleich.<br/>
+<br/>
+        Kalman-Filter arbeiten mit linearen verschiebungsinvarianten
+        (zeitdiskreten) Systemen.<br/>
+<br/>
+        Zustandsgleichung:
+        $$x_{n+1} = A x_n + B u_n + G v_n$$
+        mit
+        <ul>
+<li>$x \in \mathbb{R}^{p \times 1}$ ist der Systemzustand.</li>
+<li>$A \in \mathbb{R}^{p \times p}$ hei&szlig;t Systemmatrix bzw.
+                  &Uuml;bergangsmatrix und beschreibt wie der Zustand $x_n$ in
+                  $x_{n+1}$ &uuml;bergeht.</li>
+<li>$u_n \in \mathbb{R}^{q \times 1}$ ist der deterministische
+                 Eingangsvektor</li>
+<li>$B \in \mathbb{R}^{p \times q}$ hei&szlig;t Steuermatrix</li>
+<li>$v_n \in \mathbb{R}^{s \times 1}$ ist der Rauschvektor</li>
+<li>$G \in \mathbb{R}^{p \times s}$ hei&szlig;t Rauschmatrix</li>
+<li></li>
+</ul>
+
+        Beobachtungsgleichung:
+        $$\hat{z}_n = C x_n + \mu_n$$
+        mit
+        <ul>
+<li>$\hat{z}_n \in \mathbb{R}^{r \times 1}$ Ausgangsvektor /
+                Beobachtungsvektor</li>
+<li>$C \in \mathbb{R}^{r \times p}$ hei&szlig;t Beobachtungsmatrix</li>
+<li>$x \in \mathbb{R}^{p \times 1}$ ist der Systemzustand.</li>
+<li>$\mu_n \in \mathbb{R}^{r \times 1}$ hei&szlig;t
+                Beobachtungs-Rauschvektor</li>
+</ul>
+</dd>
 </dl>
 <h3 id="dempster-shafer-theorie">Dempster-Shafer-Theorie</h3>
 <p>Slides: <code>IF-Kap3_160125.pdf</code></p>

@@ -11,10 +11,50 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;li&gt;Wahrscheinlichkeitsraum, Zufallsvariable&lt;/li&gt;
 &lt;li&gt;Kalmann-Filter&lt;/li&gt;
 &lt;li&gt;Extended Kalmann-Filter&lt;/li&gt;
+&lt;li&gt;GUM&lt;/li&gt;
+&lt;li&gt;Bayessche Methodik&lt;/li&gt;
 &lt;/ul&gt;
 &lt;dl&gt;
-&lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Kalman-Filter"&gt;&lt;dfn&gt;Kalman-Filter&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
-&lt;dd&gt;&lt;/dd&gt;
+&lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Kalman-Filter"&gt;&lt;dfn id="kalman-filter"&gt;Kalman-Filter&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
+&lt;dd&gt;Der Kalman-Filter ist eine Menge mathematischer Gleichungen. Sie
+        ben&amp;ouml;tigen unsicherheitsbehaftete Messungen unter dem Einfluss von
+        St&amp;ouml;rungen und erlauben es eine gute Sch&amp;auml;tzung f&amp;uuml;r den tats&amp;auml;chlichen
+        Wert anzugeben. So geht es z.B. darum die aktuelle Position eines
+        sich mit gleichm&amp;auml;&amp;szlig;iger Geschwindigkeit bewegenden Agenten zu
+        bestimmen. Dabei gibt es zwei St&amp;ouml;rungen: Zum einen die Messung der
+        Position, zum anderen ist die Geschwindigkeit nicht perfekt gleich.&lt;br/&gt;
+&lt;br/&gt;
+        Kalman-Filter arbeiten mit linearen verschiebungsinvarianten
+        (zeitdiskreten) Systemen.&lt;br/&gt;
+&lt;br/&gt;
+        Zustandsgleichung:
+        $$x_{n+1} = A x_n + B u_n + G v_n$$
+        mit
+        &lt;ul&gt;
+&lt;li&gt;$x \in \mathbb{R}^{p \times 1}$ ist der Systemzustand.&lt;/li&gt;
+&lt;li&gt;$A \in \mathbb{R}^{p \times p}$ hei&amp;szlig;t Systemmatrix bzw.
+                  &amp;Uuml;bergangsmatrix und beschreibt wie der Zustand $x_n$ in
+                  $x_{n+1}$ &amp;uuml;bergeht.&lt;/li&gt;
+&lt;li&gt;$u_n \in \mathbb{R}^{q \times 1}$ ist der deterministische
+                 Eingangsvektor&lt;/li&gt;
+&lt;li&gt;$B \in \mathbb{R}^{p \times q}$ hei&amp;szlig;t Steuermatrix&lt;/li&gt;
+&lt;li&gt;$v_n \in \mathbb{R}^{s \times 1}$ ist der Rauschvektor&lt;/li&gt;
+&lt;li&gt;$G \in \mathbb{R}^{p \times s}$ hei&amp;szlig;t Rauschmatrix&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+        Beobachtungsgleichung:
+        $$\hat{z}_n = C x_n + \mu_n$$
+        mit
+        &lt;ul&gt;
+&lt;li&gt;$\hat{z}_n \in \mathbb{R}^{r \times 1}$ Ausgangsvektor /
+                Beobachtungsvektor&lt;/li&gt;
+&lt;li&gt;$C \in \mathbb{R}^{r \times p}$ hei&amp;szlig;t Beobachtungsmatrix&lt;/li&gt;
+&lt;li&gt;$x \in \mathbb{R}^{p \times 1}$ ist der Systemzustand.&lt;/li&gt;
+&lt;li&gt;$\mu_n \in \mathbb{R}^{r \times 1}$ hei&amp;szlig;t
+                Beobachtungs-Rauschvektor&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h3 id="dempster-shafer-theorie"&gt;Dempster-Shafer-Theorie&lt;/h3&gt;
 &lt;p&gt;Slides: &lt;code&gt;IF-Kap3_160125.pdf&lt;/code&gt;&lt;/p&gt;
@@ -70,8 +110,13 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;17.05.2016&lt;/td&gt;
-&lt;td&gt;Kapitel 5 (?)&lt;/td&gt;
+&lt;td&gt;5. Vorlesung&lt;/td&gt;
 &lt;td&gt;Hessische Normalform, Least Squares&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;24.05.2016&lt;/td&gt;
+&lt;td&gt;6. Vorlesung&lt;/td&gt;
+&lt;td&gt;Least Squares&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
 &lt;h3 id="statische-lokalisierung"&gt;Statische Lokalisierung&lt;/h3&gt;
@@ -106,6 +151,14 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 
        Bei uns mit Vektorwertigen Sensoren, nicht wie im wie im Skript mit
        Skalaren.&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;Slides: &lt;code&gt;6. Vorlesung&lt;/code&gt;&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Sherman-Morrison-Woodbury-Formel"&gt;&lt;dfn&gt;Sherman-Morrison-Woodbury Formel&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
+&lt;dd&gt;F&amp;uuml;r zwei $n\times k$-Matrizen $U, V$ gilt:&lt;br/&gt;
+        Die $k\times k$-Matrix $E-V^T A^{-1}U$ sei regul&amp;auml;r, dann gilt
+        $$(A-UV^T)^{-1} = A^{-1}+A^{-1}U(E-V^TA^{-1}U)^{-1}V^T A^{-1}$$$
+    &lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h2 id="material-und-links_1"&gt;Material und Links&lt;/h2&gt;
 &lt;p&gt;Die Vorlesung wurde gestreamt und ist unter
