@@ -417,12 +417,12 @@ Bisher gab es meist 6 Aufgaben mit jeweils 10 Punkten:
 Es gibt Übungsblätter auf der Vorlesungswebsite, aber keinen Übungsschein, keine Abgaben und keine Bonuspunkte.
 
 <h2>Termine und Klausurablauf</h2>
-<strong>Datum</strong>: Freitag, den 26. Juli 2013 von 14:00 bis 15:00 Uhr (Klausur dauerte eine Stunde)
-<strong>Ort</strong>: seit 24.07.2013 auf der <a href="http://www.iks.kit.edu/sic-sose13">Vorlesungswebsite</a> (ich bin im H.S.a.F)
-<strong>Punkte</strong>: 60
-<strong>Bestehensgrenze</strong>: 20
-<strong>Übungsschein</strong>: Nein
-<strong>Bonuspunkte</strong>: Nein
+<strong>Datum</strong>: Freitag, den 26. Juli 2013 von 14:00 bis 15:00 Uhr (Klausur dauerte eine Stunde)<br/>
+<strong>Ort</strong>: seit 24.07.2013 auf der <a href="http://www.iks.kit.edu/sic-sose13">Vorlesungswebsite</a> (ich bin im H.S.a.F)<br/>
+<strong>Punkte</strong>: 60<br/>
+<strong>Bestehensgrenze</strong>: 20<br/>
+<strong>Übungsschein</strong>: Nein<br/>
+<strong>Bonuspunkte</strong>: Nein<br/>
 
 <h2>Nicht vergessen</h2>
 <ul>

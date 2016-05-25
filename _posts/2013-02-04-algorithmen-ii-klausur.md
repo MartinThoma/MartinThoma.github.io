@@ -256,13 +256,13 @@ $n$ Elemente mit dem Gewicht $\frac{1}{2}$ und $2n$ Elemente mit dem Gewicht $\f
 </div>
 
 <h2>Termine und Klausurablauf</h2>
-<strong>Datum</strong>: Freitag, den 1. März 2013 von 11:00 bis 13:00 (<a href="http://www.informatik.kit.edu/klausuren.php?kid=422.35">Quelle</a>)
-<strong>Ort</strong>: Tulla-Hörsaal (Siehe <a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2012/algo2/0225raumlisten.pdf">Liste</a>)
-<strong>Dauer</strong>: 2 Stunden
-<strong>Punkte</strong>: 60
-<strong>Bestehensgrenze</strong>: 20
-<strong>Übungsschein</strong>: Gibt es nicht.
-<strong>Bonuspunkte</strong>: Gibt es nicht.
+<strong>Datum</strong>: Freitag, den 1. März 2013 von 11:00 bis 13:00 (<a href="http://www.informatik.kit.edu/klausuren.php?kid=422.35">Quelle</a>)<br/>
+<strong>Ort</strong>: Tulla-Hörsaal (Siehe <a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2012/algo2/0225raumlisten.pdf">Liste</a>)<br/>
+<strong>Dauer</strong>: 2 Stunden<br/>
+<strong>Punkte</strong>: 60<br/>
+<strong>Bestehensgrenze</strong>: 20<br/>
+<strong>Übungsschein</strong>: Gibt es nicht.<br/>
+<strong>Bonuspunkte</strong>: Gibt es nicht.<br/>
 <strong>Nicht vergessen</strong>:
 <ul>
   <li>Studentenausweis</li>

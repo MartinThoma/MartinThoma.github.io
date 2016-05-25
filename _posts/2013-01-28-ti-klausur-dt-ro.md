@@ -382,12 +382,12 @@ Die Klausuren sind alle sehr &auml;hnlich aufgebaut. Eine typische Klausur hat 1
 </ol>
 
 <h2>Termine und Klausurablauf</h2>
-<strong>Datum</strong>: Mittwoch, den 3. April 2013 von 14:00 bis 16:00 Uhr
-<strong>Ort</strong>: <a href="http://kit.carstengriesheimer.de/map/1458">Gaede</a> (bei mir; siehe <a href="http://ti.ira.uka.de/Klausur/Hoersaalverteilung.htm">H&ouml;rsaaleinteilung</a>, die seit dem 2. April 2013 drau&szlig;en ist)
-<strong>Dauer</strong>: 1 h DT, 1 h RO
-<strong>Punkte</strong>: (vermutlich) 90
-<strong>Bestehensgrenze</strong>: (vermutlich) 40
-<strong>&Uuml;bungsschein</strong>: Wird nicht ins Studienportal eingetragen
+<strong>Datum</strong>: Mittwoch, den 3. April 2013 von 14:00 bis 16:00 Uhr<br/>
+<strong>Ort</strong>: <a href="http://kit.carstengriesheimer.de/map/1458">Gaede</a> (bei mir; siehe <a href="http://ti.ira.uka.de/Klausur/Hoersaalverteilung.htm">H&ouml;rsaaleinteilung</a>, die seit dem 2. April 2013 drau&szlig;en ist)<br/>
+<strong>Dauer</strong>: 1 h DT, 1 h RO<br/>
+<strong>Punkte</strong>: (vermutlich) 90<br/>
+<strong>Bestehensgrenze</strong>: (vermutlich) 40<br/>
+<strong>&Uuml;bungsschein</strong>: Wird nicht ins Studienportal eingetragen<br/>
 <strong>Bonuspunkte</strong>: 
 <ul>
   <li>&Uuml;bungsschein RO: 1 Bonuspunkt</li>

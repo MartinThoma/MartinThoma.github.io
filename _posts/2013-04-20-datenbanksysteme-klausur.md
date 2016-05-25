@@ -209,8 +209,8 @@ Wie zur H&ouml;lle soll man das l&ouml;sen? Ich hatte auf &bdquo;448444&ldquo; g
 
 
 ## Termine und Klausurablauf
-<strong>Datum</strong>: Mittwoch, den 31. Juli 2013 von 11:00 bis 13:00 Uhr
-<strong>Ort</strong>: seit 29.07.2013 online:
+<strong>Datum</strong>: Mittwoch, den 31. Juli 2013 von 11:00 bis 13:00 Uhr<br/>
+<strong>Ort</strong>: seit 29.07.2013 online:<br/>
 
 <table>
   <tr>
@@ -243,9 +243,9 @@ Wie zur H&ouml;lle soll man das l&ouml;sen? Ich hatte auf &bdquo;448444&ldquo; g
   </tr>
 </table>
 
-<strong>Punkte</strong>: 60
-<strong>Bestehensgrenze</strong>: ?
-<strong>&Uuml;bungsschein</strong>: ?
+<strong>Punkte</strong>: 60<br/>
+<strong>Bestehensgrenze</strong>: ?<br/>
+<strong>&Uuml;bungsschein</strong>: ?<br/>
 <strong>Bonuspunkte</strong>: ?
 
 

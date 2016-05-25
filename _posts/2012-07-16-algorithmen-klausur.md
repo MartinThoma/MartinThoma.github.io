@@ -16,7 +16,7 @@ F&uuml;r die Klausur in Algorithmen I sollte man Folgendes auf jeden Fall wissen
 	<li>Wie funktioniert der Algorithmus von Kruskal und was macht er? &rarr; <a href="http://de.wikipedia.org/wiki/Algorithmus_von_Kruskal">Antwort</a></li>
 	<li>Wie funktioniert der Algorithmus von Prim und was macht er? &rarr; <a href="http://de.wikipedia.org/wiki/Algorithmus_von_Prim">Antwort</a></li>
 	<li>Was ist ein Heap, ein B-Baum, ein Digitaler Baum und was ein Suchbaum? &rarr; <a href="../ubersicht-uber-datenstrukturen/">Antwort</a></li>
-	<li>Sei $A := $ {Insertionsort, Quicksort, Mergesort, Heapsort, Selectionsort}. Beantworte und begr&uuml;nde f&uuml;r $x \in A$ folgende Fragen:
+	<li>Sei $A :=$ {Insertionsort, Quicksort, Mergesort, Heapsort, Selectionsort}. Beantworte und begr&uuml;nde f&uuml;r $x \in A$ folgende Fragen:
 <ul>
 	<li>Wie funktioniert x?</li>
 	<li>Ist x stabil?</li>

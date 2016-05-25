@@ -119,12 +119,12 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 Man sollte die &Uuml;bungsbl&auml;tter nochmals machen, die relevanten Kapitel im <a href="http://mitschriebwiki.nomeata.de/Ana1.pdf">Skript f&uuml;r Analysis I</a> und im Skript f&uuml;r <a href="http://mitschriebwiki.nomeata.de/SS10/Ana2Bachelor.pdf">Analysis II (Bachelor)</a> durchlesen und Klausuren rechnen. (Aktuellere Skripte finden sich in meinem <a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/documents">GitHub Repository</a>. Allerdings muss man die PDF selbst erstellen.)
 
 <h2>Termine und Klausurablauf</h2>
-<strong>Datum</strong>: Dienstag, den 25. September 2012 von 08:00 bis 13:00 Uhr
-<strong>Ort</strong>: <a href="http://www.math.kit.edu/iana3/~schmoeger/seite/einteilung/de">H&ouml;rsaaleinteilung</a> - Ich bin im <a href="https://maps.google.com/maps?q=49.009522,8.412978&ll=49.009522,8.412979&spn=0.000932,0.002642&num=1&t=m&z=19">Hetz-H&ouml;rsaal</a>.
-<strong>Dauer</strong>: 2 h Analysis I, 1 h Pause, 2 h Analysis II
-<strong>Punkte</strong>: 7 Aufgaben &agrave; 3 Punkte f&uuml;r Analysis I, 7 Aufgaben &agrave; 3 Punkte f&uuml;r Analysis II
-<strong>Bestehensgrenze</strong>: Wohl bei ca. 21 Punkten
-<strong>&Uuml;bungsschein</strong>: Ist im Studierendenportal eingetragen
+<strong>Datum</strong>: Dienstag, den 25. September 2012 von 08:00 bis 13:00 Uhr<br/>
+<strong>Ort</strong>: <a href="http://www.math.kit.edu/iana3/~schmoeger/seite/einteilung/de">H&ouml;rsaaleinteilung</a> - Ich bin im <a href="https://maps.google.com/maps?q=49.009522,8.412978&ll=49.009522,8.412979&spn=0.000932,0.002642&num=1&t=m&z=19">Hetz-H&ouml;rsaal</a>.<br/>
+<strong>Dauer</strong>: 2 h Analysis I, 1 h Pause, 2 h Analysis II<br/>
+<strong>Punkte</strong>: 7 Aufgaben &agrave; 3 Punkte f&uuml;r Analysis I, 7 Aufgaben &agrave; 3 Punkte f&uuml;r Analysis II<br/>
+<strong>Bestehensgrenze</strong>: Wohl bei ca. 21 Punkten<br/>
+<strong>&Uuml;bungsschein</strong>: Ist im Studierendenportal eingetragen<br/>
 <strong>Bonuspunkte</strong>: Gibt es nicht.
 
 <h2>Ergebnisse</h2>
