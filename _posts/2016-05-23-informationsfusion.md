@@ -27,10 +27,51 @@ Slides: `IF-Kap2_151215.pdf`
 * Wahrscheinlichkeitsraum, Zufallsvariable
 * Kalmann-Filter
 * Extended Kalmann-Filter
+* GUM
+* Bayessche Methodik
 
 <dl>
-    <dt><a href="https://de.wikipedia.org/wiki/Kalman-Filter"><dfn>Kalman-Filter</dfn></a></dt>
-    <dd></dd>
+    <dt><a href="https://de.wikipedia.org/wiki/Kalman-Filter"><dfn id="kalman-filter">Kalman-Filter</dfn></a></dt>
+    <dd>Der Kalman-Filter ist eine Menge mathematischer Gleichungen. Sie
+        benötigen unsicherheitsbehaftete Messungen unter dem Einfluss von
+        Störungen und erlauben es eine gute Schätzung für den tatsächlichen
+        Wert anzugeben. So geht es z.B. darum die aktuelle Position eines
+        sich mit gleichmäßiger Geschwindigkeit bewegenden Agenten zu
+        bestimmen. Dabei gibt es zwei Störungen: Zum einen die Messung der
+        Position, zum anderen ist die Geschwindigkeit nicht perfekt gleich.<br/>
+        <br/>
+        Kalman-Filter arbeiten mit linearen verschiebungsinvarianten
+        (zeitdiskreten) Systemen.<br/>
+        <br/>
+        Zustandsgleichung:
+        $$x_{n+1} = A x_n + B u_n + G v_n$$
+        mit
+        <ul>
+             <li>$x \in \mathbb{R}^{p \times 1}$ ist der Systemzustand.</li>
+             <li>$A \in \mathbb{R}^{p \times p}$ heißt Systemmatrix bzw.
+                  Übergangsmatrix und beschreibt wie der Zustand $x_n$ in
+                  $x_{n+1}$ übergeht.</li>
+             <li>$u_n \in \mathbb{R}^{q \times 1}$ ist der deterministische
+                 Eingangsvektor</li>
+             <li>$B \in \mathbb{R}^{p \times q}$ heißt Steuermatrix</li>
+             <li>$v_n \in \mathbb{R}^{s \times 1}$ ist der Rauschvektor</li>
+             <li>$G \in \mathbb{R}^{p \times s}$ heißt Rauschmatrix</li>
+             <li></li>
+         </ul>
+
+        Beobachtungsgleichung:
+        $$\hat{z}_n = C x_n + \mu_n$$
+        mit
+        <ul>
+            <li>$\hat{z}_n \in \mathbb{R}^{r \times 1}$ Ausgangsvektor /
+                Beobachtungsvektor</li>
+            <li>$C \in \mathbb{R}^{r \times p}$ heißt Beobachtungsmatrix</li>
+            <li>$x \in \mathbb{R}^{p \times 1}$ ist der Systemzustand.</li>
+            <li>$\mu_n \in \mathbb{R}^{r \times 1}$ heißt
+                Beobachtungs-Rauschvektor</li>
+        </ul>
+
+        </dd>
 </dl>
 
 
