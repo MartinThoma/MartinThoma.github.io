@@ -104,7 +104,7 @@ MathJax.Hub.Queue(function() {
     <div class="span8 article-content" id="contentAfterTitle">
 
             
-            <p>Just like before with polynomial interpolation, we have a list of <span class="math">\(n+1\)</span> given point <span class="math">\((x_i, y_i)\)</span> with <span class="math">\(x_0 &lt; x_1 &lt; \dots &lt; x_n\)</span>. </p>
+            <p>Just like before with polynomial interpolation, we have a list of <span class="math">\(n+1\)</span> given point <span class="math">\((x_i, y_i)\)</span> with <span class="math">\(x_0 &lt; x_1 &lt; \dots &lt; x_n\)</span>.</p>
 <p>We want to find a function that goes through those points and approximates the underlying function that produced that points as good as possible.</p>
 <h2 id="polynomial-interpolation">Polynomial interpolation</h2>
 <p>The problem of polynomial interpolation were oscillations at the end of the interval you wanted to interpolate (see <a href="../html5/polynom-interpolation.htm?function=1%2F(25*x*x%2B1)&amp;evaluationSteps=0.01&amp;X_MIN=-1.5&amp;X_MAX=1.5&amp;Y_MAX=1.2&amp;Y_MIN=-1.2&amp;X_TICKS_STEPS=0.2&amp;Y_TICKS_STEPS=0.2&amp;X_FROM=-1&amp;X_TO=1&amp;N_EVALUATION_POINTS=10&amp;points=%5B%5D&amp;tschebyscheffSwitch=true&amp;equallySwitch=true">interactive example</a>):</p>
@@ -114,7 +114,7 @@ MathJax.Hub.Queue(function() {
 </figure>
 <p>As you can see, polynomial interpolation with equally spaced points is very, very bad at the ends of the interval. Tschebyscheff spaced points are much better, but you can still see that the interpolated function is different from the original.</p>
 <h2 id="splines">Splines</h2>
-<p>A way to solve this problem are splines. A spline is a piecewise-defined function that goes through some points (aka knots) and is smooth. </p>
+<p>A way to solve this problem are splines. A spline is a piecewise-defined function that goes through some points (aka knots) and is smooth.</p>
 <p>More formally: Let <span class="math">\(s: [x_0,x_n] \rightarrow \mathbb{R}\)</span> be a spline. Then:
 <ol style="list-style-type: none;">
 <li>(S1) <strong>cubic</strong>: <span class="math">\(\forall i \in \{1, \dots, n\}: s|_{x_{i-1}, x_i}\)</span> is a cubic function</li>
@@ -123,33 +123,27 @@ MathJax.Hub.Queue(function() {
 </ol></p>
 <p>When you use a cubic function <span class="math">\(a x^3 + b x^2 + cx + d\)</span> for each of the <span class="math">\(n\)</span> intervals that we got by our <span class="math">\(n+1\)</span> points, you have <span class="math">\(4n\)</span> variables that you need to calculate.</p>
 <p>Condition (S2) gives two equations per interval which makes <span class="math">\(2n\)</span> equations of the form:</p>
-<p>$
-</p>
-<div class="math">\begin{align}
+<div class="math">$$
+\begin{align}
 y_i     &amp;= a_i x_i^3     &amp;&amp;+ b_i x_i^2     &amp;&amp;+ c_i x_i     &amp;&amp;+ d_i\\
 y_{i+1} &amp;= a_i x_{i+1}^3 &amp;&amp;+ b_i x_{i+1}^2 &amp;&amp;+ c_i x_{i+1} &amp;&amp;+ d_i
-\end{align}</div>
-<p>
-$</p>
+\end{align}
+$$</div>
 <p>At first glance condition (S3) - <span class="math">\(s \in C^2([x_0, x_n])\)</span> - seems to be redundant with (S1) - <span class="math">\(s\)</span> is piecewise cubic. Every polynomial is in <span class="math">\(C^\infty(\mathbb{R})\)</span>, so it certainly is in <span class="math">\(C^2([x_0, x_n])\)</span>.<br/>
 That's correct. But <span class="math">\(s\)</span> is not a polynomial. It's only piecewise-defined as a polynomial. That makes a difference at the ends of the intervals. And it gives us <span class="math">\(2n-2\)</span> more equations:</p>
-<p>$\displaystyle
-</p>
-<div class="math">\begin{align}
+<div class="math">$$\displaystyle
+\begin{align}
 s_i' (x_{i}) &amp;= s_{i+1}'(x_{i}) \;\;\;  &amp;&amp;\forall i=1, \dots, n-1\\
 s_i''(x_{i}) &amp;= s_{i+1}''(x_{i}) \;\;\; &amp;&amp;\forall i=1, \dots, n-1
-\end{align}</div>
-<p>
-$</p>
+\end{align}
+$$</div>
 <p>which is equivalent to</p>
-<p>$\displaystyle
-</p>
-<div class="math">\begin{align}
+<div class="math">$$\displaystyle
+\begin{align}
 3a_i x_i^2 + 2b_i x_i + c_i &amp;= 3a_{i+1} x_i^2 + 2b_{i+1} x_i + c_{i+1} \;\;\; &amp;&amp;\forall i=1, \dots, n-1\\
 6a_i x_i + 2b_i &amp;= 6a_{i+1} x_i + 2b_{i+1} \;\;\; &amp;&amp;\forall i=1, \dots, n-1
-\end{align}</div>
-<p>
-$</p>
+\end{align}
+$$</div>
 <p>All equations we have are linear. Please note that the variables we want to determine are <span class="math">\(a_i, b_i, c_i, d_i\)</span>. So <span class="math">\(x_i^3\)</span> is simply a multiplicative constant that we have to evaluate before we solve our system of equations.</p>
 <p>But at the moment, we only have <span class="math">\(2n+2\cdot(n-1) = 4n -2\)</span> equations, but we have <span class="math">\(4n\)</span> variables. So we need ancillary conditions to solve this linear system of equations.</p>
 <h2 id="possible-ancillary-conditions">Possible ancillary conditions</h2>
@@ -198,7 +192,7 @@ $</p>
     <span class="k">return</span> <span class="n">tmp</span>
 
 <span class="k">def</span> <span class="nf">getSpline</span><span class="p">(</span><span class="n">points</span><span class="p">):</span>
-    <span class="sd">""" points should be a list of maps, </span>
+    <span class="sd">""" points should be a list of maps,</span>
 <span class="sd">        where each map represents a point and has "x" and "y" """</span>
     <span class="kn">import</span> <span class="nn">numpy</span><span class="o">,</span> <span class="nn">scipy.linalg</span>
 

@@ -18,8 +18,10 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;dl&gt;
 &lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Kalman-Filter"&gt;&lt;dfn id="kalman-filter"&gt;Kalman-Filter&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
-&lt;dd&gt;Der Kalman-Filter ist eine Menge mathematischer Gleichungen. Sie
-        ben&amp;ouml;tigen unsicherheitsbehaftete Messungen unter dem Einfluss von
+&lt;dd&gt;Der Kalman-Filter ist ein iterativer Algorithmus, welcher in jedem
+        Schritt weitere Daten erh&amp;auml;lt und so den wahren Wert
+        (z.B. Geschwindigkeit) ermittelt. Er
+        ben&amp;ouml;tigt unsicherheitsbehaftete Messungen unter dem Einfluss von
         St&amp;ouml;rungen und erlauben es eine gute Sch&amp;auml;tzung f&amp;uuml;r den tats&amp;auml;chlichen
         Wert anzugeben. So geht es z.B. darum die aktuelle Position eines
         sich mit gleichm&amp;auml;&amp;szlig;iger Geschwindigkeit bewegenden Agenten zu
@@ -55,6 +57,11 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;li&gt;$x \in \mathbb{R}^{p \times 1}$ ist der Systemzustand.&lt;/li&gt;
 &lt;li&gt;$\mu_n \in \mathbb{R}^{r \times 1}$ hei&amp;szlig;t
                 Beobachtungs-Rauschvektor&lt;/li&gt;
+&lt;/ul&gt;
+
+        Weiteres:
+        &lt;ul&gt;
+&lt;li&gt;Michael van Biezen: &lt;a href="http://www.ilectureonline.com/lectures/subject/SPECIAL%20TOPICS/26/190"&gt;Kalman Filter&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
 &lt;/dl&gt;
@@ -105,14 +112,14 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;li&gt;Wie entwickeln sich die Wahrscheinlichkeiten beim Kalman-Filter?&lt;br/&gt;
   &amp;rarr; Bei der Pr&amp;auml;diktion steigt die Unsicherheit, bei der Innovation sinkt sie.&lt;/li&gt;
 &lt;li&gt;Wie lautet das Systemmodell im Kalman-Filter?&lt;br/&gt;
-  &amp;rarr; TODO&lt;/li&gt;
+  &amp;rarr; TODO (Systemgleichung und Beobachtungsgleichung)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="material-und-links_1"&gt;Material und Links&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://ies.anthropomatik.kit.edu/lehre_informationsfusion.php"&gt;Vorlesungswebsite&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://ankiweb.net/shared/info/1070725022"&gt;Anki-Deck&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="vorlesungsempfehlungen"&gt;Vorlesungsempfehlungen&lt;/h2&gt;
+&lt;h2 id="vorlesungsempfehlungen"&gt;Vorlesungs&amp;shy;empfehlungen&lt;/h2&gt;
 &lt;p&gt;Folgende Vorlesungen sind &amp;auml;hnlich:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/"&gt;Analysetechniken gro&amp;szlig;er Datenbest&amp;auml;nde&lt;/a&gt;&lt;/li&gt;
@@ -254,9 +261,14 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;tr&gt;
 &lt;td&gt;25.05.2016&lt;/td&gt;
 &lt;td&gt;MDPs&lt;/td&gt;
-&lt;td&gt;K&amp;uuml;rzeste-Wege Suche (Tiefensuche, Breitensuche, Dijkstra, A*, Branch &amp;amp; Bound; Label-Korrektur-Algorithmus); Differentialantrieb&lt;/td&gt;
+&lt;td&gt;K&amp;uuml;rzeste-Wege Suche (Tiefensuche, Breitensuche, Dijkstra, A*, Branch &amp;amp; Bound; Label-Korrektur-Algorithmus); Trellis-Diagramm; Differentialantrieb; Pontryagin's Minimumprinzip&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
+&lt;p&gt;Folien:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;25.05.2016: Folie 4 - Die Knoten sind Zust&amp;auml;nde und die Kanten sind Aktionen&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(g_{ij}^k = \infty\)&lt;/span&gt;: Kein &amp;Uuml;bergang von &lt;span class="math"&gt;\(i\)&lt;/span&gt; nach &lt;span class="math"&gt;\(j\)&lt;/span&gt; in Schritt &lt;span class="math"&gt;\(k\)&lt;/span&gt;.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id="grundlagen"&gt;Grundlagen&lt;/h3&gt;
 &lt;p&gt;Slides: &lt;code&gt;ProPlan-1-Anschrieb.pdf&lt;/code&gt;&lt;/p&gt;
 &lt;dl&gt;
@@ -505,6 +517,20 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
                 sonst passieren).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Label-Korrektur-Algorithmus&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;Der Label-Korrektur-Algorithmus ist ein Meta-Algorithmus zur
+        k&amp;uuml;rzeste-Wege-Suche dient. Spezialf&amp;auml;lle von diesem sind die
+        Tiefen- und Breitensuche, der &lt;a href="https://de.wikipedia.org/wiki/Dijkstra-Algorithmus"&gt;Dijkstra-Algorithmus&lt;/a&gt;, der &lt;a href="https://de.wikipedia.org/wiki/A*-Algorithmus"&gt;A*-Algorithmus&lt;/a&gt; sowie
+        Branch &amp;amp; Bound.&lt;/dd&gt;
+&lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Trellis-Code"&gt;&lt;dfn id="trellis"&gt;Trellis-Diagramm&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
+&lt;dd&gt;Eine Diagramm welches anzeigt welche Zust&amp;auml;nde &amp;uuml;ber die Zeit
+        gew&amp;auml;hlt werden.&lt;/dd&gt;
+&lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Pontryagin%27s_maximum_principle"&gt;&lt;dfn id="pontryagins-minimum-principle"&gt;Pontryagin's Minimum-Prinzip&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
+&lt;dd&gt;Das Pontryagin'sche Minimum-Prinzip k&amp;ouml;nnte als die russische
+        Variante der Bellman-Gleichungen f&amp;uuml;r deterministische MDPs bezeichnet
+        werden.&lt;br/&gt;
+
+        TODO&lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h3 id="pomdps"&gt;POMDPs&lt;/h3&gt;
 &lt;dl&gt;

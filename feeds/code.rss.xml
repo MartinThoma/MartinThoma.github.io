@@ -6226,7 +6226,7 @@ You need a webcam for this:
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://stemkoski.github.io/Three.js/"&gt;stemkoski&lt;/a&gt;: Many examples&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://www.chromeexperiments.com/tag/3d/"&gt;Chrome Experiments&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Martin Thoma</dc:creator><pubDate>Mon, 01 Jul 2013 16:21:44 +0200</pubDate><guid isPermaLink="false">tag:martin-thoma.com,2013-07-01:threejs-is-awesome/</guid><category>JavaScript Game</category><category>JavaScript</category><category>three.js</category></item><item><title>Spline interpolation</title><link>https://martin-thoma.com/spline-interpolation/</link><description>&lt;p&gt;Just like before with polynomial interpolation, we have a list of &lt;span class="math"&gt;\(n+1\)&lt;/span&gt; given point &lt;span class="math"&gt;\((x_i, y_i)\)&lt;/span&gt; with &lt;span class="math"&gt;\(x_0 &amp;lt; x_1 &amp;lt; \dots &amp;lt; x_n\)&lt;/span&gt;. &lt;/p&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Martin Thoma</dc:creator><pubDate>Mon, 01 Jul 2013 16:21:44 +0200</pubDate><guid isPermaLink="false">tag:martin-thoma.com,2013-07-01:threejs-is-awesome/</guid><category>JavaScript Game</category><category>JavaScript</category><category>three.js</category></item><item><title>Spline interpolation</title><link>https://martin-thoma.com/spline-interpolation/</link><description>&lt;p&gt;Just like before with polynomial interpolation, we have a list of &lt;span class="math"&gt;\(n+1\)&lt;/span&gt; given point &lt;span class="math"&gt;\((x_i, y_i)\)&lt;/span&gt; with &lt;span class="math"&gt;\(x_0 &amp;lt; x_1 &amp;lt; \dots &amp;lt; x_n\)&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;We want to find a function that goes through those points and approximates the underlying function that produced that points as good as possible.&lt;/p&gt;
 &lt;h2 id="polynomial-interpolation"&gt;Polynomial interpolation&lt;/h2&gt;
 &lt;p&gt;The problem of polynomial interpolation were oscillations at the end of the interval you wanted to interpolate (see &lt;a href="../html5/polynom-interpolation.htm?function=1%2F(25*x*x%2B1)&amp;amp;evaluationSteps=0.01&amp;amp;X_MIN=-1.5&amp;amp;X_MAX=1.5&amp;amp;Y_MAX=1.2&amp;amp;Y_MIN=-1.2&amp;amp;X_TICKS_STEPS=0.2&amp;amp;Y_TICKS_STEPS=0.2&amp;amp;X_FROM=-1&amp;amp;X_TO=1&amp;amp;N_EVALUATION_POINTS=10&amp;amp;points=%5B%5D&amp;amp;tschebyscheffSwitch=true&amp;amp;equallySwitch=true"&gt;interactive example&lt;/a&gt;):&lt;/p&gt;
@@ -6236,7 +6236,7 @@ You need a webcam for this:
 &lt;/figure&gt;
 &lt;p&gt;As you can see, polynomial interpolation with equally spaced points is very, very bad at the ends of the interval. Tschebyscheff spaced points are much better, but you can still see that the interpolated function is different from the original.&lt;/p&gt;
 &lt;h2 id="splines"&gt;Splines&lt;/h2&gt;
-&lt;p&gt;A way to solve this problem are splines. A spline is a piecewise-defined function that goes through some points (aka knots) and is smooth. &lt;/p&gt;
+&lt;p&gt;A way to solve this problem are splines. A spline is a piecewise-defined function that goes through some points (aka knots) and is smooth.&lt;/p&gt;
 &lt;p&gt;More formally: Let &lt;span class="math"&gt;\(s: [x_0,x_n] \rightarrow \mathbb{R}\)&lt;/span&gt; be a spline. Then:
 &lt;ol style="list-style-type: none;"&gt;
 &lt;li&gt;(S1) &lt;strong&gt;cubic&lt;/strong&gt;: &lt;span class="math"&gt;\(\forall i \in \{1, \dots, n\}: s|_{x_{i-1}, x_i}\)&lt;/span&gt; is a cubic function&lt;/li&gt;
@@ -6245,33 +6245,27 @@ You need a webcam for this:
 &lt;/ol&gt;&lt;/p&gt;
 &lt;p&gt;When you use a cubic function &lt;span class="math"&gt;\(a x^3 + b x^2 + cx + d\)&lt;/span&gt; for each of the &lt;span class="math"&gt;\(n\)&lt;/span&gt; intervals that we got by our &lt;span class="math"&gt;\(n+1\)&lt;/span&gt; points, you have &lt;span class="math"&gt;\(4n\)&lt;/span&gt; variables that you need to calculate.&lt;/p&gt;
 &lt;p&gt;Condition (S2) gives two equations per interval which makes &lt;span class="math"&gt;\(2n\)&lt;/span&gt; equations of the form:&lt;/p&gt;
-&lt;p&gt;$
-&lt;/p&gt;
-&lt;div class="math"&gt;\begin{align}
+&lt;div class="math"&gt;$$
+\begin{align}
 y_i     &amp;amp;= a_i x_i^3     &amp;amp;&amp;amp;+ b_i x_i^2     &amp;amp;&amp;amp;+ c_i x_i     &amp;amp;&amp;amp;+ d_i\\
 y_{i+1} &amp;amp;= a_i x_{i+1}^3 &amp;amp;&amp;amp;+ b_i x_{i+1}^2 &amp;amp;&amp;amp;+ c_i x_{i+1} &amp;amp;&amp;amp;+ d_i
-\end{align}&lt;/div&gt;
-&lt;p&gt;
-$&lt;/p&gt;
+\end{align}
+$$&lt;/div&gt;
 &lt;p&gt;At first glance condition (S3) - &lt;span class="math"&gt;\(s \in C^2([x_0, x_n])\)&lt;/span&gt; - seems to be redundant with (S1) - &lt;span class="math"&gt;\(s\)&lt;/span&gt; is piecewise cubic. Every polynomial is in &lt;span class="math"&gt;\(C^\infty(\mathbb{R})\)&lt;/span&gt;, so it certainly is in &lt;span class="math"&gt;\(C^2([x_0, x_n])\)&lt;/span&gt;.&lt;br/&gt;
 That's correct. But &lt;span class="math"&gt;\(s\)&lt;/span&gt; is not a polynomial. It's only piecewise-defined as a polynomial. That makes a difference at the ends of the intervals. And it gives us &lt;span class="math"&gt;\(2n-2\)&lt;/span&gt; more equations:&lt;/p&gt;
-&lt;p&gt;$\displaystyle
-&lt;/p&gt;
-&lt;div class="math"&gt;\begin{align}
+&lt;div class="math"&gt;$$\displaystyle
+\begin{align}
 s_i' (x_{i}) &amp;amp;= s_{i+1}'(x_{i}) \;\;\;  &amp;amp;&amp;amp;\forall i=1, \dots, n-1\\
 s_i''(x_{i}) &amp;amp;= s_{i+1}''(x_{i}) \;\;\; &amp;amp;&amp;amp;\forall i=1, \dots, n-1
-\end{align}&lt;/div&gt;
-&lt;p&gt;
-$&lt;/p&gt;
+\end{align}
+$$&lt;/div&gt;
 &lt;p&gt;which is equivalent to&lt;/p&gt;
-&lt;p&gt;$\displaystyle
-&lt;/p&gt;
-&lt;div class="math"&gt;\begin{align}
+&lt;div class="math"&gt;$$\displaystyle
+\begin{align}
 3a_i x_i^2 + 2b_i x_i + c_i &amp;amp;= 3a_{i+1} x_i^2 + 2b_{i+1} x_i + c_{i+1} \;\;\; &amp;amp;&amp;amp;\forall i=1, \dots, n-1\\
 6a_i x_i + 2b_i &amp;amp;= 6a_{i+1} x_i + 2b_{i+1} \;\;\; &amp;amp;&amp;amp;\forall i=1, \dots, n-1
-\end{align}&lt;/div&gt;
-&lt;p&gt;
-$&lt;/p&gt;
+\end{align}
+$$&lt;/div&gt;
 &lt;p&gt;All equations we have are linear. Please note that the variables we want to determine are &lt;span class="math"&gt;\(a_i, b_i, c_i, d_i\)&lt;/span&gt;. So &lt;span class="math"&gt;\(x_i^3\)&lt;/span&gt; is simply a multiplicative constant that we have to evaluate before we solve our system of equations.&lt;/p&gt;
 &lt;p&gt;But at the moment, we only have &lt;span class="math"&gt;\(2n+2\cdot(n-1) = 4n -2\)&lt;/span&gt; equations, but we have &lt;span class="math"&gt;\(4n\)&lt;/span&gt; variables. So we need ancillary conditions to solve this linear system of equations.&lt;/p&gt;
 &lt;h2 id="possible-ancillary-conditions"&gt;Possible ancillary conditions&lt;/h2&gt;
@@ -6320,7 +6314,7 @@ $&lt;/p&gt;
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;tmp&lt;/span&gt;
 
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;getSpline&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;points&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="sd"&gt;""" points should be a list of maps, &lt;/span&gt;
+    &lt;span class="sd"&gt;""" points should be a list of maps,&lt;/span&gt;
 &lt;span class="sd"&gt;        where each map represents a point and has "x" and "y" """&lt;/span&gt;
     &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nn"&gt;scipy.linalg&lt;/span&gt;
 
