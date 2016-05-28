@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Dialogmuseum
+slug: reviews/dialogmuseum
 save_as: reviews/dialogmuseum/index.html
 author: Martin Thoma
 date: 2014-03-20 21:09

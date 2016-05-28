@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Die Kuh die Lacht
+slug: reviews/die-kuh-die-lacht
 save_as: reviews/die-kuh-die-lacht/index.html
 author: Martin Thoma
 date: 2014-03-20 21:09

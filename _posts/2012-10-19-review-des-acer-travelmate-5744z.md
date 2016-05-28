@@ -56,7 +56,6 @@ edit: *argh* - also mit Ubuntu 12.04 (und Lubuntu 12.04 sowie Ubuntu mit Gnome/G
 
 <h2>Fazit</h2>
 Tolles Low-Budget Notebook, das einwandfrei unter Linux (und Windows) funktioniert!
+Insbesondere der Lüfter ist extrem leise.
 
 Was ich gerne noch hätte (aber bei diesem Preis nicht erwarten darf): Bluetooth
-
-Ich habe auch direkt einen <a href="http://linuxhcl.com/browse/product?id=7811">Eintrag in die HCL</a> gemacht.

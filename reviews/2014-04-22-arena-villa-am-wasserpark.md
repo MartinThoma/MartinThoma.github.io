@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Arena Villa am Wasserpark
+slug: reviews/arena-villa-am-wasserpark
 save_as: reviews/arena-villa-am-wasserpark/index.html
 author: Martin Thoma
 date: 2014-03-20 21:09

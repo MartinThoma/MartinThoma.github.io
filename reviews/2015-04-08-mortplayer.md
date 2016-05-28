@@ -1,6 +1,7 @@
 ---
 layout: page
 title: MortPlayer Audio Books
+slug: reviews/mortplayer
 save_as: reviews/mortplayer/index.html
 author: Martin Thoma
 date: 2014-03-20 21:09
