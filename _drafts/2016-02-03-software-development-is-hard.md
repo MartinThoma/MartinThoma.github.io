@@ -83,6 +83,8 @@ See [mjt.me.uk](https://www.mjt.me.uk/posts/falsehoods-programmers-believe-about
 ## Time
 See [infiniteundo.com](http://infiniteundo.com/post/25326999628/falsehoods-programmers-believe-about-time) and [part 2](http://infiniteundo.com/post/25509354022/more-falsehoods-programmers-believe-about-time), [part 3](http://puzzling.org/technology/computer-programming/2012/06/more-falsehoods-programmers-believe-about-time/)
 
+Also Computerphile covered [timezones](https://www.youtube.com/watch?v=-5wpm-gesOY&list=WL).
+
 
 ## Online Shopping
 
