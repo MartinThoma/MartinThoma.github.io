@@ -1,13 +1,11 @@
 ---
-layout: post
+layout: page
 title: Die Kuh die Lacht
+save_as: reviews/die-kuh-die-lacht/index.html
 author: Martin Thoma
 date: 2014-03-20 21:09
-categories:
-- Review
-tags:
-- Review
-- Restaurant
+category: Review
+tags: Review, Restaurant
 featured_image: 
 ---
 

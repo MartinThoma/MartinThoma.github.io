@@ -1,13 +1,11 @@
 ---
-layout: post
+layout: page
 title: Chinesischer Garten
+save_as: reviews/chinesischer-garten/index.html
 author: Martin Thoma
 date: 2014-03-20 21:09
-categories:
-- Review
-tags:
-- Review
-- Öffentlicher Platz
+category: Review
+tags: Review, Öffentlicher Platz
 featured_image:
 ---
 

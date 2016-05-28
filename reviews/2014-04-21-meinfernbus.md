@@ -1,14 +1,12 @@
 ---
-layout: post
+layout: page
 title: MeinFernbus
+slug: reviews/meinfernbus
+save_as: reviews/meinfernbus/index.html
 author: Martin Thoma
 date: 2014-03-20 21:09
-categories:
-- Review
-tags:
-- Review
-- Verkehr
-featured_image: 
+category: Review
+tags: Review, Verkehr
 ---
 
 Write your article.

@@ -1,13 +1,11 @@
 ---
-layout: post
+layout: page
 title: Dialogmuseum
+save_as: reviews/dialogmuseum/index.html
 author: Martin Thoma
 date: 2014-03-20 21:09
-categories:
-- Review
-tags:
-- Review
-- Museum
+category: Review
+tags: Review, Museum
 featured_image: 
 ---
 

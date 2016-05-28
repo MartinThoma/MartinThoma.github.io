@@ -1,14 +1,11 @@
 ---
-layout: post
+layout: page
 title: MortPlayer Audio Books
+save_as: reviews/mortplayer/index.html
 author: Martin Thoma
 date: 2014-03-20 21:09
-categories:
-- Review
-tags:
-- Review
-- App
-- Android
+category: Review
+tags: Review, App, Android
 featured_image:
 ---
 
