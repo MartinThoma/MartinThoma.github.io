@@ -1443,6 +1443,12 @@ wird.
 
 Falls es mündlich ist, soll es mindestens einen Termin pro Monat geben.
 
+<div class="alert alert-danger">
+  <strong>Wichtig!</strong> Ich musste zu Beginn der Vorlesung meinen
+  Personalausweis vorlegen, obwohl ich bereits meinen Studentenausweis
+  gezeigt hatte. Also: Ausweis mitnehmen!
+</div>
+
 **Datum**: Noch ist es eine mündliche Prüfung<br/>
 **Ort**: Noch ist es eine mündliche Prüfung<br/>
 **Punkte**: Noch ist es eine mündliche Prüfung<br/>
