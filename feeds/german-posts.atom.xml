@@ -32,15 +32,16 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
         (zeitdiskreten) Systemen.&lt;br/&gt;
 &lt;br/&gt;
         Zustandsgleichung:
-        $$x_{n+1} = A x_n + B u_n + G v_n$$
+        $$x_{n+1}^P = A x_n + B u_n + G v_n$$
         mit
         &lt;ul&gt;
 &lt;li&gt;$x \in \mathbb{R}^{p \times 1}$ ist der Systemzustand.&lt;/li&gt;
 &lt;li&gt;$A \in \mathbb{R}^{p \times p}$ hei&amp;szlig;t Systemmatrix bzw.
                   &amp;Uuml;bergangsmatrix und beschreibt wie der Zustand $x_n$ in
-                  $x_{n+1}$ &amp;uuml;bergeht.&lt;/li&gt;
+                  $x_{n+1}$ &amp;uuml;bergeht. Sie ist also z.B.
+                  $$A = \begin{pmatrix}1 &amp;amp; \Delta t\\0 &amp;amp; 1\end{pmatrix}$$&lt;/li&gt;
 &lt;li&gt;$u_n \in \mathbb{R}^{q \times 1}$ ist der deterministische
-                 Eingangsvektor&lt;/li&gt;
+                 Eingangsvektor (control variable matrix)&lt;/li&gt;
 &lt;li&gt;$B \in \mathbb{R}^{p \times q}$ hei&amp;szlig;t Steuermatrix&lt;/li&gt;
 &lt;li&gt;$v_n \in \mathbb{R}^{s \times 1}$ ist der Rauschvektor&lt;/li&gt;
 &lt;li&gt;$G \in \mathbb{R}^{p \times s}$ hei&amp;szlig;t Rauschmatrix&lt;/li&gt;
@@ -48,7 +49,7 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;/ul&gt;
 
         Beobachtungsgleichung:
-        $$\hat{z}_n = C x_n + \mu_n$$
+        $$\hat{z}_n = C x_n^M + \mu_n$$
         mit
         &lt;ul&gt;
 &lt;li&gt;$\hat{z}_n \in \mathbb{R}^{r \times 1}$ Ausgangsvektor /
@@ -58,6 +59,23 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;li&gt;$\mu_n \in \mathbb{R}^{r \times 1}$ hei&amp;szlig;t
                 Beobachtungs-Rauschvektor&lt;/li&gt;
 &lt;/ul&gt;
+
+        Update der process covariance matrix (mit process noise covariance
+        matrix $Q_k$):
+
+        $$P_{k}^P = A P_{k-1} A^T + Q_k$$
+
+        Der Kalman-Gain ist:
+
+        $$K = \frac{P_k^P H}{H P_k^P H^T + R}$$
+
+        Update das Zustands:
+
+        $$x_n = x_k^P + K (\hat{z}_n - H x_k^P)$$
+
+        Update des Fehlers:
+
+        $$P_k = (I - KH) P_k^P$$
 
         Weiteres:
         &lt;ul&gt;

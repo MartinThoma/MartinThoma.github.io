@@ -137,15 +137,16 @@ Signal, usw. eingef&uuml;hrt.</p>
         (zeitdiskreten) Systemen.<br/>
 <br/>
         Zustandsgleichung:
-        $$x_{n+1} = A x_n + B u_n + G v_n$$
+        $$x_{n+1}^P = A x_n + B u_n + G v_n$$
         mit
         <ul>
 <li>$x \in \mathbb{R}^{p \times 1}$ ist der Systemzustand.</li>
 <li>$A \in \mathbb{R}^{p \times p}$ hei&szlig;t Systemmatrix bzw.
                   &Uuml;bergangsmatrix und beschreibt wie der Zustand $x_n$ in
-                  $x_{n+1}$ &uuml;bergeht.</li>
+                  $x_{n+1}$ &uuml;bergeht. Sie ist also z.B.
+                  $$A = \begin{pmatrix}1 &amp; \Delta t\\0 &amp; 1\end{pmatrix}$$</li>
 <li>$u_n \in \mathbb{R}^{q \times 1}$ ist der deterministische
-                 Eingangsvektor</li>
+                 Eingangsvektor (control variable matrix)</li>
 <li>$B \in \mathbb{R}^{p \times q}$ hei&szlig;t Steuermatrix</li>
 <li>$v_n \in \mathbb{R}^{s \times 1}$ ist der Rauschvektor</li>
 <li>$G \in \mathbb{R}^{p \times s}$ hei&szlig;t Rauschmatrix</li>
@@ -153,7 +154,7 @@ Signal, usw. eingef&uuml;hrt.</p>
 </ul>
 
         Beobachtungsgleichung:
-        $$\hat{z}_n = C x_n + \mu_n$$
+        $$\hat{z}_n = C x_n^M + \mu_n$$
         mit
         <ul>
 <li>$\hat{z}_n \in \mathbb{R}^{r \times 1}$ Ausgangsvektor /
@@ -163,6 +164,23 @@ Signal, usw. eingef&uuml;hrt.</p>
 <li>$\mu_n \in \mathbb{R}^{r \times 1}$ hei&szlig;t
                 Beobachtungs-Rauschvektor</li>
 </ul>
+
+        Update der process covariance matrix (mit process noise covariance
+        matrix $Q_k$):
+
+        $$P_{k}^P = A P_{k-1} A^T + Q_k$$
+
+        Der Kalman-Gain ist:
+
+        $$K = \frac{P_k^P H}{H P_k^P H^T + R}$$
+
+        Update das Zustands:
+
+        $$x_n = x_k^P + K (\hat{z}_n - H x_k^P)$$
+
+        Update des Fehlers:
+
+        $$P_k = (I - KH) P_k^P$$
 
         Weiteres:
         <ul>
