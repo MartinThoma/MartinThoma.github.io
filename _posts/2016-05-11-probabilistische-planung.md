@@ -54,8 +54,17 @@ In der Vorlesung 'Probabilistische Planung' werden drei Themen besprochen:
     <td>MDPs</td>
     <td>Endliche Planungsprobleme, Value- und Policy-Iteration</td>
 </tr>
+<tr>
+    <td>25.05.2016</td>
+    <td>MDPs</td>
+    <td>Kürzeste-Wege Suche (Tiefensuche, Breitensuche, Dijkstra, A*, Branch &amp; Bound; Label-Korrektur-Algorithmus); Trellis-Diagramm; Differentialantrieb; Pontryagin's Minimumprinzip</td>
+</tr>
 </table>
 
+Folien:
+
+* 25.05.2016: Folie 4 - Die Knoten sind Zustände und die Kanten sind Aktionen
+* $g_{ij}^k = \infty$: Kein Übergang von $i$ nach $j$ in Schritt $k$.
 
 ### Grundlagen
 
@@ -320,6 +329,20 @@ Slides: `11.05.2016 - TODO`
                 sonst passieren).</li>
         </ul>
     </dd>
+    <dt><dfn>Label-Korrektur-Algorithmus</dfn></dt>
+    <dd>Der Label-Korrektur-Algorithmus ist ein Meta-Algorithmus zur
+        kürzeste-Wege-Suche dient. Spezialfälle von diesem sind die
+        Tiefen- und Breitensuche, der <a href="https://de.wikipedia.org/wiki/Dijkstra-Algorithmus">Dijkstra-Algorithmus</a>, der <a href="https://de.wikipedia.org/wiki/A*-Algorithmus">A*-Algorithmus</a> sowie
+        Branch &amp; Bound.</dd>
+    <dt><a href="https://de.wikipedia.org/wiki/Trellis-Code"><dfn id="trellis">Trellis-Diagramm</dfn></a></dt>
+    <dd>Eine Diagramm welches anzeigt welche Zustände über die Zeit
+        gewählt werden.</dd>
+    <dt><a href="https://en.wikipedia.org/wiki/Pontryagin%27s_maximum_principle"><dfn id="pontryagins-minimum-principle">Pontryagin's Minimum-Prinzip</dfn></a></dt>
+    <dd>Das Pontryagin'sche Minimum-Prinzip könnte als die russische
+        Variante der Bellman-Gleichungen für deterministische MDPs bezeichnet
+        werden.<br/>
+
+        TODO</dd>
 </dl>
 
 ### POMDPs
