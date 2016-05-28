@@ -7,7 +7,7 @@ category: Code
 tags: numerics
 featured_image: 2013/06/spline-thumb.png
 ---
-Just like before with polynomial interpolation, we have a list of $n+1$ given point $(x_i, y_i)$ with $x_0 < x_1 < \dots < x_n$. 
+Just like before with polynomial interpolation, we have a list of $n+1$ given point $(x_i, y_i)$ with $x_0 < x_1 < \dots < x_n$.
 
 We want to find a function that goes through those points and approximates the underlying function that produced that points as good as possible.
 
@@ -22,44 +22,44 @@ The problem of polynomial interpolation were oscillations at the end of the inte
 As you can see, polynomial interpolation with equally spaced points is very, very bad at the ends of the interval. Tschebyscheff spaced points are much better, but you can still see that the interpolated function is different from the original.
 
 <h2>Splines</h2>
-A way to solve this problem are splines. A spline is a piecewise-defined function that goes through some points (aka knots) and is smooth. 
+A way to solve this problem are splines. A spline is a piecewise-defined function that goes through some points (aka knots) and is smooth.
 
 More formally: Let $s: [x_0,x_n] \rightarrow \mathbb{R}$ be a spline. Then:
 <ol style="list-style-type: none;">
   <li>(S1) <strong>cubic</strong>: $\forall i \in \{1, \dots, n\}: s|_{x_{i-1}, x_i}$ is a cubic function</li>
   <li>(S2) <strong>interpolation</strong>: $\forall i \in \{0, \dots, n\}: s(x_i) = y_i$</li>
-  <li>(S3) <strong>smooth</strong>: $s \in C^2([x_0, x_n])$ and $\int_{x_0}^{x_n} s''(x)^2 \mathrm{d}x$ is minimal</li> 
+  <li>(S3) <strong>smooth</strong>: $s \in C^2([x_0, x_n])$ and $\int_{x_0}^{x_n} s''(x)^2 \mathrm{d}x$ is minimal</li>
 </ol>
 
 When you use a cubic function $a x^3 + b x^2 + cx + d$ for each of the $n$ intervals that we got by our $n+1$ points, you have $4n$ variables that you need to calculate.
 
 Condition (S2) gives two equations per interval which makes $2n$ equations of the form:
 
-$
+$$
 \begin{align}
 y_i     &= a_i x_i^3     &&+ b_i x_i^2     &&+ c_i x_i     &&+ d_i\\
 y_{i+1} &= a_i x_{i+1}^3 &&+ b_i x_{i+1}^2 &&+ c_i x_{i+1} &&+ d_i
 \end{align}
-$
+$$
 
 At first glance condition (S3) - $s \in C^2([x_0, x_n])$ - seems to be redundant with (S1) - $s$ is piecewise cubic. Every polynomial is in $C^\infty(\mathbb{R})$, so it certainly is in $C^2([x_0, x_n])$.<br/>
 That's correct. But $s$ is not a polynomial. It's only piecewise-defined as a polynomial. That makes a difference at the ends of the intervals. And it gives us $2n-2$ more equations:
 
-$\displaystyle
+$$\displaystyle
 \begin{align}
 s_i' (x_{i}) &= s_{i+1}'(x_{i}) \;\;\;  &&\forall i=1, \dots, n-1\\
 s_i''(x_{i}) &= s_{i+1}''(x_{i}) \;\;\; &&\forall i=1, \dots, n-1
 \end{align}
-$
+$$
 
 which is equivalent to
 
-$\displaystyle
+$$\displaystyle
 \begin{align}
 3a_i x_i^2 + 2b_i x_i + c_i &= 3a_{i+1} x_i^2 + 2b_{i+1} x_i + c_{i+1} \;\;\; &&\forall i=1, \dots, n-1\\
 6a_i x_i + 2b_i &= 6a_{i+1} x_i + 2b_{i+1} \;\;\; &&\forall i=1, \dots, n-1
 \end{align}
-$
+$$
 
 All equations we have are linear. Please note that the variables we want to determine are $a_i, b_i, c_i, d_i$. So $x_i^3$ is simply a multiplicative constant that we have to evaluate before we solve our system of equations.
 
@@ -118,7 +118,7 @@ def niceCubicPolynomial(p):
     return tmp
 
 def getSpline(points):
-    """ points should be a list of maps, 
+    """ points should be a list of maps,
         where each map represents a point and has "x" and "y" """
     import numpy, scipy.linalg
 
