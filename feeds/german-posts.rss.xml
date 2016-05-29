@@ -31,7 +31,7 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
         Kalman-Filter arbeiten mit linearen verschiebungsinvarianten
         (zeitdiskreten) Systemen.&lt;br/&gt;
 &lt;br/&gt;
-        Zustandsgleichung:
+&lt;span id="kf-zustandsgleichung"&gt;Zustandsgleichung&lt;/span&gt;:
         $$x_{n+1}^{(P)} = A x_n + B u_n + G v_n$$
         mit
         &lt;ul&gt;
@@ -46,8 +46,7 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;li&gt;$v_n \in \mathbb{R}^{s \times 1}$ ist der Rauschvektor&lt;/li&gt;
 &lt;li&gt;$G \in \mathbb{R}^{p \times s}$ hei&amp;szlig;t Rauschmatrix&lt;/li&gt;
 &lt;/ul&gt;
-
-        Beobachtungsgleichung:
+&lt;span id="beobachtungsgleichung"&gt;Beobachtungsgleichung:&lt;/span&gt;
         $$\hat{z}_n^{(M)} = C x_n + \mu_n$$
         mit
         &lt;ul&gt;
@@ -60,9 +59,9 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;/ul&gt;
 
         Update der process covariance matrix (mit process noise covariance
-        matrix $Q_k$):
+        matrix $Q_n$):
 
-        $$P_{k}^{(P)} = \overbrace{A P_{k-1} A^T}^{\text{propagiere Unsicherheit}} + \overbrace{GQG^T}^{\text{Systemrauschen}}$$
+        $$P_{n}^{(P)} = \overbrace{A P_{n-1} A^T}^{\text{propagiere Unsicherheit}} + \overbrace{GQG^T}^{\text{Systemrauschen}}$$
 
         mit
 
@@ -71,10 +70,9 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;li&gt;$Q$ process noise covariance matrix (avoid $P$ becomming 0)&lt;/li&gt;
 &lt;li&gt;$A$ Systemmatrix, $G$ Rauschmatrix&lt;/li&gt;
 &lt;/ul&gt;
+&lt;div id="kalman-gain-def"&gt;Der Kalman-Gain ist:
 
-        Der Kalman-Gain ist:
-
-        $$K = (P_k^{(P)} C) \cdot (C P_k^{(P)} C^T + R)^{-1}$$
+        $$K_n = (P_n^{(P)} C) \cdot (C P_n^{(P)} C^T + R)^{-1}$$
 
         mit
 
@@ -82,6 +80,7 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;li&gt;$R$: Measurement Covariance matrix (error in the measurement)&lt;/li&gt;
 &lt;li&gt;$C$: bringt $P$ ins richtige Format&lt;/li&gt;
 &lt;/ul&gt;
+&lt;/div&gt;
 
         Update das Zustands:
 
@@ -89,7 +88,7 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 
         Update des Kovarianzmatrix f&amp;uuml;r den Fehler des Zustands:
 
-        $$P_k = (I - K C) P_k^{(P)}$$
+        $$P_n = (I - K C) P_n^{(P)}$$
 
         Weiteres:
         &lt;ul&gt;
@@ -102,6 +101,7 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="extended-kalman-filter"&gt;Extended Kalman Filter&lt;/dfn&gt; (&lt;dfn id="ekf"&gt;EKF&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;/dl&gt;
 &lt;h3 id="dempster-shafer-theorie"&gt;Dempster-Shafer-Theorie&lt;/h3&gt;
 &lt;p&gt;Slides: &lt;code&gt;IF-Kap3_160125.pdf&lt;/code&gt;&lt;/p&gt;
@@ -118,7 +118,14 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;h3 id="energiefunktionale"&gt;Energiefunktionale&lt;/h3&gt;
 &lt;p&gt;Slides: &lt;code&gt;IF-Kap7_160125.pdf&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;TODO&lt;/p&gt;
-&lt;h2 id="meine-fragen_1"&gt;Meine Fragen&lt;/h2&gt;
+&lt;h2 id="abkurzungen_1"&gt;Abk&amp;uuml;rzungen&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;EKF: Extended Kalman Filter&lt;/li&gt;
+&lt;li&gt;KF: Kalman Filter&lt;/li&gt;
+&lt;li&gt;LS: Least Squares&lt;/li&gt;
+&lt;li&gt;UKF: ... Kalman Filter&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="meine-fragen"&gt;Meine Fragen&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Kapitel 1, Folie 61: Was ist der Definitions / Wertebereich von Information?&lt;/li&gt;
 &lt;li&gt;Kapitel 2, Folie 5: Alle Ereignisse paarweise disjunkt&lt;/li&gt;
@@ -126,6 +133,7 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
                        erwartungstreu sind. Es gibt immer den konstanten
                        Sch&amp;auml;tzer, welcher die Stichprobe ignoriert und somit
                        eine Varianz von 0 hat.&lt;/li&gt;
+&lt;li&gt;Kapitel 2, Folie 37: Was ist ein Arbeitspunkt?&lt;/li&gt;
 &lt;li&gt;Kapitel 2, Folie 44f: Fusion 2er gr&amp;ouml;&amp;szlig;en / Verteilungen&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="prufungsfragen"&gt;Pr&amp;uuml;fungsfragen&lt;/h2&gt;
@@ -150,7 +158,7 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;li&gt;Wie entwickeln sich die Wahrscheinlichkeiten beim Kalman-Filter?&lt;br/&gt;
   &amp;rarr; Bei der Pr&amp;auml;diktion steigt die Unsicherheit, bei der Innovation sinkt sie.&lt;/li&gt;
 &lt;li&gt;Wie lautet das Systemmodell im Kalman-Filter?&lt;br/&gt;
-  &amp;rarr; TODO (Systemgleichung und Beobachtungsgleichung)&lt;/li&gt;
+  &amp;rarr; TODO (Systemgleichung und &lt;a href="#beobachtungsgleichung"&gt;Beobachtungsgleichung&lt;/a&gt;)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="material-und-links_1"&gt;Material und Links&lt;/h2&gt;
 &lt;ul&gt;

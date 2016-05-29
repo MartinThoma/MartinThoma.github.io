@@ -98,7 +98,7 @@ MathJax.Hub.Queue(function() {
     <div class="span2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#behandelter-stoff" title="Behandelter Stoff">Behandelter Stoff</a><ul><li><a class="toc-href" href="#grundlagen" title="Grundlagen">Grundlagen</a></li><li><a class="toc-href" href="#wt" title="WT">WT</a></li><li><a class="toc-href" href="#dempster-shafer-theorie" title="Dempster-Shafer-Theorie">Dempster-Shafer-Theorie</a></li><li><a class="toc-href" href="#fuzzy-systeme" title="Fuzzy-Systeme">Fuzzy-Systeme</a></li><li><a class="toc-href" href="#neuronale-netze" title="Neuronale Netze">Neuronale Netze</a></li><li><a class="toc-href" href="#registrierung" title="Registrierung">Registrierung</a></li><li><a class="toc-href" href="#energiefunktionale" title="Energiefunktionale">Energiefunktionale</a></li></ul></li><li><a class="toc-href" href="#meine-fragen_1" title="Meine Fragen">Meine Fragen</a></li><li><a class="toc-href" href="#prufungsfragen" title="Pr&uuml;fungsfragen">Pr&uuml;fungsfragen</a><ul><li><a class="toc-href" href="#kalman-filter" title="Kalman-Filter">Kalman-Filter</a></li></ul></li><li><a class="toc-href" href="#material-und-links_1" title="Material und Links">Material und Links</a></li><li><a class="toc-href" href="#vorlesungsempfehlungen" title="Vorlesungs&shy;empfehlungen">Vorlesungs&shy;empfehlungen</a></li><li><a class="toc-href" href="#termine-und-klausurablauf" title="Termine und Klausurablauf">Termine und Klausurablauf</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#behandelter-stoff" title="Behandelter Stoff">Behandelter Stoff</a><ul><li><a class="toc-href" href="#grundlagen" title="Grundlagen">Grundlagen</a></li><li><a class="toc-href" href="#wt" title="WT">WT</a></li><li><a class="toc-href" href="#dempster-shafer-theorie" title="Dempster-Shafer-Theorie">Dempster-Shafer-Theorie</a></li><li><a class="toc-href" href="#fuzzy-systeme" title="Fuzzy-Systeme">Fuzzy-Systeme</a></li><li><a class="toc-href" href="#neuronale-netze" title="Neuronale Netze">Neuronale Netze</a></li><li><a class="toc-href" href="#registrierung" title="Registrierung">Registrierung</a></li><li><a class="toc-href" href="#energiefunktionale" title="Energiefunktionale">Energiefunktionale</a></li></ul></li><li><a class="toc-href" href="#abkurzungen_1" title="Abk&uuml;rzungen">Abk&uuml;rzungen</a></li><li><a class="toc-href" href="#meine-fragen" title="Meine Fragen">Meine Fragen</a></li><li><a class="toc-href" href="#prufungsfragen" title="Pr&uuml;fungsfragen">Pr&uuml;fungsfragen</a><ul><li><a class="toc-href" href="#kalman-filter" title="Kalman-Filter">Kalman-Filter</a></li></ul></li><li><a class="toc-href" href="#material-und-links_1" title="Material und Links">Material und Links</a></li><li><a class="toc-href" href="#vorlesungsempfehlungen" title="Vorlesungs&shy;empfehlungen">Vorlesungs&shy;empfehlungen</a></li><li><a class="toc-href" href="#termine-und-klausurablauf" title="Termine und Klausurablauf">Termine und Klausurablauf</a></li></ul></div>
         </nav>
     </div>
     <div class="span8 article-content" id="contentAfterTitle">
@@ -136,7 +136,7 @@ Signal, usw. eingef&uuml;hrt.</p>
         Kalman-Filter arbeiten mit linearen verschiebungsinvarianten
         (zeitdiskreten) Systemen.<br/>
 <br/>
-        Zustandsgleichung:
+<span id="kf-zustandsgleichung">Zustandsgleichung</span>:
         $$x_{n+1}^{(P)} = A x_n + B u_n + G v_n$$
         mit
         <ul>
@@ -151,8 +151,7 @@ Signal, usw. eingef&uuml;hrt.</p>
 <li>$v_n \in \mathbb{R}^{s \times 1}$ ist der Rauschvektor</li>
 <li>$G \in \mathbb{R}^{p \times s}$ hei&szlig;t Rauschmatrix</li>
 </ul>
-
-        Beobachtungsgleichung:
+<span id="beobachtungsgleichung">Beobachtungsgleichung:</span>
         $$\hat{z}_n^{(M)} = C x_n + \mu_n$$
         mit
         <ul>
@@ -165,9 +164,9 @@ Signal, usw. eingef&uuml;hrt.</p>
 </ul>
 
         Update der process covariance matrix (mit process noise covariance
-        matrix $Q_k$):
+        matrix $Q_n$):
 
-        $$P_{k}^{(P)} = \overbrace{A P_{k-1} A^T}^{\text{propagiere Unsicherheit}} + \overbrace{GQG^T}^{\text{Systemrauschen}}$$
+        $$P_{n}^{(P)} = \overbrace{A P_{n-1} A^T}^{\text{propagiere Unsicherheit}} + \overbrace{GQG^T}^{\text{Systemrauschen}}$$
 
         mit
 
@@ -176,10 +175,9 @@ Signal, usw. eingef&uuml;hrt.</p>
 <li>$Q$ process noise covariance matrix (avoid $P$ becomming 0)</li>
 <li>$A$ Systemmatrix, $G$ Rauschmatrix</li>
 </ul>
+<div id="kalman-gain-def">Der Kalman-Gain ist:
 
-        Der Kalman-Gain ist:
-
-        $$K = (P_k^{(P)} C) \cdot (C P_k^{(P)} C^T + R)^{-1}$$
+        $$K_n = (P_n^{(P)} C) \cdot (C P_n^{(P)} C^T + R)^{-1}$$
 
         mit
 
@@ -187,6 +185,7 @@ Signal, usw. eingef&uuml;hrt.</p>
 <li>$R$: Measurement Covariance matrix (error in the measurement)</li>
 <li>$C$: bringt $P$ ins richtige Format</li>
 </ul>
+</div>
 
         Update das Zustands:
 
@@ -194,7 +193,7 @@ Signal, usw. eingef&uuml;hrt.</p>
 
         Update des Kovarianzmatrix f&uuml;r den Fehler des Zustands:
 
-        $$P_k = (I - K C) P_k^{(P)}$$
+        $$P_n = (I - K C) P_n^{(P)}$$
 
         Weiteres:
         <ul>
@@ -207,6 +206,7 @@ Signal, usw. eingef&uuml;hrt.</p>
 </li>
 </ul>
 </dd>
+<dt><dfn id="extended-kalman-filter">Extended Kalman Filter</dfn> (<dfn id="ekf">EKF</dfn>)</dt>
 </dl>
 <h3 id="dempster-shafer-theorie">Dempster-Shafer-Theorie</h3>
 <p>Slides: <code>IF-Kap3_160125.pdf</code></p>
@@ -223,7 +223,14 @@ Signal, usw. eingef&uuml;hrt.</p>
 <h3 id="energiefunktionale">Energiefunktionale</h3>
 <p>Slides: <code>IF-Kap7_160125.pdf</code></p>
 <p>TODO</p>
-<h2 id="meine-fragen_1">Meine Fragen</h2>
+<h2 id="abkurzungen_1">Abk&uuml;rzungen</h2>
+<ul>
+<li>EKF: Extended Kalman Filter</li>
+<li>KF: Kalman Filter</li>
+<li>LS: Least Squares</li>
+<li>UKF: ... Kalman Filter</li>
+</ul>
+<h2 id="meine-fragen">Meine Fragen</h2>
 <ul>
 <li>Kapitel 1, Folie 61: Was ist der Definitions / Wertebereich von Information?</li>
 <li>Kapitel 2, Folie 5: Alle Ereignisse paarweise disjunkt</li>
@@ -231,6 +238,7 @@ Signal, usw. eingef&uuml;hrt.</p>
                        erwartungstreu sind. Es gibt immer den konstanten
                        Sch&auml;tzer, welcher die Stichprobe ignoriert und somit
                        eine Varianz von 0 hat.</li>
+<li>Kapitel 2, Folie 37: Was ist ein Arbeitspunkt?</li>
 <li>Kapitel 2, Folie 44f: Fusion 2er gr&ouml;&szlig;en / Verteilungen</li>
 </ul>
 <h2 id="prufungsfragen">Pr&uuml;fungsfragen</h2>
@@ -255,7 +263,7 @@ Signal, usw. eingef&uuml;hrt.</p>
 <li>Wie entwickeln sich die Wahrscheinlichkeiten beim Kalman-Filter?<br/>
   &rarr; Bei der Pr&auml;diktion steigt die Unsicherheit, bei der Innovation sinkt sie.</li>
 <li>Wie lautet das Systemmodell im Kalman-Filter?<br/>
-  &rarr; TODO (Systemgleichung und Beobachtungsgleichung)</li>
+  &rarr; TODO (Systemgleichung und <a href="#beobachtungsgleichung">Beobachtungsgleichung</a>)</li>
 </ul>
 <h2 id="material-und-links_1">Material und Links</h2>
 <ul>
