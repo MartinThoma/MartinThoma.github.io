@@ -137,7 +137,7 @@ Signal, usw. eingef&uuml;hrt.</p>
         (zeitdiskreten) Systemen.<br/>
 <br/>
         Zustandsgleichung:
-        $$x_{n+1}^P = A x_n + B u_n + G v_n$$
+        $$x_{n+1}^{(P)} = A x_n + B u_n + G v_n$$
         mit
         <ul>
 <li>$x \in \mathbb{R}^{p \times 1}$ ist der Systemzustand.</li>
@@ -150,11 +150,10 @@ Signal, usw. eingef&uuml;hrt.</p>
 <li>$B \in \mathbb{R}^{p \times q}$ hei&szlig;t Steuermatrix</li>
 <li>$v_n \in \mathbb{R}^{s \times 1}$ ist der Rauschvektor</li>
 <li>$G \in \mathbb{R}^{p \times s}$ hei&szlig;t Rauschmatrix</li>
-<li></li>
 </ul>
 
         Beobachtungsgleichung:
-        $$\hat{z}_n = C x_n^M + \mu_n$$
+        $$\hat{z}_n^{(M)} = C x_n + \mu_n$$
         mit
         <ul>
 <li>$\hat{z}_n \in \mathbb{R}^{r \times 1}$ Ausgangsvektor /
@@ -168,23 +167,39 @@ Signal, usw. eingef&uuml;hrt.</p>
         Update der process covariance matrix (mit process noise covariance
         matrix $Q_k$):
 
-        $$P_{k}^P = A P_{k-1} A^T + Q_k$$
+        $$P_{k}^{(P)} = A P_{k-1} A^T + Q_k$$
+
+        mit
+
+        <ul>
+<li>$P$ der state covariance matrix (error in estimate)</li>
+<li>$Q$ process noise covariance matrix (avoid $P$ becomming 0)</li>
+<li>$A$ Systemmatrix</li>
+</ul>
 
         Der Kalman-Gain ist:
 
-        $$K = \frac{P_k^P H}{H P_k^P H^T + R}$$
+        $$K = \frac{P_k^{(P)} H}{H P_k^{(P)} H^T + R}$$
+
+        mit
+
+        <ul>
+<li>$R$: Measurement Covariance matrix (error in the measurement)</li>
+<li>$H$: TODO</li>
+</ul>
 
         Update das Zustands:
 
-        $$x_n = x_k^P + K (\hat{z}_n - H x_k^P)$$
+        $$x_n = x_k^{(P)} + K (\hat{z}_n - H x_k^{(P)})$$
 
         Update des Fehlers:
 
-        $$P_k = (I - KH) P_k^P$$
+        $$P_k = (I - KH) P_k^{(P)}$$
 
         Weiteres:
         <ul>
 <li>Michael van Biezen: <a href="http://www.ilectureonline.com/lectures/subject/SPECIAL%20TOPICS/26/190">Kalman Filter</a></li>
+<li>StackExchange: <a href="http://math.stackexchange.com/questions/tagged/kalman-filter?sort=votes&amp;pageSize=15">math</a>, <a href="http://stats.stackexchange.com/questions/tagged/kalman-filter">CV</a>, <a href="http://dsp.stackexchange.com/questions/tagged/kalman-filters?sort=votes&amp;pageSize=15">DSP</a></li>
 </ul>
 </dd>
 </dl>
