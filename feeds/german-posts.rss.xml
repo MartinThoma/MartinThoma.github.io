@@ -11,16 +11,16 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;p&gt;Slides: &lt;code&gt;IF-Kap2_151215.pdf&lt;/code&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Wahrscheinlichkeitsraum, Zufallsvariable&lt;/li&gt;
-&lt;li&gt;Kalmann-Filter&lt;/li&gt;
-&lt;li&gt;Extended Kalmann-Filter&lt;/li&gt;
+&lt;li&gt;Kalmann-Filter (KF)&lt;/li&gt;
+&lt;li&gt;Extended Kalmann-Filter (EKF)&lt;/li&gt;
 &lt;li&gt;GUM&lt;/li&gt;
 &lt;li&gt;Bayessche Methodik&lt;/li&gt;
 &lt;/ul&gt;
 &lt;dl&gt;
 &lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Kalman-Filter"&gt;&lt;dfn id="kalman-filter"&gt;Kalman-Filter&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
-&lt;dd&gt;Der Kalman-Filter ist ein iterativer Algorithmus, welcher in jedem
-        Schritt weitere Daten erh&amp;auml;lt und so den wahren Wert
-        (z.B. Geschwindigkeit) ermittelt. Er
+&lt;dd&gt;Der Kalman-Filter ist ein iterativer Algorithmus zur Vorhersage eines
+        Zustandsvektors (z.B. Position eines Objekts). Er erh&amp;auml;lt in jedem
+        Schritt weitere Daten und ermittelt so den wahren Wert. Er
         ben&amp;ouml;tigt unsicherheitsbehaftete Messungen unter dem Einfluss von
         St&amp;ouml;rungen und erlauben es eine gute Sch&amp;auml;tzung f&amp;uuml;r den tats&amp;auml;chlichen
         Wert anzugeben. So geht es z.B. darum die aktuelle Position eines
@@ -62,39 +62,44 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
         Update der process covariance matrix (mit process noise covariance
         matrix $Q_k$):
 
-        $$P_{k}^{(P)} = A P_{k-1} A^T + Q_k$$
+        $$P_{k}^{(P)} = \overbrace{A P_{k-1} A^T}^{\text{propagiere Unsicherheit}} + \overbrace{GQG^T}^{\text{Systemrauschen}}$$
 
         mit
 
         &lt;ul&gt;
 &lt;li&gt;$P$ der state covariance matrix (error in estimate)&lt;/li&gt;
 &lt;li&gt;$Q$ process noise covariance matrix (avoid $P$ becomming 0)&lt;/li&gt;
-&lt;li&gt;$A$ Systemmatrix&lt;/li&gt;
+&lt;li&gt;$A$ Systemmatrix, $G$ Rauschmatrix&lt;/li&gt;
 &lt;/ul&gt;
 
         Der Kalman-Gain ist:
 
-        $$K = \frac{P_k^{(P)} H}{H P_k^{(P)} H^T + R}$$
+        $$K = (P_k^{(P)} C) \cdot (C P_k^{(P)} C^T + R)^{-1}$$
 
         mit
 
         &lt;ul&gt;
 &lt;li&gt;$R$: Measurement Covariance matrix (error in the measurement)&lt;/li&gt;
-&lt;li&gt;$H$: TODO&lt;/li&gt;
+&lt;li&gt;$C$: bringt $P$ ins richtige Format&lt;/li&gt;
 &lt;/ul&gt;
 
         Update das Zustands:
 
-        $$x_n = x_k^{(P)} + K (\hat{z}_n - H x_k^{(P)})$$
+        $$x_n = x_n^{(P)} + K (\hat{z}_n - C x_n^{(P)})$$
 
-        Update des Fehlers:
+        Update des Kovarianzmatrix f&amp;uuml;r den Fehler des Zustands:
 
-        $$P_k = (I - KH) P_k^{(P)}$$
+        $$P_k = (I - K C) P_k^{(P)}$$
 
         Weiteres:
         &lt;ul&gt;
-&lt;li&gt;Michael van Biezen: &lt;a href="http://www.ilectureonline.com/lectures/subject/SPECIAL%20TOPICS/26/190"&gt;Kalman Filter&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;StackExchange: &lt;a href="http://math.stackexchange.com/questions/tagged/kalman-filter?sort=votes&amp;amp;pageSize=15"&gt;math&lt;/a&gt;, &lt;a href="http://stats.stackexchange.com/questions/tagged/kalman-filter"&gt;CV&lt;/a&gt;, &lt;a href="http://dsp.stackexchange.com/questions/tagged/kalman-filters?sort=votes&amp;amp;pageSize=15"&gt;DSP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Michael van Biezen: &lt;a href="https://www.youtube.com/watch?v=CaCcOwJPytQ&amp;amp;list=PLX2gX-ftPVXU3oUFNATxGXY90AULiqnWT"&gt;Kalman Filter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;StackExchange: &lt;a href="http://math.stackexchange.com/questions/tagged/kalman-filter?sort=votes&amp;amp;pageSize=15"&gt;math&lt;/a&gt;, &lt;a href="http://stats.stackexchange.com/questions/tagged/kalman-filter"&gt;CV&lt;/a&gt;, &lt;a href="http://dsp.stackexchange.com/questions/tagged/kalman-filters?sort=votes&amp;amp;pageSize=15"&gt;DSP&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://stats.stackexchange.com/q/168882/25741"&gt;What is the difference between kalman filter and extended kalman filter?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
 &lt;/dl&gt;
