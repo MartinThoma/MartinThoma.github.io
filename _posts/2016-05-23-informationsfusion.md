@@ -28,16 +28,16 @@ Signal, usw. eingeführt.
 Slides: `IF-Kap2_151215.pdf`
 
 * Wahrscheinlichkeitsraum, Zufallsvariable
-* Kalmann-Filter
-* Extended Kalmann-Filter
-* GUM
+* Kalmann-Filter (KF)
+* Extended Kalmann-Filter (EKF)
+* Guide to the Expression of Uncertainty in Measurement (GUM)
 * Bayessche Methodik
 
 <dl>
     <dt><a href="https://de.wikipedia.org/wiki/Kalman-Filter"><dfn id="kalman-filter">Kalman-Filter</dfn></a></dt>
-    <dd>Der Kalman-Filter ist ein iterativer Algorithmus, welcher in jedem
-        Schritt weitere Daten erhält und so den wahren Wert
-        (z.B. Geschwindigkeit) ermittelt. Er
+    <dd>Der Kalman-Filter ist ein iterativer Algorithmus zur Vorhersage eines
+        Zustandsvektors (z.B. Position eines Objekts). Er erhält in jedem
+        Schritt weitere Daten und ermittelt so den wahren Wert. Er
         benötigt unsicherheitsbehaftete Messungen unter dem Einfluss von
         Störungen und erlauben es eine gute Schätzung für den tatsächlichen
         Wert anzugeben. So geht es z.B. darum die aktuelle Position eines
@@ -48,8 +48,8 @@ Slides: `IF-Kap2_151215.pdf`
         Kalman-Filter arbeiten mit linearen verschiebungsinvarianten
         (zeitdiskreten) Systemen.<br/>
         <br/>
-        Zustandsgleichung:
-        $$x_{n+1}^P = A x_n + B u_n + G v_n$$
+        <span id="kf-zustandsgleichung">Zustandsgleichung</span>:
+        $$x_{n+1}^{(P)} = A x_n + B u_n + G v_n$$
         mit
         <ul>
              <li>$x \in \mathbb{R}^{p \times 1}$ ist der Systemzustand.</li>
@@ -62,11 +62,10 @@ Slides: `IF-Kap2_151215.pdf`
              <li>$B \in \mathbb{R}^{p \times q}$ heißt Steuermatrix</li>
              <li>$v_n \in \mathbb{R}^{s \times 1}$ ist der Rauschvektor</li>
              <li>$G \in \mathbb{R}^{p \times s}$ heißt Rauschmatrix</li>
-             <li></li>
          </ul>
 
-        Beobachtungsgleichung:
-        $$\hat{z}_n = C x_n^M + \mu_n$$
+        <span id="beobachtungsgleichung">Beobachtungsgleichung:</span>
+        $$\hat{z}_n^{(M)} = C x_n + \mu_n$$
         mit
         <ul>
             <li>$\hat{z}_n \in \mathbb{R}^{r \times 1}$ Ausgangsvektor /
@@ -78,27 +77,62 @@ Slides: `IF-Kap2_151215.pdf`
         </ul>
 
         Update der process covariance matrix (mit process noise covariance
-        matrix $Q_k$):
+        matrix $Q_n$):
 
-        $$P_{k}^P = A P_{k-1} A^T + Q_k$$
+        $$P_{n}^{(P)} = \overbrace{A P_{n-1} A^T}^{\text{propagiere Unsicherheit}} + \overbrace{GQG^T}^{\text{Systemrauschen}}$$
 
-        Der Kalman-Gain ist:
+        mit
 
-        $$K = \frac{P_k^P H}{H P_k^P H^T + R}$$
+        <ul>
+            <li>$P$ der state covariance matrix (error in estimate)</li>
+            <li>$Q$ process noise covariance matrix (avoid $P$ becomming 0)</li>
+            <li>$A$ Systemmatrix, $G$ Rauschmatrix</li>
+        </ul>
+
+        <div id="kalman-gain-def">Der Kalman-Gain ist:
+
+        $$K_n = (P_n^{(P)} C) \cdot (C P_n^{(P)} C^T + R)^{-1}$$
+
+        mit
+
+        <ul>
+            <li>$R$: Measurement Covariance matrix (error in the measurement)</li>
+            <li>$C$: bringt $P$ ins richtige Format</li>
+        </ul>
+        </div>
 
         Update das Zustands:
 
-        $$x_n = x_k^P + K (\hat{z}_n - H x_k^P)$$
+        $$x_n = x_n^{(P)} + K (\hat{z}_n - C x_n^{(P)})$$
 
-        Update des Fehlers:
+        Update des Kovarianzmatrix für den Fehler des Zustands:
 
-        $$P_k = (I - KH) P_k^P$$
+        $$P_n = (I - K C) P_n^{(P)}$$
 
         Weiteres:
         <ul>
-            <li>Michael van Biezen: <a href="http://www.ilectureonline.com/lectures/subject/SPECIAL%20TOPICS/26/190">Kalman Filter</a></li>
+            <li>Michael van Biezen: <a href="https://www.youtube.com/watch?v=CaCcOwJPytQ&list=PLX2gX-ftPVXU3oUFNATxGXY90AULiqnWT">Kalman Filter</a></li>
+            <li>StackExchange: <a href="http://math.stackexchange.com/questions/tagged/kalman-filter?sort=votes&pageSize=15">math</a>, <a href="http://stats.stackexchange.com/questions/tagged/kalman-filter">CV</a>, <a href="http://dsp.stackexchange.com/questions/tagged/kalman-filters?sort=votes&pageSize=15">DSP</a>
+
+            <ul>
+                <li><a href="http://stats.stackexchange.com/q/168882/25741">What is the difference between kalman filter and extended kalman filter?</a></li>
+                <li></li>
+            </ul>
+            </li>
         </ul>
         </dd>
+    <dt><dfn id="extended-kalman-filter">Extended Kalman Filter</dfn> (<dfn id="ekf">EKF</dfn>)</dt>
+    <dt><a href="https://de.wikipedia.org/wiki/GUM_(Norm)"><dfn id="gum">GUM</dfn></a> (<dfn>Guide to the Expression of Uncertainty in Measurement</dfn>)</dt>
+    <dd>GUM ist eine internationale Norm welche das Ziel hat, die
+        Vergleichbarkeit zwischen Messergebnissen herzustellen. Dazu
+        wurden in der Norm Grundsätze und Vorgehensweisen zur Bestimmung der
+        Messunsicherheit festgelegt.<br/>
+        <br/>
+        GUM ist auf metrische Merkmale beschränkt.</dd>
+    <dt><dfn>Standardunsicherheit</dfn></dt>
+    <dd>Die Standardunsicherheit einer Messung ist
+
+        $$u_i = s(\bar{x_i}) = \sqrt{\frac{s^2(x_i)}{n}}$$</dd>
 </dl>
 
 
@@ -137,6 +171,15 @@ Slides: `IF-Kap7_160125.pdf`
 TODO
 
 
+## Abkürzungen
+
+* EKF: Extended Kalman Filter
+* GUM: Guide to the Expression of Uncertainty in Measurement
+* KF: Kalman Filter
+* LS: Least Squares
+* UKF: ... Kalman Filter
+
+
 ## Meine Fragen
 
 * Kapitel 1, Folie 61: Was ist der Definitions / Wertebereich von Information?
@@ -145,8 +188,9 @@ TODO
                        erwartungstreu sind. Es gibt immer den konstanten
                        Schätzer, welcher die Stichprobe ignoriert und somit
                        eine Varianz von 0 hat.
+* Kapitel 2, Folie 37: Was ist ein Arbeitspunkt?
 * Kapitel 2, Folie 44f: Fusion 2er größen / Verteilungen
-
+* Kapitel 2, Folie 79: Was ist der Trunkation error? Was ist der base point error und warum ist es ein Problem, dass man um den Schätzwert und nicht um den wahren Wert linearisiert?
 
 ## Prüfungsfragen
 
@@ -170,7 +214,7 @@ TODO
 * Wie entwickeln sich die Wahrscheinlichkeiten beim Kalman-Filter?<br/>
   → Bei der Prädiktion steigt die Unsicherheit, bei der Innovation sinkt sie.
 * Wie lautet das Systemmodell im Kalman-Filter?<br/>
-  → TODO (Systemgleichung und Beobachtungsgleichung)
+  → TODO (Systemgleichung und <a href="#beobachtungsgleichung">Beobachtungsgleichung</a>)
 
 
 ## Material und Links
