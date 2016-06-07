@@ -59,6 +59,11 @@ In der Vorlesung 'Probabilistische Planung' werden drei Themen besprochen:
     <td>MDPs</td>
     <td>Kürzeste-Wege Suche (Tiefensuche, Breitensuche, Dijkstra, A*, Branch &amp; Bound; Label-Korrektur-Algorithmus); Trellis-Diagramm; Differentialantrieb; Pontryagin's Minimumprinzip</td>
 </tr>
+<tr>
+    <td>01.06.2016</td>
+    <td>MDPs</td>
+    <td>Pontryagin's Minimumprinzip, Hamilton-Funktion; LQR; Sicherheitsäquivalenz</td>
+</tr>
 </table>
 
 Folien:
@@ -343,7 +348,32 @@ Slides: `11.05.2016 - TODO`
         werden.<br/>
 
         TODO</dd>
+    <dt><a href="https://de.wikipedia.org/wiki/Hamilton-Funktion"><dfn>Hamilton-Funktion</dfn></a></dt>
+    <dd>TODO</dd>
+    <dt><dfn>Lineares Zustandsmodell</dfn></dt>
+    <dd>$$x_{k+1} = A_k + x_k + B_k \cdot a_k + w_k$$</dd>
+    <dt><a href="https://de.wikipedia.org/wiki/LQ-Regler"><dfn>Linearer Quadratischer Regulator</dfn></a> (<dfn>LQR</dfn>)</dt>
+    <dd>Der LQR ist ein Regler (Regulator) für einen lineareren Zustandsraum
+        mit quadratischer Kostenfunktion.
+
+        TODO</dd>
+    <dt><dfn>Sicherheitsäquivalenz</dfn> (<a href="https://en.wikipedia.org/wiki/Stochastic_control#Certainty_equivalence"><dfn>Certainty Equivalence</dfn></a>)</dt>
+    <dd>Verstärkungsmatrix $l_k$ und somit die Strategie $\pi_k^*$
+        sind unabhängig vom Rauschen $w_k$.<br/>
+        <br/>
+        Die selbe optimale Strategie ergibt sich bei Betrachtung des
+        korrespondierendne deterministischen Zustandsraummodel
+
+        $$x_{k1+} = A_k x_k + B_k a_k$$
+
+        welchem das Rauschen $w_k$ durch dessen Erwartungswert $E(w_k) = 0$
+        ersetzt ist.<br/>
+
+        $\Rightarrow$ Deterministisches Problem
+
+        TODO</dd>
 </dl>
+
 
 ### POMDPs
 
