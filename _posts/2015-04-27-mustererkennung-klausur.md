@@ -32,7 +32,7 @@ featured_image: logos/klausur.png
 <tr>
     <td>14.07.2015</td>
     <td><a href="http://ies.anthropomatik.kit.edu/ies/download/lehre/me/ME-Kap8_V25.pdf">Kapitel 8 - Klassifikatoren</a> (1-28), <a href="https://ies.anthropomatik.kit.edu/ies/download/lehre/me/ME-Kap9_V29.pdf">Kapitel 9</a>: 1-?</td>
-    <td>Entscheidungsbäume, Grammatiken; Lernen nach Vapnik, VC-dimension, Kreuzvalidierung und Leave-One-Out, Boosting</td>
+    <td>Entscheidungsbäume, Grammatiken; Lernen nach Vapnik, VC-Dimension, Kreuzvalidierung und Leave-One-Out, Boosting</td>
 </tr>
 </table>
 
@@ -248,7 +248,7 @@ sind:
 **Klassifikatorunabhängige Prinzipien**:
 
 * Generalisierung / Generalisierungsfähigkeit
-* VC-Konfidenz / VC-Dimension
+* VC-Konfidenz / <a href="https://martin-thoma.com/machine-learning-1-course/#vc-dimension">VC-Dimension</a>
 * Structural Risc Minimization
 * [Kreuzvalidierungsverfahren](https://de.wikipedia.org/wiki/Kreuzvalidierungsverfahren) / Leave-one-out
 * Boosting

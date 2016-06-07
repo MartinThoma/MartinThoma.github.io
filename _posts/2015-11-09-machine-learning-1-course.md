@@ -547,7 +547,7 @@ Slide name: `MLI_04_Lerntheorie_slides1.pdf`
       zwischen einem einfachen Modell und einem komplexen Modell, welches
       auf den Trainingsdaten besser funktioniert aber eventuell mehr unter
       Overfitting leidet.</dd>
-  <dt><dfn>Vapnik-Chervonenkis Dimension</dfn> (<dfn>VC-Dimension</dfn>)</dt>
+  <dt><dfn>Vapnik-Chervonenkis Dimension</dfn> (<dfn id="vc-dimension">VC-Dimension</dfn>)</dt>
   <dd>Die <abbr title="Vapnik-Chervonenkis">VC</abbr>-Dimension $VC(H, X) \in \mathbb{N} \cup \infty$
       eines Hypothesenraumes $H$ ist gleich der maximalen Anzahl an
       Datenpunkten aus $X$, die von $H$ beliebig in zwei Mengen gespalten
