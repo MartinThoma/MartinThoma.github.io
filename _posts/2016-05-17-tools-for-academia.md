@@ -134,6 +134,7 @@ the [profile of Hinton](https://scholar.google.de/citations?user=JicYPdAAAAAJ).
 
 * [Sci-Hub](https://en.wikipedia.org/wiki/Sci-Hub)
 * [academictorrents.com](http://academictorrents.com/): I just found this on [Reddit](https://www.reddit.com/r/MachineLearning/comments/4hqwza/andrej_karpathy_forced_to_take_down_stanford/)
+* [csauthors.net](https://www.csauthors.net/distance/paul-erdos/alex-j-champandard) to calculate your Erdös number
 
 Machine Learning:
 
