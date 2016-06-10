@@ -102,6 +102,10 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="extended-kalman-filter"&gt;Extended Kalman Filter&lt;/dfn&gt; (&lt;dfn id="ekf"&gt;EKF&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dd&gt;
+
+        Siehe: &lt;a href="http://www.cbcity.de/das-extended-kalman-filter-einfach-erklaert"&gt;Das Extended Kalman Filter einfach erkl&amp;auml;rt&lt;/a&gt;
+&lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/GUM_(Norm)"&gt;&lt;dfn id="gum"&gt;GUM&lt;/dfn&gt;&lt;/a&gt; (&lt;dfn&gt;Guide to the Expression of Uncertainty in Measurement&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;GUM ist eine internationale Norm welche das Ziel hat, die
         Vergleichbarkeit zwischen Messergebnissen herzustellen. Dazu
@@ -326,6 +330,11 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;td&gt;01.06.2016&lt;/td&gt;
 &lt;td&gt;MDPs&lt;/td&gt;
 &lt;td&gt;Pontryagin's Minimumprinzip, Hamilton-Funktion; LQR; Sicherheits&amp;auml;quivalenz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;08.06.2016&lt;/td&gt;
+&lt;td&gt;POMDPs&lt;/td&gt;
+&lt;td&gt;Motivation und Definition von POMDP; Hinreichende Statistik; Bayes-Sch&amp;auml;tzer&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
 &lt;p&gt;Folien:&lt;/p&gt;
@@ -623,8 +632,122 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;h3 id="pomdps"&gt;POMDPs&lt;/h3&gt;
 &lt;dl&gt;
 &lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Partially_observable_Markov_decision_process"&gt;&lt;dfn id="pomdp"&gt;Partially observable Markov decision process&lt;/dfn&gt;&lt;/a&gt; (POMDP)&lt;/dt&gt;
-&lt;dd&gt;TODO&lt;/dd&gt;
+&lt;dd&gt;Die Messungen sind unsicherheitsbehaftet.
+
+        Das Planungsproblem ist wie folgt definiert:
+
+        &lt;ul&gt;
+&lt;li&gt;Zustand: Der Agent erh&amp;auml;lt nur noch Beobachtungen / Messungen
+                des Zustands. Probleme dabei sind:
+                &lt;ul&gt;
+&lt;li&gt;Rauschen von Sensoren&lt;/li&gt;
+&lt;li&gt;Indirekt: Position ist interessant, aber man kann
+                        z.B. mit GPS nur die Laufzeiten ermitteln.&lt;/li&gt;
+&lt;li&gt;Niederdimensional: Messgr&amp;ouml;&amp;szlig;e ist niedrigdimensonaler
+                        als die interessierte Gr&amp;ouml;&amp;szlig;e. Erst durch mehrere
+                        Messungen gelangt man an die interessante Gr&amp;ouml;&amp;szlig;e.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+        Ein POMDP ist ein MDP mit folgenden Unterschieden:
+
+        &lt;ul&gt;
+&lt;li&gt;Initialzustand $x_0$ ist Zufallsvariable mit Verteilung $P(x_0)$.&lt;/li&gt;
+&lt;li&gt;Beobachtungen / Messungen $z_k \in Z$ gem&amp;auml;&amp;szlig; der bedingten
+                Verteilung
+                $$z_k \sim P(\cdot | x_k, a_{k-1})$$
+                (Beobachtungswahrscheinlichkeit)&lt;br/&gt;
+&lt;ul&gt;
+&lt;li&gt;Diskrete Beobachtungen $\rightarrow$ bedingte Z&amp;auml;hldichte
+                $$f(z_k | x_k a_{k-1}) = P(z=z_k | x_k, a_{k-1})$$&lt;/li&gt;
+&lt;li&gt;Kontinuierliche Beobachtungen $\rightarrow$ bedingte Wahrscheinlichkeitsdichte
+                    $$f(z_k | x_k, a_{k-1}) = \frac{\partial f(z | x_k, a_{k-1})}{\partial z} |_{z=z_k}$$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Minimierung der erwarteten Kosten
+
+                $$J_{\pi_{0:N-1}}(\square) = E(g_N (x_n) + \sum_{k=0}^{N-1} g_n(x_k, \pi_k(\square)))$$&lt;/li&gt;
+&lt;/ul&gt;
+
+        Reformulierung als MDP:
+
+        &lt;ul&gt;
+&lt;li&gt;Problem: keine vollst&amp;auml;ndige Information &amp;uuml;ber den Zustand $x_k$,
+                aber Zugriff auf Beobachtungen&lt;/li&gt;
+&lt;li&gt;Idee: Definieren eines neuen Zustands (Informationsvektor $\mathcal I$,
+                engl. Information state), welcher
+
+                &lt;ul&gt;
+&lt;li&gt;direkt zug&amp;auml;nglich ist,&lt;/li&gt;
+&lt;li&gt;alle verf&amp;uuml;gbaren Informationen &amp;uuml;ber $x_k$ zum Zeitpunkt
+                        $k$ enth&amp;auml;lt&lt;/li&gt;
+&lt;/ul&gt;
+
+                Der Informationsvektor enth&amp;auml;lt alle Beobachtungen:
+
+                $$\mathcal{I} = (z_0, \dots, z_k, a_{0}, \dots, a_{k-1}) \text{ f&amp;uuml;r } k=0, \dots, N-1$$
+
+                Der Informationsvektor beschreibt die zeitliche Entwicklung des
+                Agenten. Mit $P(x_0)$ und $\mathcal{I}_k$ ist s&amp;auml;mtliche
+                Information gegeben um zum Zeitpunkt $k$ eine
+                Planungsentscheidung zu treffen.
+
+                Das korrespondierende MDP wird &lt;b&gt;Informations-MDP&lt;/b&gt; genannt.
+
+                Das zu l&amp;ouml;sende dynamische Programm lautet:
+
+                $$J_N(\mathcal{I}_N) = E(g_N(x_N) | \mathcal{I}_N)$$
+
+                $$J_k(\mathcal{I}_k) = \min_{a_k} (E_{x,z}(g_k(x_k, a_k) + J_{k+1}(\mathcal{I}_k, z_{k+1}, a_k)(\mathcal{I}_k, a_k))) \text{ f&amp;uuml;r } k=0, 1, \dots, N-1$$
+
+                Die L&amp;ouml;sung ist eine &amp;ouml;ptimale Strategie $\pi_k^* (\mathcal{I}_k) = a_k^*$
+
+                Nur in Ausnahmef&amp;auml;llen geschlossen l&amp;ouml;sbar, z.B. lineare Modelle.
+
+            &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="statistik"&gt;Statistik&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;Seien $S=\{z_1, \dots, z_n\}$ Stichproben (Samples) einer Zufallsvariablen
+        $z \sim P(z | \Theta)$ mit unbkanntem Parameter $\Theta$. Eine
+        Statistik ist eine Funktion $T(S)=t$, welche zwar von $S$, nicht aber
+        von $\Theta$ abh&amp;auml;ngt.&lt;br/&gt;
+&lt;br/&gt;
+        Konstante Funktionen, minimum, maximum, durschschnitt, median, ...&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Hinreichende Statistik&lt;/dfn&gt; (engl. &lt;dfn id="sufficient-statistic"&gt;sufficient statistic&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dd&gt;Ziel: Kompression, d.h. Darstellung von $\mathcal{I}_k$ von geringer
+        Dimension.
+
+        Eine Statistik $T$ hei&amp;szlig;t hinreichend f&amp;uuml;r $\Theta$, wenn keine weitere
+        Statstik auf $S$ existiert, welche zus&amp;auml;tzliche Informationen &amp;uuml;ber
+        $\Theta$ liefert.
+
+        Ist $T(S) = t$ gegeben, dann liefert die volle Kentnis von $S$ keine
+        Zusatzinformation &amp;uuml;ber $\Theta$.
+
+
+        Beispiele:
+
+        &lt;ul&gt;
+&lt;li&gt;Der Stichprobenmittelwert $\hat{z}$ von $n$ unabh&amp;auml;ngigen
+                Stichproben $z_i$ einer normalverteilten Zuvallsvariabeln
+                $z \sim \mathcal{N}(\mu, \sigma)$ ist eine hinreichende
+                Statistik f&amp;uuml;r $\mu$.&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Bayes-Sch%C3%A4tzer"&gt;&lt;dfn&gt;Bayes'scher Sch&amp;auml;tzer&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
+&lt;dd&gt;Pr&amp;auml;diktion + Filterschritt = Bayes-Sch&amp;auml;tzer.&lt;br/&gt;
+        TODO (z.B. in GPS arbeitet eine Variante; Extended Kalman Filter)&lt;br/&gt;
+        Der Bayes-Sch&amp;auml;tzer ist im Allgemeinen nciht geschlossen berechenbar.
+        &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Verteilungs-MDP&lt;/dfn&gt; (&lt;dfn&gt;Belief-state MDP&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dd&gt;Belief ist die Verteilung (TODO)&lt;/dd&gt;
 &lt;/dl&gt;
+&lt;p&gt;TODO:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ausblendeigenschaft der Dirac-Delta-Funktion&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id="reinforcement-learning"&gt;Reinforcement Learning&lt;/h3&gt;
 &lt;dl&gt;
 &lt;dt&gt;&lt;dfn id="rl"&gt;Reinforcement Learning&lt;/dfn&gt;&lt;/dt&gt;
@@ -676,6 +799,8 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;h2 id="material-und-links_1"&gt;Material und Links&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://ies.anthropomatik.kit.edu/lehre_proplan.php"&gt;Vorlesungswebsite&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Dimitri Bertsekas: Dynamic Programming and Optimal Control: Volume 1&lt;/li&gt;
+&lt;li&gt;Emanuel Todorov: &lt;a href="https://homes.cs.washington.edu/~todorov/papers/TodorovChapter06.pdf"&gt;Optimal Control Theory&lt;/a&gt; (f&amp;uuml;r Pontryagins Minimum-Prinzip)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="vorlesungsempfehlungen"&gt;Vorlesungsempfehlungen&lt;/h2&gt;
 &lt;p&gt;Folgende Vorlesungen sind &amp;auml;hnlich:&lt;/p&gt;
@@ -2619,7 +2744,7 @@ oder &lt;i&gt;prediction&lt;/i&gt; genannt.&lt;/p&gt;
       zwischen einem einfachen Modell und einem komplexen Modell, welches
       auf den Trainingsdaten besser funktioniert aber eventuell mehr unter
       Overfitting leidet.&lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;Vapnik-Chervonenkis Dimension&lt;/dfn&gt; (&lt;dfn&gt;VC-Dimension&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dt&gt;&lt;dfn&gt;Vapnik-Chervonenkis Dimension&lt;/dfn&gt; (&lt;dfn id="vc-dimension"&gt;VC-Dimension&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;Die &lt;abbr title="Vapnik-Chervonenkis"&gt;VC&lt;/abbr&gt;-Dimension $VC(H, X) \in \mathbb{N} \cup \infty$
       eines Hypothesenraumes $H$ ist gleich der maximalen Anzahl an
       Datenpunkten aus $X$, die von $H$ beliebig in zwei Mengen gespalten
@@ -5286,7 +5411,7 @@ Bonuspunkte.&lt;/p&gt;
 &lt;tr&gt;
 &lt;td&gt;14.07.2015&lt;/td&gt;
 &lt;td&gt;&lt;a href="http://ies.anthropomatik.kit.edu/ies/download/lehre/me/ME-Kap8_V25.pdf"&gt;Kapitel 8 - Klassifikatoren&lt;/a&gt; (1-28), &lt;a href="https://ies.anthropomatik.kit.edu/ies/download/lehre/me/ME-Kap9_V29.pdf"&gt;Kapitel 9&lt;/a&gt;: 1-?&lt;/td&gt;
-&lt;td&gt;Entscheidungsb&amp;auml;ume, Grammatiken; Lernen nach Vapnik, VC-dimension, Kreuzvalidierung und Leave-One-Out, Boosting&lt;/td&gt;
+&lt;td&gt;Entscheidungsb&amp;auml;ume, Grammatiken; Lernen nach Vapnik, VC-Dimension, Kreuzvalidierung und Leave-One-Out, Boosting&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
 &lt;h3 id="folien"&gt;Folien&lt;/h3&gt;
@@ -5478,7 +5603,7 @@ sind:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Klassifikatorunabh&amp;auml;ngige Prinzipien&lt;/strong&gt;:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Generalisierung / Generalisierungsf&amp;auml;higkeit&lt;/li&gt;
-&lt;li&gt;VC-Konfidenz / VC-Dimension&lt;/li&gt;
+&lt;li&gt;VC-Konfidenz / &lt;a href="https://martin-thoma.com/machine-learning-1-course/#vc-dimension"&gt;VC-Dimension&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Structural Risc Minimization&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://de.wikipedia.org/wiki/Kreuzvalidierungsverfahren"&gt;Kreuzvalidierungsverfahren&lt;/a&gt; / Leave-one-out&lt;/li&gt;
 &lt;li&gt;Boosting&lt;/li&gt;
