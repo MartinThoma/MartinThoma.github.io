@@ -64,6 +64,11 @@ In der Vorlesung 'Probabilistische Planung' werden drei Themen besprochen:
     <td>MDPs</td>
     <td>Pontryagin's Minimumprinzip, Hamilton-Funktion; LQR; Sicherheitsäquivalenz</td>
 </tr>
+<tr>
+    <td>08.06.2016</td>
+    <td>POMDPs</td>
+    <td>Motivation und Definition von POMDP; Hinreichende Statistik; Bayes-Schätzer</td>
+</tr>
 </table>
 
 Folien:
@@ -379,8 +384,125 @@ Slides: `11.05.2016 - TODO`
 
 <dl>
     <dt><a href="https://en.wikipedia.org/wiki/Partially_observable_Markov_decision_process"><dfn id="pomdp">Partially observable Markov decision process</dfn></a> (POMDP)</dt>
-    <dd>TODO</dd>
+    <dd>Die Messungen sind unsicherheitsbehaftet.
+
+        Das Planungsproblem ist wie folgt definiert:
+
+        <ul>
+            <li>Zustand: Der Agent erhält nur noch Beobachtungen / Messungen
+                des Zustands. Probleme dabei sind:
+                <ul>
+                    <li>Rauschen von Sensoren</li>
+                    <li>Indirekt: Position ist interessant, aber man kann
+                        z.B. mit GPS nur die Laufzeiten ermitteln.</li>
+                    <li>Niederdimensional: Messgröße ist niedrigdimensonaler
+                        als die interessierte Größe. Erst durch mehrere
+                        Messungen gelangt man an die interessante Größe.</li>
+                </ul></li>
+        </ul>
+
+        Ein POMDP ist ein MDP mit folgenden Unterschieden:
+
+        <ul>
+            <li>Initialzustand $x_0$ ist Zufallsvariable mit Verteilung $P(x_0)$.</li>
+            <li>Beobachtungen / Messungen $z_k \in Z$ gemäß der bedingten
+                Verteilung
+                $$z_k \sim P(\cdot | x_k, a_{k-1})$$
+                (Beobachtungswahrscheinlichkeit)<br/>
+
+                <ul>
+                    <li>Diskrete Beobachtungen $\rightarrow$ bedingte Zähldichte
+                $$f(z_k | x_k a_{k-1}) = P(z=z_k | x_k, a_{k-1})$$</li>
+                    <li>Kontinuierliche Beobachtungen $\rightarrow$ bedingte Wahrscheinlichkeitsdichte
+                    $$f(z_k | x_k, a_{k-1}) = \frac{\partial f(z | x_k, a_{k-1})}{\partial z} |_{z=z_k}$$</li>
+                </ul>
+
+                </li>
+            <li>Minimierung der erwarteten Kosten
+
+                $$J_{\pi_{0:N-1}}(\square) = E(g_N (x_n) + \sum_{k=0}^{N-1} g_n(x_k, \pi_k(\square)))$$</li>
+        </ul>
+
+        Reformulierung als MDP:
+
+        <ul>
+            <li>Problem: keine vollständige Information über den Zustand $x_k$,
+                aber Zugriff auf Beobachtungen</li>
+            <li>Idee: Definieren eines neuen Zustands (Informationsvektor $\mathcal I$,
+                engl. Information state), welcher
+
+                <ul>
+                    <li>direkt zugänglich ist,</li>
+                    <li>alle verfügbaren Informationen über $x_k$ zum Zeitpunkt
+                        $k$ enthält</li>
+                </ul>
+
+                Der Informationsvektor enthält alle Beobachtungen:
+
+                $$\mathcal{I} = (z_0, \dots, z_k, a_{0}, \dots, a_{k-1}) \text{ für } k=0, \dots, N-1$$
+
+                Der Informationsvektor beschreibt die zeitliche Entwicklung des
+                Agenten. Mit $P(x_0)$ und $\mathcal{I}_k$ ist sämtliche
+                Information gegeben um zum Zeitpunkt $k$ eine
+                Planungsentscheidung zu treffen.
+
+                Das korrespondierende MDP wird <b>Informations-MDP</b> genannt.
+
+                Das zu lösende dynamische Programm lautet:
+
+                $$J_N(\mathcal{I}_N) = E(g_N(x_N) | \mathcal{I}_N)$$
+
+                $$J_k(\mathcal{I}_k) = \min_{a_k} (E_{x,z}(g_k(x_k, a_k) + J_{k+1}(\mathcal{I}_k, z_{k+1}, a_k)(\mathcal{I}_k, a_k))) \text{ für } k=0, 1, \dots, N-1$$
+
+                Die Lösung ist eine öptimale Strategie $\pi_k^* (\mathcal{I}_k) = a_k^*$
+
+                Nur in Ausnahmefällen geschlossen lösbar, z.B. lineare Modelle.
+
+            </li>
+        </ul>
+
+    </dd>
+    <dt><dfn id="statistik">Statistik</dfn></dt>
+    <dd>Seien $S=\{z_1, \dots, z_n\}$ Stichproben (Samples) einer Zufallsvariablen
+        $z \sim P(z | \Theta)$ mit unbkanntem Parameter $\Theta$. Eine
+        Statistik ist eine Funktion $T(S)=t$, welche zwar von $S$, nicht aber
+        von $\Theta$ abhängt.<br/>
+        <br/>
+        Konstante Funktionen, minimum, maximum, durschschnitt, median, ...</dd>
+    <dt><dfn>Hinreichende Statistik</dfn> (engl. <dfn id="sufficient-statistic">sufficient statistic</dfn>)</dt>
+    <dd>Ziel: Kompression, d.h. Darstellung von $\mathcal{I}_k$ von geringer
+        Dimension.
+
+        Eine Statistik $T$ heißt hinreichend für $\Theta$, wenn keine weitere
+        Statstik auf $S$ existiert, welche zusätzliche Informationen über
+        $\Theta$ liefert.
+
+        Ist $T(S) = t$ gegeben, dann liefert die volle Kentnis von $S$ keine
+        Zusatzinformation über $\Theta$.
+
+
+        Beispiele:
+
+        <ul>
+            <li>Der Stichprobenmittelwert $\hat{z}$ von $n$ unabhängigen
+                Stichproben $z_i$ einer normalverteilten Zuvallsvariabeln
+                $z \sim \mathcal{N}(\mu, \sigma)$ ist eine hinreichende
+                Statistik für $\mu$.</li>
+            <li></li>
+        </ul>
+    </dd>
+    <dt><a href="https://de.wikipedia.org/wiki/Bayes-Sch%C3%A4tzer"><dfn>Bayes'scher Schätzer</dfn></a></dt>
+    <dd>Prädiktion + Filterschritt = Bayes-Schätzer.<br/>
+        TODO (z.B. in GPS arbeitet eine Variante; Extended Kalman Filter)<br/>
+        Der Bayes-Schätzer ist im Allgemeinen nciht geschlossen berechenbar.
+        </dd>
+    <dt><dfn>Verteilungs-MDP</dfn> (<dfn>Belief-state MDP</dfn>)</dt>
+    <dd>Belief ist die Verteilung (TODO)</dd>
 </dl>
+
+TODO:
+
+* Ausblendeigenschaft der Dirac-Delta-Funktion
 
 
 ### Reinforcement Learning
@@ -439,6 +561,8 @@ Slides: `11.05.2016 - TODO`
 ## Material und Links
 
 * [Vorlesungswebsite](http://ies.anthropomatik.kit.edu/lehre_proplan.php)
+* Dimitri Bertsekas: Dynamic Programming and Optimal Control: Volume 1
+* Emanuel Todorov: [Optimal Control Theory](https://homes.cs.washington.edu/~todorov/papers/TodorovChapter06.pdf) (für Pontryagins Minimum-Prinzip)
 
 
 ## Vorlesungsempfehlungen

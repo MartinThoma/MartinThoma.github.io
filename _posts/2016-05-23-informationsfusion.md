@@ -122,6 +122,11 @@ Slides: `IF-Kap2_151215.pdf`
         </ul>
         </dd>
     <dt><dfn id="extended-kalman-filter">Extended Kalman Filter</dfn> (<dfn id="ekf">EKF</dfn>)</dt>
+    <dd>
+
+        Siehe: <a href="http://www.cbcity.de/das-extended-kalman-filter-einfach-erklaert">Das Extended Kalman Filter einfach erklärt</a>
+
+    </dd>
     <dt><a href="https://de.wikipedia.org/wiki/GUM_(Norm)"><dfn id="gum">GUM</dfn></a> (<dfn>Guide to the Expression of Uncertainty in Measurement</dfn>)</dt>
     <dd>GUM ist eine internationale Norm welche das Ziel hat, die
         Vergleichbarkeit zwischen Messergebnissen herzustellen. Dazu
