@@ -559,11 +559,11 @@ Slides: `11.05.2016 - TODO`
         Filterschritt ($k \overset{Z_k}{\rightarrow} k)
         <ul>
             <li>Gegeben: prädizierte Dichte $f_k^P(x_k), Messung $z_k$</li>
-            <li>Gesucht: a-posteriori Dichte $f_k^e(x_k)</li>
+            <li>Gesucht: a-posteriori Dichte $f_k^e(x_k)$</li>
             <li>Berechnung der Parameter:
 
             <ul>
-                <li>Mittelwert: \hat{x}_k^e = \hat{x}_k^P + K_k (z_k - H_k \hat{x}_k^P)</li>
+                <li>Mittelwert: $\hat{x}_k^e = \hat{x}_k^P + K_k (z_k - H_k \hat{x}_k^P)$</li>
                 <li>Kovarianzmatrix: $C_k^e = C_k^P - K_k H_k C_k^P$</li>
                 <li>Kalman-Gain: $K_k = C_k^P H_k^T (H_k C_k^P H_k^T + C_k^v)^{-1}$</li>
             </ul>
@@ -657,7 +657,7 @@ TODO:
 * Emanuel Todorov: [Optimal Control Theory](https://homes.cs.washington.edu/~todorov/papers/TodorovChapter06.pdf) (für Pontryagins Minimum-Prinzip)
 
 
-## Vorlesungsempfehlungen
+## Vorlesungs&shy;empfehlungen
 
 Folgende Vorlesungen sind ähnlich:
 
