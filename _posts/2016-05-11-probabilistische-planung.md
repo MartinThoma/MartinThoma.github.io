@@ -69,6 +69,11 @@ In der Vorlesung 'Probabilistische Planung' werden drei Themen besprochen:
     <td>POMDPs</td>
     <td>Motivation und Definition von POMDP; Hinreichende Statistik; Bayes-Schätzer</td>
 </tr>
+<tr>
+    <td>15.06.2016</td>
+    <td>POMDPs</td>
+    <td>Lineare Planungsprobleme (Kalman-Filter); Sperationsproblem</td>
+</tr>
 </table>
 
 Folien:
@@ -498,6 +503,91 @@ Slides: `11.05.2016 - TODO`
         </dd>
     <dt><dfn>Verteilungs-MDP</dfn> (<dfn>Belief-state MDP</dfn>)</dt>
     <dd>Belief ist die Verteilung (TODO)</dd>
+    <dt><dfn>Lineare Planungsprobleme in POMDPs</dfn></dt>
+    <dd>Zustandsraummodell (Systemmodell):
+        $$x_{k+1} = A_k \cdot x_k + B_k a_k + w_k$$
+
+        Messmodell (Sensormodell):
+        $$z_k = H_k x_k + v_k$$
+
+        <ul>
+            <li>$w_k, v_k$ sind normalverteilte Rauschterme:
+
+                $$f_k^x(x_k) = N(x_k; \hat{x}_k, C_k^x) = \frac{1}{\sqrt{|2 \pi C_k^x|}} exp(-1/2 (x_k - \hat{x}_k)^T (C_k^x)^{-1} (x_k - \hat{x}_k))$$
+
+                mit Mittelwert $\hat{x}_k$ und Kovarianzmatrix $C_k^x$
+            </li>
+            <li>$X = \mathbb{R}^{n_x}, A=\mathbb{R}^{n_k}, Z=\mathbb{R}^{n_z}$</li>
+            <li>Ziel: Überführung des Zustandes $x_0$ in Zielzustand $x_t = [0, ..., 0]^T$
+                durch Minimierung der quatratischen Kostenfunktion
+                $E(x_N^T Q_N x_n + \sum_{k=0}^{N-1} (x_k^T Q_k x_k + a_k^T R_k a_k) | I_N)$
+
+                mit symmetrisch, positiv definiten Gewichtungsmatrizen
+                $Q_N, Q_k, R_k$ und Informationsvektor $I_N$.
+
+
+                Dies ist ein lineares, quadratisches Gauß'sches Planungsprobelm (LQG)</li>
+        </ul>
+
+        Planer besteht aus 2 Komponenten:
+
+        <ul>
+            <li>Zustandsschätzer</li>
+            <li>Strategie</li>
+        </ul>
+
+        Zustandsschätzer:
+
+        <ul>
+            <li>Annahme: bel. Aktionsfolge $a_{0:N-1}$ gegeben: Kalman-Filter (Optimaler Schätzer für lineare Modelle mit normalverteilten Größen)</li>
+        </ul>
+
+        Prädiktion ($k \rightarrow k+1$)
+        <ul>
+            <li>Gegeben: A posteriori Wahrscheinlichkeitsdichte $f_a^e(x_k) = N(x_k; \hat{x}_k^e, C_k^e) = P(x_k | I_k)$</li>
+            <li>Gesucht: prädizierte Wahrscheinlichkeitsdichte $f_{k+1}^p(x_{k+1}) = N(x_{k+1}; \hat{x}_k^P, C_k^P) = P(x_{k+1} | I_k, a_k)</li>
+            <li>Berechnung der Parameter:
+
+                <ul>
+                    <li>Mittelwert: $\hat{x}_{k+1}^P = A_k \hat{x}_k^e + B_k a_k$</li>
+                    <li>Kovarianzmatrix: $C_k^P = A_k C_k^e A_k^T + C_k^w$</li>
+                </ul>
+
+            </li>
+        </ul>
+
+        Filterschritt ($k \overset{Z_k}{\rightarrow} k)
+        <ul>
+            <li>Gegeben: prädizierte Dichte $f_k^P(x_k), Messung $z_k$</li>
+            <li>Gesucht: a-posteriori Dichte $f_k^e(x_k)</li>
+            <li>Berechnung der Parameter:
+
+            <ul>
+                <li>Mittelwert: \hat{x}_k^e = \hat{x}_k^P + K_k (z_k - H_k \hat{x}_k^P)</li>
+                <li>Kovarianzmatrix: $C_k^e = C_k^P - K_k H_k C_k^P$</li>
+                <li>Kalman-Gain: $K_k = C_k^P H_k^T (H_k C_k^P H_k^T + C_k^v)^{-1}$</li>
+            </ul>
+
+            </li>
+        </ul>
+
+        Insgesamt:
+        <ul>
+            <li>Geschlossene Berechnung der Zustandsverteilung</li>
+            <li>Kalman-Filter erfüllt BLUE-Eigenschaft:
+
+            <ul>
+                <li>Best Linear: Optimaler Schätzer für lineare Modelle und
+                                 normalverteilte Größen; bester linearer
+                                 Schätzer  wenn lineare Modelle aber beliebige
+                                 Verteilungen (z.B. Partikelfilter ist
+                                 nicht-linear); d.h. minimale Varianz</li>
+                <li>Unbiased Estimator: Erwartungstreuer Schätzer</li>
+            </ul>
+
+            </li>
+        </ul>
+    </dd>
 </dl>
 
 TODO:
@@ -548,6 +638,8 @@ TODO:
   → TODO
 * Wie lautet die Kostenfunktion eines POMDP?<br/>
   → TODO
+* Was ist der Unterschied des LQR beim MDP und POMDP?<br/>
+  → TODO (POMDP hat Erwartungswert)
 * Was ist PWLC?<br/>
   → TODO
 
