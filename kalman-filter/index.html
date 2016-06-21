@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="algorithms, information fusion, Code, " />
+
+<meta property="og:title" content="Kalman Filter "/>
+<meta property="og:url" content="../kalman-filter/" />
+<meta property="og:description" content="The Kalman Filter is an algorithm which helps to find a good state estimation in the presence of time series data which is uncertain. For example, when you want to track your current position, you can use GPS. However, GPS is not totally accurate as you know if you ever ..." />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2016-06-21T14:40:00+02:00" />
+<meta name="twitter:title" content="Kalman Filter ">
+<meta name="twitter:description" content="The Kalman Filter is an algorithm which helps to find a good state estimation in the presence of time series data which is uncertain. For example, when you want to track your current position, you can use GPS. However, GPS is not totally accurate as you know if you ever ...">
+<meta property="og:image" content="logos/ml.png" />
+<meta name="twitter:image" content="logos/ml.png" >
+
+        <title>Kalman Filter  · Martin Thoma
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="../"><span class=site-name>Martin Thoma</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="../kalman-filter/"> Kalman Filter  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+    <div class="span2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#step-by-step" title="Step-by-step">Step-by-step</a><ul><li><a class="toc-href" href="#step-1-problem-description" title="Step 1: Problem description">Step 1: Problem description</a></li><li><a class="toc-href" href="#step-2-modelling" title="Step 2: Modelling">Step 2: Modelling</a></li><li><a class="toc-href" href="#step-3-the-algorithm" title="Step 3: The algorithm">Step 3: The algorithm</a></li></ul></li><li><a class="toc-href" href="#example_1" title="Example">Example</a></li><li><a class="toc-href" href="#lectures" title="Lectures">Lectures</a></li><li><a class="toc-href" href="#literature-and-weblinks" title="Literature and Weblinks">Literature and Weblinks</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="span8 article-content" id="contentAfterTitle">
+
+            
+            <p>The Kalman Filter is an algorithm which helps to find a good state estimation
+in the presence of time series data which is uncertain. For example, when you
+want to track your current position, you can use GPS. However, GPS is not
+totally accurate as you know if you ever used Google Maps on your mobile
+device. Sensor data is noisy and the programmer and the users have to deal with
+it.</p>
+<blockquote>
+<p>The GPS signal in space will provide a "worst case" pseudorange accuracy of
+7.8 meters at a 95% confidence level.</p>
+</blockquote>
+<p>Source: <a href="http://www.gps.gov/systems/gps/performance/accuracy/">gps.gov</a>, see also <a href="http://gis.stackexchange.com/a/43657/70242">What is the maximum Theoretical accuracy of GPS?</a></p>
+<p>The Kalman filter is the optimal linear filter. This means, there is no
+estimator for the state which has a linear state model which is better. It
+assumes the noise is Gaussian. If it is, then the Kalman filter minimizes the
+mean squared erro of the estimated state parameters. The name "filter" is used
+because the Kalman filter removes (filters) the noise.</p>
+<h2 id="step-by-step">Step-by-step</h2>
+<h3 id="step-1-problem-description">Step 1: Problem description</h3>
+<p>First, note what you're given. This should be:</p>
+<ul>
+<li>The type of data you measure <span class="math">\(z \in \mathbb{R}^{n_z}\)</span>,</li>
+<li>the type of values you want to derive from that <span class="math">\(\mathbf{x} \in \mathbb{R}^{n_x}\)</span>,</li>
+<li>the types of action <span class="math">\(a_k \in \mathbb{R}^{n_a}\)</span> you can do.</li>
+</ul>
+<h3 id="step-2-modelling">Step 2: Modelling</h3>
+<p>The Kalman Filter is a linear filter. This means you have to model your system
+in the form</p>
+<div class="math">$$\mathbf{x}_{k+1} = A_k \mathbf{x}_k + B_k a_k + r_k^{(s)}$$</div>
+<p>with</p>
+<ul>
+<li><span class="math">\(\mathbf{x}_{k+1}, \mathbf{x}_{k} \in \mathbb{R}^{n_x}\)</span> being the state
+  vectors,</li>
+<li><span class="math">\(A_k \in \mathbb{R}^{n_x \times n_x}\)</span> being the system matrix,</li>
+<li><span class="math">\(B_k \in \mathbb{R}^{n_x \times n_a}\)</span> being the control matrix,</li>
+<li><span class="math">\(a_k \in \mathbb{R}^{n_a}\)</span> being the control matrix vector (<span class="math">\(a\)</span> for action),</li>
+<li><span class="math">\(r_k^{(s)} \sim \mathcal{N(0, \Sigma_m)}\)</span> with <span class="math">\(\Sigma_m \in \mathbb{R}^{n_x \times n_x}\)</span>
+  being Gaussian noise</li>
+</ul>
+<p>You can also make a model of your measurements. They should be some linear
+combination of the state with Gaussian noise <span class="math">\(r_k^m\)</span>:</p>
+<div class="math">$$z_k = H \cdot \mathbf{x}_k + r_k^{(m)}$$</div>
+<p>with</p>
+<ul>
+<li><span class="math">\(z_k \in \mathbb{R}^{n_m}\)</span>: The measurement vector</li>
+<li><span class="math">\(r_k^{(m)} \sim \mathcal{N(0, \Sigma_m)}\)</span> with <span class="math">\(\Sigma_m \in \mathbb{R}^{n_m \times n_m}\)</span>
+  being Gaussian noise</li>
+</ul>
+<h3 id="step-3-the-algorithm">Step 3: The algorithm</h3>
+<figure class="wp-caption aligncenter img-thumbnail">
+<img alt="Overview of the Kalman-filter." src="../images/2016/06/kalman-filter.png"/>
+<figcaption class="text-center">Overview of the Kalman-filter.</figcaption>
+</figure>
+<p>The matrices which were not explained so far are:</p>
+<ul>
+<li><span class="math">\(C_k^{(r_s)} \in \mathbb{R}^{n_x \times n_x}\)</span>: The process error covariance matrix.</li>
+<li><span class="math">\(C_k^{(r_m)} \in \mathbb{R}^{n_m \times n_m}\)</span>: The measurment noise covariance matrix.</li>
+<li><span class="math">\(H \in \mathbb{R}^{n_m \times n_x}\)</span>: A matrix which transforms the state
+  vector <span class="math">\(\mathbf{x}\)</span> to a measurement vector. This matrix is a constant over
+  the whole process. It is most likely to have only 0s and 1s as entrys.</li>
+<li><span class="math">\(K_k \in \mathbb{R}^{n_x \times n_m}\)</span>: The Kalman gain. Higher values
+  indicate that we give more trust to the measurment. Lower values indicate
+  that we give more trust to our last prediction.</li>
+</ul>
+<h2 id="example_1">Example</h2>
+<p>Suppose you want to track the position of a car in 2D. What you get as sensor
+data is the current position. So the state is</p>
+<div class="math">$$\mathbf{x} = \begin{pmatrix}x\\y\\\dot{x}\\\dot{y}\end{pmatrix}$$</div>
+<p>where <span class="math">\(x \in \mathbb{R}\)</span> is the position in m away from some predefined point,
+<span class="math">\(\dot{x} \in \mathbb{R}\)</span> is the velocity in m/s at starting time and <span class="math">\(\ddot{x}
+\in \mathbb{R}\)</span> is the acceleration in <span class="math">\(m/s^2\)</span>. The measurements are</p>
+<div class="math">$$\mathbf{z} = \begin{pmatrix}x^{(M)}\\y^{(M)}\end{pmatrix}$$</div>
+<p>What you get to choose is the acceleration at each time step <span class="math">\(i\)</span> (time steps
+have the length <span class="math">\(t\)</span>):</p>
+<div class="math">$$a = \begin{pmatrix}\ddot{x}^{(a)}\\\ddot{y}^{(a)}\end{pmatrix}$$</div>
+<p>As the Kalman filter is a linear filter, the state model is:</p>
+<div class="math">$$\mathbf{x}^{(P)}_k = A\mathbf{x}_k + Ba_k$$</div>
+<p>The measurement is dependent on the state, with some noise <span class="math">\(r_k^m\)</span>:</p>
+<div class="math">$$\mathbf{z}_k = H \mathbf{x}_k + r_k^m$$</div>
+<p>with <span class="math">\(A \in \mathbb{R}^{4 \times 4}\)</span>, <span class="math">\(H \in \mathbb{R}^{2 \times 4}\)</span>. As one
+can decompose the acceleration / speed in the directions and the equation for
+the new position is</p>
+<div class="math">$$\begin{align}x_{new}(t) &amp;= x + \dot{x} t + 0.5 \ddot{x} t^2\\
+y_{new}(t) &amp;= y + \dot{y} t + 0.5 \ddot{y} t^2\\
+\dot{x}_{new}(t) &amp;= \dot{x} + \ddot{x} t\\
+\dot{y}_{new}(t) &amp;= \dot{y} + \ddot{y} t\end{align}$$</div>
+<p>So given the state model, we get:</p>
+<div class="math">$$\mathbf{x}^{(P)} = \underbrace{\begin{pmatrix}1&amp; 0 &amp; t &amp; 0\\
+                                    0&amp; 1 &amp; 0 &amp; t\\
+                                    0&amp; 0 &amp; 1 &amp; 0\\
+                                    0&amp; 0 &amp; 0 &amp; 1\end{pmatrix}}_{A_k} \mathbf{x}_k + \underbrace{\begin{pmatrix}0.5t^2 &amp; 0\\
+                                        0 &amp; 0.5t^2\\
+                                        t &amp; 0\\
+                                        0 &amp; t\end{pmatrix}}_{B_k} \cdot a_k$$</div>
+<p>The choice of the initial uncertainty covariance matrix
+<span class="math">\(P_0 \in \mathbb{R}^{4 \times 4}\)</span> / the initial state <span class="math">\(\mathbf{x}\)</span> doesn't
+matter too much. The Kalman filter algorithm will fix both over enough steps.
+Common choices are the zero-vector for <span class="math">\(\mathbb{x}\)</span> and <span class="math">\(P_0 = c \cdot I\)</span>
+as the covariance matrix with the identity matrix <span class="math">\(I\)</span> and <span class="math">\(c\)</span> being big
+compared with the noise.</p>
+<p>For this example, a reasonable choice is the diagonal matrix </p>
+<div class="math">$$P_0 = \begin{pmatrix}a_1 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; a_2 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; a_3 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; a_4\end{pmatrix}$$</div>
+<p> with <span class="math">\(a_1 = a_2 = 20000000\)</span> as the earths diameter is about <span class="math">\(40000\textrm{ km}\)</span> and <span class="math">\(a_3=a_4=90\)</span> as going more than <span class="math">\(324\textrm{ km/h}\)</span> is extremely rarely going to happen for a car.</p>
+<p>For the initial state parameter, you could wait two time steps:
+</p>
+<div class="math">$$\mathbf{x}_0 = \begin{pmatrix}x^{(M)}_{-1}\\
+                                y^{(M)}_{-1}\\
+                                x^{(M)}_{-1} - x^{(M)}_{-2}\\
+                                y^{(M)}_{-1} - y^{(M)}_{-2}\end{pmatrix}$$</div>
+<p><strong>Prediction step</strong></p>
+<p>The state prediction works as above:
+</p>
+<div class="math">$$\mathbf{x}^{(P)}_{k+1} = A_k \mathbf{x}_{k} + B_k a_k$$</div>
+<p>Covariance prediction:</p>
+<div class="math">$$P_{k+1}^{(P)} = A P_k A^T + C_k^{(r_s)} \quad \text{with}\quad C_k^{(r_s)} \in \mathbb{R}^{4 \times 4}.$$</div>
+<p>The process error covariance <span class="math">\(C_k^{(r_s)}\)</span> expresses the error in the system.
+It is a covariance matrix and thus has to be symmetric and positive definite.
+It encodes errors in the modeling itself as well as errors in the actions.</p>
+<p><strong>Innovation step</strong></p>
+<p>Innovation, which compares the measurement with the prediction:</p>
+<div class="math">$$\tilde{y}_{i+1} = z_{i+1} - H \mathbf{x}^{(P)}_{i+1}$$</div>
+<p>The observation matrix <span class="math">\(H \in \mathbb{R}^{2 \times 4}\)</span> in the example is
+</p>
+<div class="math">$$H = \begin{pmatrix}1 &amp; 0 &amp; 0 &amp; 0\\0 &amp; 1 &amp; 0 &amp; 0\end{pmatrix},$$</div>
+<p> as it encodes the relationship between the state and the measurement.</p>
+<p>Innovation Covariance:</p>
+<div class="math">$$S_{i+1} = H P_{i+1}^{(P)} H^T + R$$</div>
+<p>For the measurement error covariance <span class="math">\(R \in \mathbb{R}^{2 \times 2}\)</span> I have to know something about the way my sensors work. I guess this will usually be a diagonal matrix, as the sensors will be independent(?).</p>
+<p>Kalman Gain:</p>
+<div class="math">$$K_{i+1} = P_{i+1}^{(P)} H^T S^{-1}_{i+1}$$</div>
+<p>Now, finally the state and covariance update:</p>
+<div class="math">$$x_{i+1} = \mathbf{x}^{(P)}_{i+1} + K_{i+1} \tilde{y}$$</div>
+<div class="math">$$P_{i+1} = (I - K_{i+1} H) P_{i+1}^{(P)}$$</div>
+<h2 id="lectures">Lectures</h2>
+<p>There are several lectures at KIT which introduce Kalman filters:</p>
+<ul>
+<li><a href="https://martin-thoma.com/probabilistische-planung/">Probabilistische Planung</a></li>
+<li><a href="https://martin-thoma.com/informationsfusion/">Informationsfusion</a></li>
+<li>Lokalisierung mobiler Agenten</li>
+<li><a href="http://www.ite.kit.edu/lehrveranstaltungen_analyse_und_entwurf_multisens_sys.php">Analyse und Entwurf multisensorieller Systeme</a></li>
+</ul>
+<p>There is also an series of YouTube videos I can recommend:</p>
+<iframe allowfullscreen="" frameborder="0" height="288" src="https://www.youtube-nocookie.com/embed/CaCcOwJPytQ?list=PLX2gX-ftPVXU3oUFNATxGXY90AULiqnWT" width="512"></iframe>
+<h2 id="literature-and-weblinks">Literature and Weblinks</h2>
+<ul>
+<li>Bar-Shalom, Yaakov, X. Rong Li, and Thiagalingam Kirubarajan. Estimation with
+  applications to tracking and navigation: theory algorithms and software. John
+  Wiley &amp; Sons, 2004.</li>
+<li>Greg Czerniak: <a href="http://greg.czerniak.info/guides/kalman1/">Introduction to Kalman filters</a></li>
+<li><a href="http://dsp.stackexchange.com/q/31632/9101">How do I choose the parameters of a Kalman filter?</a></li>
+</ul>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2016-06-21T14:40:00+02:00">Jun 21, 2016</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#algorithms-ref">algorithms
+                    <span>9</span>
+</a></li>
+                <li><a href="../tags.html#information-fusion-ref">information fusion
+                    <span>1</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
