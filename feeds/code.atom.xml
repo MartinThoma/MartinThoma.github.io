@@ -121,19 +121,19 @@ It is a covariance matrix and thus has to be symmetric and positive definite.
 It encodes errors in the modeling itself as well as errors in the actions.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Innovation step&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Innovation, which compares the measurement with the prediction:&lt;/p&gt;
-&lt;div class="math"&gt;$$\tilde{y}_{i+1} = z_{i+1} - H \mathbf{x}^{(P)}_{i+1}$$&lt;/div&gt;
+&lt;div class="math"&gt;$$\tilde{y}_{k+1} = z_{k+1} - H \mathbf{x}^{(P)}_{k+1}$$&lt;/div&gt;
 &lt;p&gt;The observation matrix &lt;span class="math"&gt;\(H \in \mathbb{R}^{2 \times 4}\)&lt;/span&gt; in the example is
 &lt;/p&gt;
 &lt;div class="math"&gt;$$H = \begin{pmatrix}1 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0\\0 &amp;amp; 1 &amp;amp; 0 &amp;amp; 0\end{pmatrix},$$&lt;/div&gt;
 &lt;p&gt; as it encodes the relationship between the state and the measurement.&lt;/p&gt;
 &lt;p&gt;Innovation Covariance:&lt;/p&gt;
-&lt;div class="math"&gt;$$S_{i+1} = H P_{i+1}^{(P)} H^T + C_k^{(r_m)}$$&lt;/div&gt;
+&lt;div class="math"&gt;$$S_{k+1} = H P_{k+1}^{(P)} H^T + C_k^{(r_m)}$$&lt;/div&gt;
 &lt;p&gt;For the measurement error covariance &lt;span class="math"&gt;\(C_k^{(r_m)} \in \mathbb{R}^{2 \times 2}\)&lt;/span&gt; I have to know something about the way my sensors work. I guess this will usually be a diagonal matrix, as the sensors will be independent(?).&lt;/p&gt;
 &lt;p&gt;Kalman Gain:&lt;/p&gt;
-&lt;div class="math"&gt;$$K_{i+1} = P_{i+1}^{(P)} H^T S^{-1}_{i+1}$$&lt;/div&gt;
+&lt;div class="math"&gt;$$K_{k+1} = P_{k+1}^{(P)} H^T S^{-1}_{k+1}$$&lt;/div&gt;
 &lt;p&gt;Now, finally the state and covariance update:&lt;/p&gt;
-&lt;div class="math"&gt;$$x_{i+1} = \mathbf{x}^{(P)}_{i+1} + K_{i+1} \tilde{y}$$&lt;/div&gt;
-&lt;div class="math"&gt;$$P_{i+1} = (I - K_{i+1} H) P_{i+1}^{(P)}$$&lt;/div&gt;
+&lt;div class="math"&gt;$$x_{k+1} = \mathbf{x}^{(P)}_{k+1} + K_{k+1} \tilde{y}$$&lt;/div&gt;
+&lt;div class="math"&gt;$$P_{k+1} = (I - K_{k+1} H) P_{k+1}^{(P)}$$&lt;/div&gt;
 &lt;h2 id="lectures"&gt;Lectures&lt;/h2&gt;
 &lt;p&gt;There are several lectures at KIT which introduce Kalman filters:&lt;/p&gt;
 &lt;ul&gt;
