@@ -72,7 +72,9 @@ with
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <img src="../images/2016/06/kalman-filter.png" alt="Overview of the Kalman-filter." />
-    <figcaption class="text-center">Overview of the Kalman-filter.</figcaption>
+    <figcaption class="text-center">Overview of the Kalman-filter.<br/>
+                                    The inputs are <span style="color: #FFA500;">orange</span>,
+                                    the outputs are <span style="color: #0059FF">blue</span>.</figcaption>
 </figure>
 
 The matrices which were not explained so far are:
@@ -170,25 +172,25 @@ It encodes errors in the modeling itself as well as errors in the actions.
 
 Innovation, which compares the measurement with the prediction:
 
-$$\tilde{y}_{i+1} = z_{i+1} - H \mathbf{x}^{(P)}_{i+1}$$
+$$\tilde{y}_{k+1} = z_{k+1} - H \mathbf{x}^{(P)}_{k+1}$$
 
 The observation matrix $H \in \mathbb{R}^{2 \times 4}$ in the example is
 $$H = \begin{pmatrix}1 & 0 & 0 & 0\\0 & 1 & 0 & 0\end{pmatrix},$$ as it encodes the relationship between the state and the measurement.
 
 Innovation Covariance:
 
-$$S_{i+1} = H P_{i+1}^{(P)} H^T + R$$
+$$S_{k+1} = H P_{k+1}^{(P)} H^T + C_k^{(r_m)}$$
 
-For the measurement error covariance $R \in \mathbb{R}^{2 \times 2}$ I have to know something about the way my sensors work. I guess this will usually be a diagonal matrix, as the sensors will be independent(?).
+For the measurement error covariance $C_k^{(r_m)} \in \mathbb{R}^{2 \times 2}$ I have to know something about the way my sensors work. I guess this will usually be a diagonal matrix, as the sensors will be independent(?).
 
 Kalman Gain:
 
-$$K_{i+1} = P_{i+1}^{(P)} H^T S^{-1}_{i+1}$$
+$$K_{k+1} = P_{k+1}^{(P)} H^T S^{-1}_{k+1}$$
 
 Now, finally the state and covariance update:
 
-$$x_{i+1} = \mathbf{x}^{(P)}_{i+1} + K_{i+1} \tilde{y}$$
-$$P_{i+1} = (I - K_{i+1} H) P_{i+1}^{(P)}$$
+$$\mathbf{x}_{k+1} = \mathbf{x}^{(P)}_{k+1} + K_{k+1} \tilde{y}$$
+$$P_{k+1} = (I - K_{k+1} H) P_{k+1}^{(P)}$$
 
 
 ## Lectures
