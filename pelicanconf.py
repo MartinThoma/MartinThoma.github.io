@@ -74,7 +74,8 @@ PLUGINS = ['pelican_plugin-render_math',
            #            'simple_footnotes',
            ]
 
-MD_EXTENSIONS = ["codehilite(css_class=highlight)", "extra", "headerid", "toc"]
+MD_EXTENSIONS = ["codehilite(css_class=highlight)", "extra", "headerid", "toc",
+                 "footnotes"]
 MATH_JAX = {'auto_insert': False}
 
 SITEMAP = {
