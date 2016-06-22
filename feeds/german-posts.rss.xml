@@ -763,13 +763,17 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
         Geschlossene L&amp;ouml;sung nur in Ausnahmef&amp;auml;llen, sonst numerische
         L&amp;ouml;sungsverfahren.
         TODO.
+
+        Hier wird eine optimale Strategie bestimmt.
     &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="ol-planung"&gt;Open-loop Planung&lt;/dfn&gt; (&lt;dfn&gt;OL Planung&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;Ohne Zustandsr&amp;uuml;ckf&amp;uuml;hrung
 
         &lt;!-- $$a_{0:N-1}^* = arg min_{a_{0:N-1}} E \{ g_N(x_N) + \sum_{k=0}^{N-1} g_n(x_k, a_k)\}$$
         für  --&gt;
-&lt;/dd&gt;
+
+        Hier wird ein optimaler Plan bestimmt.
+    &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="olf-planung"&gt;Open-Loop-Feedback Planung&lt;/dfn&gt; (&lt;dfn&gt;OLF Planung&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;TODO&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Modellpr&amp;auml;diktive Planung&lt;/dfn&gt;&lt;/dt&gt;
@@ -791,7 +795,10 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
                 Planungsergebnissen; d.h. $N$ ist &lt;b&gt;kein&lt;/b&gt; Trade-off zwischen
                 Qualit&amp;auml;t und Komplexit&amp;auml;t.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/dd&gt;
+
+        Hier wird der Plan aktualisiert; OLF minimiert die Kosten garantiert
+        st&amp;auml;rker als OL-Planung (gleichheit im deterministischen Fall)
+        &lt;/dd&gt;
 &lt;/dl&gt;
 &lt;p&gt;TODO:&lt;/p&gt;
 &lt;ul&gt;
@@ -14983,7 +14990,7 @@ $&lt;/p&gt;
 &lt;strong&gt;Bonuspunkte&lt;/strong&gt;: Gibt es nicht.&lt;/p&gt;
 &lt;h2 id="ergebnisse"&gt;Ergebnisse&lt;/h2&gt;
 &lt;p&gt;Die Klausureinsicht ist am 24.10.2012 von 14:00 - 16:30 Uhr (&lt;a href="http://www.math.kit.edu/iana3/lehre/ana22012s/event/einsicht/"&gt;Quelle&lt;/a&gt;).&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Martin Thoma</dc:creator><pubDate>Tue, 14 Aug 2012 17:13:24 +0200</pubDate><guid isPermaLink="false">tag:martin-thoma.com,2012-08-14:klausur-analysis-i-und-ii/</guid><category>Klausur</category></item><item><title>Mathe-Aufgabe: Blutspende</title><link>https://martin-thoma.com/mathe-aufgabe-blutspende/</link><description>&lt;h2 id="aufgabenstellung"&gt;Aufgabenstellung&lt;/h2&gt;
-&lt;p&gt;Ein Mensch hat ca. 5 Liter Blut. Bei einer Blutspende wird in der Regel etwa ein halber Liter Blut entnommen. Bis zur n&amp;auml;chsten Blutspende ist wird dieses Blut wieder neu gebildet. &lt;/p&gt;
+&lt;p&gt;Ein Mensch hat ca. 5 Liter Blut. Bei einer Blutspende wird in der Regel etwa ein halber Liter Blut entnommen. Bis zur n&amp;auml;chsten Blutspende ist wird dieses Blut wieder neu gebildet.&lt;/p&gt;
 &lt;p&gt;Wie h&amp;auml;ufig muss Blut gespendet werden, bis 95% des urspr&amp;uuml;nglichen Blutes gespendet wurde?&lt;/p&gt;
 &lt;p&gt;Die nat&amp;uuml;rliche Neubildung von Blut auch ohne Blutspende wird vernachl&amp;auml;ssigt.&lt;/p&gt;
 &lt;h2 id="berechnung"&gt;Berechnung&lt;/h2&gt;
@@ -14997,58 +15004,50 @@ $&lt;/p&gt;
 &lt;p&gt;Beim dritten mal Blutspenden werden 0,405 Liter des urspr&amp;uuml;nglichen Blutes gespendet:&lt;/p&gt;
 &lt;p&gt;&lt;span class="math"&gt;\(f(3) = \frac{5-0{,}95}{5} \cdot 0{,}5 \text{ Liter} + f(2) + f(1) + f(0) = 1{,}355 \text{ Liter}\)&lt;/span&gt;&lt;/p&gt;
 &lt;h3 id="eine-rekursive-formel"&gt;Eine rekursive Formel&lt;/h3&gt;
-&lt;p&gt;$
-        &lt;/p&gt;
-&lt;div class="math"&gt;\begin{align}
+&lt;div class="math"&gt;$$
+        \begin{align}
             f(1) &amp;amp;= 0{,}5 \\
             f(x) &amp;amp;= \overbrace{\underbrace{\frac{5-f(x-1)}{5}}_{\text{Anteil}} \cdot 0{,}5}^{\text{neue Blutmenge}} + f(x-1) \\
                  &amp;amp;= 0{,}5 - \frac{1}{10} \cdot f(x-1) + f(x-1) \\
                  &amp;amp;=  0{,}5 + \frac{9}{10} \cdot f(x-1)
-        \end{align}&lt;/div&gt;
-&lt;p&gt;
-$&lt;/p&gt;
+        \end{align}
+$$&lt;/div&gt;
 &lt;p&gt;Dabei gilt:
 &lt;ul&gt;
 &lt;li&gt;0,5 ist die gespendete Blutmenge in Liter einer Spende&lt;/li&gt;
 &lt;li&gt;&lt;span class="math"&gt;\(\frac{9}{10} = \frac{\text{gespendete Blutmenge}}{\text{gesamte Blutmenge}}\)&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/p&gt;
 &lt;h3 id="auflosen-der-rekursion"&gt;Aufl&amp;ouml;sen der Rekursion&lt;/h3&gt;
-&lt;p&gt;$
-        &lt;/p&gt;
-&lt;div class="math"&gt;\begin{align}
+&lt;div class="math"&gt;$$
+        \begin{align}
              f(4) &amp;amp;= 0{,}5 + \frac{9}{10} \cdot (0{,}5 + \frac{9}{10} \cdot (0{,}5 + \frac{9}{10} \cdot 0{,}5))\\
                   &amp;amp;= 0{,}5 + \frac{9}{10} \cdot 0{,}5 + (\frac{9}{10})^2 \cdot (0{,}5 + \frac{9}{10} \cdot 0{,}5)\\
                   &amp;amp;= 0{,}5 + \frac{9}{10} \cdot 0{,}5 + (\frac{9}{10})^2 \cdot 0{,}5 + (\frac{9}{10})^3 \cdot 0{,}5\\
                   &amp;amp;= 0{,}5 \cdot (1 + \frac{9}{10} + (\frac{9}{10})^2 + (\frac{9}{10})^3)\\
               f(x)&amp;amp;= \frac{1}{2} \cdot \sum_{i=0}^{x} (\frac{9}{10})^i
-        \end{align}&lt;/div&gt;
-&lt;p&gt;
-$&lt;/p&gt;
+        \end{align}
+$$&lt;/div&gt;
 &lt;h3 id="auflosen-des-summensymbols"&gt;Aufl&amp;ouml;sen des Summensymbols&lt;/h3&gt;
-&lt;p&gt;$
-        &lt;/p&gt;
-&lt;div class="math"&gt;\begin{align}
+&lt;div class="math"&gt;$$
+        \begin{align}
             f(x) &amp;amp;= \frac{1}{2} \cdot \sum_{i=0}^{x} (\frac{9}{10})^i\\
                  &amp;amp;= \frac{1}{2}\cdot (\frac{0{,}9^{x+1} - 1}{0{,}9 - 1})\\
                  &amp;amp;= \frac{1}{2}\cdot (-10 \cdot 0{,}9^{x+1} + 10)\\
                  &amp;amp;= -5 \cdot 0{,}9^{x+1} + 5\\
                  &amp;amp;= 5 \cdot (1 - 0{,}9^{x+1})
-        \end{align}&lt;/div&gt;
-&lt;p&gt;
-$&lt;/p&gt;
+        \end{align}
+$$&lt;/div&gt;
 &lt;h2 id="losung_1"&gt;L&amp;ouml;sung&lt;/h2&gt;
-&lt;p&gt;$
-        &lt;/p&gt;
-&lt;div class="math"&gt;\begin{align}
+&lt;div class="math"&gt;$$
+        \begin{align}
             0{,}95 \cdot 5 &amp;amp;= 5 \cdot (1- 0{,}9^{x+1})\\
                     0{,}95 &amp;amp;= 1 - 0{,}9^{x+1}\\
               0{,}9^{x+1} &amp;amp;= 0{,}05\\
     \ln(0{,}9) \cdot {x+1} &amp;amp;= \ln(0{,}05) \\
                      x  &amp;amp;= \frac{\ln(0,05)}{\ln(0{,}9)} - 1\\
                      x  &amp;amp;= 27{,}43
-        \end{align}&lt;/div&gt;
-&lt;p&gt;
-$&lt;/p&gt;
+        \end{align}
+$$&lt;/div&gt;
 &lt;h2 id="antwort"&gt;Antwort&lt;/h2&gt;
 &lt;p&gt;Nach dem 28. mal Blutspenden wurden 95% des urspr&amp;uuml;nglichen Blutes gespendet.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Martin Thoma</dc:creator><pubDate>Tue, 14 Aug 2012 17:00:16 +0200</pubDate><guid isPermaLink="false">tag:martin-thoma.com,2012-08-14:mathe-aufgabe-blutspende/</guid><category>mathematics</category></item><item><title>Sichtweite des Burdsch Chalifa</title><link>https://martin-thoma.com/sichtweite-des-burdsch-chalifa/</link><description>&lt;h2 id="aufgabenstellung"&gt;Aufgabenstellung&lt;/h2&gt;
 &lt;p&gt;Der Burdsch Chalifa war 2010 das h&amp;ouml;chste Geb&amp;auml;ude der Erde. Bis zur Spitze sind es 830 m.&lt;/p&gt;
