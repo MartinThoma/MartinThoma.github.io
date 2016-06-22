@@ -173,7 +173,7 @@ MathJax.Hub.Queue(function() {
 <tr>
 <td>22.06.2016</td>
 <td>POMDPs</td>
-<td>Endliche Planungsprobleme (Optimale Strategie)</td>
+<td>Endliche Planungsprobleme (Optimale Strategie); Modellpr&auml;diktive Planung</td>
 </tr>
 </table>
 <p>Folien:</p>
@@ -592,7 +592,7 @@ MathJax.Hub.Queue(function() {
         <ul>
 <li>$r_k^{(s)}, v_k$ sind normalverteilte Rauschterme:
 
-                $$f_k^x(x_k) = N(x_k; \hat{x}_k, C_k^x) = \frac{1}{\sqrt{|2 \pi C_k^x|}} exp(-1/2 (x_k - \hat{x}_k)^T (C_k^x)^{-1} (x_k - \hat{x}_k))$$
+                $$f_k^x(x_k) = N(x_k; \hat{x}_k, C_k^x) = \frac{1}{\sqrt{|2 \pi C_k^x|}} \exp(-1/2 (x_k - \hat{x}_k)^T (C_k^x)^{-1} (x_k - \hat{x}_k))$$
 
                 mit Mittelwert $\hat{x}_k$ und Kovarianzmatrix $C_k^x$
             </li>
@@ -624,7 +624,7 @@ MathJax.Hub.Queue(function() {
         Pr&auml;diktion ($k \rightarrow k+1$)
         <ul>
 <li>Gegeben: A posteriori Wahrscheinlichkeitsdichte $f_a^e(x_k) = N(x_k; \hat{x}_k^e, C_k^e) = P(x_k | I_k)$</li>
-<li>Gesucht: pr&auml;dizierte Wahrscheinlichkeitsdichte $f_{k+1}^p(x_{k+1}) = N(x_{k+1}; \hat{x}_k^P, C_k^P) = P(x_{k+1} | I_k, a_k)</li>
+<li>Gesucht: pr&auml;dizierte Wahrscheinlichkeitsdichte $f_{k+1}^p(x_{k+1}) = N(x_{k+1}; \hat{x}_k^P, C_k^P) = P(x_{k+1} | I_k, a_k)$</li>
 <li>Berechnung der Parameter:
 
                 <ul>
@@ -634,9 +634,9 @@ MathJax.Hub.Queue(function() {
 </li>
 </ul>
 
-        Filterschritt ($k \overset{Z_k}{\rightarrow} k)
+        Filterschritt ($k \overset{Z_k}{\rightarrow} k$)
         <ul>
-<li>Gegeben: pr&auml;dizierte Dichte $f_k^P(x_k), Messung $z_k$</li>
+<li>Gegeben: pr&auml;dizierte Dichte $f_k^P(x_k)$, Messung $z_k$</li>
 <li>Gesucht: a-posteriori Dichte $f_k^e(x_k)$</li>
 <li>Berechnung der Parameter:
 
@@ -670,14 +670,34 @@ MathJax.Hub.Queue(function() {
         L&ouml;sungsverfahren.
         TODO.
     </dd>
-<dt><dfn>Open-loop Planung</dfn> (<dfn>OL Planung</dfn>)</dt>
+<dt><dfn id="ol-planung">Open-loop Planung</dfn> (<dfn>OL Planung</dfn>)</dt>
 <dd>Ohne Zustandsr&uuml;ckf&uuml;hrung
 
         <!-- $$a_{0:N-1}^* = arg min_{a_{0:N-1}} E \{ g_N(x_N) + \sum_{k=0}^{N-1} g_n(x_k, a_k)\}$$
         für  -->
 </dd>
-<dt><dfn>Open-Loop-Feedback Planung</dfn> (<dfn>OLF Planung</dfn>)</dt>
+<dt><dfn id="olf-planung">Open-Loop-Feedback Planung</dfn> (<dfn>OLF Planung</dfn>)</dt>
 <dd>TODO</dd>
+<dt><dfn>Modellpr&auml;diktive Planung</dfn></dt>
+<dd>OLF-Planung &uuml;ber k&uuml;rzeren, aber wandernden Horizont $M &lt;&lt; N$
+
+        Ablauf (on-line):
+
+        <ol>
+<li>Berechnung von $P(x_k | I_k)$</li>
+<li>TODO ($E(\sum_{i=k} g_i(x_i, a_i) | I_k)$)</li>
+<li>Anwendung von $a_k^*$, zur&uuml;ck zu 1.</li>
+</ol>
+
+        Eigenschaften:
+
+        <ul>
+<li>Effiziente Planung f&uuml;r gro&szlig;e $N$, insbesondere f&uuml;r $N=a$</li>
+<li>Verl&auml;ngerung von $N$ f&uuml;hrt nicht notwendigerweise zu besseren
+                Planungsergebnissen; d.h. $N$ ist <b>kein</b> Trade-off zwischen
+                Qualit&auml;t und Komplexit&auml;t.</li>
+</ul>
+</dd>
 </dl>
 <p>TODO:</p>
 <ul>
