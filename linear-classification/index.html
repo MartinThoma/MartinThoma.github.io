@@ -102,7 +102,7 @@ MathJax.Hub.Queue(function() {
     <div class="span2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#one-hot-encoding" title="One-hot encoding">One-hot encoding</a><ul><li><a class="toc-href" href="#normalizing-the-output" title="Normalizing the output">Normalizing the output</a></li><li><a class="toc-href" href="#decision-boundary" title="Decision boundary">Decision boundary</a></li></ul></li><li><a class="toc-href" href="#-11-encoding_1" title="-1/+1 encoding">-1/+1 encoding</a></li><li><a class="toc-href" href="#differences-from-target-encoding" title="Differences from target encoding">Differences from target encoding</a></li><li><a class="toc-href" href="#footnotes" title="Footnotes">Footnotes</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#one-hot-encoding" title="One-hot encoding">One-hot encoding</a><ul><li><a class="toc-href" href="#normalizing-the-output" title="Normalizing the output">Normalizing the output</a></li><li><a class="toc-href" href="#decision-boundary" title="Decision boundary">Decision boundary</a></li></ul></li><li><a class="toc-href" href="#-11-encoding_1" title="-1/+1 encoding">-1/+1 encoding</a></li><li><a class="toc-href" href="#differences-from-target-encoding" title="Differences from target encoding">Differences from target encoding</a></li><li><a class="toc-href" href="#implementation" title="Implementation">Implementation</a></li><li><a class="toc-href" href="#footnotes" title="Footnotes">Footnotes</a></li></ul></div>
         </nav>
     </div>
     <div class="span8 article-content" id="contentAfterTitle">
@@ -204,8 +204,78 @@ $$</div>
 <li>(+) One-hot encoding can easily be expanded to more than two classes, in contrast to <span class="math">\(-1/+1\)</span> encoding.</li>
 <li>(+) With one-hot encoding, you can easily get a probability distribution for the classes you are interested in. This is certainly also possible with <span class="math">\(-1/+1\)</span> encoding, but it doesn't strike my eye as clearly.</li>
 <li>(-) One-hot encoding needs more storage space.</li>
-<li>(?) <span class="math">\(-1/+1\)</span> encoding is used in SVMs, so it might have advantages in maximum margin classification.</li>
+<li>(?) <span class="math">\(-1/+1\)</span> encoding is used in SVMs (see <a href="https://martin-thoma.com/svm-with-sklearn/">SVM article</a>), so it might have advantages in maximum margin classification.</li>
 </ul>
+<h2 id="implementation">Implementation</h2>
+<p>If I had to implement a linear classifier, I would use the delta rule and a
+one-layer perceptron:</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+
+<span class="sd">"""Example for a linear classifier using a perceptron and the delta rule."""</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.datasets.samples_generator</span> <span class="kn">import</span> <span class="n">make_blobs</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+
+<span class="k">class</span> <span class="nc">Perceptron</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eta</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+        <span class="sd">"""</span>
+<span class="sd">        Single perceptron unit.</span>
+
+<span class="sd">        Credit to Sebastian Raschka:</span>
+<span class="sd">        http://sebastianraschka.com/Articles/2015_singlelayer_neurons.html</span>
+<span class="sd">        This was slightly modified.</span>
+<span class="sd">        """</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eta</span> <span class="o">=</span> <span class="n">eta</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span> <span class="o">=</span> <span class="n">epochs</span>
+
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">w_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">errors_</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">):</span>
+            <span class="n">errors</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">xi</span><span class="p">,</span> <span class="n">target</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+                <span class="n">update</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">eta</span> <span class="o">*</span> <span class="p">(</span><span class="n">target</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">xi</span><span class="p">))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">w_</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+=</span> <span class="n">update</span> <span class="o">*</span> <span class="n">xi</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">w_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="n">update</span>
+                <span class="n">errors</span> <span class="o">+=</span> <span class="nb">int</span><span class="p">(</span><span class="n">update</span> <span class="o">!=</span> <span class="mf">0.0</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">errors_</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">net_input</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">w_</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">w_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">net_input</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Generate data</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">target</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">cluster_std</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># Fit 1-layer perceptron</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">Perceptron</span><span class="p">(</span><span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+<span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]),</span> <span class="n">stop</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">w_</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">w_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">f</span><span class="o">.</span><span class="n">w_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">xi</span><span class="p">)</span> <span class="o">/</span> <span class="n">f</span><span class="o">.</span><span class="n">w_</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">xi</span> <span class="ow">in</span> <span class="n">xs</span><span class="p">],</span> <span class="s1">'r--'</span><span class="p">)</span>
+
+
+<span class="c1"># Plot it</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gray</span><span class="p">()</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">target</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+<p>which gives:</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<img alt="Classification with a Perceptron." src="../images/2016/06/perceptron-classification.png"/>
+<figcaption class="text-center">Classification with a Perceptron.</figcaption>
+</figure>
+<p>Looks about right. You can also see that this probably minimizes the MSE, but
+it does not maximize the margin between the classes. This would be done by
+SVMs.</p>
 <h2 id="footnotes">Footnotes</h2>
 <div class="footnote">
 <hr/>
