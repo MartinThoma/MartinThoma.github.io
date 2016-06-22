@@ -264,6 +264,11 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;td&gt;POMDPs&lt;/td&gt;
 &lt;td&gt;Lineare Planungsprobleme (Kalman-Filter); Sperationsproblem&lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;22.06.2016&lt;/td&gt;
+&lt;td&gt;POMDPs&lt;/td&gt;
+&lt;td&gt;Endliche Planungsprobleme (Optimale Strategie)&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/table&gt;
 &lt;p&gt;Folien:&lt;/p&gt;
 &lt;ul&gt;
@@ -535,22 +540,22 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Hamilton-Funktion"&gt;&lt;dfn&gt;Hamilton-Funktion&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
 &lt;dd&gt;TODO&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Lineares Zustandsmodell&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;$$x_{k+1} = A_k + x_k + B_k \cdot a_k + w_k$$&lt;/dd&gt;
-&lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/LQ-Regler"&gt;&lt;dfn&gt;Linearer Quadratischer Regulator&lt;/dfn&gt;&lt;/a&gt; (&lt;dfn&gt;LQR&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dd&gt;$$x_{k+1} = A_k + x_k + B_k \cdot a_k + r_k^{(s)}$$&lt;/dd&gt;
+&lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/LQ-Regler"&gt;&lt;dfn id="linear-quadratic-regulator"&gt;Linearer Quadratischer Regulator&lt;/dfn&gt;&lt;/a&gt; (&lt;dfn id="lqr"&gt;LQR&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;Der LQR ist ein Regler (Regulator) f&amp;uuml;r einen lineareren Zustandsraum
         mit quadratischer Kostenfunktion.
 
         TODO&lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;Sicherheits&amp;auml;quivalenz&lt;/dfn&gt; (&lt;a href="https://en.wikipedia.org/wiki/Stochastic_control#Certainty_equivalence"&gt;&lt;dfn&gt;Certainty Equivalence&lt;/dfn&gt;&lt;/a&gt;)&lt;/dt&gt;
+&lt;dt&gt;&lt;dfn&gt;Sicherheits&amp;auml;quivalenz&lt;/dfn&gt; (&lt;a href="https://en.wikipedia.org/wiki/Stochastic_control#Certainty_equivalence"&gt;&lt;dfn id="certainty-equivalence"&gt;Certainty Equivalence&lt;/dfn&gt;&lt;/a&gt;)&lt;/dt&gt;
 &lt;dd&gt;Verst&amp;auml;rkungsmatrix $l_k$ und somit die Strategie $\pi_k^*$
-        sind unabh&amp;auml;ngig vom Rauschen $w_k$.&lt;br/&gt;
+        sind unabh&amp;auml;ngig vom Rauschen $r_k^{(s)}$.&lt;br/&gt;
 &lt;br/&gt;
         Die selbe optimale Strategie ergibt sich bei Betrachtung des
         korrespondierendne deterministischen Zustandsraummodel
 
-        $$x_{k1+} = A_k x_k + B_k a_k$$
+        $$x_{k+1} = A_k x_k + B_k a_k$$
 
-        welchem das Rauschen $w_k$ durch dessen Erwartungswert $E(w_k) = 0$
+        welchem das Rauschen $r_k^{(s)}$ durch dessen Erwartungswert $E(r_k^{(s)}) = 0$
         ersetzt ist.&lt;br/&gt;
 
         $\Rightarrow$ Deterministisches Problem
@@ -673,13 +678,13 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;dd&gt;Belief ist die Verteilung (TODO)&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Lineare Planungsprobleme in POMDPs&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Zustandsraummodell (Systemmodell):
-        $$x_{k+1} = A_k \cdot x_k + B_k a_k + w_k$$
+        $$x_{k+1} = A_k \cdot x_k + B_k a_k + r_k^{(s)}$$
 
         Messmodell (Sensormodell):
         $$z_k = H_k x_k + v_k$$
 
         &lt;ul&gt;
-&lt;li&gt;$w_k, v_k$ sind normalverteilte Rauschterme:
+&lt;li&gt;$r_k^{(s)}, v_k$ sind normalverteilte Rauschterme:
 
                 $$f_k^x(x_k) = N(x_k; \hat{x}_k, C_k^x) = \frac{1}{\sqrt{|2 \pi C_k^x|}} exp(-1/2 (x_k - \hat{x}_k)^T (C_k^x)^{-1} (x_k - \hat{x}_k))$$
 
@@ -707,7 +712,7 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
         Zustandssch&amp;auml;tzer:
 
         &lt;ul&gt;
-&lt;li&gt;Annahme: bel. Aktionsfolge $a_{0:N-1}$ gegeben: Kalman-Filter (Optimaler Sch&amp;auml;tzer f&amp;uuml;r lineare Modelle mit normalverteilten Gr&amp;ouml;&amp;szlig;en)&lt;/li&gt;
+&lt;li&gt;Annahme: bel. Aktionsfolge $a_{0:N-1}$ gegeben: &lt;a href="https://martin-thoma.com/kalman-filter/"&gt;Kalman-Filter&lt;/a&gt; (Optimaler Sch&amp;auml;tzer f&amp;uuml;r lineare Modelle mit normalverteilten Gr&amp;ouml;&amp;szlig;en)&lt;/li&gt;
 &lt;/ul&gt;
 
         Pr&amp;auml;diktion ($k \rightarrow k+1$)
@@ -740,7 +745,7 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
         Insgesamt:
         &lt;ul&gt;
 &lt;li&gt;Geschlossene Berechnung der Zustandsverteilung&lt;/li&gt;
-&lt;li&gt;Kalman-Filter erf&amp;uuml;llt BLUE-Eigenschaft:
+&lt;li&gt;Kalman-Filter erf&amp;uuml;llt &lt;span id="blue"&gt;BLUE&lt;/span&gt;-Eigenschaft:
 
             &lt;ul&gt;
 &lt;li&gt;Best Linear: Optimaler Sch&amp;auml;tzer f&amp;uuml;r lineare Modelle und
@@ -753,6 +758,12 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Closed-Loop Planung&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;Mit Zustandsr&amp;uuml;ckf&amp;uuml;hrung. Kann mnit dynamischer Programmierung gel&amp;ouml;st werden.
+        Geschlossene L&amp;ouml;sung nur in Ausnahmef&amp;auml;llen, sonst numerische
+        L&amp;ouml;sungsverfahren.
+        TODO.
+    &lt;/dd&gt;
 &lt;/dl&gt;
 &lt;p&gt;TODO:&lt;/p&gt;
 &lt;ul&gt;

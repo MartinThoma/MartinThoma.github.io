@@ -170,6 +170,11 @@ MathJax.Hub.Queue(function() {
 <td>POMDPs</td>
 <td>Lineare Planungsprobleme (Kalman-Filter); Sperationsproblem</td>
 </tr>
+<tr>
+<td>22.06.2016</td>
+<td>POMDPs</td>
+<td>Endliche Planungsprobleme (Optimale Strategie)</td>
+</tr>
 </table>
 <p>Folien:</p>
 <ul>
@@ -441,22 +446,22 @@ MathJax.Hub.Queue(function() {
 <dt><a href="https://de.wikipedia.org/wiki/Hamilton-Funktion"><dfn>Hamilton-Funktion</dfn></a></dt>
 <dd>TODO</dd>
 <dt><dfn>Lineares Zustandsmodell</dfn></dt>
-<dd>$$x_{k+1} = A_k + x_k + B_k \cdot a_k + w_k$$</dd>
-<dt><a href="https://de.wikipedia.org/wiki/LQ-Regler"><dfn>Linearer Quadratischer Regulator</dfn></a> (<dfn>LQR</dfn>)</dt>
+<dd>$$x_{k+1} = A_k + x_k + B_k \cdot a_k + r_k^{(s)}$$</dd>
+<dt><a href="https://de.wikipedia.org/wiki/LQ-Regler"><dfn id="linear-quadratic-regulator">Linearer Quadratischer Regulator</dfn></a> (<dfn id="lqr">LQR</dfn>)</dt>
 <dd>Der LQR ist ein Regler (Regulator) f&uuml;r einen lineareren Zustandsraum
         mit quadratischer Kostenfunktion.
 
         TODO</dd>
-<dt><dfn>Sicherheits&auml;quivalenz</dfn> (<a href="https://en.wikipedia.org/wiki/Stochastic_control#Certainty_equivalence"><dfn>Certainty Equivalence</dfn></a>)</dt>
+<dt><dfn>Sicherheits&auml;quivalenz</dfn> (<a href="https://en.wikipedia.org/wiki/Stochastic_control#Certainty_equivalence"><dfn id="certainty-equivalence">Certainty Equivalence</dfn></a>)</dt>
 <dd>Verst&auml;rkungsmatrix $l_k$ und somit die Strategie $\pi_k^*$
-        sind unabh&auml;ngig vom Rauschen $w_k$.<br/>
+        sind unabh&auml;ngig vom Rauschen $r_k^{(s)}$.<br/>
 <br/>
         Die selbe optimale Strategie ergibt sich bei Betrachtung des
         korrespondierendne deterministischen Zustandsraummodel
 
-        $$x_{k1+} = A_k x_k + B_k a_k$$
+        $$x_{k+1} = A_k x_k + B_k a_k$$
 
-        welchem das Rauschen $w_k$ durch dessen Erwartungswert $E(w_k) = 0$
+        welchem das Rauschen $r_k^{(s)}$ durch dessen Erwartungswert $E(r_k^{(s)}) = 0$
         ersetzt ist.<br/>
 
         $\Rightarrow$ Deterministisches Problem
@@ -579,13 +584,13 @@ MathJax.Hub.Queue(function() {
 <dd>Belief ist die Verteilung (TODO)</dd>
 <dt><dfn>Lineare Planungsprobleme in POMDPs</dfn></dt>
 <dd>Zustandsraummodell (Systemmodell):
-        $$x_{k+1} = A_k \cdot x_k + B_k a_k + w_k$$
+        $$x_{k+1} = A_k \cdot x_k + B_k a_k + r_k^{(s)}$$
 
         Messmodell (Sensormodell):
         $$z_k = H_k x_k + v_k$$
 
         <ul>
-<li>$w_k, v_k$ sind normalverteilte Rauschterme:
+<li>$r_k^{(s)}, v_k$ sind normalverteilte Rauschterme:
 
                 $$f_k^x(x_k) = N(x_k; \hat{x}_k, C_k^x) = \frac{1}{\sqrt{|2 \pi C_k^x|}} exp(-1/2 (x_k - \hat{x}_k)^T (C_k^x)^{-1} (x_k - \hat{x}_k))$$
 
@@ -613,7 +618,7 @@ MathJax.Hub.Queue(function() {
         Zustandssch&auml;tzer:
 
         <ul>
-<li>Annahme: bel. Aktionsfolge $a_{0:N-1}$ gegeben: Kalman-Filter (Optimaler Sch&auml;tzer f&uuml;r lineare Modelle mit normalverteilten Gr&ouml;&szlig;en)</li>
+<li>Annahme: bel. Aktionsfolge $a_{0:N-1}$ gegeben: <a href="https://martin-thoma.com/kalman-filter/">Kalman-Filter</a> (Optimaler Sch&auml;tzer f&uuml;r lineare Modelle mit normalverteilten Gr&ouml;&szlig;en)</li>
 </ul>
 
         Pr&auml;diktion ($k \rightarrow k+1$)
@@ -646,7 +651,7 @@ MathJax.Hub.Queue(function() {
         Insgesamt:
         <ul>
 <li>Geschlossene Berechnung der Zustandsverteilung</li>
-<li>Kalman-Filter erf&uuml;llt BLUE-Eigenschaft:
+<li>Kalman-Filter erf&uuml;llt <span id="blue">BLUE</span>-Eigenschaft:
 
             <ul>
 <li>Best Linear: Optimaler Sch&auml;tzer f&uuml;r lineare Modelle und
@@ -659,6 +664,12 @@ MathJax.Hub.Queue(function() {
 </li>
 </ul>
 </dd>
+<dt><dfn>Closed-Loop Planung</dfn></dt>
+<dd>Mit Zustandsr&uuml;ckf&uuml;hrung. Kann mnit dynamischer Programmierung gel&ouml;st werden.
+        Geschlossene L&ouml;sung nur in Ausnahmef&auml;llen, sonst numerische
+        L&ouml;sungsverfahren.
+        TODO.
+    </dd>
 </dl>
 <p>TODO:</p>
 <ul>
