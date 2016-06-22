@@ -207,8 +207,8 @@ $$</div>
 <li>(?) <span class="math">\(-1/+1\)</span> encoding is used in SVMs (see <a href="https://martin-thoma.com/svm-with-sklearn/">SVM article</a>), so it might have advantages in maximum margin classification.</li>
 </ul>
 <h2 id="implementation">Implementation</h2>
-<p>If I had to implement a linear classifier, I would use the delta rule and a
-one-layer perceptron:</p>
+<p>If I had to implement a linear binary classifier, I would use the delta rule
+and a perceptron unit:</p>
 <div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 
 <span class="sd">"""Example for a linear classifier using a perceptron and the delta rule."""</span>
@@ -255,7 +255,7 @@ one-layer perceptron:</p>
 <span class="c1"># Generate data</span>
 <span class="n">X</span><span class="p">,</span> <span class="n">target</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">cluster_std</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 
-<span class="c1"># Fit 1-layer perceptron</span>
+<span class="c1"># Fit perceptron</span>
 <span class="n">f</span> <span class="o">=</span> <span class="n">Perceptron</span><span class="p">(</span><span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">f</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
 <span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]),</span> <span class="n">stop</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]))</span>
