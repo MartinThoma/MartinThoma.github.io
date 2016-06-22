@@ -74,6 +74,11 @@ In der Vorlesung 'Probabilistische Planung' werden drei Themen besprochen:
     <td>POMDPs</td>
     <td>Lineare Planungsprobleme (Kalman-Filter); Sperationsproblem</td>
 </tr>
+<tr>
+    <td>22.06.2016</td>
+    <td>POMDPs</td>
+    <td>Endliche Planungsprobleme (Optimale Strategie); Modellprädiktive Planung</td>
+</tr>
 </table>
 
 Folien:
@@ -361,22 +366,22 @@ Slides: `11.05.2016 - TODO`
     <dt><a href="https://de.wikipedia.org/wiki/Hamilton-Funktion"><dfn>Hamilton-Funktion</dfn></a></dt>
     <dd>TODO</dd>
     <dt><dfn>Lineares Zustandsmodell</dfn></dt>
-    <dd>$$x_{k+1} = A_k + x_k + B_k \cdot a_k + w_k$$</dd>
-    <dt><a href="https://de.wikipedia.org/wiki/LQ-Regler"><dfn>Linearer Quadratischer Regulator</dfn></a> (<dfn>LQR</dfn>)</dt>
+    <dd>$$x_{k+1} = A_k + x_k + B_k \cdot a_k + r_k^{(s)}$$</dd>
+    <dt><a href="https://de.wikipedia.org/wiki/LQ-Regler"><dfn id="linear-quadratic-regulator">Linearer Quadratischer Regulator</dfn></a> (<dfn id="lqr">LQR</dfn>)</dt>
     <dd>Der LQR ist ein Regler (Regulator) für einen lineareren Zustandsraum
         mit quadratischer Kostenfunktion.
 
         TODO</dd>
-    <dt><dfn>Sicherheitsäquivalenz</dfn> (<a href="https://en.wikipedia.org/wiki/Stochastic_control#Certainty_equivalence"><dfn>Certainty Equivalence</dfn></a>)</dt>
+    <dt><dfn>Sicherheitsäquivalenz</dfn> (<a href="https://en.wikipedia.org/wiki/Stochastic_control#Certainty_equivalence"><dfn id="certainty-equivalence">Certainty Equivalence</dfn></a>)</dt>
     <dd>Verstärkungsmatrix $l_k$ und somit die Strategie $\pi_k^*$
-        sind unabhängig vom Rauschen $w_k$.<br/>
+        sind unabhängig vom Rauschen $r_k^{(s)}$.<br/>
         <br/>
         Die selbe optimale Strategie ergibt sich bei Betrachtung des
         korrespondierendne deterministischen Zustandsraummodel
 
-        $$x_{k1+} = A_k x_k + B_k a_k$$
+        $$x_{k+1} = A_k x_k + B_k a_k$$
 
-        welchem das Rauschen $w_k$ durch dessen Erwartungswert $E(w_k) = 0$
+        welchem das Rauschen $r_k^{(s)}$ durch dessen Erwartungswert $E(r_k^{(s)}) = 0$
         ersetzt ist.<br/>
 
         $\Rightarrow$ Deterministisches Problem
@@ -505,15 +510,15 @@ Slides: `11.05.2016 - TODO`
     <dd>Belief ist die Verteilung (TODO)</dd>
     <dt><dfn>Lineare Planungsprobleme in POMDPs</dfn></dt>
     <dd>Zustandsraummodell (Systemmodell):
-        $$x_{k+1} = A_k \cdot x_k + B_k a_k + w_k$$
+        $$x_{k+1} = A_k \cdot x_k + B_k a_k + r_k^{(s)}$$
 
         Messmodell (Sensormodell):
         $$z_k = H_k x_k + v_k$$
 
         <ul>
-            <li>$w_k, v_k$ sind normalverteilte Rauschterme:
+            <li>$r_k^{(s)}, v_k$ sind normalverteilte Rauschterme:
 
-                $$f_k^x(x_k) = N(x_k; \hat{x}_k, C_k^x) = \frac{1}{\sqrt{|2 \pi C_k^x|}} exp(-1/2 (x_k - \hat{x}_k)^T (C_k^x)^{-1} (x_k - \hat{x}_k))$$
+                $$f_k^x(x_k) = N(x_k; \hat{x}_k, C_k^x) = \frac{1}{\sqrt{|2 \pi C_k^x|}} \exp(-1/2 (x_k - \hat{x}_k)^T (C_k^x)^{-1} (x_k - \hat{x}_k))$$
 
                 mit Mittelwert $\hat{x}_k$ und Kovarianzmatrix $C_k^x$
             </li>
@@ -539,13 +544,13 @@ Slides: `11.05.2016 - TODO`
         Zustandsschätzer:
 
         <ul>
-            <li>Annahme: bel. Aktionsfolge $a_{0:N-1}$ gegeben: Kalman-Filter (Optimaler Schätzer für lineare Modelle mit normalverteilten Größen)</li>
+            <li>Annahme: bel. Aktionsfolge $a_{0:N-1}$ gegeben: <a href="https://martin-thoma.com/kalman-filter/">Kalman-Filter</a> (Optimaler Schätzer für lineare Modelle mit normalverteilten Größen)</li>
         </ul>
 
         Prädiktion ($k \rightarrow k+1$)
         <ul>
             <li>Gegeben: A posteriori Wahrscheinlichkeitsdichte $f_a^e(x_k) = N(x_k; \hat{x}_k^e, C_k^e) = P(x_k | I_k)$</li>
-            <li>Gesucht: prädizierte Wahrscheinlichkeitsdichte $f_{k+1}^p(x_{k+1}) = N(x_{k+1}; \hat{x}_k^P, C_k^P) = P(x_{k+1} | I_k, a_k)</li>
+            <li>Gesucht: prädizierte Wahrscheinlichkeitsdichte $f_{k+1}^p(x_{k+1}) = N(x_{k+1}; \hat{x}_k^P, C_k^P) = P(x_{k+1} | I_k, a_k)$</li>
             <li>Berechnung der Parameter:
 
                 <ul>
@@ -556,9 +561,9 @@ Slides: `11.05.2016 - TODO`
             </li>
         </ul>
 
-        Filterschritt ($k \overset{Z_k}{\rightarrow} k)
+        Filterschritt ($k \overset{Z_k}{\rightarrow} k$)
         <ul>
-            <li>Gegeben: prädizierte Dichte $f_k^P(x_k), Messung $z_k$</li>
+            <li>Gegeben: prädizierte Dichte $f_k^P(x_k)$, Messung $z_k$</li>
             <li>Gesucht: a-posteriori Dichte $f_k^e(x_k)$</li>
             <li>Berechnung der Parameter:
 
@@ -574,7 +579,7 @@ Slides: `11.05.2016 - TODO`
         Insgesamt:
         <ul>
             <li>Geschlossene Berechnung der Zustandsverteilung</li>
-            <li>Kalman-Filter erfüllt BLUE-Eigenschaft:
+            <li>Kalman-Filter erfüllt <span id="blue">BLUE</span>-Eigenschaft:
 
             <ul>
                 <li>Best Linear: Optimaler Schätzer für lineare Modelle und
@@ -588,6 +593,47 @@ Slides: `11.05.2016 - TODO`
             </li>
         </ul>
     </dd>
+    <dt><dfn>Closed-Loop Planung</dfn> (<dfn>CL Planung</dfn>)</dt>
+    <dd>Mit Zustandsrückführung. Kann mnit dynamischer Programmierung gelöst werden.
+        Geschlossene Lösung nur in Ausnahmefällen, sonst numerische
+        Lösungsverfahren.
+        TODO.
+
+        Hier wird eine optimale Strategie bestimmt.
+    </dd>
+    <dt><dfn id="ol-planung">Open-loop Planung</dfn> (<dfn>OL Planung</dfn>)</dt>
+    <dd>Ohne Zustandsrückführung
+
+        <!-- $$a_{0:N-1}^* = arg min_{a_{0:N-1}} E \{ g_N(x_N) + \sum_{k=0}^{N-1} g_n(x_k, a_k)\}$$
+        für  -->
+
+        Hier wird ein optimaler Plan bestimmt.
+    </dd>
+    <dt><dfn id="olf-planung">Open-Loop-Feedback Planung</dfn> (<dfn>OLF Planung</dfn>)</dt>
+    <dd>TODO</dd>
+    <dt><dfn>Modellprädiktive Planung</dfn></dt>
+    <dd>OLF-Planung über kürzeren, aber wandernden Horizont $M << N$
+
+        Ablauf (on-line):
+
+        <ol>
+            <li>Berechnung von $P(x_k | I_k)$</li>
+            <li>TODO ($E(\sum_{i=k} g_i(x_i, a_i) | I_k)$)</li>
+            <li>Anwendung von $a_k^*$, zurück zu 1.</li>
+        </ol>
+
+        Eigenschaften:
+
+        <ul>
+            <li>Effiziente Planung für große $N$, insbesondere für $N=a$</li>
+            <li>Verlängerung von $N$ führt nicht notwendigerweise zu besseren
+                Planungsergebnissen; d.h. $N$ ist <b>kein</b> Trade-off zwischen
+                Qualität und Komplexität.</li>
+        </ul>
+
+        Hier wird der Plan aktualisiert; OLF minimiert die Kosten garantiert
+        stärker als OL-Planung (gleichheit im deterministischen Fall)
+        </dd>
 </dl>
 
 TODO:

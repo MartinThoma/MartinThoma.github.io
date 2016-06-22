@@ -302,7 +302,7 @@ Slides: `05_DynamischeBayesscheNetze.pdf`
       Beispiele für Bayes-Filter sind
 
       <ul>
-          <li>Kalman-Filter</li>
+          <li><a href="https://martin-thoma.com/kalman-filter/">Kalman-Filter</a></li>
           <li><abbr title="Hidden Markov Model">HMM</abbr></li>
           <li>Partikel Filter</li>
       </ul>

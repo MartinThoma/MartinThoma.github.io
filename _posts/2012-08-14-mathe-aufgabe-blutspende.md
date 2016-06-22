@@ -8,7 +8,7 @@ tags: mathematics
 featured_image: 2012/08/blood.png
 ---
 <h2>Aufgabenstellung</h2>
-Ein Mensch hat ca. 5 Liter Blut. Bei einer Blutspende wird in der Regel etwa ein halber Liter Blut entnommen. Bis zur n&auml;chsten Blutspende ist wird dieses Blut wieder neu gebildet. 
+Ein Mensch hat ca. 5 Liter Blut. Bei einer Blutspende wird in der Regel etwa ein halber Liter Blut entnommen. Bis zur n&auml;chsten Blutspende ist wird dieses Blut wieder neu gebildet.
 
 Wie h&auml;ufig muss Blut gespendet werden, bis 95% des urspr&uuml;nglichen Blutes gespendet wurde?
 
@@ -33,14 +33,14 @@ Beim dritten mal Blutspenden werden 0,405 Liter des urspr&uuml;nglichen Blutes g
 $f(3) = \frac{5-0{,}95}{5} \cdot 0{,}5 \text{ Liter} + f(2) + f(1) + f(0) = 1{,}355 \text{ Liter}$
 
 <h3>Eine rekursive Formel</h3>
-$
+$$
         \begin{align}
             f(1) &= 0{,}5 \\
             f(x) &= \overbrace{\underbrace{\frac{5-f(x-1)}{5}}_{\text{Anteil}} \cdot 0{,}5}^{\text{neue Blutmenge}} + f(x-1) \\
                  &= 0{,}5 - \frac{1}{10} \cdot f(x-1) + f(x-1) \\
                  &=  0{,}5 + \frac{9}{10} \cdot f(x-1)
         \end{align}
-$
+$$
 
 Dabei gilt:
 <ul>
@@ -49,7 +49,7 @@ Dabei gilt:
 </ul>
 
 <h3>Aufl&ouml;sen der Rekursion</h3>
-$
+$$
         \begin{align}
              f(4) &= 0{,}5 + \frac{9}{10} \cdot (0{,}5 + \frac{9}{10} \cdot (0{,}5 + \frac{9}{10} \cdot 0{,}5))\\
                   &= 0{,}5 + \frac{9}{10} \cdot 0{,}5 + (\frac{9}{10})^2 \cdot (0{,}5 + \frac{9}{10} \cdot 0{,}5)\\
@@ -57,10 +57,10 @@ $
                   &= 0{,}5 \cdot (1 + \frac{9}{10} + (\frac{9}{10})^2 + (\frac{9}{10})^3)\\
               f(x)&= \frac{1}{2} \cdot \sum_{i=0}^{x} (\frac{9}{10})^i
         \end{align}
-$
+$$
 
 <h3>Aufl&ouml;sen des Summensymbols</h3>
-$
+$$
         \begin{align}
             f(x) &= \frac{1}{2} \cdot \sum_{i=0}^{x} (\frac{9}{10})^i\\
                  &= \frac{1}{2}\cdot (\frac{0{,}9^{x+1} - 1}{0{,}9 - 1})\\
@@ -68,10 +68,10 @@ $
                  &= -5 \cdot 0{,}9^{x+1} + 5\\
                  &= 5 \cdot (1 - 0{,}9^{x+1})
         \end{align}
-$
+$$
 
 <h2>L&ouml;sung</h2>
-$
+$$
         \begin{align}
             0{,}95 \cdot 5 &= 5 \cdot (1- 0{,}9^{x+1})\\
                     0{,}95 &= 1 - 0{,}9^{x+1}\\
@@ -80,7 +80,7 @@ $
                      x  &= \frac{\ln(0,05)}{\ln(0{,}9)} - 1\\
                      x  &= 27{,}43
         \end{align}
-$
+$$
 
 <h2>Antwort</h2>
 Nach dem 28. mal Blutspenden wurden 95% des urspr&uuml;nglichen Blutes gespendet.

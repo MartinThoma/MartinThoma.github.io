@@ -56,7 +56,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 <tr>
 <td style="border-bottom:1px solid black;">03.06.2013</td>
 <td style="border-bottom:1px solid black;">(Nicht verf&uuml;gbar)</td>
-<td style="border-bottom:1px solid black;">2D-Bildverarbeitung: Schwellwert, Graustufen, Segmentierung, Kanten-/Knotenerkennung; Hough-Tranformation; Harris-Corner-Detector; Kalmanfilter; Erosion / Dilatation; &Ouml;ffnen / Schlie&szlig;en</td>
+<td style="border-bottom:1px solid black;">2D-Bildverarbeitung: Schwellwert, Graustufen, Segmentierung, Kanten-/Knotenerkennung; Hough-Tranformation; Harris-Corner-Detector; <a href="https://martin-thoma.com/kalman-filter/">Kalman-Filter</a>; Erosion / Dilatation; &Ouml;ffnen / Schlie&szlig;en</td>
 
 <tr>
 <td style="border-bottom:1px solid black;">10.06.2013</td>
@@ -67,7 +67,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 <tr>
 <td style="border-bottom:1px solid black;">24.06.2013</td>
 <td style="border-bottom:1px solid black;">(Nicht verf&uuml;gbar)</td>
-<td style="border-bottom:1px solid black;">3D-Bildverarbeitung: Kalmanfilter; Partikelfilter; homogene Koordinaten</td>
+<td style="border-bottom:1px solid black;">3D-Bildverarbeitung: <a href="https://martin-thoma.com/kalman-filter/">Kalman-Filter</a>; Partikelfilter; homogene Koordinaten</td>
 </tr>
 </table>
 
