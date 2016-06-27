@@ -249,7 +249,7 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;tr&gt;
 &lt;td&gt;28.04.2016&lt;/td&gt;
 &lt;td&gt;Grundlagen&lt;/td&gt;
-&lt;td&gt;Allais-Paradoxon, TODO&lt;/td&gt;
+&lt;td&gt;Allais-Paradoxon, Nutzentheorie, Pr&amp;auml;ferenzrelation, Nutzenfunktion&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;06.05.2016&lt;/td&gt;
@@ -377,8 +377,43 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="policy"&gt;Strategie&lt;/dfn&gt; (&lt;dfn&gt;policy&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;Eine Strategie ist ein Plan mit Zustandsr&amp;uuml;ckf&amp;uuml;hrung.&lt;/dd&gt;
-&lt;dt&gt;&lt;dfn id="nutzenfunktion"&gt;Nutzenfunktion&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;TODO&lt;/dd&gt;
+&lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Pr%C3%A4ferenzrelation"&gt;&lt;dfn&gt;Pr&amp;auml;ferenzrelation&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
+&lt;dd&gt;Sei $\mathcal{X}$ eine Zustandsmenge und $\geq \subseteq \mathcal{X} \times \mathcal{X}$
+      eine bin&amp;auml;re Relation auf $\mathcal{X}$. $\geq$ hei&amp;szlig;t (schwache)
+      Pr&amp;auml;ferenzrelation, wenn gilt:
+      &lt;ul&gt;
+&lt;li&gt;$\geq$ ist vollst&amp;auml;ndig: $\forall x, y \in \mathcal{X}: x \geq y \lor y \geq x$&lt;/li&gt;
+&lt;li&gt;$\geq$ ist transitiv: $\forall x, y, z \in \mathcal{X}: x \geq y \land y \geq z \Rightarrow x \leq z$&lt;/li&gt;
+&lt;/ul&gt;&lt;/dd&gt;
+&lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Nutzenfunktion"&gt;&lt;dfn id="nutzenfunktion"&gt;Nutzenfunktion&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
+&lt;dd&gt;Sei $\mathcal{X}$ eine Zustandsmenge und $u: \mathcal{X} \rightarrow \mathbb{R}$
+      eine Funktion. Sei au&amp;szlig;erdem $\geq$ eine Pr&amp;auml;ferenzrelation. $u$ hei&amp;szlig;t
+      eine Nutzenfunktion welche $\geq$ abbildet, wenn gilt:
+      $$\forall x, y \in \mathcal{X}: x \geq y \Leftrightarrow u(x) \geq u(y)$$&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Von-Neumann-Morgenstern Axiome&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;Sei $\mathcal{X}$ eine Zustandsmenge und $\mathcal{P}$ die Menge aller
+      Verteilungen $P: \mathcal{X} \rightarrow [0, 1]$.
+
+        &lt;ol&gt;
+&lt;li id="VNM-1"&gt;$\geq$ ist eine Pr&amp;auml;ferenzrelation&lt;/li&gt;
+&lt;li id="VNM-2"&gt;Unabh&amp;auml;ngigkeitsaxiom: Gilt f&amp;uuml;r $P, Q \in \mathcal{P}$ die
+                Beziehung $P \geq Q$, dann gilt auch:
+                $$\alpha \cdot P + (1 - \alpha) R \geq \alpha Q + (1 - \alpha) R$$
+                f&amp;uuml;r beliebiges $R \in \mathcal{P}$ und beliebiges $\alpha \in [0, 1]$.
+                &lt;br/&gt;
+&lt;u&gt;Salopp:&lt;/u&gt; St&amp;ouml;rungen $R$ beeinflussen die Pr&amp;auml;ferenz von $P$
+                und $Q$ nicht.
+                &lt;/li&gt;
+&lt;li id="VNM-3"&gt;Stetigkeitsaxiom: F&amp;uuml;r beliebige
+                           $P, Q, R \in \mathcal{P}$ mit
+                           $P &amp;gt; Q &amp;gt; R$ gibt es $\alpha, \beta \in (0, 1)$
+                           derart, dass
+                           $$\alpha \cdot P + (1 - \alpha) \cdot R &amp;gt; Q &amp;gt; \beta \cdot P + (1-\beta)R$$
+                           gilt.&lt;br/&gt;
+&lt;u&gt;Salopp:&lt;/u&gt; Pr&amp;auml;ferenzrelationen sind nicht
+                           anf&amp;auml;llig gegen&amp;uuml;ber kleinen &amp;Auml;nderungen.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Bellman_equation"&gt;&lt;dfn id="bellman-equation"&gt;Bellman-Gleichungen&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
 &lt;dd&gt;TODO&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="q-function"&gt;Q-Funktion&lt;/dfn&gt;&lt;/dt&gt;
@@ -400,7 +435,7 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
       $$
       ergibt.&lt;br/&gt;
 &lt;br/&gt;
-      Laufzeitkomplexit&amp;auml;t $\mathcal{O}(N |\mathcal{X}|^2 |A|)$
+      Laufzeitkomplexit&amp;auml;t: $\mathcal{O}(N |\mathcal{X}|^2 |A|)$
 
   &lt;/dd&gt;
 &lt;/dl&gt;
