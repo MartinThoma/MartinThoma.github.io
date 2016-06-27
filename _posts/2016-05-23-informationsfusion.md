@@ -60,14 +60,36 @@ Slides: `IF-Kap2_151215.pdf`
 
 Slides: `IF-Kap3_160125.pdf`
 
-TODO
+<dl>
+    <dt><dfn>Dempsters Kombinationsregel</dfn> (<dfn>Dempsters rule of combination</dfn>, <dfn>DRC</dfn>)</dt>
+    <dd>$$m_1 \oplus m_2 (A) := \begin{cases}0&\text{for } A = \emptyset\\
+                                             \frawc{\sum{X, Y: X \cap Y = A} m_1(X) m_2(Y)}{|1-K|}\end{cases}$$
+        für Konfliktgrad $$K := \sum_{X, Y: X \cap Y = \emptyset} m_1(X) m_2(Y)$$
+        Bei einem Konfliktgrad von $0 < K < 1$ spricht man von einem
+        partiellen Konflikt. Ist der Konfliktgrad gleich $K=1$, so ist DRC
+        nicht anwendbar.<br/>
+        <br/>
+        DRC ist assoziativ und kommutativ, allerdings nicht idempotent.
+        Es gilt also im Allgemeinen nicht $m \oplus m = m$.</dd>
+</dl>
 
 
 ### Fuzzy-Systeme
 
 Slides: `IF-Kap4_160125.pdf`
 
-TODO
+<dl>
+    <dt><dfn>Zugehörigkeitsfunktion</dfn></dt>
+    <dd>Eine Zugehörigkeitsfunktion ist eine Funktion $\mu_A: A \rightarrow [0, 1]$ zu
+        einem Grundraum $\Omega$ mit $A \subseteq \Omega$.
+        Dann gilt
+        $$\mu_{\Omega \setminus A}(t) = 1 - \mu_{A}$$</dd>
+    <dt><dfn>Defuzzifizierung</dfn></dt>
+    <dd>Unter Defuzzifizierung versteht man die Berechnung des scharfen
+        Wertes der Ausgangsgröße.</dd>
+    <dt><dfn>Schwerpunktverfahren</dfn></dt>
+    <dd>Das Schwerpunktverfahren dient zur Defuzzifizierung.</dd>
+</dl>
 
 
 ### Neuronale Netze
