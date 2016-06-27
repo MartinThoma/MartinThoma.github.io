@@ -102,7 +102,7 @@ MathJax.Hub.Queue(function() {
     <div class="span2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#behandelter-stoff" title="Behandelter Stoff">Behandelter Stoff</a><ul><li><a class="toc-href" href="#ubersicht" title="&Uuml;bersicht">&Uuml;bersicht</a></li><li><a class="toc-href" href="#grundlagen" title="Grundlagen">Grundlagen</a></li><li><a class="toc-href" entscheidungs­probleme'="" href="#markovsche-entscheidungsprobleme" sche="" title="Markov">Markov'sche Entscheidungs&shy;probleme</a></li><li><a class="toc-href" href="#pomdps" title="POMDPs">POMDPs</a></li><li><a class="toc-href" href="#reinforcement-learning" title="Reinforcement Learning">Reinforcement Learning</a></li></ul></li><li><a class="toc-href" href="#prufungsfragen_1" title="Pr&uuml;fungsfragen">Pr&uuml;fungsfragen</a><ul><li><a class="toc-href" href="#mdp" title="MDP">MDP</a></li><li><a class="toc-href" href="#pomdp" title="POMDP">POMDP</a></li><li><a class="toc-href" href="#rl" title="RL">RL</a></li></ul></li><li><a class="toc-href" href="#material-und-links_1" title="Material und Links">Material und Links</a></li><li><a class="toc-href" href="#vorlesungsempfehlungen" title="Vorlesungs&shy;empfehlungen">Vorlesungs&shy;empfehlungen</a></li><li><a class="toc-href" href="#termine-und-klausurablauf" title="Termine und Klausurablauf">Termine und Klausurablauf</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#behandelter-stoff" title="Behandelter Stoff">Behandelter Stoff</a><ul><li><a class="toc-href" href="#ubersicht" title="&Uuml;bersicht">&Uuml;bersicht</a></li><li><a class="toc-href" href="#grundlagen" title="Grundlagen">Grundlagen</a></li><li><a class="toc-href" entscheidungs­probleme'="" href="#markovsche-entscheidungsprobleme" sche="" title="Markov">Markov'sche Entscheidungs&shy;probleme</a></li><li><a class="toc-href" href="#pomdps" title="POMDPs">POMDPs</a></li><li><a class="toc-href" href="#reinforcement-learning" title="Reinforcement Learning">Reinforcement Learning</a></li></ul></li><li><a class="toc-href" href="#prufungsfragen_1" title="Pr&uuml;fungsfragen">Pr&uuml;fungsfragen</a><ul><li><a class="toc-href" href="#mdp" title="MDP">MDP</a></li><li><a class="toc-href" href="#pomdp" title="POMDP">POMDP</a></li><li><a class="toc-href" href="#rl" title="RL">RL</a></li></ul></li><li><a class="toc-href" href="#notation_1" title="Notation">Notation</a></li><li><a class="toc-href" href="#material-und-links" title="Material und Links">Material und Links</a></li><li><a class="toc-href" href="#vorlesungsempfehlungen" title="Vorlesungs&shy;empfehlungen">Vorlesungs&shy;empfehlungen</a></li><li><a class="toc-href" href="#termine-und-klausurablauf" title="Termine und Klausurablauf">Termine und Klausurablauf</a></li></ul></div>
         </nav>
     </div>
     <div class="span8 article-content" id="contentAfterTitle">
@@ -202,7 +202,7 @@ MathJax.Hub.Queue(function() {
       <ul>
 <li>$\forall M \in \mathcal{A}: P(M) \geq 0$</li>
 <li>$\forall P(S) = 1$</li>
-<li>$M_1, M_2, \in \mathcal{A} \land M_1 \cap M_2 = \emptyset \Rightarrow P(M_1 \cup M_2) = P(M_1) + P(M_2)$</li>
+<li>$M_1, M_2 \in \mathcal{A} \land M_1 \cap M_2 = \emptyset \Rightarrow P(M_1 \cup M_2) = P(M_1) + P(M_2)$</li>
 </ul>
 </dd>
 <dt><dfn>Normalverteilung</dfn></dt>
@@ -226,7 +226,7 @@ MathJax.Hub.Queue(function() {
 <li>Diskrete Zeitschritte $k=0, 1, \dots, N$ mit Endzeitpunkt
               $N$. Dabei ist der 0-te Schritt gegeben.</li>
 <li>Initialzustand $x_o \in \mathcal{X}$ des Agenten zum Zeitpunkt $k=0$.</li>
-<li>Nichtleere Aktionsmenge $A_k(x_0) \subseteq A$ mit Aktion $a_k$.
+<li>Nichtleere Aktionsmenge $A_k(x_k) \subseteq A$ mit Aktion $a_k$.
               H&auml;ufig $A_k(x_k)=A$ f&uuml;r alle $k=0, \dots, N$ (Zeit- und Zustandsinvarianz)</li>
 <li>&Uuml;bergangswahrscheinlichkeit $x_{k+1} \leadsto P_x(\cdot | x_k, a_k)$.<br/>
               Markov-Annahme: $P_x(\cdot | x_k, a_k) = P(\cdot | x_{0:k}, a_{0:k})$,
@@ -259,8 +259,8 @@ MathJax.Hub.Queue(function() {
               mit Funktionen $\pi_k(x_k) = a_k \in A_k(x_k)$.</li>
 </ol>
 </dd>
-<dt><dfn>Strategie</dfn></dt>
-<dd>Eine Strategie ist ein Plan mit Zustandsr&uuml;ckf&uuml;hrung</dd>
+<dt><dfn id="policy">Strategie</dfn> (<dfn>policy</dfn>)</dt>
+<dd>Eine Strategie ist ein Plan mit Zustandsr&uuml;ckf&uuml;hrung.</dd>
 <dt><dfn id="nutzenfunktion">Nutzenfunktion</dfn></dt>
 <dd>TODO</dd>
 <dt><a href="https://en.wikipedia.org/wiki/Bellman_equation"><dfn id="bellman-equation">Bellman-Gleichungen</dfn></a></dt>
@@ -268,8 +268,22 @@ MathJax.Hub.Queue(function() {
 <dt><dfn id="q-function">Q-Funktion</dfn></dt>
 <dd>TODO</dd>
 <dt><a href="https://de.wikipedia.org/wiki/Dynamische_Programmierung"><dfn id="dynamic-programming">Dynamische Programmierung</dfn></a></dt>
-<dd>TODO
-
+<dd>Dynamische Programmierung ist eine Methode zum L&ouml;sen von
+      Optimierungsproblemen. Dabei wird die Tatsache genutzt, dass f&uuml;r jeden
+      initialen Zustand $x_0 \in \mathcal{X}$ die optimalen Kosten $J^*(x_0)$
+      in
+      $$J^*(x_0) = \min_{\pi_{0:N-1}} J_{\pi_{0:N-1}} (x_0)$$
+      gleich dem Wert $J_0(x_0)$, welcher sich aus dem letzten Schritt der
+      Rekursion
+      $$
+      \begin{align}
+          J_N(x_N) &amp;= g_N (x_N)\\
+          J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \{g_k (x_k, a_k) + \mathbb{E}(J_{k+1} (x_{k+1})|x_k, a_k)\}
+          \text{ f&uuml;r } k = 0, \dots, N-1
+      \end{align}
+      $$
+      ergibt.<br/>
+<br/>
       Laufzeitkomplexit&auml;t $\mathcal{O}(N |\mathcal{X}|^2 |A|)$
 
   </dd>
@@ -760,7 +774,15 @@ MathJax.Hub.Queue(function() {
 <li>Welche Arten von RL gibt es?<br/>
   &rarr; TODO</li>
 </ul>
-<h2 id="material-und-links_1">Material und Links</h2>
+<h2 id="notation_1">Notation</h2>
+<p>Der Dozent nutzt folgende Notation:</p>
+<ul>
+<li><span class="math">\(J^*, \pi^*\)</span>: Das Asterisk <code>*</code> deutet an, dass die Kosten / Strategie optimal
+  sind.</li>
+<li><span class="math">\(\underline{x}\)</span>: Der Unterstrich deutet an, dass es sich um einen Vektor
+  handelt. Diese Notation wurde in diesem Artikel <strong>nicht</strong> &uuml;bernommen.</li>
+</ul>
+<h2 id="material-und-links">Material und Links</h2>
 <ul>
 <li><a href="http://ies.anthropomatik.kit.edu/lehre_proplan.php">Vorlesungswebsite</a></li>
 <li>Dimitri Bertsekas: Dynamic Programming and Optimal Control: Volume 1</li>

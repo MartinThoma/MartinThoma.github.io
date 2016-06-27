@@ -318,7 +318,7 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
       &lt;ul&gt;
 &lt;li&gt;$\forall M \in \mathcal{A}: P(M) \geq 0$&lt;/li&gt;
 &lt;li&gt;$\forall P(S) = 1$&lt;/li&gt;
-&lt;li&gt;$M_1, M_2, \in \mathcal{A} \land M_1 \cap M_2 = \emptyset \Rightarrow P(M_1 \cup M_2) = P(M_1) + P(M_2)$&lt;/li&gt;
+&lt;li&gt;$M_1, M_2 \in \mathcal{A} \land M_1 \cap M_2 = \emptyset \Rightarrow P(M_1 \cup M_2) = P(M_1) + P(M_2)$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Normalverteilung&lt;/dfn&gt;&lt;/dt&gt;
@@ -342,7 +342,7 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;li&gt;Diskrete Zeitschritte $k=0, 1, \dots, N$ mit Endzeitpunkt
               $N$. Dabei ist der 0-te Schritt gegeben.&lt;/li&gt;
 &lt;li&gt;Initialzustand $x_o \in \mathcal{X}$ des Agenten zum Zeitpunkt $k=0$.&lt;/li&gt;
-&lt;li&gt;Nichtleere Aktionsmenge $A_k(x_0) \subseteq A$ mit Aktion $a_k$.
+&lt;li&gt;Nichtleere Aktionsmenge $A_k(x_k) \subseteq A$ mit Aktion $a_k$.
               H&amp;auml;ufig $A_k(x_k)=A$ f&amp;uuml;r alle $k=0, \dots, N$ (Zeit- und Zustandsinvarianz)&lt;/li&gt;
 &lt;li&gt;&amp;Uuml;bergangswahrscheinlichkeit $x_{k+1} \leadsto P_x(\cdot | x_k, a_k)$.&lt;br/&gt;
               Markov-Annahme: $P_x(\cdot | x_k, a_k) = P(\cdot | x_{0:k}, a_{0:k})$,
@@ -375,8 +375,8 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
               mit Funktionen $\pi_k(x_k) = a_k \in A_k(x_k)$.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;Strategie&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;Eine Strategie ist ein Plan mit Zustandsr&amp;uuml;ckf&amp;uuml;hrung&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="policy"&gt;Strategie&lt;/dfn&gt; (&lt;dfn&gt;policy&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dd&gt;Eine Strategie ist ein Plan mit Zustandsr&amp;uuml;ckf&amp;uuml;hrung.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="nutzenfunktion"&gt;Nutzenfunktion&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;TODO&lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Bellman_equation"&gt;&lt;dfn id="bellman-equation"&gt;Bellman-Gleichungen&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
@@ -384,8 +384,22 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;dt&gt;&lt;dfn id="q-function"&gt;Q-Funktion&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;TODO&lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Dynamische_Programmierung"&gt;&lt;dfn id="dynamic-programming"&gt;Dynamische Programmierung&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
-&lt;dd&gt;TODO
-
+&lt;dd&gt;Dynamische Programmierung ist eine Methode zum L&amp;ouml;sen von
+      Optimierungsproblemen. Dabei wird die Tatsache genutzt, dass f&amp;uuml;r jeden
+      initialen Zustand $x_0 \in \mathcal{X}$ die optimalen Kosten $J^*(x_0)$
+      in
+      $$J^*(x_0) = \min_{\pi_{0:N-1}} J_{\pi_{0:N-1}} (x_0)$$
+      gleich dem Wert $J_0(x_0)$, welcher sich aus dem letzten Schritt der
+      Rekursion
+      $$
+      \begin{align}
+          J_N(x_N) &amp;amp;= g_N (x_N)\\
+          J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \{g_k (x_k, a_k) + \mathbb{E}(J_{k+1} (x_{k+1})|x_k, a_k)\}
+          \text{ f&amp;uuml;r } k = 0, \dots, N-1
+      \end{align}
+      $$
+      ergibt.&lt;br/&gt;
+&lt;br/&gt;
       Laufzeitkomplexit&amp;auml;t $\mathcal{O}(N |\mathcal{X}|^2 |A|)$
 
   &lt;/dd&gt;
@@ -876,7 +890,15 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;li&gt;Welche Arten von RL gibt es?&lt;br/&gt;
   &amp;rarr; TODO&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="material-und-links_1"&gt;Material und Links&lt;/h2&gt;
+&lt;h2 id="notation_1"&gt;Notation&lt;/h2&gt;
+&lt;p&gt;Der Dozent nutzt folgende Notation:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(J^*, \pi^*\)&lt;/span&gt;: Das Asterisk &lt;code&gt;*&lt;/code&gt; deutet an, dass die Kosten / Strategie optimal
+  sind.&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(\underline{x}\)&lt;/span&gt;: Der Unterstrich deutet an, dass es sich um einen Vektor
+  handelt. Diese Notation wurde in diesem Artikel &lt;strong&gt;nicht&lt;/strong&gt; &amp;uuml;bernommen.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="material-und-links"&gt;Material und Links&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://ies.anthropomatik.kit.edu/lehre_proplan.php"&gt;Vorlesungswebsite&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Dimitri Bertsekas: Dynamic Programming and Optimal Control: Volume 1&lt;/li&gt;
