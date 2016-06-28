@@ -102,7 +102,7 @@ MathJax.Hub.Queue(function() {
     <div class="span2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#simulated-annealing" title="Simulated Annealing">Simulated Annealing</a></li><li><a class="toc-href" href="#gradient-descent" title="Gradient descent">Gradient descent</a></li><li><a class="toc-href" href="#linear-regression-with-mse" title="Linear Regression with MSE">Linear Regression with MSE</a></li><li><a class="toc-href" href="#lagrange-multipliers" title="Lagrange multipliers">Lagrange multipliers</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#simulated-annealing" title="Simulated Annealing">Simulated Annealing</a></li><li><a class="toc-href" href="#gradient-descent" title="Gradient descent">Gradient descent</a></li><li><a class="toc-href" href="#linear-regression-with-mse" title="Linear Regression with MSE">Linear Regression with MSE</a></li><li><a class="toc-href" href="#lagrange-multipliers" title="Lagrange multipliers">Lagrange multipliers</a></li><li><a class="toc-href" href="#references" title="References">References</a></li></ul></div>
         </nav>
     </div>
     <div class="span8 article-content" id="contentAfterTitle">
@@ -207,12 +207,31 @@ $$</div>
 </p>
 <div class="math">$$(\mathbf{y}^T \mathbf{X} A^T) \in \mathbb{R}^{1 \times 1}$$</div>
 <p>This simplifies the optimization problem to</p>
-<div class="math">$$\operatorname{minimize}_{A}&amp;\mathbf{y}^T \mathbf{y} - 2 A \mathbf{X}^T \mathbf{y} + A\mathbf{X}^T \mathbf{X} A^T$$</div>
-<p>TODO: This leads to
-</p>
+<div class="math">$$\operatorname{minimize}_{A}&amp;\underbrace{\mathbf{y}^T \mathbf{y} - 2 A \mathbf{X}^T \mathbf{y} + A\mathbf{X}^T \mathbf{X} A^T}_{E_{X, y}(A)}$$</div>
+<p>Now you can calculate the gradient of this term with respect to <span class="math">\(A\)</span>:</p>
+<div class="math">$$\nabla E_{X, y}(A) = 2 X^T X A^T - X^T y - X^T y = 2 X^T (X A^T - y)$$</div>
+<p>A necessary condition of a minimum is the gradient to be 0:</p>
+<div class="math">$$
+\begin{align}
+\nabla E_{X, y}(A) &amp;\overset{!}{=} 0\\
+\Leftrightarrow 0 &amp;\overset{!}{=} 2 X^T (X A^T - y)\\
+\Leftrightarrow 0 &amp;\overset{!}{=} X^T X A^T - X^T y\\
+\Leftrightarrow A &amp;\overset{!}{=} ((X^T X)^{-1} X^T y)^T\\
+\end{align}
+$$</div>
+<p>As <span class="math">\(H_{E_{X, y}} = \nabla^2 E_{X, y}(A) = 2 X^T X\)</span> is positive definite, this
+is a minimum. Hence, the optimal solution to this problem is:</p>
 <div class="math">$$A = ((X^T X)^{-1} X^T y)^T$$</div>
 <h2 id="lagrange-multipliers">Lagrange multipliers</h2>
-<p>TODO</p>
+<p>Lagrange multipliers are a trick in optimization problems with constraints.
+They can be used to get rid of the constraints.</p>
+<p>See [<a href="#ref-smi04" name="ref-smi04-anchor">Smi04</a>] for many examples.</p>
+<h2 id="references">References</h2>
+<ul>
+<li>[<a href="#ref-smi04-anchor" name="ref-smi04">Smi04</a>] B. T. Smith, &ldquo;Lagrange multipliers tutorial in the context of support
+  vector machines,&rdquo; Memorial University of Newfoundland St. John&rsquo;s,
+  Newfoundland, Canada, Jun. 2004.</li>
+</ul>
             
             <div id="disqus_thread"></div>
 <script>
