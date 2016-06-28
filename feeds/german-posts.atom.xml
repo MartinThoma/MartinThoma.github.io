@@ -390,7 +390,7 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
       eine Funktion. Sei au&amp;szlig;erdem $\geq$ eine Pr&amp;auml;ferenzrelation. $u$ hei&amp;szlig;t
       eine Nutzenfunktion welche $\geq$ abbildet, wenn gilt:
       $$\forall x, y \in \mathcal{X}: x \geq y \Leftrightarrow u(x) \geq u(y)$$&lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;Von-Neumann-Morgenstern Axiome&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Von_Neumann%E2%80%93Morgenstern_utility_theorem#The_axioms"&gt;&lt;dfn&gt;Von-Neumann-Morgenstern Axiome&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
 &lt;dd&gt;Sei $\mathcal{X}$ eine Zustandsmenge und $\mathcal{P}$ die Menge aller
       Verteilungen $P: \mathcal{X} \rightarrow [0, 1]$.
 
@@ -6165,22 +6165,22 @@ $$X\sim \mathcal N_p(\mu, \Sigma).$$&lt;/dd&gt;
         welche nicht gelernt werden.&lt;/dd&gt;
 &lt;dt&gt;&lt;a id="scheduling"&gt;&lt;/a&gt;&lt;dfn&gt;Learning Rate Scheduling&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Start with a learning rate $\eta$ and reduce it while training.&lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;Exponential Decay Learning Rate&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dt&gt;&lt;dfn id="exponential-decay-lr"&gt;Exponential Decay Learning Rate&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;$\eta_t = \eta_{t-1} \cdot \alpha = \eta_0 \cdot \alpha^t$ mit $\alpha \in (0, 1)$&lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;Performance Scheduling&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dt&gt;&lt;dfn id="performance-scheduling"&gt;Performance Scheduling&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Measure the error on the cross validation set and decrease the learning
         rate when the algorithm stops improving.&lt;/dd&gt;
-&lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Rprop"&gt;&lt;dfn&gt;RProp&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
+&lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Rprop"&gt;&lt;dfn id="rprop"&gt;RProp&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
 &lt;dd&gt;RProp is a learning rate scheduling method which is only based on the
         sign of the gradient. It increases the learning rate when the sign of
         the gradient doesn't change and decreases or resets it when the sign of the
         gradient changes. Rprop has an own learning rate for every single
         feature.&lt;/dd&gt;
-&lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent#AdaGrad"&gt;&lt;dfn&gt;&lt;abbr title="adaptive gradient"&gt;AdaGrad&lt;/abbr&gt;&lt;/dfn&gt;&lt;/a&gt; (vgl. Folie 34)&lt;/dt&gt;
+&lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent#AdaGrad"&gt;&lt;dfn id="adagrad"&gt;&lt;abbr title="adaptive gradient"&gt;AdaGrad&lt;/abbr&gt;&lt;/dfn&gt;&lt;/a&gt; (vgl. Folie 34)&lt;/dt&gt;
 &lt;dd&gt;$$\eta_{tij} = \frac{\eta_0}{\sqrt{1 + \sum_k {(\frac{\partial E^{t-k}}{\partial w_{ij}})}^2}}$$
 
     where $\eta_0$ is an initial learning rate, $t$ is the epoch, $i,j$ refer to neurons.&lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;Newbob Scheduling&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dt&gt;&lt;dfn id="newbob"&gt;Newbob Scheduling&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Newbob scheduling is a combination of exponential decay learning rate
         scheduling and performance scheduling. It starts with a learning rate
         $\eta_0$. When the validation error stops decreasing, switch to
@@ -6544,7 +6544,7 @@ $$X\sim \mathcal N_p(\mu, \Sigma).$$&lt;/dd&gt;
 &lt;h3 id="v13-nn-learning-tricks"&gt;V13: NN learning tricks&lt;/h3&gt;
 &lt;p&gt;Slide name: &lt;code&gt;V13_2015-06-09_NNlearning-tricks.pdf&lt;/code&gt;&lt;/p&gt;
 &lt;dl&gt;
-&lt;dt&gt;&lt;dfn&gt;Momentum&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dt&gt;&lt;dfn id="momentum"&gt;Momentum&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;In der Update-Regel $\Delta w_{ij}^* (t+1) = \Delta w_{ij} (t+1) + \alpha \Delta w_{ij}(t)$ wird der Term $\Delta w_{ij}(t)$ als &lt;i&gt;Momentum&lt;/i&gt; bezeichnet.
         Der Skalar $\alpha \in [0, 1]$ gewichtet diesen und ist ein
         Hyperparameter.&lt;/dd&gt;
@@ -6916,6 +6916,23 @@ training data will help you with your problem.&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;h2 id="learning-rate-scheduling"&gt;&lt;a name="lr-scheduling"&gt;&lt;/a&gt; Learning Rate Scheduling&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Fixed: The learning rate doesn't change. This is the standard stochastic
+  gradient descent algorithm.&lt;/li&gt;
+&lt;li&gt;&lt;a href="#rprop"&gt;RProp&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;RMSProp (Root Mean Square Propagation): &lt;a href="http://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf"&gt;Slides&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#exponential-decay-lr"&gt;Exponential Decay Learning Rate&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#newbob"&gt;Newbob&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#performance-scheduling"&gt;Performance Scheduling&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#adagrad"&gt;AdaGrad&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I'm not too sure, but I think &lt;a href="#momentum"&gt;momentum&lt;/a&gt; is not a
+learning rate scheduling algorithm.&lt;/p&gt;
+&lt;p&gt;See also:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://stackoverflow.com/a/33711600/562769"&gt;What is &lt;code&gt;lr_policy&lt;/code&gt; in Caffe?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id="prufungsfragen"&gt;Pr&amp;uuml;fungsfragen&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Was ist der Unterschied zwischen Backpropagation und Gradient descent?&lt;br/&gt;
