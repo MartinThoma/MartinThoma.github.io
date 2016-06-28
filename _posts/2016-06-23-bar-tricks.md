@@ -4,7 +4,7 @@ title: Bar Tricks
 slug: bar-tricks
 author: Martin Thoma
 status: draft
-date: 2016-04-31 20:00
+date: 2016-06-27 20:00
 category: My bits and bytes
 tags: cool
 featured_image: logos/star.png
