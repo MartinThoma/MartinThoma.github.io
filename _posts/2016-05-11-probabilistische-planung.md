@@ -37,7 +37,7 @@ In der Vorlesung 'Probabilistische Planung' werden drei Themen besprochen:
 <tr>
     <td>28.04.2016</td>
     <td>Grundlagen</td>
-    <td>Allais-Paradoxon, TODO</td>
+    <td>Allais-Paradoxon, Nutzentheorie, Präferenzrelation, Nutzenfunktion</td>
 </tr>
 <tr>
     <td>06.05.2016</td>
@@ -110,7 +110,7 @@ Slides: `ProPlan-1-Anschrieb.pdf`
       <ul>
           <li>$\forall M \in \mathcal{A}: P(M) \geq 0$</li>
           <li>$\forall P(S) = 1$</li>
-          <li>$M_1, M_2, \in \mathcal{A} \land M_1 \cap M_2 = \emptyset \Rightarrow P(M_1 \cup M_2) = P(M_1) + P(M_2)$</li>
+          <li>$M_1, M_2 \in \mathcal{A} \land M_1 \cap M_2 = \emptyset \Rightarrow P(M_1 \cup M_2) = P(M_1) + P(M_2)$</li>
       </ul>
 
       </dd>
@@ -139,7 +139,7 @@ Slides: `11.05.2016 - TODO`
           <li>Diskrete Zeitschritte $k=0, 1, \dots, N$ mit Endzeitpunkt
               $N$. Dabei ist der 0-te Schritt gegeben.</li>
           <li>Initialzustand $x_o \in \mathcal{X}$ des Agenten zum Zeitpunkt $k=0$.</li>
-          <li>Nichtleere Aktionsmenge $A_k(x_0) \subseteq A$ mit Aktion $a_k$.
+          <li>Nichtleere Aktionsmenge $A_k(x_k) \subseteq A$ mit Aktion $a_k$.
               Häufig $A_k(x_k)=A$ für alle $k=0, \dots, N$ (Zeit- und Zustandsinvarianz)</li>
           <li>Übergangswahrscheinlichkeit $x_{k+1} \leadsto P_x(\cdot | x_k, a_k)$.<br/>
               Markov-Annahme: $P_x(\cdot | x_k, a_k) = P(\cdot | x_{0:k}, a_{0:k})$,
@@ -172,18 +172,68 @@ Slides: `11.05.2016 - TODO`
               mit Funktionen $\pi_k(x_k) = a_k \in A_k(x_k)$.</li>
       </ol>
   </dd>
-  <dt><dfn>Strategie</dfn></dt>
-  <dd>Eine Strategie ist ein Plan mit Zustandsrückführung</dd>
-  <dt><dfn id="nutzenfunktion">Nutzenfunktion</dfn></dt>
-  <dd>TODO</dd>
+  <dt><dfn id="policy">Strategie</dfn> (<dfn>policy</dfn>)</dt>
+  <dd>Eine Strategie ist ein Plan mit Zustandsrückführung.</dd>
+  <dt><a href="https://de.wikipedia.org/wiki/Pr%C3%A4ferenzrelation"><dfn>Präferenzrelation</dfn></a></dt>
+  <dd>Sei $\mathcal{X}$ eine Zustandsmenge und $\geq \subseteq \mathcal{X} \times \mathcal{X}$
+      eine binäre Relation auf $\mathcal{X}$. $\geq$ heißt (schwache)
+      Präferenzrelation, wenn gilt:
+      <ul>
+          <li>$\geq$ ist vollständig: $\forall x, y \in \mathcal{X}: x \geq y \lor y \geq x$</li>
+          <li>$\geq$ ist transitiv: $\forall x, y, z \in \mathcal{X}: x \geq y \land y \geq z \Rightarrow x \leq z$</li>
+      </ul></dd>
+  <dt><a href="https://de.wikipedia.org/wiki/Nutzenfunktion"><dfn id="nutzenfunktion">Nutzenfunktion</dfn></a></dt>
+  <dd>Sei $\mathcal{X}$ eine Zustandsmenge und $u: \mathcal{X} \rightarrow \mathbb{R}$
+      eine Funktion. Sei außerdem $\geq$ eine Präferenzrelation. $u$ heißt
+      eine Nutzenfunktion welche $\geq$ abbildet, wenn gilt:
+      $$\forall x, y \in \mathcal{X}: x \geq y \Leftrightarrow u(x) \geq u(y)$$</dd>
+  <dt><a href="https://en.wikipedia.org/wiki/Von_Neumann%E2%80%93Morgenstern_utility_theorem#The_axioms"><dfn>Von-Neumann-Morgenstern Axiome</dfn></a></dt>
+  <dd>Sei $\mathcal{X}$ eine Zustandsmenge und $\mathcal{P}$ die Menge aller
+      Verteilungen $P: \mathcal{X} \rightarrow [0, 1]$.
+      
+        <ol>
+            <li id="VNM-1">$\geq$ ist eine Präferenzrelation</li>
+            <li id="VNM-2">Unabhängigkeitsaxiom: Gilt für $P, Q \in \mathcal{P}$ die
+                Beziehung $P \geq Q$, dann gilt auch:
+                $$\alpha \cdot P + (1 - \alpha) R \geq \alpha Q + (1 - \alpha) R$$
+                für beliebiges $R \in \mathcal{P}$ und beliebiges $\alpha \in [0, 1]$.
+                <br/>
+                <u>Salopp:</u> Störungen $R$ beeinflussen die Präferenz von $P$
+                und $Q$ nicht.
+                </li>
+            <li id="VNM-3">Stetigkeitsaxiom: Für beliebige
+                           $P, Q, R \in \mathcal{P}$ mit
+                           $P > Q > R$ gibt es $\alpha, \beta \in (0, 1)$
+                           derart, dass
+                           $$\alpha \cdot P + (1 - \alpha) \cdot R > Q > \beta \cdot P + (1-\beta)R$$
+                           gilt.<br/>
+                           <u>Salopp:</u> Präferenzrelationen sind nicht
+                           anfällig gegenüber kleinen Änderungen.</li>
+        </ol>
+
+  </dd>
   <dt><a href="https://en.wikipedia.org/wiki/Bellman_equation"><dfn id="bellman-equation">Bellman-Gleichungen</dfn></a></dt>
   <dd>TODO</dd>
   <dt><dfn id="q-function">Q-Funktion</dfn></dt>
   <dd>TODO</dd>
   <dt><a href="https://de.wikipedia.org/wiki/Dynamische_Programmierung"><dfn id="dynamic-programming">Dynamische Programmierung</dfn></a></dt>
-  <dd>TODO
-
-      Laufzeitkomplexität $\mathcal{O}(N |\mathcal{X}|^2 |A|)$
+  <dd>Dynamische Programmierung ist eine Methode zum Lösen von
+      Optimierungsproblemen. Dabei wird die Tatsache genutzt, dass für jeden
+      initialen Zustand $x_0 \in \mathcal{X}$ die optimalen Kosten $J^*(x_0)$
+      in
+      $$J^*(x_0) = \min_{\pi_{0:N-1}} J_{\pi_{0:N-1}} (x_0)$$
+      gleich dem Wert $J_0(x_0)$, welcher sich aus dem letzten Schritt der
+      Rekursion
+      $$
+      \begin{align}
+          J_N(x_N) &= g_N (x_N)\\
+          J_k(x_k) &= \min_{a_k \in A_k(x_k)} \{g_k (x_k, a_k) + \mathbb{E}(J_{k+1} (x_{k+1})|x_k, a_k)\}
+          \text{ für } k = 0, \dots, N-1
+      \end{align}
+      $$
+      ergibt.<br/>
+      <br/>
+      Laufzeitkomplexität: $\mathcal{O}(N |\mathcal{X}|^2 |A|)$
 
   </dd>
 </dl>
@@ -694,6 +744,16 @@ TODO:
 
 * Welche Arten von RL gibt es?<br/>
   → TODO
+
+
+## Notation
+
+Der Dozent nutzt folgende Notation:
+
+* $J^*, \pi^*$: Das Asterisk `*` deutet an, dass die Kosten / Strategie optimal
+  sind.
+* $\underline{x}$: Der Unterstrich deutet an, dass es sich um einen Vektor
+  handelt. Diese Notation wurde in diesem Artikel **nicht** übernommen.
 
 
 ## Material und Links
