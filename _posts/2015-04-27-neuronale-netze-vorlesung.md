@@ -353,22 +353,22 @@ Slide name: `V08_2015-05-13_Deep_Learning.pdf`
         welche nicht gelernt werden.</dd>
     <dt><a id="scheduling"></a><dfn>Learning Rate Scheduling</dfn></dt>
     <dd>Start with a learning rate $\eta$ and reduce it while training.</dd>
-    <dt><dfn>Exponential Decay Learning Rate</dfn></dt>
+    <dt><dfn id="exponential-decay-lr">Exponential Decay Learning Rate</dfn></dt>
     <dd>$\eta_t = \eta_{t-1} \cdot \alpha = \eta_0 \cdot \alpha^t$ mit $\alpha \in (0, 1)$</dd>
-    <dt><dfn>Performance Scheduling</dfn></dt>
+    <dt><dfn id="performance-scheduling">Performance Scheduling</dfn></dt>
     <dd>Measure the error on the cross validation set and decrease the learning
         rate when the algorithm stops improving.</dd>
-    <dt><a href="https://en.wikipedia.org/wiki/Rprop"><dfn>RProp</dfn></a></dt>
+    <dt><a href="https://en.wikipedia.org/wiki/Rprop"><dfn id="rprop">RProp</dfn></a></dt>
     <dd>RProp is a learning rate scheduling method which is only based on the
         sign of the gradient. It increases the learning rate when the sign of
         the gradient doesn't change and decreases or resets it when the sign of the
         gradient changes. Rprop has an own learning rate for every single
         feature.</dd>
-    <dt><a href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent#AdaGrad"><dfn><abbr title="adaptive gradient">AdaGrad</abbr></dfn></a> (vgl. Folie 34)</dt>
+    <dt><a href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent#AdaGrad"><dfn id="adagrad"><abbr title="adaptive gradient">AdaGrad</abbr></dfn></a> (vgl. Folie 34)</dt>
     <dd>$$\eta_{tij} = \frac{\eta_0}{\sqrt{1 + \sum_k {(\frac{\partial E^{t-k}}{\partial w_{ij}})}^2}}$$
 
     where $\eta_0$ is an initial learning rate, $t$ is the epoch, $i,j$ refer to neurons.</dd>
-    <dt><dfn>Newbob Scheduling</dfn></dt>
+    <dt><dfn id="newbob">Newbob Scheduling</dfn></dt>
     <dd>Newbob scheduling is a combination of exponential decay learning rate
         scheduling and performance scheduling. It starts with a learning rate
         $\eta_0$. When the validation error stops decreasing, switch to
@@ -671,7 +671,7 @@ Slide name: `V11_2015-05-27_RBMs`
       $k$ groß ist konvergiert $\tilde x$ gegen den wahren Modellwert. Das
       wäre dann eine Monte-Carlo Estimation.
   </dd>
-    <dt><a href="https://de.wikipedia.org/wiki/Simulated_annealing"><dfn>Simulated annealing</dfn></a></dt>
+    <dt><a href="https://de.wikipedia.org/wiki/Simulated_annealing"><dfn id="simulated-annealing">Simulated annealing</dfn></a></dt>
     <dd>Simulated annealing ist ein heuristisches Optimierungsverfahren.
 
         Sei $D$ ein Wertebereich einer Funktion $f: D \rightarrow \mathbb{R}$
@@ -749,10 +749,15 @@ Siehe auch:
 Slide name: `V13_2015-06-09_NNlearning-tricks.pdf`
 
 <dl>
-    <dt><dfn>Momentum</dfn></dt>
+    <dt><dfn id="momentum">Momentum</dfn></dt>
     <dd>In der Update-Regel $\Delta w_{ij}^* (t+1) = \Delta w_{ij} (t+1) + \alpha \Delta w_{ij}(t)$ wird der Term $\Delta w_{ij}(t)$ als <i>Momentum</i> bezeichnet.
         Der Skalar $\alpha \in [0, 1]$ gewichtet diesen und ist ein
-        Hyperparameter.</dd>
+        Hyperparameter.<br/>
+        <br/>
+        Siehe auch:
+
+        * [Optimization: Stochastic Gradient Descent](http://ufldl.stanford.edu/tutorial/supervised/OptimizationStochasticGradientDescent/#momentum)
+        </dd>
     <dt><a href="https://en.wikipedia.org/wiki/Quickprop"><dfn>Quickprop</dfn></a></dt>
     <dd>Quickprop ist ein Trainingsverfahren für neuronale Netze. Der Lernalgorithmus
         nimmt an, dass die Fehlerebene lokal durch eine parabel approximiert
@@ -1142,6 +1147,32 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
     </tr>
   </tbody>
 </table>
+
+
+## <a name="lr-scheduling"></a> Learning Rate Scheduling
+
+* Fixed: The learning rate doesn't change. This is the standard stochastic
+  gradient descent algorithm.
+* <a href="#rprop">RProp</a>
+* RMSProp (Root Mean Square Propagation): [Slides](http://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf)
+* <a href="#exponential-decay-lr">Exponential Decay Learning Rate</a>
+* <a href="#newbob">Newbob</a>
+* <a href="#performance-scheduling">Performance Scheduling</a>
+* <a href="#adagrad">AdaGrad</a>
+
+There are a couple of publications which deal with LR scheduling:
+
+* [Note on Learning Rate Schedules for Stochastic Optimization ](http://papers.nips.cc/paper/400-note-on-learning-rate-schedules-for-stochastic-optimization.pdf)
+* [No More Pesky Learning Rates](https://arxiv.org/pdf/1206.1106.pdf)
+* [Optimizing Gradient Descent](http://sebastianruder.com/optimizing-gradient-descent/)
+
+I'm not too sure, but I think <a href="#momentum">momentum</a> is not a
+learning rate scheduling algorithm.
+
+See also:
+
+* [What is `lr_policy` in Caffe?](http://stackoverflow.com/a/33711600/562769)
+* [Visualizing Optimization Algos](http://imgur.com/a/Hqolp) [2](http://imgur.com/s25RsOr) on imgur.com by [Alec Radford](https://www.reddit.com/r/MachineLearning/comments/2gopfa/visualizing_gradient_optimization_techniques/cklhott)
 
 
 ## Prüfungsfragen
