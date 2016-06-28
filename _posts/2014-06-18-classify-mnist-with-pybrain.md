@@ -4,7 +4,7 @@ title: Classify MNIST with PyBrain
 author: Martin Thoma
 date: 2014-06-18 02:31
 category: Code
-tags: Python, PyBrain, MNIST, AI, Machine Learning, Neural Nets, Classification
+tags: Python, PyBrain, MNIST, AI, Machine Learning, Neural Networks, Classification
 featured_image: logos/pybrain.png
 ---
 
