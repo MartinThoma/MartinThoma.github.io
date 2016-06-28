@@ -4,7 +4,7 @@ title: Introduction to Octave
 author: Martin Thoma
 date: 2014-07-18 17:40
 category: Code
-tags: Octave, ML
+tags: Octave, Machine Learning
 featured_image: logos/octave.png
 ---
 

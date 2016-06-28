@@ -5,7 +5,7 @@ slug: linear-classification
 author: Martin Thoma
 date: 2016-06-22 20:00
 category: Machine Learning
-tags: Algorithms, ML, optimization, Python
+tags: Algorithms, Machine Learning, optimization, Python
 featured_image: logos/ml.png
 ---
 In classification problems you have data points $x \in \mathbb{R}^m$ which you want to classify into one of $k \in \mathbb{N}_{\geq 2}$ classes. This is a supervised task. This means you have $n$ data points for training in a matrix $X \in \mathbb{R}^{n \times m}$ with their labels.[^1]
