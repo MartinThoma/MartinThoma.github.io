@@ -42,7 +42,8 @@ In der Vorlesung 'Probabilistische Planung' werden drei Themen besprochen:
 <tr>
     <td>06.05.2016</td>
     <td>Grundlagen</td>
-    <td>TODO</td>
+    <td>Einführung in die Optimierungstheorie: Notwendige und Hinreichende
+        Bedingungen, Konvexe Optimierung, Numerische Methoden</td>
 </tr>
 <tr>
     <td>11.05.2016</td>
@@ -77,7 +78,12 @@ In der Vorlesung 'Probabilistische Planung' werden drei Themen besprochen:
 <tr>
     <td>22.06.2016</td>
     <td>POMDPs</td>
-    <td>Endliche Planungsprobleme (Optimale Strategie); Modellprädiktive Planung</td>
+    <td>Endliche Planungsprobleme (Optimale Strategie); <a href="#ol-planung">OL</a>, <a href="#olf-planung">OLF</a>, Modellprädiktive Planung</td>
+</tr>
+<tr>
+    <td>29.06.2016</td>
+    <td>POMDPs</td>
+    <td>Parametrische / Nichtparametrische Approximation</td>
 </tr>
 </table>
 
@@ -190,7 +196,7 @@ Slides: `11.05.2016 - TODO`
   <dt><a href="https://en.wikipedia.org/wiki/Von_Neumann%E2%80%93Morgenstern_utility_theorem#The_axioms"><dfn>Von-Neumann-Morgenstern Axiome</dfn></a></dt>
   <dd>Sei $\mathcal{X}$ eine Zustandsmenge und $\mathcal{P}$ die Menge aller
       Verteilungen $P: \mathcal{X} \rightarrow [0, 1]$.
-      
+
         <ol>
             <li id="VNM-1">$\geq$ ist eine Präferenzrelation</li>
             <li id="VNM-2">Unabhängigkeitsaxiom: Gilt für $P, Q \in \mathcal{P}$ die
@@ -210,6 +216,43 @@ Slides: `11.05.2016 - TODO`
                            <u>Salopp:</u> Präferenzrelationen sind nicht
                            anfällig gegenüber kleinen Änderungen.</li>
         </ol>
+
+  </dd>
+  <dt><dfn>Optimierungsproblem</dfn></dt>
+  <dd>Ein allgemeines optimierungsproblem besteht aus einer Optimierungsvariable
+      $x \in \mathbb{R}^n$, für welche ein "bester" Parameter gewählt werden
+      soll. Dafür gibt es eine Bewertungsfunktion $f$ (Zielfunktion):
+
+        $$
+        \begin{align}
+        &\underset{x}{\operatorname{minimize}}& & f(x) \\
+        &\operatorname{subject\;to}
+        & &g_i(x) \leq 0, \quad i = 1,\dots,m \\
+        &&&h_i(x) = 0, \quad i = 1, \dots,p
+        \end{align}
+        $$
+
+        Siehe auch: <a href="../optimization-basics">Optimization Basics</a>
+
+      </dd>
+  <dt><dfn>Notwendige Bedingung für optimale Lösung</dfn></dt>
+  <dd>$\nabla f(x) = \overset{!}{=} 0$</dd>
+  <dt><dfn>Konvexe Optimierungsprobleme</dfn></dt>
+  <dd>Ein Optimierungsproblem mit konvexer Zielfunktion $f$ hat folgende
+      besonderen Eigenschaften
+
+      <ul>
+          <li>Jedes lokale Optimum ist ein globales Optimum</li>
+          <li>Ein strikt konvexes Optimierungsproblem hat ein eindeutiges
+              Optimum.</li>
+          <li>Die notwendige Bedingung ist auch hinreichend:
+
+              <ul>
+                  <li>Ohne Nebenbedingungen: $\nabla f(x) \overset{!}{=} 0$</li>
+                  <li>Mit Nebenbedingungen: $(\nabla f(x^*))^T \cdot (x - x^*) \geq 0 \quad \forall x \in \mathcal{F}$, wobei $\mathcal{F}$ eine konvexe Menge ist.</li>
+              </ul>
+          </li>
+      </ul>
 
   </dd>
   <dt><a href="https://en.wikipedia.org/wiki/Bellman_equation"><dfn id="bellman-equation">Bellman-Gleichungen</dfn></a></dt>
@@ -337,7 +380,8 @@ Slides: `11.05.2016 - TODO`
 
         <ul>
             <li>Es gibt genau einen Fixpunkt $\xi \in M$ mit $f(\xi) = \xi$.</li>
-            <li>TODO (Abschätzung)</li>
+            <li>A-priori-Abschätzung: $d(x_n,\xi)\le\frac{\lambda^n}{1-\lambda}d(x_0,x_1)$</li>
+            <li>A-posteriori-Abschätzung: $d(x_n,\xi)\le\frac{\lambda}{1-\lambda}d(x_{n-1},x_n)$</li>
         </ul>
 
     </dd>
@@ -683,7 +727,71 @@ Slides: `11.05.2016 - TODO`
 
         Hier wird der Plan aktualisiert; OLF minimiert die Kosten garantiert
         stärker als OL-Planung (gleichheit im deterministischen Fall)
-        </dd>
+    </dd>
+    <dt><dfn id="linearization">Linearisierung</dfn> (<dfn>Extended Kalman Filter</dfn>, <dfn id="ekf">EKF</dfn>)</dt>
+    <dd>Gegeben ist ein Nichtlineares Zustandsraummodell:
+
+        $$x_{k+1} = p_k(x_k, a_k) + w_k\tag{Systemmodell}$$
+        $$z_k = h_k(x_k) + v_k\tag{Messmodell}$$
+
+        Idee: Verwendung von LQR + Kalman Filter<br/>
+        Linearisierung mittels Taylorreihenentwicklung<br/>
+        Annahmen: $p_k$ ist differenzierbar und nichtlinearer Anteil in Umgebung
+        ist vernachlässigbar.<br/>
+        Linearisierung um Nominalwerte $\bar{x}_k, \bar{a}_k$.
+        $$p_k(x_k, a_k) \approx p_k(\bar{x}_k, \bar{a}_k) + A_k (\underbrace{x_k - \bar{x}_k}_{=: \Delta x_k}) + B_k (\underbrace{a_k - \bar{a}_k}_{\Delta a_k})$$
+        mit Jakobi-Matrizen:
+        $$A_k = \frac{\partial}{\partial x_k} p_k(x_k, a_k)|_{x_k = \bar{x}_k, a_k = \bar{a}_k}$$
+        $$B_k = \frac{\partial}{\partial a_k} p_k(x_k, a_k)|_{x_k = \bar{x}_k, a_k = \bar{a}_k}$$
+        $\Rightarrow$ Lineares Modell: $\Delta x_{k+1} \approx A_k \cdot \Delta x_k + B_k \Delta a_k$
+        mit $\Delta x_{k+1} = p_k(x_k, a_k) - p_k(\bar{x}_k, \bar{a}_k)$<br/>
+        <br/>
+        Wahl der Nominalwerte $\bar{x}_k, \bar{a}_k$:
+        <ul>
+            <li>Strategie:
+            <ul>
+            <li>Zielzustand $\bar{x}_k = x_+ = [0, \dots, 0]^T, \bar{a}_k = [0, \dots, 0]^T \forall k$</li>
+            <li>Zustandssolltrajektorien bei Verfolgungsproblem</li>
+            <li>Prädiktiv: $\bar{x}_{k+1} = p_k(\bar{x}_k, \bar{a}_k)$ mit $\bar{x}_0 = E(x_0)$ und beliebig $\bar{a}_{0:N-1}$</li>
+            <li>Iterativ: Starte mit beliebigem $\bar{a}_{0:N-1}$ und $\bar{x}_0 = E(x_0)$
+                <ul>
+                    <li>Bestimme $\bar{x}_{k+1} = p_k(\bar{x}_k, \bar{a}_k) \forall k$</li>
+                    <li>Linearisiere und löse LQR $\Rightarrow \bar{a}_k = \pi_k(\bar{x}_k)$</li>
+                    <li>zurück zu 1.</li>
+                </ul>
+
+            </li>
+            </ul>
+            </li>
+            <li>Schätzer:
+                <ul>
+                    <li>Linearisierung um $\bar{x}_k = \hat{x}_k^l, \bar{a}_k=\pi_k(\hat{x}_k^l)$
+
+                        $$\hat{x}^p_{k+1} = p_k(\hat{x}_k^l, \bar{a}_k)$$
+
+                        $$C_{k+1}^P = A_k C_k^e A_k^T + C_k^w
+                    </li>
+                    <li>Filterschritt: Linearisierung um $\bar{x}_k = \hat{x}_k^p$
+
+                        $$\hat{x}_k^e = \hat{x}_k^P + K_k (z_k - h_k(\hat{x}_k^P))$$
+                        $$C_k^e = C_k^P - K_k H_k C_k^P$$
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </dd>
+    <dt><dfn>Bedingte Differentielle Entropie</dfn></dt>
+    <dd>
+
+        $$H(x|z, a) = - \int_z f(z|a) \cdot \int_{\mathcal{X}} f(x|z, a) \cdot \log (f(x|z, a)) \mathrm{d}x \mathrm{d} z$$
+
+        Die differentielle Entropie erweitert die Schannon-Entropie auf den
+        kontinuierlichen Fall. Unschön ist, dass sie negativ werden kann.<br/>
+        <br/>
+        Sie bewertet Unsicherheit anhand der "räumlichen" Konzentration von
+        Wahrscheinlichkeitsmassen.
+
+    </dd>
 </dl>
 
 TODO:
@@ -695,7 +803,17 @@ TODO:
 
 <dl>
     <dt><dfn id="rl">Reinforcement Learning</dfn></dt>
-    <dd>TODO</dd>
+    <dd>TODO
+
+    3 Strömungen zum finden der Policy:
+
+     <ul>
+         <li>Policy Search (Funktionsapproximatoren)</li>
+         <li>TODO</li>
+         <li>TODO</li>
+     </ul>
+
+    </dd>
 </dl>
 
 
@@ -705,17 +823,17 @@ TODO:
   Unterschiede?<br/>
   → <a href="#mdp">MDP</a>, <a href="#pomdp">POMDP</a>, <a href="#rl">RL</a> (TODO: Agent-Umfeld-Diagram)
 * Wie ist eine Nutzenfunktion definiert?<br/>
-  → TODO
+  → Siehe <a href="#nutzenfunktion">oben</a>
 * Wie löst man Optimierungsprobleme ohne Nebenbedingungen?<br/>
-  → TODO
+  → Iterativer Abstieg (Gradientenverfahren) (TODO)
 * Beweisen Sie, dass der Gradient senkrecht auf die Höhenlinien steht.<br/>
   → TODO
 * Wie löst man Optimierungsprobleme mit Nebenbedingungen?<br/>
   → Lagrange (TODO)
 * Wann ist es leichter / schwerer das Optimierungsproblem zu lösen?<br/>
-  → TODO
+  → Keine Nebenbedingungen, in $\mathbb{R}^n$ oder kleiner diskreter Raum (TODO)
 * Welche numerischen Methoden zur Optimierung kennen sie?<br/>
-  → TODO
+  → Iterativer Abstieg (Gradientenverfahren, Newton-Verfahren), Dynamische Programmierung(?) (TODO)
 
 ### MDP
 
@@ -731,13 +849,13 @@ TODO:
 ### POMDP
 
 * Wie lautet die Definition eines POMDP?<br/>
-  → TODO
+  → Siehe <a href="#pomdp">oben</a>
 * Wie lautet die Kostenfunktion eines POMDP?<br/>
   → TODO
 * Was ist der Unterschied des LQR beim MDP und POMDP?<br/>
   → TODO (POMDP hat Erwartungswert)
 * Was ist PWLC?<br/>
-  → TODO
+  → Piece-wise linear and Concave / Convex
 
 
 ### RL
@@ -754,6 +872,7 @@ Der Dozent nutzt folgende Notation:
   sind.
 * $\underline{x}$: Der Unterstrich deutet an, dass es sich um einen Vektor
   handelt. Diese Notation wurde in diesem Artikel **nicht** übernommen.
+* $\hat{x}$: Der Hut zeigt an, dass der Zustand $x$ geschätzt ist.
 
 
 ## Material und Links
