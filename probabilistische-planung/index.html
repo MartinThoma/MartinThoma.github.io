@@ -173,7 +173,12 @@ MathJax.Hub.Queue(function() {
 <tr>
 <td>22.06.2016</td>
 <td>POMDPs</td>
-<td>Endliche Planungsprobleme (Optimale Strategie); Modellpr&auml;diktive Planung</td>
+<td>Endliche Planungsprobleme (Optimale Strategie); <a href="#ol-planung">OL</a>, <a href="#olf-planung">OLF</a>, Modellpr&auml;diktive Planung</td>
+</tr>
+<tr>
+<td>29.06.2016</td>
+<td>POMDPs</td>
+<td>Parametrische / Nichtparametrische Approximation</td>
 </tr>
 </table>
 <p>Folien:</p>
@@ -753,7 +758,58 @@ MathJax.Hub.Queue(function() {
 
         Hier wird der Plan aktualisiert; OLF minimiert die Kosten garantiert
         st&auml;rker als OL-Planung (gleichheit im deterministischen Fall)
-        </dd>
+    </dd>
+<dt><dfn id="linearization">Linearisierung</dfn> (<dfn>Extended Kalman Filter</dfn>, <dfn id="ekf">EKF</dfn>)</dt>
+<dd>Gegeben ist ein Nichtlineares Zustandsraummodell:
+
+        $$x_{k+1} = p_k(x_k, a_k) + w_k\tag{Systemmodell}$$
+        $$z_k = h_k(x_k) + v_k\tag{Messmodell}$$
+
+        Idee: Verwendung von LQR + Kalman Filter<br/>
+        Linearisierung mittels Taylorreihenentwicklung<br/>
+        Annahmen: $p_k$ ist differenzierbar und nichtlinearer Anteil in Umgebung
+        ist vernachl&auml;ssigbar.<br/>
+        Linearisierung um Nominalwerte $\bar{x_k}, \bar{a_k}$.
+        $$p_k(x_k, a_k) \approx p_k(\bar{x_k}, \bar{a_k}) + A_k (\underbrace{x_k - \bar{x_k}}_{=: \Delta x_k}) + B_k (\underbrace{a_k - \bar{a_k}}_{\Delta a_k})$$
+        mit Jakobi-Matrizen:
+        $$A_k = \frac{\partial}{\partial x_k} p_k(x_k, a_k)|_{x_k = \bar{x_k}, a_k = \bar{a_k}}$$
+        $$B_k = \frac{\partial}{\partial a_k} p_k(x_k, a_k)|_{x_k = \bar{x_k}, a_k = \bar{a_k}}$$
+        $\Rightarrow$ Lineares Modell: $\Delta x_{k+1} \approx A_k \cdot \Delta x_k + B_k \Delta a_k$
+        mit $\Delta x_{k+1} = p_k(x_k, a_k) - p_k(\bar{x_k}, \bar{a_k})$<br/>
+<br/>
+        Wahl der Nominalwerte $\bar{x_k}, \bar{a_k}$:
+        <ul>
+<li>Strategie:
+            <ul>
+<li>Zielzustand $\bar{x_k} = x_+ = [0, \dots, 0]^T, \bar{a_k} = [0, \dots, 0]^T \forall k$</li>
+<li>Zustandssolltrajektorien bei Verfolgungsproblem</li>
+<li>Pr&auml;diktiv: $\bar{x_{k+1}} = p_k(\bar{x_k}, \bar{a_k})$ mit $\bar{x_0} = E(x_0)$ und beliebig $\bar{a_{0:N-1}}$</li>
+<li>Iterativ: Starte mit beliebigem $\bar{a_{0:N-1}}$ und $\bar{x_0} = E(x_0)$
+                <ul>
+<li>Bestimme $\bar{x_{k+1}} = p_k(\bar{x_k}, \bar{a_k}) \forall k$</li>
+<li>Linearisiere und l&ouml;se LQR $\Rightarrow \bar{a_k} = \pi_k(\bar{x_k})$</li>
+<li>zur&uuml;ck zu 1.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Sch&auml;tzer:
+                <ul>
+<li>Linearisierung um $\bar{x_k} = \hat{x_k^l}, \bar{a_k}=\pi_k(\hat{x_k^l})$
+
+                        $$\hat{x}^p_{k+1} = p_k(\hat{x_k^l, \bar{a_k}})$$
+
+                        $$C_{k+1}^P = A_k C_k^e A_k^T + C_k^w
+                    </li>
+<li>Filterschritt: Linearisierung um $\bar{x_k} = \hat{x}_k^p$
+
+                        $$\hat{x}_k^e = \hat{x}_k^P + K_k (z_k - h_k(\hat{x}_k^P))$$
+                        $$C_k^e = C_k^P - K_k H_k C_k^P$$
+                    </li>
+</ul>
+</li>
+</ul>
+</dd>
 </dl>
 <p>TODO:</p>
 <ul>
