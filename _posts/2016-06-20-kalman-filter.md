@@ -20,11 +20,11 @@ it.
 
 Source: [gps.gov](http://www.gps.gov/systems/gps/performance/accuracy/), see also [What is the maximum Theoretical accuracy of GPS?](http://gis.stackexchange.com/a/43657/70242)
 
-The Kalman filter is the optimal linear filter. This means, there is no
-estimator for the state which has a linear state model which is better. It
-assumes the noise is Gaussian. If it is, then the Kalman filter minimizes the
-mean squared erro of the estimated state parameters. The name "filter" is used
-because the Kalman filter removes (filters) the noise.
+The Kalman filter is the optimal linear filter (<span style="color:blue;">BLUE</span>: <span style="color:blue;">B</span>est <span style="color:blue;">L</span>inear <span style="color:blue;">U</span>nbiast <span style="color:blue;">E</span>stimator). This means,
+there is no estimator for the state which has a linear state model which is
+better. It assumes the noise is Gaussian. If it is, then the Kalman filter
+minimizes the mean squared erro of the estimated state parameters. The name
+"filter" is used because the Kalman filter removes (filters) the noise.
 
 
 ## Step-by-step
@@ -41,7 +41,7 @@ First, note what you're given. This should be:
 
 ### Step 2: Modelling
 
-The Kalman Filter is a linear filter. This means you have to model your system
+The Kalman Filter is a linear filter. This means you have to model your **system**
 in the form
 
 <span id="kf-state-equation">$$\mathbf{x}_{k+1} = A_k \mathbf{x}_k + B_k a_k + r_k^{(s)}$$</span>
@@ -56,7 +56,7 @@ with
 * $r_k^{(s)} \sim \mathcal{N(0, \Sigma_m)}$ with $\Sigma_m \in \mathbb{R}^{n_x \times n_x}$
   being Gaussian noise
 
-You can also make a model of your measurements. They should be some linear
+You can also make a model of your **measurements**. They should be some linear
 combination of the state with Gaussian noise $r_k^m$:
 
 $$z_k = H \cdot \mathbf{x}_k + r_k^{(m)}$$
