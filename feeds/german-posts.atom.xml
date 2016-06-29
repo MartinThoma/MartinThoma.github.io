@@ -545,7 +545,8 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 
         &lt;ul&gt;
 &lt;li&gt;Es gibt genau einen Fixpunkt $\xi \in M$ mit $f(\xi) = \xi$.&lt;/li&gt;
-&lt;li&gt;TODO (Absch&amp;auml;tzung)&lt;/li&gt;
+&lt;li&gt;A-priori-Absch&amp;auml;tzung: $d(x_n,\xi)\le\frac{\lambda^n}{1-\lambda}d(x_0,x_1)$&lt;/li&gt;
+&lt;li&gt;A-posteriori-Absch&amp;auml;tzung: $d(x_n,\xi)\le\frac{\lambda}{1-\lambda}d(x_{n-1},x_n)$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;T-Kontraktion&lt;/dfn&gt;&lt;/dt&gt;
@@ -891,25 +892,25 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
         Linearisierung mittels Taylorreihenentwicklung&lt;br/&gt;
         Annahmen: $p_k$ ist differenzierbar und nichtlinearer Anteil in Umgebung
         ist vernachl&amp;auml;ssigbar.&lt;br/&gt;
-        Linearisierung um Nominalwerte $\bar{x_k}, \bar{a_k}$.
-        $$p_k(x_k, a_k) \approx p_k(\bar{x_k}, \bar{a_k}) + A_k (\underbrace{x_k - \bar{x_k}}_{=: \Delta x_k}) + B_k (\underbrace{a_k - \bar{a_k}}_{\Delta a_k})$$
+        Linearisierung um Nominalwerte $\bar{x}_k, \bar{a}_k$.
+        $$p_k(x_k, a_k) \approx p_k(\bar{x}_k, \bar{a}_k) + A_k (\underbrace{x_k - \bar{x}_k}_{=: \Delta x_k}) + B_k (\underbrace{a_k - \bar{a}_k}_{\Delta a_k})$$
         mit Jakobi-Matrizen:
-        $$A_k = \frac{\partial}{\partial x_k} p_k(x_k, a_k)|_{x_k = \bar{x_k}, a_k = \bar{a_k}}$$
-        $$B_k = \frac{\partial}{\partial a_k} p_k(x_k, a_k)|_{x_k = \bar{x_k}, a_k = \bar{a_k}}$$
+        $$A_k = \frac{\partial}{\partial x_k} p_k(x_k, a_k)|_{x_k = \bar{x}_k, a_k = \bar{a}_k}$$
+        $$B_k = \frac{\partial}{\partial a_k} p_k(x_k, a_k)|_{x_k = \bar{x}_k, a_k = \bar{a}_k}$$
         $\Rightarrow$ Lineares Modell: $\Delta x_{k+1} \approx A_k \cdot \Delta x_k + B_k \Delta a_k$
-        mit $\Delta x_{k+1} = p_k(x_k, a_k) - p_k(\bar{x_k}, \bar{a_k})$&lt;br/&gt;
+        mit $\Delta x_{k+1} = p_k(x_k, a_k) - p_k(\bar{x}_k, \bar{a}_k)$&lt;br/&gt;
 &lt;br/&gt;
-        Wahl der Nominalwerte $\bar{x_k}, \bar{a_k}$:
+        Wahl der Nominalwerte $\bar{x}_k, \bar{a}_k$:
         &lt;ul&gt;
 &lt;li&gt;Strategie:
             &lt;ul&gt;
-&lt;li&gt;Zielzustand $\bar{x_k} = x_+ = [0, \dots, 0]^T, \bar{a_k} = [0, \dots, 0]^T \forall k$&lt;/li&gt;
+&lt;li&gt;Zielzustand $\bar{x}_k = x_+ = [0, \dots, 0]^T, \bar{a}_k = [0, \dots, 0]^T \forall k$&lt;/li&gt;
 &lt;li&gt;Zustandssolltrajektorien bei Verfolgungsproblem&lt;/li&gt;
-&lt;li&gt;Pr&amp;auml;diktiv: $\bar{x_{k+1}} = p_k(\bar{x_k}, \bar{a_k})$ mit $\bar{x_0} = E(x_0)$ und beliebig $\bar{a_{0:N-1}}$&lt;/li&gt;
-&lt;li&gt;Iterativ: Starte mit beliebigem $\bar{a_{0:N-1}}$ und $\bar{x_0} = E(x_0)$
+&lt;li&gt;Pr&amp;auml;diktiv: $\bar{x}_{k+1} = p_k(\bar{x}_k, \bar{a}_k)$ mit $\bar{x}_0 = E(x_0)$ und beliebig $\bar{a}_{0:N-1}$&lt;/li&gt;
+&lt;li&gt;Iterativ: Starte mit beliebigem $\bar{a}_{0:N-1}$ und $\bar{x}_0 = E(x_0)$
                 &lt;ul&gt;
-&lt;li&gt;Bestimme $\bar{x_{k+1}} = p_k(\bar{x_k}, \bar{a_k}) \forall k$&lt;/li&gt;
-&lt;li&gt;Linearisiere und l&amp;ouml;se LQR $\Rightarrow \bar{a_k} = \pi_k(\bar{x_k})$&lt;/li&gt;
+&lt;li&gt;Bestimme $\bar{x}_{k+1} = p_k(\bar{x}_k, \bar{a}_k) \forall k$&lt;/li&gt;
+&lt;li&gt;Linearisiere und l&amp;ouml;se LQR $\Rightarrow \bar{a}_k = \pi_k(\bar{x}_k)$&lt;/li&gt;
 &lt;li&gt;zur&amp;uuml;ck zu 1.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -917,13 +918,13 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;Sch&amp;auml;tzer:
                 &lt;ul&gt;
-&lt;li&gt;Linearisierung um $\bar{x_k} = \hat{x_k^l}, \bar{a_k}=\pi_k(\hat{x_k^l})$
+&lt;li&gt;Linearisierung um $\bar{x}_k = \hat{x}_k^l, \bar{a}_k=\pi_k(\hat{x}_k^l)$
 
-                        $$\hat{x}^p_{k+1} = p_k(\hat{x_k^l, \bar{a_k}})$$
+                        $$\hat{x}^p_{k+1} = p_k(\hat{x}_k^l, \bar{a}_k)$$
 
                         $$C_{k+1}^P = A_k C_k^e A_k^T + C_k^w
                     &lt;/li&gt;
-&lt;li&gt;Filterschritt: Linearisierung um $\bar{x_k} = \hat{x}_k^p$
+&lt;li&gt;Filterschritt: Linearisierung um $\bar{x}_k = \hat{x}_k^p$
 
                         $$\hat{x}_k^e = \hat{x}_k^P + K_k (z_k - h_k(\hat{x}_k^P))$$
                         $$C_k^e = C_k^P - K_k H_k C_k^P$$
@@ -948,17 +949,17 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
   Unterschiede?&lt;br/&gt;
   &amp;rarr; &lt;a href="#mdp"&gt;MDP&lt;/a&gt;, &lt;a href="#pomdp"&gt;POMDP&lt;/a&gt;, &lt;a href="#rl"&gt;RL&lt;/a&gt; (TODO: Agent-Umfeld-Diagram)&lt;/li&gt;
 &lt;li&gt;Wie ist eine Nutzenfunktion definiert?&lt;br/&gt;
-  &amp;rarr; TODO&lt;/li&gt;
+  &amp;rarr; Siehe &lt;a href="#nutzenfunktion"&gt;oben&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Wie l&amp;ouml;st man Optimierungsprobleme ohne Nebenbedingungen?&lt;br/&gt;
-  &amp;rarr; TODO&lt;/li&gt;
+  &amp;rarr; Gradient (TODO)&lt;/li&gt;
 &lt;li&gt;Beweisen Sie, dass der Gradient senkrecht auf die H&amp;ouml;henlinien steht.&lt;br/&gt;
   &amp;rarr; TODO&lt;/li&gt;
 &lt;li&gt;Wie l&amp;ouml;st man Optimierungsprobleme mit Nebenbedingungen?&lt;br/&gt;
   &amp;rarr; Lagrange (TODO)&lt;/li&gt;
 &lt;li&gt;Wann ist es leichter / schwerer das Optimierungsproblem zu l&amp;ouml;sen?&lt;br/&gt;
-  &amp;rarr; TODO&lt;/li&gt;
+  &amp;rarr; Keine Nebenbedingungen, in &lt;span class="math"&gt;\(\mathbb{R}^n\)&lt;/span&gt; oder kleiner diskreter Raum (TODO)&lt;/li&gt;
 &lt;li&gt;Welche numerischen Methoden zur Optimierung kennen sie?&lt;br/&gt;
-  &amp;rarr; TODO&lt;/li&gt;
+  &amp;rarr; Gradientenverfahren (TODO)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="mdp"&gt;MDP&lt;/h3&gt;
 &lt;ul&gt;
@@ -974,13 +975,13 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;h3 id="pomdp"&gt;POMDP&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Wie lautet die Definition eines POMDP?&lt;br/&gt;
-  &amp;rarr; TODO&lt;/li&gt;
+  &amp;rarr; Siehe &lt;a href="#pomdp"&gt;oben&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Wie lautet die Kostenfunktion eines POMDP?&lt;br/&gt;
   &amp;rarr; TODO&lt;/li&gt;
 &lt;li&gt;Was ist der Unterschied des LQR beim MDP und POMDP?&lt;br/&gt;
   &amp;rarr; TODO (POMDP hat Erwartungswert)&lt;/li&gt;
 &lt;li&gt;Was ist PWLC?&lt;br/&gt;
-  &amp;rarr; TODO&lt;/li&gt;
+  &amp;rarr; Piece-wise linear and Concave / Convex&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="rl"&gt;RL&lt;/h3&gt;
 &lt;ul&gt;
@@ -994,6 +995,7 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
   sind.&lt;/li&gt;
 &lt;li&gt;&lt;span class="math"&gt;\(\underline{x}\)&lt;/span&gt;: Der Unterstrich deutet an, dass es sich um einen Vektor
   handelt. Diese Notation wurde in diesem Artikel &lt;strong&gt;nicht&lt;/strong&gt; &amp;uuml;bernommen.&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(\hat{x}\)&lt;/span&gt;: Der Hut zeigt an, dass der Zustand &lt;span class="math"&gt;\(x\)&lt;/span&gt; gesch&amp;auml;tzt ist.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="material-und-links"&gt;Material und Links&lt;/h2&gt;
 &lt;ul&gt;
