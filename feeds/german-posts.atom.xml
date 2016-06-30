@@ -477,6 +477,18 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
       the discount factor, $T(s, a, s') \in [0, 1]$ is the transormation matrix
       which gives you the probability that you will end up in state $s'$ when
       you apply action $a$ in state $s$.&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="differentiation-rules"&gt;Differentiation Rules&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+
+      $$
+      \begin{align}
+          \frac{\partial x^T a}{\partial x} &amp;amp;= \frac{\partial a^T x}{\partial x} = a\\
+          \frac{\partial x^T A}{\partial x} &amp;amp;= \frac{\partial A x}{\partial x} = A \qquad A \in \mathbb{R}^{n \times n}\\
+          \frac{\partial x^T A x}{\partial x} &amp;amp;= 2 A x \qquad A \in \mathbb{R}^{n \times n}
+      \end{align}
+      $$
+
+  &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="q-function"&gt;Q-Funktion&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Siehe &lt;a href="../machine-learning-1-course/#q-function"&gt;ML 1&lt;/a&gt;.&lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Dynamische_Programmierung"&gt;&lt;dfn id="dynamic-programming"&gt;Dynamische Programmierung&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
@@ -641,21 +653,19 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
         Die folgenden beiden Schritte werden alternierend ausgef&amp;uuml;hrt:
 
         &lt;ol&gt;
-&lt;li&gt;Strategieauswertung&lt;/li&gt;
-&lt;li&gt;Strategieverbesserung&lt;/li&gt;
+&lt;li&gt;Strategieauswertung:
+                $$V^\pi(s) \gets R(s, \pi(s)) + \gamma \sum_{s'} T(s, \pi(s), s') V^\pi(s')$$
+            &lt;/li&gt;
+&lt;li&gt;Strategieverbesserung:
+                $$\pi'(s) \gets \text{arg max}_a (R(s, a) + \gamma \sum_{s'} T(s, a, s') V^\pi(s'))$$
+            &lt;/li&gt;
 &lt;/ol&gt;
 
-        Die Strategie-Iteration verbessert die $V$-Funktion indem die
-        Gleichungen
-        $$V^\pi(s) = R(s, \pi(s)) + \gamma \sum_{s'} T(s, \pi(s), s') V^\pi(s')$$
-        gel&amp;ouml;st werden und dann f&amp;uuml;r jeden Zustand eine neue Strategie gesetz wird:
-        $$\pi'(s) = \text{arg max}_a (R(s, a) + \gamma \sum_{s'} T(s, a, s') V^\pi(s'))$$
-
         Siehe &lt;a href="https://www.cs.cmu.edu/afs/cs/project/jair/pub/volume4/kaelbling96a-html/node20.html"&gt;CMU&lt;/a&gt;
-
-        Vergleich zwischen Werte- und Strategieiteration:
-
-        &lt;ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Value iteration vs Policy iteration&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;ul&gt;
 &lt;li&gt;Strategieiteration konvergiert in weniger Schritten&lt;/li&gt;
 &lt;li&gt;Jeder Schritt der Strategieiteration ist teurer als in der
                 Werteoperation, da die Strategieauswertung die L&amp;ouml;sung eines
@@ -684,7 +694,9 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;dd&gt;$$x_{k+1} = A_k + x_k + B_k \cdot a_k + r_k^{(s)}$$&lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/LQ-Regler"&gt;&lt;dfn id="linear-quadratic-regulator"&gt;Linearer Quadratischer Regulator&lt;/dfn&gt;&lt;/a&gt; (&lt;dfn id="lqr"&gt;LQR&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;Der LQR ist ein Regler (Regulator) f&amp;uuml;r einen lineareren Zustandsraum
-        mit quadratischer Kostenfunktion.
+        mit quadratischer Kostenfunktion. Ein Regel will typischerweise den
+        Zustand $x = \vec{0}$ erreichen, wohingegen ein Tracker den aktuellen
+        Zustand bestm&amp;ouml;glich sch&amp;auml;tzen will.
 
         TODO&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Sicherheits&amp;auml;quivalenz&lt;/dfn&gt; (&lt;a href="https://en.wikipedia.org/wiki/Stochastic_control#Certainty_equivalence"&gt;&lt;dfn id="certainty-equivalence"&gt;Certainty Equivalence&lt;/dfn&gt;&lt;/a&gt;)&lt;/dt&gt;
@@ -899,21 +911,26 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;Closed-Loop Planung&lt;/dfn&gt; (&lt;dfn&gt;CL Planung&lt;/dfn&gt;)&lt;/dt&gt;
-&lt;dd&gt;Mit Zustandsr&amp;uuml;ckf&amp;uuml;hrung. Kann mnit dynamischer Programmierung gel&amp;ouml;st werden.
-        Geschlossene L&amp;ouml;sung nur in Ausnahmef&amp;auml;llen, sonst numerische
-        L&amp;ouml;sungsverfahren.
-        TODO.
-
-        Hier wird eine optimale Strategie bestimmt.
-    &lt;/dd&gt;
+&lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Regelkreis"&gt;&lt;dfn&gt;Regelkreis&lt;/dfn&gt;&lt;/a&gt; (&lt;dfn&gt;Control system&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dd&gt;Ein Regelkreis ist ein technisches System, welches einen Zielzustand
+        anstrebt.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="ol-planung"&gt;Open-loop Planung&lt;/dfn&gt; (&lt;dfn&gt;OL Planung&lt;/dfn&gt;)&lt;/dt&gt;
-&lt;dd&gt;Ohne Zustandsr&amp;uuml;ckf&amp;uuml;hrung
-
-        &lt;!-- $$a_{0:N-1}^* = arg min_{a_{0:N-1}} E \{ g_N(x_N) + \sum_{k=0}^{N-1} g_n(x_k, a_k)\}$$
-        für  --&gt;
-
-        Hier wird ein optimaler Plan bestimmt.
+&lt;dd&gt;Unter einem Open-loop Control system (offener Regelkreis) versteht man
+        ein technisches System welches ohne Zustandsr&amp;uuml;ckf&amp;uuml;hrung, also ohne
+        Messung des Zustands nachdem die Regelung begonnen wurde, arbeitet.&lt;br/&gt;
+        Beispiele sind Sp&amp;uuml;hlmaschinen und Rasensprenger.&lt;br/&gt;
+        In der Open-loop Planung wird ein optimaler Plan bestimmt.
+    &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Closed-loop Planung&lt;/dfn&gt; (&lt;dfn&gt;CL Planung&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dd&gt;Unter einem Closed-loop control system (geschlossenem Regelkreis)
+        versteht man ein technisches System welches mit Zustandsr&amp;uuml;ckf&amp;uuml;hrung, also
+        mit Messung des Zustands w&amp;auml;hrend der Regelung, arbeitet.&lt;br/&gt;
+        Beispiele sind System im Auto zum halten der Geschwindigkeit oder
+        Rasensprenger welche die Feuchtigkeit &amp;uuml;berpr&amp;uuml;fen.&lt;br/&gt;
+        Closed-loop Planung kann mit dynamischer Programmierung gel&amp;ouml;st werden.
+        Geschlossene L&amp;ouml;sung nur in Ausnahmef&amp;auml;llen, sonst numerische
+        L&amp;ouml;sungsverfahren.&lt;br/&gt;
+        In der closed-loop Planung wird eine optimale Strategie bestimmt.
     &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="olf-planung"&gt;Open-Loop-Feedback Planung&lt;/dfn&gt; (&lt;dfn&gt;OLF Planung&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;TODO&lt;/dd&gt;

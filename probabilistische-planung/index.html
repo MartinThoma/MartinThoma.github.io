@@ -354,6 +354,18 @@ MathJax.Hub.Queue(function() {
       the discount factor, $T(s, a, s') \in [0, 1]$ is the transormation matrix
       which gives you the probability that you will end up in state $s'$ when
       you apply action $a$ in state $s$.</dd>
+<dt><dfn id="differentiation-rules">Differentiation Rules</dfn></dt>
+<dd>
+
+      $$
+      \begin{align}
+          \frac{\partial x^T a}{\partial x} &amp;= \frac{\partial a^T x}{\partial x} = a\\
+          \frac{\partial x^T A}{\partial x} &amp;= \frac{\partial A x}{\partial x} = A \qquad A \in \mathbb{R}^{n \times n}\\
+          \frac{\partial x^T A x}{\partial x} &amp;= 2 A x \qquad A \in \mathbb{R}^{n \times n}
+      \end{align}
+      $$
+
+  </dd>
 <dt><dfn id="q-function">Q-Funktion</dfn></dt>
 <dd>Siehe <a href="../machine-learning-1-course/#q-function">ML 1</a>.</dd>
 <dt><a href="https://de.wikipedia.org/wiki/Dynamische_Programmierung"><dfn id="dynamic-programming">Dynamische Programmierung</dfn></a></dt>
@@ -518,21 +530,19 @@ MathJax.Hub.Queue(function() {
         Die folgenden beiden Schritte werden alternierend ausgef&uuml;hrt:
 
         <ol>
-<li>Strategieauswertung</li>
-<li>Strategieverbesserung</li>
+<li>Strategieauswertung:
+                $$V^\pi(s) \gets R(s, \pi(s)) + \gamma \sum_{s'} T(s, \pi(s), s') V^\pi(s')$$
+            </li>
+<li>Strategieverbesserung:
+                $$\pi'(s) \gets \text{arg max}_a (R(s, a) + \gamma \sum_{s'} T(s, a, s') V^\pi(s'))$$
+            </li>
 </ol>
 
-        Die Strategie-Iteration verbessert die $V$-Funktion indem die
-        Gleichungen
-        $$V^\pi(s) = R(s, \pi(s)) + \gamma \sum_{s'} T(s, \pi(s), s') V^\pi(s')$$
-        gel&ouml;st werden und dann f&uuml;r jeden Zustand eine neue Strategie gesetz wird:
-        $$\pi'(s) = \text{arg max}_a (R(s, a) + \gamma \sum_{s'} T(s, a, s') V^\pi(s'))$$
-
         Siehe <a href="https://www.cs.cmu.edu/afs/cs/project/jair/pub/volume4/kaelbling96a-html/node20.html">CMU</a>
-
-        Vergleich zwischen Werte- und Strategieiteration:
-
-        <ul>
+</dd>
+<dt><dfn>Value iteration vs Policy iteration</dfn></dt>
+<dd>
+<ul>
 <li>Strategieiteration konvergiert in weniger Schritten</li>
 <li>Jeder Schritt der Strategieiteration ist teurer als in der
                 Werteoperation, da die Strategieauswertung die L&ouml;sung eines
@@ -561,7 +571,9 @@ MathJax.Hub.Queue(function() {
 <dd>$$x_{k+1} = A_k + x_k + B_k \cdot a_k + r_k^{(s)}$$</dd>
 <dt><a href="https://de.wikipedia.org/wiki/LQ-Regler"><dfn id="linear-quadratic-regulator">Linearer Quadratischer Regulator</dfn></a> (<dfn id="lqr">LQR</dfn>)</dt>
 <dd>Der LQR ist ein Regler (Regulator) f&uuml;r einen lineareren Zustandsraum
-        mit quadratischer Kostenfunktion.
+        mit quadratischer Kostenfunktion. Ein Regel will typischerweise den
+        Zustand $x = \vec{0}$ erreichen, wohingegen ein Tracker den aktuellen
+        Zustand bestm&ouml;glich sch&auml;tzen will.
 
         TODO</dd>
 <dt><dfn>Sicherheits&auml;quivalenz</dfn> (<a href="https://en.wikipedia.org/wiki/Stochastic_control#Certainty_equivalence"><dfn id="certainty-equivalence">Certainty Equivalence</dfn></a>)</dt>
@@ -776,21 +788,26 @@ MathJax.Hub.Queue(function() {
 </li>
 </ul>
 </dd>
-<dt><dfn>Closed-Loop Planung</dfn> (<dfn>CL Planung</dfn>)</dt>
-<dd>Mit Zustandsr&uuml;ckf&uuml;hrung. Kann mnit dynamischer Programmierung gel&ouml;st werden.
-        Geschlossene L&ouml;sung nur in Ausnahmef&auml;llen, sonst numerische
-        L&ouml;sungsverfahren.
-        TODO.
-
-        Hier wird eine optimale Strategie bestimmt.
-    </dd>
+<dt><a href="https://de.wikipedia.org/wiki/Regelkreis"><dfn>Regelkreis</dfn></a> (<dfn>Control system</dfn>)</dt>
+<dd>Ein Regelkreis ist ein technisches System, welches einen Zielzustand
+        anstrebt.</dd>
 <dt><dfn id="ol-planung">Open-loop Planung</dfn> (<dfn>OL Planung</dfn>)</dt>
-<dd>Ohne Zustandsr&uuml;ckf&uuml;hrung
-
-        <!-- $$a_{0:N-1}^* = arg min_{a_{0:N-1}} E \{ g_N(x_N) + \sum_{k=0}^{N-1} g_n(x_k, a_k)\}$$
-        für  -->
-
-        Hier wird ein optimaler Plan bestimmt.
+<dd>Unter einem Open-loop Control system (offener Regelkreis) versteht man
+        ein technisches System welches ohne Zustandsr&uuml;ckf&uuml;hrung, also ohne
+        Messung des Zustands nachdem die Regelung begonnen wurde, arbeitet.<br/>
+        Beispiele sind Sp&uuml;hlmaschinen und Rasensprenger.<br/>
+        In der Open-loop Planung wird ein optimaler Plan bestimmt.
+    </dd>
+<dt><dfn>Closed-loop Planung</dfn> (<dfn>CL Planung</dfn>)</dt>
+<dd>Unter einem Closed-loop control system (geschlossenem Regelkreis)
+        versteht man ein technisches System welches mit Zustandsr&uuml;ckf&uuml;hrung, also
+        mit Messung des Zustands w&auml;hrend der Regelung, arbeitet.<br/>
+        Beispiele sind System im Auto zum halten der Geschwindigkeit oder
+        Rasensprenger welche die Feuchtigkeit &uuml;berpr&uuml;fen.<br/>
+        Closed-loop Planung kann mit dynamischer Programmierung gel&ouml;st werden.
+        Geschlossene L&ouml;sung nur in Ausnahmef&auml;llen, sonst numerische
+        L&ouml;sungsverfahren.<br/>
+        In der closed-loop Planung wird eine optimale Strategie bestimmt.
     </dd>
 <dt><dfn id="olf-planung">Open-Loop-Feedback Planung</dfn> (<dfn>OLF Planung</dfn>)</dt>
 <dd>TODO</dd>
