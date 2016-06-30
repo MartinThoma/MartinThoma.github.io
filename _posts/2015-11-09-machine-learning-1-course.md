@@ -382,41 +382,47 @@ Siehe auch:
 * [Demystifying Deep Reinforcement Learning](http://www.nervanasys.com/demystifying-deep-reinforcement-learning/)
 
 <dl>
-  <dt><a href="https://de.wikipedia.org/wiki/Markow-Entscheidungsproblem"><dfn>Markovsches Entscheidungsproblem</dfn></a> (<dfn>Markov Decision Process</dfn>, <dfn>MDP</dfn>)</dt>
-  <dd>Ein Markovsches Entscheidungsproblem ist ein 5-Tupel $S, A, P, R, \gamma$
-      mit:
-
+  <dt><a href="https://de.wikipedia.org/wiki/Markow-Entscheidungsproblem"><dfn>Markovsches Entscheidungsproblem</dfn></a> (<dfn>Markov Decision Process</dfn>, <dfn id="mdp">MDP</dfn>)</dt>
+  <dd>Ein Markovsches Entscheidungsproblem ist ein 5-Tupel $(S, A, P, R, p_0)$,
+      wobei
       <ul>
-          <li>$S$: Endliche Zustandsmenge (states)</li>
-          <li>$A(s)$: Die Menge von möglichen Aktionen im Zustand $s$</li>
+          <li>$S$ eine endliche Zustandsmenge (states),</li>
+          <li>$A(s)$ eine Menge von möglichen Aktionen im Zustand $s$,</li>
           <li>$P(s, s', a) = P(s_{t+1} = s' | s_t = s, a_t = a)$: Die Wahrscheinlichkeit
               im Zeitschritt $t+1$ im Zustand $s'$ zu sein, wenn man zum Zeitpunkt
               $t$ im Zustand $s$ ist und die Aktion $a$ ausführt</li>
           <li>$R(s, s', a) \in \mathbb{R}$: Die direkte Belohnung, wenn durch die Aktion $a$ vom Zustand $s$ in den Zustand $s'$ gekommen ist.</li>
-          <li>$\gamma \in [0, 1]$: Der Diskontierungsfaktor, welche die
-              Bedeutung von direkten Belohnungen im Vergleich zu künftigen
-              Belohnungen anzeigt.</li>
-      </ul></dd>
+          <li>$p_0$ ist die Startverteilung auf die Zustände $S$</li>
+      </ul>
+
+       Manchmal wird auch der Diskontierungsfaktor $\gamma \in [0, 1]$, welche
+       die Bedeutung von direkten Belohnungen im Vergleich zu künftigen
+       Belohnungen anzeigt, hier schon genannt. Allerdings finde ich das
+       an dieser Stelle eher unpassend, da $\gamma$ eher verwendet wird um
+       die Lösung in der Praxis bestimmen zu können. Mit dem Problem hat
+       $\gamma$ an sich nichts zu tun.
+
+  </dd>
   <dt><a href="https://en.wikipedia.org/wiki/Reinforcement_learning"><dfn>Reinforcement Learning</dfn></a> (<dfn>RL</dfn>, <dfn><a href="https://de.wikipedia.org/wiki/Best%C3%A4rkendes_Lernen">Bestärkendes Lernen</a></dfn>)</dt>
   <dd>Beim bestärkenden Lernen liegt ein Markow-Entscheidungsproblemen vor.
       Es gibt also einen Agenten, der Aktionen ausführen kann. Diese können
       (nicht notwendigerweise sofort) bewertet werden.</dd>
-  <dt><dfn>Policy</dfn></dt>
-  <dd>Eine <b>policy $\pi: S \rightarrow A$</b> ist die Vorschrift, in
+  <dt><dfn id="policy">Policy</dfn> (<dfn>Strategie</dfn>)</dt>
+  <dd>Eine <b>Strategie $\pi: S \rightarrow A$</b> ist die Vorschrift, in
       welchem Zustand welche Aktion ausgeführt werden soll.</dd>
   <dt><dfn>Policy Learning</dfn></dt>
   <dd>Unter <i>Policy Learning</i> versteht man die Suche nach einer
-      optimalen Policy $\pi^*$.</dd>
-  <dt><dfn>Value-Funktion</dfn></dt>
+      optimalen Strategie $\pi^*$.</dd>
+  <dt><dfn id="v-function">V-Funktion</dfn> (<dfn>Value function</dfn>, <dfn>State-Value function</dfn>)</dt>
   <dd>Die Funktion $V^\pi: S \rightarrow \mathbb{R}$ heißt Value-Funktion.
       Sie gibt den erwarteten Wert (nicht die Belohnung, da bei der V-Funktion
       noch der Diskontierungsfaktor eingeht!) eines Zustands $s$ unter der
-      policy $\pi$ an.
-
-      Mit $V^*$ wird der Wert unter der optimalen policy bezeichnet.</dd>
-  <dt><dfn>Q-Funktion</dfn></dt>
+      Strategie $\pi$ an.<br/>
+      <br/>
+      Mit $V^*$ wird der Wert unter der optimalen Strategie bezeichnet.</dd>
+  <dt><dfn id="q-function">Q-Funktion</dfn> (<dfn>Action-Value function</dfn>, <dfn>Quality function</dfn>)</dt>
   <dd>Die Funktion $Q^\pi: S \times A \rightarrow \mathbb{R}$ gibt den erwarteten
-      Wert einer eines Zustandes $s$ unter der policy $\pi$, wenn die
+      Wert einer eines Zustandes $s$ unter der Strategie $\pi$, wenn die
       Aktion $a$ ausgeführt wird an.
 
       Es gilt: $$Q^\pi(s, \pi(s)) = V^\pi(s)$$</dd>
@@ -516,7 +522,7 @@ See also:
 * R. Sutton und A. Barto: [Temporal-Difference Learning](https://webdocs.cs.ualberta.ca/~sutton/book/ebook/node60.html). 1998.
 
 Der TD-Learning Algorithmus beschäftigt sich mit dem Schätzen der Value-Funktion
-$V^\pi$ für eine gegebene Policy $\pi$. Das wird auch <i>policy evaluation</i>
+$V^\pi$ für eine gegebene Strategie $\pi$. Das wird auch <i>policy evaluation</i>
 oder <i>prediction</i> genannt.
 
 * [TD-Learning](https://de.wikipedia.org/wiki/Temporal_Difference_Learning) (Temporal Difference Learning)

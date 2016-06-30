@@ -426,22 +426,8 @@ Slide name: `V08_2015-05-13_Deep_Learning.pdf`
 Slide name: `V09_2015-05-26-Reinforcement-Learning.pdf`
 
 <dl>
-    <dt><a href="https://de.wikipedia.org/wiki/Markow-Entscheidungsproblem"><dfn>Markov Decision Process</dfn></a> (<dfn>MDP</dfn>)</dt>
-    <dd>Ein Markovscher Entscheidungsprozess ist ein 5-Tupel
-        $(S, A, T, r, p_0)$, wobei
-        <ul>
-            <li>$S$ eine endliche Zustandsmenge,</li>
-            <li>$A$ eine endliche Menge von Aktionen,</li>
-            <li>$T_a(s, s') = T(s_{t+1}=s'|s_t = s, a_t = a)$ die
-                Wahrscheinlichkeit zu einem beliebigen Zeitpunkt von Zustand
-                $s$ mit der Aktion $a$ in den Zustand $a'$ zu kommen
-                (engl. Transition),</li>
-            <li>$r_a(s, s')$ ist die Belohnung (Reward), die man direkt
-                erhält wenn man erhält wenn man von Zustand $s$ mit Aktion
-                $a$ in Zustand $s'$ kommt,</li>
-            <li>$p_0$ ist die Startverteilung auf die Zustände $S$</li>
-        </ul>
-    </dd>
+    <dt><dfn>Markov Decision Process</dfn> (<dfn>MDP</dfn>)</dt>
+    <dd>Siehe <a href="../machine-learning-1-course/#mdp">ML 1</a>.</dd>
     <dt><dfn>Diskontierungsfaktor</dfn></dt>
     <dd>Ein Diskontierungsfaktor
         <span markdown="0">$\gamma \in [0, 1]$</span> encodiert
@@ -453,13 +439,9 @@ Slide name: `V09_2015-05-26-Reinforcement-Learning.pdf`
     <dd>Eine Strategie $\pi:S \rightarrow A$ sagt einem Agenten welche
         Aktion er in welchem Zustand ausführen soll.</dd>
     <dt><dfn>Q-Funktion</dfn> (Action-Value function)</dt>
-    <dd>Die Q-Funktion $Q^\pi: S \times A \rightarrow \mathbb{R}$ weißt jeder
-        Aktion in jedem Zustand einen Wert zu unter der Annahme, dass
-        die Strategie $\pi$ genutzt wird.</dd>
+    <dd>Siehe <a href="../machine-learning-1-course/#q-function">ML 1</a>.</dd>
     <dt><dfn>V-Funktion</dfn> (State-Value function)</dt>
-    <dd>Die V-Funktion $V^\pi: S \rightarrow \mathbb{R}$ weißt jeder
-        jedem Zustand die Erwartete Belohnung zu unter der Annahme, dass
-        die Strategie $\pi$ genutzt wird.</dd>
+    <dd>Siehe <a href="../machine-learning-1-course/#v-function">ML 1</a>.</dd>
     <dt><dfn>$\varepsilon$-Greedy Strategy</dfn></dt>
     <dd>Explore $\varepsilon$% of the time. Otherwise, follow what you
         currently believe is best.</dd>
@@ -495,12 +477,8 @@ Slide name: `V09_2015-05-26-Reinforcement-Learning.pdf`
     <dd>Siehe <a href="../machine-learning-1-course/#q-learning">ML1</a></dd>
     <dt><dfn>SARSA</dfn></dt>
     <dd>Siehe <a href="../machine-learning-1-course/#sarsa">ML1</a></dd>
-    <dt><dfn>Policy Iteration</dfn> (Siehe <a href="https://www.cs.cmu.edu/afs/cs/project/jair/pub/volume4/kaelbling96a-html/node20.html">CMU</a>)</dt>
-    <dd>Die Policy iteration verbessert die V-Funktion indem die
-        Gleichungen
-        $$V^\pi(s) = R(s, \pi(s)) + \gamma \sum_{s'} T(s, \pi(s), s') V^\pi(s')$$
-        gelöst werden und dann für jeden Zustand eine neue policy gesetz wird:
-        $$\pi'(s) = \text{arg max}_a (R(s, a) + \gamma \sum_{s'} T(s, a, s') V^\pi(s'))$$</dd>
+    <dt><dfn>Strategie-Iteration</dfn> (<dfn>Policy iteration</dfn>)</dt>
+    <dd>Siehe <a href="../probabilistische-planung/#policy-iteration">Probabilistische Planung</a>.</dd>
 </dl>
 
 Konvention:

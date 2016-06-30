@@ -256,9 +256,34 @@ Slides: `11.05.2016 - TODO`
 
   </dd>
   <dt><a href="https://en.wikipedia.org/wiki/Bellman_equation"><dfn id="bellman-equation">Bellman-Gleichungen</dfn></a></dt>
-  <dd>TODO</dd>
+  <dd>Eine Bellman-Gleichung stellt die Lösung eines Problems rekursiv dar.
+      Sie zeigt, dass und wie man die Lösung eines komplexen Problems aus
+      Lösungen von Teilproblemen aufbauen kann.<br/>
+      <br/>
+      Probleme, für die man eine Bellman-Gleichung aufstellen kann haben
+      <b>optimale Substruktur</b>.
+      <br/>
+      Example with the value function:
+      $$V(s) = \max_{a} (R(s, a) + \gamma \sum_{s'} T(s, a, s') V(s'))$$
+      where $V(s)$ is the value of the state $s$, $R(s,a)$ is the reward
+      you get when you apply action $a$ in state $s$, $\gamma \in [0, 1]$ is
+      the discount factor, $T(s, a, s') \in [0, 1]$ is the transormation matrix
+      which gives you the probability that you will end up in state $s'$ when
+      you apply action $a$ in state $s$.</dd>
+  <dt><dfn id="differentiation-rules">Differentiation Rules</dfn></dt>
+  <dd>
+      
+      $$
+      \begin{align}
+          \frac{\partial x^T a}{\partial x} &= \frac{\partial a^T x}{\partial x} = a\\
+          \frac{\partial x^T A}{\partial x} &= \frac{\partial A x}{\partial x} = A \qquad A \in \mathbb{R}^{n \times n}\\
+          \frac{\partial x^T A x}{\partial x} &= 2 A x \qquad A \in \mathbb{R}^{n \times n}
+      \end{align}
+      $$
+
+  </dd>
   <dt><dfn id="q-function">Q-Funktion</dfn></dt>
-  <dd>TODO</dd>
+  <dd>Siehe <a href="../machine-learning-1-course/#q-function">ML 1</a>.</dd>
   <dt><a href="https://de.wikipedia.org/wiki/Dynamische_Programmierung"><dfn id="dynamic-programming">Dynamische Programmierung</dfn></a></dt>
   <dd>Dynamische Programmierung ist eine Methode zum Lösen von
       Optimierungsproblemen. Dabei wird die Tatsache genutzt, dass für jeden
@@ -284,7 +309,7 @@ Slides: `11.05.2016 - TODO`
 18.05.2016
 
 <dl>
-    <dt><dfn>Endliche Planungsproblem</dfn></dt>
+    <dt><dfn>Endliche Planungsprobleme</dfn></dt>
     <dd>Hat man einen endlichen Zustandsraum $\mathcal{X} = \{1, 2, \dots, n_x\} \subsetneq \mathbb{N}$ und eine endliche Aktionsmenge $A = \{1, 2, \dots, n_a\} \subsetneq \mathbb{N}$,
         in einem Planungsproblem, so spricht man von einem endlichen
         Planungsproblem.</dd>
@@ -392,7 +417,7 @@ Slides: `11.05.2016 - TODO`
         $$d(T^k J, T^k J') = \leq \alpha^k \cdot d(J, J')$$
         $$d(T^k_\pi J, T_T^k J') \leq \alpha^k \cdot d (TODO)$$
     </dd>
-    <dt><dfn id="value-iteration">Werteiteration</dfn> (<dfn>Value Iteration</dfn>)</dt>
+    <dt><dfn>Werte-Iteration</dfn> (<dfn id="value-iteration">Value iteration</dfn>)</dt>
     <dd>$$J^* = \lim_{N \rightarrow \infty} T^N J$$
         wobei $J^*$ die optimalen Kosten, $T$ der Bellman-Operator und $N$
         der Planungshorizont ist.
@@ -418,8 +443,8 @@ Slides: `11.05.2016 - TODO`
 
         Der Beweis für (1) folgt aus dem Banach'schen Fixpunktsatz.
     </dd>
-    <dt><dfn id="policy-iteration">Strategieiteration</dfn></dt>
-    <dd>Man kann beobachten, dass bei der Werteiteration die Stategie schneller
+    <dt><dfn>Strategie-Iteration</dfn> (<dfn id="policy-iteration">Policy iteration</dfn>)</dt>
+    <dd>Man kann beobachten, dass bei der Werte-Iteration die Stategie schneller
         konvergiert als der Wertevektor. Außerdem ist die Anzahl der
         Strategien endlich, aber es gibt unendlich viele Wertevektoren.<br/>
         <br/>
@@ -431,6 +456,14 @@ Slides: `11.05.2016 - TODO`
             <li>Strategieauswertung</li>
             <li>Strategieverbesserung</li>
         </ol>
+
+        Die Strategie-Iteration verbessert die $V$-Funktion indem die
+        Gleichungen
+        $$V^\pi(s) = R(s, \pi(s)) + \gamma \sum_{s'} T(s, \pi(s), s') V^\pi(s')$$
+        gelöst werden und dann für jeden Zustand eine neue Strategie gesetz wird:
+        $$\pi'(s) = \text{arg max}_a (R(s, a) + \gamma \sum_{s'} T(s, a, s') V^\pi(s'))$$
+
+        Siehe <a href="https://www.cs.cmu.edu/afs/cs/project/jair/pub/volume4/kaelbling96a-html/node20.html">CMU</a>
 
         Vergleich zwischen Werte- und Strategieiteration:
 
