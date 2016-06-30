@@ -502,7 +502,7 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;/dl&gt;
 &lt;p&gt;18.05.2016&lt;/p&gt;
 &lt;dl&gt;
-&lt;dt&gt;&lt;dfn&gt;Endliche Planungsproblem&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dt&gt;&lt;dfn&gt;Endliche Planungsprobleme&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Hat man einen endlichen Zustandsraum $\mathcal{X} = \{1, 2, \dots, n_x\} \subsetneq \mathbb{N}$ und eine endliche Aktionsmenge $A = \{1, 2, \dots, n_a\} \subsetneq \mathbb{N}$,
         in einem Planungsproblem, so spricht man von einem endlichen
         Planungsproblem.&lt;/dd&gt;
@@ -606,7 +606,7 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
         $$d(T^k J, T^k J') = \leq \alpha^k \cdot d(J, J')$$
         $$d(T^k_\pi J, T_T^k J') \leq \alpha^k \cdot d (TODO)$$
     &lt;/dd&gt;
-&lt;dt&gt;&lt;dfn id="value-iteration"&gt;Werteiteration&lt;/dfn&gt; (&lt;dfn&gt;Value Iteration&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dt&gt;&lt;dfn&gt;Werte-Iteration&lt;/dfn&gt; (&lt;dfn id="value-iteration"&gt;Value iteration&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;$$J^* = \lim_{N \rightarrow \infty} T^N J$$
         wobei $J^*$ die optimalen Kosten, $T$ der Bellman-Operator und $N$
         der Planungshorizont ist.
@@ -631,8 +631,8 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 
         Der Beweis f&amp;uuml;r (1) folgt aus dem Banach'schen Fixpunktsatz.
     &lt;/dd&gt;
-&lt;dt&gt;&lt;dfn id="policy-iteration"&gt;Strategieiteration&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;Man kann beobachten, dass bei der Werteiteration die Stategie schneller
+&lt;dt&gt;&lt;dfn&gt;Strategie-Iteration&lt;/dfn&gt; (&lt;dfn id="policy-iteration"&gt;Policy iteration&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dd&gt;Man kann beobachten, dass bei der Werte-Iteration die Stategie schneller
         konvergiert als der Wertevektor. Au&amp;szlig;erdem ist die Anzahl der
         Strategien endlich, aber es gibt unendlich viele Wertevektoren.&lt;br/&gt;
 &lt;br/&gt;
@@ -644,6 +644,14 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;li&gt;Strategieauswertung&lt;/li&gt;
 &lt;li&gt;Strategieverbesserung&lt;/li&gt;
 &lt;/ol&gt;
+
+        Die Strategie-Iteration verbessert die $V$-Funktion indem die
+        Gleichungen
+        $$V^\pi(s) = R(s, \pi(s)) + \gamma \sum_{s'} T(s, \pi(s), s') V^\pi(s')$$
+        gel&amp;ouml;st werden und dann f&amp;uuml;r jeden Zustand eine neue Strategie gesetz wird:
+        $$\pi'(s) = \text{arg max}_a (R(s, a) + \gamma \sum_{s'} T(s, a, s') V^\pi(s'))$$
+
+        Siehe &lt;a href="https://www.cs.cmu.edu/afs/cs/project/jair/pub/volume4/kaelbling96a-html/node20.html"&gt;CMU&lt;/a&gt;
 
         Vergleich zwischen Werte- und Strategieiteration:
 
@@ -2900,7 +2908,7 @@ Kante durch eine Senke.&lt;/p&gt;
       Strategie $\pi$ an.&lt;br/&gt;
 &lt;br/&gt;
       Mit $V^*$ wird der Wert unter der optimalen Strategie bezeichnet.&lt;/dd&gt;
-&lt;dt&gt;&lt;dfn id="q-function"&gt;Q-Funktion&lt;/dfn&gt; (&lt;dfn&gt;Action-Value function&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dt&gt;&lt;dfn id="q-function"&gt;Q-Funktion&lt;/dfn&gt; (&lt;dfn&gt;Action-Value function&lt;/dfn&gt;, &lt;dfn&gt;Quality function&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;Die Funktion $Q^\pi: S \times A \rightarrow \mathbb{R}$ gibt den erwarteten
       Wert einer eines Zustandes $s$ unter der Strategie $\pi$, wenn die
       Aktion $a$ ausgef&amp;uuml;hrt wird an.
@@ -6379,7 +6387,7 @@ $$X\sim \mathcal N_p(\mu, \Sigma).$$&lt;/dd&gt;
 &lt;h3 id="v09-reinforcement-learning"&gt;V09: Reinforcement Learning&lt;/h3&gt;
 &lt;p&gt;Slide name: &lt;code&gt;V09_2015-05-26-Reinforcement-Learning.pdf&lt;/code&gt;&lt;/p&gt;
 &lt;dl&gt;
-&lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Markow-Entscheidungsproblem"&gt;&lt;dfn&gt;Markov Decision Process&lt;/dfn&gt;&lt;/a&gt; (&lt;dfn&gt;MDP&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dt&gt;&lt;dfn&gt;Markov Decision Process&lt;/dfn&gt; (&lt;dfn&gt;MDP&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;Siehe &lt;a href="../machine-learning-1-course/#mdp"&gt;ML 1&lt;/a&gt;.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Diskontierungsfaktor&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Ein Diskontierungsfaktor
@@ -6430,12 +6438,8 @@ $$X\sim \mathcal N_p(\mu, \Sigma).$$&lt;/dd&gt;
 &lt;dd&gt;Siehe &lt;a href="../machine-learning-1-course/#q-learning"&gt;ML1&lt;/a&gt;&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;SARSA&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Siehe &lt;a href="../machine-learning-1-course/#sarsa"&gt;ML1&lt;/a&gt;&lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;Policy Iteration&lt;/dfn&gt; (Siehe &lt;a href="https://www.cs.cmu.edu/afs/cs/project/jair/pub/volume4/kaelbling96a-html/node20.html"&gt;CMU&lt;/a&gt;)&lt;/dt&gt;
-&lt;dd&gt;Die Policy iteration verbessert die V-Funktion indem die
-        Gleichungen
-        $$V^\pi(s) = R(s, \pi(s)) + \gamma \sum_{s'} T(s, \pi(s), s') V^\pi(s')$$
-        gel&amp;ouml;st werden und dann f&amp;uuml;r jeden Zustand eine neue policy gesetz wird:
-        $$\pi'(s) = \text{arg max}_a (R(s, a) + \gamma \sum_{s'} T(s, a, s') V^\pi(s'))$$&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Strategie-Iteration&lt;/dfn&gt; (&lt;dfn&gt;Policy iteration&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dd&gt;Siehe &lt;a href="../probabilistische-planung/#policy-iteration"&gt;Probabilistische Planung&lt;/a&gt;.&lt;/dd&gt;
 &lt;/dl&gt;
 &lt;p&gt;Konvention:&lt;/p&gt;
 &lt;ul&gt;

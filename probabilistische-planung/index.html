@@ -379,7 +379,7 @@ MathJax.Hub.Queue(function() {
 </dl>
 <p>18.05.2016</p>
 <dl>
-<dt><dfn>Endliche Planungsproblem</dfn></dt>
+<dt><dfn>Endliche Planungsprobleme</dfn></dt>
 <dd>Hat man einen endlichen Zustandsraum $\mathcal{X} = \{1, 2, \dots, n_x\} \subsetneq \mathbb{N}$ und eine endliche Aktionsmenge $A = \{1, 2, \dots, n_a\} \subsetneq \mathbb{N}$,
         in einem Planungsproblem, so spricht man von einem endlichen
         Planungsproblem.</dd>
@@ -483,7 +483,7 @@ MathJax.Hub.Queue(function() {
         $$d(T^k J, T^k J') = \leq \alpha^k \cdot d(J, J')$$
         $$d(T^k_\pi J, T_T^k J') \leq \alpha^k \cdot d (TODO)$$
     </dd>
-<dt><dfn id="value-iteration">Werteiteration</dfn> (<dfn>Value Iteration</dfn>)</dt>
+<dt><dfn>Werte-Iteration</dfn> (<dfn id="value-iteration">Value iteration</dfn>)</dt>
 <dd>$$J^* = \lim_{N \rightarrow \infty} T^N J$$
         wobei $J^*$ die optimalen Kosten, $T$ der Bellman-Operator und $N$
         der Planungshorizont ist.
@@ -508,8 +508,8 @@ MathJax.Hub.Queue(function() {
 
         Der Beweis f&uuml;r (1) folgt aus dem Banach'schen Fixpunktsatz.
     </dd>
-<dt><dfn id="policy-iteration">Strategieiteration</dfn></dt>
-<dd>Man kann beobachten, dass bei der Werteiteration die Stategie schneller
+<dt><dfn>Strategie-Iteration</dfn> (<dfn id="policy-iteration">Policy iteration</dfn>)</dt>
+<dd>Man kann beobachten, dass bei der Werte-Iteration die Stategie schneller
         konvergiert als der Wertevektor. Au&szlig;erdem ist die Anzahl der
         Strategien endlich, aber es gibt unendlich viele Wertevektoren.<br/>
 <br/>
@@ -521,6 +521,14 @@ MathJax.Hub.Queue(function() {
 <li>Strategieauswertung</li>
 <li>Strategieverbesserung</li>
 </ol>
+
+        Die Strategie-Iteration verbessert die $V$-Funktion indem die
+        Gleichungen
+        $$V^\pi(s) = R(s, \pi(s)) + \gamma \sum_{s'} T(s, \pi(s), s') V^\pi(s')$$
+        gel&ouml;st werden und dann f&uuml;r jeden Zustand eine neue Strategie gesetz wird:
+        $$\pi'(s) = \text{arg max}_a (R(s, a) + \gamma \sum_{s'} T(s, a, s') V^\pi(s'))$$
+
+        Siehe <a href="https://www.cs.cmu.edu/afs/cs/project/jair/pub/volume4/kaelbling96a-html/node20.html">CMU</a>
 
         Vergleich zwischen Werte- und Strategieiteration:
 
