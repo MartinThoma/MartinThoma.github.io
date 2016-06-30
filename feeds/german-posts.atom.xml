@@ -207,6 +207,7 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
     &lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h2 id="dynamische-lokalisierung_1"&gt;Dynamische Lokalisierung&lt;/h2&gt;
+&lt;p&gt;TODO&lt;/p&gt;
 &lt;h2 id="material-und-links"&gt;Material und Links&lt;/h2&gt;
 &lt;p&gt;Die Vorlesung wurde gestreamt und ist unter
 &lt;a href="http://mml-streamdb01.ira.uka.de/"&gt;mml-streamdb01.ira.uka.de&lt;/a&gt; verf&amp;uuml;gbar.&lt;/p&gt;
@@ -462,9 +463,22 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Bellman_equation"&gt;&lt;dfn id="bellman-equation"&gt;Bellman-Gleichungen&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
-&lt;dd&gt;TODO&lt;/dd&gt;
+&lt;dd&gt;Eine Bellman-Gleichung stellt die L&amp;ouml;sung eines Problems rekursiv dar.
+      Sie zeigt, dass und wie man die L&amp;ouml;sung eines komplexen Problems aus
+      L&amp;ouml;sungen von Teilproblemen aufbauen kann.&lt;br/&gt;
+&lt;br/&gt;
+      Probleme, f&amp;uuml;r die man eine Bellman-Gleichung aufstellen kann haben
+      &lt;b&gt;optimale Substruktur&lt;/b&gt;.
+      &lt;br/&gt;
+      Example with the value function:
+      $$V(s) = \max_{a} (R(s, a) + \gamma \sum_{s'} T(s, a, s') V(s'))$$
+      where $V(s)$ is the value of the state $s$, $R(s,a)$ is the reward
+      you get when you apply action $a$ in state $s$, $\gamma \in [0, 1]$ is
+      the discount factor, $T(s, a, s') \in [0, 1]$ is the transormation matrix
+      which gives you the probability that you will end up in state $s'$ when
+      you apply action $a$ in state $s$.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="q-function"&gt;Q-Funktion&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;TODO&lt;/dd&gt;
+&lt;dd&gt;Siehe &lt;a href="../machine-learning-1-course/#q-function"&gt;ML 1&lt;/a&gt;.&lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Dynamische_Programmierung"&gt;&lt;dfn id="dynamic-programming"&gt;Dynamische Programmierung&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
 &lt;dd&gt;Dynamische Programmierung ist eine Methode zum L&amp;ouml;sen von
       Optimierungsproblemen. Dabei wird die Tatsache genutzt, dass f&amp;uuml;r jeden
@@ -2848,41 +2862,47 @@ Kante durch eine Senke.&lt;/p&gt;
 &lt;li&gt;&lt;a href="http://www.nervanasys.com/demystifying-deep-reinforcement-learning/"&gt;Demystifying Deep Reinforcement Learning&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;dl&gt;
-&lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Markow-Entscheidungsproblem"&gt;&lt;dfn&gt;Markovsches Entscheidungsproblem&lt;/dfn&gt;&lt;/a&gt; (&lt;dfn&gt;Markov Decision Process&lt;/dfn&gt;, &lt;dfn&gt;MDP&lt;/dfn&gt;)&lt;/dt&gt;
-&lt;dd&gt;Ein Markovsches Entscheidungsproblem ist ein 5-Tupel $S, A, P, R, \gamma$
-      mit:
-
+&lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Markow-Entscheidungsproblem"&gt;&lt;dfn&gt;Markovsches Entscheidungsproblem&lt;/dfn&gt;&lt;/a&gt; (&lt;dfn&gt;Markov Decision Process&lt;/dfn&gt;, &lt;dfn id="mdp"&gt;MDP&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dd&gt;Ein Markovsches Entscheidungsproblem ist ein 5-Tupel $(S, A, P, R, p_0)$,
+      wobei
       &lt;ul&gt;
-&lt;li&gt;$S$: Endliche Zustandsmenge (states)&lt;/li&gt;
-&lt;li&gt;$A(s)$: Die Menge von m&amp;ouml;glichen Aktionen im Zustand $s$&lt;/li&gt;
+&lt;li&gt;$S$ eine endliche Zustandsmenge (states),&lt;/li&gt;
+&lt;li&gt;$A(s)$ eine Menge von m&amp;ouml;glichen Aktionen im Zustand $s$,&lt;/li&gt;
 &lt;li&gt;$P(s, s', a) = P(s_{t+1} = s' | s_t = s, a_t = a)$: Die Wahrscheinlichkeit
               im Zeitschritt $t+1$ im Zustand $s'$ zu sein, wenn man zum Zeitpunkt
               $t$ im Zustand $s$ ist und die Aktion $a$ ausf&amp;uuml;hrt&lt;/li&gt;
 &lt;li&gt;$R(s, s', a) \in \mathbb{R}$: Die direkte Belohnung, wenn durch die Aktion $a$ vom Zustand $s$ in den Zustand $s'$ gekommen ist.&lt;/li&gt;
-&lt;li&gt;$\gamma \in [0, 1]$: Der Diskontierungsfaktor, welche die
-              Bedeutung von direkten Belohnungen im Vergleich zu k&amp;uuml;nftigen
-              Belohnungen anzeigt.&lt;/li&gt;
-&lt;/ul&gt;&lt;/dd&gt;
+&lt;li&gt;$p_0$ ist die Startverteilung auf die Zust&amp;auml;nde $S$&lt;/li&gt;
+&lt;/ul&gt;
+
+       Manchmal wird auch der Diskontierungsfaktor $\gamma \in [0, 1]$, welche
+       die Bedeutung von direkten Belohnungen im Vergleich zu k&amp;uuml;nftigen
+       Belohnungen anzeigt, hier schon genannt. Allerdings finde ich das
+       an dieser Stelle eher unpassend, da $\gamma$ eher verwendet wird um
+       die L&amp;ouml;sung in der Praxis bestimmen zu k&amp;ouml;nnen. Mit dem Problem hat
+       $\gamma$ an sich nichts zu tun.
+
+  &lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Reinforcement_learning"&gt;&lt;dfn&gt;Reinforcement Learning&lt;/dfn&gt;&lt;/a&gt; (&lt;dfn&gt;RL&lt;/dfn&gt;, &lt;dfn&gt;&lt;a href="https://de.wikipedia.org/wiki/Best%C3%A4rkendes_Lernen"&gt;Best&amp;auml;rkendes Lernen&lt;/a&gt;&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;Beim best&amp;auml;rkenden Lernen liegt ein Markow-Entscheidungsproblemen vor.
       Es gibt also einen Agenten, der Aktionen ausf&amp;uuml;hren kann. Diese k&amp;ouml;nnen
       (nicht notwendigerweise sofort) bewertet werden.&lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;Policy&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;Eine &lt;b&gt;policy $\pi: S \rightarrow A$&lt;/b&gt; ist die Vorschrift, in
+&lt;dt&gt;&lt;dfn id="policy"&gt;Policy&lt;/dfn&gt; (&lt;dfn&gt;Strategie&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dd&gt;Eine &lt;b&gt;Strategie $\pi: S \rightarrow A$&lt;/b&gt; ist die Vorschrift, in
       welchem Zustand welche Aktion ausgef&amp;uuml;hrt werden soll.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Policy Learning&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Unter &lt;i&gt;Policy Learning&lt;/i&gt; versteht man die Suche nach einer
-      optimalen Policy $\pi^*$.&lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;Value-Funktion&lt;/dfn&gt;&lt;/dt&gt;
+      optimalen Strategie $\pi^*$.&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="v-function"&gt;V-Funktion&lt;/dfn&gt; (&lt;dfn&gt;Value function&lt;/dfn&gt;, &lt;dfn&gt;State-Value function&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;Die Funktion $V^\pi: S \rightarrow \mathbb{R}$ hei&amp;szlig;t Value-Funktion.
       Sie gibt den erwarteten Wert (nicht die Belohnung, da bei der V-Funktion
       noch der Diskontierungsfaktor eingeht!) eines Zustands $s$ unter der
-      policy $\pi$ an.
-
-      Mit $V^*$ wird der Wert unter der optimalen policy bezeichnet.&lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;Q-Funktion&lt;/dfn&gt;&lt;/dt&gt;
+      Strategie $\pi$ an.&lt;br/&gt;
+&lt;br/&gt;
+      Mit $V^*$ wird der Wert unter der optimalen Strategie bezeichnet.&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="q-function"&gt;Q-Funktion&lt;/dfn&gt; (&lt;dfn&gt;Action-Value function&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;Die Funktion $Q^\pi: S \times A \rightarrow \mathbb{R}$ gibt den erwarteten
-      Wert einer eines Zustandes $s$ unter der policy $\pi$, wenn die
+      Wert einer eines Zustandes $s$ unter der Strategie $\pi$, wenn die
       Aktion $a$ ausgef&amp;uuml;hrt wird an.
 
       Es gilt: $$Q^\pi(s, \pi(s)) = V^\pi(s)$$&lt;/dd&gt;
@@ -2975,7 +2995,7 @@ factor.&lt;/p&gt;
 &lt;li&gt;R. Sutton und A. Barto: &lt;a href="https://webdocs.cs.ualberta.ca/~sutton/book/ebook/node60.html"&gt;Temporal-Difference Learning&lt;/a&gt;. 1998.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Der TD-Learning Algorithmus besch&amp;auml;ftigt sich mit dem Sch&amp;auml;tzen der Value-Funktion
-&lt;span class="math"&gt;\(V^\pi\)&lt;/span&gt; f&amp;uuml;r eine gegebene Policy &lt;span class="math"&gt;\(\pi\)&lt;/span&gt;. Das wird auch &lt;i&gt;policy evaluation&lt;/i&gt;
+&lt;span class="math"&gt;\(V^\pi\)&lt;/span&gt; f&amp;uuml;r eine gegebene Strategie &lt;span class="math"&gt;\(\pi\)&lt;/span&gt;. Das wird auch &lt;i&gt;policy evaluation&lt;/i&gt;
 oder &lt;i&gt;prediction&lt;/i&gt; genannt.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://de.wikipedia.org/wiki/Temporal_Difference_Learning"&gt;TD-Learning&lt;/a&gt; (Temporal Difference Learning)&lt;/li&gt;
@@ -6360,21 +6380,7 @@ $$X\sim \mathcal N_p(\mu, \Sigma).$$&lt;/dd&gt;
 &lt;p&gt;Slide name: &lt;code&gt;V09_2015-05-26-Reinforcement-Learning.pdf&lt;/code&gt;&lt;/p&gt;
 &lt;dl&gt;
 &lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Markow-Entscheidungsproblem"&gt;&lt;dfn&gt;Markov Decision Process&lt;/dfn&gt;&lt;/a&gt; (&lt;dfn&gt;MDP&lt;/dfn&gt;)&lt;/dt&gt;
-&lt;dd&gt;Ein Markovscher Entscheidungsprozess ist ein 5-Tupel
-        $(S, A, T, r, p_0)$, wobei
-        &lt;ul&gt;
-&lt;li&gt;$S$ eine endliche Zustandsmenge,&lt;/li&gt;
-&lt;li&gt;$A$ eine endliche Menge von Aktionen,&lt;/li&gt;
-&lt;li&gt;$T_a(s, s') = T(s_{t+1}=s'|s_t = s, a_t = a)$ die
-                Wahrscheinlichkeit zu einem beliebigen Zeitpunkt von Zustand
-                $s$ mit der Aktion $a$ in den Zustand $a'$ zu kommen
-                (engl. Transition),&lt;/li&gt;
-&lt;li&gt;$r_a(s, s')$ ist die Belohnung (Reward), die man direkt
-                erh&amp;auml;lt wenn man erh&amp;auml;lt wenn man von Zustand $s$ mit Aktion
-                $a$ in Zustand $s'$ kommt,&lt;/li&gt;
-&lt;li&gt;$p_0$ ist die Startverteilung auf die Zust&amp;auml;nde $S$&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/dd&gt;
+&lt;dd&gt;Siehe &lt;a href="../machine-learning-1-course/#mdp"&gt;ML 1&lt;/a&gt;.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Diskontierungsfaktor&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Ein Diskontierungsfaktor
         &lt;span markdown="0"&gt;$\gamma \in [0, 1]$&lt;/span&gt; encodiert
@@ -6386,13 +6392,9 @@ $$X\sim \mathcal N_p(\mu, \Sigma).$$&lt;/dd&gt;
 &lt;dd&gt;Eine Strategie $\pi:S \rightarrow A$ sagt einem Agenten welche
         Aktion er in welchem Zustand ausf&amp;uuml;hren soll.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Q-Funktion&lt;/dfn&gt; (Action-Value function)&lt;/dt&gt;
-&lt;dd&gt;Die Q-Funktion $Q^\pi: S \times A \rightarrow \mathbb{R}$ wei&amp;szlig;t jeder
-        Aktion in jedem Zustand einen Wert zu unter der Annahme, dass
-        die Strategie $\pi$ genutzt wird.&lt;/dd&gt;
+&lt;dd&gt;Siehe &lt;a href="../machine-learning-1-course/#q-function"&gt;ML 1&lt;/a&gt;.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;V-Funktion&lt;/dfn&gt; (State-Value function)&lt;/dt&gt;
-&lt;dd&gt;Die V-Funktion $V^\pi: S \rightarrow \mathbb{R}$ wei&amp;szlig;t jeder
-        jedem Zustand die Erwartete Belohnung zu unter der Annahme, dass
-        die Strategie $\pi$ genutzt wird.&lt;/dd&gt;
+&lt;dd&gt;Siehe &lt;a href="../machine-learning-1-course/#v-function"&gt;ML 1&lt;/a&gt;.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;$\varepsilon$-Greedy Strategy&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Explore $\varepsilon$% of the time. Otherwise, follow what you
         currently believe is best.&lt;/dd&gt;
