@@ -647,3 +647,39 @@ Features:
     * Choose days for which the alarm rings
     * Choose dimming profile for the alarm (smooth - aprubt)
 * Be able to change the (dimming) light which is inside
+
+
+## Machine Learning
+
+### Face recognition package
+
+I am not aware of any Python face recognition package, although I think face
+recognition is a very well-studied problem. There are a couple of web services
+(e.g. [1](http://betaface.com/demo.html), [2](https://skybiometry.com/),
+[3](https://facedetection.com/online-reverse-image-search/)), but sometimes
+you don't want to send a company your photos. Or your application just needs to
+process too many pictures. There is also[this repository](https://realpython.com/blog/python/face-recognition-with-python/),
+but even if you only put a hand in front of your eyes or tilt your head, it
+stops recognizing your head.
+
+So the aim of this project would be to build a Python package which allows
+recognition of faces in images, gives a good representation of those faces
+and allows to tell if two faces are the same or different (face verification).
+The api could be something like:
+
+```python
+
+import faces
+
+face_list = faces.get_face_locations('some_photo.jpg')
+if len(face_list) >= 2:
+    if faces.is_same_person(face_list[0]['representation'],
+                            face_list[1]['representation']):
+        print(("The person found at %s and the person found "
+               "at %s are the same") %
+               (face_list[0]['location'],
+                face_list[1]['location']))
+        faces.save_overlay(input='some_photo.jpg',
+                           output='some_photo-overlay.jpg',
+                           face_list)
+```
