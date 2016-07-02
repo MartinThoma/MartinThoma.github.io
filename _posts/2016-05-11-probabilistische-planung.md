@@ -133,7 +133,7 @@ Slides: `ProPlan-1-Anschrieb.pdf`
 
 ### Markov'sche Entscheidungs&shy;probleme
 
-Slides: `11.05.2016 - TODO`
+Slides: `11.05.2016`
 
 <dl>
   <dt><dfn id="mdp">Markov'sches Entscheidungsproblem</dfn> (<dfn>Markov Decision Process</dfn>, <dfn>MDP</dfn>)</dt>
@@ -236,7 +236,7 @@ Slides: `11.05.2016 - TODO`
 
       </dd>
   <dt><dfn>Notwendige Bedingung für optimale Lösung</dfn></dt>
-  <dd>$\nabla f(x) = \overset{!}{=} 0$</dd>
+  <dd>$\nabla f(x) \overset{!}{=} 0$</dd>
   <dt><dfn>Konvexe Optimierungsprobleme</dfn></dt>
   <dd>Ein Optimierungsproblem mit konvexer Zielfunktion $f$ hat folgende
       besonderen Eigenschaften
@@ -453,20 +453,18 @@ Slides: `11.05.2016 - TODO`
         Die folgenden beiden Schritte werden alternierend ausgeführt:
 
         <ol>
-            <li>Strategieauswertung</li>
-            <li>Strategieverbesserung</li>
+            <li>Strategieauswertung:
+                $$V^\pi(s) \gets R(s, \pi(s)) + \gamma \sum_{s'} T(s, \pi(s), s') V^\pi(s')$$
+            </li>
+            <li>Strategieverbesserung:
+                $$\pi'(s) \gets \text{arg max}_a (R(s, a) + \gamma \sum_{s'} T(s, a, s') V^\pi(s'))$$
+            </li>
         </ol>
 
-        Die Strategie-Iteration verbessert die $V$-Funktion indem die
-        Gleichungen
-        $$V^\pi(s) = R(s, \pi(s)) + \gamma \sum_{s'} T(s, \pi(s), s') V^\pi(s')$$
-        gelöst werden und dann für jeden Zustand eine neue Strategie gesetz wird:
-        $$\pi'(s) = \text{arg max}_a (R(s, a) + \gamma \sum_{s'} T(s, a, s') V^\pi(s'))$$
-
         Siehe <a href="https://www.cs.cmu.edu/afs/cs/project/jair/pub/volume4/kaelbling96a-html/node20.html">CMU</a>
-
-        Vergleich zwischen Werte- und Strategieiteration:
-
+    </dd>
+    <dt><dfn>Value iteration vs Policy iteration</dfn></dt>
+    <dd>
         <ul>
             <li>Strategieiteration konvergiert in weniger Schritten</li>
             <li>Jeder Schritt der Strategieiteration ist teurer als in der
@@ -496,7 +494,9 @@ Slides: `11.05.2016 - TODO`
     <dd>$$x_{k+1} = A_k + x_k + B_k \cdot a_k + r_k^{(s)}$$</dd>
     <dt><a href="https://de.wikipedia.org/wiki/LQ-Regler"><dfn id="linear-quadratic-regulator">Linearer Quadratischer Regulator</dfn></a> (<dfn id="lqr">LQR</dfn>)</dt>
     <dd>Der LQR ist ein Regler (Regulator) für einen lineareren Zustandsraum
-        mit quadratischer Kostenfunktion.
+        mit quadratischer Kostenfunktion. Ein Regel will typischerweise den
+        Zustand $x = \vec{0}$ erreichen, wohingegen ein Tracker den aktuellen
+        Zustand bestmöglich schätzen will.
 
         TODO</dd>
     <dt><dfn>Sicherheitsäquivalenz</dfn> (<a href="https://en.wikipedia.org/wiki/Stochastic_control#Certainty_equivalence"><dfn id="certainty-equivalence">Certainty Equivalence</dfn></a>)</dt>
@@ -555,7 +555,7 @@ Slides: `11.05.2016 - TODO`
                 </ul>
 
                 </li>
-            <li>Minimierung der erwarteten Kosten
+            <li id="pomdp-cost-function">Minimierung der erwarteten Kosten
 
                 $$J_{\pi_{0:N-1}}(\square) = E(g_N (x_n) + \sum_{k=0}^{N-1} g_n(x_k, \pi_k(\square)))$$</li>
         </ul>
@@ -720,21 +720,26 @@ Slides: `11.05.2016 - TODO`
             </li>
         </ul>
     </dd>
-    <dt><dfn>Closed-Loop Planung</dfn> (<dfn>CL Planung</dfn>)</dt>
-    <dd>Mit Zustandsrückführung. Kann mnit dynamischer Programmierung gelöst werden.
-        Geschlossene Lösung nur in Ausnahmefällen, sonst numerische
-        Lösungsverfahren.
-        TODO.
-
-        Hier wird eine optimale Strategie bestimmt.
-    </dd>
+    <dt><a href="https://de.wikipedia.org/wiki/Regelkreis"><dfn>Regelkreis</dfn></a> (<dfn>Control system</dfn>)</dt>
+    <dd>Ein Regelkreis ist ein technisches System, welches einen Zielzustand
+        anstrebt.</dd>
     <dt><dfn id="ol-planung">Open-loop Planung</dfn> (<dfn>OL Planung</dfn>)</dt>
-    <dd>Ohne Zustandsrückführung
-
-        <!-- $$a_{0:N-1}^* = arg min_{a_{0:N-1}} E \{ g_N(x_N) + \sum_{k=0}^{N-1} g_n(x_k, a_k)\}$$
-        für  -->
-
-        Hier wird ein optimaler Plan bestimmt.
+    <dd>Unter einem Open-loop Control system (offener Regelkreis) versteht man
+        ein technisches System welches ohne Zustandsrückführung, also ohne
+        Messung des Zustands nachdem die Regelung begonnen wurde, arbeitet.<br/>
+        Beispiele sind Spühlmaschinen und Rasensprenger.<br/>
+        In der Open-loop Planung wird ein optimaler Plan bestimmt.
+    </dd>
+    <dt><dfn>Closed-loop Planung</dfn> (<dfn>CL Planung</dfn>)</dt>
+    <dd>Unter einem Closed-loop control system (geschlossenem Regelkreis)
+        versteht man ein technisches System welches mit Zustandsrückführung, also
+        mit Messung des Zustands während der Regelung, arbeitet.<br/>
+        Beispiele sind System im Auto zum halten der Geschwindigkeit oder
+        Rasensprenger welche die Feuchtigkeit überprüfen.<br/>
+        Closed-loop Planung kann mit dynamischer Programmierung gelöst werden.
+        Geschlossene Lösung nur in Ausnahmefällen, sonst numerische
+        Lösungsverfahren.<br/>
+        In der closed-loop Planung wird eine optimale Strategie bestimmt.
     </dd>
     <dt><dfn id="olf-planung">Open-Loop-Feedback Planung</dfn> (<dfn>OLF Planung</dfn>)</dt>
     <dd>TODO</dd>
@@ -858,7 +863,7 @@ TODO:
 * Wie ist eine Nutzenfunktion definiert?<br/>
   → Siehe <a href="#nutzenfunktion">oben</a>
 * Wie löst man Optimierungsprobleme ohne Nebenbedingungen?<br/>
-  → Iterativer Abstieg (Gradientenverfahren) (TODO)
+  → Iterativer Abstieg (z.B. Gradientenverfahren), Dynamische Programmierung (TODO)
 * Beweisen Sie, dass der Gradient senkrecht auf die Höhenlinien steht.<br/>
   → TODO
 * Wie löst man Optimierungsprobleme mit Nebenbedingungen?<br/>
@@ -872,6 +877,13 @@ TODO:
 
 * Wie lautet die Definition eines MDP?<br/>
   → Siehe <a href="#mdp">oben</a>.
+* Wie viele Pläne gibt es?<br/>
+  → Für diskrete $\mathcal{X}, A$ und $N$ Zeitschritte gibt es $|A|^N$
+     mögliche Pläne. In jedem Zeitschritt gibt es eine mögliche Aktion.
+* Wie viele Strategien gibt es?<br/>
+  → Für diskrete $\mathcal{X}, A$ und $N$ Zeitschritte gibt es $|A|^{N \cdot |\mathcal{X}|}$
+     Strategien, da für jede Kombination aus Zeitschritt und Zustand eine
+     Aktion gewählt werden muss.
 * Was versteht man unter dynamischer Programmierenung?<br/>
   → Siehe <a href="#dynamic-programming">oben</a>.
 * Wie lauten die Bellman-Gleichungen?<br/>
@@ -884,7 +896,7 @@ TODO:
 * Wie lautet die Definition eines POMDP?<br/>
   → Siehe <a href="#pomdp">oben</a>
 * Wie lautet die Kostenfunktion eines POMDP?<br/>
-  → TODO
+  → Siehe <a href="#pomdp-cost-function">oben</a>
 * Was ist der Unterschied des LQR beim MDP und POMDP?<br/>
   → TODO (POMDP hat Erwartungswert)
 * Was ist PWLC?<br/>
