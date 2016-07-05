@@ -22,8 +22,9 @@ Source: [gps.gov](http://www.gps.gov/systems/gps/performance/accuracy/), see als
 
 The Kalman filter is the optimal linear filter (<span style="color:blue;">BLUE</span>: <span style="color:blue;">B</span>est <span style="color:blue;">L</span>inear <span style="color:blue;">U</span>nbiast <span style="color:blue;">E</span>stimator). This means,
 there is no estimator for the state which has a linear state model which is
-better. It assumes the noise is Gaussian. If it is, then the Kalman filter
-minimizes the mean squared erro of the estimated state parameters. The name
+better. It assumes the noise is Gaussian. If the noise is Gaussian, then the Kalman filter
+minimizes the mean squared error of the estimated state parameters. So it in
+this case it is not only the best linear filter, but the best filter. The name
 "filter" is used because the Kalman filter removes (filters) the noise.
 
 
