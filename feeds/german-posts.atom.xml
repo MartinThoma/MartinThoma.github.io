@@ -156,18 +156,22 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;21.06.2016&lt;/td&gt;
-&lt;td&gt;?. Vorlesung&lt;/td&gt;
+&lt;td&gt;10. Vorlesung&lt;/td&gt;
 &lt;td&gt;Optimalit&amp;auml;tsbeweise (Erwartungstreue); Stochastische Kombination&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;28.06.2016&lt;/td&gt;
-&lt;td&gt;?. Vorlesung&lt;/td&gt;
-&lt;td&gt;Dynamische Lokalisierung (Kalman Filter)&lt;/td&gt;
+&lt;td&gt;11. Vorlesung&lt;/td&gt;
+&lt;td&gt;Dynamische Lokalisierung (Kalman Filter: Pr&amp;auml;diktions und Filterschritt)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;05.07.2016&lt;/td&gt;
+&lt;td&gt;12. Vorlesung&lt;/td&gt;
+&lt;td&gt;Kalman Filter: Filterschritt; SLAM&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
 &lt;h3 id="statische-lokalisierung"&gt;Statische Lokalisierung&lt;/h3&gt;
-&lt;p&gt;(20160517-lma-1)&lt;/p&gt;
-&lt;p&gt;Mit der hessischen Normalform&lt;/p&gt;
+&lt;p&gt;Slides: &lt;code&gt;20160517-lma-1&lt;/code&gt;&lt;/p&gt;
 &lt;dl&gt;
 &lt;dt&gt;&lt;dfn&gt;Hessische Normalform&lt;/dfn&gt; (&lt;a href="https://en.wikipedia.org/wiki/Hesse_normal_form"&gt;&lt;dfn&gt;Hesse normal form&lt;/dfn&gt;&lt;/a&gt;)&lt;/dt&gt;
 &lt;dd&gt;An equation describing a plane:
@@ -203,11 +207,33 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Sherman-Morrison-Woodbury-Formel"&gt;&lt;dfn&gt;Sherman-Morrison-Woodbury Formel&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
 &lt;dd&gt;F&amp;uuml;r zwei $n\times k$-Matrizen $U, V$ gilt:&lt;br/&gt;
         Die $k\times k$-Matrix $E-V^T A^{-1}U$ sei regul&amp;auml;r, dann gilt
-        $$(A-UV^T)^{-1} = A^{-1}+A^{-1}U(E-V^TA^{-1}U)^{-1}V^T A^{-1}$$$
+        $$(A-UV^T)^{-1} = A^{-1}+A^{-1}U(E-V^TA^{-1}U)^{-1}V^T A^{-1}$$
     &lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h2 id="dynamische-lokalisierung_1"&gt;Dynamische Lokalisierung&lt;/h2&gt;
-&lt;p&gt;TODO&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;dfn id="kalman-filter"&gt;Kalman-Filter&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;Siehe &lt;a href="https://martin-thoma.com/kalman-filter/"&gt;Kalman-filter Artikel&lt;/a&gt;.&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h2 id="slam"&gt;SLAM&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Simultaneous_Localization_and_Mapping"&gt;&lt;dfn id="slam"&gt;SLAM&lt;/dfn&gt;&lt;/a&gt; (&lt;dfn&gt;Simultaneous Location and Mapping&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dd&gt;SLAM ist ein Algorithmus, welcher zugleich eine Karte erstellt und
+        einen mobilen Agenten auf der Karte lokalisiert. Eine Karte sind
+        positionen von Landmarken.&lt;br/&gt;
+&lt;br/&gt;
+&lt;u&gt;Ans&amp;auml;tze&lt;/u&gt;:
+
+        &lt;ul&gt;
+&lt;li&gt;Filterung (rekursiv): z.B. Kalman-Filter;
+                &lt;abbr title="Extended Kalman Filter"&gt;EKF&lt;/abbr&gt;,
+                &lt;abbr title="Unscented Kalman Filter"&gt;UKF&lt;/abbr&gt; (sigma-Punkte / samples; einfach zu implementieren und liefert h&amp;auml;ufig bessere Ergebnisse als EKF),
+                Partikelfilter (Wahrscheinlichkeitsdichten werden durch Partikel / samples repr&amp;auml;sentiert)&lt;br/&gt;
+                $\Rightarrow$ Sch&amp;auml;tzen f&amp;uuml;r Zeitschritt&lt;/li&gt;
+&lt;li&gt;Smoothing / Gl&amp;auml;ttung (batch): Nachteile (Rechenaufwendig, erst nach batch ist Ergebnis da, man muss Daten speichern) und Vorteile (komplette Trajektorie, optimale Sch&amp;auml;tzung selbiger)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
 &lt;h2 id="material-und-links"&gt;Material und Links&lt;/h2&gt;
 &lt;p&gt;Die Vorlesung wurde gestreamt und ist unter
 &lt;a href="http://mml-streamdb01.ira.uka.de/"&gt;mml-streamdb01.ira.uka.de&lt;/a&gt; verf&amp;uuml;gbar.&lt;/p&gt;

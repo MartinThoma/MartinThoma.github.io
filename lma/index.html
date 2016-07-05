@@ -102,7 +102,7 @@ MathJax.Hub.Queue(function() {
     <div class="span2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#behandelter-stoff" title="Behandelter Stoff">Behandelter Stoff</a><ul><li><a class="toc-href" href="#ubersicht" title="&Uuml;bersicht">&Uuml;bersicht</a></li><li><a class="toc-href" href="#statische-lokalisierung" title="Statische Lokalisierung">Statische Lokalisierung</a></li></ul></li><li><a class="toc-href" href="#dynamische-lokalisierung_1" title="Dynamische Lokalisierung">Dynamische Lokalisierung</a></li><li><a class="toc-href" href="#material-und-links" title="Material und Links">Material und Links</a></li><li><a class="toc-href" href="#vorlesungsempfehlungen" title="Vorlesungsempfehlungen">Vorlesungsempfehlungen</a></li><li><a class="toc-href" href="#termine-und-klausurablauf" title="Termine und Klausurablauf">Termine und Klausurablauf</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#behandelter-stoff" title="Behandelter Stoff">Behandelter Stoff</a><ul><li><a class="toc-href" href="#ubersicht" title="&Uuml;bersicht">&Uuml;bersicht</a></li><li><a class="toc-href" href="#statische-lokalisierung" title="Statische Lokalisierung">Statische Lokalisierung</a></li></ul></li><li><a class="toc-href" href="#dynamische-lokalisierung_1" title="Dynamische Lokalisierung">Dynamische Lokalisierung</a></li><li><a class="toc-href" href="#slam" title="SLAM">SLAM</a></li><li><a class="toc-href" href="#material-und-links" title="Material und Links">Material und Links</a></li><li><a class="toc-href" href="#vorlesungsempfehlungen" title="Vorlesungsempfehlungen">Vorlesungsempfehlungen</a></li><li><a class="toc-href" href="#termine-und-klausurablauf" title="Termine und Klausurablauf">Termine und Klausurablauf</a></li></ul></div>
         </nav>
     </div>
     <div class="span8 article-content" id="contentAfterTitle">
@@ -129,18 +129,22 @@ MathJax.Hub.Queue(function() {
 </tr>
 <tr>
 <td>21.06.2016</td>
-<td>?. Vorlesung</td>
+<td>10. Vorlesung</td>
 <td>Optimalit&auml;tsbeweise (Erwartungstreue); Stochastische Kombination</td>
 </tr>
 <tr>
 <td>28.06.2016</td>
-<td>?. Vorlesung</td>
-<td>Dynamische Lokalisierung (Kalman Filter)</td>
+<td>11. Vorlesung</td>
+<td>Dynamische Lokalisierung (Kalman Filter: Pr&auml;diktions und Filterschritt)</td>
+</tr>
+<tr>
+<td>05.07.2016</td>
+<td>12. Vorlesung</td>
+<td>Kalman Filter: Filterschritt; SLAM</td>
 </tr>
 </table>
 <h3 id="statische-lokalisierung">Statische Lokalisierung</h3>
-<p>(20160517-lma-1)</p>
-<p>Mit der hessischen Normalform</p>
+<p>Slides: <code>20160517-lma-1</code></p>
 <dl>
 <dt><dfn>Hessische Normalform</dfn> (<a href="https://en.wikipedia.org/wiki/Hesse_normal_form"><dfn>Hesse normal form</dfn></a>)</dt>
 <dd>An equation describing a plane:
@@ -176,11 +180,33 @@ MathJax.Hub.Queue(function() {
 <dt><a href="https://de.wikipedia.org/wiki/Sherman-Morrison-Woodbury-Formel"><dfn>Sherman-Morrison-Woodbury Formel</dfn></a></dt>
 <dd>F&uuml;r zwei $n\times k$-Matrizen $U, V$ gilt:<br/>
         Die $k\times k$-Matrix $E-V^T A^{-1}U$ sei regul&auml;r, dann gilt
-        $$(A-UV^T)^{-1} = A^{-1}+A^{-1}U(E-V^TA^{-1}U)^{-1}V^T A^{-1}$$$
+        $$(A-UV^T)^{-1} = A^{-1}+A^{-1}U(E-V^TA^{-1}U)^{-1}V^T A^{-1}$$
     </dd>
 </dl>
 <h2 id="dynamische-lokalisierung_1">Dynamische Lokalisierung</h2>
-<p>TODO</p>
+<dl>
+<dt><dfn id="kalman-filter">Kalman-Filter</dfn></dt>
+<dd>Siehe <a href="https://martin-thoma.com/kalman-filter/">Kalman-filter Artikel</a>.</dd>
+</dl>
+<h2 id="slam">SLAM</h2>
+<dl>
+<dt><a href="https://de.wikipedia.org/wiki/Simultaneous_Localization_and_Mapping"><dfn id="slam">SLAM</dfn></a> (<dfn>Simultaneous Location and Mapping</dfn>)</dt>
+<dd>SLAM ist ein Algorithmus, welcher zugleich eine Karte erstellt und
+        einen mobilen Agenten auf der Karte lokalisiert. Eine Karte sind
+        positionen von Landmarken.<br/>
+<br/>
+<u>Ans&auml;tze</u>:
+
+        <ul>
+<li>Filterung (rekursiv): z.B. Kalman-Filter;
+                <abbr title="Extended Kalman Filter">EKF</abbr>,
+                <abbr title="Unscented Kalman Filter">UKF</abbr> (sigma-Punkte / samples; einfach zu implementieren und liefert h&auml;ufig bessere Ergebnisse als EKF),
+                Partikelfilter (Wahrscheinlichkeitsdichten werden durch Partikel / samples repr&auml;sentiert)<br/>
+                $\Rightarrow$ Sch&auml;tzen f&uuml;r Zeitschritt</li>
+<li>Smoothing / Gl&auml;ttung (batch): Nachteile (Rechenaufwendig, erst nach batch ist Ergebnis da, man muss Daten speichern) und Vorteile (komplette Trajektorie, optimale Sch&auml;tzung selbiger)</li>
+</ul>
+</dd>
+</dl>
 <h2 id="material-und-links">Material und Links</h2>
 <p>Die Vorlesung wurde gestreamt und ist unter
 <a href="http://mml-streamdb01.ira.uka.de/">mml-streamdb01.ira.uka.de</a> verf&uuml;gbar.</p>
