@@ -64,13 +64,13 @@ l = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 
 This is equivalent to:
 ```python
-l = map(lambda x: x*x, xrange(1, 11))
+l = map(lambda x: x*x, range(1, 11))
 ```
 
 You can also use more than one list:
 ```python
-a = xrange(-10, 10)
-b = xrange(0, 20)
+a = range(-10, 10)
+b = range(0, 20)
 l = map(lambda x,y: x*y, a, b)
 ```
 Output: [0, -9, -16, -21, -24, -25, -24, -21, -16, -9, 0, 11, 24, 39, 56, 75, 96, 119, 144, 171]
@@ -86,7 +86,7 @@ r = 74
 
 You can calculate the factorial n! like this:
 ```python
-fac = lambda n: reduce(lambda x,y:x*y,xrange(1,n+1))
+fac = lambda n: reduce(lambda x, y: x*y, range(1, n+1))
 print(fac(2))
 print(fac(3))
 print(fac(10))
@@ -98,19 +98,19 @@ Output: 2
 <h2>filter(function, sequence)</h2>
 filter gets all elements from sequence, where function returns true:
 ```python
-def isPrime(element):
+def is_prime(element):
     if element == 2:
         return True
     elif element <= 1 or element % 2 == 0:
         return False
     else:
-        for i in xrange(3, element, 2):
+        for i in range(3, element, 2):
             if element % i == 0:
                 return False
     return True
 
-myList = [4, 4, 9, 12, 13, 2, 7, 9, 11, 11]
-r = filter(isPrime, myList)
+my_list = [4, 4, 9, 12, 13, 2, 7, 9, 11, 11]
+r = filter(is_prime, my_list)
 ```
 r = [13, 2, 7, 11, 11]
 
@@ -118,7 +118,7 @@ r = [13, 2, 7, 11, 11]
 Task: What is the sum of digits of $2^n, n \in \mathbb{N}$?
 ```python
 sumOfDigits = lambda exp: reduce(
-                                  lambda x,y: x+y, 
+                                  lambda x,y: x+y,
                                   map(lambda x: int(x), str(2**exp))
                                 )
 print(sumOfDigits(2))
@@ -134,7 +134,7 @@ Output: 4
 Task: Encode and decode a string in the following way: Split Words by spaces. Every plaintext character gets a two-digit numerical representation in base 16. A is 01, B is 02 and Z is 1A.
 ```python
 # Thanks to lebenf: http://stackoverflow.com/a/3226719/562769
-chunks = lambda l, n: [l[x: x+n] for x in xrange(0, len(l), n)]
+chunks = lambda l, n: [l[x: x+n] for x in range(0, len(l), n)]
 
 decodeWord= lambda s: "".join(map(lambda x: chr(int(x,16)+64),chunks(s,2)))
 decode    = lambda s: " ".join(map(decodeWord, s.split(" ")))
