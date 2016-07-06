@@ -20,7 +20,7 @@ it.
 
 Source: [gps.gov](http://www.gps.gov/systems/gps/performance/accuracy/), see also [What is the maximum Theoretical accuracy of GPS?](http://gis.stackexchange.com/a/43657/70242)
 
-The Kalman filter is the optimal linear filter (<span style="color:blue;">BLUE</span>: <span style="color:blue;">B</span>est <span style="color:blue;">L</span>inear <span style="color:blue;">U</span>nbiast <span style="color:blue;">E</span>stimator). This means,
+The Kalman filter is the optimal linear filter (<span style="color:blue;">BLUE</span>: <span style="color:blue;">B</span>est <span style="color:blue;">L</span>inear <span style="color:blue;">U</span>nbiased <span style="color:blue;">E</span>stimator). This means,
 there is no estimator for the state which has a linear state model which is
 better. It assumes the noise is Gaussian. If the noise is Gaussian, then the Kalman filter
 minimizes the mean squared error of the estimated state parameters. So it in
@@ -54,19 +54,24 @@ with
 * $A_k \in \mathbb{R}^{n_x \times n_x}$ being the system matrix,
 * $B_k \in \mathbb{R}^{n_x \times n_a}$ being the control matrix,
 * $a_k \in \mathbb{R}^{n_a}$ being the control matrix vector ($a$ for action),
-* $r_k^{(s)} \sim \mathcal{N(0, \Sigma_m)}$ with $\Sigma_m \in \mathbb{R}^{n_x \times n_x}$
-  being Gaussian noise
+* $r_k^{(s)} \sim \mathcal{N(0, C_k^{(r_s)})}$ with $C_k^{(r_s)} \in \mathbb{R}^{n_x \times n_x}$
+  being Gaussian noise. $C_k^{(r_s)} \in \mathbb{R}^{n_x \times n_x}$ is called
+  the process error covariance matrix.
 
 You can also make a model of your **measurements**. They should be some linear
-combination of the state with Gaussian noise $r_k^m$:
+combination of the state with Gaussian noise $r_k^{(m)}$:
 
 $$z_k = H \cdot \mathbf{x}_k + r_k^{(m)}$$
 
 with
 
 * $z_k \in \mathbb{R}^{n_m}$: The measurement vector
-* $r_k^{(m)} \sim \mathcal{N(0, \Sigma_m)}$ with $\Sigma_m \in \mathbb{R}^{n_m \times n_m}$
-  being Gaussian noise
+* $r_k^{(r_m)} \sim \mathcal{N(0, C_k^{(r_m)})}$ with $C_k^{(r_m)} \in \mathbb{R}^{n_m \times n_m}$
+  being Gaussian noise. $C_k^{(r_m)} \in \mathbb{R}^{n_m \times n_m}$ is called
+  the measurment noise covariance matrix.
+* $H \in \mathbb{R}^{n_m \times n_x}$: A matrix which transforms the state
+  vector $\mathbf{x}$ to a measurement vector. This matrix is a constant over
+  the whole process. It is most likely to have only 0s and 1s as entrys.
 
 
 ### Step 3: The algorithm
@@ -80,14 +85,14 @@ with
 
 The matrices which were not explained so far are:
 
-* $C_k^{(r_s)} \in \mathbb{R}^{n_x \times n_x}$: The process error covariance matrix.
-* $C_k^{(r_m)} \in \mathbb{R}^{n_m \times n_m}$: The measurment noise covariance matrix.
-* $H \in \mathbb{R}^{n_m \times n_x}$: A matrix which transforms the state
-  vector $\mathbf{x}$ to a measurement vector. This matrix is a constant over
-  the whole process. It is most likely to have only 0s and 1s as entrys.
+* $P_k \in \mathbb{R}^{n_x \times n_x}$ is the state vector covariance matrix.
+  It is the uncertainty.
 * $K_k \in \mathbb{R}^{n_x \times n_m}$: The Kalman gain. Higher values
   indicate that we give more trust to the measurment. Lower values indicate
-  that we give more trust to our last prediction.
+  that we give more trust to our last prediction. If the measurement
+  uncertainty $C_k^{(m)}$ is small compared to the state uncertainty $P_k^{(P)}$,
+  then the Kalman Gain is big. So we will rely more on the measurement and
+  less of what we predicted before.
 
 
 ## Example
