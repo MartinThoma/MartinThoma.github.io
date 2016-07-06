@@ -1177,7 +1177,7 @@ See also:
         → Momentum, Exponential Decay Learning Rate, Performance Scheduling,
            Newbob, AdaGrad, RProp</li>
     <li>Welche Alternativen zu standard Gradient Descent gibt es?<br/>
-        → Quickprop, (L-)BFGS, Conjugate Gradient, Quasi-Newtonian (vgl. <a href="https://www.reddit.com/r/MachineLearning/comments/4582s0/overview_of_optimization_algorithms/">Reddit</a>).</li>
+        → Quickprop, (L-)BFGS, Conjugate Gradient, Quasi-Newtonian (vgl. <a href="https://www.reddit.com/r/MachineLearning/comments/4582s0/overview_of_optimization_algorithms/">Reddit</a>, <a href="https://martin-thoma.com/optimization-basics">Optimization Basics</a>).</li>
     <li>Wie kann man Netztopologien aufbauen?<br/>
         → Meiosis, Cascade Correlation, Optimal Brain Damage / Surgeon (vgl. <a href="https://www.reddit.com/r/MachineLearning/comments/44ld5c/interesting_papers_on_learning_automatically/">Reddit</a>).</li>
 </ul>
