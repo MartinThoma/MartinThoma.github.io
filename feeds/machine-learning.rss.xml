@@ -1,5 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Martin Thoma</title><link>https://martin-thoma.com/</link><description>A blog about Code, the Web and Cyberculture</description><lastBuildDate>Wed, 22 Jun 2016 20:00:00 +0200</lastBuildDate><item><title>Linear Classification</title><link>https://martin-thoma.com/linear-classification/</link><description>&lt;p&gt;In classification problems you have data points &lt;span class="math"&gt;\(x \in \mathbb{R}^m\)&lt;/span&gt; which you want to classify into one of &lt;span class="math"&gt;\(k \in \mathbb{N}_{\geq 2}\)&lt;/span&gt; classes. This is a supervised task. This means you have &lt;span class="math"&gt;\(n\)&lt;/span&gt; data points for training in a matrix &lt;span class="math"&gt;\(X \in \mathbb{R}^{n \times m}\)&lt;/span&gt; with their labels.&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+<rss version="2.0"><channel><title>Martin Thoma</title><link>https://martin-thoma.com/</link><description>A blog about Code, the Web and Cyberculture</description><lastBuildDate>Wed, 06 Jul 2016 20:00:00 +0200</lastBuildDate><item><title>Optimization Basics</title><link>https://martin-thoma.com/optimization-basics/</link><description>&lt;p&gt;Optimization is a subfield of mathematics / computer science which deals with finding the best solution. Typically, problems in optimization are stated like this:&lt;/p&gt;
+&lt;div class="math"&gt;$$
+\begin{align}
+&amp;amp;\underset{x}{\operatorname{minimize}}&amp;amp; &amp;amp; f(x) \\
+&amp;amp;\operatorname{subject\;to}
+&amp;amp; &amp;amp;g_i(x) \leq 0, \quad i = 1,\dots,m \\
+&amp;amp;&amp;amp;&amp;amp;h_i(x) = 0, \quad i = 1, \dots,p
+\end{align}
+$$&lt;/div&gt;
+&lt;p&gt;where&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(f(x): \mathbb{R}^n \to \mathbb{R}\)&lt;/span&gt; is the &lt;strong&gt;loss function (objective function)&lt;/strong&gt; to be minimized over the variable &lt;span class="math"&gt;\(x\)&lt;/span&gt;,&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(g_i(x) \leq 0\)&lt;/span&gt; are called &lt;strong&gt;inequality constraints&lt;/strong&gt;, and&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(h_i(x) = 0\)&lt;/span&gt; are called &lt;strong&gt;equality constraints&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;By convention, the standard form defines a &lt;strong&gt;minimization problem&lt;/strong&gt;. A
+&lt;strong&gt;maximization problem&lt;/strong&gt; can be treated by negating the objective function.&lt;/p&gt;
+&lt;p&gt;(That was copied from &lt;a href="https://en.wikipedia.org/w/index.php?title=Optimization_problem&amp;amp;oldid=715562612#Continuous_optimization_problem"&gt;en.wikipedia.org/w/Optimization_problem&lt;/a&gt; and only slightly edited.)&lt;/p&gt;
+&lt;p&gt;I'm now going to explain some very basic techniques which are used for finding good solutions to optimization problems. Please note that there are also discrete optimization problems where you have to finde a solution &lt;span class="math"&gt;\(x \in \mathbb{N}^n\)&lt;/span&gt;. I will only focus on continuous optimization problems.&lt;/p&gt;
+&lt;h2 id="simulated-annealing"&gt;Simulated Annealing&lt;/h2&gt;
+&lt;p&gt;Simulated Annealing is a heuristical optimization algorithm. It starts at a
+random point &lt;span class="math"&gt;\(x \in \mathbb{R}^n\)&lt;/span&gt;. Then it takes a random point &lt;span class="math"&gt;\(y\)&lt;/span&gt; of the
+environment of &lt;span class="math"&gt;\(x\)&lt;/span&gt;:&lt;/p&gt;
+&lt;div class="math"&gt;$$y \in U(x)$$&lt;/div&gt;
+&lt;p&gt;If &lt;span class="math"&gt;\(f(y) \leq f(x)\)&lt;/span&gt;, then the current position &lt;span class="math"&gt;\(x\)&lt;/span&gt; is overwritten with &lt;span class="math"&gt;\(y\)&lt;/span&gt;:&lt;/p&gt;
+&lt;div class="math"&gt;$$x \leftarrow y$$&lt;/div&gt;
+&lt;p&gt;Otherwise, it might be overwritten with probability &lt;span class="math"&gt;\(\exp \left (-\frac{f(y)-f(x)}{T(t)} \right )\)&lt;/span&gt; where &lt;span class="math"&gt;\(T: \mathbb{N}_0 \rightarrow \mathbb{R}_{&amp;gt; 0}\)&lt;/span&gt; is called the temperature at time &lt;span class="math"&gt;\(t\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;So the optimization algorithm is:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Take a random point $x \in \mathbb{R}^n$&lt;/li&gt;
+&lt;li&gt;Take a random point $y \in U(x)$&lt;/li&gt;
+&lt;li&gt;$$x \leftarrow \begin{cases}y &amp;amp;\text{if } f(y) \leq f(x)\\
+                          y &amp;amp;\text{if } \operatorname{rand}(0,1) &amp;lt; \exp \left (-\frac{f(y)-f(x)}{T(t)} \right )\\
+                          x &amp;amp;\text{otherwise}\end{cases}$$&lt;/li&gt;
+&lt;li&gt;Go to step 2.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;See also my &lt;a href="https://martin-thoma.com/neuronale-netze-vorlesung/#simulated-annealing"&gt;German description&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="gradient-descent"&gt;Gradient descent&lt;/h2&gt;
+&lt;p&gt;The gradient descent algorithm can easily be applied when the optimization problem has no constraints and the objective function &lt;span class="math"&gt;\(f\)&lt;/span&gt; is differentiable.
+The idea is to just take a random starting point &lt;span class="math"&gt;\(x \in \mathbb{R}^n\)&lt;/span&gt; and
+iteratively improve it. There are many algorithms which follow this approach (Simulated annealing, L-BFGS, Newton's method, Quasi-Newtonian, Conjugate Gradient, ...).&lt;/p&gt;
+&lt;p&gt;Instead of randomly going in other directions, the
+gradient &lt;span class="math"&gt;\(\nabla f\)&lt;/span&gt; is calculated at the position &lt;span class="math"&gt;\(x\)&lt;/span&gt;. The gradient points
+in the direction of maximum increase, so we go in the opposite direction:&lt;/p&gt;
+&lt;div class="math"&gt;$$x_{\text{new}} = x - \nabla f(x)$$&lt;/div&gt;
+&lt;p&gt;The problem with this approach is that the surface of the objective function
+might first go down in the direction of &lt;span class="math"&gt;\(\nabla f(x)\)&lt;/span&gt;, but if you go a bit
+further it can go up by a lot. So we want to make very small steps. To achive
+this, we multiply the gradient with a factor &lt;span class="math"&gt;\(\eta \in (0, 1]\)&lt;/span&gt;. In machine
+learining, this &lt;span class="math"&gt;\(\eta\)&lt;/span&gt; is called the &lt;em&gt;learning rate&lt;/em&gt; and typically one
+chooses &lt;span class="math"&gt;\(\eta = 0.01\)&lt;/span&gt;. However, there are &lt;a href="https://martin-thoma.com/neuronale-netze-vorlesung/#learning-rate-scheduling"&gt;learning rate scheduling algorithms&lt;/a&gt; which adapt this parameter during training.&lt;/p&gt;
+&lt;p&gt;The update rule is:&lt;/p&gt;
+&lt;div class="math"&gt;$$x_{\text{new}} = x - \eta \nabla f(x)$$&lt;/div&gt;
+&lt;h2 id="linear-regression-with-mse"&gt;Linear Regression with MSE&lt;/h2&gt;
+&lt;p&gt;In linear regression one is given a list of &lt;span class="math"&gt;\(n\)&lt;/span&gt; points &lt;span class="math"&gt;\((x, y)\)&lt;/span&gt; with &lt;span class="math"&gt;\(x \in \mathbb{R}^m\)&lt;/span&gt; and &lt;span class="math"&gt;\(y \in \mathbb{R}\)&lt;/span&gt;. The task is to find a matrix &lt;span class="math"&gt;\(A \in \mathbb{1 \times m}\)&lt;/span&gt; such that the predicted value &lt;span class="math"&gt;\(\hat{y}\)&lt;/span&gt; of the linear model&lt;/p&gt;
+&lt;div class="math"&gt;$$\hat{y}(x) = A \cdot x$$&lt;/div&gt;
+&lt;p&gt;minimizes the term&lt;/p&gt;
+&lt;div class="math"&gt;$$\text{MSE} = \sum_{i=1}^n (y_i - \hat{y}(x_i))^2$$&lt;/div&gt;
+&lt;p&gt;For convenience, one can write the list of points as a matrix &lt;span class="math"&gt;\(\mathbf{X} \in \mathbb{R}^{n \times m}\)&lt;/span&gt; and
+a vector &lt;span class="math"&gt;\(\mathbf{y} \in \mathbb{R}^n\)&lt;/span&gt;:&lt;/p&gt;
+&lt;div class="math"&gt;$$\text{MSE} = \|\mathbf{y} - \mathbf{X} A^T\|_2$$&lt;/div&gt;
+&lt;p&gt;with the Euclidean norm&lt;/p&gt;
+&lt;div class="math"&gt;$$\| v \|_2 := \sqrt{ ( v_1 )^2 + ( v_2 )^2 + \dotsb + ( v_n )^2 } = \left( \sum_{i=1}^n ( v_i )^2 \right)^{1/2}$$&lt;/div&gt;
+&lt;p&gt;Every part of the sum is non-negative, so exponentiating the Euclidean norm
+with a positive factor will not change the result of the minimization:&lt;/p&gt;
+&lt;div class="math"&gt;$$\operatorname{minimize}_{A} \|\mathbf{y} - \mathbf{X} A^T\|_2^2$$&lt;/div&gt;
+&lt;p&gt;Now we can see that this is every element of the vector squared. So we can
+get rid of the norm and then use distributivity:&lt;/p&gt;
+&lt;div class="math"&gt;$$
+\begin{align}
+\operatorname{minimize}_{A}&amp;amp;(\mathbf{y} - \mathbf{X} A^T)^T \cdot (\mathbf{y} - \mathbf{X} A^T)\\
+\Leftrightarrow \operatorname{minimize}_{A}&amp;amp;(\mathbf{y}^T - A \mathbf{X}^T) \cdot (\mathbf{y} - \mathbf{X} A^T)\\
+\Leftrightarrow \operatorname{minimize}_{A}&amp;amp;\mathbf{y}^T \mathbf{y} - A \mathbf{X}^T \mathbf{y} - \mathbf{y}^T \mathbf{X} A^T + A\mathbf{X}^T \mathbf{X} A^T\\
+\end{align}
+$$&lt;/div&gt;
+&lt;p&gt;You need to know that&lt;/p&gt;
+&lt;div class="math"&gt;$$
+\begin{align}
+A \mathbf{X}^T \mathbf{y} &amp;amp;= ((A \mathbf{X}^T \mathbf{y})^T)^T\\
+&amp;amp;= (\mathbf{y}^T \mathbf{X} A^T)^T\\
+&amp;amp;= \mathbf{y}^T \mathbf{X} A^T\\
+\end{align}
+$$&lt;/div&gt;
+&lt;p&gt;You can get rid of the last transposing operation, because
+&lt;/p&gt;
+&lt;div class="math"&gt;$$(\mathbf{y}^T \mathbf{X} A^T) \in \mathbb{R}^{1 \times 1}$$&lt;/div&gt;
+&lt;p&gt;This simplifies the optimization problem to&lt;/p&gt;
+&lt;div class="math"&gt;$$\operatorname{minimize}_{A}&amp;amp;\underbrace{\mathbf{y}^T \mathbf{y} - 2 A \mathbf{X}^T \mathbf{y} + A\mathbf{X}^T \mathbf{X} A^T}_{E_{X, y}(A)}$$&lt;/div&gt;
+&lt;p&gt;Now you can calculate the gradient of this term with respect to &lt;span class="math"&gt;\(A\)&lt;/span&gt;:&lt;/p&gt;
+&lt;div class="math"&gt;$$\nabla E_{X, y}(A) = 2 X^T X A^T - X^T y - X^T y = 2 X^T (X A^T - y)$$&lt;/div&gt;
+&lt;p&gt;A necessary condition of a minimum is the gradient to be 0:&lt;/p&gt;
+&lt;div class="math"&gt;$$
+\begin{align}
+\nabla E_{X, y}(A) &amp;amp;\overset{!}{=} 0\\
+\Leftrightarrow 0 &amp;amp;\overset{!}{=} 2 X^T (X A^T - y)\\
+\Leftrightarrow 0 &amp;amp;\overset{!}{=} X^T X A^T - X^T y\\
+\Leftrightarrow A &amp;amp;\overset{!}{=} ((X^T X)^{-1} X^T y)^T\\
+\end{align}
+$$&lt;/div&gt;
+&lt;p&gt;As &lt;span class="math"&gt;\(H_{E_{X, y}} = \nabla^2 E_{X, y}(A) = 2 X^T X\)&lt;/span&gt; is positive definite, this is a minimum. Hence, the optimal solution to this problem is:&lt;/p&gt;
+&lt;div class="math"&gt;$$A = ((X^T X)^{-1} X^T y)^T$$&lt;/div&gt;
+&lt;h2 id="lagrange-multipliers"&gt;Lagrange multipliers&lt;/h2&gt;
+&lt;p&gt;Lagrange multipliers are a trick in optimization problems with constraints.
+They can be used to get rid of the constraints.&lt;/p&gt;
+&lt;p&gt;The Lagrange function has the form&lt;/p&gt;
+&lt;div class="math"&gt;$$\mathcal{L} (x, \lambda_1, \dots, \lambda_n) = f(x) + \sum_{j=1}^n \lambda_j h_j(x)$$&lt;/div&gt;
+&lt;p&gt;
+with the &lt;em&gt;Lagrange multipliers&lt;/em&gt; &lt;span class="math"&gt;\(\lambda_j \in \mathbb{R}\)&lt;/span&gt; and &lt;span class="math"&gt;\(h_j\)&lt;/span&gt; are equality constraints.&lt;br/&gt;
+&lt;br/&gt;
+Necessary conditions for a minimum &lt;span class="math"&gt;\(x^*\)&lt;/span&gt; is:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$\nabla_x \mathcal{L} = \nabla_x f(x^*) + \sum_{j=1}^n \lambda_j \nabla_x h_j(x^*) \overset{!}{=} 0$&lt;/li&gt;
+&lt;li&gt;$\frac{\partial \mathcal{L}}{\partial \lambda_j} h_j(x^*) \overset{!}{=} 0, \quad j=1, \dots, $&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;See [&lt;a href="#ref-smi04" name="ref-smi04-anchor"&gt;Smi04&lt;/a&gt;] for many examples.&lt;/p&gt;
+&lt;h2 id="references"&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;[&lt;a href="#ref-smi04-anchor" name="ref-smi04"&gt;Smi04&lt;/a&gt;] B. T. Smith, &amp;ldquo;Lagrange multipliers tutorial in the context of support
+  vector machines,&amp;rdquo; Memorial University of Newfoundland St. John&amp;rsquo;s,
+  Newfoundland, Canada, Jun. 2004.&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Martin Thoma</dc:creator><pubDate>Wed, 06 Jul 2016 20:00:00 +0200</pubDate><guid isPermaLink="false">tag:martin-thoma.com,2016-07-06:optimization-basics/</guid><category>Machine Learning</category><category>optimization</category><category>gradient descent</category></item><item><title>Linear Classification</title><link>https://martin-thoma.com/linear-classification/</link><description>&lt;p&gt;In classification problems you have data points &lt;span class="math"&gt;\(x \in \mathbb{R}^m\)&lt;/span&gt; which you want to classify into one of &lt;span class="math"&gt;\(k \in \mathbb{N}_{\geq 2}\)&lt;/span&gt; classes. This is a supervised task. This means you have &lt;span class="math"&gt;\(n\)&lt;/span&gt; data points for training in a matrix &lt;span class="math"&gt;\(X \in \mathbb{R}^{n \times m}\)&lt;/span&gt; with their labels.&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 &lt;p&gt;Initially, the label might be something like "cat" or "dog". But the machine learning algorithms can't deal with those directly, so you need to encode the labels. The simplest way of encoding them is to use integers &lt;span class="math"&gt;\(0, 1, \dots, k - 1\)&lt;/span&gt;. However, in many cases it is handy to use a &lt;em&gt;one-hot encoding&lt;/em&gt;. This means you make a &lt;span class="math"&gt;\(k\)&lt;/span&gt;-dimensional vector for each label. &lt;span class="math"&gt;\((1, 0)\)&lt;/span&gt; might encode "dog" and &lt;span class="math"&gt;\((0, 1)\)&lt;/span&gt; might encode "cat". &lt;code&gt;sklearn&lt;/code&gt; supports this encoding in a convenient way
 (&lt;a href="http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html"&gt;docs&lt;/a&gt;). Another common encoding is &lt;span class="math"&gt;\(-1\)&lt;/span&gt; and &lt;span class="math"&gt;\(1\)&lt;/span&gt; for binary classification problems.&lt;sup id="fnref:2"&gt;&lt;a class="footnote-ref" href="#fn:2" rel="footnote"&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 &lt;p&gt;A linear model is one which applies only linear operations to the features. So basically the model may only be a matrix. Typically the elements of the matrix are called &lt;em&gt;weights&lt;/em&gt;, because they weight the importance of each feature.&lt;/p&gt;
