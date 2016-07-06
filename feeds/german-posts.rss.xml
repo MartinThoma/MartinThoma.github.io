@@ -17,6 +17,8 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;li&gt;Bayessche Methodik&lt;/li&gt;
 &lt;/ul&gt;
 &lt;dl&gt;
+&lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Probability_axioms#Axioms"&gt;&lt;dfn id="kolmogorov-axioms"&gt;Kolmogorov-Axiome&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
+&lt;dd&gt;TODO&lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Kalman-Filter"&gt;&lt;dfn id="kalman-filter"&gt;Kalman-Filter&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
 &lt;dd&gt;Siehe &lt;a href="https://martin-thoma.com/kalman-filter/"&gt;Kalman-filter Artikel&lt;/a&gt;.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="extended-kalman-filter"&gt;Extended Kalman Filter&lt;/dfn&gt; (&lt;dfn id="ekf"&gt;EKF&lt;/dfn&gt;)&lt;/dt&gt;
@@ -66,20 +68,73 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;/dl&gt;
 &lt;h3 id="neuronale-netze"&gt;Neuronale Netze&lt;/h3&gt;
 &lt;p&gt;Slides: &lt;code&gt;IF-Kap5_160125.pdf&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;TODO&lt;/p&gt;
+&lt;p&gt;Siehe &lt;a href="https://martin-thoma.com/neuronale-netze-vorlesung/"&gt;Vorlesung Neuronale Netze&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id="registrierung"&gt;Registrierung&lt;/h3&gt;
 &lt;p&gt;Slides: &lt;code&gt;IF-Kap6_160125.pdf&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;TODO&lt;/p&gt;
+&lt;p&gt;Wurde nicht besprochen.&lt;/p&gt;
 &lt;h3 id="energiefunktionale"&gt;Energiefunktionale&lt;/h3&gt;
 &lt;p&gt;Slides: &lt;code&gt;IF-Kap7_160125.pdf&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;TODO&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Funktional"&gt;&lt;dfn&gt;Funktional&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
+&lt;dd&gt;Ein &lt;i&gt;Funktional&lt;/i&gt; ist eine Funktion aus einem Vektorraum $V$ in
+        den K&amp;ouml;rper, der dem Vektorraum zugrunde liegt. Oft ist $V$ ein
+        Funktionenraum, also ein Vektorraum, dessen Elemente reell- oder
+        komplexwertige Funktionen sind. Ein Funktional ist somit eine Funktion
+        auf Funktionen.&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="energiefunktionale"&gt;Energiefunktionale&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;Durch die Einf&amp;uuml;hrung von Energietermen $E_k$ lassen sich
+        fusionsrelevante Informationen modellieren. Die Fusionsaufgabe wird
+        dann durch das Energiefunktional
+
+        $$E = \sum_k \lambda_k E_k, \qquad \lambda_k &amp;gt; 0$$
+
+        repr&amp;auml;sentiert. Die unterschiedliche Relevanz der Energieterme $E_k$
+        wird durch die Vorfaktoren $\lambda_k$ ber&amp;uuml;cksichtigt.&lt;/dd&gt;
+&lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Boltzmann_distribution"&gt;&lt;dfn id="gibbs-distribution"&gt;Gibbs-Verteilung&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
+&lt;dd&gt;Die Gibbs-Verteilung mit dem Energiefunktional $E$ ist
+        $$\pi_{\beta, E}(x) = \frac{1}{Z} e^{- \beta E(x)},$$
+        mit Normierungskonstante $Z$ und der inversen Temperatur
+        $\beta = \frac{1}{T}$.&lt;br/&gt;
+&lt;br/&gt;
+&lt;u&gt;Interpretation&lt;/u&gt;:
+        Es sei $E: V \rightarrow \mathbb{R}$, $V$ endlich.
+        &lt;ul&gt;
+&lt;li&gt;$V$: Die Menge aller Konfigurationen eines physikalischen Systems.&lt;/li&gt;
+&lt;li&gt;$E(x)$: Energie des Systems, wenn es sich in der Konfiguration $x$ befindet.&lt;/li&gt;
+&lt;li&gt;$T$: Temperatur. Ist die Temperatur gro&amp;szlig;, so sind alle
+                Konfigurationen etwa gleich wahrscheinlich. Bei niedriger
+                Temperatur werden Konfigurationen mit niedriger Energie
+                bevorzugt.&lt;/li&gt;
+&lt;li&gt;$\pi_{\beta, E}(x)$: Wahrscheinlichkeit, dass sich das System
+                in der Konfiguration $x$ befindet.&lt;/li&gt;
+&lt;/ul&gt;
+
+        F&amp;uuml;r $E$ kann dann eine Gibbsche Wahrscheinlichkeitsdichtefunktion WDF
+        $$WDF \propto e^{- \beta E} = \prod_k e^{-\frac{\lambda_k E_k}{T}}$$
+        definiert werden.
+        &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Energieminimierung&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;ol&gt;
+&lt;li&gt;L&amp;ouml;sung eines linearen Gleichungssystems (selten m&amp;ouml;glich)&lt;/li&gt;
+&lt;li&gt;Graph-Cuts-Verfahren&lt;/li&gt;
+&lt;li&gt;Approximative L&amp;ouml;sung durch sukzessive Optimierung&lt;/li&gt;
+&lt;li&gt;Methode des steilsten abstiegs&lt;/li&gt;
+&lt;li&gt;Monte-Carlo-Methode&lt;/li&gt;
+&lt;li&gt;Simulated Annealing&lt;/li&gt;
+&lt;li&gt;Lineare Programme&lt;/li&gt;
+&lt;li&gt;Dynamische Programmierung&lt;/li&gt;
+&lt;li&gt;Mean Field Theorie (Betrachte Erwartungswerte)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
 &lt;h2 id="abkurzungen_1"&gt;Abk&amp;uuml;rzungen&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;EKF: Extended Kalman Filter&lt;/li&gt;
 &lt;li&gt;GUM: Guide to the Expression of Uncertainty in Measurement&lt;/li&gt;
 &lt;li&gt;KF: Kalman Filter&lt;/li&gt;
 &lt;li&gt;LS: Least Squares&lt;/li&gt;
-&lt;li&gt;UKF: ... Kalman Filter&lt;/li&gt;
+&lt;li&gt;UKF: Unscented Kalman Filter&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="meine-fragen"&gt;Meine Fragen&lt;/h2&gt;
 &lt;ul&gt;
@@ -100,7 +155,7 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;li&gt;Wie lautet die Formel f&amp;uuml;r verteilte Fusion?&lt;br/&gt;
   &amp;rarr; TODO&lt;/li&gt;
 &lt;li&gt;Wie lauten die Axiome von Kolmogorov?&lt;br/&gt;
-  &amp;rarr; TODO&lt;/li&gt;
+  &amp;rarr; Siehe &lt;a href="#kolmogorov-axioms"&gt;oben&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Was sind Zugeh&amp;ouml;rigkeitsfunktionen?&lt;br/&gt;
   &amp;rarr; TODO&lt;/li&gt;
 &lt;/ul&gt;
@@ -109,7 +164,7 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;li&gt;Aus welchen Schritten besteht der Kalman-Filter?&lt;br/&gt;
   &amp;rarr; Pr&amp;auml;diktion, Innovation&lt;/li&gt;
 &lt;li&gt;Welche erweiterungen zum Kalman-Filter kennen Sie?&lt;br/&gt;
-  &amp;rarr; Extended Kalman Filter (EKF), UKF (TODO)&lt;/li&gt;
+  &amp;rarr; Extended Kalman Filter (EKF), UKF (Unscented Kalman Filter)&lt;/li&gt;
 &lt;li&gt;F&amp;uuml;r welche Systeme ist der Kalman-Filter geeignet?&lt;br/&gt;
   &amp;rarr; Lineare Zeitinvariante Systeme (LTI-Systeme)&lt;/li&gt;
 &lt;li&gt;Wie entwickeln sich die Wahrscheinlichkeiten beim Kalman-Filter?&lt;br/&gt;
@@ -117,7 +172,12 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;li&gt;Wie lautet das Systemmodell im Kalman-Filter?&lt;br/&gt;
   &amp;rarr; TODO (Systemgleichung und &lt;a href="#beobachtungsgleichung"&gt;Beobachtungsgleichung&lt;/a&gt;)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="material-und-links_1"&gt;Material und Links&lt;/h2&gt;
+&lt;h2 id="absprachen_1"&gt;Absprachen&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Kapitel 5 (Neuronale Netze) und Kapitel 6 (Registrierung) kommen nicht dran&lt;/li&gt;
+&lt;li&gt;&amp;Uuml;bungsaufgaben sind auch Pr&amp;uuml;fungsrelevant&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="material-und-links"&gt;Material und Links&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://ies.anthropomatik.kit.edu/lehre_informationsfusion.php"&gt;Vorlesungswebsite&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://ankiweb.net/shared/info/1070725022"&gt;Anki-Deck&lt;/a&gt;&lt;/li&gt;
