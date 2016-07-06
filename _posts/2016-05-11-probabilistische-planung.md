@@ -51,39 +51,44 @@ In der Vorlesung 'Probabilistische Planung' werden drei Themen besprochen:
     <td>Definition eines MDP, Plan vs. Strategie, <abbr title="Dynamische Programmierung">DP</abbr></td>
 </tr>
 <tr>
-    <td>18.05.2016</td>
+    <td id="2016-05-18">18.05.2016</td>
     <td>MDPs</td>
     <td>Endliche Planungsprobleme, Value- und Policy-Iteration</td>
 </tr>
 <tr>
-    <td>25.05.2016</td>
+    <td id="2016-05-25">25.05.2016</td>
     <td>MDPs</td>
     <td>Kürzeste-Wege Suche (Tiefensuche, Breitensuche, Dijkstra, A*, Branch &amp; Bound; Label-Korrektur-Algorithmus); Trellis-Diagramm; Differentialantrieb; Pontryagin's Minimumprinzip</td>
 </tr>
 <tr>
-    <td>01.06.2016</td>
+    <td id="2016-06-01">01.06.2016</td>
     <td>MDPs</td>
     <td>Pontryagin's Minimumprinzip, Hamilton-Funktion; LQR; Sicherheitsäquivalenz</td>
 </tr>
 <tr>
-    <td>08.06.2016</td>
+    <td id="2016-06-08">08.06.2016</td>
     <td>POMDPs</td>
     <td>Motivation und Definition von POMDP; Hinreichende Statistik; Bayes-Schätzer</td>
 </tr>
 <tr>
-    <td>15.06.2016</td>
+    <td id="2016-06-15">15.06.2016</td>
     <td>POMDPs</td>
     <td>Lineare Planungsprobleme (Kalman-Filter); Sperationsproblem</td>
 </tr>
 <tr>
-    <td>22.06.2016</td>
+    <td id="2016-06-22">22.06.2016</td>
     <td>POMDPs</td>
     <td>Endliche Planungsprobleme (Optimale Strategie); <a href="#ol-planung">OL</a>, <a href="#olf-planung">OLF</a>, Modellprädiktive Planung</td>
 </tr>
 <tr>
-    <td>29.06.2016</td>
+    <td id="2016-06-29">29.06.2016</td>
     <td>POMDPs</td>
-    <td>Parametrische / Nichtparametrische Approximation</td>
+    <td>Parametrische / Nichtparametrische approximative Planung (Sicherheitsäquivalenz bei deterministischen Problemen); Funktionsapproximatoren für Wertefunktion / Strategie; Sensoreinsatzplanung</td>
+</tr>
+<tr>
+    <td id="2016-07-06">06.07.2016</td>
+    <td>POMDPs, <abbr title="Reinforcement Learning">RL</abbr></td>
+    <td>POMDPs: Sensoreinsatzplanung</td>
 </tr>
 </table>
 
@@ -272,7 +277,7 @@ Slides: `11.05.2016`
       you apply action $a$ in state $s$.</dd>
   <dt><dfn id="differentiation-rules">Differentiation Rules</dfn></dt>
   <dd>
-      
+
       $$
       \begin{align}
           \frac{\partial x^T a}{\partial x} &= \frac{\partial a^T x}{\partial x} = a\\
@@ -488,8 +493,19 @@ Slides: `11.05.2016`
         werden.<br/>
 
         TODO</dd>
-    <dt><a href="https://de.wikipedia.org/wiki/Hamilton-Funktion"><dfn>Hamilton-Funktion</dfn></a></dt>
-    <dd>TODO</dd>
+    <dt><a href="https://de.wikipedia.org/wiki/Hamilton-Funktion_(Kontrolltheorie)"><dfn>Hamilton-Funktion</dfn></a></dt>
+    <dd>Die Hamilton-Funktion der Kontrolltheorie stellt eine notwendige
+        Bedingung für die optimale Lösung eines Steuerungsproblems ist. Damit
+        eine Lösung eines Steuerungsprobelms optimal ist, muss die Lösung
+        die Hamilton-Funktion minimieren.<br/>
+        <br/>
+        Die Steuerung $u(t)$ soll so gewählt werden, dass
+        $$J(u)=\Psi(x(T))+\int^T_0 L(x,u,t) \mathrm{d}t$$
+        minimiert wird. Dabei ist $x(t)$ der Systemzustand mit
+        $$\dot{x}=f(x,u,t) \qquad x(0)=x_0 \quad t \in [0,T]$$
+        In diesem Fall ist die Hamilton-Funktion
+        $$H(x,\lambda,u,t)=\lambda^T(t)f(x,u,t)+L(x,u,t),$$
+        wobei $\lambda(t)$ Lagrange-Multiplikatoren sind.</dd>
     <dt><dfn>Lineares Zustandsmodell</dfn></dt>
     <dd>$$x_{k+1} = A_k + x_k + B_k \cdot a_k + r_k^{(s)}$$</dd>
     <dt><a href="https://de.wikipedia.org/wiki/LQ-Regler"><dfn id="linear-quadratic-regulator">Linearer Quadratischer Regulator</dfn></a> (<dfn id="lqr">LQR</dfn>)</dt>
@@ -807,7 +823,7 @@ Slides: `11.05.2016`
 
                         $$\hat{x}^p_{k+1} = p_k(\hat{x}_k^l, \bar{a}_k)$$
 
-                        $$C_{k+1}^P = A_k C_k^e A_k^T + C_k^w
+                        $$C_{k+1}^P = A_k C_k^e A_k^T + C_k^w$$
                     </li>
                     <li>Filterschritt: Linearisierung um $\bar{x}_k = \hat{x}_k^p$
 
@@ -830,6 +846,109 @@ Slides: `11.05.2016`
         Wahrscheinlichkeitsmassen.
 
     </dd>
+    <dt><dfn id="sensoreinsatzplanung">Sensoreinsatzplanung</dfn></dt>
+    <dd>
+
+        TODO
+
+        Informationstheoretische Kosten gehen in Kovarianz-basierte Kosten
+        wie z.B. Entropie über:
+
+        TODO
+
+        In der Sensoreinsatzplanung liefern Open-Loop und Closed Loop
+        Verfahren, gegeben TODO, die selben Kosten. Daher wird
+        Open-Loop-Planung verwendent. Das heißt, der optimale Plan
+        $a_{0:N-1}^*$ wird mittels deterministischer Planung
+        (Kürzeste-Wege-Suche), bestimmt.
+
+        <ul>
+            <li>$g_i(x_i, a)$: Schrittkosten</li>
+        </ul>
+
+        Der Suchbaum hat $|A|^N$ Pfade. (0-1 Programme)
+
+    </dd>
+    <dt><dfn>Monotonie der Riccarti-Gleichung</dfn></dt>
+    <dd>
+
+        Sei
+        $$V_k(\Lambda, C) := C_k^w + (A_k - \Lambda \cdot H_k) C \cdot (A_k - \Lambda H_k)^T + \Lambda C_k^v V^T$$
+        mit
+        $$\Lambda = K_k = A_k C H_k^T (H_k C H_k^T)^{-1} \text{ und } C = C_k^P$$
+        gilt $V_k = S_k$, da
+
+        $$
+        \begin{align}
+            V(K, C^P) &= C^W + (A - KH) C^P (A-KH)^T + KC^V K^T\\
+                      &= C^W + AC^P A^T - KH C^P A^T + KHC^P H^T K^T - A C^P H^T K^T KC^v K^T\\
+                      &= C^W + AC^P A^T - KH C^P A^T - AC^P H^T K^T + K (HC^P H^T + C^v) K^T \cdot A^CP H {(H C^P H^T + C^V)}^{-1}\\
+                      &= C^W + AC^P A^T - KH C^P A^T = S_k(C^P)
+        \end{align}
+        $$
+
+        Weiterhin ist $\Lambda = K_k$ das Minimum von $V_k$ für gegebenes $C$,
+        da der Kalman-Filter der optimale Schätzer für lineare Modelle ist.
+
+        Mit $\tilde{K}_k = A_k \tilde{C} H_k^T {(H_k \bar{C} H_k^T + C_k^v)}^{-1}$
+        gilt
+        $$S_k(C) = V_k(K_k, C) \prec V_k(\bar{K}_k, C) \prec V_k(\bar{K}_k, \bar{C}) = S_k(\tilde{C})$$
+    </dd>
+    <dt><dfn>Approximative Planung</dfn></dt>
+    <dd>
+
+        Abbildung auf lineare Sensoreinsatzplanung mittels
+
+        <ul>
+            <li>Linearisierung und</li>
+            <li>modellprädiktiver Planung</li>
+        </ul>
+
+        <u>Linearisierung</u>
+
+        Hier werden Nominalwerte $\bar{x}_{k:N-1}$ benötigt. Da die Aktion nur
+        die Messgleichung, nicht jedoch die Systemgleichung betrifft können die
+        $$\bar{x}_k = \hat{x}_k^P; \qquad \bar{x}_{k+1} = p_k(\bar{x}_k, 0)$$
+        Anschließend wird linearisiert.
+
+        <u>Ablauf</u>
+
+        <ol>
+            <li>Nach Messung: (approximative) Berechnung ovn $P(x_k | I_k)$
+                bzw. $P(x_{k+1} | I_k)$ z.B. mittels EKF.</li>
+            <li>Berechnung der Nominalwerte $\bar{x}_{k+1:k+M}$ mit
+                $\bar{x}_{k+1} = E(x_{k+1} | I_k) = \hat{x}_{k+1}^P$</li>
+            <li>Linearisierung</li>
+            <li>Berechnung des optimalen Plans $a_{k+1:k+M}^*$ für
+                lineares Problem.</li>
+            <li>Anwenden von $a_{k+1}^*$; zurück zu 1.</li>
+        </ol>
+
+        <u>Beispiel</u>: Steuerung eines mobilen Sensors
+        <ul>
+            <li>Objekt: $x_{k+1} = \begin{pmatrix}1 & T & 0 & 0\\
+                                                  0 & 1 & 0 & 0\\
+                                                  0 & 0 & 1 & T\\
+                                                  0 & 0 & 0 & 1\end{pmatrix} \cdot x_k + w_k$
+                mit $x_k = \begin{pmatrix}x_k\\ \dot{x}_k, y_k, \dot{y}_k\end{pmatrix}$</li>
+            <li>Sensor: $z_k = \sqrt{(x_k - x_k^S(a_k))^2 + (y_k - y_k^S(a_k))^2} + v_k$</li>
+            <li>Aktion $a_k$ ist Lenkwinkel</li>
+            <li>Kinematisches Sensormodell:
+
+                $$\begin{pmatrix}x_{k+1}^S\\
+                                 y_{k+1}^S\\
+                                 \phi_{k+1}^S\end{pmatrix}
+                 = \begin{pmatrix}x_{k}^S\\
+                                 y_{k}^S\\
+                                 \phi_{k}^S\end{pmatrix} +
+                   \begin{pmatrix}T v TODO\\
+                                  TODO\\
+                                  TODO\end{pmatrix}$$
+
+            </li>
+        </ul>
+
+    </dd>
 </dl>
 
 TODO:
@@ -840,16 +959,132 @@ TODO:
 ### Reinforcement Learning
 
 <dl>
-    <dt><dfn id="rl">Reinforcement Learning</dfn></dt>
-    <dd>TODO
+    <dt><dfn id="rl">Reinforcement Learning</dfn> (<dfn>RL</dfn>)</dt>
+    <dd>Reinforcement learning ist ein Subfeld des maschinellen Lernens,
+        welches sich auf Probleme der optimalen Kontrolle fokusiert.<br/>
+        <br/>
+    Problem:
 
-    3 Strömungen zum finden der Policy:
+    <ul>
+        <li>Was ist wenn die Kostenfunktion $g_k$ unbekannt ist?</li>
+        <li>Was ist wenn das Modell, das heißt die Übergangswahrscheinlichkeiten
+            $P(x_{k+1} | x_k, a_k)$ unbekannt sind?</li>
+        <li></li>
+    </ul>
 
-     <ul>
-         <li>Policy Search (Funktionsapproximatoren)</li>
-         <li>TODO</li>
-         <li>TODO</li>
-     </ul>
+    Dies wird durch ein Zusammenspiel aus lernen und Planen gelöst.
+
+    (Agent-Umelt-Bild)
+
+    Man lernt also aus Erfahrung und <b>Interaktion mit der Umwelt</b>.<br/>
+    <br/>
+    Eigenschaften und Besonderheiten:
+    <ul>
+        <li>Prinzipien des biologischen Lernens (Negatives / Positives Verstärken)
+
+            <ul>
+                <li>Intrinsische Motivation etwas erreichen zu wollen:
+                    Abstraktion als Kosten- / Belohnungsfunktion, die es über
+                    die Zeit zu min. / max. gilt.</li>
+                <li>Exploratives Lernen</li>
+            </ul>
+        </li>
+        <li>Unterschied zu "klassischen" Lernverfahren:
+            <ul>
+                <li>Lernen erfolgt unüberwacht und explorativ durch
+                    aktive Interaktion mit der Umwelt.</li>
+                <li>RL kombiniert Aspekte der Planung mit Lernmethodik.
+                    Da RL unüberwacht ist erfolgt die Entscheidung aufgrund
+                    eigener Erfahrung.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <u>Definition:</u><br/>
+    MDP mit folgenden Unterschieden:
+    <ul>
+        <li>2 Zeithorizont:
+
+            <ul>
+                <li>$N = \infty$ für fortlaufende Aufgaben</li>
+                <li>$N < \infty$ für episodische Aufgaben (diese haben einen
+                     terminaler Zustand)</li>
+            </ul>
+
+        </li>
+        <li>5 Keine Übergangswahrscheinlichkeiten gegeben</li>
+        <li>6 Belohnungen (reward) $r_k \in \mathbb{R}$ für Aktion
+            $a_k$ in Zustand $x_k$ mit Nachfolgezustand $x_{k+1}$.<br/>
+            $$r_k = g_k(x_k, a_k, x_{k+1})$$
+            wobei $g_k$ unbekannt.</li>
+        <li>8 Ziel: Maximierung der erwarteten Belohnung über die Zeit.
+            $$J(x_k) = E(R_k | x_k)$$
+
+            <ul>
+                <li>Fortlaufender Zeithorizont: $R_k = \sum_{t=0}^\infty \gamma^t r_{k+t}$
+                    mit Diskontierungsfaktor $\gamma \in [0, 1)$</li>
+                <li>Episodischer Zeithorizont: $R_k = \sum_{i=0}^N r_{k+i}$,
+                    wobei $N$ unbekannt ist.</li>
+            </ul>
+
+        </li>
+    </ul>
+
+    Dynamisches Programmieren ist nicht anwendbar, da das Modell und die Kosten
+    unbekannt sind. Die optimale Strategie wird aus Erfahrung approximiert.<br/>
+    <br/>
+    <u>Unterscheidungsmerkmale</u>:
+    <ul>
+        <li>Horizont:
+
+            <ul>
+                <li>fortlaufend, z.B. in Regelungstechnik das inverse Pendel</li>
+                <li>episodisch in Spielen</li>
+            </ul>
+
+        </li>
+        <li>Approximation / lernen:
+
+            <ul>
+                <li>on-policy: Dieselbe Strategie wird zugleich verbessert
+                               und angewandt.</li>
+                <li>off-policy: verwendet 2 Strategien
+                              <ul>
+                                  <li>Strategie 1: erzeugen von Aktionen</li>
+                                  <li>Strategie 2: wird verbessert</li>
+                              </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Zustands- und Aktionsraum:
+
+            <ul>
+                <li>diskret</li>
+                <li>kontinuierlich</li>
+            </ul>
+
+        </li>
+        <li>Übergangswahrscheinlichkeiten / Kosten
+
+            <ul>
+                <li>Modellfreie Verfahren: Lernen nur die optimale Strategie</li>
+                <li>Modelllernende Verfahren: Lernen von Strategie und Modell</li>
+            </ul>
+
+        </li>
+    </ul>
+
+    <u>Grundvarianten</u>:
+
+    <ul>
+        <li>Wertefunktionsbasiert: Schätzen die Wertefunktion / Q-Funktion aus
+            Lernstichproben (Monte Carlo (MC); Temporal Difference (TD),
+            Verantwortlichkeitsspur (eligibility trace, credit assignment);
+            Verwendung von Funktionsapproximatoren)</li>
+        <li>Modelllernende Methoden</li>
+        <li>Strategiesuche (Policy search; Funktionsapproximatoren - neuronale
+            Netze)</li>
+    </ul>
 
     </dd>
 </dl>
@@ -923,8 +1158,9 @@ Der Dozent nutzt folgende Notation:
 ## Material und Links
 
 * [Vorlesungswebsite](http://ies.anthropomatik.kit.edu/lehre_proplan.php)
-* Dimitri Bertsekas: Dynamic Programming and Optimal Control: Volume 1
+* Dimitri Bertsekas: Dynamic Programming and Optimal Control: Volume 1 (POMDP)
 * Emanuel Todorov: [Optimal Control Theory](https://homes.cs.washington.edu/~todorov/papers/TodorovChapter06.pdf) (für Pontryagins Minimum-Prinzip)
+* Dan Simon: Optimal State Estimation (Kalman-Filter)
 
 
 ## Vorlesungs&shy;empfehlungen
