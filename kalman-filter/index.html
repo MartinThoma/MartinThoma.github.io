@@ -146,8 +146,9 @@ in the form</p>
 <li><span class="math">\(A_k \in \mathbb{R}^{n_x \times n_x}\)</span> being the system matrix,</li>
 <li><span class="math">\(B_k \in \mathbb{R}^{n_x \times n_a}\)</span> being the control matrix,</li>
 <li><span class="math">\(a_k \in \mathbb{R}^{n_a}\)</span> being the control matrix vector (<span class="math">\(a\)</span> for action),</li>
-<li><span class="math">\(r_k^{(s)} \sim \mathcal{N(0, \Sigma_m)}\)</span> with <span class="math">\(\Sigma_m \in \mathbb{R}^{n_x \times n_x}\)</span>
-  being Gaussian noise</li>
+<li><span class="math">\(r_k^{(s)} \sim \mathcal{N(0, C_k^{(r_s)})}\)</span> with <span class="math">\(C_k^{(r_s)} \in \mathbb{R}^{n_x \times n_x}\)</span>
+  being Gaussian noise. <span class="math">\(C_k^{(r_s)} \in \mathbb{R}^{n_x \times n_x}\)</span> is called
+  the process error covariance matrix.</li>
 </ul>
 <p>You can also make a model of your <strong>measurements</strong>. They should be some linear
 combination of the state with Gaussian noise <span class="math">\(r_k^m\)</span>:</p>
@@ -155,8 +156,12 @@ combination of the state with Gaussian noise <span class="math">\(r_k^m\)</span>
 <p>with</p>
 <ul>
 <li><span class="math">\(z_k \in \mathbb{R}^{n_m}\)</span>: The measurement vector</li>
-<li><span class="math">\(r_k^{(m)} \sim \mathcal{N(0, \Sigma_m)}\)</span> with <span class="math">\(\Sigma_m \in \mathbb{R}^{n_m \times n_m}\)</span>
-  being Gaussian noise</li>
+<li><span class="math">\(r_k^{(r_m)} \sim \mathcal{N(0, C_k^{(r_m)})}\)</span> with <span class="math">\(C_k^{(r_m)} \in \mathbb{R}^{n_m \times n_m}\)</span>
+  being Gaussian noise. <span class="math">\(C_k^{(r_m)} \in \mathbb{R}^{n_m \times n_m}\)</span> is called
+  the measurment noise covariance matrix.</li>
+<li><span class="math">\(H \in \mathbb{R}^{n_m \times n_x}\)</span>: A matrix which transforms the state
+  vector <span class="math">\(\mathbf{x}\)</span> to a measurement vector. This matrix is a constant over
+  the whole process. It is most likely to have only 0s and 1s as entrys.</li>
 </ul>
 <h3 id="step-3-the-algorithm">Step 3: The algorithm</h3>
 <figure class="wp-caption aligncenter img-thumbnail">
@@ -167,14 +172,14 @@ combination of the state with Gaussian noise <span class="math">\(r_k^m\)</span>
 </figure>
 <p>The matrices which were not explained so far are:</p>
 <ul>
-<li><span class="math">\(C_k^{(r_s)} \in \mathbb{R}^{n_x \times n_x}\)</span>: The process error covariance matrix.</li>
-<li><span class="math">\(C_k^{(r_m)} \in \mathbb{R}^{n_m \times n_m}\)</span>: The measurment noise covariance matrix.</li>
-<li><span class="math">\(H \in \mathbb{R}^{n_m \times n_x}\)</span>: A matrix which transforms the state
-  vector <span class="math">\(\mathbf{x}\)</span> to a measurement vector. This matrix is a constant over
-  the whole process. It is most likely to have only 0s and 1s as entrys.</li>
+<li><span class="math">\(P_k \in \mathbb{R}^{n_x \times n_x}\)</span> is the state vector covariance matrix.
+  It is the uncertainty.</li>
 <li><span class="math">\(K_k \in \mathbb{R}^{n_x \times n_m}\)</span>: The Kalman gain. Higher values
   indicate that we give more trust to the measurment. Lower values indicate
-  that we give more trust to our last prediction.</li>
+  that we give more trust to our last prediction. If the measurement
+  uncertainty <span class="math">\(C_k^{(m)}\)</span> is small compared to the state uncertainty <span class="math">\(P_k^{(P)}\)</span>,
+  then the Kalman Gain is big. So we will rely more on the measurement and
+  less of what we predicted before.</li>
 </ul>
 <h2 id="example_1">Example</h2>
 <p>Suppose you want to track the position of a car in 2D. What you get as sensor

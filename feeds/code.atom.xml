@@ -37,8 +37,9 @@ in the form&lt;/p&gt;
 &lt;li&gt;&lt;span class="math"&gt;\(A_k \in \mathbb{R}^{n_x \times n_x}\)&lt;/span&gt; being the system matrix,&lt;/li&gt;
 &lt;li&gt;&lt;span class="math"&gt;\(B_k \in \mathbb{R}^{n_x \times n_a}\)&lt;/span&gt; being the control matrix,&lt;/li&gt;
 &lt;li&gt;&lt;span class="math"&gt;\(a_k \in \mathbb{R}^{n_a}\)&lt;/span&gt; being the control matrix vector (&lt;span class="math"&gt;\(a\)&lt;/span&gt; for action),&lt;/li&gt;
-&lt;li&gt;&lt;span class="math"&gt;\(r_k^{(s)} \sim \mathcal{N(0, \Sigma_m)}\)&lt;/span&gt; with &lt;span class="math"&gt;\(\Sigma_m \in \mathbb{R}^{n_x \times n_x}\)&lt;/span&gt;
-  being Gaussian noise&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(r_k^{(s)} \sim \mathcal{N(0, C_k^{(r_s)})}\)&lt;/span&gt; with &lt;span class="math"&gt;\(C_k^{(r_s)} \in \mathbb{R}^{n_x \times n_x}\)&lt;/span&gt;
+  being Gaussian noise. &lt;span class="math"&gt;\(C_k^{(r_s)} \in \mathbb{R}^{n_x \times n_x}\)&lt;/span&gt; is called
+  the process error covariance matrix.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;You can also make a model of your &lt;strong&gt;measurements&lt;/strong&gt;. They should be some linear
 combination of the state with Gaussian noise &lt;span class="math"&gt;\(r_k^m\)&lt;/span&gt;:&lt;/p&gt;
@@ -46,8 +47,12 @@ combination of the state with Gaussian noise &lt;span class="math"&gt;\(r_k^m\)&
 &lt;p&gt;with&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;span class="math"&gt;\(z_k \in \mathbb{R}^{n_m}\)&lt;/span&gt;: The measurement vector&lt;/li&gt;
-&lt;li&gt;&lt;span class="math"&gt;\(r_k^{(m)} \sim \mathcal{N(0, \Sigma_m)}\)&lt;/span&gt; with &lt;span class="math"&gt;\(\Sigma_m \in \mathbb{R}^{n_m \times n_m}\)&lt;/span&gt;
-  being Gaussian noise&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(r_k^{(r_m)} \sim \mathcal{N(0, C_k^{(r_m)})}\)&lt;/span&gt; with &lt;span class="math"&gt;\(C_k^{(r_m)} \in \mathbb{R}^{n_m \times n_m}\)&lt;/span&gt;
+  being Gaussian noise. &lt;span class="math"&gt;\(C_k^{(r_m)} \in \mathbb{R}^{n_m \times n_m}\)&lt;/span&gt; is called
+  the measurment noise covariance matrix.&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(H \in \mathbb{R}^{n_m \times n_x}\)&lt;/span&gt;: A matrix which transforms the state
+  vector &lt;span class="math"&gt;\(\mathbf{x}\)&lt;/span&gt; to a measurement vector. This matrix is a constant over
+  the whole process. It is most likely to have only 0s and 1s as entrys.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="step-3-the-algorithm"&gt;Step 3: The algorithm&lt;/h3&gt;
 &lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
@@ -58,14 +63,14 @@ combination of the state with Gaussian noise &lt;span class="math"&gt;\(r_k^m\)&
 &lt;/figure&gt;
 &lt;p&gt;The matrices which were not explained so far are:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;span class="math"&gt;\(C_k^{(r_s)} \in \mathbb{R}^{n_x \times n_x}\)&lt;/span&gt;: The process error covariance matrix.&lt;/li&gt;
-&lt;li&gt;&lt;span class="math"&gt;\(C_k^{(r_m)} \in \mathbb{R}^{n_m \times n_m}\)&lt;/span&gt;: The measurment noise covariance matrix.&lt;/li&gt;
-&lt;li&gt;&lt;span class="math"&gt;\(H \in \mathbb{R}^{n_m \times n_x}\)&lt;/span&gt;: A matrix which transforms the state
-  vector &lt;span class="math"&gt;\(\mathbf{x}\)&lt;/span&gt; to a measurement vector. This matrix is a constant over
-  the whole process. It is most likely to have only 0s and 1s as entrys.&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(P_k \in \mathbb{R}^{n_x \times n_x}\)&lt;/span&gt; is the state vector covariance matrix.
+  It is the uncertainty.&lt;/li&gt;
 &lt;li&gt;&lt;span class="math"&gt;\(K_k \in \mathbb{R}^{n_x \times n_m}\)&lt;/span&gt;: The Kalman gain. Higher values
   indicate that we give more trust to the measurment. Lower values indicate
-  that we give more trust to our last prediction.&lt;/li&gt;
+  that we give more trust to our last prediction. If the measurement
+  uncertainty &lt;span class="math"&gt;\(C_k^{(m)}\)&lt;/span&gt; is small compared to the state uncertainty &lt;span class="math"&gt;\(P_k^{(P)}\)&lt;/span&gt;,
+  then the Kalman Gain is big. So we will rely more on the measurement and
+  less of what we predicted before.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="example_1"&gt;Example&lt;/h2&gt;
 &lt;p&gt;Suppose you want to track the position of a car in 2D. What you get as sensor
