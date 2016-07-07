@@ -102,7 +102,7 @@ MathJax.Hub.Queue(function() {
     <div class="span2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#step-by-step" title="Step-by-step">Step-by-step</a><ul><li><a class="toc-href" href="#step-1-problem-description" title="Step 1: Problem description">Step 1: Problem description</a></li><li><a class="toc-href" href="#step-2-modelling" title="Step 2: Modelling">Step 2: Modelling</a></li><li><a class="toc-href" href="#step-3-the-algorithm" title="Step 3: The algorithm">Step 3: The algorithm</a></li></ul></li><li><a class="toc-href" href="#example_1" title="Example">Example</a></li><li><a class="toc-href" href="#lectures" title="Lectures">Lectures</a></li><li><a class="toc-href" href="#literature-and-weblinks" title="Literature and Weblinks">Literature and Weblinks</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#step-by-step" title="Step-by-step">Step-by-step</a><ul><li><a class="toc-href" href="#step-1-problem-description" title="Step 1: Problem description">Step 1: Problem description</a></li><li><a class="toc-href" href="#step-2-modelling" title="Step 2: Modelling">Step 2: Modelling</a></li><li><a class="toc-href" href="#step-3-the-algorithm" title="Step 3: The algorithm">Step 3: The algorithm</a></li></ul></li><li><a class="toc-href" href="#example_1" title="Example">Example</a></li><li><a class="toc-href" href="#miscallenious-facts" title="Miscallenious facts">Miscallenious facts</a><ul><li><a class="toc-href" href="#error-estimates" title="Error estimates">Error estimates</a></li><li><a class="toc-href" href="#perfect-sensor" title="Perfect sensor">Perfect sensor</a></li><li><a class="toc-href" href="#really-bad-sensor" title="Really bad sensor">Really bad sensor</a></li></ul></li><li><a class="toc-href" href="#lectures_1" title="Lectures">Lectures</a></li><li><a class="toc-href" href="#literature-and-weblinks" title="Literature and Weblinks">Literature and Weblinks</a></li></ul></div>
         </nav>
     </div>
     <div class="span8 article-content" id="contentAfterTitle">
@@ -253,7 +253,39 @@ It encodes errors in the modeling itself as well as errors in the actions.</p>
 <p>Now, finally the state and covariance update:</p>
 <div class="math">$$\mathbf{x}_{k+1} = \mathbf{x}^{(P)}_{k+1} + K_{k+1} \tilde{y}$$</div>
 <div class="math">$$P_{k+1} = (I - K_{k+1} H) P_{k+1}^{(P)}$$</div>
-<h2 id="lectures">Lectures</h2>
+<h2 id="miscallenious-facts">Miscallenious facts</h2>
+<h3 id="error-estimates">Error estimates</h3>
+<blockquote>
+<p>How does the error estimate change in the Kalman filter steps?</p>
+</blockquote>
+<p>In the prediction step, you have a matrix</p>
+<div class="math">$$\tilde{P} = A \cdot P \cdot A^T, \qquad A, P \in \mathbb{R}^{n \times n}$$</div>
+<p>(<span class="math">\(A\)</span> is the system matrix and <span class="math">\(P\)</span> is the estimate of the error.)</p>
+<p>It has the property:</p>
+<div class="math">$$\det(\tilde{P}) = \det(A) \cdot \det(P) \cdot \det(A^T) = 2 \cdot \det(A) \cdot \det(P)$$</div>
+<p>So if the determinant of <span class="math">\(P\)</span> is how we say if it gets bigger, then it will get
+bigger in the prediction step if <span class="math">\(\det(A) &gt; 0.5\)</span>. Otherwise, it might still
+get bigger as the system noise <span class="math">\(C_{k}^{(s)}\)</span> gets added.</p>
+<p>In the filter step, things are more complicated. I don't know what to write
+about it, so I asked for help:
+<a href="http://math.stackexchange.com/q/1851904/6876">How does the error estimate change in the Kalman filter?</a></p>
+<h3 id="perfect-sensor">Perfect sensor</h3>
+<blockquote>
+<p>What is the value of <span class="math">\(K_k\)</span> if the sensor is perfect?</p>
+</blockquote>
+<p>A perfect sensor has no uncertainty. This means the variance <span class="math">\(C_k^{(m)}\)</span> is 0.
+It follows:</p>
+<div class="math">$$K_k = P_k^{(P)} H^T (H^T)^{-1} (P_k^{(P)})^{-1} H^{-1} = H^{-1}$$</div>
+<p>This leads to the uncertainty <span class="math">\(P_k\)</span> getting 0 and the state <span class="math">\(x_k\)</span> will be the
+measurement <span class="math">\(z_k\)</span>.</p>
+<h3 id="really-bad-sensor">Really bad sensor</h3>
+<blockquote>
+<p>What is the value of <span class="math">\(K_k\)</span> if the sensor is as bad as possible?</p>
+</blockquote>
+<p>If we don't trust the sensor at all, the uncertainty is huge. The inverse of a
+huge term is close to 0. so the Kalman gain <span class="math">\(K_k\)</span> is close to 0. This means
+neither the state <span class="math">\(x_k\)</span> nor the error estimate <span class="math">\(P_k\)</span> will change.</p>
+<h2 id="lectures_1">Lectures</h2>
 <p>There are several lectures at KIT which introduce Kalman filters:</p>
 <ul>
 <li><a href="https://martin-thoma.com/probabilistische-planung/">Probabilistische Planung</a></li>

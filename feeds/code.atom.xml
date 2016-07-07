@@ -144,7 +144,39 @@ It encodes errors in the modeling itself as well as errors in the actions.&lt;/p
 &lt;p&gt;Now, finally the state and covariance update:&lt;/p&gt;
 &lt;div class="math"&gt;$$\mathbf{x}_{k+1} = \mathbf{x}^{(P)}_{k+1} + K_{k+1} \tilde{y}$$&lt;/div&gt;
 &lt;div class="math"&gt;$$P_{k+1} = (I - K_{k+1} H) P_{k+1}^{(P)}$$&lt;/div&gt;
-&lt;h2 id="lectures"&gt;Lectures&lt;/h2&gt;
+&lt;h2 id="miscallenious-facts"&gt;Miscallenious facts&lt;/h2&gt;
+&lt;h3 id="error-estimates"&gt;Error estimates&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;How does the error estimate change in the Kalman filter steps?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;In the prediction step, you have a matrix&lt;/p&gt;
+&lt;div class="math"&gt;$$\tilde{P} = A \cdot P \cdot A^T, \qquad A, P \in \mathbb{R}^{n \times n}$$&lt;/div&gt;
+&lt;p&gt;(&lt;span class="math"&gt;\(A\)&lt;/span&gt; is the system matrix and &lt;span class="math"&gt;\(P\)&lt;/span&gt; is the estimate of the error.)&lt;/p&gt;
+&lt;p&gt;It has the property:&lt;/p&gt;
+&lt;div class="math"&gt;$$\det(\tilde{P}) = \det(A) \cdot \det(P) \cdot \det(A^T) = 2 \cdot \det(A) \cdot \det(P)$$&lt;/div&gt;
+&lt;p&gt;So if the determinant of &lt;span class="math"&gt;\(P\)&lt;/span&gt; is how we say if it gets bigger, then it will get
+bigger in the prediction step if &lt;span class="math"&gt;\(\det(A) &amp;gt; 0.5\)&lt;/span&gt;. Otherwise, it might still
+get bigger as the system noise &lt;span class="math"&gt;\(C_{k}^{(s)}\)&lt;/span&gt; gets added.&lt;/p&gt;
+&lt;p&gt;In the filter step, things are more complicated. I don't know what to write
+about it, so I asked for help:
+&lt;a href="http://math.stackexchange.com/q/1851904/6876"&gt;How does the error estimate change in the Kalman filter?&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="perfect-sensor"&gt;Perfect sensor&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;What is the value of &lt;span class="math"&gt;\(K_k\)&lt;/span&gt; if the sensor is perfect?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;A perfect sensor has no uncertainty. This means the variance &lt;span class="math"&gt;\(C_k^{(m)}\)&lt;/span&gt; is 0.
+It follows:&lt;/p&gt;
+&lt;div class="math"&gt;$$K_k = P_k^{(P)} H^T (H^T)^{-1} (P_k^{(P)})^{-1} H^{-1} = H^{-1}$$&lt;/div&gt;
+&lt;p&gt;This leads to the uncertainty &lt;span class="math"&gt;\(P_k\)&lt;/span&gt; getting 0 and the state &lt;span class="math"&gt;\(x_k\)&lt;/span&gt; will be the
+measurement &lt;span class="math"&gt;\(z_k\)&lt;/span&gt;.&lt;/p&gt;
+&lt;h3 id="really-bad-sensor"&gt;Really bad sensor&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;What is the value of &lt;span class="math"&gt;\(K_k\)&lt;/span&gt; if the sensor is as bad as possible?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;If we don't trust the sensor at all, the uncertainty is huge. The inverse of a
+huge term is close to 0. so the Kalman gain &lt;span class="math"&gt;\(K_k\)&lt;/span&gt; is close to 0. This means
+neither the state &lt;span class="math"&gt;\(x_k\)&lt;/span&gt; nor the error estimate &lt;span class="math"&gt;\(P_k\)&lt;/span&gt; will change.&lt;/p&gt;
+&lt;h2 id="lectures_1"&gt;Lectures&lt;/h2&gt;
 &lt;p&gt;There are several lectures at KIT which introduce Kalman filters:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://martin-thoma.com/probabilistische-planung/"&gt;Probabilistische Planung&lt;/a&gt;&lt;/li&gt;
