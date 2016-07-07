@@ -199,6 +199,62 @@ $$\mathbf{x}_{k+1} = \mathbf{x}^{(P)}_{k+1} + K_{k+1} \tilde{y}$$
 $$P_{k+1} = (I - K_{k+1} H) P_{k+1}^{(P)}$$
 
 
+## Miscallenious facts
+
+### Error estimates
+
+> How does the error estimate change in the Kalman filter steps?
+
+In the prediction step, you have a matrix
+
+$$\tilde{P} = A \cdot P \cdot A^T, \qquad A, P \in \mathbb{R}^{n \times n}$$
+
+($A$ is the system matrix and $P$ is the estimate of the error.)
+
+It has the property:
+
+$$\det(\tilde{P}) = \det(A) \cdot \det(P) \cdot \det(A^T) = 2 \cdot \det(A) \cdot \det(P)$$
+
+So if the determinant of $P$ is how we say if it gets bigger, then it will get
+bigger in the prediction step if $\det(A) > 0.5$. Otherwise, it might still
+get bigger as the system noise $C_{k}^{(s)}$ gets added.
+
+In the filter step, things are more complicated. I don't know what to write
+about it, so I asked for help:
+[How does the error estimate change in the Kalman filter?](http://math.stackexchange.com/q/1851904/6876)
+
+
+### Perfect sensor
+
+> What is the value of $K_k$ if the sensor is perfect?
+
+A perfect sensor has no uncertainty. This means the variance $C_k^{(m)}$ is 0.
+It follows:
+
+$$K_k = P_k^{(P)} H^T (H^T)^{-1} (P_k^{(P)})^{-1} H^{-1} = H^{-1}$$
+
+This leads to the uncertainty $P_k$ getting 0 and the state $x_k$ will be the
+measurement $z_k$.
+
+
+### Really bad sensor
+
+> What is the value of $K_k$ if the sensor is as bad as possible?
+
+If we don't trust the sensor at all, the uncertainty is huge. The inverse of a
+huge term is close to 0. so the Kalman gain $K_k$ is close to 0. This means
+neither the state $x_k$ nor the error estimate $P_k$ will change.
+
+
+## Extensions
+
+* EKF: <a href="https://en.wikipedia.org/wiki/Extended_Kalman_filter">Extended Kalman Filter</a>
+    * Linearization (multivariate Taylor Series expansions)
+* UKF: Unscented Kalman filter
+    * deterministic sampling
+    * approximation of the first two moments
+
+
 ## Lectures
 
 There are several lectures at KIT which introduce Kalman filters:
