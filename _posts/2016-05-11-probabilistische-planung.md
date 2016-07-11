@@ -152,7 +152,7 @@ Slides: `11.05.2016`
           <li>Initialzustand $x_o \in \mathcal{X}$ des Agenten zum Zeitpunkt $k=0$.</li>
           <li>Nichtleere Aktionsmenge $A_k(x_k) \subseteq A$ mit Aktion $a_k$.
               Häufig $A_k(x_k)=A$ für alle $k=0, \dots, N$ (Zeit- und Zustandsinvarianz)</li>
-          <li>Übergangswahrscheinlichkeit $x_{k+1} \leadsto P_x(\cdot | x_k, a_k)$.<br/>
+          <li>Übergangswahrscheinlichkeit $x_{k+1} \sim P_x(\cdot | x_k, a_k)$.<br/>
               Markov-Annahme: $P_x(\cdot | x_k, a_k) = P(\cdot | x_{0:k}, a_{0:k})$,
               wobei die Notation $x_{0:k} = x_0, x_1, \dots, x_k$ bedeutet.
               Das heißt, der Folgezustand ist nur vom Zustand $x_k$ und
@@ -163,7 +163,7 @@ Slides: `11.05.2016`
               Bei kontinuierlichen Zuständen eine bedingte Wahrscheinlichkeits&shy;dichte:
               $$f(x_{k+1} | x_k, a_k) = \frac{\partial F(x | x_k, a_k)}{\partial x} |_{x=x_{k+1}}$$</li>
           <li>Additive Kostenfunktion
-              $$g_N (x_N) + L_{k=0}^{N-1} g_k(x_k, a_k)$$
+              $$g_N (x_N) + \sum_{k=0}^{N-1} g_k(x_k, a_k)$$
               wobei $g_N$ die terminalen Kosten und $g_k$ Schrittkosten genannt
               werden.</li>
           <li>Der Zustand ist für jedes $k$ <strong>direkt beobachtbar</strong>.
