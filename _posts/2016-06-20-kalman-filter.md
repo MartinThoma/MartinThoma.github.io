@@ -246,6 +246,24 @@ huge term is close to 0. so the Kalman gain $K_k$ is close to 0. This means
 neither the state $x_k$ nor the error estimate $P_k$ will change.
 
 
+### Notation
+
+The system noise covariance matrix $C_k^{(r_s)}$ is often denoted with $Q$.
+
+
+### Alternative State Equation
+
+Sometimes, the noise in the state equation is modelled in a different way:
+
+$$\mathbf{x}_{k+1} = A_k \mathbf{x}_k + B_k a_k + G r_k^{(s)}$$
+
+Then you also have to adjust the filter step to
+
+$$P_{k+1}^{(P)} = A_k P_k A_k^T + G C_k^{(r_s)} G^T$$
+
+See [Why does it make sense to have noise of a different shape than the state vector?](http://dsp.stackexchange.com/q/32090/9101)
+
+
 ## Extensions
 
 * EKF: <a href="https://en.wikipedia.org/wiki/Extended_Kalman_filter">Extended Kalman Filter</a>
@@ -254,6 +272,7 @@ neither the state $x_k$ nor the error estimate $P_k$ will change.
 * UKF: Unscented Kalman filter
     * deterministic sampling
     * approximation of the first two moments
+    * does not need derivative (in contrast to EKF)
 
 
 ## Lectures
