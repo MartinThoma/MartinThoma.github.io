@@ -264,6 +264,13 @@ Slides: `11.05.2016`
   <dd>Eine Bellman-Gleichung stellt die Lösung eines Problems rekursiv dar.
       Sie zeigt, dass und wie man die Lösung eines komplexen Problems aus
       Lösungen von Teilproblemen aufbauen kann.<br/>
+      Die Belmann-Gleichungen lauten:
+      $$
+      \begin{align}
+J_N(x_n) &= g_N(x_N)\\
+J_k(x_k) &= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_{k+1})| x_k, a_k) \right )
+\end{align}
+      $$
       <br/>
       Probleme, für die man eine Bellman-Gleichung aufstellen kann haben
       <b>optimale Substruktur</b>.
