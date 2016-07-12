@@ -176,6 +176,14 @@ measurement &lt;span class="math"&gt;\(z_k\)&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;If we don't trust the sensor at all, the uncertainty is huge. The inverse of a
 huge term is close to 0. so the Kalman gain &lt;span class="math"&gt;\(K_k\)&lt;/span&gt; is close to 0. This means
 neither the state &lt;span class="math"&gt;\(x_k\)&lt;/span&gt; nor the error estimate &lt;span class="math"&gt;\(P_k\)&lt;/span&gt; will change.&lt;/p&gt;
+&lt;h3 id="notation"&gt;Notation&lt;/h3&gt;
+&lt;p&gt;The system noise covariance matrix &lt;span class="math"&gt;\(C_k^{(r_s)}\)&lt;/span&gt; is often denoted with &lt;span class="math"&gt;\(Q\)&lt;/span&gt;.&lt;/p&gt;
+&lt;h3 id="alternative-state-equation"&gt;Alternative State Equation&lt;/h3&gt;
+&lt;p&gt;Sometimes, the noise in the state equation is modelled in a different way:&lt;/p&gt;
+&lt;div class="math"&gt;$$\mathbf{x}_{k+1} = A_k \mathbf{x}_k + B_k a_k + G r_k^{(s)}$$&lt;/div&gt;
+&lt;p&gt;Then you also have to adjust the filter step to&lt;/p&gt;
+&lt;div class="math"&gt;$$P_{k+1}^{(P)} = A_k P_k A_k^T + G C_k^{(r_s)} G^T$$&lt;/div&gt;
+&lt;p&gt;See &lt;a href="http://dsp.stackexchange.com/q/32090/9101"&gt;Why does it make sense to have noise of a different shape than the state vector?&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id="extensions_1"&gt;Extensions&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;EKF: &lt;a href="https://en.wikipedia.org/wiki/Extended_Kalman_filter"&gt;Extended Kalman Filter&lt;/a&gt;&lt;ul&gt;
@@ -186,6 +194,7 @@ neither the state &lt;span class="math"&gt;\(x_k\)&lt;/span&gt; nor the error es
 &lt;li&gt;UKF: Unscented Kalman filter&lt;ul&gt;
 &lt;li&gt;deterministic sampling&lt;/li&gt;
 &lt;li&gt;approximation of the first two moments&lt;/li&gt;
+&lt;li&gt;does not need derivative (in contrast to EKF)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;

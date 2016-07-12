@@ -142,6 +142,11 @@ MathJax.Hub.Queue(function() {
 <td>12. Vorlesung</td>
 <td>Kalman Filter: Filterschritt; SLAM</td>
 </tr>
+<tr>
+<td>12.07.2016</td>
+<td>13. Vorlesung</td>
+<td>Particle Filter, SLAM</td>
+</tr>
 </table>
 <h3 id="statische-lokalisierung">Statische Lokalisierung</h3>
 <p>Slides: <code>20160517-lma-1</code></p>
@@ -219,6 +224,65 @@ MathJax.Hub.Queue(function() {
 <li>Nichtlinearit&auml;ten des Prolems</li>
 </ul>
 </dd>
+<dt><dfn>Landmarke</dfn></dt>
+<dd>Ein gut sichtbares / wiedererkennbares Objekt, welches zur Abstandsmessung
+        benutzt werden kann.</dd>
+<dt><dfn>EKF SLAM</dfn></dt>
+<dd>
+
+        EKF SLAM basiert auf dem Extended Kalman Filter.
+
+        <u>Vereinfachungen</u>:
+
+        <ul>
+<li>Problem in 2D</li>
+<li>Feste Zahl von punktf&ouml;rmigen Landmarken</li>
+<li>Assoziationen bekannt: Landmarken werden zuverl&auml;ssig erkannt
+                und nicht verwechselt.</li>
+</ul>
+
+        Zustand $\mathbf{x}_k = [\underbrace{x_k, y_k, \theta_k}_{\text{Pose des Roboters}}, \underbrace{m_{1, x}, m_{1, y}}_{\text{LM 1}}, \dots, \underbrace{m_{M, x}, m_{M, y}}_{\text{LM } M}]$
+        <br/>
+
+        Dimension von $\mathbf{x}_k$: $3 + 2 M$.<br/>
+        Kovarianz hat $(3+2M)^2$ Elemente, d.h. der Speicheraufwand ist
+        quadratisch in der Zahl der Landmarken.<br/>
+<br/>
+        Systemgleichung: $x_{k+1} = a_k (x_k, M_k) + w_k$<br/>
+        $x_{k+1} \approx A_k x_k + w_k,$
+        wobei $A_k$ Jaccobi-Matrix von $a_k(x_k, u_k)$ f&uuml;r festes $u_k$ an der
+        Stelle $\hat{x}_k^e$.<br/>
+<br/>
+        Messgleichung: $y_k = h(x_k) + v_k$<br/>
+        In der Regel sind nicht alle Landmarken zugleich sichtbar. In diesem
+        Fall werden Zeilen in der Messabbildung weggelassen.
+        $$y_k = H_k(x_k) + v_k,$$
+        wobei $H_k$ die Jaccobi-Matrix von $h(x_k)$ an der Stelle $\hat{x}_k^P$
+        ist.
+    </dd>
+<dt><a href="https://en.wikipedia.org/wiki/Particle_filter"><dfn id="particle-filter">Particle Filter</dfn></a> (<dfn>Partikelfilter</dfn>, <dfn>Sequential Monte Carlo</dfn>, <dfn>SMC</dfn>)</dt>
+<dd>
+
+        Idee: Sch&auml;tze Zustand &uuml;ber Partikel.
+
+        <u>Ansatz</u>: Sample aus Tranistionsdichte
+        $$f(x_{k+1} | x_k = p_k^1, u_k$$
+
+        Implementierung:
+
+        <ul>
+<li>Rauschen $w_k$ samples $\rightarrow v_k^1, \dots, v_k^N$</li>
+<li>Propagiere durch $x_{k+1} = a_N(x_N, u_N) + w_N$, d.h.
+                $p^1_{k+1} = a_k (p_k^1, u_k) + v_k^1$</li>
+<li>Gewichte bleiben gleich</li>
+</ul>
+<u>Problem</u>: Viele Partikel $p_k^i$ haben geringes Gewicht $w_k^i$<br/>
+<u>L&ouml;sung</u>: Resampling mit sequential importance resampling (SIR:
+                       ziehe $N$ neue Partikel mit Gewichten $\frac{1}{n}$ aus
+                       Menge der alten Partikel,
+                       wobei die Wahrscheinlichkeit das Partikel $p_k^i$ zu ziehen
+                       gerade $w_k^i$ ist.)
+    </dd>
 </dl>
 <h2 id="material-und-links">Material und Links</h2>
 <p>Die Vorlesung wurde gestreamt und ist unter

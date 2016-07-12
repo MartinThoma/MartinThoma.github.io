@@ -223,6 +223,11 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;td&gt;12. Vorlesung&lt;/td&gt;
 &lt;td&gt;Kalman Filter: Filterschritt; SLAM&lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;12.07.2016&lt;/td&gt;
+&lt;td&gt;13. Vorlesung&lt;/td&gt;
+&lt;td&gt;Particle Filter, SLAM&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/table&gt;
 &lt;h3 id="statische-lokalisierung"&gt;Statische Lokalisierung&lt;/h3&gt;
 &lt;p&gt;Slides: &lt;code&gt;20160517-lma-1&lt;/code&gt;&lt;/p&gt;
@@ -300,6 +305,65 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;li&gt;Nichtlinearit&amp;auml;ten des Prolems&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Landmarke&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;Ein gut sichtbares / wiedererkennbares Objekt, welches zur Abstandsmessung
+        benutzt werden kann.&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;EKF SLAM&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+
+        EKF SLAM basiert auf dem Extended Kalman Filter.
+
+        &lt;u&gt;Vereinfachungen&lt;/u&gt;:
+
+        &lt;ul&gt;
+&lt;li&gt;Problem in 2D&lt;/li&gt;
+&lt;li&gt;Feste Zahl von punktf&amp;ouml;rmigen Landmarken&lt;/li&gt;
+&lt;li&gt;Assoziationen bekannt: Landmarken werden zuverl&amp;auml;ssig erkannt
+                und nicht verwechselt.&lt;/li&gt;
+&lt;/ul&gt;
+
+        Zustand $\mathbf{x}_k = [\underbrace{x_k, y_k, \theta_k}_{\text{Pose des Roboters}}, \underbrace{m_{1, x}, m_{1, y}}_{\text{LM 1}}, \dots, \underbrace{m_{M, x}, m_{M, y}}_{\text{LM } M}]$
+        &lt;br/&gt;
+
+        Dimension von $\mathbf{x}_k$: $3 + 2 M$.&lt;br/&gt;
+        Kovarianz hat $(3+2M)^2$ Elemente, d.h. der Speicheraufwand ist
+        quadratisch in der Zahl der Landmarken.&lt;br/&gt;
+&lt;br/&gt;
+        Systemgleichung: $x_{k+1} = a_k (x_k, M_k) + w_k$&lt;br/&gt;
+        $x_{k+1} \approx A_k x_k + w_k,$
+        wobei $A_k$ Jaccobi-Matrix von $a_k(x_k, u_k)$ f&amp;uuml;r festes $u_k$ an der
+        Stelle $\hat{x}_k^e$.&lt;br/&gt;
+&lt;br/&gt;
+        Messgleichung: $y_k = h(x_k) + v_k$&lt;br/&gt;
+        In der Regel sind nicht alle Landmarken zugleich sichtbar. In diesem
+        Fall werden Zeilen in der Messabbildung weggelassen.
+        $$y_k = H_k(x_k) + v_k,$$
+        wobei $H_k$ die Jaccobi-Matrix von $h(x_k)$ an der Stelle $\hat{x}_k^P$
+        ist.
+    &lt;/dd&gt;
+&lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Particle_filter"&gt;&lt;dfn id="particle-filter"&gt;Particle Filter&lt;/dfn&gt;&lt;/a&gt; (&lt;dfn&gt;Partikelfilter&lt;/dfn&gt;, &lt;dfn&gt;Sequential Monte Carlo&lt;/dfn&gt;, &lt;dfn&gt;SMC&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dd&gt;
+
+        Idee: Sch&amp;auml;tze Zustand &amp;uuml;ber Partikel.
+
+        &lt;u&gt;Ansatz&lt;/u&gt;: Sample aus Tranistionsdichte
+        $$f(x_{k+1} | x_k = p_k^1, u_k$$
+
+        Implementierung:
+
+        &lt;ul&gt;
+&lt;li&gt;Rauschen $w_k$ samples $\rightarrow v_k^1, \dots, v_k^N$&lt;/li&gt;
+&lt;li&gt;Propagiere durch $x_{k+1} = a_N(x_N, u_N) + w_N$, d.h.
+                $p^1_{k+1} = a_k (p_k^1, u_k) + v_k^1$&lt;/li&gt;
+&lt;li&gt;Gewichte bleiben gleich&lt;/li&gt;
+&lt;/ul&gt;
+&lt;u&gt;Problem&lt;/u&gt;: Viele Partikel $p_k^i$ haben geringes Gewicht $w_k^i$&lt;br/&gt;
+&lt;u&gt;L&amp;ouml;sung&lt;/u&gt;: Resampling mit sequential importance resampling (SIR:
+                       ziehe $N$ neue Partikel mit Gewichten $\frac{1}{n}$ aus
+                       Menge der alten Partikel,
+                       wobei die Wahrscheinlichkeit das Partikel $p_k^i$ zu ziehen
+                       gerade $w_k^i$ ist.)
+    &lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h2 id="material-und-links"&gt;Material und Links&lt;/h2&gt;
 &lt;p&gt;Die Vorlesung wurde gestreamt und ist unter
@@ -564,7 +628,14 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;dd&gt;Eine Bellman-Gleichung stellt die L&amp;ouml;sung eines Problems rekursiv dar.
       Sie zeigt, dass und wie man die L&amp;ouml;sung eines komplexen Problems aus
       L&amp;ouml;sungen von Teilproblemen aufbauen kann.&lt;br/&gt;
-&lt;br/&gt;
+      Die Belmann-Gleichungen lauten:
+      $$
+      \begin{align}
+J_N(x_n) &amp;amp;= g_N(x_N)\\
+J_k(x_k) &amp;amp;= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_{k+1})| x_k, a_k) \right )
+\end{align}
+      $$
+      &lt;br/&gt;
       Probleme, f&amp;uuml;r die man eine Bellman-Gleichung aufstellen kann haben
       &lt;b&gt;optimale Substruktur&lt;/b&gt;.
       &lt;br/&gt;
