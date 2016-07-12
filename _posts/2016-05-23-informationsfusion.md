@@ -28,22 +28,16 @@ Signal, usw. eingeführt.
 Slides: `IF-Kap2_151215.pdf`
 
 * Wahrscheinlichkeitsraum, Zufallsvariable
-* Kalmann-Filter (KF)
-* Extended Kalmann-Filter (EKF)
 * Guide to the Expression of Uncertainty in Measurement (GUM)
 * Bayessche Methodik
 
 <dl>
     <dt><a href="https://en.wikipedia.org/wiki/Probability_axioms#Axioms"><dfn id="kolmogorov-axioms">Kolmogorov-Axiome</dfn></a></dt>
     <dd>TODO</dd>
-    <dt><a href="https://de.wikipedia.org/wiki/Kalman-Filter"><dfn id="kalman-filter">Kalman-Filter</dfn></a></dt>
+    <dt><a href="https://de.wikipedia.org/wiki/Kalman-Filter"><dfn id="kalman-filter">Kalman-Filter</dfn></a> (<dfn>KF</dfn>)</dt>
     <dd>Siehe <a href="https://martin-thoma.com/kalman-filter/">Kalman-filter Artikel</a>.</dd>
     <dt><dfn id="extended-kalman-filter">Extended Kalman Filter</dfn> (<dfn id="ekf">EKF</dfn>)</dt>
-    <dd>
-
-        Siehe: <a href="http://www.cbcity.de/das-extended-kalman-filter-einfach-erklaert">Das Extended Kalman Filter einfach erklärt</a>
-
-    </dd>
+    <dd>Siehe <a href="https://martin-thoma.com/kalman-filter/">Kalman-filter Artikel</a>.</dd
     <dt><a href="https://de.wikipedia.org/wiki/GUM_(Norm)"><dfn id="gum">GUM</dfn></a> (<dfn>Guide to the Expression of Uncertainty in Measurement</dfn>)</dt>
     <dd>GUM ist eine internationale Norm welche das Ziel hat, die
         Vergleichbarkeit zwischen Messergebnissen herzustellen. Dazu

@@ -250,6 +250,7 @@ neither the state $x_k$ nor the error estimate $P_k$ will change.
 
 * EKF: <a href="https://en.wikipedia.org/wiki/Extended_Kalman_filter">Extended Kalman Filter</a>
     * Linearization (multivariate Taylor Series expansions)
+    * See: <a href="http://www.cbcity.de/das-extended-kalman-filter-einfach-erklaert">Das Extended Kalman Filter einfach erklärt</a> (German)
 * UKF: Unscented Kalman filter
     * deterministic sampling
     * approximation of the first two moments
