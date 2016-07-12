@@ -102,7 +102,7 @@ MathJax.Hub.Queue(function() {
     <div class="span2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#svn" title="SVN">SVN</a><ul><li><a class="toc-href" href="#updating-the-repository" title="Updating the repository">Updating the repository</a></li><li><a class="toc-href" href="#nice-diffs" title="Nice diffs">Nice diffs</a></li><li><a class="toc-href" href="#compare-revisions" title="Compare revisions">Compare revisions</a></li></ul></li><li><a class="toc-href" href="#git_1" title="Git">Git</a><ul><li><a class="toc-href" href="#global-configuration" title="Global configuration">Global configuration</a></li><li><a class="toc-href" href="#nice-diffs_1" title="Nice diffs">Nice diffs</a></li><li><a class="toc-href" href="#github" title="GitHub">GitHub</a></li><li><a class="toc-href" href="#snippets" title="Snippets">Snippets</a></li></ul></li><li><a class="toc-href" href="#resources_1" title="Resources">Resources</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#svn" title="SVN">SVN</a><ul><li><a class="toc-href" href="#updating-the-repository" title="Updating the repository">Updating the repository</a></li><li><a class="toc-href" href="#nice-diffs" title="Nice diffs">Nice diffs</a></li><li><a class="toc-href" href="#compare-revisions" title="Compare revisions">Compare revisions</a></li></ul></li><li><a class="toc-href" href="#git_1" title="Git">Git</a><ul><li><a class="toc-href" href="#global-configuration" title="Global configuration">Global configuration</a></li><li><a class="toc-href" href="#nice-diffs_1" title="Nice diffs">Nice diffs</a></li><li><a class="toc-href" href="#image-diffs" title="Image diffs">Image diffs</a></li><li><a class="toc-href" href="#github" title="GitHub">GitHub</a></li><li><a class="toc-href" href="#snippets" title="Snippets">Snippets</a></li></ul></li><li><a class="toc-href" href="#resources_1" title="Resources">Resources</a></li></ul></div>
         </nav>
     </div>
     <div class="span8 article-content" id="contentAfterTitle">
@@ -167,6 +167,113 @@ meld <span class="s2">"</span><span class="nv">$2</span><span class="s2">"</span
 <figcaption class="text-center">Using Meld with GIT</figcaption>
 </figure></p>
 <p>See also <a href="http://jeetworks.org/node/90">jeetworks.org</a> for some other solutions.</p>
+<h3 id="image-diffs">Image diffs</h3>
+<p>Aki Koskinen posted a nice article on how to make <a href="http://www.akikoskinen.info/image-diffs-with-git/">image diffs with git</a>. I only changed the diff program to <a href="https://gist.github.com/StanAngeloff/1716699">StanAngeloffs simple-imagediff.py
+</a> The most important steps are:</p>
+<p>Tell git what images are:</p>
+<div class="highlight"><pre><span></span>$ git config --global core.attributesfile <span class="s1">'~/.gitattributes'</span>
+$ cat .gitattributes
+*.gif <span class="nv">diff</span><span class="o">=</span>image
+*.jpg <span class="nv">diff</span><span class="o">=</span>image
+*.png <span class="nv">diff</span><span class="o">=</span>image
+</pre></div>
+<p>Tell git how to deal with images in diffs:</p>
+<div class="highlight"><pre><span></span>$ git config --global diff.image.command <span class="s1">'simple-imagediff'</span>
+</pre></div>
+<p>Add <code>simple-imagediff</code> as an executable:</p>
+<div class="highlight"><pre><span></span><span class="err">$</span> <span class="n">cat</span> <span class="o">~/.</span><span class="n">local</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">simple</span><span class="o">-</span><span class="n">imagediff</span>
+<span class="c1">#!/usr/bin/env python</span>
+
+<span class="c1"># Simple Image Diffs</span>
+<span class="c1"># ==================</span>
+<span class="c1">#</span>
+<span class="c1"># How to Install</span>
+<span class="c1"># --------------</span>
+<span class="c1">#</span>
+<span class="c1"># Download the script somewhere on $PATH as 'simple-imagediff' with +x:</span>
+<span class="c1">#</span>
+<span class="c1"># $ cd ~/bin</span>
+<span class="c1"># $ wget -O simple-imagediff https://raw.github.com/gist/1716699/simple-imagediff.py</span>
+<span class="c1"># $ chmod +x simple-imagediff</span>
+<span class="c1">#</span>
+<span class="c1"># Prerequisites</span>
+<span class="c1"># -------------</span>
+<span class="c1">#</span>
+<span class="c1"># The script should work out-of-the box on Ubuntu 11.10. On other OS'es you may</span>
+<span class="c1"># need to install PIL and Gtk3.</span>
+<span class="c1">#</span>
+<span class="c1"># Git Setup</span>
+<span class="c1"># ---------</span>
+<span class="c1">#</span>
+<span class="c1"># In ~/.gitconfig, add:</span>
+<span class="c1">#</span>
+<span class="c1"># [diff "image"]</span>
+<span class="c1">#   command = simple-imagediff</span>
+<span class="c1">#</span>
+<span class="c1"># In your project, create .gitattributes file and add (this enables the custom</span>
+<span class="c1"># diff tool above):</span>
+<span class="c1">#</span>
+<span class="c1"># *.gif diff=image</span>
+<span class="c1"># *.jpg diff=image</span>
+<span class="c1"># *.png diff=image</span>
+<span class="c1">#</span>
+<span class="c1"># Try It</span>
+<span class="c1"># ------</span>
+<span class="c1">#</span>
+<span class="c1"># $ git diff path/to/file.png</span>
+<span class="c1">#</span>
+<span class="c1"># NOTE: file.png must be versioned and the working copy must be different.</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">import</span> <span class="nn">Image</span>
+
+<span class="kn">from</span> <span class="nn">gi.repository</span> <span class="kn">import</span> <span class="n">Gdk</span><span class="p">,</span> <span class="n">Gtk</span>
+
+<span class="k">class</span> <span class="nc">SimpleImageDiffWindow</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">):</span>
+        <span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Simple Image Diff (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)"</span> <span class="o">%</span> <span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_default_size</span><span class="p">(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">)</span>
+        <span class="n">align</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Alignment</span><span class="p">()</span>
+        <span class="n">align</span><span class="o">.</span><span class="n">set_padding</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">box</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">HBox</span><span class="p">(</span><span class="n">homogeneous</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">spacing</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">box</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_create_image_box</span><span class="p">(</span><span class="n">left</span><span class="p">))</span>
+        <span class="n">box</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_create_image_box</span><span class="p">(</span><span class="n">right</span><span class="p">))</span>
+        <span class="n">align</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">box</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">align</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">WindowPosition</span><span class="o">.</span><span class="n">CENTER</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_create_image_box</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image_file</span><span class="p">):</span>
+        <span class="n">box</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">VBox</span><span class="p">(</span><span class="n">spacing</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">frame</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Frame</span><span class="p">()</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Image</span><span class="p">()</span>
+        <span class="n">image</span><span class="o">.</span><span class="n">set_from_file</span><span class="p">(</span><span class="n">image_file</span><span class="p">)</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">"W: </span><span class="si">%d</span><span class="s2">px  |  H: </span><span class="si">%d</span><span class="s2">px"</span> <span class="o">%</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">image_file</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+        <span class="n">frame</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+        <span class="n">box</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">box</span><span class="o">.</span><span class="n">pack_end</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">box</span>
+
+<span class="k">def</span> <span class="nf">_halt</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">code</span><span class="p">):</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"[ERROR] </span><span class="si">%s</span><span class="se">\n</span><span class="s2">"</span> <span class="o">%</span> <span class="n">message</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span> <span class="o">&lt;&lt;</span> <span class="n">code</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">_verify_file_exists</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
+        <span class="n">_halt</span><span class="p">(</span><span class="s2">"The file '</span><span class="si">%s</span><span class="s2">' does not exists."</span> <span class="o">%</span> <span class="n">target</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">_halt</span><span class="p">(</span><span class="s1">'Not enough arguments.'</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">_verify_file_exists</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">_verify_file_exists</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">SimpleImageDiffWindow</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">'delete-event'</span><span class="p">,</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">main_quit</span><span class="p">)</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">show_all</span><span class="p">()</span>
+    <span class="n">Gtk</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
 <h3 id="github">GitHub</h3>
 <h4>Preparation</h4>
 <p>Read the guide "<a href="https://help.github.com/articles/generating-ssh-keys">Generating SSH keys</a>" for more information on SSH and "<a href="http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup">Getting Started - First-Time Git Setup</a>" for Git-specific questions.</p>
