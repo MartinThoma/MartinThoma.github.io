@@ -437,9 +437,13 @@ J_k(x_k) &= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathbb{E}
     <dt><dfn>Werte-Iteration</dfn> (<dfn id="value-iteration">Value iteration</dfn>)</dt>
     <dd>$$J^* = \lim_{N \rightarrow \infty} T^N J$$
         wobei $J^*$ die optimalen Kosten, $T$ der Bellman-Operator und $N$
-        der Planungshorizont ist.
+        der Planungshorizont ist. $g$ ist die Schrittkostenfunktion.<br/>
 
-        TODO: Pseudocode
+        TODO: What is $\alpha$? What is $f_{xj}(a)$?<br/>
+
+        <img src="../images/2016/07/Value-Iteration.png"
+             alt="Value iteration algorithm"
+             width="512px" />
 
         </dd>
     <dt><dfn>Satz von der Sationären Strategie</dfn></dt>
@@ -465,7 +469,11 @@ J_k(x_k) &= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathbb{E}
         konvergiert als der Wertevektor. Außerdem ist die Anzahl der
         Strategien endlich, aber es gibt unendlich viele Wertevektoren.<br/>
         <br/>
-        (TODO: Pseudocode)
+        TODO: What is $\alpha$? What is $f_{xj}(a)$?<br/>
+
+        <img src="../images/2016/07/Value-Iteration.png"
+             alt="Value iteration algorithm"
+             width="512px" />
         <br/>
         Die folgenden beiden Schritte werden alternierend ausgeführt:
 
@@ -1035,7 +1043,7 @@ TODO:
             <ul>
                 <li>Fortlaufender Zeithorizont: $R_k = \sum_{t=0}^\infty \gamma^t r_{k+t}$
                     mit Diskontierungsfaktor $\gamma \in [0, 1)$</li>
-                <li>Episodischer Zeithorizont: $R_k = \sum_{i=0}^N r_{k+i}$,
+                <li>Episodischer Zeithorizont: $R_k = \sum_{i=0}^N r_{k+i},$
                     wobei $N$ unbekannt ist.</li>
             </ul>
 
@@ -1380,7 +1388,7 @@ TODO:
     </tr>
     <tr>
         <td>1</td>
-        <td colspan="3">Zustandsraum $\mathcal{X} \subseteq \mathbb{R}^n$</td>
+        <td colspan="3" class="text-center">Zustandsraum $\mathcal{X} \subseteq \mathbb{R}^n$</td>
     </tr>
     <tr>
         <td>2</td>
@@ -1396,7 +1404,7 @@ TODO:
     </tr>
     <tr>
         <td>4</td>
-        <td colspan="3">Aktionsmenge $A_k(x_k) \neq \emptyset$</td>
+        <td colspan="3" class="text-center">Aktionsmenge $A_k(x_k) \neq \emptyset$</td>
     </tr>
     <tr>
         <td>5</td>
@@ -1410,7 +1418,7 @@ TODO:
     </tr>
     <tr>
         <td>7</td>
-        <td>Zustand ist direkt beobachtbar nach anwendung der Aktion</td>
+        <td>Zustand ist direkt beobachtbar nach Anwendung der Aktion</td>
         <td>Beobachtung / Messung $z_k$ gemäß der bedingten Verteilung
             $$z_k \sim P( \cdot | x_k, a_{k-1})$$</td>
         <td>Wie MDP (?)</td>
@@ -1427,9 +1435,16 @@ TODO:
             wobei $N$ unbekannt ist.</td>
     </tr>
     <tr>
-        <td>Lösungsalgorithmen</td>
+        <td>Lösungs&shy;algorithmen</td>
         <td>Dynamic Programming</td>
-        <td></td>
+        <td>
+
+            <ul>
+                <li>Policy Iteration</li>
+                <li>Value Iteration</li>
+            </ul>
+
+        </td>
         <td>Temporal Difference</td>
     </tr>
 </table>
@@ -1439,7 +1454,7 @@ TODO:
 
 * Welche 3 Themengebiete wurden in der Vorlesung behandelt und was sind die
   Unterschiede?<br/>
-  → <a href="#mdp">MDP</a>, <a href="#pomdp">POMDP</a>, <a href="#rl">RL</a> (TODO: Agent-Umfeld-Diagram)
+  → <a href="#mdp">MDP</a>, <a href="#pomdp">POMDP</a>, <a href="#rl">RL</a>
 * Wie ist eine Nutzenfunktion definiert?<br/>
   → Siehe <a href="#nutzenfunktion">oben</a>
 * Wie löst man Optimierungsprobleme ohne Nebenbedingungen?<br/>
