@@ -1216,88 +1216,109 @@ J_k(x_k) &amp;= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathb
 <dt><dfn id="exporation-exploitation">Exploration vs. Exploitation</dfn></dt>
 <dd>
 <blockquote>Exploit what is already known to obtain rewards, but explore in order to choose better actions in the future.</blockquote>
-<ul>
-<li>Exploring Starts:
-            Jedes Zustands-Aktions-Paar gleichwahrscheinlich als Startwert f&uuml;r Episode. Vorteil: F&uuml;hrt zu einer deterministischen Strategie; f&uuml;r vile reale Systeme nicht realisierbar (z.B. Roboter kann nicht bei voller Kraft starten)
-            </li>
-</ul>
 
-        Verwendung probabilistischer Strategien:
+        Es gibt folgende Explorationsstrategien:
+
+        <ul>
+<li><a href="#exploring-starts">Exploring Starts</a></li>
+<li><a href="#epsilon-greedy-exploration">$\varepsilon$-Greedy Strategy</a></li>
+<li><a href=""></a></li>
+</ul>
+</dd>
+<dt><dfn id="exploring-starts">Exploring Starts</dfn></dt>
+<dd>Jedes Zustands-Aktions-Paar gleichwahrscheinlich als Startwert f&uuml;r
+        Episode.<br/>
+        Vorteil: F&uuml;hrt zu einer deterministischen Strategie<br/>
+        Nachteil: F&uuml;r viele reale Systeme nicht realisierbar (z.B. Roboter kann
+        nicht bei voller Kraft starten).
+    </dd>
+<dt><dfn id="probabilistic-strategy">Probabilistische Strategie</dfn></dt>
+<dd>
+
+        Eine probabilistische Strategie $\pi$ ist definiert als eine Funktion,
+        welche f&uuml;r einen Zustand $x$ und eine Aktion $a$ die Wahrscheinlichkeit
+        wiedergibt, dass $a$ im Zustand $x$ ausgef&uuml;hrt wird:
 
         $$\pi: \mathcal{X} \times \mathcal{A} \rightarrow [0, 1]$$
         $$\pi(x, a) = P(a | x)$$
 
-        <ul>
-<li><u>$\varepsilon$-gierige Strategien</u><br/>
-                gierige Aktion: Aktion mit h&ouml;chster erwarteter Belohnung:
-                $$a^+ = \arg \max_a Q(x,a)$$
-                erh&auml;lt h&ouml;chste Wahrscheinlichkeit:
-                $$\pi(x, a^*) = 1 - \varepsilon + \frac{\varepsilon}{|A(x)|}$$
-                nicht-gierige Aktionen: $\pi(x, a) = \frac{\varepsilon}{|A(x)|}$
-                mit $0 &lt; \varepsilon \ll 1$<br/>
+    </dd>
+<dt><dfn id="epsilon-greedy-exploration">$\varepsilon$-Greedy Strategy</dfn></dt>
+<dd>The $\varepsilon$-greedy exploration strategy is a probabilistic
+        strategy:<br/>
+        Explore $\varepsilon$% of the time. Otherwise, follow what you
+        currently believe is best.<br/>
 <br/>
-                Vorteil: Kein Festlegen auf suboptimale Aktion<br/>
-                Nachteil: Wahl von $\varepsilon$ problematisch<br/>
+        gierige Aktion: Aktion mit h&ouml;chster erwarteter Belohnung:
+        $$a^+ = \arg \max_a Q(x,a)$$
+        erh&auml;lt h&ouml;chste Wahrscheinlichkeit:
+        $$\pi(x, a^*) = 1 - \varepsilon + \frac{\varepsilon}{|A(x)|}$$
+        nicht-gierige Aktionen: $\pi(x, a) = \frac{\varepsilon}{|A(x)|}$
+        mit $0 &lt; \varepsilon \ll 1$<br/>
 <br/>
-                $\varepsilon$-greedy MC Strategieiteration ist on-policy</li>
-<li><u>Softmax-Strategie</u><br/>
+        Vorteil: Kein Festlegen auf suboptimale Aktion<br/>
+        Nachteil: Wahl von $\varepsilon$ problematisch<br/>
+<br/>
+        $\varepsilon$-greedy MC Strategieiteration ist on-policy
+    </dd>
+<dt><dfn id="softmax-exploration-strategy">Softmax-Strategie</dfn></dt>
+<dd>
 
-                Rangfolge entsprechend der Wertigkeit der Aktionen
+        Rangfolge entsprechend der Wertigkeit der Aktionen
 
-                $$\pi(x, a) = \frac{e^{Q(x, a) / \tau}}{\sum_a e^{Q(x,a) / \tau}} \text{ mit "Temperatur"} \tau &gt; 0$$
+        $$\pi(x, a) = \frac{e^{Q(x, a) / \tau}}{\sum_a e^{Q(x,a) / \tau}} \text{ mit "Temperatur"} \tau &gt; 0$$
 
-                Die generierte Verteilung nennt sich Gibbs- oder auch
-                Boltzmann-Verteilung.<br/>
+        Die generierte Verteilung nennt sich Gibbs- oder auch
+        Boltzmann-Verteilung.<br/>
 <br/>
-                $\tau$ gro&szlig;: $Q(x,a) / \tau$ wird klein, d.h. die Aktionen
-                werden &auml;hnlich wahrscheinlich gew&auml;hlt. (TODO: Was ist gro&szlig;?)<br/>
+        $\tau$ gro&szlig;: $Q(x,a) / \tau$ wird klein, d.h. die Aktionen
+        werden &auml;hnlich wahrscheinlich gew&auml;hlt. (TODO: Was ist gro&szlig;?)<br/>
 <br/>
-                $\tau$ klein: Die Aktionen werden mit deutlich
-                unterschiedlicher wahrscheinlichkeit gezogen.<br/>
+        $\tau$ klein: Die Aktionen werden mit deutlich
+        unterschiedlicher wahrscheinlichkeit gezogen.<br/>
 <br/>
-                $\tau \rightarrow 0$: nahezu deterministische, gierige
-                Strategie.<br/>
+        $\tau \rightarrow 0$: nahezu deterministische, gierige
+        Strategie.<br/>
 <br/>
-                Vorteil gegen&uuml;ber $\varepsilon$-greedy: Rangfolge bei Auswahl.<br/>
-                Nachteil gegen&uuml;ber $\varepsilon$-greedy: Wahl von $\tau$ wird
-                of als schwieriger angesehen als die Wahl von $\varepsilon$.
-            </li>
-<li><u>GLIE-Strategie</u><br/>
+        Vorteil gegen&uuml;ber $\varepsilon$-greedy: Rangfolge bei Auswahl.<br/>
+        Nachteil gegen&uuml;ber $\varepsilon$-greedy: Wahl von $\tau$ wird
+        of als schwieriger angesehen als die Wahl von $\varepsilon$.
+
+    </dd>
+<dt><dfn id="glie-exploration-strategy">GLIE-Strategie</dfn></dt>
+<dd>
 <b>G</b>reedy in the <b>l</b>imit with <b>i</b>nfinite <b>e</b>xploration
 
-            Damit eine Strategie GLIE ist, muss erf&uuml;llt sein:
+        Damit eine Strategie GLIE ist, muss erf&uuml;llt sein:
 
-            <ul>
+        <ul>
 <li>Alle $(x, a)$-Paare werden unendlich oft besucht</li>
 <li>Strategie konvergiert zu einer gierigen Strategie, d.h.
-                    $$\lim_{k \rightarrow \infty} \pi(x, a^*) = 1 \text{ f&uuml;r } \arg \max_a a(x, a)$$</li>
+                $$\lim_{k \rightarrow \infty} \pi(x, a^*) = 1 \text{ f&uuml;r } \arg \max_a a(x, a)$$</li>
 </ul>
 
-            Beispiel bei $\varepsilon$-greedy Strategie:
+        Beispiel bei $\varepsilon$-greedy Strategie:
 
-            <ul>
+        <ul>
 <li>$\varepsilon$ mit Zeit abklingen lassen</li>
 <li>$\varepsilon(x) = \frac{\varepsilon}{n(x)}$ mit $\varepsilon \in (0, 1)$ und $n(x)$ z&auml;hlt wie h&auml;ufig der Zustand $x$ besucht wurde.</li>
 </ul>
-
-
-            Fazit MC:
-
-            Vorteile
-            <ul>
+</dd>
+<dt><dfn>Fazit Monte Carlo-Verfahren</dfn></dt>
+<dd>
+        Vorteile
+        <ul>
 <li>Erlernen der optimalen Strategie ohne Modellwissen m&ouml;glich,
-                    sofern GLIE-Strategien verwendet werden</li>
+                sofern GLIE-Strategien verwendet werden</li>
 <li>Auch anwendbar, wenn die Markov-Annahme nicht gilt, da kein
-                    Bootstrapping</li>
+                Bootstrapping</li>
 </ul>
 
-            Nachteile:
-            <ul>
+        Nachteile:
+        <ul>
 <li>Allgemeine Konvergenzeigenschaften (noch) nicht formal
-                    bewiesen. (Schon f&uuml;r Strategiebewrtung, nicht aber f&uuml;r RL)</li>
+                bewiesen. (Schon f&uuml;r Strategiebewrtung, nicht aber f&uuml;r RL)</li>
 <li>Funktioniert nur f&uuml;r episodische RL-Probleme</li>
-</ul>
-</li>
 </ul>
 </dd>
 <dt><dfn id="temporal-difference">Temporal Difference Verfahren</dfn> (<dfn>TD</dfn>)</dt>
@@ -1459,14 +1480,14 @@ J_k(x_k) &amp;= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathb
 <td>8</td>
 <td>Minimiere $$
             \begin{align}
-                J_{\pi_{0:N-1}} (x_0) := &amp;E; (g_N (x_N) \\
-                                       + &amp;\sum_{k=0}^{N-1} g_k (x_k, \pi_k(x_k)))
+                J_{\pi_{0:N-1}} (x_0) := &amp; E (g_N (x_N) \\
+                                       + &amp; \sum_{k=0}^{N-1} g_k (x_k, \pi_k(x_k)))
             \end{align}$$</td>
 <td>Minimiere
             $$
             \begin{align}
-            J_{\pi_{0:N-1}} (\cdot) := &amp;E; (g_N (x_N) \\
-                                     + &amp;\sum_{k=0}^{N-1} g_k (x_k, \pi_k(\cdot)))
+            J_{\pi_{0:N-1}} (\cdot) := &amp; E (g_N (x_N) \\
+                                     + &amp; \sum_{k=0}^{N-1} g_k (x_k, \pi_k(\cdot)))
             \end{align}
             $$</td>
 <td>Maximimierung der Belohnung $J(x_k) = E (R_k | x_k)$. Im fortlaufenden
@@ -1485,7 +1506,12 @@ J_k(x_k) &amp;= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathb
 <li>Value Iteration</li>
 </ul>
 </td>
-<td>Temporal Difference</td>
+<td>
+<ul>
+<li>Temporal Difference</li>
+<li>Strategiesuche</li>
+</ul>
+</td>
 </tr>
 </table>
 <h2 id="prufungsfragen_1">Pr&uuml;fungsfragen</h2>

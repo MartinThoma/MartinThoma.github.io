@@ -1496,88 +1496,109 @@ J_k(x_k) &amp;amp;= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \m
 &lt;dt&gt;&lt;dfn id="exporation-exploitation"&gt;Exploration vs. Exploitation&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;
 &lt;blockquote&gt;Exploit what is already known to obtain rewards, but explore in order to choose better actions in the future.&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;Exploring Starts:
-            Jedes Zustands-Aktions-Paar gleichwahrscheinlich als Startwert f&amp;uuml;r Episode. Vorteil: F&amp;uuml;hrt zu einer deterministischen Strategie; f&amp;uuml;r vile reale Systeme nicht realisierbar (z.B. Roboter kann nicht bei voller Kraft starten)
-            &lt;/li&gt;
-&lt;/ul&gt;
 
-        Verwendung probabilistischer Strategien:
+        Es gibt folgende Explorationsstrategien:
+
+        &lt;ul&gt;
+&lt;li&gt;&lt;a href="#exploring-starts"&gt;Exploring Starts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#epsilon-greedy-exploration"&gt;$\varepsilon$-Greedy Strategy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="exploring-starts"&gt;Exploring Starts&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;Jedes Zustands-Aktions-Paar gleichwahrscheinlich als Startwert f&amp;uuml;r
+        Episode.&lt;br/&gt;
+        Vorteil: F&amp;uuml;hrt zu einer deterministischen Strategie&lt;br/&gt;
+        Nachteil: F&amp;uuml;r viele reale Systeme nicht realisierbar (z.B. Roboter kann
+        nicht bei voller Kraft starten).
+    &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="probabilistic-strategy"&gt;Probabilistische Strategie&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+
+        Eine probabilistische Strategie $\pi$ ist definiert als eine Funktion,
+        welche f&amp;uuml;r einen Zustand $x$ und eine Aktion $a$ die Wahrscheinlichkeit
+        wiedergibt, dass $a$ im Zustand $x$ ausgef&amp;uuml;hrt wird:
 
         $$\pi: \mathcal{X} \times \mathcal{A} \rightarrow [0, 1]$$
         $$\pi(x, a) = P(a | x)$$
 
-        &lt;ul&gt;
-&lt;li&gt;&lt;u&gt;$\varepsilon$-gierige Strategien&lt;/u&gt;&lt;br/&gt;
-                gierige Aktion: Aktion mit h&amp;ouml;chster erwarteter Belohnung:
-                $$a^+ = \arg \max_a Q(x,a)$$
-                erh&amp;auml;lt h&amp;ouml;chste Wahrscheinlichkeit:
-                $$\pi(x, a^*) = 1 - \varepsilon + \frac{\varepsilon}{|A(x)|}$$
-                nicht-gierige Aktionen: $\pi(x, a) = \frac{\varepsilon}{|A(x)|}$
-                mit $0 &amp;lt; \varepsilon \ll 1$&lt;br/&gt;
+    &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="epsilon-greedy-exploration"&gt;$\varepsilon$-Greedy Strategy&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;The $\varepsilon$-greedy exploration strategy is a probabilistic
+        strategy:&lt;br/&gt;
+        Explore $\varepsilon$% of the time. Otherwise, follow what you
+        currently believe is best.&lt;br/&gt;
 &lt;br/&gt;
-                Vorteil: Kein Festlegen auf suboptimale Aktion&lt;br/&gt;
-                Nachteil: Wahl von $\varepsilon$ problematisch&lt;br/&gt;
+        gierige Aktion: Aktion mit h&amp;ouml;chster erwarteter Belohnung:
+        $$a^+ = \arg \max_a Q(x,a)$$
+        erh&amp;auml;lt h&amp;ouml;chste Wahrscheinlichkeit:
+        $$\pi(x, a^*) = 1 - \varepsilon + \frac{\varepsilon}{|A(x)|}$$
+        nicht-gierige Aktionen: $\pi(x, a) = \frac{\varepsilon}{|A(x)|}$
+        mit $0 &amp;lt; \varepsilon \ll 1$&lt;br/&gt;
 &lt;br/&gt;
-                $\varepsilon$-greedy MC Strategieiteration ist on-policy&lt;/li&gt;
-&lt;li&gt;&lt;u&gt;Softmax-Strategie&lt;/u&gt;&lt;br/&gt;
+        Vorteil: Kein Festlegen auf suboptimale Aktion&lt;br/&gt;
+        Nachteil: Wahl von $\varepsilon$ problematisch&lt;br/&gt;
+&lt;br/&gt;
+        $\varepsilon$-greedy MC Strategieiteration ist on-policy
+    &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="softmax-exploration-strategy"&gt;Softmax-Strategie&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
 
-                Rangfolge entsprechend der Wertigkeit der Aktionen
+        Rangfolge entsprechend der Wertigkeit der Aktionen
 
-                $$\pi(x, a) = \frac{e^{Q(x, a) / \tau}}{\sum_a e^{Q(x,a) / \tau}} \text{ mit "Temperatur"} \tau &amp;gt; 0$$
+        $$\pi(x, a) = \frac{e^{Q(x, a) / \tau}}{\sum_a e^{Q(x,a) / \tau}} \text{ mit "Temperatur"} \tau &amp;gt; 0$$
 
-                Die generierte Verteilung nennt sich Gibbs- oder auch
-                Boltzmann-Verteilung.&lt;br/&gt;
+        Die generierte Verteilung nennt sich Gibbs- oder auch
+        Boltzmann-Verteilung.&lt;br/&gt;
 &lt;br/&gt;
-                $\tau$ gro&amp;szlig;: $Q(x,a) / \tau$ wird klein, d.h. die Aktionen
-                werden &amp;auml;hnlich wahrscheinlich gew&amp;auml;hlt. (TODO: Was ist gro&amp;szlig;?)&lt;br/&gt;
+        $\tau$ gro&amp;szlig;: $Q(x,a) / \tau$ wird klein, d.h. die Aktionen
+        werden &amp;auml;hnlich wahrscheinlich gew&amp;auml;hlt. (TODO: Was ist gro&amp;szlig;?)&lt;br/&gt;
 &lt;br/&gt;
-                $\tau$ klein: Die Aktionen werden mit deutlich
-                unterschiedlicher wahrscheinlichkeit gezogen.&lt;br/&gt;
+        $\tau$ klein: Die Aktionen werden mit deutlich
+        unterschiedlicher wahrscheinlichkeit gezogen.&lt;br/&gt;
 &lt;br/&gt;
-                $\tau \rightarrow 0$: nahezu deterministische, gierige
-                Strategie.&lt;br/&gt;
+        $\tau \rightarrow 0$: nahezu deterministische, gierige
+        Strategie.&lt;br/&gt;
 &lt;br/&gt;
-                Vorteil gegen&amp;uuml;ber $\varepsilon$-greedy: Rangfolge bei Auswahl.&lt;br/&gt;
-                Nachteil gegen&amp;uuml;ber $\varepsilon$-greedy: Wahl von $\tau$ wird
-                of als schwieriger angesehen als die Wahl von $\varepsilon$.
-            &lt;/li&gt;
-&lt;li&gt;&lt;u&gt;GLIE-Strategie&lt;/u&gt;&lt;br/&gt;
+        Vorteil gegen&amp;uuml;ber $\varepsilon$-greedy: Rangfolge bei Auswahl.&lt;br/&gt;
+        Nachteil gegen&amp;uuml;ber $\varepsilon$-greedy: Wahl von $\tau$ wird
+        of als schwieriger angesehen als die Wahl von $\varepsilon$.
+
+    &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="glie-exploration-strategy"&gt;GLIE-Strategie&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
 &lt;b&gt;G&lt;/b&gt;reedy in the &lt;b&gt;l&lt;/b&gt;imit with &lt;b&gt;i&lt;/b&gt;nfinite &lt;b&gt;e&lt;/b&gt;xploration
 
-            Damit eine Strategie GLIE ist, muss erf&amp;uuml;llt sein:
+        Damit eine Strategie GLIE ist, muss erf&amp;uuml;llt sein:
 
-            &lt;ul&gt;
+        &lt;ul&gt;
 &lt;li&gt;Alle $(x, a)$-Paare werden unendlich oft besucht&lt;/li&gt;
 &lt;li&gt;Strategie konvergiert zu einer gierigen Strategie, d.h.
-                    $$\lim_{k \rightarrow \infty} \pi(x, a^*) = 1 \text{ f&amp;uuml;r } \arg \max_a a(x, a)$$&lt;/li&gt;
+                $$\lim_{k \rightarrow \infty} \pi(x, a^*) = 1 \text{ f&amp;uuml;r } \arg \max_a a(x, a)$$&lt;/li&gt;
 &lt;/ul&gt;
 
-            Beispiel bei $\varepsilon$-greedy Strategie:
+        Beispiel bei $\varepsilon$-greedy Strategie:
 
-            &lt;ul&gt;
+        &lt;ul&gt;
 &lt;li&gt;$\varepsilon$ mit Zeit abklingen lassen&lt;/li&gt;
 &lt;li&gt;$\varepsilon(x) = \frac{\varepsilon}{n(x)}$ mit $\varepsilon \in (0, 1)$ und $n(x)$ z&amp;auml;hlt wie h&amp;auml;ufig der Zustand $x$ besucht wurde.&lt;/li&gt;
 &lt;/ul&gt;
-
-
-            Fazit MC:
-
-            Vorteile
-            &lt;ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Fazit Monte Carlo-Verfahren&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+        Vorteile
+        &lt;ul&gt;
 &lt;li&gt;Erlernen der optimalen Strategie ohne Modellwissen m&amp;ouml;glich,
-                    sofern GLIE-Strategien verwendet werden&lt;/li&gt;
+                sofern GLIE-Strategien verwendet werden&lt;/li&gt;
 &lt;li&gt;Auch anwendbar, wenn die Markov-Annahme nicht gilt, da kein
-                    Bootstrapping&lt;/li&gt;
+                Bootstrapping&lt;/li&gt;
 &lt;/ul&gt;
 
-            Nachteile:
-            &lt;ul&gt;
+        Nachteile:
+        &lt;ul&gt;
 &lt;li&gt;Allgemeine Konvergenzeigenschaften (noch) nicht formal
-                    bewiesen. (Schon f&amp;uuml;r Strategiebewrtung, nicht aber f&amp;uuml;r RL)&lt;/li&gt;
+                bewiesen. (Schon f&amp;uuml;r Strategiebewrtung, nicht aber f&amp;uuml;r RL)&lt;/li&gt;
 &lt;li&gt;Funktioniert nur f&amp;uuml;r episodische RL-Probleme&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="temporal-difference"&gt;Temporal Difference Verfahren&lt;/dfn&gt; (&lt;dfn&gt;TD&lt;/dfn&gt;)&lt;/dt&gt;
@@ -1739,14 +1760,14 @@ J_k(x_k) &amp;amp;= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \m
 &lt;td&gt;8&lt;/td&gt;
 &lt;td&gt;Minimiere $$
             \begin{align}
-                J_{\pi_{0:N-1}} (x_0) := &amp;amp;E; (g_N (x_N) \\
-                                       + &amp;amp;\sum_{k=0}^{N-1} g_k (x_k, \pi_k(x_k)))
+                J_{\pi_{0:N-1}} (x_0) := &amp;amp; E (g_N (x_N) \\
+                                       + &amp;amp; \sum_{k=0}^{N-1} g_k (x_k, \pi_k(x_k)))
             \end{align}$$&lt;/td&gt;
 &lt;td&gt;Minimiere
             $$
             \begin{align}
-            J_{\pi_{0:N-1}} (\cdot) := &amp;amp;E; (g_N (x_N) \\
-                                     + &amp;amp;\sum_{k=0}^{N-1} g_k (x_k, \pi_k(\cdot)))
+            J_{\pi_{0:N-1}} (\cdot) := &amp;amp; E (g_N (x_N) \\
+                                     + &amp;amp; \sum_{k=0}^{N-1} g_k (x_k, \pi_k(\cdot)))
             \end{align}
             $$&lt;/td&gt;
 &lt;td&gt;Maximimierung der Belohnung $J(x_k) = E (R_k | x_k)$. Im fortlaufenden
@@ -1765,7 +1786,12 @@ J_k(x_k) &amp;amp;= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \m
 &lt;li&gt;Value Iteration&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/td&gt;
-&lt;td&gt;Temporal Difference&lt;/td&gt;
+&lt;td&gt;
+&lt;ul&gt;
+&lt;li&gt;Temporal Difference&lt;/li&gt;
+&lt;li&gt;Strategiesuche&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
 &lt;h2 id="prufungsfragen_1"&gt;Pr&amp;uuml;fungsfragen&lt;/h2&gt;
@@ -7163,8 +7189,7 @@ $$X\sim \mathcal N_p(\mu, \Sigma).$$&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;V-Funktion&lt;/dfn&gt; (State-Value function)&lt;/dt&gt;
 &lt;dd&gt;Siehe &lt;a href="../machine-learning-1-course/#v-function"&gt;ML 1&lt;/a&gt;.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;$\varepsilon$-Greedy Strategy&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;Explore $\varepsilon$% of the time. Otherwise, follow what you
-        currently believe is best.&lt;/dd&gt;
+&lt;dd&gt;Siehe &lt;a href="../probabilistische-planung#epsilon-greedy-exploration"&gt;Probabilistische Planung&lt;/a&gt;&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;$\varepsilon$-decreasing Strategy&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Explore $\varepsilon$% of the time. Otherwise, follow what you
         currently believe is best. Reduce $\varepsilon$ over time.&lt;/dd&gt;
