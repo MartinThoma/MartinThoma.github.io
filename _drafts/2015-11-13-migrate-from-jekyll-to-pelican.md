@@ -3,11 +3,8 @@ layout: post
 title: Migrate from Jekyll to Pelican
 author: Martin Thoma
 date: 2014-11-22 17:19
-categories:
-- Cyberculture
-tags:
-- Jekyll
-- Blogging
+category: Cyberculture
+tags: Jekyll, Blogging
 featured_image: logos/star.png
 ---
 
