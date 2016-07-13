@@ -266,13 +266,82 @@ See [Why does it make sense to have noise of a different shape than the state ve
 
 ## Extensions
 
-* EKF: <a href="https://en.wikipedia.org/wiki/Extended_Kalman_filter">Extended Kalman Filter</a>
-    * Linearization (multivariate Taylor Series expansions)
-    * See: <a href="http://www.cbcity.de/das-extended-kalman-filter-einfach-erklaert">Das Extended Kalman Filter einfach erklärt</a> (German)
+* EKF
 * UKF: Unscented Kalman filter
     * deterministic sampling
     * approximation of the first two moments
     * does not need derivative (in contrast to EKF)
+
+
+### Extended Kalman Filter
+
+The Kalman filter is the best filter for linear systems, but if you have a
+non-linear system model
+
+$$
+\begin{align}
+x_{k+1} &= p_k(x_k, a_k) + r_k^{(s)}\tag{system model}\\
+z_k &= h_k(x_k) + r_k^{(m)}\tag{measurement model}
+\end{align}
+$$
+
+it cannot be applied any more. But the <a href="https://en.wikipedia.org/wiki/Extended_Kalman_filter">Extended Kalman Filter</a> linearizes the function around some point with multivariate Taylor Series
+expansions and uses LQR with a Kalman filter.
+
+Assumptions:
+
+<ul>
+    <li>$p_k$ is differentiable.</li>
+    <li>The non-linear part of $p_k$ in the environment of the linearization
+        point is neglectable.</li>
+</ul>
+
+One linearizes around nominal values $\bar{x}_k, \bar{a}_k$.
+
+$$p_k(x_k, a_k) \approx p_k(\bar{x}_k, \bar{a}_k) + A_k (\underbrace{x_k - \bar{x}_k}_{=: \Delta x_k}) + B_k (\underbrace{a_k - \bar{a}_k}_{\Delta a_k})$$
+
+with <a href="https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant">Jacobian matrices</a>:
+$$A_k = \frac{\partial}{\partial x_k} p_k(x_k, a_k)|_{x_k = \bar{x}_k, a_k = \bar{a}_k}$$
+$$B_k = \frac{\partial}{\partial a_k} p_k(x_k, a_k)|_{x_k = \bar{x}_k, a_k = \bar{a}_k}$$
+$\Rightarrow$ Lineares Modell: $\Delta x_{k+1} \approx A_k \cdot \Delta x_k + B_k \Delta a_k$
+mit $\Delta x_{k+1} = p_k(x_k, a_k) - p_k(\bar{x}_k, \bar{a}_k)$<br/>
+
+Choice of nominal values $\bar{x}_k, \bar{a}_k$:
+
+<ul>
+    <li>Policy:
+    <ul>
+    <li>Zielzustand $\bar{x}_k = x_+ = [0, \dots, 0]^T,\quad\bar{a}_k = [0, \dots, 0]^T\qquad\forall k$</li>
+    <li>Zustandssolltrajektorien bei Verfolgungsproblem</li>
+    <li>Prädiktiv: $\bar{x}_{k+1} = p_k(\bar{x}_k, \bar{a}_k)$ mit $\bar{x}_0 = E(x_0)$ und beliebig $\bar{a}_{0:N-1}$</li>
+    <li>Iterativ: Starte mit beliebigem $\bar{a}_{0:N-1}$ und $\bar{x}_0 = E(x_0)$
+        <ul>
+            <li>Bestimme $\bar{x}_{k+1} = p_k(\bar{x}_k, \bar{a}_k) \forall k$</li>
+            <li>Linearisiere und löse LQR $\Rightarrow \bar{a}_k = \pi_k(\bar{x}_k)$</li>
+            <li>zurück zu 1.</li>
+        </ul>
+    </li>
+    </ul>
+    </li>
+    <li>Schätzer:
+        <ul>
+            <li>Linearisierung um $\bar{x}_k = \hat{x}_k^l, \bar{a}_k=\pi_k(\hat{x}_k^l)$
+
+                $$\hat{x}^p_{k+1} = p_k(\hat{x}_k^l, \bar{a}_k)$$
+
+                $$C_{k+1}^P = A_k C_k^e A_k^T + C_k^w$$
+            </li>
+            <li>Filterschritt: Linearisierung um $\bar{x}_k = \hat{x}_k^p$
+
+                $$\hat{x}_k^e = \hat{x}_k^P + K_k (z_k - h_k(\hat{x}_k^P))$$
+                $$C_k^e = C_k^P - K_k H_k C_k^P$$
+            </li>
+        </ul>
+    </li>
+</ul>
+
+
+See also: <a href="http://www.cbcity.de/das-extended-kalman-filter-einfach-erklaert">Das Extended Kalman Filter einfach erklärt</a> (German)
 
 
 ## Lectures

@@ -10,11 +10,16 @@ featured_image: logos/klausur.png
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Probabilistische Planung&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://ies.anthropomatik.kit.edu/mitarbeiter.php?person=huber">Herrn Dr.-Ing. Marco Huber</a> im Sommersemester 2015 und 2016 gehört. Der Artikel dient als Prüfungsvorbereitung und ist noch am Entstehen.</div>
 
-In der Vorlesung 'Probabilistische Planung' werden drei Themen besprochen:
+In der Vorlesung 'Probabilistische Planung' werden drei Themenfelder
+besprochen:
 
 * Markov'sche Entscheidungsprobleme (MDPs)
 * Planung bei Messunsicherheiten
 * Reinforcement Learning (RL)
+
+An Algorithmen sind insbesondere das Dynamische Programmieren, der
+<a href="https://martin-thoma.com/kalman-filter/">Kalman-Filter</a>, die Werte-
+und Strategieiteration sowie der Label-Korrektur-Algorithmus zu nennen.
 
 
 ## Behandelter Stoff
@@ -93,7 +98,7 @@ In der Vorlesung 'Probabilistische Planung' werden drei Themen besprochen:
 <tr>
     <td id="2016-07-13">13.07.2016</td>
     <td><abbr title="Reinforcement Learning">RL</abbr></td>
-    <td>Monte Carlo Verfahren (Strategiebewerbtung); Temporal Difference</td>
+    <td>Monte Carlo Verfahren (Strategiebewerbtung); Temporal Difference Learning</td>
 </tr>
 </table>
 
@@ -667,19 +672,19 @@ J_k(x_k) &= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathbb{E}
     <dt><a href="https://de.wikipedia.org/wiki/Bayes-Sch%C3%A4tzer"><dfn>Bayes'scher Schätzer</dfn></a></dt>
     <dd>Prädiktion + Filterschritt = Bayes-Schätzer.<br/>
         TODO (z.B. in GPS arbeitet eine Variante; Extended Kalman Filter)<br/>
-        Der Bayes-Schätzer ist im Allgemeinen nciht geschlossen berechenbar.
+        Der Bayes-Schätzer ist im Allgemeinen nicht geschlossen berechenbar.
         </dd>
     <dt><dfn>Verteilungs-MDP</dfn> (<dfn>Belief-state MDP</dfn>)</dt>
     <dd>Belief ist die Verteilung (TODO)</dd>
     <dt><dfn>Lineare Planungsprobleme in POMDPs</dfn></dt>
     <dd>Zustandsraummodell (Systemmodell):
-        $$x_{k+1} = A_k \cdot x_k + B_k a_k + r_k^{(s)}$$
+        $$x_{k+1} = A_k \cdot x_k + B_k \cdot a_k + r_k^{(s)}$$
 
         Messmodell (Sensormodell):
-        $$z_k = H_k x_k + v_k$$
+        $$z_k = H_k \cdot x_k + r_k^{(m)}$$
 
         <ul>
-            <li>$r_k^{(s)}, v_k$ sind normalverteilte Rauschterme:
+            <li>$r_k^{(s)}, r_k^{(m)}$ sind normalverteilte Rauschterme:
 
                 $$f_k^x(x_k) = N(x_k; \hat{x}_k, C_k^x) = \frac{1}{\sqrt{|2 \pi C_k^x|}} \exp(-1/2 (x_k - \hat{x}_k)^T (C_k^x)^{-1} (x_k - \hat{x}_k))$$
 
@@ -707,7 +712,7 @@ J_k(x_k) &= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathbb{E}
         Zustandsschätzer:
 
         <ul>
-            <li>Annahme: bel. Aktionsfolge $a_{0:N-1}$ gegeben: <a href="https://martin-thoma.com/kalman-filter/">Kalman-Filter</a> (Optimaler Schätzer für lineare Modelle mit normalverteilten Größen)</li>
+            <li>Annahme: beliebige Aktionsfolge $a_{0:N-1}$ gegeben: <a href="https://martin-thoma.com/kalman-filter/">Kalman-Filter</a></li>
         </ul>
 
         Prädiktion ($k \rightarrow k+1$)
@@ -717,8 +722,8 @@ J_k(x_k) &= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathbb{E}
             <li>Berechnung der Parameter:
 
                 <ul>
-                    <li>Mittelwert: $\hat{x}_{k+1}^P = A_k \hat{x}_k^e + B_k a_k$</li>
-                    <li>Kovarianzmatrix: $C_k^P = A_k C_k^e A_k^T + C_k^w$</li>
+                    <li>Mittelwert: $\hat{x}_{k+1}^{(P)} = A_k \hat{x}_k^e + B_k a_k$</li>
+                    <li>Kovarianzmatrix: $P_k^{(P)} = A_k P_k^e A_k^T + C_k^{(s)}$</li>
                 </ul>
 
             </li>
@@ -731,9 +736,9 @@ J_k(x_k) &= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathbb{E}
             <li>Berechnung der Parameter:
 
             <ul>
-                <li>Mittelwert: $\hat{x}_k^e = \hat{x}_k^P + K_k (z_k - H_k \hat{x}_k^P)$</li>
-                <li>Kovarianzmatrix: $C_k^e = C_k^P - K_k H_k C_k^P$</li>
-                <li>Kalman-Gain: $K_k = C_k^P H_k^T (H_k C_k^P H_k^T + C_k^v)^{-1}$</li>
+                <li>Mittelwert: $\hat{x}_k^e = \hat{x}_k^P + K_k (z_k - H_k \hat{x}_k^{(P)})$</li>
+                <li>Kovarianzmatrix: $P_k^e = C_k^{(P)} - K_k H_k C_k^{(P)}$</li>
+                <li>Kalman-Gain: $K_k = P_k^{(P)} H_k^T (H_k C_k^{(P)} H_k^T + C_k^{(m)})^{-1}$</li>
             </ul>
 
             </li>
@@ -742,18 +747,7 @@ J_k(x_k) &= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathbb{E}
         Insgesamt:
         <ul>
             <li>Geschlossene Berechnung der Zustandsverteilung</li>
-            <li>Kalman-Filter erfüllt <span id="blue">BLUE</span>-Eigenschaft:
-
-            <ul>
-                <li>Best Linear: Optimaler Schätzer für lineare Modelle und
-                                 normalverteilte Größen; bester linearer
-                                 Schätzer  wenn lineare Modelle aber beliebige
-                                 Verteilungen (z.B. Partikelfilter ist
-                                 nicht-linear); d.h. minimale Varianz</li>
-                <li>Unbiased Estimator: Erwartungstreuer Schätzer</li>
-            </ul>
-
-            </li>
+            <li>Kalman-Filter erfüllt <span id="blue">BLUE</span>-Eigenschaft</li>
         </ul>
     </dd>
     <dt><a href="https://de.wikipedia.org/wiki/Regelkreis"><dfn>Regelkreis</dfn></a> (<dfn>Control system</dfn>)</dt>
@@ -969,11 +963,17 @@ J_k(x_k) &= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathbb{E}
         </ul>
 
     </dd>
+    <dt><a href="https://de.wikipedia.org/wiki/Delta-Distribution"><dfn id="dirac-delta-function">Dirac-Delta-Funktion</dfn></a></dt>
+    <dd>Die Dirac-Funktion ist definiert als
+
+        $$\delta(A)=\begin{cases}
+          1\  & \text{falls }0\in A\\
+          0\  & \text{sonst}\end{cases}\ ,\quad A\subset\mathbb{R}$$
+
+        <u>Ausblendeigenschaft</u>:
+        $$\int_{- \infty}^\infty f(x)\,\delta (x-a)\,\mathrm{d}x=\int_{- \infty}^\infty f(x)\,\delta (a-x)\,\mathrm{d}x=f(a)$$
+    </dd>
 </dl>
-
-TODO:
-
-* Ausblendeigenschaft der Dirac-Delta-Funktion
 
 
 ### Reinforcement Learning
@@ -989,13 +989,9 @@ TODO:
         <li>Was ist wenn die Kostenfunktion $g_k$ unbekannt ist?</li>
         <li>Was ist wenn das Modell, das heißt die Übergangswahrscheinlichkeiten
             $P(x_{k+1} | x_k, a_k)$ unbekannt sind?</li>
-        <li></li>
     </ul>
 
-    Dies wird durch ein Zusammenspiel aus lernen und Planen gelöst.
-
-    (Agent-Umelt-Bild)
-
+    Dies wird durch ein Zusammenspiel aus lernen und planen gelöst.
     Man lernt also aus Erfahrung und <b>Interaktion mit der Umwelt</b>.<br/>
     <br/>
     Eigenschaften und Besonderheiten:
@@ -1023,7 +1019,7 @@ TODO:
     <u>Definition:</u><br/>
     MDP mit folgenden Unterschieden:
     <ul>
-        <li>2 Zeithorizont:
+        <li>(2) Zeithorizont:
 
             <ul>
                 <li>$N = \infty$ für fortlaufende Aufgaben</li>
@@ -1032,12 +1028,12 @@ TODO:
             </ul>
 
         </li>
-        <li>5 Keine Übergangswahrscheinlichkeiten gegeben</li>
-        <li>6 Belohnungen (reward) $r_k \in \mathbb{R}$ für Aktion
+        <li>(5) Keine Übergangswahrscheinlichkeiten gegeben</li>
+        <li>(6) Belohnungen (reward) $r_k \in \mathbb{R}$ für Aktion
             $a_k$ in Zustand $x_k$ mit Nachfolgezustand $x_{k+1}$.<br/>
             $$r_k = g_k(x_k, a_k, x_{k+1})$$
             wobei $g_k$ unbekannt.</li>
-        <li>8 Ziel: Maximierung der erwarteten Belohnung über die Zeit.
+        <li>(8) Ziel: Maximierung der erwarteten Belohnung über die Zeit.
             $$J(x_k) = E(R_k | x_k)$$
 
             <ul>
@@ -1053,22 +1049,22 @@ TODO:
     Dynamisches Programmieren ist nicht anwendbar, da das Modell und die Kosten
     unbekannt sind. Die optimale Strategie wird aus Erfahrung approximiert.<br/>
     <br/>
-    <u>Unterscheidungsmerkmale</u>:
+    <u>Unterscheidungsmerkmale von RL-Problemtypen</u>:
     <ul>
         <li>Horizont:
 
             <ul>
-                <li>fortlaufend, z.B. in Regelungstechnik das inverse Pendel</li>
-                <li>episodisch in Spielen</li>
+                <li>Fortlaufend, z.B. in Regelungstechnik das inverse Pendel</li>
+                <li>Episodisch in Spielen</li>
             </ul>
 
         </li>
         <li>Approximation / lernen:
 
             <ul>
-                <li>on-policy: Dieselbe Strategie wird zugleich verbessert
+                <li>On-policy: Dieselbe Strategie wird zugleich verbessert
                                und angewandt.</li>
-                <li>off-policy: verwendet 2 Strategien
+                <li>Off-policy: verwendet 2 Strategien
                               <ul>
                                   <li>Strategie 1: erzeugen von Aktionen</li>
                                   <li>Strategie 2: wird verbessert</li>
@@ -1079,8 +1075,8 @@ TODO:
         <li>Zustands- und Aktionsraum:
 
             <ul>
-                <li>diskret</li>
-                <li>kontinuierlich</li>
+                <li>Diskret</li>
+                <li>Kontinuierlich</li>
             </ul>
 
         </li>
