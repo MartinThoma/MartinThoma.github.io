@@ -102,7 +102,7 @@ MathJax.Hub.Queue(function() {
     <div class="span2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#behandelter-stoff" title="Behandelter Stoff">Behandelter Stoff</a><ul><li><a class="toc-href" href="#ubersicht" title="&Uuml;bersicht">&Uuml;bersicht</a></li><li><a class="toc-href" href="#grundlagen" title="Grundlagen">Grundlagen</a></li><li><a class="toc-href" entscheidungs­probleme'="" href="#markovsche-entscheidungsprobleme" sche="" title="Markov">Markov'sche Entscheidungs&shy;probleme</a></li><li><a class="toc-href" href="#pomdps" title="POMDPs">POMDPs</a></li><li><a class="toc-href" href="#reinforcement-learning" title="Reinforcement Learning">Reinforcement Learning</a></li></ul></li><li><a class="toc-href" href="#prufungsfragen_1" title="Pr&uuml;fungsfragen">Pr&uuml;fungsfragen</a><ul><li><a class="toc-href" href="#mdp" title="MDP">MDP</a></li><li><a class="toc-href" href="#pomdp" title="POMDP">POMDP</a></li><li><a class="toc-href" href="#rl" title="RL">RL</a></li></ul></li><li><a class="toc-href" href="#notation_1" title="Notation">Notation</a></li><li><a class="toc-href" href="#material-und-links" title="Material und Links">Material und Links</a></li><li><a class="toc-href" href="#vorlesungsempfehlungen" title="Vorlesungs&shy;empfehlungen">Vorlesungs&shy;empfehlungen</a></li><li><a class="toc-href" href="#termine-und-klausurablauf" title="Termine und Klausurablauf">Termine und Klausurablauf</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#behandelter-stoff" title="Behandelter Stoff">Behandelter Stoff</a><ul><li><a class="toc-href" href="#ubersicht" title="&Uuml;bersicht">&Uuml;bersicht</a></li><li><a class="toc-href" href="#grundlagen" title="Grundlagen">Grundlagen</a></li><li><a class="toc-href" entscheidungs­probleme'="" href="#markovsche-entscheidungsprobleme" sche="" title="Markov">Markov'sche Entscheidungs&shy;probleme</a></li><li><a class="toc-href" href="#pomdps" title="POMDPs">POMDPs</a></li><li><a class="toc-href" href="#reinforcement-learning" title="Reinforcement Learning">Reinforcement Learning</a></li></ul></li><li><a class="toc-href" href="#overviews_1" title="Overviews">Overviews</a><ul><li><a class="toc-href" href="#mdp-vs-pomdp-vs-rl" title="MDP vs POMDP vs RL">MDP vs POMDP vs RL</a></li></ul></li><li><a class="toc-href" href="#prufungsfragen_1" title="Pr&uuml;fungsfragen">Pr&uuml;fungsfragen</a><ul><li><a class="toc-href" href="#mdp" title="MDP">MDP</a></li><li><a class="toc-href" href="#pomdp" title="POMDP">POMDP</a></li><li><a class="toc-href" href="#rl" title="RL">RL</a></li></ul></li><li><a class="toc-href" href="#notation_1" title="Notation">Notation</a></li><li><a class="toc-href" href="#material-und-links" title="Material und Links">Material und Links</a></li><li><a class="toc-href" href="#vorlesungsempfehlungen" title="Vorlesungs&shy;empfehlungen">Vorlesungs&shy;empfehlungen</a></li><li><a class="toc-href" href="#termine-und-klausurablauf" title="Termine und Klausurablauf">Termine und Klausurablauf</a></li></ul></div>
         </nav>
     </div>
     <div class="span8 article-content" id="contentAfterTitle">
@@ -184,7 +184,12 @@ MathJax.Hub.Queue(function() {
 <tr>
 <td id="2016-07-06">06.07.2016</td>
 <td>POMDPs, <abbr title="Reinforcement Learning">RL</abbr></td>
-<td>POMDPs: Sensoreinsatzplanung</td>
+<td>POMDPs: Sensoreinsatzplanung; Kovarianz- vs TODO-Kostenfunktionen</td>
+</tr>
+<tr>
+<td id="2016-07-13">13.07.2016</td>
+<td><abbr title="Reinforcement Learning">RL</abbr></td>
+<td>Monte Carlo Verfahren (Strategiebewerbtung); Temporal Difference</td>
 </tr>
 </table>
 <p>Folien:</p>
@@ -968,7 +973,7 @@ J_k(x_k) &amp;= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathb
         gilt
         $$S_k(C) = V_k(K_k, C) \prec V_k(\bar{K}_k, C) \prec V_k(\bar{K}_k, \bar{C}) = S_k(\tilde{C})$$
     </dd>
-<dt><dfn>Approximative Planung</dfn></dt>
+<dt><dfn id="approximative-planning">Approximative Planung</dfn></dt>
 <dd>
 
         Abbildung auf lineare Sensoreinsatzplanung mittels
@@ -1134,7 +1139,7 @@ J_k(x_k) &amp;= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathb
 </ul>
 </li>
 </ul>
-<u>Grundvarianten</u>:
+<u>Grundvarianten des RL</u>: (TODO: Grafiken)
 
     <ul>
 <li>Wertefunktionsbasiert: Sch&auml;tzen die Wertefunktion / Q-Funktion aus
@@ -1146,7 +1151,329 @@ J_k(x_k) &amp;= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathb
             Netze)</li>
 </ul>
 </dd>
+<dt><dfn id="monte-carlo-methods">Monte-Carlo Methoden</dfn></dt>
+<dd>
+<u>Idee</u>: Erlernen einer Strategie aus Beispielepisoden.
+
+        <ul>
+<li>Approximation des Erwartungswertes durch Stichproben (Samples)<br/>
+                $$E(R) = \frac{1}{N} \sum_{k=1}^N r_k =: \bar{R}_N,$$
+                wobei $r_k$ die Belohnung im Zeitschritt $k$ ist.<br/>
+                Rekursiv:
+                $$\bar{R}_{N+1} = \bar{R}_N + \frac{1}{N+1} (r_{N+1} - \bar{R}_N) \text{ mit } \bar{R}_1 = r_1$$</li>
+<li>TODO</li>
+</ul>
+
+        Funktionieren ausschlie&szlig;lich auf episodischen Problemen (d.h mit Ende),
+        wie z.B. Spielen.
+
+        <ul>
+<li>Gegeben: Strategie $\pi$</li>
+<li>Gesucht: Wertefunktion $J_\pi(x)$</li>
+<li>Ablauf:
+
+            <ol>
+<li>F&uuml;r beliebigen Initialzustand erzeuge Episode mittels $\pi$</li>
+<li>F&uuml;r jeden Zustand $x$ in Episode:
+
+                <ul>
+<li>$R \gets$ kummulative Belohnung ab 1. Vorkommen von $x$ (First-visit, es gibt auch every-visit)</li>
+<li>$n(x) \gets n(x) + 1$</li>
+<li>$J_\pi(x) \overset{(*)}{\gets} J_\pi (x) + \frac{1}{n(x)} (R - J_\pi (x))$</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+
+        Konvergiert f&uuml;r unendliche Anzahl an Episoden.
+
+        Vorteile:
+
+        <ul>
+<li>Aufwand ist unabh&auml;ngig von der Anzahl der Zust&auml;nde (genauso wie Partikelfilter).</li>
+<li>Einschr&auml;nkungen auf Teilmenge von $\mathcal{X}$ m&ouml;glich.</li>
+</ul>
+
+        Nachteile / Einschr&auml;nkungen:
+        <ul>
+<li>Nur episodisch</li>
+</ul>
+</dd>
+<dt><dfn id="monte-carlo-rl">Monte Carlo RL</dfn></dt>
+<dd>Idee: Sch&auml;tzen der Q-Funktion $Q(x, a)$.
+        TODO: Diagramm
+
+    F&uuml;r gegebene Episode:
+    <ul>
+<li>Aktualisierung der $Q$-Funktion f&uuml;r alle besuchten Zust&auml;nde $x$ und gew&auml;hlte Aktionen $a$</li>
+<li>Verbesserung der Strategie f&uuml;r alle besuchten Zust&auml;nde</li>
+</ul>
+
+    Problem: pro Zustand wird nur eine Aktion bewertet. Das f&uuml;hrt nur auf sehr lokalen bereichen zu einer Strategieverbesserung.
+
+    </dd>
+<dt><dfn id="exporation-exploitation">Exploration vs. Exploitation</dfn></dt>
+<dd>
+<blockquote>Exploit what is already known to obtain rewards, but explore in order to choose better actions in the future.</blockquote>
+<ul>
+<li>Exploring Starts:
+            Jedes Zustands-Aktions-Paar gleichwahrscheinlich als Startwert f&uuml;r Episode. Vorteil: F&uuml;hrt zu einer deterministischen Strategie; f&uuml;r vile reale Systeme nicht realisierbar (z.B. Roboter kann nicht bei voller Kraft starten)
+            </li>
+</ul>
+
+        Verwendung probabilistischer Strategien:
+
+        $$\pi: \mathcal{X} \times \mathcal{A} \rightarrow [0, 1]$$
+        $$\pi(x, a) = P(a | x)$$
+
+        <ul>
+<li><u>$\varepsilon$-gierige Strategien</u><br/>
+                gierige Aktion: Aktion mit h&ouml;chster erwarteter Belohnung:
+                $$a^+ = \arg \max_a Q(x,a)$$
+                erh&auml;lt h&ouml;chste Wahrscheinlichkeit:
+                $$\pi(x, a^*) = 1 - \varepsilon + \frac{\varepsilon}{|A(x)|}$$
+                nicht-gierige Aktionen: $\pi(x, a) = \frac{\varepsilon}{|A(x)|}$
+                mit $0 &lt; \varepsilon \ll 1$<br/>
+<br/>
+                Vorteil: Kein Festlegen auf suboptimale Aktion<br/>
+                Nachteil: Wahl von $\varepsilon$ problematisch<br/>
+<br/>
+                $\varepsilon$-greedy MC Strategieiteration ist on-policy</li>
+<li><u>Softmax-Strategie</u><br/>
+
+                Rangfolge entsprechend der Wertigkeit der Aktionen
+
+                $$\pi(x, a) = \frac{e^{Q(x, a) / \tau}}{\sum_a e^{Q(x,a) / \tau}} \text{ mit "Temperatur"} \tau &gt; 0$$
+
+                Die generierte Verteilung nennt sich Gibbs- oder auch
+                Boltzmann-Verteilung.
+
+                $\tau$ gro&szlig;: $Q(x,a) / \tau$ wird klein, d.h. die Aktionen
+                werden &auml;hnlich wahrscheinlich gew&auml;hlt. (TODO: Was ist gro&szlig;?)
+
+                $\tau$ klein: Die Aktionen werden mit deutlich
+                unterschiedlicher wahrscheinlichkeit gezogen
+
+                $\tau \rightarrow 0$: nahezu deterministische, gierige
+                Strategie.
+
+                Vorteil gegen&uuml;ber $\varepsilon$-greedy: Rangfolge bei Auswahl.
+                Nachteil gegen&uuml;ber $\varepsilon$-greedy: Wahl von $\tau wird
+                of als schwieriger angesehen als die Wahl von $\varepsilon$.
+
+            </li>
+<li><u>GLIE-Strategie</u><br/>
+<b>G</b>reedy in the <b>l</b>imit with <b>i</b>nfinite <b>e</b>xploration
+
+            Damit eine Strategie GLIE ist, muss erf&uuml;llt sein:
+
+            <ul>
+<li>Alle $(x, a)$-Paare werden unendlich oft besucht</li>
+<li>Strategie konvergiert zu einer gierigen Strategie, d.h.
+                    $$\lim_{k \rightarrow \infty} \pi(x, a^*) = 1 \text{ f&uuml;r } \arg \max_a a(x, a)$$</li>
+</ul>
+
+            Beispiel bei $\varepsilon$-greedy Strategie:
+
+            <ul>
+<li>$\varepsilon$ mit Zeit abklingen lassen</li>
+<li>$\varepsilon(x) = \frac{\varepsilon}{n(x)}$ mit $\varepsilon \in (0, 1)$ und $n(x)$ z&auml;hlt wie h&auml;ufig der Zustand $x$ besucht wurde.</li>
+</ul>
+
+
+            Fazit MC:
+
+            Vorteile
+            <ul>
+<li>Erlernen der optimalen Strategie ohne Modellwissen m&ouml;glich,
+                    sofern GLIE-Strategien verwendet werden</li>
+<li>Auch anwendbar, wenn die Markov-Annahme nicht gilt, da kein
+                    Bootstrapping</li>
+</ul>
+
+            Nachteile:
+            <ul>
+<li>Allgemeine Konvergenzeigenschaften (noch) nicht formal
+                    bewiesen. (Schon f&uuml;r Strategiebewrtung, nicht aber f&uuml;r RL)</li>
+<li>Funktioniert nur f&uuml;r episodische RL-Probleme</li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt><dfn id="temporal-difference">Temporal Difference Verfahren</dfn> (<dfn>TD</dfn>)</dt>
+<dd>TD-Verfahren nutzen die zeitliche Differenz zweier Sch&auml;tzungen
+        eines Zustandwertes. Die Aktualisierungen sind nach jedem
+        Zustandwechsel. Das hei&szlig;t, im Gegesatz zu MC-Verfahren, sind
+        TD-Verfahren f&uuml;r Episodische und fortlaufende RL-Probleme geignet.<br/>
+<br/>
+<u>Unterschiedliche Sch&auml;tzung:</u><br/>
+        $$
+        \begin{align}
+        J_\pi(x) &amp;= E(R_k | x_k = x) \tag{(1)}\\
+                 &amp;= E(r_k + \gamma \sum_{i=0}^\infty \gamma^i \cdot r_{k+i+i} | x_k = x)\tag{(2)}
+        \end{align}
+        $$
+        MC-Verfahren ganz (1) mittels Stichprobenfolge. TD-Verfahren sch&auml;tzen
+        die Summe in (2) durch eine Stichprobe $r_k$.
+
+        <u>TD-Strategiebewertung</u><br/>
+        Erinnerung an DP-Strategiebewertung:<br/>
+        $$J_\pi(x_k) \gets r_k(x_k, \pi (x_k)) + \alpha \sum_{x_{k+1}} P(x_{k+1} | x_k, \pi(x_k)) \cdot J_\pi (x_{k+1})$$
+            Allerdings ist $P( \cdot | x_k, a)$ unbekannt. Daher wird es mittels
+            einer einzelnen Stichprobe $(x_k, r_k, x_{k+1})$ gesch&auml;tztz und
+            ein Mittelwert zwischen dem aktuellen Wert und der Sch&auml;tzung erstellt.
+
+            $$J_\pi(x_k) \gets (1-\alpha) \cdot \underbrace{J_\pi(x_k)}_{\text{aktueller Wert}} + \alpha \cdot \underbrace{(\underbrace{r_k + \gamma \cdot J_\pi(x_{k+1})}_{\text{erwarteter Wert}} - J_\pi(x_k))}_{\text{zeitliche Differenz}}$$
+
+            Konvergenz bei variabler Schrittweiter $\alpha = \alpha_k$ falls
+
+            $$\sum_{k=1}^\infty \alpha_k = \infty \text{ und } \sum_{k=1}^\infty \alpha_k^2 &lt; \infty$$
+
+            Typische Wahl f&uuml;r $\alpha$: $\alpha(x, a) = \frac{1}{1+ m(x, a)}$,
+            wobei $m(x, a)$ die Anzahl der Besuche von $(x, a)$ ist.
+        </dd>
+<dt><dfn>Einschritt-TD-Verfahren</dfn></dt>
+<dd>Strategiebewertung $Q$-Funktion
+
+        $$Q(x_k, a_k) \gets Q(x_k, a_k) + \alpha \cdot [r_k + \gamma \cdot Q(x_{k+1}, a_{k+1}) - Q(x_k, a_k)]$$
+
+        Aktualisierung nach Ausf&uuml;hrung von $a_k$ liefert Belohnung $r_k$ und
+        Nachfolgezustand $x_{k+1}$.
+
+        <b>ABER</b> Folgeaktion $a_{k+1}$ wird ben&ouml;tigt.
+
+    </dd>
+<dt><dfn>SARSA</dfn> (<dfn>State Action Reward State Action</dfn>)</dt>
+<dd>SARSA ist ein TD-Vefahren.
+
+        Auswahl von $a_{k+1}$ gem&auml;&szlig; Strategie $\pi$ $\rightarrow$ on-policy
+
+    </dd>
+<dt><dfn>Q-Learning</dfn></dt>
+<dd>Q-Learning ist ein TD-Vefahren.
+
+        $$Q(x_k, a_k) \gets Q(x_k, a_k) + \alpha \cdot [r_k + \gamma \cdot \underbrace{\max_a Q(x_{k+1}, a)}_{J(x_{k+1})} - Q(x_k, a_k)]$$
+
+        $\Rightarrow$ Aktualisierung von $Q$ erfolgt unabh&auml;ngig von $\pi$
+        $\rightarrow$  Off-policy
+
+        (Q-Learning hat sich im Gegensatz zu SARSA durchgesetzt)
+
+        Wenn die Strategie eine GLIE-Strategie ist, kann man mit Q-Learning die
+        Konvergenz beweisen
+    </dd>
+<dt><dfn>Fazit TD-Learning</dfn></dt>
+<dd>
+
+        Vorteile:
+
+        <ul>
+<li>Beide Verfahren konvergieren sofern GLIE</li>
+<li>Einfach zu implementiernen, lernen pro Zeitschritt</li>
+</ul>
+
+        Nachteile:
+
+        <ul>
+<li>Bootstrapping problemantisch wenn Markov-Annahme nicht erf&uuml;llt.
+            </li>
+</ul>
+</dd>
+<dt><dfn>Mehrschritt-TD-Verfahren</dfn></dt>
+<dd>$$
+        \begin{align}
+        R_k^{(n)} &amp;= r_k + \gamma \cdot r_{k+1} + \dots + \gamma^{n-1} + \gamma^n J_\pi (x_{k+1})\\
+        R_k^{(1)} &amp;\hat{=} TD\\
+        R_k^{(n)} &amp;\hat{=} RL
+        \end{align}
+        $$
+
+        Strategiebewertung
+
+        $$J_\pi(x_k) \gets J_\pi (x_k) + \alpha \cdot [R_k^{(n)} - J_\pi(x_k)]$$
+
+
+        Vorteile:
+
+        <ul>
+<li>Schnellere Konvergenz als Einschritt-TD</li>
+<li>Flexible Verbindung von MC und TD</li>
+</ul>
+
+        Nachteil: Unpraktisch f&uuml;r gro&szlig;e $n$.
+    </dd>
 </dl>
+<h2 id="overviews_1">Overviews</h2>
+<h3 id="mdp-vs-pomdp-vs-rl">MDP vs POMDP vs RL</h3>
+<table>
+<tr>
+<th>&nbsp;</th>
+<th>MDP</th>
+<th>POMDP</th>
+<th>RL</th>
+</tr>
+<tr>
+<td>Agent-Environment Diagram</td>
+<td><img alt="Agent-Environment Diagram of a MDP" src="../images/2016/07/agent-environment-diagram-mdp.png"/></td>
+<td><img alt="Agent-Environment Diagram of a POMDP" src="../images/2016/07/agent-environment-diagram-pomdp.png"/></td>
+<td><img alt="Agent-Environment Diagram of a RL problem" src="../images/2016/07/agent-environment-diagram-rl.png"/></td>
+</tr>
+<tr>
+<td>1</td>
+<td colspan="3">Zustandsraum $\mathcal{X} \subseteq \mathbb{R}^n$</td>
+</tr>
+<tr>
+<td>2</td>
+<td colspan="2">Diskrete Zeitschritte $k=0, \dots, N$</td>
+<td>Zeithorizont: $N = \infty$ f&uuml;r fortlaufende Probleme, $N &lt; \infty$
+            f&uuml;r episodische Probleme</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Initialzustand $x_0 \in \mathcal{X}$ zum Zeitpunkt $k=0$.</td>
+<td>Initialzustand $x_0$ ist Zufallsvariable</td>
+<td>Wie MDP (TODO?)</td>
+</tr>
+<tr>
+<td>4</td>
+<td colspan="3">Aktionsmenge $A_k(x_k) \neq \emptyset$</td>
+</tr>
+<tr>
+<td>5</td>
+<td colspan="2">&Uuml;bergangswahrscheinlichkeiten $x_{k+1} \sim P_X (\cdot | x_k, a_k)$</td>
+<td>Keine &Uuml;bergangswahrscheinlichkeiten gegeben</td>
+</tr>
+<tr>
+<td>6</td>
+<td colspan="2">Additive Kostenfunktion $g_N(x_N) + \sum_{k=0}^{N-1}$ g_k(x_k, a_k)</td>
+<td>Belohnung $r_k = g_k(x_k, a_k, x_{k+1})$ wobei $g_k(\cdot)$ unbekannt</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Zustand ist direkt beobachtbar nach anwendung der Aktion</td>
+<td>Beobachtung / Messung $z_k$ gem&auml;&szlig; der bedingten Verteilung
+            $$z_k \sim P( \cdot | x_k, a_{k-1})$$</td>
+<td>Wie MDP (?)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Minimiere $J_{\pi_{0:N-1}} (x_0) := E (g_N (x_N) + \sum_{k=0}^{N-1} g_k (x_k, \pi_k(x_k)))$</td>
+<td>Minimiere $J_{\pi_{0:N-1}} (\cdot) := E (g_N (x_N) + \sum_{k=0}^{N-1} g_k (x_k, \pi_k(\cdot)))$</td>
+<td>Maximimierung der Belohnung $J(x_k) = E (R_k | x_k)$. Im fortlaufenden
+            Fall $$R_k = \sum_{t=0}^\infty \gamma^t r_{k+t}$$ mit
+            Diskontierungsfaktor $\gamma \in [0, 1)$,
+            im episodischen Fall
+            $$R_k = \sum_{i=k}^{N} r_i,$$
+            wobei $N$ unbekannt ist.</td>
+</tr>
+<tr>
+<td>L&ouml;sungsalgorithmen</td>
+<td>Dynamic Programming</td>
+<td></td>
+<td>Temporal Difference</td>
+</tr>
+</table>
 <h2 id="prufungsfragen_1">Pr&uuml;fungsfragen</h2>
 <ul>
 <li>Welche 3 Themengebiete wurden in der Vorlesung behandelt und was sind die

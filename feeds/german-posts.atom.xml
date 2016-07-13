@@ -464,7 +464,12 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;tr&gt;
 &lt;td id="2016-07-06"&gt;06.07.2016&lt;/td&gt;
 &lt;td&gt;POMDPs, &lt;abbr title="Reinforcement Learning"&gt;RL&lt;/abbr&gt;&lt;/td&gt;
-&lt;td&gt;POMDPs: Sensoreinsatzplanung&lt;/td&gt;
+&lt;td&gt;POMDPs: Sensoreinsatzplanung; Kovarianz- vs TODO-Kostenfunktionen&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td id="2016-07-13"&gt;13.07.2016&lt;/td&gt;
+&lt;td&gt;&lt;abbr title="Reinforcement Learning"&gt;RL&lt;/abbr&gt;&lt;/td&gt;
+&lt;td&gt;Monte Carlo Verfahren (Strategiebewerbtung); Temporal Difference&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
 &lt;p&gt;Folien:&lt;/p&gt;
@@ -1248,7 +1253,7 @@ J_k(x_k) &amp;amp;= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \m
         gilt
         $$S_k(C) = V_k(K_k, C) \prec V_k(\bar{K}_k, C) \prec V_k(\bar{K}_k, \bar{C}) = S_k(\tilde{C})$$
     &lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;Approximative Planung&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dt&gt;&lt;dfn id="approximative-planning"&gt;Approximative Planung&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;
 
         Abbildung auf lineare Sensoreinsatzplanung mittels
@@ -1414,7 +1419,7 @@ J_k(x_k) &amp;amp;= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \m
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;u&gt;Grundvarianten&lt;/u&gt;:
+&lt;u&gt;Grundvarianten des RL&lt;/u&gt;: (TODO: Grafiken)
 
     &lt;ul&gt;
 &lt;li&gt;Wertefunktionsbasiert: Sch&amp;auml;tzen die Wertefunktion / Q-Funktion aus
@@ -1426,7 +1431,329 @@ J_k(x_k) &amp;amp;= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \m
             Netze)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="monte-carlo-methods"&gt;Monte-Carlo Methoden&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;u&gt;Idee&lt;/u&gt;: Erlernen einer Strategie aus Beispielepisoden.
+
+        &lt;ul&gt;
+&lt;li&gt;Approximation des Erwartungswertes durch Stichproben (Samples)&lt;br/&gt;
+                $$E(R) = \frac{1}{N} \sum_{k=1}^N r_k =: \bar{R}_N,$$
+                wobei $r_k$ die Belohnung im Zeitschritt $k$ ist.&lt;br/&gt;
+                Rekursiv:
+                $$\bar{R}_{N+1} = \bar{R}_N + \frac{1}{N+1} (r_{N+1} - \bar{R}_N) \text{ mit } \bar{R}_1 = r_1$$&lt;/li&gt;
+&lt;li&gt;TODO&lt;/li&gt;
+&lt;/ul&gt;
+
+        Funktionieren ausschlie&amp;szlig;lich auf episodischen Problemen (d.h mit Ende),
+        wie z.B. Spielen.
+
+        &lt;ul&gt;
+&lt;li&gt;Gegeben: Strategie $\pi$&lt;/li&gt;
+&lt;li&gt;Gesucht: Wertefunktion $J_\pi(x)$&lt;/li&gt;
+&lt;li&gt;Ablauf:
+
+            &lt;ol&gt;
+&lt;li&gt;F&amp;uuml;r beliebigen Initialzustand erzeuge Episode mittels $\pi$&lt;/li&gt;
+&lt;li&gt;F&amp;uuml;r jeden Zustand $x$ in Episode:
+
+                &lt;ul&gt;
+&lt;li&gt;$R \gets$ kummulative Belohnung ab 1. Vorkommen von $x$ (First-visit, es gibt auch every-visit)&lt;/li&gt;
+&lt;li&gt;$n(x) \gets n(x) + 1$&lt;/li&gt;
+&lt;li&gt;$J_\pi(x) \overset{(*)}{\gets} J_\pi (x) + \frac{1}{n(x)} (R - J_\pi (x))$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+        Konvergiert f&amp;uuml;r unendliche Anzahl an Episoden.
+
+        Vorteile:
+
+        &lt;ul&gt;
+&lt;li&gt;Aufwand ist unabh&amp;auml;ngig von der Anzahl der Zust&amp;auml;nde (genauso wie Partikelfilter).&lt;/li&gt;
+&lt;li&gt;Einschr&amp;auml;nkungen auf Teilmenge von $\mathcal{X}$ m&amp;ouml;glich.&lt;/li&gt;
+&lt;/ul&gt;
+
+        Nachteile / Einschr&amp;auml;nkungen:
+        &lt;ul&gt;
+&lt;li&gt;Nur episodisch&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="monte-carlo-rl"&gt;Monte Carlo RL&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;Idee: Sch&amp;auml;tzen der Q-Funktion $Q(x, a)$.
+        TODO: Diagramm
+
+    F&amp;uuml;r gegebene Episode:
+    &lt;ul&gt;
+&lt;li&gt;Aktualisierung der $Q$-Funktion f&amp;uuml;r alle besuchten Zust&amp;auml;nde $x$ und gew&amp;auml;hlte Aktionen $a$&lt;/li&gt;
+&lt;li&gt;Verbesserung der Strategie f&amp;uuml;r alle besuchten Zust&amp;auml;nde&lt;/li&gt;
+&lt;/ul&gt;
+
+    Problem: pro Zustand wird nur eine Aktion bewertet. Das f&amp;uuml;hrt nur auf sehr lokalen bereichen zu einer Strategieverbesserung.
+
+    &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="exporation-exploitation"&gt;Exploration vs. Exploitation&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;blockquote&gt;Exploit what is already known to obtain rewards, but explore in order to choose better actions in the future.&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Exploring Starts:
+            Jedes Zustands-Aktions-Paar gleichwahrscheinlich als Startwert f&amp;uuml;r Episode. Vorteil: F&amp;uuml;hrt zu einer deterministischen Strategie; f&amp;uuml;r vile reale Systeme nicht realisierbar (z.B. Roboter kann nicht bei voller Kraft starten)
+            &lt;/li&gt;
+&lt;/ul&gt;
+
+        Verwendung probabilistischer Strategien:
+
+        $$\pi: \mathcal{X} \times \mathcal{A} \rightarrow [0, 1]$$
+        $$\pi(x, a) = P(a | x)$$
+
+        &lt;ul&gt;
+&lt;li&gt;&lt;u&gt;$\varepsilon$-gierige Strategien&lt;/u&gt;&lt;br/&gt;
+                gierige Aktion: Aktion mit h&amp;ouml;chster erwarteter Belohnung:
+                $$a^+ = \arg \max_a Q(x,a)$$
+                erh&amp;auml;lt h&amp;ouml;chste Wahrscheinlichkeit:
+                $$\pi(x, a^*) = 1 - \varepsilon + \frac{\varepsilon}{|A(x)|}$$
+                nicht-gierige Aktionen: $\pi(x, a) = \frac{\varepsilon}{|A(x)|}$
+                mit $0 &amp;lt; \varepsilon \ll 1$&lt;br/&gt;
+&lt;br/&gt;
+                Vorteil: Kein Festlegen auf suboptimale Aktion&lt;br/&gt;
+                Nachteil: Wahl von $\varepsilon$ problematisch&lt;br/&gt;
+&lt;br/&gt;
+                $\varepsilon$-greedy MC Strategieiteration ist on-policy&lt;/li&gt;
+&lt;li&gt;&lt;u&gt;Softmax-Strategie&lt;/u&gt;&lt;br/&gt;
+
+                Rangfolge entsprechend der Wertigkeit der Aktionen
+
+                $$\pi(x, a) = \frac{e^{Q(x, a) / \tau}}{\sum_a e^{Q(x,a) / \tau}} \text{ mit "Temperatur"} \tau &amp;gt; 0$$
+
+                Die generierte Verteilung nennt sich Gibbs- oder auch
+                Boltzmann-Verteilung.
+
+                $\tau$ gro&amp;szlig;: $Q(x,a) / \tau$ wird klein, d.h. die Aktionen
+                werden &amp;auml;hnlich wahrscheinlich gew&amp;auml;hlt. (TODO: Was ist gro&amp;szlig;?)
+
+                $\tau$ klein: Die Aktionen werden mit deutlich
+                unterschiedlicher wahrscheinlichkeit gezogen
+
+                $\tau \rightarrow 0$: nahezu deterministische, gierige
+                Strategie.
+
+                Vorteil gegen&amp;uuml;ber $\varepsilon$-greedy: Rangfolge bei Auswahl.
+                Nachteil gegen&amp;uuml;ber $\varepsilon$-greedy: Wahl von $\tau wird
+                of als schwieriger angesehen als die Wahl von $\varepsilon$.
+
+            &lt;/li&gt;
+&lt;li&gt;&lt;u&gt;GLIE-Strategie&lt;/u&gt;&lt;br/&gt;
+&lt;b&gt;G&lt;/b&gt;reedy in the &lt;b&gt;l&lt;/b&gt;imit with &lt;b&gt;i&lt;/b&gt;nfinite &lt;b&gt;e&lt;/b&gt;xploration
+
+            Damit eine Strategie GLIE ist, muss erf&amp;uuml;llt sein:
+
+            &lt;ul&gt;
+&lt;li&gt;Alle $(x, a)$-Paare werden unendlich oft besucht&lt;/li&gt;
+&lt;li&gt;Strategie konvergiert zu einer gierigen Strategie, d.h.
+                    $$\lim_{k \rightarrow \infty} \pi(x, a^*) = 1 \text{ f&amp;uuml;r } \arg \max_a a(x, a)$$&lt;/li&gt;
+&lt;/ul&gt;
+
+            Beispiel bei $\varepsilon$-greedy Strategie:
+
+            &lt;ul&gt;
+&lt;li&gt;$\varepsilon$ mit Zeit abklingen lassen&lt;/li&gt;
+&lt;li&gt;$\varepsilon(x) = \frac{\varepsilon}{n(x)}$ mit $\varepsilon \in (0, 1)$ und $n(x)$ z&amp;auml;hlt wie h&amp;auml;ufig der Zustand $x$ besucht wurde.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+            Fazit MC:
+
+            Vorteile
+            &lt;ul&gt;
+&lt;li&gt;Erlernen der optimalen Strategie ohne Modellwissen m&amp;ouml;glich,
+                    sofern GLIE-Strategien verwendet werden&lt;/li&gt;
+&lt;li&gt;Auch anwendbar, wenn die Markov-Annahme nicht gilt, da kein
+                    Bootstrapping&lt;/li&gt;
+&lt;/ul&gt;
+
+            Nachteile:
+            &lt;ul&gt;
+&lt;li&gt;Allgemeine Konvergenzeigenschaften (noch) nicht formal
+                    bewiesen. (Schon f&amp;uuml;r Strategiebewrtung, nicht aber f&amp;uuml;r RL)&lt;/li&gt;
+&lt;li&gt;Funktioniert nur f&amp;uuml;r episodische RL-Probleme&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="temporal-difference"&gt;Temporal Difference Verfahren&lt;/dfn&gt; (&lt;dfn&gt;TD&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dd&gt;TD-Verfahren nutzen die zeitliche Differenz zweier Sch&amp;auml;tzungen
+        eines Zustandwertes. Die Aktualisierungen sind nach jedem
+        Zustandwechsel. Das hei&amp;szlig;t, im Gegesatz zu MC-Verfahren, sind
+        TD-Verfahren f&amp;uuml;r Episodische und fortlaufende RL-Probleme geignet.&lt;br/&gt;
+&lt;br/&gt;
+&lt;u&gt;Unterschiedliche Sch&amp;auml;tzung:&lt;/u&gt;&lt;br/&gt;
+        $$
+        \begin{align}
+        J_\pi(x) &amp;amp;= E(R_k | x_k = x) \tag{(1)}\\
+                 &amp;amp;= E(r_k + \gamma \sum_{i=0}^\infty \gamma^i \cdot r_{k+i+i} | x_k = x)\tag{(2)}
+        \end{align}
+        $$
+        MC-Verfahren ganz (1) mittels Stichprobenfolge. TD-Verfahren sch&amp;auml;tzen
+        die Summe in (2) durch eine Stichprobe $r_k$.
+
+        &lt;u&gt;TD-Strategiebewertung&lt;/u&gt;&lt;br/&gt;
+        Erinnerung an DP-Strategiebewertung:&lt;br/&gt;
+        $$J_\pi(x_k) \gets r_k(x_k, \pi (x_k)) + \alpha \sum_{x_{k+1}} P(x_{k+1} | x_k, \pi(x_k)) \cdot J_\pi (x_{k+1})$$
+            Allerdings ist $P( \cdot | x_k, a)$ unbekannt. Daher wird es mittels
+            einer einzelnen Stichprobe $(x_k, r_k, x_{k+1})$ gesch&amp;auml;tztz und
+            ein Mittelwert zwischen dem aktuellen Wert und der Sch&amp;auml;tzung erstellt.
+
+            $$J_\pi(x_k) \gets (1-\alpha) \cdot \underbrace{J_\pi(x_k)}_{\text{aktueller Wert}} + \alpha \cdot \underbrace{(\underbrace{r_k + \gamma \cdot J_\pi(x_{k+1})}_{\text{erwarteter Wert}} - J_\pi(x_k))}_{\text{zeitliche Differenz}}$$
+
+            Konvergenz bei variabler Schrittweiter $\alpha = \alpha_k$ falls
+
+            $$\sum_{k=1}^\infty \alpha_k = \infty \text{ und } \sum_{k=1}^\infty \alpha_k^2 &amp;lt; \infty$$
+
+            Typische Wahl f&amp;uuml;r $\alpha$: $\alpha(x, a) = \frac{1}{1+ m(x, a)}$,
+            wobei $m(x, a)$ die Anzahl der Besuche von $(x, a)$ ist.
+        &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Einschritt-TD-Verfahren&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;Strategiebewertung $Q$-Funktion
+
+        $$Q(x_k, a_k) \gets Q(x_k, a_k) + \alpha \cdot [r_k + \gamma \cdot Q(x_{k+1}, a_{k+1}) - Q(x_k, a_k)]$$
+
+        Aktualisierung nach Ausf&amp;uuml;hrung von $a_k$ liefert Belohnung $r_k$ und
+        Nachfolgezustand $x_{k+1}$.
+
+        &lt;b&gt;ABER&lt;/b&gt; Folgeaktion $a_{k+1}$ wird ben&amp;ouml;tigt.
+
+    &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;SARSA&lt;/dfn&gt; (&lt;dfn&gt;State Action Reward State Action&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dd&gt;SARSA ist ein TD-Vefahren.
+
+        Auswahl von $a_{k+1}$ gem&amp;auml;&amp;szlig; Strategie $\pi$ $\rightarrow$ on-policy
+
+    &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Q-Learning&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;Q-Learning ist ein TD-Vefahren.
+
+        $$Q(x_k, a_k) \gets Q(x_k, a_k) + \alpha \cdot [r_k + \gamma \cdot \underbrace{\max_a Q(x_{k+1}, a)}_{J(x_{k+1})} - Q(x_k, a_k)]$$
+
+        $\Rightarrow$ Aktualisierung von $Q$ erfolgt unabh&amp;auml;ngig von $\pi$
+        $\rightarrow$  Off-policy
+
+        (Q-Learning hat sich im Gegensatz zu SARSA durchgesetzt)
+
+        Wenn die Strategie eine GLIE-Strategie ist, kann man mit Q-Learning die
+        Konvergenz beweisen
+    &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Fazit TD-Learning&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+
+        Vorteile:
+
+        &lt;ul&gt;
+&lt;li&gt;Beide Verfahren konvergieren sofern GLIE&lt;/li&gt;
+&lt;li&gt;Einfach zu implementiernen, lernen pro Zeitschritt&lt;/li&gt;
+&lt;/ul&gt;
+
+        Nachteile:
+
+        &lt;ul&gt;
+&lt;li&gt;Bootstrapping problemantisch wenn Markov-Annahme nicht erf&amp;uuml;llt.
+            &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Mehrschritt-TD-Verfahren&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;$$
+        \begin{align}
+        R_k^{(n)} &amp;amp;= r_k + \gamma \cdot r_{k+1} + \dots + \gamma^{n-1} + \gamma^n J_\pi (x_{k+1})\\
+        R_k^{(1)} &amp;amp;\hat{=} TD\\
+        R_k^{(n)} &amp;amp;\hat{=} RL
+        \end{align}
+        $$
+
+        Strategiebewertung
+
+        $$J_\pi(x_k) \gets J_\pi (x_k) + \alpha \cdot [R_k^{(n)} - J_\pi(x_k)]$$
+
+
+        Vorteile:
+
+        &lt;ul&gt;
+&lt;li&gt;Schnellere Konvergenz als Einschritt-TD&lt;/li&gt;
+&lt;li&gt;Flexible Verbindung von MC und TD&lt;/li&gt;
+&lt;/ul&gt;
+
+        Nachteil: Unpraktisch f&amp;uuml;r gro&amp;szlig;e $n$.
+    &lt;/dd&gt;
 &lt;/dl&gt;
+&lt;h2 id="overviews_1"&gt;Overviews&lt;/h2&gt;
+&lt;h3 id="mdp-vs-pomdp-vs-rl"&gt;MDP vs POMDP vs RL&lt;/h3&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;&amp;nbsp;&lt;/th&gt;
+&lt;th&gt;MDP&lt;/th&gt;
+&lt;th&gt;POMDP&lt;/th&gt;
+&lt;th&gt;RL&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Agent-Environment Diagram&lt;/td&gt;
+&lt;td&gt;&lt;img alt="Agent-Environment Diagram of a MDP" src="../images/2016/07/agent-environment-diagram-mdp.png"/&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img alt="Agent-Environment Diagram of a POMDP" src="../images/2016/07/agent-environment-diagram-pomdp.png"/&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img alt="Agent-Environment Diagram of a RL problem" src="../images/2016/07/agent-environment-diagram-rl.png"/&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td colspan="3"&gt;Zustandsraum $\mathcal{X} \subseteq \mathbb{R}^n$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td colspan="2"&gt;Diskrete Zeitschritte $k=0, \dots, N$&lt;/td&gt;
+&lt;td&gt;Zeithorizont: $N = \infty$ f&amp;uuml;r fortlaufende Probleme, $N &amp;lt; \infty$
+            f&amp;uuml;r episodische Probleme&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;Initialzustand $x_0 \in \mathcal{X}$ zum Zeitpunkt $k=0$.&lt;/td&gt;
+&lt;td&gt;Initialzustand $x_0$ ist Zufallsvariable&lt;/td&gt;
+&lt;td&gt;Wie MDP (TODO?)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td colspan="3"&gt;Aktionsmenge $A_k(x_k) \neq \emptyset$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td colspan="2"&gt;&amp;Uuml;bergangswahrscheinlichkeiten $x_{k+1} \sim P_X (\cdot | x_k, a_k)$&lt;/td&gt;
+&lt;td&gt;Keine &amp;Uuml;bergangswahrscheinlichkeiten gegeben&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;td colspan="2"&gt;Additive Kostenfunktion $g_N(x_N) + \sum_{k=0}^{N-1}$ g_k(x_k, a_k)&lt;/td&gt;
+&lt;td&gt;Belohnung $r_k = g_k(x_k, a_k, x_{k+1})$ wobei $g_k(\cdot)$ unbekannt&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;7&lt;/td&gt;
+&lt;td&gt;Zustand ist direkt beobachtbar nach anwendung der Aktion&lt;/td&gt;
+&lt;td&gt;Beobachtung / Messung $z_k$ gem&amp;auml;&amp;szlig; der bedingten Verteilung
+            $$z_k \sim P( \cdot | x_k, a_{k-1})$$&lt;/td&gt;
+&lt;td&gt;Wie MDP (?)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;Minimiere $J_{\pi_{0:N-1}} (x_0) := E (g_N (x_N) + \sum_{k=0}^{N-1} g_k (x_k, \pi_k(x_k)))$&lt;/td&gt;
+&lt;td&gt;Minimiere $J_{\pi_{0:N-1}} (\cdot) := E (g_N (x_N) + \sum_{k=0}^{N-1} g_k (x_k, \pi_k(\cdot)))$&lt;/td&gt;
+&lt;td&gt;Maximimierung der Belohnung $J(x_k) = E (R_k | x_k)$. Im fortlaufenden
+            Fall $$R_k = \sum_{t=0}^\infty \gamma^t r_{k+t}$$ mit
+            Diskontierungsfaktor $\gamma \in [0, 1)$,
+            im episodischen Fall
+            $$R_k = \sum_{i=k}^{N} r_i,$$
+            wobei $N$ unbekannt ist.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;L&amp;ouml;sungsalgorithmen&lt;/td&gt;
+&lt;td&gt;Dynamic Programming&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Temporal Difference&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
 &lt;h2 id="prufungsfragen_1"&gt;Pr&amp;uuml;fungsfragen&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Welche 3 Themengebiete wurden in der Vorlesung behandelt und was sind die
