@@ -181,6 +181,35 @@ Necessary conditions for a minimum $x^*$ is:
 See [<a href="#ref-smi04" name="ref-smi04-anchor">Smi04</a>] for many examples.
 
 
+## Optimization Problem characteristics
+
+There are some properties of optimization problems which make it easier / harder
+to solve:
+
+<table>
+    <tr>
+        <th>Property</th>
+        <th>Easy</th>
+        <th>Hard</th>
+    </tr>
+    <tr>
+        <td>Objective</td>
+        <td>linear</td>
+        <td>non-linear</td>
+    </tr>
+    <tr>
+        <td>Optimization Variable</td>
+        <td>small discrete, continuous</td>
+        <td>large discrete</td>
+    </tr>
+    <tr>
+        <td>Constraints</td>
+        <td>No Constraints</td>
+        <td>Constraints</td>
+    </tr>
+</table>
+
+
 ## Resources
 
 * Reddit: [Overview of Optimization Algorithms](https://www.reddit.com/r/MachineLearning/comments/4582s0/overview_of_optimization_algorithms/)

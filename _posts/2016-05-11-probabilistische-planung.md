@@ -8,7 +8,7 @@ category: German posts
 tags: Klausur
 featured_image: logos/klausur.png
 ---
-<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Probabilistische Planung&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://ies.anthropomatik.kit.edu/mitarbeiter.php?person=huber">Herrn Dr.-Ing. Marco Huber</a> im Sommersemester 2015 und 2016 gehört. Der Artikel dient als Prüfungsvorbereitung und ist noch am Entstehen.</div>
+<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Probabilistische Planung&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://ies.anthropomatik.kit.edu/mitarbeiter.php?person=huber">Herrn Dr.-Ing. Marco Huber</a> im Sommersemester 2015 und 2016 gehört. Die Inhalte sind dementsprechend stark an der Vorlesung angelehnt bzw. komplette Teile sind daraus übernommen. Der Artikel dient als Prüfungsvorbereitung und ist noch am Entstehen.</div>
 
 In der Vorlesung 'Probabilistische Planung' werden drei Themenfelder
 besprochen:
@@ -28,11 +28,13 @@ und Strategieiteration sowie der Label-Korrektur-Algorithmus zu nennen.
 
 <table>
 <tr>
+    <th>#</th>
     <th>Datum</th>
     <th>Kapitel</th>
     <th>Inhalt</th>
 </tr>
 <tr>
+    <td>1</td>
     <td>26.04.2016</td>
     <td>Grundlagen</td>
     <td>Wahrscheinlichkeitsraum, Grundraum, Ereignis&shy;raum, Resultate,
@@ -40,62 +42,74 @@ und Strategieiteration sowie der Label-Korrektur-Algorithmus zu nennen.
         Bedingte Wahrscheinlichkeit, Ziegenproblem, Dichtefunktion</td>
 </tr>
 <tr>
+    <td>2</td>
     <td>28.04.2016</td>
     <td>Grundlagen</td>
     <td>Allais-Paradoxon, Nutzentheorie, Präferenzrelation, Nutzenfunktion</td>
 </tr>
 <tr>
+    <td>3</td>
     <td>06.05.2016</td>
     <td>Grundlagen</td>
     <td>Einführung in die Optimierungstheorie: Notwendige und Hinreichende
         Bedingungen, Konvexe Optimierung, Numerische Methoden</td>
 </tr>
 <tr>
+    <td>4</td>
     <td>11.05.2016</td>
     <td>MDPs</td>
     <td>Definition eines MDP, Plan vs. Strategie, <abbr title="Dynamische Programmierung">DP</abbr></td>
 </tr>
 <tr>
+    <td>5</td>
     <td id="2016-05-18">18.05.2016</td>
     <td>MDPs</td>
     <td>Endliche Planungsprobleme, Value- und Policy-Iteration</td>
 </tr>
 <tr>
+    <td>6</td>
     <td id="2016-05-25">25.05.2016</td>
     <td>MDPs</td>
     <td>Kürzeste-Wege Suche (Tiefensuche, Breitensuche, Dijkstra, A*, Branch &amp; Bound; Label-Korrektur-Algorithmus); Trellis-Diagramm; Differentialantrieb; Pontryagin's Minimumprinzip</td>
 </tr>
 <tr>
+    <td>7</td>
     <td id="2016-06-01">01.06.2016</td>
-    <td>MDPs</td>
+    <td>MDPs (<a href="https://ies.anthropomatik.kit.edu/ies/download/lehre/proplan/ProPlan-8-Folien.pdf">Folien</a>)</td>
     <td>Pontryagin's Minimumprinzip, Hamilton-Funktion; LQR; Sicherheitsäquivalenz</td>
 </tr>
 <tr>
+    <td>8</td>
     <td id="2016-06-08">08.06.2016</td>
     <td>POMDPs</td>
     <td>Motivation und Definition von POMDP; Hinreichende Statistik; Bayes-Schätzer</td>
 </tr>
 <tr>
+    <td>9</td>
     <td id="2016-06-15">15.06.2016</td>
     <td>POMDPs</td>
     <td>Lineare Planungsprobleme (Kalman-Filter); Sperationsproblem</td>
 </tr>
 <tr>
+    <td>10</td>
     <td id="2016-06-22">22.06.2016</td>
     <td>POMDPs</td>
     <td>Endliche Planungsprobleme (Optimale Strategie); <a href="#ol-planung">OL</a>, <a href="#olf-planung">OLF</a>, Modellprädiktive Planung</td>
 </tr>
 <tr>
+    <td>11</td>
     <td id="2016-06-29">29.06.2016</td>
     <td>POMDPs</td>
     <td>Parametrische / Nichtparametrische approximative Planung (Sicherheitsäquivalenz bei deterministischen Problemen); Funktionsapproximatoren für Wertefunktion / Strategie; Sensoreinsatzplanung</td>
 </tr>
 <tr>
+    <td>12</td>
     <td id="2016-07-06">06.07.2016</td>
     <td>POMDPs, <abbr title="Reinforcement Learning">RL</abbr></td>
     <td>POMDPs: Sensoreinsatzplanung; Kovarianz- vs TODO-Kostenfunktionen</td>
 </tr>
 <tr>
+    <td>13</td>
     <td id="2016-07-13">13.07.2016</td>
     <td><abbr title="Reinforcement Learning">RL</abbr></td>
     <td>Monte Carlo Verfahren (Strategiebewerbtung); Temporal Difference Learning</td>
@@ -278,7 +292,7 @@ Slides: `11.05.2016`
       $$
       \begin{align}
 J_N(x_n) &= g_N(x_N)\\
-J_k(x_k) &= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_{k+1})| x_k, a_k) \right )
+J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_{k+1})| x_k, a_k) \right )
 \end{align}
       $$
       <br/>
@@ -306,7 +320,7 @@ J_k(x_k) &= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathbb{E}
   </dd>
   <dt><dfn id="q-function">Q-Funktion</dfn></dt>
   <dd>Siehe <a href="../machine-learning-1-course/#q-function">ML 1</a>.</dd>
-  <dt><a href="https://de.wikipedia.org/wiki/Dynamische_Programmierung"><dfn id="dynamic-programming">Dynamische Programmierung</dfn></a></dt>
+  <dt><a href="https://de.wikipedia.org/wiki/Dynamische_Programmierung"><dfn id="dynamic-programming">Dynamische Programmierung</dfn></a> (<dfn>Dynamic Programming</dfn>)</dt>
   <dd>Dynamische Programmierung ist eine Methode zum Lösen von
       Optimierungsproblemen. Dabei wird die Tatsache genutzt, dass für jeden
       initialen Zustand $x_0 \in \mathcal{X}$ die optimalen Kosten $J^*(x_0)$
@@ -322,6 +336,9 @@ J_k(x_k) &= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathbb{E}
       \end{align}
       $$
       ergibt.<br/>
+      <img src="../images/2016/07/dynamic-programming.png"
+           alt="Dynamic Programming"
+           width="512px" />
       <br/>
       Laufzeitkomplexität: $\mathcal{O}(N |\mathcal{X}|^2 |A|)$
 
@@ -436,15 +453,15 @@ J_k(x_k) &= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathbb{E}
     <dd>Für beliebige Wertevektoren $J, J'$, eine beliebige Strategie $\pi$
         und für alle $k=0,1, \dots$ gilt:
 
-        $$d(T^k J, T^k J') = \leq \alpha^k \cdot d(J, J')$$
-        $$d(T^k_\pi J, T_T^k J') \leq \alpha^k \cdot d (TODO)$$
+        $$d(T^k J, T^k J') \leq \alpha^k \cdot d(J, J')$$ <!-- TODO: \alpha = gamma? -->
+        $$d(T^k_\pi J, T_T^k J') \leq \alpha^k \cdot d (J, J')$$ <!-- TODO: \alpha = gamma? -->
     </dd>
     <dt><dfn>Werte-Iteration</dfn> (<dfn id="value-iteration">Value iteration</dfn>)</dt>
     <dd>$$J^* = \lim_{N \rightarrow \infty} T^N J$$
         wobei $J^*$ die optimalen Kosten, $T$ der Bellman-Operator und $N$
         der Planungshorizont ist. $g$ ist die Schrittkostenfunktion.<br/>
 
-        TODO: What is $\alpha$? What is $f_{xj}(a)$?<br/>
+        TODO: What is $\alpha$?<br/>
 
         <img src="../images/2016/07/Value-Iteration.png"
              alt="Value iteration algorithm"
@@ -474,7 +491,7 @@ J_k(x_k) &= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathbb{E}
         konvergiert als der Wertevektor. Außerdem ist die Anzahl der
         Strategien endlich, aber es gibt unendlich viele Wertevektoren.<br/>
         <br/>
-        TODO: What is $\alpha$? What is $f_{xj}(a)$?<br/>
+        TODO: What is $\alpha$?<br/>
 
         <img src="../images/2016/07/Value-Iteration.png"
              alt="Value iteration algorithm"
@@ -508,7 +525,13 @@ J_k(x_k) &= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathbb{E}
     <dd>Der Label-Korrektur-Algorithmus ist ein Meta-Algorithmus zur
         kürzeste-Wege-Suche dient. Spezialfälle von diesem sind die
         Tiefen- und Breitensuche, der <a href="https://de.wikipedia.org/wiki/Dijkstra-Algorithmus">Dijkstra-Algorithmus</a>, der <a href="https://de.wikipedia.org/wiki/A*-Algorithmus">A*-Algorithmus</a> sowie
-        Branch &amp; Bound.</dd>
+        Branch &amp; Bound.
+
+          <img src="../images/2016/07/label-correction.png"
+               alt="Label correction algorithm"
+               width="512px" />
+
+        </dd>
     <dt><a href="https://de.wikipedia.org/wiki/Trellis-Code"><dfn id="trellis">Trellis-Diagramm</dfn></a></dt>
     <dd>Eine Diagramm welches anzeigt welche Zustände über die Zeit
         gewählt werden.</dd>
@@ -884,7 +907,7 @@ J_k(x_k) &= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathbb{E}
 
     </dd>
     <dt><dfn>Monotonie der Riccarti-Gleichung</dfn></dt>
-    <dd>
+    <dd>(TODO: Wozu? https://ies.anthropomatik.kit.edu/ies/download/lehre/proplan/ProPlan-7-Folien.pdf Folie 4)
 
         Sei
         $$V_k(\Lambda, C) := C_k^w + (A_k - \Lambda \cdot H_k) C \cdot (A_k - \Lambda H_k)^T + \Lambda C_k^v V^T$$
@@ -955,9 +978,9 @@ J_k(x_k) &= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathbb{E}
                  = \begin{pmatrix}x_{k}^S\\
                                  y_{k}^S\\
                                  \phi_{k}^S\end{pmatrix} +
-                   \begin{pmatrix}T v TODO\\
-                                  TODO\\
-                                  TODO\end{pmatrix}$$
+                   \begin{pmatrix}T \cdot v \cdot \cos(\varphi_k^s + a_k)\\
+                                  T \cdot v \cdot \cos(\varphi_k^s + a_k)\\
+                                  a_k\end{pmatrix}$$
 
             </li>
         </ul>
@@ -983,8 +1006,8 @@ J_k(x_k) &= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathbb{E}
     <dd>Reinforcement learning ist ein Subfeld des maschinellen Lernens,
         welches sich auf Probleme der optimalen Kontrolle fokusiert.<br/>
         <br/>
-    Problem:
 
+    <u>Problem</u>
     <ul>
         <li>Was ist wenn die Kostenfunktion $g_k$ unbekannt ist?</li>
         <li>Was ist wenn das Modell, das heißt die Übergangswahrscheinlichkeiten
@@ -993,30 +1016,8 @@ J_k(x_k) &= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathbb{E}
 
     Dies wird durch ein Zusammenspiel aus lernen und planen gelöst.
     Man lernt also aus Erfahrung und <b>Interaktion mit der Umwelt</b>.<br/>
-    <br/>
-    Eigenschaften und Besonderheiten:
-    <ul>
-        <li>Prinzipien des biologischen Lernens (Negatives / Positives Verstärken)
 
-            <ul>
-                <li>Intrinsische Motivation etwas erreichen zu wollen:
-                    Abstraktion als Kosten- / Belohnungsfunktion, die es über
-                    die Zeit zu min. / max. gilt.</li>
-                <li>Exploratives Lernen</li>
-            </ul>
-        </li>
-        <li>Unterschied zu "klassischen" Lernverfahren:
-            <ul>
-                <li>Lernen erfolgt unüberwacht und explorativ durch
-                    aktive Interaktion mit der Umwelt.</li>
-                <li>RL kombiniert Aspekte der Planung mit Lernmethodik.
-                    Da RL unüberwacht ist erfolgt die Entscheidung aufgrund
-                    eigener Erfahrung.</li>
-            </ul>
-        </li>
-    </ul>
-
-    <u>Definition:</u><br/>
+    <u>Definition</u><br/>
     MDP mit folgenden Unterschieden:
     <ul>
         <li>(2) Zeithorizont:
@@ -1046,10 +1047,45 @@ J_k(x_k) &= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathbb{E}
         </li>
     </ul>
 
+    <u>Beispiele</u>
+
+    <ul>
+        <li>Beliebige Computerspiele Spielen</li>
+        <li>Stabilisierung eines inversen Pendels</li>
+    </ul>
+
+    </dd>
+    <dt><dfn>Eigenschaften und Besonderheiten des RLs</dfn></dt>
+    <dd>
+
+    <ul>
+        <li>Prinzipien des biologischen Lernens (Negatives / Positives Verstärken)
+
+            <ul>
+                <li>Intrinsische Motivation etwas erreichen zu wollen:
+                    Abstraktion als Kosten- / Belohnungsfunktion, die es über
+                    die Zeit zu min. / max. gilt.</li>
+                <li>Exploratives Lernen</li>
+            </ul>
+        </li>
+        <li>Unterschied zu "klassischen" Lernverfahren:
+            <ul>
+                <li>Lernen erfolgt unüberwacht und explorativ durch
+                    aktive Interaktion mit der Umwelt.</li>
+                <li>RL kombiniert Aspekte der Planung mit Lernmethodik.
+                    Da RL unüberwacht ist erfolgt die Entscheidung aufgrund
+                    eigener Erfahrung.</li>
+            </ul>
+        </li>
+    </ul>
+
     Dynamisches Programmieren ist nicht anwendbar, da das Modell und die Kosten
-    unbekannt sind. Die optimale Strategie wird aus Erfahrung approximiert.<br/>
-    <br/>
-    <u>Unterscheidungsmerkmale von RL-Problemtypen</u>:
+    unbekannt sind. Die optimale Strategie wird aus Erfahrung approximiert.
+
+    </dd>
+    <dt><dfn>Unterscheidungsmerkmale von RL-Problemtypen</dfn></dt>
+    <dd>
+
     <ul>
         <li>Horizont:
 
@@ -1090,7 +1126,9 @@ J_k(x_k) &= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathbb{E}
         </li>
     </ul>
 
-    <u>Grundvarianten des RL</u>: (TODO: Grafiken)
+    </dd>
+    <dt><dfn>Lösungsansätze für RL-Probleme</dfn></dt>
+    <dd>
 
     <ul>
         <li>Wertefunktionsbasiert: Schätzen die Wertefunktion / Q-Funktion aus
@@ -1172,92 +1210,112 @@ J_k(x_k) &= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathbb{E}
 
         <blockquote>Exploit what is already known to obtain rewards, but explore in order to choose better actions in the future.</blockquote>
 
-        <ul>
-            <li>Exploring Starts:
-            Jedes Zustands-Aktions-Paar gleichwahrscheinlich als Startwert für Episode. Vorteil: Führt zu einer deterministischen Strategie; für vile reale Systeme nicht realisierbar (z.B. Roboter kann nicht bei voller Kraft starten)
-            </li>
-        </ul>
+        Es gibt folgende Explorationsstrategien:
 
-        Verwendung probabilistischer Strategien:
+        <ul>
+            <li><a href="#exploring-starts">Exploring Starts</a></li>
+            <li><a href="#epsilon-greedy-exploration">$\varepsilon$-Greedy Strategy</a></li>
+            <li><a href="#softmax-exploration-strategy">Softmax Strategy</a></li>
+        </ul>
+    </dd>
+    <dt><dfn id="exploring-starts">Exploring Starts</dfn></dt>
+    <dd>Jedes Zustands-Aktions-Paar gleichwahrscheinlich als Startwert für
+        Episode.<br/>
+        Vorteil: Führt zu einer deterministischen Strategie<br/>
+        Nachteil: Für viele reale Systeme nicht realisierbar (z.B. Roboter kann
+        nicht bei voller Kraft starten).
+    </dd>
+    <dt><dfn id="probabilistic-strategy">Probabilistische Strategie</dfn></dt>
+    <dd>
+
+        Eine probabilistische Strategie $\pi$ ist definiert als eine Funktion,
+        welche für einen Zustand $x$ und eine Aktion $a$ die Wahrscheinlichkeit
+        wiedergibt, dass $a$ im Zustand $x$ ausgeführt wird:
 
         $$\pi: \mathcal{X} \times \mathcal{A} \rightarrow [0, 1]$$
         $$\pi(x, a) = P(a | x)$$
 
+    </dd>
+    <dt><dfn id="epsilon-greedy-exploration">$\varepsilon$-Greedy Strategy</dfn></dt>
+    <dd>The $\varepsilon$-greedy exploration strategy is a probabilistic
+        strategy:<br/>
+        Explore $\varepsilon$% of the time. Otherwise, follow what you
+        currently believe is best.<br/>
+        <br/>
+        gierige Aktion: Aktion mit höchster erwarteter Belohnung:
+        $$a^+ = \arg \max_a Q(x,a)$$
+        erhält höchste Wahrscheinlichkeit:
+        $$\pi(x, a^*) = 1 - \varepsilon + \frac{\varepsilon}{|A(x)|}$$
+        nicht-gierige Aktionen: $\pi(x, a) = \frac{\varepsilon}{|A(x)|}$
+        mit $0 < \varepsilon \ll 1$<br/>
+        <br/>
+        Vorteil: Kein Festlegen auf suboptimale Aktion<br/>
+        Nachteil: Wahl von $\varepsilon$ problematisch<br/>
+        <br/>
+        $\varepsilon$-greedy MC Strategieiteration ist on-policy
+    </dd>
+    <dt><dfn id="softmax-exploration-strategy">Softmax-Strategie</dfn></dt>
+    <dd>
+
+        Rangfolge entsprechend der Wertigkeit der Aktionen
+
+        $$\pi(x, a) = \frac{e^{Q(x, a) / \tau}}{\sum_a e^{Q(x,a) / \tau}} \text{ mit "Temperatur"} \tau > 0$$
+
+        Die generierte Verteilung nennt sich Gibbs- oder auch
+        Boltzmann-Verteilung.<br/>
+        <br/>
+        $\tau$ groß: $Q(x,a) / \tau$ wird klein, d.h. die Aktionen
+        werden ähnlich wahrscheinlich gewählt. (TODO: Was ist groß?)<br/>
+        <br/>
+        $\tau$ klein: Die Aktionen werden mit deutlich
+        unterschiedlicher wahrscheinlichkeit gezogen.<br/>
+        <br/>
+        $\tau \rightarrow 0$: nahezu deterministische, gierige
+        Strategie.<br/>
+        <br/>
+        Vorteil gegenüber $\varepsilon$-greedy: Rangfolge bei Auswahl.<br/>
+        Nachteil gegenüber $\varepsilon$-greedy: Wahl von $\tau$ wird
+        of als schwieriger angesehen als die Wahl von $\varepsilon$.
+
+    </dd>
+    <dt><dfn id="glie-exploration-strategy">GLIE-Strategie</dfn></dt>
+    <dd>
+
+        <b>G</b>reedy in the <b>l</b>imit with <b>i</b>nfinite <b>e</b>xploration
+
+        Damit eine Strategie GLIE ist, muss erfüllt sein:
+
         <ul>
-            <li><u>$\varepsilon$-gierige Strategien</u><br/>
-                gierige Aktion: Aktion mit höchster erwarteter Belohnung:
-                $$a^+ = \arg \max_a Q(x,a)$$
-                erhält höchste Wahrscheinlichkeit:
-                $$\pi(x, a^*) = 1 - \varepsilon + \frac{\varepsilon}{|A(x)|}$$
-                nicht-gierige Aktionen: $\pi(x, a) = \frac{\varepsilon}{|A(x)|}$
-                mit $0 < \varepsilon \ll 1$<br/>
-                <br/>
-                Vorteil: Kein Festlegen auf suboptimale Aktion<br/>
-                Nachteil: Wahl von $\varepsilon$ problematisch<br/>
-                <br/>
-                $\varepsilon$-greedy MC Strategieiteration ist on-policy</li>
-            <li><u>Softmax-Strategie</u><br/>
-
-                Rangfolge entsprechend der Wertigkeit der Aktionen
-
-                $$\pi(x, a) = \frac{e^{Q(x, a) / \tau}}{\sum_a e^{Q(x,a) / \tau}} \text{ mit "Temperatur"} \tau > 0$$
-
-                Die generierte Verteilung nennt sich Gibbs- oder auch
-                Boltzmann-Verteilung.
-
-                $\tau$ groß: $Q(x,a) / \tau$ wird klein, d.h. die Aktionen
-                werden ähnlich wahrscheinlich gewählt. (TODO: Was ist groß?)
-
-                $\tau$ klein: Die Aktionen werden mit deutlich
-                unterschiedlicher wahrscheinlichkeit gezogen
-
-                $\tau \rightarrow 0$: nahezu deterministische, gierige
-                Strategie.
-
-                Vorteil gegenüber $\varepsilon$-greedy: Rangfolge bei Auswahl.
-                Nachteil gegenüber $\varepsilon$-greedy: Wahl von $\tau wird
-                of als schwieriger angesehen als die Wahl von $\varepsilon$.
-
-            </li>
-            <li><u>GLIE-Strategie</u><br/>
-
-            <b>G</b>reedy in the <b>l</b>imit with <b>i</b>nfinite <b>e</b>xploration
-
-            Damit eine Strategie GLIE ist, muss erfüllt sein:
-
-            <ul>
-                <li>Alle $(x, a)$-Paare werden unendlich oft besucht</li>
-                <li>Strategie konvergiert zu einer gierigen Strategie, d.h.
-                    $$\lim_{k \rightarrow \infty} \pi(x, a^*) = 1 \text{ für } \arg \max_a a(x, a)$$</li>
-            </ul>
-
-            Beispiel bei $\varepsilon$-greedy Strategie:
-
-            <ul>
-                <li>$\varepsilon$ mit Zeit abklingen lassen</li>
-                <li>$\varepsilon(x) = \frac{\varepsilon}{n(x)}$ mit $\varepsilon \in (0, 1)$ und $n(x)$ zählt wie häufig der Zustand $x$ besucht wurde.</li>
-            </ul>
-
-
-            Fazit MC:
-
-            Vorteile
-            <ul>
-                <li>Erlernen der optimalen Strategie ohne Modellwissen möglich,
-                    sofern GLIE-Strategien verwendet werden</li>
-                <li>Auch anwendbar, wenn die Markov-Annahme nicht gilt, da kein
-                    Bootstrapping</li>
-            </ul>
-
-            Nachteile:
-            <ul>
-                <li>Allgemeine Konvergenzeigenschaften (noch) nicht formal
-                    bewiesen. (Schon für Strategiebewrtung, nicht aber für RL)</li>
-                <li>Funktioniert nur für episodische RL-Probleme</li>
-            </ul>
-
-            </li>
+            <li>Alle $(x, a)$-Paare werden unendlich oft besucht</li>
+            <li>Strategie konvergiert zu einer gierigen Strategie, d.h.
+                $$\lim_{k \rightarrow \infty} \pi(x, a^*) = 1 \text{ für } \arg \max_a a(x, a)$$</li>
         </ul>
+
+        Beispiel bei $\varepsilon$-greedy Strategie:
+
+        <ul>
+            <li>$\varepsilon$ mit Zeit abklingen lassen</li>
+            <li>$\varepsilon(x) = \frac{\varepsilon}{n(x)}$ mit $\varepsilon \in (0, 1)$ und $n(x)$ zählt wie häufig der Zustand $x$ besucht wurde.</li>
+        </ul>
+
+    </dd>
+    <dt><dfn>Fazit Monte Carlo-Verfahren</dfn></dt>
+    <dd>
+        Vorteile
+        <ul>
+            <li>Erlernen der optimalen Strategie ohne Modellwissen möglich,
+                sofern GLIE-Strategien verwendet werden</li>
+            <li>Auch anwendbar, wenn die Markov-Annahme nicht gilt, da kein
+                Bootstrapping</li>
+        </ul>
+
+        Nachteile:
+        <ul>
+            <li>Allgemeine Konvergenzeigenschaften (noch) nicht formal
+                bewiesen. (Schon für Strategiebewrtung, nicht aber für RL)</li>
+            <li>Funktioniert nur für episodische RL-Probleme</li>
+        </ul>
+
     </dd>
     <dt><dfn id="temporal-difference">Temporal Difference Verfahren</dfn> (<dfn>TD</dfn>)</dt>
     <dd>TD-Verfahren nutzen die zeitliche Differenz zweier Schätzungen
@@ -1268,8 +1326,8 @@ J_k(x_k) &= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathbb{E}
         <u>Unterschiedliche Schätzung:</u><br/>
         $$
         \begin{align}
-        J_\pi(x) &= E(R_k | x_k = x) \tag{(1)}\\
-                 &= E(r_k + \gamma \sum_{i=0}^\infty \gamma^i \cdot r_{k+i+i} | x_k = x)\tag{(2)}
+        J_\pi(x) &= E(R_k | x_k = x) \tag{1}\\
+                 &= E(r_k + \gamma \sum_{i=0}^\infty \gamma^i \cdot r_{k+i+i} | x_k = x)\tag{2}
         \end{align}
         $$
         MC-Verfahren ganz (1) mittels Stichprobenfolge. TD-Verfahren schätzen
@@ -1421,8 +1479,18 @@ J_k(x_k) &= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathbb{E}
     </tr>
     <tr>
         <td>8</td>
-        <td>Minimiere $J_{\pi_{0:N-1}} (x_0) := E (g_N (x_N) + \sum_{k=0}^{N-1} g_k (x_k, \pi_k(x_k)))$</td>
-        <td>Minimiere $J_{\pi_{0:N-1}} (\cdot) := E (g_N (x_N) + \sum_{k=0}^{N-1} g_k (x_k, \pi_k(\cdot)))$</td>
+        <td>Minimiere $$
+            \begin{align}
+                J_{\pi_{0:N-1}} (x_0) := & E (g_N (x_N) \\
+                                       + & \sum_{k=0}^{N-1} g_k (x_k, \pi_k(x_k)))
+            \end{align}$$</td>
+        <td>Minimiere
+            $$
+            \begin{align}
+            J_{\pi_{0:N-1}} (\cdot) := & E (g_N (x_N) \\
+                                     + & \sum_{k=0}^{N-1} g_k (x_k, \pi_k(\cdot)))
+            \end{align}
+            $$</td>
         <td>Maximimierung der Belohnung $J(x_k) = E (R_k | x_k)$. Im fortlaufenden
             Fall $$R_k = \sum_{t=0}^\infty \gamma^t r_{k+t}$$ mit
             Diskontierungsfaktor $\gamma \in [0, 1)$,
@@ -1441,7 +1509,14 @@ J_k(x_k) &= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathbb{E}
             </ul>
 
         </td>
-        <td>Temporal Difference</td>
+        <td>
+
+            <ul>
+                <li>Temporal Difference</li>
+                <li>Strategiesuche</li>
+            </ul>
+
+        </td>
     </tr>
 </table>
 
@@ -1463,6 +1538,12 @@ J_k(x_k) &= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathbb{E}
   → Keine Nebenbedingungen, in $\mathbb{R}^n$ oder kleiner diskreter Raum (TODO)
 * Welche numerischen Methoden zur Optimierung kennen sie?<br/>
   → Iterativer Abstieg (Gradientenverfahren, Newton-Verfahren), Dynamische Programmierung(?) (TODO)
+* Welche geschlossen lösbaren Spezialfälle existieren?<br/>
+  → TODO
+* Welche Möglichkeiten der approximativen Lösung existieren bzw. sind
+  anwendbar?<br/>
+  → TODO
+
 
 ### MDP
 
@@ -1481,6 +1562,10 @@ J_k(x_k) &= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathbb{E}
   → Siehe <a href="#bellman-equation">oben</a>.
 * Was ist an den Bellman-Gleichungen problematisch?<br/>
   → TODO
+* Wie hängt ein deterministisches MDP mit der kürzesten Wegesuche zusammen?<br/>
+  → Die optimale Lösung eines deterministisches MDPs ist der kürzeste Weg in
+     dem Graphen, der durch die Zustände des MDPs sowie den Kosten zwischen
+     den Zuständen als Gewicht dargestellt werden.
 
 ### POMDP
 

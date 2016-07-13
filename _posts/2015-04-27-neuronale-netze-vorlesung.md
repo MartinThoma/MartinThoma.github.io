@@ -443,8 +443,7 @@ Slide name: `V09_2015-05-26-Reinforcement-Learning.pdf`
     <dt><dfn>V-Funktion</dfn> (State-Value function)</dt>
     <dd>Siehe <a href="../machine-learning-1-course/#v-function">ML 1</a>.</dd>
     <dt><dfn>$\varepsilon$-Greedy Strategy</dfn></dt>
-    <dd>Explore $\varepsilon$% of the time. Otherwise, follow what you
-        currently believe is best.</dd>
+    <dd>Siehe <a href="../probabilistische-planung#epsilon-greedy-exploration">Probabilistische Planung</a></dd>
     <dt><dfn>$\varepsilon$-decreasing Strategy</dfn></dt>
     <dd>Explore $\varepsilon$% of the time. Otherwise, follow what you
         currently believe is best. Reduce $\varepsilon$ over time.</dd>
