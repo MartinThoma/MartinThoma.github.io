@@ -1292,9 +1292,9 @@ J_k(x_k) &amp;amp;= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \m
                  = \begin{pmatrix}x_{k}^S\\
                                  y_{k}^S\\
                                  \phi_{k}^S\end{pmatrix} +
-                   \begin{pmatrix}T v TODO\\
-                                  TODO\\
-                                  TODO\end{pmatrix}$$
+                   \begin{pmatrix}T \cdot v \cdot \cos(\varphi_k^s + a_k)\\
+                                  T \cdot v \cdot \cos(\varphi_k^s + a_k)\\
+                                  a_k\end{pmatrix}$$
 
             &lt;/li&gt;
 &lt;/ul&gt;
@@ -1416,8 +1416,7 @@ J_k(x_k) &amp;amp;= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \m
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;u&gt;Grundvarianten des RL&lt;/u&gt;: (TODO: Grafiken)
-
+&lt;u&gt;Grundvarianten des RL&lt;/u&gt;:
     &lt;ul&gt;
 &lt;li&gt;Wertefunktionsbasiert: Sch&amp;auml;tzen die Wertefunktion / Q-Funktion aus
             Lernstichproben (Monte Carlo (MC); Temporal Difference (TD),
@@ -1524,21 +1523,20 @@ J_k(x_k) &amp;amp;= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \m
                 $$\pi(x, a) = \frac{e^{Q(x, a) / \tau}}{\sum_a e^{Q(x,a) / \tau}} \text{ mit "Temperatur"} \tau &amp;gt; 0$$
 
                 Die generierte Verteilung nennt sich Gibbs- oder auch
-                Boltzmann-Verteilung.
-
+                Boltzmann-Verteilung.&lt;br/&gt;
+&lt;br/&gt;
                 $\tau$ gro&amp;szlig;: $Q(x,a) / \tau$ wird klein, d.h. die Aktionen
-                werden &amp;auml;hnlich wahrscheinlich gew&amp;auml;hlt. (TODO: Was ist gro&amp;szlig;?)
-
+                werden &amp;auml;hnlich wahrscheinlich gew&amp;auml;hlt. (TODO: Was ist gro&amp;szlig;?)&lt;br/&gt;
+&lt;br/&gt;
                 $\tau$ klein: Die Aktionen werden mit deutlich
-                unterschiedlicher wahrscheinlichkeit gezogen
-
+                unterschiedlicher wahrscheinlichkeit gezogen.&lt;br/&gt;
+&lt;br/&gt;
                 $\tau \rightarrow 0$: nahezu deterministische, gierige
-                Strategie.
-
-                Vorteil gegen&amp;uuml;ber $\varepsilon$-greedy: Rangfolge bei Auswahl.
-                Nachteil gegen&amp;uuml;ber $\varepsilon$-greedy: Wahl von $\tau wird
+                Strategie.&lt;br/&gt;
+&lt;br/&gt;
+                Vorteil gegen&amp;uuml;ber $\varepsilon$-greedy: Rangfolge bei Auswahl.&lt;br/&gt;
+                Nachteil gegen&amp;uuml;ber $\varepsilon$-greedy: Wahl von $\tau$ wird
                 of als schwieriger angesehen als die Wahl von $\varepsilon$.
-
             &lt;/li&gt;
 &lt;li&gt;&lt;u&gt;GLIE-Strategie&lt;/u&gt;&lt;br/&gt;
 &lt;b&gt;G&lt;/b&gt;reedy in the &lt;b&gt;l&lt;/b&gt;imit with &lt;b&gt;i&lt;/b&gt;nfinite &lt;b&gt;e&lt;/b&gt;xploration
@@ -1587,8 +1585,8 @@ J_k(x_k) &amp;amp;= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \m
 &lt;u&gt;Unterschiedliche Sch&amp;auml;tzung:&lt;/u&gt;&lt;br/&gt;
         $$
         \begin{align}
-        J_\pi(x) &amp;amp;= E(R_k | x_k = x) \tag{(1)}\\
-                 &amp;amp;= E(r_k + \gamma \sum_{i=0}^\infty \gamma^i \cdot r_{k+i+i} | x_k = x)\tag{(2)}
+        J_\pi(x) &amp;amp;= E(R_k | x_k = x) \tag{1}\\
+                 &amp;amp;= E(r_k + \gamma \sum_{i=0}^\infty \gamma^i \cdot r_{k+i+i} | x_k = x)\tag{2}
         \end{align}
         $$
         MC-Verfahren ganz (1) mittels Stichprobenfolge. TD-Verfahren sch&amp;auml;tzen
