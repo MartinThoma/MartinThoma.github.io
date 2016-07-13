@@ -186,11 +186,7 @@ neither the state &lt;span class="math"&gt;\(x_k\)&lt;/span&gt; nor the error es
 &lt;p&gt;See &lt;a href="http://dsp.stackexchange.com/q/32090/9101"&gt;Why does it make sense to have noise of a different shape than the state vector?&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id="extensions_1"&gt;Extensions&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;EKF: &lt;a href="https://en.wikipedia.org/wiki/Extended_Kalman_filter"&gt;Extended Kalman Filter&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;Linearization (multivariate Taylor Series expansions)&lt;/li&gt;
-&lt;li&gt;See: &lt;a href="http://www.cbcity.de/das-extended-kalman-filter-einfach-erklaert"&gt;Das Extended Kalman Filter einfach erkl&amp;auml;rt&lt;/a&gt; (German)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;li&gt;EKF&lt;/li&gt;
 &lt;li&gt;UKF: Unscented Kalman filter&lt;ul&gt;
 &lt;li&gt;deterministic sampling&lt;/li&gt;
 &lt;li&gt;approximation of the first two moments&lt;/li&gt;
@@ -198,7 +194,67 @@ neither the state &lt;span class="math"&gt;\(x_k\)&lt;/span&gt; nor the error es
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="lectures"&gt;Lectures&lt;/h2&gt;
+&lt;h3 id="extended-kalman-filter"&gt;Extended Kalman Filter&lt;/h3&gt;
+&lt;p&gt;The Kalman filter is the best filter for linear systems, but if you have a
+non-linear system model&lt;/p&gt;
+&lt;div class="math"&gt;$$
+\begin{align}
+x_{k+1} &amp;amp;= p_k(x_k, a_k) + r_k^{(s)}\tag{system model}\\
+z_k &amp;amp;= h_k(x_k) + r_k^{(m)}\tag{measurement model}
+\end{align}
+$$&lt;/div&gt;
+&lt;p&gt;it cannot be applied any more. But the &lt;a href="https://en.wikipedia.org/wiki/Extended_Kalman_filter"&gt;Extended Kalman Filter&lt;/a&gt; linearizes the function around some point with multivariate Taylor Series
+expansions and uses LQR with a Kalman filter.&lt;/p&gt;
+&lt;p&gt;Assumptions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$p_k$ is differentiable.&lt;/li&gt;
+&lt;li&gt;The non-linear part of $p_k$ in the environment of the linearization
+        point is neglectable.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;One linearizes around nominal values &lt;span class="math"&gt;\(\bar{x}_k, \bar{a}_k\)&lt;/span&gt;.&lt;/p&gt;
+&lt;div class="math"&gt;$$p_k(x_k, a_k) \approx p_k(\bar{x}_k, \bar{a}_k) + A_k (\underbrace{x_k - \bar{x}_k}_{=: \Delta x_k}) + B_k (\underbrace{a_k - \bar{a}_k}_{\Delta a_k})$$&lt;/div&gt;
+&lt;p&gt;with &lt;a href="https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant"&gt;Jacobian matrices&lt;/a&gt;:
+&lt;/p&gt;
+&lt;div class="math"&gt;$$A_k = \frac{\partial}{\partial x_k} p_k(x_k, a_k)|_{x_k = \bar{x}_k, a_k = \bar{a}_k}$$&lt;/div&gt;
+&lt;div class="math"&gt;$$B_k = \frac{\partial}{\partial a_k} p_k(x_k, a_k)|_{x_k = \bar{x}_k, a_k = \bar{a}_k}$$&lt;/div&gt;
+&lt;p&gt;
+&lt;span class="math"&gt;\(\Rightarrow\)&lt;/span&gt; Lineares Modell: &lt;span class="math"&gt;\(\Delta x_{k+1} \approx A_k \cdot \Delta x_k + B_k \Delta a_k\)&lt;/span&gt;
+mit &lt;span class="math"&gt;\(\Delta x_{k+1} = p_k(x_k, a_k) - p_k(\bar{x}_k, \bar{a}_k)\)&lt;/span&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;Choice of nominal values &lt;span class="math"&gt;\(\bar{x}_k, \bar{a}_k\)&lt;/span&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Policy:
+    &lt;ul&gt;
+&lt;li&gt;Zielzustand $\bar{x}_k = x_+ = [0, \dots, 0]^T,\quad\bar{a}_k = [0, \dots, 0]^T\qquad\forall k$&lt;/li&gt;
+&lt;li&gt;Zustandssolltrajektorien bei Verfolgungsproblem&lt;/li&gt;
+&lt;li&gt;Pr&amp;auml;diktiv: $\bar{x}_{k+1} = p_k(\bar{x}_k, \bar{a}_k)$ mit $\bar{x}_0 = E(x_0)$ und beliebig $\bar{a}_{0:N-1}$&lt;/li&gt;
+&lt;li&gt;Iterativ: Starte mit beliebigem $\bar{a}_{0:N-1}$ und $\bar{x}_0 = E(x_0)$
+        &lt;ul&gt;
+&lt;li&gt;Bestimme $\bar{x}_{k+1} = p_k(\bar{x}_k, \bar{a}_k) \forall k$&lt;/li&gt;
+&lt;li&gt;Linearisiere und l&amp;ouml;se LQR $\Rightarrow \bar{a}_k = \pi_k(\bar{x}_k)$&lt;/li&gt;
+&lt;li&gt;zur&amp;uuml;ck zu 1.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Sch&amp;auml;tzer:
+        &lt;ul&gt;
+&lt;li&gt;Linearisierung um $\bar{x}_k = \hat{x}_k^l, \bar{a}_k=\pi_k(\hat{x}_k^l)$
+
+                $$\hat{x}^p_{k+1} = p_k(\hat{x}_k^l, \bar{a}_k)$$
+
+                $$C_{k+1}^P = A_k C_k^e A_k^T + C_k^w$$
+            &lt;/li&gt;
+&lt;li&gt;Filterschritt: Linearisierung um $\bar{x}_k = \hat{x}_k^p$
+
+                $$\hat{x}_k^e = \hat{x}_k^P + K_k (z_k - h_k(\hat{x}_k^P))$$
+                $$C_k^e = C_k^P - K_k H_k C_k^P$$
+            &lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;lt;/li&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;&lt;/ul&gt;
+&lt;p&gt;See also: &lt;a href="http://www.cbcity.de/das-extended-kalman-filter-einfach-erklaert"&gt;Das Extended Kalman Filter einfach erkl&amp;auml;rt&lt;/a&gt; (German)&lt;/p&gt;
+&lt;h2 id="lectures_1"&gt;Lectures&lt;/h2&gt;
 &lt;p&gt;There are several lectures at KIT which introduce Kalman filters:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://martin-thoma.com/probabilistische-planung/"&gt;Probabilistische Planung&lt;/a&gt;&lt;/li&gt;

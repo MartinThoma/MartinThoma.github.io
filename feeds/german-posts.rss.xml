@@ -389,12 +389,16 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h2 id="termine-und-klausurablauf"&gt;Termine und Klausurablauf&lt;/h2&gt;
 &lt;p&gt;Es ist eine m&amp;uuml;ndliche Pr&amp;uuml;fung.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Martin Thoma</dc:creator><pubDate>Wed, 18 May 2016 20:00:00 +0200</pubDate><guid isPermaLink="false">tag:martin-thoma.com,2016-05-18:lma/</guid><category>Klausur</category><category>Sensors</category><category>Machine Learning</category></item><item><title>Probabilistische Planung</title><link>https://martin-thoma.com/probabilistische-planung/</link><description>&lt;div class="info"&gt;Dieser Artikel besch&amp;auml;ftigt sich mit der Vorlesung &amp;bdquo;Probabilistische Planung&amp;ldquo; am KIT. Er dient als Pr&amp;uuml;fungsvorbereitung. Ich habe die Vorlesungen bei &lt;a href="http://ies.anthropomatik.kit.edu/mitarbeiter.php?person=huber"&gt;Herrn Dr.-Ing. Marco Huber&lt;/a&gt; im Sommersemester 2015 und 2016 geh&amp;ouml;rt. Der Artikel dient als Pr&amp;uuml;fungsvorbereitung und ist noch am Entstehen.&lt;/div&gt;
-&lt;p&gt;In der Vorlesung 'Probabilistische Planung' werden drei Themen besprochen:&lt;/p&gt;
+&lt;p&gt;In der Vorlesung 'Probabilistische Planung' werden drei Themenfelder
+besprochen:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Markov'sche Entscheidungsprobleme (MDPs)&lt;/li&gt;
 &lt;li&gt;Planung bei Messunsicherheiten&lt;/li&gt;
 &lt;li&gt;Reinforcement Learning (RL)&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;An Algorithmen sind insbesondere das Dynamische Programmieren, der
+&lt;a href="https://martin-thoma.com/kalman-filter/"&gt;Kalman-Filter&lt;/a&gt;, die Werte-
+und Strategieiteration sowie der Label-Korrektur-Algorithmus zu nennen.&lt;/p&gt;
 &lt;h2 id="behandelter-stoff"&gt;Behandelter Stoff&lt;/h2&gt;
 &lt;h3 id="ubersicht"&gt;&amp;Uuml;bersicht&lt;/h3&gt;
 &lt;table&gt;
@@ -469,7 +473,7 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;tr&gt;
 &lt;td id="2016-07-13"&gt;13.07.2016&lt;/td&gt;
 &lt;td&gt;&lt;abbr title="Reinforcement Learning"&gt;RL&lt;/abbr&gt;&lt;/td&gt;
-&lt;td&gt;Monte Carlo Verfahren (Strategiebewerbtung); Temporal Difference&lt;/td&gt;
+&lt;td&gt;Monte Carlo Verfahren (Strategiebewerbtung); Temporal Difference Learning&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
 &lt;p&gt;Folien:&lt;/p&gt;
@@ -1011,19 +1015,19 @@ J_k(x_k) &amp;amp;= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \m
 &lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Bayes-Sch%C3%A4tzer"&gt;&lt;dfn&gt;Bayes'scher Sch&amp;auml;tzer&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
 &lt;dd&gt;Pr&amp;auml;diktion + Filterschritt = Bayes-Sch&amp;auml;tzer.&lt;br/&gt;
         TODO (z.B. in GPS arbeitet eine Variante; Extended Kalman Filter)&lt;br/&gt;
-        Der Bayes-Sch&amp;auml;tzer ist im Allgemeinen nciht geschlossen berechenbar.
+        Der Bayes-Sch&amp;auml;tzer ist im Allgemeinen nicht geschlossen berechenbar.
         &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Verteilungs-MDP&lt;/dfn&gt; (&lt;dfn&gt;Belief-state MDP&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;Belief ist die Verteilung (TODO)&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Lineare Planungsprobleme in POMDPs&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Zustandsraummodell (Systemmodell):
-        $$x_{k+1} = A_k \cdot x_k + B_k a_k + r_k^{(s)}$$
+        $$x_{k+1} = A_k \cdot x_k + B_k \cdot a_k + r_k^{(s)}$$
 
         Messmodell (Sensormodell):
-        $$z_k = H_k x_k + v_k$$
+        $$z_k = H_k \cdot x_k + r_k^{(m)}$$
 
         &lt;ul&gt;
-&lt;li&gt;$r_k^{(s)}, v_k$ sind normalverteilte Rauschterme:
+&lt;li&gt;$r_k^{(s)}, r_k^{(m)}$ sind normalverteilte Rauschterme:
 
                 $$f_k^x(x_k) = N(x_k; \hat{x}_k, C_k^x) = \frac{1}{\sqrt{|2 \pi C_k^x|}} \exp(-1/2 (x_k - \hat{x}_k)^T (C_k^x)^{-1} (x_k - \hat{x}_k))$$
 
@@ -1051,7 +1055,7 @@ J_k(x_k) &amp;amp;= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \m
         Zustandssch&amp;auml;tzer:
 
         &lt;ul&gt;
-&lt;li&gt;Annahme: bel. Aktionsfolge $a_{0:N-1}$ gegeben: &lt;a href="https://martin-thoma.com/kalman-filter/"&gt;Kalman-Filter&lt;/a&gt; (Optimaler Sch&amp;auml;tzer f&amp;uuml;r lineare Modelle mit normalverteilten Gr&amp;ouml;&amp;szlig;en)&lt;/li&gt;
+&lt;li&gt;Annahme: beliebige Aktionsfolge $a_{0:N-1}$ gegeben: &lt;a href="https://martin-thoma.com/kalman-filter/"&gt;Kalman-Filter&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
         Pr&amp;auml;diktion ($k \rightarrow k+1$)
@@ -1061,8 +1065,8 @@ J_k(x_k) &amp;amp;= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \m
 &lt;li&gt;Berechnung der Parameter:
 
                 &lt;ul&gt;
-&lt;li&gt;Mittelwert: $\hat{x}_{k+1}^P = A_k \hat{x}_k^e + B_k a_k$&lt;/li&gt;
-&lt;li&gt;Kovarianzmatrix: $C_k^P = A_k C_k^e A_k^T + C_k^w$&lt;/li&gt;
+&lt;li&gt;Mittelwert: $\hat{x}_{k+1}^{(P)} = A_k \hat{x}_k^e + B_k a_k$&lt;/li&gt;
+&lt;li&gt;Kovarianzmatrix: $P_k^{(P)} = A_k P_k^e A_k^T + C_k^{(s)}$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -1074,9 +1078,9 @@ J_k(x_k) &amp;amp;= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \m
 &lt;li&gt;Berechnung der Parameter:
 
             &lt;ul&gt;
-&lt;li&gt;Mittelwert: $\hat{x}_k^e = \hat{x}_k^P + K_k (z_k - H_k \hat{x}_k^P)$&lt;/li&gt;
-&lt;li&gt;Kovarianzmatrix: $C_k^e = C_k^P - K_k H_k C_k^P$&lt;/li&gt;
-&lt;li&gt;Kalman-Gain: $K_k = C_k^P H_k^T (H_k C_k^P H_k^T + C_k^v)^{-1}$&lt;/li&gt;
+&lt;li&gt;Mittelwert: $\hat{x}_k^e = \hat{x}_k^P + K_k (z_k - H_k \hat{x}_k^{(P)})$&lt;/li&gt;
+&lt;li&gt;Kovarianzmatrix: $P_k^e = C_k^{(P)} - K_k H_k C_k^{(P)}$&lt;/li&gt;
+&lt;li&gt;Kalman-Gain: $K_k = P_k^{(P)} H_k^T (H_k C_k^{(P)} H_k^T + C_k^{(m)})^{-1}$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -1084,17 +1088,7 @@ J_k(x_k) &amp;amp;= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \m
         Insgesamt:
         &lt;ul&gt;
 &lt;li&gt;Geschlossene Berechnung der Zustandsverteilung&lt;/li&gt;
-&lt;li&gt;Kalman-Filter erf&amp;uuml;llt &lt;span id="blue"&gt;BLUE&lt;/span&gt;-Eigenschaft:
-
-            &lt;ul&gt;
-&lt;li&gt;Best Linear: Optimaler Sch&amp;auml;tzer f&amp;uuml;r lineare Modelle und
-                                 normalverteilte Gr&amp;ouml;&amp;szlig;en; bester linearer
-                                 Sch&amp;auml;tzer  wenn lineare Modelle aber beliebige
-                                 Verteilungen (z.B. Partikelfilter ist
-                                 nicht-linear); d.h. minimale Varianz&lt;/li&gt;
-&lt;li&gt;Unbiased Estimator: Erwartungstreuer Sch&amp;auml;tzer&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;li&gt;Kalman-Filter erf&amp;uuml;llt &lt;span id="blue"&gt;BLUE&lt;/span&gt;-Eigenschaft&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Regelkreis"&gt;&lt;dfn&gt;Regelkreis&lt;/dfn&gt;&lt;/a&gt; (&lt;dfn&gt;Control system&lt;/dfn&gt;)&lt;/dt&gt;
@@ -1305,11 +1299,17 @@ J_k(x_k) &amp;amp;= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \m
             &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
+&lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Delta-Distribution"&gt;&lt;dfn id="dirac-delta-function"&gt;Dirac-Delta-Funktion&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
+&lt;dd&gt;Die Dirac-Funktion ist definiert als
+
+        $$\delta(A)=\begin{cases}
+          1\  &amp;amp; \text{falls }0\in A\\
+          0\  &amp;amp; \text{sonst}\end{cases}\ ,\quad A\subset\mathbb{R}$$
+
+        &lt;u&gt;Ausblendeigenschaft&lt;/u&gt;:
+        $$\int_{- \infty}^\infty f(x)\,\delta (x-a)\,\mathrm{d}x=\int_{- \infty}^\infty f(x)\,\delta (a-x)\,\mathrm{d}x=f(a)$$
+    &lt;/dd&gt;
 &lt;/dl&gt;
-&lt;p&gt;TODO:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Ausblendeigenschaft der Dirac-Delta-Funktion&lt;/li&gt;
-&lt;/ul&gt;
 &lt;h3 id="reinforcement-learning"&gt;Reinforcement Learning&lt;/h3&gt;
 &lt;dl&gt;
 &lt;dt&gt;&lt;dfn id="rl"&gt;Reinforcement Learning&lt;/dfn&gt; (&lt;dfn&gt;RL&lt;/dfn&gt;)&lt;/dt&gt;
@@ -1322,13 +1322,9 @@ J_k(x_k) &amp;amp;= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \m
 &lt;li&gt;Was ist wenn die Kostenfunktion $g_k$ unbekannt ist?&lt;/li&gt;
 &lt;li&gt;Was ist wenn das Modell, das hei&amp;szlig;t die &amp;Uuml;bergangswahrscheinlichkeiten
             $P(x_{k+1} | x_k, a_k)$ unbekannt sind?&lt;/li&gt;
-&lt;li&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-    Dies wird durch ein Zusammenspiel aus lernen und Planen gel&amp;ouml;st.
-
-    (Agent-Umelt-Bild)
-
+    Dies wird durch ein Zusammenspiel aus lernen und planen gel&amp;ouml;st.
     Man lernt also aus Erfahrung und &lt;b&gt;Interaktion mit der Umwelt&lt;/b&gt;.&lt;br/&gt;
 &lt;br/&gt;
     Eigenschaften und Besonderheiten:
@@ -1355,7 +1351,7 @@ J_k(x_k) &amp;amp;= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \m
 &lt;u&gt;Definition:&lt;/u&gt;&lt;br/&gt;
     MDP mit folgenden Unterschieden:
     &lt;ul&gt;
-&lt;li&gt;2 Zeithorizont:
+&lt;li&gt;(2) Zeithorizont:
 
             &lt;ul&gt;
 &lt;li&gt;$N = \infty$ f&amp;uuml;r fortlaufende Aufgaben&lt;/li&gt;
@@ -1363,12 +1359,12 @@ J_k(x_k) &amp;amp;= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \m
                      terminaler Zustand)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;5 Keine &amp;Uuml;bergangswahrscheinlichkeiten gegeben&lt;/li&gt;
-&lt;li&gt;6 Belohnungen (reward) $r_k \in \mathbb{R}$ f&amp;uuml;r Aktion
+&lt;li&gt;(5) Keine &amp;Uuml;bergangswahrscheinlichkeiten gegeben&lt;/li&gt;
+&lt;li&gt;(6) Belohnungen (reward) $r_k \in \mathbb{R}$ f&amp;uuml;r Aktion
             $a_k$ in Zustand $x_k$ mit Nachfolgezustand $x_{k+1}$.&lt;br/&gt;
             $$r_k = g_k(x_k, a_k, x_{k+1})$$
             wobei $g_k$ unbekannt.&lt;/li&gt;
-&lt;li&gt;8 Ziel: Maximierung der erwarteten Belohnung &amp;uuml;ber die Zeit.
+&lt;li&gt;(8) Ziel: Maximierung der erwarteten Belohnung &amp;uuml;ber die Zeit.
             $$J(x_k) = E(R_k | x_k)$$
 
             &lt;ul&gt;
@@ -1383,21 +1379,21 @@ J_k(x_k) &amp;amp;= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \m
     Dynamisches Programmieren ist nicht anwendbar, da das Modell und die Kosten
     unbekannt sind. Die optimale Strategie wird aus Erfahrung approximiert.&lt;br/&gt;
 &lt;br/&gt;
-&lt;u&gt;Unterscheidungsmerkmale&lt;/u&gt;:
+&lt;u&gt;Unterscheidungsmerkmale von RL-Problemtypen&lt;/u&gt;:
     &lt;ul&gt;
 &lt;li&gt;Horizont:
 
             &lt;ul&gt;
-&lt;li&gt;fortlaufend, z.B. in Regelungstechnik das inverse Pendel&lt;/li&gt;
-&lt;li&gt;episodisch in Spielen&lt;/li&gt;
+&lt;li&gt;Fortlaufend, z.B. in Regelungstechnik das inverse Pendel&lt;/li&gt;
+&lt;li&gt;Episodisch in Spielen&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Approximation / lernen:
 
             &lt;ul&gt;
-&lt;li&gt;on-policy: Dieselbe Strategie wird zugleich verbessert
+&lt;li&gt;On-policy: Dieselbe Strategie wird zugleich verbessert
                                und angewandt.&lt;/li&gt;
-&lt;li&gt;off-policy: verwendet 2 Strategien
+&lt;li&gt;Off-policy: verwendet 2 Strategien
                               &lt;ul&gt;
 &lt;li&gt;Strategie 1: erzeugen von Aktionen&lt;/li&gt;
 &lt;li&gt;Strategie 2: wird verbessert&lt;/li&gt;
@@ -1408,8 +1404,8 @@ J_k(x_k) &amp;amp;= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \m
 &lt;li&gt;Zustands- und Aktionsraum:
 
             &lt;ul&gt;
-&lt;li&gt;diskret&lt;/li&gt;
-&lt;li&gt;kontinuierlich&lt;/li&gt;
+&lt;li&gt;Diskret&lt;/li&gt;
+&lt;li&gt;Kontinuierlich&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&amp;Uuml;bergangswahrscheinlichkeiten / Kosten

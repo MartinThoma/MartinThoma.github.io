@@ -102,7 +102,7 @@ MathJax.Hub.Queue(function() {
     <div class="span2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#step-by-step" title="Step-by-step">Step-by-step</a><ul><li><a class="toc-href" href="#step-1-problem-description" title="Step 1: Problem description">Step 1: Problem description</a></li><li><a class="toc-href" href="#step-2-modelling" title="Step 2: Modelling">Step 2: Modelling</a></li><li><a class="toc-href" href="#step-3-the-algorithm" title="Step 3: The algorithm">Step 3: The algorithm</a></li></ul></li><li><a class="toc-href" href="#example_1" title="Example">Example</a></li><li><a class="toc-href" href="#miscallenious-facts" title="Miscallenious facts">Miscallenious facts</a><ul><li><a class="toc-href" href="#error-estimates" title="Error estimates">Error estimates</a></li><li><a class="toc-href" href="#perfect-sensor" title="Perfect sensor">Perfect sensor</a></li><li><a class="toc-href" href="#really-bad-sensor" title="Really bad sensor">Really bad sensor</a></li><li><a class="toc-href" href="#notation" title="Notation">Notation</a></li><li><a class="toc-href" href="#alternative-state-equation" title="Alternative State Equation">Alternative State Equation</a></li></ul></li><li><a class="toc-href" href="#extensions_1" title="Extensions">Extensions</a></li><li><a class="toc-href" href="#lectures" title="Lectures">Lectures</a></li><li><a class="toc-href" href="#literature-and-weblinks" title="Literature and Weblinks">Literature and Weblinks</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#step-by-step" title="Step-by-step">Step-by-step</a><ul><li><a class="toc-href" href="#step-1-problem-description" title="Step 1: Problem description">Step 1: Problem description</a></li><li><a class="toc-href" href="#step-2-modelling" title="Step 2: Modelling">Step 2: Modelling</a></li><li><a class="toc-href" href="#step-3-the-algorithm" title="Step 3: The algorithm">Step 3: The algorithm</a></li></ul></li><li><a class="toc-href" href="#example_1" title="Example">Example</a></li><li><a class="toc-href" href="#miscallenious-facts" title="Miscallenious facts">Miscallenious facts</a><ul><li><a class="toc-href" href="#error-estimates" title="Error estimates">Error estimates</a></li><li><a class="toc-href" href="#perfect-sensor" title="Perfect sensor">Perfect sensor</a></li><li><a class="toc-href" href="#really-bad-sensor" title="Really bad sensor">Really bad sensor</a></li><li><a class="toc-href" href="#notation" title="Notation">Notation</a></li><li><a class="toc-href" href="#alternative-state-equation" title="Alternative State Equation">Alternative State Equation</a></li></ul></li><li><a class="toc-href" href="#extensions_1" title="Extensions">Extensions</a><ul><li><a class="toc-href" href="#extended-kalman-filter" title="Extended Kalman Filter">Extended Kalman Filter</a></li></ul></li><li><a class="toc-href" href="#lectures_1" title="Lectures">Lectures</a></li><li><a class="toc-href" href="#literature-and-weblinks" title="Literature and Weblinks">Literature and Weblinks</a></li></ul></div>
         </nav>
     </div>
     <div class="span8 article-content" id="contentAfterTitle">
@@ -295,11 +295,7 @@ neither the state <span class="math">\(x_k\)</span> nor the error estimate <span
 <p>See <a href="http://dsp.stackexchange.com/q/32090/9101">Why does it make sense to have noise of a different shape than the state vector?</a></p>
 <h2 id="extensions_1">Extensions</h2>
 <ul>
-<li>EKF: <a href="https://en.wikipedia.org/wiki/Extended_Kalman_filter">Extended Kalman Filter</a><ul>
-<li>Linearization (multivariate Taylor Series expansions)</li>
-<li>See: <a href="http://www.cbcity.de/das-extended-kalman-filter-einfach-erklaert">Das Extended Kalman Filter einfach erkl&auml;rt</a> (German)</li>
-</ul>
-</li>
+<li>EKF</li>
 <li>UKF: Unscented Kalman filter<ul>
 <li>deterministic sampling</li>
 <li>approximation of the first two moments</li>
@@ -307,7 +303,67 @@ neither the state <span class="math">\(x_k\)</span> nor the error estimate <span
 </ul>
 </li>
 </ul>
-<h2 id="lectures">Lectures</h2>
+<h3 id="extended-kalman-filter">Extended Kalman Filter</h3>
+<p>The Kalman filter is the best filter for linear systems, but if you have a
+non-linear system model</p>
+<div class="math">$$
+\begin{align}
+x_{k+1} &amp;= p_k(x_k, a_k) + r_k^{(s)}\tag{system model}\\
+z_k &amp;= h_k(x_k) + r_k^{(m)}\tag{measurement model}
+\end{align}
+$$</div>
+<p>it cannot be applied any more. But the <a href="https://en.wikipedia.org/wiki/Extended_Kalman_filter">Extended Kalman Filter</a> linearizes the function around some point with multivariate Taylor Series
+expansions and uses LQR with a Kalman filter.</p>
+<p>Assumptions:</p>
+<ul>
+<li>$p_k$ is differentiable.</li>
+<li>The non-linear part of $p_k$ in the environment of the linearization
+        point is neglectable.</li>
+</ul>
+<p>One linearizes around nominal values <span class="math">\(\bar{x}_k, \bar{a}_k\)</span>.</p>
+<div class="math">$$p_k(x_k, a_k) \approx p_k(\bar{x}_k, \bar{a}_k) + A_k (\underbrace{x_k - \bar{x}_k}_{=: \Delta x_k}) + B_k (\underbrace{a_k - \bar{a}_k}_{\Delta a_k})$$</div>
+<p>with <a href="https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant">Jacobian matrices</a>:
+</p>
+<div class="math">$$A_k = \frac{\partial}{\partial x_k} p_k(x_k, a_k)|_{x_k = \bar{x}_k, a_k = \bar{a}_k}$$</div>
+<div class="math">$$B_k = \frac{\partial}{\partial a_k} p_k(x_k, a_k)|_{x_k = \bar{x}_k, a_k = \bar{a}_k}$$</div>
+<p>
+<span class="math">\(\Rightarrow\)</span> Lineares Modell: <span class="math">\(\Delta x_{k+1} \approx A_k \cdot \Delta x_k + B_k \Delta a_k\)</span>
+mit <span class="math">\(\Delta x_{k+1} = p_k(x_k, a_k) - p_k(\bar{x}_k, \bar{a}_k)\)</span><br/></p>
+<p>Choice of nominal values <span class="math">\(\bar{x}_k, \bar{a}_k\)</span>:</p>
+<ul>
+<li>Policy:
+    <ul>
+<li>Zielzustand $\bar{x}_k = x_+ = [0, \dots, 0]^T,\quad\bar{a}_k = [0, \dots, 0]^T\qquad\forall k$</li>
+<li>Zustandssolltrajektorien bei Verfolgungsproblem</li>
+<li>Pr&auml;diktiv: $\bar{x}_{k+1} = p_k(\bar{x}_k, \bar{a}_k)$ mit $\bar{x}_0 = E(x_0)$ und beliebig $\bar{a}_{0:N-1}$</li>
+<li>Iterativ: Starte mit beliebigem $\bar{a}_{0:N-1}$ und $\bar{x}_0 = E(x_0)$
+        <ul>
+<li>Bestimme $\bar{x}_{k+1} = p_k(\bar{x}_k, \bar{a}_k) \forall k$</li>
+<li>Linearisiere und l&ouml;se LQR $\Rightarrow \bar{a}_k = \pi_k(\bar{x}_k)$</li>
+<li>zur&uuml;ck zu 1.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Sch&auml;tzer:
+        <ul>
+<li>Linearisierung um $\bar{x}_k = \hat{x}_k^l, \bar{a}_k=\pi_k(\hat{x}_k^l)$
+
+                $$\hat{x}^p_{k+1} = p_k(\hat{x}_k^l, \bar{a}_k)$$
+
+                $$C_{k+1}^P = A_k C_k^e A_k^T + C_k^w$$
+            </li>
+<li>Filterschritt: Linearisierung um $\bar{x}_k = \hat{x}_k^p$
+
+                $$\hat{x}_k^e = \hat{x}_k^P + K_k (z_k - h_k(\hat{x}_k^P))$$
+                $$C_k^e = C_k^P - K_k H_k C_k^P$$
+            </li>
+</ul>
+<div class="highlight"><pre><span></span>&lt;/li&gt;
+</pre></div>
+</li></ul>
+<p>See also: <a href="http://www.cbcity.de/das-extended-kalman-filter-einfach-erklaert">Das Extended Kalman Filter einfach erkl&auml;rt</a> (German)</p>
+<h2 id="lectures_1">Lectures</h2>
 <p>There are several lectures at KIT which introduce Kalman filters:</p>
 <ul>
 <li><a href="https://martin-thoma.com/probabilistische-planung/">Probabilistische Planung</a></li>
