@@ -1036,9 +1036,8 @@ J_k(x_k) &amp;= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathb
 <dd>Reinforcement learning ist ein Subfeld des maschinellen Lernens,
         welches sich auf Probleme der optimalen Kontrolle fokusiert.<br/>
 <br/>
-    Problem:
-
-    <ul>
+<u>Problem</u>
+<ul>
 <li>Was ist wenn die Kostenfunktion $g_k$ unbekannt ist?</li>
 <li>Was ist wenn das Modell, das hei&szlig;t die &Uuml;bergangswahrscheinlichkeiten
             $P(x_{k+1} | x_k, a_k)$ unbekannt sind?</li>
@@ -1046,29 +1045,7 @@ J_k(x_k) &amp;= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathb
 
     Dies wird durch ein Zusammenspiel aus lernen und planen gel&ouml;st.
     Man lernt also aus Erfahrung und <b>Interaktion mit der Umwelt</b>.<br/>
-<br/>
-    Eigenschaften und Besonderheiten:
-    <ul>
-<li>Prinzipien des biologischen Lernens (Negatives / Positives Verst&auml;rken)
-
-            <ul>
-<li>Intrinsische Motivation etwas erreichen zu wollen:
-                    Abstraktion als Kosten- / Belohnungsfunktion, die es &uuml;ber
-                    die Zeit zu min. / max. gilt.</li>
-<li>Exploratives Lernen</li>
-</ul>
-</li>
-<li>Unterschied zu "klassischen" Lernverfahren:
-            <ul>
-<li>Lernen erfolgt un&uuml;berwacht und explorativ durch
-                    aktive Interaktion mit der Umwelt.</li>
-<li>RL kombiniert Aspekte der Planung mit Lernmethodik.
-                    Da RL un&uuml;berwacht ist erfolgt die Entscheidung aufgrund
-                    eigener Erfahrung.</li>
-</ul>
-</li>
-</ul>
-<u>Definition:</u><br/>
+<u>Definition</u><br/>
     MDP mit folgenden Unterschieden:
     <ul>
 <li>(2) Zeithorizont:
@@ -1095,12 +1072,37 @@ J_k(x_k) &amp;= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathb
 </ul>
 </li>
 </ul>
+</dd>
+<dt><dfn>Eigenschaften und Besonderheiten des RLs</dfn></dt>
+<dd>
+<ul>
+<li>Prinzipien des biologischen Lernens (Negatives / Positives Verst&auml;rken)
+
+            <ul>
+<li>Intrinsische Motivation etwas erreichen zu wollen:
+                    Abstraktion als Kosten- / Belohnungsfunktion, die es &uuml;ber
+                    die Zeit zu min. / max. gilt.</li>
+<li>Exploratives Lernen</li>
+</ul>
+</li>
+<li>Unterschied zu "klassischen" Lernverfahren:
+            <ul>
+<li>Lernen erfolgt un&uuml;berwacht und explorativ durch
+                    aktive Interaktion mit der Umwelt.</li>
+<li>RL kombiniert Aspekte der Planung mit Lernmethodik.
+                    Da RL un&uuml;berwacht ist erfolgt die Entscheidung aufgrund
+                    eigener Erfahrung.</li>
+</ul>
+</li>
+</ul>
 
     Dynamisches Programmieren ist nicht anwendbar, da das Modell und die Kosten
-    unbekannt sind. Die optimale Strategie wird aus Erfahrung approximiert.<br/>
-<br/>
-<u>Unterscheidungsmerkmale von RL-Problemtypen</u>:
-    <ul>
+    unbekannt sind. Die optimale Strategie wird aus Erfahrung approximiert.
+
+    </dd>
+<dt><dfn>Unterscheidungsmerkmale von RL-Problemtypen</dfn></dt>
+<dd>
+<ul>
 <li>Horizont:
 
             <ul>
@@ -1136,8 +1138,10 @@ J_k(x_k) &amp;= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathb
 </ul>
 </li>
 </ul>
-<u>Grundvarianten des RL</u>:
-    <ul>
+</dd>
+<dt><dfn>L&ouml;sungsans&auml;tze f&uuml;r RL-Probleme</dfn></dt>
+<dd>
+<ul>
 <li>Wertefunktionsbasiert: Sch&auml;tzen die Wertefunktion / Q-Funktion aus
             Lernstichproben (Monte Carlo (MC); Temporal Difference (TD),
             Verantwortlichkeitsspur (eligibility trace, credit assignment);
@@ -1453,8 +1457,18 @@ J_k(x_k) &amp;= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathb
 </tr>
 <tr>
 <td>8</td>
-<td>Minimiere $J_{\pi_{0:N-1}} (x_0) := E (g_N (x_N) + \sum_{k=0}^{N-1} g_k (x_k, \pi_k(x_k)))$</td>
-<td>Minimiere $J_{\pi_{0:N-1}} (\cdot) := E (g_N (x_N) + \sum_{k=0}^{N-1} g_k (x_k, \pi_k(\cdot)))$</td>
+<td>Minimiere $$
+            \begin{align}
+                J_{\pi_{0:N-1}} (x_0) := &amp;E; (g_N (x_N) \\
+                                       + &amp;\sum_{k=0}^{N-1} g_k (x_k, \pi_k(x_k)))
+            \end{align}$$</td>
+<td>Minimiere
+            $$
+            \begin{align}
+            J_{\pi_{0:N-1}} (\cdot) := &amp;E; (g_N (x_N) \\
+                                     + &amp;\sum_{k=0}^{N-1} g_k (x_k, \pi_k(\cdot)))
+            \end{align}
+            $$</td>
 <td>Maximimierung der Belohnung $J(x_k) = E (R_k | x_k)$. Im fortlaufenden
             Fall $$R_k = \sum_{t=0}^\infty \gamma^t r_{k+t}$$ mit
             Diskontierungsfaktor $\gamma \in [0, 1)$,
@@ -1491,6 +1505,11 @@ J_k(x_k) &amp;= \min_{\mathclap{a_k \in A_k(x_k)}} \left (g_k(x_k, a_k) + \mathb
   &rarr; Keine Nebenbedingungen, in <span class="math">\(\mathbb{R}^n\)</span> oder kleiner diskreter Raum (TODO)</li>
 <li>Welche numerischen Methoden zur Optimierung kennen sie?<br/>
   &rarr; Iterativer Abstieg (Gradientenverfahren, Newton-Verfahren), Dynamische Programmierung(?) (TODO)</li>
+<li>Welche geschlossen l&ouml;sbaren Spezialf&auml;lle existieren?<br/>
+  &rarr; TODO</li>
+<li>Welche M&ouml;glichkeiten der approximativen L&ouml;sung existieren bzw. sind
+  anwendbar?<br/>
+  &rarr; TODO</li>
 </ul>
 <h3 id="mdp">MDP</h3>
 <ul>
