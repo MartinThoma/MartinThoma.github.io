@@ -573,8 +573,11 @@ und Strategieiteration sowie der Label-Korrektur-Algorithmus zu nennen.&lt;/p&gt
               mit Funktionen $\pi_k(x_k) = a_k \in A_k(x_k)$.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/dd&gt;
-&lt;dt&gt;&lt;dfn id="policy"&gt;Strategie&lt;/dfn&gt; (&lt;dfn&gt;policy&lt;/dfn&gt;)&lt;/dt&gt;
-&lt;dd&gt;Eine Strategie ist ein Plan mit Zustandsr&amp;uuml;ckf&amp;uuml;hrung.&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="policy"&gt;Policy&lt;/dfn&gt; (&lt;dfn&gt;Strategie&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dd&gt;Eine &lt;b&gt;Strategie $\pi: S \rightarrow A$&lt;/b&gt; ist die Vorschrift, in
+      welchem Zustand welche Aktion ausgef&amp;uuml;hrt werden soll.&lt;br/&gt;
+&lt;br/&gt;
+      Eine Strategie ist ein Plan mit Zustandsr&amp;uuml;ckf&amp;uuml;hrung.&lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Pr%C3%A4ferenzrelation"&gt;&lt;dfn&gt;Pr&amp;auml;ferenzrelation&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
 &lt;dd&gt;Sei $\mathcal{X}$ eine Zustandsmenge und $\geq \subseteq \mathcal{X} \times \mathcal{X}$
       eine bin&amp;auml;re Relation auf $\mathcal{X}$. $\geq$ hei&amp;szlig;t (schwache)
@@ -1673,11 +1676,16 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;b&gt;ABER&lt;/b&gt; Folgeaktion $a_{k+1}$ wird ben&amp;ouml;tigt.
 
     &lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;SARSA&lt;/dfn&gt; (&lt;dfn&gt;State Action Reward State Action&lt;/dfn&gt;)&lt;/dt&gt;
-&lt;dd&gt;SARSA ist ein TD-Vefahren.
+&lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/State-Action-Reward-State-Action"&gt;&lt;dfn id="sarsa"&gt;SARSA&lt;/dfn&gt;&lt;/a&gt; (&lt;dfn&gt;State Action Reward State Action&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dd&gt;SARSA is a learning algorithm which updates the Q-function:
 
-        Auswahl von $a_{k+1}$ gem&amp;auml;&amp;szlig; Strategie $\pi$ $\rightarrow$ on-policy
+    $$Q(s_t,a_t) \leftarrow (1-\alpha) \cdot Q(s_t,a_t) + \alpha [r_{t+1} + \gamma Q(s_{t+1}, a_{t+1})]$$
 
+    where $\alpha \in (0, 1)$ is the learning rate and $\gamma \in [0, 1]$
+    is the discount factor.
+
+    SARSA is a temporal difference algorithm. As it chooses $a_{k+1}$ according
+    to the policy $\pi$ it is an on-policy algorithm.
     &lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Q-learning"&gt;&lt;dfn id="q-learning"&gt;$Q$-Learning&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
 &lt;dd&gt;$Q$-Learning ist ein TD-Vefahren um ohne Modell ein
@@ -1685,7 +1693,8 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 
         $$Q(x_k, a_k) \gets Q(x_k, a_k) + \alpha \cdot [r_k + \gamma \cdot \underbrace{\max_a Q(x_{k+1}, a)}_{J(x_{k+1})} - Q(x_k, a_k)]$$
 
-        &lt;img alt="Q-Learning" src="../images/2016/07/q-learning.png" width="512px"/&gt;
+        &lt;br/&gt;
+&lt;img alt="Q-Learning" src="../images/2016/07/q-learning.png" width="512px"/&gt;&lt;br/&gt;
 
         $\Rightarrow$ Aktualisierung von $Q$ erfolgt unabh&amp;auml;ngig von $\pi$
         $\rightarrow$  Off-policy
@@ -3724,8 +3733,7 @@ Kante durch eine Senke.&lt;/p&gt;
       Es gibt also einen Agenten, der Aktionen ausf&amp;uuml;hren kann. Diese k&amp;ouml;nnen
       (nicht notwendigerweise sofort) bewertet werden.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="policy"&gt;Policy&lt;/dfn&gt; (&lt;dfn&gt;Strategie&lt;/dfn&gt;)&lt;/dt&gt;
-&lt;dd&gt;Eine &lt;b&gt;Strategie $\pi: S \rightarrow A$&lt;/b&gt; ist die Vorschrift, in
-      welchem Zustand welche Aktion ausgef&amp;uuml;hrt werden soll.&lt;/dd&gt;
+&lt;dd&gt;Siehe &lt;a href="../probabilistische-planung/#policy"&gt;Probabilistische Planung&lt;/a&gt;.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Policy Learning&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Unter &lt;i&gt;Policy Learning&lt;/i&gt; versteht man die Suche nach einer
       optimalen Strategie $\pi^*$.&lt;/dd&gt;
@@ -3781,16 +3789,9 @@ Kante durch eine Senke.&lt;/p&gt;
         Mehr dazu im &lt;a href="#td-learning"&gt;n&amp;auml;chsten Abschnitt&lt;/a&gt;.
     &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="#q-learning"&gt;Q-Learning&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;Siehe &lt;a href="../probabilistische-planung/#q-function"&gt;Probabilistische Planung&lt;/a&gt;.&lt;/dd&gt;
-&lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/State-Action-Reward-State-Action" name="sarsa"&gt;&lt;dfn&gt;SARSA&lt;/dfn&gt;&lt;/a&gt; (&lt;dfn&gt;State-Action-Reward-State-Action&lt;/dfn&gt;)&lt;/dt&gt;
-&lt;dd&gt;SARSA is a learning algorithm which updates the Q-function:
-
-    $$Q(s_t,a_t) \leftarrow (1-\alpha) \cdot Q(s_t,a_t) + \alpha [r_{t+1} + \gamma Q(s_{t+1}, a_{t+1})]$$
-
-    where $\alpha \in (0, 1)$ is the learning rate and $\gamma \in [0, 1]$
-    is the discount factor.
-
-    &lt;/dd&gt;
+&lt;dd&gt;Siehe &lt;a href="../probabilistische-planung/#q-learning"&gt;Probabilistische Planung&lt;/a&gt;.&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;SARSA&lt;/dfn&gt; (&lt;dfn&gt;State-Action-Reward-State-Action&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dd&gt;Siehe &lt;a href="../probabilistische-planung/#sarsa"&gt;Probabilistische Planung&lt;/a&gt;.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;SARSA($\lambda$)&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;SARSA($\lambda$) ist SARSA mit Eligibility Traces.
 

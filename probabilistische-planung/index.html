@@ -293,8 +293,11 @@ und Strategieiteration sowie der Label-Korrektur-Algorithmus zu nennen.</p>
               mit Funktionen $\pi_k(x_k) = a_k \in A_k(x_k)$.</li>
 </ol>
 </dd>
-<dt><dfn id="policy">Strategie</dfn> (<dfn>policy</dfn>)</dt>
-<dd>Eine Strategie ist ein Plan mit Zustandsr&uuml;ckf&uuml;hrung.</dd>
+<dt><dfn id="policy">Policy</dfn> (<dfn>Strategie</dfn>)</dt>
+<dd>Eine <b>Strategie $\pi: S \rightarrow A$</b> ist die Vorschrift, in
+      welchem Zustand welche Aktion ausgef&uuml;hrt werden soll.<br/>
+<br/>
+      Eine Strategie ist ein Plan mit Zustandsr&uuml;ckf&uuml;hrung.</dd>
 <dt><a href="https://de.wikipedia.org/wiki/Pr%C3%A4ferenzrelation"><dfn>Pr&auml;ferenzrelation</dfn></a></dt>
 <dd>Sei $\mathcal{X}$ eine Zustandsmenge und $\geq \subseteq \mathcal{X} \times \mathcal{X}$
       eine bin&auml;re Relation auf $\mathcal{X}$. $\geq$ hei&szlig;t (schwache)
@@ -1393,11 +1396,16 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 <b>ABER</b> Folgeaktion $a_{k+1}$ wird ben&ouml;tigt.
 
     </dd>
-<dt><dfn>SARSA</dfn> (<dfn>State Action Reward State Action</dfn>)</dt>
-<dd>SARSA ist ein TD-Vefahren.
+<dt><a href="https://en.wikipedia.org/wiki/State-Action-Reward-State-Action"><dfn id="sarsa">SARSA</dfn></a> (<dfn>State Action Reward State Action</dfn>)</dt>
+<dd>SARSA is a learning algorithm which updates the Q-function:
 
-        Auswahl von $a_{k+1}$ gem&auml;&szlig; Strategie $\pi$ $\rightarrow$ on-policy
+    $$Q(s_t,a_t) \leftarrow (1-\alpha) \cdot Q(s_t,a_t) + \alpha [r_{t+1} + \gamma Q(s_{t+1}, a_{t+1})]$$
 
+    where $\alpha \in (0, 1)$ is the learning rate and $\gamma \in [0, 1]$
+    is the discount factor.
+
+    SARSA is a temporal difference algorithm. As it chooses $a_{k+1}$ according
+    to the policy $\pi$ it is an on-policy algorithm.
     </dd>
 <dt><a href="https://en.wikipedia.org/wiki/Q-learning"><dfn id="q-learning">$Q$-Learning</dfn></a></dt>
 <dd>$Q$-Learning ist ein TD-Vefahren um ohne Modell ein
@@ -1405,7 +1413,8 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 
         $$Q(x_k, a_k) \gets Q(x_k, a_k) + \alpha \cdot [r_k + \gamma \cdot \underbrace{\max_a Q(x_{k+1}, a)}_{J(x_{k+1})} - Q(x_k, a_k)]$$
 
-        <img alt="Q-Learning" src="../images/2016/07/q-learning.png" width="512px"/>
+        <br/>
+<img alt="Q-Learning" src="../images/2016/07/q-learning.png" width="512px"/><br/>
 
         $\Rightarrow$ Aktualisierung von $Q$ erfolgt unabh&auml;ngig von $\pi$
         $\rightarrow$  Off-policy
