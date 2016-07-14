@@ -183,13 +183,13 @@ sowie die Werte- und Strategieiteration zu nennen.</p>
 <td>9</td>
 <td id="2016-06-15">15.06.2016</td>
 <td>POMDPs</td>
-<td>Lineare Planungsprobleme (Kalman-Filter); Sperationsproblem</td>
+<td>Lineare Planungsprobleme (Kalman-Filter); Sperationsproblem; <abbr title="Linearer Quadratischer Regulator">LQR</abbr>, Endliche Planungsprobleme</td>
 </tr>
 <tr>
 <td>10</td>
 <td id="2016-06-22">22.06.2016</td>
 <td>POMDPs</td>
-<td>Endliche Planungsprobleme (Optimale Strategie); <a href="#ol-planung">OL</a>, <a href="#olf-planung">OLF</a>, Modellpr&auml;diktive Planung</td>
+<td>Endliche Planungsprobleme (Optimale Strategie, $\alpha$-Vektoren); Approximative Planung: <a href="#ol-planung">OL</a>, <a href="#olf-planung">OLF</a>, Modellpr&auml;diktive Planung</td>
 </tr>
 <tr>
 <td>11</td>
@@ -201,7 +201,7 @@ sowie die Werte- und Strategieiteration zu nennen.</p>
 <td>12</td>
 <td id="2016-07-06">06.07.2016</td>
 <td>POMDPs, <abbr title="Reinforcement Learning">RL</abbr></td>
-<td>POMDPs: Sensoreinsatzplanung; Kovarianz- vs TODO-Kostenfunktionen</td>
+<td>POMDPs: Sensoreinsatzplanung</td>
 </tr>
 <tr>
 <td>13</td>
@@ -865,15 +865,34 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
         In der closed-loop Planung wird eine optimale Strategie bestimmt.
     </dd>
 <dt><dfn id="olf-planung">Open-Loop-Feedback Planung</dfn> (<dfn>OLF Planung</dfn>)</dt>
-<dd>TODO</dd>
+<dd>
+
+        OLF-Planung ist ein Mittelweg zwischen OL-Planung und CL-Planung. Es
+        wird der aktuelle Informationsvektor $I_k$ verwendet um
+        $P(x_k | I_k)$ zu bestimmen. Dann wird mittels OL-Planung der optimale
+        Plan $a_{k:N-1}^*$ bestimmt.
+
+        Die OLF-Planung ist eine Folge von $N$ OL-Planungsschritten:
+
+        <ol>
+<li>$P(x_k | I_k)$ wird berechnet.</li>
+<li>$a_{k:N-1}^* \gets \arg \min E(g_N(x_N) + \sum_{i=k}^{N-1} g_i(x_i, a_i) | I_k)$</li>
+<li>Wende $a_{k:N-1}^*$ und gehe wieder zu 1</li>
+</ol>
+
+        Es gilt:
+
+        $$J_{CL} \leq J_{OLF} \leq J_{OL}$$
+    </dd>
 <dt><dfn>Modellpr&auml;diktive Planung</dfn></dt>
-<dd>OLF-Planung &uuml;ber k&uuml;rzeren, aber wandernden Horizont $M &lt;&lt; N$
+<dd>OLF-Planung &uuml;ber k&uuml;rzeren, aber wandernden Horizont $M \ll N$
 
         Ablauf (on-line):
 
         <ol>
 <li>Berechnung von $P(x_k | I_k)$</li>
-<li>TODO ($E(\sum_{i=k} g_i(x_i, a_i) | I_k)$)</li>
+<li>Berechnung von $a_{k:M-1}^*$ durch Minimierung von
+                $$E(\sum_{i=k} g_i(x_i, a_i) | I_k)$$</li>
 <li>Anwendung von $a_k^*$, zur&uuml;ck zu 1.</li>
 </ol>
 
@@ -1577,6 +1596,7 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 <td>Dynamic Programming</td>
 <td>
 <ul>
+<li>Linearer Fall: Kalman-filter + LQR</li>
 <li>Policy Iteration</li>
 <li>Value Iteration</li>
 </ul>

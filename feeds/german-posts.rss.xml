@@ -463,13 +463,13 @@ sowie die Werte- und Strategieiteration zu nennen.&lt;/p&gt;
 &lt;td&gt;9&lt;/td&gt;
 &lt;td id="2016-06-15"&gt;15.06.2016&lt;/td&gt;
 &lt;td&gt;POMDPs&lt;/td&gt;
-&lt;td&gt;Lineare Planungsprobleme (Kalman-Filter); Sperationsproblem&lt;/td&gt;
+&lt;td&gt;Lineare Planungsprobleme (Kalman-Filter); Sperationsproblem; &lt;abbr title="Linearer Quadratischer Regulator"&gt;LQR&lt;/abbr&gt;, Endliche Planungsprobleme&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;10&lt;/td&gt;
 &lt;td id="2016-06-22"&gt;22.06.2016&lt;/td&gt;
 &lt;td&gt;POMDPs&lt;/td&gt;
-&lt;td&gt;Endliche Planungsprobleme (Optimale Strategie); &lt;a href="#ol-planung"&gt;OL&lt;/a&gt;, &lt;a href="#olf-planung"&gt;OLF&lt;/a&gt;, Modellpr&amp;auml;diktive Planung&lt;/td&gt;
+&lt;td&gt;Endliche Planungsprobleme (Optimale Strategie, $\alpha$-Vektoren); Approximative Planung: &lt;a href="#ol-planung"&gt;OL&lt;/a&gt;, &lt;a href="#olf-planung"&gt;OLF&lt;/a&gt;, Modellpr&amp;auml;diktive Planung&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;11&lt;/td&gt;
@@ -481,7 +481,7 @@ sowie die Werte- und Strategieiteration zu nennen.&lt;/p&gt;
 &lt;td&gt;12&lt;/td&gt;
 &lt;td id="2016-07-06"&gt;06.07.2016&lt;/td&gt;
 &lt;td&gt;POMDPs, &lt;abbr title="Reinforcement Learning"&gt;RL&lt;/abbr&gt;&lt;/td&gt;
-&lt;td&gt;POMDPs: Sensoreinsatzplanung; Kovarianz- vs TODO-Kostenfunktionen&lt;/td&gt;
+&lt;td&gt;POMDPs: Sensoreinsatzplanung&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;13&lt;/td&gt;
@@ -1145,15 +1145,34 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
         In der closed-loop Planung wird eine optimale Strategie bestimmt.
     &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="olf-planung"&gt;Open-Loop-Feedback Planung&lt;/dfn&gt; (&lt;dfn&gt;OLF Planung&lt;/dfn&gt;)&lt;/dt&gt;
-&lt;dd&gt;TODO&lt;/dd&gt;
+&lt;dd&gt;
+
+        OLF-Planung ist ein Mittelweg zwischen OL-Planung und CL-Planung. Es
+        wird der aktuelle Informationsvektor $I_k$ verwendet um
+        $P(x_k | I_k)$ zu bestimmen. Dann wird mittels OL-Planung der optimale
+        Plan $a_{k:N-1}^*$ bestimmt.
+
+        Die OLF-Planung ist eine Folge von $N$ OL-Planungsschritten:
+
+        &lt;ol&gt;
+&lt;li&gt;$P(x_k | I_k)$ wird berechnet.&lt;/li&gt;
+&lt;li&gt;$a_{k:N-1}^* \gets \arg \min E(g_N(x_N) + \sum_{i=k}^{N-1} g_i(x_i, a_i) | I_k)$&lt;/li&gt;
+&lt;li&gt;Wende $a_{k:N-1}^*$ und gehe wieder zu 1&lt;/li&gt;
+&lt;/ol&gt;
+
+        Es gilt:
+
+        $$J_{CL} \leq J_{OLF} \leq J_{OL}$$
+    &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Modellpr&amp;auml;diktive Planung&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;OLF-Planung &amp;uuml;ber k&amp;uuml;rzeren, aber wandernden Horizont $M &amp;lt;&amp;lt; N$
+&lt;dd&gt;OLF-Planung &amp;uuml;ber k&amp;uuml;rzeren, aber wandernden Horizont $M \ll N$
 
         Ablauf (on-line):
 
         &lt;ol&gt;
 &lt;li&gt;Berechnung von $P(x_k | I_k)$&lt;/li&gt;
-&lt;li&gt;TODO ($E(\sum_{i=k} g_i(x_i, a_i) | I_k)$)&lt;/li&gt;
+&lt;li&gt;Berechnung von $a_{k:M-1}^*$ durch Minimierung von
+                $$E(\sum_{i=k} g_i(x_i, a_i) | I_k)$$&lt;/li&gt;
 &lt;li&gt;Anwendung von $a_k^*$, zur&amp;uuml;ck zu 1.&lt;/li&gt;
 &lt;/ol&gt;
 
@@ -1857,6 +1876,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;td&gt;Dynamic Programming&lt;/td&gt;
 &lt;td&gt;
 &lt;ul&gt;
+&lt;li&gt;Linearer Fall: Kalman-filter + LQR&lt;/li&gt;
 &lt;li&gt;Policy Iteration&lt;/li&gt;
 &lt;li&gt;Value Iteration&lt;/li&gt;
 &lt;/ul&gt;
@@ -7222,7 +7242,7 @@ $$X\sim \mathcal N_p(\mu, \Sigma).$$&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Strategie&lt;/dfn&gt; (engl. &lt;dfn&gt;Policy&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;Siehe &lt;a href="../probabilistische-planung#policy"&gt;Probabilistische Planung&lt;/a&gt;.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Q-Funktion&lt;/dfn&gt; (Action-Value function)&lt;/dt&gt;
-&lt;dd&gt;Siehe &lt;a href="../machine-learning-1-course/#q-function"&gt;ML 1&lt;/a&gt;.&lt;/dd&gt;
+&lt;dd&gt;Siehe &lt;a href="../probabilistische-planung/#q-function"&gt;Probabilistische Planung&lt;/a&gt;.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;V-Funktion&lt;/dfn&gt; (State-Value function)&lt;/dt&gt;
 &lt;dd&gt;Siehe &lt;a href="../machine-learning-1-course/#v-function"&gt;ML 1&lt;/a&gt;.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;$\varepsilon$-Greedy Strategy&lt;/dfn&gt;&lt;/dt&gt;
