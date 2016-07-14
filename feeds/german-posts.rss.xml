@@ -824,8 +824,6 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;dd&gt;$$J^* = \lim_{N \rightarrow \infty} T^N J$$
         wobei $J^*$ die optimalen Kosten, $T$ der Bellman-Operator und $N$
         der Planungshorizont ist. $g$ ist die Schrittkostenfunktion.&lt;br/&gt;
-
-        TODO: What is $\alpha$?&lt;br/&gt;
 &lt;img alt="Value iteration algorithm" src="../images/2016/07/Value-Iteration.png" width="512px"/&gt;
 &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Satz von der Sation&amp;auml;ren Strategie&lt;/dfn&gt;&lt;/dt&gt;
@@ -849,9 +847,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;dd&gt;Man kann beobachten, dass bei der Werte-Iteration die Stategie schneller
         konvergiert als der Wertevektor. Au&amp;szlig;erdem ist die Anzahl der
         Strategien endlich, aber es gibt unendlich viele Wertevektoren.&lt;br/&gt;
-&lt;br/&gt;
-        TODO: What is $\alpha$?&lt;br/&gt;
-&lt;img alt="Value iteration algorithm" src="../images/2016/07/Value-Iteration.png" width="512px"/&gt;
+&lt;img alt="Policy iteration algorithm" src="../images/2016/07/Policy-Iteration.png" width="512px"/&gt;
 &lt;br/&gt;
         Die folgenden beiden Schritte werden alternierend ausgef&amp;uuml;hrt:
 
@@ -1527,10 +1523,15 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 
     &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="exporation-exploitation"&gt;Exploration vs. Exploitation&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;
-&lt;blockquote&gt;Exploit what is already known to obtain rewards, but explore in order to choose better actions in the future.&lt;/blockquote&gt;
+&lt;dd&gt;The exploration vs. exploitation problem is that an agent in a
+        reinforcement learning setting can either try to improve his strategy
+        in a part where he already knows how to behave or he can try to explore
+        the world and potentially find much better (or much worse) strategies.
 
-        Es gibt folgende Explorationsstrategien:
+        &lt;blockquote&gt;Exploit what is already known to obtain rewards, but
+        explore in order to choose better actions in the future.&lt;/blockquote&gt;
+
+        There are the following exploration strategies:
 
         &lt;ul&gt;
 &lt;li&gt;&lt;a href="#exploring-starts"&gt;Exploring Starts&lt;/a&gt;&lt;/li&gt;
@@ -1599,8 +1600,8 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 
     &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="glie-exploration-strategy"&gt;GLIE-Strategie&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;
-&lt;b&gt;G&lt;/b&gt;reedy in the &lt;b&gt;l&lt;/b&gt;imit with &lt;b&gt;i&lt;/b&gt;nfinite &lt;b&gt;e&lt;/b&gt;xploration
+&lt;dd&gt;GLIE (&lt;b&gt;G&lt;/b&gt;reedy in the &lt;b&gt;l&lt;/b&gt;imit with &lt;b&gt;i&lt;/b&gt;nfinite
+        &lt;b&gt;e&lt;/b&gt;xploration) bezeichnet eine 
 
         Damit eine Strategie GLIE ist, muss erf&amp;uuml;llt sein:
 
@@ -1644,7 +1645,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
         $$
         \begin{align}
         J_\pi(x) &amp;amp;= E(R_k | x_k = x) \tag{1}\\
-                 &amp;amp;= E(r_k + \gamma \sum_{i=0}^\infty \gamma^i \cdot r_{k+i+i} | x_k = x)\tag{2}
+                 &amp;amp;= E(r_k + \gamma \sum_{i=0}^\infty \gamma^i \cdot r_{k+i} | x_k = x)\tag{2}
         \end{align}
         $$
         MC-Verfahren ganz (1) mittels Stichprobenfolge. TD-Verfahren sch&amp;auml;tzen
@@ -1654,16 +1655,17 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
         Erinnerung an DP-Strategiebewertung:&lt;br/&gt;
         $$J_\pi(x_k) \gets r_k(x_k, \pi (x_k)) + \alpha \sum_{x_{k+1}} P(x_{k+1} | x_k, \pi(x_k)) \cdot J_\pi (x_{k+1})$$
             Allerdings ist $P( \cdot | x_k, a)$ unbekannt. Daher wird es mittels
-            einer einzelnen Stichprobe $(x_k, r_k, x_{k+1})$ gesch&amp;auml;tztz und
-            ein Mittelwert zwischen dem aktuellen Wert und der Sch&amp;auml;tzung erstellt.
+            einer einzelnen Stichprobe $(x_k, r_k, x_{k+1})$ gesch&amp;auml;tzt und ein
+            Mittelwert zwischen dem aktuellen Wert und der Sch&amp;auml;tzung erstellt.
 
             $$J_\pi(x_k) \gets (1-\alpha) \cdot \underbrace{J_\pi(x_k)}_{\text{aktueller Wert}} + \alpha \cdot \underbrace{(\underbrace{r_k + \gamma \cdot J_\pi(x_{k+1})}_{\text{erwarteter Wert}} - J_\pi(x_k))}_{\text{zeitliche Differenz}}$$
 
-            Konvergenz bei variabler Schrittweite $\alpha = \alpha_k$ falls
+            Konvergenz bei variabler Schrittweite $\alpha = \alpha_k$
+            (Lernrate) falls
 
             $$\sum_{k=1}^\infty \alpha_k = \infty \text{ und } \sum_{k=1}^\infty \alpha_k^2 &amp;lt; \infty$$
 
-            Typische Wahl f&amp;uuml;r $\alpha$: $\alpha(x, a) = \frac{1}{1+ m(x, a)}$,
+            Eine typische Wahl ist $\alpha(x, a) = \frac{1}{1+ m(x, a)},$
             wobei $m(x, a)$ die Anzahl der Besuche von $(x, a)$ ist.
         &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Einschritt-TD-Verfahren&lt;/dfn&gt;&lt;/dt&gt;
@@ -1677,7 +1679,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 
     &lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/State-Action-Reward-State-Action"&gt;&lt;dfn id="sarsa"&gt;SARSA&lt;/dfn&gt;&lt;/a&gt; (&lt;dfn&gt;State Action Reward State Action&lt;/dfn&gt;)&lt;/dt&gt;
-&lt;dd&gt;SARSA is a learning algorithm which updates the Q-function:
+&lt;dd&gt;SARSA is a learning algorithm which updates the $Q$-function:
 
     $$Q(s_t,a_t) \leftarrow (1-\alpha) \cdot Q(s_t,a_t) + \alpha [r_{t+1} + \gamma Q(s_{t+1}, a_{t+1})]$$
 
@@ -3696,6 +3698,7 @@ Kante durch eine Senke.&lt;/p&gt;
 &lt;p&gt;Slide name: &lt;code&gt;MLI_03_ReinforcementLearning_slides1.pdf&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Siehe auch:&lt;/p&gt;
 &lt;ul&gt;
+&lt;li&gt;&lt;a href="../probabilistische-planung"&gt;Probabilistische Planung&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="../neuronale-netze-vorlesung/#tocAnchor-1-1-9"&gt;Neuronale Netze&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="../machine-learning-2-course/#tocAnchor-1-1-5"&gt;Machine Learning 2&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/MartinThoma/cat-vs-mouse"&gt;Cat vs. Mouse code&lt;/a&gt;&lt;/li&gt;

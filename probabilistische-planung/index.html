@@ -544,8 +544,6 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 <dd>$$J^* = \lim_{N \rightarrow \infty} T^N J$$
         wobei $J^*$ die optimalen Kosten, $T$ der Bellman-Operator und $N$
         der Planungshorizont ist. $g$ ist die Schrittkostenfunktion.<br/>
-
-        TODO: What is $\alpha$?<br/>
 <img alt="Value iteration algorithm" src="../images/2016/07/Value-Iteration.png" width="512px"/>
 </dd>
 <dt><dfn>Satz von der Sation&auml;ren Strategie</dfn></dt>
@@ -569,9 +567,7 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 <dd>Man kann beobachten, dass bei der Werte-Iteration die Stategie schneller
         konvergiert als der Wertevektor. Au&szlig;erdem ist die Anzahl der
         Strategien endlich, aber es gibt unendlich viele Wertevektoren.<br/>
-<br/>
-        TODO: What is $\alpha$?<br/>
-<img alt="Value iteration algorithm" src="../images/2016/07/Value-Iteration.png" width="512px"/>
+<img alt="Policy iteration algorithm" src="../images/2016/07/Policy-Iteration.png" width="512px"/>
 <br/>
         Die folgenden beiden Schritte werden alternierend ausgef&uuml;hrt:
 
@@ -1247,10 +1243,15 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 
     </dd>
 <dt><dfn id="exporation-exploitation">Exploration vs. Exploitation</dfn></dt>
-<dd>
-<blockquote>Exploit what is already known to obtain rewards, but explore in order to choose better actions in the future.</blockquote>
+<dd>The exploration vs. exploitation problem is that an agent in a
+        reinforcement learning setting can either try to improve his strategy
+        in a part where he already knows how to behave or he can try to explore
+        the world and potentially find much better (or much worse) strategies.
 
-        Es gibt folgende Explorationsstrategien:
+        <blockquote>Exploit what is already known to obtain rewards, but
+        explore in order to choose better actions in the future.</blockquote>
+
+        There are the following exploration strategies:
 
         <ul>
 <li><a href="#exploring-starts">Exploring Starts</a></li>
@@ -1319,8 +1320,8 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 
     </dd>
 <dt><dfn id="glie-exploration-strategy">GLIE-Strategie</dfn></dt>
-<dd>
-<b>G</b>reedy in the <b>l</b>imit with <b>i</b>nfinite <b>e</b>xploration
+<dd>GLIE (<b>G</b>reedy in the <b>l</b>imit with <b>i</b>nfinite
+        <b>e</b>xploration) bezeichnet eine 
 
         Damit eine Strategie GLIE ist, muss erf&uuml;llt sein:
 
@@ -1364,7 +1365,7 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
         $$
         \begin{align}
         J_\pi(x) &amp;= E(R_k | x_k = x) \tag{1}\\
-                 &amp;= E(r_k + \gamma \sum_{i=0}^\infty \gamma^i \cdot r_{k+i+i} | x_k = x)\tag{2}
+                 &amp;= E(r_k + \gamma \sum_{i=0}^\infty \gamma^i \cdot r_{k+i} | x_k = x)\tag{2}
         \end{align}
         $$
         MC-Verfahren ganz (1) mittels Stichprobenfolge. TD-Verfahren sch&auml;tzen
@@ -1374,16 +1375,17 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
         Erinnerung an DP-Strategiebewertung:<br/>
         $$J_\pi(x_k) \gets r_k(x_k, \pi (x_k)) + \alpha \sum_{x_{k+1}} P(x_{k+1} | x_k, \pi(x_k)) \cdot J_\pi (x_{k+1})$$
             Allerdings ist $P( \cdot | x_k, a)$ unbekannt. Daher wird es mittels
-            einer einzelnen Stichprobe $(x_k, r_k, x_{k+1})$ gesch&auml;tztz und
-            ein Mittelwert zwischen dem aktuellen Wert und der Sch&auml;tzung erstellt.
+            einer einzelnen Stichprobe $(x_k, r_k, x_{k+1})$ gesch&auml;tzt und ein
+            Mittelwert zwischen dem aktuellen Wert und der Sch&auml;tzung erstellt.
 
             $$J_\pi(x_k) \gets (1-\alpha) \cdot \underbrace{J_\pi(x_k)}_{\text{aktueller Wert}} + \alpha \cdot \underbrace{(\underbrace{r_k + \gamma \cdot J_\pi(x_{k+1})}_{\text{erwarteter Wert}} - J_\pi(x_k))}_{\text{zeitliche Differenz}}$$
 
-            Konvergenz bei variabler Schrittweite $\alpha = \alpha_k$ falls
+            Konvergenz bei variabler Schrittweite $\alpha = \alpha_k$
+            (Lernrate) falls
 
             $$\sum_{k=1}^\infty \alpha_k = \infty \text{ und } \sum_{k=1}^\infty \alpha_k^2 &lt; \infty$$
 
-            Typische Wahl f&uuml;r $\alpha$: $\alpha(x, a) = \frac{1}{1+ m(x, a)}$,
+            Eine typische Wahl ist $\alpha(x, a) = \frac{1}{1+ m(x, a)},$
             wobei $m(x, a)$ die Anzahl der Besuche von $(x, a)$ ist.
         </dd>
 <dt><dfn>Einschritt-TD-Verfahren</dfn></dt>
@@ -1397,7 +1399,7 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 
     </dd>
 <dt><a href="https://en.wikipedia.org/wiki/State-Action-Reward-State-Action"><dfn id="sarsa">SARSA</dfn></a> (<dfn>State Action Reward State Action</dfn>)</dt>
-<dd>SARSA is a learning algorithm which updates the Q-function:
+<dd>SARSA is a learning algorithm which updates the $Q$-function:
 
     $$Q(s_t,a_t) \leftarrow (1-\alpha) \cdot Q(s_t,a_t) + \alpha [r_{t+1} + \gamma Q(s_{t+1}, a_{t+1})]$$
 
