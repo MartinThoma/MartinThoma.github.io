@@ -393,7 +393,7 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 besprochen:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Markov'sche Entscheidungsprobleme (MDPs)&lt;/li&gt;
-&lt;li&gt;Planung bei Messunsicherheiten&lt;/li&gt;
+&lt;li&gt;Planung bei Messunsicherheiten (POMDPs)&lt;/li&gt;
 &lt;li&gt;Reinforcement Learning (RL)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;An Algorithmen sind insbesondere das Dynamische Programmieren, der
@@ -681,8 +681,14 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
       $$
 
   &lt;/dd&gt;
-&lt;dt&gt;&lt;dfn id="q-function"&gt;Q-Funktion&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;Siehe &lt;a href="../machine-learning-1-course/#q-function"&gt;ML 1&lt;/a&gt;.&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="q-function"&gt;Q-Funktion&lt;/dfn&gt; (&lt;dfn&gt;Action-Value function&lt;/dfn&gt;, &lt;dfn&gt;Quality function&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dd&gt;Die Funktion $Q^\pi: S \times A \rightarrow \mathbb{R}$ gibt den
+      erwarteten Wert einer eines Zustandes $s$ unter der Strategie $\pi$, wenn
+      die Aktion $a$ ausgef&amp;uuml;hrt wird an.&lt;br/&gt;
+&lt;br/&gt;
+      Es gilt: $$Q^\pi(s, \pi(s)) = V^\pi(s)$$
+
+  &lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Dynamische_Programmierung"&gt;&lt;dfn id="dynamic-programming"&gt;Dynamische Programmierung&lt;/dfn&gt;&lt;/a&gt; (&lt;dfn&gt;Dynamic Programming&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;Dynamische Programmierung ist eine Methode zum L&amp;ouml;sen von
       Optimierungsproblemen. Dabei wird die Tatsache genutzt, dass f&amp;uuml;r jeden
@@ -879,10 +885,10 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Trellis-Code"&gt;&lt;dfn id="trellis"&gt;Trellis-Diagramm&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
 &lt;dd&gt;Eine Diagramm welches anzeigt welche Zust&amp;auml;nde &amp;uuml;ber die Zeit
         gew&amp;auml;hlt werden.&lt;/dd&gt;
-&lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Pontryagin%27s_maximum_principle"&gt;&lt;dfn id="pontryagins-minimum-principle"&gt;Pontryagin's Minimum-Prinzip&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
+&lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Pontryagin%27s_maximum_principle"&gt;&lt;dfn id="pontryagins-minimum-principle"&gt;Pontryagin's Minimum-Prinzip&lt;/dfn&gt;&lt;/a&gt; (&lt;dfn&gt;Maximumprinzip&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;Das Pontryagin'sche Minimum-Prinzip k&amp;ouml;nnte als die russische
         Variante der Bellman-Gleichungen f&amp;uuml;r deterministische MDPs bezeichnet
-        werden.&lt;br/&gt;
+        werden. Es stellt eine notwendige Bedingung an ein Optimum dar.&lt;br/&gt;
 
         TODO&lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Hamilton-Funktion_(Kontrolltheorie)"&gt;&lt;dfn&gt;Hamilton-Funktion&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
@@ -1504,7 +1510,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;/ul&gt;
 &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="monte-carlo-rl"&gt;Monte Carlo RL&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;Idee: Sch&amp;auml;tzen der Q-Funktion $Q(x, a)$.
+&lt;dd&gt;Idee: Sch&amp;auml;tzen der $Q$-Funktion $Q(x, a)$.
         TODO: Diagramm
 
     F&amp;uuml;r gegebene Episode:
@@ -1513,7 +1519,8 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;li&gt;Verbesserung der Strategie f&amp;uuml;r alle besuchten Zust&amp;auml;nde&lt;/li&gt;
 &lt;/ul&gt;
 
-    Problem: pro Zustand wird nur eine Aktion bewertet. Das f&amp;uuml;hrt nur auf sehr lokalen bereichen zu einer Strategieverbesserung.
+    Problem: pro Zustand wird nur eine Aktion bewertet. Das f&amp;uuml;hrt nur auf sehr
+    lokalen Bereichen zu einer Strategieverbesserung.
 
     &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="exporation-exploitation"&gt;Exploration vs. Exploitation&lt;/dfn&gt;&lt;/dt&gt;
@@ -1662,9 +1669,8 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
         $$Q(x_k, a_k) \gets Q(x_k, a_k) + \alpha \cdot [r_k + \gamma \cdot Q(x_{k+1}, a_{k+1}) - Q(x_k, a_k)]$$
 
         Aktualisierung nach Ausf&amp;uuml;hrung von $a_k$ liefert Belohnung $r_k$ und
-        Nachfolgezustand $x_{k+1}$.
-
-        &lt;b&gt;ABER&lt;/b&gt; Folgeaktion $a_{k+1}$ wird ben&amp;ouml;tigt.
+        Nachfolgezustand $x_{k+1}.$&lt;br/&gt;
+&lt;b&gt;ABER&lt;/b&gt; Folgeaktion $a_{k+1}$ wird ben&amp;ouml;tigt.
 
     &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;SARSA&lt;/dfn&gt; (&lt;dfn&gt;State Action Reward State Action&lt;/dfn&gt;)&lt;/dt&gt;
@@ -1673,19 +1679,29 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
         Auswahl von $a_{k+1}$ gem&amp;auml;&amp;szlig; Strategie $\pi$ $\rightarrow$ on-policy
 
     &lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;Q-Learning&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;Q-Learning ist ein TD-Vefahren.
+&lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Q-learning"&gt;&lt;dfn id="q-learning"&gt;$Q$-Learning&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
+&lt;dd&gt;$Q$-Learning ist ein TD-Vefahren um ohne Modell ein
+        Reinforcement-Learning Problem zu l&amp;ouml;sen.
 
         $$Q(x_k, a_k) \gets Q(x_k, a_k) + \alpha \cdot [r_k + \gamma \cdot \underbrace{\max_a Q(x_{k+1}, a)}_{J(x_{k+1})} - Q(x_k, a_k)]$$
+
+        &lt;img alt="Q-Learning" src="../images/2016/07/q-learning.png" width="512px"/&gt;
 
         $\Rightarrow$ Aktualisierung von $Q$ erfolgt unabh&amp;auml;ngig von $\pi$
         $\rightarrow$  Off-policy
 
-        (Q-Learning hat sich im Gegensatz zu SARSA durchgesetzt)
-
+        (Q-Learning hat sich im Gegensatz zu SARSA durchgesetzt)&lt;br/&gt;
+&lt;br/&gt;
         Wenn die Strategie eine GLIE-Strategie ist, kann man mit Q-Learning die
-        Konvergenz beweisen
-    &lt;/dd&gt;
+        Konvergenz beweisen.
+
+        Siehe auch:
+        &lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=yS5F_vm9Ahk"&gt;YouTube: Lecture 18: RL Part 1: Q-Learning&lt;/a&gt;: 1:16:11. BrownCS141 Spring 2014.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=3sLV0OJLdns"&gt;YouTube: PacMan&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=ntZ0Hc1_LsY"&gt;Mario Q-learning&lt;/a&gt; on YouTube. 2010.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Fazit TD-Learning&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;
 
@@ -3721,11 +3737,7 @@ Kante durch eine Senke.&lt;/p&gt;
 &lt;br/&gt;
       Mit $V^*$ wird der Wert unter der optimalen Strategie bezeichnet.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="q-function"&gt;Q-Funktion&lt;/dfn&gt; (&lt;dfn&gt;Action-Value function&lt;/dfn&gt;, &lt;dfn&gt;Quality function&lt;/dfn&gt;)&lt;/dt&gt;
-&lt;dd&gt;Die Funktion $Q^\pi: S \times A \rightarrow \mathbb{R}$ gibt den erwarteten
-      Wert einer eines Zustandes $s$ unter der Strategie $\pi$, wenn die
-      Aktion $a$ ausgef&amp;uuml;hrt wird an.
-
-      Es gilt: $$Q^\pi(s, \pi(s)) = V^\pi(s)$$&lt;/dd&gt;
+&lt;dd&gt;Siehe &lt;a href="../probabilistische-planung/#q-function"&gt;Probabilistische Planung&lt;/a&gt;.&lt;/dd&gt;
 &lt;dt&gt;&lt;a name="rl-eligibility-trace"&gt;&lt;/a&gt;&lt;dfn&gt;Eligibility Traces&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Die Idee scheint einfach zu sein, dass man ein sp&amp;auml;teres Update auch auf
        fr&amp;uuml;here Ereignisse "zur&amp;uuml;ckpropagiert".
@@ -3768,8 +3780,8 @@ Kante durch eine Senke.&lt;/p&gt;
 
         Mehr dazu im &lt;a href="#td-learning"&gt;n&amp;auml;chsten Abschnitt&lt;/a&gt;.
     &lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;Q-Learning&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;Siehe &lt;a href="#q-learning"&gt;n&amp;auml;chster Abschnitt&lt;/a&gt;&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="#q-learning"&gt;Q-Learning&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;Siehe &lt;a href="../probabilistische-planung/#q-function"&gt;Probabilistische Planung&lt;/a&gt;.&lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/State-Action-Reward-State-Action" name="sarsa"&gt;&lt;dfn&gt;SARSA&lt;/dfn&gt;&lt;/a&gt; (&lt;dfn&gt;State-Action-Reward-State-Action&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;SARSA is a learning algorithm which updates the Q-function:
 
@@ -3785,31 +3797,6 @@ Kante durch eine Senke.&lt;/p&gt;
     TODO
     &lt;/dd&gt;
 &lt;/dl&gt;
-&lt;h4 id="q-learning"&gt;&lt;a name="q-learning"&gt;&lt;/a&gt; Q-Learning&lt;/h4&gt;
-&lt;p&gt;Das "Q" in der Q-Funktion steht f&amp;uuml;r "quality".&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Q-learning"&gt;Q-learning&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=yS5F_vm9Ahk"&gt;YouTube: Lecture 18: RL Part 1: Q-Learning&lt;/a&gt;: 1:16:11. BrownCS141 Spring 2014.&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=3sLV0OJLdns"&gt;YouTube: PacMan&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Pseudocode:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;initialize Q[num_states, num_actions]
-start in state s
-repeat:
-    select and execute action a
-    r &amp;larr; R(s, a)  # Receive reward
-    s' &amp;larr; T(s, a) # Get on new state
-    Q[s', a] &amp;larr; (1- &amp;alpha;) * Q[s, a] + &amp;alpha; * (r + &amp;gamma; max_{a'} Q[s', a'])
-    s &amp;larr; s'
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;where &lt;span class="math"&gt;\(\alpha \in (0, 1]\)&lt;/span&gt; is a learning rate and &lt;span class="math"&gt;\(\gamma\)&lt;/span&gt; is a discount
-factor.&lt;/p&gt;
-&lt;p&gt;See also:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=ntZ0Hc1_LsY"&gt;Mario Q-learning&lt;/a&gt; on YouTube. 2010.&lt;/li&gt;
-&lt;/ul&gt;
 &lt;h4 id="td-learning"&gt;&lt;a name="td-learning"&gt;&lt;/a&gt; TD-Learning&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;R. Sutton und A. Barto: &lt;a href="https://webdocs.cs.ualberta.ca/~sutton/book/ebook/node60.html"&gt;Temporal-Difference Learning&lt;/a&gt;. 1998.&lt;/li&gt;

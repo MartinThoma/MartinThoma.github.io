@@ -509,11 +509,7 @@ MathJax.Hub.Queue(function() {
 <br/>
       Mit $V^*$ wird der Wert unter der optimalen Strategie bezeichnet.</dd>
 <dt><dfn id="q-function">Q-Funktion</dfn> (<dfn>Action-Value function</dfn>, <dfn>Quality function</dfn>)</dt>
-<dd>Die Funktion $Q^\pi: S \times A \rightarrow \mathbb{R}$ gibt den erwarteten
-      Wert einer eines Zustandes $s$ unter der Strategie $\pi$, wenn die
-      Aktion $a$ ausgef&uuml;hrt wird an.
-
-      Es gilt: $$Q^\pi(s, \pi(s)) = V^\pi(s)$$</dd>
+<dd>Siehe <a href="../probabilistische-planung/#q-function">Probabilistische Planung</a>.</dd>
 <dt><a name="rl-eligibility-trace"></a><dfn>Eligibility Traces</dfn></dt>
 <dd>Die Idee scheint einfach zu sein, dass man ein sp&auml;teres Update auch auf
        fr&uuml;here Ereignisse "zur&uuml;ckpropagiert".
@@ -556,8 +552,8 @@ MathJax.Hub.Queue(function() {
 
         Mehr dazu im <a href="#td-learning">n&auml;chsten Abschnitt</a>.
     </dd>
-<dt><dfn>Q-Learning</dfn></dt>
-<dd>Siehe <a href="#q-learning">n&auml;chster Abschnitt</a></dd>
+<dt><dfn id="#q-learning">Q-Learning</dfn></dt>
+<dd>Siehe <a href="../probabilistische-planung/#q-function">Probabilistische Planung</a>.</dd>
 <dt><a href="https://en.wikipedia.org/wiki/State-Action-Reward-State-Action" name="sarsa"><dfn>SARSA</dfn></a> (<dfn>State-Action-Reward-State-Action</dfn>)</dt>
 <dd>SARSA is a learning algorithm which updates the Q-function:
 
@@ -573,31 +569,6 @@ MathJax.Hub.Queue(function() {
     TODO
     </dd>
 </dl>
-<h4 id="q-learning"><a name="q-learning"></a> Q-Learning</h4>
-<p>Das "Q" in der Q-Funktion steht f&uuml;r "quality".</p>
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/Q-learning">Q-learning</a><ul>
-<li><a href="https://www.youtube.com/watch?v=yS5F_vm9Ahk">YouTube: Lecture 18: RL Part 1: Q-Learning</a>: 1:16:11. BrownCS141 Spring 2014.</li>
-<li><a href="https://www.youtube.com/watch?v=3sLV0OJLdns">YouTube: PacMan</a></li>
-</ul>
-</li>
-</ul>
-<p>Pseudocode:</p>
-<div class="highlight"><pre><span></span>initialize Q[num_states, num_actions]
-start in state s
-repeat:
-    select and execute action a
-    r &larr; R(s, a)  # Receive reward
-    s' &larr; T(s, a) # Get on new state
-    Q[s', a] &larr; (1- &alpha;) * Q[s, a] + &alpha; * (r + &gamma; max_{a'} Q[s', a'])
-    s &larr; s'
-</pre></div>
-<p>where <span class="math">\(\alpha \in (0, 1]\)</span> is a learning rate and <span class="math">\(\gamma\)</span> is a discount
-factor.</p>
-<p>See also:</p>
-<ul>
-<li><a href="https://www.youtube.com/watch?v=ntZ0Hc1_LsY">Mario Q-learning</a> on YouTube. 2010.</li>
-</ul>
 <h4 id="td-learning"><a name="td-learning"></a> TD-Learning</h4>
 <ul>
 <li>R. Sutton und A. Barto: <a href="https://webdocs.cs.ualberta.ca/~sutton/book/ebook/node60.html">Temporal-Difference Learning</a>. 1998.</li>
