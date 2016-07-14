@@ -465,6 +465,15 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
                        der Schrittkosten und &Uuml;bergangswahrscheinlichkeiten.</li>
 </ul>
 </dd>
+<dt><dfn id="discount-factor">Discount factor</dfn> (<dfn>Diskontierungsfaktor</dfn>)</dt>
+<dd>
+
+        Ein Diskontierungsfaktor $\gamma \in [0, 1]$ encodiert den
+        Bedeutungsverlust zwischen einer direkten Belohnung und einer sp&auml;teren
+        Belohnung. Es sollte $\gamma &lt; 1$ gelten um unendliche Belohnungen zu
+        vermeiden.
+
+    </dd>
 <dt><dfn>Diskontiertes Planungsproblem</dfn></dt>
 <dd>
 <ol>
@@ -1179,6 +1188,9 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
             Netze)</li>
 </ul>
 </dd>
+<dt><dfn id="episode">Episode</dfn></dt>
+<dd>A run through an <abbr title="Markov Decision Process">MDP</abbr> from
+        a start state to an end state.</dd>
 <dt><dfn id="monte-carlo-methods">Monte-Carlo Methoden</dfn></dt>
 <dd>
 <u>Idee</u>: Erlernen einer Strategie aus Beispielepisoden.
@@ -1257,6 +1269,9 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 <li><a href="#exploring-starts">Exploring Starts</a></li>
 <li><a href="#epsilon-greedy-exploration">$\varepsilon$-Greedy Strategy</a></li>
 <li><a href="#softmax-exploration-strategy">Softmax Strategy</a></li>
+<li><a href="#epsilon-decreasing-strategy">$\varepsilon$-decreasing Strategy</a></li>
+<li><a href="#epsilon-first-strategy">$\varepsilon$-first Strategy</a></li>
+<li><a href="#adaptive-epsilon-greedy-strategy">Adaptive $\varepsilon$-greedy Strategy</a></li>
 </ul>
 </dd>
 <dt><dfn id="exploring-starts">Exploring Starts</dfn></dt>
@@ -1319,9 +1334,18 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
         of als schwieriger angesehen als die Wahl von $\varepsilon$.
 
     </dd>
+<dt><dfn id="epsilon-decreasing-strategy">$\varepsilon$-decreasing Strategy</dfn></dt>
+<dd>Explore $\varepsilon$% of the time. Otherwise, follow what you
+        currently believe is best. Reduce $\varepsilon$ over time.</dd>
+<dt><dfn id="epsilon-first-strategy">$\varepsilon$-first Strategy</dfn></dt>
+<dd>Explore for $\varepsilon$ steps and then do what you think is best.</dd>
+<dt><dfn id="adaptive-epsilon-greedy-strategy">Adaptive $\varepsilon$-greedy Strategy</dfn></dt>
+<dd>Explore $\varepsilon$% of the time. Otherwise, follow what you
+        currently believe is best. Reduce $\varepsilon$ based on what you
+        learn.</dd>
 <dt><dfn id="glie-exploration-strategy">GLIE-Strategie</dfn></dt>
 <dd>GLIE (<b>G</b>reedy in the <b>l</b>imit with <b>i</b>nfinite
-        <b>e</b>xploration) bezeichnet eine 
+        <b>e</b>xploration) bezeichnet eine
 
         Damit eine Strategie GLIE ist, muss erf&uuml;llt sein:
 

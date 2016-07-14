@@ -745,6 +745,15 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
                        der Schrittkosten und &amp;Uuml;bergangswahrscheinlichkeiten.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="discount-factor"&gt;Discount factor&lt;/dfn&gt; (&lt;dfn&gt;Diskontierungsfaktor&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dd&gt;
+
+        Ein Diskontierungsfaktor $\gamma \in [0, 1]$ encodiert den
+        Bedeutungsverlust zwischen einer direkten Belohnung und einer sp&amp;auml;teren
+        Belohnung. Es sollte $\gamma &amp;lt; 1$ gelten um unendliche Belohnungen zu
+        vermeiden.
+
+    &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Diskontiertes Planungsproblem&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;
 &lt;ol&gt;
@@ -1459,6 +1468,9 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
             Netze)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="episode"&gt;Episode&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;A run through an &lt;abbr title="Markov Decision Process"&gt;MDP&lt;/abbr&gt; from
+        a start state to an end state.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="monte-carlo-methods"&gt;Monte-Carlo Methoden&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;
 &lt;u&gt;Idee&lt;/u&gt;: Erlernen einer Strategie aus Beispielepisoden.
@@ -1537,6 +1549,9 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;li&gt;&lt;a href="#exploring-starts"&gt;Exploring Starts&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="#epsilon-greedy-exploration"&gt;$\varepsilon$-Greedy Strategy&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="#softmax-exploration-strategy"&gt;Softmax Strategy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#epsilon-decreasing-strategy"&gt;$\varepsilon$-decreasing Strategy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#epsilon-first-strategy"&gt;$\varepsilon$-first Strategy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#adaptive-epsilon-greedy-strategy"&gt;Adaptive $\varepsilon$-greedy Strategy&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="exploring-starts"&gt;Exploring Starts&lt;/dfn&gt;&lt;/dt&gt;
@@ -1599,9 +1614,18 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
         of als schwieriger angesehen als die Wahl von $\varepsilon$.
 
     &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="epsilon-decreasing-strategy"&gt;$\varepsilon$-decreasing Strategy&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;Explore $\varepsilon$% of the time. Otherwise, follow what you
+        currently believe is best. Reduce $\varepsilon$ over time.&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="epsilon-first-strategy"&gt;$\varepsilon$-first Strategy&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;Explore for $\varepsilon$ steps and then do what you think is best.&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="adaptive-epsilon-greedy-strategy"&gt;Adaptive $\varepsilon$-greedy Strategy&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;Explore $\varepsilon$% of the time. Otherwise, follow what you
+        currently believe is best. Reduce $\varepsilon$ based on what you
+        learn.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="glie-exploration-strategy"&gt;GLIE-Strategie&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;GLIE (&lt;b&gt;G&lt;/b&gt;reedy in the &lt;b&gt;l&lt;/b&gt;imit with &lt;b&gt;i&lt;/b&gt;nfinite
-        &lt;b&gt;e&lt;/b&gt;xploration) bezeichnet eine 
+        &lt;b&gt;e&lt;/b&gt;xploration) bezeichnet eine
 
         Damit eine Strategie GLIE ist, muss erf&amp;uuml;llt sein:
 
@@ -3792,9 +3816,9 @@ Kante durch eine Senke.&lt;/p&gt;
 
         Mehr dazu im &lt;a href="#td-learning"&gt;n&amp;auml;chsten Abschnitt&lt;/a&gt;.
     &lt;/dd&gt;
-&lt;dt&gt;&lt;dfn id="#q-learning"&gt;Q-Learning&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dt&gt;&lt;dfn id="q-learning"&gt;Q-Learning&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Siehe &lt;a href="../probabilistische-planung/#q-learning"&gt;Probabilistische Planung&lt;/a&gt;.&lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;SARSA&lt;/dfn&gt; (&lt;dfn&gt;State-Action-Reward-State-Action&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dt&gt;&lt;dfn id="sarsa"&gt;SARSA&lt;/dfn&gt; (&lt;dfn&gt;State-Action-Reward-State-Action&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;Siehe &lt;a href="../probabilistische-planung/#sarsa"&gt;Probabilistische Planung&lt;/a&gt;.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;SARSA($\lambda$)&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;SARSA($\lambda$) ist SARSA mit Eligibility Traces.
@@ -7194,33 +7218,23 @@ $$X\sim \mathcal N_p(\mu, \Sigma).$$&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Markov Decision Process&lt;/dfn&gt; (&lt;dfn&gt;MDP&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;Siehe &lt;a href="../machine-learning-1-course/#mdp"&gt;ML 1&lt;/a&gt;.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Diskontierungsfaktor&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;Ein Diskontierungsfaktor
-        &lt;span markdown="0"&gt;$\gamma \in [0, 1]$&lt;/span&gt; encodiert
-        den Bedeutungsverlust zwischen einer direkten Belohnung und
-        einer sp&amp;auml;teren Belohnung. Es sollte
-        &lt;span markdown="0"&gt;$\gamma &amp;lt; 1$&lt;/span&gt; gelten um
-        unendliche Belohnungen zu vermeiden.&lt;/dd&gt;
+&lt;dd&gt;Siehe &lt;a href="../probabilistische-planung#discount-factor"&gt;Probabilistische Planung&lt;/a&gt;.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Strategie&lt;/dfn&gt; (engl. &lt;dfn&gt;Policy&lt;/dfn&gt;)&lt;/dt&gt;
-&lt;dd&gt;Eine Strategie $\pi:S \rightarrow A$ sagt einem Agenten welche
-        Aktion er in welchem Zustand ausf&amp;uuml;hren soll.&lt;/dd&gt;
+&lt;dd&gt;Siehe &lt;a href="../probabilistische-planung#policy"&gt;Probabilistische Planung&lt;/a&gt;.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Q-Funktion&lt;/dfn&gt; (Action-Value function)&lt;/dt&gt;
 &lt;dd&gt;Siehe &lt;a href="../machine-learning-1-course/#q-function"&gt;ML 1&lt;/a&gt;.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;V-Funktion&lt;/dfn&gt; (State-Value function)&lt;/dt&gt;
 &lt;dd&gt;Siehe &lt;a href="../machine-learning-1-course/#v-function"&gt;ML 1&lt;/a&gt;.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;$\varepsilon$-Greedy Strategy&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;Siehe &lt;a href="../probabilistische-planung#epsilon-greedy-exploration"&gt;Probabilistische Planung&lt;/a&gt;&lt;/dd&gt;
+&lt;dd&gt;Siehe &lt;a href="../probabilistische-planung#epsilon-greedy-exploration"&gt;Probabilistische Planung&lt;/a&gt;.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;$\varepsilon$-decreasing Strategy&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;Explore $\varepsilon$% of the time. Otherwise, follow what you
-        currently believe is best. Reduce $\varepsilon$ over time.&lt;/dd&gt;
+&lt;dd&gt;Siehe &lt;a href="../probabilistische-planung#epsilon-decreasing-strategy"&gt;Probabilistische Planung&lt;/a&gt;.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;$\varepsilon$-first Strategy&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;Explore for $\varepsilon$ steps and then do what you think is best.&lt;/dd&gt;
+&lt;dd&gt;Siehe &lt;a href="../probabilistische-planung#epsilon-first-strategy"&gt;Probabilistische Planung&lt;/a&gt;.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Adaptive $\varepsilon$-greedy Strategy&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;Explore $\varepsilon$% of the time. Otherwise, follow what you
-        currently believe is best. Reduce $\varepsilon$ based on what you
-        learn.&lt;/dd&gt;
+&lt;dd&gt;Siehe &lt;a href="../probabilistische-planung#adaptive-epsilon-greedy-strategy"&gt;Probabilistische Planung&lt;/a&gt;.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Episode&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;A run through an &lt;abbr title="Markov Decision Process"&gt;MDP&lt;/abbr&gt; from
-        a start state to an end state.&lt;/dd&gt;
+&lt;dd&gt;Siehe &lt;a href="../probabilistische-planung#episode"&gt;Probabilistische Planung&lt;/a&gt;.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Monte Carlo Policy Evaluation&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Initialize state values $V^\pi$ and iterate:
         &lt;ol&gt;
@@ -7238,9 +7252,9 @@ $$X\sim \mathcal N_p(\mu, \Sigma).$$&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Temporal Difference Learning&lt;/dfn&gt; (&lt;dfn&gt;TD-Learning&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;Siehe &lt;a href="../machine-learning-1-course/#td-learning"&gt;ML1&lt;/a&gt;&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Q-Learning&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;Siehe &lt;a href="../machine-learning-1-course/#q-learning"&gt;ML1&lt;/a&gt;&lt;/dd&gt;
+&lt;dd&gt;Siehe &lt;a href="../probabilistische-planung/#q-learning"&gt;Probabilistische Planung&lt;/a&gt;.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;SARSA&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;Siehe &lt;a href="../machine-learning-1-course/#sarsa"&gt;ML1&lt;/a&gt;&lt;/dd&gt;
+&lt;dd&gt;Siehe &lt;a href="../probabilistische-planung/#sarsa"&gt;Probabilistische Planung&lt;/a&gt;.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Strategie-Iteration&lt;/dfn&gt; (&lt;dfn&gt;Policy iteration&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;Siehe &lt;a href="../probabilistische-planung/#policy-iteration"&gt;Probabilistische Planung&lt;/a&gt;.&lt;/dd&gt;
 &lt;/dl&gt;
