@@ -372,6 +372,7 @@ Slide name: `MLI_03_ReinforcementLearning_slides1.pdf`
 
 Siehe auch:
 
+* [Probabilistische Planung](../probabilistische-planung)
 * [Neuronale Netze](../neuronale-netze-vorlesung/#tocAnchor-1-1-9)
 * [Machine Learning 2](../machine-learning-2-course/#tocAnchor-1-1-5)
 * [Cat vs. Mouse code](https://github.com/MartinThoma/cat-vs-mouse)
@@ -408,8 +409,7 @@ Siehe auch:
       Es gibt also einen Agenten, der Aktionen ausführen kann. Diese können
       (nicht notwendigerweise sofort) bewertet werden.</dd>
   <dt><dfn id="policy">Policy</dfn> (<dfn>Strategie</dfn>)</dt>
-  <dd>Eine <b>Strategie $\pi: S \rightarrow A$</b> ist die Vorschrift, in
-      welchem Zustand welche Aktion ausgeführt werden soll.</dd>
+  <dd>Siehe <a href="../probabilistische-planung/#policy">Probabilistische Planung</a>.</dd>
   <dt><dfn>Policy Learning</dfn></dt>
   <dd>Unter <i>Policy Learning</i> versteht man die Suche nach einer
       optimalen Strategie $\pi^*$.</dd>
@@ -421,12 +421,8 @@ Siehe auch:
       <br/>
       Mit $V^*$ wird der Wert unter der optimalen Strategie bezeichnet.</dd>
   <dt><dfn id="q-function">Q-Funktion</dfn> (<dfn>Action-Value function</dfn>, <dfn>Quality function</dfn>)</dt>
-  <dd>Die Funktion $Q^\pi: S \times A \rightarrow \mathbb{R}$ gibt den erwarteten
-      Wert einer eines Zustandes $s$ unter der Strategie $\pi$, wenn die
-      Aktion $a$ ausgeführt wird an.
-
-      Es gilt: $$Q^\pi(s, \pi(s)) = V^\pi(s)$$</dd>
-   <dt><a name="rl-eligibility-trace"></a><dfn>Eligibility Traces</dfn></dt>
+  <dd>Siehe <a href="../probabilistische-planung/#q-function">Probabilistische Planung</a>.</dd>
+  <dt><a name="rl-eligibility-trace"></a><dfn>Eligibility Traces</dfn></dt>
    <dd>Die Idee scheint einfach zu sein, dass man ein späteres Update auch auf
        frühere Ereignisse "zurückpropagiert".
        TODO
@@ -469,52 +465,16 @@ Algorithmen:
 
         Mehr dazu im <a href="#td-learning">nächsten Abschnitt</a>.
     </dd>
-    <dt><dfn>Q-Learning</dfn></dt>
-    <dd>Siehe <a href="#q-learning">nächster Abschnitt</a></dd>
-    <dt><a name="sarsa" href="https://en.wikipedia.org/wiki/State-Action-Reward-State-Action"><dfn>SARSA</dfn></a> (<dfn>State-Action-Reward-State-Action</dfn>)</dt>
-    <dd>SARSA is a learning algorithm which updates the Q-function:
-
-    $$Q(s_t,a_t) \leftarrow (1-\alpha) \cdot Q(s_t,a_t) + \alpha [r_{t+1} + \gamma Q(s_{t+1}, a_{t+1})]$$
-
-    where $\alpha \in (0, 1)$ is the learning rate and $\gamma \in [0, 1]$
-    is the discount factor.
-
-    </dd>
+    <dt><dfn id="q-learning">Q-Learning</dfn></dt>
+    <dd>Siehe <a href="../probabilistische-planung/#q-learning">Probabilistische Planung</a>.</dd>
+    <dt><dfn id="sarsa">SARSA</dfn> (<dfn>State-Action-Reward-State-Action</dfn>)</dt>
+    <dd>Siehe <a href="../probabilistische-planung/#sarsa">Probabilistische Planung</a>.</dd>
     <dt><dfn>SARSA($\lambda$)</dfn></dt>
     <dd>SARSA($\lambda$) ist SARSA mit Eligibility Traces.
 
     TODO
     </dd>
 </dl>
-
-
-#### <a name="q-learning"></a> Q-Learning
-
-Das "Q" in der Q-Funktion steht für "quality".
-
-* [Q-learning](https://en.wikipedia.org/wiki/Q-learning)
-    * [YouTube: Lecture 18: RL Part 1: Q-Learning](https://www.youtube.com/watch?v=yS5F_vm9Ahk): 1:16:11. BrownCS141 Spring 2014.
-    * [YouTube: PacMan](https://www.youtube.com/watch?v=3sLV0OJLdns)
-
-Pseudocode:
-
-```text
-initialize Q[num_states, num_actions]
-start in state s
-repeat:
-    select and execute action a
-    r ← R(s, a)  # Receive reward
-    s' ← T(s, a) # Get on new state
-    Q[s', a] ← (1- α) * Q[s, a] + α * (r + γ max_{a'} Q[s', a'])
-    s ← s'
-```
-
-where $\alpha \in (0, 1]$ is a learning rate and $\gamma$ is a discount
-factor.
-
-See also:
-
-* [Mario Q-learning](https://www.youtube.com/watch?v=ntZ0Hc1_LsY) on YouTube. 2010.
 
 
 #### <a name="td-learning"></a> TD-Learning

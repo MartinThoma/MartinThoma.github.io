@@ -429,33 +429,23 @@ Slide name: `V09_2015-05-26-Reinforcement-Learning.pdf`
     <dt><dfn>Markov Decision Process</dfn> (<dfn>MDP</dfn>)</dt>
     <dd>Siehe <a href="../machine-learning-1-course/#mdp">ML 1</a>.</dd>
     <dt><dfn>Diskontierungsfaktor</dfn></dt>
-    <dd>Ein Diskontierungsfaktor
-        <span markdown="0">$\gamma \in [0, 1]$</span> encodiert
-        den Bedeutungsverlust zwischen einer direkten Belohnung und
-        einer späteren Belohnung. Es sollte
-        <span markdown="0">$\gamma &lt; 1$</span> gelten um
-        unendliche Belohnungen zu vermeiden.</dd>
+    <dd>Siehe <a href="../probabilistische-planung#discount-factor">Probabilistische Planung</a>.</dd>
     <dt><dfn>Strategie</dfn> (engl. <dfn>Policy</dfn>)</dt>
-    <dd>Eine Strategie $\pi:S \rightarrow A$ sagt einem Agenten welche
-        Aktion er in welchem Zustand ausführen soll.</dd>
+    <dd>Siehe <a href="../probabilistische-planung#policy">Probabilistische Planung</a>.</dd>
     <dt><dfn>Q-Funktion</dfn> (Action-Value function)</dt>
-    <dd>Siehe <a href="../machine-learning-1-course/#q-function">ML 1</a>.</dd>
+    <dd>Siehe <a href="../probabilistische-planung/#q-function">Probabilistische Planung</a>.</dd>
     <dt><dfn>V-Funktion</dfn> (State-Value function)</dt>
     <dd>Siehe <a href="../machine-learning-1-course/#v-function">ML 1</a>.</dd>
     <dt><dfn>$\varepsilon$-Greedy Strategy</dfn></dt>
-    <dd>Siehe <a href="../probabilistische-planung#epsilon-greedy-exploration">Probabilistische Planung</a></dd>
+    <dd>Siehe <a href="../probabilistische-planung#epsilon-greedy-exploration">Probabilistische Planung</a>.</dd>
     <dt><dfn>$\varepsilon$-decreasing Strategy</dfn></dt>
-    <dd>Explore $\varepsilon$% of the time. Otherwise, follow what you
-        currently believe is best. Reduce $\varepsilon$ over time.</dd>
+    <dd>Siehe <a href="../probabilistische-planung#epsilon-decreasing-strategy">Probabilistische Planung</a>.</dd>
     <dt><dfn>$\varepsilon$-first Strategy</dfn></dt>
-    <dd>Explore for $\varepsilon$ steps and then do what you think is best.</dd>
+    <dd>Siehe <a href="../probabilistische-planung#epsilon-first-strategy">Probabilistische Planung</a>.</dd>
     <dt><dfn>Adaptive $\varepsilon$-greedy Strategy</dfn></dt>
-    <dd>Explore $\varepsilon$% of the time. Otherwise, follow what you
-        currently believe is best. Reduce $\varepsilon$ based on what you
-        learn.</dd>
+    <dd>Siehe <a href="../probabilistische-planung#adaptive-epsilon-greedy-strategy">Probabilistische Planung</a>.</dd>
     <dt><dfn>Episode</dfn></dt>
-    <dd>A run through an <abbr title="Markov Decision Process">MDP</abbr> from
-        a start state to an end state.</dd>
+    <dd>Siehe <a href="../probabilistische-planung#episode">Probabilistische Planung</a>.</dd>
     <dt><dfn>Monte Carlo Policy Evaluation</dfn></dt>
     <dd>Initialize state values $V^\pi$ and iterate:
         <ol>
@@ -473,9 +463,9 @@ Slide name: `V09_2015-05-26-Reinforcement-Learning.pdf`
     <dt><dfn>Temporal Difference Learning</dfn> (<dfn>TD-Learning</dfn>)</dt>
     <dd>Siehe <a href="../machine-learning-1-course/#td-learning">ML1</a></dd>
     <dt><dfn>Q-Learning</dfn></dt>
-    <dd>Siehe <a href="../machine-learning-1-course/#q-learning">ML1</a></dd>
+    <dd>Siehe <a href="../probabilistische-planung/#q-learning">Probabilistische Planung</a>.</dd>
     <dt><dfn>SARSA</dfn></dt>
-    <dd>Siehe <a href="../machine-learning-1-course/#sarsa">ML1</a></dd>
+    <dd>Siehe <a href="../probabilistische-planung/#sarsa">Probabilistische Planung</a>.</dd>
     <dt><dfn>Strategie-Iteration</dfn> (<dfn>Policy iteration</dfn>)</dt>
     <dd>Siehe <a href="../probabilistische-planung/#policy-iteration">Probabilistische Planung</a>.</dd>
 </dl>

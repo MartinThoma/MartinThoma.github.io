@@ -10,16 +10,16 @@ featured_image: logos/klausur.png
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Probabilistische Planung&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://ies.anthropomatik.kit.edu/mitarbeiter.php?person=huber">Herrn Dr.-Ing. Marco Huber</a> im Sommersemester 2015 und 2016 gehört. Die Inhalte sind dementsprechend stark an der Vorlesung angelehnt bzw. komplette Teile sind daraus übernommen. Der Artikel dient als Prüfungsvorbereitung und ist noch am Entstehen.</div>
 
-In der Vorlesung 'Probabilistische Planung' werden drei Themenfelder
-besprochen:
+In der Vorlesung 'Probabilistische Planung' führt in das Thema Reinforcement
+Learning ein. Dabei werden drei Themenfelder besprochen:
 
 * Markov'sche Entscheidungsprobleme (MDPs)
-* Planung bei Messunsicherheiten
+* Planung bei Messunsicherheiten (POMDPs)
 * Reinforcement Learning (RL)
 
-An Algorithmen sind insbesondere das Dynamische Programmieren, der
-<a href="https://martin-thoma.com/kalman-filter/">Kalman-Filter</a>, die Werte-
-und Strategieiteration sowie der Label-Korrektur-Algorithmus zu nennen.
+An Algorithmen sind insbesondere der Label-Korrektur-Algorithmus, das
+Dynamische Programmieren, der <a href="https://martin-thoma.com/kalman-filter/">Kalman-Filter</a>
+sowie die Werte- und Strategieiteration zu nennen.
 
 
 ## Behandelter Stoff
@@ -88,13 +88,13 @@ und Strategieiteration sowie der Label-Korrektur-Algorithmus zu nennen.
     <td>9</td>
     <td id="2016-06-15">15.06.2016</td>
     <td>POMDPs</td>
-    <td>Lineare Planungsprobleme (Kalman-Filter); Sperationsproblem</td>
+    <td>Lineare Planungsprobleme (Kalman-Filter); Sperationsproblem; <abbr title="Linearer Quadratischer Regulator">LQR</abbr>, Endliche Planungsprobleme</td>
 </tr>
 <tr>
     <td>10</td>
     <td id="2016-06-22">22.06.2016</td>
     <td>POMDPs</td>
-    <td>Endliche Planungsprobleme (Optimale Strategie); <a href="#ol-planung">OL</a>, <a href="#olf-planung">OLF</a>, Modellprädiktive Planung</td>
+    <td>Endliche Planungsprobleme (Optimale Strategie, $\alpha$-Vektoren); Approximative Planung: <a href="#ol-planung">OL</a>, <a href="#olf-planung">OLF</a>, Modellprädiktive Planung</td>
 </tr>
 <tr>
     <td>11</td>
@@ -106,7 +106,7 @@ und Strategieiteration sowie der Label-Korrektur-Algorithmus zu nennen.
     <td>12</td>
     <td id="2016-07-06">06.07.2016</td>
     <td>POMDPs, <abbr title="Reinforcement Learning">RL</abbr></td>
-    <td>POMDPs: Sensoreinsatzplanung; Kovarianz- vs TODO-Kostenfunktionen</td>
+    <td>POMDPs: Sensoreinsatzplanung</td>
 </tr>
 <tr>
     <td>13</td>
@@ -207,8 +207,11 @@ Slides: `11.05.2016`
               mit Funktionen $\pi_k(x_k) = a_k \in A_k(x_k)$.</li>
       </ol>
   </dd>
-  <dt><dfn id="policy">Strategie</dfn> (<dfn>policy</dfn>)</dt>
-  <dd>Eine Strategie ist ein Plan mit Zustandsrückführung.</dd>
+  <dt><dfn id="policy">Policy</dfn> (<dfn>Strategie</dfn>)</dt>
+  <dd>Eine <b>Strategie $\pi: S \rightarrow A$</b> ist die Vorschrift, in
+      welchem Zustand welche Aktion ausgeführt werden soll.<br/>
+      <br/>
+      Eine Strategie ist ein Plan mit Zustandsrückführung.</dd>
   <dt><a href="https://de.wikipedia.org/wiki/Pr%C3%A4ferenzrelation"><dfn>Präferenzrelation</dfn></a></dt>
   <dd>Sei $\mathcal{X}$ eine Zustandsmenge und $\geq \subseteq \mathcal{X} \times \mathcal{X}$
       eine binäre Relation auf $\mathcal{X}$. $\geq$ heißt (schwache)
@@ -318,8 +321,14 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
       $$
 
   </dd>
-  <dt><dfn id="q-function">Q-Funktion</dfn></dt>
-  <dd>Siehe <a href="../machine-learning-1-course/#q-function">ML 1</a>.</dd>
+  <dt><dfn id="q-function">Q-Funktion</dfn> (<dfn>Action-Value function</dfn>, <dfn>Quality function</dfn>)</dt>
+  <dd>Die Funktion $Q^\pi: S \times A \rightarrow \mathbb{R}$ gibt den
+      erwarteten Wert einer eines Zustandes $s$ unter der Strategie $\pi$, wenn
+      die Aktion $a$ ausgeführt wird an.<br/>
+      <br/>
+      Es gilt: $$Q^\pi(s, \pi(s)) = V^\pi(s)$$
+
+  </dd>
   <dt><a href="https://de.wikipedia.org/wiki/Dynamische_Programmierung"><dfn id="dynamic-programming">Dynamische Programmierung</dfn></a> (<dfn>Dynamic Programming</dfn>)</dt>
   <dd>Dynamische Programmierung ist eine Methode zum Lösen von
       Optimierungsproblemen. Dabei wird die Tatsache genutzt, dass für jeden
@@ -377,6 +386,15 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
                        Probleme sind unendliche Kosten und die Zeitabhängigkeit
                        der Schrittkosten und Übergangswahrscheinlichkeiten.</li>
         </ul>
+
+    </dd>
+    <dt><dfn id="discount-factor">Discount factor</dfn> (<dfn>Diskontierungsfaktor</dfn>)</dt>
+    <dd>
+
+        Ein Diskontierungsfaktor $\gamma \in [0, 1]$ encodiert den
+        Bedeutungsverlust zwischen einer direkten Belohnung und einer späteren
+        Belohnung. Es sollte $\gamma < 1$ gelten um unendliche Belohnungen zu
+        vermeiden.
 
     </dd>
     <dt><dfn>Diskontiertes Planungsproblem</dfn></dt>
@@ -461,8 +479,6 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         wobei $J^*$ die optimalen Kosten, $T$ der Bellman-Operator und $N$
         der Planungshorizont ist. $g$ ist die Schrittkostenfunktion.<br/>
 
-        TODO: What is $\alpha$?<br/>
-
         <img src="../images/2016/07/Value-Iteration.png"
              alt="Value iteration algorithm"
              width="512px" />
@@ -490,11 +506,8 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
     <dd>Man kann beobachten, dass bei der Werte-Iteration die Stategie schneller
         konvergiert als der Wertevektor. Außerdem ist die Anzahl der
         Strategien endlich, aber es gibt unendlich viele Wertevektoren.<br/>
-        <br/>
-        TODO: What is $\alpha$?<br/>
-
-        <img src="../images/2016/07/Value-Iteration.png"
-             alt="Value iteration algorithm"
+        <img src="../images/2016/07/Policy-Iteration.png"
+             alt="Policy iteration algorithm"
              width="512px" />
         <br/>
         Die folgenden beiden Schritte werden alternierend ausgeführt:
@@ -535,10 +548,10 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
     <dt><a href="https://de.wikipedia.org/wiki/Trellis-Code"><dfn id="trellis">Trellis-Diagramm</dfn></a></dt>
     <dd>Eine Diagramm welches anzeigt welche Zustände über die Zeit
         gewählt werden.</dd>
-    <dt><a href="https://en.wikipedia.org/wiki/Pontryagin%27s_maximum_principle"><dfn id="pontryagins-minimum-principle">Pontryagin's Minimum-Prinzip</dfn></a></dt>
+    <dt><a href="https://en.wikipedia.org/wiki/Pontryagin%27s_maximum_principle"><dfn id="pontryagins-minimum-principle">Pontryagin's Minimum-Prinzip</dfn></a> (<dfn>Maximumprinzip</dfn>)</dt>
     <dd>Das Pontryagin'sche Minimum-Prinzip könnte als die russische
         Variante der Bellman-Gleichungen für deterministische MDPs bezeichnet
-        werden.<br/>
+        werden. Es stellt eine notwendige Bedingung an ein Optimum dar.<br/>
 
         TODO</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Hamilton-Funktion_(Kontrolltheorie)"><dfn>Hamilton-Funktion</dfn></a></dt>
@@ -795,15 +808,34 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         In der closed-loop Planung wird eine optimale Strategie bestimmt.
     </dd>
     <dt><dfn id="olf-planung">Open-Loop-Feedback Planung</dfn> (<dfn>OLF Planung</dfn>)</dt>
-    <dd>TODO</dd>
+    <dd>
+
+        OLF-Planung ist ein Mittelweg zwischen OL-Planung und CL-Planung. Es
+        wird der aktuelle Informationsvektor $I_k$ verwendet um
+        $P(x_k | I_k)$ zu bestimmen. Dann wird mittels OL-Planung der optimale
+        Plan $a_{k:N-1}^*$ bestimmt.
+
+        Die OLF-Planung ist eine Folge von $N$ OL-Planungsschritten:
+
+        <ol>
+            <li>$P(x_k | I_k)$ wird berechnet.</li>
+            <li>$a_{k:N-1}^* \gets \arg \min E(g_N(x_N) + \sum_{i=k}^{N-1} g_i(x_i, a_i) | I_k)$</li>
+            <li>Wende $a_{k:N-1}^*$ und gehe wieder zu 1</li>
+        </ol>
+
+        Es gilt:
+
+        $$J_{CL} \leq J_{OLF} \leq J_{OL}$$
+    </dd>
     <dt><dfn>Modellprädiktive Planung</dfn></dt>
-    <dd>OLF-Planung über kürzeren, aber wandernden Horizont $M << N$
+    <dd>OLF-Planung über kürzeren, aber wandernden Horizont $M \ll N$
 
         Ablauf (on-line):
 
         <ol>
             <li>Berechnung von $P(x_k | I_k)$</li>
-            <li>TODO ($E(\sum_{i=k} g_i(x_i, a_i) | I_k)$)</li>
+            <li>Berechnung von $a_{k:M-1}^*$ durch Minimierung von
+                $$E(\sum_{i=k} g_i(x_i, a_i) | I_k)$$</li>
             <li>Anwendung von $a_k^*$, zurück zu 1.</li>
         </ol>
 
@@ -1141,6 +1173,9 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
     </ul>
 
     </dd>
+    <dt><dfn id="episode">Episode</dfn></dt>
+    <dd>A run through an <abbr title="Markov Decision Process">MDP</abbr> from
+        a start state to an end state.</dd>
     <dt><dfn id="monte-carlo-methods">Monte-Carlo Methoden</dfn></dt>
     <dd>
 
@@ -1193,7 +1228,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         </ul>
     </dd>
     <dt><dfn id="monte-carlo-rl">Monte Carlo RL</dfn></dt>
-    <dd>Idee: Schätzen der Q-Funktion $Q(x, a)$.
+    <dd>Idee: Schätzen der $Q$-Funktion $Q(x, a)$.
         TODO: Diagramm
 
     Für gegebene Episode:
@@ -1202,20 +1237,28 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
       <li>Verbesserung der Strategie für alle besuchten Zustände</li>
     </ul>
 
-    Problem: pro Zustand wird nur eine Aktion bewertet. Das führt nur auf sehr lokalen bereichen zu einer Strategieverbesserung.
+    Problem: pro Zustand wird nur eine Aktion bewertet. Das führt nur auf sehr
+    lokalen Bereichen zu einer Strategieverbesserung.
 
     </dd>
     <dt><dfn id="exporation-exploitation">Exploration vs. Exploitation</dfn></dt>
-    <dd>
+    <dd>The exploration vs. exploitation problem is that an agent in a
+        reinforcement learning setting can either try to improve his strategy
+        in a part where he already knows how to behave or he can try to explore
+        the world and potentially find much better (or much worse) strategies.
 
-        <blockquote>Exploit what is already known to obtain rewards, but explore in order to choose better actions in the future.</blockquote>
+        <blockquote>Exploit what is already known to obtain rewards, but
+        explore in order to choose better actions in the future.</blockquote>
 
-        Es gibt folgende Explorationsstrategien:
+        There are the following exploration strategies:
 
         <ul>
             <li><a href="#exploring-starts">Exploring Starts</a></li>
             <li><a href="#epsilon-greedy-exploration">$\varepsilon$-Greedy Strategy</a></li>
             <li><a href="#softmax-exploration-strategy">Softmax Strategy</a></li>
+            <li><a href="#epsilon-decreasing-strategy">$\varepsilon$-decreasing Strategy</a></li>
+            <li><a href="#epsilon-first-strategy">$\varepsilon$-first Strategy</a></li>
+            <li><a href="#adaptive-epsilon-greedy-strategy">Adaptive $\varepsilon$-greedy Strategy</a></li>
         </ul>
     </dd>
     <dt><dfn id="exploring-starts">Exploring Starts</dfn></dt>
@@ -1278,10 +1321,18 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         of als schwieriger angesehen als die Wahl von $\varepsilon$.
 
     </dd>
+    <dt><dfn id="epsilon-decreasing-strategy">$\varepsilon$-decreasing Strategy</dfn></dt>
+    <dd>Explore $\varepsilon$% of the time. Otherwise, follow what you
+        currently believe is best. Reduce $\varepsilon$ over time.</dd>
+    <dt><dfn id="epsilon-first-strategy">$\varepsilon$-first Strategy</dfn></dt>
+    <dd>Explore for $\varepsilon$ steps and then do what you think is best.</dd>
+    <dt><dfn id="adaptive-epsilon-greedy-strategy">Adaptive $\varepsilon$-greedy Strategy</dfn></dt>
+    <dd>Explore $\varepsilon$% of the time. Otherwise, follow what you
+        currently believe is best. Reduce $\varepsilon$ based on what you
+        learn.</dd>
     <dt><dfn id="glie-exploration-strategy">GLIE-Strategie</dfn></dt>
-    <dd>
-
-        <b>G</b>reedy in the <b>l</b>imit with <b>i</b>nfinite <b>e</b>xploration
+    <dd>GLIE (<b>G</b>reedy in the <b>l</b>imit with <b>i</b>nfinite
+        <b>e</b>xploration) bezeichnet eine
 
         Damit eine Strategie GLIE ist, muss erfüllt sein:
 
@@ -1327,7 +1378,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         $$
         \begin{align}
         J_\pi(x) &= E(R_k | x_k = x) \tag{1}\\
-                 &= E(r_k + \gamma \sum_{i=0}^\infty \gamma^i \cdot r_{k+i+i} | x_k = x)\tag{2}
+                 &= E(r_k + \gamma \sum_{i=0}^\infty \gamma^i \cdot r_{k+i} | x_k = x)\tag{2}
         \end{align}
         $$
         MC-Verfahren ganz (1) mittels Stichprobenfolge. TD-Verfahren schätzen
@@ -1337,16 +1388,17 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         Erinnerung an DP-Strategiebewertung:<br/>
         $$J_\pi(x_k) \gets r_k(x_k, \pi (x_k)) + \alpha \sum_{x_{k+1}} P(x_{k+1} | x_k, \pi(x_k)) \cdot J_\pi (x_{k+1})$$
             Allerdings ist $P( \cdot | x_k, a)$ unbekannt. Daher wird es mittels
-            einer einzelnen Stichprobe $(x_k, r_k, x_{k+1})$ geschätztz und
-            ein Mittelwert zwischen dem aktuellen Wert und der Schätzung erstellt.
+            einer einzelnen Stichprobe $(x_k, r_k, x_{k+1})$ geschätzt und ein
+            Mittelwert zwischen dem aktuellen Wert und der Schätzung erstellt.
 
             $$J_\pi(x_k) \gets (1-\alpha) \cdot \underbrace{J_\pi(x_k)}_{\text{aktueller Wert}} + \alpha \cdot \underbrace{(\underbrace{r_k + \gamma \cdot J_\pi(x_{k+1})}_{\text{erwarteter Wert}} - J_\pi(x_k))}_{\text{zeitliche Differenz}}$$
 
-            Konvergenz bei variabler Schrittweiter $\alpha = \alpha_k$ falls
+            Konvergenz bei variabler Schrittweite $\alpha = \alpha_k$
+            (Lernrate) falls
 
             $$\sum_{k=1}^\infty \alpha_k = \infty \text{ und } \sum_{k=1}^\infty \alpha_k^2 < \infty$$
 
-            Typische Wahl für $\alpha$: $\alpha(x, a) = \frac{1}{1+ m(x, a)}$,
+            Eine typische Wahl ist $\alpha(x, a) = \frac{1}{1+ m(x, a)},$
             wobei $m(x, a)$ die Anzahl der Besuche von $(x, a)$ ist.
         </dd>
     <dt><dfn>Einschritt-TD-Verfahren</dfn></dt>
@@ -1355,29 +1407,49 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         $$Q(x_k, a_k) \gets Q(x_k, a_k) + \alpha \cdot [r_k + \gamma \cdot Q(x_{k+1}, a_{k+1}) - Q(x_k, a_k)]$$
 
         Aktualisierung nach Ausführung von $a_k$ liefert Belohnung $r_k$ und
-        Nachfolgezustand $x_{k+1}$.
+        Nachfolgezustand $x_{k+1}.$<br/>
 
         <b>ABER</b> Folgeaktion $a_{k+1}$ wird benötigt.
 
     </dd>
-    <dt><dfn>SARSA</dfn> (<dfn>State Action Reward State Action</dfn>)</dt>
-    <dd>SARSA ist ein TD-Vefahren.
+    <dt><a href="https://en.wikipedia.org/wiki/State-Action-Reward-State-Action"><dfn id="sarsa">SARSA</dfn></a> (<dfn>State Action Reward State Action</dfn>)</dt>
+    <dd>SARSA is a learning algorithm which updates the $Q$-function:
 
-        Auswahl von $a_{k+1}$ gemäß Strategie $\pi$ $\rightarrow$ on-policy
+    $$Q(s_t,a_t) \leftarrow (1-\alpha) \cdot Q(s_t,a_t) + \alpha [r_{t+1} + \gamma Q(s_{t+1}, a_{t+1})]$$
 
+    where $\alpha \in (0, 1)$ is the learning rate and $\gamma \in [0, 1]$
+    is the discount factor.
+
+    SARSA is a temporal difference algorithm. As it chooses $a_{k+1}$ according
+    to the policy $\pi$ it is an on-policy algorithm.
     </dd>
-    <dt><dfn>Q-Learning</dfn></dt>
-    <dd>Q-Learning ist ein TD-Vefahren.
+    <dt><a href="https://en.wikipedia.org/wiki/Q-learning"><dfn id="q-learning">$Q$-Learning</dfn></a></dt>
+    <dd>$Q$-Learning ist ein TD-Vefahren um ohne Modell ein
+        Reinforcement-Learning Problem zu lösen.
 
         $$Q(x_k, a_k) \gets Q(x_k, a_k) + \alpha \cdot [r_k + \gamma \cdot \underbrace{\max_a Q(x_{k+1}, a)}_{J(x_{k+1})} - Q(x_k, a_k)]$$
+
+        <br/>
+        <img src="../images/2016/07/q-learning.png"
+             alt="Q-Learning"
+             width="512px" /><br/>
 
         $\Rightarrow$ Aktualisierung von $Q$ erfolgt unabhängig von $\pi$
         $\rightarrow$  Off-policy
 
-        (Q-Learning hat sich im Gegensatz zu SARSA durchgesetzt)
-
+        (Q-Learning hat sich im Gegensatz zu SARSA durchgesetzt)<br/>
+        <br/>
         Wenn die Strategie eine GLIE-Strategie ist, kann man mit Q-Learning die
-        Konvergenz beweisen
+        Konvergenz beweisen.
+
+        Siehe auch:
+        <ul>
+            <li><a href="https://www.youtube.com/watch?v=yS5F_vm9Ahk">YouTube: Lecture 18: RL Part 1: Q-Learning</a>: 1:16:11. BrownCS141 Spring 2014.</li>
+            <li><a href="https://www.youtube.com/watch?v=3sLV0OJLdns">YouTube: PacMan</a></li>
+            <li><a href="https://www.youtube.com/watch?v=ntZ0Hc1_LsY">Mario Q-learning</a> on YouTube. 2010.</li>
+            <li><a href="http://www.cse.unsw.edu.au/~cs9417ml/RL1/algorithms.html">Q-Learning</a> by Tim Eden, Anthony Knittel, Raphael van Uffelen of the University of New South Wales</li>
+        </ul>
+
     </dd>
     <dt><dfn>Fazit TD-Learning</dfn></dt>
     <dd>
@@ -1504,6 +1576,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         <td>
 
             <ul>
+                <li>Linearer Fall: Kalman-filter + LQR</li>
                 <li>Policy Iteration</li>
                 <li>Value Iteration</li>
             </ul>
