@@ -1,5 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Martin Thoma</title><link>https://martin-thoma.com/</link><description>A blog about Code, the Web and Cyberculture</description><lastBuildDate>Thu, 22 Jan 2015 11:07:00 +0100</lastBuildDate><item><title>Distribution of Random Variables when max gets applied</title><link>https://martin-thoma.com/distribution-of-random-variables-when-max-gets-applied/</link><description>&lt;p&gt;I just wanted to solve an exercise where I had random variables &lt;span class="math"&gt;\(X_1, \dots, X_n\)&lt;/span&gt;
+<rss version="2.0"><channel><title>Martin Thoma</title><link>https://martin-thoma.com/</link><description>A blog about Code, the Web and Cyberculture</description><lastBuildDate>Fri, 15 Jul 2016 20:00:00 +0200</lastBuildDate><item><title>Estimating Demand</title><link>https://martin-thoma.com/estimating-demand/</link><description>&lt;p&gt;I've just had the problem that I'm helping to plan a group event, where the
+participants should all have bikes. There are 170 participants and 80 bikes.
+Some of the participants might be able to bring their own bikes. So we asked
+them to tell us who can't bring a bike with them. Only 79 answered. Only 7 of
+them can bring their own bike.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;How many bikes should we try to organize to be 95% sure that everybody will have a bike?&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id="modelling"&gt;Modelling&lt;/h2&gt;
+&lt;p&gt;Let &lt;span class="math"&gt;\(X\)&lt;/span&gt; be the random variable which represents the number of people who will
+not bring their own bikes. I will assume that the participants bring or bring
+not their bikes independent of each other. So have a binomial distribution:&lt;/p&gt;
+&lt;div class="math"&gt;$$X \sim Bin(n=91, p=\frac{79-7}{79})$$&lt;/div&gt;
+&lt;p&gt;The sample of &lt;span class="math"&gt;\(n=79\)&lt;/span&gt; people who answered will be called &lt;span class="math"&gt;\(S\)&lt;/span&gt;. Let &lt;span class="math"&gt;\(b \in \mathbb{N}_0\)&lt;/span&gt; be our guess of the number of people of those &lt;span class="math"&gt;\(91\)&lt;/span&gt; who do not bring their bikes. The higher we estimate &lt;span class="math"&gt;\(b\)&lt;/span&gt;, the more conservative we are. This means a higher certainty (e.g. 99% instead of 95%) should result in a higher &lt;span class="math"&gt;\(b\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;We want to be &lt;span class="math"&gt;\(95\%\)&lt;/span&gt; confident that we have enough bikes.&lt;/p&gt;
+&lt;h2 id="the-task"&gt;The task&lt;/h2&gt;
+&lt;div class="math"&gt;$$
+\begin{align}
+P(X \leq b) &amp;amp;\geq 95\%\\
+\sum_{i=0}^b \binom{n}{k} p^k {(1-p)}^{n-k} &amp;amp;\geq 95\%\\
+b &amp;amp;= \lceil binom.ppf(95\%, n, p) \rceil
+\end{align}
+$$&lt;/div&gt;
+&lt;p&gt;I am lazy with calculating, so lets do it with Python:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;scipy.stats&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;binom&lt;/span&gt;
+&lt;span class="n"&gt;confidence&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;0.95&lt;/span&gt;
+&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;91&lt;/span&gt;
+&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mf"&gt;7.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;79&lt;/span&gt;
+&lt;span class="n"&gt;binom&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ppf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;confidence&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This gives 87. So we assume only 4 more people will bring their own bike.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Martin Thoma</dc:creator><pubDate>Fri, 15 Jul 2016 20:00:00 +0200</pubDate><guid isPermaLink="false">tag:martin-thoma.com,2016-07-15:estimating-demand/</guid><category>statistics</category><category>mathematics</category></item><item><title>Distribution of Random Variables when max gets applied</title><link>https://martin-thoma.com/distribution-of-random-variables-when-max-gets-applied/</link><description>&lt;p&gt;I just wanted to solve an exercise where I had random variables &lt;span class="math"&gt;\(X_1, \dots, X_n\)&lt;/span&gt;
 which were all &lt;span class="math"&gt;\(U([0, 1])\)&lt;/span&gt; distributed and &lt;span class="math"&gt;\(Y_n = \max(X_1, \dots, X_n)\)&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;I wondered what the distribution of &lt;span class="math"&gt;\(Y_n\)&lt;/span&gt; is (for big &lt;span class="math"&gt;\(n\)&lt;/span&gt;), so I wanted to plot
 it. How do I plot it? With Python, of course ☺&lt;/p&gt;
