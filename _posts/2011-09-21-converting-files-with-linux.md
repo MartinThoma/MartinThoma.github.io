@@ -74,6 +74,15 @@ $ cwebp OldPicture.png -o NewPicture.webp
 $ rename -n &rsquo;s/\.jpg$/\.JPG/&rsquo; *.jpg
 ```
 
+<b>Animations to series of images</b>
+
+Note that you might have to adjust the `%02d` if your animation has more than
+100 frames (two digits):
+
+```bash
+$ convert -coalesce animated.gif single-image-%02d.png
+```
+
 
 ## Audio Files
 <b>Give all mp3 songs the same sound level</b> (it's called <a href="http://en.wikipedia.org/wiki/Audio_normalization" rel="nofollow">Audio normalization</a>):
