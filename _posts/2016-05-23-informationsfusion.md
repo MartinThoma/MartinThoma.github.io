@@ -56,7 +56,59 @@ Slides: `IF-Kap2_151215.pdf`
 
 Slides: `IF-Kap3_160125.pdf`
 
+For this chapter, I highly recommend reading [Anwendung der Dempster-Shafer Evidenztheorie auf die Bonitätsprüfung](https://statistik.econ.kit.edu/download/Artikel%20-%20Anwendung%20der%20Dempster-Shafer%20Evidenztheorie%20auf%20die%20Bonit%C3%A4tspr%C3%BCfung.pdf).
+
 <dl>
+    <dt><dfn id="frame-of-discernment">Frame of discernment</dfn> (<dfn>Wahrnehmungsrahmen</dfn>)</dt>
+    <dd>
+
+        Der Wahrnehmungsrahmen ist eine Menge $\Omega$. Die Elemente dieser
+        Mengen heißen Alternativen oder Aussagen. Eine Hypothese ist eine
+        Teilmenge $H \subseteq \Omega$ des Wahrnehmungsrahmens.
+
+    </dd>
+    <dt><dfn>Basismaß</dfn> (<dfn id="basic-probability-mass">basic probability mass</dfn>)</dt>
+    <dd>
+
+        Sei $\Omega$ ein Wahrnehmungsrahmen und
+
+        $$m: \mathcal{P}(\Omega) \rightarrow [0, 1]$$
+
+        eine Abbildung von der Potenzmenge von $\Omega$ in das
+        Einheitsintervall. $m$ heißt <i>Basismaß</i>, wenn gilt:
+
+        <ul>
+            <li>$m(\emptyset) = 0$</li>
+            <li>$\sum_{X \subseteq \Omega} m(X) = 1$</li>
+        </ul>
+
+    </dd>
+    <dt><dfn id="belief-function">Belief function</dfn> (<dfn>Glaubensfunktion</dfn>)</dt>
+    <dd>
+
+        Sei $\Omega$ ein Wahrnehmungsrahmen und
+        $$Bel: \mathcal{P}(\Omega) \rightarrow [0, 1]$$
+        eine Funktion. $Bel$ heißt Glaubensfunktion, wenn gilt:
+
+        $$Bel(X) := \sum_{Y \subseteq X} m(Y)$$
+
+        Die Glaubensfunktion stellt also eine untere Grenze für eine unbekannte
+        Wahrscheinlichkeitsfunktion dar.
+
+    </dd>
+    <dt><dfn id="plausibility-function">Plausibility function</dfn> (<dfn>Plausibilitätsfunktion</dfn>)</dt>
+    <dd>
+
+        Sei $\Omega$ ein Wahrnehmungsrahmen und
+        $$Pl: \mathcal{P}(\Omega) \rightarrow [0, 1]$$
+        eine Funktion. $Pl$ heißt Plausibilitätsfunktion, wenn gilt:
+
+        $$Bel(X) := \sum_{Y \cap X \neq \emptyset} m(Y)$$
+
+        Die Glaubensfunktion stellt also eine obere Grenze für eine unbekannte
+        Wahrscheinlichkeitsfunktion dar.
+
+    </dd>
     <dt><dfn>Dempsters Kombinationsregel</dfn> (<dfn>Dempsters rule of combination</dfn>, <dfn>DRC</dfn>)</dt>
     <dd>$$m_1 \oplus m_2 (A) := \begin{cases}0&\text{for } A = \emptyset\\
                                              \frawc{\sum{X, Y: X \cap Y = A} m_1(X) m_2(Y)}{|1-K|}\end{cases}$$
@@ -220,6 +272,7 @@ Slides: `IF-Kap7_160125.pdf`
 
 * [Vorlesungswebsite](http://ies.anthropomatik.kit.edu/lehre_informationsfusion.php)
 * [Anki-Deck](https://ankiweb.net/shared/info/1070725022)
+* [Anwendung der Dempster-Shafer Evidenztheorie auf die Bonitätsprüfung](https://statistik.econ.kit.edu/download/Artikel%20-%20Anwendung%20der%20Dempster-Shafer%20Evidenztheorie%20auf%20die%20Bonit%C3%A4tspr%C3%BCfung.pdf)
 
 
 ## Vorlesungs&shy;empfehlungen
