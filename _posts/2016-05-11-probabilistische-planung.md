@@ -225,6 +225,10 @@ Slides: `11.05.2016`
       eine Funktion. Sei außerdem $\geq$ eine Präferenzrelation. $u$ heißt
       eine Nutzenfunktion welche $\geq$ abbildet, wenn gilt:
       $$\forall x, y \in \mathcal{X}: x \geq y \Leftrightarrow u(x) \geq u(y)$$</dd>
+  <dt><dfn>Indifferenz</dfn></dt>
+  <dd>Zwei Elemente $x, y \mathcal{X}$ heißen bzgl. einer Präferenzrelation
+      $\geq \subseteq \mathcal{X} \times \mathcal{X}$ indifferent, wenn gilt:
+      $$x \leq y \land y \leq x$$</dd>
   <dt><a href="https://en.wikipedia.org/wiki/Von_Neumann%E2%80%93Morgenstern_utility_theorem#The_axioms"><dfn>Von-Neumann-Morgenstern Axiome</dfn></a></dt>
   <dd>Sei $\mathcal{X}$ eine Zustandsmenge und $\mathcal{P}$ die Menge aller
       Verteilungen $P: \mathcal{X} \rightarrow [0, 1]$.
@@ -1577,8 +1581,8 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
 
             <ul>
                 <li>Linearer Fall: Kalman-filter + LQR</li>
-                <li>Policy Iteration</li>
-                <li>Value Iteration</li>
+                <li>Policy Iteration (Endliches Planungsproblem, unendlicher Horizont)</li>
+                <li>Value Iteration (Endliches Planungsproblem, unendlicher Horizont)</li>
             </ul>
 
         </td>
@@ -1616,6 +1620,15 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
 * Welche Möglichkeiten der approximativen Lösung existieren bzw. sind
   anwendbar?<br/>
   → TODO
+* Welche Paradoxa haben wir in den Vorlesungen kennen gelernt?<br/>
+  → Allais-Paradoxon (TODO: Weitere?)
+* Warum gibt es die Nutzenfunktion? Warum reicht die Präferenzrelation nicht aus?<br/>
+  → Die Nutzenfunktion ist einfacher zu erstellen.
+* Wie lautet der Satz vom Allais-Paradoxon?<br/>
+  → TODO
+* Wie kann man die Nutzentheorie kritisieren?<br/>
+  → TODO
+
 
 
 ### MDP
@@ -1639,6 +1652,13 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
   → Die optimale Lösung eines deterministisches MDPs ist der kürzeste Weg in
      dem Graphen, der durch die Zustände des MDPs sowie den Kosten zwischen
      den Zuständen als Gewicht dargestellt werden.
+* Was macht der LQR?<br/>
+  → TODO
+* Wieso sind MDPs schwer zu lösen?<br/>
+  → TODO
+* Wo ist der Fixpunktsatz von Bedeutung?<br/>
+  → TODO
+
 
 ### POMDP
 
@@ -1650,6 +1670,16 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
   → TODO (POMDP hat Erwartungswert)
 * Was ist PWLC?<br/>
   → Piece-wise linear and Concave / Convex
+* Was versteht man unter Modellprädiktiver Planung (MP)?<br/>
+  → TODO
+* Was versteht man unter der Sicherheitsäquivalenz?<br/>
+  → TODO
+* Was können Sie zur Sensoreinsatzplanung sagen?<br/>
+  → TODO
+* Wie kann man die Kosten bei der Sensoreinsatzplanung modellieren?<br/>
+  → TODO (Kovarianzbasiert, Informationstheoretisch)
+* Warum recht Kovarainzbasiert bei linearen Sensoreinsatzproblem?<br/>
+  → TODO
 
 
 ### RL
