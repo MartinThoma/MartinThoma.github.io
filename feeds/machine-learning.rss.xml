@@ -24,6 +24,22 @@ classes. Then the softmax function is applied.&lt;sup id="fnref:1"&gt;&lt;a clas
 &lt;p&gt;Now you have to adjust your targets. It is likely that you only have a list of labels, where the &lt;span class="math"&gt;\(i\)&lt;/span&gt;-th element in the list is the label for the &lt;span class="math"&gt;\(i\)&lt;/span&gt;-th element in your feature list &lt;span class="math"&gt;\(X\)&lt;/span&gt; (or the &lt;span class="math"&gt;\(i\)&lt;/span&gt;-th row in your feature matrix &lt;span class="math"&gt;\(X\)&lt;/span&gt;). But the tools need a target value which fits to the error function. The usual error function for classification problems is cross entropy (CE). When you have a list of &lt;span class="math"&gt;\(n\)&lt;/span&gt; features &lt;span class="math"&gt;\(x\)&lt;/span&gt;, the target &lt;span class="math"&gt;\(t\)&lt;/span&gt; and a classifier &lt;span class="math"&gt;\(clf\)&lt;/span&gt;, then you calculate the cross entropy loss for this single sample by:&lt;/p&gt;
 &lt;div class="math"&gt;$$CE(x, t) = - \sum_{i=1}^n \left (t^{(i)} \log \left ({clf(x)}^{(i)} \right ) \right)$$&lt;/div&gt;
 &lt;p&gt;Now we need a target value for each single neuron for every sample &lt;span class="math"&gt;\(x\)&lt;/span&gt;. We get those by so called &lt;em&gt;one hot encoding&lt;/em&gt;: The &lt;span class="math"&gt;\(k\)&lt;/span&gt; classes all have their own neuron. If a sample &lt;span class="math"&gt;\(x\)&lt;/span&gt; is of class &lt;span class="math"&gt;\(i\)&lt;/span&gt;, then the &lt;span class="math"&gt;\(i\)&lt;/span&gt;-th neuron should give &lt;span class="math"&gt;\(1\)&lt;/span&gt; and all others should give &lt;span class="math"&gt;\(0\)&lt;/span&gt;.&lt;sup id="fnref:2"&gt;&lt;a class="footnote-ref" href="#fn:2" rel="footnote"&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h2 id="install-tensorflow"&gt;Install Tensorflow&lt;/h2&gt;
+&lt;p&gt;The documentation about the installation makes a VERY good impression. Better
+than anything I can write in a few minutes, so ... &lt;a href="http://tensorflow.org/get_started/os_setup.md"&gt;RTFM&lt;/a&gt;
+ 😜&lt;/p&gt;
+&lt;p&gt;For Linux systems with CUDA and without root privileges, you can install it
+with:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pip install https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.5.0-cp27-none-linux_x86_64.whl --user
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;But remember you have to set the environment variable &lt;code&gt;LD_LIBRARY_PATH&lt;/code&gt; and
+&lt;code&gt;CUDA_HOME&lt;/code&gt;. For many configurations, adding the following lines to your
+&lt;code&gt;.bashrc&lt;/code&gt; will work:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;LD_LIBRARY_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$LD_LIBRARY_PATH&lt;/span&gt;&lt;span class="s2"&gt;:/usr/local/cuda/lib64"&lt;/span&gt;
+&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;CUDA_HOME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/usr/local/cuda
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I currently (19.07.2016) to use Tensorflow rc0.7 with CUDA 7.5. I had a couple
+of problems with other versions (e.g. &lt;a href="https://github.com/tensorflow/tensorflow/issues/3342"&gt;#3342&lt;/a&gt;, &lt;a href="https://github.com/tensorflow/tensorflow/issues/2810"&gt;#2810&lt;/a&gt;, &lt;a href="https://github.com/tensorflow/tensorflow/issues/2034"&gt;#2034&lt;/a&gt;, but that might only have been bad luck. Who knows.).&lt;/p&gt;
 &lt;h2 id="tensorflow-basics"&gt;Tensorflow basics&lt;/h2&gt;
 &lt;p&gt;Tensorflow helps you to define the neural network in a symbolic way. This means you do not explicitly tell the computer what to compute to inference with the neural network, but you tell it how the data flow works. This symbolic representation of the computation can then be used to automatically caluclate the derivates. This is awesome! So you don't have to make this your own. But keep it in mind that it is only symbolic as this makes a few things more complicated and different from what you might be used to.&lt;/p&gt;
 &lt;p&gt;Tensorflow has &lt;em&gt;placeholders&lt;/em&gt; and &lt;em&gt;variables&lt;/em&gt;. Placeholders are the things in which
@@ -1996,7 +2012,7 @@ alternatives. But I have some educated guesses:&lt;/p&gt;
 &lt;li&gt;&lt;a href="http://download.tensorflow.org/paper/whitepaper2015.pdf"&gt;TensorFlow: Large-Scale Machine Learning on Heterogeneous Distributed Systems&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://news.ycombinator.com/item?id=10532957"&gt;news.ycombinator.com&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://www.reddit.com/r/programming/comments/3s4vkn/google_brains_deep_learning_library_tensorflow_is/"&gt;reddit.com/r/programming&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Martin Thoma</dc:creator><pubDate>Wed, 11 Nov 2015 22:33:00 +0100</pubDate><guid isPermaLink="false">tag:martin-thoma.com,2015-11-11:tensor-flow-quick/</guid><category>Machine Learning</category><category>Python</category></item><item><title>Lasagne for Python Newbies</title><link>https://martin-thoma.com/lasagne-for-python-newbies/</link><description>&lt;p&gt;Lasagne is a Python package for training neural networks. The nice thing about
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Martin Thoma</dc:creator><pubDate>Wed, 11 Nov 2015 22:33:00 +0100</pubDate><guid isPermaLink="false">tag:martin-thoma.com,2015-11-11:tensor-flow-quick/</guid><category>Machine Learning</category><category>Python</category><category>Tensorflow</category></item><item><title>Lasagne for Python Newbies</title><link>https://martin-thoma.com/lasagne-for-python-newbies/</link><description>&lt;p&gt;Lasagne is a Python package for training neural networks. The nice thing about
 Lasagne is that it is possible to write Python code and execute the training
 on nVidea GPUs with automatically generated CUDA code.&lt;/p&gt;
 &lt;p&gt;However, installing Lasagne is not that easy. Especially if you are not
