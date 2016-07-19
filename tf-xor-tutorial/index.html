@@ -129,10 +129,41 @@ able to find a decision boundary which classifies all four points correctly.</p>
 <h2 id="targets-and-error-function">Targets and Error function</h2>
 <p>First of all, you should think about how your targets look like. For
 classification problems, one usually takes as many output neurons as one has
-classes. Then the softmax function is applied.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> The softmax function makes sure that the output of every single neuron is in <span class="math">\([0, 1]\)</span> and the sum of all outputs is exactly <span class="math">\(1\)</span>. This means the output can be interpreted as a probability distribution over all classes. </p>
+classes. Then the softmax function is applied.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> The softmax function makes sure that the output of every single neuron is in <span class="math">\([0, 1]\)</span> and the sum of all outputs is exactly <span class="math">\(1\)</span>. This means the output can be interpreted as a probability distribution over all classes.</p>
 <p>Now you have to adjust your targets. It is likely that you only have a list of labels, where the <span class="math">\(i\)</span>-th element in the list is the label for the <span class="math">\(i\)</span>-th element in your feature list <span class="math">\(X\)</span> (or the <span class="math">\(i\)</span>-th row in your feature matrix <span class="math">\(X\)</span>). But the tools need a target value which fits to the error function. The usual error function for classification problems is cross entropy (CE). When you have a list of <span class="math">\(n\)</span> features <span class="math">\(x\)</span>, the target <span class="math">\(t\)</span> and a classifier <span class="math">\(clf\)</span>, then you calculate the cross entropy loss for this single sample by:</p>
 <div class="math">$$CE(x, t) = - \sum_{i=1}^n \left (t^{(i)} \log \left ({clf(x)}^{(i)} \right ) \right)$$</div>
 <p>Now we need a target value for each single neuron for every sample <span class="math">\(x\)</span>. We get those by so called <em>one hot encoding</em>: The <span class="math">\(k\)</span> classes all have their own neuron. If a sample <span class="math">\(x\)</span> is of class <span class="math">\(i\)</span>, then the <span class="math">\(i\)</span>-th neuron should give <span class="math">\(1\)</span> and all others should give <span class="math">\(0\)</span>.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup></p>
+<p><code>sklearn</code> provides a very useful <code>OneHotEncoder</code> class. You first have to fit
+it on your labels (e.g. just give it all of them). In the next step you can
+transform a list of labels to an array of one-hot encoded targets:</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+
+<span class="sd">"""Mini-demo how the one hot encoder works."""</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OneHotEncoder</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="c1"># The most intuitive way to label a dataset "X"</span>
+<span class="c1"># (list of features, where X[i] are the features for a datapoint i)</span>
+<span class="c1"># is to have a flat list "labels" where labels[i] is the label for datapoint i.</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># The OneHotEncoder transforms those labels to something our models can</span>
+<span class="c1"># work with</span>
+<span class="n">enc</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">trans_for_ohe</span><span class="p">(</span><span class="n">labels</span><span class="p">):</span>
+    <span class="sd">"""Transform a flat list of labels to what one hot encoder needs."""</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">labels_r</span> <span class="o">=</span> <span class="n">trans_for_ohe</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+<span class="c1"># The encoder has to know how many classes there are and what their names are.</span>
+<span class="n">enc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">labels_r</span><span class="p">)</span>
+
+<span class="c1"># Now you can transform</span>
+<span class="k">print</span><span class="p">(</span><span class="n">enc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">trans_for_ohe</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+</pre></div>
 <h2 id="install-tensorflow">Install Tensorflow</h2>
 <p>The documentation about the installation makes a VERY good impression. Better
 than anything I can write in a few minutes, so ... <a href="http://tensorflow.org/get_started/os_setup.md">RTFM</a>
@@ -157,7 +188,9 @@ also include more. Variables are for intermediate results.</p>
 <p>Now you should be able to understand the following code which solves the XOR
 problem. It defines a neural network with two input neurons, 2&nbsp;neurons in
 a first hidden layer and 2&nbsp;output neurons. All neurons have biases.</p>
-<div class="highlight"><pre><span></span><span class="sd">"""</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+
+<span class="sd">"""</span>
 <span class="sd">Solve the XOR problem with Tensorflow.</span>
 
 <span class="sd">The XOR problem is a two-class classification problem. You only have four</span>
