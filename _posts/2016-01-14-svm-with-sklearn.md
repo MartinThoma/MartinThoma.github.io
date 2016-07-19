@@ -5,7 +5,7 @@ slug: svm-with-sklearn
 author: Martin Thoma
 date: 2016-01-14 12:25
 category: Machine Learning
-tags: Python, Machine Learning, SVM, Classification
+tags: Python, Machine Learning, SVM, Classification, sklearn
 featured_image: logos/ai.png
 ---
 

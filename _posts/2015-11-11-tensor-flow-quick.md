@@ -5,7 +5,7 @@ slug: tensor-flow-quick
 author: Martin Thoma
 date: 2015-11-11 22:33
 category: Machine Learning
-tags: Machine Learning, Python
+tags: Machine Learning, Python, Tensorflow
 featured_image: logos/tensor-flow.png
 ---
 Tensor Flow is a machine learning toolkit which recently got published by
