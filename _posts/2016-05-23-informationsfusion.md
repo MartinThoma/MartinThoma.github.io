@@ -111,7 +111,7 @@ For this chapter, I highly recommend reading [Anwendung der Dempster-Shafer Evid
     </dd>
     <dt><dfn>Dempsters Kombinationsregel</dfn> (<dfn>Dempsters rule of combination</dfn>, <dfn>DRC</dfn>)</dt>
     <dd>$$m_1 \oplus m_2 (A) := \begin{cases}0&\text{for } A = \emptyset\\
-                                             \frawc{\sum{X, Y: X \cap Y = A} m_1(X) m_2(Y)}{|1-K|}\end{cases}$$
+                                             \frac{\sum{X, Y: X \cap Y = A} m_1(X) m_2(Y)}{|1-K|}\end{cases}$$
         für Konfliktgrad $$K := \sum_{X, Y: X \cap Y = \emptyset} m_1(X) m_2(Y)$$
         Bei einem Konfliktgrad von $0 < K < 1$ spricht man von einem
         partiellen Konflikt. Ist der Konfliktgrad gleich $K=1$, so ist DRC
