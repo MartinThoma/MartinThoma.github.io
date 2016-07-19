@@ -5,7 +5,7 @@ slug: tf-xor-tutorial
 author: Martin Thoma
 date: 2016-07-19 14:00
 category: Machine Learning
-tags: Machine Learning, Python
+tags: Machine Learning, Python, Tensorflow, sklearn
 featured_image: logos/tensor-flow.png
 ---
 The XOR-Problem is a classification problem, where you only have four data
@@ -25,13 +25,13 @@ I think of neural networks as a construction kit for functions. The basic buildi
 
 [![enter image description here][1]][1]
 
-It gets a variable number of inputx $x_0, x_1, \dots, x_n$, they get multiplied with weights $w_0, w_1, \dots, w_n$, summed and a function $\phi$ is applied to it. The weights is what you want to "fine tune" to make it actually work. When you have more of those neurons, you visualize it like this:
+It gets a variable number of inputx $x_0, x_1, \dots, x_n$, they get multiplied with weights $w_0, w_1, \dots, w_n$, summed and a function $\varphi$ is applied to it. The weights is what you want to "fine tune" to make it actually work. When you have more of those neurons, you visualize it like this:
 
 [![enter image description here][2]][2]
 
 In this example, it is only one output and 5 inputs, but it could be any number. The number of inputs and outputs is usually defined by your problem, the intermediate is to allow it to fit more exact to what you need (which comes with some other implications).
 
-Now you have some structure of the function set, you need to find weights which work. This is where backpropagation (which is only a clever implementation of gradient descent) comes into play. The idea is the following: You took functions ($\varphi$) which were differentiable and combined them in a way which makes sure the complete function is differentiable. Then you apply an error function (e.g. the euclidean distance of the output to the desired output, Cross-Entropy) which is also differentiable. Meaning you have a completely differentiable function. Now you see the weights as variables and the data as given parameters of a HUGE function. You can differentiate (calculate the gradient) and go from your random weights "a step" in the direction where the error gets lower. This adjusts your weights. Then you repeat this steepest descent step and hopefully end up some time with a good function.
+Now you have some structure of the function set, you need to find weights which work. This is where backpropagation[^3] comes into play. The idea is the following: You took functions ($\varphi$) which were differentiable and combined them in a way which makes sure the complete function is differentiable. Then you apply an error function (e.g. the euclidean distance of the output to the desired output, Cross-Entropy) which is also differentiable. Meaning you have a completely differentiable function. Now you see the weights as variables and the data as given parameters of a HUGE function. You can differentiate (calculate the gradient) and go from your random weights "a step" in the direction where the error gets lower. This adjusts your weights. Then you repeat this steepest descent step and hopefully end up some time with a good function.
 
 For two weights, this awesome image by Alec Radford visualizes how different algorithms based on gradient descent find a minimum ([Source](http://imgur.com/a/Hqolp) with even more of those):
 
@@ -44,7 +44,7 @@ So think of back propagation as a shortsighted hiker trying to find the lowest p
 
 First of all, you should think about how your targets look like. For
 classification problems, one usually takes as many output neurons as one has
-classes. Then the softmax function is applied.[^1] The softmax function makes sure that the output of every single neuron is in $[0, 1]$ and the sum of all outputs is exactly $1$. This means the output can be interpreted as a probability distribution over all classes. 
+classes. Then the softmax function is applied.[^1] The softmax function makes sure that the output of every single neuron is in $[0, 1]$ and the sum of all outputs is exactly $1$. This means the output can be interpreted as a probability distribution over all classes.
 
 Now you have to adjust your targets. It is likely that you only have a list of labels, where the $i$-th element in the list is the label for the $i$-th element in your feature list $X$ (or the $i$-th row in your feature matrix $X$). But the tools need a target value which fits to the error function. The usual error function for classification problems is cross entropy (CE). When you have a list of $n$ features $x$, the target $t$ and a classifier $clf$, then you calculate the cross entropy loss for this single sample by:
 
@@ -52,19 +52,80 @@ $$CE(x, t) = - \sum_{i=1}^n \left (t^{(i)} \log \left ({clf(x)}^{(i)} \right ) \
 
 Now we need a target value for each single neuron for every sample $x$. We get those by so called *one hot encoding*: The $k$ classes all have their own neuron. If a sample $x$ is of class $i$, then the $i$-th neuron should give $1$ and all others should give $0$.[^2]
 
+`sklearn` provides a very useful `OneHotEncoder` class. You first have to fit
+it on your labels (e.g. just give it all of them). In the next step you can
+transform a list of labels to an array of one-hot encoded targets:
+
+```python
+#!/usr/bin/env python
+
+"""Mini-demo how the one hot encoder works."""
+
+from sklearn.preprocessing import OneHotEncoder
+import numpy as np
+
+# The most intuitive way to label a dataset "X"
+# (list of features, where X[i] are the features for a datapoint i)
+# is to have a flat list "labels" where labels[i] is the label for datapoint i.
+labels = [0, 1, 1, 1, 0, 0, 1]
+
+# The OneHotEncoder transforms those labels to something our models can
+# work with
+enc = OneHotEncoder()
+
+
+def trans_for_ohe(labels):
+    """Transform a flat list of labels to what one hot encoder needs."""
+    return np.array(labels).reshape(len(labels), -1)
+
+labels_r = trans_for_ohe(labels)
+# The encoder has to know how many classes there are and what their names are.
+enc.fit(labels_r)
+
+# Now you can transform
+print(enc.transform(trans_for_ohe([0, 1])).toarray().tolist())
+```
+
+
+## Install Tensorflow
+
+The documentation about the installation makes a VERY good impression. Better
+than anything I can write in a few minutes, so ... [RTFM](http://tensorflow.org/get_started/os_setup.md)
+ 😜
+
+For Linux systems with CUDA and without root privileges, you can install it
+with:
+
+```bash
+$ pip install https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.5.0-cp27-none-linux_x86_64.whl --user
+```
+
+But remember you have to set the environment variable `LD_LIBRARY_PATH` and
+`CUDA_HOME`. For many configurations, adding the following lines to your
+`.bashrc` will work:
+
+```bash
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64"
+export CUDA_HOME=/usr/local/cuda
+```
+
+I currently (19.07.2016) to use Tensorflow rc0.7 ([installation instructions](https://www.tensorflow.org/versions/r0.7/get_started/os_setup.html)) with CUDA 7.5 ([installation instructions](http://askubuntu.com/a/799185/10425)). I had a couple
+of problems with other versions (e.g. [#3342](https://github.com/tensorflow/tensorflow/issues/3342), [#2810](https://github.com/tensorflow/tensorflow/issues/2810), [#2034](https://github.com/tensorflow/tensorflow/issues/2034), but that might only have been bad luck. Who knows.).
+
+
 ## Tensorflow basics
 
 Tensorflow helps you to define the neural network in a symbolic way. This means you do not explicitly tell the computer what to compute to inference with the neural network, but you tell it how the data flow works. This symbolic representation of the computation can then be used to automatically caluclate the derivates. This is awesome! So you don't have to make this your own. But keep it in mind that it is only symbolic as this makes a few things more complicated and different from what you might be used to.
 
 Tensorflow has *placeholders* and *variables*. Placeholders are the things in which
 you later put your input. This is your features and your targets, but might be
-also include more. Variables are for intermediate results.
+also include more. Variables are the things the optimizer calculates.
 
 Now you should be able to understand the following code which solves the XOR
 problem. It defines a neural network with two input neurons, 2&nbsp;neurons in
 a first hidden layer and 2&nbsp;output neurons. All neurons have biases.
 
-```
+```python
 #!/usr/bin/env python
 
 """
@@ -173,7 +234,6 @@ with tf.Session() as sess:
 
         if i % 10000 == 0:
             analyze_classifier(sess, i, w1, b1, w2, b2, XOR_X, XOR_T)
-
 ```
 
 The output is:
@@ -227,12 +287,16 @@ The resulting decision boundary looks like this:
     <figcaption class="text-center">Decision boundary of the trained network.</figcaption>
 </figure>
 
+I recommend reading the [Tensorflow Whitepaper](http://download.tensorflow.org/paper/whitepaper2015.pdf) if you want to understand Tensorflow better.
+
+
 ## Footnotes
 
  [^1]: Softmax is similar to the sigmoid function, but with normalization.
 
  [^2]: Actually, we don't want this. The probability of any class should never be exactly zero as this might cause problems later. It might get very very small, but should never be 0.
 
+ [^3]: Backpropagation is only a clever implementation of gradient descent. It belongs to the bigger class of iterative descent algorithms.
 
   [1]: http://i.stack.imgur.com/YD9IS.png
   [2]: http://i.stack.imgur.com/awAz8.png
