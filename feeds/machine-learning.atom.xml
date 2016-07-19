@@ -10,10 +10,10 @@ able to find a decision boundary which classifies all four points correctly.&lt;
 &lt;h2 id="neural-network-basics"&gt;Neural Network basics&lt;/h2&gt;
 &lt;p&gt;I think of neural networks as a construction kit for functions. The basic building block - called a "neuron" - is usually visualized like this:&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://i.stack.imgur.com/YD9IS.png"&gt;&lt;img alt="enter image description here" src="http://i.stack.imgur.com/YD9IS.png"/&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;It gets a variable number of inputx &lt;span class="math"&gt;\(x_0, x_1, \dots, x_n\)&lt;/span&gt;, they get multiplied with weights &lt;span class="math"&gt;\(w_0, w_1, \dots, w_n\)&lt;/span&gt;, summed and a function &lt;span class="math"&gt;\(\phi\)&lt;/span&gt; is applied to it. The weights is what you want to "fine tune" to make it actually work. When you have more of those neurons, you visualize it like this:&lt;/p&gt;
+&lt;p&gt;It gets a variable number of inputx &lt;span class="math"&gt;\(x_0, x_1, \dots, x_n\)&lt;/span&gt;, they get multiplied with weights &lt;span class="math"&gt;\(w_0, w_1, \dots, w_n\)&lt;/span&gt;, summed and a function &lt;span class="math"&gt;\(\varphi\)&lt;/span&gt; is applied to it. The weights is what you want to "fine tune" to make it actually work. When you have more of those neurons, you visualize it like this:&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://i.stack.imgur.com/awAz8.png"&gt;&lt;img alt="enter image description here" src="http://i.stack.imgur.com/awAz8.png"/&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;In this example, it is only one output and 5 inputs, but it could be any number. The number of inputs and outputs is usually defined by your problem, the intermediate is to allow it to fit more exact to what you need (which comes with some other implications).&lt;/p&gt;
-&lt;p&gt;Now you have some structure of the function set, you need to find weights which work. This is where backpropagation (which is only a clever implementation of gradient descent) comes into play. The idea is the following: You took functions (&lt;span class="math"&gt;\(\varphi\)&lt;/span&gt;) which were differentiable and combined them in a way which makes sure the complete function is differentiable. Then you apply an error function (e.g. the euclidean distance of the output to the desired output, Cross-Entropy) which is also differentiable. Meaning you have a completely differentiable function. Now you see the weights as variables and the data as given parameters of a HUGE function. You can differentiate (calculate the gradient) and go from your random weights "a step" in the direction where the error gets lower. This adjusts your weights. Then you repeat this steepest descent step and hopefully end up some time with a good function.&lt;/p&gt;
+&lt;p&gt;Now you have some structure of the function set, you need to find weights which work. This is where backpropagation&lt;sup id="fnref:3"&gt;&lt;a class="footnote-ref" href="#fn:3" rel="footnote"&gt;3&lt;/a&gt;&lt;/sup&gt; comes into play. The idea is the following: You took functions (&lt;span class="math"&gt;\(\varphi\)&lt;/span&gt;) which were differentiable and combined them in a way which makes sure the complete function is differentiable. Then you apply an error function (e.g. the euclidean distance of the output to the desired output, Cross-Entropy) which is also differentiable. Meaning you have a completely differentiable function. Now you see the weights as variables and the data as given parameters of a HUGE function. You can differentiate (calculate the gradient) and go from your random weights "a step" in the direction where the error gets lower. This adjusts your weights. Then you repeat this steepest descent step and hopefully end up some time with a good function.&lt;/p&gt;
 &lt;p&gt;For two weights, this awesome image by Alec Radford visualizes how different algorithms based on gradient descent find a minimum (&lt;a href="http://imgur.com/a/Hqolp"&gt;Source&lt;/a&gt; with even more of those):&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://i.stack.imgur.com/ocZHU.gif"&gt;&lt;img alt="enter image description here" src="http://i.stack.imgur.com/ocZHU.gif"/&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;So think of back propagation as a shortsighted hiker trying to find the lowest point on the error surface: He only sees what is directly in front of him. As he makes progress, he adjusts the direction in which he goes.&lt;/p&gt;
@@ -32,114 +32,7 @@ also include more. Variables are for intermediate results.&lt;/p&gt;
 &lt;p&gt;Now you should be able to understand the following code which solves the XOR
 problem. It defines a neural network with two input neurons, 2&amp;nbsp;neurons in
 a first hidden layer and 2&amp;nbsp;output neurons. All neurons have biases.&lt;/p&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;  1
-  2
-  3
-  4
-  5
-  6
-  7
-  8
-  9
- 10
- 11
- 12
- 13
- 14
- 15
- 16
- 17
- 18
- 19
- 20
- 21
- 22
- 23
- 24
- 25
- 26
- 27
- 28
- 29
- 30
- 31
- 32
- 33
- 34
- 35
- 36
- 37
- 38
- 39
- 40
- 41
- 42
- 43
- 44
- 45
- 46
- 47
- 48
- 49
- 50
- 51
- 52
- 53
- 54
- 55
- 56
- 57
- 58
- 59
- 60
- 61
- 62
- 63
- 64
- 65
- 66
- 67
- 68
- 69
- 70
- 71
- 72
- 73
- 74
- 75
- 76
- 77
- 78
- 79
- 80
- 81
- 82
- 83
- 84
- 85
- 86
- 87
- 88
- 89
- 90
- 91
- 92
- 93
- 94
- 95
- 96
- 97
- 98
- 99
-100
-101
-102
-103
-104
-105
-106
-107
-108&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/env python&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/env python&lt;/span&gt;
 
 &lt;span class="sd"&gt;"""&lt;/span&gt;
 &lt;span class="sd"&gt;Solve the XOR problem with Tensorflow.&lt;/span&gt;
@@ -248,7 +141,6 @@ a first hidden layer and 2&amp;nbsp;output neurons. All neurons have biases.&lt;
         &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;10000&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
             &lt;span class="n"&gt;analyze_classifier&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sess&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;w1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;w2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;XOR_X&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;XOR_T&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;p&gt;The output is:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Epoch 0
 Hypothesis [[ 0.48712057  0.51287943]
@@ -304,8 +196,11 @@ cost (ce)=0.00468077
 &lt;li id="fn:2"&gt;
 &lt;p&gt;Actually, we don't want this. The probability of any class should never be exactly zero as this might cause problems later. It might get very very small, but should never be 0.&amp;nbsp;&lt;a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text"&gt;↩&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
+&lt;li id="fn:3"&gt;
+&lt;p&gt;Backpropagation is only a clever implementation of gradient descent. It belongs to the bigger class of iterative descent algorithms.&amp;nbsp;&lt;a class="footnote-backref" href="#fnref:3" rev="footnote" title="Jump back to footnote 3 in the text"&gt;↩&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</summary><category term="Machine Learning"></category><category term="Python"></category></entry><entry><title>Optimization Basics</title><link href="https://martin-thoma.com/optimization-basics/" rel="alternate"></link><published>2016-07-06T20:00:00+02:00</published><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2016-07-06:optimization-basics/</id><summary type="html">&lt;p&gt;Optimization is a subfield of mathematics / computer science which deals with finding the best solution. Typically, problems in optimization are stated like this:&lt;/p&gt;
+&lt;/div&gt;</summary><category term="Machine Learning"></category><category term="Python"></category><category term="Tensorflow"></category></entry><entry><title>Optimization Basics</title><link href="https://martin-thoma.com/optimization-basics/" rel="alternate"></link><published>2016-07-06T20:00:00+02:00</published><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2016-07-06:optimization-basics/</id><summary type="html">&lt;p&gt;Optimization is a subfield of mathematics / computer science which deals with finding the best solution. Typically, problems in optimization are stated like this:&lt;/p&gt;
 &lt;div class="math"&gt;$$
 \begin{align}
 &amp;amp;\underset{x}{\operatorname{minimize}}&amp;amp; &amp;amp; f(x) \\
