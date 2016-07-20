@@ -5,7 +5,7 @@ slug: machine-learning-2-course
 author: Martin Thoma
 date: 2015-05-11 11:00
 category: German posts
-tags: Klausur, Machine Learning, Clustering
+tags: Klausur, Machine Learning, Clustering, Reinforcement Learning
 featured_image: logos/klausur.png
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Machine Learning 2&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://tks.anthropomatik.kit.edu/21_52.php">Herrn Prof. Dr. Marius Zöllner</a> im Sommersemester&nbsp;2015 gehört. <br/>Es gibt auch einen Artikel zu <a href="http://martin-thoma.com/machine-learning-1-course/">Machine Learning 1</a>.</div>
@@ -101,21 +101,32 @@ Slides: `03_Semi-supervised+Active-learning.pdf`
   <dd>Lagrange-Multiplikatoren sind ein Verfahren der Optimierungstheorie.
       Sie werden genutzt, wenn ein Optimierungsproblem mit Nebenbedingungen
       vorliegt. Durch sie kann die Nebenbedingung eliminiert werden.</dd>
-  <dt><dfn>Active Learning</dfn></dt>
-  <dd>Die Lernmaschine wählt die zu lernenden Daten selbst aus.</dd>
-  <dt><dfn>Query Synthesis</dfn> (siehe <a href="http://burrsettles.com/pub/settles.activelearning.pdf">Active Learning Literature Survey</a>)</dt>
+  <dt><dfn id="active-learning">Active Learning</dfn> (<dfn>Aktives Lernen</dfn>)</dt>
+  <dd>Die Lernmaschine wählt die zu lernenden Daten selbst aus.<br/>
+      <br/>
+      Verfahren:
+
+      <ul>
+          <li><a href="#query-synthesis">Query Synthesis</a></li>
+          <li><a href="#selective-sampling">Selective Sampling</a></li>
+          <li><a href="#pool-based-active-learning">Pool-Based Active Learning</a></li>
+          <li><a href="#query-by-committee">Query-by-Committee</a></li>
+      </ul>
+
+      </dd>
+  <dt><dfn id="query-synthesis">Query Synthesis</dfn> (siehe <a href="http://burrsettles.com/pub/settles.activelearning.pdf">Active Learning Literature Survey</a>)</dt>
   <dd>Der Lerner kann Feature-Vektoren (Querys)
       <a href="https://en.wikipedia.org/wiki/De_novo">de novo</a>, also von
       Grund auf neu / selbst erzeugen. Er kann für diesen neuen Query ein
       Orakel befragen, was das Label ist.</dd>
-  <dt><dfn>Selective Sampling</dfn> (Selektive Entnahme, siehe <a href="http://dl.acm.org/citation.cfm?id=2503327">Selective sampling and active learning from single and multiple teachers</a>)</dt>
+  <dt><dfn id="selective-sampling">Selective Sampling</dfn> (Selektive Entnahme, siehe <a href="http://dl.acm.org/citation.cfm?id=2503327">Selective sampling and active learning from single and multiple teachers</a>)</dt>
   <dd>Selective Sampling ist eine Methode des aktiven Lernens. Dabei wird
       jede Runde $t$ dem Lerner ein Feature-Vektor $x_t \in \mathbb{R}^n$
       präsentiert. Der Lerner muss sich jede Runde entscheiden, ob er einen
       Preis bezahlt um das Label zu sehen. Der Lerner hat also zwei Ziele, die
       miteinander in Konflikt stehen: Er will alles richtig klassifizieren,
       aber zugleich die Kosten so niedrig wie möglich halten.</dd>
-  <dt><dfn>Pool-Based Active Learning</dfn></dt>
+  <dt><dfn id="pool-based-active-learning">Pool-Based Active Learning</dfn></dt>
   <dd>Pool-Based Active Learning ist eine Methode des aktiven Lernens. Dabei
       wird von einem Pool an ungelabelten Daten $\mathcal{U}$ ausgegangen
       und einem deutlich kleineren Pool $\mathcal{L}$ an gelabelten Daten.
@@ -124,7 +135,7 @@ Slides: `03_Semi-supervised+Active-learning.pdf`
       $x \in \mathcal{U}$ nach einem Label gefragt.</dd>
   <dt><dfn>Hinge-Funktion</dfn></dt>
   <dd>$$f(x) = \max(x, 0)$$</dd>
-  <dt>Query-by-Committee (<dfn>QBC</dfn>)</dt>
+  <dt><dfn id="query-by-committee">Query-by-Committee</dfn> (<dfn>QBC</dfn>)</dt>
   <dd>Es wird ein Committee $\mathcal{C}$ an Klassifikatoren trainiert,
       welches gemeinsam (z.B. durch majority vote) eine Klassifikation trifft.
 
