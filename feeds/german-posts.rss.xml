@@ -538,7 +538,13 @@ sowie die Werte- und Strategieiteration zu nennen.&lt;/p&gt;
 &lt;td&gt;13&lt;/td&gt;
 &lt;td id="2016-07-13"&gt;13.07.2016&lt;/td&gt;
 &lt;td&gt;&lt;abbr title="Reinforcement Learning"&gt;RL&lt;/abbr&gt;&lt;/td&gt;
-&lt;td&gt;Monte Carlo Verfahren (Strategiebewerbtung); Temporal Difference Learning&lt;/td&gt;
+&lt;td&gt;Monte Carlo Verfahren (Strategiebewertung), Exploration vs Exploitation, Explorations-Strategien; Strategie-Iteration; Temporal Difference Verfahren (Einschritt TD, Mehrschritt TD)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;14&lt;/td&gt;
+&lt;td id="2016-07-20"&gt;20.07.2016&lt;/td&gt;
+&lt;td&gt;&lt;abbr title="Reinforcement Learning"&gt;RL&lt;/abbr&gt;&lt;/td&gt;
+&lt;td&gt;Eligibility Traces (TD-Verfahren); Funktionsapproximatoren; Modellernende Verfahren (Dyna-Q, Adaptive DP, PILCO)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
 &lt;p&gt;Folien:&lt;/p&gt;
@@ -1786,6 +1792,11 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 
     SARSA is a temporal difference algorithm. As it chooses $a_{k+1}$ according
     to the policy $\pi$ it is an on-policy algorithm.
+
+    Unterschied zum Q-Learning: Zustand wird in Abh&amp;auml;ngigkeit von der Strategie
+    verwendet.
+
+    TODO: Pseudocode
     &lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Q-learning"&gt;&lt;dfn id="q-learning"&gt;$Q$-Learning&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
 &lt;dd&gt;$Q$-Learning ist ein TD-Vefahren um ohne Modell ein
@@ -1852,6 +1863,174 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 
         Nachteil: Unpraktisch f&amp;uuml;r gro&amp;szlig;e $n$.
     &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="eligibility-trace"&gt;Eligibility Trace&lt;/dfn&gt; (&lt;dfn&gt;Verantwortlichkeitsspur&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dd&gt;
+
+        Problem: Nur der letzte Zustand wird bei klassischen Verfahren belohnt
+        Der Reward wird propagiert, aber nur langsam (nach mehreren Schritten).
+
+        &lt;u&gt;Idee&lt;/u&gt;: Gewichtete Mittelung verschiedener $n$-Schritt-Belohnungen.
+
+        $$R_k^\lambda = (1-\lambda) \cdot \sum_{n=1}^\infty \lambda^{n-1} R_k^{(n)} \text{ mit } \lambda \in [0,1] \text{ und } (1-\lambda)\sum_{n=1}^\infty \lamda^{n-1} = 1$$
+        beim erreichen eines terminalen Zustands ist $R_k^{(n)} = R_k$ f&amp;uuml;r $n &amp;gt; N-K-1$.
+
+        Abgewichten von $R_k^{(n)}$ bei steigendem $n$.
+
+        &lt;u&gt;Spezialf&amp;auml;lle&lt;/u&gt;:
+        &lt;ul&gt;
+&lt;li&gt;$\lambda = 0$: $R_k^\lambda = R_k^{(1)}$ ist ein Ein-Schritt-TD&lt;/li&gt;
+&lt;li&gt;$\lambda = 1$: $R_k^\lambda = (1-\lambda) \cdot \sum_{n=1}^{N-k-1} \lambda^{n-1} R_k^{(n)} + \lambda^{N-k-1} R_k = R_k$ ist ein Monte Carlo Verfahren&lt;/li&gt;
+&lt;/ul&gt;
+
+        Unpraktisch f&amp;uuml;r gro&amp;szlig;e $n$, weil man lange auf Aktualisierungen warten
+        muss.
+
+        Deshalb wird eine Verantwortlichkeitsvariable eingef&amp;uuml;hrt:
+
+        $$e: \mathcal{X} \rightarrow \mathbb{R}^+$$
+        $$e_k(x) = \begin{cases}\gamma \cdot \lambda e_{k-1}(x) &amp;amp;\text{falls } x \neq x_k\\
+                                \gamma \cdot \lambda e_{k-1}(x) + 1 &amp;amp;\text{sonst}\end{cases}$$
+
+        mit $e_0 = 0$
+
+        Im zweiten Fall merken wir uns, dass wir den Zustand besucht haben,
+        indem die Variable erh&amp;ouml;ht wird. Im ersten Fall ist es immer eine
+        Reduktion.
+
+        Wir speichern welche Zust&amp;auml;nde &lt;u&gt;k&amp;uuml;rzlich&lt;/u&gt; besucht wurden.
+
+        &lt;u&gt;Strategiebewertung $TD(\lambda)$&lt;/u&gt;
+&lt;ul&gt;
+&lt;li&gt;Wird Zustand $x_k$ besucht, dann ist dessen TD-Fehler
+
+                $\delta(x_k) := r_k + \gamma \cdot J_\pi (x_{k+1}) - J_\pi(x_k)$
+            &lt;/li&gt;
+&lt;li&gt;Damit wird &lt;u&gt;jeder&lt;/u&gt; Zustand $x \in \mathcal{X}$ korrigiert
+
+                $$J_\pi(x) \leftarrow J_\pi(x) + \alpha \cdot \delta(x_k) \cdot e_k(x)$$
+                wobei $\alpha$ die Lernrate ist und $e_k$ die Verantwortlichkeit
+                anzeigt.
+            &lt;/li&gt;
+&lt;li&gt;Korrektur erfolgt in Abh&amp;auml;ngigkeit der Verantwortlichkeit
+                jedes Zustands $x$ am TD-Fehler&lt;/li&gt;
+&lt;/ul&gt;
+&lt;u&gt;Beispiel&lt;/u&gt;: $e(x) = 0$ f&amp;uuml;r beliebiges $x$.
+        Wird $x$ nicht besucht, so gibt es keine Korrektur.
+
+        &lt;ul&gt;
+&lt;li&gt;TD(0), dh. $\lambda = 0$ ist eine "normales" Ein-Schritt-TD&lt;/li&gt;
+&lt;li&gt;TD(1), dh. $\lambda = 1$ ist ein Monte Carlo Verfahren mit Abgewichtung durch
+                $\gamma$. ISt $\gamma=1$, dann ist es ein "normales" MC mit dem
+                Unterschied, dass man nicht das Ende einer Episode abwarten muss.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;u&gt;Strategieiteration&lt;/u&gt;
+&lt;ul&gt;
+&lt;li&gt;on-policy: SARSA($\lambda$)&lt;/li&gt;
+&lt;li&gt;off-policy: Q($\lambda$)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;u&gt;Wichtig&lt;/u&gt;: Q-Learning w&amp;auml;hlt gelegentlich nicht-gierige Aktion,
+        korrigiert Q aber mit gieriger Aktion! Um das angemessen zu
+        ber&amp;uuml;cksichtigen wird die Verantwortlichkeitsspur zur&amp;uuml;ckgesetzt. Das
+        passiert insbesondere zu Beginn des Lernens h&amp;auml;ufiger, da dort eine
+        Exploration zugelassen wird.
+
+        &lt;u&gt;Fazit Verantwortlichkeitsspuren&lt;/u&gt;
+&lt;ul&gt;
+&lt;li&gt;+ typischerweise schnellere Konvergenz im Vergleich zu Ein-Schritt-TD&lt;/li&gt;
+&lt;li&gt;+ Einfache Realisierung eines Mehrschritt-TD&lt;/li&gt;
+&lt;li&gt;+ Trade-off zwischen TD und MC durch die Wahl von $\lambda$&lt;/li&gt;
+&lt;li&gt;- Konvergenz kann im Allgemeinen nicht nachgewiesen werden (abh&amp;auml;ngig von $\lambda$ und $N$)&lt;/li&gt;
+&lt;li&gt;- H&amp;ouml;herer Rechenaufwand und h&amp;ouml;herer Speicheraufwand im Vergleich zu Ein-Schritt-TD&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="sarsa-lambda"&gt;SARSA($\lambda$)&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+
+        TODO (Pseudocode)
+
+    &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="q-lambda"&gt;Q($\lambda$)&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+
+        TODO (Pseudocode)
+
+    &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Funktionsapproximatoren im RL&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+
+        Bisher: Diskrete Zust&amp;auml;nde und diskrete Aktionen
+        Nun: Kontinuierliche Zust&amp;auml;nde und Aktionen
+
+        Bei kontinuierlichen Zust&amp;auml;nden/Aktionen ist eine Iteration &amp;uuml;ber alle
+        Zust&amp;auml;nde/Aktionen nicht mehr m&amp;ouml;glich. Dennoch sollen Erfahrungen aus
+        besuchten Zust&amp;auml;nden auf nicht-besuchte generalisiert werden.
+
+        Herausforderungen beim RL:
+
+        &lt;ul&gt;
+&lt;li&gt;Keine statische Trainingsmenge; Daten werden online generiert&lt;/li&gt;
+&lt;li&gt;Nichtstationarit&amp;auml;t: Die Zielfunktion (z.B. Q-Funktion oder direkt die Strategie $\pi$)
+                ver&amp;auml;ndern sich &amp;uuml;ber die Zeit. Dies schr&amp;auml;nkt die Menge der
+                Funktionsapproximatoren ein.
+
+                &lt;ul&gt;
+&lt;li&gt;Ungeeignet: Neuronale Netze, da sie statische Trainingsdaten vorraussetzen&lt;/li&gt;
+&lt;li&gt;Geeignet: Lineare Approximatoren
+                        $$f(x) = \sum_{i=1}^l \Theta_i \cdot K_i(x)$$
+                        wobei $\Theta_i$ ein Parameter ist und $K_i$ eine
+                        (ggf. nicht-lineare) Kernfunktion (Basisfunktion) ist.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+        Gradienten-Verfahren: Wir verwenden einen parametrischen Approximator
+        mit Parametervektor $\Theta$.
+
+        Beispiel: Strategiebewertung
+
+        &lt;ul&gt;
+&lt;li&gt;Ziel: Approximation der &lt;b&gt;unbekannten Wertefunktion $J_\pi(x)$&lt;/b&gt;
+                durch $\tilde{J}$(x, \Theta)$ durch minimierung der
+                quadratischen Abweichung
+
+                $$J_{\mathcal{X}} (J_\pi(x) - \tilde{J}(x, Q))^2 \mathrm{d} x \tag{*}$$
+            &lt;/li&gt;
+&lt;li&gt;Minimierung von $(*)$ anhand besuchter Zust&amp;auml;nde $x_k$ mit
+                Gradientenabstieg:
+
+                $$
+                \begin{align}
+                \Theta_{k+1} &amp;amp;= \Theta_k - \frac{1}{2} \alpha \nabla_{\Theta_k} (J_\pi(x_k) - \bar{J}(x_k, Q_k)^2)\\
+                &amp;amp;= \Theta_k + \alpha(J_\pi(x_k) - \bar{J}(x_k, \Theta_k)) \cdot \nabla_{\Theta_k} \tilde{J}(x_k, \Theta_k)
+                \end{align}
+                $$
+
+                wobei $\alpha$ die Schrittweite ist.
+
+                &lt;u&gt;Problem&lt;/u&gt;: $J_\pi(x_k)$ ist unbekannt. Allerdings kann
+                es durch eine Sch&amp;auml;tzung
+
+                $$J_\pi(x_k) \approx r_k + \gamma \cdot \tilde{J}(x_{k+1}, \Theta_k)$$
+
+                $$\Theta_{k+1} = \Theta_k + \alpha \cdot [\underbrace{r_k + \gamma \cdot \tilde{J}(x_{k+1}, \Theta_k) - \tilde{J}(x_k, \Theta_k)}_{\text{zeitliche Differenz}}] \cdot \nabla_{\Theta_k} \tilde{J}$$
+                &lt;/li&gt;
+&lt;li&gt;&lt;u&gt;Beispiele&lt;/u&gt;: Strategieverbesserung
+
+                $$Q_{k+1} = Q_k + \alpha \cdot \delta_k \cdot \nabla_{\Theta_k} Q(x_k, a_k, \Theta_k)$$
+
+                mit
+
+
+                SARSA:
+                $$\delta_k = r_k + \gamma \cdot Q(x_{k+1}, a_{k+1}, \Theta_k) - Q(x_k, a_k, \Theta_k)$$
+
+                Q-Learning:
+                $$\delta_k = r_k + \gamma \cdot \max_a Q(x_{k+1}, a, \Theta_k) - Q(x_k, a_k, \Theta_k)$$
+
+            &lt;/li&gt;
+&lt;li&gt;Anwendung: Backgammon, Go&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h2 id="overviews_1"&gt;Overviews&lt;/h2&gt;
 &lt;h3 id="mdp-vs-pomdp-vs-rl"&gt;MDP vs POMDP vs RL&lt;/h3&gt;
@@ -2044,6 +2223,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;li&gt;Dimitri Bertsekas: Dynamic Programming and Optimal Control: Volume 1 (POMDP)&lt;/li&gt;
 &lt;li&gt;Emanuel Todorov: &lt;a href="https://homes.cs.washington.edu/~todorov/papers/TodorovChapter06.pdf"&gt;Optimal Control Theory&lt;/a&gt; (f&amp;uuml;r Pontryagins Minimum-Prinzip)&lt;/li&gt;
 &lt;li&gt;Dan Simon: Optimal State Estimation (Kalman-Filter)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Game_complexity#Complexities_of_some_well-known_games"&gt;Complexity of some well-known games&lt;/a&gt; sowie &lt;a href="https://xkcd.com/1002/"&gt;xkcd: Game AIs&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="vorlesungsempfehlungen"&gt;Vorlesungs&amp;shy;empfehlungen&lt;/h2&gt;
 &lt;p&gt;Folgende Vorlesungen sind &amp;auml;hnlich:&lt;/p&gt;
