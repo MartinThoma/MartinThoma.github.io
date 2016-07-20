@@ -226,16 +226,19 @@ Slides: `11.05.2016`
           <li>$\geq$ ist vollständig: $\forall x, y \in \mathcal{X}: x \geq y \lor y \geq x$</li>
           <li>$\geq$ ist transitiv: $\forall x, y, z \in \mathcal{X}: x \geq y \land y \geq z \Rightarrow x \leq z$</li>
       </ul></dd>
+  <dt><dfn>Indifferenz</dfn></dt>
+  <dd>Zwei Elemente $x, y \in \mathcal{X}$ heißen bzgl. einer Präferenzrelation
+      $\geq \subseteq \mathcal{X} \times \mathcal{X}$ indifferent, wenn gilt:
+      $$x \leq y \land y \leq x$$</dd>
   <dt><a href="https://de.wikipedia.org/wiki/Nutzenfunktion"><dfn id="nutzenfunktion">Nutzenfunktion</dfn></a></dt>
   <dd>Sei $\mathcal{X}$ eine Zustandsmenge und $u: \mathcal{X} \rightarrow \mathbb{R}$
       eine Funktion. Sei außerdem $\geq$ eine Präferenzrelation. $u$ heißt
       eine Nutzenfunktion welche $\geq$ abbildet, wenn gilt:
-      $$\forall x, y \in \mathcal{X}: x \geq y \Leftrightarrow u(x) \geq u(y)$$</dd>
-  <dt><dfn>Indifferenz</dfn></dt>
-  <dd>Zwei Elemente $x, y \mathcal{X}$ heißen bzgl. einer Präferenzrelation
-      $\geq \subseteq \mathcal{X} \times \mathcal{X}$ indifferent, wenn gilt:
-      $$x \leq y \land y \leq x$$</dd>
-  <dt><a href="https://en.wikipedia.org/wiki/Von_Neumann%E2%80%93Morgenstern_utility_theorem#The_axioms"><dfn>Von-Neumann-Morgenstern Axiome</dfn></a></dt>
+      $$\forall x, y \in \mathcal{X}: x \geq y \Leftrightarrow u(x) \geq u(y)$$
+
+      Jede Präferenzrelation hat mindestens eine Nutzenfunktion. Sie ist
+      eindeutig bis auf streng monoton steigende Transformationen.</dd>
+  <dt><a href="https://en.wikipedia.org/wiki/Von_Neumann%E2%80%93Morgenstern_utility_theorem#The_axioms"><dfn id="von-neumann-morgenstern-axioms">Von-Neumann-Morgenstern Axiome</dfn></a></dt>
   <dd>Sei $\mathcal{X}$ eine Zustandsmenge und $\mathcal{P}$ die Menge aller
       Verteilungen $P: \mathcal{X} \rightarrow [0, 1]$.
 
@@ -258,6 +261,47 @@ Slides: `11.05.2016`
                            <u>Salopp:</u> Präferenzrelationen sind nicht
                            anfällig gegenüber kleinen Änderungen.</li>
         </ol>
+
+  </dd>
+  <dt><a href="https://de.wikipedia.org/wiki/Allais-Paradoxon"><dfn id="allais-paradoxon">Allais Paradoxon</dfn></a></dt>
+  <dd>
+
+      Das Allais-Paradoxon ist ein experimentell beobachtbarer Verstoß gegen
+      das Unabhängigkeitsaxiom der wirtschaftswissenschaftlichen
+      Entscheidungstheorie. Dieses besagt, dass die Hinzu-/Wegnahme von
+      gemeinsamen Konsequenzen einer Entscheidung die Präferenz des
+      Entscheiders nicht verändern darf.<br/>
+      <br/>
+      <ul>
+          <li>Lotterie 1: 
+
+              <ul>
+                  <li>a: $P(X = 2500) = 0.33$, $P(X = 2400) = 0.66$, $P(X = 0) = 0.01$</li>
+                  <li>b: $P(X = 2400) = 1$</li>
+              </ul>
+          </li>
+          <li>Lotterie 2:
+
+             <ul>
+                 <li>a': $P(X = 2500) = 0.33$, $P(X = 0) = 0.67$</li>
+                 <li>b': $P(X = 2400) = 0.34$, $P(X = 0) = 0.66$</li>
+             </ul>
+
+          </li>
+      </ul>
+
+  </dd>
+  <dt><dfn>Kritik an der Nutzentheorie</dfn></dt>
+  <dd>
+
+      <ul>
+          <li>Die Nutzenfunktion kann nicht systematisch konstruiert werden.</li>
+          <li>Die Nutzenfunktion bzw. -theorie stimmt nicht mit der
+              Menschlichen Intuition überein (vgl. <a href="#allais-paradoxon">Allais Paradoxon</a>)</li>
+          <li>Verteilungen müssen bekannt sein.</li>
+      </ul>
+
+      <u>Alternative</u>: MinMax
 
   </dd>
   <dt><dfn>Optimierungsproblem</dfn></dt>
@@ -1908,7 +1952,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
 
 ## Prüfungsfragen
 
-Strategiesuche ist NICHT relevant für meine Prüfung
+Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
 
 
 * Welche 3 Themengebiete wurden in der Vorlesung behandelt und was sind die
@@ -1938,6 +1982,8 @@ Strategiesuche ist NICHT relevant für meine Prüfung
 * Wie lautet der Satz vom Allais-Paradoxon?<br/>
   → TODO
 * Wie kann man die Nutzentheorie kritisieren?<br/>
+  → TODO
+* Was haben wir zur Entscheidungstheorie gemacht?<br/>
   → TODO
 
 
@@ -2017,6 +2063,8 @@ Der Dozent nutzt folgende Notation:
 * Emanuel Todorov: [Optimal Control Theory](https://homes.cs.washington.edu/~todorov/papers/TodorovChapter06.pdf) (für Pontryagins Minimum-Prinzip)
 * Dan Simon: Optimal State Estimation (Kalman-Filter)
 * [Complexity of some well-known games](https://en.wikipedia.org/wiki/Game_complexity#Complexities_of_some_well-known_games) sowie [xkcd: Game AIs](https://xkcd.com/1002/)
+* Stack Exchange
+    * [Why is $f_x(Ax + b) = f_x(x)$?](http://math.stackexchange.com/q/1865801/6876)
 
 
 ## Vorlesungs&shy;empfehlungen
@@ -2031,6 +2079,10 @@ Folgende Vorlesungen sind ähnlich:
 * [Neuronale Netze](https://martin-thoma.com/neuronale-netze-vorlesung/)
 * [Lokalisierung Mobiler Agenten](https://martin-thoma.com/lma/)
 * [Probabilistische Planung](https://martin-thoma.com/probabilistische-planung/)
+
+Weitere:
+
+* Einführung in die Bildfolgenauswertung
 
 
 ## Termine und Klausurablauf
