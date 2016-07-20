@@ -1540,7 +1540,7 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 
         <u>Idee</u>: Gewichtete Mittelung verschiedener $n$-Schritt-Belohnungen.
 
-        $$R_k^\lambda = (1-\lambda) \cdot \sum_{n=1}^\infty \lambda^{n-1} R_k^{(n)} \text{ mit } \lambda \in [0,1] \text{ und } (1-\lambda)\sum_{n=1}^\infty \lamda^{n-1} = 1$$
+        $$R_k^\lambda = (1-\lambda) \cdot \sum_{n=1}^\infty \lambda^{n-1} R_k^{(n)} \text{ mit } \lambda \in [0,1] \text{ und } (1-\lambda)\sum_{n=1}^\infty \lambda^{n-1} = 1$$
         beim erreichen eines terminalen Zustands ist $R_k^{(n)} = R_k$ f&uuml;r $n &gt; N-K-1$.
 
         Abgewichten von $R_k^{(n)}$ bei steigendem $n$.
@@ -1659,7 +1659,7 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 
         <ul>
 <li>Ziel: Approximation der <b>unbekannten Wertefunktion $J_\pi(x)$</b>
-                durch $\tilde{J}$(x, \Theta)$ durch minimierung der
+                durch $\tilde{J}(x, \Theta)$ durch minimierung der
                 quadratischen Abweichung
 
                 $$J_{\mathcal{X}} (J_\pi(x) - \tilde{J}(x, Q))^2 \mathrm{d} x \tag{*}$$
@@ -1698,6 +1698,117 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 
             </li>
 <li>Anwendung: Backgammon, Go</li>
+</ul>
+</dd>
+<dt><dfn>Fazit Funktionsapproximatoren</dfn></dt>
+<dd>
+<ul>
+<li>+ Es gibt eine direkte Erweiterung von TD auf den
+                kontinuierlichen Fall.</li>
+<li>- Keine allgemeinen Konvergenzaussagen</li>
+</ul>
+</dd>
+<dt><dfn id="model-learning-rl">Modellbasiertes RL</dfn></dt>
+<dd>
+
+        Bisher: RL lernt Wertefunktion und Strategie mittels Belohnung aus
+        direkter Interaktion mit Umwelt.
+
+        Idee: Lerne eine Modell $x_{k+1} \sim P(\cdot | x_k)$.
+
+        Man hat zwei Phasen: Lernen und Planen. In der Lernphase wird das
+        Modell gelernt, in der Planphase wird mit dem Modell der n&auml;chste
+        Zustand geplant.
+
+        <u>Erweiterungen</u>
+<ul>
+<li>Nutze beobachtete Nachfolgezust&auml;nde (&Uuml;bergang) mit Tripel $(x_k, x_{k+1}, a)$</li>
+<li>Nutze Simulation der Umwelt</li>
+<li>Modell
+
+            <ul>
+<li>Beschreibung der Umwelt</li>
+<li>Verohersage Reaktion der Umwelt auf Aktion</li>
+<li>Verbesserte TODO</li>
+<li>$\rightarrow$ Schnellere Konvergenz</li>
+</ul>
+</li>
+</ul>
+<u>Beispiele</u>
+<ul>
+<li>DP: vollst&auml;ndiges Modell (&Uuml;bergangswahrscheinlichkeiten) - v&ouml;llige Entkopplung</li>
+<li>Biologisches Lernen: Stichprobenmodell (beispielhafte &Uuml;berg&auml;nge)
+
+                Beispiel: Dyna-Q
+
+                <ul>
+<li>Q-Learning: Strategielernen aus direkter Erfahrung</li>
+<li>Planung: Strategieverbesserung aus simulierter Erfahrung</li>
+<li>Modelllernen: aus direkter Erfahrung</li>
+<li>Suche: Auswahl von Zust&auml;nden und Aktionen f&uuml;r Simulation</li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt><dfn>Dyna-Q</dfn></dt>
+<dd>
+
+        TODO: Pseudocode
+
+        <ul>
+<li>+ Besseres Ausnutzen von Erfahrung</li>
+<li>+ Empirisch: schnellere Konvergenz als Q-Learning</li>
+<li>- Annahme eines deterministischen Modells</li>
+</ul>
+</dd>
+<dt><dfn>Adaptive DP</dfn></dt>
+<dd>
+
+        Dyna-Q lernt Striprobenmodell (schwachstelle).
+
+        Adaptive DP Verbesserung: Lernt frequentistisch Zustandsverteilung von
+        Nachfolgezustand.
+
+        $P(x_{k+1} | x_k, a_k)$: relative H&auml;ufigkeit von $x_{k+1}$ gegeben
+        $x_k$, $a_k$ (frequentistische Sichtweise)
+
+        kann gesch&auml;tzt werden:
+
+        $$P(x_{k+1} | x_k, a_k) \approx \frac{m(x_k, a_k, x_{k+1})}{m(x_k, a_k)}$$
+        wobei $m(x_k, a_k)$ die Anzahl der Besuche von Zustand $x_k$ mit
+        Ausf&uuml;hrung ovn Aktion $a_k$ z&auml;hlt.
+
+        $m(x_k, a_k, x_{k+1})$ z&auml;hlt die &Uuml;berg&auml;nge von $x_k$ unter $a_k$
+        nach $x_{k+1}$.
+
+        Ergibt sich aus Interaktion mit realer Umwelt.
+
+        <ul>
+<li>+ verbesserte Konvergenz im vgl. zu Q-Learning</li>
+<li>+ Reduktion des Modell-Bias</li>
+<li>- Berechnung von $J^*$ ist aufwendig, muss aber nicht in
+                jeder Schritt / Schleifeniteration ausgef&uuml;hrt werden</li>
+</ul>
+</dd>
+<dt><dfn>Gaussian Processes</dfn> (<dfn>Gaussche Prozesse</dfn>)</dt>
+<dd>
+
+        Siehe <a href="https://martin-thoma.com/function-approximation/">Function Approximation</a>
+        und <a href="https://martin-thoma.com/machine-learning-2-course/#gaussche-prozesse">Gaussche Prozesse</a>.
+
+    </dd>
+<dt><dfn>PILCO</dfn> (<dfn>Probabilistic Inference for Learning Control</dfn>)</dt>
+<dd>
+
+        PILCO wurde entwickelt f&uuml;r kontinuierliche Zust&auml;nde und Aktionen.
+        Das Modell: Es wird eine probabilistische Regression auf beobachteten
+        Zustand mittels sog. Gaussian Processes (GP) eingesetzt.
+
+        Strategieverbesserung:
+
+        <ul>
+<li>Verwendung parametrischer Strategie</li>
+<li>Adaptierung der Parameter mittels <b>Policy Search</b></li>
 </ul>
 </dd>
 </dl>
@@ -1793,6 +1904,7 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 </tr>
 </table>
 <h2 id="prufungsfragen_1">Pr&uuml;fungsfragen</h2>
+<p>Strategiesuche ist NICHT relevant f&uuml;r meine Pr&uuml;fung</p>
 <ul>
 <li>Welche 3 Themengebiete wurden in der Vorlesung behandelt und was sind die
   Unterschiede?<br/>

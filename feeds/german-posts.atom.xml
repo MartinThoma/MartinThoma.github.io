@@ -1871,7 +1871,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 
         &lt;u&gt;Idee&lt;/u&gt;: Gewichtete Mittelung verschiedener $n$-Schritt-Belohnungen.
 
-        $$R_k^\lambda = (1-\lambda) \cdot \sum_{n=1}^\infty \lambda^{n-1} R_k^{(n)} \text{ mit } \lambda \in [0,1] \text{ und } (1-\lambda)\sum_{n=1}^\infty \lamda^{n-1} = 1$$
+        $$R_k^\lambda = (1-\lambda) \cdot \sum_{n=1}^\infty \lambda^{n-1} R_k^{(n)} \text{ mit } \lambda \in [0,1] \text{ und } (1-\lambda)\sum_{n=1}^\infty \lambda^{n-1} = 1$$
         beim erreichen eines terminalen Zustands ist $R_k^{(n)} = R_k$ f&amp;uuml;r $n &amp;gt; N-K-1$.
 
         Abgewichten von $R_k^{(n)}$ bei steigendem $n$.
@@ -1990,7 +1990,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 
         &lt;ul&gt;
 &lt;li&gt;Ziel: Approximation der &lt;b&gt;unbekannten Wertefunktion $J_\pi(x)$&lt;/b&gt;
-                durch $\tilde{J}$(x, \Theta)$ durch minimierung der
+                durch $\tilde{J}(x, \Theta)$ durch minimierung der
                 quadratischen Abweichung
 
                 $$J_{\mathcal{X}} (J_\pi(x) - \tilde{J}(x, Q))^2 \mathrm{d} x \tag{*}$$
@@ -2029,6 +2029,117 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 
             &lt;/li&gt;
 &lt;li&gt;Anwendung: Backgammon, Go&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Fazit Funktionsapproximatoren&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;ul&gt;
+&lt;li&gt;+ Es gibt eine direkte Erweiterung von TD auf den
+                kontinuierlichen Fall.&lt;/li&gt;
+&lt;li&gt;- Keine allgemeinen Konvergenzaussagen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="model-learning-rl"&gt;Modellbasiertes RL&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+
+        Bisher: RL lernt Wertefunktion und Strategie mittels Belohnung aus
+        direkter Interaktion mit Umwelt.
+
+        Idee: Lerne eine Modell $x_{k+1} \sim P(\cdot | x_k)$.
+
+        Man hat zwei Phasen: Lernen und Planen. In der Lernphase wird das
+        Modell gelernt, in der Planphase wird mit dem Modell der n&amp;auml;chste
+        Zustand geplant.
+
+        &lt;u&gt;Erweiterungen&lt;/u&gt;
+&lt;ul&gt;
+&lt;li&gt;Nutze beobachtete Nachfolgezust&amp;auml;nde (&amp;Uuml;bergang) mit Tripel $(x_k, x_{k+1}, a)$&lt;/li&gt;
+&lt;li&gt;Nutze Simulation der Umwelt&lt;/li&gt;
+&lt;li&gt;Modell
+
+            &lt;ul&gt;
+&lt;li&gt;Beschreibung der Umwelt&lt;/li&gt;
+&lt;li&gt;Verohersage Reaktion der Umwelt auf Aktion&lt;/li&gt;
+&lt;li&gt;Verbesserte TODO&lt;/li&gt;
+&lt;li&gt;$\rightarrow$ Schnellere Konvergenz&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;u&gt;Beispiele&lt;/u&gt;
+&lt;ul&gt;
+&lt;li&gt;DP: vollst&amp;auml;ndiges Modell (&amp;Uuml;bergangswahrscheinlichkeiten) - v&amp;ouml;llige Entkopplung&lt;/li&gt;
+&lt;li&gt;Biologisches Lernen: Stichprobenmodell (beispielhafte &amp;Uuml;berg&amp;auml;nge)
+
+                Beispiel: Dyna-Q
+
+                &lt;ul&gt;
+&lt;li&gt;Q-Learning: Strategielernen aus direkter Erfahrung&lt;/li&gt;
+&lt;li&gt;Planung: Strategieverbesserung aus simulierter Erfahrung&lt;/li&gt;
+&lt;li&gt;Modelllernen: aus direkter Erfahrung&lt;/li&gt;
+&lt;li&gt;Suche: Auswahl von Zust&amp;auml;nden und Aktionen f&amp;uuml;r Simulation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Dyna-Q&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+
+        TODO: Pseudocode
+
+        &lt;ul&gt;
+&lt;li&gt;+ Besseres Ausnutzen von Erfahrung&lt;/li&gt;
+&lt;li&gt;+ Empirisch: schnellere Konvergenz als Q-Learning&lt;/li&gt;
+&lt;li&gt;- Annahme eines deterministischen Modells&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Adaptive DP&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+
+        Dyna-Q lernt Striprobenmodell (schwachstelle).
+
+        Adaptive DP Verbesserung: Lernt frequentistisch Zustandsverteilung von
+        Nachfolgezustand.
+
+        $P(x_{k+1} | x_k, a_k)$: relative H&amp;auml;ufigkeit von $x_{k+1}$ gegeben
+        $x_k$, $a_k$ (frequentistische Sichtweise)
+
+        kann gesch&amp;auml;tzt werden:
+
+        $$P(x_{k+1} | x_k, a_k) \approx \frac{m(x_k, a_k, x_{k+1})}{m(x_k, a_k)}$$
+        wobei $m(x_k, a_k)$ die Anzahl der Besuche von Zustand $x_k$ mit
+        Ausf&amp;uuml;hrung ovn Aktion $a_k$ z&amp;auml;hlt.
+
+        $m(x_k, a_k, x_{k+1})$ z&amp;auml;hlt die &amp;Uuml;berg&amp;auml;nge von $x_k$ unter $a_k$
+        nach $x_{k+1}$.
+
+        Ergibt sich aus Interaktion mit realer Umwelt.
+
+        &lt;ul&gt;
+&lt;li&gt;+ verbesserte Konvergenz im vgl. zu Q-Learning&lt;/li&gt;
+&lt;li&gt;+ Reduktion des Modell-Bias&lt;/li&gt;
+&lt;li&gt;- Berechnung von $J^*$ ist aufwendig, muss aber nicht in
+                jeder Schritt / Schleifeniteration ausgef&amp;uuml;hrt werden&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Gaussian Processes&lt;/dfn&gt; (&lt;dfn&gt;Gaussche Prozesse&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dd&gt;
+
+        Siehe &lt;a href="https://martin-thoma.com/function-approximation/"&gt;Function Approximation&lt;/a&gt;
+        und &lt;a href="https://martin-thoma.com/machine-learning-2-course/#gaussche-prozesse"&gt;Gaussche Prozesse&lt;/a&gt;.
+
+    &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;PILCO&lt;/dfn&gt; (&lt;dfn&gt;Probabilistic Inference for Learning Control&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dd&gt;
+
+        PILCO wurde entwickelt f&amp;uuml;r kontinuierliche Zust&amp;auml;nde und Aktionen.
+        Das Modell: Es wird eine probabilistische Regression auf beobachteten
+        Zustand mittels sog. Gaussian Processes (GP) eingesetzt.
+
+        Strategieverbesserung:
+
+        &lt;ul&gt;
+&lt;li&gt;Verwendung parametrischer Strategie&lt;/li&gt;
+&lt;li&gt;Adaptierung der Parameter mittels &lt;b&gt;Policy Search&lt;/b&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
 &lt;/dl&gt;
@@ -2124,6 +2235,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;/tr&gt;
 &lt;/table&gt;
 &lt;h2 id="prufungsfragen_1"&gt;Pr&amp;uuml;fungsfragen&lt;/h2&gt;
+&lt;p&gt;Strategiesuche ist NICHT relevant f&amp;uuml;r meine Pr&amp;uuml;fung&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Welche 3 Themengebiete wurden in der Vorlesung behandelt und was sind die
   Unterschiede?&lt;br/&gt;
