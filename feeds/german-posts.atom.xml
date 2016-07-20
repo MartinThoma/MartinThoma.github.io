@@ -6231,21 +6231,31 @@ den Rest noch zu labeln. Siehe Folie 28-31.&lt;/p&gt;
 &lt;dd&gt;Lagrange-Multiplikatoren sind ein Verfahren der Optimierungstheorie.
       Sie werden genutzt, wenn ein Optimierungsproblem mit Nebenbedingungen
       vorliegt. Durch sie kann die Nebenbedingung eliminiert werden.&lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;Active Learning&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;Die Lernmaschine w&amp;auml;hlt die zu lernenden Daten selbst aus.&lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;Query Synthesis&lt;/dfn&gt; (siehe &lt;a href="http://burrsettles.com/pub/settles.activelearning.pdf"&gt;Active Learning Literature Survey&lt;/a&gt;)&lt;/dt&gt;
+&lt;dt&gt;&lt;dfn id="active-learning"&gt;Active Learning&lt;/dfn&gt; (&lt;dfn&gt;Aktives Lernen&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dd&gt;Die Lernmaschine w&amp;auml;hlt die zu lernenden Daten selbst aus.&lt;br/&gt;
+&lt;br/&gt;
+      Verfahren:
+
+      &lt;ul&gt;
+&lt;li&gt;&lt;a href="#query-synthesis"&gt;Query Synthesis&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#selective-sampling"&gt;Selective Sampling&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#pool-based-active-learning"&gt;Pool-Based Active Learning&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#query-by-committee"&gt;Query-by-Committee&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="query-synthesis"&gt;Query Synthesis&lt;/dfn&gt; (siehe &lt;a href="http://burrsettles.com/pub/settles.activelearning.pdf"&gt;Active Learning Literature Survey&lt;/a&gt;)&lt;/dt&gt;
 &lt;dd&gt;Der Lerner kann Feature-Vektoren (Querys)
       &lt;a href="https://en.wikipedia.org/wiki/De_novo"&gt;de novo&lt;/a&gt;, also von
       Grund auf neu / selbst erzeugen. Er kann f&amp;uuml;r diesen neuen Query ein
       Orakel befragen, was das Label ist.&lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;Selective Sampling&lt;/dfn&gt; (Selektive Entnahme, siehe &lt;a href="http://dl.acm.org/citation.cfm?id=2503327"&gt;Selective sampling and active learning from single and multiple teachers&lt;/a&gt;)&lt;/dt&gt;
+&lt;dt&gt;&lt;dfn id="selective-sampling"&gt;Selective Sampling&lt;/dfn&gt; (Selektive Entnahme, siehe &lt;a href="http://dl.acm.org/citation.cfm?id=2503327"&gt;Selective sampling and active learning from single and multiple teachers&lt;/a&gt;)&lt;/dt&gt;
 &lt;dd&gt;Selective Sampling ist eine Methode des aktiven Lernens. Dabei wird
       jede Runde $t$ dem Lerner ein Feature-Vektor $x_t \in \mathbb{R}^n$
       pr&amp;auml;sentiert. Der Lerner muss sich jede Runde entscheiden, ob er einen
       Preis bezahlt um das Label zu sehen. Der Lerner hat also zwei Ziele, die
       miteinander in Konflikt stehen: Er will alles richtig klassifizieren,
       aber zugleich die Kosten so niedrig wie m&amp;ouml;glich halten.&lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;Pool-Based Active Learning&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dt&gt;&lt;dfn id="pool-based-active-learning"&gt;Pool-Based Active Learning&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Pool-Based Active Learning ist eine Methode des aktiven Lernens. Dabei
       wird von einem Pool an ungelabelten Daten $\mathcal{U}$ ausgegangen
       und einem deutlich kleineren Pool $\mathcal{L}$ an gelabelten Daten.
@@ -6254,7 +6264,7 @@ den Rest noch zu labeln. Siehe Folie 28-31.&lt;/p&gt;
       $x \in \mathcal{U}$ nach einem Label gefragt.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Hinge-Funktion&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;$$f(x) = \max(x, 0)$$&lt;/dd&gt;
-&lt;dt&gt;Query-by-Committee (&lt;dfn&gt;QBC&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dt&gt;&lt;dfn id="query-by-committee"&gt;Query-by-Committee&lt;/dfn&gt; (&lt;dfn&gt;QBC&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;Es wird ein Committee $\mathcal{C}$ an Klassifikatoren trainiert,
       welches gemeinsam (z.B. durch majority vote) eine Klassifikation trifft.
 
