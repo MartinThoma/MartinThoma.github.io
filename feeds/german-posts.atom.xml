@@ -502,7 +502,7 @@ sowie die Werte- und Strategieiteration zu nennen.&lt;/p&gt;
 &lt;td&gt;7&lt;/td&gt;
 &lt;td id="2016-06-01"&gt;01.06.2016&lt;/td&gt;
 &lt;td&gt;MDPs (&lt;a href="https://ies.anthropomatik.kit.edu/ies/download/lehre/proplan/ProPlan-8-Folien.pdf"&gt;Folien&lt;/a&gt;)&lt;/td&gt;
-&lt;td&gt;Pontryagin's Minimumprinzip, Hamilton-Funktion; LQR; Sicherheits&amp;auml;quivalenz&lt;/td&gt;
+&lt;td&gt;Pontryagin's Minimumprinzip, Hamilton-Funktion, Riccati-Gleichung; LQR; Sicherheits&amp;auml;quivalenz&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;8&lt;/td&gt;
@@ -1103,8 +1103,8 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;dt&gt;&lt;dfn&gt;Label-Korrektur-Algorithmus&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Der Label-Korrektur-Algorithmus ist ein Meta-Algorithmus zur
         k&amp;uuml;rzeste-Wege-Suche dient. Spezialf&amp;auml;lle von diesem sind die
-        Tiefen- und Breitensuche, der &lt;a href="https://de.wikipedia.org/wiki/Dijkstra-Algorithmus"&gt;Dijkstra-Algorithmus&lt;/a&gt;, der &lt;a href="https://de.wikipedia.org/wiki/A*-Algorithmus"&gt;A*-Algorithmus&lt;/a&gt; sowie
-        Branch &amp;amp; Bound.
+        Tiefensuche (K ist LIFO-Liste / Stack) und Breitensuche (K ist FIFO-Liste), der &lt;a href="https://de.wikipedia.org/wiki/Dijkstra-Algorithmus"&gt;Dijkstra-Algorithmus&lt;/a&gt; (K ist Priority-Queue), der &lt;a href="https://de.wikipedia.org/wiki/A*-Algorithmus"&gt;A*-Algorithmus&lt;/a&gt; (K ist Priority-Queue, $h_j$ ist nicht-trivial) sowie
+        Branch &amp;amp; Bound (K ist Priority-Queue, $h_j$ ist nicht-trivial und $m_j$ ist nicht trivial).
 
           &lt;img alt="Label correction algorithm" src="../images/2016/07/label-correction.png" width="512px"/&gt;
 &lt;/dd&gt;
@@ -1128,8 +1128,12 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
         minimiert wird. Dabei ist $x(t)$ der Systemzustand mit
         $$\dot{x}=f(x,u,t) \qquad x(0)=x_0 \quad t \in [0,T]$$
         In diesem Fall ist die Hamilton-Funktion
-        $$H(x,\lambda,u,t)=\lambda^T(t)f(x,u,t)+L(x,u,t),$$
-        wobei $\lambda(t)$ Lagrange-Multiplikatoren sind.&lt;/dd&gt;
+        $$H_k(x_k, a_k, \lambda) = g_k(x_k, a_k) + h_k(x_k, a_k)^T \cdot \lambda_{k+1},$$
+        wobei $\lambda(t)$ Lagrange-Multiplikatoren sind.
+
+        $$\mathcal{L}(x_{0:N}, a_{0:N-1}, \lambda_{0:N}) = g_N(x_N) + (c-x_0) \lambda_0 + \sum_{k=0}^{N-1} (H_k - x_{k+1}^T \lambda_{k+1})$$
+
+        &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Lineares Zustandsmodell&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;$$x_{k+1} = A_k + x_k + B_k \cdot a_k + r_k^{(s)}$$&lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/LQ-Regler"&gt;&lt;dfn id="linear-quadratic-regulator"&gt;Linearer Quadratischer Regulator&lt;/dfn&gt;&lt;/a&gt; (&lt;dfn id="lqr"&gt;LQR&lt;/dfn&gt;)&lt;/dt&gt;
@@ -2508,6 +2512,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;li&gt;Stack Exchange&lt;ul&gt;
 &lt;li&gt;&lt;a href="http://math.stackexchange.com/q/1865801/6876"&gt;Why is &lt;span class="math"&gt;\(f_x(Ax + b) = f_x(x)\)&lt;/span&gt;?&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://math.stackexchange.com/q/1866356/6876"&gt;How can I solve an optimization problem &lt;span class="math"&gt;\(x^T A x\)&lt;/span&gt; with constraint &lt;span class="math"&gt;\(x^T x = 1\)&lt;/span&gt;?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://martin-thoma.com/diverging-gradient-descent/"&gt;Diverging Gradient Descent&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
