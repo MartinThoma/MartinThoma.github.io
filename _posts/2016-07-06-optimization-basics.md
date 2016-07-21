@@ -175,7 +175,7 @@ Necessary conditions for a minimum $x^*$ is:
 
 <ul>
     <li>$\nabla_x \mathcal{L} = \nabla_x f(x^*) + \sum_{j=1}^n \lambda_j \nabla_x h_j(x^*) \overset{!}{=} 0$</li>
-    <li>$\frac{\partial \mathcal{L}}{\partial \lambda_j} h_j(x^*) \overset{!}{=} 0, \quad j=1, \dots, $</li>
+    <li>$\frac{\partial}{\partial \lambda_j} \mathcal{L} = h_j(x^*) \overset{!}{=} 0, \quad j=1, \dots, $</li>
 </ul>
 
 See [<a href="#ref-smi04" name="ref-smi04-anchor">Smi04</a>] for many examples.
