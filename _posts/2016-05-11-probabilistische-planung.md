@@ -161,6 +161,10 @@ Slides: `ProPlan-1-Anschrieb.pdf`
 
       $$f(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} e^{- \frac{(x - \mu)^2}{2\sigma^2}}$$
 
+      Die multivariate Normalverteilung $\mathcal{N}(\mu, \Sigma)$ hat die
+      Dichtefunktion
+
+      $$f(x) = \frac{1}{ \sqrt{(2\pi)^n \det(\Sigma)} } \exp \left(-\frac{1}{2}({\mathbf x}-{\boldsymbol\mu})^\mathrm{T}{\boldsymbol\Sigma}^{-1}({\mathbf x}-{\boldsymbol\mu}) \right)$$
 
       </dd>
 </dl>
@@ -905,7 +909,14 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         Der Bayes-Schätzer ist im Allgemeinen nicht geschlossen berechenbar.
         </dd>
     <dt><dfn>Verteilungs-MDP</dfn> (<dfn>Belief-state MDP</dfn>)</dt>
-    <dd>Belief ist die Verteilung (TODO)</dd>
+    <dd>POMDPs haben äquivalente Verteilungs-MDPs. Dabei wird eine
+        Wahrscheinlichkeitsverteilung für den aktuellen Zustand angegeben.
+        Verschiedene Verteilungen werden diskretisiert und als Zustände
+        angesehen. Dann kann jeder beliebige MDP-Lösungsalgorithmus auch für
+        POMDPs verwendet werden.<br/>
+        <br/>
+        Siehe: <a href="https://www.cs.cmu.edu/~ggordon/780-fall07/lectures/POMDP_lecture.pdf">POMDPs</a> by Geoff Hollinger.
+        TODO</dd>
     <dt><dfn>Lineare Planungsprobleme in POMDPs</dfn></dt>
     <dd>Zustandsraummodell (Systemmodell):
         $$x_{k+1} = A_k \cdot x_k + B_k \cdot a_k + r_k^{(s)}$$
