@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Martin Thoma</title><link>https://martin-thoma.com/</link><description>A blog about Code, the Web and Cyberculture</description><lastBuildDate>Tue, 19 Jul 2016 14:00:00 +0200</lastBuildDate><item><title>XOR tutorial with TensorFlow</title><link>https://martin-thoma.com/tf-xor-tutorial/</link><description>&lt;p&gt;The XOR-Problem is a classification problem, where you only have four data
+<rss version="2.0"><channel><title>Martin Thoma</title><link>https://martin-thoma.com/</link><description>A blog about Code, the Web and Cyberculture</description><lastBuildDate>Thu, 21 Jul 2016 16:00:00 +0200</lastBuildDate><item><title>Diverging Gradient Descent</title><link>https://martin-thoma.com/diverging-gradient-descent/</link><description>&lt;p&gt;When you take the function&lt;/p&gt;
+&lt;div class="math"&gt;$$f(x, y) = 3x^2 + 3y^2 + 2xy$$&lt;/div&gt;
+&lt;p&gt;and start gradient descent at &lt;span class="math"&gt;\(x_0 = (6, 6)\)&lt;/span&gt; with learning rate &lt;span class="math"&gt;\(\eta = \frac{1}{2}\)&lt;/span&gt;
+it diverges.&lt;/p&gt;
+&lt;h2 id="gradient-descent"&gt;Gradient descent&lt;/h2&gt;
+&lt;p&gt;Gradient descent is an optimization rule which starts at a point &lt;span class="math"&gt;\(x_0\)&lt;/span&gt; and
+then applies the update rule&lt;/p&gt;
+&lt;div class="math"&gt;$$x_{k+1} = x_k + \eta d_k(x_k)$$&lt;/div&gt;
+&lt;p&gt;where &lt;span class="math"&gt;\(\eta\)&lt;/span&gt; is the step length (learning rate) and &lt;span class="math"&gt;\(d_k\)&lt;/span&gt; is the direction.&lt;/p&gt;
+&lt;p&gt;The direction is&lt;/p&gt;
+&lt;div class="math"&gt;$$d_k(x_k) = - \nabla f(x_k)$$&lt;/div&gt;
+&lt;h2 id="example"&gt;Example&lt;/h2&gt;
+&lt;div class="math"&gt;$$\nabla f(x, y) = \begin{pmatrix}6x + 2y\\6y + 2x\end{pmatrix}$$&lt;/div&gt;
+&lt;ol&gt;
+&lt;li&gt;$x_0 = (6, 6)$; $d_k(6, 6) = (-24, -24)$&lt;/li&gt;
+&lt;li&gt;$x_1 = (-18, -18)$; $d_k(-18, -18) = (72, 72)&lt;/li&gt;
+&lt;li&gt;$x_2 = (54, 54)$; $d_k(54, 54) = (-216, -216)$&lt;/li&gt;
+&lt;li&gt;$x_3 = (-162, -162)$; $d_k(-162, -162) = (648, 648)$&lt;/li&gt;
+&lt;li&gt;$x_n = (x_{n-1} - \frac{8}{2} \cdot x_{n-1}, x_{n-1} - \frac{8}{2} \cdot x_{n-1})$&lt;/li&gt;
+&lt;li&gt;$x_n = (-3x_{n-1}, -3x_{n-1})$&lt;/li&gt;
+&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Martin Thoma</dc:creator><pubDate>Thu, 21 Jul 2016 16:00:00 +0200</pubDate><guid isPermaLink="false">tag:martin-thoma.com,2016-07-21:diverging-gradient-descent/</guid><category>Gradient Descent</category><category>Optimization</category></item><item><title>XOR tutorial with TensorFlow</title><link>https://martin-thoma.com/tf-xor-tutorial/</link><description>&lt;p&gt;The XOR-Problem is a classification problem, where you only have four data
 points with two features. The training set and the test set are exactly
 the same in this problem. So the interesting question is only if the model is
 able to find a decision boundary which classifies all four points correctly.&lt;/p&gt;
