@@ -76,7 +76,7 @@ sowie die Werte- und Strategieiteration zu nennen.
     <td>7</td>
     <td id="2016-06-01">01.06.2016</td>
     <td>MDPs (<a href="https://ies.anthropomatik.kit.edu/ies/download/lehre/proplan/ProPlan-8-Folien.pdf">Folien</a>)</td>
-    <td>Pontryagin's Minimumprinzip, Hamilton-Funktion, Riccati-Gleichung; LQR; Sicherheitsäquivalenz</td>
+    <td>Pontryagin's Minimumprinzip, Hamilton-Funktion, Riccati-Gleichung; LQR; <a href="#certainty-equivalence">Sicherheitsäquivalenz</a></td>
 </tr>
 <tr>
     <td>8</td>
@@ -750,13 +750,30 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
     <dd>$$x_{k+1} = A_k + x_k + B_k \cdot a_k + r_k^{(s)}$$</dd>
     <dt><a href="https://de.wikipedia.org/wiki/LQ-Regler"><dfn id="linear-quadratic-regulator">Linearer Quadratischer Regulator</dfn></a> (<dfn id="lqr">LQR</dfn>)</dt>
     <dd>Der LQR ist ein Regler (Regulator) für einen lineareren Zustandsraum
-        mit quadratischer Kostenfunktion. Ein Regel will typischerweise den
+        mit quadratischer Kostenfunktion. Ein Reger will typischerweise den
         Zustand $x = \vec{0}$ erreichen, wohingegen ein Tracker den aktuellen
-        Zustand bestmöglich schätzen will.
+        Zustand bestmöglich schätzen will.<br/>
+        <br/>
+        Das lineare Zustandsraummodell lautet:
+        $$x_{k+1} = A_k \cdot x_k + B_k \cdot a_k + r_k^{(s)}$$
 
-        TODO</dd>
+        Die zu minimierende Kostenfunktion sei
+        $$\mathbb{E} \left ( \underbrace{x_N^T \cdot Q_N \cdot x_N + \sum_{k=0}^{N-1} x_k^T \cdot Q_k \cdot x_k}_{\text{Zustandsabhängige Kosten}} + \underbrace{\sum_{k=0}^{N-1} a_k^T \cdot R_k \cdot a_k}_{\text{aktionsabhängige Kosten}} \right )$$
+
+        Dabei sind die Gewichtungsmatrizen $Q_k, Q_N, R_k$ symmetrisch und
+        positiv definit.
+
+        Es ergibts sich:
+
+        $$a_k^* = \underbrace{-{(R_k + B_k^T P_{k+1} B_k)}^{-1} \cdot B_k^T \cdot P_{k+1} \cdot A_k}_{\text{Verstärkungsmatrix } L_k} x_k$$
+    </dd>
     <dt><dfn>Sicherheitsäquivalenz</dfn> (<a href="https://en.wikipedia.org/wiki/Stochastic_control#Certainty_equivalence"><dfn id="certainty-equivalence">Certainty Equivalence</dfn></a>)</dt>
-    <dd>Verstärkungsmatrix $l_k$ und somit die Strategie $\pi_k^*$
+    <dd>Die Sicherheitsäquivalenz besagt, dass im Fall eines linearen Modells
+        mit einer quadratischen Zielfunktion und additivem Rauschen die
+        optimale Lösung des Kontroll-Problems die Gleiche ist, wie wenn das
+        Rauschen nciht vorhande wäre. Anders gesagt:<br/>
+
+        Die Verstärkungsmatrix $l_k$ und somit die Strategie $\pi_k^*$
         sind unabhängig vom Rauschen $r_k^{(s)}$.<br/>
         <br/>
         Die selbe optimale Strategie ergibt sich bei Betrachtung des
@@ -767,9 +784,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         welchem das Rauschen $r_k^{(s)}$ durch dessen Erwartungswert $E(r_k^{(s)}) = 0$
         ersetzt ist.<br/>
 
-        $\Rightarrow$ Deterministisches Problem
-
-        TODO</dd>
+        $\Rightarrow$ Deterministisches Problem</dd>
 </dl>
 
 
@@ -2164,7 +2179,7 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
 * Was versteht man unter Modellprädiktiver Planung (MP)?<br/>
   → TODO
 * Was versteht man unter der Sicherheitsäquivalenz?<br/>
-  → TODO
+  → Siehe <a href="#certainty-equivalence">oben</a>.
 * Was können Sie zur Sensoreinsatzplanung sagen?<br/>
   → TODO
 * Wie kann man die Kosten bei der Sensoreinsatzplanung modellieren?<br/>
