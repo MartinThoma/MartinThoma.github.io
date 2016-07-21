@@ -807,11 +807,23 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 <dd>$$x_{k+1} = A_k + x_k + B_k \cdot a_k + r_k^{(s)}$$</dd>
 <dt><a href="https://de.wikipedia.org/wiki/LQ-Regler"><dfn id="linear-quadratic-regulator">Linearer Quadratischer Regulator</dfn></a> (<dfn id="lqr">LQR</dfn>)</dt>
 <dd>Der LQR ist ein Regler (Regulator) f&uuml;r einen lineareren Zustandsraum
-        mit quadratischer Kostenfunktion. Ein Regel will typischerweise den
+        mit quadratischer Kostenfunktion. Ein Reger will typischerweise den
         Zustand $x = \vec{0}$ erreichen, wohingegen ein Tracker den aktuellen
-        Zustand bestm&ouml;glich sch&auml;tzen will.
+        Zustand bestm&ouml;glich sch&auml;tzen will.<br/>
+<br/>
+        Das lineare Zustandsraummodell lautet:
+        $$x_{k+1} = A_k \cdot x_k + B_k \cdot a_k + r_k^{(s)}$$
 
-        TODO</dd>
+        Die zu minimierende Kostenfunktion sei
+        $$\mathbb{E} \left ( \underbrace{x_N^T \cdot Q_N \cdot x_N + \sum_{k=0}^{N-1} x_k^T \cdot Q_k \cdot x_k}_{\text{Zustandsabh&auml;ngige Kosten}} + \underbrace{\sum_{k=0}^{N-1} a_k^T \cdot R_k \cdot a_k}_{\text{aktionsabh&auml;ngige Kosten}} \right )$$
+
+        Dabei sind die Gewichtungsmatrizen $Q_k, Q_N, R_k$ symmetrisch und
+        positiv definit.
+
+        Es ergibts sich:
+
+        $$a_k^* = \underbrace{-{(R_k + B_k^T P_{k+1} B_k)}^{-1} \cdot B_k^T \cdot P_{k+1} \cdot A_k}_{\text{Verst&auml;rkungsmatrix } L_k} x_k$$
+    </dd>
 <dt><dfn>Sicherheits&auml;quivalenz</dfn> (<a href="https://en.wikipedia.org/wiki/Stochastic_control#Certainty_equivalence"><dfn id="certainty-equivalence">Certainty Equivalence</dfn></a>)</dt>
 <dd>Die Sicherheits&auml;quivalenz besagt, dass im Fall eines linearen Modells
         mit einer quadratischen Zielfunktion und additivem Rauschen die
