@@ -76,7 +76,7 @@ sowie die Werte- und Strategieiteration zu nennen.
     <td>7</td>
     <td id="2016-06-01">01.06.2016</td>
     <td>MDPs (<a href="https://ies.anthropomatik.kit.edu/ies/download/lehre/proplan/ProPlan-8-Folien.pdf">Folien</a>)</td>
-    <td>Pontryagin's Minimumprinzip, Hamilton-Funktion; LQR; Sicherheitsäquivalenz</td>
+    <td>Pontryagin's Minimumprinzip, Hamilton-Funktion, Riccati-Gleichung; LQR; Sicherheitsäquivalenz</td>
 </tr>
 <tr>
     <td>8</td>
@@ -712,8 +712,8 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
     <dt><dfn>Label-Korrektur-Algorithmus</dfn></dt>
     <dd>Der Label-Korrektur-Algorithmus ist ein Meta-Algorithmus zur
         kürzeste-Wege-Suche dient. Spezialfälle von diesem sind die
-        Tiefen- und Breitensuche, der <a href="https://de.wikipedia.org/wiki/Dijkstra-Algorithmus">Dijkstra-Algorithmus</a>, der <a href="https://de.wikipedia.org/wiki/A*-Algorithmus">A*-Algorithmus</a> sowie
-        Branch &amp; Bound.
+        Tiefensuche (K ist LIFO-Liste / Stack) und Breitensuche (K ist FIFO-Liste), der <a href="https://de.wikipedia.org/wiki/Dijkstra-Algorithmus">Dijkstra-Algorithmus</a> (K ist Priority-Queue), der <a href="https://de.wikipedia.org/wiki/A*-Algorithmus">A*-Algorithmus</a> (K ist Priority-Queue, $h_j$ ist nicht-trivial) sowie
+        Branch &amp; Bound (K ist Priority-Queue, $h_j$ ist nicht-trivial und $m_j$ ist nicht trivial).
 
           <img src="../images/2016/07/label-correction.png"
                alt="Label correction algorithm"
@@ -740,8 +740,12 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         minimiert wird. Dabei ist $x(t)$ der Systemzustand mit
         $$\dot{x}=f(x,u,t) \qquad x(0)=x_0 \quad t \in [0,T]$$
         In diesem Fall ist die Hamilton-Funktion
-        $$H(x,\lambda,u,t)=\lambda^T(t)f(x,u,t)+L(x,u,t),$$
-        wobei $\lambda(t)$ Lagrange-Multiplikatoren sind.</dd>
+        $$H_k(x_k, a_k, \lambda) = g_k(x_k, a_k) + h_k(x_k, a_k)^T \cdot \lambda_{k+1},$$
+        wobei $\lambda(t)$ Lagrange-Multiplikatoren sind.
+
+        $$\mathcal{L}(x_{0:N}, a_{0:N-1}, \lambda_{0:N}) = g_N(x_N) + (c-x_0) \lambda_0 + \sum_{k=0}^{N-1} (H_k - x_{k+1}^T \lambda_{k+1})$$
+
+        </dd>
     <dt><dfn>Lineares Zustandsmodell</dfn></dt>
     <dd>$$x_{k+1} = A_k + x_k + B_k \cdot a_k + r_k^{(s)}$$</dd>
     <dt><a href="https://de.wikipedia.org/wiki/LQ-Regler"><dfn id="linear-quadratic-regulator">Linearer Quadratischer Regulator</dfn></a> (<dfn id="lqr">LQR</dfn>)</dt>
@@ -2196,6 +2200,7 @@ Der Dozent nutzt folgende Notation:
 * Stack Exchange
     * [Why is $f_x(Ax + b) = f_x(x)$?](http://math.stackexchange.com/q/1865801/6876)
     * [How can I solve an optimization problem $x^T A x$ with constraint $x^T x = 1$?](http://math.stackexchange.com/q/1866356/6876)
+    * [Diverging Gradient Descent](https://martin-thoma.com/diverging-gradient-descent/)
 
 
 ## Vorlesungs&shy;empfehlungen
