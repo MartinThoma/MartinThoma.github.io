@@ -447,12 +447,26 @@ sowie die Werte- und Strategieiteration zu nennen.</p>
       $$\frac{\partial x^T A x}{\partial x} = 2 A x$$
 
   </dd>
-<dt><dfn>Konvexe Optimierungsprobleme</dfn></dt>
-<dd>Ein Optimierungsproblem mit konvexer Zielfunktion $f$ hat folgende
+<dt><dfn id="convex-optimization">Konvexe Optimierungsprobleme</dfn></dt>
+<dd>
+
+      Eine Funktion $f: \mathbb{R}^l \rightarrow \mathbb{R}$ hei&szlig;t
+      <i>konvex</i>, wenn gilt:
+
+      $$f(\Theta u + (1 - \Theta) \cdot v) \leq \Theta f(u) + (1-\Theta) \cdot f(v)$$
+
+      f&uuml;r beliebige $u, v \in \mathbb{R}^l$ und $\Theta \in [0, 1]$ gilt.<br/>
+<u>Salopp</u>: Der Graph der Funktion ist unter der Sekante.<br/>
+<br/>
+      Ein Optimierungsproblem hei&szlig;t <i>konvex</i>, wenn die
+      Gleichungsnebenbedingungen affin und die Zielfunktion sowie die
+      Ungleichungsnebenbedingungen konvex sind.<br/>
+<br/>
+      Ein Optimierungsproblem mit konvexer Zielfunktion $f$ hat folgende
       besonderen Eigenschaften
 
       <ul>
-<li>Jedes lokale Optimum ist ein globales Optimum</li>
+<li>Jedes lokale Optimum ist ein globales Optimum.</li>
 <li>Ein strikt konvexes Optimierungsproblem hat ein eindeutiges
               Optimum.</li>
 <li>Die notwendige Bedingung ist auch hinreichend:
@@ -462,6 +476,45 @@ sowie die Werte- und Strategieiteration zu nennen.</p>
 <li>Mit Nebenbedingungen: $(\nabla f(x^*))^T \cdot (x - x^*) \geq 0 \quad \forall x \in \mathcal{F}$, wobei $\mathcal{F}$ eine konvexe Menge ist.</li>
 </ul>
 </li>
+</ul>
+</dd>
+<dt><dfn>Iterativer Abstieg</dfn> (<dfn id="iterative-descent">Iterative Descent</dfn>)</dt>
+<dd>
+
+      Der Iterative Abstieg ist ein numerisches Optimierungsverfahren ohne
+      Nebenbedingungen. Man geht wie folgt vor:
+
+      <ol>
+<li>W&auml;hle einen Startwert $x_k$ mit $k=0$ beliebig.</li>
+<li>W&auml;hle einen weiteren Wert
+              $$x_{k+1} = x_k + \alpha \cdot d_k$$
+              wobei $\alpha &gt; 0$ die Schrittweite (oder Lernrate) genannt wird.
+              $d_k$ ist die Abstiegsrichtung.
+          </li>
+<li>Weiter zu 2.</li>
+</ol>
+<u>Wahl der Abstiegsrichtung</u>:
+      <ul>
+<li>Taylor-Reihenentwicklung von $f$ um $x_k$:
+
+              $$f(x_{k+1}) = f(x_k + \alpha d_k) = f(x_k) + \underbrace{\alpha_k \nabla f(x_k)^T \cdot d_k}_{\text{dominiert } O(\alpha_k) \text{ f&uuml;r kleine } \alpha_k} + O(\alpha_k)$$
+              W&auml;hle dann $\alpha_k \nabla f(x_k)^T \cdot d_k &lt; 0 \Rightarrow$
+              $f(x_{k+1}) &lt; f(x_k)$, d.h. der Gradient und die Abstiegsrichtung
+              m&uuml;ssen einen Winkel von mehr als 90&deg; einschlie&szlig;en. (TODO: Warum?)
+          </li>
+<li>H&auml;ufig wird $d_k = - D_k \nabla f(x_k)$ gew&auml;hlt, wobei
+              $D_k$ eine positiv definite Matrix ist.
+          <ul>
+<li>$D_k = I$: Gradientenabstieg ("Steilster Abstieg")</li>
+<li>$D_k = H_f^{-1}(x_k)$: Newton-Verfahren</li>
+</ul>
+</li>
+</ul>
+<u>Wahl der Schrittweite</u>:
+      <ul>
+<li>$\alpha_k$ konstant</li>
+<li>$\alpha_k$ (streng) monoton fallend</li>
+<li>Liniensuche, d.h. Optimierung bzgl. $\alpha_k$: $\alpha_k^* = \text{arg }\min_{\alpha &gt; 0} f(x_k + \alpha_k d_k)$</li>
 </ul>
 </dd>
 <dt><a href="https://en.wikipedia.org/wiki/Bellman_equation"><dfn id="bellman-equation">Bellman-Gleichungen</dfn></a></dt>
@@ -2103,6 +2156,7 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 <li><a href="https://en.wikipedia.org/wiki/Game_complexity#Complexities_of_some_well-known_games">Complexity of some well-known games</a> sowie <a href="https://xkcd.com/1002/">xkcd: Game AIs</a></li>
 <li>Stack Exchange<ul>
 <li><a href="http://math.stackexchange.com/q/1865801/6876">Why is <span class="math">\(f_x(Ax + b) = f_x(x)\)</span>?</a></li>
+<li><a href="http://math.stackexchange.com/q/1866356/6876">How can I solve an optimization problem <span class="math">\(x^T A x\)</span> with constraint <span class="math">\(x^T x = 1\)</span>?</a></li>
 </ul>
 </li>
 </ul>

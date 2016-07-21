@@ -778,12 +778,26 @@ sowie die Werte- und Strategieiteration zu nennen.&lt;/p&gt;
       $$\frac{\partial x^T A x}{\partial x} = 2 A x$$
 
   &lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;Konvexe Optimierungsprobleme&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;Ein Optimierungsproblem mit konvexer Zielfunktion $f$ hat folgende
+&lt;dt&gt;&lt;dfn id="convex-optimization"&gt;Konvexe Optimierungsprobleme&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+
+      Eine Funktion $f: \mathbb{R}^l \rightarrow \mathbb{R}$ hei&amp;szlig;t
+      &lt;i&gt;konvex&lt;/i&gt;, wenn gilt:
+
+      $$f(\Theta u + (1 - \Theta) \cdot v) \leq \Theta f(u) + (1-\Theta) \cdot f(v)$$
+
+      f&amp;uuml;r beliebige $u, v \in \mathbb{R}^l$ und $\Theta \in [0, 1]$ gilt.&lt;br/&gt;
+&lt;u&gt;Salopp&lt;/u&gt;: Der Graph der Funktion ist unter der Sekante.&lt;br/&gt;
+&lt;br/&gt;
+      Ein Optimierungsproblem hei&amp;szlig;t &lt;i&gt;konvex&lt;/i&gt;, wenn die
+      Gleichungsnebenbedingungen affin und die Zielfunktion sowie die
+      Ungleichungsnebenbedingungen konvex sind.&lt;br/&gt;
+&lt;br/&gt;
+      Ein Optimierungsproblem mit konvexer Zielfunktion $f$ hat folgende
       besonderen Eigenschaften
 
       &lt;ul&gt;
-&lt;li&gt;Jedes lokale Optimum ist ein globales Optimum&lt;/li&gt;
+&lt;li&gt;Jedes lokale Optimum ist ein globales Optimum.&lt;/li&gt;
 &lt;li&gt;Ein strikt konvexes Optimierungsproblem hat ein eindeutiges
               Optimum.&lt;/li&gt;
 &lt;li&gt;Die notwendige Bedingung ist auch hinreichend:
@@ -793,6 +807,45 @@ sowie die Werte- und Strategieiteration zu nennen.&lt;/p&gt;
 &lt;li&gt;Mit Nebenbedingungen: $(\nabla f(x^*))^T \cdot (x - x^*) \geq 0 \quad \forall x \in \mathcal{F}$, wobei $\mathcal{F}$ eine konvexe Menge ist.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Iterativer Abstieg&lt;/dfn&gt; (&lt;dfn id="iterative-descent"&gt;Iterative Descent&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dd&gt;
+
+      Der Iterative Abstieg ist ein numerisches Optimierungsverfahren ohne
+      Nebenbedingungen. Man geht wie folgt vor:
+
+      &lt;ol&gt;
+&lt;li&gt;W&amp;auml;hle einen Startwert $x_k$ mit $k=0$ beliebig.&lt;/li&gt;
+&lt;li&gt;W&amp;auml;hle einen weiteren Wert
+              $$x_{k+1} = x_k + \alpha \cdot d_k$$
+              wobei $\alpha &amp;gt; 0$ die Schrittweite (oder Lernrate) genannt wird.
+              $d_k$ ist die Abstiegsrichtung.
+          &lt;/li&gt;
+&lt;li&gt;Weiter zu 2.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;u&gt;Wahl der Abstiegsrichtung&lt;/u&gt;:
+      &lt;ul&gt;
+&lt;li&gt;Taylor-Reihenentwicklung von $f$ um $x_k$:
+
+              $$f(x_{k+1}) = f(x_k + \alpha d_k) = f(x_k) + \underbrace{\alpha_k \nabla f(x_k)^T \cdot d_k}_{\text{dominiert } O(\alpha_k) \text{ f&amp;uuml;r kleine } \alpha_k} + O(\alpha_k)$$
+              W&amp;auml;hle dann $\alpha_k \nabla f(x_k)^T \cdot d_k &amp;lt; 0 \Rightarrow$
+              $f(x_{k+1}) &amp;lt; f(x_k)$, d.h. der Gradient und die Abstiegsrichtung
+              m&amp;uuml;ssen einen Winkel von mehr als 90&amp;deg; einschlie&amp;szlig;en. (TODO: Warum?)
+          &lt;/li&gt;
+&lt;li&gt;H&amp;auml;ufig wird $d_k = - D_k \nabla f(x_k)$ gew&amp;auml;hlt, wobei
+              $D_k$ eine positiv definite Matrix ist.
+          &lt;ul&gt;
+&lt;li&gt;$D_k = I$: Gradientenabstieg ("Steilster Abstieg")&lt;/li&gt;
+&lt;li&gt;$D_k = H_f^{-1}(x_k)$: Newton-Verfahren&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;u&gt;Wahl der Schrittweite&lt;/u&gt;:
+      &lt;ul&gt;
+&lt;li&gt;$\alpha_k$ konstant&lt;/li&gt;
+&lt;li&gt;$\alpha_k$ (streng) monoton fallend&lt;/li&gt;
+&lt;li&gt;Liniensuche, d.h. Optimierung bzgl. $\alpha_k$: $\alpha_k^* = \text{arg }\min_{\alpha &amp;gt; 0} f(x_k + \alpha_k d_k)$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Bellman_equation"&gt;&lt;dfn id="bellman-equation"&gt;Bellman-Gleichungen&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
@@ -2434,6 +2487,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Game_complexity#Complexities_of_some_well-known_games"&gt;Complexity of some well-known games&lt;/a&gt; sowie &lt;a href="https://xkcd.com/1002/"&gt;xkcd: Game AIs&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Stack Exchange&lt;ul&gt;
 &lt;li&gt;&lt;a href="http://math.stackexchange.com/q/1865801/6876"&gt;Why is &lt;span class="math"&gt;\(f_x(Ax + b) = f_x(x)\)&lt;/span&gt;?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://math.stackexchange.com/q/1866356/6876"&gt;How can I solve an optimization problem &lt;span class="math"&gt;\(x^T A x\)&lt;/span&gt; with constraint &lt;span class="math"&gt;\(x^T x = 1\)&lt;/span&gt;?&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
