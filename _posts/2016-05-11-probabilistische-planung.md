@@ -45,7 +45,7 @@ sowie die Werte- und Strategieiteration zu nennen.
     <td>2</td>
     <td>28.04.2016</td>
     <td>Grundlagen</td>
-    <td>Allais-Paradoxon, Nutzentheorie, Präferenzrelation, Nutzenfunktion</td>
+    <td><a href="#allais-paradoxon">Allais-Paradoxon</a>, Nutzentheorie, <a href="#preference">Präferenzrelation</a>, Nutzenfunktion</td>
 </tr>
 <tr>
     <td>3</td>
@@ -58,7 +58,7 @@ sowie die Werte- und Strategieiteration zu nennen.
     <td>4</td>
     <td>11.05.2016</td>
     <td>MDPs</td>
-    <td>Definition eines MDP, Plan vs. Strategie, <abbr title="Dynamische Programmierung">DP</abbr></td>
+    <td>Definition eines MDP, Plan vs. Strategie, Optimalitätsprinzip, <abbr title="Dynamische Programmierung">DP</abbr></td>
 </tr>
 <tr>
     <td>5</td>
@@ -218,7 +218,7 @@ Slides: `11.05.2016`
       welchem Zustand welche Aktion ausgeführt werden soll.<br/>
       <br/>
       Eine Strategie ist ein Plan mit Zustandsrückführung.</dd>
-  <dt><a href="https://de.wikipedia.org/wiki/Pr%C3%A4ferenzrelation"><dfn>Präferenzrelation</dfn></a></dt>
+  <dt><a href="https://de.wikipedia.org/wiki/Pr%C3%A4ferenzrelation"><dfn id="preference">Präferenzrelation</dfn></a></dt>
   <dd>Sei $\mathcal{X}$ eine Zustandsmenge und $\geq \subseteq \mathcal{X} \times \mathcal{X}$
       eine binäre Relation auf $\mathcal{X}$. $\geq$ heißt (schwache)
       Präferenzrelation, wenn gilt:
@@ -273,7 +273,7 @@ Slides: `11.05.2016`
       Entscheiders nicht verändern darf.<br/>
       <br/>
       <ul>
-          <li>Lotterie 1: 
+          <li>Lotterie 1:
 
               <ul>
                   <li>a: $P(X = 2500) = 0.33$, $P(X = 2400) = 0.66$, $P(X = 0) = 0.01$</li>
@@ -291,7 +291,27 @@ Slides: `11.05.2016`
       </ul>
 
   </dd>
-  <dt><dfn>Kritik an der Nutzentheorie</dfn></dt>
+  <dt><dfn id="rational-decision">Rationale Entscheidung</dfn></dt>
+  <dd>
+
+      Folgt eine Präferenzrelation $\geq$ den Von-Neumann-Morgenstern-Axiomen,
+      so werden Planungsentscheidungen auf der Grundlage von $\geq$ als
+      <i>rational</i> bezeichnet.
+
+  </dd>
+  <dt><dfn id="theorem-rational-decisions">Satz der rationalen Entscheidungen</dfn> (PrPlan-2, Folie 19)</dt>
+  <dd>
+
+       Eine Relation $\geq$ auf $P$ erfüllt die Von-Neumann-Morgenstern Axiome
+       genau dann, wenn eine Funktion $u: X \rightarrow \mathbb{R}$ existiert,
+       sodass
+       $$P \geq Q \Leftrightarrow \mathbb{E}_P (u(x)) \geq E_Q (u(x))$$
+       gilt. Die Funktion $u$ ist bist auf affine Transformationen
+       $$c \cdot u(x) + d \text{ mit } c>0$$
+       eindeutig.
+
+  </dd>
+  <dt><dfn id="kritik-nutzentheorie">Kritik an der Nutzentheorie</dfn></dt>
   <dd>
 
       <ul>
@@ -321,14 +341,72 @@ Slides: `11.05.2016`
         Siehe auch: <a href="../optimization-basics">Optimization Basics</a>
 
       </dd>
+  <dt><dfn>Positiv Definite Matrix</dfn></dt>
+  <dd>
+
+      Eine Matrix $A \in \mathbb{R}^{n \times n}$ heißt positiv definit, wenn
+      $$x^T A x > 0 \quad \forall x \in \mathbb{R}^n \setminus \{0\}$$
+
+      Äquivalent gilt: $A$ heißt positiv definit, wenn alle Eigenwerte von $A$
+      positiv definit sind.
+
+  </dd>
   <dt><dfn>Notwendige Bedingung für optimale Lösung</dfn></dt>
   <dd>$\nabla f(x) \overset{!}{=} 0$</dd>
-  <dt><dfn>Konvexe Optimierungsprobleme</dfn></dt>
-  <dd>Ein Optimierungsproblem mit konvexer Zielfunktion $f$ hat folgende
+  <dt><dfn>Hinreichende Bedingung für optimale Lösung</dfn></dt>
+  <dd>$\nabla f(x) \overset{!}{=} 0$ und $\nabla^2 f(x) =: H_f$ ist
+      positiv definit. Dabei ist $H_f$ die Hessematrix:
+
+      $$\begin{pmatrix}
+\frac{\partial^2 f}{\partial x_1 \partial x_1} & \dots & \frac{\partial^2 f}{\partial x_1 \partial x_l}\\
+\vdots & \ddots & \vdots\\
+\frac{\partial^2 f}{\partial x_l \partial x_1} & \dots & \frac{\partial^2 f}{\partial x_l \partial x_l}
+\end{pmatrix}$$
+
+      Allerdings ist diese Bedingung nicht notwendig. Beispielsweise ist für
+      $$f(x) = x^4$$
+      an der Stelle $x=0$ das globale Minimum. Es gilt:
+      $$\nabla f(x) = 4 x^3$$
+      und
+      $$H_f(x^*) = 12 (x^*)^2 = 0$$
+      Damit ist $H_f(x^*)$ nicht positiv definit und somit keine Entscheidung
+      darüber möglich, ob $x^* = 0$ ein Minimum ist.
+
+      </dd>
+  <dt><dfn>Ableitungsregeln für Matrizen</dfn></dt>
+  <dd>
+
+      Es seien im Folgenden $x, a$ Vektoren.
+
+      $$\frac{\partial x^T a}{\partial x} = \frac{\partial a^T x}{\partial x} = a$$
+
+      Es sei $A$ eine quadratische Matrix:
+
+      $$\frac{\partial x^T A}{\partial x} = \frac{\partial A x}{\partial x} = A$$
+
+      $$\frac{\partial x^T A x}{\partial x} = 2 A x$$
+
+  </dd>
+  <dt><dfn id="convex-optimization">Konvexe Optimierungsprobleme</dfn></dt>
+  <dd>
+
+      Eine Funktion $f: \mathbb{R}^l \rightarrow \mathbb{R}$ heißt
+      <i>konvex</i>, wenn gilt:
+
+      $$f(\Theta u + (1 - \Theta) \cdot v) \leq \Theta f(u) + (1-\Theta) \cdot f(v)$$
+
+      für beliebige $u, v \in \mathbb{R}^l$ und $\Theta \in [0, 1]$ gilt.<br/>
+      <u>Salopp</u>: Der Graph der Funktion ist unter der Sekante.<br/>
+      <br/>
+      Ein Optimierungsproblem heißt <i>konvex</i>, wenn die
+      Gleichungsnebenbedingungen affin und die Zielfunktion sowie die
+      Ungleichungsnebenbedingungen konvex sind.<br/>
+      <br/>
+      Ein Optimierungsproblem mit konvexer Zielfunktion $f$ hat folgende
       besonderen Eigenschaften
 
       <ul>
-          <li>Jedes lokale Optimum ist ein globales Optimum</li>
+          <li>Jedes lokale Optimum ist ein globales Optimum.</li>
           <li>Ein strikt konvexes Optimierungsproblem hat ein eindeutiges
               Optimum.</li>
           <li>Die notwendige Bedingung ist auch hinreichend:
@@ -341,8 +419,51 @@ Slides: `11.05.2016`
       </ul>
 
   </dd>
-  <dt><a href="https://en.wikipedia.org/wiki/Bellman_equation"><dfn id="bellman-equation">Bellman-Gleichungen</dfn></a></dt>
-  <dd>Eine Bellman-Gleichung stellt die Lösung eines Problems rekursiv dar.
+  <dt><dfn>Iterativer Abstieg</dfn> (<dfn id="iterative-descent">Iterative Descent</dfn>)</dt>
+  <dd>
+
+      Der Iterative Abstieg ist ein numerisches Optimierungsverfahren ohne
+      Nebenbedingungen. Man geht wie folgt vor:
+
+      <ol>
+          <li>Wähle einen Startwert $x_k$ mit $k=0$ beliebig.</li>
+          <li>Wähle einen weiteren Wert
+              $$x_{k+1} = x_k + \alpha \cdot d_k$$
+              wobei $\alpha > 0$ die Schrittweite (oder Lernrate) genannt wird.
+              $d_k$ ist die Abstiegsrichtung.
+          </li>
+          <li>Weiter zu 2.</li>
+      </ol>
+
+      <u>Wahl der Abstiegsrichtung</u>:
+      <ul>
+          <li>Taylor-Reihenentwicklung von $f$ um $x_k$:
+
+              $$f(x_{k+1}) = f(x_k + \alpha d_k) = f(x_k) + \underbrace{\alpha_k \nabla f(x_k)^T \cdot d_k}_{\text{dominiert } O(\alpha_k) \text{ für kleine } \alpha_k} + O(\alpha_k)$$
+              Wähle dann $\alpha_k \nabla f(x_k)^T \cdot d_k < 0 \Rightarrow$
+              $f(x_{k+1}) < f(x_k)$, d.h. der Gradient und die Abstiegsrichtung
+              müssen einen Winkel von mehr als 90° einschließen. (TODO: Warum?)
+          </li>
+          <li>Häufig wird $d_k = - D_k \nabla f(x_k)$ gewählt, wobei
+              $D_k$ eine positiv definite Matrix ist.
+          <ul>
+              <li>$D_k = I$: Gradientenabstieg ("Steilster Abstieg")</li>
+              <li>$D_k = H_f^{-1}(x_k)$: Newton-Verfahren</li>
+          </ul>
+
+          </li>
+      </ul>
+
+      <u>Wahl der Schrittweite</u>:
+      <ul>
+          <li>$\alpha_k$ konstant</li>
+          <li>$\alpha_k$ (streng) monoton fallend</li>
+          <li>Liniensuche, d.h. Optimierung bzgl. $\alpha_k$: $\alpha_k^* = \text{arg }\min_{\alpha > 0} f(x_k + \alpha_k d_k)$</li>
+      </ul>
+
+  </dd>
+  <dt style="background-color:#cac0c0;"><a href="https://en.wikipedia.org/wiki/Bellman_equation"><dfn id="bellman-equation">Bellman-Gleichungen</dfn></a></dt>
+  <dd style="background-color:#ffefef;">Eine Bellman-Gleichung stellt die Lösung eines Problems rekursiv dar.
       Sie zeigt, dass und wie man die Lösung eines komplexen Problems aus
       Lösungen von Teilproblemen aufbauen kann.<br/>
       Die Belmann-Gleichungen lauten:
@@ -1958,16 +2079,36 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
 * Welche 3 Themengebiete wurden in der Vorlesung behandelt und was sind die
   Unterschiede?<br/>
   → <a href="#mdp">MDP</a>, <a href="#pomdp">POMDP</a>, <a href="#rl">RL</a>
+* Welche Paradoxa haben wir in den Vorlesungen kennen gelernt?<br/>
+  → Allais-Paradoxon (TODO: Weitere?)
+
+
+### Nutzen- und Entscheidungs&shy;theorie
+* Warum gibt es die Nutzenfunktion? Warum reicht die Präferenzrelation nicht aus?<br/>
+  → Die Nutzenfunktion ist einfacher zu erstellen.
+* Wie lautet der Satz vom Allais-Paradoxon?<br/>
+  → Siehe <a href="#theorem-rational-decisions">oben</a>.
+* Wie kann man die Nutzentheorie kritisieren?<br/>
+  → Siehe <a href="#kritik-nutzentheorie">oben</a>.
+* Was haben wir zur Entscheidungstheorie gemacht?<br/>
+  → TODO
 * Wie ist eine Nutzenfunktion definiert?<br/>
   → Siehe <a href="#nutzenfunktion">oben</a>
+
+### Optimierungstheorie
+
 * Wie löst man Optimierungsprobleme ohne Nebenbedingungen?<br/>
   → Iterativer Abstieg (z.B. Gradientenverfahren), Dynamische Programmierung (TODO)
-* Beweisen Sie, dass der Gradient senkrecht auf die Höhenlinien steht.<br/>
-  → TODO
+* Wann existiert kein globales Minimum für ein Optimierungsproblem?<br/>
+  → Wenn die Menge der zulässigen Lösungen nach unten unbeschränkt ist, d.h.
+     $\text{arg} \min_x f(x) = - \infty$ oder wenn die untere Schranke nicht
+     angenommen wird, wie es beispielsweise für $e^x$ der Fall ist.
 * Wie löst man Optimierungsprobleme mit Nebenbedingungen?<br/>
   → Lagrange (TODO)
 * Wann ist es leichter / schwerer das Optimierungsproblem zu lösen?<br/>
   → Keine Nebenbedingungen, in $\mathbb{R}^n$ oder kleiner diskreter Raum (TODO)
+* Beweisen Sie, dass der Gradient senkrecht auf die Höhenlinien steht.<br/>
+  → TODO
 * Welche numerischen Methoden zur Optimierung kennen sie?<br/>
   → Iterativer Abstieg (Gradientenverfahren, Newton-Verfahren), Dynamische Programmierung(?) (TODO)
 * Welche geschlossen lösbaren Spezialfälle existieren?<br/>
@@ -1975,17 +2116,6 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
 * Welche Möglichkeiten der approximativen Lösung existieren bzw. sind
   anwendbar?<br/>
   → TODO
-* Welche Paradoxa haben wir in den Vorlesungen kennen gelernt?<br/>
-  → Allais-Paradoxon (TODO: Weitere?)
-* Warum gibt es die Nutzenfunktion? Warum reicht die Präferenzrelation nicht aus?<br/>
-  → Die Nutzenfunktion ist einfacher zu erstellen.
-* Wie lautet der Satz vom Allais-Paradoxon?<br/>
-  → TODO
-* Wie kann man die Nutzentheorie kritisieren?<br/>
-  → TODO
-* Was haben wir zur Entscheidungstheorie gemacht?<br/>
-  → TODO
-
 
 
 ### MDP
@@ -2065,6 +2195,7 @@ Der Dozent nutzt folgende Notation:
 * [Complexity of some well-known games](https://en.wikipedia.org/wiki/Game_complexity#Complexities_of_some_well-known_games) sowie [xkcd: Game AIs](https://xkcd.com/1002/)
 * Stack Exchange
     * [Why is $f_x(Ax + b) = f_x(x)$?](http://math.stackexchange.com/q/1865801/6876)
+    * [How can I solve an optimization problem $x^T A x$ with constraint $x^T x = 1$?](http://math.stackexchange.com/q/1866356/6876)
 
 
 ## Vorlesungs&shy;empfehlungen
