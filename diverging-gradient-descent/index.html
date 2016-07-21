@@ -121,14 +121,21 @@ then applies the update rule</p>
 <div class="math">$$d_k(x_k) = - \nabla f(x_k)$$</div>
 <h2 id="example">Example</h2>
 <div class="math">$$\nabla f(x, y) = \begin{pmatrix}6x + 2y\\6y + 2x\end{pmatrix}$$</div>
-<ol>
-<li>$x_0 = (6, 6)$; $d_k(6, 6) = (-24, -24)$</li>
-<li>$x_1 = (-18, -18)$; $d_k(-18, -18) = (72, 72)</li>
-<li>$x_2 = (54, 54)$; $d_k(54, 54) = (-216, -216)$</li>
-<li>$x_3 = (-162, -162)$; $d_k(-162, -162) = (648, 648)$</li>
-<li>$x_n = (x_{n-1} - \frac{8}{2} \cdot x_{n-1}, x_{n-1} - \frac{8}{2} \cdot x_{n-1})$</li>
-<li>$x_n = (-3x_{n-1}, -3x_{n-1})$</li>
-</ol>
+<div class="math">\begin{align}
+x_0 &amp;= (6, 6)       &amp; d_k(6, 6)       &amp;= (-24, -24)\\
+x_1 &amp;= (-18, -18)   &amp; d_k(-18, -18)   &amp;= (72, 72\\
+x_2 &amp;= (54, 54)     &amp; d_k(54, 54)     &amp;= (-216, -216)\\
+x_3 &amp;= (-162, -162) &amp; d_k(-162, -162) &amp;= (648, 648)
+\end{align}</div>
+<p>In general:</p>
+<div class="math">\begin{align}
+x_n &amp;= (x_{n-1} - 8 \cdot \frac{1}{2} \cdot x_{n-1}, x_{n-1} - 8 \cdot \frac{1}{2} \cdot x_{n-1})\\
+x_n &amp;= (-3x_{n-1}, -3x_{n-1})
+\end{align}</div>
+<p>You can clearly see that any learning rate <span class="math">\(\eta &gt; \frac{1}{8}\)</span> will diverge.
+For this example, the learning rate <span class="math">\(\eta = \frac{1}{8}\)</span> would find the
+solution in one step and any <span class="math">\(\eta &lt; \frac{1}{8}\)</span> will converge to the global
+optimum.</p>
             
             <div id="disqus_thread"></div>
 <script>

@@ -12,14 +12,21 @@ then applies the update rule&lt;/p&gt;
 &lt;div class="math"&gt;$$d_k(x_k) = - \nabla f(x_k)$$&lt;/div&gt;
 &lt;h2 id="example"&gt;Example&lt;/h2&gt;
 &lt;div class="math"&gt;$$\nabla f(x, y) = \begin{pmatrix}6x + 2y\\6y + 2x\end{pmatrix}$$&lt;/div&gt;
-&lt;ol&gt;
-&lt;li&gt;$x_0 = (6, 6)$; $d_k(6, 6) = (-24, -24)$&lt;/li&gt;
-&lt;li&gt;$x_1 = (-18, -18)$; $d_k(-18, -18) = (72, 72)&lt;/li&gt;
-&lt;li&gt;$x_2 = (54, 54)$; $d_k(54, 54) = (-216, -216)$&lt;/li&gt;
-&lt;li&gt;$x_3 = (-162, -162)$; $d_k(-162, -162) = (648, 648)$&lt;/li&gt;
-&lt;li&gt;$x_n = (x_{n-1} - \frac{8}{2} \cdot x_{n-1}, x_{n-1} - \frac{8}{2} \cdot x_{n-1})$&lt;/li&gt;
-&lt;li&gt;$x_n = (-3x_{n-1}, -3x_{n-1})$&lt;/li&gt;
-&lt;/ol&gt;</summary><category term="Gradient Descent"></category><category term="Optimization"></category></entry><entry><title>XOR tutorial with TensorFlow</title><link href="https://martin-thoma.com/tf-xor-tutorial/" rel="alternate"></link><published>2016-07-19T14:00:00+02:00</published><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2016-07-19:tf-xor-tutorial/</id><summary type="html">&lt;p&gt;The XOR-Problem is a classification problem, where you only have four data
+&lt;div class="math"&gt;\begin{align}
+x_0 &amp;amp;= (6, 6)       &amp;amp; d_k(6, 6)       &amp;amp;= (-24, -24)\\
+x_1 &amp;amp;= (-18, -18)   &amp;amp; d_k(-18, -18)   &amp;amp;= (72, 72\\
+x_2 &amp;amp;= (54, 54)     &amp;amp; d_k(54, 54)     &amp;amp;= (-216, -216)\\
+x_3 &amp;amp;= (-162, -162) &amp;amp; d_k(-162, -162) &amp;amp;= (648, 648)
+\end{align}&lt;/div&gt;
+&lt;p&gt;In general:&lt;/p&gt;
+&lt;div class="math"&gt;\begin{align}
+x_n &amp;amp;= (x_{n-1} - 8 \cdot \frac{1}{2} \cdot x_{n-1}, x_{n-1} - 8 \cdot \frac{1}{2} \cdot x_{n-1})\\
+x_n &amp;amp;= (-3x_{n-1}, -3x_{n-1})
+\end{align}&lt;/div&gt;
+&lt;p&gt;You can clearly see that any learning rate &lt;span class="math"&gt;\(\eta &amp;gt; \frac{1}{8}\)&lt;/span&gt; will diverge.
+For this example, the learning rate &lt;span class="math"&gt;\(\eta = \frac{1}{8}\)&lt;/span&gt; would find the
+solution in one step and any &lt;span class="math"&gt;\(\eta &amp;lt; \frac{1}{8}\)&lt;/span&gt; will converge to the global
+optimum.&lt;/p&gt;</summary><category term="Gradient Descent"></category><category term="Optimization"></category></entry><entry><title>XOR tutorial with TensorFlow</title><link href="https://martin-thoma.com/tf-xor-tutorial/" rel="alternate"></link><published>2016-07-19T14:00:00+02:00</published><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2016-07-19:tf-xor-tutorial/</id><summary type="html">&lt;p&gt;The XOR-Problem is a classification problem, where you only have four data
 points with two features. The training set and the test set are exactly
 the same in this problem. So the interesting question is only if the model is
 able to find a decision boundary which classifies all four points correctly.&lt;/p&gt;
