@@ -58,7 +58,7 @@ LaTeX:
 \usepackage[utf8]{inputenc} % this is needed for umlauts
 \usepackage[ngerman]{babel} % this is needed for umlauts
 \usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
-\usepackage[margin=2.5cm]{geometry} %layout
+\usepackage[margin=2.5cm,headheight=40pt]{geometry} %layout
 \usepackage{fancyhdr}  % needed for the footer
 \usepackage{lastpage}  % needed for the footer
 \usepackage{hyperref}  % links im text
@@ -98,6 +98,7 @@ LaTeX:
 \fancyhf{}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
+\fancyhead[R]{\includegraphics[width=5cm]{logo_sdv}} % https://martin-thoma.com/images/2016/07/logo_sdv.jpg
 \fancyfoot[R]{Seite~\thepage~von \pageref{LastPage}}
 
 \definecolor{LightCyan}{rgb}{0.88,1,1}
