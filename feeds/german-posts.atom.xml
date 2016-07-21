@@ -471,7 +471,7 @@ sowie die Werte- und Strategieiteration zu nennen.&lt;/p&gt;
 &lt;td&gt;2&lt;/td&gt;
 &lt;td&gt;28.04.2016&lt;/td&gt;
 &lt;td&gt;Grundlagen&lt;/td&gt;
-&lt;td&gt;Allais-Paradoxon, Nutzentheorie, Pr&amp;auml;ferenzrelation, Nutzenfunktion&lt;/td&gt;
+&lt;td&gt;&lt;a href="#allais-paradoxon"&gt;Allais-Paradoxon&lt;/a&gt;, Nutzentheorie, &lt;a href="#preference"&gt;Pr&amp;auml;ferenzrelation&lt;/a&gt;, Nutzenfunktion&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;3&lt;/td&gt;
@@ -635,7 +635,7 @@ sowie die Werte- und Strategieiteration zu nennen.&lt;/p&gt;
       welchem Zustand welche Aktion ausgef&amp;uuml;hrt werden soll.&lt;br/&gt;
 &lt;br/&gt;
       Eine Strategie ist ein Plan mit Zustandsr&amp;uuml;ckf&amp;uuml;hrung.&lt;/dd&gt;
-&lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Pr%C3%A4ferenzrelation"&gt;&lt;dfn&gt;Pr&amp;auml;ferenzrelation&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
+&lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Pr%C3%A4ferenzrelation"&gt;&lt;dfn id="preference"&gt;Pr&amp;auml;ferenzrelation&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
 &lt;dd&gt;Sei $\mathcal{X}$ eine Zustandsmenge und $\geq \subseteq \mathcal{X} \times \mathcal{X}$
       eine bin&amp;auml;re Relation auf $\mathcal{X}$. $\geq$ hei&amp;szlig;t (schwache)
       Pr&amp;auml;ferenzrelation, wenn gilt:
@@ -689,7 +689,7 @@ sowie die Werte- und Strategieiteration zu nennen.&lt;/p&gt;
       Entscheiders nicht ver&amp;auml;ndern darf.&lt;br/&gt;
 &lt;br/&gt;
 &lt;ul&gt;
-&lt;li&gt;Lotterie 1: 
+&lt;li&gt;Lotterie 1:
 
               &lt;ul&gt;
 &lt;li&gt;a: $P(X = 2500) = 0.33$, $P(X = 2400) = 0.66$, $P(X = 0) = 0.01$&lt;/li&gt;
@@ -732,8 +732,52 @@ sowie die Werte- und Strategieiteration zu nennen.&lt;/p&gt;
 
         Siehe auch: &lt;a href="../optimization-basics"&gt;Optimization Basics&lt;/a&gt;
 &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Positiv Definite Matrix&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+
+      Eine Matrix $A \in \mathbb{R}^{n \times n}$ hei&amp;szlig;t positiv definit, wenn
+      $$x^T A x &amp;gt; 0 \quad \forall x \in \mathbb{R}^n \setminus \{0\}$$
+
+      &amp;Auml;quivalent gilt: $A$ hei&amp;szlig;t positiv definit, wenn alle Eigenwerte von $A$
+      positiv definit sind.
+
+  &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Notwendige Bedingung f&amp;uuml;r optimale L&amp;ouml;sung&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;$\nabla f(x) \overset{!}{=} 0$&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Hinreichende Bedingung f&amp;uuml;r optimale L&amp;ouml;sung&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;$\nabla f(x) \overset{!}{=} 0$ und $\nabla^2 f(x) =: H_f$ ist
+      positiv definit. Dabei ist $H_f$ die Hessematrix:
+
+      $$\begin{pmatrix}
+\frac{\partial^2 f}{\partial x_1 \partial x_1} &amp;amp; \dots &amp;amp; \frac{\partial^2 f}{\partial x_1 \partial x_l}\\
+\vdots &amp;amp; \ddots &amp;amp; \vdots\\
+\frac{\partial^2 f}{\partial x_l \partial x_1} &amp;amp; \dots &amp;amp; \frac{\partial^2 f}{\partial x_l \partial x_l}
+\end{pmatrix}$$
+
+      Allerdings ist diese Bedingung nicht notwendig. Beispielsweise ist f&amp;uuml;r
+      $$f(x) = x^4$$
+      an der Stelle $x=0$ das globale Minimum. Es gilt:
+      $$\nabla f(x) = 4 x^3$$
+      und
+      $$H_f(x^*) = 12 (x^*)^2 = 0$$
+      Damit ist $H_f(x^*)$ nicht positiv definit und somit keine Entscheidung
+      dar&amp;uuml;ber m&amp;ouml;glich, ob $x^* = 0$ ein Minimum ist.
+
+      &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Ableitungsregeln f&amp;uuml;r Matrizen&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+
+      Es seien im Folgenden $x, a$ Vektoren.
+
+      $$\frac{\partial x^T a}{\partial x} = \frac{\partial a^T x}{\partial x} = a$$
+
+      Es sei $A$ eine quadratische Matrix:
+
+      $$\frac{\partial x^T A}{\partial x} = \frac{\partial A x}{\partial x} = A$$
+
+      $$\frac{\partial x^T A x}{\partial x} = 2 A x$$
+
+  &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Konvexe Optimierungsprobleme&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Ein Optimierungsproblem mit konvexer Zielfunktion $f$ hat folgende
       besonderen Eigenschaften
@@ -2280,25 +2324,11 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;li&gt;Welche 3 Themengebiete wurden in der Vorlesung behandelt und was sind die
   Unterschiede?&lt;br/&gt;
   &amp;rarr; &lt;a href="#mdp"&gt;MDP&lt;/a&gt;, &lt;a href="#pomdp"&gt;POMDP&lt;/a&gt;, &lt;a href="#rl"&gt;RL&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Wie ist eine Nutzenfunktion definiert?&lt;br/&gt;
-  &amp;rarr; Siehe &lt;a href="#nutzenfunktion"&gt;oben&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Wie l&amp;ouml;st man Optimierungsprobleme ohne Nebenbedingungen?&lt;br/&gt;
-  &amp;rarr; Iterativer Abstieg (z.B. Gradientenverfahren), Dynamische Programmierung (TODO)&lt;/li&gt;
-&lt;li&gt;Beweisen Sie, dass der Gradient senkrecht auf die H&amp;ouml;henlinien steht.&lt;br/&gt;
-  &amp;rarr; TODO&lt;/li&gt;
-&lt;li&gt;Wie l&amp;ouml;st man Optimierungsprobleme mit Nebenbedingungen?&lt;br/&gt;
-  &amp;rarr; Lagrange (TODO)&lt;/li&gt;
-&lt;li&gt;Wann ist es leichter / schwerer das Optimierungsproblem zu l&amp;ouml;sen?&lt;br/&gt;
-  &amp;rarr; Keine Nebenbedingungen, in &lt;span class="math"&gt;\(\mathbb{R}^n\)&lt;/span&gt; oder kleiner diskreter Raum (TODO)&lt;/li&gt;
-&lt;li&gt;Welche numerischen Methoden zur Optimierung kennen sie?&lt;br/&gt;
-  &amp;rarr; Iterativer Abstieg (Gradientenverfahren, Newton-Verfahren), Dynamische Programmierung(?) (TODO)&lt;/li&gt;
-&lt;li&gt;Welche geschlossen l&amp;ouml;sbaren Spezialf&amp;auml;lle existieren?&lt;br/&gt;
-  &amp;rarr; TODO&lt;/li&gt;
-&lt;li&gt;Welche M&amp;ouml;glichkeiten der approximativen L&amp;ouml;sung existieren bzw. sind
-  anwendbar?&lt;br/&gt;
-  &amp;rarr; TODO&lt;/li&gt;
 &lt;li&gt;Welche Paradoxa haben wir in den Vorlesungen kennen gelernt?&lt;br/&gt;
   &amp;rarr; Allais-Paradoxon (TODO: Weitere?)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="nutzen-und-entscheidungstheorie"&gt;Nutzen- und Entscheidungs&amp;shy;theorie&lt;/h3&gt;
+&lt;ul&gt;
 &lt;li&gt;Warum gibt es die Nutzenfunktion? Warum reicht die Pr&amp;auml;ferenzrelation nicht aus?&lt;br/&gt;
   &amp;rarr; Die Nutzenfunktion ist einfacher zu erstellen.&lt;/li&gt;
 &lt;li&gt;Wie lautet der Satz vom Allais-Paradoxon?&lt;br/&gt;
@@ -2306,6 +2336,30 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;li&gt;Wie kann man die Nutzentheorie kritisieren?&lt;br/&gt;
   &amp;rarr; TODO&lt;/li&gt;
 &lt;li&gt;Was haben wir zur Entscheidungstheorie gemacht?&lt;br/&gt;
+  &amp;rarr; TODO&lt;/li&gt;
+&lt;li&gt;Wie ist eine Nutzenfunktion definiert?&lt;br/&gt;
+  &amp;rarr; Siehe &lt;a href="#nutzenfunktion"&gt;oben&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="optimierungstheorie"&gt;Optimierungstheorie&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Wie l&amp;ouml;st man Optimierungsprobleme ohne Nebenbedingungen?&lt;br/&gt;
+  &amp;rarr; Iterativer Abstieg (z.B. Gradientenverfahren), Dynamische Programmierung (TODO)&lt;/li&gt;
+&lt;li&gt;Wann existiert kein globales Minimum f&amp;uuml;r ein Optimierungsproblem?&lt;br/&gt;
+  &amp;rarr; Wenn die Menge der zul&amp;auml;ssigen L&amp;ouml;sungen nach unten unbeschr&amp;auml;nkt ist, d.h.
+     &lt;span class="math"&gt;\(\text{arg} \min_x f(x) = - \infty\)&lt;/span&gt; oder wenn die untere Schranke nicht
+     angenommen wird, wie es beispielsweise f&amp;uuml;r &lt;span class="math"&gt;\(e^x\)&lt;/span&gt; der Fall ist.&lt;/li&gt;
+&lt;li&gt;Wie l&amp;ouml;st man Optimierungsprobleme mit Nebenbedingungen?&lt;br/&gt;
+  &amp;rarr; Lagrange (TODO)&lt;/li&gt;
+&lt;li&gt;Wann ist es leichter / schwerer das Optimierungsproblem zu l&amp;ouml;sen?&lt;br/&gt;
+  &amp;rarr; Keine Nebenbedingungen, in &lt;span class="math"&gt;\(\mathbb{R}^n\)&lt;/span&gt; oder kleiner diskreter Raum (TODO)&lt;/li&gt;
+&lt;li&gt;Beweisen Sie, dass der Gradient senkrecht auf die H&amp;ouml;henlinien steht.&lt;br/&gt;
+  &amp;rarr; TODO&lt;/li&gt;
+&lt;li&gt;Welche numerischen Methoden zur Optimierung kennen sie?&lt;br/&gt;
+  &amp;rarr; Iterativer Abstieg (Gradientenverfahren, Newton-Verfahren), Dynamische Programmierung(?) (TODO)&lt;/li&gt;
+&lt;li&gt;Welche geschlossen l&amp;ouml;sbaren Spezialf&amp;auml;lle existieren?&lt;br/&gt;
+  &amp;rarr; TODO&lt;/li&gt;
+&lt;li&gt;Welche M&amp;ouml;glichkeiten der approximativen L&amp;ouml;sung existieren bzw. sind
+  anwendbar?&lt;br/&gt;
   &amp;rarr; TODO&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="mdp"&gt;MDP&lt;/h3&gt;
