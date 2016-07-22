@@ -195,13 +195,13 @@ sowie die Werte- und Strategieiteration zu nennen.</p>
 <td>11</td>
 <td id="2016-06-29">29.06.2016</td>
 <td>POMDPs</td>
-<td>Parametrische / Nichtparametrische approximative Planung (Sicherheits&auml;quivalenz bei deterministischen Problemen); Funktionsapproximatoren f&uuml;r Wertefunktion / Strategie; Sensoreinsatzplanung</td>
+<td>Parametrische / Nichtparametrische approximative Planung (Sicherheits&auml;quivalenz bei deterministischen Problemen); Funktionsapproximatoren f&uuml;r Wertefunktion / Strategie; <a href="#sensoreinsatzplanung">Sensoreinsatzplanung</a></td>
 </tr>
 <tr>
 <td>12</td>
 <td id="2016-07-06">06.07.2016</td>
 <td>POMDPs, <abbr title="Reinforcement Learning">RL</abbr></td>
-<td>POMDPs: Sensoreinsatzplanung</td>
+<td>Lineare Probleme; POMDPs: <a href="#sensoreinsatzplanung">Sensoreinsatzplanung</a></td>
 </tr>
 <tr>
 <td>13</td>
@@ -1189,8 +1189,40 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
                 durch die Wahl einer geeigneten Konfiguration $a_k$ bewerten.<br/>
                 Dabei kann man z.B. Kovarianzbasiert vorgehen, also die
                 r&auml;umliche Ausdehnung der Kovarianzmatrix als Bewertungsgrundlage
-                verwenden.</li>
+                verwenden. Die Spur der Kovarianzmatrix ist proportional
+                zum Umfang, die Determinante ist proportional zur Fl&auml;che.<br/>
+                Alternativ kann man Informationstheoretisch vorgehen. So ist
+                die <i>bedingte differentielle Entropie</i>:
+                $$H(x | z, a) = - \int_{\mathcal{Z}} f(z | a) \cdot \int_{\mathcal{X}} f(x|z,a) \cdot \log f(x | z,a) \mathrm{d} x \mathrm{d} z$$
+
+                (vgl. <a href="../images/2016/07/entropie-vs-varianz.png">Entropie- vs Varianz</a>)<br/>
+                Ein weiteres Ma&szlig; f&uuml;r informationstheoretische Kosten ist die
+                <i>Transinformation</i> (engl. Mutual information):
+                $$
+                \begin{align}
+                T(x; z) &amp;= \int_{\mathcal{Z}} \int_{\mathcal{X}} f(x, z) \cdot \ļog \frac{f(x,z)}{f(x) \cdot f(z)} \mathrm{d}z \mathrm{d}x\\
+                &amp;= H(x) - H(x|z) \geq 0
+                \end{align}
+                $$
+                </li>
+<li>Keine Terminalen Kosten</li>
 </ul>
+
+        Das Problem wird nun wie folgt gel&ouml;st:
+
+        <ul>
+<li>Informationsvektor $I_k = (a_{0:k}, z_{0:k})$</li>
+<li>Dynamisches Programm
+
+            <ul>
+<li>$J_N = 0$</li>
+<li>$$J_k(P(x_k | I_{k-1})) = \min_{a_k} \left \{g_k(x_k, a_k) + \mathbb{E}_{z_k} \left \{J_{k+1} (P(x_{k+1} | I_k) | I_{k-1} ) \right \} \right \}$$</li>
+</ul>
+
+            Im Allgemeinen gibt es hier keine geschlossene L&ouml;sung.
+            </li>
+</ul>
+
 
         Informationstheoretische Kosten gehen in Kovarianz-basierte Kosten
         wie z.B. Entropie &uuml;ber:
@@ -2200,10 +2232,10 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 <li>Was versteht man unter der Sicherheits&auml;quivalenz?<br/>
   &rarr; Siehe <a href="#certainty-equivalence">oben</a>.</li>
 <li>Was k&ouml;nnen Sie zur Sensoreinsatzplanung sagen?<br/>
-  &rarr; TODO</li>
+  &rarr; Siehe <a href="#sensoreinsatzplanung">oben</a>.</li>
 <li>Wie kann man die Kosten bei der Sensoreinsatzplanung modellieren?<br/>
-  &rarr; TODO (Kovarianzbasiert, Informationstheoretisch)</li>
-<li>Warum recht Kovarainzbasiert bei linearen Sensoreinsatzproblem?<br/>
+  &rarr; Kovarianzbasiert oder Informationstheoretisch (Entropie, Transinformation)</li>
+<li>Warum reicht Kovarainzbasiert bei linearen Sensoreinsatzproblem?<br/>
   &rarr; TODO</li>
 <li>Wie berechnet man die <span class="math">\(\alpha\)</span>-Vektoren und wozu dienen Sie?<br/>
   &rarr; Siehe ProPlan-10-Folien.pdf, Folie 16 (TODO)</li>
@@ -2211,7 +2243,9 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 <h3 id="rl">RL</h3>
 <ul>
 <li>Welche Arten von RL gibt es?<br/>
-  &rarr; TODO</li>
+  &rarr; Wertefunktionsbasiert (Sch&auml;tzen der Werte- bzw. Q-Funktion aus Stichproben:
+     Monte Carlo, Temporal Difference, Verantwortlichkeitsspuren,
+     Funktionsapproximatoren), Modelllernende Methoden, Strategiesuche</li>
 </ul>
 <h2 id="notation_1">Notation</h2>
 <p>Der Dozent nutzt folgende Notation:</p>

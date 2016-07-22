@@ -526,13 +526,13 @@ sowie die Werte- und Strategieiteration zu nennen.&lt;/p&gt;
 &lt;td&gt;11&lt;/td&gt;
 &lt;td id="2016-06-29"&gt;29.06.2016&lt;/td&gt;
 &lt;td&gt;POMDPs&lt;/td&gt;
-&lt;td&gt;Parametrische / Nichtparametrische approximative Planung (Sicherheits&amp;auml;quivalenz bei deterministischen Problemen); Funktionsapproximatoren f&amp;uuml;r Wertefunktion / Strategie; Sensoreinsatzplanung&lt;/td&gt;
+&lt;td&gt;Parametrische / Nichtparametrische approximative Planung (Sicherheits&amp;auml;quivalenz bei deterministischen Problemen); Funktionsapproximatoren f&amp;uuml;r Wertefunktion / Strategie; &lt;a href="#sensoreinsatzplanung"&gt;Sensoreinsatzplanung&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;12&lt;/td&gt;
 &lt;td id="2016-07-06"&gt;06.07.2016&lt;/td&gt;
 &lt;td&gt;POMDPs, &lt;abbr title="Reinforcement Learning"&gt;RL&lt;/abbr&gt;&lt;/td&gt;
-&lt;td&gt;POMDPs: Sensoreinsatzplanung&lt;/td&gt;
+&lt;td&gt;Lineare Probleme; POMDPs: &lt;a href="#sensoreinsatzplanung"&gt;Sensoreinsatzplanung&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;13&lt;/td&gt;
@@ -1520,8 +1520,40 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
                 durch die Wahl einer geeigneten Konfiguration $a_k$ bewerten.&lt;br/&gt;
                 Dabei kann man z.B. Kovarianzbasiert vorgehen, also die
                 r&amp;auml;umliche Ausdehnung der Kovarianzmatrix als Bewertungsgrundlage
-                verwenden.&lt;/li&gt;
+                verwenden. Die Spur der Kovarianzmatrix ist proportional
+                zum Umfang, die Determinante ist proportional zur Fl&amp;auml;che.&lt;br/&gt;
+                Alternativ kann man Informationstheoretisch vorgehen. So ist
+                die &lt;i&gt;bedingte differentielle Entropie&lt;/i&gt;:
+                $$H(x | z, a) = - \int_{\mathcal{Z}} f(z | a) \cdot \int_{\mathcal{X}} f(x|z,a) \cdot \log f(x | z,a) \mathrm{d} x \mathrm{d} z$$
+
+                (vgl. &lt;a href="../images/2016/07/entropie-vs-varianz.png"&gt;Entropie- vs Varianz&lt;/a&gt;)&lt;br/&gt;
+                Ein weiteres Ma&amp;szlig; f&amp;uuml;r informationstheoretische Kosten ist die
+                &lt;i&gt;Transinformation&lt;/i&gt; (engl. Mutual information):
+                $$
+                \begin{align}
+                T(x; z) &amp;amp;= \int_{\mathcal{Z}} \int_{\mathcal{X}} f(x, z) \cdot \ļog \frac{f(x,z)}{f(x) \cdot f(z)} \mathrm{d}z \mathrm{d}x\\
+                &amp;amp;= H(x) - H(x|z) \geq 0
+                \end{align}
+                $$
+                &lt;/li&gt;
+&lt;li&gt;Keine Terminalen Kosten&lt;/li&gt;
 &lt;/ul&gt;
+
+        Das Problem wird nun wie folgt gel&amp;ouml;st:
+
+        &lt;ul&gt;
+&lt;li&gt;Informationsvektor $I_k = (a_{0:k}, z_{0:k})$&lt;/li&gt;
+&lt;li&gt;Dynamisches Programm
+
+            &lt;ul&gt;
+&lt;li&gt;$J_N = 0$&lt;/li&gt;
+&lt;li&gt;$$J_k(P(x_k | I_{k-1})) = \min_{a_k} \left \{g_k(x_k, a_k) + \mathbb{E}_{z_k} \left \{J_{k+1} (P(x_{k+1} | I_k) | I_{k-1} ) \right \} \right \}$$&lt;/li&gt;
+&lt;/ul&gt;
+
+            Im Allgemeinen gibt es hier keine geschlossene L&amp;ouml;sung.
+            &lt;/li&gt;
+&lt;/ul&gt;
+
 
         Informationstheoretische Kosten gehen in Kovarianz-basierte Kosten
         wie z.B. Entropie &amp;uuml;ber:
@@ -2531,10 +2563,10 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;li&gt;Was versteht man unter der Sicherheits&amp;auml;quivalenz?&lt;br/&gt;
   &amp;rarr; Siehe &lt;a href="#certainty-equivalence"&gt;oben&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;Was k&amp;ouml;nnen Sie zur Sensoreinsatzplanung sagen?&lt;br/&gt;
-  &amp;rarr; TODO&lt;/li&gt;
+  &amp;rarr; Siehe &lt;a href="#sensoreinsatzplanung"&gt;oben&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;Wie kann man die Kosten bei der Sensoreinsatzplanung modellieren?&lt;br/&gt;
-  &amp;rarr; TODO (Kovarianzbasiert, Informationstheoretisch)&lt;/li&gt;
-&lt;li&gt;Warum recht Kovarainzbasiert bei linearen Sensoreinsatzproblem?&lt;br/&gt;
+  &amp;rarr; Kovarianzbasiert oder Informationstheoretisch (Entropie, Transinformation)&lt;/li&gt;
+&lt;li&gt;Warum reicht Kovarainzbasiert bei linearen Sensoreinsatzproblem?&lt;br/&gt;
   &amp;rarr; TODO&lt;/li&gt;
 &lt;li&gt;Wie berechnet man die &lt;span class="math"&gt;\(\alpha\)&lt;/span&gt;-Vektoren und wozu dienen Sie?&lt;br/&gt;
   &amp;rarr; Siehe ProPlan-10-Folien.pdf, Folie 16 (TODO)&lt;/li&gt;
@@ -2542,7 +2574,9 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;h3 id="rl"&gt;RL&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Welche Arten von RL gibt es?&lt;br/&gt;
-  &amp;rarr; TODO&lt;/li&gt;
+  &amp;rarr; Wertefunktionsbasiert (Sch&amp;auml;tzen der Werte- bzw. Q-Funktion aus Stichproben:
+     Monte Carlo, Temporal Difference, Verantwortlichkeitsspuren,
+     Funktionsapproximatoren), Modelllernende Methoden, Strategiesuche&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="notation_1"&gt;Notation&lt;/h2&gt;
 &lt;p&gt;Der Dozent nutzt folgende Notation:&lt;/p&gt;
