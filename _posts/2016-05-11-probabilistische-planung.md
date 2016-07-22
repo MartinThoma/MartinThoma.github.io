@@ -731,6 +731,12 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
     <dd>Das Pontryagin'sche Minimum-Prinzip könnte als die russische
         Variante der Bellman-Gleichungen für deterministische MDPs bezeichnet
         werden. Es stellt eine notwendige Bedingung an ein Optimum dar.<br/>
+        <br/>
+        Siehe auch: <a href="http://planning.cs.uiuc.edu/node818.html">Pontryagin's Minimum Principle</a>
+        by Steven M. LaValle.<br/>
+        <br/>
+        Pontryagins Minimum-Prinzip steht mit der <a href="https://en.wikipedia.org/wiki/Hamilton%E2%80%93Jacobi%E2%80%93Bellman_equation">Hamilton–Jacobi–Bellman Gleichung</a>
+        in Zusammenhang.
 
         TODO</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Hamilton-Funktion_(Kontrolltheorie)"><dfn>Hamilton-Funktion</dfn></a></dt>
@@ -883,24 +889,21 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         Konstante Funktionen, minimum, maximum, durschschnitt, median, ...</dd>
     <dt><dfn>Hinreichende Statistik</dfn> (engl. <dfn id="sufficient-statistic">sufficient statistic</dfn>)</dt>
     <dd>Ziel: Kompression, d.h. Darstellung von $\mathcal{I}_k$ von geringer
-        Dimension.
-
+        Dimension.<br/>
+        <br/>
         Eine Statistik $T$ heißt hinreichend für $\Theta$, wenn keine weitere
         Statstik auf $S$ existiert, welche zusätzliche Informationen über
-        $\Theta$ liefert.
-
+        $\Theta$ liefert.<br/>
+        <br/>
         Ist $T(S) = t$ gegeben, dann liefert die volle Kentnis von $S$ keine
-        Zusatzinformation über $\Theta$.
-
-
-        Beispiele:
-
+        Zusatzinformation über $\Theta$.<br/>
+        <br/>
+        Beispiel:
         <ul>
             <li>Der Stichprobenmittelwert $\hat{z}$ von $n$ unabhängigen
                 Stichproben $z_i$ einer normalverteilten Zuvallsvariabeln
                 $z \sim \mathcal{N}(\mu, \sigma)$ ist eine hinreichende
                 Statistik für $\mu$.</li>
-            <li></li>
         </ul>
     </dd>
     <dt><a href="https://de.wikipedia.org/wiki/Bayes-Sch%C3%A4tzer"><dfn>Bayes'scher Schätzer</dfn></a></dt>
@@ -1123,7 +1126,56 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
     <dt><dfn id="sensoreinsatzplanung">Sensoreinsatzplanung</dfn></dt>
     <dd>
 
-        TODO
+        Das Ziel der Sensoreinsatzplanung ist es, die Sensoren so zu
+        positionieren / auszurichten / konfigurieren, dass der
+        Informationsgewinn maximiert wird.<br/>
+        <br/>
+        <u>Gegeben</u>
+
+        <ul>
+            <li>Kontinuierlicher Zustandsraum $\mathcal{X}$</li>
+            <li>Kontinuierlicher Beobachtungsraum $\mathcal{Z}$</li>
+            <li>Endliche Menge der Konfigurationen $A$</li>
+            <li>Zustandsübergang: $f(x_{k+1} | x_k)$ bzw. $x_{k+1} = p_k(x_k, w_k)$</li>
+            <li>Messmodell: $f(z_k | x_k, a_k)$ bzw. $z_k = h_k(x_k, a_k, v_k)$</li>
+            <li>Schrittkosten $g_k$, welche den Informationsgewinn
+                durch die Wahl einer geeigneten Konfiguration $a_k$ bewerten.<br/>
+                Dabei kann man z.B. Kovarianzbasiert vorgehen, also die
+                räumliche Ausdehnung der Kovarianzmatrix als Bewertungsgrundlage
+                verwenden. Die Spur der Kovarianzmatrix ist proportional
+                zum Umfang, die Determinante ist proportional zur Fläche.<br/>
+                Alternativ kann man Informationstheoretisch vorgehen. So ist
+                die bedingte differentielle Entropie:
+                $$H(x | z, a) = - \int_{\mathcal{Z}} f(z | a) \cdot \int_{\mathcal{X}} f(x|z,a) \cdot \log f(x | z,a) \mathrm{d} x \mathrm{d} z$$
+
+                (vgl. <a href="../images/2016/07/entropie-vs-varianz.png">Entropie- vs Varianz</a>)<br/>
+                Ein weiteres Maß für informationstheoretische Kosten ist die
+                <i>Transinformation</i> (engl. Mutual information):
+                $$
+                \begin{align}
+                T(x; z) &= \int_{\mathcal{Z}} \int_{\mathcal{X}} f(x, z) \cdot \ļog \frac{f(x,z)}{f(x) \cdot f(z)} \mathrm{d}z \mathrm{d}x\\
+                &= H(x) - H(x|z) \geq 0
+                \end{align}
+                $$
+                </li>
+            <li>Keine Terminalen Kosten</li>
+        </ul>
+
+        Das Problem wird nun wie folgt gelöst:
+
+        <ul>
+            <li>Informationsvektor $I_k = (a_{0:k}, z_{0:k})$</li>
+            <li>Dynamisches Programm
+
+            <ul>
+                <li>$J_N = 0$</li>
+                <li>$$J_k(P(x_k | I_{k-1})) = \min_{a_k} \left \{g_k(x_k, a_k) + \mathbb{E}_{z_k} \left \{J_{k+1} (P(x_{k+1} | I_k) | I_{k-1} ) \right \} \right \}$$</li>
+            </ul>
+
+            Im Allgemeinen gibt es hier keine geschlossene Lösung.
+            </li>
+        </ul>
+
 
         Informationstheoretische Kosten gehen in Kovarianz-basierte Kosten
         wie z.B. Entropie über:
@@ -1246,9 +1298,9 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
 
     <u>Problem</u>
     <ul>
-        <li>Was ist wenn die Kostenfunktion $g_k$ unbekannt ist?</li>
-        <li>Was ist wenn das Modell, das heißt die Übergangswahrscheinlichkeiten
-            $P(x_{k+1} | x_k, a_k)$ unbekannt sind?</li>
+        <li>Die Kostenfunktion $g_k$ kann unbekannt sein.</li>
+        <li>Das Modell, das heißt die Übergangswahrscheinlichkeiten
+            $P(x_{k+1} | x_k, a_k)$ können unbekannt sein.</li>
     </ul>
 
     Dies wird durch ein Zusammenspiel aus lernen und planen gelöst.
@@ -1513,7 +1565,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         Boltzmann-Verteilung.<br/>
         <br/>
         $\tau$ groß: $Q(x,a) / \tau$ wird klein, d.h. die Aktionen
-        werden ähnlich wahrscheinlich gewählt. (TODO: Was ist groß?)<br/>
+        werden ähnlich wahrscheinlich gewählt.<br/>
         <br/>
         $\tau$ klein: Die Aktionen werden mit deutlich
         unterschiedlicher wahrscheinlichkeit gezogen.<br/>
@@ -2025,15 +2077,15 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
     </tr>
     <tr>
         <td>2</td>
-        <td colspan="2">Diskrete Zeitschritte $k=0, \dots, N$</td>
-        <td>Zeithorizont: $N = \infty$ für fortlaufende Probleme, $N < \infty$
+        <td colspan="2">Diskrete Zeitschritte $k=0, \dots, N$ ($N = \infty$ ist unüblich)</td>
+        <td>Zeithorizont: $N = \infty$ für fortlaufende Probleme ist üblich, $N < \infty$
             für episodische Probleme</td>
     </tr>
     <tr>
         <td>3</td>
         <td>Initialzustand $x_0 \in \mathcal{X}$ zum Zeitpunkt $k=0$.</td>
         <td>Initialzustand $x_0$ ist Zufallsvariable</td>
-        <td>Wie MDP (TODO?)</td>
+        <td>Ohne Modell, d.h. $x_0 \in \mathcal{X}$. POMDP-RL sind Gegenstand aktueller Forschung.</td>
     </tr>
     <tr>
         <td>4</td>
@@ -2054,7 +2106,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         <td>Zustand ist direkt beobachtbar nach Anwendung der Aktion</td>
         <td>Beobachtung / Messung $z_k$ gemäß der bedingten Verteilung
             $$z_k \sim P( \cdot | x_k, a_{k-1})$$</td>
-        <td>Wie MDP (?)</td>
+        <td>Wie MDP</td>
     </tr>
     <tr>
         <td>8</td>
@@ -2134,7 +2186,10 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
      $\text{arg} \min_x f(x) = - \infty$ oder wenn die untere Schranke nicht
      angenommen wird, wie es beispielsweise für $e^x$ der Fall ist.
 * Wie löst man Optimierungsprobleme mit Nebenbedingungen?<br/>
-  → Lagrange (TODO)
+  → Lagrange-Ansatz wenn nur Gleichungsnebenbedingungen vorliegen und der
+  <abbr title="Karush-Kuhn-Tucker">KKT</abbr>-Ansatz für Gleichungs- und
+  Ungleichungsnebenbedingungen. Numerisch gibt es noch
+  <a href="https://en.wikipedia.org/wiki/Penalty_method">Penalty-Ansätze</a>.
 * Wann ist es leichter / schwerer das Optimierungsproblem zu lösen?<br/>
   → Keine Nebenbedingungen, in $\mathbb{R}^n$ oder kleiner diskreter Raum (TODO)
 * Beweisen Sie, dass der Gradient senkrecht auf die Höhenlinien steht.<br/>
@@ -2170,7 +2225,7 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
      dem Graphen, der durch die Zustände des MDPs sowie den Kosten zwischen
      den Zuständen als Gewicht dargestellt werden.
 * Was macht der LQR?<br/>
-  → TODO
+  → Ein LQR regelt ein lineares System mit quadratischen Kosten auf einen Zielfwert.
 * Wieso sind MDPs schwer zu lösen?<br/>
   → TODO
 * Wo ist der Fixpunktsatz von Bedeutung?<br/>
@@ -2188,7 +2243,8 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
 * Was ist PWLC?<br/>
   → Piece-wise linear and Concave / Convex
 * Was versteht man unter Modellprädiktiver Planung (MP)?<br/>
-  → TODO
+  → Modellprädiktive Planung ist OLF, über einen kurzen, aber wandernden
+    Horizont. (TODO: Unterschied zu OLF?)
 * Was versteht man unter der Sicherheitsäquivalenz?<br/>
   → Siehe <a href="#certainty-equivalence">oben</a>.
 * Was können Sie zur Sensoreinsatzplanung sagen?<br/>
@@ -2197,6 +2253,8 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
   → TODO (Kovarianzbasiert, Informationstheoretisch)
 * Warum recht Kovarainzbasiert bei linearen Sensoreinsatzproblem?<br/>
   → TODO
+* Wie berechnet man die $\alpha$-Vektoren und wozu dienen Sie?<br/>
+  → Siehe ProPlan-10-Folien.pdf, Folie 16 (TODO)
 
 
 ### RL
