@@ -788,6 +788,12 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 <dd>Das Pontryagin'sche Minimum-Prinzip k&ouml;nnte als die russische
         Variante der Bellman-Gleichungen f&uuml;r deterministische MDPs bezeichnet
         werden. Es stellt eine notwendige Bedingung an ein Optimum dar.<br/>
+<br/>
+        Siehe auch: <a href="http://planning.cs.uiuc.edu/node818.html">Pontryagin's Minimum Principle</a>
+        by Steven M. LaValle.<br/>
+<br/>
+        Pontryagins Minimum-Prinzip steht mit der <a href="https://en.wikipedia.org/wiki/Hamilton%E2%80%93Jacobi%E2%80%93Bellman_equation">Hamilton&ndash;Jacobi&ndash;Bellman Gleichung</a>
+        in Zusammenhang.
 
         TODO</dd>
 <dt><a href="https://de.wikipedia.org/wiki/Hamilton-Funktion_(Kontrolltheorie)"><dfn>Hamilton-Funktion</dfn></a></dt>
@@ -934,24 +940,21 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
         Konstante Funktionen, minimum, maximum, durschschnitt, median, ...</dd>
 <dt><dfn>Hinreichende Statistik</dfn> (engl. <dfn id="sufficient-statistic">sufficient statistic</dfn>)</dt>
 <dd>Ziel: Kompression, d.h. Darstellung von $\mathcal{I}_k$ von geringer
-        Dimension.
-
+        Dimension.<br/>
+<br/>
         Eine Statistik $T$ hei&szlig;t hinreichend f&uuml;r $\Theta$, wenn keine weitere
         Statstik auf $S$ existiert, welche zus&auml;tzliche Informationen &uuml;ber
-        $\Theta$ liefert.
-
+        $\Theta$ liefert.<br/>
+<br/>
         Ist $T(S) = t$ gegeben, dann liefert die volle Kentnis von $S$ keine
-        Zusatzinformation &uuml;ber $\Theta$.
-
-
-        Beispiele:
-
+        Zusatzinformation &uuml;ber $\Theta$.<br/>
+<br/>
+        Beispiel:
         <ul>
 <li>Der Stichprobenmittelwert $\hat{z}$ von $n$ unabh&auml;ngigen
                 Stichproben $z_i$ einer normalverteilten Zuvallsvariabeln
                 $z \sim \mathcal{N}(\mu, \sigma)$ ist eine hinreichende
                 Statistik f&uuml;r $\mu$.</li>
-<li></li>
 </ul>
 </dd>
 <dt><a href="https://de.wikipedia.org/wiki/Bayes-Sch%C3%A4tzer"><dfn>Bayes'scher Sch&auml;tzer</dfn></a></dt>
@@ -1286,9 +1289,9 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 <br/>
 <u>Problem</u>
 <ul>
-<li>Was ist wenn die Kostenfunktion $g_k$ unbekannt ist?</li>
-<li>Was ist wenn das Modell, das hei&szlig;t die &Uuml;bergangswahrscheinlichkeiten
-            $P(x_{k+1} | x_k, a_k)$ unbekannt sind?</li>
+<li>Die Kostenfunktion $g_k$ kann unbekannt sein.</li>
+<li>Das Modell, das hei&szlig;t die &Uuml;bergangswahrscheinlichkeiten
+            $P(x_{k+1} | x_k, a_k)$ k&ouml;nnen unbekannt sein.</li>
 </ul>
 
     Dies wird durch ein Zusammenspiel aus lernen und planen gel&ouml;st.
@@ -1537,7 +1540,7 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
         Boltzmann-Verteilung.<br/>
 <br/>
         $\tau$ gro&szlig;: $Q(x,a) / \tau$ wird klein, d.h. die Aktionen
-        werden &auml;hnlich wahrscheinlich gew&auml;hlt. (TODO: Was ist gro&szlig;?)<br/>
+        werden &auml;hnlich wahrscheinlich gew&auml;hlt.<br/>
 <br/>
         $\tau$ klein: Die Aktionen werden mit deutlich
         unterschiedlicher wahrscheinlichkeit gezogen.<br/>
@@ -2020,15 +2023,15 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 </tr>
 <tr>
 <td>2</td>
-<td colspan="2">Diskrete Zeitschritte $k=0, \dots, N$</td>
-<td>Zeithorizont: $N = \infty$ f&uuml;r fortlaufende Probleme, $N &lt; \infty$
+<td colspan="2">Diskrete Zeitschritte $k=0, \dots, N$ ($N = \infty$ ist un&uuml;blich)</td>
+<td>Zeithorizont: $N = \infty$ f&uuml;r fortlaufende Probleme ist &uuml;blich, $N &lt; \infty$
             f&uuml;r episodische Probleme</td>
 </tr>
 <tr>
 <td>3</td>
 <td>Initialzustand $x_0 \in \mathcal{X}$ zum Zeitpunkt $k=0$.</td>
 <td>Initialzustand $x_0$ ist Zufallsvariable</td>
-<td>Wie MDP (TODO?)</td>
+<td>Ohne Modell, d.h. $x_0 \in \mathcal{X}$. POMDP-RL sind Gegenstand aktueller Forschung.</td>
 </tr>
 <tr>
 <td>4</td>
@@ -2049,7 +2052,7 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 <td>Zustand ist direkt beobachtbar nach Anwendung der Aktion</td>
 <td>Beobachtung / Messung $z_k$ gem&auml;&szlig; der bedingten Verteilung
             $$z_k \sim P( \cdot | x_k, a_{k-1})$$</td>
-<td>Wie MDP (?)</td>
+<td>Wie MDP</td>
 </tr>
 <tr>
 <td>8</td>
@@ -2121,7 +2124,10 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
      <span class="math">\(\text{arg} \min_x f(x) = - \infty\)</span> oder wenn die untere Schranke nicht
      angenommen wird, wie es beispielsweise f&uuml;r <span class="math">\(e^x\)</span> der Fall ist.</li>
 <li>Wie l&ouml;st man Optimierungsprobleme mit Nebenbedingungen?<br/>
-  &rarr; Lagrange (TODO)</li>
+  &rarr; Lagrange-Ansatz wenn nur Gleichungsnebenbedingungen vorliegen und der
+  <abbr title="Karush-Kuhn-Tucker">KKT</abbr>-Ansatz f&uuml;r Gleichungs- und
+  Ungleichungsnebenbedingungen. Numerisch gibt es noch
+  <a href="https://en.wikipedia.org/wiki/Penalty_method">Penalty-Ans&auml;tze</a>.</li>
 <li>Wann ist es leichter / schwerer das Optimierungsproblem zu l&ouml;sen?<br/>
   &rarr; Keine Nebenbedingungen, in <span class="math">\(\mathbb{R}^n\)</span> oder kleiner diskreter Raum (TODO)</li>
 <li>Beweisen Sie, dass der Gradient senkrecht auf die H&ouml;henlinien steht.<br/>
@@ -2156,7 +2162,7 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
      dem Graphen, der durch die Zust&auml;nde des MDPs sowie den Kosten zwischen
      den Zust&auml;nden als Gewicht dargestellt werden.</li>
 <li>Was macht der LQR?<br/>
-  &rarr; TODO</li>
+  &rarr; Ein LQR regelt ein lineares System mit quadratischen Kosten auf einen Zielfwert.</li>
 <li>Wieso sind MDPs schwer zu l&ouml;sen?<br/>
   &rarr; TODO</li>
 <li>Wo ist der Fixpunktsatz von Bedeutung?<br/>
@@ -2173,7 +2179,8 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 <li>Was ist PWLC?<br/>
   &rarr; Piece-wise linear and Concave / Convex</li>
 <li>Was versteht man unter Modellpr&auml;diktiver Planung (MP)?<br/>
-  &rarr; TODO</li>
+  &rarr; Modellpr&auml;diktive Planung ist OLF, &uuml;ber einen kurzen, aber wandernden
+    Horizont. (TODO: Unterschied zu OLF?)</li>
 <li>Was versteht man unter der Sicherheits&auml;quivalenz?<br/>
   &rarr; Siehe <a href="#certainty-equivalence">oben</a>.</li>
 <li>Was k&ouml;nnen Sie zur Sensoreinsatzplanung sagen?<br/>
@@ -2182,6 +2189,8 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
   &rarr; TODO (Kovarianzbasiert, Informationstheoretisch)</li>
 <li>Warum recht Kovarainzbasiert bei linearen Sensoreinsatzproblem?<br/>
   &rarr; TODO</li>
+<li>Wie berechnet man die <span class="math">\(\alpha\)</span>-Vektoren und wozu dienen Sie?<br/>
+  &rarr; Siehe ProPlan-10-Folien.pdf, Folie 16 (TODO)</li>
 </ul>
 <h3 id="rl">RL</h3>
 <ul>
