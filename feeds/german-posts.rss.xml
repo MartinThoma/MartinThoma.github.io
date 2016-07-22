@@ -906,7 +906,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
       $$
 
   &lt;/dd&gt;
-&lt;dt&gt;&lt;dfn id="q-function"&gt;Q-Funktion&lt;/dfn&gt; (&lt;dfn&gt;Action-Value function&lt;/dfn&gt;, &lt;dfn&gt;Quality function&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dt&gt;&lt;dfn id="q-function"&gt;$Q$-Funktion&lt;/dfn&gt; (&lt;dfn&gt;Action-Value function&lt;/dfn&gt;, &lt;dfn&gt;Quality function&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;Die Funktion $Q^\pi: S \times A \rightarrow \mathbb{R}$ gibt den
       erwarteten Wert einer eines Zustandes $s$ unter der Strategie $\pi$, wenn
       die Aktion $a$ ausgef&amp;uuml;hrt wird an.&lt;br/&gt;
@@ -1777,7 +1777,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;dt&gt;&lt;dfn&gt;L&amp;ouml;sungsans&amp;auml;tze f&amp;uuml;r RL-Probleme&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;
 &lt;ul&gt;
-&lt;li&gt;Wertefunktionsbasiert: Sch&amp;auml;tzen die Wertefunktion / Q-Funktion aus
+&lt;li&gt;Wertefunktionsbasiert: Sch&amp;auml;tzen die Wertefunktion / $Q$-Funktion aus
             Lernstichproben (Monte Carlo (MC); Temporal Difference (TD),
             Verantwortlichkeitsspur (eligibility trace, credit assignment);
             Verwendung von Funktionsapproximatoren)&lt;/li&gt;
@@ -2033,7 +2033,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
     SARSA is a temporal difference algorithm. As it chooses $a_{k+1}$ according
     to the policy $\pi$ it is an on-policy algorithm.
 
-    Unterschied zum Q-Learning: Zustand wird in Abh&amp;auml;ngigkeit von der Strategie
+    Unterschied zum $Q$-Learning: Zustand wird in Abh&amp;auml;ngigkeit von der Strategie
     verwendet.
 
     TODO: Pseudocode
@@ -2050,17 +2050,17 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
         $\Rightarrow$ Aktualisierung von $Q$ erfolgt unabh&amp;auml;ngig von $\pi$
         $\rightarrow$  Off-policy
 
-        (Q-Learning hat sich im Gegensatz zu SARSA durchgesetzt)&lt;br/&gt;
+        ($Q$-Learning hat sich im Gegensatz zu SARSA durchgesetzt)&lt;br/&gt;
 &lt;br/&gt;
-        Wenn die Strategie eine GLIE-Strategie ist, kann man mit Q-Learning die
-        Konvergenz beweisen.
+        Wenn die Strategie eine GLIE-Strategie ist, kann man mit $Q$-Learning
+        die Konvergenz beweisen.
 
         Siehe auch:
         &lt;ul&gt;
-&lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=yS5F_vm9Ahk"&gt;YouTube: Lecture 18: RL Part 1: Q-Learning&lt;/a&gt;: 1:16:11. BrownCS141 Spring 2014.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=yS5F_vm9Ahk"&gt;YouTube: Lecture 18: RL Part 1: $Q$-Learning&lt;/a&gt;: 1:16:11. BrownCS141 Spring 2014.&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=3sLV0OJLdns"&gt;YouTube: PacMan&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=ntZ0Hc1_LsY"&gt;Mario Q-learning&lt;/a&gt; on YouTube. 2010.&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://www.cse.unsw.edu.au/~cs9417ml/RL1/algorithms.html"&gt;Q-Learning&lt;/a&gt; by Tim Eden, Anthony Knittel, Raphael van Uffelen of the University of New South Wales&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.cse.unsw.edu.au/~cs9417ml/RL1/algorithms.html"&gt;$Q$-Learning&lt;/a&gt; by Tim Eden, Anthony Knittel, Raphael van Uffelen of the University of New South Wales&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Fazit TD-Learning&lt;/dfn&gt;&lt;/dt&gt;
@@ -2168,8 +2168,8 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;li&gt;on-policy: SARSA($\lambda$)&lt;/li&gt;
 &lt;li&gt;off-policy: Q($\lambda$)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;u&gt;Wichtig&lt;/u&gt;: Q-Learning w&amp;auml;hlt gelegentlich nicht-gierige Aktion,
-        korrigiert Q aber mit gieriger Aktion! Um das angemessen zu
+&lt;u&gt;Wichtig&lt;/u&gt;: $Q$-Learning w&amp;auml;hlt gelegentlich nicht-gierige Aktion,
+        korrigiert $Q$ aber mit gieriger Aktion! Um das angemessen zu
         ber&amp;uuml;cksichtigen wird die Verantwortlichkeitsspur zur&amp;uuml;ckgesetzt. Das
         passiert insbesondere zu Beginn des Lernens h&amp;auml;ufiger, da dort eine
         Exploration zugelassen wird.
@@ -2190,7 +2190,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;figcaption class="text-center"&gt;Pseudocode for SARSA($\lambda$)&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/dd&gt;
-&lt;dt&gt;&lt;dfn id="q-lambda"&gt;Q($\lambda$)&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dt&gt;&lt;dfn id="q-lambda"&gt;$Q(\lambda)$&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;
 &lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
 &lt;img alt="Pseudocode for Q($\lambda$)" src="../images/2016/07/q-lambda.png"/&gt;
@@ -2211,7 +2211,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 
         &lt;ul&gt;
 &lt;li&gt;Keine statische Trainingsmenge; Daten werden online generiert&lt;/li&gt;
-&lt;li&gt;Nichtstationarit&amp;auml;t: Die Zielfunktion (z.B. Q-Funktion oder direkt die Strategie $\pi$)
+&lt;li&gt;Nichtstationarit&amp;auml;t: Die Zielfunktion (z.B. $Q$-Funktion oder direkt die Strategie $\pi$)
                 ver&amp;auml;ndern sich &amp;uuml;ber die Zeit. Dies schr&amp;auml;nkt die Menge der
                 Funktionsapproximatoren ein.
 
@@ -2266,7 +2266,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
                 SARSA:
                 $$\delta_k = r_k + \gamma \cdot Q(x_{k+1}, a_{k+1}, \Theta_k) - Q(x_k, a_k, \Theta_k)$$
 
-                Q-Learning:
+                $Q$-Learning:
                 $$\delta_k = r_k + \gamma \cdot \max_a Q(x_{k+1}, a, \Theta_k) - Q(x_k, a_k, \Theta_k)$$
 
             &lt;/li&gt;
@@ -2302,7 +2302,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
             &lt;ul&gt;
 &lt;li&gt;Beschreibung der Umwelt&lt;/li&gt;
 &lt;li&gt;Verohersage Reaktion der Umwelt auf Aktion&lt;/li&gt;
-&lt;li&gt;Verbesserte TODO&lt;/li&gt;
+&lt;li&gt;Verbesserung einer Strategie ohne reale Interaktion mit der Umwelt&lt;/li&gt;
 &lt;li&gt;$\rightarrow$ Schnellere Konvergenz&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -2315,7 +2315,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
                 Beispiel: Dyna-Q
 
                 &lt;ul&gt;
-&lt;li&gt;Q-Learning: Strategielernen aus direkter Erfahrung&lt;/li&gt;
+&lt;li&gt;$Q$-Learning: Strategielernen aus direkter Erfahrung&lt;/li&gt;
 &lt;li&gt;Planung: Strategieverbesserung aus simulierter Erfahrung&lt;/li&gt;
 &lt;li&gt;Modelllernen: aus direkter Erfahrung&lt;/li&gt;
 &lt;li&gt;Suche: Auswahl von Zust&amp;auml;nden und Aktionen f&amp;uuml;r Simulation&lt;/li&gt;
@@ -2330,7 +2330,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 
         &lt;ul&gt;
 &lt;li&gt;+ Besseres Ausnutzen von Erfahrung&lt;/li&gt;
-&lt;li&gt;+ Empirisch: schnellere Konvergenz als Q-Learning&lt;/li&gt;
+&lt;li&gt;+ Empirisch: schnellere Konvergenz als $Q$-Learning&lt;/li&gt;
 &lt;li&gt;- Annahme eines deterministischen Modells&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
@@ -2357,7 +2357,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
         Ergibt sich aus Interaktion mit realer Umwelt.
 
         &lt;ul&gt;
-&lt;li&gt;+ verbesserte Konvergenz im vgl. zu Q-Learning&lt;/li&gt;
+&lt;li&gt;+ verbesserte Konvergenz im vgl. zu $Q$-Learning&lt;/li&gt;
 &lt;li&gt;+ Reduktion des Modell-Bias&lt;/li&gt;
 &lt;li&gt;- Berechnung von $J^*$ ist aufwendig, muss aber nicht in
                 jeder Schritt / Schleifeniteration ausgef&amp;uuml;hrt werden&lt;/li&gt;
@@ -2578,7 +2578,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;h3 id="rl"&gt;RL&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Welche Arten von RL gibt es?&lt;br/&gt;
-  &amp;rarr; Wertefunktionsbasiert (Sch&amp;auml;tzen der Werte- bzw. Q-Funktion aus Stichproben:
+  &amp;rarr; Wertefunktionsbasiert (Sch&amp;auml;tzen der Werte- bzw. &lt;span class="math"&gt;\(Q\)&lt;/span&gt;-Funktion aus Stichproben:
      Monte Carlo, Temporal Difference, Verantwortlichkeitsspuren,
      Funktionsapproximatoren), Modelllernende Methoden, Strategiesuche&lt;/li&gt;
 &lt;/ul&gt;
