@@ -500,7 +500,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
       $$
 
   </dd>
-  <dt><dfn id="q-function">Q-Funktion</dfn> (<dfn>Action-Value function</dfn>, <dfn>Quality function</dfn>)</dt>
+  <dt><dfn id="q-function">$Q$-Funktion</dfn> (<dfn>Action-Value function</dfn>, <dfn>Quality function</dfn>)</dt>
   <dd>Die Funktion $Q^\pi: S \times A \rightarrow \mathbb{R}$ gibt den
       erwarteten Wert einer eines Zustandes $s$ unter der Strategie $\pi$, wenn
       die Aktion $a$ ausgeführt wird an.<br/>
@@ -1420,7 +1420,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
     <dd>
 
     <ul>
-        <li>Wertefunktionsbasiert: Schätzen die Wertefunktion / Q-Funktion aus
+        <li>Wertefunktionsbasiert: Schätzen die Wertefunktion / $Q$-Funktion aus
             Lernstichproben (Monte Carlo (MC); Temporal Difference (TD),
             Verantwortlichkeitsspur (eligibility trace, credit assignment);
             Verwendung von Funktionsapproximatoren)</li>
@@ -1682,7 +1682,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
     SARSA is a temporal difference algorithm. As it chooses $a_{k+1}$ according
     to the policy $\pi$ it is an on-policy algorithm.
 
-    Unterschied zum Q-Learning: Zustand wird in Abhängigkeit von der Strategie
+    Unterschied zum $Q$-Learning: Zustand wird in Abhängigkeit von der Strategie
     verwendet.
 
     TODO: Pseudocode
@@ -1701,17 +1701,17 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         $\Rightarrow$ Aktualisierung von $Q$ erfolgt unabhängig von $\pi$
         $\rightarrow$  Off-policy
 
-        (Q-Learning hat sich im Gegensatz zu SARSA durchgesetzt)<br/>
+        ($Q$-Learning hat sich im Gegensatz zu SARSA durchgesetzt)<br/>
         <br/>
-        Wenn die Strategie eine GLIE-Strategie ist, kann man mit Q-Learning die
-        Konvergenz beweisen.
+        Wenn die Strategie eine GLIE-Strategie ist, kann man mit $Q$-Learning
+        die Konvergenz beweisen.
 
         Siehe auch:
         <ul>
-            <li><a href="https://www.youtube.com/watch?v=yS5F_vm9Ahk">YouTube: Lecture 18: RL Part 1: Q-Learning</a>: 1:16:11. BrownCS141 Spring 2014.</li>
+            <li><a href="https://www.youtube.com/watch?v=yS5F_vm9Ahk">YouTube: Lecture 18: RL Part 1: $Q$-Learning</a>: 1:16:11. BrownCS141 Spring 2014.</li>
             <li><a href="https://www.youtube.com/watch?v=3sLV0OJLdns">YouTube: PacMan</a></li>
             <li><a href="https://www.youtube.com/watch?v=ntZ0Hc1_LsY">Mario Q-learning</a> on YouTube. 2010.</li>
-            <li><a href="http://www.cse.unsw.edu.au/~cs9417ml/RL1/algorithms.html">Q-Learning</a> by Tim Eden, Anthony Knittel, Raphael van Uffelen of the University of New South Wales</li>
+            <li><a href="http://www.cse.unsw.edu.au/~cs9417ml/RL1/algorithms.html">$Q$-Learning</a> by Tim Eden, Anthony Knittel, Raphael van Uffelen of the University of New South Wales</li>
         </ul>
 
     </dd>
@@ -1826,8 +1826,8 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
             <li>off-policy: Q($\lambda$)</li>
         </ul>
 
-        <u>Wichtig</u>: Q-Learning wählt gelegentlich nicht-gierige Aktion,
-        korrigiert Q aber mit gieriger Aktion! Um das angemessen zu
+        <u>Wichtig</u>: $Q$-Learning wählt gelegentlich nicht-gierige Aktion,
+        korrigiert $Q$ aber mit gieriger Aktion! Um das angemessen zu
         berücksichtigen wird die Verantwortlichkeitsspur zurückgesetzt. Das
         passiert insbesondere zu Beginn des Lernens häufiger, da dort eine
         Exploration zugelassen wird.
@@ -1852,7 +1852,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         </figure>
 
     </dd>
-    <dt><dfn id="q-lambda">Q($\lambda$)</dfn></dt>
+    <dt><dfn id="q-lambda">$Q(\lambda)$</dfn></dt>
     <dd>
 
         <figure class="wp-caption aligncenter img-thumbnail">
@@ -1875,7 +1875,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
 
         <ul>
             <li>Keine statische Trainingsmenge; Daten werden online generiert</li>
-            <li>Nichtstationarität: Die Zielfunktion (z.B. Q-Funktion oder direkt die Strategie $\pi$)
+            <li>Nichtstationarität: Die Zielfunktion (z.B. $Q$-Funktion oder direkt die Strategie $\pi$)
                 verändern sich über die Zeit. Dies schränkt die Menge der
                 Funktionsapproximatoren ein.
 
@@ -1931,7 +1931,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
                 SARSA:
                 $$\delta_k = r_k + \gamma \cdot Q(x_{k+1}, a_{k+1}, \Theta_k) - Q(x_k, a_k, \Theta_k)$$
 
-                Q-Learning:
+                $Q$-Learning:
                 $$\delta_k = r_k + \gamma \cdot \max_a Q(x_{k+1}, a, \Theta_k) - Q(x_k, a_k, \Theta_k)$$
 
             </li>
@@ -1970,7 +1970,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
             <ul>
                 <li>Beschreibung der Umwelt</li>
                 <li>Verohersage Reaktion der Umwelt auf Aktion</li>
-                <li>Verbesserte TODO</li>
+                <li>Verbesserung einer Strategie ohne reale Interaktion mit der Umwelt</li>
                 <li>$\rightarrow$ Schnellere Konvergenz</li>
             </ul>
 
@@ -1985,7 +1985,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
                 Beispiel: Dyna-Q
 
                 <ul>
-                    <li>Q-Learning: Strategielernen aus direkter Erfahrung</li>
+                    <li>$Q$-Learning: Strategielernen aus direkter Erfahrung</li>
                     <li>Planung: Strategieverbesserung aus simulierter Erfahrung</li>
                     <li>Modelllernen: aus direkter Erfahrung</li>
                     <li>Suche: Auswahl von Zuständen und Aktionen für Simulation</li>
@@ -2002,7 +2002,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
 
         <ul>
             <li>+ Besseres Ausnutzen von Erfahrung</li>
-            <li>+ Empirisch: schnellere Konvergenz als Q-Learning</li>
+            <li>+ Empirisch: schnellere Konvergenz als $Q$-Learning</li>
             <li>- Annahme eines deterministischen Modells</li>
         </ul>
 
@@ -2030,7 +2030,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         Ergibt sich aus Interaktion mit realer Umwelt.
 
         <ul>
-            <li>+ verbesserte Konvergenz im vgl. zu Q-Learning</li>
+            <li>+ verbesserte Konvergenz im vgl. zu $Q$-Learning</li>
             <li>+ Reduktion des Modell-Bias</li>
             <li>- Berechnung von $J^*$ ist aufwendig, muss aber nicht in
                 jeder Schritt / Schleifeniteration ausgeführt werden</li>
@@ -2268,7 +2268,7 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
 ### RL
 
 * Welche Arten von RL gibt es?<br/>
-  → Wertefunktionsbasiert (Schätzen der Werte- bzw. Q-Funktion aus Stichproben:
+  → Wertefunktionsbasiert (Schätzen der Werte- bzw. $Q$-Funktion aus Stichproben:
      Monte Carlo, Temporal Difference, Verantwortlichkeitsspuren,
      Funktionsapproximatoren), Modelllernende Methoden, Strategiesuche
 
