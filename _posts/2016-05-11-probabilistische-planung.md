@@ -100,13 +100,13 @@ sowie die Werte- und Strategieiteration zu nennen.
     <td>11</td>
     <td id="2016-06-29">29.06.2016</td>
     <td>POMDPs</td>
-    <td>Parametrische / Nichtparametrische approximative Planung (Sicherheitsäquivalenz bei deterministischen Problemen); Funktionsapproximatoren für Wertefunktion / Strategie; Sensoreinsatzplanung</td>
+    <td>Parametrische / Nichtparametrische approximative Planung (Sicherheitsäquivalenz bei deterministischen Problemen); Funktionsapproximatoren für Wertefunktion / Strategie; <a href="#sensoreinsatzplanung">Sensoreinsatzplanung</a></td>
 </tr>
 <tr>
     <td>12</td>
     <td id="2016-07-06">06.07.2016</td>
     <td>POMDPs, <abbr title="Reinforcement Learning">RL</abbr></td>
-    <td>POMDPs: Sensoreinsatzplanung</td>
+    <td>Lineare Probleme; POMDPs: <a href="#sensoreinsatzplanung">Sensoreinsatzplanung</a></td>
 </tr>
 <tr>
     <td>13</td>
@@ -1145,7 +1145,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
                 verwenden. Die Spur der Kovarianzmatrix ist proportional
                 zum Umfang, die Determinante ist proportional zur Fläche.<br/>
                 Alternativ kann man Informationstheoretisch vorgehen. So ist
-                die bedingte differentielle Entropie:
+                die <i>bedingte differentielle Entropie</i>:
                 $$H(x | z, a) = - \int_{\mathcal{Z}} f(z | a) \cdot \int_{\mathcal{X}} f(x|z,a) \cdot \log f(x | z,a) \mathrm{d} x \mathrm{d} z$$
 
                 (vgl. <a href="../images/2016/07/entropie-vs-varianz.png">Entropie- vs Varianz</a>)<br/>
@@ -1179,9 +1179,9 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
 
         Informationstheoretische Kosten gehen in Kovarianz-basierte Kosten
         wie z.B. Entropie über:
-
-        TODO
-
+        <br/>
+        TODO<br/>
+        <br/>
         In der Sensoreinsatzplanung liefern Open-Loop und Closed Loop
         Verfahren, gegeben TODO, die selben Kosten. Daher wird
         Open-Loop-Planung verwendent. Das heißt, der optimale Plan
@@ -1438,17 +1438,15 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
 
         <u>Idee</u>: Erlernen einer Strategie aus Beispielepisoden.
 
-        <ul>
-            <li>Approximation des Erwartungswertes durch Stichproben (Samples)<br/>
-                $$E(R) = \frac{1}{N} \sum_{k=1}^N r_k =: \bar{R}_N,$$
-                wobei $r_k$ die Belohnung im Zeitschritt $k$ ist.<br/>
-                Rekursiv:
-                $$\bar{R}_{N+1} = \bar{R}_N + \frac{1}{N+1} (r_{N+1} - \bar{R}_N) \text{ mit } \bar{R}_1 = r_1$$</li>
-            <li>TODO</li>
-        </ul>
+        Approximation des Erwartungswertes durch Stichproben (Samples)<br/>
+        $$E(R) = \frac{1}{N} \sum_{k=1}^N r_k =: \bar{R}_N,$$
+        wobei $r_k$ die Belohnung im Zeitschritt $k$ ist.<br/>
+        Rekursiv:
+        $$\bar{R}_{N+1} = \bar{R}_N + \frac{1}{N+1} (r_{N+1} - \bar{R}_N) \text{ mit } \bar{R}_1 = r_1$$
 
         Funktionieren ausschließlich auf episodischen Problemen (d.h mit Ende),
-        wie z.B. Spielen.
+        wie z.B. Spielen, da die Aktualisierung nach Beendigung einer Episode
+        stattfindet.
 
         <ul>
             <li>Gegeben: Strategie $\pi$</li>
@@ -1475,8 +1473,8 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         Vorteile:
 
         <ul>
-        <li>Aufwand ist unabhängig von der Anzahl der Zustände (genauso wie Partikelfilter).</li>
-        <li>Einschränkungen auf Teilmenge von $\mathcal{X}$ möglich.</li>
+          <li>Aufwand ist unabhängig von der Anzahl der Zustände (genauso wie Partikelfilter).</li>
+          <li>Einschränkungen auf Teilmenge von $\mathcal{X}$ möglich.</li>
         </ul>
 
         Nachteile / Einschränkungen:
@@ -1486,7 +1484,11 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
     </dd>
     <dt><dfn id="monte-carlo-rl">Monte Carlo RL</dfn></dt>
     <dd>Idee: Schätzen der $Q$-Funktion $Q(x, a)$.
-        TODO: Diagramm
+
+    <figure class="wp-caption aligncenter img-thumbnail">
+        <img src="../images/2016/07/policy-iteration.png" alt="Text" />
+        <figcaption class="text-center"><a href="#policy-iteration">Policy Iteration</a></figcaption>
+    </figure>
 
     Für gegebene Episode:
     <ul>
@@ -1844,13 +1846,19 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
     <dt><dfn id="sarsa-lambda">SARSA($\lambda$)</dfn></dt>
     <dd>
 
-        TODO (Pseudocode)
+        <figure class="wp-caption aligncenter img-thumbnail">
+            <img src="../images/2016/07/sarsa-lambda.png" alt="Pseudocode for SARSA($\lambda$)" />
+            <figcaption class="text-center">Pseudocode for SARSA($\lambda$)</figcaption>
+        </figure>
 
     </dd>
     <dt><dfn id="q-lambda">Q($\lambda$)</dfn></dt>
     <dd>
 
-        TODO (Pseudocode)
+        <figure class="wp-caption aligncenter img-thumbnail">
+            <img src="../images/2016/07/q-lambda.png" alt="Pseudocode for Q($\lambda$)" />
+            <figcaption class="text-center">Pseudocode for Q($\lambda$)</figcaption>
+        </figure>
 
     </dd>
     <dt><dfn>Funktionsapproximatoren im RL</dfn></dt>
@@ -2248,10 +2256,10 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
 * Was versteht man unter der Sicherheitsäquivalenz?<br/>
   → Siehe <a href="#certainty-equivalence">oben</a>.
 * Was können Sie zur Sensoreinsatzplanung sagen?<br/>
-  → TODO
+  → Siehe <a href="#sensoreinsatzplanung">oben</a>.
 * Wie kann man die Kosten bei der Sensoreinsatzplanung modellieren?<br/>
-  → TODO (Kovarianzbasiert, Informationstheoretisch)
-* Warum recht Kovarainzbasiert bei linearen Sensoreinsatzproblem?<br/>
+  → Kovarianzbasiert oder Informationstheoretisch (Entropie, Transinformation)
+* Warum reicht Kovarainzbasiert bei linearen Sensoreinsatzproblem?<br/>
   → TODO
 * Wie berechnet man die $\alpha$-Vektoren und wozu dienen Sie?<br/>
   → Siehe ProPlan-10-Folien.pdf, Folie 16 (TODO)
@@ -2260,7 +2268,9 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
 ### RL
 
 * Welche Arten von RL gibt es?<br/>
-  → TODO
+  → Wertefunktionsbasiert (Schätzen der Werte- bzw. Q-Funktion aus Stichproben:
+     Monte Carlo, Temporal Difference, Verantwortlichkeitsspuren,
+     Funktionsapproximatoren), Modelllernende Methoden, Strategiesuche
 
 
 ## Notation
