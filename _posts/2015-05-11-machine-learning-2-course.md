@@ -5,7 +5,7 @@ slug: machine-learning-2-course
 author: Martin Thoma
 date: 2015-05-11 11:00
 category: German posts
-tags: Klausur, Machine Learning, Clustering, Reinforcement Learning
+tags: Klausur, Machine Learning, Clustering, RL
 featured_image: logos/klausur.png
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Machine Learning 2&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://tks.anthropomatik.kit.edu/21_52.php">Herrn Prof. Dr. Marius Zöllner</a> im Sommersemester&nbsp;2015 gehört. <br/>Es gibt auch einen Artikel zu <a href="http://martin-thoma.com/machine-learning-1-course/">Machine Learning 1</a>.</div>

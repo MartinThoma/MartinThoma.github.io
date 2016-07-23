@@ -5,7 +5,7 @@ slug: machine-learning-1-course
 author: Martin Thoma
 date: 2015-11-09 16:02
 category: German posts
-tags: Klausur, Reinforcement Learning
+tags: Klausur, RL
 featured_image: logos/klausur.png
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Machine Learning 1&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://www.fzi.de/wir-ueber-uns/organisation/mitarbeiter/address/39/?no_cache=1">Herrn Prof. Dr. Zöllner</a> im Wintersemester 2014/2015 gehört.<br/>Es gibt auch einen Artikel über <a href="//martin-thoma.com/machine-learning-2-course/">Machine Learning 2</a>.</div>
@@ -423,12 +423,7 @@ Siehe auch:
   <dt><dfn id="q-function">Q-Funktion</dfn> (<dfn>Action-Value function</dfn>, <dfn>Quality function</dfn>)</dt>
   <dd>Siehe <a href="../probabilistische-planung/#q-function">Probabilistische Planung</a>.</dd>
   <dt><a name="rl-eligibility-trace"></a><dfn>Eligibility Traces</dfn></dt>
-   <dd>Die Idee scheint einfach zu sein, dass man ein späteres Update auch auf
-       frühere Ereignisse "zurückpropagiert".
-       TODO
-
-       See also: <a href="https://webdocs.cs.ualberta.ca/~sutton/book/ebook/node72.html">Reinforcement Learning: An Introduction</a> by Sutton.
-   </dd>
+   <dd>Siehe <a href="../probabilistische-planung/#eligibility-trace">Probabilistische Planung</a>.</dd>
 </dl>
 
 * Beispiel für RL: Roboter muss zu einem Ziel navigieren
@@ -470,10 +465,7 @@ Algorithmen:
     <dt><dfn id="sarsa">SARSA</dfn> (<dfn>State-Action-Reward-State-Action</dfn>)</dt>
     <dd>Siehe <a href="../probabilistische-planung/#sarsa">Probabilistische Planung</a>.</dd>
     <dt><dfn>SARSA($\lambda$)</dfn></dt>
-    <dd>SARSA($\lambda$) ist SARSA mit Eligibility Traces.
-
-    TODO
-    </dd>
+    <dd>Siehe <a href="../probabilistische-planung/#sarsa-lambda">Probabilistische Planung</a>.</dd>
 </dl>
 
 
