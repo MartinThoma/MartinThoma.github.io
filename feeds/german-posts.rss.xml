@@ -1976,19 +1976,18 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 
     &lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/State-Action-Reward-State-Action"&gt;&lt;dfn id="sarsa"&gt;SARSA&lt;/dfn&gt;&lt;/a&gt; (&lt;dfn&gt;State Action Reward State Action&lt;/dfn&gt;)&lt;/dt&gt;
-&lt;dd&gt;SARSA is a learning algorithm which updates the $Q$-function:
+&lt;dd&gt;
+
+    SARSA is a temporal difference learning algorithm which updates the $Q$-function:
 
     $$Q(s_t,a_t) \leftarrow (1-\alpha) \cdot Q(s_t,a_t) + \alpha [r_{t+1} + \gamma Q(s_{t+1}, a_{t+1})]$$
 
     where $\alpha \in (0, 1)$ is the learning rate and $\gamma \in [0, 1]$
     is the discount factor.
 
-    SARSA is a temporal difference algorithm. As it chooses $a_{k+1}$ according
-    to the policy $\pi$ it is an on-policy algorithm.
-
-    Unterschied zum $Q$-Learning: Zustand wird in Abh&amp;auml;ngigkeit von der Strategie
-    verwendet.
-
+    As SARSA chooses $a_{k+1}$ according
+    to the policy $\pi$ it is an on-policy algorithm, in contrast to $Q$-learning.&lt;br/&gt;
+&lt;br/&gt;
     TODO: Pseudocode
     &lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Q-learning"&gt;&lt;dfn id="q-learning"&gt;$Q$-Learning&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
@@ -2470,8 +2469,6 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
   &amp;rarr; &lt;a href="#mdp"&gt;MDP&lt;/a&gt;, &lt;a href="#pomdp"&gt;POMDP&lt;/a&gt;, &lt;a href="#rl"&gt;RL&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Welche Paradoxa haben wir in den Vorlesungen kennen gelernt?&lt;br/&gt;
   &amp;rarr; Allais-Paradoxon (TODO: Weitere?)&lt;/li&gt;
-&lt;li&gt;Was bedeutet es, dass ein Problem geschlossen l&amp;ouml;sbar ist?&lt;br/&gt;
-  &amp;rarr; TODO&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="nutzen-und-entscheidungstheorie"&gt;Nutzen- und Entscheidungs&amp;shy;theorie&lt;/h3&gt;
 &lt;ul&gt;
@@ -2484,12 +2481,13 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;li&gt;Was haben wir zur Entscheidungstheorie gemacht?&lt;br/&gt;
   &amp;rarr; &lt;a href="#allais-paradoxon"&gt;Allais-Paradoxon&lt;/a&gt; und &lt;a href="#rational-decision"&gt;Rationale Entscheidungen&lt;/a&gt; (TODO: Mehr?)&lt;/li&gt;
 &lt;li&gt;Wie ist eine Nutzenfunktion definiert?&lt;br/&gt;
-  &amp;rarr; Siehe &lt;a href="#nutzenfunktion"&gt;oben&lt;/a&gt;&lt;/li&gt;
+  &amp;rarr; Siehe &lt;a href="#nutzenfunktion"&gt;oben&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="optimierungstheorie"&gt;Optimierungstheorie&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Wie l&amp;ouml;st man Optimierungsprobleme ohne Nebenbedingungen?&lt;br/&gt;
-  &amp;rarr; Iterativer Abstieg (z.B. Gradientenverfahren), Dynamische Programmierung (TODO)&lt;/li&gt;
+  &amp;rarr; Iterativer Abstieg (z.B. Gradientenverfahren), Dynamische Programmierung,
+     Label-Korrektur-Algorithmus (TODO)&lt;/li&gt;
 &lt;li&gt;Wann existiert kein globales Minimum f&amp;uuml;r ein Optimierungsproblem?&lt;br/&gt;
   &amp;rarr; Wenn die Menge der zul&amp;auml;ssigen L&amp;ouml;sungen nach unten unbeschr&amp;auml;nkt ist, d.h.
      &lt;span class="math"&gt;\(\text{arg} \min_x f(x) = - \infty\)&lt;/span&gt; oder wenn die untere Schranke nicht
@@ -2504,7 +2502,10 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;li&gt;Beweisen Sie, dass der Gradient senkrecht auf die H&amp;ouml;henlinien steht.&lt;br/&gt;
   &amp;rarr; TODO&lt;/li&gt;
 &lt;li&gt;Welche numerischen Methoden zur Optimierung kennen sie?&lt;br/&gt;
-  &amp;rarr; Iterativer Abstieg (Gradientenverfahren, Newton-Verfahren), Dynamische Programmierung(?) (TODO)&lt;/li&gt;
+  &amp;rarr; Iterativer Abstieg (Gradientenverfahren, Newton-Verfahren),
+     Dynamische Programmierung (?) (TODO)&lt;/li&gt;
+&lt;li&gt;Was bedeutet es, dass ein Problem geschlossen l&amp;ouml;sbar ist?&lt;br/&gt;
+  &amp;rarr; TODO&lt;/li&gt;
 &lt;li&gt;Welche geschlossen l&amp;ouml;sbaren Spezialf&amp;auml;lle existieren?&lt;br/&gt;
   &amp;rarr; TODO&lt;/li&gt;
 &lt;li&gt;Welche M&amp;ouml;glichkeiten der approximativen L&amp;ouml;sung existieren bzw. sind
@@ -2537,7 +2538,8 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;li&gt;Was macht der LQR?&lt;br/&gt;
   &amp;rarr; Ein LQR regelt ein lineares System mit quadratischen Kosten auf einen Zielfwert.&lt;/li&gt;
 &lt;li&gt;Wieso sind MDPs schwer zu l&amp;ouml;sen?&lt;br/&gt;
-  &amp;rarr; TODO&lt;/li&gt;
+  &amp;rarr; Es gibt &lt;span class="math"&gt;\(|\mathcal{A}|^N\)&lt;/span&gt; m&amp;ouml;gliche Pl&amp;auml;ne und &lt;span class="math"&gt;\(|A|^{N \cdot |\mathcal{X}|}\)&lt;/span&gt;
+    m&amp;ouml;gliche Strategien. (vgl. &lt;a href="https://arxiv.org/pdf/1302.4971.pdf"&gt;On the Complexity of Solving Markov Decision Problems&lt;/a&gt;) (TODO)&lt;/li&gt;
 &lt;li&gt;Wo ist der Fixpunktsatz von Bedeutung?&lt;br/&gt;
   &amp;rarr; TODO&lt;/li&gt;
 &lt;/ul&gt;

@@ -1645,19 +1645,18 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 
     </dd>
 <dt><a href="https://en.wikipedia.org/wiki/State-Action-Reward-State-Action"><dfn id="sarsa">SARSA</dfn></a> (<dfn>State Action Reward State Action</dfn>)</dt>
-<dd>SARSA is a learning algorithm which updates the $Q$-function:
+<dd>
+
+    SARSA is a temporal difference learning algorithm which updates the $Q$-function:
 
     $$Q(s_t,a_t) \leftarrow (1-\alpha) \cdot Q(s_t,a_t) + \alpha [r_{t+1} + \gamma Q(s_{t+1}, a_{t+1})]$$
 
     where $\alpha \in (0, 1)$ is the learning rate and $\gamma \in [0, 1]$
     is the discount factor.
 
-    SARSA is a temporal difference algorithm. As it chooses $a_{k+1}$ according
-    to the policy $\pi$ it is an on-policy algorithm.
-
-    Unterschied zum $Q$-Learning: Zustand wird in Abh&auml;ngigkeit von der Strategie
-    verwendet.
-
+    As SARSA chooses $a_{k+1}$ according
+    to the policy $\pi$ it is an on-policy algorithm, in contrast to $Q$-learning.<br/>
+<br/>
     TODO: Pseudocode
     </dd>
 <dt><a href="https://en.wikipedia.org/wiki/Q-learning"><dfn id="q-learning">$Q$-Learning</dfn></a></dt>
@@ -2139,8 +2138,6 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
   &rarr; <a href="#mdp">MDP</a>, <a href="#pomdp">POMDP</a>, <a href="#rl">RL</a></li>
 <li>Welche Paradoxa haben wir in den Vorlesungen kennen gelernt?<br/>
   &rarr; Allais-Paradoxon (TODO: Weitere?)</li>
-<li>Was bedeutet es, dass ein Problem geschlossen l&ouml;sbar ist?<br/>
-  &rarr; TODO</li>
 </ul>
 <h3 id="nutzen-und-entscheidungstheorie">Nutzen- und Entscheidungs&shy;theorie</h3>
 <ul>
@@ -2153,12 +2150,13 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 <li>Was haben wir zur Entscheidungstheorie gemacht?<br/>
   &rarr; <a href="#allais-paradoxon">Allais-Paradoxon</a> und <a href="#rational-decision">Rationale Entscheidungen</a> (TODO: Mehr?)</li>
 <li>Wie ist eine Nutzenfunktion definiert?<br/>
-  &rarr; Siehe <a href="#nutzenfunktion">oben</a></li>
+  &rarr; Siehe <a href="#nutzenfunktion">oben</a>.</li>
 </ul>
 <h3 id="optimierungstheorie">Optimierungstheorie</h3>
 <ul>
 <li>Wie l&ouml;st man Optimierungsprobleme ohne Nebenbedingungen?<br/>
-  &rarr; Iterativer Abstieg (z.B. Gradientenverfahren), Dynamische Programmierung (TODO)</li>
+  &rarr; Iterativer Abstieg (z.B. Gradientenverfahren), Dynamische Programmierung,
+     Label-Korrektur-Algorithmus (TODO)</li>
 <li>Wann existiert kein globales Minimum f&uuml;r ein Optimierungsproblem?<br/>
   &rarr; Wenn die Menge der zul&auml;ssigen L&ouml;sungen nach unten unbeschr&auml;nkt ist, d.h.
      <span class="math">\(\text{arg} \min_x f(x) = - \infty\)</span> oder wenn die untere Schranke nicht
@@ -2173,7 +2171,10 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 <li>Beweisen Sie, dass der Gradient senkrecht auf die H&ouml;henlinien steht.<br/>
   &rarr; TODO</li>
 <li>Welche numerischen Methoden zur Optimierung kennen sie?<br/>
-  &rarr; Iterativer Abstieg (Gradientenverfahren, Newton-Verfahren), Dynamische Programmierung(?) (TODO)</li>
+  &rarr; Iterativer Abstieg (Gradientenverfahren, Newton-Verfahren),
+     Dynamische Programmierung (?) (TODO)</li>
+<li>Was bedeutet es, dass ein Problem geschlossen l&ouml;sbar ist?<br/>
+  &rarr; TODO</li>
 <li>Welche geschlossen l&ouml;sbaren Spezialf&auml;lle existieren?<br/>
   &rarr; TODO</li>
 <li>Welche M&ouml;glichkeiten der approximativen L&ouml;sung existieren bzw. sind
@@ -2206,7 +2207,8 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 <li>Was macht der LQR?<br/>
   &rarr; Ein LQR regelt ein lineares System mit quadratischen Kosten auf einen Zielfwert.</li>
 <li>Wieso sind MDPs schwer zu l&ouml;sen?<br/>
-  &rarr; TODO</li>
+  &rarr; Es gibt <span class="math">\(|\mathcal{A}|^N\)</span> m&ouml;gliche Pl&auml;ne und <span class="math">\(|A|^{N \cdot |\mathcal{X}|}\)</span>
+    m&ouml;gliche Strategien. (vgl. <a href="https://arxiv.org/pdf/1302.4971.pdf">On the Complexity of Solving Markov Decision Problems</a>) (TODO)</li>
 <li>Wo ist der Fixpunktsatz von Bedeutung?<br/>
   &rarr; TODO</li>
 </ul>
