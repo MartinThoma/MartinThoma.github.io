@@ -236,12 +236,13 @@ sowie die Werte- und Strategieiteration zu nennen.</p>
 </ul>
 </dd>
 <dt><dfn>Wahrscheinlichkeitsma&szlig;</dfn></dt>
-<dd>Eine Funktion $P: A \rightarrow \mathbb{R}$ hei&szlig;t Wahrscheinlichkeitsma&szlig;,
-      wenn die Kolmogorov'schen Axiome gelten:
+<dd>Eine Funktion $P: \mathcal{A} \rightarrow \mathbb{R}$ (mit $\mathcal{A}$ ist
+      Sigma-Algebra &uuml;ber der Grundmenge $S$) hei&szlig;t
+      <i>Wahrscheinlichkeitsma&szlig;</i>, wenn die Kolmogorov'schen Axiome gelten:
 
       <ul>
-<li>$\forall M \in \mathcal{A}: P(M) \geq 0$</li>
-<li>$\forall P(S) = 1$</li>
+<li>Nicht-negativit&auml;t: $\forall M \in \mathcal{A}: P(M) \geq 0$</li>
+<li>Normiertheit: $\forall P(S) = 1$</li>
 <li>$M_1, M_2 \in \mathcal{A} \land M_1 \cap M_2 = \emptyset \Rightarrow P(M_1 \cup M_2) = P(M_1) + P(M_2)$</li>
 </ul>
 </dd>
@@ -336,7 +337,7 @@ sowie die Werte- und Strategieiteration zu nennen.</p>
 <li id="VNM-1">$\geq$ ist eine Pr&auml;ferenzrelation</li>
 <li id="VNM-2">Unabh&auml;ngigkeitsaxiom: Gilt f&uuml;r $P, Q \in \mathcal{P}$ die
                 Beziehung $P \geq Q$, dann gilt auch:
-                $$\alpha \cdot P + (1 - \alpha) R \geq \alpha Q + (1 - \alpha) R$$
+                $$\alpha \cdot P + (1 - \alpha) \cdot R \geq \alpha \cdot Q + (1 - \alpha) \cdot R$$
                 f&uuml;r beliebiges $R \in \mathcal{P}$ und beliebiges $\alpha \in [0, 1]$.
                 <br/>
 <u>Salopp:</u> St&ouml;rungen $R$ beeinflussen die Pr&auml;ferenz von $P$
@@ -850,7 +851,7 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 
         $$x_{k+1} = A_k x_k + B_k a_k$$
 
-        welchem das Rauschen $r_k^{(s)}$ durch dessen Erwartungswert $E(r_k^{(s)}) = 0$
+        welchem das Rauschen $r_k^{(s)}$ durch dessen Erwartungswert $\mathbb{E}(r_k^{(s)}) = 0$
         ersetzt ist.<br/>
 
         $\Rightarrow$ Deterministisches Problem</dd>
@@ -892,7 +893,7 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 </li>
 <li id="pomdp-cost-function">Minimierung der erwarteten Kosten
 
-                $$J_{\pi_{0:N-1}}(\square) = E(g_N (x_n) + \sum_{k=0}^{N-1} g_n(x_k, \pi_k(\square)))$$</li>
+                $$J_{\pi_{0:N-1}}(\square) = \mathbb{E}(g_N (x_n) + \sum_{k=0}^{N-1} g_n(x_k, \pi_k(\square)))$$</li>
 </ul>
 
         Reformulierung als MDP:
@@ -922,9 +923,9 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 
                 Das zu l&ouml;sende dynamische Programm lautet:
 
-                $$J_N(\mathcal{I}_N) = E(g_N(x_N) | \mathcal{I}_N)$$
+                $$J_N(\mathcal{I}_N) = \mathbb{E}(g_N(x_N) | \mathcal{I}_N)$$
 
-                $$J_k(\mathcal{I}_k) = \min_{a_k} (E_{x,z}(g_k(x_k, a_k) + J_{k+1}(\mathcal{I}_k, z_{k+1}, a_k)(\mathcal{I}_k, a_k))) \text{ f&uuml;r } k=0, 1, \dots, N-1$$
+                $$J_k(\mathcal{I}_k) = \min_{a_k} (\mathbb{E}_{x,z}(g_k(x_k, a_k) + J_{k+1}(\mathcal{I}_k, z_{k+1}, a_k)(\mathcal{I}_k, a_k))) \text{ f&uuml;r } k=0, 1, \dots, N-1$$
 
                 Die L&ouml;sung ist eine &ouml;ptimale Strategie $\pi_k^* (\mathcal{I}_k) = a_k^*$
 
@@ -996,7 +997,7 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 <li>$X = \mathbb{R}^{n_x}, A=\mathbb{R}^{n_k}, Z=\mathbb{R}^{n_z}$</li>
 <li>Ziel: &Uuml;berf&uuml;hrung des Zustandes $x_0$ in Zielzustand $x_t = [0, ..., 0]^T$
                 durch Minimierung der quatratischen Kostenfunktion
-                $E(x_N^T Q_N x_n + \sum_{k=0}^{N-1} (x_k^T Q_k x_k + a_k^T R_k a_k) | I_N)$
+                $\mathbb{E}(x_N^T Q_N x_n + \sum_{k=0}^{N-1} (x_k^T Q_k x_k + a_k^T R_k a_k) | I_N)$
 
                 mit symmetrisch, positiv definiten Gewichtungsmatrizen
                 $Q_N, Q_k, R_k$ und Informationsvektor $I_N$.
@@ -1084,7 +1085,7 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 
         <ol>
 <li>$P(x_k | I_k)$ wird berechnet.</li>
-<li>$a_{k:N-1}^* \gets \arg \min E(g_N(x_N) + \sum_{i=k}^{N-1} g_i(x_i, a_i) | I_k)$</li>
+<li>$a_{k:N-1}^* \gets \arg \min \mathbb{E}(g_N(x_N) + \sum_{i=k}^{N-1} g_i(x_i, a_i) | I_k)$</li>
 <li>Wende $a_{k:N-1}^*$ und gehe wieder zu 1</li>
 </ol>
 
@@ -1248,7 +1249,7 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 <li>Nach Messung: (approximative) Berechnung ovn $P(x_k | I_k)$
                 bzw. $P(x_{k+1} | I_k)$ z.B. mittels EKF.</li>
 <li>Berechnung der Nominalwerte $\bar{x}_{k+1:k+M}$ mit
-                $\bar{x}_{k+1} = E(x_{k+1} | I_k) = \hat{x}_{k+1}^P$</li>
+                $\bar{x}_{k+1} = \mathbb{E}(x_{k+1} | I_k) = \hat{x}_{k+1}^P$</li>
 <li>Linearisierung</li>
 <li>Berechnung des optimalen Plans $a_{k+1:k+M}^*$ f&uuml;r
                 lineares Problem.</li>
@@ -1321,7 +1322,7 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
             $$r_k = g_k(x_k, a_k, x_{k+1})$$
             wobei $g_k$ unbekannt.</li>
 <li>(8) Ziel: Maximierung der erwarteten Belohnung &uuml;ber die Zeit.
-            $$J(x_k) = E(R_k | x_k)$$
+            $$J(x_k) = \mathbb{E}(R_k | x_k)$$
 
             <ul>
 <li>Fortlaufender Zeithorizont: $R_k = \sum_{t=0}^\infty \gamma^t r_{k+t}$
@@ -1423,7 +1424,7 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 <u>Idee</u>: Erlernen einer Strategie aus Beispielepisoden.
 
         Approximation des Erwartungswertes durch Stichproben (Samples)<br/>
-        $$E(R) = \frac{1}{N} \sum_{k=1}^N r_k =: \bar{R}_N,$$
+        $$\mathbb{E}(R) = \frac{1}{N} \sum_{k=1}^N r_k =: \bar{R}_N,$$
         wobei $r_k$ die Belohnung im Zeitschritt $k$ ist.<br/>
         Rekursiv:
         $$\bar{R}_{N+1} = \bar{R}_N + \frac{1}{N+1} (r_{N+1} - \bar{R}_N) \text{ mit } \bar{R}_1 = r_1$$
@@ -1617,8 +1618,8 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 <u>Unterschiedliche Sch&auml;tzung:</u><br/>
         $$
         \begin{align}
-        J_\pi(x) &amp;= E(R_k | x_k = x) \tag{1}\\
-                 &amp;= E(r_k + \gamma \sum_{i=0}^\infty \gamma^i \cdot r_{k+i} | x_k = x)\tag{2}
+        J_\pi(x) &amp;= \mathbb{E}(R_k | x_k = x) \tag{1}\\
+                 &amp;= \mathbb{E}(r_k + \gamma \sum_{i=0}^\infty \gamma^i \cdot r_{k+i} | x_k = x)\tag{2}
         \end{align}
         $$
         MC-Verfahren ganz (1) mittels Stichprobenfolge. TD-Verfahren sch&auml;tzen
@@ -2057,7 +2058,7 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 </tr>
 <tr>
 <td>6</td>
-<td colspan="2">Additive Kostenfunktion $g_N(x_N) + \sum_{k=0}^{N-1}$ g_k(x_k, a_k)</td>
+<td colspan="2">Additive Kostenfunktion $g_N(x_N) + \sum_{k=0}^{N-1} g_k(x_k, a_k)$</td>
 <td>Belohnung $r_k = g_k(x_k, a_k, x_{k+1})$ wobei $g_k(\cdot)$ unbekannt</td>
 </tr>
 <tr>
@@ -2071,17 +2072,17 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 <td>8</td>
 <td>Minimiere $$
             \begin{align}
-                J_{\pi_{0:N-1}} (x_0) := &amp; E (g_N (x_N) \\
+                J_{\pi_{0:N-1}} (x_0) := &amp; \mathbb{E} (g_N (x_N) \\
                                        + &amp; \sum_{k=0}^{N-1} g_k (x_k, \pi_k(x_k)))
             \end{align}$$</td>
 <td>Minimiere
             $$
             \begin{align}
-            J_{\pi_{0:N-1}} (\cdot) := &amp; E (g_N (x_N) \\
+            J_{\pi_{0:N-1}} (\cdot) := &amp; \mathbb{E} (g_N (x_N) \\
                                      + &amp; \sum_{k=0}^{N-1} g_k (x_k, \pi_k(\cdot)))
             \end{align}
             $$</td>
-<td>Maximimierung der Belohnung $J(x_k) = E (R_k | x_k)$. Im fortlaufenden
+<td>Maximimierung der Belohnung $J(x_k) = \mathbb{E} (R_k | x_k)$. Im fortlaufenden
             Fall $$R_k = \sum_{t=0}^\infty \gamma^t r_{k+t}$$ mit
             Diskontierungsfaktor $\gamma \in [0, 1)$,
             im episodischen Fall
@@ -2094,10 +2095,12 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 <ul>
 <li><a href="#dynamic-programming">Dynamic Programming</a></li>
 <li>Deterministischer Fall: <a href="#label-correction-algorithm">Label-Korrektur-Algorithmus</a></li>
+<li>Linearer Fall: <a href="#lqr">LQR</a></li>
 </ul>
 </td>
 <td>
 <ul>
+<li>Reduzierung auf Belief-MDP: DP (TODO?)</li>
 <li>Linearer Fall: <a href="https://martin-thoma.com/kalman-filter/">Kalman-filter</a> + <a href="#lqr">LQR</a></li>
 <li>Endliches Planungsproblem, unendlicher Horizont:
 
@@ -2191,6 +2194,12 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
   &rarr; TODO</li>
 <li>Was versteht man unter Pontryagin's Minimum-Prinzip und wozu ist es gut?<br/>
   &rarr; TODO</li>
+<li>Was versteht man unter dem Optimalit&auml;tsprinzip?<br/>
+  &rarr; Das Optimalit&auml;tsprinzip von Bellman besagt, das bei einigen
+  Optimierungsproblemen sich die optimale L&ouml;sung aus optimalen L&ouml;sungen f&uuml;r
+  die Teilprobleme zusammensetzt. Ein Beispiel ist die K&uuml;rzeste-Wege-Suche.
+  Wenn A-B-C-D der k&uuml;rzeste Weg von A nach D ist, so ist auch A-B-C der
+  k&uuml;rzeste Weg von A nach C.</li>
 </ul>
 <h3 id="mdp">MDP</h3>
 <ul>
@@ -2253,6 +2262,8 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
   &rarr; Wertefunktionsbasiert (Sch&auml;tzen der Werte- bzw. <span class="math">\(Q\)</span>-Funktion aus Stichproben:
      Monte Carlo, Temporal Difference, Verantwortlichkeitsspuren,
      Funktionsapproximatoren), Modelllernende Methoden, Strategiesuche</li>
+<li>Was ist der gro&szlig;e Vorteil von Off-policy RL??<br/>
+  &rarr; TODO</li>
 </ul>
 <h2 id="notation_1">Notation</h2>
 <p>Der Dozent nutzt folgende Notation:</p>
@@ -2294,7 +2305,8 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 <li>Einf&uuml;hrung in die Bildfolgenauswertung</li>
 </ul>
 <h2 id="termine-und-klausurablauf">Termine und Klausurablauf</h2>
-<p>Die Veranstaltung wird m&uuml;ndlich gepr&uuml;ft.</p>
+<p>Die Veranstaltung wird m&uuml;ndlich gepr&uuml;ft. &Uuml;blicherweise dauert eine Pr&uuml;fung
+zwischen 30 min und 45 min.</p>
             
             <div id="disqus_thread"></div>
 <script>

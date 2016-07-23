@@ -567,12 +567,13 @@ sowie die Werte- und Strategieiteration zu nennen.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Wahrscheinlichkeitsma&amp;szlig;&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;Eine Funktion $P: A \rightarrow \mathbb{R}$ hei&amp;szlig;t Wahrscheinlichkeitsma&amp;szlig;,
-      wenn die Kolmogorov'schen Axiome gelten:
+&lt;dd&gt;Eine Funktion $P: \mathcal{A} \rightarrow \mathbb{R}$ (mit $\mathcal{A}$ ist
+      Sigma-Algebra &amp;uuml;ber der Grundmenge $S$) hei&amp;szlig;t
+      &lt;i&gt;Wahrscheinlichkeitsma&amp;szlig;&lt;/i&gt;, wenn die Kolmogorov'schen Axiome gelten:
 
       &lt;ul&gt;
-&lt;li&gt;$\forall M \in \mathcal{A}: P(M) \geq 0$&lt;/li&gt;
-&lt;li&gt;$\forall P(S) = 1$&lt;/li&gt;
+&lt;li&gt;Nicht-negativit&amp;auml;t: $\forall M \in \mathcal{A}: P(M) \geq 0$&lt;/li&gt;
+&lt;li&gt;Normiertheit: $\forall P(S) = 1$&lt;/li&gt;
 &lt;li&gt;$M_1, M_2 \in \mathcal{A} \land M_1 \cap M_2 = \emptyset \Rightarrow P(M_1 \cup M_2) = P(M_1) + P(M_2)$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
@@ -667,7 +668,7 @@ sowie die Werte- und Strategieiteration zu nennen.&lt;/p&gt;
 &lt;li id="VNM-1"&gt;$\geq$ ist eine Pr&amp;auml;ferenzrelation&lt;/li&gt;
 &lt;li id="VNM-2"&gt;Unabh&amp;auml;ngigkeitsaxiom: Gilt f&amp;uuml;r $P, Q \in \mathcal{P}$ die
                 Beziehung $P \geq Q$, dann gilt auch:
-                $$\alpha \cdot P + (1 - \alpha) R \geq \alpha Q + (1 - \alpha) R$$
+                $$\alpha \cdot P + (1 - \alpha) \cdot R \geq \alpha \cdot Q + (1 - \alpha) \cdot R$$
                 f&amp;uuml;r beliebiges $R \in \mathcal{P}$ und beliebiges $\alpha \in [0, 1]$.
                 &lt;br/&gt;
 &lt;u&gt;Salopp:&lt;/u&gt; St&amp;ouml;rungen $R$ beeinflussen die Pr&amp;auml;ferenz von $P$
@@ -1181,7 +1182,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 
         $$x_{k+1} = A_k x_k + B_k a_k$$
 
-        welchem das Rauschen $r_k^{(s)}$ durch dessen Erwartungswert $E(r_k^{(s)}) = 0$
+        welchem das Rauschen $r_k^{(s)}$ durch dessen Erwartungswert $\mathbb{E}(r_k^{(s)}) = 0$
         ersetzt ist.&lt;br/&gt;
 
         $\Rightarrow$ Deterministisches Problem&lt;/dd&gt;
@@ -1223,7 +1224,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;/li&gt;
 &lt;li id="pomdp-cost-function"&gt;Minimierung der erwarteten Kosten
 
-                $$J_{\pi_{0:N-1}}(\square) = E(g_N (x_n) + \sum_{k=0}^{N-1} g_n(x_k, \pi_k(\square)))$$&lt;/li&gt;
+                $$J_{\pi_{0:N-1}}(\square) = \mathbb{E}(g_N (x_n) + \sum_{k=0}^{N-1} g_n(x_k, \pi_k(\square)))$$&lt;/li&gt;
 &lt;/ul&gt;
 
         Reformulierung als MDP:
@@ -1253,9 +1254,9 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 
                 Das zu l&amp;ouml;sende dynamische Programm lautet:
 
-                $$J_N(\mathcal{I}_N) = E(g_N(x_N) | \mathcal{I}_N)$$
+                $$J_N(\mathcal{I}_N) = \mathbb{E}(g_N(x_N) | \mathcal{I}_N)$$
 
-                $$J_k(\mathcal{I}_k) = \min_{a_k} (E_{x,z}(g_k(x_k, a_k) + J_{k+1}(\mathcal{I}_k, z_{k+1}, a_k)(\mathcal{I}_k, a_k))) \text{ f&amp;uuml;r } k=0, 1, \dots, N-1$$
+                $$J_k(\mathcal{I}_k) = \min_{a_k} (\mathbb{E}_{x,z}(g_k(x_k, a_k) + J_{k+1}(\mathcal{I}_k, z_{k+1}, a_k)(\mathcal{I}_k, a_k))) \text{ f&amp;uuml;r } k=0, 1, \dots, N-1$$
 
                 Die L&amp;ouml;sung ist eine &amp;ouml;ptimale Strategie $\pi_k^* (\mathcal{I}_k) = a_k^*$
 
@@ -1327,7 +1328,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;li&gt;$X = \mathbb{R}^{n_x}, A=\mathbb{R}^{n_k}, Z=\mathbb{R}^{n_z}$&lt;/li&gt;
 &lt;li&gt;Ziel: &amp;Uuml;berf&amp;uuml;hrung des Zustandes $x_0$ in Zielzustand $x_t = [0, ..., 0]^T$
                 durch Minimierung der quatratischen Kostenfunktion
-                $E(x_N^T Q_N x_n + \sum_{k=0}^{N-1} (x_k^T Q_k x_k + a_k^T R_k a_k) | I_N)$
+                $\mathbb{E}(x_N^T Q_N x_n + \sum_{k=0}^{N-1} (x_k^T Q_k x_k + a_k^T R_k a_k) | I_N)$
 
                 mit symmetrisch, positiv definiten Gewichtungsmatrizen
                 $Q_N, Q_k, R_k$ und Informationsvektor $I_N$.
@@ -1415,7 +1416,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 
         &lt;ol&gt;
 &lt;li&gt;$P(x_k | I_k)$ wird berechnet.&lt;/li&gt;
-&lt;li&gt;$a_{k:N-1}^* \gets \arg \min E(g_N(x_N) + \sum_{i=k}^{N-1} g_i(x_i, a_i) | I_k)$&lt;/li&gt;
+&lt;li&gt;$a_{k:N-1}^* \gets \arg \min \mathbb{E}(g_N(x_N) + \sum_{i=k}^{N-1} g_i(x_i, a_i) | I_k)$&lt;/li&gt;
 &lt;li&gt;Wende $a_{k:N-1}^*$ und gehe wieder zu 1&lt;/li&gt;
 &lt;/ol&gt;
 
@@ -1579,7 +1580,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;li&gt;Nach Messung: (approximative) Berechnung ovn $P(x_k | I_k)$
                 bzw. $P(x_{k+1} | I_k)$ z.B. mittels EKF.&lt;/li&gt;
 &lt;li&gt;Berechnung der Nominalwerte $\bar{x}_{k+1:k+M}$ mit
-                $\bar{x}_{k+1} = E(x_{k+1} | I_k) = \hat{x}_{k+1}^P$&lt;/li&gt;
+                $\bar{x}_{k+1} = \mathbb{E}(x_{k+1} | I_k) = \hat{x}_{k+1}^P$&lt;/li&gt;
 &lt;li&gt;Linearisierung&lt;/li&gt;
 &lt;li&gt;Berechnung des optimalen Plans $a_{k+1:k+M}^*$ f&amp;uuml;r
                 lineares Problem.&lt;/li&gt;
@@ -1652,7 +1653,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
             $$r_k = g_k(x_k, a_k, x_{k+1})$$
             wobei $g_k$ unbekannt.&lt;/li&gt;
 &lt;li&gt;(8) Ziel: Maximierung der erwarteten Belohnung &amp;uuml;ber die Zeit.
-            $$J(x_k) = E(R_k | x_k)$$
+            $$J(x_k) = \mathbb{E}(R_k | x_k)$$
 
             &lt;ul&gt;
 &lt;li&gt;Fortlaufender Zeithorizont: $R_k = \sum_{t=0}^\infty \gamma^t r_{k+t}$
@@ -1754,7 +1755,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;u&gt;Idee&lt;/u&gt;: Erlernen einer Strategie aus Beispielepisoden.
 
         Approximation des Erwartungswertes durch Stichproben (Samples)&lt;br/&gt;
-        $$E(R) = \frac{1}{N} \sum_{k=1}^N r_k =: \bar{R}_N,$$
+        $$\mathbb{E}(R) = \frac{1}{N} \sum_{k=1}^N r_k =: \bar{R}_N,$$
         wobei $r_k$ die Belohnung im Zeitschritt $k$ ist.&lt;br/&gt;
         Rekursiv:
         $$\bar{R}_{N+1} = \bar{R}_N + \frac{1}{N+1} (r_{N+1} - \bar{R}_N) \text{ mit } \bar{R}_1 = r_1$$
@@ -1948,8 +1949,8 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;u&gt;Unterschiedliche Sch&amp;auml;tzung:&lt;/u&gt;&lt;br/&gt;
         $$
         \begin{align}
-        J_\pi(x) &amp;amp;= E(R_k | x_k = x) \tag{1}\\
-                 &amp;amp;= E(r_k + \gamma \sum_{i=0}^\infty \gamma^i \cdot r_{k+i} | x_k = x)\tag{2}
+        J_\pi(x) &amp;amp;= \mathbb{E}(R_k | x_k = x) \tag{1}\\
+                 &amp;amp;= \mathbb{E}(r_k + \gamma \sum_{i=0}^\infty \gamma^i \cdot r_{k+i} | x_k = x)\tag{2}
         \end{align}
         $$
         MC-Verfahren ganz (1) mittels Stichprobenfolge. TD-Verfahren sch&amp;auml;tzen
@@ -2388,7 +2389,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;6&lt;/td&gt;
-&lt;td colspan="2"&gt;Additive Kostenfunktion $g_N(x_N) + \sum_{k=0}^{N-1}$ g_k(x_k, a_k)&lt;/td&gt;
+&lt;td colspan="2"&gt;Additive Kostenfunktion $g_N(x_N) + \sum_{k=0}^{N-1} g_k(x_k, a_k)$&lt;/td&gt;
 &lt;td&gt;Belohnung $r_k = g_k(x_k, a_k, x_{k+1})$ wobei $g_k(\cdot)$ unbekannt&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -2402,17 +2403,17 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;td&gt;8&lt;/td&gt;
 &lt;td&gt;Minimiere $$
             \begin{align}
-                J_{\pi_{0:N-1}} (x_0) := &amp;amp; E (g_N (x_N) \\
+                J_{\pi_{0:N-1}} (x_0) := &amp;amp; \mathbb{E} (g_N (x_N) \\
                                        + &amp;amp; \sum_{k=0}^{N-1} g_k (x_k, \pi_k(x_k)))
             \end{align}$$&lt;/td&gt;
 &lt;td&gt;Minimiere
             $$
             \begin{align}
-            J_{\pi_{0:N-1}} (\cdot) := &amp;amp; E (g_N (x_N) \\
+            J_{\pi_{0:N-1}} (\cdot) := &amp;amp; \mathbb{E} (g_N (x_N) \\
                                      + &amp;amp; \sum_{k=0}^{N-1} g_k (x_k, \pi_k(\cdot)))
             \end{align}
             $$&lt;/td&gt;
-&lt;td&gt;Maximimierung der Belohnung $J(x_k) = E (R_k | x_k)$. Im fortlaufenden
+&lt;td&gt;Maximimierung der Belohnung $J(x_k) = \mathbb{E} (R_k | x_k)$. Im fortlaufenden
             Fall $$R_k = \sum_{t=0}^\infty \gamma^t r_{k+t}$$ mit
             Diskontierungsfaktor $\gamma \in [0, 1)$,
             im episodischen Fall
@@ -2425,10 +2426,12 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="#dynamic-programming"&gt;Dynamic Programming&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Deterministischer Fall: &lt;a href="#label-correction-algorithm"&gt;Label-Korrektur-Algorithmus&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Linearer Fall: &lt;a href="#lqr"&gt;LQR&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/td&gt;
 &lt;td&gt;
 &lt;ul&gt;
+&lt;li&gt;Reduzierung auf Belief-MDP: DP (TODO?)&lt;/li&gt;
 &lt;li&gt;Linearer Fall: &lt;a href="https://martin-thoma.com/kalman-filter/"&gt;Kalman-filter&lt;/a&gt; + &lt;a href="#lqr"&gt;LQR&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Endliches Planungsproblem, unendlicher Horizont:
 
@@ -2522,6 +2525,12 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
   &amp;rarr; TODO&lt;/li&gt;
 &lt;li&gt;Was versteht man unter Pontryagin's Minimum-Prinzip und wozu ist es gut?&lt;br/&gt;
   &amp;rarr; TODO&lt;/li&gt;
+&lt;li&gt;Was versteht man unter dem Optimalit&amp;auml;tsprinzip?&lt;br/&gt;
+  &amp;rarr; Das Optimalit&amp;auml;tsprinzip von Bellman besagt, das bei einigen
+  Optimierungsproblemen sich die optimale L&amp;ouml;sung aus optimalen L&amp;ouml;sungen f&amp;uuml;r
+  die Teilprobleme zusammensetzt. Ein Beispiel ist die K&amp;uuml;rzeste-Wege-Suche.
+  Wenn A-B-C-D der k&amp;uuml;rzeste Weg von A nach D ist, so ist auch A-B-C der
+  k&amp;uuml;rzeste Weg von A nach C.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="mdp"&gt;MDP&lt;/h3&gt;
 &lt;ul&gt;
@@ -2584,6 +2593,8 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
   &amp;rarr; Wertefunktionsbasiert (Sch&amp;auml;tzen der Werte- bzw. &lt;span class="math"&gt;\(Q\)&lt;/span&gt;-Funktion aus Stichproben:
      Monte Carlo, Temporal Difference, Verantwortlichkeitsspuren,
      Funktionsapproximatoren), Modelllernende Methoden, Strategiesuche&lt;/li&gt;
+&lt;li&gt;Was ist der gro&amp;szlig;e Vorteil von Off-policy RL??&lt;br/&gt;
+  &amp;rarr; TODO&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="notation_1"&gt;Notation&lt;/h2&gt;
 &lt;p&gt;Der Dozent nutzt folgende Notation:&lt;/p&gt;
@@ -2625,7 +2636,8 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;li&gt;Einf&amp;uuml;hrung in die Bildfolgenauswertung&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="termine-und-klausurablauf"&gt;Termine und Klausurablauf&lt;/h2&gt;
-&lt;p&gt;Die Veranstaltung wird m&amp;uuml;ndlich gepr&amp;uuml;ft.&lt;/p&gt;</summary><category term="Klausur"></category><category term="RL"></category></entry><entry><title>Analysetechniken für große Datenbestände</title><link href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/" rel="alternate"></link><published>2016-04-15T11:22:00+02:00</published><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2016-04-15:analysetechniken-grosser-datenbestaende/</id><summary type="html">&lt;div class="info"&gt;Dieser Artikel besch&amp;auml;ftigt sich mit der Vorlesung &amp;bdquo;Analysetechniken f&amp;uuml;r gro&amp;szlig;e Datenbest&amp;auml;nde&amp;ldquo; am KIT. Er dient als Pr&amp;uuml;fungsvorbereitung. Ich habe die Vorlesungen bei &lt;a href="https://dbis.ipd.kit.edu/english/336.php"&gt;Herrn Prof. Dr.-Ing. Klemens B&amp;ouml;hm&lt;/a&gt; im Wintersemester 2015/2016 geh&amp;ouml;rt.&lt;/div&gt;
+&lt;p&gt;Die Veranstaltung wird m&amp;uuml;ndlich gepr&amp;uuml;ft. &amp;Uuml;blicherweise dauert eine Pr&amp;uuml;fung
+zwischen 30 min und 45 min.&lt;/p&gt;</summary><category term="Klausur"></category><category term="RL"></category></entry><entry><title>Analysetechniken für große Datenbestände</title><link href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/" rel="alternate"></link><published>2016-04-15T11:22:00+02:00</published><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2016-04-15:analysetechniken-grosser-datenbestaende/</id><summary type="html">&lt;div class="info"&gt;Dieser Artikel besch&amp;auml;ftigt sich mit der Vorlesung &amp;bdquo;Analysetechniken f&amp;uuml;r gro&amp;szlig;e Datenbest&amp;auml;nde&amp;ldquo; am KIT. Er dient als Pr&amp;uuml;fungsvorbereitung. Ich habe die Vorlesungen bei &lt;a href="https://dbis.ipd.kit.edu/english/336.php"&gt;Herrn Prof. Dr.-Ing. Klemens B&amp;ouml;hm&lt;/a&gt; im Wintersemester 2015/2016 geh&amp;ouml;rt.&lt;/div&gt;
 &lt;p&gt;In der Vorlesung 'Analysetechniken f&amp;uuml;r gro&amp;szlig;e Datenbest&amp;auml;nde' werden vor allem
 Association Rule Mining und Clustering-Techniken besprochen. Zum Association
 Rule minining ist vor allem der Apriori-Algorithmus sowie die Verbesserung mit
