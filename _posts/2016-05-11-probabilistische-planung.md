@@ -145,12 +145,13 @@ Slides: `ProPlan-1-Anschrieb.pdf`
 
       </dd>
   <dt><dfn>Wahrscheinlichkeitsmaß</dfn></dt>
-  <dd>Eine Funktion $P: A \rightarrow \mathbb{R}$ heißt Wahrscheinlichkeitsmaß,
-      wenn die Kolmogorov'schen Axiome gelten:
+  <dd>Eine Funktion $P: \mathcal{A} \rightarrow \mathbb{R}$ (mit $\mathcal{A}$ ist
+      Sigma-Algebra über der Grundmenge $S$) heißt
+      <i>Wahrscheinlichkeitsmaß</i>, wenn die Kolmogorov'schen Axiome gelten:
 
       <ul>
-          <li>$\forall M \in \mathcal{A}: P(M) \geq 0$</li>
-          <li>$\forall P(S) = 1$</li>
+          <li>Nicht-negativität: $\forall M \in \mathcal{A}: P(M) \geq 0$</li>
+          <li>Normiertheit: $\forall P(S) = 1$</li>
           <li>$M_1, M_2 \in \mathcal{A} \land M_1 \cap M_2 = \emptyset \Rightarrow P(M_1 \cup M_2) = P(M_1) + P(M_2)$</li>
       </ul>
 
@@ -250,7 +251,7 @@ Slides: `11.05.2016`
             <li id="VNM-1">$\geq$ ist eine Präferenzrelation</li>
             <li id="VNM-2">Unabhängigkeitsaxiom: Gilt für $P, Q \in \mathcal{P}$ die
                 Beziehung $P \geq Q$, dann gilt auch:
-                $$\alpha \cdot P + (1 - \alpha) R \geq \alpha Q + (1 - \alpha) R$$
+                $$\alpha \cdot P + (1 - \alpha) \cdot R \geq \alpha \cdot Q + (1 - \alpha) \cdot R$$
                 für beliebiges $R \in \mathcal{P}$ und beliebiges $\alpha \in [0, 1]$.
                 <br/>
                 <u>Salopp:</u> Störungen $R$ beeinflussen die Präferenz von $P$
@@ -793,7 +794,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
 
         $$x_{k+1} = A_k x_k + B_k a_k$$
 
-        welchem das Rauschen $r_k^{(s)}$ durch dessen Erwartungswert $E(r_k^{(s)}) = 0$
+        welchem das Rauschen $r_k^{(s)}$ durch dessen Erwartungswert $\mathbb{E}(r_k^{(s)}) = 0$
         ersetzt ist.<br/>
 
         $\Rightarrow$ Deterministisches Problem</dd>
@@ -840,7 +841,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
                 </li>
             <li id="pomdp-cost-function">Minimierung der erwarteten Kosten
 
-                $$J_{\pi_{0:N-1}}(\square) = E(g_N (x_n) + \sum_{k=0}^{N-1} g_n(x_k, \pi_k(\square)))$$</li>
+                $$J_{\pi_{0:N-1}}(\square) = \mathbb{E}(g_N (x_n) + \sum_{k=0}^{N-1} g_n(x_k, \pi_k(\square)))$$</li>
         </ul>
 
         Reformulierung als MDP:
@@ -870,9 +871,9 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
 
                 Das zu lösende dynamische Programm lautet:
 
-                $$J_N(\mathcal{I}_N) = E(g_N(x_N) | \mathcal{I}_N)$$
+                $$J_N(\mathcal{I}_N) = \mathbb{E}(g_N(x_N) | \mathcal{I}_N)$$
 
-                $$J_k(\mathcal{I}_k) = \min_{a_k} (E_{x,z}(g_k(x_k, a_k) + J_{k+1}(\mathcal{I}_k, z_{k+1}, a_k)(\mathcal{I}_k, a_k))) \text{ für } k=0, 1, \dots, N-1$$
+                $$J_k(\mathcal{I}_k) = \min_{a_k} (\mathbb{E}_{x,z}(g_k(x_k, a_k) + J_{k+1}(\mathcal{I}_k, z_{k+1}, a_k)(\mathcal{I}_k, a_k))) \text{ für } k=0, 1, \dots, N-1$$
 
                 Die Lösung ist eine öptimale Strategie $\pi_k^* (\mathcal{I}_k) = a_k^*$
 
@@ -945,7 +946,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
             <li>$X = \mathbb{R}^{n_x}, A=\mathbb{R}^{n_k}, Z=\mathbb{R}^{n_z}$</li>
             <li>Ziel: Überführung des Zustandes $x_0$ in Zielzustand $x_t = [0, ..., 0]^T$
                 durch Minimierung der quatratischen Kostenfunktion
-                $E(x_N^T Q_N x_n + \sum_{k=0}^{N-1} (x_k^T Q_k x_k + a_k^T R_k a_k) | I_N)$
+                $\mathbb{E}(x_N^T Q_N x_n + \sum_{k=0}^{N-1} (x_k^T Q_k x_k + a_k^T R_k a_k) | I_N)$
 
                 mit symmetrisch, positiv definiten Gewichtungsmatrizen
                 $Q_N, Q_k, R_k$ und Informationsvektor $I_N$.
@@ -1035,7 +1036,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
 
         <ol>
             <li>$P(x_k | I_k)$ wird berechnet.</li>
-            <li>$a_{k:N-1}^* \gets \arg \min E(g_N(x_N) + \sum_{i=k}^{N-1} g_i(x_i, a_i) | I_k)$</li>
+            <li>$a_{k:N-1}^* \gets \arg \min \mathbb{E}(g_N(x_N) + \sum_{i=k}^{N-1} g_i(x_i, a_i) | I_k)$</li>
             <li>Wende $a_{k:N-1}^*$ und gehe wieder zu 1</li>
         </ol>
 
@@ -1202,7 +1203,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
             <li>Nach Messung: (approximative) Berechnung ovn $P(x_k | I_k)$
                 bzw. $P(x_{k+1} | I_k)$ z.B. mittels EKF.</li>
             <li>Berechnung der Nominalwerte $\bar{x}_{k+1:k+M}$ mit
-                $\bar{x}_{k+1} = E(x_{k+1} | I_k) = \hat{x}_{k+1}^P$</li>
+                $\bar{x}_{k+1} = \mathbb{E}(x_{k+1} | I_k) = \hat{x}_{k+1}^P$</li>
             <li>Linearisierung</li>
             <li>Berechnung des optimalen Plans $a_{k+1:k+M}^*$ für
                 lineares Problem.</li>
@@ -1283,7 +1284,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
             $$r_k = g_k(x_k, a_k, x_{k+1})$$
             wobei $g_k$ unbekannt.</li>
         <li>(8) Ziel: Maximierung der erwarteten Belohnung über die Zeit.
-            $$J(x_k) = E(R_k | x_k)$$
+            $$J(x_k) = \mathbb{E}(R_k | x_k)$$
 
             <ul>
                 <li>Fortlaufender Zeithorizont: $R_k = \sum_{t=0}^\infty \gamma^t r_{k+t}$
@@ -1398,7 +1399,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         <u>Idee</u>: Erlernen einer Strategie aus Beispielepisoden.
 
         Approximation des Erwartungswertes durch Stichproben (Samples)<br/>
-        $$E(R) = \frac{1}{N} \sum_{k=1}^N r_k =: \bar{R}_N,$$
+        $$\mathbb{E}(R) = \frac{1}{N} \sum_{k=1}^N r_k =: \bar{R}_N,$$
         wobei $r_k$ die Belohnung im Zeitschritt $k$ ist.<br/>
         Rekursiv:
         $$\bar{R}_{N+1} = \bar{R}_N + \frac{1}{N+1} (r_{N+1} - \bar{R}_N) \text{ mit } \bar{R}_1 = r_1$$
@@ -1595,8 +1596,8 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         <u>Unterschiedliche Schätzung:</u><br/>
         $$
         \begin{align}
-        J_\pi(x) &= E(R_k | x_k = x) \tag{1}\\
-                 &= E(r_k + \gamma \sum_{i=0}^\infty \gamma^i \cdot r_{k+i} | x_k = x)\tag{2}
+        J_\pi(x) &= \mathbb{E}(R_k | x_k = x) \tag{1}\\
+                 &= \mathbb{E}(r_k + \gamma \sum_{i=0}^\infty \gamma^i \cdot r_{k+i} | x_k = x)\tag{2}
         \end{align}
         $$
         MC-Verfahren ganz (1) mittels Stichprobenfolge. TD-Verfahren schätzen
@@ -2065,7 +2066,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
     </tr>
     <tr>
         <td>6</td>
-        <td colspan="2">Additive Kostenfunktion $g_N(x_N) + \sum_{k=0}^{N-1}$ g_k(x_k, a_k)</td>
+        <td colspan="2">Additive Kostenfunktion $g_N(x_N) + \sum_{k=0}^{N-1} g_k(x_k, a_k)$</td>
         <td>Belohnung $r_k = g_k(x_k, a_k, x_{k+1})$ wobei $g_k(\cdot)$ unbekannt</td>
     </tr>
     <tr>
@@ -2079,17 +2080,17 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         <td>8</td>
         <td>Minimiere $$
             \begin{align}
-                J_{\pi_{0:N-1}} (x_0) := & E (g_N (x_N) \\
+                J_{\pi_{0:N-1}} (x_0) := & \mathbb{E} (g_N (x_N) \\
                                        + & \sum_{k=0}^{N-1} g_k (x_k, \pi_k(x_k)))
             \end{align}$$</td>
         <td>Minimiere
             $$
             \begin{align}
-            J_{\pi_{0:N-1}} (\cdot) := & E (g_N (x_N) \\
+            J_{\pi_{0:N-1}} (\cdot) := & \mathbb{E} (g_N (x_N) \\
                                      + & \sum_{k=0}^{N-1} g_k (x_k, \pi_k(\cdot)))
             \end{align}
             $$</td>
-        <td>Maximimierung der Belohnung $J(x_k) = E (R_k | x_k)$. Im fortlaufenden
+        <td>Maximimierung der Belohnung $J(x_k) = \mathbb{E} (R_k | x_k)$. Im fortlaufenden
             Fall $$R_k = \sum_{t=0}^\infty \gamma^t r_{k+t}$$ mit
             Diskontierungsfaktor $\gamma \in [0, 1)$,
             im episodischen Fall
@@ -2103,12 +2104,14 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
             <ul>
                 <li><a href="#dynamic-programming">Dynamic Programming</a></li>
                 <li>Deterministischer Fall: <a href="#label-correction-algorithm">Label-Korrektur-Algorithmus</a></li>
+                <li>Linearer Fall: <a href="#lqr">LQR</a></li>
             </ul>
 
         </td>
         <td>
 
             <ul>
+                <li>Reduzierung auf Belief-MDP: DP (TODO?)</li>
                 <li>Linearer Fall: <a href="https://martin-thoma.com/kalman-filter/">Kalman-filter</a> + <a href="#lqr">LQR</a></li>
                 <li>Endliches Planungsproblem, unendlicher Horizont:
 
@@ -2212,6 +2215,12 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
   → TODO
 * Was versteht man unter Pontryagin's Minimum-Prinzip und wozu ist es gut?<br/>
   → TODO
+* Was versteht man unter dem Optimalitätsprinzip?<br/>
+  → Das Optimalitätsprinzip von Bellman besagt, das bei einigen
+  Optimierungsproblemen sich die optimale Lösung aus optimalen Lösungen für
+  die Teilprobleme zusammensetzt. Ein Beispiel ist die Kürzeste-Wege-Suche.
+  Wenn A-B-C-D der kürzeste Weg von A nach D ist, so ist auch A-B-C der
+  kürzeste Weg von A nach C.
 
 
 ### MDP
@@ -2265,8 +2274,9 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
   → Siehe <a href="#sensoreinsatzplanung">oben</a>.
 * Wie kann man die Kosten bei der Sensoreinsatzplanung modellieren?<br/>
   → Kovarianzbasiert oder Informationstheoretisch (Entropie, Transinformation)
-* Warum reicht Kovarainzbasiert bei linearen Sensoreinsatzproblem?<br/>
-  → TODO
+* Warum reicht Kovarianzbasiert bei linearen Sensoreinsatzproblem?<br/>
+  → Informationstheoretische Kosten wie z.B. die Entropie lassen sich bei
+     linearen Probelmen  auf Kovarianzbasierte Kosten reduzieren.
 * Wie berechnet man die $\alpha$-Vektoren und wozu dienen Sie?<br/>
   → Siehe ProPlan-10-Folien.pdf, Folie 16 (TODO)
 
@@ -2277,6 +2287,11 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
   → Wertefunktionsbasiert (Schätzen der Werte- bzw. $Q$-Funktion aus Stichproben:
      Monte Carlo, Temporal Difference, Verantwortlichkeitsspuren,
      Funktionsapproximatoren), Modelllernende Methoden, Strategiesuche
+* Was ist der Vorteil von Modelllernenden Verfahren?<br/>
+  → Die Umwelt kann anhand des Modells simuliert werden und muss nicht real
+    beobachtet werden. Das erleichtert das Planen / finden der Strategie.
+* Was ist der große Vorteil von Off-policy RL?<br/>
+  → TODO
 
 
 ## Notation
@@ -2323,4 +2338,5 @@ Weitere:
 
 ## Termine und Klausurablauf
 
-Die Veranstaltung wird mündlich geprüft.
+Die Veranstaltung wird mündlich geprüft. Üblicherweise dauert eine Prüfung
+zwischen 30 min und 45 min.
