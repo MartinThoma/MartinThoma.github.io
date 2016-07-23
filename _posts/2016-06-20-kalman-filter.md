@@ -334,8 +334,7 @@ Choice of nominal values $\bar{x}_k, \bar{a}_k$:
             <li>Filterschritt: Linearisierung um $\bar{x}_k = \hat{x}_k^p$
 
                 $$\hat{x}_k^e = \hat{x}_k^P + K_k (z_k - h_k(\hat{x}_k^P))$$
-                $$C_k^e = C_k^P - K_k H_k C_k^P$$
-            </li>
+                $$C_k^e = C_k^P - K_k H_k C_k^P$$</li>
         </ul>
     </li>
 </ul>
