@@ -14,7 +14,7 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="Klausur, Reinforcement Learning, German posts, " />
+<meta name="keywords" content="Klausur, RL, German posts, " />
 
 <meta property="og:title" content="Probabilistische Planung "/>
 <meta property="og:url" content="../probabilistische-planung/" />
@@ -529,8 +529,8 @@ sowie die Werte- und Strategieiteration zu nennen.</p>
 <li>H&auml;ufig wird $d_k = - D_k \nabla f(x_k)$ gew&auml;hlt, wobei
               $D_k$ eine positiv definite Matrix ist.
           <ul>
-<li>$D_k = I$: Gradientenabstieg ("Steilster Abstieg")</li>
-<li>$D_k = H_f^{-1}(x_k)$: Newton-Verfahren</li>
+<li>Gradientenabstieg ("Steilster Abstieg"): $D_k = I$</li>
+<li>Newton-Verfahren: $D_k = H_f^{-1}(x_k)$</li>
 </ul>
 </li>
 </ul>
@@ -960,8 +960,10 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 <dt><a href="https://de.wikipedia.org/wiki/Bayes-Sch%C3%A4tzer"><dfn>Bayes'scher Sch&auml;tzer</dfn></a></dt>
 <dd>Pr&auml;diktion + Filterschritt = Bayes-Sch&auml;tzer.<br/>
         TODO (z.B. in GPS arbeitet eine Variante; Extended Kalman Filter)<br/>
-        Der Bayes-Sch&auml;tzer ist im Allgemeinen nicht geschlossen berechenbar.
-        </dd>
+        Der Bayes-Sch&auml;tzer ist im Allgemeinen nicht geschlossen berechenbar.<br/>
+<br/>
+        Siehe auch: <a href="https://en.wikipedia.org/wiki/Recursive_Bayesian_estimation">Recursive Bayesian estimation</a>
+</dd>
 <dt><dfn>Verteilungs-MDP</dfn> (<dfn>Belief-state MDP</dfn>)</dt>
 <dd>POMDPs haben &auml;quivalente Verteilungs-MDPs. Dabei wird eine
         Wahrscheinlichkeitsverteilung f&uuml;r den aktuellen Zustand angegeben.
@@ -1776,16 +1778,16 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 <dd>
 
         Problem: Nur der letzte Zustand wird bei klassischen Verfahren belohnt
-        Der Reward wird propagiert, aber nur langsam (nach mehreren Schritten).
-
-        <u>Idee</u>: Gewichtete Mittelung verschiedener $n$-Schritt-Belohnungen.
+        Der Reward wird propagiert, aber nur langsam (nach mehreren Schritten).<br/>
+<br/>
+<u>Idee</u>: Gewichtete Mittelung verschiedener $n$-Schritt-Belohnungen.
 
         $$R_k^\lambda = (1-\lambda) \cdot \sum_{n=1}^\infty \lambda^{n-1} R_k^{(n)} \text{ mit } \lambda \in [0,1] \text{ und } (1-\lambda)\sum_{n=1}^\infty \lambda^{n-1} = 1$$
-        beim erreichen eines terminalen Zustands ist $R_k^{(n)} = R_k$ f&uuml;r $n &gt; N-K-1$.
-
-        Abgewichten von $R_k^{(n)}$ bei steigendem $n$.
-
-        <u>Spezialf&auml;lle</u>:
+        beim erreichen eines terminalen Zustands ist $R_k^{(n)} = R_k$ f&uuml;r $n &gt; N-K-1$.<br/>
+<br/>
+        Abgewichten von $R_k^{(n)}$ bei steigendem $n$.<br/>
+<br/>
+<u>Spezialf&auml;lle</u>:
         <ul>
 <li>$\lambda = 0$: $R_k^\lambda = R_k^{(1)}$ ist ein Ein-Schritt-TD</li>
 <li>$\lambda = 1$: $R_k^\lambda = (1-\lambda) \cdot \sum_{n=1}^{N-k-1} \lambda^{n-1} R_k^{(n)} + \lambda^{N-k-1} R_k = R_k$ ist ein Monte Carlo Verfahren</li>
@@ -1800,15 +1802,15 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
         $$e_k(x) = \begin{cases}\gamma \cdot \lambda e_{k-1}(x) &amp;\text{falls } x \neq x_k\\
                                 \gamma \cdot \lambda e_{k-1}(x) + 1 &amp;\text{sonst}\end{cases}$$
 
-        mit $e_0 = 0$
-
+        mit $e_0 = 0$.<br/>
+<br/>
         Im zweiten Fall merken wir uns, dass wir den Zustand besucht haben,
         indem die Variable erh&ouml;ht wird. Im ersten Fall ist es immer eine
-        Reduktion.
-
-        Wir speichern welche Zust&auml;nde <u>k&uuml;rzlich</u> besucht wurden.
-
-        <u>Strategiebewertung $TD(\lambda)$</u>
+        Reduktion.<br/>
+<br/>
+        Wir speichern welche Zust&auml;nde <u>k&uuml;rzlich</u> besucht wurden.<br/>
+<br/>
+<u>Strategiebewertung $TD(\lambda)$</u>
 <ul>
 <li>Wird Zustand $x_k$ besucht, dann ist dessen TD-Fehler
 
@@ -1851,7 +1853,9 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 <li>- Konvergenz kann im Allgemeinen nicht nachgewiesen werden (abh&auml;ngig von $\lambda$ und $N$)</li>
 <li>- H&ouml;herer Rechenaufwand und h&ouml;herer Speicheraufwand im Vergleich zu Ein-Schritt-TD</li>
 </ul>
-</dd>
+
+       See also: <a href="https://webdocs.cs.ualberta.ca/~sutton/book/ebook/node72.html">Reinforcement Learning: An Introduction</a> by Sutton.
+    </dd>
 <dt><dfn id="sarsa-lambda">SARSA($\lambda$)</dfn></dt>
 <dd>
 <figure class="wp-caption aligncenter img-thumbnail">
@@ -1895,10 +1899,9 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 </ul>
 
         Gradienten-Verfahren: Wir verwenden einen parametrischen Approximator
-        mit Parametervektor $\Theta$.
-
+        mit Parametervektor $\Theta$.<br/>
+<br/>
         Beispiel: Strategiebewertung
-
         <ul>
 <li>Ziel: Approximation der <b>unbekannten Wertefunktion $J_\pi(x)$</b>
                 durch $\tilde{J}(x, \Theta)$ durch minimierung der
@@ -2163,7 +2166,7 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 <li>Wie kann man die Nutzentheorie kritisieren?<br/>
   &rarr; Siehe <a href="#kritik-nutzentheorie">oben</a>.</li>
 <li>Was haben wir zur Entscheidungstheorie gemacht?<br/>
-  &rarr; TODO</li>
+  &rarr; <a href="#allais-paradoxon">Allais-Paradoxon</a> und <a href="#rational-decision">Rationale Entscheidungen</a> (TODO: Mehr?)</li>
 <li>Wie ist eine Nutzenfunktion definiert?<br/>
   &rarr; Siehe <a href="#nutzenfunktion">oben</a></li>
 </ul>
@@ -2327,7 +2330,7 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
                 <li><a href="../tags.html#klausur-ref">Klausur
                     <span>33</span>
 </a></li>
-                <li><a href="../tags.html#reinforcement-learning-ref">Reinforcement Learning
+                <li><a href="../tags.html#rl-ref">RL
                     <span>4</span>
 </a></li>
             </ul>

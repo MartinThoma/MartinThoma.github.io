@@ -860,8 +860,8 @@ sowie die Werte- und Strategieiteration zu nennen.&lt;/p&gt;
 &lt;li&gt;H&amp;auml;ufig wird $d_k = - D_k \nabla f(x_k)$ gew&amp;auml;hlt, wobei
               $D_k$ eine positiv definite Matrix ist.
           &lt;ul&gt;
-&lt;li&gt;$D_k = I$: Gradientenabstieg ("Steilster Abstieg")&lt;/li&gt;
-&lt;li&gt;$D_k = H_f^{-1}(x_k)$: Newton-Verfahren&lt;/li&gt;
+&lt;li&gt;Gradientenabstieg ("Steilster Abstieg"): $D_k = I$&lt;/li&gt;
+&lt;li&gt;Newton-Verfahren: $D_k = H_f^{-1}(x_k)$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -1291,8 +1291,10 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Bayes-Sch%C3%A4tzer"&gt;&lt;dfn&gt;Bayes'scher Sch&amp;auml;tzer&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
 &lt;dd&gt;Pr&amp;auml;diktion + Filterschritt = Bayes-Sch&amp;auml;tzer.&lt;br/&gt;
         TODO (z.B. in GPS arbeitet eine Variante; Extended Kalman Filter)&lt;br/&gt;
-        Der Bayes-Sch&amp;auml;tzer ist im Allgemeinen nicht geschlossen berechenbar.
-        &lt;/dd&gt;
+        Der Bayes-Sch&amp;auml;tzer ist im Allgemeinen nicht geschlossen berechenbar.&lt;br/&gt;
+&lt;br/&gt;
+        Siehe auch: &lt;a href="https://en.wikipedia.org/wiki/Recursive_Bayesian_estimation"&gt;Recursive Bayesian estimation&lt;/a&gt;
+&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Verteilungs-MDP&lt;/dfn&gt; (&lt;dfn&gt;Belief-state MDP&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;POMDPs haben &amp;auml;quivalente Verteilungs-MDPs. Dabei wird eine
         Wahrscheinlichkeitsverteilung f&amp;uuml;r den aktuellen Zustand angegeben.
@@ -2107,16 +2109,16 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;dd&gt;
 
         Problem: Nur der letzte Zustand wird bei klassischen Verfahren belohnt
-        Der Reward wird propagiert, aber nur langsam (nach mehreren Schritten).
-
-        &lt;u&gt;Idee&lt;/u&gt;: Gewichtete Mittelung verschiedener $n$-Schritt-Belohnungen.
+        Der Reward wird propagiert, aber nur langsam (nach mehreren Schritten).&lt;br/&gt;
+&lt;br/&gt;
+&lt;u&gt;Idee&lt;/u&gt;: Gewichtete Mittelung verschiedener $n$-Schritt-Belohnungen.
 
         $$R_k^\lambda = (1-\lambda) \cdot \sum_{n=1}^\infty \lambda^{n-1} R_k^{(n)} \text{ mit } \lambda \in [0,1] \text{ und } (1-\lambda)\sum_{n=1}^\infty \lambda^{n-1} = 1$$
-        beim erreichen eines terminalen Zustands ist $R_k^{(n)} = R_k$ f&amp;uuml;r $n &amp;gt; N-K-1$.
-
-        Abgewichten von $R_k^{(n)}$ bei steigendem $n$.
-
-        &lt;u&gt;Spezialf&amp;auml;lle&lt;/u&gt;:
+        beim erreichen eines terminalen Zustands ist $R_k^{(n)} = R_k$ f&amp;uuml;r $n &amp;gt; N-K-1$.&lt;br/&gt;
+&lt;br/&gt;
+        Abgewichten von $R_k^{(n)}$ bei steigendem $n$.&lt;br/&gt;
+&lt;br/&gt;
+&lt;u&gt;Spezialf&amp;auml;lle&lt;/u&gt;:
         &lt;ul&gt;
 &lt;li&gt;$\lambda = 0$: $R_k^\lambda = R_k^{(1)}$ ist ein Ein-Schritt-TD&lt;/li&gt;
 &lt;li&gt;$\lambda = 1$: $R_k^\lambda = (1-\lambda) \cdot \sum_{n=1}^{N-k-1} \lambda^{n-1} R_k^{(n)} + \lambda^{N-k-1} R_k = R_k$ ist ein Monte Carlo Verfahren&lt;/li&gt;
@@ -2131,15 +2133,15 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
         $$e_k(x) = \begin{cases}\gamma \cdot \lambda e_{k-1}(x) &amp;amp;\text{falls } x \neq x_k\\
                                 \gamma \cdot \lambda e_{k-1}(x) + 1 &amp;amp;\text{sonst}\end{cases}$$
 
-        mit $e_0 = 0$
-
+        mit $e_0 = 0$.&lt;br/&gt;
+&lt;br/&gt;
         Im zweiten Fall merken wir uns, dass wir den Zustand besucht haben,
         indem die Variable erh&amp;ouml;ht wird. Im ersten Fall ist es immer eine
-        Reduktion.
-
-        Wir speichern welche Zust&amp;auml;nde &lt;u&gt;k&amp;uuml;rzlich&lt;/u&gt; besucht wurden.
-
-        &lt;u&gt;Strategiebewertung $TD(\lambda)$&lt;/u&gt;
+        Reduktion.&lt;br/&gt;
+&lt;br/&gt;
+        Wir speichern welche Zust&amp;auml;nde &lt;u&gt;k&amp;uuml;rzlich&lt;/u&gt; besucht wurden.&lt;br/&gt;
+&lt;br/&gt;
+&lt;u&gt;Strategiebewertung $TD(\lambda)$&lt;/u&gt;
 &lt;ul&gt;
 &lt;li&gt;Wird Zustand $x_k$ besucht, dann ist dessen TD-Fehler
 
@@ -2182,7 +2184,9 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;li&gt;- Konvergenz kann im Allgemeinen nicht nachgewiesen werden (abh&amp;auml;ngig von $\lambda$ und $N$)&lt;/li&gt;
 &lt;li&gt;- H&amp;ouml;herer Rechenaufwand und h&amp;ouml;herer Speicheraufwand im Vergleich zu Ein-Schritt-TD&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/dd&gt;
+
+       See also: &lt;a href="https://webdocs.cs.ualberta.ca/~sutton/book/ebook/node72.html"&gt;Reinforcement Learning: An Introduction&lt;/a&gt; by Sutton.
+    &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="sarsa-lambda"&gt;SARSA($\lambda$)&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;
 &lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
@@ -2226,10 +2230,9 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;/ul&gt;
 
         Gradienten-Verfahren: Wir verwenden einen parametrischen Approximator
-        mit Parametervektor $\Theta$.
-
+        mit Parametervektor $\Theta$.&lt;br/&gt;
+&lt;br/&gt;
         Beispiel: Strategiebewertung
-
         &lt;ul&gt;
 &lt;li&gt;Ziel: Approximation der &lt;b&gt;unbekannten Wertefunktion $J_\pi(x)$&lt;/b&gt;
                 durch $\tilde{J}(x, \Theta)$ durch minimierung der
@@ -2494,7 +2497,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;li&gt;Wie kann man die Nutzentheorie kritisieren?&lt;br/&gt;
   &amp;rarr; Siehe &lt;a href="#kritik-nutzentheorie"&gt;oben&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;Was haben wir zur Entscheidungstheorie gemacht?&lt;br/&gt;
-  &amp;rarr; TODO&lt;/li&gt;
+  &amp;rarr; &lt;a href="#allais-paradoxon"&gt;Allais-Paradoxon&lt;/a&gt; und &lt;a href="#rational-decision"&gt;Rationale Entscheidungen&lt;/a&gt; (TODO: Mehr?)&lt;/li&gt;
 &lt;li&gt;Wie ist eine Nutzenfunktion definiert?&lt;br/&gt;
   &amp;rarr; Siehe &lt;a href="#nutzenfunktion"&gt;oben&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -2622,7 +2625,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;li&gt;Einf&amp;uuml;hrung in die Bildfolgenauswertung&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="termine-und-klausurablauf"&gt;Termine und Klausurablauf&lt;/h2&gt;
-&lt;p&gt;Die Veranstaltung wird m&amp;uuml;ndlich gepr&amp;uuml;ft.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Martin Thoma</dc:creator><pubDate>Wed, 11 May 2016 20:00:00 +0200</pubDate><guid isPermaLink="false">tag:martin-thoma.com,2016-05-11:probabilistische-planung/</guid><category>Klausur</category><category>Reinforcement Learning</category></item><item><title>Analysetechniken für große Datenbestände</title><link>https://martin-thoma.com/analysetechniken-grosser-datenbestaende/</link><description>&lt;div class="info"&gt;Dieser Artikel besch&amp;auml;ftigt sich mit der Vorlesung &amp;bdquo;Analysetechniken f&amp;uuml;r gro&amp;szlig;e Datenbest&amp;auml;nde&amp;ldquo; am KIT. Er dient als Pr&amp;uuml;fungsvorbereitung. Ich habe die Vorlesungen bei &lt;a href="https://dbis.ipd.kit.edu/english/336.php"&gt;Herrn Prof. Dr.-Ing. Klemens B&amp;ouml;hm&lt;/a&gt; im Wintersemester 2015/2016 geh&amp;ouml;rt.&lt;/div&gt;
+&lt;p&gt;Die Veranstaltung wird m&amp;uuml;ndlich gepr&amp;uuml;ft.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Martin Thoma</dc:creator><pubDate>Wed, 11 May 2016 20:00:00 +0200</pubDate><guid isPermaLink="false">tag:martin-thoma.com,2016-05-11:probabilistische-planung/</guid><category>Klausur</category><category>RL</category></item><item><title>Analysetechniken für große Datenbestände</title><link>https://martin-thoma.com/analysetechniken-grosser-datenbestaende/</link><description>&lt;div class="info"&gt;Dieser Artikel besch&amp;auml;ftigt sich mit der Vorlesung &amp;bdquo;Analysetechniken f&amp;uuml;r gro&amp;szlig;e Datenbest&amp;auml;nde&amp;ldquo; am KIT. Er dient als Pr&amp;uuml;fungsvorbereitung. Ich habe die Vorlesungen bei &lt;a href="https://dbis.ipd.kit.edu/english/336.php"&gt;Herrn Prof. Dr.-Ing. Klemens B&amp;ouml;hm&lt;/a&gt; im Wintersemester 2015/2016 geh&amp;ouml;rt.&lt;/div&gt;
 &lt;p&gt;In der Vorlesung 'Analysetechniken f&amp;uuml;r gro&amp;szlig;e Datenbest&amp;auml;nde' werden vor allem
 Association Rule Mining und Clustering-Techniken besprochen. Zum Association
 Rule minining ist vor allem der Apriori-Algorithmus sowie die Verbesserung mit
@@ -4438,12 +4441,7 @@ Kante durch eine Senke.&lt;/p&gt;
 &lt;dt&gt;&lt;dfn id="q-function"&gt;Q-Funktion&lt;/dfn&gt; (&lt;dfn&gt;Action-Value function&lt;/dfn&gt;, &lt;dfn&gt;Quality function&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;Siehe &lt;a href="../probabilistische-planung/#q-function"&gt;Probabilistische Planung&lt;/a&gt;.&lt;/dd&gt;
 &lt;dt&gt;&lt;a name="rl-eligibility-trace"&gt;&lt;/a&gt;&lt;dfn&gt;Eligibility Traces&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;Die Idee scheint einfach zu sein, dass man ein sp&amp;auml;teres Update auch auf
-       fr&amp;uuml;here Ereignisse "zur&amp;uuml;ckpropagiert".
-       TODO
-
-       See also: &lt;a href="https://webdocs.cs.ualberta.ca/~sutton/book/ebook/node72.html"&gt;Reinforcement Learning: An Introduction&lt;/a&gt; by Sutton.
-   &lt;/dd&gt;
+&lt;dd&gt;Siehe &lt;a href="../probabilistische-planung/#eligibility-trace"&gt;Probabilistische Planung&lt;/a&gt;.&lt;/dd&gt;
 &lt;/dl&gt;
 &lt;ul&gt;
 &lt;li&gt;Beispiel f&amp;uuml;r RL: Roboter muss zu einem Ziel navigieren&lt;/li&gt;
@@ -4484,10 +4482,7 @@ Kante durch eine Senke.&lt;/p&gt;
 &lt;dt&gt;&lt;dfn id="sarsa"&gt;SARSA&lt;/dfn&gt; (&lt;dfn&gt;State-Action-Reward-State-Action&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;Siehe &lt;a href="../probabilistische-planung/#sarsa"&gt;Probabilistische Planung&lt;/a&gt;.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;SARSA($\lambda$)&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;SARSA($\lambda$) ist SARSA mit Eligibility Traces.
-
-    TODO
-    &lt;/dd&gt;
+&lt;dd&gt;Siehe &lt;a href="../probabilistische-planung/#sarsa-lambda"&gt;Probabilistische Planung&lt;/a&gt;.&lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h4 id="td-learning"&gt;&lt;a name="td-learning"&gt;&lt;/a&gt; TD-Learning&lt;/h4&gt;
 &lt;ul&gt;
@@ -5447,7 +5442,7 @@ Bonuspunkte.&lt;/p&gt;
 &lt;strong&gt;&amp;Uuml;bungsschein&lt;/strong&gt;: gibt es nicht&lt;br/&gt;
 &lt;strong&gt;Bonuspunkte&lt;/strong&gt;: gibt es nicht&lt;br/&gt;
 &lt;strong&gt;Ergebnisse&lt;/strong&gt;: werden ca. 5&amp;nbsp;-&amp;nbsp;10&amp;nbsp;min. nach der m&amp;uuml;ndlichen Pr&amp;uuml;fung gesagt&lt;br/&gt;
-&lt;strong&gt;Erlaubte Hilfsmittel&lt;/strong&gt;: keine&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Martin Thoma</dc:creator><pubDate>Mon, 09 Nov 2015 16:02:00 +0100</pubDate><guid isPermaLink="false">tag:martin-thoma.com,2015-11-09:machine-learning-1-course/</guid><category>Klausur</category><category>Reinforcement Learning</category></item><item><title>Wo ist Hörsaal 9 am KIT?</title><link>https://martin-thoma.com/wo-ist-horsaal-9-am-kit/</link><description>&lt;p&gt;Dieser Artikel ist f&amp;uuml;r all die verzweifelten Studienanf&amp;auml;nger am &lt;abbr title="Karlsruher Institut f&amp;uuml;r Technologie"&gt;KIT&lt;/abbr&gt;, die den H&amp;ouml;rsaal&amp;nbsp;9
+&lt;strong&gt;Erlaubte Hilfsmittel&lt;/strong&gt;: keine&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Martin Thoma</dc:creator><pubDate>Mon, 09 Nov 2015 16:02:00 +0100</pubDate><guid isPermaLink="false">tag:martin-thoma.com,2015-11-09:machine-learning-1-course/</guid><category>Klausur</category><category>RL</category></item><item><title>Wo ist Hörsaal 9 am KIT?</title><link>https://martin-thoma.com/wo-ist-horsaal-9-am-kit/</link><description>&lt;p&gt;Dieser Artikel ist f&amp;uuml;r all die verzweifelten Studienanf&amp;auml;nger am &lt;abbr title="Karlsruher Institut f&amp;uuml;r Technologie"&gt;KIT&lt;/abbr&gt;, die den H&amp;ouml;rsaal&amp;nbsp;9
 (HS&amp;nbsp;9) suchen.&lt;/p&gt;
 &lt;p&gt;Der HS&amp;nbsp;9 ist in &lt;a href="https://www.kithub.de/map/2264"&gt;Geb&amp;auml;ude 20.40&lt;/a&gt;, dem
 Architektengeb&amp;auml;ude. Es ist im ersten Stockwerk. Da muss man die gro&amp;szlig;e Treppe
@@ -7176,7 +7171,7 @@ Bonuspunkte.&lt;/p&gt;
 &lt;strong&gt;&amp;Uuml;bungsschein&lt;/strong&gt;: gibt es nicht&lt;br/&gt;
 &lt;strong&gt;Bonuspunkte&lt;/strong&gt;: gibt es nicht&lt;br/&gt;
 &lt;strong&gt;Ergebnisse&lt;/strong&gt;: werden ca. 5&amp;nbsp;-&amp;nbsp;10&amp;nbsp;min. nach der m&amp;uuml;ndlichen Pr&amp;uuml;fung gesagt&lt;br/&gt;
-&lt;strong&gt;Erlaubte Hilfsmittel&lt;/strong&gt;: keine&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Martin Thoma</dc:creator><pubDate>Mon, 11 May 2015 11:00:00 +0200</pubDate><guid isPermaLink="false">tag:martin-thoma.com,2015-05-11:machine-learning-2-course/</guid><category>Klausur</category><category>Machine Learning</category><category>Clustering</category><category>Reinforcement Learning</category></item><item><title>Mustererkennung - Klausur</title><link>https://martin-thoma.com/mustererkennung-klausur/</link><description>&lt;div class="info"&gt;Dieser Artikel besch&amp;auml;ftigt sich mit der Vorlesung &amp;bdquo;Mustererkennung&amp;ldquo; am KIT. Er dient als Pr&amp;uuml;fungsvorbereitung. Ich habe die Vorlesungen bei &lt;a href="http://ies.anthropomatik.kit.edu/mitarbeiter.php?person=beyerer"&gt;Herrn Prof. Dr.-Ing. J&amp;uuml;rgen Beyerer&lt;/a&gt; im Sommersemester 2015 geh&amp;ouml;rt und einige Abschnitte direkt aus den Folien &amp;uuml;bernommen.&lt;/div&gt;
+&lt;strong&gt;Erlaubte Hilfsmittel&lt;/strong&gt;: keine&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Martin Thoma</dc:creator><pubDate>Mon, 11 May 2015 11:00:00 +0200</pubDate><guid isPermaLink="false">tag:martin-thoma.com,2015-05-11:machine-learning-2-course/</guid><category>Klausur</category><category>Machine Learning</category><category>Clustering</category><category>RL</category></item><item><title>Mustererkennung - Klausur</title><link>https://martin-thoma.com/mustererkennung-klausur/</link><description>&lt;div class="info"&gt;Dieser Artikel besch&amp;auml;ftigt sich mit der Vorlesung &amp;bdquo;Mustererkennung&amp;ldquo; am KIT. Er dient als Pr&amp;uuml;fungsvorbereitung. Ich habe die Vorlesungen bei &lt;a href="http://ies.anthropomatik.kit.edu/mitarbeiter.php?person=beyerer"&gt;Herrn Prof. Dr.-Ing. J&amp;uuml;rgen Beyerer&lt;/a&gt; im Sommersemester 2015 geh&amp;ouml;rt und einige Abschnitte direkt aus den Folien &amp;uuml;bernommen.&lt;/div&gt;
 &lt;h2 id="behandelter-stoff"&gt;Behandelter Stoff&lt;/h2&gt;
 &lt;h3 id="vorlesung"&gt;Vorlesung&lt;/h3&gt;
 &lt;table&gt;
@@ -8644,7 +8639,7 @@ learning rate scheduling algorithm.&lt;/p&gt;
 &lt;strong&gt;Ort&lt;/strong&gt;: &lt;a href="http://www.kithub.de/map/2210"&gt;Geb&amp;auml;ude 50.20&lt;/a&gt;&lt;br/&gt;
 &lt;strong&gt;&amp;Uuml;bungsschein&lt;/strong&gt;: gibt es nicht&lt;br/&gt;
 &lt;strong&gt;Bonuspunkte&lt;/strong&gt;: gibt es nicht&lt;br/&gt;
-&lt;strong&gt;Erlaubte Hilfsmittel&lt;/strong&gt;: keine&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Martin Thoma</dc:creator><pubDate>Mon, 27 Apr 2015 21:15:00 +0200</pubDate><guid isPermaLink="false">tag:martin-thoma.com,2015-04-27:neuronale-netze-vorlesung/</guid><category>Klausur</category><category>Machine Learning</category><category>Neural Networks</category><category>Reinforcement Learning</category></item><item><title>Echtzeitsysteme - Klausur</title><link>https://martin-thoma.com/echtzeitsysteme-klausur/</link><description>&lt;div class="info"&gt;Dieser Artikel besch&amp;auml;ftigt sich mit der Vorlesung &amp;bdquo;Echtzeitsysteme&amp;ldquo; am KIT. Er dient als Pr&amp;uuml;fungsvorbereitung. Ich habe die Vorlesungen bei &lt;a href="http://rob.ipr.kit.edu/mitarbeiter_96.php"&gt;Herrn Prof. Dr. W&amp;ouml;rn&lt;/a&gt; im Sommersemester 2015 geh&amp;ouml;rt.&lt;/div&gt;
+&lt;strong&gt;Erlaubte Hilfsmittel&lt;/strong&gt;: keine&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Martin Thoma</dc:creator><pubDate>Mon, 27 Apr 2015 21:15:00 +0200</pubDate><guid isPermaLink="false">tag:martin-thoma.com,2015-04-27:neuronale-netze-vorlesung/</guid><category>Klausur</category><category>Machine Learning</category><category>Neural Networks</category><category>RL</category></item><item><title>Echtzeitsysteme - Klausur</title><link>https://martin-thoma.com/echtzeitsysteme-klausur/</link><description>&lt;div class="info"&gt;Dieser Artikel besch&amp;auml;ftigt sich mit der Vorlesung &amp;bdquo;Echtzeitsysteme&amp;ldquo; am KIT. Er dient als Pr&amp;uuml;fungsvorbereitung. Ich habe die Vorlesungen bei &lt;a href="http://rob.ipr.kit.edu/mitarbeiter_96.php"&gt;Herrn Prof. Dr. W&amp;ouml;rn&lt;/a&gt; im Sommersemester 2015 geh&amp;ouml;rt.&lt;/div&gt;
 &lt;h2 id="behandelter-stoff"&gt;Behandelter Stoff&lt;/h2&gt;
 &lt;h3 id="vorlesung"&gt;Vorlesung&lt;/h3&gt;
 &lt;p&gt;Der Dozent verwendete einige Abk&amp;uuml;rzungen, die mir nicht gel&amp;auml;ufig waren. Diese
