@@ -5,7 +5,7 @@ slug: probabilistische-planung
 author: Martin Thoma
 date: 2016-05-11 20:00
 category: German posts
-tags: Klausur, Reinforcement Learning
+tags: Klausur, RL
 featured_image: logos/klausur.png
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Probabilistische Planung&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://ies.anthropomatik.kit.edu/mitarbeiter.php?person=huber">Herrn Dr.-Ing. Marco Huber</a> im Sommersemester 2015 und 2016 gehört. Die Inhalte sind dementsprechend stark an der Vorlesung angelehnt bzw. komplette Teile sind daraus übernommen. Der Artikel dient als Prüfungsvorbereitung und ist noch am Entstehen.</div>
@@ -451,8 +451,8 @@ Slides: `11.05.2016`
           <li>Häufig wird $d_k = - D_k \nabla f(x_k)$ gewählt, wobei
               $D_k$ eine positiv definite Matrix ist.
           <ul>
-              <li>$D_k = I$: Gradientenabstieg ("Steilster Abstieg")</li>
-              <li>$D_k = H_f^{-1}(x_k)$: Newton-Verfahren</li>
+              <li>Gradientenabstieg ("Steilster Abstieg"): $D_k = I$</li>
+              <li>Newton-Verfahren: $D_k = H_f^{-1}(x_k)$</li>
           </ul>
 
           </li>
@@ -909,7 +909,9 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
     <dt><a href="https://de.wikipedia.org/wiki/Bayes-Sch%C3%A4tzer"><dfn>Bayes'scher Schätzer</dfn></a></dt>
     <dd>Prädiktion + Filterschritt = Bayes-Schätzer.<br/>
         TODO (z.B. in GPS arbeitet eine Variante; Extended Kalman Filter)<br/>
-        Der Bayes-Schätzer ist im Allgemeinen nicht geschlossen berechenbar.
+        Der Bayes-Schätzer ist im Allgemeinen nicht geschlossen berechenbar.<br/>
+        <br/>
+        Siehe auch: <a href="https://en.wikipedia.org/wiki/Recursive_Bayesian_estimation">Recursive Bayesian estimation</a>
         </dd>
     <dt><dfn>Verteilungs-MDP</dfn> (<dfn>Belief-state MDP</dfn>)</dt>
     <dd>POMDPs haben äquivalente Verteilungs-MDPs. Dabei wird eine
@@ -1760,15 +1762,15 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
     <dd>
 
         Problem: Nur der letzte Zustand wird bei klassischen Verfahren belohnt
-        Der Reward wird propagiert, aber nur langsam (nach mehreren Schritten).
-
+        Der Reward wird propagiert, aber nur langsam (nach mehreren Schritten).<br/>
+        <br/>
         <u>Idee</u>: Gewichtete Mittelung verschiedener $n$-Schritt-Belohnungen.
 
         $$R_k^\lambda = (1-\lambda) \cdot \sum_{n=1}^\infty \lambda^{n-1} R_k^{(n)} \text{ mit } \lambda \in [0,1] \text{ und } (1-\lambda)\sum_{n=1}^\infty \lambda^{n-1} = 1$$
-        beim erreichen eines terminalen Zustands ist $R_k^{(n)} = R_k$ für $n > N-K-1$.
-
-        Abgewichten von $R_k^{(n)}$ bei steigendem $n$.
-
+        beim erreichen eines terminalen Zustands ist $R_k^{(n)} = R_k$ für $n > N-K-1$.<br/>
+        <br/>
+        Abgewichten von $R_k^{(n)}$ bei steigendem $n$.<br/>
+        <br/>
         <u>Spezialfälle</u>:
         <ul>
             <li>$\lambda = 0$: $R_k^\lambda = R_k^{(1)}$ ist ein Ein-Schritt-TD</li>
@@ -1784,16 +1786,15 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         $$e_k(x) = \begin{cases}\gamma \cdot \lambda e_{k-1}(x) &\text{falls } x \neq x_k\\
                                 \gamma \cdot \lambda e_{k-1}(x) + 1 &\text{sonst}\end{cases}$$
 
-        mit $e_0 = 0$
-
+        mit $e_0 = 0$.<br/>
+        <br/>
         Im zweiten Fall merken wir uns, dass wir den Zustand besucht haben,
         indem die Variable erhöht wird. Im ersten Fall ist es immer eine
-        Reduktion.
-
-        Wir speichern welche Zustände <u>kürzlich</u> besucht wurden.
-
+        Reduktion.<br/>
+        <br/>
+        Wir speichern welche Zustände <u>kürzlich</u> besucht wurden.<br/>
+        <br/>
         <u>Strategiebewertung $TD(\lambda)$</u>
-
         <ul>
             <li>Wird Zustand $x_k$ besucht, dann ist dessen TD-Fehler
 
@@ -1842,6 +1843,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
             <li>- Höherer Rechenaufwand und höherer Speicheraufwand im Vergleich zu Ein-Schritt-TD</li>
         </ul>
 
+       See also: <a href="https://webdocs.cs.ualberta.ca/~sutton/book/ebook/node72.html">Reinforcement Learning: An Introduction</a> by Sutton.
     </dd>
     <dt><dfn id="sarsa-lambda">SARSA($\lambda$)</dfn></dt>
     <dd>
@@ -1891,10 +1893,9 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         </ul>
 
         Gradienten-Verfahren: Wir verwenden einen parametrischen Approximator
-        mit Parametervektor $\Theta$.
-
+        mit Parametervektor $\Theta$.<br/>
+        <br/>
         Beispiel: Strategiebewertung
-
         <ul>
             <li>Ziel: Approximation der <b>unbekannten Wertefunktion $J_\pi(x)$</b>
                 durch $\tilde{J}(x, \Theta)$ durch minimierung der
@@ -1995,7 +1996,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         </ul>
 
     </dd>
-    <dt><dfn>Dyna-Q</dfn></dt>
+    <dt><dfn id="dyna-q">Dyna-Q</dfn></dt>
     <dd>
 
         TODO: Pseudocode
@@ -2007,14 +2008,14 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         </ul>
 
     </dd>
-    <dt><dfn>Adaptive DP</dfn></dt>
+    <dt><dfn id="adaptive-dp">Adaptive DP</dfn></dt>
     <dd>
 
-        Dyna-Q lernt Striprobenmodell (schwachstelle).
-
+        Dyna-Q lernt Striprobenmodell (Schwachstelle).<br/>
+        <br/>
         Adaptive DP Verbesserung: Lernt frequentistisch Zustandsverteilung von
-        Nachfolgezustand.
-
+        Nachfolgezustand.<br/>
+        <br/>
         $P(x_{k+1} | x_k, a_k)$: relative Häufigkeit von $x_{k+1}$ gegeben
         $x_k$, $a_k$ (frequentistische Sichtweise)
 
@@ -2025,8 +2026,8 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         Ausführung ovn Aktion $a_k$ zählt.
 
         $m(x_k, a_k, x_{k+1})$ zählt die Übergänge von $x_k$ unter $a_k$
-        nach $x_{k+1}$.
-
+        nach $x_{k+1}$.<br/>
+        <br/>
         Ergibt sich aus Interaktion mit realer Umwelt.
 
         <ul>
@@ -2044,15 +2045,14 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         und <a href="https://martin-thoma.com/machine-learning-2-course/#gaussche-prozesse">Gaussche Prozesse</a>.
 
     </dd>
-    <dt><dfn>PILCO</dfn> (<dfn>Probabilistic Inference for Learning Control</dfn>)</dt>
+    <dt><dfn id="pilco">PILCO</dfn> (<dfn>Probabilistic Inference for Learning Control</dfn>)</dt>
     <dd>
 
         PILCO wurde entwickelt für kontinuierliche Zustände und Aktionen.
         Das Modell: Es wird eine probabilistische Regression auf beobachteten
-        Zustand mittels sog. Gaussian Processes (GP) eingesetzt.
-
+        Zustand mittels sog. Gaussian Processes (GP) eingesetzt.<br/>
+        <br/>
         Strategieverbesserung:
-
         <ul>
             <li>Verwendung parametrischer Strategie</li>
             <li>Adaptierung der Parameter mittels <b>Policy Search</b></li>
@@ -2139,20 +2139,33 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
     </tr>
     <tr>
         <td>Lösungs&shy;algorithmen</td>
-        <td>Dynamic Programming</td>
+        <td><a href="#dynamic-programming">Dynamic Programming</a></td>
         <td>
 
             <ul>
-                <li>Linearer Fall: Kalman-filter + LQR</li>
-                <li>Policy Iteration (Endliches Planungsproblem, unendlicher Horizont)</li>
-                <li>Value Iteration (Endliches Planungsproblem, unendlicher Horizont)</li>
+                <li>Linearer Fall: <a href="https://martin-thoma.com/kalman-filter/">Kalman-filter</a> + LQR</li>
+                <li><a href="#policy-iteration">Policy Iteration</a> (Endliches Planungsproblem, unendlicher Horizont)</li>
+                <li><a href="#value-iteration">Value Iteration</a> (Endliches Planungsproblem, unendlicher Horizont)</li>
             </ul>
 
         </td>
         <td>
 
             <ul>
-                <li>Temporal Difference</li>
+                <li>Wertefunktionsbasiert
+                <ul>
+                    <li><a href="#monte-carlo-rl">Monte Carlo</a></li>
+                    <li><a href="#temporal-difference">Temporal Difference</a></li>
+                    <li><a href="#eligibility-trace">Verantwortlichkeitsspuren</a></li>
+                </ul>
+                </li>
+                <li>Modelllernende Methoden
+                <ul>
+                    <li><a href="#dyna-q">Dyna-Q</a></li>
+                    <li><a href="#adaptive-dp">Adaptive DP</a></li>
+                    <li><a href="#pilco">PILCO</a></li>
+                </ul>
+                </li>
                 <li>Strategiesuche</li>
             </ul>
 
@@ -2181,7 +2194,7 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
 * Wie kann man die Nutzentheorie kritisieren?<br/>
   → Siehe <a href="#kritik-nutzentheorie">oben</a>.
 * Was haben wir zur Entscheidungstheorie gemacht?<br/>
-  → TODO
+  → <a href="#allais-paradoxon">Allais-Paradoxon</a> und <a href="#rational-decision">Rationale Entscheidungen</a> (TODO: Mehr?)
 * Wie ist eine Nutzenfunktion definiert?<br/>
   → Siehe <a href="#nutzenfunktion">oben</a>
 
