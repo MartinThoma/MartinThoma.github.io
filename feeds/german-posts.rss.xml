@@ -2326,7 +2326,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;Dyna-Q&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dt&gt;&lt;dfn id="dyna-q"&gt;Dyna-Q&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;
 
         TODO: Pseudocode
@@ -2337,14 +2337,14 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;li&gt;- Annahme eines deterministischen Modells&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;Adaptive DP&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dt&gt;&lt;dfn id="adaptive-dp"&gt;Adaptive DP&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;
 
-        Dyna-Q lernt Striprobenmodell (schwachstelle).
-
+        Dyna-Q lernt Striprobenmodell (Schwachstelle).&lt;br/&gt;
+&lt;br/&gt;
         Adaptive DP Verbesserung: Lernt frequentistisch Zustandsverteilung von
-        Nachfolgezustand.
-
+        Nachfolgezustand.&lt;br/&gt;
+&lt;br/&gt;
         $P(x_{k+1} | x_k, a_k)$: relative H&amp;auml;ufigkeit von $x_{k+1}$ gegeben
         $x_k$, $a_k$ (frequentistische Sichtweise)
 
@@ -2355,8 +2355,8 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
         Ausf&amp;uuml;hrung ovn Aktion $a_k$ z&amp;auml;hlt.
 
         $m(x_k, a_k, x_{k+1})$ z&amp;auml;hlt die &amp;Uuml;berg&amp;auml;nge von $x_k$ unter $a_k$
-        nach $x_{k+1}$.
-
+        nach $x_{k+1}$.&lt;br/&gt;
+&lt;br/&gt;
         Ergibt sich aus Interaktion mit realer Umwelt.
 
         &lt;ul&gt;
@@ -2373,15 +2373,14 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
         und &lt;a href="https://martin-thoma.com/machine-learning-2-course/#gaussche-prozesse"&gt;Gaussche Prozesse&lt;/a&gt;.
 
     &lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;PILCO&lt;/dfn&gt; (&lt;dfn&gt;Probabilistic Inference for Learning Control&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dt&gt;&lt;dfn id="pilco"&gt;PILCO&lt;/dfn&gt; (&lt;dfn&gt;Probabilistic Inference for Learning Control&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;
 
         PILCO wurde entwickelt f&amp;uuml;r kontinuierliche Zust&amp;auml;nde und Aktionen.
         Das Modell: Es wird eine probabilistische Regression auf beobachteten
-        Zustand mittels sog. Gaussian Processes (GP) eingesetzt.
-
+        Zustand mittels sog. Gaussian Processes (GP) eingesetzt.&lt;br/&gt;
+&lt;br/&gt;
         Strategieverbesserung:
-
         &lt;ul&gt;
 &lt;li&gt;Verwendung parametrischer Strategie&lt;/li&gt;
 &lt;li&gt;Adaptierung der Parameter mittels &lt;b&gt;Policy Search&lt;/b&gt;&lt;/li&gt;
@@ -2463,17 +2462,30 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;L&amp;ouml;sungs&amp;shy;algorithmen&lt;/td&gt;
-&lt;td&gt;Dynamic Programming&lt;/td&gt;
+&lt;td&gt;&lt;a href="#dynamic-programming"&gt;Dynamic Programming&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;
 &lt;ul&gt;
-&lt;li&gt;Linearer Fall: Kalman-filter + LQR&lt;/li&gt;
-&lt;li&gt;Policy Iteration (Endliches Planungsproblem, unendlicher Horizont)&lt;/li&gt;
-&lt;li&gt;Value Iteration (Endliches Planungsproblem, unendlicher Horizont)&lt;/li&gt;
+&lt;li&gt;Linearer Fall: &lt;a href="https://martin-thoma.com/kalman-filter/"&gt;Kalman-filter&lt;/a&gt; + LQR&lt;/li&gt;
+&lt;li&gt;&lt;a href="#policy-iteration"&gt;Policy Iteration&lt;/a&gt; (Endliches Planungsproblem, unendlicher Horizont)&lt;/li&gt;
+&lt;li&gt;&lt;a href="#value-iteration"&gt;Value Iteration&lt;/a&gt; (Endliches Planungsproblem, unendlicher Horizont)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/td&gt;
 &lt;td&gt;
 &lt;ul&gt;
-&lt;li&gt;Temporal Difference&lt;/li&gt;
+&lt;li&gt;Wertefunktionsbasiert
+                &lt;ul&gt;
+&lt;li&gt;&lt;a href="#monte-carlo-rl"&gt;Monte Carlo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#temporal-difference"&gt;Temporal Difference&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#eligibility-trace"&gt;Verantwortlichkeitsspuren&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Modelllernende Methoden
+                &lt;ul&gt;
+&lt;li&gt;&lt;a href="#dyna-q"&gt;Dyna-Q&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#adaptive-dp"&gt;Adaptive DP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#pilco"&gt;PILCO&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;Strategiesuche&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/td&gt;

@@ -1995,7 +1995,7 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 </li>
 </ul>
 </dd>
-<dt><dfn>Dyna-Q</dfn></dt>
+<dt><dfn id="dyna-q">Dyna-Q</dfn></dt>
 <dd>
 
         TODO: Pseudocode
@@ -2006,14 +2006,14 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 <li>- Annahme eines deterministischen Modells</li>
 </ul>
 </dd>
-<dt><dfn>Adaptive DP</dfn></dt>
+<dt><dfn id="adaptive-dp">Adaptive DP</dfn></dt>
 <dd>
 
-        Dyna-Q lernt Striprobenmodell (schwachstelle).
-
+        Dyna-Q lernt Striprobenmodell (Schwachstelle).<br/>
+<br/>
         Adaptive DP Verbesserung: Lernt frequentistisch Zustandsverteilung von
-        Nachfolgezustand.
-
+        Nachfolgezustand.<br/>
+<br/>
         $P(x_{k+1} | x_k, a_k)$: relative H&auml;ufigkeit von $x_{k+1}$ gegeben
         $x_k$, $a_k$ (frequentistische Sichtweise)
 
@@ -2024,8 +2024,8 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
         Ausf&uuml;hrung ovn Aktion $a_k$ z&auml;hlt.
 
         $m(x_k, a_k, x_{k+1})$ z&auml;hlt die &Uuml;berg&auml;nge von $x_k$ unter $a_k$
-        nach $x_{k+1}$.
-
+        nach $x_{k+1}$.<br/>
+<br/>
         Ergibt sich aus Interaktion mit realer Umwelt.
 
         <ul>
@@ -2042,15 +2042,14 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
         und <a href="https://martin-thoma.com/machine-learning-2-course/#gaussche-prozesse">Gaussche Prozesse</a>.
 
     </dd>
-<dt><dfn>PILCO</dfn> (<dfn>Probabilistic Inference for Learning Control</dfn>)</dt>
+<dt><dfn id="pilco">PILCO</dfn> (<dfn>Probabilistic Inference for Learning Control</dfn>)</dt>
 <dd>
 
         PILCO wurde entwickelt f&uuml;r kontinuierliche Zust&auml;nde und Aktionen.
         Das Modell: Es wird eine probabilistische Regression auf beobachteten
-        Zustand mittels sog. Gaussian Processes (GP) eingesetzt.
-
+        Zustand mittels sog. Gaussian Processes (GP) eingesetzt.<br/>
+<br/>
         Strategieverbesserung:
-
         <ul>
 <li>Verwendung parametrischer Strategie</li>
 <li>Adaptierung der Parameter mittels <b>Policy Search</b></li>
@@ -2132,17 +2131,30 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 </tr>
 <tr>
 <td>L&ouml;sungs&shy;algorithmen</td>
-<td>Dynamic Programming</td>
+<td><a href="#dynamic-programming">Dynamic Programming</a></td>
 <td>
 <ul>
-<li>Linearer Fall: Kalman-filter + LQR</li>
-<li>Policy Iteration (Endliches Planungsproblem, unendlicher Horizont)</li>
-<li>Value Iteration (Endliches Planungsproblem, unendlicher Horizont)</li>
+<li>Linearer Fall: <a href="https://martin-thoma.com/kalman-filter/">Kalman-filter</a> + LQR</li>
+<li><a href="#policy-iteration">Policy Iteration</a> (Endliches Planungsproblem, unendlicher Horizont)</li>
+<li><a href="#value-iteration">Value Iteration</a> (Endliches Planungsproblem, unendlicher Horizont)</li>
 </ul>
 </td>
 <td>
 <ul>
-<li>Temporal Difference</li>
+<li>Wertefunktionsbasiert
+                <ul>
+<li><a href="#monte-carlo-rl">Monte Carlo</a></li>
+<li><a href="#temporal-difference">Temporal Difference</a></li>
+<li><a href="#eligibility-trace">Verantwortlichkeitsspuren</a></li>
+</ul>
+</li>
+<li>Modelllernende Methoden
+                <ul>
+<li><a href="#dyna-q">Dyna-Q</a></li>
+<li><a href="#adaptive-dp">Adaptive DP</a></li>
+<li><a href="#pilco">PILCO</a></li>
+</ul>
+</li>
 <li>Strategiesuche</li>
 </ul>
 </td>
