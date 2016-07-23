@@ -1096,7 +1096,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;dt&gt;&lt;dfn&gt;Value iteration vs Policy iteration&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;
 &lt;ul&gt;
-&lt;li&gt;Strategieiteration konvergiert in weniger Schritten&lt;/li&gt;
+&lt;li&gt;Die Strategieiteration konvergiert in weniger Schritten.&lt;/li&gt;
 &lt;li&gt;Jeder Schritt der Strategieiteration ist teurer als in der
                 Werteoperation, da die Strategieauswertung die L&amp;ouml;sung eines
                 LGS ist (in $\mathcal{O}(n_x^3)$). Au&amp;szlig;erdem ist
@@ -1104,7 +1104,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
                 sonst passieren).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;Label-Korrektur-Algorithmus&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dt&gt;&lt;dfn id="label-correction-algorithm"&gt;Label-Korrektur-Algorithmus&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Der Label-Korrektur-Algorithmus ist ein Meta-Algorithmus zur
         k&amp;uuml;rzeste-Wege-Suche dient. Spezialf&amp;auml;lle von diesem sind die
         Tiefensuche (K ist LIFO-Liste / Stack) und Breitensuche (K ist FIFO-Liste), der &lt;a href="https://de.wikipedia.org/wiki/Dijkstra-Algorithmus"&gt;Dijkstra-Algorithmus&lt;/a&gt; (K ist Priority-Queue), der &lt;a href="https://de.wikipedia.org/wiki/A*-Algorithmus"&gt;A*-Algorithmus&lt;/a&gt; (K ist Priority-Queue, $h_j$ ist nicht-trivial) sowie
@@ -1425,7 +1425,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
         &lt;ol&gt;
 &lt;li&gt;Berechnung von $P(x_k | I_k)$&lt;/li&gt;
 &lt;li&gt;Berechnung von $a_{k:M-1}^*$ durch Minimierung von
-                $$E(\sum_{i=k} g_i(x_i, a_i) | I_k)$$&lt;/li&gt;
+                $$\mathbb{E}(\sum_{i=k} g_i(x_i, a_i) | \mathcal{I}_k)$$&lt;/li&gt;
 &lt;li&gt;Anwendung von $a_k^*$, zur&amp;uuml;ck zu 1.&lt;/li&gt;
 &lt;/ol&gt;
 
@@ -1442,56 +1442,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
         st&amp;auml;rker als OL-Planung (gleichheit im deterministischen Fall)
     &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="linearization"&gt;Linearisierung&lt;/dfn&gt; (&lt;dfn&gt;Extended Kalman Filter&lt;/dfn&gt;, &lt;dfn id="ekf"&gt;EKF&lt;/dfn&gt;)&lt;/dt&gt;
-&lt;dd&gt;Gegeben ist ein Nichtlineares Zustandsraummodell:
-
-        $$x_{k+1} = p_k(x_k, a_k) + w_k\tag{Systemmodell}$$
-        $$z_k = h_k(x_k) + v_k\tag{Messmodell}$$
-
-        Idee: Verwendung von LQR + Kalman Filter&lt;br/&gt;
-        Linearisierung mittels Taylorreihenentwicklung&lt;br/&gt;
-        Annahmen: $p_k$ ist differenzierbar und nichtlinearer Anteil in Umgebung
-        ist vernachl&amp;auml;ssigbar.&lt;br/&gt;
-        Linearisierung um Nominalwerte $\bar{x}_k, \bar{a}_k$.
-        $$p_k(x_k, a_k) \approx p_k(\bar{x}_k, \bar{a}_k) + A_k (\underbrace{x_k - \bar{x}_k}_{=: \Delta x_k}) + B_k (\underbrace{a_k - \bar{a}_k}_{\Delta a_k})$$
-        mit Jakobi-Matrizen:
-        $$A_k = \frac{\partial}{\partial x_k} p_k(x_k, a_k)|_{x_k = \bar{x}_k, a_k = \bar{a}_k}$$
-        $$B_k = \frac{\partial}{\partial a_k} p_k(x_k, a_k)|_{x_k = \bar{x}_k, a_k = \bar{a}_k}$$
-        $\Rightarrow$ Lineares Modell: $\Delta x_{k+1} \approx A_k \cdot \Delta x_k + B_k \Delta a_k$
-        mit $\Delta x_{k+1} = p_k(x_k, a_k) - p_k(\bar{x}_k, \bar{a}_k)$&lt;br/&gt;
-&lt;br/&gt;
-        Wahl der Nominalwerte $\bar{x}_k, \bar{a}_k$:
-        &lt;ul&gt;
-&lt;li&gt;Strategie:
-            &lt;ul&gt;
-&lt;li&gt;Zielzustand $\bar{x}_k = x_+ = [0, \dots, 0]^T, \bar{a}_k = [0, \dots, 0]^T \forall k$&lt;/li&gt;
-&lt;li&gt;Zustandssolltrajektorien bei Verfolgungsproblem&lt;/li&gt;
-&lt;li&gt;Pr&amp;auml;diktiv: $\bar{x}_{k+1} = p_k(\bar{x}_k, \bar{a}_k)$ mit $\bar{x}_0 = E(x_0)$ und beliebig $\bar{a}_{0:N-1}$&lt;/li&gt;
-&lt;li&gt;Iterativ: Starte mit beliebigem $\bar{a}_{0:N-1}$ und $\bar{x}_0 = E(x_0)$
-                &lt;ul&gt;
-&lt;li&gt;Bestimme $\bar{x}_{k+1} = p_k(\bar{x}_k, \bar{a}_k) \forall k$&lt;/li&gt;
-&lt;li&gt;Linearisiere und l&amp;ouml;se LQR $\Rightarrow \bar{a}_k = \pi_k(\bar{x}_k)$&lt;/li&gt;
-&lt;li&gt;zur&amp;uuml;ck zu 1.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Sch&amp;auml;tzer:
-                &lt;ul&gt;
-&lt;li&gt;Linearisierung um $\bar{x}_k = \hat{x}_k^l, \bar{a}_k=\pi_k(\hat{x}_k^l)$
-
-                        $$\hat{x}^p_{k+1} = p_k(\hat{x}_k^l, \bar{a}_k)$$
-
-                        $$C_{k+1}^P = A_k C_k^e A_k^T + C_k^w$$
-                    &lt;/li&gt;
-&lt;li&gt;Filterschritt: Linearisierung um $\bar{x}_k = \hat{x}_k^p$
-
-                        $$\hat{x}_k^e = \hat{x}_k^P + K_k (z_k - h_k(\hat{x}_k^P))$$
-                        $$C_k^e = C_k^P - K_k H_k C_k^P$$
-                    &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/dd&gt;
+&lt;dd&gt;Siehe auch: &lt;a href="https://martin-thoma.com/kalman-filter/#extended-kalman-filter"&gt;EKF&lt;/a&gt;.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Bedingte Differentielle Entropie&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;
 
@@ -1533,7 +1484,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
                 &lt;i&gt;Transinformation&lt;/i&gt; (engl. Mutual information):
                 $$
                 \begin{align}
-                T(x; z) &amp;amp;= \int_{\mathcal{Z}} \int_{\mathcal{X}} f(x, z) \cdot \ļog \frac{f(x,z)}{f(x) \cdot f(z)} \mathrm{d}z \mathrm{d}x\\
+                T(x; z) &amp;amp;= \int_{\mathcal{Z}} \int_{\mathcal{X}} f(x, z) \cdot \log \frac{f(x,z)}{f(x) \cdot f(z)} \mathrm{d}z \mathrm{d}x\\
                 &amp;amp;= H(x) - H(x|z) \geq 0
                 \end{align}
                 $$
@@ -1607,7 +1558,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 
         &lt;ul&gt;
 &lt;li&gt;Linearisierung und&lt;/li&gt;
-&lt;li&gt;modellpr&amp;auml;diktiver Planung&lt;/li&gt;
+&lt;li&gt;Modellpr&amp;auml;diktiver Planung&lt;/li&gt;
 &lt;/ul&gt;
 &lt;u&gt;Linearisierung&lt;/u&gt;
 
@@ -1848,8 +1799,8 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 
     F&amp;uuml;r gegebene Episode:
     &lt;ul&gt;
-&lt;li&gt;Aktualisierung der $Q$-Funktion f&amp;uuml;r alle besuchten Zust&amp;auml;nde $x$ und gew&amp;auml;hlte Aktionen $a$&lt;/li&gt;
-&lt;li&gt;Verbesserung der Strategie f&amp;uuml;r alle besuchten Zust&amp;auml;nde&lt;/li&gt;
+&lt;li&gt;Aktualisierung der $Q$-Funktion f&amp;uuml;r alle besuchten Zust&amp;auml;nde $x$ und gew&amp;auml;hlte Aktionen $a$.&lt;/li&gt;
+&lt;li&gt;Verbesserung der Strategie f&amp;uuml;r alle besuchten Zust&amp;auml;nde.&lt;/li&gt;
 &lt;/ul&gt;
 
     Problem: pro Zustand wird nur eine Aktion bewertet. Das f&amp;uuml;hrt nur auf sehr
@@ -2462,7 +2413,12 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;L&amp;ouml;sungs&amp;shy;algorithmen&lt;/td&gt;
-&lt;td&gt;&lt;a href="#dynamic-programming"&gt;Dynamic Programming&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#dynamic-programming"&gt;Dynamic Programming&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#label-correction-algorithm"&gt;Label-Korrektur-Algorithmus&lt;/a&gt; (Deterministischer Fall)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/td&gt;
 &lt;td&gt;
 &lt;ul&gt;
 &lt;li&gt;Linearer Fall: &lt;a href="https://martin-thoma.com/kalman-filter/"&gt;Kalman-filter&lt;/a&gt; + LQR&lt;/li&gt;
@@ -2475,8 +2431,18 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;li&gt;Wertefunktionsbasiert
                 &lt;ul&gt;
 &lt;li&gt;&lt;a href="#monte-carlo-rl"&gt;Monte Carlo&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#temporal-difference"&gt;Temporal Difference&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#eligibility-trace"&gt;Verantwortlichkeitsspuren&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#temporal-difference"&gt;Temporal Difference&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#sarsa"&gt;SARSA&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#q-learning"&gt;$Q$-Learning&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#eligibility-trace"&gt;Verantwortlichkeitsspuren&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#sarsa-lambda"&gt;SARSA($\lambda$)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#q-lambda"&gt;$Q(\lambda)$&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Modelllernende Methoden
@@ -2499,6 +2465,8 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
   &amp;rarr; &lt;a href="#mdp"&gt;MDP&lt;/a&gt;, &lt;a href="#pomdp"&gt;POMDP&lt;/a&gt;, &lt;a href="#rl"&gt;RL&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Welche Paradoxa haben wir in den Vorlesungen kennen gelernt?&lt;br/&gt;
   &amp;rarr; Allais-Paradoxon (TODO: Weitere?)&lt;/li&gt;
+&lt;li&gt;Was bedeutet es, dass ein Problem geschlossen l&amp;ouml;sbar ist?&lt;br/&gt;
+  &amp;rarr; TODO&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="nutzen-und-entscheidungstheorie"&gt;Nutzen- und Entscheidungs&amp;shy;theorie&lt;/h3&gt;
 &lt;ul&gt;
@@ -2536,6 +2504,8 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
   &amp;rarr; TODO&lt;/li&gt;
 &lt;li&gt;Welche M&amp;ouml;glichkeiten der approximativen L&amp;ouml;sung existieren bzw. sind
   anwendbar?&lt;br/&gt;
+  &amp;rarr; TODO&lt;/li&gt;
+&lt;li&gt;Was versteht man unter Pontryagin's Minimum-Prinzip und wozu ist es gut?&lt;br/&gt;
   &amp;rarr; TODO&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="mdp"&gt;MDP&lt;/h3&gt;
