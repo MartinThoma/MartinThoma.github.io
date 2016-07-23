@@ -175,6 +175,7 @@ Slides: `04_Reinforcement_Learning_II.pdf`
 
 Siehe auch:
 
+* [Probabilistische Planung](https://martin-thoma.com/probabilistische-planung/)
 * [Neuronale Netze](https://martin-thoma.com/neuronale-netze-vorlesung/#tocAnchor-1-1-9)
 * [Machine Learning 1](https://martin-thoma.com/machine-learning-1-course/#tocAnchor-1-1-4)
 * [Cat vs. Mouse code](https://github.com/MartinThoma/cat-vs-mouse)
@@ -290,7 +291,7 @@ Slides: `05_DynamischeBayesscheNetze.pdf`
       Satz von Bayes.
       Siehe <a href="https://de.wikipedia.org/wiki/Bayes-Klassifikator#Beispiel">Bayes-Klassifikator</a>
       für eine detailiertere Beschreibung.</dd>
-  <dt><dfn>Bayes Filter</dfn></dt>
+  <dt><dfn id="bayes-filter">Bayes Filter</dfn></dt>
   <dd>Ein Bayes Filter ist eine Familie von Zufallsvariablen. Das könnte z.B.
       die $(x,y,z)$ Position eines GPS-Sensors sein. Diese Position ist
       verrauscht.
@@ -326,7 +327,7 @@ Slides: `05_DynamischeBayesscheNetze.pdf`
       Der naive bayessche Spam Filter nutzt Bayes Theorem um die
       Wahrscheinlichkeit zu berechnen, dass eine E-Mail Spam ist.
       </dd>
-  <dt><a href="https://de.wikipedia.org/wiki/Kalman-Filter"><dfn>Kalman-Filter</dfn></a> (siehe <a href="http://arxiv.org/abs/1204.0375">Python-Implementierung</a>)</dt>
+  <dt><dfn>Kalman-Filter</dfn></dt>
   <dd>Der Kalman-Filter ist ein Bayes-Filter. Er wird z.B. zum Schätzen einer
       Fahrzeugtrajektorie eingesetzt.
 
@@ -338,6 +339,9 @@ Slides: `05_DynamischeBayesscheNetze.pdf`
            <li><b>Update</b> the estimate of the current state given the
                measurement of this time step.</li>
        </ul>
+
+       Siehe <a href="https://martin-thoma.com/kalman-filter/">Kalman-Filter Artikel</a>
+       für Details.
     </dd>
     <dt><a href="https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm" name="em-algorithmus"><dfn>Expectation Maximizaion Algorithm</dfn></a> (<dfn>EM-Algorithmus</dfn>)</dt>
     <dd>

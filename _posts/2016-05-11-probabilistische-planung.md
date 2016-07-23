@@ -652,6 +652,8 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
 
         $$d(T^k J, T^k J') \leq \alpha^k \cdot d(J, J')$$ <!-- TODO: \alpha = gamma? -->
         $$d(T^k_\pi J, T_T^k J') \leq \alpha^k \cdot d (J, J')$$ <!-- TODO: \alpha = gamma? -->
+
+        TODO
     </dd>
     <dt><dfn>Werte-Iteration</dfn> (<dfn id="value-iteration">Value iteration</dfn>)</dt>
     <dd>$$J^* = \lim_{N \rightarrow \infty} T^N J$$
@@ -911,7 +913,11 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         TODO (z.B. in GPS arbeitet eine Variante; Extended Kalman Filter)<br/>
         Der Bayes-Schätzer ist im Allgemeinen nicht geschlossen berechenbar.<br/>
         <br/>
-        Siehe auch: <a href="https://en.wikipedia.org/wiki/Recursive_Bayesian_estimation">Recursive Bayesian estimation</a>
+        Siehe auch: 
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Recursive_Bayesian_estimation">Recursive Bayesian estimation</a></li>
+            <li><a href="https://martin-thoma.com/machine-learning-2-course/#bayes-filter">Bayes Filter</a></li>
+        </ul>
         </dd>
     <dt><dfn>Verteilungs-MDP</dfn> (<dfn>Belief-state MDP</dfn>)</dt>
     <dd>POMDPs haben äquivalente Verteilungs-MDPs. Dabei wird eine
@@ -1129,16 +1135,17 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         </ul>
 
 
-        Informationstheoretische Kosten gehen in Kovarianz-basierte Kosten
-        wie z.B. Entropie über:
+        Informationstheoretische Kosten gehen in Kovarianz-basierte Kosten über.
+        Siehe z.B. Entropie :
         <br/>
-        TODO<br/>
+        $$H(x_k | z_k, a_k) = \frac{1}{2} \log |2 \pi \underbrace{Cov(x_k | a_k)}_{C_k^e}| \approx |Cov(\cdot | \cdot)|$$<br/>
+        (TODO: Warum machen wir das dann überhaupt?)
         <br/>
         In der Sensoreinsatzplanung liefern Open-Loop und Closed Loop
-        Verfahren, gegeben TODO, die selben Kosten. Daher wird
-        Open-Loop-Planung verwendent. Das heißt, der optimale Plan
+        Verfahren, gegeben die initiale Verteilung $P(x_0)$, die selben Kosten.
+        Daher wird Open-Loop-Planung verwendent. Das heißt, der optimale Plan
         $a_{0:N-1}^*$ wird mittels deterministischer Planung
-        (Kürzeste-Wege-Suche), bestimmt.
+        (also Kürzeste-Wege-Suche), bestimmt.
 
         <ul>
             <li>$g_i(x_i, a)$: Schrittkosten</li>
@@ -1593,8 +1600,8 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         \end{align}
         $$
         MC-Verfahren ganz (1) mittels Stichprobenfolge. TD-Verfahren schätzen
-        die Summe in (2) durch eine Stichprobe $r_k$.
-
+        die Summe in (2) durch eine Stichprobe $r_k$.<br/>
+        <br/>
         <u>TD-Strategiebewertung</u><br/>
         Erinnerung an DP-Strategiebewertung:<br/>
         $$J_\pi(x_k) \gets r_k(x_k, \pi (x_k)) + \alpha \sum_{x_{k+1}} P(x_{k+1} | x_k, \pi(x_k)) \cdot J_\pi (x_{k+1})$$
@@ -1930,10 +1937,8 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         <u>Beispiele</u>
         <ul>
             <li>DP: vollständiges Modell (Übergangswahrscheinlichkeiten) - völlige Entkopplung</li>
-            <li>Biologisches Lernen: Stichprobenmodell (beispielhafte Übergänge)
-
-                Beispiel: Dyna-Q
-
+            <li>Biologisches Lernen: Stichprobenmodell (beispielhafte Übergänge).
+                Dies versucht beispielsweise Dyna-Q
                 <ul>
                     <li>$Q$-Learning: Strategielernen aus direkter Erfahrung</li>
                     <li>Planung: Strategieverbesserung aus simulierter Erfahrung</li>
@@ -1948,13 +1953,18 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
     <dt><dfn id="dyna-q">Dyna-Q</dfn></dt>
     <dd>
 
-        TODO: Pseudocode
+        <figure class="wp-caption aligncenter img-thumbnail">
+            <img src="../images/2016/07/dyna-q.png" alt="Pseudocode for the Dyna-Q algorithm" />
+            <figcaption class="text-center">Pseudocode for the Dyna-Q algorithm</figcaption>
+        </figure>
 
         <ul>
             <li>+ Besseres Ausnutzen von Erfahrung</li>
             <li>+ Empirisch: schnellere Konvergenz als $Q$-Learning</li>
             <li>- Annahme eines deterministischen Modells</li>
         </ul>
+
+        See also: <a href="https://webdocs.cs.ualberta.ca/~sutton/book/ebook/node96.html">Integrating Planning, Acting, and Learning</a> by Sutton.
 
     </dd>
     <dt><dfn id="adaptive-dp">Adaptive DP</dfn></dt>
@@ -1983,7 +1993,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
             <li>+ verbesserte Konvergenz im vgl. zu $Q$-Learning</li>
             <li>+ Reduktion des Modell-Bias</li>
             <li>- Berechnung von $J^*$ ist aufwendig, muss aber nicht in
-                jeder Schritt / Schleifeniteration ausgeführt werden</li>
+                jedem Schritt / Schleifeniteration ausgeführt werden</li>
         </ul>
 
     </dd>
@@ -2192,7 +2202,7 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
   → TODO
 * Welche numerischen Methoden zur Optimierung kennen sie?<br/>
   → Iterativer Abstieg (Gradientenverfahren, Newton-Verfahren),
-     Dynamische Programmierung (?) (TODO)
+     Penalty-Ansätze (TODO)
 * Was bedeutet es, dass ein Problem geschlossen lösbar ist?<br/>
   → TODO
 * Welche geschlossen lösbaren Spezialfälle existieren?<br/>
@@ -2244,6 +2254,8 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
   → TODO (POMDP hat Erwartungswert)
 * Was ist PWLC?<br/>
   → Piece-wise linear and Concave / Convex
+* Warum sind PWLCs in dieser Vorlesung von Bedeutung?<br/>
+  → TODO
 * Was versteht man unter Modellprädiktiver Planung (MP)?<br/>
   → Modellprädiktive Planung ist OLF, über einen kurzen, aber wandernden
     Horizont. (TODO: Unterschied zu OLF?)

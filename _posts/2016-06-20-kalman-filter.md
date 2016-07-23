@@ -366,3 +366,4 @@ There is also an series of YouTube videos I can recommend:
 * [How do I choose the parameters of a Kalman filter?](http://dsp.stackexchange.com/q/31632/9101)
 * StackExchange: <a href="http://math.stackexchange.com/questions/tagged/kalman-filter?sort=votes&pageSize=15">math</a>, <a href="http://stats.stackexchange.com/questions/tagged/kalman-filter">CV</a>, <a href="http://dsp.stackexchange.com/questions/tagged/kalman-filters?sort=votes&pageSize=15">DSP</a>
     * <a href="http://stats.stackexchange.com/q/168882/25741">What is the difference between kalman filter and extended kalman filter?</a>
+* <a href="http://arxiv.org/abs/1204.0375">Python implementation</a>
