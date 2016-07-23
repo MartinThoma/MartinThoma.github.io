@@ -719,7 +719,9 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 
         $$d(T^k J, T^k J') \leq \alpha^k \cdot d(J, J')$$ <!-- TODO: \alpha = gamma? -->
         $$d(T^k_\pi J, T_T^k J') \leq \alpha^k \cdot d (J, J')$$ <!-- TODO: \alpha = gamma? -->
-</dd>
+
+        TODO
+    </dd>
 <dt><dfn>Werte-Iteration</dfn> (<dfn id="value-iteration">Value iteration</dfn>)</dt>
 <dd>$$J^* = \lim_{N \rightarrow \infty} T^N J$$
         wobei $J^*$ die optimalen Kosten, $T$ der Bellman-Operator und $N$
@@ -1177,16 +1179,17 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 </ul>
 
 
-        Informationstheoretische Kosten gehen in Kovarianz-basierte Kosten
-        wie z.B. Entropie &uuml;ber:
+        Informationstheoretische Kosten gehen in Kovarianz-basierte Kosten &uuml;ber.
+        Siehe z.B. Entropie :
         <br/>
-        TODO<br/>
-<br/>
+        $$H(x_k | z_k, a_k) = \frac{1}{2} \log |2 \pi \underbrace{Cov(x_k | a_k)}_{C_k^e}| \approx |Cov(\cdot | \cdot)|$$<br/>
+        (TODO: Warum machen wir das dann &uuml;berhaupt?)
+        <br/>
         In der Sensoreinsatzplanung liefern Open-Loop und Closed Loop
-        Verfahren, gegeben TODO, die selben Kosten. Daher wird
-        Open-Loop-Planung verwendent. Das hei&szlig;t, der optimale Plan
+        Verfahren, gegeben die initiale Verteilung $P(x_0)$, die selben Kosten.
+        Daher wird Open-Loop-Planung verwendent. Das hei&szlig;t, der optimale Plan
         $a_{0:N-1}^*$ wird mittels deterministischer Planung
-        (K&uuml;rzeste-Wege-Suche), bestimmt.
+        (also K&uuml;rzeste-Wege-Suche), bestimmt.
 
         <ul>
 <li>$g_i(x_i, a)$: Schrittkosten</li>
