@@ -1624,19 +1624,18 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
 
     </dd>
     <dt><a href="https://en.wikipedia.org/wiki/State-Action-Reward-State-Action"><dfn id="sarsa">SARSA</dfn></a> (<dfn>State Action Reward State Action</dfn>)</dt>
-    <dd>SARSA is a learning algorithm which updates the $Q$-function:
+    <dd>
+
+    SARSA is a temporal difference learning algorithm which updates the $Q$-function:
 
     $$Q(s_t,a_t) \leftarrow (1-\alpha) \cdot Q(s_t,a_t) + \alpha [r_{t+1} + \gamma Q(s_{t+1}, a_{t+1})]$$
 
     where $\alpha \in (0, 1)$ is the learning rate and $\gamma \in [0, 1]$
     is the discount factor.
 
-    SARSA is a temporal difference algorithm. As it chooses $a_{k+1}$ according
-    to the policy $\pi$ it is an on-policy algorithm.
-
-    Unterschied zum $Q$-Learning: Zustand wird in Abhängigkeit von der Strategie
-    verwendet.
-
+    As SARSA chooses $a_{k+1}$ according
+    to the policy $\pi$ it is an on-policy algorithm, in contrast to $Q$-learning.<br/>
+    <br/>
     TODO: Pseudocode
     </dd>
     <dt><a href="https://en.wikipedia.org/wiki/Q-learning"><dfn id="q-learning">$Q$-Learning</dfn></a></dt>
@@ -2159,8 +2158,6 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
   → <a href="#mdp">MDP</a>, <a href="#pomdp">POMDP</a>, <a href="#rl">RL</a>
 * Welche Paradoxa haben wir in den Vorlesungen kennen gelernt?<br/>
   → Allais-Paradoxon (TODO: Weitere?)
-* Was bedeutet es, dass ein Problem geschlossen lösbar ist?<br/>
-  → TODO
 
 
 ### Nutzen- und Entscheidungs&shy;theorie
@@ -2173,12 +2170,13 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
 * Was haben wir zur Entscheidungstheorie gemacht?<br/>
   → <a href="#allais-paradoxon">Allais-Paradoxon</a> und <a href="#rational-decision">Rationale Entscheidungen</a> (TODO: Mehr?)
 * Wie ist eine Nutzenfunktion definiert?<br/>
-  → Siehe <a href="#nutzenfunktion">oben</a>
+  → Siehe <a href="#nutzenfunktion">oben</a>.
 
 ### Optimierungstheorie
 
 * Wie löst man Optimierungsprobleme ohne Nebenbedingungen?<br/>
-  → Iterativer Abstieg (z.B. Gradientenverfahren), Dynamische Programmierung (TODO)
+  → Iterativer Abstieg (z.B. Gradientenverfahren), Dynamische Programmierung,
+     Label-Korrektur-Algorithmus (TODO)
 * Wann existiert kein globales Minimum für ein Optimierungsproblem?<br/>
   → Wenn die Menge der zulässigen Lösungen nach unten unbeschränkt ist, d.h.
      $\text{arg} \min_x f(x) = - \infty$ oder wenn die untere Schranke nicht
@@ -2193,7 +2191,10 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
 * Beweisen Sie, dass der Gradient senkrecht auf die Höhenlinien steht.<br/>
   → TODO
 * Welche numerischen Methoden zur Optimierung kennen sie?<br/>
-  → Iterativer Abstieg (Gradientenverfahren, Newton-Verfahren), Dynamische Programmierung(?) (TODO)
+  → Iterativer Abstieg (Gradientenverfahren, Newton-Verfahren),
+     Dynamische Programmierung (?) (TODO)
+* Was bedeutet es, dass ein Problem geschlossen lösbar ist?<br/>
+  → TODO
 * Welche geschlossen lösbaren Spezialfälle existieren?<br/>
   → TODO
 * Welche Möglichkeiten der approximativen Lösung existieren bzw. sind
@@ -2227,7 +2228,8 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
 * Was macht der LQR?<br/>
   → Ein LQR regelt ein lineares System mit quadratischen Kosten auf einen Zielfwert.
 * Wieso sind MDPs schwer zu lösen?<br/>
-  → TODO
+  → Es gibt $|\mathcal{A}|^N$ mögliche Pläne und $|A|^{N \cdot |\mathcal{X}|}$
+    mögliche Strategien. (vgl. <a href="https://arxiv.org/pdf/1302.4971.pdf">On the Complexity of Solving Markov Decision Problems</a>) (TODO)
 * Wo ist der Fixpunktsatz von Bedeutung?<br/>
   → TODO
 
