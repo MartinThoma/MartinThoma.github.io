@@ -76,7 +76,7 @@ sowie die Werte- und Strategieiteration zu nennen.
     <td>7</td>
     <td id="2016-06-01">01.06.2016</td>
     <td>MDPs (<a href="https://ies.anthropomatik.kit.edu/ies/download/lehre/proplan/ProPlan-8-Folien.pdf">Folien</a>)</td>
-    <td>Pontryagin's Minimumprinzip, Hamilton-Funktion, Riccati-Gleichung; LQR; <a href="#certainty-equivalence">Sicherheitsäquivalenz</a></td>
+    <td>Pontryagin's Minimumprinzip, Hamilton-Funktion, Riccati-Gleichung; <a href="#lqr">LQR</a>; <a href="#certainty-equivalence">Sicherheitsäquivalenz</a></td>
 </tr>
 <tr>
     <td>8</td>
@@ -798,9 +798,10 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         $$\mathbb{E} \left ( \underbrace{x_N^T \cdot Q_N \cdot x_N + \sum_{k=0}^{N-1} x_k^T \cdot Q_k \cdot x_k}_{\text{Zustandsabhängige Kosten}} + \underbrace{\sum_{k=0}^{N-1} a_k^T \cdot R_k \cdot a_k}_{\text{aktionsabhängige Kosten}} \right )$$
 
         Dabei sind die Gewichtungsmatrizen $Q_k, Q_N, R_k$ symmetrisch und
-        positiv definit.
-
-        Es ergibts sich:
+        positiv definit. Auch die cost-to-go Matrix $P_{k+1}$ ist symmetrisch
+        und positiv definit.<br/>
+        <br/>
+        Die optimale Lösung für dieses Problem lautet:
 
         $$a_k^* = \underbrace{-{(R_k + B_k^T P_{k+1} B_k)}^{-1} \cdot B_k^T \cdot P_{k+1} \cdot A_k}_{\text{Verstärkungsmatrix } L_k} x_k$$
     </dd>
@@ -2295,7 +2296,7 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
      dem Graphen, der durch die Zustände des MDPs sowie den Kosten zwischen
      den Zuständen als Gewicht dargestellt werden.
 * Was macht der LQR?<br/>
-  → Ein LQR regelt ein lineares System mit quadratischen Kosten auf einen Zielfwert.
+  → Ein LQR regelt ein lineares System mit quadratischen Kosten auf einen Zielwert (vgl. <a href="#lqr">oben</a>).
 * Wieso sind MDPs schwer zu lösen?<br/>
   → Es gibt $|\mathcal{A}|^N$ mögliche Pläne und $|A|^{N \cdot |\mathcal{X}|}$
     mögliche Strategien. (vgl. <a href="https://arxiv.org/pdf/1302.4971.pdf">On the Complexity of Solving Markov Decision Problems</a>) (TODO)
