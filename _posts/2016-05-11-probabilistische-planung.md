@@ -525,10 +525,11 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
       \end{align}
       $$
       ergibt.<br/>
-      <img src="../images/2016/07/dynamic-programming.png"
-           alt="Dynamic Programming"
-           width="512px" />
-      <br/>
+      <figure class="wp-caption aligncenter img-thumbnail">
+          <img src="../images/2016/07/dynamic-programming.png" alt="Pseudocode for Dynamic Programming" />
+          <figcaption class="text-center">Pseudocode for Dynamic Programming</figcaption>
+      </figure>
+
       Laufzeitkomplexität: $\mathcal{O}(N |\mathcal{X}|^2 |A|)$
 
   </dd>
@@ -658,23 +659,32 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         </ul>
 
     </dd>
-    <dt><dfn>T-Kontraktion</dfn></dt>
-    <dd>Für beliebige Wertevektoren $J, J'$, eine beliebige Strategie $\pi$
-        und für alle $k=0,1, \dots$ gilt:
+    <dt><dfn id="t-kontraction">T-Kontraktion</dfn></dt>
+    <dd>Für beliebige Wertevektoren $J, J'$, eine beliebige Strategie $\pi$,
+        die Maximums-Norm $d$:
+        $$d(J, J') = \max_{i \in \mathcal{X}} |J(i) - J'(i)|$$
+        und für alle $k=0,1, \dots$ gilt: Es existiert ein $\alpha \in [0, 1)$
+        mit
 
-        $$d(T^k J, T^k J') \leq \alpha^k \cdot d(J, J')$$ <!-- TODO: \alpha = gamma? -->
-        $$d(T^k_\pi J, T_T^k J') \leq \alpha^k \cdot d (J, J')$$ <!-- TODO: \alpha = gamma? -->
+        $$d(T^k J, T^k J') \leq \alpha^k \cdot d(J, J')$$
+        $$d(T^k_\pi J, T^k J') \leq \alpha^k \cdot d (J, J')$$
 
-        TODO
+        Das bedeutet, der Bellman-Operator ist
+        eine Kontraktion und laut dem Banachschem Fixpunktsatz gibt es daher
+        einen Fixpunkt.
     </dd>
     <dt><dfn>Werte-Iteration</dfn> (<dfn id="value-iteration">Value iteration</dfn>)</dt>
     <dd>$$J^* = \lim_{N \rightarrow \infty} T^N J$$
-        wobei $J^*$ die optimalen Kosten, $T$ der Bellman-Operator und $N$
-        der Planungshorizont ist. $g$ ist die Schrittkostenfunktion.<br/>
+        where $J^*$ is the optimal value, $T$ is the Bellman operator an $N \in \mathbb{N}_{\geq 1}$
+        is the planning horizon. $g$ is the cost function for each step.<br/>
 
-        <img src="../images/2016/07/Value-Iteration.png"
-             alt="Value iteration algorithm"
-             width="512px" />
+        <figure class="wp-caption aligncenter img-thumbnail">
+            <img src="../images/2016/07/Value-Iteration.png" alt="Pseudocode for Value iteration algorithm" />
+            <figcaption class="text-center">Pseudocode for Value iteration algorithm</figcaption>
+        </figure>
+
+        <u>Remark</u>: The value function is usually denoted with $V$, not
+        with $J$.
 
         </dd>
     <dt><dfn>Satz von der Sationären Strategie</dfn></dt>
@@ -699,10 +709,12 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
     <dd>Man kann beobachten, dass bei der Werte-Iteration die Stategie schneller
         konvergiert als der Wertevektor. Außerdem ist die Anzahl der
         Strategien endlich, aber es gibt unendlich viele Wertevektoren.<br/>
-        <img src="../images/2016/07/Policy-Iteration.png"
-             alt="Policy iteration algorithm"
-             width="512px" />
-        <br/>
+
+        <figure class="wp-caption aligncenter img-thumbnail">
+            <img src="../images/2016/07/Policy-Iteration.png" alt="Pseudocode for Policy iteration algorithm" />
+            <figcaption class="text-center">Pseudocode for Policy iteration algorithm</figcaption>
+        </figure>
+
         Die folgenden beiden Schritte werden alternierend ausgeführt:
 
         <ol>
@@ -733,9 +745,10 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         Tiefensuche (K ist LIFO-Liste / Stack) und Breitensuche (K ist FIFO-Liste), der <a href="https://de.wikipedia.org/wiki/Dijkstra-Algorithmus">Dijkstra-Algorithmus</a> (K ist Priority-Queue), der <a href="https://de.wikipedia.org/wiki/A*-Algorithmus">A*-Algorithmus</a> (K ist Priority-Queue, $h_j$ ist nicht-trivial) sowie
         Branch &amp; Bound (K ist Priority-Queue, $h_j$ ist nicht-trivial und $m_j$ ist nicht trivial).
 
-          <img src="../images/2016/07/label-correction.png"
-               alt="Label correction algorithm"
-               width="512px" />
+        <figure class="wp-caption aligncenter img-thumbnail">
+            <img src="../images/2016/07/label-correction.png" alt="Pseudocode for the Label correction algorithm" />
+            <figcaption class="text-center">Pseudocode for the Label correction algorithm</figcaption>
+        </figure>
 
         </dd>
     <dt><a href="https://de.wikipedia.org/wiki/Trellis-Code"><dfn id="trellis">Trellis-Diagramm</dfn></a></dt>
@@ -752,7 +765,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         Pontryagins Minimum-Prinzip steht mit der <a href="https://en.wikipedia.org/wiki/Hamilton%E2%80%93Jacobi%E2%80%93Bellman_equation">Hamilton–Jacobi–Bellman Gleichung</a>
         in Zusammenhang.
 
-        TODO</dd>
+        (TODO: Wie genau?)</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Hamilton-Funktion_(Kontrolltheorie)"><dfn>Hamilton-Funktion</dfn></a></dt>
     <dd>Die Hamilton-Funktion der Kontrolltheorie stellt eine notwendige
         Bedingung für die optimale Lösung eines Steuerungsproblems ist. Damit
@@ -921,11 +934,30 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         </ul>
     </dd>
     <dt><a href="https://de.wikipedia.org/wiki/Bayes-Sch%C3%A4tzer"><dfn>Bayes'scher Schätzer</dfn></a></dt>
-    <dd>Prädiktion + Filterschritt = Bayes-Schätzer.<br/>
-        TODO (z.B. in GPS arbeitet eine Variante; Extended Kalman Filter)<br/>
-        Der Bayes-Schätzer ist im Allgemeinen nicht geschlossen berechenbar.<br/>
-        <br/>
-        Siehe auch: 
+    <dd>
+
+        <blockquote>Suppose an unknown parameter $\theta$ is known to have a prior
+        distribution $\pi$. Let $\widehat{\theta} =
+        \widehat{\theta}(x)$ be an estimator of θ (based on some
+        measurements $x$), and let $L(\theta,\widehat{\theta})$ be
+        a loss function, such as squared error. The <i>Bayes risk</i> of
+        $\widehat{\theta}$ is defined as $E_\pi(L(\theta,
+        \widehat{\theta}))$, where the expectation is
+        taken over the probability distribution of $\theta$: this
+        defines the risk function as a function of
+        $\widehat{\theta}$. An estimator
+        $\widehat{\theta}$ is said to be a <i>Bayes estimator</i> if it
+        minimizes the Bayes risk among all estimators. Equivalently, the
+        estimator which minimizes the posterior expected loss
+        $E(L(\theta,\widehat{\theta}) | x)$ <i>for each x</i> also
+        minimizes the Bayes risk and therefore is a Bayes
+        estimator.</blockquote>
+        Source: <a href="https://en.wikipedia.org/w/index.php?title=Bayes_estimator&oldid=731403554#Definition">Wikipedia</a>
+
+        In general, the Bayes estimator has no closed-form solution.
+        The Extended Kalman filter is a Bayes estimator.
+
+        See also:
         <ul>
             <li><a href="https://en.wikipedia.org/wiki/Recursive_Bayesian_estimation">Recursive Bayesian estimation</a></li>
             <li><a href="https://martin-thoma.com/machine-learning-2-course/#bayes-filter">Bayes Filter</a></li>
@@ -1166,7 +1198,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         Der Suchbaum hat $|A|^N$ Pfade. (0-1 Programme)
 
     </dd>
-    <dt><dfn>Monotonie der Riccarti-Gleichung</dfn></dt>
+    <dt><dfn>Monotonie der Riccati-Gleichung</dfn></dt>
     <dd>(TODO: Wozu? https://ies.anthropomatik.kit.edu/ies/download/lehre/proplan/ProPlan-7-Folien.pdf Folie 4)
 
         Sei
@@ -1457,8 +1489,8 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
     <dd>Idee: Schätzen der $Q$-Funktion $Q(x, a)$.
 
     <figure class="wp-caption aligncenter img-thumbnail">
-        <img src="../images/2016/07/policy-iteration.png" alt="Text" />
-        <figcaption class="text-center"><a href="#policy-iteration">Policy Iteration</a></figcaption>
+        <img src="../images/2016/07/policy-iteration.png" alt="Pseudocode for Policy Iteration" />
+        <figcaption class="text-center"><a href="#policy-iteration">Pseudocode for Policy Iteration</a></figcaption>
     </figure>
 
     Für gegebene Episode:
@@ -1655,7 +1687,10 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
     As SARSA chooses $a_{k+1}$ according
     to the policy $\pi$ it is an on-policy algorithm, in contrast to $Q$-learning.<br/>
     <br/>
-    TODO: Pseudocode
+    <figure class="wp-caption aligncenter img-thumbnail">
+        <img src="../images/2016/07/sarsa.png" alt="Pseudocode for SARSA" />
+        <figcaption class="text-center">Pseudocode for SARSA</figcaption>
+    </figure>
     </dd>
     <dt><a href="https://en.wikipedia.org/wiki/Q-learning"><dfn id="q-learning">$Q$-Learning</dfn></a></dt>
     <dd>$Q$-Learning ist ein TD-Vefahren um ohne Modell ein
@@ -1664,12 +1699,16 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         $$Q(x_k, a_k) \gets Q(x_k, a_k) + \alpha \cdot [r_k + \gamma \cdot \underbrace{\max_a Q(x_{k+1}, a)}_{J(x_{k+1})} - Q(x_k, a_k)]$$
 
         <br/>
-        <img src="../images/2016/07/q-learning.png"
-             alt="Q-Learning"
-             width="512px" /><br/>
+        <figure class="wp-caption aligncenter img-thumbnail">
+            <img src="../images/2016/07/q-learning.png" alt="Pseudocode for Q-Learning" />
+            <figcaption class="text-center">Pseudocode for Q-Learning</figcaption>
+        </figure>
 
-        $\Rightarrow$ Aktualisierung von $Q$ erfolgt unabhängig von $\pi$
-        $\rightarrow$  Off-policy
+        TODO: I replaced "for each episode" by "while Q is not converged".
+        Is that ok / the same?
+
+        Da die Aktualisierung von $Q$ unabhängig von $\pi$ erfolgt, ist
+        $Q$-learning ein off-policy Verfahren.
 
         ($Q$-Learning hat sich im Gegensatz zu SARSA durchgesetzt)<br/>
         <br/>
@@ -2200,7 +2239,7 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
 
 * Wie löst man Optimierungsprobleme ohne Nebenbedingungen?<br/>
   → Iterativer Abstieg (z.B. Gradientenverfahren), Dynamische Programmierung,
-     Label-Korrektur-Algorithmus (TODO)
+     Label-Korrektur-Algorithmus (TODO: Weitere?)
 * Wann existiert kein globales Minimum für ein Optimierungsproblem?<br/>
   → Wenn die Menge der zulässigen Lösungen nach unten unbeschränkt ist, d.h.
      $\text{arg} \min_x f(x) = - \infty$ oder wenn die untere Schranke nicht
@@ -2211,12 +2250,12 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
   Ungleichungsnebenbedingungen. Numerisch gibt es noch
   <a href="https://en.wikipedia.org/wiki/Penalty_method">Penalty-Ansätze</a>.
 * Wann ist es leichter / schwerer das Optimierungsproblem zu lösen?<br/>
-  → Keine Nebenbedingungen, in $\mathbb{R}^n$ oder kleiner diskreter Raum (TODO)
+  → Keine Nebenbedingungen, in $\mathbb{R}^n$ oder kleiner diskreter Raum (TODO: Kann man hier mehr sagen?)
 * Beweisen Sie, dass der Gradient senkrecht auf die Höhenlinien steht.<br/>
-  → TODO
+  → TODO (Siehe <a href="http://math.stackexchange.com/q/1871481/6876">math.StackExchange</a>)
 * Welche numerischen Methoden zur Optimierung kennen sie?<br/>
   → Iterativer Abstieg (Gradientenverfahren, Newton-Verfahren),
-     Penalty-Ansätze (TODO)
+     Penalty-Ansätze (TODO: Gibt es weitere?)
 * Was bedeutet es, dass ein Problem geschlossen lösbar ist?<br/>
   → TODO
 * Welche geschlossen lösbaren Spezialfälle existieren?<br/>
@@ -2261,7 +2300,8 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
   → Es gibt $|\mathcal{A}|^N$ mögliche Pläne und $|A|^{N \cdot |\mathcal{X}|}$
     mögliche Strategien. (vgl. <a href="https://arxiv.org/pdf/1302.4971.pdf">On the Complexity of Solving Markov Decision Problems</a>) (TODO)
 * Wo ist der Fixpunktsatz von Bedeutung?<br/>
-  → TODO
+  → Bei dem Beweis, dass die Werte-Iteration gegen die optimale Lösung
+     konvergiert (siehe <a href="#t-kontraktion">T-Kontraktion</a>).
 
 
 ### POMDP
