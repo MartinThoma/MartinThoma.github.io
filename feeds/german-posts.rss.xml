@@ -1024,7 +1024,10 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
                                J              &amp;amp;\text{otherwise}
                   \end{cases}$$
 
-        One can show: $$J^* = \lim_{N \rightarrow \infty} T^N J \text{ f&amp;uuml;r beliebiges } J$$
+        One can show: $$J^* = \lim_{N \rightarrow \infty} T^N J \text{ for arbitrary } J$$
+
+        Hence successive applications of the Bellman operator are guaranteed
+        to converge against the global optimum.
     &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Strategiebewertung&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;$$(T_\pi J)(i) = g(i, \pi(i)) + \alpha \cdot \sum_j f_{ij} (\pi(i)) \cdot J(j)$$
@@ -1054,13 +1057,18 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;/ul&gt;
 &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;T-Kontraktion&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;F&amp;uuml;r beliebige Wertevektoren $J, J'$, eine beliebige Strategie $\pi$
-        und f&amp;uuml;r alle $k=0,1, \dots$ gilt:
+&lt;dd&gt;F&amp;uuml;r beliebige Wertevektoren $J, J'$, eine beliebige Strategie $\pi$,
+        die Maximums-Norm $d$:
+        $$d(J, J') = \max_{i \in \mathcal{X}} |J(i) - J'(i)|$$
+        und f&amp;uuml;r alle $k=0,1, \dots$ gilt: Es existiert ein $\alpha \in [0, 1)$
+        mit
 
-        $$d(T^k J, T^k J') \leq \alpha^k \cdot d(J, J')$$ &lt;!-- TODO: \alpha = gamma? --&gt;
-        $$d(T^k_\pi J, T_T^k J') \leq \alpha^k \cdot d (J, J')$$ &lt;!-- TODO: \alpha = gamma? --&gt;
+        $$d(T^k J, T^k J') \leq \alpha^k \cdot d(J, J')$$
+        $$d(T^k_\pi J, T_T^k J') \leq \alpha^k \cdot d (J, J')$$
 
-        TODO
+        Das bedeutet, der Bellman-Operator ist
+        eine Kontraktion und laut dem Banachschem Fixpunktsatz gibt es daher
+        einen Fixpunkt.
     &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Werte-Iteration&lt;/dfn&gt; (&lt;dfn id="value-iteration"&gt;Value iteration&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;$$J^* = \lim_{N \rightarrow \infty} T^N J$$
