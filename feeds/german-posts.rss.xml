@@ -1059,7 +1059,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;li&gt;A-posteriori-Absch&amp;auml;tzung: $d(x_n,\xi)\le\frac{\lambda}{1-\lambda}d(x_{n-1},x_n)$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;T-Kontraktion&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dt&gt;&lt;dfn id="t-kontraction"&gt;T-Kontraktion&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;F&amp;uuml;r beliebige Wertevektoren $J, J'$, eine beliebige Strategie $\pi$,
         die Maximums-Norm $d$:
         $$d(J, J') = \max_{i \in \mathcal{X}} |J(i) - J'(i)|$$
@@ -2065,8 +2065,8 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
         TODO: I replaced "for each episode" by "while Q is not converged".
         Is that ok / the same?
 
-        $\Rightarrow$ Aktualisierung von $Q$ erfolgt unabh&amp;auml;ngig von $\pi$
-        $\rightarrow$  Off-policy
+        Da die Aktualisierung von $Q$ unabh&amp;auml;ngig von $\pi$ erfolgt, ist
+        $Q$-learning ein off-policy Verfahren.
 
         ($Q$-Learning hat sich im Gegensatz zu SARSA durchgesetzt)&lt;br/&gt;
 &lt;br/&gt;
@@ -2557,7 +2557,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;ul&gt;
 &lt;li&gt;Wie l&amp;ouml;st man Optimierungsprobleme ohne Nebenbedingungen?&lt;br/&gt;
   &amp;rarr; Iterativer Abstieg (z.B. Gradientenverfahren), Dynamische Programmierung,
-     Label-Korrektur-Algorithmus (TODO)&lt;/li&gt;
+     Label-Korrektur-Algorithmus (TODO: Weitere?)&lt;/li&gt;
 &lt;li&gt;Wann existiert kein globales Minimum f&amp;uuml;r ein Optimierungsproblem?&lt;br/&gt;
   &amp;rarr; Wenn die Menge der zul&amp;auml;ssigen L&amp;ouml;sungen nach unten unbeschr&amp;auml;nkt ist, d.h.
      &lt;span class="math"&gt;\(\text{arg} \min_x f(x) = - \infty\)&lt;/span&gt; oder wenn die untere Schranke nicht
@@ -2568,12 +2568,12 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
   Ungleichungsnebenbedingungen. Numerisch gibt es noch
   &lt;a href="https://en.wikipedia.org/wiki/Penalty_method"&gt;Penalty-Ans&amp;auml;tze&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;Wann ist es leichter / schwerer das Optimierungsproblem zu l&amp;ouml;sen?&lt;br/&gt;
-  &amp;rarr; Keine Nebenbedingungen, in &lt;span class="math"&gt;\(\mathbb{R}^n\)&lt;/span&gt; oder kleiner diskreter Raum (TODO)&lt;/li&gt;
+  &amp;rarr; Keine Nebenbedingungen, in &lt;span class="math"&gt;\(\mathbb{R}^n\)&lt;/span&gt; oder kleiner diskreter Raum (TODO: Kann man hier mehr sagen?)&lt;/li&gt;
 &lt;li&gt;Beweisen Sie, dass der Gradient senkrecht auf die H&amp;ouml;henlinien steht.&lt;br/&gt;
-  &amp;rarr; TODO&lt;/li&gt;
+  &amp;rarr; TODO (Siehe &lt;a href="http://math.stackexchange.com/q/1871481/6876"&gt;math.StackExchange&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;Welche numerischen Methoden zur Optimierung kennen sie?&lt;br/&gt;
   &amp;rarr; Iterativer Abstieg (Gradientenverfahren, Newton-Verfahren),
-     Penalty-Ans&amp;auml;tze (TODO)&lt;/li&gt;
+     Penalty-Ans&amp;auml;tze (TODO: Gibt es weitere?)&lt;/li&gt;
 &lt;li&gt;Was bedeutet es, dass ein Problem geschlossen l&amp;ouml;sbar ist?&lt;br/&gt;
   &amp;rarr; TODO&lt;/li&gt;
 &lt;li&gt;Welche geschlossen l&amp;ouml;sbaren Spezialf&amp;auml;lle existieren?&lt;br/&gt;
@@ -2617,7 +2617,8 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
   &amp;rarr; Es gibt &lt;span class="math"&gt;\(|\mathcal{A}|^N\)&lt;/span&gt; m&amp;ouml;gliche Pl&amp;auml;ne und &lt;span class="math"&gt;\(|A|^{N \cdot |\mathcal{X}|}\)&lt;/span&gt;
     m&amp;ouml;gliche Strategien. (vgl. &lt;a href="https://arxiv.org/pdf/1302.4971.pdf"&gt;On the Complexity of Solving Markov Decision Problems&lt;/a&gt;) (TODO)&lt;/li&gt;
 &lt;li&gt;Wo ist der Fixpunktsatz von Bedeutung?&lt;br/&gt;
-  &amp;rarr; TODO&lt;/li&gt;
+  &amp;rarr; Bei dem Beweis, dass die Werte-Iteration gegen die optimale L&amp;ouml;sung
+     konvergiert (siehe &lt;a href="#t-kontraktion"&gt;T-Kontraktion&lt;/a&gt;).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="pomdp"&gt;POMDP&lt;/h3&gt;
 &lt;ul&gt;
