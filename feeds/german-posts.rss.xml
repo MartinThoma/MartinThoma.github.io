@@ -502,7 +502,7 @@ sowie die Werte- und Strategieiteration zu nennen.&lt;/p&gt;
 &lt;td&gt;7&lt;/td&gt;
 &lt;td id="2016-06-01"&gt;01.06.2016&lt;/td&gt;
 &lt;td&gt;MDPs (&lt;a href="https://ies.anthropomatik.kit.edu/ies/download/lehre/proplan/ProPlan-8-Folien.pdf"&gt;Folien&lt;/a&gt;)&lt;/td&gt;
-&lt;td&gt;Pontryagin's Minimumprinzip, Hamilton-Funktion, Riccati-Gleichung; LQR; &lt;a href="#certainty-equivalence"&gt;Sicherheits&amp;auml;quivalenz&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Pontryagin's Minimumprinzip, Hamilton-Funktion, Riccati-Gleichung; &lt;a href="#lqr"&gt;LQR&lt;/a&gt;; &lt;a href="#certainty-equivalence"&gt;Sicherheits&amp;auml;quivalenz&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;8&lt;/td&gt;
@@ -1193,9 +1193,10 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
         $$\mathbb{E} \left ( \underbrace{x_N^T \cdot Q_N \cdot x_N + \sum_{k=0}^{N-1} x_k^T \cdot Q_k \cdot x_k}_{\text{Zustandsabh&amp;auml;ngige Kosten}} + \underbrace{\sum_{k=0}^{N-1} a_k^T \cdot R_k \cdot a_k}_{\text{aktionsabh&amp;auml;ngige Kosten}} \right )$$
 
         Dabei sind die Gewichtungsmatrizen $Q_k, Q_N, R_k$ symmetrisch und
-        positiv definit.
-
-        Es ergibts sich:
+        positiv definit. Auch die cost-to-go Matrix $P_{k+1}$ ist symmetrisch
+        und positiv definit.&lt;br/&gt;
+&lt;br/&gt;
+        Die optimale L&amp;ouml;sung f&amp;uuml;r dieses Problem lautet:
 
         $$a_k^* = \underbrace{-{(R_k + B_k^T P_{k+1} B_k)}^{-1} \cdot B_k^T \cdot P_{k+1} \cdot A_k}_{\text{Verst&amp;auml;rkungsmatrix } L_k} x_k$$
     &lt;/dd&gt;
@@ -2612,7 +2613,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
      dem Graphen, der durch die Zust&amp;auml;nde des MDPs sowie den Kosten zwischen
      den Zust&amp;auml;nden als Gewicht dargestellt werden.&lt;/li&gt;
 &lt;li&gt;Was macht der LQR?&lt;br/&gt;
-  &amp;rarr; Ein LQR regelt ein lineares System mit quadratischen Kosten auf einen Zielfwert.&lt;/li&gt;
+  &amp;rarr; Ein LQR regelt ein lineares System mit quadratischen Kosten auf einen Zielwert (vgl. &lt;a href="#lqr"&gt;oben&lt;/a&gt;).&lt;/li&gt;
 &lt;li&gt;Wieso sind MDPs schwer zu l&amp;ouml;sen?&lt;br/&gt;
   &amp;rarr; Es gibt &lt;span class="math"&gt;\(|\mathcal{A}|^N\)&lt;/span&gt; m&amp;ouml;gliche Pl&amp;auml;ne und &lt;span class="math"&gt;\(|A|^{N \cdot |\mathcal{X}|}\)&lt;/span&gt;
     m&amp;ouml;gliche Strategien. (vgl. &lt;a href="https://arxiv.org/pdf/1302.4971.pdf"&gt;On the Complexity of Solving Markov Decision Problems&lt;/a&gt;) (TODO)&lt;/li&gt;
