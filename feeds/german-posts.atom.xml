@@ -931,8 +931,11 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
       \end{align}
       $$
       ergibt.&lt;br/&gt;
-&lt;img alt="Dynamic Programming" src="../images/2016/07/dynamic-programming.png" width="512px"/&gt;
-&lt;br/&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;img alt="Pseudocode for Dynamic Programming" src="../images/2016/07/dynamic-programming.png"/&gt;
+&lt;figcaption class="text-center"&gt;Pseudocode for Dynamic Programming&lt;/figcaption&gt;
+&lt;/figure&gt;
+
       Laufzeitkomplexit&amp;auml;t: $\mathcal{O}(N |\mathcal{X}|^2 |A|)$
 
   &lt;/dd&gt;
@@ -1064,7 +1067,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
         mit
 
         $$d(T^k J, T^k J') \leq \alpha^k \cdot d(J, J')$$
-        $$d(T^k_\pi J, T_T^k J') \leq \alpha^k \cdot d (J, J')$$
+        $$d(T^k_\pi J, T^k J') \leq \alpha^k \cdot d (J, J')$$
 
         Das bedeutet, der Bellman-Operator ist
         eine Kontraktion und laut dem Banachschem Fixpunktsatz gibt es daher
@@ -1072,10 +1075,13 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
     &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Werte-Iteration&lt;/dfn&gt; (&lt;dfn id="value-iteration"&gt;Value iteration&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;$$J^* = \lim_{N \rightarrow \infty} T^N J$$
-        wobei $J^*$ die optimalen Kosten, $T$ der Bellman-Operator und $N$
-        der Planungshorizont ist. $g$ ist die Schrittkostenfunktion.&lt;br/&gt;
+        where $J^*$ is the optimal value, $T$ is the Bellman operator an $N \in \mathbb{N}_{\geq 1}$
+        is the planning horizon. $g$ is the cost function for each step.&lt;br/&gt;
 &lt;img alt="Value iteration algorithm" src="../images/2016/07/Value-Iteration.png" width="512px"/&gt;
-&lt;/dd&gt;
+&lt;u&gt;Remark&lt;/u&gt;: The value function is usually denoted with $V$, not
+        with $J$.
+
+        &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Satz von der Sation&amp;auml;ren Strategie&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;
 &lt;ol&gt;
@@ -1129,7 +1135,10 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
         Tiefensuche (K ist LIFO-Liste / Stack) und Breitensuche (K ist FIFO-Liste), der &lt;a href="https://de.wikipedia.org/wiki/Dijkstra-Algorithmus"&gt;Dijkstra-Algorithmus&lt;/a&gt; (K ist Priority-Queue), der &lt;a href="https://de.wikipedia.org/wiki/A*-Algorithmus"&gt;A*-Algorithmus&lt;/a&gt; (K ist Priority-Queue, $h_j$ ist nicht-trivial) sowie
         Branch &amp;amp; Bound (K ist Priority-Queue, $h_j$ ist nicht-trivial und $m_j$ ist nicht trivial).
 
-          &lt;img alt="Label correction algorithm" src="../images/2016/07/label-correction.png" width="512px"/&gt;
+        &lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;img alt="Pseudocode for the Label correction algorithm" src="../images/2016/07/label-correction.png"/&gt;
+&lt;figcaption class="text-center"&gt;Pseudocode for the Label correction algorithm&lt;/figcaption&gt;
+&lt;/figure&gt;
 &lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Trellis-Code"&gt;&lt;dfn id="trellis"&gt;Trellis-Diagramm&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
 &lt;dd&gt;Eine Diagramm welches anzeigt welche Zust&amp;auml;nde &amp;uuml;ber die Zeit
@@ -1145,7 +1154,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
         Pontryagins Minimum-Prinzip steht mit der &lt;a href="https://en.wikipedia.org/wiki/Hamilton%E2%80%93Jacobi%E2%80%93Bellman_equation"&gt;Hamilton&amp;ndash;Jacobi&amp;ndash;Bellman Gleichung&lt;/a&gt;
         in Zusammenhang.
 
-        TODO&lt;/dd&gt;
+        (TODO: Wie genau?)&lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Hamilton-Funktion_(Kontrolltheorie)"&gt;&lt;dfn&gt;Hamilton-Funktion&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
 &lt;dd&gt;Die Hamilton-Funktion der Kontrolltheorie stellt eine notwendige
         Bedingung f&amp;uuml;r die optimale L&amp;ouml;sung eines Steuerungsproblems ist. Damit
@@ -1308,11 +1317,29 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;/ul&gt;
 &lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Bayes-Sch%C3%A4tzer"&gt;&lt;dfn&gt;Bayes'scher Sch&amp;auml;tzer&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
-&lt;dd&gt;Pr&amp;auml;diktion + Filterschritt = Bayes-Sch&amp;auml;tzer.&lt;br/&gt;
-        TODO (z.B. in GPS arbeitet eine Variante; Extended Kalman Filter)&lt;br/&gt;
-        Der Bayes-Sch&amp;auml;tzer ist im Allgemeinen nicht geschlossen berechenbar.&lt;br/&gt;
-&lt;br/&gt;
-        Siehe auch: 
+&lt;dd&gt;
+&lt;blockquote&gt;Suppose an unknown parameter $\theta$ is known to have a prior
+        distribution $\pi$. Let $\widehat{\theta} =
+        \widehat{\theta}(x)$ be an estimator of &amp;theta; (based on some
+        measurements *x*), and let $L(\theta,\widehat{\theta})$ be
+        a loss function, such as squared error. The *Bayes risk* of
+        $\widehat{\theta}$ is defined as $E_\pi(L(\theta,
+        \widehat{\theta}))$, where the expectation is
+        taken over the probability distribution of $\theta$: this
+        defines the risk function as a function of
+        $\widehat{\theta}$. An estimator
+        $\widehat{\theta}$ is said to be a *Bayes estimator* if it
+        minimizes the Bayes risk among all estimators. Equivalently, the
+        estimator which minimizes the posterior expected loss
+        $E(L(\theta,\widehat{\theta}) | x)$ *for each x* also
+        minimizes the Bayes risk and therefore is a Bayes
+        estimator.&lt;/blockquote&gt;
+        Source: &lt;a href="https://en.wikipedia.org/w/index.php?title=Bayes_estimator&amp;amp;oldid=731403554#Definition"&gt;Wikipedia&lt;/a&gt;
+
+        In general, the Bayes estimator has no closed-form solution.
+        The Extended Kalman filter is a Bayes estimator.
+
+        See also:
         &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Recursive_Bayesian_estimation"&gt;Recursive Bayesian estimation&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://martin-thoma.com/machine-learning-2-course/#bayes-filter"&gt;Bayes Filter&lt;/a&gt;&lt;/li&gt;
@@ -1550,7 +1577,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
         Der Suchbaum hat $|A|^N$ Pfade. (0-1 Programme)
 
     &lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;Monotonie der Riccarti-Gleichung&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dt&gt;&lt;dfn&gt;Monotonie der Riccati-Gleichung&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;(TODO: Wozu? https://ies.anthropomatik.kit.edu/ies/download/lehre/proplan/ProPlan-7-Folien.pdf Folie 4)
 
         Sei
@@ -1817,8 +1844,8 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;dd&gt;Idee: Sch&amp;auml;tzen der $Q$-Funktion $Q(x, a)$.
 
     &lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
-&lt;img alt="Text" src="../images/2016/07/policy-iteration.png"/&gt;
-&lt;figcaption class="text-center"&gt;&lt;a href="#policy-iteration"&gt;Policy Iteration&lt;/a&gt;&lt;/figcaption&gt;
+&lt;img alt="Pseudocode for Policy Iteration" src="../images/2016/07/policy-iteration.png"/&gt;
+&lt;figcaption class="text-center"&gt;&lt;a href="#policy-iteration"&gt;Pseudocode for Policy Iteration&lt;/a&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 
     F&amp;uuml;r gegebene Episode:
@@ -2012,8 +2039,11 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
     As SARSA chooses $a_{k+1}$ according
     to the policy $\pi$ it is an on-policy algorithm, in contrast to $Q$-learning.&lt;br/&gt;
 &lt;br/&gt;
-    TODO: Pseudocode
-    &lt;/dd&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;img alt="Pseudocode for SARSA" src="../images/2016/07/sarsa.png"/&gt;
+&lt;figcaption class="text-center"&gt;Pseudocode for SARSA&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Q-learning"&gt;&lt;dfn id="q-learning"&gt;$Q$-Learning&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
 &lt;dd&gt;$Q$-Learning ist ein TD-Vefahren um ohne Modell ein
         Reinforcement-Learning Problem zu l&amp;ouml;sen.
@@ -2021,7 +2051,13 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
         $$Q(x_k, a_k) \gets Q(x_k, a_k) + \alpha \cdot [r_k + \gamma \cdot \underbrace{\max_a Q(x_{k+1}, a)}_{J(x_{k+1})} - Q(x_k, a_k)]$$
 
         &lt;br/&gt;
-&lt;img alt="Q-Learning" src="../images/2016/07/q-learning.png" width="512px"/&gt;&lt;br/&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;img alt="Pseudocode for Q-Learning" src="../images/2016/07/q-learning.png"/&gt;
+&lt;figcaption class="text-center"&gt;Pseudocode for Q-Learning&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+        TODO: I replaced "for each episode" by "while Q is not converged".
+        Is that ok / the same?
 
         $\Rightarrow$ Aktualisierung von $Q$ erfolgt unabh&amp;auml;ngig von $\pi$
         $\rightarrow$  Off-policy
