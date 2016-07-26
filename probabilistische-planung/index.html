@@ -678,14 +678,22 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
         Das ist m&ouml;glich, da das Problem zeitinvariant ist. Dies kann man durch
         Indexverschiebung zeigen.
     </dd>
-<dt><dfn>Bellman-Operator</dfn></dt>
-<dd>$$(T J) (i) = \min_{a \in A(i)} (g(i,a) + \alpha \cdot \sum_j f_{ij}(a) \cdot J(j))$$
+<dt><dfn id="bellman-operator">Bellman-Operator</dfn></dt>
+<dd>The Bellman-operator $T$ is a function which takes a function as an argument
+        and returns a function.
+
+        When $T$ is applied to a cost function $J$, it is defined for each
+        state $i$ as:
+
+        $$(T J) (i) = \min_{a \in A(i)} (g(i,a) + \alpha \cdot \sum_j f_{ij}(a) \cdot J(j))$$
+
+        where $\alpha \in [0, 1]$ is a discount factor.
 
         $$T^k J = \begin{cases}(T(T^{k-1} J)) &amp;\text{if } k \geq 1\\
                                J              &amp;\text{otherwise}
                   \end{cases}$$
 
-        Es gilt: $$J^* = \lim_{N \rightarrow \infty} T^N J \text{ f&uuml;r beliebiges } J$$
+        One can show: $$J^* = \lim_{N \rightarrow \infty} T^N J \text{ f&uuml;r beliebiges } J$$
     </dd>
 <dt><dfn>Strategiebewertung</dfn></dt>
 <dd>$$(T_\pi J)(i) = g(i, \pi(i)) + \alpha \cdot \sum_j f_{ij} (\pi(i)) \cdot J(j)$$
@@ -2263,7 +2271,10 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
   &rarr; Wertefunktionsbasiert (Sch&auml;tzen der Werte- bzw. <span class="math">\(Q\)</span>-Funktion aus Stichproben:
      Monte Carlo, Temporal Difference, Verantwortlichkeitsspuren,
      Funktionsapproximatoren), Modelllernende Methoden, Strategiesuche</li>
-<li>Was ist der gro&szlig;e Vorteil von Off-policy RL??<br/>
+<li>Was ist der Vorteil von Modelllernenden Verfahren?<br/>
+  &rarr; Die Umwelt kann anhand des Modells simuliert werden und muss nicht real
+    beobachtet werden. Das erleichtert das Planen / finden der Strategie.</li>
+<li>Was ist der gro&szlig;e Vorteil von Off-policy RL?<br/>
   &rarr; TODO</li>
 </ul>
 <h2 id="notation_1">Notation</h2>
