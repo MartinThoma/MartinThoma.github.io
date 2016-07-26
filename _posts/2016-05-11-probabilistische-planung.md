@@ -610,14 +610,25 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         Das ist möglich, da das Problem zeitinvariant ist. Dies kann man durch
         Indexverschiebung zeigen.
     </dd>
-    <dt><dfn>Bellman-Operator</dfn></dt>
-    <dd>$$(T J) (i) = \min_{a \in A(i)} (g(i,a) + \alpha \cdot \sum_j f_{ij}(a) \cdot J(j))$$
+    <dt><dfn id="bellman-operator">Bellman-Operator</dfn></dt>
+    <dd>The Bellman-operator $T$ is a function which takes a function as an argument
+        and returns a function.
+
+        When $T$ is applied to a cost function $J$, it is defined for each
+        state $i$ as:
+
+        $$(T J) (i) = \min_{a \in A(i)} (g(i,a) + \alpha \cdot \sum_j f_{ij}(a) \cdot J(j))$$
+
+        where $\alpha \in [0, 1]$ is a discount factor.
 
         $$T^k J = \begin{cases}(T(T^{k-1} J)) &\text{if } k \geq 1\\
                                J              &\text{otherwise}
                   \end{cases}$$
 
-        Es gilt: $$J^* = \lim_{N \rightarrow \infty} T^N J \text{ für beliebiges } J$$
+        One can show: $$J^* = \lim_{N \rightarrow \infty} T^N J \text{ for arbitrary } J$$
+
+        Hence successive applications of the Bellman operator are guaranteed
+        to converge against the global optimum.
     </dd>
     <dt><dfn>Strategiebewertung</dfn></dt>
     <dd>$$(T_\pi J)(i) = g(i, \pi(i)) + \alpha \cdot \sum_j f_{ij} (\pi(i)) \cdot J(j)$$
