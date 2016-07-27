@@ -118,7 +118,7 @@ sowie die Werte- und Strategieiteration zu nennen.
     <td>14</td>
     <td id="2016-07-20">20.07.2016</td>
     <td><abbr title="Reinforcement Learning">RL</abbr></td>
-    <td>Eligibility Traces (TD-Verfahren); Funktionsapproximatoren; Modellernende Verfahren (Dyna-Q, Adaptive DP, PILCO)</td>
+    <td><a href="#eligibility-trace">Eligibility Traces</a> (TD-Verfahren); Funktionsapproximatoren; Modellernende Verfahren (<a href="#dyna-q">Dyna-Q</a>, <a href="#adaptive-dp">Adaptive DP</a>, PILCO)</td>
 </tr>
 </table>
 
@@ -809,7 +809,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
     <dd>Die Sicherheitsäquivalenz besagt, dass im Fall eines linearen Modells
         mit einer quadratischen Zielfunktion und additivem Rauschen die
         optimale Lösung des Kontroll-Problems die Gleiche ist, wie wenn das
-        Rauschen nciht vorhande wäre. Anders gesagt:<br/>
+        Rauschen nicht vorhande wäre. Anders gesagt:<br/>
 
         Die Verstärkungsmatrix $l_k$ und somit die Strategie $\pi_k^*$
         sind unabhängig vom Rauschen $r_k^{(s)}$.<br/>
@@ -972,7 +972,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         POMDPs verwendet werden.<br/>
         <br/>
         Siehe: <a href="https://www.cs.cmu.edu/~ggordon/780-fall07/lectures/POMDP_lecture.pdf">POMDPs</a> by Geoff Hollinger.
-        TODO</dd>
+    </dd>
     <dt><dfn>Lineare Planungsprobleme in POMDPs</dfn></dt>
     <dd>Zustandsraummodell (Systemmodell):
         $$x_{k+1} = A_k \cdot x_k + B_k \cdot a_k + r_k^{(s)}$$
@@ -1104,8 +1104,8 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
 
         <ul>
             <li>Effiziente Planung für große $N$, insbesondere für $N=a$</li>
-            <li>Verlängerung von $N$ führt nicht notwendigerweise zu besseren
-                Planungsergebnissen; d.h. $N$ ist <b>kein</b> Trade-off zwischen
+            <li>Verlängerung von $M$ führt nicht notwendigerweise zu besseren
+                Planungsergebnissen; d.h. $M$ ist <b>kein</b> Trade-off zwischen
                 Qualität und Komplexität.</li>
         </ul>
 
@@ -1180,11 +1180,10 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         </ul>
 
 
-        Informationstheoretische Kosten gehen in Kovarianz-basierte Kosten über.
-        Siehe z.B. Entropie :
+        Informationstheoretische Kosten gehen im linearen Planungsfall in
+        Kovarianz-basierte Kosten über. Siehe z.B. Entropie:
         <br/>
         $$H(x_k | z_k, a_k) = \frac{1}{2} \log |2 \pi \underbrace{Cov(x_k | a_k)}_{C_k^e}| \approx |Cov(\cdot | \cdot)|$$<br/>
-        (TODO: Warum machen wir das dann überhaupt?)
         <br/>
         In der Sensoreinsatzplanung liefern Open-Loop und Closed Loop
         Verfahren, gegeben die initiale Verteilung $P(x_0)$, die selben Kosten.
@@ -2156,20 +2155,35 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
                 <li><a href="#dynamic-programming">Dynamic Programming</a></li>
                 <li>Deterministischer Fall: <a href="#label-correction-algorithm">Label-Korrektur-Algorithmus</a></li>
                 <li>Linearer Fall: <a href="#lqr">LQR</a></li>
-            </ul>
-
-        </td>
-        <td>
-
-            <ul>
-                <li>Reduzierung auf Belief-MDP: DP (TODO?)</li>
-                <li>Linearer Fall: <a href="https://martin-thoma.com/kalman-filter/">Kalman-filter</a> + <a href="#lqr">LQR</a></li>
                 <li>Endliches Planungsproblem, unendlicher Horizont:
 
                 <ul>
                     <li><a href="#policy-iteration">Policy Iteration</a></li>
                     <li><a href="#value-iteration">Value Iteration</a></li>
                 </ul>
+                </li>
+            </ul>
+
+        </td>
+        <td>
+
+            <ul>
+                <li>Reduzierung auf Belief-MDP: Siehe Algorithmen von MDP</li>
+                <li>Linearer Fall: <a href="https://martin-thoma.com/kalman-filter/">Kalman-filter</a> + <a href="#lqr">LQR</a></li>
+                <li>Approximative Verfahren:
+
+                <ul>
+                    <li>Linearisierung</li>
+                    <li>Diskretisierung</li>
+                    <li>Sicherheitsäquivalenz:
+
+                    <ul>
+                        <li>Diskret: Label-Korrektur Algorithmus</li>
+                        <li>Kontinuierlich: Pontryagins Minimumprinzip</li>
+                    </ul>
+                    </li>
+                </ul>
+
                 </li>
             </ul>
 
@@ -2221,7 +2235,7 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
   Unterschiede?<br/>
   → <a href="#mdp">MDP</a>, <a href="#pomdp">POMDP</a>, <a href="#rl">RL</a>
 * Welche Paradoxa haben wir in den Vorlesungen kennen gelernt?<br/>
-  → Allais-Paradoxon (TODO: Weitere?)
+  → Allais-Paradoxon
 
 
 ### Nutzen- und Entscheidungs&shy;theorie
@@ -2232,7 +2246,7 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
 * Wie kann man die Nutzentheorie kritisieren?<br/>
   → Siehe <a href="#kritik-nutzentheorie">oben</a>.
 * Was haben wir zur Entscheidungstheorie gemacht?<br/>
-  → <a href="#allais-paradoxon">Allais-Paradoxon</a> und <a href="#rational-decision">Rationale Entscheidungen</a> (TODO: Mehr?)
+  → <a href="#allais-paradoxon">Allais-Paradoxon</a> und <a href="#rational-decision">Rationale Entscheidungen</a>
 * Wie ist eine Nutzenfunktion definiert?<br/>
   → Siehe <a href="#nutzenfunktion">oben</a>.
 
@@ -2240,7 +2254,7 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
 
 * Wie löst man Optimierungsprobleme ohne Nebenbedingungen?<br/>
   → Iterativer Abstieg (z.B. Gradientenverfahren), Dynamische Programmierung,
-     Label-Korrektur-Algorithmus (TODO: Weitere?)
+     Label-Korrektur-Algorithmus; LQR wenn linear
 * Wann existiert kein globales Minimum für ein Optimierungsproblem?<br/>
   → Wenn die Menge der zulässigen Lösungen nach unten unbeschränkt ist, d.h.
      $\text{arg} \min_x f(x) = - \infty$ oder wenn die untere Schranke nicht
@@ -2251,21 +2265,29 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
   Ungleichungsnebenbedingungen. Numerisch gibt es noch
   <a href="https://en.wikipedia.org/wiki/Penalty_method">Penalty-Ansätze</a>.
 * Wann ist es leichter / schwerer das Optimierungsproblem zu lösen?<br/>
-  → Keine Nebenbedingungen, in $\mathbb{R}^n$ oder kleiner diskreter Raum (TODO: Kann man hier mehr sagen?)
+  → Keine Nebenbedingungen, in $\mathbb{R}^n$ oder kleiner diskreter Raum,
+    wenn die zu optimierende Funktion linear oder konkav ist.
 * Beweisen Sie, dass der Gradient senkrecht auf die Höhenlinien steht.<br/>
-  → TODO (Siehe <a href="http://math.stackexchange.com/q/1871481/6876">math.StackExchange</a>)
+  → Siehe <a href="http://math.stackexchange.com/q/1871481/6876">math.StackExchange</a>.
 * Welche numerischen Methoden zur Optimierung kennen sie?<br/>
   → Iterativer Abstieg (Gradientenverfahren, Newton-Verfahren),
-     Penalty-Ansätze (TODO: Gibt es weitere?)
+     Penalty-Ansätze
 * Was bedeutet es, dass ein Problem geschlossen lösbar ist?<br/>
   → TODO
 * Welche geschlossen lösbaren Spezialfälle existieren?<br/>
-  → TODO
+  → Lineare Planungsprobleme (Foliensatz 7, Folie 17/21), auch bei POMDPs
+     (vgl. Foliensatz 8 und Folie 6)
+* Welche Probleme sind nicht geschlossen lösbar?<br/>
+  → POMDPs (bis auf Ausnahmen, vgl. Foliensatz 8 und Folie 6),
+     Bayesscher Schätzer (Foliensatz 8, Folie 15)
 * Welche Möglichkeiten der approximativen Lösung existieren bzw. sind
   anwendbar?<br/>
-  → TODO
+  → Änderung der Optimierung (OL, OLF, <abbr title="Modellprädiktive Planung">MP</abbr>),
+     Abbildung auf geschlossen lösbare Probleme (Linearisierung, Diskretisierung, Sicherheitsäquivalenz),
+     Verwendung von Funktionsapproximatoren (parametrisch oder nicht-parametrisch)
 * Was versteht man unter Pontryagin's Minimum-Prinzip und wozu ist es gut?<br/>
-  → TODO
+  → Pontryagins Minimum-Prinzip liefert für deterministische Planungsprobleme
+     ein notwendiges Kriterium für globale Minima.
 * Was versteht man unter dem Optimalitätsprinzip?<br/>
   → Das Optimalitätsprinzip von Bellman besagt, das bei einigen
   Optimierungsproblemen sich die optimale Lösung aus optimalen Lösungen für
@@ -2290,7 +2312,7 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
 * Wie lauten die Bellman-Gleichungen?<br/>
   → Siehe <a href="#bellman-equation">oben</a>.
 * Was ist an den Bellman-Gleichungen problematisch?<br/>
-  → TODO
+  → Erwartungswert kann aufwendig zu berechnen sein; optimale Substruktur muss nicht gegeben sein (TODO)
 * Wie hängt ein deterministisches MDP mit der kürzesten Wegesuche zusammen?<br/>
   → Die optimale Lösung eines deterministisches MDPs ist der kürzeste Weg in
      dem Graphen, der durch die Zustände des MDPs sowie den Kosten zwischen
@@ -2299,7 +2321,7 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
   → Ein LQR regelt ein lineares System mit quadratischen Kosten auf einen Zielwert (vgl. <a href="#lqr">oben</a>).
 * Wieso sind MDPs schwer zu lösen?<br/>
   → Es gibt $|\mathcal{A}|^N$ mögliche Pläne und $|A|^{N \cdot |\mathcal{X}|}$
-    mögliche Strategien. (vgl. <a href="https://arxiv.org/pdf/1302.4971.pdf">On the Complexity of Solving Markov Decision Problems</a>) (TODO)
+    mögliche Strategien. (vgl. <a href="https://arxiv.org/pdf/1302.4971.pdf">On the Complexity of Solving Markov Decision Problems</a>)
 * Wo ist der Fixpunktsatz von Bedeutung?<br/>
   → Bei dem Beweis, dass die Werte-Iteration gegen die optimale Lösung
      konvergiert (siehe <a href="#t-kontraktion">T-Kontraktion</a>).
@@ -2312,14 +2334,17 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
 * Wie lautet die Kostenfunktion eines POMDP?<br/>
   → Siehe <a href="#pomdp-cost-function">oben</a>
 * Was ist der Unterschied des LQR beim MDP und POMDP?<br/>
-  → TODO (POMDP hat Erwartungswert)
+  → TODO (POMDP hat Erwartungswert (Lx vs LE(x)), Sicherheitsäquivalenz)
 * Was ist PWLC?<br/>
   → Piece-wise linear and Concave / Convex
 * Warum sind PWLCs in dieser Vorlesung von Bedeutung?<br/>
-  → TODO
+  → TODO (Spezialfall: Endliche Planungsprobleme; die Optimale Strategie und $J_k$ sind PWLC; approximation mit $\alpha$)
 * Was versteht man unter Modellprädiktiver Planung (MP)?<br/>
   → Modellprädiktive Planung ist OLF, über einen kurzen, aber wandernden
-    Horizont. (TODO: Unterschied zu OLF?)
+    Horizont. Im Gegensatz zu OLF kann Modellprädiktive Planung auch bei
+    nicht-episodischen Problemen verwendet werden, da in der OLF
+    der Plan $a_{k:N-1}^*$ durch Minimierung von $\mathbb{E}[g_N(x_N) + \sum_{i=k}^{N-1} g_i(x_i, a_i) | \mathcal{I}_k]$ berechnet wird. Bei der modellprädiktiven Planung hingegen
+    wird nur $a_{k:(k+M)}$ durch Minimierung von $\mathbb{E}[g_N(x_N) + \sum_{i=k}^{k+M-1} g_i(x_i, a_i) | \mathcal{I}_k]$ berechnet.
 * Was versteht man unter der Sicherheitsäquivalenz?<br/>
   → Siehe <a href="#certainty-equivalence">oben</a>.
 * Was können Sie zur Sensoreinsatzplanung sagen?<br/>
@@ -2330,7 +2355,9 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
   → Informationstheoretische Kosten wie z.B. die Entropie lassen sich bei
      linearen Probelmen  auf Kovarianzbasierte Kosten reduzieren.
 * Wie berechnet man die $\alpha$-Vektoren und wozu dienen Sie?<br/>
-  → Siehe ProPlan-10-Folien.pdf, Folie 16 (TODO)
+  → Siehe ProPlan-10-Folien.pdf, Folie 16. Die $\alpha$-Vektoren sind im
+     Kontext von diskreten Planungsproblemen zu verstehen. An Ihnen kann man
+     die Aktion ablesen.
 
 
 ### RL
@@ -2343,7 +2370,7 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
   → Die Umwelt kann anhand des Modells simuliert werden und muss nicht real
     beobachtet werden. Das erleichtert das Planen / finden der Strategie.
 * Was ist der große Vorteil von Off-policy RL?<br/>
-  → TODO
+  → TODO (See [What are the advantages / disadvantages of off-policy RL vs on-policy RL?](http://datascience.stackexchange.com/q/13029/8820))
 
 
 ## Notation
@@ -2386,6 +2413,7 @@ Folgende Vorlesungen sind ähnlich:
 Weitere:
 
 * Einführung in die Bildfolgenauswertung
+* [Content-based Image and Video Retrival](https://cvhci.anthropomatik.kit.edu/600_1482.php)
 
 
 ## Termine und Klausurablauf
