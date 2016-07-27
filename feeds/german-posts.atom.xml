@@ -1204,7 +1204,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;dd&gt;Die Sicherheits&amp;auml;quivalenz besagt, dass im Fall eines linearen Modells
         mit einer quadratischen Zielfunktion und additivem Rauschen die
         optimale L&amp;ouml;sung des Kontroll-Problems die Gleiche ist, wie wenn das
-        Rauschen nciht vorhande w&amp;auml;re. Anders gesagt:&lt;br/&gt;
+        Rauschen nicht vorhande w&amp;auml;re. Anders gesagt:&lt;br/&gt;
 
         Die Verst&amp;auml;rkungsmatrix $l_k$ und somit die Strategie $\pi_k^*$
         sind unabh&amp;auml;ngig vom Rauschen $r_k^{(s)}$.&lt;br/&gt;
@@ -1360,7 +1360,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
         POMDPs verwendet werden.&lt;br/&gt;
 &lt;br/&gt;
         Siehe: &lt;a href="https://www.cs.cmu.edu/~ggordon/780-fall07/lectures/POMDP_lecture.pdf"&gt;POMDPs&lt;/a&gt; by Geoff Hollinger.
-        TODO&lt;/dd&gt;
+    &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Lineare Planungsprobleme in POMDPs&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Zustandsraummodell (Systemmodell):
         $$x_{k+1} = A_k \cdot x_k + B_k \cdot a_k + r_k^{(s)}$$
@@ -1490,8 +1490,8 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 
         &lt;ul&gt;
 &lt;li&gt;Effiziente Planung f&amp;uuml;r gro&amp;szlig;e $N$, insbesondere f&amp;uuml;r $N=a$&lt;/li&gt;
-&lt;li&gt;Verl&amp;auml;ngerung von $N$ f&amp;uuml;hrt nicht notwendigerweise zu besseren
-                Planungsergebnissen; d.h. $N$ ist &lt;b&gt;kein&lt;/b&gt; Trade-off zwischen
+&lt;li&gt;Verl&amp;auml;ngerung von $M$ f&amp;uuml;hrt nicht notwendigerweise zu besseren
+                Planungsergebnissen; d.h. $M$ ist &lt;b&gt;kein&lt;/b&gt; Trade-off zwischen
                 Qualit&amp;auml;t und Komplexit&amp;auml;t.&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -1565,12 +1565,11 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;/ul&gt;
 
 
-        Informationstheoretische Kosten gehen in Kovarianz-basierte Kosten &amp;uuml;ber.
-        Siehe z.B. Entropie :
+        Informationstheoretische Kosten gehen im linearen Planungsfall in
+        Kovarianz-basierte Kosten &amp;uuml;ber. Siehe z.B. Entropie:
         &lt;br/&gt;
         $$H(x_k | z_k, a_k) = \frac{1}{2} \log |2 \pi \underbrace{Cov(x_k | a_k)}_{C_k^e}| \approx |Cov(\cdot | \cdot)|$$&lt;br/&gt;
-        (TODO: Warum machen wir das dann &amp;uuml;berhaupt?)
-        &lt;br/&gt;
+&lt;br/&gt;
         In der Sensoreinsatzplanung liefern Open-Loop und Closed Loop
         Verfahren, gegeben die initiale Verteilung $P(x_0)$, die selben Kosten.
         Daher wird Open-Loop-Planung verwendent. Das hei&amp;szlig;t, der optimale Plan
@@ -2486,17 +2485,31 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;li&gt;&lt;a href="#dynamic-programming"&gt;Dynamic Programming&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Deterministischer Fall: &lt;a href="#label-correction-algorithm"&gt;Label-Korrektur-Algorithmus&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Linearer Fall: &lt;a href="#lqr"&gt;LQR&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;ul&gt;
-&lt;li&gt;Reduzierung auf Belief-MDP: DP (TODO?)&lt;/li&gt;
-&lt;li&gt;Linearer Fall: &lt;a href="https://martin-thoma.com/kalman-filter/"&gt;Kalman-filter&lt;/a&gt; + &lt;a href="#lqr"&gt;LQR&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Endliches Planungsproblem, unendlicher Horizont:
 
                 &lt;ul&gt;
 &lt;li&gt;&lt;a href="#policy-iteration"&gt;Policy Iteration&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="#value-iteration"&gt;Value Iteration&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;ul&gt;
+&lt;li&gt;Reduzierung auf Belief-MDP: Siehe Algorithmen von MDP&lt;/li&gt;
+&lt;li&gt;Linearer Fall: &lt;a href="https://martin-thoma.com/kalman-filter/"&gt;Kalman-filter&lt;/a&gt; + &lt;a href="#lqr"&gt;LQR&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Approximative Verfahren:
+
+                &lt;ul&gt;
+&lt;li&gt;Linearisierung&lt;/li&gt;
+&lt;li&gt;Diskretisierung&lt;/li&gt;
+&lt;li&gt;Sicherheits&amp;auml;quivalenz:
+
+                    &lt;ul&gt;
+&lt;li&gt;Diskret: Label-Korrektur Algorithmus&lt;/li&gt;
+&lt;li&gt;Kontinuierlich: Pontryagins Minimumprinzip&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -2539,7 +2552,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
   Unterschiede?&lt;br/&gt;
   &amp;rarr; &lt;a href="#mdp"&gt;MDP&lt;/a&gt;, &lt;a href="#pomdp"&gt;POMDP&lt;/a&gt;, &lt;a href="#rl"&gt;RL&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Welche Paradoxa haben wir in den Vorlesungen kennen gelernt?&lt;br/&gt;
-  &amp;rarr; Allais-Paradoxon (TODO: Weitere?)&lt;/li&gt;
+  &amp;rarr; Allais-Paradoxon&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="nutzen-und-entscheidungstheorie"&gt;Nutzen- und Entscheidungs&amp;shy;theorie&lt;/h3&gt;
 &lt;ul&gt;
@@ -2550,7 +2563,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;li&gt;Wie kann man die Nutzentheorie kritisieren?&lt;br/&gt;
   &amp;rarr; Siehe &lt;a href="#kritik-nutzentheorie"&gt;oben&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;Was haben wir zur Entscheidungstheorie gemacht?&lt;br/&gt;
-  &amp;rarr; &lt;a href="#allais-paradoxon"&gt;Allais-Paradoxon&lt;/a&gt; und &lt;a href="#rational-decision"&gt;Rationale Entscheidungen&lt;/a&gt; (TODO: Mehr?)&lt;/li&gt;
+  &amp;rarr; &lt;a href="#allais-paradoxon"&gt;Allais-Paradoxon&lt;/a&gt; und &lt;a href="#rational-decision"&gt;Rationale Entscheidungen&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Wie ist eine Nutzenfunktion definiert?&lt;br/&gt;
   &amp;rarr; Siehe &lt;a href="#nutzenfunktion"&gt;oben&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
@@ -2558,7 +2571,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;ul&gt;
 &lt;li&gt;Wie l&amp;ouml;st man Optimierungsprobleme ohne Nebenbedingungen?&lt;br/&gt;
   &amp;rarr; Iterativer Abstieg (z.B. Gradientenverfahren), Dynamische Programmierung,
-     Label-Korrektur-Algorithmus (TODO: Weitere?)&lt;/li&gt;
+     Label-Korrektur-Algorithmus; LQR wenn linear&lt;/li&gt;
 &lt;li&gt;Wann existiert kein globales Minimum f&amp;uuml;r ein Optimierungsproblem?&lt;br/&gt;
   &amp;rarr; Wenn die Menge der zul&amp;auml;ssigen L&amp;ouml;sungen nach unten unbeschr&amp;auml;nkt ist, d.h.
      &lt;span class="math"&gt;\(\text{arg} \min_x f(x) = - \infty\)&lt;/span&gt; oder wenn die untere Schranke nicht
@@ -2569,21 +2582,29 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
   Ungleichungsnebenbedingungen. Numerisch gibt es noch
   &lt;a href="https://en.wikipedia.org/wiki/Penalty_method"&gt;Penalty-Ans&amp;auml;tze&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;Wann ist es leichter / schwerer das Optimierungsproblem zu l&amp;ouml;sen?&lt;br/&gt;
-  &amp;rarr; Keine Nebenbedingungen, in &lt;span class="math"&gt;\(\mathbb{R}^n\)&lt;/span&gt; oder kleiner diskreter Raum (TODO: Kann man hier mehr sagen?)&lt;/li&gt;
+  &amp;rarr; Keine Nebenbedingungen, in &lt;span class="math"&gt;\(\mathbb{R}^n\)&lt;/span&gt; oder kleiner diskreter Raum,
+    wenn die zu optimierende Funktion linear oder konkav ist.&lt;/li&gt;
 &lt;li&gt;Beweisen Sie, dass der Gradient senkrecht auf die H&amp;ouml;henlinien steht.&lt;br/&gt;
-  &amp;rarr; TODO (Siehe &lt;a href="http://math.stackexchange.com/q/1871481/6876"&gt;math.StackExchange&lt;/a&gt;)&lt;/li&gt;
+  &amp;rarr; Siehe &lt;a href="http://math.stackexchange.com/q/1871481/6876"&gt;math.StackExchange&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;Welche numerischen Methoden zur Optimierung kennen sie?&lt;br/&gt;
   &amp;rarr; Iterativer Abstieg (Gradientenverfahren, Newton-Verfahren),
-     Penalty-Ans&amp;auml;tze (TODO: Gibt es weitere?)&lt;/li&gt;
+     Penalty-Ans&amp;auml;tze&lt;/li&gt;
 &lt;li&gt;Was bedeutet es, dass ein Problem geschlossen l&amp;ouml;sbar ist?&lt;br/&gt;
   &amp;rarr; TODO&lt;/li&gt;
 &lt;li&gt;Welche geschlossen l&amp;ouml;sbaren Spezialf&amp;auml;lle existieren?&lt;br/&gt;
-  &amp;rarr; TODO&lt;/li&gt;
+  &amp;rarr; Lineare Planungsprobleme (Foliensatz 7, Folie 17/21), auch bei POMDPs
+     (vgl. Foliensatz 8 und Folie 6)&lt;/li&gt;
+&lt;li&gt;Welche Probleme sind nicht geschlossen l&amp;ouml;sbar?&lt;br/&gt;
+  &amp;rarr; POMDPs (bis auf Ausnahmen, vgl. Foliensatz 8 und Folie 6),
+     Bayesscher Sch&amp;auml;tzer (Foliensatz 8, Folie 15)&lt;/li&gt;
 &lt;li&gt;Welche M&amp;ouml;glichkeiten der approximativen L&amp;ouml;sung existieren bzw. sind
   anwendbar?&lt;br/&gt;
-  &amp;rarr; TODO&lt;/li&gt;
+  &amp;rarr; &amp;Auml;nderung der Optimierung (OL, OLF, &lt;abbr title="Modellpr&amp;auml;diktive Planung"&gt;MP&lt;/abbr&gt;),
+     Abbildung auf geschlossen l&amp;ouml;sbare Probleme (Linearisierung, Diskretisierung, Sicherheits&amp;auml;quivalenz),
+     Verwendung von Funktionsapproximatoren (parametrisch oder nicht-parametrisch)&lt;/li&gt;
 &lt;li&gt;Was versteht man unter Pontryagin's Minimum-Prinzip und wozu ist es gut?&lt;br/&gt;
-  &amp;rarr; TODO&lt;/li&gt;
+  &amp;rarr; Pontryagins Minimum-Prinzip liefert f&amp;uuml;r deterministische Planungsprobleme
+     ein notwendiges Kriterium f&amp;uuml;r globale Minima.&lt;/li&gt;
 &lt;li&gt;Was versteht man unter dem Optimalit&amp;auml;tsprinzip?&lt;br/&gt;
   &amp;rarr; Das Optimalit&amp;auml;tsprinzip von Bellman besagt, das bei einigen
   Optimierungsproblemen sich die optimale L&amp;ouml;sung aus optimalen L&amp;ouml;sungen f&amp;uuml;r
@@ -2607,7 +2628,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;li&gt;Wie lauten die Bellman-Gleichungen?&lt;br/&gt;
   &amp;rarr; Siehe &lt;a href="#bellman-equation"&gt;oben&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;Was ist an den Bellman-Gleichungen problematisch?&lt;br/&gt;
-  &amp;rarr; TODO&lt;/li&gt;
+  &amp;rarr; Erwartungswert kann aufwendig zu berechnen sein; optimale Substruktur muss nicht gegeben sein (TODO)&lt;/li&gt;
 &lt;li&gt;Wie h&amp;auml;ngt ein deterministisches MDP mit der k&amp;uuml;rzesten Wegesuche zusammen?&lt;br/&gt;
   &amp;rarr; Die optimale L&amp;ouml;sung eines deterministisches MDPs ist der k&amp;uuml;rzeste Weg in
      dem Graphen, der durch die Zust&amp;auml;nde des MDPs sowie den Kosten zwischen
@@ -2616,7 +2637,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
   &amp;rarr; Ein LQR regelt ein lineares System mit quadratischen Kosten auf einen Zielwert (vgl. &lt;a href="#lqr"&gt;oben&lt;/a&gt;).&lt;/li&gt;
 &lt;li&gt;Wieso sind MDPs schwer zu l&amp;ouml;sen?&lt;br/&gt;
   &amp;rarr; Es gibt &lt;span class="math"&gt;\(|\mathcal{A}|^N\)&lt;/span&gt; m&amp;ouml;gliche Pl&amp;auml;ne und &lt;span class="math"&gt;\(|A|^{N \cdot |\mathcal{X}|}\)&lt;/span&gt;
-    m&amp;ouml;gliche Strategien. (vgl. &lt;a href="https://arxiv.org/pdf/1302.4971.pdf"&gt;On the Complexity of Solving Markov Decision Problems&lt;/a&gt;) (TODO)&lt;/li&gt;
+    m&amp;ouml;gliche Strategien. (vgl. &lt;a href="https://arxiv.org/pdf/1302.4971.pdf"&gt;On the Complexity of Solving Markov Decision Problems&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;Wo ist der Fixpunktsatz von Bedeutung?&lt;br/&gt;
   &amp;rarr; Bei dem Beweis, dass die Werte-Iteration gegen die optimale L&amp;ouml;sung
      konvergiert (siehe &lt;a href="#t-kontraktion"&gt;T-Kontraktion&lt;/a&gt;).&lt;/li&gt;
@@ -2628,14 +2649,17 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;li&gt;Wie lautet die Kostenfunktion eines POMDP?&lt;br/&gt;
   &amp;rarr; Siehe &lt;a href="#pomdp-cost-function"&gt;oben&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Was ist der Unterschied des LQR beim MDP und POMDP?&lt;br/&gt;
-  &amp;rarr; TODO (POMDP hat Erwartungswert)&lt;/li&gt;
+  &amp;rarr; TODO (POMDP hat Erwartungswert (Lx vs LE(x)), Sicherheits&amp;auml;quivalenz)&lt;/li&gt;
 &lt;li&gt;Was ist PWLC?&lt;br/&gt;
   &amp;rarr; Piece-wise linear and Concave / Convex&lt;/li&gt;
 &lt;li&gt;Warum sind PWLCs in dieser Vorlesung von Bedeutung?&lt;br/&gt;
-  &amp;rarr; TODO&lt;/li&gt;
+  &amp;rarr; TODO (Spezialfall: Endliche Planungsprobleme; die Optimale Strategie und &lt;span class="math"&gt;\(J_k\)&lt;/span&gt; sind PWLC; approximation mit &lt;span class="math"&gt;\(\alpha\)&lt;/span&gt;)&lt;/li&gt;
 &lt;li&gt;Was versteht man unter Modellpr&amp;auml;diktiver Planung (MP)?&lt;br/&gt;
   &amp;rarr; Modellpr&amp;auml;diktive Planung ist OLF, &amp;uuml;ber einen kurzen, aber wandernden
-    Horizont. (TODO: Unterschied zu OLF?)&lt;/li&gt;
+    Horizont. Im Gegensatz zu OLF kann Modellpr&amp;auml;diktive Planung auch bei
+    nicht-episodischen Problemen verwendet werden, da in der OLF
+    der Plan &lt;span class="math"&gt;\(a_{k:N-1}^*\)&lt;/span&gt; durch Minimierung von &lt;span class="math"&gt;\(\mathbb{E}[g_N(x_N) + \sum_{i=k}^{N-1} g_i(x_i, a_i) | \mathcal{I}_k]\)&lt;/span&gt; berechnet wird. Bei der modellpr&amp;auml;diktiven Planung hingegen
+    wird nur &lt;span class="math"&gt;\(a_{k:(k+M)}\)&lt;/span&gt; durch Minimierung von &lt;span class="math"&gt;\(\mathbb{E}[g_N(x_N) + \sum_{i=k}^{k+M-1} g_i(x_i, a_i) | \mathcal{I}_k]\)&lt;/span&gt; berechnet.&lt;/li&gt;
 &lt;li&gt;Was versteht man unter der Sicherheits&amp;auml;quivalenz?&lt;br/&gt;
   &amp;rarr; Siehe &lt;a href="#certainty-equivalence"&gt;oben&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;Was k&amp;ouml;nnen Sie zur Sensoreinsatzplanung sagen?&lt;br/&gt;
@@ -2646,7 +2670,9 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
   &amp;rarr; Informationstheoretische Kosten wie z.B. die Entropie lassen sich bei
      linearen Probelmen  auf Kovarianzbasierte Kosten reduzieren.&lt;/li&gt;
 &lt;li&gt;Wie berechnet man die &lt;span class="math"&gt;\(\alpha\)&lt;/span&gt;-Vektoren und wozu dienen Sie?&lt;br/&gt;
-  &amp;rarr; Siehe ProPlan-10-Folien.pdf, Folie 16 (TODO)&lt;/li&gt;
+  &amp;rarr; Siehe ProPlan-10-Folien.pdf, Folie 16. Die &lt;span class="math"&gt;\(\alpha\)&lt;/span&gt;-Vektoren sind im
+     Kontext von diskreten Planungsproblemen zu verstehen. An Ihnen kann man
+     die Aktion ablesen.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="rl"&gt;RL&lt;/h3&gt;
 &lt;ul&gt;
@@ -2658,7 +2684,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
   &amp;rarr; Die Umwelt kann anhand des Modells simuliert werden und muss nicht real
     beobachtet werden. Das erleichtert das Planen / finden der Strategie.&lt;/li&gt;
 &lt;li&gt;Was ist der gro&amp;szlig;e Vorteil von Off-policy RL?&lt;br/&gt;
-  &amp;rarr; TODO&lt;/li&gt;
+  &amp;rarr; TODO (See &lt;a href="http://datascience.stackexchange.com/q/13029/8820"&gt;What are the advantages / disadvantages of off-policy RL vs on-policy RL?&lt;/a&gt;)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="notation_1"&gt;Notation&lt;/h2&gt;
 &lt;p&gt;Der Dozent nutzt folgende Notation:&lt;/p&gt;
@@ -2698,6 +2724,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;p&gt;Weitere:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Einf&amp;uuml;hrung in die Bildfolgenauswertung&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://cvhci.anthropomatik.kit.edu/600_1482.php"&gt;Content-based Image and Video Retrival&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="termine-und-klausurablauf"&gt;Termine und Klausurablauf&lt;/h2&gt;
 &lt;p&gt;Die Veranstaltung wird m&amp;uuml;ndlich gepr&amp;uuml;ft. &amp;Uuml;blicherweise dauert eine Pr&amp;uuml;fung
