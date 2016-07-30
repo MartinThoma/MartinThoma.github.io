@@ -779,15 +779,46 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         eine Lösung eines Steuerungsprobelms optimal ist, muss die Lösung
         die Hamilton-Funktion minimieren.<br/>
         <br/>
-        Die Steuerung $u(t)$ soll so gewählt werden, dass
-        $$J(u)=\Psi(x(T))+\int^T_0 L(x,u,t) \mathrm{d}t$$
-        minimiert wird. Dabei ist $x(t)$ der Systemzustand mit
-        $$\dot{x}=f(x,u,t) \qquad x(0)=x_0 \quad t \in [0,T]$$
+        Die Aktionen $a_{0:N-1}$ sollen so gewählt werden, dass
+        $$J(x_{0:N}, a_{0:N-1})$$
+        minimiert wird. Dabei ist $x_k$ der Systemzustand mit
+        $$
+        \begin{align}
+        x_0 &= c\\
+        x_{k+1} &= h_k(x_k, a_k) \qquad \text{ für } k=0, \dots, N-1
+        \end{align}
+        $$
+        Daraus ergibt sich das Optimierungsproblem:
+
+        $$\begin{align}
+        &\underset{x_{0:N}, a_{0:N}}{\operatorname{minimize}}& & J(x_{0:N}, a_{0:N-1}) \\
+        &\operatorname{subject\;to}
+        &&x_{k+1} = h_k(x_k, a_k), \quad k = 0, \dots,N-1\\
+        &&&x_0 = \text{cost} = c
+        \end{align}$$
+
+        Es ergibt sich die Lagrange-Funktion
+
+        $$\mathcal{L}(x_{0:N}, a_{0:N-1}, \lambda_{0:N}) = J(x_{0:N}, a_{0:N-1}) + (c - x_0) \cdot \lambda_0 + \sum_{k=0}^{N-1} \underbrace{\left (h_k(x_k, a_k) - x_{k+1} \right )^T \lambda_{k+1}}_{N \text{ eindimensionale Nebenbedingungen}}$$
+
         In diesem Fall ist die Hamilton-Funktion
         $$H_k(x_k, a_k, \lambda) = g_k(x_k, a_k) + h_k(x_k, a_k)^T \cdot \lambda_{k+1},$$
         wobei $\lambda(t)$ Lagrange-Multiplikatoren sind.
 
-        $$\mathcal{L}(x_{0:N}, a_{0:N-1}, \lambda_{0:N}) = g_N(x_N) + (c-x_0) \lambda_0 + \sum_{k=0}^{N-1} (H_k - x_{k+1}^T \lambda_{k+1})$$
+        <div class="bg-info">
+        Insgesamt ergeben sich folgende notwendigen Bedingungen an die
+        optimale Lösung für $k=0, \dots, N-1$ mit $\lambda_N = g_N^x(x_N)$ und
+        $x_0$ fest:
+
+        <ul>
+            <li>Zustandsübergänge: $x_{k+1} = h(x_k, a_k)$</li>
+            <li>$\lambda_k = g_k^x (x_k, a_k) + h_k^x(x_k, a_k)^T \cdot \lambda_{k+1}$</li>
+            <li>$0 = \nabla_{a_k} H_k(x_k, a_k, \lambda_{k+1})$ (oder $a_k = \text{arg }\min H_k (x_k, a_k, \lambda_{k+1})$)</li>
+        </ul>
+
+        Diese (insbesondere das arg min) ist als Pontryagins Minimum-Prinzip
+        bekannt.
+        </div>
 
         </dd>
     <dt><dfn>Lineares Zustandsmodell</dfn></dt>
@@ -1716,11 +1747,8 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         <br/>
         <figure class="wp-caption aligncenter img-thumbnail">
             <img src="../images/2016/07/q-learning.png" alt="Pseudocode for Q-Learning" />
-            <figcaption class="text-center">Pseudocode for Q-Learning</figcaption>
+            <figcaption class="text-center">Pseudocode for Q-Learning. Please note that I replaced "for each episode" by "while Q is not converged"</figcaption>
         </figure>
-
-        TODO: I replaced "for each episode" by "while Q is not converged".
-        Is that ok / the same?
 
         Da die Aktualisierung von $Q$ unabhängig von $\pi$ erfolgt, ist
         $Q$-learning ein off-policy Verfahren.
@@ -2430,6 +2458,7 @@ Der Dozent nutzt folgende Notation:
     * [Why is $f_x(Ax + b) = f_x(x)$?](http://math.stackexchange.com/q/1865801/6876)
     * [How can I solve an optimization problem $x^T A x$ with constraint $x^T x = 1$?](http://math.stackexchange.com/q/1866356/6876)
     * [Diverging Gradient Descent](https://martin-thoma.com/diverging-gradient-descent/)
+* [Optimization Basics](https://martin-thoma.com/optimization-basics/)
 
 
 ## Vorlesungs&shy;empfehlungen
