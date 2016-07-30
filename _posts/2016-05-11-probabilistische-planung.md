@@ -528,7 +528,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
       <figure class="wp-caption aligncenter img-thumbnail">
           <img src="../images/2016/07/dynamic-programming.png" alt="Pseudocode for Dynamic Programming" />
           <figcaption class="text-center">Pseudocode for Dynamic Programming</figcaption>
-      </figure>
+      </figure><br/>
 
       Laufzeitkomplexität: $\mathcal{O}(N |\mathcal{X}|^2 |A|)$
 
@@ -681,7 +681,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         <figure class="wp-caption aligncenter img-thumbnail">
             <img src="../images/2016/07/Value-Iteration.png" alt="Pseudocode for Value iteration algorithm" />
             <figcaption class="text-center">Pseudocode for Value iteration algorithm</figcaption>
-        </figure>
+        </figure><br/>
 
         <u>Remark</u>: The value function is usually denoted with $V$, not
         with $J$.
@@ -713,7 +713,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         <figure class="wp-caption aligncenter img-thumbnail">
             <img src="../images/2016/07/Policy-Iteration.png" alt="Pseudocode for Policy iteration algorithm" />
             <figcaption class="text-center">Pseudocode for Policy iteration algorithm</figcaption>
-        </figure>
+        </figure><br/>
 
         Die folgenden beiden Schritte werden alternierend ausgeführt:
 
@@ -748,7 +748,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         <figure class="wp-caption aligncenter img-thumbnail">
             <img src="../images/2016/07/label-correction.png" alt="Pseudocode for the Label correction algorithm" />
             <figcaption class="text-center">Pseudocode for the Label correction algorithm</figcaption>
-        </figure>
+        </figure><br/>
 
         Explanation:
 
@@ -1537,9 +1537,9 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
     <dd>Idee: Schätzen der $Q$-Funktion $Q(x, a)$.
 
     <figure class="wp-caption aligncenter img-thumbnail">
-        <img src="../images/2016/07/policy-iteration.png" alt="Pseudocode for Policy Iteration" />
+        <img src="../images/2016/07/policy-iteration.png" alt="Pseudocode for Policy Iteration" style="width:512px;" />
         <figcaption class="text-center"><a href="#policy-iteration">Pseudocode for Policy Iteration</a></figcaption>
-    </figure>
+    </figure><br/>
 
     Für gegebene Episode:
     <ul>
@@ -1748,7 +1748,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         <figure class="wp-caption aligncenter img-thumbnail">
             <img src="../images/2016/07/q-learning.png" alt="Pseudocode for Q-Learning" />
             <figcaption class="text-center">Pseudocode for Q-Learning. Please note that I replaced "for each episode" by "while Q is not converged"</figcaption>
-        </figure>
+        </figure><br/>
 
         Da die Aktualisierung von $Q$ unabhängig von $\pi$ erfolgt, ist
         $Q$-learning ein off-policy Verfahren.
@@ -1919,7 +1919,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         <figure class="wp-caption aligncenter img-thumbnail">
             <img src="../images/2016/07/sarsa-lambda.png" alt="Pseudocode for SARSA($\lambda$)" />
             <figcaption class="text-center">Pseudocode for SARSA($\lambda$)</figcaption>
-        </figure>
+        </figure><br/>
 
     </dd>
     <dt><dfn id="q-lambda">$Q(\lambda)$</dfn></dt>
@@ -1928,7 +1928,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         <figure class="wp-caption aligncenter img-thumbnail">
             <img src="../images/2016/07/q-lambda.png" alt="Pseudocode for Q($\lambda$)" />
             <figcaption class="text-center">Pseudocode for Q($\lambda$)</figcaption>
-        </figure>
+        </figure><br/>
 
     </dd>
     <dt><dfn>Funktionsapproximatoren im RL</dfn></dt>
@@ -2068,7 +2068,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         <figure class="wp-caption aligncenter img-thumbnail">
             <img src="../images/2016/07/dyna-q.png" alt="Pseudocode for the Dyna-Q algorithm" />
             <figcaption class="text-center">Pseudocode for the Dyna-Q algorithm</figcaption>
-        </figure>
+        </figure><br/>
 
         <ul>
             <li>+ Besseres Ausnutzen von Erfahrung</li>
@@ -2311,7 +2311,7 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
 * Wie ist eine Nutzenfunktion definiert?<br/>
   → Siehe <a href="#nutzenfunktion">oben</a>.
 
-### Optimierungstheorie
+### Optimierungs&shy;theorie
 
 * Wie löst man Optimierungsprobleme ohne Nebenbedingungen?<br/>
   → Iterativer Abstieg (z.B. Gradientenverfahren), Dynamische Programmierung,
