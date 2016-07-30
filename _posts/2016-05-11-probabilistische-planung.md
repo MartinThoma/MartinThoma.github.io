@@ -750,6 +750,13 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
             <figcaption class="text-center">Pseudocode for the Label correction algorithm</figcaption>
         </figure>
 
+        Explanation:
+
+        First `if`: The left hand side is a lower bound to get from start to
+        `v`, to `c` and then to `t`. If this lower bound is not lower than
+        either `u` or the distance to `c` directly, then it will not be part
+        of the optimal solution.
+
         </dd>
     <dt><a href="https://de.wikipedia.org/wiki/Trellis-Code"><dfn id="trellis">Trellis-Diagramm</dfn></a></dt>
     <dd>Eine Diagramm welches anzeigt welche Zustände über die Zeit
@@ -804,6 +811,14 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         Die optimale Lösung für dieses Problem lautet:
 
         $$a_k^* = \underbrace{-{(R_k + B_k^T P_{k+1} B_k)}^{-1} \cdot B_k^T \cdot P_{k+1} \cdot A_k}_{\text{Verstärkungsmatrix } L_k} x_k$$
+
+        wobei $P_k$ durch die iterative Riccati-Gleichung gefunden wird:
+
+        $$
+        \begin{align}
+            P_N &= Q_N\\
+            P_k &= A_k^T \left ( P_{k+1} - P_{k+1} B_k (R_k + B_k^T P_{k+1} B_k)^{-1} B_k^T P_{k+1} \right ) A_k + Q_k
+        \end{align}$$
     </dd>
     <dt><dfn>Sicherheitsäquivalenz</dfn> (<a href="https://en.wikipedia.org/wiki/Stochastic_control#Certainty_equivalence"><dfn id="certainty-equivalence">Certainty Equivalence</dfn></a>)</dt>
     <dd>Die Sicherheitsäquivalenz besagt, dass im Fall eines linearen Modells
@@ -1222,6 +1237,8 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         Mit $\tilde{K}_k = A_k \tilde{C} H_k^T {(H_k \bar{C} H_k^T + C_k^v)}^{-1}$
         gilt
         $$S_k(C) = V_k(K_k, C) \prec V_k(\bar{K}_k, C) \prec V_k(\bar{K}_k, \bar{C}) = S_k(\tilde{C})$$
+
+        Siehe auch: <a href="https://en.wikipedia.org/wiki/Algebraic_Riccati_equation">Algebraic Riccati equation</a>, <a href="https://en.wikipedia.org/wiki/Linear-quadratic_regulator">LQR</a>
     </dd>
     <dt><dfn id="approximative-planning">Approximative Planung</dfn></dt>
     <dd>
@@ -1447,9 +1464,9 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         Rekursiv:
         $$\bar{R}_{N+1} = \bar{R}_N + \frac{1}{N+1} (r_{N+1} - \bar{R}_N) \text{ mit } \bar{R}_1 = r_1$$
 
-        Funktionieren ausschließlich auf episodischen Problemen (d.h mit Ende),
-        wie z.B. Spielen, da die Aktualisierung nach Beendigung einer Episode
-        stattfindet.
+        Monte-Carlo Methoden funktionieren ausschließlich auf episodischen
+        Problemen (d.h mit Ende), wie z.B. Spielen, da die Aktualisierung nach
+        Beendigung einer Episode stattfindet.
 
         <ul>
             <li>Gegeben: Strategie $\pi$</li>
@@ -1471,8 +1488,8 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
             </li>
         </ul>
 
-        Konvergiert für unendliche Anzahl an Episoden.
-
+        Konvergiert für unendliche Anzahl an Episoden.<br/>
+        <br/>
         Vorteile:
 
         <ul>
@@ -1482,7 +1499,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
 
         Nachteile / Einschränkungen:
         <ul>
-          <li>Nur episodisch</li>
+          <li>Ist nur auf episodische Probleme anwendbar</li>
         </ul>
     </dd>
     <dt><dfn id="monte-carlo-rl">Monte Carlo RL</dfn></dt>
@@ -1625,7 +1642,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         Nachteile:
         <ul>
             <li>Allgemeine Konvergenzeigenschaften (noch) nicht formal
-                bewiesen. (Schon für Strategiebewrtung, nicht aber für RL)</li>
+                bewiesen. (Schon für Strategiebewertung, nicht aber für RL)</li>
             <li>Funktioniert nur für episodische RL-Probleme</li>
         </ul>
 
@@ -1664,14 +1681,12 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
             wobei $m(x, a)$ die Anzahl der Besuche von $(x, a)$ ist.
         </dd>
     <dt><dfn>Einschritt-TD-Verfahren</dfn></dt>
-    <dd>Strategiebewertung $Q$-Funktion
+    <dd>SARSA ist ein Einschritt-TD-Verfahren.
 
-        $$Q(x_k, a_k) \gets Q(x_k, a_k) + \alpha \cdot [r_k + \gamma \cdot Q(x_{k+1}, a_{k+1}) - Q(x_k, a_k)]$$
+        Die Aktualisierung nach der Ausführung von $a_k$ liefert Belohnung
+        $r_k$ und Nachfolgezustand $x_{k+1}.$<br/>
 
-        Aktualisierung nach Ausführung von $a_k$ liefert Belohnung $r_k$ und
-        Nachfolgezustand $x_{k+1}.$<br/>
-
-        <b>ABER</b> Folgeaktion $a_{k+1}$ wird benötigt.
+        <b>ABER</b> Folgeaktion $a_{k+1}$ wird benötigt. (TODO: Im Gegensatz zu?)
 
     </dd>
     <dt><a href="https://en.wikipedia.org/wiki/State-Action-Reward-State-Action"><dfn id="sarsa">SARSA</dfn></a> (<dfn>State Action Reward State Action</dfn>)</dt>
@@ -1679,7 +1694,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
 
     SARSA is a temporal difference learning algorithm which updates the $Q$-function:
 
-    $$Q(s_t,a_t) \leftarrow (1-\alpha) \cdot Q(s_t,a_t) + \alpha [r_{t+1} + \gamma Q(s_{t+1}, a_{t+1})]$$
+    $$Q(s_t,a_t) \leftarrow (1-\alpha) \cdot Q(s_t,a_t) + \alpha [r_{t+1} + \gamma \cdot Q(s_{t+1}, a_{t+1})]$$
 
     where $\alpha \in (0, 1)$ is the learning rate and $\gamma \in [0, 1]$
     is the discount factor.
@@ -1740,6 +1755,24 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
             <li>Bootstrapping problemantisch wenn Markov-Annahme nicht erfüllt.
             </li>
         </ul>
+
+    </dd>
+    <dt><dfn>Monte-Carlo RL vs. TD RL</dfn></dt>
+    <dd>Sowohl Monte-Carlo Methoden als auch TD-Methoden benötigen Erfahrung um
+        die State-Value Function $V$ zu schätzen.
+
+        Die Monte-Carlo Methoden gehen wie folgt vor:
+
+        $$V(s_t) = V(s_t) + \alpha (R_t - V(s_t))$$
+
+        wobei $R_t$ der reward am Ende der Episode ist.
+
+        Die Temporal Difference (TD) Verfahren gehen wie folgt vor:
+
+        $$V(s_t) = V(s_t) + \underbrace{\alpha [r_{t+1} + \gamma \cdot V (s_{t+1}) - V (s_t)]}_{\text{Temporal Difference}}$$
+
+        Die Monte-Carlo-Methoden aktualisieren $V$ also erst am Ende einer
+        Episode, wohingegen Temporal Difference Learning direkt aktualisiert.
 
     </dd>
     <dt><dfn>Mehrschritt-TD-Verfahren</dfn></dt>
@@ -2334,7 +2367,7 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
 * Wie lautet die Kostenfunktion eines POMDP?<br/>
   → Siehe <a href="#pomdp-cost-function">oben</a>
 * Was ist der Unterschied des LQR beim MDP und POMDP?<br/>
-  → TODO (POMDP hat Erwartungswert (Lx vs LE(x)), Sicherheitsäquivalenz)
+  → TODO (POMDP hat Erwartungswert ($L \cdot x$ vs $L \cdot \mathbb{E}(x)$), Sicherheitsäquivalenz)
 * Was ist PWLC?<br/>
   → Piece-wise linear and Concave / Convex
 * Warum sind PWLCs in dieser Vorlesung von Bedeutung?<br/>
@@ -2382,11 +2415,13 @@ Der Dozent nutzt folgende Notation:
 * $\underline{x}$: Der Unterstrich deutet an, dass es sich um einen Vektor
   handelt. Diese Notation wurde in diesem Artikel **nicht** übernommen.
 * $\hat{x}$: Der Hut zeigt an, dass der Zustand $x$ geschätzt ist.
+* Was üblicherweise die Value function $V$ ist, ist in dieser Vorlesung $J$.
 
 
 ## Material und Links
 
 * [Vorlesungswebsite](http://ies.anthropomatik.kit.edu/lehre_proplan.php)
+* [Anki-Karteikarten Deck](https://ankiweb.net/shared/info/22317474)
 * Dimitri Bertsekas: Dynamic Programming and Optimal Control: Volume 1 (POMDP)
 * Emanuel Todorov: [Optimal Control Theory](https://homes.cs.washington.edu/~todorov/papers/TodorovChapter06.pdf) (für Pontryagins Minimum-Prinzip)
 * Dan Simon: Optimal State Estimation (Kalman-Filter)
