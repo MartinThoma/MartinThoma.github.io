@@ -844,17 +844,47 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
         eine L&ouml;sung eines Steuerungsprobelms optimal ist, muss die L&ouml;sung
         die Hamilton-Funktion minimieren.<br/>
 <br/>
-        Die Steuerung $u(t)$ soll so gew&auml;hlt werden, dass
-        $$J(u)=\Psi(x(T))+\int^T_0 L(x,u,t) \mathrm{d}t$$
-        minimiert wird. Dabei ist $x(t)$ der Systemzustand mit
-        $$\dot{x}=f(x,u,t) \qquad x(0)=x_0 \quad t \in [0,T]$$
+        Die Aktionen $a_{0:N-1}$ sollen so gew&auml;hlt werden, dass
+        $$J(x_{0:N}, a_{0:N-1})$$
+        minimiert wird. Dabei ist $x_k$ der Systemzustand mit
+        $$
+        \begin{align}
+        x_0 &amp;= c\\
+        x_{k+1} &amp;= h_k(x_k, a_k) \qquad \text{ f&uuml;r } k=0, \dots, N-1
+        \end{align}
+        $$
+        Daraus ergibt sich das Optimierungsproblem:
+
+        $$\begin{align}
+        &amp;\underset{x_{0:N}, a_{0:N}}{\operatorname{minimize}}&amp; &amp; J(x_{0:N}, a_{0:N-1}) \\
+        &amp;\operatorname{subject\;to}
+        &amp;&amp;x;_{k+1} = h_k(x_k, a_k), \quad k = 0, \dots,N-1\\
+        &amp;&amp;&amp;x;_0 = \text{cost} = c
+        \end{align}$$
+
+        Es ergibt sich die Lagrange-Funktion
+
+        $$\mathcal{L}(x_{0:N}, a_{0:N-1}, \lambda_{0:N}) = J(x_{0:N}, a_{0:N-1}) + (c - x_0) \cdot \lambda_0 + \sum_{k=0}^{N-1} \underbrace{\left (h_k(x_k, a_k) - x_{k+1} \right )^T \lambda_{k+1}}_{N \text{ eindimensionale Nebenbedingungen}}$$
+
         In diesem Fall ist die Hamilton-Funktion
         $$H_k(x_k, a_k, \lambda) = g_k(x_k, a_k) + h_k(x_k, a_k)^T \cdot \lambda_{k+1},$$
         wobei $\lambda(t)$ Lagrange-Multiplikatoren sind.
 
-        $$\mathcal{L}(x_{0:N}, a_{0:N-1}, \lambda_{0:N}) = g_N(x_N) + (c-x_0) \lambda_0 + \sum_{k=0}^{N-1} (H_k - x_{k+1}^T \lambda_{k+1})$$
+        <div class="bg-info">
+        Insgesamt ergeben sich folgende notwendigen Bedingungen an die
+        optimale L&ouml;sung f&uuml;r $k=0, \dots, N-1$ mit $\lambda_N = g_N^x(x_N)$ und
+        $x_0$ fest:
 
-        </dd>
+        <ul>
+<li>Zustands&uuml;berg&auml;nge: $x_{k+1} = h(x_k, a_k)$</li>
+<li>$\lambda_k = g_k^x (x_k, a_k) + h_k^x(x_k, a_k)^T \cdot \lambda_{k+1}$</li>
+<li>$0 = \nabla_{a_k} H_k(x_k, a_k, \lambda_{k+1})$ (oder $a_k = \text{arg }\min H_k (x_k, a_k, \lambda_{k+1})$)</li>
+</ul>
+
+        Diese (insbesondere das arg min) ist als Pontryagins Minimum-Prinzip
+        bekannt.
+        </div>
+</dd>
 <dt><dfn>Lineares Zustandsmodell</dfn></dt>
 <dd>$$x_{k+1} = A_k + x_k + B_k \cdot a_k + r_k^{(s)}$$</dd>
 <dt><a href="https://de.wikipedia.org/wiki/LQ-Regler"><dfn id="linear-quadratic-regulator">Linearer Quadratischer Regulator</dfn></a> (<dfn id="lqr">LQR</dfn>)</dt>
@@ -1496,9 +1526,9 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
         Rekursiv:
         $$\bar{R}_{N+1} = \bar{R}_N + \frac{1}{N+1} (r_{N+1} - \bar{R}_N) \text{ mit } \bar{R}_1 = r_1$$
 
-        Funktionieren ausschlie&szlig;lich auf episodischen Problemen (d.h mit Ende),
-        wie z.B. Spielen, da die Aktualisierung nach Beendigung einer Episode
-        stattfindet.
+        Monte-Carlo Methoden funktionieren ausschlie&szlig;lich auf episodischen
+        Problemen (d.h mit Ende), wie z.B. Spielen, da die Aktualisierung nach
+        Beendigung einer Episode stattfindet.
 
         <ul>
 <li>Gegeben: Strategie $\pi$</li>
@@ -1519,8 +1549,8 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 </li>
 </ul>
 
-        Konvergiert f&uuml;r unendliche Anzahl an Episoden.
-
+        Konvergiert f&uuml;r unendliche Anzahl an Episoden.<br/>
+<br/>
         Vorteile:
 
         <ul>
@@ -1530,7 +1560,7 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 
         Nachteile / Einschr&auml;nkungen:
         <ul>
-<li>Nur episodisch</li>
+<li>Ist nur auf episodische Probleme anwendbar</li>
 </ul>
 </dd>
 <dt><dfn id="monte-carlo-rl">Monte Carlo RL</dfn></dt>
@@ -1672,7 +1702,7 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
         Nachteile:
         <ul>
 <li>Allgemeine Konvergenzeigenschaften (noch) nicht formal
-                bewiesen. (Schon f&uuml;r Strategiebewrtung, nicht aber f&uuml;r RL)</li>
+                bewiesen. (Schon f&uuml;r Strategiebewertung, nicht aber f&uuml;r RL)</li>
 <li>Funktioniert nur f&uuml;r episodische RL-Probleme</li>
 </ul>
 </dd>
@@ -1710,13 +1740,11 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
             wobei $m(x, a)$ die Anzahl der Besuche von $(x, a)$ ist.
         </dd>
 <dt><dfn>Einschritt-TD-Verfahren</dfn></dt>
-<dd>Strategiebewertung $Q$-Funktion
+<dd>SARSA ist ein Einschritt-TD-Verfahren.
 
-        $$Q(x_k, a_k) \gets Q(x_k, a_k) + \alpha \cdot [r_k + \gamma \cdot Q(x_{k+1}, a_{k+1}) - Q(x_k, a_k)]$$
-
-        Aktualisierung nach Ausf&uuml;hrung von $a_k$ liefert Belohnung $r_k$ und
-        Nachfolgezustand $x_{k+1}.$<br/>
-<b>ABER</b> Folgeaktion $a_{k+1}$ wird ben&ouml;tigt.
+        Die Aktualisierung nach der Ausf&uuml;hrung von $a_k$ liefert Belohnung
+        $r_k$ und Nachfolgezustand $x_{k+1}.$<br/>
+<b>ABER</b> Folgeaktion $a_{k+1}$ wird ben&ouml;tigt. (TODO: Im Gegensatz zu?)
 
     </dd>
 <dt><a href="https://en.wikipedia.org/wiki/State-Action-Reward-State-Action"><dfn id="sarsa">SARSA</dfn></a> (<dfn>State Action Reward State Action</dfn>)</dt>
@@ -1724,7 +1752,7 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 
     SARSA is a temporal difference learning algorithm which updates the $Q$-function:
 
-    $$Q(s_t,a_t) \leftarrow (1-\alpha) \cdot Q(s_t,a_t) + \alpha [r_{t+1} + \gamma Q(s_{t+1}, a_{t+1})]$$
+    $$Q(s_t,a_t) \leftarrow (1-\alpha) \cdot Q(s_t,a_t) + \alpha [r_{t+1} + \gamma \cdot Q(s_{t+1}, a_{t+1})]$$
 
     where $\alpha \in (0, 1)$ is the learning rate and $\gamma \in [0, 1]$
     is the discount factor.
@@ -1746,11 +1774,8 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
         <br/>
 <figure class="wp-caption aligncenter img-thumbnail">
 <img alt="Pseudocode for Q-Learning" src="../images/2016/07/q-learning.png"/>
-<figcaption class="text-center">Pseudocode for Q-Learning</figcaption>
+<figcaption class="text-center">Pseudocode for Q-Learning. Please note that I replaced "for each episode" by "while Q is not converged"</figcaption>
 </figure>
-
-        TODO: I replaced "for each episode" by "while Q is not converged".
-        Is that ok / the same?
 
         Da die Aktualisierung von $Q$ unabh&auml;ngig von $\pi$ erfolgt, ist
         $Q$-learning ein off-policy Verfahren.
@@ -1785,6 +1810,24 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
             </li>
 </ul>
 </dd>
+<dt><dfn>Monte-Carlo RL vs. TD RL</dfn></dt>
+<dd>Sowohl Monte-Carlo Methoden als auch TD-Methoden ben&ouml;tigen Erfahrung um
+        die State-Value Function $V$ zu sch&auml;tzen.
+
+        Die Monte-Carlo Methoden gehen wie folgt vor:
+
+        $$V(s_t) = V(s_t) + \alpha (R_t - V(s_t))$$
+
+        wobei $R_t$ der reward am Ende der Episode ist.
+
+        Die Temporal Difference (TD) Verfahren gehen wie folgt vor:
+
+        $$V(s_t) = V(s_t) + \underbrace{\alpha [r_{t+1} + \gamma \cdot V (s_{t+1}) - V (s_t)]}_{\text{Temporal Difference}}$$
+
+        Die Monte-Carlo-Methoden aktualisieren $V$ also erst am Ende einer
+        Episode, wohingegen Temporal Difference Learning direkt aktualisiert.
+
+    </dd>
 <dt><dfn>Mehrschritt-TD-Verfahren</dfn></dt>
 <dd>$$
         \begin{align}
@@ -2381,6 +2424,7 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 <li><span class="math">\(\underline{x}\)</span>: Der Unterstrich deutet an, dass es sich um einen Vektor
   handelt. Diese Notation wurde in diesem Artikel <strong>nicht</strong> &uuml;bernommen.</li>
 <li><span class="math">\(\hat{x}\)</span>: Der Hut zeigt an, dass der Zustand <span class="math">\(x\)</span> gesch&auml;tzt ist.</li>
+<li>Was &uuml;blicherweise die Value function <span class="math">\(V\)</span> ist, ist in dieser Vorlesung <span class="math">\(J\)</span>.</li>
 </ul>
 <h2 id="material-und-links">Material und Links</h2>
 <ul>
@@ -2396,6 +2440,7 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 <li><a href="https://martin-thoma.com/diverging-gradient-descent/">Diverging Gradient Descent</a></li>
 </ul>
 </li>
+<li><a href="https://martin-thoma.com/optimization-basics/">Optimization Basics</a></li>
 </ul>
 <h2 id="vorlesungsempfehlungen">Vorlesungs&shy;empfehlungen</h2>
 <p>Folgende Vorlesungen sind &auml;hnlich:</p>
