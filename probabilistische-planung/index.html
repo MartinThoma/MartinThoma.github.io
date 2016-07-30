@@ -814,7 +814,15 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 <img alt="Pseudocode for the Label correction algorithm" src="../images/2016/07/label-correction.png"/>
 <figcaption class="text-center">Pseudocode for the Label correction algorithm</figcaption>
 </figure>
-</dd>
+
+        Explanation:
+
+        First `if`: The left hand side is a lower bound to get from start to
+        `v`, to `c` and then to `t`. If this lower bound is not lower than
+        either `u` or the distance to `c` directly, then it will not be part
+        of the optimal solution.
+
+        </dd>
 <dt><a href="https://de.wikipedia.org/wiki/Trellis-Code"><dfn id="trellis">Trellis-Diagramm</dfn></a></dt>
 <dd>Eine Diagramm welches anzeigt welche Zust&auml;nde &uuml;ber die Zeit
         gew&auml;hlt werden.</dd>
@@ -873,8 +881,8 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 
         $$
         \begin{align}
-        P_N &amp;= Q\\
-        P_{k-1} &amp;= A^T P_k A - (A^T P_k B + N) \left( R + B^T P_k B \right)^{-1} (B^T P_k A + N^T) + Q
+            P_N &amp;= Q_N\\
+            P_k &amp;= A_k^T \left ( P_{k+1} - P_{k+1} B_k (R_k + B_k^T P_{k+1} B_k)^{-1} B_k^T P_{k+1} \right ) A_k + Q_k
         \end{align}$$
     </dd>
 <dt><dfn>Sicherheits&auml;quivalenz</dfn> (<a href="https://en.wikipedia.org/wiki/Stochastic_control#Certainty_equivalence"><dfn id="certainty-equivalence">Certainty Equivalence</dfn></a>)</dt>
@@ -2328,7 +2336,7 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 <li>Wie lautet die Kostenfunktion eines POMDP?<br/>
   &rarr; Siehe <a href="#pomdp-cost-function">oben</a></li>
 <li>Was ist der Unterschied des LQR beim MDP und POMDP?<br/>
-  &rarr; TODO (POMDP hat Erwartungswert (Lx vs LE(x)), Sicherheits&auml;quivalenz)</li>
+  &rarr; TODO (POMDP hat Erwartungswert (<span class="math">\(L \cdot x\)</span> vs <span class="math">\(L \cdot \mathbb{E}(x)\)</span>), Sicherheits&auml;quivalenz)</li>
 <li>Was ist PWLC?<br/>
   &rarr; Piece-wise linear and Concave / Convex</li>
 <li>Warum sind PWLCs in dieser Vorlesung von Bedeutung?<br/>
