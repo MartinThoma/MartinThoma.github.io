@@ -1325,7 +1325,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
         &lt;ul&gt;
 &lt;li&gt;Problem: keine vollst&amp;auml;ndige Information &amp;uuml;ber den Zustand $x_k$,
                 aber Zugriff auf Beobachtungen&lt;/li&gt;
-&lt;li&gt;Idee: Definieren eines neuen Zustands (Informationsvektor $\mathcal I$,
+&lt;li&gt;Idee: Definieren eines neuen Zustands (Informationsvektor $\mathcal{I}$,
                 engl. Information state), welcher
 
                 &lt;ul&gt;
@@ -1334,13 +1334,13 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
                         $k$ enth&amp;auml;lt&lt;/li&gt;
 &lt;/ul&gt;
 
-                Der Informationsvektor enth&amp;auml;lt alle Beobachtungen:
+                Der Informationsvektor $\mathcal{I}$ enth&amp;auml;lt alle Beobachtungen:
 
                 $$\mathcal{I} = (z_0, \dots, z_k, a_{0}, \dots, a_{k-1}) \text{ f&amp;uuml;r } k=0, \dots, N-1$$
 
-                Der Informationsvektor beschreibt die zeitliche Entwicklung des
-                Agenten. Mit $P(x_0)$ und $\mathcal{I}_k$ ist s&amp;auml;mtliche
-                Information gegeben um zum Zeitpunkt $k$ eine
+                Der Informationsvektor $\mathcal{I}_k$ beschreibt die zeitliche
+                Entwicklung des Agenten. Mit $P(x_0)$ und $\mathcal{I}_k$ ist
+                s&amp;auml;mtliche Information gegeben um zum Zeitpunkt $k$ eine
                 Planungsentscheidung zu treffen.
 
                 Das korrespondierende MDP wird &lt;b&gt;Informations-MDP&lt;/b&gt; genannt.
@@ -1442,7 +1442,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
                 $\mathbb{E}(x_N^T Q_N x_n + \sum_{k=0}^{N-1} (x_k^T Q_k x_k + a_k^T R_k a_k) | I_N)$
 
                 mit symmetrisch, positiv definiten Gewichtungsmatrizen
-                $Q_N, Q_k, R_k$ und Informationsvektor $I_N$.
+                $Q_N, Q_k, R_k$ und Informationsvektor $\mathcal{I}_N$.
 
 
                 Dies ist ein lineares, quadratisches Gau&amp;szlig;'sches Planungsprobelm (LQG)&lt;/li&gt;
@@ -1519,7 +1519,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;dd&gt;
 
         OLF-Planung ist ein Mittelweg zwischen OL-Planung und CL-Planung. Es
-        wird der aktuelle Informationsvektor $I_k$ verwendet um
+        wird der aktuelle Informationsvektor $\mathcal{I}_k$ verwendet um
         $P(x_k | I_k)$ zu bestimmen. Dann wird mittels OL-Planung der optimale
         Plan $a_{k:N-1}^*$ bestimmt.
 
@@ -1613,12 +1613,12 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
         Das Problem wird nun wie folgt gel&amp;ouml;st:
 
         &lt;ul&gt;
-&lt;li&gt;Informationsvektor $I_k = (a_{0:k}, z_{0:k})$&lt;/li&gt;
+&lt;li&gt;Informationsvektor $\mathcal{I}_k = (a_{0:k}, z_{0:k})$&lt;/li&gt;
 &lt;li&gt;Dynamisches Programm
 
             &lt;ul&gt;
 &lt;li&gt;$J_N = 0$&lt;/li&gt;
-&lt;li&gt;$$J_k(P(x_k | I_{k-1})) = \min_{a_k} \left \{g_k(x_k, a_k) + \mathbb{E}_{z_k} \left \{J_{k+1} (P(x_{k+1} | I_k) | I_{k-1} ) \right \} \right \}$$&lt;/li&gt;
+&lt;li&gt;$$J_k(P(x_k | \mathcal{I}_{k-1})) = \min_{a_k} \left \{g_k(x_k, a_k) + \mathbb{E}_{z_k} \left \{J_{k+1} (P(x_{k+1} | \mathcal{I}_k) | I_{k-1} ) \right \} \right \}$$&lt;/li&gt;
 &lt;/ul&gt;
 
             Im Allgemeinen gibt es hier keine geschlossene L&amp;ouml;sung.
@@ -2342,9 +2342,9 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
                 \end{align}
                 $$
 
-                wobei $\alpha$ die Schrittweite ist.
-
-                &lt;u&gt;Problem&lt;/u&gt;: $J_\pi(x_k)$ ist unbekannt. Allerdings kann
+                wobei $\alpha$ die Schrittweite ist.&lt;br/&gt;
+&lt;br/&gt;
+&lt;u&gt;Problem&lt;/u&gt;: $J_\pi(x_k)$ ist unbekannt. Allerdings kann
                 es durch eine Sch&amp;auml;tzung
 
                 $$J_\pi(x_k) \approx r_k + \gamma \cdot \tilde{J}(x_{k+1}, \Theta_k)$$
