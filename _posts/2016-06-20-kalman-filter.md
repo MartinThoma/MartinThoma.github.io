@@ -94,6 +94,9 @@ The matrices which were not explained so far are:
   then the Kalman Gain is big. So we will rely more on the measurement and
   less of what we predicted before.
 
+The complexity of the Kalman filter is $\mathcal{O}(n_z^{2.4} + n_x^2)$ According to <a href="https://youtu.be/DE6Jn2cB4J4?t=45m42s">Cyrill Stachniss</a>. The factor $2.4$ comes from matrix
+inversion.
+
 
 ## Example
 
@@ -315,11 +318,11 @@ Choice of nominal values $\bar{x}_k, \bar{a}_k$:
     <li>Zustandssolltrajektorien bei Verfolgungsproblem</li>
     <li>Prädiktiv: $\bar{x}_{k+1} = p_k(\bar{x}_k, \bar{a}_k)$ mit $\bar{x}_0 = E(x_0)$ und beliebig $\bar{a}_{0:N-1}$</li>
     <li>Iterativ: Starte mit beliebigem $\bar{a}_{0:N-1}$ und $\bar{x}_0 = E(x_0)$
-        <ul>
+        <ol>
             <li>Bestimme $\bar{x}_{k+1} = p_k(\bar{x}_k, \bar{a}_k) \forall k$</li>
             <li>Linearisiere und löse LQR $\Rightarrow \bar{a}_k = \pi_k(\bar{x}_k)$</li>
             <li>zurück zu 1.</li>
-        </ul>
+        </ol>
     </li>
     </ul>
     </li>

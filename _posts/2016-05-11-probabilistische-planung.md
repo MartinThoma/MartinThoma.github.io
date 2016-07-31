@@ -19,7 +19,7 @@ Learning ein. Dabei werden drei Themenfelder besprochen:
 
 An Algorithmen sind insbesondere der Label-Korrektur-Algorithmus, das
 Dynamische Programmieren, der <a href="https://martin-thoma.com/kalman-filter/">Kalman-Filter</a>
-sowie die Werte- und Strategieiteration zu nennen.
+sowie die value- und policy iteration zu nennen.
 
 
 ## Behandelter Stoff
@@ -52,7 +52,7 @@ sowie die Werte- und Strategieiteration zu nennen.
     <td>06.05.2016</td>
     <td>Grundlagen</td>
     <td>Einführung in die Optimierungstheorie: Notwendige und Hinreichende
-        Bedingungen, Konvexe Optimierung, Numerische Methoden</td>
+        Bedingungen, Konvexe Optimierung, Numerische Methoden (z.B. <a href="#iterative-descent">iterativer Abstieg</a>)</td>
 </tr>
 <tr>
     <td>4</td>
@@ -64,7 +64,7 @@ sowie die Werte- und Strategieiteration zu nennen.
     <td>5</td>
     <td id="2016-05-18">18.05.2016</td>
     <td>MDPs</td>
-    <td>Endliche Planungsprobleme, Value- und Policy-Iteration</td>
+    <td>Endliche Planungsprobleme, Value- und <a href="#policy-iteration">Policy Iteration</a></td>
 </tr>
 <tr>
     <td>6</td>
@@ -76,13 +76,15 @@ sowie die Werte- und Strategieiteration zu nennen.
     <td>7</td>
     <td id="2016-06-01">01.06.2016</td>
     <td>MDPs (<a href="https://ies.anthropomatik.kit.edu/ies/download/lehre/proplan/ProPlan-8-Folien.pdf">Folien</a>)</td>
-    <td>Pontryagin's Minimumprinzip, Hamilton-Funktion, Riccati-Gleichung; <a href="#lqr">LQR</a>; <a href="#certainty-equivalence">Sicherheitsäquivalenz</a></td>
+    <td>Pontryagin's Minimumprinzip, <a href="#hamilton-function">Hamilton-Funktion</a>, Riccati-Gleichung; <a href="#lqr">LQR</a>; <a href="#certainty-equivalence">Sicherheitsäquivalenz</a><br/>
+    Aufgabe 11, Aufgabe 12, Aufgabe 13</td>
 </tr>
 <tr>
     <td>8</td>
     <td id="2016-06-08">08.06.2016</td>
     <td>POMDPs</td>
-    <td>Motivation und Definition von POMDP; Hinreichende Statistik; Bayes-Schätzer</td>
+    <td>Motivation und Definition von POMDP; Hinreichende Statistik; Bayes-Schätzer<br/>
+        Aufgabe 14</td>
 </tr>
 <tr>
     <td>9</td>
@@ -94,25 +96,28 @@ sowie die Werte- und Strategieiteration zu nennen.
     <td>10</td>
     <td id="2016-06-22">22.06.2016</td>
     <td>POMDPs</td>
-    <td>Endliche Planungsprobleme (Optimale Strategie, $\alpha$-Vektoren); Approximative Planung: <a href="#ol-planung">OL</a>, <a href="#olf-planung">OLF</a>, Modellprädiktive Planung</td>
+    <td>Endliche Planungsprobleme (Optimale Strategie, $\alpha$-Vektoren); Approximative Planung: <a href="#ol-planung">OL</a>, <a href="#olf-planung">OLF</a>, Modellprädiktive Planung<br/>
+    Aufgabe 16</td>
 </tr>
 <tr>
     <td>11</td>
     <td id="2016-06-29">29.06.2016</td>
     <td>POMDPs</td>
-    <td>Parametrische / Nichtparametrische approximative Planung (Sicherheitsäquivalenz bei deterministischen Problemen); Funktionsapproximatoren für Wertefunktion / Strategie; <a href="#sensoreinsatzplanung">Sensoreinsatzplanung</a></td>
+    <td><abbr title="Extended Kalman Filter">EKF</abbr>, Parametrische / Nichtparametrische approximative Planung (Sicherheitsäquivalenz bei deterministischen Problemen); Funktionsapproximatoren für Wertefunktion / Strategie; <a href="#sensoreinsatzplanung">Sensoreinsatzplanung</a><br/>
+    Aufgabe 18</td>
 </tr>
 <tr>
     <td>12</td>
     <td id="2016-07-06">06.07.2016</td>
     <td>POMDPs, <abbr title="Reinforcement Learning">RL</abbr></td>
-    <td>Lineare Probleme; POMDPs: <a href="#sensoreinsatzplanung">Sensoreinsatzplanung</a></td>
+    <td>Lineare Probleme; POMDPs: <a href="#sensoreinsatzplanung">Sensoreinsatzplanung</a><br/>
+        Aufgabe 19</td>
 </tr>
 <tr>
     <td>13</td>
     <td id="2016-07-13">13.07.2016</td>
     <td><abbr title="Reinforcement Learning">RL</abbr></td>
-    <td>Monte Carlo Verfahren (Strategiebewertung), Exploration vs Exploitation, Explorations-Strategien; Strategie-Iteration; Temporal Difference Verfahren (Einschritt TD, Mehrschritt TD)</td>
+    <td>Monte Carlo Verfahren (Strategiebewertung), Exploration vs Exploitation, Explorations-Strategien; policy iteration; Temporal Difference Verfahren (Einschritt TD, Mehrschritt TD)</td>
 </tr>
 <tr>
     <td>14</td>
@@ -453,7 +458,7 @@ Slides: `11.05.2016`
               $D_k$ eine positiv definite Matrix ist.
           <ul>
               <li>Gradientenabstieg ("Steilster Abstieg"): $D_k = I$</li>
-              <li>Newton-Verfahren: $D_k = H_f^{-1}(x_k)$</li>
+              <li>Newton-Verfahren: $D_k = J_f(x_k)$ wobei $J_f$ die Jacobi-Matrix ist</li>
           </ul>
 
           </li>
@@ -715,6 +720,14 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
             <figcaption class="text-center">Pseudocode for Policy iteration algorithm</figcaption>
         </figure><br/>
 
+        wobei
+        $$F(\pi) = \begin{pmatrix}f_{11}(\pi)    & \dots  & f_{1 n_x}(\pi)\\
+                                       \vdots         & \ddots & \vdots\\
+                                       f_{n_x 1}(\pi) & \dots  & f_{n_x n_x}(\pi)\end{pmatrix}$$
+        die Transitionsmatrix ist ($f_{ij}(\pi)$ gibt die Wahrscheinlichkeit
+        an, von Zustand $i$ in Zustand $j$ unter der Strategie $\pi$ zu
+        wechseln).
+
         Die folgenden beiden Schritte werden alternierend ausgeführt:
 
         <ol>
@@ -731,11 +744,11 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
     <dt><dfn>Value iteration vs Policy iteration</dfn></dt>
     <dd>
         <ul>
-            <li>Die Strategieiteration konvergiert in weniger Schritten.</li>
-            <li>Jeder Schritt der Strategieiteration ist teurer als in der
+            <li>Die policy iteration konvergiert in weniger Schritten.</li>
+            <li>Jeder Schritt der policy iteration ist teurer als in der
                 Werteoperation, da die Strategieauswertung die Lösung eines
                 LGS ist (in $\mathcal{O}(n_x^3)$). Außerdem ist
-                die Strategieiteration nie für $\alpha=1$ lösbar (kann auch
+                die policy iteration nie für $\alpha=1$ lösbar (kann auch
                 sonst passieren).</li>
         </ul>
     </dd>
@@ -766,14 +779,16 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         Variante der Bellman-Gleichungen für deterministische MDPs bezeichnet
         werden. Es stellt eine notwendige Bedingung an ein Optimum dar.<br/>
         <br/>
-        Siehe auch: <a href="http://planning.cs.uiuc.edu/node818.html">Pontryagin's Minimum Principle</a>
-        by Steven M. LaValle.<br/>
-        <br/>
-        Pontryagins Minimum-Prinzip steht mit der <a href="https://en.wikipedia.org/wiki/Hamilton%E2%80%93Jacobi%E2%80%93Bellman_equation">Hamilton–Jacobi–Bellman Gleichung</a>
-        in Zusammenhang.
+        Siehe auch
 
-        (TODO: Wie genau?)</dd>
-    <dt><a href="https://de.wikipedia.org/wiki/Hamilton-Funktion_(Kontrolltheorie)"><dfn>Hamilton-Funktion</dfn></a></dt>
+        <ul>
+            <li><a href="http://planning.cs.uiuc.edu/node818.html">Pontryagin's Minimum Principle</a>
+        by Steven M. LaValle.</li>
+            <li><a href="https://homes.cs.washington.edu/~todorov/courses/amath579/Maximum.pdf">Pontryagin’s maximum principle</a> by Emo Todorov</li>
+        </ul>
+
+        </dd>
+    <dt><a href="https://de.wikipedia.org/wiki/Hamilton-Funktion_(Kontrolltheorie)"><dfn id="hamilton-function">Hamilton-Funktion</dfn></a></dt>
     <dd>Die Hamilton-Funktion der Kontrolltheorie stellt eine notwendige
         Bedingung für die optimale Lösung eines Steuerungsproblems ist. Damit
         eine Lösung eines Steuerungsprobelms optimal ist, muss die Lösung
@@ -1605,7 +1620,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         Vorteil: Kein Festlegen auf suboptimale Aktion<br/>
         Nachteil: Wahl von $\varepsilon$ problematisch<br/>
         <br/>
-        $\varepsilon$-greedy MC Strategieiteration ist on-policy
+        $\varepsilon$-greedy MC policy iteration ist on-policy
     </dd>
     <dt><dfn id="softmax-exploration-strategy">Softmax-Strategie</dfn></dt>
     <dd>
@@ -1888,7 +1903,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
                 Unterschied, dass man nicht das Ende einer Episode abwarten muss.</li>
         </ul>
 
-        <u>Strategieiteration</u>
+        <u>Policy iteration</u>
 
         <ul>
             <li>on-policy: SARSA($\lambda$)</li>
@@ -2357,7 +2372,7 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
   kürzeste Weg von A nach C.
 
 
-### MDP
+<h3 id="mdp-section">MDP</h3>
 
 * Wie lautet die Definition eines MDP?<br/>
   → Siehe <a href="#mdp">oben</a>.
@@ -2395,7 +2410,7 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
 * Wie lautet die Kostenfunktion eines POMDP?<br/>
   → Siehe <a href="#pomdp-cost-function">oben</a>
 * Was ist der Unterschied des LQR beim MDP und POMDP?<br/>
-  → TODO (POMDP hat Erwartungswert ($L \cdot x$ vs $L \cdot \mathbb{E}(x)$), Sicherheitsäquivalenz)
+  → Bei POMDPs ist die optimale Strategie $\pi_k^* (\mathcal{I}_k) = L_k \cdot \mathbb{E} (x_k | \mathcal{I}_k)$, wohingegen beim MDP die optimale Strategie $\pi_k^*(x_k) = L_k \cdot x_k$ ist. (Beim POMDP wird die Sicherheitsäquivalenz genutzt).
 * Was ist PWLC?<br/>
   → Piece-wise linear and Concave / Convex
 * Warum sind PWLCs in dieser Vorlesung von Bedeutung?<br/>
@@ -2444,6 +2459,7 @@ Der Dozent nutzt folgende Notation:
   handelt. Diese Notation wurde in diesem Artikel **nicht** übernommen.
 * $\hat{x}$: Der Hut zeigt an, dass der Zustand $x$ geschätzt ist.
 * Was üblicherweise die Value function $V$ ist, ist in dieser Vorlesung $J$.
+* $g_N^x$ ist die Ableitung der Funktion $g_N$ nach $x$.
 
 
 ## Material und Links
