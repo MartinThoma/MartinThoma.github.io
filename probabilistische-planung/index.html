@@ -118,7 +118,7 @@ Learning ein. Dabei werden drei Themenfelder besprochen:</p>
 </ul>
 <p>An Algorithmen sind insbesondere der Label-Korrektur-Algorithmus, das
 Dynamische Programmieren, der <a href="https://martin-thoma.com/kalman-filter/">Kalman-Filter</a>
-sowie die Werte- und Strategieiteration zu nennen.</p>
+sowie die value- und policy iteration zu nennen.</p>
 <h2 id="behandelter-stoff">Behandelter Stoff</h2>
 <h3 id="ubersicht">&Uuml;bersicht</h3>
 <table>
@@ -147,7 +147,7 @@ sowie die Werte- und Strategieiteration zu nennen.</p>
 <td>06.05.2016</td>
 <td>Grundlagen</td>
 <td>Einf&uuml;hrung in die Optimierungstheorie: Notwendige und Hinreichende
-        Bedingungen, Konvexe Optimierung, Numerische Methoden</td>
+        Bedingungen, Konvexe Optimierung, Numerische Methoden (z.B. <a href="#iterative-descent">iterativer Abstieg</a>)</td>
 </tr>
 <tr>
 <td>4</td>
@@ -159,7 +159,7 @@ sowie die Werte- und Strategieiteration zu nennen.</p>
 <td>5</td>
 <td id="2016-05-18">18.05.2016</td>
 <td>MDPs</td>
-<td>Endliche Planungsprobleme, Value- und Policy-Iteration</td>
+<td>Endliche Planungsprobleme, Value- und <a href="#policy-iteration">Policy Iteration</a></td>
 </tr>
 <tr>
 <td>6</td>
@@ -171,13 +171,15 @@ sowie die Werte- und Strategieiteration zu nennen.</p>
 <td>7</td>
 <td id="2016-06-01">01.06.2016</td>
 <td>MDPs (<a href="https://ies.anthropomatik.kit.edu/ies/download/lehre/proplan/ProPlan-8-Folien.pdf">Folien</a>)</td>
-<td>Pontryagin's Minimumprinzip, <a href="#hamilton-function">Hamilton-Funktion</a>, Riccati-Gleichung; <a href="#lqr">LQR</a>; <a href="#certainty-equivalence">Sicherheits&auml;quivalenz</a></td>
+<td>Pontryagin's Minimumprinzip, <a href="#hamilton-function">Hamilton-Funktion</a>, Riccati-Gleichung; <a href="#lqr">LQR</a>; <a href="#certainty-equivalence">Sicherheits&auml;quivalenz</a><br/>
+    Aufgabe 11, Aufgabe 12, Aufgabe 13</td>
 </tr>
 <tr>
 <td>8</td>
 <td id="2016-06-08">08.06.2016</td>
 <td>POMDPs</td>
-<td>Motivation und Definition von POMDP; Hinreichende Statistik; Bayes-Sch&auml;tzer</td>
+<td>Motivation und Definition von POMDP; Hinreichende Statistik; Bayes-Sch&auml;tzer<br/>
+        Aufgabe 14</td>
 </tr>
 <tr>
 <td>9</td>
@@ -189,26 +191,28 @@ sowie die Werte- und Strategieiteration zu nennen.</p>
 <td>10</td>
 <td id="2016-06-22">22.06.2016</td>
 <td>POMDPs</td>
-<td>Endliche Planungsprobleme (Optimale Strategie, $\alpha$-Vektoren); Approximative Planung: <a href="#ol-planung">OL</a>, <a href="#olf-planung">OLF</a>, Modellpr&auml;diktive Planung</td>
+<td>Endliche Planungsprobleme (Optimale Strategie, $\alpha$-Vektoren); Approximative Planung: <a href="#ol-planung">OL</a>, <a href="#olf-planung">OLF</a>, Modellpr&auml;diktive Planung<br/>
+    Aufgabe 16</td>
 </tr>
 <tr>
 <td>11</td>
 <td id="2016-06-29">29.06.2016</td>
 <td>POMDPs</td>
 <td><abbr title="Extended Kalman Filter">EKF</abbr>, Parametrische / Nichtparametrische approximative Planung (Sicherheits&auml;quivalenz bei deterministischen Problemen); Funktionsapproximatoren f&uuml;r Wertefunktion / Strategie; <a href="#sensoreinsatzplanung">Sensoreinsatzplanung</a><br/>
-    Aufgabe 11</td>
+    Aufgabe 18</td>
 </tr>
 <tr>
 <td>12</td>
 <td id="2016-07-06">06.07.2016</td>
 <td>POMDPs, <abbr title="Reinforcement Learning">RL</abbr></td>
-<td>Lineare Probleme; POMDPs: <a href="#sensoreinsatzplanung">Sensoreinsatzplanung</a></td>
+<td>Lineare Probleme; POMDPs: <a href="#sensoreinsatzplanung">Sensoreinsatzplanung</a><br/>
+        Aufgabe 19</td>
 </tr>
 <tr>
 <td>13</td>
 <td id="2016-07-13">13.07.2016</td>
 <td><abbr title="Reinforcement Learning">RL</abbr></td>
-<td>Monte Carlo Verfahren (Strategiebewertung), Exploration vs Exploitation, Explorations-Strategien; Strategie-Iteration; Temporal Difference Verfahren (Einschritt TD, Mehrschritt TD)</td>
+<td>Monte Carlo Verfahren (Strategiebewertung), Exploration vs Exploitation, Explorations-Strategien; policy iteration; Temporal Difference Verfahren (Einschritt TD, Mehrschritt TD)</td>
 </tr>
 <tr>
 <td>14</td>
@@ -532,7 +536,7 @@ sowie die Werte- und Strategieiteration zu nennen.</p>
               $D_k$ eine positiv definite Matrix ist.
           <ul>
 <li>Gradientenabstieg ("Steilster Abstieg"): $D_k = I$</li>
-<li>Newton-Verfahren: $D_k = H_f^{-1}(x_k)$</li>
+<li>Newton-Verfahren: $D_k = J_f(x_k)$ wobei $J_f$ die Jacobi-Matrix ist</li>
 </ul>
 </li>
 </ul>
@@ -781,6 +785,14 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 <figcaption class="text-center">Pseudocode for Policy iteration algorithm</figcaption>
 </figure><br/>
 
+        wobei
+        $$F(\pi) = \begin{pmatrix}f_{11}(\pi)    &amp; \dots  &amp; f_{1 n_x}(\pi)\\
+                                       \vdots         &amp; \ddots &amp; \vdots\\
+                                       f_{n_x 1}(\pi) &amp; \dots  &amp; f_{n_x n_x}(\pi)\end{pmatrix}$$
+        die Transitionsmatrix ist ($f_{ij}(\pi)$ gibt die Wahrscheinlichkeit
+        an, von Zustand $i$ in Zustand $j$ unter der Strategie $\pi$ zu
+        wechseln).
+
         Die folgenden beiden Schritte werden alternierend ausgef&uuml;hrt:
 
         <ol>
@@ -797,11 +809,11 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
 <dt><dfn>Value iteration vs Policy iteration</dfn></dt>
 <dd>
 <ul>
-<li>Die Strategieiteration konvergiert in weniger Schritten.</li>
-<li>Jeder Schritt der Strategieiteration ist teurer als in der
+<li>Die policy iteration konvergiert in weniger Schritten.</li>
+<li>Jeder Schritt der policy iteration ist teurer als in der
                 Werteoperation, da die Strategieauswertung die L&ouml;sung eines
                 LGS ist (in $\mathcal{O}(n_x^3)$). Au&szlig;erdem ist
-                die Strategieiteration nie f&uuml;r $\alpha=1$ l&ouml;sbar (kann auch
+                die policy iteration nie f&uuml;r $\alpha=1$ l&ouml;sbar (kann auch
                 sonst passieren).</li>
 </ul>
 </dd>
@@ -1637,7 +1649,7 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
         Vorteil: Kein Festlegen auf suboptimale Aktion<br/>
         Nachteil: Wahl von $\varepsilon$ problematisch<br/>
 <br/>
-        $\varepsilon$-greedy MC Strategieiteration ist on-policy
+        $\varepsilon$-greedy MC policy iteration ist on-policy
     </dd>
 <dt><dfn id="softmax-exploration-strategy">Softmax-Strategie</dfn></dt>
 <dd>
@@ -1913,7 +1925,7 @@ J_k(x_k) &amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1
                 $\gamma$. ISt $\gamma=1$, dann ist es ein "normales" MC mit dem
                 Unterschied, dass man nicht das Ende einer Episode abwarten muss.</li>
 </ul>
-<u>Strategieiteration</u>
+<u>Policy iteration</u>
 <ul>
 <li>on-policy: SARSA($\lambda$)</li>
 <li>off-policy: Q($\lambda$)</li>
