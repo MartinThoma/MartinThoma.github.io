@@ -73,7 +73,7 @@ MathJax.Hub.Queue(function() {
                     <div class="collapse navbar-collapse">
                         <ul class="nav pull-left top-menu navbar-nav">
                             <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
-                        font-size: 20px;" class="brand">Martin Thoma</a>
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
                             </li>
                         </ul>
                         <ul class="nav pull-right top-menu navbar-nav">
@@ -181,6 +181,8 @@ combination of the state with Gaussian noise <span class="math">\(r_k^{(m)}\)</s
   then the Kalman Gain is big. So we will rely more on the measurement and
   less of what we predicted before.</li>
 </ul>
+<p>The complexity of the Kalman filter is <span class="math">\(\mathcal{O}(n_z^{2.4} + n_x^2)\)</span> According to <a href="https://youtu.be/DE6Jn2cB4J4?t=45m42s">Cyrill Stachniss</a>. The factor <span class="math">\(2.4\)</span> comes from matrix
+inversion.</p>
 <h2 id="example_1">Example</h2>
 <p>Suppose you want to track the position of a car in 2D. What you get as sensor
 data is the current position. So the state is</p>
@@ -337,11 +339,11 @@ mit <span class="math">\(\Delta x_{k+1} = p_k(x_k, a_k) - p_k(\bar{x}_k, \bar{a}
 <li>Zustandssolltrajektorien bei Verfolgungsproblem</li>
 <li>Pr&auml;diktiv: $\bar{x}_{k+1} = p_k(\bar{x}_k, \bar{a}_k)$ mit $\bar{x}_0 = E(x_0)$ und beliebig $\bar{a}_{0:N-1}$</li>
 <li>Iterativ: Starte mit beliebigem $\bar{a}_{0:N-1}$ und $\bar{x}_0 = E(x_0)$
-        <ul>
+        <ol>
 <li>Bestimme $\bar{x}_{k+1} = p_k(\bar{x}_k, \bar{a}_k) \forall k$</li>
 <li>Linearisiere und l&ouml;se LQR $\Rightarrow \bar{a}_k = \pi_k(\bar{x}_k)$</li>
 <li>zur&uuml;ck zu 1.</li>
-</ul>
+</ol>
 </li>
 </ul>
 </li>

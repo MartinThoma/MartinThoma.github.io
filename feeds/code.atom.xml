@@ -72,6 +72,8 @@ combination of the state with Gaussian noise &lt;span class="math"&gt;\(r_k^{(m)
   then the Kalman Gain is big. So we will rely more on the measurement and
   less of what we predicted before.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;The complexity of the Kalman filter is &lt;span class="math"&gt;\(\mathcal{O}(n_z^{2.4} + n_x^2)\)&lt;/span&gt; According to &lt;a href="https://youtu.be/DE6Jn2cB4J4?t=45m42s"&gt;Cyrill Stachniss&lt;/a&gt;. The factor &lt;span class="math"&gt;\(2.4\)&lt;/span&gt; comes from matrix
+inversion.&lt;/p&gt;
 &lt;h2 id="example_1"&gt;Example&lt;/h2&gt;
 &lt;p&gt;Suppose you want to track the position of a car in 2D. What you get as sensor
 data is the current position. So the state is&lt;/p&gt;
@@ -228,11 +230,11 @@ mit &lt;span class="math"&gt;\(\Delta x_{k+1} = p_k(x_k, a_k) - p_k(\bar{x}_k, \
 &lt;li&gt;Zustandssolltrajektorien bei Verfolgungsproblem&lt;/li&gt;
 &lt;li&gt;Pr&amp;auml;diktiv: $\bar{x}_{k+1} = p_k(\bar{x}_k, \bar{a}_k)$ mit $\bar{x}_0 = E(x_0)$ und beliebig $\bar{a}_{0:N-1}$&lt;/li&gt;
 &lt;li&gt;Iterativ: Starte mit beliebigem $\bar{a}_{0:N-1}$ und $\bar{x}_0 = E(x_0)$
-        &lt;ul&gt;
+        &lt;ol&gt;
 &lt;li&gt;Bestimme $\bar{x}_{k+1} = p_k(\bar{x}_k, \bar{a}_k) \forall k$&lt;/li&gt;
 &lt;li&gt;Linearisiere und l&amp;ouml;se LQR $\Rightarrow \bar{a}_k = \pi_k(\bar{x}_k)$&lt;/li&gt;
 &lt;li&gt;zur&amp;uuml;ck zu 1.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;/ol&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
