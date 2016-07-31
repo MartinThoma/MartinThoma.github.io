@@ -117,7 +117,8 @@ sowie die value- und policy iteration zu nennen.
     <td>13</td>
     <td id="2016-07-13">13.07.2016</td>
     <td><abbr title="Reinforcement Learning">RL</abbr></td>
-    <td>Monte Carlo Verfahren (Strategiebewertung), Exploration vs Exploitation, Explorations-Strategien; policy iteration; Temporal Difference Verfahren (Einschritt TD, Mehrschritt TD)</td>
+    <td>Monte Carlo Verfahren (Strategiebewertung), Exploration vs Exploitation, Explorations-Strategien; policy iteration; Temporal Difference Verfahren (Einschritt TD, Mehrschritt TD)<br/>
+    Aufgabe 20</td>
 </tr>
 <tr>
     <td>14</td>
@@ -2148,9 +2149,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
 </dl>
 
 
-## Overviews
-
-### MDP vs POMDP vs RL
+## MDP vs POMDP vs RL
 
 <table>
     <tr>
@@ -2215,7 +2214,10 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
             J_{\pi_{0:N-1}} (\cdot) := & \mathbb{E} (g_N (x_N) \\
                                      + & \sum_{k=0}^{N-1} g_k (x_k, \pi_k(\cdot)))
             \end{align}
-            $$</td>
+            $$
+
+            wobei $\cdot$ entweder ein Informationsvektor $\mathcal{I}$ oder
+            ein belief state $P(x_k | \mathcal{I}_k)$ ist.</td>
         <td>Maximimierung der Belohnung $J(x_k) = \mathbb{E} (R_k | x_k)$. Im fortlaufenden
             Fall $$R_k = \sum_{t=0}^\infty \gamma^t r_{k+t}$$ mit
             Diskontierungsfaktor $\gamma \in [0, 1)$,
@@ -2244,7 +2246,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         <td>
 
             <ul>
-                <li>Reduzierung auf Belief-MDP: Siehe Algorithmen von MDP</li>
+                <li>Reduzierung auf Information Vector MDP / Belief-state MDP: Siehe Algorithmen von MDP</li>
                 <li>Linearer Fall: <a href="https://martin-thoma.com/kalman-filter/">Kalman-filter</a> + <a href="#lqr">LQR</a></li>
                 <li>Approximative Verfahren:
 
