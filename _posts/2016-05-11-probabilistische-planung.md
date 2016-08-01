@@ -867,13 +867,19 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
             P_k &= A_k^T \left ( P_{k+1} - P_{k+1} B_k (R_k + B_k^T P_{k+1} B_k)^{-1} B_k^T P_{k+1} \right ) A_k + Q_k
         \end{align}$$
     </dd>
+    <dt><dfn>PWLC</dfn> (<dfn>Piece-wise linear and Concave</dfn>)</dt>
+    <dd>
+
+        Siehe <a href="http://www.pomdp.org/tutorial/pomdp-solving.html">Basics of Solving POMDPs</a>
+
+    </dd>
     <dt><dfn>Sicherheitsäquivalenz</dfn> (<a href="https://en.wikipedia.org/wiki/Stochastic_control#Certainty_equivalence"><dfn id="certainty-equivalence">Certainty Equivalence</dfn></a>)</dt>
     <dd>Die Sicherheitsäquivalenz besagt, dass im Fall eines linearen Modells
         mit einer quadratischen Zielfunktion und additivem Rauschen die
         optimale Lösung des Kontroll-Problems die Gleiche ist, wie wenn das
         Rauschen nicht vorhande wäre. Anders gesagt:<br/>
 
-        Die Verstärkungsmatrix $l_k$ und somit die Strategie $\pi_k^*$
+        Die Verstärkungsmatrix $L_k$ und somit die Strategie $\pi_k^*$
         sind unabhängig vom Rauschen $r_k^{(s)}$.<br/>
         <br/>
         Die selbe optimale Strategie ergibt sich bei Betrachtung des
@@ -2098,7 +2104,8 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
     <dt><dfn id="adaptive-dp">Adaptive DP</dfn></dt>
     <dd>
 
-        Dyna-Q lernt Striprobenmodell (Schwachstelle).<br/>
+        Eine Schwachstelle von Dyna-Q ist, dass es ein Stichprobenmodell
+        lernt.<br/>
         <br/>
         Adaptive DP Verbesserung: Lernt frequentistisch Zustandsverteilung von
         Nachfolgezustand.<br/>
@@ -2226,6 +2233,35 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
             wobei $N$ unbekannt ist.</td>
     </tr>
     <tr>
+        <td>Beispiele</td>
+        <td>
+
+            <ul>
+                <li>Roboter navigiert durch Labyrint</li>
+                <li>Tic-Tac-Toe</li>
+                <li>TODO?</li>
+            </ul>
+
+        </td>
+        <td>
+
+            <ul>
+                <li>Sensoreinsatzplanung</li>
+                <li>Kollisionsvermeidung von Flugzeugen?</li>
+            </ul>
+
+        </td>
+        <td>
+
+            <ul>
+                <li>Brettspiele (Schach, Go), da $N$ unbekannt (deterministisch)</li>
+                <li>TODO?</li>
+                <li>TODO?</li>
+            </ul>
+
+        </td>
+    </tr>
+    <tr>
         <td>Lösungs&shy;algorithmen</td>
         <td>
 
@@ -2248,6 +2284,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
             <ul>
                 <li>Reduzierung auf Information Vector MDP / Belief-state MDP: Siehe Algorithmen von MDP</li>
                 <li>Linearer Fall: <a href="https://martin-thoma.com/kalman-filter/">Kalman-filter</a> + <a href="#lqr">LQR</a></li>
+                <li>$\alpha$-Vektoren (TODO: Linear?)</li>
                 <li>Approximative Verfahren:
 
                 <ul>
@@ -2263,6 +2300,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
                 </ul>
 
                 </li>
+                <li><a href="https://arxiv.org/pdf/1207.4166.pdf">Heuristic Search Value Iteration (HSVI)</a></li>
             </ul>
 
         </td>
@@ -2300,6 +2338,33 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
             </ul>
 
         </td>
+    </tr>
+</table>
+
+
+## Zusammenhänge
+
+Eine Tabelle in <a href="https://www.cs.cmu.edu/~ggordon/780-fall07/lectures/POMDP_lecture.pdf">diesen Folien</a> finde ich sehr hilfreich:
+
+<table>
+    <tr>
+        <th colspan="2" rowspan="2">Markov models</th>
+        <th colspan="2">Do we have control over the state transitions?</th>
+    </tr>
+    <tr>
+        <th>No</th>
+        <th>Yes</th>
+    </tr>
+    <tr>
+        <th rowspan="2">Are the states completely observable</th>
+        <th>Yes</th>
+        <td><abbr title="Markov Chain">MC</abbr></td>
+        <td><abbr title="Markov Decision Process">MDP</abbr></td>
+    </tr>
+    <tr>
+        <th>No</th>
+        <td><abbr title="Hidden Markov Model">HMM</abbr></td>
+        <td><abbr title="Partially Observable Markov Decision Process">POMDP</abbr></td>
     </tr>
 </table>
 
