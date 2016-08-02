@@ -453,7 +453,7 @@ Slides: `11.05.2016`
               $$f(x_{k+1}) = f(x_k + \alpha d_k) = f(x_k) + \underbrace{\alpha_k \nabla f(x_k)^T \cdot d_k}_{\text{dominiert } O(\alpha_k) \text{ für kleine } \alpha_k} + O(\alpha_k)$$
               Wähle dann $\alpha_k \nabla f(x_k)^T \cdot d_k < 0 \Rightarrow$
               $f(x_{k+1}) < f(x_k)$, d.h. der Gradient und die Abstiegsrichtung
-              müssen einen Winkel von mehr als 90° einschließen. (TODO: Warum?)
+              müssen einen Winkel von mehr als 90° einschließen.
           </li>
           <li>Häufig wird $d_k = - D_k \nabla f(x_k)$ gewählt, wobei
               $D_k$ eine positiv definite Matrix ist.
@@ -728,6 +728,24 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         die Transitionsmatrix ist ($f_{ij}(\pi)$ gibt die Wahrscheinlichkeit
         an, von Zustand $i$ in Zustand $j$ unter der Strategie $\pi$ zu
         wechseln).
+
+        Außerdem sind der Schrittkostenvektor $g(\pi)$ und der
+        Wertefunktionsvektor $J$ von folgender Struktur:
+
+        $$
+\begin{align}
+g(\pi) &= \begin{pmatrix}g(x_1, \pi(x_1))\\
+                g(x_2, \pi(x_2))\\
+                \vdots\\
+                g(x_n, \pi(x_n))\end{pmatrix}\\
+J &= \begin{pmatrix}
+J(x_1)\\
+J(x_2)\\
+\vdots\\
+J(x_n)
+\end{pmatrix}
+\end{align}
+$$
 
         Die folgenden beiden Schritte werden alternierend ausgeführt:
 
@@ -1267,7 +1285,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
 
     </dd>
     <dt><dfn>Monotonie der Riccati-Gleichung</dfn></dt>
-    <dd>(TODO: Wozu? https://ies.anthropomatik.kit.edu/ies/download/lehre/proplan/ProPlan-7-Folien.pdf Folie 4)
+    <dd>(Siehe <a href="https://ies.anthropomatik.kit.edu/ies/download/lehre/proplan/ProPlan-7-Folien.pdf">Folie 4</a>)
 
         Sei
         $$V_k(\Lambda, C) := C_k^w + (A_k - \Lambda \cdot H_k) C \cdot (A_k - \Lambda H_k)^T + \Lambda C_k^v V^T$$
@@ -2239,7 +2257,8 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
             <ul>
                 <li>Roboter navigiert durch Labyrint</li>
                 <li>Tic-Tac-Toe</li>
-                <li>TODO?</li>
+                <li>Kürzeste Wege Suche</li>
+                <li>Aufzugsteuerung</li>
             </ul>
 
         </td>
@@ -2247,7 +2266,9 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
 
             <ul>
                 <li>Sensoreinsatzplanung</li>
-                <li>Kollisionsvermeidung von Flugzeugen?</li>
+                <li>Kollisionsvermeidung von Flugzeugen</li>
+                <li>Navigationsroboter (Kamaro)</li>
+                <li>Skat</li>
             </ul>
 
         </td>
@@ -2255,8 +2276,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
 
             <ul>
                 <li>Brettspiele (Schach, Go), da $N$ unbekannt (deterministisch)</li>
-                <li>TODO?</li>
-                <li>TODO?</li>
+                <li>Navigationsroboter</li>
             </ul>
 
         </td>
@@ -2493,7 +2513,10 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
 * Was ist PWLC?<br/>
   → Piece-wise linear and Concave / Convex
 * Warum sind PWLCs in dieser Vorlesung von Bedeutung?<br/>
-  → TODO (Spezialfall: Endliche Planungsprobleme; die Optimale Strategie und $J_k$ sind PWLC; approximation mit $\alpha$)
+  → In dem Spezialfall endlicher Planungsprobleme in POMDPs kann das POMDP in
+     ein Belief-State MPD transformiert werden. Dann ist die Wertefunktion
+     $J_k$ eine PWLC; mit $\alpha$-Vektoren kann die optimale Strategie
+     berechnet werden.
 * Was versteht man unter Modellprädiktiver Planung (MP)?<br/>
   → Modellprädiktive Planung ist OLF, über einen kurzen, aber wandernden
     Horizont. Im Gegensatz zu OLF kann Modellprädiktive Planung auch bei
