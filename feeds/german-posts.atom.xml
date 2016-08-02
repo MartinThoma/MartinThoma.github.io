@@ -1525,7 +1525,10 @@ $$
         ein technisches System welches ohne Zustandsr&amp;uuml;ckf&amp;uuml;hrung, also ohne
         Messung des Zustands nachdem die Regelung begonnen wurde, arbeitet.&lt;br/&gt;
         Beispiele sind Sp&amp;uuml;hlmaschinen und Rasensprenger.&lt;br/&gt;
-        In der Open-loop Planung wird ein optimaler Plan bestimmt.
+        In der Open-loop Planung wird ein optimaler Plan bestimmt:
+        $$a_{0:N-1}^* = \text{arg}\min_{a_{0:N-1}} \mathbb{E}\{g_N (x_N) + \sum_{k=0}^{N-1} g_k (x_k, a_k)\}$$
+        Da der Plan "blind", also ohne Zustandsr&amp;uuml;ckf&amp;uuml;hrung, angwedet wird sind
+        deterministische Planungsverfahren anstelle von DP anwendbar.
     &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Closed-loop Planung&lt;/dfn&gt; (&lt;dfn&gt;CL Planung&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;Unter einem Closed-loop control system (geschlossenem Regelkreis)
@@ -2403,15 +2406,15 @@ $$
 &lt;dd&gt;
 
         Bisher: RL lernt Wertefunktion und Strategie mittels Belohnung aus
-        direkter Interaktion mit Umwelt.
-
-        Idee: Lerne eine Modell $x_{k+1} \sim P(\cdot | x_k)$.
-
+        direkter Interaktion mit Umwelt.&lt;br/&gt;
+&lt;br/&gt;
+        Idee: Lerne eine Modell $x_{k+1} \sim P(\cdot | x_k)$.&lt;br/&gt;
+&lt;br/&gt;
         Man hat zwei Phasen: Lernen und Planen. In der Lernphase wird das
         Modell gelernt, in der Planphase wird mit dem Modell der n&amp;auml;chste
-        Zustand geplant.
-
-        &lt;u&gt;Erweiterungen&lt;/u&gt;
+        Zustand geplant.&lt;br/&gt;
+&lt;br/&gt;
+&lt;u&gt;Erweiterungen&lt;/u&gt;
 &lt;ul&gt;
 &lt;li&gt;Nutze beobachtete Nachfolgezust&amp;auml;nde (&amp;Uuml;bergang) mit Tripel $(x_k, x_{k+1}, a)$&lt;/li&gt;
 &lt;li&gt;Nutze Simulation der Umwelt&lt;/li&gt;
