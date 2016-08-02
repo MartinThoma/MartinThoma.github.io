@@ -459,7 +459,7 @@ Slides: `11.05.2016`
               $D_k$ eine positiv definite Matrix ist.
           <ul>
               <li>Gradientenabstieg ("Steilster Abstieg"): $D_k = I$</li>
-              <li>Newton-Verfahren: $D_k = J_f(x_k)$ wobei $J_f$ die Jacobi-Matrix ist</li>
+              <li>Newton-Verfahren: $D_k = H_f^{-1}(x_k)$ wobei $H_f$ die Hesse-Matrix von $f$ ist</li>
           </ul>
 
           </li>
@@ -2284,20 +2284,32 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
             <ul>
                 <li>Reduzierung auf Information Vector MDP / Belief-state MDP: Siehe Algorithmen von MDP</li>
                 <li>Linearer Fall: <a href="https://martin-thoma.com/kalman-filter/">Kalman-filter</a> + <a href="#lqr">LQR</a></li>
-                <li>$\alpha$-Vektoren (TODO: Linear?)</li>
+                <li>Diskreter Fall: $\alpha$-Vektoren</li>
                 <li>Approximative Verfahren:
 
                 <ul>
-                    <li>Linearisierung</li>
-                    <li>Diskretisierung</li>
-                    <li>Sicherheitsäquivalenz:
+                    <li>Änderung der Optimierung (OL, OLF, Modellprädiktiv)</li>
+                    <li>
+
+                        Abbildung auf geschlossen lösbare Probleme
 
                     <ul>
-                        <li>Diskret: Label-Korrektur Algorithmus</li>
-                        <li>Kontinuierlich: Pontryagins Minimumprinzip</li>
+                        <li>Linearisierung</li>
+                        <li>Diskretisierung</li>
+                        <li>Sicherheitsäquivalenz:
+
+                        <ul>
+                            <li>Diskret: Label-Korrektur Algorithmus</li>
+                            <li>Kontinuierlich: Pontryagins Minimumprinzip</li>
+                        </ul>
+                        </li>
                     </ul>
+
                     </li>
+                    <li>Funktionsapproximatoren (Kernel, Neuronale Netze)</li>
                 </ul>
+
+
 
                 </li>
                 <li><a href="https://arxiv.org/pdf/1207.4166.pdf">Heuristic Search Value Iteration (HSVI)</a></li>
@@ -2541,6 +2553,8 @@ Der Dozent nutzt folgende Notation:
     * [Why is $f_x(Ax + b) = f_x(x)$?](http://math.stackexchange.com/q/1865801/6876)
     * [How can I solve an optimization problem $x^T A x$ with constraint $x^T x = 1$?](http://math.stackexchange.com/q/1866356/6876)
     * [Diverging Gradient Descent](https://martin-thoma.com/diverging-gradient-descent/)
+    * [Does the Gauss-Newton algorithm work with the Hesse matrix or Jaccobi matrix?](http://math.stackexchange.com/q/1877948/6876)
+    * [What is the relationship between the Markov property and optimal substructure?](http://cs.stackexchange.com/q/61157/2914)
 * [Optimization Basics](https://martin-thoma.com/optimization-basics/)
 
 
