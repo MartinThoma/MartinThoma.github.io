@@ -862,7 +862,7 @@ sowie die value- und policy iteration zu nennen.&lt;/p&gt;
               $$f(x_{k+1}) = f(x_k + \alpha d_k) = f(x_k) + \underbrace{\alpha_k \nabla f(x_k)^T \cdot d_k}_{\text{dominiert } O(\alpha_k) \text{ f&amp;uuml;r kleine } \alpha_k} + O(\alpha_k)$$
               W&amp;auml;hle dann $\alpha_k \nabla f(x_k)^T \cdot d_k &amp;lt; 0 \Rightarrow$
               $f(x_{k+1}) &amp;lt; f(x_k)$, d.h. der Gradient und die Abstiegsrichtung
-              m&amp;uuml;ssen einen Winkel von mehr als 90&amp;deg; einschlie&amp;szlig;en. (TODO: Warum?)
+              m&amp;uuml;ssen einen Winkel von mehr als 90&amp;deg; einschlie&amp;szlig;en.
           &lt;/li&gt;
 &lt;li&gt;H&amp;auml;ufig wird $d_k = - D_k \nabla f(x_k)$ gew&amp;auml;hlt, wobei
               $D_k$ eine positiv definite Matrix ist.
@@ -1124,6 +1124,24 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
         die Transitionsmatrix ist ($f_{ij}(\pi)$ gibt die Wahrscheinlichkeit
         an, von Zustand $i$ in Zustand $j$ unter der Strategie $\pi$ zu
         wechseln).
+
+        Au&amp;szlig;erdem sind der Schrittkostenvektor $g(\pi)$ und der
+        Wertefunktionsvektor $J$ von folgender Struktur:
+
+        $$
+\begin{align}
+g(\pi) &amp;amp;= \begin{pmatrix}g(x_1, \pi(x_1))\\
+                g(x_2, \pi(x_2))\\
+                \vdots\\
+                g(x_n, \pi(x_n))\end{pmatrix}\\
+J &amp;amp;= \begin{pmatrix}
+J(x_1)\\
+J(x_2)\\
+\vdots\\
+J(x_n)
+\end{pmatrix}
+\end{align}
+$$
 
         Die folgenden beiden Schritte werden alternierend ausgef&amp;uuml;hrt:
 
@@ -1650,7 +1668,7 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 
     &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Monotonie der Riccati-Gleichung&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;(TODO: Wozu? https://ies.anthropomatik.kit.edu/ies/download/lehre/proplan/ProPlan-7-Folien.pdf Folie 4)
+&lt;dd&gt;(Siehe &lt;a href="https://ies.anthropomatik.kit.edu/ies/download/lehre/proplan/ProPlan-7-Folien.pdf"&gt;Folie 4&lt;/a&gt;)
 
         Sei
         $$V_k(\Lambda, C) := C_k^w + (A_k - \Lambda \cdot H_k) C \cdot (A_k - \Lambda H_k)^T + \Lambda C_k^v V^T$$
@@ -2568,20 +2586,22 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;ul&gt;
 &lt;li&gt;Roboter navigiert durch Labyrint&lt;/li&gt;
 &lt;li&gt;Tic-Tac-Toe&lt;/li&gt;
-&lt;li&gt;TODO?&lt;/li&gt;
+&lt;li&gt;K&amp;uuml;rzeste Wege Suche&lt;/li&gt;
+&lt;li&gt;Aufzugsteuerung&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/td&gt;
 &lt;td&gt;
 &lt;ul&gt;
 &lt;li&gt;Sensoreinsatzplanung&lt;/li&gt;
-&lt;li&gt;Kollisionsvermeidung von Flugzeugen?&lt;/li&gt;
+&lt;li&gt;Kollisionsvermeidung von Flugzeugen&lt;/li&gt;
+&lt;li&gt;Navigationsroboter (Kamaro)&lt;/li&gt;
+&lt;li&gt;Skat&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/td&gt;
 &lt;td&gt;
 &lt;ul&gt;
 &lt;li&gt;Brettspiele (Schach, Go), da $N$ unbekannt (deterministisch)&lt;/li&gt;
-&lt;li&gt;TODO?&lt;/li&gt;
-&lt;li&gt;TODO?&lt;/li&gt;
+&lt;li&gt;Navigationsroboter&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/td&gt;
 &lt;/tr&gt;
@@ -2794,7 +2814,10 @@ J_k(x_k) &amp;amp;= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_
 &lt;li&gt;Was ist PWLC?&lt;br/&gt;
   &amp;rarr; Piece-wise linear and Concave / Convex&lt;/li&gt;
 &lt;li&gt;Warum sind PWLCs in dieser Vorlesung von Bedeutung?&lt;br/&gt;
-  &amp;rarr; TODO (Spezialfall: Endliche Planungsprobleme; die Optimale Strategie und &lt;span class="math"&gt;\(J_k\)&lt;/span&gt; sind PWLC; approximation mit &lt;span class="math"&gt;\(\alpha\)&lt;/span&gt;)&lt;/li&gt;
+  &amp;rarr; In dem Spezialfall endlicher Planungsprobleme in POMDPs kann das POMDP in
+     ein Belief-State MPD transformiert werden. Dann ist die Wertefunktion
+     &lt;span class="math"&gt;\(J_k\)&lt;/span&gt; eine PWLC; mit &lt;span class="math"&gt;\(\alpha\)&lt;/span&gt;-Vektoren kann die optimale Strategie
+     berechnet werden.&lt;/li&gt;
 &lt;li&gt;Was versteht man unter Modellpr&amp;auml;diktiver Planung (MP)?&lt;br/&gt;
   &amp;rarr; Modellpr&amp;auml;diktive Planung ist OLF, &amp;uuml;ber einen kurzen, aber wandernden
     Horizont. Im Gegensatz zu OLF kann Modellpr&amp;auml;diktive Planung auch bei
