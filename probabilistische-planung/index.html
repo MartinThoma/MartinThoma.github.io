@@ -2423,7 +2423,16 @@ $$
   &rarr; Iterativer Abstieg (Gradientenverfahren, Newton-Verfahren),
      Penalty-Ans&auml;tze</li>
 <li>Was bedeutet es, dass ein Problem geschlossen l&ouml;sbar ist?<br/>
-  &rarr; TODO</li>
+  &rarr; Das ist nicht eindeutig definiert. Streng k&ouml;nnte man folgendes sagen: Wenn
+  auf die Verwendung von numerischen Verfahren (z.B. Gradientenabstieg,
+  Monte-Carlo-Verfahren, etc.) verzichtet werden und die L&ouml;sung in Form von
+  mathematischen Grundfunktionen angegeben werden kann. Aber das wird h&auml;ufig
+  auch etwas lockerer gesehen, etwa wenn man zwar numerische Verfahren
+  ben&ouml;tigt, man aber wei&szlig; dass diese sicher zur global optimal L&ouml;sung
+  konvergieren (wie etwas bei konvexen Problemen). Auch die mathematischen
+  Grundfunktionen sind vage. So wird gerne die erf-Funktion als eine
+  Grundfunktionen angesehen, obwohl man diese nur approximativ (etwas
+  tabellarisch und per Interpolation) berechnen kann.</li>
 <li>Welche geschlossen l&ouml;sbaren Spezialf&auml;lle existieren?<br/>
   &rarr; Lineare Planungsprobleme (Foliensatz 7, Folie 17/21), auch bei POMDPs
      (vgl. Foliensatz 8 und Folie 6)</li>
@@ -2461,7 +2470,9 @@ $$
 <li>Wie lauten die Bellman-Gleichungen?<br/>
   &rarr; Siehe <a href="#bellman-equation">oben</a>.</li>
 <li>Was ist an den Bellman-Gleichungen problematisch?<br/>
-  &rarr; Erwartungswert kann aufwendig zu berechnen sein; optimale Substruktur muss nicht gegeben sein (TODO)</li>
+  &rarr;  i) Erwartungswertberechnung (kann aufwendig sein), ii) L&ouml;sen des
+  Minimierungsproblems und iii) Repr&auml;sentation der Wertfunktion insbes. bei
+  kontinuierlichem Zustand</li>
 <li>Wie h&auml;ngt ein deterministisches MDP mit der k&uuml;rzesten Wegesuche zusammen?<br/>
   &rarr; Die optimale L&ouml;sung eines deterministisches MDPs ist der k&uuml;rzeste Weg in
      dem Graphen, der durch die Zust&auml;nde des MDPs sowie den Kosten zwischen
@@ -2521,6 +2532,13 @@ $$
     beobachtet werden. Das erleichtert das Planen / finden der Strategie.</li>
 <li>Was ist der gro&szlig;e Vorteil von Off-policy RL?<br/>
   &rarr; TODO (See <a href="http://datascience.stackexchange.com/q/13029/8820">What are the advantages / disadvantages of off-policy RL vs on-policy RL?</a>)</li>
+<li>Warum ist Q-Learning Off-policy?<br/>
+  &rarr; Q-Learning verwendet eine gierige Aktion um die Q-Funktion zu
+  aktualisieren, obwohl der Agent zur Auswahl von Aktionen zwecks
+  Zustandsfortschriebung <em>nicht</em> einer gierigen Stragegie folgt, sondern etwa
+  einer \epsilon-gierigen Strategie. SARSA dagegen nutzt dieselbe
+  (nicht-gierige) Strategie zum Aktualisieren der Q-Funktion und zur
+  Aktionswahl. Daher ist SARSA on-policy und Q-Learning off-policy.</li>
 </ul>
 <h2 id="notation_1">Notation</h2>
 <p>Der Dozent nutzt folgende Notation:</p>

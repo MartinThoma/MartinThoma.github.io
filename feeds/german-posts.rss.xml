@@ -2754,7 +2754,16 @@ $$
   &amp;rarr; Iterativer Abstieg (Gradientenverfahren, Newton-Verfahren),
      Penalty-Ans&amp;auml;tze&lt;/li&gt;
 &lt;li&gt;Was bedeutet es, dass ein Problem geschlossen l&amp;ouml;sbar ist?&lt;br/&gt;
-  &amp;rarr; TODO&lt;/li&gt;
+  &amp;rarr; Das ist nicht eindeutig definiert. Streng k&amp;ouml;nnte man folgendes sagen: Wenn
+  auf die Verwendung von numerischen Verfahren (z.B. Gradientenabstieg,
+  Monte-Carlo-Verfahren, etc.) verzichtet werden und die L&amp;ouml;sung in Form von
+  mathematischen Grundfunktionen angegeben werden kann. Aber das wird h&amp;auml;ufig
+  auch etwas lockerer gesehen, etwa wenn man zwar numerische Verfahren
+  ben&amp;ouml;tigt, man aber wei&amp;szlig; dass diese sicher zur global optimal L&amp;ouml;sung
+  konvergieren (wie etwas bei konvexen Problemen). Auch die mathematischen
+  Grundfunktionen sind vage. So wird gerne die erf-Funktion als eine
+  Grundfunktionen angesehen, obwohl man diese nur approximativ (etwas
+  tabellarisch und per Interpolation) berechnen kann.&lt;/li&gt;
 &lt;li&gt;Welche geschlossen l&amp;ouml;sbaren Spezialf&amp;auml;lle existieren?&lt;br/&gt;
   &amp;rarr; Lineare Planungsprobleme (Foliensatz 7, Folie 17/21), auch bei POMDPs
      (vgl. Foliensatz 8 und Folie 6)&lt;/li&gt;
@@ -2792,7 +2801,9 @@ $$
 &lt;li&gt;Wie lauten die Bellman-Gleichungen?&lt;br/&gt;
   &amp;rarr; Siehe &lt;a href="#bellman-equation"&gt;oben&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;Was ist an den Bellman-Gleichungen problematisch?&lt;br/&gt;
-  &amp;rarr; Erwartungswert kann aufwendig zu berechnen sein; optimale Substruktur muss nicht gegeben sein (TODO)&lt;/li&gt;
+  &amp;rarr;  i) Erwartungswertberechnung (kann aufwendig sein), ii) L&amp;ouml;sen des
+  Minimierungsproblems und iii) Repr&amp;auml;sentation der Wertfunktion insbes. bei
+  kontinuierlichem Zustand&lt;/li&gt;
 &lt;li&gt;Wie h&amp;auml;ngt ein deterministisches MDP mit der k&amp;uuml;rzesten Wegesuche zusammen?&lt;br/&gt;
   &amp;rarr; Die optimale L&amp;ouml;sung eines deterministisches MDPs ist der k&amp;uuml;rzeste Weg in
      dem Graphen, der durch die Zust&amp;auml;nde des MDPs sowie den Kosten zwischen
@@ -2852,6 +2863,13 @@ $$
     beobachtet werden. Das erleichtert das Planen / finden der Strategie.&lt;/li&gt;
 &lt;li&gt;Was ist der gro&amp;szlig;e Vorteil von Off-policy RL?&lt;br/&gt;
   &amp;rarr; TODO (See &lt;a href="http://datascience.stackexchange.com/q/13029/8820"&gt;What are the advantages / disadvantages of off-policy RL vs on-policy RL?&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Warum ist Q-Learning Off-policy?&lt;br/&gt;
+  &amp;rarr; Q-Learning verwendet eine gierige Aktion um die Q-Funktion zu
+  aktualisieren, obwohl der Agent zur Auswahl von Aktionen zwecks
+  Zustandsfortschriebung &lt;em&gt;nicht&lt;/em&gt; einer gierigen Stragegie folgt, sondern etwa
+  einer \epsilon-gierigen Strategie. SARSA dagegen nutzt dieselbe
+  (nicht-gierige) Strategie zum Aktualisieren der Q-Funktion und zur
+  Aktionswahl. Daher ist SARSA on-policy und Q-Learning off-policy.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="notation_1"&gt;Notation&lt;/h2&gt;
 &lt;p&gt;Der Dozent nutzt folgende Notation:&lt;/p&gt;
@@ -7687,7 +7705,7 @@ sind:&lt;/p&gt;
 &lt;li&gt;Unterschiedliche Skalen (&amp;rarr; Teilen durch Varianz oder durch Wertebereich)&lt;/li&gt;
 &lt;li&gt;Unterschiedliche Wertebereiche (&amp;rarr; Durchschnitt abziehen)&lt;/li&gt;
 &lt;li&gt;Wie funktioniert MDA?&lt;br/&gt;
-  &amp;rarr; Sie maximiert &lt;span markdown="0"&gt;&lt;span class="math"&gt;\(J(w) = \frac{|m'_1 - m'_2|^2}{s'_1^2 - s'_2^2}\)&lt;/span&gt;&lt;/span&gt;
+  &amp;rarr; Sie maximiert &lt;span markdown="0"&gt;&lt;span class="math"&gt;\(J(w) = \frac{|m'_1 - m'_2|^2}{{s'}_1^2 - {s'}_2^2}\)&lt;/span&gt;&lt;/span&gt;
   (im 2-Klassen Fall, wobei &lt;span class="math"&gt;\(w\)&lt;/span&gt; die Ebene ist, auf die projeziert wird)&lt;/li&gt;
 &lt;li&gt;Wie unterscheidet sich PCA/MDA von dem suboptimalen Algorithmus zur
   Merkmalsauswahl?&lt;br/&gt;
