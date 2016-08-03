@@ -271,7 +271,7 @@ sind:
   - Unterschiedliche Skalen (→ Teilen durch Varianz oder durch Wertebereich)
   - Unterschiedliche Wertebereiche (→ Durchschnitt abziehen)
 * Wie funktioniert MDA?<br/>
-  → Sie maximiert <span markdown=0>$J(w) = \frac{|m'_1 - m'_2|^2}{s'_1^2 - s'_2^2}$</span>
+  → Sie maximiert <span markdown=0>$J(w) = \frac{|m'_1 - m'_2|^2}{{s'}_1^2 - {s'}_2^2}$</span>
   (im 2-Klassen Fall, wobei $w$ die Ebene ist, auf die projeziert wird)
 * Wie unterscheidet sich PCA/MDA von dem suboptimalen Algorithmus zur
   Merkmalsauswahl?<br/>
@@ -303,7 +303,7 @@ sind:
           (Kernel-Trick).
     - (E) Relaxation der Forderung nach linearer Trennbarkeit durch Einführung
           von Schlupfvariablen (slack variables).
-* Wie lautet die Dichtefunktion der [$d$-dimensionale Gaußverteilung](https://de.wikipedia.org/wiki/Mehrdimensionale_Normalverteilung)? $f_X(x) = \frac{1}{\sqrt{(2\pi \det{\Sigma})}} \exp(-\frac{1}{2}(x-\mu)^T \Sigma^{-1} (x-\mu))$
+* Wie lautet die Dichtefunktion der [$d$-dimensionale Gaußverteilung](https://de.wikipedia.org/wiki/Mehrdimensionale_Normalverteilung)? $f_X(x) = \frac{1}{\sqrt{((2\pi)^d \det{\Sigma})}} \exp(-\frac{1}{2}(x-\mu)^T \Sigma^{-1} (x-\mu))$
 * Wie lautet Mercers Theorem? → [wiki](https://de.wikipedia.org/wiki/Satz_von_Mercer)
 * Wie ist die [Kullback-Leibler-Divergenz](https://de.wikipedia.org/wiki/Kullback-Leibler-Divergenz) defininiert?
 

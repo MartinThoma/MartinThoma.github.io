@@ -882,7 +882,7 @@ $$
         $$
         \begin{align}
             P_N &= Q_N\\
-            P_k &= A_k^T \left ( P_{k+1} - P_{k+1} B_k (R_k + B_k^T P_{k+1} B_k)^{-1} B_k^T P_{k+1} \right ) A_k + Q_k
+            P_k &= A_k^T \left ( \underbrace{P_{k+1} - \overbrace{P_{k+1} B_k (B_k^T P_{k+1} B_k + R_k)^{-1}}^{\text{see Kalman gain}} B_k^T P_{k+1}}_{\text{see error estimate update in Kalman filter}} \right ) A_k + Q_k
         \end{align}$$
     </dd>
     <dt><dfn>PWLC</dfn> (<dfn>Piece-wise linear and Concave</dfn>)</dt>
@@ -2451,7 +2451,16 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
   → Iterativer Abstieg (Gradientenverfahren, Newton-Verfahren),
      Penalty-Ansätze
 * Was bedeutet es, dass ein Problem geschlossen lösbar ist?<br/>
-  → TODO
+  → Das ist nicht eindeutig definiert. Streng könnte man folgendes sagen: Wenn
+  auf die Verwendung von numerischen Verfahren (z.B. Gradientenabstieg,
+  Monte-Carlo-Verfahren, etc.) verzichtet werden und die Lösung in Form von
+  mathematischen Grundfunktionen angegeben werden kann. Aber das wird häufig
+  auch etwas lockerer gesehen, etwa wenn man zwar numerische Verfahren
+  benötigt, man aber weiß dass diese sicher zur global optimal Lösung
+  konvergieren (wie etwas bei konvexen Problemen). Auch die mathematischen
+  Grundfunktionen sind vage. So wird gerne die erf-Funktion als eine
+  Grundfunktionen angesehen, obwohl man diese nur approximativ (etwas
+  tabellarisch und per Interpolation) berechnen kann.
 * Welche geschlossen lösbaren Spezialfälle existieren?<br/>
   → Lineare Planungsprobleme (Foliensatz 7, Folie 17/21), auch bei POMDPs
      (vgl. Foliensatz 8 und Folie 6)
@@ -2490,7 +2499,9 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
 * Wie lauten die Bellman-Gleichungen?<br/>
   → Siehe <a href="#bellman-equation">oben</a>.
 * Was ist an den Bellman-Gleichungen problematisch?<br/>
-  → Erwartungswert kann aufwendig zu berechnen sein; optimale Substruktur muss nicht gegeben sein (TODO)
+  →  i) Erwartungswertberechnung (kann aufwendig sein), ii) Lösen des
+  Minimierungsproblems und iii) Repräsentation der Wertfunktion insbes. bei
+  kontinuierlichem Zustand
 * Wie hängt ein deterministisches MDP mit der kürzesten Wegesuche zusammen?<br/>
   → Die optimale Lösung eines deterministisches MDPs ist der kürzeste Weg in
      dem Graphen, der durch die Zustände des MDPs sowie den Kosten zwischen
@@ -2552,6 +2563,13 @@ Strategiesuche ist NICHT relevant für meine Prüfung am 4.&nbsp;August 2016.
     beobachtet werden. Das erleichtert das Planen / finden der Strategie.
 * Was ist der große Vorteil von Off-policy RL?<br/>
   → TODO (See [What are the advantages / disadvantages of off-policy RL vs on-policy RL?](http://datascience.stackexchange.com/q/13029/8820))
+* Warum ist Q-Learning Off-policy?<br/>
+  → Q-Learning verwendet eine gierige Aktion um die Q-Funktion zu
+  aktualisieren, obwohl der Agent zur Auswahl von Aktionen zwecks
+  Zustandsfortschriebung *nicht* einer gierigen Stragegie folgt, sondern etwa
+  einer \epsilon-gierigen Strategie. SARSA dagegen nutzt dieselbe
+  (nicht-gierige) Strategie zum Aktualisieren der Q-Funktion und zur
+  Aktionswahl. Daher ist SARSA on-policy und Q-Learning off-policy.
 
 
 ## Notation

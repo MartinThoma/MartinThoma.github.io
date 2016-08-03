@@ -723,7 +723,7 @@ Slide name: `V13_2015-06-09_NNlearning-tricks.pdf`
         <br/>
         Siehe auch:
 
-        * [Optimization: Stochastic Gradient Descent](http://ufldl.stanford.edu/tutorial/supervised/OptimizationStochasticGradientDescent/#momentum)
+        <a href="http://ufldl.stanford.edu/tutorial/supervised/OptimizationStochasticGradientDescent/#momentum">Optimization: Stochastic Gradient Descent</a>
         </dd>
     <dt><a href="https://en.wikipedia.org/wiki/Quickprop"><dfn>Quickprop</dfn></a></dt>
     <dd>Quickprop ist ein Trainingsverfahren für neuronale Netze. Der Lernalgorithmus
