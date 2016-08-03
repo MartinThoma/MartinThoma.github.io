@@ -1276,7 +1276,7 @@ $$
         $$
         \begin{align}
             P_N &amp;amp;= Q_N\\
-            P_k &amp;amp;= A_k^T \left ( P_{k+1} - P_{k+1} B_k (R_k + B_k^T P_{k+1} B_k)^{-1} B_k^T P_{k+1} \right ) A_k + Q_k
+            P_k &amp;amp;= A_k^T \left ( \underbrace{P_{k+1} - \overbrace{P_{k+1} B_k (B_k^T P_{k+1} B_k + R_k)^{-1}}^{\text{vgl. Kalman gain}} B_k^T P_{k+1}}_{\text{see error estimate update in Kalman filter}} \right ) A_k + Q_k
         \end{align}$$
     &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;PWLC&lt;/dfn&gt; (&lt;dfn&gt;Piece-wise linear and Concave&lt;/dfn&gt;)&lt;/dt&gt;
@@ -8461,8 +8461,8 @@ $$X\sim \mathcal N_p(\mu, \Sigma).$$&lt;/dd&gt;
 &lt;br/&gt;
         Siehe auch:
 
-        * [Optimization: Stochastic Gradient Descent](http://ufldl.stanford.edu/tutorial/supervised/OptimizationStochasticGradientDescent/#momentum)
-        &lt;/dd&gt;
+        &lt;a href="http://ufldl.stanford.edu/tutorial/supervised/OptimizationStochasticGradientDescent/#momentum"&gt;Optimization: Stochastic Gradient Descent&lt;/a&gt;
+&lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Quickprop"&gt;&lt;dfn&gt;Quickprop&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
 &lt;dd&gt;Quickprop ist ein Trainingsverfahren f&amp;uuml;r neuronale Netze. Der Lernalgorithmus
         nimmt an, dass die Fehlerebene lokal durch eine parabel approximiert
