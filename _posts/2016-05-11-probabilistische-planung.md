@@ -884,6 +884,13 @@ $$
             P_N &= Q_N\\
             P_k &= A_k^T \left ( \underbrace{P_{k+1} - \overbrace{P_{k+1} B_k (B_k^T P_{k+1} B_k + R_k)^{-1}}^{\text{see Kalman gain}} B_k^T P_{k+1}}_{\text{see error estimate update in Kalman filter}} \right ) A_k + Q_k
         \end{align}$$
+
+        Alternativ kann man $P_k$ also so ausdrücken:
+
+        $$\begin{align}
+            P_k &= A_k^T \left ( (I-K_k B_k^T) P_{k+1} \right ) A_k + Q_k\\
+            K_k &= P_{k+1} B_k (B_k^T P_{k+1} B_k + R_k)^{-1}
+        \end{align}$$
     </dd>
     <dt><dfn>PWLC</dfn> (<dfn>Piece-wise linear and Concave</dfn>)</dt>
     <dd>
