@@ -24,8 +24,6 @@ sowie die value- und policy iteration zu nennen.
 
 ## Behandelter Stoff
 
-### Übersicht
-
 <table>
 <tr>
     <th>#</th>
@@ -1192,7 +1190,7 @@ $$
         <ol>
             <li>Berechnung von $P(x_k | I_k)$</li>
             <li>Berechnung von $a_{k:M-1}^*$ durch Minimierung von
-                $$\mathbb{E}(\sum_{i=k} g_i(x_i, a_i) | \mathcal{I}_k)$$</li>
+                $$\mathbb{E}(\sum_{i=k}^{k+M-1} g_i(x_i, a_i) | \mathcal{I}_k)$$</li>
             <li>Anwendung von $a_k^*$, zurück zu 1.</li>
         </ol>
 
@@ -1767,7 +1765,7 @@ $$
         Die Aktualisierung nach der Ausführung von $a_k$ liefert Belohnung
         $r_k$ und Nachfolgezustand $x_{k+1}.$<br/>
 
-        <b>ABER</b> Folgeaktion $a_{k+1}$ wird benötigt. (TODO: Im Gegensatz zu?)
+        <b>ABER</b> Folgeaktion $a_{k+1}$ wird benötigt.
 
     </dd>
     <dt><a href="https://en.wikipedia.org/wiki/State-Action-Reward-State-Action"><dfn id="sarsa">SARSA</dfn></a> (<dfn>State Action Reward State Action</dfn>)</dt>
@@ -2186,7 +2184,7 @@ $$
 
 ## MDP vs POMDP vs RL
 
-<table>
+<table id="table-mdp-pomdp-rl">
     <tr>
         <th>&nbsp;</th>
         <th>MDP</th>
@@ -2607,6 +2605,37 @@ Der Dozent nutzt folgende Notation:
     * [Does the Gauss-Newton algorithm work with the Hesse matrix or Jaccobi matrix?](http://math.stackexchange.com/q/1877948/6876)
     * [What is the relationship between the Markov property and optimal substructure?](http://cs.stackexchange.com/q/61157/2914)
 * [Optimization Basics](https://martin-thoma.com/optimization-basics/)
+* [Mein Prüfungsprotokoll](https://martin-thoma.com/pdf/propla-protokoll-kit.pdf)
+
+
+## Fazit
+
+Die Vorlesung führt in das **Reinforcment Learning** ein. Um das Problem und die
+möglichen Algorithmen zu verstehen werden **MDPs** und **POMDPs** eingeführt.
+
+Die Vorlesung ist sehr gut strukturiert. Alle Grundlagen werden eingeführt,
+sodass sehr wenig Vorwissen nötig ist. Dennoch sind absolute Grundlagen der
+Wahrscheinlichkeitstheorie und der Optimierungstheorie / Analysis
+empfehlenswert; sonst geht es zu schnell.
+
+Aktuell sieht man als Student immer wieder mal zusammenhänge nicht. Es ist in
+dieser Vorlesung essentiell am Ball zu bleiben, sonst wird man schnell
+abgehängt. Ich empfehle <a href="#table-mdp-pomdp-rl">die Tabelle</a>
+anzuschauen; daran kann man einige Zusammenhänge gut erkennen.
+
+Der Dozent ist sehr freundlich und scheinbar immer gut gelaunt, beantwortet
+Fragen kompetent und sorgt allgemein für eine sehr angenehme Atmosphäre sowohl
+in der Vorlesung als auch in der Prüfung.
+
+Das Tempo der Vorlesung ist eigentlich sehr gut, aber es gibt immer wieder
+stellen wo man schnell abgehängt wird. Daher wäre es wünschenswert, auf den
+längeren Stücken vielleicht an der Tafel den aktuellen Kontext zu geben
+(z.B.: POMDP, linearer Spezialfall).
+
+Insgesamt kann ich sagen, dass es eine meiner Lieblingsvorlesungen war. Es war
+aber auch eine der Vorlesungen, wo ich mir am meisten Sorgen über die Prüfung
+gemacht habe und enorm viel Zeit reingesteckt habe. Es hat sich - sowohl von
+der Note, als auch vom Wissensgewinn - gelohnt.
 
 
 ## Vorlesungs&shy;empfehlungen
