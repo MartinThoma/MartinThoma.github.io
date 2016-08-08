@@ -2628,7 +2628,7 @@ Fragen kompetent und sorgt allgemein für eine sehr angenehme Atmosphäre sowohl
 in der Vorlesung als auch in der Prüfung.
 
 Das Tempo der Vorlesung ist eigentlich sehr gut, aber es gibt immer wieder
-stellen wo man schnell abgehängt wird. Daher wäre es wünschenswert, auf den
+Stellen wo man schnell abgehängt wird. Daher wäre es wünschenswert, auf den
 längeren Stücken vielleicht an der Tafel den aktuellen Kontext zu geben
 (z.B.: POMDP, linearer Spezialfall).
 
