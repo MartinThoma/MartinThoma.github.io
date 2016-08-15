@@ -89,6 +89,27 @@ The update rule is:
 $$x_{\text{new}} = x - \eta \nabla f(x)$$
 
 
+### Iterative Descent
+
+A more general formulation of the Gradient descent algorithm is called
+iterative descent. The idea is to start at some arbitrary $x_0$ and iteratively
+update the current guess of the minimum to
+
+$$x_{k+1} = x_k + \eta \cdot d_k$$
+
+where $\eta \in (0, 1]$ is the step length (learning rate) and
+
+$$d_k = -D_k \nabla f(x_k)$$
+
+is the direction of the descent. The direction depends on the Gradient
+$\nabla f(x_k)$, but also on a matrix $D_k$:
+
+<ul>
+    <li>$D_k = I$: Gradient descent</li>
+    <li>$D_k = H_f^{-1}(x_k)$: Newtons method, where $H_f$ is the <a href="https://en.wikipedia.org/wiki/Hessian_matrix">Hessian matrix</a> of $f$</li>
+</ul>
+
+
 ## Linear Regression with MSE
 
 In linear regression one is given a list of $n$ points $(x, y)$ with $x \in \mathbb{R}^m$ and $y \in \mathbb{R}$. The task is to find a matrix $A \in \mathbb{1 \times m}$ such that the predicted value $\hat{y}$ of the linear model
