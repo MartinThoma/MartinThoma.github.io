@@ -102,7 +102,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#simulated-annealing" title="Simulated Annealing">Simulated Annealing</a></li><li><a class="toc-href" href="#gradient-descent" title="Gradient descent">Gradient descent</a></li><li><a class="toc-href" href="#linear-regression-with-mse" title="Linear Regression with MSE">Linear Regression with MSE</a></li><li><a class="toc-href" href="#lagrange-multipliers" title="Lagrange multipliers">Lagrange multipliers</a></li><li><a class="toc-href" href="#optimization-problem-characteristics" title="Optimization Problem characteristics">Optimization Problem characteristics</a></li><li><a class="toc-href" href="#resources" title="Resources">Resources</a></li><li><a class="toc-href" href="#references" title="References">References</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#simulated-annealing" title="Simulated Annealing">Simulated Annealing</a></li><li><a class="toc-href" href="#gradient-descent" title="Gradient descent">Gradient descent</a><ul><li><a class="toc-href" href="#iterative-descent" title="Iterative Descent">Iterative Descent</a></li></ul></li><li><a class="toc-href" href="#linear-regression-with-mse_1" title="Linear Regression with MSE">Linear Regression with MSE</a></li><li><a class="toc-href" href="#lagrange-multipliers" title="Lagrange multipliers">Lagrange multipliers</a></li><li><a class="toc-href" href="#optimization-problem-characteristics" title="Optimization Problem characteristics">Optimization Problem characteristics</a></li><li><a class="toc-href" href="#resources" title="Resources">Resources</a></li><li><a class="toc-href" href="#references" title="References">References</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -161,7 +161,20 @@ learining, this <span class="math">\(\eta\)</span> is called the <em>learning ra
 chooses <span class="math">\(\eta = 0.01\)</span>. However, there are <a href="https://martin-thoma.com/neuronale-netze-vorlesung/#learning-rate-scheduling">learning rate scheduling algorithms</a> which adapt this parameter during training.</p>
 <p>The update rule is:</p>
 <div class="math">$$x_{\text{new}} = x - \eta \nabla f(x)$$</div>
-<h2 id="linear-regression-with-mse">Linear Regression with MSE</h2>
+<h3 id="iterative-descent">Iterative Descent</h3>
+<p>A more general formulation of the Gradient descent algorithm is called
+iterative descent. The idea is to start at some arbitrary <span class="math">\(x_0\)</span> and iteratively
+update the current guess of the minimum to</p>
+<div class="math">$$x_{k+1} = x_k + \eta \cdot d_k$$</div>
+<p>where <span class="math">\(\eta \in (0, 1]\)</span> is the step length (learning rate) and</p>
+<div class="math">$$d_k = -D_k \nabla f(x_k)$$</div>
+<p>is the direction of the descent. The direction depends on the Gradient
+<span class="math">\(\nabla f(x_k)\)</span>, but also on a matrix <span class="math">\(D_k\)</span>:</p>
+<ul>
+<li>$D_k = I$: Gradient descent</li>
+<li>$D_k = H_f^{-1}(x_k)$: Newtons method</li>
+</ul>
+<h2 id="linear-regression-with-mse_1">Linear Regression with MSE</h2>
 <p>In linear regression one is given a list of <span class="math">\(n\)</span> points <span class="math">\((x, y)\)</span> with <span class="math">\(x \in \mathbb{R}^m\)</span> and <span class="math">\(y \in \mathbb{R}\)</span>. The task is to find a matrix <span class="math">\(A \in \mathbb{1 \times m}\)</span> such that the predicted value <span class="math">\(\hat{y}\)</span> of the linear model</p>
 <div class="math">$$\hat{y}(x) = A \cdot x$$</div>
 <p>minimizes the term</p>

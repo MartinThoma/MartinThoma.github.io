@@ -328,7 +328,20 @@ learining, this &lt;span class="math"&gt;\(\eta\)&lt;/span&gt; is called the &lt
 chooses &lt;span class="math"&gt;\(\eta = 0.01\)&lt;/span&gt;. However, there are &lt;a href="https://martin-thoma.com/neuronale-netze-vorlesung/#learning-rate-scheduling"&gt;learning rate scheduling algorithms&lt;/a&gt; which adapt this parameter during training.&lt;/p&gt;
 &lt;p&gt;The update rule is:&lt;/p&gt;
 &lt;div class="math"&gt;$$x_{\text{new}} = x - \eta \nabla f(x)$$&lt;/div&gt;
-&lt;h2 id="linear-regression-with-mse"&gt;Linear Regression with MSE&lt;/h2&gt;
+&lt;h3 id="iterative-descent"&gt;Iterative Descent&lt;/h3&gt;
+&lt;p&gt;A more general formulation of the Gradient descent algorithm is called
+iterative descent. The idea is to start at some arbitrary &lt;span class="math"&gt;\(x_0\)&lt;/span&gt; and iteratively
+update the current guess of the minimum to&lt;/p&gt;
+&lt;div class="math"&gt;$$x_{k+1} = x_k + \eta \cdot d_k$$&lt;/div&gt;
+&lt;p&gt;where &lt;span class="math"&gt;\(\eta \in (0, 1]\)&lt;/span&gt; is the step length (learning rate) and&lt;/p&gt;
+&lt;div class="math"&gt;$$d_k = -D_k \nabla f(x_k)$$&lt;/div&gt;
+&lt;p&gt;is the direction of the descent. The direction depends on the Gradient
+&lt;span class="math"&gt;\(\nabla f(x_k)\)&lt;/span&gt;, but also on a matrix &lt;span class="math"&gt;\(D_k\)&lt;/span&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$D_k = I$: Gradient descent&lt;/li&gt;
+&lt;li&gt;$D_k = H_f^{-1}(x_k)$: Newtons method&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="linear-regression-with-mse_1"&gt;Linear Regression with MSE&lt;/h2&gt;
 &lt;p&gt;In linear regression one is given a list of &lt;span class="math"&gt;\(n\)&lt;/span&gt; points &lt;span class="math"&gt;\((x, y)\)&lt;/span&gt; with &lt;span class="math"&gt;\(x \in \mathbb{R}^m\)&lt;/span&gt; and &lt;span class="math"&gt;\(y \in \mathbb{R}\)&lt;/span&gt;. The task is to find a matrix &lt;span class="math"&gt;\(A \in \mathbb{1 \times m}\)&lt;/span&gt; such that the predicted value &lt;span class="math"&gt;\(\hat{y}\)&lt;/span&gt; of the linear model&lt;/p&gt;
 &lt;div class="math"&gt;$$\hat{y}(x) = A \cdot x$$&lt;/div&gt;
 &lt;p&gt;minimizes the term&lt;/p&gt;
