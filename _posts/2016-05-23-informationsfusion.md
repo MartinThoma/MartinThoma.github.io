@@ -33,7 +33,14 @@ Slides: `IF-Kap2_151215.pdf`
 
 <dl>
     <dt><a href="https://en.wikipedia.org/wiki/Probability_axioms#Axioms"><dfn id="kolmogorov-axioms">Kolmogorov-Axiome</dfn></a></dt>
-    <dd>TODO</dd>
+    <dd>Siehe <a href="https://martin-thoma.com/probabilistische-planung#probability-measure">Probabilistische Planung</a></dd>
+    <dt><a href="https://de.wikipedia.org/wiki/Sch%C3%A4tzfunktion"><dfn>Schätzer</dfn></a></dt>
+    <dd>
+        Sei $X = (X_1, \dots, X_n)$ eine Stichprobe und
+        $$g: \mathbb{R}^n \rightarrow \mathbb{R}$$
+        eine Abbildung. Dan
+
+    </dd>
     <dt><a href="https://de.wikipedia.org/wiki/Kalman-Filter"><dfn id="kalman-filter">Kalman-Filter</dfn></a> (<dfn>KF</dfn>)</dt>
     <dd>Siehe <a href="https://martin-thoma.com/kalman-filter/">Kalman-filter Artikel</a>.</dd>
     <dt><dfn id="extended-kalman-filter">Extended Kalman Filter</dfn> (<dfn id="ekf">EKF</dfn>)</dt>
@@ -111,7 +118,7 @@ For this chapter, I highly recommend reading [Anwendung der Dempster-Shafer Evid
     </dd>
     <dt><dfn>Dempsters Kombinationsregel</dfn> (<dfn>Dempsters rule of combination</dfn>, <dfn>DRC</dfn>)</dt>
     <dd>$$m_1 \oplus m_2 (A) := \begin{cases}0&\text{for } A = \emptyset\\
-                                             \frac{\sum{X, Y: X \cap Y = A} m_1(X) m_2(Y)}{|1-K|}\end{cases}$$
+                                             \frac{\sum_{X, Y: X \cap Y = A} m_1(X) m_2(Y)}{|1-K|}\end{cases}$$
         für Konfliktgrad $$K := \sum_{X, Y: X \cap Y = \emptyset} m_1(X) m_2(Y)$$
         Bei einem Konfliktgrad von $0 < K < 1$ spricht man von einem
         partiellen Konflikt. Ist der Konfliktgrad gleich $K=1$, so ist DRC
@@ -126,16 +133,40 @@ For this chapter, I highly recommend reading [Anwendung der Dempster-Shafer Evid
 
 Slides: `IF-Kap4_160125.pdf`
 
+Zur Einführung: [Fuzzy Logic - Computerphile](https://www.youtube.com/watch?v=r804UF8Ia4c)
+
 <dl>
-    <dt><dfn>Zugehörigkeitsfunktion</dfn></dt>
-    <dd>Eine Zugehörigkeitsfunktion ist eine Funktion $\mu_A: A \rightarrow [0, 1]$ zu
-        einem Grundraum $\Omega$ mit $A \subseteq \Omega$.
-        Dann gilt
+    <dt><dfn>Zugehörigkeitsfunktion</dfn> (<dfn id="membership-function">membership function</dfn>)</dt>
+    <dd>Sei $\Omega$ ein Grundraum und $A$ eine unscharfe Menge, für die
+        $\mu_A: X \rightarrow [0, 1]$ den Grad der Zugehörigkeit definiert.
+
+        $\mu_A$ heißt Zugehörigkeitsfunktion, wenn gilt
         $$\mu_{\Omega \setminus A}(t) = 1 - \mu_{A}$$</dd>
-    <dt><dfn>Defuzzifizierung</dfn></dt>
+    <dt><a href="https://de.wikipedia.org/wiki/Satz_vom_ausgeschlossenen_Dritten"><dfn>Gesetz vom ausgeschlossenen Dritten</dfn></a></dt>
+    <dd>Für eine beliebige Aussage muss mindestens die Aussage selbst oder ihr Gegenteil gelten. Dies gilt in der klassischen Mengenlehre, jedoch nicht für unscharfe Mengen.</dd>
+    <dt><a href="https://de.wikipedia.org/wiki/Satz_vom_Widerspruch"><dfn>Gesetz vom ausgeschlossenen Widerspruch</dfn></a></dt>
+    <dd>
+
+        Zwei einander widersprechende Aussagen können nicht zugleich zutreffen.
+
+        Dies gilt in der klassischen Mengenlehre, jedoch nicht für unscharfe Mengen.
+
+    </dd>
+    <dt><dfn>Defuzzifizierung</dfn> (<a href="https://en.wikipedia.org/wiki/Defuzzification"><dfn>Defuzzification</dfn></a>)</dt>
     <dd>Unter Defuzzifizierung versteht man die Berechnung des scharfen
-        Wertes der Ausgangsgröße.</dd>
-    <dt><dfn>Schwerpunktverfahren</dfn></dt>
+        Wertes der Ausgangsgröße.<br/>
+        <br/>
+        Methoden:
+
+        <ul>
+            <li><a href="#center-of-gravity-defuzzification">Schwerpunktverfahren</a></li>
+            <li><a href="#mean-of-maxima-defuzzification">Maximum-Mittelwert-Methode</a></li>
+        </ul>
+
+    </dd>
+    <dt><dfn>Schwerpunktverfahren</dfn> (<dfn id="center-of-gravity-defuzzification">center of gravity</dfn>, <dfn>COG</dfn>)</dt>
+    <dd>Das Schwerpunktverfahren dient zur Defuzzifizierung.</dd>
+    <dt><dfn>Maximum-Mittelwert-Methode</dfn> (<dfn id="mean-of-maxima-defuzzification">Mean of maxima</dfn>, <dfn>MOM</dfn>)</dt>
     <dd>Das Schwerpunktverfahren dient zur Defuzzifizierung.</dd>
 </dl>
 
@@ -154,7 +185,7 @@ Slides: `IF-Kap6_160125.pdf`
 Wurde nicht besprochen.
 
 
-### Energiefunktionale
+### Energie&shy;funktionale
 
 Slides: `IF-Kap7_160125.pdf`
 
@@ -246,7 +277,7 @@ Slides: `IF-Kap7_160125.pdf`
 * Wie lauten die Axiome von Kolmogorov?<br/>
   → Siehe <a href="#kolmogorov-axioms">oben</a>
 * Was sind Zugehörigkeitsfunktionen?<br/>
-  → TODO
+  → Siehe <a href="#membership-function">oben</a>
 
 ### Kalman-Filter
 
