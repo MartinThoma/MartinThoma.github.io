@@ -24,8 +24,8 @@ der eigenen Fachrichtung interessiert sind.
 
 Es gibt einige Standorte, an denen immer wieder Sommerakademien statt finden.
 Greifswald ist einer davon. Dieser Artikel ist für Stipendiaten welche noch nie
-auf einer Sommerakademie waren oder welche Besonderheiten von Greifswald
-herausfinden wollen.
+auf einer Sommerakademie waren oder welche sich über Besonderheiten von
+Greifswald informieren wollen.
 
 Da die Kurse immer unterschiedlich sind, werde ich dazu nichts schreiben.
 
@@ -36,6 +36,8 @@ Die meisten werden mit der Bahn zum Bahnhof Greifswald fahren. Von dort kann man
 mit Linie&nbsp;2 zur Haltestelle "Wieck Brücke" fahren. Dann sind es noch ca.
 100&thinsp;m an der Ryck (ein Fluss welcher in die Ostsee mündet) entlang zum
 MaJuWi. Das MaJuWi ist auf der rechten Seite, auf der Linken hat man den Fluss.
+
+<p class="bg-info"><b>Tipp:</b> Achtet bei Bahn-Tickets darauf, dass dort "Greifswald+City" oder ähnliches steht. Das kostet beim Kauf nicht mehr, aber ihr könnt dann bis zum MaJuWi fahren und müsst nicht noch 2&nbsp;Euro an den lokalen Verkehrsverbund zahlen.</p>
 
 
 ## Ablauf
@@ -95,6 +97,10 @@ abgegeben haben.
     <figcaption class="text-center">Photo-Sphere des MaJuWi</figcaption>
 </figure>
 
+Auch an der Uni gibt es wenig Steckdosen. Wenn ihr also mit den Notebooks
+arbeiten wollt, solltet ihr unbedingt eine Steckdosenleiste mitbringen. Auch
+ein HDMI-VGA-Adapter könnte nötig sein, wenn ihr nur einen VGA-Anschluss habt.
+
 
 ## Freizeit
 
@@ -146,7 +152,7 @@ abgegeben haben.
   Stockbrot finden.
 * [Wendelstein 7-X](https://de.wikipedia.org/wiki/Wendelstein_7-X): Kann man
   besuchen, muss man aber anmelden.
-* Spiele Abende: Bei [Werwolf](https://de.wikipedia.org/wiki/Die_Werw%C3%B6lfe_von_D%C3%BCsterwald)
+* Spieleabende: Bei [Werwolf](https://de.wikipedia.org/wiki/Die_Werw%C3%B6lfe_von_D%C3%BCsterwald)
   sind immer einige dabei. Auch Russisch Tabu und [Black Stories](https://de.wikipedia.org/wiki/Black_Stories)
   finden häufig regen Anklang.
 
@@ -166,6 +172,11 @@ abgegeben haben.
   Zahnbürste, Digitalkamera und Rasierer kommen sollte man das auf jeden Fall
   mitnehmen. Ich hatte den **Anker PowerCore 20100mAh** dabei und war damit
   recht glücklich.
+* Stirnlampe / Taschenlampe: Ist nützlich, wenn man abends nicht mehr das Licht
+  anmachen will aber dennoch was sehen muss. Beispielsweise wenn man ins Zimmer
+  kommt wenn die anderen schon schlafen. Die Stirnlampe ist zusätzlich zum
+  Fahrradfahren praktisch. Von den geliehenen Rädern waren bei vielen die
+  Lichter kaputt.
 * Mücken-Abwehrmittel (z.B. Autan): Auf dem MaJuWi-Gelände ist ein Teich und
   abends gibt es Unmengen an Mücken.
 * Sport
