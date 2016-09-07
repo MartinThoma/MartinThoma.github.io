@@ -148,7 +148,7 @@ Slides: `ProPlan-1-Anschrieb.pdf`
       </ul>
 
       </dd>
-  <dt><dfn>Wahrscheinlichkeitsmaß</dfn></dt>
+  <dt><dfn>Wahrscheinlichkeitsmaß</dfn> (<dfn id="probability-measure">Probability measure</dfn>)</dt>
   <dd>Eine Funktion $P: \mathcal{A} \rightarrow \mathbb{R}$ (mit $\mathcal{A}$ ist
       Sigma-Algebra über der Grundmenge $S$) heißt
       <i>Wahrscheinlichkeitsmaß</i>, wenn die Kolmogorov'schen Axiome gelten:
