@@ -534,8 +534,8 @@ Slide name: `MLI_04_Lerntheorie_slides1.pdf`
     * Das Verfahren könnte nur suboptimale Lösungen finden.
     * Das Verfahren könnte die passende Hypothese nicht beinhalten.
 * Lernproblemtypen: Sei die Menge der Lernbeispiele in $X \times Y$, mit $X \times Y =$...
-    * $\\{Attribut_1, Attribut_2, ...\\} \times \\{True, False\\}$: Konzeptlernen
-    * $\mathbb{R}^n \times \\{Klasse_1, ..., Klasse_n\\}$: Klassifikation
+    * $\{Attribut_1, Attribut_2, ...\} \times \{True, False\}$: Konzeptlernen
+    * $\mathbb{R}^n \times \{Klasse_1, ..., Klasse_n\}$: Klassifikation
     * $\mathbb{R}^n \times \mathbb{R}$: Regression
 * Gradientenabstieg, Overfitting
 * Kreuzvalidierung
@@ -576,6 +576,17 @@ Siehe auch:
             <a href="../images/2015/12/ml-ensemble-learning.png"><img src="../images/2015/12/ml-ensemble-learning.png" alt="Ensemble Learning Techniques: Boosting, Bagging, Random Subspaces, Pasting, Random Patches" style="max-width:500px;" class=""/></a>
             <figcaption class="text-center">Ensemble Learning Techniques: Boosting, Bagging, Random Subspaces, Pasting, Random Patches</figcaption>
         </figure>
+
+Weiteres:
+
+<dl>
+    <dt><dfn id="stacking">Stacking</dfn></dt>
+    <dd>A committee learner, usually OLS or LASSO</dd>
+    <dt><dfn id="bagging">Bagging/Bragging</dfn></dt>
+    <dd>Learnier is fit, results are mean/median aggregated with the aim of reduction variance</dd>
+    <dt><dfn>Boosting</dfn></dt>
+    <dd>Build chain of learners.</dd>
+</dl>
 
 
 #### VC-Dimension
