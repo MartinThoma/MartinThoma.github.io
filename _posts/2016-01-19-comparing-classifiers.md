@@ -700,7 +700,7 @@ Neural networks take their time to train and a feeling for the topology, but
 their classification results are nice and the testing time is good as well.
 
 Random Forests and SVMs are also a model a type of model one should think of.
-However, the stard implementation is very slow compared to neural networks.
+However, the standard implementation is very slow compared to neural networks.
 
 [`sklearn.lda.LDA`](http://scikit-learn.org/0.16/modules/generated/sklearn.lda.LDA.html)
 might also be worth a try. The rest seems to be quite bad compared with those
