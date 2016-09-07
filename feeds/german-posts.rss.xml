@@ -122,7 +122,7 @@ ein HDMI-VGA-Adapter k&amp;ouml;nnte n&amp;ouml;tig sein, wenn ihr nur einen VGA
   Stockbrot finden.&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://de.wikipedia.org/wiki/Wendelstein_7-X"&gt;Wendelstein 7-X&lt;/a&gt;: Kann man
   besuchen, muss man aber anmelden.&lt;/li&gt;
-&lt;li&gt;Spiele Abende: Bei &lt;a href="https://de.wikipedia.org/wiki/Die_Werw%C3%B6lfe_von_D%C3%BCsterwald"&gt;Werwolf&lt;/a&gt;
+&lt;li&gt;Spieleabende: Bei &lt;a href="https://de.wikipedia.org/wiki/Die_Werw%C3%B6lfe_von_D%C3%BCsterwald"&gt;Werwolf&lt;/a&gt;
   sind immer einige dabei. Auch Russisch Tabu und &lt;a href="https://de.wikipedia.org/wiki/Black_Stories"&gt;Black Stories&lt;/a&gt;
   finden h&amp;auml;ufig regen Anklang.&lt;/li&gt;
 &lt;/ul&gt;
@@ -202,7 +202,14 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;dl&gt;
 &lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Probability_axioms#Axioms"&gt;&lt;dfn id="kolmogorov-axioms"&gt;Kolmogorov-Axiome&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
-&lt;dd&gt;TODO&lt;/dd&gt;
+&lt;dd&gt;Siehe &lt;a href="https://martin-thoma.com/probabilistische-planung#probability-measure"&gt;Probabilistische Planung&lt;/a&gt;&lt;/dd&gt;
+&lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Sch%C3%A4tzfunktion"&gt;&lt;dfn&gt;Sch&amp;auml;tzer&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
+&lt;dd&gt;
+        Sei $X = (X_1, \dots, X_n)$ eine Stichprobe und
+        $$g: \mathbb{R}^n \rightarrow \mathbb{R}$$
+        eine Abbildung. Dan
+
+    &lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Kalman-Filter"&gt;&lt;dfn id="kalman-filter"&gt;Kalman-Filter&lt;/dfn&gt;&lt;/a&gt; (&lt;dfn&gt;KF&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;Siehe &lt;a href="https://martin-thoma.com/kalman-filter/"&gt;Kalman-filter Artikel&lt;/a&gt;.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="extended-kalman-filter"&gt;Extended Kalman Filter&lt;/dfn&gt; (&lt;dfn id="ekf"&gt;EKF&lt;/dfn&gt;)&lt;/dt&gt;
@@ -273,7 +280,7 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
     &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Dempsters Kombinationsregel&lt;/dfn&gt; (&lt;dfn&gt;Dempsters rule of combination&lt;/dfn&gt;, &lt;dfn&gt;DRC&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;$$m_1 \oplus m_2 (A) := \begin{cases}0&amp;amp;\text{for } A = \emptyset\\
-                                             \frac{\sum{X, Y: X \cap Y = A} m_1(X) m_2(Y)}{|1-K|}\end{cases}$$
+                                             \frac{\sum_{X, Y: X \cap Y = A} m_1(X) m_2(Y)}{|1-K|}\end{cases}$$
         f&amp;uuml;r Konfliktgrad $$K := \sum_{X, Y: X \cap Y = \emptyset} m_1(X) m_2(Y)$$
         Bei einem Konfliktgrad von $0 &amp;lt; K &amp;lt; 1$ spricht man von einem
         partiellen Konflikt. Ist der Konfliktgrad gleich $K=1$, so ist DRC
@@ -284,16 +291,38 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;/dl&gt;
 &lt;h3 id="fuzzy-systeme"&gt;Fuzzy-Systeme&lt;/h3&gt;
 &lt;p&gt;Slides: &lt;code&gt;IF-Kap4_160125.pdf&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Zur Einf&amp;uuml;hrung: &lt;a href="https://www.youtube.com/watch?v=r804UF8Ia4c"&gt;Fuzzy Logic - Computerphile&lt;/a&gt;&lt;/p&gt;
 &lt;dl&gt;
-&lt;dt&gt;&lt;dfn&gt;Zugeh&amp;ouml;rigkeitsfunktion&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;Eine Zugeh&amp;ouml;rigkeitsfunktion ist eine Funktion $\mu_A: A \rightarrow [0, 1]$ zu
-        einem Grundraum $\Omega$ mit $A \subseteq \Omega$.
-        Dann gilt
+&lt;dt&gt;&lt;dfn&gt;Zugeh&amp;ouml;rigkeitsfunktion&lt;/dfn&gt; (&lt;dfn id="membership-function"&gt;membership function&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dd&gt;Sei $\Omega$ ein Grundraum und $A$ eine unscharfe Menge, f&amp;uuml;r die
+        $\mu_A: X \rightarrow [0, 1]$ den Grad der Zugeh&amp;ouml;rigkeit definiert.
+
+        $\mu_A$ hei&amp;szlig;t Zugeh&amp;ouml;rigkeitsfunktion, wenn gilt
         $$\mu_{\Omega \setminus A}(t) = 1 - \mu_{A}$$&lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;Defuzzifizierung&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Satz_vom_ausgeschlossenen_Dritten"&gt;&lt;dfn&gt;Gesetz vom ausgeschlossenen Dritten&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
+&lt;dd&gt;F&amp;uuml;r eine beliebige Aussage muss mindestens die Aussage selbst oder ihr Gegenteil gelten. Dies gilt in der klassischen Mengenlehre, jedoch nicht f&amp;uuml;r unscharfe Mengen.&lt;/dd&gt;
+&lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Satz_vom_Widerspruch"&gt;&lt;dfn&gt;Gesetz vom ausgeschlossenen Widerspruch&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
+&lt;dd&gt;
+
+        Zwei einander widersprechende Aussagen k&amp;ouml;nnen nicht zugleich zutreffen.
+
+        Dies gilt in der klassischen Mengenlehre, jedoch nicht f&amp;uuml;r unscharfe Mengen.
+
+    &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Defuzzifizierung&lt;/dfn&gt; (&lt;a href="https://en.wikipedia.org/wiki/Defuzzification"&gt;&lt;dfn&gt;Defuzzification&lt;/dfn&gt;&lt;/a&gt;)&lt;/dt&gt;
 &lt;dd&gt;Unter Defuzzifizierung versteht man die Berechnung des scharfen
-        Wertes der Ausgangsgr&amp;ouml;&amp;szlig;e.&lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;Schwerpunktverfahren&lt;/dfn&gt;&lt;/dt&gt;
+        Wertes der Ausgangsgr&amp;ouml;&amp;szlig;e.&lt;br/&gt;
+&lt;br/&gt;
+        Methoden:
+
+        &lt;ul&gt;
+&lt;li&gt;&lt;a href="#center-of-gravity-defuzzification"&gt;Schwerpunktverfahren&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#mean-of-maxima-defuzzification"&gt;Maximum-Mittelwert-Methode&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Schwerpunktverfahren&lt;/dfn&gt; (&lt;dfn id="center-of-gravity-defuzzification"&gt;center of gravity&lt;/dfn&gt;, &lt;dfn&gt;COG&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dd&gt;Das Schwerpunktverfahren dient zur Defuzzifizierung.&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Maximum-Mittelwert-Methode&lt;/dfn&gt; (&lt;dfn id="mean-of-maxima-defuzzification"&gt;Mean of maxima&lt;/dfn&gt;, &lt;dfn&gt;MOM&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;Das Schwerpunktverfahren dient zur Defuzzifizierung.&lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h3 id="neuronale-netze"&gt;Neuronale Netze&lt;/h3&gt;
@@ -302,7 +331,7 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;h3 id="registrierung"&gt;Registrierung&lt;/h3&gt;
 &lt;p&gt;Slides: &lt;code&gt;IF-Kap6_160125.pdf&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Wurde nicht besprochen.&lt;/p&gt;
-&lt;h3 id="energiefunktionale"&gt;Energiefunktionale&lt;/h3&gt;
+&lt;h3 id="energiefunktionale"&gt;Energie&amp;shy;funktionale&lt;/h3&gt;
 &lt;p&gt;Slides: &lt;code&gt;IF-Kap7_160125.pdf&lt;/code&gt;&lt;/p&gt;
 &lt;dl&gt;
 &lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Funktional"&gt;&lt;dfn&gt;Funktional&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
@@ -387,7 +416,7 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;li&gt;Wie lauten die Axiome von Kolmogorov?&lt;br/&gt;
   &amp;rarr; Siehe &lt;a href="#kolmogorov-axioms"&gt;oben&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Was sind Zugeh&amp;ouml;rigkeitsfunktionen?&lt;br/&gt;
-  &amp;rarr; TODO&lt;/li&gt;
+  &amp;rarr; Siehe &lt;a href="#membership-function"&gt;oben&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="kalman-filter"&gt;Kalman-Filter&lt;/h3&gt;
 &lt;ul&gt;
@@ -757,7 +786,7 @@ sowie die value- und policy iteration zu nennen.&lt;/p&gt;
 &lt;li&gt;$M_1, M_2, \dots \in \mathcal{A} \Rightarrow \bigcup_{n \in \mathbb{N}} M_n \in \mathcal{A}$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;Wahrscheinlichkeitsma&amp;szlig;&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dt&gt;&lt;dfn&gt;Wahrscheinlichkeitsma&amp;szlig;&lt;/dfn&gt; (&lt;dfn id="probability-measure"&gt;Probability measure&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;Eine Funktion $P: \mathcal{A} \rightarrow \mathbb{R}$ (mit $\mathcal{A}$ ist
       Sigma-Algebra &amp;uuml;ber der Grundmenge $S$) hei&amp;szlig;t
       &lt;i&gt;Wahrscheinlichkeitsma&amp;szlig;&lt;/i&gt;, wenn die Kolmogorov'schen Axiome gelten:
