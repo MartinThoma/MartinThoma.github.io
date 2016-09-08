@@ -126,11 +126,32 @@ Signal, usw. eingef&uuml;hrt.</p>
 <dl>
 <dt><a href="https://en.wikipedia.org/wiki/Probability_axioms#Axioms"><dfn id="kolmogorov-axioms">Kolmogorov-Axiome</dfn></a></dt>
 <dd>Siehe <a href="https://martin-thoma.com/probabilistische-planung#probability-measure">Probabilistische Planung</a></dd>
-<dt><a href="https://de.wikipedia.org/wiki/Sch%C3%A4tzfunktion"><dfn>Sch&auml;tzer</dfn></a></dt>
+<dt><a href="https://de.wikipedia.org/wiki/Kovarianz_(Stochastik)"><dfn>Kovarianz</dfn></a> (<dfn id="covariance">Covariance</dfn>)</dt>
+<dd>Es seien $X, Y$ Zufallsvariablen. Dann hei&szlig;t
+        $$COV(X, Y) = \mathbb{E}((X - \mathbb{E}(X)) \cdot (Y - \mathbb{E}(Y)))$$
+        die Kovarianz von $X$ und $Y$.
+    </dd>
+<dt><dfn id="statistisches-modell">Statistisches Modell</dfn></dt>
+<dd>Es sei $X$ eine Zufallsvariable. Dann hei&szlig;t ein Tupel
+        $(X, (P_\theta)_{\theta \in \Theta})$
+        ein statistisches Modell, wenn $(P_\theta)_{\theta \in \Theta}$ eine
+        Familie von Wahrscheinlichkeitsverteilungen ist.
+    </dd>
+<dt><a href="https://de.wikipedia.org/wiki/Sch%C3%A4tzfunktion"><dfn id="schaetzer">Sch&auml;tzer</dfn></a></dt>
 <dd>
         Sei $X = (X_1, \dots, X_n)$ eine Stichprobe und
         $$g: \mathbb{R}^n \rightarrow \mathbb{R}$$
-        eine Abbildung. Dan
+        eine Abbildung. Dann TODO
+
+    </dd>
+<dt><dfn>Asymptotisch Erwartungstreuer Sch&auml;tzer</dfn></dt>
+<dd>
+
+        Ein Sch&auml;tzer $\hat{\theta} = \hat{\theta}(X_1, \dots, X_n)$ hei&szlig;t
+        asymptotisch erwartungstreu, wenn der Grenzwert der zu sch&auml;tzenden
+        Folge unter Annahme von $\theta$ gleich $\theta$ ist:
+
+        $$\lim_{n \rightarrow \infty} \mathbb{E}(\hat{\theta}) = \theta$$
 
     </dd>
 <dt><a href="https://de.wikipedia.org/wiki/Kalman-Filter"><dfn id="kalman-filter">Kalman-Filter</dfn></a> (<dfn>KF</dfn>)</dt>
@@ -178,7 +199,7 @@ Signal, usw. eingef&uuml;hrt.</p>
 <dt><dfn id="belief-function">Belief function</dfn> (<dfn>Glaubensfunktion</dfn>)</dt>
 <dd>
 
-        Sei $\Omega$ ein Wahrnehmungsrahmen und
+        Sei $\Omega$ ein Wahrnehmungsrahmen, $m$ ein Basisma&szlig; und
         $$Bel: \mathcal{P}(\Omega) \rightarrow [0, 1]$$
         eine Funktion. $Bel$ hei&szlig;t Glaubensfunktion, wenn gilt:
 
@@ -191,7 +212,7 @@ Signal, usw. eingef&uuml;hrt.</p>
 <dt><dfn id="plausibility-function">Plausibility function</dfn> (<dfn>Plausibilit&auml;tsfunktion</dfn>)</dt>
 <dd>
 
-        Sei $\Omega$ ein Wahrnehmungsrahmen und
+        Sei $\Omega$ ein Wahrnehmungsrahmen, $m$ ein Basisma&szlig; und
         $$Pl: \mathcal{P}(\Omega) \rightarrow [0, 1]$$
         eine Funktion. $Pl$ hei&szlig;t Plausibilit&auml;tsfunktion, wenn gilt:
 
@@ -230,6 +251,22 @@ Signal, usw. eingef&uuml;hrt.</p>
         Zwei einander widersprechende Aussagen k&ouml;nnen nicht zugleich zutreffen.
 
         Dies gilt in der klassischen Mengenlehre, jedoch nicht f&uuml;r unscharfe Mengen.
+
+    </dd>
+<dt><dfn>Fuzzy-Operationen</dfn></dt>
+<dd>
+
+        Es seien $\mu_A, \mu_B$ die Zugeh&ouml;rigkeitsfunktionen zweier unscharfer
+        Mengen $A, B$ &uuml;ber dem Grundraum $\Omega$. Dann gilt:<br/>
+<br/>
+        Not:
+        $$\forall x \in \Omega: \mu_{\Omega \setminus A}(x) = 1 - \mu_A(x)$$
+        <br/>
+        Konjunktion (AND, Minimum-T-Norm):
+        $$\forall x \in \Omega: \mu_{A \land B}(x) = \min(\mu_A(x), \mu_B(x))$$
+        <br/>
+        Disjunktion (OR, Maximum-T-Norm):
+        $$\forall x \in \Omega: \mu_{A \lor B}(x) = \max(\mu_A(x), \mu_B(x))$$
 
     </dd>
 <dt><dfn>Defuzzifizierung</dfn> (<a href="https://en.wikipedia.org/wiki/Defuzzification"><dfn>Defuzzification</dfn></a>)</dt>
@@ -345,7 +382,7 @@ Signal, usw. eingef&uuml;hrt.</p>
 <ul>
 <li>Aus welchen Schritten besteht der Kalman-Filter?<br/>
   &rarr; Pr&auml;diktion, Innovation</li>
-<li>Welche erweiterungen zum Kalman-Filter kennen Sie?<br/>
+<li>Welche Erweiterungen zum Kalman-Filter kennen Sie?<br/>
   &rarr; Extended Kalman Filter (EKF), UKF (Unscented Kalman Filter)</li>
 <li>F&uuml;r welche Systeme ist der Kalman-Filter geeignet?<br/>
   &rarr; Lineare Zeitinvariante Systeme (LTI-Systeme)</li>

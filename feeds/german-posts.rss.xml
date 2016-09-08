@@ -185,6 +185,12 @@ schicken.&lt;/p&gt;
   haben, k&amp;ouml;nnen aber keines mitbringen. Das sollte man vorher kl&amp;auml;ren. Wir haben
   f&amp;uuml;r fahrtaugliche, aber dennoch recht schlechte R&amp;auml;der 4.50 Euro / Tag f&amp;uuml;r
   2&amp;nbsp;Wochen bezahlt. Eventuell kann man da was besser machen.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="weiteres"&gt;Weiteres&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://home.in.tum.de/~hefeleal/1zeit/"&gt;1Zeit-Ausstellung&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://commons.wikimedia.org/wiki/Category:Images_by_Martin_Thoma/Sommerakademie-2016"&gt;Fotos auf Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://engineering.stackexchange.com/q/11409/3061"&gt;What kind of ship is this?&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Martin Thoma</dc:creator><pubDate>Sun, 04 Sep 2016 13:00:00 +0200</pubDate><guid isPermaLink="false">tag:martin-thoma.com,2016-09-04:sommerakademie-greifswald/</guid><category>Studienstiftung</category></item><item><title>Informationsfusion</title><link>https://martin-thoma.com/informationsfusion/</link><description>&lt;div class="info"&gt;Dieser Artikel besch&amp;auml;ftigt sich mit der Vorlesung &amp;bdquo;Informationsfusion&amp;ldquo; am KIT. Er dient als Pr&amp;uuml;fungsvorbereitung. Ich habe die Vorlesungen nicht geh&amp;ouml;rt, aber die Folien von &lt;a href="http://ies.anthropomatik.kit.edu/mitarbeiter.php?person=heizmann"&gt;Herrn Prof. Dr.-Ing. Michael Heizmann&lt;/a&gt; aus dem Wintersemester 2015/2016 gelesen.&lt;/div&gt;
 &lt;p&gt;In der Vorlesung 'Informationsfusion' ist der Kalman-Filter ein zentraler
 Inhalt.&lt;/p&gt;
@@ -203,11 +209,32 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;dl&gt;
 &lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Probability_axioms#Axioms"&gt;&lt;dfn id="kolmogorov-axioms"&gt;Kolmogorov-Axiome&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
 &lt;dd&gt;Siehe &lt;a href="https://martin-thoma.com/probabilistische-planung#probability-measure"&gt;Probabilistische Planung&lt;/a&gt;&lt;/dd&gt;
-&lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Sch%C3%A4tzfunktion"&gt;&lt;dfn&gt;Sch&amp;auml;tzer&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
+&lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Kovarianz_(Stochastik)"&gt;&lt;dfn&gt;Kovarianz&lt;/dfn&gt;&lt;/a&gt; (&lt;dfn id="covariance"&gt;Covariance&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dd&gt;Es seien $X, Y$ Zufallsvariablen. Dann hei&amp;szlig;t
+        $$COV(X, Y) = \mathbb{E}((X - \mathbb{E}(X)) \cdot (Y - \mathbb{E}(Y)))$$
+        die Kovarianz von $X$ und $Y$.
+    &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="statistisches-modell"&gt;Statistisches Modell&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;Es sei $X$ eine Zufallsvariable. Dann hei&amp;szlig;t ein Tupel
+        $(X, (P_\theta)_{\theta \in \Theta})$
+        ein statistisches Modell, wenn $(P_\theta)_{\theta \in \Theta}$ eine
+        Familie von Wahrscheinlichkeitsverteilungen ist.
+    &lt;/dd&gt;
+&lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Sch%C3%A4tzfunktion"&gt;&lt;dfn id="schaetzer"&gt;Sch&amp;auml;tzer&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
 &lt;dd&gt;
         Sei $X = (X_1, \dots, X_n)$ eine Stichprobe und
         $$g: \mathbb{R}^n \rightarrow \mathbb{R}$$
-        eine Abbildung. Dan
+        eine Abbildung. Dann TODO
+
+    &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Asymptotisch Erwartungstreuer Sch&amp;auml;tzer&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+
+        Ein Sch&amp;auml;tzer $\hat{\theta} = \hat{\theta}(X_1, \dots, X_n)$ hei&amp;szlig;t
+        asymptotisch erwartungstreu, wenn der Grenzwert der zu sch&amp;auml;tzenden
+        Folge unter Annahme von $\theta$ gleich $\theta$ ist:
+
+        $$\lim_{n \rightarrow \infty} \mathbb{E}(\hat{\theta}) = \theta$$
 
     &lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Kalman-Filter"&gt;&lt;dfn id="kalman-filter"&gt;Kalman-Filter&lt;/dfn&gt;&lt;/a&gt; (&lt;dfn&gt;KF&lt;/dfn&gt;)&lt;/dt&gt;
@@ -255,7 +282,7 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;dt&gt;&lt;dfn id="belief-function"&gt;Belief function&lt;/dfn&gt; (&lt;dfn&gt;Glaubensfunktion&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;
 
-        Sei $\Omega$ ein Wahrnehmungsrahmen und
+        Sei $\Omega$ ein Wahrnehmungsrahmen, $m$ ein Basisma&amp;szlig; und
         $$Bel: \mathcal{P}(\Omega) \rightarrow [0, 1]$$
         eine Funktion. $Bel$ hei&amp;szlig;t Glaubensfunktion, wenn gilt:
 
@@ -268,7 +295,7 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;dt&gt;&lt;dfn id="plausibility-function"&gt;Plausibility function&lt;/dfn&gt; (&lt;dfn&gt;Plausibilit&amp;auml;tsfunktion&lt;/dfn&gt;)&lt;/dt&gt;
 &lt;dd&gt;
 
-        Sei $\Omega$ ein Wahrnehmungsrahmen und
+        Sei $\Omega$ ein Wahrnehmungsrahmen, $m$ ein Basisma&amp;szlig; und
         $$Pl: \mathcal{P}(\Omega) \rightarrow [0, 1]$$
         eine Funktion. $Pl$ hei&amp;szlig;t Plausibilit&amp;auml;tsfunktion, wenn gilt:
 
@@ -307,6 +334,22 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
         Zwei einander widersprechende Aussagen k&amp;ouml;nnen nicht zugleich zutreffen.
 
         Dies gilt in der klassischen Mengenlehre, jedoch nicht f&amp;uuml;r unscharfe Mengen.
+
+    &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Fuzzy-Operationen&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+
+        Es seien $\mu_A, \mu_B$ die Zugeh&amp;ouml;rigkeitsfunktionen zweier unscharfer
+        Mengen $A, B$ &amp;uuml;ber dem Grundraum $\Omega$. Dann gilt:&lt;br/&gt;
+&lt;br/&gt;
+        Not:
+        $$\forall x \in \Omega: \mu_{\Omega \setminus A}(x) = 1 - \mu_A(x)$$
+        &lt;br/&gt;
+        Konjunktion (AND, Minimum-T-Norm):
+        $$\forall x \in \Omega: \mu_{A \land B}(x) = \min(\mu_A(x), \mu_B(x))$$
+        &lt;br/&gt;
+        Disjunktion (OR, Maximum-T-Norm):
+        $$\forall x \in \Omega: \mu_{A \lor B}(x) = \max(\mu_A(x), \mu_B(x))$$
 
     &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Defuzzifizierung&lt;/dfn&gt; (&lt;a href="https://en.wikipedia.org/wiki/Defuzzification"&gt;&lt;dfn&gt;Defuzzification&lt;/dfn&gt;&lt;/a&gt;)&lt;/dt&gt;
@@ -422,7 +465,7 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Aus welchen Schritten besteht der Kalman-Filter?&lt;br/&gt;
   &amp;rarr; Pr&amp;auml;diktion, Innovation&lt;/li&gt;
-&lt;li&gt;Welche erweiterungen zum Kalman-Filter kennen Sie?&lt;br/&gt;
+&lt;li&gt;Welche Erweiterungen zum Kalman-Filter kennen Sie?&lt;br/&gt;
   &amp;rarr; Extended Kalman Filter (EKF), UKF (Unscented Kalman Filter)&lt;/li&gt;
 &lt;li&gt;F&amp;uuml;r welche Systeme ist der Kalman-Filter geeignet?&lt;br/&gt;
   &amp;rarr; Lineare Zeitinvariante Systeme (LTI-Systeme)&lt;/li&gt;
