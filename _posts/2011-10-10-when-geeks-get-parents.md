@@ -1,13 +1,13 @@
 ---
 layout: post
-title: When Geeks get Parents
+title: When Geeks become Parents
 author: Martin Thoma
 date: 2011-10-10 07:54:07.000000000 +02:00
 category: The Web
 tags: Geek, Funny
 featured_image: 2011/10/baby-ogre-thumb.jpg
 ---
-It's so funny what happens when Geeks get parents. 
+It's so funny what happens when Geeks become parents.
 
 This is what happens if your dad is a designer:
 <a href="../images/2011/10/baby-8.jpg"><img src="../images/2011/10/baby-8.jpg" alt="Baby" title="Baby" width="519" height="367" class="aligncenter size-full wp-image-5151" /></a>
