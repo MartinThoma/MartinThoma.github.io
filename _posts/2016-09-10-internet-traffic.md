@@ -3,8 +3,7 @@ layout: post
 title: Internet Traffic
 slug: internet-traffic
 author: Martin Thoma
-status: draft
-date: 2016-05-13 20:00
+date: 2016-09-10 20:00
 category: Cyberculture
 tags: Internet, Traffic, Volume, DSL
 featured_image: logos/internet.png
@@ -15,7 +14,12 @@ you download / upload on a usual day?
 I didn't have any idea, so I started recording it. In this article I will show
 you the results.
 
-For the context: I am a computer science student from Karlsruhe, Germany.
+For the context: A couple of internet providers moved from flatrates to volume
+contracts. For example, 1&amp;1 "DSL Basic" contract is for 100 GB of internet
+traffic per month (and they unashamedly still call it an internet flat rate).
+
+Anyway, this made me wonder how much internet traffic I need. So I started
+recording it with `vnstat`.
 
 
 ## How to measure
@@ -41,6 +45,13 @@ $ ip link
 to find your network interface. In my case, it is `wlp3s0`. In most cases, it
 will be `wlan0` or `eth0` if you use a cable.
 
+I was mainly interested in WLAN. In my case, this is the interface `wlp3s0`.
+Now I have to enable monitoring of that interface:
+
+```bash
+$ vnstat -u -i wlp3s0
+```
+
 To get the nice images, you have to execute the following code (with your
 network interface). It will create a `summary.png` image:
 
@@ -48,11 +59,40 @@ network interface). It will create a `summary.png` image:
 $ vnstati -vs -i wlp3s0 -o ~/summary.png
 ```
 
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2016/09/vnstati-august.png" alt="Internet traffic of August" />
+    <figcaption class="text-center">Internet traffic of August</figcaption>
+</figure>
+
 
 ## Results
 
 To interpret the following, you should know that `rx` is the received traffic
 and `tx` is the transferred traffic.
+
+
+### General
+
+I was not at home most of August, so the results you see in the image above
+might be different than usually. So lets get a summary for this year:
+
+```bash
+$ vnstati -vs -m -i wlp3s0 -o ~/summary.png
+```
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2016/09/vnstati-2016.png" alt="Internet traffic of May, June, July, August" />
+    <figcaption class="text-center">Internet traffic of May, June, July, August</figcaption>
+</figure>
+
+Now you have to realize that I am only recording my notebook. I have a tablet
+and a smartphone, too. I also only recorded WLAN, but I use the cable when I
+want to download / upload a lot. Also, my connection is not so fast. This means
+when I watch videos, I usually don't watch them in HD (although my computer
+would be awesome for that). So 50&thinsp;GB to 70&thinsp;GB download and about
+5&thinsp;GB to 6&thinsp;GB upload might be a conservative estimate of what I
+need.
+
 
 ### Watching News
 
