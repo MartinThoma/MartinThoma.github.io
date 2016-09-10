@@ -155,6 +155,9 @@ ein HDMI-VGA-Adapter könnte nötig sein, wenn ihr nur einen VGA-Anschluss habt.
 * Spieleabende: Bei [Werwolf](https://de.wikipedia.org/wiki/Die_Werw%C3%B6lfe_von_D%C3%BCsterwald)
   sind immer einige dabei. Auch Russisch Tabu und [Black Stories](https://de.wikipedia.org/wiki/Black_Stories)
   finden häufig regen Anklang.
+* PowerPoint-Karaoke: Sollte auf max. 5&nbsp;Minuten pro Beitrag beschränkt
+  werden, die Folien sollten zumindest ein paar Bilder beinhalten und möglichst
+  abwechslungsreich sein (also nicht nur z.B. Chemische Formeln / nur Mathe / nur Texte)
 
 
 ## Packliste
@@ -217,3 +220,10 @@ Es sollten sich Personen für folgende Gruppen finden:
   haben, können aber keines mitbringen. Das sollte man vorher klären. Wir haben
   für fahrtaugliche, aber dennoch recht schlechte Räder 4.50 Euro / Tag für
   2&nbsp;Wochen bezahlt. Eventuell kann man da was besser machen.
+
+
+## Weiteres
+
+* [1Zeit-Ausstellung](http://home.in.tum.de/~hefeleal/1zeit/)
+* [Fotos auf Wikipedia](https://commons.wikimedia.org/wiki/Category:Images_by_Martin_Thoma/Sommerakademie-2016)
+* [What kind of ship is this?](http://engineering.stackexchange.com/q/11409/3061)
