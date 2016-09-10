@@ -34,11 +34,32 @@ Slides: `IF-Kap2_151215.pdf`
 <dl>
     <dt><a href="https://en.wikipedia.org/wiki/Probability_axioms#Axioms"><dfn id="kolmogorov-axioms">Kolmogorov-Axiome</dfn></a></dt>
     <dd>Siehe <a href="https://martin-thoma.com/probabilistische-planung#probability-measure">Probabilistische Planung</a></dd>
-    <dt><a href="https://de.wikipedia.org/wiki/Sch%C3%A4tzfunktion"><dfn>Schätzer</dfn></a></dt>
+    <dt><a href="https://de.wikipedia.org/wiki/Kovarianz_(Stochastik)"><dfn>Kovarianz</dfn></a> (<dfn id="covariance">Covariance</dfn>)</dt>
+    <dd>Es seien $X, Y$ Zufallsvariablen. Dann heißt
+        $$COV(X, Y) = \mathbb{E}((X - \mathbb{E}(X)) \cdot (Y - \mathbb{E}(Y)))$$
+        die Kovarianz von $X$ und $Y$.
+    </dd>
+    <dt><dfn id="statistisches-modell">Statistisches Modell</dfn></dt>
+    <dd>Es sei $X$ eine Zufallsvariable. Dann heißt ein Tupel
+        $(X, (P_\theta)_{\theta \in \Theta})$
+        ein statistisches Modell, wenn $(P_\theta)_{\theta \in \Theta}$ eine
+        Familie von Wahrscheinlichkeitsverteilungen ist.
+    </dd>
+    <dt><a href="https://de.wikipedia.org/wiki/Sch%C3%A4tzfunktion"><dfn id="schaetzer">Schätzer</dfn></a></dt>
     <dd>
         Sei $X = (X_1, \dots, X_n)$ eine Stichprobe und
         $$g: \mathbb{R}^n \rightarrow \mathbb{R}$$
-        eine Abbildung. Dan
+        eine Abbildung. Dann TODO
+
+    </dd>
+    <dt><dfn>Asymptotisch Erwartungstreuer Schätzer</dfn></dt>
+    <dd>
+
+        Ein Schätzer $\hat{\theta} = \hat{\theta}(X_1, \dots, X_n)$ heißt
+        asymptotisch erwartungstreu, wenn der Grenzwert der zu schätzenden
+        Folge unter Annahme von $\theta$ gleich $\theta$ ist:
+
+        $$\lim_{n \rightarrow \infty} \mathbb{E}(\hat{\theta}) = \theta$$
 
     </dd>
     <dt><a href="https://de.wikipedia.org/wiki/Kalman-Filter"><dfn id="kalman-filter">Kalman-Filter</dfn></a> (<dfn>KF</dfn>)</dt>
@@ -93,7 +114,7 @@ For this chapter, I highly recommend reading [Anwendung der Dempster-Shafer Evid
     <dt><dfn id="belief-function">Belief function</dfn> (<dfn>Glaubensfunktion</dfn>)</dt>
     <dd>
 
-        Sei $\Omega$ ein Wahrnehmungsrahmen und
+        Sei $\Omega$ ein Wahrnehmungsrahmen, $m$ ein Basismaß und
         $$Bel: \mathcal{P}(\Omega) \rightarrow [0, 1]$$
         eine Funktion. $Bel$ heißt Glaubensfunktion, wenn gilt:
 
@@ -106,7 +127,7 @@ For this chapter, I highly recommend reading [Anwendung der Dempster-Shafer Evid
     <dt><dfn id="plausibility-function">Plausibility function</dfn> (<dfn>Plausibilitätsfunktion</dfn>)</dt>
     <dd>
 
-        Sei $\Omega$ ein Wahrnehmungsrahmen und
+        Sei $\Omega$ ein Wahrnehmungsrahmen, $m$ ein Basismaß und
         $$Pl: \mathcal{P}(\Omega) \rightarrow [0, 1]$$
         eine Funktion. $Pl$ heißt Plausibilitätsfunktion, wenn gilt:
 
@@ -126,6 +147,45 @@ For this chapter, I highly recommend reading [Anwendung der Dempster-Shafer Evid
         <br/>
         DRC ist assoziativ und kommutativ, allerdings nicht idempotent.
         Es gilt also im Allgemeinen nicht $m \oplus m = m$.</dd>
+    <dt><dfn>Bayessche Fusion</dfn></dt>
+    <dd>
+
+        Angenommen man hat eine Klassifikationsaufgabe. $z$ gehört einer der
+        Klassen $A, B, C$ an. Nun liefert ein Klassifizierer $d_1$ die
+        Wahrscheinlichkeitsverteilung
+
+        $$m_1(A) = 0.01 \qquad m_1(B) = 0.99 \qquad m_1(C) = 0$$
+
+        und ein zweiter Klassifizierer $d_2$ liefert
+
+        $$m_2(A) = 0.01 \qquad m_2(B) = 0 \qquad m_2(C) = 0.99$$
+
+        Gesucht ist eine Wahrscheinlichkeitsverteilung, welche die beiden
+        Ergebnisse fusioniert.<br/>
+        <br/>
+
+        Da kein Vorwissen existiert, wird das Maximum-Entropie-Prinzip für die
+        a priori Wahrscheinlichkeitsverteilung verwendet. Man geht also a
+        priori davon aus, dass jede Klasse gleich wahrscheinlich ist:
+        $$P(z) = (\frac{1}{3}; \frac{1}{3}; \frac{1}{3})$$<br/>
+        <br/>
+
+        Nun gilt:
+
+$$
+\begin{align}
+    P(z | d_1, d2) &= \frac{P(d_1, d_2 | z) \cdot P(z)}{P(d_1, d_2)}\\
+                   &\overset{(1)}{=} \frac{P(d_1 | z) \cdot P(d_2 | z) \cdot P(z)}{P(d_1, d_2)}\\
+                   &= \frac{\begin{pmatrix}0.1\\0.99\\0\end{pmatrix} \cdot \begin{pmatrix}0.1\\0\\0.99\end{pmatrix} \cdot \begin{pmatrix}1/3\\1/3\\1/3\end{pmatrix}}{P(d_1, d_2)}\\
+                   &= \frac{\begin{pmatrix}1/300\\0\\0\end{pmatrix}}{P(d_1, d_2)}\\
+                   &\overset{(2)}{=} \begin{pmatrix}1\\0\\0\end{pmatrix}\\
+\end{align}
+$$
+
+        bei (1) wurde Unabhängigkeit vorausgesetzt, bei (2) wurde auf 1
+        normiert, damit eine Wahrscheinlichkeitsverteilung herauskommt.
+
+    </dd>
 </dl>
 
 
@@ -133,7 +193,11 @@ For this chapter, I highly recommend reading [Anwendung der Dempster-Shafer Evid
 
 Slides: `IF-Kap4_160125.pdf`
 
-Zur Einführung: [Fuzzy Logic - Computerphile](https://www.youtube.com/watch?v=r804UF8Ia4c)
+Zur Einführung:
+
+* [Fuzzy Logic - Computerphile](https://www.youtube.com/watch?v=r804UF8Ia4c)
+* [Fuzzy Logic: An Introduction](https://www.youtube.com/watch?v=P8wY6mi1vV8)
+* [An Introduction to Fuzzy Logic](https://www.youtube.com/watch?v=rln_kZbYaWc): An example with breaks
 
 <dl>
     <dt><dfn>Zugehörigkeitsfunktion</dfn> (<dfn id="membership-function">membership function</dfn>)</dt>
@@ -150,6 +214,22 @@ Zur Einführung: [Fuzzy Logic - Computerphile](https://www.youtube.com/watch?v=r
         Zwei einander widersprechende Aussagen können nicht zugleich zutreffen.
 
         Dies gilt in der klassischen Mengenlehre, jedoch nicht für unscharfe Mengen.
+
+    </dd>
+    <dt><dfn>Fuzzy-Operationen</dfn></dt>
+    <dd>
+
+        Es seien $\mu_A, \mu_B$ die Zugehörigkeitsfunktionen zweier unscharfer
+        Mengen $A, B$ über dem Grundraum $\Omega$. Dann gilt:<br/>
+        <br/>
+        Not:
+        $$\forall x \in \Omega: \mu_{\Omega \setminus A}(x) = 1 - \mu_A(x)$$
+        <br/>
+        Konjunktion (AND, Minimum-T-Norm):
+        $$\forall x \in \Omega: \mu_{A \land B}(x) = \min(\mu_A(x), \mu_B(x))$$
+        <br/>
+        Disjunktion (OR, Maximum-T-Norm):
+        $$\forall x \in \Omega: \mu_{A \lor B}(x) = \max(\mu_A(x), \mu_B(x))$$
 
     </dd>
     <dt><dfn>Defuzzifizierung</dfn> (<a href="https://en.wikipedia.org/wiki/Defuzzification"><dfn>Defuzzification</dfn></a>)</dt>
@@ -268,6 +348,79 @@ Slides: `IF-Kap7_160125.pdf`
 * Kapitel 2, Folie 44f: Fusion 2er größen / Verteilungen
 * Kapitel 2, Folie 79: Was ist der Trunkation error? Was ist der base point error und warum ist es ein Problem, dass man um den Schätzwert und nicht um den wahren Wert linearisiert?
 
+
+## Übungsaufgaben
+
+Die Lösungen sind auch online (ausführlicher und besser als ich es hier habe).
+
+### ÜB 1
+
+* Aufgabe 1.1: http://math.stackexchange.com/q/1919394/6876
+* Aufgabe 1.2: $P(A) = 0.5 = P(B) = P(C)$,
+  $$
+  \begin{align}
+  P(A) \cdot P(B) &= 0.25 = P(A \cap B)\\
+  P(A) \cdot P(C) &= 0.25 = P(A \cap C)\\
+  P(A) \cdot P(B) \cdot P(C) &= 0.125 \neq 0.25 = P(A \cap B \cap C)
+  \end{align}
+  $$
+  Daher sind die Ereignisse $A$ und $B$, die Ereignisse $A, C$, die Ereignisse
+  $B, C$ unabhängig. Die Ereignisse $A, B, C$ sind jedoch nicht unabhängig.
+* Aufgabe 1.3a: $5 \cdot (\frac{1}{6} \cdot \frac{1}{6}) = \frac{5}{36}$
+* Aufgabe 1.3b: $\frac{\frac{2}{5} \cdot \frac{5}{36}}{1-0.25} = \frac{2}{27}$
+* Aufgabe 1.4:
+    * $P(X = 2) = P(X=12) = \frac{1}{36}$
+    * $P(X = 3) = P(X=11) = \frac{2}{36}$
+    * $P(X = 4) = P(X=10) = \frac{3}{36}$
+    * $P(X = 5) = P(X=9) = \frac{4}{36}$
+    * $P(X = 6) = P(X=8) = \frac{5}{36}$
+    * $P(X = 7) = \frac{6}{36}$
+    * $F(x) = \sum_{i=2}^x P(X = i)$
+    * $\mathbb{E}(X) = 2 \cdot 3.5 = 7$
+* Aufgabe 1.5a: $\int_0^\infty (\alpha \cdot \exp(-\alpha x)) \mathrm{d}x = \alpha \int_0^\infty \exp(-\alpha x) \mathrm{d}x = \alpha [-\frac{1}{\alpha} \exp(-\alpha x)]_0^\infty = 1$
+* Aufgabe 1.5b: TODO
+* Aufgabe 1.6:
+    * $G$: E-mail ist geschäftlich, $\bar{G}$ ist privat
+    * $S$: E-mail ist spam, $\bar{S}$ ist ham
+    * $F$: E-mail enthält das Wort "Free"
+    * $P(S | F) = \frac{P(F | S) \cdot P(S)}{P(F)} = \frac{0.9 \cdot 0.7}{0.9 \cdot 0.7 + 0.01 \cdot 0.3} = \frac{210}{211}$
+
+
+### ÜB 2
+
+* Aufgabe 1.1: Die kontinuierliche Entropie ist kein resultat immer feiner werdender Diskretisierungen der diskreten Entropie
+* Aufgabe 1.2a: $P(B \cap L) = P(B) \cdot P(L) = 1/3 \cdot 1/3 = 1/9$
+* Aufgabe 1.2b: 1/9
+* Aufgabe 1.2c: Das Prinzip der maximalen Entropie für Zufallsvariablen führt zur Unabhängigkeitsannahme.
+* Aufgabe 1.2d: Die Entropie wird im Erwartungswert reduziert, wenn eine Größe durch eine andere bedingt wird.
+* Aufgabe 1.3a: $P(z=z_A| d_A) = 0.45$, $P(z=z_B| d_A) = 0.45$, $P(z=z_K| d_A) = 0.1$
+* Aufgabe 1.3b: Ist hier ein Zahlendreher passiert?
+* Aufgabe 1.4a: Mit "Detektionsleistung" ist gemeint, wie wahrscheinlich der
+                Sensor ein Objekt detektiert, wenn eines da ist. Mit
+                "Klassifikationsleistung" ist gemeint, wie Wahrscheinlich
+                der Sensor bei vorhandenem Objekt dieses richtig klassifiziert.
+* Aufgabe 1.4b: TODO ???
+* Aufgabe 1.4c: TODO ???
+* Aufgabe 1.4d: TODO ???
+* Aufgabe 1.5: TODO ???
+* Aufgabe 1.6: 0.043 (Das typische Patenten-Test-Beispiel)
+
+### ÜB 3
+
+* Aufgabe 1.1:
+    * $Bel(A) = \sum_{B \subseteq A} m(B)$
+    * $Pl(A) = 1 - Bel(\bar{A}) = \sum_{B \cap A \neq \emptyset} m(B)$
+* Aufgabe 1.2a: Obwohl beide Basismaße dem Ereignis A eine sehr niedriges Maß
+  zuweisen, ist es durch DRC das Ereignis mit dem höchsten Wert. Das liegt
+  daran, dass die anderen jeweils exakt 0 haben.
+* Aufgabe 1.2b: TODO
+* Aufgabe 1.2c: TODO
+* Aufgabe 1.3: TODO
+* Aufgabe 1.4: TODO
+* Aufgabe 2.1: TOOD
+* Aufgabe 2.2: TODO
+
+
 ## Prüfungsfragen
 
 * Welche Arten von Unsicherheit kennen Sie?<br/>
@@ -283,7 +436,7 @@ Slides: `IF-Kap7_160125.pdf`
 
 * Aus welchen Schritten besteht der Kalman-Filter?<br/>
   → Prädiktion, Innovation
-* Welche erweiterungen zum Kalman-Filter kennen Sie?<br/>
+* Welche Erweiterungen zum Kalman-Filter kennen Sie?<br/>
   → Extended Kalman Filter (EKF), UKF (Unscented Kalman Filter)
 * Für welche Systeme ist der Kalman-Filter geeignet?<br/>
   → Lineare Zeitinvariante Systeme (LTI-Systeme)
