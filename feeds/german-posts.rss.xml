@@ -125,6 +125,9 @@ ein HDMI-VGA-Adapter k&amp;ouml;nnte n&amp;ouml;tig sein, wenn ihr nur einen VGA
 &lt;li&gt;Spieleabende: Bei &lt;a href="https://de.wikipedia.org/wiki/Die_Werw%C3%B6lfe_von_D%C3%BCsterwald"&gt;Werwolf&lt;/a&gt;
   sind immer einige dabei. Auch Russisch Tabu und &lt;a href="https://de.wikipedia.org/wiki/Black_Stories"&gt;Black Stories&lt;/a&gt;
   finden h&amp;auml;ufig regen Anklang.&lt;/li&gt;
+&lt;li&gt;PowerPoint-Karaoke: Sollte auf max. 5&amp;nbsp;Minuten pro Beitrag beschr&amp;auml;nkt
+  werden, die Folien sollten zumindest ein paar Bilder beinhalten und m&amp;ouml;glichst
+  abwechslungsreich sein (also nicht nur z.B. Chemische Formeln / nur Mathe / nur Texte)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="packliste"&gt;Packliste&lt;/h2&gt;
 &lt;ul&gt;
@@ -315,6 +318,45 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;br/&gt;
         DRC ist assoziativ und kommutativ, allerdings nicht idempotent.
         Es gilt also im Allgemeinen nicht $m \oplus m = m$.&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Bayessche Fusion&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+
+        Angenommen man hat eine Klassifikationsaufgabe. $z$ geh&amp;ouml;rt einer der
+        Klassen $A, B, C$ an. Nun liefert ein Klassifizierer $d_1$ die
+        Wahrscheinlichkeitsverteilung
+
+        $$m_1(A) = 0.01 \qquad m_1(B) = 0.99 \qquad m_1(C) = 0$$
+
+        und ein zweiter Klassifizierer $d_2$ liefert
+
+        $$m_2(A) = 0.01 \qquad m_2(B) = 0 \qquad m_2(C) = 0.99$$
+
+        Gesucht ist eine Wahrscheinlichkeitsverteilung, welche die beiden
+        Ergebnisse fusioniert.&lt;br/&gt;
+&lt;br/&gt;
+
+        Da kein Vorwissen existiert, wird das Maximum-Entropie-Prinzip f&amp;uuml;r die
+        a priori Wahrscheinlichkeitsverteilung verwendet. Man geht also a
+        priori davon aus, dass jede Klasse gleich wahrscheinlich ist:
+        $$P(z) = (\frac{1}{3}; \frac{1}{3}; \frac{1}{3})$$&lt;br/&gt;
+&lt;br/&gt;
+
+        Nun gilt:
+
+$$
+\begin{align}
+    P(z | d_1, d2) &amp;amp;= \frac{P(d_1, d_2 | z) \cdot P(z)}{P(d_1, d_2)}\\
+                   &amp;amp;\overset{(1)}{=} \frac{P(d_1 | z) \cdot P(d_2 | z) \cdot P(z)}{P(d_1, d_2)}\\
+                   &amp;amp;= \frac{\begin{pmatrix}0.1\\0.99\\0\end{pmatrix} \cdot \begin{pmatrix}0.1\\0\\0.99\end{pmatrix} \cdot \begin{pmatrix}1/3\\1/3\\1/3\end{pmatrix}}{P(d_1, d_2)}\\
+                   &amp;amp;= \frac{\begin{pmatrix}1/300\\0\\0\end{pmatrix}}{P(d_1, d_2)}\\
+                   &amp;amp;\overset{(2)}{=} \begin{pmatrix}1\\0\\0\end{pmatrix}\\
+\end{align}
+$$
+
+        bei (1) wurde Unabh&amp;auml;ngigkeit vorausgesetzt, bei (2) wurde auf 1
+        normiert, damit eine Wahrscheinlichkeitsverteilung herauskommt.
+
+    &lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h3 id="fuzzy-systeme"&gt;Fuzzy-Systeme&lt;/h3&gt;
 &lt;p&gt;Slides: &lt;code&gt;IF-Kap4_160125.pdf&lt;/code&gt;&lt;/p&gt;
@@ -456,6 +498,7 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;li&gt;Kapitel 2, Folie 79: Was ist der Trunkation error? Was ist der base point error und warum ist es ein Problem, dass man um den Sch&amp;auml;tzwert und nicht um den wahren Wert linearisiert?&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="ubungsaufgaben"&gt;&amp;Uuml;bungsaufgaben&lt;/h2&gt;
+&lt;p&gt;Die L&amp;ouml;sungen sind auch online (ausf&amp;uuml;hrlicher und besser als ich es hier habe).&lt;/p&gt;
 &lt;h3 id="ub-1"&gt;&amp;Uuml;B 1&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Aufgabe 1.1: http://math.stackexchange.com/q/1919394/6876&lt;/li&gt;
@@ -493,9 +536,41 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="ub-2"&gt;&amp;Uuml;B 2&lt;/h3&gt;
-&lt;p&gt;TODO&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Aufgabe 1.1: Die kontinuierliche Entropie ist kein resultat immer feiner werdender Diskretisierungen der diskreten Entropie&lt;/li&gt;
+&lt;li&gt;Aufgabe 1.2a: &lt;span class="math"&gt;\(P(B \cap L) = P(B) \cdot P(L) = 1/3 \cdot 1/3 = 1/9\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;Aufgabe 1.2b: 1/9&lt;/li&gt;
+&lt;li&gt;Aufgabe 1.2c: Das Prinzip der maximalen Entropie f&amp;uuml;r Zufallsvariablen f&amp;uuml;hrt zur Unabh&amp;auml;ngigkeitsannahme.&lt;/li&gt;
+&lt;li&gt;Aufgabe 1.2d: Die Entropie wird im Erwartungswert reduziert, wenn eine Gr&amp;ouml;&amp;szlig;e durch eine andere bedingt wird.&lt;/li&gt;
+&lt;li&gt;Aufgabe 1.3a: &lt;span class="math"&gt;\(P(z=z_A| d_A) = 0.45\)&lt;/span&gt;, &lt;span class="math"&gt;\(P(z=z_B| d_A) = 0.45\)&lt;/span&gt;, &lt;span class="math"&gt;\(P(z=z_K| d_A) = 0.1\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;Aufgabe 1.3b: Ist hier ein Zahlendreher passiert?&lt;/li&gt;
+&lt;li&gt;Aufgabe 1.4a: Mit "Detektionsleistung" ist gemeint, wie wahrscheinlich der
+                Sensor ein Objekt detektiert, wenn eines da ist. Mit
+                "Klassifikationsleistung" ist gemeint, wie Wahrscheinlich
+                der Sensor bei vorhandenem Objekt dieses richtig klassifiziert.&lt;/li&gt;
+&lt;li&gt;Aufgabe 1.4b: TODO ???&lt;/li&gt;
+&lt;li&gt;Aufgabe 1.4c: TODO ???&lt;/li&gt;
+&lt;li&gt;Aufgabe 1.4d: TODO ???&lt;/li&gt;
+&lt;li&gt;Aufgabe 1.5: TODO ???&lt;/li&gt;
+&lt;li&gt;Aufgabe 1.6: 0.043 (Das typische Patenten-Test-Beispiel)&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id="ub-3"&gt;&amp;Uuml;B 3&lt;/h3&gt;
-&lt;p&gt;TODO&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Aufgabe 1.1:&lt;ul&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(Bel(A) = \sum_{B \subseteq A} m(B)\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(Pl(A) = 1 - Bel(\bar{A}) = \sum_{B \cap A \neq \emptyset} m(B)\)&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Aufgabe 1.2a: Obwohl beide Basisma&amp;szlig;e dem Ereignis A eine sehr niedriges Ma&amp;szlig;
+  zuweisen, ist es durch DRC das Ereignis mit dem h&amp;ouml;chsten Wert. Das liegt
+  daran, dass die anderen jeweils exakt 0 haben.&lt;/li&gt;
+&lt;li&gt;Aufgabe 1.2b: TODO&lt;/li&gt;
+&lt;li&gt;Aufgabe 1.2c: TODO&lt;/li&gt;
+&lt;li&gt;Aufgabe 1.3: TODO&lt;/li&gt;
+&lt;li&gt;Aufgabe 1.4: TODO&lt;/li&gt;
+&lt;li&gt;Aufgabe 2.1: TOOD&lt;/li&gt;
+&lt;li&gt;Aufgabe 2.2: TODO&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id="prufungsfragen_1"&gt;Pr&amp;uuml;fungsfragen&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Welche Arten von Unsicherheit kennen Sie?&lt;br/&gt;

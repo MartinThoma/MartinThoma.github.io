@@ -17,13 +17,13 @@
 <meta name="keywords" content="Internet, Traffic, Volume, DSL, Cyberculture, " />
 
 <meta property="og:title" content="Internet Traffic "/>
-<meta property="og:url" content="../drafts/internet-traffic.html" />
-<meta property="og:description" content="Do you have any idea how much internet traffic (volume) you need? How much do you download / upload on a usual day? I didn&#39;t have any idea, so I started recording it. In this article I will show you the results. For the context: I am a computer science ..." />
+<meta property="og:url" content="../internet-traffic/" />
+<meta property="og:description" content="Do you have any idea how much internet traffic (volume) you need? How much do you download / upload on a usual day? I didn&#39;t have any idea, so I started recording it. In this article I will show you the results. For the context: A couple of internet providers ..." />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
-<meta property="og:article:published_time" content="2016-05-13T20:00:00+02:00" />
+<meta property="og:article:published_time" content="2016-09-10T20:00:00+02:00" />
 <meta name="twitter:title" content="Internet Traffic ">
-<meta name="twitter:description" content="Do you have any idea how much internet traffic (volume) you need? How much do you download / upload on a usual day? I didn&#39;t have any idea, so I started recording it. In this article I will show you the results. For the context: I am a computer science ...">
+<meta name="twitter:description" content="Do you have any idea how much internet traffic (volume) you need? How much do you download / upload on a usual day? I didn&#39;t have any idea, so I started recording it. In this article I will show you the results. For the context: A couple of internet providers ...">
 <meta property="og:image" content="logos/internet.png" />
 <meta name="twitter:image" content="logos/internet.png" >
 
@@ -94,7 +94,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../drafts/internet-traffic.html"> Internet Traffic  </a></h1>
+    <h1><a href="../internet-traffic/"> Internet Traffic  </a></h1>
     </header>
 </div>
 
@@ -102,7 +102,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#how-to-measure" title="How to measure">How to measure</a></li><li><a class="toc-href" href="#results" title="Results">Results</a><ul><li><a class="toc-href" href="#watching-news" title="Watching News">Watching News</a></li><li><a class="toc-href" href="#publishing-blog-articles" title="Publishing Blog articles">Publishing Blog articles</a></li></ul></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#how-to-measure" title="How to measure">How to measure</a></li><li><a class="toc-href" href="#results" title="Results">Results</a><ul><li><a class="toc-href" href="#general" title="General">General</a></li><li><a class="toc-href" href="#watching-news" title="Watching News">Watching News</a></li><li><a class="toc-href" href="#publishing-blog-articles" title="Publishing Blog articles">Publishing Blog articles</a></li></ul></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -112,7 +112,11 @@ MathJax.Hub.Queue(function() {
 you download / upload on a usual day?</p>
 <p>I didn't have any idea, so I started recording it. In this article I will show
 you the results.</p>
-<p>For the context: I am a computer science student from Karlsruhe, Germany.</p>
+<p>For the context: A couple of internet providers moved from flatrates to volume
+contracts. For example, 1&amp;1 "DSL Basic" contract is for 100 GB of internet
+traffic per month (and they unashamedly still call it an internet flat rate).</p>
+<p>Anyway, this made me wonder how much internet traffic I need. So I started
+recording it with <code>vnstat</code>.</p>
 <h2 id="how-to-measure">How to measure</h2>
 <p>Install <code>vnstat</code> and <code>vnstati</code>:</p>
 <div class="highlight"><pre><span></span>$ sudo apt-get install vnstat vnstati
@@ -128,13 +132,37 @@ you the results.</p>
 </pre></div>
 <p>to find your network interface. In my case, it is <code>wlp3s0</code>. In most cases, it
 will be <code>wlan0</code> or <code>eth0</code> if you use a cable.</p>
+<p>I was mainly interested in WLAN. In my case, this is the interface <code>wlp3s0</code>.
+Now I have to enable monitoring of that interface:</p>
+<div class="highlight"><pre><span></span>$ vnstat -u -i wlp3s0
+</pre></div>
 <p>To get the nice images, you have to execute the following code (with your
 network interface). It will create a <code>summary.png</code> image:</p>
 <div class="highlight"><pre><span></span>$ vnstati -vs -i wlp3s0 -o ~/summary.png
 </pre></div>
+<figure class="wp-caption aligncenter img-thumbnail">
+<img alt="Internet traffic of August" src="../images/2016/09/vnstati-august.png"/>
+<figcaption class="text-center">Internet traffic of August</figcaption>
+</figure>
 <h2 id="results">Results</h2>
 <p>To interpret the following, you should know that <code>rx</code> is the received traffic
 and <code>tx</code> is the transferred traffic.</p>
+<h3 id="general">General</h3>
+<p>I was not at home most of August, so the results you see in the image above
+might be different than usually. So lets get a summary for this year:</p>
+<div class="highlight"><pre><span></span>$ vnstati -vs -m -i wlp3s0 -o ~/summary.png
+</pre></div>
+<figure class="wp-caption aligncenter img-thumbnail">
+<img alt="Internet traffic of May, June, July, August" src="../images/2016/09/vnstati-2016.png"/>
+<figcaption class="text-center">Internet traffic of May, June, July, August</figcaption>
+</figure>
+<p>Now you have to realize that I am only recording my notebook. I have a tablet
+and a smartphone, too. I also only recorded WLAN, but I use the cable when I
+want to download / upload a lot. Also, my connection is not so fast. This means
+when I watch videos, I usually don't watch them in HD (although my computer
+would be awesome for that). So 50&thinsp;GB to 70&thinsp;GB download and about
+5&thinsp;GB to 6&thinsp;GB upload might be a conservative estimate of what I
+need.</p>
 <h3 id="watching-news">Watching News</h3>
 <p>Watching the German 20 o'clock news (15 minutes on tagesschau.de) is about
 200&thinsp;MiB rx and about 3&thinsp;MiB tx.</p>
@@ -165,7 +193,7 @@ and <code>tx</code> is the transferred traffic.</p>
         <section>
         <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2016-05-13T20:00:00+02:00">Mai 13, 2016</time>
+            <time pubdate="pubdate" datetime="2016-09-10T20:00:00+02:00">Sep 10, 2016</time>
             <br/>
             by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
             <h4>Category</h4>
@@ -173,13 +201,16 @@ and <code>tx</code> is the transferred traffic.</p>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
                 <li><a href="../tags.html#dsl-ref">DSL
+                    <span>1</span>
 </a></li>
                 <li><a href="../tags.html#internet-ref">Internet
-                    <span>2</span>
+                    <span>3</span>
 </a></li>
                 <li><a href="../tags.html#traffic-ref">Traffic
+                    <span>1</span>
 </a></li>
                 <li><a href="../tags.html#volume-ref">Volume
+                    <span>1</span>
 </a></li>
             </ul>
 <h4>Contact</h4>

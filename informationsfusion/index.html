@@ -232,6 +232,45 @@ Signal, usw. eingef&uuml;hrt.</p>
 <br/>
         DRC ist assoziativ und kommutativ, allerdings nicht idempotent.
         Es gilt also im Allgemeinen nicht $m \oplus m = m$.</dd>
+<dt><dfn>Bayessche Fusion</dfn></dt>
+<dd>
+
+        Angenommen man hat eine Klassifikationsaufgabe. $z$ geh&ouml;rt einer der
+        Klassen $A, B, C$ an. Nun liefert ein Klassifizierer $d_1$ die
+        Wahrscheinlichkeitsverteilung
+
+        $$m_1(A) = 0.01 \qquad m_1(B) = 0.99 \qquad m_1(C) = 0$$
+
+        und ein zweiter Klassifizierer $d_2$ liefert
+
+        $$m_2(A) = 0.01 \qquad m_2(B) = 0 \qquad m_2(C) = 0.99$$
+
+        Gesucht ist eine Wahrscheinlichkeitsverteilung, welche die beiden
+        Ergebnisse fusioniert.<br/>
+<br/>
+
+        Da kein Vorwissen existiert, wird das Maximum-Entropie-Prinzip f&uuml;r die
+        a priori Wahrscheinlichkeitsverteilung verwendet. Man geht also a
+        priori davon aus, dass jede Klasse gleich wahrscheinlich ist:
+        $$P(z) = (\frac{1}{3}; \frac{1}{3}; \frac{1}{3})$$<br/>
+<br/>
+
+        Nun gilt:
+
+$$
+\begin{align}
+    P(z | d_1, d2) &amp;= \frac{P(d_1, d_2 | z) \cdot P(z)}{P(d_1, d_2)}\\
+                   &amp;\overset{(1)}{=} \frac{P(d_1 | z) \cdot P(d_2 | z) \cdot P(z)}{P(d_1, d_2)}\\
+                   &amp;= \frac{\begin{pmatrix}0.1\\0.99\\0\end{pmatrix} \cdot \begin{pmatrix}0.1\\0\\0.99\end{pmatrix} \cdot \begin{pmatrix}1/3\\1/3\\1/3\end{pmatrix}}{P(d_1, d_2)}\\
+                   &amp;= \frac{\begin{pmatrix}1/300\\0\\0\end{pmatrix}}{P(d_1, d_2)}\\
+                   &amp;\overset{(2)}{=} \begin{pmatrix}1\\0\\0\end{pmatrix}\\
+\end{align}
+$$
+
+        bei (1) wurde Unabh&auml;ngigkeit vorausgesetzt, bei (2) wurde auf 1
+        normiert, damit eine Wahrscheinlichkeitsverteilung herauskommt.
+
+    </dd>
 </dl>
 <h3 id="fuzzy-systeme">Fuzzy-Systeme</h3>
 <p>Slides: <code>IF-Kap4_160125.pdf</code></p>
@@ -373,6 +412,7 @@ Signal, usw. eingef&uuml;hrt.</p>
 <li>Kapitel 2, Folie 79: Was ist der Trunkation error? Was ist der base point error und warum ist es ein Problem, dass man um den Sch&auml;tzwert und nicht um den wahren Wert linearisiert?</li>
 </ul>
 <h2 id="ubungsaufgaben">&Uuml;bungsaufgaben</h2>
+<p>Die L&ouml;sungen sind auch online (ausf&uuml;hrlicher und besser als ich es hier habe).</p>
 <h3 id="ub-1">&Uuml;B 1</h3>
 <ul>
 <li>Aufgabe 1.1: http://math.stackexchange.com/q/1919394/6876</li>
@@ -410,9 +450,41 @@ Signal, usw. eingef&uuml;hrt.</p>
 </li>
 </ul>
 <h3 id="ub-2">&Uuml;B 2</h3>
-<p>TODO</p>
+<ul>
+<li>Aufgabe 1.1: Die kontinuierliche Entropie ist kein resultat immer feiner werdender Diskretisierungen der diskreten Entropie</li>
+<li>Aufgabe 1.2a: <span class="math">\(P(B \cap L) = P(B) \cdot P(L) = 1/3 \cdot 1/3 = 1/9\)</span></li>
+<li>Aufgabe 1.2b: 1/9</li>
+<li>Aufgabe 1.2c: Das Prinzip der maximalen Entropie f&uuml;r Zufallsvariablen f&uuml;hrt zur Unabh&auml;ngigkeitsannahme.</li>
+<li>Aufgabe 1.2d: Die Entropie wird im Erwartungswert reduziert, wenn eine Gr&ouml;&szlig;e durch eine andere bedingt wird.</li>
+<li>Aufgabe 1.3a: <span class="math">\(P(z=z_A| d_A) = 0.45\)</span>, <span class="math">\(P(z=z_B| d_A) = 0.45\)</span>, <span class="math">\(P(z=z_K| d_A) = 0.1\)</span></li>
+<li>Aufgabe 1.3b: Ist hier ein Zahlendreher passiert?</li>
+<li>Aufgabe 1.4a: Mit "Detektionsleistung" ist gemeint, wie wahrscheinlich der
+                Sensor ein Objekt detektiert, wenn eines da ist. Mit
+                "Klassifikationsleistung" ist gemeint, wie Wahrscheinlich
+                der Sensor bei vorhandenem Objekt dieses richtig klassifiziert.</li>
+<li>Aufgabe 1.4b: TODO ???</li>
+<li>Aufgabe 1.4c: TODO ???</li>
+<li>Aufgabe 1.4d: TODO ???</li>
+<li>Aufgabe 1.5: TODO ???</li>
+<li>Aufgabe 1.6: 0.043 (Das typische Patenten-Test-Beispiel)</li>
+</ul>
 <h3 id="ub-3">&Uuml;B 3</h3>
-<p>TODO</p>
+<ul>
+<li>Aufgabe 1.1:<ul>
+<li><span class="math">\(Bel(A) = \sum_{B \subseteq A} m(B)\)</span></li>
+<li><span class="math">\(Pl(A) = 1 - Bel(\bar{A}) = \sum_{B \cap A \neq \emptyset} m(B)\)</span></li>
+</ul>
+</li>
+<li>Aufgabe 1.2a: Obwohl beide Basisma&szlig;e dem Ereignis A eine sehr niedriges Ma&szlig;
+  zuweisen, ist es durch DRC das Ereignis mit dem h&ouml;chsten Wert. Das liegt
+  daran, dass die anderen jeweils exakt 0 haben.</li>
+<li>Aufgabe 1.2b: TODO</li>
+<li>Aufgabe 1.2c: TODO</li>
+<li>Aufgabe 1.3: TODO</li>
+<li>Aufgabe 1.4: TODO</li>
+<li>Aufgabe 2.1: TOOD</li>
+<li>Aufgabe 2.2: TODO</li>
+</ul>
 <h2 id="prufungsfragen_1">Pr&uuml;fungsfragen</h2>
 <ul>
 <li>Welche Arten von Unsicherheit kennen Sie?<br/>
