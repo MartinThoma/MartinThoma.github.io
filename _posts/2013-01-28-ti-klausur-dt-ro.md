@@ -262,7 +262,7 @@ In der ungepackten Darstellung wird in einem Byte nur eine BCD-Zahl dargestellt.
 <span class="question">Welche Halbleiterspeichertypen gibt es?</span>
 <div class="answer">
 <figure class="aligncenter">
-            <a href="../images/2013/01/halbleiterspeicher-klassifizierung-300x77.png"><img src="../images/2013/01/halbleiterspeicher-klassifizierung-300x77.png" alt="Klassifizierung von Halbleiterspeicher" style="max-width:300px;max-height:77px" class="size-medium wp-image-62511"/></a>
+            <a href="../images/2013/01/halbleiterspeicher-klassifizierung.png"><img src="../images/2013/01/halbleiterspeicher-klassifizierung-300x77.png" alt="Klassifizierung von Halbleiterspeicher" style="max-width:300px;max-height:77px" class="size-medium wp-image-62511"/></a>
             <figcaption class="text-center">Klassifizierung von Halbleiterspeicher</figcaption>
         </figure>
 </div>
