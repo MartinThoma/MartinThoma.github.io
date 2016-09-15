@@ -1,15 +1,15 @@
 ---
 layout: post
-title: Alpspitz via ferrata
-slug: alpspitz-via-ferrata
+title: Alpspitze via ferrata
+slug: alpspitze-via-ferrata
 author: Martin Thoma
 status: draft
-date: 2016-09-14 20:00
+date: 2016-09-15 20:00
 category: Cyberculture
 tags: hiking, climbing, sports
 featured_image: logos/hiking.png
 ---
-The [Alpspitz](https://de.wikipedia.org/wiki/Alpspitz) is a mountain in the alps
+The [Alpspitze](https://de.wikipedia.org/wiki/Alpspitze) (not to confuse with [Alpspitz](https://de.wikipedia.org/wiki/Alpspitz)) is a mountain in the alps
 with one of the simplest [via ferratas](https://en.wikipedia.org/wiki/Via_ferrata).
 It was my first one, too.
 
