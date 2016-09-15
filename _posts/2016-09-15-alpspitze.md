@@ -36,7 +36,8 @@ translation.
 - [x] Cycling gloves
 - [ ] Map
 
-I like the following cloths for hiking:
+I like the following cloths for hiking. They are comfortable in a wide range of
+temperatures and they don't stinck that much / feel bad  when you sweat:
 
 - VAUDE Herren Hose Farley Stretch Pants II
 - Icebreaker Herren T-Shirt Tech Lite Short Sleeve
@@ -44,6 +45,7 @@ I like the following cloths for hiking:
 - FALKE Herren Trekking Socken TK2 Short Coool
 - Icebreaker Herren Unterhose Anatomica
 
+Don't forget that it will be much colder up there than on the ground.
 
 Other things you need / might want to take with you:
 
