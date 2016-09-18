@@ -137,6 +137,12 @@ For this chapter, I highly recommend reading [Anwendung der Dempster-Shafer Evid
         Wahrscheinlichkeitsfunktion dar.
 
     </dd>
+    <dt><dfn>Fokale Ereignisse</dfn></dt>
+    <dd>
+
+        Ein Ereignis $A$ heißt fokal bzg. eines Basismaßes $m$, wenn $m(A) \neq 0$ gilt.
+
+    </dd>
     <dt><dfn>Dempsters Kombinationsregel</dfn> (<dfn>Dempsters rule of combination</dfn>, <dfn>DRC</dfn>)</dt>
     <dd>$$m_1 \oplus m_2 (A) := \begin{cases}0&\text{for } A = \emptyset\\
                                              \frac{\sum_{X, Y: X \cap Y = A} m_1(X) m_2(Y)}{|1-K|}\end{cases}$$
@@ -146,7 +152,9 @@ For this chapter, I highly recommend reading [Anwendung der Dempster-Shafer Evid
         nicht anwendbar.<br/>
         <br/>
         DRC ist assoziativ und kommutativ, allerdings nicht idempotent.
-        Es gilt also im Allgemeinen nicht $m \oplus m = m$.</dd>
+        Es gilt also im Allgemeinen nicht $m \oplus m = m$.<br/>
+        Bei der Berechnung des Konfliktgrades genügt es fokale Ereignisse zu
+        betrachten.</dd>
     <dt><dfn>Bayessche Fusion</dfn></dt>
     <dd>
 
@@ -413,12 +421,14 @@ Die Lösungen sind auch online (ausführlicher und besser als ich es hier habe).
 * Aufgabe 1.2a: Obwohl beide Basismaße dem Ereignis A eine sehr niedriges Maß
   zuweisen, ist es durch DRC das Ereignis mit dem höchsten Wert. Das liegt
   daran, dass die anderen jeweils exakt 0 haben.
-* Aufgabe 1.2b: TODO
-* Aufgabe 1.2c: TODO
-* Aufgabe 1.3: TODO
-* Aufgabe 1.4: TODO
-* Aufgabe 2.1: TOOD
-* Aufgabe 2.2: TODO
+* Aufgabe 1.2b: Jeder einzelne Experte gab A nur geringen glauben. Dennoch wird A deutlich am meisten Glauben nach der Fusion geschenkt.
+* Aufgabe 1.2c: Das gleiche Ergebnis.
+* Aufgabe 1.3a: $m_{123}(111) = 0.82$, das Ergebnis ist also zu 82% glaubwürdig. (Schönes beispiel, dass DRC nicht idempotent ist)
+* Aufgabe 1.3b: Rechnen mit Basismaßen / DRC
+* Aufgabe 1.3c: Rechnen mit Basismaßen / DRC
+* Aufgabe 1.4: $P(s=A | w=A) + P(s=B | w=B) = 0.6$
+* Aufgabe 2.1: Spielen mit Fuzzy-Mengen
+* Aufgabe 2.2: XOR für Fuzzy-Mengen
 
 
 ## Prüfungsfragen
