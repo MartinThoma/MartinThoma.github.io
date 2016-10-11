@@ -47,10 +47,10 @@ Slides: `IF-Kap2_151215.pdf`
     </dd>
     <dt><a href="https://de.wikipedia.org/wiki/Sch%C3%A4tzfunktion"><dfn id="schaetzer">Schätzer</dfn></a></dt>
     <dd>
-        Sei $X = (X_1, \dots, X_n)$ eine Stichprobe und
-        $$g: \mathbb{R}^n \rightarrow \mathbb{R}$$
-        eine Abbildung. Dann TODO
-
+        Sei $\mathcal{X} = (X_1, \dots, X_n)$ eine Stichprobe und
+        $\theta$ ein Parameter. Dann heißt die Abbildung
+        $$T: \mathcal{X} \rightarrow \tilde{\Theta}$$
+        mit $\tilde{\Theta} \supseteq \Theta$ ein Schätzer für $\theta$.
     </dd>
     <dt><dfn>Asymptotisch Erwartungstreuer Schätzer</dfn></dt>
     <dd>
@@ -72,7 +72,16 @@ Slides: `IF-Kap2_151215.pdf`
         wurden in der Norm Grundsätze und Vorgehensweisen zur Bestimmung der
         Messunsicherheit festgelegt.<br/>
         <br/>
-        GUM ist auf metrische Merkmale beschränkt.</dd>
+        GUM ist auf metrische Merkmale beschränkt.<br/>
+        Vorgehen:
+        <ol>
+            <li>Modellgleichung formulieren: $Y = f(X_1, \dots, X_n)$, wobei
+                $Y$ die Messgröße und $X_i$ die Eingangsgrößen sind.</li>
+            <li>Eingangsgrößen und Unsicherheiten bestimmen (entweder durch Messreihen oder durch Erfahrungswerte / Handbücher)</li>
+            <li>Schätzwert $\hat{y}$ für Messgröße $Y$ bestimmen</li>
+            <li>Ermittlung der kombinierten Unsicherheit</li>
+        </ol>
+        </dd>
     <dt><dfn>Standardunsicherheit</dfn></dt>
     <dd>Die Standardunsicherheit einer Messung ist
 
@@ -182,7 +191,8 @@ For this chapter, I highly recommend reading [Anwendung der Dempster-Shafer Evid
 
 $$
 \begin{align}
-    P(z | d_1, d2) &= \frac{P(d_1, d_2 | z) \cdot P(z)}{P(d_1, d_2)}\\
+    P(z | d_1, d_2)&= \frac{P(d_1, d_2 | z) \cdot P(z)}{P(d_1, d_2)}\\
+                   &= \frac{P(d_1 | z) \cdot P(d_2 | d_1, z) \cdot P(z)}{P(d_1, d_2)}\\
                    &\overset{(1)}{=} \frac{P(d_1 | z) \cdot P(d_2 | z) \cdot P(z)}{P(d_1, d_2)}\\
                    &= \frac{\begin{pmatrix}0.1\\0.99\\0\end{pmatrix} \cdot \begin{pmatrix}0.1\\0\\0.99\end{pmatrix} \cdot \begin{pmatrix}1/3\\1/3\\1/3\end{pmatrix}}{P(d_1, d_2)}\\
                    &= \frac{\begin{pmatrix}1/300\\0\\0\end{pmatrix}}{P(d_1, d_2)}\\
@@ -256,6 +266,18 @@ Zur Einführung:
     <dd>Das Schwerpunktverfahren dient zur Defuzzifizierung.</dd>
     <dt><dfn>Maximum-Mittelwert-Methode</dfn> (<dfn id="mean-of-maxima-defuzzification">Mean of maxima</dfn>, <dfn>MOM</dfn>)</dt>
     <dd>Das Schwerpunktverfahren dient zur Defuzzifizierung.</dd>
+    <dt><dfn id="informationsfusion-fuzzy">Informationsfusion mit Fuzzy-Systemen</dfn></dt>
+    <dd>
+        
+        <ol>
+            <li>Definition linguistischer Variablen (z.B. Temperatur) und Terme (Werte der linguistischen Variablen, z.B. kalt, kühl, lau, warm, heiß)</li>
+            <li>Zugehörigkeitsfunktionen definieren</li>
+            <li>Fuzzifizierung: Transformation der vorliegenden Information mithilfe der Zugehörigkeitsfunktionen in Fuzzy-konforme Form. Zugehörigkeitsfunktionen bilden numerische Terme auf linguistische Variablen ab.</li>
+            <li>Kombination der Terme durch Anwendung von Fuzzy-Logik in der Regelbasis. Die Regeln haben die Form IF Prämisse THEN Konklusion.</li>
+            <li>Defuzzifizierung: Abbildung auf Ausgangsbasis (Schwerpunktregel, Maximummethode oder Maximum-Mittelwert Methode)</li>
+        </ol>
+
+    </dd>
 </dl>
 
 
@@ -353,7 +375,7 @@ Slides: `IF-Kap7_160125.pdf`
                        Schätzer, welcher die Stichprobe ignoriert und somit
                        eine Varianz von 0 hat.
 * Kapitel 2, Folie 37: Was ist ein Arbeitspunkt?
-* Kapitel 2, Folie 44f: Fusion 2er größen / Verteilungen
+* Kapitel 2, Folie 44f: Fusion 2er Größen / Verteilungen
 * Kapitel 2, Folie 79: Was ist der Trunkation error? Was ist der base point error und warum ist es ein Problem, dass man um den Schätzwert und nicht um den wahren Wert linearisiert?
 
 
@@ -386,7 +408,7 @@ Die Lösungen sind auch online (ausführlicher und besser als ich es hier habe).
     * $F(x) = \sum_{i=2}^x P(X = i)$
     * $\mathbb{E}(X) = 2 \cdot 3.5 = 7$
 * Aufgabe 1.5a: $\int_0^\infty (\alpha \cdot \exp(-\alpha x)) \mathrm{d}x = \alpha \int_0^\infty \exp(-\alpha x) \mathrm{d}x = \alpha [-\frac{1}{\alpha} \exp(-\alpha x)]_0^\infty = 1$
-* Aufgabe 1.5b: TODO
+* Aufgabe 1.5b: Erwartungswert einer Zufallsvariable ist $\int_{-\infty}^{+\infty} x f(x) \mathrm{d} x$.
 * Aufgabe 1.6:
     * $G$: E-mail ist geschäftlich, $\bar{G}$ ist privat
     * $S$: E-mail ist spam, $\bar{S}$ ist ham
@@ -407,10 +429,10 @@ Die Lösungen sind auch online (ausführlicher und besser als ich es hier habe).
                 Sensor ein Objekt detektiert, wenn eines da ist. Mit
                 "Klassifikationsleistung" ist gemeint, wie Wahrscheinlich
                 der Sensor bei vorhandenem Objekt dieses richtig klassifiziert.
-* Aufgabe 1.4b: TODO ???
-* Aufgabe 1.4c: TODO ???
-* Aufgabe 1.4d: TODO ???
-* Aufgabe 1.5: TODO ???
+* Aufgabe 1.4b: Zentralisierte Bayessche Fusion (Likelihoodmatrizen)
+* Aufgabe 1.4c: Zentralisierte Bayessche Fusion (A-posteriori-Verteilung)
+* Aufgabe 1.4d: Verteilte Fusion
+* Aufgabe 1.5: Berechnung der Log-A-posteriori-Verteilung
 * Aufgabe 1.6: 0.043 (Das typische Patenten-Test-Beispiel)
 
 ### ÜB 3
@@ -433,14 +455,25 @@ Die Lösungen sind auch online (ausführlicher und besser als ich es hier habe).
 
 ## Prüfungsfragen
 
+* Welche Bedingungen müssen erfüllt sein, damit Informationen fusioniert werden
+  können?<br/>
+  → Gemeinsamer Sachverhalt; kompatible Definitions- und Wertebereiche; Unsicherheitsbehaftet
 * Welche Arten von Unsicherheit kennen Sie?<br/>
-  → TODO
-* Wie lautet die Formel für verteilte Fusion?<br/>
-  → TODO
+  → Unsicherheit kann man mit Wahrscheinlichkeiten, Basismaße (Dempster-Shafer-Theorie)
+     und über unscharfe Mengen (Fuzzy-Systeme) sowie über unsicheres Erfahrungswissen
+     (Neuronale Netze) beschreiben.
+* Was ist der Unterschied zwischen Wahrscheinlichkeiten und Basismaßen?<br/>
+  → Basismaße sind nicht monoton und nicht additiv.
+* Wie lautet die Formel für verteilte Bayessche Fusion?<br/>
+  → Wie zentrale bayessche Fusion, nur dass die Likelihood-Funktionen vorab berechnet werden (zweimaliges Anwenden der Bayes-Rule mit Unabhängigkeitsannahme zwischendurch)
 * Wie lauten die Axiome von Kolmogorov?<br/>
   → Siehe <a href="#kolmogorov-axioms">oben</a>
 * Was sind Zugehörigkeitsfunktionen?<br/>
   → Siehe <a href="#membership-function">oben</a>
+* Wie funktioniert Informationsfusion mit Fuzzy-Systemen?
+  → Siehe <a href="#informationsfusion-fuzzy">oben</a>
+
+
 
 ### Kalman-Filter
 
@@ -453,13 +486,13 @@ Die Lösungen sind auch online (ausführlicher und besser als ich es hier habe).
 * Wie entwickeln sich die Wahrscheinlichkeiten beim Kalman-Filter?<br/>
   → Bei der Prädiktion steigt die Unsicherheit, bei der Innovation sinkt sie.
 * Wie lautet das Systemmodell im Kalman-Filter?<br/>
-  → TODO (Systemgleichung und <a href="#beobachtungsgleichung">Beobachtungsgleichung</a>)
+  → vgl. <a href="https://martin-thoma.com/kalman-filter/#step-2-modelling">Kalman-Filter Artikel</a>
 
 
 ## Absprachen
 
-* Kapitel 5 (Neuronale Netze) und Kapitel 6 (Registrierung) kommen nicht dran
-* Übungsaufgaben sind auch Prüfungsrelevant
+* Kapitel 5 (Neuronale Netze) und Kapitel 6 (Registrierung) kommen nicht dran.
+* Übungsaufgaben sind auch Prüfungsrelevant.
 
 
 ## Material und Links
@@ -467,6 +500,14 @@ Die Lösungen sind auch online (ausführlicher und besser als ich es hier habe).
 * [Vorlesungswebsite](http://ies.anthropomatik.kit.edu/lehre_informationsfusion.php)
 * [Anki-Deck](https://ankiweb.net/shared/info/1070725022)
 * [Anwendung der Dempster-Shafer Evidenztheorie auf die Bonitätsprüfung](https://statistik.econ.kit.edu/download/Artikel%20-%20Anwendung%20der%20Dempster-Shafer%20Evidenztheorie%20auf%20die%20Bonit%C3%A4tspr%C3%BCfung.pdf)
+
+
+Literatur:
+
+* **Bayes-Methoden**: James O. Berger: Statistical Decision Theory and Bayesian Analysis. 2nd edition, Springer, 2006. ISBN 0-387-96098-8.
+* **Anwendungen**: Rick S. Blum, Zheng Liu (Hrsg.): Multi Sensor Image Fusion and Its Applications. Taylor & Francis, 2006. ISBN 0849334179.
+* **Energiefunktionale**: James J. Clark, Alan L. Yuille: Data Fusion for Sensory Information Processing Systems. Kluwer Academic Publishers, 1990. ISBN 0792391209.
+* **Fuzzy Logic**: Jochen Heinsohn; Rolf Socher-Ambrosius: Wissensverarbeitung: eine Einführung. Spektrum Akademischer Verlag, 1999. ISBN 3827403081.
 
 
 ## Vorlesungs&shy;empfehlungen
@@ -486,3 +527,6 @@ Folgende Vorlesungen sind ähnlich:
 ## Termine und Klausurablauf
 
 Es ist eine mündliche Prüfung.
+
+Ich habe meine am <b>Fraunhofer IOSB, Fraunhoferstr. 1, 76131 Karlsruhe</b>
+am <b>11.10.2016</b> um <b>15:30 Uhr</b> bei Herrn Dr. Heizmann.
