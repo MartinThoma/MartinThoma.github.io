@@ -230,9 +230,9 @@ For this chapter, I highly recommend reading [Anwendung der Dempster-Shafer Evid
         $$Pl: \mathcal{P}(\Omega) \rightarrow [0, 1]$$
         eine Funktion. $Pl$ heißt Plausibilitätsfunktion, wenn gilt:
 
-        $$Bel(X) := \sum_{Y \cap X \neq \emptyset} m(Y)$$
+        $$Pl(X) := \sum_{Y \cap X \neq \emptyset} m(Y)$$
 
-        Die Glaubensfunktion stellt also eine obere Grenze für eine unbekannte
+        Die Plausibilitätsfunktion stellt also eine obere Grenze für eine unbekannte
         Wahrscheinlichkeitsfunktion dar.
 
     </dd>
@@ -622,6 +622,8 @@ Die Lösungen sind auch online (ausführlicher und besser als ich es hier habe).
 * [Vorlesungswebsite](http://ies.anthropomatik.kit.edu/lehre_informationsfusion.php)
 * [Anki-Deck](https://ankiweb.net/shared/info/1070725022)
 * [Anwendung der Dempster-Shafer Evidenztheorie auf die Bonitätsprüfung](https://statistik.econ.kit.edu/download/Artikel%20-%20Anwendung%20der%20Dempster-Shafer%20Evidenztheorie%20auf%20die%20Bonit%C3%A4tspr%C3%BCfung.pdf)
+* [Mein Prüfungsprotokoll](https://github.com/MartinThoma/LaTeX-examples/blob/master/documents/kit-muendlich-informationsfusion/muendlich-we-2013-martin-thoma.pdf)
+
 
 
 Literatur:
