@@ -214,7 +214,7 @@ Folgende Artikel sollte man lesen:
 Diese Tutorials sollte man machen:
 <ul>
     <li><a href="http://www.w3schools.com/xml/xml_whatis.asp">XML Tutorial</a> - <a href="http://www.w3schools.com/quiztest/quiztest.asp?qtest=XML">XML Quiz</a></li>
-    <li><a href="http://www.w3schools.com/soap/soap_intro.asp">SOAP Tutorial</a></li>
+    <li><a href="http://www.w3schools.com/xml/xml_soap.asp">SOAP Tutorial</a></li>
 </ul>
 
 <h2>Typische Fragen</h2>
