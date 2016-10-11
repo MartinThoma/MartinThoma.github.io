@@ -22,6 +22,86 @@ Slides: `IF-Kap1_151110.pdf`
 Es wurden Grundbegriffe wie Daten, Information, Merkmal, Informationsfusion,
 Signal, usw. eingeführt.
 
+<dl>
+    <dt><dfn id="information">Information</dfn></dt>
+    <dd>
+
+        Information ist alles was potentiell zur Verringerung von Ungewissheit
+        beiträgt.
+
+        Sinnvolle Informationen besteht aus Fakten und zugehörigen
+        Unsicherheiten.
+
+    </dd>
+    <dt><dfn id="signal">Signal</dfn></dt>
+    <dd>Ein Signal ist eine Funktion oder Wertefolge welche Information trägt.</dd>
+    <dt><dfn id="daten">Daten</dfn></dt>
+    <dd>Daten sind maschinenlesbare Repräsentationen von Informationen. Sie
+        werden als Zeichen oder Zeichenketten gespeichert.</dd>
+    <dt><dfn id="feature-dfn">Merkmal</dfn></dt>
+    <dd>Ein Merkmal ist eine beobachtbare oder physikalisch messbare Eigenschaft eines oder mehrerer Objekte.</dd>
+    <dt><dfn>Vorraussetzungen für Informationsfusion</dfn></dt>
+    <dd>
+        
+        <ul>
+            <li>Gemeinsamer Sachverhalt
+            <ul>
+                <li>Kompatibler Definitionsbereich</li>
+                <li>Kompatibler Wertebereich</li>
+            </ul>
+            </li>
+            <li>Unsicherheiten: Die Informationen müssen ein Maß für ihre Unsicherheit tragen</li>
+        </ul>
+
+    </dd>
+    <dt><dfn id="informationsfusion-advantages">Vorteile von Informationsfusion</dfn></dt>
+    <dd>
+
+        <ul>
+            <li>Höhere Robustheit</li>
+            <li>Erweterung der Sensorabdeckung</li>
+            <li>Erhöhte Auflösung (z.B. Accelerometer + Kompas in Kamera)</li>
+            <li>Kostenreduktion (z.B. mehrere billige Bildsensoren, dann Daten mitteln zur Rauschreduktion)</li>
+            <li>Unsicherheit Verringern (z.B. FLIR + Radar)</li>
+            <li>Indirektes schließen auf Größen (z.B. Oberflächennormalen)</li>
+        </ul>
+    </dd>
+    <dt><dfn id="features-properties">Wünschenswerte Eigenschaften von Merkmalen</dfn></dt>
+    <dd>
+
+        <ul>
+            <li>Leicht gewinnbar</li>
+            <li>Interpretierbar</li>
+            <li>Hohe Relevanz: Merkmalsvektor ist gut für die Aufgabe geeignet (z.B. lineare separierbarkeit der Klassen bei Klassifikationsproblemen in Merkmalsraum)</li>
+            <li>Robustheit gegen Störungen</li>
+            <li>Invarianzen werden berücksichtigt (z.B. Drehung des Objekts)</li>
+            <li>Geringe Dimensionalität des Merkmalsvektors</li>
+            <li>Geringe Abhängigkeit zwischen Merkmalen</li>
+        </ul>
+
+    </dd>
+    <dt><dfn id="sensorsystem-properties">Eigenschaften von Sensorsystemen</dfn></dt>
+    <dd>
+
+        <ul>
+            <li>Homogenität / Heterogenität</li>
+            <li>Wirkmechanismus / Struktur</li>
+            <li>Zuverlässigkeit</li>
+            <li>Kommensurabilität (Gleichdimensionalität)</li>
+            <li>Kollokiertheit (Identische Ausschnitte der Szene): Falls nicht gegeben, ist Registrierung erforderlich</li>
+        </ul>
+
+        Weitere:
+
+        <ul>
+            <li>Aktive / passive Sensoren: z.B. Laser beeinflusst die Umwelt</li>
+            <li>Virtuelle Sensorsysteme: Gleiche Sensoren, aber unterschiedliche Parameter</li>
+            <li>Kosten, Material</li>
+        </ul>
+
+    </dd>
+</dl>
+
 
 ### WT
 
@@ -47,10 +127,20 @@ Slides: `IF-Kap2_151215.pdf`
     </dd>
     <dt><a href="https://de.wikipedia.org/wiki/Sch%C3%A4tzfunktion"><dfn id="schaetzer">Schätzer</dfn></a></dt>
     <dd>
-        Sei $\mathcal{X} = (X_1, \dots, X_n)$ eine Stichprobe und
+        Sei $\mathcal{X}_n = (X_1, \dots, X_n)$ eine Stichprobe und
         $\theta$ ein Parameter. Dann heißt die Abbildung
         $$T: \mathcal{X} \rightarrow \tilde{\Theta}$$
         mit $\tilde{\Theta} \supseteq \Theta$ ein Schätzer für $\theta$.
+    </dd>
+    <dt><dfn>Konsistenter Schätzer</dfn></dt>
+    <dd>
+
+        Sei $\mathcal{X}_n = (X_1, \dots, X_n)$ eine Stichprobe, $\theta$ ein Parameter und
+        $T(\mathcal{X}_n)$ ein Schätzer für $\theta$. $T(\mathcal{X}_n)$
+        heißt konsistent, wenn gilt:
+
+        $$\lim_{n \rightarrow \infty} P_\theta (|T(\mathcal{X}_n) - \theta| \geq \varepsilon) = 0$$
+
     </dd>
     <dt><dfn>Asymptotisch Erwartungstreuer Schätzer</dfn></dt>
     <dd>
@@ -152,7 +242,7 @@ For this chapter, I highly recommend reading [Anwendung der Dempster-Shafer Evid
         Ein Ereignis $A$ heißt fokal bzg. eines Basismaßes $m$, wenn $m(A) \neq 0$ gilt.
 
     </dd>
-    <dt><dfn>Dempsters Kombinationsregel</dfn> (<dfn>Dempsters rule of combination</dfn>, <dfn>DRC</dfn>)</dt>
+    <dt><dfn>Dempsters Kombinationsregel</dfn> (<dfn>Dempsters rule of combination</dfn>, <dfn id="drc">DRC</dfn>)</dt>
     <dd>$$m_1 \oplus m_2 (A) := \begin{cases}0&\text{for } A = \emptyset\\
                                              \frac{\sum_{X, Y: X \cap Y = A} m_1(X) m_2(Y)}{|1-K|}\end{cases}$$
         für Konfliktgrad $$K := \sum_{X, Y: X \cap Y = \emptyset} m_1(X) m_2(Y)$$
@@ -164,7 +254,7 @@ For this chapter, I highly recommend reading [Anwendung der Dempster-Shafer Evid
         Es gilt also im Allgemeinen nicht $m \oplus m = m$.<br/>
         Bei der Berechnung des Konfliktgrades genügt es fokale Ereignisse zu
         betrachten.</dd>
-    <dt><dfn>Bayessche Fusion</dfn></dt>
+    <dt><dfn id="bayes-fusion">Bayessche Fusion</dfn></dt>
     <dd>
 
         Angenommen man hat eine Klassifikationsaufgabe. $z$ gehört einer der
@@ -266,9 +356,9 @@ Zur Einführung:
     <dd>Das Schwerpunktverfahren dient zur Defuzzifizierung.</dd>
     <dt><dfn>Maximum-Mittelwert-Methode</dfn> (<dfn id="mean-of-maxima-defuzzification">Mean of maxima</dfn>, <dfn>MOM</dfn>)</dt>
     <dd>Das Schwerpunktverfahren dient zur Defuzzifizierung.</dd>
-    <dt><dfn id="informationsfusion-fuzzy">Informationsfusion mit Fuzzy-Systemen</dfn></dt>
+    <dt><dfn id="informationsfusion-fuzzy">Fuzzy-Fusion</dfn></dt>
     <dd>
-        
+
         <ol>
             <li>Definition linguistischer Variablen (z.B. Temperatur) und Terme (Werte der linguistischen Variablen, z.B. kalt, kühl, lau, warm, heiß)</li>
             <li>Zugehörigkeitsfunktionen definieren</li>
@@ -355,6 +445,32 @@ Slides: `IF-Kap7_160125.pdf`
 
     </dd>
 </dl>
+
+## Überblick
+
+<table>
+    <tr>
+        <th>Unsicherheitsmodellierung</th>
+        <th>Wahrscheinlichkeiten</th>
+        <th>Verallgemeinerte W-Keiten</th>
+        <th>Linguistisch</th>
+        <th>Neuronale Netze</th>
+    </tr>
+    <tr>
+        <th>Fusion</th>
+        <td><a href="#bayes-fusion">Bayes-Fusion</a></td>
+        <td><a href="#drc">DRC</a></td>
+        <td><a href="#informationsfusion-fuzzy">Fuzzy-Fusion</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <th>Unsicherheiten</th>
+        <td>Wahrscheinlichkeit in [0, 1]</td>
+        <td>Basismaß in [0, 1]</td>
+        <td>Zugehörigkeit in [0, 1]</td>
+        <td></td>
+    </tr>
+</table>
 
 
 ## Abkürzungen
@@ -470,8 +586,14 @@ Die Lösungen sind auch online (ausführlicher und besser als ich es hier habe).
   → Siehe <a href="#kolmogorov-axioms">oben</a>
 * Was sind Zugehörigkeitsfunktionen?<br/>
   → Siehe <a href="#membership-function">oben</a>
-* Wie funktioniert Informationsfusion mit Fuzzy-Systemen?
-  → Siehe <a href="#informationsfusion-fuzzy">oben</a>
+* Wie funktioniert Informationsfusion mit Fuzzy-Systemen?<br/>
+  → Siehe <a href="#informationsfusion-fuzzy">oben</a>.
+* Welche Vorteile bietet Informationsfusion?<br/>
+  → Siehe <a href="#informationsfusion-advantages">oben</a>.
+* Welche Eigenschaften sind bei Merkmalen wünschenswert?<br/>
+  → Siehe <a href="#features-properties">oben</a>.
+* Welche Beziehung gilt zwischen Erwartungstreue und Konsistenz von Schätzern?<br/>
+  → TODO
 
 
 
