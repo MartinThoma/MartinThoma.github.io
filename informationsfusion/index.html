@@ -141,8 +141,8 @@ Signal, usw. eingef&uuml;hrt.</p>
 <dd>
         Sei $\mathcal{X} = (X_1, \dots, X_n)$ eine Stichprobe und
         $\theta$ ein Parameter. Dann hei&szlig;t die Abbildung
-        $$T: \mathcal{X} \rightarrow \tilde{\Thata}$$
-        mit $\tilde{\Thata} \supseteq \Theta$ ein Sch&auml;tzer f&uuml;r $\theta$.
+        $$T: \mathcal{X} \rightarrow \tilde{\Theta}$$
+        mit $\tilde{\Theta} \supseteq \Theta$ ein Sch&auml;tzer f&uuml;r $\theta$.
     </dd>
 <dt><dfn>Asymptotisch Erwartungstreuer Sch&auml;tzer</dfn></dt>
 <dd>
@@ -163,7 +163,16 @@ Signal, usw. eingef&uuml;hrt.</p>
         wurden in der Norm Grunds&auml;tze und Vorgehensweisen zur Bestimmung der
         Messunsicherheit festgelegt.<br/>
 <br/>
-        GUM ist auf metrische Merkmale beschr&auml;nkt.</dd>
+        GUM ist auf metrische Merkmale beschr&auml;nkt.<br/>
+        Vorgehen:
+        <ol>
+<li>Modellgleichung formulieren: $Y = f(X_1, \dots, X_n)$, wobei
+                $Y$ die Messgr&ouml;&szlig;e und $X_i$ die Eingangsgr&ouml;&szlig;en sind.</li>
+<li>Eingangsgr&ouml;&szlig;en und Unsicherheiten bestimmen (entweder durch Messreihen oder durch Erfahrungswerte / Handb&uuml;cher)</li>
+<li>Sch&auml;tzwert $\hat{y}$ f&uuml;r Messgr&ouml;&szlig;e $Y$ bestimmen</li>
+<li>Ermittlung der kombinierten Unsicherheit</li>
+</ol>
+</dd>
 <dt><dfn>Standardunsicherheit</dfn></dt>
 <dd>Die Standardunsicherheit einer Messung ist
 
@@ -337,6 +346,16 @@ $$
 <dd>Das Schwerpunktverfahren dient zur Defuzzifizierung.</dd>
 <dt><dfn>Maximum-Mittelwert-Methode</dfn> (<dfn id="mean-of-maxima-defuzzification">Mean of maxima</dfn>, <dfn>MOM</dfn>)</dt>
 <dd>Das Schwerpunktverfahren dient zur Defuzzifizierung.</dd>
+<dt><dfn id="informationsfusion-fuzzy">Informationsfusion mit Fuzzy-Systemen</dfn></dt>
+<dd>
+<ol>
+<li>Definition linguistischer Variablen (z.B. Temperatur) und Terme (Werte der linguistischen Variablen, z.B. kalt, k&uuml;hl, lau, warm, hei&szlig;)</li>
+<li>Zugeh&ouml;rigkeitsfunktionen definieren</li>
+<li>Fuzzifizierung: Transformation der vorliegenden Information mithilfe der Zugeh&ouml;rigkeitsfunktionen in Fuzzy-konforme Form. Zugeh&ouml;rigkeitsfunktionen bilden numerische Terme auf linguistische Variablen ab.</li>
+<li>Kombination der Terme durch Anwendung von Fuzzy-Logik in der Regelbasis. Die Regeln haben die Form IF Pr&auml;misse THEN Konklusion.</li>
+<li>Defuzzifizierung: Abbildung auf Ausgangsbasis (Schwerpunktregel, Maximummethode oder Maximum-Mittelwert Methode)</li>
+</ol>
+</dd>
 </dl>
 <h3 id="neuronale-netze">Neuronale Netze</h3>
 <p>Slides: <code>IF-Kap5_160125.pdf</code></p>
@@ -417,7 +436,7 @@ $$
                        Sch&auml;tzer, welcher die Stichprobe ignoriert und somit
                        eine Varianz von 0 hat.</li>
 <li>Kapitel 2, Folie 37: Was ist ein Arbeitspunkt?</li>
-<li>Kapitel 2, Folie 44f: Fusion 2er gr&ouml;&szlig;en / Verteilungen</li>
+<li>Kapitel 2, Folie 44f: Fusion 2er Gr&ouml;&szlig;en / Verteilungen</li>
 <li>Kapitel 2, Folie 79: Was ist der Trunkation error? Was ist der base point error und warum ist es ein Problem, dass man um den Sch&auml;tzwert und nicht um den wahren Wert linearisiert?</li>
 </ul>
 <h2 id="ubungsaufgaben">&Uuml;bungsaufgaben</h2>
@@ -449,7 +468,7 @@ $$
 </ul>
 </li>
 <li>Aufgabe 1.5a: <span class="math">\(\int_0^\infty (\alpha \cdot \exp(-\alpha x)) \mathrm{d}x = \alpha \int_0^\infty \exp(-\alpha x) \mathrm{d}x = \alpha [-\frac{1}{\alpha} \exp(-\alpha x)]_0^\infty = 1\)</span></li>
-<li>Aufgabe 1.5b: TODO</li>
+<li>Aufgabe 1.5b: Erwartungswert einer Zufallsvariable ist <span class="math">\(\int_{-\infty}^{+\infty} x f(x) \mathrm{d} x\)</span>.</li>
 <li>Aufgabe 1.6:<ul>
 <li><span class="math">\(G\)</span>: E-mail ist gesch&auml;ftlich, <span class="math">\(\bar{G}\)</span> ist privat</li>
 <li><span class="math">\(S\)</span>: E-mail ist spam, <span class="math">\(\bar{S}\)</span> ist ham</li>
@@ -471,10 +490,10 @@ $$
                 Sensor ein Objekt detektiert, wenn eines da ist. Mit
                 "Klassifikationsleistung" ist gemeint, wie Wahrscheinlich
                 der Sensor bei vorhandenem Objekt dieses richtig klassifiziert.</li>
-<li>Aufgabe 1.4b: TODO ???</li>
-<li>Aufgabe 1.4c: TODO ???</li>
-<li>Aufgabe 1.4d: TODO ???</li>
-<li>Aufgabe 1.5: TODO ???</li>
+<li>Aufgabe 1.4b: Zentralisierte Bayessche Fusion (Likelihoodmatrizen)</li>
+<li>Aufgabe 1.4c: Zentralisierte Bayessche Fusion (A-posteriori-Verteilung)</li>
+<li>Aufgabe 1.4d: Verteilte Fusion</li>
+<li>Aufgabe 1.5: Berechnung der Log-A-posteriori-Verteilung</li>
 <li>Aufgabe 1.6: 0.043 (Das typische Patenten-Test-Beispiel)</li>
 </ul>
 <h3 id="ub-3">&Uuml;B 3</h3>
@@ -498,17 +517,23 @@ $$
 </ul>
 <h2 id="prufungsfragen_1">Pr&uuml;fungsfragen</h2>
 <ul>
+<li>Welche Bedingungen m&uuml;ssen erf&uuml;llt sein, damit Informationen fusioniert werden
+  k&ouml;nnen?<br/>
+  &rarr; Gemeinsamer Sachverhalt; kompatible Definitions- und Wertebereiche; Unsicherheitsbehaftet</li>
 <li>Welche Arten von Unsicherheit kennen Sie?<br/>
-  &rarr; Unsicherheit kann man mit Wahrscheinlichkeiten, der Dempster-Shafer-Theorie
-     (Basisma&szlig;e) und &uuml;ber Fuzzy-Systeme beschreiben.</li>
+  &rarr; Unsicherheit kann man mit Wahrscheinlichkeiten, Basisma&szlig;e (Dempster-Shafer-Theorie)
+     und &uuml;ber unscharfe Mengen (Fuzzy-Systeme) sowie &uuml;ber unsicheres Erfahrungswissen
+     (Neuronale Netze) beschreiben.</li>
 <li>Was ist der Unterschied zwischen Wahrscheinlichkeiten und Basisma&szlig;en?<br/>
   &rarr; Basisma&szlig;e sind nicht monoton und nicht additiv.</li>
-<li>Wie lautet die Formel f&uuml;r verteilte Fusion?<br/>
-  &rarr; TODO</li>
+<li>Wie lautet die Formel f&uuml;r verteilte Bayessche Fusion?<br/>
+  &rarr; Wie zentrale bayessche Fusion, nur dass die Likelihood-Funktionen vorab berechnet werden (zweimaliges Anwenden der Bayes-Rule mit Unabh&auml;ngigkeitsannahme zwischendurch)</li>
 <li>Wie lauten die Axiome von Kolmogorov?<br/>
   &rarr; Siehe <a href="#kolmogorov-axioms">oben</a></li>
 <li>Was sind Zugeh&ouml;rigkeitsfunktionen?<br/>
   &rarr; Siehe <a href="#membership-function">oben</a></li>
+<li>Wie funktioniert Informationsfusion mit Fuzzy-Systemen?
+  &rarr; Siehe <a href="#informationsfusion-fuzzy">oben</a></li>
 </ul>
 <h3 id="kalman-filter">Kalman-Filter</h3>
 <ul>
@@ -533,6 +558,13 @@ $$
 <li><a href="http://ies.anthropomatik.kit.edu/lehre_informationsfusion.php">Vorlesungswebsite</a></li>
 <li><a href="https://ankiweb.net/shared/info/1070725022">Anki-Deck</a></li>
 <li><a href="https://statistik.econ.kit.edu/download/Artikel%20-%20Anwendung%20der%20Dempster-Shafer%20Evidenztheorie%20auf%20die%20Bonit%C3%A4tspr%C3%BCfung.pdf">Anwendung der Dempster-Shafer Evidenztheorie auf die Bonit&auml;tspr&uuml;fung</a></li>
+</ul>
+<p>Literatur:</p>
+<ul>
+<li><strong>Bayes-Methoden</strong>: James O. Berger: Statistical Decision Theory and Bayesian Analysis. 2nd edition, Springer, 2006. ISBN 0-387-96098-8.</li>
+<li><strong>Anwendungen</strong>: Rick S. Blum, Zheng Liu (Hrsg.): Multi Sensor Image Fusion and Its Applications. Taylor &amp; Francis, 2006. ISBN 0849334179.</li>
+<li><strong>Energiefunktionale</strong>: James J. Clark, Alan L. Yuille: Data Fusion for Sensory Information Processing Systems. Kluwer Academic Publishers, 1990. ISBN 0792391209.</li>
+<li><strong>Fuzzy Logic</strong>: Jochen Heinsohn; Rolf Socher-Ambrosius: Wissensverarbeitung: eine Einf&uuml;hrung. Spektrum Akademischer Verlag, 1999. ISBN 3827403081.</li>
 </ul>
 <h2 id="vorlesungsempfehlungen">Vorlesungs&shy;empfehlungen</h2>
 <p>Folgende Vorlesungen sind &auml;hnlich:</p>
