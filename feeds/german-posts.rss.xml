@@ -202,6 +202,66 @@ Inhalt.&lt;/p&gt;
 &lt;p&gt;Slides: &lt;code&gt;IF-Kap1_151110.pdf&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Es wurden Grundbegriffe wie Daten, Information, Merkmal, Informationsfusion,
 Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;dfn id="information"&gt;Information&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+
+        Information ist alles was potentiell zur Verringerung von Ungewissheit
+        beitr&amp;auml;gt.
+
+        Sinnvolle Informationen besteht aus Fakten und zugeh&amp;ouml;rigen
+        Unsicherheiten.
+
+    &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="signal"&gt;Signal&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;Ein Signal ist eine Funktion oder Wertefolge welche Information tr&amp;auml;gt.&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="daten"&gt;Daten&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;Daten sind maschinenlesbare Repr&amp;auml;sentationen von Informationen. Sie
+        werden als Zeichen oder Zeichenketten gespeichert.&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="feature-dfn"&gt;Merkmal&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;Ein Merkmal ist eine beobachtbare oder physikalisch messbare Eigenschaft eines oder mehrerer Objekte.&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="informationsfusion-advantages"&gt;Vorteile von Informationsfusion&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;ul&gt;
+&lt;li&gt;H&amp;ouml;here Robustheit&lt;/li&gt;
+&lt;li&gt;Erweterung der Sensorabdeckung&lt;/li&gt;
+&lt;li&gt;Erh&amp;ouml;hte Aufl&amp;ouml;sung (z.B. Accelerometer + Kompas in Kamera)&lt;/li&gt;
+&lt;li&gt;Kostenreduktion (z.B. mehrere billige Bildsensoren, dann Daten mitteln zur Rauschreduktion)&lt;/li&gt;
+&lt;li&gt;Unsicherheit Verringern (z.B. FLIR + Radar)&lt;/li&gt;
+&lt;li&gt;Indirektes schlie&amp;szlig;en auf Gr&amp;ouml;&amp;szlig;en (z.B. Oberfl&amp;auml;chennormalen)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="features-properties"&gt;W&amp;uuml;nschenswerte Eigenschaften von Merkmalen&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;ul&gt;
+&lt;li&gt;Leicht gewinnbar&lt;/li&gt;
+&lt;li&gt;Interpretierbar&lt;/li&gt;
+&lt;li&gt;Hohe Relevanz: Merkmalsvektor ist gut f&amp;uuml;r die Aufgabe geeignet (z.B. lineare separierbarkeit der Klassen bei Klassifikationsproblemen in Merkmalsraum)&lt;/li&gt;
+&lt;li&gt;Robustheit gegen St&amp;ouml;rungen&lt;/li&gt;
+&lt;li&gt;Invarianzen werden ber&amp;uuml;cksichtigt (z.B. Drehung des Objekts)&lt;/li&gt;
+&lt;li&gt;Geringe Dimensionalit&amp;auml;t des Merkmalsvektors&lt;/li&gt;
+&lt;li&gt;Geringe Abh&amp;auml;ngigkeit zwischen Merkmalen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="sensorsystem-properties"&gt;Eigenschaften von Sensorsystemen&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;ul&gt;
+&lt;li&gt;Homogenit&amp;auml;t / Heterogenit&amp;auml;t&lt;/li&gt;
+&lt;li&gt;Wirkmechanismus / Struktur&lt;/li&gt;
+&lt;li&gt;Zuverl&amp;auml;ssigkeit&lt;/li&gt;
+&lt;li&gt;Kommensurabilit&amp;auml;t (Gleichdimensionalit&amp;auml;t)&lt;/li&gt;
+&lt;li&gt;Kollokiertheit (Identische Ausschnitte der Szene): Falls nicht gegeben, ist Registrierung erforderlich&lt;/li&gt;
+&lt;/ul&gt;
+
+        Weitere:
+
+        &lt;ul&gt;
+&lt;li&gt;Aktive / passive Sensoren: z.B. Laser beeinflusst die Umwelt&lt;/li&gt;
+&lt;li&gt;Virtuelle Sensorsysteme: Gleiche Sensoren, aber unterschiedliche Parameter&lt;/li&gt;
+&lt;li&gt;Kosten, Material&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
 &lt;h3 id="wt"&gt;WT&lt;/h3&gt;
 &lt;p&gt;Slides: &lt;code&gt;IF-Kap2_151215.pdf&lt;/code&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -225,10 +285,20 @@ Signal, usw. eingef&amp;uuml;hrt.&lt;/p&gt;
     &lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Sch%C3%A4tzfunktion"&gt;&lt;dfn id="schaetzer"&gt;Sch&amp;auml;tzer&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
 &lt;dd&gt;
-        Sei $\mathcal{X} = (X_1, \dots, X_n)$ eine Stichprobe und
+        Sei $\mathcal{X}_n = (X_1, \dots, X_n)$ eine Stichprobe und
         $\theta$ ein Parameter. Dann hei&amp;szlig;t die Abbildung
         $$T: \mathcal{X} \rightarrow \tilde{\Theta}$$
         mit $\tilde{\Theta} \supseteq \Theta$ ein Sch&amp;auml;tzer f&amp;uuml;r $\theta$.
+    &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Konsistenter Sch&amp;auml;tzer&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+
+        Sei $\mathcal{X}_n = (X_1, \dots, X_n)$ eine Stichprobe, $\theta$ ein Parameter und
+        $T(\mathcal{X}_n)$ ein Sch&amp;auml;tzer f&amp;uuml;r $\theta$. $T(\mathcal{X}_n)$
+        hei&amp;szlig;t konsistent, wenn gilt:
+
+        $$\lim_{n \rightarrow \infty} P_\theta (|T(\mathcal{X}_n) - \theta| \geq \varepsilon) = 0$$
+
     &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Asymptotisch Erwartungstreuer Sch&amp;auml;tzer&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;
@@ -618,8 +688,14 @@ $$
   &amp;rarr; Siehe &lt;a href="#kolmogorov-axioms"&gt;oben&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Was sind Zugeh&amp;ouml;rigkeitsfunktionen?&lt;br/&gt;
   &amp;rarr; Siehe &lt;a href="#membership-function"&gt;oben&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Wie funktioniert Informationsfusion mit Fuzzy-Systemen?
-  &amp;rarr; Siehe &lt;a href="#informationsfusion-fuzzy"&gt;oben&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Wie funktioniert Informationsfusion mit Fuzzy-Systemen?&lt;br/&gt;
+  &amp;rarr; Siehe &lt;a href="#informationsfusion-fuzzy"&gt;oben&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Welche Vorteile bietet Informationsfusion?&lt;br/&gt;
+  &amp;rarr; Siehe &lt;a href="#informationsfusion-advantages"&gt;oben&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Welche Eigenschaften sind bei Merkmalen w&amp;uuml;nschenswert?&lt;br/&gt;
+  &amp;rarr; Siehe &lt;a href="#features-properties"&gt;oben&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Welche Beziehung gilt zwischen Erwartungstreue und Konsistenz von Sch&amp;auml;tzern?&lt;br/&gt;
+  &amp;rarr; TODO&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="kalman-filter"&gt;Kalman-Filter&lt;/h3&gt;
 &lt;ul&gt;

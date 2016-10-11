@@ -116,6 +116,66 @@ Inhalt.</p>
 <p>Slides: <code>IF-Kap1_151110.pdf</code></p>
 <p>Es wurden Grundbegriffe wie Daten, Information, Merkmal, Informationsfusion,
 Signal, usw. eingef&uuml;hrt.</p>
+<dl>
+<dt><dfn id="information">Information</dfn></dt>
+<dd>
+
+        Information ist alles was potentiell zur Verringerung von Ungewissheit
+        beitr&auml;gt.
+
+        Sinnvolle Informationen besteht aus Fakten und zugeh&ouml;rigen
+        Unsicherheiten.
+
+    </dd>
+<dt><dfn id="signal">Signal</dfn></dt>
+<dd>Ein Signal ist eine Funktion oder Wertefolge welche Information tr&auml;gt.</dd>
+<dt><dfn id="daten">Daten</dfn></dt>
+<dd>Daten sind maschinenlesbare Repr&auml;sentationen von Informationen. Sie
+        werden als Zeichen oder Zeichenketten gespeichert.</dd>
+<dt><dfn id="feature-dfn">Merkmal</dfn></dt>
+<dd>Ein Merkmal ist eine beobachtbare oder physikalisch messbare Eigenschaft eines oder mehrerer Objekte.</dd>
+<dt><dfn id="informationsfusion-advantages">Vorteile von Informationsfusion</dfn></dt>
+<dd>
+<ul>
+<li>H&ouml;here Robustheit</li>
+<li>Erweterung der Sensorabdeckung</li>
+<li>Erh&ouml;hte Aufl&ouml;sung (z.B. Accelerometer + Kompas in Kamera)</li>
+<li>Kostenreduktion (z.B. mehrere billige Bildsensoren, dann Daten mitteln zur Rauschreduktion)</li>
+<li>Unsicherheit Verringern (z.B. FLIR + Radar)</li>
+<li>Indirektes schlie&szlig;en auf Gr&ouml;&szlig;en (z.B. Oberfl&auml;chennormalen)</li>
+</ul>
+</dd>
+<dt><dfn id="features-properties">W&uuml;nschenswerte Eigenschaften von Merkmalen</dfn></dt>
+<dd>
+<ul>
+<li>Leicht gewinnbar</li>
+<li>Interpretierbar</li>
+<li>Hohe Relevanz: Merkmalsvektor ist gut f&uuml;r die Aufgabe geeignet (z.B. lineare separierbarkeit der Klassen bei Klassifikationsproblemen in Merkmalsraum)</li>
+<li>Robustheit gegen St&ouml;rungen</li>
+<li>Invarianzen werden ber&uuml;cksichtigt (z.B. Drehung des Objekts)</li>
+<li>Geringe Dimensionalit&auml;t des Merkmalsvektors</li>
+<li>Geringe Abh&auml;ngigkeit zwischen Merkmalen</li>
+</ul>
+</dd>
+<dt><dfn id="sensorsystem-properties">Eigenschaften von Sensorsystemen</dfn></dt>
+<dd>
+<ul>
+<li>Homogenit&auml;t / Heterogenit&auml;t</li>
+<li>Wirkmechanismus / Struktur</li>
+<li>Zuverl&auml;ssigkeit</li>
+<li>Kommensurabilit&auml;t (Gleichdimensionalit&auml;t)</li>
+<li>Kollokiertheit (Identische Ausschnitte der Szene): Falls nicht gegeben, ist Registrierung erforderlich</li>
+</ul>
+
+        Weitere:
+
+        <ul>
+<li>Aktive / passive Sensoren: z.B. Laser beeinflusst die Umwelt</li>
+<li>Virtuelle Sensorsysteme: Gleiche Sensoren, aber unterschiedliche Parameter</li>
+<li>Kosten, Material</li>
+</ul>
+</dd>
+</dl>
 <h3 id="wt">WT</h3>
 <p>Slides: <code>IF-Kap2_151215.pdf</code></p>
 <ul>
@@ -139,10 +199,20 @@ Signal, usw. eingef&uuml;hrt.</p>
     </dd>
 <dt><a href="https://de.wikipedia.org/wiki/Sch%C3%A4tzfunktion"><dfn id="schaetzer">Sch&auml;tzer</dfn></a></dt>
 <dd>
-        Sei $\mathcal{X} = (X_1, \dots, X_n)$ eine Stichprobe und
+        Sei $\mathcal{X}_n = (X_1, \dots, X_n)$ eine Stichprobe und
         $\theta$ ein Parameter. Dann hei&szlig;t die Abbildung
         $$T: \mathcal{X} \rightarrow \tilde{\Theta}$$
         mit $\tilde{\Theta} \supseteq \Theta$ ein Sch&auml;tzer f&uuml;r $\theta$.
+    </dd>
+<dt><dfn>Konsistenter Sch&auml;tzer</dfn></dt>
+<dd>
+
+        Sei $\mathcal{X}_n = (X_1, \dots, X_n)$ eine Stichprobe, $\theta$ ein Parameter und
+        $T(\mathcal{X}_n)$ ein Sch&auml;tzer f&uuml;r $\theta$. $T(\mathcal{X}_n)$
+        hei&szlig;t konsistent, wenn gilt:
+
+        $$\lim_{n \rightarrow \infty} P_\theta (|T(\mathcal{X}_n) - \theta| \geq \varepsilon) = 0$$
+
     </dd>
 <dt><dfn>Asymptotisch Erwartungstreuer Sch&auml;tzer</dfn></dt>
 <dd>
@@ -532,8 +602,14 @@ $$
   &rarr; Siehe <a href="#kolmogorov-axioms">oben</a></li>
 <li>Was sind Zugeh&ouml;rigkeitsfunktionen?<br/>
   &rarr; Siehe <a href="#membership-function">oben</a></li>
-<li>Wie funktioniert Informationsfusion mit Fuzzy-Systemen?
-  &rarr; Siehe <a href="#informationsfusion-fuzzy">oben</a></li>
+<li>Wie funktioniert Informationsfusion mit Fuzzy-Systemen?<br/>
+  &rarr; Siehe <a href="#informationsfusion-fuzzy">oben</a>.</li>
+<li>Welche Vorteile bietet Informationsfusion?<br/>
+  &rarr; Siehe <a href="#informationsfusion-advantages">oben</a>.</li>
+<li>Welche Eigenschaften sind bei Merkmalen w&uuml;nschenswert?<br/>
+  &rarr; Siehe <a href="#features-properties">oben</a>.</li>
+<li>Welche Beziehung gilt zwischen Erwartungstreue und Konsistenz von Sch&auml;tzern?<br/>
+  &rarr; TODO</li>
 </ul>
 <h3 id="kalman-filter">Kalman-Filter</h3>
 <ul>
