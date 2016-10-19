@@ -17,16 +17,33 @@ photos. The following script helps me to do so:
 """Batch-Rename files in a folder according to some rules."""
 
 import os
+import math
+from PIL import Image
+
+
+def get_date_taken(path):
+    """Get the date when the image was taken."""
+    print(path)
+    im = Image.open(path)
+    if im is not None or im._getexif() is None:
+        return im._getexif()[36867]
+    else:
+        print("Could not find date in EXIF data for '%s'" % path)
+        return os.stat(path).st_ctime
 
 
 def rename(rename, starts=None, ends=None, test=False):
     """
-    Rename all files which end with `ends` and start with `starts` to
+    Rename all files in a nice way.
+
+    Only files which end with `ends` and start with `starts` are renamed to
     `rename-[Number]`.
     """
-    files = [f for f in os.listdir('.') if os.path.isfile(f)]
-    # Sort files by last modification
-    files.sort(key=lambda x: os.stat(x).st_mtime)
+    files = [f for f in os.listdir('.')
+             if os.path.isfile(f) and not f.endswith(".py")]
+    # Sort files by last modification / creation
+    files.sort(key=lambda x: os.stat(x).st_ctime)  # st_ctime or st_mtime
+    files.sort(key=lambda x: get_date_taken(x))
     if starts is not None:
         files = [f for f in files if f.lower().startswith(starts.lower())]
     if ends is not None:
@@ -34,7 +51,9 @@ def rename(rename, starts=None, ends=None, test=False):
     for i, f in enumerate(files, start=1):
         filename, ext = os.path.splitext(f)
         ext = ext.lower()
-        new_name = "%s-%i%s" % (rename, i, ext)
+        digits = int(math.log10(len(files))) + 1
+        number = str(i).zfill(digits)
+        new_name = "%s-%s%s" % (rename, number, ext)
         if test:
             print("{0:<40}-> {1:<20}".format(f, new_name))
         else:
@@ -42,6 +61,7 @@ def rename(rename, starts=None, ends=None, test=False):
 
 
 def get_parser():
+    """Parser for rename script."""
     from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
     parser = ArgumentParser(description=__doc__,
                             formatter_class=ArgumentDefaultsHelpFormatter)
