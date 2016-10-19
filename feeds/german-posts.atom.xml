@@ -1,5 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/german-posts.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2016-09-04T13:00:00+02:00</updated><entry><title>Sommerakademie Greifswald</title><link href="https://martin-thoma.com/sommerakademie-greifswald/" rel="alternate"></link><published>2016-09-04T13:00:00+02:00</published><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2016-09-04:sommerakademie-greifswald/</id><summary type="html">&lt;p&gt;Eine Sommerakademie ist eine Veranstaltung der Studienstiftung des deutschen
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/german-posts.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2016-10-19T20:00:00+02:00</updated><entry><title>Computer Vision for Human-Computer Interaction</title><link href="https://martin-thoma.com/cv-hci/" rel="alternate"></link><published>2016-10-19T20:00:00+02:00</published><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2016-10-19:cv-hci/</id><summary type="html">&lt;div class="info"&gt;Dieser Artikel besch&amp;auml;ftigt sich mit der Vorlesung &amp;bdquo;Computer Vision for Human-Computer Interaction&amp;ldquo; am KIT. Er dient als Pr&amp;uuml;fungsvorbereitung. Ich habe die Vorlesungen bei &lt;a href="https://cvhci.anthropomatik.kit.edu/people_596.php"&gt;Herrn Prof. Dr.-Ing. Rainer Stiefelhagen&lt;/a&gt; im Wintersemester 2016/2017 geh&amp;ouml;rt. Die Inhalte sind dementsprechend stark an der Vorlesung angelehnt bzw. komplette Teile sind daraus &amp;uuml;bernommen. Noch ist der Artikel in der Entwurfsphase.&lt;/div&gt;
+&lt;p&gt;Der Kern der Vorlesung 'Computer Vision for Human-Computer Interaction' ist das finden und verfolgen von Personen / Gesichtern in Bildern und Bildfolgen. Dabei werden folgende Themenfelder besprochen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Trackingverfahren: Kalman-Filter und Partikelfilter&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="behandelter-stoff"&gt;Behandelter Stoff&lt;/h2&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;#&lt;/th&gt;
+&lt;th&gt;Datum&lt;/th&gt;
+&lt;th&gt;Kapitel&lt;/th&gt;
+&lt;th&gt;Inhalt&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;18.10.2016&lt;/td&gt;
+&lt;td&gt;Einf&amp;uuml;hrung&lt;/td&gt;
+&lt;td&gt;Organisatorisches und &amp;Uuml;berblick &amp;uuml;ber den Stoff&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;04.11.2016&lt;/td&gt;
+&lt;td&gt;Programmierprojekten&lt;/td&gt;
+&lt;td&gt;Organisatorisches / Einf&amp;uuml;hrung dazu&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;h3 id="grundlagen"&gt;Grundlagen&lt;/h3&gt;
+&lt;p&gt;Slides: &lt;code&gt;ProPlan-1-Anschrieb.pdf&lt;/code&gt;&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;dfn&gt;$\sigma$-Algebra&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;Sei $S$ eine Menge und $\mathcal{A}$ ein Menge aus Teilmengen von $S$.
+      $\mathcal{A}$ hei&amp;szlig;t eine $\sigma$-Algebra &amp;uuml;ber $S$, genau dann, wenn
+      gilt:
+
+      &lt;ul&gt;
+&lt;li&gt;$S \in \mathcal{A}$&lt;/li&gt;
+&lt;li&gt;$\forall M \in \mathcal{A} \Rightarrow (S \setminus M) \in \mathcal{A}$&lt;/li&gt;
+&lt;li&gt;$M_1, M_2, \dots \in \mathcal{A} \Rightarrow \bigcup_{n \in \mathbb{N}} M_n \in \mathcal{A}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Wahrscheinlichkeitsma&amp;szlig;&lt;/dfn&gt; (&lt;dfn id="probability-measure"&gt;Probability measure&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dd&gt;Eine Funktion $P: \mathcal{A} \rightarrow \mathbb{R}$ (mit $\mathcal{A}$ ist
+      Sigma-Algebra &amp;uuml;ber der Grundmenge $S$) hei&amp;szlig;t
+      &lt;i&gt;Wahrscheinlichkeitsma&amp;szlig;&lt;/i&gt;, wenn die Kolmogorov'schen Axiome gelten:
+
+      &lt;ul&gt;
+&lt;li&gt;Nicht-negativit&amp;auml;t: $\forall M \in \mathcal{A}: P(M) \geq 0$&lt;/li&gt;
+&lt;li&gt;Normiertheit: $\forall P(S) = 1$&lt;/li&gt;
+&lt;li&gt;$M_1, M_2 \in \mathcal{A} \land M_1 \cap M_2 = \emptyset \Rightarrow P(M_1 \cup M_2) = P(M_1) + P(M_2)$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Normalverteilung&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;Die Normalverteilung $\mathcal{N}(\mu, \sigma^2)$ ist eine
+      kontinuierliche Verteilung mit der Dichtefunktion
+
+      $$f(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} e^{- \frac{(x - \mu)^2}{2\sigma^2}}$$
+
+      Die multivariate Normalverteilung $\mathcal{N}(\mu, \Sigma)$ hat die
+      Dichtefunktion
+
+      $$f(x) = \frac{1}{ \sqrt{(2\pi)^n \det(\Sigma)} } \exp \left(-\frac{1}{2}({\mathbf x}-{\boldsymbol\mu})^\mathrm{T}{\boldsymbol\Sigma}^{-1}({\mathbf x}-{\boldsymbol\mu}) \right)$$
+
+      &lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h2 id="prufungsfragen_1"&gt;Pr&amp;uuml;fungsfragen&lt;/h2&gt;
+&lt;p&gt;Kommt noch&lt;/p&gt;
+&lt;!-- Strategiesuche ist NICHT relevant für meine Prüfung am 4.&amp;nbsp;August 2016.
+
+* Welche 3 Themengebiete wurden in der Vorlesung behandelt und was sind die
+  Unterschiede?&lt;br/&gt;
+  → &lt;a href="#mdp"&gt;MDP&lt;/a&gt;, &lt;a href="#pomdp"&gt;POMDP&lt;/a&gt;, &lt;a href="#rl"&gt;RL&lt;/a&gt;
+* Welche Paradoxa haben wir in den Vorlesungen kennen gelernt?&lt;br/&gt;
+  → Allais-Paradoxon --&gt;
+&lt;h2 id="material-und-links"&gt;Material und Links&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://cvhci.anthropomatik.kit.edu/600_1526.php"&gt;Vorlesungswebsite&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- * [Anki-Karteikarten Deck](https://ankiweb.net/shared/info/22317474) --&gt;
+&lt;h2 id="fazit"&gt;Fazit&lt;/h2&gt;
+&lt;p&gt;Kommt noch.&lt;/p&gt;
+&lt;h2 id="vorlesungsempfehlungen"&gt;Vorlesungs&amp;shy;empfehlungen&lt;/h2&gt;
+&lt;p&gt;Folgende Vorlesungen sind &amp;auml;hnlich:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/"&gt;Analysetechniken gro&amp;szlig;er Datenbest&amp;auml;nde&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://martin-thoma.com/informationsfusion/"&gt;Informationsfusion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://martin-thoma.com/machine-learning-1-course/"&gt;Machine Learning 1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://martin-thoma.com/machine-learning-2-course/"&gt;Machine Learning 2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://martin-thoma.com/mustererkennung-klausur/"&gt;Mustererkennung&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://martin-thoma.com/neuronale-netze-vorlesung/"&gt;Neuronale Netze&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://martin-thoma.com/lma/"&gt;Lokalisierung Mobiler Agenten&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://martin-thoma.com/probabilistische-planung/"&gt;Probabilistische Planung&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Weitere:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Einf&amp;uuml;hrung in die Bildfolgenauswertung&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://cvhci.anthropomatik.kit.edu/600_1482.php"&gt;Content-based Image and Video Retrival&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="termine-und-klausurablauf"&gt;Termine und Klausurablauf&lt;/h2&gt;
+&lt;p&gt;Die Veranstaltung wird m&amp;uuml;ndlich gepr&amp;uuml;ft, jedoch sind 10% der Note durch
+praktische Aufgaben zu erlangen. &amp;Uuml;blicherweise dauert eine Pr&amp;uuml;fung
+etwa 30 min.&lt;/p&gt;</summary><category term="Klausur"></category><category term="CV"></category></entry><entry><title>Sommerakademie Greifswald</title><link href="https://martin-thoma.com/sommerakademie-greifswald/" rel="alternate"></link><published>2016-09-04T13:00:00+02:00</published><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2016-09-04:sommerakademie-greifswald/</id><summary type="html">&lt;p&gt;Eine Sommerakademie ist eine Veranstaltung der Studienstiftung des deutschen
 Volkes, bei der einige Dutzend Stipendiaten zusammenkommen und knapp zwei
 Wochen mit einander verbringen. Es gibt Kurse und Abendvortr&amp;auml;ge zu welchen man
 kommen muss, sowie einiges an Freizeitprogramm das durch die Stipendiaten

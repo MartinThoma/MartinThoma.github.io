@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Machine Learning, Machine Learning, " />
+
+<meta property="og:title" content="Iterating over Graphs "/>
+<meta property="og:url" content="../graph-iteration/" />
+<meta property="og:description" content="Today I was thinking if one could iterate over all possible feed forward network architectures possible. A feed forward network is essentially only a directed acyclic graph. To make things simpler, lets just think about multilayer perceptrons. This means we only have connections between neighboring layers (and we have layers ..." />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2016-10-19T20:00:00+02:00" />
+<meta name="twitter:title" content="Iterating over Graphs ">
+<meta name="twitter:description" content="Today I was thinking if one could iterate over all possible feed forward network architectures possible. A feed forward network is essentially only a directed acyclic graph. To make things simpler, lets just think about multilayer perceptrons. This means we only have connections between neighboring layers (and we have layers ...">
+<meta property="og:image" content="logos/ml.png" />
+<meta name="twitter:image" content="logos/ml.png" >
+
+        <title>Iterating over Graphs  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../graph-iteration/"> Iterating over Graphs  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#terms" title="Terms">Terms</a><ul><li><a class="toc-href" href="#iteration" title="Iteration">Iteration</a></li></ul></li><li><a class="toc-href" href="#graph-iteration_1" title="Graph iteration">Graph iteration</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>Today I was thinking if one could iterate over all possible feed forward network
+architectures possible. A feed forward network is essentially only a directed
+acyclic graph.</p>
+<p>To make things simpler, lets just think about multilayer perceptrons. This
+means we only have connections between neighboring layers (and we have layers).</p>
+<h2 id="terms">Terms</h2>
+<p>A directed acyclic graph (DAG) is a finite graph <span class="math">\(G = (V, E)\)</span> with vertices <span class="math">\(V\)</span>
+and edges <span class="math">\(E \subseteq V \times V\)</span> where no cycle can be found. A cycle is a
+set of edges <span class="math">\(e_1, \dots, e_n\)</span> such that <span class="math">\(e_i = (v_i, v_{i+1})\)</span> with <span class="math">\(e_n =
+(v_n, v_1)\)</span>.</p>
+<h3 id="iteration">Iteration</h3>
+<p>Now, what does it mean to iterate over the graphs?</p>
+<p>One can iterate over all natural numbers like this:</p>
+<div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+<p>Resulting in the sequence <span class="math">\(1, 2, 3, \dots\)</span> which is guaranteed to reach any
+natural number <span class="math">\(k \in \mathbb{N}\)</span> at some point.</p>
+<p>Similar, one can iterate over <span class="math">\(\mathbb{Q}_0^+\)</span>:</p>
+<div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">y</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">x</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">y</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+<p>this is the pattern in which the numbers are generated:</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<img alt="Iterate over Q+" src="../images/2016/10/iterate-q.png"/>
+<figcaption class="text-center">Iterate over $\mathbb{Q}_0^+$</figcaption>
+</figure>
+<h2 id="graph-iteration_1">Graph iteration</h2>
+<p>There are finitely many directed graphs <span class="math">\(G = (V, E)\)</span> with <span class="math">\(E \subseteq V \times V\)</span> with <span class="math">\(n = |V|\)</span> nodes. So if one wanted to iterate over all of them, one could iterate over all graphs with <span class="math">\(n=1\)</span> node (only one graph), then over all graphs with two nodes, ...</p>
+<p>At this point, it should be obvious that it is possible. However, how can we
+iterate over the structures without unnecessary duplication? How can we take
+into account that we also need connected graphs with a fixed size for the
+first layer and a fixed size for the last layer?</p>
+<p>Similar to the iteration over <span class="math">\(\mathbb{Q}_0^+\)</span>, you first generate all MLPs
+with exactly one neuron. Then all MLPs with exactly two neurons, ...</p>
+<p>To generate all MLPs with exactly <span class="math">\(n\)</span> neurons in <span class="math">\(k\)</span> layers, you first generate
+all MLPs with <span class="math">\(n-i\)</span> neurons in <span class="math">\(k-1\)</span> layers and add <span class="math">\(i\)</span> neurons to the <span class="math">\(k\)</span>-th
+layer:</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="sd">"""Iterate over all MLPs."""</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">count</span>
+
+
+<span class="k">def</span> <span class="nf">gen_vecs</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="sd">"""Generate all integer vectors of length k which sums up to n."""</span>
+    <span class="k">assert</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="k">assert</span> <span class="n">k</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="k">assert</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="n">k</span><span class="p">,</span> <span class="s2">"n=</span><span class="si">%i</span><span class="s2"> AND k=</span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">n</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">2</span><span class="p">):</span>
+            <span class="n">xs</span> <span class="o">=</span> <span class="n">gen_vecs</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">xs</span><span class="p">:</span>
+                <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+                    <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+                <span class="n">x</span><span class="p">[</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+                <span class="k">yield</span> <span class="n">x</span>
+
+
+<span class="k">def</span> <span class="nf">gen_all_mlps_size_n</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Generate all ways to have hidden layers with exactly n nodes.</span>
+
+<span class="sd">    Make it by the number of hidden layers. First one hidden layer, then two,</span>
+<span class="sd">    ... until n hidden layers with each exactly one neuron.</span>
+
+<span class="sd">    There are 2^{n-1} of those.</span>
+<span class="sd">    """</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">vec_generator</span> <span class="o">=</span> <span class="n">gen_vecs</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">vec</span> <span class="ow">in</span> <span class="n">vec_generator</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">vec</span>
+
+
+<span class="k">def</span> <span class="nf">gen_all_mlps</span><span class="p">():</span>
+    <span class="sd">"""Generate all MLPs."""</span>
+    <span class="k">for</span> <span class="n">neurons</span> <span class="ow">in</span> <span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">gen</span> <span class="o">=</span> <span class="n">gen_all_mlps_size_n</span><span class="p">(</span><span class="n">neurons</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">graph</span> <span class="ow">in</span> <span class="n">gen</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">graph</span>
+
+<span class="c1"># Just for fun, generate the first 100 graphs:</span>
+<span class="n">gen</span> <span class="o">=</span> <span class="n">gen_all_mlps</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">gen</span><span class="o">.</span><span class="n">next</span><span class="p">())</span>
+</pre></div>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2016-10-19T20:00:00+02:00">Okt 19, 2016</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#machine-learning-ref">Machine Learning</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#machine-learning-ref">Machine Learning
+                    <span>23</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

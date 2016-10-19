@@ -1,5 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/machine-learning.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2016-07-21T16:00:00+02:00</updated><entry><title>Diverging Gradient Descent</title><link href="https://martin-thoma.com/diverging-gradient-descent/" rel="alternate"></link><published>2016-07-21T16:00:00+02:00</published><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2016-07-21:diverging-gradient-descent/</id><summary type="html">&lt;p&gt;When you take the function&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/machine-learning.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2016-10-19T20:00:00+02:00</updated><entry><title>Iterating over Graphs</title><link href="https://martin-thoma.com/graph-iteration/" rel="alternate"></link><published>2016-10-19T20:00:00+02:00</published><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2016-10-19:graph-iteration/</id><summary type="html">&lt;p&gt;Today I was thinking if one could iterate over all possible feed forward network
+architectures possible. A feed forward network is essentially only a directed
+acyclic graph.&lt;/p&gt;
+&lt;p&gt;To make things simpler, lets just think about multilayer perceptrons. This
+means we only have connections between neighboring layers (and we have layers).&lt;/p&gt;
+&lt;h2 id="terms"&gt;Terms&lt;/h2&gt;
+&lt;p&gt;A directed acyclic graph (DAG) is a finite graph &lt;span class="math"&gt;\(G = (V, E)\)&lt;/span&gt; with vertices &lt;span class="math"&gt;\(V\)&lt;/span&gt;
+and edges &lt;span class="math"&gt;\(E \subseteq V \times V\)&lt;/span&gt; where no cycle can be found. A cycle is a
+set of edges &lt;span class="math"&gt;\(e_1, \dots, e_n\)&lt;/span&gt; such that &lt;span class="math"&gt;\(e_i = (v_i, v_{i+1})\)&lt;/span&gt; with &lt;span class="math"&gt;\(e_n =
+(v_n, v_1)\)&lt;/span&gt;.&lt;/p&gt;
+&lt;h3 id="iteration"&gt;Iteration&lt;/h3&gt;
+&lt;p&gt;Now, what does it mean to iterate over the graphs?&lt;/p&gt;
+&lt;p&gt;One can iterate over all natural numbers like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Resulting in the sequence &lt;span class="math"&gt;\(1, 2, 3, \dots\)&lt;/span&gt; which is guaranteed to reach any
+natural number &lt;span class="math"&gt;\(k \in \mathbb{N}\)&lt;/span&gt; at some point.&lt;/p&gt;
+&lt;p&gt;Similar, one can iterate over &lt;span class="math"&gt;\(\mathbb{Q}_0^+\)&lt;/span&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+        &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;-=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;
+        &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;this is the pattern in which the numbers are generated:&lt;/p&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;img alt="Iterate over Q+" src="../images/2016/10/iterate-q.png"/&gt;
+&lt;figcaption class="text-center"&gt;Iterate over $\mathbb{Q}_0^+$&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id="graph-iteration_1"&gt;Graph iteration&lt;/h2&gt;
+&lt;p&gt;There are finitely many directed graphs &lt;span class="math"&gt;\(G = (V, E)\)&lt;/span&gt; with &lt;span class="math"&gt;\(E \subseteq V \times V\)&lt;/span&gt; with &lt;span class="math"&gt;\(n = |V|\)&lt;/span&gt; nodes. So if one wanted to iterate over all of them, one could iterate over all graphs with &lt;span class="math"&gt;\(n=1\)&lt;/span&gt; node (only one graph), then over all graphs with two nodes, ...&lt;/p&gt;
+&lt;p&gt;At this point, it should be obvious that it is possible. However, how can we
+iterate over the structures without unnecessary duplication? How can we take
+into account that we also need connected graphs with a fixed size for the
+first layer and a fixed size for the last layer?&lt;/p&gt;
+&lt;p&gt;Similar to the iteration over &lt;span class="math"&gt;\(\mathbb{Q}_0^+\)&lt;/span&gt;, you first generate all MLPs
+with exactly one neuron. Then all MLPs with exactly two neurons, ...&lt;/p&gt;
+&lt;p&gt;To generate all MLPs with exactly &lt;span class="math"&gt;\(n\)&lt;/span&gt; neurons in &lt;span class="math"&gt;\(k\)&lt;/span&gt; layers, you first generate
+all MLPs with &lt;span class="math"&gt;\(n-i\)&lt;/span&gt; neurons in &lt;span class="math"&gt;\(k-1\)&lt;/span&gt; layers and add &lt;span class="math"&gt;\(i\)&lt;/span&gt; neurons to the &lt;span class="math"&gt;\(k\)&lt;/span&gt;-th
+layer:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/python&lt;/span&gt;
+&lt;span class="c1"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
+
+&lt;span class="sd"&gt;"""Iterate over all MLPs."""&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;itertools&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;count&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;gen_vecs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;"""Generate all integer vectors of length k which sums up to n."""&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"n=&lt;/span&gt;&lt;span class="si"&gt;%i&lt;/span&gt;&lt;span class="s2"&gt; AND k=&lt;/span&gt;&lt;span class="si"&gt;%i&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;yield&lt;/span&gt; &lt;span class="n"&gt;numpy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+            &lt;span class="n"&gt;xs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gen_vecs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;xs&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+                &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;numpy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;zeros&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+                &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+                    &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+                &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;
+                &lt;span class="k"&gt;yield&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;gen_all_mlps_size_n&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;"""&lt;/span&gt;
+&lt;span class="sd"&gt;    Generate all ways to have hidden layers with exactly n nodes.&lt;/span&gt;
+
+&lt;span class="sd"&gt;    Make it by the number of hidden layers. First one hidden layer, then two,&lt;/span&gt;
+&lt;span class="sd"&gt;    ... until n hidden layers with each exactly one neuron.&lt;/span&gt;
+
+&lt;span class="sd"&gt;    There are 2^{n-1} of those.&lt;/span&gt;
+&lt;span class="sd"&gt;    """&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="n"&gt;vec_generator&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gen_vecs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;vec&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;vec_generator&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="k"&gt;yield&lt;/span&gt; &lt;span class="n"&gt;vec&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;gen_all_mlps&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="sd"&gt;"""Generate all MLPs."""&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;neurons&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;count&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="n"&gt;gen&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gen_all_mlps_size_n&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;neurons&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;graph&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;gen&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="k"&gt;yield&lt;/span&gt; &lt;span class="n"&gt;graph&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Just for fun, generate the first 100 graphs:&lt;/span&gt;
+&lt;span class="n"&gt;gen&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gen_all_mlps&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gen&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="Machine Learning"></category></entry><entry><title>Diverging Gradient Descent</title><link href="https://martin-thoma.com/diverging-gradient-descent/" rel="alternate"></link><published>2016-07-21T16:00:00+02:00</published><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2016-07-21:diverging-gradient-descent/</id><summary type="html">&lt;p&gt;When you take the function&lt;/p&gt;
 &lt;div class="math"&gt;$$f(x, y) = 3x^2 + 3y^2 + 2xy$$&lt;/div&gt;
 &lt;p&gt;and start gradient descent at &lt;span class="math"&gt;\(x_0 = (6, 6)\)&lt;/span&gt; with learning rate &lt;span class="math"&gt;\(\eta = \frac{1}{2}\)&lt;/span&gt;
 it diverges.&lt;/p&gt;
