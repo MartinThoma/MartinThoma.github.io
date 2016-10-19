@@ -25,16 +25,16 @@ the second day to take the route.
 I'll put the German word in brackets, as I'm not totally sure about the best
 translation.
 
-- [x] Climbing helmet (Steinschlaghelme): The more expensive ones are more lightweight. Everything with EN&thinsp;12492 should be good. 30 - 80&thinsp;Euro ("Edelrid Zodiac" was 55&thinsp;Euro and weights 359&thinsp;g)
-- [x] Sit harness (Klettergurt): The more expensive ones are more
+- Climbing helmet (Steinschlaghelme): The more expensive ones are more lightweight. Everything with EN&thinsp;12492 should be good. 30 - 80&thinsp;Euro ("Edelrid Zodiac" was 55&thinsp;Euro and weights 359&thinsp;g)
+- Sit harness (Klettergurt): The more expensive ones are more
   lightweight / more comfortable. ("Ocun: Twist Basic XS - M" was 55&thinsp;Euro)
-- [x] Ferrata set ("Elliot: Forril Tech Klettersteigset mit Bandfalldämpfer" was 65&thinsp;Euro)
-- [x] Carabiner ("Mammut: HMS Bionic Twistlock Plus basalt" was 19&thinsp;Euro)
-- [x] Webbing loop ("Elliot Bandschlinge 60cm" was 3&thinsp;Euro)
-- [ ] Travel Sheet (Hüttenschlafsack)
-- [x] Headlamp ("Moorhead Stirnlampe", about 15&thinsp;Euro)
-- [x] Cycling gloves
-- [ ] Map
+- Ferrata set ("Elliot: Forril Tech Klettersteigset mit Bandfalldämpfer" was 65&thinsp;Euro)
+- Carabiner ("Mammut: HMS Bionic Twistlock Plus basalt" was 19&thinsp;Euro)
+- Webbing loop ("Elliot Bandschlinge 60cm" was 3&thinsp;Euro)
+- Travel Sheet (Hüttenschlafsack)
+- Headlamp ("Moorhead Stirnlampe", about 15&thinsp;Euro)
+- Cycling gloves
+- Map
 
 I like the following cloths for hiking. They are comfortable in a wide range of
 temperatures and they don't stinck that much / feel bad  when you sweat:
@@ -49,13 +49,13 @@ Don't forget that it will be much colder up there than on the ground.
 
 Other things you need / might want to take with you:
 
-- [ ] Food (e.g. an apple, sausages and several cereal bars)
-- [ ] At least 1&thinsp;L of water (can be refilled at the house)
-- [ ] Toothbrush and toothpaste
-- [ ] Money (25&nbsp;Euro for sleeping at Kreuzeckhaus, 60&nbsp;Euro for food and miscallenious stuff, 32&thinsp;Euro for the cable car)
-- [ ] Medicine and hygiene stuff (For example, I always want to have tissues and dental floss with me)
-- [ ] Camera
-- [ ] Smartphone and loading cable / power bank
+- Food (e.g. an apple, sausages and several cereal bars)
+- At least 1&thinsp;L of water (can be refilled at the house)
+- Toothbrush and toothpaste
+- Money (25&nbsp;Euro for sleeping at Kreuzeckhaus, 60&nbsp;Euro for food and miscallenious stuff, 32&thinsp;Euro for the cable car)
+- Medicine and hygiene stuff (For example, I always want to have tissues and dental floss with me)
+- Camera
+- Smartphone and loading cable / power bank
 
 
 ## Education
@@ -88,3 +88,5 @@ Other things you need / might want to take with you:
 
 * [Alpspitz Ferrata - Alpspitze Klettersteig](http://www.bergsteigen.com/klettersteig/bayern/wetterstein-gebirge-und-mieminger-kette/alpspitz-ferrata-alpspitze-klettersteig)
 * [Alpspitz-Ferrata](http://www.klettersteig.de/klettersteig/alpspitz_ferrata/81)
+* [alpspitze.org](http://www.alpspitze.org/alpspitz-ferrata.html)
+* [hoehenrausch.de](https://www.hoehenrausch.de/berge/alpspitze/)
