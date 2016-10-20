@@ -16,6 +16,9 @@ in full detail.
 <dl>
     <dt><dfn id="backpropagation">Backpropagation</dfn></dt>
     <dd>A clever implementation of gradient descent for neural networks.</dd>
+    <dt><dfn id="curse-of-dimensionality">Curse of dimensionality</dfn></dt>
+    <dd>Various problems of high-dimensional spaces that do not occur in low-dimensional spaces.
+        High-dimensional often means several 100 dimensions. See also: <a href="https://martin-thoma.com/average-distance-of-points">Average Distance of Points</a></dd>
     <dt><dfn id="generative-model">Generative model</dfn></dt>
     <dd>The model gives the relationship of variables: $P(x, y)$.
         This kind of model can be used for prediction, too.</dd>
