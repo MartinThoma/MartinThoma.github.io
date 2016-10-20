@@ -1,5 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/machine-learning.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2016-10-19T20:00:00+02:00</updated><entry><title>Iterating over Graphs</title><link href="https://martin-thoma.com/graph-iteration/" rel="alternate"></link><published>2016-10-19T20:00:00+02:00</published><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2016-10-19:graph-iteration/</id><summary type="html">&lt;p&gt;Today I was thinking if one could iterate over all possible feed forward network
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/machine-learning.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2016-10-20T20:00:00+02:00</updated><entry><title>Average Distance of Random Points in a Unit Hypercube</title><link href="https://martin-thoma.com/average-distance-of-points/" rel="alternate"></link><published>2016-10-20T20:00:00+02:00</published><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2016-10-20:average-distance-of-points/</id><summary type="html">&lt;p&gt;In machine learning, the "curse of dimensionality" is often stated but much
+less often explained. At least not in detail. One just gets told that points
+are farer away from each other in high dimensional spaces.&lt;/p&gt;
+&lt;h2 id="maximum-minimal-distance"&gt;Maximum minimal distance&lt;/h2&gt;
+&lt;p&gt;One approach to this is to calculate the maximum minimal distance of &lt;span class="math"&gt;\(k\)&lt;/span&gt; points
+in &lt;span class="math"&gt;\([0, 1]^n\)&lt;/span&gt;. So you try to place &lt;span class="math"&gt;\(k\)&lt;/span&gt; points in such a way, that the minimum
+over the pairwise distances of those &lt;span class="math"&gt;\(k\)&lt;/span&gt; points is maximal.
+Let's call this &lt;span class="math"&gt;\(\alpha(n, k)\)&lt;/span&gt;. However, it is not easily possible
+to calculate &lt;span class="math"&gt;\(\alpha(n, k)\)&lt;/span&gt; for arbitrary &lt;span class="math"&gt;\(n &amp;gt; 2\)&lt;/span&gt; and &lt;span class="math"&gt;\(k &amp;gt; 2\)&lt;/span&gt; (see &lt;a href="http://math.stackexchange.com/q/1976250/6876"&gt;link&lt;/a&gt;).
+But the special case &lt;span class="math"&gt;\(k = 2\)&lt;/span&gt; and &lt;span class="math"&gt;\(k = 2^n\)&lt;/span&gt; is easy:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(\alpha(n, 2) = \sqrt{n}\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(\alpha(n, 2^n) = 1\)&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So you can see that two points get can be farer apart in higher dimensions and
+that it needs much more points in higher dimensions to force at least two of
+them to have distance 1.&lt;/p&gt;
+&lt;h2 id="average-distance"&gt;Average distance&lt;/h2&gt;
+&lt;p&gt;Another approach is to calculate the average distance of &lt;span class="math"&gt;\(k\)&lt;/span&gt; uniformly randomly
+sampled points in &lt;span class="math"&gt;\([0, 1]^n\)&lt;/span&gt;. Let's call it &lt;span class="math"&gt;\(\beta(n, k)\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;One first insight is that &lt;span class="math"&gt;\(\beta(n, k) = \beta(n, j)\)&lt;/span&gt; for and &lt;span class="math"&gt;\(k, j \geq 2\)&lt;/span&gt;.
+Hence we will only use &lt;span class="math"&gt;\(\beta(n)\)&lt;/span&gt; in the following.&lt;/p&gt;
+&lt;p&gt;It is possible to
+calculate this, but it is rather tedious (&lt;a href="http://math.stackexchange.com/a/1254154/6876"&gt;link&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Just two calculated solutions for &lt;span class="math"&gt;\(k=2\)&lt;/span&gt; points:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(\beta(1) = \frac{1}{3}\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(\beta(2) = \frac{2+\sqrt{2}+5\operatorname{arcsinh}(1)}{15}=\frac{2+\sqrt{2}+5\log(1+\sqrt{2})}{15} \approx 0.52140543316472\ldots\)&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;However, it is pretty easy to simulate it:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/env python&lt;/span&gt;
+
+&lt;span class="sd"&gt;"""&lt;/span&gt;
+&lt;span class="sd"&gt;Get the empirical statements about the distance of two points in [0, 1]^n.&lt;/span&gt;
+
+&lt;span class="sd"&gt;The points are uniformly randomly sampled.&lt;/span&gt;
+&lt;span class="sd"&gt;"""&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy.random&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;random_points_dist&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;"""Get the distance of one sample of 2 points in [0, 1]^n."""&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+    &lt;span class="n"&gt;points&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;_&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;numpy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rand&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;points&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;numpy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;linalg&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;norm&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;points&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;points&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;beta&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;"""Calculate the average distance of 2 points in [0, 1]^n."""&lt;/span&gt;
+    &lt;span class="n"&gt;sum_&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;0.0&lt;/span&gt;
+    &lt;span class="n"&gt;count_&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;
+    &lt;span class="n"&gt;less_one&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+    &lt;span class="n"&gt;max_d&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;_&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;count_&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="n"&gt;dist&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;random_points_dist&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;dist&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mf"&gt;1.0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;less_one&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+        &lt;span class="n"&gt;max_d&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;max&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;max_d&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dist&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;sum_&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="n"&gt;dist&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sum_&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="n"&gt;count_&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;less_one&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="n"&gt;count_&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;max_d&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt;
+    &lt;span class="n"&gt;avg_dist&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;pr&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;max_d&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;beta&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;tmp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"beta(n=&lt;/span&gt;&lt;span class="si"&gt;%i&lt;/span&gt;&lt;span class="s2"&gt;) = &lt;/span&gt;&lt;span class="si"&gt;%0.4f&lt;/span&gt;&lt;span class="s2"&gt;; "&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;avg_dist&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt; Pr(d(p1, p2) &amp;lt; 1) = &lt;/span&gt;&lt;span class="si"&gt;%0.4f&lt;/span&gt;&lt;span class="s2"&gt;; alpha(n=&lt;/span&gt;&lt;span class="si"&gt;%i&lt;/span&gt;&lt;span class="s2"&gt;, 2) = &lt;/span&gt;&lt;span class="si"&gt;%0.4f&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;
+          &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;tmp&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;pr&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;max_d&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;One can easily see that points get spaced much farer away in average the higher
+the dimension &lt;span class="math"&gt;\(n\)&lt;/span&gt; is. Now lets try to calculate the probability that two points
+in the unit hypercube have a distance of less than 1.&lt;/p&gt;
+&lt;p&gt;Here are a couple of results:&lt;/p&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;n&lt;/th&gt;
+&lt;th&gt;alpha(n)&lt;/th&gt;
+&lt;th&gt;beta(n)&lt;/th&gt;
+&lt;th&gt;Pr(d(p1, p2) &amp;lt; 1)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;0.9994&lt;/td&gt;
+&lt;td&gt;0.3332&lt;/td&gt;
+&lt;td&gt;1.0000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;1.3797&lt;/td&gt;
+&lt;td&gt;0.5211&lt;/td&gt;
+&lt;td&gt;0.9749&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;1.6116&lt;/td&gt;
+&lt;td&gt;0.6616&lt;/td&gt;
+&lt;td&gt;0.9100&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;1.8130&lt;/td&gt;
+&lt;td&gt;0.7776&lt;/td&gt;
+&lt;td&gt;0.8066&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;1.8645&lt;/td&gt;
+&lt;td&gt;0.8786&lt;/td&gt;
+&lt;td&gt;0.6787&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;td&gt;1.9659&lt;/td&gt;
+&lt;td&gt;0.9693&lt;/td&gt;
+&lt;td&gt;0.5419&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;7&lt;/td&gt;
+&lt;td&gt;2.0891&lt;/td&gt;
+&lt;td&gt;1.0515&lt;/td&gt;
+&lt;td&gt;0.4125&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;2.1513&lt;/td&gt;
+&lt;td&gt;1.1280&lt;/td&gt;
+&lt;td&gt;0.3006&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;9&lt;/td&gt;
+&lt;td&gt;2.2888&lt;/td&gt;
+&lt;td&gt;1.2002&lt;/td&gt;
+&lt;td&gt;0.2096&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;10&lt;/td&gt;
+&lt;td&gt;2.3327&lt;/td&gt;
+&lt;td&gt;1.2671&lt;/td&gt;
+&lt;td&gt;0.1411&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;100&lt;/td&gt;
+&lt;td&gt;5.2152&lt;/td&gt;
+&lt;td&gt;4.0753&lt;/td&gt;
+&lt;td&gt;0.0000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1000&lt;/td&gt;
+&lt;td&gt;14.0719&lt;/td&gt;
+&lt;td&gt;12.9073&lt;/td&gt;
+&lt;td&gt;0.0000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;10000&lt;/td&gt;
+&lt;td&gt;41.9675&lt;/td&gt;
+&lt;td&gt;40.8245&lt;/td&gt;
+&lt;td&gt;0.0000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;You can easily see that the average distance of two points gets less and less
+different from the maximal distance of two points.&lt;/p&gt;
+&lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://perso.uclouvain.be/michel.verleysen/papers/tkde07df.pdf"&gt;The Concentration of Fractional Distances&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://math.stackexchange.com/q/1976842/6876"&gt;How is the distance of two random points in a unit hypercube distributed?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Curse_of_dimensionality"&gt;Curse of dimensionality&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="Machine Learning"></category></entry><entry><title>Iterating over Graphs</title><link href="https://martin-thoma.com/graph-iteration/" rel="alternate"></link><published>2016-10-19T20:00:00+02:00</published><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2016-10-19:graph-iteration/</id><summary type="html">&lt;p&gt;Today I was thinking if one could iterate over all possible feed forward network
 architectures possible. A feed forward network is essentially only a directed
 acyclic graph.&lt;/p&gt;
 &lt;p&gt;To make things simpler, lets just think about multilayer perceptrons. This

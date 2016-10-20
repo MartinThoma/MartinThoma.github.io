@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Machine Learning, Machine Learning, " />
+
+<meta property="og:title" content="Average Distance of Random Points in a Unit Hypercube "/>
+<meta property="og:url" content="../average-distance-of-points/" />
+<meta property="og:description" content="In machine learning, the &#34;curse of dimensionality&#34; is often stated but much less often explained. At least not in detail. One just gets told that points are farer away from each other in high dimensional spaces. Maximum minimal distance One approach to this is to calculate the maximum minimal distance ..." />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2016-10-20T20:00:00+02:00" />
+<meta name="twitter:title" content="Average Distance of Random Points in a Unit Hypercube ">
+<meta name="twitter:description" content="In machine learning, the &#34;curse of dimensionality&#34; is often stated but much less often explained. At least not in detail. One just gets told that points are farer away from each other in high dimensional spaces. Maximum minimal distance One approach to this is to calculate the maximum minimal distance ...">
+<meta property="og:image" content="logos/ml.png" />
+<meta name="twitter:image" content="logos/ml.png" >
+
+        <title>Average Distance of Random Points in a Unit Hypercube  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../average-distance-of-points/"> Average Distance of Random Points in a Unit Hypercube  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#maximum-minimal-distance" title="Maximum minimal distance">Maximum minimal distance</a></li><li><a class="toc-href" href="#average-distance" title="Average distance">Average distance</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>In machine learning, the "curse of dimensionality" is often stated but much
+less often explained. At least not in detail. One just gets told that points
+are farer away from each other in high dimensional spaces.</p>
+<h2 id="maximum-minimal-distance">Maximum minimal distance</h2>
+<p>One approach to this is to calculate the maximum minimal distance of <span class="math">\(k\)</span> points
+in <span class="math">\([0, 1]^n\)</span>. So you try to place <span class="math">\(k\)</span> points in such a way, that the minimum
+over the pairwise distances of those <span class="math">\(k\)</span> points is maximal.
+Let's call this <span class="math">\(\alpha(n, k)\)</span>. However, it is not easily possible
+to calculate <span class="math">\(\alpha(n, k)\)</span> for arbitrary <span class="math">\(n &gt; 2\)</span> and <span class="math">\(k &gt; 2\)</span> (see <a href="http://math.stackexchange.com/q/1976250/6876">link</a>).
+But the special case <span class="math">\(k = 2\)</span> and <span class="math">\(k = 2^n\)</span> is easy:</p>
+<ul>
+<li><span class="math">\(\alpha(n, 2) = \sqrt{n}\)</span></li>
+<li><span class="math">\(\alpha(n, 2^n) = 1\)</span></li>
+</ul>
+<p>So you can see that two points get can be farer apart in higher dimensions and
+that it needs much more points in higher dimensions to force at least two of
+them to have distance 1.</p>
+<h2 id="average-distance">Average distance</h2>
+<p>Another approach is to calculate the average distance of <span class="math">\(k\)</span> uniformly randomly
+sampled points in <span class="math">\([0, 1]^n\)</span>. Let's call it <span class="math">\(\beta(n, k)\)</span>.</p>
+<p>One first insight is that <span class="math">\(\beta(n, k) = \beta(n, j)\)</span> for and <span class="math">\(k, j \geq 2\)</span>.
+Hence we will only use <span class="math">\(\beta(n)\)</span> in the following.</p>
+<p>It is possible to
+calculate this, but it is rather tedious (<a href="http://math.stackexchange.com/a/1254154/6876">link</a>).</p>
+<p>Just two calculated solutions for <span class="math">\(k=2\)</span> points:</p>
+<ul>
+<li><span class="math">\(\beta(1) = \frac{1}{3}\)</span></li>
+<li><span class="math">\(\beta(2) = \frac{2+\sqrt{2}+5\operatorname{arcsinh}(1)}{15}=\frac{2+\sqrt{2}+5\log(1+\sqrt{2})}{15} \approx 0.52140543316472\ldots\)</span></li>
+</ul>
+<p>However, it is pretty easy to simulate it:</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+
+<span class="sd">"""</span>
+<span class="sd">Get the empirical statements about the distance of two points in [0, 1]^n.</span>
+
+<span class="sd">The points are uniformly randomly sampled.</span>
+<span class="sd">"""</span>
+
+<span class="kn">import</span> <span class="nn">numpy.random</span>
+
+
+<span class="k">def</span> <span class="nf">random_points_dist</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">"""Get the distance of one sample of 2 points in [0, 1]^n."""</span>
+    <span class="k">assert</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">1</span>
+    <span class="n">points</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="n">points</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">points</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">points</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+
+<span class="k">def</span> <span class="nf">beta</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">"""Calculate the average distance of 2 points in [0, 1]^n."""</span>
+    <span class="n">sum_</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">count_</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">6</span>
+    <span class="n">less_one</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">max_d</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count_</span><span class="p">):</span>
+        <span class="n">dist</span> <span class="o">=</span> <span class="n">random_points_dist</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">dist</span> <span class="o">&lt;</span> <span class="mf">1.0</span><span class="p">:</span>
+            <span class="n">less_one</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">max_d</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_d</span><span class="p">,</span> <span class="n">dist</span><span class="p">)</span>
+        <span class="n">sum_</span> <span class="o">+=</span> <span class="n">dist</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">sum_</span> <span class="o">/</span> <span class="n">count_</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">less_one</span><span class="p">)</span> <span class="o">/</span> <span class="n">count_</span><span class="p">,</span> <span class="n">max_d</span><span class="p">)</span>
+
+
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]:</span>
+    <span class="n">avg_dist</span><span class="p">,</span> <span class="n">pr</span><span class="p">,</span> <span class="n">max_d</span> <span class="o">=</span> <span class="n">beta</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">tmp</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"beta(n=</span><span class="si">%i</span><span class="s2">) = </span><span class="si">%0.4f</span><span class="s2">; "</span> <span class="o">%</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">avg_dist</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="s2"> Pr(d(p1, p2) &lt; 1) = </span><span class="si">%0.4f</span><span class="s2">; alpha(n=</span><span class="si">%i</span><span class="s2">, 2) = </span><span class="si">%0.4f</span><span class="s2">"</span> <span class="o">%</span>
+          <span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">pr</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">max_d</span><span class="p">))</span>
+</pre></div>
+<p>One can easily see that points get spaced much farer away in average the higher
+the dimension <span class="math">\(n\)</span> is. Now lets try to calculate the probability that two points
+in the unit hypercube have a distance of less than 1.</p>
+<p>Here are a couple of results:</p>
+<table>
+<tr>
+<th>n</th>
+<th>alpha(n)</th>
+<th>beta(n)</th>
+<th>Pr(d(p1, p2) &lt; 1)</th>
+</tr>
+<tr>
+<td>1</td>
+<td>0.9994</td>
+<td>0.3332</td>
+<td>1.0000</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1.3797</td>
+<td>0.5211</td>
+<td>0.9749</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1.6116</td>
+<td>0.6616</td>
+<td>0.9100</td>
+</tr>
+<tr>
+<td>4</td>
+<td>1.8130</td>
+<td>0.7776</td>
+<td>0.8066</td>
+</tr>
+<tr>
+<td>5</td>
+<td>1.8645</td>
+<td>0.8786</td>
+<td>0.6787</td>
+</tr>
+<tr>
+<td>6</td>
+<td>1.9659</td>
+<td>0.9693</td>
+<td>0.5419</td>
+</tr>
+<tr>
+<td>7</td>
+<td>2.0891</td>
+<td>1.0515</td>
+<td>0.4125</td>
+</tr>
+<tr>
+<td>8</td>
+<td>2.1513</td>
+<td>1.1280</td>
+<td>0.3006</td>
+</tr>
+<tr>
+<td>9</td>
+<td>2.2888</td>
+<td>1.2002</td>
+<td>0.2096</td>
+</tr>
+<tr>
+<td>10</td>
+<td>2.3327</td>
+<td>1.2671</td>
+<td>0.1411</td>
+</tr>
+<tr>
+<td>100</td>
+<td>5.2152</td>
+<td>4.0753</td>
+<td>0.0000</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>14.0719</td>
+<td>12.9073</td>
+<td>0.0000</td>
+</tr>
+<tr>
+<td>10000</td>
+<td>41.9675</td>
+<td>40.8245</td>
+<td>0.0000</td>
+</tr>
+</table>
+<p>You can easily see that the average distance of two points gets less and less
+different from the maximal distance of two points.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="https://perso.uclouvain.be/michel.verleysen/papers/tkde07df.pdf">The Concentration of Fractional Distances</a></li>
+<li><a href="http://math.stackexchange.com/q/1976842/6876">How is the distance of two random points in a unit hypercube distributed?</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Curse_of_dimensionality">Curse of dimensionality</a></li>
+</ul>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2016-10-20T20:00:00+02:00">Okt 20, 2016</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#machine-learning-ref">Machine Learning</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#machine-learning-ref">Machine Learning
+                    <span>24</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
