@@ -19,39 +19,49 @@
 &lt;td&gt;Organisatorisches und &amp;Uuml;berblick &amp;uuml;ber den Stoff&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;21.10.2016&lt;/td&gt;
+&lt;td&gt;Klassifikation&lt;/td&gt;
+&lt;td&gt;Gaussian Mixture Models, EM, SVMs, Perceptron&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
 &lt;td&gt;-&lt;/td&gt;
 &lt;td&gt;04.11.2016&lt;/td&gt;
 &lt;td&gt;Programmierprojekten&lt;/td&gt;
 &lt;td&gt;Organisatorisches / Einf&amp;uuml;hrung dazu&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
-&lt;h3 id="grundlagen"&gt;Grundlagen&lt;/h3&gt;
-&lt;p&gt;Slides: &lt;code&gt;ProPlan-1-Anschrieb.pdf&lt;/code&gt;&lt;/p&gt;
+&lt;!-- ### Grundlagen
+
+Slides: `ProPlan-1-Anschrieb.pdf`
+
 &lt;dl&gt;
-&lt;dt&gt;&lt;dfn&gt;$\sigma$-Algebra&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;Sei $S$ eine Menge und $\mathcal{A}$ ein Menge aus Teilmengen von $S$.
-      $\mathcal{A}$ hei&amp;szlig;t eine $\sigma$-Algebra &amp;uuml;ber $S$, genau dann, wenn
+  &lt;dt&gt;&lt;dfn&gt;$\sigma$-Algebra&lt;/dfn&gt;&lt;/dt&gt;
+  &lt;dd&gt;Sei $S$ eine Menge und $\mathcal{A}$ ein Menge aus Teilmengen von $S$.
+      $\mathcal{A}$ heißt eine $\sigma$-Algebra über $S$, genau dann, wenn
       gilt:
 
       &lt;ul&gt;
-&lt;li&gt;$S \in \mathcal{A}$&lt;/li&gt;
-&lt;li&gt;$\forall M \in \mathcal{A} \Rightarrow (S \setminus M) \in \mathcal{A}$&lt;/li&gt;
-&lt;li&gt;$M_1, M_2, \dots \in \mathcal{A} \Rightarrow \bigcup_{n \in \mathbb{N}} M_n \in \mathcal{A}$&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;Wahrscheinlichkeitsma&amp;szlig;&lt;/dfn&gt; (&lt;dfn id="probability-measure"&gt;Probability measure&lt;/dfn&gt;)&lt;/dt&gt;
-&lt;dd&gt;Eine Funktion $P: \mathcal{A} \rightarrow \mathbb{R}$ (mit $\mathcal{A}$ ist
-      Sigma-Algebra &amp;uuml;ber der Grundmenge $S$) hei&amp;szlig;t
-      &lt;i&gt;Wahrscheinlichkeitsma&amp;szlig;&lt;/i&gt;, wenn die Kolmogorov'schen Axiome gelten:
+          &lt;li&gt;$S \in \mathcal{A}$&lt;/li&gt;
+          &lt;li&gt;$\forall M \in \mathcal{A} \Rightarrow (S \setminus M) \in \mathcal{A}$&lt;/li&gt;
+          &lt;li&gt;$M_1, M_2, \dots \in \mathcal{A} \Rightarrow \bigcup_{n \in \mathbb{N}} M_n \in \mathcal{A}$&lt;/li&gt;
+      &lt;/ul&gt;
+
+      &lt;/dd&gt;
+  &lt;dt&gt;&lt;dfn&gt;Wahrscheinlichkeitsmaß&lt;/dfn&gt; (&lt;dfn id="probability-measure"&gt;Probability measure&lt;/dfn&gt;)&lt;/dt&gt;
+  &lt;dd&gt;Eine Funktion $P: \mathcal{A} \rightarrow \mathbb{R}$ (mit $\mathcal{A}$ ist
+      Sigma-Algebra über der Grundmenge $S$) heißt
+      &lt;i&gt;Wahrscheinlichkeitsmaß&lt;/i&gt;, wenn die Kolmogorov'schen Axiome gelten:
 
       &lt;ul&gt;
-&lt;li&gt;Nicht-negativit&amp;auml;t: $\forall M \in \mathcal{A}: P(M) \geq 0$&lt;/li&gt;
-&lt;li&gt;Normiertheit: $\forall P(S) = 1$&lt;/li&gt;
-&lt;li&gt;$M_1, M_2 \in \mathcal{A} \land M_1 \cap M_2 = \emptyset \Rightarrow P(M_1 \cup M_2) = P(M_1) + P(M_2)$&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;Normalverteilung&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;Die Normalverteilung $\mathcal{N}(\mu, \sigma^2)$ ist eine
+          &lt;li&gt;Nicht-negativität: $\forall M \in \mathcal{A}: P(M) \geq 0$&lt;/li&gt;
+          &lt;li&gt;Normiertheit: $\forall P(S) = 1$&lt;/li&gt;
+          &lt;li&gt;$M_1, M_2 \in \mathcal{A} \land M_1 \cap M_2 = \emptyset \Rightarrow P(M_1 \cup M_2) = P(M_1) + P(M_2)$&lt;/li&gt;
+      &lt;/ul&gt;
+
+      &lt;/dd&gt;
+  &lt;dt&gt;&lt;dfn&gt;Normalverteilung&lt;/dfn&gt;&lt;/dt&gt;
+  &lt;dd&gt;Die Normalverteilung $\mathcal{N}(\mu, \sigma^2)$ ist eine
       kontinuierliche Verteilung mit der Dichtefunktion
 
       $$f(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} e^{- \frac{(x - \mu)^2}{2\sigma^2}}$$
@@ -62,8 +72,8 @@
       $$f(x) = \frac{1}{ \sqrt{(2\pi)^n \det(\Sigma)} } \exp \left(-\frac{1}{2}({\mathbf x}-{\boldsymbol\mu})^\mathrm{T}{\boldsymbol\Sigma}^{-1}({\mathbf x}-{\boldsymbol\mu}) \right)$$
 
       &lt;/dd&gt;
-&lt;/dl&gt;
-&lt;h2 id="prufungsfragen_1"&gt;Pr&amp;uuml;fungsfragen&lt;/h2&gt;
+&lt;/dl&gt; --&gt;
+&lt;h2 id="prufungsfragen"&gt;Pr&amp;uuml;fungsfragen&lt;/h2&gt;
 &lt;p&gt;Kommt noch&lt;/p&gt;
 &lt;!-- Strategiesuche ist NICHT relevant für meine Prüfung am 4.&amp;nbsp;August 2016.
 
