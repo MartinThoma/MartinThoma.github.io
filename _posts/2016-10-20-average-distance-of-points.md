@@ -49,6 +49,42 @@ Just two calculated solutions for $k=2$ points:
 However, it is pretty easy to simulate it.
 
 
+## Density of Hypercubes
+
+One interesting question is how much of the $n$-dimensional hypercube can be
+filled by one inscribed $n$-dimensional hyperball.
+
+The volume of an $n$-dimensional hypercube is $V_C(a) = a^n$ where $a$ is the
+cubes side length. So for 1 dimension it is $a$, for 2 dimensions (a square) it
+is $a^2$, for 3 dimensions it is $a^3$ (a cube).
+
+The colume of an $n$-dimensional ball is
+$$V_S(r) = r^n \frac{\pi^{n/2}}{\Gamma (\frac{n}{2} + 1)}$$
+Source: [Wikipedia](https://en.wikipedia.org/wiki/N-sphere#Closed_forms)<br/>
+So for 1 dimension it is $r \frac{\sqrt{\pi}}{\Gamma(1.5)} = r \frac{\sqrt{\pi}}{0.5 \Gamma(0.5)} = 2r$,
+for 2 dimensions it is $r^2 \frac{\pi}{\Gamma (2)} = r^2 \frac{\pi}{\Gamma (1)} = r^2 \pi$
+and for 3 dimensions it is $r^3 \frac{\pi^{3/2}}{\Gamma (\frac{5}{2})} = r^3 \frac{\pi^{3/2}}{1.5 \cdot 0.5 \cdot \Gamma (\frac{1}{2})} = r^3 \frac{\pi}{\frac{3}{4}}$.
+
+This means the percentage of space of a unit hypercube which can be filled by
+the biggest inscribed hyperball is
+
+$$
+\begin{align}
+\frac{V_S(0.5)}{V_C(1)}
+&= \frac{r^n \frac{\pi^{n/2}}{\Gamma (\frac{n}{2} + 1)}}{1} \\
+&= \frac{0.5^n \pi^{n/2}}{\Gamma (\frac{n}{2} + 1)} \\
+&= \frac{0.5^n \pi^{n/2}}{\frac{n}{2} \cdot \Gamma (\frac{n}{2})} \\
+&= \frac{0.5^n \cdot 2 \cdot \pi^{n/2}}{n \cdot \frac{2 \frac{n}{2}!}{n}} \\
+&= \frac{0.5^n \cdot \pi^{n/2}}{\frac{n}{2}!}
+\end{align}
+$$
+
+You can see that this term goes to 0 with increasing dimension. This means most
+of the volume is not in the center, but in the edges of the $n$ dimensional
+hypercube. It also means that $k$ nearest neighbors with Euclidean Distance
+measure will need enormously large spheres to get to the next neighbours.
+
+
 ## Empirical results
 
 ```python
@@ -105,88 +141,109 @@ Here are a couple of results:
 
 <table>
     <tr>
-        <th>n</th>
+        <th>$n$</th>
         <th>$\alpha(n, 2)$</th>
         <th>$\beta(n)$</th>
         <th>$Pr(d(p_1, p_2) &lt; 1)$</th>
+        <th>$V_S(0.5)/V_C(1)$</th>
     </tr>
     <tr>
         <td style="text-align: right;">1</td>
         <td>0.9994</td>
         <td>0.3332</td>
         <td>1.0000</td>
+        <td>1</td>
     </tr>
     <tr>
         <td style="text-align: right;">2</td>
         <td>1.3797</td>
         <td>0.5211</td>
         <td>0.9749</td>
+        <td>0.7854</td>
     </tr>
     <tr>
         <td style="text-align: right;">3</td>
         <td>1.6116</td>
         <td>0.6616</td>
         <td>0.9100</td>
+        <td>0.5236</td>
     </tr>
     <tr>
         <td style="text-align: right;">4</td>
         <td>1.8130</td>
         <td>0.7776</td>
         <td>0.8066</td>
+        <td>0.3084</td>
     </tr>
     <tr>
         <td style="text-align: right;">5</td>
         <td>1.8645</td>
         <td>0.8786</td>
         <td>0.6787</td>
+        <td>0.1645</td>
     </tr>
     <tr>
         <td style="text-align: right;">6</td>
         <td>1.9659</td>
         <td>0.9693</td>
         <td>0.5419</td>
+        <td>0.0807</td>
     </tr>
     <tr>
         <td style="text-align: right;">7</td>
         <td>2.0891</td>
         <td>1.0515</td>
         <td>0.4125</td>
+        <td>0.0369</td>
     </tr>
     <tr>
         <td style="text-align: right;">8</td>
         <td>2.1513</td>
         <td>1.1280</td>
         <td>0.3006</td>
+        <td>0.0159</td>
     </tr>
     <tr>
         <td style="text-align: right;">9</td>
         <td>2.2888</td>
         <td>1.2002</td>
         <td>0.2096</td>
+        <td>0.0064</td>
     </tr>
     <tr>
         <td style="text-align: right;">10</td>
         <td>2.3327</td>
         <td>1.2671</td>
         <td>0.1411</td>
+        <td>0.0025</td>
     </tr>
     <tr>
         <td style="text-align: right;">100</td>
         <td>5.2152</td>
         <td>4.0753</td>
         <td>0.0000</td>
+        <td>$\approx 10^{-70}$</td>
     </tr>
     <tr>
         <td style="text-align: right;">1000</td>
         <td>14.0719</td>
         <td>12.9073</td>
         <td>0.0000</td>
+        <td>$\approx 10^{-1187}$</td>
     </tr>
     <tr>
         <td style="text-align: right;">10000</td>
         <td>41.9675</td>
         <td>40.8245</td>
         <td>0.0000</td>
+        <td>$\approx 10^{-16851}$</td>
+    </tr>
+    <tr>
+        <td style="text-align: right;">$n$</td>
+        <td>?</td>
+        <td>$\approx 0.41 \cdot \sqrt{n}$</td>
+        <td>?</td>
+        <td>$\frac{0.5^n \cdot \pi^{n/2}}{\frac{n}{2}!}$</td>
     </tr>
 </table>
 
