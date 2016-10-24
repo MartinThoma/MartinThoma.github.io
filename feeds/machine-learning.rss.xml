@@ -29,6 +29,36 @@ calculate this, but it is rather tedious (&lt;a href="http://math.stackexchange.
 &lt;li&gt;&lt;span class="math"&gt;\(\beta(2) = \frac{2+\sqrt{2}+5\operatorname{arcsinh}(1)}{15}=\frac{2+\sqrt{2}+5\log(1+\sqrt{2})}{15} \approx 0.52140543316472\ldots\)&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;However, it is pretty easy to simulate it.&lt;/p&gt;
+&lt;h2 id="density-of-hypercubes"&gt;Density of Hypercubes&lt;/h2&gt;
+&lt;p&gt;One interesting question is how much of the &lt;span class="math"&gt;\(n\)&lt;/span&gt;-dimensional hypercube can be
+filled by one inscribed &lt;span class="math"&gt;\(n\)&lt;/span&gt;-dimensional hyperball.&lt;/p&gt;
+&lt;p&gt;The volume of an &lt;span class="math"&gt;\(n\)&lt;/span&gt;-dimensional hypercube is &lt;span class="math"&gt;\(V_C(a) = a^n\)&lt;/span&gt; where &lt;span class="math"&gt;\(a\)&lt;/span&gt; is the
+cubes side length. So for 1 dimension it is &lt;span class="math"&gt;\(a\)&lt;/span&gt;, for 2 dimensions (a square) it
+is &lt;span class="math"&gt;\(a^2\)&lt;/span&gt;, for 3 dimensions it is &lt;span class="math"&gt;\(a^3\)&lt;/span&gt; (a cube).&lt;/p&gt;
+&lt;p&gt;The colume of an &lt;span class="math"&gt;\(n\)&lt;/span&gt;-dimensional ball is
+&lt;/p&gt;
+&lt;div class="math"&gt;$$V_S(r) = r^n \frac{\pi^{n/2}}{\Gamma (\frac{n}{2} + 1)}$$&lt;/div&gt;
+&lt;p&gt;
+Source: &lt;a href="https://en.wikipedia.org/wiki/N-sphere#Closed_forms"&gt;Wikipedia&lt;/a&gt;&lt;br/&gt;
+So for 1 dimension it is &lt;span class="math"&gt;\(r \frac{\sqrt{\pi}}{\Gamma(1.5)} = r \frac{\sqrt{\pi}}{0.5 \Gamma(0.5)} = 2r\)&lt;/span&gt;,
+for 2 dimensions it is &lt;span class="math"&gt;\(r^2 \frac{\pi}{\Gamma (2)} = r^2 \frac{\pi}{\Gamma (1)} = r^2 \pi\)&lt;/span&gt;
+and for 3 dimensions it is &lt;span class="math"&gt;\(r^3 \frac{\pi^{3/2}}{\Gamma (\frac{5}{2})} = r^3 \frac{\pi^{3/2}}{1.5 \cdot 0.5 \cdot \Gamma (\frac{1}{2})} = r^3 \frac{\pi}{\frac{3}{4}}\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;This means the percentage of space of a unit hypercube which can be filled by
+the biggest inscribed hyperball is&lt;/p&gt;
+&lt;div class="math"&gt;$$
+\begin{align}
+\frac{V_S(0.5)}{V_C(1)}
+&amp;amp;= \frac{r^n \frac{\pi^{n/2}}{\Gamma (\frac{n}{2} + 1)}}{1} \\
+&amp;amp;= \frac{0.5^n \pi^{n/2}}{\Gamma (\frac{n}{2} + 1)} \\
+&amp;amp;= \frac{0.5^n \pi^{n/2}}{\frac{n}{2} \cdot \Gamma (\frac{n}{2})} \\
+&amp;amp;= \frac{0.5^n \cdot 2 \cdot \pi^{n/2}}{n \cdot \frac{2 \frac{n}{2}!}{n}} \\
+&amp;amp;= \frac{0.5^n \cdot \pi^{n/2}}{\frac{n}{2}!}
+\end{align}
+$$&lt;/div&gt;
+&lt;p&gt;You can see that this term goes to 0 with increasing dimension. This means most
+of the volume is not in the center, but in the edges of the &lt;span class="math"&gt;\(n\)&lt;/span&gt; dimensional
+hypercube. It also means that &lt;span class="math"&gt;\(k\)&lt;/span&gt; nearest neighbors with Euclidean Distance
+measure will need enormously large spheres to get to the next neighbours.&lt;/p&gt;
 &lt;h2 id="empirical-results"&gt;Empirical results&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/env python&lt;/span&gt;
 
@@ -82,90 +112,105 @@ in the unit hypercube have a distance of less than 1.&lt;/p&gt;
 &lt;th&gt;$\alpha(n, 2)$&lt;/th&gt;
 &lt;th&gt;$\beta(n)$&lt;/th&gt;
 &lt;th&gt;$Pr(d(p_1, p_2) &amp;lt; 1)$&lt;/th&gt;
+&lt;th&gt;$V_S(0.5)/V_C(1)$&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style="text-align: right;"&gt;1&lt;/td&gt;
 &lt;td&gt;0.9994&lt;/td&gt;
 &lt;td&gt;0.3332&lt;/td&gt;
 &lt;td&gt;1.0000&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style="text-align: right;"&gt;2&lt;/td&gt;
 &lt;td&gt;1.3797&lt;/td&gt;
 &lt;td&gt;0.5211&lt;/td&gt;
 &lt;td&gt;0.9749&lt;/td&gt;
+&lt;td&gt;0.7854&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style="text-align: right;"&gt;3&lt;/td&gt;
 &lt;td&gt;1.6116&lt;/td&gt;
 &lt;td&gt;0.6616&lt;/td&gt;
 &lt;td&gt;0.9100&lt;/td&gt;
+&lt;td&gt;0.5236&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style="text-align: right;"&gt;4&lt;/td&gt;
 &lt;td&gt;1.8130&lt;/td&gt;
 &lt;td&gt;0.7776&lt;/td&gt;
 &lt;td&gt;0.8066&lt;/td&gt;
+&lt;td&gt;0.3084&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style="text-align: right;"&gt;5&lt;/td&gt;
 &lt;td&gt;1.8645&lt;/td&gt;
 &lt;td&gt;0.8786&lt;/td&gt;
 &lt;td&gt;0.6787&lt;/td&gt;
+&lt;td&gt;0.1645&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style="text-align: right;"&gt;6&lt;/td&gt;
 &lt;td&gt;1.9659&lt;/td&gt;
 &lt;td&gt;0.9693&lt;/td&gt;
 &lt;td&gt;0.5419&lt;/td&gt;
+&lt;td&gt;0.0807&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style="text-align: right;"&gt;7&lt;/td&gt;
 &lt;td&gt;2.0891&lt;/td&gt;
 &lt;td&gt;1.0515&lt;/td&gt;
 &lt;td&gt;0.4125&lt;/td&gt;
+&lt;td&gt;0.0369&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style="text-align: right;"&gt;8&lt;/td&gt;
 &lt;td&gt;2.1513&lt;/td&gt;
 &lt;td&gt;1.1280&lt;/td&gt;
 &lt;td&gt;0.3006&lt;/td&gt;
+&lt;td&gt;0.0159&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style="text-align: right;"&gt;9&lt;/td&gt;
 &lt;td&gt;2.2888&lt;/td&gt;
 &lt;td&gt;1.2002&lt;/td&gt;
 &lt;td&gt;0.2096&lt;/td&gt;
+&lt;td&gt;0.0064&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style="text-align: right;"&gt;10&lt;/td&gt;
 &lt;td&gt;2.3327&lt;/td&gt;
 &lt;td&gt;1.2671&lt;/td&gt;
 &lt;td&gt;0.1411&lt;/td&gt;
+&lt;td&gt;0.0025&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style="text-align: right;"&gt;100&lt;/td&gt;
 &lt;td&gt;5.2152&lt;/td&gt;
 &lt;td&gt;4.0753&lt;/td&gt;
 &lt;td&gt;0.0000&lt;/td&gt;
+&lt;td&gt;$\approx 10^{-70}$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style="text-align: right;"&gt;1000&lt;/td&gt;
 &lt;td&gt;14.0719&lt;/td&gt;
 &lt;td&gt;12.9073&lt;/td&gt;
 &lt;td&gt;0.0000&lt;/td&gt;
+&lt;td&gt;$\approx 10^{-1187}$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style="text-align: right;"&gt;10000&lt;/td&gt;
 &lt;td&gt;41.9675&lt;/td&gt;
 &lt;td&gt;40.8245&lt;/td&gt;
 &lt;td&gt;0.0000&lt;/td&gt;
+&lt;td&gt;$\approx 10^{-16851}$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style="text-align: right;"&gt;$n$&lt;/td&gt;
 &lt;td&gt;?&lt;/td&gt;
 &lt;td&gt;$0.41 \cdot \sqrt{n}$&lt;/td&gt;
 &lt;td&gt;?&lt;/td&gt;
+&lt;td&gt;$\frac{0.5^n \cdot \pi^{n/2}}{\frac{n}{2}!}$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
 &lt;p&gt;You can easily see that the average distance of two points gets less and less
