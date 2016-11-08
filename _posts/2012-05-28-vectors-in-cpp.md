@@ -13,44 +13,47 @@ featured_image: 2012/05/CPP-thumb.png
 #include <iostream>
 #include <vector>
 #include <algorithm>
- 
+
 using namespace std;
- 
+
 int main() {
     // create an empty vector
     vector<int> myVector;
- 
+
     // insert one element
     myVector.push_back(5);
- 
+
     // insert another element
     myVector.push_back(4);
- 
+
     // insert more elements
     myVector.push_back(1337);
     myVector.push_back(42);
     myVector.push_back(31415);
- 
+
     // insert an element which was there before
     myVector.push_back(5);
- 
+
+    // get the number of elements (length/size) of the vector
+    cout << myVector.size() << endl;
+
     // get the third element
     cout << "third element: " << myVector[2] << endl;
- 
+
     // removes the element at position number 6
     myVector.erase (myVector.begin()+5);
- 
+
     // removes the element with the value 4
-    myVector.erase(remove(myVector.begin(), myVector.end(), 4), 
+    myVector.erase(remove(myVector.begin(), myVector.end(), 4),
 					myVector.end());
- 
+
     // iterate over the vector
     vector<int>::iterator myIt;
     for(myIt=myVector.begin(); myIt != myVector.end(); myIt++){
         cout << *myIt << " ";
     }
 	cout << endl;
- 
+
     return 0;
 }
 ```
@@ -59,7 +62,7 @@ Output:
 ```bash
 
 third element: 1337
-5 1337 42 31415 
+5 1337 42 31415
 
 ```
 
@@ -106,10 +109,10 @@ int main() {
 ```
 Output:
 ```bash
-Inner vector: 1 2 
-Inner vector: 3 
-Inner vector: 
-Inner vector: 
+Inner vector: 1 2
+Inner vector: 3
+Inner vector:
+Inner vector:
 ```
 
 <h3>Initialize nested vectors</h3>
@@ -119,14 +122,14 @@ vector<vector<int> > myVector(8,myInnerVector);
 ```
 Output with the script above:
 ```bash
-Inner vector: 3 3 3 3 3 
-Inner vector: 3 3 3 3 3 
-Inner vector: 3 3 3 3 3 
-Inner vector: 3 3 3 3 3 
-Inner vector: 3 3 3 3 3 
-Inner vector: 3 3 3 3 3 
-Inner vector: 3 3 3 3 3 
-Inner vector: 3 3 3 3 3 
+Inner vector: 3 3 3 3 3
+Inner vector: 3 3 3 3 3
+Inner vector: 3 3 3 3 3
+Inner vector: 3 3 3 3 3
+Inner vector: 3 3 3 3 3
+Inner vector: 3 3 3 3 3
+Inner vector: 3 3 3 3 3
+Inner vector: 3 3 3 3 3
 ```
 
 You could also do it this way:
