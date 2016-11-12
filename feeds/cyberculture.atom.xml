@@ -1,5 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/cyberculture.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2016-09-10T20:00:00+02:00</updated><entry><title>Internet Traffic</title><link href="https://martin-thoma.com/internet-traffic/" rel="alternate"></link><published>2016-09-10T20:00:00+02:00</published><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2016-09-10:internet-traffic/</id><summary type="html">&lt;p&gt;Do you have any idea how much internet traffic (volume) you need? How much do
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/cyberculture.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2016-11-12T20:00:00+01:00</updated><entry><title>Constants as Music</title><link href="https://martin-thoma.com/constants-as-music/" rel="alternate"></link><published>2016-11-12T20:00:00+01:00</published><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2016-11-12:constants-as-music/</id><summary type="html">&lt;p&gt;I've just seen the following video&lt;/p&gt;
+&lt;iframe allowfullscreen="" frameborder="0" height="288" src="https://www.youtube-nocookie.com/embed/wK7tq7L0N8E?rel=0" width="512"&gt;&lt;/iframe&gt;
+&lt;p&gt;and I wondered how hard it was to automatically generate this myself only with
+software. Turns out, it is super easy.&lt;/p&gt;
+&lt;h2 id="python"&gt;Python&lt;/h2&gt;
+&lt;p&gt;You have to install &lt;code&gt;MIDIUtil&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo pip install MIDIUtil
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;and then you can execute the following code:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/env python&lt;/span&gt;
+
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;midiutil.MidiFile&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;MIDIFile&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Just an example&lt;/span&gt;
+&lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="c1"&gt;# import version included with old SymPy&lt;/span&gt;
+    &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sympy.mpmath&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;mp&lt;/span&gt;
+&lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="ne"&gt;ImportError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="c1"&gt;# import newer version&lt;/span&gt;
+    &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;mpmath&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;mp&lt;/span&gt;
+&lt;span class="n"&gt;mp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dps&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1000&lt;/span&gt;  &lt;span class="c1"&gt;# set number of digits&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Create the MIDIFile Object with 1 track&lt;/span&gt;
+&lt;span class="n"&gt;MyMIDI&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;MIDIFile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;track&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="n"&gt;channel&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+
+
+&lt;span class="n"&gt;pitch&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;60&lt;/span&gt;
+&lt;span class="n"&gt;time&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="n"&gt;duration&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="n"&gt;volume&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;digit&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;digit&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;'.'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;continue&lt;/span&gt;
+    &lt;span class="n"&gt;MyMIDI&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;addNote&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;track&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;channel&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;pitch&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;digit&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;duration&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;volume&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;time&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;time&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;180&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;break&lt;/span&gt;
+
+&lt;span class="c1"&gt;# And write it to disk.&lt;/span&gt;
+&lt;span class="n"&gt;binfile&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"output.mid"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'wb'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;MyMIDI&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;writeFile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;binfile&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;binfile&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This will make the first 180 digits of &lt;span class="math"&gt;\(\pi\)&lt;/span&gt; to a MIDI file.&lt;/p&gt;
+&lt;h2 id="create-mp3"&gt;Create MP3&lt;/h2&gt;
+&lt;p&gt;I use &lt;code&gt;timidity&lt;/code&gt; to create a &lt;code&gt;.wav&lt;/code&gt; and then &lt;code&gt;lame&lt;/code&gt; to convert it to mp3:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ timidity -Ow -o output.wav output.mid
+$ lame output.wav pi.mp3
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;For YouTube, I had to convert it to avi:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ffmpeg -loop &lt;span class="m"&gt;1&lt;/span&gt; -r &lt;span class="m"&gt;1&lt;/span&gt; -i pi.jpg -i pi.mp3 -c:a copy -shortest pi.avi
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="examples"&gt;Examples&lt;/h2&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(\pi\)&lt;/span&gt;:&lt;/p&gt;
+&lt;iframe allowfullscreen="" frameborder="0" height="113" src="https://www.youtube-nocookie.com/embed/FQOcFjFdFWc?rel=0" width="200"&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(e\)&lt;/span&gt;:&lt;/p&gt;
+&lt;iframe allowfullscreen="" frameborder="0" height="113" src="https://www.youtube-nocookie.com/embed/URnjSCYupu4?rel=0" width="200"&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(\sqrt{2}\)&lt;/span&gt;&lt;/p&gt;
+&lt;iframe allowfullscreen="" frameborder="0" height="113" src="https://www.youtube-nocookie.com/embed/DKPSRozxUHA?rel=0" width="200"&gt;&lt;/iframe&gt;
+&lt;h2 id="ideas"&gt;Ideas&lt;/h2&gt;
+&lt;p&gt;You could reserve one digit for meta-choices, e.g. making 0 a control character.
+If 0 is followed by...&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;... 0, all modifiers are reset&lt;/li&gt;
+&lt;li&gt;... 1, the pitch is doubled all the time&lt;/li&gt;
+&lt;li&gt;... 2, the pitch is doubled for 10 notes&lt;/li&gt;
+&lt;li&gt;... 3, `time = time - 5.5`&lt;/li&gt;
+&lt;li&gt;... 4, `tempo = tempo*2`&lt;/li&gt;
+&lt;li&gt;... 5, `tempo = tempo*4&lt;/li&gt;
+&lt;li&gt;... 6, `tempo = tempo - 10&lt;/li&gt;
+&lt;li&gt;... 7, volume increases in as many beats as the next two digits indicate&lt;/li&gt;
+&lt;li&gt;... 8, volume decreases by 10 in the next 2 seconds&lt;/li&gt;
+&lt;li&gt;... 9, duration is doubled&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let me know if you made something that sounds interesting :-)&lt;/p&gt;</summary><category term="Python"></category><category term="music"></category></entry><entry><title>Internet Traffic</title><link href="https://martin-thoma.com/internet-traffic/" rel="alternate"></link><published>2016-09-10T20:00:00+02:00</published><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2016-09-10:internet-traffic/</id><summary type="html">&lt;p&gt;Do you have any idea how much internet traffic (volume) you need? How much do
 you download / upload on a usual day?&lt;/p&gt;
 &lt;p&gt;I didn't have any idea, so I started recording it. In this article I will show
 you the results.&lt;/p&gt;
