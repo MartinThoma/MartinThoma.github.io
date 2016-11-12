@@ -15,6 +15,8 @@ in full detail.
 <dl>
     <dt><dfn id="backpropagation">Backpropagation</dfn></dt>
     <dd>A clever implementation of gradient descent for neural networks.</dd>
+    <dt><dfn id="computer-vision">Computer Vision</dfn></dt>
+    <dd>The academic discipline which deals with how to gain high-level understanding from digital images or videos. Common tasks include image classifiction, semantic segmentation, detection and localization.</dd>
     <dt><dfn id="curse-of-dimensionality">Curse of dimensionality</dfn></dt>
     <dd>Various problems of high-dimensional spaces that do not occur in low-dimensional spaces.
         High-dimensional often means several 100 dimensions. See also: <a href="https://martin-thoma.com/average-distance-of-points">Average Distance of Points</a></dd>
@@ -37,6 +39,8 @@ in full detail.
         This kind of model can be used for prediction, too.</dd>
     <dt><dfn id="gradient-descent">Gradient Descent</dfn></dt>
     <dd>An iterative optimization algorithm for differentiable functions.</dd>
+    <dt><dfn id="machine-vision">Machine Vision</dfn></dt>
+    <dd>Computer vision applied for industrial applications.</dd>
     <dt><dfn id="object-recognition">Object recognition</dfn></dt>
     <dd>Classification on images.</dd>
 </dl>
