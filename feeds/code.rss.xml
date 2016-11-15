@@ -3950,7 +3950,7 @@ Every instance is a 28 &amp;times; 28 pixel grayscale image.&lt;/p&gt;
 create a method thad retrives the data for both files.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;struct&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;unpack&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;gzip&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;zeros&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;uint8&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;zeros&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;uint8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;float32&lt;/span&gt;
 
 
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_labeled_data&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;imagefile&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;labelfile&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
@@ -3983,7 +3983,7 @@ create a method thad retrives the data for both files.&lt;/p&gt;
         &lt;span class="k"&gt;raise&lt;/span&gt; &lt;span class="ne"&gt;Exception&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'number of labels did not match the number of images'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
     &lt;span class="c1"&gt;# Get the data&lt;/span&gt;
-    &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;zeros&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rows&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cols&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;dtype&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;uint8&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# Initialize numpy array&lt;/span&gt;
+    &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;zeros&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rows&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cols&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;dtype&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;float32&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# Initialize numpy array&lt;/span&gt;
     &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;zeros&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;dtype&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;uint8&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# Initialize numpy array&lt;/span&gt;
     &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
         &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;1000&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
@@ -4096,9 +4096,11 @@ the data.&lt;/p&gt;
 &lt;h2 id="final-complete-code"&gt;Final complete code&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/env python&lt;/span&gt;
 
+&lt;span class="sd"&gt;"""Train NN with PyBrain."""&lt;/span&gt;
+
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;struct&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;unpack&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;gzip&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;zeros&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;uint8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ravel&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;zeros&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;uint8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;float32&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ravel&lt;/span&gt;
 
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pylab&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;imshow&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cm&lt;/span&gt;
 
@@ -4114,8 +4116,12 @@ the data.&lt;/p&gt;
 
 
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_labeled_data&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;imagefile&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;labelfile&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;picklename&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="sd"&gt;"""Read input-vector (image) and target class (label, 0-9) and return&lt;/span&gt;
-&lt;span class="sd"&gt;       it as list of tuples.&lt;/span&gt;
+    &lt;span class="sd"&gt;"""&lt;/span&gt;
+&lt;span class="sd"&gt;    Read input-vector (image) and target class (label, 0-9).&lt;/span&gt;
+
+&lt;span class="sd"&gt;    Return&lt;/span&gt;
+&lt;span class="sd"&gt;    ------&lt;/span&gt;
+&lt;span class="sd"&gt;    dict&lt;/span&gt;
 &lt;span class="sd"&gt;    """&lt;/span&gt;
     &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;isfile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s1"&gt;.pickle'&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;picklename&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
         &lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pickle&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;load&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s1"&gt;.pickle'&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;picklename&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
@@ -4147,7 +4153,7 @@ the data.&lt;/p&gt;
                             &lt;span class="s1"&gt;'the number of images.'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
         &lt;span class="c1"&gt;# Get the data&lt;/span&gt;
-        &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;zeros&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rows&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cols&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;dtype&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;uint8&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# Initialize numpy array&lt;/span&gt;
+        &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;zeros&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rows&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cols&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;dtype&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;float32&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# Initialize numpy array&lt;/span&gt;
         &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;zeros&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;dtype&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;uint8&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# Initialize numpy array&lt;/span&gt;
         &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
             &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;1000&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
@@ -4196,6 +4202,7 @@ the data.&lt;/p&gt;
                               &lt;span class="n"&gt;verbose&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;weightdecay&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;WEIGHTDECAY&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
                               &lt;span class="n"&gt;learningrate&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;LEARNING_RATE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
                               &lt;span class="n"&gt;lrdecay&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;LEARNING_RATE_DECAY&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Start training"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
     &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;EPOCHS&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
         &lt;span class="n"&gt;trainer&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;trainEpochs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
         &lt;span class="n"&gt;trnresult&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;percentError&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;trainer&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;testOnClassData&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt;
@@ -4204,8 +4211,8 @@ the data.&lt;/p&gt;
                                  &lt;span class="n"&gt;dataset&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;tstdata&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;tstdata&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'class'&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
 
         &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"epoch: &lt;/span&gt;&lt;span class="si"&gt;%4d&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;trainer&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;totalepochs&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                     &lt;span class="s2"&gt;"  train error: &lt;/span&gt;&lt;span class="si"&gt;%5.2f%%&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;trnresult&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                     &lt;span class="s2"&gt;"  test error: &lt;/span&gt;&lt;span class="si"&gt;%5.2f%%&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;tstresult&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+              &lt;span class="s2"&gt;"  train error: &lt;/span&gt;&lt;span class="si"&gt;%5.2f%%&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;trnresult&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+              &lt;span class="s2"&gt;"  test error: &lt;/span&gt;&lt;span class="si"&gt;%5.2f%%&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;tstresult&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;fnn&lt;/span&gt;
 
 &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;'__main__'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
@@ -4245,64 +4252,58 @@ the data.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id="results"&gt;Results&lt;/h2&gt;
 &lt;p&gt;I'll update that tomorrow:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;python pybrainmnist.py -e &lt;span class="m"&gt;10000&lt;/span&gt; -H 300
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;python pybrainmnist.py
 Get testset
 Got &lt;span class="m"&gt;10000&lt;/span&gt; testing datasets.
 Get trainingset
 Got &lt;span class="m"&gt;60000&lt;/span&gt; training datasets.
 Input features: 784
-Total error: 0.0473157733222
-&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:    1'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 89.56%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 89.72%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-Total error: 0.0471086288906
-&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:    2'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 90.13%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 90.20%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-Total error: 0.0471545599893
-&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:    3'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 90.25%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 90.26%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-Total error: 0.0471544804653
-&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:    4'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 90.08%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 89.91%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-Total error: 0.047137394504
-&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:    5'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 90.25%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 90.26%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-Total error: 0.0471630159397
-&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:    6'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 89.56%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 89.72%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-Total error: 0.0471585130872
-&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:    7'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 89.78%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 89.90%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-Total error: 0.0471376594558
-&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:    8'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 90.14%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 90.42%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-Total error: 0.0471355052763
-&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:    9'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 90.97%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 91.08%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-Total error: 0.0471595886207
-&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:   10'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 90.07%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 89.68%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-Total error: 0.0471580212242
-&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:   11'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 90.13%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 90.20%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-Total error: 0.047146194285
-&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:   12'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 90.07%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 89.68%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-Total error: 0.047139885027
-&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:   13'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 89.56%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 89.72%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-Total error: 0.0471459617826
-&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:   14'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 90.13%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 90.20%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-Total error: 0.0471302472029
-&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:   15'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 90.07%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 89.68%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-Total error: 0.0471525497087
-&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:   16'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 90.26%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 90.18%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-Total error: 0.0471419186775
-&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:   17'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 90.97%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 91.08%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-Total error: 0.0471563384617
-&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:   18'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 88.76%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 88.65%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-Total error: 0.0471480887109
-&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:   19'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 90.97%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 91.08%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-Total error: 0.0471466129654
-&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:   20'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 90.08%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 89.91%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-Total error: 0.0471322920471
-&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:   21'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 90.08%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 89.91%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-Total error: 0.0471505302295
-&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:   22'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 88.76%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 88.65%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-Total error: 0.0471490334095
-&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:   23'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 90.97%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 91.08%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-Total error: 0.0471643256975
-&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:   24'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 90.25%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 90.26%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-Total error: 0.0471597744749
-&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:   25'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 88.76%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 88.65%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;This took several hours :-/&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Martin Thoma</dc:creator><pubDate>Wed, 18 Jun 2014 02:31:00 +0200</pubDate><guid isPermaLink="false">tag:martin-thoma.com,2014-06-18:classify-mnist-with-pybrain/</guid><category>Python</category><category>PyBrain</category><category>MNIST</category><category>AI</category><category>Machine Learning</category><category>Neural Networks</category><category>Classification</category></item><item><title>HTML5 Template</title><link>https://martin-thoma.com/html5-template/</link><description>&lt;p&gt;Once in a while I need to create simple HTML pages. This is the template
+Start training
+Total error: 0.0132789873631
+&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:    1'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 14.97%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 14.28%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+Total error: 0.0122669294279
+&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:    2'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 11.54%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 11.18%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+Total error: 0.0121586496637
+&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:    3'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 12.21%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 11.71%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+Total error: 0.0121439024528
+&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:    4'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 13.91%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 13.01%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+Total error: 0.0121144144187
+&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:    5'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 12.51%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 11.95%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+Total error: 0.0121177344402
+&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:    6'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 12.14%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 11.35%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+Total error: 0.0121240818924
+&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:    7'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 15.82%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 15.38%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+Total error: 0.0120871124447
+&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:    8'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 13.00%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 12.32%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+Total error: 0.0120638692784
+&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:    9'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 14.02%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 13.06%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+Total error: 0.0120865053396
+&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:   10'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 13.42%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 12.79%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+Total error: 0.0120843528845
+&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:   11'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 13.42%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 13.02%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+Total error: 0.0120598288441
+&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:   12'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 13.08%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 12.33%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+Total error: 0.0120947755501
+&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:   13'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 12.86%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 12.36%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+Total error: 0.0120686450925
+&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:   14'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 13.21%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 12.34%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+Total error: 0.0120948253309
+&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:   15'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 12.53%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 11.64%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+Total error: 0.0120471256247
+&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:   16'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 13.71%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 12.88%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+Total error: 0.0120735887868
+&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:   17'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 12.78%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 11.81%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+Total error: 0.0120712301982
+&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:   18'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 13.66%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 13.13%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+Total error: 0.0120947124816
+&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:   19'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 12.48%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 11.79%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+Total error: 0.0120736808357
+&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'epoch:   20'&lt;/span&gt;, &lt;span class="s1"&gt;'  train error: 14.52%'&lt;/span&gt;, &lt;span class="s1"&gt;'  test error: 13.95%'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+
+real    3745,91s
+user    7336,48s
+sys    21571,09s
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Martin Thoma</dc:creator><pubDate>Wed, 18 Jun 2014 02:31:00 +0200</pubDate><guid isPermaLink="false">tag:martin-thoma.com,2014-06-18:classify-mnist-with-pybrain/</guid><category>Python</category><category>PyBrain</category><category>MNIST</category><category>AI</category><category>Machine Learning</category><category>Neural Networks</category><category>Classification</category></item><item><title>HTML5 Template</title><link>https://martin-thoma.com/html5-template/</link><description>&lt;p&gt;Once in a while I need to create simple HTML pages. This is the template
 I use:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;&amp;lt;!doctype html&amp;gt;&lt;/span&gt;
 &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;html&lt;/span&gt; &lt;span class="na"&gt;lang&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"en"&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
