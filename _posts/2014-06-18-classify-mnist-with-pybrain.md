@@ -68,7 +68,7 @@ create a method thad retrives the data for both files.
 ```python
 from struct import unpack
 import gzip
-from numpy import zeros, uint8
+from numpy import zeros, uint8, float32
 
 
 def get_labeled_data(imagefile, labelfile):
@@ -101,7 +101,7 @@ def get_labeled_data(imagefile, labelfile):
         raise Exception('number of labels did not match the number of images')
 
     # Get the data
-    x = zeros((N, rows, cols), dtype=uint8)  # Initialize numpy array
+    x = zeros((N, rows, cols), dtype=float32)  # Initialize numpy array
     y = zeros((N, 1), dtype=uint8)  # Initialize numpy array
     for i in range(N):
         if i % 1000 == 0:
@@ -232,9 +232,11 @@ the data.
 ```python
 #!/usr/bin/env python
 
+"""Train NN with PyBrain."""
+
 from struct import unpack
 import gzip
-from numpy import zeros, uint8, ravel
+from numpy import zeros, uint8, float32, ravel
 
 from pylab import imshow, show, cm
 
@@ -250,8 +252,12 @@ import cPickle as pickle
 
 
 def get_labeled_data(imagefile, labelfile, picklename):
-    """Read input-vector (image) and target class (label, 0-9) and return
-       it as list of tuples.
+    """
+    Read input-vector (image) and target class (label, 0-9).
+
+    Return
+    ------
+    dict
     """
     if os.path.isfile('%s.pickle' % picklename):
         data = pickle.load(open('%s.pickle' % picklename))
@@ -283,7 +289,7 @@ def get_labeled_data(imagefile, labelfile, picklename):
                             'the number of images.')
 
         # Get the data
-        x = zeros((N, rows, cols), dtype=uint8)  # Initialize numpy array
+        x = zeros((N, rows, cols), dtype=float32)  # Initialize numpy array
         y = zeros((N, 1), dtype=uint8)  # Initialize numpy array
         for i in range(N):
             if i % 1000 == 0:
@@ -332,6 +338,7 @@ def classify(training, testing, HIDDEN_NEURONS, MOMENTUM, WEIGHTDECAY,
                               verbose=True, weightdecay=WEIGHTDECAY,
                               learningrate=LEARNING_RATE,
                               lrdecay=LEARNING_RATE_DECAY)
+    print("Start training")
     for i in range(EPOCHS):
         trainer.trainEpochs(1)
         trnresult = percentError(trainer.testOnClassData(),
@@ -340,8 +347,8 @@ def classify(training, testing, HIDDEN_NEURONS, MOMENTUM, WEIGHTDECAY,
                                  dataset=tstdata), tstdata['class'])
 
         print("epoch: %4d" % trainer.totalepochs,
-                     "  train error: %5.2f%%" % trnresult,
-                     "  test error: %5.2f%%" % tstresult)
+              "  train error: %5.2f%%" % trnresult,
+              "  test error: %5.2f%%" % tstresult)
     return fnn
 
 if __name__ == '__main__':
@@ -386,62 +393,56 @@ if __name__ == '__main__':
 I'll update that tomorrow:
 
 ```bash
-python pybrainmnist.py -e 10000 -H 300
+python pybrainmnist.py
 Get testset
 Got 10000 testing datasets.
 Get trainingset
 Got 60000 training datasets.
 Input features: 784
-Total error: 0.0473157733222
-('epoch:    1', '  train error: 89.56%', '  test error: 89.72%')
-Total error: 0.0471086288906
-('epoch:    2', '  train error: 90.13%', '  test error: 90.20%')
-Total error: 0.0471545599893
-('epoch:    3', '  train error: 90.25%', '  test error: 90.26%')
-Total error: 0.0471544804653
-('epoch:    4', '  train error: 90.08%', '  test error: 89.91%')
-Total error: 0.047137394504
-('epoch:    5', '  train error: 90.25%', '  test error: 90.26%')
-Total error: 0.0471630159397
-('epoch:    6', '  train error: 89.56%', '  test error: 89.72%')
-Total error: 0.0471585130872
-('epoch:    7', '  train error: 89.78%', '  test error: 89.90%')
-Total error: 0.0471376594558
-('epoch:    8', '  train error: 90.14%', '  test error: 90.42%')
-Total error: 0.0471355052763
-('epoch:    9', '  train error: 90.97%', '  test error: 91.08%')
-Total error: 0.0471595886207
-('epoch:   10', '  train error: 90.07%', '  test error: 89.68%')
-Total error: 0.0471580212242
-('epoch:   11', '  train error: 90.13%', '  test error: 90.20%')
-Total error: 0.047146194285
-('epoch:   12', '  train error: 90.07%', '  test error: 89.68%')
-Total error: 0.047139885027
-('epoch:   13', '  train error: 89.56%', '  test error: 89.72%')
-Total error: 0.0471459617826
-('epoch:   14', '  train error: 90.13%', '  test error: 90.20%')
-Total error: 0.0471302472029
-('epoch:   15', '  train error: 90.07%', '  test error: 89.68%')
-Total error: 0.0471525497087
-('epoch:   16', '  train error: 90.26%', '  test error: 90.18%')
-Total error: 0.0471419186775
-('epoch:   17', '  train error: 90.97%', '  test error: 91.08%')
-Total error: 0.0471563384617
-('epoch:   18', '  train error: 88.76%', '  test error: 88.65%')
-Total error: 0.0471480887109
-('epoch:   19', '  train error: 90.97%', '  test error: 91.08%')
-Total error: 0.0471466129654
-('epoch:   20', '  train error: 90.08%', '  test error: 89.91%')
-Total error: 0.0471322920471
-('epoch:   21', '  train error: 90.08%', '  test error: 89.91%')
-Total error: 0.0471505302295
-('epoch:   22', '  train error: 88.76%', '  test error: 88.65%')
-Total error: 0.0471490334095
-('epoch:   23', '  train error: 90.97%', '  test error: 91.08%')
-Total error: 0.0471643256975
-('epoch:   24', '  train error: 90.25%', '  test error: 90.26%')
-Total error: 0.0471597744749
-('epoch:   25', '  train error: 88.76%', '  test error: 88.65%')
+Start training
+Total error: 0.0132789873631
+('epoch:    1', '  train error: 14.97%', '  test error: 14.28%')
+Total error: 0.0122669294279
+('epoch:    2', '  train error: 11.54%', '  test error: 11.18%')
+Total error: 0.0121586496637
+('epoch:    3', '  train error: 12.21%', '  test error: 11.71%')
+Total error: 0.0121439024528
+('epoch:    4', '  train error: 13.91%', '  test error: 13.01%')
+Total error: 0.0121144144187
+('epoch:    5', '  train error: 12.51%', '  test error: 11.95%')
+Total error: 0.0121177344402
+('epoch:    6', '  train error: 12.14%', '  test error: 11.35%')
+Total error: 0.0121240818924
+('epoch:    7', '  train error: 15.82%', '  test error: 15.38%')
+Total error: 0.0120871124447
+('epoch:    8', '  train error: 13.00%', '  test error: 12.32%')
+Total error: 0.0120638692784
+('epoch:    9', '  train error: 14.02%', '  test error: 13.06%')
+Total error: 0.0120865053396
+('epoch:   10', '  train error: 13.42%', '  test error: 12.79%')
+Total error: 0.0120843528845
+('epoch:   11', '  train error: 13.42%', '  test error: 13.02%')
+Total error: 0.0120598288441
+('epoch:   12', '  train error: 13.08%', '  test error: 12.33%')
+Total error: 0.0120947755501
+('epoch:   13', '  train error: 12.86%', '  test error: 12.36%')
+Total error: 0.0120686450925
+('epoch:   14', '  train error: 13.21%', '  test error: 12.34%')
+Total error: 0.0120948253309
+('epoch:   15', '  train error: 12.53%', '  test error: 11.64%')
+Total error: 0.0120471256247
+('epoch:   16', '  train error: 13.71%', '  test error: 12.88%')
+Total error: 0.0120735887868
+('epoch:   17', '  train error: 12.78%', '  test error: 11.81%')
+Total error: 0.0120712301982
+('epoch:   18', '  train error: 13.66%', '  test error: 13.13%')
+Total error: 0.0120947124816
+('epoch:   19', '  train error: 12.48%', '  test error: 11.79%')
+Total error: 0.0120736808357
+('epoch:   20', '  train error: 14.52%', '  test error: 13.95%')
+
+real    3745,91s
+user    7336,48s
+sys    21571,09s
 ```
 
-This took several hours :-/
