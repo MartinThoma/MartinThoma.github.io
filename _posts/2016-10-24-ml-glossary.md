@@ -17,6 +17,8 @@ in full detail.
     <dd>A clever implementation of gradient descent for neural networks.</dd>
     <dt><dfn id="computer-vision">Computer Vision</dfn></dt>
     <dd>The academic discipline which deals with how to gain high-level understanding from digital images or videos. Common tasks include image classifiction, semantic segmentation, detection and localization.</dd>
+    <dt><dfn id="curriculum-learning">Curriculum learning</dfn></dt>
+    <dd>A method for pretraining. First optimize a smoothed objective and gradually consider less smoothing. So a curriculum is a sequence of training criteria. One might show gradually more difficult training examples. See <a href="http://ronan.collobert.com/pub/matos/2009_curriculum_icml.pdf">Curriculum Learning</a> by Benigo, Louradour, Collobert and Weston for details.</dd>
     <dt><dfn id="curse-of-dimensionality">Curse of dimensionality</dfn></dt>
     <dd>Various problems of high-dimensional spaces that do not occur in low-dimensional spaces.
         High-dimensional often means several 100 dimensions. See also: <a href="https://martin-thoma.com/average-distance-of-points">Average Distance of Points</a></dd>
