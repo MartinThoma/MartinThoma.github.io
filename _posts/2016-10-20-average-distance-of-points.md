@@ -137,7 +137,13 @@ the dimension $n$ is. Now lets try to calculate the probability that two points
 in the unit hypercube have a distance of less than 1.
 
 
-Here are a couple of results:
+Here are a couple of results. Just a short reminder:
+
+* $\alpha(n, 2)$ is the maximum distance two points can have in a unit cube in $\mathbb{R}^n$
+* $\beta(n)$ is the average distance of two points in $\mathbb{R}^n$
+* $Pr(d(p_1, p_2) < 1)$ is the probability, that two uniformly randomly placed points have a distance
+  of less than 1 in $\mathbb{R}^n$
+* $V_S(0.5)/V_C(1)$ is the amount a unit ball can fill a unit cube
 
 <table>
     <tr>
