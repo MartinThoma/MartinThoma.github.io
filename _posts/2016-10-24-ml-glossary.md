@@ -45,6 +45,12 @@ in full detail.
     <dd>Computer vision applied for industrial applications.</dd>
     <dt><dfn id="object-recognition">Object recognition</dfn></dt>
     <dd>Classification on images.</dd>
+    <dt><dfn id="semi-supervised-learning">Semi-supervised learning</dfn></dt>
+    <dd>Some training data has labels, but most has no labels.</dd>
+    <dt><dfn id="supervised-learning">Supervised learning</dfn></dt>
+    <dd>All training data has labels.</dd>
+    <dt><dfn id="unsupervised-learning">Unsupervised learning</dfn></dt>
+    <dd>No training data has labels.</dd>
 </dl>
 
 
