@@ -130,3 +130,9 @@ Recently, I've also got to know
 can add summaries / remarks of papers. This is pretty awesome if you want to
 get the paper in context (especially of work which was released after the paper)
 or if you just want to see what the key idea behind a paper is.
+
+
+## See also
+
+* [Tools for Academia](https://martin-thoma.com/tools-for-academia/)
+* [trendingarxiv](https://trendingarxiv.smerity.com/)
