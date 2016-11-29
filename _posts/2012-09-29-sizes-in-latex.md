@@ -24,6 +24,7 @@ Usage example:
 	<li><code>thick</code></li>
 	<li><code>very thick</code></li>
 	<li><code>ultra thick</code></li>
+    <li><a href="http://tex.stackexchange.com/q/106742/5645">more</a></li>
 </ul>
 <h2>Text</h2>
 <p style="text-align: center;"><a href="../images/2012/09/text-sizes-latex.png"><img class="size-full wp-image-45921 aligncenter" title="Text sizes in LaTeX" src="../images/2012/09/text-sizes-latex.png" alt="Text sizes in LaTeX" width="512" height="110" /></a></p>
