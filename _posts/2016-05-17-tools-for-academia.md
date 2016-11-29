@@ -18,7 +18,8 @@ got to know quite a few, so I want to share my list with you.
 Sometimes, I just like to stumble around some papers. I'm not actively
 searching anything, but just looking for something interesting. In my field
 of research, [gitxiv.com](http://gitxiv.com/) is really interesting for that.
-But also the [recent papers at arXiv](http://arxiv.org/list/cs.CV/recent).
+But also the [recent papers at arXiv](http://arxiv.org/list/cs.CV/recent)
+and [trendingarxiv](https://trendingarxiv.smerity.com/).
 
 I know that a couple of people recently liked
 [arxitics.com](http://arxitics.com/) and
