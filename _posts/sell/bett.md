@@ -2,6 +2,7 @@
 layout: page
 title: Bett
 slug: sell/bett
+status: draft
 save_as: sell/bett/index.html
 author: Martin Thoma
 date: 2012-01-01 22:30
