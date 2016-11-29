@@ -570,7 +570,7 @@ Siehe auch:
   Problem; Nutzen ungelabelter Daten durch <abbr title="Semi-Supervised Learning">SSL</abbr>
   in Auto-Encodern
 * **Lokale Minima**
-* **Overfitting**: Regularis
+* **Overfitting**: Regularisation
 
 #### Siehe auch
 
