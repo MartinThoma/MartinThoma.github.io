@@ -37,12 +37,12 @@ The idea is that each pair of parents give birth to two children. The parents
 $S_2 = \{AA, Aa\}$ can give birth to \{\{AA, AA\}, \{AA, Aa\}, \{Aa, Aa\}\}.
 This results in the following state transition matrix.
 
-$\begin{pmatrix}1 & 0 & 0 & 0 & 0 & 0 \\
+$$\begin{pmatrix}1 & 0 & 0 & 0 & 0 & 0 \\
 1/4 & 1/2 & 0 & 1/4 & 0 & 0\\
 0 & 0 & 0 & 1 & 0 & 0\\
 1/16 & 1/4 & 1/8 & 1/4 & 1/4 & 1/16\\
 0 & 0 & 0 & 1/4 & 1/2 & 1/4\\
-0 & 0 & 0 & 0 & 0 & 1\end{pmatrix}$
+0 & 0 & 0 & 0 & 0 & 1\end{pmatrix}$$
 
 The rows mean from which state you start, the colums are the states you can get
 to.
@@ -247,10 +247,3 @@ because I was looking for "normal" markov models:
 
 There are also quite a few other modules which seem to generate data with
 markov chains.
-
-
-## TODO
-
-* http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3097064/
-* https://pymc-devs.github.io/pymc/README.html
-* https://github.com/riccardoscalco/Pykov
