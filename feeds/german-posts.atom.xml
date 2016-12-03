@@ -64,11 +64,47 @@
 &lt;td&gt;9&lt;/td&gt;
 &lt;td&gt;14.11.2016&lt;/td&gt;
 &lt;td&gt;Programmierprojekte&lt;/td&gt;
-&lt;td&gt;Besprechung der Praktischen Aufgaben&lt;/td&gt;
+&lt;td&gt;Besprechung der praktischen Aufgaben&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;10&lt;/td&gt;
 &lt;td&gt;18.11.2016&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;11&lt;/td&gt;
+&lt;td&gt;21.11.2016&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;12&lt;/td&gt;
+&lt;td&gt;25.11.2016&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;13&lt;/td&gt;
+&lt;td&gt;28.11.2016&lt;/td&gt;
+&lt;td&gt;Head Pose Estimation&lt;/td&gt;
+&lt;td&gt;Model-based approaches, Appearence-based approaches&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;14&lt;/td&gt;
+&lt;td&gt;02.12.2016&lt;/td&gt;
+&lt;td&gt;Person Detection&lt;/td&gt;
+&lt;td&gt;Introduction, HOG people detector, Shilouette matching&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;15&lt;/td&gt;
+&lt;td&gt;05.12.2016&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;16&lt;/td&gt;
+&lt;td&gt;09.12.2016&lt;/td&gt;
 &lt;td&gt;?&lt;/td&gt;
 &lt;td&gt;?&lt;/td&gt;
 &lt;/tr&gt;
@@ -238,6 +274,70 @@
 &lt;li&gt;Range Normalization&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h3 id="head-pose-estimation"&gt;Head-pose Estimation&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;State of the Art: Regression based apprach (Random Regression Forests) is 15 years old&lt;/li&gt;
+&lt;li&gt;slide 14: &lt;span class="math"&gt;\(r\)&lt;/span&gt; is distance, &lt;span class="math"&gt;\(f\)&lt;/span&gt; is focus length, &lt;span class="math"&gt;\(b\)&lt;/span&gt; is baseline, &lt;span class="math"&gt;\(d_L, d_R\)&lt;/span&gt; is distance left/right - in the later slides is a figure.&lt;/li&gt;
+&lt;li&gt;Pan / Tilt / Jaw&lt;/li&gt;
+&lt;/ul&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)"&gt;&lt;dfn id="entropy"&gt;Entropy&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
+&lt;dd&gt;The entropy $H$ of a discrete random variable $X$ is
+
+        $$H(X) = \mathbb{E}[-\ln(P(X))] = - \sum_{i=1}^n P(x_i) \log_2 P(x_i)$$
+
+    &lt;/dd&gt;
+&lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Information_gain_in_decision_trees"&gt;&lt;dfn&gt;Information Gain&lt;/dfn&gt;&lt;/a&gt; (&lt;dfn&gt;Kullback&amp;ndash;Leibler divergence&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dd&gt;
+
+        The expected information gain is the change in entropy $H$ from a prior
+        state to a state that takes some information as given:
+
+        $$IG(T,a) = H(T) - H(T|a)$$
+
+    &lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h3 id="person-detection"&gt;Person detection&lt;/h3&gt;
+&lt;dl&gt;
+&lt;dt&gt;Detection&lt;/dt&gt;
+&lt;dd&gt;Detection is classification with localization&lt;/dd&gt;
+&lt;dt&gt;Person detection&lt;/dt&gt;
+&lt;dd&gt;Person detection (sometimes also pedestrian detection) is the
+        task of finding people in an image or video. This is usually done with
+        bounding boxes, although tight segmentation methodes exist.&lt;br/&gt;
+&lt;br/&gt;
+        One can divide the methods the following way:
+        &lt;ul&gt;
+&lt;li&gt;Input: Single image / video&lt;/li&gt;
+&lt;li&gt;Detection approach
+            &lt;ul&gt;
+&lt;li&gt;Global: Detection of the person as a whole&lt;/li&gt;
+&lt;li&gt;Part-based: Detection of arms, legs, head, ...&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Model type
+            &lt;ul&gt;
+&lt;li&gt;Generative: Models how the data was generated (+ is interpretable - hard to create)&lt;/li&gt;
+&lt;li&gt;Discriminative&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+        Shilouette matchin is a discriminative, global, single image approach.
+        HOG people detector is a single image approach (TODO: global/part based? generative / discriminative?)
+    &lt;/dd&gt;
+&lt;dt&gt;L2 hysterese&lt;/dt&gt;
+&lt;dd&gt;A variant of the L2 norm which cuts peaks&lt;/dd&gt;
+&lt;dt&gt;HOG People Detector&lt;/dt&gt;
+&lt;dd&gt;TODO&lt;/dd&gt;
+&lt;dt&gt;Shilouette Matching&lt;/dt&gt;
+&lt;dd&gt;
+
+        Shilouette matching is practically not used anymore. It uses chemfer
+        matching, 2/3 distance. It can be speeded up with a template hierarchy.
+
+    &lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h2 id="praktische-aufgaben_1"&gt;Praktische Aufgaben&lt;/h2&gt;
 &lt;p&gt;Es gibt 3 praktische Aufgaben, die 10% der Note ausmachen:&lt;/p&gt;
