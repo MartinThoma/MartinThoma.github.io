@@ -22020,6 +22020,17 @@ as a single PDF via email. That's the way to go:&lt;/p&gt;
 &lt;p&gt;&lt;b&gt;Minimize file size&lt;/b&gt;:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ lame -b &lt;span class="m"&gt;32&lt;/span&gt; input.mp3 output.mp3
 &lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;b&gt;Split MP3 by silence&lt;/b&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ mp3splt -s -p &lt;span class="nv"&gt;th&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;-40,min&lt;span class="o"&gt;=&lt;/span&gt;3,rm input.mp3
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Parameters (thank you, &lt;a href="http://blog.dornea.nu/2012/04/01/howto-split-mp3s-by-silence-detection-using-mp3splt/"&gt;Victor&lt;/a&gt;!):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-s&lt;/code&gt;: silence mode&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-p&lt;/code&gt;: specify arguments for the silence mode&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;th&lt;/code&gt;: threshold level in dB to be considered silence&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;min&lt;/code&gt;: minimum number of seconds to be considered as splitpoint&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rm&lt;/code&gt;: remove silence from splitted files&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id="video-files"&gt;Video Files&lt;/h2&gt;
 &lt;p&gt;For quite a lot purposes is the command line tool &lt;a href="http://en.wikipedia.org/wiki/FFmpeg" rel="nofollow"&gt;FFmpeg&lt;/a&gt; with its &lt;a href="http://www.ffmpeg.org/ffmpeg-doc.html"&gt;lots of options&lt;/a&gt; a good choice. For others might &lt;a href="http://en.wikipedia.org/wiki/MEncoder" rel="nofollow"&gt;MEncoder&lt;/a&gt; be better.
 You might also want to install some codecs first:&lt;/p&gt;
