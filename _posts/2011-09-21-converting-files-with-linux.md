@@ -103,6 +103,12 @@ $ mp3wrap merged.mp3 one.mp3 two.mp3
 $ for i in *.wav;do lame "$i" "${i%wav}mp3"; rm "$i"; done
 ```
 
+<b>Minimize file size</b>:
+
+```bash
+$ lame -b 32 input.mp3 output.mp3
+```
+
 
 ## Video Files
 
