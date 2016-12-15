@@ -109,6 +109,20 @@ $ for i in *.wav;do lame "$i" "${i%wav}mp3"; rm "$i"; done
 $ lame -b 32 input.mp3 output.mp3
 ```
 
+<b>Split MP3 by silence</b>:
+
+```bash
+$ mp3splt -s -p th=-40,min=3,rm input.mp3
+```
+
+Parameters (thank you, [Victor](http://blog.dornea.nu/2012/04/01/howto-split-mp3s-by-silence-detection-using-mp3splt/)!):
+
+* `-s`: silence mode
+* `-p`: specify arguments for the silence mode
+* `th`: threshold level in dB to be considered silence
+* `min`: minimum number of seconds to be considered as splitpoint
+* `rm`: remove silence from splitted files
+
 
 ## Video Files
 
