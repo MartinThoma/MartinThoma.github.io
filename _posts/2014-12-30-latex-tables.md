@@ -9,10 +9,6 @@ tags: LaTeX, tables
 featured_image: logos/latex.png
 ---
 
-<div class="info">This is a quick article I had for quite a while as a draft.
-It might not be finished or have other problems, but I still want to share
-it.</div>
-
 LaTeX is an awesome typesetting language: It is powerful enough to let you
 do anything you want, it has a great community and standard solutions for
 every common problem as it is quite old. But tables... well, let's say there
@@ -28,14 +24,14 @@ The most basic table I could think of is generated like this:
 \usepackage{amssymb, amsmath}  % needed for math
 \begin{document}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis malesuada 
-efficitur volutpat. Proin eget dui in lacus fermentum pharetra. Sed ut 
-facilisis leo, sed consectetur urna. Phasellus eget tempus eros, vitae 
-sagittis mi. Nullam pharetra, dolor a efficitur blandit, nisl velit interdum 
-turpis, vel posuere lorem justo nec elit. Donec mattis massa auctor mattis 
-varius. Nunc sed volutpat sapien, at finibus lectus. Phasellus auctor vehicula 
-auctor. Nam vitae purus ut orci accumsan auctor. Fusce volutpat, tortor 
-consectetur convallis aliquam, enim velit gravida sapien, id convallis nisi 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis malesuada
+efficitur volutpat. Proin eget dui in lacus fermentum pharetra. Sed ut
+facilisis leo, sed consectetur urna. Phasellus eget tempus eros, vitae
+sagittis mi. Nullam pharetra, dolor a efficitur blandit, nisl velit interdum
+turpis, vel posuere lorem justo nec elit. Donec mattis massa auctor mattis
+varius. Nunc sed volutpat sapien, at finibus lectus. Phasellus auctor vehicula
+auctor. Nam vitae purus ut orci accumsan auctor. Fusce volutpat, tortor
+consectetur convallis aliquam, enim velit gravida sapien, id convallis nisi
 nunc ac leo.
 
     \begin{table}[ht]
@@ -50,17 +46,17 @@ nunc ac leo.
         \label{table:countries}
     \end{table}
 
-Aenean sit amet felis eu urna accumsan consectetur. Sed hendrerit ultrices 
-turpis nec fringilla. Pellentesque sagittis neque placerat, pharetra ante 
-quis, maximus eros. Nam ultrices lacinia magna, eget interdum tortor ornare 
-ut. Praesent semper tristique consectetur. Sed auctor, orci accumsan imperdiet 
-vestibulum, nunc augue sagittis purus, sed dapibus neque arcu sit amet enim. 
-Aliquam fermentum dui eu efficitur condimentum. Maecenas viverra metus ut 
-bibendum pellentesque. Integer non interdum massa. Vestibulum non enim 
-vulputate, sodales nunc ac, ultricies tortor. Suspendisse non vehicula ipsum, 
-quis consequat elit. Quisque rutrum tincidunt lorem id semper. Phasellus 
-bibendum nulla sit amet purus tempus, vitae tincidunt ligula ornare. Nunc quis 
-felis non ex consequat elementum nec sit amet magna. In lacinia nulla nec neque 
+Aenean sit amet felis eu urna accumsan consectetur. Sed hendrerit ultrices
+turpis nec fringilla. Pellentesque sagittis neque placerat, pharetra ante
+quis, maximus eros. Nam ultrices lacinia magna, eget interdum tortor ornare
+ut. Praesent semper tristique consectetur. Sed auctor, orci accumsan imperdiet
+vestibulum, nunc augue sagittis purus, sed dapibus neque arcu sit amet enim.
+Aliquam fermentum dui eu efficitur condimentum. Maecenas viverra metus ut
+bibendum pellentesque. Integer non interdum massa. Vestibulum non enim
+vulputate, sodales nunc ac, ultricies tortor. Suspendisse non vehicula ipsum,
+quis consequat elit. Quisque rutrum tincidunt lorem id semper. Phasellus
+bibendum nulla sit amet purus tempus, vitae tincidunt ligula ornare. Nunc quis
+felis non ex consequat elementum nec sit amet magna. In lacinia nulla nec neque
 venenatis, vel tristique risus blandit.
 \end{document}
 ```
@@ -84,7 +80,7 @@ Let's check out `table`:
 "here" and `t` means "top". So LaTeX tries to place the table where it is in
 the text and if that doesn't work out it places the table on the top of the
 page. It can get a caption
-`\caption{Description of the contents of the table}` and a 
+`\caption{Description of the contents of the table}` and a
 `\label{table:your-label-for-internal-usage}`.
 
 ### The standard way
@@ -98,14 +94,14 @@ I always use `\usepackage{booktabs}` to get `\toprule`, `\midrule` and `\bottomr
 \usepackage{booktabs}  % for \toprule, \midrule and \bottomrule
 \begin{document}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis malesuada 
-efficitur volutpat. Proin eget dui in lacus fermentum pharetra. Sed ut 
-facilisis leo, sed consectetur urna. Phasellus eget tempus eros, vitae 
-sagittis mi. Nullam pharetra, dolor a efficitur blandit, nisl velit interdum 
-turpis, vel posuere lorem justo nec elit. Donec mattis massa auctor mattis 
-varius. Nunc sed volutpat sapien, at finibus lectus. Phasellus auctor vehicula 
-auctor. Nam vitae purus ut orci accumsan auctor. Fusce volutpat, tortor 
-consectetur convallis aliquam, enim velit gravida sapien, id convallis nisi 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis malesuada
+efficitur volutpat. Proin eget dui in lacus fermentum pharetra. Sed ut
+facilisis leo, sed consectetur urna. Phasellus eget tempus eros, vitae
+sagittis mi. Nullam pharetra, dolor a efficitur blandit, nisl velit interdum
+turpis, vel posuere lorem justo nec elit. Donec mattis massa auctor mattis
+varius. Nunc sed volutpat sapien, at finibus lectus. Phasellus auctor vehicula
+auctor. Nam vitae purus ut orci accumsan auctor. Fusce volutpat, tortor
+consectetur convallis aliquam, enim velit gravida sapien, id convallis nisi
 nunc ac leo.
 
     \begin{table}[ht]
@@ -122,17 +118,17 @@ nunc ac leo.
         \label{table:countries}
     \end{table}
 
-Aenean sit amet felis eu urna accumsan consectetur. Sed hendrerit ultrices 
-turpis nec fringilla. Pellentesque sagittis neque placerat, pharetra ante 
-quis, maximus eros. Nam ultrices lacinia magna, eget interdum tortor ornare 
-ut. Praesent semper tristique consectetur. Sed auctor, orci accumsan imperdiet 
-vestibulum, nunc augue sagittis purus, sed dapibus neque arcu sit amet enim. 
-Aliquam fermentum dui eu efficitur condimentum. Maecenas viverra metus ut 
-bibendum pellentesque. Integer non interdum massa. Vestibulum non enim 
-vulputate, sodales nunc ac, ultricies tortor. Suspendisse non vehicula ipsum, 
-quis consequat elit. Quisque rutrum tincidunt lorem id semper. Phasellus 
-bibendum nulla sit amet purus tempus, vitae tincidunt ligula ornare. Nunc quis 
-felis non ex consequat elementum nec sit amet magna. In lacinia nulla nec neque 
+Aenean sit amet felis eu urna accumsan consectetur. Sed hendrerit ultrices
+turpis nec fringilla. Pellentesque sagittis neque placerat, pharetra ante
+quis, maximus eros. Nam ultrices lacinia magna, eget interdum tortor ornare
+ut. Praesent semper tristique consectetur. Sed auctor, orci accumsan imperdiet
+vestibulum, nunc augue sagittis purus, sed dapibus neque arcu sit amet enim.
+Aliquam fermentum dui eu efficitur condimentum. Maecenas viverra metus ut
+bibendum pellentesque. Integer non interdum massa. Vestibulum non enim
+vulputate, sodales nunc ac, ultricies tortor. Suspendisse non vehicula ipsum,
+quis consequat elit. Quisque rutrum tincidunt lorem id semper. Phasellus
+bibendum nulla sit amet purus tempus, vitae tincidunt ligula ornare. Nunc quis
+felis non ex consequat elementum nec sit amet magna. In lacinia nulla nec neque
 venenatis, vel tristique risus blandit.
 \end{document}
 ```
@@ -154,14 +150,14 @@ It is much nicer when you combine cells. To do so, you can use `\multicolumn`:
 
 \usepackage{booktabs}  % for \toprule, \midrule and \bottomrule
 \begin{document}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis malesuada 
-efficitur volutpat. Proin eget dui in lacus fermentum pharetra. Sed ut 
-facilisis leo, sed consectetur urna. Phasellus eget tempus eros, vitae 
-sagittis mi. Nullam pharetra, dolor a efficitur blandit, nisl velit interdum 
-turpis, vel posuere lorem justo nec elit. Donec mattis massa auctor mattis 
-varius. Nunc sed volutpat sapien, at finibus lectus. Phasellus auctor vehicula 
-auctor. Nam vitae purus ut orci accumsan auctor. Fusce volutpat, tortor 
-consectetur convallis aliquam, enim velit gravida sapien, id convallis nisi 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis malesuada
+efficitur volutpat. Proin eget dui in lacus fermentum pharetra. Sed ut
+facilisis leo, sed consectetur urna. Phasellus eget tempus eros, vitae
+sagittis mi. Nullam pharetra, dolor a efficitur blandit, nisl velit interdum
+turpis, vel posuere lorem justo nec elit. Donec mattis massa auctor mattis
+varius. Nunc sed volutpat sapien, at finibus lectus. Phasellus auctor vehicula
+auctor. Nam vitae purus ut orci accumsan auctor. Fusce volutpat, tortor
+consectetur convallis aliquam, enim velit gravida sapien, id convallis nisi
 nunc ac leo.
 
 \begin{table}[ht]
@@ -181,17 +177,17 @@ nunc ac leo.
     \caption{Information about countries}
     \label{table:countries}
 \end{table}
-Aenean sit amet felis eu urna accumsan consectetur. Sed hendrerit ultrices 
-turpis nec fringilla. Pellentesque sagittis neque placerat, pharetra ante 
-quis, maximus eros. Nam ultrices lacinia magna, eget interdum tortor ornare 
-ut. Praesent semper tristique consectetur. Sed auctor, orci accumsan imperdiet 
-vestibulum, nunc augue sagittis purus, sed dapibus neque arcu sit amet enim. 
-Aliquam fermentum dui eu efficitur condimentum. Maecenas viverra metus ut 
-bibendum pellentesque. Integer non interdum massa. Vestibulum non enim 
-vulputate, sodales nunc ac, ultricies tortor. Suspendisse non vehicula ipsum, 
-quis consequat elit. Quisque rutrum tincidunt lorem id semper. Phasellus 
-bibendum nulla sit amet purus tempus, vitae tincidunt ligula ornare. Nunc quis 
-felis non ex consequat elementum nec sit amet magna. In lacinia nulla nec neque 
+Aenean sit amet felis eu urna accumsan consectetur. Sed hendrerit ultrices
+turpis nec fringilla. Pellentesque sagittis neque placerat, pharetra ante
+quis, maximus eros. Nam ultrices lacinia magna, eget interdum tortor ornare
+ut. Praesent semper tristique consectetur. Sed auctor, orci accumsan imperdiet
+vestibulum, nunc augue sagittis purus, sed dapibus neque arcu sit amet enim.
+Aliquam fermentum dui eu efficitur condimentum. Maecenas viverra metus ut
+bibendum pellentesque. Integer non interdum massa. Vestibulum non enim
+vulputate, sodales nunc ac, ultricies tortor. Suspendisse non vehicula ipsum,
+quis consequat elit. Quisque rutrum tincidunt lorem id semper. Phasellus
+bibendum nulla sit amet purus tempus, vitae tincidunt ligula ornare. Nunc quis
+felis non ex consequat elementum nec sit amet magna. In lacinia nulla nec neque
 venenatis, vel tristique risus blandit.
 \end{document}
 ```
@@ -207,6 +203,16 @@ Note the `\cmidrule{2-4}` which draws a rule from cell 2 to 4 (LaTeX starts
 to count at 1).
 
 If you want to combine multiple rows you need to use `\usepackage{multirow}`.
+
+
+### Line Breaks in Cells
+
+```latex
+\parbox[t]{1cm}{This is the first \\ cell}
+```
+
+See also: [How to add a forced line break inside a table cell](http://tex.stackexchange.com/q/2441/5645)
+
 
 ### Page breaking tables
 
