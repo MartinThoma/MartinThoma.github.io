@@ -91,7 +91,7 @@ featured_image: logos/klausur.png
             <figcaption class="text-center">Rosenblatt-Perceptron which realizes logical or</figcaption>
         </figure>
 
-* McCullch-Pitts Neuron (weights, bias, activation function is step function)
+* McCulloch-Pitts Neuron (weights, bias, activation function is step function)
 * Rosenblatt Perceptron Algorithmus
 * Backpropagation
 * Curse of Dimensionality
@@ -895,7 +895,7 @@ training data will help you with your problem.
         <td>&nbsp;</td>
     </tr>
     <tr>
-        <td>Heavy-Side Step function</td>
+        <td>Heaviside Step function</td>
         <td><span markdown="0">$\varphi(x) = \begin{cases}+1 &\text{if } x > 0\\0 &\text{if } x < 0\end{cases}$</span></td>
         <td style="text-align: center;"><span markdown="0">$\{0, 1\}$</span></td>
         <td style="text-align: center;">Yes<br/>(except 0)</td>
@@ -910,7 +910,7 @@ training data will help you with your problem.
         <td style="text-align: center;">Yes</td>
         <td><span markdown="0">$\varphi'(x) = \frac{e^x}{(e^x +1)^2}$</span></td>
         <td style="text-align: center;">No</td>
-        <td>Smoothed version of the heavy-side step function</td>
+        <td>Smoothed version of the heaviside step function</td>
     </tr>
     <tr>
         <td><abbr title="Tangens Hyperbolicus">tanh</abbr></td>
