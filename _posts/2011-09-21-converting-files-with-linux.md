@@ -123,6 +123,16 @@ Parameters (thank you, [Victor](http://blog.dornea.nu/2012/04/01/howto-split-mp3
 * `min`: minimum number of seconds to be considered as splitpoint
 * `rm`: remove silence from splitted files
 
+<b>Split MP3 by time</b>:
+
+```bash
+$ mp3splt input.mp3 -t 10.00
+```
+
+splits the mp3 after every `MM.SS`, in this case after every 10 minutes and 0
+seconds. So a 53 minutes MP3 would get splitted 5 times and hence result in
+6 new files.
+
 
 ## Video Files
 
