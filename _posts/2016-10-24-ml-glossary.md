@@ -47,6 +47,9 @@ in full detail.
     <dd>A feature map is the result of a single filter of a convolutional layer
         being applied. So it is the activation of that filter over the given
         input.</dd>
+    <dt><dfn id="gemm">GEMM</dfn> (<dfn>GEneral Matrix to Matrix Multiplication</dfn>)</dt>
+    <dd>General Matrix to Matrix Multiplication is the problem of
+        calculating the result of $C = A \cdot B$ with $A \in \mathbb{R}^{n \times m}, B \in \mathbb{R}^{m \times k}, C \in \mathbb{R}^{n \times k}$.</dd>
     <dt><dfn id="generative-model">Generative model</dfn></dt>
     <dd>The model gives the relationship of variables: $P(x, y)$.
         This kind of model can be used for prediction, too.</dd>
@@ -54,6 +57,12 @@ in full detail.
     <dd>An iterative optimization algorithm for differentiable functions.</dd>
     <dt><dfn id="machine-vision">Machine Vision</dfn></dt>
     <dd>Computer vision applied for industrial applications.</dd>
+    <dt><dfn id="mmd">MMD</dfn> (<dfn id="maximum-mean-descripancy">Maximum Mean Descrepancy</dfn>)</dt>
+    <dd>MMD is a measure of the difference between a distribution $P$ and a distribution $Q$:
+
+        $$MMD(F, p, q) = sup_{f \in F} (\mathbb{E}_{x \sim p} [f(x)] - \mathbb{E}_{y \sim q} [f(y)])$$
+
+    </dd>
     <dt><dfn id="object-recognition">Object recognition</dfn></dt>
     <dd>Classification on images. The task is to decide in which class a given
         image falls, judging by the content. This can be cat, dog, plane or
