@@ -4,7 +4,7 @@ title: Alpspitze via ferrata
 slug: alpspitze-via-ferrata
 author: Martin Thoma
 status: draft
-date: 2016-09-15 20:00
+date: 2016-12-30 20:00
 category: Cyberculture
 tags: hiking, climbing, sports
 featured_image: logos/hiking.png
@@ -13,7 +13,7 @@ The [Alpspitze](https://de.wikipedia.org/wiki/Alpspitze) (not to confuse with [A
 with one of the simplest [via ferratas](https://en.wikipedia.org/wiki/Via_ferrata).
 It was my first one, too.
 
-I will document what you need for it so that you can easily hike / climb the
+I documented what you need for it so that you can easily hike / climb the
 same route.
 
 I planned the route as a 2-day route. One day to get to the starting point,
@@ -37,13 +37,13 @@ translation.
 - Map
 
 I like the following cloths for hiking. They are comfortable in a wide range of
-temperatures and they don't stinck that much / feel bad  when you sweat:
+temperatures and they don't stink that much / feel bad  when you sweat:
 
-- VAUDE Herren Hose Farley Stretch Pants II
-- Icebreaker Herren T-Shirt Tech Lite Short Sleeve
-- Odlo Herren Pullover Midlayer 1/2 Zip Sun Peaks
-- FALKE Herren Trekking Socken TK2 Short Coool
-- Icebreaker Herren Unterhose Anatomica
+- VAUDE Herren Hose Farley Stretch Pants II (ASIN B01HL94DU0)
+- Icebreaker Herren T-Shirt Tech Lite Short Sleeve (ASIN B00L6EHH4Q)
+- Odlo Herren Pullover Midlayer 1/2 Zip Sun Peaks (ASIN B00DG1BOK0)
+- FALKE Herren Trekking Socken TK2 Short Coool (ASIN B001E11Y1I)
+- Icebreaker Herren Unterhose Anatomica (ASIN B016D9ZS9Y)
 
 Don't forget that it will be much colder up there than on the ground.
 
@@ -56,11 +56,6 @@ Other things you need / might want to take with you:
 - Medicine and hygiene stuff (For example, I always want to have tissues and dental floss with me)
 - Camera
 - Smartphone and loading cable / power bank
-
-
-## Education
-
-* [How to use a ferrata set](https://www.youtube.com/watch?v=quapXdDovk4) (German)
 
 
 ## Route
@@ -84,9 +79,10 @@ Other things you need / might want to take with you:
 * Going back to Karlsruhe
 
 
-## Links
+## See also
 
 * [Alpspitz Ferrata - Alpspitze Klettersteig](http://www.bergsteigen.com/klettersteig/bayern/wetterstein-gebirge-und-mieminger-kette/alpspitz-ferrata-alpspitze-klettersteig)
 * [Alpspitz-Ferrata](http://www.klettersteig.de/klettersteig/alpspitz_ferrata/81)
 * [alpspitze.org](http://www.alpspitze.org/alpspitz-ferrata.html)
 * [hoehenrausch.de](https://www.hoehenrausch.de/berge/alpspitze/)
+* [How to use a ferrata set](https://www.youtube.com/watch?v=quapXdDovk4) (German)
