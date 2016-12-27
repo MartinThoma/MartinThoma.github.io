@@ -16,19 +16,21 @@ in full detail.
     <dt><dfn id="backpropagation">Backpropagation</dfn></dt>
     <dd>A clever implementation of gradient descent for neural networks.</dd>
     <dt><dfn id="bilstm">BiLSTM</dfn></dt>
-    <dd>TODO</dd>
+    <dd>Bidirectional long short-term memory (see <a href="http://www.di.ufpe.br/~fnj/RNA/bibliografia/BRNN.pdf">paper</a> and <a href="https://www.cs.toronto.edu/~graves/asru_2013_poster.pdf">poster</a>).</dd>
+    <dt><dfn id="collaborative-filtering">Computer Vision</dfn></dt>
+    <dd>You have users and items which are rated. No user rated everything.
+        You want to fill the gaps (see <a href="https://martin-thoma.com/collaborative-filtering/">article</a>).</dd>
     <dt><dfn id="computer-vision">Computer Vision</dfn></dt>
     <dd>The academic discipline which deals with how to gain high-level understanding from digital images or videos. Common tasks include image classifiction, semantic segmentation, detection and localization.</dd>
     <dt><dfn id="curriculum-learning">Curriculum learning</dfn></dt>
-    <dd>A method for pretraining. First optimize a smoothed objective and gradually consider less smoothing. So a curriculum is a sequence of training criteria. One might show gradually more diff<dt><dfn id="dcgan">DCGAN</dfn> (<dfn>DC Generative Adverserial Networks</dfn>)</dt>
-    <dd>TODO</dd>icult training examples. See <a href="http://ronan.collobert.com/pub/matos/2009_curriculum_icml.pdf">Curriculum Learning</a> by Benigo, Louradour, Collobert and Weston for details.</dd>
+    <dd>A method for pretraining. First optimize a smoothed objective and gradually consider less smoothing. So a curriculum is a sequence of training criteria. One might show gradually more difficult training examples. See <a href="http://ronan.collobert.com/pub/matos/2009_curriculum_icml.pdf">Curriculum Learning</a> by Benigo, Louradour, Collobert and Weston for details.</dd>
     <dt><dfn id="curse-of-dimensionality">Curse of dimensionality</dfn></dt>
     <dd>Various problems of high-dimensional spaces that do not occur in low-dimensional spaces.
         High-dimensional often means several 100 dimensions. See also: <a href="https://martin-thoma.com/average-distance-of-points">Average Distance of Points</a></dd>
-    <dt><dfn id="dcgan">DCGAN</dfn> (<dfn>DC Generative Adverserial Networks</dfn>)</dt>
+    <dt><dfn id="dcgan">DCGAN</dfn> (<dfn>Deep Convolutional Generative Adverserial Networks</dfn>)</dt>
     <dd>TODO</dd>
-    <dt><dfn id="dcign">DCIGN</dfn></dt>
-    <dd>Deep Convolutional Inverse Graphic Network: TODO</dd>
+    <dt><dfn id="dcign">DCIGN</dfn> (<dfn>Deep Convolutional Inverse Graphic Network</dfn>)</dt>
+    <dd>TODO</dd>
     <dt><dfn id="object-detection">Detection in Computer Vision</dfn> (<dfn>Object detection</dfn>)</dt>
     <dd>Object detection in an image is a computer vision task. The input
         is an image and the output is a list with rectangles which contain
@@ -57,6 +59,8 @@ in full detail.
     <dd>An iterative optimization algorithm for differentiable functions.</dd>
     <dt><dfn id="machine-vision">Machine Vision</dfn></dt>
     <dd>Computer vision applied for industrial applications.</dd>
+    <dt><a href="https://en.wikipedia.org/wiki/Matrix_completion"><dfn id="matrix-completion">Matrix Completion</dfn></a></dt>
+    <dd>See <a href="#collaborative-filtering">collaborative filtering</a>.</dd>
     <dt><dfn id="mmd">MMD</dfn> (<dfn id="maximum-mean-descripancy">Maximum Mean Descrepancy</dfn>)</dt>
     <dd>MMD is a measure of the difference between a distribution $P$ and a distribution $Q$:
 
