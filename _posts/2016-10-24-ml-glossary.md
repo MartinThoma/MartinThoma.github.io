@@ -15,7 +15,7 @@ in full detail.
 <dl>
     <dt><dfn id="backpropagation">Backpropagation</dfn></dt>
     <dd>A clever implementation of gradient descent for neural networks.</dd>
-    <dt><dfn id="bilstm">BiLSTM</dfn></dt>
+    <dt><dfn id="blstm">BLSTM</dfn>, <dfn id="bilstm">BiLSTM</dfn></dt>
     <dd>Bidirectional long short-term memory (see <a href="http://www.di.ufpe.br/~fnj/RNA/bibliografia/BRNN.pdf">paper</a> and <a href="https://www.cs.toronto.edu/~graves/asru_2013_poster.pdf">poster</a>).</dd>
     <dt><dfn id="collaborative-filtering">Computer Vision</dfn></dt>
     <dd>You have users and items which are rated. No user rated everything.
