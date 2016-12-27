@@ -4,7 +4,7 @@ title: Word Vectors
 slug: word-vectors
 author: Martin Thoma
 status: draft
-date: 2016-06-07 20:00
+date: 2016-12-28 20:00
 category: Code
 tags: Machine Learning, Python
 featured_image: logos/ml.png
