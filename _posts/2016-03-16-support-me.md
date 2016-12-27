@@ -7,6 +7,9 @@ category: Cyberculture
 tags: Blog
 featured_image: logos/web.png
 ---
+
+<div class="info">In case you wanted to read something about me, go to the <a href="https://martin-thoma.com/author/martin-thoma/">about me page</a>.</div>
+
 Keeping my blog online costs money. When you like my blog, you should support
 me in keeping it online.
 
@@ -34,21 +37,6 @@ Support me [via PayPal](https://www.paypal.me/MartinThoma).
         <th><abbr title="DD.MM.YYYY">Date</abbr></th>
         <th>Money</th>
         <th>Comment</th>
-    </tr>
-    <tr>
-        <td>18.06.2014</td>
-        <td>10.56 Euro</td>
-        <td>Domain "martin-thoma.com" for 18.07.2014 - 17.07.2015 via Knallhart.de (Domain only)</td>
-    </tr>
-    <tr>
-        <td>13.08.2014</td>
-        <td>28.80 Euro</td>
-        <td>Domain "martin-thoma.de" for&nbsp;12.09.2014 - 11.09.2015 via Knallhart.de (Hosting + Domain)</td>
-    </tr>
-    <tr>
-        <td>13.08.2015</td>
-        <td>28.80 Euro</td>
-        <td>Domain "martin-thoma.de" for&nbsp;12.09.2015    -    11.09.2016&nbsp;via Knallhart.de (Hosting + Domain)</td>
     </tr>
     <tr>
         <td>12.09.2008</td>
@@ -111,9 +99,24 @@ Support me [via PayPal](https://www.paypal.me/MartinThoma).
         <td>Domain Transfer for martin-thoma.com</td>
     </tr>
     <tr>
+        <td>18.06.2014</td>
+        <td>10.56 Euro</td>
+        <td>Domain "martin-thoma.com" for 18.07.2014 - 17.07.2015 via Knallhart.de (Domain only)</td>
+    </tr>
+    <tr>
+        <td>13.08.2014</td>
+        <td>28.80 Euro</td>
+        <td>Domain "martin-thoma.de" for&nbsp;12.09.2014 - 11.09.2015 via Knallhart.de (Hosting + Domain)</td>
+    </tr>
+    <tr>
         <td>23.12.2014</td>
         <td>10.87 US-Dollar</td>
         <td>Domain Renewal&nbsp;write-math.com for 1 year via namecheap.com</td>
+    </tr>
+    <tr>
+        <td>13.08.2015</td>
+        <td>28.80 Euro</td>
+        <td>Domain "martin-thoma.de" for&nbsp;12.09.2015    -    11.09.2016&nbsp;via Knallhart.de (Hosting + Domain)</td>
     </tr>
     <tr>
         <td>02.09.2015</td>
