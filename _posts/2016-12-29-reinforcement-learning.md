@@ -3,7 +3,6 @@ layout: post
 title: Reinforcement Learning
 slug: reinforcement-learning
 author: Martin Thoma
-status: draft
 date: 2016-12-29 20:00
 category: Machine Learning
 tags: Machine Learning, RL
