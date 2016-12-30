@@ -1,5 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/machine-learning.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2016-12-27T11:00:00+01:00</updated><entry><title>ML Review 2</title><link href="https://martin-thoma.com/ml-review-2/" rel="alternate"></link><published>2016-12-27T11:00:00+01:00</published><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2016-12-27:ml-review-2/</id><summary type="html">&lt;p&gt;This Review gives an overview of intersting stuff I stumbled over which are
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/machine-learning.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2016-12-29T20:00:00+01:00</updated><entry><title>Reinforcement Learning</title><link href="https://martin-thoma.com/reinforcement-learning/" rel="alternate"></link><published>2016-12-29T20:00:00+01:00</published><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2016-12-29:reinforcement-learning/</id><summary type="html">&lt;p&gt;Reinforcement learning is a sub-field of mathematics and computer science. It
+deals with the following kind of problems: You're given a set of states
+&lt;span class="math"&gt;\(\mathcal{X} \subseteq \mathbb{R}^n\)&lt;/span&gt; and a starting state &lt;span class="math"&gt;\(x_0 \in \mathcal{X}\)&lt;/span&gt;.
+For every time step &lt;span class="math"&gt;\(k = 0, 1, 2, \dots\)&lt;/span&gt; you have a set of possible actions,
+depending on your current state:
+&lt;/p&gt;
+&lt;div class="math"&gt;$$\mathcal{A}_k(x_k)$$&lt;/div&gt;
+&lt;p&gt;
+Depending on what your action and your current state is, the new state is
+&lt;/p&gt;
+&lt;div class="math"&gt;$$P(x_k, a_k, x_{k+1}) \in [0, 1]$$&lt;/div&gt;
+&lt;p&gt;
+So the transition from state &lt;span class="math"&gt;\(x_k\)&lt;/span&gt; to state &lt;span class="math"&gt;\(x_{k+1}\)&lt;/span&gt; with action &lt;span class="math"&gt;\(a_k\)&lt;/span&gt; is
+stochastic.&lt;/p&gt;
+&lt;p&gt;For some states &lt;span class="math"&gt;\(x_k\)&lt;/span&gt;, actions &lt;span class="math"&gt;\(a_k\)&lt;/span&gt; at time &lt;span class="math"&gt;\(k\)&lt;/span&gt;, you receive rewards:&lt;/p&gt;
+&lt;div class="math"&gt;$$r_k(x_k, a_k) \in \mathbb{R}$$&lt;/div&gt;
+&lt;p&gt;Your goal is to maximize&lt;/p&gt;
+&lt;div class="math"&gt;$$\mathbb{E}(\sum_{k=0}^\infty \gamma^k \cdot r_k(x_k, a_k))$$&lt;/div&gt;
+&lt;p&gt;where &lt;span class="math"&gt;\(\gamma in (0, 1)\)&lt;/span&gt; is a discounting factor which makes sure we don't get
+infinite rewards. &lt;span class="math"&gt;\(\gamma = 0.99\)&lt;/span&gt; is a typical choice.&lt;/p&gt;
+&lt;h2 id="applications"&gt;Applications&lt;/h2&gt;
+&lt;p&gt;This very general problem description can be applied in almost any scenario:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Learning automatically to play games&lt;/li&gt;
+&lt;li&gt;Learning to control robots&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="why-rl-is-difficult"&gt;Why RL is difficult&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Credit assignment: In chess, you only get a reward (positiv or negative) at
+  the end of the game. How to you tell which move was good or bad?&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://martin-thoma.com/probabilistische-planung/#exporation-exploitation"&gt;Exploration vs. exploitation&lt;/a&gt;:
+  When should you stick to what you know and when should you try something new?&lt;/li&gt;
+&lt;li&gt;State equivalence: Typically, your state is very high-dimensional. For example
+  when learning very old computer games from raw pixels you have
+  &lt;div class="math"&gt;$$210 \cdot 160 \cdot 3 = 100800$$&lt;/div&gt;
+  dimensions in your feature vector. But the relevant game states might be
+  much less.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="approaches"&gt;Approaches&lt;/h2&gt;
+&lt;p&gt;A &lt;strong&gt;policy network&lt;/strong&gt; gets the state as input and outputs the action. It learns
+by executing many episodes (e.g. a complete game; from start until you reach a
+final state or at least a state with reward) and labels all actions before with
+the received reward. There might be many which were good even in a lost game,
+but in average you expect to punish bad decisions and encourage good decisions.&lt;/p&gt;
+&lt;h2 id="resources"&gt;Resources&lt;/h2&gt;
+&lt;p&gt;If you are a student at KIT, I can recommend to visit the lecture
+&lt;a href="https://martin-thoma.com/probabilistische-planung/"&gt;Probabilistic Planning&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Other resources you might want to have a look at:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://karpathy.github.io/2016/05/31/rl/"&gt;Deep Reinforcement Learning: Pong from Pixels&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://gist.github.com/karpathy/a4166c7fe253700972fcbc77e4ea32c5"&gt;Pong example&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.nervanasys.com/demystifying-deep-reinforcement-learning/"&gt;Guest Post (Part I): Demystifying Deep Reinforcement Learning&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.nature.com/nature/journal/v518/n7540/pdf/nature14236.pdf"&gt;Human-level control through deep reinforcement learning&lt;/a&gt; by V. Mnih et al.&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://arxiv.org/abs/1312.5602"&gt;Playing Atari with Deep Reinforcement Learning&lt;/a&gt; on arXiv&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://jmlr.org/proceedings/papers/v32/silver14.pdf"&gt;Deterministic Policy Gradient Algorithms&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="Machine Learning"></category><category term="RL"></category></entry><entry><title>ML Review 2</title><link href="https://martin-thoma.com/ml-review-2/" rel="alternate"></link><published>2016-12-27T11:00:00+01:00</published><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2016-12-27:ml-review-2/</id><summary type="html">&lt;p&gt;This Review gives an overview of intersting stuff I stumbled over which are
 related to machine learning. Most of it was posted in &lt;a href="https://ml-ka.de/"&gt;KITs machine learning group&lt;/a&gt; (on Facebook).&lt;/p&gt;
 &lt;p&gt;A lot of stuff can be found in my article about &lt;a href="https://martin-thoma.com/nips-2016/"&gt;NIPS 2016&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id="new-developments"&gt;New Developments&lt;/h2&gt;
