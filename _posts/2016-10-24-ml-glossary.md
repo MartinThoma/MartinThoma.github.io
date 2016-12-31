@@ -73,6 +73,9 @@ in full detail.
         similar.</dd>
     <dt><dfn id="one-shot-learning"><a href="https://en.wikipedia.org/wiki/One-shot_learning">One-Shot learning</a></dfn></dt>
     <dd>Learn only with one or very few examples per class. See <a href="http://vision.stanford.edu/documents/Fei-FeiFergusPerona2006.pdf">One-Shot Learning of Object Categories</a>.</dd>
+    <dt><a href="https://en.wikipedia.org/wiki/Optical_flow"><dfn id="optical-flow">Optical Flow</dfn></a></dt>
+    <dd>Optical flow is defined for two images. It describes how the points in
+        one image moved when switching to the second image.</dd>
     <dt><dfn id="regularization">Regularization</dfn></dt>
     <dd>Regularization are techniques to make the fitted function smoother. This
         helps to prefent overfitting.<br/>
@@ -87,6 +90,10 @@ in full detail.
         one feature and hence leads to a fixed-size representation of a variable-sized
         input.<br/>
         See <a href="https://arxiv.org/abs/1406.4729v4">paper</a> and <a href="http://www.shortscience.org/paper?bibtexKey=journals/corr/1406.4729">summary</a></dd>
+    <dt><a href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf"><dfn id="tf-idf">TF-IDF</dfn></a></dt>
+    <dd>TF-IDF (short for Term frequency–inverse document frequency)
+        is a measure that reflects how important a word is to a document in a
+        collection or corpus.</dd>
     <dt><dfn id="unsupervised-learning">Unsupervised learning</dfn></dt>
     <dd>No training data has labels.</dd>
     <dt><dfn id="zero-shot-learning">Zero-Shot learning</dfn></dt>
