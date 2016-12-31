@@ -756,7 +756,7 @@ Slide name: `V13_2015-06-09_NNlearning-tricks.pdf`
     <dt><dfn>Meiosis Netzwerke</dfn> (siehe Stephen Jose Hanson: <a href="http://papers.nips.cc/paper/227-meiosis-networks.pdf">Meiosis Networks</a>)</dt>
     <dd>Meiosis Netzwerke bauen ein neuronales Netz auf. Sie beginnen mit einer
         einzelnen hidden Unit. Diese hidden Unit wird aufgespalten, wenn die
-        "Unsicherheit" zu groß ist (vgl. paper für Kritierum).<br/>
+        "Unsicherheit" zu groß ist (vgl. paper für Kritierum; vgl. <a href="http://www.shortscience.org/paper?bibtexKey=conf/nips/Hanson89#martinthoma">summary</a>).<br/>
         </dd>
     <dt><dfn>Automatic Structure Optimization</dfn> (<dfn>ASO</dfn>, siehe [<a href="#ref-bod93" name="ref-bod93-anchor">Bod93</a>])</dt>
     <dd>Der ASO-Algorithmus passt folgende Hyperparameter im Training
