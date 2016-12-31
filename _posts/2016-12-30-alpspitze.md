@@ -3,7 +3,6 @@ layout: post
 title: Alpspitze via ferrata
 slug: alpspitze-via-ferrata
 author: Martin Thoma
-status: draft
 date: 2016-12-30 20:00
 category: Cyberculture
 tags: hiking, climbing, sports
@@ -25,7 +24,7 @@ the second day to take the route.
 I'll put the German word in brackets, as I'm not totally sure about the best
 translation.
 
-- Climbing helmet (Steinschlaghelme): The more expensive ones are more lightweight. Everything with EN&thinsp;12492 should be good. 30 - 80&thinsp;Euro ("Edelrid Zodiac" was 55&thinsp;Euro and weights 359&thinsp;g)
+- Climbing helmet (Steinschlaghelm): The more expensive ones are more lightweight. Everything with EN&thinsp;12492 should be good. 30 - 80&thinsp;Euro ("Edelrid Zodiac" was 55&thinsp;Euro and weights 359&thinsp;g)
 - Sit harness (Klettergurt): The more expensive ones are more
   lightweight / more comfortable. ("Ocun: Twist Basic XS - M" was 55&thinsp;Euro)
 - Ferrata set ("Elliot: Forril Tech Klettersteigset mit Bandfalldämpfer" was 65&thinsp;Euro)
