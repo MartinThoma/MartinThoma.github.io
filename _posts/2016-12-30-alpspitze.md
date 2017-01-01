@@ -4,7 +4,7 @@ title: Alpspitze via ferrata
 slug: alpspitze-via-ferrata
 author: Martin Thoma
 date: 2016-12-30 20:00
-category: Cyberculture
+category: My bits and bytes
 tags: hiking, climbing, sports
 featured_image: logos/hiking.png
 ---
