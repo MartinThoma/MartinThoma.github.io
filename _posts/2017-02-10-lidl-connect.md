@@ -35,7 +35,7 @@ seen so far is nice:
 * A clean user interface
 * Cheap "Festznetz-Flat" (8 Euro - much cheaper than the rest)
 * Prepaid
-* I pay the same in the other countries of the EU - no more "EU packages". Simply the same. No roaming. As far as I understand it. This is what finally got me. For my 10 day trip in Barcelona, I paied about 20 Euro to Blau.
+* I pay the same in the other countries of the EU - no more "EU packages". Simply the same. No roaming. As far as I understand it. This is what finally got me. For my 10 day trip in Barcelona, I paied about 20 Euro to Blau. ([Lidl source](http://www.lidl.de/de/asset/other/LIDL_Connect_Preistabelle.pdf), [other source](https://www.teltarif.de/lidl-mobile-roaming-9-cent/news/58610.html))
 
 <div class="info">If you want to switch to Lidl Connect, let me know. I (and you) will get 5 Euro for that.</div>
 
