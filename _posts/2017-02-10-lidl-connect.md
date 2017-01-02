@@ -37,6 +37,8 @@ seen so far is nice:
 * Prepaid
 * I pay the same in the other countries of the EU - no more "EU packages". Simply the same. No roaming. As far as I understand it. This is what finally got me. For my 10 day trip in Barcelona, I paied about 20 Euro to Blau.
 
+<div class="info">If you want to switch to Lidl Connect, let me know. I (and you) will get 5 Euro for that.</div>
+
 
 ## How to get Lidl Connect card
 
@@ -68,8 +70,3 @@ keep the number (Rufnummernmitnahme). Fill out <a href="https://mein.blau.de/cms
 on the form. Your "SIM-Kartennummer" is printed on the sim card itself.
 
 I sent it on 23.12.2016 to them. I'm still (02.01.2016) waiting for a response.
-
-
-## Conclusion
-
-By now, I really like Lidl
