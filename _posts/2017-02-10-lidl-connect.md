@@ -39,6 +39,14 @@ providers of pre-paid cards are:
 4. You can login at [https://kundenkonto.lidl-connect.de/](kundenkonto.lidl-connect.de)
 
 
+## User Interface
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="https://martin-thoma.com/images/2016/12/lidl-connect-kunden.png" alt="User Interface of Lidl Connect" />
+    <figcaption class="text-center">User Interface of Lidl Connect</figcaption>
+</figure>
+
+
 ## Switching from Blau.de to Lidl
 
 As Simyo recently was changed into blau.de, I am a customer of Blau.de.
