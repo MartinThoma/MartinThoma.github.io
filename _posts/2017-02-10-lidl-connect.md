@@ -27,6 +27,17 @@ providers of pre-paid cards are:
     * [simquardat.de](https://www.simquadrat.de/)
 
 
+## Why I like Lidl Connect
+
+I haven't used it for long, so take this with a grain of salt. But what I've
+seen so far is nice:
+
+* A clean user interface
+* Cheap "Festznetz-Flat" (8 Euro - much cheaper than the rest)
+* Prepaid
+* I pay the same in the other countries of the EU - no more "EU packages". Simply the same. No roaming. As far as I understand it. This is what finally got me. For my 10 day trip in Barcelona, I paied about 20 Euro to Blau.
+
+
 ## How to get Lidl Connect card
 
 1. Go to a Lidl store. Near the check-out, there are small cardboard cards.
@@ -36,7 +47,7 @@ providers of pre-paid cards are:
 2. Go to [Lidl Connect](https://www.lidl.de/de/lidl-connect/s7373597) and
    register a new account with the card you just bought.
 3. The card gets activated within 30 minutes.
-4. You can login at [https://kundenkonto.lidl-connect.de/](kundenkonto.lidl-connect.de)
+4. You can login at [kundenkonto.lidl-connect.de](https://kundenkonto.lidl-connect.de/)
 
 
 ## User Interface
@@ -57,3 +68,8 @@ keep the number (Rufnummernmitnahme). Fill out <a href="https://mein.blau.de/cms
 on the form. Your "SIM-Kartennummer" is printed on the sim card itself.
 
 I sent it on 23.12.2016 to them. I'm still (02.01.2016) waiting for a response.
+
+
+## Conclusion
+
+By now, I really like Lidl
