@@ -65,6 +65,10 @@ seen so far is nice:
 As Simyo recently was changed into blau.de, I am a customer of Blau.de.
 However, the service is worse than the one of Lidl, so I switched.
 
+edit: I've recently heard from Marvin that the service hotline of Blau.de asks
+for the first four characters of your password. So they store the password as
+plain text.
+
 After getting your Lidl Connect card, you have to tell Blau that you want to
 keep the number (Rufnummernmitnahme). Fill out <a href="https://mein.blau.de/cms/blaude/documents/blau_Verzichtserklaerung.pdf?ext=1">this form</a> and send it to the address
 on the form. Your "SIM-Kartennummer" is printed on the sim card itself.
