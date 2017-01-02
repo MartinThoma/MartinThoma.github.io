@@ -4,7 +4,7 @@ title: Lidl Connect
 slug: lidl-connect
 author: Martin Thoma
 status: draft
-date: 2016-12-19 20:00
+date: 2017-02-10 20:00
 category: Cyberculture
 tags: sim card
 featured_image: logos/star.png
@@ -37,3 +37,15 @@ providers of pre-paid cards are:
    register a new account with the card you just bought.
 3. The card gets activated within 30 minutes.
 4. You can login at [https://kundenkonto.lidl-connect.de/](kundenkonto.lidl-connect.de)
+
+
+## Switching from Blau.de to Lidl
+
+As Simyo recently was changed into blau.de, I am a customer of Blau.de.
+However, the service is worse than the one of Lidl, so I switched.
+
+After getting your Lidl Connect card, you have to tell Blau that you want to
+keep the number (Rufnummernmitnahme). Fill out <a href="https://mein.blau.de/cms/blaude/documents/blau_Verzichtserklaerung.pdf?ext=1">this form</a> and send it to the address
+on the form. Your "SIM-Kartennummer" is printed on the sim card itself.
+
+I sent it on 23.12.2016 to them. I'm still (02.01.2016) waiting for a response.
