@@ -3,7 +3,7 @@ layout: post
 title: Astonishing Places
 slug: astonishing-places
 author: Martin Thoma
-date: 2014-11-22 17:19
+date: 2017-01-04 10:00
 category: Bits and Bytes
 tags: Nature
 featured_image: logos/nature.png
@@ -23,8 +23,12 @@ to see them with my own eyes.
     <figcaption class="text-center">Hair Ice (Image source: <a href="https://commons.wikimedia.org/wiki/File:FrostBeardDetail.jpg">Wikimedia</a>)</figcaption>
 </figure>
 
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2017/01/nacreous-clouds.jpg" alt="Nacreous Clouds" />
+    <figcaption class="text-center"><a href="https://en.wikipedia.org/wiki/Polar_stratospheric_cloud">Nacreous Clouds</a> (Image source: <a href="https://en.wikipedia.org/wiki/File:Polar_Stratospheric_Cloud_type_I_above_Cirrus.jpg">Wikimedia</a>)</figcaption>
+</figure>
+
 * Snow Chimneys
-* [Nacreous Clouds](https://en.wikipedia.org/wiki/Polar_stratospheric_cloud)
 
 
 ## Asia
@@ -41,7 +45,10 @@ to see them with my own eyes.
 
 ### Denmark
 
-* [Black Sun](https://en.wikipedia.org/wiki/Sort_sol)
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2017/01/black-sun.jpg" alt="Black Sun" />
+    <figcaption class="text-center"><a href="https://en.wikipedia.org/wiki/File:Sort_sol_pdfnet2.jpg">Black Sun</a> (Image Source: <a href="https://en.wikipedia.org/wiki/File:Sort_sol_pdfnet2.jpg">Wikimedia</a>)</figcaption>
+</figure>
 
 
 ### Iceland
@@ -51,9 +58,18 @@ to see them with my own eyes.
     <figcaption class="text-center">Vulcanic Lightning, for example at Eyjafjallajökull (Image source: <a href="https://commons.wikimedia.org/wiki/File:Rinjani_1994.jpg">Wikimedia</a>)</figcaption>
 </figure>
 
-* Geysers
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2017/01/ice-cave.jpg" alt="Ice cave" />
+    <figcaption class="text-center"><a href="https://en.wikipedia.org/wiki/File:Icemass2.jpg">Ice cave</a> (Image source: <a href="https://en.wikipedia.org/wiki/File:Icemass2.jpg">Wikimedia</a>)</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2017/01/geyser.jpg" alt="Geyser" />
+    <figcaption class="text-center"><a href="https://en.wikipedia.org/wiki/Geyser">Geyser</a> (Image source: <a href="https://en.wikipedia.org/wiki/File:Steam_Phase_eruption_of_Castle_geyser_with_double_rainbow.jpg">Wikimedia</a>)</figcaption>
+</figure>
+
 * Steam Towers: Hverir
-* Ice Caves
+
 
 ### Turkey
 
@@ -100,7 +116,7 @@ in Summer when the water evaporates (Image source: <a href="https://commons.wiki
 ### New Zealand
 
 <figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/01/moeraki-boulders" alt="Moeraki Boulders" />
+    <img src="../images/2017/01/moeraki-boulders.jpg" alt="Moeraki Boulders" />
     <figcaption class="text-center"><a href="https://en.wikipedia.org/wiki/Moeraki_Boulders">Moeraki Boulders</a> (Image source: <a href="https://commons.wikimedia.org/wiki/File:Beach_at_Moeraki_Boulders_on_a_foggy_day.jpg">Wikimedia</a>)</figcaption>
 </figure>
 
