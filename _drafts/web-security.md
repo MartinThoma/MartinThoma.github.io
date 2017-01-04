@@ -1,1 +1,0 @@
-http://blog.codinghorror.com/top-25-most-dangerous-programming-mistakes/
