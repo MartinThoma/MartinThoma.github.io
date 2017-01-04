@@ -13,10 +13,17 @@ learning. The aim is to keep things simple and brief, not to explain the terms
 in full detail.
 
 <dl>
+    <dt><dfn id="active-learning">Active Learning</dfn></dt>
+    <dd>The algorithm gives a pattern and asks for a label.</dd>
     <dt><dfn id="backpropagation">Backpropagation</dfn></dt>
     <dd>A clever implementation of gradient descent for neural networks.</dd>
     <dt><dfn id="blstm">BLSTM</dfn>, <dfn id="bilstm">BiLSTM</dfn></dt>
     <dd>Bidirectional long short-term memory (see <a href="http://www.di.ufpe.br/~fnj/RNA/bibliografia/BRNN.pdf">paper</a> and <a href="https://www.cs.toronto.edu/~graves/asru_2013_poster.pdf">poster</a>).</dd>
+    <dt><dfn id="co-training">Co-Training</dfn></dt>
+    <dd>A form of semi-supervised learning. Two independant classifiers are
+        trained on different labeled datasets. The classifiers are applied to
+        the unlabeled data. Data with high confidence will be added to the
+        other classifiers data.</dd>
     <dt><dfn id="collaborative-filtering">Computer Vision</dfn></dt>
     <dd>You have users and items which are rated. No user rated everything.
         You want to fill the gaps (see <a href="https://martin-thoma.com/collaborative-filtering/">article</a>).</dd>
@@ -37,6 +44,11 @@ in full detail.
         objects of the given type. Face detection is one well-studied example.
         A photo could contain no face or hundrets of them. The rectangles
         can overlap.</dd>
+    <dt><dfn id="deep-learing">Deep Learning</dfn></dt>
+    <dd>Buzzword. The meaning depends on who you ask / in which year you asked.
+        Sometimes it means multi-layer perceptrons with more than $N$ layers
+        (some say $N=2$ is already deep learning, others want N>20 or nowadays
+        $N>100$).</dd>
     <dt><dfn id="discriminative-model">Discriminative Model</dfn></dt>
     <dd>The model gives a conditional probability of the classes $k$, given the
         feature vector $x$: $P(k | x)$.
@@ -89,6 +101,11 @@ in full detail.
     <dd>Regularization are techniques to make the fitted function smoother. This
         helps to prefent overfitting.<br/>
         Examples: L1, L2, Dropout, Weight Decay in Neural Networks. Parameter $C$ in SVMs.</dd>
+    <dt><dfn id="self-learning">Self-Learning</dfn></dt>
+    <dd>One form of semi-supervised learning, where you train an initial system
+        on the labeled data, then label the unlabeled data where the classifier
+        is 'sure enough'. After that, you train a new system on all data and
+        re-label the unlabeled data. This is iterated.</dd>
     <dt><dfn id="semi-supervised-learning">Semi-supervised learning</dfn></dt>
     <dd>Some training data has labels, but most has no labels.</dd>
     <dt><dfn id="supervised-learning">Supervised learning</dfn></dt>
@@ -103,6 +120,8 @@ in full detail.
     <dd>TF-IDF (short for Term frequency–inverse document frequency)
         is a measure that reflects how important a word is to a document in a
         collection or corpus.</dd>
+    <dt><dfn id="transductive-learning">Transductive learning</dfn></dt>
+    <dd>label unlabeled data (the aim here is NOT to find a hypothesis)</dd>
     <dt><dfn id="unsupervised-learning">Unsupervised learning</dfn></dt>
     <dd>No training data has labels.</dd>
     <dt><dfn id="zero-shot-learning">Zero-Shot learning</dfn></dt>
