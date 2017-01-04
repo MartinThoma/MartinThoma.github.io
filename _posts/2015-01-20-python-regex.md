@@ -117,3 +117,28 @@ Matches is the following list (breaked at some points for easier reading):
  'congue vel']
 
 ```
+
+## Common RegExes
+
+### Numbers
+
+#### non-negative even numbers
+
+<strong>RegEx</strong>: `^\d*[02468]$`
+<strong>Description</strong>: All even numbers end with either 0, 2, 4, 6 or 8.
+<strong>Matches</strong>: 12 | 2 | 012 | 4 | 44
+<strong>Non-Matches</strong>: -12 | 3 | 13
+
+#### Percentage
+<strong>RegEx</strong>: `^\d{0,2}(\.[0-9]{1,2})?$|^(100)(\.[0]{1,2})?$`
+<strong>Description</strong>: All percentages with 0, 1 or 2 decimal places without the percent sign.
+<strong>Matches</strong>: 0 | 0.0 | 0.00 | 12.42 | 100 | 100.0 | 100.00
+<strong>Non-Matches</strong>: -12.42 | +12.42 | 112.42
+
+### Email
+<strong>RegEx</strong>: `^((?:(?:(?:\w[\.\-\+]?)*)\w)+)\@((?:(?:(?:\w[\.\-\+]?){0,62})\w)+)\.(\w{2,6})$`
+Description: Not a 100% email validation. It doesn't work with IP-Adresses, but it's good for most common cases. At least I hope so.
+<strong>Matches</strong>: a-b-c@d-e-f.com | a@b.ce | Me@my.museum
+<strong>Non-Matches</strong>: abc@def.g | a--b@c--d.fe | -abc@-def-.def
+<strong>Source</strong>: <a href="http://regexlib.com/REDetails.aspx?regexp_id=600">Sebastian Hiller</a>
+
