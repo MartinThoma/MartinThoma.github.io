@@ -43,7 +43,7 @@ about it; the first word is German):
 
 ## Tools
 
-* 13er Schraubenschlüssel (Fahrrad am Rahmen montieren)
+* 15er Schraubenschlüssel (Fahrrad am Rahmen montieren)
 * Kreuzschlitz Schraubendreher (Klingel montieren)
 
 
