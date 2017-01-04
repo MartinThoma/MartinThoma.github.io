@@ -124,3 +124,6 @@ Link: [udacity.com/course/cs373](https://www.udacity.com/course/cs373)
 
 * [Learning Deep Learning](http://rt.dgyblog.com/ref/ref-learning-deep-learning.html): A
   list of deep learning books, papers and websites.
+* [Deep Learning, Feature Learning](https://www.ipam.ucla.edu/programs/summer-schools/graduate-summer-school-deep-learning-feature-learning/?tab=schedule)
+* [Deep Learning Master Class](http://www.cs.tau.ac.il/~wolf/deeplearningmeeting/home.html)
+* [Tutorial on Deep Learning for Vision](https://sites.google.com/site/deeplearningcvpr2014/)
