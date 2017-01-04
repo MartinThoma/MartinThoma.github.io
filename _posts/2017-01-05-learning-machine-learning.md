@@ -3,10 +3,8 @@ layout: post
 title: Learning Machine Learning
 author: Martin Thoma
 date: 2014-11-22 17:19
-categories:
-- Cyberculture
-tags:
-- Machine Learning
+category: Cyberculture
+tags: Machine Learning
 featured_image: logos/machine-learning.png
 ---
 
