@@ -76,6 +76,15 @@ in full detail.
     <dt><a href="https://en.wikipedia.org/wiki/Optical_flow"><dfn id="optical-flow">Optical Flow</dfn></a></dt>
     <dd>Optical flow is defined for two images. It describes how the points in
         one image moved when switching to the second image.</dd>
+    <dt><a href="https://en.wikipedia.org/wiki/Principal_component_analysis"><dfn id="pca">PCA</dfn></a></dt>
+    <dd>Principal component analysis (short: PCA) is a linear transformation
+        which projects $n$ points $\mathbf{x} \in \mathbb{R}^{n \times s}$ with
+        $s$ features each on a hyperplane in such a way
+        that the projection error is minimal. Hence it is an unsupervised
+        method for feature reduction. It simply works by finding a matrix
+        $P \in \mathbb{R}^{s \times m}$, where $m \leq s$ can be chosen as small
+        as desired.
+        </dd>
     <dt><dfn id="regularization">Regularization</dfn></dt>
     <dd>Regularization are techniques to make the fitted function smoother. This
         helps to prefent overfitting.<br/>
