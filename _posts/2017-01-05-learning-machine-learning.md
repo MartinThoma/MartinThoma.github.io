@@ -1,11 +1,12 @@
 ---
 layout: post
 title: Learning Machine Learning
+slug: learning-machine-learning
 author: Martin Thoma
-date: 2014-11-22 17:19
+date: 2017-01-05 15:30
 category: Cyberculture
 tags: Machine Learning
-featured_image: logos/machine-learning.png
+featured_image: logos/ml.png
 ---
 
 There is plenty of material online for learning machine learning. I like to
@@ -114,10 +115,15 @@ Link: [udacity.com/course/cs373](https://www.udacity.com/course/cs373)
 
 ## Side notes
 
-{% gallery columns="2" size="medium" %}
-    ../images/2015/11/full-disk.png    "Make sure you have enough disk space"
-    ../images/2015/11/delete-folder-time.png    "Even deleting that much takes a lot of time"
-{% endgallery %}
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2015/11/full-disk.png" alt="Make sure you have enough disk space" />
+    <figcaption class="text-center">Make sure you have enough disk space</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2015/11/delete-folder-time.png" alt="Even deleting that much takes a lot of time" />
+    <figcaption class="text-center">Even deleting that much takes a lot of time</figcaption>
+</figure>
 
 
 ## More links
