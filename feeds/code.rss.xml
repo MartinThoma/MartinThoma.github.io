@@ -2189,7 +2189,25 @@ arbitrary spacing) you can use:&lt;/p&gt;
   Quisque posuere ultricies leo et efficitur.\n
   Aliquam venenatis quis mi ac tempus.',
  'congue vel']
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Martin Thoma</dc:creator><pubDate>Tue, 20 Jan 2015 13:35:00 +0100</pubDate><guid isPermaLink="false">tag:martin-thoma.com,2015-01-20:regular-expressions-with-python/</guid><category>Python</category><category>RegEx</category></item><item><title>Analyzing PyPI Metadata</title><link>https://martin-thoma.com/analyzing-pypi-metadata/</link><description>&lt;div class="info"&gt;This is part one of a series. See &lt;a href="//martin-thoma.com/analyzing-pypi-metadata-2/"&gt;Analyzing PyPI Data - 2&lt;/a&gt; for part two.&lt;/div&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="common-regexes"&gt;Common RegExes&lt;/h2&gt;
+&lt;h3 id="numbers"&gt;Numbers&lt;/h3&gt;
+&lt;h4 id="non-negative-even-numbers"&gt;non-negative even numbers&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;RegEx&lt;/strong&gt;: &lt;code&gt;^\d*[02468]$&lt;/code&gt;
+&lt;strong&gt;Description&lt;/strong&gt;: All even numbers end with either 0, 2, 4, 6 or 8.
+&lt;strong&gt;Matches&lt;/strong&gt;: 12 | 2 | 012 | 4 | 44
+&lt;strong&gt;Non-Matches&lt;/strong&gt;: -12 | 3 | 13&lt;/p&gt;
+&lt;h4 id="percentage"&gt;Percentage&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;RegEx&lt;/strong&gt;: &lt;code&gt;^\d{0,2}(\.[0-9]{1,2})?$|^(100)(\.[0]{1,2})?$&lt;/code&gt;
+&lt;strong&gt;Description&lt;/strong&gt;: All percentages with 0, 1 or 2 decimal places without the percent sign.
+&lt;strong&gt;Matches&lt;/strong&gt;: 0 | 0.0 | 0.00 | 12.42 | 100 | 100.0 | 100.00
+&lt;strong&gt;Non-Matches&lt;/strong&gt;: -12.42 | +12.42 | 112.42&lt;/p&gt;
+&lt;h3 id="email"&gt;Email&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;RegEx&lt;/strong&gt;: &lt;code&gt;^((?:(?:(?:\w[\.\-\+]?)*)\w)+)\@((?:(?:(?:\w[\.\-\+]?){0,62})\w)+)\.(\w{2,6})$&lt;/code&gt;
+Description: Not a 100% email validation. It doesn't work with IP-Adresses, but it's good for most common cases. At least I hope so.
+&lt;strong&gt;Matches&lt;/strong&gt;: a-b-c@d-e-f.com | a@b.ce | Me@my.museum
+&lt;strong&gt;Non-Matches&lt;/strong&gt;: abc@def.g | a--b@c--d.fe | -abc@-def-.def
+&lt;strong&gt;Source&lt;/strong&gt;: &lt;a href="http://regexlib.com/REDetails.aspx?regexp_id=600"&gt;Sebastian Hiller&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Martin Thoma</dc:creator><pubDate>Tue, 20 Jan 2015 13:35:00 +0100</pubDate><guid isPermaLink="false">tag:martin-thoma.com,2015-01-20:regular-expressions-with-python/</guid><category>Python</category><category>RegEx</category></item><item><title>Analyzing PyPI Metadata</title><link>https://martin-thoma.com/analyzing-pypi-metadata/</link><description>&lt;div class="info"&gt;This is part one of a series. See &lt;a href="//martin-thoma.com/analyzing-pypi-metadata-2/"&gt;Analyzing PyPI Data - 2&lt;/a&gt; for part two.&lt;/div&gt;
 &lt;p&gt;PyPI, the Python Package Index, gives a very crappy but simple interface to
 query metadata about its packages. I scrapped all of the packages metadata.
 53,533 packages were scrapped (date: 2015-01-18), because I wanted to

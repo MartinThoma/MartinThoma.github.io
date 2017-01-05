@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Machine Learning Glossary "/>
 <meta property="og:url" content="../ml-glossary/" />
-<meta property="og:description" content="The following is a list of short explanations of different terms in machine learning. The aim is to keep things simple and brief, not to explain the terms in full detail. Backpropagation A clever implementation of gradient descent for neural networks. BLSTM, BiLSTM Bidirectional long short-term memory (see paper and ..." />
+<meta property="og:description" content="The following is a list of short explanations of different terms in machine learning. The aim is to keep things simple and brief, not to explain the terms in full detail. Active Learning The algorithm gives a pattern and asks for a label. Backpropagation A clever implementation of gradient descent ..." />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2016-10-24T20:00:00+02:00" />
 <meta name="twitter:title" content="Machine Learning Glossary ">
-<meta name="twitter:description" content="The following is a list of short explanations of different terms in machine learning. The aim is to keep things simple and brief, not to explain the terms in full detail. Backpropagation A clever implementation of gradient descent for neural networks. BLSTM, BiLSTM Bidirectional long short-term memory (see paper and ...">
+<meta name="twitter:description" content="The following is a list of short explanations of different terms in machine learning. The aim is to keep things simple and brief, not to explain the terms in full detail. Active Learning The algorithm gives a pattern and asks for a label. Backpropagation A clever implementation of gradient descent ...">
 <meta property="og:image" content="logos/ml.png" />
 <meta name="twitter:image" content="logos/ml.png" >
 
@@ -113,10 +113,17 @@ MathJax.Hub.Queue(function() {
 learning. The aim is to keep things simple and brief, not to explain the terms
 in full detail.</p>
 <dl>
+<dt><dfn id="active-learning">Active Learning</dfn></dt>
+<dd>The algorithm gives a pattern and asks for a label.</dd>
 <dt><dfn id="backpropagation">Backpropagation</dfn></dt>
 <dd>A clever implementation of gradient descent for neural networks.</dd>
 <dt><dfn id="blstm">BLSTM</dfn>, <dfn id="bilstm">BiLSTM</dfn></dt>
 <dd>Bidirectional long short-term memory (see <a href="http://www.di.ufpe.br/~fnj/RNA/bibliografia/BRNN.pdf">paper</a> and <a href="https://www.cs.toronto.edu/~graves/asru_2013_poster.pdf">poster</a>).</dd>
+<dt><dfn id="co-training">Co-Training</dfn></dt>
+<dd>A form of semi-supervised learning. Two independant classifiers are
+        trained on different labeled datasets. The classifiers are applied to
+        the unlabeled data. Data with high confidence will be added to the
+        other classifiers data.</dd>
 <dt><dfn id="collaborative-filtering">Computer Vision</dfn></dt>
 <dd>You have users and items which are rated. No user rated everything.
         You want to fill the gaps (see <a href="https://martin-thoma.com/collaborative-filtering/">article</a>).</dd>
@@ -137,6 +144,11 @@ in full detail.</p>
         objects of the given type. Face detection is one well-studied example.
         A photo could contain no face or hundrets of them. The rectangles
         can overlap.</dd>
+<dt><dfn id="deep-learing">Deep Learning</dfn></dt>
+<dd>Buzzword. The meaning depends on who you ask / in which year you asked.
+        Sometimes it means multi-layer perceptrons with more than $N$ layers
+        (some say $N=2$ is already deep learning, others want N&gt;20 or nowadays
+        $N&gt;100$).</dd>
 <dt><dfn id="discriminative-model">Discriminative Model</dfn></dt>
 <dd>The model gives a conditional probability of the classes $k$, given the
         feature vector $x$: $P(k | x)$.
@@ -176,10 +188,24 @@ in full detail.</p>
 <dt><a href="https://en.wikipedia.org/wiki/Optical_flow"><dfn id="optical-flow">Optical Flow</dfn></a></dt>
 <dd>Optical flow is defined for two images. It describes how the points in
         one image moved when switching to the second image.</dd>
+<dt><a href="https://en.wikipedia.org/wiki/Principal_component_analysis"><dfn id="pca">PCA</dfn></a></dt>
+<dd>Principal component analysis (short: PCA) is a linear transformation
+        which projects $n$ points $\mathbf{x} \in \mathbb{R}^{n \times s}$ with
+        $s$ features each on a hyperplane in such a way
+        that the projection error is minimal. Hence it is an unsupervised
+        method for feature reduction. It simply works by finding a matrix
+        $P \in \mathbb{R}^{s \times m}$, where $m \leq s$ can be chosen as small
+        as desired.
+        </dd>
 <dt><dfn id="regularization">Regularization</dfn></dt>
 <dd>Regularization are techniques to make the fitted function smoother. This
         helps to prefent overfitting.<br/>
         Examples: L1, L2, Dropout, Weight Decay in Neural Networks. Parameter $C$ in SVMs.</dd>
+<dt><dfn id="self-learning">Self-Learning</dfn></dt>
+<dd>One form of semi-supervised learning, where you train an initial system
+        on the labeled data, then label the unlabeled data where the classifier
+        is 'sure enough'. After that, you train a new system on all data and
+        re-label the unlabeled data. This is iterated.</dd>
 <dt><dfn id="semi-supervised-learning">Semi-supervised learning</dfn></dt>
 <dd>Some training data has labels, but most has no labels.</dd>
 <dt><dfn id="supervised-learning">Supervised learning</dfn></dt>
@@ -194,6 +220,8 @@ in full detail.</p>
 <dd>TF-IDF (short for Term frequency&ndash;inverse document frequency)
         is a measure that reflects how important a word is to a document in a
         collection or corpus.</dd>
+<dt><dfn id="transductive-learning">Transductive learning</dfn></dt>
+<dd>label unlabeled data (the aim here is NOT to find a hypothesis)</dd>
 <dt><dfn id="unsupervised-learning">Unsupervised learning</dfn></dt>
 <dd>No training data has labels.</dd>
 <dt><dfn id="zero-shot-learning">Zero-Shot learning</dfn></dt>
@@ -261,7 +289,7 @@ in full detail.</p>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
                 <li><a href="../tags.html#machine-learning-ref">Machine Learning
-                    <span>30</span>
+                    <span>31</span>
 </a></li>
             </ul>
 <h4>Contact</h4>
