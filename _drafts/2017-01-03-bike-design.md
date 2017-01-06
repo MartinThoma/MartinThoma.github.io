@@ -6,39 +6,48 @@ author: Martin Thoma
 status: draft
 date: 2017-01-03 20:00
 category: Cyberculture
-tags: Design
-featured_image: logos/star.png
+tags: Design, Bicycle, Bike
+featured_image: logos/bicycle.png
 ---
-A bike consists of many parts. If you want to buy a bike by it's parts and
-assemble it by your own, you need (English in brakets as I'm not too sure
-about it; the first word is German):
+I've just wondered how much it would cost to build a bike by my own.
 
 
 ## Parts
 
-* Rahmen (Frame)
-* Lenker
+English in brakets as I'm not too sure about it; the first word is German:
 
-* Sattel
-* 2 Bremsen (brakes)
+* Rahmen ([Bicycle frame](https://en.wikipedia.org/wiki/Bicycle_frame)): 99.95 Euro
+* Lenker ([Bicycle handlebar](https://en.wikipedia.org/wiki/Bicycle_handlebar)): 21.35 Euro
+* Sattel (Bicycle seat): 13.90 Euro
+* 2 Bremsen (brakes):
+    * Griffe (Brake handle): 6.01 Euro
 * 2 Räder
-    * Mantel (mantle)
-    * Schlauch
-    * Felge
+    * Mantel ([Bicycle tire](https://en.wikipedia.org/wiki/Bicycle_tire)): 14.40 Euro
+    * Schlauch (Bicycle tube): 6.90 Euro
+    * Felge (Wheel, 28"): 39.99 Euro
     * Felgenband
-    * Schutzblech
+    * Schutzblech ([Fender](https://en.wikipedia.org/wiki/Fender_(vehicle)#Bicycles_and_motorcycles)): 12.98 Euro
 * Antrieb
     * Kettenblatt
-    * Kette
-    * 2 Pedale (pedals)
+    * Zahnkranz ([Cogset](https://en.wikipedia.org/wiki/Cogset)): 13.85 Euro
+    * Kette (Bicycle chain): 9.93 Euro
+    * 2 Pedale (pedals): 6.95 Euro each
     * 2 Pedalarme
     * Innenlager
-* Misc
-    * Klingel (bell)
-    * Vorderlicht (front light)
+    * Schaltwerk ([Switchgear](https://de.wikipedia.org/wiki/Schaltwerk_(Fahrrad))): 11.63 Euro
+* Verkehrssicherheit:
+    * Klingel (bell): 3.95 Euro
+    * Vorderlicht (front light): 15 Euro
     * Rücklicht (back light)
-    * Gepäckträger
+* Misc
+    * Gepäckträger ([Luggage carrier](https://en.wikipedia.org/wiki/Luggage_carrier)): 19.90 Euro
     * Schloss
+    * Ständer (Bicycle stand): 17.90 Euro
+
+That makes 479.15 Euro in total. And dont forget the cost for tools.
+
+Note that you can save quite a lot of money if you're able to weld the bicycle
+frame by yourself (see [prices](http://shop.prokilo.de/stahl-metall/rohre/rundrohr-stahl-edelstahl-aluminium.html)). Also, I'm pretty sure that buying in bulk reduces the price a lot.
 
 
 ## Tools
