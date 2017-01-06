@@ -1,16 +1,15 @@
 ---
 layout: post
 title: How to use arXiv data
+slug: arxiv-data
 author: Martin Thoma
-date: 2014-03-20 21:09
-categories:
-- Code
-tags:
-- arXiv
-- Amazon AWS
-- Machine Learning
-featured_image: logos/sublime-text.png
+date: 2017-01-06 06:30
+category: Code
+tags: arXiv, Amazon, AWS, Machine Learning
+featured_image: logos/arxiv.png
 ---
+
+<div class="info">I've written a draft for this in June 2014 and recently decided to publish it. The article is certainly not of high quality, but I want to keep it as a reminder for some of the problems I ran into and the solutions I've used.</div>
 
 I've recently talked to my bachelors thesis advisers. *A short reminder:*
 I write a thesis about the recognition of handwritten mathematical symbols. As
@@ -137,8 +136,8 @@ $ s3cmd ls --add-header="x-amz-request-payer: requester" s3://arxiv/pdf/\*
 ```
 
 The manifest contains all information about the real data. Remember, you have
-to pay for the downloads! According to arXiv, it's about \$0.12/GB transferred.
-This means for 150 GB I would have to pay at least \$18.
+to pay for the downloads! According to arXiv, it's about &#36;0.12/GB transferred.
+This means for 150 GB I would have to pay at least &#36;18.
 
 The manifest is an XML file, which looks like this:
 
@@ -187,18 +186,18 @@ The manifest is an XML file, which looks like this:
 The differrent files mean:
 
 * `content_md5sum`: MD5 sum of all the files in the tar package concatenated but not packaged. Use md5sum for the md5sum of the tar package which should match the S3 MD5 sum.
-* `filename`: 
+* `filename`:
 Name of file within bucket, prefix bucket name s3://arxiv/ for complete identifier
-* `first_item` and `last_item`: 
+* `first_item` and `last_item`:
 arXiv identifier of article PDF first in tar package, and last in tar package
-* `md5sum`: 
+* `md5sum`:
 MD5 sum of tar package, can be used as check against downloaded file
-* `num_items`: 
+* `num_items`:
 Number of PDF files in tar package
-* `seq_num`: 
+* `seq_num`:
 Sequence number within month yymm
-* `size`: 
+* `size`:
 Size of tar package in bytes
-* `timestamp`: 
+* `timestamp`:
 Timestamp of tar package (unix mtime when created, expressed at YYYY-MM-DD HH:MM::SS)
 * `yymm`: Two digit year and month of items in the tar package. Starts with 9108 for 1991-08, rolls past y2k to 0001 for 2000-01, 1008 for 2010-08 etc.
