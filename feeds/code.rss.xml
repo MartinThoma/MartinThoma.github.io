@@ -1,5 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Martin Thoma</title><link>https://martin-thoma.com/</link><description>A blog about Code, the Web and Cyberculture</description><lastBuildDate>Wed, 28 Dec 2016 20:00:00 +0100</lastBuildDate><item><title>Word Vectors</title><link>https://martin-thoma.com/word-vectors/</link><description>&lt;p&gt;The idea behind word vectors is to represent natural language words like "king"
+<rss version="2.0"><channel><title>Martin Thoma</title><link>https://martin-thoma.com/</link><description>A blog about Code, the Web and Cyberculture</description><lastBuildDate>Fri, 06 Jan 2017 06:30:00 +0100</lastBuildDate><item><title>How to use arXiv data</title><link>https://martin-thoma.com/arxiv-data/</link><description>&lt;div class="info"&gt;I've written a draft for this in June 2014 and recently decided to publish it. The article is certainly not of high quality, but I want to keep it as a reminder for some of the problems I ran into and the solutions I've used.&lt;/div&gt;
+&lt;p&gt;I've recently talked to my bachelors thesis advisers. &lt;em&gt;A short reminder:&lt;/em&gt;
+I write a thesis about the recognition of handwritten mathematical symbols. As
+a practical part I implement everything on &lt;a href="write-math.com"&gt;write-math.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;My advisers said me that I need at least 100 training examples per symbol.
+As I currently have about 1070 symbols in the database, including symbols
+like &lt;a href="http://www.martin-thoma.de/write-math/symbol/?id=1196"&gt;&lt;code&gt;\bat&lt;/code&gt;&lt;/a&gt; or
+&lt;a href="http://www.martin-thoma.de/write-math/symbol/?id=1197"&gt;&lt;code&gt;\Mundus&lt;/code&gt;&lt;/a&gt;. As they
+are extremely unlikely to be used in math mode, I will simply skip them. The
+more symbols I can skip, the less training symbols I need to get. So I want to
+skip as many as possible. I think &lt;code&gt;\up[greek letter]&lt;/code&gt; like &lt;a href="http://www.martin-thoma.de/write-math/symbol/?id=851"&gt;&lt;code&gt;\updelta&lt;/code&gt;&lt;/a&gt; and &lt;a href="http://www.martin-thoma.de/write-math/symbol/?id=857"&gt;&lt;code&gt;\Updelta&lt;/code&gt;&lt;/a&gt;
+are also rare. But my adviser doesn't think so. This means I need to prove it.&lt;/p&gt;
+&lt;p&gt;One way to prove it is by looking at much data and counting. One of the biggest
+datasources for LaTeX is &lt;a href="http://arxiv.org/"&gt;arXiv&lt;/a&gt;, a repository of electronic
+preprints of scientific papers in the fields of mathematics, physics, astronomy,
+computer science, quantitative biology, statistics, and quantitative finance,
+which can be accessed online.&lt;/p&gt;
+&lt;h2 id="why-parsing-latex-is-hard"&gt;Why parsing LaTeX is hard&lt;/h2&gt;
+&lt;p&gt;Special cases. Lots of them.&lt;/p&gt;
+&lt;p&gt;At first you would think: Dude, it's only counting strings in documents. Is that
+really worth writing an article?&lt;/p&gt;
+&lt;p&gt;Yes, it is.&lt;/p&gt;
+&lt;p&gt;Just think about the many ways you can define your own commands (called macros):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;\newcommand{[search]}{[replace]}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\newcommand{[search]} {[replace]}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\def[search]{[replace]}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\newcommand*{[search]}{[replace]}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\newenvironment&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Then remember that you can import files&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;\input{package}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\input package.sty&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\include&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\usepackage&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;and weird commands like &lt;code&gt;\begin{filecontents*}&lt;/code&gt;. And even more weird self-defined
+ones:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;\def\be{\begin{equation}}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\def\ee{\end{equation}}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\newcommand{\beq}{\begin{equation}}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\newcommand{\eeq}{\end{equation}}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\def\bea{\begin{eqnarray}}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\def\eea{\end{eqnarray}}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\newcommand\beq{\begin{equation}}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\newcommand\eeq{\end{equation}}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\newcommand\beqa{\begin{eqnarray}}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\newcommand\eeqa{\end{eqnarray}}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\def\({\left(}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\def\){\right)}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\def\[{\left[}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\def\]{\right]}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\def\&amp;lt;{\left\langle}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\def\&amp;gt;{\right\rangle}&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;As some of these were quite common, &lt;code&gt;sed&lt;/code&gt; and &lt;code&gt;find&lt;/code&gt; saved me some work:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;find . -type f -print0 &lt;span class="p"&gt;|&lt;/span&gt; xargs -0  &lt;span class="se"&gt;\&lt;/span&gt;
+sed -i &lt;span class="s1"&gt;'s/\\newcommand{\\beq}{\\begin{equation}}/%%%%%%%%%%%%%%/g'&lt;/span&gt;
+
+find . -type f -print0 &lt;span class="p"&gt;|&lt;/span&gt; xargs -0  &lt;span class="se"&gt;\&lt;/span&gt;
+sed -i &lt;span class="s1"&gt;'s/\\newcommand\\eeq{\\end{equation}}/%%%%%%%%%%%%%%/g'&lt;/span&gt;
+
+find . -type f -print0 &lt;span class="p"&gt;|&lt;/span&gt; xargs -0  &lt;span class="se"&gt;\&lt;/span&gt;
+sed -i &lt;span class="s1"&gt;'s/\\newcommand{\\eeq}{\\end{equation}}/%%%%%%%%%%%%%%/g'&lt;/span&gt;
+
+find . -type f -print0 &lt;span class="p"&gt;|&lt;/span&gt; xargs -0  &lt;span class="se"&gt;\&lt;/span&gt;
+sed -i &lt;span class="s1"&gt;'s/\\newcommand{\\be}{\\begin{equation}}/%%%%%%%%%%%%%%/g'&lt;/span&gt;
+
+find . -type f -print0 &lt;span class="p"&gt;|&lt;/span&gt; xargs -0  &lt;span class="se"&gt;\&lt;/span&gt;
+sed -i &lt;span class="s1"&gt;'s/\\newcommand{\\ee}{\\end{equation}}/%%%%%%%%%%%%%%/g'&lt;/span&gt;
+
+find . -type f -print0 &lt;span class="p"&gt;|&lt;/span&gt; xargs -0  &lt;span class="se"&gt;\&lt;/span&gt;
+sed -i &lt;span class="s1"&gt;'s/\\def\\ee{\\end{equation}}/%%%%%%%%%%%%%%/g'&lt;/span&gt;
+
+find . -type f -print0 &lt;span class="p"&gt;|&lt;/span&gt; xargs -0  &lt;span class="se"&gt;\&lt;/span&gt;
+sed -i &lt;span class="s1"&gt;'s/\\def\\be{\\begin{equation}}/%%%%%%%%%%%%%%/g'&lt;/span&gt;
+
+find . -type f -print0 &lt;span class="p"&gt;|&lt;/span&gt; xargs -0  &lt;span class="se"&gt;\&lt;/span&gt;
+sed -i &lt;span class="s1"&gt;'s/\\def\\ee{\\end{equation}}/%%%%%%%%%%%%%%/g'&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="what-i-currently-dont-check"&gt;What I currently don't check&lt;/h2&gt;
+&lt;p&gt;Commands with parameters:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;\makeatletter&lt;/span&gt;
+&lt;span class="k"&gt;\def\imod&lt;/span&gt;#1&lt;span class="nb"&gt;{&lt;/span&gt;&lt;span class="k"&gt;\allowbreak\mkern&lt;/span&gt;10mu(&lt;span class="nb"&gt;{&lt;/span&gt;&lt;span class="k"&gt;\operator&lt;/span&gt;@font mod&lt;span class="nb"&gt;}&lt;/span&gt;&lt;span class="k"&gt;\,\,&lt;/span&gt;#1)&lt;span class="nb"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;\makeatother&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="structure-of-arxiv"&gt;Structure of arXiv&lt;/h2&gt;
+&lt;p&gt;arXiv uses Amazon S3 with the "requester pays" option. The storage containers
+of S3 are called "buckets" and they are adressed in an URI style:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;s3://arxiv/pdf/arXiv_pdf_manifest.xml
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A tool to get data from S3 under Linux is &lt;code&gt;s3cmd&lt;/code&gt;. It can be used like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ s3cmd ls --add-header&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"x-amz-request-payer: requester"&lt;/span&gt; s3://arxiv/pdf/arXiv_pdf_manifest.xml
+2011-02-15 04:12    &lt;span class="m"&gt;246144&lt;/span&gt;   s3://arxiv/pdf/arXiv_pdf_manifest.xml
+
+$ s3cmd get --add-header&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"x-amz-request-payer: requester"&lt;/span&gt; s3://arxiv/pdf/arXiv_pdf_manifest.xml
+s3://arxiv/pdf/arXiv_pdf_manifest.xml -&amp;gt; ./arXiv_pdf_manifest.xml  &lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; of 1&lt;span class="o"&gt;]&lt;/span&gt;
+ &lt;span class="m"&gt;246144&lt;/span&gt; of &lt;span class="m"&gt;246144&lt;/span&gt;   100% in    0s   377.85 kB/s  &lt;span class="k"&gt;done&lt;/span&gt;
+
+$ s3cmd ls --add-header&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"x-amz-request-payer: requester"&lt;/span&gt; s3://arxiv/pdf/&lt;span class="se"&gt;\*&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The manifest contains all information about the real data. Remember, you have
+to pay for the downloads! According to arXiv, it's about \&lt;span class="math"&gt;\(0.12/GB transferred.
+This means for 150 GB I would have to pay at least \\)&lt;/span&gt;18.&lt;/p&gt;
+&lt;p&gt;The manifest is an XML file, which looks like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;&amp;lt;?xml version='1.0' standalone='yes'?&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;arXivSRC&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;file&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;content_md5sum&amp;gt;&lt;/span&gt;cacbfede21d5dfef26f367ec99384546&lt;span class="nt"&gt;&amp;lt;/content_md5sum&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;filename&amp;gt;&lt;/span&gt;src/arXiv_src_0001_001.tar&lt;span class="nt"&gt;&amp;lt;/filename&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;first_item&amp;gt;&lt;/span&gt;astro-ph0001001&lt;span class="nt"&gt;&amp;lt;/first_item&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;last_item&amp;gt;&lt;/span&gt;quant-ph0001119&lt;span class="nt"&gt;&amp;lt;/last_item&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;md5sum&amp;gt;&lt;/span&gt;949ae880fbaf4649a485a8d9e07f370b&lt;span class="nt"&gt;&amp;lt;/md5sum&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;num_items&amp;gt;&lt;/span&gt;2364&lt;span class="nt"&gt;&amp;lt;/num_items&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;seq_num&amp;gt;&lt;/span&gt;1&lt;span class="nt"&gt;&amp;lt;/seq_num&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;size&amp;gt;&lt;/span&gt;225605507&lt;span class="nt"&gt;&amp;lt;/size&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;timestamp&amp;gt;&lt;/span&gt;2010-12-23 00:13:59&lt;span class="nt"&gt;&amp;lt;/timestamp&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;yymm&amp;gt;&lt;/span&gt;0001&lt;span class="nt"&gt;&amp;lt;/yymm&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;/file&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;file&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;content_md5sum&amp;gt;&lt;/span&gt;d90df481661ccdd7e8be883796539743&lt;span class="nt"&gt;&amp;lt;/content_md5sum&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;filename&amp;gt;&lt;/span&gt;src/arXiv_src_0002_001.tar&lt;span class="nt"&gt;&amp;lt;/filename&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;first_item&amp;gt;&lt;/span&gt;astro-ph0002001&lt;span class="nt"&gt;&amp;lt;/first_item&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;last_item&amp;gt;&lt;/span&gt;quant-ph0002094&lt;span class="nt"&gt;&amp;lt;/last_item&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;md5sum&amp;gt;&lt;/span&gt;4592ab506cf775afecf4ad560d982a00&lt;span class="nt"&gt;&amp;lt;/md5sum&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;num_items&amp;gt;&lt;/span&gt;2365&lt;span class="nt"&gt;&amp;lt;/num_items&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;seq_num&amp;gt;&lt;/span&gt;1&lt;span class="nt"&gt;&amp;lt;/seq_num&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;size&amp;gt;&lt;/span&gt;227036528&lt;span class="nt"&gt;&amp;lt;/size&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;timestamp&amp;gt;&lt;/span&gt;2010-12-23 00:18:09&lt;span class="nt"&gt;&amp;lt;/timestamp&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;yymm&amp;gt;&lt;/span&gt;0002&lt;span class="nt"&gt;&amp;lt;/yymm&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;/file&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;file&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;content_md5sum&amp;gt;&lt;/span&gt;3388afd7bfb2dfd9d3f3e6b353357b33&lt;span class="nt"&gt;&amp;lt;/content_md5sum&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;filename&amp;gt;&lt;/span&gt;src/arXiv_src_0003_001.tar&lt;span class="nt"&gt;&amp;lt;/filename&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;first_item&amp;gt;&lt;/span&gt;astro-ph0003001&lt;span class="nt"&gt;&amp;lt;/first_item&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;last_item&amp;gt;&lt;/span&gt;quant-ph0003151&lt;span class="nt"&gt;&amp;lt;/last_item&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;md5sum&amp;gt;&lt;/span&gt;b5bf5e52ae8532cdf82b606b42df16ea&lt;span class="nt"&gt;&amp;lt;/md5sum&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;num_items&amp;gt;&lt;/span&gt;2600&lt;span class="nt"&gt;&amp;lt;/num_items&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;seq_num&amp;gt;&lt;/span&gt;1&lt;span class="nt"&gt;&amp;lt;/seq_num&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;size&amp;gt;&lt;/span&gt;230986882&lt;span class="nt"&gt;&amp;lt;/size&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;timestamp&amp;gt;&lt;/span&gt;2010-12-23 00:22:15&lt;span class="nt"&gt;&amp;lt;/timestamp&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;yymm&amp;gt;&lt;/span&gt;0003&lt;span class="nt"&gt;&amp;lt;/yymm&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;/file&amp;gt;&lt;/span&gt;
+  ...
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The differrent files mean:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;content_md5sum&lt;/code&gt;: MD5 sum of all the files in the tar package concatenated but not packaged. Use md5sum for the md5sum of the tar package which should match the S3 MD5 sum.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;filename&lt;/code&gt;:
+Name of file within bucket, prefix bucket name s3://arxiv/ for complete identifier&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;first_item&lt;/code&gt; and &lt;code&gt;last_item&lt;/code&gt;:
+arXiv identifier of article PDF first in tar package, and last in tar package&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;md5sum&lt;/code&gt;:
+MD5 sum of tar package, can be used as check against downloaded file&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;num_items&lt;/code&gt;:
+Number of PDF files in tar package&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;seq_num&lt;/code&gt;:
+Sequence number within month yymm&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;size&lt;/code&gt;:
+Size of tar package in bytes&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;timestamp&lt;/code&gt;:
+Timestamp of tar package (unix mtime when created, expressed at YYYY-MM-DD HH:MM::SS)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;yymm&lt;/code&gt;: Two digit year and month of items in the tar package. Starts with 9108 for 1991-08, rolls past y2k to 0001 for 2000-01, 1008 for 2010-08 etc.&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Martin Thoma</dc:creator><pubDate>Fri, 06 Jan 2017 06:30:00 +0100</pubDate><guid isPermaLink="false">tag:martin-thoma.com,2017-01-06:arxiv-data/</guid><category>arXiv</category><category>Amazon AWS</category><category>Machine Learning</category></item><item><title>Word Vectors</title><link>https://martin-thoma.com/word-vectors/</link><description>&lt;p&gt;The idea behind word vectors is to represent natural language words like "king"
 in &lt;span class="math"&gt;\(\mathbb{R}^n\)&lt;/span&gt; in such a way, that you can do arithmetic. For example,&lt;/p&gt;
 &lt;div class="math"&gt;$$\text{vec}(\text{king}) - \text{vec}(\text{man}) + \text{vec}(\text{woman}) \approx \text{vec}(\text{queen})$$&lt;/div&gt;
 &lt;p&gt;The Python library &lt;a href="http://radimrehurek.com/gensim/"&gt;&lt;code&gt;gensim&lt;/code&gt;&lt;/a&gt; implements this.&lt;/p&gt;
