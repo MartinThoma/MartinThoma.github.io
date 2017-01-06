@@ -5,7 +5,7 @@ slug: tools-for-academia
 author: Martin Thoma
 date: 2016-05-17 20:00
 category: Science
-tags: Science, Academia
+tags: Science, Academia, arXiv
 featured_image: logos/science.png
 ---
 When you're studying or researching, there a quite a couple of tools which come
