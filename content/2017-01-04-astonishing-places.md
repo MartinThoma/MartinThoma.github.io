@@ -43,6 +43,13 @@ to see them with my own eyes.
 
 ## Europe
 
+### Norway
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2017/01/aurora-borealis.jpg" alt="Aurora Borealis" />
+    <figcaption class="text-center">Aurora Borealis (Image source: <a href="https://commons.wikimedia.org/wiki/File:Polarlicht_2.jpg">Wikimedia</a>)<br/><a href="https://en.wikipedia.org/wiki/Svalbard">Svalbard</a> might be a good place to see it.</figcaption>
+</figure>
+
 ### Denmark
 
 <figure class="wp-caption aligncenter img-thumbnail">
@@ -69,6 +76,7 @@ to see them with my own eyes.
 </figure>
 
 * Steam Towers: Hverir
+* Auroras (e.g. in Reykjavik from late September to early April)
 
 
 ### Turkey
