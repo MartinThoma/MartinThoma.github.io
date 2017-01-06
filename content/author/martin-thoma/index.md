@@ -30,6 +30,7 @@ alias: /author/moose/index.html
     <li><a href="https://careers.stackoverflow.com/thoma" rel="me">StackOverflow</a></li>
     <li><a href="https://www.linkedin.com/in/themoosemind" rel="me">linkedin</a></li>
     <li><a href="https://de.wikipedia.org/wiki/Benutzer:MartinThoma">Wikipedia</a> (<a href="https://de.wikipedia.org/wiki/Benutzer:MartinThoma/Visualisierungen">de</a>, <a href="https://en.wikipedia.org/wiki/User:MartinThoma">en</a>, <a href="https://commons.wikimedia.org/wiki/User:MartinThoma">commons</a> and more languages on wikipedia.org)</li>
+    <li><a href="http://paypal.me/martinthoma">Paypal</a></li>
 </ul>
 
 If somebody claims to be me, but the profile is not linked here, don't trust him/her/it.
