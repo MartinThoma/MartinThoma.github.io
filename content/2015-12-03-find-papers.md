@@ -4,7 +4,7 @@ title: How to find new Papers
 author: Martin Thoma
 date: 2015-12-03 07:30
 category: My bits and bytes
-tags: Science, Papers, Reading, Google Scholar
+tags: Science, Papers, Reading, Google Scholar, arXiv
 featured_image: logos/science.png
 ---
 A couple of people who are just participating in their first seminar might ask

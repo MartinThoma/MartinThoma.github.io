@@ -5,7 +5,8 @@ slug: apply-viterbi-algorithm
 author: Martin Thoma
 date: 2013-09-11 17:46:22.000000000 +02:00
 category: My bits and bytes
-tags: KogSys, /apply-viterbi-aglrithm
+tags: KogSys, Machine Learning, HMM
+featured_image: logos/ml.png
 ---
 The goal of the Viterbi algorithm is find the most likely sequence of hidden states given some observed events.
 
