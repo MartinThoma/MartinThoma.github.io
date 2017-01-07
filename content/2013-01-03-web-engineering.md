@@ -26,7 +26,7 @@ Im Folgenden sind einige Stichpunkte aufgelistet, die jedem etwas sagen sollten.
   <li>1945: <a href="http://de.wikipedia.org/wiki/Vannevar_Bush">Vannevar Bush</a>, <a href="http://de.wikipedia.org/wiki/Memex">Memex</a></li>
   <li>1965: <a href="http://de.wikipedia.org/wiki/Ted_Nelson">Ted Nelson</a>, Hypertext und Xanadu</li>
   <li>1969: ARPANET</li>
-  <li>1985: Bill Atkinson (Apple), <a href="http://www.youtube.com/watch?v=BeMRoYDc2z8">HyperCard</a></li>
+  <li>1985: Bill Atkinson (Apple), <a href="//www.youtube.com/watch?v=BeMRoYDc2z8">HyperCard</a></li>
   <li>1989: Tim Berners-Lee, World Wide Web</li>
   <li>1993: <a href="http://de.wikipedia.org/wiki/NCSA_Mosaic">Mosaic</a></li>
 </ul>
@@ -135,10 +135,10 @@ Im Folgenden sind einige Stichpunkte aufgelistet, die jedem etwas sagen sollten.
           <li>Rollen: Scrum Master, Product Owner, Development Team</li>
           <li>Iterations, Sprints, User Stories</li>
           <li><a href="http://if-blog.de/scrum-plakat">Scrum Plakat</a></li>
-          <li><a href="http://www.youtube.com/watch?v=r6brn76hDec">Video: What is Scrum?</a>, <a href="http://www.youtube.com/watch?v=XU0llRltyFM#t=32s">Scrum in 8 minutes</a>, <a href="http://refcardz.dzone.com/refcardz/scrum">Scrum Refcard</a>, <a href="http://sendspace.com/pro/dl/qh5zug">Scrum Master Checklist</a></li>
+          <li><a href="//www.youtube.com/watch?v=r6brn76hDec">Video: What is Scrum?</a>, <a href="//www.youtube.com/watch?v=XU0llRltyFM#t=32s">Scrum in 8 minutes</a>, <a href="http://refcardz.dzone.com/refcardz/scrum">Scrum Refcard</a>, <a href="http://sendspace.com/pro/dl/qh5zug">Scrum Master Checklist</a></li>
         </ul>
       </li>
-      <li><abbr title="Extreme Programming">XP</abbr>: Paarprogrammierung, <a href="http://www.youtube.com/watch?v=XP4o0ArkP4s">Lecture 24: Richard Buckland</a> (45 minutes)</li>
+      <li><abbr title="Extreme Programming">XP</abbr>: Paarprogrammierung, <a href="//www.youtube.com/watch?v=XP4o0ArkP4s">Lecture 24: Richard Buckland</a> (45 minutes)</li>
       <li><a href="http://agilemanifesto.org/">Agile manifesto</a></li>
     </ul>
   </li>
@@ -173,7 +173,7 @@ Logischer Entwurf (Abstrakt: Wireframes, Navigation patterns) &harr; Physikalisc
   <li>Wie k&ouml;nnen Metadaten weitergegeben werden? &rarr; <a href="http://support.google.com/webmasters/bin/answer.py?hl=en&answer=99170">Rich Snippets</a></li>
   <li>Welche <abbr title="Denglisch: Workflows">Arbeitsabl&auml;ufe</abbr> habe ich?</li>
   <li>Inhalt kann in flachen/strukturierten Dateien oder in Datenbanken liegen.</li>
-  <li>Strukturierte Dateien: XML, RDF (&rarr; <a href="http://www.youtube.com/watch?v=ldl0m-5zLz4">Video</a>), Microformats</li>
+  <li>Strukturierte Dateien: XML, RDF (&rarr; <a href="//www.youtube.com/watch?v=ldl0m-5zLz4">Video</a>), Microformats</li>
 </ul>
 
 

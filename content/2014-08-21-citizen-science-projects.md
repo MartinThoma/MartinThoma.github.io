@@ -15,12 +15,12 @@ researchers are very simple. Everybody can do them.
 I think some of them are a great example of [Gamification](https://en.wikipedia.org/wiki/Gamification).
 
 ## Galaxy Zoo
-[Galaxy Zoo](https://en.wikipedia.org/wiki/Galaxy_Zoo) is a crowdsourced 
+[Galaxy Zoo](https://en.wikipedia.org/wiki/Galaxy_Zoo) is a crowdsourced
 astronomy project which invites people to assist in the classification of
 galaxies.
 
 You get some images of Galaxies and you should see some characteristics by
-looking at them. You get about three possible answers to every question. 
+looking at them. You get about three possible answers to every question.
 
 It looks like that:
 <figure class="aligncenter">
@@ -35,7 +35,7 @@ mapping the variation in age of lunar rocks.
 
 Source: [Wikipedia](https://en.wikipedia.org/wiki/Moon_Zoo#Active_projects)
 
-<iframe width="512" height="377" src="http://www.youtube.com/embed/rJHfoM6kh7w" frameborder="0" allowfullscreen></iframe>
+<iframe width="512" height="377" src="//www.youtube.com/embed/rJHfoM6kh7w" frameborder="0" allowfullscreen></iframe>
 
 It looks like this:
 

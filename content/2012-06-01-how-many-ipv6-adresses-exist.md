@@ -7,7 +7,7 @@ category: The Web
 tags: Numbers
 ---
 <h2>Some general information</h2>
-<iframe width="512" height="288" src="http://www.youtube.com/embed/-Uwjt32NvVA" frameborder="0" allowfullscreen></iframe>
+<iframe width="512" height="288" src="//www.youtube.com/embed/-Uwjt32NvVA" frameborder="0" allowfullscreen></iframe>
 
 A typical IPv4 address in a local network looks like this:
 <code>192.168.0.1</code>

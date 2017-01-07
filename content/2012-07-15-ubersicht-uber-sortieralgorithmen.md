@@ -118,5 +118,5 @@ Dann gilt:
 <h2>Siehe auch</h2>
 <ul>
   <li><a href="http://www.sorting-algorithms.com/">Sorting Algorithm Animations</a>: Eine tolle Website, die veranschaulicht, wie verschiedene Sortieralgorithmen funktionieren.</li>
-  <li><a href="http://www.youtube.com/watch?v=t8g-iYGHpEA">What different sorting algorithms sound like</a></li>
+  <li><a href="//www.youtube.com/watch?v=t8g-iYGHpEA">What different sorting algorithms sound like</a></li>
 </ul>

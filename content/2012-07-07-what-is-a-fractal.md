@@ -88,7 +88,7 @@ Fractals seem to appear quite often in nature. I have just re-created one that I
 <h2>Mandelbrot set</h2>
 The <a href="http://en.wikipedia.org/wiki/Mandelbrot_set">Mandelbrot set</a> is maybe the best known fractal, although it is not a fractal in my opinion. It does never repeat itself.
 
-<iframe width="512" height="288" src="http://www.youtube.com/embed/1o5FMTHkLQg" frameborder="0" allowfullscreen></iframe>
+<iframe width="512" height="288" src="//www.youtube.com/embed/1o5FMTHkLQg" frameborder="0" allowfullscreen></iframe>
 
 <h2>See also</h2>
 <ul>

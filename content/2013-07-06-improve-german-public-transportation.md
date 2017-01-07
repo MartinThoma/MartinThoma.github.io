@@ -114,5 +114,5 @@ Friederike Freytag</blockquote>
 
 <h2>See also</h2>
 <ul>
-  <li><a href="http://www.youtube.com/watch?v=j6dCCq0XL6w">Reisetagebuch</a> (A German comedian)</li>
+  <li><a href="//www.youtube.com/watch?v=j6dCCq0XL6w">Reisetagebuch</a> (A German comedian)</li>
 </ul>

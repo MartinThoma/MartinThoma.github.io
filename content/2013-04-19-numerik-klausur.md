@@ -15,7 +15,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 <tr>
 <td>17.04.2013</td>
 <td><a href="http://www.math.kit.edu/ianm3/lehre/numainfing2013s/media/kapitel1.pdf">Kapitel 1.1</a></td>
-<td>Wiederholung LGS, <a href="../solving-linear-equations-with-gaussian-elimination/" title="Solving linear equations with Gaussian elimination">Gausches Eliminationsverfahren</a>, <a href="http://www.youtube.com/watch?v=MTKkiSCBo74">LR-Zerlegung</a>, Frobeniusmatrix</td>
+<td>Wiederholung LGS, <a href="../solving-linear-equations-with-gaussian-elimination/" title="Solving linear equations with Gaussian elimination">Gauß'sches Eliminationsverfahren</a>, <a href="//www.youtube.com/watch?v=MTKkiSCBo74">LR-Zerlegung</a>, Frobeniusmatrix</td>
 </tr>
 <tr>
 <td>24.04.2013</td>

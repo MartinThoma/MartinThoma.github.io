@@ -55,7 +55,7 @@ It's called "learnfun" (for learn function).
 
 You might want to skip to 6:13 for the demo:
 
-<iframe width="512" height="288" src="http://www.youtube.com/embed/xOCurBYI_gY" frameborder="0" allowfullscreen></iframe>
+<iframe width="512" height="288" src="//www.youtube.com/embed/xOCurBYI_gY" frameborder="0" allowfullscreen></iframe>
 
 Research paper published in SIGBOVIK 2013: "[The first level of Super Mario Bros. is easy with lexicographic ordering a and time travel ...after that it gets a little tricky](http://tom7.org/mario/mario.pdf)."
 
@@ -71,4 +71,4 @@ a Dinosaur, Nintendo Pinball, Cliffhanger, Arkanoid, Double Dare, Ice hockey:
 
 ## Super Mario A.I. Competition
 
-<iframe width="512" height="288" src="http://www.youtube.com/embed/bBZ7kEphv3s?start=385" frameborder="0" allowfullscreen></iframe>
+<iframe width="512" height="288" src="//www.youtube.com/embed/bBZ7kEphv3s?start=385" frameborder="0" allowfullscreen></iframe>

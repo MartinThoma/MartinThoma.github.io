@@ -69,4 +69,4 @@ $f(x) := f(x - 1) + f(x - 2)$
 Diese Folge wird <a href="http://de.wikipedia.org/wiki/Fibonacci-Folge">Fibonacci-Folge</a> genannt. Es ist schon sehr erstaunlich, wie beeinflussbar wir von Symbolen und Konventionen sind.
 
 Und weil sie so sch&ouml;n sind, hier noch ein kurzes Video zu den Fibonacci-Zahlen:
-<iframe width="512" height="288" src="http://www.youtube.com/embed/kkGeOWYOFoA" frameborder="0" allowfullscreen></iframe>
+<iframe width="512" height="288" src="//www.youtube.com/embed/kkGeOWYOFoA" frameborder="0" allowfullscreen></iframe>

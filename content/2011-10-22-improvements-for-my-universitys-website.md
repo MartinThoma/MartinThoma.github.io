@@ -12,13 +12,13 @@ I am now studying at the <a href="http://en.wikipedia.org/wiki/Karlsruhe_Institu
 <h2>Use OpenID</h2>
 I have 9 different accounts with 7 different passwords for university. After my first week.
 
-I guess it is impossible to use the same login system for all services of the university as we have many different teams of developers. But it is easily possible to get an OpenID provider. The students could have an URL like student.kit.edu/openid/u.... or something similar. The login would always happen at one place and this server could tell the other services that the right user is trying to get access. 
+I guess it is impossible to use the same login system for all services of the university as we have many different teams of developers. But it is easily possible to get an OpenID provider. The students could have an URL like student.kit.edu/openid/u.... or something similar. The login would always happen at one place and this server could tell the other services that the right user is trying to get access.
 
 Some more information about OpenID is here:
 <ul>
   <li><a href="http://en.wikipedia.org/wiki/OpenID">Wikipedia</a> (the <a href="http://de.wikipedia.org/wiki/OpenID">German article</a> is much better)</li>
-  <li><a href="http://www.youtube.com/watch?v=xcmY8Pk-qEk">OpenID According to Dave</a> (4:35 min)</li>
-  <li><a href="http://www.youtube.com/watch?v=DslTkwON1Bk">The Implications of OpenID</a> (51:19 min)</li>
+  <li><a href="//www.youtube.com/watch?v=xcmY8Pk-qEk">OpenID According to Dave</a> (4:35 min)</li>
+  <li><a href="//www.youtube.com/watch?v=DslTkwON1Bk">The Implications of OpenID</a> (51:19 min)</li>
 </ul>
 
 <h2>Customization</h2>
@@ -96,7 +96,7 @@ At the moment KIT makes use of such URLs:
 
 This can be done by modifying the .htaccess-file (for the decision to redirect calls prefixed with www to a non-www page).
 
-In many cases you can use the URL which I would prefer, but you're redirected to the other one. This means if a professor is copying the ugly link to his presentation, all students will have to write it down. 
+In many cases you can use the URL which I would prefer, but you're redirected to the other one. This means if a professor is copying the ugly link to his presentation, all students will have to write it down.
 
 <h3>Helpfull 404 Page</h3>
 At the moment I get only: "404 NOT FOUND". This is not very helpful. You should provide a <a href="../custom-404-error-pages/" title="Custom 404 error pages">custom 404 error page</a>.
@@ -106,8 +106,8 @@ I would like to get the latest news about KIT, but I don't want to search for it
 
 The start page should have an auto-detectable RSS-Feed. It can be added with the following HTML-Tag in the head-section of the document:
 ```html
-<link rel="alternate" type="application/rss+xml" 
-  title="KIT News Feed" 
+<link rel="alternate" type="application/rss+xml"
+  title="KIT News Feed"
   href="/rss/" />
 ```
 

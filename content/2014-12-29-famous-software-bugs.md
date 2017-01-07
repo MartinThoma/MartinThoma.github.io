@@ -21,7 +21,7 @@ featured_image: 2012/06/mars-climate-orbiter.jpg
 **Source**: <a href="http://en.wikipedia.org/wiki/Mars_Climate_Orbiter">Wikipedia</a>
 
 ## Ariane V88
-<iframe width="512" height="384" src="http://www.youtube.com/embed/kYUrqdUyEpI" frameborder="0" allowfullscreen></iframe>
+<iframe width="512" height="384" src="//www.youtube.com/embed/kYUrqdUyEpI" frameborder="0" allowfullscreen></iframe>
 
 The <a href="http://de.wikipedia.org/wiki/Ariane_V88">Ariane V88</a> exploded 40 seconds after its start.
 

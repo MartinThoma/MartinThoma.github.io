@@ -11,14 +11,14 @@ Das Quine-McCluskey-Verfahren wird angewendet, wenn man eine Schaltfunktion mini
 
 <h2>Verfahren</h2>
 <strong>Gegeben</strong>: Eine Schaltfunktion $f:\{0,1\}^n \rightarrow \{0,1\}, \; n \in \mathbb{N}$
-<strong>Schritt 1:</strong> Aufstellen der Funktionstabelle. Sie hat die Spalten 
+<strong>Schritt 1:</strong> Aufstellen der Funktionstabelle. Sie hat die Spalten
 <ul>
   <li>&bdquo;Nr.&ldquo;, die bei 0 beginnt und bis $2^n - 1$ geht.</li>
   <li>Eine Spalte pro Funktionsparameter (z.B. $a, b, c, ...$)</li>
   <li>Eine Spalte f&uuml;r den Funktionswert $f(a,b,c,...)$</li>
 </ul>
 
-<strong>Schritt 2</strong>: Aufstellen der ersten Quinesche Tabelle 0ter Ordnung. 
+<strong>Schritt 2</strong>: Aufstellen der ersten Quinesche Tabelle 0ter Ordnung.
 
 Sie hat die Spalten
 <ul>
@@ -61,7 +61,7 @@ Nun macht man in den Zellen ein Kreuz, in denen der Primimplikant den Minterm ab
 
 <strong>Schritt 5</strong>: Vereinfachen der zweiten Quineschen Tabelle
 
-Dieser Schritt erinnert mich irgendwie an Sudoku. 
+Dieser Schritt erinnert mich irgendwie an Sudoku.
 <ul>
   <li><em>Zeilendominanz</em>: Hat eine Zeile a nur x-e an Stellen, wo auch eine andere Zeile b x-e hat und ist Zeile b nicht teurer als a, so kann Zeile a gestrichen werden. Also: Es wird die Zeile mit weniger x gestrichen</li>
   <li><em>Spaltendominanz</em>: &Uuml;berdeckt eine Spalte eine andere Spalte mit ihren x-en, so kann die Spalte mit <u>mehr</u> x-en gestrichen werden.</li>
@@ -104,4 +104,4 @@ $g(d,c,b,a) := dc \bar b a \lor d \bar c ba \lor d \bar c \bar b a \lor \bar d c
         </figure>
 
 <h2>Quellen</h2>
-Ich habe diesen Artikel mit meinem Wissen aus den Folien (DT-VL12), der <a href="http://www.youtube.com/watch?v=K1NAj4ecPDw&list=PL025B377F9094FCB9&index=13">Vorlesung</a> und dem Tutorium erstellt. 
+Ich habe diesen Artikel mit meinem Wissen aus den Folien (DT-VL12), der <a href="//www.youtube.com/watch?v=K1NAj4ecPDw&list=PL025B377F9094FCB9&index=13">Vorlesung</a> und dem Tutorium erstellt.

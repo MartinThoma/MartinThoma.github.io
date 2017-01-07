@@ -13,4 +13,4 @@ This cat obviously loves being thrown on a bed.
 
 Have fun with the Lolcat-Clip:
 
-<iframe width="560" height="315" src="http://www.youtube.com/embed/kYSoy71ib7A?rel=0" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="//www.youtube.com/embed/kYSoy71ib7A?rel=0" frameborder="0" allowfullscreen></iframe>

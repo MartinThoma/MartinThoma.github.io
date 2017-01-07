@@ -7,9 +7,9 @@ category: Cyberculture
 tags: IT-Security, backup
 featured_image: 2013/07/hdd.png
 ---
-Yesterday, I thought what would happen if my internal or external hard drive crashed. 
+Yesterday, I thought what would happen if my internal or external hard drive crashed.
 
-The hard disk of this computer contains 53 GB of data (on Linux: <code>df -H</code>). As my home folder only contains 35.3 GB of data, 17.7 GB seem to be programs. 21.1 GB the remaining data is for movies and 6.1 GB are for programming (and backed up via GitHub). Hence the by far biggest part of the lost data would be movies, the rest would be scattered across my home folder. 
+The hard disk of this computer contains 53 GB of data (on Linux: <code>df -H</code>). As my home folder only contains 35.3 GB of data, 17.7 GB seem to be programs. 21.1 GB the remaining data is for movies and 6.1 GB are for programming (and backed up via GitHub). Hence the by far biggest part of the lost data would be movies, the rest would be scattered across my home folder.
 
 The situation is similar for my external hard drive: A lot of video files, some audio files, A LOT of pictures and many, many miscellaneous files. I don't want to lose data, but I don't use my external HDD often. Most of the time I only have to do a <abbr title="regular expression">RegEx</abbr> search for file names (sometimes also a full text search for some files I found via RegEx) just to find out that the file I'm looking for is not there.
 
@@ -135,15 +135,15 @@ What could go wrong?
 
 <h2>Offline</h2>
 <h3>RAID</h3>
-All <a href="http://en.wikipedia.org/wiki/RAID">RAID</a> levels (except for RAID 0) offer redundancy. This means, they store data on more than one hard disk. This way, you can restore data after on (or if maybe more) hard disk crashes. But this is by no mean a guarantee that your data is secure. 
+All <a href="http://en.wikipedia.org/wiki/RAID">RAID</a> levels (except for RAID 0) offer redundancy. This means, they store data on more than one hard disk. This way, you can restore data after on (or if maybe more) hard disk crashes. But this is by no mean a guarantee that your data is secure.
 
 It's recommended to use RAID with a RAID controller (a dedicated piece of hardware). Otherwise, you need some software that does it and your CPU time gets wasted with these operations.
 
 What could go wrong:
 <ul>
   <li>One disk fails. You buy a new one to get security back, the RAID controller copies information to the new disk that replaced the crashed one. While it copies, the other disk gets heavy load. This heavy load might lead to another crash. Boom. Your data is lost.</li>
-  <li>Your computer might get damaged (e.g. by a fire, by an earthquake, by overvoltage, by a cup of tea you accidentally threw over it, by an <a href="http://www.youtube.com/watch?v=HtTUsOKjWyQ">act of agression</a>)</li>
-  <li>A burglar would probably steal all hardware you have at home.</li> 
+  <li>Your computer might get damaged (e.g. by a fire, by an earthquake, by overvoltage, by a cup of tea you accidentally threw over it, by an <a href="//www.youtube.com/watch?v=HtTUsOKjWyQ">act of agression</a>)</li>
+  <li>A burglar would probably steal all hardware you have at home.</li>
 </ul>
 
 But RAID is no option for me as I use a notebook as my main computer.

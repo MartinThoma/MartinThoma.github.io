@@ -332,7 +332,7 @@ Verschlüsselung eines Ciphertextes $c$: $Dec(sk, (Y, Z)) = \frac{Z}{Y^x} = \fra
   <li>TODO!!!!</li>
 </ul>
 
-Ein <a href="http://www.youtube.com/watch?v=kp5d8Yv3-0c">gutes YouTube-Video</a> gibts auch.
+Ein <a href="https://www.youtube.com/watch?v=kp5d8Yv3-0c">gutes YouTube-Video</a> gibts auch.
 </div>
 </div>
 

@@ -25,6 +25,6 @@ and if you had a 3,5 inch floppy...
 
 If you like this kind of humor, you might want to watch this video:
 
-<iframe width="640" height="360" src="http://www.youtube.com/embed/kAG39jKi0lI?rel=0" frameborder="0" allowfullscreen></iframe>
+<iframe width="640" height="360" src="//www.youtube.com/embed/kAG39jKi0lI?rel=0" frameborder="0" allowfullscreen></iframe>
 
 Thanks to Javier Benek for <a href="http://www.flickr.com/photos/xbenek/2449405807/sizes/m/in/photostream/">the picture</a>.

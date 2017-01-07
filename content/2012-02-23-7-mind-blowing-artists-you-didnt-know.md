@@ -7,7 +7,7 @@ category: My bits and bytes
 tags: Art
 ---
 <h2>Anamorphic Art</h2>
-<a href="http://en.wikipedia.org/wiki/Anamorphosis">Anamorphosis</a> is a distorted projection or perspective requiring the viewer to use special devices or occupy a specific vantage point to reconstitute the image. 
+<a href="http://en.wikipedia.org/wiki/Anamorphosis">Anamorphosis</a> is a distorted projection or perspective requiring the viewer to use special devices or occupy a specific vantage point to reconstitute the image.
 
 Here is a good example by <a href="http://www.varini.org/">Felice Varini</a>:
 <figure class="aligncenter">
@@ -31,7 +31,7 @@ You might already know body painting. <a href="http://www.guidodaniele.com/?page
         </figure>
 
 <h2>Hair Sculptures</h2>
-<a href="http://en.wikipedia.org/wiki/Willard_Wigan">Willard Wigan</a> is a sculptor from Birmingham, England, who makes microscopic art. His sculptures are typically placed in the eye of a needle or on the head of a pin. A single sculpture can be as small as 0.005 mm. Here is an example from his <a href="http://www.willard-wigan.com/gallery.aspx">gallery</a>: 
+<a href="http://en.wikipedia.org/wiki/Willard_Wigan">Willard Wigan</a> is a sculptor from Birmingham, England, who makes microscopic art. His sculptures are typically placed in the eye of a needle or on the head of a pin. A single sculpture can be as small as 0.005 mm. Here is an example from his <a href="http://www.willard-wigan.com/gallery.aspx">gallery</a>:
 <figure class="aligncenter">
             <a href="../images/2012/02/Harry-Potter.jpg"><img src="../images/2012/02/Harry-Potter.jpg" alt="Harry Potter by Willard Wigan" style="max-width:512px;max-height:319px" class="size-full wp-image-15601"/></a>
             <figcaption class="text-center">Harry Potter by Willard Wigan</figcaption>
@@ -53,4 +53,4 @@ Robert J. Lang seems to invest a serious amount of time in <a href="http://en.wi
 
 <h2>Domino Day</h2>
 This is not done by one artist, but it should be mentioned:
-<iframe width="512" height="377" src="http://www.youtube.com/embed/yeF7yLkEECs" frameborder="0" allowfullscreen></iframe>
+<iframe width="512" height="377" src="//www.youtube.com/embed/yeF7yLkEECs" frameborder="0" allowfullscreen></iframe>

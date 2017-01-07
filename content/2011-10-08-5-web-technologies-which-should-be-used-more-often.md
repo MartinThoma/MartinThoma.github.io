@@ -26,7 +26,7 @@ Everyone who wants to get informed about updates on websites has to use RSS Feed
 It is really annoying to register on every single page you use. The idea behind OpenID is having one account for registering on many domains. If you want to log-in in Blogger, you are sent to Google. You type in your username and password and Google sends you back to Blogger.
 
 Here is another explanation:
-<iframe title="YouTube video player" class="youtube-player" type="text/html" width="512" height="414" src="http://www.youtube.com/embed/xcmY8Pk-qEk" frameborder="0" allowFullScreen></iframe>
+<iframe title="YouTube video player" class="youtube-player" type="text/html" width="512" height="414" src="//www.youtube.com/embed/xcmY8Pk-qEk" frameborder="0" allowFullScreen></iframe>
 
 The process seems to be too complex for many users, so Google developed the <a href="http://code.google.com/intl/de-DE/apis/identitytoolkit/index.html">Google Identity Toolkit</a> (GIT). The technique is really nice, but I don't like the idea that I have to force my users to use Google (or a service of them). Though I use Google for almost everything.
 

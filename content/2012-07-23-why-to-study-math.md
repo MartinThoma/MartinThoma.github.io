@@ -7,14 +7,14 @@ category: Cyberculture
 tags: YouTube, Clip, mathematics
 featured_image: 2012/07/math-symbol-thumb.png
 ---
-<iframe width="512" height="288" src="http://www.youtube.com/embed/aYIv4jggQJc" frameborder="0" allowfullscreen></iframe>
+<iframe width="512" height="288" src="//www.youtube.com/embed/aYIv4jggQJc" frameborder="0" allowfullscreen></iframe>
 
 
 ## Math is beautiful
 
 See also:
 <ul>
-  <li><a href="http://www.youtube.com/watch?v=I1UzGC15sBI&feature=youtu.be&t=3m18s">Different sizes of infinity</a></li>
+  <li><a href="//www.youtube.com/watch?v=I1UzGC15sBI&feature=youtu.be&t=3m18s">Different sizes of infinity</a></li>
   <li><a href="http://youtu.be/ud-GOdM255c">Beauty in Maths: math animation no.7</a> - 5D Visualization of three equations</li>
 </ul>
 
@@ -39,7 +39,7 @@ Although I guess you could continue this list, but the most important reason is 
 
 
 ## Math is worth a lot of money
-<iframe width="512" height="384" src="http://www.youtube.com/embed/BbX44YSsQ2I" frameborder="0" allowfullscreen></iframe>
+<iframe width="512" height="384" src="//www.youtube.com/embed/BbX44YSsQ2I" frameborder="0" allowfullscreen></iframe>
 
 ## Math is fun
 <figure class="aligncenter">
@@ -52,7 +52,7 @@ Although I guess you could continue this list, but the most important reason is 
             <figcaption class="text-center">The top 10 signs you&rsquo;re a mathematician/computer scientist</figcaption>
         </figure>
 
-<iframe width="512" height="288" src="http://www.youtube.com/embed/mpITo-RN-bY" frameborder="0" allowfullscreen></iframe>
+<iframe width="512" height="288" src="//www.youtube.com/embed/mpITo-RN-bY" frameborder="0" allowfullscreen></iframe>
 
 ## Money
 

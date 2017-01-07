@@ -4,13 +4,14 @@ title: Programmieren Tutorium
 author: Martin Thoma
 date: 2012-10-21 20:59:33.000000000 +02:00
 category: German posts
-tags: KIT, Java
+tags: KIT, Java, depublication
 featured_image: 2011/10/KIT-Logo.png
 ---
 <div class="info">Programmieren ist ein Modul am <a href="http://de.wikipedia.org/wiki/Karlsruher_Institut_f%C3%BCr_Technologie">KIT</a>. Dieser Blogpost richtet sich also vor allem an Studenten des KIT, die im WS 2012/2013 dieses Modul belegen und mein Tutorium besuchen. Er wird regelmäßig aktualisiert.</div>
 
 <h2>Vorlesung</h2>
-<iframe width="512" height="288" src="http://www.youtube.com/embed/videoseries?list=PL22ZNLSohCREsVdSWmjbuST0ba64OctHk&amp;hl=en_US" frameborder="0" allowfullscreen></iframe>
+Es gab die Vorlesung mal online unter `http://www.youtube.com/embed/videoseries?list=PL22ZNLSohCREsVdSWmjbuST0ba64OctHk&amp;hl=en_US`, aber die wurde
+wohl entfernt (`#depublication`).
 
 <h2>Daten</h2>
 Es gibt momentan (Stand: 10.10.2012) 820 Studenten, in der Programmieren-Vorlesung:
@@ -61,7 +62,7 @@ Ich habe ein paar Artikel geschrieben, die für euch interessant sein könnten:
 <ul>
   <li><a href="http://docs.oracle.com/javase/7/docs/">JavaDoc</a> und <a href="http://docs.oracle.com/javase/7/docs/api/">Java API</a></li>
   <li><a href="http://stackoverflow.com/">StackOverflow</a></li>
-  <li><a href="http://www.youtube.com/watch?v=aAb7hSCtvGw">How To Design A Good API and Why it Matters</a></li>
+  <li><a href="//www.youtube.com/watch?v=aAb7hSCtvGw">How To Design A Good API and Why it Matters</a></li>
 </ul>
 
 <h2>Für Tutoren</h2>

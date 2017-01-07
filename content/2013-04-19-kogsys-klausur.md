@@ -242,8 +242,8 @@ Offiziell nicht Klausurrelevant.
   <li><a href="https://github.com/elm/KogSys-Zusammenfassung">Zusammenfassung</a></li>
   <li>Videos
     <ul>
-      <li><a href="http://www.youtube.com/watch?v=aVId8KMsdUU">Neural network tutorial: The back-propagation algorithm</a></li>
-      <li><a href="http://www.youtube.com/watch?v=46Jzu-xWIBk">The backpropagation algorithm</a></li>
+      <li><a href="//www.youtube.com/watch?v=aVId8KMsdUU">Neural network tutorial: The back-propagation algorithm</a></li>
+      <li><a href="//www.youtube.com/watch?v=46Jzu-xWIBk">The backpropagation algorithm</a></li>
     </ul>
   </li>
   <li>Pseudocode f&uuml;r

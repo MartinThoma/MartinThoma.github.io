@@ -150,9 +150,9 @@ There is so much wrong with the Windows Shells:
         </figure>
 
 <h2>A wrap-up for Windows 8</h2>
-<iframe width="512" height="288" src="http://www.youtube.com/embed/WTYet-qf1jo" frameborder="0" allowfullscreen></iframe>
+<iframe width="512" height="288" src="//www.youtube.com/embed/WTYet-qf1jo" frameborder="0" allowfullscreen></iframe>
 
 <h2>Microsoft Bob</h2>
 Have you ever heard of <a href="http://en.wikipedia.org/wiki/Microsoft_Bob">Microsoft Bob</a>? I guess we should not complain about Windows 8 desktop, if you have seen this desktop environment interface...
 
-<iframe width="512" height="384" src="http://www.youtube.com/embed/ZegWedG-jk4" frameborder="0" allowfullscreen></iframe>
+<iframe width="512" height="384" src="//www.youtube.com/embed/ZegWedG-jk4" frameborder="0" allowfullscreen></iframe>

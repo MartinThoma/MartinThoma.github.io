@@ -81,6 +81,6 @@ Finally, a little story. Some weeks ago, a prof had some problems showing his sl
 Microsoft creates a lot of different editions for their software. "Ultimate" seems to be always the best.
 Microsoft makes things too complicated, without any reason to do so. This video shows what I mean:
 
-<iframe width="512" height="384" src="http://www.youtube.com/embed/G9HfdSp2E2A" frameborder="0" allowfullscreen></iframe>
+<iframe width="512" height="384" src="//www.youtube.com/embed/G9HfdSp2E2A" frameborder="0" allowfullscreen></iframe>
 
 I don't understand why a company with that much money, great developers and a lot of user feedback is not able to produce satisfactory, working software.

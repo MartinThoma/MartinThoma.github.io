@@ -17,28 +17,28 @@ Enjoy the clips!
 
 <h2>
 Berlitz</h2>
-<iframe width="512" height="414" src="http://www.youtube.com/embed/pMhICbFn2JI" frameborder="0" allowfullscreen></iframe>
+<iframe width="512" height="414" src="//www.youtube.com/embed/pMhICbFn2JI" frameborder="0" allowfullscreen></iframe>
 
 <h2>
 Nando's</h2>
-<iframe width="512" height="321" src="http://www.youtube.com/embed/jsqosiEyGLs" frameborder="0" allowfullscreen></iframe>
+<iframe width="512" height="321" src="//www.youtube.com/embed/jsqosiEyGLs" frameborder="0" allowfullscreen></iframe>
 
 <h2>
 IKEA - Tidy Up</h2>
-<iframe width="512" height="414" src="http://www.youtube.com/embed/WzMuax75s3M" frameborder="0" allowfullscreen></iframe>
+<iframe width="512" height="414" src="//www.youtube.com/embed/WzMuax75s3M" frameborder="0" allowfullscreen></iframe>
 
 <h2>
 Ameriquest</h2>
-<iframe width="512" height="414" src="http://www.youtube.com/embed/QOixDP-SdKw" frameborder="0" allowfullscreen></iframe>
+<iframe width="512" height="414" src="//www.youtube.com/embed/QOixDP-SdKw" frameborder="0" allowfullscreen></iframe>
 Don't judge too fast!
 
 <h2>
 Optician</h2>
-<iframe width="512" height="414" src="http://www.youtube.com/embed/RV6MZHRE3jU" frameborder="0" allowfullscreen></iframe>
+<iframe width="512" height="414" src="//www.youtube.com/embed/RV6MZHRE3jU" frameborder="0" allowfullscreen></iframe>
 
 <h2>
 CPS</h2>
-<iframe width="512" height="321" src="http://www.youtube.com/embed/M_DCFHqVBIE" frameborder="0" allowfullscreen></iframe>
+<iframe width="512" height="321" src="//www.youtube.com/embed/M_DCFHqVBIE" frameborder="0" allowfullscreen></iframe>
 
 <h2>
 Kellogs</h2>

@@ -9,7 +9,7 @@ tags: learning
 <a href="http://duolingo.com/">Duolingo</a> is a great online protal for learning new languages online. They currently support German, Spanish, French, Portuguese, Italian and Chinese.
 
 Here is a short explanation of Duolingo:
-<iframe width="512" height="288" src="http://www.youtube.com/embed/WyzJ2Qq9Abs" frameborder="0" allowfullscreen></iframe>
+<iframe width="512" height="288" src="//www.youtube.com/embed/WyzJ2Qq9Abs" frameborder="0" allowfullscreen></iframe>
 
 The inventor of duolingo, Luis von Ahn, did also a great TED-Talk in which he explains the concepts:
 

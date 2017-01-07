@@ -166,7 +166,7 @@ Falls hier was fehlt, könnt ihr mich gerne in den Kommentaren oder per Mail (in
   <li><a href="https://studium.kit.edu/sites/vab/0x2E18BE2A290A424EB98916CA7A6FF3FD/Start/homepage.aspx">Vorlesungswebsite</a></li>
   <li><a href="https://studium.kit.edu/sites/vab/0x2E18BE2A290A424EB98916CA7A6FF3FD/Lists/Forum/AllItems.aspx">Forum</a></li>
   <li><a href="https://ankiweb.net/shared/info/1739663871">Mein Anki-Deck</a></li>
-  <li>Ein <a href="http://www.youtube.com/watch?v=0apqZ4jsGmI">Video über CRC</a></li>
+  <li>Ein <a href="//www.youtube.com/watch?v=0apqZ4jsGmI">Video über CRC</a></li>
   <li>Der Wikipedia-Artikel <a href="http://de.wikipedia.org/wiki/Routing">Routing</a> beinhaltet viele wichtige Informationen.</li>
   <li><a href="http://packetcrafter.wordpress.com/2011/02/13/tcp-flags-hackers-playground/">TCP flags: Hackers Playground</a></li>
   <li><a href="http://www.work-at-google.com/curriculum-vitae.html">René Pickhardt</a> und weitere: <a href="https://en.wikiversity.org/wiki/Web_Science">Web Science MOOC</a> auf der Wikiversity.</li>

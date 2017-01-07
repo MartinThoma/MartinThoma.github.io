@@ -507,5 +507,5 @@ Wenn es euch irgendwie kümmert, was in Deutschland passiert, solltet ihr wähle
 
 <h2>Links</h2>
 <ul>
-  <li><a href="http://www.youtube.com/watch?v=X9Xhlz4uEmc">Aussagelose Wahlslogans</a></li>
+  <li><a href="//www.youtube.com/watch?v=X9Xhlz4uEmc">Aussagelose Wahlslogans</a></li>
 </ul>

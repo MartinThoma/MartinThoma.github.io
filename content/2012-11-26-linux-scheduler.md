@@ -31,7 +31,7 @@ Moritz
 
 <h2>Video</h2>
 Ich habe mal ein Video von Moritz' Programm gemacht:
-<iframe width="420" height="315" src="http://www.youtube.com/embed/DOOrbrcM3YU" frameborder="0" allowfullscreen></iframe>
+<iframe width="420" height="315" src="//www.youtube.com/embed/DOOrbrcM3YU" frameborder="0" allowfullscreen></iframe>
 
 <h2>Referenzen</h2>
 [1] <a name="ref1" href="#anchor1">&uarr;</a>: &bdquo;<a href="http://en.wikipedia.org/wiki/O%281%29_scheduler">O(1) Scheduler</a>&ldquo; in: Wikipedia, the free encyclopedia.  Abgerufen am 13.&nbsp;November 2012.   

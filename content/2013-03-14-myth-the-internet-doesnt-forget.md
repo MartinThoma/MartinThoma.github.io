@@ -4,10 +4,10 @@ title: Myth: The Internet doesn''t forget
 author: Martin Thoma
 date: 2013-03-14 12:01:58.000000000 +01:00
 category: The Web
-tags: YouTube, Copyright
+tags: YouTube, Copyright, depublication
 featured_image: 2013/03/youtube-logo.png
 ---
-I've created a <a href="http://www.youtube.com/watch?v=QDV4E9ldelM&list=PL1EB0B7290460E720">playlist</a> with 51 songs on YouTube about two years ago.
+I've created a <a href="https://www.youtube.com/watch?v=QDV4E9ldelM&list=PL1EB0B7290460E720">playlist</a> with 51 songs on YouTube about two years ago.
 
 Let's see the stats:
 <ul>
@@ -84,27 +84,27 @@ Let's see the stats:
     </tr>
     <tr>
       <td>Cheney's Got A Gun</td>
-      <td><a href="http://www.youtube.com/watch?v=7fcYKVj23FU">Available</a>!</td>
+      <td><a href="https://www.youtube.com/watch?v=7fcYKVj23FU">Available</a>!</td>
     </tr>
     <tr>
       <td>My Favorite Things</td>
-      <td><a href="http://www.youtube.com/watch?v=6C48AMyV64Q">Available</a>!</td>
+      <td><a href="https://www.youtube.com/watch?v=6C48AMyV64Q">Available</a>!</td>
     </tr>
     <tr>
       <td>Osama Bin Laden Song</td>
-      <td><a href="http://www.youtube.com/watch?v=46OMP4SQCu0">Available</a>!</td>
+      <td><a href="https://www.youtube.com/watch?v=46OMP4SQCu0">Available</a>!</td>
     </tr>
     <tr>
       <td>Harry Potter Parody Song: Stay - Katy Cartee Haile</td>
-      <td><a href="http://www.youtube.com/watch?v=eEyHtrmNbCs">Available</a>!</td>
+      <td><a href="https://www.youtube.com/watch?v=eEyHtrmNbCs">Available</a>!</td>
     </tr>
     <tr>
       <td>Wii 'Fat' Song</td>
-      <td><a href="http://www.youtube.com/watch?v=pDe7MPPZYgE">Available</a>!</td>
+      <td><a href="https://www.youtube.com/watch?v=pDe7MPPZYgE">Available</a>!</td>
     </tr>
     <tr>
       <td>Billy Talent - Fallen Leaves</td>
-      <td><a href="http://www.youtube.com/watch?v=UJZYKdLJljQ">Available</a>!</td>
+      <td><a href="https://www.youtube.com/watch?v=UJZYKdLJljQ">Available</a>!</td>
     </tr>
   </tbody>
 </table>
