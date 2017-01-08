@@ -1,5 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/cyberculture.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2017-01-07T08:30:00+01:00</updated><entry><title>This Blog - Technical Stuff</title><link href="https://martin-thoma.com/this-blog/" rel="alternate"></link><published>2017-01-07T08:30:00+01:00</published><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-01-07:this-blog/</id><summary type="html">&lt;p&gt;This article gives all information what I'm currently using to provide this
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/cyberculture.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2017-01-08T06:00:00+01:00</updated><entry><title>How to typeset chess games with LaTeX</title><link href="https://martin-thoma.com/typeset-chess-games/" rel="alternate"></link><published>2017-01-08T06:00:00+01:00</published><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-01-08:typeset-chess-games/</id><summary type="html">&lt;h2 id="chessboard"&gt;Chessboard&lt;/h2&gt;
+&lt;h3 id="simple-example"&gt;Simple example&lt;/h3&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;img alt="Chessboard - simple example" src="../images/2012/09/chess-chessboard-simple-example.png"/&gt;
+&lt;figcaption class="text-center"&gt;Chessboard - simple example&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;\documentclass&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;article&lt;span class="nb"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;\usepackage&lt;/span&gt;&lt;span class="na"&gt;[pdftex,active,tightpage]&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;preview&lt;span class="nb"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;\setlength\PreviewBorder&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;5mm&lt;span class="nb"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;\usepackage&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;chessboard&lt;span class="nb"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;\begin&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;document&lt;span class="nb"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;\begin&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;preview&lt;span class="nb"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;\chessboard&lt;/span&gt;[setfen=5rk1/pp3N1p/4P3/2P5/3Q1PK1/P7/1Pr3pq/R3R3 w - - 0 0,
+            showmover]
+
+&lt;span class="k"&gt;\end&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;preview&lt;span class="nb"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;\end&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;document&lt;span class="nb"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;From &lt;a href="http://tex.stackexchange.com/a/54192/5645"&gt;tex.stackexchange.com&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="skak_1"&gt;Skak&lt;/h2&gt;
+&lt;h3 id="simple-example_1"&gt;Simple example&lt;/h3&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;img alt="Simple example with skak" src="../images/2012/09/chess-skak-simple-example.png"/&gt;
+&lt;figcaption class="text-center"&gt;Simple example with skak&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;\documentclass&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;article&lt;span class="nb"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;\usepackage&lt;/span&gt;&lt;span class="na"&gt;[pdftex,active,tightpage]&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;preview&lt;span class="nb"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;\setlength\PreviewBorder&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;5mm&lt;span class="nb"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;\usepackage&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;skak&lt;span class="nb"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;\begin&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;document&lt;span class="nb"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;\begin&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;preview&lt;span class="nb"&gt;}&lt;/span&gt;
+
+&lt;span class="c"&gt;% sets the internal board or a new game&lt;/span&gt;
+&lt;span class="k"&gt;\newgame&lt;/span&gt;
+&lt;span class="c"&gt;% typesets the moves and updates the board&lt;/span&gt;
+&lt;span class="k"&gt;\mainline&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;1.e4 e5 2. Nf3 Nc6 3.Bb5&lt;span class="nb"&gt;}&lt;/span&gt;&lt;span class="k"&gt;\\&lt;/span&gt;
+&lt;span class="c"&gt;% show the current board position&lt;/span&gt;
+&lt;span class="k"&gt;\showboard&lt;/span&gt;
+
+&lt;span class="k"&gt;\end&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;preview&lt;span class="nb"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;\end&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;document&lt;span class="nb"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="see-also_1"&gt;See also&lt;/h2&gt;
+&lt;p&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="ftp://ftp.rrzn.uni-hannover.de/pub/mirror/tex-archive/macros/latex/contrib/chessboard/chessboard.pdf"&gt;Chessboard documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="ftp://ftp.tu-chemnitz.de/pub/tex/fonts/chess/skak/doc/skakdoc.pdf"&gt;Skak documentation&lt;/a&gt; - &lt;a href="ftp://ftp.mpi-sb.mpg.de/pub/tex/mirror/ftp.dante.de/pub/tex/fonts/chess/skak/doc/refman.pdf"&gt;short reference&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;</summary><category term="LaTeX"></category></entry><entry><title>This Blog - Technical Stuff</title><link href="https://martin-thoma.com/this-blog/" rel="alternate"></link><published>2017-01-07T08:30:00+01:00</published><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-01-07:this-blog/</id><summary type="html">&lt;p&gt;This article gives all information what I'm currently using to provide this
 blog to you.&lt;/p&gt;
 &lt;table&gt;
 &lt;tr&gt;
