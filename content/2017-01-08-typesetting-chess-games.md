@@ -1,19 +1,23 @@
 ---
 layout: post
 title: How to typeset chess games with LaTeX
+slug: typeset-chess-games
 author: Martin Thoma
-date: 2012-09-11 08:18:38
-categories: 
-- Cyberculture
-tags: 
-- LaTeX
-featured_image: 
+date: 2017-01-08 06:00:00
+category: Cyberculture
+tags: LaTeX
+featured_image: logos/latex.png
 ---
 <h2>Chessboard</h2>
 <h3>Simple example</h3>
-{% caption align="aligncenter" width="296" caption="Chessboard - simple example" url="../images/2012/09/chess-chessboard-simple-example.png" alt="Chessboard - simple example"  height="268" class="size-full wp-image-44411 "  %}
 
-{% highlight text %}\documentclass{article}
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2012/09/chess-chessboard-simple-example.png" alt="Chessboard - simple example" />
+    <figcaption class="text-center">Chessboard - simple example</figcaption>
+</figure>
+
+```
+\documentclass{article}
 \usepackage[pdftex,active,tightpage]{preview}
 \setlength\PreviewBorder{5mm}
 
@@ -26,15 +30,24 @@ featured_image:
             showmover]
 
 \end{preview}
-\end{document}{% endhighlight %}
+\end{document}
+```
 
 
 From <a href="http://tex.stackexchange.com/a/54192/5645">tex.stackexchange.com</a>.
-<h2>Skak</h2>
-<h3>Simple example</h3>
-{% caption align="aligncenter" width="254" caption="Simple example with skak" url="../images/2012/09/chess-skak-simple-example.png" alt="Simple example with skak"  height="289" class="size-full wp-image-44401 "  %}
 
-{% highlight text %}\documentclass{article}
+
+## Skak
+
+### Simple example
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2012/09/chess-skak-simple-example.png" alt="Simple example with skak" />
+    <figcaption class="text-center">Simple example with skak</figcaption>
+</figure>
+
+```
+\documentclass{article}
 \usepackage[pdftex,active,tightpage]{preview}
 \setlength\PreviewBorder{5mm}
 
@@ -51,8 +64,10 @@ From <a href="http://tex.stackexchange.com/a/54192/5645">tex.stackexchange.com</
 \showboard
 
 \end{preview}
-\end{document}{% endhighlight %}
-<h2>See also</h2>
+\end{document}
+```
+
+## See also
 <ul>
   <li><a href="ftp://ftp.rrzn.uni-hannover.de/pub/mirror/tex-archive/macros/latex/contrib/chessboard/chessboard.pdf">Chessboard documentation</a></li>
   <li><a href="ftp://ftp.tu-chemnitz.de/pub/tex/fonts/chess/skak/doc/skakdoc.pdf">Skak documentation</a> - <a href="ftp://ftp.mpi-sb.mpg.de/pub/tex/mirror/ftp.dante.de/pub/tex/fonts/chess/skak/doc/refman.pdf">short reference</a></li>
