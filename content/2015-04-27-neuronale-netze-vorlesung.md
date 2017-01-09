@@ -545,7 +545,7 @@ Slide name: `V10_2015-05-26_SOM.pdf`
 Slide name: `V11_2015-05-27_RBMs`
 
 <dl>
-    <dt><a href="https://de.wikipedia.org/wiki/Hopfield-Netz"><dfn>Hopfield-Netz</dfn></a> (siehe [<a href="#ref-hop82" name="ref-hop82-anchor">Hop82</a>], [<a href="#ref-kri05" name="ref-kri05-anchor">Kri05</a>])</dt>
+    <dt><a href="https://de.wikipedia.org/wiki/Hopfield-Netz"><dfn id="hopfield-network">Hopfield-Netz</dfn></a> (siehe [<a href="#ref-hop82" name="ref-hop82-anchor">Hop82</a>], [<a href="#ref-kri05" name="ref-kri05-anchor">Kri05</a>])</dt>
     <dd>Ein Hopfield-Netz besteht nur aus einer Schicht von McCulloch-Pitts
         Neuronen. Jedes Neuron ist mit jedem anderen Neuron (also nicht sich
         selbst) und allen Inputs verbunden. Die Schicht funktioniert
