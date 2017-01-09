@@ -99,7 +99,7 @@ in full detail.
         </dd>
     <dt><dfn id="regularization">Regularization</dfn></dt>
     <dd>Regularization are techniques to make the fitted function smoother. This
-        helps to prefent overfitting.<br/>
+        helps to prevent overfitting.<br/>
         Examples: L1, L2, Dropout, Weight Decay in Neural Networks. Parameter $C$ in SVMs.</dd>
     <dt><dfn id="self-learning">Self-Learning</dfn></dt>
     <dd>One form of semi-supervised learning, where you train an initial system
