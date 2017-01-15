@@ -38,6 +38,8 @@ in full detail.
     <dd>TODO</dd>
     <dt><dfn id="dcign">DCIGN</dfn> (<dfn>Deep Convolutional Inverse Graphic Network</dfn>)</dt>
     <dd>TODO</dd>
+    <dt><dfn id="dcnn">DCNN</dfn> (<dfn>Doubly Convolutional Neural Network</dfn>)</dt>
+    <dd>Introduced in <a href="https://arxiv.org/pdf/1610.09716v1.pdf">this paper</a> (<a href="http://www.shortscience.org/paper?bibtexKey=conf/nips/ZhaiCZL16#martinthoma">summary</a>).</dd>
     <dt><dfn id="object-detection">Detection in Computer Vision</dfn> (<dfn>Object detection</dfn>)</dt>
     <dd>Object detection in an image is a computer vision task. The input
         is an image and the output is a list with rectangles which contain
@@ -101,6 +103,10 @@ in full detail.
     <dd>Regularization are techniques to make the fitted function smoother. This
         helps to prevent overfitting.<br/>
         Examples: L1, L2, Dropout, Weight Decay in Neural Networks. Parameter $C$ in SVMs.</dd>
+    <dt><dfn id="reinforcement-learning">Reinforcement Learning</dfn></dt>
+    <dd>Reinforcment learning is a sub-field of machine learning, which focuses
+        on the question how to find actions which lead to higher rewards. See
+        <a href="../probabilistische-planung/#reinforcement-learning">German lecture notes</a>.</dd>
     <dt><dfn id="self-learning">Self-Learning</dfn></dt>
     <dd>One form of semi-supervised learning, where you train an initial system
         on the labeled data, then label the unlabeled data where the classifier
