@@ -36,6 +36,7 @@ them. Not when they were published.
 <ol>
     <li>Lipton, Z.C., 2016. <a href="http://zacklipton.com/media/papers/mythos_model_interpretability_lipton2016.pdf">The Mythos of Model Interpretability</a>. IEEE Spectrum. (<a href="http://www.shortscience.org/paper?bibtexKey=journals/corr/1606.03490">summary</a>)</li>
     <li>Zhang, C., Bengio, S., Hardt, M., Recht, B. and Vinyals, O., 2016. <a href="https://arxiv.org/abs/1611.03530">Understanding deep learning requires rethinking generalization</a>. arXiv preprint arXiv:1611.03530. (<a href="http://www.shortscience.org/paper?bibtexKey=journals%2Fcorr%2F1611.03530">summary</a>)</li>
+    <li><a href="https://papers.nips.cc/paper/6112-deep-learning-without-poor-local-minima">Deep Learning without Poor Local Minima</a> and <a href="https://papers.nips.cc/paper/6048-matrix-completion-has-no-spurious-local-minimum.pdf">Matrix Completion has No Spurious Local Minimum</a></li>
 </ol>
 
 
