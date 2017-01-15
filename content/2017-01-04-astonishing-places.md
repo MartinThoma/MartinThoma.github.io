@@ -79,6 +79,19 @@ to see them with my own eyes.
 * Auroras (e.g. in Reykjavik from late September to early April)
 
 
+### Spain
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2017/01/mallorca.jpg" alt="Mallorca" />
+    <figcaption class="text-center">Mallorca (Image source: <a href="https://www.reddit.com/r/EarthPorn/comments/5mvhl7/majorca_spain_oc_3878x2586/">reddit: EarthPorn</a>)</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2017/01/caminito-del-rey.jpg" alt="Caminito del Rey" />
+    <figcaption class="text-center"><a href="https://en.wikipedia.org/wiki/Caminito_del_Rey">Caminito del Rey</a> (Image source: <a href="https://commons.wikimedia.org/wiki/File:Caminito_del_Rey_4.jpg">Wikipedia Commons</a>)</figcaption>
+</figure>
+
+
 ### Turkey
 
 <figure class="wp-caption aligncenter img-thumbnail">
