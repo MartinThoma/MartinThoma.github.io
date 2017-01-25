@@ -62,8 +62,8 @@ seen so far is nice:
 
 ## Switching from Blau.de to Lidl
 
-As Simyo recently was changed into blau.de, I am a customer of Blau.de.
-However, the service is worse than the one of Lidl, so I switched.
+As Simyo recently was changed into blau.de (E-Plus), I am a customer of
+Blau.de. However, the service is worse than the one of Lidl, so I switched.
 
 edit: I've recently heard from Marvin that the service hotline of Blau.de asks
 for the first four characters of your password. So they store the password as
@@ -74,3 +74,17 @@ keep the number (Rufnummernmitnahme). Fill out <a href="https://mein.blau.de/cms
 on the form. Your "SIM-Kartennummer" is printed on the sim card itself.
 
 I sent it on 23.12.2016 to them. I'm still (02.01.2016) waiting for a response.
+
+19.01.2016: Still waiting for a response. I tried to contact them, but the chat
+was not working. I tried to find a phone number, but there seems not to be any
+on the website. Only for new contracts. But at least that automatic number said
+that 0177 177 11 59 is customer service. More than 2 minutes until I reached
+them. Blau is so shitty. At least the person helped me. 5 minutes later I've
+got a SMS:
+
+> Lieber Blau Kunde, Ihre Freigabe der Rufnummer-Mitnahme zu einem anderen
+> Anbieter (Portierungserklärung) für 016123456789 ist eingegangen und gültig
+> bis 20.03.2017. Für die Rufnummer-Mitnahme wird eine Wechselgebühr
+> entsprechend der aktuell gültigen Preisliste berechnet.
+
+It's 25 Euro.
