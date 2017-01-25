@@ -25,6 +25,12 @@ for using `grep`:
 $ for file in *.pdf;do pdftotext "$file"; done
 ```
 
+Convert PS to PDF with ghostscript ([source](http://askubuntu.com/a/114404/10425)):
+
+```bash
+$ ps2pdf input.ps output.pdf
+```
+
 
 ## Image Files
 
