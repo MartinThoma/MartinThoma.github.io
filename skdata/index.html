@@ -103,7 +103,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#usage" title="Usage">Usage</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#usage" title="Usage">Usage</a></li><li><a class="toc-href" href="#other-projects" title="Other Projects">Other Projects</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -167,6 +167,14 @@ last commit is from July 2015.</p>
 <span class="k">print</span><span class="p">(</span><span class="n">learn_algo</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">'loss'</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">'task_name'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'tst'</span><span class="p">)</span>
 </pre></div>
 <p>... but this doesn't work (for me)</p>
+<h2 id="other-projects">Other Projects</h2>
+<p>You can access R data with <a href="https://rpy2.bitbucket.io/?"><code>rpy2</code></a>.</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rpy2.robjects</span> <span class="kn">import</span> <span class="n">r</span>
+<span class="kn">from</span> <span class="nn">rpy2.robjects</span> <span class="kn">import</span> <span class="n">pandas2ri</span>
+<span class="k">def</span> <span class="nf">data</span><span class="p">(</span><span class="n">name</span><span class="p">):</span> <span class="k">return</span> <span class="n">pandas2ri</span><span class="o">.</span><span class="n">ri2py</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="n">name</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">data</span><span class="p">(</span><span class="s1">'iris'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+</pre></div>
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="http://jaberg.github.io/skdata/">skdata documentation</a></li>
