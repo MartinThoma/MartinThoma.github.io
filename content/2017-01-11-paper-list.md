@@ -57,3 +57,10 @@ Conference on Computer Vision, Feb. 2015, pp. 1026–1034. (<a href="http://www.
 preprint arXiv:1511.06422,
 Nov. 2015. (<a href="http://www.shortscience.org/paper?bibtexKey=journals/corr/MishkinM15">summary</a>)</li>
 </ol>
+
+
+## Ideas
+
+* Establishing Human-Level scores for Benchmarks
+    * User Interfaces: What are good examples?
+    * Herarchical Classification
