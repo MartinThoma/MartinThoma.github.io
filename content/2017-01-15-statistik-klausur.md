@@ -201,29 +201,38 @@ TODO
 </table>
 
 
+## Python
+
+You might want to look into [`scipy.stats`](https://docs.scipy.org/doc/scipy/reference/stats.html)
+as it offers many convenient functions.
+
+For example, if you have to find the 95%-Quantile of the $F_{k=3,n=19}$ distribution,
+this is what you do:
+
+```python
+import scipy.stats
+
+# Create a variable representing the distribution
+rv = scipy.stats.f(dfn=3, dfd=19)
+
+# Percent point function
+rv.ppf(0.95)  # gives 3.1273500051133989
+```
+
+
 ## Material und Links
 
 * [Vorlesungswebsite](http://www.math.kit.edu/stoch/lehre/stat2016w/)
 * [Illias](https://ilias.studium.kit.edu/ilias.php?ref_id=603377&cmd=frameset&cmdClass=ilrepositorygui&cmdNode=75&baseClass=ilRepositoryGUI)
+* StackExchange
+    * [Percentile vs quantile vs quartile](http://stats.stackexchange.com/q/156778/25741)
+    * [When is Fishers exact test used; when are approximative tests used?](http://math.stackexchange.com/q/2120746/6876)
 
 
 ## Literatur
 
 * [<a href="#ref-bic01-anchor" name="ref-bic01">Bic01</a>] P.J. Bickel and K.A. Doksum. Mathematical statistics, 2nd ed.
 * [<a href="#ref-cza11-anchor" name="ref-cza11">Cza11</a>] C. Cazado and T. Schmidt. Mathematische Statistik.
-
-<!-- * [<a href="#ref-mit97-anchor" name="ref-mit97">Mit97</a>] T. Mitchell.
-  Machine Learning. McGraw-Hill, 1997.
-* [<a href="#ref-hop82-anchor" name="ref-hop82">Hop82</a>] J. J. Hopfield.
-  [Neural networks and physical systems with emergent collective computational abilities](http://www.pnas.org/content/79/8/2554.full.pdf) in Proceedings of the national academy of sciences, 1982.
-* [<a href="#ref-kri05-anchor" name="ref-kri05">Kri05</a>] D. Kriesel.
-  [Neuronale Netze](http://www.dkriesel.com/_media/science/neuronalenetze-de-zeta2-2col-dkrieselcom.pdf). 2005.
-* [<a href="#ref-bod93-anchor" name="ref-bod93">Bod93</a>] U. Bodenhausen und A. Waibel.
-  [Tuning by doing: Flexibility through automatic structure optimization](http://isl.anthropomatik.kit.edu/cmu-kit/downloads/tuning_by_Doing_Flexibility_through_automatic_structure_optimization(1).pdf) in Third European Conference on Speech Communication and Technology, 1993.
-* [<a href="#ref-haf92-anchor" name="ref-haf92">Haf92</a>] P. Haffner und A. Waibel.
-  [Multi-state time delay networks for continuous speech recognition](http://isl.anthropomatik.kit.edu/downloads/0135_Kopie_.pdf) in Advances in neural information processing systems, 1992.
-* [<a href="#ref-ham90-anchor" name="ref-ham90">Ham90</a>] J. Hampshire and A. Waibel.
-  A Novel Objective Function for Improved Phoneme Recognition Using Time Delay Neural Networks. IEEE Transactions on Neural Networks, 1990. -->
 
 
 ## Übungsbetrieb
