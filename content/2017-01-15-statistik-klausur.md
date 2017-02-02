@@ -219,6 +219,27 @@ rv = scipy.stats.f(dfn=3, dfd=19)
 rv.ppf(0.95)  # gives 3.1273500051133989
 ```
 
+## Klausur Aufbau
+
+* Momentenschätzer bestimmen
+* ML-Schätzer bestimmen
+* asymptotisch Erwartungstreue / konsistenz von Schätzern
+* MQA
+* Score-Funktion / Fischer-Information
+* Cramer-Rao-Schranke
+* Exp-Verteilung
+* 1-Stichproben t-Test
+* Neymann-Pearson-Test
+* Zentraler GWS
+* kleinser Quadrate Schätzer
+* Binomial-Verteilung
+* Satz von Student
+* F-Tests
+* Rechenregeln:
+    * $C(U_1 + U_2, V) = C(U_1, V) + C(U_2, V)$
+    * $C(AU, B^T V) = A C(U, V) B$
+
+
 
 ## Material und Links
 
