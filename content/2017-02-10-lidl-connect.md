@@ -88,3 +88,7 @@ got a SMS:
 > entsprechend der aktuell gültigen Preisliste berechnet.
 
 It's 25 Euro.
+
+
+Update, 02.02.2017: The new Lidl Connect SIM card with my old number arrived.
+Seems not to be active at the moment.
