@@ -683,3 +683,27 @@ if len(face_list) >= 2:
                            output='some_photo-overlay.jpg',
                            face_list)
 ```
+
+
+### Jarvis
+
+Basically a smart room
+
+Hardware:
+
+* In the corners of the room:
+    * Microphones
+    * Cameras
+    * Speakers
+    * Lights
+    * Connected by WLAN
+    * Display (Beamer?)
+* Software
+    * Activity recognition
+    * Objection recognition
+* Applications
+    * Where did I put XY
+    * Record what I did at which time / how long in the month
+    * Write short emails / SMS
+    * Read out emails / SMS
+    * Make entries in calendar
