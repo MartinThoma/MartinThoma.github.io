@@ -64,3 +64,4 @@ Nov. 2015. (<a href="http://www.shortscience.org/paper?bibtexKey=journals/corr/M
 * Establishing Human-Level scores for Benchmarks
     * User Interfaces: What are good examples?
     * Herarchical Classification
+* Pooling: Can it be replaced by convolutions?
