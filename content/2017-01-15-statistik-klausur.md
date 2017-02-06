@@ -263,7 +263,7 @@ rv.ppf(0.95)  # gives 3.1273500051133989
 
 ## Termine und Klausurablauf
 
-**Datum**: 01.03.2017, 7:30 - 9:30 Uhr (Quelle: <a href="http://www.math.kit.edu/stoch/lehre/stat2016w/event/statklausur1/">Vorlesungswebsite</a>)<br/>
+**Datum**: 01.03.2017, 7:30 - 9:30 Uhr (Quelle: <a href="http://www.math.kit.edu/stoch/lehre/stat2016w/event/statklausur1/">Vorlesungswebsite</a> - Ja, es ist wirklich so früh!)<br/>
 **Ort**: <a href="https://www.kithub.de/map/2086">Benz-Hörsaal Geb. 10.21</a><br/>
 **Punkte**: TODO<br/>
 **Zeit**: TODO<br/>
