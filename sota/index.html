@@ -103,7 +103,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#computer-vision" title="Computer Vision">Computer Vision</a><ul><li><a class="toc-href" href="#image-classification" title="Image Classification">Image Classification</a></li><li><a class="toc-href" href="#detection" title="Detection">Detection</a></li><li><a class="toc-href" href="#semantic-segmentation" title="Semantic Segmentation">Semantic Segmentation</a></li><li><a class="toc-href" href="#instance-segmentation" title="Instance Segmentation">Instance Segmentation</a></li><li><a class="toc-href" href="#action-recognition" title="Action Recognition">Action Recognition</a></li><li><a class="toc-href" href="#super-resolution" title="Super Resolution">Super Resolution</a></li></ul></li><li><a class="toc-href" href="#asr_1" title="ASR">ASR</a></li><li><a class="toc-href" href="#language" title="Language">Language</a></li><li><a class="toc-href" href="#reinforcment-learning" title="Reinforcment Learning">Reinforcment Learning</a></li><li><a class="toc-href" href="#control" title="Control">Control</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#computer-vision" title="Computer Vision">Computer Vision</a><ul><li><a class="toc-href" href="#image-classification" title="Image Classification">Image Classification</a></li><li><a class="toc-href" href="#detection-images" title="Detection (Images)">Detection (Images)</a></li><li><a class="toc-href" href="#detection-videos" title="Detection (Videos)">Detection (Videos)</a></li><li><a class="toc-href" href="#semantic-segmentation" title="Semantic Segmentation">Semantic Segmentation</a></li><li><a class="toc-href" href="#instance-segmentation" title="Instance Segmentation">Instance Segmentation</a></li><li><a class="toc-href" href="#action-recognition" title="Action Recognition">Action Recognition</a></li><li><a class="toc-href" href="#super-resolution" title="Super Resolution">Super Resolution</a></li></ul></li><li><a class="toc-href" href="#asr_1" title="ASR">ASR</a></li><li><a class="toc-href" href="#language" title="Language">Language</a></li><li><a class="toc-href" href="#reinforcment-learning" title="Reinforcment Learning">Reinforcment Learning</a></li><li><a class="toc-href" href="#control" title="Control">Control</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -198,11 +198,26 @@ always welcome.</p>
 <td>accuracy <span title="higher is better">+</span></td>
 <td><a href="http://imagine.enpc.fr/publications/papers/ECCV2010b.pdf" title="Towards Optimal Naive Bayes Nearest Neighbor">[BMDP10]</a></td>
 </tr>
+<tr>
+<td><a href="http://yfcc100m.appspot.com/">YFCC100m</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
 </table>
 <p>State of the art in this category are CNN models which use skip connections
 in the form of residual connections or dense connections.</p>
-<h3 id="detection">Detection</h3>
+<h3 id="detection-images">Detection (Images)</h3>
 <p>Face recognition is a special case of detection.</p>
+<p>Common metrics are:
+<ul>
+<li>mAP (Mean Average Precision): A detection is successfull, if the bounding
+        box prediction and the true bounding box <span class="math">\(\frac{intersection}{union}\)</span> (IU, IoU)
+        ratio is at least 0.5. Then the average precision = <span class="math">\(\frac{TP}{TP + FP}\)</span> is
+        calculated for each class and the mean is calculated of those (see <a href="http://stackoverflow.com/q/36274638/562769">Explanation</a>)</li>
+<li></li>
+</ul></p>
 <table class="table">
 <tr>
 <th>Dataset</th>
@@ -213,10 +228,10 @@ in the form of residual connections or dense connections.</p>
 </tr>
 <tr>
 <td><a href="http://host.robots.ox.ac.uk/pascal/VOC/voc2012/index.html">PASCAL VOC 2012</a></td>
-<td>2014</td>
-<td style="text-align: right;">62.2</td>
-<td>mean IU <span title="higher is better">+</span></td>
-<td><a href="https://arxiv.org/abs/1411.4038" title="Fully Convolutional Networks for Semantic Segmentation">[LSD14]</a></td>
+<td>2015</td>
+<td style="text-align: right;">75.9</td>
+<td>mAP@.5 <span title="higher is better">+</span></td>
+<td><a href="https://arxiv.org/abs/1506.01497" title="Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks">[RHGS15]</a></td>
 </tr>
 <tr>
 <td><a href="http://host.robots.ox.ac.uk/pascal/VOC/voc2011/index.html">PASCAL VOC 2011</a></td>
@@ -231,6 +246,30 @@ in the form of residual connections or dense connections.</p>
 <td style="text-align: right;">30.2</td>
 <td>mean accuracy <span title="higher is better">+</span></td>
 <td><a href="https://papers.nips.cc/paper/4296-efficient-inference-in-fully-connected-crfs-with-gaussian-edge-potentials.pdf" title="Efficient Inference in Fully Connected CRFs with Gaussian Edge Potentials">[Kol11]</a></td>
+</tr>
+<tr>
+<td><a href="http://host.robots.ox.ac.uk/pascal/VOC/voc2007/index.html">PASCAL VOC 2007</a></td>
+<td>2007</td>
+<td style="text-align: right;">69.9</td>
+<td>mAP@.5 <span title="higher is better">+</span></td>
+<td><a href="https://arxiv.org/abs/1506.01497" title="Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks">[RHGS15]</a></td>
+</tr>
+<tr>
+<td><a href="http://mscoco.org/">MS COCO</a></td>
+<td>2015</td>
+<td style="text-align: right;">42.7</td>
+<td>mAP@.5 <span title="higher is better">+</span></td>
+<td><a href="https://arxiv.org/abs/1506.01497">[RHGS15]</a></td>
+</tr>
+</table>
+<h3 id="detection-videos">Detection (Videos)</h3>
+<table>
+<tr>
+<td><a href="https://research.google.com/youtube-bb/">YouTube-BoundingBoxes</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </table>
 <h3 id="semantic-segmentation">Semantic Segmentation</h3>
@@ -273,13 +312,6 @@ to several datasets and metrics for evaluation can be found in <a href="https://
 <td><a href="https://arxiv.org/abs/1411.4038" title="Fully Convolutional Networks for Semantic Segmentation">[LSD14]</a></td>
 </tr>
 <tr>
-<td><a href="https://www2.warwick.ac.uk/fac/sci/dcs/research/combi/research/bic/glascontest/download/">Warwick-QU</a></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
 <td><a href="http://www.it.lut.fi/project/imageret/diaretdb1/">DIARETDB1</a></td>
 <td></td>
 <td></td>
@@ -287,7 +319,7 @@ to several datasets and metrics for evaluation can be found in <a href="https://
 <td></td>
 </tr>
 <tr>
-<td><a href="http://mscoco.org/">MS COCO</a></td>
+<td><a href="https://www2.warwick.ac.uk/fac/sci/dcs/research/combi/research/bic/glascontest/download/">Warwick-QU</a></td>
 <td></td>
 <td></td>
 <td></td>
@@ -320,6 +352,27 @@ to several datasets and metrics for evaluation can be found in <a href="https://
 <th>Score</th>
 <th>Type</th>
 <th>Paper</th>
+</tr>
+<tr>
+<td><a href="https://research.google.com/youtube8m/">YouTube-8M</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/gtoderici/sports-1m-dataset/blob/wiki/ProjectHome.md">Sports-1M</a></td>
+<td>2015</td>
+<td>68.7 %</td>
+<td>Clip Hit@1 accuracy <span title="higher is better">+</span></td>
+<td><a href="http://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Ng_Beyond_Short_Snippets_2015_CVPR_paper.pdf" title="Beyond Short Snippets: Deep Networks for Video Classification">[NHV+15]</a></td>
+</tr>
+<tr>
+<td>UCF-101</td>
+<td>2015</td>
+<td>70.8 %</td>
+<td>Clip Hit@1 accuracy <span title="higher is better">+</span></td>
+<td><a href="http://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Ng_Beyond_Short_Snippets_2015_CVPR_paper.pdf" title="Beyond Short Snippets: Deep Networks for Video Classification">[NHV+15]</a></td>
 </tr>
 <tr>
 <td><a href="http://www.nada.kth.se/cvap/actions/">KTH</a></td>
