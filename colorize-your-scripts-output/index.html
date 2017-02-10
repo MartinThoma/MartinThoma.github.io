@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Colorize your scripts output "/>
 <meta property="og:url" content="../colorize-your-scripts-output/" />
-<meta property="og:description" content="The bash is very nice if you want to know exactly what your scripts are doing. Unfortunately, its almost always white colored text on a black background, without any accentuation. No bold text, nothing underlined and no colors are used. You can change this standard behaviour. You can add color ..." />
+<meta property="og:description" content="The bash is very nice if you want to know exactly what your scripts are doing. Unfortunately, its almost always white colored text on a black background, without any accentuation. No bold text, nothing underlined and no colors are used. You can change this standard behaviour. You can add color …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2011-09-30T08:59:59+02:00" />
 <meta name="twitter:title" content="Colorize your scripts output ">
-<meta name="twitter:description" content="The bash is very nice if you want to know exactly what your scripts are doing. Unfortunately, its almost always white colored text on a black background, without any accentuation. No bold text, nothing underlined and no colors are used. You can change this standard behaviour. You can add color ...">
+<meta name="twitter:description" content="The bash is very nice if you want to know exactly what your scripts are doing. Unfortunately, its almost always white colored text on a black background, without any accentuation. No bold text, nothing underlined and no colors are used. You can change this standard behaviour. You can add color …">
 <meta property="og:image" content="2011/09/Gnome-Terminal.png" />
 <meta name="twitter:image" content="2011/09/Gnome-Terminal.png" >
 
@@ -115,7 +115,7 @@ MathJax.Hub.Queue(function() {
 <p>The mini-program tput can initialize a terminal or query terminfo database. If you want to know more about it, you can take a look at the <a href="http://linux.die.net/man/1/tput">tput manpage</a>.</p>
 <h2 id="a-quick-example">A quick example</h2>
 <div class="highlight"><pre><span></span><span class="c1"># Text color variables</span>
-<span class="nv">txtred</span><span class="o">=</span><span class="k">$(</span>tput setaf 1<span class="k">)</span>    <span class="c1"># Red</span>
+<span class="nv">txtred</span><span class="o">=</span><span class="k">$(</span>tput setaf <span class="m">1</span><span class="k">)</span>    <span class="c1"># Red</span>
 <span class="nv">txtreset</span><span class="o">=</span><span class="k">$(</span>tput sgr0<span class="k">)</span>     <span class="c1"># Reset your text</span>
 <span class="nb">echo</span> <span class="s2">"Roses are </span><span class="si">${</span><span class="nv">txtred</span><span class="si">}</span><span class="s2">red</span><span class="si">${</span><span class="nv">txtreset</span><span class="si">}</span><span class="s2">."</span>
 </pre></div>
@@ -128,7 +128,7 @@ MathJax.Hub.Queue(function() {
 tput sgr <span class="m">0</span> <span class="m">0</span>     turn off standout<span class="p">;</span> turn off underline
 tput sgr <span class="m">1</span> <span class="m">1</span>     turn on standout<span class="p">;</span> turn on underline
 tput sgr <span class="m">1</span> <span class="m">0</span>     turn on standout<span class="p">;</span> turn off underline
-tput sgr0        short <span class="k">for</span> sgr <span class="m">0</span> 0
+tput sgr0        short <span class="k">for</span> sgr <span class="m">0</span> <span class="m">0</span>
 </pre></div>
 <h2 id="the-setaf-attribute">The setaf attribute</h2>
 <div class="highlight"><pre><span></span>setaf <span class="m">1</span> Red
@@ -149,7 +149,7 @@ setaf <span class="m">7</span> Gray
 <h2 id="advanced-example">Advanced Example</h2>
 <p>Imagine you had a script which generated much output. All messages are important for you, but some are more important than others. You definitely want to see all "[ERROR]" output. So you want to apply a red and bold modification to the stream.</p>
 <p>This is the way how "[ERROR]" gets red and bold:</p>
-<div class="highlight"><pre><span></span><span class="sb">`</span>tput setaf 1<span class="sb">``</span>tput bold<span class="sb">`</span><span class="o">[</span>ERROR<span class="o">]</span><span class="sb">`</span>tput sgr0<span class="sb">`</span>
+<div class="highlight"><pre><span></span><span class="sb">`</span>tput setaf <span class="m">1</span><span class="sb">``</span>tput bold<span class="sb">`</span><span class="o">[</span>ERROR<span class="o">]</span><span class="sb">`</span>tput sgr0<span class="sb">`</span>
 </pre></div>
 <p>You can test it with</p>
 <div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">"`tput setaf 1``tput bold`[ERROR]`tput sgr0`"</span>

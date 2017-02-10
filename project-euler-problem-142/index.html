@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Project Euler: Problem 142 "/>
 <meta property="og:url" content="../project-euler-problem-142/" />
-<meta property="og:description" content="Project Euler is a series of challenging mathematical/computer programming problems that will require more than just mathematical insights to solve. Although mathematics will help you arrive at elegant and efficient methods, the use of a computer and programming skills will be required to solve most problems. The motivation for ..." />
+<meta property="og:description" content="Project Euler is a series of challenging mathematical/computer programming problems that will require more than just mathematical insights to solve. Although mathematics will help you arrive at elegant and efficient methods, the use of a computer and programming skills will be required to solve most problems. The motivation for …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2012-04-08T22:40:43+02:00" />
 <meta name="twitter:title" content="Project Euler: Problem 142 ">
-<meta name="twitter:description" content="Project Euler is a series of challenging mathematical/computer programming problems that will require more than just mathematical insights to solve. Although mathematics will help you arrive at elegant and efficient methods, the use of a computer and programming skills will be required to solve most problems. The motivation for ...">
+<meta name="twitter:description" content="Project Euler is a series of challenging mathematical/computer programming problems that will require more than just mathematical insights to solve. Although mathematics will help you arrive at elegant and efficient methods, the use of a computer and programming skills will be required to solve most problems. The motivation for …">
 <meta property="og:image" content="2012/04/leonhard-euler.jpg" />
 <meta name="twitter:image" content="2012/04/leonhard-euler.jpg" >
 
@@ -113,7 +113,7 @@ MathJax.Hub.Queue(function() {
 <p>The motivation for starting Project Euler, and its continuation, is to provide a platform for the inquiring mind to delve into unfamiliar areas and learn new concepts in a fun and recreational context.</p>
 <p>Today, I would like to discuss problem 142. I've seen a <a href="http://blog.san-ss.com.ar/2011/12/project-euler-problem-142-solved.html">post from Santiago Alessandri</a>, so I liked to do the task by myself. </p>
 <p>The task is:
-<blockquote>Find the smallest x + y + z with integers <span class="math">\(x &gt; y &gt; z &gt; 0\)</span> such that x + y, x - y, x + z, x - z, y + z, y - z are all perfect squares.</blockquote></p>
+<blockquote>Find the smallest x + y + z with integers $x &gt; y &gt; z &gt; 0$ such that x + y, x - y, x + z, x - z, y + z, y - z are all perfect squares.</blockquote></p>
 <p>I don't want to post the solution (if you want to cheat, I guess you could easily Google it), but some thoughts that might help you to get in the right direction.</p>
 <h2 id="first-thought-brute-force">First thought: Brute-force</h2>
 <p><a href="http://en.wikipedia.org/wiki/Brute-force_search">Brute-force</a> is the easiest way that could give you the solution. So I wrote this piece of code:</p>
@@ -147,60 +147,60 @@ MathJax.Hub.Queue(function() {
 <p>This is quite fast until you reach about 500. So this is not a good way to solve it.</p>
 <h2 id="apply-some-math">Apply some math</h2>
 <p>You can formalize the task like this:
-Find the smallest <span class="math">\(x, y, z \in \mathbb{N}\)</span>, so that:
+Find the smallest $x, y, z \in \mathbb{N}$, so that:
 <ol>
-<li><span class="math">\(x &gt; y &gt; z &gt; 0\)</span></li>
-<li><span class="math">\(a = x + y\)</span></li>
-<li><span class="math">\(b = x - y\)</span></li>
-<li><span class="math">\(c = x + z\)</span></li>
-<li><span class="math">\(d = x - z\)</span></li>
-<li><span class="math">\(e = y + z\)</span></li>
-<li><span class="math">\(f = y - z\)</span></li>
+<li>$x &gt; y &gt; z &gt; 0$</li>
+<li>$a = x + y$</li>
+<li>$b = x - y$</li>
+<li>$c = x + z$</li>
+<li>$d = x - z$</li>
+<li>$e = y + z$</li>
+<li>$f = y - z$</li>
 </ol></p>
-<p>With <span class="math">\(a, b, c, d, e, f \in Squares\)</span>.</p>
+<p>With $a, b, c, d, e, f \in Squares$.</p>
 <p>Now you can make the following conclusions:
 <ol>
-<li><span class="math">\(\overset{A.1, A.2, A.3}{\implies} a &gt; b\)</span></li>
-<li><span class="math">\(\overset{A.1, A.4, A.5}{\implies} c &gt; d\)</span></li>
-<li><span class="math">\(\overset{A.1, A.6, A.7}{\implies} e &gt; f\)</span></li>
+<li>$\overset{A.1, A.2, A.3}{\implies} a &gt; b$</li>
+<li>$\overset{A.1, A.4, A.5}{\implies} c &gt; d$</li>
+<li>$\overset{A.1, A.6, A.7}{\implies} e &gt; f$</li>
 </ol></p>
 <ol>
 <li>
-<p><span class="math">\(a &gt; c\)</span>:
-<span class="math">\(y &gt; z\)</span>
-<span class="math">\(\Leftrightarrow x + y &gt; x + z\)</span>
-<span class="math">\(\Leftrightarrow a &gt; c\)</span></p>
+<p>$a &gt; c$:
+$y &gt; z$
+$\Leftrightarrow x + y &gt; x + z$
+$\Leftrightarrow a &gt; c$</p>
 </li>
 <li>
-<p><span class="math">\(c &gt; e\)</span>:
-<span class="math">\(x &gt; y\)</span>
-<span class="math">\(\Leftrightarrow x + z &gt; y + z\)</span>
-<span class="math">\(c &gt; e\)</span></p>
+<p>$c &gt; e$:
+$x &gt; y$
+$\Leftrightarrow x + z &gt; y + z$
+$c &gt; e$</p>
 </li>
 <li>
 <p>a is the biggest element (see B.1, B.4, B.6)</p>
 </li>
 <li>
-<p><span class="math">\(b &lt; c\)</span>:
-<span class="math">\(-y &lt; z\)</span>
-<span class="math">\(\Leftrightarrow x - y &lt; x + z\)</span>
-<span class="math">\(b &lt; c\)</span></p>
+<p>$b &lt; c$:
+$-y &lt; z$
+$\Leftrightarrow x - y &lt; x + z$
+$b &lt; c$</p>
 </li>
 <li>
 <p>c is the second biggest element (see B.7, B.2, B.5, B.8)</p>
 </li>
 <li>
-<p><span class="math">\(b &lt; d\)</span>:
-<span class="math">\( y &gt; z\)</span>
-<span class="math">\(\Leftrightarrow -y &lt; -z\)</span>
-<span class="math">\(\Leftrightarrow x - y &lt; x - z\)</span>
-<span class="math">\(b &lt; d\)</span></p>
+<p>$b &lt; d$:
+$ y &gt; z$
+$\Leftrightarrow -y &lt; -z$
+$\Leftrightarrow x - y &lt; x - z$
+$b &lt; d$</p>
 </li>
 <li>
-<p><span class="math">\(d &gt; f\)</span>:
-<span class="math">\( x &gt; y\)</span>
-<span class="math">\(\Leftrightarrow x - z &gt; y - z\)</span>
-<span class="math">\(d &gt; f\)</span></p>
+<p>$d &gt; f$:
+$ x &gt; y$
+$\Leftrightarrow x - z &gt; y - z$
+$d &gt; f$</p>
 </li>
 <li>
 <p>I can't tell anything about the relationship between:
@@ -217,9 +217,9 @@ Find the smallest <span class="math">\(x, y, z \in \mathbb{N}\)</span>, so that:
 <figcaption class="text-center">Graph that visualizes the situation of the squares of Euler 142</figcaption>
 </figure></p>
 <p>You also know:</p>
-<p><span class="math">\(x = \frac{a - b}{2} \implies \text{ (a - b) has to be even} \implies \text{a and b have the same parity.}\)</span>
+<p>$x = \frac{a - b}{2} \implies \text{ (a - b) has to be even} \implies \text{a and b have the same parity.}$
 The same argumentation can be used for (c, d) and (e, f).</p>
-<p><span class="math">\(x &gt; y &gt; z &gt; 0 \land a = x + y \implies a \geq 5\)</span>.</p>
+<p>$x &gt; y &gt; z &gt; 0 \land a = x + y \implies a \geq 5$.</p>
 <p>With this in mind you don't have to loop over three variables but only over two. This is much faster. As z is over 1000 you need it. My new script took about 1.5 minutes.</p>
 <h2 id="material">Material</h2>
 <p>Some material like the LaTeX-file can be found in the <a href="../images/2012/04/euler-142.zip">Project Euler 142 Archive</a>.</p>

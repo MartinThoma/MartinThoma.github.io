@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Wie berechnet man die Cholesky-Zerlegung? "/>
 <meta property="og:url" content="../wie-berechnet-man-die-cholesky-zerlegung/" />
-<meta property="og:description" content="Sei \(A \in \mathbb{R}^{n \times n}\) eine symmetrische, positiv definite Matrix. Dann existiert eine Zerlegung \(A = S \cdot D \cdot S^T\), wobei \(S\) eine unipotente Dreiecksmatrix ist und D eine positiv definite Diagonalmatrix. Berechnung der Cholesky-Zerlegung Hier ein paar Ausschnitte, aus der englischen Wikipedia: Einfach von links ...if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width" />
+<meta property="og:description" content="Sei $A \in \mathbb{R}^{n \times n}$ eine symmetrische, positiv definite Matrix. Dann existiert eine Zerlegung $A = S \cdot D \cdot S^T$, wobei $S$ eine unipotente Dreiecksmatrix ist und D eine positiv definite Diagonalmatrix. Berechnung der Cholesky-Zerlegung Hier ein paar Ausschnitte, aus der englischen Wikipedia: Einfach von links …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2012-07-03T19:09:22+02:00" />
 <meta name="twitter:title" content="Wie berechnet man die Cholesky-Zerlegung? ">
-<meta name="twitter:description" content="Sei \(A \in \mathbb{R}^{n \times n}\) eine symmetrische, positiv definite Matrix. Dann existiert eine Zerlegung \(A = S \cdot D \cdot S^T\), wobei \(S\) eine unipotente Dreiecksmatrix ist und D eine positiv definite Diagonalmatrix. Berechnung der Cholesky-Zerlegung Hier ein paar Ausschnitte, aus der englischen Wikipedia: Einfach von links ...if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width">
+<meta name="twitter:description" content="Sei $A \in \mathbb{R}^{n \times n}$ eine symmetrische, positiv definite Matrix. Dann existiert eine Zerlegung $A = S \cdot D \cdot S^T$, wobei $S$ eine unipotente Dreiecksmatrix ist und D eine positiv definite Diagonalmatrix. Berechnung der Cholesky-Zerlegung Hier ein paar Ausschnitte, aus der englischen Wikipedia: Einfach von links …">
 <meta property="og:image" content="2012/01/vector-space.png" />
 <meta name="twitter:image" content="2012/01/vector-space.png" >
 
@@ -109,12 +109,12 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>Sei <span class="math">\(A \in \mathbb{R}^{n \times n}\)</span> eine symmetrische, positiv definite Matrix. Dann existiert eine Zerlegung <span class="math">\(A = S \cdot D \cdot S^T\)</span>, wobei <span class="math">\(S\)</span> eine <a href="http://de.wikipedia.org/wiki/Dreiecksmatrix#Unipotente_Dreiecksmatrizen">unipotente Dreiecksmatrix</a> ist und D eine positiv definite Diagonalmatrix.</p>
+            <p>Sei $A \in \mathbb{R}^{n \times n}$ eine symmetrische, positiv definite Matrix. Dann existiert eine Zerlegung $A = S \cdot D \cdot S^T$, wobei $S$ eine <a href="http://de.wikipedia.org/wiki/Dreiecksmatrix#Unipotente_Dreiecksmatrizen">unipotente Dreiecksmatrix</a> ist und D eine positiv definite Diagonalmatrix.</p>
 <h2 id="berechnung-der-cholesky-zerlegung">Berechnung der Cholesky-Zerlegung</h2>
 <p>Hier ein paar Ausschnitte, aus der englischen Wikipedia:</p>
 <p>Einfach von links oben nach rechts unten die Werte nach folgender Formel berechnen:
-<span class="math">\(D_j = A_{jj} - \sum_{k=1}^{j-1} S_{jk}^2 D_k\)</span>
-<span class="math">\(S_{ij} = \frac{1}{D_j} \left( A_{ij} - \sum_{k=1}^{j-1} S_{ik} S_{jk} D_k \right), \qquad\text{for } i&gt;j\)</span></p>
+$D_j = A_{jj} - \sum_{k=1}^{j-1} S_{jk}^2 D_k$
+$S_{ij} = \frac{1}{D_j} \left( A_{ij} - \sum_{k=1}^{j-1} S_{ik} S_{jk} D_k \right), \qquad\text{for } i&gt;j$</p>
 <h2 id="programmierer-hinweise">Programmierer-Hinweise</h2>
 <h3 id="implementierung">Implementierung</h3>
 <p>Eine Python-Implementierung sieht so aus:</p>
@@ -146,18 +146,18 @@ MathJax.Hub.Queue(function() {
 <span class="k">print</span><span class="p">(</span><span class="n">linalg</span><span class="o">.</span><span class="n">cholesky</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]]))</span>
 </pre></div>
 <p>Gibt aus:</p>
-<div class="highlight"><pre><span></span>array<span class="o">([[</span> 2.23606798,  0.        <span class="o">]</span>,
-       <span class="o">[</span> 0.4472136 ,  0.89442719<span class="o">]])</span>
+<div class="highlight"><pre><span></span>array<span class="o">([[</span> <span class="m">2</span>.23606798,  <span class="m">0</span>.        <span class="o">]</span>,
+       <span class="o">[</span> <span class="m">0</span>.4472136 ,  <span class="m">0</span>.89442719<span class="o">]])</span>
 </pre></div>
-<p>Das ist NICHT die Zerlegung <span class="math">\(A = S \cdot D \cdot S^T\)</span>, sondern <span class="math">\(A = G \cdot G^T\)</span>.</p>
+<p>Das ist NICHT die Zerlegung $A = S \cdot D \cdot S^T$, sondern $A = G \cdot G^T$.</p>
 <p>Interessanterweise hat NumPy das nicht direkt selbst implementiert (<a href="https://github.com/numpy/numpy/blob/master/numpy/linalg/linalg.py#L448">NumPy-Quelle</a>). Man greift auf <a href="http://de.wikipedia.org/wiki/LAPACK">LAPACK</a> zur&uuml;ck, was in FORTRAN 90 programmiert wurde (<a href="http://www.netlib.org/lapack/double/dpotrf.f">LAPACK-Quelle</a>)!</p>
 <h3 id="wolframalpha">Wolfram|Alpha</h3>
-<p>Auch Wolfram|Alpha kennt "cholesky decomposition": <a href="http://www.wolframalpha.com/input/?i=cholesky+decomposition+%7B%7B5%2C2%7D%2C%7B2%2C1%7D%7D">Beispiel</a>. Allerdings sieht es schon bei <span class="math">\(3 \times 3\)</span>-Matrizen schlecht aus.</p>
+<p>Auch Wolfram|Alpha kennt "cholesky decomposition": <a href="http://www.wolframalpha.com/input/?i=cholesky+decomposition+%7B%7B5%2C2%7D%2C%7B2%2C1%7D%7D">Beispiel</a>. Allerdings sieht es schon bei $3 \times 3$-Matrizen schlecht aus.</p>
 <h2 id="numerik_1">Numerik</h2>
 <p>In Numerik haben wir bei Herrn Dr. Wei&szlig; folgendes als Cholesky-Zerlegung kennen gelernt:</p>
-<p>Sei <span class="math">\(A \in \mathbb{R}^{n \times n}\)</span> eine symmetrische, positiv definite Matrix. Dann existiert eine Zerlegung <span class="math">\(A = \bar L \cdot \bar{L}^T\)</span>, wobei <span class="math">\(\bar L\)</span> eine untere Dreiecksmatrix ist.</p>
-<p>Wenn man wie gewohnt eine LR-Zerlegung der Matrix <span class="math">\(A\)</span> durchf&uuml;hrt, erh&auml;lt man zwei Matrizen <span class="math">\(L, R \in \mathbb{R}^{n \times n}\)</span>, wobei gilt: <span class="math">\(R = D \cdot L^T\)</span>, wobei <span class="math">\(D\)</span> eine positiv definite Diagonalmatrix ist. </p>
-<p>Offensichtlich gilt: <span class="math">\(\bar L = L \cdot D^{\frac{1}{2}}\)</span>.</p>
+<p>Sei $A \in \mathbb{R}^{n \times n}$ eine symmetrische, positiv definite Matrix. Dann existiert eine Zerlegung $A = \bar L \cdot \bar{L}^T$, wobei $\bar L$ eine untere Dreiecksmatrix ist.</p>
+<p>Wenn man wie gewohnt eine LR-Zerlegung der Matrix $A$ durchf&uuml;hrt, erh&auml;lt man zwei Matrizen $L, R \in \mathbb{R}^{n \times n}$, wobei gilt: $R = D \cdot L^T$, wobei $D$ eine positiv definite Diagonalmatrix ist. </p>
+<p>Offensichtlich gilt: $\bar L = L \cdot D^{\frac{1}{2}}$.</p>
 <p>Die Cholesky-Zerlegung kann man folgenderma&szlig;en berechnen:</p>
 <figure class="aligncenter">
 <a href="../images/2012/07/cholesky-zerlegung-numerik.png"><img alt="Berechnung der Cholesky-Zerlegung in Pseudocode" class="size-full wp-image-67881" src="../images/2012/07/cholesky-zerlegung-numerik.png" style="max-width:512px;max-height:390px"/></a>

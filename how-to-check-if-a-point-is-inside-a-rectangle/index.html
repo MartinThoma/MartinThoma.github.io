@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="How to check if a point is inside a rectangle "/>
 <meta property="og:url" content="../how-to-check-if-a-point-is-inside-a-rectangle/" />
-<meta property="og:description" content="A rectangle I&#39;ve just found this interesting question on StackExchange: If you have a rectangle ABCD and point P. Is P inside ABCD? The idea The idea how to solve this problem is simply beautiful. If the point is in the rectangle, it divides it into four triangles: Divided ..." />
+<meta property="og:description" content="A rectangle I&#39;ve just found this interesting question on StackExchange: If you have a rectangle ABCD and point P. Is P inside ABCD? The idea The idea how to solve this problem is simply beautiful. If the point is in the rectangle, it divides it into four triangles: Divided rectangle …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2012-09-07T21:28:38+02:00" />
 <meta name="twitter:title" content="How to check if a point is inside a rectangle ">
-<meta name="twitter:description" content="A rectangle I&#39;ve just found this interesting question on StackExchange: If you have a rectangle ABCD and point P. Is P inside ABCD? The idea The idea how to solve this problem is simply beautiful. If the point is in the rectangle, it divides it into four triangles: Divided ...">
+<meta name="twitter:description" content="A rectangle I&#39;ve just found this interesting question on StackExchange: If you have a rectangle ABCD and point P. Is P inside ABCD? The idea The idea how to solve this problem is simply beautiful. If the point is in the rectangle, it divides it into four triangles: Divided rectangle …">
 <meta property="og:image" content="2012/09/rectangle-thumb.png" />
 <meta name="twitter:image" content="2012/09/rectangle-thumb.png" >
 
@@ -130,9 +130,9 @@ MathJax.Hub.Queue(function() {
 <p>You might note that the area of the four triangles in is bigger than the area of the rectangle. So if the area is bigger, you know that the point is outside of the rectangle.</p>
 <h2 id="formulae">Formulae</h2>
 <p>If you know the coordinates of the points, you can calculate the area of the rectangle like this:</p>
-<p><span class="math">\(A_\text{rectangle} = \frac{1}{2} \left| (y_{A}-y_{C})\cdot(x_{D}-x_{B}) + (y_{B}-y_{D})\cdot(x_{A}-x_{C})\right|\)</span></p>
+<p>$A_\text{rectangle} = \frac{1}{2} \left| (y_{A}-y_{C})\cdot(x_{D}-x_{B}) + (y_{B}-y_{D})\cdot(x_{A}-x_{C})\right|$</p>
 <p>The area of a triangle is:
-<span class="math">\(A_\text{triangle} = \frac{1}{2} (x_1(y_2-y_3) + x_2(y_3-y_1) + x_3(y_1-y_2))\)</span></p>
+$A_\text{triangle} = \frac{1}{2} (x_1(y_2-y_3) + x_2(y_3-y_1) + x_3(y_1-y_2))$</p>
 <h2 id="python">Python</h2>
 <p><div class="important">Please look at Jans comment. There is an error in my Python code, but I don't have the time to correct it.</div></p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">isPinRectangle</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">P</span><span class="p">):</span>
@@ -178,17 +178,17 @@ MathJax.Hub.Queue(function() {
 <span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
     <span class="sd">"""Represents a two dimensional point."""</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
 
-    <span class="k">def</span> <span class="nf">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">cls</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">obj</span>
 
-    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">"P(</span><span class="si">%.2lf</span><span class="s2">|</span><span class="si">%.2lf</span><span class="s2">)"</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
 <span class="k">class</span> <span class="nc">Triangle</span><span class="p">:</span>
@@ -196,7 +196,7 @@ MathJax.Hub.Queue(function() {
 
     <span class="n">epsilon</span> <span class="o">=</span> <span class="mf">0.001</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
         <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">Point</span><span class="p">)</span>
         <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">Point</span><span class="p">)</span>
         <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">Point</span><span class="p">)</span>
@@ -224,7 +224,7 @@ MathJax.Hub.Queue(function() {
         <span class="n">newArea</span> <span class="o">=</span> <span class="n">pab</span><span class="o">.</span><span class="n">getArea</span><span class="p">()</span><span class="o">+</span><span class="n">pac</span><span class="o">.</span><span class="n">getArea</span><span class="p">()</span><span class="o">+</span><span class="n">pbc</span><span class="o">.</span><span class="n">getArea</span><span class="p">()</span>
         <span class="k">return</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">currentArea</span> <span class="o">-</span> <span class="n">newArea</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">Triangle</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">doctest</span>
     <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
 </pre></div>

@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Solving linear equations with Gaussian elimination "/>
 <meta property="og:url" content="../solving-linear-equations-with-gaussian-elimination/" />
-<meta property="og:description" content="Please note that you should use LU-decomposition to solve linear equations. The following code produces valid solutions, but when your vector $b$ changes you have to do all the work again. LU-decomposition is faster in those cases and not slower in case you don&#39;t have to solve equations with ..." />
+<meta property="og:description" content="Please note that you should use LU-decomposition to solve linear equations. The following code produces valid solutions, but when your vector $b$ changes you have to do all the work again. LU-decomposition is faster in those cases and not slower in case you don&#39;t have to solve equations with the …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2013-05-26T00:01:30+02:00" />
 <meta name="twitter:title" content="Solving linear equations with Gaussian elimination ">
-<meta name="twitter:description" content="Please note that you should use LU-decomposition to solve linear equations. The following code produces valid solutions, but when your vector $b$ changes you have to do all the work again. LU-decomposition is faster in those cases and not slower in case you don&#39;t have to solve equations with ...">
+<meta name="twitter:description" content="Please note that you should use LU-decomposition to solve linear equations. The following code produces valid solutions, but when your vector $b$ changes you have to do all the work again. LU-decomposition is faster in those cases and not slower in case you don&#39;t have to solve equations with the …">
 <meta property="og:image" content="2013/05/upper-triangular-matrix.png" />
 <meta name="twitter:image" content="2013/05/upper-triangular-matrix.png" >
 
@@ -110,18 +110,18 @@ MathJax.Hub.Queue(function() {
 
             
             <div class="info">Please note that you should use LU-decomposition to solve linear equations. The following code produces valid solutions, but when your vector $b$ changes you have to do all the work again. LU-decomposition is faster in those cases and not slower in case you don't have to solve equations with the same matrix twice.</div>
-<p>Suppose you have a system of <span class="math">\(n \in \mathbb{N_{\geq 1}}\)</span> linear equations and variables <span class="math">\(x_1, x_2, \dots, x_n \in \mathbb{R}\)</span>:</p>
-<div class="math">\begin{align}
-a_{1,1} \cdot x_1 + a_{1,2} x_2 + \dots + a_{1,n} \cdot x_{n} &amp;= b_1\\
-a_{2,1} \cdot x_1 + a_{2,2} x_2 + \dots + a_{2,n} \cdot x_{n} &amp;= b_2\\
-\vdots &amp;= \vdots\\
+<p>Suppose you have a system of $n \in \mathbb{N_{\geq 1}}$ linear equations and variables $x_1, x_2, \dots, x_n \in \mathbb{R}$:</p>
+<p>\begin{align}
+a_{1,1} \cdot x_1 + a_{1,2} x_2 + \dots + a_{1,n} \cdot x_{n} &amp;= b_1\
+a_{2,1} \cdot x_1 + a_{2,2} x_2 + \dots + a_{2,n} \cdot x_{n} &amp;= b_2\
+\vdots &amp;= \vdots\
 a_{n,1} \cdot x_1 + a_{n,2} x_2 + \dots + a_{n,n} \cdot x_{n} &amp;= b_n
-\end{align}</div>
-<p>All factors <span class="math">\(a_{i,j} \in \mathbb{R}\)</span> for <span class="math">\(i,j \in 1, \dots, n\)</span> can be written in one matrix <span class="math">\(A \in \mathbb{R}^{n \times n}\)</span> and all <span class="math">\(b_i\)</span> can be written as a vector <span class="math">\(b\)</span>. You combine all <span class="math">\(x_i\)</span> in the same way to a vector <span class="math">\(x\)</span>.</p>
+\end{align}</p>
+<p>All factors $a_{i,j} \in \mathbb{R}$ for $i,j \in 1, \dots, n$ can be written in one matrix $A \in \mathbb{R}^{n \times n}$ and all $b_i$ can be written as a vector $b$. You combine all $x_i$ in the same way to a vector $x$.</p>
 <p>So you can write the system of equations as:</p>
-<p><span class="math">\(A \cdot x = b\)</span></p>
+<p>$A \cdot x = b$</p>
 <h2 id="how-gaussian-elimination-works">How Gaussian elimination works</h2>
-<p>First, you write <span class="math">\(A\)</span> and <span class="math">\(b\)</span> in an augmented matrix <span class="math">\((A|b)\)</span>:</p>
+<p>First, you write $A$ and $b$ in an augmented matrix $(A|b)$:</p>
 <div>$$
   \left(\begin{array}{cccc|c}
     a_{1,1} &amp; a_{1,2} &amp; \dots  &amp; a_{1,n} &amp; b_1\\
@@ -252,11 +252,11 @@ a_{n,1} \cdot x_1 + a_{n,2} x_2 + \dots + a_{n,n} \cdot x_{n} &amp;= b_n
 </pre></div>
 <p>You can call it like this:</p>
 <div class="highlight"><pre><span></span>./gauss.out &lt; 3x3.in
-<span class="m">1</span>   <span class="m">2</span>   <span class="m">3</span>   <span class="p">|</span> 1
-<span class="m">4</span>   <span class="m">5</span>   <span class="m">6</span>   <span class="p">|</span> 1
-<span class="m">1</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="p">|</span> 1
+<span class="m">1</span>   <span class="m">2</span>   <span class="m">3</span>   <span class="p">|</span> <span class="m">1</span>
+<span class="m">4</span>   <span class="m">5</span>   <span class="m">6</span>   <span class="p">|</span> <span class="m">1</span>
+<span class="m">1</span>   <span class="m">0</span>   <span class="m">1</span>   <span class="p">|</span> <span class="m">1</span>
 
-Result: <span class="m">0</span> -1 1
+Result: <span class="m">0</span> -1 <span class="m">1</span>
 </pre></div>
 <h2 id="python-code">Python code</h2>
 <div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
@@ -311,7 +311,7 @@ Result: <span class="m">0</span> -1 1
     <span class="k">return</span> <span class="n">x</span>
 
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="kn">from</span> <span class="nn">fractions</span> <span class="kn">import</span> <span class="n">Fraction</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
 
@@ -490,18 +490,18 @@ Result: <span class="m">0</span> -1 1
 </pre></div>
 <h2 id="complexity">Complexity</h2>
 <h3 id="time-complexity">Time complexity</h3>
-<p>Time complexity is in <span class="math">\(\mathcal{O}(n^3)\)</span> (lines 44 - 53):</p>
-<div class="math">\begin{align}
-Operations &amp;= \sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} \sum_{j=i}^{n} 1\\
-&amp;= \sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} (n-i+1) \\
-&amp;= \left (\sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} (n+1) \right ) - \left (\sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} i \right )\\
-&amp;= \dots \\
-&amp;= \frac{1}{6} \cdot n \cdot (2 n^2+3 n-5)\\
+<p>Time complexity is in $\mathcal{O}(n^3)$ (lines 44 - 53):</p>
+<p>\begin{align}
+Operations &amp;= \sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} \sum_{j=i}^{n} 1\
+&amp;= \sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} (n-i+1) \
+&amp;= \left (\sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} (n+1) \right ) - \left (\sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} i \right )\
+&amp;= \dots \
+&amp;= \frac{1}{6} \cdot n \cdot (2 n^2+3 n-5)\
 &amp;= \frac{1}{3} \cdot n^3 + \mathcal{O}(n^2)
-\end{align}</div>
+\end{align}</p>
 <h3 id="space-complexity">Space complexity</h3>
-<p>Space complexity of this implementation is in <span class="math">\(\mathcal{O}(n)\)</span>, but you can
-easily come down to <span class="math">\(\mathcal{O}(1)\)</span> when you use <code>A[n]</code> for
+<p>Space complexity of this implementation is in $\mathcal{O}(n)$, but you can
+easily come down to $\mathcal{O}(1)$ when you use <code>A[n]</code> for
 storing <code>x</code>.</p>
             
             <div id="disqus_thread"></div>

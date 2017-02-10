@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Minimierung eines Automaten mittels Äquivalenzklassenkonstruktion "/>
 <meta property="og:url" content="../minimierung-eines-automaten-mittels-aquivalenzklassenkonstruktion/" />
-<meta property="og:description" content="Wenn ein Endlicher Automat gegeben ist, kann durch die Konstruktion von Äquivalenzklassen sehr einfach ein Automat mit gleichem Akzeptanzverhalten und minimaler Anzahl an Zuständen gefunden werden. Dafür benötigt man im Wesentlichen sogar nur drei Schritte. Der Algorithmus Überflüssige Zustände streichen: Manche Zustände sind nicht ..." />
+<meta property="og:description" content="Wenn ein Endlicher Automat gegeben ist, kann durch die Konstruktion von Äquivalenzklassen sehr einfach ein Automat mit gleichem Akzeptanzverhalten und minimaler Anzahl an Zuständen gefunden werden. Dafür benötigt man im Wesentlichen sogar nur drei Schritte. Der Algorithmus Überflüssige Zustände streichen: Manche Zustände sind nicht erreichbar. Diese können offensichtlich gestrichen werden …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2012-02-10T22:18:38+01:00" />
 <meta name="twitter:title" content="Minimierung eines Automaten mittels Äquivalenzklassenkonstruktion ">
-<meta name="twitter:description" content="Wenn ein Endlicher Automat gegeben ist, kann durch die Konstruktion von Äquivalenzklassen sehr einfach ein Automat mit gleichem Akzeptanzverhalten und minimaler Anzahl an Zuständen gefunden werden. Dafür benötigt man im Wesentlichen sogar nur drei Schritte. Der Algorithmus Überflüssige Zustände streichen: Manche Zustände sind nicht ...">
+<meta name="twitter:description" content="Wenn ein Endlicher Automat gegeben ist, kann durch die Konstruktion von Äquivalenzklassen sehr einfach ein Automat mit gleichem Akzeptanzverhalten und minimaler Anzahl an Zuständen gefunden werden. Dafür benötigt man im Wesentlichen sogar nur drei Schritte. Der Algorithmus Überflüssige Zustände streichen: Manche Zustände sind nicht erreichbar. Diese können offensichtlich gestrichen werden …">
 <meta property="og:image" content="2011/10/deterministic-finite-state-machine-thumb.png" />
 <meta name="twitter:image" content="2011/10/deterministic-finite-state-machine-thumb.png" >
 
@@ -118,31 +118,31 @@ MathJax.Hub.Queue(function() {
 </ol>
 <h2 id="beispiel">Beispiel</h2>
 <p>Gegeben sei folgender Endlicher Automat A: 
-<span class="math">\(A = (\{0,1\}, \{S, A, B, C, D, E, F, G, H, I\}, S, \sigma, \{D\})\)</span> mit folgender &Uuml;bergangsfunktion <span class="math">\(\sigma\)</span>:
+$A = ({0,1}, {S, A, B, C, D, E, F, G, H, I}, S, \sigma, {D})$ mit folgender &Uuml;bergangsfunktion $\sigma$:
 <figure class="aligncenter">
 <a href="../images/2012/02/endlicher-automat-gross.png"><img alt="Endlicher Automat mit &uuml;berfl&uuml;ssigen Zust&auml;nden" class="size-full wp-image-13451" src="../images/2012/02/endlicher-automat-gross.png" style="max-width:392px;max-height:389px"/></a>
 <figcaption class="text-center">Endlicher Automat mit &uuml;berfl&uuml;ssigen Zust&auml;nden</figcaption>
 </figure></p>
 <p>Es ist offensichtlich, dass I nicht erreicht werden kann. Da der Graph gerichtet ist, kann man schnell sehen, dass auch  H und G nicht erreicht werden k&ouml;nnen. Algorithmisch kann man diese Zust&auml;nde durch eine Tiefensuche bestimmen.</p>
 <p>Nach Schritt 1 haben wir also den Automaten 
-<span class="math">\(A_1 = (\{0,1\}, \{S, A, B, C, D, E, F\}, S, \sigma, \{D\})\)</span>:
+$A_1 = ({0,1}, {S, A, B, C, D, E, F}, S, \sigma, {D})$:
 <figure class="aligncenter">
 <a href="../images/2012/02/endlicher-automat-kleiner.png"><img alt="Keine &uuml;berfl&uuml;ssen Zust&auml;nde im Endlichen Automaten" class="size-full wp-image-13471" src="../images/2012/02/endlicher-automat-kleiner.png" style="max-width:340px;max-height:381px"/></a>
 <figcaption class="text-center">Keine &uuml;berfl&uuml;ssen Zust&auml;nde im Endlichen Automaten</figcaption>
 </figure></p>
 <p>In Schritt 2 erstellen wir also zuerst eine &Auml;quivalenzklasse der Zust&auml;nde:
-<span class="math">\(\{S, A, B, C, D, E, F\}\)</span>.</p>
-<p>Die akzeptierenden Zust&auml;nde werden von den nicht akzeptierenden getrennt: <span class="math">\(\{D\}, \{S, A, B, C, E, F\}\)</span></p>
-<p>In Schritt 3 gehen wir nun immer wieder die Zeichen "0" und "1" aus <span class="math">\(\Sigma\)</span> durch:
+${S, A, B, C, D, E, F}$.</p>
+<p>Die akzeptierenden Zust&auml;nde werden von den nicht akzeptierenden getrennt: ${D}, {S, A, B, C, E, F}$</p>
+<p>In Schritt 3 gehen wir nun immer wieder die Zeichen "0" und "1" aus $\Sigma$ durch:
 In welche Klassen f&uuml;hrt "0"?
 <a href="../images/2012/02/aequivalenzklassen-1.png"><img alt="&Auml;quivalenzklassen - Schritt 1" class="aligncenter size-full wp-image-13631" height="71" src="../images/2012/02/aequivalenzklassen-1.png" title="&Auml;quivalenzklassen - Schritt 1" width="220"/></a></p>
-<p>C wird also von <span class="math">\(\{S, A, B, E, F\}\)</span> getrennt. Wir haben folgende Klassen:
-<span class="math">\(\{C\}, \{D\}, \{S, A, B, E, F\}\)</span></p>
-<p>"1" trennt nun "A" von <span class="math">\(\{S, B, E, F\}\)</span>:
+<p>C wird also von ${S, A, B, E, F}$ getrennt. Wir haben folgende Klassen:
+${C}, {D}, {S, A, B, E, F}$</p>
+<p>"1" trennt nun "A" von ${S, B, E, F}$:
 <a href="../images/2012/02/aequivalenzklasse-2.png"><img alt="&Auml;quivalenzklassen - Schritt 2" class="aligncenter size-full wp-image-13661" height="66" src="../images/2012/02/aequivalenzklasse-2.png" title="&Auml;quivalenzklassen - Schritt 2" width="246"/></a></p>
-<p>"0" trennt nun "S" von <span class="math">\(\{B, E, F\}\)</span>:
+<p>"0" trennt nun "S" von ${B, E, F}$:
 <a href="../images/2012/02/aequivalenzklasse-3.png"><img alt="&Auml;quivalenzklassen - Schritt 3" class="aligncenter size-full wp-image-13681" height="65" src="../images/2012/02/aequivalenzklasse-3.png" title="&Auml;quivalenzklassen - Schritt 3" width="267"/></a></p>
-<p>Wir haben nun die &Auml;quivalenzklassen <span class="math">\(\{S\}, \{A\}, \{C\}, \{D\}, \{B, E, F\}\)</span>.</p>
+<p>Wir haben nun die &Auml;quivalenzklassen ${S}, {A}, {C}, {D}, {B, E, F}$.</p>
 <p>Im n&auml;chsten Schritt sehen wir, dass "1" nicht mehr trennt und "0" auch nicht nochmals etwas trennt. Wir sind also fertig. Die Zust&auml;nde B, E und F k&ouml;nnen zu einem zusammengefasst werden. Ich nenne ihn mal T (f&uuml;r Trash, da man in diesem Zustand niemals mehr akzeptieren kann). Damit ist unser minimaler Endlicher Automat folgender:</p>
 <p><a href="../images/2012/02/endlicher-automat-minimal.png"><img alt="Minimaler Endlicher Automat" class="aligncenter size-full wp-image-13711" height="278" src="../images/2012/02/endlicher-automat-minimal.png" title="Minimaler Endlicher Automat" width="346"/></a></p>
 <h2 id="latex">LaTeX</h2>

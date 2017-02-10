@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Function Approximation "/>
 <meta property="og:url" content="../function-approximation/" />
-<meta property="og:description" content="I was recently quite disappointed by how bad neural networks are for function approximation (see How should a neural network for unbound function approximation be structured?). However, I&#39;ve just found that Gaussian processes are great for function approximation! There are two important types of function approximation: Interpolation: What values ..." />
+<meta property="og:description" content="I was recently quite disappointed by how bad neural networks are for function approximation (see How should a neural network for unbound function approximation be structured?). However, I&#39;ve just found that Gaussian processes are great for function approximation! There are two important types of function approximation: Interpolation: What values does …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2016-01-18T20:00:00+01:00" />
 <meta name="twitter:title" content="Function Approximation ">
-<meta name="twitter:description" content="I was recently quite disappointed by how bad neural networks are for function approximation (see How should a neural network for unbound function approximation be structured?). However, I&#39;ve just found that Gaussian processes are great for function approximation! There are two important types of function approximation: Interpolation: What values ...">
+<meta name="twitter:description" content="I was recently quite disappointed by how bad neural networks are for function approximation (see How should a neural network for unbound function approximation be structured?). However, I&#39;ve just found that Gaussian processes are great for function approximation! There are two important types of function approximation: Interpolation: What values does …">
 <meta property="og:image" content="logos/ml.png" />
 <meta name="twitter:image" content="logos/ml.png" >
 
@@ -122,7 +122,7 @@ Gaussian processes are great for function approximation!</p>
 <p>I did a couple of very quick examples which look promising.</p>
 <h2 id="examples">Examples</h2>
 <h3 id="square">Square</h3>
-<p>Approximating <span class="math">\(f(x) = x^2\)</span> worked very good:</p>
+<p>Approximating $f(x) = x^2$ worked very good:</p>
 <figure class="aligncenter">
 <a href="../images/2016/01/gauss-x2.png"><img alt="f(x) = x^2" class="" src="../images/2016/01/gauss-x2.png" style="max-width:500px;"/></a>
 <figcaption class="text-center">f(x) = x^2</figcaption>
@@ -130,14 +130,14 @@ Gaussian processes are great for function approximation!</p>
 <p>I've tried if with higher order polynomials, more complex polynomials. No
 problem.</p>
 <h3 id="sin">Sin</h3>
-<p>Approximating <span class="math">\(f(x) = \sin(3x)\)</span> seems to be more complicated:</p>
+<p>Approximating $f(x) = \sin(3x)$ seems to be more complicated:</p>
 <figure class="aligncenter">
 <a href="../images/2016/01/gaussian-process-sin-3x.png"><img alt="f(x) = sin(3x)" class="" src="../images/2016/01/gaussian-process-sin-3x.png" style="max-width:500px;"/></a>
 <figcaption class="text-center">f(x) = sin(3x)</figcaption>
 </figure>
 <p>I guess a human would see the wave pattern and do a better job here.</p>
 <h3 id="exp">exp</h3>
-<p>Approximating <span class="math">\(f(x) = e^x\)</span> works similar well as polynomials. One can see
+<p>Approximating $f(x) = e^x$ works similar well as polynomials. One can see
 that it does not perfectly fit it, but compared the the range of values seen
 before and the distance from the last seen value I think this is absolutely
 acceptable:</p>
@@ -148,9 +148,9 @@ acceptable:</p>
 <h3 id="noise">noise</h3>
 <p>It is claimed that Gaussian processes implicitly model noise so that they can
 easily deal with noise. However, in my experients this seems not to work so
-great. The reason might be that I had points in <span class="math">\([-3, 3]\)</span> of the function</p>
-<div class="math">$$f(x) = x^2$$</div>
-<p>with point-wise gaussian noise <span class="math">\(N \sim \mathcal{N}(0, 1)\)</span>. So the noise is
+great. The reason might be that I had points in $[-3, 3]$ of the function</p>
+<p>$$f(x) = x^2$$</p>
+<p>with point-wise gaussian noise $N \sim \mathcal{N}(0, 1)$. So the noise is
 quite domintant on that intervall. One of the examples where it worked better
 is:</p>
 <figure class="aligncenter">
@@ -160,7 +160,7 @@ is:</p>
 <h3 id="make-it-brake">Make it brake</h3>
 <p>I was a bit suspicious if I had another mistake here. So I wanted it to break.
 This was the reason why I created the following function</p>
-<div class="math">$$f(x) = \begin{cases}x^2 &amp;\text{if } x \geq 0\\\\-1 &amp;\text{otherwise}\end{cases}$$</div>
+<p>$$f(x) = \begin{cases}x^2 &amp;\text{if } x \geq 0\\-1 &amp;\text{otherwise}\end{cases}$$</p>
 <figure class="aligncenter">
 <a href="../images/2016/01/gauss-cases.png"><img alt="Function with discontinuity" class="" src="../images/2016/01/gauss-cases.png" style="max-width:500px;"/></a>
 <figcaption class="text-center">Function with discontinuity</figcaption>
@@ -223,9 +223,9 @@ you need <a href="http://matplotlib.org/users/installing.html"><code>matplotlib<
     <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">pl</span>
     <span class="n">pl</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x_train</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
-    <span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">'r:'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">u'$f(x) = </span><span class="si">%s</span><span class="s1">$'</span> <span class="o">%</span> <span class="n">function_tex</span><span class="p">)</span>
-    <span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">'r.'</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">u'Observations'</span><span class="p">)</span>
-    <span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="s1">'b-'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">u'Prediction'</span><span class="p">)</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">'r:'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">u</span><span class="s1">'$f(x) = </span><span class="si">%s</span><span class="s1">$'</span> <span class="o">%</span> <span class="n">function_tex</span><span class="p">)</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">'r.'</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">u</span><span class="s1">'Observations'</span><span class="p">)</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="s1">'b-'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">u</span><span class="s1">'Prediction'</span><span class="p">)</span>
     <span class="n">pl</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]]),</span>
             <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">y_pred</span> <span class="o">-</span> <span class="mf">1.9600</span> <span class="o">*</span> <span class="n">sigma</span><span class="p">,</span>
                            <span class="p">(</span><span class="n">y_pred</span> <span class="o">+</span> <span class="mf">1.9600</span> <span class="o">*</span> <span class="n">sigma</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]]),</span>
@@ -239,7 +239,7 @@ you need <a href="http://matplotlib.org/users/installing.html"><code>matplotlib<
     <span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
 <h2 id="see-also">See also</h2>

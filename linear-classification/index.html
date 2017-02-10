@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Linear Classification "/>
 <meta property="og:url" content="../linear-classification/" />
-<meta property="og:description" content="In classification problems you have data points \(x \in \mathbb{R}^m\) which you want to classify into one of \(k \in \mathbb{N}_{\geq 2}\) classes. This is a supervised task. This means you have \(n\) data points for training in a matrix \(X \in \mathbb{R}^{n \times m}\) ...if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width" />
+<meta property="og:description" content="In classification problems you have data points $x \in \mathbb{R}^m$ which you want to classify into one of $k \in \mathbb{N}_{\geq 2}$ classes. This is a supervised task. This means you have $n$ data points for training in a matrix $X \in \mathbb{R}^{n …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2016-06-22T20:00:00+02:00" />
 <meta name="twitter:title" content="Linear Classification ">
-<meta name="twitter:description" content="In classification problems you have data points \(x \in \mathbb{R}^m\) which you want to classify into one of \(k \in \mathbb{N}_{\geq 2}\) classes. This is a supervised task. This means you have \(n\) data points for training in a matrix \(X \in \mathbb{R}^{n \times m}\) ...if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width">
+<meta name="twitter:description" content="In classification problems you have data points $x \in \mathbb{R}^m$ which you want to classify into one of $k \in \mathbb{N}_{\geq 2}$ classes. This is a supervised task. This means you have $n$ data points for training in a matrix $X \in \mathbb{R}^{n …">
 <meta property="og:image" content="logos/ml.png" />
 <meta name="twitter:image" content="logos/ml.png" >
 
@@ -109,103 +109,97 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>In classification problems you have data points <span class="math">\(x \in \mathbb{R}^m\)</span> which you want to classify into one of <span class="math">\(k \in \mathbb{N}_{\geq 2}\)</span> classes. This is a supervised task. This means you have <span class="math">\(n\)</span> data points for training in a matrix <span class="math">\(X \in \mathbb{R}^{n \times m}\)</span> with their labels.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup></p>
-<p>Initially, the label might be something like "cat" or "dog". But the machine learning algorithms can't deal with those directly, so you need to encode the labels. The simplest way of encoding them is to use integers <span class="math">\(0, 1, \dots, k - 1\)</span>. However, in many cases it is handy to use a <em>one-hot encoding</em>. This means you make a <span class="math">\(k\)</span>-dimensional vector for each label. <span class="math">\((1, 0)\)</span> might encode "dog" and <span class="math">\((0, 1)\)</span> might encode "cat". <code>sklearn</code> supports this encoding in a convenient way
-(<a href="http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html">docs</a>). Another common encoding is <span class="math">\(-1\)</span> and <span class="math">\(1\)</span> for binary classification problems.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup></p>
+            <p>In classification problems you have data points $x \in \mathbb{R}^m$ which you want to classify into one of $k \in \mathbb{N}_{\geq 2}$ classes. This is a supervised task. This means you have $n$ data points for training in a matrix $X \in \mathbb{R}^{n \times m}$ with their labels.<sup id="fnref-1"><a class="footnote-ref" href="#fn-1">1</a></sup></p>
+<p>Initially, the label might be something like "cat" or "dog". But the machine learning algorithms can't deal with those directly, so you need to encode the labels. The simplest way of encoding them is to use integers $0, 1, \dots, k - 1$. However, in many cases it is handy to use a <em>one-hot encoding</em>. This means you make a $k$-dimensional vector for each label. $(1, 0)$ might encode "dog" and $(0, 1)$ might encode "cat". <code>sklearn</code> supports this encoding in a convenient way
+(<a href="http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html">docs</a>). Another common encoding is $-1$ and $1$ for binary classification problems.<sup id="fnref-2"><a class="footnote-ref" href="#fn-2">2</a></sup></p>
 <p>A linear model is one which applies only linear operations to the features. So basically the model may only be a matrix. Typically the elements of the matrix are called <em>weights</em>, because they weight the importance of each feature.</p>
-<p>The objective of such a classifier<sup id="fnref:4"><a class="footnote-ref" href="#fn:4" rel="footnote">4</a></sup> is to find a matrix <span class="math">\(W^*\)</span> such that the MSE is as small as possible on the test set <span class="math">\(D\)</span>:</p>
-<div class="math">$$W^* = \arg \min_{W} E_{MSE} (f_W, D)$$</div>
+<p>The objective of such a classifier<sup id="fnref-4"><a class="footnote-ref" href="#fn-4">4</a></sup> is to find a matrix $W^*$ such that the MSE is as small as possible on the test set $D$:</p>
+<p>$$W^* = \arg \min_{W} E_{MSE} (f_W, D)$$</p>
 <h2 id="one-hot-encoding">One-hot encoding</h2>
-<p>If one-hot encoded labels are used,<sup id="fnref:3"><a class="footnote-ref" href="#fn:3" rel="footnote">3</a></sup> a linear classifier
-</p>
-<div class="math">$$f: \text{feature space} \rightarrow \text{class space}$$</div>
-<p>
+<p>If one-hot encoded labels are used,<sup id="fnref-3"><a class="footnote-ref" href="#fn-3">3</a></sup> a linear classifier
+$$f: \text{feature space} \rightarrow \text{class space}$$
 usually works like this:
-</p>
-<div class="math">$$f(x) = {\arg \max}_{i \in 1, \dots, k} (W \cdot x)^{(i)}$$</div>
-<p>
-with <span class="math">\(W \in \mathbb{R}^{k \times m}\)</span> and <span class="math">\(^{(i)}\)</span> denoting the <span class="math">\(i\)</span>-th element of the vector. Given a test set </p>
-<div class="math">$$D = \{(x_i, y_i) \text{ with } i \in \{1, \dots, n_t\}, x_i \in \mathbb{R}^{m}, y_i \in \mathbb{R}_+^{k}\}$$</div>
-<p>
-you can calculate the <em>mean squared error</em> (MSE) of the classifier <span class="math">\(f\)</span>:</p>
-<div class="math">$$E_{MSE}(f, D) = \frac{1}{n_t}\sum_{i=1}^{n_t} (t_i - W \cdot x_i)^T (t_i - W \cdot x_i)$$</div>
+$$f(x) = {\arg \max}<em>{i \in 1, \dots, k} (W \cdot x)^{(i)}$$
+with $W \in \mathbb{R}^{k \times m}$ and $^{(i)}$ denoting the $i$-th element of the vector. Given a test set $$D = {(x_i, y_i) \text{ with } i \in {1, \dots, n_t}, x_i \in \mathbb{R}^{m}, y_i \in \mathbb{R}</em>+^{k}}$$
+you can calculate the <em>mean squared error</em> (MSE) of the classifier $f$:</p>
+<p>$$E_{MSE}(f, D) = \frac{1}{n_t}\sum_{i=1}^{n_t} (t_i - W \cdot x_i)^T (t_i - W \cdot x_i)$$</p>
 <p>Please note that the MSE is always non-negative for every single data point.</p>
 <h3 id="normalizing-the-output">Normalizing the output</h3>
-<p>The nice thing about the MSE is that it is simple. It can easily be calculated and is used in regression problems very often. What is not so nice is the fact that it punishes several good solutions, too. For example, say we have a data point <span class="math">\(x_1\)</span> which has the target <span class="math">\((1, 0)^T\)</span>. The classification output</p>
-<div class="math">$$c_1 = \begin{pmatrix}101\\0\end{pmatrix}\quad E_{MSE}(f, x_1) = 100^2\tag{1.1}$$</div>
-<p>while the classification output of another point <span class="math">\(x_2\)</span> is</p>
-<div class="math">$$c_2 = \begin{pmatrix}0\\0.1\end{pmatrix}\quad E_{MSE}(f, x_2) = 1 + 0.1^2\tag{1.2}$$</div>
-<p>This is problematic, as the actual classification in <span class="math">\((1.1)\)</span> is correct whereas the classification in <span class="math">\((1.2)\)</span> is wrong. However, this can easily be fixed by normalizing the result.</p>
-<h4 id="simple-normalization">Simple Normalization</h4>
-<p>The simplest way to normalize the result of the classifier would be to divide each entry by the sum of all entries, e.g. for <span class="math">\((1.1)\)</span> we get</p>
-<div class="math">$$
+<p>The nice thing about the MSE is that it is simple. It can easily be calculated and is used in regression problems very often. What is not so nice is the fact that it punishes several good solutions, too. For example, say we have a data point $x_1$ which has the target $(1, 0)^T$. The classification output</p>
+<p>$$c_1 = \begin{pmatrix}101\0\end{pmatrix}\quad E_{MSE}(f, x_1) = 100^2\tag{1.1}$$</p>
+<p>while the classification output of another point $x_2$ is</p>
+<p>$$c_2 = \begin{pmatrix}0\0.1\end{pmatrix}\quad E_{MSE}(f, x_2) = 1 + 0.1^2\tag{1.2}$$</p>
+<p>This is problematic, as the actual classification in $(1.1)$ is correct whereas the classification in $(1.2)$ is wrong. However, this can easily be fixed by normalizing the result.</p>
+<h4>Simple Normalization</h4>
+<p>The simplest way to normalize the result of the classifier would be to divide each entry by the sum of all entries, e.g. for $(1.1)$ we get</p>
+<p>$$
 \begin{align}
-c_1' &amp;= \begin{pmatrix}1\\0\end{pmatrix}\quad &amp;E_{MSE}(f'', x_1) &amp;= 0\tag{2.1}\\
-c_2' &amp;= \begin{pmatrix}0\\1\end{pmatrix}\quad &amp;E_{MSE}(f', x_2) &amp;= 1\tag{2.2}
+c_1' &amp;= \begin{pmatrix}1\0\end{pmatrix}\quad &amp;E_{MSE}(f'', x_1) &amp;= 0\tag{2.1}\
+c_2' &amp;= \begin{pmatrix}0\1\end{pmatrix}\quad &amp;E_{MSE}(f', x_2) &amp;= 1\tag{2.2}
 \end{align}
-$$</div>
-<h4 id="standardization">Standardization</h4>
-<p>You might want to interpret the output of your classifier as a probability of the data point belonging to the different classes. Then you may not have negative values and you also want to avoid a probability of 0. A common normalization then is the <em>softmax function</em> <span class="math">\(\sigma\)</span>. It first exponentiates the single values and then normalizes:</p>
-<div class="math">$$\begin{align}
-c_1'' &amp;= \begin{pmatrix}\frac{e^{101}}{e^{101} + e^0}\\\frac{e^{0}}{e^{101} + e^0}\end{pmatrix} \approx \begin{pmatrix}1\\0\end{pmatrix}\quad &amp;E_{MSE}(f'', x_1) &amp;\approx 0\tag{3.1}\\
-c_2'' &amp;= \begin{pmatrix}\frac{e^{0}}{e^{0} + e^{0.1}}\\\frac{e^{0.1}}{e^{0} + e^{0.1}}\end{pmatrix} \approx \begin{pmatrix}0.475\\0.525\end{pmatrix}\quad &amp;E_{MSE}(f'', x_2) &amp;\approx 0.551\tag{3.2}
-\end{align}$$</div>
+$$</p>
+<h4>Standardization</h4>
+<p>You might want to interpret the output of your classifier as a probability of the data point belonging to the different classes. Then you may not have negative values and you also want to avoid a probability of 0. A common normalization then is the <em>softmax function</em> $\sigma$. It first exponentiates the single values and then normalizes:</p>
+<p>$$\begin{align}
+c_1'' &amp;= \begin{pmatrix}\frac{e^{101}}{e^{101} + e^0}\\frac{e^{0}}{e^{101} + e^0}\end{pmatrix} \approx \begin{pmatrix}1\0\end{pmatrix}\quad &amp;E_{MSE}(f'', x_1) &amp;\approx 0\tag{3.1}\
+c_2'' &amp;= \begin{pmatrix}\frac{e^{0}}{e^{0} + e^{0.1}}\\frac{e^{0.1}}{e^{0} + e^{0.1}}\end{pmatrix} \approx \begin{pmatrix}0.475\0.525\end{pmatrix}\quad &amp;E_{MSE}(f'', x_2) &amp;\approx 0.551\tag{3.2}
+\end{align}$$</p>
 <p>Note that this is the same as a neural network with only an input layer and a softmax output layer.</p>
 <p>Now the optimization problem is:</p>
-<div class="math">$$
+<p>$$
 \begin{align}
-W^* &amp;= \arg \min_{W \in \mathbb{R}^{k \times m}} E(f'', D)\\
-  &amp;= \arg \min_{W \in \mathbb{R}^{k \times m}} \frac{1}{n} \sum_{i=1}^n (t_i - \sigma(W x_i))(t_i - \sigma(W x_i))^T \\
-  &amp;= \arg \min_{W \in \mathbb{R}^{k \times m}} \sum_{i=1}^n (t_i - \sigma(W x_i))(t_i - \sigma(W x_i))^T \\
+W^* &amp;= \arg \min_{W \in \mathbb{R}^{k \times m}} E(f'', D)\
+  &amp;= \arg \min_{W \in \mathbb{R}^{k \times m}} \frac{1}{n} \sum_{i=1}^n (t_i - \sigma(W x_i))(t_i - \sigma(W x_i))^T \
+  &amp;= \arg \min_{W \in \mathbb{R}^{k \times m}} \sum_{i=1}^n (t_i - \sigma(W x_i))(t_i - \sigma(W x_i))^T \
 \end{align}
-$$</div>
+$$</p>
 <p>This is a differentiable function. This means to optimize we can calculate the gradient and apply gradient descent:</p>
-<div class="math">$$
+<p>$$
 \begin{align}
-&amp;\frac{\partial}{\partial W} \sum_{i=1}^n (t_i - \sigma(W x_i))(t_i - \sigma(W x_i))^T\\
-=&amp; \sum_{i=1}^n \frac{\partial}{\partial W} (t_i - \sigma(W x_i))(t_i - \sigma(W x_i))^T\\
-=&amp; \sum_{i=1}^n \left (\frac{\partial}{\partial W} (t_i - \sigma(W x_i)) \right ) \left(t_i - \sigma(W x_i) \right)^T + (t_i - \sigma(W x_i)) \left (\frac{\partial}{\partial W} (t_i - \sigma(W x_i))\right )\\
-=&amp; \sum_{i=1}^n \left (\frac{\partial}{\partial W} \sigma(W x_i) \right ) \left(t_i - \sigma(W x_i) \right)^T + (t_i - \sigma(W x_i)) \left (\frac{\partial}{\partial W} \sigma(W x_i)\right )^T\\
-\end{align}$$</div>
+&amp;\frac{\partial}{\partial W} \sum_{i=1}^n (t_i - \sigma(W x_i))(t_i - \sigma(W x_i))^T\
+=&amp; \sum_{i=1}^n \frac{\partial}{\partial W} (t_i - \sigma(W x_i))(t_i - \sigma(W x_i))^T\
+=&amp; \sum_{i=1}^n \left (\frac{\partial}{\partial W} (t_i - \sigma(W x_i)) \right ) \left(t_i - \sigma(W x_i) \right)^T + (t_i - \sigma(W x_i)) \left (\frac{\partial}{\partial W} (t_i - \sigma(W x_i))\right )\
+=&amp; \sum_{i=1}^n \left (\frac{\partial}{\partial W} \sigma(W x_i) \right ) \left(t_i - \sigma(W x_i) \right)^T + (t_i - \sigma(W x_i)) \left (\frac{\partial}{\partial W} \sigma(W x_i)\right )^T\
+\end{align}$$</p>
 <p>as you can see it gets quite ugly. I don't want to continue this calculation here.  But I hope you can see that this is possible. <a href="http://stats.stackexchange.com/q/79454/25741">stats.stackexchange.com</a> gives some hints on how to continue.</p>
 <h3 id="decision-boundary">Decision boundary</h3>
 <p>The decision boundary for a two-class problem with 2-dimensional data vectors (and one bias) can be calculated as</p>
-<div class="math">$$
+<p>$$
 \begin{align}
-&amp;W^{(0, 0)} \cdot 1 + W^{(0, 1)} \cdot x_1 + W^{(0, 2)} \cdot x_2 = W^{(1, 0)} \cdot 1 + W^{(1, 1)} \cdot x_1 + W^{(1, 2)} \cdot x_2\tag{DB}\\
-\Leftrightarrow x_2&amp;= \frac{W^{(0, 0)} \cdot 1 + W^{(0, 1)} \cdot x_1 - (W^{(1, 0)} \cdot 1 + W^{(1, 1)} \cdot x_1)}{W^{(1, 2)} - W^{(0, 2)}}\\
+&amp;W^{(0, 0)} \cdot 1 + W^{(0, 1)} \cdot x_1 + W^{(0, 2)} \cdot x_2 = W^{(1, 0)} \cdot 1 + W^{(1, 1)} \cdot x_1 + W^{(1, 2)} \cdot x_2\tag{DB}\
+\Leftrightarrow x_2&amp;= \frac{W^{(0, 0)} \cdot 1 + W^{(0, 1)} \cdot x_1 - (W^{(1, 0)} \cdot 1 + W^{(1, 1)} \cdot x_1)}{W^{(1, 2)} - W^{(0, 2)}}\
 \Leftrightarrow x_2 &amp;= \frac{(W^{(0, 1)} - W^{(1, 1)})}{W^{(1, 2)} - W^{(0, 2)}} \cdot x_1 + \frac{W^{(0, 0)} - W^{(1, 0)}}{W^{(1, 2)} - W^{(0, 2)}}
 \end{align}
-$$</div>
+$$</p>
 <p>As you can see, the decision boundary of the non-normalized form is a line:</p>
-<div class="math">$$y = a \cdot x + b \qquad a, b \in \mathbb{R}$$</div>
-<p>Please also note that <span class="math">\(W^{(1, 2)} = W^{(0, 2)}\)</span> is possible, which would mean that the line is parallel to the <span class="math">\(x_2\)</span> axis. So <strong>this model basically only has 2&nbsp;parameter combinations which matter, although it has 6&nbsp;values which can be adjusted. But many combinations are equivalent.</strong></p>
+<p>$$y = a \cdot x + b \qquad a, b \in \mathbb{R}$$</p>
+<p>Please also note that $W^{(1, 2)} = W^{(0, 2)}$ is possible, which would mean that the line is parallel to the $x_2$ axis. So <strong>this model basically only has 2&nbsp;parameter combinations which matter, although it has 6&nbsp;values which can be adjusted. But many combinations are equivalent.</strong></p>
 <p>What does normalization change?</p>
-<p>For given <span class="math">\(W, x\)</span> it only divides both sides of the equation by the same constant. Hence it doesn't change the decision boundary.</p>
+<p>For given $W, x$ it only divides both sides of the equation by the same constant. Hence it doesn't change the decision boundary.</p>
 <p>What does standardization with softmax change?</p>
-<p>Just like with normalization, softmax makes equation <span class="math">\((DB)\)</span> to be divided by a constant. This can be ignored. The exponentiation can also be ignored as we can simply take the logartihm of both sides of <span class="math">\((DB)\)</span>. Or in other words: <strong>A neural network with only one input layer and one softmax output layer also has a linear decision boundary!</strong></p>
+<p>Just like with normalization, softmax makes equation $(DB)$ to be divided by a constant. This can be ignored. The exponentiation can also be ignored as we can simply take the logartihm of both sides of $(DB)$. Or in other words: <strong>A neural network with only one input layer and one softmax output layer also has a linear decision boundary!</strong></p>
 <h2 id="-11-encoding_1">-1/+1 encoding</h2>
 <p>In the 2-class case one might consider to use -1 for one class and +1 for the other class as targets. Then the classifcation is</p>
-<div class="math">$$
+<p>$$
 \begin{cases}
-\text{class with label 1}&amp;\text{if } f(x) \geq 0\\
+\text{class with label 1}&amp;\text{if } f(x) \geq 0\
 \text{class with label -1}&amp;\text{if } f(x) &lt; 0
 \end{cases}
-$$</div>
-<p>The matrix <span class="math">\(W\)</span> is now in <span class="math">\(\mathbb{R}^{1 \times 3}\)</span> and the classifier is</p>
-<div class="math">$$f(x) = W x$$</div>
-<p>To make sure that this is either <span class="math">\(-1\)</span> or <span class="math">\(+1\)</span>, one can modify it to</p>
-<div class="math">$$f'(x) = \frac{W x}{|W x|}$$</div>
-<p>Note that this ignores the case <span class="math">\(Wx = 0\)</span>.</p>
+$$</p>
+<p>The matrix $W$ is now in $\mathbb{R}^{1 \times 3}$ and the classifier is</p>
+<p>$$f(x) = W x$$</p>
+<p>To make sure that this is either $-1$ or $+1$, one can modify it to</p>
+<p>$$f'(x) = \frac{W x}{|W x|}$$</p>
+<p>Note that this ignores the case $Wx = 0$.</p>
 <p>Now we can easily calculate the MSE:</p>
-<div class="math">$$E_{MSE}(f, D) = \sum_{i=1}^{n_t} {(t_i - f'(x))}^2$$</div>
+<p>$$E_{MSE}(f, D) = \sum_{i=1}^{n_t} {(t_i - f'(x))}^2$$</p>
 <h2 id="differences-from-target-encoding">Differences from target encoding</h2>
 <p>You might wonder if it makes a difference which type of encoding you use for your target. There are some things which come to my mind:</p>
 <ul>
-<li>(+) One-hot encoding can easily be expanded to more than two classes, in contrast to <span class="math">\(-1/+1\)</span> encoding.</li>
-<li>(+) With one-hot encoding, you can easily get a probability distribution for the classes you are interested in. This is certainly also possible with <span class="math">\(-1/+1\)</span> encoding, but it doesn't strike my eye as clearly.</li>
+<li>(+) One-hot encoding can easily be expanded to more than two classes, in contrast to $-1/+1$ encoding.</li>
+<li>(+) With one-hot encoding, you can easily get a probability distribution for the classes you are interested in. This is certainly also possible with $-1/+1$ encoding, but it doesn't strike my eye as clearly.</li>
 <li>(-) One-hot encoding needs more storage space.</li>
-<li>(?) <span class="math">\(-1/+1\)</span> encoding is used in SVMs (see <a href="https://martin-thoma.com/svm-with-sklearn/">SVM article</a>), so it might have advantages in maximum margin classification.</li>
+<li>(?) $-1/+1$ encoding is used in SVMs (see <a href="https://martin-thoma.com/svm-with-sklearn/">SVM article</a>), so it might have advantages in maximum margin classification.</li>
 </ul>
 <h2 id="implementation">Implementation</h2>
 <p>If I had to implement a linear binary classifier, I would use the delta rule
@@ -222,7 +216,7 @@ and a perceptron unit:</p>
 
 <span class="k">class</span> <span class="nc">Perceptron</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eta</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eta</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Single perceptron unit.</span>
 
@@ -279,24 +273,24 @@ it does not maximize the margin between the classes. This would be done by
 SVMs.</p>
 <h2 id="footnotes">Footnotes</h2>
 <div class="footnote">
-<hr/>
+<hr>
 <ol>
-<li id="fn:1">
+<li id="fn-1">
 <p>A label and a class are two different things. The class is a set which
   contains all data points which belong to this class. The label is only
-  a pointer to this class.&nbsp;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">↩</a></p>
+  a pointer to this class.&nbsp;<a class="footnote-backref" href="#fnref-1" title="Jump back to footnote 1 in the text">↩</a></p>
 </li>
-<li id="fn:2">
-<p>Classification problems with only two classes.&nbsp;<a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">↩</a></p>
+<li id="fn-2">
+<p>Classification problems with only two classes.&nbsp;<a class="footnote-backref" href="#fnref-2" title="Jump back to footnote 2 in the text">↩</a></p>
 </li>
-<li id="fn:3">
-<p>Also called "targets" sometimes, as we want our classifier to output those values.&nbsp;<a class="footnote-backref" href="#fnref:3" rev="footnote" title="Jump back to footnote 3 in the text">↩</a></p>
+<li id="fn-3">
+<p>Also called "targets" sometimes, as we want our classifier to output those values.&nbsp;<a class="footnote-backref" href="#fnref-3" title="Jump back to footnote 3 in the text">↩</a></p>
 </li>
-<li id="fn:4">
-<p>The objective function defines what is to be done during fitting / training / learning.&nbsp;<a class="footnote-backref" href="#fnref:4" rev="footnote" title="Jump back to footnote 4 in the text">↩</a></p>
+<li id="fn-4">
+<p>The objective function defines what is to be done during fitting / training / learning.&nbsp;<a class="footnote-backref" href="#fnref-4" title="Jump back to footnote 4 in the text">↩</a></p>
 </li>
 </ol>
-</div>
+</hr></div>
             
             <div id="disqus_thread"></div>
 <script>

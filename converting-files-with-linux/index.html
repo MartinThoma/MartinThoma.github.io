@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Converting Files with Linux "/>
 <meta property="og:url" content="../converting-files-with-linux/" />
-<meta property="og:description" content="The following tips work under a Linux terminal and were tested with Ubuntu 10.04 LTS. I guess they will also work with other systems, as the programs are available for them. If you know some further file conversions, please let me know. I am also very interested in Web ..." />
+<meta property="og:description" content="The following tips work under a Linux terminal and were tested with Ubuntu 10.04 LTS. I guess they will also work with other systems, as the programs are available for them. If you know some further file conversions, please let me know. I am also very interested in Web …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2011-09-21T22:10:08+02:00" />
 <meta name="twitter:title" content="Converting Files with Linux ">
-<meta name="twitter:description" content="The following tips work under a Linux terminal and were tested with Ubuntu 10.04 LTS. I guess they will also work with other systems, as the programs are available for them. If you know some further file conversions, please let me know. I am also very interested in Web ...">
+<meta name="twitter:description" content="The following tips work under a Linux terminal and were tested with Ubuntu 10.04 LTS. I guess they will also work with other systems, as the programs are available for them. If you know some further file conversions, please let me know. I am also very interested in Web …">
 <meta property="og:image" content="2011/09/Gnome-Terminal.png" />
 <meta name="twitter:image" content="2011/09/Gnome-Terminal.png" >
 
@@ -164,7 +164,7 @@ as a single PDF via email. That's the way to go:</p>
 <div class="highlight"><pre><span></span>$ lame -b <span class="m">32</span> input.mp3 output.mp3
 </pre></div>
 <p><b>Split MP3 by silence</b>:</p>
-<div class="highlight"><pre><span></span>$ mp3splt -s -p <span class="nv">th</span><span class="o">=</span>-40,min<span class="o">=</span>3,rm input.mp3
+<div class="highlight"><pre><span></span>$ mp3splt -s -p <span class="nv">th</span><span class="o">=</span>-40,min<span class="o">=</span><span class="m">3</span>,rm input.mp3
 </pre></div>
 <p>Parameters (thank you, <a href="http://blog.dornea.nu/2012/04/01/howto-split-mp3s-by-silence-detection-using-mp3splt/">Victor</a>!):</p>
 <ul>
@@ -175,7 +175,7 @@ as a single PDF via email. That's the way to go:</p>
 <li><code>rm</code>: remove silence from splitted files</li>
 </ul>
 <p><b>Split MP3 by time</b>:</p>
-<div class="highlight"><pre><span></span>$ mp3splt input.mp3 -t 10.00
+<div class="highlight"><pre><span></span>$ mp3splt input.mp3 -t <span class="m">10</span>.00
 </pre></div>
 <p>splits the mp3 after every <code>MM.SS</code>, in this case after every 10 minutes and 0
 seconds. So a 53 minutes MP3 would get splitted 5 times and hence result in
@@ -200,10 +200,10 @@ You might also want to install some codecs first:</p>
 <p><b>mod2avi</b>:
 ?</p>
 <p><b>mts2avi</b> (<a href="https://en.wikipedia.org/wiki/.m2ts">MTS format info</a>):</p>
-<div class="highlight"><pre><span></span>$ ffmpeg -i 00008.MTS -acodec copy -vcodec libx264 -crf <span class="m">21</span> -r 30000/1001 -deinterlace -y -threads <span class="m">0</span> output_file.avi
+<div class="highlight"><pre><span></span>$ ffmpeg -i <span class="m">00008</span>.MTS -acodec copy -vcodec libx264 -crf <span class="m">21</span> -r <span class="m">30000</span>/1001 -deinterlace -y -threads <span class="m">0</span> output_file.avi
 </pre></div>
 <p><b>vcd2avi</b>:</p>
-<div class="highlight"><pre><span></span>$ mencoder vcd://2 -o <span class="s2">"New.avi"</span> -oac copy -ovc lavc -lavcopts <span class="nv">vcodec</span><span class="o">=</span>mpeg4:vbitrate<span class="o">=</span>2000
+<div class="highlight"><pre><span></span>$ mencoder vcd://2 -o <span class="s2">"New.avi"</span> -oac copy -ovc lavc -lavcopts <span class="nv">vcodec</span><span class="o">=</span>mpeg4:vbitrate<span class="o">=</span><span class="m">2000</span>
 </pre></div>
 <p><b>ogv2avi</b>:</p>
 <div class="highlight"><pre><span></span>$ mencoder <span class="s2">"Original.ogv"</span> -ovc xvid -oac mp3lame -xvidencopts <span class="nv">pass</span><span class="o">=</span><span class="m">1</span> -o <span class="s2">"New.avi"</span>
@@ -211,10 +211,10 @@ You might also want to install some codecs first:</p>
 <p><b>wmv2mpg</b>:
 aspect=16/9 should eventually be changed to 4/3 or other aspects</p>
 <div class="highlight"><pre><span></span>$ mencoder -of avi -ofps <span class="m">25</span> <span class="se">\</span>
-  -oac mp3lame -lameopts cbr:br<span class="o">=</span>112:aq<span class="o">=</span>3:mode<span class="o">=</span>0:vol<span class="o">=</span><span class="m">0</span> <span class="se">\</span>
+  -oac mp3lame -lameopts cbr:br<span class="o">=</span><span class="m">112</span>:aq<span class="o">=</span><span class="m">3</span>:mode<span class="o">=</span><span class="m">0</span>:vol<span class="o">=</span><span class="m">0</span> <span class="se">\</span>
   -vf hqdn3d,softskip,harddup <span class="se">\</span>
   -ovc xvid <span class="se">\</span>
-  -xvidencopts <span class="nv">bitrate</span><span class="o">=</span>501:max_key_interval<span class="o">=</span>37:aspect<span class="o">=</span>16/9:turbo:nochroma_me:notrellis:max_bframes<span class="o">=</span>0:vhq<span class="o">=</span><span class="m">0</span> <span class="se">\</span>
+  -xvidencopts <span class="nv">bitrate</span><span class="o">=</span><span class="m">501</span>:max_key_interval<span class="o">=</span><span class="m">37</span>:aspect<span class="o">=</span><span class="m">16</span>/9:turbo:nochroma_me:notrellis:max_bframes<span class="o">=</span><span class="m">0</span>:vhq<span class="o">=</span><span class="m">0</span> <span class="se">\</span>
   Original.wmv <span class="se">\</span>
   -o New.avi
 </pre></div>

@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Word Error Rate Calculation "/>
 <meta property="og:url" content="../word-error-rate-calculation/" />
-<meta property="og:description" content="The Word Error Rate (short: WER) is a way to measure performance of an ASR. It compares a reference to an hypothesis and is defined like this: $$\mathit{WER} = \frac{S+D+I}{N}$$ where S is the number of substitutions, D is the number of deletions, I is the ...if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width" />
+<meta property="og:description" content="The Word Error Rate (short: WER) is a way to measure performance of an ASR. It compares a reference to an hypothesis and is defined like this: $$\mathit{WER} = \frac{S+D+I}{N}$$ where S is the number of substitutions, D is the number of deletions, I is the …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2013-11-15T08:59:15+01:00" />
 <meta name="twitter:title" content="Word Error Rate Calculation ">
-<meta name="twitter:description" content="The Word Error Rate (short: WER) is a way to measure performance of an ASR. It compares a reference to an hypothesis and is defined like this: $$\mathit{WER} = \frac{S+D+I}{N}$$ where S is the number of substitutions, D is the number of deletions, I is the ...if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width">
+<meta name="twitter:description" content="The Word Error Rate (short: WER) is a way to measure performance of an ASR. It compares a reference to an hypothesis and is defined like this: $$\mathit{WER} = \frac{S+D+I}{N}$$ where S is the number of substitutions, D is the number of deletions, I is the …">
 <meta property="og:image" content="2013/11/wer-thumb.png" />
 <meta name="twitter:image" content="2013/11/wer-thumb.png" >
 
@@ -110,7 +110,7 @@ MathJax.Hub.Queue(function() {
 
             
             <p>The Word Error Rate (short: WER) is a way to measure performance of an <abbr title="Automatic Speech Recognizer">ASR</abbr>. It compares a reference to an hypothesis and is defined like this:</p>
-<div class="math">$$\mathit{WER} = \frac{S+D+I}{N}$$</div>
+<p>$$\mathit{WER} = \frac{S+D+I}{N}$$</p>
 <p>where
 <ul>
 <li>S is the number of substitutions,</li>
@@ -138,24 +138,24 @@ words.</p>
 <h2 id="calculation">Calculation</h2>
 <p>Interestingly, the WER is just the Levenshtein distance for words.</p>
 <p>I've understood it after I saw this on the German Wikipedia:</p>
-<div class="math">\begin{align}
-m &amp;= |r|\\
-n &amp;= |h|\\
-\end{align}</div>
-<div class="math">\begin{align}
-D_{0, 0} &amp;= 0\\
-D_{i, 0} &amp;= i, 1 \leq i \leq m\\
+<p>\begin{align}
+m &amp;= |r|\
+n &amp;= |h|\
+\end{align}</p>
+<p>\begin{align}
+D_{0, 0} &amp;= 0\
+D_{i, 0} &amp;= i, 1 \leq i \leq m\
 D_{0, j} &amp;= j, 1 \leq j \leq n
-\end{align}</div>
-<div class="math">$$
-\text{For } 1 \leq i\leq m, 1\leq j \leq n\\
+\end{align}</p>
+<p>$$
+\text{For } 1 \leq i\leq m, 1\leq j \leq n\
 D_{i, j} = \min \begin{cases}
-D_{i - 1, j - 1}&amp;+ 0 \ {\rm if}\ u_i = v_j\\
-D_{i - 1, j - 1}&amp;+ 1 \ {\rm(Replacement)} \\
-D_{i, j - 1}&amp;+ 1 \ {\rm(Insertion)} \\
+D_{i - 1, j - 1}&amp;+ 0 \ {\rm if}\ u_i = v_j\
+D_{i - 1, j - 1}&amp;+ 1 \ {\rm(Replacement)} \
+D_{i, j - 1}&amp;+ 1 \ {\rm(Insertion)} \
 D_{i - 1, j}&amp;+ 1 \ {\rm(Deletion)}
 \end{cases}
-$$</div>
+$$</p>
 <p>But I have written a piece of pseudocode to make it even easier to code this algorithm:</p>
 <figure class="aligncenter">
 <img alt="WER calculation" class="size-full" src="../images/2013/11/WER-calculation.png" style="max-width: 500px; max-height: 494px;"/>
@@ -213,7 +213,7 @@ $$</div>
 
     <span class="k">return</span> <span class="n">d</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">)][</span><span class="nb">len</span><span class="p">(</span><span class="n">h</span><span class="p">)]</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">doctest</span>
     <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
 </pre></div>

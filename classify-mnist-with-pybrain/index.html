@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Classify MNIST with PyBrain "/>
 <meta property="og:url" content="../classify-mnist-with-pybrain/" />
-<meta property="og:description" content="The MNIST database is a huge database of handwritten digits that is commonly used for training, evaluating and comparing classifiers. It has a training set of 60,000 instances and a test set of 10,000 instances. Every instance is a 28 × 28 pixel grayscale image. The MNIST format MNIST ..." />
+<meta property="og:description" content="The MNIST database is a huge database of handwritten digits that is commonly used for training, evaluating and comparing classifiers. It has a training set of 60,000 instances and a test set of 10,000 instances. Every instance is a 28 × 28 pixel grayscale image. The MNIST format MNIST …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2014-06-18T02:31:00+02:00" />
 <meta name="twitter:title" content="Classify MNIST with PyBrain ">
-<meta name="twitter:description" content="The MNIST database is a huge database of handwritten digits that is commonly used for training, evaluating and comparing classifiers. It has a training set of 60,000 instances and a test set of 10,000 instances. Every instance is a 28 × 28 pixel grayscale image. The MNIST format MNIST ...">
+<meta name="twitter:description" content="The MNIST database is a huge database of handwritten digits that is commonly used for training, evaluating and comparing classifiers. It has a training set of 60,000 instances and a test set of 10,000 instances. Every instance is a 28 × 28 pixel grayscale image. The MNIST format MNIST …">
 <meta property="og:image" content="logos/pybrain.png" />
 <meta name="twitter:image" content="logos/pybrain.png" >
 
@@ -124,24 +124,24 @@ Every instance is a 28 &times; 28 pixel grayscale image.</p>
 </ul>
 <p>Both label files are like this:</p>
 <div class="highlight"><pre><span></span><span class="k">[offset] [type]          [value]          [description]</span>
-<span class="err">0000</span>     <span class="err">32</span> <span class="err">bit</span> <span class="err">integer</span>  <span class="err">0x00000801(2049)</span> <span class="err">magic</span> <span class="err">number</span> <span class="err">(MSB</span> <span class="err">first)</span>
-<span class="err">0004</span>     <span class="err">32</span> <span class="err">bit</span> <span class="err">integer</span>  <span class="err">60000</span>            <span class="err">number</span> <span class="err">of</span> <span class="err">items</span>
-<span class="err">0008</span>     <span class="err">unsigned</span> <span class="err">byte</span>   <span class="err">??</span>               <span class="err">label</span>
-<span class="err">0009</span>     <span class="err">unsigned</span> <span class="err">byte</span>   <span class="err">??</span>               <span class="err">label</span>
-<span class="err">........</span>
-<span class="err">xxxx</span>     <span class="err">unsigned</span> <span class="err">byte</span>   <span class="err">??</span>               <span class="err">label</span>
-<span class="err">The</span> <span class="err">labels</span> <span class="err">values</span> <span class="err">are</span> <span class="err">0</span> <span class="err">to</span> <span class="err">9.</span>
+<span class="na">0000     32 bit integer  0x00000801(2049) magic number (MSB first)</span>
+<span class="na">0004     32 bit integer  60000            number of items</span>
+<span class="na">0008     unsigned byte   ??               label</span>
+<span class="na">0009     unsigned byte   ??               label</span>
+<span class="na">........</span>
+<span class="na">xxxx     unsigned byte   ??               label</span>
+<span class="na">The labels values are 0 to 9.</span>
 </pre></div>
 <p>and both image containers are like that:</p>
 <div class="highlight"><pre><span></span><span class="k">[offset] [type]          [value]          [description]</span>
-<span class="err">0000</span>     <span class="err">32</span> <span class="err">bit</span> <span class="err">integer</span>  <span class="err">0x00000803(2051)</span> <span class="err">magic</span> <span class="err">number</span>
-<span class="err">0004</span>     <span class="err">32</span> <span class="err">bit</span> <span class="err">integer</span>  <span class="err">60000</span>            <span class="err">number</span> <span class="err">of</span> <span class="err">images</span>
-<span class="err">0008</span>     <span class="err">32</span> <span class="err">bit</span> <span class="err">integer</span>  <span class="err">28</span>               <span class="err">number</span> <span class="err">of</span> <span class="err">rows</span>
-<span class="err">0012</span>     <span class="err">32</span> <span class="err">bit</span> <span class="err">integer</span>  <span class="err">28</span>               <span class="err">number</span> <span class="err">of</span> <span class="err">columns</span>
-<span class="err">0016</span>     <span class="err">unsigned</span> <span class="err">byte</span>   <span class="err">??</span>               <span class="err">pixel</span>
-<span class="err">0017</span>     <span class="err">unsigned</span> <span class="err">byte</span>   <span class="err">??</span>               <span class="err">pixel</span>
-<span class="err">........</span>
-<span class="err">xxxx</span>     <span class="err">unsigned</span> <span class="err">byte</span>   <span class="err">??</span>               <span class="err">pixel</span>
+<span class="na">0000     32 bit integer  0x00000803(2051) magic number</span>
+<span class="na">0004     32 bit integer  60000            number of images</span>
+<span class="na">0008     32 bit integer  28               number of rows</span>
+<span class="na">0012     32 bit integer  28               number of columns</span>
+<span class="na">0016     unsigned byte   ??               pixel</span>
+<span class="na">0017     unsigned byte   ??               pixel</span>
+<span class="na">........</span>
+<span class="na">xxxx     unsigned byte   ??               pixel</span>
 </pre></div>
 <p>And they are, of course, compressed.</p>
 <h2 id="reading-the-dataset">Reading the dataset</h2>
@@ -421,7 +421,7 @@ the data.</p>
               <span class="s2">"  test error: </span><span class="si">%5.2f%%</span><span class="s2">"</span> <span class="o">%</span> <span class="n">tstresult</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">fnn</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">()</span>
 
     <span class="c1"># Add more options if you like</span>
@@ -463,52 +463,52 @@ Get testset
 Got <span class="m">10000</span> testing datasets.
 Get trainingset
 Got <span class="m">60000</span> training datasets.
-Input features: 784
+Input features: <span class="m">784</span>
 Start training
-Total error: 0.0132789873631
+Total error: <span class="m">0</span>.0132789873631
 <span class="o">(</span><span class="s1">'epoch:    1'</span>, <span class="s1">'  train error: 14.97%'</span>, <span class="s1">'  test error: 14.28%'</span><span class="o">)</span>
-Total error: 0.0122669294279
+Total error: <span class="m">0</span>.0122669294279
 <span class="o">(</span><span class="s1">'epoch:    2'</span>, <span class="s1">'  train error: 11.54%'</span>, <span class="s1">'  test error: 11.18%'</span><span class="o">)</span>
-Total error: 0.0121586496637
+Total error: <span class="m">0</span>.0121586496637
 <span class="o">(</span><span class="s1">'epoch:    3'</span>, <span class="s1">'  train error: 12.21%'</span>, <span class="s1">'  test error: 11.71%'</span><span class="o">)</span>
-Total error: 0.0121439024528
+Total error: <span class="m">0</span>.0121439024528
 <span class="o">(</span><span class="s1">'epoch:    4'</span>, <span class="s1">'  train error: 13.91%'</span>, <span class="s1">'  test error: 13.01%'</span><span class="o">)</span>
-Total error: 0.0121144144187
+Total error: <span class="m">0</span>.0121144144187
 <span class="o">(</span><span class="s1">'epoch:    5'</span>, <span class="s1">'  train error: 12.51%'</span>, <span class="s1">'  test error: 11.95%'</span><span class="o">)</span>
-Total error: 0.0121177344402
+Total error: <span class="m">0</span>.0121177344402
 <span class="o">(</span><span class="s1">'epoch:    6'</span>, <span class="s1">'  train error: 12.14%'</span>, <span class="s1">'  test error: 11.35%'</span><span class="o">)</span>
-Total error: 0.0121240818924
+Total error: <span class="m">0</span>.0121240818924
 <span class="o">(</span><span class="s1">'epoch:    7'</span>, <span class="s1">'  train error: 15.82%'</span>, <span class="s1">'  test error: 15.38%'</span><span class="o">)</span>
-Total error: 0.0120871124447
+Total error: <span class="m">0</span>.0120871124447
 <span class="o">(</span><span class="s1">'epoch:    8'</span>, <span class="s1">'  train error: 13.00%'</span>, <span class="s1">'  test error: 12.32%'</span><span class="o">)</span>
-Total error: 0.0120638692784
+Total error: <span class="m">0</span>.0120638692784
 <span class="o">(</span><span class="s1">'epoch:    9'</span>, <span class="s1">'  train error: 14.02%'</span>, <span class="s1">'  test error: 13.06%'</span><span class="o">)</span>
-Total error: 0.0120865053396
+Total error: <span class="m">0</span>.0120865053396
 <span class="o">(</span><span class="s1">'epoch:   10'</span>, <span class="s1">'  train error: 13.42%'</span>, <span class="s1">'  test error: 12.79%'</span><span class="o">)</span>
-Total error: 0.0120843528845
+Total error: <span class="m">0</span>.0120843528845
 <span class="o">(</span><span class="s1">'epoch:   11'</span>, <span class="s1">'  train error: 13.42%'</span>, <span class="s1">'  test error: 13.02%'</span><span class="o">)</span>
-Total error: 0.0120598288441
+Total error: <span class="m">0</span>.0120598288441
 <span class="o">(</span><span class="s1">'epoch:   12'</span>, <span class="s1">'  train error: 13.08%'</span>, <span class="s1">'  test error: 12.33%'</span><span class="o">)</span>
-Total error: 0.0120947755501
+Total error: <span class="m">0</span>.0120947755501
 <span class="o">(</span><span class="s1">'epoch:   13'</span>, <span class="s1">'  train error: 12.86%'</span>, <span class="s1">'  test error: 12.36%'</span><span class="o">)</span>
-Total error: 0.0120686450925
+Total error: <span class="m">0</span>.0120686450925
 <span class="o">(</span><span class="s1">'epoch:   14'</span>, <span class="s1">'  train error: 13.21%'</span>, <span class="s1">'  test error: 12.34%'</span><span class="o">)</span>
-Total error: 0.0120948253309
+Total error: <span class="m">0</span>.0120948253309
 <span class="o">(</span><span class="s1">'epoch:   15'</span>, <span class="s1">'  train error: 12.53%'</span>, <span class="s1">'  test error: 11.64%'</span><span class="o">)</span>
-Total error: 0.0120471256247
+Total error: <span class="m">0</span>.0120471256247
 <span class="o">(</span><span class="s1">'epoch:   16'</span>, <span class="s1">'  train error: 13.71%'</span>, <span class="s1">'  test error: 12.88%'</span><span class="o">)</span>
-Total error: 0.0120735887868
+Total error: <span class="m">0</span>.0120735887868
 <span class="o">(</span><span class="s1">'epoch:   17'</span>, <span class="s1">'  train error: 12.78%'</span>, <span class="s1">'  test error: 11.81%'</span><span class="o">)</span>
-Total error: 0.0120712301982
+Total error: <span class="m">0</span>.0120712301982
 <span class="o">(</span><span class="s1">'epoch:   18'</span>, <span class="s1">'  train error: 13.66%'</span>, <span class="s1">'  test error: 13.13%'</span><span class="o">)</span>
-Total error: 0.0120947124816
+Total error: <span class="m">0</span>.0120947124816
 <span class="o">(</span><span class="s1">'epoch:   19'</span>, <span class="s1">'  train error: 12.48%'</span>, <span class="s1">'  test error: 11.79%'</span><span class="o">)</span>
-Total error: 0.0120736808357
+Total error: <span class="m">0</span>.0120736808357
 <span class="o">(</span><span class="s1">'epoch:   20'</span>, <span class="s1">'  train error: 14.52%'</span>, <span class="s1">'  test error: 13.95%'</span><span class="o">)</span>
 
-real    3745,91s
-user    7336,48s
-sys    21571,09s
+real    <span class="m">3745</span>,91s
+user    <span class="m">7336</span>,48s
+sys    <span class="m">21571</span>,09s
 </pre></div>
             
             <div id="disqus_thread"></div>

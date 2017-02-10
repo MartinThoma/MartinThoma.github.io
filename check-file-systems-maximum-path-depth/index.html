@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Check File Systems maximum path depth "/>
 <meta property="og:url" content="../check-file-systems-maximum-path-depth/" />
-<meta property="og:description" content="Today, I&#39;ve wondered how deep a path could be at maximum. I&#39;ve guessed the file system may be limiting that, but perhaps also some tools that I use for basic operations like listing a folders contents would fail before. So I&#39;ve created the following C-Snippet to test ..." />
+<meta property="og:description" content="Today, I&#39;ve wondered how deep a path could be at maximum. I&#39;ve guessed the file system may be limiting that, but perhaps also some tools that I use for basic operations like listing a folders contents would fail before. So I&#39;ve created the following C-Snippet to test it: #include &lt;sys …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2013-03-03T20:51:24+01:00" />
 <meta name="twitter:title" content="Check File Systems maximum path depth ">
-<meta name="twitter:description" content="Today, I&#39;ve wondered how deep a path could be at maximum. I&#39;ve guessed the file system may be limiting that, but perhaps also some tools that I use for basic operations like listing a folders contents would fail before. So I&#39;ve created the following C-Snippet to test ...">
+<meta name="twitter:description" content="Today, I&#39;ve wondered how deep a path could be at maximum. I&#39;ve guessed the file system may be limiting that, but perhaps also some tools that I use for basic operations like listing a folders contents would fail before. So I&#39;ve created the following C-Snippet to test it: #include &lt;sys …">
 <meta property="og:image" content="2013/03/long-path-thumb.png" />
 <meta name="twitter:image" content="2013/03/long-path-thumb.png" >
 
@@ -156,8 +156,8 @@ MathJax.Hub.Queue(function() {
 <div class="highlight"><pre><span></span>$ <span class="nb">time</span> ./createDirectories 
 
 <span class="k">return</span> code     : -1
-Created sub-directories : 1018
-length of pathname  : 4096
+Created sub-directories : <span class="m">1018</span>
+length of pathname  : <span class="m">4096</span>
 
 real    0m0.281s
 user    0m0.004s
@@ -178,8 +178,8 @@ Now I created a folder called "three" and one called "this". I entered both of t
 <p>When I use a single character for sub-directories, I get:</p>
 <div class="highlight"><pre><span></span>moose@pc07:~/Desktop/Test$ ./createDirectories 
 <span class="k">return</span> code     : -1
-Created sub-directories : 2036
-length of pathname  : 4096
+Created sub-directories : <span class="m">2036</span>
+length of pathname  : <span class="m">4096</span>
 </pre></div>
 <h2 id="number-of-directories-in-one-directory">Number of directories in one directory</h2>
 <p>Do you know how many folders can fit into one folder? Well, lets find out:</p>
@@ -241,7 +241,7 @@ length of pathname  : 4096
 </pre></div>
 <p>I've executed it and after eight minutes I canceled the execution.</p>
 <div class="highlight"><pre><span></span>$ ls <span class="p">|</span> wc -l
-378463
+<span class="m">378463</span>
 </pre></div>
 <p>Ok, not a million folders, but 378.463 is also quite a lot. When I try to open this folder with Nautilus, I get 140% CPU utilization by Nautilus. Quite impressive, for only showing some folders.</p>
 <p>You should probably not execute the script above, as <a href="http://unix.stackexchange.com/q/66806/4784">deleting the folder isn't that easy</a>.</p>

@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="How to reverse engineer a function "/>
 <meta property="og:url" content="../how-to-reverse-engineer-a-function/" />
-<meta property="og:description" content="I am currently improving many articles on Wikipedia as a preparation for some math exams. And I recently started to create images with LaTeX / TikZ. Today, I&#39;ve found this image in the article about the Intermediate value theorem: Pixel-image of a function from Wikipedia Get special points As a ..." />
+<meta property="og:description" content="I am currently improving many articles on Wikipedia as a preparation for some math exams. And I recently started to create images with LaTeX / TikZ. Today, I&#39;ve found this image in the article about the Intermediate value theorem: Pixel-image of a function from Wikipedia Get special points As a first …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2012-08-27T09:49:58+02:00" />
 <meta name="twitter:title" content="How to reverse engineer a function ">
-<meta name="twitter:description" content="I am currently improving many articles on Wikipedia as a preparation for some math exams. And I recently started to create images with LaTeX / TikZ. Today, I&#39;ve found this image in the article about the Intermediate value theorem: Pixel-image of a function from Wikipedia Get special points As a ...">
+<meta name="twitter:description" content="I am currently improving many articles on Wikipedia as a preparation for some math exams. And I recently started to create images with LaTeX / TikZ. Today, I&#39;ve found this image in the article about the Intermediate value theorem: Pixel-image of a function from Wikipedia Get special points As a first …">
 <meta property="og:image" content="2012/08/cubic-function-thumb.png" />
 <meta name="twitter:image" content="2012/08/cubic-function-thumb.png" >
 
@@ -130,21 +130,21 @@ MathJax.Hub.Queue(function() {
 <p>The local maximum is at (79 | 133) and the local minimum is at (131 | 20).</p>
 <h2 id="form-equations">Form equations</h2>
 <p>A cubic function generally looks like this:
-<span class="math">\(f(x) = a \cdot x^3 + b \cdot x^2 + c \cdot x + d\)</span></p>
+$f(x) = a \cdot x^3 + b \cdot x^2 + c \cdot x + d$</p>
 <p>You have two points, so they have to fit to this equation:
-(I) <span class="math">\(f(79) = 133\)</span>
-(II) <span class="math">\(f(131) = 20\)</span></p>
+(I) $f(79) = 133$
+(II) $f(131) = 20$</p>
 <p>The derivative has to be zero in a minimum and a maximum, so you know two more equations:
-(III) <span class="math">\(f'(79) = 0\)</span>
-(IV)  <span class="math">\(f'(131) = 0\)</span></p>
+(III) $f'(79) = 0$
+(IV)  $f'(131) = 0$</p>
 <p>Four linear equations and four variables. Now we can solve those equations.</p>
 <h2 id="get-explicit-equations">Get explicit equations</h2>
 <p>As a first step, we write down the equations in an explicit form. You have to know the general derivate of a cubic function:
-<span class="math">\(f'(x) = 3 a\cdot x^2 + 2 b \cdot x + c\)</span></p>
-<p>(I) <span class="math">\(493039a + 6241b+79c + d = 133\)</span>
-(II) <span class="math">\(2352637a + 17689b + 131c + d = 20\)</span>
-(III) <span class="math">\(18723a + 158 b + c = 0\)</span>
-(IV) <span class="math">\(51483 a + 262 b + c = 0\)</span></p>
+$f'(x) = 3 a\cdot x^2 + 2 b \cdot x + c$</p>
+<p>(I) $493039a + 6241b+79c + d = 133$
+(II) $2352637a + 17689b + 131c + d = 20$
+(III) $18723a + 158 b + c = 0$
+(IV) $51483 a + 262 b + c = 0$</p>
 <h2 id="solve-the-equations">Solve the equations</h2>
 <p>Now you have to solve the equations. I took <a href="http://www.wolframalpha.com/input/?i=493039*a%2B6241*b%2B79*c%2Bd%3D133%2C+2352637*a%2B17689*b%2B131*c%2Bd%3D20%2C+18723*a%2B158*b%2Bc%3D0%2C+51483*a%2B262*b%2Bc%3D0">Wolfram|Alpha</a>, because the numbers are really ugly. If you like to do it by hand, you have to know how to use the <a href="http://en.wikipedia.org/wiki/Gaussian_elimination">Gaussian algorithm</a>.</p>
 <p>Here is the exact solution:

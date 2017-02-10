@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="How to sort with Java "/>
 <meta property="og:url" content="../how-to-sort-with-java/" />
-<meta property="og:description" content="Sorting is a very basic task that every programmer should be able to solve. In Python, you have sort and sorted. In C++, you can use operator overloading. I&#39;ll now tell you how to do basic sorting with Java. I will not write about natural language sorting or language-aware ..." />
+<meta property="og:description" content="Sorting is a very basic task that every programmer should be able to solve. In Python, you have sort and sorted. In C++, you can use operator overloading. I&#39;ll now tell you how to do basic sorting with Java. I will not write about natural language sorting or language-aware sorting …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2013-01-08T21:49:47+01:00" />
 <meta name="twitter:title" content="How to sort with Java ">
-<meta name="twitter:description" content="Sorting is a very basic task that every programmer should be able to solve. In Python, you have sort and sorted. In C++, you can use operator overloading. I&#39;ll now tell you how to do basic sorting with Java. I will not write about natural language sorting or language-aware ...">
+<meta name="twitter:description" content="Sorting is a very basic task that every programmer should be able to solve. In Python, you have sort and sorted. In C++, you can use operator overloading. I&#39;ll now tell you how to do basic sorting with Java. I will not write about natural language sorting or language-aware sorting …">
 <meta property="og:image" content="2012/07/java-thumb.png" />
 <meta name="twitter:image" content="2012/07/java-thumb.png" >
 
@@ -114,12 +114,12 @@ MathJax.Hub.Queue(function() {
 <p>First of all, you have to make sure that you understand how sorting works - without Java, just in the real world.</p>
 <p>What you need:
 <ul>
-<li>A container <span class="math">\(C\)</span> of objects</li>
-<li>A way to compare two objects of the list at a time. The comparison, lets call it <span class="math">\(\leq\)</span> needs to satisfy the following conditions:
+<li>A container $C$ of objects</li>
+<li>A way to compare two objects of the list at a time. The comparison, lets call it $\leq$ needs to satisfy the following conditions:
      <ul>
-<li><a href="http://en.wikipedia.org/wiki/Total_relation">totality</a>: <span class="math">\(\forall x, y \in C: x \leq y \lor y \leq x\)</span></li>
-<li><a href="http://en.wikipedia.org/wiki/Antisymmetric_relation">antisymmetry</a>: <span class="math">\(\forall x,y \in C: x \leq y \land y \leq x \Rightarrow x = y\)</span></li>
-<li><a href="http://en.wikipedia.org/wiki/Transitive_relation">transitivity</a>: <span class="math">\(\forall x,y,z \in C: x \leq y \land y \leq z \Rightarrow x \leq z\)</span></li>
+<li><a href="http://en.wikipedia.org/wiki/Total_relation">totality</a>: $\forall x, y \in C: x \leq y \lor y \leq x$</li>
+<li><a href="http://en.wikipedia.org/wiki/Antisymmetric_relation">antisymmetry</a>: $\forall x,y \in C: x \leq y \land y \leq x \Rightarrow x = y$</li>
+<li><a href="http://en.wikipedia.org/wiki/Transitive_relation">transitivity</a>: $\forall x,y,z \in C: x \leq y \land y \leq z \Rightarrow x \leq z$</li>
 </ul>
 </li>
 </ul></p>
@@ -224,8 +224,8 @@ Don't mix <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection
 <span class="o">}</span>
 </pre></div>
 <p>Output:</p>
-<div class="highlight"><pre><span></span><span class="o">[</span>Germany: 81903000, France: 64667000, Norway: 4985900, Sweden: 9514406, Spain: 47212990, Switzerland: 8014000, Monaco: 36371<span class="o">]</span>
-<span class="o">[</span>France: 64667000, Germany: 81903000, Monaco: 36371, Norway: 4985900, Spain: 47212990, Sweden: 9514406, Switzerland: 8014000<span class="o">]</span>
+<div class="highlight"><pre><span></span><span class="o">[</span>Germany: <span class="m">81903000</span>, France: <span class="m">64667000</span>, Norway: <span class="m">4985900</span>, Sweden: <span class="m">9514406</span>, Spain: <span class="m">47212990</span>, Switzerland: <span class="m">8014000</span>, Monaco: <span class="m">36371</span><span class="o">]</span>
+<span class="o">[</span>France: <span class="m">64667000</span>, Germany: <span class="m">81903000</span>, Monaco: <span class="m">36371</span>, Norway: <span class="m">4985900</span>, Spain: <span class="m">47212990</span>, Sweden: <span class="m">9514406</span>, Switzerland: <span class="m">8014000</span><span class="o">]</span>
 </pre></div>
 <p>You should definitely add JavaDoc and comment what you've compared.
 Note that it would sort the list in reverse order if you switched <code>this.population - o.population;</code> to <code>o.population - this.population;</code>. This would be bad style, as the JavaDoc of Comparable define the order. If you would like to sort in reverse, you should use <code>Collections.reverse(europe);</code>.</p>
@@ -282,9 +282,9 @@ Note that it would sort the list in reverse order if you switched <code>this.pop
 <span class="o">}</span>
 </pre></div>
 <p>Your output would be:</p>
-<div class="highlight"><pre><span></span><span class="o">[</span>Germany: 81903000, France: 64667000, Norway: 4985900, Sweden: 9514406, Spain: 47212990, Switzerland: 8014000, Monaco: 36371<span class="o">]</span>
-<span class="o">[</span>France: 64667000, Germany: 81903000, Monaco: 36371, Norway: 4985900, Spain: 47212990, Sweden: 9514406, Switzerland: 8014000<span class="o">]</span>
-<span class="o">[</span>Norway: 4985900, Sweden: 9514406, Spain: 47212990, France: 64667000, Switzerland: 8014000, Germany: 81903000, Monaco: 36371<span class="o">]</span>
+<div class="highlight"><pre><span></span><span class="o">[</span>Germany: <span class="m">81903000</span>, France: <span class="m">64667000</span>, Norway: <span class="m">4985900</span>, Sweden: <span class="m">9514406</span>, Spain: <span class="m">47212990</span>, Switzerland: <span class="m">8014000</span>, Monaco: <span class="m">36371</span><span class="o">]</span>
+<span class="o">[</span>France: <span class="m">64667000</span>, Germany: <span class="m">81903000</span>, Monaco: <span class="m">36371</span>, Norway: <span class="m">4985900</span>, Spain: <span class="m">47212990</span>, Sweden: <span class="m">9514406</span>, Switzerland: <span class="m">8014000</span><span class="o">]</span>
+<span class="o">[</span>Norway: <span class="m">4985900</span>, Sweden: <span class="m">9514406</span>, Spain: <span class="m">47212990</span>, France: <span class="m">64667000</span>, Switzerland: <span class="m">8014000</span>, Germany: <span class="m">81903000</span>, Monaco: <span class="m">36371</span><span class="o">]</span>
 </pre></div>
 <h3 id="internal-anonymous-comparator">Internal (anonymous) Comparator</h3>
 <p>You can also directly implement the comperator where you need it:</p>
@@ -326,9 +326,9 @@ Note that it would sort the list in reverse order if you switched <code>this.pop
 <span class="o">}</span>
 </pre></div>
 <p>Your output would be:</p>
-<div class="highlight"><pre><span></span><span class="o">[</span>Germany: 81903000, France: 64667000, Norway: 4985900, Sweden: 9514406, Spain: 47212990, Switzerland: 8014000, Monaco: 36371<span class="o">]</span>
-<span class="o">[</span>France: 64667000, Germany: 81903000, Monaco: 36371, Norway: 4985900, Spain: 47212990, Sweden: 9514406, Switzerland: 8014000<span class="o">]</span>
-<span class="o">[</span>Norway: 4985900, Sweden: 9514406, Spain: 47212990, France: 64667000, Switzerland: 8014000, Germany: 81903000, Monaco: 36371<span class="o">]</span>
+<div class="highlight"><pre><span></span><span class="o">[</span>Germany: <span class="m">81903000</span>, France: <span class="m">64667000</span>, Norway: <span class="m">4985900</span>, Sweden: <span class="m">9514406</span>, Spain: <span class="m">47212990</span>, Switzerland: <span class="m">8014000</span>, Monaco: <span class="m">36371</span><span class="o">]</span>
+<span class="o">[</span>France: <span class="m">64667000</span>, Germany: <span class="m">81903000</span>, Monaco: <span class="m">36371</span>, Norway: <span class="m">4985900</span>, Spain: <span class="m">47212990</span>, Sweden: <span class="m">9514406</span>, Switzerland: <span class="m">8014000</span><span class="o">]</span>
+<span class="o">[</span>Norway: <span class="m">4985900</span>, Sweden: <span class="m">9514406</span>, Spain: <span class="m">47212990</span>, France: <span class="m">64667000</span>, Switzerland: <span class="m">8014000</span>, Germany: <span class="m">81903000</span>, Monaco: <span class="m">36371</span><span class="o">]</span>
 </pre></div>
 <p>I don't recommend this way for some reasons:
 <ul>

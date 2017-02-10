@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Generating many prime numbers "/>
 <meta property="og:url" content="../generating-many-prime-numbers/" />
-<meta property="og:description" content="Today, a fellow student claimed that it would take much time to check the first 1,000,000 numbers for primes. I claimed that it would be a matter of seconds to do so for the first 1,000,000,000 numbers. So, lets prove my claim. Trivial approach #include ..." />
+<meta property="og:description" content="Today, a fellow student claimed that it would take much time to check the first 1,000,000 numbers for primes. I claimed that it would be a matter of seconds to do so for the first 1,000,000,000 numbers. So, lets prove my claim. Trivial approach #include …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2013-05-21T22:50:10+02:00" />
 <meta name="twitter:title" content="Generating many prime numbers ">
-<meta name="twitter:description" content="Today, a fellow student claimed that it would take much time to check the first 1,000,000 numbers for primes. I claimed that it would be a matter of seconds to do so for the first 1,000,000,000 numbers. So, lets prove my claim. Trivial approach #include ...">
+<meta name="twitter:description" content="Today, a fellow student claimed that it would take much time to check the first 1,000,000 numbers for primes. I claimed that it would be a matter of seconds to do so for the first 1,000,000,000 numbers. So, lets prove my claim. Trivial approach #include …">
 <meta property="og:image" content="2012/04/leonhard-euler.jpg" />
 <meta name="twitter:image" content="2012/04/leonhard-euler.jpg" >
 
@@ -227,7 +227,7 @@ sys 2m11.748s
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
-<div class="highlight"><pre><span></span><span class="nb">time</span> ./generate-prime-list.out 1000000000
+<div class="highlight"><pre><span></span><span class="nb">time</span> ./generate-prime-list.out <span class="m">1000000000</span>
 
 real    3m21.249s
 user    1m4.016s
@@ -236,7 +236,7 @@ sys 2m12.332s
 <p>Ok, no real change :-/</p>
 <p>Another idea is to replace <code>endl</code> by <code>\n</code> (see <a href="http://stackoverflow.com/a/5192299/562769">explanation</a>)</p>
 <p>That was a good try. Now it needs only 46 seconds:</p>
-<div class="highlight"><pre><span></span><span class="nb">time</span> ./generate-prime-list.out 1000000000
+<div class="highlight"><pre><span></span><span class="nb">time</span> ./generate-prime-list.out <span class="m">1000000000</span>
 
 real    0m49.539s
 user    0m46.619s
@@ -276,7 +276,7 @@ sys 0m0.920s
 <span class="p">}</span>
 </pre></div>
 <p>And execute it:</p>
-<div class="highlight"><pre><span></span><span class="nb">time</span> ./generate-prime-list.out 1000000000
+<div class="highlight"><pre><span></span><span class="nb">time</span> ./generate-prime-list.out <span class="m">1000000000</span>
 
 real    0m39.700s
 user    0m38.546s
@@ -351,14 +351,14 @@ sys 0m0.640s
 <span class="p">}</span>
 </pre></div>
 <p>Execute:</p>
-<div class="highlight"><pre><span></span><span class="nb">time</span> ./generate-prime-list.out 1000000000
+<div class="highlight"><pre><span></span><span class="nb">time</span> ./generate-prime-list.out <span class="m">1000000000</span>
 
 real    0m24.222s
 user    0m23.485s
 sys 0m0.436s
 </pre></div>
 <h3 id="primesieve">primesieve</h3>
-<p><a href="https://code.google.com/p/primesieve/">Primesieve</a> is a free software program and C++ library that generates prime numbers and prime k-tuplets (twin primes, prime triplets, ...) <span class="math">\(&lt; 2^{64}\)</span> using a highly optimized implementation of the sieve of Eratosthenes.</p>
+<p><a href="https://code.google.com/p/primesieve/">Primesieve</a> is a free software program and C++ library that generates prime numbers and prime k-tuplets (twin primes, prime triplets, ...) $&lt; 2^{64}$ using a highly optimized implementation of the sieve of Eratosthenes.</p>
 <p>According to the GUI, it finds all 50,847,534 primes below 1,000,000,000 in 0.16 seconds. But write them to a file...</p>
 <h2 id="sieve-of-atkin_1">Sieve of Atkin</h2>
 <p>Arthur Oliver Lonsdale Atkin (July 31, 1925 &ndash; December 28, 2008) was a British mathematician who invented this sieve. I've implemented it according to the <a href="http://en.wikipedia.org/wiki/Sieve_of_Atkin#Pseudocode">pseudocode provided in Wikipedia</a>. A <a href="http://stackoverflow.com/a/12066272/562769">very long explanation of Atkins sieve</a> is on StackOverflow</p>
@@ -441,7 +441,7 @@ sys 0m0.436s
 <span class="p">}</span>
 </pre></div>
 <p>Atkins sieve has a much worse performance than Sieve of Eratosthenes:</p>
-<div class="highlight"><pre><span></span><span class="nb">time</span> ./generate-prime-list.out 1000000000
+<div class="highlight"><pre><span></span><span class="nb">time</span> ./generate-prime-list.out <span class="m">1000000000</span>
 
 real    1m6.001s
 user    1m4.724s
@@ -476,7 +476,7 @@ sys 0m0.708s
 </ul>
 </li>
 <li><a href="http://sweet.ua.pt/tos/software/prime_sieve.html">Segmented sieve of Eratosthenes</a></li>
-<li><a href="http://www.troubleshooters.com/codecorn/primenumbers/primenumbers.htm">Fun with prime numbers</a>: This looks almost like my article. It might be interesting, because the author thought about finding primes above <span class="math">\(10^9\)</span> which I didn't.</li>
+<li><a href="http://www.troubleshooters.com/codecorn/primenumbers/primenumbers.htm">Fun with prime numbers</a>: This looks almost like my article. It might be interesting, because the author thought about finding primes above $10^9$ which I didn't.</li>
 </ul></p>
 <h2 id="finally">Finally</h2>
 <p>The last script that took 23 seconds for calculating and writing all primes in 2 to 1,000,000,000 seems to be the best one. Do you know anything else that could get improved? Please provide a working example (e.g. as a <a href="https://gist.github.com/">gist</a>)</p>
