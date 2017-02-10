@@ -2396,7 +2396,7 @@ you can calculate the &lt;em&gt;mean squared error&lt;/em&gt; (MSE) of the class
 &lt;p&gt;while the classification output of another point $x_2$ is&lt;/p&gt;
 &lt;p&gt;$$c_2 = \begin{pmatrix}0\0.1\end{pmatrix}\quad E_{MSE}(f, x_2) = 1 + 0.1^2\tag{1.2}$$&lt;/p&gt;
 &lt;p&gt;This is problematic, as the actual classification in $(1.1)$ is correct whereas the classification in $(1.2)$ is wrong. However, this can easily be fixed by normalizing the result.&lt;/p&gt;
-&lt;h4&gt;Simple Normalization&lt;/h4&gt;
+&lt;h4 id="simple-normalization"&gt;Simple Normalization&lt;/h4&gt;
 &lt;p&gt;The simplest way to normalize the result of the classifier would be to divide each entry by the sum of all entries, e.g. for $(1.1)$ we get&lt;/p&gt;
 &lt;p&gt;$$
 \begin{align}
@@ -2404,7 +2404,7 @@ c_1' &amp;amp;= \begin{pmatrix}1\0\end{pmatrix}\quad &amp;amp;E_{MSE}(f'', x_1) 
 c_2' &amp;amp;= \begin{pmatrix}0\1\end{pmatrix}\quad &amp;amp;E_{MSE}(f', x_2) &amp;amp;= 1\tag{2.2}
 \end{align}
 $$&lt;/p&gt;
-&lt;h4&gt;Standardization&lt;/h4&gt;
+&lt;h4 id="standardization"&gt;Standardization&lt;/h4&gt;
 &lt;p&gt;You might want to interpret the output of your classifier as a probability of the data point belonging to the different classes. Then you may not have negative values and you also want to avoid a probability of 0. A common normalization then is the &lt;em&gt;softmax function&lt;/em&gt; $\sigma$. It first exponentiates the single values and then normalizes:&lt;/p&gt;
 &lt;p&gt;$$\begin{align}
 c_1'' &amp;amp;= \begin{pmatrix}\frac{e^{101}}{e^{101} + e^0}\\frac{e^{0}}{e^{101} + e^0}\end{pmatrix} \approx \begin{pmatrix}1\0\end{pmatrix}\quad &amp;amp;E_{MSE}(f'', x_1) &amp;amp;\approx 0\tag{3.1}\
@@ -2753,7 +2753,7 @@ task is to classify the image into one of the 10 digit classes.&lt;/p&gt;
 &lt;h3 id="neural-networks"&gt;Neural Networks&lt;/h3&gt;
 &lt;p&gt;Please note that there are neural networks which get much better accuracy.
 Most notably the &lt;a href="https://www.tensorflow.org/versions/master/tutorials/mnist/pros/index.html#deep-mnist-for-experts"&gt;MNIST Expert tutorial&lt;/a&gt; with 99.2% accuracy.&lt;/p&gt;
-&lt;h4&gt;Simple Network&lt;/h4&gt;
+&lt;h4 id="simple-network"&gt;Simple Network&lt;/h4&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Classifier&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;NN&lt;/span&gt; &lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;200&lt;/span&gt;
 &lt;span class="n"&gt;Training&lt;/span&gt; &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;79.5696&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
 &lt;span class="n"&gt;Testing&lt;/span&gt; &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;0.3480&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
@@ -2770,7 +2770,7 @@ Most notably the &lt;a href="https://www.tensorflow.org/versions/master/tutorial
  &lt;span class="o"&gt;[&lt;/span&gt;   &lt;span class="mi"&gt;4&lt;/span&gt;    &lt;span class="mi"&gt;4&lt;/span&gt;    &lt;span class="mi"&gt;0&lt;/span&gt;    &lt;span class="mi"&gt;4&lt;/span&gt;   &lt;span class="mi"&gt;16&lt;/span&gt;    &lt;span class="mi"&gt;8&lt;/span&gt;    &lt;span class="mi"&gt;0&lt;/span&gt;    &lt;span class="mi"&gt;7&lt;/span&gt;    &lt;span class="mi"&gt;6&lt;/span&gt; &lt;span class="mi"&gt;2340&lt;/span&gt;&lt;span class="o"&gt;]]&lt;/span&gt;
 &lt;span class="n"&gt;Accuracy&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;0.9798&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;Dropout Network&lt;/h4&gt;
+&lt;h4 id="dropout-network"&gt;Dropout Network&lt;/h4&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Classifier&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;NN&lt;/span&gt; &lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;200&lt;/span&gt; &lt;span class="n"&gt;dropout&lt;/span&gt;
 &lt;span class="n"&gt;Training&lt;/span&gt; &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;118.2654&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
 &lt;span class="n"&gt;Testing&lt;/span&gt; &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;0.3918&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
@@ -2787,7 +2787,7 @@ Most notably the &lt;a href="https://www.tensorflow.org/versions/master/tutorial
  &lt;span class="o"&gt;[&lt;/span&gt;   &lt;span class="mi"&gt;3&lt;/span&gt;    &lt;span class="mi"&gt;3&lt;/span&gt;    &lt;span class="mi"&gt;1&lt;/span&gt;    &lt;span class="mi"&gt;3&lt;/span&gt;   &lt;span class="mi"&gt;13&lt;/span&gt;    &lt;span class="mi"&gt;2&lt;/span&gt;    &lt;span class="mi"&gt;0&lt;/span&gt;   &lt;span class="mi"&gt;19&lt;/span&gt;    &lt;span class="mi"&gt;8&lt;/span&gt; &lt;span class="mi"&gt;2337&lt;/span&gt;&lt;span class="o"&gt;]]&lt;/span&gt;
 &lt;span class="n"&gt;Accuracy&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;0.9780&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;CNN&lt;/h4&gt;
+&lt;h4 id="cnn"&gt;CNN&lt;/h4&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Classifier&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;CNN&lt;/span&gt;
 &lt;span class="n"&gt;Training&lt;/span&gt; &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;391.8810&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
 &lt;span class="n"&gt;Testing&lt;/span&gt; &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;1.2035&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
@@ -2812,7 +2812,7 @@ found it online (I'm sorry, I don't remember where I found those parameters :-/)
 &lt;p&gt;Please note the the SVM implementation of sklearn does not use the GPU.
 However, there are &lt;a href="http://fastml.com/running-things-on-a-gpu/"&gt;GPU implmentations of SVMs&lt;/a&gt;
 around.&lt;/p&gt;
-&lt;h4&gt;Linear SVM&lt;/h4&gt;
+&lt;h4 id="linear-svm"&gt;Linear SVM&lt;/h4&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Classifier&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;linear&lt;/span&gt; &lt;span class="n"&gt;SVM&lt;/span&gt;
 &lt;span class="n"&gt;Training&lt;/span&gt; &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;168.6950&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
 &lt;span class="n"&gt;Testing&lt;/span&gt; &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;158.0101&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
@@ -2829,7 +2829,7 @@ around.&lt;/p&gt;
  &lt;span class="o"&gt;[&lt;/span&gt;  &lt;span class="mi"&gt;11&lt;/span&gt;    &lt;span class="mi"&gt;9&lt;/span&gt;    &lt;span class="mi"&gt;9&lt;/span&gt;   &lt;span class="mi"&gt;24&lt;/span&gt;   &lt;span class="mi"&gt;64&lt;/span&gt;    &lt;span class="mi"&gt;8&lt;/span&gt;    &lt;span class="mi"&gt;0&lt;/span&gt;   &lt;span class="mi"&gt;61&lt;/span&gt;   &lt;span class="mi"&gt;14&lt;/span&gt; &lt;span class="mi"&gt;2189&lt;/span&gt;&lt;span class="o"&gt;]]&lt;/span&gt;
 &lt;span class="n"&gt;Accuracy&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;0.9416&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;Adjusted SVM&lt;/h4&gt;
+&lt;h4 id="adjusted-svm"&gt;Adjusted SVM&lt;/h4&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Classifier&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;adj&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;SVM&lt;/span&gt;
 &lt;span class="n"&gt;Training&lt;/span&gt; &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;347.1539&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
 &lt;span class="n"&gt;Testing&lt;/span&gt; &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;234.5724&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;

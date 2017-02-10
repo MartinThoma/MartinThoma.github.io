@@ -130,7 +130,7 @@ you can calculate the <em>mean squared error</em> (MSE) of the classifier $f$:</
 <p>while the classification output of another point $x_2$ is</p>
 <p>$$c_2 = \begin{pmatrix}0\0.1\end{pmatrix}\quad E_{MSE}(f, x_2) = 1 + 0.1^2\tag{1.2}$$</p>
 <p>This is problematic, as the actual classification in $(1.1)$ is correct whereas the classification in $(1.2)$ is wrong. However, this can easily be fixed by normalizing the result.</p>
-<h4>Simple Normalization</h4>
+<h4 id="simple-normalization">Simple Normalization</h4>
 <p>The simplest way to normalize the result of the classifier would be to divide each entry by the sum of all entries, e.g. for $(1.1)$ we get</p>
 <p>$$
 \begin{align}
@@ -138,7 +138,7 @@ c_1' &amp;= \begin{pmatrix}1\0\end{pmatrix}\quad &amp;E_{MSE}(f'', x_1) &amp;= 0
 c_2' &amp;= \begin{pmatrix}0\1\end{pmatrix}\quad &amp;E_{MSE}(f', x_2) &amp;= 1\tag{2.2}
 \end{align}
 $$</p>
-<h4>Standardization</h4>
+<h4 id="standardization">Standardization</h4>
 <p>You might want to interpret the output of your classifier as a probability of the data point belonging to the different classes. Then you may not have negative values and you also want to avoid a probability of 0. A common normalization then is the <em>softmax function</em> $\sigma$. It first exponentiates the single values and then normalizes:</p>
 <p>$$\begin{align}
 c_1'' &amp;= \begin{pmatrix}\frac{e^{101}}{e^{101} + e^0}\\frac{e^{0}}{e^{101} + e^0}\end{pmatrix} \approx \begin{pmatrix}1\0\end{pmatrix}\quad &amp;E_{MSE}(f'', x_1) &amp;\approx 0\tag{3.1}\
