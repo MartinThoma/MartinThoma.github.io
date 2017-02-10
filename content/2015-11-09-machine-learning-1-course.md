@@ -1482,6 +1482,23 @@ Folgende Vorlesungen sind ähnlich:
 * [Lokalisierung Mobiler Agenten](https://martin-thoma.com/lma/)
 * [Probabilistische Planung](https://martin-thoma.com/probabilistische-planung/)
 
+Folgende Vorlesungen habe ich nicht gehört, könnten aber interessant sein:
+
+* Böhm: [Big Data Analytics](https://dbis.ipd.kit.edu/english/2422.php)
+* Böhm: [Analysetechniken großer Datenbestände 2](http://dbis.ipd.kit.edu/2391.php)
+* Böhm: [Praktikum: Analysetechniken großer Datenbestände](http://dbis.ipd.kit.edu/2393.php)
+
+
+Noch kann ich folgende Veranstaltungen nicht einschätzen und würde mich über
+Feedback von dir freuen:
+
+* Beyerer: [Projektpraktikum: Bildauswertung und -fusion](https://www.kithub.de/vvz/22542/events/42519)
+* [Big Data @ BOSCH](https://www.kithub.de/vvz/22127/events/41442)
+* Cayoglu, Streit: [Big Data Tools](https://www.kithub.de/vvz/22260/events/44993)
+* Hartenstein: [Big Data Mining auf GPUs](https://www.kithub.de/vvz/22548/events/45543)
+* Hanebeck: [Von Big Data zu Data Science: Moderne Methoden der Informationsverarbeitung](https://www.kithub.de/vvz/22544/events/43438)
+* Nakhaeizadeh: [Data Mining](https://www.kithub.de/vvz/21974/events/46245)
+
 
 ## Termine und Klausurablauf
 
