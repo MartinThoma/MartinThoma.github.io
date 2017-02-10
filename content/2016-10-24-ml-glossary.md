@@ -39,7 +39,11 @@ in full detail.
     <dt><dfn id="dcign">DCIGN</dfn> (<dfn>Deep Convolutional Inverse Graphic Network</dfn>)</dt>
     <dd>TODO</dd>
     <dt><dfn id="dcnn">DCNN</dfn> (<dfn>Doubly Convolutional Neural Network</dfn>)</dt>
-    <dd>Introduced in <a href="https://arxiv.org/pdf/1610.09716v1.pdf">this paper</a> (<a href="http://www.shortscience.org/paper?bibtexKey=conf/nips/ZhaiCZL16#martinthoma">summary</a>).</dd>
+    <dd>Introduced in <a href="https://arxiv.org/pdf/1610.09716v1.pdf">this paper</a> (<a href="http://www.shortscience.org/paper?bibtexKey=conf/nips/ZhaiCZL16#martinthoma">summary</a>).
+
+    <b>Note</b> Some people also call <i>Deep Convolutional Neural Networks</i> DCNNs.</dd>
+    <dt><dfn id="domain-adaptation">Domain adaptation</dfn></dt>
+    <dd>A model is trained on dataset $A$. How does it have to be changed to work on dataset $B$?</dd>
     <dt><dfn id="object-detection">Detection in Computer Vision</dfn> (<dfn>Object detection</dfn>)</dt>
     <dd>Object detection in an image is a computer vision task. The input
         is an image and the output is a list with rectangles which contain
@@ -81,6 +85,9 @@ in full detail.
         $$MMD(F, p, q) = sup_{f \in F} (\mathbb{E}_{x \sim p} [f(x)] - \mathbb{E}_{y \sim q} [f(y)])$$
 
     </dd>
+    <dt><dfn id="multi-task-learning">Multi-Task learning</dfn></dt>
+    <dd>Train a model which does multiple tasks at the same time, e.g.
+        segmentation and detection (see <a href="https://arxiv.org/abs/1612.07695">MultiNet</a>).</dd>
     <dt><dfn id="object-recognition">Object recognition</dfn></dt>
     <dd>Classification on images. The task is to decide in which class a given
         image falls, judging by the content. This can be cat, dog, plane or
