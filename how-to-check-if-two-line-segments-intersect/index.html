@@ -313,21 +313,21 @@ MathJax.Hub.Queue(function() {
 <h3 id="cross-product">Cross product</h3>
 <p>Well, you might notice that you need to check if one line intersects with a given line segment. To check this, you have to understand one cool idea:</p>
 <p>You can definie a cross product for points:</p>
-<p>\begin{align}
-  \times_P&amp;: Point \times Point \rightarrow \mathbb{R}\
+<div class="math">\begin{align}
+  \times_P&amp;: Point \times Point \rightarrow \mathbb{R}\\
   \times_P(a, b) &amp;:= a.x \cdot b.y - b.x \cdot a.y;
-\end{align}</p>
+\end{align}</div>
 <p>This cross product has one nice characteristics:</p>
-<p>$a \times_P b = 0 \Leftrightarrow a$ and $b$ are on one line through origin</p>
-<p>You can verify this. If you take two points on a line through origin, they have the same slope $\frac{\Delta y}{\Delta x}$:</p>
-<p>$$
+<p><span class="math">\(a \times_P b = 0 \Leftrightarrow a\)</span> and <span class="math">\(b\)</span> are on one line through origin</p>
+<p>You can verify this. If you take two points on a line through origin, they have the same slope <span class="math">\(\frac{\Delta y}{\Delta x}\)</span>:</p>
+<div class="math">$$
 \begin{align}
-  0 &amp;= a \times_P b\
-\Leftrightarrow 0 &amp;= a.x \cdot b.y - b.x \cdot a.y\
-\Leftrightarrow b.x \cdot a.y &amp;= a.x \cdot b.y\
+  0 &amp;= a \times_P b\\
+\Leftrightarrow 0 &amp;= a.x \cdot b.y - b.x \cdot a.y\\
+\Leftrightarrow b.x \cdot a.y &amp;= a.x \cdot b.y\\
 \Leftrightarrow \frac{a.y}{a.x} &amp;= \frac{b.y}{b.x}
 \end{align}
-$$</p>
+$$</div>
 <p>Ok, now you can check if a point is on a line:</p>
 <div class="highlight"><pre><span></span><span class="cm">/**</span>
 <span class="cm"> * Checks if a Point is on a line</span>
@@ -363,7 +363,7 @@ $$</p>
     <span class="k">return</span> <span class="n">crossProduct</span><span class="o">(</span><span class="n">aTmp</span><span class="o">.</span><span class="na">second</span><span class="o">,</span> <span class="n">bTmp</span><span class="o">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">;</span>
 <span class="o">}</span>
 </pre></div>
-<p>When we have one line $a$ through the origin and one line segment $b$, you can check if $b$ crosses $a$ by checking if the end points of $b$ are on different sides of $a$:</p>
+<p>When we have one line <span class="math">\(a\)</span> through the origin and one line segment <span class="math">\(b\)</span>, you can check if <span class="math">\(b\)</span> crosses <span class="math">\(a\)</span> by checking if the end points of <span class="math">\(b\)</span> are on different sides of <span class="math">\(a\)</span>:</p>
 <div class="highlight"><pre><span></span><span class="cm">/**</span>
 <span class="cm"> * Check if line segment first touches or crosses the line that is </span>
 <span class="cm"> * defined by line segment second.</span>

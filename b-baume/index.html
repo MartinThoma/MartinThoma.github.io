@@ -113,7 +113,7 @@ MathJax.Hub.Queue(function() {
 <p>Im Folgenden sollte man immer im Hinterkopf behalten, dass an den Schl&uuml;sseln auch Werte - sog. Satellitendaten - h&auml;ngen. Der Einfachheit halber lasse ich diese aber hier weg.</p>
 <h2 id="definition">Definition</h2>
 <p>Die folgende Definition ist sinngem&auml;&szlig; aus "Introduction to Algorithms" von Thomas H. Cormen &uuml;bernommen.</p>
-<p>F&uuml;r einen <strong>B-Baum der Ordnung t</strong>, $t \in \mathbb{N} \setminus {1}$, gilt:</p>
+<p>F&uuml;r einen <strong>B-Baum der Ordnung t</strong>, <span class="math">\(t \in \mathbb{N} \setminus \{1\}\)</span>, gilt:</p>
 <ol>
 <li>Jeder Knoten $x$ hat die folgenden Attribute:
     <ol>
@@ -153,7 +153,7 @@ MathJax.Hub.Queue(function() {
 <h2 id="besondere-b-baume">Besondere B-B&auml;ume</h2>
 <p>Ein B-Baum der Ordnung t = 2 wird auch <a href="http://de.wikipedia.org/wiki/2-3-4-Baum">2-3-4-Baum</a> genannt, da jeder Knoten entweder 2, 3 oder 4 Kinder hat.</p>
 <p>Ich habe ja ausgeschlossen, dass es einen B-Baum der Ordnung t = 1 gibt. Warum eigentlich?
-Aus (5.1) folgt: In einem B-Baum der Ordnung t = 1 m&uuml;ssten einzelne Knoten keine Schl&uuml;ssel haben. Das ist nicht sinnvoll. Also muss $t \geq  2$ gelten.</p>
+Aus (5.1) folgt: In einem B-Baum der Ordnung t = 1 m&uuml;ssten einzelne Knoten keine Schl&uuml;ssel haben. Das ist nicht sinnvoll. Also muss <span class="math">\(t \geq  2\)</span> gelten.</p>
 <h2 id="suchen-eines-schlussels">Suchen eines Schl&uuml;ssels</h2>
 <p>Das Suchen eines Schl&uuml;ssels funktioniert so:</p>
 <div class="highlight"><pre><span></span><span class="n">SEARCH</span><span class="o">-</span><span class="n">KEY</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
@@ -173,20 +173,20 @@ Aus (5.1) folgt: In einem B-Baum der Ordnung t = 1 m&uuml;ssten einzelne Knoten 
 <p>Es wird also zuerst der Knoten durchsucht und dann gegebenenfalls der passende Subbaum.</p>
 <p>Laut Vorlesung (Folie 97) gilt:
 <ul>
-<li>Anzahl Zugriffe auf Hintergrundspeicher maximal: ${\cal O}(\log_t(n))$</li>
-<li>Innerhalb eines Knotens: ${\cal O}(t)$</li>
-<li>Insgesamt also: ${\cal O}(t \cdot \log_t(n))$</li>
+<li>Anzahl Zugriffe auf Hintergrundspeicher maximal: <span class="math">\({\cal O}(\log_t(n))\)</span></li>
+<li>Innerhalb eines Knotens: <span class="math">\({\cal O}(t)\)</span></li>
+<li>Insgesamt also: <span class="math">\({\cal O}(t \cdot \log_t(n))\)</span></li>
 </ul></p>
 <h2 id="einfugen-von-schlusseln">Einf&uuml;gen von Schl&uuml;sseln</h2>
 <p>Wenn ein Schl&uuml;ssel in einen B-Baum eingef&uuml;gt werden soll, dann muss man insebesondere auf Regel (5.1) und (5.2) achten:
-Jeder Knoten enth&auml;lt n Schl&uuml;ssel, mit $t-1 \leq n \leq 2t -1$.</p>
+Jeder Knoten enth&auml;lt n Schl&uuml;ssel, mit <span class="math">\(t-1 \leq n \leq 2t -1\)</span>.</p>
 <p>Die Idee ist, dass man das Blatt sucht, in dem der Schl&uuml;ssel sein m&uuml;sste. Falls noch Platz ist, kann man den Schl&uuml;ssel einfach einf&uuml;gen. Falls nicht, muss man das Blatt aufsplitten.</p>
 <h3 id="beispiel-zu-fall-1-es-ist-noch-platz">Beispiel zu Fall 1: Es ist noch Platz</h3>
 <figure class="aligncenter">
 <a href="../images/2012/07/b-tree-2-small.png"><img alt="B-Baum der Ordnung t = 2" class="size-full wp-image-36091" src="../images/2012/07/b-tree-2-small.png" style="max-width:500px;max-height:217px"/></a>
 <figcaption class="text-center">Abb. 2: B-Baum der Ordnung t = 2</figcaption>
 </figure>
-<p>In den B-Baum aus Abb. 2 soll nun der Schl&uuml;ssel <code>16</code> eingef&uuml;gt werden. In einem B-Baum der Ordnung 2 hat jeder Knoten mindestens einen und h&ouml;chstens 3 Schl&uuml;ssel. Egal wo wir also landen w&uuml;rden, es w&uuml;rde noch in diesen Baum passen. Wir landen aber im Knoten rechts unten, da $11 &lt; 16$ ist.</p>
+<p>In den B-Baum aus Abb. 2 soll nun der Schl&uuml;ssel <code>16</code> eingef&uuml;gt werden. In einem B-Baum der Ordnung 2 hat jeder Knoten mindestens einen und h&ouml;chstens 3 Schl&uuml;ssel. Egal wo wir also landen w&uuml;rden, es w&uuml;rde noch in diesen Baum passen. Wir landen aber im Knoten rechts unten, da <span class="math">\(11 &lt; 16\)</span> ist.</p>
 <p>Das Ergebnis ist also:
 <figure class="aligncenter">
 <a href="../images/2012/07/b-tree-2-small-2.png"><img alt="B-Baum der Ordnung t = 2" class="size-full wp-image-36111" src="../images/2012/07/b-tree-2-small-2.png" style="max-width:500px;max-height:195px"/></a>
@@ -204,7 +204,7 @@ Jeder Knoten enth&auml;lt n Schl&uuml;ssel, mit $t-1 \leq n \leq 2t -1$.</p>
 <figcaption class="text-center">Abb. 5: B-Baum der Ordnung t = 2</figcaption>
 </figure></p>
 <p>Nat&uuml;rlich kann es auch passieren, dass beim hochwandern des mittleren Knoten (15 von Abb. 3 nach Abb. 4) der Elternknoten &uuml;berl&auml;uft. Dann muss halt auch dieser gesplittet werden. Wenn die Wurzel &uuml;berl&auml;uft, muss eine neue Wurzel erstellt werden. Dann kann die alte Wurzel gesplittet werden.</p>
-<p>Die Laufzeit des Einf&uuml;gens ist in ${\cal O}(t \cdot \log_t(n))$.</p>
+<p>Die Laufzeit des Einf&uuml;gens ist in <span class="math">\({\cal O}(t \cdot \log_t(n))\)</span>.</p>
 <h2 id="loschen-eines-schlussels_1">L&ouml;schen eines Schl&uuml;ssels</h2>
 <p>Falls sich der Schl&uuml;ssel in einem Blatt befindet, kann man ihn einfach l&ouml;schen. Allerdings muss man darauf achten, dass mindestens t-1 Schl&uuml;ssel im Knoten verbleiben.</p>
 <p>Ist der Schl&uuml;ssel in einem inneren Knoten ist das ganze schwerer.</p>

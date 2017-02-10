@@ -126,17 +126,17 @@ a bit how to use R (a programming language) to do very basic tasks.</p>
 <h2 id="r-vs-python">R vs Python</h2>
 <p>The following will show some R code and then some Python code for the same
 basic tasks. As an example, I'll use reproduction. The states are
-$S_1 = {AA, AA}$, $S_2 = {AA, Aa}$, $S_3 = {AA, aa}$, $S_4={Aa,Aa}$,
-$S_5 = {Aa, aa}$ and $S_6 = {aa, aa}$.</p>
+<span class="math">\(S_1 = \{AA, AA\}\)</span>, <span class="math">\(S_2 = \{AA, Aa\}\)</span>, <span class="math">\(S_3 = \{AA, aa\}\)</span>, <span class="math">\(S_4=\{Aa,Aa\}\)</span>,
+<span class="math">\(S_5 = \{Aa, aa\}\)</span> and <span class="math">\(S_6 = \{aa, aa\}\)</span>.</p>
 <p>The idea is that each pair of parents give birth to two children. The parents
-$S_2 = {AA, Aa}$ can give birth to {{AA, AA}, {AA, Aa}, {Aa, Aa}}.
+<span class="math">\(S_2 = \{AA, Aa\}\)</span> can give birth to {{AA, AA}, {AA, Aa}, {Aa, Aa}}.
 This results in the following state transition matrix.</p>
-<p>$$\begin{pmatrix}1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \
-1/4 &amp; 1/2 &amp; 0 &amp; 1/4 &amp; 0 &amp; 0\
-0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0\
-1/16 &amp; 1/4 &amp; 1/8 &amp; 1/4 &amp; 1/4 &amp; 1/16\
-0 &amp; 0 &amp; 0 &amp; 1/4 &amp; 1/2 &amp; 1/4\
-0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1\end{pmatrix}$$</p>
+<div class="math">$$\begin{pmatrix}1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+1/4 &amp; 1/2 &amp; 0 &amp; 1/4 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0\\
+1/16 &amp; 1/4 &amp; 1/8 &amp; 1/4 &amp; 1/4 &amp; 1/16\\
+0 &amp; 0 &amp; 0 &amp; 1/4 &amp; 1/2 &amp; 1/4\\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1\end{pmatrix}$$</div>
 <p>The rows mean from which state you start, the colums are the states you can get
 to.</p>
 <p>Now, how would you define this matrix with R?</p>
@@ -154,7 +154,7 @@ it is not that easy with Windows systems.</p>
                <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mf">1.</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mf">1.</span><span class="o">/</span><span class="mi">4</span><span class="p">],</span>
                <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">]])</span>
 </pre></div>
-<p>A common matrix operation is taking the $n$-th power. This is how you do it
+<p>A common matrix operation is taking the <span class="math">\(n\)</span>-th power. This is how you do it
 with R: First, install the library "expm" by executing <code>install.packages("expm")</code>.
 Then</p>
 <div class="highlight"><pre><span></span><span class="kn">library</span><span class="p">(</span><span class="s">"expm"</span><span class="p">)</span>
@@ -167,7 +167,7 @@ Pn <span class="o">=</span> P<span class="o">%^%</span>n
 </pre></div>
 <p>Visualizing data is a very important tool. For example, we want to know the
 probabilities for the current state for the next 20 steps when you started in
-$S_3$.</p>
+<span class="math">\(S_3\)</span>.</p>
 <div class="highlight"><pre><span></span><span class="kn">library</span><span class="p">(</span><span class="s">"expm"</span><span class="p">)</span>
 P <span class="o">=</span> <span class="kt">matrix</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span>
              <span class="m">1</span><span class="o">/</span><span class="m">4</span><span class="p">,</span><span class="m">1</span><span class="o">/</span><span class="m">2</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="o">/</span><span class="m">4</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span>

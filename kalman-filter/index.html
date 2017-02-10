@@ -130,36 +130,38 @@ this case it is not only the best linear filter, but the best filter. The name
 <h3 id="step-1-problem-description">Step 1: Problem description</h3>
 <p>First, note what you're given. This should be:</p>
 <ul>
-<li>The type of data you measure $z \in \mathbb{R}^{n_z}$,</li>
-<li>the type of values you want to derive from that $\mathbf{x} \in \mathbb{R}^{n_x}$,</li>
-<li>the types of action $a_k \in \mathbb{R}^{n_a}$ you can do.</li>
+<li>The type of data you measure <span class="math">\(z \in \mathbb{R}^{n_z}\)</span>,</li>
+<li>the type of values you want to derive from that <span class="math">\(\mathbf{x} \in \mathbb{R}^{n_x}\)</span>,</li>
+<li>the types of action <span class="math">\(a_k \in \mathbb{R}^{n_a}\)</span> you can do.</li>
 </ul>
 <h3 id="step-2-modelling">Step 2: Modelling</h3>
 <p>The Kalman Filter is a linear filter. This means you have to model your <strong>system</strong>
 in the form</p>
-<p><span id="kf-state-equation">$$\mathbf{x}_{k+1} = A_k \mathbf{x}_k + B_k a_k + r_k^{(s)}$$</span></p>
+<p><span id="kf-state-equation"></span></p>
+<div class="math">$$\mathbf{x}_{k+1} = A_k \mathbf{x}_k + B_k a_k + r_k^{(s)}$$</div>
+<p></p>
 <p>with</p>
 <ul>
-<li>$\mathbf{x}<em k="">{k+1}, \mathbf{x}</em> \in \mathbb{R}^{n_x}$ being the state
+<li><span class="math">\(\mathbf{x}_{k+1}, \mathbf{x}_{k} \in \mathbb{R}^{n_x}\)</span> being the state
   vectors,</li>
-<li>$A_k \in \mathbb{R}^{n_x \times n_x}$ being the system matrix,</li>
-<li>$B_k \in \mathbb{R}^{n_x \times n_a}$ being the control matrix,</li>
-<li>$a_k \in \mathbb{R}^{n_a}$ being the control matrix vector ($a$ for action),</li>
-<li>$r_k^{(s)} \sim \mathcal{N(0, C_k^{(r_s)})}$ with $C_k^{(r_s)} \in \mathbb{R}^{n_x \times n_x}$
-  being Gaussian noise. $C_k^{(r_s)} \in \mathbb{R}^{n_x \times n_x}$ is called
+<li><span class="math">\(A_k \in \mathbb{R}^{n_x \times n_x}\)</span> being the system matrix,</li>
+<li><span class="math">\(B_k \in \mathbb{R}^{n_x \times n_a}\)</span> being the control matrix,</li>
+<li><span class="math">\(a_k \in \mathbb{R}^{n_a}\)</span> being the control matrix vector (<span class="math">\(a\)</span> for action),</li>
+<li><span class="math">\(r_k^{(s)} \sim \mathcal{N(0, C_k^{(r_s)})}\)</span> with <span class="math">\(C_k^{(r_s)} \in \mathbb{R}^{n_x \times n_x}\)</span>
+  being Gaussian noise. <span class="math">\(C_k^{(r_s)} \in \mathbb{R}^{n_x \times n_x}\)</span> is called
   the process error covariance matrix.</li>
 </ul>
 <p>You can also make a model of your <strong>measurements</strong>. They should be some linear
-combination of the state with Gaussian noise $r_k^{(m)}$:</p>
-<p>$$z_k = H \cdot \mathbf{x}_k + r_k^{(m)}$$</p>
+combination of the state with Gaussian noise <span class="math">\(r_k^{(m)}\)</span>:</p>
+<div class="math">$$z_k = H \cdot \mathbf{x}_k + r_k^{(m)}$$</div>
 <p>with</p>
 <ul>
-<li>$z_k \in \mathbb{R}^{n_m}$: The measurement vector</li>
-<li>$r_k^{(r_m)} \sim \mathcal{N(0, C_k^{(r_m)})}$ with $C_k^{(r_m)} \in \mathbb{R}^{n_m \times n_m}$
-  being Gaussian noise. $C_k^{(r_m)} \in \mathbb{R}^{n_m \times n_m}$ is called
+<li><span class="math">\(z_k \in \mathbb{R}^{n_m}\)</span>: The measurement vector</li>
+<li><span class="math">\(r_k^{(r_m)} \sim \mathcal{N(0, C_k^{(r_m)})}\)</span> with <span class="math">\(C_k^{(r_m)} \in \mathbb{R}^{n_m \times n_m}\)</span>
+  being Gaussian noise. <span class="math">\(C_k^{(r_m)} \in \mathbb{R}^{n_m \times n_m}\)</span> is called
   the measurment noise covariance matrix.</li>
-<li>$H \in \mathbb{R}^{n_m \times n_x}$: A matrix which transforms the state
-  vector $\mathbf{x}$ to a measurement vector. This matrix is a constant over
+<li><span class="math">\(H \in \mathbb{R}^{n_m \times n_x}\)</span>: A matrix which transforms the state
+  vector <span class="math">\(\mathbf{x}\)</span> to a measurement vector. This matrix is a constant over
   the whole process. It is most likely to have only 0s and 1s as entrys.</li>
 </ul>
 <h3 id="step-3-the-algorithm">Step 3: The algorithm</h3>
@@ -171,122 +173,128 @@ combination of the state with Gaussian noise $r_k^{(m)}$:</p>
 </figure>
 <p>The matrices which were not explained so far are:</p>
 <ul>
-<li>$P_k \in \mathbb{R}^{n_x \times n_x}$ is the state vector covariance matrix.
+<li><span class="math">\(P_k \in \mathbb{R}^{n_x \times n_x}\)</span> is the state vector covariance matrix.
   It is the uncertainty.</li>
-<li>$K_k \in \mathbb{R}^{n_x \times n_m}$: The Kalman gain. Higher values
+<li><span class="math">\(K_k \in \mathbb{R}^{n_x \times n_m}\)</span>: The Kalman gain. Higher values
   indicate that we give more trust to the measurment. Lower values indicate
   that we give more trust to our last prediction. If the measurement
-  uncertainty $C_k^{(m)}$ is small compared to the state uncertainty $P_k^{(P)}$,
+  uncertainty <span class="math">\(C_k^{(m)}\)</span> is small compared to the state uncertainty <span class="math">\(P_k^{(P)}\)</span>,
   then the Kalman Gain is big. So we will rely more on the measurement and
   less of what we predicted before.</li>
 </ul>
-<p>The complexity of the Kalman filter is $\mathcal{O}(n_z^{2.4} + n_x^2)$ According to <a href="https://youtu.be/DE6Jn2cB4J4?t=45m42s">Cyrill Stachniss</a>. The factor $2.4$ comes from matrix
+<p>The complexity of the Kalman filter is <span class="math">\(\mathcal{O}(n_z^{2.4} + n_x^2)\)</span> According to <a href="https://youtu.be/DE6Jn2cB4J4?t=45m42s">Cyrill Stachniss</a>. The factor <span class="math">\(2.4\)</span> comes from matrix
 inversion.</p>
 <h2 id="example_1">Example</h2>
 <p>Suppose you want to track the position of a car in 2D. What you get as sensor
 data is the current position. So the state is</p>
-<p>$$\mathbf{x} = \begin{pmatrix}x\y\\dot{x}\\dot{y}\end{pmatrix}$$</p>
-<p>where $x \in \mathbb{R}$ is the position in m away from some predefined point,
-$\dot{x} \in \mathbb{R}$ is the velocity in m/s at starting time and $\ddot{x}
-\in \mathbb{R}$ is the acceleration in $m/s^2$. The measurements are</p>
-<p>$$\mathbf{z} = \begin{pmatrix}x^{(M)}\y^{(M)}\end{pmatrix}$$</p>
-<p>What you get to choose is the acceleration at each time step $i$ (time steps
-have the length $t$):</p>
-<p>$$a = \begin{pmatrix}\ddot{x}^{(a)}\\ddot{y}^{(a)}\end{pmatrix}$$</p>
+<div class="math">$$\mathbf{x} = \begin{pmatrix}x\\y\\\dot{x}\\\dot{y}\end{pmatrix}$$</div>
+<p>where <span class="math">\(x \in \mathbb{R}\)</span> is the position in m away from some predefined point,
+<span class="math">\(\dot{x} \in \mathbb{R}\)</span> is the velocity in m/s at starting time and <span class="math">\(\ddot{x}
+\in \mathbb{R}\)</span> is the acceleration in <span class="math">\(m/s^2\)</span>. The measurements are</p>
+<div class="math">$$\mathbf{z} = \begin{pmatrix}x^{(M)}\\y^{(M)}\end{pmatrix}$$</div>
+<p>What you get to choose is the acceleration at each time step <span class="math">\(i\)</span> (time steps
+have the length <span class="math">\(t\)</span>):</p>
+<div class="math">$$a = \begin{pmatrix}\ddot{x}^{(a)}\\\ddot{y}^{(a)}\end{pmatrix}$$</div>
 <p>As the Kalman filter is a linear filter, the state model is:</p>
-<p>$$\mathbf{x}^{(P)}_k = A\mathbf{x}_k + Ba_k$$</p>
-<p>The measurement is dependent on the state, with some noise $r_k^m$:</p>
-<p>$$\mathbf{z}_k = H \mathbf{x}_k + r_k^m$$</p>
-<p>with $A \in \mathbb{R}^{4 \times 4}$, $H \in \mathbb{R}^{2 \times 4}$. As one
+<div class="math">$$\mathbf{x}^{(P)}_k = A\mathbf{x}_k + Ba_k$$</div>
+<p>The measurement is dependent on the state, with some noise <span class="math">\(r_k^m\)</span>:</p>
+<div class="math">$$\mathbf{z}_k = H \mathbf{x}_k + r_k^m$$</div>
+<p>with <span class="math">\(A \in \mathbb{R}^{4 \times 4}\)</span>, <span class="math">\(H \in \mathbb{R}^{2 \times 4}\)</span>. As one
 can decompose the acceleration / speed in the directions and the equation for
 the new position is</p>
-<p>$$\begin{align}x_{new}(t) &amp;= x + \dot{x} t + 0.5 \ddot{x} t^2\
-y_{new}(t) &amp;= y + \dot{y} t + 0.5 \ddot{y} t^2\
-\dot{x}<em new="">{new}(t) &amp;= \dot{x} + \ddot{x} t\
-\dot{y}</em>(t) &amp;= \dot{y} + \ddot{y} t\end{align}$$</p>
+<div class="math">$$\begin{align}x_{new}(t) &amp;= x + \dot{x} t + 0.5 \ddot{x} t^2\\
+y_{new}(t) &amp;= y + \dot{y} t + 0.5 \ddot{y} t^2\\
+\dot{x}_{new}(t) &amp;= \dot{x} + \ddot{x} t\\
+\dot{y}_{new}(t) &amp;= \dot{y} + \ddot{y} t\end{align}$$</div>
 <p>So given the state model, we get:</p>
-<p>$$\mathbf{x}^{(P)} = \underbrace{\begin{pmatrix}1&amp; 0 &amp; t &amp; 0\
-                                    0&amp; 1 &amp; 0 &amp; t\
-                                    0&amp; 0 &amp; 1 &amp; 0\
-                                    0&amp; 0 &amp; 0 &amp; 1\end{pmatrix}}<em b_k="">{A_k} \mathbf{x}_k + \underbrace{\begin{pmatrix}0.5t^2 &amp; 0\
-                                        0 &amp; 0.5t^2\
-                                        t &amp; 0\
-                                        0 &amp; t\end{pmatrix}}</em> \cdot a_k$$</p>
+<div class="math">$$\mathbf{x}^{(P)} = \underbrace{\begin{pmatrix}1&amp; 0 &amp; t &amp; 0\\
+                                    0&amp; 1 &amp; 0 &amp; t\\
+                                    0&amp; 0 &amp; 1 &amp; 0\\
+                                    0&amp; 0 &amp; 0 &amp; 1\end{pmatrix}}_{A_k} \mathbf{x}_k + \underbrace{\begin{pmatrix}0.5t^2 &amp; 0\\
+                                        0 &amp; 0.5t^2\\
+                                        t &amp; 0\\
+                                        0 &amp; t\end{pmatrix}}_{B_k} \cdot a_k$$</div>
 <p>The choice of the initial uncertainty covariance matrix
-$P_0 \in \mathbb{R}^{4 \times 4}$ / the initial state $\mathbf{x}$ doesn't
+<span class="math">\(P_0 \in \mathbb{R}^{4 \times 4}\)</span> / the initial state <span class="math">\(\mathbf{x}\)</span> doesn't
 matter too much. The Kalman filter algorithm will fix both over enough steps.
-Common choices are the zero-vector for $\mathbb{x}$ and $P_0 = c \cdot I$
-as the covariance matrix with the identity matrix $I$ and $c$ being big
+Common choices are the zero-vector for <span class="math">\(\mathbb{x}\)</span> and <span class="math">\(P_0 = c \cdot I\)</span>
+as the covariance matrix with the identity matrix <span class="math">\(I\)</span> and <span class="math">\(c\)</span> being big
 compared with the noise.</p>
-<p>For this example, a reasonable choice is the diagonal matrix $$P_0 = \begin{pmatrix}a_1 &amp; 0 &amp; 0 &amp; 0\
-0 &amp; a_2 &amp; 0 &amp; 0\
-0 &amp; 0 &amp; a_3 &amp; 0\
-0 &amp; 0 &amp; 0 &amp; a_4\end{pmatrix}$$ with $a_1 = a_2 = 20000000$ as the earths diameter is about $40000\textrm{ km}$ and $a_3=a_4=90$ as going more than $324\textrm{ km/h}$ is extremely rarely going to happen for a car.</p>
+<p>For this example, a reasonable choice is the diagonal matrix </p>
+<div class="math">$$P_0 = \begin{pmatrix}a_1 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; a_2 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; a_3 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; a_4\end{pmatrix}$$</div>
+<p> with <span class="math">\(a_1 = a_2 = 20000000\)</span> as the earths diameter is about <span class="math">\(40000\textrm{ km}\)</span> and <span class="math">\(a_3=a_4=90\)</span> as going more than <span class="math">\(324\textrm{ km/h}\)</span> is extremely rarely going to happen for a car.</p>
 <p>For the initial state parameter, you could wait two time steps:
-$$\mathbf{x}<em -1="">0 = \begin{pmatrix}x^{(M)}</em>\
-                                y^{(M)}<em -1="">{-1}\
-                                x^{(M)}</em> - x^{(M)}<em -1="">{-2}\
-                                y^{(M)}</em> - y^{(M)}_{-2}\end{pmatrix}$$</p>
+</p>
+<div class="math">$$\mathbf{x}_0 = \begin{pmatrix}x^{(M)}_{-1}\\
+                                y^{(M)}_{-1}\\
+                                x^{(M)}_{-1} - x^{(M)}_{-2}\\
+                                y^{(M)}_{-1} - y^{(M)}_{-2}\end{pmatrix}$$</div>
 <p><strong>Prediction step</strong></p>
 <p>The state prediction works as above:
-$$\mathbf{x}^{(P)}<em k="">{k+1} = A_k \mathbf{x}</em> + B_k a_k$$</p>
+</p>
+<div class="math">$$\mathbf{x}^{(P)}_{k+1} = A_k \mathbf{x}_{k} + B_k a_k$$</div>
 <p>Covariance prediction:</p>
-<p>$$P_{k+1}^{(P)} = A P_k A^T + C_k^{(r_s)} \quad \text{with}\quad C_k^{(r_s)} \in \mathbb{R}^{4 \times 4}.$$</p>
-<p>The process error covariance $C_k^{(r_s)}$ expresses the error in the system.
+<div class="math">$$P_{k+1}^{(P)} = A P_k A^T + C_k^{(r_s)} \quad \text{with}\quad C_k^{(r_s)} \in \mathbb{R}^{4 \times 4}.$$</div>
+<p>The process error covariance <span class="math">\(C_k^{(r_s)}\)</span> expresses the error in the system.
 It is a covariance matrix and thus has to be symmetric and positive definite.
 It encodes errors in the modeling itself as well as errors in the actions.</p>
 <p><strong>Innovation step</strong></p>
 <p>Innovation, which compares the measurement with the prediction:</p>
-<p>$$\tilde{y}<em k_1="k+1">{k+1} = z</em> - H \mathbf{x}^{(P)}_{k+1}$$</p>
-<p>The observation matrix $H \in \mathbb{R}^{2 \times 4}$ in the example is
-$$H = \begin{pmatrix}1 &amp; 0 &amp; 0 &amp; 0\0 &amp; 1 &amp; 0 &amp; 0\end{pmatrix},$$ as it encodes the relationship between the state and the measurement.</p>
+<div class="math">$$\tilde{y}_{k+1} = z_{k+1} - H \mathbf{x}^{(P)}_{k+1}$$</div>
+<p>The observation matrix <span class="math">\(H \in \mathbb{R}^{2 \times 4}\)</span> in the example is
+</p>
+<div class="math">$$H = \begin{pmatrix}1 &amp; 0 &amp; 0 &amp; 0\\0 &amp; 1 &amp; 0 &amp; 0\end{pmatrix},$$</div>
+<p> as it encodes the relationship between the state and the measurement.</p>
 <p>Innovation Covariance:</p>
-<p>$$S_{k+1} = H P_{k+1}^{(P)} H^T + C_k^{(r_m)}$$</p>
-<p>For the measurement error covariance $C_k^{(r_m)} \in \mathbb{R}^{2 \times 2}$ I have to know something about the way my sensors work. I guess this will usually be a diagonal matrix, as the sensors will be independent(?).</p>
+<div class="math">$$S_{k+1} = H P_{k+1}^{(P)} H^T + C_k^{(r_m)}$$</div>
+<p>For the measurement error covariance <span class="math">\(C_k^{(r_m)} \in \mathbb{R}^{2 \times 2}\)</span> I have to know something about the way my sensors work. I guess this will usually be a diagonal matrix, as the sensors will be independent(?).</p>
 <p>Kalman Gain:</p>
-<p>$$K_{k+1} = P_{k+1}^{(P)} H^T S^{-1}_{k+1}$$</p>
+<div class="math">$$K_{k+1} = P_{k+1}^{(P)} H^T S^{-1}_{k+1}$$</div>
 <p>Now, finally the state and covariance update:</p>
-<p>$$\mathbf{x}<em k_1="k+1">{k+1} = \mathbf{x}^{(P)}</em> + K_{k+1} \tilde{y}$$
-$$P_{k+1} = (I - K_{k+1} H) P_{k+1}^{(P)}$$</p>
+<div class="math">$$\mathbf{x}_{k+1} = \mathbf{x}^{(P)}_{k+1} + K_{k+1} \tilde{y}$$</div>
+<div class="math">$$P_{k+1} = (I - K_{k+1} H) P_{k+1}^{(P)}$$</div>
 <h2 id="miscallenious-facts">Miscallenious facts</h2>
 <h3 id="error-estimates">Error estimates</h3>
 <blockquote>
 <p>How does the error estimate change in the Kalman filter steps?</p>
 </blockquote>
 <p>In the prediction step, you have a matrix</p>
-<p>$$\tilde{P} = A \cdot P \cdot A^T, \qquad A, P \in \mathbb{R}^{n \times n}$$</p>
-<p>($A$ is the system matrix and $P$ is the estimate of the error.)</p>
+<div class="math">$$\tilde{P} = A \cdot P \cdot A^T, \qquad A, P \in \mathbb{R}^{n \times n}$$</div>
+<p>(<span class="math">\(A\)</span> is the system matrix and <span class="math">\(P\)</span> is the estimate of the error.)</p>
 <p>It has the property:</p>
-<p>$$\det(\tilde{P}) = \det(A) \cdot \det(P) \cdot \det(A^T) = 2 \cdot \det(A) \cdot \det(P)$$</p>
-<p>So if the determinant of $P$ is how we say if it gets bigger, then it will get
-bigger in the prediction step if $\det(A) &gt; 0.5$. Otherwise, it might still
-get bigger as the system noise $C_{k}^{(s)}$ gets added.</p>
+<div class="math">$$\det(\tilde{P}) = \det(A) \cdot \det(P) \cdot \det(A^T) = 2 \cdot \det(A) \cdot \det(P)$$</div>
+<p>So if the determinant of <span class="math">\(P\)</span> is how we say if it gets bigger, then it will get
+bigger in the prediction step if <span class="math">\(\det(A) &gt; 0.5\)</span>. Otherwise, it might still
+get bigger as the system noise <span class="math">\(C_{k}^{(s)}\)</span> gets added.</p>
 <p>In the filter step, things are more complicated. I don't know what to write
 about it, so I asked for help:
 <a href="http://math.stackexchange.com/q/1851904/6876">How does the error estimate change in the Kalman filter?</a></p>
 <h3 id="perfect-sensor">Perfect sensor</h3>
 <blockquote>
-<p>What is the value of $K_k$ if the sensor is perfect?</p>
+<p>What is the value of <span class="math">\(K_k\)</span> if the sensor is perfect?</p>
 </blockquote>
-<p>A perfect sensor has no uncertainty. This means the variance $C_k^{(m)}$ is 0.
+<p>A perfect sensor has no uncertainty. This means the variance <span class="math">\(C_k^{(m)}\)</span> is 0.
 It follows:</p>
-<p>$$K_k = P_k^{(P)} H^T (H^T)^{-1} (P_k^{(P)})^{-1} H^{-1} = H^{-1}$$</p>
-<p>This leads to the uncertainty $P_k$ getting 0 and the state $x_k$ will be the
-measurement $z_k$.</p>
+<div class="math">$$K_k = P_k^{(P)} H^T (H^T)^{-1} (P_k^{(P)})^{-1} H^{-1} = H^{-1}$$</div>
+<p>This leads to the uncertainty <span class="math">\(P_k\)</span> getting 0 and the state <span class="math">\(x_k\)</span> will be the
+measurement <span class="math">\(z_k\)</span>.</p>
 <h3 id="really-bad-sensor">Really bad sensor</h3>
 <blockquote>
-<p>What is the value of $K_k$ if the sensor is as bad as possible?</p>
+<p>What is the value of <span class="math">\(K_k\)</span> if the sensor is as bad as possible?</p>
 </blockquote>
 <p>If we don't trust the sensor at all, the uncertainty is huge. The inverse of a
-huge term is close to 0. so the Kalman gain $K_k$ is close to 0. This means
-neither the state $x_k$ nor the error estimate $P_k$ will change.</p>
+huge term is close to 0. so the Kalman gain <span class="math">\(K_k\)</span> is close to 0. This means
+neither the state <span class="math">\(x_k\)</span> nor the error estimate <span class="math">\(P_k\)</span> will change.</p>
 <h3 id="notation">Notation</h3>
-<p>The system noise covariance matrix $C_k^{(r_s)}$ is often denoted with $Q$.</p>
+<p>The system noise covariance matrix <span class="math">\(C_k^{(r_s)}\)</span> is often denoted with <span class="math">\(Q\)</span>.</p>
 <h3 id="alternative-state-equation">Alternative State Equation</h3>
 <p>Sometimes, the noise in the state equation is modelled in a different way:</p>
-<p>$$\mathbf{x}_{k+1} = A_k \mathbf{x}_k + B_k a_k + G r_k^{(s)}$$</p>
+<div class="math">$$\mathbf{x}_{k+1} = A_k \mathbf{x}_k + B_k a_k + G r_k^{(s)}$$</div>
 <p>Then you also have to adjust the filter step to</p>
-<p>$$P_{k+1}^{(P)} = A_k P_k A_k^T + G C_k^{(r_s)} G^T$$</p>
+<div class="math">$$P_{k+1}^{(P)} = A_k P_k A_k^T + G C_k^{(r_s)} G^T$$</div>
 <p>See <a href="http://dsp.stackexchange.com/q/32090/9101">Why does it make sense to have noise of a different shape than the state vector?</a></p>
 <h2 id="extensions_1">Extensions</h2>
 <ul>
@@ -301,12 +309,12 @@ neither the state $x_k$ nor the error estimate $P_k$ will change.</p>
 <h3 id="extended-kalman-filter">Extended Kalman Filter</h3>
 <p>The Kalman filter is the best filter for linear systems, but if you have a
 non-linear system model</p>
-<p>$$
+<div class="math">$$
 \begin{align}
-x_{k+1} &amp;= p_k(x_k, a_k) + r_k^{(s)}\tag{system model}\
+x_{k+1} &amp;= p_k(x_k, a_k) + r_k^{(s)}\tag{system model}\\
 z_k &amp;= h_k(x_k) + r_k^{(m)}\tag{measurement model}
 \end{align}
-$$</p>
+$$</div>
 <p>it cannot be applied any more. But the <a href="https://en.wikipedia.org/wiki/Extended_Kalman_filter">Extended Kalman Filter</a> linearizes the function around some point with multivariate Taylor Series
 expansions and uses LQR with a Kalman filter.</p>
 <p>Assumptions:</p>
@@ -315,14 +323,16 @@ expansions and uses LQR with a Kalman filter.</p>
 <li>The non-linear part of $p_k$ in the environment of the linearization
         point is neglectable.</li>
 </ul>
-<p>One linearizes around nominal values $\bar{x}_k, \bar{a}_k$.</p>
-<p>$$p_k(x_k, a_k) \approx p_k(\bar{x}<em>k, \bar{a}_k) + A_k (\underbrace{x_k - \bar{x}_k}</em>) + B_k (\underbrace{a_k - \bar{a}<em _delta="\Delta" a_k="">k}</em>)$$</p>
+<p>One linearizes around nominal values <span class="math">\(\bar{x}_k, \bar{a}_k\)</span>.</p>
+<div class="math">$$p_k(x_k, a_k) \approx p_k(\bar{x}_k, \bar{a}_k) + A_k (\underbrace{x_k - \bar{x}_k}_{=: \Delta x_k}) + B_k (\underbrace{a_k - \bar{a}_k}_{\Delta a_k})$$</div>
 <p>with <a href="https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant">Jacobian matrices</a>:
-$$A_k = \frac{\partial}{\partial x_k} p_k(x_k, a_k)|<em x_k="">{x_k = \bar{x}_k, a_k = \bar{a}_k}$$
-$$B_k = \frac{\partial}{\partial a_k} p_k(x_k, a_k)|</em><em k_1="k+1">k, a_k = \bar{a}_k}$$
-$\Rightarrow$ Lineares Modell: $\Delta x</em> \approx A_k \cdot \Delta x_k + B_k \Delta a_k$
-mit $\Delta x_{k+1} = p_k(x_k, a_k) - p_k(\bar{x}_k, \bar{a}_k)$<br/></p>
-<p>Choice of nominal values $\bar{x}_k, \bar{a}_k$:</p>
+</p>
+<div class="math">$$A_k = \frac{\partial}{\partial x_k} p_k(x_k, a_k)|_{x_k = \bar{x}_k, a_k = \bar{a}_k}$$</div>
+<div class="math">$$B_k = \frac{\partial}{\partial a_k} p_k(x_k, a_k)|_{x_k = \bar{x}_k, a_k = \bar{a}_k}$$</div>
+<p>
+<span class="math">\(\Rightarrow\)</span> Lineares Modell: <span class="math">\(\Delta x_{k+1} \approx A_k \cdot \Delta x_k + B_k \Delta a_k\)</span>
+mit <span class="math">\(\Delta x_{k+1} = p_k(x_k, a_k) - p_k(\bar{x}_k, \bar{a}_k)\)</span><br/></p>
+<p>Choice of nominal values <span class="math">\(\bar{x}_k, \bar{a}_k\)</span>:</p>
 <ul>
 <li>Policy:
     <ul>

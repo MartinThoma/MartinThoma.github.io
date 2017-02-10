@@ -117,18 +117,18 @@ MathJax.Hub.Queue(function() {
 <p>Lets say you have a webcam at a fixed position for security. It takes images all the time, but most of the time the room is empty. So quite a lot of images will not be interesting. They only waste space. So you want to get rid of those redundant images.</p>
 <p>BUT those images are not identical! Even if the scenery didn't change, your sensor will produce slightly different results. A human will not notice them, but you can't simply compare images bit by bit. Even if you could, the images will be different because the sun moved (and so do shadows) and perhaps you have a clock in the image.</p>
 <p>Now you can solve this problem with various techniques.</p>
-<p>I want to describe those techniques in a very general way. As the images in other scenarios might have different sizes and you probably don't want to compare whole images, I'll assume you have a part of both image of size $(2n+1) \times (2n+1)$. The pixel in the center has coordinates $(u_1, v_1)$ for the part of the first image and $(u_2, v_2)$ for the second image.</p>
+<p>I want to describe those techniques in a very general way. As the images in other scenarios might have different sizes and you probably don't want to compare whole images, I'll assume you have a part of both image of size <span class="math">\((2n+1) \times (2n+1)\)</span>. The pixel in the center has coordinates <span class="math">\((u_1, v_1)\)</span> for the part of the first image and <span class="math">\((u_2, v_2)\)</span> for the second image.</p>
 <h2 id="sum-of-squared-differences">Sum of squared differences</h2>
 <p>Go through all pixels, get the difference of both and add up the squares:</p>
-<p>$\displaystyle SSD(Img_1, Img_2, u_1, v_1, u_2, v_2, n) := \sum_{i=-n}^n \sum_{j=-n}^n \left ( Img_1(u_1+i, v_1+j) - Img_2(u_2 + i, v_2 + j) \right )^2$</p>
+<p><span class="math">\(\displaystyle SSD(Img_1, Img_2, u_1, v_1, u_2, v_2, n) := \sum_{i=-n}^n \sum_{j=-n}^n \left ( Img_1(u_1+i, v_1+j) - Img_2(u_2 + i, v_2 + j) \right )^2\)</span></p>
 <p>When SSD is small, both images are very similar. Wehn SSD is 0, the images are identical.</p>
 <h2 id="zero-mean-normalized-cross-correlation">Zero Mean Normalized Cross-Correlation</h2>
 <p>The average gray value is:
-$\displaystyle \overline{Img}(u, v, n) := \frac{1}{(2n+1)^2} \sum_{i=-n}^n \sum_{j=-n}^n Img(u+i, v+j)$</p>
+<span class="math">\(\displaystyle \overline{Img}(u, v, n) := \frac{1}{(2n+1)^2} \sum_{i=-n}^n \sum_{j=-n}^n Img(u+i, v+j)\)</span></p>
 <p>The standard deviation is:
-$\displaystyle \sigma(u, v, n) := \sqrt{\frac{1}{(2n+1)^2} \left (\sum_{i=-n} \sum_{j=-n}^n (Img(u +i, v+j)-\overline{Img}(u, v, n))^2 \right )}$</p>
+<span class="math">\(\displaystyle \sigma(u, v, n) := \sqrt{\frac{1}{(2n+1)^2} \left (\sum_{i=-n} \sum_{j=-n}^n (Img(u +i, v+j)-\overline{Img}(u, v, n))^2 \right )}\)</span></p>
 <p>The ZNCC is defined as:</p>
-<p>$\displaystyle ZNCC(Img_1, Img_2, u_1, v_1, u_2, v_2, n) := \frac{\frac{1}{(2n+1)^2}\sum_{i=-n}^n \sum_{j=-n}^n \prod_{t=1}^2 \left (Img_t (u_t+i,v_t+j) - \overline{Img}(u_t, v_t, n) \right )}{\sigma_1(u_1, v_1, n) \cdot \sigma_2(u_2, v_2, n)}$</p>
+<p><span class="math">\(\displaystyle ZNCC(Img_1, Img_2, u_1, v_1, u_2, v_2, n) := \frac{\frac{1}{(2n+1)^2}\sum_{i=-n}^n \sum_{j=-n}^n \prod_{t=1}^2 \left (Img_t (u_t+i,v_t+j) - \overline{Img}(u_t, v_t, n) \right )}{\sigma_1(u_1, v_1, n) \cdot \sigma_2(u_2, v_2, n)}\)</span></p>
 <p>The higher the ZNCC gets, the more are those two images correlated.
 (I think the value is always in [0, 1])</p>
 <p>Here is some Python code:</p>

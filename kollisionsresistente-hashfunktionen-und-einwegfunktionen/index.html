@@ -124,22 +124,22 @@ Eine Funktion $H:\{0,1\}^* \rightarrow \{0,1\}^k$ hei&szlig;t <strong>kollisions
 Jeder effiziente Algorithmus findet nur mit kleiner Wahrscheinlichkeit eine Kollision. 
 </div>
 <p>Was hei&szlig;t &bdquo;kleine Wahrscheinlichkeit&ldquo;?
-Nach dem Auswerten der Funktion $H$ f&uuml;r $x_1, x_2, \dots x_n$ sollte die Wahrscheinlichkeit nicht signifikant h&ouml;her sein als $\displaystyle 1-\frac{n!\cdot{{2^k} \choose n}}{{2^k}^n}$
-Diese Wahrscheinlichkeit kommt von dem <a href="http://de.wikipedia.org/wiki/Geburtstagsparadoxon">Geburtstagsparadoxon</a> bzw. dem <a href="http://de.wikipedia.org/wiki/Schubfachprinzip">Schubfachprinzip</a>. Wir haben $2^k$ Schubf&auml;cher (Funktionswerte) in die wir die $x_i$ (Urbilder) einordnen k&ouml;nnen.</p>
+Nach dem Auswerten der Funktion <span class="math">\(H\)</span> f&uuml;r <span class="math">\(x_1, x_2, \dots x_n\)</span> sollte die Wahrscheinlichkeit nicht signifikant h&ouml;her sein als <span class="math">\(\displaystyle 1-\frac{n!\cdot{{2^k} \choose n}}{{2^k}^n}\)</span>
+Diese Wahrscheinlichkeit kommt von dem <a href="http://de.wikipedia.org/wiki/Geburtstagsparadoxon">Geburtstagsparadoxon</a> bzw. dem <a href="http://de.wikipedia.org/wiki/Schubfachprinzip">Schubfachprinzip</a>. Wir haben <span class="math">\(2^k\)</span> Schubf&auml;cher (Funktionswerte) in die wir die <span class="math">\(x_i\)</span> (Urbilder) einordnen k&ouml;nnen.</p>
 <h2 id="satz">Satz</h2>
 <p><strong>Behauptung</strong>: Jede kollisionsresistente Hashfunktion ist eine Einwegfunktion.
 <strong>Beweis</strong>: durch Widerspruch
-Sei $f$ eine kollisionsresistente Hashfunktion
-<u>Annahme</u>: $f$ ist keine Einwegfunktion</p>
-<p>Dann existiert ein Angreifer $\mathcal{A}$, der f&uuml;r eine Bild $f(x)$ ein $x'$ findet, sodass $f(x) = f(x')$ gilt.</p>
-<p>Der Angreifer $\mathcal{B}$ macht nichts anderes, als zuf&auml;llig Werte $x \in {0,1}^{2k}$ zu w&auml;hlen, $f(x)$ zu berechnen, den Angreifer $\mathcal{A}$ auf $f(x)$ anzuwenden und zu &uuml;berpr&uuml;fen, ob das von $\mathcal{A}$ gelieferte $x' \neq x$ ist. Sobald das ein mal der Fall ist, hat der Angreifer gewonnen.</p>
-<p>Nun wenden wir $f$ auf $x \in {0,1}^{2k}$ an. Es gilt:</p>
-<p>$Pr_x[\underbrace{|f^{-1}(f(x))|}_{\substack{\text{Anzahl der Urbilder}\\text{zum Hashwert} f(x)} } = 1] \leq \frac{2^k}{2^{2k}} = \frac{1}{2^k}$.</p>
-<p>Die $2^k$ im Z&auml;hler stehen f&uuml;r die Funktionswerte und die $2^{2k}$ f&uuml;r die Urbilder.</p>
-<p>Nun ist $\frac{1}{2^k}$ eine vernachl&auml;ssigbare Funktion.</p>
-<p>$\Rightarrow$ Die Wahrscheinlichkeit, dass wir keine Kollsion finden ist vernachl&auml;ssigbar.</p>
-<p>$\Rightarrow$ Mit signifikanter Wahrscheinlichkeit hat $f(x)$ $k \geq 2$ Urbilder.</p>
-<p>$\Rightarrow$ Die Wahrscheinlichkeit, dass $\mathcal{B}$ Kollisionen findet ist etwa $(1-\frac{1}{k}) \cdot m$, wobei $m$ die Anzahl der Widerholungen ist.</p>
+Sei <span class="math">\(f\)</span> eine kollisionsresistente Hashfunktion
+<u>Annahme</u>: <span class="math">\(f\)</span> ist keine Einwegfunktion</p>
+<p>Dann existiert ein Angreifer <span class="math">\(\mathcal{A}\)</span>, der f&uuml;r eine Bild <span class="math">\(f(x)\)</span> ein <span class="math">\(x'\)</span> findet, sodass <span class="math">\(f(x) = f(x')\)</span> gilt.</p>
+<p>Der Angreifer <span class="math">\(\mathcal{B}\)</span> macht nichts anderes, als zuf&auml;llig Werte <span class="math">\(x \in \{0,1\}^{2k}\)</span> zu w&auml;hlen, <span class="math">\(f(x)\)</span> zu berechnen, den Angreifer <span class="math">\(\mathcal{A}\)</span> auf <span class="math">\(f(x)\)</span> anzuwenden und zu &uuml;berpr&uuml;fen, ob das von <span class="math">\(\mathcal{A}\)</span> gelieferte <span class="math">\(x' \neq x\)</span> ist. Sobald das ein mal der Fall ist, hat der Angreifer gewonnen.</p>
+<p>Nun wenden wir <span class="math">\(f\)</span> auf <span class="math">\(x \in \{0,1\}^{2k}\)</span> an. Es gilt:</p>
+<p><span class="math">\(Pr_x[\underbrace{|f^{-1}(f(x))|}_{\substack{\text{Anzahl der Urbilder}\\\text{zum Hashwert} f(x)} } = 1] \leq \frac{2^k}{2^{2k}} = \frac{1}{2^k}\)</span>.</p>
+<p>Die <span class="math">\(2^k\)</span> im Z&auml;hler stehen f&uuml;r die Funktionswerte und die <span class="math">\(2^{2k}\)</span> f&uuml;r die Urbilder.</p>
+<p>Nun ist <span class="math">\(\frac{1}{2^k}\)</span> eine vernachl&auml;ssigbare Funktion.</p>
+<p><span class="math">\(\Rightarrow\)</span> Die Wahrscheinlichkeit, dass wir keine Kollsion finden ist vernachl&auml;ssigbar.</p>
+<p><span class="math">\(\Rightarrow\)</span> Mit signifikanter Wahrscheinlichkeit hat <span class="math">\(f(x)\)</span> <span class="math">\(k \geq 2\)</span> Urbilder.</p>
+<p><span class="math">\(\Rightarrow\)</span> Die Wahrscheinlichkeit, dass <span class="math">\(\mathcal{B}\)</span> Kollisionen findet ist etwa <span class="math">\((1-\frac{1}{k}) \cdot m\)</span>, wobei <span class="math">\(m\)</span> die Anzahl der Widerholungen ist.</p>
             
             <div id="disqus_thread"></div>
 <script>

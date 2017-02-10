@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Fibonacci, recursion and decorators "/>
 <meta property="og:url" content="../fibonacci-recursion-decorators/" />
-<meta property="og:description" content="I think everybody who learned something about recursion has seen the Fibonacci sequence: $$ f(n) := \begin{cases} n &amp;\text{if } n \leq 1\ f(n-1) + f(n-2) &amp;\text{otherwise} \end{cases} $$ The simplest solution to get this number is: def fib(n): if n &lt; 2: return n else: return fib …" />
+<meta property="og:description" content="I think everybody who learned something about recursion has seen the Fibonacci sequence: $$ f(n) := \begin{cases} n &amp;\text{if } n \leq 1\\ f(n-1) + f(n-2) &amp;\text{otherwise} \end{cases} $$ The simplest solution to get this number is: def fib(n): if n &lt; 2: return n else: return fib …if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2013-10-31T11:08:01+01:00" />
 <meta name="twitter:title" content="Fibonacci, recursion and decorators ">
-<meta name="twitter:description" content="I think everybody who learned something about recursion has seen the Fibonacci sequence: $$ f(n) := \begin{cases} n &amp;\text{if } n \leq 1\ f(n-1) + f(n-2) &amp;\text{otherwise} \end{cases} $$ The simplest solution to get this number is: def fib(n): if n &lt; 2: return n else: return fib …">
+<meta name="twitter:description" content="I think everybody who learned something about recursion has seen the Fibonacci sequence: $$ f(n) := \begin{cases} n &amp;\text{if } n \leq 1\\ f(n-1) + f(n-2) &amp;\text{otherwise} \end{cases} $$ The simplest solution to get this number is: def fib(n): if n &lt; 2: return n else: return fib …if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width">
 <meta property="og:image" content="2011/09/Python-Logo.png" />
 <meta name="twitter:image" content="2011/09/Python-Logo.png" >
 
@@ -110,12 +110,12 @@ MathJax.Hub.Queue(function() {
 
             
             <p>I think everybody who learned something about recursion has seen the Fibonacci sequence:</p>
-<p>$$
+<div class="math">$$
 f(n) := \begin{cases}
-n               &amp;\text{if } n \leq 1\
+n               &amp;\text{if } n \leq 1\\
 f(n-1) + f(n-2) &amp;\text{otherwise}
 \end{cases}
-$$</p>
+$$</div>
 <p>The simplest solution to get this number is:</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
@@ -157,15 +157,15 @@ $$</p>
 </tr>
 </table>
 <p>To be exact, the number of calls of the fib-function is:</p>
-<p>$$
+<div class="math">$$
 f(n) := \begin{cases}
-1               &amp;\text{if } n \leq 1\
+1               &amp;\text{if } n \leq 1\\
 f(n-1) + f(n-2) + 1 &amp;\text{otherwise}
 \end{cases}
-$$</p>
-<p>This means the dumb function is in $\mathcal{O}(2^n)$! (I'm not quite sure, but this I think this is not only time complexity, but also space complexity. I think it is not <a href="https://en.wikipedia.org/wiki/Tail_recursion">tail recursive</a>, so the complete stackframe has to be saved.)</p>
+$$</div>
+<p>This means the dumb function is in <span class="math">\(\mathcal{O}(2^n)\)</span>! (I'm not quite sure, but this I think this is not only time complexity, but also space complexity. I think it is not <a href="https://en.wikipedia.org/wiki/Tail_recursion">tail recursive</a>, so the complete stackframe has to be saved.)</p>
 <h2 id="memorization-with-decorators">Memorization with decorators</h2>
-<p>One way to solve the problem much faster (in fact in $\mathcal{O}(n)$ time and space complexity) by storing values we already calculated.</p>
+<p>One way to solve the problem much faster (in fact in <span class="math">\(\mathcal{O}(n)\)</span> time and space complexity) by storing values we already calculated.</p>
 <p>A very neat way to achieve this are decorators. It might be a common problem that you have a recursive, mathematical function with no side effects. So you can write a wrapper that checks if the value has already been calculated. If not, the function proceeds as usual. It it has already been calculated, you can simply look it up:</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">memoize</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
     <span class="n">cache</span> <span class="o">=</span> <span class="p">{}</span>
@@ -197,9 +197,9 @@ $$</p>
 <p>That gave 139423224561697880139724382870407283950070256587697307264108962948325571622863290691557658876222521294125. A pretty big number.</p>
 <h2 id="formula-of-moivre-binet">Formula of Moivre-Binet</h2>
 <p>The formula of Moivre-Binet gives a closed form for calculating fibonacci numbers:</p>
-<p>$\varphi = \frac{\sqrt{5}+1}{2}$
-$\psi = 1 - \varphi$
-$f(n) = \frac{\varphi^n - \psi^n}{\phi - \psi}$</p>
+<p><span class="math">\(\varphi = \frac{\sqrt{5}+1}{2}\)</span>
+<span class="math">\(\psi = 1 - \varphi\)</span>
+<span class="math">\(f(n) = \frac{\varphi^n - \psi^n}{\phi - \psi}\)</span></p>
 <p>Although this is mathematically exact, it will not work on computers due to a fixed floating point precision. Lets check how long it works:</p>
 <div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 
@@ -238,7 +238,7 @@ $f(n) = \frac{\varphi^n - \psi^n}{\phi - \psi}$</p>
 </pre></div>
 <p>So the answer is:</p>
 <blockquote>The 72-th fibonacci number is 498454011879264. Moivre-Binet gives due to precicion error 498454011879265 (delta=1).</blockquote>
-<p>This is a reason to prefer the $\mathcal{O}(n)$ solution over the $\mathcal{O}(1)$ solution. If you're only exact for 72 numbers, you could also simply store them. Looking number up form an array is always faster than any calculation.</p>
+<p>This is a reason to prefer the <span class="math">\(\mathcal{O}(n)\)</span> solution over the <span class="math">\(\mathcal{O}(1)\)</span> solution. If you're only exact for 72 numbers, you could also simply store them. Looking number up form an array is always faster than any calculation.</p>
 <h2 id="very-high-numbers">Very high numbers</h2>
 <p>The following solution is fast and works 0.075 seconds for the 20000 Fibonacci number (which has 4180 digits).</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>

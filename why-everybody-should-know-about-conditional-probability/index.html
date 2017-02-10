@@ -114,22 +114,22 @@ MathJax.Hub.Queue(function() {
 <h2 id="basics">Basics</h2>
 <p>A probability is a numerical value in [0, 1] that is assigned to events (or lets rather say outcomes of an experiment). A probability can never be less than zero and never be more than one.</p>
 <p>The sum of all probabilities of all outcomes of one experiment is always 1.</p>
-<p>Example: Your experiment $x$ could be throwing a coin. The outcome of your experiment is either head or tails. So if 
-$Pr[x = \text{head}] = 0.6$, then $Pr[x = \text{tail}] = 0.4$.</p>
+<p>Example: Your experiment <span class="math">\(x\)</span> could be throwing a coin. The outcome of your experiment is either head or tails. So if 
+<span class="math">\(Pr[x = \text{head}] = 0.6\)</span>, then <span class="math">\(Pr[x = \text{tail}] = 0.4\)</span>.</p>
 <p>Now you might argue that the coin can also stand on its border. This would result in a different model of the situation with different probabilities, e.g.:</p>
-<p>$Pr[x = \text{head}] = 0.559$, $Pr[x = \text{border}] = 0.001$ and $Pr[x = \text{tail}] = 0.4$.</p>
+<p><span class="math">\(Pr[x = \text{head}] = 0.559\)</span>, <span class="math">\(Pr[x = \text{border}] = 0.001\)</span> and <span class="math">\(Pr[x = \text{tail}] = 0.4\)</span>.</p>
 <p>Another very important rule is Bayes rule:</p>
-<p>$Pr[A|B] = \frac{Pr[B|A] \cdot Pr[A]}{Pr[B]}$</p>
+<p><span class="math">\(Pr[A|B] = \frac{Pr[B|A] \cdot Pr[A]}{Pr[B]}\)</span></p>
 <p>This works also with more variables:</p>
-<p>$Pr[A|BC] = \frac{Pr[B|AC] \cdot Pr[A|C]}{Pr[B|C]}$</p>
+<p><span class="math">\(Pr[A|BC] = \frac{Pr[B|AC] \cdot Pr[A|C]}{Pr[B|C]}\)</span></p>
 <h2 id="cancer">Cancer</h2>
-<p>Lets say the probability of having cancer is $Pr[C] = 0.01$. This means the probability of not having cancer is $Pr[\neg C] = 0.99$.</p>
+<p>Lets say the probability of having cancer is <span class="math">\(Pr[C] = 0.01\)</span>. This means the probability of not having cancer is <span class="math">\(Pr[\neg C] = 0.99\)</span>.</p>
 <p>Now you have cancer tests. They can either be positive (+) which means they say you have cancer. Or they are negative (-), which means according to the test, you don't have cancer. </p>
 <p>They are not always working as expected. So you get so called "false positives" and "false negatives".</p>
-<p>A false positive is a positive result, while it should be negative. So the test says you have cancer, while you don't have cancer. It is denoted by $Pr[+ | \neg C] = 0.2$.</p>
-<p>A false negative is a negative result, while it should be positive. So the test says you don't have cancer, but you actually have cancer. It is denoted by $Pr[- | C] = 0.1$.</p>
-<p>You should note that $Pr[+ | \neg C] + Pr[- | C] = 0.2 + 0.1 = 0.3 \neq 1$. Why is this the case? Because the test might also not be related at all to you having cancer.</p>
-<p>But $Pr[+ | \neg C] + Pr[- | \neg C]$ has to be 1 and $Pr[+ | C] + Pr[- | C]$ also has to be one.</p>
+<p>A false positive is a positive result, while it should be negative. So the test says you have cancer, while you don't have cancer. It is denoted by <span class="math">\(Pr[+ | \neg C] = 0.2\)</span>.</p>
+<p>A false negative is a negative result, while it should be positive. So the test says you don't have cancer, but you actually have cancer. It is denoted by <span class="math">\(Pr[- | C] = 0.1\)</span>.</p>
+<p>You should note that <span class="math">\(Pr[+ | \neg C] + Pr[- | C] = 0.2 + 0.1 = 0.3 \neq 1\)</span>. Why is this the case? Because the test might also not be related at all to you having cancer.</p>
+<p>But <span class="math">\(Pr[+ | \neg C] + Pr[- | \neg C]\)</span> has to be 1 and <span class="math">\(Pr[+ | C] + Pr[- | C]\)</span> also has to be one.</p>
 <p>So you can draw this table:</p>
 <table class="wikitable" style="width:auto;">
 <tr>
@@ -151,10 +151,11 @@ $Pr[x = \text{head}] = 0.6$, then $Pr[x = \text{tail}] = 0.4$.</p>
 <p>You can see that the correct results are much more likely than the wrong ones.</p>
 <h2 id="some-intermediate-results">Some intermediate results</h2>
 <p>How likely is a positive / negative test result?
-\begin{align}
-Pr[+] &amp;= Pr[+|C] \cdot Pr[C] + Pr[+| \neg C] \cdot Pr[\neg C] = 0.207\
+</p>
+<div class="math">\begin{align}
+Pr[+] &amp;= Pr[+|C] \cdot Pr[C] + Pr[+| \neg C] \cdot Pr[\neg C] = 0.207\\
 Pr[-] &amp;= Pr[-|C] \cdot Pr[C] + Pr[-| \neg C] \cdot Pr[\neg C] = 0.793
-\end{align}</p>
+\end{align}</div>
 <p>How likely are the combinations? (This time you don't know if you have cancer):</p>
 <table class="wikitable" style="width:auto;">
 <tr>
@@ -175,17 +176,17 @@ Pr[-] &amp;= Pr[-|C] \cdot Pr[C] + Pr[-| \neg C] \cdot Pr[\neg C] = 0.793
 </table>
 <h2 id="reversing-it">Reversing it</h2>
 <p>It is quite likely that you would like to know how likely it is that you have cancer. Without a test, you know:</p>
-<p>\begin{align}
-Pr[C]      &amp;= 0.01\
+<div class="math">\begin{align}
+Pr[C]      &amp;= 0.01\\
 Pr[\neg C] &amp;= 0.99
-\end{align}</p>
-<p>Now you get a positive test result. How likely is it that you have cancer? In other words: Calculate $Pr[C|+]$</p>
-<p>\begin{align}
-Pr[C|+]      &amp;= \frac{Pr[C, +]}{Pr[+]} = \frac{0.009}{0.207} = \frac{1}{23} \approx 0.043\
-Pr[\neg C|+] &amp;= 1 - \frac{1}{23} = \frac{22}{23} \approx 0.957\
-Pr[C|-]      &amp;= \frac{0.001}{0.793} = \frac{1}{793} \approx 0.001\
+\end{align}</div>
+<p>Now you get a positive test result. How likely is it that you have cancer? In other words: Calculate <span class="math">\(Pr[C|+]\)</span></p>
+<div class="math">\begin{align}
+Pr[C|+]      &amp;= \frac{Pr[C, +]}{Pr[+]} = \frac{0.009}{0.207} = \frac{1}{23} \approx 0.043\\
+Pr[\neg C|+] &amp;= 1 - \frac{1}{23} = \frac{22}{23} \approx 0.957\\
+Pr[C|-]      &amp;= \frac{0.001}{0.793} = \frac{1}{793} \approx 0.001\\
 Pr[\neg C|-] &amp;= 1 - \frac{1}{793} = \frac{792}{793} \approx 0.999
-\end{align}</p>
+\end{align}</div>
 <p>How would you interpret these results? I'd say:
 When you get a positive result you shouldn't really worry. But perhaps you should make other tests.
 When you get a negative results you can be very sure that you don't have cancer.</p>
@@ -207,17 +208,17 @@ When you get a negative results you can be very sure that you don't have cancer.
 </li>
 </ul></p>
 <p>First of all, I compare some intermediate results</p>
-<p>\begin{align}
-Pr[++] &amp;= Pr[C] \cdot Pr[+|C] \cdot Pr[+|C] + Pr[\neg C] \cdot Pr[+|\neg C] \cdot Pr[+|\neg C]\
-       &amp;= 0.477 \neq 0.042849 = 0.207^2 = (Pr[+])^2\
-Pr[+-] &amp;= Pr[C] \cdot Pr[+|C] \cdot Pr[-|C] + Pr[\neg C] \cdot Pr[+|\neg C] \cdot Pr[-|\neg C] \
-       &amp;= 0.01 \cdot 0.9 \cdot 0.1 + 0.99 \cdot 0.2 \cdot 0.8\
-       &amp;= 0.1593\
-Pr[C,+,+] &amp;= Pr[C] \cdot Pr[+ | C]^2 = 0.01 \cdot 0.9^2 = 0.0081\
-Pr[C,+,-] &amp;= Pr[C] \cdot Pr[+ | C] \cdot Pr[-|C] = 0.01 \cdot 0.9 \cdot 0.1 = 0.0009\
-Pr[C|++] &amp;= \frac{Pr[C,+,+]}{Pr[++]} = \frac{0.0081}{0.207^2} = \frac{9}{530} \approx 0.170\
+<div class="math">\begin{align}
+Pr[++] &amp;= Pr[C] \cdot Pr[+|C] \cdot Pr[+|C] + Pr[\neg C] \cdot Pr[+|\neg C] \cdot Pr[+|\neg C]\\
+       &amp;= 0.477 \neq 0.042849 = 0.207^2 = (Pr[+])^2\\
+Pr[+-] &amp;= Pr[C] \cdot Pr[+|C] \cdot Pr[-|C] + Pr[\neg C] \cdot Pr[+|\neg C] \cdot Pr[-|\neg C] \\
+       &amp;= 0.01 \cdot 0.9 \cdot 0.1 + 0.99 \cdot 0.2 \cdot 0.8\\
+       &amp;= 0.1593\\
+Pr[C,+,+] &amp;= Pr[C] \cdot Pr[+ | C]^2 = 0.01 \cdot 0.9^2 = 0.0081\\
+Pr[C,+,-] &amp;= Pr[C] \cdot Pr[+ | C] \cdot Pr[-|C] = 0.01 \cdot 0.9 \cdot 0.1 = 0.0009\\
+Pr[C|++] &amp;= \frac{Pr[C,+,+]}{Pr[++]} = \frac{0.0081}{0.207^2} = \frac{9}{530} \approx 0.170\\
 Pr[C|+-] &amp;= \frac{Pr[C,+,-]}{Pr[+-]} = \frac{0.0009}{0.1593} = \frac{1}{177} \approx 0.006
-\end{align}</p>
+\end{align}</div>
 <p>Woooha! So if one test says you have cancer, don't worry. When two tests say you have cancer, you have a 17% chance of having cancer.</p>
 <p>On the other hand: One negative and one positive test is better than no test at all, because without a test you have a probability of 0.01 to have cancer. With both tests, you only have a probability of 0.006.</p>
 <h2 id="why-probability-is-important-for-you">Why probability is important for you</h2>
