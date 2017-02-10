@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Machine Learning, OCR, Machine Learning, " />
+
+<meta property="og:title" content="OCR "/>
+<meta property="og:url" content="../drafts/ocr.html" />
+<meta property="og:description" content="OCR (optical character recognition) is the conversation of an image which contains text into machine readable text. In form of data formats, you put a JPG in and you receive a txt or a PDF (which contains text, not just the image). The reason why OCR is important, is that ..." />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2017-02-10T20:00:00+01:00" />
+<meta name="twitter:title" content="OCR ">
+<meta name="twitter:description" content="OCR (optical character recognition) is the conversation of an image which contains text into machine readable text. In form of data formats, you put a JPG in and you receive a txt or a PDF (which contains text, not just the image). The reason why OCR is important, is that ...">
+<meta property="og:image" content="logos/ml.png" />
+<meta name="twitter:image" content="logos/ml.png" >
+
+        <title>OCR  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../drafts/ocr.html"> OCR  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#how-it-can-work" title="How it can work">How it can work</a></li><li><a class="toc-href" hard'="" href="#why-its-hard" s="" title="Why it">Why it's hard</a></li><li><a class="toc-href" href="#datasets" title="Datasets">Datasets</a></li><li><a class="toc-href" href="#a-benchmark-page" title="A benchmark page">A benchmark page</a></li><li><a class="toc-href" href="#existing-software" title="Existing Software">Existing Software</a><ul><li><a class="toc-href" href="#onlineocrnet" title="onlineocr.net">onlineocr.net</a></li></ul></li><li><a class="toc-href" href="#free-ocrcom_1" title="free-ocr.com">free-ocr.com</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>OCR (optical character recognition) is the conversation of an image which
+contains text into machine readable text. In form of data formats, you put a
+JPG in and you receive a txt or a PDF (which contains text, not just the
+image).</p>
+<p>The reason why OCR is important, is that it makes images searchable. For
+example, I have a lot of handwritten notes which I want to digitalize. So I
+will scan those notes. But when I want to find anything in them, I will search
+for parts of the content (e.g. "statistik"). Also, if OCR works really well
+it could help you to read documents. Especially if you have notes from people
+like me with an aweful handwriting.</p>
+<p>For the rest of this article, please keep in mind that I didn't write an OCR
+software so far.</p>
+<h2 id="how-it-can-work">How it can work</h2>
+<p>Here is a very simple approach how OCR could work:</p>
+<ol>
+<li><strong>Segmentation</strong>: First try to find lines. Then try to segment single
+   characters.</li>
+<li><strong>Classification</strong>: Given the segments, find what symbol is in them.</li>
+<li><strong>Placement</strong>: Find the relationship between two classified symbols (is one
+   to the right of the other or rather the the right-top? Hence: Is it <span class="math">\(ax\)</span> or
+   <span class="math">\(a^x\)</span>?</li>
+</ol>
+<h2 id="why-its-hard">Why it's hard</h2>
+<ol>
+<li>Everybody has a unique handwriting.</li>
+<li>There are different alphabets in the world. Much more than what you have in
+   English.</li>
+<li>Even the same alphabet has a lot of variance between countries. For example,
+   The digit <code>1</code> is often written as a single line in the US. But in Germany,
+   we use two lines (more similar to the printed version of <code>1</code>). Some people
+   even make 3 lines.</li>
+<li>Overlapping characters (especially in cursive handwriting)</li>
+<li>Really weird placement (especially in mathematics)</li>
+<li>Images within the handwriting</li>
+</ol>
+<h2 id="datasets">Datasets</h2>
+<p>I am currently looking for datasets (see <a href="http://opendata.stackexchange.com/q/10626/5487">question on opendata.stackexchange.com</a>). I'm thinking about publishing my
+notes as an unlabeled dataset.</p>
+<h2 id="a-benchmark-page">A benchmark page</h2>
+<p>Lets take <a href="//martin-thoma.com/images/2017/02/scan-thoma-1-1-statistik.jpg">this image</a>
+as a benchmark. It is written in German, with mainly mathematical content.</p>
+<h2 id="existing-software">Existing Software</h2>
+<h3 id="onlineocrnet">onlineocr.net</h3>
+<p><a href="http://www.onlineocr.net/">onlineocr.net</a> took about 10 seconds for</p>
+<div class="highlight"><pre><span></span>x14,14-  74 &lsquo;b. = 7 e) 
+e --,91 7 1) v 
+e-D1&mdash; (ty ,s9 
+z(9 (ute9r) 
+, 
+v,ke 49 ✓( jj , 
+Unsere App f&uuml;r ein einfacheres Studium: Hol sie dir jetzt auf www.bloxxboard.com 
+</pre></div>
+<p>Several things to note here:</p>
+<ul>
+<li>I had to tell it that the document is written in German</li>
+<li>The recognition of the handwritten part did not work at all</li>
+<li>The recognition of the printed part was perfect, except that the placement is
+  wrong</li>
+<li>Trailing whitespaces 🙈</li>
+</ul>
+<h2 id="free-ocrcom_1">free-ocr.com</h2>
+<p><a href="http://www.free-ocr.com/de.html">free-ocr.com</a> took about 3 seconds for</p>
+<div class="highlight"><pre><span></span>&bdquo;J
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Ladgbfu&szlig;w J&mdash;\1&gt;e)=&laquo;&gt; &sbquo; &lsquo; &sbquo; &rsquo;
+34h&raquo; wagt&mdash;mag l :
+
+
+
+
+
+
+
+ &bdquo;.3 vt  &ldquo;(&auml;&auml;jih'&auml;e J ggQﬁ . ij
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+H &rsquo; 7 7777 W \S&bdquo;.&sbquo;
+
+1&rsquo; "7;, F L f; i ff &rsquo;
+&sbquo; } 1 &lsquo;  g  j  1  5,1&bdquo; &lsquo; &lsquo; "
+ 1??  7 1 ﬁ&rsquo; &lsquo; i &sbquo; ﬁ 
+
+
+
+
+
+
+
+
+
+Unsere App f&uuml;r ein einfacheres Studium:
+
+Hol sie dlrjetzt auf www.bloxxboard.com L
+F ' 7 ' W &rsquo; '&sbquo;
+</pre></div>
+<p>Things to note here:</p>
+<ul>
+<li>I had to tell it that the document is written in German</li>
+<li>It supports multiple languages in the same document 🙂</li>
+<li>I removed a lot of empty lines in between</li>
+<li>The recognition of the handwritten part did not work at all.</li>
+<li>The recognition of the printed part was pretty good, but not perfect.</li>
+<li>The placement worked for the printed part</li>
+<li>Trailing whitespaces 🙈</li>
+</ul>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2017-02-10T20:00:00+01:00">Feb 10, 2017</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#machine-learning-ref">Machine Learning</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#machine-learning-ref">Machine Learning
+                    <span>36</span>
+</a></li>
+                <li><a href="../tags.html#ocr-ref">OCR
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
