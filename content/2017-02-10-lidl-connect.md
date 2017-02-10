@@ -3,7 +3,6 @@ layout: post
 title: Lidl Connect
 slug: lidl-connect
 author: Martin Thoma
-status: draft
 date: 2017-02-10 20:00
 category: Cyberculture
 tags: sim card
@@ -55,9 +54,11 @@ seen so far is nice:
 ## User Interface
 
 <figure class="wp-caption aligncenter img-thumbnail">
-    <img src="https://martin-thoma.com/images/2016/12/lidl-connect-kunden.png" alt="User Interface of Lidl Connect" />
+    <img src="https://martin-thoma.com/images/2016/12/lidl-connect-kunden.png" alt="User Interface of Lidl Connect" style="width:512px;" />
     <figcaption class="text-center">User Interface of Lidl Connect</figcaption>
 </figure>
+
+The Lidl connect app seems to work fine. It shows the important information.
 
 
 ## Switching from Blau.de to Lidl
@@ -92,3 +93,6 @@ It's 25 Euro.
 
 Update, 02.02.2017: The new Lidl Connect SIM card with my old number arrived.
 Seems not to be active at the moment.
+
+Update, 06.02.2017: Finally, I have the Lidl SIM card with my new number 🙂
+
