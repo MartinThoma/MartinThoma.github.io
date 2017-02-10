@@ -240,6 +240,21 @@ rv.ppf(0.95)  # gives 3.1273500051133989
     * $C(AU, B^T V) = A C(U, V) B$
 
 
+## Prüfungsfragen
+* Kann ein Schätzer Erwartungstreu und Konsistent sein?<br/>
+  → Ja. Seien $X_1, \dots, X_n \stackrel{uiv}{\sim} Bin(1, \vartheta)$ mit
+     $\vartheta \in (0, 1)$. Sei außerdem $\hat{\vartheta}_n = \frac{1}{n} \sum_{i=1}^n x_i$.
+     $\hat{\vartheta}_n$ ist erwartungstreu und konsistent.
+* Kann ein Schätzer weder Erwartungstreu noch Konsistent sein?<br/>
+  → Ja. Seien $X_1, \dots, X_n \stackrel{uiv}{\sim} Bin(1, \vartheta)$ mit
+     $\vartheta \in (0, 1)$. Der Schätzer $\hat{\vartheta} = 0.5$ ist weder
+     Erwartungstreu noch konsistent für $\vartheta \neq 0.5$.
+* Kann ein Schätzer Erwartungstreu, aber nicht konsistent sein?<br/>
+  → TODO
+* Kann ein Schätzer nicht Erwartungstreu, aber konsistent sein?<br/>
+  → TODO
+
+
 
 ## Material und Links
 
