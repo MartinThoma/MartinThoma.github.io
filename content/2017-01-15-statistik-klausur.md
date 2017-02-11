@@ -263,6 +263,7 @@ rv.ppf(0.95)  # gives 3.1273500051133989
 * StackExchange
     * [Percentile vs quantile vs quartile](http://stats.stackexchange.com/q/156778/25741)
     * [When is Fishers exact test used; when are approximative tests used?](http://math.stackexchange.com/q/2120746/6876)
+* [Anki-Karten](https://ankiweb.net/shared/info/245843947)
 
 
 ## Literatur
