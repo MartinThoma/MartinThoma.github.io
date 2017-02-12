@@ -4,7 +4,7 @@ title: Pythons map, reduce and filter as list comprehensions
 slug: python-map-reduce-filter
 author: Martin Thoma
 date: 2016-07-05 20:00
-category: Programming
+category: Code
 tags: Python
 featured_image: logos/python.png
 ---

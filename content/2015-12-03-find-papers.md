@@ -3,7 +3,7 @@ layout: post
 title: How to find new Papers
 author: Martin Thoma
 date: 2015-12-03 07:30
-category: My bits and bytes
+category: Science
 tags: Science, Papers, Reading, Google Scholar, arXiv
 featured_image: logos/science.png
 ---

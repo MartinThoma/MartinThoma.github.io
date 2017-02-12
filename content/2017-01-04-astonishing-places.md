@@ -4,7 +4,7 @@ title: Astonishing Places
 slug: astonishing-places
 author: Martin Thoma
 date: 2017-01-04 10:00
-category: Bits and Bytes
+category: My bits and bytes
 tags: Nature
 featured_image: logos/nature.png
 ---
