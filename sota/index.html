@@ -103,7 +103,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#computer-vision" title="Computer Vision">Computer Vision</a><ul><li><a class="toc-href" href="#image-classification" title="Image Classification">Image Classification</a></li><li><a class="toc-href" href="#detection-images" title="Detection (Images)">Detection (Images)</a></li><li><a class="toc-href" href="#detection-videos" title="Detection (Videos)">Detection (Videos)</a></li><li><a class="toc-href" href="#semantic-segmentation" title="Semantic Segmentation">Semantic Segmentation</a></li><li><a class="toc-href" href="#instance-segmentation" title="Instance Segmentation">Instance Segmentation</a></li><li><a class="toc-href" href="#action-recognition" title="Action Recognition">Action Recognition</a></li><li><a class="toc-href" href="#super-resolution" title="Super Resolution">Super Resolution</a></li></ul></li><li><a class="toc-href" href="#asr_1" title="ASR">ASR</a></li><li><a class="toc-href" href="#language" title="Language">Language</a></li><li><a class="toc-href" href="#matrix-completion" title="Matrix completion">Matrix completion</a></li><li><a class="toc-href" href="#reinforcment-learning" title="Reinforcment Learning">Reinforcment Learning</a></li><li><a class="toc-href" href="#control" title="Control">Control</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#computer-vision" title="Computer Vision">Computer Vision</a><ul><li><a class="toc-href" href="#image-classification" title="Image Classification">Image Classification</a></li><li><a class="toc-href" href="#detection-images" title="Detection (Images)">Detection (Images)</a></li><li><a class="toc-href" href="#detection-videos" title="Detection (Videos)">Detection (Videos)</a></li><li><a class="toc-href" href="#semantic-segmentation" title="Semantic Segmentation">Semantic Segmentation</a></li><li><a class="toc-href" href="#instance-segmentation" title="Instance Segmentation">Instance Segmentation</a></li><li><a class="toc-href" href="#action-recognition" title="Action Recognition">Action Recognition</a></li><li><a class="toc-href" href="#super-resolution" title="Super Resolution">Super Resolution</a></li><li><a class="toc-href" href="#lip-reading" title="Lip Reading">Lip Reading</a></li></ul></li><li><a class="toc-href" href="#asr_1" title="ASR">ASR</a></li><li><a class="toc-href" href="#language" title="Language">Language</a></li><li><a class="toc-href" href="#translation" title="Translation">Translation</a></li><li><a class="toc-href" href="#matrix-completion" title="Matrix completion">Matrix completion</a></li><li><a class="toc-href" href="#reinforcment-learning" title="Reinforcment Learning">Reinforcment Learning</a></li><li><a class="toc-href" href="#control" title="Control">Control</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -454,6 +454,30 @@ to several datasets and metrics for evaluation can be found in <a href="https://
 <td></td>
 </tr>
 </table>
+<p>I'm not sure how super resolution is benchmarked. One way to do it would be
+to get high resolution images, scale them down, feed them to the network and
+measure the mean squared error for each pixel:</p>
+<div class="math">$$\frac{1}{|I|} \sum_{t \in I} {(t - \hat{t})}^2$$</div>
+<p>However, this might be sensitive to the way the images were downsampled.</p>
+<h3 id="lip-reading">Lip Reading</h3>
+<table class="table">
+<tr>
+<th>Dataset</th>
+<th>Year</th>
+<th>Score</th>
+<th>Type</th>
+<th>Paper</th>
+</tr>
+<tr>
+<td><a href="http://spandh.dcs.shef.ac.uk/gridcorpus/" title="The GRID audiovisual sentence corpus
+
+">GRID</a></td>
+<td>2016</td>
+<td>95.2 %</td>
+<td>accuracy <span title="higher is better">+</span></td>
+<td><a href="https://openreview.net/forum?id=BkjLkSqxg" title="LipNet: End-to-End Sentence-level Lipreading">[ASWF16]</a></td>
+</tr>
+</table>
 <h2 id="asr_1">ASR</h2>
 <p>Automatic Speech Recognition (ASR).</p>
 <table class="table">
@@ -465,13 +489,17 @@ to several datasets and metrics for evaluation can be found in <a href="https://
 <th>Paper</th>
 </tr>
 <tr>
+<td><a href="https://catalog.ldc.upenn.edu/ldc93s1" title="TIMIT Acoustic-Phonetic Continuous Speech Corpus">TIMIT</a></td>
 <td></td>
 <td></td>
-<td></td>
-<td></td>
+<td>error rate</td>
 <td></td>
 </tr>
 </table>
+<p>Relevant papers might be</p>
+<ul>
+<li><a href="https://arxiv.org/abs/1512.02595v1">Deep Speech 2: End-to-End Speech Recognition in English and Mandarin</a></li>
+</ul>
 <h2 id="language">Language</h2>
 <p>Natural Language Processing (NLP) deals with how to represent language. It is
 related and often a part of ASR.</p>
@@ -491,13 +519,43 @@ related and often a part of ASR.</p>
 <td><a href="https://openreview.net/pdf?id=B184E5qee" title="Improving Neural Language Models with a Continuous Cache">[GJU16]</a></td>
 </tr>
 <tr>
-<td>Penn Treebank</td>
+<td>Penn Treebank (PTB)</td>
 <td>2016</td>
 <td style="text-align: right;">62.4</td>
 <td>Perplexity <span title="lower is better">-</span></td>
 <td><a href="https://arxiv.org/abs/1611.01578" title="Neural Architecture Search with Reinforcement Learning">[ZL16]</a> (<a href="http://www.shortscience.org/paper?bibtexKey=journals/corr/1611.01578#martinthoma">summary</a>)</td>
 </tr>
+<tr>
+<td><a href="https://www.reddit.com/r/MachineLearning/comments/5s6ixw/d_what_are_the_current_benchmark_datasets_and_the/ddcwoay/">Stanford Sentiment Treebank</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
 </table>
+<p>NLP benchmarks use <a href="https://en.wikipedia.org/wiki/Perplexity">perplexity</a> to
+measure how good a result is.</p>
+<h2 id="translation">Translation</h2>
+<table class="table">
+<tr>
+<th>Dataset</th>
+<th>Year</th>
+<th>Score</th>
+<th>Type</th>
+<th>Paper</th>
+</tr>
+<tr>
+<td>MT03</td>
+<td>2003</td>
+<td>35.76</td>
+<td>BLEU</td>
+<td><a href="https://www.cs.sfu.ca/~anoop/papers/pdf/jhu-ws03-report.pdf" title="Syntax for Statistical Machine Translation">[OGKS+03]</a></td>
+</tr>
+</table>
+<p>The <a href="https://en.wikipedia.org/wiki/BLEU" title="bilingual evaluation understudy">BLEU</a>
+score is used to measure how good a translation system is.</p>
+<p>Another score is the <em>Translation Edit Rate</em> (TER) introduced by
+<a href="http://mt-archive.info/AMTA-2006-Snover.pdf">Snover et al., 2006</a>.</p>
 <h2 id="matrix-completion">Matrix completion</h2>
 <p>Collaborative filtering is an application of matrix completion.
 More datasets are on <a href="https://gist.github.com/entaroadun/1653794">entaroadun/gist:1653794</a>.</p>
@@ -577,6 +635,8 @@ for testing RL algorithms.</p>
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="http://rodrigob.github.io/are_we_there_yet">Are we there yet ?</a></li>
+<li><a href="https://www.reddit.com/r/MachineLearning/comments/4dkrw1/some_stateofthearts_in_natural_language/">Some state-of-the-arts in natural language processing and their discussion</a></li>
+<li>aclweb.org: <a href="https://www.aclweb.org/aclwiki/index.php?title=State_of_the_art">State of the art</a> - NLP tasks</li>
 </ul>
             
             <div id="disqus_thread"></div>

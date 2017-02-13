@@ -347,6 +347,30 @@ to several datasets and metrics for evaluation can be found in &lt;a href="https
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
+&lt;p&gt;I'm not sure how super resolution is benchmarked. One way to do it would be
+to get high resolution images, scale them down, feed them to the network and
+measure the mean squared error for each pixel:&lt;/p&gt;
+&lt;div class="math"&gt;$$\frac{1}{|I|} \sum_{t \in I} {(t - \hat{t})}^2$$&lt;/div&gt;
+&lt;p&gt;However, this might be sensitive to the way the images were downsampled.&lt;/p&gt;
+&lt;h3 id="lip-reading"&gt;Lip Reading&lt;/h3&gt;
+&lt;table class="table"&gt;
+&lt;tr&gt;
+&lt;th&gt;Dataset&lt;/th&gt;
+&lt;th&gt;Year&lt;/th&gt;
+&lt;th&gt;Score&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Paper&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="http://spandh.dcs.shef.ac.uk/gridcorpus/" title="The GRID audiovisual sentence corpus
+
+"&gt;GRID&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;2016&lt;/td&gt;
+&lt;td&gt;95.2 %&lt;/td&gt;
+&lt;td&gt;accuracy &lt;span title="higher is better"&gt;+&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://openreview.net/forum?id=BkjLkSqxg" title="LipNet: End-to-End Sentence-level Lipreading"&gt;[ASWF16]&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
 &lt;h2 id="asr_1"&gt;ASR&lt;/h2&gt;
 &lt;p&gt;Automatic Speech Recognition (ASR).&lt;/p&gt;
 &lt;table class="table"&gt;
@@ -358,13 +382,17 @@ to several datasets and metrics for evaluation can be found in &lt;a href="https
 &lt;th&gt;Paper&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
+&lt;td&gt;&lt;a href="https://catalog.ldc.upenn.edu/ldc93s1" title="TIMIT Acoustic-Phonetic Continuous Speech Corpus"&gt;TIMIT&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;error rate&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
+&lt;p&gt;Relevant papers might be&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://arxiv.org/abs/1512.02595v1"&gt;Deep Speech 2: End-to-End Speech Recognition in English and Mandarin&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id="language"&gt;Language&lt;/h2&gt;
 &lt;p&gt;Natural Language Processing (NLP) deals with how to represent language. It is
 related and often a part of ASR.&lt;/p&gt;
@@ -384,13 +412,43 @@ related and often a part of ASR.&lt;/p&gt;
 &lt;td&gt;&lt;a href="https://openreview.net/pdf?id=B184E5qee" title="Improving Neural Language Models with a Continuous Cache"&gt;[GJU16]&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;Penn Treebank&lt;/td&gt;
+&lt;td&gt;Penn Treebank (PTB)&lt;/td&gt;
 &lt;td&gt;2016&lt;/td&gt;
 &lt;td style="text-align: right;"&gt;62.4&lt;/td&gt;
 &lt;td&gt;Perplexity &lt;span title="lower is better"&gt;-&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;&lt;a href="https://arxiv.org/abs/1611.01578" title="Neural Architecture Search with Reinforcement Learning"&gt;[ZL16]&lt;/a&gt; (&lt;a href="http://www.shortscience.org/paper?bibtexKey=journals/corr/1611.01578#martinthoma"&gt;summary&lt;/a&gt;)&lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://www.reddit.com/r/MachineLearning/comments/5s6ixw/d_what_are_the_current_benchmark_datasets_and_the/ddcwoay/"&gt;Stanford Sentiment Treebank&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/table&gt;
+&lt;p&gt;NLP benchmarks use &lt;a href="https://en.wikipedia.org/wiki/Perplexity"&gt;perplexity&lt;/a&gt; to
+measure how good a result is.&lt;/p&gt;
+&lt;h2 id="translation"&gt;Translation&lt;/h2&gt;
+&lt;table class="table"&gt;
+&lt;tr&gt;
+&lt;th&gt;Dataset&lt;/th&gt;
+&lt;th&gt;Year&lt;/th&gt;
+&lt;th&gt;Score&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Paper&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MT03&lt;/td&gt;
+&lt;td&gt;2003&lt;/td&gt;
+&lt;td&gt;35.76&lt;/td&gt;
+&lt;td&gt;BLEU&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://www.cs.sfu.ca/~anoop/papers/pdf/jhu-ws03-report.pdf" title="Syntax for Statistical Machine Translation"&gt;[OGKS+03]&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;The &lt;a href="https://en.wikipedia.org/wiki/BLEU" title="bilingual evaluation understudy"&gt;BLEU&lt;/a&gt;
+score is used to measure how good a translation system is.&lt;/p&gt;
+&lt;p&gt;Another score is the &lt;em&gt;Translation Edit Rate&lt;/em&gt; (TER) introduced by
+&lt;a href="http://mt-archive.info/AMTA-2006-Snover.pdf"&gt;Snover et al., 2006&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id="matrix-completion"&gt;Matrix completion&lt;/h2&gt;
 &lt;p&gt;Collaborative filtering is an application of matrix completion.
 More datasets are on &lt;a href="https://gist.github.com/entaroadun/1653794"&gt;entaroadun/gist:1653794&lt;/a&gt;.&lt;/p&gt;
@@ -470,6 +528,8 @@ for testing RL algorithms.&lt;/p&gt;
 &lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://rodrigob.github.io/are_we_there_yet"&gt;Are we there yet ?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.reddit.com/r/MachineLearning/comments/4dkrw1/some_stateofthearts_in_natural_language/"&gt;Some state-of-the-arts in natural language processing and their discussion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;aclweb.org: &lt;a href="https://www.aclweb.org/aclwiki/index.php?title=State_of_the_art"&gt;State of the art&lt;/a&gt; - NLP tasks&lt;/li&gt;
 &lt;/ul&gt;</content><category term="Machine Learning"></category><category term="Datasets"></category></entry><entry><title>skdata</title><link href="https://martin-thoma.com/skdata/" rel="alternate"></link><published>2017-01-30T20:00:00+01:00</published><updated>2017-01-30T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-01-30:/skdata/</id><summary type="html">&lt;p&gt;I really like Machine Learning. I like reading papers, understanding and
 evaluating new ideas. But one part I always have to spend quite a bit of time
 on is loading the data. It's always a mess to find the datasets, understand
