@@ -14,20 +14,20 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="Machine Learning, Python, Code, " />
+<meta name="keywords" content="Machine Learning, Machine Learning, " />
 
-<meta property="og:title" content="Word Vectors "/>
-<meta property="og:url" content="../word-vectors/" />
-<meta property="og:description" content="The idea behind word vectors is to represent natural language words like &#34;king&#34; in \(\mathbb{R}^n\) in such a way, that you can do arithmetic. For example, $$\text{vec}(\text{king}) - \text{vec}(\text{man}) + \text{vec}(\text{woman}) \approx \text{vec}(\text{queen})$$ The Python library gensim implements …if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width" />
+<meta property="og:title" content="Best of ML "/>
+<meta property="og:url" content="../best-of-ml/" />
+<meta property="og:description" content="This post is a summary of articles, websites and material in general about machine learning. Articles The Unreasonable Effectiveness of Recurrent Neural Networks Using convolutional neural nets to detect facial keypoints tutorial Clever Methods of Overfitting Understanding the Bias-Variance Tradeoff An overview of gradient descent optimization algorithms cs231n: Convolutional Neural …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
-<meta property="og:article:published_time" content="2016-12-28T20:00:00+01:00" />
-<meta name="twitter:title" content="Word Vectors ">
-<meta name="twitter:description" content="The idea behind word vectors is to represent natural language words like &#34;king&#34; in \(\mathbb{R}^n\) in such a way, that you can do arithmetic. For example, $$\text{vec}(\text{king}) - \text{vec}(\text{man}) + \text{vec}(\text{woman}) \approx \text{vec}(\text{queen})$$ The Python library gensim implements …if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width">
+<meta property="og:article:published_time" content="2017-02-13T20:00:00+01:00" />
+<meta name="twitter:title" content="Best of ML ">
+<meta name="twitter:description" content="This post is a summary of articles, websites and material in general about machine learning. Articles The Unreasonable Effectiveness of Recurrent Neural Networks Using convolutional neural nets to detect facial keypoints tutorial Clever Methods of Overfitting Understanding the Bias-Variance Tradeoff An overview of gradient descent optimization algorithms cs231n: Convolutional Neural …">
 <meta property="og:image" content="logos/ml.png" />
 <meta name="twitter:image" content="logos/ml.png" >
 
-        <title>Word Vectors  · Martin Thoma
+        <title>Best of ML  · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -95,7 +95,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../word-vectors/"> Word Vectors  </a></h1>
+    <h1><a href="../best-of-ml/"> Best of ML  </a></h1>
     </header>
 </div>
 
@@ -103,35 +103,101 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#requirements" title="Requirements">Requirements</a></li><li><a class="toc-href" href="#example" title="Example">Example</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#articles" title="Articles">Articles</a></li><li><a class="toc-href" href="#books" title="Books">Books</a></li><li><a class="toc-href" href="#moocs" title="MOOCs">MOOCs</a></li><li><a class="toc-href" href="#tools" title="Tools">Tools</a></li><li><a class="toc-href" href="#data" title="Data">Data</a></li><li><a class="toc-href" href="#cheat-cheats" title="Cheat Cheats">Cheat Cheats</a></li><li><a class="toc-href" href="#lists" title="Lists">Lists</a></li><li><a class="toc-href" href="#miscallenious" title="Miscallenious">Miscallenious</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>The idea behind word vectors is to represent natural language words like "king"
-in <span class="math">\(\mathbb{R}^n\)</span> in such a way, that you can do arithmetic. For example,</p>
-<div class="math">$$\text{vec}(\text{king}) - \text{vec}(\text{man}) + \text{vec}(\text{woman}) \approx \text{vec}(\text{queen})$$</div>
-<p>The Python library <a href="http://radimrehurek.com/gensim/"><code>gensim</code></a> implements this.</p>
-<h2 id="requirements">Requirements</h2>
-<div class="highlight"><pre><span></span>pip install gensim --user
-pip install nltk --user
-</pre></div>
-<h2 id="example">Example</h2>
-<p>An easy to use example is</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gensim.models</span> <span class="kn">import</span> <span class="n">Word2Vec</span>
-<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">brown</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">Word2Vec</span><span class="p">(</span><span class="n">brown</span><span class="o">.</span><span class="n">sents</span><span class="p">())</span>
-<span class="n">model</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="n">positive</span><span class="o">=</span><span class="p">[</span><span class="s1">'woman'</span><span class="p">,</span> <span class="s1">'king'</span><span class="p">],</span> <span class="n">negative</span><span class="o">=</span><span class="p">[</span><span class="s1">'man'</span><span class="p">],</span> <span class="n">topn</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-<p>which returns</p>
-<div class="highlight"><pre><span></span>[(u'scored', 0.9442702531814575), (u'calling', 0.9424217939376831), (u'native', 0.9412217736244202)]
-</pre></div>
-<p>So the corpus is not that good, but it should work with a bigger one.</p>
-<h2 id="see-also">See also</h2>
+            <p>This post is a summary of articles, websites and material in general about
+machine learning.</p>
+<h2 id="articles">Articles</h2>
 <ul>
-<li><a href="https://blog.acolyer.org/2016/04/21/the-amazing-power-of-word-vectors/">The amazing power of word vectors</a></li>
-<li><a href="http://rare-technologies.com/deep-learning-with-word2vec-and-gensim/">Deep learning with word2vec and gensim</a></li>
+<li><a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/">The Unreasonable Effectiveness of Recurrent Neural Networks</a></li>
+<li><a href="http://danielnouri.org/notes/2014/12/17/using-convolutional-neural-nets-to-detect-facial-keypoints-tutorial/">Using convolutional neural nets to detect facial keypoints tutorial</a></li>
+<li><a href="http://hunch.net/?p=22">Clever Methods of Overfitting</a></li>
+<li><a href="http://scott.fortmann-roe.com/docs/BiasVariance.html">Understanding the Bias-Variance Tradeoff</a></li>
+<li><a href="http://sebastianruder.com/optimizing-gradient-descent/">An overview of gradient descent optimization algorithms</a></li>
+<li>cs231n: <a href="http://cs231n.github.io/convolutional-networks/">Convolutional Neural Networks (CNNs / ConvNets)</a> (<a href="https://www.youtube.com/playlist?list=PL16j5WbGpaM0_Tj8CRmurZ8Kk1gEBc7fg">YouTube playlist</a>)</li>
+</ul>
+<h2 id="books">Books</h2>
+<ul>
+<li><a href="http://neuralnetworksanddeeplearning.com/">Neural Networks and Deep Learning</a></li>
+<li>Ian Goodfellow, Yoshua Bengio, and Aaron Courville: <a href="http://www.deeplearningbook.org/">Deep Learning</a></li>
+</ul>
+<h2 id="moocs">MOOCs</h2>
+<ul>
+<li>Coursera: <a href="https://www.coursera.org/learn/machine-learning">Machine Learning</a> by Andrew Ng</li>
+<li><a href="http://cs231n.stanford.edu/">CS224d: Deep Learning for Natural Language Processing</a></li>
+<li><a href="https://www.cs.ox.ac.uk/people/nando.defreitas/machinelearning/">Machine Learning</a>: Kurs der Universit&auml;t Oxford</li>
+<li><a href="http://cs231n.stanford.edu/">Convolutional Neural Networks for Visual Recognition</a>: Kurs von Stanford</li>
+</ul>
+<h2 id="tools">Tools</h2>
+<ul>
+<li><a href="http://caffe.berkeleyvision.org/">Caffe</a>: Used often for Computer Vision, but more and more people jump to TensorFlow</li>
+<li><a href="http://scikit-learn.org/stable/">sklearn</a>: Python Machine learning toolkit</li>
+<li><a href="http://deeplearning.net/software/theano/">Theano</a>: Used often for Speech Recognition<ul>
+<li><a href="https://github.com/Lasagne/Lasagne">Lasagne</a>: Python, supports nVidia GPU training of neural networks<ul>
+<li><a href="https://github.com/dnouri/nolearn">nolearn</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://www.tensorflow.org/"><strong>TensorFlow</strong></a>: C++ and Python, supports nVidia GPU training of neural networks<ul>
+<li><a href="http://keras.io/"><strong>Keras.io</strong></a>: Extremely nice for beginners</li>
+</ul>
+</li>
+</ul>
+<h2 id="data">Data</h2>
+<p>Collections</p>
+<ul>
+<li><a href="http://www.openml.org/">OpenML</a>: A lot of datasets (it also has a Python package)</li>
+<li><a href="https://www.kaggle.com/datasets">Kaggle</a></li>
+</ul>
+<p>Benchmark Datasets</p>
+<ul>
+<li><a href="http://yann.lecun.com/exdb/mnist/">MNIST</a>: 70&thinsp;000 images of <span class="math">\(28 \times 28\)</span> px with labels (digits 0-9)</li>
+<li><a href="https://arxiv.org/abs/1701.08380">HASY</a>: 168&thinsp;233 images of <span class="math">\(32 \times 32\)</span> px with labels (369 classes, all of them are characters)</li>
+<li><a href="http://www.martin-thoma.de/write-math/data/">HWRT</a>: Handwritten symbols (similar to HASY, but online data)</li>
+<li><a href="https://archive.ics.uci.edu/ml/datasets/Iris">IRIS</a>: 3 classes, 50 items per class, 3 features per item</li>
+<li><a href="http://www.cvlibs.net/datasets/kitti/">KITTI</a>: Road vision dataset</li>
+</ul>
+<p>Lists:</p>
+<ul>
+<li><a href="https://www.metacademy.org/">metacademy.org</a>: A lot of material when you know what to look for</li>
+<li><a href="http://www.computervisiononline.com/datasets">computervisiononline.com</a>: Eine Liste sehr vieler Datens&auml;tze</li>
+<li><a href="http://riemenschneider.hayko.at/vision/dataset/">YACVID</a>: Computer Vision Index To Datasets</li>
+<li><a href="http://www.dmoz.org/Computers/Artificial_Intelligence/Machine_Learning/Datasets/">dmoz.org</a></li>
+</ul>
+<h2 id="cheat-cheats">Cheat Cheats</h2>
+<ul>
+<li><a href="http://scikit-learn.org/stable/tutorial/machine_learning_map/">Choosing the right estimator</a></li>
+<li><a href="https://azure.microsoft.com/en-in/documentation/articles/machine-learning-algorithm-cheat-sheet/">Machine learning algorithm cheat sheet</a></li>
+</ul>
+<h2 id="lists">Lists</h2>
+<ul>
+<li><a href="https://github.com/ujjwalkarn/Machine-Learning-Tutorials">Machine Learning Tutorials</a> by Ujjwal Karn (Facebook employee)</li>
+<li><a href="http://jiwonkim.org/awesome-random-forest/">Awesome Random Forest</a>: A
+  curated list of resources regarding tree-based methods and more, including
+  but not limited to random forest, bagging and boosting.</li>
+</ul>
+<h2 id="miscallenious">Miscallenious</h2>
+<ul>
+<li><a href="https://www.kaggle.com/">Kaggle</a>: Machine Learning Challenges</li>
+<li>Stack Exchange<ul>
+<li><a href="http://datascience.stackexchange.com/">datascience.stackexchange.com</a></li>
+<li><a href="http://stats.stackexchange.com/">stats.stackexchange.com</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/josephmisiti/awesome-machine-learning">awesome-machine-learning</a>: A list with MANY links to machine learning tools</li>
+<li>Demos:<ul>
+<li><a href="http://104.131.78.120/">Neural Machine Translation</a>: English &rarr; German, French</li>
+<li><a href="http://write-math.com">write-math.com</a>: Symbol recognition</li>
+<li><a href="http://playground.tensorflow.org/">Tensorflow Playground</a>: Demo for decision boundary of neural network</li>
+<li><a href="https://lecture-demo.ira.uka.de/">lecture-demo.ira.uka.de</a>: Rosenblatt-Perceptron, GMMs, ...</li>
+<li><a href="http://demos.algorithmia.com/colorize-photos/">demos.algorithmia.com/colorize-photos</a>: Colorize a grayscale photo</li>
+</ul>
+</li>
 </ul>
             
             <div id="disqus_thread"></div>
@@ -158,18 +224,15 @@ pip install nltk --user
         <section>
         <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2016-12-28T20:00:00+01:00">Dez 28, 2016</time>
+            <time pubdate="pubdate" datetime="2017-02-13T20:00:00+01:00">Feb 13, 2017</time>
             <br/>
             by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
             <h4>Category</h4>
-            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <a class="category-link" href="../categories.html#machine-learning-ref">Machine Learning</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
                 <li><a href="../tags.html#machine-learning-ref">Machine Learning
                     <span>37</span>
-</a></li>
-                <li><a href="../tags.html#python-ref">Python
-                    <span>78</span>
 </a></li>
             </ul>
 <h4>Contact</h4>
