@@ -13,7 +13,7 @@ alias: /author/moose/index.html
 ---
 <div class="vcard">
 <figure class="wp-caption alignright">
-    <img src="../../images/2011/09/Martin_Thoma_web_thumb.jpg" alt="Martin Thoma" style="max-width:134px;max-height:200px;" class="size-full photo">
+    <img src="../../images/2017/02/Martin_Thoma_web_thumb.jpg" alt="Martin Thoma" style="max-width:134px;max-height:200px;" class="size-full photo">
     <figcaption class="text-center">Martin Thoma</figcaption>
 </figure>
 
