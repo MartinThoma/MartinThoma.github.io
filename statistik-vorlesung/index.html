@@ -142,25 +142,37 @@ MathJax.Hub.Queue(function() {
         Modell und $T: \mathfrak{X} \rightarrow \tilde{\Theta}$ eine Abbildung.
         Dann hei&szlig;t $T$ ein Sch&auml;tzer f&uuml;r $\theta$.</dd>
 <dt><dfn>Maximum-Likelihood-Sch&auml;tzer</dfn></dt>
-<dd>TODO</dd>
+<dd>
+<ol>
+<li><b>Likelihood-Funktion</b>: Multipliziere die Wahrscheinlichkeit der Werte um $L_x(\vartheta)$ zu bestimmen</li>
+<li><b>Log-Likelihood</b>: Logarithmiere die Likelihood-Funktion $l_x(\vartheta) = \log L_x(\vartheta)$, falls dadurch die Funktion vereinfacht wird</li>
+<li><b>Maximieren</b>: Leite die (Log)likelihood-Funktion ab und setze sie gleich 0 um
+            den Maximum-Likelihood-Sch&auml;tzer $\hat{\vartheta}$ zu bestimmen.</li>
+</ol>
+</dd>
 <dt><dfn>Momentensch&auml;tzer</dfn></dt>
 <dd>TODO</dd>
-<dt><dfn>Starkes Gesetz gro&szlig;er Zahlen</dfn></dt>
+<dt><a href="https://de.wikipedia.org/wiki/Starkes_Gesetz_der_gro%C3%9Fen_Zahlen#Formulierung"><dfn>Starkes Gesetz gro&szlig;er Zahlen</dfn></a></dt>
 <dd>TODO</dd>
 <dt><dfn>Score-Funktion</dfn></dt>
-<dd>TODO</dd>
+<dd>$$U_\vartheta(X_1) := \frac{\partial f(X_1, \vartheta)}{\partial \vartheta}$$</dd>
 <dt><dfn>Fisher-Information</dfn></dt>
-<dd>TODO</dd>
+<dd>$$I(\vartheta) := \mathbb{E}_\vartheta(U_\vartheta^2) = - \mathbb{E}_\vartheta \left [ \frac{\partial U_\vartheta (X_1)}{\partial \vartheta} \right ]$$</dd>
 <dt><dfn>Cram&eacute;r-Rao Ungleichung</dfn></dt>
-<dd>TODO</dd>
-<dt><dfn>Cauchy-Schwarz Ungleichung</dfn></dt>
-<dd>TODO</dd>
-<dt><dfn>Zentraler Grenzwertsatz</dfn></dt>
-<dd>TODO</dd>
+<dd>$$V_\vartheta(T) \geq \frac{[E_\vartheta' (T) (\vartheta)]^2}{n I (\vartheta)}$$</dd>
+<dt><a href="https://de.wikipedia.org/wiki/Cauchy-Schwarzsche_Ungleichung"><dfn>Cauchy-Schwarz Ungleichung</dfn></a></dt>
+<dd>$$|\langle x, y \rangle | \leq \| x \| \cdot \| y \|$$</dd>
+<dt><a href="https://de.wikipedia.org/wiki/Zentraler_Grenzwertsatz"><dfn>Zentraler Grenzwertsatz</dfn></a> (<dfn>ZGWS</dfn>)</dt>
+<dd>Sei $(X_n)_{n \geq 1}$ eine Folge von u.i.v. Zufallsvariablen mit
+        $0 &lt; \sigma^2 = V(X_1) &lt; \infty $. Mit $\mu = \mathbb{E}(X_1)$ gilt
+        dann:
+        $$P(\frac{\sqrt{n}(\bar{X}_n - \mu)}{\sigma} &lt; c) \stackrel{n \rightarrow \infty}{\longrightarrow} \Phi(c)$$</dd>
 <dt><dfn>Verteilungskonvergenz</dfn></dt>
 <dd>TODO</dd>
 <dt><dfn>Score-Gleichung</dfn></dt>
-<dd>TODO</dd>
+<dd>Score-Funktion gleich 0 setzen:
+        $$\sum_{i=1}^n \frac{\partial f(x_i, \vartheta)}{\partial \vartheta} = 0$$
+    </dd>
 </dl>
 <h3 id="kapitel-2-konfidenzbereiche">Kapitel 2: Konfidenzbereiche</h3>
 <dl>
@@ -176,6 +188,39 @@ MathJax.Hub.Queue(function() {
 <dl>
 <dt>Satz 5.4.1</dt>
 <dd>Unter $H_0$ ist die Teststatistik $F = \frac{(RSS_r - RSS)/(p-r)}{RSS/(n-p)}$ Fischer-verteilt mit $p-r$ Z&auml;hler- und $n-p$ Nenner-Freiheitsgraden.</dd>
+<dt>ANOVA-Tafel</dt>
+<dd>
+<table class="table">
+<tr>
+<td>&nbsp;</td>
+<th>Freiheitsgrade</th>
+<th>Quadratsumme</th>
+<th>mittlere Quadratsumme</th>
+<th>Teststatistik</th>
+</tr>
+<tr>
+<th>Regression</th>
+<td>$p-1$</td>
+<td>TSS - RSS</td>
+<td>$\frac{TSS-RSS}{p-1}$</td>
+<td>F</td>
+</tr>
+<tr>
+<th>Residuen</th>
+<td>$n-p$</td>
+<td>RSS</td>
+<td>$\frac{RSS}{n-p}$</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th>Gesamt</th>
+<td>$n-1$</td>
+<td>TSS</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+</dd>
 </dl>
 <h3 id="kapitel-6-varianz-und-kovarianzanalyse">Kapitel 6: Varianz- und Kovarianzanalyse</h3>
 <p>TODO</p>
@@ -332,6 +377,8 @@ this is what you do:</p>
 </ul>
 </li>
 <li><a href="https://ankiweb.net/shared/info/245843947">Anki-Karten</a></li>
+<li><a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/normal-distribution">Verteilungsfunktion der Normalverteilung</a> als Tabelle</li>
+<li><a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/normal-distribution-z">Inverse Verteilungsfunktion der Normalverteilung</a> als Tabelle</li>
 </ul>
 <h2 id="literatur">Literatur</h2>
 <ul>

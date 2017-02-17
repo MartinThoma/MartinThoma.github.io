@@ -46,25 +46,37 @@
         Modell und $T: \mathfrak{X} \rightarrow \tilde{\Theta}$ eine Abbildung.
         Dann hei&amp;szlig;t $T$ ein Sch&amp;auml;tzer f&amp;uuml;r $\theta$.&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Maximum-Likelihood-Sch&amp;auml;tzer&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;TODO&lt;/dd&gt;
+&lt;dd&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;b&gt;Likelihood-Funktion&lt;/b&gt;: Multipliziere die Wahrscheinlichkeit der Werte um $L_x(\vartheta)$ zu bestimmen&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;Log-Likelihood&lt;/b&gt;: Logarithmiere die Likelihood-Funktion $l_x(\vartheta) = \log L_x(\vartheta)$, falls dadurch die Funktion vereinfacht wird&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;Maximieren&lt;/b&gt;: Leite die (Log)likelihood-Funktion ab und setze sie gleich 0 um
+            den Maximum-Likelihood-Sch&amp;auml;tzer $\hat{\vartheta}$ zu bestimmen.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Momentensch&amp;auml;tzer&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;TODO&lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;Starkes Gesetz gro&amp;szlig;er Zahlen&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Starkes_Gesetz_der_gro%C3%9Fen_Zahlen#Formulierung"&gt;&lt;dfn&gt;Starkes Gesetz gro&amp;szlig;er Zahlen&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
 &lt;dd&gt;TODO&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Score-Funktion&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;TODO&lt;/dd&gt;
+&lt;dd&gt;$$U_\vartheta(X_1) := \frac{\partial f(X_1, \vartheta)}{\partial \vartheta}$$&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Fisher-Information&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;TODO&lt;/dd&gt;
+&lt;dd&gt;$$I(\vartheta) := \mathbb{E}_\vartheta(U_\vartheta^2) = - \mathbb{E}_\vartheta \left [ \frac{\partial U_\vartheta (X_1)}{\partial \vartheta} \right ]$$&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Cram&amp;eacute;r-Rao Ungleichung&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;TODO&lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;Cauchy-Schwarz Ungleichung&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;TODO&lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;Zentraler Grenzwertsatz&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;TODO&lt;/dd&gt;
+&lt;dd&gt;$$V_\vartheta(T) \geq \frac{[E_\vartheta' (T) (\vartheta)]^2}{n I (\vartheta)}$$&lt;/dd&gt;
+&lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Cauchy-Schwarzsche_Ungleichung"&gt;&lt;dfn&gt;Cauchy-Schwarz Ungleichung&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
+&lt;dd&gt;$$|\langle x, y \rangle | \leq \| x \| \cdot \| y \|$$&lt;/dd&gt;
+&lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Zentraler_Grenzwertsatz"&gt;&lt;dfn&gt;Zentraler Grenzwertsatz&lt;/dfn&gt;&lt;/a&gt; (&lt;dfn&gt;ZGWS&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dd&gt;Sei $(X_n)_{n \geq 1}$ eine Folge von u.i.v. Zufallsvariablen mit
+        $0 &amp;lt; \sigma^2 = V(X_1) &amp;lt; \infty $. Mit $\mu = \mathbb{E}(X_1)$ gilt
+        dann:
+        $$P(\frac{\sqrt{n}(\bar{X}_n - \mu)}{\sigma} &amp;lt; c) \stackrel{n \rightarrow \infty}{\longrightarrow} \Phi(c)$$&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Verteilungskonvergenz&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;TODO&lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Score-Gleichung&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;TODO&lt;/dd&gt;
+&lt;dd&gt;Score-Funktion gleich 0 setzen:
+        $$\sum_{i=1}^n \frac{\partial f(x_i, \vartheta)}{\partial \vartheta} = 0$$
+    &lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h3 id="kapitel-2-konfidenzbereiche"&gt;Kapitel 2: Konfidenzbereiche&lt;/h3&gt;
 &lt;dl&gt;
@@ -80,6 +92,39 @@
 &lt;dl&gt;
 &lt;dt&gt;Satz 5.4.1&lt;/dt&gt;
 &lt;dd&gt;Unter $H_0$ ist die Teststatistik $F = \frac{(RSS_r - RSS)/(p-r)}{RSS/(n-p)}$ Fischer-verteilt mit $p-r$ Z&amp;auml;hler- und $n-p$ Nenner-Freiheitsgraden.&lt;/dd&gt;
+&lt;dt&gt;ANOVA-Tafel&lt;/dt&gt;
+&lt;dd&gt;
+&lt;table class="table"&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+&lt;th&gt;Freiheitsgrade&lt;/th&gt;
+&lt;th&gt;Quadratsumme&lt;/th&gt;
+&lt;th&gt;mittlere Quadratsumme&lt;/th&gt;
+&lt;th&gt;Teststatistik&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Regression&lt;/th&gt;
+&lt;td&gt;$p-1$&lt;/td&gt;
+&lt;td&gt;TSS - RSS&lt;/td&gt;
+&lt;td&gt;$\frac{TSS-RSS}{p-1}$&lt;/td&gt;
+&lt;td&gt;F&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Residuen&lt;/th&gt;
+&lt;td&gt;$n-p$&lt;/td&gt;
+&lt;td&gt;RSS&lt;/td&gt;
+&lt;td&gt;$\frac{RSS}{n-p}$&lt;/td&gt;
+&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Gesamt&lt;/th&gt;
+&lt;td&gt;$n-1$&lt;/td&gt;
+&lt;td&gt;TSS&lt;/td&gt;
+&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h3 id="kapitel-6-varianz-und-kovarianzanalyse"&gt;Kapitel 6: Varianz- und Kovarianzanalyse&lt;/h3&gt;
 &lt;p&gt;TODO&lt;/p&gt;
@@ -236,6 +281,8 @@ this is what you do:&lt;/p&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;a href="https://ankiweb.net/shared/info/245843947"&gt;Anki-Karten&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/normal-distribution"&gt;Verteilungsfunktion der Normalverteilung&lt;/a&gt; als Tabelle&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/normal-distribution-z"&gt;Inverse Verteilungsfunktion der Normalverteilung&lt;/a&gt; als Tabelle&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="literatur"&gt;Literatur&lt;/h2&gt;
 &lt;ul&gt;

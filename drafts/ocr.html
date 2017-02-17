@@ -103,7 +103,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#how-it-can-work" title="How it can work">How it can work</a></li><li><a class="toc-href" hard'="" href="#why-its-hard" s="" title="Why it">Why it's hard</a></li><li><a class="toc-href" href="#datasets" title="Datasets">Datasets</a></li><li><a class="toc-href" href="#a-benchmark-page" title="A benchmark page">A benchmark page</a></li><li><a class="toc-href" href="#existing-software" title="Existing Software">Existing Software</a><ul><li><a class="toc-href" href="#onlineocrnet" title="onlineocr.net">onlineocr.net</a></li></ul></li><li><a class="toc-href" href="#free-ocrcom_1" title="free-ocr.com">free-ocr.com</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#how-it-can-work" title="How it can work">How it can work</a><ul><li><a class="toc-href" href="#segmentation" title="Segmentation">Segmentation</a></li></ul></li><li><a class="toc-href" hard'="" href="#why-its-hard_1" s="" title="Why it">Why it's hard</a></li><li><a class="toc-href" href="#datasets" title="Datasets">Datasets</a></li><li><a class="toc-href" href="#a-benchmark-page" title="A benchmark page">A benchmark page</a></li><li><a class="toc-href" href="#existing-software" title="Existing Software">Existing Software</a><ul><li><a class="toc-href" href="#onlineocrnet" title="onlineocr.net">onlineocr.net</a></li></ul></li><li><a class="toc-href" href="#free-ocrcom_1" title="free-ocr.com">free-ocr.com</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -126,14 +126,25 @@ not solved.</p>
 <h2 id="how-it-can-work">How it can work</h2>
 <p>Here is a very simple approach how OCR could work:</p>
 <ol>
-<li><strong>Segmentation</strong>: First try to find lines. Then try to segment single
-   characters.</li>
+<li><strong>Segmentation</strong>: First try to isolate blocks of text. Then try to find
+   lines. Then try to segment single characters.</li>
 <li><strong>Classification</strong>: Given the segments, find what symbol is in them.</li>
 <li><strong>Placement</strong>: Find the relationship between two classified symbols (is one
    to the right of the other or rather the the right-top? Hence: Is it <span class="math">\(ax\)</span> or
    <span class="math">\(a^x\)</span>?</li>
 </ol>
-<h2 id="why-its-hard">Why it's hard</h2>
+<h3 id="segmentation">Segmentation</h3>
+<p>You could make the image a binary (white-black) image. One way would be to
+convert it to grayscale, then apply a threshold. This will, of course, only
+work well for "standard" text (black letters on white paper).</p>
+<p>Now you have the binary image in which mainly the text should be black and the
+rest is white. To crop text blocks from the image, I would make a histogram of
+black pixels over the x-axis. By that, you can remove the parts where
+significantly less black pixels are (e.g. border, separate columns). Then do
+the same thing for the y-axis (e.g. border, paragraphs).</p>
+<p>As soon as you have blocks of text, you want single lines. I guess this works
+with the histogram apporach as well.</p>
+<h2 id="why-its-hard_1">Why it's hard</h2>
 <ol>
 <li>Everybody has a unique handwriting.</li>
 <li>There are different alphabets in the world. Much more than what you have in
