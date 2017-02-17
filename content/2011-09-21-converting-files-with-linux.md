@@ -31,6 +31,18 @@ Convert PS to PDF with ghostscript ([source](http://askubuntu.com/a/114404/10425
 $ ps2pdf input.ps output.pdf
 ```
 
+Merge multiple PDFs into one ([source](http://stackoverflow.com/a/11280219/562769))
+
+```bash
+$ pdfunite in-1.pdf in-2.pdf in-n.pdf out.pdf
+```
+
+**pdf2jpg**: Imagemagick does the trick
+
+```bash
+$ convert -density 300 in.pdf -quality 90 out.jpg
+```
+
 
 ## Image Files
 
