@@ -12,25 +12,7 @@ featured_image: logos/klausur.png
 
 ## Behandelter Stoff
 
-### Vorlesung
-
-<table>
-<tr>
-    <th>#</th>
-    <th>Datum</th>
-    <th>Kapitel</th>
-    <th>Inhalt</th>
-</tr>
-<tr>
-    <td>?</td>
-    <td>09.01.2017</td>
-    <td>Kapitel 5.4</td>
-    <td>Tests im klassischen linearen Modell: Überflüssige Parameter in Regressionsmodellen entfernen</td>
-</tr>
-</table>
-
-
-### Kapitel 1: Parameterschätzung
+### Kapitel 1: Parameter&shy;schätzung
 
 <dl>
     <dt><dfn>Stichprobenraum</dfn></dt>
@@ -47,29 +29,57 @@ featured_image: logos/klausur.png
         Modell und $T: \mathfrak{X} \rightarrow \tilde{\Theta}$ eine Abbildung.
         Dann heißt $T$ ein Schätzer für $\theta$.</dd>
     <dt><dfn>Maximum-Likelihood-Schätzer</dfn></dt>
-    <dd>TODO</dd>
+    <dd>
+
+    <ol>
+        <li><b>Likelihood-Funktion</b>: Multipliziere die Wahrscheinlichkeit der Werte um $L_x(\vartheta)$ zu bestimmen</li>
+        <li><b>Log-Likelihood</b>: Logarithmiere die Likelihood-Funktion $l_x(\vartheta) = \log L_x(\vartheta)$, falls dadurch die Funktion vereinfacht wird</li>
+        <li><b>Maximieren</b>: Leite die (Log)likelihood-Funktion ab und setze sie gleich 0 um
+            den Maximum-Likelihood-Schätzer $\hat{\vartheta}$ zu bestimmen.</li>
+    </ol>
+
+    </dd>
     <dt><dfn>Momentenschätzer</dfn></dt>
     <dd>TODO</dd>
-    <dt><dfn>Starkes Gesetz großer Zahlen</dfn></dt>
+    <dt><a href="https://de.wikipedia.org/wiki/Starkes_Gesetz_der_gro%C3%9Fen_Zahlen#Formulierung"><dfn>Starkes Gesetz großer Zahlen</dfn></a></dt>
     <dd>TODO</dd>
     <dt><dfn>Score-Funktion</dfn></dt>
-    <dd>TODO</dd>
+    <dd>$$U_\vartheta(X_1) := \frac{\partial f(X_1, \vartheta)}{\partial \vartheta}$$</dd>
     <dt><dfn>Fisher-Information</dfn></dt>
-    <dd>TODO</dd>
+    <dd>$$I(\vartheta) := \mathbb{E}_\vartheta(U_\vartheta^2) = - \mathbb{E}_\vartheta \left [ \frac{\partial U_\vartheta (X_1)}{\partial \vartheta} \right ]$$</dd>
     <dt><dfn>Cramér-Rao Ungleichung</dfn></dt>
-    <dd>TODO</dd>
-    <dt><dfn>Cauchy-Schwarz Ungleichung</dfn></dt>
-    <dd>TODO</dd>
-    <dt><dfn>Zentraler Grenzwertsatz</dfn></dt>
-    <dd>TODO</dd>
+    <dd>$$V_\vartheta(T) \geq \frac{[E_\vartheta' (T) (\vartheta)]^2}{n I (\vartheta)}$$
+
+        Für erwartungstreue Schätzer $T$ gilt:
+        $$V_\vartheta(T) \geq \frac{1}{n I (\vartheta)}$$
+    </dd>
+    <dt><a href="https://de.wikipedia.org/wiki/Cauchy-Schwarzsche_Ungleichung"><dfn>Cauchy-Schwarz Ungleichung</dfn></a></dt>
+    <dd>$$|\langle x, y \rangle | \leq \| x \| \cdot \| y \|$$</dd>
+    <dt><a href="https://de.wikipedia.org/wiki/Zentraler_Grenzwertsatz"><dfn>Zentraler Grenzwertsatz</dfn></a> (<dfn>ZGWS</dfn>)</dt>
+    <dd>Sei $(X_n)_{n \geq 1}$ eine Folge von u.i.v. Zufallsvariablen mit
+        $0 < \sigma^2 = V(X_1) < \infty $. Mit $\mu = \mathbb{E}(X_1)$ gilt
+        dann:
+        $$P(\frac{\sqrt{n}(\bar{X}_n - \mu)}{\sigma} < c) \stackrel{n \rightarrow \infty}{\longrightarrow} \Phi(c)$$</dd>
     <dt><dfn>Verteilungskonvergenz</dfn></dt>
     <dd>TODO</dd>
     <dt><dfn>Score-Gleichung</dfn></dt>
-    <dd>TODO</dd>
+    <dd>Score-Funktion gleich 0 setzen:
+        $$\sum_{i=1}^n \frac{\partial f(x_i, \vartheta)}{\partial \vartheta} = 0$$
+    </dd>
+    <dt><dfn>Bias</dfn> (<dfn>Verzerrung</dfn>)</dt>
+    <dd>$$b_T(\vartheta) := E_\vartheta(T) - \gamma(\vartheta)$$</dd>
+    <dt><dfn>Mittlere Quadratische Abweichung</dfn> (<dfn>MQA</dfn>)</dt>
+    <dd>
+    $$MQA_T(\vartheta) = E_\vartheta(T - \gamma(\vartheta))^2$$
+
+
+    Es gilt:
+    $$MQA_T(\vartheta) = V_\vartheta(T) + b_T^2 (\vartheta)$$
+    </dd>
 </dl>
 
 
-### Kapitel 2: Konfidenzbereiche
+### Kapitel 2: Konfidenz&shy;bereiche
 
 <dl>
     <dt><dfn>Konfidenzintervall</dfn> (<dfn>Vertrauensintervall</dfn>)</dt>
@@ -93,6 +103,40 @@ TODO
 <dl>
     <dt>Satz 5.4.1</dt>
     <dd>Unter $H_0$ ist die Teststatistik $F = \frac{(RSS_r - RSS)/(p-r)}{RSS/(n-p)}$ Fischer-verteilt mit $p-r$ Zähler- und $n-p$ Nenner-Freiheitsgraden.</dd>
+    <dt>ANOVA-Tafel</dt>
+    <dd>
+        <table class="table">
+            <tr>
+                <td>&nbsp;</td>
+                <th>Freiheitsgrade</th>
+                <th>Quadratsumme</th>
+                <th>mittlere Quadratsumme</th>
+                <th>Teststatistik</th>
+            </tr>
+            <tr>
+                <th>Regression</th>
+                <td>$p-1$</td>
+                <td>TSS - RSS</td>
+                <td>$\frac{TSS-RSS}{p-1}$</td>
+                <td>F</td>
+            </tr>
+            <tr>
+                <th>Residuen</th>
+                <td>$n-p$</td>
+                <td>RSS</td>
+                <td>$\frac{RSS}{n-p}$</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <th>Gesamt</th>
+                <td>$n-1$</td>
+                <td>TSS</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+
+    </dd>
 </dl>
 
 
@@ -102,8 +146,14 @@ TODO
 ### Kapitel 7: Kategoriale Daten
 TODO
 
-### Kapitel 8: Nichtparametrische Verfahren
+### Kapitel 8: Nicht&shy;parametrische Verfahren
 TODO
+
+
+## Abkürzungen
+
+* MQA: Mittlere Quadratische Abweichung
+* uiv, u.i.v.: unabhängig identisch verteilt
 
 
 ## Symbolverzeichnis
@@ -114,12 +164,20 @@ TODO
         <th>Bedeutung</th>
     </tr>
     <tr>
+        <td>$E(X)$</td>
+        <td>Erwartungswert der Zufallsvariable $X$</td>
+    </tr>
+    <tr>
         <td>$\mathcal{N}(\mu, \sigma^2)$</td>
         <td>Normalverteilung mit Mittelwert $\mu$ und Standardabweichung $\sigma$</td>
     </tr>
     <tr>
         <td>$Pois(\lambda)$</td>
         <td>Poisson-Verteilung</td>
+    </tr>
+    <tr>
+        <td>$V(X)$</td>
+        <td>Varianz der Zufallsvariable $X$</td>
     </tr>
     <tr>
         <td>$\mathfrak{X}$</td>
@@ -226,7 +284,7 @@ rv.ppf(0.95)  # gives 3.1273500051133989
 * asymptotisch Erwartungstreue / konsistenz von Schätzern
 * MQA
 * Score-Funktion / Fischer-Information
-* Cramer-Rao-Schranke
+* Cramér-Rao-Schranke
 * Exp-Verteilung
 * 1-Stichproben t-Test
 * Neymann-Pearson-Test
@@ -264,10 +322,13 @@ rv.ppf(0.95)  # gives 3.1273500051133989
     * [Percentile vs quantile vs quartile](http://stats.stackexchange.com/q/156778/25741)
     * [When is Fishers exact test used; when are approximative tests used?](http://math.stackexchange.com/q/2120746/6876)
 * [Anki-Karten](https://ankiweb.net/shared/info/245843947)
+* [Verteilungsfunktion der Normalverteilung](https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/normal-distribution) als Tabelle
+* [Inverse Verteilungsfunktion der Normalverteilung](https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/normal-distribution-z) als Tabelle
 
 
 ## Literatur
 
+* Skript von Dr. B. Klar: Statistik
 * [<a href="#ref-bic01-anchor" name="ref-bic01">Bic01</a>] P.J. Bickel and K.A. Doksum. Mathematical statistics, 2nd ed.
 * [<a href="#ref-cza11-anchor" name="ref-cza11">Cza11</a>] C. Cazado and T. Schmidt. Mathematische Statistik.
 
