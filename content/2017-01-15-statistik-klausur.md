@@ -12,6 +12,23 @@ featured_image: logos/klausur.png
 
 ## Behandelter Stoff
 
+### Kapitel 0: Vorwissen
+
+<dl>
+    <dt><dfn>Empirisches $p$-Quantil</dfn></dt>
+    <dd>
+        Das empirische $p$-Quantil, $0 < p < 1$, ist definiert durch
+
+        $$x_p := \begin{cases}x_{(\lceil n p\rceil)} &n \cdot p \notin \mathbb{N}\\
+                              \frac{1}{2} \left ( x_{(np)} + x_{(np + 1)}\right ) &n \cdot p \in \mathbb{N}\end{cases}$$
+    </dd>
+    <dt><dfn>Unteres Quartil</dfn></dt>
+    <dd>$$x_{1/4}$$</dd>
+    <dt><dfn>Empirischer Median</dfn></dt>
+    <dd>$$x_{1/2}$$</dd>
+</dl>
+
+
 ### Kapitel 1: Parameter&shy;schätzung
 
 <dl>
@@ -36,13 +53,20 @@ featured_image: logos/klausur.png
         <li><b>Log-Likelihood</b>: Logarithmiere die Likelihood-Funktion $l_x(\vartheta) = \log L_x(\vartheta)$, falls dadurch die Funktion vereinfacht wird</li>
         <li><b>Maximieren</b>: Leite die (Log)likelihood-Funktion ab und setze sie gleich 0 um
             den Maximum-Likelihood-Schätzer $\hat{\vartheta}$ zu bestimmen.</li>
+        <li><b>Maximalstelle</b>: Prüfe ob zweite Ableitung negativ ist</li>
     </ol>
 
     </dd>
     <dt><dfn>Momentenschätzer</dfn></dt>
     <dd>TODO</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Starkes_Gesetz_der_gro%C3%9Fen_Zahlen#Formulierung"><dfn>Starkes Gesetz großer Zahlen</dfn></a></dt>
-    <dd>TODO</dd>
+    <dd>Es seien $Y_1, Y_2, Y_3, \dots$ eine Folge u.i.v. ZV mit existierendem
+        Erwartungswert. Dann gilt:
+        $$P(\left \{ \omega \in \Omega : \lim_{n \rightarrow \infty} \frac{1}{n} \sum_{i=1}^n Y_i(\omega) = E Y_i \right \}) = 1$$
+
+        Schreibweise:
+        $$\frac{1}{n} \sum_{i=1}^n Y_i \stackrel{P-f.s.}{\longrightarrow} E(Y_1)$$
+        </dd>
     <dt><dfn>Score-Funktion</dfn></dt>
     <dd>$$U_\vartheta(X_1) := \frac{\partial f(X_1, \vartheta)}{\partial \vartheta}$$</dd>
     <dt><dfn>Fisher-Information</dfn></dt>
@@ -84,6 +108,17 @@ featured_image: logos/klausur.png
 <dl>
     <dt><dfn>Konfidenzintervall</dfn> (<dfn>Vertrauensintervall</dfn>)</dt>
     <dd>TODO</dd>
+    <dt><dfn>Satz von Student</dfn></dt>
+    <dd>Es seien $X_1, X_2, \dots, X_n \stackrel{uiv}{\sim} \mathcal{N}(\mu, \sigma^2),\quad n\geq 2$ sowie $\bar{X} = \frac{1}{n} \sum_{i=1}^n X_i$, $S^2 = \frac{1}{n-1} \sum_{i=1}^n {(X_i - \bar{X})}^2$ sowie $S = \sqrt{S^2}$. Dann gilt:
+
+    <ol>
+        <li>$\bar{X} \sim \mathcal{N}(\mu, \frac{\sigma}{n})$</li>
+        <li>$\bar{X}$ und $S^2$ sind unabhängig</li>
+        <li>$\frac{1}{\sigma^2} \sum_{i=1}^n {(X_i - \bar{X})}^2 \sim \chi_{n-1}^2$</li>
+        <li>$T = \frac{\sqrt{n} (\bar{X} - \mu)}{S} \sim t_{n-1}$</li>
+    </ol>
+
+    </dd>
 </dl>
 
 
@@ -102,8 +137,8 @@ TODO
 
 <dl>
     <dt>Satz 5.4.1</dt>
-    <dd>Unter $H_0$ ist die Teststatistik $F = \frac{(RSS_r - RSS)/(p-r)}{RSS/(n-p)}$ Fischer-verteilt mit $p-r$ Zähler- und $n-p$ Nenner-Freiheitsgraden.</dd>
-    <dt>ANOVA-Tafel</dt>
+    <dd>Unter $H_0$ ist die Teststatistik $F = \frac{(RSS_r - RSS)/(p-r)}{RSS/(n-p)}$ Fisher-verteilt mit $p-r$ Zähler- und $n-p$ Nenner-Freiheitsgraden.</dd>
+    <dt id="anova-tafel">ANOVA-Tafel</dt>
     <dd>
         <table class="table">
             <tr>
@@ -137,17 +172,39 @@ TODO
         </table>
 
     </dd>
+    <dt><dfn>Kleinster-Quadrate-Schätzer</dfn></dt>
+    <dd>
+
+        Der Kleinste-Quadrate-Schätzer für das klassische lineares Modell
+        $Y = X \beta + \epsilon$ lautet:
+        $$\hat{\beta} = (X^T X)^{-1} X^T Y$$
+
+    </dd>
 </dl>
 
 
-### Kapitel 6: Varianz- und Kovarianzanalyse
+### Kapitel 6: Varianz- und Kovarianz&shy;analyse
 TODO
 
 ### Kapitel 7: Kategoriale Daten
 TODO
 
 ### Kapitel 8: Nicht&shy;parametrische Verfahren
-TODO
+
+<dl>
+    <dt><dfn>Vorzeichen-Test für den Median</dfn></dt>
+    <dd>
+        Teste die Hypothese ob eine Größe $M$ den Mittelwert $\mu$ hat gegen
+        die Alternative $H_1$: $M \neq \mu$.
+        Bilde die Prüfgröße
+        $$S_n = \sum_{i=1}^n \mathbb{1}_{X_i > \mu}$$
+        Falls $H_0$ gilt, dann ist $S_n \sim Bin(n, 0.5)$
+        Lehne $H_0$ ab, wenn $S_n \leq c$ oder $S_n \geq n - c$. Bestimme $c$
+        so, dass
+        $$P_{H_0}(S_n \leq c) + P_{H_0}(S_n \geq n - c) \stackrel{!}{\leq} \alpha$$
+
+    </dd>
+</dl>
 
 
 ## Abkürzungen
@@ -162,6 +219,10 @@ TODO
     <tr>
         <th>Symbol</th>
         <th>Bedeutung</th>
+    </tr>
+    <tr>
+        <td>$c_\alpha$</td>
+        <td>$\Phi^{-1}(\alpha)$: Inverse Verteilungsfunktion der Standardnormalverteilung</td>
     </tr>
     <tr>
         <td>$E(X)$</td>
@@ -279,17 +340,33 @@ rv.ppf(0.95)  # gives 3.1273500051133989
 
 ## Klausur Aufbau
 
+* Aufgabe 1
+    * ML-Schätzer bestimmen
+    * Score-Funktion / Fisher-Information
+    * Cramér-Rao-Schranke
+    * asymptotisch Erwartungstreue / konsistenz von Schätzern
+    * Erwartungswert, Varianz, MQA eines Schätzers bestimmen
+* Aufgabe 2
+    * Konsistenz eines Schätzers
+*Aufgabe 3
+    * Neymann-Pearson-Test
+    * ZGWS
+* Aufgabe 4
+    * Statistisches Modell angeben
+    * Quartile und Median einer Stichprobe bestimmen
+    * Vorzeichen-Test für Median
+* Aufgabe 5
+    * Satz von Student
+    * Konfidenzintervall
+    * Gütefunktion
+* Aufgabe 6
+    * Korrelationskoeffizient
+* Aufgabe 7
+    * Lineares Regressionsmodell
+    * Kleinster-Quadrate-Schätzer
 * Momentenschätzer bestimmen
-* ML-Schätzer bestimmen
-* asymptotisch Erwartungstreue / konsistenz von Schätzern
-* MQA
-* Score-Funktion / Fischer-Information
-* Cramér-Rao-Schranke
 * Exp-Verteilung
 * 1-Stichproben t-Test
-* Neymann-Pearson-Test
-* Zentraler GWS
-* kleinser Quadrate Schätzer
 * Binomial-Verteilung
 * Satz von Student
 * F-Tests
@@ -313,6 +390,12 @@ rv.ppf(0.95)  # gives 3.1273500051133989
   → TODO
 
 
+## Offene Fragen
+
+* WS 2014 / 2015, A6c: TODO
+* WS 2014 / 2015, A7a: Warum ist $(I_n - H) X \beta = 0$?
+
+
 
 ## Material und Links
 
@@ -324,6 +407,7 @@ rv.ppf(0.95)  # gives 3.1273500051133989
 * [Anki-Karten](https://ankiweb.net/shared/info/245843947)
 * [Verteilungsfunktion der Normalverteilung](https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/normal-distribution) als Tabelle
 * [Inverse Verteilungsfunktion der Normalverteilung](https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/normal-distribution-z) als Tabelle
+* Fehlende Musterlösungen: [KIT-Musterloesungen](https://github.com/MartinThoma/KIT-Musterloesungen/tree/master/Statistik) - Verbesserungshinweise nehme ich immer gerne entgegen (`info@martin-thoma.de`)
 
 
 ## Literatur
