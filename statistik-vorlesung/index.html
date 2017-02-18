@@ -117,8 +117,8 @@ MathJax.Hub.Queue(function() {
 <dd>
         Das empirische $p$-Quantil, $0 &lt; p &lt; 1$, ist definiert durch
 
-        $$x_p := \begin{cases}x_{(\lceil n p\rceil)} &amp;n; \cdot p \notin \mathbb{N}\\
-                              \frac{1}{2} \left ( x_{(np)} + x_{(np + 1)}\right ) &amp;n; \cdot p \in \mathbb{N}\end{cases}$$
+        $$x_p := \begin{cases}x_{(\lceil n p\rceil)} &amp; n \cdot p \notin \mathbb{N}\\
+                              \frac{1}{2} \left ( x_{(np)} + x_{(np + 1)}\right ) &amp; n \cdot p \in \mathbb{N}\end{cases}$$
     </dd>
 <dt><dfn>Unteres Quartil</dfn></dt>
 <dd>$$x_{1/4}$$</dd>
@@ -131,6 +131,20 @@ MathJax.Hub.Queue(function() {
         $$C(AU, B^T V) = A C(U, V) B$$
 
     </dd>
+<dt><a href="https://de.wikipedia.org/wiki/Normalverteilung"><dfn id="normalverteilug">Normalverteilung</dfn></a></dt>
+<dd>
+
+        Dichte:
+
+        $$f(x) = \frac{1}{\sigma \sqrt{2 \pi}} e^{- \frac{1}{2} {\left ( \frac{x-\mu}{\sigma} \right )}^2}$$
+
+    </dd>
+<!--     <dt><dfn>Rechenregeln Multivariate Normalverteilung</dfn></dt>
+    <dd>
+
+
+
+    </dd> -->
 </dl>
 <h3 id="kapitel-1-parameterschatzung">Kapitel 1: Parameter&shy;sch&auml;tzung</h3>
 <dl>
@@ -330,6 +344,7 @@ MathJax.Hub.Queue(function() {
 
         Es gilt:
         $$\hat{\beta} \sim N_p(\beta, \sigma^2 (X^T X)^-1)$$
+        $$\hat{\beta}_i \sim \mathcal{N}(\beta_i, \sigma^2 (X^T X)^{-1}_{i+1, i+1})$$
         sowie
         $$(n-p)\hat{\sigma^2}/\sigma^2 \sim \chi^2_{n-p}$$
     </dd>
@@ -340,11 +355,35 @@ MathJax.Hub.Queue(function() {
 <dt><dfn>Modellannahmen der Varianzanalyse</dfn></dt>
 <dd>
 
-        Das Rauschen ist unabh&auml;ngig.
+        Das Rauschen ist unabh&auml;ngig und jeweils $\varepsilon_i \sim \mathcal{N}(0, \sigma^2)$.
 
     </dd>
-<dt><dfn>Bonferoni-Korrektur</dfn></dt>
-<dd>TODO</dd>
+<dt><dfn>Summenrestriktionen</dfn></dt>
+<dd>Es muss ein balanciertes Design ($n_1 = n_2 = \dots = n_k$) vorliegen.
+        Dann muss
+        $$\sum_{i=1}^k \alpha_i = 0$$
+        gelten.
+
+        Das Modell ist $Y = X \beta + \varepsilon$ mit Design-Matrix
+        $$X = \begin{pmatrix}1      &amp; 0      &amp;        &amp;        &amp;0\\
+                             \vdots &amp; \vdots &amp;        &amp;        &amp;\vdots\\
+                             1      &amp; 0      &amp;        &amp;        &amp;\vdots\\
+                             0      &amp; 1      &amp;        &amp;        &amp;\vdots\\
+                             \vdots &amp; \vdots &amp;        &amp;        &amp;\vdots\\
+                             0      &amp; 1      &amp;        &amp;        &amp;\vdots\\
+                             \vdots &amp; 0      &amp; \ddots &amp;        &amp;\vdots\\
+                             \vdots &amp; \vdots &amp;        &amp; \ddots &amp; 0\\
+                             1      &amp; \vdots &amp;        &amp;        &amp; 1\\
+                             \vdots &amp; \vdots &amp;        &amp;        &amp; \vdots\\
+                             1      &amp; 0      &amp;        &amp;        &amp; 1\\\end{pmatrix}$$
+        und Parametervektor
+        $$\beta := \begin{pmatrix}\mu\\\alpha_2\\\dots\\\alpha_k\end{pmatrix}$$
+    </dd>
+<dt><a href="https://de.wikipedia.org/wiki/Bonferroni-Methode"><dfn>Bonferroni-Korrektur</dfn></a></dt>
+<dd>Es liegt eine Familie von $m$ Tests vor. Man macht eine globale Nullhypothese,
+        dass alle Nullhypothesen gelten. Alle $m$ Test werden auf dem Niveau
+        $\frac{\alpha}{m}$ durchgef&uuml;hrt, sodass insgesamt das Niveau $\alpha$
+        erreicht wird.</dd>
 </dl>
 <h3 id="kapitel-7-kategoriale-daten">Kapitel 7: Kategoriale Daten</h3>
 <p>TODO</p>
@@ -366,6 +405,10 @@ MathJax.Hub.Queue(function() {
 <h2 id="abkurzungen_1">Abk&uuml;rzungen</h2>
 <ul>
 <li>MQA: Mittlere Quadratische Abweichung</li>
+<li>RSS: Residual Sum of Squares</li>
+<li>SQI: Summe der Quadrate innerhalb der Gruppen</li>
+<li>SQZ: Summe der Quadrate zwischen den Gruppen</li>
+<li>TTS: Total Sum of Squares</li>
 <li>uiv, u.i.v.: unabh&auml;ngig identisch verteilt</li>
 </ul>
 <h2 id="symbolverzeichnis">Symbolverzeichnis</h2>

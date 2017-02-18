@@ -13,8 +13,8 @@
 &lt;dd&gt;
         Das empirische $p$-Quantil, $0 &amp;lt; p &amp;lt; 1$, ist definiert durch
 
-        $$x_p := \begin{cases}x_{(\lceil n p\rceil)} &amp;amp;n; \cdot p \notin \mathbb{N}\\
-                              \frac{1}{2} \left ( x_{(np)} + x_{(np + 1)}\right ) &amp;amp;n; \cdot p \in \mathbb{N}\end{cases}$$
+        $$x_p := \begin{cases}x_{(\lceil n p\rceil)} &amp;amp; n \cdot p \notin \mathbb{N}\\
+                              \frac{1}{2} \left ( x_{(np)} + x_{(np + 1)}\right ) &amp;amp; n \cdot p \in \mathbb{N}\end{cases}$$
     &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn&gt;Unteres Quartil&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;$$x_{1/4}$$&lt;/dd&gt;
@@ -27,6 +27,20 @@
         $$C(AU, B^T V) = A C(U, V) B$$
 
     &lt;/dd&gt;
+&lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Normalverteilung"&gt;&lt;dfn id="normalverteilug"&gt;Normalverteilung&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
+&lt;dd&gt;
+
+        Dichte:
+
+        $$f(x) = \frac{1}{\sigma \sqrt{2 \pi}} e^{- \frac{1}{2} {\left ( \frac{x-\mu}{\sigma} \right )}^2}$$
+
+    &lt;/dd&gt;
+&lt;!--     &lt;dt&gt;&lt;dfn&gt;Rechenregeln Multivariate Normalverteilung&lt;/dfn&gt;&lt;/dt&gt;
+    &lt;dd&gt;
+
+
+
+    &lt;/dd&gt; --&gt;
 &lt;/dl&gt;
 &lt;h3 id="kapitel-1-parameterschatzung"&gt;Kapitel 1: Parameter&amp;shy;sch&amp;auml;tzung&lt;/h3&gt;
 &lt;dl&gt;
@@ -226,6 +240,7 @@
 
         Es gilt:
         $$\hat{\beta} \sim N_p(\beta, \sigma^2 (X^T X)^-1)$$
+        $$\hat{\beta}_i \sim \mathcal{N}(\beta_i, \sigma^2 (X^T X)^{-1}_{i+1, i+1})$$
         sowie
         $$(n-p)\hat{\sigma^2}/\sigma^2 \sim \chi^2_{n-p}$$
     &lt;/dd&gt;
@@ -236,11 +251,35 @@
 &lt;dt&gt;&lt;dfn&gt;Modellannahmen der Varianzanalyse&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;
 
-        Das Rauschen ist unabh&amp;auml;ngig.
+        Das Rauschen ist unabh&amp;auml;ngig und jeweils $\varepsilon_i \sim \mathcal{N}(0, \sigma^2)$.
 
     &lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;Bonferoni-Korrektur&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;TODO&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Summenrestriktionen&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;Es muss ein balanciertes Design ($n_1 = n_2 = \dots = n_k$) vorliegen.
+        Dann muss
+        $$\sum_{i=1}^k \alpha_i = 0$$
+        gelten.
+
+        Das Modell ist $Y = X \beta + \varepsilon$ mit Design-Matrix
+        $$X = \begin{pmatrix}1      &amp;amp; 0      &amp;amp;        &amp;amp;        &amp;amp;0\\
+                             \vdots &amp;amp; \vdots &amp;amp;        &amp;amp;        &amp;amp;\vdots\\
+                             1      &amp;amp; 0      &amp;amp;        &amp;amp;        &amp;amp;\vdots\\
+                             0      &amp;amp; 1      &amp;amp;        &amp;amp;        &amp;amp;\vdots\\
+                             \vdots &amp;amp; \vdots &amp;amp;        &amp;amp;        &amp;amp;\vdots\\
+                             0      &amp;amp; 1      &amp;amp;        &amp;amp;        &amp;amp;\vdots\\
+                             \vdots &amp;amp; 0      &amp;amp; \ddots &amp;amp;        &amp;amp;\vdots\\
+                             \vdots &amp;amp; \vdots &amp;amp;        &amp;amp; \ddots &amp;amp; 0\\
+                             1      &amp;amp; \vdots &amp;amp;        &amp;amp;        &amp;amp; 1\\
+                             \vdots &amp;amp; \vdots &amp;amp;        &amp;amp;        &amp;amp; \vdots\\
+                             1      &amp;amp; 0      &amp;amp;        &amp;amp;        &amp;amp; 1\\\end{pmatrix}$$
+        und Parametervektor
+        $$\beta := \begin{pmatrix}\mu\\\alpha_2\\\dots\\\alpha_k\end{pmatrix}$$
+    &lt;/dd&gt;
+&lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Bonferroni-Methode"&gt;&lt;dfn&gt;Bonferroni-Korrektur&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
+&lt;dd&gt;Es liegt eine Familie von $m$ Tests vor. Man macht eine globale Nullhypothese,
+        dass alle Nullhypothesen gelten. Alle $m$ Test werden auf dem Niveau
+        $\frac{\alpha}{m}$ durchgef&amp;uuml;hrt, sodass insgesamt das Niveau $\alpha$
+        erreicht wird.&lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h3 id="kapitel-7-kategoriale-daten"&gt;Kapitel 7: Kategoriale Daten&lt;/h3&gt;
 &lt;p&gt;TODO&lt;/p&gt;
@@ -262,6 +301,10 @@
 &lt;h2 id="abkurzungen_1"&gt;Abk&amp;uuml;rzungen&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;MQA: Mittlere Quadratische Abweichung&lt;/li&gt;
+&lt;li&gt;RSS: Residual Sum of Squares&lt;/li&gt;
+&lt;li&gt;SQI: Summe der Quadrate innerhalb der Gruppen&lt;/li&gt;
+&lt;li&gt;SQZ: Summe der Quadrate zwischen den Gruppen&lt;/li&gt;
+&lt;li&gt;TTS: Total Sum of Squares&lt;/li&gt;
 &lt;li&gt;uiv, u.i.v.: unabh&amp;auml;ngig identisch verteilt&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="symbolverzeichnis"&gt;Symbolverzeichnis&lt;/h2&gt;
