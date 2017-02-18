@@ -11,46 +11,46 @@ Matrix multiplication in general is not commutative. Here is an example:
 
 $A, B \in R^{2 \times 2}$
 
-$$A := \begin{pmatrix} 
+$$A := \begin{pmatrix}
  1 & 2 \\
  3 & 4
 \end{pmatrix}$$
-$$B := \begin{pmatrix} 
+$$B := \begin{pmatrix}
  5 & 6 \\
  7 & 8
 \end{pmatrix}$$
 
-$$A \cdot B = \begin{pmatrix} 
+$$A \cdot B = \begin{pmatrix}
  19 & 22 \\
  43 & 50
-\end{pmatrix} \neq 
-\begin{pmatrix} 
+\end{pmatrix} \neq
+\begin{pmatrix}
  23 & 34 \\
  31 & 46
 \end{pmatrix} = B \cdot A$$
 
 <h2>When is 2x2 matrix multiplication commutative?</h2>
-$$\begin{pmatrix} 
+$$\begin{pmatrix}
  a & b \\
  c & d
-\end{pmatrix} \cdot 
-\begin{pmatrix} 
+\end{pmatrix} \cdot
+\begin{pmatrix}
  e & f \\
  g & h
-\end{pmatrix} = 
+\end{pmatrix} =
 \begin{pmatrix}
 ae + bg & af + bh \\
 ce + dg & cf + dh
 \end{pmatrix}$$
 
-$$\begin{pmatrix} 
+$$\begin{pmatrix}
  e & f \\
  g & h
 \end{pmatrix} \cdot
-\begin{pmatrix} 
+\begin{pmatrix}
  a & b \\
  c & d
-\end{pmatrix} = 
+\end{pmatrix} =
 \begin{pmatrix}
 ae + cf & be + df \\
 ag + ch & bg + dh
@@ -90,11 +90,11 @@ So you end up with:
 ($e = h$ and $bg = cf$) or ($b = c = 0$)
 
 <h3>Case #2.2: e == h</h3>
-$\begin{eqnarray*}
+\begin{eqnarray*}
 I)   & bg &= cf \\
 II)  & f (a - d) &= 0\\
 III) & g (a - d) &= 0
-\end{eqnarray*}$
+\end{eqnarray*}
 
 So you end up with:
 ($a = d$ and $bg = cf$) or ($f = g = 0$)
@@ -104,7 +104,7 @@ Matrix multiplication is always commutative if ...
 <ul>
   <li>... one matrix is the <a href="http://en.wikipedia.org/wiki/Identity_matrix">Identity matrix</a>.</li>
   <li>... one matrix is the <a href="http://en.wikipedia.org/wiki/Zero_matrix">Zero matrix</a>.</li>
-  <li>... both matrices are <a href="http://en.wikipedia.org/wiki/Rotation_matrix">rotation matrices</a>. (basically case #2)</li>
+  <li>... both matrices are $2 \times 2$ <a href="http://en.wikipedia.org/wiki/Rotation_matrix">rotation matrices</a>. (basically case #2)</li>
   <li>... both matrices are <a href="http://en.wikipedia.org/wiki/Diagonal_matrix">Diagonal matrices</a>.</li>
 </ul>
 
@@ -112,6 +112,7 @@ Matrix multiplication is always commutative if ...
 Two matrices $A, B \in R^{n \times n}$ are called simultaneous diagonalizable $: \Leftrightarrow$ one matrix $S \in R^{n \times n}$ exists, such that $D_A = S^{-1} \cdot A \cdot S$ and $D_B = S^{-1} \cdot B \cdot S$ with $D_A$ and $D_B$ are diagonal matrices.
 
 <strong>Statement</strong>: $A, B \in \mathbb{R}^{n \times n}$ are simultaneous diagonalizable $\Rightarrow A \cdot B = B \cdot A$
+
 <strong>Proof</strong>:
 As A and B are simultaneous diagonalizable, a matrix $T \in \mathbb{R}^{n \times n}$ exists, such that $D_A = S^{-1} \cdot A \cdot S$ and $D_B = S^{-1} \cdot B \cdot S$ with $D_A$ and $D_B$ are diagonal matrices.
 
@@ -124,13 +125,14 @@ As A and B are simultaneous diagonalizable, a matrix $T \in \mathbb{R}^{n \times
 \end{align}
 
 <strong>Statement</strong>: $A \cdot B = B \cdot A \nRightarrow A, B \in \mathbb{R}^{n \times n}$ are simultaneous diagonalizable.
+
 <strong>Proof</strong>: by Counter-Example
 $$\begin{pmatrix}0 & 1 \\
 0 & 0\end{pmatrix} \cdot
 \begin{pmatrix}1 & 0 \\
-0 & 1\end{pmatrix} = 
+0 & 1\end{pmatrix} =
 \begin{pmatrix}1 & 0 \\
-0 & 1\end{pmatrix} \cdot 
+0 & 1\end{pmatrix} \cdot
 \begin{pmatrix}0 & 1 \\
 0 & 0\end{pmatrix}$$
 but \begin{pmatrix}0 & 1 \\ 0 & 0\end{pmatrix} is not diagonalizable. $\blacksquare$
