@@ -15,17 +15,38 @@ featured_image: logos/klausur.png
 ### Kapitel 0: Vorwissen
 
 <dl>
-    <dt><dfn>Empirisches $p$-Quantil</dfn></dt>
+    <dt><dfn id="empirisches-quartil">Empirisches $p$-Quantil</dfn></dt>
     <dd>
         Das empirische $p$-Quantil, $0 < p < 1$, ist definiert durch
 
-        $$x_p := \begin{cases}x_{(\lceil n p\rceil)} &n \cdot p \notin \mathbb{N}\\
-                              \frac{1}{2} \left ( x_{(np)} + x_{(np + 1)}\right ) &n \cdot p \in \mathbb{N}\end{cases}$$
+        $$x_p := \begin{cases}x_{(\lceil n p\rceil)} & n \cdot p \notin \mathbb{N}\\
+                              \frac{1}{2} \left ( x_{(np)} + x_{(np + 1)}\right ) & n \cdot p \in \mathbb{N}\end{cases}$$
     </dd>
     <dt><dfn>Unteres Quartil</dfn></dt>
     <dd>$$x_{1/4}$$</dd>
     <dt><dfn>Empirischer Median</dfn></dt>
     <dd>$$x_{1/2}$$</dd>
+    <dt><dfn>Rechenregeln für Covarianz</dfn></dt>
+    <dd>
+
+        $$C(U_1 + U_2, V) = C(U_1, V) + C(U_2, V)$$
+        $$C(AU, B^T V) = A C(U, V) B$$
+
+    </dd>
+    <dt><a href="https://de.wikipedia.org/wiki/Normalverteilung"><dfn id="normalverteilug">Normalverteilung</dfn></a></dt>
+    <dd>
+
+        Dichte:
+
+        $$f(x) = \frac{1}{\sigma \sqrt{2 \pi}} e^{- \frac{1}{2} {\left ( \frac{x-\mu}{\sigma} \right )}^2}$$
+
+    </dd>
+<!--     <dt><dfn>Rechenregeln Multivariate Normalverteilung</dfn></dt>
+    <dd>
+
+
+
+    </dd> -->
 </dl>
 
 
@@ -34,7 +55,7 @@ featured_image: logos/klausur.png
 <dl>
     <dt><dfn>Stichprobenraum</dfn></dt>
     <dd>Der Stichprobenraum $\mathfrak{X}$ ist eine Menge von Daten.</dd>
-    <dt><dfn>Statistisches Modell</dfn></dt>
+    <dt><dfn id="statistisches-modell">Statistisches Modell</dfn></dt>
     <dd>Ein Tupel $(\mathfrak{X}, (P_\theta)_{\theta \in \Theta})$ heißt
         <i>statistisches Modell</i>, wenn $\mathfrak{X}$ ein Stichprobenraum
         und $(P_\theta)_{\theta \in \Theta}$ eine Familie von
@@ -45,7 +66,7 @@ featured_image: logos/klausur.png
     <dd>Sei $(\mathfrak{X}, (P_\theta)_{\theta \in \Theta})$ ein statistisches
         Modell und $T: \mathfrak{X} \rightarrow \tilde{\Theta}$ eine Abbildung.
         Dann heißt $T$ ein Schätzer für $\theta$.</dd>
-    <dt><dfn>Maximum-Likelihood-Schätzer</dfn></dt>
+    <dt><dfn id="maximum-likelihood-estimator">Maximum-Likelihood-Schätzer</dfn></dt>
     <dd>
 
     <ol>
@@ -67,11 +88,11 @@ featured_image: logos/klausur.png
         Schreibweise:
         $$\frac{1}{n} \sum_{i=1}^n Y_i \stackrel{P-f.s.}{\longrightarrow} E(Y_1)$$
         </dd>
-    <dt><dfn>Score-Funktion</dfn></dt>
+    <dt><dfn id="score-funktion">Score-Funktion</dfn></dt>
     <dd>$$U_\vartheta(X_1) := \frac{\partial f(X_1, \vartheta)}{\partial \vartheta}$$</dd>
-    <dt><dfn>Fisher-Information</dfn></dt>
+    <dt><dfn id="fisher-information">Fisher-Information</dfn></dt>
     <dd>$$I(\vartheta) := \mathbb{E}_\vartheta(U_\vartheta^2) = - \mathbb{E}_\vartheta \left [ \frac{\partial U_\vartheta (X_1)}{\partial \vartheta} \right ]$$</dd>
-    <dt><dfn>Cramér-Rao Ungleichung</dfn></dt>
+    <dt><dfn id="cramer-rao">Cramér-Rao Ungleichung</dfn></dt>
     <dd>$$V_\vartheta(T) \geq \frac{[E_\vartheta' (T) (\vartheta)]^2}{n I (\vartheta)}$$
 
         Für erwartungstreue Schätzer $T$ gilt:
@@ -79,7 +100,7 @@ featured_image: logos/klausur.png
     </dd>
     <dt><a href="https://de.wikipedia.org/wiki/Cauchy-Schwarzsche_Ungleichung"><dfn>Cauchy-Schwarz Ungleichung</dfn></a></dt>
     <dd>$$|\langle x, y \rangle | \leq \| x \| \cdot \| y \|$$</dd>
-    <dt><a href="https://de.wikipedia.org/wiki/Zentraler_Grenzwertsatz"><dfn>Zentraler Grenzwertsatz</dfn></a> (<dfn>ZGWS</dfn>)</dt>
+    <dt><a href="https://de.wikipedia.org/wiki/Zentraler_Grenzwertsatz"><dfn>Zentraler Grenzwertsatz</dfn></a> (<dfn id="zgws">ZGWS</dfn>)</dt>
     <dd>Sei $(X_n)_{n \geq 1}$ eine Folge von u.i.v. Zufallsvariablen mit
         $0 < \sigma^2 = V(X_1) < \infty $. Mit $\mu = \mathbb{E}(X_1)$ gilt
         dann:
@@ -92,7 +113,7 @@ featured_image: logos/klausur.png
     </dd>
     <dt><dfn>Bias</dfn> (<dfn>Verzerrung</dfn>)</dt>
     <dd>$$b_T(\vartheta) := E_\vartheta(T) - \gamma(\vartheta)$$</dd>
-    <dt><dfn>Mittlere Quadratische Abweichung</dfn> (<dfn>MQA</dfn>)</dt>
+    <dt><dfn>Mittlere Quadratische Abweichung</dfn> (<dfn id="mqa">MQA</dfn>)</dt>
     <dd>
     $$MQA_T(\vartheta) = E_\vartheta(T - \gamma(\vartheta))^2$$
 
@@ -106,9 +127,9 @@ featured_image: logos/klausur.png
 ### Kapitel 2: Konfidenz&shy;bereiche
 
 <dl>
-    <dt><dfn>Konfidenzintervall</dfn> (<dfn>Vertrauensintervall</dfn>)</dt>
+    <dt><dfn id="konfidenzintervall">Konfidenzintervall</dfn> (<dfn>Vertrauensintervall</dfn>)</dt>
     <dd>TODO</dd>
-    <dt><dfn>Satz von Student</dfn></dt>
+    <dt><dfn id="satz-von-student">Satz von Student</dfn></dt>
     <dd>Es seien $X_1, X_2, \dots, X_n \stackrel{uiv}{\sim} \mathcal{N}(\mu, \sigma^2),\quad n\geq 2$ sowie $\bar{X} = \frac{1}{n} \sum_{i=1}^n X_i$, $S^2 = \frac{1}{n-1} \sum_{i=1}^n {(X_i - \bar{X})}^2$ sowie $S = \sqrt{S^2}$. Dann gilt:
 
     <ol>
@@ -125,6 +146,78 @@ featured_image: logos/klausur.png
 ### Kapitel 3: Statistische Tests
 
 TODO
+
+<dl>
+    <dt><dfn>Tests Allgemein</dfn></dt>
+    <dd>
+
+        Bei statistischen Tests hat man immer eine Testgröße $T(x_1, \dots,
+        x_n)$, die auf der Stichprobe $x_1, \dots, x_n$ basiert. Um Aussagen
+        machen zu können, muss man die Verteilung von $T$ unter der
+        Nullhypothese $H_0$ kennen. Wenn die Verteilung von $T$ der
+        Studentischen-$t$-Verteilung entspricht ($T \sim t_n$), dann hat man
+        einen $t$-Test.<br/>
+        <br/>
+        Wenn der Testentscheid, ob $H_0$ verworfen wird so
+        aussieht:
+        $$H_0 \text{ wird verworfen, falls } T < 123$$
+        dann liegt ein einseitiger Test vor.
+        Falls der Testentscheid, ob $H_0$ verworfen wird so
+        aussieht:
+        $$H_0 \text{ wird verworfen, falls } T < -123 \text{ oder } T > +123$$
+        dann liegt ein zweiseitiger Test vor. Kurz schreibt man dann auch meistens
+        $$H_0 \text{ wird verworfen, falls } |T| > 123$$
+        <br/>
+        In dem beschriebenen Fall liegt eine Stichprobe $X_1, \dots, X_n$ vor,
+        welche aus einer Verteilung gezogen wurde. Es ist aber auch möglich,
+        dass man zwei Stichproben $X_1, \dots, X_n$ und $Y_1, \dots, Y_m$ hat.
+        Das ist z.B. bei Medikamententests häufig der Fall. Da will man wissen
+        ob beide Stichproben aus der gleichen Verteilung stammen (also das
+        Medikament nichts macht) oder eben nicht.
+
+    </dd>
+    <dt><dfn>$z$-Test</dfn></dt>
+    <dd>
+
+        <ul>
+            <li>Testgröße: $T(x_1, \dots, x_n) = \frac{\sqrt{n} (\bar{x} - \mu_0)}{\sigma}$</li>
+            <li>Verteilung: $T \stackrel{H_0}{\sim} \mathcal{N}(0, 1)$</li>
+            <li>Testentscheid: $H_0$ verwerfen, falls $T \leq \Phi^{-1}(\alpha) = z_\alpha$</li>
+        </ul>
+
+    </dd>
+    <dt><dfn>Zweiseitiger Ein-Stichproben-$t$-Test</dfn></dt>
+    <dd>
+
+        <ul>
+            <li>Testgröße: $T(x_1, \dots, x_n) = \frac{\sqrt{n} (\bar{x} - \mu_0)}{s}$</li>
+            <li>Verteilung: $T \stackrel{H_0}{\sim} t_{n-1}$</li>
+            <li>Testentscheid: $H_0$ verwerfen, falls $|T| \geq t_{n-1; 1-\frac{\alpha}{2}}$</li>
+        </ul>
+
+    </dd>
+    <dt><dfn>Einseitiger Ein-Stichproben-$t$-Test</dfn></dt>
+    <dd>
+
+        <ul>
+            <li>Testgröße: $T(x_1, \dots, x_n) = \frac{\sqrt{n} (\bar{x} - \mu_0)}{s}$</li>
+            <li>Verteilung: $T \stackrel{H_0}{\sim} t_{n-1}$</li>
+            <li>Testentscheid: $H_0$ verwerfen, falls $T \geq t_{n-1; 1-\alpha}$</li>
+        </ul>
+
+    </dd>
+    <dt><dfn>Ein-Stichproben-Varianz-Test</dfn></dt>
+    <dd>
+
+        <ul>
+            <li>Hypothesen: $H_0: \sigma^2 = \sigma_0^2$ gegen $H_1: \sigma^2 > \sigma_0^2$</li>
+            <li>Testgröße: $\chi^2 := \frac{(n-1)S^2}{\sigma_0^2}$</li>
+            <li>Verteilung: $\chi^2 \stackrel{H_0}{\sim} \chi_{n-1}^2$</li>
+            <li>Testentscheid: $H_0$ verwerfen, falls $\chi^2 \geq \chi^2_{n-1;1-\alpha}$</li>
+        </ul>
+
+    </dd>
+</dl>
 
 
 ### Kapitel 4: 2-Stichproben Vergleiche (NV)
@@ -172,19 +265,59 @@ TODO
         </table>
 
     </dd>
-    <dt><dfn>Kleinster-Quadrate-Schätzer</dfn></dt>
+    <dt><dfn id="least-squares-estimator">Kleinster-Quadrate-Schätzer</dfn></dt>
     <dd>
 
         Der Kleinste-Quadrate-Schätzer für das klassische lineares Modell
         $Y = X \beta + \epsilon$ lautet:
         $$\hat{\beta} = (X^T X)^{-1} X^T Y$$
 
+        Es gilt:
+        $$\hat{\beta} \sim N_p(\beta, \sigma^2 (X^T X)^-1)$$
+        $$\hat{\beta}_i \sim \mathcal{N}(\beta_i, \sigma^2 (X^T X)^{-1}_{i+1, i+1})$$
+        sowie
+        $$(n-p)\hat{\sigma^2}/\sigma^2 \sim \chi^2_{n-p}$$
     </dd>
 </dl>
 
 
 ### Kapitel 6: Varianz- und Kovarianz&shy;analyse
 TODO
+
+<dl>
+    <dt><dfn>Modellannahmen der Varianzanalyse</dfn></dt>
+    <dd>
+
+        Das Rauschen ist unabhängig und jeweils $\varepsilon_i \sim \mathcal{N}(0, \sigma^2)$.
+
+    </dd>
+    <dt><dfn>Summenrestriktionen</dfn></dt>
+    <dd>Es muss ein balanciertes Design ($n_1 = n_2 = \dots = n_k$) vorliegen.
+        Dann muss
+        $$\sum_{i=1}^k \alpha_i = 0$$
+        gelten.
+
+        Das Modell ist $Y = X \beta + \varepsilon$ mit Design-Matrix
+        $$X = \begin{pmatrix}1      & 0      &        &        &0\\
+                             \vdots & \vdots &        &        &\vdots\\
+                             1      & 0      &        &        &\vdots\\
+                             0      & 1      &        &        &\vdots\\
+                             \vdots & \vdots &        &        &\vdots\\
+                             0      & 1      &        &        &\vdots\\
+                             \vdots & 0      & \ddots &        &\vdots\\
+                             \vdots & \vdots &        & \ddots & 0\\
+                             1      & \vdots &        &        & 1\\
+                             \vdots & \vdots &        &        & \vdots\\
+                             1      & 0      &        &        & 1\\\end{pmatrix}$$
+        und Parametervektor
+        $$\beta := \begin{pmatrix}\mu\\\alpha_2\\\dots\\\alpha_k\end{pmatrix}$$
+    </dd>
+    <dt><a href="https://de.wikipedia.org/wiki/Bonferroni-Methode"><dfn>Bonferroni-Korrektur</dfn></a></dt>
+    <dd>Es liegt eine Familie von $m$ Tests vor. Man macht eine globale Nullhypothese,
+        dass alle Nullhypothesen gelten. Alle $m$ Test werden auf dem Niveau
+        $\frac{\alpha}{m}$ durchgeführt, sodass insgesamt das Niveau $\alpha$
+        erreicht wird.</dd>
+</dl>
 
 ### Kapitel 7: Kategoriale Daten
 TODO
@@ -210,6 +343,10 @@ TODO
 ## Abkürzungen
 
 * MQA: Mittlere Quadratische Abweichung
+* RSS: Residual Sum of Squares
+* SQI: Summe der Quadrate innerhalb der Gruppen
+* SQZ: Summe der Quadrate zwischen den Gruppen
+* TTS: Total Sum of Squares
 * uiv, u.i.v.: unabhängig identisch verteilt
 
 
@@ -235,6 +372,10 @@ TODO
     <tr>
         <td>$Pois(\lambda)$</td>
         <td>Poisson-Verteilung</td>
+    </tr>
+    <tr>
+        <td>$t_{n; \beta}$</td>
+        <td>Das $\beta$-Quantil der $t_n$-Verteilung.</td>
     </tr>
     <tr>
         <td>$V(X)$</td>
@@ -341,38 +482,36 @@ rv.ppf(0.95)  # gives 3.1273500051133989
 ## Klausur Aufbau
 
 * Aufgabe 1
-    * ML-Schätzer bestimmen
-    * Score-Funktion / Fisher-Information
-    * Cramér-Rao-Schranke
-    * asymptotisch Erwartungstreue / konsistenz von Schätzern
-    * Erwartungswert, Varianz, MQA eines Schätzers bestimmen
+    * [ML-Schätzer bestimmen](#maximum-likelihood-estimator)
+    * [Score-Funktion](#score-function) / [Fisher-Information](#fisher-information)
+    * [Cramér-Rao-Schranke](#cramer-rao)
+    * asymptotisch Erwartungstreue / Konsistenz von Schätzern
+    * Erwartungswert, Varianz, [MQA](#mqa) eines Schätzers bestimmen
 * Aufgabe 2
     * Konsistenz eines Schätzers
 *Aufgabe 3
     * Neymann-Pearson-Test
-    * ZGWS
+    * [ZGWS](#zgws)
 * Aufgabe 4
-    * Statistisches Modell angeben
-    * Quartile und Median einer Stichprobe bestimmen
+    * [Statistisches Modell](#statistisches-modell) angeben
+    * [Quartile](#empirisches-quartil) und Median einer Stichprobe bestimmen
     * Vorzeichen-Test für Median
 * Aufgabe 5
-    * Satz von Student
-    * Konfidenzintervall
+    * [Satz von Student](#satz-von-student)
+    * [Konfidenzintervall](#konfidenzintervall)
     * Gütefunktion
+    * Beziehung zwischen Konfidenzintervall und Tests
 * Aufgabe 6
     * Korrelationskoeffizient
 * Aufgabe 7
     * Lineares Regressionsmodell
-    * Kleinster-Quadrate-Schätzer
-* Momentenschätzer bestimmen
-* Exp-Verteilung
-* 1-Stichproben t-Test
-* Binomial-Verteilung
-* Satz von Student
-* F-Tests
-* Rechenregeln:
-    * $C(U_1 + U_2, V) = C(U_1, V) + C(U_2, V)$
-    * $C(AU, B^T V) = A C(U, V) B$
+    * [Kleinster-Quadrate-Schätzer](#least-squares-estimator)
+* Various
+    * Momentenschätzer bestimmen
+    * Exp-Verteilung und Zusammenhang mit Gamma-Verteilung
+    * Binomial-Verteilung
+    * 1-Stichproben t-Test
+    * F-Tests
 
 
 ## Prüfungsfragen
@@ -385,9 +524,9 @@ rv.ppf(0.95)  # gives 3.1273500051133989
      $\vartheta \in (0, 1)$. Der Schätzer $\hat{\vartheta} = 0.5$ ist weder
      Erwartungstreu noch konsistent für $\vartheta \neq 0.5$.
 * Kann ein Schätzer Erwartungstreu, aber nicht konsistent sein?<br/>
-  → TODO
+  → Ja. Setting wie zuvor und $\hat{\vartheta} = x_n$ (siehe [math.SE](http://math.stackexchange.com/q/2149771/6876))
 * Kann ein Schätzer nicht Erwartungstreu, aber konsistent sein?<br/>
-  → TODO
+  → Ja. Setting wie zuvor und $\hat{\vartheta} = \frac{1}{n} \sum_{i=1}^n x_i + \frac{1}{n}$ (siehe [math.SE](http://math.stackexchange.com/q/2149771/6876))
 
 
 ## Offene Fragen
@@ -426,10 +565,10 @@ rv.ppf(0.95)  # gives 3.1273500051133989
 
 **Datum**: 01.03.2017, 7:30 - 9:30 Uhr (Quelle: <a href="http://www.math.kit.edu/stoch/lehre/stat2016w/event/statklausur1/">Vorlesungswebsite</a> - Ja, es ist wirklich so früh!)<br/>
 **Ort**: <a href="https://www.kithub.de/map/2086">Benz-Hörsaal Geb. 10.21</a><br/>
-**Punkte**: TODO<br/>
-**Zeit**: TODO<br/>
+**Punkte**: 60<br/>
+**Zeit**: 2h<br/>
 **Punkteverteilung**: TODO<br/>
-**Bestehensgrenze**: TODO<br/>
+**Bestehensgrenze**: min 50%<br/>
 **Übungsschein**: gibt es nicht<br/>
 **Bonuspunkte**: gibt es nicht<br/>
-**Erlaubte Hilfsmittel**: TODO
+**Erlaubte Hilfsmittel**: Taschenrechner
