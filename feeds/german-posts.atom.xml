@@ -69,8 +69,16 @@
 &lt;li&gt;&lt;b&gt;Maximalstelle&lt;/b&gt;: Pr&amp;uuml;fe ob zweite Ableitung negativ ist&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/dd&gt;
-&lt;dt&gt;&lt;dfn&gt;Momentensch&amp;auml;tzer&lt;/dfn&gt;&lt;/dt&gt;
-&lt;dd&gt;TODO&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="momentenschaetzer"&gt;Momentensch&amp;auml;tzer&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;ol&gt;
+&lt;li&gt;Es sollen z.B. $\mu$ und $\sigma^2$ gesch&amp;auml;tzt werden.&lt;/li&gt;
+&lt;li&gt;Dr&amp;uuml;cke $\mu$ und $\sigma^2$ als Funktion der Momente $E X$, $E X^2$, ... aus.&lt;/li&gt;
+&lt;/ol&gt;
+
+    N&amp;uuml;tzlich: $V(X) = E X^2 - (E X)^2$
+
+    &lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/Starkes_Gesetz_der_gro%C3%9Fen_Zahlen#Formulierung"&gt;&lt;dfn&gt;Starkes Gesetz gro&amp;szlig;er Zahlen&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
 &lt;dd&gt;Es seien $Y_1, Y_2, Y_3, \dots$ eine Folge u.i.v. ZV mit existierendem
         Erwartungswert. Dann gilt:
@@ -112,6 +120,8 @@
     Es gilt:
     $$MQA_T(\vartheta) = V_\vartheta(T) + b_T^2 (\vartheta)$$
     &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Satz 1.7.5&lt;/dfn&gt; (&lt;dfn&gt;Asymptotische Verteilung konsistenter Sch&amp;auml;tzer&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dd&gt;$$\sqrt{n} (\hat{\vartheta}_n - \vartheta) \stackrel{D_\vartheta}{\rightarrow} \mathcal{N}(0, \frac{1}{I_1 (\vartheta)})$$&lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h3 id="kapitel-2-konfidenzbereiche"&gt;Kapitel 2: Konfidenz&amp;shy;bereiche&lt;/h3&gt;
 &lt;dl&gt;
@@ -194,6 +204,32 @@
 &lt;/dd&gt;
 &lt;dt&gt;&lt;a href="https://de.wikipedia.org/wiki/G%C3%BCtefunktion"&gt;&lt;dfn id="guetefunktion"&gt;G&amp;uuml;tefunktion&lt;/dfn&gt;&lt;/a&gt;&lt;/dt&gt;
 &lt;dd&gt;Die G&amp;uuml;tefunktion ist $g(\vartheta) = P_\vartheta(\text{Test verwirft } H_0), \quad \vartheta \in \Theta$.&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="neyman-pearson-test"&gt;Neyman-Pearson-Test&lt;/dfn&gt; (&lt;dfn&gt;NP-Test&lt;/dfn&gt;)&lt;/dt&gt;
+&lt;dd&gt;
+
+        Sei $h_0(x) = \prod_{i=1}^n f(x, \vartheta_0)$ und
+        $h_1(x) = \prod_{i=1}^n f(x, \vartheta_1)$.&lt;br/&gt;
+&lt;br/&gt;
+        Testentscheid: Verwerfe $H_0$, falls $h_0(x) \leq c h_1(x)$, wobei
+        $c$ so gew&amp;auml;hlt wird, dass das Niveau $\alpha$ eingehalten wird.
+
+    &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="likelihood-quotienten-test"&gt;Likelihood-Quotienten-Test&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+
+        Testgr&amp;ouml;&amp;szlig;e: $$\Lambda = \frac{\sup_{\vartheta \in \Theta} L_x (\vartheta)}{\sup_{\vartheta \in \Theta_0} L_x (\vartheta)}$$
+
+        Hypothesen: $H_0$: $\vartheta in \Theta_0$ vs $H_1$: $\vartheta \in \Theta \setminus \Theta_0$
+
+        Testentscheid: Verwerfe $H_0$, falls $\Lambda &amp;gt; c$. W&amp;auml;hle $c$ so, dass
+        Niveau $\alpha$ eingehalten wird.
+
+        Ist der Sch&amp;auml;tzer konsistent, so gilt $$2 \log(\Lambda_n) \sim \chi_1^2$$
+
+        Also:
+
+        Verwerfe $H_0$, falls $2 \log \Lambda_n \geq \chi^2_{1, 1-\alpha}$
+    &lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h3 id="kapitel-4-2-stichproben-vergleiche-nv"&gt;Kapitel 4: 2-Stichproben Vergleiche (NV)&lt;/h3&gt;
 &lt;p&gt;TODO&lt;/p&gt;
@@ -241,12 +277,13 @@
         Der Kleinste-Quadrate-Sch&amp;auml;tzer f&amp;uuml;r das klassische lineares Modell
         $Y = X \beta + \epsilon$ lautet:
         $$\hat{\beta} = (X^T X)^{-1} X^T Y$$
+        $$\hat{Y} \sim N_n(X \beta, \sigma^2 H)$$
 
         Es gilt:
         $$\hat{\beta} \sim N_p(\beta, \sigma^2 (X^T X)^-1)$$
         $$\hat{\beta}_i \sim \mathcal{N}(\beta_i, \sigma^2 (X^T X)^{-1}_{i+1, i+1})$$
         sowie
-        $$(n-p)\hat{\sigma^2}/\sigma^2 \sim \chi^2_{n-p}$$
+        $$(n-p)\hat{\sigma}^2/\sigma^2 \sim \chi^2_{n-p}$$
     &lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h3 id="kapitel-6-varianz-und-kovarianzanalyse"&gt;Kapitel 6: Varianz- und Kovarianz&amp;shy;analyse&lt;/h3&gt;
@@ -284,12 +321,22 @@
         dass alle Nullhypothesen gelten. Alle $m$ Test werden auf dem Niveau
         $\frac{\alpha}{m}$ durchgef&amp;uuml;hrt, sodass insgesamt das Niveau $\alpha$
         erreicht wird.&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="bestimmtheitsmass"&gt;Bestimmtheitsma&amp;szlig; $R^2$&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+
+        $$R^2 = 1 - \frac{RSS}{TSS} = 1 - \frac{\sum_{i=1}^n (y_i - \hat{y}_i)}{\sum_{i=1}^n (y_i - \bar{y}_i)}$$
+
+        Es gilt: $R^2 \in [0, 1]$
+
+        Ist die Kenntnis von $x$ wichtig f&amp;uuml;r die Vorhersage von $y$, so ist das
+        Bestimmtheitsma&amp;szlig; nahe bei 1.
+    &lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h3 id="kapitel-7-kategoriale-daten"&gt;Kapitel 7: Kategoriale Daten&lt;/h3&gt;
 &lt;p&gt;TODO&lt;/p&gt;
 &lt;h3 id="kapitel-8-nichtparametrische-verfahren"&gt;Kapitel 8: Nicht&amp;shy;parametrische Verfahren&lt;/h3&gt;
 &lt;dl&gt;
-&lt;dt&gt;&lt;dfn&gt;Vorzeichen-Test f&amp;uuml;r den Median&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dt&gt;&lt;dfn id="vorzeichen-test"&gt;Vorzeichen-Test f&amp;uuml;r den Median&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;
         Teste die Hypothese ob eine Gr&amp;ouml;&amp;szlig;e $M$ den Mittelwert $\mu$ hat gegen
         die Alternative $H_1$: $M \neq \mu$.
@@ -431,25 +478,25 @@ this is what you do:&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id="klausur-aufbau"&gt;Klausur Aufbau&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Aufgabe 1&lt;ul&gt;
+&lt;li&gt;Aufgabe 1 und 2&lt;ul&gt;
 &lt;li&gt;&lt;a href="#maximum-likelihood-estimator"&gt;ML-Sch&amp;auml;tzer bestimmen&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="#score-function"&gt;Score-Funktion&lt;/a&gt; / &lt;a href="#fisher-information"&gt;Fisher-Information&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="#cramer-rao"&gt;Cram&amp;eacute;r-Rao-Schranke&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;asymptotisch Erwartungstreue / Konsistenz von Sch&amp;auml;tzern&lt;/li&gt;
 &lt;li&gt;Erwartungswert, Varianz, &lt;a href="#mqa"&gt;MQA&lt;/a&gt; eines Sch&amp;auml;tzers bestimmen&lt;/li&gt;
+&lt;li&gt;&lt;a href="#momentenschaetzer"&gt;Momentensch&amp;auml;tzer&lt;/a&gt; bestimmen&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;Aufgabe 2&lt;ul&gt;
-&lt;li&gt;Konsistenz eines Sch&amp;auml;tzers
-*Aufgabe 3&lt;/li&gt;
-&lt;li&gt;Neymann-Pearson-Test&lt;/li&gt;
+&lt;li&gt;Aufgabe 3&lt;ul&gt;
+&lt;li&gt;&lt;a href="#neyman-pearson-test"&gt;Neyman-Pearson-Test&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="#zgws"&gt;ZGWS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#likelihood-quotienten-test"&gt;Likelihood-Quotienten-Test&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Aufgabe 4&lt;ul&gt;
 &lt;li&gt;&lt;a href="#statistisches-modell"&gt;Statistisches Modell&lt;/a&gt; angeben&lt;/li&gt;
 &lt;li&gt;&lt;a href="#empirisches-quartil"&gt;Quartile&lt;/a&gt; und Median einer Stichprobe bestimmen&lt;/li&gt;
-&lt;li&gt;Vorzeichen-Test f&amp;uuml;r Median&lt;/li&gt;
+&lt;li&gt;&lt;a href="#vorzeichen-test"&gt;Vorzeichen-Test&lt;/a&gt; f&amp;uuml;r Median&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Aufgabe 5&lt;ul&gt;
@@ -466,10 +513,10 @@ this is what you do:&lt;/p&gt;
 &lt;li&gt;Aufgabe 7&lt;ul&gt;
 &lt;li&gt;Lineares Regressionsmodell&lt;/li&gt;
 &lt;li&gt;&lt;a href="#least-squares-estimator"&gt;Kleinster-Quadrate-Sch&amp;auml;tzer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#bestimmtheitsmass"&gt;Bestimmtheitsma&amp;szlig;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Various&lt;ul&gt;
-&lt;li&gt;Momentensch&amp;auml;tzer bestimmen&lt;/li&gt;
 &lt;li&gt;Exp-Verteilung und Zusammenhang mit Gamma-Verteilung&lt;/li&gt;
 &lt;li&gt;Binomial-Verteilung&lt;/li&gt;
 &lt;li&gt;1-Stichproben t-Test&lt;/li&gt;

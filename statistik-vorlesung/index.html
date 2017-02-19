@@ -173,8 +173,16 @@ MathJax.Hub.Queue(function() {
 <li><b>Maximalstelle</b>: Pr&uuml;fe ob zweite Ableitung negativ ist</li>
 </ol>
 </dd>
-<dt><dfn>Momentensch&auml;tzer</dfn></dt>
-<dd>TODO</dd>
+<dt><dfn id="momentenschaetzer">Momentensch&auml;tzer</dfn></dt>
+<dd>
+<ol>
+<li>Es sollen z.B. $\mu$ und $\sigma^2$ gesch&auml;tzt werden.</li>
+<li>Dr&uuml;cke $\mu$ und $\sigma^2$ als Funktion der Momente $E X$, $E X^2$, ... aus.</li>
+</ol>
+
+    N&uuml;tzlich: $V(X) = E X^2 - (E X)^2$
+
+    </dd>
 <dt><a href="https://de.wikipedia.org/wiki/Starkes_Gesetz_der_gro%C3%9Fen_Zahlen#Formulierung"><dfn>Starkes Gesetz gro&szlig;er Zahlen</dfn></a></dt>
 <dd>Es seien $Y_1, Y_2, Y_3, \dots$ eine Folge u.i.v. ZV mit existierendem
         Erwartungswert. Dann gilt:
@@ -216,6 +224,8 @@ MathJax.Hub.Queue(function() {
     Es gilt:
     $$MQA_T(\vartheta) = V_\vartheta(T) + b_T^2 (\vartheta)$$
     </dd>
+<dt><dfn>Satz 1.7.5</dfn> (<dfn>Asymptotische Verteilung konsistenter Sch&auml;tzer</dfn>)</dt>
+<dd>$$\sqrt{n} (\hat{\vartheta}_n - \vartheta) \stackrel{D_\vartheta}{\rightarrow} \mathcal{N}(0, \frac{1}{I_1 (\vartheta)})$$</dd>
 </dl>
 <h3 id="kapitel-2-konfidenzbereiche">Kapitel 2: Konfidenz&shy;bereiche</h3>
 <dl>
@@ -298,6 +308,32 @@ MathJax.Hub.Queue(function() {
 </dd>
 <dt><a href="https://de.wikipedia.org/wiki/G%C3%BCtefunktion"><dfn id="guetefunktion">G&uuml;tefunktion</dfn></a></dt>
 <dd>Die G&uuml;tefunktion ist $g(\vartheta) = P_\vartheta(\text{Test verwirft } H_0), \quad \vartheta \in \Theta$.</dd>
+<dt><dfn id="neyman-pearson-test">Neyman-Pearson-Test</dfn> (<dfn>NP-Test</dfn>)</dt>
+<dd>
+
+        Sei $h_0(x) = \prod_{i=1}^n f(x, \vartheta_0)$ und
+        $h_1(x) = \prod_{i=1}^n f(x, \vartheta_1)$.<br/>
+<br/>
+        Testentscheid: Verwerfe $H_0$, falls $h_0(x) \leq c h_1(x)$, wobei
+        $c$ so gew&auml;hlt wird, dass das Niveau $\alpha$ eingehalten wird.
+
+    </dd>
+<dt><dfn id="likelihood-quotienten-test">Likelihood-Quotienten-Test</dfn></dt>
+<dd>
+
+        Testgr&ouml;&szlig;e: $$\Lambda = \frac{\sup_{\vartheta \in \Theta} L_x (\vartheta)}{\sup_{\vartheta \in \Theta_0} L_x (\vartheta)}$$
+
+        Hypothesen: $H_0$: $\vartheta in \Theta_0$ vs $H_1$: $\vartheta \in \Theta \setminus \Theta_0$
+
+        Testentscheid: Verwerfe $H_0$, falls $\Lambda &gt; c$. W&auml;hle $c$ so, dass
+        Niveau $\alpha$ eingehalten wird.
+
+        Ist der Sch&auml;tzer konsistent, so gilt $$2 \log(\Lambda_n) \sim \chi_1^2$$
+
+        Also:
+
+        Verwerfe $H_0$, falls $2 \log \Lambda_n \geq \chi^2_{1, 1-\alpha}$
+    </dd>
 </dl>
 <h3 id="kapitel-4-2-stichproben-vergleiche-nv">Kapitel 4: 2-Stichproben Vergleiche (NV)</h3>
 <p>TODO</p>
@@ -345,12 +381,13 @@ MathJax.Hub.Queue(function() {
         Der Kleinste-Quadrate-Sch&auml;tzer f&uuml;r das klassische lineares Modell
         $Y = X \beta + \epsilon$ lautet:
         $$\hat{\beta} = (X^T X)^{-1} X^T Y$$
+        $$\hat{Y} \sim N_n(X \beta, \sigma^2 H)$$
 
         Es gilt:
         $$\hat{\beta} \sim N_p(\beta, \sigma^2 (X^T X)^-1)$$
         $$\hat{\beta}_i \sim \mathcal{N}(\beta_i, \sigma^2 (X^T X)^{-1}_{i+1, i+1})$$
         sowie
-        $$(n-p)\hat{\sigma^2}/\sigma^2 \sim \chi^2_{n-p}$$
+        $$(n-p)\hat{\sigma}^2/\sigma^2 \sim \chi^2_{n-p}$$
     </dd>
 </dl>
 <h3 id="kapitel-6-varianz-und-kovarianzanalyse">Kapitel 6: Varianz- und Kovarianz&shy;analyse</h3>
@@ -388,12 +425,22 @@ MathJax.Hub.Queue(function() {
         dass alle Nullhypothesen gelten. Alle $m$ Test werden auf dem Niveau
         $\frac{\alpha}{m}$ durchgef&uuml;hrt, sodass insgesamt das Niveau $\alpha$
         erreicht wird.</dd>
+<dt><dfn id="bestimmtheitsmass">Bestimmtheitsma&szlig; $R^2$</dfn></dt>
+<dd>
+
+        $$R^2 = 1 - \frac{RSS}{TSS} = 1 - \frac{\sum_{i=1}^n (y_i - \hat{y}_i)}{\sum_{i=1}^n (y_i - \bar{y}_i)}$$
+
+        Es gilt: $R^2 \in [0, 1]$
+
+        Ist die Kenntnis von $x$ wichtig f&uuml;r die Vorhersage von $y$, so ist das
+        Bestimmtheitsma&szlig; nahe bei 1.
+    </dd>
 </dl>
 <h3 id="kapitel-7-kategoriale-daten">Kapitel 7: Kategoriale Daten</h3>
 <p>TODO</p>
 <h3 id="kapitel-8-nichtparametrische-verfahren">Kapitel 8: Nicht&shy;parametrische Verfahren</h3>
 <dl>
-<dt><dfn>Vorzeichen-Test f&uuml;r den Median</dfn></dt>
+<dt><dfn id="vorzeichen-test">Vorzeichen-Test f&uuml;r den Median</dfn></dt>
 <dd>
         Teste die Hypothese ob eine Gr&ouml;&szlig;e $M$ den Mittelwert $\mu$ hat gegen
         die Alternative $H_1$: $M \neq \mu$.
@@ -535,25 +582,25 @@ this is what you do:</p>
 </pre></div>
 <h2 id="klausur-aufbau">Klausur Aufbau</h2>
 <ul>
-<li>Aufgabe 1<ul>
+<li>Aufgabe 1 und 2<ul>
 <li><a href="#maximum-likelihood-estimator">ML-Sch&auml;tzer bestimmen</a></li>
 <li><a href="#score-function">Score-Funktion</a> / <a href="#fisher-information">Fisher-Information</a></li>
 <li><a href="#cramer-rao">Cram&eacute;r-Rao-Schranke</a></li>
 <li>asymptotisch Erwartungstreue / Konsistenz von Sch&auml;tzern</li>
 <li>Erwartungswert, Varianz, <a href="#mqa">MQA</a> eines Sch&auml;tzers bestimmen</li>
+<li><a href="#momentenschaetzer">Momentensch&auml;tzer</a> bestimmen</li>
 </ul>
 </li>
-<li>Aufgabe 2<ul>
-<li>Konsistenz eines Sch&auml;tzers
-*Aufgabe 3</li>
-<li>Neymann-Pearson-Test</li>
+<li>Aufgabe 3<ul>
+<li><a href="#neyman-pearson-test">Neyman-Pearson-Test</a></li>
 <li><a href="#zgws">ZGWS</a></li>
+<li><a href="#likelihood-quotienten-test">Likelihood-Quotienten-Test</a></li>
 </ul>
 </li>
 <li>Aufgabe 4<ul>
 <li><a href="#statistisches-modell">Statistisches Modell</a> angeben</li>
 <li><a href="#empirisches-quartil">Quartile</a> und Median einer Stichprobe bestimmen</li>
-<li>Vorzeichen-Test f&uuml;r Median</li>
+<li><a href="#vorzeichen-test">Vorzeichen-Test</a> f&uuml;r Median</li>
 </ul>
 </li>
 <li>Aufgabe 5<ul>
@@ -570,10 +617,10 @@ this is what you do:</p>
 <li>Aufgabe 7<ul>
 <li>Lineares Regressionsmodell</li>
 <li><a href="#least-squares-estimator">Kleinster-Quadrate-Sch&auml;tzer</a></li>
+<li><a href="#bestimmtheitsmass">Bestimmtheitsma&szlig;</a></li>
 </ul>
 </li>
 <li>Various<ul>
-<li>Momentensch&auml;tzer bestimmen</li>
 <li>Exp-Verteilung und Zusammenhang mit Gamma-Verteilung</li>
 <li>Binomial-Verteilung</li>
 <li>1-Stichproben t-Test</li>
