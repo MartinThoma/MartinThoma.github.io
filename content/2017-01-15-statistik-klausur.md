@@ -41,6 +41,8 @@ featured_image: logos/klausur.png
         $$f(x) = \frac{1}{\sigma \sqrt{2 \pi}} e^{- \frac{1}{2} {\left ( \frac{x-\mu}{\sigma} \right )}^2}$$
 
     </dd>
+    <dt><a href="https://de.wikipedia.org/wiki/Korrelationskoeffizient#Definitionen"><dfn id="korrelationskoeffizient">Korrelationskoeffizient</dfn></a></dt>
+    <dd>$$\rho_{X,Y} =\frac{\operatorname{Cov}(X,Y)}{\sqrt{\operatorname{Var}(X)\operatorname{Var}(Y)}}=\frac{\sigma_{X,Y}^2}{\sigma_{X}\sigma_{Y}}$$</dd>
 <!--     <dt><dfn>Rechenregeln Multivariate Normalverteilung</dfn></dt>
     <dd>
 
@@ -78,8 +80,17 @@ featured_image: logos/klausur.png
     </ol>
 
     </dd>
-    <dt><dfn>Momentenschätzer</dfn></dt>
-    <dd>TODO</dd>
+    <dt><dfn id="momentenschaetzer">Momentenschätzer</dfn></dt>
+    <dd>
+
+    <ol>
+        <li>Es sollen z.B. $\mu$ und $\sigma^2$ geschätzt werden.</li>
+        <li>Drücke $\mu$ und $\sigma^2$ als Funktion der Momente $E X$, $E X^2$, ... aus.</li>
+    </ol>
+
+    Nützlich: $V(X) = E X^2 - (E X)^2$
+
+    </dd>
     <dt><a href="https://de.wikipedia.org/wiki/Starkes_Gesetz_der_gro%C3%9Fen_Zahlen#Formulierung"><dfn>Starkes Gesetz großer Zahlen</dfn></a></dt>
     <dd>Es seien $Y_1, Y_2, Y_3, \dots$ eine Folge u.i.v. ZV mit existierendem
         Erwartungswert. Dann gilt:
@@ -121,6 +132,8 @@ featured_image: logos/klausur.png
     Es gilt:
     $$MQA_T(\vartheta) = V_\vartheta(T) + b_T^2 (\vartheta)$$
     </dd>
+    <dt><dfn>Satz 1.7.5</dfn> (<dfn>Asymptotische Verteilung konsistenter Schätzer</dfn>)</dt>
+    <dd>$$\sqrt{n} (\hat{\vartheta}_n - \vartheta) \stackrel{D_\vartheta}{\rightarrow} \mathcal{N}(0, \frac{1}{I_1 (\vartheta)})$$</dd>
 </dl>
 
 
@@ -217,6 +230,34 @@ TODO
         </ul>
 
     </dd>
+    <dt><a href="https://de.wikipedia.org/wiki/G%C3%BCtefunktion"><dfn id="guetefunktion">Gütefunktion</dfn></a></dt>
+    <dd>Die Gütefunktion ist $g(\vartheta) = P_\vartheta(\text{Test verwirft } H_0), \quad \vartheta \in \Theta$.</dd>
+    <dt><dfn id="neyman-pearson-test">Neyman-Pearson-Test</dfn> (<dfn>NP-Test</dfn>)</dt>
+    <dd>
+
+        Sei $h_0(x) = \prod_{i=1}^n f(x, \vartheta_0)$ und
+        $h_1(x) = \prod_{i=1}^n f(x, \vartheta_1)$.<br/>
+        <br/>
+        Testentscheid: Verwerfe $H_0$, falls $h_0(x) \leq c h_1(x)$, wobei
+        $c$ so gewählt wird, dass das Niveau $\alpha$ eingehalten wird.
+
+    </dd>
+    <dt><dfn id="likelihood-quotienten-test">Likelihood-Quotienten-Test</dfn></dt>
+    <dd>
+
+        Testgröße: $$\Lambda = \frac{\sup_{\vartheta \in \Theta} L_x (\vartheta)}{\sup_{\vartheta \in \Theta_0} L_x (\vartheta)}$$
+
+        Hypothesen: $H_0$: $\vartheta in \Theta_0$ vs $H_1$: $\vartheta \in \Theta \setminus \Theta_0$
+
+        Testentscheid: Verwerfe $H_0$, falls $\Lambda > c$. Wähle $c$ so, dass
+        Niveau $\alpha$ eingehalten wird.
+
+        Ist der Schätzer konsistent, so gilt $$2 \log(\Lambda_n) \sim \chi_1^2$$
+
+        Also:
+
+        Verwerfe $H_0$, falls $2 \log \Lambda_n \geq \chi^2_{1, 1-\alpha}$
+    </dd>
 </dl>
 
 
@@ -271,12 +312,13 @@ TODO
         Der Kleinste-Quadrate-Schätzer für das klassische lineares Modell
         $Y = X \beta + \epsilon$ lautet:
         $$\hat{\beta} = (X^T X)^{-1} X^T Y$$
+        $$\hat{Y} \sim N_n(X \beta, \sigma^2 H)$$
 
         Es gilt:
         $$\hat{\beta} \sim N_p(\beta, \sigma^2 (X^T X)^-1)$$
         $$\hat{\beta}_i \sim \mathcal{N}(\beta_i, \sigma^2 (X^T X)^{-1}_{i+1, i+1})$$
         sowie
-        $$(n-p)\hat{\sigma^2}/\sigma^2 \sim \chi^2_{n-p}$$
+        $$(n-p)\hat{\sigma}^2/\sigma^2 \sim \chi^2_{n-p}$$
     </dd>
 </dl>
 
@@ -317,6 +359,16 @@ TODO
         dass alle Nullhypothesen gelten. Alle $m$ Test werden auf dem Niveau
         $\frac{\alpha}{m}$ durchgeführt, sodass insgesamt das Niveau $\alpha$
         erreicht wird.</dd>
+    <dt><dfn id="bestimmtheitsmass">Bestimmtheitsmaß $R^2$</dfn></dt>
+    <dd>
+
+        $$R^2 = 1 - \frac{RSS}{TSS} = 1 - \frac{\sum_{i=1}^n (y_i - \hat{y}_i)}{\sum_{i=1}^n (y_i - \bar{y}_i)}$$
+
+        Es gilt: $R^2 \in [0, 1]$
+
+        Ist die Kenntnis von $x$ wichtig für die Vorhersage von $y$, so ist das
+        Bestimmtheitsmaß nahe bei 1.
+    </dd>
 </dl>
 
 ### Kapitel 7: Kategoriale Daten
@@ -325,7 +377,7 @@ TODO
 ### Kapitel 8: Nicht&shy;parametrische Verfahren
 
 <dl>
-    <dt><dfn>Vorzeichen-Test für den Median</dfn></dt>
+    <dt><dfn id="vorzeichen-test">Vorzeichen-Test für den Median</dfn></dt>
     <dd>
         Teste die Hypothese ob eine Größe $M$ den Mittelwert $\mu$ hat gegen
         die Alternative $H_1$: $M \neq \mu$.
@@ -481,33 +533,33 @@ rv.ppf(0.95)  # gives 3.1273500051133989
 
 ## Klausur Aufbau
 
-* Aufgabe 1
+* Aufgabe 1 und 2
     * [ML-Schätzer bestimmen](#maximum-likelihood-estimator)
     * [Score-Funktion](#score-function) / [Fisher-Information](#fisher-information)
     * [Cramér-Rao-Schranke](#cramer-rao)
     * asymptotisch Erwartungstreue / Konsistenz von Schätzern
     * Erwartungswert, Varianz, [MQA](#mqa) eines Schätzers bestimmen
-* Aufgabe 2
-    * Konsistenz eines Schätzers
-*Aufgabe 3
-    * Neymann-Pearson-Test
+    * [Momentenschätzer](#momentenschaetzer) bestimmen
+* Aufgabe 3
+    * [Neyman-Pearson-Test](#neyman-pearson-test)
     * [ZGWS](#zgws)
+    * [Likelihood-Quotienten-Test](#likelihood-quotienten-test)
 * Aufgabe 4
     * [Statistisches Modell](#statistisches-modell) angeben
     * [Quartile](#empirisches-quartil) und Median einer Stichprobe bestimmen
-    * Vorzeichen-Test für Median
+    * [Vorzeichen-Test](#vorzeichen-test) für Median
 * Aufgabe 5
     * [Satz von Student](#satz-von-student)
     * [Konfidenzintervall](#konfidenzintervall)
-    * Gütefunktion
+    * [Gütefunktion](#guetefunktion)
     * Beziehung zwischen Konfidenzintervall und Tests
 * Aufgabe 6
-    * Korrelationskoeffizient
+    * [Korrelationskoeffizient](#korrelationskoeffizient)
 * Aufgabe 7
     * Lineares Regressionsmodell
     * [Kleinster-Quadrate-Schätzer](#least-squares-estimator)
+    * [Bestimmtheitsmaß](#bestimmtheitsmass)
 * Various
-    * Momentenschätzer bestimmen
     * Exp-Verteilung und Zusammenhang mit Gamma-Verteilung
     * Binomial-Verteilung
     * 1-Stichproben t-Test
@@ -533,6 +585,7 @@ rv.ppf(0.95)  # gives 3.1273500051133989
 
 * WS 2014 / 2015, A6c: TODO
 * WS 2014 / 2015, A7a: Warum ist $(I_n - H) X \beta = 0$?
+* WS 2013 / 2014, A3b: Warum gilt das?
 
 
 
