@@ -141,7 +141,18 @@ featured_image: logos/klausur.png
 
 <dl>
     <dt><dfn id="konfidenzintervall">Konfidenzintervall</dfn> (<dfn>Vertrauensintervall</dfn>)</dt>
-    <dd>TODO</dd>
+    <dd>
+
+        Ein Konfidenzintervall ist ein Intervall $[U, O]$ für einen Parameter
+        $\vartheta$, sodass gilt:
+
+        $$P([U, O] \ni \vartheta) = 1 - \alpha$$
+
+        <ul>
+            <li>1-Stichproben-t-Test: $I(X) = \left [\bar{X} - \frac{S}{\sqrt{n}} \cdot t_{n-1;1-\frac{\alpha}{2}}, \bar{X} + \frac{S}{\sqrt{n}} \cdot t_{n-1;1-\frac{\alpha}{2}} \right]$</li>
+            <li>Approximativer Binomialtest: $I(X) = \left [ \hat{p}_n - z_{1-\frac{\alpha}{2}} \sqrt{\hat{p}_n (1- \hat{p}_n)/n}, \hat{p}_n + z_{1-\frac{\alpha}{2}} \sqrt{\hat{p}_n (1- \hat{p}_n) / n} \right ]$</li>
+        </ul>
+    </dd>
     <dt><dfn id="satz-von-student">Satz von Student</dfn></dt>
     <dd>Es seien $X_1, X_2, \dots, X_n \stackrel{uiv}{\sim} \mathcal{N}(\mu, \sigma^2),\quad n\geq 2$ sowie $\bar{X} = \frac{1}{n} \sum_{i=1}^n X_i$, $S^2 = \frac{1}{n-1} \sum_{i=1}^n {(X_i - \bar{X})}^2$ sowie $S = \sqrt{S^2}$. Dann gilt:
 
@@ -193,6 +204,7 @@ TODO
     <dd>
 
         <ul>
+            <li>Hypothesen: $H_0$: $\mu = \mu_0$ vs $H_1: \mu < \mu_0$</li>
             <li>Testgröße: $T(x_1, \dots, x_n) = \frac{\sqrt{n} (\bar{x} - \mu_0)}{\sigma}$</li>
             <li>Verteilung: $T \stackrel{H_0}{\sim} \mathcal{N}(0, 1)$</li>
             <li>Testentscheid: $H_0$ verwerfen, falls $T \leq \Phi^{-1}(\alpha) = z_\alpha$</li>
@@ -254,6 +266,18 @@ TODO
                 $2 \log \Lambda_n \geq \chi^2_{1, 1-\alpha}$</li>
         </ul>
     </dd>
+    <dt><dfn id="approximativer-binomialtest">Approximativer Binomialtest</dfn></dt>
+    <dd>
+        Gegeben seien $X_1, \dots, X_n \sim Bin(1, p)$, $p$ unbekannt.
+
+        <ul>
+            <li>Hypothesen: $H_0: p = p_0$ vs $H_1: p = p_1$</li>
+            <li>Testgröße: $T_n(x) = \frac{\sqrt{n}(\bar{X} - p)}{\sqrt{p (1-p)}}$</li>
+            <li>Verteilung: $T_n \stackrel{H_0}{\sim} \mathcal{N}(0, 1)$</li>
+            <li>Testentscheid: $H_0$ verwerfen, falls $T_n > z_{1-\alpha}$</li>
+        </ul>
+
+    </dd>
 </dl>
 
 
@@ -262,7 +286,7 @@ TODO
 TODO
 
 <dl>
-    <dt><dfn id="f-test">F-Test für den Varianzquotienten</dfn></dt>
+    <dt><dfn id="f-test-varianzquotient">F-Test für den Varianzquotienten</dfn></dt>
     <dd>
 
         Gegeben sind zwei Stichproben $X_1, \dots, X_m$ sowie $Y_1, \dots, Y_n$
@@ -383,6 +407,17 @@ TODO
         Ist die Kenntnis von $x$ wichtig für die Vorhersage von $y$, so ist das
         Bestimmtheitsmaß nahe bei 1.
     </dd>
+    <dt><dfn id="globaler-f-test">Globaler $F$-Test</dfn></dt>
+    <dd>
+
+        <ul>
+            <li>Hypothesen: $H_0$: $\mu_1 = \mu_2 = \dots = \mu_k$ vs $H_1: \exists i, j: \mu_i \neq \mu_j$</li>
+            <li>Testgröße: $F = \frac{(RSS_1 - RSS) / (k-1)}{RSS / (n-k)}$</li>
+            <li>Verteilung: $F \stackrel{H_0}{\sim} F_{k-1, n-k}$</li>
+            <li>Testentscheid: $H_0$ verwerfen, falls $F \geq F_{k-1, n-k; 1 - \alpha}$</li>
+        </ul>
+
+    </dd>
 </dl>
 
 ### Kapitel 7: Kategoriale Daten
@@ -454,6 +489,10 @@ TODO
     <tr>
         <td>$X \sim A$</td>
         <td>Die Zufallsvariable $X$ ist $AB$-Verteilt.</td>
+    </tr>
+    <tr>
+        <td>$z_{1 - \alpha}$</td>
+        <td>Inverse quantilsfunktion der Standardnormalverteilung: $z_{1 - \alpha} = \Phi^{-1}(1-\alpha)$</td>
     </tr>
 </table>
 
@@ -569,6 +608,8 @@ rv.ppf(0.95)  # gives 3.1273500051133989
     * Beziehung zwischen Konfidenzintervall und Tests
 * Aufgabe 6
     * [Korrelationskoeffizient](#korrelationskoeffizient)
+    * [ANOVA-Tafel](#anova-tafel)
+    * Modellannahmen bei einfacher Varianzanalyse
 * Aufgabe 7
     * Lineares Regressionsmodell
     * [Kleinster-Quadrate-Schätzer](#least-squares-estimator)
@@ -577,7 +618,8 @@ rv.ppf(0.95)  # gives 3.1273500051133989
     * Exp-Verteilung und Zusammenhang mit Gamma-Verteilung
     * Binomial-Verteilung
     * 1-Stichproben t-Test
-    * [F-Tests](#f-test)
+    * [F-Test für den Varianzquotienten](#f-test-varianzquotient)
+    * [Globaler F-Test](#globaler-f-test)
 
 
 ## Prüfungsfragen
