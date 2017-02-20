@@ -172,6 +172,7 @@
 &lt;dt&gt;&lt;dfn&gt;$z$-Test&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;
 &lt;ul&gt;
+&lt;li&gt;Hypothesen: $H_0$: $\mu = \mu_0$ vs $H_1: \mu &amp;lt; \mu_0$&lt;/li&gt;
 &lt;li&gt;Testgr&amp;ouml;&amp;szlig;e: $T(x_1, \dots, x_n) = \frac{\sqrt{n} (\bar{x} - \mu_0)}{\sigma}$&lt;/li&gt;
 &lt;li&gt;Verteilung: $T \stackrel{H_0}{\sim} \mathcal{N}(0, 1)$&lt;/li&gt;
 &lt;li&gt;Testentscheid: $H_0$ verwerfen, falls $T \leq \Phi^{-1}(\alpha) = z_\alpha$&lt;/li&gt;
@@ -226,11 +227,35 @@
                 $2 \log \Lambda_n \geq \chi^2_{1, 1-\alpha}$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="approximativer-binomialtest"&gt;Approximativer Binomialtest&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+        Gegeben seien $X_1, \dots, X_n \sim Bin(1, p)$, $p$ unbekannt.
+
+        &lt;ul&gt;
+&lt;li&gt;Hypothesen: $H_0: p = p_0$ vs $H_1: p = p_1$&lt;/li&gt;
+&lt;li&gt;Testgr&amp;ouml;&amp;szlig;e: $T_n(x) = \frac{\sqrt{n}(\bar{X} - p)}{\sqrt{p (1-p)}}$&lt;/li&gt;
+&lt;li&gt;Verteilung: $T_n \stackrel{H_0}{\sim} \mathcal{N}(0, 1)$&lt;/li&gt;
+&lt;li&gt;Testentscheid: $H_0$ verwerfen, falls $T_n &amp;gt; z_{1-\alpha}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="konfidenzintervall"&gt;Konfidenzintervall&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+
+        Ein Konfidenzintervall ist ein Intervall $[U, O]$ f&amp;uuml;r einen Parameter
+        $\vartheta$, sodass gilt:
+
+        $$P([U, O] \ni \vartheta) = 1 - \alpha$$
+
+        &lt;ul&gt;
+&lt;li&gt;1-Stichproben-t-Test: $I(X) = \left [\bar{X} - \frac{S}{\sqrt{n}} \cdot t_{n-1;1-\frac{\alpha}{2}}, \bar{X} + \frac{S}{\sqrt{n}} \cdot t_{n-1;1-\frac{\alpha}{2}} \right]$&lt;/li&gt;
+&lt;li&gt;Approximativer Binomialtest: $I(X) = \left [ \hat{p}_n - z_{1-\frac{\alpha}{2}} \sqrt{\hat{p}_n (1- \hat{p}_n)/n}, \hat{p}_n + z_{1-\frac{\alpha}{2}} \sqrt{\hat{p}_n (1- \hat{p}_n) / n} \right ]$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h3 id="kapitel-4-2-stichproben-vergleiche-nv"&gt;Kapitel 4: 2-Stichproben Vergleiche (NV)&lt;/h3&gt;
 &lt;p&gt;TODO&lt;/p&gt;
 &lt;dl&gt;
-&lt;dt&gt;&lt;dfn id="f-test"&gt;F-Test f&amp;uuml;r den Varianzquotienten&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dt&gt;&lt;dfn id="f-test-varianzquotient"&gt;F-Test f&amp;uuml;r den Varianzquotienten&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;
 
         Gegeben sind zwei Stichproben $X_1, \dots, X_m$ sowie $Y_1, \dots, Y_n$
@@ -344,6 +369,15 @@
         Ist die Kenntnis von $x$ wichtig f&amp;uuml;r die Vorhersage von $y$, so ist das
         Bestimmtheitsma&amp;szlig; nahe bei 1.
     &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn id="globaler-f-test"&gt;Globaler $F$-Test&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;ul&gt;
+&lt;li&gt;Hypothesen: $H_0$: $\mu_1 = \mu_2 = \dots = \mu_k$ vs $H_1: \exists i, j: \mu_i \neq \mu_j$&lt;/li&gt;
+&lt;li&gt;Testgr&amp;ouml;&amp;szlig;e: $F = \frac{(RSS_1 - RSS) / (k-1)}{RSS / (n-k)}$&lt;/li&gt;
+&lt;li&gt;Verteilung: $F \stackrel{H_0}{\sim} F_{k-1, n-k}$&lt;/li&gt;
+&lt;li&gt;Testentscheid: $H_0$ verwerfen, falls $F \geq F_{k-1, n-k; 1 - \alpha}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h3 id="kapitel-7-kategoriale-daten"&gt;Kapitel 7: Kategoriale Daten&lt;/h3&gt;
 &lt;p&gt;TODO&lt;/p&gt;
@@ -408,6 +442,10 @@
 &lt;tr&gt;
 &lt;td&gt;$X \sim A$&lt;/td&gt;
 &lt;td&gt;Die Zufallsvariable $X$ ist $AB$-Verteilt.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$z_{1 - \alpha}$&lt;/td&gt;
+&lt;td&gt;Inverse quantilsfunktion der Standardnormalverteilung: $z_{1 - \alpha} = \Phi^{-1}(1-\alpha)$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
 &lt;h2 id="verteilungen"&gt;Verteilungen&lt;/h2&gt;
@@ -521,6 +559,8 @@ this is what you do:&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;Aufgabe 6&lt;ul&gt;
 &lt;li&gt;&lt;a href="#korrelationskoeffizient"&gt;Korrelationskoeffizient&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#anova-tafel"&gt;ANOVA-Tafel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Modellannahmen bei einfacher Varianzanalyse&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Aufgabe 7&lt;ul&gt;
@@ -533,7 +573,8 @@ this is what you do:&lt;/p&gt;
 &lt;li&gt;Exp-Verteilung und Zusammenhang mit Gamma-Verteilung&lt;/li&gt;
 &lt;li&gt;Binomial-Verteilung&lt;/li&gt;
 &lt;li&gt;1-Stichproben t-Test&lt;/li&gt;
-&lt;li&gt;&lt;a href="#f-test"&gt;F-Tests&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#f-test-varianzquotient"&gt;F-Test f&amp;uuml;r den Varianzquotienten&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#globaler-f-test"&gt;Globaler F-Test&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
