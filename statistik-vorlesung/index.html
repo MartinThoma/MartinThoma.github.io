@@ -320,20 +320,16 @@ MathJax.Hub.Queue(function() {
     </dd>
 <dt><dfn id="likelihood-quotienten-test">Likelihood-Quotienten-Test</dfn></dt>
 <dd>
-
-        Testgr&ouml;&szlig;e: $$\Lambda = \frac{\sup_{\vartheta \in \Theta} L_x (\vartheta)}{\sup_{\vartheta \in \Theta_0} L_x (\vartheta)}$$
-
-        Hypothesen: $H_0$: $\vartheta in \Theta_0$ vs $H_1$: $\vartheta \in \Theta \setminus \Theta_0$
-
-        Testentscheid: Verwerfe $H_0$, falls $\Lambda &gt; c$. W&auml;hle $c$ so, dass
-        Niveau $\alpha$ eingehalten wird.
-
-        Ist der Sch&auml;tzer konsistent, so gilt $$2 \log(\Lambda_n) \sim \chi_1^2$$
-
-        Also:
-
-        Verwerfe $H_0$, falls $2 \log \Lambda_n \geq \chi^2_{1, 1-\alpha}$
-    </dd>
+<ul>
+<li>Testgr&ouml;&szlig;e: $$\Lambda = \frac{\sup_{\vartheta \in \Theta} L_x (\vartheta)}{\sup_{\vartheta \in \Theta_0} L_x (\vartheta)}$$</li>
+<li>Hypothesen: $H_0$: $\vartheta in \Theta_0$ vs $H_1$: $\vartheta \in \Theta \setminus \Theta_0$</li>
+<li>Verteilung: Ist der Sch&auml;tzer konsistent, so gilt $$2 \log(\Lambda_n) \sim \chi_1^2$$</li>
+<li>Testentscheid: Verwerfe $H_0$, falls $\Lambda &gt; c$.
+                W&auml;hle $c$ so, dass Niveau $\alpha$ eingehalten wird.<br/>
+                Also: Verwerfe $H_0$, falls
+                $2 \log \Lambda_n \geq \chi^2_{1, 1-\alpha}$</li>
+</ul>
+</dd>
 </dl>
 <h3 id="kapitel-4-2-stichproben-vergleiche-nv">Kapitel 4: 2-Stichproben Vergleiche (NV)</h3>
 <p>TODO</p>
@@ -344,13 +340,14 @@ MathJax.Hub.Queue(function() {
         Gegeben sind zwei Stichproben $X_1, \dots, X_m$ sowie $Y_1, \dots, Y_n$
         mit $X_i \sim \mathcal{N}(\mu, \sigma^2)$ und $\mathcal{N}(\nu, \tau^2)$.
 
-        Hypothesen: $H_0: \sigma^2 = \tau^2$ vs $H_1: \sigma^2 \neq \tau^2$<br/>
-        Testgr&ouml;&szlig;e:
-        $$Q_{m,n} = \frac{\frac{1}{m-1} \sum_{i=1}^m {(X_i - \bar{X}_m)}^2}{\frac{1}{n-1} \sum_{i=1}^n {(Y_i - \bar{Y}_n)}^2}$$
-
-        Verteilung: $Q_{m,n} \stackrel{H_0}{\sim} F_{m-1, n-1}$<br/>
-        Testentscheid: $H_0$ verwerfen, falls $Q_{m,n} \leq F_{m-1,n-1;\frac{\alpha}{2}}$ oder $Q_{m,n} \geq F_{m-1,n-1;1-\frac{\alpha}{2}}$
-    </dd>
+        <ul>
+<li>Hypothesen: $H_0: \sigma^2 = \tau^2$ vs $H_1: \sigma^2 \neq \tau^2$</li>
+<li>Testgr&ouml;&szlig;e:
+        $$Q_{m,n} = \frac{\frac{1}{m-1} \sum_{i=1}^m {(X_i - \bar{X}_m)}^2}{\frac{1}{n-1} \sum_{i=1}^n {(Y_i - \bar{Y}_n)}^2}$$</li>
+<li>Verteilung: $Q_{m,n} \stackrel{H_0}{\sim} F_{m-1, n-1}$</li>
+<li>Testentscheid: $H_0$ verwerfen, falls $Q_{m,n} \leq F_{m-1,n-1;\frac{\alpha}{2}}$ oder $Q_{m,n} \geq F_{m-1,n-1;1-\frac{\alpha}{2}}$</li>
+</ul>
+</dd>
 </dl>
 <h3 id="kapitel-5-lineare-regression">Kapitel 5: Lineare Regression</h3>
 <p>TODO</p>
@@ -421,17 +418,18 @@ MathJax.Hub.Queue(function() {
         gelten.
 
         Das Modell ist $Y = X \beta + \varepsilon$ mit Design-Matrix
-        $$X = \begin{pmatrix}1      &amp; 0      &amp;        &amp;        &amp;0\\
-                             \vdots &amp; \vdots &amp;        &amp;        &amp;\vdots\\
-                             1      &amp; 0      &amp;        &amp;        &amp;\vdots\\
-                             0      &amp; 1      &amp;        &amp;        &amp;\vdots\\
-                             \vdots &amp; \vdots &amp;        &amp;        &amp;\vdots\\
-                             0      &amp; 1      &amp;        &amp;        &amp;\vdots\\
-                             \vdots &amp; 0      &amp; \ddots &amp;        &amp;\vdots\\
-                             \vdots &amp; \vdots &amp;        &amp; \ddots &amp; 0\\
-                             1      &amp; \vdots &amp;        &amp;        &amp; 1\\
-                             \vdots &amp; \vdots &amp;        &amp;        &amp; \vdots\\
-                             1      &amp; 0      &amp;        &amp;        &amp; 1\\\end{pmatrix}$$
+        $$X = \begin{pmatrix}1      &amp; 1&amp; 0      &amp;        &amp;0\\
+                             \vdots &amp; \vdots &amp; \vdots &amp;        &amp;\vdots\\
+                             \vdots &amp; 1      &amp; 0      &amp;        &amp;\vdots\\
+                             \vdots &amp; 0      &amp; 1      &amp;        &amp;\vdots\\
+                             \vdots &amp; \vdots &amp; \vdots &amp;        &amp; \vdots\\
+                             \vdots &amp; \vdots &amp; 1      &amp;        &amp; 0\\
+                             \vdots &amp; \vdots &amp; 0      &amp;        &amp; 1\\
+                             \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp;\vdots\\
+                             \vdots &amp; 0      &amp; 0      &amp;        &amp; 1\\
+                             \vdots &amp; -1     &amp; -1     &amp; \dots  &amp; -1\\
+                             \vdots &amp; \vdots &amp; \vdots &amp;        &amp; \vdots\\
+                             1      &amp; -1     &amp; -1     &amp; \dots  &amp; -1\\\end{pmatrix}$$
         und Parametervektor
         $$\beta := \begin{pmatrix}\mu\\\alpha_2\\\dots\\\alpha_k\end{pmatrix}$$
     </dd>

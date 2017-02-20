@@ -216,20 +216,16 @@
     &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="likelihood-quotienten-test"&gt;Likelihood-Quotienten-Test&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;
-
-        Testgr&amp;ouml;&amp;szlig;e: $$\Lambda = \frac{\sup_{\vartheta \in \Theta} L_x (\vartheta)}{\sup_{\vartheta \in \Theta_0} L_x (\vartheta)}$$
-
-        Hypothesen: $H_0$: $\vartheta in \Theta_0$ vs $H_1$: $\vartheta \in \Theta \setminus \Theta_0$
-
-        Testentscheid: Verwerfe $H_0$, falls $\Lambda &amp;gt; c$. W&amp;auml;hle $c$ so, dass
-        Niveau $\alpha$ eingehalten wird.
-
-        Ist der Sch&amp;auml;tzer konsistent, so gilt $$2 \log(\Lambda_n) \sim \chi_1^2$$
-
-        Also:
-
-        Verwerfe $H_0$, falls $2 \log \Lambda_n \geq \chi^2_{1, 1-\alpha}$
-    &lt;/dd&gt;
+&lt;ul&gt;
+&lt;li&gt;Testgr&amp;ouml;&amp;szlig;e: $$\Lambda = \frac{\sup_{\vartheta \in \Theta} L_x (\vartheta)}{\sup_{\vartheta \in \Theta_0} L_x (\vartheta)}$$&lt;/li&gt;
+&lt;li&gt;Hypothesen: $H_0$: $\vartheta in \Theta_0$ vs $H_1$: $\vartheta \in \Theta \setminus \Theta_0$&lt;/li&gt;
+&lt;li&gt;Verteilung: Ist der Sch&amp;auml;tzer konsistent, so gilt $$2 \log(\Lambda_n) \sim \chi_1^2$$&lt;/li&gt;
+&lt;li&gt;Testentscheid: Verwerfe $H_0$, falls $\Lambda &amp;gt; c$.
+                W&amp;auml;hle $c$ so, dass Niveau $\alpha$ eingehalten wird.&lt;br/&gt;
+                Also: Verwerfe $H_0$, falls
+                $2 \log \Lambda_n \geq \chi^2_{1, 1-\alpha}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h3 id="kapitel-4-2-stichproben-vergleiche-nv"&gt;Kapitel 4: 2-Stichproben Vergleiche (NV)&lt;/h3&gt;
 &lt;p&gt;TODO&lt;/p&gt;
@@ -240,13 +236,14 @@
         Gegeben sind zwei Stichproben $X_1, \dots, X_m$ sowie $Y_1, \dots, Y_n$
         mit $X_i \sim \mathcal{N}(\mu, \sigma^2)$ und $\mathcal{N}(\nu, \tau^2)$.
 
-        Hypothesen: $H_0: \sigma^2 = \tau^2$ vs $H_1: \sigma^2 \neq \tau^2$&lt;br/&gt;
-        Testgr&amp;ouml;&amp;szlig;e:
-        $$Q_{m,n} = \frac{\frac{1}{m-1} \sum_{i=1}^m {(X_i - \bar{X}_m)}^2}{\frac{1}{n-1} \sum_{i=1}^n {(Y_i - \bar{Y}_n)}^2}$$
-
-        Verteilung: $Q_{m,n} \stackrel{H_0}{\sim} F_{m-1, n-1}$&lt;br/&gt;
-        Testentscheid: $H_0$ verwerfen, falls $Q_{m,n} \leq F_{m-1,n-1;\frac{\alpha}{2}}$ oder $Q_{m,n} \geq F_{m-1,n-1;1-\frac{\alpha}{2}}$
-    &lt;/dd&gt;
+        &lt;ul&gt;
+&lt;li&gt;Hypothesen: $H_0: \sigma^2 = \tau^2$ vs $H_1: \sigma^2 \neq \tau^2$&lt;/li&gt;
+&lt;li&gt;Testgr&amp;ouml;&amp;szlig;e:
+        $$Q_{m,n} = \frac{\frac{1}{m-1} \sum_{i=1}^m {(X_i - \bar{X}_m)}^2}{\frac{1}{n-1} \sum_{i=1}^n {(Y_i - \bar{Y}_n)}^2}$$&lt;/li&gt;
+&lt;li&gt;Verteilung: $Q_{m,n} \stackrel{H_0}{\sim} F_{m-1, n-1}$&lt;/li&gt;
+&lt;li&gt;Testentscheid: $H_0$ verwerfen, falls $Q_{m,n} \leq F_{m-1,n-1;\frac{\alpha}{2}}$ oder $Q_{m,n} \geq F_{m-1,n-1;1-\frac{\alpha}{2}}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h3 id="kapitel-5-lineare-regression"&gt;Kapitel 5: Lineare Regression&lt;/h3&gt;
 &lt;p&gt;TODO&lt;/p&gt;
@@ -317,17 +314,18 @@
         gelten.
 
         Das Modell ist $Y = X \beta + \varepsilon$ mit Design-Matrix
-        $$X = \begin{pmatrix}1      &amp;amp; 0      &amp;amp;        &amp;amp;        &amp;amp;0\\
-                             \vdots &amp;amp; \vdots &amp;amp;        &amp;amp;        &amp;amp;\vdots\\
-                             1      &amp;amp; 0      &amp;amp;        &amp;amp;        &amp;amp;\vdots\\
-                             0      &amp;amp; 1      &amp;amp;        &amp;amp;        &amp;amp;\vdots\\
-                             \vdots &amp;amp; \vdots &amp;amp;        &amp;amp;        &amp;amp;\vdots\\
-                             0      &amp;amp; 1      &amp;amp;        &amp;amp;        &amp;amp;\vdots\\
-                             \vdots &amp;amp; 0      &amp;amp; \ddots &amp;amp;        &amp;amp;\vdots\\
-                             \vdots &amp;amp; \vdots &amp;amp;        &amp;amp; \ddots &amp;amp; 0\\
-                             1      &amp;amp; \vdots &amp;amp;        &amp;amp;        &amp;amp; 1\\
-                             \vdots &amp;amp; \vdots &amp;amp;        &amp;amp;        &amp;amp; \vdots\\
-                             1      &amp;amp; 0      &amp;amp;        &amp;amp;        &amp;amp; 1\\\end{pmatrix}$$
+        $$X = \begin{pmatrix}1      &amp;amp; 1&amp;amp; 0      &amp;amp;        &amp;amp;0\\
+                             \vdots &amp;amp; \vdots &amp;amp; \vdots &amp;amp;        &amp;amp;\vdots\\
+                             \vdots &amp;amp; 1      &amp;amp; 0      &amp;amp;        &amp;amp;\vdots\\
+                             \vdots &amp;amp; 0      &amp;amp; 1      &amp;amp;        &amp;amp;\vdots\\
+                             \vdots &amp;amp; \vdots &amp;amp; \vdots &amp;amp;        &amp;amp; \vdots\\
+                             \vdots &amp;amp; \vdots &amp;amp; 1      &amp;amp;        &amp;amp; 0\\
+                             \vdots &amp;amp; \vdots &amp;amp; 0      &amp;amp;        &amp;amp; 1\\
+                             \vdots &amp;amp; \vdots &amp;amp; \vdots &amp;amp; \ddots &amp;amp;\vdots\\
+                             \vdots &amp;amp; 0      &amp;amp; 0      &amp;amp;        &amp;amp; 1\\
+                             \vdots &amp;amp; -1     &amp;amp; -1     &amp;amp; \dots  &amp;amp; -1\\
+                             \vdots &amp;amp; \vdots &amp;amp; \vdots &amp;amp;        &amp;amp; \vdots\\
+                             1      &amp;amp; -1     &amp;amp; -1     &amp;amp; \dots  &amp;amp; -1\\\end{pmatrix}$$
         und Parametervektor
         $$\beta := \begin{pmatrix}\mu\\\alpha_2\\\dots\\\alpha_k\end{pmatrix}$$
     &lt;/dd&gt;
