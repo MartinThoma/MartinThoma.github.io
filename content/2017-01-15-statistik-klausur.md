@@ -244,19 +244,15 @@ TODO
     </dd>
     <dt><dfn id="likelihood-quotienten-test">Likelihood-Quotienten-Test</dfn></dt>
     <dd>
-
-        Testgröße: $$\Lambda = \frac{\sup_{\vartheta \in \Theta} L_x (\vartheta)}{\sup_{\vartheta \in \Theta_0} L_x (\vartheta)}$$
-
-        Hypothesen: $H_0$: $\vartheta in \Theta_0$ vs $H_1$: $\vartheta \in \Theta \setminus \Theta_0$
-
-        Testentscheid: Verwerfe $H_0$, falls $\Lambda > c$. Wähle $c$ so, dass
-        Niveau $\alpha$ eingehalten wird.
-
-        Ist der Schätzer konsistent, so gilt $$2 \log(\Lambda_n) \sim \chi_1^2$$
-
-        Also:
-
-        Verwerfe $H_0$, falls $2 \log \Lambda_n \geq \chi^2_{1, 1-\alpha}$
+        <ul>
+            <li>Testgröße: $$\Lambda = \frac{\sup_{\vartheta \in \Theta} L_x (\vartheta)}{\sup_{\vartheta \in \Theta_0} L_x (\vartheta)}$$</li>
+            <li>Hypothesen: $H_0$: $\vartheta in \Theta_0$ vs $H_1$: $\vartheta \in \Theta \setminus \Theta_0$</li>
+            <li>Verteilung: Ist der Schätzer konsistent, so gilt $$2 \log(\Lambda_n) \sim \chi_1^2$$</li>
+            <li>Testentscheid: Verwerfe $H_0$, falls $\Lambda > c$.
+                Wähle $c$ so, dass Niveau $\alpha$ eingehalten wird.<br/>
+                Also: Verwerfe $H_0$, falls
+                $2 \log \Lambda_n \geq \chi^2_{1, 1-\alpha}$</li>
+        </ul>
     </dd>
 </dl>
 
@@ -264,6 +260,23 @@ TODO
 ### Kapitel 4: 2-Stichproben Vergleiche (NV)
 
 TODO
+
+<dl>
+    <dt><dfn id="f-test">F-Test für den Varianzquotienten</dfn></dt>
+    <dd>
+
+        Gegeben sind zwei Stichproben $X_1, \dots, X_m$ sowie $Y_1, \dots, Y_n$
+        mit $X_i \sim \mathcal{N}(\mu, \sigma^2)$ und $\mathcal{N}(\nu, \tau^2)$.
+
+        <ul>
+            <li>Hypothesen: $H_0: \sigma^2 = \tau^2$ vs $H_1: \sigma^2 \neq \tau^2$</li>
+            <li>Testgröße:
+        $$Q_{m,n} = \frac{\frac{1}{m-1} \sum_{i=1}^m {(X_i - \bar{X}_m)}^2}{\frac{1}{n-1} \sum_{i=1}^n {(Y_i - \bar{Y}_n)}^2}$$</li>
+            <li>Verteilung: $Q_{m,n} \stackrel{H_0}{\sim} F_{m-1, n-1}$</li>
+            <li>Testentscheid: $H_0$ verwerfen, falls $Q_{m,n} \leq F_{m-1,n-1;\frac{\alpha}{2}}$ oder $Q_{m,n} \geq F_{m-1,n-1;1-\frac{\alpha}{2}}$</li>
+        </ul>
+    </dd>
+</dl>
 
 
 ### Kapitel 5: Lineare Regression
@@ -340,17 +353,18 @@ TODO
         gelten.
 
         Das Modell ist $Y = X \beta + \varepsilon$ mit Design-Matrix
-        $$X = \begin{pmatrix}1      & 0      &        &        &0\\
-                             \vdots & \vdots &        &        &\vdots\\
-                             1      & 0      &        &        &\vdots\\
-                             0      & 1      &        &        &\vdots\\
-                             \vdots & \vdots &        &        &\vdots\\
-                             0      & 1      &        &        &\vdots\\
-                             \vdots & 0      & \ddots &        &\vdots\\
-                             \vdots & \vdots &        & \ddots & 0\\
-                             1      & \vdots &        &        & 1\\
-                             \vdots & \vdots &        &        & \vdots\\
-                             1      & 0      &        &        & 1\\\end{pmatrix}$$
+        $$X = \begin{pmatrix}1      & 1& 0      &        &0\\
+                             \vdots & \vdots & \vdots &        &\vdots\\
+                             \vdots & 1      & 0      &        &\vdots\\
+                             \vdots & 0      & 1      &        &\vdots\\
+                             \vdots & \vdots & \vdots &        & \vdots\\
+                             \vdots & \vdots & 1      &        & 0\\
+                             \vdots & \vdots & 0      &        & 1\\
+                             \vdots & \vdots & \vdots & \ddots &\vdots\\
+                             \vdots & 0      & 0      &        & 1\\
+                             \vdots & -1     & -1     & \dots  & -1\\
+                             \vdots & \vdots & \vdots &        & \vdots\\
+                             1      & -1     & -1     & \dots  & -1\\\end{pmatrix}$$
         und Parametervektor
         $$\beta := \begin{pmatrix}\mu\\\alpha_2\\\dots\\\alpha_k\end{pmatrix}$$
     </dd>
@@ -563,7 +577,7 @@ rv.ppf(0.95)  # gives 3.1273500051133989
     * Exp-Verteilung und Zusammenhang mit Gamma-Verteilung
     * Binomial-Verteilung
     * 1-Stichproben t-Test
-    * F-Tests
+    * [F-Tests](#f-test)
 
 
 ## Prüfungsfragen
