@@ -258,7 +258,7 @@ TODO
     <dd>
         <ul>
             <li>Testgröße: $$\Lambda = \frac{\sup_{\vartheta \in \Theta} L_x (\vartheta)}{\sup_{\vartheta \in \Theta_0} L_x (\vartheta)}$$</li>
-            <li>Hypothesen: $H_0$: $\vartheta in \Theta_0$ vs $H_1$: $\vartheta \in \Theta \setminus \Theta_0$</li>
+            <li>Hypothesen: $H_0$: $\vartheta \in \Theta_0$ vs $H_1$: $\vartheta \in \Theta \setminus \Theta_0$</li>
             <li>Verteilung: Ist der Schätzer konsistent, so gilt $$2 \log(\Lambda_n) \sim \chi_1^2$$</li>
             <li>Testentscheid: Verwerfe $H_0$, falls $\Lambda > c$.
                 Wähle $c$ so, dass Niveau $\alpha$ eingehalten wird.<br/>
@@ -356,6 +356,9 @@ TODO
         $$\hat{\beta}_i \sim \mathcal{N}(\beta_i, \sigma^2 (X^T X)^{-1}_{i+1, i+1})$$
         sowie
         $$(n-p)\hat{\sigma}^2/\sigma^2 \sim \chi^2_{n-p}$$
+
+        Der übliche Schätzer für $\sigma^2$ ist
+        $$\hat{\sigma}^2 = \frac{1}{n-p} \| Y - \hat{Y} \|^2$$
     </dd>
 </dl>
 
@@ -642,6 +645,7 @@ rv.ppf(0.95)  # gives 3.1273500051133989
 * WS 2014 / 2015, A6c: TODO
 * WS 2014 / 2015, A7a: Warum ist $(I_n - H) X \beta = 0$?
 * WS 2013 / 2014, A3b: Warum gilt das?
+* WS 2012 / 2013, A6e: Wie kommt man auf $t_6$?
 
 
 
