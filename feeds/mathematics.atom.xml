@@ -1,5 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Mathematics</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/mathematics.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2017-02-20T20:00:00+01:00</updated><entry><title>The Absolute Value Function</title><link href="https://martin-thoma.com/abs-function/" rel="alternate"></link><published>2017-02-20T20:00:00+01:00</published><updated>2017-02-20T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-02-20:/abs-function/</id><summary type="html">&lt;p&gt;I was never really taught how to deal with the absolute value function, but
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Mathematics</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/mathematics.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2017-02-21T20:00:00+01:00</updated><entry><title>The p value</title><link href="https://martin-thoma.com/p-value/" rel="alternate"></link><published>2017-02-21T20:00:00+01:00</published><updated>2017-02-21T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-02-21:/p-value/</id><summary type="html">&lt;p&gt;The &lt;span class="math"&gt;\(p\)&lt;/span&gt; value is often used in applications to determine if some improvement
+is &lt;em&gt;significant&lt;/em&gt; or if it was just random chance. Loosely speaking, it defines
+how likely it is (under the assumption of an hypothesis &lt;span class="math"&gt;\(H_0\)&lt;/span&gt;) to get more
+extreme results.&lt;/p&gt;
+&lt;p&gt;This is interesting for studies in medicine and …&lt;/p&gt;</summary><content type="html">&lt;p&gt;The &lt;span class="math"&gt;\(p\)&lt;/span&gt; value is often used in applications to determine if some improvement
+is &lt;em&gt;significant&lt;/em&gt; or if it was just random chance. Loosely speaking, it defines
+how likely it is (under the assumption of an hypothesis &lt;span class="math"&gt;\(H_0\)&lt;/span&gt;) to get more
+extreme results.&lt;/p&gt;
+&lt;p&gt;This is interesting for studies in medicine and similar scenarios. You have a
+drug and a placebo. You want to figure out if the drug is better than the
+placebo.&lt;/p&gt;
+&lt;h2 id="hypothesis-testing"&gt;Hypothesis testing&lt;/h2&gt;
+&lt;p&gt;In statistics, hypothesis testing works as follows:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Define a statistical model&lt;/strong&gt;: This means you have a sample &lt;span class="math"&gt;\(\mathfrak{X}\)&lt;/span&gt; and
+  an assumption about the distribution of the data. For example, &lt;span class="math"&gt;\(\mathfrak{X} = \mathbb{N}^n_{\geq 0}\)&lt;/span&gt; where &lt;span class="math"&gt;\(n \in \mathbb{N}\)&lt;/span&gt; is your sample size and &lt;span class="math"&gt;\(X_1, \dots, X_n \stackrel{iid}{\sim} \mathcal{N}(\mu, \sigma^2)\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Define a hypothesis and an alternative&lt;/strong&gt;: For example &lt;span class="math"&gt;\(H_0: \mu = 100\)&lt;/span&gt; and
+  &lt;span class="math"&gt;\(H_1: \mu &amp;gt; 100\)&lt;/span&gt; might be hypotheses if you want to check if a drug increases
+  the IQ.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Controll errors&lt;/strong&gt;: You can make two errors. Either &lt;span class="math"&gt;\(H_0\)&lt;/span&gt; is true and you
+  reject it or &lt;span class="math"&gt;\(H_1\)&lt;/span&gt; is true, but you don't reject &lt;span class="math"&gt;\(H_0\)&lt;/span&gt;. In statistics, the
+  first error is usually controlled. So the test is made in such a way that
+  the first error is less than some &lt;span class="math"&gt;\(\alpha \in (0, 1)\)&lt;/span&gt;. Usually, &lt;span class="math"&gt;\(\alpha = 0.05\)&lt;/span&gt;
+  or &lt;span class="math"&gt;\(\alpha = 0.01\)&lt;/span&gt; or even lower.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Test value&lt;/strong&gt;: You have a value which indicates something about the parameters
+  in the hypotheses. For example &lt;span class="math"&gt;\(T(X_1, \dots, X_n) = \frac{1}{n}\sum_{i=1} X_i\)&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Test value distribution&lt;/strong&gt;: &lt;span class="math"&gt;\(T\)&lt;/span&gt; itself is a random variable and you can calculate its distribution
+  (e.g. &lt;span class="math"&gt;\(T \stackrel{H_0}{\sim} \mathcal{N}(\mu, \frac{\sigma^2}{n})\)&lt;/span&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Calculate test decision&lt;/strong&gt;: Hence you can calculate a &lt;span class="math"&gt;\(c \in \mathbb{R}\)&lt;/span&gt; such that
+  &lt;span class="math"&gt;\(P_{H_0}(H_0 \text{ is rejected}) = P_{H_0}(T \leq c) \leq \alpha\)&lt;/span&gt;.
+  It does not have to be &lt;span class="math"&gt;\(T &amp;lt; c\)&lt;/span&gt;, but often it is.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="the-p-value"&gt;The p value&lt;/h2&gt;
+&lt;p&gt;Now note that you could also make it the other way round. You could calculate&lt;/p&gt;
+&lt;div class="math"&gt;$$p^* = P_{H_0} (T \geq T(x))$$&lt;/div&gt;
+&lt;p&gt;If &lt;span class="math"&gt;\(p^* \leq \alpha\)&lt;/span&gt;, then &lt;span class="math"&gt;\(H_0\)&lt;/span&gt; can be rejected on Niveau &lt;span class="math"&gt;\(\alpha\)&lt;/span&gt;.&lt;/p&gt;
+&lt;h2 id="interesting-statements"&gt;Interesting statements&lt;/h2&gt;
+&lt;p&gt;I just came across the following statments which I think are interesting enough
+to share them. &lt;strong&gt;All of them are wrong.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The follwing was takine from a German statistics exam by Dr. Klar (KIT, WS 2013/2014).&lt;/p&gt;
+&lt;p&gt;Assume for the following, that an experiment resulted in a &lt;span class="math"&gt;\(p\)&lt;/span&gt; value of &lt;span class="math"&gt;\(0.01\)&lt;/span&gt;.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(H_0\)&lt;/span&gt; is certainly false.&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(H_0\)&lt;/span&gt; is with probability &lt;span class="math"&gt;\(0.01\)&lt;/span&gt; false.&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(H_1\)&lt;/span&gt; is certainly correct.&lt;/li&gt;
+&lt;li&gt;You can calculate the probability that &lt;span class="math"&gt;\(H_1\)&lt;/span&gt; is correct with the &lt;span class="math"&gt;\(p\)&lt;/span&gt; value.&lt;/li&gt;
+&lt;li&gt;If one decides to reject &lt;span class="math"&gt;\(H_0\)&lt;/span&gt;, then the &lt;span class="math"&gt;\(p\)&lt;/span&gt; value is the probability of
+   making the wrong decision.&lt;/li&gt;
+&lt;li&gt;The experimental result is reliable, meaning that if the experiment is
+   repeated often one would get a significant result in 99% of the cases.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;I'm not too sure if (5) is really wrong.&lt;/p&gt;
+&lt;h2 id="p-hacking"&gt;p hacking&lt;/h2&gt;
+&lt;iframe allowfullscreen="" frameborder="0" height="288" src="https://www.youtube-nocookie.com/embed/42QuXLucH3Q?rel=0" width="512"&gt;&lt;/iframe&gt;
+&lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://amstat.tandfonline.com/doi/abs/10.1080/00031305.2015.1069760"&gt;The p-Value You Can&amp;rsquo;t Buy&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="mathematics"></category><category term="statistics"></category></entry><entry><title>The Absolute Value Function</title><link href="https://martin-thoma.com/abs-function/" rel="alternate"></link><published>2017-02-20T20:00:00+01:00</published><updated>2017-02-20T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-02-20:/abs-function/</id><summary type="html">&lt;p&gt;I was never really taught how to deal with the absolute value function, but
 I need it from time to time. So here are a few hints.&lt;/p&gt;
 &lt;h2 id="solving-equations"&gt;Solving Equations&lt;/h2&gt;
 &lt;p&gt;Lets say you want to solve the equation&lt;/p&gt;
