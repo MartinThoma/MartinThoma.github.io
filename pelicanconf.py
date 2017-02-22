@@ -105,6 +105,7 @@ STATIC_PATHS = ['images',
                 'extra/favicon.ico',
                 'extra/opensearch.xml',
                 'pdf',
+                'anki',
                 'audio',
                 'html5',
                 'js',
@@ -116,6 +117,7 @@ EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},
                        'pdf': {'path': 'pdf'},
                        'audio': {'path': 'audio'},
                        'js': {'path': 'js'},
+                       'anki': {'path': 'anki'},
                        'python': {'path': 'python'}}
 OUTPUT_PATH = '/var/www/blog/'
 # SUMMARY_MAX_LENGTH = 0
