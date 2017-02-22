@@ -617,6 +617,7 @@ rv.ppf(0.95)  # gives 3.1273500051133989
     * Lineares Regressionsmodell
     * [Kleinster-Quadrate-Schätzer](#least-squares-estimator)
     * [Bestimmtheitsmaß](#bestimmtheitsmass)
+    * Chi-Quadrat-Test auf Homogenität ($D := \sum_{i=1}^n \frac{n_i {(\hat{p}_i - \hat{p})}^2}{\hat{p} (1 - \hat{p})} \stackrel{H_0}{\sim} \chi^2_{k-1}$)
 * Various
     * Exp-Verteilung und Zusammenhang mit Gamma-Verteilung
     * Binomial-Verteilung
@@ -640,6 +641,11 @@ rv.ppf(0.95)  # gives 3.1273500051133989
   → Ja. Setting wie zuvor und $\hat{\vartheta} = \frac{1}{n} \sum_{i=1}^n x_i + \frac{1}{n}$ (siehe [math.SE](http://math.stackexchange.com/q/2149771/6876))
 
 
+## Tips
+
+* Klausur WS 2013 / 2014, Aufgabe 1 und 2 sind lehrreich
+
+
 ## Offene Fragen
 
 * WS 2014 / 2015, A6c: TODO
@@ -656,7 +662,10 @@ rv.ppf(0.95)  # gives 3.1273500051133989
 * StackExchange
     * [Percentile vs quantile vs quartile](http://stats.stackexchange.com/q/156778/25741)
     * [When is Fishers exact test used; when are approximative tests used?](http://math.stackexchange.com/q/2120746/6876)
-* [Anki-Karten](https://ankiweb.net/shared/info/245843947)
+* Blog-Artikel
+    * [The Absolute Value Function](https://martin-thoma.com/abs-function/) - vgl. Konfidenzintervalle
+    * [The p value](https://martin-thoma.com/p-value/)
+* [Anki-Karten](https://ankiweb.net/shared/info/245843947) ([direct download](https://martin-thoma.com/anki/Statistik.apkg))
 * [Verteilungsfunktion der Normalverteilung](https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/normal-distribution) als Tabelle
 * [Inverse Verteilungsfunktion der Normalverteilung](https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/normal-distribution-z) als Tabelle
 * Fehlende Musterlösungen: [KIT-Musterloesungen](https://github.com/MartinThoma/KIT-Musterloesungen/tree/master/Statistik) - Verbesserungshinweise nehme ich immer gerne entgegen (`info@martin-thoma.de`)
@@ -684,4 +693,10 @@ rv.ppf(0.95)  # gives 3.1273500051133989
 **Bestehensgrenze**: min 50%<br/>
 **Übungsschein**: gibt es nicht<br/>
 **Bonuspunkte**: gibt es nicht<br/>
-**Erlaubte Hilfsmittel**: Taschenrechner
+**Nicht vergessen**:
+
+* Studentenausweis
+* Taschenrechner
+* Uhr
+* Brille
+* Geodreieck
