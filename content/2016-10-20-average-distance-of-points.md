@@ -58,7 +58,7 @@ The volume of an $n$-dimensional hypercube is $V_C(a) = a^n$ where $a$ is the
 cubes side length. So for 1 dimension it is $a$, for 2 dimensions (a square) it
 is $a^2$, for 3 dimensions it is $a^3$ (a cube).
 
-The colume of an $n$-dimensional ball is
+The volume of an $n$-dimensional ball is
 $$V_S(r) = r^n \frac{\pi^{n/2}}{\Gamma (\frac{n}{2} + 1)}$$
 Source: [Wikipedia](https://en.wikipedia.org/wiki/N-sphere#Closed_forms)<br/>
 So for 1 dimension it is $r \frac{\sqrt{\pi}}{\Gamma(1.5)} = r \frac{\sqrt{\pi}}{0.5 \Gamma(0.5)} = 2r$,
