@@ -100,9 +100,9 @@ featured_image: logos/klausur.png
         $$\frac{1}{n} \sum_{i=1}^n Y_i \stackrel{P-f.s.}{\longrightarrow} E(Y_1)$$
         </dd>
     <dt><dfn id="score-funktion">Score-Funktion</dfn></dt>
-    <dd>$$U_\vartheta(X_1) := \frac{\partial f(X_1, \vartheta)}{\partial \vartheta}$$</dd>
+    <dd>$$U_\vartheta(X_1) := \frac{\partial \log f(X_1, \vartheta)}{\partial \vartheta}$$</dd>
     <dt><dfn id="fisher-information">Fisher-Information</dfn></dt>
-    <dd>$$I(\vartheta) := \mathbb{E}_\vartheta(U_\vartheta^2) = - \mathbb{E}_\vartheta \left [ \frac{\partial U_\vartheta (X_1)}{\partial \vartheta} \right ]$$</dd>
+    <dd>$$I(\vartheta) := \mathbb{E}_\vartheta(U_\vartheta^2) = - \mathbb{E}_\vartheta \left [ \frac{\partial U_\vartheta (X_1)}{\partial \vartheta} \right ] \in [0, \infty]$$</dd>
     <dt><dfn id="cramer-rao">Cramér-Rao Ungleichung</dfn></dt>
     <dd>$$V_\vartheta(T) \geq \frac{[E_\vartheta' (T) (\vartheta)]^2}{n I (\vartheta)}$$
 
@@ -662,6 +662,8 @@ rv.ppf(0.95)  # gives 3.1273500051133989
 * StackExchange
     * [Percentile vs quantile vs quartile](http://stats.stackexchange.com/q/156778/25741)
     * [When is Fishers exact test used; when are approximative tests used?](http://math.stackexchange.com/q/2120746/6876)
+    * [What is the range of values of the Fisher information?](http://math.stackexchange.com/q/2157587/6876)
+    * [How can I calculate the distribution of the least-squares estimator $\hat{\beta}$?](http://math.stackexchange.com/q/2159447/6876)
 * Blog-Artikel
     * [The Absolute Value Function](https://martin-thoma.com/abs-function/) - vgl. Konfidenzintervalle
     * [The p value](https://martin-thoma.com/p-value/)
