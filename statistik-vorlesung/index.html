@@ -389,16 +389,16 @@ MathJax.Hub.Queue(function() {
 </tr>
 <tr>
 <th>Regression</th>
-<td>$p-1$</td>
+<td>$k-1$</td>
 <td>TSS - RSS</td>
-<td>$\frac{TSS-RSS}{p-1}$</td>
-<td>F</td>
+<td>$\frac{TSS-RSS}{k-1}$</td>
+<td>F = $\frac{TSS-RSS/(k-1)}{RSS/(n-k)}$</td>
 </tr>
 <tr>
 <th>Residuen</th>
-<td>$n-p$</td>
+<td>$n-k$</td>
 <td>RSS</td>
-<td>$\frac{RSS}{n-p}$</td>
+<td>$\frac{RSS}{n-k}$</td>
 <td>&nbsp;</td>
 </tr>
 <tr>
@@ -409,7 +409,10 @@ MathJax.Hub.Queue(function() {
 <td>&nbsp;</td>
 </tr>
 </table>
-</dd>
+
+        $H_0$: $\mu_1 = \mu_2 = \dots = \mu_k$<br/>
+        $H_0$ verwerfen, wenn $F \geq F_{k-1, n-k; 1- \alpha}$.
+    </dd>
 <dt><dfn id="least-squares-estimator">Kleinster-Quadrate-Sch&auml;tzer</dfn></dt>
 <dd>
 
@@ -418,14 +421,19 @@ MathJax.Hub.Queue(function() {
         $$\hat{\beta} = (X^T X)^{-1} X^T Y$$
         $$\hat{Y} \sim N_n(X \beta, \sigma^2 H)$$
 
+        Der &uuml;bliche Sch&auml;tzer f&uuml;r $\sigma^2$ ist
+        $$\hat{\sigma}^2 = \frac{1}{n-p} \| Y - \hat{Y} \|^2$$
+
+        Die folgenden Sachen kann man alle in der Klausur aus obigen Angaben
+        herleiten (vgl. <a href="http://math.stackexchange.com/q/2159447/6876">math.SE</a>):
         Es gilt:
         $$\hat{\beta} \sim N_p(\beta, \sigma^2 (X^T X)^-1)$$
         $$\hat{\beta}_i \sim \mathcal{N}(\beta_i, \sigma^2 (X^T X)^{-1}_{i+1, i+1})$$
         sowie
         $$(n-p)\hat{\sigma}^2/\sigma^2 \sim \chi^2_{n-p}$$
 
-        Der &uuml;bliche Sch&auml;tzer f&uuml;r $\sigma^2$ ist
-        $$\hat{\sigma}^2 = \frac{1}{n-p} \| Y - \hat{Y} \|^2$$
+        Sch&auml;tzer f&uuml;r die Standardabweichung von $\hat{\beta}$:
+        $$se(\hat{\beta}_i) = \hat{\sigma} \sqrt{{(X^T X)}^{-1}_{i,i}}$$
     </dd>
 </dl>
 <h3 id="kapitel-6-varianz-und-kovarianzanalyse">Kapitel 6: Varianz- und Kovarianz&shy;analyse</h3>

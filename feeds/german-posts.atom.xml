@@ -285,16 +285,16 @@
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Regression&lt;/th&gt;
-&lt;td&gt;$p-1$&lt;/td&gt;
+&lt;td&gt;$k-1$&lt;/td&gt;
 &lt;td&gt;TSS - RSS&lt;/td&gt;
-&lt;td&gt;$\frac{TSS-RSS}{p-1}$&lt;/td&gt;
-&lt;td&gt;F&lt;/td&gt;
+&lt;td&gt;$\frac{TSS-RSS}{k-1}$&lt;/td&gt;
+&lt;td&gt;F = $\frac{TSS-RSS/(k-1)}{RSS/(n-k)}$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Residuen&lt;/th&gt;
-&lt;td&gt;$n-p$&lt;/td&gt;
+&lt;td&gt;$n-k$&lt;/td&gt;
 &lt;td&gt;RSS&lt;/td&gt;
-&lt;td&gt;$\frac{RSS}{n-p}$&lt;/td&gt;
+&lt;td&gt;$\frac{RSS}{n-k}$&lt;/td&gt;
 &lt;td&gt;&amp;nbsp;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -305,7 +305,10 @@
 &lt;td&gt;&amp;nbsp;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
-&lt;/dd&gt;
+
+        $H_0$: $\mu_1 = \mu_2 = \dots = \mu_k$&lt;br/&gt;
+        $H_0$ verwerfen, wenn $F \geq F_{k-1, n-k; 1- \alpha}$.
+    &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="least-squares-estimator"&gt;Kleinster-Quadrate-Sch&amp;auml;tzer&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;
 
@@ -314,14 +317,19 @@
         $$\hat{\beta} = (X^T X)^{-1} X^T Y$$
         $$\hat{Y} \sim N_n(X \beta, \sigma^2 H)$$
 
+        Der &amp;uuml;bliche Sch&amp;auml;tzer f&amp;uuml;r $\sigma^2$ ist
+        $$\hat{\sigma}^2 = \frac{1}{n-p} \| Y - \hat{Y} \|^2$$
+
+        Die folgenden Sachen kann man alle in der Klausur aus obigen Angaben
+        herleiten (vgl. &lt;a href="http://math.stackexchange.com/q/2159447/6876"&gt;math.SE&lt;/a&gt;):
         Es gilt:
         $$\hat{\beta} \sim N_p(\beta, \sigma^2 (X^T X)^-1)$$
         $$\hat{\beta}_i \sim \mathcal{N}(\beta_i, \sigma^2 (X^T X)^{-1}_{i+1, i+1})$$
         sowie
         $$(n-p)\hat{\sigma}^2/\sigma^2 \sim \chi^2_{n-p}$$
 
-        Der &amp;uuml;bliche Sch&amp;auml;tzer f&amp;uuml;r $\sigma^2$ ist
-        $$\hat{\sigma}^2 = \frac{1}{n-p} \| Y - \hat{Y} \|^2$$
+        Sch&amp;auml;tzer f&amp;uuml;r die Standardabweichung von $\hat{\beta}$:
+        $$se(\hat{\beta}_i) = \hat{\sigma} \sqrt{{(X^T X)}^{-1}_{i,i}}$$
     &lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h3 id="kapitel-6-varianz-und-kovarianzanalyse"&gt;Kapitel 6: Varianz- und Kovarianz&amp;shy;analyse&lt;/h3&gt;
