@@ -152,6 +152,13 @@ featured_image: logos/klausur.png
             <li>1-Stichproben-t-Test: $I(X) = \left [\bar{X} - \frac{S}{\sqrt{n}} \cdot t_{n-1;1-\frac{\alpha}{2}}, \bar{X} + \frac{S}{\sqrt{n}} \cdot t_{n-1;1-\frac{\alpha}{2}} \right]$</li>
             <li>Approximativer Binomialtest: $I(X) = \left [ \hat{p}_n - z_{1-\frac{\alpha}{2}} \sqrt{\hat{p}_n (1- \hat{p}_n)/n}, \hat{p}_n + z_{1-\frac{\alpha}{2}} \sqrt{\hat{p}_n (1- \hat{p}_n) / n} \right ]$</li>
         </ul>
+
+        Konfidenzintervalle zur Konfidenzwahrschwahrscheinlichkeit $1-\alpha$
+        haben immer die Form:
+        $$[T - \hat{\sigma} \cdot z_{1-\frac{\alpha}{2}; T + \hat{sigma} \cdot z_{1-\frac{\alpha}{2}}]$$
+        wobei $T$ der Schätzer ist, $\hat{\sigma}$ die geschätze Varianz des
+        Schätzers und $z_{1-\frac{\alpha}{2}$ die Quantilfunktion zur Verteilung
+        des Schätzers.
     </dd>
     <dt><dfn id="satz-von-student">Satz von Student</dfn></dt>
     <dd>Es seien $X_1, X_2, \dots, X_n \stackrel{uiv}{\sim} \mathcal{N}(\mu, \sigma^2),\quad n\geq 2$ sowie $\bar{X} = \frac{1}{n} \sum_{i=1}^n X_i$, $S^2 = \frac{1}{n-1} \sum_{i=1}^n {(X_i - \bar{X})}^2$ sowie $S = \sqrt{S^2}$. Dann gilt:
@@ -321,16 +328,16 @@ TODO
             </tr>
             <tr>
                 <th>Regression</th>
-                <td>$p-1$</td>
+                <td>$k-1$</td>
                 <td>TSS - RSS</td>
-                <td>$\frac{TSS-RSS}{p-1}$</td>
-                <td>F</td>
+                <td>$\frac{TSS-RSS}{k-1}$</td>
+                <td>F = $\frac{TSS-RSS/(k-1)}{RSS/(n-k)}$</td>
             </tr>
             <tr>
                 <th>Residuen</th>
-                <td>$n-p$</td>
+                <td>$n-k$</td>
                 <td>RSS</td>
-                <td>$\frac{RSS}{n-p}$</td>
+                <td>$\frac{RSS}{n-k}$</td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
@@ -342,6 +349,8 @@ TODO
             </tr>
         </table>
 
+        $H_0$: $\mu_1 = \mu_2 = \dots = \mu_k$<br/>
+        $H_0$ verwerfen, wenn $F \geq F_{k-1, n-k; 1- \alpha}$.
     </dd>
     <dt><dfn id="least-squares-estimator">Kleinster-Quadrate-Schätzer</dfn></dt>
     <dd>
@@ -351,14 +360,19 @@ TODO
         $$\hat{\beta} = (X^T X)^{-1} X^T Y$$
         $$\hat{Y} \sim N_n(X \beta, \sigma^2 H)$$
 
+        Der übliche Schätzer für $\sigma^2$ ist
+        $$\hat{\sigma}^2 = \frac{1}{n-p} \| Y - \hat{Y} \|^2$$
+
+        Die folgenden Sachen kann man alle in der Klausur aus obigen Angaben
+        herleiten (vgl. <a href="http://math.stackexchange.com/q/2159447/6876">math.SE</a>):
         Es gilt:
         $$\hat{\beta} \sim N_p(\beta, \sigma^2 (X^T X)^-1)$$
         $$\hat{\beta}_i \sim \mathcal{N}(\beta_i, \sigma^2 (X^T X)^{-1}_{i+1, i+1})$$
         sowie
         $$(n-p)\hat{\sigma}^2/\sigma^2 \sim \chi^2_{n-p}$$
 
-        Der übliche Schätzer für $\sigma^2$ ist
-        $$\hat{\sigma}^2 = \frac{1}{n-p} \| Y - \hat{Y} \|^2$$
+        Schätzer für die Standardabweichung von $\hat{\beta}$:
+        $$se(\hat{\beta}_i) = \hat{\sigma} \sqrt{{(X^T X)}^{-1}_{i,i}}$$
     </dd>
 </dl>
 
