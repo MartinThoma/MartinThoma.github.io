@@ -1498,6 +1498,7 @@ Feedback von dir freuen:
 * Hartenstein: [Big Data Mining auf GPUs](https://www.kithub.de/vvz/22548/events/45543)
 * Hanebeck: [Von Big Data zu Data Science: Moderne Methoden der Informationsverarbeitung](https://www.kithub.de/vvz/22544/events/43438)
 * Nakhaeizadeh: [Data Mining](https://www.kithub.de/vvz/21974/events/46245)
+* Studer (AIFB): [Knowledge Discovery](https://www.kithub.de/vvz/21970/events/44546)
 
 
 ## Termine und Klausurablauf
