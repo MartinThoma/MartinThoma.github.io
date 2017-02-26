@@ -241,7 +241,14 @@ MathJax.Hub.Queue(function() {
 <li>1-Stichproben-t-Test: $I(X) = \left [\bar{X} - \frac{S}{\sqrt{n}} \cdot t_{n-1;1-\frac{\alpha}{2}}, \bar{X} + \frac{S}{\sqrt{n}} \cdot t_{n-1;1-\frac{\alpha}{2}} \right]$</li>
 <li>Approximativer Binomialtest: $I(X) = \left [ \hat{p}_n - z_{1-\frac{\alpha}{2}} \sqrt{\hat{p}_n (1- \hat{p}_n)/n}, \hat{p}_n + z_{1-\frac{\alpha}{2}} \sqrt{\hat{p}_n (1- \hat{p}_n) / n} \right ]$</li>
 </ul>
-</dd>
+
+        Konfidenzintervalle zur Konfidenzwahrschwahrscheinlichkeit $1-\alpha$
+        haben immer die Form:
+        $$[T - \hat{\sigma} \cdot z_{1-\frac{\alpha}{2}; T + \hat{sigma} \cdot z_{1-\frac{\alpha}{2}}]$$
+        wobei $T$ der Sch&auml;tzer ist, $\hat{\sigma}$ die gesch&auml;tze Varianz des
+        Sch&auml;tzers und $z_{1-\frac{\alpha}{2}$ die Quantilfunktion zur Verteilung
+        des Sch&auml;tzers.
+    </dd>
 <dt><dfn id="satz-von-student">Satz von Student</dfn></dt>
 <dd>Es seien $X_1, X_2, \dots, X_n \stackrel{uiv}{\sim} \mathcal{N}(\mu, \sigma^2),\quad n\geq 2$ sowie $\bar{X} = \frac{1}{n} \sum_{i=1}^n X_i$, $S^2 = \frac{1}{n-1} \sum_{i=1}^n {(X_i - \bar{X})}^2$ sowie $S = \sqrt{S^2}$. Dann gilt:
 
@@ -376,7 +383,7 @@ MathJax.Hub.Queue(function() {
 <p>TODO</p>
 <dl>
 <dt>Satz 5.4.1</dt>
-<dd>Unter $H_0$ ist die Teststatistik $F = \frac{(RSS_r - RSS)/(p-r)}{RSS/(n-p)}$ Fisher-verteilt mit $p-r$ Z&auml;hler- und $n-p$ Nenner-Freiheitsgraden.</dd>
+<dd>Unter $H_0$ ist die Teststatistik $F = \frac{(TSS - RSS)/(p-r)}{RSS/(n-p)}$ Fisher-verteilt mit $p-r$ Z&auml;hler- und $n-p$ Nenner-Freiheitsgraden.</dd>
 <dt id="anova-tafel">ANOVA-Tafel</dt>
 <dd>
 <table class="table">
@@ -420,6 +427,7 @@ MathJax.Hub.Queue(function() {
         $Y = X \beta + \epsilon$ lautet:
         $$\hat{\beta} = (X^T X)^{-1} X^T Y$$
         $$\hat{Y} \sim N_n(X \beta, \sigma^2 H)$$
+        $$\hat{\varepsilon}_i \sim \mathcal{N}(0, (1-H_{ii}) \sigma^2)$$
 
         Der &uuml;bliche Sch&auml;tzer f&uuml;r $\sigma^2$ ist
         $$\hat{\sigma}^2 = \frac{1}{n-p} \| Y - \hat{Y} \|^2$$
@@ -486,7 +494,7 @@ MathJax.Hub.Queue(function() {
 <dd>
 <ul>
 <li>Hypothesen: $H_0$: $\mu_1 = \mu_2 = \dots = \mu_k$ vs $H_1: \exists i, j: \mu_i \neq \mu_j$</li>
-<li>Testgr&ouml;&szlig;e: $F = \frac{(RSS_1 - RSS) / (k-1)}{RSS / (n-k)}$</li>
+<li>Testgr&ouml;&szlig;e: $F = \frac{(TSS - RSS) / (k-1)}{RSS / (n-k)}$</li>
 <li>Verteilung: $F \stackrel{H_0}{\sim} F_{k-1, n-k}$</li>
 <li>Testentscheid: $H_0$ verwerfen, falls $F \geq F_{k-1, n-k; 1 - \alpha}$</li>
 </ul>
@@ -515,7 +523,7 @@ MathJax.Hub.Queue(function() {
 <li>RSS: Residual Sum of Squares</li>
 <li>SQI: Summe der Quadrate innerhalb der Gruppen</li>
 <li>SQZ: Summe der Quadrate zwischen den Gruppen</li>
-<li>TTS: Total Sum of Squares</li>
+<li>TSS: Total Sum of Squares (<span class="math">\(TSS = \sum_{i=1}^n {(y_i - \bar{y}_n)}^2\)</span>)</li>
 <li>uiv, u.i.v.: unabh&auml;ngig identisch verteilt</li>
 </ul>
 <h2 id="symbolverzeichnis">Symbolverzeichnis</h2>

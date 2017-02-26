@@ -137,7 +137,14 @@
 &lt;li&gt;1-Stichproben-t-Test: $I(X) = \left [\bar{X} - \frac{S}{\sqrt{n}} \cdot t_{n-1;1-\frac{\alpha}{2}}, \bar{X} + \frac{S}{\sqrt{n}} \cdot t_{n-1;1-\frac{\alpha}{2}} \right]$&lt;/li&gt;
 &lt;li&gt;Approximativer Binomialtest: $I(X) = \left [ \hat{p}_n - z_{1-\frac{\alpha}{2}} \sqrt{\hat{p}_n (1- \hat{p}_n)/n}, \hat{p}_n + z_{1-\frac{\alpha}{2}} \sqrt{\hat{p}_n (1- \hat{p}_n) / n} \right ]$&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/dd&gt;
+
+        Konfidenzintervalle zur Konfidenzwahrschwahrscheinlichkeit $1-\alpha$
+        haben immer die Form:
+        $$[T - \hat{\sigma} \cdot z_{1-\frac{\alpha}{2}; T + \hat{sigma} \cdot z_{1-\frac{\alpha}{2}}]$$
+        wobei $T$ der Sch&amp;auml;tzer ist, $\hat{\sigma}$ die gesch&amp;auml;tze Varianz des
+        Sch&amp;auml;tzers und $z_{1-\frac{\alpha}{2}$ die Quantilfunktion zur Verteilung
+        des Sch&amp;auml;tzers.
+    &lt;/dd&gt;
 &lt;dt&gt;&lt;dfn id="satz-von-student"&gt;Satz von Student&lt;/dfn&gt;&lt;/dt&gt;
 &lt;dd&gt;Es seien $X_1, X_2, \dots, X_n \stackrel{uiv}{\sim} \mathcal{N}(\mu, \sigma^2),\quad n\geq 2$ sowie $\bar{X} = \frac{1}{n} \sum_{i=1}^n X_i$, $S^2 = \frac{1}{n-1} \sum_{i=1}^n {(X_i - \bar{X})}^2$ sowie $S = \sqrt{S^2}$. Dann gilt:
 
@@ -272,7 +279,7 @@
 &lt;p&gt;TODO&lt;/p&gt;
 &lt;dl&gt;
 &lt;dt&gt;Satz 5.4.1&lt;/dt&gt;
-&lt;dd&gt;Unter $H_0$ ist die Teststatistik $F = \frac{(RSS_r - RSS)/(p-r)}{RSS/(n-p)}$ Fisher-verteilt mit $p-r$ Z&amp;auml;hler- und $n-p$ Nenner-Freiheitsgraden.&lt;/dd&gt;
+&lt;dd&gt;Unter $H_0$ ist die Teststatistik $F = \frac{(TSS - RSS)/(p-r)}{RSS/(n-p)}$ Fisher-verteilt mit $p-r$ Z&amp;auml;hler- und $n-p$ Nenner-Freiheitsgraden.&lt;/dd&gt;
 &lt;dt id="anova-tafel"&gt;ANOVA-Tafel&lt;/dt&gt;
 &lt;dd&gt;
 &lt;table class="table"&gt;
@@ -316,6 +323,7 @@
         $Y = X \beta + \epsilon$ lautet:
         $$\hat{\beta} = (X^T X)^{-1} X^T Y$$
         $$\hat{Y} \sim N_n(X \beta, \sigma^2 H)$$
+        $$\hat{\varepsilon}_i \sim \mathcal{N}(0, (1-H_{ii}) \sigma^2)$$
 
         Der &amp;uuml;bliche Sch&amp;auml;tzer f&amp;uuml;r $\sigma^2$ ist
         $$\hat{\sigma}^2 = \frac{1}{n-p} \| Y - \hat{Y} \|^2$$
@@ -382,7 +390,7 @@
 &lt;dd&gt;
 &lt;ul&gt;
 &lt;li&gt;Hypothesen: $H_0$: $\mu_1 = \mu_2 = \dots = \mu_k$ vs $H_1: \exists i, j: \mu_i \neq \mu_j$&lt;/li&gt;
-&lt;li&gt;Testgr&amp;ouml;&amp;szlig;e: $F = \frac{(RSS_1 - RSS) / (k-1)}{RSS / (n-k)}$&lt;/li&gt;
+&lt;li&gt;Testgr&amp;ouml;&amp;szlig;e: $F = \frac{(TSS - RSS) / (k-1)}{RSS / (n-k)}$&lt;/li&gt;
 &lt;li&gt;Verteilung: $F \stackrel{H_0}{\sim} F_{k-1, n-k}$&lt;/li&gt;
 &lt;li&gt;Testentscheid: $H_0$ verwerfen, falls $F \geq F_{k-1, n-k; 1 - \alpha}$&lt;/li&gt;
 &lt;/ul&gt;
@@ -411,7 +419,7 @@
 &lt;li&gt;RSS: Residual Sum of Squares&lt;/li&gt;
 &lt;li&gt;SQI: Summe der Quadrate innerhalb der Gruppen&lt;/li&gt;
 &lt;li&gt;SQZ: Summe der Quadrate zwischen den Gruppen&lt;/li&gt;
-&lt;li&gt;TTS: Total Sum of Squares&lt;/li&gt;
+&lt;li&gt;TSS: Total Sum of Squares (&lt;span class="math"&gt;\(TSS = \sum_{i=1}^n {(y_i - \bar{y}_n)}^2\)&lt;/span&gt;)&lt;/li&gt;
 &lt;li&gt;uiv, u.i.v.: unabh&amp;auml;ngig identisch verteilt&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="symbolverzeichnis"&gt;Symbolverzeichnis&lt;/h2&gt;
@@ -7643,6 +7651,7 @@ Feedback von dir freuen:&lt;/p&gt;
 &lt;li&gt;Hartenstein: &lt;a href="https://www.kithub.de/vvz/22548/events/45543"&gt;Big Data Mining auf GPUs&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Hanebeck: &lt;a href="https://www.kithub.de/vvz/22544/events/43438"&gt;Von Big Data zu Data Science: Moderne Methoden der Informationsverarbeitung&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Nakhaeizadeh: &lt;a href="https://www.kithub.de/vvz/21974/events/46245"&gt;Data Mining&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Studer (AIFB): &lt;a href="https://www.kithub.de/vvz/21970/events/44546"&gt;Knowledge Discovery&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="termine-und-klausurablauf"&gt;Termine und Klausurablauf&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Datum&lt;/strong&gt;: M&amp;uuml;ndliche Pr&amp;uuml;fung (in Zukunft schriftlich)&lt;br/&gt;
