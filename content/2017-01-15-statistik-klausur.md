@@ -8,7 +8,7 @@ category: German posts
 tags: Klausur, Statistik
 featured_image: logos/klausur.png
 ---
-<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Statistik&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://www.math.kit.edu/stoch/~klar/de">Herrn Prof. Dr. Bernhard Klar</a> im Wintersemester 2016 / 2017 gehört. Der Artikel ist noch am Entstehen</div>
+<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Statistik&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://www.math.kit.edu/stoch/~klar/de">Herrn Prof. Dr. Bernhard Klar</a> im Wintersemester 2016 / 2017 gehört.</div>
 
 ## Behandelter Stoff
 
@@ -116,8 +116,6 @@ featured_image: logos/klausur.png
         $0 < \sigma^2 = V(X_1) < \infty $. Mit $\mu = \mathbb{E}(X_1)$ gilt
         dann:
         $$P(\frac{\sqrt{n}(\bar{X}_n - \mu)}{\sigma} < c) \stackrel{n \rightarrow \infty}{\longrightarrow} \Phi(c)$$</dd>
-    <dt><dfn>Verteilungskonvergenz</dfn></dt>
-    <dd>TODO</dd>
     <dt><dfn>Score-Gleichung</dfn></dt>
     <dd>Score-Funktion gleich 0 setzen:
         $$\sum_{i=1}^n \frac{\partial f(x_i, \vartheta)}{\partial \vartheta} = 0$$
@@ -175,8 +173,6 @@ featured_image: logos/klausur.png
 
 
 ### Kapitel 3: Statistische Tests
-
-TODO
 
 <dl>
     <dt><dfn>Tests Allgemein</dfn></dt>
@@ -250,7 +246,9 @@ TODO
 
     </dd>
     <dt><a href="https://de.wikipedia.org/wiki/G%C3%BCtefunktion"><dfn id="guetefunktion">Gütefunktion</dfn></a></dt>
-    <dd>Die Gütefunktion ist $g(\vartheta) = P_\vartheta(\text{Test verwirft } H_0), \quad \vartheta \in \Theta$.</dd>
+    <dd>Die Gütefunktion ist $g(\vartheta) = P_\vartheta(\text{Test verwirft } H_0), \quad \vartheta \in \Theta$.<br/>
+        Ist die Nullhypothese einelementig (also $H_0: \vartheta = \vartheta_0$), so gilt $g(\vartheta_0) = \alpha$.
+        Ist die Alternative einelementig (also: $H_1: \vartheta = \vartheta_1$), so gilt $g(\vartheta_1) = 1- \text{Fehler 2. Art}$.</dd>
     <dt><dfn id="neyman-pearson-test">Neyman-Pearson-Test</dfn> (<dfn>NP-Test</dfn>)</dt>
     <dd>
 
@@ -290,8 +288,6 @@ TODO
 
 ### Kapitel 4: 2-Stichproben Vergleiche (NV)
 
-TODO
-
 <dl>
     <dt><dfn id="f-test-varianzquotient">F-Test für den Varianzquotienten</dfn></dt>
     <dd>
@@ -311,11 +307,10 @@ TODO
 
 
 ### Kapitel 5: Lineare Regression
-TODO
 
 <dl>
     <dt>Satz 5.4.1</dt>
-    <dd>Unter $H_0$ ist die Teststatistik $F = \frac{(RSS_r - RSS)/(p-r)}{RSS/(n-p)}$ Fisher-verteilt mit $p-r$ Zähler- und $n-p$ Nenner-Freiheitsgraden.</dd>
+    <dd>Unter $H_0$ ist die Teststatistik $F = \frac{(TSS - RSS)/(p-r)}{RSS/(n-p)}$ Fisher-verteilt mit $p-r$ Zähler- und $n-p$ Nenner-Freiheitsgraden.</dd>
     <dt id="anova-tafel">ANOVA-Tafel</dt>
     <dd>
         <table class="table">
@@ -359,6 +354,7 @@ TODO
         $Y = X \beta + \epsilon$ lautet:
         $$\hat{\beta} = (X^T X)^{-1} X^T Y$$
         $$\hat{Y} \sim N_n(X \beta, \sigma^2 H)$$
+        $$\hat{\varepsilon}_i \sim \mathcal{N}(0, (1-H_{ii}) \sigma^2)$$
 
         Der übliche Schätzer für $\sigma^2$ ist
         $$\hat{\sigma}^2 = \frac{1}{n-p} \| Y - \hat{Y} \|^2$$
@@ -366,7 +362,7 @@ TODO
         Die folgenden Sachen kann man alle in der Klausur aus obigen Angaben
         herleiten (vgl. <a href="http://math.stackexchange.com/q/2159447/6876">math.SE</a>):
         Es gilt:
-        $$\hat{\beta} \sim N_p(\beta, \sigma^2 (X^T X)^-1)$$
+        $$\hat{\beta} \sim N_p(\beta, \sigma^2 (X^T X)^{-1})$$
         $$\hat{\beta}_i \sim \mathcal{N}(\beta_i, \sigma^2 (X^T X)^{-1}_{i+1, i+1})$$
         sowie
         $$(n-p)\hat{\sigma}^2/\sigma^2 \sim \chi^2_{n-p}$$
@@ -378,7 +374,6 @@ TODO
 
 
 ### Kapitel 6: Varianz- und Kovarianz&shy;analyse
-TODO
 
 <dl>
     <dt><dfn>Modellannahmen der Varianzanalyse</dfn></dt>
@@ -429,7 +424,7 @@ TODO
 
         <ul>
             <li>Hypothesen: $H_0$: $\mu_1 = \mu_2 = \dots = \mu_k$ vs $H_1: \exists i, j: \mu_i \neq \mu_j$</li>
-            <li>Testgröße: $F = \frac{(RSS_1 - RSS) / (k-1)}{RSS / (n-k)}$</li>
+            <li>Testgröße: $F = \frac{(TSS - RSS) / (k-1)}{RSS / (n-k)}$</li>
             <li>Verteilung: $F \stackrel{H_0}{\sim} F_{k-1, n-k}$</li>
             <li>Testentscheid: $H_0$ verwerfen, falls $F \geq F_{k-1, n-k; 1 - \alpha}$</li>
         </ul>
@@ -438,7 +433,7 @@ TODO
 </dl>
 
 ### Kapitel 7: Kategoriale Daten
-TODO
+-
 
 ### Kapitel 8: Nicht&shy;parametrische Verfahren
 
@@ -464,7 +459,7 @@ TODO
 * RSS: Residual Sum of Squares
 * SQI: Summe der Quadrate innerhalb der Gruppen
 * SQZ: Summe der Quadrate zwischen den Gruppen
-* TTS: Total Sum of Squares
+* TSS: Total Sum of Squares ($TSS = \sum_{i=1}^n {(y_i - \bar{y}_n)}^2$)
 * uiv, u.i.v.: unabhängig identisch verteilt
 
 
@@ -655,20 +650,6 @@ rv.ppf(0.95)  # gives 3.1273500051133989
   → Ja. Setting wie zuvor und $\hat{\vartheta} = \frac{1}{n} \sum_{i=1}^n x_i + \frac{1}{n}$ (siehe [math.SE](http://math.stackexchange.com/q/2149771/6876))
 
 
-## Tips
-
-* Klausur WS 2013 / 2014, Aufgabe 1 und 2 sind lehrreich
-
-
-## Offene Fragen
-
-* WS 2014 / 2015, A6c: TODO
-* WS 2014 / 2015, A7a: Warum ist $(I_n - H) X \beta = 0$?
-* WS 2013 / 2014, A3b: Warum gilt das?
-* WS 2012 / 2013, A6e: Wie kommt man auf $t_6$?
-
-
-
 ## Material und Links
 
 * [Vorlesungswebsite](http://www.math.kit.edu/stoch/lehre/stat2016w/)
@@ -706,7 +687,7 @@ rv.ppf(0.95)  # gives 3.1273500051133989
 **Punkte**: 60<br/>
 **Zeit**: 2h<br/>
 **Punkteverteilung**: TODO<br/>
-**Bestehensgrenze**: min 50%<br/>
+**Bestehensgrenze**: mit 20 Punkten hat man bestanden<br/>
 **Übungsschein**: gibt es nicht<br/>
 **Bonuspunkte**: gibt es nicht<br/>
 **Nicht vergessen**:
