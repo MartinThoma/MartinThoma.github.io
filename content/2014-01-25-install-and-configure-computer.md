@@ -38,7 +38,8 @@ If possible, I will give the debian package names in the following list:
   * `pdf2svg librsvg2-bin`
 * Programming
   * `vim`
-  * `python python3 python-numpy python-setuptools python-mysqldb`
+  * `python python3 python-numpy python-setuptools python-mysqldb python-scipy python-h5py python-matplotlib`
+  * `sudo -H pip install sklearn tflearn`
   * `ruby ruby-sqlite3 ruby-mysql`
   * `gcc g++ cmake build-essential gdb`
   * OpenGL: `xorg-dev libglu1-mesa-dev freeglut3 freeglut3-dev libglew1.5 libglew1.5-dev libglu1-mesa libglu1-mesa-dev libgl1-mesa-glx libgl1-mesa-dev`
