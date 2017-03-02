@@ -115,7 +115,7 @@ to see them with my own eyes.
 <figure class="wp-caption aligncenter img-thumbnail">
     <img src="../images/2017/01/spotted-lake.jpg" alt="Spotted Lake" />
     <figcaption class="text-center"><a href="https://en.wikipedia.org/wiki/Spotted_Lake">Spotted Lake</a>: Looks interesting
-in Summer when the water evaporates (Image source: <a href="https://commons.wikimedia.org/wiki/File:Spotted_Lake_-_panoramio.jpg">Wikimedia</a>)</figcaption>
+in Summer when the water evaporates (Image source: <a href="https://commons.wikimedia.org/wiki/File:Spotted_Lake_-_panoramio.jpg">Wikimedia Commons</a>)</figcaption>
 </figure>
 
 
@@ -124,6 +124,13 @@ in Summer when the water evaporates (Image source: <a href="https://commons.wiki
 * Volcanic Lightning (Alaska, [Augustine Volcano](https://en.wikipedia.org/wiki/Augustine_Volcano))
 
 ## South America
+
+### Bolivia
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2017/01/salt-pan.jpg" alt="Salar de Uyuni is one of the most famous salt pans" />
+    <figcaption class="text-center">Salar de Uyuni is one of the most famous <a href="https://en.wikipedia.org/wiki/Salt_pan_(geology)">salt pans</a> (Image source: <a href="https://en.wikipedia.org/wiki/File:Salar_de_Uyuni,_Bolivia,_2016-02-04,_DD_10-12_HDR.JPG">Wikimedia Commons</a>)</figcaption>
+</figure>
 
 ### Venezuela
 
