@@ -75,6 +75,11 @@ to see them with my own eyes.
     <figcaption class="text-center"><a href="https://en.wikipedia.org/wiki/Geyser">Geyser</a> (Image source: <a href="https://en.wikipedia.org/wiki/File:Steam_Phase_eruption_of_Castle_geyser_with_double_rainbow.jpg">Wikimedia</a>)</figcaption>
 </figure>
 
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2017/01/godafoss-waterfall-sunset.jpg" alt="Sunset at Goðafoss waterfall" />
+    <figcaption class="text-center">Sunset at <a href="https://en.wikipedia.org/wiki/Go%C3%B0afoss">Goðafoss waterfall</a> (Image source: <a href="https://www.reddit.com/r/EarthPorn/comments/5xwydp/i_went_on_a_roadtrip_in_iceland_and_i_captured/">reddit</a>)</figcaption>
+</figure>
+
 * Steam Towers: Hverir
 * Auroras (e.g. in Reykjavik from late September to early April)
 
