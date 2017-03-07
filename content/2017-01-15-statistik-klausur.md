@@ -697,3 +697,6 @@ rv.ppf(0.95)  # gives 3.1273500051133989
 * Uhr
 * Brille
 * Geodreieck
+
+**Einsicht**: Am 2. März standen schon die Noten fest. Am 16.03.17 um 11:00 - 11:30 Uhr im Raum 2.071 des
+Mathematikgebäudes ist die Einsicht.
