@@ -14,16 +14,16 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="download, machine learning, Cyberculture, " />
+<meta name="keywords" content="download, machine learning, Machine Learning, " />
 
 <meta property="og:title" content="How to download ImageNet "/>
 <meta property="og:url" content="../download-data/" />
-<meta property="og:description" content="Machine Learning algorithms for computer vision need huge amounts of data. Here are a few remarks on how to download them. Make sure you have enough space (df -h) Get a download manager. I use aria2c (sudo apt-get install aria2) For ImageNet, you have to register at image-net.org. Interesting …" />
+<meta property="og:description" content="Machine Learning algorithms for computer vision need huge amounts of data. Here are a few remarks on how to download them. Make sure you have enough space (df -h) Get a download manager. I use aria2c (sudo apt-get install aria2) For ImageNet, you have to register at image-net.org. Download …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2017-03-06T20:00:00+01:00" />
 <meta name="twitter:title" content="How to download ImageNet ">
-<meta name="twitter:description" content="Machine Learning algorithms for computer vision need huge amounts of data. Here are a few remarks on how to download them. Make sure you have enough space (df -h) Get a download manager. I use aria2c (sudo apt-get install aria2) For ImageNet, you have to register at image-net.org. Interesting …">
+<meta name="twitter:description" content="Machine Learning algorithms for computer vision need huge amounts of data. Here are a few remarks on how to download them. Make sure you have enough space (df -h) Get a download manager. I use aria2c (sudo apt-get install aria2) For ImageNet, you have to register at image-net.org. Download …">
 <meta property="og:image" content="logos/ml.png" />
 <meta name="twitter:image" content="logos/ml.png" >
 
@@ -100,7 +100,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#datasets" title="Datasets">Datasets</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>Machine Learning algorithms for computer vision need huge amounts of data.
@@ -110,11 +116,6 @@ Here are a few remarks on how to download them.</p>
 <li>Get a download manager. I use aria2c (<code>sudo apt-get install aria2</code>)</li>
 </ol>
 <p>For ImageNet, you have to register at <a href="http://image-net.org/">image-net.org</a>.</p>
-<p>Interesting download links:</p>
-<ul>
-<li><a href="http://image-net.org/download-images">Download ImageNet</a></li>
-<li><a href="http://places2.csail.mit.edu/download.html">Download Places365</a></li>
-</ul>
 <p>Download the files like this:</p>
 <div class="highlight"><pre><span></span>$ aria2c -s <span class="m">16</span> <span class="o">[</span>URL<span class="o">]</span>
 </pre></div>
@@ -123,6 +124,56 @@ Here are a few remarks on how to download them.</p>
 </pre></div>
 <p>and compare the hash with the provided hash. If it differs, download the file
 again.</p>
+<p>The ImageNet training data tar file contains 1000&nbsp;files of the form
+<code>n01440764.tar</code>, <code>n01443537.tar</code>, ...</p>
+<p>Each of those files contains JPEGs of one class. You can look the class label
+up with</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">wordnet</span> <span class="k">as</span> <span class="n">wn</span>
+<span class="k">print</span><span class="p">(</span><span class="n">wn</span><span class="o">.</span><span class="n">_synset_from_pos_and_offset</span><span class="p">(</span><span class="s1">'n'</span><span class="p">,</span> <span class="mi">1440764</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">wn</span><span class="o">.</span><span class="n">_synset_from_pos_and_offset</span><span class="p">(</span><span class="s1">'n'</span><span class="p">,</span> <span class="mi">1443537</span><span class="p">))</span>
+</pre></div>
+<p>which reveals</p>
+<ul>
+<li>Synset('tench.n.01')</li>
+<li>Synset('goldfish.n.01')</li>
+</ul>
+<p>If you extract all 1000 of those tar files into one directory, this takes about
+6 hours with a script like this:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">tarfile</span>
+
+
+<span class="k">def</span> <span class="nf">untar</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">targetd_dir</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span> <span class="k">as</span> <span class="n">tar</span><span class="p">:</span>
+        <span class="n">tar</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">targetd_dir</span><span class="p">)</span>
+
+<span class="n">files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"ILSVRC2012_img_train/*.tar"</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+    <span class="n">untar</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s2">"extracted"</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+<p>This gives 1281170 files in total.</p>
+<h2 id="datasets">Datasets</h2>
+<ul>
+<li><a href="http://image-net.org/download-images">Download ImageNet</a></li>
+<li><a href="http://places2.csail.mit.edu/download.html">Download Places365</a></li>
+</ul>
             
             <div id="disqus_thread"></div>
 <script>
@@ -152,14 +203,14 @@ again.</p>
             <br/>
             by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
             <h4>Category</h4>
-            <a class="category-link" href="../categories.html#cyberculture-ref">Cyberculture</a>
+            <a class="category-link" href="../categories.html#machine-learning-ref">Machine Learning</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
                 <li><a href="../tags.html#download-ref">download
                     <span>1</span>
 </a></li>
                 <li><a href="../tags.html#machine-learning-ref">machine learning
-                    <span>39</span>
+                    <span>40</span>
 </a></li>
             </ul>
 <h4>Contact</h4>
