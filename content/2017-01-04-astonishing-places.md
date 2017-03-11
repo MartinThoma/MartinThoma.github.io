@@ -47,7 +47,7 @@ to see them with my own eyes.
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <img src="../images/2017/01/aurora-borealis.jpg" alt="Aurora Borealis" />
-    <figcaption class="text-center">Aurora Borealis (Image source: <a href="https://commons.wikimedia.org/wiki/File:Polarlicht_2.jpg">Wikimedia</a>)<br/><a href="https://en.wikipedia.org/wiki/Svalbard">Svalbard</a> might be a good place to see it.</figcaption>
+    <figcaption class="text-center">Aurora Borealis (Image source: <a href="https://commons.wikimedia.org/wiki/File:Polarlicht_2.jpg">Wikimedia</a>)<br/><a href="https://en.wikipedia.org/wiki/Svalbard">Svalbard</a> or <a href="https://en.wikipedia.org/wiki/Lofoten">Lofoten</a> (<a href="https://www.reddit.com/r/EarthPorn/comments/5y0hqc/went_to_norway_saw_the_northern_lights_it_was/">image</a>) might be a good place to see it.</figcaption>
 </figure>
 
 ### Denmark
