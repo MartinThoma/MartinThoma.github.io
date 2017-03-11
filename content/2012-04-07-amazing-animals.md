@@ -4,7 +4,7 @@ title: Amazing Animals
 author: Martin Thoma
 date: 2012-04-07 02:39:26.000000000 +02:00
 category: My bits and bytes
-tags: Lolcat, amazing
+tags: Lolcat, nature
 featured_image: 2012/04/axolotl-thumb.jpg
 ---
 Some animals are truly amazing. Just take a look at them. I've also included some video clips of funny individuals.
