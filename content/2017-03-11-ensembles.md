@@ -75,10 +75,10 @@ the output:
 
 <dl>
     <dt><a href="https://en.wikipedia.org/wiki/Bootstrap_aggregating"><dfn id="bagging">Bagging</dfn></a></dt>
-    <dd><b>How does it work?</b> Train models on different data
+    <dd><i>How does it work?</i> Train models on different data
         (Learnier is fit, results are mean/median aggregated)<br/>
-        <b>Why is it used?</b> Reduction of variance<br/>
-        <b>Common techniques:</b>
+        <i>Why is it used?</i> Reduction of variance<br/>
+        <i>Common techniques:</i>
 
         <ul>
             <li>Random subspaces: Take a part of the features (e.g. Random Forests)</li>
@@ -87,15 +87,16 @@ the output:
 
     </dd>
     <dt><a href="https://en.wikipedia.org/wiki/Boosting_(machine_learning)"><dfn id="boosting">Boosting</dfn></a></dt>
-    <dd><b>How does it work?</b> Train one classifier.
+    <dd><i>How does it work?</i> Train one classifier.
         Obtain the results. Weight the training data higher if the classifier got
         it wrong. Train a new classifier on the weighted training data. Iterate.<br/>
-        <b>Why is it used?</b> Reduction of bias</dd>
-        <b>Examples:</b> <a href="https://en.wikipedia.org/wiki/AdaBoost">AdaBoost</a>, <a href="https://en.wikipedia.org/wiki/Gradient_boosting">Gradient boosting</a>
+        <i>Why is it used?</i> Reduction of bias
+        <i>Examples:</i> <a href="https://en.wikipedia.org/wiki/AdaBoost">AdaBoost</a>, <a href="https://en.wikipedia.org/wiki/Gradient_boosting">Gradient boosting</a>
+    </dd>
     <dt><a href="https://en.wikipedia.org/wiki/Ensemble_learning#Stacking"><dfn id="stacking">Stacking</dfn></a></dt>
-    <dd><b>How does it work?</b> Train $n$ classifiers on the data. Train
+    <dd><i>How does it work?</i> Train $n$ classifiers on the data. Train
         a classifier on the predictions of the $n$ classifiers.<br/>
-        <b>Why is it used?</b> Reduction of bias and reduction of variance</dd>
+        <i>Why is it used?</i> Reduction of bias and reduction of variance</dd>
 </dl>
 
 I made some images to make this more clear:
@@ -106,22 +107,23 @@ I made some images to make this more clear:
 </figure>
 
 <figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2017/03/boosting.jpg" alt="Boosting reweights the training data" style="width:512px;"/>
+    <figcaption class="text-center">Boosting reweights the training data.</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
     <img src="../images/2017/03/stacking.jpg" alt="Stacking" style="width:512px;"/>
     <figcaption class="text-center">Stacking trains the combiner.</figcaption>
 </figure>
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/03/boosting.jpg" alt="Boosting reweights the training data" />
-    <figcaption class="text-center">Boosting reweights the training data.</figcaption>
-</figure>
 
 
 ## Combiners
 
 Some choices for combiners are:
 
-* Average
-* Majority Vote
+* Average of predictions of base classifiers
+* Plurality vote (sometimes also called majority vote)
 * Learning
     * Naive Bayes
     * Neural Network
