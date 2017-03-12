@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Machine Learning, Computer Vision, CIFAR 100</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/machine-learning-computer-vision-cifar-100.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2017-03-11T20:00:00+01:00</updated><entry><title>Ensembles</title><link href="https://martin-thoma.com/ensembles/" rel="alternate"></link><published>2017-03-11T20:00:00+01:00</published><updated>2017-03-11T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-03-11:/ensembles/</id><summary type="html">&lt;p&gt;Models which are combinations of other models are called an &lt;strong&gt;ensemble&lt;/strong&gt;.
+The simplest way to combine several classifiers is by averaging their predictions.&lt;/p&gt;
+&lt;p&gt;For example, if you have three&amp;nbsp;models and four&amp;nbsp;classes, you might get
+predictions like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;model 1(x1) = [0.1, 0.5, 0.3, 0.1 …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Models which are combinations of other models are called an &lt;strong&gt;ensemble&lt;/strong&gt;.
+The simplest way to combine several classifiers is by averaging their predictions.&lt;/p&gt;
+&lt;p&gt;For example, if you have three&amp;nbsp;models and four&amp;nbsp;classes, you might get
+predictions like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;model 1(x1) = [0.1, 0.5, 0.3, 0.1],
+model 2(x1) = [0.5, 0.3, 0.1, 0.1],
+model 3(x1) = [0.4, 0.4, 0.1, 0.1]
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;you predict
+&lt;/p&gt;
+&lt;div class="math"&gt;$$\left [\frac{0.1+0.5+0.4}{3}, \frac{0.5+0.3+0.4}{3}, \frac{0.4+0.2+0.2}{3}, \frac{0.1+0.1+0.1}{3} \right] = \left [ \frac{1}{3}, 0.4, \frac{1}{6}, 0.1 \right ]$$&lt;/div&gt;
+&lt;p&gt; for &lt;span class="math"&gt;\(x_1\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;According to Karparthy, this gives you about +2 percentage points in accuracy.&lt;/p&gt;
+&lt;h2 id="tiny-experiment-on-cifar-100"&gt;Tiny Experiment on CIFAR 100&lt;/h2&gt;
+&lt;p&gt;I've just tried this with three (almost identical) models for CIFAR 100. All of
+them were trained with ADAM with the same training data (the same batches).
+Model 1 and model 3 only differed in the second-last layer (one uses ReLU, the
+other tanh), model 1 and model 2 only differed in the border mode for one
+convolutional layer (valid vs same).&lt;/p&gt;
+&lt;p&gt;The accuracies of the single models were:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;model 1: 57.02
+model 2: 61.85
+model 3: 48.59
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The ensemble accuracy is 62.98%. Hence the ensemble is 1.13 percentage points
+better than the best single model!&lt;/p&gt;
+&lt;p&gt;Although I have read things like this before, it is the first time I actually
+tried it myself.&lt;/p&gt;
+&lt;h2 id="ensemble-techniques"&gt;Ensemble Techniques&lt;/h2&gt;
+&lt;p&gt;There are much more sophisticated ensemble techniques than simple averaging of
+the output:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Bagging&lt;/strong&gt;: Divide training data; train models on different data
+    (Learnier is fit, results are mean/median aggregated with the aim of reduction variance)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Boosting&lt;/strong&gt;: Build chain of learners. Train one classifier. Obtain the results. Weight the results
+  which this classifier got wrong higher. Train a new classifier. Iterate.
+  Especially AdaBoost is really famous.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Random Subspaces&lt;/strong&gt;: Train classifiers on different features&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pasting&lt;/strong&gt;: ?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Stacking&lt;/strong&gt;: A committee learner, usually OLS or LASSO&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;img alt="Ensemble learning techniques" src="../images/2015/12/ml-ensemble-learning.png"/&gt;
+&lt;figcaption class="text-center"&gt;Ensemble learning techniques&lt;/figcaption&gt;
+&lt;/figure&gt;</content><category term="machine learning"></category><category term="ensembles"></category></entry></feed>

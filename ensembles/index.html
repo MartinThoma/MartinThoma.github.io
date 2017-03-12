@@ -14,16 +14,16 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="machine learning, ensembles, Machine Learning, " />
+<meta name="keywords" content="machine learning, ensembles, Machine Learning, Computer Vision, CIFAR 100, " />
 
 <meta property="og:title" content="Ensembles "/>
 <meta property="og:url" content="../ensembles/" />
-<meta property="og:description" content="Models which are combinations of other models are called an ensemble. The simplest way to combine several classifiers is by averaging their predictions. Hence if you have model 1(x1) = [0.1, 0.5, 0.4], model 2(x1) = [0.5, 0.3, 0.2], model 3(x1) = [0.4 …" />
+<meta property="og:description" content="Models which are combinations of other models are called an ensemble. The simplest way to combine several classifiers is by averaging their predictions. For example, if you have three models and four classes, you might get predictions like this: model 1(x1) = [0.1, 0.5, 0.3, 0.1 …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2017-03-11T20:00:00+01:00" />
 <meta name="twitter:title" content="Ensembles ">
-<meta name="twitter:description" content="Models which are combinations of other models are called an ensemble. The simplest way to combine several classifiers is by averaging their predictions. Hence if you have model 1(x1) = [0.1, 0.5, 0.4], model 2(x1) = [0.5, 0.3, 0.2], model 3(x1) = [0.4 …">
+<meta name="twitter:description" content="Models which are combinations of other models are called an ensemble. The simplest way to combine several classifiers is by averaging their predictions. For example, if you have three models and four classes, you might get predictions like this: model 1(x1) = [0.1, 0.5, 0.3, 0.1 …">
 <meta property="og:image" content="logos/ml.png" />
 <meta name="twitter:image" content="logos/ml.png" >
 
@@ -100,18 +100,30 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#tiny-experiment-on-cifar-100" title="Tiny Experiment on CIFAR 100">Tiny Experiment on CIFAR 100</a></li><li><a class="toc-href" href="#ensemble-techniques" title="Ensemble Techniques">Ensemble Techniques</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>Models which are combinations of other models are called an <strong>ensemble</strong>.
-The simplest way to combine several classifiers is by averaging their predictions. Hence if you have</p>
-<div class="highlight"><pre><span></span>model 1(x1) = [0.1, 0.5, 0.4],
-model 2(x1) = [0.5, 0.3, 0.2],
-model 3(x1) = [0.4, 0.4, 0.2]
+The simplest way to combine several classifiers is by averaging their predictions.</p>
+<p>For example, if you have three&nbsp;models and four&nbsp;classes, you might get
+predictions like this:</p>
+<div class="highlight"><pre><span></span>model 1(x1) = [0.1, 0.5, 0.3, 0.1],
+model 2(x1) = [0.5, 0.3, 0.1, 0.1],
+model 3(x1) = [0.4, 0.4, 0.1, 0.1]
 </pre></div>
-<p>you predict <span class="math">\([\frac{0.1+0.5+0.4}{3}, \frac{0.5+0.3+0.4}{3}, \frac{0.4+0.2+0.2}{3}]\)</span> for x1.</p>
-<p>According to Karparthy, this gives you about +2 percentage points in accuracy.
-I've just tried this with three (almost identical) models for cifar 100. All of
+<p>you predict
+</p>
+<div class="math">$$\left [\frac{0.1+0.5+0.4}{3}, \frac{0.5+0.3+0.4}{3}, \frac{0.4+0.2+0.2}{3}, \frac{0.1+0.1+0.1}{3} \right] = \left [ \frac{1}{3}, 0.4, \frac{1}{6}, 0.1 \right ]$$</div>
+<p> for <span class="math">\(x_1\)</span>.</p>
+<p>According to Karparthy, this gives you about +2 percentage points in accuracy.</p>
+<h2 id="tiny-experiment-on-cifar-100">Tiny Experiment on CIFAR 100</h2>
+<p>I've just tried this with three (almost identical) models for CIFAR 100. All of
 them were trained with ADAM with the same training data (the same batches).
 Model 1 and model 3 only differed in the second-last layer (one uses ReLU, the
 other tanh), model 1 and model 2 only differed in the border mode for one
@@ -125,6 +137,23 @@ model 3: 48.59
 better than the best single model!</p>
 <p>Although I have read things like this before, it is the first time I actually
 tried it myself.</p>
+<h2 id="ensemble-techniques">Ensemble Techniques</h2>
+<p>There are much more sophisticated ensemble techniques than simple averaging of
+the output:</p>
+<ul>
+<li><strong>Bagging</strong>: Divide training data; train models on different data
+    (Learnier is fit, results are mean/median aggregated with the aim of reduction variance)</li>
+<li><strong>Boosting</strong>: Build chain of learners. Train one classifier. Obtain the results. Weight the results
+  which this classifier got wrong higher. Train a new classifier. Iterate.
+  Especially AdaBoost is really famous.</li>
+<li><strong>Random Subspaces</strong>: Train classifiers on different features</li>
+<li><strong>Pasting</strong>: ?</li>
+<li><strong>Stacking</strong>: A committee learner, usually OLS or LASSO</li>
+</ul>
+<figure class="wp-caption aligncenter img-thumbnail">
+<img alt="Ensemble learning techniques" src="../images/2015/12/ml-ensemble-learning.png"/>
+<figcaption class="text-center">Ensemble learning techniques</figcaption>
+</figure>
             
             <div id="disqus_thread"></div>
 <script>
@@ -154,7 +183,7 @@ tried it myself.</p>
             <br/>
             by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
             <h4>Category</h4>
-            <a class="category-link" href="../categories.html#machine-learning-ref">Machine Learning</a>
+            <a class="category-link" href="../categories.html#machine-learning-computer-vision-cifar-100-ref">Machine Learning, Computer Vision, CIFAR 100</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
                 <li><a href="../tags.html#ensembles-ref">ensembles
