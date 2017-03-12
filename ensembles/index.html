@@ -103,7 +103,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#tiny-experiment-on-cifar-100" title="Tiny Experiment on CIFAR 100">Tiny Experiment on CIFAR 100</a></li><li><a class="toc-href" href="#ensemble-techniques" title="Ensemble Techniques">Ensemble Techniques</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#tiny-experiment-on-cifar-100" title="Tiny Experiment on CIFAR 100">Tiny Experiment on CIFAR 100</a></li><li><a class="toc-href" href="#ensemble-techniques" title="Ensemble Techniques">Ensemble Techniques</a></li><li><a class="toc-href" href="#combiners" title="Combiners">Combiners</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -162,7 +162,7 @@ the output:</p>
 <b>Common techniques:</b>
 <ul>
 <li>Random subspaces: Take a part of the features (e.g. Random Forests)</li>
-<li>Pasting: Take a part of the training data</li>
+<li>Pasting: Take a part of the training data without replacement</li>
 </ul>
 </dd>
 <dt><a href="https://en.wikipedia.org/wiki/Boosting_(machine_learning)"><dfn id="boosting">Boosting</dfn></a></dt>
@@ -170,22 +170,34 @@ the output:</p>
         Obtain the results. Weight the training data higher if the classifier got
         it wrong. Train a new classifier on the weighted training data. Iterate.<br/>
 <b>Why is it used?</b> Reduction of bias</dd>
-<b>Examples:</b> AdaBoost, Gradient boosting
-    <dt><a href="https://en.wikipedia.org/wiki/Ensemble_learning#Stacking"><dfn id="stacking">Stacking</dfn></a></dt>
+<b>Examples:</b> <a href="https://en.wikipedia.org/wiki/AdaBoost">AdaBoost</a>, <a href="https://en.wikipedia.org/wiki/Gradient_boosting">Gradient boosting</a>
+<dt><a href="https://en.wikipedia.org/wiki/Ensemble_learning#Stacking"><dfn id="stacking">Stacking</dfn></a></dt>
 <dd><b>How does it work?</b> Train $n$ classifiers on the data. Train
         a classifier on the predictions of the $n$ classifiers.<br/>
 <b>Why is it used?</b> Reduction of bias and reduction of variance</dd>
 </dl>
 <p>I made some images to make this more clear:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-<img alt="Bagging" src="../images/2017/03/boosting.png" style="width:512px;"/>
+<img alt="Bagging" src="../images/2017/03/boosting.jpg" style="width:512px;"/>
 <figcaption class="text-center">Bagging</figcaption>
 </figure>
 <figure class="wp-caption aligncenter img-thumbnail">
-<img alt="Stacking" src="../images/2017/03/stacking.png" style="width:512px;"/>
+<img alt="Stacking" src="../images/2017/03/stacking.jpg" style="width:512px;"/>
 <figcaption class="text-center">Stacking: Note that the combiner here is a classifier which also got trained.</figcaption>
 </figure>
-<p>Making images is more complicated for boosting.</p>
+<p>Making images is more complicated for boosting as it re-weights the input data
+after every classifier.</p>
+<h2 id="combiners">Combiners</h2>
+<p>Some choices for combiners are:</p>
+<ul>
+<li>Average</li>
+<li>Majority Vote</li>
+<li>Learning<ul>
+<li>Naive Bayes</li>
+<li>Neural Network</li>
+</ul>
+</li>
+</ul>
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="http://scikit-learn.org/stable/modules/ensemble.html">sklearn ensemble user guide</a></li>
