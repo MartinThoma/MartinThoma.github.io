@@ -14,20 +14,20 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="Rating, My bits and bytes, " />
+<meta name="keywords" content="curl, wget, download, Cyberculture, " />
 
-<meta property="og:title" content="Umzug "/>
-<meta property="og:url" content="../umzug/" />
-<meta property="og:description" content="The following article is in German. Use Google Translator if you don&#39;t speak German. Das ist meien TODO-Liste, wenn ich umziehe: Wohnung finden wg-gesucht.de: Super für WGs! Facebook-Gruppen Funktionen immobilienscout24.de immonet.de immowelt.de Suche-Merken ✔ Stadtteil-Auswahl ✔ Min-Max Miete ✔ Min-Max Wohnfläche ✔ Einbauküche ✔ Was ich will: Ort: München (Am Hart …" />
+<meta property="og:title" content="curl vs wget "/>
+<meta property="og:url" content="../drafts/curl-vs-wget.html" />
+<meta property="og:description" content="I recently had to download large files (see post). Before I used a download helper, I used curl. It is a standard tool for downloading files. But there is another standard tool: wget. Let&#39;s see what I find in the first 10 Google hits about their differences. curl wget Initial …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
-<meta property="og:article:published_time" content="2017-03-03T20:00:00+01:00" />
-<meta name="twitter:title" content="Umzug ">
-<meta name="twitter:description" content="The following article is in German. Use Google Translator if you don&#39;t speak German. Das ist meien TODO-Liste, wenn ich umziehe: Wohnung finden wg-gesucht.de: Super für WGs! Facebook-Gruppen Funktionen immobilienscout24.de immonet.de immowelt.de Suche-Merken ✔ Stadtteil-Auswahl ✔ Min-Max Miete ✔ Min-Max Wohnfläche ✔ Einbauküche ✔ Was ich will: Ort: München (Am Hart …">
+<meta property="og:article:published_time" content="2017-03-14T20:00:00+01:00" />
+<meta name="twitter:title" content="curl vs wget ">
+<meta name="twitter:description" content="I recently had to download large files (see post). Before I used a download helper, I used curl. It is a standard tool for downloading files. But there is another standard tool: wget. Let&#39;s see what I find in the first 10 Google hits about their differences. curl wget Initial …">
 <meta property="og:image" content="logos/star.png" />
 <meta name="twitter:image" content="logos/star.png" >
 
-        <title>Umzug  · Martin Thoma
+        <title>curl vs wget  · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -95,7 +95,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../umzug/"> Umzug  </a></h1>
+    <h1><a href="../drafts/curl-vs-wget.html"> curl vs wget  </a></h1>
     </header>
 </div>
 
@@ -103,145 +103,87 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#wohnung-finden" title="Wohnung finden">Wohnung finden</a></li><li><a class="toc-href" href="#umzugsunternehmen" title="Umzugsunternehmen">Umzugsunternehmen</a></li><li><a class="toc-href" href="#neue-wohnung" title="Neue Wohnung">Neue Wohnung</a></li><li><a class="toc-href" href="#neue-adresse-melden" title="Neue Adresse melden">Neue Adresse melden</a></li><li><a class="toc-href" href="#vor-ort" title="Vor Ort">Vor Ort</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#curl-strengths" title="curl strengths">curl strengths</a></li><li><a class="toc-href" href="#wget-strengths" title="wget strengths">wget strengths</a></li><li><a class="toc-href" href="#interesting-wget-options" title="Interesting wget options">Interesting wget options</a></li><li><a class="toc-href" href="#conclusiong" title="Conclusiong">Conclusiong</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <div class="info">The following article is in German. Use Google Translator if you don't speak German.</div>
-<p>Das ist meien TODO-Liste, wenn ich umziehe:</p>
-<h2 id="wohnung-finden">Wohnung finden</h2>
-<ul>
-<li><a href="http://www.wg-gesucht.de/">wg-gesucht.de</a>: Super f&uuml;r WGs!</li>
-<li>Facebook-Gruppen</li>
-</ul>
+            <p>I recently had to download large files (see <a href="https://martin-thoma.com/download-data/">post</a>).
+Before I used a download helper, I used <code>curl</code>. It is a standard tool for downloading
+files. But there is another standard tool: <code>wget</code>. Let's see what I find in the
+first 10 Google hits about their differences.</p>
 <table>
 <tr>
-<th>Funktionen</th>
-<th>immobilienscout24.de</th>
-<th>immonet.de</th>
-<th>immowelt.de</th>
+<th></th>
+<th><a href="https://en.wikipedia.org/wiki/CURL">curl</a></th>
+<th><a href="https://en.wikipedia.org/wiki/Wget">wget</a></th>
 </tr>
 <tr>
-<td>Suche-Merken</td>
-<td>✔</td>
-<td></td>
-<td></td>
+<td>Initial Release</td>
+<td>1997</td>
+<td>1996</td>
 </tr>
 <tr>
-<td>Stadtteil-Auswahl</td>
-<td>✔</td>
-<td></td>
-<td></td>
+<td>License</td>
+<td>MIT/X derivate&nbsp;</td>
+<td>GNUv3</td>
 </tr>
 <tr>
-<td>Min-Max Miete</td>
-<td>✔</td>
-<td></td>
-<td></td>
+<td>Written in</td>
+<td>C</td>
+<td>C</td>
 </tr>
 <tr>
-<td>Min-Max Wohnfl&auml;che</td>
-<td>✔</td>
-<td></td>
-<td></td>
+<td>OS</td>
+<td>cross-platform</td>
+<td>cross-platform</td>
 </tr>
 <tr>
-<td>Einbauk&uuml;che</td>
-<td>✔</td>
-<td></td>
-<td></td>
+<td>Protocols</td>
+<td>FTP, FTPS, Gopher, HTTP, HTTPS, SCP, SFTP, TFTP, TELNET, DICT, LDAP, LDAPS, FILE, POP3, IMAP, SMB/CIFS, SMTP, RTMP, RTSP</td>
+<td>HTTP, HTTPS, FTP</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>Usage</td>
+<td>`curl -O [URL]`</td>
+<td>`wget [url]`</td>
 </tr>
 </table>
-<p>Was ich will:</p>
+<h2 id="curl-strengths">curl strengths</h2>
 <ul>
-<li><strong>Ort</strong>: M&uuml;nchen (Am Hart, Au, Bogenhausen, Freimann, Haidhausen, Harlaching, Laim, Lehel, Ludwigsvorstadt, Isarvorstadt, Maxvorstadt, Schwabing, Schwabing-West, Schwantalerh&ouml;he, Sendling, Sendling-Westpark, Untergiesing)</li>
-<li><strong>Wohnfl&auml;che</strong>: min <span class="math">\(19m^2\)</span></li>
-<li><strong>Zimmer</strong>: 2 w&auml;ren cool (ein kleines Schlafzimmer wo eigentlich nur das Bett rein muss und ein Wohnzimmer / Esszimmer / K&uuml;che). Aber 1 ist auch ok</li>
-<li><strong>Miete</strong>: Max 1000 Euro kalt, warm nicht mehr als 1100 Euro.</li>
-<li><strong>Sonstiges</strong>: Herd-Kochfeld-Kombi sollte schon vorhanden sein. Zumindest jedoch die K&uuml;chenzeile.</li>
+<li>curl supports much more protocols and platforms (OS/400, TPF - never heard of them before)</li>
+<li>curl supports more authentication methods</li>
+<li>curl supports gzip and deflate Content-Encoding and does automatic decompression</li>
 </ul>
-<h2 id="umzugsunternehmen">Umzugsunternehmen</h2>
-<p>Habe keine Erfahrung damit.</p>
+<h2 id="wget-strengths">wget strengths</h2>
 <ul>
-<li><a href="https://www.umzug-easy.de/">umzug-easy.de</a></li>
-<li><a href="https://www.my-hammer.de/lp/umzug/">my-hammer.de</a></li>
+<li>Recursive! Wget's major strong side compared to curl is its ability to
+  download recursively, or even just download everything that is referred to
+  from a remote resource, be it a HTML page or a FTP directory listing.</li>
+<li>wget can recover from a prematurely broken transfer and continue downloading.</li>
+<li>Wget enables more features by default: cookies, redirect-following, time
+  stamping from the remote resource etc. With curl most of those features need
+  to be explicitly enabled.</li>
 </ul>
-<p>Bei den gr&ouml;&szlig;ten Sachen lohnt es sich eventuell diese in Karlsruhe zu verkaufen
-und in M&uuml;nchen neu zu kaufen:</p>
+<h2 id="interesting-wget-options">Interesting wget options</h2>
 <ul>
-<li>Fahrrad: 250 Euro</li>
-<li><a href="http://www.ikea.com/de/de/catalog/products/00263850/">Billy-Regal</a>: 39 Euro</li>
-<li>Tisch</li>
-<li><a href="https://www.amazon.de/CLP-Freischwinger-Stuhl-Besucherstuhl-Konferenzstuhl-gepolstert/dp/B01N12DTAJ">Stuhl</a>: 60 Euro</li>
-<li>Bett<ul>
-<li><a href="https://www.amazon.de/gp/product/B007F7GPD2/ref=oh_aui_detailpage_o09_s00?ie=UTF8&amp;psc=1">Einzelbett</a>: 129 Euro</li>
-<li><a href="https://www.amazon.de/FMP-Matratzenmanufaktur-22-0003-verstellbar-Lattenroste/dp/B002CFH8MY/">7 Zonen Latterost</a>: 129 Euro</li>
-<li><a href="https://www.amazon.de/Orthop%C3%A4dische-7-Zonen-Kaltschaummatratze-zertifiziert-waschbar/dp/B01G5TUD3S/ref=sr_1_5">Matratze</a>: 75 Euro</li>
+<li><code>-b</code>: Put the download in background. Interersting for large downloads.</li>
+<li><code>--user-agent="Mozilla/5.0"</code></li>
+<li><code>-i [filename]</code>: Specify a filename with newline separated URLs to download</li>
+<li><code>--mirror -p</code>: Download a webpage</li>
+<li><code>--convert-links</code>: Convert links for offline viewing</li>
+<li><code>-P ./LOCAL-DIR</code>: where to store the webpage</li>
+<li><code>--reject=gif</code>: Don't download gif files</li>
+<li><code>-Q5m</code>: Stop downloading when the file size exceeds 5 MB</li>
 </ul>
-</li>
-</ul>
-<h2 id="neue-wohnung">Neue Wohnung</h2>
+<h2 id="conclusiong">Conclusiong</h2>
+<p>Use <code>wget</code> when you want to download a single file or a website. Use <code>curl</code>
+for more fancy stuff.</p>
+<h2 id="see-also">See also</h2>
 <ul>
-<li>Namen an Briefkasten und Klingelschild anbringen</li>
-<li>Bett</li>
-<li>Regale</li>
-<li>Tisch und St&uuml;hle</li>
-<li>K&uuml;che:<ul>
-<li>K&uuml;hlschrank / Gefrierschrank</li>
-<li>Ofen / Herd</li>
-<li>Mikrowelle</li>
-</ul>
-</li>
-<li>Waschmaschine</li>
-</ul>
-<h2 id="neue-adresse-melden">Neue Adresse melden</h2>
-<ul>
-<li>Rathaus (Einwohnermeldeamt)</li>
-<li>Universit&auml;t</li>
-<li>Bank</li>
-<li>Krankenkasse</li>
-<li><a href="https://www.rundfunkbeitrag.de/buergerinnen_und_buerger/formulare/aendern/">GEZ</a></li>
-<li>Mobilfunk-Anbieter</li>
-<li>Online<ul>
-<li>Amazon: Achtung bei Vorbestellungen!</li>
-<li>ebay</li>
-</ul>
-</li>
-<li>Freunde</li>
-</ul>
-<h2 id="vor-ort">Vor Ort</h2>
-<p>Zeug finden:</p>
-<ul>
-<li>&Auml;rzte (Zahnarzt, Allgemeinarzt)</li>
-<li>Lebensmittel (z.B. Aldi, Lidl, Rewe)</li>
-<li>Haushalt (z.B. dm, M&uuml;ller)</li>
-<li>Handwerksbedarf (Baumarkt)</li>
-<li>B&auml;ckerei</li>
-<li>Bar</li>
-</ul>
-<p>Erledigen</p>
-<ul>
-<li>Monatsfahrkarte</li>
+<li>Daniel Stenberg: <a href="https://daniel.haxx.se/docs/curl-vs-wget.html">curl vs Wget</a></li>
+<li>Unix.SE: <a href="http://unix.stackexchange.com/q/47434/4784">What is the difference between curl and wget?</a></li>
 </ul>
             
             <div id="disqus_thread"></div>
@@ -268,15 +210,19 @@ und in M&uuml;nchen neu zu kaufen:</p>
         <section>
         <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2017-03-03T20:00:00+01:00">Mär 3, 2017</time>
+            <time pubdate="pubdate" datetime="2017-03-14T20:00:00+01:00">Mär 14, 2017</time>
             <br/>
             by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
             <h4>Category</h4>
-            <a class="category-link" href="../categories.html#my-bits-and-bytes-ref">My bits and bytes</a>
+            <a class="category-link" href="../categories.html#cyberculture-ref">Cyberculture</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
-                <li><a href="../tags.html#rating-ref">Rating
-                    <span>3</span>
+                <li><a href="../tags.html#curl-ref">curl
+</a></li>
+                <li><a href="../tags.html#download-ref">download
+                    <span>1</span>
+</a></li>
+                <li><a href="../tags.html#wget-ref">wget
 </a></li>
             </ul>
 <h4>Contact</h4>
