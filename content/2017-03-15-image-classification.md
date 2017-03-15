@@ -5,14 +5,14 @@ slug: image-classification
 author: Martin Thoma
 date: 2017-03-15 20:00
 category: Machine Learning
-tags: machine learning, computer vision, ImageNet
+tags: machine learning, Computer Vision, ImageNet
 featured_image: logos/ml.png
 ---
 Image classification is the following task: You have an image and you want to
 assign it one label. The set of possible labels is finite and typically not
 bigger than 1000.
 
-So for example, you might ask: What can you see in this image:
+So for example, you might ask: What can you see in this image?
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <img src="../images/2017/03/moon-jelly.jpg" alt="A jellyfish" style="width: 512px;"/>
@@ -21,7 +21,7 @@ So for example, you might ask: What can you see in this image:
 
 It is one of the most common and probably simplest tasks in the intersection of
 machine learning and computer vision. A commonly used dataset is <a href="https://en.wikipedia.org/wiki/ImageNet">ImageNet</a>,
-which consists of exactly 1000 classes and has more than 1&thinsp;000&thinsp;000
+which consists of exactly 1000&nbsp;classes and has more than 1&thinsp;000&thinsp;000
 training samples. To be exact, it is the ImageNet Large Scale Visual Recognition Challenge (ILSVRC).
 
 However, I miss easy to use examples. So here you are.
@@ -191,7 +191,9 @@ if __name__ == "__main__":
 
 ```
 
-Store it as `resnet50.py`.
+Store it as `resnet50.py` and make it executable.
+
+(In case the JSON becomes unavailable: <a href="https://github.com/MartinThoma/algorithms/blob/master/ML/ImageNet-classification/imagenet_class_index.json">Here you are</a>)
 
 
 ## How to use
@@ -217,11 +219,49 @@ n01914609      0.00%    sea_anemone
 n02607072      0.00%    anemone_fish
 ```
 
-This takes about 6 seconds on CPU on my laptop.
+This takes about 6&nbsp;seconds on CPU on my laptop.
 
 
-## Alternatives
+## Alternative Models
 
-If you are building an application, you might want to look into more
-lightweight networks such as `InceptionV3` or `VGG16`. I've seen `Xception`,
-too.
+If you are building an application, you might want to look into alternatives:
+
+<table class="table">
+    <tr>
+        <th>Modelname</th>
+        <th>Input Size</th>
+        <th>Top1-Accuracy</th>
+        <th>Top5-Accuracy</th>
+        <th>Time</th>
+    </tr>
+    <tr>
+        <td><a href="https://arxiv.org/abs/1512.03385">ResNet50</a></td>
+        <td>224 × 224</td>
+        <td>77.15%</td>
+        <td>93.29%</td>
+        <td>5.59s</td>
+    </tr>
+    <tr>
+        <td><a href="https://arxiv.org/abs/1409.1556">VGG16</a></td>
+        <td>224 × 224</td>
+        <td>73.0%</td>
+        <td>91.2%</td>
+        <td>6.56s</td>
+    </tr>
+    <tr>
+        <td><a href="http://arxiv.org/abs/1512.00567">InceptionV3</a></td>
+        <td>299 × 299</td>
+        <td>78.8%</td>
+        <td>94.4%</td>
+        <td>7.62s</td>
+    </tr>
+    <tr>
+        <td><a href="https://arxiv.org/abs/1610.02357">Xception</a></td>
+        <td>299 × 299</td>
+        <td>79.0%</td>
+        <td>94.5%</td>
+        <td>6.71s</td>
+    </tr>
+</table>
+
+<div class="important">The speed is for the complete script. This includes loading the model. The model size is several 100&nbsp;MB. In a real application you can (1) load the model only once and (2) run the evaluation in batches to speed things up.</div>
