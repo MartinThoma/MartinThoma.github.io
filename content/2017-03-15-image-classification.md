@@ -233,6 +233,7 @@ If you are building an application, you might want to look into alternatives:
 <table class="table">
     <tr>
         <th>Modelname</th>
+        <th>Model size</th>
         <th>Input Size</th>
         <th>Top1-Accuracy</th>
         <th>Top5-Accuracy</th>
@@ -240,6 +241,7 @@ If you are building an application, you might want to look into alternatives:
     </tr>
     <tr>
         <td><a href="https://arxiv.org/abs/1512.03385">ResNet50</a></td>
+        <td>102.9 MB</td>
         <td>224 × 224</td>
         <td>77.15%</td>
         <td>93.29%</td>
@@ -247,6 +249,7 @@ If you are building an application, you might want to look into alternatives:
     </tr>
     <tr>
         <td><a href="https://arxiv.org/abs/1409.1556">VGG16</a></td>
+        <td>553.5 MB</td>
         <td>224 × 224</td>
         <td>73.0%</td>
         <td>91.2%</td>
@@ -254,6 +257,7 @@ If you are building an application, you might want to look into alternatives:
     </tr>
     <tr>
         <td><a href="http://arxiv.org/abs/1512.00567">InceptionV3</a></td>
+        <td>95.1 MB</td>
         <td>299 × 299</td>
         <td>78.8%</td>
         <td>94.4%</td>
@@ -261,6 +265,7 @@ If you are building an application, you might want to look into alternatives:
     </tr>
     <tr>
         <td><a href="https://arxiv.org/abs/1610.02357">Xception</a></td>
+        <td>91.9 MB</td>
         <td>299 × 299</td>
         <td>79.0%</td>
         <td>94.5%</td>
@@ -269,3 +274,13 @@ If you are building an application, you might want to look into alternatives:
 </table>
 
 <div class="important">The speed only for the prediction. The model size is several 100&nbsp;MB, so this takes a while. In a real application you can (1) load the model only once and (2) run the evaluation on a batch of many images to speed things up.</div>
+
+
+More models:
+
+* [titu1994/Inception-v4](https://github.com/titu1994/Inception-v4)
+
+
+## See also
+
+* [Building powerful image classification models using very little data](https://blog.keras.io/building-powerful-image-classification-models-using-very-little-data.html)
