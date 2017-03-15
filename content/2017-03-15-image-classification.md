@@ -52,6 +52,7 @@ from __future__ import print_function
 import numpy as np
 import json
 import os
+import time
 
 from keras import backend as K
 from keras.preprocessing import image
@@ -183,7 +184,10 @@ if __name__ == "__main__":
     x = np.expand_dims(x, axis=0)
     x = preprocess_input(x)
     print('Input image shape:', x.shape)
+    t0 = time.time()
     preds = model.predict(x)
+    t1 = time.time()
+    print("Prediction time: {:0.3f}s".format(t1 - t0))
     for wordnet_id, class_name, prob in decode_predictions(preds)[0]:
         print("{wid}\t{prob:>6}%\t{name}".format(wid=wordnet_id,
                                                  name=class_name,
@@ -239,29 +243,29 @@ If you are building an application, you might want to look into alternatives:
         <td>224 × 224</td>
         <td>77.15%</td>
         <td>93.29%</td>
-        <td>5.59s</td>
+        <td>0.495s</td>
     </tr>
     <tr>
         <td><a href="https://arxiv.org/abs/1409.1556">VGG16</a></td>
         <td>224 × 224</td>
         <td>73.0%</td>
         <td>91.2%</td>
-        <td>6.56s</td>
+        <td>0.488s</td>
     </tr>
     <tr>
         <td><a href="http://arxiv.org/abs/1512.00567">InceptionV3</a></td>
         <td>299 × 299</td>
         <td>78.8%</td>
         <td>94.4%</td>
-        <td>7.62s</td>
+        <td>0.681s</td>
     </tr>
     <tr>
         <td><a href="https://arxiv.org/abs/1610.02357">Xception</a></td>
         <td>299 × 299</td>
         <td>79.0%</td>
         <td>94.5%</td>
-        <td>6.71s</td>
+        <td>0.761s</td>
     </tr>
 </table>
 
-<div class="important">The speed is for the complete script. This includes loading the model. The model size is several 100&nbsp;MB. In a real application you can (1) load the model only once and (2) run the evaluation in batches to speed things up.</div>
+<div class="important">The speed only for the prediction. The model size is several 100&nbsp;MB, so this takes a while. In a real application you can (1) load the model only once and (2) run the evaluation on a batch of many images to speed things up.</div>
