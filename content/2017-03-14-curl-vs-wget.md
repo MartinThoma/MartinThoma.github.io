@@ -3,7 +3,6 @@ layout: post
 title: curl vs wget
 slug: curl-vs-wget
 author: Martin Thoma
-status: draft
 date: 2017-03-14 20:00
 category: Cyberculture
 tags: curl, wget, download
@@ -14,11 +13,11 @@ Before I used a download helper, I used `curl`. It is a standard tool for downlo
 files. But there is another standard tool: `wget`. Let's see what I find in the
 first 10 Google hits about their differences.
 
-<table>
+<table class="table">
     <tr>
-        <th></th>
-        <th><a href="https://en.wikipedia.org/wiki/CURL">curl</a></th>
-        <th><a href="https://en.wikipedia.org/wiki/Wget">wget</a></th>
+        <th>&nbsp;</th>
+        <th style="width: 33%;"><a href="https://en.wikipedia.org/wiki/CURL">curl</a></th>
+        <th style="width: 33%;"><a href="https://en.wikipedia.org/wiki/Wget">wget</a></th>
     </tr>
     <tr>
         <td>Initial Release</td>
@@ -47,8 +46,8 @@ first 10 Google hits about their differences.
     </tr>
     <tr>
         <td>Usage</td>
-        <td>`curl -O [URL]`</td>
-        <td>`wget [url]`</td>
+        <td><code>curl -O [URL]</code></td>
+        <td><code>wget [url]</code></td>
     </tr>
 </table>
 
