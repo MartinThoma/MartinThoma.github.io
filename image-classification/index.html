@@ -279,7 +279,11 @@ subsequent uses and applies it to the data.</p>
 141
 142
 143
-144</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+144
+145
+146
+147
+148</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="sd">"""ResNet50 model for Keras."""</span>
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
@@ -287,6 +291,7 @@ subsequent uses and applies it to the data.</p>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">time</span>
 
 <span class="kn">from</span> <span class="nn">keras</span> <span class="kn">import</span> <span class="n">backend</span> <span class="k">as</span> <span class="n">K</span>
 <span class="kn">from</span> <span class="nn">keras.preprocessing</span> <span class="kn">import</span> <span class="n">image</span>
@@ -418,7 +423,10 @@ subsequent uses and applies it to the data.</p>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">preprocess_input</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="k">print</span><span class="p">(</span><span class="s1">'Input image shape:'</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
     <span class="n">preds</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Prediction time: {:0.3f}s"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">))</span>
     <span class="k">for</span> <span class="n">wordnet_id</span><span class="p">,</span> <span class="n">class_name</span><span class="p">,</span> <span class="n">prob</span> <span class="ow">in</span> <span class="n">decode_predictions</span><span class="p">(</span><span class="n">preds</span><span class="p">)[</span><span class="mi">0</span><span class="p">]:</span>
         <span class="k">print</span><span class="p">(</span><span class="s2">"{wid}</span><span class="se">\t</span><span class="s2">{prob:&gt;6}%</span><span class="se">\t</span><span class="s2">{name}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">wid</span><span class="o">=</span><span class="n">wordnet_id</span><span class="p">,</span>
                                                  <span class="n">name</span><span class="o">=</span><span class="n">class_name</span><span class="p">,</span>
@@ -457,31 +465,31 @@ n02607072      0.00%    anemone_fish
 <td>224 &times; 224</td>
 <td>77.15%</td>
 <td>93.29%</td>
-<td>5.59s</td>
+<td>0.495s</td>
 </tr>
 <tr>
 <td><a href="https://arxiv.org/abs/1409.1556">VGG16</a></td>
 <td>224 &times; 224</td>
 <td>73.0%</td>
 <td>91.2%</td>
-<td>6.56s</td>
+<td>0.488s</td>
 </tr>
 <tr>
 <td><a href="http://arxiv.org/abs/1512.00567">InceptionV3</a></td>
 <td>299 &times; 299</td>
 <td>78.8%</td>
 <td>94.4%</td>
-<td>7.62s</td>
+<td>0.681s</td>
 </tr>
 <tr>
 <td><a href="https://arxiv.org/abs/1610.02357">Xception</a></td>
 <td>299 &times; 299</td>
 <td>79.0%</td>
 <td>94.5%</td>
-<td>6.71s</td>
+<td>0.761s</td>
 </tr>
 </table>
-<div class="important">The speed is for the complete script. This includes loading the model. The model size is several 100&nbsp;MB. In a real application you can (1) load the model only once and (2) run the evaluation in batches to speed things up.</div>
+<div class="important">The speed only for the prediction. The model size is several 100&nbsp;MB, so this takes a while. In a real application you can (1) load the model only once and (2) run the evaluation on a batch of many images to speed things up.</div>
             
             <div id="disqus_thread"></div>
 <script>

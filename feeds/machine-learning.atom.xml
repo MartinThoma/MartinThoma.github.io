@@ -177,7 +177,11 @@ subsequent uses and applies it to the data.&lt;/p&gt;
 141
 142
 143
-144&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/env python&lt;/span&gt;
+144
+145
+146
+147
+148&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/env python&lt;/span&gt;
 &lt;span class="c1"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
 &lt;span class="sd"&gt;"""ResNet50 model for Keras."""&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;__future__&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;print_function&lt;/span&gt;
@@ -185,6 +189,7 @@ subsequent uses and applies it to the data.&lt;/p&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;time&lt;/span&gt;
 
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;keras&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;backend&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;K&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;keras.preprocessing&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;image&lt;/span&gt;
@@ -316,7 +321,10 @@ subsequent uses and applies it to the data.&lt;/p&gt;
     &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;expand_dims&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
     &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;preprocess_input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
     &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Input image shape:'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;t0&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
     &lt;span class="n"&gt;preds&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;predict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;t1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Prediction time: {:0.3f}s"&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t1&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;t0&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
     &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;wordnet_id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;class_name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;prob&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;decode_predictions&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;preds&lt;/span&gt;&lt;span class="p"&gt;)[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt;
         &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"{wid}&lt;/span&gt;&lt;span class="se"&gt;\t&lt;/span&gt;&lt;span class="s2"&gt;{prob:&amp;gt;6}%&lt;/span&gt;&lt;span class="se"&gt;\t&lt;/span&gt;&lt;span class="s2"&gt;{name}"&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;wid&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;wordnet_id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
                                                  &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;class_name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
@@ -355,31 +363,31 @@ n02607072      0.00%    anemone_fish
 &lt;td&gt;224 &amp;times; 224&lt;/td&gt;
 &lt;td&gt;77.15%&lt;/td&gt;
 &lt;td&gt;93.29%&lt;/td&gt;
-&lt;td&gt;5.59s&lt;/td&gt;
+&lt;td&gt;0.495s&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;a href="https://arxiv.org/abs/1409.1556"&gt;VGG16&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;224 &amp;times; 224&lt;/td&gt;
 &lt;td&gt;73.0%&lt;/td&gt;
 &lt;td&gt;91.2%&lt;/td&gt;
-&lt;td&gt;6.56s&lt;/td&gt;
+&lt;td&gt;0.488s&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;a href="http://arxiv.org/abs/1512.00567"&gt;InceptionV3&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;299 &amp;times; 299&lt;/td&gt;
 &lt;td&gt;78.8%&lt;/td&gt;
 &lt;td&gt;94.4%&lt;/td&gt;
-&lt;td&gt;7.62s&lt;/td&gt;
+&lt;td&gt;0.681s&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;a href="https://arxiv.org/abs/1610.02357"&gt;Xception&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;299 &amp;times; 299&lt;/td&gt;
 &lt;td&gt;79.0%&lt;/td&gt;
 &lt;td&gt;94.5%&lt;/td&gt;
-&lt;td&gt;6.71s&lt;/td&gt;
+&lt;td&gt;0.761s&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
-&lt;div class="important"&gt;The speed is for the complete script. This includes loading the model. The model size is several 100&amp;nbsp;MB. In a real application you can (1) load the model only once and (2) run the evaluation in batches to speed things up.&lt;/div&gt;</content><category term="machine learning"></category><category term="Computer Vision"></category><category term="ImageNet"></category></entry><entry><title>How to download ImageNet</title><link href="https://martin-thoma.com/download-data/" rel="alternate"></link><published>2017-03-06T20:00:00+01:00</published><updated>2017-03-06T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-03-06:/download-data/</id><summary type="html">&lt;p&gt;Machine Learning algorithms for computer vision need huge amounts of data.
+&lt;div class="important"&gt;The speed only for the prediction. The model size is several 100&amp;nbsp;MB, so this takes a while. In a real application you can (1) load the model only once and (2) run the evaluation on a batch of many images to speed things up.&lt;/div&gt;</content><category term="machine learning"></category><category term="Computer Vision"></category><category term="ImageNet"></category></entry><entry><title>How to download ImageNet</title><link href="https://martin-thoma.com/download-data/" rel="alternate"></link><published>2017-03-06T20:00:00+01:00</published><updated>2017-03-06T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-03-06:/download-data/</id><summary type="html">&lt;p&gt;Machine Learning algorithms for computer vision need huge amounts of data.
 Here are a few remarks on how to download them.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Make sure you have enough space (&lt;code&gt;df -h&lt;/code&gt;)&lt;/li&gt;
