@@ -1,5 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Machine Learning</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/machine-learning.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2017-03-25T20:00:00+01:00</updated><entry><title>ML Review 4</title><link href="https://martin-thoma.com/ml-review-4/" rel="alternate"></link><published>2017-03-25T20:00:00+01:00</published><updated>2017-03-25T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-03-25:/ml-review-4/</id><summary type="html">&lt;p&gt;This Review gives an overview of intersting stuff I stumbled over which are
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Machine Learning</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/machine-learning.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2017-03-29T20:00:00+02:00</updated><entry><title>ZCA Whitening</title><link href="https://martin-thoma.com/zca-whitening/" rel="alternate"></link><published>2017-03-29T20:00:00+02:00</published><updated>2017-03-29T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-03-29:/zca-whitening/</id><summary type="html">&lt;p&gt;Whitening is a transformation of data in such a way that its covariance matrix &lt;span class="math"&gt;\(\Sigma\)&lt;/span&gt;
+is the identity matrix. Hence whitening decorrelates features. It is used as a
+preprocessing method.&lt;/p&gt;
+&lt;p&gt;When you have &lt;span class="math"&gt;\(N\)&lt;/span&gt; data points in &lt;span class="math"&gt;\(\mathbb{R}^n\)&lt;/span&gt;, then the covariance matrix
+&lt;span class="math"&gt;\(\Sigma \in \mathbb{R}^{n \times …&lt;/span&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;Whitening is a transformation of data in such a way that its covariance matrix &lt;span class="math"&gt;\(\Sigma\)&lt;/span&gt;
+is the identity matrix. Hence whitening decorrelates features. It is used as a
+preprocessing method.&lt;/p&gt;
+&lt;p&gt;When you have &lt;span class="math"&gt;\(N\)&lt;/span&gt; data points in &lt;span class="math"&gt;\(\mathbb{R}^n\)&lt;/span&gt;, then the covariance matrix
+&lt;span class="math"&gt;\(\Sigma \in \mathbb{R}^{n \times n}\)&lt;/span&gt; is estimated to be:
+[\hat{\Sigma}&lt;em i="1"&gt;{jk} = \frac{1}{N-1} \sum&lt;/em&gt;^N (x_{ij} - \bar{x}&lt;em ik=""&gt;j) \cdot (x&lt;/em&gt; - \bar{x}_k)]
+where &lt;span class="math"&gt;\(\bar{x}_j\)&lt;/span&gt; denotes the &lt;span class="math"&gt;\(j\)&lt;/span&gt;-th component of the estimated mean of the
+samples &lt;span class="math"&gt;\(x\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Any matrix &lt;span class="math"&gt;\(W \in \mathbb{R}^{n \times n}\)&lt;/span&gt; which satisfies the condition
+[W^T W = C^{-1}]
+whitens the data. &lt;abbr title="Zero-phase Component Analysis"&gt;ZCA&lt;/abbr&gt;
+whitening is the choice &lt;span class="math"&gt;\(W = M^{- \frac{1}{2}}\)&lt;/span&gt;. PCA is another choice.
+According to "Neural Networks: Tricks of the Trade" PCA and ZCA whitening
+differ only by a rotation.&lt;/p&gt;
+&lt;h2 id="how-to-do-it"&gt;How to do it&lt;/h2&gt;
+&lt;p&gt;When you look at the &lt;a href="https://github.com/fchollet/keras/blob/master/keras/preprocessing/image.py#L670-L674"&gt;Keras code&lt;/a&gt;, you can see the following:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# Calculate principal components
+sigma = np.dot(flat_x.T, flat_x) / flat_x.shape[0]
+u, s, _ = linalg.svd(sigma)
+principal_components = np.dot(np.dot(u, np.diag(1. / np.sqrt(s + 10e-7))), u.T)
+
+# Apply ZCA whitening
+whitex = np.dot(flat_x, principal_components)
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So, at first you compute the covariance matrix &lt;span class="math"&gt;\(\Sigma\)&lt;/span&gt;. I'm not quite sure,
+but I think they should divide by &lt;code&gt;flat_x.shape[0] - 1&lt;/code&gt; for the unbiased
+estimator.&lt;/p&gt;
+&lt;p&gt;Then you apply singular value decomposition to the estimated covariance matrix.
+The matrix &lt;span class="math"&gt;\(u \in \mathbb{R}^{n \times n}\)&lt;/span&gt; is &lt;a href="https://en.wikipedia.org/wiki/Unitary_matrix"&gt;unitary&lt;/a&gt;
+and &lt;span class="math"&gt;\(s \in \mathbb{R}^{n \times n}\)&lt;/span&gt; is a diagonal matrix with non-negative real numbers on the diagonal.
+Those number are the &lt;a href="https://en.wikipedia.org/wiki/Singular_value"&gt;singular values&lt;/a&gt;
+of &lt;span class="math"&gt;\(\Sigma\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Next, the principal components are calculated:
+[u \cdot \frac{1}{\sqrt{s + 10^{-7}}} I \cdot u^T]&lt;/p&gt;
+&lt;p&gt;By adding &lt;code&gt;10e-7&lt;/code&gt; one prevents division by zero.&lt;/p&gt;
+&lt;p&gt;Whitening is then simply the multiplication with the principal components.&lt;/p&gt;
+&lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://arxiv.org/abs/1512.00809"&gt;Optimal whitening and decorrelation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Computer Vision"></category><category term="Machine Learning"></category></entry><entry><title>ML Review 4</title><link href="https://martin-thoma.com/ml-review-4/" rel="alternate"></link><published>2017-03-25T20:00:00+01:00</published><updated>2017-03-25T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-03-25:/ml-review-4/</id><summary type="html">&lt;p&gt;This Review gives an overview of intersting stuff I stumbled over which are
 related to machine learning.&lt;/p&gt;
 &lt;h2 id="new-developments"&gt;New Developments&lt;/h2&gt;
 &lt;ul&gt;
