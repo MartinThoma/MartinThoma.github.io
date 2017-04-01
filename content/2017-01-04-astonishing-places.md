@@ -77,7 +77,7 @@ to see them with my own eyes.
 
 <figure class="wp-caption aligncenter img-thumbnail">
     <img src="../images/2017/01/godafoss-waterfall-sunset.jpg" alt="Sunset at Goðafoss waterfall" />
-    <figcaption class="text-center">Sunset at <a href="https://en.wikipedia.org/wiki/Go%C3%B0afoss">Goðafoss waterfall</a> (Image source: <a href="https://www.reddit.com/r/EarthPorn/comments/5xwydp/i_went_on_a_roadtrip_in_iceland_and_i_captured/">reddit</a>)</figcaption>
+    <figcaption class="text-center">Sunset at <a href="https://en.wikipedia.org/wiki/Go%C3%B0afoss">Goðafoss waterfall</a> (Image source: <a href="https://www.reddit.com/r/EarthPorn/comments/5xwydp/i_went_on_a_roadtrip_in_iceland_and_i_captured/">reddit</a>). One can see the aurora there, too (<a href="https://www.reddit.com/r/EarthPorn/comments/62o70v/got_one_clear_night_on_a_recent_trip_to_iceland/">source</a>).</figcaption>
 </figure>
 
 * Steam Towers: Hverir
@@ -133,7 +133,7 @@ in Summer when the water evaporates (Image source: <a href="https://commons.wiki
 ### Bolivia
 
 <figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2017/01/salt-pan.jpg" alt="Salar de Uyuni is one of the most famous salt pans" />
+    <img src="../images/2017/01/salt-pan.jpg" alt="Salar de Uyuni is one of the most famous salt pans" style="width: 512px;"/>
     <figcaption class="text-center">Salar de Uyuni is one of the most famous <a href="https://en.wikipedia.org/wiki/Salt_pan_(geology)">salt pans</a> (Image source: <a href="https://en.wikipedia.org/wiki/File:Salar_de_Uyuni,_Bolivia,_2016-02-04,_DD_10-12_HDR.JPG">Wikimedia Commons</a>)</figcaption>
 </figure>
 
