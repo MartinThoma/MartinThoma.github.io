@@ -13,7 +13,7 @@ featured_image: logos/arxiv.png
 
 I've recently talked to my bachelors thesis advisers. *A short reminder:*
 I write a thesis about the recognition of handwritten mathematical symbols. As
-a practical part I implement everything on [write-math.com](write-math.com).
+a practical part I implement everything on [write-math.com](http://write-math.com).
 
 My advisers said me that I need at least 100 training examples per symbol.
 As I currently have about 1070 symbols in the database, including symbols
