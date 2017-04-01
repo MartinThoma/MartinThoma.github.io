@@ -14,12 +14,16 @@ preprocessing method.
 
 When you have $N$ data points in $\mathbb{R}^n$, then the covariance matrix
 $\Sigma \in \mathbb{R}^{n \times n}$ is estimated to be:
-\[\hat{\Sigma}_{jk} = \frac{1}{N-1} \sum_{i=1}^N (x_{ij} - \bar{x}_j) \cdot (x_{ik} - \bar{x}_k)\]
+
+$$\hat{\Sigma}_{jk} = \frac{1}{N-1} \sum_{i=1}^N (x_{ij} - \bar{x}_j) \cdot (x_{ik} - \bar{x}_k)$$
+
 where $\bar{x}_j$ denotes the $j$-th component of the estimated mean of the
 samples $x$.
 
 Any matrix $W \in \mathbb{R}^{n \times n}$ which satisfies the condition
-\[W^T W = C^{-1}\]
+
+$$W^T W = C^{-1}$$
+
 whitens the data. <abbr title="Zero-phase Component Analysis">ZCA</abbr>
 whitening is the choice $W = M^{- \frac{1}{2}}$. PCA is another choice.
 According to "Neural Networks: Tricks of the Trade" PCA and ZCA whitening
@@ -59,4 +63,5 @@ Whitening is then simply the multiplication with the principal components.
 
 ## See also
 
+* Alex Krizhevsky and Geoffrey Hinton: [Learning multiple layers of features from tiny images](https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf)
 * [Optimal whitening and decorrelation](https://arxiv.org/abs/1512.00809)
