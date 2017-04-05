@@ -144,7 +144,7 @@ MathJax.Hub.Queue(function() {
 <td><a href="https://cvhci.anthropomatik.kit.edu/downloads/visionhci13/V04_WS13_Basics-Pattern-Recognition.pdf">4</a></td>
 <td>28.10.2016</td>
 <td>Face Detection II</td>
-<td>Perceptron, MLP, Histogram Equalization, Haar-like features, Adaboost (Viola and Jones), </td>
+<td>Perceptron, MLP, Histogram Equalization, Haar-like features, Adaboost (Viola and Jones)</td>
 </tr>
 <tr>
 <td><a href="https://cvhci.anthropomatik.kit.edu/downloads/visionhci13/V05_WS13_Machine_Learning.pdf">5</a></td>
@@ -296,6 +296,7 @@ MathJax.Hub.Queue(function() {
         <ul>
 <li>ECU face detection database</li>
 <li>ECU face skin detection database</li>
+<li>MIT and CMU frontal face database</li>
 </ul>
 </dd>
 <dt><dfn>Chromatic Color Spaces</dfn></dt>
@@ -337,7 +338,13 @@ MathJax.Hub.Queue(function() {
         The intensity values of the image are modified in such a way that the
         histogram is flattened.
 
-    </dd>
+        It roughly works like this:
+        <ol>
+<li>Let $p(x_i) = \frac{n_i}{n}$ be the probability of a pixel having level $i$.</li>
+<li>Let $c(i) = \sum_{j=0}^i p(x_j)$ be the cumulative distribution.</li>
+<li>Find transformation $T$ such that the cumulative distribution $y = T(x)$ is linear.</li>
+</ol>
+</dd>
 <dt><dfn id="image-normalization"><a href="https://en.wikipedia.org/wiki/Normalization_(image_processing)">Image normalization</a></dfn></dt>
 <dd>
         Normalization is a process that changes the range of pixel intensity
@@ -348,6 +355,16 @@ MathJax.Hub.Queue(function() {
     </dd>
 <dt><dfn><a href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic">ROC</a></dfn></dt>
 <dd>Die ROC-Kurve misst die Abw&auml;gung zwischen True-Positve Rate ($\frac{TP}{Pos}$, y-Achse) und False Positive Rate (\frac{FP}{Neg}, x-Achse).</dd>
+<dt><dfn>Intersection over Union</dfn> (<dfn id="iou">IoU</dfn>)</dt>
+<dd>Siehe <a href="http://stackoverflow.com/a/42874377/562769">StackExchange</a></dd>
+<dt><a href="https://en.wikipedia.org/wiki/Haar-like_features"><dfn>Haar-like features</dfn></a></dt>
+<dd>Based on Haar wavelets as features. Developed by Viola and Jones. A
+        Haar-like feature considers adjacent rectangular regions at a specific
+        location in a detection window, sums up the pixel intensities in each
+        region and calculates the difference between these sums. Can be computed
+        efficiently by using integral images.</dd>
+<dt><dfn>AdaBoost</dfn></dt>
+<dd>TODO</dd>
 </dl>
 <h3 id="face-recognition">Face Recognition</h3>
 <p>Alignment:</p>
@@ -356,7 +373,6 @@ MathJax.Hub.Queue(function() {
 <li>Eyes are hard</li>
 <li>Computationally intensive (not suitable for real time applications)</li>
 </ul>
-<p>Face features:</p>
 <dl>
 <dt><dfn id="face-recognition-dfn">Face Recognition</dfn></dt>
 <dd>Face recognition has 4 main tasks:
@@ -371,19 +387,53 @@ MathJax.Hub.Queue(function() {
     The face verification task is sometimes (more simply) a face classification
     task (given a face, decide which of a fixed set of people it is).
 
-    Important papers:
+    Challenges:
+    <ul>
+<li>Extrinsic Variations
 
+        <ul>
+<li>Illumination</li>
+<li>View-point</li>
+<li>Occlusion</li>
+<li>Imaging process (low resolution)</li>
+</ul>
+</li>
+<li>Intrinsic Variations
+
+        <ul>
+<li>Aging</li>
+<li>Facial expressions</li>
+</ul>
+</li>
+</ul>
+
+
+    Approaches:
+    <ul>
+<li>Feature-Based (Geometric)
+        <ul>
+<li>fiducial points</li>
+<li>distances, angles, areas</li>
+</ul>
+</li>
+<li>Appearence-Based
+        <ul>
+<li>holistic, fiducial regions</li>
+<li>statistical</li>
+</ul>
+</li>
+</ul>
+
+    Important papers:
         <ul>
 <li><a href="https://www.cs.toronto.edu/~ranzato/publications/taigman_cvpr14.pdf">Deep Face: closing the gap to human level performance</a> (<a href="http://www.shortscience.org/paper?bibtexKey=conf/cvpr/TaigmanYRW14#martinthoma">summary</a>)</li>
 <li><a href="https://arxiv.org/abs/1503.03832">FaceNet: A unified embedding for face recognition and clustering</a> (<a href="http://www.shortscience.org/paper?bibtexKey=journals/corr/1503.03832">summary</a>)</li>
 <li><a href="https://www.robots.ox.ac.uk/~vgg/publications/2015/Parkhi15/parkhi15.pdf">Deep Face recognition</a> (<a href="http://www.shortscience.org/paper?bibtexKey=conf/bmvc/ParkhiVZ15">summary</a>)</li>
 </ul>
 
-
         Datasets
-
         <ul>
-<li><a href="http://vis-www.cs.umass.edu/lfw/">LFW</a> (Labeled Faces in the Wild)</li>
+<li><a href="http://vis-www.cs.umass.edu/lfw/">LFW</a> (Labeled Faces in the Wild, <a href="http://vis-www.cs.umass.edu/lfw/results.html">results</a>)</li>
 <li><a href="http://www.cs.tau.ac.il/~wolf/ytfaces/">YTF</a> (Youtube Faces)</li>
 </ul>
 </dd>
