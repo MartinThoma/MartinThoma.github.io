@@ -1294,7 +1294,7 @@ Slides: `MLI_14_UnueberwachtesLernen_slides1.pdf`
 
         Anwendung: Einordnung von Schrauben in ein Ordnungssystem
     </dd>
-    <dt><dfn>Agglomerative Hierarchical Clustering</dfn> (<dfn>AHC</dfn>)</dt>
+    <dt><dfn id="agglomerative-hierarchical-clustering">Agglomerative Hierarchical Clustering</dfn> (<dfn id="ahc">AHC</dfn>)</dt>
     <dd>AHC ist ein hierarchisches Clusteringverfahren.
 
     Dabei ist ein Clusterdistanz-Schwellwert $t \in \mathbb{R}$ und eine
@@ -1324,6 +1324,7 @@ do:
 until c = c'
     </code></pre>
     </div>
+        The result can be visualized as a Dendrogramm.
     </dd>
     <dt><a href="https://en.wikipedia.org/wiki/Conceptual_clustering"><dfn>Begriffliche Ballung</dfn></a></dt>
     <dd>Bei Algorithmen der Begrifflichen Ballung werden Konzeptbeschreibungen
