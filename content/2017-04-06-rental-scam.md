@@ -5,7 +5,7 @@ slug: rental-scam
 author: Martin Thoma
 date: 2017-04-06 20:00
 category: Cyberculture
-tags: scam, phishing, crime
+tags: scam, phishing, crime, fraud
 featured_image: logos/scam.png
 ---
 I am currently searching for a flat in Munich. While doing so, I've seen (and
