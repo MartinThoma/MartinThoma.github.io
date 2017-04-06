@@ -24,7 +24,7 @@ Here is an easy to use example
     * [CuDNN](http://askubuntu.com/q/767269/10425)
 * [Keras](https://keras.io/#installation)
 * [`weights_SSD300.hdf5`](https://mega.nz/#F!7RowVLCL!q3cEVRK9jyOSB9el3SssIA) (103.2MB, MD5: `9ae4b93e679ea30134ce37e3096f34fa`)
-* `ssd.py` and `ssd_utils.py` from [github.com/rykov8/ssd_keras](https://github.com/rykov8/ssd_keras)
+* `ssd.py` and `ssd_utils.py` from [github.com/MartinThoma/algorithms](https://github.com/MartinThoma/algorithms/tree/master/ML/detection)
 
 
 ## Code
