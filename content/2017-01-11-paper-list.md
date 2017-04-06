@@ -73,3 +73,5 @@ Nov. 2015. (<a href="http://www.shortscience.org/paper?bibtexKey=journals/corr/M
 * Pooling: Can it be replaced by convolutions?
 * Ensembles: Train an ensemble, use it to get better labels than simple one-hot encoding, train new single network on new labels. (Possibly the same as <a href="https://arxiv.org/abs/1503.02531">Distilling the Knowledge in a Neural Network</a>)
 * OCR and semantic segmentation
+* Negative images
+* How does taking grayscale images on color-image trained networks decrease performance?
