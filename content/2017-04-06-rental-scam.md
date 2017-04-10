@@ -164,38 +164,56 @@ Meine Antwort:
 <pre>
 Dear Mr. Barnett,
 
-I can't find the advertisement for the flat. As I send a couple of requests I'm not quite sure about which one you're talking. Could you please send me the link to it? (or at least the address)
+I can't find the advertisement for the flat. As I send a couple of requests I'm
+not quite sure about which one you're talking. Could you please send me the
+link to it? (or at least the address)
 
-I am seeking a flat only for myself. I am a software engineer and I want to rent the flat from the beginning of June. Right now, I don't know how long I will stay but likely for several years.
+I am seeking a flat only for myself. I am a software engineer and I want to
+rent the flat from the beginning of June. Right now, I don't know how long I
+will stay but likely for several years.
 
 Best regards (and get well soon),
 Martin
 </pre>
 
 Antwort "Mietverfahren" von <code>Gregory Barnett &lt;gregorybarnett90@gmail.com&gt;</code>
+
 <pre>
 Thank you for replying,
 
-The property is managed by Chelsea Homes, a local real estate agency, specialized in international transactions. Their website is: www.chelsea-homes.co.uk .
-They will arrange a viewing for you, and handle the payments and contract.
-Also if you have any questions, feel free to contact them anytime you need, because I might not always be available. You can find their details on the Contact page of their website.
+The property is managed by Chelsea Homes, a local real estate agency,
+specialized in international transactions. Their website is:
+www.chelsea-homes.co.uk .
+They will arrange a viewing for you, and handle the payments and contract. Also
+if you have any questions, feel free to contact them anytime you need, because
+I might not always be available. You can find their details on the Contact page
+of their website.
 
 Now here's how the rental works:
 
-1. First you need to register with the agency at: www.chelsea-homes.co.uk/register.html by entering your details in the form and clicking SUBMIT.
+1. First you need to register with the agency at:
+   www.chelsea-homes.co.uk/register.html by entering your details in the form
+   and clicking SUBMIT.
 2. I'll drop off 2 sets of keys and the necessary paperwork at their office
-3. The agency will email you the invoice for the first rent (350€)+ Kaution (450€).
-This is just to reserve the property, and not a final commitment of course,.
-Once you've made the payment, the agency will book the viewing for you, and within 1-2 days, one of their agents will meet you in Germany to show you the property and help you with all the formalities.
-4. After the viewing, if you're satisfied with the place you will sign a contract with the agent and receive the keys so you can move in.
-However if you don't like the apartment, for whatever reason, you will have no obligations and the full payment will be refunded by the agent immediately.
-The whole procedure shouldn't take more than 3 days in total.
+3. The agency will email you the invoice for the first rent (350€)+ Kaution
+   (450€). This is just to reserve the property, and not a final commitment of
+   course,. Once you've made the payment, the agency will book the viewing for
+   you, and within 1-2 days, one of their agents will meet you in Germany to
+   show you the property and help you with all the formalities.
+4. After the viewing, if you're satisfied with the place you will sign a
+   contract with the agent and receive the keys so you can move in. However if
+   you don't like the apartment, for whatever reason, you will have no
+   obligations and the full payment will be refunded by the agent immediately.
+   The whole procedure shouldn't take more than 3 days in total.
 
-I'm paying for the services of the agency, so there will be no extra costs for you.
-Also, in case you're tied up in another contract and cannot move in immediately, we can arrange the viewing now, and reserve the apartment for you.
-Since we're unable to meet in person I've attached a copy of my passport, so you can have a reference of your potential landlord.
+I'm paying for the services of the agency, so there will be no extra costs for
+you. Also, in case you're tied up in another contract and cannot move in
+immediately, we can arrange the viewing now, and reserve the apartment for you.
+Since we're unable to meet in person I've attached a copy of my passport, so
+you can have a reference of your potential landlord.
 
-Please consider my offer and let me know if we have a deal, because there are several others interested in the apartment, and I need to make a decision soon.
+Please consider my offer and let me know if we have a deal, because there are
+several others interested in the apartment, and I need to make a decision soon.
 
 Have a great day!
 
@@ -242,7 +260,8 @@ whois chelsea-homes.co.uk
         United Kingdom
 
     Data validation:
-        Nominet was able to match the registrant's name and address against a 3rd party data source on 21-Feb-2017
+        Nominet was able to match the registrant's name and address against a
+        3rd party data source on 21-Feb-2017
 
     Registrar:
         eNom LLC [Tag = ENOM]
@@ -291,7 +310,11 @@ Dear Mr. Barnett,
 
 Your flat looks really gorgeous and I really want it, but I'm also a bit unsure about scams.
 
-Before I register to this site I don't know, could you please help me to trust you? You could, for example, take a photo of yourself holding up a sign with your name and the current data (or a recent newspaper). Alternatively, you could send me 10 Euro to https://www.paypal.me/MartinThoma so that I know it is actually your passport.
+Before I register to this site I don't know, could you please help me to trust
+you? You could, for example, take a photo of yourself holding up a sign with
+your name and the current data (or a recent newspaper). Alternatively, you
+could send me 10 Euro to https://www.paypal.me/MartinThoma so that I know it is
+actually your passport.
 
 Best regards,
 Martin
@@ -317,18 +340,36 @@ Von <code>claudia Marsik &lt;claudiaosterrich@outlook.com&gt;</code> mit
 <pre>
 Hallo,
 
-Danke für Ihr Interesse , Ich kaufte diese Wohnung für meinen Sohn während seines Studiums , aber jetzt ist er wieder zu Hause in Großbritannien dauerhaft, so dass ich die Vermietung der Ort für unbegrenzte Zeit. Bevor wir weiter gehen, möchte ich etwas über Sie wissen , wie zB wie viele Personen Sie beabsichtigen, in der Wohnung leben, was ist Ihre Aufgabe Wie alt bist du und für wie lange Sie bleiben Die Wohnung ist genau wie auf den Bildern, voll möbliert ausgestattet und renoviert in diesem Jahr. Auch sehr wichtige, die Versorgungsunternehmen Wasser, Strom, Heizung, Gas, Internet, TV-Kabel, Spülmaschine, Müllabfuhr, sind im Preis von 350 Euro pro Monat inklusive und ich glaube, es bequem für uns beide ist. Alle Rechnungen werden von mir bezahlt werden und Sie nur das Geld für die Miete im Monat zahlen. Die Kaution ist auch 350 €, und Sie bekommen es zurück wenn Sie sich entscheiden, die Wohnung zu verlassen ( Sie haben mir mindestens 1 Monat Kündigungsfrist zu geben ). Sie können meine Möbel verwenden, oder Sie können auch Ihre eigenen verwenden, wenn Sie bevorzugen. Ich bin ein Neuro-Onkologie Arzt aus Großbritannien. Ich kann Vorkehrungen, um die Wohnung von hier aus schnell und einfach mieten machen . Ich freuen, bald von Ihnen zu hören.
+Danke für Ihr Interesse , Ich kaufte diese Wohnung für meinen Sohn während
+seines Studiums , aber jetzt ist er wieder zu Hause in Großbritannien
+dauerhaft, so dass ich die Vermietung der Ort für unbegrenzte Zeit. Bevor wir
+weiter gehen, möchte ich etwas über Sie wissen , wie zB wie viele Personen Sie
+beabsichtigen, in der Wohnung leben, was ist Ihre Aufgabe Wie alt bist du und
+für wie lange Sie bleiben Die Wohnung ist genau wie auf den Bildern, voll
+möbliert ausgestattet und renoviert in diesem Jahr. Auch sehr wichtige, die
+Versorgungsunternehmen Wasser, Strom, Heizung, Gas, Internet, TV-Kabel,
+Spülmaschine, Müllabfuhr, sind im Preis von 350 Euro pro Monat inklusive und
+ich glaube, es bequem für uns beide ist. Alle Rechnungen werden von mir bezahlt
+werden und Sie nur das Geld für die Miete im Monat zahlen. Die Kaution ist auch
+350 €, und Sie bekommen es zurück wenn Sie sich entscheiden, die Wohnung zu
+verlassen ( Sie haben mir mindestens 1 Monat Kündigungsfrist zu geben ). Sie
+können meine Möbel verwenden, oder Sie können auch Ihre eigenen verwenden, wenn
+Sie bevorzugen. Ich bin ein Neuro-Onkologie Arzt aus Großbritannien. Ich kann
+Vorkehrungen, um die Wohnung von hier aus schnell und einfach mieten machen .
+Ich freuen, bald von Ihnen zu hören.
 
 Hab einen schönen Tag!
 </pre>
 
 Meine Antwort:
+
 <pre>
 Dear Mrs. Marsik,
 
 We can also communicate in English if that is more comfortable for you.
 
-I want to live alone in the flat. I am 27 years old, a software engineer and I hope to stay in Munich for several years.
+I want to live alone in the flat. I am 27 years old, a software engineer and I
+hope to stay in Munich for several years.
 
 I can't find the link to the flat. Could you please send it to me again?
 
@@ -379,7 +420,8 @@ Die Antwort von "claudia Marsik" (diesmal mit <code>Marsik &lt;Marsikclaudia@t-o
 Meine Antwort:
 
 <pre>
-Thank you for the nice images. The flat loos gorgeous! Could you please tell me the adress of it again? (I want to live quite central in Munich)
+Thank you for the nice images. The flat loos gorgeous! Could you please tell me
+the adress of it again? (I want to live quite central in Munich)
 </pre>
 
 
