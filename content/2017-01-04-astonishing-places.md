@@ -41,6 +41,20 @@ to see them with my own eyes.
 </figure>
 
 
+### Thailand
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2017/01/Khaoyai_06.jpg" alt="Khao Yai National Park" style="width: 512px;"/>
+    <figcaption class="text-center"><a href="https://en.wikipedia.org/wiki/Khao_Yai_National_Park">Khao Yai National Park</a> (Image source: <a href="https://commons.wikimedia.org/wiki/File:Khaoyai_06.jpg">Wikimedia</a>)</figcaption>
+</figure>
+
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2017/01/Klonglan_waterfall_03.jpg" alt="Khlong Lan National Park" style="width: 512px;"/>
+    <figcaption class="text-center"><a href="https://en.wikipedia.org/wiki/Khlong_Lan_National_Park">Khlong Lan National Park</a> (Image source: <a href="https://commons.wikimedia.org/wiki/File:Klonglan_waterfall_03.jpg">Wikimedia</a>)</figcaption>
+</figure>
+
+
 ## Europe
 
 ### Norway
@@ -102,6 +116,22 @@ to see them with my own eyes.
 <figure class="wp-caption aligncenter img-thumbnail">
     <img src="../images/2017/01/travertine-pools.jpg" alt="Travertine Pools" />
     <figcaption class="text-center"><a href="https://en.wikipedia.org/wiki/Pamukkale">Travertine Pools of Pamukkale</a> (Image source: <a href="https://commons.wikimedia.org/wiki/File:Pamukkale_Hierapolis_Travertine_pools.JPG">Wikimedia</a>)</figcaption>
+</figure>
+
+
+### Greece
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2017/01/Sunset_of_Mykonos.jpg" alt="Mykonos (Greece)" style="width: 512px;"/>
+    <figcaption class="text-center">Mykonos (Image source: <a href="https://commons.wikimedia.org/wiki/File:Sunset_of_Mykonos.jpg">Wikimedia</a>)</figcaption>
+</figure>
+
+
+### Ukraine
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2017/01/Ukraine-national-park.jpg" alt="Protiate Kaminnia Natural Geological Monument" style="width: 512px;"/>
+    <figcaption class="text-center">Protiate Kaminnia Natural Geological Monument (Image source: <a href="https://commons.wikimedia.org/wiki/File:%D0%97%D0%B0%D1%85%D1%96%D0%B4_%D1%81%D0%BE%D0%BD%D1%86%D1%8F_%D0%BD%D0%B0_%D0%B2%D0%B5%D1%80%D1%88%D0%B8%D0%BD%D1%96_%D1%81%D0%BA%D0%B5%D0%BB%D1%96_%D0%A1%D0%BE%D0%BA%D0%BE%D0%BB%D0%B8%D0%BD%D0%B5_%D0%BE%D0%BA%D0%BE.jpg">Wikimedia</a>)</figcaption>
 </figure>
 
 
