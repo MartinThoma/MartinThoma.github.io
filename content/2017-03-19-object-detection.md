@@ -4,7 +4,6 @@ title: Object Detection
 slug: object-detection
 author: Martin Thoma
 date: 2017-03-19 20:00
-category: Cyberculture
 category: Machine Learning
 tags: machine learning, Computer Vision, Pascal VOC
 featured_image: logos/ml.png
