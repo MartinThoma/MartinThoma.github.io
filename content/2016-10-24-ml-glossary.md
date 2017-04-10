@@ -24,7 +24,7 @@ in full detail.
         trained on different labeled datasets. The classifiers are applied to
         the unlabeled data. Data with high confidence will be added to the
         other classifiers data.</dd>
-    <dt><dfn id="collaborative-filtering">Computer Vision</dfn></dt>
+    <dt><dfn id="collaborative-filtering">Collaborative Filtering</dfn></dt>
     <dd>You have users and items which are rated. No user rated everything.
         You want to fill the gaps (see <a href="https://martin-thoma.com/collaborative-filtering/">article</a>).</dd>
     <dt><dfn id="computer-vision">Computer Vision</dfn></dt>
@@ -72,6 +72,8 @@ in full detail.
     <dd>A feature map is the result of a single filter of a convolutional layer
         being applied. So it is the activation of that filter over the given
         input.</dd>
+    <dt><dfn id="fine-tuning">Fine-tuning</dfn></dt>
+    <dd>See <a href="#pre-training">pre-training</a></dd>
     <dt><a href="https://en.wikipedia.org/wiki/Mixture_model"><dfn id="gmm">GMM</dfn></a></dt>
     <dd>Gaussian Mixture Model</dd>
     <dt><dfn id="gemm">GEMM</dfn> (<dfn>GEneral Matrix to Matrix Multiplication</dfn>)</dt>
@@ -119,6 +121,19 @@ in full detail.
         $P \in \mathbb{R}^{s \times m}$, where $m \leq s$ can be chosen as small
         as desired.
         </dd>
+    <dt><dfn id="pre-training">Pre-training</dfn></dt>
+    <dd>
+
+        <ol>
+            <li>You have machine learning model $m$.</li>
+            <li><i>Pre-training</i>: You have a dataset $A$ on which you train $m$.</li>
+            <li>You have a dataset $B$. Before you start training the model,
+                you initialize some of the parameters of $m$ with the model
+                which is trained on $A$.</li>
+            <li><i>Fine-tuning</i>: You train $m$ on $B$.</li>
+        </ol>
+
+    </dd>
     <dt><dfn id="regularization">Regularization</dfn></dt>
     <dd>Regularization are techniques to make the fitted function smoother. This
         helps to prevent overfitting.<br/>
