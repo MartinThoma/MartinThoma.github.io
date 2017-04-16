@@ -30,11 +30,13 @@ English in brakets as I'm not too sure about it; the first word is German:
 * Antrieb
     * Kettenblatt
     * Zahnkranz ([Cogset](https://en.wikipedia.org/wiki/Cogset)): 13.85 Euro
-    * Kette (Bicycle chain): 9.93 Euro
+    * Kette (Bicycle chain, Shimano Kette CN-HG53): 15.52 Euro
     * 2 Pedale (pedals): 6.95 Euro each
     * 2 Pedalarme
     * Innenlager
     * Schaltwerk ([Switchgear](https://de.wikipedia.org/wiki/Schaltwerk_(Fahrrad))): 11.63 Euro
+    * Nabenschaltung (Shimano Alfine 8-Gang)
+    * Schaltgriff (Shimano Alfine SL-S500 Rapidfire)
 * Verkehrssicherheit:
     * Klingel (bell): 3.95 Euro
     * Vorderlicht (front light): 15 Euro
@@ -61,3 +63,4 @@ frame by yourself (see [prices](http://shop.prokilo.de/stahl-metall/rohre/rundro
 * [Auflösung: Aus so vielen Teilen besteht ein Fahrrad!](http://st-pedali.blogspot.de/2014/12/auflosung-aus-sie-vielen-teilen-besteht.html)
 * http://www.hibike.de/fahrradteile-n52f1161237298
 * http://www.linex.com/
+* [Militärvelo Fahrrad 12](http://www.simpel-ch.de/velos/Militaervelo_Fahrrad12.html#produkt_details)
