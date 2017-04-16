@@ -1,14 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Cyberculture</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/cyberculture.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2017-04-13T20:00:00+02:00</updated><entry><title>Working at FZI</title><link href="https://martin-thoma.com/working-at-fzi/" rel="alternate"></link><published>2017-04-13T20:00:00+02:00</published><updated>2017-04-13T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-04-13:/working-at-fzi/</id><summary type="html">&lt;p&gt;While I was working at &lt;a href="https://en.wikipedia.org/wiki/Forschungszentrum_Informatik"&gt;FZI&lt;/a&gt;
 I found a couple of commands useful.&lt;/p&gt;
-&lt;h2 id="blame-users"&gt;Blame users&lt;/h2&gt;
-&lt;p&gt;With &lt;code&gt;nvidia-smi&lt;/code&gt; you can see which processes currently use the graphics card:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Thu Apr 13 19:14:50 2017
-+-----------------------------------------------------------------------------+
-| NVIDIA-SMI 361.93.02              Driver Version: 361.93.02                 |
-|-------------------------------+----------------------+----------------------+
-| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;While I was working at &lt;a href="https://en.wikipedia.org/wiki/Forschungszentrum_Informatik"&gt;FZI&lt;/a&gt;
+&lt;h2 id="openvpn"&gt;OpenVPN&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Download the &lt;code&gt;client.ovpn&lt;/code&gt; from the website your advisor gives you. This
+   website can only be accessed outside of FZI and needs to be accessed by
+   &lt;code&gt;https://&lt;/code&gt; - &lt;code&gt;http://&lt;/code&gt; does not work.&lt;/li&gt;
+&lt;li&gt;Run it with &lt;code&gt;sudo openvpn …&lt;/code&gt;&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;p&gt;While I was working at &lt;a href="https://en.wikipedia.org/wiki/Forschungszentrum_Informatik"&gt;FZI&lt;/a&gt;
 I found a couple of commands useful.&lt;/p&gt;
+&lt;h2 id="openvpn"&gt;OpenVPN&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Download the &lt;code&gt;client.ovpn&lt;/code&gt; from the website your advisor gives you. This
+   website can only be accessed outside of FZI and needs to be accessed by
+   &lt;code&gt;https://&lt;/code&gt; - &lt;code&gt;http://&lt;/code&gt; does not work.&lt;/li&gt;
+&lt;li&gt;Run it with &lt;code&gt;sudo openvpn --config client.ovpn&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Verify it with &lt;code&gt;ifconfig&lt;/code&gt; - there should be &lt;code&gt;tun0&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="wlan"&gt;WLAN&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Wi-Fi Security: WPA &amp;amp; WPA2 Enterprise; PEAP; No CA certificate required; MSCHAPv2&lt;/li&gt;
+&lt;li&gt;IPv4: Automatic (DHCP)&lt;/li&gt;
+&lt;li&gt;IPv6: Ignore&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="python-virtalenv"&gt;Python Virtalenv&lt;/h2&gt;
+&lt;p&gt;You don't have root access. However, you can install Python packages via
+virtualenv (at &lt;code&gt;nobackup&lt;/code&gt; - you don't need this to be backed up and you want
+to have less limitations on your venv size):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ mkdir ml-venv
+$ &lt;span class="nb"&gt;cd&lt;/span&gt; ~/ml-venv
+$ virtualenv ml
+$ &lt;span class="nb"&gt;source&lt;/span&gt; ml/bin/activate
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Add the &lt;code&gt;source ml/bin/activate&lt;/code&gt; (with the absolute path) to your &lt;code&gt;~/.bashrc&lt;/code&gt;.
+Now you can use &lt;code&gt;pip install ...&lt;/code&gt; to install whatever you need in which version
+you need.&lt;/p&gt;
+&lt;h2 id="cudnn"&gt;cuDNN&lt;/h2&gt;
+&lt;p&gt;Add&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;export LD_LIBRARY_PATH=/fzi/ids/thoma/nobackup/cuda/lib64/
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;to your &lt;code&gt;~/.bashrc&lt;/code&gt;. If that doesn't exist anymore, just download cuDNN and
+adjust the path to the &lt;code&gt;lib64&lt;/code&gt; folder.&lt;/p&gt;
 &lt;h2 id="blame-users"&gt;Blame users&lt;/h2&gt;
 &lt;p&gt;With &lt;code&gt;nvidia-smi&lt;/code&gt; you can see which processes currently use the graphics card:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Thu Apr 13 19:14:50 2017
