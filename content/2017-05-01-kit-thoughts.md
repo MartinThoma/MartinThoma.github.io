@@ -79,6 +79,26 @@ primär zur Suche dienen.
       war, wer sonst in wenig anderen Kursen ist, ...
 
 ## Misc
+
+### Hilfe für Studenten
+
+Wie jeder Mensch benötigen auch Studenten manchmal Hilfe. Da gibt es ganz
+verschiedene Fälle, die am KIT auftreten können:
+
+* Sexuelle Belästigung
+* Prüfungsangst
+* Stress
+* Schwangerschaft
+* Organisation des Studiums
+
+Für einige dieser Problemfälle gibt es auch am KIT Hilfsangebote. DAs Problem
+ist es diese zu finden. Ich schlage vor auf `http://hilfe.kit.edu/` und
+`http://help.kit.edu/` eine Übersichtsseite mit Links zu solchen Angeboten
+einzurichten.
+
+
+### Praxis-Gruppen
+
 * Code online unter offiziellem account verfügbar machen
 * Praxis-Gruppen fördern und bewerben (und ggf mit rechenleistung unterstützen)
     * ML-KA
