@@ -69,6 +69,7 @@ primär zur Suche dienen.
 
 ## Sport
 * Mehr Angebote: Umfrage unter den Studenten, was sie sich wünschen
+    * Mehr Hallen? Was würde das Kosten? Könnte man das am Campus Ost machen?
 * Statistiken über Nutzung der Angebote veröffentlichen
 * Anmeldung
     * Vielleicht 75% für das Semester, 25% der Plätze jeweils eine Woche vorher
