@@ -27,3 +27,15 @@ degree students in computer science. The rest of the article is in German
     * ML-KA
     * User groups (C++, Java, JavaScript)
 * Mehr Absprache zwischen Vorlesungen - Vorlesungsempfehlungen! (Portal - PSE?)
+
+
+## Sport
+
+* Mehr Angebote
+* Statistiken über Nutzung der Angebote veröffentlichen
+* Anmeldung
+    * Vielleicht 75% für das Semester, 25% der Plätze jeweils eine Woche vorher
+      / spontan?
+    * Anmeldung mindestens 3 Tage offen lassen. Nicht First-come-first-serve,
+      sondern als Optimierungsproblem. vorrang hat, wer noch nie in einem Kurs
+      war, wer sonst in wenig anderen Kursen ist, ...
