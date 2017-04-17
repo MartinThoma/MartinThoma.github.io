@@ -60,6 +60,33 @@ schenken. Also: **Evaluation auch online durchführen**.
 ### Mentorenprogramm
 Ich mag die Idee von Mentoren. Studenten helfen Studenten. Siehe [One-on-One Tutoring](https://martin-thoma.com/one-on-one-tutoring/) für ein paar Ideen dazu.
 
+### Frontalunterricht
+Die meisten Vorlesungen sind klassischer Frontalunterricht: Der Dozent steht
+vorne, erzählt 1.5h etwas und geht wieder. Vielleicht gibt es zwischendrin noch
+eine Frage. Manche Dozenten versuchen das durch Fragen etwas "aufzulockern",
+aber meist gelingt das nicht. Die Fragen bewirken bei vielen Studenten eher
+eine Bitte-schau-mich-nicht-an Schockstarre bei der sie dann noch weniger
+Mitdenken können.
+
+Wenn das so abläuft, sind Videos viel besser (vgl. [Blog post](https://martin-thoma.com/lectures-on-youtube/)).
+
+Allerdings gibt es mindestens eine gute Alternative: Auf [m.socrative.com](http://m.socrative.com/)
+kann der Dozent den Studenten die Möglichkeit geben anonym Kommentare zu Fragen
+zu hinterlassen. Das läuft aus Studentensicht wie folgt ab:
+
+1. Der Dozent blendet die URL und einen Identifier für die Frage und die Frage
+   selbst ein (z.B. "Findet Gradient descent bei konvexen Zielfunktionen immer ein globales Optimum?").
+2. Der Studierende gibt den Identifier ins Smartphone ein und beantwortet die
+   Frage.
+3. Nach 5 Minuten schließt der Dozent die Umfrage und liest sich die Antworten
+   durch / liest sie vor. Dann kann er auch auf falsche Antworten eingehen.
+   Wenn eine falsche Antwort hervorsticht kann man auch darauf eingehen und
+   erklären warum sie falsch ist. So lernt man auch aus Fehlern und der
+   Dozent sieht was schwer ist.
+
+Dieses System wurde von Kevin Kilgour in der Vorlesung Neuronale Netze
+verwendet und kam gut an. Man denkt ab dem Punkt wieder mit.
+
 
 ## Aufbau des Studiums
 
