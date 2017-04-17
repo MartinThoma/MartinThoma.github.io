@@ -91,15 +91,25 @@ verschiedene Fälle, die am KIT auftreten können:
 * Schwangerschaft
 * Organisation des Studiums
 
-Für einige dieser Problemfälle gibt es auch am KIT Hilfsangebote. DAs Problem
+Für einige dieser Problemfälle gibt es auch am KIT Hilfsangebote. Das Problem
 ist es diese zu finden. Ich schlage vor auf `http://hilfe.kit.edu/` und
 `http://help.kit.edu/` eine Übersichtsseite mit Links zu solchen Angeboten
 einzurichten.
 
 
+### Software
+
+Am KIT wird einiges an Software entwickelt. Es wäre cool wenn davon mehr online
+unter einem offiziellem KIT-Account z.B. auf GitHub verfügbar gemacht würde.
+
+
 ### Praxis-Gruppen
 
-* Code online unter offiziellem account verfügbar machen
-* Praxis-Gruppen fördern und bewerben (und ggf mit rechenleistung unterstützen)
-    * ML-KA
-    * User groups (C++, Java, JavaScript)
+Praxis-Gruppen wie [ML-KA](http://ml-ka.de/),
+[KarlsruheJS](https://www.meetup.com/de-DE/karlsruhejs/) oder
+[C++UG](https://www.meetup.com/de-DE/C-User-Group-Karlsruhe/) bieten einiges
+für interessierte Studenten, was mit dem Studium zusammenhängt aber direkt im
+Studium so keinen Platz hat. Diese Gruppen stärken den Standort Karlsruhe
+ungemein. Daher wäre es auch gut wenn diese in passenden
+Vorlesungen genannt werden würden. Im Fall von ML-KA wäre auch eine
+Unterstützung mit Rechenleistung toll.
