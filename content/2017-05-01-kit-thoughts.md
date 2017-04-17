@@ -19,7 +19,21 @@ degree students in computer science. The rest of the article is in German
 
 ## Lehre
 
-* Mehr Absprache zwischen Vorlesungen - Vorlesungsempfehlungen! (Portal - PSE?)
+### Vorlesungsabsprachen
+
+Es wäre wünschenswert, wenn einige Vorlesungen weniger Überschneidungen hätten.
+Wenn sich Überschneidungen nicht vermeiden lassen oder gar gewünscht sind wäre
+es schön, wenn man diese einfacher erkennen könnte. Dazu könnte man Software
+schreiben. Dann könnten Dozenten auch gemeinsam an diesen Teilen arbeiten und
+gute Ressourcen teilen. Eine solche Software könnte als Projekt im Modul PSE
+entwickelt werden.
+
+Außerdem wären Vorlesungsempfehlungen ähnlich wie Produktempfehlungen
+interessant: Sie haben Machine Learning gehört? Dann könnte sie auch Neuronale
+Netze interessieren! Diese Empfehlungen können und sollten auch von Dozenten
+als "Ähnliche Vorlesungen" auf den Websiten benannt und möglichst auch verlinkt
+werden.
+
 
 ### Online-Materialien
 
