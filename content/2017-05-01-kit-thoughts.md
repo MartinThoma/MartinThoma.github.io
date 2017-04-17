@@ -28,9 +28,9 @@ degree students in computer science. The rest of the article is in German
    Anfang, aber nicht genug). Zum anderen kann man so auch dem Stoff folgen
    selbst wenn man nicht in die Vorlesung gehen kann.
 2. Das Skript sollte online sein
-3. Es sollte für jedes Übungsblatt ausführliche Musterlösungen geben.
+3. Es sollte für jedes Übungsblatt ausführliche **Musterlösungen** geben.
 4. Die Musterlösungen der Übungsblätter sollten online verfügbar sein.
-5. Vorlesungen sollten gefilmt werden (vgl. [Blog post](https://martin-thoma.com/lectures-on-youtube/))
+5. **Vorlesungs-Videos**: Vorlesungen sollten gefilmt werden (vgl. [Blog post](https://martin-thoma.com/lectures-on-youtube/))
 6. Alle Online-Materialien sollten für jeden verfügbar sein. Die Dozenten
    werden mit offentlichen Geldern bezahlt, also sollte das Produkt ihrer
    Arbeit auch der gesamten Öffentlichkeit zugute kommen. Außerdem ist es gute
@@ -40,7 +40,7 @@ degree students in computer science. The rest of the article is in German
 Umfragen zur Verbesserung der Vorlesung müssen auch online auszufüllen sein.
 Was bringt es, wenn man gerade die Studenten die die Vorlesung stark
 kritisieren würden nicht fragt? Dann kann man sich die Umfrage auch gleich
-schenken.
+schenken. Also: **Evaluation auch online durchführen**.
 
 
 ### Mentorenprogramm
