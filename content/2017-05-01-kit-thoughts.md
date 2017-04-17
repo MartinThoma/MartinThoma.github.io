@@ -18,10 +18,33 @@ degree students in computer science. The rest of the article is in German
 
 
 ## Lehre
-* Materialen online verfügbar machen - für jeden ()
-* Umfragen zur Verbesserung auch online ausfüllen lassen
+
 * Mehr Absprache zwischen Vorlesungen - Vorlesungsempfehlungen! (Portal - PSE?)
-* Vorlesungen als Videos auf Youtube (vgl. [Blog post](https://martin-thoma.com/lectures-on-youtube/))
+
+### Online-Materialien
+
+1. Jede Vorlesung sollte ein **Skript** haben. Zum einen gibt es den Studenten
+   die Chance zu sehen worum es in der Vorlesung geht (das Modulhandbuch is ein
+   Anfang, aber nicht genug). Zum anderen kann man so auch dem Stoff folgen
+   selbst wenn man nicht in die Vorlesung gehen kann.
+2. Das Skript sollte online sein
+3. Es sollte für jedes Übungsblatt ausführliche Musterlösungen geben.
+4. Die Musterlösungen der Übungsblätter sollten online verfügbar sein.
+5. Vorlesungen sollten gefilmt werden (vgl. [Blog post](https://martin-thoma.com/lectures-on-youtube/))
+6. Alle Online-Materialien sollten für jeden verfügbar sein. Die Dozenten
+   werden mit offentlichen Geldern bezahlt, also sollte das Produkt ihrer
+   Arbeit auch der gesamten Öffentlichkeit zugute kommen. Außerdem ist es gute
+   Werbung fürs KIT.
+
+### Umfragen
+Umfragen zur Verbesserung der Vorlesung müssen auch online auszufüllen sein.
+Was bringt es, wenn man gerade die Studenten die die Vorlesung stark
+kritisieren würden nicht fragt? Dann kann man sich die Umfrage auch gleich
+schenken.
+
+
+### Mentorenprogramm
+Ich mag die Idee von Mentoren. Studenten helfen Studenten. Siehe [One-on-One Tutoring](https://martin-thoma.com/one-on-one-tutoring/) für ein paar Ideen dazu.
 
 
 ## Aufbau des Studiums
