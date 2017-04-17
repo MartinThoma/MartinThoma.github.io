@@ -17,16 +17,18 @@ degree students in computer science. The rest of the article is in German
 (you might want to use <a href="https://translate.google.com/">Google Translate</a>).
 
 
+## Lehre
 * Materialen online verfügbar machen - für jeden
 * Umfragen zur Verbesserung auch online ausfüllen lassen
+* Mehr Absprache zwischen Vorlesungen - Vorlesungsempfehlungen! (Portal - PSE?)
+
+
+## Aufbau des Studiums
 * Mehr Freiheit im Master
 * Abschlussarbeiten, Seminare und Praktika online ausschreiben(!!!) - am besten Deutschlandweit (TU9?)
+
+## Abschlussarbeiten, Praktika und Seminare
 * HiWi-Stellen online zentral ausschreiben
-* Code online unter offiziellem account verfügbar machen
-* Praxis-Gruppen fördern und bewerben (und ggf mit rechenleistung unterstützen)
-    * ML-KA
-    * User groups (C++, Java, JavaScript)
-* Mehr Absprache zwischen Vorlesungen - Vorlesungsempfehlungen! (Portal - PSE?)
 
 
 ## Sport
@@ -39,3 +41,9 @@ degree students in computer science. The rest of the article is in German
     * Anmeldung mindestens 3 Tage offen lassen. Nicht First-come-first-serve,
       sondern als Optimierungsproblem. vorrang hat, wer noch nie in einem Kurs
       war, wer sonst in wenig anderen Kursen ist, ...
+
+## Misc
+* Code online unter offiziellem account verfügbar machen
+* Praxis-Gruppen fördern und bewerben (und ggf mit rechenleistung unterstützen)
+    * ML-KA
+    * User groups (C++, Java, JavaScript)
