@@ -9,8 +9,7 @@ tags: Command line
 featured_image: logos/star.png
 ---
 
-While I was working at [FZI](https://en.wikipedia.org/wiki/Forschungszentrum_Informatik)
-I found a couple of commands useful.
+If you are writing your Bachelors or Masters thesis or if you're a HiWi at [FZI](https://en.wikipedia.org/wiki/Forschungszentrum_Informatik), you might find the following useful.
 
 
 ## OpenVPN
