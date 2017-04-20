@@ -108,4 +108,7 @@ $ df -h .
 $ du -h .
 ```
 
+## Misc
 
+* `top` or `htop` for showing processes / who uses much memory / CPU
+* [How to use Sublime Text via SSH](https://martin-thoma.com/how-to-use-sublime-text-via-ssh/)
