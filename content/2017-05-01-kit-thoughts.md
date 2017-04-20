@@ -154,3 +154,32 @@ Studium so keinen Platz hat. Diese Gruppen stärken den Standort Karlsruhe
 ungemein. Daher wäre es auch gut wenn diese in passenden
 Vorlesungen genannt werden würden. Im Fall von ML-KA wäre auch eine
 Unterstützung mit Rechenleistung toll.
+
+
+### Zeugnis
+
+Das Zeugnis sieht optisch einfach nicht gut aus. Da könnte man sich ruhig etwas
+mehr mühe geben. Oder es zumindest auf etwas hochwertigerem Papier drucken.
+
+Auch die Zeit zur Ausstellung ist einfach zu lang. Für mein Bachelor-Zeugnis
+hat das KIT 1.5 Jahre gebraucht, wenn ich mich gerade richtig erinnere.
+
+
+## Lob
+
+Es gibt einiges am KIT, was gut ist und beibehalten werden sollte:
+
+* **ATIS**: Die ATIS - also der Poolraum für Informatiker - und insbesondere
+  deren Mitarbeiter sind super. Man bekommt auf Anfragen schnell (<24h!) eine
+  gute Antwort. Die kostenlosen Druckseiten und sonst auch billigen
+  Druckseiten sind super.
+* **Campus**: Die Vorlesungen sind alle (?) am Campus Süd. Der Campus ist
+  zusammenhängend und die Wiese beim Audimax und der Schlosspark erlauben es
+  auch mal kurz zu entspannen und die Sonne zu genießen.
+* **KIT-Card**: Die Karte sieht im vergleich zu ein paar anderen Unis echt
+  professionell aus. Auch das Bezahlen mit der Karte bei der Mensa funktioniert
+  gut. Das EC-Kartenformat ist auch praktisch.
+* **Professorencafé**: Der Abstand zwischen Professoren / Dozenten und
+  Studenten ist in Deutschland leider sehr groß. Das hindert viele daran Fragen
+  zu stellen und steht somit effektiver Lehre im weg. Das Professorencafé
+  lockert das ganze etwas auf.
