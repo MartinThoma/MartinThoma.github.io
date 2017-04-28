@@ -27,6 +27,13 @@ like to share with you.
 * Avoid "it" and "this" if possible. Be explicit. Being explicit makes it
   easier to read your work.
 
+## Miscallenious
+
+* [Is “data” treated as singular or plural in formal contexts?](https://english.stackexchange.com/a/6913/9880)
+* [‘Less’ or ‘fewer’?](https://en.oxforddictionaries.com/usage/less-or-fewer)
+* Look for "make"
+* "I", "we" or "the author"?
+
 ## See also
 
 * Strunk: [Words and Expressions Commonly Misused](http://www.bartleby.com/141/strunk3.html)
