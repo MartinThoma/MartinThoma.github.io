@@ -17,6 +17,11 @@ in full detail.
     <dd>The algorithm gives a pattern and asks for a label.</dd>
     <dt><dfn id="backpropagation">Backpropagation</dfn></dt>
     <dd>A clever implementation of gradient descent for neural networks.</dd>
+    <dt><dfn id="bias">Bias</dfn></dt>
+    <dd>Bias is a concept which describes a systematic error. A classifier
+        with a high bias tends to give one answer more often, no matter what
+        the input is. This concept is relatied to <i>variance</i> and well
+        described with the images <a href="https://sebastianraschka.com/blog/2016/model-evaluation-selection-part2.html">here</a>.</dd>
     <dt><dfn id="blstm">BLSTM</dfn>, <dfn id="bilstm">BiLSTM</dfn></dt>
     <dd>Bidirectional long short-term memory (see <a href="http://www.di.ufpe.br/~fnj/RNA/bibliografia/BRNN.pdf">paper</a> and <a href="https://www.cs.toronto.edu/~graves/asru_2013_poster.pdf">poster</a>).</dd>
     <dt><dfn id="co-training">Co-Training</dfn></dt>
@@ -105,6 +110,8 @@ in full detail.
     <dt><dfn id="multi-task-learning">Multi-Task learning</dfn></dt>
     <dd>Train a model which does multiple tasks at the same time, e.g.
         segmentation and detection (see <a href="https://arxiv.org/abs/1612.07695">MultiNet</a>).</dd>
+    <dt><a href="https://en.wikipedia.org/wiki/Neuroevolution_of_augmenting_topologies"><dfn id="neat">NEAT</dfn></a></dt>
+    <dd>Neuroevolution of Augmenting Topologies (see <a href="http://blog.otoro.net/2016/05/07/backprop-neat/">Blogpost</a>).</dd>
     <dt><dfn id="object-recognition">Object recognition</dfn></dt>
     <dd>Classification on images. The task is to decide in which class a given
         image falls, judging by the content. This can be cat, dog, plane or
@@ -175,6 +182,8 @@ in full detail.
     <dd>Vector of Locally Aligned Descriptors</dd>
     <dt><dfn id="vtln">VTLN</dfn></dt>
     <dd>vocal tract length normalization</dd>
+    <dt><dfn id="wrn">WRN</dfn></dt>
+    <dd>Wide residual network</dd>
     <dt><dfn id="zero-shot-learning">Zero-Shot learning</dfn></dt>
     <dd>Learning to predict classes, of which no example has been seen during
         training. For example, Flicker gets several new tags each day and they
