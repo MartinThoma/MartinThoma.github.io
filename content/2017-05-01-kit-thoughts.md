@@ -119,6 +119,16 @@ primär zur Suche dienen.
       sondern als Optimierungsproblem. vorrang hat, wer noch nie in einem Kurs
       war, wer sonst in wenig anderen Kursen ist, ...
 
+
+## Bürokratie
+
+Einige Prozesse am KIT sind einfach zu langsam. Wie schon gesagt, es hat -
+nachdem bereits alle Noten bekannt waren - ewig gedauert bis ich mein Zeugnis
+erhalten habe. Das muss einfach schneller gehen. Oder man muss zumindest klar
+machen auf welchem Stand der Prozess gerade ist, was noch zu tun ist und warum
+das so lange dauert.
+
+
 ## Misc
 
 ### Hilfe für Studenten
@@ -183,3 +193,6 @@ Es gibt einiges am KIT, was gut ist und beibehalten werden sollte:
   Studenten ist in Deutschland leider sehr groß. Das hindert viele daran Fragen
   zu stellen und steht somit effektiver Lehre im weg. Das Professorencafé
   lockert das ganze etwas auf.
+* **Lehre**: Ein paar Professoren, wie beispielsweise Prof. Henze, halten sehr
+  gute Vorlesungen. Sie sind gut vorbereitet, strukturiert und haben gutes
+  Material (Skript, Übungsblätter, Folien).
