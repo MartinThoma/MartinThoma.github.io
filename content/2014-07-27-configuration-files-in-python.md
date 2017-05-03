@@ -211,7 +211,7 @@ import ConfigParser
 import io
 
 # Load the configuration file
-with open("config.yml") as f:
+with open("config.ini") as f:
     sample_config = f.read()
 config = ConfigParser.RawConfigParser(allow_no_value=True)
 config.readfp(io.BytesIO(sample_config))
@@ -259,7 +259,7 @@ instead of a simple string.
 
 ```python
 import os
-configfile_name = "config.yaml"
+configfile_name = "config.ini"
 
 # Check if there is already a configurtion file
 if not os.path.isfile(configfile_name):
