@@ -425,6 +425,94 @@ the adress of it again? (I want to live quite central in Munich)
 </pre>
 
 
+### Wohnung 4
+
+Via `immonet` from `Анастасия Бондарь <anastasiia.bondar@amls.email>`:
+
+```
+Hello,
+
+I am in search of persons to rent my apartment, to use and be a responsible
+loyal tenant to stay in there for minimum 2 months and max 5 years, could
+either be students or workers. My apartment is still available, it was rented
+by some students and now they left. It is already furnished with all basic
+stuff, as well as the kitchen is also fully equipped with all you need daily
+incl. a dishwasher, washing machine, dryer, tv.
+
+The price for my apartment includes all extra costs (electricity, heating, hot
+water, internet), the total monhtly rent is 550,00 EUR. You can use my
+furniture, or you can also use your own if you prefer.
+
+Foto's: postimg.org/gallery/xgakskw8/
+Address of apartment is: Nordendstrasse 2, 80799 München.
+
+I am looking forward to hearing from you.
+Thanks
+Anastasiia Bondar.
+```
+
+My answer:
+
+```
+Hello Anastasiia,
+
+that sounds good! When can I have a look at the apartment? (I'm currently in
+Karlsruhe; the soonest I could come is on Sunday. Otherwise, I can come at any
+time / day)
+
+Best regards,
+Martin
+```
+
+Scammer reply:
+
+```
+Hello,
+
+My apartment was rented through Uniplaces agency by some students and now they
+left. So, my apartment is available for rent. You can rent for more than 5
+years , there is no problem because we can renew our contract. Don't matter if
+you are student or not, you can book through Uniplaces.
+
+I would like to use Uniplaces again because they are currently managing my
+property. Once you will confirm the booking on Uniplaces you will check the
+property.
+
+Using Uniplaces system both parties are fully protected, because they will hold
+the funds until you will sign the rental contract.
+
+Let me explain you the process step by step for a better understanding:
+
+- I will list the property on Uniplaces for EUR 550 per month with bills
+  included . The rental contract can be made for at least 2 months - up to 5
+  years.
+
+- You will have to pay 2 months deposit ( EUR 1100) to Uniplaces in order to
+  confirm your booking. This 2 months deposit covers ( 1 months of rent + 1
+  month security deposit)
+
+- All the taxes and bills are included in the rental price; It includes also 1
+  parking places;
+
+- Like mentioned several times a viewing before booking is not possible since
+  I'm not there, but Uniplaces is guaranteeing the whole transaction between
+  us. In case something gets damaged, you can deduct the amount from the rental
+  price, of course with a bill attached.
+
+If everything sounds good to you, I'll be able to send you the Uniplaces
+listing so you can book it at your convenience.
+
+Also, in case you have another apartment right now, and you can't move
+immediately, we can make the agreement as explained here, and consider it only
+an inspection and reservation until you are able to move there.
+
+I am looking forward to hearing from you.
+
+Best Regards ,
+Anastasiia Bondar
+```
+
+
 ## Scam entlarven
 
 * Bilder über <a href="https://www.tineye.com/">tineye.com</a> oder andere
