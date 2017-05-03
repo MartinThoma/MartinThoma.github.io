@@ -114,6 +114,11 @@ $ df -h .
 $ du -h .
 ```
 
+## SSH / screen
+
+* [How do I force detach Screen from another SSH session?](http://stackoverflow.com/q/20807696/562769)
+* [Kill detached screen session](http://stackoverflow.com/a/1509764/562769)
+
 ## Misc
 
 * `top` or `htop` for showing processes / who uses much memory / CPU
