@@ -1,5 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Code</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/code.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2017-04-02T20:00:00+02:00</updated><entry><title>Git Bundle</title><link href="https://martin-thoma.com/git-bundle/" rel="alternate"></link><published>2017-04-02T20:00:00+02:00</published><updated>2017-04-02T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-04-02:/git-bundle/</id><summary type="html">&lt;p&gt;Sometimes you need to share code via E-Mail / stick. If the code you need to
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Code</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/code.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2017-05-14T20:00:00+02:00</updated><entry><title>Defaults of Configuration Files</title><link href="https://martin-thoma.com/cfg-files-defaults/" rel="alternate"></link><published>2017-05-14T20:00:00+02:00</published><updated>2017-05-14T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-05-14:/cfg-files-defaults/</id><summary type="html">&lt;p&gt;I often need configuration files in the software I develop. In principle, I can
+think of two ways to deal with configuration files:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Complete&lt;/strong&gt;: The configuration file has to have all values which will later
+  be accessed by the application&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Partial&lt;/strong&gt;: The configuration file might only define some values. In …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;I often need configuration files in the software I develop. In principle, I can
+think of two ways to deal with configuration files:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Complete&lt;/strong&gt;: The configuration file has to have all values which will later
+  be accessed by the application&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Partial&lt;/strong&gt;: The configuration file might only define some values. In case
+  the application needs a value which is not in the user defined configuration
+  file, a default value is used.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The complete approach has the major drawback of making updates difficult. The
+user(s) might have different configuration files for different usage scenarios.
+In the worst case the user has to update his files manually, just because the
+developer added a couple of possibilities to customize the application.&lt;/p&gt;
+&lt;p&gt;Hence I prefer the partial approach where a default configuration file is part
+of the application. This default config file will not be overwritten. It
+contains all values necessary for the user. But the user may define a user
+config file which he may adjust. The user can peek at the default file to see
+what he can customize, but he can keep his config file clean.&lt;/p&gt;
+&lt;p&gt;Here is a small example how you can do this with Python:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/env python&lt;/span&gt;
+&lt;span class="c1"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
+
+&lt;span class="sd"&gt;"""Example how to load config file with defaults."""&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;load_config&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cfg_filename&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;"""Load a configuration file."""&lt;/span&gt;
+    &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cfg_filename&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;data_file&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;data_loaded&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;load&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data_file&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;data_loaded&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;merge_dicts&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cfg_defaults&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cfg_user&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;"""&lt;/span&gt;
+&lt;span class="sd"&gt;    Merge two dictionaries.&lt;/span&gt;
+
+&lt;span class="sd"&gt;    Parameters&lt;/span&gt;
+&lt;span class="sd"&gt;    ----------&lt;/span&gt;
+&lt;span class="sd"&gt;    cfg_defaults : dict&lt;/span&gt;
+&lt;span class="sd"&gt;        Iterate through this dict&lt;/span&gt;
+&lt;span class="sd"&gt;    cfg_user : dict&lt;/span&gt;
+&lt;span class="sd"&gt;        Update this dict so that it has all keys which the other file has.&lt;/span&gt;
+&lt;span class="sd"&gt;    """&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;cfg_defaults&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;iteritems&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;cfg_user&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;cfg_user&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;v&lt;/span&gt;
+        &lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="nb"&gt;isinstance&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+            &lt;span class="n"&gt;merge_dicts&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cfg_user&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;load_config_defaults&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cfg_filename&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cfg_default_filename&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;"""Load a configuration file with defaults."""&lt;/span&gt;
+    &lt;span class="n"&gt;cfg_defaults&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;load_config&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cfg_default_filename&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;cfg_user&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;load_config&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cfg_filename&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# Idea: Take the user config. If anything is missing, add it from the&lt;/span&gt;
+    &lt;span class="c1"&gt;# defaults.&lt;/span&gt;
+    &lt;span class="c1"&gt;# So iterate through the default dict and check if it is in the user dict,&lt;/span&gt;
+    &lt;span class="c1"&gt;# too. Add it if not.&lt;/span&gt;
+    &lt;span class="n"&gt;cfg&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cfg_user&lt;/span&gt;
+    &lt;span class="n"&gt;merge_dicts&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cfg_defaults&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cfg&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;cfg&lt;/span&gt;
+
+
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;load_config_defaults&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"user_cfg.json"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"default_cfg.json"&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://martin-thoma.com/configuration-files-in-python/"&gt;Configuration files in Python&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Programming"></category><category term="Configuration"></category><category term="Python"></category></entry><entry><title>Git Bundle</title><link href="https://martin-thoma.com/git-bundle/" rel="alternate"></link><published>2017-04-02T20:00:00+02:00</published><updated>2017-04-02T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-04-02:/git-bundle/</id><summary type="html">&lt;p&gt;Sometimes you need to share code via E-Mail / stick. If the code you need to
 share is a git repository, creating a bundle is a pretty good way to do it.&lt;/p&gt;
 &lt;p&gt;You can create a bundle with&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git bundle create repository-name.bundle --all

@@ -14,20 +14,20 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="Programming, Code, " />
+<meta name="keywords" content="Programming, Configuration, Python, Code, " />
 
-<meta property="og:title" content="Comparing programming languages "/>
-<meta property="og:url" content="../comparing-programming-languages/" />
-<meta property="og:description" content="Compare programming languages If you want to compare programming languages, I can recommend the following links: literateprograms.org, Rosetta Code, 99-bottles-of-beer.net, Comparison of programming languages (basic instructions), Comparison of programming languages In particular, I like the following pages: Fibonacci numbers (literateprograms, rosettacode) Hello World (literateprograms, rosettacode) If you want …" />
+<meta property="og:title" content="Defaults of Configuration Files "/>
+<meta property="og:url" content="../cfg-files-defaults/" />
+<meta property="og:description" content="I often need configuration files in the software I develop. In principle, I can think of two ways to deal with configuration files: Complete: The configuration file has to have all values which will later be accessed by the application Partial: The configuration file might only define some values. In …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
-<meta property="og:article:published_time" content="2011-12-11T11:50:59+01:00" />
-<meta name="twitter:title" content="Comparing programming languages ">
-<meta name="twitter:description" content="Compare programming languages If you want to compare programming languages, I can recommend the following links: literateprograms.org, Rosetta Code, 99-bottles-of-beer.net, Comparison of programming languages (basic instructions), Comparison of programming languages In particular, I like the following pages: Fibonacci numbers (literateprograms, rosettacode) Hello World (literateprograms, rosettacode) If you want …">
-<meta property="og:image" content="2011/12/compare-programming-languages.png" />
-<meta name="twitter:image" content="2011/12/compare-programming-languages.png" >
+<meta property="og:article:published_time" content="2017-05-14T20:00:00+02:00" />
+<meta name="twitter:title" content="Defaults of Configuration Files ">
+<meta name="twitter:description" content="I often need configuration files in the software I develop. In principle, I can think of two ways to deal with configuration files: Complete: The configuration file has to have all values which will later be accessed by the application Partial: The configuration file might only define some values. In …">
+<meta property="og:image" content="logos/star.png" />
+<meta name="twitter:image" content="logos/star.png" >
 
-        <title>Comparing programming languages  · Martin Thoma
+        <title>Defaults of Configuration Files  · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -95,32 +95,92 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../comparing-programming-languages/"> Comparing programming languages  </a></h1>
+    <h1><a href="../cfg-files-defaults/"> Defaults of Configuration Files  </a></h1>
     </header>
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <figure class="alignright">
-<a href="../images/2011/12/compare-programming-languages.png"><img alt="Compare programming languages" class="size-full wp-image-9801 " src="../images/2011/12/compare-programming-languages.png" style="max-width:128px;max-height:128px;"/></a>
-<figcaption class="text-center">Compare programming languages</figcaption>
-</figure>
-<p>If you want to compare programming languages, I can recommend the following links:
+            <p>I often need configuration files in the software I develop. In principle, I can
+think of two ways to deal with configuration files:</p>
 <ul>
-<li><a href="http://en.literateprograms.org/">literateprograms.org</a>, </li>
-<li><a href="http://rosettacode.org/wiki/Rosetta_Code">Rosetta Code</a>, </li>
-<li><a href="http://www.99-bottles-of-beer.net/abc.html">99-bottles-of-beer.net</a>,</li>
-<li><a href="http://en.wikipedia.org/wiki/Comparison_of_programming_languages_(basic_instructions)">Comparison of programming languages (basic instructions)</a>, </li>
-<li><a href="http://en.wikipedia.org/wiki/Comparison_of_programming_languages">Comparison of programming languages</a></li>
-</ul></p>
-<p>In particular, I like the following pages:
+<li><strong>Complete</strong>: The configuration file has to have all values which will later
+  be accessed by the application</li>
+<li><strong>Partial</strong>: The configuration file might only define some values. In case
+  the application needs a value which is not in the user defined configuration
+  file, a default value is used.</li>
+</ul>
+<p>The complete approach has the major drawback of making updates difficult. The
+user(s) might have different configuration files for different usage scenarios.
+In the worst case the user has to update his files manually, just because the
+developer added a couple of possibilities to customize the application.</p>
+<p>Hence I prefer the partial approach where a default configuration file is part
+of the application. This default config file will not be overwritten. It
+contains all values necessary for the user. But the user may define a user
+config file which he may adjust. The user can peek at the default file to see
+what he can customize, but he can keep his config file clean.</p>
+<p>Here is a small example how you can do this with Python:</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="sd">"""Example how to load config file with defaults."""</span>
+
+<span class="kn">import</span> <span class="nn">json</span>
+
+
+<span class="k">def</span> <span class="nf">load_config</span><span class="p">(</span><span class="n">cfg_filename</span><span class="p">):</span>
+    <span class="sd">"""Load a configuration file."""</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">cfg_filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">data_file</span><span class="p">:</span>
+        <span class="n">data_loaded</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">data_file</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data_loaded</span>
+
+
+<span class="k">def</span> <span class="nf">merge_dicts</span><span class="p">(</span><span class="n">cfg_defaults</span><span class="p">,</span> <span class="n">cfg_user</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Merge two dictionaries.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    cfg_defaults : dict</span>
+<span class="sd">        Iterate through this dict</span>
+<span class="sd">    cfg_user : dict</span>
+<span class="sd">        Update this dict so that it has all keys which the other file has.</span>
+<span class="sd">    """</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">cfg_defaults</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">cfg_user</span><span class="p">:</span>
+            <span class="n">cfg_user</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="n">merge_dicts</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">cfg_user</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+
+
+<span class="k">def</span> <span class="nf">load_config_defaults</span><span class="p">(</span><span class="n">cfg_filename</span><span class="p">,</span> <span class="n">cfg_default_filename</span><span class="p">):</span>
+    <span class="sd">"""Load a configuration file with defaults."""</span>
+    <span class="n">cfg_defaults</span> <span class="o">=</span> <span class="n">load_config</span><span class="p">(</span><span class="n">cfg_default_filename</span><span class="p">)</span>
+    <span class="n">cfg_user</span> <span class="o">=</span> <span class="n">load_config</span><span class="p">(</span><span class="n">cfg_filename</span><span class="p">)</span>
+
+    <span class="c1"># Idea: Take the user config. If anything is missing, add it from the</span>
+    <span class="c1"># defaults.</span>
+    <span class="c1"># So iterate through the default dict and check if it is in the user dict,</span>
+    <span class="c1"># too. Add it if not.</span>
+    <span class="n">cfg</span> <span class="o">=</span> <span class="n">cfg_user</span>
+    <span class="n">merge_dicts</span><span class="p">(</span><span class="n">cfg_defaults</span><span class="p">,</span> <span class="n">cfg</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">cfg</span>
+
+
+<span class="k">print</span><span class="p">(</span><span class="n">load_config_defaults</span><span class="p">(</span><span class="s2">"user_cfg.json"</span><span class="p">,</span> <span class="s2">"default_cfg.json"</span><span class="p">))</span>
+</pre></div>
+<h2 id="see-also">See also</h2>
 <ul>
-<li>Fibonacci numbers (<a href="http://en.literateprograms.org/Fibonacci_numbers_%28Python%29">literateprograms</a>, <a href="http://rosettacode.org/wiki/Fibonacci_sequence">rosettacode</a>)</li>
-<li>Hello World (<a href="http://en.literateprograms.org/Hello_World_%28Python%29">literateprograms</a>, <a href="http://rosettacode.org/wiki/Hello_world">rosettacode</a>)</li>
-</ul></p>
-<p>If you want to learn a new language you can look at the implementation of one problem and learn how the new language can be used.</p>
+<li><a href="https://martin-thoma.com/configuration-files-in-python/">Configuration files in Python</a></li>
+</ul>
             
             <div id="disqus_thread"></div>
 <script>
@@ -146,15 +206,21 @@ MathJax.Hub.Queue(function() {
         <section>
         <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2011-12-11T11:50:59+01:00">Dez 11, 2011</time>
+            <time pubdate="pubdate" datetime="2017-05-14T20:00:00+02:00">Mai 14, 2017</time>
             <br/>
             by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
             <h4>Category</h4>
             <a class="category-link" href="../categories.html#code-ref">Code</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#configuration-ref">Configuration
+                    <span>2</span>
+</a></li>
                 <li><a href="../tags.html#programming-ref">Programming
                     <span>47</span>
+</a></li>
+                <li><a href="../tags.html#python-ref">Python
+                    <span>79</span>
 </a></li>
             </ul>
 <h4>Contact</h4>
