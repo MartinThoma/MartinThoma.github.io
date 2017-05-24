@@ -513,6 +513,82 @@ Anastasiia Bondar
 ```
 
 
+### Wohnung 5
+
+Von `Jonathan Addy <jonnaddy@gmail.com>`:
+
+```
+Hallo,
+
+Die Wohnung ist verfügbar. Die monatliche Miete ist 350€
+(einschließlich Stromkosten, Gaskosten, Wasserkosten und
+TV-Internetzugang, 1 Parkplatz-Tiefgarage). Die Kaution ist 700€.
+Zu Beginn Ich habe ein paar Fragen:
+- wie viele Personen bleiben in der Wohnung?
+- Wie lange wollen Sie bleiben?
+- Hast du einen Job? Oder Sie sind Student?
+- Wie werden Sie zahlen die Miete?
+Die Haustiere sind erlaubt. Sie können mieten die Wohnung von minimal
+2 Monate bis zu 10 Jahren (mit Verlängerungsmöglichkeit). Die Wohnung
+haben Möbel aber ich kann es zu entfernen falls Sie es wollen. Die TV
+und Internetverbindung sind enthalten im Mietpreis. Innenausrüstung:
+Waschmaschine, Mikrowelle, Staubsauger, Kühlschrank, Herd. Ich reise
+mit meinem Job und ein Treffen von Angesicht zu Angesicht ist nicht
+möglich. Wir können nutzen eine Immobilienagentur für diese Miete
+Prozess. Ich komme aus Großbritannien also bitte entschuldigen mich
+mein schlechtes Deutsch.
+Sie können sehen Fotos hier: http://imgur.com/a/F0Zf0
+Danke,
+
+Jonathan Addy.
+```
+
+Meine Antwort:
+
+```
+Sehr geehrter Herr Addy,
+
+- Nur ich werde in der Wohnung wohnen.
+- Ich suche etwas langfristiges, hätte also gerne einen unbefristeten Vertrag.
+- Ich habe einen Job als IT-Consultant.
+- Ich werde die Miete überweisen.
+
+Wann könnte man die Wohnung besichtigen?
+
+Mit freundlichen Grüßen,
+Martin Thoma
+```
+
+Seine Antwort:
+
+```
+Hallo,
+
+Danke für Ihre E-Mail.
+Das warmmiete ist 350€ monatlich. Die Kaution ist 700€. Die Gesamtmenge ist 1.050€ (Ein Monat und die Kaution).
+In der monatlichen Miete du hast inbegriffen: Stromkosten, Gaskosten, Wasserkosten, TV-Internetzugang, 1 Parkplätze, Müllentsorgung.
+Ich bin bereit zu senden Ihnen die Schlüssel so dass Sie besuchen und überprüfen die Wohnung. Die Übergabe der Schlüssel und der Mietvertrag (Von mir signiert) wird werden gemacht von Airbnb (airbnb. com). Diese Miete Prozess-Service geben einen Schutz für beide von uns.
+
+Achtung - Das Geld muss geschickt bei Airbnb bevor du erhalten die Schlüssel. Wenn Sie zustimmen Senden Sie mir Ihre Daten zu starten die Transaktion. Nachdem ich erhalten die Bestätigung von Airbnb dass Sie machte den Transfer, Ich werde senden das Paket mit dem Mietvertrag und die Wohnung Schlüssel. Ich werde senden die Tracking-Nummer zu Airbnb und zu Ihnen. Wenn Sie nicht mögen die Wohnung Airbnb erstatten die Übertragung in Ihrem Bankkonto. Wenn du zustimmst zu mieten die Wohnung Airbnb sendet die Übertragung in mein Bankkonto.
+
+Wenn du willst bezahlen im Voraus für 6 Monate oder 1 Jahr, ich kann machen ein Rabatt. Für 6 Monate du wirst zahlen 1.750€ und für 1 Jahr du wirst zahlen 3.300€.
+
+Zu starten die Transaktion Ich brauche die folgenden Angaben:
+ 
+Vollständiger Name:
+Straße:
+Stadt:
+Postleitzahl:
+Land:
+Handynummer:
+Wie viel Sie wollen zu zahlen: 1.050€ (Ein Monat und die Kaution), 1.750€ (für 6 Monate-Kaution inbegriffen) oder 3.300€ (für 1 Jahr-Kaution inbegriffen)?
+
+Ich werde für die Dienste der Agentur zahlen, so dass es keine Kosten für Sie.
+ 
+Vielen Dank!
+```
+
+
 ## Scam entlarven
 
 * Bilder über <a href="https://www.tineye.com/">tineye.com</a> oder andere
