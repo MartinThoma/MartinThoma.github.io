@@ -82,21 +82,31 @@ related to machine learning.&lt;/p&gt;
 language in textual form.&lt;/p&gt;
 &lt;p&gt;Tasks in NLP are:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Classification&lt;/strong&gt;: Is an e-mail spam or not? Is it about sports, science or religion?&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Named-entity_recognition"&gt;&lt;strong&gt;Named Entity Recognition&lt;/strong&gt;&lt;/a&gt; (NER): Parse a text
-  into names of places, people, organizations and non-names.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Machine Translation …&lt;/strong&gt;&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;Natural language processing (NLP) is a scientific field which deals with
+&lt;li&gt;&lt;strong&gt;Classification&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;Is an e-mail spam or not?&lt;/li&gt;
+&lt;li&gt;Topic: Is it about sports, science or religion?&lt;/li&gt;
+&lt;li&gt;Language: Is it English, German or French?&lt;/li&gt;
+&lt;li&gt;Sentence boundary: Is a character the boundary of a …&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;Natural language processing (NLP) is a scientific field which deals with
 language in textual form.&lt;/p&gt;
 &lt;p&gt;Tasks in NLP are:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Classification&lt;/strong&gt;: Is an e-mail spam or not? Is it about sports, science or religion?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Classification&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;Is an e-mail spam or not?&lt;/li&gt;
+&lt;li&gt;Topic: Is it about sports, science or religion?&lt;/li&gt;
+&lt;li&gt;Language: Is it English, German or French?&lt;/li&gt;
+&lt;li&gt;Sentence boundary: Is a character the boundary of a sentence or not?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Named-entity_recognition"&gt;&lt;strong&gt;Named Entity Recognition&lt;/strong&gt;&lt;/a&gt; (NER): Parse a text
   into names of places, people, organizations and non-names.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Machine Translation&lt;/strong&gt; (MT): Given a text in language A, return the same content in language B.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Text generation&lt;/strong&gt;: Generate text in a given style.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Similarity calculation&lt;/strong&gt;: Given a corpus of n texts and one text A as
   input, find passages of the corpus which are similar to passages of A. This
-  can be used to detect if students copied content / copyright violation.&lt;/li&gt;
+  can be used to detect if students copied content / copyright violation.&lt;ul&gt;
+&lt;li&gt;Minimum Edit Distance&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Spelling correction&lt;/strong&gt;: Find places where the grammar / writing needs to be
   fixed.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Sentiment analysis&lt;/strong&gt;: Find out how users feel about something.&lt;/li&gt;
@@ -106,6 +116,9 @@ language in textual form.&lt;/p&gt;
 &lt;li&gt;&lt;strong&gt;Summarization&lt;/strong&gt; / &lt;strong&gt;Paraphrasing&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Information extraction&lt;/strong&gt;: For example, find the date in a calender
   application when the user enters the name of the event.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Compound splitting&lt;/strong&gt;: For German, "Donaudampfschiffskapit&amp;auml;n" can be split
+  into the compounds "Donau" (a river) "dampfschiff" (steam boat) and "kapit&amp;auml;n"
+  (captain).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Data sources are:&lt;/p&gt;
 &lt;ul&gt;
@@ -133,12 +146,48 @@ language in textual form.&lt;/p&gt;
 &lt;li&gt;Quora: &lt;a href="https://www.kaggle.com/c/quora-question-pairs"&gt;Duplication detection&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Watson_(computer)"&gt;IBM Watson&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="terminology"&gt;Terminology&lt;/h2&gt;
+&lt;h2 id="corpora"&gt;Corpora&lt;/h2&gt;
+&lt;table class="table"&gt;
+&lt;tr&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Tokens&lt;/th&gt;
+&lt;th&gt;Types&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Switchboard phone conversations&lt;/td&gt;
+&lt;td class="text-right"&gt;2&amp;thinsp;400&amp;thinsp;000&lt;/td&gt;
+&lt;td class="text-right"&gt;20&amp;thinsp;000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Shakespeare&lt;/td&gt;
+&lt;td class="text-right"&gt;884&amp;thinsp;000&lt;/td&gt;
+&lt;td class="text-right"&gt;31&amp;thinsp;000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Google N-Grams&lt;/td&gt;
+&lt;td class="text-right"&gt;1&amp;thinsp;000&amp;thinsp;000&amp;thinsp;000&amp;thinsp;000&lt;/td&gt;
+&lt;td class="text-right"&gt;13&amp;thinsp;000&amp;thinsp;000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;h2 id="terminology-methods"&gt;Terminology / Methods&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;n-gram model: Model language by counting word-tuples of length n.&lt;/li&gt;
 &lt;li&gt;word2vec: Embedd any word in a (high-dimensional) vector space. Allows vector arithmetic.&lt;/li&gt;
 &lt;li&gt;sentence2vec: Similar to word2vec.&lt;/li&gt;
 &lt;li&gt;Stemming: Bring a word in a normed form (the stem). Mostly for verbs.&lt;/li&gt;
+&lt;li&gt;Viterbi Algorithm&lt;/li&gt;
+&lt;li&gt;Naive Bayes&lt;/li&gt;
+&lt;li&gt;Maxent classifiers&lt;/li&gt;
+&lt;li&gt;Statistical parsing&lt;/li&gt;
+&lt;li&gt;Regular expressions (see &lt;a href="http://regexpal.com/"&gt;regexpal.com&lt;/a&gt; to test)&lt;/li&gt;
+&lt;li&gt;Lexer: One type of tokenizer&lt;/li&gt;
+&lt;li&gt;Tokenizer: Splits a text into tokens.&lt;/li&gt;
+&lt;li&gt;Tokenization: Segment the text into tokens.&lt;/li&gt;
+&lt;li&gt;Fragment: A part of a word (e.g. if you transcribe spoken text and somebody stutters)&lt;/li&gt;
+&lt;li&gt;Filled pauses: "uh" in English or "&amp;auml;hm" in German&lt;/li&gt;
+&lt;li&gt;Lemma: Two words belong to the same lemma if they have the same stem, belong
+  to the same POS and have the same meaning.&lt;/li&gt;
+&lt;li&gt;Porters Algorithm&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;More might me in &lt;a href="https://martin-thoma.com/ml-glossary/"&gt;my ML Glossary&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id="resources"&gt;Resources&lt;/h2&gt;
