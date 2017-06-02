@@ -169,7 +169,7 @@ nunc ac leo.
             & {Population} & {Area} & {HDI} \\
             & {(mio.)} & {(km\textsuperscript{2})}\\
     \midrule
-    France             & \multirow{2}{c}{66}  & 668763  & 0.89 \\
+    France             & \multirow{2}{*}{66}  & 668763  & 0.89 \\
     Germany            & 81  & 357167  & 0.92 \\
     United States      & 317 & 9629091 & 0.94 \\
     \bottomrule
