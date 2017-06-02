@@ -50,7 +50,7 @@ Within the actual code, you can use it like this:
 ```python
 #!/usr/bin/env python
 import databaseconfig as cfg
-connect(mysql['host'], mysql['user'], mysql['password'])
+connect(cfg.mysql['host'], cfg.mysql['user'], cfg.mysql['password'])
 ```
 
 The way you include the configuration might feel very convenient at a first
