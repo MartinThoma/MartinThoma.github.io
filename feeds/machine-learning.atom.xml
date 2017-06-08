@@ -1,5 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Machine Learning</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/machine-learning.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2017-05-25T20:00:00+02:00</updated><entry><title>ML Review 5</title><link href="https://martin-thoma.com/ml-review-5/" rel="alternate"></link><published>2017-05-25T20:00:00+02:00</published><updated>2017-05-25T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-05-25:/ml-review-5/</id><summary type="html">&lt;p&gt;This Review gives an overview of intersting stuff I stumbled over which are
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Machine Learning</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/machine-learning.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2017-06-08T20:00:00+02:00</updated><entry><title>Unsupervised Pretraining</title><link href="https://martin-thoma.com/unsupervised-pretraining/" rel="alternate"></link><published>2017-06-08T20:00:00+02:00</published><updated>2017-06-08T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-06-08:/unsupervised-pretraining/</id><summary type="html">&lt;p&gt;Neural networks have thousands, often millions of parameters. They take
+hundrets of features and predict thousands of classes. The features can often
+not be seen independantly, but have to be taken as a whole into consideration.
+Most parameters are not independant either. And still, we use only on the order …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Neural networks have thousands, often millions of parameters. They take
+hundrets of features and predict thousands of classes. The features can often
+not be seen independantly, but have to be taken as a whole into consideration.
+Most parameters are not independant either. And still, we use only on the order
+of several ten-thousand to a million data points to optimize the millions of
+parameters in a network. We know that more labeled data leads to better
+results, but labeling is costly. Obtaining more data, however, is comparatively
+cheap. Hence we want to use the unlabeled data to learn good features. The
+complete process is semi-supervised and works as follows:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Unsupervised training&lt;/strong&gt;: Train a neural network with unlabeled data&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Network modification&lt;/strong&gt;: Change something in the network. Often, the output
+   layer is adjusted.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Supervised training&lt;/strong&gt;: Train the neural network with labeled data&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;In the following, I will introduce all unsupervised training methods I know.&lt;/p&gt;
+&lt;h2 id="auto-encoders"&gt;Auto-Encoders&lt;/h2&gt;
+&lt;p&gt;The idea of an auto-encoder is to restore the input. Hence it has to have an
+output layer which is capable of doing so. This means you have to choose your
+activation function carefully and probably normalize the range of values of the
+input. For example, if your inputs have negative values you cannot use the
+logistic function or ReLU. If it doesn't sum to one, you can't use softmax. If
+the range of values is outside of [-1, 1], you can't use most of the activation
+functions.&lt;/p&gt;
+&lt;p&gt;Also, you have to make sure the shape of the output is the same as the input.&lt;/p&gt;
+&lt;p&gt;After that, you have multiple options:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Bottleneck features: You can force the auto-encoder to learn a feature
+   reduction by introducing a bottleneck. After the training is finished,
+   everything after the bottleneck could be removed.&lt;/li&gt;
+&lt;li&gt;Restauration: The input of the network is changed in some way which has to
+   be restored by the network. This could be white noise, Gaussian noise, or
+   completely removing some parts of the image (as done in &lt;a href="http://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Pathak_Context_Encoders_Feature_CVPR_2016_paper.pdf"&gt;Context Encoders: Feature Learning by Inpainting&lt;/a&gt;). Look for "denoising auto-encoder".&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Literature:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Jonathan Masci, Ueli Meier, Dan Ciresan, and J&amp;uuml;rgen Schmidhuber: &lt;a href="http://people.idsia.ch/~masci/papers/2011_icann.pdf"&gt;Stacked Convolutional Auto-Encoders for Hierarchical Feature Extraction&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="crop-position-prediction"&gt;Crop position prediction&lt;/h2&gt;
+&lt;p&gt;If you have a CNN and images as input, crop it into 9 pieces which are loosely
+placed in a grid over the image (with some variable padding). Give the network
+the middle crop and randomly one of the 8 others. The network has to predict
+which crop it got. Hence the network has 8 output units.&lt;/p&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;img alt="Predict the position of an image crop" src="../images/2017/05/crop-position-prediction.png" style="width: 512px;"/&gt;
+&lt;figcaption class="text-center"&gt;Predict the position of an image crop&lt;br/&gt;Image source: &lt;a href="https://arxiv.org/pdf/1505.05192.pdf"&gt;Unsupervised Visual Representation Learning by Context Prediction&lt;/a&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Literature:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Carl Doersch, Abhinav Gupta, Alexei A. Efros: &lt;a href="https://arxiv.org/abs/1505.05192"&gt;Unsupervised Visual Representation Learning by Context Prediction&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="order"&gt;Order&lt;/h2&gt;
+&lt;p&gt;I could imagine that you could do something similar to the crop position
+prediction with time series data. For example, if you have audio data you could
+give the network two samples and let it predict which one comes first.&lt;/p&gt;
+&lt;p&gt;Or if you have a video, you can predict the next frame. See &lt;a href="https://arxiv.org/abs/1605.08104"&gt;Deep Predictive Coding Networks for Video Prediction and Unsupervised Learning&lt;/a&gt;.&lt;/p&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;img alt="Predict the next frame of a video." src="../images/2017/06/predict-next-frame.png" style="width: 512px;"/&gt;
+&lt;figcaption class="text-center"&gt;Predict the next frame of a video.&lt;br/&gt;Image source: &lt;a href="https://arxiv.org/abs/1605.08104"&gt;Deep Predictive Coding Networks for Video Prediction and Unsupervised Learning&lt;/a&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id="weakly-supervision"&gt;Weakly Supervision&lt;/h2&gt;
+&lt;p&gt;The more detailed / high quality labels are, the more expensive. For example,
+it is often simpler to classify one complete image than to assign a class label
+to each pixel of the image. But you can build models for semantic segmentation
+without having a single image which was semantically labeled.&lt;/p&gt;
+&lt;p&gt;This is what I call &lt;em&gt;weak supervision&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Another example is counting: You have many images of street scenes. Each image
+has the number of cars in that image as a label. The idea is that a neural
+network should learn a car classifier from this information.&lt;/p&gt;
+&lt;p&gt;I think I have seen something similar before, but I don't remember where (NIPS 2016?)&lt;/p&gt;
+&lt;h2 id="more"&gt;More&lt;/h2&gt;
+&lt;p&gt;I have seen &lt;a href="https://papers.nips.cc/paper/5548-discriminative-unsupervised-feature-learning-with-convolutional-neural-networks.pdf"&gt;Discriminative Unsupervised Feature Learning with Convolutional Neural Networks&lt;/a&gt; but I didn't understand what they are doing. They take a random patch of one image, apply random data augmentations
+to that image and assign it a (random) class. How is that supposed to help?&lt;/p&gt;</content><category term="Machine Learning"></category><category term="Neural Networks"></category></entry><entry><title>ML Review 5</title><link href="https://martin-thoma.com/ml-review-5/" rel="alternate"></link><published>2017-05-25T20:00:00+02:00</published><updated>2017-05-25T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-05-25:/ml-review-5/</id><summary type="html">&lt;p&gt;This Review gives an overview of intersting stuff I stumbled over which are
 related to machine learning.&lt;/p&gt;
 &lt;h2 id="news"&gt;News&lt;/h2&gt;
 &lt;ul&gt;
@@ -175,27 +250,40 @@ language in textual form.&lt;/p&gt;
 &lt;/table&gt;
 &lt;h2 id="terminology-methods"&gt;Terminology / Methods&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;n-gram model: Model language by counting word-tuples of length n.&lt;/li&gt;
-&lt;li&gt;word2vec: Embedd any word in a (high-dimensional) vector space. Allows vector arithmetic.&lt;/li&gt;
-&lt;li&gt;sentence2vec: Similar to word2vec.&lt;/li&gt;
-&lt;li&gt;Stemming: Bring a word in a normed form (the stem). Mostly for verbs.&lt;/li&gt;
-&lt;li&gt;Viterbi Algorithm&lt;/li&gt;
-&lt;li&gt;Naive Bayes&lt;/li&gt;
-&lt;li&gt;Maxent classifiers&lt;/li&gt;
-&lt;li&gt;Statistical parsing&lt;/li&gt;
-&lt;li&gt;Regular expressions (see &lt;a href="http://regexpal.com/"&gt;regexpal.com&lt;/a&gt; to test)&lt;/li&gt;
-&lt;li&gt;Lexer: One type of tokenizer&lt;/li&gt;
-&lt;li&gt;Tokenizer: Splits a text into tokens.&lt;/li&gt;
-&lt;li&gt;Tokenization: Segment the text into tokens.&lt;/li&gt;
-&lt;li&gt;Fragment: A part of a word (e.g. if you transcribe spoken text and somebody stutters)&lt;/li&gt;
+&lt;li&gt;Backoff: Use trigram if possible. If not, backoff to bigram (or unigram). Alternatively, use interpolation of trigram, bigram and unigram&lt;/li&gt;
 &lt;li&gt;Filled pauses: "uh" in English or "&amp;auml;hm" in German&lt;/li&gt;
-&lt;li&gt;Lemma: Two words belong to the same lemma if they have the same stem, belong
-  to the same POS and have the same meaning.&lt;/li&gt;
-&lt;li&gt;Porters Algorithm&lt;/li&gt;
+&lt;li&gt;Fragment: A part of a word (e.g. if you transcribe spoken text and somebody stutters)&lt;/li&gt;
+&lt;li&gt;Lemma: Two words belong to the same lemma if they have the same stem, belong to the same POS and have the same meaning.&lt;/li&gt;
+&lt;li&gt;Lexer: One type of tokenizer&lt;/li&gt;
+&lt;li&gt;Maxent classifiers&lt;/li&gt;
+&lt;li&gt;n-gram model: Model language by counting word-tuples of length n.&lt;/li&gt;
+&lt;li&gt;Naive Bayes&lt;/li&gt;
+&lt;li&gt;OOV: Out of vocabulary, &lt;code&gt;&amp;lt;UNK&amp;gt;&lt;/code&gt; token&lt;/li&gt;
+&lt;li&gt;Porters Algorithms&lt;/li&gt;
+&lt;li&gt;Regular expressions (see &lt;a href="http://regexpal.com/"&gt;regexpal.com&lt;/a&gt; to test)&lt;/li&gt;
+&lt;li&gt;sentence2vec: Similar to word2vec.&lt;/li&gt;
+&lt;li&gt;Smoothing:&lt;ul&gt;
+&lt;li&gt;Laplace Smoothing / Add-one Smoothing&lt;/li&gt;
+&lt;li&gt;Interpolated Kneser-Ney&lt;/li&gt;
+&lt;li&gt;Stupid backoff: For very large N-grams&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Statistical parsing&lt;/li&gt;
+&lt;li&gt;Stemming: Bring a word in a normed form (the stem). Mostly for verbs.&lt;/li&gt;
+&lt;li&gt;Tokenization: Segment the text into tokens.&lt;/li&gt;
+&lt;li&gt;Tokenizer: Splits a text into tokens.&lt;/li&gt;
+&lt;li&gt;Viterbi Algorithm&lt;/li&gt;
+&lt;li&gt;word2vec: Embedd any word in a (high-dimensional) vector space. Allows vector arithmetic.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;More might me in &lt;a href="https://martin-thoma.com/ml-glossary/"&gt;my ML Glossary&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="data-structures"&gt;Data structures&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Bloom_filter"&gt;Bloom filter&lt;/a&gt;: a space-efficient probabilistic data structure that is used to test whether an element is a member of a set&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Trie"&gt;Trie&lt;/a&gt;: A prefix-tree&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id="resources"&gt;Resources&lt;/h2&gt;
 &lt;ul&gt;
+&lt;li&gt;KIT: The ASR course has some NLP content&lt;/li&gt;
 &lt;li&gt;Reddit: &lt;a href="https://www.reddit.com/r/LanguageTechnology/"&gt;/r/LanguageTechnology&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;StackExchange: &lt;a href="https://datascience.stackexchange.com/questions/tagged/nlp"&gt;datascience.stackexchange.com&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Online Courses:&lt;ul&gt;
