@@ -124,3 +124,15 @@ $ du -h .
 * `top` or `htop` for showing processes / who uses much memory / CPU
 * [How to use Sublime Text via SSH](https://martin-thoma.com/how-to-use-sublime-text-via-ssh/)
 * `users` to see who is currently logged in.
+
+
+## Personalabteilung
+
+If you want to get your money back from the code card, you have to go to the
+"Personalabteilung". They have very limited opening times:
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2017/06/fzi-opening-times.jpg" alt="Opening times of FZI" style="width: 512px;"/>
+    <figcaption class="text-center">Opening times of FZI</figcaption>
+</figure>
+
