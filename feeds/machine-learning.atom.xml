@@ -1,5 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Machine Learning</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/machine-learning.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2017-06-08T20:00:00+02:00</updated><entry><title>Unsupervised Pretraining</title><link href="https://martin-thoma.com/unsupervised-pretraining/" rel="alternate"></link><published>2017-06-08T20:00:00+02:00</published><updated>2017-06-08T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-06-08:/unsupervised-pretraining/</id><summary type="html">&lt;p&gt;Neural networks have thousands, often millions of parameters. They take
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Machine Learning</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/machine-learning.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2017-06-15T20:00:00+02:00</updated><entry><title>How to get Data for ML systems</title><link href="https://martin-thoma.com/ml-get-data/" rel="alternate"></link><published>2017-06-15T20:00:00+02:00</published><updated>2017-06-15T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-06-15:/ml-get-data/</id><summary type="html">&lt;p&gt;Machine Learning is only possible with data. The more data, the better. For
+many services this is a self-improving system. The more data the system gets,
+the better it becomes. The better the system is, the more users use it. The
+more users use the system, the more data the …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Machine Learning is only possible with data. The more data, the better. For
+many services this is a self-improving system. The more data the system gets,
+the better it becomes. The better the system is, the more users use it. The
+more users use the system, the more data the system gets.&lt;/p&gt;
+&lt;p&gt;This is an awesome property, but what do you do if you don't have any / enough
+data to create a useful system? How do you bootstrap a machine learning system?&lt;/p&gt;
+&lt;p&gt;I will take write-math.com (handwritten symbol recognition) and Amazon book
+recommendations as examples.&lt;/p&gt;
+&lt;h2 id="generate-data-yourself"&gt;Generate Data yourself&lt;/h2&gt;
+&lt;p&gt;Sometimes, it is possible to generate data yourself. This is what I did for
+write-math.com. It could be expected that users are not too different - after
+all, single symbols should look somewhat similar, no matter who wrote them.&lt;/p&gt;
+&lt;p&gt;This is not possible for Amazon recommendations as they are mainly dependant on
+the user.&lt;/p&gt;
+&lt;h2 id="ask-friends"&gt;Ask friends&lt;/h2&gt;
+&lt;p&gt;You can ask friends / collegues to use your system and feed it with data. I did
+this with write-math.com, too.&lt;/p&gt;
+&lt;h2 id="gamification"&gt;Gamification&lt;/h2&gt;
+&lt;p&gt;Sometimes, you can make a game which is interesting enough to attract users to
+use your system and feed it with data. For example, Google did this with
+&lt;a href="https://quickdraw.withgoogle.com/"&gt;Quickdraw&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="side-steping"&gt;Side-steping&lt;/h2&gt;
+&lt;p&gt;Some tasks can be re-formulated so that they are intersting for other problems.
+Examples are &lt;a href="https://www.microsoft.com/en-us/research/publication/asirra-a-captcha-that-exploits-interest-aligned-manual-image-categorization/"&gt;Asirra&lt;/a&gt; and
+reCaptcha:&lt;/p&gt;
+&lt;p&gt;You are given 12 images. Your task is to identify all images which contain
+dogs. The developer knows the content of 11 images. If you get those 11 right,
+some trust is put into your classification of the 12th image.&lt;/p&gt;
+&lt;p&gt;Similar, for reCaptcha you are given two words. The developer knows one of
+them. It is placed randomly on the left or the right. If you get that one
+right, some trust is put into your classification of the other one.&lt;/p&gt;
+&lt;p&gt;Another example is Duolingo.&lt;/p&gt;
+&lt;h2 id="alternative-algorithms"&gt;Alternative Algorithms&lt;/h2&gt;
+&lt;p&gt;You could use other algorithms with do not need data. &lt;a href="https://en.wikipedia.org/wiki/Expert_system"&gt;Expert systems&lt;/a&gt; are
+examples for this kind of algorithm. Just let an expert hand-craft rules. This
+could work for Amazon recommendations:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Get besteller lists to rank books initially.&lt;/li&gt;
+&lt;li&gt;As soon as the user liked one book of one author, add a little bit to the
+  score of all other books of that author.&lt;/li&gt;
+&lt;li&gt;Users who bought one edition of a book usually don't buy the same book in
+  another edition. Hence reduce the score for them.&lt;/li&gt;
+&lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="sparse-matrix-completion"&gt;Sparse matrix completion&lt;/h2&gt;
+&lt;p&gt;For recommendation systems, you can define user "prototypes" ("the nerd", "the
+artist", "the gamer", ...). Define their properties. Find one person for each
+prototype. Let them rank the books. Not necessarily every book, but many. You
+could add rules to infer the ranking of missing books.&lt;/p&gt;
+&lt;p&gt;As soon as a new user arrives, ask them about some distinguishing books. Try to
+see in which prototypes (or mixture of prototypes) they fit best. Recommend new
+books according to that mixture.&lt;/p&gt;</content><category term="Machine Learning"></category><category term="data"></category></entry><entry><title>Unsupervised Pretraining</title><link href="https://martin-thoma.com/unsupervised-pretraining/" rel="alternate"></link><published>2017-06-08T20:00:00+02:00</published><updated>2017-06-08T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-06-08:/unsupervised-pretraining/</id><summary type="html">&lt;p&gt;Neural networks have thousands, often millions of parameters. They take
 hundrets of features and predict thousands of classes. The features can often
 not be seen independantly, but have to be taken as a whole into consideration.
 Most parameters are not independant either. And still, we use only on the order …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Neural networks have thousands, often millions of parameters. They take
