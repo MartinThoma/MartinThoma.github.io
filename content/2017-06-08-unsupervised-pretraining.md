@@ -3,8 +3,7 @@ layout: post
 title: Unsupervised Pretraining
 slug: unsupervised-pretraining
 author: Martin Thoma
-status: draft
-date: 2017-05-31 20:00
+date: 2017-06-08 20:00
 category: Machine Learning
 tags: Machine Learning, Neural Networks
 featured_image: logos/ml.png
@@ -75,6 +74,13 @@ Literature:
 I could imagine that you could do something similar to the crop position
 prediction with time series data. For example, if you have audio data you could
 give the network two samples and let it predict which one comes first.
+
+Or if you have a video, you can predict the next frame. See [Deep Predictive Coding Networks for Video Prediction and Unsupervised Learning](https://arxiv.org/abs/1605.08104).
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2017/06/predict-next-frame.png" alt="Predict the next frame of a video." style="width: 512px;"/>
+    <figcaption class="text-center">Predict the next frame of a video.<br/>Image source: <a href="https://arxiv.org/abs/1605.08104">Deep Predictive Coding Networks for Video Prediction and Unsupervised Learning</a></figcaption>
+</figure>
 
 
 ## Weakly Supervision
