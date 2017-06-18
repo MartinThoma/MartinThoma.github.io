@@ -103,7 +103,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#tasks" title="Tasks">Tasks</a><ul><li><a class="toc-href" href="#sentiment-analysis" title="Sentiment analysis">Sentiment analysis</a></li><li><a class="toc-href" href="#text-generation" title="Text generation">Text generation</a></li></ul></li><li><a class="toc-href" href="#data-sources_1" title="Data sources">Data sources</a></li><li><a class="toc-href" href="#corpora" title="Corpora">Corpora</a></li><li><a class="toc-href" href="#libraries" title="Libraries">Libraries</a></li><li><a class="toc-href" href="#products" title="Products">Products</a></li><li><a class="toc-href" href="#terminology-methods" title="Terminology / Methods">Terminology / Methods</a></li><li><a class="toc-href" href="#data-structures" title="Data structures">Data structures</a></li><li><a class="toc-href" href="#resources" title="Resources">Resources</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#tasks" title="Tasks">Tasks</a><ul><li><a class="toc-href" href="#sentiment-analysis" title="Sentiment analysis">Sentiment analysis</a></li><li><a class="toc-href" href="#text-generation" title="Text generation">Text generation</a></li><li><a class="toc-href" href="#named-entity-recognition" title="Named Entity Recognition">Named Entity Recognition</a></li><li><a class="toc-href" href="#relation-extraction" title="Relation Extraction">Relation Extraction</a></li></ul></li><li><a class="toc-href" href="#data-sources-and-corpora_1" title="Data sources and Corpora">Data sources and Corpora</a></li><li><a class="toc-href" href="#libraries" title="Libraries">Libraries</a></li><li><a class="toc-href" href="#products" title="Products">Products</a></li><li><a class="toc-href" href="#terminology-methods" title="Terminology / Methods">Terminology / Methods</a><ul><li><a class="toc-href" href="#smoothing" title="Smoothing">Smoothing</a></li></ul></li><li><a class="toc-href" href="#data-structures_1" title="Data structures">Data structures</a></li><li><a class="toc-href" href="#resources" title="Resources">Resources</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -118,10 +118,15 @@ language in textual form.</p>
 <li>Topic: Is it about sports, science or religion?</li>
 <li>Language: Is it English, German or French?</li>
 <li>Sentence boundary: Is a character the boundary of a sentence or not?</li>
+<li>Author:<ul>
+<li>Identify the author from a given set of authors</li>
+<li>Age of the author</li>
+<li>Gender of the author</li>
 </ul>
 </li>
-<li><a href="https://en.wikipedia.org/wiki/Named-entity_recognition"><strong>Named Entity Recognition</strong></a> (NER): Parse a text
-  into names of places, people, organizations and non-names.</li>
+<li>Sentiment analysis (Opinion mining, opinion extraction, sentiment mining, subjectivity analysis)</li>
+</ul>
+</li>
 <li><strong>Machine Translation</strong> (MT): Given a text in language A, return the same content in language B.</li>
 <li><strong>Similarity calculation</strong>: Given a corpus of n texts and one text A as
   input, find passages of the corpus which are similar to passages of A. This
@@ -136,7 +141,16 @@ language in textual form.</p>
 <li><strong>POS Tagging</strong>: Detect adjectives, verbs, nouns in a sentence.</li>
 <li><strong>Summarization</strong> / <strong>Paraphrasing</strong></li>
 <li><strong>Information extraction</strong>: For example, find the date in a calender
-  application when the user enters the name of the event.</li>
+  application when the user enters the name of the event. Or dates in an e-mail
+  in order to allow users to create a calender date.<ul>
+<li><a href="https://en.wikipedia.org/wiki/Named-entity_recognition"><strong>Named Entity Recognition</strong></a> (NER):<ul>
+<li>Find names in a text</li>
+<li>Classify names into names of places, people, organizations and non-names.</li>
+</ul>
+</li>
+<li><strong>Relation Extraction</strong></li>
+</ul>
+</li>
 <li><strong>Compound splitting</strong>: For German, "Donaudampfschiffskapit&auml;n" can be split
   into the compounds "Donau" (a river) "dampfschiff" (steam boat) and "kapit&auml;n"
   (captain).</li>
@@ -146,19 +160,91 @@ language in textual form.</p>
 <ul>
 <li><a href="http://www.cs.cornell.edu/home/llee/omsa/omsa.pdf">Opinion mining and sentiment analysis</a></li>
 </ul>
+<p>Sentiment Lexicons are compared by Christopher Potts ("Sentiment Tutorial", 2011):</p>
+<ul>
+<li><a href="http://www.wjh.harvard.edu/~inquirer">General Inquirer</a> is free for research use<ul>
+<li><a href="http://www.wjh.harvard.edu/~inquirer/homecat.htm">List of categories</a><ul>
+<li>Positive (1915 words) and negative (2291 words)</li>
+<li>strong vs weak, active vs passive, overstated vs understated</li>
+<li>pleasure, pain, virtue, vice, motivation, cognitive orientation, ...</li>
+</ul>
+</li>
+<li><a href="http://www.wjh.harvard.edu/~inquirer/inquirerbasic.xls">Spreadsheet</a></li>
+</ul>
+</li>
+<li><a href="http://www.liwc.net">LIWC</a> - Linguistic Inquiry and Word count: 30 US-Dollar or 90 US-Dollar fee<ul>
+<li>2300 words, more than 70 classes</li>
+<li>affective process (negative and positive emotion)</li>
+<li>cognitive processes: Tentative (maybe, perhaps, guess), Inhibition (block, constraint)</li>
+<li>Pronouns, Negation (no, never), Quantifiers (few, many)</li>
+</ul>
+</li>
+<li><a href="http://www.cs.uic.edu/~liub/FBS/opinion-lexicon-English.rar">Bing Liu Opinion Lexicon</a><ul>
+<li>6786 words (2006 positive, 4783 negative)</li>
+</ul>
+</li>
+<li><a href="http://sentiwordnet.isti.cnr.it">SentiWordNet</a></li>
+</ul>
+<p>Positivity of a word can be infered from reviews. Reviews with many stars
+should have positive words, reviews with only one or two stars should have
+negative words.</p>
 <h3 id="text-generation">Text generation</h3>
 <p>Generate text in a given style / tone.</p>
 <ul>
 <li>Andrej Karpathy: <a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/">The Unreasonable Effectiveness of Recurrent Neural Networks</a></li>
 </ul>
-<h2 id="data-sources_1">Data sources</h2>
+<h3 id="named-entity-recognition">Named Entity Recognition</h3>
+<p>Named entities are sequences of word tokens. Each word token can either be other (O),
+the beginning of a namend entity (B) or the continuation of a named entity (I):</p>
+<div class="highlight"><pre><span></span>           IO-encoding   IOB-encoding
+Adam       PER           B-PER
+gives      O             O
+Berta      PER           B-PER
+Charlies   PER           B-PER
+Smith      PER           I-PER
+'s         O             O
+table      O             O
+--------------------------------------
+#NER       2             3
+</pre></div>
+<p>IOB encoding</p>
+<h3 id="relation-extraction">Relation Extraction</h3>
+<ul>
+<li>ACE (Automated Content Extraction): 17 relations from 2007 "Relation
+  Extraction Task"</li>
+<li>UMLS (Unified Medical Language System): 134 entity types, 54 relations</li>
+</ul>
+<p>One approach is taking seed relations to find language patterns. For example, a
+seed relation could be <code>BORN-IN(Albert Einstein, Ulm)</code>. Now find all sentences
+in a corpus which contain "Albert Einstain" and "Ulm". You might find find
+patterns like:</p>
+<ul>
+<li>Albert Einstein, born in Ulm, ...</li>
+<li>Albert Einstein (1879, Ulm) ...</li>
+<li>One son of Ulm is Albert Einstein.</li>
+</ul>
+<p>Now you can extract language patterns:</p>
+<ul>
+<li>X, born in Y, ...</li>
+<li>X (?, Y), ...</li>
+<li>One son of Y is X.</li>
+</ul>
+<p>Unsupervised Information Extraction (or Open Information Extraction) does not
+start with given relations or training data. The textrunner algorithm is one
+way to do it.</p>
+<h2 id="data-sources-and-corpora_1">Data sources and Corpora</h2>
+<p>Thesaurus: WordNet</p>
 <ul>
 <li>Twitter</li>
 <li>Wikipedia</li>
 <li>News websites</li>
 <li>Amazon Reviews</li>
+<li>AP Newswire</li>
+<li>IMDB: Polarity data 2.0 (sentiment analysis)</li>
+<li>Reuters newswire dataset</li>
+<li>DBPedia: 1 billion RDF triples</li>
+<li>Freebase: many relations</li>
 </ul>
-<h2 id="corpora">Corpora</h2>
 <table class="table">
 <tr>
 <th>Name</th>
@@ -223,12 +309,6 @@ language in textual form.</p>
 <li>Porters Algorithms</li>
 <li>Regular expressions (see <a href="http://regexpal.com/">regexpal.com</a> to test)</li>
 <li>sentence2vec: Similar to word2vec.</li>
-<li>Smoothing:<ul>
-<li>Laplace Smoothing / Add-one Smoothing</li>
-<li>Interpolated Kneser-Ney</li>
-<li>Stupid backoff: For very large N-grams</li>
-</ul>
-</li>
 <li>Statistical parsing</li>
 <li>Stemming: Bring a word in a normed form (the stem). Mostly for verbs.</li>
 <li>Tokenization: Segment the text into tokens.</li>
@@ -237,7 +317,30 @@ language in textual form.</p>
 <li>word2vec: Embedd any word in a (high-dimensional) vector space. Allows vector arithmetic.</li>
 </ul>
 <p>More might me in <a href="https://martin-thoma.com/ml-glossary/">my ML Glossary</a>.</p>
-<h2 id="data-structures">Data structures</h2>
+<h3 id="smoothing">Smoothing</h3>
+<p>A common task in NLP is estimating the probability of a word given some other
+words: <span class="math">\(P(w_i | w_{i-1}, w_{i-2})\)</span>. You can do that by counting n-grams <span class="math">\((w_{i-2}, w_{i-1}, w_{i})\)</span>:</p>
+<div class="math">$$P(w_i | w_{i-1}, w_{i-2}) = \frac{N((w_{i-2}, w_{i-1}, w_i))}{N((w_{i-2}, w_{i-1}))}$$</div>
+<p>But you will quite often have the case that you did not see a 3-gram. How do you deal with that?</p>
+<p>Smoothing is the answer. The simplest method is Laplace Smoothing (aka Add-one smoothing).</p>
+<p>How do you deal with words you've never seen? The Good-Turing smoothing method
+uses things you've seen once to estimate things you've never seen:</p>
+<div class="math">$$P^*_{GT}(\text{things never seen}) = \frac{N_1}{N}$$</div>
+<div class="math">$$P^*_{GT}(\text{thing seen}) = (\frac{(c+1) N_{c+1}}{N_c}) / N$$</div>
+<p>when <span class="math">\(c\)</span> bekomes "large" (depends on the dataset), just replace <span class="math">\(N_c\)</span> by a
+best-fit power law.</p>
+<p>Other smoothing methods</p>
+<ul>
+<li>Interpolated Kneser-Ney</li>
+<li>Good-Turing Smoothing</li>
+<li>Stupid backoff: For very large N-grams</li>
+</ul>
+<p>Another important concept is the continuation probability. While some words (like "a", "to", "the", ...)
+can be followed / preceeded by many different words, others (like "San", "Angelo", "D.C.", "United States of", ...).
+The continuation probability quantifies how likely it is that a word is continued by something novel. Putting this together with absolute discounting gives the Kneser-Ney Smoothing algorithm:</p>
+<div class="math">$$P_{KN}(w_i | w_{i-1}) = \frac{\max( c(w_{i-1}, w_i) - d, 0)}{c(w_{i-1})} + \lambda (w_{i-1}) P_{continuation}(w_i)$$</div>
+<p>where <span class="math">\(\lambda \in \mathbb{R}\)</span> weights how important the continuation probability is,</p>
+<h2 id="data-structures_1">Data structures</h2>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Bloom_filter">Bloom filter</a>: a space-efficient probabilistic data structure that is used to test whether an element is a member of a set</li>
 <li><a href="https://en.wikipedia.org/wiki/Trie">Trie</a>: A prefix-tree</li>
