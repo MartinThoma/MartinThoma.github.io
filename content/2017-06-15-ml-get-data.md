@@ -3,10 +3,9 @@ layout: post
 title: How to get Data for ML systems
 slug: ml-get-data
 author: Martin Thoma
-status: draft
 date: 2017-06-15 20:00
-category: Cyberculture
-tags: Rating
+category: Machine Learning
+tags: Machine Learning, data
 featured_image: logos/ml.png
 ---
 Machine Learning is only possible with data. The more data, the better. For
@@ -61,9 +60,9 @@ right, some trust is put into your classification of the other one.
 Another example is Duolingo.
 
 
-## Algorithms
+## Alternative Algorithms
 
-You could use other algorithms with do not need data. Expert systems are
+You could use other algorithms with do not need data. [Expert systems](https://en.wikipedia.org/wiki/Expert_system) are
 examples for this kind of algorithm. Just let an expert hand-craft rules. This
 could work for Amazon recommendations:
 
