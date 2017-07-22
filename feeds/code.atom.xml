@@ -110,6 +110,12 @@ volumes. There are two types of volumes:&lt;/p&gt;
 &lt;li&gt;Persist and share data between containers&lt;/li&gt;
 &lt;li&gt;Share folders between host and containers&lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;List volumes:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# docker volume ls
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Remove volumes:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# docker volume rm &amp;lt;volume name&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
 &lt;h3 id="docker-composeyml"&gt;docker-compose.yml&lt;/h3&gt;
 &lt;p&gt;The &lt;code&gt;docker-compose.yml&lt;/code&gt; is a &lt;a href="https://en.wikipedia.org/wiki/YAML"&gt;YAML file&lt;/a&gt;
 which defines multi-container applications. It looks like this:&lt;/p&gt;
@@ -142,6 +148,7 @@ services:
       - ./flask_db.sql:/docker-entrypoint-initdb.d/flask_db.sql
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Start it with &lt;code&gt;docker-compose up&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The host name of each service is the name of the service itself.&lt;/p&gt;
 &lt;h3 id="cleanup"&gt;Cleanup&lt;/h3&gt;
 &lt;p&gt;Kill all running containers:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo docker kill $(sudo docker ps -q)
@@ -166,6 +173,7 @@ services:
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;a href="https://technologyconversations.com/2015/11/04/docker-clustering-tools-compared-kubernetes-vs-docker-swarm/"&gt;Docker Clustering Tools Compared: Kubernetes vs Docker Swarm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/MartinThoma/flask_mysql_dockerized"&gt;github.com/MartinThoma/flask_mysql_dockerized&lt;/a&gt;: A minimal example how to use a database and a webserver with &lt;code&gt;docker-compose&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;</content><category term="Docker"></category><category term="Deployment"></category></entry><entry><title>Defaults of Configuration Files</title><link href="https://martin-thoma.com/cfg-files-defaults/" rel="alternate"></link><published>2017-05-14T20:00:00+02:00</published><updated>2017-05-14T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-05-14:/cfg-files-defaults/</id><summary type="html">&lt;p&gt;I often need configuration files in the software I develop. In principle, I can
 think of two ways to deal with configuration files:&lt;/p&gt;
 &lt;ul&gt;
