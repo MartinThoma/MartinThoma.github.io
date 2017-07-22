@@ -1,5 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Code</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/code.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2017-05-14T20:00:00+02:00</updated><entry><title>Defaults of Configuration Files</title><link href="https://martin-thoma.com/cfg-files-defaults/" rel="alternate"></link><published>2017-05-14T20:00:00+02:00</published><updated>2017-05-14T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-05-14:/cfg-files-defaults/</id><summary type="html">&lt;p&gt;I often need configuration files in the software I develop. In principle, I can
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Code</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/code.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2017-07-22T20:00:00+02:00</updated><entry><title>Docker</title><link href="https://martin-thoma.com/docker/" rel="alternate"></link><published>2017-07-22T20:00:00+02:00</published><updated>2017-07-22T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-07-22:/docker/</id><summary type="html">&lt;p&gt;Docker is a tool which allows developers to make deployment of their software
+easier.&lt;/p&gt;
+&lt;p&gt;Imagine you have a web service. Then you usually not only have your own
+software, but you built it with other libraries. You run it on a web server.
+The server needs some configuration, exposes some …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Docker is a tool which allows developers to make deployment of their software
+easier.&lt;/p&gt;
+&lt;p&gt;Imagine you have a web service. Then you usually not only have your own
+software, but you built it with other libraries. You run it on a web server.
+The server needs some configuration, exposes some ports, reads and writes data.
+Being a good developer, you identified different components which can be built
+(and scaled) independently. They have a way to talk with each other and they
+need to run in order to make the service work. As you are the developer, you
+know what you need. But you might not be the one who deploys the software.
+Hence you have to write documentation about it.&lt;/p&gt;
+&lt;p&gt;And you can create a (Docker) container.&lt;/p&gt;
+&lt;h2 id="glossary"&gt;Glossary&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;Image&lt;/dt&gt;
+&lt;dd&gt;An image is an immutable file. They are created with
+        &lt;code&gt;docker build&lt;/code&gt;. Images can be stored in a registry
+        such as &lt;a href="https://hub.docker.com/"&gt;hub.docker.com&lt;/a&gt;.
+        Typically, an image is built on another image.&lt;br/&gt;
+        You can list images on your machine with &lt;code&gt;docker images&lt;/code&gt;.&lt;/dd&gt;
+&lt;dt&gt;Container&lt;/dt&gt;
+&lt;dd&gt;A virtual operating system. It is an instance of an image. A container
+        is created with &lt;code&gt;docker run&lt;/code&gt;. A methaphor used by
+        &lt;a href="https://stackoverflow.com/questions/23735149/docker-image-vs-container/26960888#26960888"&gt;paislee&lt;/a&gt;
+        is that an image is a class and a container is an object. They
+        encapsulate the environment in which the application runs.&lt;br/&gt;
+&lt;code&gt;docker ps -a&lt;/code&gt; lists all containers - running and stopped.&lt;/dd&gt;
+&lt;dt&gt;Docker Compose&lt;/dt&gt;
+&lt;dd&gt;A tool for defining and running multi-container applications.&lt;/dd&gt;
+&lt;dt&gt;Docker Swarm&lt;/dt&gt;
+&lt;dd&gt;A tool to deploy containers in a cluster. Similar to Kubernetes.&lt;/dd&gt;
+&lt;dt&gt;Kubernetes&lt;/dt&gt;
+&lt;dd&gt;A tool to deploy containers in a cluster. Similar to Docker Swarm.&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h2 id="containers-vs-virtual-machines"&gt;Containers vs Virtual Machines&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Resource sharing / isolation&lt;/strong&gt;: Docker containers share resources. A docker
+  container is similar to a host process, hence the memory / CPU scheduling will
+  be handled by the host for Docker. Docker is less isolated than a VM&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Startup time&lt;/strong&gt;: A VM takes minutes to start, Docker takes seconds to start&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="alternatives"&gt;Alternatives&lt;/h2&gt;
+&lt;p&gt;Although Docker seems to be by far the most common container tool, there are
+alternatives:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://coreos.com/rkt"&gt;Rocket&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.ubuntu.com/containers/lxd"&gt;LXD&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.flockport.com/"&gt;Flockport&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And there are VMs:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/VirtualBox"&gt;VirtualBox&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/VMware_Workstation"&gt;VMware Workstation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="cleanup"&gt;Cleanup&lt;/h2&gt;
+&lt;p&gt;Kill all running containers:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo docker kill $(sudo docker ps -q)
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Delete all stopped containers&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo docker rm $(sudo docker ps -a -q)
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Delete all images&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo docker rmi $(sudo docker images -q)
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;StackOverflow&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://stackoverflow.com/q/23735149/562769"&gt;Docker image vs container&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://stackoverflow.com/q/16047306/562769"&gt;How is Docker different from a normal virtual machine?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://technologyconversations.com/2015/11/04/docker-clustering-tools-compared-kubernetes-vs-docker-swarm/"&gt;Docker Clustering Tools Compared: Kubernetes vs Docker Swarm&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Docker"></category><category term="Deployment"></category></entry><entry><title>Defaults of Configuration Files</title><link href="https://martin-thoma.com/cfg-files-defaults/" rel="alternate"></link><published>2017-05-14T20:00:00+02:00</published><updated>2017-05-14T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-05-14:/cfg-files-defaults/</id><summary type="html">&lt;p&gt;I often need configuration files in the software I develop. In principle, I can
 think of two ways to deal with configuration files:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Complete&lt;/strong&gt;: The configuration file has to have all values which will later
