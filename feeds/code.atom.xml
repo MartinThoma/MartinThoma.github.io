@@ -63,6 +63,7 @@ alternatives:&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/VMware_Workstation"&gt;VMware Workstation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="using-docker_1"&gt;Using Docker&lt;/h2&gt;
+&lt;p&gt;First, &lt;a href="https://askubuntu.com/q/938700/10425"&gt;install Docker&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id="dockerfile"&gt;Dockerfile&lt;/h3&gt;
 &lt;p&gt;A &lt;code&gt;Dockerfile&lt;/code&gt; defines an image. It is a simple text file which could look
 as follows:&lt;/p&gt;
@@ -89,8 +90,22 @@ CMD ["app.py"]
   container is started.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;CMD ["executable","param1","param2"]&lt;/code&gt;: The command is to run via the entrypoint.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2 id="commands_1"&gt;Commands&lt;/h2&gt;
+&lt;p&gt;Docker needs to be run in super-user mode. I indicate that with &lt;code&gt;#&lt;/code&gt;. You can
+run &lt;code&gt;sudo su&lt;/code&gt; in order to run all subsequent commands as a superuser.&lt;/p&gt;
+&lt;p&gt;List all images:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# docker image ls
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;List all running containers:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# docker container ls
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Go into an interactive (&lt;code&gt;-i&lt;/code&gt;) bash in a pseudo-tty (&lt;code&gt;-t&lt;/code&gt;) in a container with ID &lt;code&gt;4f7d3f0763ad&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# docker exec -it 4f7d3f0763ad bash
+&lt;/pre&gt;&lt;/div&gt;
 &lt;h3 id="docker-composeyml"&gt;docker-compose.yml&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;version: '3'
+&lt;p&gt;The &lt;code&gt;docker-compose.yml&lt;/code&gt; is a &lt;a href="https://en.wikipedia.org/wiki/YAML"&gt;YAML file&lt;/a&gt;
+which defines multi-container applications. It looks like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;version: '3'  # Version number of the docker-compose file format
 services:
   web:
     build: .
@@ -118,6 +133,7 @@ services:
     volumes:
       - ./flask_db.sql:/docker-entrypoint-initdb.d/flask_db.sql
 &lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Start it with &lt;code&gt;docker-compose up&lt;/code&gt;.&lt;/p&gt;
 &lt;h3 id="cleanup"&gt;Cleanup&lt;/h3&gt;
 &lt;p&gt;Kill all running containers:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo docker kill $(sudo docker ps -q)
@@ -132,6 +148,7 @@ services:
 &lt;ul&gt;
 &lt;li&gt;Docker.com&lt;ul&gt;
 &lt;li&gt;&lt;a href="https://docs.docker.com/engine/reference/builder/"&gt;Dockerfile reference&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://docs.docker.com/compose/compose-file/"&gt;Compose file version 3 reference&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;StackOverflow&lt;ul&gt;

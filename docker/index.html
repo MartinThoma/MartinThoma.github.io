@@ -103,7 +103,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#glossary" title="Glossary">Glossary</a></li><li><a class="toc-href" href="#context" title="Context">Context</a><ul><li><a class="toc-href" href="#containers-vs-virtual-machines" title="Containers vs Virtual Machines">Containers vs Virtual Machines</a></li><li><a class="toc-href" href="#alternatives" title="Alternatives">Alternatives</a></li></ul></li><li><a class="toc-href" href="#using-docker_1" title="Using Docker">Using Docker</a><ul><li><a class="toc-href" href="#dockerfile" title="Dockerfile">Dockerfile</a></li><li><a class="toc-href" href="#docker-composeyml" title="docker-compose.yml">docker-compose.yml</a></li><li><a class="toc-href" href="#cleanup" title="Cleanup">Cleanup</a></li></ul></li><li><a class="toc-href" href="#see-also_1" title="See also">See also</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#glossary" title="Glossary">Glossary</a></li><li><a class="toc-href" href="#context" title="Context">Context</a><ul><li><a class="toc-href" href="#containers-vs-virtual-machines" title="Containers vs Virtual Machines">Containers vs Virtual Machines</a></li><li><a class="toc-href" href="#alternatives" title="Alternatives">Alternatives</a></li></ul></li><li><a class="toc-href" href="#using-docker_1" title="Using Docker">Using Docker</a><ul><li><a class="toc-href" href="#dockerfile" title="Dockerfile">Dockerfile</a></li></ul></li><li><a class="toc-href" href="#commands_1" title="Commands">Commands</a><ul><li><a class="toc-href" href="#docker-composeyml" title="docker-compose.yml">docker-compose.yml</a></li><li><a class="toc-href" href="#cleanup" title="Cleanup">Cleanup</a></li></ul></li><li><a class="toc-href" href="#see-also_1" title="See also">See also</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -169,6 +169,7 @@ alternatives:</p>
 <li><a href="https://en.wikipedia.org/wiki/VMware_Workstation">VMware Workstation</a></li>
 </ul>
 <h2 id="using-docker_1">Using Docker</h2>
+<p>First, <a href="https://askubuntu.com/q/938700/10425">install Docker</a>.</p>
 <h3 id="dockerfile">Dockerfile</h3>
 <p>A <code>Dockerfile</code> defines an image. It is a simple text file which could look
 as follows:</p>
@@ -195,8 +196,22 @@ CMD ["app.py"]
   container is started.</li>
 <li><code>CMD ["executable","param1","param2"]</code>: The command is to run via the entrypoint.</li>
 </ul>
+<h2 id="commands_1">Commands</h2>
+<p>Docker needs to be run in super-user mode. I indicate that with <code>#</code>. You can
+run <code>sudo su</code> in order to run all subsequent commands as a superuser.</p>
+<p>List all images:</p>
+<div class="highlight"><pre><span></span># docker image ls
+</pre></div>
+<p>List all running containers:</p>
+<div class="highlight"><pre><span></span># docker container ls
+</pre></div>
+<p>Go into an interactive (<code>-i</code>) bash in a pseudo-tty (<code>-t</code>) in a container with ID <code>4f7d3f0763ad</code>:</p>
+<div class="highlight"><pre><span></span># docker exec -it 4f7d3f0763ad bash
+</pre></div>
 <h3 id="docker-composeyml">docker-compose.yml</h3>
-<div class="highlight"><pre><span></span>version: '3'
+<p>The <code>docker-compose.yml</code> is a <a href="https://en.wikipedia.org/wiki/YAML">YAML file</a>
+which defines multi-container applications. It looks like this:</p>
+<div class="highlight"><pre><span></span>version: '3'  # Version number of the docker-compose file format
 services:
   web:
     build: .
@@ -224,6 +239,7 @@ services:
     volumes:
       - ./flask_db.sql:/docker-entrypoint-initdb.d/flask_db.sql
 </pre></div>
+<p>Start it with <code>docker-compose up</code>.</p>
 <h3 id="cleanup">Cleanup</h3>
 <p>Kill all running containers:</p>
 <div class="highlight"><pre><span></span>sudo docker kill $(sudo docker ps -q)
@@ -238,6 +254,7 @@ services:
 <ul>
 <li>Docker.com<ul>
 <li><a href="https://docs.docker.com/engine/reference/builder/">Dockerfile reference</a></li>
+<li><a href="https://docs.docker.com/compose/compose-file/">Compose file version 3 reference</a></li>
 </ul>
 </li>
 <li>StackOverflow<ul>
