@@ -17,9 +17,11 @@ Hence you have to write documentation about it.&lt;/p&gt;
 &lt;h2 id="glossary"&gt;Glossary&lt;/h2&gt;
 &lt;dl&gt;
 &lt;dt&gt;Image&lt;/dt&gt;
-&lt;dd&gt;An image is an immutable file. They are created with
+&lt;dd&gt;An image is an immutable file which contains the application code, the
+        operating system, the required software. They are created with
         &lt;code&gt;docker build&lt;/code&gt;. Images can be stored in a registry
         such as &lt;a href="https://hub.docker.com/"&gt;hub.docker.com&lt;/a&gt;.
+        An image is defined using a &lt;code&gt;Dockerfile&lt;/code&gt;.
         Typically, an image is built on another image.&lt;br/&gt;
         You can list images on your machine with &lt;code&gt;docker images&lt;/code&gt;.&lt;/dd&gt;
 &lt;dt&gt;Container&lt;/dt&gt;
@@ -36,14 +38,18 @@ Hence you have to write documentation about it.&lt;/p&gt;
 &lt;dt&gt;Kubernetes&lt;/dt&gt;
 &lt;dd&gt;A tool to deploy containers in a cluster. Similar to Docker Swarm.&lt;/dd&gt;
 &lt;/dl&gt;
-&lt;h2 id="containers-vs-virtual-machines"&gt;Containers vs Virtual Machines&lt;/h2&gt;
+&lt;h2 id="context"&gt;Context&lt;/h2&gt;
+&lt;h3 id="containers-vs-virtual-machines"&gt;Containers vs Virtual Machines&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Resource sharing / isolation&lt;/strong&gt;: Docker containers share resources. A docker
   container is similar to a host process, hence the memory / CPU scheduling will
-  be handled by the host for Docker. Docker is less isolated than a VM&lt;/li&gt;
+  be handled by the host for Docker. Docker is less isolated than a VM. Docker
+  containers use less disk space and less memory.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Startup time&lt;/strong&gt;: A VM takes minutes to start, Docker takes seconds to start&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kernel&lt;/strong&gt;: Docker containers share the same kernel (the host kernel) whereas
+  each virtual machine has its own kernel.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="alternatives"&gt;Alternatives&lt;/h2&gt;
+&lt;h3 id="alternatives"&gt;Alternatives&lt;/h3&gt;
 &lt;p&gt;Although Docker seems to be by far the most common container tool, there are
 alternatives:&lt;/p&gt;
 &lt;ul&gt;
@@ -56,7 +62,63 @@ alternatives:&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/VirtualBox"&gt;VirtualBox&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/VMware_Workstation"&gt;VMware Workstation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="cleanup"&gt;Cleanup&lt;/h2&gt;
+&lt;h2 id="using-docker_1"&gt;Using Docker&lt;/h2&gt;
+&lt;h3 id="dockerfile"&gt;Dockerfile&lt;/h3&gt;
+&lt;p&gt;A &lt;code&gt;Dockerfile&lt;/code&gt; defines an image. It is a simple text file which could look
+as follows:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;FROM ubuntu:latest
+LABEL maintainer="info@martin-thoma.de"
+RUN apt-get update -y
+RUN apt-get install -y python-pip python-dev build-essential
+COPY . /app
+WORKDIR /app
+RUN pip install -r requirements.txt
+ENTRYPOINT ["python"]
+CMD ["app.py"]
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Let's go through it:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;FROM&lt;/code&gt; defines on which base image we built our image. We add another layer
+  to that one.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;LABEL&lt;/code&gt;: Add metadata in a &lt;code&gt;key=value&lt;/code&gt; based fashion to the image.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;RUN &amp;lt;command&amp;gt;&lt;/code&gt;: Execute this.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;COPY &amp;lt;src&amp;gt; &amp;lt;dest&amp;gt;&lt;/code&gt;: Copy files from &lt;code&gt;src&lt;/code&gt; on the host to &lt;code&gt;dest&lt;/code&gt; in the container.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;WORKDIR /abs/path/to/workdir&lt;/code&gt;: Work directory for and &lt;code&gt;RUN&lt;/code&gt;, &lt;code&gt;CMD&lt;/code&gt;,
+  &lt;code&gt;ENTRYPOINT&lt;/code&gt; instruction that follows&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ENTRYPOINT ["executable", "param1", "param2"]&lt;/code&gt;: Run this when the Docker
+  container is started.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CMD ["executable","param1","param2"]&lt;/code&gt;: The command is to run via the entrypoint.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="docker-composeyml"&gt;docker-compose.yml&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;version: '3'
+services:
+  web:
+    build: .
+    command: app.py
+    ports:
+     - "8082:5000"
+    volumes:
+     - .:/code
+    links:
+     - db
+    hostname: myappserver
+    environment:
+    - MYSQL_ROOT_PASSWORD=p@ssw0rd123
+    - MYSQL_DATABASE=flask_db
+    - MYSQL_HOST=db
+    - MYSQL_PORT=3306
+  db:
+    image: mysql
+    ports:
+    - "3307:3306"
+    environment:
+    - MYSQL_ROOT_PASSWORD=p@ssw0rd123
+    - MYSQL_DATABASE=flask_db
+    - MYSQL_HOST=mysqlserver
+    volumes:
+      - ./flask_db.sql:/docker-entrypoint-initdb.d/flask_db.sql
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id="cleanup"&gt;Cleanup&lt;/h3&gt;
 &lt;p&gt;Kill all running containers:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo docker kill $(sudo docker ps -q)
 &lt;/pre&gt;&lt;/div&gt;
@@ -66,11 +128,16 @@ alternatives:&lt;/p&gt;
 &lt;p&gt;Delete all images&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo docker rmi $(sudo docker images -q)
 &lt;/pre&gt;&lt;/div&gt;
-&lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
+&lt;h2 id="see-also_1"&gt;See also&lt;/h2&gt;
 &lt;ul&gt;
+&lt;li&gt;Docker.com&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://docs.docker.com/engine/reference/builder/"&gt;Dockerfile reference&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;StackOverflow&lt;ul&gt;
 &lt;li&gt;&lt;a href="https://stackoverflow.com/q/23735149/562769"&gt;Docker image vs container&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://stackoverflow.com/q/16047306/562769"&gt;How is Docker different from a normal virtual machine?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://stackoverflow.com/q/21553353/562769"&gt;What is the difference between CMD and ENTRYPOINT in a Dockerfile?&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;a href="https://technologyconversations.com/2015/11/04/docker-clustering-tools-compared-kubernetes-vs-docker-swarm/"&gt;Docker Clustering Tools Compared: Kubernetes vs Docker Swarm&lt;/a&gt;&lt;/li&gt;

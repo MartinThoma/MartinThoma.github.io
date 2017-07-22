@@ -103,7 +103,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#glossary" title="Glossary">Glossary</a></li><li><a class="toc-href" href="#containers-vs-virtual-machines" title="Containers vs Virtual Machines">Containers vs Virtual Machines</a></li><li><a class="toc-href" href="#alternatives" title="Alternatives">Alternatives</a></li><li><a class="toc-href" href="#cleanup" title="Cleanup">Cleanup</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#glossary" title="Glossary">Glossary</a></li><li><a class="toc-href" href="#context" title="Context">Context</a><ul><li><a class="toc-href" href="#containers-vs-virtual-machines" title="Containers vs Virtual Machines">Containers vs Virtual Machines</a></li><li><a class="toc-href" href="#alternatives" title="Alternatives">Alternatives</a></li></ul></li><li><a class="toc-href" href="#using-docker_1" title="Using Docker">Using Docker</a><ul><li><a class="toc-href" href="#dockerfile" title="Dockerfile">Dockerfile</a></li><li><a class="toc-href" href="#docker-composeyml" title="docker-compose.yml">docker-compose.yml</a></li><li><a class="toc-href" href="#cleanup" title="Cleanup">Cleanup</a></li></ul></li><li><a class="toc-href" href="#see-also_1" title="See also">See also</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -123,9 +123,11 @@ Hence you have to write documentation about it.</p>
 <h2 id="glossary">Glossary</h2>
 <dl>
 <dt>Image</dt>
-<dd>An image is an immutable file. They are created with
+<dd>An image is an immutable file which contains the application code, the
+        operating system, the required software. They are created with
         <code>docker build</code>. Images can be stored in a registry
         such as <a href="https://hub.docker.com/">hub.docker.com</a>.
+        An image is defined using a <code>Dockerfile</code>.
         Typically, an image is built on another image.<br/>
         You can list images on your machine with <code>docker images</code>.</dd>
 <dt>Container</dt>
@@ -142,14 +144,18 @@ Hence you have to write documentation about it.</p>
 <dt>Kubernetes</dt>
 <dd>A tool to deploy containers in a cluster. Similar to Docker Swarm.</dd>
 </dl>
-<h2 id="containers-vs-virtual-machines">Containers vs Virtual Machines</h2>
+<h2 id="context">Context</h2>
+<h3 id="containers-vs-virtual-machines">Containers vs Virtual Machines</h3>
 <ul>
 <li><strong>Resource sharing / isolation</strong>: Docker containers share resources. A docker
   container is similar to a host process, hence the memory / CPU scheduling will
-  be handled by the host for Docker. Docker is less isolated than a VM</li>
+  be handled by the host for Docker. Docker is less isolated than a VM. Docker
+  containers use less disk space and less memory.</li>
 <li><strong>Startup time</strong>: A VM takes minutes to start, Docker takes seconds to start</li>
+<li><strong>Kernel</strong>: Docker containers share the same kernel (the host kernel) whereas
+  each virtual machine has its own kernel.</li>
 </ul>
-<h2 id="alternatives">Alternatives</h2>
+<h3 id="alternatives">Alternatives</h3>
 <p>Although Docker seems to be by far the most common container tool, there are
 alternatives:</p>
 <ul>
@@ -162,7 +168,63 @@ alternatives:</p>
 <li><a href="https://en.wikipedia.org/wiki/VirtualBox">VirtualBox</a></li>
 <li><a href="https://en.wikipedia.org/wiki/VMware_Workstation">VMware Workstation</a></li>
 </ul>
-<h2 id="cleanup">Cleanup</h2>
+<h2 id="using-docker_1">Using Docker</h2>
+<h3 id="dockerfile">Dockerfile</h3>
+<p>A <code>Dockerfile</code> defines an image. It is a simple text file which could look
+as follows:</p>
+<div class="highlight"><pre><span></span>FROM ubuntu:latest
+LABEL maintainer="info@martin-thoma.de"
+RUN apt-get update -y
+RUN apt-get install -y python-pip python-dev build-essential
+COPY . /app
+WORKDIR /app
+RUN pip install -r requirements.txt
+ENTRYPOINT ["python"]
+CMD ["app.py"]
+</pre></div>
+<p>Let's go through it:</p>
+<ul>
+<li><code>FROM</code> defines on which base image we built our image. We add another layer
+  to that one.</li>
+<li><code>LABEL</code>: Add metadata in a <code>key=value</code> based fashion to the image.</li>
+<li><code>RUN &lt;command&gt;</code>: Execute this.</li>
+<li><code>COPY &lt;src&gt; &lt;dest&gt;</code>: Copy files from <code>src</code> on the host to <code>dest</code> in the container.</li>
+<li><code>WORKDIR /abs/path/to/workdir</code>: Work directory for and <code>RUN</code>, <code>CMD</code>,
+  <code>ENTRYPOINT</code> instruction that follows</li>
+<li><code>ENTRYPOINT ["executable", "param1", "param2"]</code>: Run this when the Docker
+  container is started.</li>
+<li><code>CMD ["executable","param1","param2"]</code>: The command is to run via the entrypoint.</li>
+</ul>
+<h3 id="docker-composeyml">docker-compose.yml</h3>
+<div class="highlight"><pre><span></span>version: '3'
+services:
+  web:
+    build: .
+    command: app.py
+    ports:
+     - "8082:5000"
+    volumes:
+     - .:/code
+    links:
+     - db
+    hostname: myappserver
+    environment:
+    - MYSQL_ROOT_PASSWORD=p@ssw0rd123
+    - MYSQL_DATABASE=flask_db
+    - MYSQL_HOST=db
+    - MYSQL_PORT=3306
+  db:
+    image: mysql
+    ports:
+    - "3307:3306"
+    environment:
+    - MYSQL_ROOT_PASSWORD=p@ssw0rd123
+    - MYSQL_DATABASE=flask_db
+    - MYSQL_HOST=mysqlserver
+    volumes:
+      - ./flask_db.sql:/docker-entrypoint-initdb.d/flask_db.sql
+</pre></div>
+<h3 id="cleanup">Cleanup</h3>
 <p>Kill all running containers:</p>
 <div class="highlight"><pre><span></span>sudo docker kill $(sudo docker ps -q)
 </pre></div>
@@ -172,11 +234,16 @@ alternatives:</p>
 <p>Delete all images</p>
 <div class="highlight"><pre><span></span>sudo docker rmi $(sudo docker images -q)
 </pre></div>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also_1">See also</h2>
 <ul>
+<li>Docker.com<ul>
+<li><a href="https://docs.docker.com/engine/reference/builder/">Dockerfile reference</a></li>
+</ul>
+</li>
 <li>StackOverflow<ul>
 <li><a href="https://stackoverflow.com/q/23735149/562769">Docker image vs container</a></li>
 <li><a href="https://stackoverflow.com/q/16047306/562769">How is Docker different from a normal virtual machine?</a></li>
+<li><a href="https://stackoverflow.com/q/21553353/562769">What is the difference between CMD and ENTRYPOINT in a Dockerfile?</a></li>
 </ul>
 </li>
 <li><a href="https://technologyconversations.com/2015/11/04/docker-clustering-tools-compared-kubernetes-vs-docker-swarm/">Docker Clustering Tools Compared: Kubernetes vs Docker Swarm</a></li>
