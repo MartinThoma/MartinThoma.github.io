@@ -9,10 +9,10 @@ easier.&lt;/p&gt;
 software, but you built it with other libraries. You run it on a web server.
 The server needs some configuration, exposes some ports, reads and writes data.
 Being a good developer, you identified different components which can be built
-(and scaled) independently. They have a way to talk with each other and they
-need to run in order to make the service work. As you are the developer, you
-know what you need. But you might not be the one who deploys the software.
-Hence you have to write documentation about it.&lt;/p&gt;
+(and scaled) independently (aka microservices). They have a way to talk with
+each other and they need to run in order to make the service work. As you are
+the developer, you know what you need. But you might not be the one who deploys
+the software. Hence you have to write documentation about it.&lt;/p&gt;
 &lt;p&gt;And you can create a (Docker) container.&lt;/p&gt;
 &lt;h2 id="glossary"&gt;Glossary&lt;/h2&gt;
 &lt;dl&gt;
@@ -102,6 +102,14 @@ run &lt;code&gt;sudo su&lt;/code&gt; in order to run all subsequent commands as 
 &lt;p&gt;Go into an interactive (&lt;code&gt;-i&lt;/code&gt;) bash in a pseudo-tty (&lt;code&gt;-t&lt;/code&gt;) in a container with ID &lt;code&gt;4f7d3f0763ad&lt;/code&gt;:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# docker exec -it 4f7d3f0763ad bash
 &lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id="volumes"&gt;Volumes&lt;/h3&gt;
+&lt;p&gt;If you copy the code directly into the image, you need to rebuild the image
+every time you make a change to the code. In order to prevent this, you can use
+volumes. There are two types of volumes:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Persist and share data between containers&lt;/li&gt;
+&lt;li&gt;Share folders between host and containers&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h3 id="docker-composeyml"&gt;docker-compose.yml&lt;/h3&gt;
 &lt;p&gt;The &lt;code&gt;docker-compose.yml&lt;/code&gt; is a &lt;a href="https://en.wikipedia.org/wiki/YAML"&gt;YAML file&lt;/a&gt;
 which defines multi-container applications. It looks like this:&lt;/p&gt;
@@ -151,7 +159,7 @@ services:
 &lt;li&gt;&lt;a href="https://docs.docker.com/compose/compose-file/"&gt;Compose file version 3 reference&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;StackOverflow&lt;ul&gt;
+&lt;li&gt;StackOverflow (&lt;a href="https://stackoverflow.com/questions/tagged/docker?sort=votes"&gt;docker tag&lt;/a&gt;)&lt;ul&gt;
 &lt;li&gt;&lt;a href="https://stackoverflow.com/q/23735149/562769"&gt;Docker image vs container&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://stackoverflow.com/q/16047306/562769"&gt;How is Docker different from a normal virtual machine?&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://stackoverflow.com/q/21553353/562769"&gt;What is the difference between CMD and ENTRYPOINT in a Dockerfile?&lt;/a&gt;&lt;/li&gt;

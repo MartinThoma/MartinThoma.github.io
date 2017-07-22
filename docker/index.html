@@ -103,7 +103,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#glossary" title="Glossary">Glossary</a></li><li><a class="toc-href" href="#context" title="Context">Context</a><ul><li><a class="toc-href" href="#containers-vs-virtual-machines" title="Containers vs Virtual Machines">Containers vs Virtual Machines</a></li><li><a class="toc-href" href="#alternatives" title="Alternatives">Alternatives</a></li></ul></li><li><a class="toc-href" href="#using-docker_1" title="Using Docker">Using Docker</a><ul><li><a class="toc-href" href="#dockerfile" title="Dockerfile">Dockerfile</a></li><li><a class="toc-href" href="#commands" title="Commands">Commands</a></li><li><a class="toc-href" href="#docker-composeyml" title="docker-compose.yml">docker-compose.yml</a></li><li><a class="toc-href" href="#cleanup" title="Cleanup">Cleanup</a></li></ul></li><li><a class="toc-href" href="#see-also_1" title="See also">See also</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#glossary" title="Glossary">Glossary</a></li><li><a class="toc-href" href="#context" title="Context">Context</a><ul><li><a class="toc-href" href="#containers-vs-virtual-machines" title="Containers vs Virtual Machines">Containers vs Virtual Machines</a></li><li><a class="toc-href" href="#alternatives" title="Alternatives">Alternatives</a></li></ul></li><li><a class="toc-href" href="#using-docker_1" title="Using Docker">Using Docker</a><ul><li><a class="toc-href" href="#dockerfile" title="Dockerfile">Dockerfile</a></li><li><a class="toc-href" href="#commands" title="Commands">Commands</a></li><li><a class="toc-href" href="#volumes" title="Volumes">Volumes</a></li><li><a class="toc-href" href="#docker-composeyml" title="docker-compose.yml">docker-compose.yml</a></li><li><a class="toc-href" href="#cleanup" title="Cleanup">Cleanup</a></li></ul></li><li><a class="toc-href" href="#see-also_1" title="See also">See also</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -115,10 +115,10 @@ easier.</p>
 software, but you built it with other libraries. You run it on a web server.
 The server needs some configuration, exposes some ports, reads and writes data.
 Being a good developer, you identified different components which can be built
-(and scaled) independently. They have a way to talk with each other and they
-need to run in order to make the service work. As you are the developer, you
-know what you need. But you might not be the one who deploys the software.
-Hence you have to write documentation about it.</p>
+(and scaled) independently (aka microservices). They have a way to talk with
+each other and they need to run in order to make the service work. As you are
+the developer, you know what you need. But you might not be the one who deploys
+the software. Hence you have to write documentation about it.</p>
 <p>And you can create a (Docker) container.</p>
 <h2 id="glossary">Glossary</h2>
 <dl>
@@ -208,6 +208,14 @@ run <code>sudo su</code> in order to run all subsequent commands as a superuser.
 <p>Go into an interactive (<code>-i</code>) bash in a pseudo-tty (<code>-t</code>) in a container with ID <code>4f7d3f0763ad</code>:</p>
 <div class="highlight"><pre><span></span># docker exec -it 4f7d3f0763ad bash
 </pre></div>
+<h3 id="volumes">Volumes</h3>
+<p>If you copy the code directly into the image, you need to rebuild the image
+every time you make a change to the code. In order to prevent this, you can use
+volumes. There are two types of volumes:</p>
+<ol>
+<li>Persist and share data between containers</li>
+<li>Share folders between host and containers</li>
+</ol>
 <h3 id="docker-composeyml">docker-compose.yml</h3>
 <p>The <code>docker-compose.yml</code> is a <a href="https://en.wikipedia.org/wiki/YAML">YAML file</a>
 which defines multi-container applications. It looks like this:</p>
@@ -257,7 +265,7 @@ services:
 <li><a href="https://docs.docker.com/compose/compose-file/">Compose file version 3 reference</a></li>
 </ul>
 </li>
-<li>StackOverflow<ul>
+<li>StackOverflow (<a href="https://stackoverflow.com/questions/tagged/docker?sort=votes">docker tag</a>)<ul>
 <li><a href="https://stackoverflow.com/q/23735149/562769">Docker image vs container</a></li>
 <li><a href="https://stackoverflow.com/q/16047306/562769">How is Docker different from a normal virtual machine?</a></li>
 <li><a href="https://stackoverflow.com/q/21553353/562769">What is the difference between CMD and ENTRYPOINT in a Dockerfile?</a></li>
