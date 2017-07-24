@@ -69,11 +69,31 @@ alternatives:&lt;/p&gt;
 as follows:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;FROM ubuntu:latest
 LABEL maintainer="info@martin-thoma.de"
+
+# Settings for the local user
+ENV APP_USER docker
+ENV APP_USER_UID 9999
+ENV APP_USER_GROUP docker
+ENV APP_USER_GROUP_GID 4711
+
+# Install and update software
 RUN apt-get update -y
 RUN apt-get install -y python-pip python-dev build-essential
-COPY . /app
-WORKDIR /app
+RUN apt-get upgrade -y
+
+# Copy projects code
+COPY . /opt/app
+WORKDIR /opt/app
 RUN pip install -r requirements.txt
+
+# Create user
+RUN groupadd --gid &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;APP_USER_GROUP_GID&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt; &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;APP_USER_GROUP&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;
+RUN useradd --uid &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;APP_USER_UID&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt; --create-home -g &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;APP_USER_GROUP&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt; &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;APP_USER&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;
+RUN chown -R &lt;span class="nv"&gt;$APP_USER&lt;/span&gt;:&lt;span class="nv"&gt;$APP_USER_GROUP&lt;/span&gt; /opt/app
+
+# Start app
+USER docker
+RUN mkdir -p /opt/app/uploads
 ENTRYPOINT ["python"]
 CMD ["app.py"]
 &lt;/pre&gt;&lt;/div&gt;
@@ -127,8 +147,8 @@ services:
     ports:
      - "8082:5000"
     volumes:
-     - .:/app  # enables hot code reloading
-     - uploads:/uploads  # for data persistance (&amp;lt;volume name&amp;gt;:&amp;lt;abs path in container&amp;gt;)
+     - .:/opt/app  # enables hot code reloading
+     - uploads:/opt/app/uploads  # for data persistance (&amp;lt;volume name&amp;gt;:&amp;lt;abs path in container&amp;gt;)
     links:
      - db
     hostname: myappserver

@@ -175,11 +175,31 @@ alternatives:</p>
 as follows:</p>
 <div class="highlight"><pre><span></span>FROM ubuntu:latest
 LABEL maintainer="info@martin-thoma.de"
+
+# Settings for the local user
+ENV APP_USER docker
+ENV APP_USER_UID 9999
+ENV APP_USER_GROUP docker
+ENV APP_USER_GROUP_GID 4711
+
+# Install and update software
 RUN apt-get update -y
 RUN apt-get install -y python-pip python-dev build-essential
-COPY . /app
-WORKDIR /app
+RUN apt-get upgrade -y
+
+# Copy projects code
+COPY . /opt/app
+WORKDIR /opt/app
 RUN pip install -r requirements.txt
+
+# Create user
+RUN groupadd --gid <span class="cp">${</span><span class="n">APP_USER_GROUP_GID</span><span class="cp">}</span> <span class="cp">${</span><span class="n">APP_USER_GROUP</span><span class="cp">}</span>
+RUN useradd --uid <span class="cp">${</span><span class="n">APP_USER_UID</span><span class="cp">}</span> --create-home -g <span class="cp">${</span><span class="n">APP_USER_GROUP</span><span class="cp">}</span> <span class="cp">${</span><span class="n">APP_USER</span><span class="cp">}</span>
+RUN chown -R <span class="nv">$APP_USER</span>:<span class="nv">$APP_USER_GROUP</span> /opt/app
+
+# Start app
+USER docker
+RUN mkdir -p /opt/app/uploads
 ENTRYPOINT ["python"]
 CMD ["app.py"]
 </pre></div>
@@ -233,8 +253,8 @@ services:
     ports:
      - "8082:5000"
     volumes:
-     - .:/app  # enables hot code reloading
-     - uploads:/uploads  # for data persistance (&lt;volume name&gt;:&lt;abs path in container&gt;)
+     - .:/opt/app  # enables hot code reloading
+     - uploads:/opt/app/uploads  # for data persistance (&lt;volume name&gt;:&lt;abs path in container&gt;)
     links:
      - db
     hostname: myappserver
