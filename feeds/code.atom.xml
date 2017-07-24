@@ -127,7 +127,8 @@ services:
     ports:
      - "8082:5000"
     volumes:
-     - .:/code
+     - .:/app  # enables hot code reloading
+     - uploads:/uploads  # for data persistance (&amp;lt;volume name&amp;gt;:&amp;lt;abs path in container&amp;gt;)
     links:
      - db
     hostname: myappserver
@@ -136,6 +137,8 @@ services:
     - MYSQL_DATABASE=flask_db
     - MYSQL_HOST=db
     - MYSQL_PORT=3306
+    depends_on:
+    - db
   db:
     image: mysql
     ports:
@@ -146,9 +149,34 @@ services:
     - MYSQL_HOST=mysqlserver
     volumes:
       - ./flask_db.sql:/docker-entrypoint-initdb.d/flask_db.sql
+volumes:
+    uploads:
+        driver: local
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Start it with &lt;code&gt;docker-compose up&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;The host name of each service is the name of the service itself.&lt;/p&gt;
+&lt;p&gt;You can find the data persistance volume with:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# docker volumes ls
+DRIVER              VOLUME NAME
+local               db6caef4eae28832f35af0951e95ae77d6c29189a793300f5aa9523cd25af362
+local               flaskmysqldockerized_uploads
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And you can find the path on the host with&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# docker volume inspect flaskmysqldockerized_uploads
+[
+    {
+        "Driver": "local",
+        "Labels": {
+            "com.docker.compose.project": "flaskmysqldockerized",
+            "com.docker.compose.volume": "uploads"
+        },
+        "Mountpoint": "/var/lib/docker/volumes/flaskmysqldockerized_uploads/_data",
+        "Name": "flaskmysqldockerized_uploads",
+        "Options": {},
+        "Scope": "local"
+    }
+]
+&lt;/pre&gt;&lt;/div&gt;
 &lt;h3 id="cleanup"&gt;Cleanup&lt;/h3&gt;
 &lt;p&gt;Kill all running containers:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# docker kill $(docker ps -q)
