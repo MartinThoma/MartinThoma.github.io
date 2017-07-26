@@ -14,20 +14,20 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="AI, games, Machine Learning, Machine Learning, " />
+<meta name="keywords" content="NLP, Machine Learning, Classification, Machine Learning, " />
 
-<meta property="og:title" content="A.I. in Computer Games "/>
-<meta property="og:url" content="../ai-in-computer-games/" />
-<meta property="og:description" content="Artificial Intelligences (A.I.s) are computer programs that are able to adjust their behaviour according to data they see. So A.I.s are able to adjust to the data a human player generates. Game A.I.s Solved games There is a number of games which are definitely …" />
+<meta property="og:title" content="Document Classification "/>
+<meta property="og:url" content="../document-classification/" />
+<meta property="og:description" content="This article explains how to classify texts. Suppose you have a text classification problem. For example, you want to classify incoming emails as (C1) spam (C2) notifications (C3) personal. Hence each email belongs to exactly one of three classes. Basic Setup Suppose you have corpus of 1000 emails. You make …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
-<meta property="og:article:published_time" content="2014-07-01T23:52:00+02:00" />
-<meta name="twitter:title" content="A.I. in Computer Games ">
-<meta name="twitter:description" content="Artificial Intelligences (A.I.s) are computer programs that are able to adjust their behaviour according to data they see. So A.I.s are able to adjust to the data a human player generates. Game A.I.s Solved games There is a number of games which are definitely …">
-<meta property="og:image" content="logos/ai.png" />
-<meta name="twitter:image" content="logos/ai.png" >
+<meta property="og:article:published_time" content="2017-07-26T20:00:00+02:00" />
+<meta name="twitter:title" content="Document Classification ">
+<meta name="twitter:description" content="This article explains how to classify texts. Suppose you have a text classification problem. For example, you want to classify incoming emails as (C1) spam (C2) notifications (C3) personal. Hence each email belongs to exactly one of three classes. Basic Setup Suppose you have corpus of 1000 emails. You make …">
+<meta property="og:image" content="logos/ml.png" />
+<meta name="twitter:image" content="logos/ml.png" >
 
-        <title>A.I. in Computer Games  · Martin Thoma
+        <title>Document Classification  · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -95,7 +95,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../ai-in-computer-games/"> A.I. in Computer Games  </a></h1>
+    <h1><a href="../document-classification/"> Document Classification  </a></h1>
     </header>
 </div>
 
@@ -103,58 +103,94 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#solved-games" title="Solved games">Solved games</a></li><li><a class="toc-href" href="#computers-win-always" title="Computers win always">Computers win always</a></li><li><a class="toc-href" href="#unspecialized-game-ais" title="Unspecialized Game A.I.s">Unspecialized Game A.I.s</a></li><li><a class="toc-href" href="#super-mario-ai-competition" title="Super Mario A.I. Competition">Super Mario A.I. Competition</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#basic-setup" title="Basic Setup">Basic Setup</a></li><li><a class="toc-href" href="#get-features" title="Get Features">Get Features</a><ul><li><a class="toc-href" href="#word-presence-feature" title="Word Presence Feature">Word Presence Feature</a></li><li><a class="toc-href" href="#tf-idf" title="Tf-idf">Tf-idf</a></li></ul></li><li><a class="toc-href" href="#classifiers_1" title="Classifiers">Classifiers</a></li><li><a class="toc-href" href="#feature-engineering" title="Feature Engineering">Feature Engineering</a></li><li><a class="toc-href" href="#evaluation" title="Evaluation">Evaluation</a></li><li><a class="toc-href" href="#public-datasets" title="Public Datasets">Public Datasets</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>Artificial Intelligences (A.I.s) are computer programs that are able to adjust
-their behaviour according to data they see. So A.I.s are able to adjust to
-the data a human player generates.</p>
-<figure>
-<img alt="Game A.I.s" src="http://imgs.xkcd.com/comics/game_ais.png">
-<figcaption>Game A.I.s</figcaption>
-</img></figure>
-<h2 id="solved-games">Solved games</h2>
-<p>There is a number of games which are definitely solved. That means the A.I.
-plays perfectly:</p>
+            <p>This article explains how to classify texts.</p>
+<p>Suppose you have a text classification problem. For example, you want to
+classify incoming emails as (C1) spam (C2) notifications (C3) personal. Hence each email belongs to exactly one of three classes.</p>
+<h2 id="basic-setup">Basic Setup</h2>
+<p>Suppose <strong>you have corpus</strong> of 1000 emails. You make a <strong>stratified split</strong>
+into 600 training emails and 400 test emails. The class C1 is 40% of the data,
+C2 is 10% of the data and C3 is 50% of the data in both, the training and the
+test set. Don't touch the test set until the very end.</p>
+<p>Let <span class="math">\(I_1 \subsetneq 1, \dots, 600\)</span> be the set of indices of emails which belong
+to class C1, <span class="math">\(I_2 \subsetneq 1, \dots, 600\)</span> be the set of indices of emails
+which belong to set C2 and <span class="math">\(I_3 \subsetneq 1, \dots, 600\)</span> be the set of emails
+which belong to set C3.</p>
+<h2 id="get-features">Get Features</h2>
+<p>Now you <strong>build a list of unique words</strong> <span class="math">\(w\)</span>. Let <span class="math">\(W \in \mathbb{N}\)</span> denote the total number of unique words in the training set. So you know which words appear in the documents in the training set. There are certainly words which you did not see in the training set. Don't worry about this.</p>
+<p>Let the count how often word <span class="math">\(w\)</span> appears in email <span class="math">\(i = 1, \dots, N\)</span> be denoted by <span class="math">\(n_{w,i} \in \mathbb{N}\)</span>. Let <span class="math">\(n_{w, \text{total}} = \sum_{i=1}^N n_{w,i}\)</span> be the count how often the word <span class="math">\(w\)</span> appears in all documents combined.</p>
+<h3 id="word-presence-feature">Word Presence Feature</h3>
+<p>For each word, you can have a binary feature: Either the word is in the e-mail or not. I call this the "word presence feature".</p>
+<p>Now you can calculate: If a word <span class="math">\(w\)</span> appears in a document, the probability that the e-mail belongs to class 1 is</p>
+<div class="math">$$P(C_1|w) = \frac{\sum_{i \in I_1} 1_{n_{w,i} \geq 1}}{n_{w, \text{u}} = \sum_{i \in I_1 \cup I_2 \cup I_3} 1_{n_{w,i} \geq 1}}$$</div>
+<p>Hence you divide the number of e-mails of the first class in which the word <span class="math">\(w\)</span> appeared at least once by the total count of e-mails in which the word <span class="math">\(w\)</span> appeared at least once.</p>
+<p>Ok, but you don't only have one feature, but many. You are interested in
+<span class="math">\(P(C_1 | w_1, \dots, w_N)\)</span>.</p>
+<p>By applying Bayes Rule, we get:</p>
+<div class="math">\begin{align}
+  P(C_1 | w_1, \dots, w_N) &amp;= \frac{P(w_1, \dots, w_N | C_1) \cdot P(C_1)}{P(w_1, \dots, w_N)}\\
+  &amp;= \frac{P(w_1 | C_1) \cdot P(w_2 | w_2, C_1) \dots \cdot P( w_{N} |w_1, \dots, w_{N-1}, C_1) \cdot P(C_1)}{P(w_1, \dots, w_N)}
+\end{align}</div>
+<p>Now, <span class="math">\(P(C_1) = 0.4\)</span> is called the a priori probability of the class <span class="math">\(C_1\)</span>. So
+if we knew nothing about the content of the e-mail, we would guess <span class="math">\(C_1\)</span> has
+a probability of 40% as it is the amout of e-mails in that class.</p>
+<p>The other terms are more difficult. We don't have enough data for this. So we
+make the simplifying (and wrong!) assumption that words are independant of each
+other. Then we get:</p>
+<div class="math">\begin{align}
+  P(C_1 | w_1, \dots, w_N) &amp;= \frac{P(w_1 | C_1) \cdot P(w_2 | C_1) \dots \cdot P( w_{N} | C_1) \cdot P(C_1)}{P(w_1, \dots, w_N)}
+\end{align}</div>
+<p>As we know that</p>
+<div class="math">$$1 = \sum_{i=1}^3 P(C_i | w_1, \dots, w_N)$$</div>
+<p>it is sufficient to calculate the nominators and divide each of the three
+denominators by the sum of all three.</p>
+<p>Congratulations, your first document classifier is working!</p>
+<h3 id="tf-idf">Tf-idf</h3>
+<p>For each word, we can measure how often it appears in a given e-mail. Certainly,
+the more often it appears the more important it is. But the longer the e-mail is,
+the less important it is. So we should divide by the total count of words of
+an e-mail. This is called the term frequency (Tf) of a word in a document (e-mail).
+Sometimes, this is also denoted by <span class="math">\(\text{tf}(w, d)\)</span> where <span class="math">\(w\)</span> is the word (term)
+and <span class="math">\(d\)</span> is the document (e-mail).</p>
+<p>Next, we realize that some words contain more information than others. For
+example, the word "the" might occur in almost every document. We do so by dividing by</p>
+<div class="math">$$\text{idf}(w, D) = \frac{N}{|d \in D: w \in d|}$$</div>
+<p>where <span class="math">\(N = 600\)</span> is the total amount of documents we have in the training set.
+The denominator is the total count of words in all documents in the training
+set combined.</p>
+<p>Hence we can get a Tf-idf feature for all words.</p>
+<p>You can see that this allows us to apply the same Bayesian approach as before.
+In fact, you should now see that the Bayesian approach is not part of the
+features, but a classifier! And if you look at the <a href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf#Definition">tf-idf Wikipedia page</a> you can see that there are a couple of similar features!</p>
+<h2 id="classifiers_1">Classifiers</h2>
+<p>I've introduced the Bayes Classifer, but there are a lot more. Most notably:</p>
 <ul>
-<li>Tic-Tac-Toe</li>
-<li>Connect Four: <a href="http://www.informatik.uni-trier.de/~fernau/DSL0607/Masterthesis-Viergewinnt.pdf">A Knowledge-based Approach of Connect-Four</a>. Amsterdam, 1988. Victor Allis.</li>
-<li>Checkers:</li>
+<li><a href="https://martin-thoma.com/svm-with-sklearn/">SVMs</a></li>
+<li>Neural Networks</li>
+<li>Decision Trees (and Random Forests)</li>
 </ul>
-<p>See also: <a href="https://en.wikipedia.org/wiki/Solved_game">Solved Game</a></p>
-<h2 id="computers-win-always">Computers win always</h2>
-<p>A second category are games in which A.I.s always win against human players, but
-they don't have a perfect strategy. Or at least we have not proven that they
-have a perfect strategy:</p>
+<h2 id="feature-engineering">Feature Engineering</h2>
+<p>One thing I would try to find out is which features are really good. You can
+probably figure out keywords with this approach. Hence you can make sense of
+the decision. And you might be able to throw away a lot of words.</p>
+<h2 id="evaluation">Evaluation</h2>
+<p>Last, but not least, I suggest the following approach to evaluate what you apply for your e-mail classifier:</p>
 <ul>
-<li>Chess</li>
-<li>Go on a 5&times;5 board</li>
-<li>Reversi on a 4&times;4 board</li>
+<li>Split the training set into 500 e-mails for training and 100 e-mails for validation</li>
+<li>Traing all methods you guess on the 500 e-mails. Evluate on the 100 e-mails what is best.</li>
+<li>Make sure everything is what you think it should be like. Run your experiments with those 500 / 100 e-mails</li>
+<li>When you're finished, evaluate on the 400 e-mails your final setup. Only once. This is your estimate how good you really are.</li>
 </ul>
-<p>Update: There are advances on the 19&times;19 field:</p>
-<ul>
-<li><a href="https://storage.googleapis.com/deepmind-data/assets/papers/deepmind-mastering-go.pdf">Paper</a></li>
-<li>Nature: <a href="http://www.nature.com/nature/journal/v529/n7587/full/nature16961.html">Mastering the game of Go with deep neural networks and tree search</a></li>
-<li>YouTube by nature: <a href="https://www.youtube.com/watch?v=g-dKXOlsf98">The computer that mastered Go</a></li>
-<li>Google Blog: <a href="https://googleblog.blogspot.de/2016/01/alphago-machine-learning-game-go.html">AlphaGo: using machine learning to master the ancient game of Go</a></li>
-</ul>
-<h2 id="unspecialized-game-ais">Unspecialized Game A.I.s</h2>
-<p>The following video is an explanation and demo of software Tom Murphy VII wrote that learns how to play a Nintendo Entertainment System game and then automatically plays it.
-It's called "learnfun" (for learn function).</p>
-<p>You might want to skip to 6:13 for the demo:</p>
-<iframe allowfullscreen="" frameborder="0" height="288" src="//www.youtube.com/embed/xOCurBYI_gY" width="512"></iframe>
-<p>Research paper published in SIGBOVIK 2013: "<a href="http://tom7.org/mario/mario.pdf">The first level of Super Mario Bros. is easy with lexicographic ordering a and time travel ...after that it gets a little tricky</a>."</p>
-<p>There is a follow-up video with Zelda, Punch-Out, Dr. Mario, Contra, Wall Street Kid
-and Russian Attack:</p>
-<iframe allowfullscreen="" frameborder="0" height="288" src="//www.youtube.com/embed/YGJHR9Ovszs?list=UU3azLjQuz9s5qk76KEXaTvA" width="512"></iframe>
-<p>And a third episode with Super Mario, Gradius, Mega Man 2, Pro Wrestling, Color
-a Dinosaur, Nintendo Pinball, Cliffhanger, Arkanoid, Double Dare, Ice hockey:</p>
-<iframe allowfullscreen="" frameborder="0" height="288" src="//www.youtube.com/embed/Q-WgQcnessA" width="512"></iframe>
-<h2 id="super-mario-ai-competition">Super Mario A.I. Competition</h2>
-<iframe allowfullscreen="" frameborder="0" height="288" src="//www.youtube.com/embed/bBZ7kEphv3s?start=385" width="512"></iframe>
+<p>You might also want to have a look at cross-validation.</p>
+<h2 id="public-datasets">Public Datasets</h2>
+<p>I'm not aware of public datasets for document classification, but you can easily
+create one by scraping wikipedia categories / subreddits.</p>
+<p>Leave a comment if I forgot something / you know more details :-)</p>
             
             <div id="disqus_thread"></div>
 <script>
@@ -180,21 +216,21 @@ a Dinosaur, Nintendo Pinball, Cliffhanger, Arkanoid, Double Dare, Ice hockey:</p
         <section>
         <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2014-07-01T23:52:00+02:00">Jul 1, 2014</time>
+            <time pubdate="pubdate" datetime="2017-07-26T20:00:00+02:00">Jul 26, 2017</time>
             <br/>
             by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
             <h4>Category</h4>
             <a class="category-link" href="../categories.html#machine-learning-ref">Machine Learning</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
-                <li><a href="../tags.html#ai-ref">AI
-                    <span>12</span>
-</a></li>
-                <li><a href="../tags.html#games-ref">games
-                    <span>3</span>
+                <li><a href="../tags.html#classification-ref">Classification
+                    <span>5</span>
 </a></li>
                 <li><a href="../tags.html#machine-learning-ref">Machine Learning
                     <span>49</span>
+</a></li>
+                <li><a href="../tags.html#nlp-ref">NLP
+                    <span>2</span>
 </a></li>
             </ul>
 <h4>Contact</h4>

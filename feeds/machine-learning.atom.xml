@@ -1,5 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Machine Learning</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/machine-learning.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2017-06-15T20:00:00+02:00</updated><entry><title>How to get Data for ML systems</title><link href="https://martin-thoma.com/ml-get-data/" rel="alternate"></link><published>2017-06-15T20:00:00+02:00</published><updated>2017-06-15T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-06-15:/ml-get-data/</id><summary type="html">&lt;p&gt;Machine Learning is only possible with data. The more data, the better. For
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Machine Learning</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/machine-learning.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2017-07-26T20:00:00+02:00</updated><entry><title>Document Classification</title><link href="https://martin-thoma.com/document-classification/" rel="alternate"></link><published>2017-07-26T20:00:00+02:00</published><updated>2017-07-26T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-07-26:/document-classification/</id><summary type="html">&lt;p&gt;This article explains how to classify texts.&lt;/p&gt;
+&lt;p&gt;Suppose you have a text classification problem. For example, you want to
+classify incoming emails as (C1) spam (C2) notifications (C3) personal. Hence each email belongs to exactly one of three classes.&lt;/p&gt;
+&lt;h2 id="basic-setup"&gt;Basic Setup&lt;/h2&gt;
+&lt;p&gt;Suppose &lt;strong&gt;you have corpus&lt;/strong&gt; of 1000 emails. You make …&lt;/p&gt;</summary><content type="html">&lt;p&gt;This article explains how to classify texts.&lt;/p&gt;
+&lt;p&gt;Suppose you have a text classification problem. For example, you want to
+classify incoming emails as (C1) spam (C2) notifications (C3) personal. Hence each email belongs to exactly one of three classes.&lt;/p&gt;
+&lt;h2 id="basic-setup"&gt;Basic Setup&lt;/h2&gt;
+&lt;p&gt;Suppose &lt;strong&gt;you have corpus&lt;/strong&gt; of 1000 emails. You make a &lt;strong&gt;stratified split&lt;/strong&gt;
+into 600 training emails and 400 test emails. The class C1 is 40% of the data,
+C2 is 10% of the data and C3 is 50% of the data in both, the training and the
+test set. Don't touch the test set until the very end.&lt;/p&gt;
+&lt;p&gt;Let &lt;span class="math"&gt;\(I_1 \subsetneq 1, \dots, 600\)&lt;/span&gt; be the set of indices of emails which belong
+to class C1, &lt;span class="math"&gt;\(I_2 \subsetneq 1, \dots, 600\)&lt;/span&gt; be the set of indices of emails
+which belong to set C2 and &lt;span class="math"&gt;\(I_3 \subsetneq 1, \dots, 600\)&lt;/span&gt; be the set of emails
+which belong to set C3.&lt;/p&gt;
+&lt;h2 id="get-features"&gt;Get Features&lt;/h2&gt;
+&lt;p&gt;Now you &lt;strong&gt;build a list of unique words&lt;/strong&gt; &lt;span class="math"&gt;\(w\)&lt;/span&gt;. Let &lt;span class="math"&gt;\(W \in \mathbb{N}\)&lt;/span&gt; denote the total number of unique words in the training set. So you know which words appear in the documents in the training set. There are certainly words which you did not see in the training set. Don't worry about this.&lt;/p&gt;
+&lt;p&gt;Let the count how often word &lt;span class="math"&gt;\(w\)&lt;/span&gt; appears in email &lt;span class="math"&gt;\(i = 1, \dots, N\)&lt;/span&gt; be denoted by &lt;span class="math"&gt;\(n_{w,i} \in \mathbb{N}\)&lt;/span&gt;. Let &lt;span class="math"&gt;\(n_{w, \text{total}} = \sum_{i=1}^N n_{w,i}\)&lt;/span&gt; be the count how often the word &lt;span class="math"&gt;\(w\)&lt;/span&gt; appears in all documents combined.&lt;/p&gt;
+&lt;h3 id="word-presence-feature"&gt;Word Presence Feature&lt;/h3&gt;
+&lt;p&gt;For each word, you can have a binary feature: Either the word is in the e-mail or not. I call this the "word presence feature".&lt;/p&gt;
+&lt;p&gt;Now you can calculate: If a word &lt;span class="math"&gt;\(w\)&lt;/span&gt; appears in a document, the probability that the e-mail belongs to class 1 is&lt;/p&gt;
+&lt;div class="math"&gt;$$P(C_1|w) = \frac{\sum_{i \in I_1} 1_{n_{w,i} \geq 1}}{n_{w, \text{u}} = \sum_{i \in I_1 \cup I_2 \cup I_3} 1_{n_{w,i} \geq 1}}$$&lt;/div&gt;
+&lt;p&gt;Hence you divide the number of e-mails of the first class in which the word &lt;span class="math"&gt;\(w\)&lt;/span&gt; appeared at least once by the total count of e-mails in which the word &lt;span class="math"&gt;\(w\)&lt;/span&gt; appeared at least once.&lt;/p&gt;
+&lt;p&gt;Ok, but you don't only have one feature, but many. You are interested in
+&lt;span class="math"&gt;\(P(C_1 | w_1, \dots, w_N)\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;By applying Bayes Rule, we get:&lt;/p&gt;
+&lt;div class="math"&gt;\begin{align}
+  P(C_1 | w_1, \dots, w_N) &amp;amp;= \frac{P(w_1, \dots, w_N | C_1) \cdot P(C_1)}{P(w_1, \dots, w_N)}\\
+  &amp;amp;= \frac{P(w_1 | C_1) \cdot P(w_2 | w_2, C_1) \dots \cdot P( w_{N} |w_1, \dots, w_{N-1}, C_1) \cdot P(C_1)}{P(w_1, \dots, w_N)}
+\end{align}&lt;/div&gt;
+&lt;p&gt;Now, &lt;span class="math"&gt;\(P(C_1) = 0.4\)&lt;/span&gt; is called the a priori probability of the class &lt;span class="math"&gt;\(C_1\)&lt;/span&gt;. So
+if we knew nothing about the content of the e-mail, we would guess &lt;span class="math"&gt;\(C_1\)&lt;/span&gt; has
+a probability of 40% as it is the amout of e-mails in that class.&lt;/p&gt;
+&lt;p&gt;The other terms are more difficult. We don't have enough data for this. So we
+make the simplifying (and wrong!) assumption that words are independant of each
+other. Then we get:&lt;/p&gt;
+&lt;div class="math"&gt;\begin{align}
+  P(C_1 | w_1, \dots, w_N) &amp;amp;= \frac{P(w_1 | C_1) \cdot P(w_2 | C_1) \dots \cdot P( w_{N} | C_1) \cdot P(C_1)}{P(w_1, \dots, w_N)}
+\end{align}&lt;/div&gt;
+&lt;p&gt;As we know that&lt;/p&gt;
+&lt;div class="math"&gt;$$1 = \sum_{i=1}^3 P(C_i | w_1, \dots, w_N)$$&lt;/div&gt;
+&lt;p&gt;it is sufficient to calculate the nominators and divide each of the three
+denominators by the sum of all three.&lt;/p&gt;
+&lt;p&gt;Congratulations, your first document classifier is working!&lt;/p&gt;
+&lt;h3 id="tf-idf"&gt;Tf-idf&lt;/h3&gt;
+&lt;p&gt;For each word, we can measure how often it appears in a given e-mail. Certainly,
+the more often it appears the more important it is. But the longer the e-mail is,
+the less important it is. So we should divide by the total count of words of
+an e-mail. This is called the term frequency (Tf) of a word in a document (e-mail).
+Sometimes, this is also denoted by &lt;span class="math"&gt;\(\text{tf}(w, d)\)&lt;/span&gt; where &lt;span class="math"&gt;\(w\)&lt;/span&gt; is the word (term)
+and &lt;span class="math"&gt;\(d\)&lt;/span&gt; is the document (e-mail).&lt;/p&gt;
+&lt;p&gt;Next, we realize that some words contain more information than others. For
+example, the word "the" might occur in almost every document. We do so by dividing by&lt;/p&gt;
+&lt;div class="math"&gt;$$\text{idf}(w, D) = \frac{N}{|d \in D: w \in d|}$$&lt;/div&gt;
+&lt;p&gt;where &lt;span class="math"&gt;\(N = 600\)&lt;/span&gt; is the total amount of documents we have in the training set.
+The denominator is the total count of words in all documents in the training
+set combined.&lt;/p&gt;
+&lt;p&gt;Hence we can get a Tf-idf feature for all words.&lt;/p&gt;
+&lt;p&gt;You can see that this allows us to apply the same Bayesian approach as before.
+In fact, you should now see that the Bayesian approach is not part of the
+features, but a classifier! And if you look at the &lt;a href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf#Definition"&gt;tf-idf Wikipedia page&lt;/a&gt; you can see that there are a couple of similar features!&lt;/p&gt;
+&lt;h2 id="classifiers_1"&gt;Classifiers&lt;/h2&gt;
+&lt;p&gt;I've introduced the Bayes Classifer, but there are a lot more. Most notably:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://martin-thoma.com/svm-with-sklearn/"&gt;SVMs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Neural Networks&lt;/li&gt;
+&lt;li&gt;Decision Trees (and Random Forests)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="feature-engineering"&gt;Feature Engineering&lt;/h2&gt;
+&lt;p&gt;One thing I would try to find out is which features are really good. You can
+probably figure out keywords with this approach. Hence you can make sense of
+the decision. And you might be able to throw away a lot of words.&lt;/p&gt;
+&lt;h2 id="evaluation"&gt;Evaluation&lt;/h2&gt;
+&lt;p&gt;Last, but not least, I suggest the following approach to evaluate what you apply for your e-mail classifier:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Split the training set into 500 e-mails for training and 100 e-mails for validation&lt;/li&gt;
+&lt;li&gt;Traing all methods you guess on the 500 e-mails. Evluate on the 100 e-mails what is best.&lt;/li&gt;
+&lt;li&gt;Make sure everything is what you think it should be like. Run your experiments with those 500 / 100 e-mails&lt;/li&gt;
+&lt;li&gt;When you're finished, evaluate on the 400 e-mails your final setup. Only once. This is your estimate how good you really are.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You might also want to have a look at cross-validation.&lt;/p&gt;
+&lt;h2 id="public-datasets"&gt;Public Datasets&lt;/h2&gt;
+&lt;p&gt;I'm not aware of public datasets for document classification, but you can easily
+create one by scraping wikipedia categories / subreddits.&lt;/p&gt;
+&lt;p&gt;Leave a comment if I forgot something / you know more details :-)&lt;/p&gt;</content><category term="NLP"></category><category term="Machine Learning"></category><category term="Classification"></category></entry><entry><title>How to get Data for ML systems</title><link href="https://martin-thoma.com/ml-get-data/" rel="alternate"></link><published>2017-06-15T20:00:00+02:00</published><updated>2017-06-15T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-06-15:/ml-get-data/</id><summary type="html">&lt;p&gt;Machine Learning is only possible with data. The more data, the better. For
 many services this is a self-improving system. The more data the system gets,
 the better it becomes. The better the system is, the more users use it. The
 more users use the system, the more data the …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Machine Learning is only possible with data. The more data, the better. For
