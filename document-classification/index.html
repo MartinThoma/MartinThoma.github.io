@@ -103,7 +103,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#basic-setup" title="Basic Setup">Basic Setup</a></li><li><a class="toc-href" href="#get-features" title="Get Features">Get Features</a><ul><li><a class="toc-href" href="#word-presence-feature" title="Word Presence Feature">Word Presence Feature</a></li><li><a class="toc-href" href="#tf-idf" title="Tf-idf">Tf-idf</a></li></ul></li><li><a class="toc-href" href="#classifiers_1" title="Classifiers">Classifiers</a></li><li><a class="toc-href" href="#feature-engineering" title="Feature Engineering">Feature Engineering</a></li><li><a class="toc-href" href="#evaluation" title="Evaluation">Evaluation</a></li><li><a class="toc-href" href="#public-datasets" title="Public Datasets">Public Datasets</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#basic-setup" title="Basic Setup">Basic Setup</a></li><li><a class="toc-href" href="#get-features" title="Get Features">Get Features</a><ul><li><a class="toc-href" href="#word-presence-feature" title="Word Presence Feature">Word Presence Feature</a></li><li><a class="toc-href" href="#tf-idf" title="Tf-idf">Tf-idf</a></li></ul></li><li><a class="toc-href" href="#classifiers_1" title="Classifiers">Classifiers</a></li><li><a class="toc-href" href="#feature-engineering" title="Feature Engineering">Feature Engineering</a></li><li><a class="toc-href" href="#evaluation" title="Evaluation">Evaluation</a></li><li><a class="toc-href" href="#public-datasets" title="Public Datasets">Public Datasets</a></li><li><a class="toc-href" href="#literature" title="Literature">Literature</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -174,10 +174,23 @@ features, but a classifier! And if you look at the <a href="https://en.wikipedia
 <li>Neural Networks</li>
 <li>Decision Trees (and Random Forests)</li>
 </ul>
+<p>See my <a href="https://martin-thoma.com/comparing-classifiers/">Comparing Classifiers</a>
+for a lot more classifiers.</p>
 <h2 id="feature-engineering">Feature Engineering</h2>
 <p>One thing I would try to find out is which features are really good. You can
 probably figure out keywords with this approach. Hence you can make sense of
 the decision. And you might be able to throw away a lot of words.</p>
+<p>PCA / LDA are two feature reduction methods that might be interesting. Other methods are:</p>
+<ul>
+<li>Forward Feature Construction:</li>
+<li>Start with an empty set of features.</li>
+<li>For each feature not in the feature list: Find the one where adding it leads to the best accuracy.</li>
+<li>If the desired accuracy is reached, stop. Otherwise continue with 2.</li>
+<li>Feature Elimination</li>
+<li>Start with all features.</li>
+<li>For each feature in the feature list: Try where removing it leads to the least loss in accuracy.</li>
+<li>If the accuracy dropped below the required accuracy, stop and take the last feature list. Otherwise, continue with 2.</li>
+</ul>
 <h2 id="evaluation">Evaluation</h2>
 <p>Last, but not least, I suggest the following approach to evaluate what you apply for your e-mail classifier:</p>
 <ul>
@@ -191,6 +204,10 @@ the decision. And you might be able to throw away a lot of words.</p>
 <p>I'm not aware of public datasets for document classification, but you can easily
 create one by scraping wikipedia categories / subreddits.</p>
 <p>Leave a comment if I forgot something / you know more details :-)</p>
+<h2 id="literature">Literature</h2>
+<ul>
+<li>Juan Ramos: <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.121.1424&amp;rep=rep1&amp;type=pdf">Using TF-IDF to Determine Word Relevance in Document Queries </a></li>
+</ul>
             
             <div id="disqus_thread"></div>
 <script>
