@@ -14,7 +14,7 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="NLP, Reuters, Classification, Machine Learning, " />
+<meta name="keywords" content="NLP, Reuters, Classification, Machine Learning, Machine Learning, " />
 
 <meta property="og:title" content="The Reuters Dataset "/>
 <meta property="og:url" content="../nlp-reuters/" />
@@ -103,7 +103,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#classes-and-labels" title="Classes and Labels">Classes and Labels</a></li><li><a class="toc-href" href="#multi-label-scoring" title="Multi-label Scoring">Multi-label Scoring</a></li><li><a class="toc-href" href="#classifier-comparison-tf-idf" title="Classifier comparison (tf-idf)">Classifier comparison (tf-idf)</a><ul><li><a class="toc-href" href="#multilayer-perceptron" title="Multilayer Perceptron">Multilayer Perceptron</a></li></ul></li><li><a class="toc-href" href="#code_1" title="Code">Code</a><ul><li><a class="toc-href" href="#data-loading" title="Data loading">Data loading</a></li><li><a class="toc-href" href="#experimenting-with-classifiers" title="Experimenting with classifiers">Experimenting with classifiers</a></li></ul></li><li><a class="toc-href" href="#see-also_1" title="See also">See also</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#classes-and-labels" title="Classes and Labels">Classes and Labels</a></li><li><a class="toc-href" href="#multi-label-scoring" title="Multi-label Scoring">Multi-label Scoring</a></li><li><a class="toc-href" href="#classifier-comparison-tf-idf" title="Classifier comparison (tf-idf)">Classifier comparison (tf-idf)</a><ul><li><a class="toc-href" href="#multilayer-perceptron" title="Multilayer Perceptron">Multilayer Perceptron</a></li></ul></li><li><a class="toc-href" href="#code_1" title="Code">Code</a><ul><li><a class="toc-href" href="#data-loading" title="Data loading">Data loading</a></li><li><a class="toc-href" href="#mlp" title="MLP">MLP</a></li></ul></li><li><a class="toc-href" href="#see-also_1" title="See also">See also</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -118,8 +118,7 @@ It is the ModApte (R(90)) subest of the Reuters-21578 benchmark (<a href="https:
 on the training set.</p>
 <p>The training set has a <strong>vocabulary size of 35247</strong>. Even if you restrict it to
 words which appear at least 5 times and at most 12672 times in the training
-set, there are still 12017 words. Those 12017 words were used as features in
-the following.</p>
+set, there are still 12017 words.</p>
 <h2 id="classes-and-labels">Classes and Labels</h2>
 <div class="highlight"><pre><span></span>                              documents
         class name            train   test    mean number of words in train set
@@ -295,6 +294,7 @@ direction:</p>
   classifier simply decides all the time that the document does not belong to
   any category. For the used dataset, this leads to an accuracy of 0.986. Hence
   accuracy is not suitable.</li>
+<li><strong>F1 score</strong>: See <a href="http://scikit-learn.org/stable/modules/model_evaluation.html#precision-recall-f-measure-metrics">user manual</a></li>
 <li>Micro/macro averaged ROC or Precision/Recall curve:<ul>
 <li>Micro: Calculate metrics globally by counting the total true positives,
   false negatives and false positives.</li>
@@ -302,29 +302,28 @@ direction:</p>
   This does not take label imbalance into account.</li>
 </ul>
 </li>
-<li>F1 score: See <a href="http://scikit-learn.org/stable/modules/model_evaluation.html#precision-recall-f-measure-metrics">user manual</a></li>
 <li>Coverage error: See <a href="http://scikit-learn.org/stable/modules/model_evaluation.html#coverage-error">user manual</a></li>
 </ul>
 <p>A nice overview is given by <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.364.5612&amp;rep=rep1&amp;type=pdf#page=13">A Literature Survey on Algorithms for Multi-label Learning</a>.</p>
 <h2 id="classifier-comparison-tf-idf">Classifier comparison (tf-idf)</h2>
 <p>The following are the accuracies as well as the training and test times. All
 classifiers got the same tf-idf features.</p>
-<div class="highlight"><pre><span></span>vocabulary size = 26147
-</pre></div>
-<div class="highlight"><pre><span></span>Classifier                      Acc     F1
--------------------------------------------------------------------------------
-LinearSVC                     : 99.66% 86.61% in   31.00s train /    9.72s test
-Logistic Regression (C=1000)  : 99.65% 86.33% in   38.70s train /    9.75s test
-MLP (3 Layer)                 : 99.63% 86.00% in  439.13s train /    1.37s test
-MLP (2 Layer)                 : 99.58% 83.02% in  328.98s train /    1.44s test
-Logistic Regression (C=1)     : 99.44% 75.25% in   32.62s train /    9.44s test
-k nn 5                        : 99.44% 78.43% in    8.80s train / 1087.94s test
-k nn 3                        : 99.41% 77.32% in    9.34s train / 1174.55s test
-Random Forest (200 estimators): 99.40% 72.73% in   56.71s train /    6.49s test
-Random Forest (50 estimators) : 99.39% 72.56% in   13.55s train /    1.18s test
-Decision Tree                 : 99.21% 63.86% in   12.42s train /    0.11s test
-Naive Bayes                   : 98.75% 50.04% in  236.15s train /  102.17s test
-SVM, linear                   :   (bad)       in 6875.84s train / 2501.81s test
+<div class="highlight"><pre><span></span>Used vocabulary size = 26147
+
+Classifier                      Acc     F1
+--------------------------------------------------------------------------------
+LinearSVC                     : 99.66%  86.61% in   31.00s train /    9.72s test
+Logistic Regression (C=1000)  : 99.65%  86.33% in   38.70s train /    9.75s test
+MLP (3 Layer)                 : 99.63%  86.00% in  439.13s train /    1.37s test
+MLP (2 Layer)                 : 99.58%  83.02% in  328.98s train /    1.44s test
+Logistic Regression (C=1)     : 99.44%  75.25% in   32.62s train /    9.44s test
+k nn 5                        : 99.44%  78.43% in    8.80s train / 1087.94s test
+k nn 3                        : 99.41%  77.32% in    9.34s train / 1174.55s test
+Random Forest (200 estimators): 99.40%  72.73% in   56.71s train /    6.49s test
+Random Forest (50 estimators) : 99.39%  72.56% in   13.55s train /    1.18s test
+Decision Tree                 : 99.21%  63.86% in   12.42s train /    0.11s test
+Naive Bayes                   : 98.75%  50.04% in  236.15s train /  102.17s test
+SVM, linear                   :   (bad)        in 6875.84s train / 2501.81s test
 </pre></div>
 <p>There are a couple of things to notice here:</p>
 <ul>
@@ -343,7 +342,7 @@ SVM, linear                   :   (bad)       in 6875.84s train / 2501.81s test
 <p>The MLP has a reasonable prediction quality and test time.</p>
 <h3 id="multilayer-perceptron">Multilayer Perceptron</h3>
 <p>When training a multilayer perceptron for a multi-label classification task, there
-are two important things to look for:</p>
+are two important things to keep in mind:</p>
 <ul>
 <li><strong>Output layer</strong>: Do not  use softmax, as the normalization does not make
   sense in this case.</li>
@@ -433,7 +432,113 @@ is pretty high from the beginning.</p>
     <span class="k">print</span><span class="p">(</span><span class="s2">"len(data['x_train'])={}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'x_train'</span><span class="p">])))</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">"data['x_train'].shape={}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'x_train'</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
 </pre></div>
-<h3 id="experimenting-with-classifiers">Experimenting with classifiers</h3>
+<h3 id="mlp">MLP</h3>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+
+<span class="sd">"""Train and evaluate a MLP."""</span>
+
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">Activation</span><span class="p">,</span> <span class="n">Input</span><span class="p">,</span> <span class="n">Dropout</span>
+<span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span>
+<span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">Model</span>
+<span class="kn">from</span> <span class="nn">keras.optimizers</span> <span class="kn">import</span> <span class="n">Adam</span>
+<span class="kn">import</span> <span class="nn">reuters</span>
+<span class="kn">from</span> <span class="nn">keras</span> <span class="kn">import</span> <span class="n">backend</span> <span class="k">as</span> <span class="n">K</span>
+<span class="kn">from</span> <span class="nn">scoring</span> <span class="kn">import</span> <span class="n">get_tptnfpfn</span><span class="p">,</span> <span class="n">get_accuracy</span><span class="p">,</span> <span class="n">get_f_score</span>
+
+
+<span class="k">def</span> <span class="nf">create_model</span><span class="p">(</span><span class="n">nb_classes</span><span class="p">,</span> <span class="n">input_shape</span><span class="p">):</span>
+    <span class="sd">"""Create a MLP model."""</span>
+    <span class="n">input_</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">input_shape</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">input_</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="n">nb_classes</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Activation</span><span class="p">(</span><span class="s1">'sigmoid'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">input_</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">model</span>
+
+
+<span class="k">def</span> <span class="nf">recall</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Recall metric.</span>
+
+<span class="sd">    Only computes a batch-wise average of recall.</span>
+
+<span class="sd">    Computes the recall, a metric for multi-label classification of</span>
+<span class="sd">    how many relevant items are selected.</span>
+<span class="sd">    """</span>
+    <span class="n">true_positives</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">K</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">K</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">y_true</span> <span class="o">*</span> <span class="n">y_pred</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+    <span class="n">possible_positives</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">K</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">K</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+    <span class="n">recall</span> <span class="o">=</span> <span class="n">true_positives</span> <span class="o">/</span> <span class="p">(</span><span class="n">possible_positives</span> <span class="o">+</span> <span class="n">K</span><span class="o">.</span><span class="n">epsilon</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">recall</span>
+
+
+<span class="k">def</span> <span class="nf">precision</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Precision metric.</span>
+
+<span class="sd">    Only computes a batch-wise average of precision.</span>
+
+<span class="sd">    Computes the precision, a metric for multi-label classification of</span>
+<span class="sd">    how many selected items are relevant.</span>
+
+<span class="sd">    Source</span>
+<span class="sd">    ------</span>
+<span class="sd">    https://github.com/fchollet/keras/issues/5400#issuecomment-314747992</span>
+<span class="sd">    """</span>
+    <span class="n">true_positives</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">K</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">K</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">y_true</span> <span class="o">*</span> <span class="n">y_pred</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+    <span class="n">predicted_positives</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">K</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">K</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+    <span class="n">precision</span> <span class="o">=</span> <span class="n">true_positives</span> <span class="o">/</span> <span class="p">(</span><span class="n">predicted_positives</span> <span class="o">+</span> <span class="n">K</span><span class="o">.</span><span class="n">epsilon</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">precision</span>
+
+
+<span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
+    <span class="sd">"""Calculate the F1 score."""</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">precision</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">recall</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">((</span><span class="n">p</span> <span class="o">*</span> <span class="n">r</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="n">r</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">get_optimizer</span><span class="p">(</span><span class="n">config</span><span class="p">):</span>
+    <span class="sd">"""Return an optimizer."""</span>
+    <span class="n">lr</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">'optimizer'</span><span class="p">][</span><span class="s1">'initial_lr'</span><span class="p">]</span>
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">Adam</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">)</span>  <span class="c1"># Using Adam instead of SGD to speed up training</span>
+    <span class="k">return</span> <span class="n">optimizer</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">data_module</span><span class="p">):</span>
+    <span class="sd">"""Load data, train model and evaluate it."""</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data_module</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">create_model</span><span class="p">(</span><span class="n">data_module</span><span class="o">.</span><span class="n">n_classes</span><span class="p">,</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'x_train'</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">get_optimizer</span><span class="p">({</span><span class="s1">'optimizer'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'initial_lr'</span><span class="p">:</span> <span class="mf">0.001</span><span class="p">}})</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">'binary_crossentropy'</span><span class="p">,</span>
+                  <span class="n">optimizer</span><span class="o">=</span><span class="n">optimizer</span><span class="p">,</span>
+                  <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">f1</span><span class="p">,</span> <span class="s2">"accuracy"</span><span class="p">])</span>
+    <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'x_train'</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">'y_train'</span><span class="p">],</span>
+              <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+              <span class="n">epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+              <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'x_test'</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">'y_test'</span><span class="p">]),</span>
+              <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+              <span class="c1"># callbacks=callbacks</span>
+              <span class="p">)</span>
+    <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">get_tptnfpfn</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+    <span class="n">t2</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">((</span><span class="s2">"{clf_name:&lt;30}: {acc:0.2f}% {f1:0.2f}</span><span class="si">% i</span><span class="s2">n {train_time:0.2f}s "</span>
+           <span class="s2">"train / {test_time:0.2f}s test"</span><span class="p">)</span>
+          <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">clf_name</span><span class="o">=</span><span class="s2">"MLP"</span><span class="p">,</span>
+                  <span class="n">acc</span><span class="o">=</span><span class="p">(</span><span class="n">get_accuracy</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">),</span>
+                  <span class="n">f1</span><span class="o">=</span><span class="p">(</span><span class="n">get_f_score</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">),</span>
+                  <span class="n">train_time</span><span class="o">=</span><span class="p">(</span><span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">),</span>
+                  <span class="n">test_time</span><span class="o">=</span><span class="p">(</span><span class="n">t2</span> <span class="o">-</span> <span class="n">t1</span><span class="p">)))</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">(</span><span class="n">reuters</span><span class="p">)</span>
+</pre></div>
 <h2 id="see-also_1">See also</h2>
 <ul>
 <li>NLTK: <a href="http://www.nltk.org/book/ch02.html">Other datasets</a></li>
@@ -482,6 +587,9 @@ is pretty high from the beginning.</p>
             <ul class="list-of-tags tags-in-article">
                 <li><a href="../tags.html#classification-ref">Classification
                     <span>6</span>
+</a></li>
+                <li><a href="../tags.html#machine-learning-ref">Machine Learning
+                    <span>50</span>
 </a></li>
                 <li><a href="../tags.html#nlp-ref">NLP
                     <span>3</span>
