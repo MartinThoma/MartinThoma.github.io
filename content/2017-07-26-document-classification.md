@@ -97,6 +97,17 @@ In fact, you should now see that the Bayesian approach is not part of the
 features, but a classifier! And if you look at the [tf-idf Wikipedia page](https://en.wikipedia.org/wiki/Tf%E2%80%93idf#Definition) you can see that there are a couple of similar features!
 
 
+### Terms instead of Words
+
+I've only talked about words before, but you can calculate tf-idf for *terms*,
+too.
+
+Take "New York" as an example. You might see "New" in an e-mail and you might
+see "York" in an e-mail. But the combined term "New York" is something
+different than seeing both single words. Hence you might want to have the
+tf-idf feature of "New York", too.
+
+
 ## Classifiers
 
 I've introduced the Bayes Classifer, but there are a lot more. Most notably:
@@ -118,13 +129,13 @@ the decision. And you might be able to throw away a lot of words.
 PCA / LDA are two feature reduction methods that might be interesting. Other methods are:
 
 * Forward Feature Construction:
-  1. Start with an empty set of features.
-  2. For each feature not in the feature list: Find the one where adding it leads to the best accuracy.
-  3. If the desired accuracy is reached, stop. Otherwise continue with 2.
+    1. Start with an empty set of features.
+    2. For each feature not in the feature list: Find the one where adding it leads to the best accuracy.
+    3. If the desired accuracy is reached, stop. Otherwise continue with 2.
 * Feature Elimination
-  1. Start with all features.
-  2. For each feature in the feature list: Try where removing it leads to the least loss in accuracy.
-  3. If the accuracy dropped below the required accuracy, stop and take the last feature list. Otherwise, continue with 2.
+    1. Start with all features.
+    2. For each feature in the feature list: Try where removing it leads to the least loss in accuracy.
+    3. If the accuracy dropped below the required accuracy, stop and take the last feature list. Otherwise, continue with 2.
 
 
 ## Evaluation
