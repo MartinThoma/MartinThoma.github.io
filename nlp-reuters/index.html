@@ -24,8 +24,8 @@
 <meta property="og:article:published_time" content="2017-07-27T20:00:00+02:00" />
 <meta name="twitter:title" content="The Reuters Dataset ">
 <meta name="twitter:description" content="Reuters is a benchmark dataset for document classification. To be more precise, it is a multi-class (e.g. there are multiple classes), multi-label (e.g. each document can belong to many classes) dataset. It has 90 classes, 7769 training documents and 3019 testing documents. It is the ModApte (R(90 …">
-<meta property="og:image" content="logos/nlp.png" />
-<meta name="twitter:image" content="logos/nlp.png" >
+<meta property="og:image" content="logos/ml.png" />
+<meta name="twitter:image" content="logos/ml.png" >
 
         <title>The Reuters Dataset  · Martin Thoma
 </title>
@@ -120,8 +120,8 @@ on the training set.</p>
 words which appear at least 5 times and at most 12672 times in the training
 set, there are still 12017 words.</p>
 <h2 id="classes-and-labels">Classes and Labels</h2>
-<div class="highlight"><pre><span></span>                              documents
-        class name            train   test    mean number of words in train set
+<div class="highlight"><pre><span></span>                             nr of documents   mean number of
+        class name            train   test    words in train set
      1: earn                : 2877    1087    104.4
      2: acq                 : 1650     719    150.1
      3: money-fx            :  538     179    219.0
@@ -285,15 +285,20 @@ castor-oil =&gt; palladium (0.999613849916)
 castor-oil =&gt; palmkernel (0.999613849916)
 </pre></div>
 <h2 id="multi-label-scoring">Multi-label Scoring</h2>
+<div class="warning">I have to work on the scoring; it seems as if I made a mistake in my experiments when I calculated the score.</div>
 <p>I've never been in a multi-label context, so it was not directly clear to me
 which scoring is used. Thanks to Chirag Nagpal who pointed me in the right
-direction:</p>
+direction.</p>
+<p>Let <span class="math">\(Y_i \in \{0, 1\}^k\)</span> be the set of correct labels for document <span class="math">\(i\)</span> and
+<span class="math">\(Z_i \in \{0, 1\}^k\)</span> be the set of predicted labels:</p>
 <ul>
-<li><strong>Accuracy</strong>: For each document, one has to make a decision for each possible
-  category. As most documents belong to one or two categories, the simplest
+<li><strong>Binary Accuracy</strong>: For each document, one has to make a decision for each possible
+  category. Hence <span class="math">\(\text{acc} = \frac{1}{n}\sum_{i=1}^n \frac{|Y_i \cap Z_i|}{k}\)</span>. As most documents belong to one or two categories, the simplest
   classifier simply decides all the time that the document does not belong to
   any category. For the used dataset, this leads to an accuracy of 0.986. Hence
   accuracy is not suitable.</li>
+<li><strong>Subset Accuracy</strong>: This is calculated by <code>sklearn</code>. The set of predicted
+  labels must be exactly the same as the true labels.</li>
 <li><strong>F1 score</strong>: See <a href="http://scikit-learn.org/stable/modules/model_evaluation.html#precision-recall-f-measure-metrics">user manual</a></li>
 <li>Micro/macro averaged ROC or Precision/Recall curve:<ul>
 <li>Micro: Calculate metrics globally by counting the total true positives,
@@ -312,18 +317,17 @@ classifiers got the same tf-idf features.</p>
 
 Classifier                      Acc     F1
 --------------------------------------------------------------------------------
-LinearSVC                     : 99.66%  86.61% in   31.00s train /    9.72s test
-Logistic Regression (C=1000)  : 99.65%  86.33% in   38.70s train /    9.75s test
-MLP (3 Layer)                 : 99.63%  86.00% in  439.13s train /    1.37s test
-MLP (2 Layer)                 : 99.58%  83.02% in  328.98s train /    1.44s test
-Logistic Regression (C=1)     : 99.44%  75.25% in   32.62s train /    9.44s test
-k nn 5                        : 99.44%  78.43% in    8.80s train / 1087.94s test
-k nn 3                        : 99.41%  77.32% in    9.34s train / 1174.55s test
-Random Forest (200 estimators): 99.40%  72.73% in   56.71s train /    6.49s test
-Random Forest (50 estimators) : 99.39%  72.56% in   13.55s train /    1.18s test
-Decision Tree                 : 99.21%  63.86% in   12.42s train /    0.11s test
-Naive Bayes                   : 98.75%  50.04% in  236.15s train /  102.17s test
-SVM, linear                   :   (bad)        in 6875.84s train / 2501.81s test
+MLP                           : 81.35% 84.24% in  676.44s train /    0.91s test
+LinearSVC                     : 81.05% 84.04% in   27.00s train /    6.45s test
+Logistic Regression (C=1000)  : 80.79% 84.10% in   35.48s train /    6.46s test
+k nn 5                        : 72.97% 76.07% in    9.89s train / 1092.29s test
+k nn 3                        : 72.28% 75.43% in    9.90s train / 1080.20s test
+Logistic Regression (C=1)     : 67.47% 67.21% in   30.22s train /    6.44s test
+Random Forest (200 estimators): 65.75% 64.36% in   57.56s train /    4.15s test
+Random Forest (50 estimators) : 64.79% 63.69% in   14.82s train /    1.30s test
+Decision Tree                 : 55.75% 53.23% in   28.43s train /    0.22s test
+Naive Bayes                   : 43.86% 47.98% in  214.75s train /   88.79s test
+SVM, linear                   : 33.55% 29.67% in 6326.33s train / 2397.51s test
 </pre></div>
 <p>There are a couple of things to notice here:</p>
 <ul>
@@ -335,7 +339,8 @@ SVM, linear                   :   (bad)        in 6875.84s train / 2501.81s test
 </li>
 <li><strong>Prediction Quality</strong>:<ul>
 <li>LinearSVC, logistic regression and MLP are accurate</li>
-<li>Achieving high accuracy seems to be easier than achieving high F1 scores.</li>
+<li>Achieving high binary accuracy seems to be easier than achieving high F1
+  scores. It's no surprise that high subset accuracy is hard to achieve.</li>
 </ul>
 </li>
 </ul>
@@ -350,7 +355,7 @@ are two important things to keep in mind:</p>
 </ul>
 <p>When you print precision, recall, F1-score and accuracy you note the following:</p>
 <ul>
-<li>Accuracy gets to 98% in the first epoch and over 99% in the second. It stays
+<li>Binary accuracy gets to 98% in the first epoch and over 99% in the second. It stays
   that high.</li>
 <li>Precision is at about 4% in the first epoch and over 97% in the second. It
   stays that high.</li>
