@@ -5,8 +5,8 @@ slug: nlp-reuters
 author: Martin Thoma
 date: 2017-07-27 20:00
 category: Machine Learning
-tags: NLP, Reuters, Classification
-featured_image: logos/nlp.png
+tags: NLP, Reuters, Classification, Machine Learning
+featured_image: logos/ml.png
 ---
 Reuters is a benchmark dataset for [document classification](https://martin-thoma.com/document-classification/).
 To be more precise, it is a multi-class (e.g. there are multiple classes),
@@ -19,15 +19,14 @@ on the training set.
 
 The training set has a **vocabulary size of 35247**. Even if you restrict it to
 words which appear at least 5 times and at most 12672 times in the training
-set, there are still 12017 words. Those 12017 words were used as features in
-the following.
+set, there are still 12017 words.
 
 
 ## Classes and Labels
 
 ```
-                              documents
-        class name            train   test    mean number of words in train set
+                             nr of documents   mean number of
+        class name            train   test    words in train set
      1: earn                : 2877    1087    104.4
      2: acq                 : 1650     719    150.1
      3: money-fx            :  538     179    219.0
@@ -202,21 +201,28 @@ castor-oil => palmkernel (0.999613849916)
 
 ## Multi-label Scoring
 
+<div class="warning">I have to work on the scoring; it seems as if I made a mistake in my experiments when I calculated the score.</div>
+
 I've never been in a multi-label context, so it was not directly clear to me
 which scoring is used. Thanks to Chirag Nagpal who pointed me in the right
-direction:
+direction.
 
-* **Accuracy**: For each document, one has to make a decision for each possible
-  category. As most documents belong to one or two categories, the simplest
+Let $Y_i \in \{0, 1\}^k$ be the set of correct labels for document $i$ and
+$Z_i \in \{0, 1\}^k$ be the set of predicted labels:
+
+* **Binary Accuracy**: For each document, one has to make a decision for each possible
+  category. Hence $\text{acc} = \frac{1}{n}\sum_{i=1}^n \frac{|Y_i \cap Z_i|}{k}$. As most documents belong to one or two categories, the simplest
   classifier simply decides all the time that the document does not belong to
   any category. For the used dataset, this leads to an accuracy of 0.986. Hence
   accuracy is not suitable.
+* **Subset Accuracy**: This is calculated by `sklearn`. The set of predicted
+  labels must be exactly the same as the true labels.
+* **F1 score**: See [user manual](http://scikit-learn.org/stable/modules/model_evaluation.html#precision-recall-f-measure-metrics)
 * Micro/macro averaged ROC or Precision/Recall curve:
     * Micro: Calculate metrics globally by counting the total true positives,
       false negatives and false positives.
     * Macro: Calculate metrics for each label, and find their unweighted mean.
       This does not take label imbalance into account.
-* F1 score: See [user manual](http://scikit-learn.org/stable/modules/model_evaluation.html#precision-recall-f-measure-metrics)
 * Coverage error: See [user manual](http://scikit-learn.org/stable/modules/model_evaluation.html#coverage-error)
 
 A nice overview is given by [A Literature Survey on Algorithms for Multi-label Learning](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.364.5612&rep=rep1&type=pdf#page=13).
@@ -229,24 +235,21 @@ classifiers got the same tf-idf features.
 
 
 ```
-vocabulary size = 26147
-```
+Used vocabulary size = 26147
 
-```
 Classifier                      Acc     F1
--------------------------------------------------------------------------------
-LinearSVC                     : 99.66% 86.61% in   31.00s train /    9.72s test
-Logistic Regression (C=1000)  : 99.65% 86.33% in   38.70s train /    9.75s test
-MLP (3 Layer)                 : 99.63% 86.00% in  439.13s train /    1.37s test
-MLP (2 Layer)                 : 99.58% 83.02% in  328.98s train /    1.44s test
-Logistic Regression (C=1)     : 99.44% 75.25% in   32.62s train /    9.44s test
-k nn 5                        : 99.44% 78.43% in    8.80s train / 1087.94s test
-k nn 3                        : 99.41% 77.32% in    9.34s train / 1174.55s test
-Random Forest (200 estimators): 99.40% 72.73% in   56.71s train /    6.49s test
-Random Forest (50 estimators) : 99.39% 72.56% in   13.55s train /    1.18s test
-Decision Tree                 : 99.21% 63.86% in   12.42s train /    0.11s test
-Naive Bayes                   : 98.75% 50.04% in  236.15s train /  102.17s test
-SVM, linear                   :   (bad)       in 6875.84s train / 2501.81s test
+--------------------------------------------------------------------------------
+MLP                           : 82.61% 85.56% in  676.44s train /    0.91s test
+LinearSVC                     : 81.05% 84.04% in   27.00s train /    6.45s test
+Logistic Regression (C=1000)  : 80.79% 84.10% in   35.48s train /    6.46s test
+k nn 5                        : 72.97% 76.07% in    9.89s train / 1092.29s test
+k nn 3                        : 72.28% 75.43% in    9.90s train / 1080.20s test
+Logistic Regression (C=1)     : 67.47% 67.21% in   30.22s train /    6.44s test
+Random Forest (200 estimators): 65.75% 64.36% in   57.56s train /    4.15s test
+Random Forest (50 estimators) : 64.79% 63.69% in   14.82s train /    1.30s test
+Decision Tree                 : 55.75% 53.23% in   28.43s train /    0.22s test
+Naive Bayes                   : 43.86% 47.98% in  214.75s train /   88.79s test
+SVM, linear                   : 33.55% 29.67% in 6326.33s train / 2397.51s test
 ```
 
 There are a couple of things to notice here:
@@ -257,7 +260,8 @@ There are a couple of things to notice here:
     * SVM depends extremely on the implementation (see [What is the difference between LinearSVC and SVC(kernel=“linear”)?](https://stackoverflow.com/q/45384185/562769))
 * **Prediction Quality**:
     * LinearSVC, logistic regression and MLP are accurate
-    * Achieving high accuracy seems to be easier than achieving high F1 scores.
+    * Achieving high binary accuracy seems to be easier than achieving high F1
+      scores. It's no surprise that high subset accuracy is hard to achieve.
 
 The MLP has a reasonable prediction quality and test time.
 
@@ -265,7 +269,7 @@ The MLP has a reasonable prediction quality and test time.
 ### Multilayer Perceptron
 
 When training a multilayer perceptron for a multi-label classification task, there
-are two important things to look for:
+are two important things to keep in mind:
 
 * **Output layer**: Do not  use softmax, as the normalization does not make
   sense in this case.
@@ -273,7 +277,7 @@ are two important things to look for:
 
 When you print precision, recall, F1-score and accuracy you note the following:
 
-* Accuracy gets to 98% in the first epoch and over 99% in the second. It stays
+* Binary accuracy gets to 98% in the first epoch and over 99% in the second. It stays
   that high.
 * Precision is at about 4% in the first epoch and over 97% in the second. It
   stays that high.
@@ -367,8 +371,116 @@ if __name__ == '__main__':
 ```
 
 
-### Experimenting with classifiers
+### MLP
 
+```python
+#!/usr/bin/env python
+
+"""Train and evaluate a MLP."""
+
+import time
+from keras.layers import Activation, Input, Dropout
+from keras.layers import Dense
+from keras.models import Model
+from keras.optimizers import Adam
+import reuters
+from keras import backend as K
+from scoring import get_tptnfpfn, get_accuracy, get_f_score
+
+
+def create_model(nb_classes, input_shape):
+    """Create a MLP model."""
+    input_ = Input(shape=input_shape)
+    x = input_
+    x = Dense(256, activation='relu')(x)
+    x = Dropout(0.5)(x)
+    x = Dense(256, activation='relu')(x)
+    x = Dense(nb_classes)(x)
+    x = Activation('sigmoid')(x)
+    model = Model(inputs=input_, outputs=x)
+    return model
+
+
+def recall(y_true, y_pred):
+    """
+    Recall metric.
+
+    Only computes a batch-wise average of recall.
+
+    Computes the recall, a metric for multi-label classification of
+    how many relevant items are selected.
+    """
+    true_positives = K.sum(K.round(K.clip(y_true * y_pred, 0, 1)))
+    possible_positives = K.sum(K.round(K.clip(y_true, 0, 1)))
+    recall = true_positives / (possible_positives + K.epsilon())
+    return recall
+
+
+def precision(y_true, y_pred):
+    """
+    Precision metric.
+
+    Only computes a batch-wise average of precision.
+
+    Computes the precision, a metric for multi-label classification of
+    how many selected items are relevant.
+
+    Source
+    ------
+    https://github.com/fchollet/keras/issues/5400#issuecomment-314747992
+    """
+    true_positives = K.sum(K.round(K.clip(y_true * y_pred, 0, 1)))
+    predicted_positives = K.sum(K.round(K.clip(y_pred, 0, 1)))
+    precision = true_positives / (predicted_positives + K.epsilon())
+    return precision
+
+
+def f1(y_true, y_pred):
+    """Calculate the F1 score."""
+    p = precision(y_true, y_pred)
+    r = recall(y_true, y_pred)
+    return 2 * ((p * r) / (p + r))
+
+
+def get_optimizer(config):
+    """Return an optimizer."""
+    lr = config['optimizer']['initial_lr']
+    optimizer = Adam(lr=lr)  # Using Adam instead of SGD to speed up training
+    return optimizer
+
+
+def main(data_module):
+    """Load data, train model and evaluate it."""
+    data = data_module.load_data()
+    model = create_model(data_module.n_classes, (data['x_train'].shape[1], ))
+    print(model.summary())
+    optimizer = get_optimizer({'optimizer': {'initial_lr': 0.001}})
+    model.compile(loss='binary_crossentropy',
+                  optimizer=optimizer,
+                  metrics=[precision, recall, f1, "accuracy"])
+    t0 = time.time()
+    model.fit(data['x_train'], data['y_train'],
+              batch_size=32,
+              epochs=20,
+              validation_data=(data['x_test'], data['y_test']),
+              shuffle=True,
+              # callbacks=callbacks
+              )
+    t1 = time.time()
+    res = get_tptnfpfn(model, data)
+    t2 = time.time()
+    print(("{clf_name:<30}: {acc:0.2f}% {f1:0.2f}% in {train_time:0.2f}s "
+           "train / {test_time:0.2f}s test")
+          .format(clf_name="MLP",
+                  acc=(get_accuracy(res) * 100),
+                  f1=(get_f_score(res) * 100),
+                  train_time=(t1 - t0),
+                  test_time=(t2 - t1)))
+
+if __name__ == '__main__':
+    main(reuters)
+
+```
 
 
 ## See also
