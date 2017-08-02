@@ -228,6 +228,14 @@ $Z_i \in \{0, 1\}^k$ be the set of predicted labels:
 A nice overview is given by [A Literature Survey on Algorithms for Multi-label Learning](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.364.5612&rep=rep1&type=pdf#page=13).
 
 
+## n-gram Features
+
+See [N-Gram-Based Text Categorization: Categorizing Text With Python](http://blog.alejandronolla.com/2013/05/20/n-gram-based-text-categorization-categorizing-text-with-python/).
+
+I will give this a try when I find some time. If you make it before, please
+share the results. You could adjust [my tf-idf code](https://github.com/MartinThoma/algorithms/blob/master/ML/nlp/reuters.py#L30).
+
+
 ## Classifier comparison (tf-idf)
 
 The following are the accuracies as well as the training and test times. All
