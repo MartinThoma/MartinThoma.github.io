@@ -235,7 +235,7 @@ Offiziell nicht Klausurrelevant.
 <h2>Material</h2>
 <ul>
   <li><a href="http://his.anthropomatik.kit.edu/Teaching/VorlesungKognitiveSysteme/">Vorlesungswebsite</a></li>
-  <li><a href="https://ankiweb.net/shared/info/2853080322">Mein Anki-Deck</a></li>
+  <li><a href="./anki/KogSys.apkg">Mein Anki-Deck</a></li>
   <li><a href="http://www.next-internet.com/hauptstudium/">Klausuren</a></li>
   <li><a href="https://his.anthropomatik.kit.edu/Teaching/VorlesungKognitiveSysteme/save/vorlesungsfolien.php">Folien</a></li>
   <li><a href="https://his.anthropomatik.kit.edu/Teaching/VorlesungKognitiveSysteme/save/KogSysSkript.pdf">Skript</a></li>

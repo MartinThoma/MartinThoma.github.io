@@ -128,7 +128,7 @@ $T_1 = r_1[y] w_1[x] c_1$
 <ul>
   <li><a href="https://bscw.ira.uni-karlsruhe.de/pub/bscw.cgi/1272509?client_size=1366x655">Folien</a></li>
   <li><a href="http://dbis.ipd.uni-karlsruhe.de/1969.php">Vorlesungswebsite</a></li>
-  <li><a href="https://ankiweb.net/shared/info/3786791111">Mein Anki-Deck</a> (digitale Karteikarten)</li>
+  <li><a href="./anki/Datenbanksysteme.apkg">Mein Anki-Deck</a> (digitale Karteikarten)</li>
   <li><a href="http://mitschriebwiki.nomeata.de/Datenhaltung.pdf.4.pdf">Mitschrieb-Wiki</a></li>
 </ul>
 

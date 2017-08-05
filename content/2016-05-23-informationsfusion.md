@@ -620,7 +620,7 @@ Die Lösungen sind auch online (ausführlicher und besser als ich es hier habe).
 ## Material und Links
 
 * [Vorlesungswebsite](http://ies.anthropomatik.kit.edu/lehre_informationsfusion.php)
-* [Anki-Deck](https://ankiweb.net/shared/info/1070725022)
+* [Anki-Deck](./anki/Informationsfusion.apkg)
 * [Anwendung der Dempster-Shafer Evidenztheorie auf die Bonitätsprüfung](https://statistik.econ.kit.edu/download/Artikel%20-%20Anwendung%20der%20Dempster-Shafer%20Evidenztheorie%20auf%20die%20Bonit%C3%A4tspr%C3%BCfung.pdf)
 * [Mein Prüfungsprotokoll](https://github.com/MartinThoma/LaTeX-examples/blob/master/documents/kit-muendlich-informationsfusion/muendlich-we-2013-martin-thoma.pdf)
 

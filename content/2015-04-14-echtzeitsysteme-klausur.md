@@ -213,7 +213,7 @@ Die Klausuren sind alle sehr ähnlich zu einander:
 * [Vorlesungswebsite](http://www.math.kit.edu/stoch/lehre/wt2015s/de)
 * [Ilias](https://ilias.studium.kit.edu/goto_produktiv_crs_409322.html)
 * [Klausur-Musterlösungen](https://github.com/MartinThoma/KIT-Musterloesungen/tree/master/Echtzeitsysteme)
-* Meine [Anki-Karten](https://ankiweb.net/shared/info/1877369263) (bestehend aus Teilen von [Echtzeitsysteme - KIT Wörn](https://ankiweb.net/shared/info/2095784594) und [Echtzeitsysteme KIT Wörn Wissensfragen Klausur](https://ankiweb.net/shared/info/2071108701) sowie weiteren Karten)
+* Meine [Anki-Karten](./anki/Echtzeitsysteme - KIT Wörn 2015.apkg) (bestehend aus Teilen von [Echtzeitsysteme - KIT Wörn](https://ankiweb.net/shared/info/2095784594) und [Echtzeitsysteme KIT Wörn Wissensfragen Klausur](https://ankiweb.net/shared/info/2071108701) sowie weiteren Karten)
 
 StackOverflow:
 
