@@ -236,3 +236,8 @@ if __name__ == "__main__":
 The person detector is somewhat useful out-of-the-box, but for the rest you
 will need to adjust the algorithm. Having only the 20&nbsp;classes from Pascal
 VOC is not enough.
+
+
+## See also
+
+* Dat Tran: [Building a Real-Time Object Recognition App with Tensorflow and OpenCV](https://medium.com/towards-data-science/building-a-real-time-object-recognition-app-with-tensorflow-and-opencv-b7a2b4ebdc32), 22.06.2017
