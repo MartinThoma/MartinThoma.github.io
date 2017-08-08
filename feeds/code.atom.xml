@@ -1,5 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Code</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/code.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2017-08-06T20:00:00+02:00</updated><entry><title>Strings</title><link href="https://martin-thoma.com/strings/" rel="alternate"></link><published>2017-08-06T20:00:00+02:00</published><updated>2017-08-06T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-08-06:/strings/</id><summary type="html">&lt;p&gt;Strings are essential for developing applications. Yet they are not covered
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Code</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/code.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2017-08-07T20:00:00+02:00</updated><entry><title>Data Serialization</title><link href="https://martin-thoma.com/data-serialization/" rel="alternate"></link><published>2017-08-07T20:00:00+02:00</published><updated>2017-08-07T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-08-07:/data-serialization/</id><summary type="html">&lt;p&gt;Transforming objects you have in memory into a structure which can be stored in
+a file is called serialization. Serializing data is important for several
+reasons:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Checkpoints&lt;/strong&gt;: Especially in machine learning, it happens often that the
+  preprocessing takes long. The longest setup I had so far was something like
+  20 …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;Transforming objects you have in memory into a structure which can be stored in
+a file is called serialization. Serializing data is important for several
+reasons:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Checkpoints&lt;/strong&gt;: Especially in machine learning, it happens often that the
+  preprocessing takes long. The longest setup I had so far was something like
+  20 hours. I don't want my computer to run when I sleep. And I want it to be
+  usable when I sit in front of it. Hence I want to be able to abort and resume
+  the preprocessing. This means I have to store the current state on the disk.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Memory limitations&lt;/strong&gt;: My laptop has 8&amp;nbsp;GB of RAM. For some datasets,
+  this is not enough. Hence I want to be able to preprocess some part of my
+  data, store the results to a file, remove it from memory and continue. This
+  way, I can handle arbitrary large datasets. Formats with random access are
+  nice in such a case, otherwise you can always create multiple files.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sharing data&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Properties that are interesting are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Library support&lt;/strong&gt;: How easy is it to read / write data? Is it only for
+  one programming language / environment or is the format open and wide-spread?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Read speed&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Write speed&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;table class="table"&gt;
+&lt;tr&gt;
+&lt;th&gt;Format&lt;/th&gt;
+&lt;th&gt;Pro&lt;/th&gt;
+&lt;th&gt;Con&lt;/th&gt;
+&lt;th&gt;Binary&lt;/th&gt;
+&lt;th&gt;Comment&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="http://stackoverflow.com/questions/41585078/how-do-i-read-and-write-csv-files-with-python/41585079#41585079"&gt;CSV&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Simple to use, not much overhead, can be imported into EXCEL&lt;/td&gt;
+&lt;td&gt;No data types&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="http://stackoverflow.com/questions/12309269/how-do-i-write-json-data-to-a-file-in-python/37795053#37795053"&gt;JSON&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Simple to use, data types, supported by all programming languages&lt;/td&gt;
+&lt;td&gt;some overhead&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;Use this if possible&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="http://stackoverflow.com/questions/1773805/how-can-i-parse-a-yaml-file-in-python/42054860#42054860"&gt;YAML&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Simple to use, data types, supported by Python&lt;/td&gt;
+&lt;td&gt;some overhead, not so simple to write it correctly&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;Don't use this for storing data. Nice for configuration, though.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;XML&lt;/td&gt;
+&lt;td&gt;Data formats&lt;/td&gt;
+&lt;td&gt;A pain in the *** to use&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;Might be worth a shot if you're using a strictly typed programming language&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="http://stackoverflow.com/questions/34660090/how-do-i-decode-a-msgpack-file-in-python/34660959#34660959"&gt;MessagePack&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Data types, relatively small&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Yes&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://gist.github.com/justinfx/3174062"&gt;Speed comparison&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Data formats"></category><category term="Machine Learning"></category></entry><entry><title>Strings</title><link href="https://martin-thoma.com/strings/" rel="alternate"></link><published>2017-08-06T20:00:00+02:00</published><updated>2017-08-06T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-08-06:/strings/</id><summary type="html">&lt;p&gt;Strings are essential for developing applications. Yet they are not covered
 (enough) if you study computer science. In this article, I will explain what a
 string is, what Unicode, UTF-8, ASCII and encodings are and what their
 relationship is.&lt;/p&gt;
@@ -386,7 +463,7 @@ encoded string.&lt;/p&gt;
 &lt;tr&gt;
 &lt;td&gt;str Object&lt;/td&gt;
 &lt;td&gt;bytes&lt;/td&gt;
-&lt;td&gt;plain sequence of bytes&lt;/td&gt;
+&lt;td&gt;Plain sequence of bytes. Similar to strings in C.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
 &lt;p&gt;By using &lt;code&gt;from __future__ import unicode_literals&lt;/code&gt; you get the default behaviour
