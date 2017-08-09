@@ -106,50 +106,7 @@ would like to go down several levels. Let's talk about file formats.
 
 ### Structured Data
 
-<table class="table">
-    <tr>
-        <th>Format</th>
-        <th>Pro</th>
-        <th>Con</th>
-        <th>Binary</th>
-        <th>Comment</th>
-    </tr>
-    <tr>
-        <td><a href="http://stackoverflow.com/questions/41585078/how-do-i-read-and-write-csv-files-with-python/41585079#41585079">CSV</a></td>
-        <td>Simple to use, not much overhead, can be imported into EXCEL</td>
-        <td>No data types</td>
-        <td>No</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td><a href="http://stackoverflow.com/questions/12309269/how-do-i-write-json-data-to-a-file-in-python/37795053#37795053">JSON</a></td>
-        <td>Simple to use, data types, supported by all programming languages</td>
-        <td>some overhead</td>
-        <td>No</td>
-        <td>Use this if possible</td>
-    </tr>
-    <tr>
-        <td><a href="http://stackoverflow.com/questions/1773805/how-can-i-parse-a-yaml-file-in-python/42054860#42054860">YAML</a></td>
-        <td>Simple to use, data types, supported by Python</td>
-        <td>some overhead, not so simple to write it correctly</td>
-        <td>No</td>
-        <td>Don't use this for storing data. Nice for configuration, though.</td>
-    </tr>
-    <tr>
-        <td>XML</td>
-        <td>Data formats</td>
-        <td>A pain in the *** to use</td>
-        <td>No</td>
-        <td>Might be worth a shot if you're using a strictly typed programming language</td>
-    </tr>
-    <tr>
-        <td><a href="http://stackoverflow.com/questions/34660090/how-do-i-decode-a-msgpack-file-in-python/34660959#34660959">MessagePack</a></td>
-        <td>Data types, relatively small</td>
-        <td></td>
-        <td>Yes</td>
-        <td></td>
-    </tr>
-</table>
+TODO: See data serialization
 
 
 ### Unstructured data
