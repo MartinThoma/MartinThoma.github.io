@@ -529,6 +529,17 @@ they are byte strings.&lt;/p&gt;
 &lt;li&gt;&lt;strong&gt;Similar look, but different&lt;/strong&gt;: U+006E (n), and U+0303 (a combining tilde) forms ñ, but the code point U+00F1 forms &amp;ntilde;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Equality, the second&lt;/strong&gt;: There is &lt;a href="http://www.fileformat.info/info/unicode/char/0041/index.htm"&gt;Latin A&lt;/a&gt;, &lt;a href="http://www.fileformat.info/info/unicode/char/0410/index.htm"&gt;CYRILLIC CAPITAL LETTER A&lt;/a&gt; and &lt;a href="http://www.fileformat.info/info/unicode/char/0391/index.htm"&gt;GREEK CAPITAL LETTER ALPHA&lt;/a&gt;. The same look, but not the same codepoint.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2 id="what-about-collation"&gt;What about Collation?&lt;/h2&gt;
+&lt;p&gt;In databases, you have to say which collation you want to use. It is about
+sorting. For English it is simple enough to sort by ASCII code, but how do you
+sort&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Andr&amp;eacute; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; one char
+Andr&amp;eacute; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; two chars
+Andrế
+Andrę́
+&lt;span class="kc"&gt;...&lt;/span&gt;
+Andreas
+&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Joel Spolsky: &lt;a href="https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/"&gt;The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)&lt;/a&gt;&lt;/li&gt;
@@ -631,7 +642,7 @@ RUN apt-get upgrade -y
 # Copy projects code
 COPY . /opt/app
 WORKDIR /opt/app
-RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt --no-cache-dir
 
 # Create user
 RUN groupadd --gid &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;APP_USER_GROUP_GID&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt; &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;APP_USER_GROUP&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;
@@ -657,6 +668,9 @@ CMD ["app.py"]
   container is started.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;CMD ["executable","param1","param2"]&lt;/code&gt;: The command is to run via the entrypoint.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;You might see &lt;code&gt;ENV DEBIAN_FRONTEND noninteractive&lt;/code&gt; in a couple of Dockerfiles,
+but &lt;a href="https://github.com/moby/moby/issues/4032#issuecomment-34597177"&gt;there is a reason against it&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;See also: &lt;a href="https://stackoverflow.com/q/45594707/562769"&gt;What is pip's &lt;code&gt;--no-cache-dir&lt;/code&gt; good for?&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id="commands"&gt;Commands&lt;/h3&gt;
 &lt;p&gt;Docker needs to be run in super-user mode. I indicate that with &lt;code&gt;#&lt;/code&gt;. You can
 run &lt;code&gt;sudo su&lt;/code&gt; in order to run all subsequent commands as a superuser.&lt;/p&gt;

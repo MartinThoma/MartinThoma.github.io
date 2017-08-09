@@ -190,7 +190,7 @@ RUN apt-get upgrade -y
 # Copy projects code
 COPY . /opt/app
 WORKDIR /opt/app
-RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt --no-cache-dir
 
 # Create user
 RUN groupadd --gid <span class="cp">${</span><span class="n">APP_USER_GROUP_GID</span><span class="cp">}</span> <span class="cp">${</span><span class="n">APP_USER_GROUP</span><span class="cp">}</span>
@@ -216,6 +216,9 @@ CMD ["app.py"]
   container is started.</li>
 <li><code>CMD ["executable","param1","param2"]</code>: The command is to run via the entrypoint.</li>
 </ul>
+<p>You might see <code>ENV DEBIAN_FRONTEND noninteractive</code> in a couple of Dockerfiles,
+but <a href="https://github.com/moby/moby/issues/4032#issuecomment-34597177">there is a reason against it</a>.</p>
+<p>See also: <a href="https://stackoverflow.com/q/45594707/562769">What is pip's <code>--no-cache-dir</code> good for?</a>.</p>
 <h3 id="commands">Commands</h3>
 <p>Docker needs to be run in super-user mode. I indicate that with <code>#</code>. You can
 run <code>sudo su</code> in order to run all subsequent commands as a superuser.</p>
