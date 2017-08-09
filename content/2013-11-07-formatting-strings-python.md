@@ -224,6 +224,7 @@ wkit-802.1x            15%   A0:D3:C1:9F:FF:11
 
 ## Resources
 <ul>
+  <li><a href="https://pyformat.info/">pyformat.info</a></li>
   <li><a href="http://docs.python.org/2/library/string.html#format-specification-mini-language">Format Specification Mini-Language</a></li>
   <li><a href="http://docs.python.org/2/library/datetime.html#strftime-and-strptime-behavior">Time formatting</a></li>
   <li><a href="http://docs.python.org/2/library/pprint.html">Pretty Print</a></li>
