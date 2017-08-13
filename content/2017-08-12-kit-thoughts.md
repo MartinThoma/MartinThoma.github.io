@@ -3,15 +3,14 @@ layout: post
 title: Ideen zur Verbesserung des KIT
 slug: kit-thoughts
 author: Martin Thoma
-status: draft
-date: 2017-05-01 20:00
+date: 2017-08-12 20:00
 category: My bits and bytes
-tags: idee
+tags: KIT
 featured_image: logos/education.png
 ---
 I've studied 3 years for the bachelors degree and for 2.5 years for the masters
-degree at KIT (Karlsruhe Institute of Technology). I had a very good time,
-learned a lot and my personality changed during this time. In this post I point
+degree at KIT (Karlsruhe Institute of Technology). I had a very good time and
+learned a lot. In this post I point
 out some ideas how KIT could be a better university for bachelors and masters
 degree students in computer science. The rest of the article is in German
 (you might want to use <a href="https://translate.google.com/">Google Translate</a>).
@@ -19,7 +18,7 @@ degree students in computer science. The rest of the article is in German
 
 ## Lehre
 
-### Vorlesungsabsprachen
+### Vorlesungs&shy;absprachen
 
 Es wäre wünschenswert, wenn einige Vorlesungen weniger Überschneidungen hätten.
 Wenn sich Überschneidungen nicht vermeiden lassen oder gar gewünscht sind wäre
@@ -57,10 +56,10 @@ kritisieren würden nicht fragt? Dann kann man sich die Umfrage auch gleich
 schenken. Also: **Evaluation auch online durchführen**.
 
 
-### Mentorenprogramm
+### Mentoren&shy;programm
 Ich mag die Idee von Mentoren. Studenten helfen Studenten. Siehe [One-on-One Tutoring](https://martin-thoma.com/one-on-one-tutoring/) für ein paar Ideen dazu.
 
-### Frontalunterricht
+### Frontal&shy;unterricht
 Die meisten Vorlesungen sind klassischer Frontalunterricht: Der Dozent steht
 vorne, erzählt 1.5h etwas und geht wieder. Vielleicht gibt es zwischendrin noch
 eine Frage. Manche Dozenten versuchen das durch Fragen etwas "aufzulockern",
