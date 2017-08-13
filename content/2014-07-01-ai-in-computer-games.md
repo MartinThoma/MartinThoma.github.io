@@ -57,18 +57,42 @@ You might want to skip to 6:13 for the demo:
 
 <iframe width="512" height="288" src="//www.youtube.com/embed/xOCurBYI_gY" frameborder="0" allowfullscreen></iframe>
 
+Interesting parts:
+
+* `09:46` - Ridiculous Super Mario move
+* `14:20` - Super packman move
+* `15:57` - Tetris: The best move is not to play
+
 Research paper published in SIGBOVIK 2013: "[The first level of Super Mario Bros. is easy with lexicographic ordering a and time travel ...after that it gets a little tricky](http://tom7.org/mario/mario.pdf)."
 
-There is a follow-up video with Zelda, Punch-Out, Dr. Mario, Contra, Wall Street Kid
-and Russian Attack:
+There is a follow-up video with Zelda, Punch-Out, Dr. Mario (10:27), Contra
+(12:10), Wall Street Kid (14:30) and Russian Attack (18:10):
 
 <iframe width="512" height="288" src="//www.youtube.com/embed/YGJHR9Ovszs?list=UU3azLjQuz9s5qk76KEXaTvA" frameborder="0" allowfullscreen></iframe>
 
-And a third episode with Super Mario, Gradius, Mega Man 2, Pro Wrestling, Color
-a Dinosaur, Nintendo Pinball, Cliffhanger, Arkanoid, Double Dare, Ice hockey:
+Interesting parts:
+
+* `10:25` - Exploiting a Random number generator in Dr. Mario
+* `18:15` - Russian Attack: Finding a save spot
+* `20:58` - Russian Attack: Fight fast
+
+And a third episode with Super Mario, Gradius (4:06), Mega Man 2 (8:30), Pro
+Wrestling, Color a Dinosaur, Nintendo Pinball (13:40), Cliffhanger (15:20),
+Arkanoid (16:33), Double Dare (19:22), Ice hockey (21:44):
 
 <iframe width="512" height="288" src="//www.youtube.com/embed/Q-WgQcnessA" frameborder="0" allowfullscreen></iframe>
+
+Interesting parts:
+
+* `04:45`: Playing Gradius like a YoLo-Pro
+* `05:42`: Gradius - Insta-Kill the Boss
+* `10:04`: Mega Man 2 - Manipulate the random number generator
+* `16:33`: Arkanoid (Break Out) - Manipulate the random number generator
 
 ## Super Mario A.I. Competition
 
 <iframe width="512" height="288" src="//www.youtube.com/embed/bBZ7kEphv3s?start=385" frameborder="0" allowfullscreen></iframe>
+
+## DOTA: Dendi vs. OpenAI
+
+<iframe width="512" height="288" src="https://www.youtube.com/embed/wiOopO9jTZw" frameborder="0" allowfullscreen></iframe>
