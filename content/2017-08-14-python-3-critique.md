@@ -1,19 +1,21 @@
 ---
 layout: post
 title: Critique of Python 3
+slug: python-3-critique
 author: Martin Thoma
 date: 2014-11-22 17:19
-categories:
-- Code
-tags:
-- Python
+category: Code
+tags: Python, Consistency, Programming
 featured_image: logos/python.png
 ---
 
 Consistency is an important quality property of a language. One of my main
 points of critic agains PHP was inconsistency (see [PHP: A strange language](//martin-thoma.com/php-a-strange-language/#tocAnchor-1-1)). Let's see where Python is inconsistant.
 
-## Method naming: Underscores or not
+## Naming
+
+
+### Underscores or not
 
 PEP 8 recommends underscores for functions, if I remember it correctly.
 However, some built-in functions do not follow this naming scheme:
@@ -24,23 +26,28 @@ However, some built-in functions do not follow this naming scheme:
 * `str.is_digit`
 * [`os.path.isfile`](https://docs.python.org/2/library/os.path.html#os.path.isfile) and probably all other `os` functions.
 
-Classes:
 
-* `list`
-* `tuple`
-* `set`
+### snake_case or camelCase
 
-Methods / Properties / Functions:
+<table class="table">
+    <tr>
+        <th>Where</th>
+        <th>Is</th>
+        <th>Should be</th>
+    </tr>
+    <tr>
+        <td><a href="https://docs.python.org/3/library/logging.html">Logging module</a> (everywhere)</td>
+        <td>logging.getLogger</td>
+        <td>logging.get_logger</td>
+    </tr>
+</table>
+
+
+### Methods / Properties / Functions
 
 * `len`: Each container type should have a property `length`. One the one hand,
   this is done in many other languages. On the other hand, it indicates that
   getting the length is a constant-time operation.
-
-
-## Stack and tail call optimization
-Python makes use of a C stack which is limited (not by memory, but TODO).
-
-Cython does also not do tail call optimization, according to Vladimir Keleshev.
 
 
 ## Tutorial
@@ -99,8 +106,8 @@ be nice.
 
 ## PyPI
 
-gi is for GTK, but the module https://pypi.python.org/pypi/gi
-"overrides" it (TODO)
+`gi` is for GTK, but the module https://pypi.python.org/pypi/gi "overrides" it.
+That should not be possible. So there is an issue with namespaces.
 
 ## Joining lists
 
