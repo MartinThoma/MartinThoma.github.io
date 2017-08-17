@@ -50,6 +50,23 @@ However, some built-in functions do not follow this naming scheme:
   getting the length is a constant-time operation.
 
 
+## Datetime
+
+Have a look at the following code:
+
+```
+import datetime
+
+x = datetime.datetime(2017, 01, 01, 12, 00)
+y = datetime.datetime(2017, 01, 02, 12, 00)
+
+print("Seconds elapsed: {}".format((y - x).seconds))
+```
+
+What would you expect the output to be? I expected `24 * 60 * 60`. But it is
+`0`. What you were looking for is `(y - x).total_seconds`.
+
+
 ## Tutorial
 
 > A tutorial is a method of transferring knowledge and may be used as a part of a learning process. More interactive and specific than a book or a lecture; a tutorial seeks to teach by example and supply the information to complete a certain task.
