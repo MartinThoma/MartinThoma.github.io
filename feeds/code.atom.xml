@@ -4820,7 +4820,138 @@ completed MVC with Vemplator; controlled every php file with phpcs
 &lt;li&gt;&lt;a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Exception.html"&gt;Class Exception&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</content><category term="Exception"></category><category term="Java"></category></entry><entry><title>Nyquist–Shannon sampling theorem</title><link href="https://martin-thoma.com/nyquist-shannon-sampling-theorem/" rel="alternate"></link><published>2014-11-18T17:41:00+01:00</published><updated>2014-11-18T17:41:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2014-11-18:/nyquist-shannon-sampling-theorem/</id><summary type="html">&lt;p&gt;The &lt;a href="https://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_sampling_theorem"&gt;Nyquist&amp;ndash;Shannon sampling theorem&lt;/a&gt;
+&lt;/ul&gt;</content><category term="Exception"></category><category term="Java"></category></entry><entry><title>Critique of Python 3</title><link href="https://martin-thoma.com/python-3-critique/" rel="alternate"></link><published>2014-11-22T17:19:00+01:00</published><updated>2014-11-22T17:19:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2014-11-22:/python-3-critique/</id><summary type="html">&lt;p&gt;Consistency is an important quality property of a language. One of my main
+points of critic agains PHP was inconsistency (see &lt;a href="//martin-thoma.com/php-a-strange-language/#tocAnchor-1-1"&gt;PHP: A strange language&lt;/a&gt;). Let's see where Python is inconsistant.&lt;/p&gt;
+&lt;h2 id="naming"&gt;Naming&lt;/h2&gt;
+&lt;h3 id="underscores-or-not"&gt;Underscores or not&lt;/h3&gt;
+&lt;p&gt;PEP 8 recommends underscores for functions, if I remember it correctly.
+However, some built-in functions …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Consistency is an important quality property of a language. One of my main
+points of critic agains PHP was inconsistency (see &lt;a href="//martin-thoma.com/php-a-strange-language/#tocAnchor-1-1"&gt;PHP: A strange language&lt;/a&gt;). Let's see where Python is inconsistant.&lt;/p&gt;
+&lt;h2 id="naming"&gt;Naming&lt;/h2&gt;
+&lt;h3 id="underscores-or-not"&gt;Underscores or not&lt;/h3&gt;
+&lt;p&gt;PEP 8 recommends underscores for functions, if I remember it correctly.
+However, some built-in functions do not follow this naming scheme:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://docs.python.org/3/library/stdtypes.html#float.fromhex"&gt;&lt;code&gt;float.fromhex&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://docs.python.org/3/library/stdtypes.html#bytes.startswith"&gt;&lt;code&gt;bytes.startswith&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://docs.python.org/3/library/stdtypes.html#str.startswith"&gt;&lt;code&gt;str.startswith&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;str.is_digit&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://docs.python.org/2/library/os.path.html#os.path.isfile"&gt;&lt;code&gt;os.path.isfile&lt;/code&gt;&lt;/a&gt; and probably all other &lt;code&gt;os&lt;/code&gt; functions.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="snake_case-or-camelcase"&gt;snake_case or camelCase&lt;/h3&gt;
+&lt;table class="table"&gt;
+&lt;tr&gt;
+&lt;th&gt;Where&lt;/th&gt;
+&lt;th&gt;Is&lt;/th&gt;
+&lt;th&gt;Should be&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://docs.python.org/3/library/logging.html"&gt;Logging module&lt;/a&gt; (everywhere)&lt;/td&gt;
+&lt;td&gt;logging.getLogger&lt;/td&gt;
+&lt;td&gt;logging.get_logger&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;h3 id="methods-properties-functions"&gt;Methods / Properties / Functions&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;len&lt;/code&gt;: Each container type should have a property &lt;code&gt;length&lt;/code&gt;. One the one hand,
+  this is done in many other languages. On the other hand, it indicates that
+  getting the length is a constant-time operation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="datetime_1"&gt;Datetime&lt;/h2&gt;
+&lt;p&gt;Have a look at the following code:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;datetime&lt;/span&gt;
+
+&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2017&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2017&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mo"&gt;02&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Seconds elapsed: {}"&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;seconds&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;What would you expect the output to be? I expected &lt;code&gt;24 * 60 * 60&lt;/code&gt;. But it is
+&lt;code&gt;0&lt;/code&gt;. What you were looking for is &lt;code&gt;(y - x).total_seconds&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id="tutorial"&gt;Tutorial&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A tutorial is a method of transferring knowledge and may be used as a part of a learning process. More interactive and specific than a book or a lecture; a tutorial seeks to teach by example and supply the information to complete a certain task.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Source: &lt;a href="https://en.wikipedia.org/wiki/Tutorial"&gt;Wikipedia&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Tutorials are very important for programming languages. Especially the ones
+which introduce the core concepts of a language. I think Python should have
+3 tutorials:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;How to install: Detailed instructions for all major systems. At the
+  beginning, the user should be asked about his system (and get help how to
+  find out which system he has) and then get only the instructions necessary
+  for his system.&lt;/li&gt;
+&lt;li&gt;Programming beginners Python tutorial: Python is probably the first
+  programming language some people use. And I think it is suited well for them.
+  However, there should be an official Python tutorial for people who have to
+  learn what a variable is and what functions are. This tutorial might contain
+  information which over-simplifies stuff.
+  &lt;a href="https://wiki.python.org/moin/BeginnersGuide"&gt;wiki.python.org/moin/BeginnersGuide&lt;/a&gt;
+  is similar to that, but it seems not to be very well structured.&lt;/li&gt;
+&lt;li&gt;Advanced programmers Python tutorial: For people who know the basic concepts
+  of programming.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These three tutorials should be linked from python.org/tutorials.&lt;/p&gt;
+&lt;h2 id="documentation"&gt;Documentation&lt;/h2&gt;
+&lt;p&gt;Every function / object / method should have examples. So the
+&lt;a href="https://docs.python.org/3/library/functions.html?highlight=len#len"&gt;&lt;code&gt;len&lt;/code&gt;&lt;/a&gt;
+function should additionally have this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;some_list&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;23&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;some_list&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="mi"&gt;4&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;other_list&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[[&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;456&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;other_list&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I think the PHP documentation is awesome. Take a look at
+&lt;a href="http://php.net/manual/en/function.strlen.php"&gt;&lt;code&gt;strlen&lt;/code&gt;&lt;/a&gt;. It is immediately
+clear how to use it, which versions are supported, what types the parameters
+should have and what the return value is. Functions which you might have
+looked for can be found under "See Also" and some difficulties can be found
+under "User Contributed Notes". I have never seen a similar well-structured
+and written documentation of a programming language (not for &lt;a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html#length()"&gt;Java&lt;/a&gt;, C, &lt;a href="http://www.cplusplus.com/reference/string/string/length/"&gt;C++&lt;/a&gt;,
+&lt;a href="http://hackage.haskell.org/package/base-4.7.0.2/docs/Prelude.html#v:length"&gt;Haskell&lt;/a&gt;, &lt;a href="https://developer.mozilla.org/en-US/docs/Web/XPath/Functions/count"&gt;JavaScript&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;Also, runtime information in big-O notation as well as space information would
+be nice.&lt;/p&gt;
+&lt;h2 id="pypi"&gt;PyPI&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;gi&lt;/code&gt; is for GTK, but the module https://pypi.python.org/pypi/gi "overrides" it.
+That should not be possible. So there is an issue with namespaces.&lt;/p&gt;
+&lt;h2 id="joining-lists"&gt;Joining lists&lt;/h2&gt;
+&lt;p&gt;Joining a list of strings works like this in Python 3:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;el&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;el&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;" "&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;Traceback&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;most&lt;/span&gt; &lt;span class="n"&gt;recent&lt;/span&gt; &lt;span class="n"&gt;call&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+  &lt;span class="n"&gt;File&lt;/span&gt; &lt;span class="s2"&gt;"&amp;lt;stdin&amp;gt;"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="ne"&gt;AttributeError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'list'&lt;/span&gt; &lt;span class="nb"&gt;object&lt;/span&gt; &lt;span class="n"&gt;has&lt;/span&gt; &lt;span class="n"&gt;no&lt;/span&gt; &lt;span class="n"&gt;attribute&lt;/span&gt; &lt;span class="s1"&gt;'join'&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="s2"&gt;" "&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="s1"&gt;'0 1 2 3 4'&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;However, I think it is much more logical to apply a &lt;code&gt;join&lt;/code&gt; method of a list
+with a string argument than a &lt;code&gt;join&lt;/code&gt; method of a string with a list argument.
+This might be the case because I know
+&lt;a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join"&gt;how join is done in JavaScript&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="module-specific"&gt;Module specific&lt;/h2&gt;
+&lt;h3 id="base64"&gt;Base64&lt;/h3&gt;
+&lt;p&gt;The module &lt;code&gt;base64&lt;/code&gt; contains the functions &lt;code&gt;b16decode&lt;/code&gt;, &lt;code&gt;b16encode&lt;/code&gt;,
+&lt;code&gt;b32decode&lt;/code&gt;, &lt;code&gt;b32encode&lt;/code&gt;, &lt;code&gt;b64decode&lt;/code&gt;, &lt;code&gt;b64encode&lt;/code&gt;, &lt;code&gt;decode&lt;/code&gt;, &lt;code&gt;decodestring&lt;/code&gt;,
+&lt;code&gt;encode&lt;/code&gt;, &lt;code&gt;encodestring&lt;/code&gt;, &lt;code&gt;standard_b64decode&lt;/code&gt;, &lt;code&gt;standard_b64encode&lt;/code&gt;,
+&lt;code&gt;urlsafe_b64decode&lt;/code&gt;, &lt;code&gt;urlsafe_b64encode&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;It is not good to have a module called &lt;code&gt;base64&lt;/code&gt; and give it &lt;code&gt;base32decode&lt;/code&gt;.
+But that is probaly for historic reasons and I cannot think of a better name
+by now. &lt;code&gt;text_encoding&lt;/code&gt;? That would have "encoding" in the name.&lt;/p&gt;
+&lt;p&gt;However, I think the module should only have the functions&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;str encode(str s, int base=64)&lt;/li&gt;
+&lt;li&gt;str decode(str s, int base=64, casefold)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I don't see a good reason why reading and writing should be done by this
+module.&lt;/p&gt;
+&lt;h3 id="scipy-pil"&gt;Scipy - PIL&lt;/h3&gt;
+&lt;p&gt;PIL uses &lt;code&gt;(width, height)&lt;/code&gt; (e.g. in &lt;code&gt;Image.new&lt;/code&gt;) and SciPy uses &lt;code&gt;(height, width)&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id="see-also_1"&gt;See also&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=CpjUoYcaUu8"&gt;Critique of Python by Vladimir Keleshev&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Python"></category><category term="Consistency"></category><category term="Programming"></category></entry><entry><title>Nyquist–Shannon sampling theorem</title><link href="https://martin-thoma.com/nyquist-shannon-sampling-theorem/" rel="alternate"></link><published>2014-11-18T17:41:00+01:00</published><updated>2014-11-18T17:41:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2014-11-18:/nyquist-shannon-sampling-theorem/</id><summary type="html">&lt;p&gt;The &lt;a href="https://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_sampling_theorem"&gt;Nyquist&amp;ndash;Shannon sampling theorem&lt;/a&gt;
 states that you have to sample more than twice the highest frequency.
 If you sample less often, you will get aliasing.&lt;/p&gt;
 &lt;p&gt;The following videos show what aliasing is:&lt;/p&gt;
@@ -10237,7 +10368,7 @@ You may use it for free, but you should add a link to this article.&lt;/p&gt;
 &lt;li&gt;&lt;a href="http://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm"&gt;K-nearset neighbor&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://en.wikipedia.org/wiki/K-means_clustering"&gt;k-means clustering&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Udacity: Introduction to A.I: &lt;a href="https://www.youtube.com/watch?v=zaKjh2N8jN4"&gt;k-means&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="HTML5"></category><category term="KogSys"></category><category term="k-means"></category><category term="JavaScript"></category><category term="canvas"></category></entry><entry><title>The Collatz sequence</title><link href="https://martin-thoma.com/the-collatz-sequence/" rel="alternate"></link><published>2013-05-16T23:58:45+02:00</published><updated>2013-05-16T23:58:45+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2013-05-16:/the-collatz-sequence/</id><summary type="html">&lt;p&gt;The goal of this post is to show you some tools that allow you to visualize data. And I also want to analyze some basic characteristics of the Collatz sequence.&lt;/p&gt;
+&lt;/ul&gt;</content><category term="HTML5"></category><category term="KogSys"></category><category term="k-means"></category><category term="JavaScript"></category><category term="canvas"></category><category term="Clustering"></category></entry><entry><title>The Collatz sequence</title><link href="https://martin-thoma.com/the-collatz-sequence/" rel="alternate"></link><published>2013-05-16T23:58:45+02:00</published><updated>2013-05-16T23:58:45+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2013-05-16:/the-collatz-sequence/</id><summary type="html">&lt;p&gt;The goal of this post is to show you some tools that allow you to visualize data. And I also want to analyze some basic characteristics of the Collatz sequence.&lt;/p&gt;
 &lt;p&gt;The Collatz sequences &lt;span class="math"&gt;\((c^n_i)\)&lt;/span&gt; of a number &lt;span class="math"&gt;\(n \in \mathbb{N}_{&amp;gt; 0}\)&lt;/span&gt; is defined like this:&lt;/p&gt;
 &lt;p&gt;&lt;span class="math"&gt;\(f:\mathbb …&lt;/span&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;The goal of this post is to show you some tools that allow you to visualize data. And I also want to analyze some basic characteristics of the Collatz sequence.&lt;/p&gt;
 &lt;p&gt;The Collatz sequences &lt;span class="math"&gt;\((c^n_i)\)&lt;/span&gt; of a number &lt;span class="math"&gt;\(n \in \mathbb{N}_{&amp;gt; 0}\)&lt;/span&gt; is defined like this:&lt;/p&gt;
