@@ -167,6 +167,13 @@ in Summer when the water evaporates (Image source: <a href="https://commons.wiki
     <figcaption class="text-center">Salar de Uyuni is one of the most famous <a href="https://en.wikipedia.org/wiki/Salt_pan_(geology)">salt pans</a> (Image source: <a href="https://en.wikipedia.org/wiki/File:Salar_de_Uyuni,_Bolivia,_2016-02-04,_DD_10-12_HDR.JPG">Wikimedia Commons</a>)</figcaption>
 </figure>
 
+### Peru
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2017/08/machu-picchu.jpg" alt="Machu Picchu" style="width: 512px;"/>
+    <figcaption class="text-center">Machu Picchu, from April - October. Basically, not within the rain season (Image Source: <a href="https://commons.wikimedia.org/wiki/File:95_-_Machu_Picchu_-_Juin_2009.jpg">Wikipedia Commons, Martin St-Amant</a>)</figcaption>
+</figure>
+
 ### Venezuela
 
 <figure class="wp-caption aligncenter img-thumbnail">
