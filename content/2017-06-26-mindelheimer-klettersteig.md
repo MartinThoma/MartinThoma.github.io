@@ -3,13 +3,14 @@ layout: post
 title: mindelheimer-klettersteig
 slug: mindelheimer-klettersteig
 author: Martin Thoma
-status: draft
 date: 2017-06-26 20:00
 category: My bits and bytes
-tags: climbing
-featured_image: logos/star.png
+tags: climbing, hiking
+featured_image: logos/hiking.png
 ---
 
+I've never finished this one ... might still be interesting for others.
+The rest is in German.
 
 ## Ausrüstung
 
