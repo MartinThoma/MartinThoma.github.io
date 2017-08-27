@@ -34,40 +34,40 @@ Die folgende Tabelle gibt einen Überblick über formale Sprachen, die Automaten
 <td style="background-color:#F08080;">0</td>
 <td>semientscheidbar</td>
 <td>alles</td>
-<td><img src="../images/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
-<td><img src="../images/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
-<td><img src="../images/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
-<td><img src="../images/2012/01/no.png" alt="no" title="no" width="13" height="13" class="alignnone size-full wp-image-12961" /></td>
+<td><span style="color:green;" title="Yes">&#10004;</span></td>
+<td><span style="color:green;" title="Yes">&#10004;</span></td>
+<td><span style="color:green;" title="Yes">&#10004;</span></td>
+<td><span style="color:green;" title="Yes">&#10004;</span></td>
 <td>D. <a href="http://de.wikipedia.org/wiki/Turingmaschine">Turingmaschine</a>, ND. Turingmaschine</td>
 </tr>
 <tr>
 <td style="background-color:#90EE90;">1</td>
 <td><a href="http://de.wikipedia.org/wiki/Kontextsensitive_Grammatik">kontextsensitiv</a></td>
 <td>$u \rightarrow v, |a| \leq |v|$</td>
-<td><img src="../images/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
-<td><img src="../images/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
-<td><img src="../images/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
-<td><img src="../images/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
+<td><span style="color:green;" title="Yes">&#10004;</span></td>
+<td><span style="color:green;" title="Yes">&#10004;</span></td>
+<td><span style="color:green;" title="Yes">&#10004;</span></td>
+<td><span style="color:green;" title="Yes">&#10004;</span></td>
 <td>(ND.?) L&auml;ngenbeschr&auml;nkter Automat</td>
 </tr>
 <tr>
 <td style="background-color:#90EE90;">2</td>
 <td><a href="http://de.wikipedia.org/wiki/Kontextfreie_Grammatik">kontextfrei</a></td>
 <td>$A \rightarrow v$</td>
-<td><img src="../images/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
-<td><img src="../images/2012/01/no.png" alt="no" title="no" width="13" height="13" class="alignnone size-full wp-image-12961" /></td>
-<td><img src="../images/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
-<td><img src="../images/2012/01/no.png" alt="no" title="no" width="13" height="13" class="alignnone size-full wp-image-12961" /></td>
+<td><span style="color:green;" title="Yes">&#10004;</span></td>
+<td><span style="color:green;" title="Yes">&#10004;</span></td>
+<td><span style="color:green;" title="Yes">&#10004;</span></td>
+<td><span style="color:green;" title="Yes">&#10004;</span></td>
 <td>ND. <a href="http://de.wikipedia.org/wiki/Kellerautomat">Kellerautomat</a></td>
 </tr>
 <tr>
 <td style="background-color:#90EE90;">3</td>
 <td><a href="http://de.wikipedia.org/wiki/Regul%C3%A4re_Grammatik">regul&auml;r</a></td>
 <td>$A \rightarrow \varepsilon, A \rightarrow aB$</td>
-<td><img src="../images/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
-<td><img src="../images/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
-<td><img src="../images/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
-<td><img src="../images/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
+<td><span style="color:green;" title="Yes">&#10004;</span></td>
+<td><span style="color:green;" title="Yes">&#10004;</span></td>
+<td><span style="color:green;" title="Yes">&#10004;</span></td>
+<td><span style="color:green;" title="Yes">&#10004;</span></td>
 <td><a href="http://de.wikipedia.org/wiki/Endlicher_Automat">Endliche Automaten</a> (<a href="http://de.wikipedia.org/wiki/Moore-Automat">Moore</a>, <a href="http://de.wikipedia.org/wiki/Mealy-Automat">Mealy</a>, <a href="http://de.wikipedia.org/wiki/Akzeptor_(Informatik)">Akzeptoren</a>)</td>
 </tr>
 </table>
