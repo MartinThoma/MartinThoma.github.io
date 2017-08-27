@@ -267,6 +267,16 @@ if __name__ == '__main__':
 ```
 
 
+## Waiting
+
+Sometimes, you need to wait for the page to load. `browser.get` blocks until
+the page is loaded, but what about `.click()`? What about JavaScript generated
+elements?
+
+See the [official documentation](http://selenium-python.readthedocs.io/waits.html)
+for all wait methods.
+
+
 ## See also
 
 * [Official Website](http://www.seleniumhq.org/)
