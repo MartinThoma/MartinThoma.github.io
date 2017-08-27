@@ -365,4 +365,3 @@ want to use.
 * [What is the difference between YAML and JSON? When to prefer one over the other?](http://stackoverflow.com/q/1726802/562769)
 * [Why do so many projects use XML for configuration files?](http://stackoverflow.com/q/791761/562769)
 * [YAML Lint](http://yamllint.com/)
-* [INI file](http://i-tools.org/unserialize)
