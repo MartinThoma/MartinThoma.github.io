@@ -42,26 +42,57 @@ looking at the [Climate diagram of Ljubljana's](https://en.wikipedia.org/wiki/Lj
 
 The Soča-Trail (German: Soca-Weg, Slovene: Soška Pot) is stage&nbsp;24 of the
 [Alpe Adria Trail](https://de.wikipedia.org/wiki/Alpe_Adria_Trail) (see [map](https://www.openstreetmap.org/relation/3176522#map=13/46.3485/13.6126)).
-Usually people go it from Trenta to Bovec, but we decided to do it the other
-way round **from Bovec to Trenta**. It is about **24&thinsp;km** and about
-**6:30&thinsp;h** in total.
+Usually people go it from **Trenta to Bovec**. It is about **24&thinsp;km** and
+about **6:30&thinsp;h** in total.
 
 The complete trail is almost all the time next to the Soča river.
 
+I first planned to go this in reverse, but it turns out that driving to the
+source form Bovec by taxi and hicking back is most practical for such a short
+trip.
 
-### Bovec
+### Soča Source
 
-Possible places to stay:
+The source of the Soča river (German: Soča-Quelle, Slovene: Izvir Soče) is
+at <a href="http://www.openstreetmap.org/node/282431994#map=17/46.41124/13.72455"><span class="geo"><abbr class="latitude" title="46.4118622">46°24'44.6"N</abbr> <abbr class="longitude" title="13.7240723">13°43'26.0"E</abbr></span></a>. It is the starting point
+of this route. It is number 14 on the map.
 
-* [Gostišče Hedvika Hedvika Mlekuž s.p.](http://www.gostiscehedvika.si/)
-* [Kamp "Liza" Maksim Mlekuž s.p.](http://www.camp-liza.com/)
-* Hotel Kanin
 
-Possible parking spots:
+### Trenta
 
-* <a href="https://www.openstreetmap.org/#map=16/46.3241/13.5530"><span class="geo"><abbr class="latitude" title="46.324090">46°19'26.7"N</abbr>
- <abbr class="longitude" title="13.552955">13°33'10.6"E</abbr></span></a>
- * Wherever you stay at Bovec
+* Dom Trenta (German: Trenta Nationalparkhaus & Museum) seems to be a "popular" museum.
+* [Gostilna Metoja](http://www.metoja-trenta.com/) could be a place to eat / sleep.
+
+### The Small Soča Gorge
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2017/08/soca-trail-3.png"><img src="../images/2017/08/soca-trail-3.png" alt="Just stay south of the Soca." style="width: 512px;"/></a>
+    <figcaption class="text-center">Just stay south of the Soca.</figcaption>
+</figure>
+
+(German: Kleine Soča-Tröge, Slovene: Mala korita Soče)
+
+
+ <a href="https://www.bovec.si/de/sehenswurdigkeiten/natur/schluchten-und-wasserfalle/2015121119060158/">Official Information</a>
+
+
+### The Great Soča Gorge
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2017/08/soca-trail-2.png"><img src="../images/2017/08/soca-trail-2.png" alt="Text" style="width: 512px;"/></a>
+    <figcaption class="text-center">Stay south of the river and ignore the bridges at 9 and 8. Pension Kamp Klin is at 7 where you have to cross a bridge. Cross the bridge at 6, keep going north of the river for about 2km, cross the bridge at 5.</figcaption>
+</figure>
+
+The Great Soča Gorge (German: Große Soča-Tröge, Slovene: Velika korita Soče) is
+between 8 and 7.
+
+
+
+### Kršovec Gorge
+
+Just before the Kršovec Gorge is a bridge at <a href="https://www.openstreetmap.org/way/362079158#map=18/46.33315/13.59268"><span class="geo"><abbr class="latitude" title="46.33315">46°19'59.3"N</abbr> <abbr class="longitude" title="13.553500">13°35'33.6"E</abbr></span></a> (Number 4). The town Kal Koritnica is nearby on the north side of the river.
+Even closer to the Kršovec Gorge (German: Kršovec-Schlucht) on the north side
+of the river is an old ropeway station (Slovene: [Žičnica Golobar](https://sl.wikipedia.org/wiki/%C5%BDi%C4%8Dnica_Golobar)).
 
 
 
@@ -78,47 +109,28 @@ The river [Koritnica](https://en.wikipedia.org/wiki/Koritnica_(river)) (Slovene:
 
 The next steps are easy.
 
-* You stay north of the river, but close to it. At <a href="https://www.openstreetmap.org/way/75852445#map=17/46.32995/13.57939"><span class="geo"><abbr class="latitude" title="46.324892">46°19'29.6"N</abbr>
- <abbr class="longitude" title="13.553489">13°33'12.6"E</abbr></span></a> is a bridge (2 in the image).
+* The bridge at <a href="https://www.openstreetmap.org/way/16783497#map=16/46.3376/13.6042"><span class="geo"><abbr class="latitude" title="46.324889">46°19'29.6"N</abbr> <abbr class="longitude" title="13.6042">13°36'15.1"E</abbr></span></a> at 5 in the image. Cross it to get north of the river.
 * The bridge at <a href="https://www.openstreetmap.org/way/26379628#map=17/46.33202/13.59026"><span class="geo"><abbr class="latitude" title="46.324889">46°19'29.6"N</abbr>
  <abbr class="longitude" title="13.553500">13°33'12.6"E</abbr></span></a> is nr 3 in the image.
-* The bridge at <a href="https://www.openstreetmap.org/way/16783497#map=16/46.3376/13.6042"><span class="geo"><abbr class="latitude" title="46.324889">46°19'29.6"N</abbr> <abbr class="longitude" title="13.6042">13°36'15.1"E</abbr></span></a> at 5 in the image. Cross it to get north of the river.
+* At <a href="https://www.openstreetmap.org/way/75852445#map=17/46.32995/13.57939"><span class="geo"><abbr class="latitude" title="46.324892">46°19'29.6"N</abbr>
+ <abbr class="longitude" title="13.553489">13°33'12.6"E</abbr></span></a> is a bridge (2 in the image).
 
 
-### Kršovec Gorge
+### Bovec
 
-Just before the Kršovec Gorge is a bridge at <a href="https://www.openstreetmap.org/way/362079158#map=18/46.33315/13.59268"><span class="geo"><abbr class="latitude" title="46.33315">46°19'59.3"N</abbr> <abbr class="longitude" title="13.553500">13°35'33.6"E</abbr></span></a> (Number 4). The town Kal Koritnica is nearby on the north side of the river.
-Even closer to the Kršovec Gorge (German: Kršovec-Schlucht) on the north side
-of the river is an old ropeway station (Slovene: [Žičnica Golobar](https://sl.wikipedia.org/wiki/%C5%BDi%C4%8Dnica_Golobar)).
+Possible places to stay:
 
+* [Gostišče Hedvika Hedvika Mlekuž s.p.](http://www.gostiscehedvika.si/)
+* [Kamp "Liza" Maksim Mlekuž s.p.](http://www.camp-liza.com/)
+* Hotel Kanin
+* Hostel Bovec
 
-### The Great Soča Gorge
+Possible parking spots:
 
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2017/08/soca-trail-2.png"><img src="../images/2017/08/soca-trail-2.png" alt="Text" style="width: 512px;"/></a>
-    <figcaption class="text-center">Cross the bridge at 5, keep going north of the river for about 2km, cross the bridge at 6. Pension Kamp Klin is at 7 where you have to cross a bridge. Stay south of the river and ignore the bridges at 8 and 9.</figcaption>
-</figure>
+* <a href="https://www.openstreetmap.org/#map=16/46.3241/13.5530"><span class="geo"><abbr class="latitude" title="46.324090">46°19'26.7"N</abbr>
+ <abbr class="longitude" title="13.552955">13°33'10.6"E</abbr></span></a>
+ * Wherever you stay at Bovec
 
-The Great Soča Gorge (German: Große Soča-Tröge, Slovene: Velika korita Soče) is
-between 7 and 8.
-
-
-### The Small Soča Gorge
-
-<figure class="wp-caption aligncenter img-thumbnail">
-    <a href="../images/2017/08/soca-trail-3.png"><img src="../images/2017/08/soca-trail-3.png" alt="Just stay south of the Soca." style="width: 512px;"/></a>
-    <figcaption class="text-center">Just stay south of the Soca.</figcaption>
-</figure>
-
-(German: Kleine Soča-Tröge, Slovene: Mala korita Soče)
-
-
- <a href="https://www.bovec.si/de/sehenswurdigkeiten/natur/schluchten-und-wasserfalle/2015121119060158/">Official Information</a>
-
-### Trenta
-
-* Dom Trenta (German: Trenta Nationalparkhaus & Museum) seems to be a "popular" museum.
-* [Gostilna Metoja](http://www.metoja-trenta.com/) could be a place to eat / sleep.
 
 ## Vocabulary
 
