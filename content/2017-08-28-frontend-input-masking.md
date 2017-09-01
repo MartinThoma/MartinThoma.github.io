@@ -38,5 +38,6 @@ well-known formats such as `type='tel-country-code'`, `type='date'` and
 * [css-tricks.com](https://css-tricks.com/input-masking/)
 * Stackoverflow:
     * [How to implement an input with a mask](https://stackoverflow.com/questions/12578507/how-to-implement-an-input-with-a-mask)
+    * [Friendly format for phone numbers](https://ux.stackexchange.com/q/5675/3906)
 * [Labelmask](http://bradfrost.com/blog/post/labelmask/)
 * [Programmers imagine the most ridiculous ways to enter a phone number into a form](https://qz.com/679782/programmers-imagine-the-most-ridiculous-ways-to-input-a-phone-number/)
