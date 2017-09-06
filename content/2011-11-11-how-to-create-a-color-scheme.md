@@ -4,7 +4,7 @@ title: How to create a color scheme
 author: Martin Thoma
 date: 2011-11-11 08:22:09.000000000 +01:00
 category: The Web
-tags: Design
+tags: Design, Color
 featured_image: 2011/11/color-scheme-designer1.png
 ---
 Here are some nice online tools to create color schemes
