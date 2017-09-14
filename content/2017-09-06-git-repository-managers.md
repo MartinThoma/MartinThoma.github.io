@@ -3,7 +3,6 @@ layout: post
 title: Git Repository Managers
 slug: git-repository-managers
 author: Martin Thoma
-status: draft
 date: 2017-09-06 20:00
 category: Code
 tags: git, repository, Gitlab
@@ -11,6 +10,10 @@ featured_image: logos/git.png
 ---
 Git is likely todays most important version control system. It is used for
 Linux, actively developed and stable.
+
+If hosted solutions are ok, I would likely use GitHub. I've used GitHub for
+personal projects since 2011 and only experienced one outage of about 1 hour
+or so. Besides that, it was reliable. And the support was good.
 
 
 ## Git Basics
@@ -106,6 +109,13 @@ share complete repositories, but you can also [share patches with git](https://w
         <td>18 maintainers</td>
     </tr>
     <tr>
+        <td>SO Questions</td>
+        <td><a href="https://stackoverflow.com/questions/tagged/gitlab">3954</a> / <a href="https://devops.stackexchange.com/questions/tagged/gitlab">9</a> / <a href="https://softwareengineering.stackexchange.com/questions/tagged/gitlab">9</a></td>
+        <td><a href="https://stackoverflow.com/questions/tagged/atlassian-bitbucketserver">145</a> / <a href="https://devops.stackexchange.com/questions/tagged/bitbucket">11</a> / <a href="https://softwareengineering.stackexchange.com/questions/tagged/bitbucket">13</a></td>
+        <td><a href="https://stackoverflow.com/questions/tagged/gogs">59</a></td>
+        <td><a href="https://stackoverflow.com/questions/tagged/gogs">2</a></td>
+    </tr>
+    <tr>
         <td>Github Stars</td>
         <td>19790</td>
         <td>-</td>
@@ -142,38 +152,38 @@ share complete repositories, but you can also [share patches with git](https://w
     </tr>
     <tr>
         <td>Issue Tracker</td>
-        <td>?</td>
-        <td>?</td>
-        <td>?</td>
-        <td>?</td>
+        <td><a href="https://gitlab.com/hoanghoan/demo/issues"><span style="color:green;" title="Yes">&#10004;</span></a></td>
+        <td><a href="https://bitbucket.org/cffi/cffi/issues?status=new&status=open"><span style="color:green;" title="Yes">&#10004;</span></a></td>
+        <td><a href="https://try.gogs.io/vac/bit-runner"><span style="color:green;" title="Yes">&#10004;</span></a></td>
+        <td><a href="https://try.gitea.io/VonC/talks"><span style="color:green;" title="Yes">&#10004;</span></a></td>
     </tr>
     <tr>
         <td>Pull Requests</td>
-        <td>?</td>
-        <td>?</td>
-        <td>?</td>
-        <td>?</td>
+        <td><a href="https://gitlab.com/hoanghoan/demo/merge_requests"><span style="color:green;" title="Yes">&#10004;</span></a></td>
+        <td><a href="https://bitbucket.org/cffi/cffi/pull-requests/"><span style="color:green;" title="Yes">&#10004;</span></a></td>
+        <td><a href="https://github.com/gogits/gogs/issues/1597#issuecomment-193026382"><span style="color:green;" title="Yes">&#10004;</span></a></td>
+        <td><a href="https://try.gitea.io/VonC/talks"><span style="color:green;" title="Yes">&#10004;</span></a></td>
     </tr>
     <tr>
         <td>Wiki</td>
-        <td>?</td>
-        <td>?</td>
-        <td>?</td>
-        <td>?</td>
+        <td><a href="https://gitlab.com/hoanghoan/demo/wikis/home"><span style="color:green;" title="Yes">&#10004;</span></a></td>
+        <td><a href="https://bitbucket.org/cffi/cffi/wiki/Home"><span style="color:green;" title="Yes">&#10004;</span></a></td>
+        <td><a href="https://try.gogs.io/vac/bit-runner"><span style="color:green;" title="Yes">&#10004;</span></a></td>
+        <td><a href="https://try.gitea.io/VonC/talks"><span style="color:green;" title="Yes">&#10004;</span></a></td>
     </tr>
     <tr>
         <td><a href="https://git-lfs.github.com/">Git LFS</a></td>
-        <td>?</td>
-        <td>?</td>
-        <td>?</td>
-        <td>?</td>
+        <td><a href="https://docs.gitlab.com/ee/workflow/lfs/manage_large_binaries_with_git_lfs.html"><span style="color:green;" title="Yes">&#10004;</span></a></td>
+        <td><a href="https://confluence.atlassian.com/bitbucket/git-large-file-storage-in-bitbucket-829078514.html"><span style="color:green;" title="Yes">&#10004;</span></a></td>
+        <td><a href="https://github.com/gogits/gogs/issues/1322"><span style="color:red;" title="No">&#10008;</span></a></td>
+        <td><a href="https://github.com/go-gitea/gitea/pull/122"><span style="color:green;" title="Yes">&#10004;</span></a></td>
     </tr>
     <tr>
         <td><a href="https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol">LDAP</a></td>
-        <td>Yes</td>
-        <td>?</td>
-        <td>?</td>
-        <td>?</td>
+        <td><span style="color:green;" title="Yes">&#10004;</span></td>
+        <td><a href="https://confluence.atlassian.com/bitbucketserver/connecting-bitbucket-server-to-an-existing-ldap-directory-776640403.html"><span style="color:green;" title="Yes">&#10004;</span></a></td>
+        <td><a href="https://discuss.gogs.io/t/how-to-configure-ldap-in-gogs/767/2"><span style="color:green;" title="Yes">&#10004;</span></a></td>
+        <td><a href="https://github.com/go-gitea/gitea/blob/master/modules/auth/ldap/ldap.go"><span style="color:green;" title="Yes">&#10004;</span></a></td>
     </tr>
 </table>
 
