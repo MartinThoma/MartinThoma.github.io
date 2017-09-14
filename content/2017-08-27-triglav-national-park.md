@@ -183,6 +183,30 @@ Possible parking spots:
 </table>
 
 
+## Packing list
+
+We planned to arrive at Bovec in the evening of Friday, hike on Saturday
+and go back on Sunday. The Bovec hostel includes breakfast. Quite a bit of
+the following will just stay in the car.
+
+* Food: (Friday evening, Saturday lunch and evening, Sunday lunch)
+* Water (at least 1.5L for the hike)
+* Clothes:
+    * Hiking shoes
+    * Rain coat / Rain trousers
+    * Sleeping clothes
+    * Dry clothes for the car in case you get really wet
+* Backpack for lunch, water
+    * Money (e.g. for having dinner on Saturday)
+    * Camera (loaded batteries)
+    * Smartphone + loading cable
+    * Map ([the ones from the blog](pdf/triglav-nationalpark-soca-trail-maps.pdf))
+* Sleeping bag
+* Towel
+* Hygene (toothpaste, brush, shampoo)
+* Card game
+
+
 ## Notes
 
 * You need a vignette which costs 15 Euro for 7 days ([source](https://www.kroati.de/kroatien-infos/maut-slowenien.html))
