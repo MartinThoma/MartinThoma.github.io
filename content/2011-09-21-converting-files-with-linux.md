@@ -43,6 +43,16 @@ $ pdfunite in-1.pdf in-2.pdf in-n.pdf out.pdf
 $ convert -density 300 in.pdf -quality 90 out.jpg
 ```
 
+Convert png files to one PDF in A4 format:
+
+```bash
+i=300; convert soca-trail-1.png soca-trail-2.png soca-trail-3.png soca-trail-complete.png -compress jpeg -quality 100 \
+      -density ${i}x${i} -units PixelsPerInch \
+      -resize $((i*827/100))x$((i*1169/100)) \
+      -gravity center \
+      -extent $((i*827/100))x$((i*1169/100)) multipage.pdf
+```
+
 
 ## Image Files
 
