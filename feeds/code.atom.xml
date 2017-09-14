@@ -25571,6 +25571,13 @@ for using &lt;code&gt;grep&lt;/code&gt;:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;pdf2jpg&lt;/strong&gt;: Imagemagick does the trick&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ convert -density &lt;span class="m"&gt;300&lt;/span&gt; in.pdf -quality &lt;span class="m"&gt;90&lt;/span&gt; out.jpg
 &lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Convert png files to one PDF in A4 format:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;300&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; convert soca-trail-1.png soca-trail-2.png soca-trail-3.png soca-trail-complete.png -compress jpeg -quality &lt;span class="m"&gt;100&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
+      -density &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;x&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt; -units PixelsPerInch &lt;span class="se"&gt;\&lt;/span&gt;
+      -resize &lt;span class="k"&gt;$((&lt;/span&gt;i*827/100&lt;span class="k"&gt;))&lt;/span&gt;x&lt;span class="k"&gt;$((&lt;/span&gt;i*1169/100&lt;span class="k"&gt;))&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
+      -gravity center &lt;span class="se"&gt;\&lt;/span&gt;
+      -extent &lt;span class="k"&gt;$((&lt;/span&gt;i*827/100&lt;span class="k"&gt;))&lt;/span&gt;x&lt;span class="k"&gt;$((&lt;/span&gt;i*1169/100&lt;span class="k"&gt;))&lt;/span&gt; multipage.pdf
+&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id="image-files"&gt;Image Files&lt;/h2&gt;
 &lt;p&gt;If you want to change image files via terminal, &lt;a href="http://en.wikipedia.org/wiki/ImageMagick" rel="nofollow"&gt;ImageMagick&lt;/a&gt; is a good choice.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Resize Images to a maximum resolution&lt;/strong&gt;&lt;/p&gt;
