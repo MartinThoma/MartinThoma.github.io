@@ -57,6 +57,85 @@ The source of the Soča river (German: Soča-Quelle, Slovene: Izvir Soče) is
 at <a href="http://www.openstreetmap.org/node/282431994#map=17/46.41124/13.72455"><span class="geo"><abbr class="latitude" title="46.4118622">46°24'44.6"N</abbr> <abbr class="longitude" title="13.7240723">13°43'26.0"E</abbr></span></a>. It is the starting point
 of this route. It is number 14 on the map.
 
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2017/09/soca-trail-04.jpg" alt="Soča Source" style="width: 512px;"/>
+    <figcaption class="text-center">Soča Source</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2017/09/soca-trail-02.jpg" alt="Soča River" style="width: 512px;"/>
+    <figcaption class="text-center">Soča River</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2017/09/soca-trail-12.jpg" alt="Soča River" style="width: 512px;"/>
+    <figcaption class="text-center">Soča River</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2017/09/soca-trail-16.jpg" alt="Soča River" style="width: 512px;"/>
+    <figcaption class="text-center">Soča River</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2017/09/soca-trail-18.jpg" alt="Soča River" style="width: 512px;"/>
+    <figcaption class="text-center">Soča River</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2017/09/soca-trail-21.jpg" alt="Soča River" style="width: 512px;"/>
+    <figcaption class="text-center">Soča River</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2017/09/soca-trail-23.jpg" alt="Soča River" style="width: 512px;"/>
+    <figcaption class="text-center">Soča River</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2017/09/soca-trail-27.jpg" alt="Soča River" style="width: 512px;"/>
+    <figcaption class="text-center">Soča River</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2017/09/soca-trail-29.jpg" alt="Soča River" style="width: 512px;"/>
+    <figcaption class="text-center">Soča River</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2017/09/soca-trail-33.jpg" alt="Soča River" style="width: 512px;"/>
+    <figcaption class="text-center">Soča River</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2017/09/soca-trail-37.jpg" alt="Soča River" style="width: 512px;"/>
+    <figcaption class="text-center">Soča River</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2017/09/soca-trail-38.jpg" alt="Abandoned houses" style="width: 512px;"/>
+    <figcaption class="text-center">Abandoned houses</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2017/09/soca-trail-47.jpg" alt="Soča River" style="width: 512px;"/>
+    <figcaption class="text-center">Soča River</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2017/09/soca-trail-53.jpg" alt="Soča River" style="width: 512px;"/>
+    <figcaption class="text-center">Soča River</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2017/09/soca-trail-54.jpg" alt="Soča River" style="width: 512px;"/>
+    <figcaption class="text-center">Soča River</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2017/09/soca-trail-55.jpg" alt="Soča River" style="width: 512px;"/>
+    <figcaption class="text-center">Soča River</figcaption>
+</figure>
 
 ### Trenta
 
@@ -133,7 +212,6 @@ Possible parking spots:
 
 
 ## Vocabulary
-
 <table class="table">
     <tr>
         <th>English</th>
@@ -141,44 +219,74 @@ Possible parking spots:
         <th>Slovene</th>
     </tr>
     <tr>
-        <td>Where is ...?</td>
-        <td>Wo ist ...?</td>
-        <td>Kje je ...?</td>
+        <td lang="en">Where is ...?</td>
+        <td lang="de">Wo ist ...?</td>
+        <td lang="sl">Kje je ...?</td>
     </tr>
     <tr>
-        <td>bus stop</td>
-        <td>Bushaltestelle</td>
-        <td>avtobusna postaja</td>
+        <td lang="en">Soča-Trail</td>
+        <td lang="de">Soča-Weg</td>
+        <td lang="sl">Soška Pot</td>
     </tr>
     <tr>
-        <td>food</td>
-        <td>Essen</td>
-        <td>Hrana</td>
+        <td lang="en">Soča source</td>
+        <td lang="de">Soča-Quelle</td>
+        <td lang="sl">Izvir Soče</td>
     </tr>
     <tr>
-        <td>restaurant</td>
-        <td>Gastst&auml;tte</td>
-        <td>restavracija</td>
+        <td lang="en">Great Soča Gorge</td>
+        <td lang="de">Große Soča-Tröge</td>
+        <td lang="sl">Velika korita Soče</td>
     </tr>
     <tr>
-        <td>One</td>
-        <td>Eins</td>
-        <td>Ena</td>
+        <td lang="en">Small Soča Gorge</td>
+        <td lang="de">Kleine Soča-Tröge</td>
+        <td lang="sl">Mala korita Soče</td>
     </tr>
     <tr>
-        <td>Two</td>
-        <td>Zwei</td>
-        <td>Dva</td>
+        <td lang="en">bus stop</td>
+        <td lang="de">Bushaltestelle</td>
+        <td lang="sl">avtobusna postaja</td>
     </tr>
     <tr>
-        <td>Three</td>
-        <td>Drei</td>
-        <td>Tri</td>
+        <td lang="en">food</td>
+        <td lang="de">Essen</td>
+        <td lang="sl">Hrana</td>
     </tr>
     <tr>
-        <td>Four</td>
-        <td>Vier</td>
-        <td>&Scaron;tiri</td>
+        <td lang="en">restaurant</td>
+        <td lang="de">Gastst&auml;tte</td>
+        <td lang="sl">restavracija</td>
+    </tr>
+    <tr>
+        <td lang="en">please</td>
+        <td lang="de">bitte</td>
+        <td lang="sl">prosim</td>
+    </tr>
+    <tr>
+        <td lang="en">Thank you</td>
+        <td lang="de">Danke</td>
+        <td lang="sl">Hvala vam</td>
+    </tr>
+    <tr>
+        <td lang="en">One</td>
+        <td lang="de">Eins</td>
+        <td lang="sl">Ena</td>
+    </tr>
+    <tr>
+        <td lang="en">Two</td>
+        <td lang="de">Zwei</td>
+        <td lang="sl">Dva</td>
+    </tr>
+    <tr>
+        <td lang="en">Three</td>
+        <td lang="de">Drei</td>
+        <td lang="sl">Tri</td>
+    </tr>
+    <tr>
+        <td lang="en">Four</td>
+        <td lang="de">Vier</td>
+        <td lang="sl">&Scaron;tiri</td>
     </tr>
 </table>
 
@@ -193,6 +301,7 @@ the following will just stay in the car.
 * Water (at least 1.5L for the hike)
 * Clothes:
     * Hiking shoes
+    * Dry shoes you can leave in the car
     * Rain coat / Rain trousers
     * Sleeping clothes
     * Dry clothes for the car in case you get really wet
@@ -200,7 +309,7 @@ the following will just stay in the car.
     * Money (e.g. for having dinner on Saturday)
     * Camera (loaded batteries)
     * Smartphone + loading cable
-    * Map ([the ones from the blog](pdf/triglav-nationalpark-soca-trail-maps.pdf))
+    * Map ([the ones from the blog](../pdf/triglav-nationalpark-soca-trail-maps.pdf))
 * Sleeping bag
 * Towel
 * Hygene (toothpaste, brush, shampoo)
@@ -210,6 +319,7 @@ the following will just stay in the car.
 ## Notes
 
 * You need a vignette which costs 15 Euro for 7 days ([source](https://www.kroati.de/kroatien-infos/maut-slowenien.html))
+* For Austria might have to buy a vignette and/or road charge.
 * The Vintgar Gorge (Slovene: Soteska Vintgar) is 6&thinsp;km from the Lake
   Bled.
 * Savica Waterfall looks nice.
