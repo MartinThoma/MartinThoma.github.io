@@ -25,7 +25,16 @@ For everything except the shoes, I will do the following:
 3. Use "Fibertec Uni Pro Wash Eco Waschmittel"
 4. Put it in the dryer.
 
-Then I will use "Deichmann nässe blocker hybrid".
+Then I will use the spray "Deichmann nässe blocker hybrid".
+
+In order to test how effective the spray is, I coated a piece of paper. I
+couldn't see a difference in the paper when I put water on it, but you can
+easily see where I coated the paper:
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2017/09/impregnation-tile.jpg" alt="Impregnation of Tiles" style="width: 512px;"/>
+    <figcaption class="text-center">Impregnation of Tiles</figcaption>
+</figure>
 
 
 ## Hardshell Jackets
@@ -41,6 +50,21 @@ is transported out of the jacket).
 
 For longer hiking trips, 3&nsp;layer hardshell jackets seem to be recomendable
 as they are more breathable than the 2&nbsp;layer constructions.
+
+### What I have
+
+I have a 2 layer rain coat from "Tec Wear" / Rodeo (C &amp; A). It weights
+about 700g, has a detachable hood, two front pockets which I use for gloves.
+Additionally, it has one side front pocket and two innner pockets which I
+likely never used. The volume is hard to estimate ... probably something around
+2&nbsp;L.
+
+The seams are not welded (see [article](https://www.bergfreunde.de/basislager/technik-verschweisste-naehte/) how to do it yourself):
+
+TODO: image
+
+
+### What I looked at
 
 <table class="table">
     <thead>
