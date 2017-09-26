@@ -9,8 +9,9 @@ tags: Tools, Webservice, Development
 featured_image: logos/development.png
 ---
 Once in a while I find really useful webservices that follow the Unix
-philosophy: Do one thing only, but do it well. My collegues at Netlight helped
-me with some of them (thank you 🙂).
+philosophy: Do one thing and do it well ([source](https://en.wikipedia.org/wiki/Unix_philosophy#Do_One_Thing_and_Do_It_Well)).
+My collegues at Netlight and Johannes helped me with some of them (thank you
+🙂).
 
 
 <dl>
@@ -47,6 +48,9 @@ me with some of them (thank you 🙂).
     <dd>Create tables for HTML, LaTeX, Markdown, reStructuredText, ...</dd>
     <dt><a href="http://pep8online.com">pep8online.com</a> <span class="label label-default">Python</span></dt>
     <dd>Check a file for PEP8 complience.</dd>
+    <dt><a href="https://www.deepl.com/translate">deep.com</a></dt>
+    <dd>Translation between some common languages.<br/>
+        Alternatives: <a href="https://translate.google.com/">Google Translate</a></dd>
 </dl>
 
 If you know more, just let me know. If you know alternatives, I'm interested in
