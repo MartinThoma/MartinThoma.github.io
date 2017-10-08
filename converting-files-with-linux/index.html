@@ -173,6 +173,9 @@ as a single PDF via email. That's the way to go:</p>
 <p><b>Convert all <em>.wav-files in one folder two </em>.mp3-files and remove the *.wav-files</b>:</p>
 <div class="highlight"><pre><span></span>$ <span class="k">for</span> i in *.wav<span class="p">;</span><span class="k">do</span> lame <span class="s2">"</span><span class="nv">$i</span><span class="s2">"</span> <span class="s2">"</span><span class="si">${</span><span class="nv">i</span><span class="p">%wav</span><span class="si">}</span><span class="s2">mp3"</span><span class="p">;</span> rm <span class="s2">"</span><span class="nv">$i</span><span class="s2">"</span><span class="p">;</span> <span class="k">done</span>
 </pre></div>
+<p><b>Convert an mp3 file to a PCM wav file</b>:</p>
+<div class="highlight"><pre><span></span>$ mplayer -ao pcm:fast:waveheader:file<span class="o">=</span>output.wav -vo null -vc null input.mp3
+</pre></div>
 <p><b>Minimize file size</b>:</p>
 <div class="highlight"><pre><span></span>$ lame -b <span class="m">32</span> input.mp3 output.mp3
 </pre></div>
