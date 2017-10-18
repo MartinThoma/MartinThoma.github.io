@@ -8,6 +8,13 @@ it so far, so let's get a live working draft :-)&lt;/p&gt;
 &lt;p&gt;In this article, I assume you have data in a single CSV file. If you have
 multiple CSV files, you can &lt;a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.join.html"&gt;merge&lt;/a&gt;
 them similar to SQL &lt;code&gt;JOIN&lt;/code&gt; statements.&lt;/p&gt;
+&lt;h2 id="prerequesites"&gt;Prerequesites&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Python 3&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://pandas.pydata.org"&gt;Pandas&lt;/a&gt; (&lt;code&gt;pip install pandas&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://matplotlib.org"&gt;Matplotlib&lt;/a&gt; (&lt;code&gt;pip install matplotlib&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://seaborn.pydata.org"&gt;Seaborn&lt;/a&gt; (&lt;code&gt;pip install seaborn&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id="loading-the-data"&gt;Loading the data&lt;/h2&gt;
 &lt;p&gt;I load the data as a Pandas Dataframe first. I name this dataframe &lt;code&gt;df&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;If the CSV file is too big for RAM, I use the command line tool &lt;code&gt;head&lt;/code&gt; to crop
@@ -439,23 +446,11 @@ Name       :     891      891   Abbing, Mr. Anthony (1)
 Ticket     :     891      681   110152 (3)
 Cabin      :     204      148   A10 (1)
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;That's nice. But we also have other features.&lt;/p&gt;
-&lt;p&gt;Print the non-numeric ones:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;non_numeric = df.select_dtypes(exclude=['number'])
-for col in non_numeric:
-    print("#" * 80)
-    print(df[col].groupby(df[col]).count())
+&lt;p&gt;This is much more useful. In the process, I created a dictionary &lt;code&gt;dtypes&lt;/code&gt; which
+tells pandas as which type it should load the columns.&lt;/p&gt;
+&lt;p&gt;Also interesting:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;df.groupby(df['foo']).count()
 &lt;/pre&gt;&lt;/div&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;df.describe()&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;seaborn plots (especially joint plots)&lt;/li&gt;
-&lt;li&gt;very simple statistics of the dataset (e.g. counting how often the values appear for categorical features (df.groupby(df['foo']).count()), histograms)&lt;/li&gt;
-&lt;li&gt;Missing data: For each column, how much is there?&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Correlation between numerical features:&lt;/p&gt;
-&lt;p&gt;numerical_features = df.select_dtypes(include = ['float64', 'int64'])
-corr = numerical_features.corr()
-sns.heatmap(corr)&lt;/p&gt;
 &lt;h3 id="show-single-feature-distribution"&gt;Show single-feature distribution&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# Show histograms
 numeric_types = ['float64', 'int64', 'uint8']
@@ -485,10 +480,12 @@ plt.show()
 &lt;img alt="Correlation in Titanic data" src="../images/2017/10/titanic-correlation.png" style="width: 512px;"/&gt;
 &lt;figcaption class="text-center"&gt;Correlation in Titanic data&lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;h2 id="see-also_1"&gt;See also&lt;/h2&gt;
+&lt;h2 id="joint-plots_1"&gt;Joint plots&lt;/h2&gt;
+&lt;p&gt;See &lt;a href="https://seaborn.pydata.org/generated/seaborn.jointplot.html"&gt;&lt;code&gt;seaborn.jointplot&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Chloe Mawer, Jonathan Whitmore - &lt;a href="https://www.youtube.com/watch?v=W5WE9Db2RLU"&gt;Exploratory data analysis in python&lt;/a&gt; - PyCon 2017&lt;/li&gt;
-&lt;/ul&gt;</content><category term="CSV"></category><category term="EDA"></category><category term="Data"></category></entry><entry><title>ASR Services</title><link href="https://martin-thoma.com/asr-services/" rel="alternate"></link><published>2017-10-08T20:00:00+02:00</published><updated>2017-10-08T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-10-08:/asr-services/</id><summary type="html">&lt;p&gt;Automatic Speech Recognition (ASR) is really difficult to set up yourself.
+&lt;/ul&gt;</content><category term="CSV"></category><category term="EDA"></category><category term="Data"></category><category term="Pandas"></category></entry><entry><title>ASR Services</title><link href="https://martin-thoma.com/asr-services/" rel="alternate"></link><published>2017-10-08T20:00:00+02:00</published><updated>2017-10-08T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-10-08:/asr-services/</id><summary type="html">&lt;p&gt;Automatic Speech Recognition (ASR) is really difficult to set up yourself.
 There are some toolkits like &lt;a href="https://en.wikipedia.org/wiki/CMU_Sphinx"&gt;CMU Sphinx&lt;/a&gt;
 and &lt;a href="https://en.wikipedia.org/wiki/List_of_speech_recognition_software"&gt;others&lt;/a&gt;,
 but the last time I checked (some years ago) they either didn't really work or

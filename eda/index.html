@@ -14,7 +14,7 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="CSV, EDA, Data, Machine Learning, " />
+<meta name="keywords" content="CSV, EDA, Data, Pandas, Machine Learning, " />
 
 <meta property="og:title" content="Exploratory Data Analysis "/>
 <meta property="og:url" content="../eda/" />
@@ -103,7 +103,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#loading-the-data" title="Loading the data">Loading the data</a></li><li><a class="toc-href" href="#how-many-datapoints-do-we-have" title="How many datapoints do we have?">How many datapoints do we have?</a></li><li><a class="toc-href" href="#which-columns-do-we-have" title="Which columns do we have?">Which columns do we have?</a><ul><li><a class="toc-href" href="#show-single-feature-distribution" title="Show single-feature distribution">Show single-feature distribution</a></li><li><a class="toc-href" href="#find-correlations" title="Find correlations">Find correlations</a></li></ul></li><li><a class="toc-href" href="#see-also_1" title="See also">See also</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#prerequesites" title="Prerequesites">Prerequesites</a></li><li><a class="toc-href" href="#loading-the-data" title="Loading the data">Loading the data</a></li><li><a class="toc-href" href="#how-many-datapoints-do-we-have" title="How many datapoints do we have?">How many datapoints do we have?</a></li><li><a class="toc-href" href="#which-columns-do-we-have" title="Which columns do we have?">Which columns do we have?</a><ul><li><a class="toc-href" href="#show-single-feature-distribution" title="Show single-feature distribution">Show single-feature distribution</a></li><li><a class="toc-href" href="#find-correlations" title="Find correlations">Find correlations</a></li></ul></li><li><a class="toc-href" href="#joint-plots_1" title="Joint plots">Joint plots</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -114,6 +114,13 @@ it so far, so let's get a live working draft :-)</p>
 <p>In this article, I assume you have data in a single CSV file. If you have
 multiple CSV files, you can <a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.join.html">merge</a>
 them similar to SQL <code>JOIN</code> statements.</p>
+<h2 id="prerequesites">Prerequesites</h2>
+<ul>
+<li>Python 3</li>
+<li><a href="http://pandas.pydata.org">Pandas</a> (<code>pip install pandas</code>)</li>
+<li><a href="https://matplotlib.org">Matplotlib</a> (<code>pip install matplotlib</code>)</li>
+<li><a href="https://seaborn.pydata.org">Seaborn</a> (<code>pip install seaborn</code>)</li>
+</ul>
 <h2 id="loading-the-data">Loading the data</h2>
 <p>I load the data as a Pandas Dataframe first. I name this dataframe <code>df</code>.</p>
 <p>If the CSV file is too big for RAM, I use the command line tool <code>head</code> to crop
@@ -545,23 +552,11 @@ Name       :     891      891   Abbing, Mr. Anthony (1)
 Ticket     :     891      681   110152 (3)
 Cabin      :     204      148   A10 (1)
 </pre></div>
-<p>That's nice. But we also have other features.</p>
-<p>Print the non-numeric ones:</p>
-<div class="highlight"><pre><span></span>non_numeric = df.select_dtypes(exclude=['number'])
-for col in non_numeric:
-    print("#" * 80)
-    print(df[col].groupby(df[col]).count())
+<p>This is much more useful. In the process, I created a dictionary <code>dtypes</code> which
+tells pandas as which type it should load the columns.</p>
+<p>Also interesting:</p>
+<div class="highlight"><pre><span></span>df.groupby(df['foo']).count()
 </pre></div>
-<ul>
-<li><code>df.describe()</code></li>
-<li>seaborn plots (especially joint plots)</li>
-<li>very simple statistics of the dataset (e.g. counting how often the values appear for categorical features (df.groupby(df['foo']).count()), histograms)</li>
-<li>Missing data: For each column, how much is there?</li>
-</ul>
-<p>Correlation between numerical features:</p>
-<p>numerical_features = df.select_dtypes(include = ['float64', 'int64'])
-corr = numerical_features.corr()
-sns.heatmap(corr)</p>
 <h3 id="show-single-feature-distribution">Show single-feature distribution</h3>
 <div class="highlight"><pre><span></span># Show histograms
 numeric_types = ['float64', 'int64', 'uint8']
@@ -591,7 +586,9 @@ plt.show()
 <img alt="Correlation in Titanic data" src="../images/2017/10/titanic-correlation.png" style="width: 512px;"/>
 <figcaption class="text-center">Correlation in Titanic data</figcaption>
 </figure>
-<h2 id="see-also_1">See also</h2>
+<h2 id="joint-plots_1">Joint plots</h2>
+<p>See <a href="https://seaborn.pydata.org/generated/seaborn.jointplot.html"><code>seaborn.jointplot</code></a></p>
+<h2 id="see-also">See also</h2>
 <ul>
 <li>Chloe Mawer, Jonathan Whitmore - <a href="https://www.youtube.com/watch?v=W5WE9Db2RLU">Exploratory data analysis in python</a> - PyCon 2017</li>
 </ul>
@@ -634,6 +631,9 @@ plt.show()
                     <span>4</span>
 </a></li>
                 <li><a href="../tags.html#eda-ref">EDA
+                    <span>1</span>
+</a></li>
+                <li><a href="../tags.html#pandas-ref">Pandas
                     <span>1</span>
 </a></li>
             </ul>
