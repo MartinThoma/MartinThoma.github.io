@@ -103,7 +103,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#ideas" title="Ideas">Ideas</a></li><li><a class="toc-href" href="#comparisons" title="Comparisons">Comparisons</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#ideas" title="Ideas">Ideas</a></li><li><a class="toc-href" href="#comparisons" title="Comparisons">Comparisons</a><ul><li><a class="toc-href" href="#cartpole-v0" title="CartPole-v0">CartPole-v0</a></li><li><a class="toc-href" href="#other" title="Other">Other</a></li></ul></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -155,6 +155,124 @@ MathJax.Hub.Queue(function() {
 <dd>Initialize the Q-Function $Q: \mathcal{X} \times \mathcal{A} \rightarrow \mathbb{R}$</dd>
 </dl>
 <h2 id="comparisons">Comparisons</h2>
+<p>The <a href="https://github.com/MartinThoma/algorithms/blob/master/ML/rl/">Code is on Github</a>.</p>
+<h3 id="cartpole-v0">CartPole-v0</h3>
+<p>The <a href="https://gym.openai.com/envs/CartPole-v0/"><code>CartPole-v0</code></a> environemnt has
+2 actions: move the paddle to the right or to the left. A reward of +1 is given
+is the pole is upright. The episode is finished when the pole is more than
+15 degrees from vertical or moves more than 2.4 units from the center.</p>
+<p>CartPole-v0 defines "solving" as getting average reward of 195.0 over 100
+consecutive trials.</p>
+<table class="table">
+<tr>
+<th>Agent</th>
+<th>NN Parameters</th>
+<th>Configuration</th>
+<th>Time</th>
+<th>Test reward</th>
+</tr>
+<tr>
+<td>CEM</td>
+<td>10</td>
+<td>steps=1000</td>
+<td>9s</td>
+<td>mean= 9.49, std= 0.79, min= 8.00, max=11.00</td>
+</tr>
+<tr>
+<td>CEM</td>
+<td>10</td>
+<td>(default)</td>
+<td>39s</td>
+<td>mean=77.14, std=44.18, min=41.00, max=200.00</td>
+</tr>
+<tr>
+<td>CEM</td>
+<td>10</td>
+<td>steps=100000</td>
+<td>284s</td>
+<td>mean=106.21, std=19.99, min=71.00, max=185.00</td>
+</tr>
+<tr>
+<td>CEM</td>
+<td>658</td>
+<td>steps=1000, bigger NN</td>
+<td>10s</td>
+<td>mean= 9.47, std= 0.79, min= 8.00, max=11.00</td>
+</tr>
+<tr>
+<td>CEM</td>
+<td>658</td>
+<td>steps=10000, bigger NN</td>
+<td>60s</td>
+<td>mean=200.00, std= 0.00, min=200.00, max=200.00</td>
+</tr>
+</table>
+<p>The bigger NN is</p>
+<div class="highlight"><pre><span></span>model = Sequential()
+model.add(Flatten(input_shape=input_shape))
+model.add(Dense(16))
+model.add(Activation('relu'))
+model.add(Dense(16))
+model.add(Activation('relu'))
+model.add(Dense(16))
+model.add(Activation('relu'))
+model.add(Dense(nb_actions))
+model.add(Activation('softmax'))
+</pre></div>
+<p>Ok, so the bigger network is important. Also, 1000 training steps are not
+enough, but 10000 are. Let's see if we can reduce the episode memory. The
+episode memory is what is used for training.</p>
+<table>
+<tr>
+<th>Agent</th>
+<th>EpisodeParameterMemory</th>
+<th>Time</th>
+<th>Test reward</th>
+</tr>
+<tr>
+<td>CEM</td>
+<td>1000</td>
+<td>60s</td>
+<td>mean=200.00, std= 0.00, min=200.00, max=200.00</td>
+</tr>
+<tr>
+<td>CEM</td>
+<td>500</td>
+<td>65s</td>
+<td>&nbsp;mean=200.00, std= 0.00, min=200.00, max=200.00</td>
+</tr>
+<tr>
+<td>CEM</td>
+<td>450</td>
+<td>68s</td>
+<td>mean=200.00, std= 0.00, min=200.00, max=200.00</td>
+</tr>
+<tr>
+<td>CEM</td>
+<td>400</td>
+<td>59s</td>
+<td>mean=200.00, std= 0.00, min=200.00, max=200.00</td>
+</tr>
+<tr>
+<td>CEM</td>
+<td>300</td>
+<td>51s</td>
+<td>mean=103.73, std=37.07, min=55.00, max=200.00</td>
+</tr>
+<tr>
+<td>CEM</td>
+<td>200</td>
+<td>38s</td>
+<td>mean=34.22, std= 6.75, min=17.00, max=52.00</td>
+</tr>
+<tr>
+<td>CEM</td>
+<td>100</td>
+<td>56s</td>
+<td>mean=82.77, std=25.05, min=32.00, max=172.00</td>
+</tr>
+</table>
+<h3 id="other">Other</h3>
 <ul>
 <li><a href="https://www.nature.com/articles/nature14236/tables/4">Comparison of DQN performance with linear function approximator</a></li>
 </ul>

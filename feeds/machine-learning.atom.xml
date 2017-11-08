@@ -79,6 +79,124 @@
 &lt;dd&gt;Initialize the Q-Function $Q: \mathcal{X} \times \mathcal{A} \rightarrow \mathbb{R}$&lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h2 id="comparisons"&gt;Comparisons&lt;/h2&gt;
+&lt;p&gt;The &lt;a href="https://github.com/MartinThoma/algorithms/blob/master/ML/rl/"&gt;Code is on Github&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id="cartpole-v0"&gt;CartPole-v0&lt;/h3&gt;
+&lt;p&gt;The &lt;a href="https://gym.openai.com/envs/CartPole-v0/"&gt;&lt;code&gt;CartPole-v0&lt;/code&gt;&lt;/a&gt; environemnt has
+2 actions: move the paddle to the right or to the left. A reward of +1 is given
+is the pole is upright. The episode is finished when the pole is more than
+15 degrees from vertical or moves more than 2.4 units from the center.&lt;/p&gt;
+&lt;p&gt;CartPole-v0 defines "solving" as getting average reward of 195.0 over 100
+consecutive trials.&lt;/p&gt;
+&lt;table class="table"&gt;
+&lt;tr&gt;
+&lt;th&gt;Agent&lt;/th&gt;
+&lt;th&gt;NN Parameters&lt;/th&gt;
+&lt;th&gt;Configuration&lt;/th&gt;
+&lt;th&gt;Time&lt;/th&gt;
+&lt;th&gt;Test reward&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CEM&lt;/td&gt;
+&lt;td&gt;10&lt;/td&gt;
+&lt;td&gt;steps=1000&lt;/td&gt;
+&lt;td&gt;9s&lt;/td&gt;
+&lt;td&gt;mean= 9.49, std= 0.79, min= 8.00, max=11.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CEM&lt;/td&gt;
+&lt;td&gt;10&lt;/td&gt;
+&lt;td&gt;(default)&lt;/td&gt;
+&lt;td&gt;39s&lt;/td&gt;
+&lt;td&gt;mean=77.14, std=44.18, min=41.00, max=200.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CEM&lt;/td&gt;
+&lt;td&gt;10&lt;/td&gt;
+&lt;td&gt;steps=100000&lt;/td&gt;
+&lt;td&gt;284s&lt;/td&gt;
+&lt;td&gt;mean=106.21, std=19.99, min=71.00, max=185.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CEM&lt;/td&gt;
+&lt;td&gt;658&lt;/td&gt;
+&lt;td&gt;steps=1000, bigger NN&lt;/td&gt;
+&lt;td&gt;10s&lt;/td&gt;
+&lt;td&gt;mean= 9.47, std= 0.79, min= 8.00, max=11.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CEM&lt;/td&gt;
+&lt;td&gt;658&lt;/td&gt;
+&lt;td&gt;steps=10000, bigger NN&lt;/td&gt;
+&lt;td&gt;60s&lt;/td&gt;
+&lt;td&gt;mean=200.00, std= 0.00, min=200.00, max=200.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;The bigger NN is&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;model = Sequential()
+model.add(Flatten(input_shape=input_shape))
+model.add(Dense(16))
+model.add(Activation('relu'))
+model.add(Dense(16))
+model.add(Activation('relu'))
+model.add(Dense(16))
+model.add(Activation('relu'))
+model.add(Dense(nb_actions))
+model.add(Activation('softmax'))
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ok, so the bigger network is important. Also, 1000 training steps are not
+enough, but 10000 are. Let's see if we can reduce the episode memory. The
+episode memory is what is used for training.&lt;/p&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Agent&lt;/th&gt;
+&lt;th&gt;EpisodeParameterMemory&lt;/th&gt;
+&lt;th&gt;Time&lt;/th&gt;
+&lt;th&gt;Test reward&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CEM&lt;/td&gt;
+&lt;td&gt;1000&lt;/td&gt;
+&lt;td&gt;60s&lt;/td&gt;
+&lt;td&gt;mean=200.00, std= 0.00, min=200.00, max=200.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CEM&lt;/td&gt;
+&lt;td&gt;500&lt;/td&gt;
+&lt;td&gt;65s&lt;/td&gt;
+&lt;td&gt;&amp;nbsp;mean=200.00, std= 0.00, min=200.00, max=200.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CEM&lt;/td&gt;
+&lt;td&gt;450&lt;/td&gt;
+&lt;td&gt;68s&lt;/td&gt;
+&lt;td&gt;mean=200.00, std= 0.00, min=200.00, max=200.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CEM&lt;/td&gt;
+&lt;td&gt;400&lt;/td&gt;
+&lt;td&gt;59s&lt;/td&gt;
+&lt;td&gt;mean=200.00, std= 0.00, min=200.00, max=200.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CEM&lt;/td&gt;
+&lt;td&gt;300&lt;/td&gt;
+&lt;td&gt;51s&lt;/td&gt;
+&lt;td&gt;mean=103.73, std=37.07, min=55.00, max=200.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CEM&lt;/td&gt;
+&lt;td&gt;200&lt;/td&gt;
+&lt;td&gt;38s&lt;/td&gt;
+&lt;td&gt;mean=34.22, std= 6.75, min=17.00, max=52.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CEM&lt;/td&gt;
+&lt;td&gt;100&lt;/td&gt;
+&lt;td&gt;56s&lt;/td&gt;
+&lt;td&gt;mean=82.77, std=25.05, min=32.00, max=172.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;h3 id="other"&gt;Other&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.nature.com/articles/nature14236/tables/4"&gt;Comparison of DQN performance with linear function approximator&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content><category term="Reinforcement Learning"></category></entry><entry><title>Exploratory Data Analysis</title><link href="https://martin-thoma.com/eda/" rel="alternate"></link><published>2017-10-18T20:00:00+02:00</published><updated>2017-10-18T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-10-18:/eda/</id><summary type="html">&lt;p&gt;Getting insights from data is exciting. I think I didn't write anything about
