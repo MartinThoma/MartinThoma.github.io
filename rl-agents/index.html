@@ -103,7 +103,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#twitter-style-explanations" title="Twitter-Style Explanations">Twitter-Style Explanations</a></li><li><a class="toc-href" href="#comparisons" title="Comparisons">Comparisons</a><ul><li><a class="toc-href" href="#cartpole-v0" title="CartPole-v0">CartPole-v0</a></li><li><a class="toc-href" href="#other" title="Other">Other</a></li></ul></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#twitter-style-explanations" title="Twitter-Style Explanations">Twitter-Style Explanations</a></li><li><a class="toc-href" href="#comparisons" title="Comparisons">Comparisons</a><ul><li><a class="toc-href" href="#cartpole-v0" title="CartPole-v0">CartPole-v0</a></li><li><a class="toc-href" href="#cartpole-v1" title="CartPole-v1">CartPole-v1</a></li><li><a class="toc-href" href="#other" title="Other">Other</a></li></ul></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -120,7 +120,7 @@ MathJax.Hub.Queue(function() {
 <td><abbr title="State-Action-Reward-State-Action">SARSA</abbr></td>
 <td>discrete or continuous</td>
 <td>discrete</td>
-<td><abbr title="Reinforcement learning: An introduction">Sutton and Barto, 2011</abbr>, <a href="https://martin-thoma.com/probabilistische-planung/#sarsa">Blog Post</a></td>
+<td><a href="http://incompleteideas.net/sutton/book/the-book-2nd.html"><abbr title="Reinforcement learning: An introduction">Sutton and Barto, 2011</abbr></a>, <a href="https://martin-thoma.com/probabilistische-planung/#sarsa">Blog Post</a></td>
 </tr>
 <tr>
 <td><abbr title="Deep Q-Networks">DQN</abbr></td>
@@ -150,7 +150,8 @@ MathJax.Hub.Queue(function() {
 <h2 id="twitter-style-explanations">Twitter-Style Explanations</h2>
 <dl>
 <dt>DQN</dt>
-<dd>Like Q-Learning, but find the states by a neural network (?)</dd>
+<dd>Like Q-Learning, but represent the current q-function by a neural
+        network as function approximator.</dd>
 <dt>SARSA</dt>
 <dd>Initialize the Q-Function $Q: \mathcal{X} \times \mathcal{A} \rightarrow \mathbb{R}$ randomly, adjust it by time. See [Pseudocode](https://martin-thoma.com/probabilistische-planung/#sarsa)</dd>
 <dt>DDPG</dt>
@@ -185,7 +186,7 @@ consecutive trials.</p>
 <tr>
 <td>CEM</td>
 <td>10</td>
-<td>(default)</td>
+<td>(default, steps=10000)</td>
 <td>39s</td>
 <td>mean=77.14, std=44.18, min=41.00, max=200.00</td>
 </tr>
@@ -199,7 +200,7 @@ consecutive trials.</p>
 <tr>
 <td>CEM</td>
 <td>658</td>
-<td>(default)</td>
+<td>bigger NN</td>
 <td>60s</td>
 <td>mean=42.61, std=36.36, min=10.00, max=200.00</td>
 </tr>
@@ -233,7 +234,7 @@ model.add(Activation('softmax'))
 <p>Ok, so the bigger network is important. Also, 1000 training steps are not
 enough, but 10000 are. Let's see if we can reduce the episode memory. The
 episode memory is what is used for training.</p>
-<table>
+<table class="table">
 <tr>
 <th>Agent</th>
 <th>EpisodeParameterMemory</th>
@@ -281,6 +282,27 @@ episode memory is what is used for training.</p>
 <td>100</td>
 <td>56s</td>
 <td>mean=82.77, std=25.05, min=32.00, max=172.00</td>
+</tr>
+</table>
+<h3 id="cartpole-v1">CartPole-v1</h3>
+<table class="table">
+<tr>
+<th>Agent</th>
+<th>Config</th>
+<th>Time</th>
+<th>Test reward</th>
+</tr>
+<tr>
+<td>CEM</td>
+<td>(default)</td>
+<td>100s</td>
+<td>mean=461.70, std=66.26, min=264.00, max=500.00</td>
+</tr>
+<tr>
+<td>DQN</td>
+<td>(default)</td>
+<td>30s</td>
+<td>mean=10.62, std= 4.31, min= 8.00, max=30.00</td>
 </tr>
 </table>
 <h3 id="other">Other</h3>
