@@ -13,22 +13,15 @@ Enjoy the clips!
 
 
 <h2>Dirt Devil</h2>
-<iframe src="http://player.vimeo.com/video/22984504?title=0&amp;byline=0&amp;portrait=0" width="512" height="288" frameborder="0"></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/aGb8pMIeY6w" frameborder="0" allowfullscreen></iframe>
 
-<h2>
-Berlitz</h2>
-<iframe width="512" height="414" src="//www.youtube.com/embed/pMhICbFn2JI" frameborder="0" allowfullscreen></iframe>
+<h2>Berlitz</h2>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/yR0lWICH3rY?start=3" frameborder="0" allowfullscreen></iframe>
 
-<h2>
-Nando's</h2>
-<iframe width="512" height="321" src="//www.youtube.com/embed/jsqosiEyGLs" frameborder="0" allowfullscreen></iframe>
-
-<h2>
-IKEA - Tidy Up</h2>
+<h2>IKEA - Tidy Up</h2>
 <iframe width="512" height="414" src="//www.youtube.com/embed/WzMuax75s3M" frameborder="0" allowfullscreen></iframe>
 
-<h2>
-Ameriquest</h2>
+<h2>Ameriquest</h2>
 <iframe width="512" height="414" src="//www.youtube.com/embed/QOixDP-SdKw" frameborder="0" allowfullscreen></iframe>
 Don't judge too fast!
 
@@ -36,18 +29,8 @@ Don't judge too fast!
 Optician</h2>
 <iframe width="512" height="414" src="//www.youtube.com/embed/RV6MZHRE3jU" frameborder="0" allowfullscreen></iframe>
 
-<h2>
-CPS</h2>
+<h2>CPS</h2>
 <iframe width="512" height="321" src="//www.youtube.com/embed/M_DCFHqVBIE" frameborder="0" allowfullscreen></iframe>
-
-<h2>
-Kellogs</h2>
-<iframe src="http://player.vimeo.com/video/8670278?title=0&amp;byline=0&amp;portrait=0" width="512" height="288" frameborder="0"></iframe>
-
-<h2>
-RWE</h2>
-After a lot of criticism in Germany for beein environmental unfriendly because of operating nuclear power plants, RWE seems to have created this commercial:
-<iframe src="http://player.vimeo.com/video/6209117?title=0&amp;byline=0&amp;portrait=0" width="512" height="290" frameborder="0"></iframe>
 
 <h2>
 Other Blogposts</h2>
