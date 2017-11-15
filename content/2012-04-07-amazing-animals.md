@@ -32,15 +32,15 @@ The <a href="http://en.wikipedia.org/wiki/Mimic_Octopus">mimic octopus</a> has a
 <iframe width="512" height="377" src="//www.youtube.com/embed/VjE0Kdfos4Y" frameborder="0" allowfullscreen></iframe>
 A Lyrebirds are most notable for their <strong>superb ability to mimic natural and artificial sounds</strong> from their environment. Lyrebirds have unique plumes of neutral coloured tailfeathers.
 
-<h2>Chimpanzee</h2>
-<iframe width="512" height="290" src="//www.youtube.com/embed/zJAH4ZJBiN8" frameborder="0" allowfullscreen></iframe>
+<h2>Clever Chimp</h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/gWBw5LetplE" frameborder="0" allowfullscreen></iframe>
 
 <h2>Ants</h2>
 <iframe width="512" height="384" src="//www.youtube.com/embed/lFg21x2sj-M" frameborder="0" allowfullscreen></iframe>
 
 <h2>Individuals</h2>
 <h3>Einstein le perroquet</h3>
-<iframe width="512" height="377" src="//www.youtube.com/embed/GRUgjMGLr5g" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/nbrTOcUnjNY" frameborder="0" allowfullscreen></iframe>
 
 <h3>Dog, Cat and Rat</h3>
 <iframe width="512" height="290" src="//www.youtube.com/embed/D85yrIgA4Nk" frameborder="0" allowfullscreen></iframe>
@@ -49,4 +49,4 @@ A Lyrebirds are most notable for their <strong>superb ability to mimic natural a
 <iframe width="512" height="377" src="//www.youtube.com/embed/MLssW7lyzxw" frameborder="0" allowfullscreen></iframe>
 
 <h3>Cat gets caught barking</h3>
-<iframe width="512" height="377" src="//www.youtube.com/embed/aP3gzee1cps" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0NYMkxA3cnU" frameborder="0" allowfullscreen></iframe>
