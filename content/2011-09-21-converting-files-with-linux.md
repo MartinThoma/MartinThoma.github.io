@@ -131,6 +131,12 @@ $ mp3wrap merged.mp3 one.mp3 two.mp3
 $ for i in *.wav;do lame "$i" "${i%wav}mp3"; rm "$i"; done
 ```
 
+<b>Convert an mp3 file to a PCM wav file</b>:
+
+```bash
+$ mplayer -ao pcm:fast:waveheader:file=output.wav -vo null -vc null input.mp3
+```
+
 <b>Minimize file size</b>:
 
 ```bash
