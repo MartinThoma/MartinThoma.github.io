@@ -4,7 +4,7 @@ title: KogSys-Klausur
 author: Martin Thoma
 date: 2013-04-19 20:38:47.000000000 +02:00
 category: German posts
-tags: Klausur, KogSys
+tags: Klausur, KogSys, ASR
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesung &bdquo;Kognitive Systeme&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei Herrn Dr. Waibel im Sommersemester 2013 geh&ouml;rt.</div>
