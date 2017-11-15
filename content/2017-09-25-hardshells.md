@@ -189,3 +189,4 @@ TODO: image
 * [Wetterschutz für unterwegs: Hardshell-Test 2017](http://www.outdoor-magazin.com/test/jacken/preiswerte-hardshelljacken-2017.1684440.3.htm)
 * [How to Choose the Best Hardshell Jacket](https://www.outdoorgearlab.com/topics/clothing-mens/best-hardshell-jacket/buying-advice)
 * [GORE-TEX Wash Tutorial](https://www.youtube.com/watch?v=I4N6ZuKTZ_c): Wash it often!
+* [Regenjacke & Regenhose waschen](http://www.scandics.de/regenjacke-tipps-beratung/regenjacke-waschen/)
