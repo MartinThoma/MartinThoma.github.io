@@ -103,7 +103,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#know-your-problem" title="Know your problem">Know your problem</a></li><li><a class="toc-href" href="#eda" title="EDA">EDA</a></li><li><a class="toc-href" href="#project-structure" title="Project structure">Project structure</a></li><li><a class="toc-href" href="#configuration-files" title="Configuration files">Configuration files</a></li><li><a class="toc-href" href="#starting-small" title="Starting small">Starting small</a></li><li><a class="toc-href" href="#logging-to-files" title="Logging to files">Logging to files</a></li><li><a class="toc-href" href="#create-a-trivial-solution" title="Create a Trivial Solution">Create a Trivial Solution</a></li><li><a class="toc-href" href="#evaluation" title="Evaluation">Evaluation</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#know-your-problem" title="Know your problem">Know your problem</a></li><li><a class="toc-href" href="#eda" title="EDA">EDA</a></li><li><a class="toc-href" href="#project-structure" title="Project structure">Project structure</a></li><li><a class="toc-href" href="#configuration-files" title="Configuration files">Configuration files</a></li><li><a class="toc-href" href="#starting-small" title="Starting small">Starting small</a></li><li><a class="toc-href" href="#logging-to-files" title="Logging to files">Logging to files</a></li><li><a class="toc-href" href="#create-a-trivial-solution" title="Create a Trivial Solution">Create a Trivial Solution</a></li><li><a class="toc-href" href="#evaluation" title="Evaluation">Evaluation</a></li><li><a class="toc-href" href="#make-it-reproducible" title="Make it reproducible">Make it reproducible</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -125,7 +125,9 @@ as measured by P, improves with experience E.</p>
 looks like. Which errors can be expected to be in the data? How is it
 distributed?</p>
 <p>For CSV files, I wrote the <a href="https://martin-thoma.com/eda/">Exploratory Data Analysis</a>
-article.</p>
+article. Usually, this starts with having a look at examples and making some
+graphs. EDA depends on what kind of data you have and which problem you want to
+solve. I will not go into detail in this post.</p>
 <h2 id="project-structure">Project structure</h2>
 <div class="highlight"><pre><span></span>.
 ├── artifacts
@@ -385,9 +387,12 @@ break.</p>
 <ul>
 <li>You close the terminal accidentially.</li>
 <li>Your computer freezes.</li>
+<li>Your you is cancelled from the cluster by the admin, just a couple of minutes
+  before it would finish.</li>
+<li>Your model at some point diverges.</li>
 </ul>
-<p>All of this has happened to me. Make sure that you log results to a file when
-you have really long running scripts. Store those files in the <code>artifacts/</code>
+<p>For this reason, you should make sure that you log results to a file when you
+have really long running scripts. Store those files in the <code>artifacts/</code>
 directory.</p>
 <h2 id="create-a-trivial-solution">Create a Trivial Solution</h2>
 <p>Most machine learning projects have trivial, simple and advanced solutions. For
@@ -455,6 +460,11 @@ a pre-defined threshold, e.g.</p>
 <li>Cross-Entropy</li>
 <li>...</li>
 </ul>
+<h2 id="make-it-reproducible">Make it reproducible</h2>
+<p>Set seeds for all random number generators. And log on which hardware / with
+which software version you executed your stuff.</p>
+<p>The reason for this is simply that you can proof you actually got the results
+you have. Or at least point to a reason why you can't get the results again.</p>
             
             <div id="disqus_thread"></div>
 <script>
