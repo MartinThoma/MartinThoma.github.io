@@ -8,8 +8,9 @@ category: Machine Learning
 tags: Machine Learning
 featured_image: logos/ml.png
 ---
-I've did a couple of machine learning projects so far and there are some
-patterns in the projects which turned out to be good ideas.
+I did a couple of machine learning projects so far and there are some patterns
+in the projects which turned out to be good ideas. In this post, I would like
+to share those patterns with you.
 
 
 ## Know your problem
@@ -30,7 +31,9 @@ looks like. Which errors can be expected to be in the data? How is it
 distributed?
 
 For CSV files, I wrote the [Exploratory Data Analysis](https://martin-thoma.com/eda/)
-article.
+article. Usually, this starts with having a look at examples and making some
+graphs. EDA depends on what kind of data you have and which problem you want to
+solve. I will not go into detail in this post.
 
 
 ## Project structure
@@ -218,9 +221,12 @@ Even if your script is working, you can make other mistakes:
 
 * You close the terminal accidentially.
 * Your computer freezes.
+* Your you is cancelled from the cluster by the admin, just a couple of minutes
+  before it would finish.
+* Your model at some point diverges.
 
-All of this has happened to me. Make sure that you log results to a file when
-you have really long running scripts. Store those files in the `artifacts/`
+For this reason, you should make sure that you log results to a file when you
+have really long running scripts. Store those files in the `artifacts/`
 directory.
 
 
@@ -297,3 +303,12 @@ a pre-defined threshold, e.g.
 * Precision, Recall, <abbr title="Mean Squared Error">MSE</abbr>
 * Cross-Entropy
 * ...
+
+
+## Make it reproducible
+
+Set seeds for all random number generators. And log on which hardware / with
+which software version you executed your stuff.
+
+The reason for this is simply that you can proof you actually got the results
+you have. Or at least point to a reason why you can't get the results again.
