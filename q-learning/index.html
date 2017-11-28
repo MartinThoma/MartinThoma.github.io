@@ -185,8 +185,11 @@ training:
   nb_epochs: 100000
   learning_rate: 0.7  # alpha
   print_score: 500  # each 500 episodes
+  exploration:
+    name: 'Boltzmann'
+    clip: [-500, 500]
 testing:
-  nb_epochs: 100
+  nb_epochs: 10000
 </pre></div>
 <p>Now the code:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
@@ -433,7 +436,28 @@ testing:
 242
 243
 244
-245</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="sd">"""Q-Table Reinforcement Learning agent."""</span>
@@ -454,6 +478,7 @@ testing:
 <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">format</span><span class="o">=</span><span class="s1">'</span><span class="si">%(asctime)s</span><span class="s1"> </span><span class="si">%(levelname)s</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">'</span><span class="p">,</span>
                     <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
                     <span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">formatter</span><span class="o">=</span><span class="p">{</span><span class="s1">'float_kind'</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">"{:.2f}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">)})</span>
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">environment_name</span><span class="p">,</span> <span class="n">agent_cfg_file</span><span class="p">):</span>
@@ -496,8 +521,10 @@ testing:
         <span class="bp">self</span><span class="o">.</span><span class="n">lr</span> <span class="o">=</span> <span class="n">agent_cfg</span><span class="p">[</span><span class="s1">'training'</span><span class="p">][</span><span class="s1">'learning_rate'</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">gamma</span> <span class="o">=</span> <span class="n">agent_cfg</span><span class="p">[</span><span class="s1">'problem'</span><span class="p">][</span><span class="s1">'gamma'</span><span class="p">]</span>  <span class="c1"># discount</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">epoch</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">exploration</span> <span class="o">=</span> <span class="n">agent_cfg</span><span class="p">[</span><span class="s1">'training'</span><span class="p">][</span><span class="s1">'exploration'</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">"""Reset the agent. Call this at the beginning of an episode."""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">epoch</span> <span class="o">+=</span> <span class="mi">1</span>
 
     <span class="k">def</span> <span class="nf">act</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observation</span><span class="p">,</span> <span class="n">no_exploration</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
@@ -508,14 +535,27 @@ testing:
 <span class="sd">        ----------</span>
 <span class="sd">        observation : int</span>
 <span class="sd">        no_exploration : bool, optional (default: False)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        action : int</span>
 <span class="sd">        """</span>
         <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">epoch</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"Reset before you run an episode."</span>
-        <span class="k">if</span> <span class="n">no_exploration</span><span class="p">:</span>
-            <span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nb_act</span><span class="p">))</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">epoch</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span>
-            <span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nb_act</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">f</span><span class="p">)</span>
-        <span class="n">action</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Q</span><span class="p">[</span><span class="n">observation</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+</span> <span class="n">noise</span><span class="p">)</span>
+        <span class="n">action</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Q</span><span class="p">[</span><span class="n">observation</span><span class="p">,</span> <span class="p">:])</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">no_exploration</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">exploration</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'epsilon-greedy'</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">()</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">exploration</span><span class="p">[</span><span class="s1">'epsilon'</span><span class="p">]:</span>
+                    <span class="n">action</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nb_act</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">exploration</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'Boltzmann'</span><span class="p">:</span>
+                <span class="n">T</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="n">clip</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exploration</span><span class="p">[</span><span class="s1">'clip'</span><span class="p">]</span>
+                <span class="n">q_values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Q</span><span class="p">[</span><span class="n">observation</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'float64'</span><span class="p">)</span>
+                <span class="n">q_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">q_values</span> <span class="o">/</span> <span class="n">T</span><span class="p">,</span> <span class="n">clip</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">clip</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                <span class="n">exp_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">q_values</span><span class="p">)</span>
+                <span class="n">probs</span> <span class="o">=</span> <span class="n">exp_values</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">exp_values</span><span class="p">)</span>
+                <span class="n">action</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nb_act</span><span class="p">),</span> <span class="n">p</span><span class="o">=</span><span class="n">probs</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="bp">NotImplemented</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">exploration</span><span class="p">[</span><span class="s1">'name'</span><span class="p">])</span>
         <span class="k">return</span> <span class="n">action</span>
 
     <span class="k">def</span> <span class="nf">remember</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prev_state</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">is_done</span><span class="p">):</span>
@@ -529,11 +569,10 @@ testing:
 <span class="sd">        reward : float</span>
 <span class="sd">        state : int</span>
 <span class="sd">        """</span>
-        <span class="n">gradient</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="n">reward</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">gamma</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Q</span><span class="p">[</span><span class="n">state</span><span class="p">,</span> <span class="p">:])</span> <span class="o">-</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">Q</span><span class="p">[</span><span class="n">prev_state</span><span class="p">,</span> <span class="n">action</span><span class="p">]</span>
-        <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">Q</span><span class="p">[</span><span class="n">prev_state</span><span class="p">,</span> <span class="n">action</span><span class="p">]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lr</span> <span class="o">*</span> <span class="n">gradient</span>
+        <span class="n">delta</span> <span class="o">=</span> <span class="n">reward</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">Q</span><span class="p">[</span><span class="n">prev_state</span><span class="p">,</span> <span class="n">action</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">is_done</span><span class="p">:</span>
+            <span class="n">delta</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gamma</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Q</span><span class="p">[</span><span class="n">state</span><span class="p">,</span> <span class="p">:])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Q</span><span class="p">[</span><span class="n">prev_state</span><span class="p">,</span> <span class="n">action</span><span class="p">]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lr</span> <span class="o">*</span> <span class="n">delta</span>
         <span class="k">return</span> <span class="bp">self</span>
 
     <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
@@ -554,7 +593,14 @@ testing:
 
 
 <span class="k">def</span> <span class="nf">load_agent</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
-    <span class="sd">"""Create (and load) a QTableAgent."""</span>
+    <span class="sd">"""</span>
+<span class="sd">    Create (and load) a QTableAgent.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    cfg : dict</span>
+<span class="sd">    env : OpenAI environment</span>
+<span class="sd">    """</span>
     <span class="n">agent</span> <span class="o">=</span> <span class="n">QTableAgent</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">observation_space</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">action_space</span><span class="o">.</span><span class="n">n</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">cfg</span><span class="p">[</span><span class="s1">'serialize_path'</span><span class="p">]):</span>
         <span class="n">agent</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">cfg</span><span class="p">[</span><span class="s1">'serialize_path'</span><span class="p">])</span>
@@ -576,7 +622,7 @@ testing:
 <span class="sd">    ------</span>
 <span class="sd">    agent : object</span>
 <span class="sd">    """</span>
-    <span class="n">cum_rewards</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">cum_reward</span> <span class="o">=</span> <span class="mf">0.0</span>
     <span class="k">for</span> <span class="n">episode</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cfg</span><span class="p">[</span><span class="s1">'training'</span><span class="p">][</span><span class="s1">'nb_epochs'</span><span class="p">]):</span>
         <span class="n">agent</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
         <span class="n">observation_previous</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
@@ -584,14 +630,15 @@ testing:
         <span class="k">while</span> <span class="ow">not</span> <span class="n">is_done</span><span class="p">:</span>
             <span class="n">action</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">act</span><span class="p">(</span><span class="n">observation_previous</span><span class="p">)</span>
             <span class="n">observation</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">is_done</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
-            <span class="n">cum_rewards</span> <span class="o">+=</span> <span class="n">reward</span>
+            <span class="n">cum_reward</span> <span class="o">+=</span> <span class="n">reward</span>
             <span class="n">agent</span><span class="o">.</span><span class="n">remember</span><span class="p">(</span><span class="n">observation_previous</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">observation</span><span class="p">,</span>
                            <span class="n">is_done</span><span class="p">)</span>
             <span class="n">observation_previous</span> <span class="o">=</span> <span class="n">observation</span>
-        <span class="n">agent</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">cfg</span><span class="p">[</span><span class="s1">'serialize_path'</span><span class="p">])</span>
         <span class="k">if</span> <span class="n">episode</span> <span class="o">%</span> <span class="n">cfg</span><span class="p">[</span><span class="s1">'training'</span><span class="p">][</span><span class="s1">'print_score'</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">episode</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">agent</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">cfg</span><span class="p">[</span><span class="s1">'serialize_path'</span><span class="p">])</span>
             <span class="k">print</span><span class="p">(</span><span class="s2">"Average score: {:&gt;5.2f}"</span>
-                  <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cum_rewards</span> <span class="o">/</span> <span class="p">(</span><span class="n">episode</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)))</span>
+                  <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cum_reward</span> <span class="o">/</span> <span class="p">(</span><span class="n">episode</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)))</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">agent</span><span class="o">.</span><span class="n">Q</span><span class="p">)</span>
     <span class="n">agent</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">cfg</span><span class="p">[</span><span class="s1">'serialize_path'</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">agent</span>
 
@@ -599,17 +646,15 @@ testing:
 <span class="k">def</span> <span class="nf">test_agent</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">agent</span><span class="p">):</span>
     <span class="sd">"""Calculate average reward."""</span>
     <span class="n">cum_reward</span> <span class="o">=</span> <span class="mf">0.0</span>
-    <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cfg</span><span class="p">[</span><span class="s1">'testing'</span><span class="p">][</span><span class="s1">'nb_epochs'</span><span class="p">]):</span>
+    <span class="k">for</span> <span class="n">episode</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cfg</span><span class="p">[</span><span class="s1">'testing'</span><span class="p">][</span><span class="s1">'nb_epochs'</span><span class="p">]):</span>
         <span class="n">agent</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
         <span class="n">observation_previous</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
-        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">is_done</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="k">while</span> <span class="ow">not</span> <span class="n">is_done</span><span class="p">:</span>
             <span class="n">action</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">act</span><span class="p">(</span><span class="n">observation_previous</span><span class="p">,</span> <span class="n">no_exploration</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
             <span class="n">observation</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">is_done</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
             <span class="n">cum_reward</span> <span class="o">+=</span> <span class="n">reward</span>
             <span class="n">observation_previous</span> <span class="o">=</span> <span class="n">observation</span>
-            <span class="k">if</span> <span class="n">is_done</span><span class="p">:</span>
-                <span class="n">env</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-                <span class="k">break</span>
     <span class="k">return</span> <span class="n">cum_reward</span> <span class="o">/</span> <span class="n">cfg</span><span class="p">[</span><span class="s1">'testing'</span><span class="p">][</span><span class="s1">'nb_epochs'</span><span class="p">]</span>
 
 
@@ -691,32 +736,32 @@ testing:
 <tr>
 <td>FrozenLake-v0</td>
 <td>qlearning.yaml</td>
-<td>122s</td>
-<td>0.50</td>
+<td>50s</td>
+<td>0.166</td>
 </tr>
 <tr>
 <td>FrozenLake-v0</td>
 <td>q-lr10.yaml</td>
 <td>48s</td>
-<td>0.118</td>
+<td>0.743</td>
 </tr>
 <tr>
 <td>FrozenLake-v0</td>
 <td>q-lr90.yaml</td>
-<td>157s</td>
-<td>0.555</td>
+<td>48s</td>
+<td>0.156</td>
 </tr>
 <tr>
 <td>CliffWalking-v0</td>
-<td>q-lr90.yaml</td>
-<td>46s</td>
+<td>q-lr10.yaml</td>
+<td>128s</td>
 <td>-13.000</td>
 </tr>
 <tr>
 <td>FrozenLake8x8-v0</td>
-<td>q-lr90.yaml</td>
-<td>390s</td>
-<td>0.264</td>
+<td>q-lr10.yaml</td>
+<td>179s</td>
+<td>0.569</td>
 </tr>
 <tr>
 <td>NChain-v0</td>
@@ -726,37 +771,37 @@ testing:
 </tr>
 <tr>
 <td>OneRoundDeterministicReward-v0</td>
-<td>q-lr90.yaml</td>
-<td>16s</td>
+<td>q-lr10.yaml</td>
+<td>5s</td>
 <td>1.00</td>
 </tr>
 <tr>
 <td>OneRoundNondeterministicReward-v0</td>
-<td>q-lr90.yaml</td>
-<td>18s</td>
-<td>2.005</td>
+<td>q-lr10.yaml</td>
+<td>6s</td>
+<td>2.475</td>
 </tr>
 <tr>
 <td>Roulette-v0</td>
-<td>q-lr90.yaml</td>
-<td>18s</td>
-<td>0.000</td>
+<td>q-lr10.yaml</td>
+<td>533s</td>
+<td>-2.764</td>
 </tr>
 <tr>
 <td>Taxi-v2</td>
-<td>q-lr90.yaml</td>
-<td>TODO</td>
-<td>TODO</td>
+<td>q-lr10.yaml</td>
+<td>68s</td>
+<td>8.471</td>
 </tr>
 <tr>
 <td>TwoRoundDeterministicReward-v0</td>
-<td>q-lr90.yaml</td>
-<td>18s</td>
+<td>q-lr10.yaml</td>
+<td>10s</td>
 <td>3.000</td>
 </tr>
 <tr>
 <td>TwoRoundNondeterministicReward-v0</td>
-<td>q-lr90.yaml</td>
+<td>q-lr10.yaml</td>
 <td>ERROR</td>
 <td>ERROR</td>
 </tr>
@@ -764,6 +809,7 @@ testing:
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="https://github.com/dennybritz/reinforcement-learning">dennybritz/reinforcement-learning</a></li>
+<li>Tijsma, Drugan, Wiering: <a href="http://www.ai.rug.nl/~mwiering/GROUP/ARTICLES/Exploration_QLearning.pdf">Comparing Exploration Strategies for Q-learning in Random Stochastic Mazes</a></li>
 </ul>
             
             <div id="disqus_thread"></div>
