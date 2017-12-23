@@ -174,6 +174,11 @@ in Summer when the water evaporates (Image source: <a href="https://commons.wiki
     <figcaption class="text-center">Machu Picchu, from April - October. Basically, not within the rain season (Image Source: <a href="https://commons.wikimedia.org/wiki/File:95_-_Machu_Picchu_-_Juin_2009.jpg">Wikipedia Commons, Martin St-Amant</a>)</figcaption>
 </figure>
 
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2017/12/Cusco_Rainbow_Mountain.jpg" alt="Cusco Rainbow Mountain" style="width: 512px;"/>
+    <figcaption class="text-center"><a href="https://en.wikipedia.org/wiki/Vinicunca">Vinicunca</a>, Cusco Rainbow Mountain (Image by <a href="https://commons.wikimedia.org/wiki/File:Cusco_Rainbow_Mountain.jpg">Glendora de Valo</a>)</figcaption>
+</figure>
+
 ### Venezuela
 
 <figure class="wp-caption aligncenter img-thumbnail">
