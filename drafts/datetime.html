@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Python, date, time, datetime, Code, " />
+
+<meta property="og:title" content="Datetime "/>
+<meta property="og:url" content="../drafts/datetime.html" />
+<meta property="og:description" content="Specifying a point in time is a pretty common task. And it is extraordinary difficult. Lets have a look at the different ways to specify a point in time. Imagine the following scenario: We record some events, e.g. actions of a credit card user. In case of potential fraud …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2018-01-27T20:00:00+01:00" />
+<meta name="twitter:title" content="Datetime ">
+<meta name="twitter:description" content="Specifying a point in time is a pretty common task. And it is extraordinary difficult. Lets have a look at the different ways to specify a point in time. Imagine the following scenario: We record some events, e.g. actions of a credit card user. In case of potential fraud …">
+<meta property="og:image" content="logos/python.png" />
+<meta name="twitter:image" content="logos/python.png" >
+
+        <title>Datetime  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../drafts/datetime.html"> Datetime  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#unix-time" title="Unix Time">Unix Time</a></li><li><a class="toc-href" href="#calendar-systems" title="Calendar systems">Calendar systems</a></li><li><a class="toc-href" href="#falsehood-programmer-beliefies" title="Falsehood Programmer beliefies">Falsehood Programmer beliefies</a></li><li><a class="toc-href" href="#python" title="Python">Python</a></li><li><a class="toc-href" href="#javascript" title="JavaScript">JavaScript</a></li><li><a class="toc-href" href="#php5" title="PHP5">PHP5</a></li><li><a class="toc-href" href="#footnotes" title="Footnotes">Footnotes</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>Specifying a point in time is a pretty common task. And it is extraordinary
+difficult. Lets have a look at the different ways to specify a point in time.</p>
+<p>Imagine the following scenario: We record some events, e.g. actions of a credit
+card user. In case of potential fraud, an automatic system locks the card and a
+human has a look at the actions and times. The human monitoring system requests
+all data related to this credit card user. Of course, most if it has time
+stamps. As it is another system, the time has to be transfered from the
+recording system to the monitoring system. And it might well be that one does
+not want to give direct database access but rather a REST-like API endpoint.
+Thus the way to serialize the datetime has to be a string.</p>
+<p>Now... how do you encode a datetime to a string?</p>
+<h2 id="unix-time">Unix Time</h2>
+<p>The Unix Time is the number of seconds that have elapsed since 00:00:00
+Coordinated Universal Time (UTC), Thursday, 1 January 1970, minus the number
+of leap seconds that have taken place since then.</p>
+<p>Problems:</p>
+<ul>
+<li><span style="color: red;">⊝</span> Not human-readable</li>
+<li><span style="color: red;">⊝</span> <a href="https://en.wikipedia.org/wiki/Year_2038_problem">Year 2038 problem</a> for 32-bit systems.</li>
+<li><span style="color: red;">⊝</span> Everything before the 1st of January in 1970 is not representable</li>
+</ul>
+<p>Especially the last point is a killer criterium against Unix time in many
+applications.</p>
+<h2 id="calendar-systems">Calendar systems</h2>
+<p>Most countries use the <a href="https://en.wikipedia.org/wiki/Gregorian_calendar">Gregorian calendar</a>
+today,<sup>[<a href="#ref-1" name="ref-1-anchor">1</a>]</sup> so the type of
+calendar is at least something we don't have to worry about. But then the problems begin.
+I thought <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> would be a simple,
+human-readable, unabiguous format that looks like this:</p>
+<div class="highlight"><pre><span></span>2018-01-27T16:45:01+00:00
+2018-01-27T16:45:01+00:00
+1990-12-31T23:59:59+00:00
+</pre></div>
+<p>So the TL;DR about ISO 8601:</p>
+<ul>
+<li><span style="color: green;">&oplus;</span> Lexicographical ordering is also
+  the ordering by time.</li>
+<li><span style="color: green;">&oplus;</span> It is human readable</li>
+<li><span style="color: red;">⊝</span> ISO 8601 does not only have
+  <code>2018-01-27T16:45:01+00:00</code> but also <code>2018-01-27T16:45:01Z</code> and
+  <code>20180127T164501Z</code> were Z means Zero offset for UTC. So there are multiple
+  representations for the same point in time.</li>
+<li><span style="color: red;">⊝</span> Anything before
+  <code>0000-01-01T00:00:00+00:00</code> is not representable.<sup>[<a href="#ref-2" name="ref-2-anchor">2</a>]</sup></li>
+</ul>
+<h2 id="falsehood-programmer-beliefies">Falsehood Programmer beliefies</h2>
+<ul>
+<li>Months have either 30 or 31 days.<ul>
+<li>False! You forgot February.</li>
+</ul>
+</li>
+<li>Years have 365 days.<ul>
+<li>False! You forgot February again! There are <a href="https://en.wikipedia.org/wiki/Leap_year">leap years</a>.</li>
+</ul>
+</li>
+<li>A given geographic point (e.g. a city) has always the same time zone.<ul>
+<li>False! You forgot <a href="https://en.wikipedia.org/wiki/Daylight_saving_time">DST</a>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="python">Python</h2>
+<p>Let's check that with Python:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
+
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">ValueError</span><span class="p">:</span> <span class="n">year</span> <span class="ow">is</span> <span class="n">out</span> <span class="n">of</span> <span class="nb">range</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
+<span class="s1">'0001-11-01T00:00:00'</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">9999</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
+<span class="s1">'9999-11-01T00:00:00'</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">99999</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">ValueError</span><span class="p">:</span> <span class="n">year</span> <span class="ow">is</span> <span class="n">out</span> <span class="n">of</span> <span class="nb">range</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">24</span><span class="p">)</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
+<span class="s1">'2017-12-24T00:00:00'</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
+<span class="s1">'2017-12-24T00:00:00+00:00'</span>
+
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">24</span><span class="p">)</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
+    <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+      <span class="n">File</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="ne">TypeError</span><span class="p">:</span> <span class="n">can</span><span class="s1">'t subtract offset-naive and offset-aware datetimes</span>
+
+<span class="c1">## Parsing stuff</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s1">'0020-11-01T00:00:00'</span><span class="p">,</span> <span class="s1">'%Y-%m-</span><span class="si">%d</span><span class="s1">T%H:%M:%S'</span><span class="p">)</span>
+<span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+<p>By now, <a href="https://stackoverflow.com/questions/tagged/datetime-parsing+python">Datetime parsing with Python</a> is usually done like this:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dateutil</span> <span class="kn">import</span> <span class="n">parser</span> <span class="k">as</span> <span class="n">dateparser</span>
+
+<span class="n">date_obj</span> <span class="o">=</span> <span class="n">dateparser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">"Tue May 08 15:14:45 +0800 2012"</span><span class="p">)</span>
+</pre></div>
+<p>Things that are unintuitive for me:</p>
+<ul>
+<li><span style="color: red;">⊝</span> Why don't all datetime objects have
+  timezone information? (See <a href="https://stackoverflow.com/q/48478879/562769">SO question</a>)</li>
+<li><span style="color: red;">⊝</span> Python can create a format it can't consume again.</li>
+</ul>
+<p>See also:</p>
+<ul>
+<li><a href="http://strftime.org">Python's strftime directives</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tz_database">Olson database</a></li>
+<li><a href="https://www.python.org/dev/peps/pep-0321/">PEP 321</a>: Date/Time Parsing and Formatting</li>
+<li><a href="https://www.python.org/dev/peps/pep-0431/">PEP 431</a>: Time zone support improvements (Withdrawn)</li>
+<li><a href="https://pypi.python.org/pypi/pytz"><code>pytz</code></a>: In case you need anything for time zones</li>
+<li><a href="https://howchoo.com/g/ywi5m2vkodk/working-with-datetime-objects-and-timezones-in-python">Working with datetime objects and timezones in Python</a></li>
+</ul>
+<h2 id="javascript">JavaScript</h2>
+<div class="highlight"><pre><span></span>var d = new Date();
+console.log(d.toJSON());
+</pre></div>
+<p>gives <code>2018-01-27T22:51:17.691Z</code>. So it is a ISO 8601 datetime with miliseconds
+and zero offset. Nice!</p>
+<p>You can also find this in the <a href="http://www.ecma-international.org/ecma-262/5.1/#sec-15.9.1.15">ECMA specification</a>:</p>
+<blockquote>
+<p>ECMAScript defines a string interchange format for date-times based upon a
+simplification of the ISO 8601 Extended Format. The format is as follows:</p>
+<p>YYYY-MM-DDTHH:mm:ss.sssZ</p>
+</blockquote>
+<h2 id="php5">PHP5</h2>
+<div class="highlight"><pre><span></span>$ php -a
+Interactive mode enabled
+
+php &gt; <span class="nv">$dt</span> <span class="o">=</span> new DateTime<span class="o">()</span><span class="p">;</span>
+php &gt; <span class="nb">echo</span> <span class="nv">$dt</span>-&gt;format<span class="o">(</span>DateTime::ATOM<span class="o">)</span><span class="p">;</span>
+<span class="m">2018</span>-01-27T23:58:12+01:00
+</pre></div>
+<p>You can see that PHP gives you the ISO 8601 string with the zone offset, but
+not the milliseconds.</p>
+<h2 id="footnotes">Footnotes</h2>
+<ul>
+<li>[<a href="#ref-1-anchor" name="ref-1">1</a>] I've heard the <a href="https://en.wikipedia.org/wiki/Islamic_calendar">Islamic calendar</a> is used in Saudi Arabia.</li>
+<li>[<a href="#ref-2-anchor" name="ref-2">2</a>] Or only by mutual agreement... which is the same as breaking the standard, if you ask me.</li>
+</ul>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2018-01-27T20:00:00+01:00">Jan 27, 2018</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#date-ref">date
+</a></li>
+                <li><a href="../tags.html#datetime-ref">datetime
+</a></li>
+                <li><a href="../tags.html#python-ref">Python
+                    <span>83</span>
+</a></li>
+                <li><a href="../tags.html#time-ref">time
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
