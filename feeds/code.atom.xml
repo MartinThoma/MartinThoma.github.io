@@ -1,5 +1,156 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Code</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/code.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-10-18T20:00:00+02:00</updated><entry><title>Python Projects</title><link href="https://martin-thoma.com/python-projects/" rel="alternate"></link><published>2018-10-18T20:00:00+02:00</published><updated>2018-10-18T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-10-18:/python-projects/</id><summary type="html">&lt;p&gt;I recently thought a bit about what makes software good. Not from a functional
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Code</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/code.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-01-27T20:00:00+01:00</updated><entry><title>Datetime</title><link href="https://martin-thoma.com/datetime/" rel="alternate"></link><published>2018-01-27T20:00:00+01:00</published><updated>2018-01-27T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-01-27:/datetime/</id><summary type="html">&lt;p&gt;Specifying a point in time is a pretty common task. And it is extraordinary
+difficult. Lets have a look at the different ways to specify a point in time.&lt;/p&gt;
+&lt;p&gt;Imagine the following scenario: We record some events, e.g. actions of a credit
+card user. In case of potential fraud …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Specifying a point in time is a pretty common task. And it is extraordinary
+difficult. Lets have a look at the different ways to specify a point in time.&lt;/p&gt;
+&lt;p&gt;Imagine the following scenario: We record some events, e.g. actions of a credit
+card user. In case of potential fraud, an automatic system locks the card and a
+human has a look at the actions and times. The human monitoring system requests
+all data related to this credit card user. Of course, most if it has time
+stamps. As it is another system, the time has to be transfered from the
+recording system to the monitoring system. And it might well be that one does
+not want to give direct database access but rather a REST-like API endpoint.
+Thus the way to serialize the datetime has to be a string.&lt;/p&gt;
+&lt;p&gt;Now... how do you encode a datetime to a string?&lt;/p&gt;
+&lt;h2 id="unix-time"&gt;Unix Time&lt;/h2&gt;
+&lt;p&gt;The Unix Time is the number of seconds that have elapsed since 00:00:00
+Coordinated Universal Time (UTC), Thursday, 1 January 1970, minus the number
+of leap seconds that have taken place since then.&lt;/p&gt;
+&lt;p&gt;Problems:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span style="color: red;"&gt;⊝&lt;/span&gt; Not human-readable&lt;/li&gt;
+&lt;li&gt;&lt;span style="color: red;"&gt;⊝&lt;/span&gt; &lt;a href="https://en.wikipedia.org/wiki/Year_2038_problem"&gt;Year 2038 problem&lt;/a&gt; for 32-bit systems.&lt;/li&gt;
+&lt;li&gt;&lt;span style="color: red;"&gt;⊝&lt;/span&gt; Everything before the 1st of January in 1970 is not representable&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Especially the last point is a killer criterium against Unix time in many
+applications.&lt;/p&gt;
+&lt;h2 id="calendar-systems"&gt;Calendar systems&lt;/h2&gt;
+&lt;p&gt;Most countries use the &lt;a href="https://en.wikipedia.org/wiki/Gregorian_calendar"&gt;Gregorian calendar&lt;/a&gt;
+today,&lt;sup&gt;[&lt;a href="#ref-1" name="ref-1-anchor"&gt;1&lt;/a&gt;]&lt;/sup&gt; so the type of
+calendar is at least something we don't have to worry about. But then the problems begin.
+I thought &lt;a href="https://en.wikipedia.org/wiki/ISO_8601"&gt;ISO 8601&lt;/a&gt; would be a simple,
+human-readable, unabiguous format that looks like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;2018-01-27T16:45:01+00:00
+2018-01-27T16:45:01+00:00
+1990-12-31T23:59:59+00:00
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;But due to leap seconds / days and due to changes in timezones I'm pretty sure
+there is one point in time which has two different ISO 8601 time stamps. Please
+let me know in the comments if you see one (best if it can be shown with some
+programming languages).&lt;/p&gt;
+&lt;p&gt;So the TL;DR about ISO 8601:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span style="color: green;"&gt;&amp;oplus;&lt;/span&gt; Lexicographical ordering is also
+  the ordering by time.&lt;/li&gt;
+&lt;li&gt;&lt;span style="color: green;"&gt;&amp;oplus;&lt;/span&gt; It is human readable&lt;/li&gt;
+&lt;li&gt;&lt;span style="color: red;"&gt;⊝&lt;/span&gt; ISO 8601 does not only have
+  &lt;code&gt;2018-01-27T16:45:01+00:00&lt;/code&gt; but also &lt;code&gt;2018-01-27T16:45:01Z&lt;/code&gt; and
+  &lt;code&gt;20180127T164501Z&lt;/code&gt; were Z means Zero offset for UTC. So there are multiple
+  representations for the same point in time.&lt;/li&gt;
+&lt;li&gt;&lt;span style="color: red;"&gt;⊝&lt;/span&gt; Anything before
+  &lt;code&gt;0000-01-01T00:00:00+00:00&lt;/code&gt; is not representable.&lt;sup&gt;[&lt;a href="#ref-2" name="ref-2-anchor"&gt;2&lt;/a&gt;]&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="falsehood-programmer-beliefies"&gt;Falsehood Programmer beliefies&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Months have either 30 or 31 days.&lt;ul&gt;
+&lt;li&gt;False! You forgot February.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Years have 365 days.&lt;ul&gt;
+&lt;li&gt;False! You forgot February again! There are &lt;a href="https://en.wikipedia.org/wiki/Leap_year"&gt;leap years&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;A given geographic point (e.g. a city) has always the same time zone.&lt;ul&gt;
+&lt;li&gt;False! You forgot &lt;a href="https://en.wikipedia.org/wiki/Daylight_saving_time"&gt;DST&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="python"&gt;Python&lt;/h2&gt;
+&lt;p&gt;Let's check that with Python:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;datetime&lt;/span&gt;
+
+
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;isoformat&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;Traceback&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;most&lt;/span&gt; &lt;span class="n"&gt;recent&lt;/span&gt; &lt;span class="n"&gt;call&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+  &lt;span class="n"&gt;File&lt;/span&gt; &lt;span class="s2"&gt;"&amp;lt;stdin&amp;gt;"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="ne"&gt;ValueError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="n"&gt;out&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;isoformat&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="s1"&gt;'0001-11-01T00:00:00'&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;9999&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;isoformat&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="s1"&gt;'9999-11-01T00:00:00'&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;99999&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;isoformat&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;Traceback&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;most&lt;/span&gt; &lt;span class="n"&gt;recent&lt;/span&gt; &lt;span class="n"&gt;call&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+  &lt;span class="n"&gt;File&lt;/span&gt; &lt;span class="s2"&gt;"&amp;lt;stdin&amp;gt;"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="ne"&gt;ValueError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="n"&gt;out&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2017&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;isoformat&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="s1"&gt;'2017-12-24T00:00:00'&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2017&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;tzinfo&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;timezone&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;utc&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;isoformat&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="s1"&gt;'2017-12-24T00:00:00+00:00'&lt;/span&gt;
+
+    &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2017&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2017&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;tzinfo&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;timezone&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;utc&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;
+    &lt;span class="n"&gt;Traceback&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;most&lt;/span&gt; &lt;span class="n"&gt;recent&lt;/span&gt; &lt;span class="n"&gt;call&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="n"&gt;File&lt;/span&gt; &lt;span class="s2"&gt;"&amp;lt;stdin&amp;gt;"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="ne"&gt;TypeError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;can&lt;/span&gt;&lt;span class="s1"&gt;'t subtract offset-naive and offset-aware datetimes&lt;/span&gt;
+
+&lt;span class="c1"&gt;## Parsing stuff&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;strptime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'0020-11-01T00:00:00'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'%Y-%m-&lt;/span&gt;&lt;span class="si"&gt;%d&lt;/span&gt;&lt;span class="s1"&gt;T%H:%M:%S'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;By now, &lt;a href="https://stackoverflow.com/questions/tagged/datetime-parsing+python"&gt;Datetime parsing with Python&lt;/a&gt; is usually done like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;dateutil&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;parser&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;dateparser&lt;/span&gt;
+
+&lt;span class="n"&gt;date_obj&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dateparser&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;parse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Tue May 08 15:14:45 +0800 2012"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Things that are unintuitive for me:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span style="color: red;"&gt;⊝&lt;/span&gt; Why don't all datetime objects have
+  timezone information? (See &lt;a href="https://stackoverflow.com/q/48478879/562769"&gt;SO question&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;span style="color: red;"&gt;⊝&lt;/span&gt; Python can create a format it can't consume again.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;See also:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://strftime.org"&gt;Python's strftime directives&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Tz_database"&gt;Olson database&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.python.org/dev/peps/pep-0321/"&gt;PEP 321&lt;/a&gt;: Date/Time Parsing and Formatting&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.python.org/dev/peps/pep-0431/"&gt;PEP 431&lt;/a&gt;: Time zone support improvements (Withdrawn)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pypi.python.org/pypi/pytz"&gt;&lt;code&gt;pytz&lt;/code&gt;&lt;/a&gt;: In case you need anything for time zones&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://howchoo.com/g/ywi5m2vkodk/working-with-datetime-objects-and-timezones-in-python"&gt;Working with datetime objects and timezones in Python&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="javascript"&gt;JavaScript&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;var d = new Date();
+console.log(d.toJSON());
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;gives &lt;code&gt;2018-01-27T22:51:17.691Z&lt;/code&gt;. So it is a ISO 8601 datetime with miliseconds
+and zero offset. Nice!&lt;/p&gt;
+&lt;p&gt;You can also find this in the &lt;a href="http://www.ecma-international.org/ecma-262/5.1/#sec-15.9.1.15"&gt;ECMA specification&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ECMAScript defines a string interchange format for date-times based upon a
+simplification of the ISO 8601 Extended Format. The format is as follows:&lt;/p&gt;
+&lt;p&gt;YYYY-MM-DDTHH:mm:ss.sssZ&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="php5"&gt;PHP5&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ php -a
+Interactive mode enabled
+
+php &amp;gt; &lt;span class="nv"&gt;$dt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; new DateTime&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+php &amp;gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$dt&lt;/span&gt;-&amp;gt;format&lt;span class="o"&gt;(&lt;/span&gt;DateTime::ATOM&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="m"&gt;2018&lt;/span&gt;-01-27T23:58:12+01:00
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You can see that PHP gives you the ISO 8601 string with the zone offset, but
+not the milliseconds.&lt;/p&gt;
+&lt;h2 id="footnotes"&gt;Footnotes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;[&lt;a href="#ref-1-anchor" name="ref-1"&gt;1&lt;/a&gt;] I've heard the &lt;a href="https://en.wikipedia.org/wiki/Islamic_calendar"&gt;Islamic calendar&lt;/a&gt; is used in Saudi Arabia.&lt;/li&gt;
+&lt;li&gt;[&lt;a href="#ref-2-anchor" name="ref-2"&gt;2&lt;/a&gt;] Or only by mutual agreement... which is the same as breaking the standard, if you ask me.&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Python"></category><category term="date"></category><category term="time"></category><category term="datetime"></category></entry><entry><title>Python Projects</title><link href="https://martin-thoma.com/python-projects/" rel="alternate"></link><published>2018-01-18T20:00:00+01:00</published><updated>2018-01-18T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-01-18:/python-projects/</id><summary type="html">&lt;p&gt;I recently thought a bit about what makes software good. Not from a functional
 perspective, but from a developers perspective. As I did quite some work with
 data science, machine learning and Python my view is a bit biased. Having said
 that, here is my personal "best practices" guide.&lt;/p&gt;
@@ -270,158 +421,7 @@ have to explain things, there might be a couple of reasons for it:&lt;/p&gt;
 &lt;h3 id="outdated-dependencies"&gt;Outdated dependencies&lt;/h3&gt;
 &lt;p&gt;Check your dependencies with &lt;code&gt;piprot requirements.txt&lt;/code&gt;.&lt;/p&gt;
 &lt;h3 id="bad-package-structure"&gt;Bad package structure&lt;/h3&gt;
-&lt;p&gt;Check your package with &lt;a href="https://github.com/regebro/pyroma"&gt;&lt;code&gt;pyroma .&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;</content><category term="Architecture"></category><category term="Software Development"></category><category term="Python"></category></entry><entry><title>Datetime</title><link href="https://martin-thoma.com/datetime/" rel="alternate"></link><published>2018-01-27T20:00:00+01:00</published><updated>2018-01-27T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-01-27:/datetime/</id><summary type="html">&lt;p&gt;Specifying a point in time is a pretty common task. And it is extraordinary
-difficult. Lets have a look at the different ways to specify a point in time.&lt;/p&gt;
-&lt;p&gt;Imagine the following scenario: We record some events, e.g. actions of a credit
-card user. In case of potential fraud …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Specifying a point in time is a pretty common task. And it is extraordinary
-difficult. Lets have a look at the different ways to specify a point in time.&lt;/p&gt;
-&lt;p&gt;Imagine the following scenario: We record some events, e.g. actions of a credit
-card user. In case of potential fraud, an automatic system locks the card and a
-human has a look at the actions and times. The human monitoring system requests
-all data related to this credit card user. Of course, most if it has time
-stamps. As it is another system, the time has to be transfered from the
-recording system to the monitoring system. And it might well be that one does
-not want to give direct database access but rather a REST-like API endpoint.
-Thus the way to serialize the datetime has to be a string.&lt;/p&gt;
-&lt;p&gt;Now... how do you encode a datetime to a string?&lt;/p&gt;
-&lt;h2 id="unix-time"&gt;Unix Time&lt;/h2&gt;
-&lt;p&gt;The Unix Time is the number of seconds that have elapsed since 00:00:00
-Coordinated Universal Time (UTC), Thursday, 1 January 1970, minus the number
-of leap seconds that have taken place since then.&lt;/p&gt;
-&lt;p&gt;Problems:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;span style="color: red;"&gt;⊝&lt;/span&gt; Not human-readable&lt;/li&gt;
-&lt;li&gt;&lt;span style="color: red;"&gt;⊝&lt;/span&gt; &lt;a href="https://en.wikipedia.org/wiki/Year_2038_problem"&gt;Year 2038 problem&lt;/a&gt; for 32-bit systems.&lt;/li&gt;
-&lt;li&gt;&lt;span style="color: red;"&gt;⊝&lt;/span&gt; Everything before the 1st of January in 1970 is not representable&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Especially the last point is a killer criterium against Unix time in many
-applications.&lt;/p&gt;
-&lt;h2 id="calendar-systems"&gt;Calendar systems&lt;/h2&gt;
-&lt;p&gt;Most countries use the &lt;a href="https://en.wikipedia.org/wiki/Gregorian_calendar"&gt;Gregorian calendar&lt;/a&gt;
-today,&lt;sup&gt;[&lt;a href="#ref-1" name="ref-1-anchor"&gt;1&lt;/a&gt;]&lt;/sup&gt; so the type of
-calendar is at least something we don't have to worry about. But then the problems begin.
-I thought &lt;a href="https://en.wikipedia.org/wiki/ISO_8601"&gt;ISO 8601&lt;/a&gt; would be a simple,
-human-readable, unabiguous format that looks like this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;2018-01-27T16:45:01+00:00
-2018-01-27T16:45:01+00:00
-1990-12-31T23:59:59+00:00
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;But due to leap seconds / days and due to changes in timezones I'm pretty sure
-there is one point in time which has two different ISO 8601 time stamps. Please
-let me know in the comments if you see one (best if it can be shown with some
-programming languages).&lt;/p&gt;
-&lt;p&gt;So the TL;DR about ISO 8601:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;span style="color: green;"&gt;&amp;oplus;&lt;/span&gt; Lexicographical ordering is also
-  the ordering by time.&lt;/li&gt;
-&lt;li&gt;&lt;span style="color: green;"&gt;&amp;oplus;&lt;/span&gt; It is human readable&lt;/li&gt;
-&lt;li&gt;&lt;span style="color: red;"&gt;⊝&lt;/span&gt; ISO 8601 does not only have
-  &lt;code&gt;2018-01-27T16:45:01+00:00&lt;/code&gt; but also &lt;code&gt;2018-01-27T16:45:01Z&lt;/code&gt; and
-  &lt;code&gt;20180127T164501Z&lt;/code&gt; were Z means Zero offset for UTC. So there are multiple
-  representations for the same point in time.&lt;/li&gt;
-&lt;li&gt;&lt;span style="color: red;"&gt;⊝&lt;/span&gt; Anything before
-  &lt;code&gt;0000-01-01T00:00:00+00:00&lt;/code&gt; is not representable.&lt;sup&gt;[&lt;a href="#ref-2" name="ref-2-anchor"&gt;2&lt;/a&gt;]&lt;/sup&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="falsehood-programmer-beliefies"&gt;Falsehood Programmer beliefies&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Months have either 30 or 31 days.&lt;ul&gt;
-&lt;li&gt;False! You forgot February.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Years have 365 days.&lt;ul&gt;
-&lt;li&gt;False! You forgot February again! There are &lt;a href="https://en.wikipedia.org/wiki/Leap_year"&gt;leap years&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;A given geographic point (e.g. a city) has always the same time zone.&lt;ul&gt;
-&lt;li&gt;False! You forgot &lt;a href="https://en.wikipedia.org/wiki/Daylight_saving_time"&gt;DST&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="python"&gt;Python&lt;/h2&gt;
-&lt;p&gt;Let's check that with Python:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;datetime&lt;/span&gt;
-
-
-&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;isoformat&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="n"&gt;Traceback&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;most&lt;/span&gt; &lt;span class="n"&gt;recent&lt;/span&gt; &lt;span class="n"&gt;call&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-  &lt;span class="n"&gt;File&lt;/span&gt; &lt;span class="s2"&gt;"&amp;lt;stdin&amp;gt;"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="ne"&gt;ValueError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="n"&gt;out&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;
-
-&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;isoformat&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="s1"&gt;'0001-11-01T00:00:00'&lt;/span&gt;
-
-&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;9999&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;isoformat&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="s1"&gt;'9999-11-01T00:00:00'&lt;/span&gt;
-
-&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;99999&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;isoformat&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="n"&gt;Traceback&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;most&lt;/span&gt; &lt;span class="n"&gt;recent&lt;/span&gt; &lt;span class="n"&gt;call&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-  &lt;span class="n"&gt;File&lt;/span&gt; &lt;span class="s2"&gt;"&amp;lt;stdin&amp;gt;"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="ne"&gt;ValueError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="n"&gt;out&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;
-
-&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2017&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;isoformat&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="s1"&gt;'2017-12-24T00:00:00'&lt;/span&gt;
-
-&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2017&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;tzinfo&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;timezone&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;utc&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;isoformat&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="s1"&gt;'2017-12-24T00:00:00+00:00'&lt;/span&gt;
-
-    &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2017&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2017&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;tzinfo&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;timezone&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;utc&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;
-    &lt;span class="n"&gt;Traceback&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;most&lt;/span&gt; &lt;span class="n"&gt;recent&lt;/span&gt; &lt;span class="n"&gt;call&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-      &lt;span class="n"&gt;File&lt;/span&gt; &lt;span class="s2"&gt;"&amp;lt;stdin&amp;gt;"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class="ne"&gt;TypeError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;can&lt;/span&gt;&lt;span class="s1"&gt;'t subtract offset-naive and offset-aware datetimes&lt;/span&gt;
-
-&lt;span class="c1"&gt;## Parsing stuff&lt;/span&gt;
-&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;strptime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'0020-11-01T00:00:00'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'%Y-%m-&lt;/span&gt;&lt;span class="si"&gt;%d&lt;/span&gt;&lt;span class="s1"&gt;T%H:%M:%S'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;By now, &lt;a href="https://stackoverflow.com/questions/tagged/datetime-parsing+python"&gt;Datetime parsing with Python&lt;/a&gt; is usually done like this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;dateutil&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;parser&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;dateparser&lt;/span&gt;
-
-&lt;span class="n"&gt;date_obj&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dateparser&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;parse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Tue May 08 15:14:45 +0800 2012"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Things that are unintuitive for me:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;span style="color: red;"&gt;⊝&lt;/span&gt; Why don't all datetime objects have
-  timezone information? (See &lt;a href="https://stackoverflow.com/q/48478879/562769"&gt;SO question&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;&lt;span style="color: red;"&gt;⊝&lt;/span&gt; Python can create a format it can't consume again.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;See also:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://strftime.org"&gt;Python's strftime directives&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Tz_database"&gt;Olson database&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.python.org/dev/peps/pep-0321/"&gt;PEP 321&lt;/a&gt;: Date/Time Parsing and Formatting&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.python.org/dev/peps/pep-0431/"&gt;PEP 431&lt;/a&gt;: Time zone support improvements (Withdrawn)&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://pypi.python.org/pypi/pytz"&gt;&lt;code&gt;pytz&lt;/code&gt;&lt;/a&gt;: In case you need anything for time zones&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://howchoo.com/g/ywi5m2vkodk/working-with-datetime-objects-and-timezones-in-python"&gt;Working with datetime objects and timezones in Python&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="javascript"&gt;JavaScript&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;var d = new Date();
-console.log(d.toJSON());
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;gives &lt;code&gt;2018-01-27T22:51:17.691Z&lt;/code&gt;. So it is a ISO 8601 datetime with miliseconds
-and zero offset. Nice!&lt;/p&gt;
-&lt;p&gt;You can also find this in the &lt;a href="http://www.ecma-international.org/ecma-262/5.1/#sec-15.9.1.15"&gt;ECMA specification&lt;/a&gt;:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;ECMAScript defines a string interchange format for date-times based upon a
-simplification of the ISO 8601 Extended Format. The format is as follows:&lt;/p&gt;
-&lt;p&gt;YYYY-MM-DDTHH:mm:ss.sssZ&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="php5"&gt;PHP5&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ php -a
-Interactive mode enabled
-
-php &amp;gt; &lt;span class="nv"&gt;$dt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; new DateTime&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-php &amp;gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$dt&lt;/span&gt;-&amp;gt;format&lt;span class="o"&gt;(&lt;/span&gt;DateTime::ATOM&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="m"&gt;2018&lt;/span&gt;-01-27T23:58:12+01:00
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;You can see that PHP gives you the ISO 8601 string with the zone offset, but
-not the milliseconds.&lt;/p&gt;
-&lt;h2 id="footnotes"&gt;Footnotes&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;[&lt;a href="#ref-1-anchor" name="ref-1"&gt;1&lt;/a&gt;] I've heard the &lt;a href="https://en.wikipedia.org/wiki/Islamic_calendar"&gt;Islamic calendar&lt;/a&gt; is used in Saudi Arabia.&lt;/li&gt;
-&lt;li&gt;[&lt;a href="#ref-2-anchor" name="ref-2"&gt;2&lt;/a&gt;] Or only by mutual agreement... which is the same as breaking the standard, if you ask me.&lt;/li&gt;
-&lt;/ul&gt;</content><category term="Python"></category><category term="date"></category><category term="time"></category><category term="datetime"></category></entry><entry><title>Git Repository Managers</title><link href="https://martin-thoma.com/git-repository-managers/" rel="alternate"></link><published>2017-09-06T20:00:00+02:00</published><updated>2017-09-06T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-09-06:/git-repository-managers/</id><summary type="html">&lt;p&gt;Git is likely todays most important version control system. It is used for
+&lt;p&gt;Check your package with &lt;a href="https://github.com/regebro/pyroma"&gt;&lt;code&gt;pyroma .&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;</content><category term="Architecture"></category><category term="Software Development"></category><category term="Python"></category></entry><entry><title>Git Repository Managers</title><link href="https://martin-thoma.com/git-repository-managers/" rel="alternate"></link><published>2017-09-06T20:00:00+02:00</published><updated>2017-09-06T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2017-09-06:/git-repository-managers/</id><summary type="html">&lt;p&gt;Git is likely todays most important version control system. It is used for
 Linux, actively developed and stable.&lt;/p&gt;
 &lt;p&gt;If hosted solutions are ok, I would likely use GitHub. I've used GitHub for
 personal projects since 2011 and only experienced one outage of about 1 hour
