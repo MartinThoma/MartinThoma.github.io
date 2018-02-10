@@ -195,6 +195,11 @@ $ ffmpeg -i "Original.avi" "New.mpg"
 $ ffmpeg -i "Original.mp4" -target ntsc-vcd "New.mpg"
 ```
 
+<b>mp42ogv</b> (without sound; e.g. for Wikimedia Commons):
+
+```bash
+$ ffmpeg -i input.mp4 -c:v libtheora -q:v 7 -an output.ogv
+```
 
 <b>mp42mp3</b>:
 
