@@ -9,9 +9,10 @@ tags: Data Visualization, Python, Vega, Matplotlib
 featured_image: logos/ml.png
 ---
 Python has a lot of libraries for data visualization and I recently stumbled
-over an awesome talk which gives an overview over them:
+over an awesome talk from PyCon 2017 by Jake VanderPlas titled "The Python
+Visualization Landscape" which gives an overview over them:
 
-<iframe width="512" height="288" src="https://www.youtube.com/embed/OC-YdBz8Llw" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/FytuB8nFHPQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 * Matplotlib
     * [seaborn](https://seaborn.pydata.org/): statistical data visualization
