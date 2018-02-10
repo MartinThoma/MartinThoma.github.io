@@ -3,7 +3,7 @@ layout: post
 title: Python Projects
 slug: python-projects
 author: Martin Thoma
-date: 2018-10-18 20:00
+date: 2018-01-18 20:00
 category: Code
 tags: Architecture, Software Development, Python
 featured_image: logos/python.png
@@ -21,7 +21,9 @@ that, here is my personal "best practices" guide.
 
 I prefer names which have the following properties:
 
-* They are short
+* They can't be confused with something else and the name is available at PyPI.
+  I'm looking at you, GTK ([source](https://stackoverflow.com/q/44213921/562769)).
+* They are short, but can be googled. Looking at you `R`, `Go` and `C`.
 * They are completely lowercase: Please don't make me think how to import your
   package. Is it `pypdf2`, `PyPDF2`, `pyPDF2`?
 * They are either max 4 letters or pronouncable. Something like `tensorflow` is
@@ -67,7 +69,10 @@ the `foo_module/__init__.py` should look like this:
 
 ```
 from pkg_resources import get_distribution
-__version__ = get_distribution('lidtk').version
+try:
+    __version__ = get_distribution('lidtk').version
+except:
+    __version__ = 'Not installed'
 ```
 
 
@@ -236,8 +241,9 @@ Tests are written for three purposes:
 Use [`pytest`](https://docs.pytest.org/en/latest/) and [`tox`](http://tox.readthedocs.io/en/latest/index.html). The `tox.ini` should look like this:
 
 ```
-tox]
+[tox]
 envlist = py35, py36
+skip_missing_interpreters = true
 
 [testenv]
 deps =
@@ -247,7 +253,7 @@ deps =
     pydocstyle
 commands =
     pip install -e .
-    py.test .
+    pytest .
     pydocstyle
 ```
 
@@ -318,3 +324,13 @@ have to explain things, there might be a couple of reasons for it:
 * It's too complicated. Make it simpler. For example, split the function up.
 * Your naming is bad. Rename your variables / functions.
 * The damn thing is just complicated. You actually need a comment to clarify.
+
+
+### Outdated dependencies
+
+Check your dependencies with `piprot requirements.txt`.
+
+
+### Bad package structure
+
+Check your package with [`pyroma .`](https://github.com/regebro/pyroma).
