@@ -90,6 +90,15 @@ Output image:
 for this kind of machine learning. I didn't try it, though.
 
 
+### Super-Resolution
+
+You have a small image and want the same image, but with higher resultion?
+Search for "super resolution":
+
+* [bigjpg.com](http://bigjpg.com)
+* [waifu2x.udp.jp](http://waifu2x.udp.jp)
+
+
 ## Text Input Data
 
 ### Translation
