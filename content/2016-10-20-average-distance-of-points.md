@@ -252,6 +252,7 @@ in the unit hypercube have a distance of less than 1.
 Here are a couple of results. Just a short reminder:
 
 * $\alpha(n, 2)$ is the maximum distance two points can have in a unit cube in $\mathbb{R}^n$
+* $\alpha'(n, 2)$ is the maximum observed distance of two points, when all dimensions are independently sampled $10^6$ times.
 * $\beta(n)$ is the average distance of two points in $\mathbb{R}^n$
 * $Pr(d(p_1, p_2) < 1)$ is the probability, that two uniformly randomly placed points have a distance
   of less than 1 in $\mathbb{R}^n$
@@ -261,12 +262,14 @@ Here are a couple of results. Just a short reminder:
     <tr>
         <th>$n$</th>
         <th>$\alpha(n, 2)$</th>
+        <th>$\alpha'(n, 2)$</th>
         <th>$\beta(n)$</th>
         <th>$Pr(d(p_1, p_2) &lt; 1)$</th>
         <th>$V_S(0.5)/V_C(1)$</th>
     </tr>
     <tr>
         <td style="text-align: right;">1</td>
+        <td>1.0000</td>
         <td>0.9994</td>
         <td>0.3332</td>
         <td>1.0000</td>
@@ -274,6 +277,7 @@ Here are a couple of results. Just a short reminder:
     </tr>
     <tr>
         <td style="text-align: right;">2</td>
+        <td>1.4142</td>
         <td>1.3797</td>
         <td>0.5211</td>
         <td>0.9749</td>
@@ -281,6 +285,7 @@ Here are a couple of results. Just a short reminder:
     </tr>
     <tr>
         <td style="text-align: right;">3</td>
+        <td>1.7321</td>
         <td>1.6116</td>
         <td>0.6616</td>
         <td>0.9100</td>
@@ -288,6 +293,7 @@ Here are a couple of results. Just a short reminder:
     </tr>
     <tr>
         <td style="text-align: right;">4</td>
+        <td>2.0000</td>
         <td>1.8130</td>
         <td>0.7776</td>
         <td>0.8066</td>
@@ -295,6 +301,7 @@ Here are a couple of results. Just a short reminder:
     </tr>
     <tr>
         <td style="text-align: right;">5</td>
+        <td>2.2361</td>
         <td>1.8645</td>
         <td>0.8786</td>
         <td>0.6787</td>
@@ -302,6 +309,7 @@ Here are a couple of results. Just a short reminder:
     </tr>
     <tr>
         <td style="text-align: right;">6</td>
+        <td>2.4495</td>
         <td>1.9659</td>
         <td>0.9693</td>
         <td>0.5419</td>
@@ -309,6 +317,7 @@ Here are a couple of results. Just a short reminder:
     </tr>
     <tr>
         <td style="text-align: right;">7</td>
+        <td>2.6458</td>
         <td>2.0891</td>
         <td>1.0515</td>
         <td>0.4125</td>
@@ -316,6 +325,7 @@ Here are a couple of results. Just a short reminder:
     </tr>
     <tr>
         <td style="text-align: right;">8</td>
+        <td>2.8284</td>
         <td>2.1513</td>
         <td>1.1280</td>
         <td>0.3006</td>
@@ -323,6 +333,7 @@ Here are a couple of results. Just a short reminder:
     </tr>
     <tr>
         <td style="text-align: right;">9</td>
+        <td>3.0000</td>
         <td>2.2888</td>
         <td>1.2002</td>
         <td>0.2096</td>
@@ -330,6 +341,7 @@ Here are a couple of results. Just a short reminder:
     </tr>
     <tr>
         <td style="text-align: right;">10</td>
+        <td>3.1623</td>
         <td>2.3327</td>
         <td>1.2671</td>
         <td>0.1411</td>
@@ -337,6 +349,7 @@ Here are a couple of results. Just a short reminder:
     </tr>
     <tr>
         <td style="text-align: right;">100</td>
+        <td>10.000</td>
         <td>5.2152</td>
         <td>4.0753</td>
         <td>0.0000</td>
@@ -344,6 +357,7 @@ Here are a couple of results. Just a short reminder:
     </tr>
     <tr>
         <td style="text-align: right;">1000</td>
+        <td>31.6228</td>
         <td>14.0719</td>
         <td>12.9073</td>
         <td>0.0000</td>
@@ -351,6 +365,7 @@ Here are a couple of results. Just a short reminder:
     </tr>
     <tr>
         <td style="text-align: right;">10000</td>
+        <td>100.000</td>
         <td>41.9675</td>
         <td>40.8245</td>
         <td>0.0000</td>
@@ -358,6 +373,7 @@ Here are a couple of results. Just a short reminder:
     </tr>
     <tr>
         <td style="text-align: right;">$n$</td>
+        <td>$\sqrt{n}$</td>
         <td>?</td>
         <td>$\approx 0.41 \cdot \sqrt{n}$</td>
         <td>?</td>
@@ -366,7 +382,7 @@ Here are a couple of results. Just a short reminder:
 </table>
 
 You can easily see that the average distance of two points gets less and less
-different from the maximal distance of two points.
+different from the observed maximal distance of two points.
 
 
 ## See also
