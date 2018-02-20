@@ -1,5 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - My bits and bytes</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/my-bits-and-bytes.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-02-17T20:00:00+01:00</updated><entry><title>Online Banking</title><link href="https://martin-thoma.com/online-banking/" rel="alternate"></link><published>2018-02-17T20:00:00+01:00</published><updated>2018-02-17T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-02-17:/online-banking/</id><summary type="html">&lt;p&gt;Online banking is something I have to do. I have to have a bank account for my
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - My bits and bytes</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/my-bits-and-bytes.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-02-20T20:00:00+01:00</updated><entry><title>German Language</title><link href="https://martin-thoma.com/german-language/" rel="alternate"></link><published>2018-02-20T20:00:00+01:00</published><updated>2018-02-20T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-02-20:/german-language/</id><summary type="html">&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/German_language"&gt;German&lt;/a&gt; is one of the many
+languages spoken in Europe. I've been told that it also is a quite difficult
+one. In this this article I would like to share some funny or interesting
+facts about German with you.&lt;/p&gt;
+&lt;h2 id="script"&gt;Script&lt;/h2&gt;
+&lt;p&gt;I recently published a &lt;a href="https://arxiv.org/pdf/1801.07779.pdf"&gt;paper about language identification&lt;/a&gt;.
+For this …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/German_language"&gt;German&lt;/a&gt; is one of the many
+languages spoken in Europe. I've been told that it also is a quite difficult
+one. In this this article I would like to share some funny or interesting
+facts about German with you.&lt;/p&gt;
+&lt;h2 id="script"&gt;Script&lt;/h2&gt;
+&lt;p&gt;I recently published a &lt;a href="https://arxiv.org/pdf/1801.07779.pdf"&gt;paper about language identification&lt;/a&gt;.
+For this, I collected 1000 paragraphs from random Wikipedia articles, including
+the German one. One thing I was interested in is which script defines the language.
+While most people will probably say that German is written in the &lt;a href="https://en.wikipedia.org/wiki/Latin_script"&gt;Latin script&lt;/a&gt; (so: &lt;code&gt;A-Z&lt;/code&gt; and &lt;code&gt;a-z&lt;/code&gt;) with some extra characters (&lt;code&gt;&amp;szlig;&lt;/code&gt;, &lt;code&gt;&amp;auml;&amp;ouml;&amp;uuml;&lt;/code&gt;, &lt;code&gt;&amp;Auml;&amp;Ouml;&amp;Uuml;&lt;/code&gt;),
+I wanted to derive this from the data. So I counted each unicode code point, sorted them descending
+by frequency and added characters for some thresholds &lt;span class="math"&gt;\(\theta\)&lt;/span&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(C_{0.50} = \{\text{SPACE}, e, n, r, i, t\}\)&lt;/span&gt;: Yes, only 6 characters make up 50% of the texts! And the most common one is one that isn't even mentioned in the usual lists!&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(C_{0.75} = C_{0.50} \cup \{s, a, d, h, u, l, o\}\)&lt;/span&gt;: We get the remaining vocals&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(C_{0.90} = C_{0.75} \cup \{c, g, m, b, f, ., w, k, z, COMMA, S, v, p, 1\}\)&lt;/span&gt;: The first capital letter, first punctuation marks and the first digit joins&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(C_{0.99} = C_{0.90} \cup \{&amp;uuml;, D, B, A, &amp;auml;, M, 0, G, 9, K, F, E, P, W, 2, L, -, H, &amp;ouml;, R, 8, V, I, T, J, N ,), (, 5, y, &amp;szlig;, 6, 7, 4, Z, C, 3\}\)&lt;/span&gt;: Now we have &lt;code&gt;a-z&lt;/code&gt; and &lt;code&gt;&amp;auml;&amp;ouml;&amp;uuml;&amp;szlig;&lt;/code&gt; but not &lt;code&gt;jqx&lt;/code&gt;. We have &lt;code&gt;A-C&lt;/code&gt; but not &lt;code&gt;OQUXY&lt;/code&gt;. We have the punctuation marks &lt;code&gt;,.()-&lt;/code&gt;, &lt;code&gt;SPACE&lt;/code&gt; and the digits &lt;code&gt;0-9&lt;/code&gt;. 64 characters in total&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(C_{1.00}\)&lt;/span&gt; contains 247 characters in total, including &lt;code&gt;їышхдЬСРОВ&amp;tau;&amp;sigmaf;&amp;epsilon;ːˈżşśŁğ&amp;euml;&amp;aelig;&amp;acirc;&amp;Agrave;&amp;pound;濱滨春川區区ንሣሞሎیِنمظسرداשלכואҐящчфжбЯЮЩЧУТНИЖЇІ&amp;phi;&amp;omicron;&amp;iota;&amp;alpha;ίήέʿʃɛ&amp;scaron;&amp;oelig;ňńİēčČ&amp;yacute;&amp;ucirc;&amp;uacute;&amp;oslash;&amp;Uacute;&amp;Aacute;&amp;cent;#&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="lower-and-upper-case"&gt;Lower and upper case&lt;/h2&gt;
+&lt;p&gt;One might think that you could actually just write everything in lower case,
+without changing the meaning. While this is certainly true for most examples,
+there are some where it changes the meaning. With context, of course, you can
+still know what was meant.&lt;/p&gt;
+&lt;p&gt;Example 1:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;EN&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;The&lt;/span&gt; &lt;span class="n"&gt;spiders&lt;/span&gt;
+&lt;span class="n"&gt;DE&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Die&lt;/span&gt; &lt;span class="n"&gt;Spinnen&lt;/span&gt;
+&lt;span class="n"&gt;DE&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Die&lt;/span&gt; &lt;span class="n"&gt;spinnen&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;
+&lt;span class="n"&gt;EN&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;They&lt;/span&gt; &lt;span class="n"&gt;are&lt;/span&gt; &lt;span class="n"&gt;crazy&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Example 2:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;EN&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;The&lt;/span&gt; &lt;span class="n"&gt;captured&lt;/span&gt; &lt;span class="n"&gt;flea&lt;/span&gt;
+&lt;span class="n"&gt;DE&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Der&lt;/span&gt; &lt;span class="n"&gt;gefangene&lt;/span&gt; &lt;span class="n"&gt;Floh&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;DE&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Der&lt;/span&gt; &lt;span class="n"&gt;Gefangene&lt;/span&gt; &lt;span class="n"&gt;floh&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;EN&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;The&lt;/span&gt; &lt;span class="n"&gt;prisoner&lt;/span&gt; &lt;span class="n"&gt;fled&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Example 3: Single words&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;EN&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;tremendous&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;lawn&lt;/span&gt;         &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;drink&lt;/span&gt;
+&lt;span class="n"&gt;DE&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;ungeheuer&lt;/span&gt;  &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;der&lt;/span&gt; &lt;span class="n"&gt;Rasen&lt;/span&gt;        &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;der&lt;/span&gt; &lt;span class="n"&gt;Trank&lt;/span&gt;
+&lt;span class="n"&gt;DE&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Ungeheuer&lt;/span&gt;  &lt;span class="o"&gt;|&lt;/span&gt;     &lt;span class="n"&gt;rasen&lt;/span&gt;        &lt;span class="o"&gt;|&lt;/span&gt;  &lt;span class="n"&gt;er&lt;/span&gt; &lt;span class="n"&gt;trank&lt;/span&gt;
+&lt;span class="n"&gt;EN&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;monster&lt;/span&gt;    &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;drive&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;too&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="n"&gt;fast&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;  &lt;span class="n"&gt;he&lt;/span&gt; &lt;span class="n"&gt;drank&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="punctuation"&gt;Punctuation&lt;/h2&gt;
+&lt;p&gt;Just as with lower- and upper case, punctuation doesn't matter too much in most
+cases in German. And context is king. But if you are pedantic, ignore the
+context or just want to missunderstand the text, the following can be
+misunderstood:&lt;/p&gt;
+&lt;p&gt;Example 1:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;EN&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;We&lt;/span&gt; &lt;span class="n"&gt;eat&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;kids&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Talking&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;children&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;DE&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Wir&lt;/span&gt; &lt;span class="n"&gt;essen&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Kinder&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;DE&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Wir&lt;/span&gt; &lt;span class="n"&gt;essen&lt;/span&gt; &lt;span class="n"&gt;Kinder&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;EN&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;We&lt;/span&gt; &lt;span class="n"&gt;eat&lt;/span&gt; &lt;span class="n"&gt;kids&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Saying&lt;/span&gt; &lt;span class="n"&gt;that&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;eat&lt;/span&gt; &lt;span class="n"&gt;children&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;dish&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Example 2&lt;/strong&gt;: This one is actually confusing. Likely also with context.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;EN&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Professors&lt;/span&gt; &lt;span class="n"&gt;say&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;students&lt;/span&gt; &lt;span class="n"&gt;are&lt;/span&gt; &lt;span class="n"&gt;doing&lt;/span&gt; &lt;span class="n"&gt;well&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;DE&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Professoren&lt;/span&gt; &lt;span class="n"&gt;sagen&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Studenten&lt;/span&gt; &lt;span class="n"&gt;haben&lt;/span&gt; &lt;span class="n"&gt;es&lt;/span&gt; &lt;span class="n"&gt;gut&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;DE&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Professoren&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sagen&lt;/span&gt; &lt;span class="n"&gt;Studenten&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;haben&lt;/span&gt; &lt;span class="n"&gt;es&lt;/span&gt; &lt;span class="n"&gt;gut&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;EN&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Professors&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;students&lt;/span&gt; &lt;span class="n"&gt;say&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;are&lt;/span&gt; &lt;span class="n"&gt;doing&lt;/span&gt; &lt;span class="n"&gt;well&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Example 3:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;EN&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Don&lt;/span&gt;&lt;span class="s1"&gt;'t kill him, release him!&lt;/span&gt;
+&lt;span class="s1"&gt;DE: T&amp;ouml;tet ihn nicht, freilassen!&lt;/span&gt;
+&lt;span class="s1"&gt;DE: T&amp;ouml;tet ihn, nicht freilassen!&lt;/span&gt;
+&lt;span class="s1"&gt;EN: Kill him, don'&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;release&lt;/span&gt; &lt;span class="n"&gt;him&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Example 4:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;EN&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;We&lt;/span&gt; &lt;span class="n"&gt;recommend&lt;/span&gt; &lt;span class="n"&gt;him&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;follow&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;DE&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Wir&lt;/span&gt; &lt;span class="n"&gt;empfehlen&lt;/span&gt; &lt;span class="n"&gt;ihm&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;zu&lt;/span&gt; &lt;span class="n"&gt;folgen&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;DE&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Wir&lt;/span&gt; &lt;span class="n"&gt;empfehlen&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ihm&lt;/span&gt; &lt;span class="n"&gt;zu&lt;/span&gt; &lt;span class="n"&gt;folgen&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;EN&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;We&lt;/span&gt; &lt;span class="n"&gt;recommend&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;follow&lt;/span&gt; &lt;span class="n"&gt;him&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Example 5: Even &lt;a href="https://www.deepl.com/translate"&gt;deepl has problems with this&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;EN&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;He&lt;/span&gt; &lt;span class="n"&gt;doesn&lt;/span&gt;&lt;span class="s1"&gt;'t want her.&lt;/span&gt;
+&lt;span class="s1"&gt;DE: Er will sie nicht.&lt;/span&gt;
+&lt;span class="s1"&gt;DE: Er will, sie nicht.&lt;/span&gt;
+&lt;span class="s1"&gt;EN: He likes, but she doesn'&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="Language"></category></entry><entry><title>Online Banking</title><link href="https://martin-thoma.com/online-banking/" rel="alternate"></link><published>2018-02-17T20:00:00+01:00</published><updated>2018-02-17T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-02-17:/online-banking/</id><summary type="html">&lt;p&gt;Online banking is something I have to do. I have to have a bank account for my
 salary, to pay my rent and to pay Amazon orders. Once in a year I need the
 documents for my tax declaration.&lt;/p&gt;
 &lt;p&gt;I will expand this article when you add comments / screenshots for …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Online banking is something I have to do. I have to have a bank account for my
@@ -7,53 +88,6 @@ salary, to pay my rent and to pay Amazon orders. Once in a year I need the
 documents for my tax declaration.&lt;/p&gt;
 &lt;p&gt;I will expand this article when you add comments / screenshots for other banks.
 I am interested in N26 and BB Bank.&lt;/p&gt;
-&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
-&lt;table class="table"&gt;
-&lt;tr&gt;
-&lt;th&gt;Bank&lt;/th&gt;
-&lt;th&gt;EN&lt;/th&gt;
-&lt;th&gt;Overview&lt;/th&gt;
-&lt;th&gt;Transaction&lt;/th&gt;
-&lt;th&gt;Standing order&lt;/th&gt;
-&lt;th&gt;E-Mail contact&lt;/th&gt;
-&lt;th&gt;Telephone contact&lt;/th&gt;
-&lt;th&gt;URL&lt;/th&gt;
-&lt;th&gt;Clutteriness&lt;/th&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;th&gt;Sparkasse Karlsruhe&lt;/th&gt;
-&lt;td&gt;&lt;span style="color:green;" title="Yes"&gt;✔&lt;/span&gt;&lt;/td&gt;
-&lt;td&gt;2&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;td&gt;&lt;span style="color:red;" title="No"&gt;✘&lt;/span&gt;&lt;/td&gt;
-&lt;td&gt;Mo-Fr from 8:00 - 20:00&lt;/td&gt;
-&lt;td&gt;https://www.sparkasse-karlsruhe.de&lt;/td&gt;
-&lt;td style="color: red;"&gt;100&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;th&gt;Comdirekt&lt;/th&gt;
-&lt;td&gt;&lt;span style="color:red;" title="No"&gt;✘&lt;/span&gt;&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;2&lt;/td&gt;
-&lt;td&gt;2&lt;/td&gt;
-&lt;td&gt;&lt;span style="color:red;" title="No"&gt;✘&lt;/span&gt;&lt;/td&gt;
-&lt;td&gt;24/7&lt;/td&gt;
-&lt;td&gt;https://kunde.comdirect.de&lt;/td&gt;
-&lt;td&gt;70&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;th&gt;&lt;a href="https://en.wikipedia.org/wiki/N26_(bank)"&gt;N26&lt;/a&gt;&lt;/th&gt;
-&lt;td&gt;&lt;span style="color:green;" title="Yes"&gt;✔&lt;/span&gt;&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;2&lt;/td&gt;
-&lt;td&gt;&lt;span style="color:red;" title="No"&gt;✘&lt;/span&gt;&lt;/td&gt;
-&lt;td&gt;?&lt;/td&gt;
-&lt;td&gt;https://n26.com&lt;/td&gt;
-&lt;td style="color: green;"&gt;0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
 &lt;h2 id="sparkasse"&gt;Sparkasse&lt;/h2&gt;
 &lt;p&gt;Positive:&lt;/p&gt;
 &lt;ul&gt;
@@ -110,7 +144,57 @@ I am interested in N26 and BB Bank.&lt;/p&gt;
 &lt;p&gt;According to &lt;a href="https://www.girokontovergleich.eu/uebersic
 ht-welche-bank-bietet-welche-geldautomaten/"&gt;girokontovergleich.eu&lt;/a&gt;, Sparkasse has about 24&amp;thinsp;000
 cash points, Volksbanken und Raiffeisenbanken (VR Bank) has around
-19&amp;thinsp;4500, Postbank around 9000 cash points.&lt;/p&gt;</content><category term="Banking"></category></entry><entry><title>Bala Bala</title><link href="https://martin-thoma.com/bala-bala/" rel="alternate"></link><published>2018-01-29T20:00:00+01:00</published><updated>2018-01-29T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-01-29:/bala-bala/</id><summary type="html">&lt;p&gt;Bala Bala is an Indonesian dish. It can be eaten alone, with rice or with
+19&amp;thinsp;4500, Postbank around 9000 cash points.&lt;/p&gt;
+&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;table class="table"&gt;
+&lt;tr&gt;
+&lt;th rowspan="2"&gt;Bank&lt;/th&gt;
+&lt;th rowspan="2"&gt;EN&lt;/th&gt;
+&lt;th colspan="3"&gt;Click count&lt;/th&gt;
+&lt;th rowspan="2"&gt;E-Mail contact&lt;/th&gt;
+&lt;th rowspan="2"&gt;Telephone contact&lt;/th&gt;
+&lt;th rowspan="2"&gt;URL&lt;/th&gt;
+&lt;th rowspan="2"&gt;Clutter&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Overview&lt;/th&gt;
+&lt;th&gt;Transaction&lt;/th&gt;
+&lt;th&gt;Standing order&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Sparkasse Karlsruhe&lt;/th&gt;
+&lt;td&gt;&lt;span style="color:green;" title="Has English version"&gt;✔&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;&lt;span style="color:red;" title="No"&gt;✘&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;Mo-Fr from 8:00 - 20:00&lt;/td&gt;
+&lt;td&gt;https://www.sparkasse-karlsruhe.de&lt;/td&gt;
+&lt;td style="color: red;"&gt;100&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Comdirekt&lt;/th&gt;
+&lt;td&gt;&lt;span style="color:red;" title="Doesn't have English version"&gt;✘&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;&lt;span style="color:red;" title="No"&gt;✘&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;24/7&lt;/td&gt;
+&lt;td&gt;https://kunde.comdirect.de&lt;/td&gt;
+&lt;td&gt;70&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;a href="https://en.wikipedia.org/wiki/N26_(bank)"&gt;N26&lt;/a&gt;&lt;/th&gt;
+&lt;td&gt;&lt;span style="color:green;" title="Has English version"&gt;✔&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;&lt;span style="color:red;" title="No"&gt;✘&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span style="color:red;" title="No"&gt;✘&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;https://n26.com&lt;/td&gt;
+&lt;td style="color: green;"&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;</content><category term="Banking"></category></entry><entry><title>Bala Bala</title><link href="https://martin-thoma.com/bala-bala/" rel="alternate"></link><published>2018-01-29T20:00:00+01:00</published><updated>2018-01-29T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-01-29:/bala-bala/</id><summary type="html">&lt;p&gt;Bala Bala is an Indonesian dish. It can be eaten alone, with rice or with
 Sambel goang.&lt;/p&gt;
 &lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
 &lt;a href="../images/2018/01/Bala-bala-rice-sambal-goang.jpg"&gt;&lt;img alt="Bala bala with rice and Sambel goang" src="../images/2018/01/Bala-bala-rice-sambal-goang.jpg" style="width: 512px;"/&gt;&lt;/a&gt;
