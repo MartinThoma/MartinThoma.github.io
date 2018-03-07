@@ -1,5 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - My bits and bytes</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/my-bits-and-bytes.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-02-20T20:00:00+01:00</updated><entry><title>German Language</title><link href="https://martin-thoma.com/german-language/" rel="alternate"></link><published>2018-02-20T20:00:00+01:00</published><updated>2018-02-20T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-02-20:/german-language/</id><summary type="html">&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/German_language"&gt;German&lt;/a&gt; is one of the many
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - My bits and bytes</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/my-bits-and-bytes.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-03-07T20:00:00+01:00</updated><entry><title>API Design</title><link href="https://martin-thoma.com/api-design/" rel="alternate"></link><published>2018-03-07T20:00:00+01:00</published><updated>2018-03-07T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-03-07:/api-design/</id><summary type="html">&lt;p&gt;Today, I gave API design a little bit of thought. Web APIs to be more specific.
+So here are some good practices I've seen. Feel free to add more in the
+comments 😊&lt;/p&gt;
+&lt;h2 id="general-thoughts"&gt;General Thoughts&lt;/h2&gt;
+&lt;p&gt;An API is written because you want to make a public interface to your
+application. You …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Today, I gave API design a little bit of thought. Web APIs to be more specific.
+So here are some good practices I've seen. Feel free to add more in the
+comments 😊&lt;/p&gt;
+&lt;h2 id="general-thoughts"&gt;General Thoughts&lt;/h2&gt;
+&lt;p&gt;An API is written because you want to make a public interface to your
+application. You will not know who is using your service. For this reason, you
+have to keep things running for quite a while. Changes in an endpoint could
+potentialy cause another service to crash. You want your stuff to be reliable,
+so think about that in advance.&lt;/p&gt;
+&lt;p&gt;Oh, and JSON is likely the most common way to return information in the web.&lt;/p&gt;
+&lt;h2 id="naming"&gt;Naming&lt;/h2&gt;
+&lt;p&gt;Suppose we would have an API which lets us create / delete / receive users. I
+would expect the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;GET &lt;code&gt;domain.io/api/users&lt;/code&gt;: Returns a list of all users&lt;/li&gt;
+&lt;li&gt;GET &lt;code&gt;domain.io/api/users/42&lt;/code&gt;: Returns the user with ID 42&lt;/li&gt;
+&lt;li&gt;POST &lt;code&gt;domain.io/api/users&lt;/code&gt;: Creates a new user&lt;/li&gt;
+&lt;li&gt;DELETE &lt;code&gt;domain.io/api/users/42&lt;/code&gt;: Deletes the user with ID 42&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This kind of logic should be consistent through the complete API.&lt;/p&gt;
+&lt;p&gt;For the filed names, I suggest to use &lt;strong&gt;camelCase&lt;/strong&gt; as it is usually done with
+JSON.&lt;/p&gt;
+&lt;p&gt;For the names, I suggest to use &lt;strong&gt;plural forms&lt;/strong&gt;. The main point is to be
+consistent.&lt;/p&gt;
+&lt;h2 id="versioning"&gt;Versioning&lt;/h2&gt;
+&lt;p&gt;Having an URL structure like &lt;code&gt;domain.io/api/v1/foobar&lt;/code&gt; is really nice. This
+allows you to change some of the practices and be consistent. So you could
+follow some naming schemas vor &lt;code&gt;/v1/*&lt;/code&gt; and others for &lt;code&gt;/v2/*&lt;/code&gt;. Or change the
+authentication.&lt;/p&gt;
+&lt;h2 id="list-returning-endpoints"&gt;List-returning Endpoints&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Please note&lt;/strong&gt;: You might want to read &lt;a href="https://blog.philipphauer.de/web-api-pagination-continuation-token/#offset-pagination"&gt;Web API Pagination with the 'Timestamp_Offset_Checksum' Continuation Token&lt;/a&gt; - don't take the following as the best option for granted!&lt;/p&gt;
+&lt;p&gt;Always when you return lists, make it paginated. Add a &lt;strong&gt;default sorting&lt;/strong&gt;
+and an &lt;strong&gt;offset parameter&lt;/strong&gt;. You could also add an &lt;strong&gt;order&lt;/strong&gt; and a &lt;strong&gt;limit&lt;/strong&gt; parameter.&lt;/p&gt;
+&lt;p&gt;The endpoint should return&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;{"continue": 100,
+ "data": FOOBAR}
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;where the value of &lt;code&gt;continue&lt;/code&gt; is the next index to continue. So in case you
+decide that an limit of 100 returned elements is enough / reasonable, the
+the first query that has more than 100 elements would return the &lt;code&gt;continue&lt;/code&gt; of
+100. A call with an &lt;code&gt;offset=142&lt;/code&gt; wuld have an &lt;code&gt;"continue": 242&lt;/code&gt; in the
+response, if there are at least 242 elements.&lt;/p&gt;
+&lt;p&gt;It is done similar in the &lt;a href="https://www.mediawiki.org/wiki/API:Query"&gt;MediaWiki API&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="documentation"&gt;Documentation&lt;/h2&gt;
+&lt;p&gt;Add an &lt;code&gt;format&lt;/code&gt; parameter to every &lt;code&gt;GET&lt;/code&gt; query. If it is not specified, then
+you can return documentation and/or a formatted response.&lt;/p&gt;
+&lt;p&gt;See &lt;a href="https://en.wikipedia.org/w/api.php?action=query&amp;amp;generator=allpages&amp;amp;gaplimit=3&amp;amp;gapfrom=Ba&amp;amp;prop=links%7Ccategories&amp;amp;format=jsonfm&amp;amp;formatversion=2"&gt;MediaWiki as an example&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Also, you should be really careful about units:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Prices&lt;/strong&gt;: Always document the currency. I suggest to use cents so that you
+  can use integers and don't have to deal with floating point precision
+  problems.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Dates&lt;/strong&gt;: There are timezones. I suggest to use the &lt;a href="https://de.wikipedia.org/wiki/ISO_8601"&gt;ISO 8601&lt;/a&gt; with
+  datetime as used for ECMA consistently: &lt;code&gt;YYYY-MM-DDTHH:mm:ss+00:00&lt;/code&gt; (UTC), e.g &lt;code&gt;2018-03-07T21:37:24+00:00&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SI Units&lt;/strong&gt;: Use &lt;a href="https://en.wikipedia.org/wiki/International_System_of_Units"&gt;SI units&lt;/a&gt; as a default. If you don't use them, make a big warning sign.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="errors"&gt;Errors&lt;/h2&gt;
+&lt;p&gt;Help your API users by making nice error messages. Something like&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;HTTP Status 400
+
+{"errors": [
+    {
+        "status": 400,
+        "detail": "Invalid country 'German'.",
+        "code": 1337,
+        "links": {
+            "docs": "http://domain.io/docs",
+            "errors": "http://domain.io/docs/errors#1337"
+        }
+    }
+
+ ]}
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="other-stuff"&gt;Other Stuff&lt;/h2&gt;
+&lt;p&gt;There are a couple of other rules, but I'm not sure how important they actually
+are:&lt;/p&gt;
+&lt;h3 id="http-methods"&gt;HTTP Methods&lt;/h3&gt;
+&lt;p&gt;Copied from &lt;a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods"&gt;developer.mozilla.org&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;GET&lt;/code&gt;: [...] Requests using GET should only retrieve data.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;POST&lt;/code&gt;: The POST method is used to submit an entity to the specified
+  resource, often causing a change in state or side effects on the server&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PUT&lt;/code&gt;: The PUT method replaces all current representations of the target
+  resource with the request payload.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PATCH&lt;/code&gt;: The PATCH method is used to apply partial modifications to a
+  resource.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;DELETE&lt;/code&gt;: The DELETE method deletes the specified resource.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="http-response-status-codes"&gt;HTTP Response Status codes:&lt;/h3&gt;
+&lt;h4 id="success-2xx"&gt;Success: 2XX&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;200 OK: Successful GET, PUT, PATCH&lt;/li&gt;
+&lt;li&gt;201 Created: Successful POST&lt;/li&gt;
+&lt;li&gt;204 No Content: For successful DELETE&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="client-errors-4xx"&gt;Client Errors: 4XX&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;400 Bad Request: E.g. the parameters are invalid&lt;/li&gt;
+&lt;li&gt;401 Unauthorized&lt;/li&gt;
+&lt;li&gt;403 Forbidden: Authenticated, but the client may not access the endpoint&lt;/li&gt;
+&lt;li&gt;404 Not Found&lt;/li&gt;
+&lt;li&gt;410 Gone: For deprecation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="server-errors-5xx"&gt;Server Errors: 5XX&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;500 Internal Server Error&lt;/li&gt;
+&lt;li&gt;503 Service Unavailable: Maintenance&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="see-also_1"&gt;See also&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://graphql.org/learn/"&gt;GraphQL&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://blog.philipphauer.de/restful-api-design-best-practices/"&gt;RESTful API Design. Best Practices in a Nutshell.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://jsonapi.org/format/#status"&gt;jsonapi.org&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="API"></category><category term="Web"></category><category term="Design"></category></entry><entry><title>German Language</title><link href="https://martin-thoma.com/german-language/" rel="alternate"></link><published>2018-02-20T20:00:00+01:00</published><updated>2018-02-20T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-02-20:/german-language/</id><summary type="html">&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/German_language"&gt;German&lt;/a&gt; is one of the many
 languages spoken in Europe. I've been told that it also is a quite difficult
 one. In this this article I would like to share some funny or interesting
 facts about German with you.&lt;/p&gt;
