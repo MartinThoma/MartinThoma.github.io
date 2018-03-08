@@ -14,7 +14,42 @@ have to keep things running for quite a while. Changes in an endpoint could
 potentialy cause another service to crash. You want your stuff to be reliable,
 so think about that in advance.&lt;/p&gt;
 &lt;p&gt;Oh, and JSON is likely the most common way to return information in the web.&lt;/p&gt;
-&lt;h2 id="naming"&gt;Naming&lt;/h2&gt;
+&lt;h3 id="character-sets"&gt;Character Sets&lt;/h3&gt;
+&lt;p&gt;Use UTF8. Always. Everywhere.&lt;/p&gt;
+&lt;p&gt;See also: &lt;a href="https://softwareengineering.stackexchange.com/q/40063/25699"&gt;Should character encodings besides UTF-8 (and maybe UTF-16/UTF-32) be deprecated?&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="monitoring"&gt;Monitoring&lt;/h3&gt;
+&lt;p&gt;You offer a service, so please make sure it is available. You could use services
+like &lt;a href="https://www.runscope.com/api-monitoring"&gt;Runscope&lt;/a&gt; which ping your
+endpoints regularly.&lt;/p&gt;
+&lt;p&gt;To give your users a way to check if things look normal, you could create a
+status page. A popular choice is &lt;a href="https://www.statuspage.io"&gt;statuspage.io&lt;/a&gt;.
+Some examples of status pages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[status.aws.amazon.com(http://status.aws.amazon.com)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://status.github.com/messages"&gt;status.github.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://status.bitbucket.org"&gt;status.bitbucket.org&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="server-time"&gt;Server Time&lt;/h3&gt;
+&lt;p&gt;Make sure your server time is not too off. This makes comparing logs of
+different systems easier. And it could be that you use the system time directly
+or indirectly as an API output. You can use an &lt;a href="https://en.wikipedia.org/wiki/Network_Time_Protocol"&gt;NTP server&lt;/a&gt;
+to sync the time.&lt;/p&gt;
+&lt;p&gt;For manual checking.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ntpq -pn
+     remote           refid      st t when poll reach   delay   offset  &lt;span class="nv"&gt;jitter&lt;/span&gt;
+&lt;span class="o"&gt;==============================================================================&lt;/span&gt;
+ &lt;span class="m"&gt;0&lt;/span&gt;.ubuntu.pool.n .POOL.          &lt;span class="m"&gt;16&lt;/span&gt; p    -   &lt;span class="m"&gt;64&lt;/span&gt;    &lt;span class="m"&gt;0&lt;/span&gt;    &lt;span class="m"&gt;0&lt;/span&gt;.000    &lt;span class="m"&gt;0&lt;/span&gt;.000   &lt;span class="m"&gt;0&lt;/span&gt;.000
+ &lt;span class="m"&gt;1&lt;/span&gt;.ubuntu.pool.n .POOL.          &lt;span class="m"&gt;16&lt;/span&gt; p    -   &lt;span class="m"&gt;64&lt;/span&gt;    &lt;span class="m"&gt;0&lt;/span&gt;    &lt;span class="m"&gt;0&lt;/span&gt;.000    &lt;span class="m"&gt;0&lt;/span&gt;.000   &lt;span class="m"&gt;0&lt;/span&gt;.000
+ &lt;span class="m"&gt;2&lt;/span&gt;.ubuntu.pool.n .POOL.          &lt;span class="m"&gt;16&lt;/span&gt; p    -   &lt;span class="m"&gt;64&lt;/span&gt;    &lt;span class="m"&gt;0&lt;/span&gt;    &lt;span class="m"&gt;0&lt;/span&gt;.000    &lt;span class="m"&gt;0&lt;/span&gt;.000   &lt;span class="m"&gt;0&lt;/span&gt;.000
+ &lt;span class="m"&gt;3&lt;/span&gt;.ubuntu.pool.n .POOL.          &lt;span class="m"&gt;16&lt;/span&gt; p    -   &lt;span class="m"&gt;64&lt;/span&gt;    &lt;span class="m"&gt;0&lt;/span&gt;    &lt;span class="m"&gt;0&lt;/span&gt;.000    &lt;span class="m"&gt;0&lt;/span&gt;.000   &lt;span class="m"&gt;0&lt;/span&gt;.000
+ ntp.ubuntu.com  .POOL.          &lt;span class="m"&gt;16&lt;/span&gt; p    -   &lt;span class="m"&gt;64&lt;/span&gt;    &lt;span class="m"&gt;0&lt;/span&gt;    &lt;span class="m"&gt;0&lt;/span&gt;.000    &lt;span class="m"&gt;0&lt;/span&gt;.000   &lt;span class="m"&gt;0&lt;/span&gt;.000
++92.222.82.98    &lt;span class="m"&gt;130&lt;/span&gt;.149.17.8     &lt;span class="m"&gt;2&lt;/span&gt; u   &lt;span class="m"&gt;75&lt;/span&gt;  &lt;span class="m"&gt;128&lt;/span&gt;  &lt;span class="m"&gt;377&lt;/span&gt;   &lt;span class="m"&gt;24&lt;/span&gt;.430   -0.043   &lt;span class="m"&gt;1&lt;/span&gt;.522
+*185.51.192.34   &lt;span class="m"&gt;46&lt;/span&gt;.243.26.34     &lt;span class="m"&gt;2&lt;/span&gt; u   &lt;span class="m"&gt;44&lt;/span&gt;  &lt;span class="m"&gt;128&lt;/span&gt;  &lt;span class="m"&gt;377&lt;/span&gt;   &lt;span class="m"&gt;27&lt;/span&gt;.447   -0.319   &lt;span class="m"&gt;1&lt;/span&gt;.120
+-212.18.3.19     &lt;span class="m"&gt;212&lt;/span&gt;.18.1.106     &lt;span class="m"&gt;2&lt;/span&gt; u   &lt;span class="m"&gt;61&lt;/span&gt;  &lt;span class="m"&gt;128&lt;/span&gt;  &lt;span class="m"&gt;377&lt;/span&gt;   &lt;span class="m"&gt;16&lt;/span&gt;.443   -0.317   &lt;span class="m"&gt;1&lt;/span&gt;.454
++88.159.1.196    &lt;span class="m"&gt;193&lt;/span&gt;.190.230.66   &lt;span class="m"&gt;2&lt;/span&gt; u   &lt;span class="m"&gt;47&lt;/span&gt;  &lt;span class="m"&gt;128&lt;/span&gt;  &lt;span class="m"&gt;377&lt;/span&gt;   &lt;span class="m"&gt;29&lt;/span&gt;.346    &lt;span class="m"&gt;0&lt;/span&gt;.564   &lt;span class="m"&gt;1&lt;/span&gt;.828
+-192.33.96.102   .PPS.            &lt;span class="m"&gt;1&lt;/span&gt; u  &lt;span class="m"&gt;113&lt;/span&gt;  &lt;span class="m"&gt;128&lt;/span&gt;  &lt;span class="m"&gt;377&lt;/span&gt;   &lt;span class="m"&gt;40&lt;/span&gt;.525    &lt;span class="m"&gt;3&lt;/span&gt;.008   &lt;span class="m"&gt;2&lt;/span&gt;.11
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="naming_1"&gt;Naming&lt;/h2&gt;
 &lt;p&gt;Suppose we would have an API which lets us create / delete / receive users. I
 would expect the following:&lt;/p&gt;
 &lt;ul&gt;
@@ -77,21 +112,6 @@ you can return documentation and/or a formatted response.&lt;/p&gt;
 
  ]}
 &lt;/pre&gt;&lt;/div&gt;
-&lt;h2 id="character-sets"&gt;Character Sets&lt;/h2&gt;
-&lt;p&gt;Use UTF8. Always. Everywhere.&lt;/p&gt;
-&lt;p&gt;See also: &lt;a href="https://softwareengineering.stackexchange.com/q/40063/25699"&gt;Should character encodings besides UTF-8 (and maybe UTF-16/UTF-32) be deprecated?&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id="monitoring"&gt;Monitoring&lt;/h2&gt;
-&lt;p&gt;You offer a service, so please make sure it is available. You could use services
-like &lt;a href="https://www.runscope.com/api-monitoring"&gt;Runscope&lt;/a&gt; which ping your
-endpoints regularly.&lt;/p&gt;
-&lt;p&gt;To give your users a way to check if things look normal, you could create a
-status page. A popular choice is &lt;a href="https://www.statuspage.io"&gt;statuspage.io&lt;/a&gt;.
-Some examples of status pages:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;[status.aws.amazon.com(http://status.aws.amazon.com)&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://status.github.com/messages"&gt;status.github.com&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://status.bitbucket.org"&gt;status.bitbucket.org&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 &lt;h2 id="other-stuff"&gt;Other Stuff&lt;/h2&gt;
 &lt;p&gt;There are a couple of other rules, but I'm not sure how important they actually
 are:&lt;/p&gt;

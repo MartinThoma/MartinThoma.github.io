@@ -103,7 +103,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#general-thoughts" title="General Thoughts">General Thoughts</a></li><li><a class="toc-href" href="#naming" title="Naming">Naming</a></li><li><a class="toc-href" href="#versioning" title="Versioning">Versioning</a></li><li><a class="toc-href" href="#list-returning-endpoints" title="List-returning Endpoints">List-returning Endpoints</a></li><li><a class="toc-href" href="#documentation" title="Documentation">Documentation</a></li><li><a class="toc-href" href="#errors" title="Errors">Errors</a></li><li><a class="toc-href" href="#character-sets" title="Character Sets">Character Sets</a></li><li><a class="toc-href" href="#monitoring" title="Monitoring">Monitoring</a></li><li><a class="toc-href" href="#other-stuff" title="Other Stuff">Other Stuff</a><ul><li><a class="toc-href" href="#http-methods" title="HTTP Methods">HTTP Methods</a></li><li><a class="toc-href" href="#http-response-status-codes" title="HTTP Response Status codes:">HTTP Response Status codes:</a></li></ul></li><li><a class="toc-href" href="#see-also_1" title="See also">See also</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#general-thoughts" title="General Thoughts">General Thoughts</a><ul><li><a class="toc-href" href="#character-sets" title="Character Sets">Character Sets</a></li><li><a class="toc-href" href="#monitoring" title="Monitoring">Monitoring</a></li><li><a class="toc-href" href="#server-time" title="Server Time">Server Time</a></li></ul></li><li><a class="toc-href" href="#naming_1" title="Naming">Naming</a></li><li><a class="toc-href" href="#versioning" title="Versioning">Versioning</a></li><li><a class="toc-href" href="#list-returning-endpoints" title="List-returning Endpoints">List-returning Endpoints</a></li><li><a class="toc-href" href="#documentation" title="Documentation">Documentation</a></li><li><a class="toc-href" href="#errors" title="Errors">Errors</a></li><li><a class="toc-href" href="#other-stuff" title="Other Stuff">Other Stuff</a><ul><li><a class="toc-href" href="#http-methods" title="HTTP Methods">HTTP Methods</a></li><li><a class="toc-href" href="#http-response-status-codes" title="HTTP Response Status codes:">HTTP Response Status codes:</a></li></ul></li><li><a class="toc-href" href="#see-also_1" title="See also">See also</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -119,7 +119,42 @@ have to keep things running for quite a while. Changes in an endpoint could
 potentialy cause another service to crash. You want your stuff to be reliable,
 so think about that in advance.</p>
 <p>Oh, and JSON is likely the most common way to return information in the web.</p>
-<h2 id="naming">Naming</h2>
+<h3 id="character-sets">Character Sets</h3>
+<p>Use UTF8. Always. Everywhere.</p>
+<p>See also: <a href="https://softwareengineering.stackexchange.com/q/40063/25699">Should character encodings besides UTF-8 (and maybe UTF-16/UTF-32) be deprecated?</a></p>
+<h3 id="monitoring">Monitoring</h3>
+<p>You offer a service, so please make sure it is available. You could use services
+like <a href="https://www.runscope.com/api-monitoring">Runscope</a> which ping your
+endpoints regularly.</p>
+<p>To give your users a way to check if things look normal, you could create a
+status page. A popular choice is <a href="https://www.statuspage.io">statuspage.io</a>.
+Some examples of status pages:</p>
+<ul>
+<li>[status.aws.amazon.com(http://status.aws.amazon.com)</li>
+<li><a href="https://status.github.com/messages">status.github.com</a></li>
+<li><a href="https://status.bitbucket.org">status.bitbucket.org</a></li>
+</ul>
+<h3 id="server-time">Server Time</h3>
+<p>Make sure your server time is not too off. This makes comparing logs of
+different systems easier. And it could be that you use the system time directly
+or indirectly as an API output. You can use an <a href="https://en.wikipedia.org/wiki/Network_Time_Protocol">NTP server</a>
+to sync the time.</p>
+<p>For manual checking.</p>
+<div class="highlight"><pre><span></span>$ ntpq -pn
+     remote           refid      st t when poll reach   delay   offset  <span class="nv">jitter</span>
+<span class="o">==============================================================================</span>
+ <span class="m">0</span>.ubuntu.pool.n .POOL.          <span class="m">16</span> p    -   <span class="m">64</span>    <span class="m">0</span>    <span class="m">0</span>.000    <span class="m">0</span>.000   <span class="m">0</span>.000
+ <span class="m">1</span>.ubuntu.pool.n .POOL.          <span class="m">16</span> p    -   <span class="m">64</span>    <span class="m">0</span>    <span class="m">0</span>.000    <span class="m">0</span>.000   <span class="m">0</span>.000
+ <span class="m">2</span>.ubuntu.pool.n .POOL.          <span class="m">16</span> p    -   <span class="m">64</span>    <span class="m">0</span>    <span class="m">0</span>.000    <span class="m">0</span>.000   <span class="m">0</span>.000
+ <span class="m">3</span>.ubuntu.pool.n .POOL.          <span class="m">16</span> p    -   <span class="m">64</span>    <span class="m">0</span>    <span class="m">0</span>.000    <span class="m">0</span>.000   <span class="m">0</span>.000
+ ntp.ubuntu.com  .POOL.          <span class="m">16</span> p    -   <span class="m">64</span>    <span class="m">0</span>    <span class="m">0</span>.000    <span class="m">0</span>.000   <span class="m">0</span>.000
++92.222.82.98    <span class="m">130</span>.149.17.8     <span class="m">2</span> u   <span class="m">75</span>  <span class="m">128</span>  <span class="m">377</span>   <span class="m">24</span>.430   -0.043   <span class="m">1</span>.522
+*185.51.192.34   <span class="m">46</span>.243.26.34     <span class="m">2</span> u   <span class="m">44</span>  <span class="m">128</span>  <span class="m">377</span>   <span class="m">27</span>.447   -0.319   <span class="m">1</span>.120
+-212.18.3.19     <span class="m">212</span>.18.1.106     <span class="m">2</span> u   <span class="m">61</span>  <span class="m">128</span>  <span class="m">377</span>   <span class="m">16</span>.443   -0.317   <span class="m">1</span>.454
++88.159.1.196    <span class="m">193</span>.190.230.66   <span class="m">2</span> u   <span class="m">47</span>  <span class="m">128</span>  <span class="m">377</span>   <span class="m">29</span>.346    <span class="m">0</span>.564   <span class="m">1</span>.828
+-192.33.96.102   .PPS.            <span class="m">1</span> u  <span class="m">113</span>  <span class="m">128</span>  <span class="m">377</span>   <span class="m">40</span>.525    <span class="m">3</span>.008   <span class="m">2</span>.11
+</pre></div>
+<h2 id="naming_1">Naming</h2>
 <p>Suppose we would have an API which lets us create / delete / receive users. I
 would expect the following:</p>
 <ul>
@@ -182,21 +217,6 @@ you can return documentation and/or a formatted response.</p>
 
  ]}
 </pre></div>
-<h2 id="character-sets">Character Sets</h2>
-<p>Use UTF8. Always. Everywhere.</p>
-<p>See also: <a href="https://softwareengineering.stackexchange.com/q/40063/25699">Should character encodings besides UTF-8 (and maybe UTF-16/UTF-32) be deprecated?</a></p>
-<h2 id="monitoring">Monitoring</h2>
-<p>You offer a service, so please make sure it is available. You could use services
-like <a href="https://www.runscope.com/api-monitoring">Runscope</a> which ping your
-endpoints regularly.</p>
-<p>To give your users a way to check if things look normal, you could create a
-status page. A popular choice is <a href="https://www.statuspage.io">statuspage.io</a>.
-Some examples of status pages:</p>
-<ul>
-<li>[status.aws.amazon.com(http://status.aws.amazon.com)</li>
-<li><a href="https://status.github.com/messages">status.github.com</a></li>
-<li><a href="https://status.bitbucket.org">status.bitbucket.org</a></li>
-</ul>
 <h2 id="other-stuff">Other Stuff</h2>
 <p>There are a couple of other rules, but I'm not sure how important they actually
 are:</p>
