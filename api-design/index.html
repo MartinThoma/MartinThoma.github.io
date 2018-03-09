@@ -207,18 +207,23 @@ you can return documentation and/or a formatted response.</p>
 <p>Help your API users by making nice error messages. Something like</p>
 <div class="highlight"><pre><span></span>HTTP Status 400
 
-{"errors": [
-    {
-        "status": 400,
-        "detail": "Invalid country 'German'.",
-        "code": 1337,
-        "links": {
-            "docs": "http://domain.io/docs",
-            "errors": "http://domain.io/docs/errors#1337"
+{
+    "errors": [
+        {
+            "status": 400,
+            "error": "FIELDS_VALIDATION_ERROR",
+            "detail": "Invalid country 'German'.",
+            "fields": {
+                "country": "Invalid country. See ISO 3166 ALPHA-3 for valid values."
+            },
+            "code": 1337,
+            "links": {
+                "docs": "http://domain.io/docs",
+                "errors": "http://domain.io/docs/errors#1337"
+            }
         }
-    }
-
- ]}
+    ]
+}
 </pre></div>
 <h2 id="security">Security</h2>
 <h3 id="https">HTTPS</h3>
