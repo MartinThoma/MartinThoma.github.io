@@ -22,6 +22,9 @@ potentialy cause another service to crash. You want your stuff to be reliable,
 so think about that in advance.
 
 Oh, and JSON is likely the most common way to return information in the web.
+So make sure your responses are valid JSON and you include
+`Content-Type: application/json` in the header. Consequently, you can expect
+the payload to be valid JSON as well.
 
 
 ### Character Sets
@@ -145,18 +148,23 @@ Help your API users by making nice error messages. Something like
 ```
 HTTP Status 400
 
-{"errors": [
-    {
-        "status": 400,
-        "detail": "Invalid country 'German'.",
-        "code": 1337,
-        "links": {
-            "docs": "http://domain.io/docs",
-            "errors": "http://domain.io/docs/errors#1337"
+{
+    "errors": [
+        {
+            "status": 400,
+            "error": "FIELDS_VALIDATION_ERROR",
+            "detail": "Invalid country 'German'.",
+            "fields": {
+                "country": "Invalid country. See ISO 3166 ALPHA-3 for valid values."
+            },
+            "code": 1337,
+            "links": {
+                "docs": "http://domain.io/docs",
+                "errors": "http://domain.io/docs/errors#1337"
+            }
         }
-    }
-
- ]}
+    ]
+}
 ```
 
 
