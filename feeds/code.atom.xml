@@ -1,5 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Code</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/code.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-01-27T20:00:00+01:00</updated><entry><title>Datetime</title><link href="https://martin-thoma.com/datetime/" rel="alternate"></link><published>2018-01-27T20:00:00+01:00</published><updated>2018-01-27T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-01-27:/datetime/</id><summary type="html">&lt;p&gt;Specifying a point in time is a pretty common task. And it is extraordinary
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Code</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/code.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-03-14T20:00:00+01:00</updated><entry><title>Pandas: Merge, join, concatenate</title><link href="https://martin-thoma.com/pandas-merge-join-concatenate/" rel="alternate"></link><published>2018-03-14T20:00:00+01:00</published><updated>2018-03-14T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-03-14:/pandas-merge-join-concatenate/</id><summary type="html">&lt;p&gt;I always get confused about the different methods how to join Pandas
+dataframes. So here are some examples that should make it crystal clear.&lt;/p&gt;
+&lt;p&gt;First, we create two dataframes:&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21 …&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</summary><content type="html">&lt;p&gt;I always get confused about the different methods how to join Pandas
+dataframes. So here are some examples that should make it crystal clear.&lt;/p&gt;
+&lt;p&gt;First, we create two dataframes:&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/env python&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pd&lt;/span&gt;
+
+&lt;span class="n"&gt;countries&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'Germany'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'France'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Indonesia'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;inhabitants&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mf"&gt;82.5&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;66.9&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;255.5&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;capitals&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'Berlin'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Paris'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Jakarta'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="n"&gt;df1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DataFrame&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="s1"&gt;'country'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;countries&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                    &lt;span class="s1"&gt;'inhabitant'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;inhabitants&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                    &lt;span class="s1"&gt;'capital'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;capitals&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;
+&lt;span class="n"&gt;df1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df1&lt;/span&gt;&lt;span class="p"&gt;[[&lt;/span&gt;&lt;span class="s1"&gt;'country'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'capital'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'inhabitant'&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;countries&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'Germany'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Italy'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Spain'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Austria'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;capitals&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'Berlin'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Rome'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Madrid'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'Vienna'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;hdis&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mf"&gt;0.926&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;0.897&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;0.844&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;0.893&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;df2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DataFrame&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="s1"&gt;'country'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;countries&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                    &lt;span class="s1"&gt;'capital'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;capitals&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                    &lt;span class="s1"&gt;'HDI'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;hdis&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;
+&lt;span class="n"&gt;df2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df2&lt;/span&gt;&lt;span class="p"&gt;[[&lt;/span&gt;&lt;span class="s1"&gt;'country'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'capital'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'HDI'&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;p&gt;So &lt;code&gt;df1&lt;/code&gt; is:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;     country  capital   inhabitant
+0    Germany   Berlin   82500000.0
+1     France    Paris   66900000.0
+2  Indonesia  Jakarta  255500000.0
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;and &lt;code&gt;df2&lt;/code&gt; is&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;   country capital    HDI
+0  Germany  Berlin  0.926
+1    Italy    Rome  0.897
+2    Spain  Madrid  0.844
+3  Austria  Vienna  0.893
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="merge"&gt;Merge&lt;/h2&gt;
+&lt;p&gt;The &lt;a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.merge.html"&gt;pandas docs&lt;/a&gt;
+tell you that it has the syntax:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt;&amp;gt;&amp;gt; df1.merge(df2, on='country', how='inner')
+   country capital_x  inhabitant capital_y    HDI
+0  Germany    Berlin  82500000.0    Berlin  0.926
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Please note that the column &lt;code&gt;capital&lt;/code&gt; was duplicated as it is in both tables&lt;/p&gt;
+&lt;p&gt;Then you can do all of the usual operations we know from SQL JOINs, e.g. a LEFT JOIN:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt;&amp;gt;&amp;gt; df1.merge(df2, on='country', how='left')
+     country capital_x   inhabitant capital_y    HDI
+0    Germany    Berlin   82500000.0    Berlin  0.926
+1     France     Paris   66900000.0       NaN    NaN
+2  Indonesia   Jakarta  255500000.0       NaN    NaN
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A RIGHT JOIN:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt;&amp;gt;&amp;gt; df1.merge(df2, on='country', how='right')
+   country capital_x  inhabitant capital_y    HDI
+0  Germany    Berlin  82500000.0    Berlin  0.926
+1    Italy       NaN         NaN      Rome  0.897
+2    Spain       NaN         NaN    Madrid  0.844
+3  Austria       NaN         NaN    Vienna  0.893
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;OUTER JOIN:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt;&amp;gt;&amp;gt; df1.merge(df2, on='country', how='outer')
+     country capital_x   inhabitant capital_y    HDI
+0    Germany    Berlin   82500000.0    Berlin  0.926
+1     France     Paris   66900000.0       NaN    NaN
+2  Indonesia   Jakarta  255500000.0       NaN    NaN
+3      Italy       NaN          NaN      Rome  0.897
+4      Spain       NaN          NaN    Madrid  0.844
+5    Austria       NaN          NaN    Vienna  0.893
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="join"&gt;Join&lt;/h2&gt;
+&lt;p&gt;Join is just a convenience method, which uses merge and should be used if you
+want to merge on the index:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The related DataFrame.join method, uses merge internally for the
+index-on-index and index-on-column(s) joins, but joins on indexes by default
+rather than trying to join on common columns (the default behavior for
+merge). If you are joining on index, you may wish to use DataFrame.join to
+save yourself some typing.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The &lt;a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.join.html"&gt;pandas join operation&lt;/a&gt;
+states:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;DataFrame.join(other, on=None, how='left', lsuffix='', rsuffix='', sort=False)&lt;/p&gt;
+&lt;p&gt;Join columns with other DataFrame either on index or on a key column.
+Efficiently Join multiple DataFrame objects by index at once by passing a
+list.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Having a look at the following example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt;&amp;gt;&amp;gt; df1.join(df2, on='country', how='outer', lsuffix='_df1')
+  country_df1 capital_df1   inhabitant country capital    HDI
+0     Germany      Berlin   82500000.0     NaN     NaN    NaN
+1      France       Paris   66900000.0     NaN     NaN    NaN
+2   Indonesia     Jakarta  255500000.0     NaN     NaN    NaN
+2         NaN         NaN          NaN       0  Berlin  0.926
+2         NaN         NaN          NaN       1    Rome  0.897
+2         NaN         NaN          NaN       2  Madrid  0.844
+2         NaN         NaN          NaN       3  Vienna  0.893
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I would say join and merge look extremely similar. You can notice differences
+in the function signature when you look at the help, but the difference in the
+output is more subtile. It's the index: For merge, you still have the typical
+index where each element is unique. For join, if you merge on a column, you
+don't have that anymore.&lt;/p&gt;
+&lt;h2 id="concatenate"&gt;Concatenate&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.concat.html"&gt;Pandas Documentation&lt;/a&gt;
+and the example&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt;&amp;gt;&amp;gt; pd.concat([df1, df2])
+     HDI  capital    country   inhabitant
+0    NaN   Berlin    Germany   82500000.0
+1    NaN    Paris     France   66900000.0
+2    NaN  Jakarta  Indonesia  255500000.0
+0  0.926   Berlin    Germany          NaN
+1  0.897     Rome      Italy          NaN
+2  0.844   Madrid      Spain          NaN
+3  0.893   Vienna    Austria          NaN
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://pandas.pydata.org/pandas-docs/stable/merging.html"&gt;Merge, join, and concatenate&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://stackoverflow.com/a/37891437/562769"&gt;What is the difference between join and merge in Pandas?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Pandas"></category></entry><entry><title>Datetime</title><link href="https://martin-thoma.com/datetime/" rel="alternate"></link><published>2018-01-27T20:00:00+01:00</published><updated>2018-01-27T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-01-27:/datetime/</id><summary type="html">&lt;p&gt;Specifying a point in time is a pretty common task. And it is extraordinary
 difficult. Lets have a look at the different ways to specify a point in time.&lt;/p&gt;
 &lt;p&gt;Imagine the following scenario: We record some events, e.g. actions of a credit
 card user. In case of potential fraud …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Specifying a point in time is a pretty common task. And it is extraordinary
