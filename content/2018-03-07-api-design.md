@@ -44,7 +44,7 @@ To give your users a way to check if things look normal, you could create a
 status page. A popular choice is [statuspage.io](https://www.statuspage.io).
 Some examples of status pages:
 
-* [status.aws.amazon.com(http://status.aws.amazon.com)
+* [status.aws.amazon.com](http://status.aws.amazon.com)
 * [status.github.com](https://status.github.com/messages)
 * [status.bitbucket.org](https://status.bitbucket.org)
 
@@ -216,7 +216,7 @@ Copied from [developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web
 * `DELETE`: The DELETE method deletes the specified resource.
 
 
-### HTTP Response Status codes:
+### HTTP Response Status codes
 
 #### Success: 2XX
 
