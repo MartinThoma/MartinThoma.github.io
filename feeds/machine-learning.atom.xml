@@ -1,5 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Machine Learning</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/machine-learning.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-01-09T20:00:00+01:00</updated><entry><title>Sankey Diagrams</title><link href="https://martin-thoma.com/sankey-diagrams/" rel="alternate"></link><published>2018-01-09T20:00:00+01:00</published><updated>2018-01-09T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-01-09:/sankey-diagrams/</id><summary type="html">&lt;p&gt;Sankey diagrams can be used to visualize the breakdown of money / electriciy.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Machine Learning</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/machine-learning.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-03-26T20:00:00+02:00</updated><entry><title>SLAM</title><link href="https://martin-thoma.com/slam/" rel="alternate"></link><published>2018-03-26T20:00:00+02:00</published><updated>2018-03-26T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-03-26:/slam/</id><summary type="html">&lt;div class="info"&gt;This post is a work in progress.&lt;/div&gt;
+&lt;p&gt;SLAM is short of simultaneous localization and mapping. It is a term used to
+describe the problem of creating a map and locating the mobile agent within the
+map at the same time.&lt;/p&gt;
+&lt;p&gt;This kind of problem is hard, because of the chicken-and-egg …&lt;/p&gt;</summary><content type="html">&lt;div class="info"&gt;This post is a work in progress.&lt;/div&gt;
+&lt;p&gt;SLAM is short of simultaneous localization and mapping. It is a term used to
+describe the problem of creating a map and locating the mobile agent within the
+map at the same time.&lt;/p&gt;
+&lt;p&gt;This kind of problem is hard, because of the chicken-and-egg problem: In order
+to get a good localization, you need a map. In order to create a map, you need
+to localize the agent.&lt;/p&gt;
+&lt;p&gt;It can be applied to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Indoors: Vacuum cleaner robots&lt;/li&gt;
+&lt;li&gt;Outdoors: Self-driving cars&lt;/li&gt;
+&lt;li&gt;Underground: Exploration of mines&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="slam-algorithm-parts"&gt;SLAM algorithm parts&lt;/h2&gt;
+&lt;h3 id="motion-model"&gt;Motion model&lt;/h3&gt;
+&lt;p&gt;A motion model gives the state &lt;span class="math"&gt;\(x\)&lt;/span&gt; at time &lt;span class="math"&gt;\(k\)&lt;/span&gt; after having the state at time
+&lt;span class="math"&gt;\(k-1\)&lt;/span&gt; and the control &lt;span class="math"&gt;\(u\)&lt;/span&gt; at time &lt;span class="math"&gt;\(k\)&lt;/span&gt;:&lt;/p&gt;
+&lt;div class="math"&gt;$$x_k = f(x_{k-1}, u_k)$$&lt;/div&gt;
+&lt;h3 id="observation-model"&gt;Observation model&lt;/h3&gt;
+&lt;p&gt;The observation model gives the observation &lt;span class="math"&gt;\(z\)&lt;/span&gt; at time &lt;span class="math"&gt;\(k\)&lt;/span&gt;, given the map &lt;span class="math"&gt;\(m\)&lt;/span&gt;
+and the state &lt;span class="math"&gt;\(x\)&lt;/span&gt; at time &lt;span class="math"&gt;\(k\)&lt;/span&gt;:&lt;/p&gt;
+&lt;div class="math"&gt;$$z_k = h(x_k, m)$$&lt;/div&gt;
+&lt;p&gt;See &lt;a href="https://en.wikipedia.org/wiki/Odometry"&gt;odometry&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id="map-representations"&gt;Map Representations&lt;/h3&gt;
+&lt;p&gt;Maps can either simply be topological or be metric. The first one means
+distances don't matter, only the ordering / number of branches.&lt;/p&gt;
+&lt;h3 id="data-association"&gt;Data Association&lt;/h3&gt;
+&lt;p&gt;Data association means that we want to identify landmarks. The two-frame
+matching problem is called (Correspondence Problem).&lt;/p&gt;
+&lt;h2 id="slam-algorithms_1"&gt;SLAM algorithms&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Graph SLAM&lt;/li&gt;
+&lt;li&gt;EKF-SLAM (Extended Kalman filter)&lt;/li&gt;
+&lt;li&gt;Fast SLAM: Rao-Blackwellised particle filters&lt;/li&gt;
+&lt;li&gt;Mono SLAM&lt;/li&gt;
+&lt;li&gt;Topological SLAM&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="ekf-slam"&gt;EKF-SLAM&lt;/h3&gt;
+&lt;p&gt;Components:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The state vector &lt;span class="math"&gt;\(x \in \mathbb{R}^{n}\)&lt;/span&gt; contains the position of the agent (for example: x, y, orientation) as
+  well as all landmarks (for example: &lt;span class="math"&gt;\(l_{1,x}, l_{1,y}, l_{2,x}, l_{2,y}\)&lt;/span&gt;).&lt;/li&gt;
+&lt;li&gt;A covariance matrix &lt;span class="math"&gt;\(C \in \mathbb{R}^{n \times n}\)&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Pseudocode:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;def filter_step(x, m):
+    """
+
+    Parameters
+    ----------
+    x : ndarray
+        State vector, including landmark positions
+        shape: n
+    C : ndarray
+        Covariance matrix
+        spahe: n x n
+    """
+    x_pred = predict_state(x)  # odometry
+    z_pred = predict_measurement(x)
+    z = measure()
+    # data association
+    # Kalman filter update
+    # Integration of new landmarks by extending x and C
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Complexity:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Cost per step: &lt;span class="math"&gt;\(O(n^2)\)&lt;/span&gt; where &lt;span class="math"&gt;\(n\)&lt;/span&gt; is the number of landmarks&lt;/li&gt;
+&lt;li&gt;Total cost to build a map: O(n^3)&lt;/li&gt;
+&lt;li&gt;Memory consumption: O(n^2)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="see-also_1"&gt;See also&lt;/h2&gt;
+&lt;p&gt;Other blogposts:
+* &lt;a href="https://martin-thoma.com/kalman-filter/"&gt;Kalman Filter&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Papers and Slides:
+&lt;em&gt; Uni Freiburg: &lt;a href="http://ais.informatik.uni-freiburg.de/teaching/ss12/robotics/slides/12-slam.pdf"&gt;Slides&lt;/a&gt; and &lt;a href="https://www.youtube.com/watch?v=U6vr3iNrwRA&amp;amp;list=PLgnQpQtFTOGQrZ4O5QzbIHgl3b1JHimN_"&gt;YouTube playlist&lt;/a&gt;
+&lt;/em&gt; Hugh Durrant-Whyte, Tim Bailey: Simultaneous Localisation and Mapping (SLAM): Part I The Essential Algorithms&lt;/p&gt;
+&lt;p&gt;Datasets:
+* &lt;a href="http://www-personal.acfr.usyd.edu.au/nebot/victoria_park.htm"&gt;Victoria Park&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Software:
+* Mark Paskin: &lt;a href="http://ai.stanford.edu/~paskin/slam/"&gt;Stanford&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Stack Exchange:
+&lt;em&gt; &lt;a href="https://robotics.stackexchange.com/questions/tagged/slam"&gt;Robotics&lt;/a&gt;
+&lt;/em&gt; &lt;a href="https://stackoverflow.com/questions/tagged/slam"&gt;Stack Overflow&lt;/a&gt;
+* &lt;a href="https://ai.stackexchange.com/search?q=slam"&gt;A.I.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Other:
+* &lt;a href="https://en.wikipedia.org/wiki/Simultaneous_localization_and_mapping"&gt;Wikipedia&lt;/a&gt;&lt;/p&gt;</content><category term="Artificial Intelligence"></category><category term="Robotics"></category></entry><entry><title>Sankey Diagrams</title><link href="https://martin-thoma.com/sankey-diagrams/" rel="alternate"></link><published>2018-01-09T20:00:00+01:00</published><updated>2018-01-09T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-01-09:/sankey-diagrams/</id><summary type="html">&lt;p&gt;Sankey diagrams can be used to visualize the breakdown of money / electriciy.
 You have a big base value like the energy used by an average single German in
 December 2017. Then you build big clusters:&lt;/p&gt;
 &lt;ul&gt;
