@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Regression "/>
 <meta property="og:url" content="../regression/" />
-<meta property="og:description" content="Today, I played a bit with the International airline passengers dataset. It&#39;s only feature is a date given by year and month. One should predict the number of passengers (in thousands). Code See Github. Results name training time testing time mae median absolute error r2 explained variance mse GradientBoostingRegressor 11 …" />
+<meta property="og:description" content="Today, I played a bit with the International airline passengers dataset. It&#39;s only feature is a date given by year and month. One should predict the number of passengers (in thousands). Code See Github. Results name training time testing time mae median absolute error $R^2$ explained variance MSE GradientBoostingRegressor …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2018-04-16T20:00:00+02:00" />
 <meta name="twitter:title" content="Regression ">
-<meta name="twitter:description" content="Today, I played a bit with the International airline passengers dataset. It&#39;s only feature is a date given by year and month. One should predict the number of passengers (in thousands). Code See Github. Results name training time testing time mae median absolute error r2 explained variance mse GradientBoostingRegressor 11 …">
+<meta name="twitter:description" content="Today, I played a bit with the International airline passengers dataset. It&#39;s only feature is a date given by year and month. One should predict the number of passengers (in thousands). Code See Github. Results name training time testing time mae median absolute error $R^2$ explained variance MSE GradientBoostingRegressor …">
 <meta property="og:image" content="logos/ml.png" />
 <meta name="twitter:image" content="logos/ml.png" >
 
@@ -122,9 +122,9 @@ number of passengers (in thousands).</p>
 <th>testing time</th>
 <th>mae</th>
 <th>median absolute error</th>
-<th>r2</th>
+<th><a href="https://en.wikipedia.org/wiki/Coefficient_of_determination">$R^2$</a></th>
 <th>explained variance</th>
-<th>mse</th>
+<th><a href="https://en.wikipedia.org/wiki/Mean_squared_error" title="Mean squared error">MSE</a></th>
 <tr>
 <tr>
 <td>GradientBoostingRegressor</td>
@@ -132,7 +132,7 @@ number of passengers (in thousands).</p>
 <td> 0.1ms</td>
 <td style="background-color: green;">40.0</td>
 <td style="background-color: green;">31.0</td>
-<td>0.5689</td>
+<td style="background-color: green;">0.5689</td>
 <td style="background-color: green;">0.6246</td>
 <td style="background-color: green;">2631.9</td>
 </tr>
@@ -167,7 +167,7 @@ number of passengers (in thousands).</p>
 <td>16531.5</td>
 </tr>
 <tr>
-<td>RANSACRegressor</td>
+<td><a href="http://scikit-learn.org/stable/modules/linear_model.html#ransac-random-sample-consensus">RANSACRegressor</a></td>
 <td> 4.1ms</td>
 <td style="background-color: green;"> 0.0ms</td>
 <td>68.5</td>
@@ -177,7 +177,7 @@ number of passengers (in thousands).</p>
 <td>8726.0</td>
 </tr>
 <tr>
-<td>PassiveAggressiveRegressor</td>
+<td><a href="http://scikit-learn.org/stable/modules/linear_model.html#passive-aggressive">PassiveAggressiveRegressor</a></td>
 <td style="background-color: green;"> 0.2ms</td>
 <td style="background-color: green;"> 0.0ms</td>
 <td>115.8</td>
@@ -226,12 +226,28 @@ number of passengers (in thousands).</p>
 <td>0.5036</td>
 <td>3208.6</td>
 </tr>
+<tr>
+<td><a href="https://martin-thoma.com/svm-with-sklearn/">SVR</a></td>
+<td> 2.1ms</td>
+<td> 0.3ms</td>
+<td style="background-color: red;">202.2</td>
+<td style="background-color: red;">182.0</td>
+<td style="background-color: red;">-6.6885</td>
+<td style="background-color: red;">0.0105</td>
+<td style="background-color: red;">46934.4</td>
+</tr>
 </tr></tr></table>
 <p>I like the median absolute error best, because it tells me how many passengers
 my prediction is typically away from the true prediction.</p>
+<p>Please note that bad results here do not mean the regressor is bad. Some might
+just use their full potential with more data, some might be better suited to
+different regression problems, e.g. interpolation instead of extrapolation or
+working with higher dimensional data.</p>
 <h2 id="things-i-learned">Things I learned</h2>
 <ul>
 <li>SGDRegressor without scaling is crazy bad.</li>
+<li>Without hyperparameter optimization (e.g. <a href="https://martin-thoma.com/twiddle/">twiddling</a>),
+  SVR is shitty.</li>
 </ul>
 <h2 id="see-also">See also</h2>
 <ul>
