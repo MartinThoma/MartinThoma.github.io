@@ -123,7 +123,7 @@ number of passengers (in thousands).</p>
 <th><a href="https://en.wikipedia.org/wiki/Mean_absolute_error" title="Mean absolute error">MAE</a></th>
 <th><a href="https://en.wikipedia.org/wiki/Median_absolute_deviation" title="Median absolute deviation">MAD</a></th>
 <th><a href="https://en.wikipedia.org/wiki/Coefficient_of_determination">$R^2$</a></th>
-<th>explained variance</th>
+<th><a href="http://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html">explained variance</a></th>
 <th><a href="https://en.wikipedia.org/wiki/Mean_squared_error" title="Mean squared error">MSE</a></th>
 <tr>
 <tr>
@@ -197,7 +197,7 @@ number of passengers (in thousands).</p>
 <td>3564.0</td>
 </tr>
 <tr>
-<td>HuberRegressor</td>
+<td><a href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.HuberRegressor.html">HuberRegressor</a></td>
 <td> 8.0ms</td>
 <td style="background-color: green;"> 0.0ms</td>
 <td>65.4</td>
@@ -237,7 +237,17 @@ number of passengers (in thousands).</p>
 <td style="background-color: red;">46934.4</td>
 </tr>
 <tr>
-<td>ElasticNet</td>
+<td>Linear SVR + Standardscaler</td>
+<td> 1.4ms</td>
+<td> 0.2ms</td>
+<td>84.1</td>
+<td>60.6</td>
+<td style="background-color: red;">-0.9573</td>
+<td>0.1338</td>
+<td>11948.3</td>
+</tr>
+<tr>
+<td><a href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ElasticNet.html">ElasticNet</a></td>
 <td> 0.3ms</td>
 <td style="background-color: green;"> 0.0ms</td>
 <td>56.0</td>
@@ -247,7 +257,7 @@ number of passengers (in thousands).</p>
 <td>5452.0</td>
 </tr>
 <tr>
-<td>Lasso</td>
+<td><a href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html">Lasso</a></td>
 <td> 0.4ms</td>
 <td style="background-color: green;"> 0.0ms</td>
 <td>56.0</td>
@@ -268,6 +278,8 @@ working with higher dimensional data.</p>
 <li>SGDRegressor without scaling is crazy bad.</li>
 <li>Without hyperparameter optimization (e.g. <a href="https://martin-thoma.com/twiddle/">twiddling</a>),
   SVR is shitty.</li>
+<li>Without scaling, linear SVR runs many hours for training. On a dataset with
+  3&nbsp;features and less than 150&nbsp;data points.</li>
 </ul>
 <h2 id="see-also">See also</h2>
 <ul>
