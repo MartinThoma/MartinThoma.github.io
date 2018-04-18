@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Regression "/>
 <meta property="og:url" content="../regression/" />
-<meta property="og:description" content="Today, I played a bit with the International airline passengers dataset. It&#39;s only feature is a date given by year and month. One should predict the number of passengers (in thousands). Code See Github. Results name training time testing time MAE MAD $R^2$ explained variance MSE GradientBoostingRegressor 11.6ms …" />
+<meta property="og:description" content="Today, I played a bit with the International airline passengers dataset. It&#39;s only feature is a date given by year and month. One should predict the number of passengers (in thousands). Code See Github. Scoring functions Name Image X is better Definition and Usage MAE $[0, \infty)$ lower $f(y …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2018-04-16T20:00:00+02:00" />
 <meta name="twitter:title" content="Regression ">
-<meta name="twitter:description" content="Today, I played a bit with the International airline passengers dataset. It&#39;s only feature is a date given by year and month. One should predict the number of passengers (in thousands). Code See Github. Results name training time testing time MAE MAD $R^2$ explained variance MSE GradientBoostingRegressor 11.6ms …">
+<meta name="twitter:description" content="Today, I played a bit with the International airline passengers dataset. It&#39;s only feature is a date given by year and month. One should predict the number of passengers (in thousands). Code See Github. Scoring functions Name Image X is better Definition and Usage MAE $[0, \infty)$ lower $f(y …">
 <meta property="og:image" content="logos/ml.png" />
 <meta name="twitter:image" content="logos/ml.png" >
 
@@ -103,7 +103,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#code" title="Code">Code</a></li><li><a class="toc-href" href="#results" title="Results">Results</a></li><li><a class="toc-href" href="#things-i-learned" title="Things I learned">Things I learned</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#code" title="Code">Code</a></li><li><a class="toc-href" href="#scoring-functions" title="Scoring functions">Scoring functions</a></li><li><a class="toc-href" href="#results" title="Results">Results</a></li><li><a class="toc-href" href="#things-i-learned" title="Things I learned">Things I learned</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -114,6 +114,47 @@ MathJax.Hub.Queue(function() {
 number of passengers (in thousands).</p>
 <h2 id="code">Code</h2>
 <p>See <a href="https://github.com/MartinThoma/algorithms/blob/master/ML/regression/airline-passengers/main.py">Github</a>.</p>
+<h2 id="scoring-functions">Scoring functions</h2>
+<table class="table">
+<thead>
+<tr>
+<th>Name</th>
+<th>Image</th>
+<th>X is better</th>
+<th>Definition and Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MAE</td>
+<td>$[0, \infty)$</td>
+<td>lower</td>
+<td>$f(y, y_P) = \frac{1}{|y|} \sum_{\tilde{y}, \tilde{y_P} \in (y, y_P)} |\tilde{y} - \tilde{y_P}|$</td>
+</tr>
+<tr>
+<td>MSE</td>
+<td>$[0, \infty)$</td>
+<td>lower</td>
+<td>$f(y, y_P) = \frac{1}{|y|} \sum_{\tilde{y}, \tilde{y_P} \in (y, y_P)} (\tilde{y} - \tilde{y_P})^2$</td>
+</tr>
+<tr>
+<td>$R^2$</td>
+<td>$[0, 1]$</td>
+<td>higher</td>
+<td></td>
+</tr>
+<tr>
+<td>Explained Variance</td>
+<td>$(-\infty, 0]$</td>
+<td>higher</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>See also:</p>
+<ul>
+<li><a href="https://stats.stackexchange.com/q/32596/25741">What is the difference between &ldquo;coefficient of determination&rdquo; and &ldquo;mean squared error&rdquo;?</a></li>
+</ul>
 <h2 id="results">Results</h2>
 <table class="table">
 <tr>
