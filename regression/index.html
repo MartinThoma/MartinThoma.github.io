@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Regression "/>
 <meta property="og:url" content="../regression/" />
-<meta property="og:description" content="Today, I played a bit with the International airline passengers dataset. It&#39;s only feature is a date given by year and month. One should predict the number of passengers (in thousands). Code See Github. Scoring functions Name Image X is better Definition and Usage MAE $[0, \infty)$ lower $f(y …" />
+<meta property="og:description" content="Today, I played a bit with the International airline passengers dataset. It&#39;s only feature is a date given by year and month. One should predict the number of passengers (in thousands). Code See Github. Scoring functions In the following, \(y\) is the ordered list of target, \(y_P\) is the list …if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2018-04-16T20:00:00+02:00" />
 <meta name="twitter:title" content="Regression ">
-<meta name="twitter:description" content="Today, I played a bit with the International airline passengers dataset. It&#39;s only feature is a date given by year and month. One should predict the number of passengers (in thousands). Code See Github. Scoring functions Name Image X is better Definition and Usage MAE $[0, \infty)$ lower $f(y …">
+<meta name="twitter:description" content="Today, I played a bit with the International airline passengers dataset. It&#39;s only feature is a date given by year and month. One should predict the number of passengers (in thousands). Code See Github. Scoring functions In the following, \(y\) is the ordered list of target, \(y_P\) is the list …if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width">
 <meta property="og:image" content="logos/ml.png" />
 <meta name="twitter:image" content="logos/ml.png" >
 
@@ -115,6 +115,8 @@ number of passengers (in thousands).</p>
 <h2 id="code">Code</h2>
 <p>See <a href="https://github.com/MartinThoma/algorithms/blob/master/ML/regression/airline-passengers/main.py">Github</a>.</p>
 <h2 id="scoring-functions">Scoring functions</h2>
+<p>In the following, <span class="math">\(y\)</span> is the ordered list of target, <span class="math">\(y_P\)</span> is the list
+of predictions in the same order and \bar{y} is the mean of <span class="math">\(y\)</span>.</p>
 <table class="table">
 <thead>
 <tr>
@@ -129,25 +131,25 @@ number of passengers (in thousands).</p>
 <td>MAE</td>
 <td>$[0, \infty)$</td>
 <td>lower</td>
-<td>$f(y, y_P) = \frac{1}{|y|} \sum_{\tilde{y}, \tilde{y_P} \in (y, y_P)} |\tilde{y} - \tilde{y_P}|$</td>
+<td>$f(y, y_P) = \frac{1}{|y|} \sum_{y_i, y_i^{P} \in (y, y^{P})} |y_i - y_i^P}|$</td>
 </tr>
 <tr>
 <td>MSE</td>
 <td>$[0, \infty)$</td>
 <td>lower</td>
-<td>$f(y, y_P) = \frac{1}{|y|} \sum_{\tilde{y}, \tilde{y_P} \in (y, y_P)} (\tilde{y} - \tilde{y_P})^2$</td>
+<td>$f(y, y_P) = \frac{1}{|y|} \sum_{y_i, y_i^P \in (y, y^P)} (y_i - y_i^P)^2$</td>
 </tr>
 <tr>
 <td>$R^2$</td>
 <td>$[0, 1]$</td>
 <td>higher</td>
-<td></td>
+<td>$f(y, y_P) = 1 - \frac{\sum (y_i - y_i^P)^2}{\sum (y_i - \bar{y})^2}$</td>
 </tr>
 <tr>
 <td>Explained Variance</td>
-<td>$(-\infty, 0]$</td>
+<td>$(-\infty, 1]$</td>
 <td>higher</td>
-<td></td>
+<td>$f(y, y_P) = 1 - \frac{Var(y - y_P)}{Var(y)}$</td>
 </tr>
 </tbody>
 </table>
