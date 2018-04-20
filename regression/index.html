@@ -488,6 +488,100 @@ training setup:</p>
 </li>
 <li>Fit <span class="math">\(f_2\)</span> on <span class="math">\((X, y')\)</span>. So <span class="math">\(f_2\)</span> has to solve an interpolation problem.</li>
 </ol>
+<p>I call this model <code>TrendSeasonRegressor</code>. Let's try a few combinations:</p>
+<table class="table">
+<thead>
+<tr>
+<th>f1</th>
+<th>f2</th>
+<th>MAE</th>
+<th>MAD</th>
+<th>R^2</th>
+<th>Explained Variance</th>
+<th>MSE</th>
+<th>Image</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lasso</td>
+<td>ExtraTrees</td>
+<td style="background-color: green;">20.8</td>
+<td style="background-color: green;">16.6</td>
+<td style="background-color: green;">0.8803</td>
+<td style="background-color: green;">0.8992</td>
+<td style="background-color: green;">730.9</td>
+<td><figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_Lasso_ExtraTrees.png"><img alt="Text" src="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_Lasso_ExtraTrees.png" style="width: 128px;"/></a>
+</figure></td>
+</tr>
+<tr>
+<td>LinearSVR</td>
+<td>Adaboost</td>
+<td>33.7</td>
+<td>32.6</td>
+<td>0.6918</td>
+<td>0.7849</td>
+<td style="background-color: red;">1881.5</td>
+<td><figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_LinearSVR_Adaboost.png"><img alt="Text" src="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_LinearSVR_Adaboost.png" style="width: 128px;"/></a>
+</figure></td>
+</tr>
+<tr>
+<td>LinearSVR</td>
+<td>ExtraTrees</td>
+<td>36.4</td>
+<td>31.1</td>
+<td>0.6841</td>
+<td>0.7081</td>
+<td style="background-color: red;">1928.2</td>
+<td><figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_LinearSVR_ExtraTrees.png"><img alt="Text" src="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_LinearSVR_ExtraTrees.png" style="width: 128px;"/></a>
+</figure></td>
+</tr>
+<tr>
+<td>Lasso</td>
+<td>Adaboost</td>
+<td>26.5</td>
+<td>18.9</td>
+<td>0.8034</td>
+<td>0.8143</td>
+<td style="background-color: red;">1200.4</td>
+<td><figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_Lasso_Adaboost.png"><img alt="Text" src="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_Lasso_Adaboost.png" style="width: 128px;"/></a>
+</figure></td>
+</tr>
+<tr>
+<td>ElasticNet</td>
+<td>Adaboost</td>
+<td>26.5</td>
+<td>19.4</td>
+<td>0.8098</td>
+<td>0.8229</td>
+<td style="background-color: red;">1161.2</td>
+<td><figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_ElasticNet_Adaboost.png"><img alt="Text" src="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_ElasticNet_Adaboost.png" style="width: 128px;"/></a>
+</figure></td>
+</tr>
+<tr>
+<td>ElasticNet</td>
+<td>ExtraTrees</td>
+<td>25.2</td>
+<td>24.4</td>
+<td>0.8382</td>
+<td>0.8403</td>
+<td>988.0</td>
+<td><figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_ElasticNet_ExtraTrees.png"><img alt="Text" src="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_ElasticNet_ExtraTrees.png" style="width: 512px;"/></a>
+</figure></td>
+</tr>
+</tbody>
+</table>
+<p>This looks a lot better!</p>
+<p>However, even with this combination the Gaussian Processes were really bad.
+Overshooting like hell.</p>
+<p>Next thing to improve: The scaling of the the seasonal trend is not captured so
+far.</p>
 <h2 id="learnings">Learnings</h2>
 <p>The following should have become clear from reading this blog post:</p>
 <ul>
