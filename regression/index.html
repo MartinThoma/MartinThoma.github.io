@@ -489,20 +489,31 @@ training setup:</p>
 <li>Fit <span class="math">\(f_2\)</span> on <span class="math">\((X, y')\)</span>. So <span class="math">\(f_2\)</span> has to solve an interpolation problem.</li>
 </ol>
 <p>I call this model <code>TrendSeasonRegressor</code>. Let's try a few combinations:</p>
-<table class="table">
+<table class="table" id="combinedModelScores">
 <thead>
 <tr>
-<th>f1</th>
-<th>f2</th>
-<th>MAE</th>
-<th>MAD</th>
-<th>R^2</th>
-<th>Explained Variance</th>
-<th>MSE</th>
+<th>$f_1$</th>
+<th>$f_2$</th>
+<th><a href="https://en.wikipedia.org/wiki/Mean_absolute_error" title="Mean absolute error">MAE</a></th>
+<th><a href="https://en.wikipedia.org/wiki/Median_absolute_deviation" title="Median absolute deviation">MAD</a></th>
+<th><a href="https://en.wikipedia.org/wiki/Coefficient_of_determination">$R^2$</a></th>
+<th><a href="http://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html">explained variance</a></th>
+<th><a href="https://en.wikipedia.org/wiki/Mean_squared_error" title="Mean squared error">MSE</a></th>
 <th>Image</th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td colspan="2">GradientBoostingRegressor</td>
+<td style="background-color: red;">40.0</td>
+<td style="background-color: red;">31.0</td>
+<td style="background-color: red;">0.5689</td>
+<td style="background-color: red;">0.6246</td>
+<td style="background-color: red;">2631.9</td>
+<td><figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2018/04/airline-passengers-train-GradientBoostingRegressor.png"><img alt="Gradient Boosting Regressor" src="../images/2018/04/airline-passengers-train-GradientBoostingRegressor.png" style="width: 128px;"/></a>
+</figure></td>
+</tr>
 <tr>
 <td>Lasso</td>
 <td>ExtraTrees</td>
@@ -531,9 +542,9 @@ training setup:</p>
 <td>LinearSVR</td>
 <td>ExtraTrees</td>
 <td>36.4</td>
-<td>31.1</td>
-<td>0.6841</td>
-<td>0.7081</td>
+<td style="background-color: red;">31.1</td>
+<td style="background-color: red;">0.6841</td>
+<td style="background-color: red;">0.7081</td>
 <td style="background-color: red;">1928.2</td>
 <td><figure class="wp-caption aligncenter img-thumbnail">
 <a href="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_LinearSVR_ExtraTrees.png"><img alt="Text" src="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_LinearSVR_ExtraTrees.png" style="width: 128px;"/></a>
@@ -543,9 +554,9 @@ training setup:</p>
 <td>LinearSVR</td>
 <td>Adaboost</td>
 <td>33.7</td>
-<td>32.6</td>
-<td>0.6918</td>
-<td>0.7849</td>
+<td style="background-color: red;">32.6</td>
+<td style="background-color: red;">0.6918</td>
+<td style="background-color: red;">0.7849</td>
 <td style="background-color: red;">1881.5</td>
 <td><figure class="wp-caption aligncenter img-thumbnail">
 <a href="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_LinearSVR_Adaboost.png"><img alt="Text" src="../images/2018/04/airline-passengers-train-TrendSeasonRegressor_LinearSVR_Adaboost.png" style="width: 128px;"/></a>
@@ -577,11 +588,14 @@ training setup:</p>
 </tr>
 </tbody>
 </table>
-<p>This looks a lot better!</p>
+<p>This looks a lot better! Note how the best model before is now the worst!</p>
 <p>However, even with this combination the Gaussian Processes were really bad.
 Overshooting like hell.</p>
 <p>Next thing to improve: The scaling of the the seasonal trend is not captured so
 far.</p>
+<p>Another idea I want to dig into is that of residual learning. Where I have only
+one model learning the residual of another model, you can chain arbitary many.
+Let's see how things change when I chain more than two models.</p>
 <h2 id="learnings">Learnings</h2>
 <p>The following should have become clear from reading this blog post:</p>
 <ul>
