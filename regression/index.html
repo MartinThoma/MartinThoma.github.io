@@ -389,86 +389,86 @@ trend and local seasonality-effects.</p>
 <tbody>
 <tr>
 <td>AdaBoostRegressor</td>
-<td>No</td>
-<td>Yes</td>
+<td><span style="color:red;" title="No">✘</span></td>
+<td><span style="color:green;" title="Yes">✔</span></td>
 <td></td>
 </tr>
 <tr>
 <td>BaggingRegressor</td>
-<td>No</td>
-<td>Yes</td>
+<td><span style="color:red;" title="No">✘</span></td>
+<td><span style="color:green;" title="Yes">✔</span></td>
 <td></td>
 </tr>
 <tr>
 <td>ElasticNet</td>
-<td>Yes</td>
-<td>No</td>
+<td><span style="color:green;" title="Yes">✔</span></td>
+<td><span style="color:red;" title="No">✘</span></td>
 <td></td>
 </tr>
 <tr>
 <td>ExtraTreesRegressor</td>
-<td>No</td>
-<td>Yes</td>
+<td><span style="color:red;" title="No">✘</span></td>
+<td><span style="color:green;" title="Yes">✔</span></td>
 <td></td>
 </tr>
 <tr>
 <td>GaussianProcessRegressor</td>
-<td>No</td>
+<td><span style="color:red;" title="No">✘</span></td>
 <td>Kind of</td>
 <td></td>
 </tr>
 <tr>
 <td>GradientBoostingRegressor</td>
-<td>No</td>
-<td>Yes</td>
+<td><span style="color:red;" title="No">✘</span></td>
+<td><span style="color:green;" title="Yes">✔</span></td>
 <td></td>
 </tr>
 <tr>
 <td>HuberRegressor</td>
-<td>Yes</td>
-<td>Yes</td>
+<td><span style="color:green;" title="Yes">✔</span></td>
+<td><span style="color:green;" title="Yes">✔</span></td>
 <td>Both are captured pretty bad</td>
 </tr>
 <tr>
 <td>Lasso</td>
-<td>Yes</td>
-<td>No</td>
+<td><span style="color:green;" title="Yes">✔</span></td>
+<td><span style="color:red;" title="No">✘</span></td>
 <td></td>
 </tr>
 <tr>
 <td>SVR</td>
-<td>Yes</td>
-<td>No</td>
+<td><span style="color:green;" title="Yes">✔</span></td>
+<td><span style="color:red;" title="No">✘</span></td>
 <td></td>
 </tr>
 <tr>
 <td>PassiveAggressiveRegressor</td>
-<td>Yes</td>
-<td>Yes</td>
+<td><span style="color:green;" title="Yes">✔</span></td>
+<td><span style="color:green;" title="Yes">✔</span></td>
 <td>Both are captured pretty bad</td>
 </tr>
 <tr>
 <td>RandomForestRegressor</td>
-<td>No</td>
-<td>Yes</td>
+<td><span style="color:red;" title="No">✘</span></td>
+<td><span style="color:green;" title="Yes">✔</span></td>
 <td></td>
 </tr>
 <tr>
 <td>RANSACRegressor</td>
-<td>Yes</td>
-<td>No</td>
+<td><span style="color:green;" title="Yes">✔</span></td>
+<td><span style="color:red;" title="No">✘</span></td>
 <td></td>
 </tr>
 <tr>
 <td>SGDRegressor</td>
-<td>Yes</td>
-<td>No</td>
+<td><span style="color:green;" title="Yes">✔</span></td>
+<td><span style="color:red;" title="No">✘</span></td>
 <td></td>
 </tr>
 <tr>
 <td>SVR</td>
-<td>No</td>
-<td>No</td>
+<td><span style="color:red;" title="No">✘</span></td>
+<td><span style="color:red;" title="No">✘</span></td>
 <td></td>
 </tr>
 </tbody>
@@ -595,7 +595,11 @@ Overshooting like hell.</p>
 far.</p>
 <p>Another idea I want to dig into is that of residual learning. Where I have only
 one model learning the residual of another model, you can chain arbitary many.
-Let's see how things change when I chain more than two models.</p>
+The <code>ResidualRegressor</code> is a meta-regressor. If it is given one model, it
+behaves exactly like that model. If it is given two models, then it behaves
+exactly like the <code>TrendSeasonRegressor</code>.</p>
+<p>Sadly, for the given data and the models I've tried, three models behaved not
+better than two in the <code>ResidualRegressor</code>.</p>
 <h2 id="learnings">Learnings</h2>
 <p>The following should have become clear from reading this blog post:</p>
 <ul>
