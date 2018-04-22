@@ -270,7 +270,7 @@ of predictions in the same order and \bar{y} is the mean of <span class="math">\
 <td>3208.6</td>
 </tr>
 <tr>
-<td><a href="https://martin-thoma.com/svm-with-sklearn/">SVR</a></td>
+<td><a href="https://martin-thoma.com/svm-with-sklearn/">RBF SVR</a></td>
 <td> 2.1ms</td>
 <td> 0.3ms</td>
 <td style="background-color: red;">202.2</td>
@@ -352,8 +352,8 @@ at</p>
 <figcaption class="text-center">Lasso for extrapolation.</figcaption>
 </figure>
 <figure class="wp-caption aligncenter img-thumbnail">
-<img alt="SVR for extrapolation." src="../images/2018/04/airline-passengers-train-Linear SVR.png" style="width: 512px;"/>
-<figcaption class="text-center">SVR for extrapolation.</figcaption>
+<img alt="Linear SVR for extrapolation." src="../images/2018/04/airline-passengers-train-Linear SVR.png" style="width: 512px;"/>
+<figcaption class="text-center">Linear SVR for extrapolation.</figcaption>
 </figure>
 <figure class="wp-caption aligncenter img-thumbnail">
 <img alt="PassiveAggressiveRegressor for extrapolation." src="../images/2018/04/airline-passengers-train-PassiveAggressiveRegressor.png" style="width: 512px;"/>
@@ -372,8 +372,8 @@ at</p>
 <figcaption class="text-center">SGDRegressor for extrapolation.</figcaption>
 </figure>
 <figure class="wp-caption aligncenter img-thumbnail">
-<img alt="SVR for extrapolation." src="../images/2018/04/airline-passengers-train-SVR.png" style="width: 512px;"/>
-<figcaption class="text-center">SVR for extrapolation.</figcaption>
+<img alt="RBF SVR for extrapolation." src="../images/2018/04/airline-passengers-train-SVR.png" style="width: 512px;"/>
+<figcaption class="text-center">RBF SVR for extrapolation.</figcaption>
 </figure>
 <p>What we can see in those images is that there are two things to match: A global
 trend and local seasonality-effects.</p>
@@ -388,6 +388,18 @@ trend and local seasonality-effects.</p>
 </thead>
 <tbody>
 <tr>
+<td>RBF SVR</td>
+<td><span style="color:red;" title="No">✘</span></td>
+<td><span style="color:red;" title="No">✘</span></td>
+<td></td>
+</tr>
+<tr>
+<td>GaussianProcessRegressor</td>
+<td><span style="color:red;" title="No">✘</span></td>
+<td>Kind of</td>
+<td></td>
+</tr>
+<tr>
 <td>AdaBoostRegressor</td>
 <td><span style="color:red;" title="No">✘</span></td>
 <td><span style="color:green;" title="Yes">✔</span></td>
@@ -400,21 +412,15 @@ trend and local seasonality-effects.</p>
 <td></td>
 </tr>
 <tr>
-<td>ElasticNet</td>
-<td><span style="color:green;" title="Yes">✔</span></td>
-<td><span style="color:red;" title="No">✘</span></td>
-<td></td>
-</tr>
-<tr>
 <td>ExtraTreesRegressor</td>
 <td><span style="color:red;" title="No">✘</span></td>
 <td><span style="color:green;" title="Yes">✔</span></td>
 <td></td>
 </tr>
 <tr>
-<td>GaussianProcessRegressor</td>
+<td>RandomForestRegressor</td>
 <td><span style="color:red;" title="No">✘</span></td>
-<td>Kind of</td>
+<td><span style="color:green;" title="Yes">✔</span></td>
 <td></td>
 </tr>
 <tr>
@@ -424,37 +430,25 @@ trend and local seasonality-effects.</p>
 <td></td>
 </tr>
 <tr>
-<td>HuberRegressor</td>
-<td><span style="color:green;" title="Yes">✔</span></td>
-<td><span style="color:green;" title="Yes">✔</span></td>
-<td>Both are captured pretty bad</td>
-</tr>
-<tr>
 <td>Lasso</td>
 <td><span style="color:green;" title="Yes">✔</span></td>
 <td><span style="color:red;" title="No">✘</span></td>
 <td></td>
 </tr>
 <tr>
-<td>SVR</td>
+<td>Linear SVR</td>
 <td><span style="color:green;" title="Yes">✔</span></td>
 <td><span style="color:red;" title="No">✘</span></td>
-<td></td>
-</tr>
-<tr>
-<td>PassiveAggressiveRegressor</td>
-<td><span style="color:green;" title="Yes">✔</span></td>
-<td><span style="color:green;" title="Yes">✔</span></td>
-<td>Both are captured pretty bad</td>
-</tr>
-<tr>
-<td>RandomForestRegressor</td>
-<td><span style="color:red;" title="No">✘</span></td>
-<td><span style="color:green;" title="Yes">✔</span></td>
 <td></td>
 </tr>
 <tr>
 <td>RANSACRegressor</td>
+<td><span style="color:green;" title="Yes">✔</span></td>
+<td><span style="color:red;" title="No">✘</span></td>
+<td></td>
+</tr>
+<tr>
+<td>ElasticNet</td>
 <td><span style="color:green;" title="Yes">✔</span></td>
 <td><span style="color:red;" title="No">✘</span></td>
 <td></td>
@@ -466,10 +460,16 @@ trend and local seasonality-effects.</p>
 <td></td>
 </tr>
 <tr>
-<td>SVR</td>
-<td><span style="color:red;" title="No">✘</span></td>
-<td><span style="color:red;" title="No">✘</span></td>
-<td></td>
+<td>HuberRegressor</td>
+<td><span style="color:green;" title="Yes">✔</span></td>
+<td><span style="color:green;" title="Yes">✔</span></td>
+<td>Both are captured pretty bad</td>
+</tr>
+<tr>
+<td>PassiveAggressiveRegressor</td>
+<td><span style="color:green;" title="Yes">✔</span></td>
+<td><span style="color:green;" title="Yes">✔</span></td>
+<td>Both are captured pretty bad</td>
 </tr>
 </tbody>
 </table>
