@@ -103,7 +103,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#code" title="Code">Code</a></li><li><a class="toc-href" href="#scoring-functions" title="Scoring functions">Scoring functions</a></li><li><a class="toc-href" href="#results" title="Results">Results</a></li><li><a class="toc-href" href="#graphs" title="Graphs">Graphs</a></li><li><a class="toc-href" href="#combining-models" title="Combining models">Combining models</a></li><li><a class="toc-href" href="#human-performance" title="Human Performance">Human Performance</a></li><li><a class="toc-href" href="#todos" title="TODOs">TODOs</a></li><li><a class="toc-href" href="#learnings" title="Learnings">Learnings</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#code" title="Code">Code</a></li><li><a class="toc-href" href="#scoring-functions" title="Scoring functions">Scoring functions</a></li><li><a class="toc-href" href="#results" title="Results">Results</a></li><li><a class="toc-href" href="#graphs" title="Graphs">Graphs</a></li><li><a class="toc-href" href="#combining-models" title="Combining models">Combining models</a></li><li><a class="toc-href" href="#human-performance" title="Human Performance">Human Performance</a></li><li><a class="toc-href" href="#circular-features" title="Circular Features">Circular Features</a></li><li><a class="toc-href" href="#todos" title="TODOs">TODOs</a></li><li><a class="toc-href" href="#learnings" title="Learnings">Learnings</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -863,6 +863,18 @@ insights in how good the models are.</p>
 </table>
 <div class="highlight"><pre><span></span>absolute_errors = [15, 36, 11, 30, 23, 15, 23, 4, 31, 10, 28,22,11,27,26,13,5,7,4,41,11,38,35,8,24,42,19,20,8]
 </pre></div>
+<h2 id="circular-features">Circular Features</h2>
+<p>Having the month as a single feature with values from 1 to 12 seems not to be
+the best choice. Either a one-hot encoding or a circular encoding (two features
+with the trigonometric functions <code>sin</code> and <code>cos</code>) seem to be the better choice.</p>
+<p>Using the circular encoding was interesting. It made the prediction to get
+"bumps":</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<img alt="Linear Regression with two circular-encoded features for the month" src="../images/2018/04/airline-passengers-train-LinearRegressionCircularBumps.png" style="width: 512px;"/>
+<figcaption class="text-center">Linear Regression with two circular-encoded features for the month</figcaption>
+</figure>
+<p>However, both encodings did not yield better results than the simple integer
+encoding of a month for this dataset and all tried regressors.</p>
 <h2 id="todos">TODOs</h2>
 <ul>
 <li>Make a hand-crafted model</li>
