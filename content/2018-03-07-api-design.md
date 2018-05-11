@@ -92,6 +92,10 @@ JSON.
 For the names, I suggest to use **plural forms**. The main point is to be
 consistent.
 
+And, of course, there is the actual value of IDs. It might not be desirable
+that others can iterate through whatever has the ID in your system. UUID could
+be one alternative.
+
 
 ## Versioning
 
@@ -238,8 +242,14 @@ Copied from [developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web
 * 503 Service Unavailable: Maintenance
 
 
+## GraphQL
+
+This article was mainly about REST-like APIs. [GraphQL](http://graphql.org/learn/) is a data query language developed internally by Facebook which is an alternative to REST, see [GraphQL vs REST](https://philsturgeon.uk/api/2017/01/24/graphql-vs-rest-overview/).
+
+My impression is that GraphQL is nice because you need less documentation. You
+buy that advantage with overhead in writing [the resolver](http://graphql.org/learn/execution/#root-fields-resolvers).
+
 ## See also
 
-* [GraphQL](http://graphql.org/learn/): A data query language developed internally by Facebook which is an alternative to REST, see [GraphQL vs REST](https://philsturgeon.uk/api/2017/01/24/graphql-vs-rest-overview/)
 * [RESTful API Design. Best Practices in a Nutshell.](https://blog.philipphauer.de/restful-api-design-best-practices/)
 * [jsonapi.org](http://jsonapi.org/format/#status)

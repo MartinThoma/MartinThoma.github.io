@@ -215,6 +215,19 @@ EN: slash-and-burn migration hackfield cultivation
 I will add more another day :-)
 
 
+## Missing Words
+
+There are some things you cannot easily express with a single word in German:
+
+* **Girlfriend / boyfriend**: You can say "meine feste Freundin" and the word
+  "feste" indicates that it's about your partner. And, of course, you can say
+  "meine Partnerin", but that also has other meanings (e.g. hiking partner,
+  partner at a law firm, ...)
+* **Not thirsty**: I think this one is also missing in English. When you are
+  hungry and you ate, you say in German "Ich bin satt". But when you are
+  thirsty and you drink, you can only negate: "Ich bin nicht mehr durstig".
+
+
 ## Micallenious
 
 * You say "Gesundheit" (directly translated: "health") when somebody sneezes.
