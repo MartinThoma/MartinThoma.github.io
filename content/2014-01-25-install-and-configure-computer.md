@@ -20,47 +20,47 @@ When I reinstall my computer, I usually do these following steps:
 If possible, I will give the debian package names in the following list:
 
 * [LaTeX](../how-to-install-the-latest-latex-version/) and scientific writing
-  * [`jabref`](//martin-thoma.com/reference-management-with-jabref/): A reference manager
-  * `gnuplot`
-  * `pdf2svg`
-  * `aspell` and `aspell-de`
+    * [`jabref`](//martin-thoma.com/reference-management-with-jabref/): A reference manager
+    * `gnuplot`
+    * `pdf2svg`
+    * `aspell` and `aspell-de`
 * [Google Chrome](https://www.google.com/intl/de/chrome/browser/)
 * Multimedia
-  * [`vlc`](http://www.videolan.org/vlc/): A very good DVD player
-  * [OnlineTvRecorder](http://wiki.ubuntuusers.de/OnlineTvRecorder) and especially [OTR-Verwaltung](http://wiki.ubuntuusers.de/OTR-Verwaltung)
+    * [`vlc`](http://www.videolan.org/vlc/): A very good DVD player
+    * [OnlineTvRecorder](http://wiki.ubuntuusers.de/OnlineTvRecorder) and especially [OTR-Verwaltung](http://wiki.ubuntuusers.de/OTR-Verwaltung)
      * `avidemux wine mplayer`
-  * `sudo add-apt-repository ppa:clipgrab-team && sudo apt-get update && sudo apt-get install clipgrab`
+    * `sudo add-apt-repository ppa:clipgrab-team && sudo apt-get update && sudo apt-get install clipgrab`
 * Graphics
-  * [`gimp`](http://www.gimp.org/)
-  * [`inkscape`](http://www.inkscape.org/)
-  * `dia`
-  * [`imagemagick`](http://www.imagemagick.org/script/index.php)
-  * `pdf2svg librsvg2-bin`
+    * [`gimp`](http://www.gimp.org/)
+    * [`inkscape`](http://www.inkscape.org/)
+    * `dia`
+    * [`imagemagick`](http://www.imagemagick.org/script/index.php)
+    * `pdf2svg librsvg2-bin`
 * Programming
-  * `vim`
-  * `python python3 python-numpy python-setuptools python-mysqldb python-scipy python-h5py python-matplotlib`
-  * `sudo -H pip install sklearn tflearn`
-  * `ruby ruby-sqlite3 ruby-mysql`
-  * `gcc g++ cmake build-essential gdb`
-  * OpenGL: `xorg-dev libglu1-mesa-dev freeglut3 freeglut3-dev libglew1.5 libglew1.5-dev libglu1-mesa libglu1-mesa-dev libgl1-mesa-glx libgl1-mesa-dev`
-  * `apache2 php5 php5-mysql`
-  * `zsh` and [Oh-my-zsh](../working-terminal/)
-  * `eclipse`
-  * `sqlitebrowser`
-  * `tcl`
-  * `phpmyadmin selfhtml`
-  * `meld diffpdf`
-  * [`virtualbox`](https://wiki.ubuntuusers.de/virtualbox)
+    * `vim`
+    * `python python3 python-numpy python-setuptools python-mysqldb python-scipy python-h5py python-matplotlib`
+    * `sudo -H pip install sklearn tflearn`
+    * `ruby ruby-sqlite3 ruby-mysql`
+    * `gcc g++ cmake build-essential gdb`
+    * OpenGL: `xorg-dev libglu1-mesa-dev freeglut3 freeglut3-dev libglew1.5 libglew1.5-dev libglu1-mesa libglu1-mesa-dev libgl1-mesa-glx libgl1-mesa-dev`
+    * `apache2 php5 php5-mysql`
+    * `zsh` and [Oh-my-zsh](../working-terminal/)
+    * `eclipse`
+    * `sqlitebrowser`
+    * `tcl`
+    * `phpmyadmin selfhtml`
+    * `meld diffpdf`
+    * [`virtualbox`](https://wiki.ubuntuusers.de/virtualbox)
 * Themes
-  * Balazan-Theme from [bisigi-project](http://www.bisigi-project.org/?page_id=8&lang=en) (simply download it.)
+    * Balazan-Theme from [bisigi-project](http://www.bisigi-project.org/?page_id=8&lang=en) (simply download it.)
 * Other
-  * [`sublime_text`](//martin-thoma.com/sublime-text/)
-  * `libreoffice`
-  * `curl`
+    * [`sublime_text`](//martin-thoma.com/sublime-text/)
+    * `libreoffice`
+    * `curl`
 * DRM-caused (I want to watch DVDs!)
-  * `ubuntu-restricted-extras libdvd-pkg libdvdread4 libdvdnav4`, then run
+    * `ubuntu-restricted-extras libdvd-pkg libdvdread4 libdvdnav4`, then run
     `sudo dpkg-reconfigure libdvd-pkg`
-  * `totem banshee mplayer rythmbox`
+    * `totem banshee mplayer rythmbox`
 
 ## Configure ##
 
