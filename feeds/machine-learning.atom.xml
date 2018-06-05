@@ -1,5 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Machine Learning</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/machine-learning.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-06-03T20:00:00+02:00</updated><entry><title>Data Science Project Guide</title><link href="https://martin-thoma.com/ds-project-guide/" rel="alternate"></link><published>2018-06-03T20:00:00+02:00</published><updated>2018-06-03T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-06-03:/ds-project-guide/</id><summary type="html">&lt;p&gt;Data Science projects are either pur analytics projects, or Software projects,
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Machine Learning</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/machine-learning.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-06-05T20:00:00+02:00</updated><entry><title>Feature Importance</title><link href="https://martin-thoma.com/feature-importance/" rel="alternate"></link><published>2018-06-05T20:00:00+02:00</published><updated>2018-06-05T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-06-05:/feature-importance/</id><summary type="html">&lt;p&gt;Trust is important for a Data Scientist. If you are in a position where you can
+apply a classification / regression model where the company used rules before,
+you have to be able to build trust why your model is better than the old
+models. Stakeholders want to understand what the …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Trust is important for a Data Scientist. If you are in a position where you can
+apply a classification / regression model where the company used rules before,
+you have to be able to build trust why your model is better than the old
+models. Stakeholders want to understand what the model does. If you have a
+rule-based system in your mind, a very natural question is:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;What is the most important feature?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This question is problematic. I failed to give a simple conclusive answer in
+the past. This article fixes this issue.&lt;/p&gt;
+&lt;h2 id="feature-selection"&gt;Feature Selection&lt;/h2&gt;
+&lt;p&gt;Before I come to the examples, I want to introduce two simple ways of feature
+selection. Feature selection is the process of selecting which features you
+want to use for your models. The intention of having a small feature set is to
+keep the model as simple as possible. Simpler models tend to be more robust and
+easier to understand. In the simplest case, this is done manually. But there
+are also two intuitive ways to do it automatically: A constructive approach and
+a destructive approach.&lt;/p&gt;
+&lt;p&gt;Both are greedy algorithms.&lt;/p&gt;
+&lt;h3 id="feature-construction"&gt;Feature Construction&lt;/h3&gt;
+&lt;p&gt;Let's say you have &lt;span class="math"&gt;\(n\)&lt;/span&gt; features in total and a model of type &lt;span class="math"&gt;\(m\)&lt;/span&gt; (e.g. a
+Decision Tree). Then you train &lt;span class="math"&gt;\(n\)&lt;/span&gt; instances of &lt;span class="math"&gt;\(m\)&lt;/span&gt;, each of them on a
+different feature. You select the feature of the best model and repeat the
+process. Stop once your improvement is below a threshold.&lt;/p&gt;
+&lt;p&gt;In pythonic Pseudocode:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;def construct_features(feature_list, BaseModel, threshold, score):
+    """
+    Constructive feature selection algorithm
+
+    Parameters
+    ----------
+    feature_list : list
+    base_model : class
+    threshold : float
+    score : function
+        Takes model as input and returns a float between 0 and infty, where
+        higher is better.
+
+    Returns
+    -------
+    features : list
+    """
+    trained_models = []
+    features = []  # Set of current best features
+    nb_features = 1
+    condition = True
+    last_score = 0
+    while condition:
+        for feature in feature_list:
+            m = BaseModel(nb_features)
+            m.train(features + [feature])
+            trained_models.append((score(m), m, feature))
+        features.append(sorted(trained_models)[0])
+
+        # Check if it is time to stop
+        condition = score(m) - last_score &amp;gt; threshold
+        last_score = score(m)
+    return features
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id="feature-destruction"&gt;Feature Destruction&lt;/h3&gt;
+&lt;p&gt;The same as construction, but the other way around: You start with the complete
+feature set and remove one feature at a time, trying to keep the score as high
+as possible.&lt;/p&gt;
+&lt;h2 id="xor-example_1"&gt;XOR-Example&lt;/h2&gt;
+&lt;h3 id="2-features"&gt;2 Features&lt;/h3&gt;
+&lt;p&gt;Let's start simple: We have 2 binary features and one target:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;x1  x2    y
+------------
+0   0     0
+0   1     1
+1   0     1
+1   1     0
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now, what is the most important feature in this case? x1 or x2?&lt;/p&gt;
+&lt;p&gt;You can easily see that having only one feature cannot be better than
+random in this case!
+&lt;strong&gt;You need both features and a non-linear classifier to get better than random!&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id="3-features"&gt;3 Features&lt;/h3&gt;
+&lt;p&gt;A similar setting as before: 3 binary features and the target is XOR of all
+of them:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gh"&gt;x1  x2  x3    y&lt;/span&gt;
+&lt;span class="gh"&gt;---------------&lt;/span&gt;
+0   0   0     0
+0   0   1     1
+0   1   0     1
+0   1   1     0
+1   0   0     1
+1   0   1     0
+1   1   0     0
+1   1   1     1
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Things to note here:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If you take only one feature, then the target &lt;span class="math"&gt;\(y\)&lt;/span&gt; is exatly 50% of the time
+  equal to that feature and exactly 50% of the time the opposite. No matter
+  which feature you take.&lt;/li&gt;
+&lt;li&gt;If you take two features, you don't get any more information as the target
+  then completely depends on the last one.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;From those observations, you can conclude that neither one nor two features can
+be better than random at predicting the target. No matter which type of model
+you take. It's plain and simple impossible. The important information is there,
+but only in combination.&lt;/p&gt;
+&lt;h3 id="n-features"&gt;n Features&lt;/h3&gt;
+&lt;p&gt;The principle shown in the two examples above generalizes. If your target is
+XOR of the features, then you need all features to be better than random!&lt;/p&gt;
+&lt;h3 id="soft-xor"&gt;Soft-XOR&lt;/h3&gt;
+&lt;p&gt;You might argue that this is an artificial example. I agree.&lt;/p&gt;
+&lt;p&gt;So let's make it less artificial. Take the features and labels from the 3-XOR
+example. It is essentially a &lt;span class="math"&gt;\(8 \times 4\)&lt;/span&gt; matrix. Just add a random value in
+&lt;span class="math"&gt;\([-0.01, 0.01]\)&lt;/span&gt; to each value. The problem itself didn't change, but it looks
+less artificial.&lt;/p&gt;
+&lt;p&gt;Now, you might argue that XOR-like feature behaviour is artificial. That might
+be true as well, but especially business data could also simply count as
+artificial.&lt;/p&gt;
+&lt;h2 id="tldr_1"&gt;TL;DR&lt;/h2&gt;
+&lt;p&gt;Feature importances don't make any sense if the problem is non-linear enough.
+Many problems, however, could potentially be described in a linear way.&lt;/p&gt;</content><category term="Machine Learning"></category></entry><entry><title>Data Science Project Guide</title><link href="https://martin-thoma.com/ds-project-guide/" rel="alternate"></link><published>2018-06-03T20:00:00+02:00</published><updated>2018-06-03T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-06-03:/ds-project-guide/</id><summary type="html">&lt;p&gt;Data Science projects are either pur analytics projects, or Software projects,
 or both.&lt;/p&gt;
 &lt;p&gt;Three typical data science project phases are understanding the data, creating
 a software component and then a story telling part:&lt;/p&gt;
