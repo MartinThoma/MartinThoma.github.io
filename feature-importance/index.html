@@ -103,7 +103,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#feature-selection" title="Feature Selection">Feature Selection</a><ul><li><a class="toc-href" href="#feature-construction" title="Feature Construction">Feature Construction</a></li><li><a class="toc-href" href="#feature-destruction" title="Feature Destruction">Feature Destruction</a></li></ul></li><li><a class="toc-href" href="#xor-example_1" title="XOR-Example">XOR-Example</a><ul><li><a class="toc-href" href="#2-features" title="2 Features">2 Features</a></li><li><a class="toc-href" href="#3-features" title="3 Features">3 Features</a></li><li><a class="toc-href" href="#n-features" title="n Features">n Features</a></li><li><a class="toc-href" href="#soft-xor" title="Soft-XOR">Soft-XOR</a></li></ul></li><li><a class="toc-href" href="#tldr_1" title="TL;DR">TL;DR</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#feature-selection" title="Feature Selection">Feature Selection</a><ul><li><a class="toc-href" href="#feature-construction" title="Feature Construction">Feature Construction</a></li><li><a class="toc-href" href="#feature-elimination" title="Feature Elimination">Feature Elimination</a></li></ul></li><li><a class="toc-href" href="#xor-example_1" title="XOR-Example">XOR-Example</a><ul><li><a class="toc-href" href="#2-features" title="2 Features">2 Features</a></li><li><a class="toc-href" href="#3-features" title="3 Features">3 Features</a></li><li><a class="toc-href" href="#n-features" title="n Features">n Features</a></li><li><a class="toc-href" href="#soft-xor" title="Soft-XOR">Soft-XOR</a></li></ul></li><li><a class="toc-href" href="#tldr_1" title="TL;DR">TL;DR</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -115,8 +115,8 @@ you have to be able to build trust why your model is better than the old
 models. Stakeholders want to understand what the model does. If you have a
 rule-based system in your mind, a very natural question is:</p>
 <p><strong>What is the most important feature?</strong></p>
-<p>This question is problematic. I failed to give a simple conclusive answer in
-the past. This article fixes this issue.</p>
+<p>This question is problematic and having a feature importance example for trees in <a href="http://scikit-learn.org/stable/auto_examples/ensemble/plot_forest_importances.html">sklearn</a> without a fat warning doesn't help. I failed to give a simple conclusive answer in
+the past why this is problematic. This article fixes this issue.</p>
 <h2 id="feature-selection">Feature Selection</h2>
 <p>Before I come to the examples, I want to introduce two simple ways of feature
 selection. Feature selection is the process of selecting which features you
@@ -126,6 +126,7 @@ easier to understand. In the simplest case, this is done manually. But there
 are also two intuitive ways to do it automatically: A constructive approach and
 a destructive approach.</p>
 <p>Both are greedy algorithms.</p>
+<p>You can find more <a href="http://scikit-learn.org/stable/modules/feature_selection.html">feature selection algorithms in sklearn</a>.</p>
 <h3 id="feature-construction">Feature Construction</h3>
 <p>Let's say you have <span class="math">\(n\)</span> features in total and a model of type <span class="math">\(m\)</span> (e.g. a
 Decision Tree). Then you train <span class="math">\(n\)</span> instances of <span class="math">\(m\)</span>, each of them on a
@@ -166,7 +167,7 @@ process. Stop once your improvement is below a threshold.</p>
         last_score = score(m)
     return features
 </pre></div>
-<h3 id="feature-destruction">Feature Destruction</h3>
+<h3 id="feature-elimination">Feature Elimination</h3>
 <p>The same as construction, but the other way around: You start with the complete
 feature set and remove one feature at a time, trying to keep the score as high
 as possible.</p>

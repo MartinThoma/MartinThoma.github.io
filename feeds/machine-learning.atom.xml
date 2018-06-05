@@ -8,8 +8,8 @@ you have to be able to build trust why your model is better than the old
 models. Stakeholders want to understand what the model does. If you have a
 rule-based system in your mind, a very natural question is:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;What is the most important feature?&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;This question is problematic. I failed to give a simple conclusive answer in
-the past. This article fixes this issue.&lt;/p&gt;
+&lt;p&gt;This question is problematic and having a feature importance example for trees in &lt;a href="http://scikit-learn.org/stable/auto_examples/ensemble/plot_forest_importances.html"&gt;sklearn&lt;/a&gt; without a fat warning doesn't help. I failed to give a simple conclusive answer in
+the past why this is problematic. This article fixes this issue.&lt;/p&gt;
 &lt;h2 id="feature-selection"&gt;Feature Selection&lt;/h2&gt;
 &lt;p&gt;Before I come to the examples, I want to introduce two simple ways of feature
 selection. Feature selection is the process of selecting which features you
@@ -19,6 +19,7 @@ easier to understand. In the simplest case, this is done manually. But there
 are also two intuitive ways to do it automatically: A constructive approach and
 a destructive approach.&lt;/p&gt;
 &lt;p&gt;Both are greedy algorithms.&lt;/p&gt;
+&lt;p&gt;You can find more &lt;a href="http://scikit-learn.org/stable/modules/feature_selection.html"&gt;feature selection algorithms in sklearn&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id="feature-construction"&gt;Feature Construction&lt;/h3&gt;
 &lt;p&gt;Let's say you have &lt;span class="math"&gt;\(n\)&lt;/span&gt; features in total and a model of type &lt;span class="math"&gt;\(m\)&lt;/span&gt; (e.g. a
 Decision Tree). Then you train &lt;span class="math"&gt;\(n\)&lt;/span&gt; instances of &lt;span class="math"&gt;\(m\)&lt;/span&gt;, each of them on a
@@ -59,7 +60,7 @@ process. Stop once your improvement is below a threshold.&lt;/p&gt;
         last_score = score(m)
     return features
 &lt;/pre&gt;&lt;/div&gt;
-&lt;h3 id="feature-destruction"&gt;Feature Destruction&lt;/h3&gt;
+&lt;h3 id="feature-elimination"&gt;Feature Elimination&lt;/h3&gt;
 &lt;p&gt;The same as construction, but the other way around: You start with the complete
 feature set and remove one feature at a time, trying to keep the score as high
 as possible.&lt;/p&gt;
