@@ -103,7 +103,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#feature-selection" title="Feature Selection">Feature Selection</a><ul><li><a class="toc-href" href="#feature-construction" title="Feature Construction">Feature Construction</a></li><li><a class="toc-href" href="#feature-elimination" title="Feature Elimination">Feature Elimination</a></li></ul></li><li><a class="toc-href" href="#xor-example_1" title="XOR-Example">XOR-Example</a><ul><li><a class="toc-href" href="#2-features" title="2 Features">2 Features</a></li><li><a class="toc-href" href="#3-features" title="3 Features">3 Features</a></li><li><a class="toc-href" href="#n-features" title="n Features">n Features</a></li><li><a class="toc-href" href="#soft-xor" title="Soft-XOR">Soft-XOR</a></li></ul></li><li><a class="toc-href" href="#what-are-alternatives_1" title="What are alternatives?">What are alternatives?</a></li><li><a class="toc-href" href="#tldr" title="TL;DR">TL;DR</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#feature-selection" title="Feature Selection">Feature Selection</a><ul><li><a class="toc-href" href="#feature-construction" title="Feature Construction">Feature Construction</a></li><li><a class="toc-href" href="#feature-elimination" title="Feature Elimination">Feature Elimination</a></li></ul></li><li><a class="toc-href" href="#xor-example_1" title="XOR-Example">XOR-Example</a><ul><li><a class="toc-href" href="#2-features" title="2 Features">2 Features</a></li><li><a class="toc-href" href="#3-features" title="3 Features">3 Features</a></li><li><a class="toc-href" href="#n-features" title="n Features">n Features</a></li><li><a class="toc-href" href="#soft-xor" title="Soft-XOR">Soft-XOR</a></li></ul></li><li><a class="toc-href" href="#what-are-alternatives_1" title="What are alternatives?">What are alternatives?</a></li><li><a class="toc-href" href="#when-can-we-use-feature-importance" title="When can we use feature importance?">When can we use feature importance?</a></li><li><a class="toc-href" href="#todos" title="TODOs">TODOs</a></li><li><a class="toc-href" href="#tldr" title="TL;DR">TL;DR</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -229,7 +229,17 @@ taken with big caution, what are alternatives to explain what the model does?</p
 <ul>
 <li><strong>Model lab</strong>: See <a href="https://martin-thoma.com/ds-project-guide/#model-lab">here</a>. Letting stakeholders poke the model.</li>
 <li><strong>lime</strong>: <a href="https://github.com/marcotcr/lime">Local Interpretable Model-Agnostic Explanations</a></li>
+<li><strong>Common Language</strong>: Use the same language as your stakeholders / the community to explain what your model does. Especially when it comes to the metrics you use.</li>
 </ul>
+<h2 id="when-can-we-use-feature-importance">When can we use feature importance?</h2>
+<p>If the problem is linear / has a big linear part. So if a linear model gives
+good results, then the feature importance makes sense. A linear model is of the
+form</p>
+<div class="math">$$y := \sum_{i=1}^n a_i \cdot x_i$$</div>
+<p>So each feature <span class="math">\(x_i \in \mathbb{R}\)</span> has a weight <span class="math">\(a_i \in \mathbb{R}\)</span>. This
+weight is the importance of the feature.</p>
+<h2 id="todos">TODOs</h2>
+<p>Explain how sklearn / <a href="https://github.com/catboost/catboost">catboost</a> calculates feature importances</p>
 <h2 id="tldr">TL;DR</h2>
 <p>Feature importances don't make any sense if the problem is non-linear enough.
 Many problems, however, could potentially be described in a linear way.</p>
