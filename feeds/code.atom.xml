@@ -1,5 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Code</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/code.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-03-14T20:00:00+01:00</updated><entry><title>Pandas: Merge, join, concatenate</title><link href="https://martin-thoma.com/pandas-merge-join-concatenate/" rel="alternate"></link><published>2018-03-14T20:00:00+01:00</published><updated>2018-03-14T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-03-14:/pandas-merge-join-concatenate/</id><summary type="html">&lt;p&gt;I always get confused about the different methods how to join Pandas
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Code</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/code.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-06-09T20:00:00+02:00</updated><entry><title>Stages of Software Development</title><link href="https://martin-thoma.com/software-development-stages/" rel="alternate"></link><published>2018-06-09T20:00:00+02:00</published><updated>2018-06-09T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-06-09:/software-development-stages/</id><summary type="html">&lt;p&gt;Pythons Trove Classifiers have 7 stages of software development:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Development Status :: 1 - Planning
+Development Status :: 2 - Pre-Alpha
+Development Status :: 3 - Alpha
+Development Status :: 4 - Beta
+Development Status :: 5 - Production/Stable
+Development Status :: 6 - Mature
+Development Status :: 7 - Inactive
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In this mini-article I try to describe what those stages are.&lt;/p&gt;
+&lt;h2 id="semantic-versioning"&gt;Semantic …&lt;/h2&gt;</summary><content type="html">&lt;p&gt;Pythons Trove Classifiers have 7 stages of software development:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Development Status :: 1 - Planning
+Development Status :: 2 - Pre-Alpha
+Development Status :: 3 - Alpha
+Development Status :: 4 - Beta
+Development Status :: 5 - Production/Stable
+Development Status :: 6 - Mature
+Development Status :: 7 - Inactive
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In this mini-article I try to describe what those stages are.&lt;/p&gt;
+&lt;h2 id="semantic-versioning"&gt;Semantic Versioning&lt;/h2&gt;
+&lt;p&gt;There are a couple of different ways to set a version string:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;git hash: &lt;code&gt;409b48b0d49c6b5d82ec8711b9341fc99b31ff98&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Counting upwards: &lt;code&gt;1&lt;/code&gt;, &lt;code&gt;2&lt;/code&gt;, &lt;code&gt;3&lt;/code&gt;, ...&lt;/li&gt;
+&lt;li&gt;Yearly versions:&lt;ul&gt;
+&lt;li&gt;Ubuntu: &lt;code&gt;16.04&lt;/code&gt;, &lt;code&gt;16.10&lt;/code&gt;, &lt;code&gt;17.04&lt;/code&gt;, &lt;code&gt;17.10&lt;/code&gt;, ...&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pypi.org/project/pytz/"&gt;pytz&lt;/a&gt;: &lt;code&gt;2016.10&lt;/code&gt;, &lt;code&gt;2017.2&lt;/code&gt;, &lt;code&gt;2017.3&lt;/code&gt;, &lt;code&gt;2018.3&lt;/code&gt;, &lt;code&gt;2018.4&lt;/code&gt;, ...&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Semantic versioning: &lt;code&gt;0.19.1&lt;/code&gt;, &lt;code&gt;1.0.0&lt;/code&gt;, &lt;code&gt;1.0.1&lt;/code&gt;, &lt;code&gt;1.1.0&lt;/code&gt;,... as used by &lt;a href="https://github.com/scipy/scipy/releases"&gt;scipy&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;git hashes are only there to have an identifier for a commit which can be
+(ab)used as a version string. The other versioning ways are better because
+you can directly see which version is more recent.&lt;/p&gt;
+&lt;p&gt;Yearly versions and semantic versioning are better than simply counting
+upwards, because the version string carries additional information. Instead of
+only knowing that something is the next version, you either know how much time
+has passed or which type of change was done.&lt;/p&gt;
+&lt;p&gt;I suggest taking 5 minutes to read &lt;a href="https://semver.org"&gt;semver.org&lt;/a&gt;, but the
+bare minimum you need to know about it is:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Given a version number MAJOR.MINOR.PATCH, increment the:
+
+MAJOR version when you make incompatible API changes,
+MINOR version when you add functionality in a backwards-compatible manner, and
+PATCH version when you make backwards-compatible bug fixes.
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="development-stages"&gt;Development Stages&lt;/h2&gt;
+&lt;h3 id="1-planning"&gt;1 - Planning&lt;/h3&gt;
+&lt;p&gt;Having this trove classifier online basically means you only reserved the name
+on PyPI.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Required properties&lt;/strong&gt;: There is no software package, no content whatsoever.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Typical steps&lt;/strong&gt;: Creating wireframes (e.g. with &lt;a href="https://balsamiq.com"&gt;Balsamiq&lt;/a&gt;),
+  drafting architectures and expected workflows (e.g. UML diagrams), writing user
+  stories, defining features, defining which features NOT to have&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Semantic version&lt;/strong&gt;: -&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://pypi.org/search/?q=&amp;amp;o=&amp;amp;c=Development+Status+%3A%3A+1+-+Planning"&gt;PyPI&lt;/a&gt;&lt;/strong&gt;: 2172 projects - noting I know of&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="2-pre-alpha"&gt;2 - Pre-Alpha&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Required properties&lt;/strong&gt;: There is already some software that gives an idea what
+  it is supposed to do.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Typical steps&lt;/strong&gt;: Drafting ideas, adding new features, refactoring a lot.
+  Here, the complete architecture of the software might still change.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Semantic version&lt;/strong&gt;: 0.X.X&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://pypi.org/search/?q=&amp;amp;o=&amp;amp;c=Development+Status+%3A%3A+2+-+Pre-Alpha"&gt;PyPI&lt;/a&gt;&lt;/strong&gt;: 5067 projects - noting I know of&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="3-alpha"&gt;3 - Alpha&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Required properties&lt;/strong&gt;: The software has the minimal required set of features
+  to be useful. The architecture of the software is clear.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Typical steps&lt;/strong&gt;: Internal testing. People close to the developers can use
+  the software.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Semantic version&lt;/strong&gt;: 0.X.X&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://pypi.org/search/?q=&amp;amp;o=&amp;amp;c=Development+Status+%3A%3A+3+-+Alpha"&gt;PyPI&lt;/a&gt;&lt;/strong&gt;: 10,000+ projects, including &lt;a href="https://pypi.org/project/Lasagne/"&gt;Lasagne&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="4-beta"&gt;4 - Beta&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Required properties&lt;/strong&gt;: Software is feature complete&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Typical steps&lt;/strong&gt;: External testing, fixing bugs and performance problems.
+  Usability testing.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Semantic version&lt;/strong&gt;: 0.X.X&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://pypi.org/search/?q=&amp;amp;o=&amp;amp;c=Development+Status+%3A%3A+4+-+Beta"&gt;PyPI&lt;/a&gt;&lt;/strong&gt;: 10,000+ projects, including &lt;a href="https://pypi.org/project/Pint/"&gt;pint&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="5-productionstable"&gt;5 - Production/Stable&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Required properties&lt;/strong&gt;: No major bugs known, tests cover the most important
+  cases.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Typical steps&lt;/strong&gt;: Fixing bugs, adding updates and new features.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Semantic version&lt;/strong&gt;: &amp;ge; 1.0.0
+&lt;strong&gt;&lt;a href="https://pypi.org/search/?q=&amp;amp;o=&amp;amp;c=Development+Status+%3A%3A+5+-+Production%2FStable"&gt;PyPI&lt;/a&gt;&lt;/strong&gt;: 10,000+ projects, including &lt;a href="https://pypi.org/project/SQLAlchemy/"&gt;SQLAlchemy&lt;/a&gt;, &lt;a href="https://pypi.org/project/numpy/"&gt;numpy&lt;/a&gt;, &lt;a href="https://pypi.org/project/pandas/"&gt;pandas&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="6-mature"&gt;6 - Mature&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Required properties&lt;/strong&gt;: Software was in production for more than a year. No
+  new features were required, no major/critical bugs are open.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Typical steps&lt;/strong&gt;: Fixing minor bugs.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Semantic version&lt;/strong&gt;: &amp;ge; 1.0.0&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://pypi.org/search/?c=Development+Status+%3A%3A+6+-+Mature"&gt;PyPI&lt;/a&gt;&lt;/strong&gt;: 415 projects, including &lt;a href="https://en.wikipedia.org/wiki/Zope"&gt;Zope&lt;/a&gt;, &lt;a href="https://pypi.org/project/pytz/"&gt;pytz&lt;/a&gt; and &lt;a href="https://pypi.org/project/Pillow/"&gt;Pillow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="7-inactive"&gt;7 - Inactive&lt;/h3&gt;
+&lt;p&gt;At some point the developers will not add updates to software. Maybe it was a
+free-time project and they are not interested in it anymore. Maybe the company
+doesn't get enough money from that project. It can still be valuable to keep
+the software in the repository. Marking it as "inactive" tells developers that
+it's unlikely known issues will be fixed.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href="https://pypi.org/search/?q=&amp;amp;o=&amp;amp;c=Development+Status+%3A%3A+7+-+Inactive"&gt;PyPI&lt;/a&gt;&lt;/strong&gt;: 283 projects, including&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://pypi.org/project/async/"&gt;async&lt;/a&gt;: deprecated&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pypi.org/project/aws-cyrpto/"&gt;aws-cyrpto&lt;/a&gt;, &lt;a href="https://pypi.org/project/aws-crytpo/"&gt;aws-crytpo&lt;/a&gt;, &lt;a href="https://pypi.org/project/awscrytpo/"&gt;awscrytpo&lt;/a&gt;: Trying to prevent users from typos&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pypi.org/project/bs4/"&gt;bs4&lt;/a&gt;: A dummy package&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pypi.org/project/image_cleaner/"&gt;&lt;code&gt;image_cleaner&lt;/code&gt;&lt;/a&gt;, &lt;a href="https://pypi.org/project/memtop/"&gt;&lt;code&gt;memtop&lt;/code&gt;&lt;/a&gt;, &lt;a href="https://pypi.org/project/asr/"&gt;&lt;code&gt;asr&lt;/code&gt;&lt;/a&gt;, &lt;a href="https://pypi.org/project/pyspell/"&gt;&lt;code&gt;pyspell&lt;/code&gt;&lt;/a&gt;, &lt;a href="https://pypi.org/project/lumixmaptool/"&gt;&lt;code&gt;lumixmaptool&lt;/code&gt;&lt;/a&gt;, &lt;a href="https://pypi.org/project/hwrt/"&gt;&lt;code&gt;hwrt&lt;/code&gt;&lt;/a&gt;, &lt;a href="https://pypi.org/project/geocodertools/"&gt;&lt;code&gt;geocodertools&lt;/code&gt;&lt;/a&gt;, &lt;a href="https://github.com/TensorVision/TensorVision"&gt;TensorVision&lt;/a&gt;: Projects I'm no longer interested in&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Important to note here: It is, of course, always possible that it switches back
+to any of the other development stages&lt;/p&gt;
+&lt;h2 id="see-also_1"&gt;See also&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Coding Horror: &lt;a href="https://blog.codinghorror.com/alpha-beta-and-sometimes-gamma/"&gt;Alpha, Beta, and Sometimes Gamma&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Wikipedia: &lt;a href="https://en.wikipedia.org/wiki/Software_release_life_cycle"&gt;Software release life cycle&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Software Development"></category></entry><entry><title>Pandas: Merge, join, concatenate</title><link href="https://martin-thoma.com/pandas-merge-join-concatenate/" rel="alternate"></link><published>2018-03-14T20:00:00+01:00</published><updated>2018-03-14T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-03-14:/pandas-merge-join-concatenate/</id><summary type="html">&lt;p&gt;I always get confused about the different methods how to join Pandas
 dataframes. So here are some examples that should make it crystal clear.&lt;/p&gt;
 &lt;p&gt;First, we create two dataframes:&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
