@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Python, Code, " />
+
+<meta property="og:title" content="Python Package Versions "/>
+<meta property="og:url" content="../drafts/python-package-versions.html" />
+<meta property="og:description" content="Python packages should (must?) have a version. It would be best if that version string was a semantic version, but this article is not about how your version string should look like. It&#39;s about how to have a consistent version string on PyPI and accessible via [yourpackage].__version__ - and preferably …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2018-06-10T20:00:00+02:00" />
+<meta name="twitter:title" content="Python Package Versions ">
+<meta name="twitter:description" content="Python packages should (must?) have a version. It would be best if that version string was a semantic version, but this article is not about how your version string should look like. It&#39;s about how to have a consistent version string on PyPI and accessible via [yourpackage].__version__ - and preferably …">
+<meta property="og:image" content="logos/python.png" />
+<meta name="twitter:image" content="logos/python.png" >
+
+        <title>Python Package Versions  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../drafts/python-package-versions.html"> Python Package Versions  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#the-manual-approach" title="The Manual Approach">The Manual Approach</a></li><li><a class="toc-href" href="#version-python-file" title="Version Python File">Version Python File</a></li><li><a class="toc-href" href="#version-text-file" title="Version Text File">Version Text File</a></li><li><a class="toc-href" href="#reading-setuppy" title="Reading setup.py">Reading setup.py</a></li><li><a class="toc-href" href="#external-build-tools" title="External Build Tools">External Build Tools</a></li><li><a class="toc-href" href="#package-import" title="Package import">Package import</a></li><li><a class="toc-href" href="#version-control-integration" title="Version Control Integration">Version Control Integration</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>Python packages should (must?) have a version. It would be best if that
+version string was a <a href="https://semver.org">semantic version</a>, but this article
+is not about how your version string should look like. It's about how to have
+a consistent <strong>version string on PyPI</strong> and <strong>accessible via
+<code>[yourpackage].__version__</code></strong> - and preferably make sure it is the same as used
+in <a href="https://git-scm.com/book/en/v2/Git-Basics-Tagging"><code>git tag</code></a>.</p>
+<p><code>setup.py</code> should have the version string in the setup function:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+
+<span class="n">setup</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">__version__</span><span class="p">)</span>
+</pre></div>
+<p>Having this makes sure that the correct version is on PyPI and you can work
+with that version via pip (e.g. <code>pip freeze</code>). But if you import the package
+via <code>import [yourpackage]</code> and execute <code>[yourpackage].__version__</code> it might not
+be present. Also, if you have a command line application, you have to make sure
+yourself that there is a <code>--version</code> command. And you definitely should do
+that; it comes in handy.</p>
+<p>There is an <a href="https://packaging.python.org/guides/single-sourcing-package-version/">official guide</a>
+for "single-sourcing the package version". So it is a know problem with known
+solutions. I only wrap them up here.</p>
+<h2 id="the-manual-approach">The Manual Approach</h2>
+<p>setup.py:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+
+<span class="n">setup</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="s1">'0.1.2'</span><span class="p">)</span>
+</pre></div>
+<p>[yourpackage]/<strong>init</strong>.py:</p>
+<div class="highlight"><pre><span></span>__version__ = '0.1.2'
+</pre></div>
+<p>Positive:</p>
+<ul>
+<li>No new dependencies</li>
+<li>It is super simple to understand</li>
+</ul>
+<p>Negative:</p>
+<ul>
+<li>You can easily get inconsistencies by forgetting something</li>
+</ul>
+<h2 id="version-python-file">Version Python File</h2>
+<p>setup.py:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+
+<span class="k">exec</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">'[yourpackage]/_version.py'</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+
+<span class="n">setup</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">__version__</span><span class="p">)</span>
+</pre></div>
+<p>[yourpackage]/<strong>init</strong>.py:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="p">[</span><span class="n">yourpackage</span><span class="p">]</span><span class="o">.</span><span class="n">_version</span> <span class="kn">import</span> <span class="nn">__version__</span>
+</pre></div>
+<p>[yourpackage]/_version.py:</p>
+<div class="highlight"><pre><span></span>__version__ = '0.1.2'
+</pre></div>
+<p>Positive:</p>
+<ul>
+<li>No new dependencies</li>
+<li>Relatively simple</li>
+<li>Consistent</li>
+</ul>
+<p>Negative:</p>
+<ul>
+<li>You use <code>exec</code>, about which linters complain as it is a security risk if used
+  wrong.</li>
+</ul>
+<h2 id="version-text-file">Version Text File</h2>
+<p>Similar to the solution above, we use a text file which only contains the
+version string.</p>
+<p>setup.py:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+
+<span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="n">file_name</span><span class="p">):</span>
+    <span class="sd">"""Read a text file and return the content as a string."""</span>
+    <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="n">file_name</span><span class="p">),</span>
+                 <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="n">setup</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">read</span><span class="p">(</span><span class="s1">'[yourpackage]/version.txt'</span><span class="p">))</span>
+</pre></div>
+<p>[yourpackage]/<strong>init</strong>.py:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="p">[</span><span class="n">yourpackage</span><span class="p">]</span><span class="o">.</span><span class="n">_version</span> <span class="kn">import</span> <span class="nn">__version__</span>
+</pre></div>
+<p>[yourpackage]/_version.py:</p>
+<div class="highlight"><pre><span></span>__version__ = '0.1.2'
+</pre></div>
+<h2 id="reading-setuppy">Reading setup.py</h2>
+<p>This approach is so bad that I don't want to post an example here. The idea
+is that you can have the version in the <code>setup(version='fooversion')</code> and read
+that within the package to set the <code>__version__</code>.</p>
+<p>Reasons why I strongly suggest not to do so:</p>
+<ul>
+<li>Your package source could be simply copied, not installed. For example, if
+  things run on AWS Lambda. In this case, there is not <code>setup.py</code> file. So all
+  solutions with this break.</li>
+<li>You have to write rather complex parsers to be robust to changes in
+  <code>setup.py</code></li>
+</ul>
+<h2 id="external-build-tools">External Build Tools</h2>
+<p>There are <a href="https://pypi.org/project/bumpversion/">bumpversion</a>,
+<a href="https://pypi.org/project/changes/">changes</a> and <a href="https://pypi.org/project/zest.releaser/">zest.releaser</a>.
+I don't have experience with those tools, but from a very quick first look I
+don't think they the first two look reliable enough to give them a try. And
+<code>zest.releaser</code> looks a bit complicated.</p>
+<h2 id="package-import">Package import</h2>
+<p>setup.py:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+
+<span class="kn">import</span> <span class="p">[</span><span class="n">yourpackage</span><span class="p">]</span>
+
+<span class="n">setup</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="p">[</span><span class="n">yourpackage</span><span class="p">]</span><span class="o">.</span><span class="n">__version__</span><span class="p">))</span>
+</pre></div>
+<p>[yourpackage]/<strong>init</strong>.py:</p>
+<div class="highlight"><pre><span></span>[yourpackage]._version = '0.1.2'
+</pre></div>
+<p>Positive:</p>
+<ul>
+<li>No new dependencies</li>
+<li>Very simple simple</li>
+<li>Consistent</li>
+</ul>
+<p>Negative:</p>
+<ul>
+<li>Fails, if you import a dependency in the <code>__init__.py</code>.</li>
+</ul>
+<h2 id="version-control-integration">Version Control Integration</h2>
+<p>You can use <a href="https://pypi.org/project/setuptools_scm/"><code>setuptools_scm</code></a>
+and do the following:</p>
+<p>setup.py:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+
+<span class="n">setup</span><span class="p">(</span>
+    <span class="o">...</span><span class="p">,</span>
+    <span class="n">use_scm_version</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="n">setup_requires</span><span class="o">=</span><span class="p">[</span><span class="s1">'setuptools_scm'</span><span class="p">],</span>
+    <span class="o">...</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+<p>[yourpackage]/<strong>init</strong>.py:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pkg_resources</span> <span class="kn">import</span> <span class="n">get_distribution</span><span class="p">,</span> <span class="n">DistributionNotFound</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">__version__</span> <span class="o">=</span> <span class="n">get_distribution</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span><span class="o">.</span><span class="n">version</span>
+<span class="k">except</span> <span class="n">DistributionNotFound</span><span class="p">:</span>
+    <span class="c1"># package is not installed</span>
+    <span class="k">pass</span>
+</pre></div>
+<p>Positive:</p>
+<ul>
+<li>git tags: You might have to / be able to use git tags to keep consistent
+  versions. I'm not sure if this is the case, though.</li>
+</ul>
+<p>Negative:</p>
+<ul>
+<li>Your package source could be simply copied, not installed. For example, if
+  things run on AWS Lambda. In this case, there is not <code>setup.py</code> file. So all
+  solutions with this break.</li>
+</ul>
+<p>Reading <a href="https://blog.mozilla.org/warner/2012/01/31/version-string-management-in-python-introducing-python-versioneer/">Version String Management in Python: Introducing python-versioneer</a>, I want to highlight some parts:</p>
+<blockquote>
+<p>Thinking about how I use git these days, I realized that I want my release
+process to have one step: &ldquo;git tag&rdquo; (well, and a &ldquo;git push&rdquo; to tell the world
+about it). Everything else should be automated: building tarballs, uploading
+them to a release server, updating a web page, sending an announcement email,
+pypi registration, etc. What really matters is the release manager making the
+decision to bless some well-tested revision id with a public name of some
+sort.</p>
+</blockquote>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="https://github.com/warner">Brian Warner</a>: <a href="https://blog.mozilla.org/warner/2012/01/31/version-string-management-in-python-introducing-python-versioneer/">Version String Management in Python: Introducing python-versioneer</a></li>
+</ul>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2018-06-10T20:00:00+02:00">Jun 10, 2018</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#python-ref">Python
+                    <span>84</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
