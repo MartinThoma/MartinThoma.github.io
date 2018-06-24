@@ -1,5 +1,253 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Machine Learning</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/machine-learning.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-06-14T20:00:00+02:00</updated><entry><title>Data Scientist Interviews</title><link href="https://martin-thoma.com/ds-interview/" rel="alternate"></link><published>2018-06-14T20:00:00+02:00</published><updated>2018-06-14T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-06-14:/ds-interview/</id><summary type="html">&lt;p&gt;Interviews for Data Scientists - which traits and skills are important for a
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Machine Learning</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/machine-learning.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-06-23T20:00:00+02:00</updated><entry><title>Evaluation of binary classifiers</title><link href="https://martin-thoma.com/binary-classifier-evaluation/" rel="alternate"></link><published>2018-06-23T20:00:00+02:00</published><updated>2018-06-23T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-06-23:/binary-classifier-evaluation/</id><summary type="html">&lt;p&gt;Binary classification is likely the simplest task in machine learning. It is
+typically solved with Random Forests, Neural Networks, SVMs or a
+&lt;a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier"&gt;naive Bayes classifier&lt;/a&gt;.
+For all of them, you have to measure how well you are doing. In this article,
+I give an overview over the different metrics for …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Binary classification is likely the simplest task in machine learning. It is
+typically solved with Random Forests, Neural Networks, SVMs or a
+&lt;a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier"&gt;naive Bayes classifier&lt;/a&gt;.
+For all of them, you have to measure how well you are doing. In this article,
+I give an overview over the different metrics for evaluating the quality of
+binary classifiers, their advantages and drawbacks.&lt;/p&gt;
+&lt;h2 id="scenarios"&gt;Scenarios&lt;/h2&gt;
+&lt;p&gt;There are a couple of simple scenarios for which I want to show how the different
+measures are suitable or not.&lt;/p&gt;
+&lt;h3 id="spam"&gt;Spam&lt;/h3&gt;
+&lt;p&gt;You want to detect if an E-Mail is spam.&lt;/p&gt;
+&lt;table class="table"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th rowspan="2"&gt;&lt;/th&gt;
+&lt;th colspan="2" style="text-align:center"&gt;Predicted&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Spam&lt;/th&gt;
+&lt;th&gt;Ham&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tr&gt;
+&lt;td&gt;Spam&lt;/td&gt;
+&lt;td&gt;&lt;span style="color:green"&gt;515&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span style="color:red"&gt;50&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Ham&lt;/td&gt;
+&lt;td&gt;&lt;span style="color:red"&gt;12&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span style="color:green"&gt;20&amp;thinsp;160&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;h3 id="fraudulent-transactions"&gt;Fraudulent Transactions&lt;/h3&gt;
+&lt;p&gt;We want to classify if a transaction is fraud. Let's say we have 99% non-fraud
+transactions and 1% fraud transactions. To keep things simple, let's say we
+have 1000 transactions. Then we know:&lt;/p&gt;
+&lt;div class="math"&gt;$$
+\begin{algin}
+TP + FN &amp;amp;= 10\\
+TN + FP &amp;amp;= 990
+\end{align}
+$$&lt;/div&gt;
+&lt;h3 id="website-advertisement"&gt;Website Advertisement&lt;/h3&gt;
+&lt;p&gt;You want to make advertisement and different websites send you information
+about users and the website they are currently surfing. You have to decide if
+you want to show them advertisement.&lt;/p&gt;
+&lt;table class="table"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th rowspan="2"&gt;&lt;/th&gt;
+&lt;th colspan="2" style="text-align:center"&gt;Predicted&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Worth it&lt;/th&gt;
+&lt;th&gt;Not worth&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tr&gt;
+&lt;td&gt;User clicks ad&lt;/td&gt;
+&lt;td&gt;&lt;span style="color:green"&gt;990&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span style="color:red"&gt;10&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;User doesn't click&lt;/td&gt;
+&lt;td&gt;&lt;span style="color:red"&gt;4000&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span style="color:green"&gt;5000&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;h3 id="fire-alarm"&gt;Fire Alarm&lt;/h3&gt;
+&lt;p&gt;Let's say a smoke detector makes one measurement every 10&amp;nbsp;seconds and runs
+over 8&amp;nbsp;years. Let's say it goes of 8&amp;nbsp;times at random. This means you
+would have:&lt;/p&gt;
+&lt;table class="table"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th rowspan="2"&gt;&lt;/th&gt;
+&lt;th colspan="2" style="text-align:center"&gt;Predicted&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Positive&lt;/th&gt;
+&lt;th&gt;Negative&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tr&gt;
+&lt;td&gt;Positive&lt;/td&gt;
+&lt;td&gt;&lt;span style="color:green"&gt;0&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span style="color:red"&gt;0&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Negative&lt;/td&gt;
+&lt;td&gt;&lt;span style="color:red"&gt;8&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span style="color:green"&gt;25&amp;thinsp;228&amp;thinsp;792&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;h3 id="cats-vs-dogs"&gt;Cats vs Dogs&lt;/h3&gt;
+&lt;p&gt;You have 50 cat images and 50 dog images. Decide which one it is.&lt;/p&gt;
+&lt;table class="table"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th rowspan="2"&gt;&lt;/th&gt;
+&lt;th colspan="2" style="text-align:center"&gt;Predicted&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Cat&lt;/th&gt;
+&lt;th&gt;Dog&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tr&gt;
+&lt;td&gt;Cat&lt;/td&gt;
+&lt;td&gt;&lt;span style="color:green"&gt;47&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span style="color:red"&gt;3&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Dog&lt;/td&gt;
+&lt;td&gt;&lt;span style="color:red"&gt;15&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span style="color:green"&gt;35&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;h3 id="rare-cancer-detection"&gt;Rare Cancer Detection&lt;/h3&gt;
+&lt;p&gt;You want to build a classifier for cancer. The cancer can be treated, but is
+deadly when undetected. The type of cancer is also super rare: Out of 100,000
+participants where you collected the data, only 10 had this type of cancer.&lt;/p&gt;
+&lt;h2 id="confusion-matrix_1"&gt;Confusion matrix&lt;/h2&gt;
+&lt;p&gt;The confusion matrix is not a metric, but a lot of metrics are based on it.
+TP, TN, FP, FN are all counts. Together, they sum up to the number of elements
+in the test set:&lt;/p&gt;
+&lt;div class="math"&gt;$$n := TP + TN + FP + FN$$&lt;/div&gt;
+&lt;p&gt;Optimally, everything is on the diagonal and FP and FN are zero.&lt;/p&gt;
+&lt;p&gt;Please note that this gives you almost all of the information. The only kind
+of information that is hidden from the confusion matrix is the certainty of
+the classifier in its decision.&lt;/p&gt;
+&lt;table class="table"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th colspan="2" rowspan="2"&gt;&lt;/th&gt;
+&lt;th colspan="2" style="text-align:center"&gt;Predicted&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Positive&lt;/th&gt;
+&lt;th&gt;Negative&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tr&gt;
+&lt;th rowspan="2" style="transform: rotate(-90deg);"&gt;Real&lt;/th&gt;
+&lt;th&gt;Positive&lt;/th&gt;
+&lt;td&gt;&lt;span style="color:green"&gt;TP&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span style="color:red"&gt;FN&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Negative&lt;/th&gt;
+&lt;td&gt;&lt;span style="color:red"&gt;FP&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span style="color:green"&gt;TN&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;To make it more concrete, think of a fire detector. The TP means there is a
+fire and the alarm rings. The FN is the worst case in this scenario: Although
+there is a fire, it is not detected.
+The FP means we falsely say it is positive, although
+it isn't (the alarm rings, but there is no fire). And True Negative (TN) is
+most of the time the case: No fire, not alarm.&lt;/p&gt;
+&lt;h2 id="accuracy"&gt;Accuracy&lt;/h2&gt;
+&lt;p&gt;The accuracy of a binary classifier &lt;span class="math"&gt;\(C\)&lt;/span&gt; is defined as&lt;/p&gt;
+&lt;div class="math"&gt;$$\text{accuracy}(C) := \frac{TP + TN}{FP + FN} \in [0, 1] \text{ (higher is better)}$$&lt;/div&gt;
+&lt;p&gt;If the accuracy is high, then the classifier is right in many cases. If the
+accuracy is low, then the classifier is wrong in many cases.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Where it fails&lt;/strong&gt;: In heavily inbalanced cases such as "Fraudulent
+Transactions". Thus the classifier could simply ignore the features and always
+predict it's not fraud. This classifier would have an accuracy of 99% and still
+be useless.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;When it's nice&lt;/strong&gt;: When you have a balanced problem like "cats vs dogs". From
+gut feeling, I would say at most 70% / 30% of imbalance.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Baselines&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Predict the most common class: accuracy &lt;span class="math"&gt;\(= max(\frac{TP + FN}{n}, \frac{TN + FP}{n})\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;Random classifier (each class with 50%): 50%&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="precision"&gt;Precision&lt;/h2&gt;
+&lt;p&gt;Precision says how many of the predicted true elements are actually true:&lt;/p&gt;
+&lt;div class="math"&gt;$$\text{precision}(C) := \frac{TP}{TP + FP} \in [0, 1, \text{undefined}] \text{ (higher is better)}$$&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;When it fails&lt;/strong&gt;: When you have few positives.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;When it's nice&lt;/strong&gt;: When each try costs something, but missing a chance is not
+a big deal. For example, think of recruitement. Inviting a single recruit costs
+something as you have to have interviewers. You might have a lot more
+candidates, but you don't care so much about filtering good candidates as you
+only need to get one of probably several douzens which would fit. But inviting
+one of the hundreds that don't fit is expensive. Meaning a high-precision
+classifier tells you that once it gives you a candidate, it is also likely you
+will not have to reject the candidate afterwards.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Baselines&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Predict always false: accuracy &lt;span class="math"&gt;\(= max(\frac{TP + FN}{n}, \frac{TN + FP}{n})\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;Random classifier (each class with 50%): 50%&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="recall"&gt;Recall&lt;/h2&gt;
+&lt;p&gt;Recall tells you how many of the actual true elements your classifier predicted
+to be true:&lt;/p&gt;
+&lt;div class="math"&gt;$$\text{recall}(C) := \begin{cases}\frac{TP}{TP + FN} &amp;amp;\text{ if} TP + FN &amp;gt; 0\\\text{undefined} &amp;amp;\text{otherwise}\end{cases}$$&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;When it fails&lt;/strong&gt;: When the classifier is biased towards positive.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;When it's nice&lt;/strong&gt;: When the cost of missing a positve one is high. For
+example, think of the rare cancer detection case. If the tests says yes, you
+could simply apply another test to be more sure about it. But missing a person
+who actually has cancer could cost a persons life.&lt;/p&gt;
+&lt;h2 id="cost"&gt;Cost&lt;/h2&gt;
+&lt;p&gt;You could be able to assign a cost to TP, TN, FP, FN. If you can do that, then
+this is most likely your best way to score your classifier. Averaging the
+result will lead to your average cost per decision and thus directly tell you
+which gives you more money. And money should ideally be aligned with other
+important constraints (e.g. not causing harm to people).&lt;/p&gt;
+&lt;h2 id="f1-score"&gt;F1-Score&lt;/h2&gt;
+&lt;p&gt;The &lt;a href="https://en.wikipedia.org/wiki/F1_score"&gt;F1-Score&lt;/a&gt; is a combination of
+precision and recall.&lt;/p&gt;
+&lt;div class="math"&gt;$$
+\begin{align}
+F_1(C) :&amp;amp;= 2 \cdot \frac{\mathrm{precision} \cdot \mathrm{recall}}{\mathrm{precision} + \mathrm{recall}}\\
+&amp;amp;= 2 \cdot \frac{\frac{TP}{TP + FP} \cdot \frac{TP}{TP + FN}}{\frac{TP}{TP + FP} + \frac{TP}{TP + FN}}\\
+&amp;amp;= 2 \cdot \frac{\frac{TP^2}{(TP + FP) (TP + FN)}}{\frac{TP (TP + FN) + TP (TP + FP)}{(TP + FP) (TP + FN)}}\\
+&amp;amp;= 2 \cdot \frac{TP^2}{TP (TP+FN) + TP(TP+FP)}\\
+&amp;amp;= \frac{2 \cdot TP}{2 \cdot TP + FN + FP}
+\end{align}
+$$&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;When it fails&lt;/strong&gt;: The F1-Score does only consider TN indirectly by FP. If you
+change the dataset, then the F1 score changes as well. Or if you simply change
+the definition. Let's take the website advertisement case, where you predict if
+a user is a good target. The confusion matrix is &lt;code&gt;c = {0: {0: 990, 1: 10}, 1: {0: 4000, 1: 5000}}&lt;/code&gt;
+for this case and thus the F1-score is 0.33. Now, if you switch to predicting
+which users are not interested, the confusion matrix is:
+&lt;code&gt;c = {0: {0: 5000, 1: 4000}, 1: {0: 10, 1: 990}}&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Thus the F1-score is 0.71. Two things are worth mentioning about this:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Although the classifier is essentially the same, the score looks very
+  different.&lt;/li&gt;
+&lt;li&gt;Both scores do not sum up to 1.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I have absolutely no intuition what a good F1 score is in different scenarios.
+Although I prefer having only one score for evaluating my machine learning
+systems, I usually also want to have a bit of intuition what this means.&lt;/p&gt;
+&lt;h2 id="final-notes"&gt;Final Notes&lt;/h2&gt;
+&lt;p&gt;Think about the smoke detector case. We don't have a positive example here, so
+we can't estimate the classifiers quality on it.&lt;/p&gt;
+&lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Evaluation_of_binary_classifiers"&gt;Evaluation of binary classifiers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic"&gt;ROC curve&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Machine Learning"></category></entry><entry><title>Data Scientist Interviews</title><link href="https://martin-thoma.com/ds-interview/" rel="alternate"></link><published>2018-06-14T20:00:00+02:00</published><updated>2018-06-14T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-06-14:/ds-interview/</id><summary type="html">&lt;p&gt;Interviews for Data Scientists - which traits and skills are important for a
 Data Scientist? Which questions should you be able to answer as a Data
 Scientist?&lt;/p&gt;
 &lt;h2 id="skillset"&gt;Skillset&lt;/h2&gt;
