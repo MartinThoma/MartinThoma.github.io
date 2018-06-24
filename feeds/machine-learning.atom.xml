@@ -26,12 +26,12 @@ measures are suitable or not.&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tr&gt;
-&lt;td&gt;Spam&lt;/td&gt;
+&lt;th&gt;Spam&lt;/th&gt;
 &lt;td&gt;&lt;span style="color:green"&gt;515&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;&lt;span style="color:red"&gt;50&lt;/span&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;Ham&lt;/td&gt;
+&lt;th&gt;Ham&lt;/th&gt;
 &lt;td&gt;&lt;span style="color:red"&gt;12&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;&lt;span style="color:green"&gt;20&amp;thinsp;160&lt;/span&gt;&lt;/td&gt;
 &lt;/tr&gt;
@@ -41,7 +41,7 @@ measures are suitable or not.&lt;/p&gt;
 transactions and 1% fraud transactions. To keep things simple, let's say we
 have 1000 transactions. Then we know:&lt;/p&gt;
 &lt;div class="math"&gt;$$
-\begin{algin}
+\begin{align}
 TP + FN &amp;amp;= 10\\
 TN + FP &amp;amp;= 990
 \end{align}
@@ -111,16 +111,18 @@ would have:&lt;/p&gt;
 &lt;th&gt;Dog&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
+&lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;Cat&lt;/td&gt;
+&lt;th&gt;Cat&lt;/th&gt;
 &lt;td&gt;&lt;span style="color:green"&gt;47&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;&lt;span style="color:red"&gt;3&lt;/span&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;Dog&lt;/td&gt;
+&lt;th&gt;Dog&lt;/th&gt;
 &lt;td&gt;&lt;span style="color:red"&gt;15&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;&lt;span style="color:green"&gt;35&lt;/span&gt;&lt;/td&gt;
 &lt;/tr&gt;
+&lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h3 id="rare-cancer-detection"&gt;Rare Cancer Detection&lt;/h3&gt;
 &lt;p&gt;You want to build a classifier for cancer. The cancer can be treated, but is
@@ -147,7 +149,7 @@ the classifier in its decision.&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tr&gt;
-&lt;th rowspan="2" style="transform: rotate(-90deg);"&gt;Real&lt;/th&gt;
+&lt;th rowspan="2" style="transform: rotate(-90deg);text-align: center;"&gt;Real&lt;/th&gt;
 &lt;th&gt;Positive&lt;/th&gt;
 &lt;td&gt;&lt;span style="color:green"&gt;TP&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;&lt;span style="color:red"&gt;FN&lt;/span&gt;&lt;/td&gt;
@@ -164,6 +166,10 @@ there is a fire, it is not detected.
 The FP means we falsely say it is positive, although
 it isn't (the alarm rings, but there is no fire). And True Negative (TN) is
 most of the time the case: No fire, not alarm.&lt;/p&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;img alt="Confusion matrix for the smoke detector case" src="../images/2018/06/confusion-matrix.jpg" style="width: 512px;"/&gt;
+&lt;figcaption class="text-center"&gt;Confusion matrix for the smoke detector case&lt;/figcaption&gt;
+&lt;/figure&gt;
 &lt;h2 id="accuracy"&gt;Accuracy&lt;/h2&gt;
 &lt;p&gt;The accuracy of a binary classifier &lt;span class="math"&gt;\(C\)&lt;/span&gt; is defined as&lt;/p&gt;
 &lt;div class="math"&gt;$$\text{accuracy}(C) := \frac{TP + TN}{FP + FN} \in [0, 1] \text{ (higher is better)}$$&lt;/div&gt;
@@ -177,12 +183,12 @@ be useless.&lt;/p&gt;
 gut feeling, I would say at most 70% / 30% of imbalance.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Baselines&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Predict the most common class: accuracy &lt;span class="math"&gt;\(= max(\frac{TP + FN}{n}, \frac{TN + FP}{n})\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;Predict the most common class: accuracy &lt;span class="math"&gt;\(= \max(\frac{TP + FN}{n}, \frac{TN + FP}{n})\)&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;Random classifier (each class with 50%): 50%&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="precision"&gt;Precision&lt;/h2&gt;
 &lt;p&gt;Precision says how many of the predicted true elements are actually true:&lt;/p&gt;
-&lt;div class="math"&gt;$$\text{precision}(C) := \frac{TP}{TP + FP} \in [0, 1, \text{undefined}] \text{ (higher is better)}$$&lt;/div&gt;
+&lt;div class="math"&gt;$$\text{precision}(C) := \frac{TP}{TP + FP} \in [0, 1] \cup \{\text{undefined}\}] \text{ (higher is better)}$$&lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;When it fails&lt;/strong&gt;: When you have few positives.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;When it's nice&lt;/strong&gt;: When each try costs something, but missing a chance is not
 a big deal. For example, think of recruitement. Inviting a single recruit costs
@@ -194,13 +200,13 @@ classifier tells you that once it gives you a candidate, it is also likely you
 will not have to reject the candidate afterwards.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Baselines&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Predict always false: accuracy &lt;span class="math"&gt;\(= max(\frac{TP + FN}{n}, \frac{TN + FP}{n})\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;Predict always false: accuracy &lt;span class="math"&gt;\(= \max(\frac{TP + FN}{n}, \frac{TN + FP}{n})\)&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;Random classifier (each class with 50%): 50%&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="recall"&gt;Recall&lt;/h2&gt;
 &lt;p&gt;Recall tells you how many of the actual true elements your classifier predicted
 to be true:&lt;/p&gt;
-&lt;div class="math"&gt;$$\text{recall}(C) := \begin{cases}\frac{TP}{TP + FN} &amp;amp;\text{ if} TP + FN &amp;gt; 0\\\text{undefined} &amp;amp;\text{otherwise}\end{cases}$$&lt;/div&gt;
+&lt;div class="math"&gt;$$\text{recall}(C) := \begin{cases}\frac{TP}{TP + FN} &amp;amp;\text{if } TP + FN &amp;gt; 0\\\text{undefined} &amp;amp;\text{otherwise}\end{cases}$$&lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;When it fails&lt;/strong&gt;: When the classifier is biased towards positive.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;When it's nice&lt;/strong&gt;: When the cost of missing a positve one is high. For
 example, think of the rare cancer detection case. If the tests says yes, you
@@ -240,13 +246,24 @@ which users are not interested, the confusion matrix is:
 &lt;p&gt;I have absolutely no intuition what a good F1 score is in different scenarios.
 Although I prefer having only one score for evaluating my machine learning
 systems, I usually also want to have a bit of intuition what this means.&lt;/p&gt;
+&lt;h2 id="roc-curve"&gt;ROC Curve&lt;/h2&gt;
+&lt;p&gt;The &lt;a href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic"&gt;ROC curve&lt;/a&gt;
+is a graphical plot that shows how a binary classifier changes when a threshold
+value is changed.&lt;/p&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;img alt="ROC curve" src="../images/2018/06/roc-draft-xkcd-style.png" style="width: 512px;"/&gt;
+&lt;figcaption class="text-center"&gt;ROC curve&lt;/figcaption&gt;
+&lt;/figure&gt;
 &lt;h2 id="final-notes"&gt;Final Notes&lt;/h2&gt;
 &lt;p&gt;Think about the smoke detector case. We don't have a positive example here, so
-we can't estimate the classifiers quality on it.&lt;/p&gt;
+we can't estimate the classifiers quality on it. Please note that there is
+literature about estimating the probability of a rare event - even if you have
+never observed it. But estimating the probability in general is something
+different then classifying it - for the classification part you need to know
+some characteristics of the event.&lt;/p&gt;
 &lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Evaluation_of_binary_classifiers"&gt;Evaluation of binary classifiers&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic"&gt;ROC curve&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content><category term="Machine Learning"></category></entry><entry><title>Data Scientist Interviews</title><link href="https://martin-thoma.com/ds-interview/" rel="alternate"></link><published>2018-06-14T20:00:00+02:00</published><updated>2018-06-14T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-06-14:/ds-interview/</id><summary type="html">&lt;p&gt;Interviews for Data Scientists - which traits and skills are important for a
 Data Scientist? Which questions should you be able to answer as a Data
 Scientist?&lt;/p&gt;
