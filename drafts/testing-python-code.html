@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Code, Testing, tox, pytest, coverage, Code, " />
+
+<meta property="og:title" content="Testing in Python "/>
+<meta property="og:url" content="../drafts/testing-python-code.html" />
+<meta property="og:description" content="Testing code is important for the following reasons: Trust: You checked at least some cases if they work. So others can have more trust in the quality of your work and youself can also put more trust in it. Breaking Changes: For a bigger project, it is sometimes hard to …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2018-06-29T20:00:00+02:00" />
+<meta name="twitter:title" content="Testing in Python ">
+<meta name="twitter:description" content="Testing code is important for the following reasons: Trust: You checked at least some cases if they work. So others can have more trust in the quality of your work and youself can also put more trust in it. Breaking Changes: For a bigger project, it is sometimes hard to …">
+<meta property="og:image" content="logos/python.png" />
+<meta name="twitter:image" content="logos/python.png" >
+
+        <title>Testing in Python  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../drafts/testing-python-code.html"> Testing in Python  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#why-you-should-test" title="Why you should test">Why you should test</a><ul><li><a class="toc-href" href="#reproducibility" title="Reproducibility">Reproducibility</a></li><li><a class="toc-href" href="#complexity" title="Complexity">Complexity</a></li></ul></li><li><a class="toc-href" href="#how-to-test_1" title="How to Test">How to Test</a><ul><li><a class="toc-href" href="#doctests" title="Doctests">Doctests</a></li><li><a class="toc-href" href="#unittests" title="unittests">unittests</a></li><li><a class="toc-href" href="#pytest" title="pytest">pytest</a></li><li><a class="toc-href" href="#tox" title="tox">tox</a></li></ul></li><li><a class="toc-href" href="#coverage-reports_1" title="Coverage Reports">Coverage Reports</a></li><li><a class="toc-href" href="#the-tricky-cases" title="The Tricky Cases">The Tricky Cases</a><ul><li><a class="toc-href" href="#file-system-interactions" title="File System Interactions">File System Interactions</a></li><li><a class="toc-href" href="#web-interactions" title="Web Interactions">Web Interactions</a></li><li><a class="toc-href" href="#credentials" title="Credentials">Credentials</a></li></ul></li><li><a class="toc-href" href="#see-also_1" title="See also">See also</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>Testing code is important for the following reasons:</p>
+<ul>
+<li><strong>Trust</strong>: You checked at least some cases if they work. So others can have
+  more trust in the quality of your work and youself can also put more trust in
+  it.</li>
+<li><strong>Breaking Changes</strong>: For a bigger project, it is sometimes hard to have
+  every part in mind. By writing tests, you make it easier to change something
+  and see if / where things break.</li>
+<li><strong>Code Style</strong>: When you know that you have to write tests, you write some
+  things slightly different. Those slight differences usually improve the
+  coding style. Sometimes, they are crucial.</li>
+</ul>
+<p>When testing, there are two important measures:</p>
+<ul>
+<li>Line coverage: How many of the lines of code were touched during the
+  execution of tests?</li>
+<li>Branch coverage: For if-statements, how many of the branches were taken?</li>
+</ul>
+<p>Usually, I aim for more than 95% line coverage.</p>
+<h2 id="why-you-should-test">Why you should test</h2>
+<h3 id="reproducibility">Reproducibility</h3>
+<p>Suppose you have to test a function</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="k">def</span> <span class="nf">get_tomorrow</span><span class="p">():</span>
+    <span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">today</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span>
+</pre></div>
+<p>then you have a problem. The execution of this depends on the current state of
+the world. That is hard to test. While there is <a href="https://github.com/spulec/freezegun"><code>freezegun</code></a>,
+the simpler change is to add an argument:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="k">def</span> <span class="nf">get_tomorrow</span><span class="p">(</span><span class="n">today</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">today</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">today</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span>
+</pre></div>
+<p>Now the code is easy to test. As a side effect, the function is more flexible.
+You could generate the "today" datetime object before, log its value and rerun
+everything.</p>
+<h3 id="complexity">Complexity</h3>
+<p>Imagine you have a function with 300&nbsp;lines of code, conditionally executed
+code in multiple levels and for loops. It will be a mess to test everything.</p>
+<p>A very extreme point of view is hold <a href="https://softwareengineering.stackexchange.com/a/195992/25699">here</a>:</p>
+<blockquote>
+<p>If, when describing the activity of the code to another programmer you use
+the word 'and', the method needs to be split into at least one more part.</p>
+</blockquote>
+<h2 id="how-to-test_1">How to Test</h2>
+<h3 id="doctests">Doctests</h3>
+<p>Python has a module called <a href="https://docs.python.org/3/library/doctest.html"><code>doctest</code></a>.
+It executes code which is after the promt <code>&gt;&gt;&gt;</code>.</p>
+<p>A simple example:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Calculate the n-th fibonacci number.</span>
+
+<span class="sd">    &gt;&gt;&gt; fibonacci(0)</span>
+<span class="sd">    0</span>
+<span class="sd">    &gt;&gt;&gt; fibonacci(6)</span>
+<span class="sd">    8</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">doctest</span>
+    <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
+</pre></div>
+<p>If you execute this, it will directly check if the documentation matches actual
+execution. Try it by changing <code>8</code> to something else.</p>
+<p>Why it is nice:</p>
+<ul>
+<li>It's simple</li>
+<li>You have written both, documentation and a test</li>
+<li>It's guaranteed not to get outdated (otherwise the tests will fail)</li>
+</ul>
+<p>The drawbacks of this solution:</p>
+<ul>
+<li>It compares directly the output as shown on the console. If this is not
+  deterministic (e.g. as with the set datatype), you need to check for
+  equality.</li>
+<li>In many cases, it is hard to set things up.</li>
+</ul>
+<p>My recommendation: Use doctests when it looks simple and you don't have to
+set up a lot of initial variables. Once you need to interact with anything,
+this is not a good solution anymore.</p>
+<h3 id="unittests">unittests</h3>
+<p>Python comes with <a href="https://docs.python.org/3/library/unittest.html"><code>unittest</code></a>,
+which is the default module for unit testing. It is inspired by JUnit. The
+following text is partially directly copied from the documentation.</p>
+<p>Unit tests are the fundament of the testing pyramid. The should be isolated
+from other software, be fast to execute, relatively easy to write and thus
+rather cheap. If the test is not isolated, then it is an integration test. A
+typical integration test is when you interact with a database.</p>
+<p>There are four concepts which are supported by <code>unittest</code>:</p>
+<dl>
+<dt>test fixture</dt>
+<dd>A test fixture represents the preparation needed to perform one or more tests, and any associate cleanup actions. This may involve, for example, creating temporary or proxy databases, directories, or starting a server process.</dd>
+<dt>test case</dt>
+<dd>A test case is the individual unit of testing. It checks for a specific response to a particular set of inputs. unittest provides a base class, TestCase, which may be used to create new test cases.</dd>
+<dt>test suite</dt>
+<dd>A test suite is a collection of test cases, test suites, or both. It is used to aggregate tests that should be executed together.</dd>
+<dt>test runner</dt>
+<dd>A test runner is a component which orchestrates the execution of tests and provides the outcome to the user. The runner may use a graphical interface, a textual interface, or return a special value to indicate the results of executing the tests.</dd>
+</dl>
+<p>TODO</p>
+<p>Your <a href="https://martin-thoma.com/python-projects/">project structure</a> should be:</p>
+<div class="highlight"><pre><span></span><span class="n">foo_module</span> <span class="o">:</span> <span class="n">the</span> <span class="n">git</span> <span class="n">repository</span> <span class="n">root</span> <span class="n">dir</span>
+<span class="err">├──</span> <span class="n">bin</span>
+<span class="err">│</span>   <span class="err">└──</span> <span class="n">foo_module</span>
+<span class="err">├──</span> <span class="n">configs</span>
+<span class="err">│</span>   <span class="err">└──</span> <span class="n">module</span><span class="o">.</span><span class="na">yaml</span>
+<span class="err">├──</span> <span class="n">docker</span><span class="o">-</span><span class="n">compose</span><span class="o">.</span><span class="na">yml</span>
+<span class="err">├──</span> <span class="n">Dockerfile</span>
+<span class="err">├──</span> <span class="n">foo_module</span>
+<span class="err">│</span>   <span class="err">├──</span> <span class="n">api</span><span class="o">.</span><span class="na">py</span>
+<span class="err">│</span>   <span class="err">├──</span> <span class="n">config</span><span class="o">.</span><span class="na">yaml</span>
+<span class="err">│</span>   <span class="err">├──</span> <span class="n">controller</span><span class="o">.</span><span class="na">py</span>
+<span class="err">│</span>   <span class="err">├──</span> <span class="n">credentials</span><span class="o">.</span><span class="na">yaml</span>
+<span class="err">│</span>   <span class="err">├──</span> <span class="n">__init__</span><span class="o">.</span><span class="na">py</span>
+<span class="err">│</span>   <span class="err">└──</span> <span class="n">utils</span><span class="o">.</span><span class="na">py</span>
+<span class="err">├──</span> <span class="n">tox</span><span class="o">.</span><span class="na">ini</span>
+<span class="err">├──</span> <span class="n">README</span><span class="o">.</span><span class="na">md</span>
+<span class="err">├──</span> <span class="n">requirements</span><span class="o">.</span><span class="na">txt</span>
+<span class="err">├──</span> <span class="n">setup</span><span class="o">.</span><span class="na">cfg</span>
+<span class="err">├──</span> <span class="n">setup</span><span class="o">.</span><span class="na">py</span>
+<span class="err">└──</span> <span class="n">tests</span> <span class="o">&lt;--------------------------</span>
+    <span class="err">├──</span> <span class="n">__init__</span><span class="o">.</span><span class="na">py</span>
+    <span class="err">└──</span> <span class="n">test_utils</span><span class="o">.</span><span class="na">py</span>
+</pre></div>
+<h3 id="pytest">pytest</h3>
+<p><a href="https://docs.pytest.org/en/latest/"><code>pytest</code></a> is a framework</p>
+<p>It also comes with some neat plugins:</p>
+<ul>
+<li><a href="https://github.com/ftobia/pytest-ordering"><code>pytest-ordering</code></a>: Executing
+  tests in a given order is nice when you have some super fast ones and some
+  rather slow ones.</li>
+<li><a href="https://pypi.org/project/pytest-dependency/"><code>pytest-dependency</code></a>: I hate it
+  when I break one thing and a thousand tests fail. This makes it hard to find
+  the root cause. By defining dependencies you can skip tests conditionally
+  on the outcome of another test.</li>
+</ul>
+<h3 id="tox">tox</h3>
+<h2 id="coverage-reports_1">Coverage Reports</h2>
+<p>The <a href="http://coverage.readthedocs.io/en/latest/"><code>coverage</code></a> package and its
+<a href="https://pytest-cov.readthedocs.io/en/latest/"><code>pytest-cov</code></a> plugin allow you
+to generate coverage reports.</p>
+<p>TODO</p>
+<h2 id="the-tricky-cases">The Tricky Cases</h2>
+<h3 id="file-system-interactions">File System Interactions</h3>
+<h3 id="web-interactions">Web Interactions</h3>
+<h3 id="credentials">Credentials</h3>
+<h2 id="see-also_1">See also</h2>
+<ul>
+<li><a href="https://www.pythonsheets.com/notes/python-tests.html">Python test cheatsheet</a></li>
+<li>The Hitchhiker&rsquo;s Guide to Python: <a href="http://docs.python-guide.org/en/latest/writing/tests/">Testing Your Code</a></li>
+</ul>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2018-06-29T20:00:00+02:00">Jun 29, 2018</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#code-ref">Code
+                    <span>1</span>
+</a></li>
+                <li><a href="../tags.html#coverage-ref">coverage
+</a></li>
+                <li><a href="../tags.html#pytest-ref">pytest
+</a></li>
+                <li><a href="../tags.html#testing-ref">Testing
+                    <span>1</span>
+</a></li>
+                <li><a href="../tags.html#tox-ref">tox
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

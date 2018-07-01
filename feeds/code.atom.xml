@@ -1,5 +1,913 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Code</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/code.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-06-27T20:00:00+02:00</updated><entry><title>Make Python Objects JSON serializable</title><link href="https://martin-thoma.com/make-json-serializable/" rel="alternate"></link><published>2018-06-27T20:00:00+02:00</published><updated>2018-06-27T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-06-27:/make-json-serializable/</id><summary type="html">&lt;p&gt;When you're developing a service which has to communicate with a REST endpoint,
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Code</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/code.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-07-01T20:00:00+02:00</updated><entry><title>Python Style Guide</title><link href="https://martin-thoma.com/python-linters/" rel="alternate"></link><published>2018-07-01T20:00:00+02:00</published><updated>2018-07-01T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-07-01:/python-linters/</id><summary type="html">&lt;p&gt;Having a consistent code style for a project is important as it allows
+developers to code correctly without thinking too much about it. It makes code
+&lt;strong&gt;easier to read, maintain&lt;/strong&gt; and after becomming used to the style also
+&lt;strong&gt;easier to write&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Most of the time, it is not too important …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Having a consistent code style for a project is important as it allows
+developers to code correctly without thinking too much about it. It makes code
+&lt;strong&gt;easier to read, maintain&lt;/strong&gt; and after becomming used to the style also
+&lt;strong&gt;easier to write&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Most of the time, it is not too important which standards to follow, but to
+decide in the team which ones you want to have and follow those consistently.
+To cite from PEP8:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A style guide is about consistency. Consistency with [PEP8] is important.
+Consistency within a project is more important. Consistency within one module
+or function is the most important.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Python has standards for general coding as well as for docstrings.&lt;/p&gt;
+&lt;h2 id="general-coding"&gt;General Coding&lt;/h2&gt;
+&lt;h3 id="pep8"&gt;PEP8&lt;/h3&gt;
+&lt;p&gt;The &lt;a href="https://www.python.org/dev/peps/pep-0008/"&gt;PEP8&lt;/a&gt; was posted in July 2001
+and got an update in 2013.&lt;/p&gt;
+&lt;h3 id="pyflakes"&gt;PyFlakes&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://launchpad.net/pyflakes"&gt;PyFlakes&lt;/a&gt; is a very common tool to check
+Python code for potential errors. I've added the codes to the long table below.&lt;/p&gt;
+&lt;h2 id="docstrings_1"&gt;Docstrings&lt;/h2&gt;
+&lt;p&gt;Python packages are usually documented on a function / class / method / package
+level directly in the code. The stuff in &lt;code&gt;docs/&lt;/code&gt; is often only for building
+HTML out of the Python code, organzinging things (e.g. which package to show
+first) and a user manual.&lt;/p&gt;
+&lt;p&gt;There is &lt;a href="https://www.python.org/dev/peps/pep-0257/"&gt;PEP257&lt;/a&gt; which defines some
+basic stuff. Building on this, there are two docstring style guides which
+cannot be combined: NumpyDoc an Google.&lt;/p&gt;
+&lt;p&gt;Tools like &lt;a href="http://sphinxcontrib-napoleon.readthedocs.io/en/latest/"&gt;napoleon&lt;/a&gt;
+in combination with Sphinx can automatically create nice docs of both of them.&lt;/p&gt;
+&lt;h3 id="numpydoc"&gt;NumpyDoc&lt;/h3&gt;
+&lt;p&gt;See &lt;a href="https://github.com/numpy/numpy/blob/254c50af3a52c8b1444e46857e9ec59fcb212a41/doc/HOWTO_DOCUMENT.rst.txt"&gt;GitHub&lt;/a&gt; for the guide.&lt;/p&gt;
+&lt;p&gt;It looks as follows:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;def get_meta(filepath, a_number, a_dict):
+    """
+    Get meta-information of an image.
+
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+    ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis
+    parturient montes, nascetur ridiculus mus.
+
+    Parameters
+    ----------
+    filepath : str
+        Get metadata from this file
+    a_number : int
+        Some more details
+    a_dict : dict
+        Configuration
+
+    Returns
+    -------
+    meta : dict
+        Extracted meta information
+
+    Raises
+    ------
+    IOError
+        File could not be read
+    """
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id="google-style-docstrings"&gt;Google Style Docstrings&lt;/h3&gt;
+&lt;p&gt;See &lt;a href="https://github.com/google/styleguide/blob/gh-pages/pyguide.md#38-comments-and-docstrings"&gt;Github&lt;/a&gt;
+for the documentation.&lt;/p&gt;
+&lt;p&gt;It looks as follows:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;def get_meta(filepath, a_number, a_dict):
+    """Get meta-information of an image.
+
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+    ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis
+    parturient montes, nascetur ridiculus mus.
+
+    Args:
+        filepath: Get metadata from this file.
+        a_number: Some more details.
+        a_dict: Configuration.
+
+    Returns:
+        Extracted meta information:
+
+    Raises:
+        IOError: File could not be read.
+    """
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id="sphinxdocstring"&gt;SphinxDocString&lt;/h3&gt;
+&lt;p&gt;It's super ugly and I find it hard to read, but this docstring type is also out
+there. &lt;a href="https://github.com/JetBrains/intellij-community/blob/210e0ed138627926e10094bb9c76026319cec178/python/src/com/jetbrains/python/documentation/docstrings/SphinxDocString.java"&gt;SphinxDocString&lt;/a&gt;. They use &lt;a href="https://en.wikipedia.org/wiki/ReStructuredText"&gt;reStructuredText&lt;/a&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;def get_meta(filepath, a_number, a_dict):
+    """
+    Get meta-information of an image.
+
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+    ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis
+    parturient montes, nascetur ridiculus mus.
+
+    :param filepath: Get metadata from this file
+    :type filepath: str
+    :param a_number: Some more details
+    :type a_number: int
+    :param a_dict: Configuration
+    :type a_dict: dict
+
+    :returns: dict -- Extracted meta information
+
+    :raises: IOError
+    """
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="mccabe-code-complexity_1"&gt;McCabe code complexity&lt;/h2&gt;
+&lt;p&gt;The &lt;a href="https://en.wikipedia.org/wiki/Cyclomatic_complexity"&gt;McCabe complexity&lt;/a&gt;
+measures how difficult it is to read your code. To quote from Wikipedia:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;It is a quantitative measure of the number of linearly independent paths
+through a program's source code.
+[...]
+One of McCabe's original applications was to limit the complexity of routines
+during program development; he recommended that programmers should count the
+complexity of the modules they are developing, and split them into smaller
+modules whenever the cyclomatic complexity of the module exceeded 10.[2] This
+practice was adopted by the NIST Structured Testing methodology, with an
+observation that since McCabe's original publication, the figure of 10 had
+received substantial corroborating evidence, but that in some circumstances
+it may be appropriate to relax the restriction and permit modules with a
+complexity as high as 15.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I think McCabe complexity is one way to find spots where the could could be
+improved for readability, but I'm not certain how often that actually works.&lt;/p&gt;
+&lt;h2 id="linters"&gt;Linters&lt;/h2&gt;
+&lt;p&gt;Linters are tools for static code analysis. Static code analysis is the task of
+analyzing a computer program without executing it. With executing the program,
+it would be dynamic code analysis which is done by coverage testing tools.&lt;/p&gt;
+&lt;p&gt;Common Python linters are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://pypi.org/project/pycodestyle/"&gt;&lt;code&gt;pycodestyle&lt;/code&gt;&lt;/a&gt; which replaces &lt;code&gt;pep8&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/PyCQA/pycodestyle"&gt;&lt;code&gt;pydocstyle&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pypi.org/project/flake8/"&gt;&lt;code&gt;flake8&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pypi.org/project/pyrama/"&gt;&lt;code&gt;pyrama&lt;/code&gt;&lt;/a&gt; for checking package structure&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pypi.org/project/pylama/"&gt;&lt;code&gt;pylama&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="error-codes"&gt;Error Codes&lt;/h3&gt;
+&lt;p&gt;The following error codes are from &lt;a href="http://pycodestyle.pycqa.org/en/latest/intro.html"&gt;&lt;code&gt;pycodestyle&lt;/code&gt;&lt;/a&gt;.
+I added to a couple why they exist and added a suggestion if I think you should take them
+(from ✓✓ for a strong YES to ✘✘ for a strong NO). Please also have a
+look at &lt;a href="https://lintlyci.github.io/Flake8Rules/"&gt;lintlyci.github.io/Flake8Rules&lt;/a&gt;
+which gives a lot of good examples for those rules.&lt;/p&gt;
+&lt;p&gt;There are also two footnotes for some codes:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(*) In the default configuration, the checks E121, E123, E126, E133, E226,
+E241, E242, E704, W503, W504 and W505 are ignored because they are not rules
+unanimously accepted, and PEP 8 does not enforce them. Please note that if
+the option &amp;ndash;ignore=errors is used, the default configuration will be
+overridden and ignore only the check(s) you skip. The check W503 is mutually
+exclusive with check W504. The check E133 is mutually exclusive with check
+E123. Use switch --hang-closing to report E133 instead of E123. Use switch
+--max-doc-length=n to report W505.&lt;/p&gt;
+&lt;p&gt;(^) These checks can be disabled at the line level using the # noqa special
+comment. This possibility should be reserved for special cases.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;table class="table"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Code&lt;/th&gt;
+&lt;th&gt;Meaning&lt;/th&gt;
+&lt;th&gt;Suggestion&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;th&gt;E1&lt;/th&gt;
+&lt;th&gt;Indentation&lt;/th&gt;
+&lt;td&gt;Indentation carries a meaning in Python - if code is in a block or not.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E101&lt;/td&gt;
+&lt;td&gt;indentation contains mixed spaces and tabs&lt;br/&gt;
+                Why: When you mix spaces and tabs, you will get different indentation for different editor settings.&lt;/td&gt;
+&lt;td&gt;✓✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E111&lt;/td&gt;
+&lt;td&gt;indentation is not a multiple of four&lt;br/&gt;
+                Why: My guess is that 95% of all projects use 4 spaces - a single spaces is hard to read and more than
+                four is something you don't want to type that often&lt;/td&gt;
+&lt;td&gt;✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E112&lt;/td&gt;
+&lt;td&gt;expected an indented block&lt;br/&gt;
+                Why: A bug&lt;/td&gt;
+&lt;td&gt;✓✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E113&lt;/td&gt;
+&lt;td&gt;unexpected indentation&lt;br/&gt;
+                Why: A bug&lt;/td&gt;
+&lt;td&gt;✓✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E114&lt;/td&gt;
+&lt;td&gt;indentation is not a multiple of four (comment)&lt;br/&gt;
+                Why: Easily leads to bugs&lt;/td&gt;
+&lt;td&gt;✓✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E115&lt;/td&gt;
+&lt;td&gt;expected an indented block (comment)&lt;br/&gt;
+                Why: Easily leads to bugs&lt;/td&gt;
+&lt;td&gt;✓✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E116&lt;/td&gt;
+&lt;td&gt;unexpected indentation (comment)&lt;br/&gt;
+                Why: Easily leads to bugs&lt;/td&gt;
+&lt;td&gt;✓✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td rowspan="3"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E121 (*^)&lt;/td&gt;
+&lt;td&gt;continuation line under-indented for hanging indent&lt;br/&gt;
+                Why: Usual code style&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E122 (^)&lt;/td&gt;
+&lt;td&gt;continuation line missing indentation or outdented&lt;br/&gt;
+                Why: Usual code style&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E123 (*)&lt;/td&gt;
+&lt;td&gt;closing bracket does not match indentation of opening bracket`s line&lt;br/&gt;
+                Why: Readability&lt;/td&gt;
+&lt;td&gt;✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E124 (^)&lt;/td&gt;
+&lt;td&gt;closing bracket does not match visual indentation&lt;br/&gt;
+                Why: Readability&lt;/td&gt;
+&lt;td&gt;✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E125 (^)&lt;/td&gt;
+&lt;td&gt;continuation line with same indent as next logical line&lt;br/&gt;
+                Why: Readability&lt;/td&gt;
+&lt;td&gt;✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E126 (*^)&lt;/td&gt;
+&lt;td&gt;continuation line over-indented for hanging indent&lt;br/&gt;
+                Why: Readability&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E127 (^)&lt;/td&gt;
+&lt;td&gt;continuation line over-indented for visual indent&lt;br/&gt;
+                Why: Readability&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E128 (^)&lt;/td&gt;
+&lt;td&gt;continuation line under-indented for visual indent&lt;br/&gt;
+                Why: Readability&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E129 (^)&lt;/td&gt;
+&lt;td&gt;visually indented line with same indent as next logical line&lt;br/&gt;
+                Why: Readability&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E131 (^)&lt;/td&gt;
+&lt;td&gt;continuation line unaligned for hanging indent&lt;br/&gt;
+                Why: Readability&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E133 (*)&lt;/td&gt;
+&lt;td&gt;closing bracket is missing indentation&lt;br/&gt;
+                Why: Readability&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;E2&lt;/th&gt;
+&lt;th&gt;Whitespace&lt;/th&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://lintlyci.github.io/Flake8Rules/rules/E201.html"&gt;E201&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;whitespace after `(`&lt;br/&gt;
+                Why: Usual code style&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E202&lt;/td&gt;
+&lt;td&gt;whitespace before `)`&lt;br/&gt;
+                Why: Usual code style&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E203&lt;/td&gt;
+&lt;td&gt;whitespace before `:`&lt;br/&gt;
+                Why: Usual code style&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E211&lt;/td&gt;
+&lt;td&gt;whitespace before `(`&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E221&lt;/td&gt;
+&lt;td&gt;multiple spaces before operator&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E222&lt;/td&gt;
+&lt;td&gt;multiple spaces after operator&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E223&lt;/td&gt;
+&lt;td&gt;tab before operator&lt;br/&gt;
+                Why: Try to avoid tabs in Python&lt;/td&gt;
+&lt;td&gt;✓✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E224&lt;/td&gt;
+&lt;td&gt;tab after operator&lt;br/&gt;
+                Why: Try to avoid tabs in Python&lt;/td&gt;
+&lt;td&gt;✓✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E225&lt;/td&gt;
+&lt;td&gt;missing whitespace around operator&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E226 (*)&lt;/td&gt;
+&lt;td&gt;missing whitespace around arithmetic operator&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E227&lt;/td&gt;
+&lt;td&gt;missing whitespace around bitwise or shift operator&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E228&lt;/td&gt;
+&lt;td&gt;missing whitespace around modulo operator&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E231&lt;/td&gt;
+&lt;td&gt;missing whitespace after `,`, `;`, or `:`&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E241 (*)&lt;/td&gt;
+&lt;td&gt;multiple spaces after `,`&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://lintlyci.github.io/Flake8Rules/rules/E242.html"&gt;E242&lt;/a&gt; (*)&lt;/td&gt;
+&lt;td&gt;tab after `,`&lt;br/&gt;
+                Why: Try to avoid tabs in Python&lt;/td&gt;
+&lt;td&gt;✓✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E251&lt;/td&gt;
+&lt;td&gt;unexpected spaces around keyword / parameter equals&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E261&lt;/td&gt;
+&lt;td&gt;at least two spaces before inline comment&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E262&lt;/td&gt;
+&lt;td&gt;inline comment should start with `# `&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://lintlyci.github.io/Flake8Rules/rules/E265.html"&gt;E265&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;block comment should start with `# `&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E266&lt;/td&gt;
+&lt;td&gt;too many leading `#` for block comment&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E271&lt;/td&gt;
+&lt;td&gt;multiple spaces after keyword&lt;br/&gt;
+                Why: I can see the reason for one space ... but many?&lt;/td&gt;
+&lt;td&gt;✓✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E272&lt;/td&gt;
+&lt;td&gt;multiple spaces before keyword&lt;br/&gt;
+                Why: I can see the reason for one space, but not for multiple&lt;/td&gt;
+&lt;td&gt;✓✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E273&lt;/td&gt;
+&lt;td&gt;tab after keyword&lt;br/&gt;
+                Why: Try to avoid tabs in Python&lt;/td&gt;
+&lt;td&gt;✓✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E274&lt;/td&gt;
+&lt;td&gt;tab before keyword&lt;br/&gt;
+                Why: Try to avoid tabs in Python&lt;/td&gt;
+&lt;td&gt;✓✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E275&lt;/td&gt;
+&lt;td&gt;missing whitespace after keyword&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;E3&lt;/th&gt;
+&lt;th&gt;Blank line&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E301&lt;/td&gt;
+&lt;td&gt;expected 1 blank line, found 0&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E302&lt;/td&gt;
+&lt;td&gt;expected 2 blank lines, found 0&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E303&lt;/td&gt;
+&lt;td&gt;too many blank lines (3)&lt;br/&gt;
+                Why: Don't make your code too stretched out. If you want to
+                separate code, make a new module.&lt;/td&gt;
+&lt;td&gt;✓✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E304&lt;/td&gt;
+&lt;td&gt;blank lines found after function decorator&lt;br/&gt;
+                Why: This is confusing. A function decorator changes the function
+                being decorated. If you separate them, I might miss that it
+                is there.&lt;/td&gt;
+&lt;td&gt;✓✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E305&lt;/td&gt;
+&lt;td&gt;expected 2 blank lines after end of function or class&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E306&lt;/td&gt;
+&lt;td&gt;expected 1 blank line before a nested definition&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;E4&lt;/th&gt;
+&lt;th&gt;Import&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E401&lt;/td&gt;
+&lt;td&gt;multiple imports on one line&lt;br/&gt;
+                Why: It's more readable to have one import per line, you can
+                structure them more easily and your editor can tell you which
+                one you're not using&lt;/td&gt;
+&lt;td&gt;✓✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E402&lt;/td&gt;
+&lt;td&gt;module level import not at top of file&lt;br/&gt;
+                Why: You should have all your imports at the top of your file.
+                However, there could be other code as well in between imports.
+                For example, setting the seed of `random`.&lt;/td&gt;
+&lt;td&gt;✘&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;E5&lt;/th&gt;
+&lt;th&gt;Line length&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E501 (^)&lt;/td&gt;
+&lt;td&gt;line too long (&amp;gt; 79 characters)&lt;br/&gt;
+                Why: See below.
+            &lt;/td&gt;
+&lt;td&gt;✓✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E502&lt;/td&gt;
+&lt;td&gt;the backslash is redundant between brackets&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;E7&lt;/th&gt;
+&lt;th&gt;Statement&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E701&lt;/td&gt;
+&lt;td&gt;multiple statements on one line (colon)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E702&lt;/td&gt;
+&lt;td&gt;multiple statements on one line (semicolon)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E703&lt;/td&gt;
+&lt;td&gt;statement ends with a semicolon&lt;br/&gt;
+                Why: Likely unnecessary and due to a C / C++ / Java developer
+                (trying to) write Python code.&lt;/td&gt;
+&lt;td&gt;✓✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E704 (*)&lt;/td&gt;
+&lt;td&gt;multiple statements on one line (def)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E711 (^)&lt;/td&gt;
+&lt;td&gt;comparison to None should be `if cond is None:`&lt;br/&gt;
+                Why: &lt;a href="https://stackoverflow.com/a/14247383/562769"&gt;Example&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;✓✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E712 (^)&lt;/td&gt;
+&lt;td&gt;comparison to True should be `if cond is True:` or `if cond:`&lt;br/&gt;
+                Why: Because `if cond` is way easier to read&lt;/td&gt;
+&lt;td&gt;✓✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E713&lt;/td&gt;
+&lt;td&gt;test for membership should be `not in`&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E714&lt;/td&gt;
+&lt;td&gt;test for object identity should be `is not`&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E721 (^)&lt;/td&gt;
+&lt;td&gt;do not compare types, use `isinstance()`&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E722&lt;/td&gt;
+&lt;td&gt;do not use bare except, specify exception instead&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E731&lt;/td&gt;
+&lt;td&gt;do not assign a lambda expression, use a def&lt;br/&gt;
+                Why: &lt;a href="https://stackoverflow.com/a/25010243/562769"&gt;Example&lt;/a&gt;, DRY&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E741&lt;/td&gt;
+&lt;td&gt;do not use variables named `l`, `O`, or `I`&lt;br/&gt;
+                Why: Those letters are hard to distinguish in some fonts.&lt;/td&gt;
+&lt;td&gt;✓✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E742&lt;/td&gt;
+&lt;td&gt;do not define classes named `l`, `O`, or `I`&lt;br/&gt;
+                Why: Those letters are hard to distinguish in some fonts.&lt;/td&gt;
+&lt;td&gt;✓✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E743&lt;/td&gt;
+&lt;td&gt;do not define functions named `l`, `O`, or `I`&lt;br/&gt;
+                Why: Those letters are hard to distinguish in some fonts.&lt;/td&gt;
+&lt;td&gt;✓✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;E9&lt;/th&gt;
+&lt;th&gt;Runtime&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E901&lt;/td&gt;
+&lt;td&gt;SyntaxError or IndentationError&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E902&lt;/td&gt;
+&lt;td&gt;IOError&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;W1&lt;/th&gt;
+&lt;th&gt;Indentation warning&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;W191&lt;/td&gt;
+&lt;td&gt;indentation contains tabs&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;W2&lt;/th&gt;
+&lt;th&gt;Whitespace warning&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;W291&lt;/td&gt;
+&lt;td&gt;trailing whitespace&lt;br/&gt;
+                Why: It just adds noise to `git diff`&lt;/td&gt;
+&lt;td&gt;✓✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;W292&lt;/td&gt;
+&lt;td&gt;no newline at end of file&lt;br/&gt;
+                Why: &lt;a href="https://stackoverflow.com/a/729795/562769"&gt;answer&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;W293&lt;/td&gt;
+&lt;td&gt;blank line contains whitespace&lt;br/&gt;
+                Why: It just adds noise to `git diff`&lt;/td&gt;
+&lt;td&gt;✓✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;W3&lt;/th&gt;
+&lt;th&gt;Blank line warning&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;W391&lt;/td&gt;
+&lt;td&gt;blank line at end of file&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;W5&lt;/th&gt;
+&lt;th&gt;Line break warning&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;W503 (*)&lt;/td&gt;
+&lt;td&gt;line break before binary operator&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;W504 (*)&lt;/td&gt;
+&lt;td&gt;line break after binary operator&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;W505 (*^)&lt;/td&gt;
+&lt;td&gt;doc line too long (82 &amp;gt; 79 characters)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;W6&lt;/th&gt;
+&lt;th&gt;Deprecation warning&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;W601&lt;/td&gt;
+&lt;td&gt;.has_key() is deprecated, use `in`&lt;/td&gt;
+&lt;td&gt;✓✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;W602&lt;/td&gt;
+&lt;td&gt;deprecated form of raising exception&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;W603&lt;/td&gt;
+&lt;td&gt;`&amp;lt;&amp;gt;` is deprecated, use `!=`&lt;/td&gt;
+&lt;td&gt;✓✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://lintlyci.github.io/Flake8Rules/rules/W604.html"&gt;W604&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;backticks are deprecated, use `repr()`&lt;/td&gt;
+&lt;td&gt;✓✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;W605&lt;/td&gt;
+&lt;td&gt;invalid escape sequence `x`&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;W606&lt;/td&gt;
+&lt;td&gt;`async` and `await` are reserved keywords starting with Python 3.7&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;F4&lt;/th&gt;
+&lt;th&gt;Flake8 module import&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;F401&lt;/td&gt;
+&lt;td&gt;module imported but unused&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;F402&lt;/td&gt;
+&lt;td&gt;import module from line N shadowed by loop variable&lt;br/&gt;
+                Why: Potential bug.&lt;/td&gt;
+&lt;td&gt;✓✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;F403&lt;/td&gt;
+&lt;td&gt;&amp;lsquo;from module import *&amp;rsquo; used; unable to detect undefined names&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;F404&lt;/td&gt;
+&lt;td&gt;future import(s) name after other statements&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;F8&lt;/td&gt;
+&lt;td&gt;Flake8 name errors&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;F811&lt;/td&gt;
+&lt;td&gt;redefinition of unused name from line N&lt;br/&gt;
+                Why: Potentially unused code.&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;F812&lt;/td&gt;
+&lt;td&gt;list comprehension redefines name from line N&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;F821&lt;/td&gt;
+&lt;td&gt;undefined name name&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;F822&lt;/td&gt;
+&lt;td&gt;undefined name name in __all__&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;F823&lt;/td&gt;
+&lt;td&gt;local variable name ... referenced before assignment&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;F831&lt;/td&gt;
+&lt;td&gt;duplicate argument name in function definition&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;F841&lt;/td&gt;
+&lt;td&gt;local variable name is assigned to but never used&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="notes-on-details_1"&gt;Notes on Details&lt;/h2&gt;
+&lt;h3 id="maximum-line-length"&gt;Maximum Line Length&lt;/h3&gt;
+&lt;p&gt;You might consider a maximum line lenght of 80 characters too extreme /
+outdated.&lt;/p&gt;
+&lt;p&gt;Well, please have a look how a &lt;a href="https://stackoverflow.com/q/4129049/562769"&gt;3-way merge&lt;/a&gt; would look like on your machine. This
+is how it looks like on mine:&lt;/p&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;img alt="3-way merge with 80 character lines" src="../images/2018/07/3-way-merge-80-chars.png" style="width: 512px;"/&gt;
+&lt;figcaption class="text-center"&gt;3-way merge with 80 character lines&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;And now look at files with 100 characters:&lt;/p&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;img alt="3-way merge with 100 character lines" src="../images/2018/07/3-way-merge-100-chars.png" style="width: 512px;"/&gt;
+&lt;figcaption class="text-center"&gt;3-way merge with 100 character lines&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Sure, you can still do it. But for sure it also is less comfortable.&lt;/p&gt;
+&lt;p&gt;Let's see how famous projects do it (&lt;a href="https://github.com/MartinThoma/algorithms/blob/master/Python/linelength_check.py"&gt;code on GitHub&lt;/a&gt;):&lt;/p&gt;
+&lt;table class="table"&gt;
+&lt;tr&gt;
+&lt;th&gt;Project&lt;/th&gt;
+&lt;th&gt;95%-line length&lt;/th&gt;
+&lt;th&gt;99%-line length&lt;/th&gt;
+&lt;th&gt;100%-line length&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://github.com/numpy/numpy"&gt;numpy&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;75&lt;/td&gt;
+&lt;td&gt;80&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://github.com/numpy/numpy/blob/master/numpy/core/tests/test_multiarray.py#L3568"&gt;589&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://github.com/scipy/scipy"&gt;scipy&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;76&lt;/td&gt;
+&lt;td&gt;83&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://github.com/scipy/scipy/blob/master/scipy/signal/tests/test_windows.py#L471"&gt;5223&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://github.com/pandas-dev/pandas"&gt;pandas&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;74&lt;/td&gt;
+&lt;td&gt;79&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://github.com/pandas-dev/pandas/blob/master/pandas/tests/io/formats/test_to_html.py#L52"&gt;801&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://github.com/python-pillow/Pillow"&gt;Pillow&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;73&lt;/td&gt;
+&lt;td&gt;80&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://github.com/python-pillow/Pillow/blob/master/src/PIL/PdfParser.py#L181"&gt;185&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://github.com/zzzeek/sqlalchemy"&gt;sqlalchemy&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;73&lt;/td&gt;
+&lt;td&gt;78&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://github.com/zzzeek/sqlalchemy/blob/master/lib/sqlalchemy/dialects/postgresql/base.py#L477"&gt;144&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://github.com/requests/requests"&gt;requests&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;77&lt;/td&gt;
+&lt;td&gt;92&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://github.com/requests/requests/blob/master/requests/api.py#L22"&gt;172&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://github.com/python/cpython"&gt;cpython&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;75&lt;/td&gt;
+&lt;td&gt;81&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://github.com/python/cpython/blob/master/Lib/test/test_bz2.py#L61"&gt;1182&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;As you can see, all projects try to be below 79&amp;nbsp;characters per line. They
+only break it for tests and documentation. Not for code. While I admit there
+are some cases where you will get above the 79&amp;nbsp;character threshold, in
+most cases it just means that you should change the way you wrote your code.
+I've often seen it when you have many nested loops or conditions.&lt;/p&gt;</content><category term="Python"></category><category term="Style Guide"></category></entry><entry><title>Make Python Objects JSON serializable</title><link href="https://martin-thoma.com/make-json-serializable/" rel="alternate"></link><published>2018-06-27T20:00:00+02:00</published><updated>2018-06-27T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-06-27:/make-json-serializable/</id><summary type="html">&lt;p&gt;When you're developing a service which has to communicate with a REST endpoint,
 it is very likely that it will come in handy if you can convert some of your
 objects to JSON (and back). Until recently, I always created a dictionary and
 used &lt;code&gt;json.dumps&lt;/code&gt; in that case. Also …&lt;/p&gt;</summary><content type="html">&lt;p&gt;When you're developing a service which has to communicate with a REST endpoint,
