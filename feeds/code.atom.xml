@@ -1,5 +1,218 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Code</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/code.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-07-01T20:00:00+02:00</updated><entry><title>Python Style Guide</title><link href="https://martin-thoma.com/python-style-guide/" rel="alternate"></link><published>2018-07-01T20:00:00+02:00</published><updated>2018-07-01T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-07-01:/python-style-guide/</id><summary type="html">&lt;p&gt;Having a consistent code style for a project is important as it allows
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Code</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/code.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-07-03T20:00:00+02:00</updated><entry><title>Testing in Python</title><link href="https://martin-thoma.com/testing-python-code/" rel="alternate"></link><published>2018-07-03T20:00:00+02:00</published><updated>2018-07-03T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-07-03:/testing-python-code/</id><summary type="html">&lt;p&gt;Testing code is important for the following reasons:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Trust&lt;/strong&gt;: You checked at least some cases if they work. So others can have
+  more trust in the quality of your work and youself can also put more trust in
+  it.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Breaking Changes&lt;/strong&gt;: For a bigger project, it is sometimes hard to …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;Testing code is important for the following reasons:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Trust&lt;/strong&gt;: You checked at least some cases if they work. So others can have
+  more trust in the quality of your work and youself can also put more trust in
+  it.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Breaking Changes&lt;/strong&gt;: For a bigger project, it is sometimes hard to have
+  every part in mind. By writing tests, you make it easier to change something
+  and see if / where things break.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Code Style&lt;/strong&gt;: When you know that you have to write tests, you write some
+  things slightly different. Those slight differences usually improve the
+  coding style. Sometimes, they are crucial.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;When testing, there are two important measures:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Line coverage: How many of the lines of code were touched during the
+  execution of tests?&lt;/li&gt;
+&lt;li&gt;Branch coverage: For if-statements, how many of the branches were taken?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Usually, I aim for more than 95% line coverage.&lt;/p&gt;
+&lt;h2 id="why-you-should-test"&gt;Why you should test&lt;/h2&gt;
+&lt;h3 id="reproducibility"&gt;Reproducibility&lt;/h3&gt;
+&lt;p&gt;Suppose you have to test a function&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;datetime&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_tomorrow&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="n"&gt;today&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;now&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;today&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;timedelta&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;hours&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;then you have a problem. The execution of this depends on the current state of
+the world. That is hard to test. While there is &lt;a href="https://github.com/spulec/freezegun"&gt;&lt;code&gt;freezegun&lt;/code&gt;&lt;/a&gt;,
+the simpler change is to add an argument:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;datetime&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_tomorrow&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;today&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;today&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;today&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;now&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;today&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;timedelta&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;hours&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now the code is easy to test. As a side effect, the function is more flexible.
+You could generate the "today" datetime object before, log its value and rerun
+everything.&lt;/p&gt;
+&lt;h3 id="complexity"&gt;Complexity&lt;/h3&gt;
+&lt;p&gt;Imagine you have a function with 300&amp;nbsp;lines of code, conditionally executed
+code in multiple levels and for loops. It will be a mess to test everything.&lt;/p&gt;
+&lt;p&gt;A very extreme point of view is hold &lt;a href="https://softwareengineering.stackexchange.com/a/195992/25699"&gt;here&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If, when describing the activity of the code to another programmer you use
+the word 'and', the method needs to be split into at least one more part.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="how-to-test_1"&gt;How to Test&lt;/h2&gt;
+&lt;h3 id="doctests"&gt;Doctests&lt;/h3&gt;
+&lt;p&gt;Python has a module called &lt;a href="https://docs.python.org/3/library/doctest.html"&gt;&lt;code&gt;doctest&lt;/code&gt;&lt;/a&gt;.
+It executes code which is after the promt &lt;code&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;A simple example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;fibonacci&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;"""&lt;/span&gt;
+&lt;span class="sd"&gt;    Calculate the n-th fibonacci number.&lt;/span&gt;
+
+&lt;span class="sd"&gt;    &amp;gt;&amp;gt;&amp;gt; fibonacci(0)&lt;/span&gt;
+&lt;span class="sd"&gt;    0&lt;/span&gt;
+&lt;span class="sd"&gt;    &amp;gt;&amp;gt;&amp;gt; fibonacci(6)&lt;/span&gt;
+&lt;span class="sd"&gt;    8&lt;/span&gt;
+&lt;span class="sd"&gt;    """&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;fibonacci&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;fibonacci&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;'__main__'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;doctest&lt;/span&gt;
+    &lt;span class="n"&gt;doctest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;testmod&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If you execute this, it will directly check if the documentation matches actual
+execution. Try it by changing &lt;code&gt;8&lt;/code&gt; to something else.&lt;/p&gt;
+&lt;p&gt;Why it is nice:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It's simple&lt;/li&gt;
+&lt;li&gt;You have written both, documentation and a test&lt;/li&gt;
+&lt;li&gt;It's guaranteed not to get outdated (otherwise the tests will fail)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The drawbacks of this solution:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It compares directly the output as shown on the console. If this is not
+  deterministic (e.g. as with the set datatype), you need to check for
+  equality.&lt;/li&gt;
+&lt;li&gt;In many cases, it is hard to set things up.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;My recommendation: Use doctests when it looks simple and you don't have to
+set up a lot of initial variables. Once you need to interact with anything,
+this is not a good solution anymore.&lt;/p&gt;
+&lt;h3 id="unittests"&gt;unittests&lt;/h3&gt;
+&lt;p&gt;Python comes with &lt;a href="https://docs.python.org/3/library/unittest.html"&gt;&lt;code&gt;unittest&lt;/code&gt;&lt;/a&gt;,
+which is the default module for unit testing. It is inspired by JUnit. The
+following text is partially directly copied from the documentation.&lt;/p&gt;
+&lt;p&gt;Unit tests are the fundament of the testing pyramid. The should be isolated
+from other software, be fast to execute, relatively easy to write and thus
+rather cheap. If the test is not isolated, then it is an integration test. A
+typical integration test is when you interact with a database.&lt;/p&gt;
+&lt;p&gt;There are four concepts which are supported by &lt;code&gt;unittest&lt;/code&gt;:&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;test fixture&lt;/dt&gt;
+&lt;dd&gt;A test fixture represents the preparation needed to perform one or more tests, and any associate cleanup actions. This may involve, for example, creating temporary or proxy databases, directories, or starting a server process.&lt;/dd&gt;
+&lt;dt&gt;test case&lt;/dt&gt;
+&lt;dd&gt;A test case is the individual unit of testing. It checks for a specific response to a particular set of inputs. unittest provides a base class, TestCase, which may be used to create new test cases.&lt;/dd&gt;
+&lt;dt&gt;test suite&lt;/dt&gt;
+&lt;dd&gt;A test suite is a collection of test cases, test suites, or both. It is used to aggregate tests that should be executed together.&lt;/dd&gt;
+&lt;dt&gt;test runner&lt;/dt&gt;
+&lt;dd&gt;A test runner is a component which orchestrates the execution of tests and provides the outcome to the user. The runner may use a graphical interface, a textual interface, or return a special value to indicate the results of executing the tests.&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;TODO&lt;/p&gt;
+&lt;p&gt;Your &lt;a href="https://martin-thoma.com/python-projects/"&gt;project structure&lt;/a&gt; should be:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;foo_module&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;repository&lt;/span&gt; &lt;span class="n"&gt;root&lt;/span&gt; &lt;span class="n"&gt;dir&lt;/span&gt;
+&lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;bin&lt;/span&gt;
+&lt;span class="err"&gt;│&lt;/span&gt;   &lt;span class="err"&gt;└──&lt;/span&gt; &lt;span class="n"&gt;foo_module&lt;/span&gt;
+&lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;configs&lt;/span&gt;
+&lt;span class="err"&gt;│&lt;/span&gt;   &lt;span class="err"&gt;└──&lt;/span&gt; &lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;yaml&lt;/span&gt;
+&lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;docker&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;compose&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;yml&lt;/span&gt;
+&lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;Dockerfile&lt;/span&gt;
+&lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;foo_module&lt;/span&gt;
+&lt;span class="err"&gt;│&lt;/span&gt;   &lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;api&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;py&lt;/span&gt;
+&lt;span class="err"&gt;│&lt;/span&gt;   &lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;config&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;yaml&lt;/span&gt;
+&lt;span class="err"&gt;│&lt;/span&gt;   &lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;controller&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;py&lt;/span&gt;
+&lt;span class="err"&gt;│&lt;/span&gt;   &lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;credentials&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;yaml&lt;/span&gt;
+&lt;span class="err"&gt;│&lt;/span&gt;   &lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;__init__&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;py&lt;/span&gt;
+&lt;span class="err"&gt;│&lt;/span&gt;   &lt;span class="err"&gt;└──&lt;/span&gt; &lt;span class="n"&gt;utils&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;py&lt;/span&gt;
+&lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;tox&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;ini&lt;/span&gt;
+&lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;README&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;md&lt;/span&gt;
+&lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;requirements&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;txt&lt;/span&gt;
+&lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;setup&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;cfg&lt;/span&gt;
+&lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;setup&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;py&lt;/span&gt;
+&lt;span class="err"&gt;└──&lt;/span&gt; &lt;span class="n"&gt;tests&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;--------------------------&lt;/span&gt;
+    &lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;__init__&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;py&lt;/span&gt;
+    &lt;span class="err"&gt;└──&lt;/span&gt; &lt;span class="n"&gt;test_utils&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;py&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id="pytest"&gt;pytest&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://docs.pytest.org/en/latest/"&gt;&lt;code&gt;pytest&lt;/code&gt;&lt;/a&gt; is a framework&lt;/p&gt;
+&lt;p&gt;It also comes with some neat plugins:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/ftobia/pytest-ordering"&gt;&lt;code&gt;pytest-ordering&lt;/code&gt;&lt;/a&gt;: Executing
+  tests in a given order is nice when you have some super fast ones and some
+  rather slow ones.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pypi.org/project/pytest-dependency/"&gt;&lt;code&gt;pytest-dependency&lt;/code&gt;&lt;/a&gt;: I hate it
+  when I break one thing and a thousand tests fail. This makes it hard to find
+  the root cause. By defining dependencies you can skip tests conditionally
+  on the outcome of another test.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You might wonder how it relates to &lt;code&gt;nose&lt;/code&gt;. The main thing you should remember
+is that &lt;a href="https://nose.readthedocs.io/en/latest/#note-to-users"&gt;nose is no longer maintained&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id="tox"&gt;tox&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Tox_(Python_testing_wrapper)"&gt;&lt;code&gt;tox&lt;/code&gt;&lt;/a&gt; is a
+testing tool which helps you to discover if you forgot to add dependencies to
+your &lt;code&gt;setup.py&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;You can install &lt;a href="https://pypi.org/project/tox/"&gt;&lt;code&gt;tox&lt;/code&gt;&lt;/a&gt; via&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pip install tox
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="coverage-reports_1"&gt;Coverage Reports&lt;/h2&gt;
+&lt;p&gt;The &lt;a href="http://coverage.readthedocs.io/en/latest/"&gt;&lt;code&gt;coverage&lt;/code&gt;&lt;/a&gt; package and its
+&lt;a href="https://pytest-cov.readthedocs.io/en/latest/"&gt;&lt;code&gt;pytest-cov&lt;/code&gt;&lt;/a&gt; plugin allow you
+to generate coverage reports.&lt;/p&gt;
+&lt;p&gt;I recommend creating a &lt;code&gt;.coveragerc&lt;/code&gt; file in your projects root directory:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;[run]&lt;/span&gt;
+&lt;span class="na"&gt;source&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;mpu  # folder where your project is&lt;/span&gt;
+&lt;span class="na"&gt;branch&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;True&lt;/span&gt;
+
+&lt;span class="k"&gt;[report]&lt;/span&gt;
+&lt;span class="c1"&gt;# Regexes for lines to exclude from consideration&lt;/span&gt;
+&lt;span class="na"&gt;exclude_lines&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&lt;/span&gt;
+&lt;span class="s"&gt;    # Have to re-enable the standard pragma&lt;/span&gt;
+&lt;span class="s"&gt;    pragma: no cover&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# Don't complain about missing debug-only code:&lt;/span&gt;
+    &lt;span class="na"&gt;def __repr__&lt;/span&gt;
+    &lt;span class="na"&gt;def __str__&lt;/span&gt;
+    &lt;span class="na"&gt;if self\.debug&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# Don't complain if tests don't hit defensive assertion code:&lt;/span&gt;
+    &lt;span class="na"&gt;raise AssertionError&lt;/span&gt;
+    &lt;span class="na"&gt;raise NotImplementedError&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# Don't complain if non-runnable code isn't run:&lt;/span&gt;
+    &lt;span class="na"&gt;if 0:&lt;/span&gt;
+    &lt;span class="na"&gt;if __name__&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;= .__main__.:&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The &lt;code&gt;branch = True&lt;/code&gt; enables the creation of branch coverage reports.&lt;/p&gt;
+&lt;h2 id="the-tricky-cases"&gt;The Tricky Cases&lt;/h2&gt;
+&lt;h3 id="file-system-interactions"&gt;File System Interactions&lt;/h3&gt;
+&lt;p&gt;The two solutions are temporary files with &lt;a href="https://docs.python.org/3/library/tempfile.html"&gt;&lt;code&gt;tempfile&lt;/code&gt;&lt;/a&gt;
+and &lt;a href="https://docs.python.org/3/library/unittest.mock.html"&gt;&lt;code&gt;unittest.mock&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;See also: &lt;a href="https://stackoverflow.com/q/19672138/562769"&gt;How do I mock the filesystem in Python unit tests?&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="web-interactions"&gt;Web Interactions&lt;/h3&gt;
+&lt;p&gt;See &lt;a href="https://docs.python.org/3/library/unittest.mock.html"&gt;&lt;code&gt;unittest.mock&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="credentials"&gt;Credentials&lt;/h3&gt;
+&lt;p&gt;Having credentials as environment variables seems to be the cleanest solution
+so far. You might want to have a look at &lt;a href="https://direnv.net"&gt;&lt;code&gt;direnv&lt;/code&gt;&lt;/a&gt;. To
+give later developers (including yourself) later a hint, you could create a
+&lt;code&gt;template.envrc&lt;/code&gt; file which contains all relevant attributes, but not the
+values.&lt;/p&gt;
+&lt;p&gt;For example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;export AWS_USERNAME="foobar"
+export AWS_PASSWORD="foobar"
+export FOOBAR="foobar"
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Of course, you should &lt;em&gt;not&lt;/em&gt; add the &lt;code&gt;.envrc&lt;/code&gt; file to your git repository.&lt;/p&gt;
+&lt;h2 id="see-also_1"&gt;See also&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.pythonsheets.com/notes/python-tests.html"&gt;Python test cheatsheet&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;The Hitchhiker&amp;rsquo;s Guide to Python: &lt;a href="http://docs.python-guide.org/en/latest/writing/tests/"&gt;Testing Your Code&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Code"></category><category term="Testing"></category><category term="tox"></category><category term="pytest"></category><category term="coverage"></category></entry><entry><title>Python Style Guide</title><link href="https://martin-thoma.com/python-style-guide/" rel="alternate"></link><published>2018-07-01T20:00:00+02:00</published><updated>2018-07-01T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-07-01:/python-style-guide/</id><summary type="html">&lt;p&gt;Having a consistent code style for a project is important as it allows
 developers to code correctly without thinking too much about it. It makes code
 &lt;strong&gt;easier to read, maintain&lt;/strong&gt; and after becomming used to the style also
 &lt;strong&gt;easier to write&lt;/strong&gt;.&lt;/p&gt;
