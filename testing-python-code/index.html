@@ -129,6 +129,9 @@ MathJax.Hub.Queue(function() {
 </ul>
 <p>Usually, I aim for more than 95% line coverage.</p>
 <h2 id="why-you-should-test">Why you should test</h2>
+<p>Besides trust, preventing breaking changes and code style, I want to give two
+concrete examples how writing tests with the aim of a high test coverage
+improved my code.</p>
 <h3 id="reproducibility">Reproducibility</h3>
 <p>Suppose you have to test a function</p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
@@ -210,16 +213,23 @@ rather cheap. If the test is not isolated, then it is an integration test. A
 typical integration test is when you interact with a database.</p>
 <p>There are four concepts which are supported by <code>unittest</code>:</p>
 <dl>
-<dt>test fixture</dt>
-<dd>A test fixture represents the preparation needed to perform one or more tests, and any associate cleanup actions. This may involve, for example, creating temporary or proxy databases, directories, or starting a server process.</dd>
 <dt>test case</dt>
 <dd>A test case is the individual unit of testing. It checks for a specific response to a particular set of inputs. unittest provides a base class, TestCase, which may be used to create new test cases.</dd>
+<dt>test fixture</dt>
+<dd>A test fixture represents the preparation needed to perform one or more tests, and any associate cleanup actions. This may involve, for example, creating temporary or proxy databases, directories, or starting a server process.</dd>
 <dt>test suite</dt>
 <dd>A test suite is a collection of test cases, test suites, or both. It is used to aggregate tests that should be executed together.</dd>
 <dt>test runner</dt>
 <dd>A test runner is a component which orchestrates the execution of tests and provides the outcome to the user. The runner may use a graphical interface, a textual interface, or return a special value to indicate the results of executing the tests.</dd>
 </dl>
-<p>TODO</p>
+<p>To put it into context:</p>
+<ul>
+<li>You write a test case.</li>
+<li>It might be neccessary or convenient to <code>setUp</code> things. This is the test
+  fixture.</li>
+<li>You combine tests to a test suite.</li>
+<li>The test runner executes the tests.</li>
+</ul>
 <p>Your <a href="https://martin-thoma.com/python-projects/">project structure</a> should be:</p>
 <div class="highlight"><pre><span></span><span class="n">foo_module</span> <span class="o">:</span> <span class="n">the</span> <span class="n">git</span> <span class="n">repository</span> <span class="n">root</span> <span class="n">dir</span>
 <span class="err">├──</span> <span class="n">bin</span>

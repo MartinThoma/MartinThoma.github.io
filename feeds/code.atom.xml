@@ -24,6 +24,9 @@
 &lt;/ul&gt;
 &lt;p&gt;Usually, I aim for more than 95% line coverage.&lt;/p&gt;
 &lt;h2 id="why-you-should-test"&gt;Why you should test&lt;/h2&gt;
+&lt;p&gt;Besides trust, preventing breaking changes and code style, I want to give two
+concrete examples how writing tests with the aim of a high test coverage
+improved my code.&lt;/p&gt;
 &lt;h3 id="reproducibility"&gt;Reproducibility&lt;/h3&gt;
 &lt;p&gt;Suppose you have to test a function&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;datetime&lt;/span&gt;
@@ -105,16 +108,23 @@ rather cheap. If the test is not isolated, then it is an integration test. A
 typical integration test is when you interact with a database.&lt;/p&gt;
 &lt;p&gt;There are four concepts which are supported by &lt;code&gt;unittest&lt;/code&gt;:&lt;/p&gt;
 &lt;dl&gt;
-&lt;dt&gt;test fixture&lt;/dt&gt;
-&lt;dd&gt;A test fixture represents the preparation needed to perform one or more tests, and any associate cleanup actions. This may involve, for example, creating temporary or proxy databases, directories, or starting a server process.&lt;/dd&gt;
 &lt;dt&gt;test case&lt;/dt&gt;
 &lt;dd&gt;A test case is the individual unit of testing. It checks for a specific response to a particular set of inputs. unittest provides a base class, TestCase, which may be used to create new test cases.&lt;/dd&gt;
+&lt;dt&gt;test fixture&lt;/dt&gt;
+&lt;dd&gt;A test fixture represents the preparation needed to perform one or more tests, and any associate cleanup actions. This may involve, for example, creating temporary or proxy databases, directories, or starting a server process.&lt;/dd&gt;
 &lt;dt&gt;test suite&lt;/dt&gt;
 &lt;dd&gt;A test suite is a collection of test cases, test suites, or both. It is used to aggregate tests that should be executed together.&lt;/dd&gt;
 &lt;dt&gt;test runner&lt;/dt&gt;
 &lt;dd&gt;A test runner is a component which orchestrates the execution of tests and provides the outcome to the user. The runner may use a graphical interface, a textual interface, or return a special value to indicate the results of executing the tests.&lt;/dd&gt;
 &lt;/dl&gt;
-&lt;p&gt;TODO&lt;/p&gt;
+&lt;p&gt;To put it into context:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You write a test case.&lt;/li&gt;
+&lt;li&gt;It might be neccessary or convenient to &lt;code&gt;setUp&lt;/code&gt; things. This is the test
+  fixture.&lt;/li&gt;
+&lt;li&gt;You combine tests to a test suite.&lt;/li&gt;
+&lt;li&gt;The test runner executes the tests.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;Your &lt;a href="https://martin-thoma.com/python-projects/"&gt;project structure&lt;/a&gt; should be:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;foo_module&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;repository&lt;/span&gt; &lt;span class="n"&gt;root&lt;/span&gt; &lt;span class="n"&gt;dir&lt;/span&gt;
 &lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;bin&lt;/span&gt;
