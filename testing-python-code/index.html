@@ -255,7 +255,21 @@ typical integration test is when you interact with a database.</p>
   when I break one thing and a thousand tests fail. This makes it hard to find
   the root cause. By defining dependencies you can skip tests conditionally
   on the outcome of another test.</li>
+<li><a href="https://pytest-cov.readthedocs.io/en/latest/"><code>pytest-cov</code></a>: Creating coverage
+  reports with pytest.</li>
+<li><a href="https://pypi.org/project/pytest-mccabe/"><code>pytest-mccabe</code></a>: Check which
+  functions are too complex.</li>
 </ul>
+<p>I recommend to add the following to your <code>setup.cfg</code>:</p>
+<div class="highlight"><pre><span></span><span class="k">[tool:pytest]</span>
+<span class="na">addopts</span> <span class="o">=</span> <span class="s">./tests/ --doctest-modules --mccabe --cov=./mpu --cov-append --cov-report html:tests/reports/coverage-html --cov-report xml:tests/reports/coverage.xml --pep8 --ignore=docs/</span>
+<span class="na">doctest_encoding</span> <span class="o">=</span> <span class="s">utf-8</span>
+<span class="na">mccabe-complexity</span><span class="o">=</span><span class="s">10</span>
+
+<span class="k">[pydocstyle]</span>
+<span class="na">ignore</span> <span class="o">=</span> <span class="s">D104, D105, D107, D301, D413, D203, D212, D100</span>
+<span class="na">match_dir</span> <span class="o">=</span> <span class="s">mpu</span>
+</pre></div>
 <p>You might wonder how it relates to <code>nose</code>. The main thing you should remember
 is that <a href="https://nose.readthedocs.io/en/latest/#note-to-users">nose is no longer maintained</a>.</p>
 <h3 id="tox">tox</h3>

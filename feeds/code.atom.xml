@@ -150,7 +150,21 @@ typical integration test is when you interact with a database.&lt;/p&gt;
   when I break one thing and a thousand tests fail. This makes it hard to find
   the root cause. By defining dependencies you can skip tests conditionally
   on the outcome of another test.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pytest-cov.readthedocs.io/en/latest/"&gt;&lt;code&gt;pytest-cov&lt;/code&gt;&lt;/a&gt;: Creating coverage
+  reports with pytest.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pypi.org/project/pytest-mccabe/"&gt;&lt;code&gt;pytest-mccabe&lt;/code&gt;&lt;/a&gt;: Check which
+  functions are too complex.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;I recommend to add the following to your &lt;code&gt;setup.cfg&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;[tool:pytest]&lt;/span&gt;
+&lt;span class="na"&gt;addopts&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;./tests/ --doctest-modules --mccabe --cov=./mpu --cov-append --cov-report html:tests/reports/coverage-html --cov-report xml:tests/reports/coverage.xml --pep8 --ignore=docs/&lt;/span&gt;
+&lt;span class="na"&gt;doctest_encoding&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;utf-8&lt;/span&gt;
+&lt;span class="na"&gt;mccabe-complexity&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;10&lt;/span&gt;
+
+&lt;span class="k"&gt;[pydocstyle]&lt;/span&gt;
+&lt;span class="na"&gt;ignore&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;D104, D105, D107, D301, D413, D203, D212, D100&lt;/span&gt;
+&lt;span class="na"&gt;match_dir&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;mpu&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;You might wonder how it relates to &lt;code&gt;nose&lt;/code&gt;. The main thing you should remember
 is that &lt;a href="https://nose.readthedocs.io/en/latest/#note-to-users"&gt;nose is no longer maintained&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id="tox"&gt;tox&lt;/h3&gt;
