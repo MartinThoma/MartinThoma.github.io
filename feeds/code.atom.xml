@@ -1,5 +1,183 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Code</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/code.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-07-03T20:00:00+02:00</updated><entry><title>Testing in Python</title><link href="https://martin-thoma.com/testing-python-code/" rel="alternate"></link><published>2018-07-03T20:00:00+02:00</published><updated>2018-07-03T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-07-03:/testing-python-code/</id><summary type="html">&lt;p&gt;Testing code is important for the following reasons:&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Code</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/code.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-07-08T20:00:00+02:00</updated><entry><title>Git - Version Control Done Right</title><link href="https://martin-thoma.com/git/" rel="alternate"></link><published>2018-07-08T20:00:00+02:00</published><updated>2018-07-08T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-07-08:/git/</id><summary type="html">&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Git"&gt;&lt;code&gt;git&lt;/code&gt;&lt;/a&gt; is a (the!) version control system.
+In this article I'll try to show in a short way how to improve your usage of
+it.&lt;/p&gt;
+&lt;p&gt;I assume you already know &lt;a href="https://git-scm.com/docs/git-clone"&gt;&lt;code&gt;git clone&lt;/code&gt;&lt;/a&gt;,
+&lt;a href="https://git-scm.com/docs/git-commit"&gt;&lt;code&gt;git commit&lt;/code&gt;&lt;/a&gt;,
+&lt;a href="https://git-scm.com/docs/git-push"&gt;&lt;code&gt;git push&lt;/code&gt;&lt;/a&gt;,
+&lt;a href="https://git-scm.com/docs/git-pull"&gt;&lt;code&gt;git pull&lt;/code&gt;&lt;/a&gt; and
+&lt;a href="https://git-scm.com/docs/git-branch"&gt;&lt;code&gt;git branch&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="why-version-control"&gt;Why Version Control&lt;/h2&gt;
+&lt;p&gt;When you write software, you usually …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Git"&gt;&lt;code&gt;git&lt;/code&gt;&lt;/a&gt; is a (the!) version control system.
+In this article I'll try to show in a short way how to improve your usage of
+it.&lt;/p&gt;
+&lt;p&gt;I assume you already know &lt;a href="https://git-scm.com/docs/git-clone"&gt;&lt;code&gt;git clone&lt;/code&gt;&lt;/a&gt;,
+&lt;a href="https://git-scm.com/docs/git-commit"&gt;&lt;code&gt;git commit&lt;/code&gt;&lt;/a&gt;,
+&lt;a href="https://git-scm.com/docs/git-push"&gt;&lt;code&gt;git push&lt;/code&gt;&lt;/a&gt;,
+&lt;a href="https://git-scm.com/docs/git-pull"&gt;&lt;code&gt;git pull&lt;/code&gt;&lt;/a&gt; and
+&lt;a href="https://git-scm.com/docs/git-branch"&gt;&lt;code&gt;git branch&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="why-version-control"&gt;Why Version Control&lt;/h2&gt;
+&lt;p&gt;When you write software, you usually can't write it from beginning to end in
+one stream. Instead, you will have different directions in which you go. And
+you will work one day on feature A, then on next day you have to fix something
+but you already changed a bit - not everything to implement A. Hence you need
+to go back.&lt;/p&gt;
+&lt;p&gt;Or you are not sure if the thing you're trying to do actually improves things.
+So you want to save the current state to be able to go back.&lt;/p&gt;
+&lt;p&gt;In the past, people did so by copy-and-paste. But then you end in your file
+system having directories like &lt;code&gt;awesome-project&lt;/code&gt;, &lt;code&gt;awesome-project-copy&lt;/code&gt;,
+&lt;code&gt;awesome-project-1990-04-28&lt;/code&gt;, &lt;code&gt;awesome-project-feature-a&lt;/code&gt;, ...&lt;/p&gt;
+&lt;p&gt;So you want to be able to manage that properly and jump back and compare
+different versions.&lt;/p&gt;
+&lt;h2 id="commit-messages"&gt;Commit Messages&lt;/h2&gt;
+&lt;p&gt;Commit messages are intended for developers to understand what was changed.&lt;/p&gt;
+&lt;p&gt;I like the &lt;a href="https://docs.scipy.org/doc/numpy-1.13.0/dev/gitwash/development_workflow.html#writing-the-commit-message"&gt;SciPy commit message guide&lt;/a&gt;.
+They start every message with a prefix. Copied from this page, here is how their
+messages look like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;ENH&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt; &lt;span class="n"&gt;functionality&lt;/span&gt; &lt;span class="n"&gt;X&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;numpy&lt;/span&gt;&lt;span class="o"&gt;.&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;submodule&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;.&lt;/span&gt;
+
+&lt;span class="n"&gt;The&lt;/span&gt; &lt;span class="n"&gt;first&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;commit&lt;/span&gt; &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="n"&gt;starts&lt;/span&gt; &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;capitalized&lt;/span&gt; &lt;span class="n"&gt;acronym&lt;/span&gt;
+&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;options&lt;/span&gt; &lt;span class="n"&gt;listed&lt;/span&gt; &lt;span class="n"&gt;below&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="n"&gt;indicating&lt;/span&gt; &lt;span class="n"&gt;what&lt;/span&gt; &lt;span class="n"&gt;type&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;commit&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;  &lt;span class="n"&gt;Then&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;blank&lt;/span&gt;
+&lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;then&lt;/span&gt; &lt;span class="n"&gt;more&lt;/span&gt; &lt;span class="n"&gt;text&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;needed&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;  &lt;span class="n"&gt;Lines&lt;/span&gt; &lt;span class="n"&gt;shouldn&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;longer&lt;/span&gt; &lt;span class="n"&gt;than&lt;/span&gt; &lt;span class="mi"&gt;72&lt;/span&gt;
+&lt;span class="n"&gt;characters&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;  &lt;span class="n"&gt;If&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;commit&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;related&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;ticket&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;indicate&lt;/span&gt; &lt;span class="n"&gt;that&lt;/span&gt; &lt;span class="k"&gt;with&lt;/span&gt;
+&lt;span class="s2"&gt;"See #3456"&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"See ticket 3456"&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"Closes #3456"&lt;/span&gt; &lt;span class="n"&gt;or&lt;/span&gt; &lt;span class="n"&gt;similar&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The prefixes I suggest to have, are:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;API&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;an&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;incompatible&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="n"&gt;API&lt;/span&gt; &lt;span class="n"&gt;change&lt;/span&gt;
+&lt;span class="n"&gt;BUG&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;bug&lt;/span&gt; &lt;span class="n"&gt;fix&lt;/span&gt;
+&lt;span class="n"&gt;DEP&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;deprecate&lt;/span&gt; &lt;span class="n"&gt;something&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;or&lt;/span&gt; &lt;span class="n"&gt;remove&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;deprecated&lt;/span&gt; &lt;span class="n"&gt;object&lt;/span&gt;
+&lt;span class="n"&gt;DEV&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;development&lt;/span&gt; &lt;span class="n"&gt;tool&lt;/span&gt; &lt;span class="n"&gt;or&lt;/span&gt; &lt;span class="n"&gt;utility&lt;/span&gt;
+&lt;span class="n"&gt;DOC&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;documentation&lt;/span&gt;
+&lt;span class="n"&gt;ENH&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;enhancement&lt;/span&gt;
+&lt;span class="n"&gt;MAINT&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;maintenance&lt;/span&gt; &lt;span class="n"&gt;commit&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;refactoring&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;typos&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;.)&lt;/span&gt;
+&lt;span class="n"&gt;REV&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;revert&lt;/span&gt; &lt;span class="n"&gt;an&lt;/span&gt; &lt;span class="n"&gt;earlier&lt;/span&gt; &lt;span class="n"&gt;commit&lt;/span&gt;
+&lt;span class="n"&gt;STY&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;style&lt;/span&gt; &lt;span class="n"&gt;fix&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;whitespace&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;PEP8&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;TST&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;addition&lt;/span&gt; &lt;span class="n"&gt;or&lt;/span&gt; &lt;span class="n"&gt;modification&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;tests&lt;/span&gt;
+&lt;span class="n"&gt;REL&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;related&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;releasing&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;project&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;g&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;change&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;version&lt;/span&gt; &lt;span class="n"&gt;number&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I also suggest to keep those messages shorter than 80 characters.&lt;/p&gt;
+&lt;p&gt;Services like GitHub can directly connect commits with issues if you reference
+the issues like &lt;code&gt;issue #123&lt;/code&gt; in the commit message.&lt;/p&gt;
+&lt;p&gt;See also:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://whatthecommit.com"&gt;WhatTheCommit.com&lt;/a&gt;: Funny commit messages&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="git-log"&gt;git log&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://git-scm.com/docs/git-log"&gt;&lt;code&gt;git log&lt;/code&gt;&lt;/a&gt; shows you the commit messages and
+other logged changes:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;commit e44ed1e8e5bdcada8534369c5135e77677253de1 (HEAD -&amp;gt; master, origin/master, origin/HEAD)
+Author: Martin Thoma &amp;lt;info@martin-thoma.de&amp;gt;
+Date:   Fri Jul 6 07:21:10 2018 +0200
+
+    DOC: Fix documentation of string return values
+
+commit 8cf8c8d4b168ef3b0a32617917195a352f4ce723
+Author: Martin Thoma &amp;lt;info@martin-thoma.de&amp;gt;
+Date:   Fri Jul 6 07:15:32 2018 +0200
+
+    REL: v0.9.0
+
+commit de71db384b5e08c65067937744bfe26a822796b1
+Author: Martin Thoma &amp;lt;info@martin-thoma.de&amp;gt;
+Date:   Fri Jul 6 07:13:33 2018 +0200
+
+    ENH: Add string.str2bool_or_none, str2float_or_none, str2int_or_none
+
+    Closes #31
+
+commit 31bd14cbe7e317226ff7be15ec7d68df93665688
+Author: Martin Thoma &amp;lt;info@martin-thoma.de&amp;gt;
+Date:   Wed Jul 4 22:46:16 2018 +0200
+
+    ENH: Add prime number generator
+
+commit bb56e82fa402827b3de8140783e0c4fc95e3699d
+Author: Martin Thoma &amp;lt;info@martin-thoma.de&amp;gt;
+Date:   Wed Jul 4 07:21:02 2018 +0200
+
+    DOC: document mpu.path
+
+commit 9d929238ef04ecb866775b3e687d782090c484bf
+Author: Martin Thoma &amp;lt;info@martin-thoma.de&amp;gt;
+Date:   Wed Jul 4 06:51:40 2018 +0200
+
+    STY: Fix issues discovered by codacy
+
+commit c31f575d3835049c65b8ab6c7fe909191779a912 (tag: v0.8.0)
+Author: Martin Thoma &amp;lt;info@martin-thoma.de&amp;gt;
+Date:   Tue Jul 3 23:22:37 2018 +0200
+
+    REL: Release v0.8.0
+
+commit f3f7f1192a7b495f74156977bda1bd220a87e4eb
+Author: Martin Thoma &amp;lt;info@martin-thoma.de&amp;gt;
+Date:   Tue Jul 3 23:21:01 2018 +0200
+
+    ENH: Add mpu.path.get_all_files
+
+    See issue #14
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You can also adjust the output to your needs:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git log --pretty&lt;span class="o"&gt;=&lt;/span&gt;oneline
+
+e44ed1e8e5bdcada8534369c5135e77677253de1 &lt;span class="o"&gt;(&lt;/span&gt;HEAD -&amp;gt; master, origin/master, origin/HEAD&lt;span class="o"&gt;)&lt;/span&gt; DOC: Fix documentation of string &lt;span class="k"&gt;return&lt;/span&gt; values
+8cf8c8d4b168ef3b0a32617917195a352f4ce723 REL: v0.9.0
+de71db384b5e08c65067937744bfe26a822796b1 ENH: Add string.str2bool_or_none, str2float_or_none, str2int_or_none
+31bd14cbe7e317226ff7be15ec7d68df93665688 ENH: Add prime number generator
+bb56e82fa402827b3de8140783e0c4fc95e3699d DOC: document mpu.path
+9d929238ef04ecb866775b3e687d782090c484bf STY: Fix issues discovered by codacy
+c31f575d3835049c65b8ab6c7fe909191779a912 &lt;span class="o"&gt;(&lt;/span&gt;tag: v0.8.0&lt;span class="o"&gt;)&lt;/span&gt; REL: Release v0.8.0
+f3f7f1192a7b495f74156977bda1bd220a87e4eb ENH: Add mpu.path.get_all_files
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="git-diff"&gt;git diff&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://git-scm.com/docs/git-diff"&gt;&lt;code&gt;git diff&lt;/code&gt;&lt;/a&gt; compares two commits, e.g.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git diff e44ed1e8e5bdcada8534369c5135e77677253de1..8cf8c8d4b168ef3b0a32617917195a352f4ce723
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Looking up the git hashes (&lt;code&gt;e44ed1...&lt;/code&gt; and &lt;code&gt;8cf8c8d...&lt;/code&gt;) is cumbersome, so
+there are shortcuts. For example &lt;code&gt;HEAD&lt;/code&gt; is the latest version. And &lt;code&gt;^&lt;/code&gt; gives
+you the version before. Hence&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git diff HEAD^..HEAD
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;compares the current version with that before.&lt;/p&gt;
+&lt;h2 id="git-blame"&gt;git blame&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://git-scm.com/docs/git-blame"&gt;&lt;code&gt;git blame&lt;/code&gt;&lt;/a&gt; gives you an overview who
+last edited which line. It can be used to "blame" somebody for a change. Or,
+better, to find the person who to ask why something was done the way it
+currently is in the repository.&lt;/p&gt;
+&lt;h2 id="git-squash"&gt;git squash&lt;/h2&gt;
+&lt;p&gt;The git commit history should be kept clean. If you develop a new feature you
+might want to push the latest state - even if something is not working - from
+time to time to the server so that your co-workers can have a look at it. But in
+the &lt;code&gt;master&lt;/code&gt; branch it would be nice if every single commit was a single new
+feature.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://stackoverflow.com/a/51049029/562769"&gt;Commit squashing&lt;/a&gt; allows you to
+change multiple commits into a single one. This needs to re-write the version
+history which cannot be undone. Thus you need to force-push which will cause
+problems for everybody who had the version you were changing.&lt;/p&gt;
+&lt;p&gt;So as a general guide:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Never force-push on master&lt;/li&gt;
+&lt;li&gt;Avoid force-push on branches where multiple people work&lt;/li&gt;
+&lt;li&gt;Squash commits, if you are the only one working on it and if it makes it
+  easier to understand what you did.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Similar, but simpler is &lt;code&gt;git commit --amend&lt;/code&gt;. It lets you add something to the
+latest commit in the current branch and edit the commit message.&lt;/p&gt;
+&lt;h2 id="merging"&gt;Merging&lt;/h2&gt;
+&lt;p&gt;When you are currently in a merge, git will tell you form time to time that
+something cannot be auto-merged. Then you can execute &lt;a href="https://git-scm.com/docs/git-mergetool"&gt;&lt;code&gt;git mergetool&lt;/code&gt;&lt;/a&gt;
+which will start whichever tool you configured. In my case, it is &lt;a href="http://meldmerge.org"&gt;&lt;code&gt;meld&lt;/code&gt;&lt;/a&gt;.
+See my &lt;a href="https://martin-thoma.com/software-versioning-cheat-sheet/#nice-diffs_1"&gt;Software Versioning Cheat Sheet&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="tagging"&gt;Tagging&lt;/h2&gt;
+&lt;p&gt;Git gives your versions a hash. This is ok most of the time, but sometimes you
+actually want to note that your software has a specific version. You can use
+&lt;a href="https://git-scm.com/docs/git-tag"&gt;&lt;code&gt;git tag -a v1.4&lt;/code&gt;&lt;/a&gt; (see &lt;a href="https://git-scm.com/book/en/v2/Git-Basics-Tagging"&gt;book&lt;/a&gt;)
+for that.&lt;/p&gt;
+&lt;p&gt;Github marks those tags as releases. See my &lt;a href="https://github.com/MartinThoma/mpu/releases"&gt;mpu releases&lt;/a&gt;,
+for example.&lt;/p&gt;
+&lt;p&gt;You can also show diffs / logs with the tags, e.g.:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git diff v0.2.0..v0.3.0
+&lt;/pre&gt;&lt;/div&gt;</content><category term="Code"></category><category term="git"></category></entry><entry><title>Testing in Python</title><link href="https://martin-thoma.com/testing-python-code/" rel="alternate"></link><published>2018-07-03T20:00:00+02:00</published><updated>2018-07-03T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-07-03:/testing-python-code/</id><summary type="html">&lt;p&gt;Testing code is important for the following reasons:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Trust&lt;/strong&gt;: You checked at least some cases if they work. So others can have
   more trust in the quality of your work and youself can also put more trust in
@@ -149,6 +327,55 @@ typical integration test is when you interact with a database.&lt;/p&gt;
     &lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;__init__&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;py&lt;/span&gt;
     &lt;span class="err"&gt;└──&lt;/span&gt; &lt;span class="n"&gt;test_utils&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;py&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A simple unittest is usually stored in &lt;code&gt;tests/test_themodule_name.py&lt;/code&gt; and might
+look like this:&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/python&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;unittest&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ThemoduleNameTest&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;unittest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TestCase&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;setUp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="sd"&gt;"""Set things up for the test."""&lt;/span&gt;
+        &lt;span class="c1"&gt;# e.g. initialize database mock&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;tearDown&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="sd"&gt;"""Clean things up after the test."""&lt;/span&gt;
+        &lt;span class="c1"&gt;# e.g. remove a file&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# test routine A&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_abc&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="sd"&gt;"""Test routine A"""&lt;/span&gt;
+        &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s2"&gt;"FooTest:testA"&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# test routine B&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;testB&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="sd"&gt;"""Test routine B"""&lt;/span&gt;
+        &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s2"&gt;"FooTest:testB"&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;h3 id="pytest"&gt;pytest&lt;/h3&gt;
 &lt;p&gt;&lt;a href="https://docs.pytest.org/en/latest/"&gt;&lt;code&gt;pytest&lt;/code&gt;&lt;/a&gt; is a framework&lt;/p&gt;
 &lt;p&gt;It also comes with some neat plugins:&lt;/p&gt;
@@ -7315,8 +7542,7 @@ to jar files in Java.&lt;/p&gt;
 &lt;h3 id="distribute"&gt;Distribute&lt;/h3&gt;
 &lt;p&gt;Distribute was a fork of setuptools that got merged back to setuptools. So 
 don't use distribute, but use setuptools.&lt;/p&gt;
-&lt;h2 id="installer_1"&gt;Installer&lt;/h2&gt;
-&lt;h3 id="pip"&gt;PIP&lt;/h3&gt;
+&lt;h2 id="pip-installer_1"&gt;PIP Installer&lt;/h2&gt;
 &lt;p&gt;PIP is short for 'PIP installs Python'. It can only install files from sources;
 so it does not support egg files.&lt;/p&gt;
 &lt;p&gt;PIP commands are&lt;/p&gt;
@@ -7331,7 +7557,7 @@ so it does not support egg files.&lt;/p&gt;
 &lt;li&gt;wheel&lt;/li&gt;
 &lt;li&gt;help&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="environments_1"&gt;Environments&lt;/h2&gt;
+&lt;h2 id="environments"&gt;Environments&lt;/h2&gt;
 &lt;p&gt;It might be the case that you have to have a Django 1.4 and a Django 1.5 project.
 In that case, you need different environments.&lt;/p&gt;
 &lt;h3 id="virtualenv"&gt;Virtualenv&lt;/h3&gt;

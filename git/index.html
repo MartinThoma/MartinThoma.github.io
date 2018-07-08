@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Code, git, Code, " />
+
+<meta property="og:title" content="Git - Version Control Done Right "/>
+<meta property="og:url" content="../git/" />
+<meta property="og:description" content="git is a (the!) version control system. In this article I&#39;ll try to show in a short way how to improve your usage of it. I assume you already know git clone, git commit, git push, git pull and git branch. Why Version Control When you write software, you usually …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2018-07-08T20:00:00+02:00" />
+<meta name="twitter:title" content="Git - Version Control Done Right ">
+<meta name="twitter:description" content="git is a (the!) version control system. In this article I&#39;ll try to show in a short way how to improve your usage of it. I assume you already know git clone, git commit, git push, git pull and git branch. Why Version Control When you write software, you usually …">
+<meta property="og:image" content="logos/git.png" />
+<meta name="twitter:image" content="logos/git.png" >
+
+        <title>Git - Version Control Done Right  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../git/"> Git - Version Control Done Right  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#why-version-control" title="Why Version Control">Why Version Control</a></li><li><a class="toc-href" href="#commit-messages" title="Commit Messages">Commit Messages</a></li><li><a class="toc-href" href="#git-log" title="git log">git log</a></li><li><a class="toc-href" href="#git-diff" title="git diff">git diff</a></li><li><a class="toc-href" href="#git-blame" title="git blame">git blame</a></li><li><a class="toc-href" href="#git-squash" title="git squash">git squash</a></li><li><a class="toc-href" href="#merging" title="Merging">Merging</a></li><li><a class="toc-href" href="#tagging" title="Tagging">Tagging</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p><a href="https://en.wikipedia.org/wiki/Git"><code>git</code></a> is a (the!) version control system.
+In this article I'll try to show in a short way how to improve your usage of
+it.</p>
+<p>I assume you already know <a href="https://git-scm.com/docs/git-clone"><code>git clone</code></a>,
+<a href="https://git-scm.com/docs/git-commit"><code>git commit</code></a>,
+<a href="https://git-scm.com/docs/git-push"><code>git push</code></a>,
+<a href="https://git-scm.com/docs/git-pull"><code>git pull</code></a> and
+<a href="https://git-scm.com/docs/git-branch"><code>git branch</code></a>.</p>
+<h2 id="why-version-control">Why Version Control</h2>
+<p>When you write software, you usually can't write it from beginning to end in
+one stream. Instead, you will have different directions in which you go. And
+you will work one day on feature A, then on next day you have to fix something
+but you already changed a bit - not everything to implement A. Hence you need
+to go back.</p>
+<p>Or you are not sure if the thing you're trying to do actually improves things.
+So you want to save the current state to be able to go back.</p>
+<p>In the past, people did so by copy-and-paste. But then you end in your file
+system having directories like <code>awesome-project</code>, <code>awesome-project-copy</code>,
+<code>awesome-project-1990-04-28</code>, <code>awesome-project-feature-a</code>, ...</p>
+<p>So you want to be able to manage that properly and jump back and compare
+different versions.</p>
+<h2 id="commit-messages">Commit Messages</h2>
+<p>Commit messages are intended for developers to understand what was changed.</p>
+<p>I like the <a href="https://docs.scipy.org/doc/numpy-1.13.0/dev/gitwash/development_workflow.html#writing-the-commit-message">SciPy commit message guide</a>.
+They start every message with a prefix. Copied from this page, here is how their
+messages look like:</p>
+<div class="highlight"><pre><span></span><span class="n">ENH</span><span class="o">:</span> <span class="n">add</span> <span class="n">functionality</span> <span class="n">X</span> <span class="n">to</span> <span class="n">numpy</span><span class="o">.&lt;</span><span class="n">submodule</span><span class="o">&gt;.</span>
+
+<span class="n">The</span> <span class="n">first</span> <span class="n">line</span> <span class="n">of</span> <span class="n">the</span> <span class="n">commit</span> <span class="n">message</span> <span class="n">starts</span> <span class="k">with</span> <span class="n">a</span> <span class="n">capitalized</span> <span class="n">acronym</span>
+<span class="o">(</span><span class="n">options</span> <span class="n">listed</span> <span class="n">below</span><span class="o">)</span> <span class="n">indicating</span> <span class="n">what</span> <span class="n">type</span> <span class="n">of</span> <span class="n">commit</span> <span class="k">this</span> <span class="k">is</span><span class="o">.</span>  <span class="n">Then</span> <span class="n">a</span> <span class="n">blank</span>
+<span class="n">line</span><span class="o">,</span> <span class="n">then</span> <span class="n">more</span> <span class="n">text</span> <span class="k">if</span> <span class="n">needed</span><span class="o">.</span>  <span class="n">Lines</span> <span class="n">shouldn</span><span class="err">'</span><span class="n">t</span> <span class="n">be</span> <span class="n">longer</span> <span class="n">than</span> <span class="mi">72</span>
+<span class="n">characters</span><span class="o">.</span>  <span class="n">If</span> <span class="n">the</span> <span class="n">commit</span> <span class="k">is</span> <span class="n">related</span> <span class="n">to</span> <span class="n">a</span> <span class="n">ticket</span><span class="o">,</span> <span class="n">indicate</span> <span class="n">that</span> <span class="k">with</span>
+<span class="s2">"See #3456"</span><span class="o">,</span> <span class="s2">"See ticket 3456"</span><span class="o">,</span> <span class="s2">"Closes #3456"</span> <span class="n">or</span> <span class="n">similar</span><span class="o">.</span>
+</pre></div>
+<p>The prefixes I suggest to have, are:</p>
+<div class="highlight"><pre><span></span><span class="n">API</span><span class="o">:</span> <span class="n">an</span> <span class="o">(</span><span class="n">incompatible</span><span class="o">)</span> <span class="n">API</span> <span class="n">change</span>
+<span class="n">BUG</span><span class="o">:</span> <span class="n">bug</span> <span class="n">fix</span>
+<span class="n">DEP</span><span class="o">:</span> <span class="n">deprecate</span> <span class="n">something</span><span class="o">,</span> <span class="n">or</span> <span class="n">remove</span> <span class="n">a</span> <span class="n">deprecated</span> <span class="n">object</span>
+<span class="n">DEV</span><span class="o">:</span> <span class="n">development</span> <span class="n">tool</span> <span class="n">or</span> <span class="n">utility</span>
+<span class="n">DOC</span><span class="o">:</span> <span class="n">documentation</span>
+<span class="n">ENH</span><span class="o">:</span> <span class="n">enhancement</span>
+<span class="n">MAINT</span><span class="o">:</span> <span class="n">maintenance</span> <span class="n">commit</span> <span class="o">(</span><span class="n">refactoring</span><span class="o">,</span> <span class="n">typos</span><span class="o">,</span> <span class="n">etc</span><span class="o">.)</span>
+<span class="n">REV</span><span class="o">:</span> <span class="n">revert</span> <span class="n">an</span> <span class="n">earlier</span> <span class="n">commit</span>
+<span class="n">STY</span><span class="o">:</span> <span class="n">style</span> <span class="n">fix</span> <span class="o">(</span><span class="n">whitespace</span><span class="o">,</span> <span class="n">PEP8</span><span class="o">)</span>
+<span class="n">TST</span><span class="o">:</span> <span class="n">addition</span> <span class="n">or</span> <span class="n">modification</span> <span class="n">of</span> <span class="n">tests</span>
+<span class="n">REL</span><span class="o">:</span> <span class="n">related</span> <span class="n">to</span> <span class="n">releasing</span> <span class="n">the</span> <span class="n">project</span><span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="na">g</span><span class="o">.</span> <span class="n">change</span> <span class="n">of</span> <span class="n">a</span> <span class="n">version</span> <span class="n">number</span>
+</pre></div>
+<p>I also suggest to keep those messages shorter than 80 characters.</p>
+<p>Services like GitHub can directly connect commits with issues if you reference
+the issues like <code>issue #123</code> in the commit message.</p>
+<p>See also:</p>
+<ul>
+<li><a href="https://whatthecommit.com">WhatTheCommit.com</a>: Funny commit messages</li>
+</ul>
+<h2 id="git-log">git log</h2>
+<p><a href="https://git-scm.com/docs/git-log"><code>git log</code></a> shows you the commit messages and
+other logged changes:</p>
+<div class="highlight"><pre><span></span>commit e44ed1e8e5bdcada8534369c5135e77677253de1 (HEAD -&gt; master, origin/master, origin/HEAD)
+Author: Martin Thoma &lt;info@martin-thoma.de&gt;
+Date:   Fri Jul 6 07:21:10 2018 +0200
+
+    DOC: Fix documentation of string return values
+
+commit 8cf8c8d4b168ef3b0a32617917195a352f4ce723
+Author: Martin Thoma &lt;info@martin-thoma.de&gt;
+Date:   Fri Jul 6 07:15:32 2018 +0200
+
+    REL: v0.9.0
+
+commit de71db384b5e08c65067937744bfe26a822796b1
+Author: Martin Thoma &lt;info@martin-thoma.de&gt;
+Date:   Fri Jul 6 07:13:33 2018 +0200
+
+    ENH: Add string.str2bool_or_none, str2float_or_none, str2int_or_none
+
+    Closes #31
+
+commit 31bd14cbe7e317226ff7be15ec7d68df93665688
+Author: Martin Thoma &lt;info@martin-thoma.de&gt;
+Date:   Wed Jul 4 22:46:16 2018 +0200
+
+    ENH: Add prime number generator
+
+commit bb56e82fa402827b3de8140783e0c4fc95e3699d
+Author: Martin Thoma &lt;info@martin-thoma.de&gt;
+Date:   Wed Jul 4 07:21:02 2018 +0200
+
+    DOC: document mpu.path
+
+commit 9d929238ef04ecb866775b3e687d782090c484bf
+Author: Martin Thoma &lt;info@martin-thoma.de&gt;
+Date:   Wed Jul 4 06:51:40 2018 +0200
+
+    STY: Fix issues discovered by codacy
+
+commit c31f575d3835049c65b8ab6c7fe909191779a912 (tag: v0.8.0)
+Author: Martin Thoma &lt;info@martin-thoma.de&gt;
+Date:   Tue Jul 3 23:22:37 2018 +0200
+
+    REL: Release v0.8.0
+
+commit f3f7f1192a7b495f74156977bda1bd220a87e4eb
+Author: Martin Thoma &lt;info@martin-thoma.de&gt;
+Date:   Tue Jul 3 23:21:01 2018 +0200
+
+    ENH: Add mpu.path.get_all_files
+
+    See issue #14
+</pre></div>
+<p>You can also adjust the output to your needs:</p>
+<div class="highlight"><pre><span></span>$ git log --pretty<span class="o">=</span>oneline
+
+e44ed1e8e5bdcada8534369c5135e77677253de1 <span class="o">(</span>HEAD -&gt; master, origin/master, origin/HEAD<span class="o">)</span> DOC: Fix documentation of string <span class="k">return</span> values
+8cf8c8d4b168ef3b0a32617917195a352f4ce723 REL: v0.9.0
+de71db384b5e08c65067937744bfe26a822796b1 ENH: Add string.str2bool_or_none, str2float_or_none, str2int_or_none
+31bd14cbe7e317226ff7be15ec7d68df93665688 ENH: Add prime number generator
+bb56e82fa402827b3de8140783e0c4fc95e3699d DOC: document mpu.path
+9d929238ef04ecb866775b3e687d782090c484bf STY: Fix issues discovered by codacy
+c31f575d3835049c65b8ab6c7fe909191779a912 <span class="o">(</span>tag: v0.8.0<span class="o">)</span> REL: Release v0.8.0
+f3f7f1192a7b495f74156977bda1bd220a87e4eb ENH: Add mpu.path.get_all_files
+</pre></div>
+<h2 id="git-diff">git diff</h2>
+<p><a href="https://git-scm.com/docs/git-diff"><code>git diff</code></a> compares two commits, e.g.</p>
+<div class="highlight"><pre><span></span>$ git diff e44ed1e8e5bdcada8534369c5135e77677253de1..8cf8c8d4b168ef3b0a32617917195a352f4ce723
+</pre></div>
+<p>Looking up the git hashes (<code>e44ed1...</code> and <code>8cf8c8d...</code>) is cumbersome, so
+there are shortcuts. For example <code>HEAD</code> is the latest version. And <code>^</code> gives
+you the version before. Hence</p>
+<div class="highlight"><pre><span></span>$ git diff HEAD^..HEAD
+</pre></div>
+<p>compares the current version with that before.</p>
+<h2 id="git-blame">git blame</h2>
+<p><a href="https://git-scm.com/docs/git-blame"><code>git blame</code></a> gives you an overview who
+last edited which line. It can be used to "blame" somebody for a change. Or,
+better, to find the person who to ask why something was done the way it
+currently is in the repository.</p>
+<h2 id="git-squash">git squash</h2>
+<p>The git commit history should be kept clean. If you develop a new feature you
+might want to push the latest state - even if something is not working - from
+time to time to the server so that your co-workers can have a look at it. But in
+the <code>master</code> branch it would be nice if every single commit was a single new
+feature.</p>
+<p><a href="https://stackoverflow.com/a/51049029/562769">Commit squashing</a> allows you to
+change multiple commits into a single one. This needs to re-write the version
+history which cannot be undone. Thus you need to force-push which will cause
+problems for everybody who had the version you were changing.</p>
+<p>So as a general guide:</p>
+<ul>
+<li>Never force-push on master</li>
+<li>Avoid force-push on branches where multiple people work</li>
+<li>Squash commits, if you are the only one working on it and if it makes it
+  easier to understand what you did.</li>
+</ul>
+<p>Similar, but simpler is <code>git commit --amend</code>. It lets you add something to the
+latest commit in the current branch and edit the commit message.</p>
+<h2 id="merging">Merging</h2>
+<p>When you are currently in a merge, git will tell you form time to time that
+something cannot be auto-merged. Then you can execute <a href="https://git-scm.com/docs/git-mergetool"><code>git mergetool</code></a>
+which will start whichever tool you configured. In my case, it is <a href="http://meldmerge.org"><code>meld</code></a>.
+See my <a href="https://martin-thoma.com/software-versioning-cheat-sheet/#nice-diffs_1">Software Versioning Cheat Sheet</a>.</p>
+<h2 id="tagging">Tagging</h2>
+<p>Git gives your versions a hash. This is ok most of the time, but sometimes you
+actually want to note that your software has a specific version. You can use
+<a href="https://git-scm.com/docs/git-tag"><code>git tag -a v1.4</code></a> (see <a href="https://git-scm.com/book/en/v2/Git-Basics-Tagging">book</a>)
+for that.</p>
+<p>Github marks those tags as releases. See my <a href="https://github.com/MartinThoma/mpu/releases">mpu releases</a>,
+for example.</p>
+<p>You can also show diffs / logs with the tags, e.g.:</p>
+<div class="highlight"><pre><span></span>$ git diff v0.2.0..v0.3.0
+</pre></div>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2018-07-08T20:00:00+02:00">Jul 8, 2018</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#code-ref">Code
+                    <span>3</span>
+</a></li>
+                <li><a href="../tags.html#git-ref">git
+                    <span>5</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
