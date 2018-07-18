@@ -1,5 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Machine Learning</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/machine-learning.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-06-23T20:00:00+02:00</updated><entry><title>Evaluation of binary classifiers</title><link href="https://martin-thoma.com/binary-classifier-evaluation/" rel="alternate"></link><published>2018-06-23T20:00:00+02:00</published><updated>2018-06-23T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-06-23:/binary-classifier-evaluation/</id><summary type="html">&lt;p&gt;Binary classification is likely the simplest task in machine learning. It is
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Machine Learning</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/machine-learning.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-07-18T20:00:00+02:00</updated><entry><title>Regression</title><link href="https://martin-thoma.com/regression/" rel="alternate"></link><published>2018-07-18T20:00:00+02:00</published><updated>2018-07-18T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-07-18:/regression/</id><summary type="html">&lt;div class="info"&gt;A while ago, this link pointed to the content which is now in the &lt;a href="https://martin-thoma.com/forecasting/"&gt;Forecasting article&lt;/a&gt;.&lt;/div&gt;
+&lt;p&gt;Regression is one of the core tasks in machine learning. In this task, you get
+some input and your target variable is a single floating point number. For
+example, predicting the price of a …&lt;/p&gt;</summary><content type="html">&lt;div class="info"&gt;A while ago, this link pointed to the content which is now in the &lt;a href="https://martin-thoma.com/forecasting/"&gt;Forecasting article&lt;/a&gt;.&lt;/div&gt;
+&lt;p&gt;Regression is one of the core tasks in machine learning. In this task, you get
+some input and your target variable is a single floating point number. For
+example, predicting the price of a house, estimating the &lt;a href="http://www.u.arizona.edu/~kuchi/Courses/MAT167/Files/LH_LEC.0710.Models.Regression.pdf"&gt;age of the universe&lt;/a&gt; or calculating the probability that an image shows a dog. The age of the universe
+example shows that it regression is not only used in machine learning and the
+dog image example shows that regression and classification can be very similar.
+A &lt;a href="https://en.wikipedia.org/wiki/Logistic_regression"&gt;logistic regression&lt;/a&gt;
+can be converted to a classifier by choosing a threshold value (e.g. 0.5).&lt;/p&gt;
+&lt;p&gt;A big difference between regression and classification are scoring functions
+and targets. The targets in classification are just a few finite ones, while
+you have infinite possible targets for regression. Below, you can see a list
+of scoring functions.&lt;/p&gt;
+&lt;h2 id="scoring-functions"&gt;Scoring functions&lt;/h2&gt;
+&lt;p&gt;In the following, &lt;span class="math"&gt;\(y\)&lt;/span&gt; is the ordered list of target, &lt;span class="math"&gt;\(y^P\)&lt;/span&gt; is the list
+of predictions in the same order and &lt;span class="math"&gt;\(\bar{y}\)&lt;/span&gt; is the mean of &lt;span class="math"&gt;\(y\)&lt;/span&gt;.&lt;/p&gt;
+&lt;table class="table"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Image&lt;/th&gt;
+&lt;th&gt;X is better&lt;/th&gt;
+&lt;th&gt;Definition and Usage&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;MAE&lt;/td&gt;
+&lt;td&gt;$[0, \infty)$&lt;/td&gt;
+&lt;td&gt;lower&lt;/td&gt;
+&lt;td&gt;$f(y, y^P) = \frac{1}{|y|} \sum_{y_i, y_i^P \in (y, y^P)} |y_i - y_i^P|$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MSE&lt;/td&gt;
+&lt;td&gt;$[0, \infty)$&lt;/td&gt;
+&lt;td&gt;lower&lt;/td&gt;
+&lt;td&gt;$f(y, y^P) = \frac{1}{|y|} \sum_{y_i, y_i^P \in (y, y^P)} (y_i - y_i^P)^2$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$R^2$&lt;/td&gt;
+&lt;td&gt;$[0, 1]$&lt;/td&gt;
+&lt;td&gt;higher&lt;/td&gt;
+&lt;td&gt;$f(y, y^P) = 1 - \frac{\sum (y_i - y_i^P)^2}{\sum (y_i - \bar{y})^2}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Explained Variance&lt;/td&gt;
+&lt;td&gt;$(-\infty, 1]$&lt;/td&gt;
+&lt;td&gt;higher&lt;/td&gt;
+&lt;td&gt;$f(y, y^P) = 1 - \frac{Var(y - y^P)}{Var(y)}$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;See also:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://stats.stackexchange.com/q/32596/25741"&gt;What is the difference between &amp;ldquo;coefficient of determination&amp;rdquo; and &amp;ldquo;mean squared error&amp;rdquo;?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="regression-models"&gt;Regression Models&lt;/h2&gt;
+&lt;h3 id="trivial-models"&gt;Trivial Models&lt;/h3&gt;
+&lt;p&gt;There are some straight-forward "models" for regression. They do learn, but
+they ignore the input completely:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Arithmetic_mean"&gt;Arithmetic mean&lt;/a&gt;: &lt;span class="math"&gt;\(\frac{1}{n}\sum_{i=1}^n {y_i}\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Median"&gt;Median&lt;/a&gt;: Sort all &lt;span class="math"&gt;\(y_i\)&lt;/span&gt; and take the value in the middle&lt;/li&gt;
+&lt;li&gt;minimum and maximum&lt;/li&gt;
+&lt;li&gt;q-Quantile: Sort the &lt;span class="math"&gt;\(y_i\)&lt;/span&gt; and take the first value after going through &lt;span class="math"&gt;\(q \in [0, 1]\)&lt;/span&gt; of the input. For &lt;span class="math"&gt;\(q = 0.5\)&lt;/span&gt;, this
+  is the median.&lt;/li&gt;
+&lt;li&gt;Other "means" like the geometric mean&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="linear-regression"&gt;Linear regression&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Linear_regression"&gt;Linear regression&lt;/a&gt;
+tries to fit a line to the input by minimizing the squared quadradic distance
+between the input points and the line. This usually gives pretty good results.&lt;/p&gt;
+&lt;p&gt;The model looks like this:&lt;/p&gt;
+&lt;div class="math"&gt;$$\hat{y}(x) = \sum_{i=1}^n b_i \cdot x_i \text{ with }b_i \in \mathbb{R}$$&lt;/div&gt;
+&lt;p&gt;If one defines &lt;span class="math"&gt;\(X \in \mathbb{R}^n\)&lt;/span&gt; one can also write it in a vectorized form:&lt;/p&gt;
+&lt;div class="math"&gt;$$\hat{y}(X) = X \cdot \beta \text{ with }\beta \in \mathbb{R}^n$$&lt;/div&gt;
+&lt;p&gt;It can be "learned" (calculated) with&lt;/p&gt;
+&lt;div class="math"&gt;$$\beta = {(X^T X)}^{-1} X^T y$$&lt;/div&gt;
+&lt;h3 id="logistic-regression"&gt;Logistic regression&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Logistic_regression"&gt;Logistic regression&lt;/a&gt;
+tries to fit the logistic function &lt;span class="math"&gt;\(y(x) = \frac{1}{1+e^{-x}}\)&lt;/span&gt; to the input.
+This function is nice as it is within &lt;span class="math"&gt;\([0, 1]\)&lt;/span&gt; and thus can be used to
+represent a probability.&lt;/p&gt;
+&lt;h3 id="trees"&gt;Trees&lt;/h3&gt;
+&lt;p&gt;You can also use trees for regression. One idea how to do that is by
+"bucketing" observations and applying one of the trivial models to each bucket.
+Such models can only predict values between what they observed before.&lt;/p&gt;
+&lt;p&gt;See also:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://scikit-learn.org/stable/auto_examples/tree/plot_tree_regression.html"&gt;sklearn&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Machine Learning"></category><category term="Regression"></category></entry><entry><title>Evaluation of binary classifiers</title><link href="https://martin-thoma.com/binary-classifier-evaluation/" rel="alternate"></link><published>2018-06-23T20:00:00+02:00</published><updated>2018-06-23T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-06-23:/binary-classifier-evaluation/</id><summary type="html">&lt;p&gt;Binary classification is likely the simplest task in machine learning. It is
 typically solved with Random Forests, Neural Networks, SVMs or a
 &lt;a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier"&gt;naive Bayes classifier&lt;/a&gt;.
 For all of them, you have to measure how well you are doing. In this article,
@@ -761,61 +853,24 @@ predictions about the future to take smart actions in a changing world.&lt;/p&gt
 &lt;/figure&gt;
 &lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
 &lt;p&gt;Now that it is clear what kinds of tasks are common in data science, will
-continue with blog posts how to make those projects sucessful.&lt;/p&gt;</content><category term="Machine Learning"></category></entry><entry><title>Regression</title><link href="https://martin-thoma.com/regression/" rel="alternate"></link><published>2018-04-16T20:00:00+02:00</published><updated>2018-04-16T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-04-16:/regression/</id><summary type="html">&lt;p&gt;Today, I played a bit with the &lt;a href="https://datamarket.com/data/set/22u3/international-airline-passengers-monthly-totals-in-thousands-jan-49-dec-60#!ds=22u3&amp;amp;display=line"&gt;International airline passengers dataset&lt;/a&gt;.&lt;/p&gt;
+continue with blog posts how to make those projects sucessful.&lt;/p&gt;</content><category term="Machine Learning"></category></entry><entry><title>Forecasting</title><link href="https://martin-thoma.com/forecasting/" rel="alternate"></link><published>2018-04-16T20:00:00+02:00</published><updated>2018-04-16T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-04-16:/forecasting/</id><summary type="html">&lt;p&gt;Today, I played a bit with the &lt;a href="https://datamarket.com/data/set/22u3/international-airline-passengers-monthly-totals-in-thousands-jan-49-dec-60#!ds=22u3&amp;amp;display=line"&gt;International airline passengers dataset&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;It's only feature is a date given by year and month. One should predict the
 number of passengers (in thousands).&lt;/p&gt;
 &lt;h2 id="code"&gt;Code&lt;/h2&gt;
 &lt;p&gt;See &lt;a href="https://github.com/MartinThoma/algorithms/blob/master/ML/regression/airline-passengers/main.py"&gt;Github&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id="scoring-functions"&gt;Scoring functions&lt;/h2&gt;
-&lt;p&gt;In the following, &lt;span class="math"&gt;\(y\)&lt;/span&gt; is the ordered list of target, &lt;span class="math"&gt;\(y^P\)&lt;/span&gt; is the …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Today, I played a bit with the &lt;a href="https://datamarket.com/data/set/22u3/international-airline-passengers-monthly-totals-in-thousands-jan-49-dec-60#!ds=22u3&amp;amp;display=line"&gt;International airline passengers dataset&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;It's only feature is a date given by year and month. One should predict the
-number of passengers (in thousands).&lt;/p&gt;
-&lt;h2 id="code"&gt;Code&lt;/h2&gt;
-&lt;p&gt;See &lt;a href="https://github.com/MartinThoma/algorithms/blob/master/ML/regression/airline-passengers/main.py"&gt;Github&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id="scoring-functions"&gt;Scoring functions&lt;/h2&gt;
-&lt;p&gt;In the following, &lt;span class="math"&gt;\(y\)&lt;/span&gt; is the ordered list of target, &lt;span class="math"&gt;\(y^P\)&lt;/span&gt; is the list
-of predictions in the same order and \bar{y} is the mean of &lt;span class="math"&gt;\(y\)&lt;/span&gt;.&lt;/p&gt;
-&lt;table class="table"&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Name&lt;/th&gt;
-&lt;th&gt;Image&lt;/th&gt;
-&lt;th&gt;X is better&lt;/th&gt;
-&lt;th&gt;Definition and Usage&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;MAE&lt;/td&gt;
-&lt;td&gt;$[0, \infty)$&lt;/td&gt;
-&lt;td&gt;lower&lt;/td&gt;
-&lt;td&gt;$f(y, y^P) = \frac{1}{|y|} \sum_{y_i, y_i^P \in (y, y^P)} |y_i - y_i^P|$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;MSE&lt;/td&gt;
-&lt;td&gt;$[0, \infty)$&lt;/td&gt;
-&lt;td&gt;lower&lt;/td&gt;
-&lt;td&gt;$f(y, y^P) = \frac{1}{|y|} \sum_{y_i, y_i^P \in (y, y^P)} (y_i - y_i^P)^2$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;$R^2$&lt;/td&gt;
-&lt;td&gt;$[0, 1]$&lt;/td&gt;
-&lt;td&gt;higher&lt;/td&gt;
-&lt;td&gt;$f(y, y^P) = 1 - \frac{\sum (y_i - y_i^P)^2}{\sum (y_i - \bar{y})^2}$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Explained Variance&lt;/td&gt;
-&lt;td&gt;$(-\infty, 1]$&lt;/td&gt;
-&lt;td&gt;higher&lt;/td&gt;
-&lt;td&gt;$f(y, y^P) = 1 - \frac{Var(y - y^P)}{Var(y)}$&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;See also:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://stats.stackexchange.com/q/32596/25741"&gt;What is the difference between &amp;ldquo;coefficient of determination&amp;rdquo; and &amp;ldquo;mean squared error&amp;rdquo;?&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 &lt;h2 id="results"&gt;Results&lt;/h2&gt;
+&lt;p&gt;See the scoring functions are explained in the &lt;a href="https://martin-thoma.com/regression/"&gt;regression article&lt;/a&gt;.&lt;/p&gt;
+&lt;table class="table"&gt;
+&lt;tr&gt;
+&lt;th&gt;name&lt;/th&gt;
+&lt;th&gt;training time&lt;/th&gt;
+&lt;th&gt;testing time …&lt;/th&gt;&lt;/tr&gt;&lt;/table&gt;</summary><content type="html">&lt;p&gt;Today, I played a bit with the &lt;a href="https://datamarket.com/data/set/22u3/international-airline-passengers-monthly-totals-in-thousands-jan-49-dec-60#!ds=22u3&amp;amp;display=line"&gt;International airline passengers dataset&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;It's only feature is a date given by year and month. One should predict the
+number of passengers (in thousands).&lt;/p&gt;
+&lt;h2 id="code"&gt;Code&lt;/h2&gt;
+&lt;p&gt;See &lt;a href="https://github.com/MartinThoma/algorithms/blob/master/ML/regression/airline-passengers/main.py"&gt;Github&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="results"&gt;Results&lt;/h2&gt;
+&lt;p&gt;See the scoring functions are explained in the &lt;a href="https://martin-thoma.com/regression/"&gt;regression article&lt;/a&gt;.&lt;/p&gt;
 &lt;table class="table"&gt;
 &lt;tr&gt;
 &lt;th&gt;name&lt;/th&gt;
