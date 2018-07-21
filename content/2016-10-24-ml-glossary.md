@@ -36,9 +36,9 @@ in full detail.
     <dd>The academic discipline which deals with how to gain high-level understanding from digital images or videos. Common tasks include image classifiction, semantic segmentation, detection and localization.</dd>
     <dt><dfn id="curriculum-learning">Curriculum learning</dfn></dt>
     <dd>A method for pretraining. First optimize a smoothed objective and gradually consider less smoothing. So a curriculum is a sequence of training criteria. One might show gradually more difficult training examples. See <a href="http://ronan.collobert.com/pub/matos/2009_curriculum_icml.pdf">Curriculum Learning</a> by Benigo, Louradour, Collobert and Weston for details.</dd>
-    <dt><dfn id="curse-of-dimensionality">Curse of dimensionality</dfn></dt>
+    <dt><dfn id="curse-of-dimensionality"><a href="https://martin-thoma.com/curse-of-dimensionality">Curse of dimensionality</a></dfn></dt>
     <dd>Various problems of high-dimensional spaces that do not occur in low-dimensional spaces.
-        High-dimensional often means several 100 dimensions. See also: <a href="https://martin-thoma.com/average-distance-of-points">Average Distance of Points</a></dd>
+        High-dimensional often means several 100 dimensions.</dd>
     <dt><dfn id="dcgan">DCGAN</dfn> (<dfn>Deep Convolutional Generative Adverserial Networks</dfn>)</dt>
     <dd>TODO</dd>
     <dt><dfn id="dcign">DCIGN</dfn> (<dfn>Deep Convolutional Inverse Graphic Network</dfn>)</dt>

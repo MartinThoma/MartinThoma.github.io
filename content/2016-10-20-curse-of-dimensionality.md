@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Average Distance of Random Points in a Unit Hypercube
-slug: average-distance-of-points
+slug: curse-of-dimensionality
 author: Martin Thoma
 date: 2016-10-20 20:00
 category: Machine Learning
