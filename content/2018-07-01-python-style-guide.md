@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Python Style Guide
-slug: python-linters
+slug: python-style-guide
 author: Martin Thoma
 date: 2018-07-01 20:00
 category: Code
@@ -167,6 +167,8 @@ measures how difficult it is to read your code. To quote from Wikipedia:
 I think McCabe complexity is one way to find spots where the could could be
 improved for readability, but I'm not certain how often that actually works.
 
+There is a [mccabe pytest plugin](https://pypi.org/project/pytest-mccabe/).
+
 
 ## Linters
 
@@ -180,11 +182,19 @@ Common Python linters are:
 * [`pydocstyle`](https://github.com/PyCQA/pycodestyle)
 * [`flake8`](https://pypi.org/project/flake8/)
 * [`pyrama`](https://pypi.org/project/pyrama/) for checking package structure
-* [`pylama`](https://pypi.org/project/pylama/)
+* [`radon`](https://github.com/rubik/radon): Measuring the code complexity
+
+
+What you should forget
+
+* [`pylama`](https://pypi.org/project/pylama/): Only wraps some other tools.
+  Use the pytest-plugins for those tools instead.
+
 
 ### Error Codes
 
-The following error codes are from [`pycodestyle`](http://pycodestyle.pycqa.org/en/latest/intro.html).
+The following error codes are from [`pycodestyle`](http://pycodestyle.pycqa.org/en/latest/intro.html) and
+[`pydocstyle`](http://pep257.readthedocs.io/en/latest/error_codes.html).
 I added to a couple why they exist and added a suggestion if I think you should take them
 (from ✓✓ for a strong YES to ✘✘ for a strong NO). Please also have a
 look at [lintlyci.github.io/Flake8Rules](https://lintlyci.github.io/Flake8Rules/)
@@ -263,9 +273,7 @@ There are also two footnotes for some codes:
             <td>✓✓</td>
         </tr>
         <tr>
-            <td rowspan="3"></td>
-            <td></td>
-            <td></td>
+            <td colspan="3"></td>
         </tr>
         <tr>
             <td>E121 (*^)</td>
@@ -281,7 +289,7 @@ There are also two footnotes for some codes:
         </tr>
         <tr>
             <td>E123 (*)</td>
-            <td>closing bracket does not match indentation of opening bracket`s line<br/>
+            <td>closing bracket does not match indentation of opening bracket's line<br/>
                 Why: Readability</td>
             <td>✓</td>
         </tr>
@@ -334,9 +342,7 @@ There are also two footnotes for some codes:
             <td></td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td colspan="3"></td>
         </tr>
         <tr>
             <th>E2</th>
@@ -345,25 +351,25 @@ There are also two footnotes for some codes:
         </tr>
         <tr>
             <td><a href="https://lintlyci.github.io/Flake8Rules/rules/E201.html">E201</a></td>
-            <td>whitespace after `(`<br/>
+            <td>whitespace after <code>(</code><br/>
                 Why: Usual code style</td>
             <td></td>
         </tr>
         <tr>
             <td>E202</td>
-            <td>whitespace before `)`<br/>
+            <td>whitespace before <code>)</code><br/>
                 Why: Usual code style</td>
             <td></td>
         </tr>
         <tr>
             <td>E203</td>
-            <td>whitespace before `:`<br/>
+            <td>whitespace before <code></code><br/>
                 Why: Usual code style</td>
             <td></td>
         </tr>
         <tr>
             <td>E211</td>
-            <td>whitespace before `(`</td>
+            <td>whitespace before <code>(</code></td>
             <td></td>
         </tr>
         <tr>
@@ -410,17 +416,17 @@ There are also two footnotes for some codes:
         </tr>
         <tr>
             <td>E231</td>
-            <td>missing whitespace after `,`, `;`, or `:`</td>
+            <td>missing whitespace after <code>,</code>, <code>;</code>, or <code>:</code></td>
             <td></td>
         </tr>
         <tr>
             <td>E241 (*)</td>
-            <td>multiple spaces after `,`</td>
+            <td>multiple spaces after <code>,</code></td>
             <td></td>
         </tr>
         <tr>
             <td><a href="https://lintlyci.github.io/Flake8Rules/rules/E242.html">E242</a> (*)</td>
-            <td>tab after `,`<br/>
+            <td>tab after <code>,</code><br/>
                 Why: Try to avoid tabs in Python</td>
             <td>✓✓</td>
         </tr>
@@ -446,7 +452,7 @@ There are also two footnotes for some codes:
         </tr>
         <tr>
             <td>E266</td>
-            <td>too many leading `#` for block comment</td>
+            <td>too many leading <code>#</code> for block comment</td>
             <td></td>
         </tr>
         <tr>
@@ -479,9 +485,7 @@ There are also two footnotes for some codes:
             <td></td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td colspan="3"></td>
         </tr>
         <tr>
             <th>E3</th>
@@ -489,7 +493,7 @@ There are also two footnotes for some codes:
             <th></th>
         </tr>
         <tr>
-            <td>E301</td>
+            <td><a href="https://lintlyci.github.io/Flake8Rules/rules/E301.html">E301</a></td>
             <td>expected 1 blank line, found 0</td>
             <td></td>
         </tr>
@@ -524,9 +528,7 @@ There are also two footnotes for some codes:
             <td></td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td colspan="3"></td>
         </tr>
         <tr>
             <th>E4</th>
@@ -534,7 +536,7 @@ There are also two footnotes for some codes:
             <th></th>
         </tr>
         <tr>
-            <td>E401</td>
+            <td><a href="https://lintlyci.github.io/Flake8Rules/rules/E401.html">E401</a></td>
             <td>multiple imports on one line<br/>
                 Why: It's more readable to have one import per line, you can
                 structure them more easily and your editor can tell you which
@@ -542,7 +544,7 @@ There are also two footnotes for some codes:
             <td>✓✓</td>
         </tr>
         <tr>
-            <td>E402</td>
+            <td><a href="https://lintlyci.github.io/Flake8Rules/rules/E402.html"></a>E402</td>
             <td>module level import not at top of file<br/>
                 Why: You should have all your imports at the top of your file.
                 However, there could be other code as well in between imports.
@@ -550,9 +552,7 @@ There are also two footnotes for some codes:
             <td>✘</td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td colspan="3"></td>
         </tr>
         <tr>
             <th>E5</th>
@@ -560,7 +560,7 @@ There are also two footnotes for some codes:
             <th></th>
         </tr>
         <tr>
-            <td>E501 (^)</td>
+            <td><a href="https://lintlyci.github.io/Flake8Rules/rules/E501.html">E501</a> (^)</td>
             <td>line too long (> 79 characters)<br/>
                 Why: See below.
             </td>
@@ -572,9 +572,7 @@ There are also two footnotes for some codes:
             <td></td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td colspan="3"></td>
         </tr>
         <tr>
             <th>E7</th>
@@ -582,7 +580,7 @@ There are also two footnotes for some codes:
             <th></th>
         </tr>
         <tr>
-            <td>E701</td>
+            <td><a href="https://lintlyci.github.io/Flake8Rules/rules/E701.html"></a>E701</td>
             <td>multiple statements on one line (colon)</td>
             <td></td>
         </tr>
@@ -643,26 +641,24 @@ There are also two footnotes for some codes:
         </tr>
         <tr>
             <td>E741</td>
-            <td>do not use variables named `l`, `O`, or `I`<br/>
+            <td>do not use variables named <code>l</code>, <code>O</code>, or <code>I</code><br/>
                 Why: Those letters are hard to distinguish in some fonts.</td>
             <td>✓✓</td>
         </tr>
         <tr>
             <td>E742</td>
-            <td>do not define classes named `l`, `O`, or `I`<br/>
+            <td>do not define classes named <code>l</code>, <code>O</code>, or <code>I</code><br/>
                 Why: Those letters are hard to distinguish in some fonts.</td>
             <td>✓✓</td>
         </tr>
         <tr>
             <td>E743</td>
-            <td>do not define functions named `l`, `O`, or `I`<br/>
+            <td>do not define functions named <code>l</code>, <code>O</code>, or <code>I</code><br/>
                 Why: Those letters are hard to distinguish in some fonts.</td>
             <td>✓✓</td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td colspan="3"></td>
         </tr>
         <tr>
             <th>E9</th>
@@ -670,7 +666,7 @@ There are also two footnotes for some codes:
             <th></th>
         </tr>
         <tr>
-            <td>E901</td>
+            <td><a href="https://lintlyci.github.io/Flake8Rules/rules/E901.html">E901</a></td>
             <td>SyntaxError or IndentationError</td>
             <td></td>
         </tr>
@@ -680,9 +676,7 @@ There are also two footnotes for some codes:
             <td></td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td colspan="3"></td>
         </tr>
         <tr>
             <th>W1</th>
@@ -690,14 +684,12 @@ There are also two footnotes for some codes:
             <th></th>
         </tr>
         <tr>
-            <td>W191</td>
+            <td><a href="https://lintlyci.github.io/Flake8Rules/rules/W191.html">W191</a></td>
             <td>indentation contains tabs</td>
-            <td></td>
+            <td>✓✓</td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td colspan="3"></td>
         </tr>
         <tr>
             <th>W2</th>
@@ -723,9 +715,7 @@ There are also two footnotes for some codes:
             <td>✓✓</td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td colspan="3"></td>
         </tr>
         <tr>
             <th>W3</th>
@@ -738,9 +728,7 @@ There are also two footnotes for some codes:
             <td></td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td colspan="3"></td>
         </tr>
         <tr>
             <th>W5</th>
@@ -763,9 +751,7 @@ There are also two footnotes for some codes:
             <td></td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td colspan="3"></td>
         </tr>
         <tr>
             <th>W6</th>
@@ -773,7 +759,7 @@ There are also two footnotes for some codes:
             <th></th>
         </tr>
         <tr>
-            <td>W601</td>
+            <td><a href="https://lintlyci.github.io/Flake8Rules/rules/W601.html">W601</a></td>
             <td>.has_key() is deprecated, use `in`</td>
             <td>✓✓</td>
         </tr>
@@ -794,7 +780,7 @@ There are also two footnotes for some codes:
         </tr>
         <tr>
             <td>W605</td>
-            <td>invalid escape sequence `x`</td>
+            <td>invalid escape sequence <code>x</code></td>
             <td></td>
         </tr>
         <tr>
@@ -803,9 +789,7 @@ There are also two footnotes for some codes:
             <td></td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td colspan="3"></td>
         </tr>
         <tr>
             <th>F4</th>
@@ -825,7 +809,7 @@ There are also two footnotes for some codes:
         </tr>
         <tr>
             <td>F403</td>
-            <td>‘from module import *’ used; unable to detect undefined names</td>
+            <td>`from module import *` used; unable to detect undefined names</td>
             <td></td>
         </tr>
         <tr>
@@ -834,9 +818,7 @@ There are also two footnotes for some codes:
             <td></td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td colspan="3"></td>
         </tr>
         <tr>
             <td>F8</td>
@@ -879,8 +861,246 @@ There are also two footnotes for some codes:
             <td>local variable name is assigned to but never used</td>
             <td></td>
         </tr>
+        <tr>
+            <td colspan="3"></td>
+        </tr>
+        <tr>
+            <th>N8</th>
+            <th>Naming conventions</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>N801</td>
+            <td>class names should use CapWords convention</td>
+            <td>✓✓</td>
+        </tr>
+        <tr>
+            <td>N802</td>
+            <td>function name should be lowercase</td>
+            <td>✓✓</td>
+        </tr>
+        <tr>
+            <td>N803</td>
+            <td>argument name should be lowercase</td>
+            <td>✓✓</td>
+        </tr>
+        <tr>
+            <td>N804</td>
+            <td>first argument of a classmethod should be named <code>cls</code></td>
+            <td>✓✓</td>
+        </tr>
+        <tr>
+            <td>N805</td>
+            <td>first argument of a method should be named <code>self</code></td>
+            <td>✓✓</td>
+        </tr>
+        <tr>
+            <td>N806</td>
+            <td>variable in function should be lowercase</td>
+            <td>✓✓</td>
+        </tr>
+        <tr>
+            <td>N807</td>
+            <td>function name should not start or end with <code>__</code></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="3"></td>
+        </tr>
+        <tr>
+            <td>N811</td>
+            <td>constant imported as non constant</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>N812</td>
+            <td>lowercase imported as non lowercase</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>N813</td>
+            <td>camelcase imported as lowercase</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>N814</td>
+            <td>camelcase imported as constant</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="3"></td>
+        </tr>
+        <tr>
+            <th>D1</th>
+            <th>Missing Docstrings</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>D100</td>
+            <td>Missing docstring in public module</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>D101</td>
+            <td>Missing docstring in public class</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>D102</td>
+            <td>Missing docstring in public method</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>D103</td>
+            <td>Missing docstring in public function</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>D104</td>
+            <td>Missing docstring in public package</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>D105</td>
+            <td>Missing docstring in magic method</td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>D2</th>
+            <th>Whitespace Issues</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>D200</td>
+            <td>One-line docstring should fit on one line with quotes</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>D201</td>
+            <td>No blank lines allowed before function docstring</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>D202</td>
+            <td>No blank lines allowed after function docstring</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>D203</td>
+            <td>1 blank line required before class docstring</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>D204</td>
+            <td>1 blank line required after class docstring</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>D205</td>
+            <td>1 blank line required between summary line and description</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>D206</td>
+            <td>Docstring should be indented with spaces, not tabs</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>D207</td>
+            <td>Docstring is under-indented</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>D208</td>
+            <td>Docstring is over-indented</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>D209</td>
+            <td>Multi-line docstring closing quotes should be on a separate line</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>D210</td>
+            <td>No whitespaces allowed surrounding docstring text</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>D211</td>
+            <td>No blank lines allowed before class docstring</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>D212</td>
+            <td>Multi-line docstring summary should start at the first line</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>D213</td>
+            <td>Multi-line docstring summary should start at the second line</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="3"></td>
+        </tr>
+        <tr>
+            <th>D3</th>
+            <th>Quotes Issues</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>D300</td>
+            <td>Use “”“triple double quotes”“”</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>D301</td>
+            <td>Use r”“” if any backslashes in a docstring</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>D302</td>
+            <td>Use u”“” for Unicode docstrings</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="3"></td>
+        </tr>
+        <tr>
+            <th>D4</th>
+            <th>Docstring Content Issues</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>D400</td>
+            <td>First line should end with a period</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>D401</td>
+            <td>First line should be in imperative mood</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>D402</td>
+            <td>First line should not be the functions signature</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>D403</td>
+            <td>First word of the first line should be properly capitalized</td>
+            <td></td>
+        </tr>
     </tbody>
 </table>
+
+
+## Editor Support
+
+You should let your editor do as many automatic formatting changes as you can.
+
+* Sublime Text: Python Flake8 Lint (tested, works fine) and [Auto PEP8](https://github.com/wistful/SublimeAutoPEP8) (not tested)
+* Spyder: [Auto PEP8](https://github.com/spyder-ide/spyder-autopep8) (not tested)
 
 
 ## Notes on Details
@@ -894,14 +1114,14 @@ Well, please have a look how a [3-way merge](https://stackoverflow.com/q/4129049
 is how it looks like on mine:
 
 <figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2018/07/3-way-merge-80-chars.png" alt="3-way merge with 80 character lines" style="width: 512px;"/>
+    <a href="../images/2018/07/3-way-merge-80-chars.png"><img src="../images/2018/07/3-way-merge-80-chars.png" alt="3-way merge with 80 character lines" style="width: 512px;"/></a>
     <figcaption class="text-center">3-way merge with 80 character lines</figcaption>
 </figure>
 
 And now look at files with 100 characters:
 
 <figure class="wp-caption aligncenter img-thumbnail">
-    <img src="../images/2018/07/3-way-merge-100-chars.png" alt="3-way merge with 100 character lines" style="width: 512px;"/>
+    <a href="../images/2018/07/3-way-merge-100-chars.png"><img src="../images/2018/07/3-way-merge-100-chars.png" alt="3-way merge with 100 character lines" style="width: 512px;"/></a>
     <figcaption class="text-center">3-way merge with 100 character lines</figcaption>
 </figure>
 
