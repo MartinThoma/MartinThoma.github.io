@@ -7,6 +7,7 @@ category: My bits and bytes
 tags: Machine Learning
 featured_image: logos/python.png
 ---
+<div class="info">You might be looking for a tutorial <a href="https://martin-thoma.com/python-projects/">how to create Python packages</a>.</div>
 This article is about Python packages I use. Some of them are well known,
 others might be new to you. Let me know if I missed some that are important to
 you.

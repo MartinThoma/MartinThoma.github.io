@@ -10,7 +10,7 @@ featured_image: logos/python.png
 
 <div class="info">This is a quick article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it.
 
-I wrote this when I did not know much about packaging.</div>
+I wrote this when I did not know much about packaging. I wrote a tutorial <a href="https://martin-thoma.com/python-projects/">how to create Python packages</a> in 2018 as well.</div>
 
 The following article is a wrap-up of the talk [Python Packages](https://www.youtube.com/watch?v=MSs3QmHhvpE)
 from Daniel Hepper given at a German [PyCon 2013](https://2013.de.pycon.org/schedule/sessions/15/).
@@ -57,9 +57,8 @@ to jar files in Java.
 Distribute was a fork of setuptools that got merged back to setuptools. So 
 don't use distribute, but use setuptools.
 
-## Installer
+## PIP Installer
 
-### PIP
 PIP is short for 'PIP installs Python'. It can only install files from sources;
 so it does not support egg files.
 
