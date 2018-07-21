@@ -55,7 +55,7 @@ Here is what I have changed:
 ```text
 {
     "WrapPlus.break_on_hyphens": false,
-    "color_scheme": "Packages/Colorsublime - Themes/textmate.tmTheme",
+    "color_scheme": "Packages/User/textmate (Flake8Lint).tmTheme",
     "detect_indentation": false,
     "draw_white_space": "all",
     "fold_buttons": true,
