@@ -116,6 +116,33 @@ I would say that Data Scientists should also know about Machine Learning algorit
 and Frameworks while I would not expect it from a Data Analyst.
 
 
+## Data Science vs ML vs AI
+
+David Robinson made a really nice quote ([source](https://dzone.com/articles/the-difference-between-data-science-machine-learni)):
+
+> So in this post, I'm proposing an oversimplified definition of the difference
+> between the three fields:
+>
+> * Data science produces **insights**.
+> * Machine learning produces **predictions**.
+> * Artificial intelligence produces **actions**.
+
+Usually, I said that ML is a strict subset of AI:
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2018/06/ai-ml-deep-learning.png" alt="AI vs ML vs Deep Learning" style="width: 512px;"/>
+    <figcaption class="text-center">AI vs ML vs Deep Learning</figcaption>
+</figure>
+
+David Robinsons statement is not a contradiction to mine. I would say you need
+predictions about the future to take smart actions in a changing world.
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2018/06/ds-ml-ai.png" alt="A more detailed view of Data Science, Machine Learning, and AI" style="width: 512px;"/>
+    <figcaption class="text-center">A more detailed view of Data Science, Machine Learning, and AI</figcaption>
+</figure>
+
+
 ## See also
 
 Now that it is clear what kinds of tasks are common in data science, will

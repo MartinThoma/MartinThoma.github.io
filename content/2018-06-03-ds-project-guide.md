@@ -8,7 +8,7 @@ category: Machine Learning
 tags: Machine Learning, Data Science
 featured_image: logos/data-science.png
 ---
-Data Science projects are either pur analytics projects, or Software projects,
+Data Science projects are either pure analytics projects, or Software projects,
 or both.
 
 Three typical data science project phases are understanding the data, creating
@@ -28,6 +28,14 @@ beginning, you will also need to communicate your findings (story telling).
 
 In the following, I will highlight some of the tools to simplify the project
 phases and mention what you should do to make the project successful.
+
+
+## Understanding the Setting
+
+Before there is Data, you have a proces which generates the data. You have a
+business with a history. Changes which needed to be done. Not the nice and
+clean way, but ASAP. Understanding how the setting helps you to ask reasonable
+questions in the next step.
 
 
 ## Understanding the Data
