@@ -96,7 +96,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 <h2>Material</h2>
 <ul>
   <li><a href="http://www.math.kit.edu/iag3/lehre/einfalgzahl2013s/de">Vorlesungswebsite</a></li>
-  <li><a href="./anki/EAZ.apkg">Mein Anki-Deck</a> (digitale Karteikarten)</li>
+  <li><a href="../anki/EAZ.apkg">Mein Anki-Deck</a> (digitale Karteikarten)</li>
   <li><a href="../mathematische-strukturen/" title="Mathematische Strukturen">&Uuml;berblick &uuml;ber mathematische Strukturen</a></li>
   <li>StackExchange
     <ul>

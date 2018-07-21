@@ -2593,7 +2593,7 @@ Der Dozent nutzt folgende Notation:
 ## Material und Links
 
 * [Vorlesungswebsite](http://ies.anthropomatik.kit.edu/lehre_proplan.php)
-* [Anki-Karteikarten Deck](./anki/Probabilistische Planung.apkg)
+* [Anki-Karteikarten Deck](../anki/Probabilistische Planung.apkg)
 * Dimitri Bertsekas: Dynamic Programming and Optimal Control: Volume 1 (POMDP)
 * Emanuel Todorov: [Optimal Control Theory](https://homes.cs.washington.edu/~todorov/papers/TodorovChapter06.pdf) (für Pontryagins Minimum-Prinzip)
 * Dan Simon: Optimal State Estimation (Kalman-Filter)

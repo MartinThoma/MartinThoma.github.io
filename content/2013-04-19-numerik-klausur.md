@@ -134,7 +134,7 @@ Die Aufgabenbl&auml;tter stehen <a href="http://www.math.kit.edu/ianm3/lehre/num
 <h2>Material</h2>
 <ul>
   <li><a href="http://www.math.kit.edu/ianm3/lehre/numainfing2013s/de">Vorlesungswebsite</a></li>
-  <li><a href="https://ankiweb.net/shared/info/3163682033">Mein Anki-Deck</a> (nur 12 Karten)</li>
+  <li><a href="../anki/Numerik.apkg">Mein Anki-Deck</a> (nur 12 Karten)</li>
   <li><a href="../polynomial-interpolation/">Polynom- und Spline-Interpolation</a>: Ein interaktives Beispiel</li>
   <li><a href="http://schickling.github.io/algorithms/#/">schickling.github.io</a>: Viele Implementierungen</li>
   <li>Pseudocode

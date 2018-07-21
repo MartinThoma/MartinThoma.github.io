@@ -383,7 +383,7 @@ Ein Angriff auf verschlüsselte Verbindungen:
 <h2>Material</h2>
 <ul>
   <li><a href="http://www.iks.kit.edu/index.php?id=sic-sose13">Vorlesungswebsite</a></li>
-  <li>Mein <a href="./anki/KogSys.apkg">Anki-Deck</a></li>
+  <li>Mein <a href="../anki/KogSys.apkg">Anki-Deck</a></li>
   <li><a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_vorlaeufiges_Skript.pdf">Skript</a></li>
   <li>StackExchange:
     <ul>
