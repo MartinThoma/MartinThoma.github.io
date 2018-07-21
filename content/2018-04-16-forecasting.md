@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Regression
-slug: regression
+title: Forecasting
+slug: forecasting
 author: Martin Thoma
 date: 2018-04-16 20:00
 category: Machine Learning
@@ -19,53 +19,9 @@ number of passengers (in thousands).
 See [Github](https://github.com/MartinThoma/algorithms/blob/master/ML/regression/airline-passengers/main.py).
 
 
-## Scoring functions
-
-In the following, $y$ is the ordered list of target, $y^P$ is the list
-of predictions in the same order and \bar{y} is the mean of $y$.
-
-<table class="table">
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Image</th>
-        <th>X is better</th>
-        <th>Definition and Usage</th>
-    </tr>
-</thead>
-    <tbody>
-    <tr>
-        <td>MAE</td>
-        <td>$[0, \infty)$</td>
-        <td>lower</td>
-        <td>$f(y, y^P) = \frac{1}{|y|} \sum_{y_i, y_i^P \in (y, y^P)} |y_i - y_i^P|$</td>
-    </tr>
-    <tr>
-        <td>MSE</td>
-        <td>$[0, \infty)$</td>
-        <td>lower</td>
-        <td>$f(y, y^P) = \frac{1}{|y|} \sum_{y_i, y_i^P \in (y, y^P)} (y_i - y_i^P)^2$</td>
-    </tr>
-    <tr>
-        <td>$R^2$</td>
-        <td>$[0, 1]$</td>
-        <td>higher</td>
-        <td>$f(y, y^P) = 1 - \frac{\sum (y_i - y_i^P)^2}{\sum (y_i - \bar{y})^2}$</td>
-    </tr>
-    <tr>
-        <td>Explained Variance</td>
-        <td>$(-\infty, 1]$</td>
-        <td>higher</td>
-        <td>$f(y, y^P) = 1 - \frac{Var(y - y^P)}{Var(y)}$</td>
-    </tr>
-</tbody>
-</table>
-
-See also:
-
-* [What is the difference between “coefficient of determination” and “mean squared error”?](https://stats.stackexchange.com/q/32596/25741)
-
 ## Results
+
+See the scoring functions are explained in the <a href="https://martin-thoma.com/regression/">regression article</a>.
 
 <table class="table">
 <tr>
