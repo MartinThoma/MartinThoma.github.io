@@ -41,3 +41,13 @@ Visualization Landscape" which gives an overview over them:
     * [Vega Lite](https://vega.github.io/vega-lite/)
     * [Altair](https://altair-viz.github.io/)
     * [d3po](https://github.com/information-field-theory/d3po): Denoising, Deconvolving, and Decomposing Photon Observations
+
+
+## Maps
+
+Visualizing maps is super hard, as the tools which exist don't have good
+installers.
+
+Here is what I've tried so far:
+
+* [`gmt-python`](https://www.gmtpython.xyz/latest/): [issue 215](https://github.com/GenericMappingTools/gmt-python/issues/215), [video](https://www.youtube.com/watch?v=6wMtfZXfTRM)
