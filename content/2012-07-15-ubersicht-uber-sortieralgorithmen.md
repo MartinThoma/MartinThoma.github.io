@@ -4,7 +4,7 @@ title: &Uuml;bersicht &uuml;ber Sortieralgorithmen
 author: Martin Thoma
 date: 2012-07-15 15:00:12.000000000 +02:00
 category: German posts
-tags: algorithms, sorting
+tags: algorithms, sorting, Big-O
 featured_image: 2012/07/insertion-sort-thumb.png
 ---
 Eine &Uuml;bersicht &uuml;ber g&auml;ngige Sortieralgorithmen:

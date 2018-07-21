@@ -4,7 +4,7 @@ title: GBI-Klausur
 author: Martin Thoma
 date: 2012-02-28 19:30:01.000000000 +01:00
 category: German posts
-tags: GBI, Klausur
+tags: GBI, Klausur, Big-O
 ---
 F&uuml;r die Klausur in den Grundbegriffe der Informatik (GBI) sollte man Folgendes auf jeden Fall wissen:
 <ul>

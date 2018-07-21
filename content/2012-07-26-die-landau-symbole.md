@@ -4,7 +4,7 @@ title: Die Landau-Symbole
 author: Martin Thoma
 date: 2012-07-26 08:41:08.000000000 +02:00
 category: German posts
-tags: algorithms
+tags: algorithms, Big-O
 featured_image: 2012/07/landau-thumb.png
 ---
 <h2>Definitionen</h2>
