@@ -1,5 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - The Web</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/the-web.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-03-07T20:00:00+01:00</updated><entry><title>API Design</title><link href="https://martin-thoma.com/api-design/" rel="alternate"></link><published>2018-03-07T20:00:00+01:00</published><updated>2018-03-07T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-03-07:/api-design/</id><summary type="html">&lt;p&gt;Today, I gave API design a little bit of thought. Web APIs to be more specific.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - The Web</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/the-web.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-08-03T20:00:00+02:00</updated><entry><title>Usernames</title><link href="https://martin-thoma.com/usernames/" rel="alternate"></link><published>2018-08-03T20:00:00+02:00</published><updated>2018-08-03T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-08-03:/usernames/</id><summary type="html">&lt;p&gt;Usernames are used for identification in two places in web services: To let
+people log in and to allow people recognizing each other. In this article I
+want to share some ideas on usernames.&lt;/p&gt;
+&lt;h2 id="username-vs-display-name"&gt;Username vs Display name&lt;/h2&gt;
+&lt;p&gt;When I look into my Stackoverflow profile, they have something called
+"display …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Usernames are used for identification in two places in web services: To let
+people log in and to allow people recognizing each other. In this article I
+want to share some ideas on usernames.&lt;/p&gt;
+&lt;h2 id="username-vs-display-name"&gt;Username vs Display name&lt;/h2&gt;
+&lt;p&gt;When I look into my Stackoverflow profile, they have something called
+"display name":&lt;/p&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;a href="../images/2018/08/stackoverflow-profile.png"&gt;&lt;img alt="Stackoverflow Profile edit page" src="../images/2018/08/stackoverflow-profile.png" style="width: 512px;"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;Stackoverflow Profile edit page&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;I like this a lot. I communicates clearly that it is something seen by others.&lt;/p&gt;
+&lt;p&gt;The next question that popped to my mind was if we need usernames at all.
+Wouldn't it be simpler to just login with your password?&lt;/p&gt;
+&lt;p&gt;Two big problems with that idea:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;People might choose the same passwords&lt;/li&gt;
+&lt;li&gt;Systems could allow multiple accounts and you might want to have autocompletion&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This means we definitely need a username for logging in.&lt;/p&gt;
+&lt;h2 id="display-name-restrictions"&gt;Display name restrictions&lt;/h2&gt;
+&lt;p&gt;Is it a good idea to let people completely freely choose their username from
+any sequence of Unicode characters?&lt;/p&gt;
+&lt;p&gt;The problems I see with that:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Design&lt;/em&gt;: People might choose names that break something. It's hard to have
+  a nice design with a component that could grow arbitrarily.&lt;/li&gt;
+&lt;li&gt;A minimum length might be desirable to make sure one can click on the name
+  (at least one non-whitespace character)&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Identity theft&lt;/em&gt;: Think of the following usernames&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Obama&lt;/code&gt; vs &lt;code&gt;0bama&lt;/code&gt; vs &lt;code&gt;Obamа&lt;/code&gt;: &lt;a href="http://www.fileformat.info/info/unicode/char/0430/index.htm"&gt;Char 1072&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Messing around with whitespace in the beginning / end of a name&lt;/li&gt;
+&lt;li&gt;Messing around with control characters&lt;/li&gt;
+&lt;li&gt;See &lt;a href="http://unicode.org/reports/tr36/confusables.txt"&gt;Unicode Confusables&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Script injection&lt;/em&gt;: By allowing &lt;code&gt;&amp;lt;&lt;/code&gt; and &lt;code&gt;&amp;gt;&lt;/code&gt; an attacker could choose a
+  username which loads HTML.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Interactions&lt;/em&gt;: User interact. For example, in discussions they might
+  naturally write &lt;code&gt;@martin&lt;/code&gt; to mention the user &lt;code&gt;martin&lt;/code&gt;. This means an &lt;code&gt;@&lt;/code&gt;
+  character should be excluded.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Markdown&lt;/em&gt;: Other caracters like &lt;code&gt;#[]=*~&lt;/code&gt; are also be a bad choice as they are
+  part of Markdown.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Math&lt;/em&gt;: &lt;code&gt;$&lt;/code&gt; is a bad choice as it triggers MathJax / LaTeX.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Natural seperators&lt;/em&gt;: Some characters are natural seperators in English,
+  German and French: Whitespace, Comma &lt;code&gt;,&lt;/code&gt;, Semi-colon &lt;code&gt;;&lt;/code&gt;, dot &lt;code&gt;.&lt;/code&gt;, double point&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Offensive Language&lt;/em&gt;: Actually, the main problem I see here is when developers
+  try to be smart and have a false positive - seeing something as offensive
+  which is just the name of a person.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Where you might want freedom:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Multiple charactersets for multi-country support (Kyrillic, Arabic, Chinese, ...)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="what-others-do"&gt;What others do&lt;/h2&gt;
+&lt;table class="table"&gt;
+&lt;tr&gt;
+&lt;th&gt;Service&lt;/th&gt;
+&lt;th&gt;Min&lt;/th&gt;
+&lt;th&gt;Max&lt;/th&gt;
+&lt;th&gt;Charset&lt;/th&gt;
+&lt;th&gt;Strip&lt;/th&gt;
+&lt;th&gt;Other&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Twitter (Display Name)&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;50&lt;/td&gt;
+&lt;td&gt;Unicode&lt;/td&gt;
+&lt;td&gt;yes&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Stack Overflow (Display Name)&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;30&lt;/td&gt;
+&lt;td&gt;letters, digits, spaces, apostrophes, hyphens&lt;/td&gt;
+&lt;td&gt;yes&lt;/td&gt;
+&lt;td&gt;must start with a letter or digit&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;</content><category term="Web Services"></category></entry><entry><title>API Design</title><link href="https://martin-thoma.com/api-design/" rel="alternate"></link><published>2018-03-07T20:00:00+01:00</published><updated>2018-03-07T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-03-07:/api-design/</id><summary type="html">&lt;p&gt;Today, I gave API design a little bit of thought. Web APIs to be more specific.
 So here are some good practices I've seen. Feel free to add more in the
 comments 😊&lt;/p&gt;
 &lt;h2 id="general-thoughts"&gt;General Thoughts&lt;/h2&gt;
