@@ -1,5 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Code</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/code.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-07-11T20:00:00+02:00</updated><entry><title>Flask and Gunicorn</title><link href="https://martin-thoma.com/flask-gunicorn/" rel="alternate"></link><published>2018-07-11T20:00:00+02:00</published><updated>2018-07-11T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-07-11:/flask-gunicorn/</id><summary type="html">&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Flask_(web_framework)"&gt;Flask&lt;/a&gt; is a Python
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Code</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/code.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-08-21T20:00:00+02:00</updated><entry><title>Bugs</title><link href="https://martin-thoma.com/bugs/" rel="alternate"></link><published>2018-08-21T20:00:00+02:00</published><updated>2018-08-21T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-08-21:/bugs/</id><summary type="html">&lt;p&gt;Every software project which is not absolutely tiny likely has (or had) bugs,
+but astonishingly I learned very little about bugs during my university
+studies. So let's summarize a few important things.&lt;/p&gt;
+&lt;h2 id="what-are-bugs"&gt;What are bugs&lt;/h2&gt;
+&lt;p&gt;I define a bug like this:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A &lt;em&gt;software bug&lt;/em&gt; is a fault in software that …&lt;/p&gt;&lt;/blockquote&gt;</summary><content type="html">&lt;p&gt;Every software project which is not absolutely tiny likely has (or had) bugs,
+but astonishingly I learned very little about bugs during my university
+studies. So let's summarize a few important things.&lt;/p&gt;
+&lt;h2 id="what-are-bugs"&gt;What are bugs&lt;/h2&gt;
+&lt;p&gt;I define a bug like this:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A &lt;em&gt;software bug&lt;/em&gt; is a fault in software that causes incorrect behaviour.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;An example would be this &lt;code&gt;sum.py&lt;/code&gt; executed with Python 3:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;print("Please enter two numbers you would like to add:")
+n1 = input()
+n2 = input()
+print("The summ of those two numbers is {}".format(n1 + n2))
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If you enter &lt;code&gt;42&lt;/code&gt; and &lt;code&gt;1337&lt;/code&gt; it will give &lt;code&gt;421337&lt;/code&gt;. The reason for this
+behavior is that &lt;code&gt;input()&lt;/code&gt; returns a string, not a number. So clearly neither
+the developer nor the user want this behaviour. But it is not always that easy.
+Sometimes the design of the application might be misleading. Is that a bug as
+well? I tend to say "no" if the developer wanted the behaviour to be as it is.
+Then it is just bad design.&lt;/p&gt;
+&lt;h2 id="types-of-bugs"&gt;Types of Bugs&lt;/h2&gt;
+&lt;p&gt;I would like to give you some ideas which types of bugs can happen and - if
+possible - how to prevent them.&lt;/p&gt;
+&lt;h3 id="functional-bugs"&gt;Functional Bugs&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Off by one errors&lt;/strong&gt; are super common: Smaller or smaller equal? Greater or
+greater equal? Smaller or greater? They are a logic error which can often be
+covered by calling the function using it by example input and checking the
+actual output againts known example output. Those off-by-one errors can also
+easily lead to infinite loops.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Units of measure&lt;/strong&gt; are a common one as well. Is "time" measured in hours or
+seconds? Do we use miles or kilometers? Famously, NASA lost a 125,000,000 USD Mars orbiter due to this bug (&lt;a href="https://en.wikipedia.org/wiki/Mars_Climate_Orbiter#Cause_of_failure"&gt;source&lt;/a&gt;).
+Luckily, this one can be prevented
+by using unit libraries like &lt;a href="https://pint.readthedocs.io/en/latest/"&gt;Pythons Pint&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Race conditions&lt;/strong&gt; are one of the ugly bugs that only appear sometimes, even
+if you call the program with exactly the same input. They might even disappear
+completely when you try to investigate them. As an example, imagine a bank
+account. You have one process P-in which receives ingoing transactions and
+another process P-out that handles outgoing transactions:&lt;/p&gt;
+&lt;p&gt;P1:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;def transfer_money(account, pay_amount):         # L0
+    current_total = account.get_current_total()  # L1
+    updated_total = current_total - pay_amount   # L2
+    account.set_current_total(updated_total)     # L3
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;P2:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;def receive_money(account, get_amount):         # L4
+    current_total = account.get_current_total() # L5
+    updated_total = current_total + get_amount  # L6
+    account.set_current_total(updated_total)    # L7
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You have 3141 EUR on that account identified by 'FortKnox'. At midnight in the
+beginning of year 2018, you receive 42 EUR from your awesome company as a gift
+for the New Year and you have to pay 1337 EUR in rent. Both happen pretty much
+at the same time. They are not really in parallel, but interleaved:&lt;/p&gt;
+&lt;table class="table"&gt;
+&lt;tr&gt;
+&lt;th&gt;Step&lt;/th&gt;
+&lt;th&gt;Time&lt;/th&gt;
+&lt;th&gt;Code&lt;/th&gt;
+&lt;th&gt;Relevant Memory&lt;/th&gt;
+&lt;th&gt;Bank Account&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;S1&lt;/td&gt;
+&lt;td&gt;2018-01-01 00:00:00.000&lt;/td&gt;
+&lt;td&gt;L0&lt;/td&gt;
+&lt;td&gt;account = 'Martin', pay_amount = 1337&lt;/td&gt;
+&lt;td&gt;3141&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;S2&lt;/td&gt;
+&lt;td&gt;2018-01-01 00:00:00.022&lt;/td&gt;
+&lt;td&gt;L4&lt;/td&gt;
+&lt;td&gt;account = 'Martin', get_amount = 42&lt;/td&gt;
+&lt;td&gt;3141&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;S3&lt;/td&gt;
+&lt;td&gt;2018-01-01 00:00:00.030&lt;/td&gt;
+&lt;td&gt;L5&lt;/td&gt;
+&lt;td&gt;get_amount = 42, current_total = 3141&lt;/td&gt;
+&lt;td&gt;3141&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;S4&lt;/td&gt;
+&lt;td&gt;2018-01-01 00:00:00.051&lt;/td&gt;
+&lt;td&gt;L1&lt;/td&gt;
+&lt;td&gt;pay_amount = 1337, current_total = 3141&lt;/td&gt;
+&lt;td&gt;3141&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;S5&lt;/td&gt;
+&lt;td&gt;2018-01-01 00:00:00.072&lt;/td&gt;
+&lt;td&gt;L2&lt;/td&gt;
+&lt;td&gt;updated_total = 1804&lt;/td&gt;
+&lt;td&gt;3141&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;S6&lt;/td&gt;
+&lt;td&gt;2018-01-01 00:00:00.180&lt;/td&gt;
+&lt;td&gt;L3&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;1804&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;S7&lt;/td&gt;
+&lt;td&gt;2018-01-01 00:00:00.193&lt;/td&gt;
+&lt;td&gt;L6&lt;/td&gt;
+&lt;td&gt;updated_total = 3183&lt;/td&gt;
+&lt;td&gt;1804&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;S8&lt;/td&gt;
+&lt;td&gt;2018-01-01 00:00:00.237&lt;/td&gt;
+&lt;td&gt;L7&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;3183&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;You can prevent this by making both of the functions atomic, e.g. by locking
+or by using &lt;a href="https://en.wikipedia.org/wiki/Atomicity_(database_systems)"&gt;atomic database operations&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Arithmetic errors&lt;/strong&gt; are division by zero or taking the logarithm of something
+non-positive. It can be prevented in some cases by adding a small positive
+constant, but it depends a lot on the usecase if this is valid.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Nullpointer Exception&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="non-functional-bugs"&gt;Non-Functional Bugs&lt;/h3&gt;
+&lt;p&gt;One of the most common non-functional bugs is that the code is &lt;strong&gt;too slow&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Another one I see often with browsers is that it is &lt;strong&gt;too memory intensive&lt;/strong&gt;.
+I guess that is a problem for smartphones as well.&lt;/p&gt;
+&lt;p&gt;Speaking of smartphones, &lt;strong&gt;too power intensive&lt;/strong&gt; is certainly another one.&lt;/p&gt;
+&lt;h2 id="bug-reporting_1"&gt;Bug reporting&lt;/h2&gt;
+&lt;p&gt;When reporting bugs, please don't only say "it doesn't work" or "it's broken".
+That doesn't help. what does help, is answers to the following questions:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;What did you do?&lt;/li&gt;
+&lt;li&gt;What did you expect to happen?&lt;/li&gt;
+&lt;li&gt;What actually happened?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Ideally, you can figure out a minimal setting how to reproduce it.&lt;/p&gt;
+&lt;p&gt;If you have a Stacktrace or some error code that is good as well.&lt;/p&gt;
+&lt;h2 id="logging"&gt;Logging&lt;/h2&gt;
+&lt;p&gt;Developers have to think about the potential of bugs before they happen in
+production. Which information will be useful to see if a bug occurs?&lt;/p&gt;
+&lt;p&gt;For web services, it is often some kind of user ID. We want to know who
+experienced the issue.&lt;/p&gt;
+&lt;h2 id="triaging-bugs"&gt;Triaging Bugs&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://blog.codinghorror.com/not-all-bugs-are-worth-fixing/"&gt;Not all bugs are worth fixing&lt;/a&gt;,
+as Jeff Atwood nicely formulated it in 2006. According to &lt;a href="https://ericsink.com/articles/Four_Questions.html"&gt;Eric Sink&lt;/a&gt;
+you should answer four questions if you want to figure out if a bug is worth
+being fixed:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Severity&lt;/strong&gt;: When this bug happens, how bad is the impact?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Frequency&lt;/strong&gt;: How often does this bug happen?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cost&lt;/strong&gt;: How much effort would be required to fix this bug?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Risk&lt;/strong&gt;: What is the risk of fixing this bug?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;While the first two seem very obvious to me and the cost question of course
+is important as well, the risk is harder to understand. What risk could fixing
+a bug potentially have?&lt;/p&gt;
+&lt;p&gt;Regression bugs. By touching any code, you can break something. If you touch
+something that was super hard to get right or that inherently has risk (e.g.
+deleting stuff permanently), then any bug related to those has a high risk.&lt;/p&gt;
+&lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/List_of_software_bugs"&gt;List of software bugs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Software development"></category><category term="Bugs"></category></entry><entry><title>Flask and Gunicorn</title><link href="https://martin-thoma.com/flask-gunicorn/" rel="alternate"></link><published>2018-07-11T20:00:00+02:00</published><updated>2018-07-11T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-07-11:/flask-gunicorn/</id><summary type="html">&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Flask_(web_framework)"&gt;Flask&lt;/a&gt; is a Python
 web framework and &lt;a href="https://en.wikipedia.org/wiki/Gunicorn"&gt;Gunicorn&lt;/a&gt;
 is a Python Web Server Gateway Interface (WSGI) HTTP server.&lt;/p&gt;
 &lt;h2 id="setup"&gt;Setup&lt;/h2&gt;
