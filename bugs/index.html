@@ -196,7 +196,7 @@ at the same time. They are not really in parallel, but interleaved:</p>
 <td>S4</td>
 <td>2018-01-01 00:00:00.051</td>
 <td>L1</td>
-<td>pay_amount = 1337, current_total = 3141</td>
+<td>pay_amount = 1337, <span style="color: red">current_total = 3141</span></td>
 <td>3141</td>
 </tr>
 <tr>
@@ -225,19 +225,23 @@ at the same time. They are not really in parallel, but interleaved:</p>
 <td>2018-01-01 00:00:00.237</td>
 <td>L7</td>
 <td></td>
-<td>3183</td>
+<td style="background-color: #ffa9a9;">3183</td>
 </tr>
 </table>
-<p>You can prevent this by making both of the functions atomic, e.g. by locking
-or by using <a href="https://en.wikipedia.org/wiki/Atomicity_(database_systems)">atomic database operations</a>.</p>
+<p>Two resources access the same data - the current value of the bank account.
+This is problematic. You can prevent this by making both of the functions atomic, e.g. by locking
+or by using <a href="https://en.wikipedia.org/wiki/Atomicity_(database_systems)">atomic database operations</a>.
+Rust introduced the concept of ownership to solve this (<a href="https://doc.rust-lang.org/nomicon/races.html">details</a>).</p>
 <p><strong>Arithmetic errors</strong> are division by zero or taking the logarithm of something
 non-positive. It can be prevented in some cases by adding a small positive
 constant, but it depends a lot on the usecase if this is valid.</p>
-<ul>
-<li>Nullpointer Exception</li>
-</ul>
+<p><strong>Uninitialized resources</strong> (e.g. Nullpointer Exception or <code>KeyError</code> in Python)
+I think are mostly covered by line coverage in unit tests.</p>
 <h3 id="non-functional-bugs">Non-Functional Bugs</h3>
-<p>One of the most common non-functional bugs is that the code is <strong>too slow</strong>.</p>
+<p>One of the most common non-functional bugs is that the code is <strong>too slow</strong>.
+You can get a grasp of this with <a href="https://pypi.org/project/pytest-benchmark/"><code>pytest-benchmark</code></a>,
+but the problem is that it depends on the hardware and what you run at the same
+time on the machine.</p>
 <p>Another one I see often with browsers is that it is <strong>too memory intensive</strong>.
 I guess that is a problem for smartphones as well.</p>
 <p>Speaking of smartphones, <strong>too power intensive</strong> is certainly another one.</p>

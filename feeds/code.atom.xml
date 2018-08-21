@@ -92,7 +92,7 @@ at the same time. They are not really in parallel, but interleaved:&lt;/p&gt;
 &lt;td&gt;S4&lt;/td&gt;
 &lt;td&gt;2018-01-01 00:00:00.051&lt;/td&gt;
 &lt;td&gt;L1&lt;/td&gt;
-&lt;td&gt;pay_amount = 1337, current_total = 3141&lt;/td&gt;
+&lt;td&gt;pay_amount = 1337, &lt;span style="color: red"&gt;current_total = 3141&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;3141&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -121,19 +121,23 @@ at the same time. They are not really in parallel, but interleaved:&lt;/p&gt;
 &lt;td&gt;2018-01-01 00:00:00.237&lt;/td&gt;
 &lt;td&gt;L7&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;3183&lt;/td&gt;
+&lt;td style="background-color: #ffa9a9;"&gt;3183&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
-&lt;p&gt;You can prevent this by making both of the functions atomic, e.g. by locking
-or by using &lt;a href="https://en.wikipedia.org/wiki/Atomicity_(database_systems)"&gt;atomic database operations&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Two resources access the same data - the current value of the bank account.
+This is problematic. You can prevent this by making both of the functions atomic, e.g. by locking
+or by using &lt;a href="https://en.wikipedia.org/wiki/Atomicity_(database_systems)"&gt;atomic database operations&lt;/a&gt;.
+Rust introduced the concept of ownership to solve this (&lt;a href="https://doc.rust-lang.org/nomicon/races.html"&gt;details&lt;/a&gt;).&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Arithmetic errors&lt;/strong&gt; are division by zero or taking the logarithm of something
 non-positive. It can be prevented in some cases by adding a small positive
 constant, but it depends a lot on the usecase if this is valid.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Nullpointer Exception&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Uninitialized resources&lt;/strong&gt; (e.g. Nullpointer Exception or &lt;code&gt;KeyError&lt;/code&gt; in Python)
+I think are mostly covered by line coverage in unit tests.&lt;/p&gt;
 &lt;h3 id="non-functional-bugs"&gt;Non-Functional Bugs&lt;/h3&gt;
-&lt;p&gt;One of the most common non-functional bugs is that the code is &lt;strong&gt;too slow&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;One of the most common non-functional bugs is that the code is &lt;strong&gt;too slow&lt;/strong&gt;.
+You can get a grasp of this with &lt;a href="https://pypi.org/project/pytest-benchmark/"&gt;&lt;code&gt;pytest-benchmark&lt;/code&gt;&lt;/a&gt;,
+but the problem is that it depends on the hardware and what you run at the same
+time on the machine.&lt;/p&gt;
 &lt;p&gt;Another one I see often with browsers is that it is &lt;strong&gt;too memory intensive&lt;/strong&gt;.
 I guess that is a problem for smartphones as well.&lt;/p&gt;
 &lt;p&gt;Speaking of smartphones, &lt;strong&gt;too power intensive&lt;/strong&gt; is certainly another one.&lt;/p&gt;
