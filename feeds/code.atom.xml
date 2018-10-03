@@ -1,5 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Code</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/code.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-08-21T20:00:00+02:00</updated><entry><title>Bugs</title><link href="https://martin-thoma.com/bugs/" rel="alternate"></link><published>2018-08-21T20:00:00+02:00</published><updated>2018-08-21T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-08-21:/bugs/</id><summary type="html">&lt;p&gt;Every software project which is not absolutely tiny likely has (or had) bugs,
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Code</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/code.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-10-03T20:00:00+02:00</updated><entry><title>How old am I?</title><link href="https://martin-thoma.com/age-calculation/" rel="alternate"></link><published>2018-10-03T20:00:00+02:00</published><updated>2018-10-03T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-10-03:/age-calculation/</id><summary type="html">&lt;p&gt;Calculating the age of a person in a web service is harder than one might think
+to get right. Things you must be aware of are:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Time zones&lt;/strong&gt;: The time zone at the client is likely not the same as on your
+machine. Hence it could be that the person …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Calculating the age of a person in a web service is harder than one might think
+to get right. Things you must be aware of are:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Time zones&lt;/strong&gt;: The time zone at the client is likely not the same as on your
+machine. Hence it could be that the person is under-age in their country, but
+already an adult in the server time zone.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Calendar years&lt;/strong&gt;: Usually we think of one year as 365 days. Hence
+calculating the age of a person sounds as simple as calculating the days since
+their birth, dividing by 365 and that's it. Execept that we don't think of age
+like this.&lt;/p&gt;
+&lt;p&gt;I challenge you to create a program that solves the following task. I'm interested
+in your solutions, so please share a link to a &lt;a href="https://gist.github.com/"&gt;gist&lt;/a&gt;, &lt;a href="https://pastebin.com/"&gt;pastebin&lt;/a&gt;
+or wherever you solved the task.&lt;/p&gt;
+&lt;h2 id="task"&gt;Task&lt;/h2&gt;
+&lt;p&gt;Write a program that takes the following input as a &lt;code&gt;;&lt;/code&gt; separated string:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Birthday as &lt;code&gt;YYYY-MM-DDTHH:mm:ss&lt;/code&gt;, assuming the time zone given&lt;/li&gt;
+&lt;li&gt;Timezone of Birth (&lt;a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones"&gt;IANA name&lt;/a&gt;, e.g. &lt;code&gt;Europe/Berlin&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Current time as &lt;code&gt;YYYY-MM-DDTHH:mm:ssZ&lt;/code&gt; (UTC)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;and prints the age in years (a single integer).&lt;/p&gt;
+&lt;h2 id="tests"&gt;Tests&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;assert&lt;/span&gt; &lt;span class="nt"&gt;get_age&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'1996-02-29T15:45:54;Europe/Berlin;2018-10-03T09:47:50'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nt"&gt;22&lt;/span&gt;
+&lt;span class="nt"&gt;assert&lt;/span&gt; &lt;span class="nt"&gt;get_age&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'2008-04-28T15:45:54;Europe/Berlin;2018-10-03T09:47:50'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nt"&gt;10&lt;/span&gt;
+&lt;span class="nt"&gt;assert&lt;/span&gt; &lt;span class="nt"&gt;get_age&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'2008-11-28T15:45:54;Europe/Berlin;2018-10-03T09:47:50'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nt"&gt;9&lt;/span&gt;
+&lt;span class="nt"&gt;assert&lt;/span&gt; &lt;span class="nt"&gt;get_age&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'2006-03-01T00:00:00;Europe/Berlin;2008-02-29T23:59:59'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nt"&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="reference-solution"&gt;Reference Solution&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_age&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;input_&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;"""&lt;/span&gt;
+&lt;span class="sd"&gt;    Calculate the age of a person&lt;/span&gt;
+&lt;span class="sd"&gt;    """&lt;/span&gt;
+    &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;dateutil.parser&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;parse&lt;/span&gt;
+    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pytz&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# parse input&lt;/span&gt;
+    &lt;span class="n"&gt;born&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;born_tz&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;now&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;input_&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;';'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;tz&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pytz&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;timezone&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;born_tz&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;born&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;parse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;born&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;tzinfo&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;pytz&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;utc&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;astimezone&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;tz&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;now&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;parse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;now&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;tzinfo&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;pytz&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;utc&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# age logic&lt;/span&gt;
+    &lt;span class="n"&gt;year_not_finished&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;now&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;month&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;now&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;day&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;born&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;month&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;born&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;day&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;age&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;now&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;year&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;born&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;year&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;year_not_finished&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;age&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="Software Engineering"></category><category term="Datetime"></category></entry><entry><title>Bugs</title><link href="https://martin-thoma.com/bugs/" rel="alternate"></link><published>2018-08-21T20:00:00+02:00</published><updated>2018-08-21T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-08-21:/bugs/</id><summary type="html">&lt;p&gt;Every software project which is not absolutely tiny likely has (or had) bugs,
 but astonishingly I learned very little about bugs during my university
 studies. So let's summarize a few important things.&lt;/p&gt;
 &lt;h2 id="what-are-bugs"&gt;What are bugs&lt;/h2&gt;

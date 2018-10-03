@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Command Line "/>
 <meta property="og:url" content="../drafts/command-line.html" />
-<meta property="og:description" content="As a software developer, I work daily many hours on the command line. This article summarizes some tools and tricks to speed up this work. The basics Oh-my .dotfiles git repository Tools ncdu: Find what is eating your disk space and delete it on the fly." />
+<meta property="og:description" content="As a software developer, I work daily many hours on the command line. This article summarizes some tools and tricks to speed up this work. The basics Bash, ZSH, Fish are Linux shells. Oh-my-ZSH is a plugin for ZSH which is AWESOME! Commands cd: Change directory, e.g. cd .., cd …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2018-08-28T20:00:00+02:00" />
 <meta name="twitter:title" content="Command Line ">
-<meta name="twitter:description" content="As a software developer, I work daily many hours on the command line. This article summarizes some tools and tricks to speed up this work. The basics Oh-my .dotfiles git repository Tools ncdu: Find what is eating your disk space and delete it on the fly.">
+<meta name="twitter:description" content="As a software developer, I work daily many hours on the command line. This article summarizes some tools and tricks to speed up this work. The basics Bash, ZSH, Fish are Linux shells. Oh-my-ZSH is a plugin for ZSH which is AWESOME! Commands cd: Change directory, e.g. cd .., cd …">
 <meta property="og:image" content="logos/star.png" />
 <meta name="twitter:image" content="logos/star.png" >
 
@@ -103,7 +103,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#the-basics" title="The basics">The basics</a></li><li><a class="toc-href" href="#dotfiles-git-repository" title=".dotfiles git repository">.dotfiles git repository</a></li><li><a class="toc-href" href="#tools" title="Tools">Tools</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#the-basics" title="The basics">The basics</a></li><li><a class="toc-href" href="#commands" title="Commands">Commands</a></li><li><a class="toc-href" href="#alias" title="Alias">Alias</a></li><li><a class="toc-href" href="#the-bang" title="The Bang">The Bang</a></li><li><a class="toc-href" href="#the-dash" title="The Dash">The Dash</a></li><li><a class="toc-href" href="#dotfiles-git-repository" title=".dotfiles git repository">.dotfiles git repository</a></li><li><a class="toc-href" href="#tools" title="Tools">Tools</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -112,11 +112,47 @@ MathJax.Hub.Queue(function() {
             <p>As a software developer, I work daily many hours on the command line. This
 article summarizes some tools and tricks to speed up this work.</p>
 <h2 id="the-basics">The basics</h2>
-<p>Oh-my</p>
+<p><a href="http://tiswww.case.edu/php/chet/bash/bashtop.html">Bash</a>, <a href="http://www.zsh.org/">ZSH</a>, <a href="https://fishshell.com/">Fish</a> are Linux shells.</p>
+<p><a href="https://ohmyz.sh/">Oh-my-ZSH</a> is a plugin for ZSH which is AWESOME!</p>
+<h2 id="commands">Commands</h2>
+<ul>
+<li><code>cd</code>: Change directory, e.g. <code>cd ..</code>, <code>cd /home</code>, <code>cd foo/bar/baz</code></li>
+<li><code>pwd</code>: Print the working directory</li>
+<li><code>ls</code>: List the contents of the current directory</li>
+<li><code>history</code>: Show the last commands executed in the shell</li>
+<li><code>grep</code>: Pattern search</li>
+<li><code>cat filename</code>: print the contents of <code>filename</code> to the output</li>
+<li><code>man</code>: show manual / help page</li>
+</ul>
+<h2 id="alias">Alias</h2>
+<div class="highlight"><pre><span></span>alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+</pre></div>
+<h2 id="the-bang">The Bang</h2>
+<p>There are various commands with the "bang" <code>!</code>:</p>
+<ul>
+<li><code>!!</code>: Execute the last executed command in the bash history</li>
+<li><code>!*</code>: Execute the command with all the arguments passed to the previous command</li>
+<li><code>!&circ;</code>: Get the first argument of the last executed command in the bash history</li>
+<li><code>!$</code>: Get the last argument of the last executed command in the bash history</li>
+</ul>
+<h2 id="the-dash">The Dash</h2>
+<p><code>cd -</code> jumps back to the directory in which you were before:</p>
+<div class="highlight"><pre><span></span>/home/moose$ cd foobar
+/home/moose/foobar$ cd -
+/home/moose$
+</pre></div>
+<p><code>git checkout -</code> jumps back to the branch in which you were before.</p>
 <h2 id="dotfiles-git-repository">.dotfiles git repository</h2>
+<p>Dotfiles a files which start with a <code>.</code>. Those files are hidden in Linux and
+often contain configuration files.</p>
 <h2 id="tools">Tools</h2>
 <ul>
 <li><code>ncdu</code>: Find what is eating your disk space and delete it on the fly.</li>
+<li><a href="https://httpie.org/"><code>httpie</code></a>: Command line HTTP client</li>
+<li><a href="https://stedolan.github.io/jq/"><code>jq</code></a>: JSON query tool</li>
+<li><a href="https://ranger.github.io/"><code>ranger</code></a></li>
+<li><a href="https://gist.github.com/MohamedAlaa/2961058"><code>tmux</code></a></li>
 </ul>
             
             <div id="disqus_thread"></div>

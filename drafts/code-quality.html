@@ -103,7 +103,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#comments" title="Comments">Comments</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#comments" title="Comments">Comments</a></li><li><a class="toc-href" href="#readability" title="Readability">Readability</a><ul><li><a class="toc-href" href="#namedtuples-instead-of-tuples" title="NamedTuples instead of Tuples">NamedTuples instead of Tuples</a></li><li><a class="toc-href" href="#keyword-arguments-instead-of-positional-arguments" title="Keyword-Arguments instead of positional arguments">Keyword-Arguments instead of positional arguments</a></li></ul></li><li><a class="toc-href" href="#speed_1" title="Speed">Speed</a><ul><li><a class="toc-href" href="#first-list-pop" title="First List Pop">First List Pop</a></li></ul></li><li><a class="toc-href" href="#ignored_1" title="ignored">ignored</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -118,12 +118,55 @@ inspired by <a href="https://www.youtube.com/watch?v=UjhX2sVf0eg">Michael Toppa 
 <li>Write Tests</li>
 <li>Independent Architecture</li>
 <li>Many arguments -&gt; pass object, </li>
+<li>Signal to noise ratio: How much of the desired signal is there compared to
+  parts you don't want?</li>
 </ul>
 <h2 id="comments">Comments</h2>
 <ol>
 <li>When you write a comment, could it rather be a better variable name?</li>
 <li>When you write a comment, should it be a log statement?</li>
 </ol>
+<h2 id="readability">Readability</h2>
+<h3 id="namedtuples-instead-of-tuples">NamedTuples instead of Tuples</h3>
+<p>Bad: tuple</p>
+<div class="highlight"><pre><span></span>(1337, 42)
+</pre></div>
+<p>Good: <a href="https://docs.python.org/2/library/collections.html#collections.namedtuple"><code>namedtuple</code></a></p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Point</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">'Point'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'x'</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Point</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">'</span><span class="nc">__main__</span><span class="o">.</span><span class="n">Point</span><span class="s1">'&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Point</span><span class="p">(</span><span class="mi">133</span><span class="p">,</span> <span class="mi">123</span><span class="p">)</span>
+<span class="n">Point</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">133</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+</pre></div>
+<h3 id="keyword-arguments-instead-of-positional-arguments">Keyword-Arguments instead of positional arguments</h3>
+<h2 id="speed_1">Speed</h2>
+<h3 id="first-list-pop">First List Pop</h3>
+<p>bad</p>
+<div class="highlight"><pre><span></span>del list_[0]
+list_.pop(0)
+list_.insert(0, 'foobar')
+</pre></div>
+<p>better:</p>
+<p>Use <a href="https://docs.python.org/3/library/collections.html#collections.deque"><code>deque</code></a></p>
+<h2 id="ignored_1">ignored</h2>
+<div class="highlight"><pre><span></span><span class="k">try</span><span class="o">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="s1">'foobar'</span><span class="o">)</span>
+<span class="n">except</span> <span class="n">OSError</span><span class="o">:</span>
+    <span class="n">pass</span>
+</pre></div>
+<p>with ignored:</p>
+<div class="highlight"><pre><span></span>@contextmanager
+def ignored(*exceptions):
+    try:
+        yield
+    except exceptions:
+        pass
+</pre></div>
+<p>only</p>
+<div class="highlight"><pre><span></span>with ignored(OSError):
+    os.remove('foobar')
+</pre></div>
             
             <div id="disqus_thread"></div>
 <script>
