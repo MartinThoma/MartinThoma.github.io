@@ -51,3 +51,32 @@ installers.
 Here is what I've tried so far:
 
 * [`gmt-python`](https://www.gmtpython.xyz/latest/): [issue 215](https://github.com/GenericMappingTools/gmt-python/issues/215), [video](https://www.youtube.com/watch?v=6wMtfZXfTRM)
+
+
+## 3D
+
+### Mayavi
+[MayaVi](https://en.wikipedia.org/wiki/MayaVi) is a scientific data visualizer written in Python, which uses VTK and provides a GUI via Tkinter.
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/r6OD07Qq2mw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+* [Docs](http://docs.enthought.com/mayavi/mayavi/)
+
+Example:
+
+```
+# 3rd party modules
+from mayavi import mlab
+import numpy
+
+x, y = numpy.mgrid[-3:3:100j, -3:3:100j]
+z = numpy.sin(x**2 + y**2)
+mlab.surf(x, y, z)
+```
+
+gives
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2018/07/mayavi-sin-3d-example.png"><img src="../images/2018/07/mayavi-sin-3d-example.png" alt="3D plot generated with Mayavi" style="width: 512px;"/></a>
+    <figcaption class="text-center">3D plot generated with Mayavi</figcaption>
+</figure>
