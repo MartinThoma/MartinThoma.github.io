@@ -46,7 +46,13 @@ assert get_age('2006-03-01T00:00:00;Europe/Berlin;2008-02-29T23:59:59') == 1
 ```
 
 
-## Reference Solution
+## Solutions
+
+I hope to see many solutions in different programming languages.
+
+### Python Solution
+
+Author: Martin Thoma
 
 ```
 def get_age(input_):
