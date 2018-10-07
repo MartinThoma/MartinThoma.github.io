@@ -14,20 +14,20 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="KogSys, Machine Learning, HMM, My bits and bytes, " />
+<meta name="keywords" content="Machine Learning, My bits and bytes, " />
 
-<meta property="og:title" content="How to apply the Viterbi algorithm "/>
-<meta property="og:url" content="../apply-viterbi-algorithm/" />
-<meta property="og:description" content="The goal of the Viterbi algorithm is find the most likely sequence of hidden states given some observed events. Lets say this is your HMM: A hidden Markov model (HMM) example We always start in \(x\) and always end in \(z\). Now you observed the sequence \(O_1 = BAB\). What is …if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width" />
+<meta property="og:title" content="Recommender Systems "/>
+<meta property="og:url" content="../recommender-systems/" />
+<meta property="og:description" content="I recently became interested in recommender systems. You know, the thing on Amazon that tells you which products you might be interested in. Or the stuff on Spotify that gives you a song you might like. On YouTube the next videos shown. On StumbleUpon, your next stumble. On a news …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
-<meta property="og:article:published_time" content="2013-09-11T17:46:22+02:00" />
-<meta name="twitter:title" content="How to apply the Viterbi algorithm ">
-<meta name="twitter:description" content="The goal of the Viterbi algorithm is find the most likely sequence of hidden states given some observed events. Lets say this is your HMM: A hidden Markov model (HMM) example We always start in \(x\) and always end in \(z\). Now you observed the sequence \(O_1 = BAB\). What is …if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width">
-<meta property="og:image" content="logos/ml.png" />
-<meta name="twitter:image" content="logos/ml.png" >
+<meta property="og:article:published_time" content="2018-10-07T20:00:00+02:00" />
+<meta name="twitter:title" content="Recommender Systems ">
+<meta name="twitter:description" content="I recently became interested in recommender systems. You know, the thing on Amazon that tells you which products you might be interested in. Or the stuff on Spotify that gives you a song you might like. On YouTube the next videos shown. On StumbleUpon, your next stumble. On a news …">
+<meta property="og:image" content="logos/star.png" />
+<meta name="twitter:image" content="logos/star.png" >
 
-        <title>How to apply the Viterbi algorithm  · Martin Thoma
+        <title>Recommender Systems  · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -95,7 +95,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../apply-viterbi-algorithm/"> How to apply the Viterbi algorithm  </a></h1>
+    <h1><a href="../recommender-systems/"> Recommender Systems  </a></h1>
     </header>
 </div>
 
@@ -103,38 +103,76 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#conceptual-approaches" title="Conceptual Approaches">Conceptual Approaches</a></li><li><a class="toc-href" href="#basic-content-based-recommendations" title="Basic Content-based Recommendations">Basic Content-based Recommendations</a></li><li><a class="toc-href" href="#basic-collaborative-filtering" title="Basic Collaborative Filtering">Basic Collaborative Filtering</a></li><li><a class="toc-href" href="#basic-basket-analysis" title="Basic Basket Analysis">Basic Basket Analysis</a></li><li><a class="toc-href" href="#evaluation" title="Evaluation">Evaluation</a></li><li><a class="toc-href" href="#typical-problems" title="Typical Problems">Typical Problems</a><ul><li><a class="toc-href" href="#cold-start-problem" title="Cold-Start Problem">Cold-Start Problem</a></li><li><a class="toc-href" href="#wrong-recommendation-mode" title="Wrong Recommendation Mode">Wrong Recommendation Mode</a></li><li><a class="toc-href" href="#the-bubble" title="The Bubble">The Bubble</a></li></ul></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>The goal of the Viterbi algorithm is find the most likely sequence of hidden states given some observed events.</p>
-<p>Lets say this is your <abbr title="Hidden Markov model">HMM</abbr>:</p>
-<figure class="aligncenter">
-<a href="../images/2013/09/hidden-markov-model-abc-2.png"><img alt="A hidden Markov model (HMM) example" class="size-full wp-image-76518" src="../images/2013/09/hidden-markov-model-abc-2.png" style="max-width:512px;max-height:252px"/></a>
-<figcaption class="text-center">A hidden Markov model (HMM) example</figcaption>
-</figure>
-<p>We always start in <span class="math">\(x\)</span> and always end in <span class="math">\(z\)</span>.</p>
-<p>Now you observed the sequence <span class="math">\(O_1 = BAB\)</span>. What is the most likely sequence that would generate this path?</p>
-<p>Candidates are:
+            <p>I recently became interested in recommender systems. You know, the thing on
+Amazon that tells you which products you might be interested in. Or the stuff
+on Spotify that gives you a song you might like. On YouTube the next videos
+shown. On StumbleUpon, your next stumble. On a news page, another article.</p>
+<h2 id="conceptual-approaches">Conceptual Approaches</h2>
+<p>There are three basic approaches:</p>
 <ul>
-<li>xxyz</li>
-<li>xyyz</li>
-<li>xyzz</li>
-</ul></p>
-<p>If you're learing this because you will write the exam at KIT, you might have such an diagram:</p>
-<figure class="aligncenter">
-<a href="../images/2013/09/viterbi-algorithm.png"><img alt="Scheme of the Viterbi algorithm" class="size-full wp-image-76520" src="../images/2013/09/viterbi-algorithm.png" style="max-width:751px;max-height:300px"/></a>
-<figcaption class="text-center">Scheme of the Viterbi algorithm</figcaption>
-</figure>
-<p>In this case, the bold path is the Viterbi path. You can see this when you get backwards from the last state:</p>
-<p><span class="math">\(\frac{1}{125} \cdot 1 \cdot 0.2 &gt; \frac{9}{2500} \cdot 0.8 \cdot 0.2\)</span>. After this step, you only have one choice. So the Viterbi path is xyzz.</p>
-<p>Please note that there might be multiple paths with the highest possibility.</p>
-<p>As every state depends only on the state before, you can get the most likely path step by step. In every step, you calculate how likely it is that you end up in state x, state y, state z. After that, it doesn't matter how you got there. So you always have to expand those three nodes. You will get 9 following states, but only three of them matter (for each resulting state, the paths that had the highest probability leading there).</p>
-<h2 id="see-also">See also</h2>
+<li>Product Similarity: You watched Saw I, Saw II and Saw III. All of them are
+  similar to Saw IV.</li>
+<li>User similarity: Users that liked Saw I, Saw II and Saw III usually also liked
+  Saw IV.</li>
+<li>Basket analysis: You bought eggs and sugar, maybe you want to buy milk as
+  well.</li>
+</ul>
+<p>Recommender systems based on product similarity are also called "content-based recommender systems".
+Recommander systems baed on user similarity are also called "collaborative filtering".</p>
+<h2 id="basic-content-based-recommendations">Basic Content-based Recommendations</h2>
+<p><a href="https://en.wikipedia.org/wiki/Edit_distance">Levenshteins edit distance</a>
+applied on the product name is probably the simplest approach that has a
+mimimal chance of some reasonable results.</p>
+<p>The next level in complexity are rules:</p>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Viterbi_algorithm">Wikipedia</a></li>
+<li>Movies by a director you liked</li>
+<li>Movies with a actor you liked</li>
+<li>Count "links" (actors, directors, producers, ...) and rank by most links</li>
+</ul>
+<p>One more level of complexity is using clustering algorithms. One way is to make
+a product to a vector and use a similarity measure (e.g. cosine similarity). If
+you have natural laguage descriptions you can use tf-idf features and then use
+a similarity measure. You would then recommend the most similar products.</p>
+<h2 id="basic-collaborative-filtering">Basic Collaborative Filtering</h2>
+<p>Users can have different scales on which they rate stuff:</p>
+<ul>
+<li>Binary: Like / Dislike (and "not seen")</li>
+<li>Ternary: Like / Neutral / Dislike (and "not seen")</li>
+<li>5 Stars</li>
+<li>100 points</li>
+</ul>
+<p>So you want to find the utility function <span class="math">\(u: C \times I \rightarrow R\)</span> where
+<span class="math">\(C\)</span> is the set of customers, <span class="math">\(I\)</span> is the set of items and <span class="math">\(R\)</span> is the <em>ordered</em>
+set of ratings. By a simple transformation you can make it <span class="math">\(R = [0, 1]\)</span>.</p>
+<p>The utility function <span class="math">\(u\)</span> can be fully defined by a matrix. Most elements of the
+matrix are not known, though.</p>
+<p>See also: <a href="https://martin-thoma.com/collaborative-filtering/">Collaborative Filtering</a></p>
+<p>In some sense, bestellsers are a special case of collaborative filtering:
+Simply recommending what got sold most.</p>
+<h2 id="basic-basket-analysis">Basic Basket Analysis</h2>
+<p>See <a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/#association-rules">Association Rule Mining</a></p>
+<h2 id="evaluation">Evaluation</h2>
+<p>One way to evaluate if recommendation systems work is by the typical train-test split</p>
+<h2 id="typical-problems">Typical Problems</h2>
+<h3 id="cold-start-problem">Cold-Start Problem</h3>
+<p>The cold-start problem is central and only fixable by content-based
+recommendation. If there is a new product, not a single user has rated it. It
+is not possible by collaborative filtering to recommend it.</p>
+<h3 id="wrong-recommendation-mode">Wrong Recommendation Mode</h3>
+<ul>
+<li>You have bought the DVD "Lord of the Rings" and get the Blue Ray recommended.</li>
+<li>You have liked the normal version of a song and you get the
+  techno/rap/christmas version recommended</li>
+</ul>
+<h3 id="the-bubble">The Bubble</h3>
+<ul>
+<li>You will never be recommended a movie where you didn't like the genre before.</li>
 </ul>
             
             <div id="disqus_thread"></div>
@@ -161,19 +199,13 @@ MathJax.Hub.Queue(function() {
         <section>
         <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2013-09-11T17:46:22+02:00">Sep 11, 2013</time>
+            <time pubdate="pubdate" datetime="2018-10-07T20:00:00+02:00">Okt 7, 2018</time>
             <br/>
             by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
             <h4>Category</h4>
             <a class="category-link" href="../categories.html#my-bits-and-bytes-ref">My bits and bytes</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
-                <li><a href="../tags.html#hmm-ref">HMM
-                    <span>1</span>
-</a></li>
-                <li><a href="../tags.html#kogsys-ref">KogSys
-                    <span>5</span>
-</a></li>
                 <li><a href="../tags.html#machine-learning-ref">Machine Learning
                     <span>69</span>
 </a></li>

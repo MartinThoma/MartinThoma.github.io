@@ -1,5 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - My bits and bytes</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/my-bits-and-bytes.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-09-01T20:00:00+02:00</updated><entry><title>1822direkt</title><link href="https://martin-thoma.com/1822direkt/" rel="alternate"></link><published>2018-09-01T20:00:00+02:00</published><updated>2018-09-01T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-09-01:/1822direkt/</id><summary type="html">&lt;p&gt;Creating a bank account is one of the things you need to do when you're a
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - My bits and bytes</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/my-bits-and-bytes.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-10-07T20:00:00+02:00</updated><entry><title>Recommender Systems</title><link href="https://martin-thoma.com/recommender-systems/" rel="alternate"></link><published>2018-10-07T20:00:00+02:00</published><updated>2018-10-07T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-10-07:/recommender-systems/</id><summary type="html">&lt;p&gt;I recently became interested in recommender systems. You know, the thing on
+Amazon that tells you which products you might be interested in. Or the stuff
+on Spotify that gives you a song you might like. On YouTube the next videos
+shown. On StumbleUpon, your next stumble. On a news …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I recently became interested in recommender systems. You know, the thing on
+Amazon that tells you which products you might be interested in. Or the stuff
+on Spotify that gives you a song you might like. On YouTube the next videos
+shown. On StumbleUpon, your next stumble. On a news page, another article.&lt;/p&gt;
+&lt;h2 id="conceptual-approaches"&gt;Conceptual Approaches&lt;/h2&gt;
+&lt;p&gt;There are three basic approaches:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Product Similarity: You watched Saw I, Saw II and Saw III. All of them are
+  similar to Saw IV.&lt;/li&gt;
+&lt;li&gt;User similarity: Users that liked Saw I, Saw II and Saw III usually also liked
+  Saw IV.&lt;/li&gt;
+&lt;li&gt;Basket analysis: You bought eggs and sugar, maybe you want to buy milk as
+  well.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Recommender systems based on product similarity are also called "content-based recommender systems".
+Recommander systems baed on user similarity are also called "collaborative filtering".&lt;/p&gt;
+&lt;h2 id="basic-content-based-recommendations"&gt;Basic Content-based Recommendations&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Edit_distance"&gt;Levenshteins edit distance&lt;/a&gt;
+applied on the product name is probably the simplest approach that has a
+mimimal chance of some reasonable results.&lt;/p&gt;
+&lt;p&gt;The next level in complexity are rules:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Movies by a director you liked&lt;/li&gt;
+&lt;li&gt;Movies with a actor you liked&lt;/li&gt;
+&lt;li&gt;Count "links" (actors, directors, producers, ...) and rank by most links&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;One more level of complexity is using clustering algorithms. One way is to make
+a product to a vector and use a similarity measure (e.g. cosine similarity). If
+you have natural laguage descriptions you can use tf-idf features and then use
+a similarity measure. You would then recommend the most similar products.&lt;/p&gt;
+&lt;h2 id="basic-collaborative-filtering"&gt;Basic Collaborative Filtering&lt;/h2&gt;
+&lt;p&gt;Users can have different scales on which they rate stuff:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Binary: Like / Dislike (and "not seen")&lt;/li&gt;
+&lt;li&gt;Ternary: Like / Neutral / Dislike (and "not seen")&lt;/li&gt;
+&lt;li&gt;5 Stars&lt;/li&gt;
+&lt;li&gt;100 points&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So you want to find the utility function &lt;span class="math"&gt;\(u: C \times I \rightarrow R\)&lt;/span&gt; where
+&lt;span class="math"&gt;\(C\)&lt;/span&gt; is the set of customers, &lt;span class="math"&gt;\(I\)&lt;/span&gt; is the set of items and &lt;span class="math"&gt;\(R\)&lt;/span&gt; is the &lt;em&gt;ordered&lt;/em&gt;
+set of ratings. By a simple transformation you can make it &lt;span class="math"&gt;\(R = [0, 1]\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;The utility function &lt;span class="math"&gt;\(u\)&lt;/span&gt; can be fully defined by a matrix. Most elements of the
+matrix are not known, though.&lt;/p&gt;
+&lt;p&gt;See also: &lt;a href="https://martin-thoma.com/collaborative-filtering/"&gt;Collaborative Filtering&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;In some sense, bestellsers are a special case of collaborative filtering:
+Simply recommending what got sold most.&lt;/p&gt;
+&lt;h2 id="basic-basket-analysis"&gt;Basic Basket Analysis&lt;/h2&gt;
+&lt;p&gt;See &lt;a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/#association-rules"&gt;Association Rule Mining&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="evaluation"&gt;Evaluation&lt;/h2&gt;
+&lt;p&gt;One way to evaluate if recommendation systems work is by the typical train-test split&lt;/p&gt;
+&lt;h2 id="typical-problems"&gt;Typical Problems&lt;/h2&gt;
+&lt;h3 id="cold-start-problem"&gt;Cold-Start Problem&lt;/h3&gt;
+&lt;p&gt;The cold-start problem is central and only fixable by content-based
+recommendation. If there is a new product, not a single user has rated it. It
+is not possible by collaborative filtering to recommend it.&lt;/p&gt;
+&lt;h3 id="wrong-recommendation-mode"&gt;Wrong Recommendation Mode&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;You have bought the DVD "Lord of the Rings" and get the Blue Ray recommended.&lt;/li&gt;
+&lt;li&gt;You have liked the normal version of a song and you get the
+  techno/rap/christmas version recommended&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="the-bubble"&gt;The Bubble&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;You will never be recommended a movie where you didn't like the genre before.&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Machine Learning"></category></entry><entry><title>1822direkt</title><link href="https://martin-thoma.com/1822direkt/" rel="alternate"></link><published>2018-09-01T20:00:00+02:00</published><updated>2018-09-01T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-09-01:/1822direkt/</id><summary type="html">&lt;p&gt;Creating a bank account is one of the things you need to do when you're a
 longer time in a country, but is incredibly difficult if they don't offer
 enough information online - especially, if you don't speak the language.&lt;/p&gt;
 &lt;p&gt;I had a &lt;a href="https://martin-thoma.com/online-banking/"&gt;pretty good experience with N26&lt;/a&gt;, let's see how …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Creating a bank account is one of the things you need to do when you're a
