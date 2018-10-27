@@ -19,6 +19,7 @@ Visualization Landscape" which gives an overview over them:
     * [Pandas](http://pandas.pydata.org/): Dataframes
     * [networkx](https://networkx.github.io/): Graphs
     * [ggpy](https://github.com/yhat/ggpy): Python implementation of the grammar of graphics
+    * [`ggplot`](http://ggplot.yhathq.com/): Also based on the Grammar of Graphics
     * [Yellow Brick](https://github.com/DistrictDataLabs/yellowbrick)
     * [scikit-plot](https://github.com/reiinakano/scikit-plot)
 * [Datashader](https://github.com/bokeh/datashader): Turns even the largest data into images
@@ -30,7 +31,7 @@ Visualization Landscape" which gives an overview over them:
     * [cufflinks](https://github.com/santosjorge/cufflinks)
     * [bqplot](https://github.com/bloomberg/bqplot): Plotting library for IPython/Jupyter Notebooks
     * [pythreejs](https://github.com/jovyan/pythreejs): A Jupyter - ThreeJS bridge
-    * [ipyleaflet](https://github.com/ellisonbg/ipyleaflet): IPython Widget for Leaflet Maps
+    * [ipyleaflet](https://github.com/ellisonbg/ipyleaflet): IPython Widget for [Leaflet](https://leafletjs.com/) Maps
     * [ipyvolume](https://github.com/maartenbreddels/ipyvolume)
 * OpenGL
     * [Vispy](http://vispy.org/): interactive scientific visualization
@@ -48,9 +49,10 @@ Visualization Landscape" which gives an overview over them:
 Visualizing maps is super hard, as the tools which exist don't have good
 installers.
 
-Here is what I've tried so far:
+Here is what I've tried/seen so far:
 
 * [`gmt-python`](https://www.gmtpython.xyz/latest/): [issue 215](https://github.com/GenericMappingTools/gmt-python/issues/215), [video](https://www.youtube.com/watch?v=6wMtfZXfTRM)
+* [`geoplotlib`](https://github.com/andrea-cuttone/geoplotlib)
 
 
 ## 3D
