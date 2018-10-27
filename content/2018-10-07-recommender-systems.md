@@ -6,7 +6,7 @@ author: Martin Thoma
 date: 2018-10-07 20:00
 category: My bits and bytes
 tags: Machine Learning
-featured_image: logos/star.png
+featured_image: logos/ml.png
 ---
 I recently became interested in recommender systems. You know, the thing on
 Amazon that tells you which products you might be interested in. Or the stuff
