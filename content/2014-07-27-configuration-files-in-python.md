@@ -23,6 +23,9 @@ to GitHub.
 
 I will explain some alternatives I got to know for Python.
 
+<div class="info">I've created a module for configuration handling: [`cfg_load`](https://github.com/MartinThoma/cfg_load)</div>
+
+
 ## Python Configuration File
 
 The simplest way to write configuration files is to simply write a separate file
