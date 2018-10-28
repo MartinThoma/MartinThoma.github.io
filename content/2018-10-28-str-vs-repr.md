@@ -3,7 +3,6 @@ layout: post
 title: Pythons str vs repr
 slug: str-vs-repr
 author: Martin Thoma
-status: draft
 date: 2018-10-28 20:00
 category: Code
 tags: Python
@@ -30,6 +29,38 @@ The goal of `__repr__` is to be unambiguous and the goal of `__str__` is to be r
 
 In all of those cases the unambiguous representation and the readable string
 are the same.
+
+
+## Where it's used
+
+The following code sample shows how `__repr__` and `__str__` are used:
+
+```
+class Foo(object):
+
+    def __repr__(self):
+        return '__repr__'
+
+    def __str__(self):
+        return '__str__'
+
+
+if __name__ == '__main__':
+    bar = Foo()
+
+    print(bar)
+    print(str(bar))
+    print(repr(bar))
+```
+
+Playing with this gives the following insights:
+
+* If neither `__repr__` nor `__str__` is implemented, then `bar` is printed as
+  `<__main__.Foo object at 0x7f42319379e8>`
+* If either of them is implemented, then `print(bar)` uses that one.
+* If both of them are implemented, then `print(bar)` uses `__str__`.
+* The REPL uses `__repr__`.
+
 
 ## 3rd Party Libraries
 
