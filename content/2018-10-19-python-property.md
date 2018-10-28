@@ -8,11 +8,10 @@ category: Code
 tags: Python
 featured_image: logos/python.png
 ---
-Python has a built-in decorator `@property`. It was introduced as a way to add
-getters / setters in a backwards-compatible way to simple attributes of a
-class.
+Python has a built-in decorator `@property`. In this article, you will learn
+why and how to use it.
 
-For example, you could have a class
+The following super basic `Location` class is used:
 
 ```
 def Location(object):
@@ -25,7 +24,8 @@ def Location(object):
 
 ## Getters and Setters
 
-Let's say, you want to add a range check. So you could make something like:
+Let's say, you want to add a range check for the properties of the class. You
+could make something like:
 
 ```
 class Location(object):
@@ -58,7 +58,9 @@ my_position.set_latitude(48.2)
 my_position.set_longitude(42.6)
 ```
 
-This is what Java developers would do and it feels rather weird to Python.
+This is what Java developers would do. Note that there is only the convention
+that tells you that the `latitude` property has a `set_latitude` setter and
+a `get_latitude` getter.
 
 
 ## Property class
@@ -69,6 +71,7 @@ With that, you can change the class to
 
 ```
 class Location(object):
+    """Representation of a point on Earth."""
 
     def __init__(self, longitude, latitude):
         self.set_latitude(latitude)
@@ -106,22 +109,64 @@ my_position.latitude = 123  # Fails
 
 ```
 
-<div class="info">You should note the single leading underscore - that is Pythons way to denote private properties. It is not meant as the public interface of the class.
+Here is how the `help` of this class looks like:
 
+```
+Help on class Location in module __main__:
+
+class Location(builtins.object)
+ |  Representation of a point on Earth.
+ |
+ |  Methods defined here:
+ |
+ |  __init__(self, longitude, latitude)
+ |      Initialize self.  See help(type(self)) for accurate signature.
+ |
+ |  get_latitude(self)
+ |
+ |  get_longitude(self)
+ |
+ |  set_latitude(self, latitude)
+ |
+ |  set_longitude(self, longitude)
+ |
+ |  ----------------------------------------------------------------------
+ |  Data descriptors defined here:
+ |
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |
+ |  __weakref__
+ |      list of weak references to the object (if defined)
+ |
+ |  latitude
+ |
+ |  longitude
+```
+
+<div class="info">You should note the single leading underscore - that is Pythons way to denote private properties. It is not meant as the public interface of the class.<br/>
+<br/>
 There is also a leading double underscore. The interpreter changes the name of the attribute to prevent naming colisions. Just have a look at `dir(some_example_class)`. See also: [What's the meaning of underscores (_ & __) in Python variable names?](https://www.youtube.com/watch?v=ALZmCy2u0jQ)</div>
 
 And then note how the objects attribte `latitude` now is not a float anymore, but a class!
 
-This makes use of [`__setattr__`](https://docs.python.org/3/reference/datamodel.html#object.__setattr__) and [`__getattr__`](https://docs.python.org/3/reference/datamodel.html#object.__getattr__).
+This makes use of [`__setattr__`](https://docs.python.org/3/reference/datamodel.html#object.__setattr__) and [`__getattr__`](https://docs.python.org/3/reference/datamodel.html#object.__getattr__). So by using this, there is a strong relationship
+between the getter/setter and the attribute!
 
 So we simplified using the class, but the class itself now looks not so nice
-anymore.
+anymore. Also, the `help` is polluted by the getters and setters.
 
 
 ## Property decorator
 
+The property decorator is what should be used in Python ([source](https://stackoverflow.com/a/52947521/562769)).
+It makes the behaviour less error-prone when you inherit from such a class.
+
+Here is how it is used:
+
 ```
 class Location(object):
+    """Representation of a point on Earth."""
 
     def __init__(self, longitude, latitude):
         self.latitude = latitude
@@ -129,12 +174,12 @@ class Location(object):
 
     @property
     def latitude(self):
-        """I'm the 'x' property."""
+        """Latitude of the location. North is positive, south is negative."""
         return self._latitude
 
     @property
     def longitude(self):
-        """I'm the 'x' property."""
+        """Longitude of the location. East is positive, west is negative."""
         return self._longitude
 
     @latitude.setter
@@ -159,6 +204,35 @@ my_position.latitude = 48.2
 my_position.longitude = 42.6
 
 my_position.latitude = 123  # Fails
+```
+
+Here is how the `help` of this class looks like:
+
+```
+Help on class Location in module __main__:
+
+class Location(builtins.object)
+ |  Representation of a point on Earth.
+ |
+ |  Methods defined here:
+ |
+ |  __init__(self, longitude, latitude)
+ |      Initialize self.  See help(type(self)) for accurate signature.
+ |
+ |  ----------------------------------------------------------------------
+ |  Data descriptors defined here:
+ |
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |
+ |  __weakref__
+ |      list of weak references to the object (if defined)
+ |
+ |  latitude
+ |      Latitude of the location. North is positive, south is negative.
+ |
+ |  longitude
+ |      Longitude of the location. East is positive, west is negative.
 ```
 
 
