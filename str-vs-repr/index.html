@@ -17,7 +17,7 @@
 <meta name="keywords" content="Python, Code, " />
 
 <meta property="og:title" content="Pythons str vs repr "/>
-<meta property="og:url" content="../drafts/str-vs-repr.html" />
+<meta property="og:url" content="../str-vs-repr/" />
 <meta property="og:description" content="The goal of __repr__ is to be unambiguous and the goal of __str__ is to be readable. Bonus points, if __repr__ returns what is needed to create the object. Some examples are: &gt;&gt;&gt; repr([42, 1337]) &#39;[42, 1337]&#39; &gt;&gt;&gt; repr({42, 1337}) &#39;{1337, 42}&#39; &gt;&gt;&gt; from collections import namedtuple &gt;&gt;&gt; Location = namedtuple(&#39;Location&#39;, [&#39;lon&#39; …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
@@ -95,7 +95,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../drafts/str-vs-repr.html"> Pythons str vs repr  </a></h1>
+    <h1><a href="../str-vs-repr/"> Pythons str vs repr  </a></h1>
     </header>
 </div>
 
@@ -103,7 +103,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#3rd-party-libraries" title="3rd Party Libraries">3rd Party Libraries</a></li><li><a class="toc-href" href="#enums" title="Enums">Enums</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#where-its-used" s="" title="Where it" used'="">Where it's used</a></li><li><a class="toc-href" href="#3rd-party-libraries" title="3rd Party Libraries">3rd Party Libraries</a></li><li><a class="toc-href" href="#enums" title="Enums">Enums</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -127,6 +127,32 @@ MathJax.Hub.Queue(function() {
 </pre></div>
 <p>In all of those cases the unambiguous representation and the readable string
 are the same.</p>
+<h2 id="where-its-used">Where it's used</h2>
+<p>The following code sample shows how <code>__repr__</code> and <code>__str__</code> are used:</p>
+<div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Foo</span><span class="p">(</span><span class="nx">object</span><span class="p">)</span><span class="o">:</span>
+
+    <span class="nx">def</span> <span class="nx">__repr__</span><span class="p">(</span><span class="nx">self</span><span class="p">)</span><span class="o">:</span>
+        <span class="k">return</span> <span class="s1">'__repr__'</span>
+
+    <span class="nx">def</span> <span class="nx">__str__</span><span class="p">(</span><span class="nx">self</span><span class="p">)</span><span class="o">:</span>
+        <span class="k">return</span> <span class="s1">'__str__'</span>
+
+
+<span class="k">if</span> <span class="nx">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="o">:</span>
+    <span class="nx">bar</span> <span class="o">=</span> <span class="nx">Foo</span><span class="p">()</span>
+
+    <span class="nx">print</span><span class="p">(</span><span class="nx">bar</span><span class="p">)</span>
+    <span class="nx">print</span><span class="p">(</span><span class="nx">str</span><span class="p">(</span><span class="nx">bar</span><span class="p">))</span>
+    <span class="nx">print</span><span class="p">(</span><span class="nx">repr</span><span class="p">(</span><span class="nx">bar</span><span class="p">))</span>
+</pre></div>
+<p>Playing with this gives the following insights:</p>
+<ul>
+<li>If neither <code>__repr__</code> nor <code>__str__</code> is implemented, then <code>bar</code> is printed as
+  <code>&lt;__main__.Foo object at 0x7f42319379e8&gt;</code></li>
+<li>If either of them is implemented, then <code>print(bar)</code> uses that one.</li>
+<li>If both of them are implemented, then <code>print(bar)</code> uses <code>__str__</code>.</li>
+<li>The REPL uses <code>__repr__</code>.</li>
+</ul>
 <h2 id="3rd-party-libraries">3rd Party Libraries</h2>
 <p>It's a bit different once you get to third party libraries:</p>
 <div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
@@ -195,7 +221,7 @@ the same result as the <code>str</code> representation.</p>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
                 <li><a href="../tags.html#python-ref">Python
-                    <span>88</span>
+                    <span>89</span>
 </a></li>
             </ul>
 <h4>Contact</h4>

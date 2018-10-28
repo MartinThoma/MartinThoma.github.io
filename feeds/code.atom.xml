@@ -1,5 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Code</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/code.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-10-19T20:00:00+02:00</updated><entry><title>Closures</title><link href="https://martin-thoma.com/closures/" rel="alternate"></link><published>2018-10-19T20:00:00+02:00</published><updated>2018-10-19T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-10-19:/closures/</id><summary type="html">&lt;p&gt;A &lt;a href="https://en.wikipedia.org/wiki/Closure_(computer_programming)"&gt;closure&lt;/a&gt; is a
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Code</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/code.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-10-28T20:00:00+01:00</updated><entry><title>Pythons str vs repr</title><link href="https://martin-thoma.com/str-vs-repr/" rel="alternate"></link><published>2018-10-28T20:00:00+01:00</published><updated>2018-10-28T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-10-28:/str-vs-repr/</id><summary type="html">&lt;p&gt;The goal of &lt;code&gt;__repr__&lt;/code&gt; is to be unambiguous and the goal of &lt;code&gt;__str__&lt;/code&gt; is to be readable. Bonus points, if &lt;code&gt;__repr__&lt;/code&gt; returns what is needed to create the object. Some examples are:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;repr&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;42&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1337&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="s1"&gt;'[42, 1337]'&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;repr&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="mi"&gt;42&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1337&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;
+&lt;span class="s1"&gt;'{1337, 42}'&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;collections&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;namedtuple&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Location&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;namedtuple&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Location'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'lon' …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;The goal of &lt;code&gt;__repr__&lt;/code&gt; is to be unambiguous and the goal of &lt;code&gt;__str__&lt;/code&gt; is to be readable. Bonus points, if &lt;code&gt;__repr__&lt;/code&gt; returns what is needed to create the object. Some examples are:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;repr&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;42&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1337&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="s1"&gt;'[42, 1337]'&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;repr&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="mi"&gt;42&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1337&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;
+&lt;span class="s1"&gt;'{1337, 42}'&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;collections&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;namedtuple&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Location&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;namedtuple&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Location'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'lon'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'lat'&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Location&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;34&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;repr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="s1"&gt;'Location(lon=12, lat=34)'&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;re&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;pattern&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;compile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'foo'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;repr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pattern&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="s2"&gt;"re.compile('foo')"&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In all of those cases the unambiguous representation and the readable string
+are the same.&lt;/p&gt;
+&lt;h2 id="where-its-used"&gt;Where it's used&lt;/h2&gt;
+&lt;p&gt;The following code sample shows how &lt;code&gt;__repr__&lt;/code&gt; and &lt;code&gt;__str__&lt;/code&gt; are used:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;Foo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;object&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+
+    &lt;span class="nx"&gt;def&lt;/span&gt; &lt;span class="nx"&gt;__repr__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s1"&gt;'__repr__'&lt;/span&gt;
+
+    &lt;span class="nx"&gt;def&lt;/span&gt; &lt;span class="nx"&gt;__str__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s1"&gt;'__str__'&lt;/span&gt;
+
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nx"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;'__main__'&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="nx"&gt;bar&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;Foo&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+    &lt;span class="nx"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;bar&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="nx"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;bar&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="nx"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;repr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;bar&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Playing with this gives the following insights:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If neither &lt;code&gt;__repr__&lt;/code&gt; nor &lt;code&gt;__str__&lt;/code&gt; is implemented, then &lt;code&gt;bar&lt;/code&gt; is printed as
+  &lt;code&gt;&amp;lt;__main__.Foo object at 0x7f42319379e8&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;If either of them is implemented, then &lt;code&gt;print(bar)&lt;/code&gt; uses that one.&lt;/li&gt;
+&lt;li&gt;If both of them are implemented, then &lt;code&gt;print(bar)&lt;/code&gt; uses &lt;code&gt;__str__&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;The REPL uses &lt;code&gt;__repr__&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="3rd-party-libraries"&gt;3rd Party Libraries&lt;/h2&gt;
+&lt;p&gt;It's a bit different once you get to third party libraries:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="kp"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;42&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1337&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="s1"&gt;'[  42 1337]'&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;repr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="s1"&gt;'array([  42, 1337])'&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Some - like Pandas Dataframes have a very different string representation.&lt;/p&gt;
+&lt;p&gt;Others just don't care to implement somehting reasonable at all:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;keras.models&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Sequential&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Sequential&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;repr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="s1"&gt;'&amp;lt;keras.engine.sequential.Sequential object at 0x7f8d86b8eb70&amp;gt;'&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="enums"&gt;Enums&lt;/h2&gt;
+&lt;p&gt;Also - sadly - it is not done well with Enums:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;ExistsStrategy&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;enum&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Enum&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="s2"&gt;"""Strategies what to do when a file already exists."""&lt;/span&gt;
+
+    &lt;span class="nx"&gt;RAISE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'raise'&lt;/span&gt;
+    &lt;span class="nx"&gt;REPLACE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'replace'&lt;/span&gt;
+    &lt;span class="nx"&gt;ABORT&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'abort'&lt;/span&gt;
+
+&lt;span class="nx"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;ExistsStrategy&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;RAISE&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="nx"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;repr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;ExistsStrategy&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;RAISE&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The &lt;code&gt;str&lt;/code&gt; gives &lt;code&gt;ExistsStrategy.RAISE&lt;/code&gt; which is awesome. The &lt;code&gt;repr&lt;/code&gt; gives
+&lt;code&gt;&amp;lt;ExistsStrategy.RAISE: 'raise'&amp;gt;&lt;/code&gt;. I don't understand why it doesn't give
+the same result as the &lt;code&gt;str&lt;/code&gt; representation.&lt;/p&gt;
+&lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://stackoverflow.com/q/1436703/562769"&gt;Difference between &lt;code&gt;__str__&lt;/code&gt; and &lt;code&gt;__repr__&lt;/code&gt;?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Python"></category></entry><entry><title>Closures</title><link href="https://martin-thoma.com/closures/" rel="alternate"></link><published>2018-10-19T20:00:00+02:00</published><updated>2018-10-19T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-10-19:/closures/</id><summary type="html">&lt;p&gt;A &lt;a href="https://en.wikipedia.org/wiki/Closure_(computer_programming)"&gt;closure&lt;/a&gt; is a
 technique for implementing lexically scoped name binding in a language with
 first-class functions.&lt;/p&gt;
 &lt;h2 id="pairs"&gt;Pairs&lt;/h2&gt;
