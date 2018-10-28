@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Python property "/>
 <meta property="og:url" content="../python-property/" />
-<meta property="og:description" content="Python has a built-in decorator @property. It was introduced as a way to add getters / setters in a backwards-compatible way to simple attributes of a class. For example, you could have a class def Location(object): def __init__(self, longitude, latitude): self.longitude = longitude self.latitude = latitude Getters and Setters …" />
+<meta property="og:description" content="Python has a built-in decorator @property. In this article, you will learn why and how to use it. The following super basic Location class is used: def Location(object): def __init__(self, longitude, latitude): self.longitude = longitude self.latitude = latitude Getters and Setters Let&#39;s say, you want to add a …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2018-10-19T20:00:00+02:00" />
 <meta name="twitter:title" content="Python property ">
-<meta name="twitter:description" content="Python has a built-in decorator @property. It was introduced as a way to add getters / setters in a backwards-compatible way to simple attributes of a class. For example, you could have a class def Location(object): def __init__(self, longitude, latitude): self.longitude = longitude self.latitude = latitude Getters and Setters …">
+<meta name="twitter:description" content="Python has a built-in decorator @property. In this article, you will learn why and how to use it. The following super basic Location class is used: def Location(object): def __init__(self, longitude, latitude): self.longitude = longitude self.latitude = latitude Getters and Setters Let&#39;s say, you want to add a …">
 <meta property="og:image" content="logos/python.png" />
 <meta name="twitter:image" content="logos/python.png" >
 
@@ -109,10 +109,9 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>Python has a built-in decorator <code>@property</code>. It was introduced as a way to add
-getters / setters in a backwards-compatible way to simple attributes of a
-class.</p>
-<p>For example, you could have a class</p>
+            <p>Python has a built-in decorator <code>@property</code>. In this article, you will learn
+why and how to use it.</p>
+<p>The following super basic <code>Location</code> class is used:</p>
 <div class="highlight"><pre><span></span>def Location(object):
 
     def __init__(self, longitude, latitude):
@@ -120,7 +119,8 @@ class.</p>
         self.latitude = latitude
 </pre></div>
 <h2 id="getters-and-setters">Getters and Setters</h2>
-<p>Let's say, you want to add a range check. So you could make something like:</p>
+<p>Let's say, you want to add a range check for the properties of the class. You
+could make something like:</p>
 <div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Location</span><span class="p">(</span><span class="nx">object</span><span class="p">)</span><span class="o">:</span>
 
     <span class="nx">def</span> <span class="nx">__init__</span><span class="p">(</span><span class="nx">self</span><span class="p">,</span> <span class="nx">longitude</span><span class="p">,</span> <span class="nx">latitude</span><span class="p">)</span><span class="o">:</span>
@@ -146,11 +146,14 @@ class.</p>
 my_position.set_latitude(48.2)
 my_position.set_longitude(42.6)
 </pre></div>
-<p>This is what Java developers would do and it feels rather weird to Python.</p>
+<p>This is what Java developers would do. Note that there is only the convention
+that tells you that the <code>latitude</code> property has a <code>set_latitude</code> setter and
+a <code>get_latitude</code> getter.</p>
 <h2 id="property-class">Property class</h2>
 <p>With Python 2.2, the <code>property</code> class was added to simplify it (<a href="https://www.python.org/download/releases/2.2.2/descrintro/#property">source</a>).</p>
 <p>With that, you can change the class to</p>
 <div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Location</span><span class="p">(</span><span class="nx">object</span><span class="p">)</span><span class="o">:</span>
+    <span class="s2">"""Representation of a point on Earth."""</span>
 
     <span class="nx">def</span> <span class="nx">__init__</span><span class="p">(</span><span class="nx">self</span><span class="p">,</span> <span class="nx">longitude</span><span class="p">,</span> <span class="nx">latitude</span><span class="p">)</span><span class="o">:</span>
         <span class="nx">self</span><span class="p">.</span><span class="nx">set_latitude</span><span class="p">(</span><span class="nx">latitude</span><span class="p">)</span>
@@ -186,15 +189,52 @@ my_position.set_longitude(42.6)
 
 <span class="nx">my_position</span><span class="p">.</span><span class="nx">latitude</span> <span class="o">=</span> <span class="mi">123</span>  <span class="err">#</span> <span class="nx">Fails</span>
 </pre></div>
-<div class="info">You should note the single leading underscore - that is Pythons way to denote private properties. It is not meant as the public interface of the class.
+<p>Here is how the <code>help</code> of this class looks like:</p>
+<div class="highlight"><pre><span></span><span class="nx">Help</span> <span class="nx">on</span> <span class="kr">class</span> <span class="nx">Location</span> <span class="k">in</span> <span class="kr">module</span> <span class="nx">__main__</span><span class="o">:</span>
 
+<span class="kr">class</span> <span class="nx">Location</span><span class="p">(</span><span class="nx">builtins</span><span class="p">.</span><span class="nx">object</span><span class="p">)</span>
+ <span class="o">|</span>  <span class="nx">Representation</span> <span class="nx">of</span> <span class="nx">a</span> <span class="nx">point</span> <span class="nx">on</span> <span class="nx">Earth</span><span class="p">.</span>
+ <span class="o">|</span>
+ <span class="o">|</span>  <span class="nx">Methods</span> <span class="nx">defined</span> <span class="nx">here</span><span class="o">:</span>
+ <span class="o">|</span>
+ <span class="o">|</span>  <span class="nx">__init__</span><span class="p">(</span><span class="nx">self</span><span class="p">,</span> <span class="nx">longitude</span><span class="p">,</span> <span class="nx">latitude</span><span class="p">)</span>
+ <span class="o">|</span>      <span class="nx">Initialize</span> <span class="nx">self</span><span class="p">.</span>  <span class="nx">See</span> <span class="nx">help</span><span class="p">(</span><span class="nx">type</span><span class="p">(</span><span class="nx">self</span><span class="p">))</span> <span class="k">for</span> <span class="nx">accurate</span> <span class="nx">signature</span><span class="p">.</span>
+ <span class="o">|</span>
+ <span class="o">|</span>  <span class="nx">get_latitude</span><span class="p">(</span><span class="nx">self</span><span class="p">)</span>
+ <span class="o">|</span>
+ <span class="o">|</span>  <span class="nx">get_longitude</span><span class="p">(</span><span class="nx">self</span><span class="p">)</span>
+ <span class="o">|</span>
+ <span class="o">|</span>  <span class="nx">set_latitude</span><span class="p">(</span><span class="nx">self</span><span class="p">,</span> <span class="nx">latitude</span><span class="p">)</span>
+ <span class="o">|</span>
+ <span class="o">|</span>  <span class="nx">set_longitude</span><span class="p">(</span><span class="nx">self</span><span class="p">,</span> <span class="nx">longitude</span><span class="p">)</span>
+ <span class="o">|</span>
+ <span class="o">|</span>  <span class="o">----------------------------------------------------------------------</span>
+ <span class="o">|</span>  <span class="nx">Data</span> <span class="nx">descriptors</span> <span class="nx">defined</span> <span class="nx">here</span><span class="o">:</span>
+ <span class="o">|</span>
+ <span class="o">|</span>  <span class="nx">__dict__</span>
+ <span class="o">|</span>      <span class="nx">dictionary</span> <span class="k">for</span> <span class="nx">instance</span> <span class="nx">variables</span> <span class="p">(</span><span class="k">if</span> <span class="nx">defined</span><span class="p">)</span>
+ <span class="o">|</span>
+ <span class="o">|</span>  <span class="nx">__weakref__</span>
+ <span class="o">|</span>      <span class="nx">list</span> <span class="nx">of</span> <span class="nx">weak</span> <span class="nx">references</span> <span class="nx">to</span> <span class="nx">the</span> <span class="nx">object</span> <span class="p">(</span><span class="k">if</span> <span class="nx">defined</span><span class="p">)</span>
+ <span class="o">|</span>
+ <span class="o">|</span>  <span class="nx">latitude</span>
+ <span class="o">|</span>
+ <span class="o">|</span>  <span class="nx">longitude</span>
+</pre></div>
+<div class="info">You should note the single leading underscore - that is Pythons way to denote private properties. It is not meant as the public interface of the class.<br/>
+<br/>
 There is also a leading double underscore. The interpreter changes the name of the attribute to prevent naming colisions. Just have a look at `dir(some_example_class)`. See also: [What's the meaning of underscores (_ &amp; __) in Python variable names?](https://www.youtube.com/watch?v=ALZmCy2u0jQ)</div>
 <p>And then note how the objects attribte <code>latitude</code> now is not a float anymore, but a class!</p>
-<p>This makes use of <a href="https://docs.python.org/3/reference/datamodel.html#object.__setattr__"><code>__setattr__</code></a> and <a href="https://docs.python.org/3/reference/datamodel.html#object.__getattr__"><code>__getattr__</code></a>.</p>
+<p>This makes use of <a href="https://docs.python.org/3/reference/datamodel.html#object.__setattr__"><code>__setattr__</code></a> and <a href="https://docs.python.org/3/reference/datamodel.html#object.__getattr__"><code>__getattr__</code></a>. So by using this, there is a strong relationship
+between the getter/setter and the attribute!</p>
 <p>So we simplified using the class, but the class itself now looks not so nice
-anymore.</p>
+anymore. Also, the <code>help</code> is polluted by the getters and setters.</p>
 <h2 id="property-decorator">Property decorator</h2>
+<p>The property decorator is what should be used in Python (<a href="https://stackoverflow.com/a/52947521/562769">source</a>).
+It makes the behaviour less error-prone when you inherit from such a class.</p>
+<p>Here is how it is used:</p>
 <div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Location</span><span class="p">(</span><span class="nx">object</span><span class="p">)</span><span class="o">:</span>
+    <span class="s2">"""Representation of a point on Earth."""</span>
 
     <span class="nx">def</span> <span class="nx">__init__</span><span class="p">(</span><span class="nx">self</span><span class="p">,</span> <span class="nx">longitude</span><span class="p">,</span> <span class="nx">latitude</span><span class="p">)</span><span class="o">:</span>
         <span class="nx">self</span><span class="p">.</span><span class="nx">latitude</span> <span class="o">=</span> <span class="nx">latitude</span>
@@ -202,12 +242,12 @@ anymore.</p>
 
     <span class="kd">@property</span>
     <span class="nx">def</span> <span class="nx">latitude</span><span class="p">(</span><span class="nx">self</span><span class="p">)</span><span class="o">:</span>
-        <span class="s2">"""I'm the 'x' property."""</span>
+        <span class="s2">"""Latitude of the location. North is positive, south is negative."""</span>
         <span class="k">return</span> <span class="nx">self</span><span class="p">.</span><span class="nx">_latitude</span>
 
     <span class="kd">@property</span>
     <span class="nx">def</span> <span class="nx">longitude</span><span class="p">(</span><span class="nx">self</span><span class="p">)</span><span class="o">:</span>
-        <span class="s2">"""I'm the 'x' property."""</span>
+        <span class="s2">"""Longitude of the location. East is positive, west is negative."""</span>
         <span class="k">return</span> <span class="nx">self</span><span class="p">.</span><span class="nx">_longitude</span>
 
     <span class="kd">@latitude</span><span class="p">.</span><span class="nx">setter</span>
@@ -232,6 +272,32 @@ anymore.</p>
 <span class="nx">my_position</span><span class="p">.</span><span class="nx">longitude</span> <span class="o">=</span> <span class="mf">42.6</span>
 
 <span class="nx">my_position</span><span class="p">.</span><span class="nx">latitude</span> <span class="o">=</span> <span class="mi">123</span>  <span class="err">#</span> <span class="nx">Fails</span>
+</pre></div>
+<p>Here is how the <code>help</code> of this class looks like:</p>
+<div class="highlight"><pre><span></span><span class="nx">Help</span> <span class="nx">on</span> <span class="kr">class</span> <span class="nx">Location</span> <span class="k">in</span> <span class="kr">module</span> <span class="nx">__main__</span><span class="o">:</span>
+
+<span class="kr">class</span> <span class="nx">Location</span><span class="p">(</span><span class="nx">builtins</span><span class="p">.</span><span class="nx">object</span><span class="p">)</span>
+ <span class="o">|</span>  <span class="nx">Representation</span> <span class="nx">of</span> <span class="nx">a</span> <span class="nx">point</span> <span class="nx">on</span> <span class="nx">Earth</span><span class="p">.</span>
+ <span class="o">|</span>
+ <span class="o">|</span>  <span class="nx">Methods</span> <span class="nx">defined</span> <span class="nx">here</span><span class="o">:</span>
+ <span class="o">|</span>
+ <span class="o">|</span>  <span class="nx">__init__</span><span class="p">(</span><span class="nx">self</span><span class="p">,</span> <span class="nx">longitude</span><span class="p">,</span> <span class="nx">latitude</span><span class="p">)</span>
+ <span class="o">|</span>      <span class="nx">Initialize</span> <span class="nx">self</span><span class="p">.</span>  <span class="nx">See</span> <span class="nx">help</span><span class="p">(</span><span class="nx">type</span><span class="p">(</span><span class="nx">self</span><span class="p">))</span> <span class="k">for</span> <span class="nx">accurate</span> <span class="nx">signature</span><span class="p">.</span>
+ <span class="o">|</span>
+ <span class="o">|</span>  <span class="o">----------------------------------------------------------------------</span>
+ <span class="o">|</span>  <span class="nx">Data</span> <span class="nx">descriptors</span> <span class="nx">defined</span> <span class="nx">here</span><span class="o">:</span>
+ <span class="o">|</span>
+ <span class="o">|</span>  <span class="nx">__dict__</span>
+ <span class="o">|</span>      <span class="nx">dictionary</span> <span class="k">for</span> <span class="nx">instance</span> <span class="nx">variables</span> <span class="p">(</span><span class="k">if</span> <span class="nx">defined</span><span class="p">)</span>
+ <span class="o">|</span>
+ <span class="o">|</span>  <span class="nx">__weakref__</span>
+ <span class="o">|</span>      <span class="nx">list</span> <span class="nx">of</span> <span class="nx">weak</span> <span class="nx">references</span> <span class="nx">to</span> <span class="nx">the</span> <span class="nx">object</span> <span class="p">(</span><span class="k">if</span> <span class="nx">defined</span><span class="p">)</span>
+ <span class="o">|</span>
+ <span class="o">|</span>  <span class="nx">latitude</span>
+ <span class="o">|</span>      <span class="nx">Latitude</span> <span class="nx">of</span> <span class="nx">the</span> <span class="nx">location</span><span class="p">.</span> <span class="nx">North</span> <span class="nx">is</span> <span class="nx">positive</span><span class="p">,</span> <span class="nx">south</span> <span class="nx">is</span> <span class="nx">negative</span><span class="p">.</span>
+ <span class="o">|</span>
+ <span class="o">|</span>  <span class="nx">longitude</span>
+ <span class="o">|</span>      <span class="nx">Longitude</span> <span class="nx">of</span> <span class="nx">the</span> <span class="nx">location</span><span class="p">.</span> <span class="nx">East</span> <span class="nx">is</span> <span class="nx">positive</span><span class="p">,</span> <span class="nx">west</span> <span class="nx">is</span> <span class="nx">negative</span><span class="p">.</span>
 </pre></div>
 <h2 id="see-also">See also</h2>
 <ul>
