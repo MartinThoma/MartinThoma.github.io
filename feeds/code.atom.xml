@@ -1,5 +1,277 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Code</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/code.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-10-28T20:00:00+01:00</updated><entry><title>Pythons str vs repr</title><link href="https://martin-thoma.com/str-vs-repr/" rel="alternate"></link><published>2018-10-28T20:00:00+01:00</published><updated>2018-10-28T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-10-28:/str-vs-repr/</id><summary type="html">&lt;p&gt;The goal of &lt;code&gt;__repr__&lt;/code&gt; is to be unambiguous and the goal of &lt;code&gt;__str__&lt;/code&gt; is to be readable. Bonus points, if &lt;code&gt;__repr__&lt;/code&gt; returns what is needed to create the object. Some examples are:&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Code</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/code.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-11-13T20:00:00+01:00</updated><entry><title>Python Package Versions</title><link href="https://martin-thoma.com/python-package-versions/" rel="alternate"></link><published>2018-11-13T20:00:00+01:00</published><updated>2018-11-13T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-11-13:/python-package-versions/</id><summary type="html">&lt;p&gt;Python packages should (must?) have a version. It would be best if that
+version string was a &lt;a href="https://semver.org"&gt;semantic version&lt;/a&gt;, but this article
+is not about how your version string should look like. It's about how to have
+a consistent &lt;strong&gt;version string on PyPI&lt;/strong&gt; and &lt;strong&gt;accessible via
+&lt;code&gt;[yourpackage].__version__&lt;/code&gt;&lt;/strong&gt; - and preferably …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Python packages should (must?) have a version. It would be best if that
+version string was a &lt;a href="https://semver.org"&gt;semantic version&lt;/a&gt;, but this article
+is not about how your version string should look like. It's about how to have
+a consistent &lt;strong&gt;version string on PyPI&lt;/strong&gt; and &lt;strong&gt;accessible via
+&lt;code&gt;[yourpackage].__version__&lt;/code&gt;&lt;/strong&gt; - and preferably make sure it is the same as used
+in &lt;a href="https://git-scm.com/book/en/v2/Git-Basics-Tagging"&gt;&lt;code&gt;git tag&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;setup.py&lt;/code&gt; should have the version string in the setup function:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;setuptools&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;setup&lt;/span&gt;
+
+&lt;span class="n"&gt;setup&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;version&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;__version__&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Having this makes sure that the correct version is on PyPI and you can work
+with that version via pip (e.g. &lt;code&gt;pip freeze&lt;/code&gt;). But if you import the package
+via &lt;code&gt;import [yourpackage]&lt;/code&gt; and execute &lt;code&gt;[yourpackage].__version__&lt;/code&gt; it might not
+be present. Also, if you have a command line application, you have to make sure
+yourself that there is a &lt;code&gt;--version&lt;/code&gt; command. And you definitely should do
+that; it comes in handy.&lt;/p&gt;
+&lt;p&gt;There is an &lt;a href="https://packaging.python.org/guides/single-sourcing-package-version/"&gt;official guide&lt;/a&gt;
+for "single-sourcing the package version". So it is a know problem with known
+solutions. I only wrap them up here.&lt;/p&gt;
+&lt;h2 id="the-manual-approach"&gt;The Manual Approach&lt;/h2&gt;
+&lt;p&gt;setup.py:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;setuptools&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;setup&lt;/span&gt;
+
+&lt;span class="n"&gt;setup&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;version&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'0.1.2'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;[yourpackage]/&lt;strong&gt;init&lt;/strong&gt;.py:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;__version__ = '0.1.2'
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Positive:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;No new dependencies&lt;/li&gt;
+&lt;li&gt;It is super simple to understand&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Negative:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You can easily get inconsistencies by forgetting something&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="version-python-file"&gt;Version Python File&lt;/h2&gt;
+&lt;p&gt;setup.py:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;setuptools&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;setup&lt;/span&gt;
+
+&lt;span class="k"&gt;exec&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'[yourpackage]/_version.py'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+
+&lt;span class="n"&gt;setup&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;version&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;__version__&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;[yourpackage]/&lt;strong&gt;init&lt;/strong&gt;.py:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;yourpackage&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_version&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;__version__&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;[yourpackage]/_version.py:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;__version__ = '0.1.2'
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Positive:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;No new dependencies&lt;/li&gt;
+&lt;li&gt;Relatively simple&lt;/li&gt;
+&lt;li&gt;Consistent&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Negative:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You use &lt;code&gt;exec&lt;/code&gt;, about which linters complain as it is a security risk if used
+  wrong.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mypy&lt;/code&gt; cannot know that the &lt;code&gt;__version__&lt;/code&gt; variable is set in the &lt;code&gt;setup.py&lt;/code&gt;.
+  It will give &lt;code&gt;error: Name '__version__' is not defined&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="version-text-file"&gt;Version Text File&lt;/h2&gt;
+&lt;p&gt;Similar to the solution above, we use a text file which only contains the
+version string.&lt;/p&gt;
+&lt;p&gt;setup.py:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;setuptools&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;setup&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;read&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;file_name&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;"""Read a text file and return the content as a string."""&lt;/span&gt;
+    &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;io&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dirname&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="vm"&gt;__file__&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;file_name&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+                 &lt;span class="n"&gt;encoding&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'utf-8'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="n"&gt;setup&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;version&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'[yourpackage]/version.txt'&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;[yourpackage]/&lt;strong&gt;init&lt;/strong&gt;.py:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;yourpackage&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_version&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;__version__&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;[yourpackage]/_version.py:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;__version__ = '0.1.2'
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="reading-setuppy"&gt;Reading setup.py&lt;/h2&gt;
+&lt;p&gt;This approach is so bad that I don't want to post an example here. The idea
+is that you can have the version in the &lt;code&gt;setup(version='fooversion')&lt;/code&gt; and read
+that within the package to set the &lt;code&gt;__version__&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Reasons why I strongly suggest not to do so:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Your package source could be simply copied, not installed. For example, if
+  things run on AWS Lambda. In this case, there is not &lt;code&gt;setup.py&lt;/code&gt; file. So all
+  solutions with this break.&lt;/li&gt;
+&lt;li&gt;You have to write rather complex parsers to be robust to changes in
+  &lt;code&gt;setup.py&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="external-build-tools"&gt;External Build Tools&lt;/h2&gt;
+&lt;p&gt;There are &lt;a href="https://pypi.org/project/bumpversion/"&gt;bumpversion&lt;/a&gt;,
+&lt;a href="https://pypi.org/project/changes/"&gt;changes&lt;/a&gt; and &lt;a href="https://pypi.org/project/zest.releaser/"&gt;zest.releaser&lt;/a&gt;.
+I don't have experience with those tools, but from a very quick first look I
+don't think they the first two look reliable enough to give them a try. And
+&lt;code&gt;zest.releaser&lt;/code&gt; looks a bit complicated.&lt;/p&gt;
+&lt;h2 id="package-import"&gt;Package import&lt;/h2&gt;
+&lt;p&gt;setup.py:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;setuptools&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;setup&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;yourpackage&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="n"&gt;setup&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;version&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;yourpackage&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__version__&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;[yourpackage]/&lt;strong&gt;init&lt;/strong&gt;.py:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[yourpackage]._version = '0.1.2'
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Positive:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;No new dependencies&lt;/li&gt;
+&lt;li&gt;Very simple simple&lt;/li&gt;
+&lt;li&gt;Consistent&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Negative:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fails, if you import a dependency in the &lt;code&gt;__init__.py&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="version-control-integration"&gt;Version Control Integration&lt;/h2&gt;
+&lt;p&gt;You can use &lt;a href="https://pypi.org/project/setuptools_scm/"&gt;&lt;code&gt;setuptools_scm&lt;/code&gt;&lt;/a&gt;
+and do the following:&lt;/p&gt;
+&lt;p&gt;setup.py:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;setuptools&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;setup&lt;/span&gt;
+
+&lt;span class="n"&gt;setup&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+    &lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;use_scm_version&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;setup_requires&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'setuptools_scm'&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+    &lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;[yourpackage]/&lt;strong&gt;init&lt;/strong&gt;.py:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pkg_resources&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;get_distribution&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;DistributionNotFound&lt;/span&gt;
+&lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;__version__&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;get_distribution&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="vm"&gt;__name__&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;version&lt;/span&gt;
+&lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="n"&gt;DistributionNotFound&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="c1"&gt;# package is not installed&lt;/span&gt;
+    &lt;span class="k"&gt;pass&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Positive:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;git tags: You might have to / be able to use git tags to keep consistent
+  versions. I'm not sure if this is the case, though.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Negative:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Your package source could be simply copied, not installed. For example, if
+  things run on AWS Lambda. In this case, there is not &lt;code&gt;setup.py&lt;/code&gt; file. So all
+  solutions with this break.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Reading &lt;a href="https://blog.mozilla.org/warner/2012/01/31/version-string-management-in-python-introducing-python-versioneer/"&gt;Version String Management in Python: Introducing python-versioneer&lt;/a&gt;, I want to highlight some parts:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Thinking about how I use git these days, I realized that I want my release
+process to have one step: &amp;ldquo;git tag&amp;rdquo; (well, and a &amp;ldquo;git push&amp;rdquo; to tell the world
+about it). Everything else should be automated: building tarballs, uploading
+them to a release server, updating a web page, sending an announcement email,
+pypi registration, etc. What really matters is the release manager making the
+decision to bless some well-tested revision id with a public name of some
+sort.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="what-others-do"&gt;What others do&lt;/h2&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Package&lt;/th&gt;
+&lt;th&gt;setup.py&lt;/th&gt;
+&lt;th&gt;package&lt;/th&gt;
+&lt;th&gt;Versioning Scheme&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Scipy&lt;/td&gt;
+&lt;td&gt;Manual&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;td&gt;Semantic&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Numpy&lt;/td&gt;
+&lt;td&gt;Manual&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;td&gt;Semantic&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://github.com/python-pillow/Pillow"&gt;Pillow&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;exec py&lt;/td&gt;
+&lt;td&gt;manual&lt;/td&gt;
+&lt;td&gt;Semantic&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://github.com/boto/boto3"&gt;boto3&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;regex `__init__.py`&lt;/td&gt;
+&lt;td&gt;manual&lt;/td&gt;
+&lt;td&gt;Semantic&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://github.com/SethMMorton/natsort"&gt;natsort&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;manual&lt;/td&gt;
+&lt;td&gt;manual&lt;/td&gt;
+&lt;td&gt;semantic&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://github.com/matplotlib/matplotlib"&gt;mantplotlib&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;versioneer&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://github.com/pandas-dev/pandas"&gt;Pandas&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;versioneer&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://github.com/scikit-learn/scikit-learn"&gt;scikit-learn&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;import of sklearn.__version__&lt;/td&gt;
+&lt;td&gt;manual&lt;/td&gt;
+&lt;td&gt;semantic&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://github.com/tensorflow/tensorflow"&gt;tensorflow&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://github.com/pytorch/pytorch"&gt;pytorch&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;manual&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;seaborn&lt;/td&gt;
+&lt;td&gt;manual&lt;/td&gt;
+&lt;td&gt;manual&lt;/td&gt;
+&lt;td&gt;semantic&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://github.com/pallets/flask"&gt;Flask&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;regex `__init__.py`&lt;/td&gt;
+&lt;td&gt;manual&lt;/td&gt;
+&lt;td&gt;semantic&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://github.com/django/django"&gt;Django&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;import of django.__version__&lt;/td&gt;
+&lt;td&gt;manual&lt;/td&gt;
+&lt;td&gt;semantic&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://github.com/pytest-dev/pytest"&gt;pytest&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;`use_scm_version`&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://github.com/tox-dev/tox"&gt;tox&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;`use_scm_version`&lt;/td&gt;
+&lt;td&gt;pluggy&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/warner"&gt;Brian Warner&lt;/a&gt;: &lt;a href="https://blog.mozilla.org/warner/2012/01/31/version-string-management-in-python-introducing-python-versioneer/"&gt;Version String Management in Python: Introducing python-versioneer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Python"></category></entry><entry><title>Pythons str vs repr</title><link href="https://martin-thoma.com/str-vs-repr/" rel="alternate"></link><published>2018-10-28T20:00:00+01:00</published><updated>2018-10-28T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-10-28:/str-vs-repr/</id><summary type="html">&lt;p&gt;The goal of &lt;code&gt;__repr__&lt;/code&gt; is to be unambiguous and the goal of &lt;code&gt;__str__&lt;/code&gt; is to be readable. Bonus points, if &lt;code&gt;__repr__&lt;/code&gt; returns what is needed to create the object. Some examples are:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;repr&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;42&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1337&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
 &lt;span class="s1"&gt;'[42, 1337]'&lt;/span&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;repr&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="mi"&gt;42&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1337&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;

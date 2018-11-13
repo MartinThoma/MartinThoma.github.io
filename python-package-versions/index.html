@@ -17,11 +17,11 @@
 <meta name="keywords" content="Python, Code, " />
 
 <meta property="og:title" content="Python Package Versions "/>
-<meta property="og:url" content="../drafts/python-package-versions.html" />
+<meta property="og:url" content="../python-package-versions/" />
 <meta property="og:description" content="Python packages should (must?) have a version. It would be best if that version string was a semantic version, but this article is not about how your version string should look like. It&#39;s about how to have a consistent version string on PyPI and accessible via [yourpackage].__version__ - and preferably …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
-<meta property="og:article:published_time" content="2018-06-10T20:00:00+02:00" />
+<meta property="og:article:published_time" content="2018-11-13T20:00:00+01:00" />
 <meta name="twitter:title" content="Python Package Versions ">
 <meta name="twitter:description" content="Python packages should (must?) have a version. It would be best if that version string was a semantic version, but this article is not about how your version string should look like. It&#39;s about how to have a consistent version string on PyPI and accessible via [yourpackage].__version__ - and preferably …">
 <meta property="og:image" content="logos/python.png" />
@@ -95,7 +95,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../drafts/python-package-versions.html"> Python Package Versions  </a></h1>
+    <h1><a href="../python-package-versions/"> Python Package Versions  </a></h1>
     </header>
 </div>
 
@@ -103,7 +103,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#the-manual-approach" title="The Manual Approach">The Manual Approach</a></li><li><a class="toc-href" href="#version-python-file" title="Version Python File">Version Python File</a></li><li><a class="toc-href" href="#version-text-file" title="Version Text File">Version Text File</a></li><li><a class="toc-href" href="#reading-setuppy" title="Reading setup.py">Reading setup.py</a></li><li><a class="toc-href" href="#external-build-tools" title="External Build Tools">External Build Tools</a></li><li><a class="toc-href" href="#package-import" title="Package import">Package import</a></li><li><a class="toc-href" href="#version-control-integration" title="Version Control Integration">Version Control Integration</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#the-manual-approach" title="The Manual Approach">The Manual Approach</a></li><li><a class="toc-href" href="#version-python-file" title="Version Python File">Version Python File</a></li><li><a class="toc-href" href="#version-text-file" title="Version Text File">Version Text File</a></li><li><a class="toc-href" href="#reading-setuppy" title="Reading setup.py">Reading setup.py</a></li><li><a class="toc-href" href="#external-build-tools" title="External Build Tools">External Build Tools</a></li><li><a class="toc-href" href="#package-import" title="Package import">Package import</a></li><li><a class="toc-href" href="#version-control-integration" title="Version Control Integration">Version Control Integration</a></li><li><a class="toc-href" href="#what-others-do" title="What others do">What others do</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -171,6 +171,8 @@ solutions. I only wrap them up here.</p>
 <ul>
 <li>You use <code>exec</code>, about which linters complain as it is a security risk if used
   wrong.</li>
+<li><code>mypy</code> cannot know that the <code>__version__</code> variable is set in the <code>setup.py</code>.
+  It will give <code>error: Name '__version__' is not defined</code>.</li>
 </ul>
 <h2 id="version-text-file">Version Text File</h2>
 <p>Similar to the solution above, we use a text file which only contains the
@@ -273,6 +275,105 @@ pypi registration, etc. What really matters is the release manager making the
 decision to bless some well-tested revision id with a public name of some
 sort.</p>
 </blockquote>
+<h2 id="what-others-do">What others do</h2>
+<table>
+<tr>
+<th>Package</th>
+<th>setup.py</th>
+<th>package</th>
+<th>Versioning Scheme</th>
+</tr>
+<tr>
+<td>Scipy</td>
+<td>Manual</td>
+<td>?</td>
+<td>Semantic</td>
+</tr>
+<tr>
+<td>Numpy</td>
+<td>Manual</td>
+<td>?</td>
+<td>Semantic</td>
+</tr>
+<tr>
+<td><a href="https://github.com/python-pillow/Pillow">Pillow</a></td>
+<td>exec py</td>
+<td>manual</td>
+<td>Semantic</td>
+</tr>
+<tr>
+<td><a href="https://github.com/boto/boto3">boto3</a></td>
+<td>regex `__init__.py`</td>
+<td>manual</td>
+<td>Semantic</td>
+</tr>
+<tr>
+<td><a href="https://github.com/SethMMorton/natsort">natsort</a></td>
+<td>manual</td>
+<td>manual</td>
+<td>semantic</td>
+</tr>
+<tr>
+<td><a href="https://github.com/matplotlib/matplotlib">mantplotlib</a></td>
+<td>versioneer</td>
+<td>?</td>
+<td>?</td>
+</tr>
+<tr>
+<td><a href="https://github.com/pandas-dev/pandas">Pandas</a></td>
+<td>versioneer</td>
+<td>?</td>
+<td>?</td>
+</tr>
+<tr>
+<td><a href="https://github.com/scikit-learn/scikit-learn">scikit-learn</a></td>
+<td>import of sklearn.__version__</td>
+<td>manual</td>
+<td>semantic</td>
+</tr>
+<tr>
+<td><a href="https://github.com/tensorflow/tensorflow">tensorflow</a></td>
+<td>?</td>
+<td>?</td>
+<td>?</td>
+</tr>
+<tr>
+<td><a href="https://github.com/pytorch/pytorch">pytorch</a></td>
+<td>manual</td>
+<td>?</td>
+<td>?</td>
+</tr>
+<tr>
+<td>seaborn</td>
+<td>manual</td>
+<td>manual</td>
+<td>semantic</td>
+</tr>
+<tr>
+<td><a href="https://github.com/pallets/flask">Flask</a></td>
+<td>regex `__init__.py`</td>
+<td>manual</td>
+<td>semantic</td>
+</tr>
+<tr>
+<td><a href="https://github.com/django/django">Django</a></td>
+<td>import of django.__version__</td>
+<td>manual</td>
+<td>semantic</td>
+</tr>
+<tr>
+<td><a href="https://github.com/pytest-dev/pytest">pytest</a></td>
+<td>`use_scm_version`</td>
+<td>?</td>
+<td>?</td>
+</tr>
+<tr>
+<td><a href="https://github.com/tox-dev/tox">tox</a></td>
+<td>`use_scm_version`</td>
+<td>pluggy</td>
+<td></td>
+</tr>
+</table>
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="https://github.com/warner">Brian Warner</a>: <a href="https://blog.mozilla.org/warner/2012/01/31/version-string-management-in-python-introducing-python-versioneer/">Version String Management in Python: Introducing python-versioneer</a></li>
@@ -302,7 +403,7 @@ sort.</p>
         <section>
         <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2018-06-10T20:00:00+02:00">Jun 10, 2018</time>
+            <time pubdate="pubdate" datetime="2018-11-13T20:00:00+01:00">Nov 13, 2018</time>
             <br/>
             by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
             <h4>Category</h4>
@@ -310,7 +411,7 @@ sort.</p>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
                 <li><a href="../tags.html#python-ref">Python
-                    <span>89</span>
+                    <span>90</span>
 </a></li>
             </ul>
 <h4>Contact</h4>
