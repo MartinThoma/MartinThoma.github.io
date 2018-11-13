@@ -3,8 +3,7 @@ layout: post
 title: Python Package Versions
 slug: python-package-versions
 author: Martin Thoma
-status: draft
-date: 2018-06-10 20:00
+date: 2018-11-13 20:00
 category: Code
 tags: Python
 featured_image: logos/python.png
@@ -97,6 +96,8 @@ Negative:
 
 * You use `exec`, about which linters complain as it is a security risk if used
   wrong.
+* `mypy` cannot know that the `__version__` variable is set in the `setup.py`.
+  It will give `error: Name '__version__' is not defined`.
 
 
 ## Version Text File
@@ -235,6 +236,109 @@ Reading [Version String Management in Python: Introducing python-versioneer](htt
 > pypi registration, etc. What really matters is the release manager making the
 > decision to bless some well-tested revision id with a public name of some
 > sort.
+
+
+## What others do
+
+
+<table>
+    <tr>
+        <th>Package</th>
+        <th>setup.py</th>
+        <th>package</th>
+        <th>Versioning Scheme</th>
+    </tr>
+    <tr>
+        <td>Scipy</td>
+        <td>Manual</td>
+        <td>?</td>
+        <td>Semantic</td>
+    </tr>
+    <tr>
+        <td>Numpy</td>
+        <td>Manual</td>
+        <td>?</td>
+        <td>Semantic</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/python-pillow/Pillow">Pillow</a></td>
+        <td>exec py</td>
+        <td>manual</td>
+        <td>Semantic</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/boto/boto3">boto3</a></td>
+        <td>regex `__init__.py`</td>
+        <td>manual</td>
+        <td>Semantic</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/SethMMorton/natsort">natsort</a></td>
+        <td>manual</td>
+        <td>manual</td>
+        <td>semantic</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/matplotlib/matplotlib">mantplotlib</a></td>
+        <td>versioneer</td>
+        <td>?</td>
+        <td>?</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/pandas-dev/pandas">Pandas</a></td>
+        <td>versioneer</td>
+        <td>?</td>
+        <td>?</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/scikit-learn/scikit-learn">scikit-learn</a></td>
+        <td>import of sklearn.__version__</td>
+        <td>manual</td>
+        <td>semantic</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/tensorflow/tensorflow">tensorflow</a></td>
+        <td>?</td>
+        <td>?</td>
+        <td>?</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/pytorch/pytorch">pytorch</a></td>
+        <td>manual</td>
+        <td>?</td>
+        <td>?</td>
+    </tr>
+    <tr>
+        <td>seaborn</td>
+        <td>manual</td>
+        <td>manual</td>
+        <td>semantic</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/pallets/flask">Flask</a></td>
+        <td>regex `__init__.py`</td>
+        <td>manual</td>
+        <td>semantic</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/django/django">Django</a></td>
+        <td>import of django.__version__</td>
+        <td>manual</td>
+        <td>semantic</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/pytest-dev/pytest">pytest</a></td>
+        <td>`use_scm_version`</td>
+        <td>?</td>
+        <td>?</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/tox-dev/tox">tox</a></td>
+        <td>`use_scm_version`</td>
+        <td>pluggy</td>
+        <td></td>
+    </tr>
+</table>
 
 
 ## See also
