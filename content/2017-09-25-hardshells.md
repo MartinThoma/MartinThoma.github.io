@@ -4,8 +4,8 @@ title: Hardshell Jackets
 slug: hardshell-jackets
 author: Martin Thoma
 date: 2017-09-25 20:00
-category: Cyberculture
-tags: Hiking, Gear
+category: My bits and bytes
+tags: Hiking, Gear, Trekking
 featured_image: logos/hiking.png
 ---
 [My last hiking trip](https://martin-thoma.com/triglav-national-park/) was
@@ -190,3 +190,4 @@ TODO: image
 * [How to Choose the Best Hardshell Jacket](https://www.outdoorgearlab.com/topics/clothing-mens/best-hardshell-jacket/buying-advice)
 * [GORE-TEX Wash Tutorial](https://www.youtube.com/watch?v=I4N6ZuKTZ_c): Wash it often!
 * [Regenjacke & Regenhose waschen](http://www.scandics.de/regenjacke-tipps-beratung/regenjacke-waschen/)
+* [Hardshell Jackets](https://martin-thoma.com/hardshell-jackets/)
