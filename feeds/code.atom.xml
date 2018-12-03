@@ -1,5 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Code</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/code.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-11-13T20:00:00+01:00</updated><entry><title>Python Package Versions</title><link href="https://martin-thoma.com/python-package-versions/" rel="alternate"></link><published>2018-11-13T20:00:00+01:00</published><updated>2018-11-13T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-11-13:/python-package-versions/</id><summary type="html">&lt;p&gt;Python packages should (must?) have a version. It would be best if that
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Code</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/code.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-11-26T20:00:00+01:00</updated><entry><title>Type Systems</title><link href="https://martin-thoma.com/type-systems/" rel="alternate"></link><published>2018-11-26T20:00:00+01:00</published><updated>2018-11-26T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-11-26:/type-systems/</id><summary type="html">&lt;p&gt;The topic of type system keeps comming up when I hear people discuss
+programming languages. So let's summarize it.&lt;/p&gt;
+&lt;h2 id="dynamic-vs-static-typing"&gt;Dynamic vs Static Typing&lt;/h2&gt;
+&lt;p&gt;I like the definition of &lt;a href="https://pythonconquerstheuniverse.wordpress.com/2009/10/03/static-vs-dynamic-typing-of-programming-languages/"&gt;pythonconquerstheuniverse&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In a &lt;strong&gt;statically typed&lt;/strong&gt; language, every variable name is bound both
+a type (at compile time, by means of a data …&lt;/p&gt;&lt;/blockquote&gt;</summary><content type="html">&lt;p&gt;The topic of type system keeps comming up when I hear people discuss
+programming languages. So let's summarize it.&lt;/p&gt;
+&lt;h2 id="dynamic-vs-static-typing"&gt;Dynamic vs Static Typing&lt;/h2&gt;
+&lt;p&gt;I like the definition of &lt;a href="https://pythonconquerstheuniverse.wordpress.com/2009/10/03/static-vs-dynamic-typing-of-programming-languages/"&gt;pythonconquerstheuniverse&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In a &lt;strong&gt;statically typed&lt;/strong&gt; language, every variable name is bound both
+a type (at compile time, by means of a data declaration) and an object.&lt;/p&gt;
+&lt;p&gt;In a &lt;strong&gt;dynamically typed&lt;/strong&gt; language, every variable name is bound only to an
+object.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Something you can do in a dynamic language, but not in a static language:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;foo = "bar"
+foo = 9
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So the model you have in mind is different. In statically typed languages you
+imagine variables as containers for specific types of information. In dynamically
+typed languages, you imagine variables as post-it notes.&lt;/p&gt;
+&lt;p&gt;The advantage of statically typed languages is less confusion.&lt;/p&gt;
+&lt;h2 id="strong-vs-weak-typing"&gt;Strong vs Weak Typing&lt;/h2&gt;
+&lt;p&gt;Continuing with the definition of &lt;a href="https://pythonconquerstheuniverse.wordpress.com/2009/10/03/static-vs-dynamic-typing-of-programming-languages/"&gt;pythonconquerstheuniverse&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In a weakly typed language, variables can be implicitly coerced to unrelated
+types, whereas in a strongly typed language they cannot, and an explicit
+conversion is required.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;What you can do in weakly typed languages, but not in strongly typed languages:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;foo = "hello"
+bar = 1337
+foo + bar
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Instead, the strongly typed language needs something like that:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;foo = "hello"
+bar = 1337
+foo + str(bar)
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Note that this is a spectrum, but the example from above is where I draw the
+line.&lt;/p&gt;
+&lt;p&gt;I'd say strong is to be prefered, but not too strong. For example, if I add
+a float and a double I would not want to get an exception. Maybe.&lt;/p&gt;
+&lt;h2 id="explicit-vs-implicit-typing"&gt;Explicit vs Implicit Typing&lt;/h2&gt;
+&lt;p&gt;In an &lt;strong&gt;explicitly typed&lt;/strong&gt; language, all variable types are directly given by
+the developer.&lt;/p&gt;
+&lt;p&gt;In an &lt;strong&gt;implicitly typed&lt;/strong&gt; language, the language can infer some of the types.&lt;/p&gt;
+&lt;p&gt;Note that dynamically typed languages are always implicitly typed. Python likes
+to call that "duck typing": If it walks like a duck and quacks like a duck, it
+is a duck.&lt;/p&gt;
+&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;table class="table"&gt;
+&lt;tr&gt;
+&lt;th&gt;Language&lt;/th&gt;
+&lt;th&gt;Static&lt;/th&gt;
+&lt;th&gt;Strength&lt;/th&gt;
+&lt;th&gt;Type Expression&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Rust&lt;/td&gt;
+&lt;td&gt;static&lt;/td&gt;
+&lt;td&gt;strong&lt;/td&gt;
+&lt;td&gt;implicit&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;C++&lt;/td&gt;
+&lt;td&gt;static&lt;/td&gt;
+&lt;td&gt;strong&lt;/td&gt;
+&lt;td&gt;explicit&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;C&lt;/td&gt;
+&lt;td&gt;static&lt;/td&gt;
+&lt;td&gt;strong&lt;/td&gt;
+&lt;td&gt;explicit&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Java&lt;/td&gt;
+&lt;td&gt;static&lt;/td&gt;
+&lt;td&gt;strong&lt;/td&gt;
+&lt;td&gt;explicit&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Python&lt;/td&gt;
+&lt;td&gt;dynamic&lt;/td&gt;
+&lt;td&gt;strong&lt;/td&gt;
+&lt;td&gt;implicit&lt;sup&gt;☆&lt;/sup&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;JavaScript&lt;/td&gt;
+&lt;td&gt;dynamic&lt;/td&gt;
+&lt;td&gt;weak&lt;/td&gt;
+&lt;td&gt;implicit&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;PHP&lt;/td&gt;
+&lt;td&gt;dynamic&lt;/td&gt;
+&lt;td&gt;weak&lt;/td&gt;
+&lt;td&gt;implicit&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;sup&gt;☆&lt;/sup&gt; As of Python 3.5, explicit typing is possible&lt;/p&gt;
+&lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Wikipedia: &lt;a href="https://en.wikipedia.org/wiki/Comparison_of_programming_languages_by_type_system"&gt;Comparison of programming languages by type system&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Programming Languages"></category></entry><entry><title>Python Package Versions</title><link href="https://martin-thoma.com/python-package-versions/" rel="alternate"></link><published>2018-11-13T20:00:00+01:00</published><updated>2018-11-13T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-11-13:/python-package-versions/</id><summary type="html">&lt;p&gt;Python packages should (must?) have a version. It would be best if that
 version string was a &lt;a href="https://semver.org"&gt;semantic version&lt;/a&gt;, but this article
 is not about how your version string should look like. It's about how to have
 a consistent &lt;strong&gt;version string on PyPI&lt;/strong&gt; and &lt;strong&gt;accessible via
