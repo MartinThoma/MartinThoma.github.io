@@ -28,7 +28,9 @@ Another quality measure of down filling is the misture. The same Globetrotter
 YouTube video recommended 80/20 for everyday usage and 96/4 or 95/5 for sports.
 
 A synthetic alternative to down is PrimaLoft. It comes in 3 shapes: Gold, Silver,
-Black where Gold is the best and black is the worst.
+Black where Gold is the best and black is the worst. The weight per square meter
+determines how warm it is. 100 g/m² is for normal insualtion jackets; 200 g / m²
+is for super warm winter jackets.
 
 Then have a look at the sewing. If it is sewed through ("durchgesteppt") or
 ("Boxkammer") might make a differece.
@@ -38,33 +40,17 @@ stuffsack.
 
 ## Overview
 
+The ones with <span style="background-color: #c9f8c9;">green background color</span> were recommended for Nepal.
+
 <table class="table">
     <tr>
         <th>Product</th>
-        <th>Price</th>
-        <th>Stars</th>
-        <th>Ratings</th>
-        <th>Weight</th>
-        <th>Fill power (higher is better)</th>
+        <th style="width: 100px;">Price<abbr title="lower is better">&darr;</abbr></th>
+        <th>Stars<abbr title="higher is better">&uarr;</abbr></th>
+        <th>Ratings<abbr title="higher is better">&uarr;</abbr></th>
+        <th>Weight<abbr title="lower is better">&darr;</abbr></th>
+        <th>Fill power<abbr title="higher is better">&uarr;</abbr></th>
         <th>Filling</th>
-    </tr>
-    <tr>
-        <td><a href="https://www.bergfreunde.de/fjaellraeven-keb-expedition-down-jacket-daunenjacke/">FJÄLLRÄVEN - Keb Expedition Down</a></td>
-        <td>770 EUR</td>
-        <td>-</td>
-        <td>-</td>
-        <td>1240g</td>
-        <td>800 cuin</td>
-        <td>Dawn</td>
-    </tr>
-    <tr>
-        <td><a href="https://www.bergfreunde.de/fjaellraeven-keb-touring-down-jacket-daunenjacke/">FJÄLLRÄVEN - Keb Touring Down Jacket</a></td>
-        <td>460 EUR</td>
-        <td>-</td>
-        <td>-</td>
-        <td>600g</td>
-        <td>800 cuin</td>
-        <td>Dawn</td>
     </tr>
     <tr>
         <td><a href="https://www.bergfreunde.de/arcteryx-cerium-lt-hoody-daunenjacke/">arcteryx cerium lt</a></td>
@@ -73,27 +59,63 @@ stuffsack.
         <td>2</td>
         <td>310g</td>
         <td>850 cuin</td>
-        <td></td>
+        <td>- has thumb strap (Daumenschlaufe)</td>
     </tr>
     <tr>
+        <td><a href="https://www.trekkinn.com/outdoor-mountain/haglofs-essens-mimic-hood/136143725/p">Haglöfs Essens Mimic Hood</a></td>
+        <td>141 EUR</td>
+        <td>-</td>
+        <td>-</td>
+        <td>204g</td>
+        <td>800 cuin</td>
+        <td>90/10 Down; 30D</td>
+    </tr>
+    <tr>
+        <td><a href="https://www.bergfreunde.de/montane-quattro-fusion-jacket-daunenjacke/">MONTANE - Quattro Fusion</a></td>
+        <td>270 EUR</td>
+        <td>-</td>
+        <td>-</td>
+        <td>472g</td>
+        <td>800 cuin</td>
+        <td>90/10 Down; <a href="https://www.trailspace.com/gear/montane/quattro-fusion-jacket/">bad review for cold</a></td>
+    </tr>
+    <tr>
+        <td><a href="https://www.bergfreunde.de/fjaellraeven-keb-expedition-down-jacket-daunenjacke/">FJÄLLRÄVEN - Keb Expedition Down</a></td>
+        <td>770 EUR</td>
+        <td>-</td>
+        <td>-</td>
+        <td>1240g</td>
+        <td>800 cuin</td>
+        <td>Down</td>
+    </tr>
+    <tr>
+        <td><a href="https://www.bergfreunde.de/fjaellraeven-keb-touring-down-jacket-daunenjacke/">FJÄLLRÄVEN - Keb Touring Down Jacket</a></td>
+        <td>460 EUR</td>
+        <td>-</td>
+        <td>-</td>
+        <td>600g</td>
+        <td>800 cuin</td>
+        <td>Down</td>
+    </tr>
+    <tr style="background-color: #c9f8c9;">
         <td><a href="https://www.bergfreunde.de/mountain-hardwear-ghost-whisperer-down-jacket/">MOUNTAIN HARDWEAR - Ghost Whisperer</a></td>
         <td>300 EUR</td>
         <td>-</td>
         <td>-</td>
         <td>197g</td>
         <td>800 cuin</td>
-        <td>Down</td>
+        <td>Down; <a href="https://www.trailspace.com/gear/mountain-hardwear/ghost-whisperer-hooded-down-jacket/">Good cold review at -15°C</a></td>
     </tr>
-    <tr>
-        <td>Patagonia Downer</td>
+    <tr style="background-color: #c9f8c9;">
+        <td><a href="https://www.bergfreunde.de/patagonia-down-sweater-daunenjacke/">PATAGONIA - Down Sweater</a></td>
         <td>155 EUR</td>
         <td>-</td>
         <td>0</td>
         <td>359g</td>
-        <td>800 ciun</td>
-        <td></td>
+        <td>800 cuin</td>
+        <td>Down</td>
     </tr>
-    <td>
+    <tr>
         <td><a href="https://www.bergfreunde.de/vaude-kabru-hooded-jacket-iii-daunenjacke/">VAUDE - Kabru Hooded Jacket III</a></td>
         <td>250 EUR</td>
         <td>-</td>
@@ -109,7 +131,7 @@ stuffsack.
         <td>24</td>
         <td>585g</td>
         <td>800 cuin</td>
-        <td>Gänsedaune</td>
+        <td>Gänsedaune; <a href="https://www.trailspace.com/gear/rab/neutrino-endurance-jacket/">Good review for cold</a></td>
     </tr>
     <tr>
         <td><a href="https://www.bergfreunde.de/black-yak-bakosi-jacket-daunenjacke/">BLACK YAK - Bakosi Jacket</a></td>
@@ -118,7 +140,7 @@ stuffsack.
         <td>-</td>
         <td>483 g</td>
         <td>750 cuin</td>
-        <td>Primaloft Gold, Goose Down</td>
+        <td>Primaloft Gold, Goose Down; water proof</td>
     </tr>
     <tr>
         <td><a href="https://www.bergfreunde.de/black-diamond-forge-hoody-daunenjacke/">BLACK DIAMOND - Forge Hoody</a></td>
@@ -128,6 +150,24 @@ stuffsack.
         <td>430g</td>
         <td>700 cuin</td>
         <td>Down</td>
+    </tr>
+    <tr>
+        <td><a href="https://www.bergfreunde.de/jack-wolfskin-zenon-storm-daunenjacke/">JACK WOLFSKIN - Zenon Storm</a></td>
+        <td>160 EUR</td>
+        <td>-</td>
+        <td>-</td>
+        <td>435g</td>
+        <td>700 cuin</td>
+        <td>Down</td>
+    </tr>
+    <tr>
+        <td><a href="https://www.bergfreunde.de/salomon-haloes-down-hoodie-daunenjacke/">SALOMON - Haloes Down Hoodie</a></td>
+        <td>250 EUR</td>
+        <td>-</td>
+        <td>-</td>
+        <td>480g</td>
+        <td>700 cuin</td>
+        <td>90/10 Down, 80 g/m²</td>
     </tr>
     <tr>
         <td>Outdoor Research Transcendent</td>
@@ -154,7 +194,7 @@ stuffsack.
         <td>-</td>
         <td>337g</td>
         <td></td>
-        <td>100% Polyester</td>
+        <td>PrimaLoft Gold; 60 g/ m²</td>
     </tr>
     <tr>
         <td>NORTH FACE Tonnerro</td>
@@ -175,6 +215,13 @@ stuffsack.
         <td></td>
     </tr>
 </table>
+
+## Alternatives
+
+* [Arc'teryx Atom AR](https://amzn.to/2Q4zSqO): Core loft, 252 EUR, 476g (AR: All-Round)
+    * Arc'teryx Atom LT: might be "light", more breathable / less wind resestant - [see review](http://www.sunrisegear.com/2016/08/arcteryx-atom-lt-vs-atom-ar-hoody-review.html)
+    * Arc'teryx Atom SL: [Good review](https://www.bergzeit.de/magazin/arcteryx-atom-sl-hoody-isolationsjacke-test/) - super light?
+* [BERGTAGEN INSULATION JACKET M](https://www.fjallraven.de/shop/fjallraven-bergtagen-insulation-jacket-m-F87300-hokkaido-orange/?sku=7323450468651) - see [what down is suggested for](https://foxtrail.fjallraven.com/2017/11/03/down-vs-synthetic/)
 
 ## See also
 
