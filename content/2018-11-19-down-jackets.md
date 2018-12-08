@@ -53,7 +53,7 @@ The ones with <span style="background-color: #c9f8c9;">green background color</s
         <th>Filling</th>
     </tr>
     <tr>
-        <td><a href="https://www.bergfreunde.de/arcteryx-cerium-lt-hoody-daunenjacke/">arcteryx cerium lt</a></td>
+        <td><a href="https://www.bergfreunde.de/arcteryx-cerium-lt-hoody-daunenjacke/">Arc'teryx Cerium LT</a></td>
         <td>336 EUR</td>
         <td>5</td>
         <td>2</td>
@@ -71,7 +71,7 @@ The ones with <span style="background-color: #c9f8c9;">green background color</s
         <td>90/10 Down; 30D</td>
     </tr>
     <tr>
-        <td><a href="https://www.bergfreunde.de/montane-quattro-fusion-jacket-daunenjacke/">MONTANE - Quattro Fusion</a></td>
+        <td><a href="https://www.bergfreunde.de/montane-quattro-fusion-jacket-daunenjacke/">Montane - Quattro Fusion</a></td>
         <td>270 EUR</td>
         <td>-</td>
         <td>-</td>
@@ -98,7 +98,7 @@ The ones with <span style="background-color: #c9f8c9;">green background color</s
         <td>Down</td>
     </tr>
     <tr style="background-color: #c9f8c9;">
-        <td><a href="https://www.bergfreunde.de/mountain-hardwear-ghost-whisperer-down-jacket/">MOUNTAIN HARDWEAR - Ghost Whisperer</a></td>
+        <td><a href="https://www.bergfreunde.de/mountain-hardwear-ghost-whisperer-down-jacket/">Mountain Hardwear - Ghost Whisperer</a></td>
         <td>300 EUR</td>
         <td>-</td>
         <td>-</td>
@@ -107,7 +107,7 @@ The ones with <span style="background-color: #c9f8c9;">green background color</s
         <td>Down; <a href="https://www.trailspace.com/gear/mountain-hardwear/ghost-whisperer-hooded-down-jacket/">Good cold review at -15°C</a></td>
     </tr>
     <tr style="background-color: #c9f8c9;">
-        <td><a href="https://www.bergfreunde.de/patagonia-down-sweater-daunenjacke/">PATAGONIA - Down Sweater</a></td>
+        <td><a href="https://www.bergfreunde.de/patagonia-down-sweater-daunenjacke/">Patagonia - Down Sweater</a></td>
         <td>155 EUR</td>
         <td>-</td>
         <td>0</td>
@@ -134,7 +134,7 @@ The ones with <span style="background-color: #c9f8c9;">green background color</s
         <td>Gänsedaune; <a href="https://www.trailspace.com/gear/rab/neutrino-endurance-jacket/">Good review for cold</a></td>
     </tr>
     <tr>
-        <td><a href="https://www.bergfreunde.de/black-yak-bakosi-jacket-daunenjacke/">BLACK YAK - Bakosi Jacket</a></td>
+        <td><a href="https://www.bergfreunde.de/black-yak-bakosi-jacket-daunenjacke/">Black Yak - Bakosi Jacket</a></td>
         <td>500 EUR</td>
         <td>-</td>
         <td>-</td>
@@ -143,7 +143,7 @@ The ones with <span style="background-color: #c9f8c9;">green background color</s
         <td>Primaloft Gold, Goose Down; water proof</td>
     </tr>
     <tr>
-        <td><a href="https://www.bergfreunde.de/black-diamond-forge-hoody-daunenjacke/">BLACK DIAMOND - Forge Hoody</a></td>
+        <td><a href="https://www.bergfreunde.de/black-diamond-forge-hoody-daunenjacke/">Black Diamond - Forge Hoody</a></td>
         <td>180 EUR</td>
         <td>-</td>
         <td>-</td>
@@ -152,7 +152,7 @@ The ones with <span style="background-color: #c9f8c9;">green background color</s
         <td>Down</td>
     </tr>
     <tr>
-        <td><a href="https://www.bergfreunde.de/jack-wolfskin-zenon-storm-daunenjacke/">JACK WOLFSKIN - Zenon Storm</a></td>
+        <td><a href="https://www.bergfreunde.de/jack-wolfskin-zenon-storm-daunenjacke/">Jack Wolfskin - Zenon Storm</a></td>
         <td>160 EUR</td>
         <td>-</td>
         <td>-</td>
@@ -161,7 +161,7 @@ The ones with <span style="background-color: #c9f8c9;">green background color</s
         <td>Down</td>
     </tr>
     <tr>
-        <td><a href="https://www.bergfreunde.de/salomon-haloes-down-hoodie-daunenjacke/">SALOMON - Haloes Down Hoodie</a></td>
+        <td><a href="https://www.bergfreunde.de/salomon-haloes-down-hoodie-daunenjacke/">Salomon - Haloes Down Hoodie</a></td>
         <td>250 EUR</td>
         <td>-</td>
         <td>-</td>
@@ -188,7 +188,7 @@ The ones with <span style="background-color: #c9f8c9;">green background color</s
         <td></td>
     </tr>
     <tr>
-        <td><a href="https://www.bergfreunde.de/patagonia-nano-puff-jacket-kunstfaserjacke/">PATAGONIA - Nano Puff Jacket</a></td>
+        <td><a href="https://www.bergfreunde.de/patagonia-nano-puff-jacket-kunstfaserjacke/">Patagonia - Nano Puff Jacket</a></td>
         <td>210 EUR</td>
         <td>-</td>
         <td>-</td>
@@ -197,7 +197,7 @@ The ones with <span style="background-color: #c9f8c9;">green background color</s
         <td>PrimaLoft Gold; 60 g/ m²</td>
     </tr>
     <tr>
-        <td>NORTH FACE Tonnerro</td>
+        <td>North Face Tonnerro</td>
         <td>200 EUR</td>
         <td>-</td>
         <td>0</td>
@@ -218,12 +218,42 @@ The ones with <span style="background-color: #c9f8c9;">green background color</s
 
 ## Alternatives
 
-* [Arc'teryx Atom AR](https://amzn.to/2Q4zSqO): Core loft, 252 EUR, 476g (AR: All-Round)
-    * Arc'teryx Atom LT: might be "light", more breathable / less wind resestant - [see review](http://www.sunrisegear.com/2016/08/arcteryx-atom-lt-vs-atom-ar-hoody-review.html)
-    * Arc'teryx Atom SL: [Good review](https://www.bergzeit.de/magazin/arcteryx-atom-sl-hoody-isolationsjacke-test/) - super light?
-* [BERGTAGEN INSULATION JACKET M](https://www.fjallraven.de/shop/fjallraven-bergtagen-insulation-jacket-m-F87300-hokkaido-orange/?sku=7323450468651) - see [what down is suggested for](https://foxtrail.fjallraven.com/2017/11/03/down-vs-synthetic/)
+<table class="table">
+    <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Weight</th>
+        <th>Filling</th>
+    </tr>
+    <tr>
+        <td>Arc'teryx <a href="https://amzn.to/2Q4zSqO">Atom AR</a></td>
+        <td>252 EUR</td>
+        <td>476g</td>
+        <td>Core loft</td>
+    </tr>
+    <tr>
+        <td><a href="https://www.globetrotter.de/shop/fjaellraeven-bergtagen-insulation-jacket-m-303510-mountain-blue/">Bergtagen Insulation Jaket M</a></td>
+        <td>390 EUR</td>
+        <td>798g (M)</td>
+        <td>100 g/m&sup2;&nbsp;G-Loft Supreme</td>
+    </tr>
+    <tr>
+        <td><a href="https://www.fjallraven.de/shop/fjallraven-bergtagen-lite-insulation-jkt-m-F83984-hokkaido-orange/">Bergtagen Lite Insulation Jaket M</a></td>
+        <td>330 EUR</td>
+        <td>430g (M)</td>
+        <td>60 g/m&sup2;&nbsp;G-Loft Supreme</td>
+    </tr>
+</table>
+
+Notes for Arc'terxy:
+
+* AR is for All-Round
+* LT might be "light" (more breathable / lass wind resistant) - [see review](http://www.sunrisegear.com/2016/08/arcteryx-atom-lt-vs-atom-ar-hoody-review.html)
+* SL: [Good review](https://www.bergzeit.de/magazin/arcteryx-atom-sl-hoody-isolationsjacke-test/) - super light?
+* Bergtagen
 
 ## See also
 
+* See [what down is suggested for](https://foxtrail.fjallraven.com/2017/11/03/down-vs-synthetic/)
 * https://www.packliste-reise.de/reise-equipment-test/beste-daunenjacke/
 * https://www.outdoor-magazin.com/test/jacken/daunenjacken-kunstfaserjacken-test-2017.1640170.3.htm
