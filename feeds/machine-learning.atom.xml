@@ -1,5 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Machine Learning</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/machine-learning.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-07-18T20:00:00+02:00</updated><entry><title>Regression</title><link href="https://martin-thoma.com/regression/" rel="alternate"></link><published>2018-07-18T20:00:00+02:00</published><updated>2018-07-18T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-07-18:/regression/</id><summary type="html">&lt;div class="info"&gt;A while ago, this link pointed to the content which is now in the &lt;a href="https://martin-thoma.com/forecasting/"&gt;Forecasting article&lt;/a&gt;.&lt;/div&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Machine Learning</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/machine-learning.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-12-14T20:00:00+01:00</updated><entry><title>Perfect Models</title><link href="https://martin-thoma.com/perfect-models/" rel="alternate"></link><published>2018-12-14T20:00:00+01:00</published><updated>2018-12-14T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-12-14:/perfect-models/</id><summary type="html">&lt;p&gt;When you develop a model, you want the optimal model. The perfect one.&lt;/p&gt;
+&lt;p&gt;The first problem with that desire are diagonal goals:&lt;/p&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;a href="../images/2018/12/model-pick-2.png"&gt;&lt;img alt="A jellyfish" src="../images/2018/12/model-pick-2.png" style="width: 512px;"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;Diagonal goals in model development&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Typical goals when designing a model are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Quality: Have a high accuracy, low error, high &lt;span class="math"&gt;\(F_\beta\)&lt;/span&gt; score, ...&lt;/li&gt;
+&lt;li&gt;Production&lt;ul&gt;
+&lt;li&gt;Inference speed: The faster …&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;When you develop a model, you want the optimal model. The perfect one.&lt;/p&gt;
+&lt;p&gt;The first problem with that desire are diagonal goals:&lt;/p&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;a href="../images/2018/12/model-pick-2.png"&gt;&lt;img alt="A jellyfish" src="../images/2018/12/model-pick-2.png" style="width: 512px;"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;Diagonal goals in model development&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Typical goals when designing a model are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Quality: Have a high accuracy, low error, high &lt;span class="math"&gt;\(F_\beta\)&lt;/span&gt; score, ...&lt;/li&gt;
+&lt;li&gt;Production&lt;ul&gt;
+&lt;li&gt;Inference speed: The faster it is in production, the better&lt;/li&gt;
+&lt;li&gt;Inference memory consumtion: Super important if it should run on small machines&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Training:&lt;ul&gt;
+&lt;li&gt;Training speed: The more episodes you can train in 1h, the better&lt;/li&gt;
+&lt;li&gt;Convergence speed: The less episodes you need until convergence, the better&lt;/li&gt;
+&lt;li&gt;Training memory consumption: You might have a small GPU for training&lt;/li&gt;
+&lt;li&gt;Stability: If you train with 10 different initializations, you want to get 10 similar results&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Sometimes, however, you can build perfect models. It is basically when you
+know how the data generating process works.&lt;/p&gt;
+&lt;h2 id="tensorflow-playground"&gt;Tensorflow Playground&lt;/h2&gt;
+&lt;p&gt;Let's get some perfect solutions for Tensorflow playground.&lt;/p&gt;
+&lt;p&gt;All of the datasets have points &lt;span class="math"&gt;\((x_1, x_2)\)&lt;/span&gt; which are assigned to either the
+blue class or to the orange class.&lt;/p&gt;
+&lt;p&gt;The only input-features you can choose are&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(x_1, x_2\)&lt;/span&gt;: Linear&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(x_1^2, x_2^2\)&lt;/span&gt;: Quadratic&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(x_1 \cdot x_2\)&lt;/span&gt;: Multiplication&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(\sin(x_1), \sin(x_2)\)&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="exclusive-or"&gt;Exclusive Or&lt;/h3&gt;
+&lt;p&gt;You can generate this dataset by drawing &lt;span class="math"&gt;\((x_1, x_2)\)&lt;/span&gt; from &lt;span class="math"&gt;\([-1, 1] \times [-1, 1]\)&lt;/span&gt;
+and assigning the classes by&lt;/p&gt;
+&lt;div class="math"&gt;\begin{cases}
+    (x_1 &amp;gt; 0 \text{ AND } x_2 &amp;gt; 0) OR (x_1 &amp;lt; 0 \text{ AND } x_2 &amp;lt; 0)&amp;amp;\text{orange}\\
+    (x_1 &amp;gt; 0 \text{ AND } x_2 &amp;lt; 0) OR (x_1 &amp;lt; 0 \text{ AND } x_2 &amp;gt; 0)&amp;amp;\text{blue}\\
+\end{cases}&lt;/div&gt;
+&lt;p&gt;It happens to be that this property is the case when you multiply the two values:&lt;/p&gt;
+&lt;div class="math"&gt;\begin{cases}
+    x_1 \cdot x_2 &amp;gt; 0&amp;amp;\text{orange}\\
+    x_1 \cdot x_2 &amp;lt; 0&amp;amp;\text{blue}\\
+\end{cases}&lt;/div&gt;
+&lt;p&gt;Hence with multiplication you can get the function directly:&lt;/p&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;a href="../images/2018/12/xor-dataset.png"&gt;&lt;img alt="XOR dataset solution" src="../images/2018/12/xor-dataset.png" style="width: 512px;"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;XOR dataset solution&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h3 id="circle-dataset"&gt;Circle Dataset&lt;/h3&gt;
+&lt;p&gt;The circle dataset can be generated by drawing &lt;span class="math"&gt;\(r \in [0, 6]\)&lt;/span&gt; and &lt;span class="math"&gt;\(\theta \in [0, 1]\)&lt;/span&gt;.
+The rule to assign the class is then&lt;/p&gt;
+&lt;p&gt;$$
+&lt;/p&gt;
+&lt;div class="math"&gt;\begin{align}
+x_1 &amp;amp;= r \cdot \cos(\theta)\\
+x_2 &amp;amp;= r \cdot \sin(\theta)
+\end{align}&lt;/div&gt;
+&lt;p&gt;and then&lt;/p&gt;
+&lt;div class="math"&gt;$$
+\begin{cases}
+    x_1^2 + x_2^2 &amp;lt; t&amp;amp;\text{blue}\\
+    x_1^2 + x_2^2 \geq t &amp;amp; \text{orange}
+\end{cases}
+$$&lt;/div&gt;
+&lt;p&gt;Here the solution is pretty obvious: It's a linear model of the squared inputs:&lt;/p&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;a href="../images/2018/12/circles-dataset.png"&gt;&lt;img alt="Circles dataset solution" src="../images/2018/12/circles-dataset.png" style="width: 512px;"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;Circles dataset solution&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h3 id="gaussian"&gt;Gaussian&lt;/h3&gt;
+&lt;p&gt;The Gaussian dataset seems to have the blue center in &lt;span class="math"&gt;\((2, 2)\)&lt;/span&gt; and the orange
+center in &lt;span class="math"&gt;\((-2, -2)\)&lt;/span&gt;. This is a bit more difficult to generate, but you can see
+that the optimal decision boundary is &lt;span class="math"&gt;\(x_2 = -x_1\)&lt;/span&gt;. Everything below is more
+likely to be orange, everything above is more likely to be blue.&lt;/p&gt;
+&lt;div class="math"&gt;$$
+\begin{cases}
+    x_2 &amp;lt; - x_1&amp;amp;\text{orange}\\
+    x_2 &amp;gt; - x_1 &amp;amp; \text{blue}
+\end{cases}
+$$&lt;/div&gt;
+&lt;p&gt;and hence the model:&lt;/p&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;a href="../images/2018/12/gaussian-dataset.png"&gt;&lt;img alt="Gaussian dataset solution" src="../images/2018/12/gaussian-dataset.png" style="width: 512px;"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;Gaussian dataset solution&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h3 id="spirals"&gt;Spirals&lt;/h3&gt;
+&lt;p&gt;Generating the spirals is a bit more complicated. I've added a &lt;a href="https://github.com/MartinThoma/algorithms/blob/master/ML/playground/dataset_generation.py"&gt;gist&lt;/a&gt; which generates a dataset
+which is super similar.&lt;/p&gt;
+&lt;p&gt;Basically, it is choosing &lt;span class="math"&gt;\(r \in R_{\geq 0}\)&lt;/span&gt;. The &lt;span class="math"&gt;\(\alpha \in [0, 360)\)&lt;/span&gt; defines
+the class, e.g. &lt;span class="math"&gt;\(\alpha_\text{orange}=180\)&lt;/span&gt; and &lt;span class="math"&gt;\(\alpha_\text{blue}=90\)&lt;/span&gt;&lt;/p&gt;
+&lt;div class="math"&gt;$$
+\begin{algin}
+x_1 &amp;amp;= -r \cdot \cos(\alpha)\\
+x_2 &amp;amp;= r \cdot \sin(\alpha)
+\end{align}
+$$&lt;/div&gt;
+&lt;p&gt;Hence finding the class is related to finding the &lt;span class="math"&gt;\(\alpha\)&lt;/span&gt;:&lt;/p&gt;
+&lt;div class="math"&gt;$$
+\begin{algin}
+\cos^{-1}(-\frac{x_1}{r}) &amp;amp;= \alpha\\
+\sin^{-1}(\frac{x_2}{r}) &amp;amp;= \alpha
+\end{align}
+$$&lt;/div&gt;
+&lt;p&gt;But neither &lt;span class="math"&gt;\(\cos^{-1}\)&lt;/span&gt; nor &lt;span class="math"&gt;\(\sin^{-1}\)&lt;/span&gt; are available as input features. And,
+more relevant, we don't have &lt;span class="math"&gt;\(r\)&lt;/span&gt;. &lt;span class="math"&gt;\(r\)&lt;/span&gt; is basically the distance from the &lt;span class="math"&gt;\((0, 0)\)&lt;/span&gt;.
+So &lt;span class="math"&gt;\(r = \sqrt{x_1^2 + x_2^2}\)&lt;/span&gt;. Hence we need &lt;span class="math"&gt;\(x_1^2\)&lt;/span&gt; and &lt;span class="math"&gt;\(x_2^2\)&lt;/span&gt; as features.&lt;/p&gt;
+&lt;p&gt;This is where I'm stuck. My intuition tells me that tanh is a nice activation
+function for this problem, because it is one of the geometric functions. Let's
+see how far we get with that:&lt;/p&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;a href="../images/2018/12/spiral-dataset.png"&gt;&lt;img alt="Spiral dataset solution" src="../images/2018/12/spiral-dataset.png" style="width: 512px;"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;Spiral dataset solution&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;So with 2 hidden layers, it can be done in about 250 episodes. No
+regularization, only squared and linear features. But looking at the features
+of the first hidden layer, we can see that it mostly builds circle-like
+features. The spiral has only 3 rotations, so it is rather easy to fit it. My
+guess is that the number of rotations directly influences the number of neurons
+you need in the first hidden layer.&lt;/p&gt;
+&lt;p&gt;The training with a batch size of 8 often has a phase of big instability (high jumps in the loss curve).
+Increasing the batch size leads to a more smooth loss curve.&lt;/p&gt;
+&lt;p&gt;Typically, after around 1000 epochs the training is done and the result looks
+fine.&lt;/p&gt;
+&lt;h2 id="how-regularization-can-destroy-your-model_1"&gt;How Regularization can destroy your model&lt;/h2&gt;
+&lt;p&gt;Look at &lt;a href="https://playground.tensorflow.org/#activation=tanh&amp;amp;batchSize=10&amp;amp;dataset=spiral&amp;amp;regDataset=reg-plane&amp;amp;learningRate=0.03&amp;amp;regularizationRate=0.03&amp;amp;noise=0&amp;amp;networkShape=8,2&amp;amp;seed=0.13062&amp;amp;showTestData=false&amp;amp;discretize=false&amp;amp;percTrainData=50&amp;amp;x=true&amp;amp;y=true&amp;amp;xTimesY=false&amp;amp;xSquared=false&amp;amp;ySquared=false&amp;amp;cosX=false&amp;amp;sinX=true&amp;amp;cosY=false&amp;amp;sinY=true&amp;amp;collectStats=false&amp;amp;problem=classification&amp;amp;initZero=false&amp;amp;hideText=false"&gt;this network&lt;/a&gt;.
+If you add any regularization with a rate of 0.003 or more, it is not able to learn anymore.&lt;/p&gt;</content><category term="Machine Learning"></category></entry><entry><title>Regression</title><link href="https://martin-thoma.com/regression/" rel="alternate"></link><published>2018-07-18T20:00:00+02:00</published><updated>2018-07-18T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-07-18:/regression/</id><summary type="html">&lt;div class="info"&gt;A while ago, this link pointed to the content which is now in the &lt;a href="https://martin-thoma.com/forecasting/"&gt;Forecasting article&lt;/a&gt;.&lt;/div&gt;
 &lt;p&gt;Regression is one of the core tasks in machine learning. In this task, you get
 some input and your target variable is a single floating point number. For
 example, predicting the price of a …&lt;/p&gt;</summary><content type="html">&lt;div class="info"&gt;A while ago, this link pointed to the content which is now in the &lt;a href="https://martin-thoma.com/forecasting/"&gt;Forecasting article&lt;/a&gt;.&lt;/div&gt;
