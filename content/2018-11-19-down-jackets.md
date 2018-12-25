@@ -5,7 +5,7 @@ slug: down-jackets
 author: Martin Thoma
 date: 2018-11-19 20:00
 category: My bits and bytes
-tags: Hiking, Trekking
+tags: Hiking, Gear, Trekking
 featured_image: logos/hiking.png
 ---
 It's getting below 0 °C in Munich again and I'm looking for cloths for Nepal.
@@ -38,9 +38,21 @@ Then have a look at the sewing. If it is sewed through ("durchgesteppt") or
 Some jackets you can package it really well where the chest pocket doubles as a
 stuffsack.
 
+## Features
+
+* Buttons to close: nice for ventilation and as an alternative in case the zipper breaks
+* Pockets: Front-hip, front-breast, inside - especially the inside one might be
+  important for water or electronic devices!
+* Draw chords: At the bottom of the jacket to prevent cold air from comming in
+* Elastic part at the hand to make sure it closes well
+
 ## Overview
 
 The ones with <span style="background-color: #c9f8c9;">green background color</span> were recommended for Nepal.
+
+Self-Stowing Pocket = Self-pocketing: Some jackets come with an inner pocket in
+which you can pack itself. Some, like the Arc'teryx Jackets, are meant to be
+self-pocketed into the arms.
 
 <table class="table">
     <tr>
@@ -59,16 +71,25 @@ The ones with <span style="background-color: #c9f8c9;">green background color</s
         <td>2</td>
         <td>310g</td>
         <td>850 cuin</td>
-        <td>- has thumb strap (Daumenschlaufe)</td>
+        <td>- has thumb strap (Daumenschlaufe); Camp-Jacket</td>
     </tr>
     <tr>
-        <td><a href="https://www.trekkinn.com/outdoor-mountain/haglofs-essens-mimic-hood/136143725/p">Haglöfs Essens Mimic Hood</a></td>
-        <td>141 EUR</td>
+        <td><a href="https://www.bergfreunde.de/arcteryx-cerium-sv-hoody-daunenjacke/">Arc'teryx Cerium SV</a></td>
+        <td>450 EUR</td>
+        <td>5</td>
+        <td>2</td>
+        <td>410g (M)</td>
+        <td>850 cuin</td>
+        <td>Coreloft; Gänsedaune</td>
+    </tr>
+    <tr>
+        <td><a href="https://www.bergfreunde.de/hagloefs-essens-down-hood-daunenjacke/">Haglöfs Essens Down Hood</a></td>
+        <td>203 EUR</td>
         <td>-</td>
         <td>-</td>
-        <td>204g</td>
+        <td>335 (L)</td>
         <td>800 cuin</td>
-        <td>90/10 Down; 30D</td>
+        <td>90/10 Down; 20D; 36 g/m²</td>
     </tr>
     <tr>
         <td><a href="https://www.bergfreunde.de/montane-quattro-fusion-jacket-daunenjacke/">Montane - Quattro Fusion</a></td>
@@ -226,16 +247,22 @@ The ones with <span style="background-color: #c9f8c9;">green background color</s
         <th>Filling</th>
     </tr>
     <tr>
+        <td>Haglöfs <a href="https://www.trekkinn.com/outdoor-mountain/haglofs-essens-mimic-hood/136143725/p"> Essens Mimic Hood</a> (<a href="https://www.bergfreunde.de/hagloefs-essens-mimic-hood-kunstfaserjacke/">2</a>)</td>
+        <td>141 EUR</td>
+        <td>285g (L)</td>
+        <td>48 g/m²; 30D</td>
+    </tr>
+    <tr>
         <td>Arc'teryx <a href="https://amzn.to/2Q4zSqO">Atom AR</a></td>
         <td>252 EUR</td>
         <td>476g</td>
-        <td>Core loft</td>
+        <td>Core loft; Midlayern</td>
     </tr>
     <tr>
         <td><a href="https://www.globetrotter.de/shop/fjaellraeven-bergtagen-insulation-jacket-m-303510-mountain-blue/">Bergtagen Insulation Jaket M</a></td>
         <td>390 EUR</td>
         <td>798g (M)</td>
-        <td>100 g/m&sup2;&nbsp;G-Loft Supreme</td>
+        <td>100 g/m&sup2;&nbsp;G-Loft Supreme; Self-pocketing</td>
     </tr>
     <tr>
         <td><a href="https://www.fjallraven.de/shop/fjallraven-bergtagen-lite-insulation-jkt-m-F83984-hokkaido-orange/">Bergtagen Lite Insulation Jaket M</a></td>
@@ -247,13 +274,28 @@ The ones with <span style="background-color: #c9f8c9;">green background color</s
 
 Notes for Arc'terxy:
 
-* AR is for All-Round
-* LT might be "light" (more breathable / lass wind resistant) - [see review](http://www.sunrisegear.com/2016/08/arcteryx-atom-lt-vs-atom-ar-hoody-review.html)
-* SL: [Good review](https://www.bergzeit.de/magazin/arcteryx-atom-sl-hoody-isolationsjacke-test/) - super light?
-* Bergtagen
+* SL: [Good review](https://www.bergzeit.de/magazin/arcteryx-atom-sl-hoody-isolationsjacke-test/) - super light
+* LT might be "light weight" (more breathable / lass wind resistant) - [see review](http://www.sunrisegear.com/2016/08/arcteryx-atom-lt-vs-atom-ar-hoody-review.html)
+* FL - "Fast and Light"
+* AR is for All- ARound
+* SV is for Severe Conditions
+* Fission SV
+* [ZETA AR](https://arcteryx.com/us/en/shop/mens/zeta-ar-jacket)
+
+
+Notes for FJÄLLRÄVEN:
+
+* Bergtagen is the new collection, Keb is the old one.
+
+
+Comments ([source](https://www.reddit.com/r/Ultralight/comments/7tknq2/atom_lt_vs_cerium_lt/dtdbdw3/)):
+
+* Atom LT is a midlayer. I heard it best described as an ice climbing jacket.
+* Cerium LT is a camp jacket.
 
 ## See also
 
 * See [what down is suggested for](https://foxtrail.fjallraven.com/2017/11/03/down-vs-synthetic/)
 * https://www.packliste-reise.de/reise-equipment-test/beste-daunenjacke/
 * https://www.outdoor-magazin.com/test/jacken/daunenjacken-kunstfaserjacken-test-2017.1640170.3.htm
+* https://www.bergfreunde.de/basislager/test-patagonia-micro-puff/
