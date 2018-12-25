@@ -1,5 +1,216 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - My bits and bytes</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/my-bits-and-bytes.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-12-22T20:00:00+01:00</updated><entry><title>Sleeping Bags</title><link href="https://martin-thoma.com/sleeping-bags/" rel="alternate"></link><published>2018-12-22T20:00:00+01:00</published><updated>2018-12-22T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-12-22:/sleeping-bags/</id><summary type="html">&lt;p&gt;I have a moorhead micro lite III 185 sleeping bag. It weights about 830g, is
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - My bits and bytes</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/my-bits-and-bytes.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-12-25T20:00:00+01:00</updated><entry><title>Code Challenges in ML</title><link href="https://martin-thoma.com/code-challenges-in-ml/" rel="alternate"></link><published>2018-12-25T20:00:00+01:00</published><updated>2018-12-25T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-12-25:/code-challenges-in-ml/</id><summary type="html">&lt;p&gt;Having machines that can write software is the wet dreem of probably every
+company. Instead of having years of development you just tell the machine what
+to do and it automatically creates the software.&lt;/p&gt;
+&lt;p&gt;As you might have guessed, we are not there yet. Not even close. But a friend …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Having machines that can write software is the wet dreem of probably every
+company. Instead of having years of development you just tell the machine what
+to do and it automatically creates the software.&lt;/p&gt;
+&lt;p&gt;As you might have guessed, we are not there yet. Not even close. But a friend
+of mine made me think about this problem. Being a software engineer, I tried to
+split up the problem into smaller chunks that might be in reach.&lt;/p&gt;
+&lt;p&gt;Before we dive into those sub-problems, let me roughly describe how developing
+big software works.&lt;/p&gt;
+&lt;h2 id="software-engineering-101"&gt;Software Engineering 101&lt;/h2&gt;
+&lt;p&gt;You have an idea. Let's take one of the &lt;a href="https://martin-thoma.com/projects-i-never-realized/"&gt;projects I never realized&lt;/a&gt;: A book portal.&lt;/p&gt;
+&lt;p&gt;We have a name for it, that's good. Book portal. But now we need to get some
+details. One tool for that are user stories:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;As a science fiction book enthusiast, I would like to find more books I love.
+I am willing to note a couple of other books I loved, give some general
+restrictions like the language, minimum and maximum length and price range.
+Then I expect some recommendations.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Awesome, now we get a rough idea! So it actually is not a store, but a
+recommendation engine!&lt;/p&gt;
+&lt;p&gt;But non-functional requirements often play a crucial role. Realizing this
+project means you have to make sure you know what you want:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;How many books should be recommendable?&lt;/li&gt;
+&lt;li&gt;How fast should the user be able to add new books?&lt;/li&gt;
+&lt;li&gt;How much time does the recommender have between adding ratings for books and
+  spitting out a recommendation?&lt;/li&gt;
+&lt;li&gt;What is the minimum quality the recommendation engin needs to be useful?&lt;/li&gt;
+&lt;li&gt;How many users are expected at peak times within 15 minutes?&lt;/li&gt;
+&lt;li&gt;Is privacy a concern? What are we legaly obliged to do?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Once those questions are answered (especially the load-based ones), you can
+draw an architecture. This means you try to find components that can be
+developed largely independently. You have to define interfaces; so how those
+components are supposed to communicate.&lt;/p&gt;
+&lt;p&gt;After the architecture, you develop the defined components.&lt;/p&gt;
+&lt;p&gt;Congratulations, you have an alpha version! Now you can go through the &lt;a href="https://martin-thoma.com/software-development-stages/"&gt;other stages of Software Development&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="code-challenges"&gt;Code Challenges&lt;/h2&gt;
+&lt;p&gt;Many of the code-challenges are hard because it's not clear how to evaluate the
+solutions. There are many possible (acceptable) solutions, but there is no way
+to enumerate all of them.&lt;/p&gt;
+&lt;h3 id="architecture-generatation-problem"&gt;Architecture Generatation Problem&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given a document describing the idea, user stories and non-functional
+requirements, generate an architecutre diagram.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I'm not sure how hard this is. It certainly is super hard to evaluate how well
+the solution is.&lt;/p&gt;
+&lt;h3 id="equivalence-problem"&gt;Equivalence Problem&lt;/h3&gt;
+&lt;p&gt;Given two functions with the same signatures, are they equivalent?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Why it's hard: Equivalence cannot be proven; hard to construct non-trivial cases&lt;/li&gt;
+&lt;li&gt;What's good about it: Non-euqivalence can be proven with one counter-example&lt;/li&gt;
+&lt;li&gt;Usefullness: 2/5&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="auto-doc-problem"&gt;Auto-Doc Problem&lt;/h3&gt;
+&lt;p&gt;Given a function, write the documentation of it.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Why it's hard: Many equivalent solutions&lt;/li&gt;
+&lt;li&gt;What's good about it: Getting training data might be easy&lt;/li&gt;
+&lt;li&gt;Usefullness: 5/5&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="code-generation-problem"&gt;Code-Generation Problem&lt;/h3&gt;
+&lt;p&gt;Given formal specification, generate code.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Why it's hard: I'm not sure about the formal specification - how exactly would they look like?&lt;/li&gt;
+&lt;li&gt;Usefullness: 3/5&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="code-translation-problem"&gt;Code-Translation Problem&lt;/h3&gt;
+&lt;p&gt;Given code in language A, translate it to equivalent code in language B.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Why it's hard: Some things might not be possible at all. This would likely be
+  the case when you translate C to Python.&lt;/li&gt;
+&lt;li&gt;Usefullness: 5/5&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The reason why this is super usefull are apps. Imagine if you only had to develop
+an App for Android and could automatically translate it to iOS. (By the way: Is that possible with &lt;a href="https://en.wikipedia.org/wiki/React_(JavaScript_library)#React_Native"&gt;React Native&lt;/a&gt;?)&lt;/p&gt;
+&lt;h4 id="code-style-translation-problem"&gt;Code-Style translation Problem&lt;/h4&gt;
+&lt;p&gt;Code-Style translation Problem is a subtask of the more general
+Code-Translation Problem. Imagine a Java-developer writing (correct) Python code.
+Things you might see:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;OverlyLongVariableNamesLikeGermanWords&lt;/li&gt;
+&lt;li&gt;Too many classes / subclasses where you could simply use &lt;code&gt;collections.namedtuple&lt;/code&gt; / functions.&lt;/li&gt;
+&lt;li&gt;Missing use of syntactic sugar such as &lt;code&gt;enumerate&lt;/code&gt;, &lt;code&gt;zip&lt;/code&gt;, list comprehensions&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Machine Learning"></category></entry><entry><title>WhatsApp Data</title><link href="https://martin-thoma.com/whatsapp-data/" rel="alternate"></link><published>2018-12-23T20:00:00+01:00</published><updated>2018-12-23T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-12-23:/whatsapp-data/</id><summary type="html">&lt;p&gt;As a data scientist, I'm always interested in exporting and analyzing data. One
+especially when it is my own data. WhatsApp is one big personal data source
+which I couldn't analyze so far.&lt;/p&gt;
+&lt;h2 id="other-analysis"&gt;Other Analysis&lt;/h2&gt;
+&lt;p&gt;I've seen WhatsApp data analysis on &lt;a href="https://www.reddit.com/r/dataisbeautiful/"&gt;r/dataisbeautiful&lt;/a&gt;
+a couple of times:&lt;/p&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Data Set&lt;/th&gt;
+&lt;th&gt;Analysis …&lt;/th&gt;&lt;/tr&gt;&lt;/table&gt;</summary><content type="html">&lt;p&gt;As a data scientist, I'm always interested in exporting and analyzing data. One
+especially when it is my own data. WhatsApp is one big personal data source
+which I couldn't analyze so far.&lt;/p&gt;
+&lt;h2 id="other-analysis"&gt;Other Analysis&lt;/h2&gt;
+&lt;p&gt;I've seen WhatsApp data analysis on &lt;a href="https://www.reddit.com/r/dataisbeautiful/"&gt;r/dataisbeautiful&lt;/a&gt;
+a couple of times:&lt;/p&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Data Set&lt;/th&gt;
+&lt;th&gt;Analysis Techniques&lt;/th&gt;
+&lt;th&gt;Tools&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;14.3k&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://www.reddit.com/r/dataisbeautiful/comments/8fl589/i_built_a_tool_to_visualize_whatsapp_chats_here/"&gt;Here is the result of the chat history with my girlfriend!&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;R, &lt;a href="https://chatanalyzer.moritzwolf.com/"&gt;Website&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;6484&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://www.reddit.com/r/dataisbeautiful/comments/5pi9sn/my_year_in_facebook_messages_created_with_d3js_oc/"&gt;My Year in Facebook Messages&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;*&amp;nbsp;Radar chart&lt;/td&gt;
+&lt;td&gt;D3js&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;982&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://www.reddit.com/r/dataisbeautiful/comments/8bh5tx/a_word_cloud_i_generated_from_the_texts_between/"&gt;A word Cloud I generated from the texts between my girlfriend and me&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;* Word cloud&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;946&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://www.reddit.com/r/dataisbeautiful/comments/64s3hg/ploting_my_2_years_old_whatsapp_chat_with_my_gf_oc/"&gt;Ploting my 2 years old WhatsApp chat with my GF&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;* Bar chart (Group by=Weekday, height=Number of images received)&lt;br/&gt;* Density plot (x=Hour of the day, height=Number of messages)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;205&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://www.reddit.com/r/dataisbeautiful/comments/8ogo4w/after_3_years_of_relationship_i_decided_to_do_a/"&gt;After 3 Years of Relationship I decided to do a WhatsApp Analysis&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;* Radar chart&lt;br/&gt;*&amp;nbsp;&lt;/td&gt;
+&lt;td&gt;???&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://www.reddit.com/r/dataisbeautiful/comments/a8nwkg/oc_facebook_and_whatsapp_message_history_of_a/"&gt;Facebook and WhatsApp message history of a four-year long-distance relationship&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;* Line chart (x=Days, y=Number of messages on that day)&lt;/td&gt;
+&lt;td&gt;*&amp;nbsp;Facebook data dump and WhatsApp message backups*&amp;nbsp;Python (matplotlib and imageio)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://www.reddit.com/r/dataisbeautiful/comments/a8gwn0/oc_texts_received_from_classmates_per_day_leading/"&gt;Texts received from classmates per day leading up to exams&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;153&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://www.reddit.com/r/dataisbeautiful/comments/a6ieu6/oc_whatsapp_visualizer_i_made_a_webpage_to/"&gt;WhatsApp Visualizer&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;* Bar chart (Group by=Person, Height=Number of Messages exchanged)&lt;br/&gt;* Bar chart (Group by=Person, Height=Number of words exchanged)&lt;br/&gt;* Bar chart (Group by=word, Height=Count of word in the dataset)&lt;br/&gt;* Pie chart (Sections=Person, Amount=Media sent by that person)&lt;br/&gt;* Line chart (x=Hour of the day, y=Messages sent)&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://ameyrk.me/whatsapp-visualizer/"&gt;Website&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://www.reddit.com/r/dataisbeautiful/comments/88le7m/whatsapp_images_recieved_each_day_of_the_weekoc/"&gt;Whatsapp Images Recieved Each Day of the Week&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;* Bar chart (Group by=Weekday, height=Number of images received)&lt;/td&gt;
+&lt;td&gt;Python&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;17&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://www.reddit.com/r/dataisbeautiful/comments/8uqtpm/my_whatsapp_incoming_and_outgoing_message_count/"&gt;My WhatsApp Incoming and Outgoing Message Count since 2012&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;* Density plot (x=Hour of the day, height=Number of messages)&lt;/td&gt;
+&lt;td&gt;Python, Chart.js&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;35&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://www.reddit.com/r/dataisbeautiful/comments/83m11s/group_chat_statistics_oc/"&gt;Group chat statistics&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Super nice - have a look at it!&lt;/td&gt;
+&lt;td&gt;R&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://www.reddit.com/r/dataisbeautiful/comments/8x1tdc/top_10_emojis_from_my_incoming_and_outgoing/"&gt;Top 10 Emojis from my Incoming and Outgoing WhatsApp Messages since 2012&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;* Line chart&lt;/td&gt;
+&lt;td&gt;Python, Chart.js&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://www.reddit.com/r/dataisbeautiful/comments/82z6yk/probability_of_being_the_first_to_reply_per/"&gt;Probability of being the first to reply per person in a group chat&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;R,&amp;nbsp;circlize&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;17&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://www.reddit.com/r/dataisbeautiful/comments/9qjr5p/oc_we_just_broke_up_after_1_year_and_it_hurts_our/"&gt;1 year WhatsApp history&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;* Word cloud&lt;/td&gt;
+&lt;td&gt;https://anteateranalytics.com/whatsapp&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;43&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://www.reddit.com/r/dataisbeautiful/comments/9v5okd/a_healthy_breakup_seen_through_whatsapp_history_oc/"&gt;A healthy break-up seen through WhatsApp history&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;* Bar charts&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;80&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://www.reddit.com/r/dataisbeautiful/comments/99qbqf/kiss_emojis_sent_during_two_month_fling_with_a/"&gt;Kiss emojis sent&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;h2 id="my-analysis"&gt;My analysis&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;weekday/weekend cycles: http://www.climate-lab-book.ac.uk/spirals/&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Machine Learning"></category><category term="WhatsApp"></category><category term="Text Mining"></category><category term="Pandas"></category></entry><entry><title>Sleeping Bags</title><link href="https://martin-thoma.com/sleeping-bags/" rel="alternate"></link><published>2018-12-22T20:00:00+01:00</published><updated>2018-12-22T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-12-22:/sleeping-bags/</id><summary type="html">&lt;p&gt;I have a moorhead micro lite III 185 sleeping bag. It weights about 830g, is
 filled with TECMOORFILL (100% polyester) and has a comfort temperature of +9&amp;deg;C,
 limit of +5&amp;deg;C and extreme of -8&amp;deg;C (&lt;a href="https://www.iso.org/standard/67105.html"&gt;ISO EN 23537:2016&lt;/a&gt;). It is about 214x78cm big and packs to
 roughly …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I have a moorhead micro lite III 185 sleeping bag. It weights about 830g, is
@@ -39,7 +250,7 @@ roughly a cylinder of height 33cm and diameter 18cm.&lt;/p&gt;
 &lt;td&gt;28 x 45 cm&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;THE NORTH FACE - Inferno -20&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;td&gt;THE NORTH FACE - Inferno -20&lt;/td&gt;
 &lt;td&gt;710 EUR&lt;/td&gt;
 &lt;td&gt;1500g&lt;/td&gt;
 &lt;td&gt;?&lt;/td&gt;
@@ -47,7 +258,7 @@ roughly a cylinder of height 33cm and diameter 18cm.&lt;/p&gt;
 &lt;td&gt;?&lt;/td&gt;
 &lt;td&gt;90/10 Down; 800 cuin&lt;/td&gt;
 &lt;td&gt;?&lt;/td&gt;
-
+&lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Fj&amp;auml;llr&amp;auml;ven &lt;a href="https://www.fjallraven.com/shop/fjallraven-polar-20-reg-F62728-burnt-orange"&gt;POLAR -20 REG&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;850 EUR&lt;/td&gt;
@@ -79,6 +290,16 @@ roughly a cylinder of height 33cm and diameter 18cm.&lt;/p&gt;
 &lt;td&gt;29 cm x 25 cm x 23 cm&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
+&lt;td&gt;Vaude - ALPSTEIN 800&lt;/td&gt;
+&lt;td&gt;423 EUR&lt;/td&gt;
+&lt;td&gt;1350g&lt;/td&gt;
+&lt;td&gt;-8 &amp;deg;C&lt;/td&gt;
+&lt;td&gt;-16 &amp;deg;C&lt;/td&gt;
+&lt;td&gt;-37&amp;deg;C&lt;/td&gt;
+&lt;td&gt;90/10 Down, 800 cuin&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
 &lt;td&gt;SEA TO SUMMIT - Latitude LT II&lt;/td&gt;
 &lt;td&gt;270 EUR&lt;/td&gt;
 &lt;td&gt;1090g&lt;/td&gt;
@@ -87,6 +308,36 @@ roughly a cylinder of height 33cm and diameter 18cm.&lt;/p&gt;
 &lt;td&gt;-28&amp;deg;C&lt;/td&gt;
 &lt;td&gt;Down; 750 cuin&lt;/td&gt;
 &lt;td&gt;7.7 Liter&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Fj&amp;auml;llr&amp;auml;ven &lt;a href="https://www.exxpozed.de/fjallraven-w-singi-three-seasons#!?variant=189264"&gt;Fj&amp;auml;llr&amp;auml;ven W SINGI THREE SEASONS&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;273 EUR&lt;/td&gt;
+&lt;td&gt;1220g&lt;/td&gt;
+&lt;td&gt;-2 &amp;deg;C&lt;/td&gt;
+&lt;td&gt;-8 &amp;deg;C&lt;/td&gt;
+&lt;td&gt;-26 &amp;deg;C&lt;/td&gt;
+&lt;td&gt;95/5 Down; 800 cuin&lt;/td&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Yeti TENSION COMFORT 800 M&lt;/td&gt;
+&lt;td&gt;245 EUR&lt;/td&gt;
+&lt;td&gt;1450g&lt;/td&gt;
+&lt;td&gt;-1 &amp;deg;C&lt;/td&gt;
+&lt;td&gt;-6 &amp;deg;C&lt;/td&gt;
+&lt;td&gt;-23&amp;deg;C&lt;/td&gt;
+&lt;td&gt;90/10 Down&lt;/td&gt;
+&lt;td&gt;16.5 x 16.5 x 36 cm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Yeti VIB 600 M&lt;/td&gt;
+&lt;td&gt;405 EUR&lt;/td&gt;
+&lt;td&gt;1040g&lt;/td&gt;
+&lt;td&gt;-1 &amp;deg;C&lt;/td&gt;
+&lt;td&gt;-6 &amp;deg;C&lt;/td&gt;
+&lt;td&gt;-23&amp;deg;C&lt;/td&gt;
+&lt;td&gt;95/5 Down&lt;/td&gt;
+&lt;td&gt;15 x 15 x 32 cm&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Vaude - Cheyenne 700&lt;/td&gt;
@@ -118,7 +369,7 @@ roughly a cylinder of height 33cm and diameter 18cm.&lt;/p&gt;
 &lt;td&gt;Down; 750 cuin&lt;/td&gt;
 &lt;td&gt;6.1 Liter&lt;/td&gt;
 &lt;/tr&gt;
-
+&lt;/table&gt;
 &lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;See https://www.bergfreunde.de/basislager/kaufberatung-schlafsaecke/&lt;/li&gt;
