@@ -33,6 +33,7 @@ When you look for rain coats, you can see things like "2 layers", "2.5 layers"
 and "3 layers". This is about the durability.
 
 * 2 layers: The membrane and a mesh. The mesh protects the membrane from your sweat.
+* 2.5 layers: Base fabric, Membrane, partially treated interiour. Feels like rubber on the inside.
 * 3 layers: More durable than the 2 layers
 
 
@@ -92,6 +93,16 @@ According to
 
 YKK is a brand for zippers which are waterproof.
 
+
+### Features
+
+Those are other features you might want to consider:
+
+* Storm Flap: Behind the zipper, there is a piece of cloth that prevents the
+  cold air from rushing through
+* Taped seams
+* **Pockets**: If you wear a backpack, the hip belt will block low pockets
+* Length
 
 ## Impregnation
 
@@ -168,7 +179,7 @@ TODO: image
         <td>3</td>
         <td>28&#8239;000&nbsp;mm</td>
         <td>RET < 6</td>
-        <td>490&nbsp;g</td>
+        <td>490&nbsp;g (S)</td>
         <td>?</td>
         <td><span style="color:green;" title="No">✘</span></td>
         <td>1</td>
@@ -181,7 +192,7 @@ TODO: image
         <td>2</td>
         <td>28&#8239;000&nbsp;mm</td>
         <td>RET < 5</td>
-        <td>615&nbsp;g</td>
+        <td>615&nbsp;g (L)</td>
         <td>?</td>
         <td><span style="color:green;" title="No">✘</span></td>
         <td>1</td>
@@ -189,12 +200,25 @@ TODO: image
         <td>40D ripstop</td>
     </tr>
     <tr>
+        <td>Haglöfs <a href="https://www.globetrotter.de/shop/hagloefs-herakles-jacket-269034/">HERAKLES</a></td>
+        <td>374 EUR</td>
+        <td>3</td>
+        <td>28&#8239;000&nbsp;mm</td>
+        <td>RET < 5</td>
+        <td>455&nbsp;g (L)</td>
+        <td>?</td>
+        <td><span style="color:green;" title="No">✘</span></td>
+        <td>1</td>
+        <td><span style="color:red;" title="No">✘</span></td>
+        <td>40D ripstop; 114 g/m²/141g/m²; introduced in 2016</td>
+    </tr>
+    <tr>
         <td>Haglöfs <a href="https://www.bergfreunde.de/hagloefs-eco-proof-jacket-hardshelljacke/">Eco Proof Jacket</a></td>
         <td>300 EUR</td>
         <td>?</td>
         <td>?</td>
         <td>15&thinsp;000 g/m²/24h</td>
-        <td>518&nbsp;g</td>
+        <td>480&nbsp;g (L)</td>
         <td>?</td>
         <td><span style="color:green;" title="No">✘</span></td>
         <td>1</td>
@@ -305,6 +329,45 @@ TODO: image
         <td><span style="color:green;" title="Yes">✔</span></td>
         <td>?</td>
     </tr>
+    <tr>
+        <td>Arc'teryx Theta AR</td>
+        <td>450&nbsp;EUR</td>
+        <td>3</td>
+        <td>?</td>
+        <td>?</td>
+        <td>490&nbsp;g (M)</td>
+        <td>?</td>
+        <td>?</td>
+        <td>?</td>
+        <td>?</td>
+        <td>?</td>
+    </tr>
+    <tr>
+        <td>Arc'teryx <a href="https://www.bergfreunde.de/arcteryx-beta-ar-jacket-hardshelljacke/">Beta AR</a></td>
+        <td>550&nbsp;EUR</td>
+        <td>3</td>
+        <td>?</td>
+        <td>?</td>
+        <td>455&nbsp;g (M)</td>
+        <td>?</td>
+        <td>?</td>
+        <td>?</td>
+        <td>?</td>
+        <td>?</td>
+    </tr>
+    <tr>
+        <td style="background-color: green;">Fjällräven <a href="https://amzn.to/2BLQgDy">Keb Eco Shell</a> (<a href="https://www.fjallraven.de/shop/fjallraven-keb-eco-shell-jacket-m-F82411/">*</a>)</td>
+        <td>320 EUR</td>
+        <td>3</td>
+        <td>30&#8239;000&nbsp;mm</td>
+        <td>26&thinsp;000 g/m²/24h</td>
+        <td>570g (S)</td>
+        <td>less than 2L?</td>
+        <td><span style="color:green;" title="No">✘</span></td>
+        <td>1</td>
+        <td><span style="color:red;" title="No">✘</span></td>
+        <td>?</td>
+    </tr>
     </tbody>
 </table>
 
@@ -320,7 +383,9 @@ Haglöfs:
 Fjällräven: The Keb-collection seems to be older; Bergtagen is the new collection.
 
 * [Bergtagen Eco-Shell Jacket](https://www.bergfreunde.de/fjaellraeven-bergtagen-eco-shell-jacket-hardshelljacke/): 463 EUR; 550g; 3 layers; 30&thinsp;000 mm; 26&thinsp;000 g/m²/24h
-* [KEB ECO SHELL](https://amzn.to/2BLQgDy): 281 EUR; 570g; 3 layers; 30&thinsp;000 mm; 26&thinsp;000 g/m²/24h
+
+I finally bought the Keb Eco Shell Jacket on 2018-12-18.
+
 
 ## Red Flags
 
