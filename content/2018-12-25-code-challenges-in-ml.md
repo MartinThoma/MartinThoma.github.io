@@ -97,6 +97,13 @@ Given formal specification, generate code.
 * Why it's hard: I'm not sure about the formal specification - how exactly would they look like?
 * Usefullness: 3/5
 
+The reason why I think this is not so useful is the specification. At the end,
+the most exact specification is a program. Hence, if you need a very formal,
+exact specification there is actually no code to generate. When the
+specification is imprecise (like natural language), then there is (too much)
+room for error.
+
+
 ### Code-Translation Problem
 
 Given code in language A, translate it to equivalent code in language B.
@@ -108,6 +115,8 @@ Given code in language A, translate it to equivalent code in language B.
 The reason why this is super usefull are apps. Imagine if you only had to develop
 an App for Android and could automatically translate it to iOS. (By the way: Is that possible with <a href="https://en.wikipedia.org/wiki/React_(JavaScript_library)#React_Native">React Native</a>?)
 
+The key challenge here is to make the translated code maintainable. In some
+sense You could say that the *Auto-doc problem* is part of this challenge.
 
 #### Code-Style translation Problem
 
@@ -118,3 +127,8 @@ Things you might see:
 * OverlyLongVariableNamesLikeGermanWords
 * Too many classes / subclasses where you could simply use `collections.namedtuple` / functions.
 * Missing use of syntactic sugar such as `enumerate`, `zip`, list comprehensions
+
+### Refactoring-problem
+
+Given code, generate code with the same functionality which is (a) easier to
+maintain (b) faster / more memory efficient (c) applicable to more cases.
