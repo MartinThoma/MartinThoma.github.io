@@ -1,0 +1,61 @@
+---
+layout: post
+title: Trekking Poles
+slug: trekking-poles
+author: Martin Thoma
+status: draft
+date: 2018-12-28 20:00
+category: My bits and bytes
+tags: Machine Learning
+featured_image: logos/star.png
+---
+I've always hiked without poles, but for Nepal my guide recommends to take
+poles.
+
+
+## Features
+
+* Handles: You hold the trekking poles several hours a day, for several days in
+  a row. They better feel good. Kork seems to be a popular choice.
+* Weight
+* Material: [Super bad review for carbon fiber](https://www.youtube.com/watch?v=q0SfswKYOTE) / Aluminium
+* Type: Z-Type, FlickLock
+
+## Brands
+
+First brand name I've heard was Black Diamond. Within Bittel Sport (local sport shop),
+I found a lot of Leki.
+
+
+## Overview
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Price&nbsp;</th>
+        <th>Gewicht (Material)</th>
+        <th>Type</th>
+        <th>Length</th>
+    </tr>
+    <tr>
+        <td>Black Diamond Trail Pro</td>
+        <td>74</td>
+        <td>489 g (Aluminium)</td>
+        <td>FlickLock</td>
+        <td>63 - 140 cm</td>
+    </tr>
+    <tr>
+        <td>Leki Corklite</td>
+        <td>76</td>
+        <td>499g (Aluminium HTS)</td>
+        <td>Speed Lock 2</td>
+        <td>67-135 cm</td>
+    </tr>
+    <tr>
+        <td>Black Diamond Trail Ergo Cork</td>
+        <td>76</td>
+        <td>510g (Aluminium)</td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
