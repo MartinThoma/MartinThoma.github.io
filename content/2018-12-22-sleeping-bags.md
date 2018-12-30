@@ -15,6 +15,13 @@ roughly a cylinder of height 33cm and diameter 18cm.
 
 I need a sleeping bag with comfort temperature below 0°C.
 
+
+## Features
+
+* 3 Zippers: You can create an opening, e.g. for your arms
+
+## Overview
+
 <table class="table">
     <tr>
         <th>Name</th>
