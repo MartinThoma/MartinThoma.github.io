@@ -4,11 +4,12 @@ title: Code Quality
 slug: code-quality
 author: Martin Thoma
 status: draft
-date: 2018-10-04 20:00
+date: 2018-12-30 20:00
 category: Code
 tags: Python
 featured_image: logos/python.png
 ---
+<div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
 Here are some rules that help you to write code of high quality. They are
 inspired by [Michael Toppa - 10 Tips For Clean Code](https://www.youtube.com/watch?v=UjhX2sVf0eg)
 
@@ -283,4 +284,4 @@ simply an id.
 
 This is not a hard rule, but certainly one that most often is a good idea.
 Functions with many parameters are super hard to digest. Often, it makes more
-sense to pass the function an object, e.g. a [namedtuple](https://docs.python.org/3/library/collections.html#collections.namedtuple). 
+sense to pass the function an object, e.g. a [namedtuple](https://docs.python.org/3/library/collections.html#collections.namedtuple).

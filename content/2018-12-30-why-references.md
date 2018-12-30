@@ -3,12 +3,12 @@ layout: post
 title: Why do we use references?
 slug: why-references
 author: Martin Thoma
-status: draft
-date: 2017-09-26 20:00
+date: 2018-12-30 20:00
 category: Cyberculture
 tags: Science
 featured_image: logos/science.png
 ---
+<div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
 I've recently found the company [mentorium.de](https://www.mentorium.de/umschreiben-von-text/).
 Their business model seems to be to help people cheat at writing their thesis.
 

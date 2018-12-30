@@ -1,14 +1,14 @@
 ---
 layout: post
 title: Ways to store Data
-status: draft
 slug: ways-to-store-data
 author: Martin Thoma
-date: 2017-05-16 20:00
+date: 2018-12-30 20:00
 category: Code
 tags: Machine Learning, Data
 featured_image: logos/ml.png
 ---
+<div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
 Data is one core element of machine learning. Hence it is worth to think about
 ways to store it. This post is inspired by some news of really big datasets being published ([source](https://www.reddit.com/r/MachineLearning/comments/6a97pt/n_new_massive_medical_image_dataset_coming_from/)).
 
@@ -106,7 +106,9 @@ would like to go down several levels. Let's talk about file formats.
 
 ### Structured Data
 
-TODO: See data serialization
+Structured data has a schema. It is organized and thus usually easier to search
+than unstructured data. Relational Databases structure data, but the contents
+of columns can contain unstructured data (e.g. a free text field).
 
 
 ### Unstructured data
@@ -157,8 +159,8 @@ Data lakes have 5 core principles according to <a href="https://www.youtube.com/
 Hadoop is a key tool for data lakes.
 
 
-## TODO
+## Frameworks
 
-* Hadoop
-* Spark
-* http://cassandra.apache.org/
+* Apache Hadoop: Map-Reduce framework for distributed computing
+* Apache Spark: Framework for cluster computing
+* [Apache Cassandra](http://cassandra.apache.org/): distributed, wide column store, NoSQL database management system

@@ -3,12 +3,12 @@ layout: post
 title: Expert Systems
 slug: expert-systems
 author: Martin Thoma
-status: draft
-date: 2017-12-10 20:00
+date: 2018-12-30 20:00
 category: Machine Learning
 tags: Machine Learning, Expert Systems
 featured_image: logos/ml.png
 ---
+<div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
 Science fiction movies are full of advanced systems for medical analysis and
 treatment:
 

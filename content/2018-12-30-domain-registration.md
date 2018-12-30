@@ -3,12 +3,12 @@ layout: post
 title: Domain Registration
 slug: domain-registration
 author: Martin Thoma
-status: draft
-date: 2017-02-25 20:00
+date: 2018-12-30 20:00
 category: Cyberculture
 tags: domain, Internet
 featured_image: logos/internet.png
 ---
+<div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
 The registration of domains (such as `martin-thoma.com`,
 `wikipedia.org`, `understand.ai`, `unicode.party`, …) is kind of broken.
 There are people who register domains just because somebody might want them

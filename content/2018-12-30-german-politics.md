@@ -3,13 +3,12 @@ layout: post
 title: German Politics 2018
 slug: german-politics-2018
 author: Martin Thoma
-status: draft
-date: 2018-06-22 20:00
+date: 2018-12-30 20:00
 category: My bits and bytes
 tags: Germany
 featured_image: logos/germany.png
 ---
-
+<div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
 
 <table>
     <tr>
@@ -66,7 +65,9 @@ This is not nice from an
 [UX perspective](https://ux.stackexchange.com/questions/40687/we-use-cookies-notice-on-websites),
 it is useless from a privacy perspective and it might [actively harm small independent websites](http://www.dkriesel.com/blog/2018/0522_dsgvo_for_the_win).
 
-The solution: Revert it. Completely. I don't see any use whatsoever for the user. On the contrary, it just makes websites worse.
+**The solution**: Revert it. Completely. I don't see any use whatsoever for the user. On the contrary, it just makes websites worse.
+
+A solution for people is to use add-ons like [I don't care about cookies](https://chrome.google.com/webstore/detail/i-dont-care-about-cookies/fihnjjcciajhdojfnbdddfaoknhalnja).
 
 
 ### Mandatory Public Health Insurance
@@ -98,10 +99,23 @@ The tax declaration is too complicated.
 
 ### Declare Place of Residency
 
-You have to 
+You have to declare where you live. Once you move within Germany, you have to
+go to the town hall and say where you moved from / to. You even need a written
+confirmation by your landlord.
+
+This is a problem because it is time-consuming. Yes, I can see that you want
+authorities to know who lives in the city / where people moved, for example for
+law enforcement. But it should be simpler.
+
+**The solution**: Make it digital.
 
 
 ### Tax Avoidance
+
+Getting around tax paying in a way / amount which lawmakers did not anticipate
+is a problem.
+
+**The solution**: Simplify tax laws.
 
 
 ## Long-Term problems

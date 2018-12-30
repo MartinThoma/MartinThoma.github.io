@@ -3,12 +3,12 @@ layout: post
 title: Academic Writing
 slug: academic-writing
 author: Martin Thoma
-status: draft
-date: 2017-04-18 20:00
+date: 2018-12-30 20:00
 category: Cyberculture
 tags: university, writing
 featured_image: logos/star.png
 ---
+<div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
 While writing my thesis, I came across some rules / resources which I would
 like to share with you.
 

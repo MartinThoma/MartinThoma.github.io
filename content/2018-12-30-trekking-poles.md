@@ -3,12 +3,12 @@ layout: post
 title: Trekking Poles
 slug: trekking-poles
 author: Martin Thoma
-status: draft
-date: 2018-12-28 20:00
+date: 2018-12-30 20:00
 category: My bits and bytes
 tags: Machine Learning
 featured_image: logos/star.png
 ---
+<div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
 I've always hiked without poles, but for Nepal my guide recommends to take
 poles.
 
@@ -32,8 +32,8 @@ I found a lot of Leki.
 <table>
     <tr>
         <th>Name</th>
-        <th>Price&nbsp;</th>
-        <th>Gewicht (Material)</th>
+        <th>Price</th>
+        <th>Weigth (Material)</th>
         <th>Type</th>
         <th>Length</th>
     </tr>

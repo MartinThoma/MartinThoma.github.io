@@ -3,12 +3,12 @@ layout: post
 title: File Sizes
 slug: file-sizes
 author: Martin Thoma
-status: draft
-date: 2017-06-30 20:00
+date: 2018-12-30 20:00
 category: Cyberculture
 tags: file, size, storage, format, image, jpg
 featured_image: logos/star.png
 ---
+<div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
 I was just wondering how long a camera which takes images in 5s intervalls and
 has 256 GB of storage could take photos. This is quite easy to answer as soon
 as you know the average file size. For that, however, I could not find a good
