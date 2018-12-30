@@ -1,5 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Machine Learning</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/machine-learning.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-12-14T20:00:00+01:00</updated><entry><title>Perfect Models</title><link href="https://martin-thoma.com/perfect-models/" rel="alternate"></link><published>2018-12-14T20:00:00+01:00</published><updated>2018-12-14T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-12-14:/perfect-models/</id><summary type="html">&lt;p&gt;When you develop a model, you want the optimal model. The perfect one.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Machine Learning</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/machine-learning.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-12-30T20:00:00+01:00</updated><entry><title>Expert Systems</title><link href="https://martin-thoma.com/expert-systems/" rel="alternate"></link><published>2018-12-30T20:00:00+01:00</published><updated>2018-12-30T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-12-30:/expert-systems/</id><summary type="html">&lt;div class="info"&gt;This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.&lt;/div&gt;
+&lt;p&gt;Science fiction movies are full of advanced systems for medical analysis and
+treatment:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Stargate SG1: The …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;div class="info"&gt;This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.&lt;/div&gt;
+&lt;p&gt;Science fiction movies are full of advanced systems for medical analysis and
+treatment:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Stargate SG1: The &lt;a href="http://stargate.wikia.com/wiki/Goa%27uld_healing_device"&gt;Goa'uld healing device&lt;/a&gt;
+  is a box in which you lay, it scans yourself and after a few hours you are
+  just healed. From basically anything, &lt;abbr title="if I remember correctly"&gt;IIRC&lt;/abbr&gt;.&lt;/li&gt;
+&lt;li&gt;Elysium: A &lt;a href="https://www.youtube.com/watch?v=RyMoJHf7rCQ"&gt;healing pod&lt;/a&gt; which
+  looks a bit like a CT scan.&lt;/li&gt;
+&lt;li&gt;Prometheus: A medical robot pod performing a surgery (WARNING: The &lt;a href="https://www.youtube.com/watch?v=6-DOeEkqOZg"&gt;clip&lt;/a&gt; is from a horror movie)&lt;/li&gt;
+&lt;li&gt;Star Trek: A hand-held medical scanner (Tricoder?) which scans you for diseases (&lt;a href="https://www.youtube.com/watch?v=IHd9bYGJtoI"&gt;clip&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I can imagine parts of those really well. Especially I think there is much room
+for improvement in the analysis by using machine learning.&lt;/p&gt;
+&lt;p&gt;The answer to "what's wrong with me" has many possible answers and depending on
+this many different treatments. As it is such a complex problem, I think an
+expert system is the right approach for it.&lt;/p&gt;
+&lt;p&gt;In the following, I try to structure some thoughts around it.&lt;/p&gt;
+&lt;h2 id="problem-overview"&gt;Problem overview&lt;/h2&gt;
+&lt;p&gt;What we have:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The patient: Age, sex, job, social background, ethnicity might be some of the
+               important features everybody has.&lt;/li&gt;
+&lt;li&gt;Patient record: A list of tuples&lt;ul&gt;
+&lt;li&gt;Tests: (date time, test, test outcome)&lt;/li&gt;
+&lt;li&gt;Treatement: (date time, treatment) - I would include pills, surgeries, excercise, ...&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Diseases: Possible answers to "what's wrong with me". Examples of this category
+  are:&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Genetic_disorder"&gt;Genetic ones&lt;/a&gt;: Sickle cell anaemia, Huntington's disease, ...&lt;/li&gt;
+&lt;li&gt;Viruses: HIV, Hepatitis D, Polio, Cowpox, Measles&lt;/li&gt;
+&lt;li&gt;Bacteria: Yersinia pestis (black death), Haverhill fever&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- ## Other stuff
+
+You might have expected something about logical inference,  --&gt;
+&lt;h2 id="expert-systems"&gt;Expert Systems&lt;/h2&gt;
+&lt;p&gt;Expert Systems typically consist of 3 parts:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;knowledge base: logical rules&lt;/li&gt;
+&lt;li&gt;inference engine&lt;/li&gt;
+&lt;li&gt;interface to human&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://martin-thoma.com/ml-get-data/"&gt;How to get Data for ML systems&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://martin-thoma.com/informationsfusion/"&gt;Informationsfusion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Stack Overflow:&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://stackoverflow.com/q/1687734/562769"&gt;Rules Engine vs Expert System&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Machine Learning"></category><category term="Expert Systems"></category></entry><entry><title>Techniques for Analyzing ML models</title><link href="https://martin-thoma.com/model-analysis/" rel="alternate"></link><published>2018-12-30T20:00:00+01:00</published><updated>2018-12-30T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-12-30:/model-analysis/</id><summary type="html">&lt;div class="info"&gt;This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.&lt;/div&gt;
+&lt;p&gt;Techniques for model analysis:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Decision boundaries&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://eli5.readthedocs.io/en/latest/overview.html"&gt;ELI 5&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;LIME&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://martin-thoma.com/feature-importance/"&gt;Feature importance&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Confusion matrix&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.kaggle.com/dansbecker/shap-values"&gt;SHAP values&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.kaggle.com/dansbecker/partial-plots"&gt;Partial …&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;div class="info"&gt;This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.&lt;/div&gt;
+&lt;p&gt;Techniques for model analysis:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Decision boundaries&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://eli5.readthedocs.io/en/latest/overview.html"&gt;ELI 5&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;LIME&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://martin-thoma.com/feature-importance/"&gt;Feature importance&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Confusion matrix&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.kaggle.com/dansbecker/shap-values"&gt;SHAP values&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.kaggle.com/dansbecker/partial-plots"&gt;Partial Dependence Plots&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Sensitivity analysis / perturbation importance&lt;/li&gt;
+&lt;li&gt;Dimensionality reduction&lt;/li&gt;
+&lt;li&gt;Attention mapping / saliency mapping&lt;/li&gt;
+&lt;li&gt;Model parameter analysis&lt;/li&gt;
+&lt;li&gt;Feature correlations&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you're interested in analysis of CNNs, have a look at my masters thesis:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href="https://arxiv.org/pdf/1707.09725.pdf"&gt;Analysis and Optimization of Convolutional Neural Network Architectures&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="decision-boundaries"&gt;Decision boundaries&lt;/h2&gt;
+&lt;p&gt;Drawing this is only an option if you have 3 or less features. So not really
+useful in most problem settings.&lt;/p&gt;
+&lt;h2 id="shap-values"&gt;SHAP values&lt;/h2&gt;
+&lt;p&gt;SHAP Values (an acronym from SHapley Additive exPlanations) go in the direction
+of feature importance.&lt;/p&gt;
+&lt;p&gt;Let me explain them with an example of the Titanic dataset: You have a survival
+probability of a given person, e.g. 76%. You want to understand why it is 76%.&lt;/p&gt;
+&lt;p&gt;So what you can do is to twiddle the features. How does the survival
+probability change when the person has less / more siblings? When the person
+has the median number of siblings?&lt;/p&gt;
+&lt;p&gt;There is the &lt;a href="https://github.com/slundberg/shap"&gt;&lt;code&gt;shap&lt;/code&gt; package&lt;/a&gt; for
+calculating the shap values.&lt;/p&gt;</content><category term="Machine Learning"></category></entry><entry><title>Perfect Models</title><link href="https://martin-thoma.com/perfect-models/" rel="alternate"></link><published>2018-12-14T20:00:00+01:00</published><updated>2018-12-14T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-12-14:/perfect-models/</id><summary type="html">&lt;p&gt;When you develop a model, you want the optimal model. The perfect one.&lt;/p&gt;
 &lt;p&gt;The first problem with that desire are diagonal goals:&lt;/p&gt;
 &lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
 &lt;a href="../images/2018/12/model-pick-2.png"&gt;&lt;img alt="A jellyfish" src="../images/2018/12/model-pick-2.png" style="width: 512px;"/&gt;&lt;/a&gt;
@@ -1748,7 +1847,96 @@ encoding of a month for this dataset and all tried regressors.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://martin-thoma.com/comparing-classifiers/"&gt;Comparing Classifiers&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Sklearn: &lt;a href="http://scikit-learn.org/stable/tutorial/machine_learning_map/index.html"&gt;Choosing the right estimator&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="Machine Learning"></category><category term="Regression"></category><category term="Time Series"></category></entry><entry><title>Sankey Diagrams</title><link href="https://martin-thoma.com/sankey-diagrams/" rel="alternate"></link><published>2018-01-09T20:00:00+01:00</published><updated>2018-01-09T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-01-09:/sankey-diagrams/</id><summary type="html">&lt;p&gt;Sankey diagrams can be used to visualize the breakdown of money / electriciy.
+&lt;/ul&gt;</content><category term="Machine Learning"></category><category term="Regression"></category><category term="Time Series"></category></entry><entry><title>SLAM</title><link href="https://martin-thoma.com/slam/" rel="alternate"></link><published>2018-03-26T20:00:00+02:00</published><updated>2018-03-26T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-03-26:/slam/</id><summary type="html">&lt;div class="info"&gt;This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.&lt;/div&gt;
+&lt;p&gt;SLAM is short of simultaneous localization and mapping. It is a term used to
+describe the …&lt;/p&gt;</summary><content type="html">&lt;div class="info"&gt;This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.&lt;/div&gt;
+&lt;p&gt;SLAM is short of simultaneous localization and mapping. It is a term used to
+describe the problem of creating a map and locating the mobile agent within the
+map at the same time.&lt;/p&gt;
+&lt;p&gt;This kind of problem is hard, because of the chicken-and-egg problem: In order
+to get a good localization, you need a map. In order to create a map, you need
+to localize the agent.&lt;/p&gt;
+&lt;p&gt;It can be applied to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Indoors: Vacuum cleaner robots&lt;/li&gt;
+&lt;li&gt;Outdoors: Self-driving cars&lt;/li&gt;
+&lt;li&gt;Underground: Exploration of mines&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="slam-algorithm-parts"&gt;SLAM algorithm parts&lt;/h2&gt;
+&lt;h3 id="motion-model"&gt;Motion model&lt;/h3&gt;
+&lt;p&gt;A motion model gives the state &lt;span class="math"&gt;\(x\)&lt;/span&gt; at time &lt;span class="math"&gt;\(k\)&lt;/span&gt; after having the state at time
+&lt;span class="math"&gt;\(k-1\)&lt;/span&gt; and the control &lt;span class="math"&gt;\(u\)&lt;/span&gt; at time &lt;span class="math"&gt;\(k\)&lt;/span&gt;:&lt;/p&gt;
+&lt;div class="math"&gt;$$x_k = f(x_{k-1}, u_k)$$&lt;/div&gt;
+&lt;h3 id="observation-model"&gt;Observation model&lt;/h3&gt;
+&lt;p&gt;The observation model gives the observation &lt;span class="math"&gt;\(z\)&lt;/span&gt; at time &lt;span class="math"&gt;\(k\)&lt;/span&gt;, given the map &lt;span class="math"&gt;\(m\)&lt;/span&gt;
+and the state &lt;span class="math"&gt;\(x\)&lt;/span&gt; at time &lt;span class="math"&gt;\(k\)&lt;/span&gt;:&lt;/p&gt;
+&lt;div class="math"&gt;$$z_k = h(x_k, m)$$&lt;/div&gt;
+&lt;p&gt;See &lt;a href="https://en.wikipedia.org/wiki/Odometry"&gt;odometry&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id="map-representations"&gt;Map Representations&lt;/h3&gt;
+&lt;p&gt;Maps can either simply be topological or be metric. The first one means
+distances don't matter, only the ordering / number of branches.&lt;/p&gt;
+&lt;h3 id="data-association"&gt;Data Association&lt;/h3&gt;
+&lt;p&gt;Data association means that we want to identify landmarks. The two-frame
+matching problem is called (Correspondence Problem).&lt;/p&gt;
+&lt;h2 id="slam-algorithms_1"&gt;SLAM algorithms&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Graph SLAM&lt;/li&gt;
+&lt;li&gt;EKF-SLAM (Extended Kalman filter)&lt;/li&gt;
+&lt;li&gt;Fast SLAM: Rao-Blackwellised particle filters&lt;/li&gt;
+&lt;li&gt;Mono SLAM&lt;/li&gt;
+&lt;li&gt;Topological SLAM&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="ekf-slam"&gt;EKF-SLAM&lt;/h3&gt;
+&lt;p&gt;Components:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The state vector &lt;span class="math"&gt;\(x \in \mathbb{R}^{n}\)&lt;/span&gt; contains the position of the agent (for example: x, y, orientation) as
+  well as all landmarks (for example: &lt;span class="math"&gt;\(l_{1,x}, l_{1,y}, l_{2,x}, l_{2,y}\)&lt;/span&gt;).&lt;/li&gt;
+&lt;li&gt;A covariance matrix &lt;span class="math"&gt;\(C \in \mathbb{R}^{n \times n}\)&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Pseudocode:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;def filter_step(x, m):
+    """
+
+    Parameters
+    ----------
+    x : ndarray
+        State vector, including landmark positions
+        shape: n
+    C : ndarray
+        Covariance matrix
+        spahe: n x n
+    """
+    x_pred = predict_state(x)  # odometry
+    z_pred = predict_measurement(x)
+    z = measure()
+    # data association
+    # Kalman filter update
+    # Integration of new landmarks by extending x and C
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Complexity:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Cost per step: &lt;span class="math"&gt;\(O(n^2)\)&lt;/span&gt; where &lt;span class="math"&gt;\(n\)&lt;/span&gt; is the number of landmarks&lt;/li&gt;
+&lt;li&gt;Total cost to build a map: O(n^3)&lt;/li&gt;
+&lt;li&gt;Memory consumption: O(n^2)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="see-also_1"&gt;See also&lt;/h2&gt;
+&lt;p&gt;Other blogposts:
+* &lt;a href="https://martin-thoma.com/kalman-filter/"&gt;Kalman Filter&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Papers and Slides:
+&lt;em&gt; Uni Freiburg: &lt;a href="http://ais.informatik.uni-freiburg.de/teaching/ss12/robotics/slides/12-slam.pdf"&gt;Slides&lt;/a&gt; and &lt;a href="https://www.youtube.com/watch?v=U6vr3iNrwRA&amp;amp;list=PLgnQpQtFTOGQrZ4O5QzbIHgl3b1JHimN_"&gt;YouTube playlist&lt;/a&gt;
+&lt;/em&gt; Hugh Durrant-Whyte, Tim Bailey: Simultaneous Localisation and Mapping (SLAM): Part I The Essential Algorithms
+&lt;em&gt; Ziegler et. al: Making Bertha Drive &amp;mdash; An Autonomous Journey on a Historic Route
+&lt;/em&gt; Grisetti, Kummerle, Stachniss, Burgard: A Tutorial on Graph-Based SLAM&lt;/p&gt;
+&lt;p&gt;Datasets:
+* &lt;a href="http://www-personal.acfr.usyd.edu.au/nebot/victoria_park.htm"&gt;Victoria Park&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Software:
+* Mark Paskin: &lt;a href="http://ai.stanford.edu/~paskin/slam/"&gt;Stanford&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Stack Exchange:
+&lt;em&gt; &lt;a href="https://robotics.stackexchange.com/questions/tagged/slam"&gt;Robotics&lt;/a&gt;
+&lt;/em&gt; &lt;a href="https://stackoverflow.com/questions/tagged/slam"&gt;Stack Overflow&lt;/a&gt;
+* &lt;a href="https://ai.stackexchange.com/search?q=slam"&gt;A.I.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Other:
+* &lt;a href="https://en.wikipedia.org/wiki/Simultaneous_localization_and_mapping"&gt;Wikipedia&lt;/a&gt;&lt;/p&gt;</content><category term="Artificial Intelligence"></category><category term="Robotics"></category></entry><entry><title>Sankey Diagrams</title><link href="https://martin-thoma.com/sankey-diagrams/" rel="alternate"></link><published>2018-01-09T20:00:00+01:00</published><updated>2018-01-09T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-01-09:/sankey-diagrams/</id><summary type="html">&lt;p&gt;Sankey diagrams can be used to visualize the breakdown of money / electriciy.
 You have a big base value like the energy used by an average single German in
 December 2017. Then you build big clusters:&lt;/p&gt;
 &lt;ul&gt;

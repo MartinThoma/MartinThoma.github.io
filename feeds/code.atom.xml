@@ -1,5 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Code</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/code.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-11-26T20:00:00+01:00</updated><entry><title>Type Systems</title><link href="https://martin-thoma.com/type-systems/" rel="alternate"></link><published>2018-11-26T20:00:00+01:00</published><updated>2018-11-26T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-11-26:/type-systems/</id><summary type="html">&lt;p&gt;The topic of type system keeps comming up when I hear people discuss
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Code</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/code.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-12-30T20:00:00+01:00</updated><entry><title>Ways to store Data</title><link href="https://martin-thoma.com/ways-to-store-data/" rel="alternate"></link><published>2018-12-30T20:00:00+01:00</published><updated>2018-12-30T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-12-30:/ways-to-store-data/</id><summary type="html">&lt;div class="info"&gt;This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.&lt;/div&gt;
+&lt;p&gt;Data is one core element of machine learning. Hence it is worth to think about
+ways …&lt;/p&gt;</summary><content type="html">&lt;div class="info"&gt;This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.&lt;/div&gt;
+&lt;p&gt;Data is one core element of machine learning. Hence it is worth to think about
+ways to store it. This post is inspired by some news of really big datasets being published (&lt;a href="https://www.reddit.com/r/MachineLearning/comments/6a97pt/n_new_massive_medical_image_dataset_coming_from/"&gt;source&lt;/a&gt;).&lt;/p&gt;
+&lt;h2 id="hardware"&gt;Hardware&lt;/h2&gt;
+&lt;p&gt;This post is not about hardware. Well, not mainly. The only thing I would
+like to mention are some rough scales:&lt;/p&gt;
+&lt;table class="table"&gt;
+&lt;tr&gt;
+&lt;th&gt;Size&lt;/th&gt;
+&lt;th&gt;Hardware&lt;/th&gt;
+&lt;th&gt;Backup&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;lt; 250GB&lt;/td&gt;
+&lt;td&gt;SSD&lt;/td&gt;
+&lt;td&gt;Easy&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;250 GB - 10 TB&lt;/td&gt;
+&lt;td&gt;HDD&lt;/td&gt;
+&lt;td&gt;Ok&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;10 TB - 32 TB&lt;/td&gt;
+&lt;td&gt;HDD + RAID&lt;/td&gt;
+&lt;td&gt;Difficult&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;more than 32 TB&lt;/td&gt;
+&lt;td&gt;Tapes? SANs?&lt;/td&gt;
+&lt;td&gt;Extremely difficult&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;A short overview of some RAID levels:&lt;/p&gt;
+&lt;table class="table"&gt;
+&lt;tr&gt;
+&lt;th&gt;RAID&lt;/th&gt;
+&lt;th&gt;Stripes&lt;/th&gt;
+&lt;th&gt;Mirror&lt;/th&gt;
+&lt;th&gt;Parity&lt;/th&gt;
+&lt;th&gt;Comment&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;Blocks&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;Just chaining the disks. You can easily loose data&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;Blocks&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;You can only use half the storage&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;Blocks&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;Yes&lt;/td&gt;
+&lt;td&gt;(1/n)th of the storage is used for parity, where n is the number of disks&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;10&lt;/td&gt;
+&lt;td&gt;Blocks&lt;/td&gt;
+&lt;td&gt;Blocks&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;Raid 1 and 0 combined&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;You might be interested in&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=uykMPICGeqw"&gt;Unboxing a PETABYTE of Storage - HOLY $H!T Ep. 16&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.dell.com/support/article/us/en/4/SLN129581/understanding-hard-drive-types--raid-and-raid-controllers-on-dell-poweredge-and-blade-chassis-servers?lang=EN"&gt;RAID levels&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://unix.stackexchange.com/q/365355/4784"&gt;Why is ext4 only recommended up to 16 TB?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://superuser.com/q/1209642/64857"&gt;What limits the number of drives in RAID?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I've heard you can store much more on &lt;a href="https://en.wikipedia.org/wiki/Tape_drive"&gt;tape drives&lt;/a&gt;.
+It might be necessary to physically go there and put a tape in / out.&lt;/p&gt;
+&lt;h2 id="file-formats"&gt;File formats&lt;/h2&gt;
+&lt;p&gt;Having talked about limitations on the upper scale of the amount of data, I
+would like to go down several levels. Let's talk about file formats.&lt;/p&gt;
+&lt;h3 id="structured-data"&gt;Structured Data&lt;/h3&gt;
+&lt;p&gt;Structured data has a schema. It is organized and thus usually easier to search
+than unstructured data. Relational Databases structure data, but the contents
+of columns can contain unstructured data (e.g. a free text field).&lt;/p&gt;
+&lt;h3 id="unstructured-data"&gt;Unstructured data&lt;/h3&gt;
+&lt;p&gt;There are too many file formats for unstructured data to name them all. Here
+are a few examples:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Text files: e-mails&lt;/li&gt;
+&lt;li&gt;Images: JPG, PNG, GIF, BMP, ...&lt;/li&gt;
+&lt;li&gt;Documents: PDF, PS, ...&lt;/li&gt;
+&lt;li&gt;Video, Audio, ...&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="databases_1"&gt;Databases&lt;/h2&gt;
+&lt;p&gt;Databases are a nice way to store data. Types of databases are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;SQL-based: MySQL / MariaDB, PostgreSQL, ...&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Document-oriented_database"&gt;Document-oriented database&lt;/a&gt;: CouchDB, MongoDB, Elasticsearch&lt;/li&gt;
+&lt;li&gt;Graph databases: Neo4j, ...&lt;/li&gt;
+&lt;li&gt;Key-Value databases: Reddis, ...&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="data-warehouse"&gt;Data Warehouse&lt;/h2&gt;
+&lt;p&gt;Classical usecases of data warehouses are operational and financial reporting.&lt;/p&gt;
+&lt;p&gt;See also:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Wikipedia&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Data_warehouse"&gt;Data Warehouse&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Fact_table"&gt;FACT table&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="data-lake"&gt;Data Lake&lt;/h2&gt;
+&lt;p&gt;The idea of a &lt;em&gt;data lake&lt;/em&gt; is that it is a large container. Several sources add
+data to the lake. The type of data might be structured or unstructured, machine
+generated or log files.&lt;/p&gt;
+&lt;p&gt;Data lakes have 5 core principles according to &lt;a href="https://www.youtube.com/watch?v=zlBZrG8dDMM"&gt;Evan Shelley&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ingest: Ability to collect all data you care about&lt;/li&gt;
+&lt;li&gt;Store: Getting data in one place (e.g. with file system like Hadoop)&lt;/li&gt;
+&lt;li&gt;Analyze: Find relations you care about&lt;/li&gt;
+&lt;li&gt;Surface: Display results found in data&lt;/li&gt;
+&lt;li&gt;Act: Help the customer to make more money&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Hadoop is a key tool for data lakes.&lt;/p&gt;
+&lt;h2 id="frameworks"&gt;Frameworks&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Apache Hadoop: Map-Reduce framework for distributed computing&lt;/li&gt;
+&lt;li&gt;Apache Spark: Framework for cluster computing&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://cassandra.apache.org/"&gt;Apache Cassandra&lt;/a&gt;: distributed, wide column store, NoSQL database management system&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Machine Learning"></category><category term="Data"></category></entry><entry><title>Type Systems</title><link href="https://martin-thoma.com/type-systems/" rel="alternate"></link><published>2018-11-26T20:00:00+01:00</published><updated>2018-11-26T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-11-26:/type-systems/</id><summary type="html">&lt;p&gt;The topic of type system keeps comming up when I hear people discuss
 programming languages. So let's summarize it.&lt;/p&gt;
 &lt;h2 id="dynamic-vs-static-typing"&gt;Dynamic vs Static Typing&lt;/h2&gt;
 &lt;p&gt;I like the definition of &lt;a href="https://pythonconquerstheuniverse.wordpress.com/2009/10/03/static-vs-dynamic-typing-of-programming-languages/"&gt;pythonconquerstheuniverse&lt;/a&gt;:&lt;/p&gt;
