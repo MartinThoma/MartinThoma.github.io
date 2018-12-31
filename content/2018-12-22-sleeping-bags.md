@@ -19,6 +19,7 @@ I need a sleeping bag with comfort temperature below 0°C.
 ## Features
 
 * 3 Zippers: You can create an opening, e.g. for your arms
+* Compression Sack
 
 ## Overview
 
@@ -34,7 +35,7 @@ I need a sleeping bag with comfort temperature below 0°C.
         <th>Volume</th>
     </tr>
     <tr>
-        <td>MOUNTAIN EQUIPMENT - Glacier Expedition</td>
+        <td>Mountain Equipment - Glacier Expedition</td>
         <td>450 EUR</td>
         <td>1340g</td>
         <td>-35&deg;C</td>
@@ -54,7 +55,17 @@ I need a sleeping bag with comfort temperature below 0°C.
         <td>28 x 45 cm</td>
     </tr>
     <tr>
-        <td>THE NORTH FACE - Inferno -20</td>
+        <td><a href="https://www.globetrotter.de/shop/mountain-hardwear-lamina-z-bonfire-30-293716/">Mountain Hardwear Lamina Z-Bonfire</a></td>
+        <td>195 EUR</td>
+        <td>2290g</td>
+        <td>-18 &deg;C</td>
+        <td>-34 &deg;C</td>
+        <td>-50 &deg;C</td>
+        <td>100 % Polyester</td>
+        <td>25 x 46  cm</td>
+    </tr>
+    <tr>
+        <td>The North Face - Inferno -20</td>
         <td>710 EUR</td>
         <td>1500g</td>
         <td>?</td>
@@ -74,7 +85,7 @@ I need a sleeping bag with comfort temperature below 0°C.
         <td>25 x 40 cm</td>
     </tr>
     <tr>
-        <td>MARMOT - Never Summer</td>
+        <td>Marmot - Never Summer</td>
         <td>297 EUR</td>
         <td>1450g</td>
         <td>-12&deg;C</td>
@@ -84,7 +95,7 @@ I need a sleeping bag with comfort temperature below 0°C.
         <td>22 cm x 46 cm</td>
     </tr>
     <tr>
-        <td>MOUNTAIN EQUIPMENT - Kryos</td>
+        <td>Mountain Equipment - Kryos</td>
         <td>485 EUR</td>
         <td>1225g</td>
         <td>-10&deg;C</td>
@@ -92,6 +103,16 @@ I need a sleeping bag with comfort temperature below 0°C.
         <td>-39&deg;C</td>
         <td>90/10 Down; 800+ cuin</td>
         <td>29 cm x 25 cm x 23 cm</td>
+    </tr>
+    <tr>
+        <td>Mountain Hardwear - Phantom Torch</td>
+        <td>600 EUR</td>
+        <td>1172g</td>
+        <td>-9&deg;C</td>
+        <td>-16&deg;C</td>
+        <td>-39&deg;C</td>
+        <td>Down; 800 cuin</td>
+        <td>20 cm × 33 cm; </td>
     </tr>
     <tr>
         <td>Vaude - ALPSTEIN 800</td>
@@ -104,7 +125,17 @@ I need a sleeping bag with comfort temperature below 0°C.
         <td>?</td>
     </tr>
     <tr>
-        <td>SEA TO SUMMIT - Latitude LT II</td>
+        <td>Mountain Hardwear - Phantom Flame</td>
+        <td>450 EUR</td>
+        <td>945g</td>
+        <td>-4 &deg;C</td>
+        <td>-9 &deg;C</td>
+        <td>-31&deg;C</td>
+        <td>Down, 800 cuin</td>
+        <td>18 cm × 30 cm; 2 way front zipper</td>
+    </tr>
+    <tr>
+        <td>Sea to Summit - Latitude LT II</td>
         <td>270 EUR</td>
         <td>1090g</td>
         <td>-3 &deg;C</td>
@@ -114,7 +145,7 @@ I need a sleeping bag with comfort temperature below 0°C.
         <td>7.7 Liter</td>
     </tr>
     <tr>
-        <td>Fjällräven <a href="https://www.exxpozed.de/fjallraven-w-singi-three-seasons#!?variant=189264">Fjällräven W SINGI THREE SEASONS</a></td>
+        <td>Fjällräven <a href="https://www.exxpozed.de/fjallraven-w-singi-three-seasons#!?variant=189264">Fjällräven W Singi Three Seasons</a></td>
         <td>273 EUR</td>
         <td>1220g</td>
         <td>-2 &deg;C</td>
@@ -124,7 +155,7 @@ I need a sleeping bag with comfort temperature below 0°C.
         <td>?</td>
     </tr>
     <tr>
-        <td>Yeti TENSION COMFORT 800 M</td>
+        <td>Yeti Tension Comfort 800 M</td>
         <td>245 EUR</td>
         <td>1450g</td>
         <td>-1 &deg;C</td>
@@ -164,7 +195,7 @@ I need a sleeping bag with comfort temperature below 0°C.
         <td>7.7 Liter</td>
     </tr>
     <tr>
-        <td>SEA TO SUMMIT - Latitude LT I</td>
+        <td>Sea to Summit - Latitude LT I</td>
         <td>255 EUR</td>
         <td>880g</td>
         <td>2 &deg;C</td>
@@ -173,10 +204,20 @@ I need a sleeping bag with comfort temperature below 0°C.
         <td>Down; 750 cuin</td>
         <td>6.1 Liter</td>
     </tr>
+    <tr>
+        <td>Mountain Hardwear - Phantom Spark</td>
+        <td>315 EUR</td>
+        <td>673g</td>
+        <td>2 &deg;C</td>
+        <td>-2 &deg;C</td>
+        <td>-19&deg;C</td>
+        <td>Down; 800 cuin</td>
+        <td>15 cm × 25 cm</td>
+    </tr>
 </table>
 
 
 ## See also
 
-* See https://www.bergfreunde.de/basislager/kaufberatung-schlafsaecke/
-* https://foxtrail.fjallraven.com/2018/04/20/how-to-choose-a-sleeping-bag/
+* Bergfreunde: [Kaufberatung Schlafsäcke](https://www.bergfreunde.de/basislager/kaufberatung-schlafsaecke/)
+* Fjällräven: [How to choose a sleeping bag](https://foxtrail.fjallraven.com/2018/04/20/how-to-choose-a-sleeping-bag/)

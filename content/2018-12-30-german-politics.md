@@ -5,7 +5,7 @@ slug: german-politics-2018
 author: Martin Thoma
 date: 2018-12-30 20:00
 category: My bits and bytes
-tags: Germany
+tags: Germany, E-governance
 featured_image: logos/germany.png
 ---
 <div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
@@ -19,55 +19,57 @@ featured_image: logos/germany.png
     </tr>
     <tr>
         <td>1</td>
-        <td>Cookie Law</td>
-        <td><span style="color: red;">&#10071;</span></td>
-        <td><span style="color: green;">&#10004;&#10004;&#10004;</span></td>
+        <td>Tax Avoidance</td>
+        <td><span style="color: red;">&#10071;&#10071;&#10071;</span></td>
+        <td><span style="color: red;">✘✘✘</span></td>
     </tr>
     <tr>
         <td>2</td>
         <td>Single mandatory public health insurance</td>
         <td><span style="color: red;">&#10071;&#10071;&#10071;</span></td>
-        <td></td>
+        <td><span style="color: red;">✘✘</span></td>
     </tr>
     <tr>
         <td>3</td>
-        <td>Paiment of public broadcasting</td>
-        <td></td>
-        <td></td>
+        <td>Chained short-term contracts</td>
+        <td><span style="color: red;">&#10071;&#10071;</span></td>
+        <td><span style="color: red;">✘</span></td>
     </tr>
     <tr>
         <td>4</td>
-        <td>Chained short-term contracts</td>
-        <td></td>
-        <td></td>
+        <td>Cookie Law</td>
+        <td><span style="color: red;">&#10071;</span></td>
+        <td><span style="color: green;">&#10004;&#10004;&#10004;</span></td>
     </tr>
     <tr>
         <td>5</td>
-        <td>Tax Declaration</td>
-        <td></td>
-        <td></td>
+        <td>Paiment of public broadcasting</td>
+        <td><span style="color: red;">&#10071;</span></td>
+        <td><span style="color: green;">&#10004;&#10004;&#10004;</span></td>
     </tr>
     <tr>
         <td>6</td>
+        <td>Tax Declaration</td>
+        <td><span style="color: red;">&#10071;</span></td>
+        <td><span style="color: green;">&#10004;&#10004;</span></td>
+    </tr>
+    <tr>
+        <td>7</td>
         <td>Declare Place of Residency</td>
-        <td></td>
-        <td></td>
+        <td><span style="color: red;">&#10071;</span></td>
+        <td><span style="color: green;">&#10004;&#10004;</span></td>
     </tr>
 </table>
 
 
 ## Details
 
-### Cookie Law
+### Tax Avoidance
 
-The Problem: Virtually every website nowadays screams at you that it uses cookies.
-This is not nice from an
-[UX perspective](https://ux.stackexchange.com/questions/40687/we-use-cookies-notice-on-websites),
-it is useless from a privacy perspective and it might [actively harm small independent websites](http://www.dkriesel.com/blog/2018/0522_dsgvo_for_the_win).
+Getting around tax paying in a way / amount which lawmakers did not anticipate
+is a problem.
 
-**The solution**: Revert it. Completely. I don't see any use whatsoever for the user. On the contrary, it just makes websites worse.
-
-A solution for people is to use add-ons like [I don't care about cookies](https://chrome.google.com/webstore/detail/i-dont-care-about-cookies/fihnjjcciajhdojfnbdddfaoknhalnja).
+**The solution**: Simplify tax laws.
 
 
 ### Mandatory Public Health Insurance
@@ -87,7 +89,24 @@ life-threatening or painful to go to the public health insurance.
 
 ### Chained short-term contracts
 
-See [Kettenvertrag](https://de.wikipedia.org/wiki/Kettenvertrag)
+Some companies and official institutions make only limited contracts (and often
+even only short ones). This is a problem for the employees as it is a loophole
+for some social security laws. It is also a problem if those people want to get
+a credit. Not even to speak about the additional paperwork it creates.
+
+See [Kettenvertrag](https://de.wikipedia.org/wiki/Kettenvertrag) for more
+information.
+
+### Cookie Law
+
+The Problem: Virtually every website nowadays screams at you that it uses cookies.
+This is not nice from an
+[UX perspective](https://ux.stackexchange.com/questions/40687/we-use-cookies-notice-on-websites),
+it is useless from a privacy perspective and it might [actively harm small independent websites](http://www.dkriesel.com/blog/2018/0522_dsgvo_for_the_win).
+
+**The solution**: Revert it. Completely. I don't see any use whatsoever for the user. On the contrary, it just makes websites worse.
+
+A solution for people is to use add-ons like [I don't care about cookies](https://chrome.google.com/webstore/detail/i-dont-care-about-cookies/fihnjjcciajhdojfnbdddfaoknhalnja).
 
 
 ### Tax Declaration
@@ -110,18 +129,14 @@ law enforcement. But it should be simpler.
 **The solution**: Make it digital.
 
 
-### Tax Avoidance
-
-Getting around tax paying in a way / amount which lawmakers did not anticipate
-is a problem.
-
-**The solution**: Simplify tax laws.
-
-
 ## Long-Term problems
 
 I guess some problems will always be an issue:
 
-* Healthcare
-* Employment
-* Poverty
+* **Healthcare**: Which services should be covered? How much should be paid to
+  doctors? How is it financed?
+* **Employment**: How should we deal with unemployed people? How much do you
+  have to pay for the insurance?
+* **Poverty**: Some people have significantly less than others. How much
+  redistribution of wealth is fair? Who gets something? How do people get
+  money? Do they have to do something to get it?

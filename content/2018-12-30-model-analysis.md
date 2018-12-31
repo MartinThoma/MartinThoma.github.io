@@ -12,17 +12,22 @@ featured_image: logos/ml.png
 
 Techniques for model analysis:
 
+Prediction-Based:
 * Decision boundaries
-* [ELI 5](https://eli5.readthedocs.io/en/latest/overview.html)
 * LIME
 * [Feature importance](https://martin-thoma.com/feature-importance/)
-* Confusion matrix
 * [SHAP values](https://www.kaggle.com/dansbecker/shap-values)
 * [Partial Dependence Plots](https://www.kaggle.com/dansbecker/partial-plots)
 * Sensitivity analysis / perturbation importance
-* Dimensionality reduction
-* Attention mapping / saliency mapping
 * Model parameter analysis
+* [ELI 5](https://eli5.readthedocs.io/en/latest/overview.html)
+* Attention mapping / saliency mapping
+
+Error-Based:
+* Confusion matrix
+
+Data-Based:
+* Dimensionality reduction
 * Feature correlations
 
 If you're interested in analysis of CNNs, have a look at my masters thesis:

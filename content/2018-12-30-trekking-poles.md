@@ -5,8 +5,8 @@ slug: trekking-poles
 author: Martin Thoma
 date: 2018-12-30 20:00
 category: My bits and bytes
-tags: Machine Learning
-featured_image: logos/star.png
+tags: Gear, Trekking
+featured_image: logos/hiking.png
 ---
 <div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
 I've always hiked without poles, but for Nepal my guide recommends to take
@@ -20,6 +20,7 @@ poles.
 * Weight
 * Material: [Super bad review for carbon fiber](https://www.youtube.com/watch?v=q0SfswKYOTE) / Aluminium
 * Type: Z-Type, FlickLock
+* Snow Baskets
 
 ## Brands
 
