@@ -98,7 +98,105 @@ probability of a given person, e.g. 76%. You want to understand why it is 76%.&l
 probability change when the person has less / more siblings? When the person
 has the median number of siblings?&lt;/p&gt;
 &lt;p&gt;There is the &lt;a href="https://github.com/slundberg/shap"&gt;&lt;code&gt;shap&lt;/code&gt; package&lt;/a&gt; for
-calculating the shap values.&lt;/p&gt;</content><category term="Machine Learning"></category></entry><entry><title>Perfect Models</title><link href="https://martin-thoma.com/perfect-models/" rel="alternate"></link><published>2018-12-14T20:00:00+01:00</published><updated>2018-12-14T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-12-14:/perfect-models/</id><summary type="html">&lt;p&gt;When you develop a model, you want the optimal model. The perfect one.&lt;/p&gt;
+calculating the shap values.&lt;/p&gt;</content><category term="Machine Learning"></category></entry><entry><title>Code Challenges in ML</title><link href="https://martin-thoma.com/code-challenges-in-ml/" rel="alternate"></link><published>2018-12-25T20:00:00+01:00</published><updated>2018-12-25T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-12-25:/code-challenges-in-ml/</id><summary type="html">&lt;p&gt;Having machines that can write software is the wet dreem of probably every
+company. Instead of having years of development you just tell the machine what
+to do and it automatically creates the software.&lt;/p&gt;
+&lt;p&gt;As you might have guessed, we are not there yet. Not even close. But a friend …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Having machines that can write software is the wet dreem of probably every
+company. Instead of having years of development you just tell the machine what
+to do and it automatically creates the software.&lt;/p&gt;
+&lt;p&gt;As you might have guessed, we are not there yet. Not even close. But a friend
+of mine made me think about this problem. Being a software engineer, I tried to
+split up the problem into smaller chunks that might be in reach.&lt;/p&gt;
+&lt;p&gt;Before we dive into those sub-problems, let me roughly describe how developing
+big software works.&lt;/p&gt;
+&lt;h2 id="software-engineering-101"&gt;Software Engineering 101&lt;/h2&gt;
+&lt;p&gt;You have an idea. Let's take one of the &lt;a href="https://martin-thoma.com/projects-i-never-realized/"&gt;projects I never realized&lt;/a&gt;: A book portal.&lt;/p&gt;
+&lt;p&gt;We have a name for it, that's good. Book portal. But now we need to get some
+details. One tool for that are user stories:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;As a science fiction book enthusiast, I would like to find more books I love.
+I am willing to note a couple of other books I loved, give some general
+restrictions like the language, minimum and maximum length and price range.
+Then I expect some recommendations.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Awesome, now we get a rough idea! So it actually is not a store, but a
+recommendation engine!&lt;/p&gt;
+&lt;p&gt;But non-functional requirements often play a crucial role. Realizing this
+project means you have to make sure you know what you want:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;How many books should be recommendable?&lt;/li&gt;
+&lt;li&gt;How fast should the user be able to add new books?&lt;/li&gt;
+&lt;li&gt;How much time does the recommender have between adding ratings for books and
+  spitting out a recommendation?&lt;/li&gt;
+&lt;li&gt;What is the minimum quality the recommendation engin needs to be useful?&lt;/li&gt;
+&lt;li&gt;How many users are expected at peak times within 15 minutes?&lt;/li&gt;
+&lt;li&gt;Is privacy a concern? What are we legaly obliged to do?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Once those questions are answered (especially the load-based ones), you can
+draw an architecture. This means you try to find components that can be
+developed largely independently. You have to define interfaces; so how those
+components are supposed to communicate.&lt;/p&gt;
+&lt;p&gt;After the architecture, you develop the defined components.&lt;/p&gt;
+&lt;p&gt;Congratulations, you have an alpha version! Now you can go through the &lt;a href="https://martin-thoma.com/software-development-stages/"&gt;other stages of Software Development&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="code-challenges"&gt;Code Challenges&lt;/h2&gt;
+&lt;p&gt;Many of the code-challenges are hard because it's not clear how to evaluate the
+solutions. There are many possible (acceptable) solutions, but there is no way
+to enumerate all of them.&lt;/p&gt;
+&lt;h3 id="architecture-generatation-problem"&gt;Architecture Generatation Problem&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given a document describing the idea, user stories and non-functional
+requirements, generate an architecutre diagram.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I'm not sure how hard this is. It certainly is super hard to evaluate how well
+the solution is.&lt;/p&gt;
+&lt;h3 id="equivalence-problem"&gt;Equivalence Problem&lt;/h3&gt;
+&lt;p&gt;Given two functions with the same signatures, are they equivalent?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Why it's hard: Equivalence cannot be proven; hard to construct non-trivial cases&lt;/li&gt;
+&lt;li&gt;What's good about it: Non-euqivalence can be proven with one counter-example&lt;/li&gt;
+&lt;li&gt;Usefullness: 2/5&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="auto-doc-problem"&gt;Auto-Doc Problem&lt;/h3&gt;
+&lt;p&gt;Given a function, write the documentation of it.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Why it's hard: Many equivalent solutions&lt;/li&gt;
+&lt;li&gt;What's good about it: Getting training data might be easy&lt;/li&gt;
+&lt;li&gt;Usefullness: 5/5&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="code-generation-problem"&gt;Code-Generation Problem&lt;/h3&gt;
+&lt;p&gt;Given formal specification, generate code.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Why it's hard: I'm not sure about the formal specification - how exactly would they look like?&lt;/li&gt;
+&lt;li&gt;Usefullness: 3/5&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The reason why I think this is not so useful is the specification. At the end,
+the most exact specification is a program. Hence, if you need a very formal,
+exact specification there is actually no code to generate. When the
+specification is imprecise (like natural language), then there is (too much)
+room for error.&lt;/p&gt;
+&lt;h3 id="code-translation-problem"&gt;Code-Translation Problem&lt;/h3&gt;
+&lt;p&gt;Given code in language A, translate it to equivalent code in language B.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Why it's hard: Some things might not be possible at all. This would likely be
+  the case when you translate C to Python.&lt;/li&gt;
+&lt;li&gt;Usefullness: 5/5&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The reason why this is super usefull are apps. Imagine if you only had to develop
+an App for Android and could automatically translate it to iOS. (By the way: Is that possible with &lt;a href="https://en.wikipedia.org/wiki/React_(JavaScript_library)#React_Native"&gt;React Native&lt;/a&gt;?)&lt;/p&gt;
+&lt;p&gt;The key challenge here is to make the translated code maintainable. In some
+sense You could say that the &lt;em&gt;Auto-doc problem&lt;/em&gt; is part of this challenge.&lt;/p&gt;
+&lt;h4 id="code-style-translation-problem"&gt;Code-Style translation Problem&lt;/h4&gt;
+&lt;p&gt;Code-Style translation Problem is a subtask of the more general
+Code-Translation Problem. Imagine a Java-developer writing (correct) Python code.
+Things you might see:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;OverlyLongVariableNamesLikeGermanWords&lt;/li&gt;
+&lt;li&gt;Too many classes / subclasses where you could simply use &lt;code&gt;collections.namedtuple&lt;/code&gt; / functions.&lt;/li&gt;
+&lt;li&gt;Missing use of syntactic sugar such as &lt;code&gt;enumerate&lt;/code&gt;, &lt;code&gt;zip&lt;/code&gt;, list comprehensions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="refactoring-problem"&gt;Refactoring-problem&lt;/h3&gt;
+&lt;p&gt;Given code, generate code with the same functionality which is (a) easier to
+maintain (b) faster / more memory efficient (c) applicable to more cases.&lt;/p&gt;</content><category term="Machine Learning"></category></entry><entry><title>Perfect Models</title><link href="https://martin-thoma.com/perfect-models/" rel="alternate"></link><published>2018-12-14T20:00:00+01:00</published><updated>2018-12-14T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-12-14:/perfect-models/</id><summary type="html">&lt;p&gt;When you develop a model, you want the optimal model. The perfect one.&lt;/p&gt;
 &lt;p&gt;The first problem with that desire are diagonal goals:&lt;/p&gt;
 &lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
 &lt;a href="../images/2018/12/model-pick-2.png"&gt;&lt;img alt="A jellyfish" src="../images/2018/12/model-pick-2.png" style="width: 512px;"/&gt;&lt;/a&gt;
@@ -237,7 +335,74 @@ Increasing the batch size leads to a more smooth loss curve.&lt;/p&gt;
 fine.&lt;/p&gt;
 &lt;h2 id="how-regularization-can-destroy-your-model_1"&gt;How Regularization can destroy your model&lt;/h2&gt;
 &lt;p&gt;Look at &lt;a href="https://playground.tensorflow.org/#activation=tanh&amp;amp;batchSize=10&amp;amp;dataset=spiral&amp;amp;regDataset=reg-plane&amp;amp;learningRate=0.03&amp;amp;regularizationRate=0.03&amp;amp;noise=0&amp;amp;networkShape=8,2&amp;amp;seed=0.13062&amp;amp;showTestData=false&amp;amp;discretize=false&amp;amp;percTrainData=50&amp;amp;x=true&amp;amp;y=true&amp;amp;xTimesY=false&amp;amp;xSquared=false&amp;amp;ySquared=false&amp;amp;cosX=false&amp;amp;sinX=true&amp;amp;cosY=false&amp;amp;sinY=true&amp;amp;collectStats=false&amp;amp;problem=classification&amp;amp;initZero=false&amp;amp;hideText=false"&gt;this network&lt;/a&gt;.
-If you add any regularization with a rate of 0.003 or more, it is not able to learn anymore.&lt;/p&gt;</content><category term="Machine Learning"></category></entry><entry><title>Regression</title><link href="https://martin-thoma.com/regression/" rel="alternate"></link><published>2018-07-18T20:00:00+02:00</published><updated>2018-07-18T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-07-18:/regression/</id><summary type="html">&lt;div class="info"&gt;A while ago, this link pointed to the content which is now in the &lt;a href="https://martin-thoma.com/forecasting/"&gt;Forecasting article&lt;/a&gt;.&lt;/div&gt;
+If you add any regularization with a rate of 0.003 or more, it is not able to learn anymore.&lt;/p&gt;</content><category term="Machine Learning"></category></entry><entry><title>Recommender Systems</title><link href="https://martin-thoma.com/recommender-systems/" rel="alternate"></link><published>2018-10-07T20:00:00+02:00</published><updated>2018-10-07T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-10-07:/recommender-systems/</id><summary type="html">&lt;p&gt;I recently became interested in recommender systems. You know, the thing on
+Amazon that tells you which products you might be interested in. Or the stuff
+on Spotify that gives you a song you might like. On YouTube the next videos
+shown. On StumbleUpon, your next stumble. On a news …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I recently became interested in recommender systems. You know, the thing on
+Amazon that tells you which products you might be interested in. Or the stuff
+on Spotify that gives you a song you might like. On YouTube the next videos
+shown. On StumbleUpon, your next stumble. On a news page, another article.&lt;/p&gt;
+&lt;h2 id="conceptual-approaches"&gt;Conceptual Approaches&lt;/h2&gt;
+&lt;p&gt;There are three basic approaches:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Product Similarity: You watched Saw I, Saw II and Saw III. All of them are
+  similar to Saw IV.&lt;/li&gt;
+&lt;li&gt;User similarity: Users that liked Saw I, Saw II and Saw III usually also liked
+  Saw IV.&lt;/li&gt;
+&lt;li&gt;Basket analysis: You bought eggs and sugar, maybe you want to buy milk as
+  well.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Recommender systems based on product similarity are also called "content-based recommender systems".
+Recommander systems baed on user similarity are also called "collaborative filtering".&lt;/p&gt;
+&lt;h2 id="basic-content-based-recommendations"&gt;Basic Content-based Recommendations&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Edit_distance"&gt;Levenshteins edit distance&lt;/a&gt;
+applied on the product name is probably the simplest approach that has a
+mimimal chance of some reasonable results.&lt;/p&gt;
+&lt;p&gt;The next level in complexity are rules:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Movies by a director you liked&lt;/li&gt;
+&lt;li&gt;Movies with a actor you liked&lt;/li&gt;
+&lt;li&gt;Count "links" (actors, directors, producers, ...) and rank by most links&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;One more level of complexity is using clustering algorithms. One way is to make
+a product to a vector and use a similarity measure (e.g. cosine similarity). If
+you have natural laguage descriptions you can use tf-idf features and then use
+a similarity measure. You would then recommend the most similar products.&lt;/p&gt;
+&lt;h2 id="basic-collaborative-filtering"&gt;Basic Collaborative Filtering&lt;/h2&gt;
+&lt;p&gt;Users can have different scales on which they rate stuff:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Binary: Like / Dislike (and "not seen")&lt;/li&gt;
+&lt;li&gt;Ternary: Like / Neutral / Dislike (and "not seen")&lt;/li&gt;
+&lt;li&gt;5 Stars&lt;/li&gt;
+&lt;li&gt;100 points&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So you want to find the utility function &lt;span class="math"&gt;\(u: C \times I \rightarrow R\)&lt;/span&gt; where
+&lt;span class="math"&gt;\(C\)&lt;/span&gt; is the set of customers, &lt;span class="math"&gt;\(I\)&lt;/span&gt; is the set of items and &lt;span class="math"&gt;\(R\)&lt;/span&gt; is the &lt;em&gt;ordered&lt;/em&gt;
+set of ratings. By a simple transformation you can make it &lt;span class="math"&gt;\(R = [0, 1]\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;The utility function &lt;span class="math"&gt;\(u\)&lt;/span&gt; can be fully defined by a matrix. Most elements of the
+matrix are not known, though.&lt;/p&gt;
+&lt;p&gt;See also: &lt;a href="https://martin-thoma.com/collaborative-filtering/"&gt;Collaborative Filtering&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;In some sense, bestellsers are a special case of collaborative filtering:
+Simply recommending what got sold most.&lt;/p&gt;
+&lt;h2 id="basic-basket-analysis"&gt;Basic Basket Analysis&lt;/h2&gt;
+&lt;p&gt;See &lt;a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/#association-rules"&gt;Association Rule Mining&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="evaluation"&gt;Evaluation&lt;/h2&gt;
+&lt;p&gt;One way to evaluate if recommendation systems work is by the typical train-test split&lt;/p&gt;
+&lt;h2 id="typical-problems"&gt;Typical Problems&lt;/h2&gt;
+&lt;h3 id="cold-start-problem"&gt;Cold-Start Problem&lt;/h3&gt;
+&lt;p&gt;The cold-start problem is central and only fixable by content-based
+recommendation. If there is a new product, not a single user has rated it. It
+is not possible by collaborative filtering to recommend it.&lt;/p&gt;
+&lt;h3 id="wrong-recommendation-mode"&gt;Wrong Recommendation Mode&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;You have bought the DVD "Lord of the Rings" and get the Blue Ray recommended.&lt;/li&gt;
+&lt;li&gt;You have liked the normal version of a song and you get the
+  techno/rap/christmas version recommended&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="the-bubble"&gt;The Bubble&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;You will never be recommended a movie where you didn't like the genre before.&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Machine Learning"></category></entry><entry><title>Regression</title><link href="https://martin-thoma.com/regression/" rel="alternate"></link><published>2018-07-18T20:00:00+02:00</published><updated>2018-07-18T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-07-18:/regression/</id><summary type="html">&lt;div class="info"&gt;A while ago, this link pointed to the content which is now in the &lt;a href="https://martin-thoma.com/forecasting/"&gt;Forecasting article&lt;/a&gt;.&lt;/div&gt;
 &lt;p&gt;Regression is one of the core tasks in machine learning. In this task, you get
 some input and your target variable is a single floating point number. For
 example, predicting the price of a …&lt;/p&gt;</summary><content type="html">&lt;div class="info"&gt;A while ago, this link pointed to the content which is now in the &lt;a href="https://martin-thoma.com/forecasting/"&gt;Forecasting article&lt;/a&gt;.&lt;/div&gt;
