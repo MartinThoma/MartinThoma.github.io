@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="mathematics, lecture-notes, German posts, " />
+
+<meta property="og:title" content="Prädikatenlogik: Aussagen formalisieren "/>
+<meta property="og:url" content="../pradikatenlogik-aussagen-formalisieren/" />
+<meta property="og:description" content="Es ist häufig von Vorteil, wenn man Aussagen formalisieren kann. Es ist beispielsweise gar nicht so leicht das exakte Gegenteil einer Aussage zu finden. Allgemeines zur Prädikatenlogik x sei im folgenden eine Aussage \(\neg x\): Die Negation der Aussage x \(\exists x\): Es existiert mindestens ein x (Quantor) \(\forall x …if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2011-10-29T15:12:33+02:00" />
+<meta name="twitter:title" content="Prädikatenlogik: Aussagen formalisieren ">
+<meta name="twitter:description" content="Es ist häufig von Vorteil, wenn man Aussagen formalisieren kann. Es ist beispielsweise gar nicht so leicht das exakte Gegenteil einer Aussage zu finden. Allgemeines zur Prädikatenlogik x sei im folgenden eine Aussage \(\neg x\): Die Negation der Aussage x \(\exists x\): Es existiert mindestens ein x (Quantor) \(\forall x …if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width">
+<meta property="og:image" content="2011/10/eulers-formula.png" />
+<meta name="twitter:image" content="2011/10/eulers-formula.png" >
+
+        <title>Prädikatenlogik: Aussagen formalisieren  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../pradikatenlogik-aussagen-formalisieren/"> Pr&auml;dikatenlogik: Aussagen formalisieren  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#allgemeines-zur-pradikatenlogik" title="Allgemeines zur Pr&auml;dikatenlogik">Allgemeines zur Pr&auml;dikatenlogik</a></li><li><a class="toc-href" href="#karlsruher-und-die-verkehrsmittel" title="Karlsruher und die Verkehrsmittel">Karlsruher und die Verkehrsmittel</a></li><li><a class="toc-href" href="#wochentliches-fernsehprogramm" title="W&ouml;chentliches Fernsehprogramm">W&ouml;chentliches Fernsehprogramm</a></li><li><a class="toc-href" href="#teilbarkeit" title="Teilbarkeit">Teilbarkeit</a></li><li><a class="toc-href" href="#weitere-materialien" title="Weitere Materialien">Weitere Materialien</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>Es ist h&auml;ufig von Vorteil, wenn man Aussagen formalisieren kann. Es ist beispielsweise gar nicht so leicht das exakte Gegenteil einer Aussage zu finden.</p>
+<h2 id="allgemeines-zur-pradikatenlogik">Allgemeines zur Pr&auml;dikatenlogik</h2>
+<p>x sei im folgenden eine Aussage
+<span class="math">\(\neg x\)</span>: Die Negation der Aussage x</p>
+<p><span class="math">\(\exists x\)</span>: Es existiert mindestens ein x (Quantor)
+<span class="math">\(\forall x\)</span>: Alle x (Quantor)</p>
+<p><span class="math">\(\land\)</span>: und (eine Verkn&uuml;fung zweier Aussagen)
+<span class="math">\(\lor\)</span>: oder (eine Verkn&uuml;fung zweier Aussagen). Im Deutschen wird oder meistens exklusiv, also im Sinne "entweder ... oder ..." verwendet. Dieses oder ist inklusiv, also "entweder ... oder ... oder beides".</p>
+<p>Ich habe die Symbole bewusst in diesen Paragraphen angeordnet. Wird die Negation eines Ausdrucks gebildet, werden alle Symbole im Inneren durch das jeweils andere Symbol ersetzt. Beispielsweise wird das logische "und" zu einem "oder".</p>
+<p>Ein kleiner Nachtrag: Was macht man, wenn man sagen will, dass eine Aussage A f&uuml;r genau ein Element x einer Menge M gilt?
+<span class="math">\(\exists x \in M: A(x) \land \forall (y \in M, y \neq x): \neg A(y)\)</span></p>
+<h2 id="karlsruher-und-die-verkehrsmittel">Karlsruher und die Verkehrsmittel</h2>
+<p>Folgendes Beispiel hatte ich in einem Tutorium am KIT:
+<blockquote>(i) Alle Karlsruher fahren mit dem Rad oder der Stra&szlig;enbahn.</blockquote>
+Was ist das Gegenteil dieser Aussage? Folgendes w&auml;re denkbar:
+<ol>
+<li>Kein Karlsruher f&auml;hrt mit dem Rad oder der Stra&szlig;enbahn.</li>
+<li>Kein Karlsruher f&auml;hrt mit dem Rad und der Stra&szlig;enbahn.</li>
+<li>Alle Karlsruher fahren mit dem Rad und der Stra&szlig;enbahn.</li>
+<li>Alle Karlsruher fahren nicht mit dem Rad und der Stra&szlig;enbahn.</li>
+<li>Es fahren nicht alle Karlsruher mit dem Rad oder der Stra&szlig;enbahn.</li>
+<li>Es fahren nicht alle Karlsruher mit dem Rad und der Stra&szlig;enbahn.</li>
+<li>...</li>
+</ol>
+Nun wurde mir beigebracht, dass folgendes eine "saubere" Formalisierung der ersten Aussage ist:</p>
+<p>Sei K die Menge aller Karlsruher.
+Sei F Aussageform auf K und definiert durch <span class="math">\(F(k) := \text{"k f&amp;auml;hrt mit dem Fahrrad"} (k \in K)\)</span>
+Sei analog S Aussageform auf K mit <span class="math">\(S(k) := \text{"k f&amp;auml;hrt mit der Stra&amp;szlig;enbahn"}\)</span></p>
+<p>Dann lautet (i) formalisiert:
+<span class="math">\(\forall k \in K: F(k) \lor S(k)\)</span> <small>(sprich: "F&uuml;r alle k in K gilt: F von k oder S von k")</small></p>
+<p>Negiert:
+<span class="math">\(\exists k \in K: \neg F(k) \land \neg S(k)\)</span> <small>(sprich: "Es existiert mindestens ein k in K f&uuml;r das gilt: Es ist F von k nicht wahr und zugleich S von k nicht wahr.")</small></p>
+<p>&Uuml;bersetzt man das in einen sch&ouml;neren deutschen Satz kann man sagen:
+Mindestens ein Karlsruher f&auml;hrt weder mit dem Rad noch mit der Bahn.</p>
+<p>Wenn man das nun auf die oben angegebenen L&ouml;sungen bezieht, k&ouml;nnte es Aussage 5 oder 6 sein. Der Sinngem&auml;&szlig; muss es hei&szlig;en:
+Es fahren nicht alle Karlsruher entweder mit dem Rad, der Stra&szlig;enbahn oder beidem.
+Ich tendiere stark dazu, Satz 5 zu nehmen. Allerdings bin ich mir nicht sicher, ob mein Sprachgef&uuml;hl mich t&auml;uscht.</p>
+<h2 id="wochentliches-fernsehprogramm">W&ouml;chentliches Fernsehprogramm</h2>
+<p>Noch ein Beispiel aus meinem Tutorium:
+<blockquote>(ii) Im Fernsehen l&auml;uft jede Woche "Die Simpsons", "Die Ludolfs" und "Telekolleg".</blockquote></p>
+<p>Sei W die Menge aller Wochen.
+Sei A Aussageform auf W.</p>
+<p>A(w) := In der Woche w l&auml;uft "Die Simpsons". <span class="math">\(w \in W\)</span>
+B(w) := In der Woche w l&auml;uft "Die Ludolfs". <span class="math">\(w \in W\)</span>
+C(w) := In der Woche w l&auml;uft "Telekolleg". <span class="math">\(w \in W\)</span></p>
+<p>Dann lautet (ii) formalisiert:
+<span class="math">\(\forall w \in W: A(w) \land B(w) \land C(w)\)</span></p>
+<p>Negiert:
+<span class="math">\(\exists w \in W: \neg A(w) \lor \neg B(w) \lor \neg C(w)\)</span></p>
+<h2 id="teilbarkeit">Teilbarkeit</h2>
+<p>Nun mal etwas eigenes:</p>
+<blockquote>(iii) Jede gerade Zahl ist durch zwei teilbar.</blockquote>
+<p>Sei M die Menge der geraden Zahlen.
+Dann lautet (iii) formalisiert:
+<span class="math">\(\forall m \in M: x = \frac{m}{2} \implies x \in \mathbb{N}\)</span></p>
+<h2 id="weitere-materialien">Weitere Materialien</h2>
+<ul>
+<li><a href="http://lrb.cs.uni-dortmund.de/~tick/Lehre/WS10/Logik/01-introw.pdf">Uni Dortmund</a>: 15 Seiten zum Formalisieren vom Aussagen</li>
+<li><a href="http://page.math.tu-berlin.de/~schmitt/lina0910/loesungen/loesung01.pdf">TU-Berlin</a> (Aufgabe 4 - " Jeder, der ein gutes Gehor hat, kann richtig singen[...]")</li>
+</ul>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2011-10-29T15:12:33+02:00">Okt 29, 2011</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#german-posts-ref">German posts</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#lecture-notes-ref">lecture-notes
+                    <span>10</span>
+</a></li>
+                <li><a href="../tags.html#mathematics-ref">mathematics
+                    <span>58</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="arXiv, Amazon, AWS, Machine Learning, Code, " />
+
+<meta property="og:title" content="How to use arXiv data "/>
+<meta property="og:url" content="../arxiv-data/" />
+<meta property="og:description" content="I&#39;ve written a draft for this in June 2014 and recently decided to publish it. The article is certainly not of high quality, but I want to keep it as a reminder for some of the problems I ran into and the solutions I&#39;ve used. I&#39;ve recently talked to my …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2017-01-06T06:30:00+01:00" />
+<meta name="twitter:title" content="How to use arXiv data ">
+<meta name="twitter:description" content="I&#39;ve written a draft for this in June 2014 and recently decided to publish it. The article is certainly not of high quality, but I want to keep it as a reminder for some of the problems I ran into and the solutions I&#39;ve used. I&#39;ve recently talked to my …">
+<meta property="og:image" content="logos/arxiv.png" />
+<meta name="twitter:image" content="logos/arxiv.png" >
+
+        <title>How to use arXiv data  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../arxiv-data/"> How to use arXiv data  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#why-parsing-latex-is-hard" title="Why parsing LaTeX is hard">Why parsing LaTeX is hard</a></li><li><a check'="" class="toc-href" href="#what-i-currently-dont-check" t="" title="What I currently don">What I currently don't check</a></li><li><a class="toc-href" href="#structure-of-arxiv" title="Structure of arXiv">Structure of arXiv</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <div class="info">I've written a draft for this in June 2014 and recently decided to publish it. The article is certainly not of high quality, but I want to keep it as a reminder for some of the problems I ran into and the solutions I've used.</div>
+<p>I've recently talked to my bachelors thesis advisers. <em>A short reminder:</em>
+I write a thesis about the recognition of handwritten mathematical symbols. As
+a practical part I implement everything on <a href="http://write-math.com">write-math.com</a>.</p>
+<p>My advisers said me that I need at least 100 training examples per symbol.
+As I currently have about 1070 symbols in the database, including symbols
+like <a href="http://www.martin-thoma.de/write-math/symbol/?id=1196"><code>\bat</code></a> or
+<a href="http://www.martin-thoma.de/write-math/symbol/?id=1197"><code>\Mundus</code></a>. As they
+are extremely unlikely to be used in math mode, I will simply skip them. The
+more symbols I can skip, the less training symbols I need to get. So I want to
+skip as many as possible. I think <code>\up[greek letter]</code> like <a href="http://www.martin-thoma.de/write-math/symbol/?id=851"><code>\updelta</code></a> and <a href="http://www.martin-thoma.de/write-math/symbol/?id=857"><code>\Updelta</code></a>
+are also rare. But my adviser doesn't think so. This means I need to prove it.</p>
+<p>One way to prove it is by looking at much data and counting. One of the biggest
+datasources for LaTeX is <a href="http://arxiv.org/">arXiv</a>, a repository of electronic
+preprints of scientific papers in the fields of mathematics, physics, astronomy,
+computer science, quantitative biology, statistics, and quantitative finance,
+which can be accessed online.</p>
+<h2 id="why-parsing-latex-is-hard">Why parsing LaTeX is hard</h2>
+<p>Special cases. Lots of them.</p>
+<p>At first you would think: Dude, it's only counting strings in documents. Is that
+really worth writing an article?</p>
+<p>Yes, it is.</p>
+<p>Just think about the many ways you can define your own commands (called macros):</p>
+<ul>
+<li><code>\newcommand{[search]}{[replace]}</code></li>
+<li><code>\newcommand{[search]} {[replace]}</code></li>
+<li><code>\def[search]{[replace]}</code></li>
+<li><code>\newcommand*{[search]}{[replace]}</code></li>
+<li><code>\newenvironment</code></li>
+<li>...</li>
+</ul>
+<p>Then remember that you can import files</p>
+<ul>
+<li><code>\input{package}</code></li>
+<li><code>\input package.sty</code></li>
+<li><code>\include</code></li>
+<li><code>\usepackage</code></li>
+</ul>
+<p>and weird commands like <code>\begin{filecontents*}</code>. And even more weird self-defined
+ones:</p>
+<ul>
+<li><code>\def\be{\begin{equation}}</code></li>
+<li><code>\def\ee{\end{equation}}</code></li>
+<li><code>\newcommand{\beq}{\begin{equation}}</code></li>
+<li><code>\newcommand{\eeq}{\end{equation}}</code></li>
+<li><code>\def\bea{\begin{eqnarray}}</code></li>
+<li><code>\def\eea{\end{eqnarray}}</code></li>
+<li><code>\newcommand\beq{\begin{equation}}</code></li>
+<li><code>\newcommand\eeq{\end{equation}}</code></li>
+<li><code>\newcommand\beqa{\begin{eqnarray}}</code></li>
+<li><code>\newcommand\eeqa{\end{eqnarray}}</code></li>
+<li><code>\def\({\left(}</code></li>
+<li><code>\def\){\right)}</code></li>
+<li><code>\def\[{\left[}</code></li>
+<li><code>\def\]{\right]}</code></li>
+<li><code>\def\&lt;{\left\langle}</code></li>
+<li><code>\def\&gt;{\right\rangle}</code></li>
+</ul>
+<p>As some of these were quite common, <code>sed</code> and <code>find</code> saved me some work:</p>
+<div class="highlight"><pre><span></span>find . -type f -print0 <span class="p">|</span> xargs -0  <span class="se">\</span>
+sed -i <span class="s1">'s/\\newcommand{\\beq}{\\begin{equation}}/%%%%%%%%%%%%%%/g'</span>
+
+find . -type f -print0 <span class="p">|</span> xargs -0  <span class="se">\</span>
+sed -i <span class="s1">'s/\\newcommand\\eeq{\\end{equation}}/%%%%%%%%%%%%%%/g'</span>
+
+find . -type f -print0 <span class="p">|</span> xargs -0  <span class="se">\</span>
+sed -i <span class="s1">'s/\\newcommand{\\eeq}{\\end{equation}}/%%%%%%%%%%%%%%/g'</span>
+
+find . -type f -print0 <span class="p">|</span> xargs -0  <span class="se">\</span>
+sed -i <span class="s1">'s/\\newcommand{\\be}{\\begin{equation}}/%%%%%%%%%%%%%%/g'</span>
+
+find . -type f -print0 <span class="p">|</span> xargs -0  <span class="se">\</span>
+sed -i <span class="s1">'s/\\newcommand{\\ee}{\\end{equation}}/%%%%%%%%%%%%%%/g'</span>
+
+find . -type f -print0 <span class="p">|</span> xargs -0  <span class="se">\</span>
+sed -i <span class="s1">'s/\\def\\ee{\\end{equation}}/%%%%%%%%%%%%%%/g'</span>
+
+find . -type f -print0 <span class="p">|</span> xargs -0  <span class="se">\</span>
+sed -i <span class="s1">'s/\\def\\be{\\begin{equation}}/%%%%%%%%%%%%%%/g'</span>
+
+find . -type f -print0 <span class="p">|</span> xargs -0  <span class="se">\</span>
+sed -i <span class="s1">'s/\\def\\ee{\\end{equation}}/%%%%%%%%%%%%%%/g'</span>
+</pre></div>
+<h2 id="what-i-currently-dont-check">What I currently don't check</h2>
+<p>Commands with parameters:</p>
+<div class="highlight"><pre><span></span><span class="k">\makeatletter</span>
+<span class="k">\def\imod</span>#1<span class="nb">{</span><span class="k">\allowbreak\mkern</span>10mu(<span class="nb">{</span><span class="k">\operator</span>@font mod<span class="nb">}</span><span class="k">\,\,</span>#1)<span class="nb">}</span>
+<span class="k">\makeatother</span>
+</pre></div>
+<h2 id="structure-of-arxiv">Structure of arXiv</h2>
+<p>arXiv uses Amazon S3 with the "requester pays" option. The storage containers
+of S3 are called "buckets" and they are adressed in an URI style:</p>
+<div class="highlight"><pre><span></span>s3://arxiv/pdf/arXiv_pdf_manifest.xml
+</pre></div>
+<p>A tool to get data from S3 under Linux is <code>s3cmd</code>. It can be used like this:</p>
+<div class="highlight"><pre><span></span>$ s3cmd ls --add-header<span class="o">=</span><span class="s2">"x-amz-request-payer: requester"</span> s3://arxiv/pdf/arXiv_pdf_manifest.xml
+<span class="m">2011</span>-02-15 <span class="m">04</span>:12    <span class="m">246144</span>   s3://arxiv/pdf/arXiv_pdf_manifest.xml
+
+$ s3cmd get --add-header<span class="o">=</span><span class="s2">"x-amz-request-payer: requester"</span> s3://arxiv/pdf/arXiv_pdf_manifest.xml
+s3://arxiv/pdf/arXiv_pdf_manifest.xml -&gt; ./arXiv_pdf_manifest.xml  <span class="o">[</span><span class="m">1</span> of <span class="m">1</span><span class="o">]</span>
+ <span class="m">246144</span> of <span class="m">246144</span>   <span class="m">100</span>% in    0s   <span class="m">377</span>.85 kB/s  <span class="k">done</span>
+
+$ s3cmd ls --add-header<span class="o">=</span><span class="s2">"x-amz-request-payer: requester"</span> s3://arxiv/pdf/<span class="se">\*</span>
+</pre></div>
+<p>The manifest contains all information about the real data. Remember, you have
+to pay for the downloads! According to arXiv, it's about $0.12/GB transferred.
+This means for 150 GB I would have to pay at least $18.</p>
+<p>The manifest is an XML file, which looks like this:</p>
+<div class="highlight"><pre><span></span><span class="cp">&lt;?xml version='1.0' standalone='yes'?&gt;</span>
+<span class="nt">&lt;arXivSRC&gt;</span>
+  <span class="nt">&lt;file&gt;</span>
+    <span class="nt">&lt;content_md5sum&gt;</span>cacbfede21d5dfef26f367ec99384546<span class="nt">&lt;/content_md5sum&gt;</span>
+    <span class="nt">&lt;filename&gt;</span>src/arXiv_src_0001_001.tar<span class="nt">&lt;/filename&gt;</span>
+    <span class="nt">&lt;first_item&gt;</span>astro-ph0001001<span class="nt">&lt;/first_item&gt;</span>
+    <span class="nt">&lt;last_item&gt;</span>quant-ph0001119<span class="nt">&lt;/last_item&gt;</span>
+    <span class="nt">&lt;md5sum&gt;</span>949ae880fbaf4649a485a8d9e07f370b<span class="nt">&lt;/md5sum&gt;</span>
+    <span class="nt">&lt;num_items&gt;</span>2364<span class="nt">&lt;/num_items&gt;</span>
+    <span class="nt">&lt;seq_num&gt;</span>1<span class="nt">&lt;/seq_num&gt;</span>
+    <span class="nt">&lt;size&gt;</span>225605507<span class="nt">&lt;/size&gt;</span>
+    <span class="nt">&lt;timestamp&gt;</span>2010-12-23 00:13:59<span class="nt">&lt;/timestamp&gt;</span>
+    <span class="nt">&lt;yymm&gt;</span>0001<span class="nt">&lt;/yymm&gt;</span>
+  <span class="nt">&lt;/file&gt;</span>
+  <span class="nt">&lt;file&gt;</span>
+    <span class="nt">&lt;content_md5sum&gt;</span>d90df481661ccdd7e8be883796539743<span class="nt">&lt;/content_md5sum&gt;</span>
+    <span class="nt">&lt;filename&gt;</span>src/arXiv_src_0002_001.tar<span class="nt">&lt;/filename&gt;</span>
+    <span class="nt">&lt;first_item&gt;</span>astro-ph0002001<span class="nt">&lt;/first_item&gt;</span>
+    <span class="nt">&lt;last_item&gt;</span>quant-ph0002094<span class="nt">&lt;/last_item&gt;</span>
+    <span class="nt">&lt;md5sum&gt;</span>4592ab506cf775afecf4ad560d982a00<span class="nt">&lt;/md5sum&gt;</span>
+    <span class="nt">&lt;num_items&gt;</span>2365<span class="nt">&lt;/num_items&gt;</span>
+    <span class="nt">&lt;seq_num&gt;</span>1<span class="nt">&lt;/seq_num&gt;</span>
+    <span class="nt">&lt;size&gt;</span>227036528<span class="nt">&lt;/size&gt;</span>
+    <span class="nt">&lt;timestamp&gt;</span>2010-12-23 00:18:09<span class="nt">&lt;/timestamp&gt;</span>
+    <span class="nt">&lt;yymm&gt;</span>0002<span class="nt">&lt;/yymm&gt;</span>
+  <span class="nt">&lt;/file&gt;</span>
+  <span class="nt">&lt;file&gt;</span>
+    <span class="nt">&lt;content_md5sum&gt;</span>3388afd7bfb2dfd9d3f3e6b353357b33<span class="nt">&lt;/content_md5sum&gt;</span>
+    <span class="nt">&lt;filename&gt;</span>src/arXiv_src_0003_001.tar<span class="nt">&lt;/filename&gt;</span>
+    <span class="nt">&lt;first_item&gt;</span>astro-ph0003001<span class="nt">&lt;/first_item&gt;</span>
+    <span class="nt">&lt;last_item&gt;</span>quant-ph0003151<span class="nt">&lt;/last_item&gt;</span>
+    <span class="nt">&lt;md5sum&gt;</span>b5bf5e52ae8532cdf82b606b42df16ea<span class="nt">&lt;/md5sum&gt;</span>
+    <span class="nt">&lt;num_items&gt;</span>2600<span class="nt">&lt;/num_items&gt;</span>
+    <span class="nt">&lt;seq_num&gt;</span>1<span class="nt">&lt;/seq_num&gt;</span>
+    <span class="nt">&lt;size&gt;</span>230986882<span class="nt">&lt;/size&gt;</span>
+    <span class="nt">&lt;timestamp&gt;</span>2010-12-23 00:22:15<span class="nt">&lt;/timestamp&gt;</span>
+    <span class="nt">&lt;yymm&gt;</span>0003<span class="nt">&lt;/yymm&gt;</span>
+  <span class="nt">&lt;/file&gt;</span>
+  ...
+</pre></div>
+<p>The differrent files mean:</p>
+<ul>
+<li><code>content_md5sum</code>: MD5 sum of all the files in the tar package concatenated but not packaged. Use md5sum for the md5sum of the tar package which should match the S3 MD5 sum.</li>
+<li><code>filename</code>:
+Name of file within bucket, prefix bucket name s3://arxiv/ for complete identifier</li>
+<li><code>first_item</code> and <code>last_item</code>:
+arXiv identifier of article PDF first in tar package, and last in tar package</li>
+<li><code>md5sum</code>:
+MD5 sum of tar package, can be used as check against downloaded file</li>
+<li><code>num_items</code>:
+Number of PDF files in tar package</li>
+<li><code>seq_num</code>:
+Sequence number within month yymm</li>
+<li><code>size</code>:
+Size of tar package in bytes</li>
+<li><code>timestamp</code>:
+Timestamp of tar package (unix mtime when created, expressed at YYYY-MM-DD HH:MM::SS)</li>
+<li><code>yymm</code>: Two digit year and month of items in the tar package. Starts with 9108 for 1991-08, rolls past y2k to 0001 for 2000-01, 1008 for 2010-08 etc.</li>
+</ul>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2017-01-06T06:30:00+01:00">Jan 6, 2017</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#amazon-ref">Amazon
+                    <span>3</span>
+</a></li>
+                <li><a href="../tags.html#arxiv-ref">arXiv
+                    <span>3</span>
+</a></li>
+                <li><a href="../tags.html#aws-ref">AWS
+                    <span>1</span>
+</a></li>
+                <li><a href="../tags.html#machine-learning-ref">Machine Learning
+                    <span>76</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

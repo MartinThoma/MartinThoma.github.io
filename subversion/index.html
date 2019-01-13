@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="cheat sheet, Code, " />
+
+<meta property="og:title" content="Subversion "/>
+<meta property="og:url" content="../subversion/" />
+<meta property="og:description" content="This is a quick article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it. Subversion or Apache Subversion or short svn is a is a software versioning and a revision control system. This allows …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2014-12-29T20:57:00+01:00" />
+<meta name="twitter:title" content="Subversion ">
+<meta name="twitter:description" content="This is a quick article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it. Subversion or Apache Subversion or short svn is a is a software versioning and a revision control system. This allows …">
+
+        <title>Subversion  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../subversion/"> Subversion  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#get-the-repository" title="Get the repository">Get the repository</a></li><li><a class="toc-href" href="#update-to-the-latest-version" title="Update to the latest version">Update to the latest version</a></li><li><a class="toc-href" href="#check-for-changes" title="Check for changes">Check for changes</a></li><li><a class="toc-href" href="#file-actions" title="File actions">File actions</a><ul><li><a class="toc-href" href="#copy" title="Copy">Copy</a></li><li><a class="toc-href" href="#delete" title="Delete">Delete</a></li><li><a class="toc-href" href="#rename-move" title="Rename / Move">Rename / Move</a></li><li><a class="toc-href" href="#add-file" title="Add file">Add file</a></li></ul></li><li><a class="toc-href" href="#commit-the-latest-changes_1" title="Commit the latest changes">Commit the latest changes</a><ul><li><a class="toc-href" href="#check-your-changes" title="Check your changes">Check your changes</a></li><li><a class="toc-href" fine:="" href="#im-fine-upload-it" it!'="" m="" title="I" upload="">I'm fine: Upload it!</a></li></ul></li><li><a class="toc-href" href="#watch-changes_1" title="Watch changes">Watch changes</a><ul><li><a class="toc-href" href="#general" title="General">General</a></li><li><a class="toc-href" href="#one-specific-file" title="One specific file">One specific file</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <div class="info">This is a quick article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it.</div>
+<p>Subversion or Apache Subversion or short svn is a is a software versioning and a revision control system. This allows you to step back to any point of the software and to develop simultaniously on the same project (but not on the same file). You have to make sure that no dependencies are broken, of course.</p>
+<p>Here is a little cheat sheet how to use SVN. I will demonstrate some on my Google Code OpenSource project <a href="https://code.google.com/p/community-chess/">Community Chess</a>.</p>
+<p>All commands are executed while I'm in my local working copy of the repository.</p>
+<h2 id="get-the-repository">Get the repository</h2>
+<div class="highlight"><pre><span></span>svn checkout https://community-chess.googlecode.com/svn/trunk/ community-chess --username themoosemind@googlemail.com
+</pre></div>
+<h2 id="update-to-the-latest-version">Update to the latest version</h2>
+<div class="highlight"><pre><span></span>svn update
+</pre></div>
+<h2 id="check-for-changes">Check for changes</h2>
+<p>If you only want to check which files were modified, added or deleted you can
+execute</p>
+<div class="highlight"><pre><span></span>svn status
+</pre></div>
+<p>This will show your local changes.</p>
+<h2 id="file-actions">File actions</h2>
+<p>The actions are simmilar to the console commands, but you have to add svn:</p>
+<h3 id="copy">Copy</h3>
+<div class="highlight"><pre><span></span>svn cp myFile.php copiedFile.php
+</pre></div>
+<h3 id="delete">Delete</h3>
+<div class="highlight"><pre><span></span>svn rm myFile.php
+</pre></div>
+<h3 id="rename-move">Rename / Move</h3>
+<div class="highlight"><pre><span></span>svn mv myFile.php folder/myNewFile.php
+</pre></div>
+<h3 id="add-file">Add file</h3>
+<p>If you created a file and want to submit it with the next commit, just do</p>
+<div class="highlight"><pre><span></span>svn add myFile.php
+</pre></div>
+<h2 id="commit-the-latest-changes_1">Commit the latest changes</h2>
+<h3 id="check-your-changes">Check your changes</h3>
+<p>First you should try <a href="#Check_for_changes-3">svn status</a>. What files did you change? Do you really want to upload those changes?</p>
+<p>If svn status gives you an exclamation mark (!), you might have deleted a file which you wanted to add before. No problem. Just make</p>
+<div class="highlight"><pre><span></span>svn rever /path/to/your/file.php
+</pre></div>
+<h3 id="im-fine-upload-it">I'm fine: Upload it!</h3>
+<p>This is the command you use, if you want to send the changes you made on your working copy to the repository:</p>
+<div class="highlight"><pre><span></span>svn commit -m <span class="s2">"Moved some functions to additional.inc.php to keep the project more flexible; Much work for tournament implementation done; Some Warnings fixed"</span> --username themoosemind@gmail.com
+</pre></div>
+<h2 id="watch-changes_1">Watch changes</h2>
+<h3 id="general">General</h3>
+<p>See the last three changes:</p>
+<div class="highlight"><pre><span></span>svn log -v --limit<span class="o">=</span><span class="m">3</span>
+</pre></div>
+<div class="highlight"><pre><span></span>------------------------------------------------------------------------
+r118 | themoosemind@gmail.com | 2011-09-26 23:18:42 +0200 (Mo, 26. Sep 2011) | 1 Zeile
+Ge&auml;nderte Pfade:
+   M /trunk/clients/Java/ChessClient.class
+   M /trunk/clients/Java/ChessClient.java
+
+small changes on the Java Client
+------------------------------------------------------------------------
+r116 | themoosemind@gmail.com | 2011-09-26 22:53:01 +0200 (Mo, 26. Sep 2011) | 1 Zeile
+Ge&auml;nderte Pfade:
+   A /trunk/clients/Java
+   A /trunk/clients/Java/ChessClient.class
+   A /trunk/clients/Java/ChessClient.java
+   A /trunk/install/phpBB3
+   A /trunk/install/phpBB3/login.wrapper.php (von /trunk/install/phpbb3.login.php:100)
+   A /trunk/install/phpBB3/phpbb3.integration.txt (von /trunk/install/phpbb3.integration.txt:113)
+   A /trunk/install/phpBB3/phpbb3.php (von /trunk/install/phpbb3.php:100)
+   A /trunk/install/phpBB3/phpbb3.sql (von /trunk/install/phpbb3.sql:103)
+   A /trunk/install/phpBB3/wrapper.inc.php (von /trunk/install/phpbb3.wrapper.inc.php:113)
+   D /trunk/install/phpbb3.integration.txt
+   D /trunk/install/phpbb3.login.php
+   D /trunk/install/phpbb3.php
+   D /trunk/install/phpbb3.sql
+   D /trunk/install/phpbb3.wrapper.inc.php
+
+Made integration instructions for phpBB easier; added Java-Client
+------------------------------------------------------------------------
+r113 | themoosemind@gmail.com | 2011-09-26 08:29:15 +0200 (Mo, 26. Sep 2011) | 1 Zeile
+Ge&auml;nderte Pfade:
+   M /trunk/index.php
+   M /trunk/install/chess.sql
+   M /trunk/install/phpbb3.integration.txt
+   M /trunk/install/phpbb3.wrapper.inc.php
+   M /trunk/my_software.php
+   M /trunk/wrapper.inc.php
+
+Fixed issue 3 and some more phpBB-Bugs; more detailed integration instructions;Renamed GAMES_THREEFOLD_REPETITION_TABLE
+------------------------------------------------------------------------
+</pre></div>
+<h3 id="one-specific-file">One specific file</h3>
+<p>I don't want to get that much output, so I don't apply -v this time:</p>
+<div class="highlight"><pre><span></span>svn log index.php --limit<span class="o">=</span><span class="m">3</span>
+</pre></div>
+<div class="highlight"><pre><span></span>------------------------------------------------------------------------
+r127 | themoosemind@gmail.com | 2011-10-04 00:09:59 +0200 (Di, 04. Okt 2011) | 1 Zeile
+
+Moved some functions to additional.inc.php to keep the project more flexible; Much work for tournament implementation done; Some Warnings fixed
+------------------------------------------------------------------------
+r113 | themoosemind@gmail.com | 2011-09-26 08:29:15 +0200 (Mo, 26. Sep 2011) | 1 Zeile
+
+Fixed issue 3 and some more phpBB-Bugs; more detailed integration instructions;Renamed GAMES_THREEFOLD_REPETITION_TABLE
+------------------------------------------------------------------------
+r71 | themoosemind@gmail.com | 2011-08-26 23:13:37 +0200 (Fr, 26. Aug 2011) | 1 Zeile
+
+completed MVC with Vemplator; controlled every php file with phpcs
+------------------------------------------------------------------------
+</pre></div>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2014-12-29T20:57:00+01:00">Dez 29, 2014</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#cheat-sheet-ref">cheat sheet
+                    <span>5</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

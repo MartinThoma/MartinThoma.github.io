@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Programming, Cyberculture, " />
+
+<meta property="og:title" content="Configurig gEdit for developers "/>
+<meta property="og:url" content="../configurig-gedit-for-developers/" />
+<meta property="og:description" content="gedit is a very lightweight text editor. It supports syntax highlighting for every programming language I can think of and is highly customizable. It belongs to GNOME, but it is also available for Windows. This is how it looks like: gedit screenshot You might want to install gedit-plugins: sudo apt-get …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2011-12-08T23:10:19+01:00" />
+<meta name="twitter:title" content="Configurig gEdit for developers ">
+<meta name="twitter:description" content="gedit is a very lightweight text editor. It supports syntax highlighting for every programming language I can think of and is highly customizable. It belongs to GNOME, but it is also available for Windows. This is how it looks like: gedit screenshot You might want to install gedit-plugins: sudo apt-get …">
+<meta property="og:image" content="2011/12/gedit.png" />
+<meta name="twitter:image" content="2011/12/gedit.png" >
+
+        <title>Configurig gEdit for developers  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../configurig-gedit-for-developers/"> Configurig gEdit for developers  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#external-tools" title="External Tools">External Tools</a><ul><li><a class="toc-href" href="#java" title="Java">Java</a></li></ul></li><li><a class="toc-href" href="#code-comment_1" title="Code Comment">Code Comment</a></li><li><a class="toc-href" href="#bracket-completion" title="Bracket Completion">Bracket Completion</a></li><li><a class="toc-href" href="#better-python-console" title="Better Python Console">Better Python Console</a></li><li><a class="toc-href" href="#what-could-be-better" title="What could be better">What could be better</a></li><li><a class="toc-href" href="#further-reading-and-resources" title="Further reading and resources">Further reading and resources</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p><a href="http://en.wikipedia.org/wiki/Gedit">gedit</a> is a very lightweight text editor. It supports syntax highlighting for every programming language I can think of and is highly customizable.</p>
+<p>It belongs to GNOME, but it is also available for Windows. This is how it looks like:</p>
+<figure class="aligncenter">
+<a href="../images/2011/12/gedit-screenshot-300x208.png"><img alt="gedit screenshot" class="size-medium wp-image-9571" src="../images/2011/12/gedit-screenshot-300x208.png" style="max-width:300px;max-height:208px"/></a>
+<figcaption class="text-center">gedit screenshot</figcaption>
+</figure>
+<p>You might want to install gedit-plugins:</p>
+<div class="highlight"><pre><span></span>sudo apt-get install gedit-plugins
+</pre></div>
+<h2 id="external-tools">External Tools</h2>
+<p>gedit allows you to run external command line tools by pressing shortcuts. You can find the external tools plugins in your preferences:
+<figure class="aligncenter">
+<a href="../images/2011/12/gedit-external-tools1-300x209.png"><img alt="gedit external tools" class="size-medium wp-image-9601" src="../images/2011/12/gedit-external-tools1-300x209.png" style="max-width:300px;max-height:209px"/></a>
+<figcaption class="text-center">gedit external tools</figcaption>
+</figure></p>
+<p>You can assign shortcuts by clicking into an input field and simply using the shortcut once:
+<figure class="aligncenter">
+<a href="../images/2011/12/external-tool-java-300x209.png"><img alt="external tools java" class="size-medium wp-image-9611" src="../images/2011/12/external-tool-java-300x209.png" style="max-width:300px;max-height:209px"/></a>
+<figcaption class="text-center">external tools java</figcaption>
+</figure></p>
+<h3 id="java">Java</h3>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+<span class="nb">cd</span> <span class="nv">$GEDIT_CURRENT_DOCUMENT_DIR</span>
+<span class="k">if</span> javac <span class="nv">$GEDIT_CURRENT_DOCUMENT_NAME</span><span class="p">;</span>
+<span class="k">then</span>
+java <span class="si">${</span><span class="nv">GEDIT_CURRENT_DOCUMENT_NAME</span><span class="p">%</span><span class="se">\.</span><span class="nv">java</span><span class="si">}</span>
+<span class="k">else</span>
+<span class="nb">echo</span> <span class="s2">"Failed to compile"</span>
+<span class="k">fi</span>
+</pre></div>
+<h2 id="code-comment_1">Code Comment</h2>
+<p>This neat little plugin detects which programming language you are using. If you select a code block and press ctrl+m it gets marked as a comment. If you press ctrl+shift+m a block of comments gets "decommented" to a block of code. It uses # for Python and // for Java.</p>
+<h2 id="bracket-completion">Bracket Completion</h2>
+<p>Well, I guess the name is meaningful, isn't it? As soon as you type a bracket - (, [ or { it gets completed with }, ] or ).</p>
+<h2 id="better-python-console">Better Python Console</h2>
+<p>The <a href="http://live.gnome.org/Gedit/Plugins/BetterPythonConsole">Better Python Console Plugin</a> allows you to press F5 and execute the current code in an interactive Python console. This means, you can access the current variables!</p>
+<p>You install it by extracting and copying the whole folder (with plugins!) to ~/gnome2/gedit.</p>
+<h2 id="what-could-be-better">What could be better</h2>
+<p>The design could be similar to Chrome ☺ So they could have some nicer tabs. Nothing really important.</p>
+<p>I really miss comment folding since I have to write Java code with a lot of Doc comments</p>
+<h2 id="further-reading-and-resources">Further reading and resources</h2>
+<ul>
+<li><a href="http://projects.gnome.org/gedit/">Official Website</a>: You can find the Windows Binary here.</li>
+<li><a href="http://live.gnome.org/Gedit/ExternalToolsPluginCommands">External Tools</a></li>
+<li><a href="http://www.makeuseof.com/tag/top-plugins-to-extend-and-make-gedit-a-more-useful-text-editor-linux/">13 Gedit Plugins to Make It a More Useful Text Editor</a>: Seems as if you could also have a class browser in gedit</li>
+</ul>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2011-12-08T23:10:19+01:00">Dez 8, 2011</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#cyberculture-ref">Cyberculture</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#programming-ref">Programming
+                    <span>48</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Python, Scheduling, Code, " />
+
+<meta property="og:title" content="Python Scheduling "/>
+<meta property="og:url" content="../python-scheduling/" />
+<meta property="og:description" content="Suppose you wanted to build a tool which informs you whenever there is an update to a couple of websites you&#39;re interested in. And lets say the last-modified header was usable for this (it is not, but I want to focus on another problem). So you would need to save …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2017-08-21T20:00:00+02:00" />
+<meta name="twitter:title" content="Python Scheduling ">
+<meta name="twitter:description" content="Suppose you wanted to build a tool which informs you whenever there is an update to a couple of websites you&#39;re interested in. And lets say the last-modified header was usable for this (it is not, but I want to focus on another problem). So you would need to save …">
+<meta property="og:image" content="logos/python.png" />
+<meta name="twitter:image" content="logos/python.png" >
+
+        <title>Python Scheduling  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../python-scheduling/"> Python Scheduling  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#prerequisites" title="Prerequisites">Prerequisites</a></li><li><a class="toc-href" href="#the-scheduling" title="The scheduling">The scheduling</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>Suppose you wanted to build a tool which informs you whenever there is an
+update to a couple of websites you're interested in. And lets say the
+<code>last-modified</code> header was usable for this (it is not, but I want to focus on
+another problem). So you would need to save the <code>last_known_state</code> - which
+is a time stamp - with the latest <code>last-modified</code>. And you need to do this
+often. For each website. Lets say we have</p>
+<div class="highlight"><pre><span></span>Intervall | Name      | Website
+------------------------------------------------------------------
+60min     | Wikipedia | https://en.wikipedia.org/wiki/Named-entity_recognition
+300min    | Fefe      | https://blog.fefe.de/
+</pre></div>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>We store the jobs in <code>jobs.csv</code> in the format</p>
+<div class="highlight"><pre><span></span><span class="nt">intervall</span><span class="o">;</span><span class="nt">name</span><span class="o">;</span><span class="nt">url</span><span class="o">;</span><span class="nt">last-modified</span><span class="o">;</span><span class="nt">process</span>
+<span class="nt">60</span><span class="o">;</span><span class="nt">Wikipedia</span><span class="o">;</span><span class="nt">https</span><span class="o">://</span><span class="nt">en</span><span class="p">.</span><span class="nc">wikipedia</span><span class="p">.</span><span class="nc">org</span><span class="o">/</span><span class="nt">wiki</span><span class="o">/</span><span class="nt">Named-entity_recognition</span><span class="o">;</span><span class="nt">-</span><span class="o">;</span><span class="nt">-</span>
+<span class="nt">300</span><span class="o">;</span><span class="nt">Fefe</span><span class="o">;</span><span class="nt">https</span><span class="o">://</span><span class="nt">blog</span><span class="p">.</span><span class="nc">fefe</span><span class="p">.</span><span class="nc">de</span><span class="o">/;</span><span class="nt">-</span><span class="o">;</span><span class="nt">-</span>
+</pre></div>
+<p>Interacting with CSV files is simple (<a href="https://stackoverflow.com/a/41585079/562769">source</a>).</p>
+<p>It turns out, that sending notifications is also simple on Ubuntu:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+
+<span class="sd">"""Example for a notification on Ubuntu 16.04."""</span>
+
+<span class="kn">import</span> <span class="nn">subprocess</span>
+
+
+<span class="k">def</span> <span class="nf">sendmessage</span><span class="p">(</span><span class="n">summary</span><span class="p">,</span> <span class="n">body</span><span class="p">):</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">'notify-send'</span><span class="p">,</span> <span class="n">summary</span><span class="p">,</span> <span class="n">body</span><span class="p">])</span>
+    <span class="k">return</span>
+
+
+<span class="n">sendmessage</span><span class="p">(</span><span class="s2">"Change detector"</span><span class="p">,</span>
+            <span class="s2">"Change detected on &lt;a href='https://en.wikipedia.org/wiki/"</span>
+            <span class="s2">"Named-entity_recognition'&gt;Named-entity recognition&lt;/a&gt;"</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+<p>It looks like this:</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<img alt="Notifications on Ubuntu" src="../images/2017/08/notification-python.png" style="width: 512px;"/>
+<figcaption class="text-center">Notifications on Ubuntu</figcaption>
+</figure>
+<p>Receiving the <code>last-modified</code> element from a website is as simple as</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+
+<span class="sd">"""How to receive the last-modified header."""</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+
+
+<span class="k">def</span> <span class="nf">get_last_modified</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="sd">"""Get the Last-Modified header of an URL."""</span>
+    <span class="n">header</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">headers</span>
+    <span class="k">if</span> <span class="s1">'Last-Modified'</span> <span class="ow">in</span> <span class="n">header</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">header</span><span class="p">[</span><span class="s1">'Last-Modified'</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">None</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">get_last_modified</span><span class="p">(</span><span class="s1">'https://blog.fefe.de/'</span><span class="p">))</span>
+</pre></div>
+</td></tr></table>
+<h2 id="the-scheduling">The scheduling</h2>
+<p>We want to be able to spawn new website watchers any time and we want to be
+able to kill them easily. They should not take too much memory / CPU-time and
+they should run independently.</p>
+<p>So we have one script which creates new processes. Those processes run
+independently, but the children get killed when the parent is killed. And if
+you replace their process id (pid) in the <code>jobs.csv</code> by <code>commit_suicide</code> they
+kill themselfes. You can also kill them directly by using the process id.</p>
+<p>And ... that's it. You should think about race conditions, too. But this was
+more a toy project than something serious, so I'll not dig into that. And if
+you simply used a database, you would not have a race condition as you could
+edit all entries independently.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+
+<span class="sd">"""How to receive the last-modified header."""</span>
+
+<span class="kn">import</span> <span class="nn">csv</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Process</span>
+
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">format</span><span class="o">=</span><span class="s1">'</span><span class="si">%(asctime)s</span><span class="s1"> </span><span class="si">%(levelname)s</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">'</span><span class="p">,</span>
+                    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
+                    <span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">sendmessage</span><span class="p">(</span><span class="n">summary</span><span class="p">,</span> <span class="n">body</span><span class="p">):</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">'notify-send'</span><span class="p">,</span> <span class="n">summary</span><span class="p">,</span> <span class="n">body</span><span class="p">])</span>
+    <span class="k">return</span>
+
+
+<span class="k">def</span> <span class="nf">read_jobs</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+        <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">';'</span><span class="p">,</span> <span class="n">quotechar</span><span class="o">=</span><span class="s1">'"'</span><span class="p">)</span>
+        <span class="n">data_read</span> <span class="o">=</span> <span class="p">[</span><span class="n">row</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">data_read</span>
+
+
+<span class="k">def</span> <span class="nf">get_last_modified</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="sd">"""Get the Last-Modified header of an URL."""</span>
+    <span class="n">header</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">headers</span>
+    <span class="k">if</span> <span class="s1">'Last-Modified'</span> <span class="ow">in</span> <span class="n">header</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">header</span><span class="p">[</span><span class="s1">'Last-Modified'</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">None</span>
+
+
+<span class="k">def</span> <span class="nf">create_new_process</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">,</span> <span class="n">line_nr</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">line_nr</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"line_nr={line_nr}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">line_nr</span><span class="p">)</span>
+    <span class="n">jobs</span> <span class="o">=</span> <span class="n">read_jobs</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Start job for '{name}'"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">jobs</span><span class="p">[</span><span class="n">line_nr</span><span class="p">][</span><span class="s1">'name'</span><span class="p">]))</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">job_runner</span><span class="p">,</span>
+                <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">,</span> <span class="n">line_nr</span><span class="p">,</span> <span class="n">jobs</span><span class="p">))</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">p</span>
+
+
+<span class="k">def</span> <span class="nf">job_runner</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">,</span> <span class="n">line_nr</span><span class="p">,</span> <span class="n">jobs</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">jobs</span><span class="p">[</span><span class="n">line_nr</span><span class="p">][</span><span class="s1">'name'</span><span class="p">]</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">jobs</span><span class="p">[</span><span class="n">line_nr</span><span class="p">][</span><span class="s1">'url'</span><span class="p">]</span>
+    <span class="n">intervall</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">jobs</span><span class="p">[</span><span class="n">line_nr</span><span class="p">][</span><span class="s1">'intervall'</span><span class="p">])</span>
+    <span class="n">last_modified_seen</span> <span class="o">=</span> <span class="n">jobs</span><span class="p">[</span><span class="n">line_nr</span><span class="p">][</span><span class="s1">'url'</span><span class="p">]</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Run line_nr={}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">line_nr</span><span class="p">))</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s1">'process id:'</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">()</span>
+        <span class="c1"># Get websites last modified</span>
+        <span class="n">last_modified_website</span> <span class="o">=</span> <span class="n">get_last_modified</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">last_modified_website</span> <span class="o">!=</span> <span class="n">last_modified_seen</span><span class="p">:</span>
+            <span class="c1"># Update file</span>
+            <span class="n">update_file</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">,</span>
+                        <span class="n">line_nr</span><span class="p">,</span>
+                        <span class="n">last_modified_website</span><span class="p">,</span>
+                        <span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">())</span>
+            <span class="n">last_modified_seen</span> <span class="o">=</span> <span class="n">last_modified_website</span>
+            <span class="c1"># notify</span>
+            <span class="n">sendmessage</span><span class="p">(</span><span class="s2">"Change detector"</span><span class="p">,</span>
+                        <span class="s2">"Change detected on &lt;a href='{url}'&gt;{name}&lt;/a&gt;"</span>
+                        <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">))</span>
+        <span class="c1"># wait</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">intervall</span><span class="p">)</span>
+
+        <span class="c1"># See if the process should kill itself</span>
+        <span class="n">jobs</span> <span class="o">=</span> <span class="n">read_jobs</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">jobs</span><span class="p">[</span><span class="n">line_nr</span><span class="p">][</span><span class="s1">'pid'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'commit_suicide'</span><span class="p">:</span>
+            <span class="k">return</span>
+
+
+<span class="k">def</span> <span class="nf">update_file</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">,</span> <span class="n">line_nr</span><span class="p">,</span> <span class="n">last_modified_website</span><span class="p">,</span> <span class="n">pid</span><span class="p">):</span>
+    <span class="c1"># Race conditions!</span>
+    <span class="n">jobs</span> <span class="o">=</span> <span class="n">read_jobs</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">jobs</span><span class="p">)</span>
+    <span class="n">jobs</span><span class="p">[</span><span class="n">line_nr</span><span class="p">][</span><span class="s1">'last-modified'</span><span class="p">]</span> <span class="o">=</span> <span class="n">last_modified_website</span>
+    <span class="n">jobs</span><span class="p">[</span><span class="n">line_nr</span><span class="p">][</span><span class="s1">'pid'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pid</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+        <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">';'</span><span class="p">)</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s2">"intervall"</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">,</span> <span class="s2">"url"</span><span class="p">,</span> <span class="s2">"last-modified"</span><span class="p">,</span> <span class="s2">"pid"</span><span class="p">])</span>
+        <span class="k">for</span> <span class="n">job</span> <span class="ow">in</span> <span class="n">jobs</span><span class="p">:</span>
+            <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="n">job</span><span class="p">[</span><span class="s1">'intervall'</span><span class="p">],</span>
+                             <span class="n">job</span><span class="p">[</span><span class="s1">'name'</span><span class="p">],</span>
+                             <span class="n">job</span><span class="p">[</span><span class="s1">'url'</span><span class="p">],</span>
+                             <span class="n">job</span><span class="p">[</span><span class="s1">'last-modified'</span><span class="p">],</span>
+                             <span class="n">job</span><span class="p">[</span><span class="s1">'pid'</span><span class="p">]])</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">csv_filepath</span> <span class="o">=</span> <span class="s2">"jobs.csv"</span>
+    <span class="n">jobs</span> <span class="o">=</span> <span class="n">read_jobs</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">line_nr</span><span class="p">,</span> <span class="n">job</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">jobs</span><span class="p">):</span>
+        <span class="n">process_runs</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">"/proc/{}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">job</span><span class="p">[</span><span class="s1">'pid'</span><span class="p">]))</span>
+        <span class="k">if</span> <span class="n">job</span><span class="p">[</span><span class="s1">'pid'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'stopped'</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">process_runs</span><span class="p">:</span>
+            <span class="n">create_new_process</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">,</span> <span class="n">line_nr</span><span class="p">)</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</td></tr></table>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="https://docs.python.org/2/library/sched.html#sched.scheduler"><code>schedule</code></a>: defines a class which implements a general purpose event scheduler</li>
+<li><a href="https://pythonhosted.org/Pyro4/index.html">Pyro4</a>: build applications in which objects can talk to each other over the network</li>
+<li><a href="https://stackoverflow.com/a/13607111/562769"><code>`subprocess</code> vs <code>multiprocessing</code></a></li>
+<li><a href="https://www.python.org/dev/peps/pep-3143/">PEP 3143</a></li>
+</ul>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2017-08-21T20:00:00+02:00">Aug 21, 2017</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#python-ref">Python
+                    <span>90</span>
+</a></li>
+                <li><a href="../tags.html#scheduling-ref">Scheduling
+                    <span>2</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Assembly language, MIPS, Code, " />
+
+<meta property="og:title" content="Add MIPS syntax highlighting to gEdit "/>
+<meta property="og:url" content="../add-mips-syntax-highlighting-gedit/" />
+<meta property="og:description" content="I have to code some little programs in MIPS assembly language for university. So I liked to have some syntax highlighting for my favorite editor: gEdit. The following steps were tested on Ubuntu 10.04.4 LTS. This adds MIPS syntax highlighting to gEdit and every editor, that uses gtksourceview …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2012-06-16T10:27:09+02:00" />
+<meta name="twitter:title" content="Add MIPS syntax highlighting to gEdit ">
+<meta name="twitter:description" content="I have to code some little programs in MIPS assembly language for university. So I liked to have some syntax highlighting for my favorite editor: gEdit. The following steps were tested on Ubuntu 10.04.4 LTS. This adds MIPS syntax highlighting to gEdit and every editor, that uses gtksourceview …">
+<meta property="og:image" content="2012/06/MIPS-Ingenic_JZ4730.jpg" />
+<meta name="twitter:image" content="2012/06/MIPS-Ingenic_JZ4730.jpg" >
+
+        <title>Add MIPS syntax highlighting to gEdit  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../add-mips-syntax-highlighting-gedit/"> Add MIPS syntax highlighting to gEdit  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>I have to code some little programs in MIPS assembly language for university. So I liked to have some syntax highlighting for my favorite editor: gEdit.</p>
+<p>The following steps were tested on Ubuntu 10.04.4 LTS.</p>
+<p>This adds MIPS syntax highlighting to gEdit and every editor, that uses gtksourceview.</p>
+<p>Create the following file: <code>/usr/share/gtksourceview-2.0/language-specs/sal.lang</code></p>
+<p>Source: GITHub: <a href="https://github.com/Xodarap/Mips-Assembly-Syntax-Highlighting">Xodarap / Mips-Assembly-Syntax-Highlighting</a></p>
+<p>Copy and paste the following:</p>
+<div class="highlight"><pre><span></span><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="c">&lt;!--</span>
+
+<span class="c"> Author: Ben West</span>
+<span class="c"> Copyright (C) 2010 Ben West</span>
+<span class="c"> edited by Martin Thoma</span>
+
+<span class="c"> This library is free software; you can redistribute it and/or</span>
+<span class="c"> modify it under the terms of the GNU Library General Public</span>
+<span class="c"> License as published by the Free Software Foundation; either</span>
+<span class="c"> version 2 of the License, or (at your option) any later version.</span>
+
+<span class="c"> This library is distributed in the hope that it will be useful,</span>
+<span class="c"> but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c"> MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU</span>
+<span class="c"> Library General Public License for more details.</span>
+
+<span class="c"> You should have received a copy of the GNU Library General Public</span>
+<span class="c"> License along with this library; if not, write to the</span>
+<span class="c"> Free Software Foundation, Inc., 59 Temple Place - Suite 330,</span>
+<span class="c"> Boston, MA 02111-1307, USA.</span>
+
+<span class="c">--&gt;</span>
+<span class="c">&lt;!--</span>
+<span class="c">    Somewhat copied and pasted from nasm.lang</span>
+<span class="c">--&gt;</span>
+<span class="nt">&lt;language</span> <span class="na">id=</span><span class="s">"mal"</span> <span class="na">_name=</span><span class="s">"MAL"</span> <span class="na">version=</span><span class="s">"2.0"</span> <span class="na">_section=</span><span class="s">"Others"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;metadata&gt;</span>
+      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"mimetypes"</span><span class="nt">&gt;</span>text/mal<span class="nt">&lt;/property&gt;</span>
+      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"globs"</span><span class="nt">&gt;</span>*.s<span class="nt">&lt;/property&gt;</span>
+      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"line-comment-start"</span><span class="nt">&gt;</span>#<span class="nt">&lt;/property&gt;</span>
+    <span class="nt">&lt;/metadata&gt;</span>
+
+    <span class="nt">&lt;styles&gt;</span>
+        <span class="nt">&lt;style</span> <span class="na">id=</span><span class="s">"comment"</span>             <span class="na">_name=</span><span class="s">"Comment"</span>                 <span class="na">map-to=</span><span class="s">"def:comment"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;style</span> <span class="na">id=</span><span class="s">"error"</span>               <span class="na">_name=</span><span class="s">"Error"</span>                   <span class="na">map-to=</span><span class="s">"def:error"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;style</span> <span class="na">id=</span><span class="s">"string"</span>              <span class="na">_name=</span><span class="s">"String"</span>                  <span class="na">map-to=</span><span class="s">"def:string"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;style</span> <span class="na">id=</span><span class="s">"preprocessor"</span>        <span class="na">_name=</span><span class="s">"Preprocessor"</span>            <span class="na">map-to=</span><span class="s">"def:preprocessor"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;style</span> <span class="na">id=</span><span class="s">"opcode"</span>              <span class="na">_name=</span><span class="s">"Opcode"</span>                  <span class="na">map-to=</span><span class="s">"def:keyword"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;style</span> <span class="na">id=</span><span class="s">"register"</span>            <span class="na">_name=</span><span class="s">"Register"</span>                <span class="na">map-to=</span><span class="s">"def:special-char"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;style</span> <span class="na">id=</span><span class="s">"type"</span>                <span class="na">_name=</span><span class="s">"Data Type"</span>               <span class="na">map-to=</span><span class="s">"def:type"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;style</span> <span class="na">id=</span><span class="s">"escaped-character"</span>   <span class="na">_name=</span><span class="s">"Escaped Character"</span>       <span class="na">map-to=</span><span class="s">"def:special-char"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;style</span> <span class="na">id=</span><span class="s">"decimal"</span>             <span class="na">_name=</span><span class="s">"Decimal number"</span>      <span class="na">map-to=</span><span class="s">"def:decimal"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;style</span> <span class="na">id=</span><span class="s">"hexadecimal"</span>     <span class="na">_name=</span><span class="s">"Hexadecimal number"</span>  <span class="na">map-to=</span><span class="s">"def:base-n-integer"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;style</span> <span class="na">id=</span><span class="s">"label"</span>       <span class="na">_name=</span><span class="s">"Label"</span>           <span class="na">map-to=</span><span class="s">"def:identifier"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/styles&gt;</span>
+
+    <span class="nt">&lt;default-regex-options</span> <span class="na">case-sensitive=</span><span class="s">"false"</span><span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;definitions&gt;</span>
+        <span class="nt">&lt;define-regex</span> <span class="na">id=</span><span class="s">"escaped-character"</span> <span class="na">extended=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+            \\(      # leading backslash
+            [\\\"\'] # escaped character
+            )
+        <span class="nt">&lt;/define-regex&gt;</span>
+
+        <span class="nt">&lt;context</span> <span class="na">id=</span><span class="s">"mal"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;include&gt;</span>   
+        <span class="nt">&lt;context</span> <span class="na">id=</span><span class="s">"preprocessor"</span> <span class="na">style-ref=</span><span class="s">"preprocessor"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;prefix&gt;</span>^\.<span class="nt">&lt;/prefix&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>data<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>text<span class="nt">&lt;/keyword&gt;</span>
+        <span class="nt">&lt;/context&gt;</span>
+
+                <span class="nt">&lt;context</span> <span class="na">id=</span><span class="s">"comment"</span> <span class="na">style-ref=</span><span class="s">"comment"</span> <span class="na">end-at-line-end=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;start&gt;</span>#<span class="nt">&lt;/start&gt;</span>
+                    <span class="nt">&lt;include&gt;</span>
+                      <span class="nt">&lt;context</span> <span class="na">ref=</span><span class="s">"def:in-line-comment"</span><span class="nt">/&gt;</span>
+                    <span class="nt">&lt;/include&gt;</span>
+                <span class="nt">&lt;/context&gt;</span>
+
+                <span class="nt">&lt;context</span> <span class="na">id=</span><span class="s">"string"</span> <span class="na">style-ref=</span><span class="s">"string"</span> <span class="na">end-at-line-end=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;start&gt;</span>"<span class="nt">&lt;/start&gt;</span>
+                    <span class="nt">&lt;end&gt;</span>"<span class="nt">&lt;/end&gt;</span>
+                    <span class="nt">&lt;include&gt;</span>
+                        <span class="nt">&lt;context</span> <span class="na">id=</span><span class="s">"escaped-characterw"</span> <span class="na">style-ref=</span><span class="s">"escaped-character"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;match&gt;</span>\%{escaped-character}<span class="nt">&lt;/match&gt;</span>
+                        <span class="nt">&lt;/context&gt;</span>
+                    <span class="nt">&lt;/include&gt;</span>
+                <span class="nt">&lt;/context&gt;</span>
+                <span class="nt">&lt;context</span> <span class="na">id=</span><span class="s">"string2"</span> <span class="na">style-ref=</span><span class="s">"string"</span> <span class="na">end-at-line-end=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;start&gt;</span>'<span class="nt">&lt;/start&gt;</span>
+                    <span class="nt">&lt;end&gt;</span>'<span class="nt">&lt;/end&gt;</span>
+                    <span class="nt">&lt;include&gt;</span>
+                        <span class="nt">&lt;context</span> <span class="na">id=</span><span class="s">"escaped-characters"</span> <span class="na">style-ref=</span><span class="s">"escaped-character"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;match&gt;</span>\%{escaped-character}<span class="nt">&lt;/match&gt;</span>
+                        <span class="nt">&lt;/context&gt;</span>
+                    <span class="nt">&lt;/include&gt;</span>
+                <span class="nt">&lt;/context&gt;</span>
+
+
+            <span class="nt">&lt;context</span> <span class="na">id=</span><span class="s">"hexadecimal-number"</span> <span class="na">style-ref=</span><span class="s">"hexadecimal"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;match</span> <span class="na">extended=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+            (?<span class="ni">&amp;amp;</span>lt;![\w\.])
+            [+-]?0x[0-9a-fA-F]+
+            (?![\w\.])
+                <span class="nt">&lt;/match&gt;</span>
+            <span class="nt">&lt;/context&gt;</span>
+
+                <span class="nt">&lt;context</span> <span class="na">id=</span><span class="s">"decimal"</span> <span class="na">style-ref=</span><span class="s">"decimal"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;match</span> <span class="na">extended=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                        (?<span class="ni">&amp;amp;</span>lt;![\w\.])
+                        [0-9]+
+                        (?![\w\.])
+                    <span class="nt">&lt;/match&gt;</span>
+                <span class="nt">&lt;/context&gt;</span>
+
+                <span class="nt">&lt;context</span> <span class="na">id=</span><span class="s">"registers"</span> <span class="na">style-ref=</span><span class="s">"register"</span><span class="nt">&gt;</span>           
+            <span class="nt">&lt;match</span> <span class="na">extended=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                (\$
+                    (
+                        \d|[12]\d|3[12]|
+                        (ra)|
+                        ([vk][01])|
+                        (a[0-3t])|
+                        (t[0-9])|
+                        (s[0-7p])|
+                        ([gsf]p)|
+                        (zero)
+                    )
+                )\b
+            <span class="nt">&lt;/match&gt;</span>            
+                <span class="nt">&lt;/context&gt;</span>
+
+        <span class="nt">&lt;context</span> <span class="na">id=</span><span class="s">"label"</span> <span class="na">style-ref=</span><span class="s">"label"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;match</span> <span class="na">extended=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                ^\w+:
+            <span class="nt">&lt;/match&gt;</span>
+        <span class="nt">&lt;/context&gt;</span>
+
+                <span class="c">&lt;!-- Opcodes --&gt;</span>
+        <span class="nt">&lt;context</span> <span class="na">id=</span><span class="s">"opcodes_simple"</span> <span class="na">style-ref=</span><span class="s">"opcode"</span><span class="nt">&gt;</span>
+            <span class="c">&lt;!-- MAL Opcodes --&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>la<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>li<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>lw<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>lb<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>lbu<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>sw<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>sb<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>add(\.s)?<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>sub(\.s)?<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>mul(\.s)?<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>div(\.s)?<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>rem<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>and<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>or<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>xor<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>nor<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>not<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>move<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>sll<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>srl<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>sra<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>l\.s<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>s\.s<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>mov\.s<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>cvt\.s\.w<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>cvt\.w\.s<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>mfc0<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>mtc0<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>mfc1<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>mtc1<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>b<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>beq<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>bne<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>blt<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>bgt<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>ble<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>bge<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>bltz<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>bgtz<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>blez<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>bgez<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>bnez<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>beqz<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>j<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>jr<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>jal<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>jalr<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>getc<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>putc<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>puts<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>done<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>syscall<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>andi<span class="nt">&lt;/keyword&gt;</span>
+                <span class="nt">&lt;/context&gt;</span>                               
+
+                <span class="nt">&lt;context</span> <span class="na">id=</span><span class="s">"types"</span> <span class="na">style-ref=</span><span class="s">"type"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;prefix&gt;</span>\.<span class="nt">&lt;/prefix&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>byte<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>word<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>asciiz<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>ascii<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>float<span class="nt">&lt;/keyword&gt;</span>
+                <span class="nt">&lt;/context&gt;</span>         
+            <span class="nt">&lt;/include&gt;</span>
+        <span class="nt">&lt;/context&gt;</span>
+    <span class="nt">&lt;/definitions&gt;</span>
+<span class="nt">&lt;/language&gt;</span>
+</pre></div>
+<p>That's it.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li>Wikipedia: <a href="http://en.wikipedia.org/wiki/MIPS_architecture">MIPS architecture</a></li>
+<li>Wikibooks: <a href="http://en.wikibooks.org/wiki/MIPS_Assembly">MIPS Assembly</a></li>
+<li><a href="http://spimsimulator.sourceforge.net/">SPIM</a> (a MIPS simulator)</li>
+</ul>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2012-06-16T10:27:09+02:00">Jun 16, 2012</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#assembly-language-ref">Assembly language
+                    <span>5</span>
+</a></li>
+                <li><a href="../tags.html#mips-ref">MIPS
+                    <span>3</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

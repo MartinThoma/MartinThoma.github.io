@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Klausur, Clustering, German posts, " />
+
+<meta property="og:title" content="Analysetechniken für große Datenbestände "/>
+<meta property="og:url" content="../analysetechniken-grosser-datenbestaende/" />
+<meta property="og:description" content="Dieser Artikel beschäftigt sich mit der Vorlesung „Analysetechniken für große Datenbestände“ am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr.-Ing. Klemens Böhm im Wintersemester 2015/2016 gehört. In der Vorlesung &#39;Analysetechniken für große Datenbestände&#39; werden vor allem Association Rule Mining und Clustering-Techniken besprochen. Zum …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2016-04-15T11:22:00+02:00" />
+<meta name="twitter:title" content="Analysetechniken für große Datenbestände ">
+<meta name="twitter:description" content="Dieser Artikel beschäftigt sich mit der Vorlesung „Analysetechniken für große Datenbestände“ am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr.-Ing. Klemens Böhm im Wintersemester 2015/2016 gehört. In der Vorlesung &#39;Analysetechniken für große Datenbestände&#39; werden vor allem Association Rule Mining und Clustering-Techniken besprochen. Zum …">
+<meta property="og:image" content="logos/klausur.png" />
+<meta name="twitter:image" content="logos/klausur.png" >
+
+        <title>Analysetechniken für große Datenbestände  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../analysetechniken-grosser-datenbestaende/"> Analysetechniken für große Datenbestände  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#behandelter-stoff" title="Behandelter Stoff">Behandelter Stoff</a><ul><li><a class="toc-href" href="#ubersicht" title="&Uuml;bersicht">&Uuml;bersicht</a></li><li><a class="toc-href" href="#einleitung" title="Einleitung">Einleitung</a></li><li><a class="toc-href" href="#statistische-grundlagen" title="Statistische Grundlagen">Statistische Grundlagen</a></li><li><a class="toc-href" href="#raumliche-indexstrutkuren" title="R&auml;umliche Indexstrutkuren">R&auml;umliche Indexstrutkuren</a></li><li><a class="toc-href" href="#entscheidungsbaume" title="Entscheidungs&shy;b&auml;ume">Entscheidungs&shy;b&auml;ume</a></li><li><a class="toc-href" href="#evaluation" title="Evaluation">Evaluation</a></li><li><a class="toc-href" href="#association-rules" title="Association Rules">Association Rules</a></li><li><a class="toc-href" href="#constraints" title="Constraints">Constraints</a></li><li><a class="toc-href" href="#clustering" title="Clustering">Clustering</a></li><li><a class="toc-href" href="#statistische-modellierung" title="Statistische Modellierung">Statistische Modellierung</a></li><li><a class="toc-href" href="#support-vector-machines" title="Support Vector Machines">Support Vector Machines</a></li><li><a class="toc-href" href="#ensembles" title="Ensembles">Ensembles</a></li></ul></li><li><a class="toc-href" href="#prufungsfragen_1" title="Pr&uuml;fungsfragen">Pr&uuml;fungsfragen</a><ul><li><a class="toc-href" href="#association-rules_1" title="Association Rules">Association Rules</a></li><li><a class="toc-href" href="#clustering_1" title="Clustering">Clustering</a></li><li><a class="toc-href" href="#bayes" title="Bayes">Bayes</a></li></ul></li><li><a class="toc-href" href="#material-und-links_1" title="Material und Links">Material und Links</a></li><li><a class="toc-href" href="#vorlesungsempfehlungen" title="Vorlesungsempfehlungen">Vorlesungsempfehlungen</a></li><li><a class="toc-href" href="#termine-und-klausurablauf" title="Termine und Klausurablauf">Termine und Klausurablauf</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesung &bdquo;Analysetechniken f&uuml;r gro&szlig;e Datenbest&auml;nde&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei <a href="https://dbis.ipd.kit.edu/english/336.php">Herrn Prof. Dr.-Ing. Klemens B&ouml;hm</a> im Wintersemester 2015/2016 geh&ouml;rt.</div>
+<p>In der Vorlesung 'Analysetechniken f&uuml;r gro&szlig;e Datenbest&auml;nde' werden vor allem
+Association Rule Mining und Clustering-Techniken besprochen. Zum Association
+Rule minining ist vor allem der Apriori-Algorithmus sowie die Verbesserung mit
+FP-Trees zu nennen. Beim Clustering ist k-means, EM, DBSCAN, OPTICS und BIRCH
+von gro&szlig;er Bedeutung. Ein weiteres gro&szlig;es Kapitel sind Bayessche Netze.</p>
+<h2 id="behandelter-stoff">Behandelter Stoff</h2>
+<h3 id="ubersicht">&Uuml;bersicht</h3>
+<table>
+<tr>
+<th>Datum</th>
+<th>Kapitel</th>
+<th>Inhalt</th>
+</tr>
+<tr>
+<td>20.10.2015, 08:00</td>
+<td>Einleitung (Folie 1-26)</td>
+<td>Overfitting, Entscheidungsb&auml;ume, 1-Rules (&rarr; Decision Strump), Outliers<br/>
+        Mengenwertige Attribute, Kategorische Attribute, Zeitreihen<br/>
+        Clustering<br/>
+        Market Basket Analysis: Zusammenhang zwischen Waren<br/>
+        Association rules (Apriori Algorithmus)
+    </td>
+</tr>
+<tr>
+<td>20.10.2015, 11:30</td>
+<td>Einleitung, Statistische Tests (Folie 27 - 43)</td>
+<td>Predictive Maintenance
+    </td>
+</tr>
+<tr>
+<td>27.10.2015, 08:00</td>
+<td>Statistische Tests (Folie 38 - )</td>
+<td>$\chi^2$-Test, $\chi^2 = \sum_{i=1}^{m_1} \sum_{j=1}^{m_2} \frac{(h_{ij}- e_{ij})^2}{e_{ij}}$ mit erwartetem Wert $e$ (Sind zwei Zufallsvariablen unabh&auml;ngig)<br/>
+    Kolmogorov-Smirnov-Test (Sind 2 Verteilungen unabh&auml;ngig; bei kontinuierlichen Zufallsvariablen)<br/>
+    Wilcoxon-Mann-Whitney Test<br/>
+    Bernoulli-Experiment (Folie 53?)<br/>
+    Datenreduktion (Attribute entfernen, z.B. PCA; Datens&auml;tze entfernen, z.B. Clustering; Attributsgenauigkeit reduzieren)<br/>
+    Diskretisierung: Zielfunktion ist Information Gain. Dieser soll minimiert werden.
+    </td>
+</tr>
+<tr>
+<td>03.11.2015, 08:00</td>
+<td>R&auml;umliche Indexstrukturen</td>
+<td>Widerholung der Statistischen Tests</td>
+</tr>
+<tr>
+<td>03.11.2015, 11:30</td>
+<td>Entscheidungsb&auml;ume, Evaluation (1-18)</td>
+<td>Split-Attribute, Pruning; Loss-Funktionen</td>
+</tr>
+<tr>
+<td>17.11.2015, 08:00</td>
+<td>Evaluation (19-47)</td>
+<td>Qulit&auml;tsma&szlig;e (Korrelationskoeffizient)</td>
+</tr>
+<tr>
+<td>17.11.2015, 11:30</td>
+<td>Evaluation, Association Rules (1-26)</td>
+<td>41 min Evaluation, dann Association Rules. Frequent Itemset, Apriori-Algorithmus</td>
+</tr>
+<tr>
+<td>24.11.2015, 08:00</td>
+<td>Kapitel 6: Association Rules (12-Ende), Kapitel 7 (1-12)</td>
+<td>Apriori-Algorithmus, Hash-Tree, Multidimensionale Association Rules,
+        Level-Crossing-Association Rules, FP-Trees</td>
+</tr>
+<tr>
+<td>01.12.2015, 08:00</td>
+<td>Kapitel 7, Kapitel 8 (Pattern Mining mit Constraints)</td>
+<td>Korrekturen zu Kapitel "Evaluation"; Wiederholung von Apriori-Algorithmus und Hash-Filter; ab Minute 27 FP-Trees</td>
+</tr>
+<tr>
+<td>01.12.2015, 11:30</td>
+<td>Kapitel 8 (Pattern Mining mit Constraints), Kapitel 9 (Clustering)</td>
+<td>Meta-Rule-Guided Mining, Anti-Monotonizit&auml;t, Support-basiertes Pruning, Constrained Sequences, Clustering Criterion Function</td>
+</tr>
+<tr>
+<td>15.12.2015, 08:00</td>
+<td>Kapitel 9 (Clustering)</td>
+<td>k-means; CF-Trees</td>
+</tr>
+<tr>
+<td>15.12.2015, 11:30</td>
+<td>Kapitel 9 (Clustering)</td>
+<td>CF-Trees; Hierarchisches Clustern mit Minimum Spanning Tree; DIANA; Hochdimensionale Merkmalsr&auml;ume</td>
+</tr>
+<tr>
+<td>08.12.2015, 08:00</td>
+<td>R-&Uuml;bung</td>
+<td>-</td>
+</tr>
+<tr>
+<td>19.01.2016, 08:00</td>
+<td>Kapitel 9</td>
+<td>Jaccard Koeffizient, ...</td>
+</tr>
+<tr>
+<td>19.01.2016, 11:30</td>
+<td>Kapitel 9; Kapitel 10 (1 - )</td>
+<td>EM-Algorithmus; Generative Modelle</td>
+</tr>
+<tr>
+<td>26.01.2016, 08:00</td>
+<td>&Uuml;bung</td>
+<td>-</td>
+</tr>
+<tr>
+<td>26.01.2016, 11:30</td>
+<td>Kapitel 10</td>
+<td>Regression</td>
+</tr>
+<tr>
+<td>02.02.2016, 08:00</td>
+<td>Kapitel 10</td>
+<td>Logistische Regression, Cross Entropy</td>
+</tr>
+</table>
+<h3 id="einleitung">Einleitung</h3>
+<p>Slides: <code>1-Einleitung.pdf</code></p>
+<dl>
+<dt><dfn>Aufgabentypen</dfn></dt>
+<dd><ul>
+<li>Klassifikation</li>
+<li>Clustering</li>
+<li>Finden von <a href="https://de.wikipedia.org/wiki/Assoziationsanalyse">Association Rules</a></li>
+</ul></dd>
+<dt><a href="https://en.wikipedia.org/wiki/Decision_stump"><dfn>1-Rule</dfn></a> (<dfn>Decision stump</dfn>)</dt>
+<dd>1-Rules ist ein Klassifikationsverfahren. Jedes Attribut wird f&uuml;r sich
+      betrachtet. Es wird anhand von dem Attribut gesplittet, bei dem die
+      Fehlerquote am geringsten ist.</dd>
+<dt><dfn>Clustering</dfn></dt>
+<dd>Suchen von Punkten, die nahe bei einander liegen.
+
+      Unterschiede:
+
+      <ul>
+<li>Attribute: Abstandsma&szlig;e</li>
+<li>Form</li>
+<li>Dichte</li>
+<li>Gr&ouml;&szlig;e</li>
+<li>Zeitlicher Aspekt: Alte Daten weniger wichtig</li>
+<li>Alternate Clustering</li>
+</ul>
+</dd>
+<dt><a href="https://en.wikipedia.org/wiki/Association_rule_learning"><dfn>Association Rules</dfn></a></dt>
+<dd>Association Rules sind Regeln der Form:
+      Wenn eine Transaktion A enth&auml;lt, dann auch B (formal: $A \Rightarrow B$).
+      <br/>
+      Association rules werden z.B. in der Market Basket Analysis eingesetzt.
+      Sie k&ouml;nnen aus Frequent item sets relativ einfach erzeugt werden.
+      <br/>
+      Der Apriori Algorithmus dient dem Finden von Association Rules.<br/>
+<br/>
+      Association Rules sind stark mit <a href="https://en.wikipedia.org/wiki/Collaborative_filtering">Collaborative filtering</a> verwandt.
+  </dd>
+<dt><dfn>Predictive Maintenance</dfn></dt>
+<dd>Ziel: F&uuml;r Motoren will man vorhersagen, wann diese einen Fehler aufweisen
+      und damit gewartet werden m&uuml;ssen.
+
+      Dabei gibt es zwei Fehlerarten, die unterschiedliche hohe Kosten
+      aufweisen:
+      <ul>
+<li>Ausfall wird vorhergesagt, tritt aber nicht ein: Unn&ouml;tige Wartung</li>
+<li>Ausfall wird nicht vorhergesagt, tritt aber ein: Teurer Ausfall</li>
+</ul>
+</dd>
+<dt><dfn>Change detection</dfn></dt>
+<dd>Erkennung wesentlicher Ver&auml;nderungen in einer Zeitreihe.</dd>
+</dl>
+<h3 id="statistische-grundlagen">Statistische Grundlagen</h3>
+<p>Slides: <code>2-statistGrundlagen.pdf</code></p>
+<dl>
+<dt><dfn>Skalen von Merkmalen</dfn></dt>
+<dd>Siehe <a href="https://martin-thoma.com/mustererkennung-klausur/#merkmale">Mustererkennung</a></dd>
+<dt><dfn>Kennzahlen f&uuml;r Daten</dfn></dt>
+<dd>
+<ul>
+<li>Median / Mean</li>
+<li>Min / Max</li>
+<li>Quantile</li>
+<li>Varianz / Streuung</li>
+<li>Outlier</li>
+</ul>
+</dd>
+<dt><dfn>Metrische Daten</dfn></dt>
+<dd>Ein Metrischer Raum ist eine Menge $M$ mit einer Funktion
+        $d: M \times M \rightarrow \mathbb{R}_0^+$ f&uuml;r die gilt:
+
+        <ul>
+<li>Symmetrie: $\forall p,q \in M: d(p, q) = d(q, p) $</li>
+<li>Definitheit: $\forall p,q \in M: d(p, q) = 0 \Leftrightarrow p = q$</li>
+<li>Dreiecksungleichung: $\forall p,q,r \in M: d(p, r) \leq d(p,q) + d(q, r)$</li>
+</ul>
+</dd>
+<dt><dfn>Aggregatfunktion</dfn></dt>
+<dd>Eine Funktion, welche als Eingabe eine Menge von Werten erwartet und
+        einen Wert ausgibt (z.B. SUM, COUNT, MIN, MAX, AVG, MEAN,
+        h&auml;ufigster Wert, Truncated Average, mid range).<br/>
+<br/>
+        Aggregatfunktionen sind entweder <strong>distributiv</strong>,
+        <strong>algebraisch</strong> oder <strong>holistisch</strong>.
+    </dd>
+<dt><dfn>Distributive Aggregatfunktion</dfn></dt>
+<dd>
+        Es gibt eine Funktion $G$, so dass
+        $$F(\{X_{i,j}\}) = G(\{F(X_{i,j} | i=1, \dots, l) | j = 1, \dots, J\})$$
+
+        MIN, MAX und COUNT sind distributive Aggregatfunktionen.
+    </dd>
+<dt><dfn>Algebraische Aggregatfunktion</dfn></dt>
+<dd>Es gibt eine Funktion $G$, die ein $M$-Tupel liefert und $H$,
+        so dass
+        $$F(\{X_{i,j}\}) = H(\{G(\{X_{i,j} | i=1, \dots, l\}) | j=1, \dots, J\})$$
+
+        AVG ist eine Algebraische Aggregatfunktion. Hier berechnet $G$ die
+        Summe und gibt zus&auml;tzlich die Anzahl der Werte zur&uuml;ck. $H$ summiert
+        die Summen auf und teilt das Ergebnis durch die Gesamtzahl.<br/>
+<br/>
+        Weitere: Truncated Average</dd>
+<dt><dfn>Holistische Aggregatfunktion</dfn></dt>
+<dd>Man kann keine Beschr&auml;nkung des Speicherbedarfs f&uuml;r Sub-Aggregate,
+        d.h. Aggregate &uuml;ber $\{X_{i,j}| i=1, \dots, l\}$, angeben.<br/>
+<br/>
+        Der h&auml;ufigste Wert und der Median sind holistische Aggregatfunktionen.</dd>
+<dt><dfn>Self-Maintainable Aggregatfunktion</dfn></dt>
+<dd>Wenn man den aktuellen Wert der Aggregatfunktion kennt und man l&ouml;scht
+        einen Wert bzw. f&uuml;gt einen Wert ein, dann kann man direkt den neuen
+        Wert der Aggregatfunktion &uuml;ber den angepassten Datenbestand berechnen.<br/>
+<br/>
+        Nicht-self-maintainable ist der h&auml;ufigste Wert.<br/>
+<br/>
+        MIN und MAX ist self-maintainable bzgl. Einf&uuml;gen.</dd>
+<dt><dfn>Mid-Range</dfn></dt>
+<dd>$$\frac{MAX-MIN}{2}$$</dd>
+<dt><dfn>Entropie</dfn></dt>
+<dd>$$E(S) = - \sum_{j} p_j \cdot \log p_j$$
+
+        $E(S)=0$ ist minimal, wenn es ein $j$ gibt mit $p_j = 1$.
+        $E(S)=\log(n)$ ist maximal, wenn $p_i = p_j$ gilt f&uuml;r $i, j$.</dd>
+<dt><dfn>Korrelationsma&szlig;e</dfn></dt>
+<dd>Sind &uuml;blicherweise auf [-1, 1] normiert. Die Kovarianz ist ein
+        nicht-normiertes Korrelationsma&szlig;.</dd>
+<dt><a href="https://de.wikipedia.org/wiki/Kovarianz_(Stochastik)#Definition"><dfn>Kovarianz</dfn></a></dt>
+<dd>$$\operatorname{Cov}(X,Y) := \operatorname E\bigl[(X - \operatorname E(X)) \cdot (Y - \operatorname E(Y))\bigr]$$</dd>
+<dt><a href="https://de.wikipedia.org/wiki/Korrelationskoeffizient#Definitionen" id="korrelationskoeffizient"><dfn>Korrelationskoeffizient</dfn></a></dt>
+<dd>$$\varrho(X,Y) =\frac{\operatorname{Cov}(X,Y)}{\sigma(X)\sigma(Y)} \in [-1, 1]$$</dd>
+<dt><dfn>PCA</dfn> (<dfn>Principal Component Analysis</dfn>)</dt>
+<dd>PCA ist ein Algorithmus zur Reduktion von Daten durch das Entfernen von
+        Attributen. Er projeziert die Datenobjekte auf eine Hyperebene, sodass
+        ein Maximum der Varianz beibehalten wird (vgl. <a href="https://martin-thoma.com/neuronale-netze-vorlesung/#pca">Neuronale Netze</a>)</dd>
+<dt><a href="https://de.wikipedia.org/wiki/Chi-Quadrat-Test#Unabh.C3.A4ngigkeitstest"><dfn>Chi-Quadrat-Test</dfn></a></dt>
+<dd>Oberbegriff f&uuml;r mehrere Tests; hier nur der Unabh&auml;ngigkeitstest.<br/>
+<br/>
+        Gegeben sind zwei Verteilungen von Zufallsvariablen $X, Y$. Die Frage
+        ist, ob sie unabh&auml;ngig sind.<br/>
+        Dazu z&auml;hlt man die Auspr&auml;gungen $i=1, \dots, m_1$ des Merkmals $X$
+        und die Auspr&auml;gungen $j=1, \dots, m_2$ des Merkmals $Y$ sowie
+        wie h&auml;ufig diese in Kombination auftreten ($n_{ij}$). Man sch&auml;tzt den
+        erwarteten Wert durch $e_{ij} = \frac{1}{n} \left(\sum_{k=1}^{m_2} n_{ik} \right) \cdot \left (\sum_{k=1}^{m_2} n_{kj}\right )$. Der Chi-Quadrat wert ist dann:
+
+        $$\chi^2 = \sum_{i=1}^{m_1} \sum_{j=1}^{m_2} \frac{(n_{ij} - e_{ij})^2}{e_{ij}}$$
+
+        Daraus wird ein $p$-Wert abgeleitet. Wenn dieser unter einem
+        Schwellwert wie $\alpha = 0.01$ ist, dann wird die Hypothese, dass
+        die Verteilungen unabh&auml;ngig sind, zur&uuml;ckgewiesen.
+
+        Die Nullhypothese, dass $X, Y$ unabh&auml;ngig sind wird auf dem
+        Signifikanzniveau $\alpha$ verworfen, falls
+
+        $$\chi^2 &gt; \chi^2_{(1-\alpha; (m_1-1)(m_2-1))}$$
+
+        </dd>
+<dt><a href="https://de.wikipedia.org/wiki/Kolmogorow-Smirnow-Test"><dfn>Kolmogorow-Smirnow-Test</dfn></a> (<dfn>KSA-Test</dfn>)</dt>
+<dd>Test auf unabh&auml;ngigkeit kontinuierlicher Verteilungen, also:
+        $$H_0: F_X(x) = F_0(x)$$
+
+        Es wird die empirsche Verteilungsfunktion $S$ gebildet und diese mit
+        der hypothetischen Verteilungsfunktion $F_0$ verglichen, wobei
+        $S(x_0) = 0$ gesetzt wird:
+        $$d_{\max} = \max(\max_{i=1, \dots, n}|S(x_i) - F_0(x_i)|, \max_{i=1, \dots, n} |S(x_{i-1} - F_0(x_i))|)$$
+        $H_0$ wird verworfen, wenn $d_{\max} &gt; d_\alpha$, wobei $d_\alpha$
+        bis zu $n=35$ tabelliert vorliegt. Bei gro&szlig;erem $n$ kann
+        n&auml;herungsweise
+        $$d_\alpha = \sqrt{\frac{-\frac{1}{2} \ln(\frac{\alpha}{2})}{n}}$$
+        </dd>
+<dt><a href="https://de.wikipedia.org/wiki/Wilcoxon-Mann-Whitney-Test"><dfn>Wilcoxon-Mann-Whitney-Test</dfn></a> ($U$-Test)</dt>
+<dd>Es seien $X,Y$ Zufallsvariablen mit Verteilungsfunktionen
+        $F_X(x) = F_Y(x-a)$ f&uuml;r ein $a \in \mathbb{R}$.<br/>
+<br/>
+        $H_0: a = 0$ vs $H_1: a \neq 0$<br/>
+        Vorgehen: Gemeinsame Stichprobe sortieren, Rangsumme f&uuml;r $X$ und $Y$
+        bilden, Betrag der Differenz mit Tabelleneintrag vergleichen.
+    </dd>
+<dt><dfn>Datenreduktion</dfn></dt>
+<dd>
+<ul>
+<li>Numerosity Reduction: Reduziere die Anzahl der betrachteten
+                Datenobjekte
+            <ul>
+<li>Parametrische Verfahren: Nehme eine bekannte
+                    Wahrscheinlichkeits&shy;verteilung der Datenobjekte an und
+                    sch&auml;tze deren Paramter. Arbeite  dann nur mit der
+                    Verteilung</li>
+<li>Nichtparametrische Verfahren: Sampling, Clustering,
+                    Histogramme</li>
+</ul>
+</li>
+<li>Dimensionality Reduction: Reduziere die Anzahl der Attribute.
+
+            <ul>
+<li>Forward Feature Construction: Starte nur mit einem Feature
+                    und gebe dem Classifier so lange neue Features, bis die
+                    gew&uuml;nschte Genauigkeit erreicht wurde.</li>
+<li>Feature Elimination: Starte mit allen Features und
+                    entferne so lange Features, wie die gew&uuml;nschte Genauigkeit
+                    erhalten bleibt.</li>
+<li>PCA</li>
+</ul>
+</li>
+<li>Diskretisierung: Reduziere die Werte pro Attribut.</li>
+</ul>
+</dd>
+<dt><dfn>Visualisierung von Daten</dfn></dt>
+<dd>
+<ul>
+<li>Boxplots: Whiskers</li>
+<li>Histogramme: Nicht geeignet f&uuml;r viele Dimensionen.</li>
+<li>Dendogramme</li>
+</ul>
+</dd>
+<dt><dfn>Grundbegriffe der Wahrscheinlichkeitstheorie</dfn></dt>
+<dd>
+<ul>
+<li>Wahrscheinlichkeitsraum</li>
+<li>Ereignis</li>
+<li>Ergebnis</li>
+<li>Ergebnismenge $\Omega$</li>
+<li>Wahrscheinlichkeits&shy;ma&szlig;</li>
+<li>Kovarianzmatrix</li>
+<li>Bernoulli-Experiment</li>
+</ul>
+</dd>
+</dl>
+<h3 id="raumliche-indexstrutkuren">R&auml;umliche Indexstrutkuren</h3>
+<p>Slides: <code>3-Informatik-Grundlagen.pdf</code></p>
+<dl>
+<dt><dfn>B<sup>+</sup>-Tree</dfn> (see <a href="https://www.youtube.com/watch?v=CYKRMz8yzVU">YouTube</a>)</dt>
+<dd>A balanced search tree.</dd>
+<dt><a href="https://de.wikipedia.org/wiki/Datenbankindex"><dfn>Index</dfn></a></dt>
+<dd>Beschleunigung der Suche von linearer Suchzeit auf logarithmische
+        durch <a href="https://de.wikipedia.org/wiki/B%2B-Baum">B<sup>+</sup>-B&auml;ume</a>.</dd>
+<dt><dfn>Anfragetypen</dfn></dt>
+<dd>
+<ul>
+<li>Punkt-Anfragen: Ist ein Punkt im Datensatz?</li>
+<li>Bereichs-Anfragen: Ist mindestens ein Datenobjekt im gegebenen Bereich?</li>
+<li>Nearest-Neighbor-Anfragen (NN-Anfragen): Was ist das n&auml;chste Datenobjekt zu einem gegebenen Punkt?</li>
+</ul>
+</dd>
+<dt><dfn>kD-Baum</dfn></dt>
+<dd>Siehe <a href="https://martin-thoma.com/cg-klausur/#kd-tree">Computergrafik</a>.</dd>
+<dt><a href="https://en.wikipedia.org/wiki/K-D-B-tree"><dfn>kDB-Baum</dfn></a></dt>
+<dd>Ein balancierter kD-Baum. Die Balancierung wird durch eine Kombination
+        aus heterogenem k-d-Baum und B*-Baum erreicht. Der baum ist also nicht
+        auf logischer, sondern nur auf physischer Ebene balanciert.</dd>
+<dt><a id="r-tree"></a><dfn>R-Baum</dfn></dt>
+<dd>Ein R-Baum ist ein balancierter Baum, welcher die Datenobjekte in
+        minimale <abbr title="umh&uuml;llende achsenparallele bounding-boxen">AABBs</abbr>
+        einschlie&szlig;t. Jeder Knoten hat eine solche AABB und jedes der Kinder -
+        egal ob es wieder ein AABB oder Datenpunkte sind - ist darin.
+        Diese AABBs k&ouml;nnen sich &uuml;berschneiden.<br/>
+<br/>
+        Siehe auch: <a href="http://cs.stackexchange.com/q/56337/2914">What is the difference between a R-tree and a BVH?</a></dd>
+<dt><dfn>Nearest Neighbor in R-Tree</dfn></dt>
+<dd>Siehe <a href="https://github.com/MartinThoma/algorithms/blob/master/nearest-neighbor-r-tree/nn_r_tree_pseudo.py">Pseudo-Code</a>.</dd>
+</dl>
+<h3 id="entscheidungsbaume">Entscheidungs&shy;b&auml;ume</h3>
+<p>Slides: <code>4-Entscheidungsbaeume.pdf</code></p>
+<p>Dieses Kapitel besch&auml;ftigt sich mit der Klassifikation mit Entscheidungsb&auml;umen.</p>
+<dl>
+<dt><dfn>Qualit&auml;tskriterien f&uuml;r Entscheidungsb&auml;ume</dfn></dt>
+<dd>
+<ul>
+<li>Ergebnisqualit&auml;t</li>
+<li>Kompaktheit: Je kompakter der Baum, desto besser kann die
+                Entscheidung vom Benutzer nachempfunden werden.</li>
+</ul>
+</dd>
+<dt><dfn>Wahl der Split-Attribute</dfn></dt>
+<dd>Entropie eines Splits minimieren:
+
+    $$E(S_1, S_2) = \frac{n_1}{n} E(S_1) + \frac{n_2}{n} E(S_2)$$
+
+    </dd>
+<dt><dfn>Overfitting</dfn></dt>
+<dd>Entscheidungsbaum ist zu sehr an Trainingsdatenbestand angepasst</dd>
+<dt><dfn>Prepruning</dfn> (<dfn>Forward pruning</dfn>)</dt>
+<dd>Schon beim Erstellen des Entscheidungsbaumes wird ab einer gewissen
+        Tiefe abgebrochen</dd>
+<dt><dfn>Postpruning</dfn> (<dfn>Backward pruning</dfn>)</dt>
+<dd>Der Entscheidungsbaum wird komplett aufgebaut, aber dannach wird
+        greprunt.</dd>
+</dl>
+<h3 id="evaluation">Evaluation</h3>
+<p>Slides: <code>5-Evaluation.pdf</code></p>
+<dl>
+<dt><dfn>Resubsitution Error</dfn></dt>
+<dd>Trainingsfehler</dd>
+<dt><a id="cross-validation"></a><dfn>$k$-Fold Cross-Validation</dfn> (<dfn>Kreuzvalidierung</dfn>)</dt>
+<dd>Unterteile den Datensatz in $k$ Teile. Dabei sollten die Klassen in
+        etwa gleich h&auml;ufig in allen Teilen vorkommen.
+
+        Mache nun $k$ durchl&auml;ufe, wobei der $k$-te Datensatz immer zum
+        Testen und alle anderen zum Trainieren verwendet werden. Berechne die
+        $k$ Testfehler. Mittle diese am Ende. Das ist ein besserer Sch&auml;tzwert
+        f&uuml;r den realen Fehler als eine einmalige Unterteilung in Training- und
+        Testmenge.</dd>
+<dt><a href="https://en.wikipedia.org/wiki/Stratified_sampling" id="stratification"><dfn>Stratification</dfn></a></dt>
+<dd>Sicherstellen, dass bestimmte Eigenschaften (z.B. Klassenzugeh&ouml;rigkeit) in Partitionen etwa gleich verteilt ist.</dd>
+<dt><dfn>Loss function</dfn></dt>
+<dd>Eine Funktion, die angibt, wie viel man durch eine unkorrekte
+        Vorhersage verliert.</dd>
+<dt><dfn>Informational Loss function</dfn></dt>
+<dd>$$- \log_2 p_i$$ - Wahrscheinlichkeiten der nicht-eintretenden Klassen spielen keine Rolle</dd>
+<dt><dfn>Quadratic Loss function</dfn></dt>
+<dd>$$\sum_{j} (p_j - a_j)^2$$ mit tats&auml;chlichem Label $a_j \in \{0,1\}$
+        und gesch&auml;tzter Wahrscheinlichkeit $p_j$ f&uuml;r die Klasse $j$.</dd>
+<dt><dfn>Bias</dfn></dt>
+<dd>Das Verfahren an sich funktioniert nicht gut. Selbst beliebig viele
+        Trainingsdaten beheben dieses Problem nicht. Der Fehler ist
+        inh&auml;rent im Verfahren verankert.</dd>
+<dt><dfn>Varianz</dfn></dt>
+<dd>Fehler welcher durch das Fehlen von Trainingsdaten verursacht wird.</dd>
+<dt><a id="erfolgsquote"></a><dfn>Gesamt-Erfolgsquote</dfn></dt>
+<dd>$$\frac{TP+TN}{TP+TN+FP+FN}$$</dd>
+<dt><dfn>Konfusionsmatrix</dfn> (<dfn>Confusion matrix</dfn>)</dt>
+<dd>Eine Tabelle, in der jede Zeile f&uuml;r die tats&auml;chlichen Klassen stehen
+        und die Spalten f&uuml;r die vorhergesagten Klassen. Die Diagonalelemente
+        z&auml;hlen also die richtig vorhergesagten Datenobjekte; alle anderen
+        Zellen z&auml;hlen falsche Vorhersagen.</dd>
+<dt><dfn>Kappa-Koeffizient</dfn> (<a href="https://de.wikipedia.org/wiki/Cohens_Kappa"><dfn>Cohens Kappa</dfn></a>)</dt>
+<dd>Vergleich mit Klassifier, der nur den Anteil der Klassenzugeh&ouml;rigkeit
+        sch&auml;tzt:
+        $$\kappa =\frac{p_0-p_c}{1-p_c}$$
+        wobei $p_0$ die gemessene &Uuml;bereinstimmung ist und $p_c$ die
+        erwartete &Uuml;bereinstimmung bei Unabh&auml;ngigkeit. Wenn also $h_{ij}$ die
+        Anzahl der Datenobjekte ist, f&uuml;r die der erste Klassifizierer die Klasse
+        $i$ und der zweite Klassifizierer die Klasse $j$ vorhergesagt hat
+        sowie $N$ die Gesamtzahl der Datenobjekte und $z$ die Gesamtzahl
+        der Klassen, dann gilt:
+
+        $$p_0 = \frac{\sum_{i=1}^z h_{ii}}{N}$$
+
+        Die erwartete &Uuml;bereinstimmung $p_c$ wird &uuml;ber die Randh&auml;ufigkeiten
+        gesch&auml;tzt:
+        $$p_c = \frac{1}{N^2} \sum_{i=1}^z h_{.i} \cdot h_{i.}$$
+
+        Der Wertebereich ist also: $\kappa \in (-\infty; 1]$, wobei
+        der minimale Wert von $\kappa$ nicht beliebig klein werden kann.</dd>
+<dt><a href="https://en.wikipedia.org/wiki/Association_rule_learning#Lift"><dfn>Lift-Faktor</dfn></a></dt>
+<dd>Faktor, um den sich die R&uuml;cklaufquote erh&ouml;ht:
+
+        $$\mathrm{lift}(X\Rightarrow Y) = \frac{ \mathrm{support}(X \cup Y)}{ \mathrm{support}(X) \cdot \mathrm{support}(Y) }$$
+
+        Der Lift ist ein Indiz f&uuml;r die Unabh&auml;ngigkeit von $X$ und $Y$.
+        Ist der Lift nahe bei 1, dann spricht das f&uuml;r die Unabh&auml;ngigkeit. Ein
+        Lift-Faktor kleiner als 1 bedeutet, dass die Itemsets zusammen seltener
+        vorkommen als bei Unabh&auml;ngigkeit zu erwarten w&auml;re. Ein Lift-Faktor von
+        gr&ouml;&szlig;er als 1 bedeutet, dass die Itemsets zusammen h&auml;ufiger vorkommen
+        als bei Unabh&auml;ngigkeit zu erwarten w&auml;re.
+
+    </dd>
+<dt><a href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic"><dfn>ROC</dfn></a> (<dfn>Receiver Operator Characteristic</dfn>)</dt>
+<dd>x-Achse: $\frac{FP}{FP+TN} \cdot 100$ (FP-Rate),<br/>
+        y-Achse: $\frac{TP}{TP+FN} \cdot 100$ (TP-Rate)
+
+        Siehe auch: <a href="https://www.reddit.com/r/answers/comments/4g2wgx/where_does_the_name_receiver_operating/">Namensherkunft</a></dd>
+<dt><dfn>Recall</dfn> (<dfn>True Positive Rate</dfn>, <dfn>TPR</dfn>, <dfn>Sensitivit&auml;t</dfn>)</dt>
+<dd>$$TPR = \frac{TP}{TP + FN} = 1 - FNR \in [0, 1]$$
+
+        Der Recall gibt den Anteil der erkannten positiven aus allen positiven
+        an.
+
+        <i>Sensitivit&auml;t</i> ist ein in der Medizin &uuml;blicher Begriff.</dd>
+<dt><dfn>Precision</dfn> (<dfn>Genauigkeit</dfn>)</dt>
+<dd>$$Precision = \frac{TP}{TP + FP} \in [0, 1]$$
+
+        Die Precision gibt den Anteil der real positiven aus den als positiv
+        erkannten an.</dd>
+<dt><a href="https://en.wikipedia.org/wiki/F1_score"><dfn>F-Measure</dfn></a> (<dfn>F1 score</dfn>)</dt>
+<dd>$$\frac{2 \cdot \text{precision} \cdot \text{recall}}{\text{recall} + \text{precision}}$$</dd>
+<dt><dfn>Correlation Coefficient</dfn></dt>
+<dd>Der Correlation Coefficient ist kein Fehlerma&szlig;. Der
+        $CC(p, a)$ ist gro&szlig;, wenn sich $p$ und $a$ &auml;hnlich sind.
+
+        $$CC(p, a) = \frac{COV(p, a)}{\sigma(p) \cdot \sigma(a)}$$
+
+        Mit $\sigma(x) = \frac{1}{n-1} \cdot \sum_{i} (x_i - \bar{x})^2$</dd>
+<dt><dfn>Code</dfn></dt>
+<dd>Abbildung, die jedem Element des Alphabets eine Folge aus 0en und
+        1en zuweist.
+
+        Beispiele:
+
+        <ul>
+<li>Morse-Code</li>
+<li>Unicode</li>
+<li>Ascii-Code</li>
+</ul></dd>
+<dt><dfn>Minimum Description Length</dfn> (<dfn>MDL</dfn>)</dt>
+<dd>Minimale L&auml;nge zum Beschreiben des Modells.</dd>
+</dl>
+<p>Weiteres:</p>
+<ul>
+<li>Qualit&auml;tsma&szlig;e f&uuml;r numerische Vorhersagen</li>
+</ul>
+<p>Fragen:</p>
+<ul>
+<li>Folie 23: Wo kommt die 140 her?<br/>
+  &rarr; Summe der Diagonalelemente auf Folie 21.</li>
+<li>Folie 27: Lift Faktor ist 2 wenn man nur die 400 anschreibt, oder?</li>
+</ul>
+<h3 id="association-rules">Association Rules</h3>
+<p>Slides: <code>6-Association-Rules-1.pdf</code> und <code>7-Association-Rules-2.pdf</code></p>
+<p>Es zieht sich die Warenkorbanalyse als Beispiel durch. Allerdings sind folgende
+Anwendungen von Association Rules denkbar:</p>
+<ul>
+<li>Netflix: Man kennt User und welche Filme diese m&ouml;gen (5 Sterne). Welche
+  weiteren, unbewerteten Filme k&ouml;nnten diesen gefallen?</li>
+<li>Amazon: Im Warenkorb sind Produkte XY. Was wird der User wohl noch kaufen?</li>
+<li>Online-Konfiguratoren: Welche Konfigurationen sollte man "b&uuml;ndeln", z.B. bei
+  Autos in eine "Sport-Variante"?</li>
+<li>Last FM: Music Recommendations</li>
+<li>Medicine: <a href="http://static.ijcsce.org/wp-content/uploads/2013/12/IJCSCE110513.pdf">Implementation of Apriori Algorithm in Health Care Sector: A Survey</a></li>
+</ul>
+<dl>
+<dt><dfn>Frequent Itemset</dfn></dt>
+<dd>Ein Frequent Itemset ist eine Menge von Items, die h&auml;ufig zusammen
+        gekauft werden.</dd>
+<dt><dfn>Transaktion</dfn> (<dfn>Itemset</dfn>)</dt>
+<dd>Menge von Items, die zusammen gekauft wurden.</dd>
+<dt><dfn>Association rules</dfn></dt>
+<dd>Dr&uuml;cken aus wie Ph&auml;nomene zueinander in Beziehung stehen.
+
+        Beispiel: Wer Bier kauft, der kauft auch Chips.</dd>
+<dt><a id="support"></a><dfn>Support</dfn></dt>
+<dd>Die Anzahl der Transaktionen, die das Itemset $I$ enthalten wird
+    <i>Support von $I$</i> genannt.<br/>
+        Es gilt:
+        $$\text{support}(A \Rightarrow B) = \text{support}(A \cup B)$$</dd>
+<dt><dfn>Closed Itemset</dfn></dt>
+<dd>Ein Itemset $I$ hei&szlig;t closed, wenn es keine echte Obermenge $I' \supsetneq I$ gibt,
+        die den gleichen Support $\text{support}(I') = \text{support}(I)$ hat.</dd>
+<dt><a id="confidence"></a><dfn>Confidence</dfn></dt>
+<dd>Confidence von $A \Rightarrow B$ ist der Anteil der Transaktionen,
+        die $A$ und $B$ enthalten, von den Transaktione die $A$ enthalten:
+
+        $$\text{conf}(A \Rightarrow B) = \frac{\text{support}(A \cup B)}{\text{support}(A)} \in [0, 1]$$</dd>
+<dt><dfn>Apriori Algorithmus</dfn></dt>
+<dd>Der Apriori-Algorithmus ist ein Generate-and-Test-Algorithmus zum
+        Finden von Frequent Itemsets.
+
+        <ol>
+<li>Erzeuge alle einelementigen Frequent Itemsets</li>
+<li>for k in range(2, n): Erzeuge die $k$-elementigen frequent
+                Itemsets (join, prune, support counting)</li>
+<li>Frequent itemsets: Association Rules</li>
+</ol>
+
+        Der Algorithmus nutzt aus, dass eine notwendige Bedingung f&uuml;r
+        $k$-elementige Frequent Itemsets ist, dass alle $k-1$-elementigen
+        Frequent Itemsets auch Frequent sein m&uuml;ssen.
+
+        Verbesserungen:
+
+        <ul>
+<li>Stichproben verwenden (Sampling)</li>
+<li>Aggressiver durch Datenbestand gehen (z.B. von k=3 zu k=6 springen)</li>
+<li>Hashfilter</li>
+</ul>
+</dd>
+<dt><dfn>Hash-Filter</dfn> (<dfn>Hash-Tabelle</dfn>)</dt>
+<dd>Unterst&uuml;tzt das Support-Counting f&uuml;r viele Kandidaten.
+        Die Hash-Tabelle wird einmalig f&uuml;r alle Kandidaten der L&auml;nge $k$
+        aufgebaut und stellt eine notwendige, aber keine hinreichnde
+        Bedingung f&uuml;r Frequent Itemsets dar.</dd>
+<dt><dfn id="hash-tree">Hash Tree</dfn></dt>
+<dd>Wenn man viele Kandidaten f&uuml;r $k$-elementige Frequent Itemsets hat,
+        dann kann das support counting lange dauern. Deshalb baut man sich
+        vor dem Support Counting f&uuml;r alle Kandidaten einen Hash-Tree mit
+        $k$ Ebenen auf. Man sortiert die Items der Kandidaten auf, indem
+        man einen Pfad f&uuml;r jeden Kandidaten im Baum hinzuf&uuml;gt. Jeder
+        Knoten im Hash-Tree enspricht also einem Item. Ein Item $i$ in Ebene
+        $j$ steht daf&uuml;r, dass der Kandidat an Stelle $j$ das Item $i$ hat.
+        Allerdings kann man auch fr&uuml;her aufh&ouml;ren, wenn es keine Kollisionen
+        gibt.<br/>
+<br/>
+        Der Hash-Tree repr&auml;sentiert also die Kandidaten, nicht die Transaktionen.<br/>
+<br/>
+</dd>
+<dt><dfn id="fp-tree">FP-Trees</dfn></dt>
+<dd>FP-Trees (FP f&uuml;r "frequent pattern") sind eine Datenstrutkur zum
+        schnellen Finden von Frequent Itemsets. Jeder Knoten im Baum
+        repr&auml;sentiert ein Item. Jeder Knoten speichert zus&auml;tzlich die
+        H&auml;ufigkeit des Pr&auml;fixes, welcher durch den Pfad von der Wurzel zu dem
+        Knoten dargestellt wird. Zus&auml;tzlich speichert jeder Knoten des Items
+        $i$ einen Zeiger auf einen anderen Knoten mit einem Item $i$. Jede
+        Transaktion entspricht einem Pfad im FP-Tree.<br/>
+        Zus&auml;tzlich zum FP-Tree gibt es eine Header-Tabelle. Die Zeilen dieser
+        Tabelle sind einzelne Items $i$, denen jeweils ein Zeiger auf einen
+        Knoten im FP-Tree zugeordnet sind, der auch das Item $i$
+        repr&auml;sentiert.<br/>
+        F&uuml;r jedes Item gibt es also eine verkettete Liste, die das Vorkommen im
+        Baum angibt.<br/>
+
+        Zum Finden von Frequent Items geht man also wie folgt vor:
+    <ol>
+<li>F&uuml;r jedes Item: Z&auml;hle in wie vielen Transaktionen das Item vorkommt.</li>
+<li>Sortiere Items in Transaktion absteigend nach H&auml;ufigkeit. Bei
+            gleicher H&auml;ufigkeit wird z.B. alphabetisch sortiert. Damit ergibt
+            sich eine eindeutige Reihenfolge.</li>
+<li>Sortiere Transaktionen nach den Items innerhalb der Transaktionen.</li>
+<li>Aufbau des FP-Trees
+        <ol>
+<li>Aufbau des Baums</li>
+<li>Aufbau der Header-Tabelle: Absteigend eindeutig nach H&auml;ufigkeit
+                sortiert</li>
+</ol>
+</li>
+<li>Starte mit dem niedrigsten Element in der Header-Tabelle. &Uuml;berpr&uuml;fe
+            den Pr&auml;fix auf den erwarteten Support. Gehe dazu alle Elemente
+            dieses Items durch (alle Pr&auml;fix-Pfade im Baum) und wende eine Art
+            Apriori-Algorithmus an um in diesen Pr&auml;fix-Pfaden mit dem Item
+            $i$ die Frequent-Itemsets zu finden.</li>
+</ol>
+
+    Siehe auch: <a href="https://www.cs.sfu.ca/~jpei/publications/sigmod00.pdf">Mining Frequent Patterns without Candidate Generation</a> und <a href="http://www.singularities.com/blog/2015/08/apriori-vs-fpgrowth-for-frequent-item-set-mining">ein sehr guter Blog post</a>
+</dd>
+<dt><dfn>Sampling</dfn></dt>
+<dd>Berechnung auf einer Stichprobe durchf&uuml;hren</dd>
+<dt><dfn>Negative Border</dfn></dt>
+<dd>Die negative border ist abh&auml;ngig vom minimalen geforderten Support.
+        Wenn dieser Schwellenwert gr&ouml;&szlig;er wird, wandert die negative border
+        nach oben; es gibt also weniger frequent Itemsets.</dd>
+<dt><dfn>Projected Database</dfn></dt>
+<dd>Zerlegung des Datenbestands in Partitionen (z.B. Transaktionen mit Item A
+        und Transaktionen ohne Item A).</dd>
+</dl>
+<p>Siehe auch:</p>
+<ul>
+<li><a href="http://www.salemmarafi.com/code/market-basket-analysis-with-r/comment-page-1/">Market Basket Analysis with R</a></li>
+<li><a href="https://www.knime.org/knime-applications/market-basket-analysis-and-recommendation-engines">Market Basket Analysis and Recommendation Engines</a></li>
+</ul>
+<h3 id="constraints">Constraints</h3>
+<p>Slides: <code>8-ConstrainedAssociationRules.pdf</code></p>
+<dl>
+<dt><dfn>Constraint-Typen</dfn></dt>
+<dd>
+<ul>
+<li>Data Constraints: Einschr&auml;nken auf konkrete Werte, z.B. Transaktionen bei denen der Ort Karlsruhe ist.</li>
+<li>Rule Constraints: z.B. nur Itemsets der Gr&ouml;&szlig;e 3</li>
+</ul>
+</dd>
+<dt><dfn>1-var Constraint</dfn></dt>
+<dd>Nur eine Seite (links oder rechts) der Association Rule wird
+        eingeschr&auml;nkt.</dd>
+<dt><dfn>2-var Constraint</dfn></dt>
+<dd>Beide Seiten (links und rechts) der Association Rule werden
+        eingeschr&auml;nkt.</dd>
+<dt><dfn id="anti-monoton">Anti-Monotonizit&auml;t</dfn></dt>
+<dd>Ein 1-var Constraint hei&szlig;t anti-monoton, wenn f&uuml;r alle Mengen $S, S'$
+        gilt:
+
+        $$(S \supseteq S' \land (S \text{ erf&uuml;llt } C )) \Rightarrow S' \text{ erf&uuml;llt } C$$
+
+        Wenn also ein Constraint $C$ f&uuml;r eine Menge $S$ erf&uuml;llt ist, dann
+        auch f&uuml;r jede Teilmenge $S'$.
+
+        Beispiele:
+        <ul>
+<li>$\min(S) \geq v, \;\;\; v \in \mathbb{R}$ ist anti-monoton</li>
+<li>$\max(s) \geq v, \;\;\; v \in \mathbb{R}$ ist nicht anti-monoton</li>
+<li>$\text{size}(s) \leq v, \;\;\; v \in \mathbb{N}$ ist anti-monoton</li>
+<li>$\text{size}(s) \geq v, \;\;\; v \in \mathbb{N}$ ist nicht anti-monoton</li>
+</ul>
+
+        Anti-Monotonizit&auml;t ist eine gutartige Eigenschaft von Constraints. Hier
+        kann das Constraint sehr fr&uuml;h &uuml;berpr&uuml;ft werden.</dd>
+<dt><dfn id="succinctness">Succinctness</dfn></dt>
+<dd>Ein Constraint hei&szlig;t succinct, wenn alle Itemsets die es erf&uuml;llen
+        schnell erzeugt werden k&ouml;nnen.<br/>
+<br/>
+        Beispiel: Man hat das Constraint, dass der Typ "Non-Food" sein soll.
+        Aber es gibt nur 3&nbsp;Produkte die diesen Typ haben. Kandidaten, die
+        das Constraint nicht erf&uuml;llen werden gar nicht erst erzeugt.</dd>
+</dl>
+<ul>
+<li>Meta-Rule Guided mining</li>
+<li>Constraint durch schw&auml;cheres Anti-Monotones Constraint ersetzen.</li>
+</ul>
+<h3 id="clustering">Clustering</h3>
+<p>Slides: <code>9-Clustering-1.pdf</code> und <code>9-Clustering-2.pdf</code></p>
+<dl>
+<dt><a href="https://de.wikipedia.org/wiki/Silhouettenkoeffizient" id="silhouette"><dfn>Silhouette-Koeffizient</dfn></a></dt>
+<dd>Sei $C = (C_1, \dots, C_k)$ ein Clustering.
+
+    <ul>
+<li>Durchschnittlicher Abstand zwischen Objekt o und anderen Objekten in seinem Cluster:
+            $$a(o) = \frac{1}{|C(o)|} \sum_{p \in C(o)} dist(o, p)$$</li>
+<li>Durchschnittlicher Abstand zum zweitn&auml;chsten Cluster:
+            $$b(o) = \min_{C_i \in \text{Cluster} \setminus C(o)}(\frac{1}{C_i}) \sum_{p\in C_i} \sum_{p \in C_i} \text{dist}(o, p)$$</li>
+<li>Silhouette eines Objekts:
+            $$s(o) = \begin{cases}0  &amp;\text{if } a(o) = 0, \text{i.e. } |C_i|=1\\
+                    \frac{b(o)-a(o)}{\max(a(o), b(o))} &amp;\text{otherwise}\end{cases}$$
+            Es gilt:
+            $$s(o) \in [-1, 1]$$</li>
+<li>$\text{silh}(C) = \frac{1}{|C|} \sum_{C_i \in C} \frac{1}{|C_i|} \sum_{o \in C_i} s(o)$.
+            Es gilt:
+            $$\text{silh}(C) \in [-1; 1]$$
+            Es ist ein m&ouml;glichst gro&szlig;er Wert gew&uuml;nscht. Alles kleiner als 0 ist schlecht.</li>
+</ul>
+</dd>
+<dt><dfn>Distanzfunktionen f&uuml;r Cluster</dfn></dt>
+<dd>
+        Seien $X, Y$ Cluster.
+
+        <ul>
+<li>Durschnittlicher Objektabstand: $\text{dist}_{avg}(X, Y) = \frac{1}{|X| \cdot |Y|} \cdot \sum_{x in X, y\in Y} \text{dist}(x, y)$</li>
+<li>Single Link: $\text{dist}_{sl}(X, Y) = \min_{x \in X, y \in Y} \text{dist}(x, y)$</li>
+<li>Complete Link: $\text{dist}_{cl}(X, Y) = \max_{x \in X, y \in Y} \text{dist}(x, y)$</li>
+</ul>
+</dd>
+<dt><dfn id="k-means">$k$-means Clustering</dfn></dt>
+<dd>Siehe <a href="https://martin-thoma.com/machine-learning-1-course/#tocAnchor-1-1-15">ML 1</a>.</dd>
+<dt><dfn id="clarans">CLARANS</dfn></dt>
+<dd>CLARANS (Clustering Lge AplicationNs based on RANdomized Search) ist
+        ein Clustering-Algorithmus, der mit $k$-Means
+        verwandt ist. Auch er erwartet einen Parameter $k \in \mathbb{N}$,
+        der die erwartete Anzahl an Clustern angibt. Dann geht CLARANS davon
+        aus, dass jeder Medeoid durch einen Datenpunkt im Datensatz
+        repr&auml;sentiert werden kann. F&uuml;r eine zuf&auml;llige Wahl von $k$ Punkten
+        $M = \{p_1, \dots, p_k\}$ wird ein Score berechnet. Dann &uuml;berpr&uuml;ft
+        man, was der Tausch eines Punktes $p_i$ durch den Punkt $p_j$
+        f&uuml;r beliebige $p_i \in M$ und $p_j \notin M$ am Score &auml;ndern w&uuml;rde.
+        Den besten Tausch f&uuml;hrt man durch.<br/>
+<br/>
+        Siehe auch: <a href="http://ieeexplore.ieee.org/xpl/login.jsp?tp=&amp;arnumber=1033770&amp;url=http%3A%2F%2Fieeexplore.ieee.org%2Fiel5%2F69%2F22199%2F01033770.pdf%3Farnumber%3D1033770">CLARANS: a method for clustering objects for spatial data mining</a>
+</dd>
+<dt><dfn>CF-Tree</dfn> (<dfn>Clustering Feature Tree</dfn>)</dt>
+<dd>Ein CF-Tree ist ein h&ouml;henbalancierter Baum. Jeder Knoten des Baums
+        entspricht ein Cluster.<br/>
+<br/>
+        Clustering-Feature (N, LS, SS) f&uuml;r Cluster $C_i$ mit
+        <ul>
+<li>$N = |C_i|$: Anzahl der Punkte im Cluster</li>
+<li>$LS = \sum_{i \in C_i} X_i$</li>
+<li>$SS = \sum_{i \in C_i} X_i^2$</li>
+</ul>
+</dd>
+<dt><a href="https://en.wikipedia.org/wiki/BIRCH" id="birch"><dfn>BIRCH</dfn> (<dfn>Balanced Iterative Reducing and Clustering using Hierarchies</dfn>)</a></dt>
+<dd>BIRCH ist ein Clustering-Algorithmus, welcher CF-Trees benutzt und
+        mit wenig Speicherplatz auskommt. Der CF-Tree wird im ersten Schritt
+        aufgebaut.<br/>
+<br/>
+        Parameter von BIRCH:
+        <ul>
+<li>$k \in \mathbb{N}^+$: Anzahl der Cluster</li>
+<li>$B \in \mathbb{N}^+$: (Fan-out), maximale Anzahl an Kindknoten</li>
+<li>$B' \in \mathbb{N}^+$: maximale Blatt-Kapazit&auml;t (Anzahl Elementarcluster)</li>
+<li>$T  \in \mathbb{R}^+$ (Schwellwert): Maximaler Radius (oder Durchmesser), bevor ein
+                Elementar-Cluster gesplittet wird</li>
+</ul>
+        Siehe auch:
+        <ul>
+<li><a href="https://www.youtube.com/watch?v=FAVETO6EK9E">YouTube</a> (7:24min)</li>
+<li><a href="http://dl.acm.org/citation.cfm?id=233324">BIRCH: an efficient data clustering method for very large databases</a></li>
+</ul>
+</dd>
+<dt><dfn>Hierarchisches Clustering</dfn></dt>
+<dd>Beim hierarchischen Clustern werden Datenpunkte Baumartig zu Clustern
+        zusammengefasst. Das ganze sieht einem Abstammungsbaum der Arten in der
+        Biologie sehr &auml;hnlich.<br/>
+<br/>
+        Es gibt zwei Vorgehensweisen:
+        <ul>
+<li><a href="#agglomerative-clustering">Agglomorativ</a></li>
+<li><a href="#divisive-clustering">Divisives Clustering</a></li>
+</ul>
+<a href="https://de.wikipedia.org/wiki/Hierarchische_Clusteranalyse#Dendrogramm">Dendrogramme</a> sind eine typische Visualisierung f&uuml;r das Ergebnis einer
+        hierarchischen Clusteranalyse.
+
+    </dd>
+<dt><dfn>Probabilistisches Clustering</dfn></dt>
+<dd>Datenobjekte werden nicht hart zu einem Cluster zugeordnet sondern
+        weich (also mit einer gewissen Wahrscheinlichkeit) jedem Cluster
+        zugeordnet.</dd>
+<dt><dfn>Zentrum eines Clusters</dfn></dt>
+<dd>$$Z_{i} = \frac{1}{|C_i|} \sum_{i \in C_i} X_i$$</dd>
+<dt><dfn>Radius eines Clusters</dfn></dt>
+<dd>
+
+    Der Radius enes Centroids ist der durchschnittliche Abstand zum Centroiden:
+
+    $$R(C_i) = \sqrt{\frac{1}{|C_i|} \sum_{j \in C_i} {(X_j - Z_i)}^2}$$
+
+    </dd>
+<dt><dfn>Durchmesser eines Clusters</dfn></dt>
+<dd>
+
+    Der Durchmesser eines Centroiden ist die durchschnittle paarweise Distanz:
+
+    $$D(C_i) = \sqrt{\frac{1}{|C_i| \cdot (|C_i|-1)} \sum_{j \in C_i} \sum_{k \in C_i} {(X_j - X_k)}^2}$$</dd>
+<dt><dfn>Interclusterdistanz</dfn></dt>
+<dd>Durchschnittliche Inter-Clusterdistanz von Cluster 1 und Cluster 2:
+
+        $$D(C_1, C_2) = \sqrt{\frac{\sum_{i \in C_1} \sum_{j \in C_2} {(X_i - X_j)}^2}{|C_1| \cdot |C_2|}}$$</dd>
+<dt><a id="agglomerative-clustering"></a><dfn>Agglomeratives Clustering</dfn></dt>
+<dd>
+<ul>
+<li>Jedes Objekt ist ein Cluster. F&uuml;ge die Cluster in die Menge $M$ ein.</li>
+<li>Berechne alle paarweise Abst&auml;nde zwischen Clustern in $M$. Das ist in $\mathcal{O}(|M|^2)$.</li>
+<li>Merge das Paar $A, B$ mit kleinstem Abstand zu $C = A \cup B$. Entferne $A, B$ aus $M$ und f&uuml;ge $C$ ein.</li>
+<li>Abbruch, wenn $|M| = 1$</li>
+<li>Gehe zu Schritt 2.</li>
+</ul>
+
+        Gesamtkomplexit&auml;t: $\mathcal{O}(n^2)$<br/>
+
+        Siehe auch: <a href="https://stat.ethz.ch/R-manual/R-devel/library/cluster/html/agnes.html">AGNES</a>
+</dd>
+<dt><a id="divisive-clustering"></a><dfn>Divisives Clustering</dfn> (<dfn id="diana">DIANA</dfn>, <dfn>DIvisive ANAlysis</dfn>)</dt>
+<dd>Divisives Clustering ist ein hierarchisches Clusteringverfahren. Es
+        startet mit einem gro&szlig;en Cluster und unterteilt diesen rekursiv immer
+        weiter in je zwei kleine Cluster.<br/>
+<br/>
+        Das Unterteilen funktioniert wie folgt: W&auml;hle in einem Cluster $C$ das
+        Datenobjekt $o$, welches den h&ouml;chsten durchschnittlichen Abstand von
+        allen anderen Datenobjekten $o' \in C \setminus \{o\}$ hat. Dieses ist
+        nun das erste Objekt einer neu erstellten sogenannten Splittergruppe
+        $S = \{o\}$
+        (engl. <i>splinter group</i>). Nun gibt es noch das Ma&szlig;
+        $$D(o) = \sum_{o' \in C \setminus S} \frac{d(o, o')}{|C \setminus S|} - \sum_{o'} \frac{d(o, o')}{|S|}$$
+        Solange $D(o) &gt; 0$ f&uuml;r ein $o \in C \setminus S$ wird $o^* = \text{arg max}_{o \in C \setminus S} D(o)$ aus dem Cluster in die Splittergruppe gesteckt.
+        <br/>
+        Siehe auch:
+        <ul>
+<li><a href="https://stat.ethz.ch/R-manual/R-devel/library/cluster/html/diana.html">R implementierung</a></li>
+<li><a href="http://onlinelibrary.wiley.com/book/10.1002/9780470316801">Leonard Kaufman, Peter J. Rousseeuw: Finding Groups in Data: An Introduction to Cluster Analysis.</a></li>
+</ul>
+</dd>
+<dt><dfn id="projected-clustering">Projected Clustering</dfn></dt>
+<dd>Input sind die Anzahl $k$ der Cluster, die gefunden werden sollen und
+        die durchschnittliche Anzahl der Dimensionen pro Cluster $l$.
+
+        Output ist eine Partitionierung der Daten in $k+1$ Mengen</dd>
+<dt><dfn>Manhatten Segmental Distance</dfn></dt>
+<dd>$d(x_1, x_2) = \frac{1}{n} \cdot \sum_{i=1}^n |x_1^{(i)} - x_2^{(i)}|$ wobei
+        $n$ die Anzahl der Dimensionen von $x_1, x_2$ ist.</dd>
+<dt><dfn id="link-based-clustering">Link-based Clustering</dfn></dt>
+<dd>
+<ul>
+<li>Connect all data objects which are closter than $d$</li>
+<li>Remove all data objects which have less than $c$ edges</li>
+<li>Clusters are now connected data objects. The removed elements are noise.</li>
+</ul>
+</dd>
+<dt><dfn>Jaccard Koeffizient</dfn></dt>
+<dd>$$J(A, B) = \frac{|A \cap B|}{|A \cup B|} \in [0; 1]$$</dd>
+<dt><a href="https://de.wikipedia.org/wiki/DBSCAN" id="dbscan"><dfn>DBSCAN</dfn></a></dt>
+<dd>DBSCAN ist ein Algorithmus zum finden von Clustern.
+
+    Er unterscheidet 3 Arten von Datenpunkten:
+
+    <ul>
+<li>Dichte Objekte: Epsion-Umgebung hat viele Datenobjekte.</li>
+<li>Dichte-erreibare Objekte: In Epsilon-Umgebung von dichten Objekt.</li>
+<li>Ausrei&szlig;er: Weder dicht noch dichte-erreichbar.</li>
+</ul>
+
+    Idee: Gehe &uuml;ber alle Punkte $p \in P$ genau ein mal. Sei $P' \leftarrow P$ die
+    Menge der nicht-markierten Punkte. Solange $|P'| &gt; 0$ wird ein Punkt
+    entnommen. Ist er dicht, so ist es ein neues Cluster. Von diesem Punkt aus
+    wird rekursiv alles in der $\varepsilon$-Umgebung zum Cluster hinzugef&uuml;gt.
+    Hat der Punkt weniger als min_point Punkte in seiner $\varepsilon$-Umgebung,
+    so wird er als Ausrei&szlig;er markiert.
+
+    Siehe auch: <a href="http://www.dbs.ifi.lmu.de/Publikationen/Papers/KDD-96.final.frame.pdf">A density-based algorithm for discovering clusters in large spatial databases with noise</a>
+</dd>
+<dt><dfn>Noise</dfn></dt>
+<dd>Noise sind Punkte, die zu keinem Cluster geh&ouml;ren.</dd>
+<dt><dfn>Outlier</dfn></dt>
+<dd>Noise, welcher weit von jedem Objekt entfernt ist.</dd>
+<dt><dfn>Core-Distanz</dfn></dt>
+<dd>$C(o) = \min\{\varepsilon \in \mathbb{R} | o \text{ ist mit DBSCAN und } \varepsilon \text{ dicht}\}$.<br/>
+        Die Core-Distanz eines Objekts $o$ ist also die kleinste Distanz, sodass
+        $o$ noch ein dichtes Objekt ist.</dd>
+<dt><dfn>Reachability-Distanz</dfn></dt>
+<dd>Seien $p, o$ Datenpunkte.
+
+    $$\text{reach\_d}(p, o) = \begin{cases}\max(d(p, o), \text{coreDist}(p, o)) &amp;\text{if } d(p, o) &lt; \varepsilon\\
+                                 \text{undefined} &amp;\text{otherwise}\end{cases}$$</dd>
+<dt><a href="https://de.wikipedia.org/wiki/OPTICS" id="optics"><dfn>OPTICS</dfn></a></dt>
+<dd>OPTICS ist ein Algorithmus, der mit den Parametern min_points und
+        $\varepsilon$ (maximaler Radius f&uuml;r Cluster-Distanz) automatisch
+        Cluster findet. Er startet dabei bei einem beliebigen Punkt. Dieser
+        Punkt definiert ein Cluster, wenn mindestens min_points von ihm aus
+        maximal $\varepsilon$ entfernt sind. Dann wird der naheste Punkt zu
+        dem Cluster hinzugef&uuml;gt. Dies wird so lange gemacht, wie die Punkte
+        maximal $\varepsilon$ von einem Punkt im Cluster entfernt sind.
+        Dann wird ein bisher nicht betrachteter Punkt als genommen und man
+        macht f&uuml;r diesen Outlier / neuen Cluster so weiter wie zuvor.
+
+        <ul>
+<li>ControlList (Priority Queue) enth&auml;lt nur Objekte, die noch
+                nicht in der Output-Liste sind.</li>
+<li>Kriterium: Minimale reachability-distanz zu Objekten in der
+                Output-Liste.</li>
+<li>Rekursiv expandieren wie bei DBSCAN.</li>
+</ul>
+
+        Siehe
+
+        <ul>
+<li><a href="http://www.dbs.informatik.uni-muenchen.de/Publikationen/Papers/OPTICS.pdf">OPTICS: Ordering Points To Identify the Clustering Structure</a></li>
+<li><a href="http://datascience.stackexchange.com/q/11628/8820">Why does OPTICS use the core-distance as a minimum for the reachability distance?</a></li>
+</ul>
+</dd>
+<dt><dfn>Reachability-Plot</dfn> (<dfn>Erreichbarkeitsdiagramm</dfn>)</dt>
+<dd>Der Reachability-Plot veranschaulicht die Cluster und zeigt, welche
+        Wahl von $\varepsilon$ zu verschiedenen Clustern in DBSCAN f&uuml;hren w&uuml;rde.
+        Er veranschaulicht das Ergebnis von OPTICS.
+
+        <figure class="wp-caption aligncenter img-thumbnail">
+<a href="https://commons.wikimedia.org/wiki/File:OPTICS.svg"><img alt="OPTICS" src="../images/2016/04/optics.png" style="max-width:512px;"/></a>
+<figcaption class="text-center">OPTICS: Der Reachability-Plot ist ganz unten.</figcaption>
+</figure>
+</dd>
+<dt><dfn id="em">EM-Algorithmus</dfn> (<dfn>Expectation Maximization</dfn>)</dt>
+<dd>Siehe <a href="https://martin-thoma.com/machine-learning-2-course#em-algorithmus">ML 2</a>.</dd>
+<dt><dfn>Overall Likelihood</dfn></dt>
+<dd>Die Overall Likelihood ist ein G&uuml;tema&szlig; f&uuml;r Clusterings.
+        $$\prod_{i} \left ( p_A P(x_i | A) + p_B P(x_i | B) \right )$$</dd>
+</dl>
+<h4 id="clustering-algorithmen">Clustering-Algorithmen</h4>
+<p>Im Folgenden sei <span class="math">\(k \in \mathbb{N}\)</span> die Anzahl der Cluster, <span class="math">\(d \in \mathbb{N}\)</span>
+die Dimension der <span class="math">\(n \in \mathbb{N}\)</span> Datenpunkte.</p>
+<table class="table" id="clustering-overview">
+<tr>
+<th>Algorithm</th>
+<th>Parameters</th>
+<th>Category</th>
+<th>Complexity</th>
+<th>Comment</th>
+</tr>
+<tr>
+<td><a href="#k-means">$k$-means</a></td>
+<td>$k$</td>
+<td>next neighbor based</td>
+<td>$\mathcal{O}(dkni)$</td>
+<td>$i$ is the number of iterations</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/K-medoids#Algorithms">$k$-medoids</a></td>
+<td>$k$</td>
+<td>next neighbor based</td>
+<td>$\mathcal{O}(dk n^2 i)$</td>
+<td>$i$ is the number of iterations</td>
+</tr>
+<tr>
+<td><a href="#em">EM</a></td>
+<td>$k$, distribution-type</td>
+<td>probabilisitc</td>
+<td>$\mathcal{O}(dkni)$</td>
+<td>$i$ is the number of iterations</td>
+</tr>
+<tr>
+<td><a href="#dbscan">DBSCAN</a></td>
+<td>$\varepsilon$, min-points</td>
+<td>density-based</td>
+<td>$\mathcal{O}(n \log n)$</td>
+<td>requires existing index structure which executes neighborhood-query in log n</td>
+</tr>
+<tr>
+<td><a href="#optics">OPTICS</a></td>
+<td>$\varepsilon$, min_points</td>
+<td>density-based</td>
+<td>$\mathcal{O}(n \log n)$</td>
+<td>$\varepsilon$ heavily influences the runtime</td>
+</tr>
+<tr>
+<td><a href="#agglomerative-clustering">Agglomeratives hier. Clustering</a></td>
+<td>number of clusters, linkage type, distance</td>
+<td>hierarchical</td>
+<td>$\mathcal{O}(n^2)$</td>
+<td>Related to Kruskals algorithm for constructing a minimal spanning tree; looks at local patterns</td>
+</tr>
+<tr>
+<td><a href="#diana">DIANA</a></td>
+<td></td>
+<td>hierarchical</td>
+<td>$\mathcal{O}(2^n)$ (?)</td>
+<td>Looks at global patterns</td>
+</tr>
+<tr>
+<td><a href="#birch">BIRCH</a></td>
+<td>$k$, branching factor $B$, leaf capacity $B'$, threshold $T$</td>
+<td></td>
+<td></td>
+<td>Makes use of CF-Trees</td>
+</tr>
+<tr>
+<td><a href="#clarans">CLARANS</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td>like $k$-means, but jumps on graph</td>
+</tr>
+<tr>
+<td><a href="#projected-clustering">Projected Clustering</a></td>
+<td>$k$, average number of dimensions per cluster $I$</td>
+<td></td>
+<td></td>
+<td>for high-dimensional data, extension of $k$-means</td>
+</tr>
+<tr>
+<td><a href="#link-based-clustering">Link-based Clustering</a></td>
+<td>Threshold distance $d$ for a link, minimal number of clusters $c$</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+<p>Siehe auch: <a href="http://scikit-learn.org/stable/modules/clustering.html">Sklearn &uuml;ber clustering</a></p>
+<h3 id="statistische-modellierung">Statistische Modellierung</h3>
+<p>Slides: <code>10-StatistModellierung.pdf</code></p>
+<dl>
+<dt><dfn>Naive Baies</dfn></dt>
+<dd>$$P(H | E) = \frac{P(E_1 | H) \cdot \dots \cdot P(E_n | H) \cdot P(H)}{P(E)}$$</dd>
+<dt><dfn>Laplace-Smoothing</dfn></dt>
+<dd>Um Wahrscheinlichkeiten von 0 zu vermeiden, werden die Z&auml;hler mit $k$ initilisiert.
+        Beachte, dass man auch die Gesamtzahl dann um $k$ erh&ouml;hen muss.</dd>
+<dt><dfn>Bayessche Netze</dfn></dt>
+<dd>Siehe <a href="https://martin-thoma.com/machine-learning-1-course/#bayes-net">ML 1</a>.</dd>
+<dt><dfn>Duplikateleminierung</dfn></dt>
+<dd>Spezialfall von Klassifikation</dd>
+<dt><dfn>Versteckte Variablen</dfn></dt>
+<dd>Abstraktion, damit der Raum der zu betrachteten Variablen bei Bayesschen Netzen kleiner wird.</dd>
+</dl>
+<p>Siehe auch:</p>
+<ul>
+<li><a href="http://datascience.stackexchange.com/q/10064/8820">Is the direction of edges in a Bayes Network irrelevant?</a></li>
+</ul>
+<h3 id="support-vector-machines">Support Vector Machines</h3>
+<p>Slides: <code>11-SupportVectorMachines.pdf</code></p>
+<dl>
+<dt><dfn>Lineare Regression</dfn></dt>
+<dd>Model $y = M x$, wobei $x \in \mathbb{R}^n$ die Features sind,
+        $y \in \mathbb{R}^m$ die Vorhersage und $M \in \mathbb{R}^{n \times m}$
+        die Modellparameter.</dd>
+<dt><dfn>Cross Entropy Fehlerma&szlig;</dfn></dt>
+<dd>$$E_{CE}(w) = \sum_{i=1}^n [(1-y_i) \cdot \log (1-p) + y_i \cdot \log p]$$</dd>
+<dt><dfn>SVM</dfn> (<dfn>Support Vector Machine</dfn>)</dt>
+<dd>See <a href="https://martin-thoma.com/svm-with-sklearn/">SVM article</a>.</dd>
+</dl>
+<h3 id="ensembles">Ensembles</h3>
+<p>Slides: <code>12-Ensembles.pdf</code> (vgl. <a href="https://martin-thoma.com/machine-learning-1-course/#boosting">ML 1</a>)</p>
+<dl>
+<dt><dfn>Ensembles</dfn></dt>
+<dd>Mehrere Instanzen auf Trainingsdaten trainieren.
+
+    Vorteile:
+
+    <ul>
+<li>Overfitting wird minimiert &amp;rightarrow; Besseres Gesamtsystem</li>
+<li>Parallelisierbarkeit</li>
+<li>Wahrscheinlichkeiten k&ouml;nnen genauer gesch&auml;tzt werden</li>
+</ul>
+
+    Typische Techniken sind Bagging und Boosting.</dd>
+<dt><dfn>Bagging</dfn></dt>
+<dd>Ensemble-Learning Technik, bei der Stichproben des
+        Trainingsdatenbestandes f&uuml;r die Classifier verwendet werden.
+    </dd>
+<dt><dfn>Relabeling</dfn></dt>
+<dd>&Uuml;berschreiben der Originalen Labels, z.B. wenn man eine
+        Attributkombination mehrfach hat, aber mit unterschiedlichen Labels,
+        dann kann dieser Kombination mit einer gewissen Wahrscheinlichkeit das
+        jeweilige Label zugewiesen werden.</dd>
+<dt><dfn>MetaCost</dfn></dt>
+<dd>MetaCost ist ein Verfahren zum Relabeling, welches Bagging anwendet.<br/>
+<br/>
+<a href="http://dl.acm.org/citation.cfm?id=312220">MetaCost: a general method for making classifiers cost-sensitive</a> (<a href="http://www.shortscience.org/paper?bibtexKey=conf/kdd/Domingos99">summary</a>)
+    </dd>
+<dt><dfn>Boosting</dfn></dt>
+<dd>Boosting ist eine Ensemble-Learning-Technik, die mehrere Modelle vom
+        gleichen Typ durch Voting / Durchschnittsberechnung kombiniert. Dabei
+        nimmt Boosting R&uuml;cksicht auf zuvor falsch Klassifizierte Beispiele
+        und gewichtet diese st&auml;rker.
+
+        Gewichtungs&auml;nderung f&uuml;r korrekte Objekte bei Fehllerrate e: $\frac{e}{1-e}$</dd>
+</dl>
+<h2 id="prufungsfragen_1">Pr&uuml;fungsfragen</h2>
+<ul>
+<li>Was ist Overfitting?<br/>
+  &rarr; Siehe <a href="https://martin-thoma.com/machine-learning-1-course/#overfitting">ML 1</a></li>
+<li>Wie berechnet man die Covarianz zweier Zufallsvariablen <span markdown="0"><span class="math">\(X, Y\)</span></span>?<br/>
+  &rarr; <span markdown="0"><span class="math">\(\operatorname{Cov}(X,Y) := \operatorname E\bigl[(X - \operatorname E(X)) \cdot (Y - \operatorname E(Y))\bigr]\)</span></span></li>
+<li>Warum muss man f&uuml;r NN-Anfragen mit kD-B&auml;umen nur ein paar Rechtecke anschauen?<br/>
+  &rarr; Weil man mit der Priority-Queue Algorithmus nur Rechtecke betrachten muss,
+    die von der Sph&auml;re, welchen durch den Anfragepunkt un den tats&auml;chlichen
+    nachsten Nachbarn gebildet wird, geschnitten werden.</li>
+<li>Warum kann man f&uuml;r r&auml;umliche Anfragen nicht ohne weiteres auswerten, wenn man
+  f&uuml;r jede Dimension separat einen B-Baum angelegt hat?<br/>
+  &rarr; Fragestellung nicht klar. War B-Baum und nicht R-Baum / kdB-Baum gemeint?</li>
+<li>Wie ist ein R-Baum aufgebaut?<br/>
+  &rarr; Siehe <a href="#r-tree">oben</a>.</li>
+<li>Wie funktioniert die Suche nach dem n&auml;chsten Nachbarn mit dem R-Baum?<br/>
+  &rarr; Man f&uuml;gt den Wurzel-Knoten in eine Priority-Queue ein. Die Priority-Queue
+    ist eine Min-Queue mit dem Abstand vom Anfragepunkt. Es wird im folgenden
+    so lange das h&ouml;chstpriore Objekt aus der Queue entfernt</li>
+<li>Was &auml;ndert sich, wenn die Objekte eine r&auml;umliche Ausdehnung haben?<br/>
+  &rarr; Man splittet nach mehreren Dimensionen.</li>
+<li>St&ouml;ren uns &Uuml;berlappungen von Knoten des R-Baums? Wenn ja, warum?<br/>
+  &rarr; Ja, weil die Suche nach dem n&auml;chsten Nachbarn ineffizienter wird. Es m&uuml;ssen
+     gegebenenfalls mehr Knoten betrachtet werden.</li>
+<li>Wie unterscheiden sich R-Baum, kD-Baum und kDB-Baum?<br/>
+  &rarr; R-B&auml;ume partitionieren im gegensatz zu kD- und kDB-B&auml;umen den Datensatz
+    nicht. kDB-B&auml;ume sind im Gegensatz zu kD-B&auml;umen auf physischer Ebene
+    balanciert.</li>
+<li>Wie funktioniert das Einf&uuml;gen in den R-Baum, inklusive Split?<br/>
+  &rarr; Siehe <a href="https://github.com/MartinThoma/algorithms/blob/master/nearest-neighbor-r-tree/nn_r_tree_pseudo.py#L29">Pseudocode</a></li>
+<li>Was f&uuml;r Anfragen unterst&uuml;tzen die diversen r&auml;umlichen Indexstrukturen?<br/>
+  &rarr; Nearest-Neighbor, Bereichsanfragen, Punktanfrage</li>
+<li><code>3-Informatik-Grundlagen.pdf</code>, Folie 19</li>
+<li>Warum werden bei der NN-Suche nur genau die Knoten inspiziert, deren Zonen
+  die NN-Sphere &uuml;berlappen?<br/>
+  &rarr; Weil alle anderen Knoten in der Priority Queue weiter hinten liegen.</li>
+<li>Welche Classifier kennen Sie?<br/>
+  &rarr; Decision Stumps (1-Rules), Entscheidungsb&auml;ume, SVMs, Neuronale Netze, <span markdown="0"><span class="math">\(k\)</span></span>-nearest neighbor (es gibt <a href="https://martin-thoma.com/comparing-classifiers/">mehr Classifier</a>)</li>
+<li>Was ist der Vorteil von Postpruning verglichen mit Prepruning?<br/>
+  &rarr; Es k&ouml;nnte sein, dass ein Feature nur in Kombination mit einem anderen
+    deutliche Vorteile bringt. Dies kann man bei Prepruning nicht erkennen,
+    ist bei Postpruning gegebenenfalls jedoch offensichtlich.</li>
+<li>Wie baut man einen Entscheidungsbaum auf?<br/>
+  &rarr; Gehe durch alle Attribute. Finde f&uuml;r jedes einzelne Attribut den Wert, der
+     die niedrigste Schnitt-Entropie hat. Nehme dann das Attribut als
+     Split-Attribut, welches die niedrigste Schnitt-Entropie hat. Fahre so mit
+     den beiden Kindknoten fort, bis ein Abbruchkriterium erf&uuml;llt ist. Das
+     k&ouml;nnte z.B. eine Entropie von 0 oder eine maximale Tiefe sein.</li>
+<li>Wie kann man Overfitting beim Aufbau eines Entscheidungsbaums
+  ber&uuml;cksichtigen?<br/>
+  &rarr; Prepruning oder Postpruning.</li>
+<li>Wie kann man beim Aufbau des Entscheidungsbaums ber&uuml;cksichtigen, dass
+  unterschiedliche Fehlerarten unterschiedlich schlimm sind?<br/>
+  &rarr; Mehr Trainingsdaten f&uuml;r den schlimmeren Fehler. (vgl. <a href="http://datascience.stackexchange.com/q/11379/8820">How can decision trees be tuned for non-symmetrical loss?</a>)</li>
+<li>Was ist Wertebereich der FP-Rate?<br/>
+  &rarr; [0, 1]: Die FP-Rate ist definiert als <span markdown="0"><span class="math">\(\frac{FP}{FP+TN}\)</span></span>. Offensichtlich sind alle Werte
+  nicht-negativ, also kann der Bruch nicht negativ werden. Deshalb ist auch der
+  Nenner mindestens so gro&szlig; wie der Z&auml;hler. Wenn TN=0 und <span markdown="0"><span class="math">\(FP \neq 0\)</span></span>, dann ist die FP-Rate gleich 1. Das geht,
+  wenn man z.B. immer "True" vorhersagt. Wenn man immer "False" vorhersagt ist
+  die FP-Rate gleich 0.</li>
+<li>Wie berechnet man den Korrelationskoeffizienten?
+  &rarr; vgl. <a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/#korrelationskoeffizient">oben</a></li>
+<li>Was ist die "10-fold cross validation"?<br/>
+  &rarr; vgl. <a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/#cross-validation">oben</a></li>
+<li>Wie haben wir die Erfolgsquote definiert?<br/>
+  &rarr; vgl. <a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/#erfolgsquote">oben</a></li>
+<li>Was ist ein Lift Chart?<br/>
+  &rarr; Ein Lift Chart hat auf der x-Achse den Rang (Top-k) und auf der y-Achse der
+     Gewinn. Die x-Achse verl&auml;uft von 0 bis 100% und die y-Achse von 0 bis zum
+     maximalen Gewinn im Datenbestand. Die Diagonale von (0, 0) nach (100%,
+     Maximaler Gewinn) entspricht Raten, alles &uuml;ber der Diagonalen ist positiv.
+     Der Lift-Chart muss nicht monoton steigend sein.</li>
+<li>Wie unterscheidet sich ein Lift Chart von der ROC Kurve?<br/>
+  &rarr; Die ROC-Kurve ist monoton steigend, der Lift-Chart jedoch nicht.</li>
+<li>Was f&uuml;r Fehlerarten gibt es bei Vorhersagen von Klassenzugeh&ouml;rigkeiten?<br/>
+  &rarr; False-Positive, False-Negative (oder: Konfusionsmatrix)</li>
+<li>Was f&uuml;r Kennzahlen kennen Sie, die diese Fehlerarten s&auml;mtlich
+  ber&uuml;cksichtigen?<br/>
+  &rarr; F score und Gesamtfehler.</li>
+<li>Was ist Unterschied zwischen Kovarianz und dem Korrelationskoeffizienten?<br/>
+  &rarr; Der Korrelationskoeffizient ist normiert (vgl. <a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/#korrelationskoeffizient">oben</a>)</li>
+<li>Warum kommt bei der informational loss Funktion die Logarithmusfunktion zur
+  Anwendung?<br/>
+  &rarr; Die Logarithmusfunktion hat die gew&uuml;nschte Form: Bei perfekter
+     Klassifizierung soll der Loss gleich 0 sein. Wenn es nicht perfekt ist,
+     also <span class="math">\(0 \leq p_i &lt; 1\)</span>, dann soll der Loss streng monoton fallen.</li>
+</ul>
+<h3 id="association-rules_1">Association Rules</h3>
+<ul>
+<li>Was sind Association Rules?<br/>
+  &rarr; Association Rules sind im Kontext von Transaktionen von Items zu verstehen.
+     Eine Association Rule ist eine Regel <span markdown="0"><span class="math">\(A \Rightarrow B\)</span></span>,
+     wobei A und B Item-Mengen sind.</li>
+<li>Wie findet man Association Rules?<br/>
+  &rarr; In der Warenkorbanalyse / in Transaktionen.</li>
+<li>Wie &uuml;berpr&uuml;ft man rasch f&uuml;r viele Transaktionen, welche Kandidaten sie enthalten?<br/>
+  &rarr; <a href="#fp-tree">FP-Trees</a></li>
+<li>Wie muss der Datenbestand beschaffen sein, damit eine Association Rule
+  <span markdown="0"><span class="math">\(A \Rightarrow B\)</span></span> hohen
+  <a href="#support">Support</a> und hohe <a href="#confidence">Confidence</a>
+  hat?<br/>
+  &rarr; Viele Transaktionen m&uuml;ssen <span markdown="0"><span class="math">\(A \cup B\)</span></span> enthalten.
+     Wenn <span markdown="0"><span class="math">\(A\)</span></span> vorkommt, muss auch
+     <span markdown="0"><span class="math">\(B\)</span></span> h&auml;ufig vorkommen.</li>
+<li>Wie muss der Datenbestand beschaffen sein, damit eine Association Rule
+  <span markdown="0"><span class="math">\(A \Rightarrow B\)</span></span> hohen
+  Support und geringe Confidence hat?<br/>
+  &rarr; Viele Transaktionen m&uuml;ssen <span markdown="0"><span class="math">\(A \cup B\)</span></span>
+  enthalten, aber noch deutlich mehr nur <span class="math">\(A\)</span>.</li>
+<li>Wie muss der Datenbestand beschaffen sein, damit eine Association Rule
+  <span markdown="0"><span class="math">\(A \Rightarrow B\)</span></span>
+  geringen Support und hohe Confidence hat?<br/>
+  &rarr; Wenige Transaktionen m&uuml;ssen <span markdown="0"><span class="math">\(A \cup B\)</span></span>
+  enthalten, wenn <span markdown="0"><span class="math">\(A\)</span></span> mal vorkommt, dann immer
+  auch <span markdown="0"><span class="math">\(B\)</span></span>.</li>
+<li>Wie muss der Datenbestand beschaffen sein, damit eine Association Rule
+  <span markdown="0"><span class="math">\(A \Rightarrow B\)</span></span>
+  geringen Support und geringe Confidence hat?<br/>
+  &rarr; Wenige Transaktionen m&uuml;ssen <span markdown="0"><span class="math">\(A \cup B\)</span></span>
+  enthalten. Wenn <span markdown="0"><span class="math">\(A\)</span></span> mal vorkommt, dann sehr
+  selten auch <span markdown="0"><span class="math">\(B\)</span></span>.</li>
+<li>Im Apriori-Algorithmus hat man bei k=2 keinen Prune-Schritt. Warum?<br/>
+  &rarr; (Antwort: 24.11.2015, 14:34)</li>
+<li>Wie gro&szlig; sollte man die Hash-Tabelle machen?<br/>
+  &rarr; So gro&szlig; wie sinnvoll m&ouml;glich. Der verf&uuml;gbare Arbeitsspeicher ist hier eine
+  Grenze.</li>
+<li>Was sind multidimensionale Association Rules?<br/>
+  &rarr; Association Rules die auf verschiedenen Begriffsebenenen sind, z.B.
+    <span markdown="0">Oreo <span class="math">\(\Rightarrow\)</span> Milch</span></li>
+<li>Wie findet man multidimensionale Association Rules?<br/>
+  &rarr; Hinzuf&uuml;gen von Transaktionen der anderen Dimensionen, Nutzen von "Leveln" (Encodierte Transaktionstabelle)</li>
+<li>In welchen Situationen ist Apriori teuer, und warum?<br/>
+  &rarr; Apriori ist teuer, wenn es sehr gro&szlig;e Itemsets gibt. Dann m&uuml;ssen alle
+     darin enthaltenen Itemsets gebildet werden.</li>
+<li>Was kann man gegen die Schw&auml;chen von Apriori tun?<br/>
+  &rarr; Laufzeit: Hash-Filter, FP-Trees, Apriori-B, Sampling</li>
+<li>Was sind FP-Trees, und wie lassen sie sich f&uuml;r die Suche nach Frequent Itemsets verwenden?<br/>
+  &rarr; Erkl&auml;rung von <a href="#fp-tree">FP-Trees</a></li>
+<li>Was kann man tun, wenn FP-Trees f&uuml;r den Hauptspeicher zu gro&szlig; sind?<br/>
+  &rarr; Sampling, Projektion</li>
+<li>Was ist Constraint-basiertes Mining? <br/>
+  &rarr; Das minen von Assosication Rules unter Nebenbedingungen. Diese k&ouml;nnen
+     entweder an die Daten oder an die Regeln gestellt werden. Eine
+     Nebenbedingung an die Daten w&auml;re z.B. dass nur Items betrachtet werden,
+     die mindestens 100&nbsp;Euro Wert sind. Eine Nebenbedingung an die Regeln
+     w&auml;re, dass es mindestens 3 Elemente auf der rechten Seite sind.</li>
+<li>Was sind die Vorteile von Constraint-basiertem Association-rule Mining?<br/>
+  &rarr; Durch die Regeln kann man gegebenenfalls das Minen beschleunigen und f&uuml;r
+    den Nutzer interessantere Regeln finden.</li>
+<li>Was f&uuml;r Arten von Constraints kennen sie? Beispiele hierf&uuml;r.<br/>
+  &rarr; Data-Constraints (Wert der Items &uuml;ber 100&nbsp;Euro) und Rule-Constraints
+  (min. 3 Elemente auf der rechten Seite).</li>
+<li>Was ist Anti-Monotonizit&auml;t, Succinctness? F&uuml;r ein bestimmtes Constraint
+  sagen/begr&uuml;nden, ob anti-monoton/succinct.<br/>
+  &rarr; vgl. <a href="#anti-monoton">Anti-Monotonizit&auml;t</a>,
+         <a href="#succinctness">Succinctness</a></li>
+<li>Wie l&auml;sst sich Apriori f&uuml;r das Mining von Teilfolgen verallgemeinern?<br/>
+  &rarr; Endlicher Automat</li>
+<li>Was versteht man unter dem Antagonismus von Support-basiertem und
+  Constraint-basiertem Pruning?<br/>
+  &rarr; Wenn man A-Rules unter Nebenbedingungen mit dem Apriori-Algorithmus sucht,
+     k&ouml;nnte man versucht sein die Kandidaten schon fr&uuml;h auf die Constraints zu
+     &uuml;berpr&uuml;fen. Obwohl jede Teilmenge eines Frequent Itemsets (FI) auch
+     Frequent sein muss, muss nicht f&uuml;r jede Teilmenge das Constraint erf&uuml;llt
+     sein. Dies gilt jedoch nicht f&uuml;r die Nebenbedingungen.</li>
+<li>Alternativen f&uuml;r Constraint-basiertes Pruning (wenn Constraint nicht
+  anti-monoton) erkl&auml;ren k&ouml;nnen.<br/>
+  &rarr; Support-basiertes Pruning</li>
+<li>Welche zwei Sprachen haben wir f&uuml;r die Formulierung der Constraints
+  kennengelernt?<br/>
+  &rarr; 1-var und 2-var bzw. MetaRule Guided</li>
+<li>Warum ist SQL nicht geeignet um Constraints zu formulieren?<br/>
+  &rarr; Weil SQL keine Aussage &uuml;ber die Struktur machen kann. So ist es in SQL
+     nicht m&ouml;glich zu sagen, dass die rechte Seite mindestens 3 Elemente
+     beinhalten soll.</li>
+</ul>
+<h3 id="clustering_1">Clustering</h3>
+<ul>
+<li>BIRCH-Algorithmus: Wie kann man die Interclusterdistanz aus N, LS, SS
+  herleiten?<br/>
+  &rarr; <span class="math">\(R(C_i) = \sqrt{\frac{1}{N} (SS - 2 \frac{LS}{N} \cdot LS + N (\frac{LS}{N})^2)}\)</span></li>
+<li>BIRCH-Algorithmus: Wie kann man den Durchmesser aus N, LS, SS herleiten?<br/>
+  &rarr; <span class="math">\(\sqrt{\frac{1}{N \cdot (N-1)} (N \cdot SS - 2 LS^2 + N^2 \cdot SS)}\)</span></li>
+<li>BIRCH-Algorithmus: Wie kann man die Interclusterdistanz aus N, LS, SS
+  herleiten?<br/>
+  &rarr; <span class="math">\(D(C_1, C_2) = \sqrt{\frac{SS_{C_1} - 2 LS_{C_2} LS_{C_1} + SS_{C_2}}{N_{C_1} \cdot N_{C_2}}}\)</span></li>
+<li>BIRCH-Algorithmus: Wie lassen sich die Clustering-Features eines Zusammengef&uuml;gten
+  Clusters <span markdown="0"><span class="math">\(C_{12} = C_1 \cup C_2\)</span></span> aus den
+  Komponenten berechnen?<br/>
+  &rarr; Durch Addition der jeweiligen Features der Einzelcluster.</li>
+<li>Was spricht dagegen, <span markdown="0"><span class="math">\(\mathbf{\varepsilon}\)</span></span> in
+  OPTICS riesig zu w&auml;hlen?<br/>
+  &rarr; Dann sind gleich am Anfang mit dem ersten Objekt alle Datenobjekte in der
+     Priority-Queue. Damit w&auml;re der Aufwand f&uuml;r die Queue zu hoch.</li>
+<li>Welche Clustering-Verfahren kennen Sie?<br/>
+  &rarr; <a href="#k-means"><span class="math">\(k\)</span>-means</a>, <a href="#clarans">CLARANS</a>,
+     <a href="#dbscan">DBSCAN</a>, <a href="#optics">OPTICS</a>,
+     <a href="#birch">BIRCH</a>, <a href="#diana">DIANA</a>, <a href="#em">EM</a></li>
+<li>Gegeben Szenario X, welche Clustering-Verfahren sind sinnvoll, und warum?<br/>
+  &rarr; Autohersteller will Anzahl der Teile minimieren um Kosten zu senken
+    (Hierarchisches Clustering), finden von neuen Symbolen.</li>
+<li>Warum funktionieren herk&ouml;mmliche Clustering-Verfahren in hochdimensionalen
+  Merkmalsr&auml;umen nicht? Skizzieren Sie eine m&ouml;gliche L&ouml;sung.<br/>
+  &rarr; Weil Datenobjekte in hochdimensionalen R&auml;umen typischerweise alle weit
+     auseinander liegen / nicht dicht sind. Man kann
+     <a href="#projected-clustering">projected Clustering</a> anwenden.</li>
+<li>Erkl&auml;ren Sie, warum Clustering mit kategorischen Attributen besonders ist?
+  Warum ist Link-basiertes Clustering hier hilfreich?</li>
+</ul>
+<h3 id="bayes">Bayes</h3>
+<ul>
+<li>Gegeben ein beispielhafter Datenbestand, vergleichbar mit dem
+auf Folie 10, Vorhersage mit Naive Bayes erkl&auml;ren/vorf&uuml;hren k&ouml;nnen.</li>
+<li>Was &auml;ndert sich, wenn die Attribute nicht voneinander unabh&auml;ngig sind?<br/>
+  &rarr; Dann ist die naive Unabh&auml;ngigkeitsannahme nicht mehr gegeben und man sollte
+    ein bayessches Netz nehmen. Damit lassen sich dann wieder bessere Vorhersagen
+    machen.</li>
+</ul>
+<h2 id="material-und-links_1">Material und Links</h2>
+<p>Die Vorlesung wurde gestreamt und ist unter
+<a href="http://mml-streamdb01.ira.uka.de/">mml-streamdb01.ira.uka.de</a> verf&uuml;gbar.</p>
+<ul>
+<li><a href="https://dbis.ipd.kit.edu/2261.php">Vorlesungswebsite</a></li>
+<li><a href="https://ilias.studium.kit.edu/goto_produktiv_crs_477914.html">Ilias</a></li>
+</ul>
+<p>Literatur:</p>
+<ul>
+<li>Ian H. Witten, Eibe Frank: Data Mining. Practical Machine Learning Tools and
+  Techniques.</li>
+<li>Harvey J. Miller, Jiawei Han: Geographic Data Mining and Knowledge Discovery
+  (Clustering)</li>
+</ul>
+<p>More:</p>
+<ul>
+<li><a href="http://datascience.stackexchange.com/q/11657/8820">What is the relationship between clustering and association rule mining?</a></li>
+</ul>
+<h2 id="vorlesungsempfehlungen">Vorlesungsempfehlungen</h2>
+<p>Folgende Vorlesungen sind &auml;hnlich:</p>
+<ul>
+<li><a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/">Analysetechniken gro&szlig;er Datenbest&auml;nde</a></li>
+<li><a href="https://martin-thoma.com/informationsfusion/">Informationsfusion</a></li>
+<li><a href="https://martin-thoma.com/machine-learning-1-course/">Machine Learning 1</a></li>
+<li><a href="https://martin-thoma.com/machine-learning-2-course/">Machine Learning 2</a></li>
+<li><a href="https://martin-thoma.com/mustererkennung-klausur/">Mustererkennung</a></li>
+<li><a href="https://martin-thoma.com/neuronale-netze-vorlesung/">Neuronale Netze</a></li>
+<li><a href="https://martin-thoma.com/lma/">Lokalisierung Mobiler Agenten</a></li>
+<li><a href="https://martin-thoma.com/probabilistische-planung/">Probabilistische Planung</a></li>
+</ul>
+<h2 id="termine-und-klausurablauf">Termine und Klausurablauf</h2>
+<p>Es ist noch nicht klar, ob es eine m&uuml;ndliche oder eine schriftliche Pr&uuml;fung
+wird.</p>
+<p>Falls es m&uuml;ndlich ist, soll es mindestens einen Termin pro Monat geben.</p>
+<div class="alert alert-danger">
+<strong>Wichtig!</strong> Ich musste zu Beginn der Vorlesung meinen
+  Personalausweis vorlegen, obwohl ich bereits meinen Studentenausweis
+  gezeigt hatte. Also: Ausweis mitnehmen!
+</div>
+<p><strong>Datum</strong>: Noch ist es eine m&uuml;ndliche Pr&uuml;fung<br/>
+<strong>Ort</strong>: Noch ist es eine m&uuml;ndliche Pr&uuml;fung<br/>
+<strong>Punkte</strong>: Noch ist es eine m&uuml;ndliche Pr&uuml;fung<br/>
+<strong>Zeit</strong>: Noch ist es eine m&uuml;ndliche Pr&uuml;fung<br/>
+<strong>Punkteverteilung</strong>: Noch ist es eine m&uuml;ndliche Pr&uuml;fung<br/>
+<strong>Bestehensgrenze</strong>: Noch ist es eine m&uuml;ndliche Pr&uuml;fung<br/>
+<strong>&Uuml;bungsschein</strong>: Gibt es nicht.<br/>
+<strong>Bonuspunkte</strong>: Gibt es nicht.<br/>
+<strong>Ergebnisse</strong>: Noch ist es eine m&uuml;ndliche Pr&uuml;fung<br/>
+<strong>Einsicht</strong>: Noch ist es eine m&uuml;ndliche Pr&uuml;fung<br/>
+<strong>Erlaubte Hilfsmittel</strong>: keine</p>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2016-04-15T11:22:00+02:00">Apr 15, 2016</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#german-posts-ref">German posts</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#clustering-ref">Clustering
+                    <span>4</span>
+</a></li>
+                <li><a href="../tags.html#klausur-ref">Klausur
+                    <span>35</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

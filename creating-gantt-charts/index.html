@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Software Development, LaTeX, Gantt-Chart, The Web, " />
+
+<meta property="og:title" content="Creating Gantt Charts "/>
+<meta property="og:url" content="../creating-gantt-charts/" />
+<meta property="og:description" content="I am currently involved in a software project and I should create a Gantt chart. So I&#39;ve searched for tools that allow me to do so, but it was astonishingly difficult to find good tools. I&#39;m not completely content with any of them, but I would like to share my …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2012-12-13T00:02:19+01:00" />
+<meta name="twitter:title" content="Creating Gantt Charts ">
+<meta name="twitter:description" content="I am currently involved in a software project and I should create a Gantt chart. So I&#39;ve searched for tools that allow me to do so, but it was astonishingly difficult to find good tools. I&#39;m not completely content with any of them, but I would like to share my …">
+<meta property="og:image" content="2012/12/gantt-thumb.png" />
+<meta name="twitter:image" content="2012/12/gantt-thumb.png" >
+
+        <title>Creating Gantt Charts  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../creating-gantt-charts/"> Creating Gantt Charts  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#gantter" title="Gantter">Gantter</a><ul><li><a class="toc-href" href="#overview" title="Overview">Overview</a></li><li><a class="toc-href" href="#export" title="Export">Export</a></li><li><a class="toc-href" href="#google-drive" title="Google Drive">Google Drive</a></li></ul></li><li><a class="toc-href" href="#ganttproject_1" title="GanttProject">GanttProject</a></li><li><a class="toc-href" href="#gnome-planner" title="GNOME Planner">GNOME Planner</a></li><li><a class="toc-href" href="#trac-jsgantt-plugin" title="Trac jsGantt plugin">Trac jsGantt plugin</a></li><li><a class="toc-href" href="#latex" title="LaTeX">LaTeX</a><ul><li><a class="toc-href" href="#pgfgantt" title="pgfgantt">pgfgantt</a></li><li><a class="toc-href" href="#another-latex-gantt-chart-solution" title="Another LaTeX Gantt chart solution">Another LaTeX Gantt chart solution</a></li></ul></li><li><a class="toc-href" href="#more-tools_1" title="More tools">More tools</a></li><li><a class="toc-href" href="#conclusion" title="Conclusion">Conclusion</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>I am currently involved in a software project and I should create a Gantt chart. So I've searched for tools that allow me to do so, but it was astonishingly difficult to find good tools. I'm not completely content with any of them, but I would like to share my experiences.</p>
+<h2 id="gantter">Gantter</h2>
+<h3 id="overview">Overview</h3>
+<p><a href="https://app.gantter.com">Gantter</a> is a free online tool that allows you to create Gantt charts.</p>
+<p>It looks like this:
+<figure class="aligncenter">
+<a href="../images/2012/12/gantter-overview-300x138.png"><img alt="Overview of Gantter" class="size-medium wp-image-50231" src="../images/2012/12/gantter-overview-300x138.png" style="max-width:300px;max-height:138px"/></a>
+<figcaption class="text-center">Overview of Gantter</figcaption>
+</figure></p>
+<p>It is easy to use and has a good interface. I can simply define depencies:</p>
+<figure class="aligncenter">
+<a href="../images/2012/12/gantter-predecessor-depenency-300x138.png"><img alt="Gantter Predecessor depency" class="size-medium wp-image-51101" src="../images/2012/12/gantter-predecessor-depenency-300x138.png" style="max-width:300px;max-height:138px"/></a>
+<figcaption class="text-center">Gantter Predecessor depency</figcaption>
+</figure>
+<h3 id="export">Export</h3>
+<p>Gantter offers some export options: HTML, <a href="../pdf/UpToDatE-Implementierung.pdf">PDF</a>, <a href="../images/2012/12/UpToDatE-Implementierung.png">PNG</a>, MS-Project (.xml). All export options I've tried are unconvincing. I couldn't save the HTML export, the PDF export was splitted over several pages and the PNG ... well, it's a PNG. As I am currently on a Linux machine, I can't try the MS-Project export.</p>
+<h3 id="google-drive">Google Drive</h3>
+<p>Gantter also has a Google Drive integration, but it requests these permissions:
+<figure class="aligncenter">
+<a href="../images/2012/12/gantter-google-drive-files.png"><img alt="Google Drive permissions requested by Gantter" class="size-full wp-image-50241" src="../images/2012/12/gantter-google-drive-files.png" style="max-width:470px;max-height:471px"/></a>
+<figcaption class="text-center">Google Drive permissions requested by Gantter</figcaption>
+</figure></p>
+<p>I have contacted them today (11.12.2012) and asked why they want these permissions. I'll update this post as soon as I get an answer.</p>
+<p>My recommendation: Don't give them those rights! You can create an account without a Google Drive permission.</p>
+<h2 id="ganttproject_1">GanttProject</h2>
+<p><a href="http://www.ganttproject.biz/">GanttProject</a> is a Java Gantt chart program (as you might have noticed because of the SWING design):</p>
+<figure class="aligncenter">
+<a href="../images/2012/12/GanttProject-300x201.png"><img alt="GanttProject - Overview" class="size-medium wp-image-50361" src="../images/2012/12/GanttProject-300x201.png" style="max-width:300px;max-height:201px"/></a>
+<figcaption class="text-center">GanttProject - Overview</figcaption>
+</figure>
+<p>It's quite good, but sometimes I got the feeling that it doesn't instantly response. It's perhaps imagination as I always think that of Java projects.</p>
+<p>The HTML-export is not so good. It basically converts the chart to an image and embeds this into a HTML page. This is not what I thought of! This way, you can't search or copy the tasks. You also can't see more information about the task.</p>
+<figure class="aligncenter">
+<a href="../images/2012/12/GanttProject-export-300x80.png"><img alt="GanttProject export function" class="size-medium wp-image-50371" src="../images/2012/12/GanttProject-export-300x80.png" style="max-width:300px;max-height:80px"/></a>
+<figcaption class="text-center">GanttProject export function</figcaption>
+</figure>
+<h2 id="gnome-planner">GNOME Planner</h2>
+<p><a href="https://live.gnome.org/Planner">Planner</a> is part of GNOME.</p>
+<figure class="aligncenter">
+<a href="../images/2012/12/Planner-300x157.png"><img alt="Planner - Overview" class="size-medium wp-image-50291" src="../images/2012/12/Planner-300x157.png" style="max-width:300px;max-height:157px"/></a>
+<figcaption class="text-center">Planner - Overview</figcaption>
+</figure>
+<p>This is how you create a new task:
+<figure class="aligncenter">
+<a href="../images/2012/12/Planner-new-task-300x275.png"><img alt="Planner: Create a new task" class="size-medium wp-image-50381" src="../images/2012/12/Planner-new-task-300x275.png" style="max-width:300px;max-height:275px"/></a>
+<figcaption class="text-center">Planner: Create a new task</figcaption>
+</figure></p>
+<p>It is very annoying that you always have to click on "Change", then on "As soon as possible" change it to "fixed date" and then you can click on a date. Why don't you allow the user to click on a date and when he does, change it automatically to "fixed date"?</p>
+<p>The HTML-export is good, but I would also like to click on a tasks' bar and get the associated task highlighted (and perhaps some additional information).</p>
+<h2 id="trac-jsgantt-plugin">Trac jsGantt plugin</h2>
+<p>You can let Trac automatically create a Gantt chart with <a href="http://trac-hacks.org/wiki/TracJsGanttPlugin">Trac jsGantt plugin</a>. According to this link, it should look like this:</p>
+<figure class="aligncenter">
+<a href="../images/2012/12/jsGanttSample-300x150.png"><img alt="jsGanttSample" class="size-medium wp-image-50511" src="../images/2012/12/jsGanttSample-300x150.png" style="max-width:300px;max-height:150px"/></a>
+<figcaption class="text-center">jsGanttSample</figcaption>
+</figure>
+<p>I knew that I had to install the <a href="http://trac-hacks.org/wiki/MasterTicketsPlugin">MasterTicketsPlugin</a> to make it possible to add ticket dependencies. With that, it looked like this:</p>
+<figure class="aligncenter">
+<a href="../images/2012/12/jsGantt-without-plugins-300x205.png"><img alt="jsGantt only with MasterTicketsPlugin" class="size-medium wp-image-50521" src="../images/2012/12/jsGantt-without-plugins-300x205.png" style="max-width:300px;max-height:205px"/></a>
+<figcaption class="text-center">jsGantt only with MasterTicketsPlugin</figcaption>
+</figure>
+<p>Not quite what I've expected. So I guess I will also need <a href="http://trac-hacks.org/wiki/SubticketsPlugin">SubticketsPlugin</a> and <a href="http://trac-hacks.org/wiki/TimingAndEstimationPlugin">TimingAndEstimationPlugin</a>.</p>
+<p>Update: These Trac-Plugins are crap. The Gantt-Chart that was created looks ugly and doesn't look like I've expected.</p>
+<h2 id="latex">LaTeX</h2>
+<h3 id="pgfgantt">pgfgantt</h3>
+<p>This piece of LaTeX:</p>
+<div class="highlight"><pre><span></span><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="na">[pdftex,active,tightpage]</span><span class="nb">{</span>preview<span class="nb">}</span>
+<span class="k">\setlength\PreviewBorder</span><span class="nb">{</span>2mm<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>pgfgantt<span class="nb">}</span>
+
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>preview<span class="nb">}</span>
+    <span class="k">\begin</span><span class="nb">{</span>ganttchart<span class="nb">}{</span>12<span class="nb">}</span>
+    <span class="k">\gantttitle</span><span class="nb">{</span>2012<span class="nb">}{</span>12<span class="nb">}</span> <span class="k">\\</span>
+    <span class="k">\gantttitlelist</span><span class="nb">{</span>1,...,12<span class="nb">}{</span>1<span class="nb">}</span> <span class="k">\\</span>
+    <span class="k">\ganttgroup</span><span class="nb">{</span>Group 1<span class="nb">}{</span>1<span class="nb">}{</span>7<span class="nb">}</span> <span class="k">\\</span>
+    <span class="k">\ganttbar</span><span class="nb">{</span>Task 1<span class="nb">}{</span>1<span class="nb">}{</span>2<span class="nb">}</span> <span class="k">\\</span>
+    <span class="k">\ganttlinkedbar</span><span class="nb">{</span>Task 2<span class="nb">}{</span>3<span class="nb">}{</span>7<span class="nb">}</span> <span class="k">\ganttnewline</span>
+    <span class="k">\ganttmilestone</span><span class="nb">{</span>Milestone<span class="nb">}{</span>7<span class="nb">}</span> <span class="k">\ganttnewline</span>
+    <span class="k">\ganttbar</span><span class="nb">{</span>Final Task<span class="nb">}{</span>8<span class="nb">}{</span>12<span class="nb">}</span>
+    <span class="k">\ganttlink</span><span class="nb">{</span>elem2<span class="nb">}{</span>elem3<span class="nb">}</span>
+    <span class="k">\ganttlink</span><span class="nb">{</span>elem3<span class="nb">}{</span>elem4<span class="nb">}</span>
+    <span class="k">\end</span><span class="nb">{</span>ganttchart<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>preview<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+<p>generates this Gantt chart:</p>
+<figure class="aligncenter">
+<a href="../images/2012/12/gantt-pgf.png"><img alt="LaTeX: pgfgantt for creating Gantt charts" class="size-full wp-image-50541" src="../images/2012/12/gantt-pgf.png" style="max-width:500px;max-height:447px"/></a>
+<figcaption class="text-center">LaTeX: pgfgantt for creating Gantt charts</figcaption>
+</figure>
+<p>Source is <a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/gantt-pgf">here</a>.</p>
+<h3 id="another-latex-gantt-chart-solution">Another LaTeX Gantt chart solution</h3>
+<p>This source:</p>
+<div class="highlight"><pre><span></span><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="na">[pdftex,active,tightpage]</span><span class="nb">{</span>preview<span class="nb">}</span>
+<span class="k">\setlength\PreviewBorder</span><span class="nb">{</span>2mm<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>gantt<span class="nb">}</span>
+
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>preview<span class="nb">}</span>
+  <span class="k">\begin</span><span class="nb">{</span>gantt<span class="nb">}{</span>10<span class="nb">}{</span>12<span class="nb">}</span>
+    <span class="k">\begin</span><span class="nb">{</span>ganttitle<span class="nb">}</span>
+    <span class="k">\numtitle</span><span class="nb">{</span>1<span class="nb">}{</span>1<span class="nb">}{</span>12<span class="nb">}{</span>1<span class="nb">}</span>
+    <span class="k">\end</span><span class="nb">{</span>ganttitle<span class="nb">}</span>
+    <span class="k">\ganttbar</span><span class="nb">{</span>a task<span class="nb">}{</span>0<span class="nb">}{</span>2<span class="nb">}</span>
+    <span class="k">\ganttbarcon</span><span class="nb">{</span>a consecutive task<span class="nb">}{</span>2<span class="nb">}{</span>4<span class="nb">}</span>
+    <span class="k">\ganttbarcon</span><span class="nb">{</span>another consecutive task<span class="nb">}{</span>8<span class="nb">}{</span>2<span class="nb">}</span>
+    <span class="k">\ganttmilestone</span><span class="na">[color=cyan]</span><span class="nb">{</span>Milestone with color!<span class="nb">}{</span>4<span class="nb">}</span>
+    <span class="k">\ganttbar</span><span class="nb">{</span>another task<span class="nb">}{</span>2<span class="nb">}{</span>2<span class="nb">}</span>
+    <span class="k">\ganttbar</span><span class="na">[color=cyan]</span><span class="nb">{</span>another coloured task<span class="nb">}{</span>4<span class="nb">}{</span>4<span class="nb">}</span>
+    <span class="k">\ganttbar</span><span class="nb">{</span>another task<span class="nb">}{</span>4<span class="nb">}{</span>2<span class="nb">}</span>
+    <span class="k">\ganttcon</span><span class="nb">{</span>4<span class="nb">}{</span>5<span class="nb">}{</span>4<span class="nb">}{</span>7<span class="nb">}</span>
+    <span class="k">\ganttmilestonecon</span><span class="nb">{</span>A connected Milestone<span class="nb">}{</span>7<span class="nb">}</span>
+    <span class="k">\ganttbarcon</span><span class="nb">{</span>another consecutive task<span class="nb">}{</span>8<span class="nb">}{</span>2<span class="nb">}</span>
+  <span class="k">\end</span><span class="nb">{</span>gantt<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>preview<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+<p>creates</p>
+<figure class="aligncenter">
+<a href="../images/2012/12/gantt.png"><img alt="Another Gantt solution" class="size-full wp-image-50551" src="../images/2012/12/gantt.png" style="max-width:500px;max-height:240px"/></a>
+<figcaption class="text-center">Another Gantt solution</figcaption>
+</figure>
+<p>Full source is <a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/gantt">here</a>.</p>
+<p>Although the result looks very nice, I don't think LaTeX is an optimal solution for Gantt charts of software projects. Yes, you get a great result. But it takes a lot of time and after a week or so this particular chart is definitely outdated. You can't add more information directly as you could do it with HTML tooltips. I don't know if you can produce a linked PDF, but I guess this would be quite a lot of manual work. </p>
+<h2 id="more-tools_1">More tools</h2>
+<p><a href="http://www.projectlibre.org/">ProjectLibre</a> was recommended to me, but it is not in the Ubuntu repository ☹</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>LaTeX rulez. If you want nice looking results, you should definitely use LaTeX. Although I think combining an automatically generated Gantt-chart with tickes would be nice, this seems not to be possible by now.</p>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2012-12-13T00:02:19+01:00">Dez 13, 2012</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#the-web-ref">The Web</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#gantt-chart-ref">Gantt-Chart
+                    <span>1</span>
+</a></li>
+                <li><a href="../tags.html#latex-ref">LaTeX
+                    <span>28</span>
+</a></li>
+                <li><a href="../tags.html#software-development-ref">Software Development
+                    <span>7</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

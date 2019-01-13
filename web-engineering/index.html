@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Web Development, Klausur, German posts, " />
+
+<meta property="og:title" content="Web Engineering "/>
+<meta property="og:url" content="../web-engineering/" />
+<meta property="og:description" content="Dieser Artikel beschäftigt sich mit der Vorlesung „Web Engineering“ am KIT. Er dient als Prüfungsvorbereitung. Ich habe Web Engineering bei Dr. Nussbaumer gehört. Über die Vorlesung In der Vorlesung „Web Engineering“ lernt man, welche besonderen Herausforderungen Web-Projekte beinhalten und wie man damit umgehen kann. Es wird zwar auch über technische …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2013-01-03T13:57:06+01:00" />
+<meta name="twitter:title" content="Web Engineering ">
+<meta name="twitter:description" content="Dieser Artikel beschäftigt sich mit der Vorlesung „Web Engineering“ am KIT. Er dient als Prüfungsvorbereitung. Ich habe Web Engineering bei Dr. Nussbaumer gehört. Über die Vorlesung In der Vorlesung „Web Engineering“ lernt man, welche besonderen Herausforderungen Web-Projekte beinhalten und wie man damit umgehen kann. Es wird zwar auch über technische …">
+<meta property="og:image" content="2012/07/web-graph-thumb.jpg" />
+<meta name="twitter:image" content="2012/07/web-graph-thumb.jpg" >
+
+        <title>Web Engineering  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../web-engineering/"> Web Engineering  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#uber-die-vorlesung" title="&Uuml;ber die Vorlesung">&Uuml;ber die Vorlesung</a></li><li><a class="toc-href" href="#vorbereitung" title="Vorbereitung">Vorbereitung</a><ul><li><a class="toc-href" href="#geschichte" title="Geschichte">Geschichte</a></li><li><a class="toc-href" href="#part-1-technologies" title="PART 1: Technologies">PART 1: Technologies</a></li><li><a class="toc-href" href="#part-2-project-management" title="PART 2: Project Management">PART 2: Project Management</a></li><li><a class="toc-href" href="#part-3-requirements-engineering" title="PART 3: Requirements Engineering">PART 3: Requirements Engineering</a></li><li><a class="toc-href" href="#part-4-entwurf" title="PART 4: Entwurf">PART 4: Entwurf</a></li><li><a class="toc-href" href="#weiteres" title="Weiteres">Weiteres</a></li><li><a class="toc-href" href="#weitere-informationen" title="Weitere Informationen">Weitere Informationen</a></li></ul></li><li><a class="toc-href" href="#typische-fragen_1" title="Typische Fragen">Typische Fragen</a></li><li><a class="toc-href" href="#interessante-fragen" title="Interessante Fragen">Interessante Fragen</a></li><li><a class="toc-href" href="#hintergrundwissen" title="Hintergrundwissen">Hintergrundwissen</a></li><li><a class="toc-href" href="#termine" title="Termine">Termine</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesung &bdquo;Web Engineering&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe Web Engineering bei Dr. Nussbaumer geh&ouml;rt.</div>
+<h2 id="uber-die-vorlesung">&Uuml;ber die Vorlesung</h2>
+<p>In der Vorlesung &bdquo;Web Engineering&ldquo; lernt man, welche besonderen Herausforderungen Web-Projekte beinhalten und wie man damit umgehen kann. Es wird zwar auch &uuml;ber technische Aspekte geredet (siehe Part 1), aber es geht vor allem um Projektplanung und -management. Insbesondere wird hier nichts konkret entwickelt. Daf&uuml;r gibt es vermutlich das Praktikum, das aber unabh&auml;ngig von der Vorlesung ist.</p>
+<p>Herr Dr. Nussbaumer h&auml;lt die Vorlesung sehr interaktiv. Er stellt viele Fragen, &uuml;ber die man in der Vorlesung diskutieren kann und ist auch immer nach der Vorlesung bereit etwas genauer zu erkl&auml;ren.</p>
+<p>Die Struktur unter &bdquo;Vorbereitung&ldquo; richtet sich nach dem Aufbau der Folien.</p>
+<h2 id="vorbereitung">Vorbereitung</h2>
+<p>Pr&uuml;fungsprotokolle sind bei der <a href="http://www.fsmi.uni-karlsruhe.de/Studium/Pruefungsprotokolle/">Fachschaft Informatik</a> zu erhalten. <a href="../images/2013/01/muendlich-we-2013-martin-thoma.pdf">Mein Pr&uuml;fungsprotokoll</a> ist hier und die <a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/kit-muendlich-info">TeX-Quelldateien</a> bekommt ihr nat&uuml;rlich auch.</p>
+<p>Im Folgenden sind einige Stichpunkte aufgelistet, die jedem etwas sagen sollten.</p>
+<h3 id="geschichte">Geschichte</h3>
+<ul>
+<li>1945: <a href="http://de.wikipedia.org/wiki/Vannevar_Bush">Vannevar Bush</a>, <a href="http://de.wikipedia.org/wiki/Memex">Memex</a></li>
+<li>1965: <a href="http://de.wikipedia.org/wiki/Ted_Nelson">Ted Nelson</a>, Hypertext und Xanadu</li>
+<li>1969: ARPANET</li>
+<li>1985: Bill Atkinson (Apple), <a href="//www.youtube.com/watch?v=BeMRoYDc2z8">HyperCard</a></li>
+<li>1989: Tim Berners-Lee, World Wide Web</li>
+<li>1993: <a href="http://de.wikipedia.org/wiki/NCSA_Mosaic">Mosaic</a></li>
+</ul>
+<h3 id="part-1-technologies">PART 1: Technologies</h3>
+<ul>
+<li>Markup, HTML, Ressources, Cookies, <abbr title="Multipurpose Internet Mail Extensions"><a href="http://de.wikipedia.org/wiki/MIME-Type">MIME</a></abbr></li>
+<li>Host, Server, Client, User Agent</li>
+<li>Hypertext Paradigm</li>
+<li>HTTP, HTTPS, FTP, SMTP, UDDI</li>
+<li>CGI</li>
+<li><a href="http://de.wikipedia.org/wiki/SOAP">SOAP</a>, <a href="http://de.wikipedia.org/wiki/WebDAV">WebDAV</a></li>
+<li>Moore's Law, Nielson's Law</li>
+<li>Was ist der Unterschied zwischen Software Engineering und Web Engineering? &rarr; Antwort auf Folie 47ff, part0-1</li>
+<li><a href="http://de.wikipedia.org/wiki/Paretoprinzip">Paretoprinzip</a></li>
+<li>Was ist das W3C? Was sind die Ziele des W3C? Wer ist Teil des W3C?</li>
+<li><a href="http://de.wikipedia.org/wiki/Zonendatei">Zone File</a></li>
+<li>Uniform addressing &rarr; Was ist das?</li>
+<li>URI, URL, URN, URC, RFC1630</li>
+</ul>
+<h3 id="part-2-project-management">PART 2: Project Management</h3>
+<ul>
+<li><a href="http://de.wikipedia.org/wiki/Chaos-Studie">Chaos-Report</a> der Standish Group (25%, 45%, 30%)
+    <ul>
+<li>Bad: Very high budget</li>
+<li>Good: Executive Management, User Involvement, Experienced Project Manager, Clear Business Objectives, Minimizing Scope, Requirements Process, Standard Software Infrastructure, Formal Methology, Reliable Estimates, Skilled Staff</li>
+<li>&bdquo;When projects fail, it's rarely technical.&ldquo;</li>
+</ul>
+</li>
+<li>Outsource, Find&amp;Buy;, Develop new solution</li>
+</ul>
+<p><strong>Teams:</strong>
+<ul>
+<li>&lt; 6 Entwickler</li>
+<li>&lt; 6 Monate</li>
+<li><abbr title="Release early, release often">RERO</abbr></li>
+<li>Verantwortungsbereiche: 
+    <ul>
+<li>Product Management: Wie verkaufe ich die Software?</li>
+<li>Program Management: Wie bringe ich das Projekt zu einem erfolgreichem Abschluss?</li>
+<li>Architekture: Wie halte ich die Software erweiterbar, anpassbar und wartbar?</li>
+<li>Development: Wie schreibe ich den Code von Methode abc in Klasse xyz?</li>
+<li>Test: Sind alle funktionalen und qualitativen Anforderungen erf&uuml;llt? Ist das System robust?</li>
+<li>User Experience: Passiert das, was der Nutzer erwartet? Kann man dem User die Bedienung der Software erleichtern?</li>
+<li>Release / Operations: Wie halte ich die Software &uuml;ber Jahre am laufen?</li>
+</ul>
+</li>
+<li>Aufsplitten der Teams nach Funktionen oder Features
+    <ul>
+<li>Wo ist der Unterschied?</li>
+</ul>
+</li>
+</ul></p>
+<p><strong>Tasks &amp; Tools</strong>
+<ul>
+<li><a href="http://de.wikipedia.org/wiki/Work_Breakdown_Structure">Work Breakdown Structure</a></li>
+<li>GANTT chart</li>
+<li><a href="http://de.wikipedia.org/wiki/Program_Evaluation_and_Review_Technique">PERT</a></li>
+<li><a href="http://en.wikipedia.org/wiki/SWOT_analysis">SWOT Analysis</a></li>
+</ul></p>
+<p><strong>Risiken</strong>
+<ul>
+<li>Cost-reduction expectations</li>
+<li>Data security / protection (IPR)</li>
+<li>Process discipline (Was ist das?)</li>
+<li>Loss of business knowledge</li>
+<li>Vendor failure to deliver</li>
+<li>Scope creep</li>
+<li>Government oversight / regulation</li>
+<li>Culture (language and callcenters)</li>
+<li>Turnover of key personnel</li>
+<li>Knowledge transfer</li>
+</ul></p>
+<p><strong>Process Models</strong>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Code_and_fix#Code_and_fix">Code and fix</a></li>
+<li>Waterfall model</li>
+<li>Prototyping model</li>
+<li>Evolutionary Development model: Only for small, scientific projects where project goal is unclear</li>
+<li>Spiral model: Risk-driven</li>
+<li><abbr title="Rational Unified Process model">RUP</abbr> von SAP</li>
+<li><abbr title="Microsoft Solution Framework">MSF</abbr> &rarr; <a href="http://msdn.microsoft.com/de-de/library/bb979125.aspx">msdn Artikel</a>
+<ul>
+<li>Rollen:
+       <ul>
+<li>Product Management: Anwalt des Kunden, team&uuml;bergreifende Projekt-Vision, betriebswirtschaftliche Sicht auf das Projekt</li>
+<li>Program Management: &bdquo;Projektleiter&ldquo;, Teamkommunikation, technische Sicht auf das Projekt</li>
+<li>Architecture, Development, Testing, Release / Operations</li>
+<li>User Experience: Anwalt des Benutzers</li>
+</ul>
+</li>
+<li>Skalierung: Feature-Teams vs. Functional Teams</li>
+<li>Meilensteine: Extern sichtbare und Interim-Meilensteine</li>
+</ul>
+</li>
+<li>Reuse-Oriented Approaches</li>
+<li>Agile Methoden:
+    <ul>
+<li>Scrum: 
+        <ul>
+<li>Rollen: Scrum Master, Product Owner, Development Team</li>
+<li>Iterations, Sprints, User Stories</li>
+<li><a href="http://if-blog.de/scrum-plakat">Scrum Plakat</a></li>
+<li><a href="//www.youtube.com/watch?v=r6brn76hDec">Video: What is Scrum?</a>, <a href="//www.youtube.com/watch?v=XU0llRltyFM#t=32s">Scrum in 8 minutes</a>, <a href="http://refcardz.dzone.com/refcardz/scrum">Scrum Refcard</a>, <a href="http://sendspace.com/pro/dl/qh5zug">Scrum Master Checklist</a></li>
+</ul>
+</li>
+<li><abbr title="Extreme Programming">XP</abbr>: Paarprogrammierung, <a href="//www.youtube.com/watch?v=XP4o0ArkP4s">Lecture 24: Richard Buckland</a> (45 minutes)</li>
+<li><a href="http://agilemanifesto.org/">Agile manifesto</a></li>
+</ul>
+</li>
+</ul></p>
+<h3 id="part-3-requirements-engineering">PART 3: Requirements Engineering</h3>
+<ul>
+<li>Ablauf: 
+    <ol>
+<li>Initiate: Project Charter, Identify business opportunity, gather business requirements, <abbr title="target customer">FOR</abbr> WHO <abbr title="product name">THE</abbr> <abbr title="product category">IS</abbr> <abbr title="key benefit">THAT</abbr> <abbr title="primary competition">UNLIKE</abbr> <abbr title="primary difference">OUR PRODUCT</abbr></li>
+<li>Elicitation: Refine requirements (Busines requirements, functional requirements, non-functional requirements), Coopers Persona-Ansatz (<a href="http://de.wikipedia.org/wiki/Persona_(Mensch-Computer-Interaktion)#Beispiel">Beispiele</a>)</li>
+<li>Asses: Understand and organize requirements, features and feature sets</li>
+<li>Specification: <a href="http://en.wikipedia.org/wiki/Software_Requirements_Specification">Software requirements specification</a></li>
+<li>Validation</li>
+</ol>
+</li>
+<li>Gather requirements (Interviewing, <a href="http://en.wikipedia.org/wiki/Job_shadowing">Shadowing</a>, surveys, brainstorming, user instructions - z.B. bei Atomkraftwerken gibt es wohl schon Prozessabl&auml;ufe)</li>
+<li><a href="http://dropsafe.crypticide.com/article/1006">A11Y, L10N, I18N, G11N</a>: <a href="http://de.wikipedia.org/wiki/BITV">BITV</a></li>
+<li>RNA: Relationship-Navigation Analysis</li>
+<li><a href="http://de.wikipedia.org/wiki/Web_Accessibility_Initiative">WAI</a></li>
+</ul>
+<h3 id="part-4-entwurf">PART 4: Entwurf</h3>
+<p>Logischer Entwurf (Abstrakt: Wireframes, Navigation patterns) &harr; Physikalischer Entwurf (Konkret: UI Frameworks, Services)</p>
+<h4>Content Management Aspects</h4>
+<ul>
+<li>Content-Typen m&uuml;ssen definiert werden, um Inhalte von der Darstellung trennen zu k&ouml;nnen</li>
+<li>Content-Typen sind auch f&uuml;r die Suche relevant</li>
+<li>Templates m&uuml;ssen erstellt werden</li>
+<li>Welche Metadaten liegen vor?</li>
+<li>Wie k&ouml;nnen Metadaten weitergegeben werden? &rarr; <a href="http://support.google.com/webmasters/bin/answer.py?hl=en&amp;answer=99170">Rich Snippets</a></li>
+<li>Welche <abbr title="Denglisch: Workflows">Arbeitsabl&auml;ufe</abbr> habe ich?</li>
+<li>Inhalt kann in flachen/strukturierten Dateien oder in Datenbanken liegen.</li>
+<li>Strukturierte Dateien: XML, RDF (&rarr; <a href="//www.youtube.com/watch?v=ldl0m-5zLz4">Video</a>), Microformats</li>
+</ul>
+<h4>Software Interface Aspects</h4>
+<div class="definition"><em>Usability</em> is the extent to which a product can be used by specified users to achieve specified goals with effectiveness, efficiency and satisfaction in a specified context of use. - ISO 9241-11</div>
+<div class="definition">User Experience is a person's perception and responses that result from the use or anticipated use of a product, system or service. - ISO 9241-210</div>
+<ul>
+<li>User-centered design &rarr; <a href="http://en.wikipedia.org/wiki/User-centered_design">Wiki</a></li>
+<li>Mentale Modelle: Taschenrechner, Explorer, Start-Vorgang, Einkaufssysteme, Hyperlinks, Tastatur</li>
+<li>Metaphern</li>
+<li>User-Modelle: Rollen, Markt-Anteile, Personas</li>
+</ul>
+<h4>Hypertext Systm Aspects</h4>
+<ul>
+<li>Known-item search / exploratory search</li>
+</ul>
+<h4>Business Process Aspects</h4>
+<p>Kommt noch</p>
+<h3 id="weiteres">Weiteres</h3>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Web_Services_Description_Language">WSDL</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Microsoft_Solutions_Framework">MSF</a> vs. <a href="http://en.wikipedia.org/wiki/Scrum_(development)">Scrum</a> - <a href="http://pm.stackexchange.com/a/8493/5195">Roles in Scrum</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol">HTTP</a></li>
+</ul>
+<h3 id="weitere-informationen">Weitere Informationen</h3>
+<p>Folgende Artikel sollte man lesen:
+<ul>
+<li><a href="http://de.wikipedia.org/wiki/Internet">Internet</a></li>
+<li><a href="http://de.wikipedia.org/wiki/Geschichte_des_Internets">Geschichte des Internets</a></li>
+<li><a href="http://de.wikipedia.org/wiki/Chronologie_des_Internets">Chronologie des Internets</a></li>
+</ul></p>
+<p>Diese Tutorials sollte man machen:
+<ul>
+<li><a href="http://www.w3schools.com/xml/xml_whatis.asp">XML Tutorial</a> - <a href="http://www.w3schools.com/quiztest/quiztest.asp?qtest=XML">XML Quiz</a></li>
+<li><a href="http://www.w3schools.com/xml/xml_soap.asp">SOAP Tutorial</a></li>
+</ul></p>
+<h2 id="typische-fragen_1">Typische Fragen</h2>
+<div class="question">
+<span class="question">Was ist Web Engineering?</span>
+<div class="answer">
+<ul>
+<li>It's not science, and it isn't exactly engineering, either.</li>
+<li>Disziplin aus Disziplinen (Software Engineering, Hypermedia, Information Systems, Network Engineering)</li>
+<li>Teilweise ist es wie Software Engineering (Requirements engineering, reproduzierbare Erfolge durch strukturierte Herangehensweise), teilweise hat es typische Problemquellen, die im Software Engineering weniger verbreitet sind (Skalierbarkeit, Load balancing, Hypermedia).</li>
+</ul>
+</div>
+</div>
+<div class="question">
+<span class="question">Was ist eine Ressource?</span>
+<div class="answer">Eine Ressource ist ein Objekt, dass von einem Webserver oder Websystem mittels eines standardisierten Protokolls ausgeliefert wird und durch einen MIME-Typen spezifiziert wird.</div>
+</div>
+<div class="question">
+<span class="question">Wie werden Ressourcen adressiert?</span>
+<div class="answer">Durch URIs, meist URLs aber auch URNs.</div>
+</div>
+<div class="question">
+<span class="question">Was ist ein Webservice?</span>
+<div class="answer">Ein Webservice ist eine Software-Anwendung, die mit einem URI eindeutig identifizierbar ist und deren Schnittstelle als XML-Artefakt definiert, beschrieben und gefunden werden kann. Diese Schnittstelle kann mit WSDL beschrieben werden.
+</div>
+</div>
+<div class="question">
+<span class="question">Was ist das Endpoint-ABC?</span>
+<div class="answer">
+Wurde durch die WCF gepr&auml;gt und ist <a href="http://stackoverflow.com/q/8893128/562769">z.B. so in der Web.config</a>. Das ABC steht f&uuml;r ...
+<ul>
+<li>Address (Wo ist der Endpoint?)</li>
+<li>Binding (Wie verbinde ich? Protokoll? Encoding?)</li>
+<li>Contract (Welche Informationen will ich &uuml;bertragen?)</li>
+</ul>
+Siehe auch: <a href="http://fczaja.blogspot.de/2010/10/wcf-endpoint-abc.html">Filip's Technical Blog</a>
+</div>
+</div>
+<div class="question">
+<span class="question">Welche Ziele verfolgt das W3C?</span>
+<div class="answer">
+<ul>
+<li>Web for Everyone</li>
+<li>Web on Everything</li>
+<li>Knowledge Base</li>
+<li>Trust and Confidence</li>
+</ul>
+</div>
+</div>
+<div class="question">
+<span class="question">Wie ist der Arbeitsprozess beim W3C?</span>
+<div class="answer">
+Workshops &rarr; Notes from members &rarr; Briefing package with membership vote &rarr; Requirements Document &rarr; Working Draft &rarr; Candidate Recommendation &rarr; Proposed Recommendation &rarr; W3C Recommendation (<a href="http://en.wikipedia.org/wiki/W3C_recommendation">source</a>)
+</div>
+</div>
+<h2 id="interessante-fragen">Interessante Fragen</h2>
+<div class="question">
+<span class="question">Vergleichen Sie RPCs und Web Services</span>
+<div class="answer">
+<ul>
+<li>Web Services sind leichter skalierbar.</li>
+</ul>
+
+(Siehe auch: <a href="http://stackoverflow.com/a/1350982/562769">StackOverflow</a>)
+</div>
+</div>
+<div class="question">
+<span class="question">Wie l&auml;uft ein HTTP-Request ab?</span>
+<div class="answer">Siehe <a href="http://www.tecchannel.de/netzwerk/management/401210/hypertext_transfer_protocol/index2.html">TechChannel.de</a>
+</div>
+</div>
+<h2 id="hintergrundwissen">Hintergrundwissen</h2>
+<p><a href="http://igoro.com/archive/what-really-happens-when-you-navigate-to-a-url/">What really happens when you navigate to a URL</a>
+<ul>
+<li><a href="http://stackoverflow.com/a/11021207/562769">OS-DNS-Cache on Linux</a></li>
+<li><a href="http://superuser.com/a/31691/64857">What exactly happens when you browse a website in your browser?</a> (fun to read)</li>
+<li><a href="http://stackoverflow.com/a/2092602/562769">What happens when you type in a URL in browser?</a> (well structured)</li>
+</ul></p>
+<h2 id="termine">Termine</h2>
+<p>Web Engineering wird m&uuml;ndlich gepr&uuml;ft. Dazu muss man sich bei Herrn Matthias Keller (matthias.keller@kit.edu) melden und einen Termin ausmachen. Zus&auml;tzlich muss man sich &uuml;ber QISPOS anmelden.</p>
+<p><strong>Datum</strong>: Dienstag, der 19. Februar 2013 um 14:30 Uhr (individuell, siehe Organisation)<br/>
+<strong>Ort</strong>: Geb. 20.21 (SCC), Raum 303 (individuell, siehe Organisation)<br/>
+<strong>Dauer</strong>: 15 Minuten<br/>
+<strong>Punkte</strong>: 4 ECTS</p>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2013-01-03T13:57:06+01:00">Jan 3, 2013</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#german-posts-ref">German posts</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#klausur-ref">Klausur
+                    <span>35</span>
+</a></li>
+                <li><a href="../tags.html#web-development-ref">Web Development
+                    <span>12</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

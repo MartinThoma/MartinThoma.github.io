@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Python, algorithms, Geometry, Code, " />
+
+<meta property="og:title" content="How to check if a point is inside of a polygon? "/>
+<meta property="og:url" content="../how-to-check-if-a-point-is-inside-of-a-polygon/" />
+<meta property="og:description" content="Suppose you have a with \(n\) sides. This is called a \(n\)-glon. Basics about polygones A \(n\)-glon can be defined by a list of \(n\) points. Note that the order is important: [A, B, C, D, E, F, G] != [A, B, C, D, F, E, G] I will …if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2013-11-18T21:36:09+01:00" />
+<meta name="twitter:title" content="How to check if a point is inside of a polygon? ">
+<meta name="twitter:description" content="Suppose you have a with \(n\) sides. This is called a \(n\)-glon. Basics about polygones A \(n\)-glon can be defined by a list of \(n\) points. Note that the order is important: [A, B, C, D, E, F, G] != [A, B, C, D, F, E, G] I will …if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width">
+<meta property="og:image" content="2013/11/polygon-is-point-inside-thumb.png" />
+<meta name="twitter:image" content="2013/11/polygon-is-point-inside-thumb.png" >
+
+        <title>How to check if a point is inside of a polygon?  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../how-to-check-if-a-point-is-inside-of-a-polygon/"> How to check if a point is inside of a polygon?  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#basics-about-polygones" title="Basics about polygones">Basics about polygones</a></li><li><a class="toc-href" href="#is-a-point-in-a-triangle-a-rectangle" title="Is a point in a triangle / a rectangle">Is a point in a triangle / a rectangle</a></li><li><a class="toc-href" href="#is-a-point-inside-of-a-n-glon" title="Is a point inside of a n-glon?">Is a point inside of a n-glon?</a><ul><li><a class="toc-href" href="#count-crossing-line-segments" title="Count Crossing Line Segments">Count Crossing Line Segments</a></li><li><a class="toc-href" href="#triangularization" title="Triangularization">Triangularization</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>Suppose you have a with <span class="math">\(n\)</span> sides. This is called a <span class="math">\(n\)</span>-glon.</p>
+<h2 id="basics-about-polygones">Basics about polygones</h2>
+<p>A <span class="math">\(n\)</span>-glon can be defined by a list of <span class="math">\(n\)</span> points.</p>
+<p>Note that the order is important:</p>
+<figure class="aligncenter">
+<a href="../images/2013/11/polygon-order.png"><img alt="The order of points is important for the definition of a polygon" class="" height="233px;" src="../images/2013/11/polygon-order.png" style="max-width:512"/></a>
+<figcaption class="text-center">[A, B, C, D, E, F, G] != [A, B, C, D, F, E, G]</figcaption>
+</figure>
+<p>I will not consider self-intersecting polygones for the following statements. I'm aware of them, but whenever you have a self-intersecting polygon you can create multiple polygones that cover the same area and don't intersect each other (some pairs might have a finite number of points in common, but not an infinite number).</p>
+<h2 id="is-a-point-in-a-triangle-a-rectangle">Is a point in a triangle / a rectangle</h2>
+<p>It is quite easy to check weather a point is inside of a triangle or inside of a rectangle. I have already written an article about <a href="../how-to-check-if-a-point-is-inside-a-rectangle/">how to check if a point is inside of a rectangle</a>.</p>
+<h2 id="is-a-point-inside-of-a-n-glon">Is a point inside of a n-glon?</h2>
+<p>Let <span class="math">\(P\)</span> be a point and <span class="math">\(N = [P_1, P_2, \dots, P_n]\)</span> be a <span class="math">\(n\)</span>-glon. It is now much more difficult to check if <span class="math">\(P\)</span> is inside of <span class="math">\(N\)</span>. The area-approach works for convex <span class="math">\(n\)</span>-glons, but that's it.</p>
+<h3 id="count-crossing-line-segments">Count Crossing Line Segments</h3>
+<p>However, you can try another approach which I have visualized in the following image:</p>
+<figure class="aligncenter">
+<img alt="Check if P is inside of N" class="size-full" src="../images/2013/11/polygon-is-point-inside.png" style="max-width: 512px; max-height: 481px;"/>
+<figcaption>Check if P is inside of N</figcaption>
+</figure>
+<p>When <span class="math">\(P\)</span> is inside of <span class="math">\(N\)</span>, every line <span class="math">\(P_{1}P, P_{2}P, \dots, P_{n}P\)</span> will cross the polygon lines <span class="math">\(P_{1}P_2,P_{2}P_3, \dots, P_{n}P_1\)</span> an even number of times. If P is outside, at least one of the lines <span class="math">\(P_{i}P\)</span> will cross a polygon line <span class="math">\(P_{j}P_{j+1}\)</span> once.</p>
+<p>This means, for every check you have to check <span class="math">\(n^2\)</span> pairs of line segments for crossings. How you can do that is explained in my article <a href="../how-to-check-if-two-line-segments-intersect/" title="How to check if two line segments intersect">How to check if two line segments intersect</a>.</p>
+<p>This algorithm is in <span class="math">\(\mathcal{O}(n^2)\)</span> time complexity (it does need a constant amount of additional space).</p>
+<h3 id="triangularization">Triangularization</h3>
+<p>When you have a lot of querys, you might want to divide your polygon into convex polygones. The easiest way to do this might be dividing <span class="math">\(N\)</span> into triangles. </p>
+<p>That way, you can check for every triangle if <span class="math">\(P\)</span> is inside of it. I assume that the number of triangles is not bigger than <span class="math">\(n\)</span>. As the check is in constant time for one triangle, you would have an algorithm that needs <span class="math">\(\mathcal{O}(n)\)</span> time and space for its checks (+ some preprocessing which is done only once).</p>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2013-11-18T21:36:09+01:00">Nov 18, 2013</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#algorithms-ref">algorithms
+                    <span>11</span>
+</a></li>
+                <li><a href="../tags.html#geometry-ref">Geometry
+                    <span>5</span>
+</a></li>
+                <li><a href="../tags.html#python-ref">Python
+                    <span>90</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

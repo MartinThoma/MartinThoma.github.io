@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Klausur, Computer Vision, German posts, " />
+
+<meta property="og:title" content="Computer Vision for Human-Computer Interaction "/>
+<meta property="og:url" content="../cv-hci/" />
+<meta property="og:description" content="Dieser Artikel beschäftigt sich mit der Vorlesung „Computer Vision for Human-Computer Interaction“ am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr.-Ing. Rainer Stiefelhagen im Wintersemester 2016/2017 gehört. Die Inhalte sind dementsprechend stark an der Vorlesung angelehnt bzw. komplette Teile sind daraus übernommen. Noch …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2016-10-19T20:00:00+02:00" />
+<meta name="twitter:title" content="Computer Vision for Human-Computer Interaction ">
+<meta name="twitter:description" content="Dieser Artikel beschäftigt sich mit der Vorlesung „Computer Vision for Human-Computer Interaction“ am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr.-Ing. Rainer Stiefelhagen im Wintersemester 2016/2017 gehört. Die Inhalte sind dementsprechend stark an der Vorlesung angelehnt bzw. komplette Teile sind daraus übernommen. Noch …">
+<meta property="og:image" content="logos/klausur.png" />
+<meta name="twitter:image" content="logos/klausur.png" >
+
+        <title>Computer Vision for Human-Computer Interaction  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../cv-hci/"> Computer Vision for Human-Computer Interaction  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#behandelter-stoff" title="Behandelter Stoff">Behandelter Stoff</a><ul><li><a class="toc-href" href="#klassifikatoren" title="Klassifikatoren">Klassifikatoren</a></li><li><a class="toc-href" href="#face-detection" title="Face Detection">Face Detection</a></li><li><a class="toc-href" href="#face-recognition" title="Face Recognition">Face Recognition</a></li><li><a class="toc-href" href="#cnns" title="CNNs">CNNs</a></li><li><a class="toc-href" href="#head-pose-estimation" title="Head-pose Estimation">Head-pose Estimation</a></li><li><a class="toc-href" href="#facial-feature-detection" title="Facial Feature Detection">Facial Feature Detection</a></li><li><a class="toc-href" href="#automatic-facial-expression-analysis" title="Automatic Facial Expression Analysis">Automatic Facial Expression Analysis</a></li><li><a class="toc-href" href="#person-detection" title="Person detection">Person detection</a></li><li><a class="toc-href" href="#tracking" title="Tracking">Tracking</a></li><li><a class="toc-href" href="#gesten" title="Gesten">Gesten</a></li><li><a class="toc-href" href="#action-activity-recognition" title="Action / Activity Recognition">Action / Activity Recognition</a></li><li><a class="toc-href" href="#wrap-up" title="Wrap-up">Wrap-up</a></li></ul></li><li><a class="toc-href" href="#praktische-aufgaben_1" title="Praktische Aufgaben">Praktische Aufgaben</a></li><li><a class="toc-href" href="#prufungsfragen" title="Pr&uuml;fungsfragen">Pr&uuml;fungsfragen</a></li><li><a class="toc-href" href="#material-und-links" title="Material und Links">Material und Links</a></li><li><a class="toc-href" href="#fazit" title="Fazit">Fazit</a></li><li><a class="toc-href" href="#vorlesungsempfehlungen" title="Vorlesungs&shy;empfehlungen">Vorlesungs&shy;empfehlungen</a></li><li><a class="toc-href" href="#termine-und-klausurablauf" title="Termine und Klausurablauf">Termine und Klausurablauf</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesung &bdquo;Computer Vision for Human-Computer Interaction&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei <a href="https://cvhci.anthropomatik.kit.edu/people_596.php">Herrn Prof. Dr.-Ing. Rainer Stiefelhagen</a> im Wintersemester 2016/2017 geh&ouml;rt. Die Inhalte sind dementsprechend stark an der Vorlesung angelehnt bzw. komplette Teile sind daraus &uuml;bernommen. Noch ist der Artikel in der Entwurfsphase.</div>
+<p>Der Kern der Vorlesung 'Computer Vision for Human-Computer Interaction' ist das finden und verfolgen von Personen / Gesichtern in Bildern und Bildfolgen. Dabei werden folgende Themenfelder besprochen:</p>
+<ul>
+<li>Trackingverfahren: Kalman-Filter und Partikelfilter</li>
+</ul>
+<h2 id="behandelter-stoff">Behandelter Stoff</h2>
+<table>
+<tr>
+<th>#</th>
+<th>Datum</th>
+<th>Kapitel</th>
+<th>Inhalt</th>
+</tr>
+<tr>
+<td><a href="https://cvhci.anthropomatik.kit.edu/downloads/visionhci13/V01_WS13_VisionIntro-Lecture-Neu.pdf">1</a></td>
+<td>18.10.2016</td>
+<td>Einf&uuml;hrung</td>
+<td>Organisatorisches und &Uuml;berblick &uuml;ber den Stoff</td>
+</tr>
+<tr>
+<td><a href="https://cvhci.anthropomatik.kit.edu/downloads/visionhci13/V02_WS13_Basics-Image-Understanding.pdf">2</a></td>
+<td>21.10.2016</td>
+<td>Klassifikation</td>
+<td>Gaussian Mixture Models, EM, SVMs, Perceptron</td>
+</tr>
+<tr>
+<td><a href="https://cvhci.anthropomatik.kit.edu/downloads/visionhci13/V03_WS13_Basics-Image-Preprocessing.pdf">3</a></td>
+<td>24.10.2016</td>
+<td>Face Detection I</td>
+<td>Color Spaces (<i>HS</i>V, Y<i>UV</i>), Histogram Backprojection, Histogram Matching, Mixture of Gaussians, ROC, Morphological Operations</td>
+</tr>
+<tr>
+<td><a href="https://cvhci.anthropomatik.kit.edu/downloads/visionhci13/V04_WS13_Basics-Pattern-Recognition.pdf">4</a></td>
+<td>28.10.2016</td>
+<td>Face Detection II</td>
+<td>Perceptron, MLP, Histogram Equalization, Haar-like features, Adaboost (Viola and Jones)</td>
+</tr>
+<tr>
+<td><a href="https://cvhci.anthropomatik.kit.edu/downloads/visionhci13/V05_WS13_Machine_Learning.pdf">5</a></td>
+<td>31.10.2016</td>
+<td>Face Recognition I</td>
+<td>Eigenface, Fisherface</td>
+</tr>
+<tr>
+<td>6</td>
+<td>04.11.2016</td>
+<td>Programmierprojekte</td>
+<td>Organisatorisches / Einf&uuml;hrung dazu</td>
+</tr>
+<tr>
+<td>7</td>
+<td>07.11.2016</td>
+<td>Face Recognition 2</td>
+<td>Alignment (range affine warps), Morphing models of 3d forms (PCA), </td>
+</tr>
+<tr>
+<td>8</td>
+<td>11.11.2016</td>
+<td>CNNs</td>
+<td>Convolution, Pooling, ReLU, Normalization layers,</td>
+</tr>
+<tr>
+<td>9</td>
+<td>14.11.2016</td>
+<td>Programmierprojekte</td>
+<td>Besprechung der praktischen Aufgaben</td>
+</tr>
+<tr>
+<td>10</td>
+<td>18.11.2016</td>
+<td>?</td>
+<td>?</td>
+</tr>
+<tr>
+<td>11</td>
+<td>21.11.2016</td>
+<td>Facial Feature Detection</td>
+<td>?</td>
+</tr>
+<tr>
+<td>12</td>
+<td>25.11.2016</td>
+<td>Automatic Facial Expression Analysis</td>
+<td>?</td>
+</tr>
+<tr>
+<td>13</td>
+<td>28.11.2016</td>
+<td>Head Pose Estimation</td>
+<td>Model-based approaches, Appearence-based approaches</td>
+</tr>
+<tr>
+<td>14</td>
+<td>02.12.2016</td>
+<td>Person Detection</td>
+<td>Introduction, HOG people detector, Shilouette matching</td>
+</tr>
+<tr>
+<td>15</td>
+<td>05.12.2016</td>
+<td>?</td>
+<td>?</td>
+</tr>
+<tr>
+<td>16</td>
+<td>09.12.2016</td>
+<td>?</td>
+<td>?</td>
+</tr>
+<tr>
+<td>17</td>
+<td>16.12.2016</td>
+<td>Tracking II</td>
+<td>?</td>
+</tr>
+<tr>
+<td>-</td>
+<td>20.01.2017</td>
+<td>Visuelle Perzeption</td>
+<td>Kinect, Block Matching</td>
+</tr>
+<tr>
+<td>-</td>
+<td>23.01.2017</td>
+<td>Gesture Recognition</td>
+<td>HMMs; Pro Gesture eine HMM trainieren</td>
+</tr>
+<tr>
+<td>18</td>
+<td>27.01.2017</td>
+<td>Action &amp; Activity Recognition I</td>
+<td>?</td>
+</tr>
+<tr>
+<td>19</td>
+<td>30.01.2017</td>
+<td>Action &amp; Activity Recognition II</td>
+<td>?</td>
+</tr>
+<tr>
+<td>20</td>
+<td>06.02.2017</td>
+<td>Wrap-up</td>
+<td>Zusammenfassung der wichtigsten Themen</td>
+</tr>
+</table>
+<h3 id="klassifikatoren">Klassifikatoren</h3>
+<ul>
+<li>Classification<ul>
+<li><a href="https://martin-thoma.com/svm-with-sklearn/"><strong>SVM</strong></a></li>
+<li><a href="https://martin-thoma.com/machine-learning-2-course/#em-algorithmus">EM-Algorithmus</a> (Expectation Maximizaion)</li>
+<li>Perceptron-Algorithmus</li>
+<li>k nearest neighbor (<a href="https://de.wikipedia.org/wiki/Mahalanobis-Distanz">Mahalanobis-Distanz</a>)</li>
+</ul>
+</li>
+<li>Clustering<ul>
+<li><a href="https://martin-thoma.com/k-nearest-neighbor-classification-interactive-example/">k-means</a></li>
+<li><a href="https://martin-thoma.com/machine-learning-1-course/#ahc">Agglomerative Hierarchical Clustering</a></li>
+</ul>
+</li>
+<li><a href="https://martin-thoma.com/curse-of-dimensionality/">Curse of Dimensionality</a></li>
+<li>Dimensionality reduction<ul>
+<li><a href="https://martin-thoma.com/neuronale-netze-vorlesung/#pca">PCA</a></li>
+<li>LDA</li>
+</ul>
+</li>
+</ul>
+<dl>
+<dt><dfn id="lda">LDA</dfn> (<dfn id="linear-discriminant-analysis"><a href="https://en.wikipedia.org/wiki/Linear_discriminant_analysis">Linear discriminant analysis</a></dfn>)</dt>
+<dd>Maximizes class seperability (LDA)</dd>
+</dl>
+<h3 id="face-detection">Face Detection</h3>
+<dl>
+<dt><dfn>Face Detection</dfn></dt>
+<dd>
+
+        Face Detection ist die Aufgabe, in einem gegebenen Bild eine
+        Bounding-Box um jedes Gesicht zu zeichnen.<br/>
+<br/>
+        Ein Ansatz ist, zu versuchen "Gesichtsfarbe" zu erkennen.<br/>
+<br/>
+        Die Modellierung kann mit Histogrammen erfolgen.<br/>
+<br/>
+        Datens&auml;tze:
+        <ul>
+<li>ECU face detection database</li>
+<li>ECU face skin detection database</li>
+<li>MIT and CMU frontal face database</li>
+</ul>
+</dd>
+<dt><dfn>Chromatic Color Spaces</dfn></dt>
+<dd>Nur zweidimensional (HS von HSV, UV von YUV, normalized rg von RGB).
+        Soll robuster f&uuml;r die Erkennung von Hautfarbe sein.</dd>
+<dt><dfn>Histogram Backprojection</dfn></dt>
+<dd>
+
+        Man geht f&uuml;r die Trainingsbeispiele alle Hautfarbe-Pixel durch. Bekommt
+        man nun ein neues Bild, so geht man f&uuml;r dieses Bild jeden Pixel durch.
+        Die Ausgabe ist ein Graustufenbild selber Gr&ouml;&szlig;e, wo die Pixelfarbe die
+        Anzahl der Hautfarbenen Pixel dieser Farbe ist.
+
+    </dd>
+<dt><dfn><a href="https://en.wikipedia.org/wiki/Histogram_matching">Histogram Matching</a></dfn></dt>
+<dd>
+
+        Erstelle ein Histogram f&uuml;r Hautfarbe. Um ein neues Bild zu
+        klassifizieren, bildet man Ausschnitte f&uuml;r das Bild. F&uuml;r jeden
+        Ausschnitt vergleicht man das Histogram des Ausschnitts mit dem
+        Hautfarbe-Histogram. Dazu k&ouml;nnen folgende Metriken verwendet werden:
+
+        <ul>
+<li>Battacharya distance</li>
+<li>Histogram intersection</li>
+<li>Earth-movers distance</li>
+</ul>
+</dd>
+<dt><dfn id="histogram-equalization"><a href="https://en.wikipedia.org/wiki/Histogram_equalization">Histogram equalization</a></dfn></dt>
+<dd>
+        This method usually increases the global contrast of many images,
+        especially when the usable data of the image is represented by close
+        contrast values. Through this adjustment, the intensities can be better
+        distributed on the histogram. This allows for areas of lower local
+        contrast to gain a higher contrast. Histogram equalization accomplishes
+        this by effectively spreading out the most frequent intensity values.<br/>
+        (Source: Wikipedia)<br/>
+
+        The intensity values of the image are modified in such a way that the
+        histogram is flattened.
+
+        It roughly works like this:
+        <ol>
+<li>Let $p(x_i) = \frac{n_i}{n}$ be the probability of a pixel having level $i$.</li>
+<li>Let $c(i) = \sum_{j=0}^i p(x_j)$ be the cumulative distribution.</li>
+<li>Find transformation $T$ such that the cumulative distribution $y = T(x)$ is linear.</li>
+</ol>
+</dd>
+<dt><dfn id="image-normalization"><a href="https://en.wikipedia.org/wiki/Normalization_(image_processing)">Image normalization</a></dfn></dt>
+<dd>
+        Normalization is a process that changes the range of pixel intensity
+        values. Applications include photographs with poor contrast due to
+        glare, for example. Normalization is sometimes called contrast
+        stretching or histogram stretching.<br/>
+        (Source: Wikpedia)
+    </dd>
+<dt><dfn><a href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic">ROC</a></dfn></dt>
+<dd>Die ROC-Kurve misst die Abw&auml;gung zwischen True-Positve Rate ($\frac{TP}{Pos}$, y-Achse) und False Positive Rate (\frac{FP}{Neg}, x-Achse).</dd>
+<dt><dfn>Intersection over Union</dfn> (<dfn id="iou">IoU</dfn>)</dt>
+<dd>Siehe <a href="http://stackoverflow.com/a/42874377/562769">StackExchange</a></dd>
+<dt><a href="https://en.wikipedia.org/wiki/Haar-like_features"><dfn>Haar-like features</dfn></a></dt>
+<dd>Based on Haar wavelets as features. Developed by Viola and Jones. A
+        Haar-like feature considers adjacent rectangular regions at a specific
+        location in a detection window, sums up the pixel intensities in each
+        region and calculates the difference between these sums. Can be computed
+        efficiently by using integral images.</dd>
+<dt><dfn>AdaBoost</dfn></dt>
+<dd>TODO</dd>
+</dl>
+<h3 id="face-recognition">Face Recognition</h3>
+<p>Alignment:</p>
+<ul>
+<li>Works only with "nice" images (no occlusion, high resolution)</li>
+<li>Eyes are hard</li>
+<li>Computationally intensive (not suitable for real time applications)</li>
+</ul>
+<dl>
+<dt><dfn id="face-recognition-dfn">Face Recognition</dfn></dt>
+<dd>Face recognition has 4 main tasks:
+
+    <ul>
+<li><b>Face detection</b>: Given an image, draw a rectangle around every face</li>
+<li><b>Face alignment</b>: Transform a face to be in a canonical pose</li>
+<li><b>Face representation</b>: Find a representation of a face which is suitable for follow-up tasks (small size, computationally cheap to compare, invariant to irrelevant changes)</li>
+<li><b>Face verification</b>: Images of two faces are given. Decide if it is the same person or not.</li>
+</ul>
+
+    The face verification task is sometimes (more simply) a face classification
+    task (given a face, decide which of a fixed set of people it is).
+
+    Challenges:
+    <ul>
+<li>Extrinsic Variations
+
+        <ul>
+<li>Illumination</li>
+<li>View-point</li>
+<li>Occlusion</li>
+<li>Imaging process (low resolution)</li>
+</ul>
+</li>
+<li>Intrinsic Variations
+
+        <ul>
+<li>Aging</li>
+<li>Facial expressions</li>
+</ul>
+</li>
+</ul>
+
+
+    Approaches:
+    <ul>
+<li>Feature-Based (Geometric)
+        <ul>
+<li>fiducial points</li>
+<li>distances, angles, areas</li>
+</ul>
+</li>
+<li>Appearence-Based
+        <ul>
+<li>holistic, fiducial regions</li>
+<li>statistical</li>
+</ul>
+</li>
+</ul>
+
+    Important papers:
+        <ul>
+<li><a href="https://www.cs.toronto.edu/~ranzato/publications/taigman_cvpr14.pdf">Deep Face: closing the gap to human level performance</a> (<a href="http://www.shortscience.org/paper?bibtexKey=conf/cvpr/TaigmanYRW14#martinthoma">summary</a>)</li>
+<li><a href="https://arxiv.org/abs/1503.03832">FaceNet: A unified embedding for face recognition and clustering</a> (<a href="http://www.shortscience.org/paper?bibtexKey=journals/corr/1503.03832">summary</a>)</li>
+<li><a href="https://www.robots.ox.ac.uk/~vgg/publications/2015/Parkhi15/parkhi15.pdf">Deep Face recognition</a> (<a href="http://www.shortscience.org/paper?bibtexKey=conf/bmvc/ParkhiVZ15">summary</a>)</li>
+</ul>
+
+        Datasets
+        <ul>
+<li><a href="http://vis-www.cs.umass.edu/lfw/">LFW</a> (Labeled Faces in the Wild, <a href="http://vis-www.cs.umass.edu/lfw/results.html">results</a>)</li>
+<li><a href="http://www.cs.tau.ac.il/~wolf/ytfaces/">YTF</a> (Youtube Faces)</li>
+</ul>
+</dd>
+<dt><dfn>Face Recognition Tasks</dfn></dt>
+<dd>
+<ul>
+<li>Closed set recognition: 120 Celebrities - who is it?</li>
+<li>Known / unknown: Is it one of the persons in the known set?</li>
+<li>Verification: Is it George Clooney?</li>
+<li>Open Set recognition: First known/unknwon, then closed set.</li>
+</ul>
+</dd>
+<dt><dfn id="gabor-filter"><a href="https://en.wikipedia.org/wiki/Gabor_filter">Gabor Filter</a></dfn></dt>
+<dd>TODO</dd>
+<dt><dfn><a href="https://en.wikipedia.org/wiki/Local_binary_patterns">Local Binary Pattern</a></dfn> (<dfn id="lbp">LBP</dfn>)</dt>
+<dd>TODO</dd>
+<dt><dfn id="sift"><a href="https://en.wikipedia.org/wiki/Scale-invariant_feature_transform">SIFT</a></dfn></dt>
+<dd>TODO
+
+        SIFT vector is 128 dimensional
+    </dd>
+<dt><dfn><a href="https://en.wikipedia.org/wiki/Bag-of-words_model_in_computer_vision">Bag of Visual Words</a></dfn> (<dfn id="bovw">BoVW</dfn>)</dt>
+<dd>TODO</dd>
+<dt><dfn id="fisher-encoding">Fisher Encoding</dfn></dt>
+<dd>TODO</dd>
+</dl>
+<h3 id="cnns">CNNs</h3>
+<ul>
+<li>Lernen Gabor Wavelets (TODO: Quelle?)</li>
+<li>Warum tiefere Netze? &rarr; Muster k&ouml;nnen geteilt werden (R&auml;der f&uuml;r Traktoren / Motorr&auml;der)</li>
+<li>TODO: Filter response = Feature Map?</li>
+<li>TODO: Warum ist es ok, dass der Gradient von ReLU(x) f&uuml;r <span class="math">\(x \leq 0\)</span> gleich 0 ist? (Saturierungsproblem)</li>
+<li>TODO: Negative Log Likelihood vs Cross Correlation - what are differences?</li>
+</ul>
+<dl>
+<dt><dfn>Pooling</dfn> (<dfn>Subsampling</dfn>)</dt>
+<dd>
+
+        Auf eine $k \times k$ Region der Feature-Map wird ein Operator (z.B. max, mean)
+        angewendet, der diese Zusammenfasst. Typischerweise wird diese Operation
+        mit einem Stride &gt; 1 verwendet. Durch den Stride wird zugleich die
+        Datenmenge auf $\frac{1}{s^2}$ reduziert.<br/>
+<br/>
+        Pooling wird seperat pro Feature-Map angewendet.
+
+    </dd>
+<dt><dfn>Normalization Layers</dfn></dt>
+<dd>
+
+        TODO
+
+        <ul>
+<li>Contrast Normalization</li>
+<li>Range Normalization</li>
+</ul>
+</dd>
+</dl>
+<h3 id="head-pose-estimation">Head-pose Estimation</h3>
+<ul>
+<li>State of the Art: Regression based apprach (Random Regression Forests) is 15 years old</li>
+<li>slide 14: <span class="math">\(r\)</span> is distance, <span class="math">\(f\)</span> is focus length, <span class="math">\(b\)</span> is baseline, <span class="math">\(d_L, d_R\)</span> is distance left/right - in the later slides is a figure.</li>
+<li>Pan / Tilt / Jaw</li>
+</ul>
+<dl>
+<dt><a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)"><dfn id="entropy">Entropy</dfn></a></dt>
+<dd>The entropy $H$ of a discrete random variable $X$ is
+
+        $$H(X) = \mathbb{E}[-\ln(P(X))] = - \sum_{i=1}^n P(x_i) \log_2 P(x_i)$$
+
+    </dd>
+<dt><a href="https://en.wikipedia.org/wiki/Information_gain_in_decision_trees"><dfn>Information Gain</dfn></a> (<dfn>Kullback&ndash;Leibler divergence</dfn>)</dt>
+<dd>
+
+        The expected information gain is the change in entropy $H$ from a prior
+        state to a state that takes some information as given:
+
+        $$IG(T,a) = H(T) - H(T|a)$$
+
+    </dd>
+<dt><dfn>Disparit&auml;tenkarte</dfn></dt>
+<dd>TODO</dd>
+</dl>
+<h3 id="facial-feature-detection">Facial Feature Detection</h3>
+<dl>
+<dt><dfn>Facial Features</dfn></dt>
+<dd>
+<ul>
+<li>Nose tip</li>
+<li>Ears</li>
+<li>Eyes</li>
+<li>Chin</li>
+<li>Lips (corners)</li>
+<li>Eyebrow</li>
+</ul>
+</dd>
+<dt><dfn>Facial Feature Detection</dfn></dt>
+<dd>Is important for alignment
+
+        Problems:
+        <ul>
+<li>Expression variations</li>
+<li>Scale variations / angle</li>
+<li>Lightning</li>
+<li>Occlusions</li>
+</ul>
+</dd>
+</dl>
+<p>Statistical Appearence Models</p>
+<ul>
+<li>Represent shape and texture (learned seperately): <span class="math">\(x \approx \bar{x} + P_s b_s\)</span>,
+  wobei <span class="math">\(P_s\)</span> eigenvektor of covariance; <span class="math">\(b_s = P_s^T (x-\bar{x})\)</span></li>
+</ul>
+<p>Fit shape Model</p>
+<ul>
+<li>Active shape model (fitting algorithm)</li>
+</ul>
+<h3 id="automatic-facial-expression-analysis">Automatic Facial Expression Analysis</h3>
+<dl>
+<dt><dfn>Allgemein</dfn></dt>
+<dd>
+<ul>
+<li>Valence-Arousal Modell von Russel 1980</li>
+<li>Facial Action Cod</li>
+</ul>
+</dd>
+<dt><dfn>FACS</dfn> (<dfn>Facial Action Coding System</dfn>)</dt>
+<dd><ul>
+<li>44 Action Units, welche Menschliche Mimik beschreiben
+        <ul>
+<li>30 Gesichtsmuskeln (12 upper, 12 lower)</li>
+<li>Viele Bin&auml;r, manche mit Intensit&auml;t</li>
+</ul>
+</li>
+<li>Emotionen sind Kombinationen daraus</li>
+</ul></dd>
+<dt><dfn>Datenbanken</dfn></dt>
+<dd>
+<ul>
+<li>Cohen-Kanade AU-Coded Facial Expression Database</li>
+<li>Emotion Recognition in the Wild (EmotiW)</li>
+<li>AFEW db</li>
+</ul>
+</dd>
+<dt><dfn>Bag of Visual Words</dfn></dt>
+<dd>TODO</dd>
+</dl>
+<h3 id="person-detection">Person detection</h3>
+<dl>
+<dt>Detection</dt>
+<dd>Detection is classification with localization</dd>
+<dt>Person detection</dt>
+<dd>Person detection (sometimes also pedestrian detection) is the
+        task of finding people in an image or video. This is usually done with
+        bounding boxes, although tight segmentation methodes exist.<br/>
+<br/>
+        One can divide the methods the following way:
+        <ul>
+<li>Input: Single image / video</li>
+<li>Detection approach
+            <ul>
+<li>Global: Detection of the person as a whole</li>
+<li>Part-based: Detection of arms, legs, head, ...</li>
+</ul>
+</li>
+<li>Model type
+            <ul>
+<li>Generative: Models how the data was generated (+ is interpretable - hard to create)</li>
+<li>Discriminative</li>
+</ul>
+</li>
+</ul>
+
+        Shilouette matchin is a discriminative, global, single image approach.
+        HOG people detector is a single image approach (TODO: global/part based? generative / discriminative?)
+    </dd>
+<dt>L2 hysterese</dt>
+<dd>A variant of the L2 norm which cuts peaks</dd>
+<dt>HOG People Detector</dt>
+<dd>TODO</dd>
+<dt>Shilouette Matching</dt>
+<dd>
+
+        Shilouette matching is practically not used anymore. It uses chemfer
+        matching, 2/3 distance. It can be speeded up with a template hierarchy.
+
+    </dd>
+</dl>
+<h3 id="tracking">Tracking</h3>
+<dl>
+<dt><dfn>Multi Camera Systems</dfn></dt>
+<dd>Topologies
+
+        <ul>
+<li>Stero-Cameras (cars)</li>
+<li>wide baseline multi-camera system (conference room)</li>
+<li>non-overlapping fields of view (security system)</li>
+</ul>
+
+        Kalibrierung: Intensit&auml;t und extTODOs z.B. mit Schachbrettmuster bestimmen.
+    </dd>
+<dt><dfn>TDOA</dfn> (<dfn>Time Delay of Arrival</dfn>)</dt>
+<dd>In the case of multiple microphones and one audio source, the
+        time delay when microphone 1 records the same as microphone 2
+        is called TDOA. It can be used to locate the audio source.</dd>
+<dt><dfn>Adaptive Merkmalsgewichtung</dfn></dt>
+<dd>TODO</dd>
+</dl>
+<h3 id="gesten">Gesten</h3>
+<dl>
+<dt><dfn>Gesten</dfn></dt>
+<dd>Gesten bedeuten nicht &uuml;berall das selbe. Ein Nicken bedeutet in
+        vielen, aber nicht in allen Kulturen Zustimmung (<a href="http://www.geo.de/geolino/mensch/6703-rtkl-gestik-kultur-mal-anders-gesten-aus-aller-welt">Quelle</a>)</dd>
+</dl>
+<h3 id="action-activity-recognition">Action / Activity Recognition</h3>
+<dl>
+<dt><dfn>Aktion</dfn></dt>
+<dd>Zielgerichtete Interaktion mit der Umgebung; tendentiell mit wenigen
+        oder einzelschritten / kurzen Perioden</dd>
+<dt><dfn>Aktivit&auml;t</dfn></dt>
+<dd>Sind auf viele Einzelaktionen aufgebaut. Zwei verschiedene Aktivit&auml;ten
+        k&ouml;nnen aus sehr &auml;hnlichen Bewegungen bestehen, aber deutlich
+        unterschiedliche Semantik haben. Ein Beispiel ist das &ouml;ffnen einen
+        Schlosses mit einem Schl&uuml;ssel und das herausdrehen einer Schraube
+        mit einem Schraubenzieher.<br/>
+<br/>
+        Es ist ein Klassifikationsproblem mit Bild-Sequenzen.<br/>
+<u>L&ouml;sungsans&auml;tze:</u> HMMs, RNNs<br/>
+<br/>
+        Features: Optical Flow aus Histogram
+        <ul>
+<li>Global</li>
+<li>Lokal (Bild aufteilen)</li>
+<li>Implicit Shape Models</li>
+<li>Deskriptoren (SIFT)</li>
+</ul>
+<br/>
+<u>Datasets</u>: UCF Sport; Hollywood 2; Sports-1M</dd>
+<dt><dfn>Zero-Crossing Rate</dfn></dt>
+<dd>Extrem einfaches Audio-Merkmal, welches es erlaubt Auto-Hintergrundrauschen
+        von Sprache zu unterscheiden. TODO</dd>
+<dt><dfn>MFCC</dfn> (<a href="https://de.wikipedia.org/wiki/Mel_Frequency_Cepstral_Coefficients"><dfn>Mel Frequency Cepstral Coefficients</dfn></a>)</dt>
+<dd>MFCCs sind g&auml;ngige Features der Sprachverarbeitung.</dd>
+<dt><dfn>BoW</dfn> (<dfn>Bag of Words</dfn>, <dfn>Bag of Visual Words</dfn>)</dt>
+<dd>Cluster Features for objects by feature similarity; gives histogram representation of object; TODO</dd>
+<dt><dfn>HOG</dfn> (<dfn>Histogram of Gradients</dfn>)</dt>
+<dd>Ein Merkmal f&uuml;r Bilder welches in SIFT eingesetzt wird; TODO</dd>
+<dt><dfn>Optical Flow</dfn> (<dfn>OF</dfn>)</dt>
+<dd>TODO</dd>
+<dt><dfn>HOF</dfn> (<dfn>Histogram of Optical Flow</dfn>)</dt>
+<dd>TODO</dd>
+<dt><dfn>MBH</dfn> (<dfn>Motion Boundary Histogram</dfn>)</dt>
+<dd>TODO</dd>
+<dt><dfn>Dense Trajectories</dfn></dt>
+<dd>TODO</dd>
+</dl>
+<h3 id="wrap-up">Wrap-up</h3>
+<ul>
+<li>pinhole model, calibrarion (extrinsische / intrinsische Parameter),
+  stereo processing (disparit&auml;ten)</li>
+<li>Features<ul>
+<li>Color, fg/bg, stereo edges, edge histogram, Gabor- und Haar-Filter (Viola&amp;Jones),
+  LBP</li>
+<li><em>Mid-level-Representations</em>*: GMM, Bow, BoW+Spatial layout (body parts)</li>
+<li><strong>Dimensionalit&auml;tsreduktion</strong>: PCA (Eigenfaces) / LDA (Fischer-Faces)</li>
+</ul>
+</li>
+<li>Classifiers: Boosting, SVM, CNN, Regression Trees, HMMs, k-NN</li>
+<li>Wie finde ich keypoints?</li>
+<li>Descriptors (SIFT!)</li>
+<li>Space-Time-Features: Space-Time-Interest points; HOG / HOF, Dense Trajectories: Bildfolge, finde Trajektorie</li>
+<li>Implicit Shape Model: Baog-of-Words + Spacial Layout</li>
+<li>Statistische Modelle: Active Shape / Active appearence</li>
+<li>Chromatische Farbr&auml;ume: Helligkeit rausnormalisieren (2-dimensional: rg, HS, UV)</li>
+<li>Morphable 3D models: PCA - laser scans</li>
+<li>Active Shape: Statistische Modellierung der Form; Textur entlang der shape. Nutzt PCA. Lernt Textur.</li>
+<li>Active Appearence: 2D. Gemeinsames statistisches Modell von Shape &amp; Appearence; Textur innerhalb von Mesh / Punkten. Nutzt auch PCA. Lernt Textur.</li>
+<li>6 Basic Emotions: FACS, Action Units</li>
+<li>HOG modelliert Textur</li>
+<li>HOF modelliert Bewegung</li>
+</ul>
+<h2 id="praktische-aufgaben_1">Praktische Aufgaben</h2>
+<p>Es gibt 3 praktische Aufgaben, die 10% der Note ausmachen:</p>
+<ul>
+<li>Haut erkennen</li>
+<li>Detektieren ob auf einem Bild eine Person ist oder nicht</li>
+<li>Erkennen ob auf zwei gegebenen Bildern die selbe Person ist</li>
+</ul>
+<p>Die Aufgaben m&uuml;ssen mit C++ gemacht werden. OpenCV kann verwendet werden. Es
+ist Beispielcode gegeben.</p>
+<p>Man muss in 180s die Modelle trainieren.</p>
+<p>Bewertet wird eine Pr&auml;sentation, die am <strong>16.01.2016</strong> gemacht werden muss. Die
+Pr&auml;sentation soll mindestens 3 Folien, maximal 5 Folien haben. In diesen 5
+Folien sollen alle 3 Aufgaben beschrieben werden. Es soll beschrieben werden
+wie die Aufgaben gel&ouml;st wurden / was geklappt bzw. nicht geklappt hat. Die
+Pr&auml;sentation soll ca. 8 - 10 min pro Team dauern.</p>
+<p>Es ist ok private Datens&auml;tze zu verwenden um ggf. Hyperparameter zu bestimmen.</p>
+<p>F&uuml;r weitere Fragen steht <a href="https://cvhci.anthropomatik.kit.edu/~manel/">Manuel Martinez</a> zur Verf&uuml;gung.</p>
+<h2 id="prufungsfragen">Pr&uuml;fungsfragen</h2>
+<ul>
+<li>Was ist das Hauptproblem der Gesichtserkennung?<br/>
+  &rarr; Beleuchtung / Pose missmatch (ECCV'94), Occlusion, illumination</li>
+<li>Welche Farbbasierten Ans&auml;tze gibt es zur Gesichtserkennung?<br/>
+  &rarr; Parametric vs Non-Parametric, Histogram Backprojection, GMM, Bayes, Farbr&auml;ume</li>
+<li>Welche Feature-Basierten Ans&auml;tze gibt es zur Gesichtserkennung?<br/>
+  &rarr; Ellipsis, Eigenfaces, Fisherfaces, ANN, Evaluationsma&szlig;: ROC / AUC, Viola&amp;Jones: Rotierte Gesichter -&gt; in trainingsdaten verwenden</li>
+<li>Wof&uuml;r steht DCT und AAM?<br/>
+  &rarr; TODO</li>
+<li>PCA vs LDA: Was ist zur Face Recognition besser?<br/>
+  &rarr; Das Hauptziel der PCA ist Gesichter gut rekonstruieren zu k&ouml;nnen. TODO</li>
+<li>Wozu ist die Histogram Equalization gut?<br/>
+  &rarr; TODO</li>
+<li>Welche Feature-Basierten Ans&auml;tze gibt es zur Face Recognition?<br/>
+  &rarr; Facial Features (Abstand der Augen) vs Appearence-based</li>
+<li>Warum macht man Tracking und nicht einfach Frame-weise Detection?<br/>
+  &rarr; Tracking ist leichter, weil man Annahmen &uuml;ber die Position machen kann</li>
+<li>Was sind Anwendungen von Action und Activity Recognition?<br/>
+  &rarr; Fahrer beobachten (ist er aufmerksam? spielt er mit dem Handy?),
+     Fu&szlig;g&auml;nger beobachten (will er auf die Stra&szlig;e?),
+     Patienten&uuml;berwachung, Sicherheitssystem (aggressives Verhalten)</li>
+<li>Was ist Kalibrierung?<br/>
+  &rarr; TODO</li>
+<li>Woher kommt die Skalen-Invarianz bei SIFT?<br/>
+  &rarr; Finden einer charakteristischen Skala</li>
+<li>Woher kommt die Rotationsinvarianz bei SIFT?<br/>
+  &rarr; Kantenhistogramme, Maximalausrichtung (vgl. People detection)</li>
+<li>Was ist der Unterschied zwischen Diskriminativen und Generativen Modellen?<br/>
+  &rarr; Generative Modelle modellieren explizit die Verteilung (Bayes-Formel)</li>
+<li>Wie funktioniert Histogram Backprojection?<br/>
+  &rarr; TODO</li>
+<li>Welche Metriken kann man zum Benchmarken benutzen??<br/>
+  &rarr; ROC, TP-Rate, FP-Rate</li>
+<li>Was macht Computer Vision schwer?<br/>
+  &rarr; Beleuchtung, Pose, Occlusion (manche Ans&auml;tze sind weniger Anf&auml;llig, z.B. Part-based approaches)</li>
+<li>Welche Annahmen macht man im Kalman-Filter, die man nicht im Particle-Filter hat?<br/>
+  &rarr; TODO</li>
+<li>Welche Anwendungen gibt es f&uuml;r CV in der HCI?<br/>
+  &rarr; Smart Houses, Roboter-Interaktion, Smart Cars, Smart Rooms, Assistenztechnologien z.B. f&uuml;r Blinde</li>
+<li>Auf welcher Ebene, wann und wie werden Informationen zusammengef&uuml;hrt (z.B. Face / Pose)?<br/>
+  &rarr; TODO</li>
+</ul>
+<h2 id="material-und-links">Material und Links</h2>
+<ul>
+<li><a href="https://cvhci.anthropomatik.kit.edu/600_1526.php">Vorlesungswebsite</a></li>
+<li><a href="https://lecture-demo.ira.uka.de/">lecture-demo.ira.uka.de</a>: Interaktive Demos, insbesondere  Rosenblatt-Perceptron, ...</li>
+<li>StackExchange:<ul>
+<li><a href="http://datascience.stackexchange.com/q/15081/8820">Why do CNNs with ReLU learn that well?</a></li>
+<li><a href="http://datascience.stackexchange.com/q/15215/8820">How is the evaluation setup for YouTube faces of FaceNet?</a></li>
+<li><a href="http://datascience.stackexchange.com/q/15214/8820">What are interleaved layers of convolutions?</a></li>
+</ul>
+</li>
+<li><a href="https://www.youtube.com/playlist?list=PLuRaSnb3n4kSgSV35vTPDRBH81YgnF3Dd">Video Analysis lecture</a></li>
+</ul>
+<!-- * [Anki-Karteikarten Deck](https://ankiweb.net/shared/info/22317474) -->
+<h2 id="fazit">Fazit</h2>
+<p>Kommt noch.</p>
+<h2 id="vorlesungsempfehlungen">Vorlesungs&shy;empfehlungen</h2>
+<p>Folgende Vorlesungen sind &auml;hnlich:</p>
+<ul>
+<li><a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/">Analysetechniken gro&szlig;er Datenbest&auml;nde</a></li>
+<li><a href="https://martin-thoma.com/informationsfusion/">Informationsfusion</a></li>
+<li><a href="https://martin-thoma.com/machine-learning-1-course/">Machine Learning 1</a></li>
+<li><a href="https://martin-thoma.com/machine-learning-2-course/">Machine Learning 2</a></li>
+<li><a href="https://martin-thoma.com/mustererkennung-klausur/">Mustererkennung</a></li>
+<li><a href="https://martin-thoma.com/neuronale-netze-vorlesung/">Neuronale Netze</a></li>
+<li><a href="https://martin-thoma.com/lma/">Lokalisierung Mobiler Agenten</a></li>
+<li><a href="https://martin-thoma.com/probabilistische-planung/">Probabilistische Planung</a></li>
+</ul>
+<p>Weitere:</p>
+<ul>
+<li>Einf&uuml;hrung in die Bildfolgenauswertung</li>
+<li><a href="https://cvhci.anthropomatik.kit.edu/600_1482.php">Content-based Image and Video Retrival</a> - 3 ECTS, 2 SWS</li>
+</ul>
+<h2 id="termine-und-klausurablauf">Termine und Klausurablauf</h2>
+<p>Die Veranstaltung wird m&uuml;ndlich gepr&uuml;ft, jedoch sind 10% der Note durch
+praktische Aufgaben zu erlangen. &Uuml;blicherweise dauert eine Pr&uuml;fung
+etwa 30 min.</p>
+<p>Die Anmeldung zur Pr&uuml;fung erfolgt per Email an das Sekretariat (<code>corinna.haas-hecker@kit.edu</code>).</p>
+<p>Weitere Pr&uuml;fungstermine erst nach dem 18. April.</p>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2016-10-19T20:00:00+02:00">Okt 19, 2016</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#german-posts-ref">German posts</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#computer-vision-ref">Computer Vision
+                    <span>5</span>
+</a></li>
+                <li><a href="../tags.html#klausur-ref">Klausur
+                    <span>35</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Klausur, German posts, " />
+
+<meta property="og:title" content="TGI-Klausur "/>
+<meta property="og:url" content="../tgi-klausur/" />
+<meta property="og:description" content="Ich habe im WS 2011/2012 bei Frau Prof. Dr. Wagner die TGI-Klausur am KIT geschrieben. Hierfür entstand dieser Artikel. Für die Klausur in den Theoretischen Grundlagen der Informatik sollte man Folgendes auf jeden Fall wissen: Wie konstruiert man mittels Potenzmengen einen äquivalenten deterministischen endlichen Automaten zu einem Nichtdeterministischen? → Antwort …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2012-02-18T16:57:30+01:00" />
+<meta name="twitter:title" content="TGI-Klausur ">
+<meta name="twitter:description" content="Ich habe im WS 2011/2012 bei Frau Prof. Dr. Wagner die TGI-Klausur am KIT geschrieben. Hierfür entstand dieser Artikel. Für die Klausur in den Theoretischen Grundlagen der Informatik sollte man Folgendes auf jeden Fall wissen: Wie konstruiert man mittels Potenzmengen einen äquivalenten deterministischen endlichen Automaten zu einem Nichtdeterministischen? → Antwort …">
+<meta property="og:image" content="2012/02/klausur-test-thumbnail.jpg" />
+<meta name="twitter:image" content="2012/02/klausur-test-thumbnail.jpg" >
+
+        <title>TGI-Klausur  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../tgi-klausur/"> TGI-Klausur  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#some-random-facts" title="Some Random Facts">Some Random Facts</a></li><li><a class="toc-href" href="#termin" title="Termin">Termin</a></li><li><a class="toc-href" href="#klausurergebnisse" title="Klausurergebnisse">Klausurergebnisse</a></li><li><a class="toc-href" href="#einzelnachweise" title="Einzelnachweise">Einzelnachweise</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <div class="info">Ich habe im WS 2011/2012 bei Frau <a href="http://i11www.iti.uni-karlsruhe.de/en/members/dorothea_wagner/index">Prof. Dr. Wagner</a> die TGI-Klausur am KIT geschrieben. Hierf&uuml;r entstand dieser Artikel.</div>
+<p>F&uuml;r die Klausur in den Theoretischen Grundlagen der Informatik sollte man Folgendes auf jeden Fall wissen:</p>
+<ul>
+<li>Wie konstruiert man mittels <strong>Potenzmengen</strong> einen &auml;quivalenten deterministischen endlichen Automaten zu einem Nichtdeterministischen? &rarr; <a href="../konstruktion-eines-deterministischen-endlichen-automaten-aus-einem-nicht-deterministischem/" title="Konstruktion eines deterministischen endlichen Automaten aus einem nicht-deterministischem">Antwort</a></li>
+<li>Wie bringt man eine Grammatik in <strong>Chomsky-Normalform</strong>? &rarr; <a href="../konstruktion-der-chomsky-normalform/" title="Konstruktion der Chomsky-Normalform">Antwort</a>.</li>
+<li>Was macht der <strong>CYK-Algorithmus</strong> und wie funktioniert er? &rarr; siehe <a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2011/tgi/uebung7.pdf">Beispiel</a> ab Folie 15</li>
+<li>Was ist die <strong>Chomsky-Hirarchie</strong>, welche Grammatiken gibt es und mit welchen Operationen sind sie <strong>Abgeschlossen</strong>? &rarr; <a href="../sprachen-automaten-und-grammatiken/" title="Sprachen, Automaten und Grammatiken: Ein &Uuml;berblick">Antwort</a>.</li>
+<li>Was ist das Post'sche Korrespondenzproblem?</li>
+<li>Welche <strong>Komplexit&auml;tsklassen</strong> sind $\cal P, NP, NPC, DTAPE, NTAPE, NPI$? &rarr; <a href="../komplexitatsklassen-in-der-informatik-ein-uberblick/" title="Komplexit&auml;tsklassen in der Informatik: Ein &Uuml;berblick">Antwort</a></li>
+<li>Wie sind <strong>Kellerautomaten</strong> definiert, wann sind sie formal nicht-deterministisch und in welcher Beziehung stehen sie zur Greibach-Normalform? Wie formt man einen Kellerautomaten von einem akzeptierenden Endzustand in einen mit leerem Stack um? &rarr; <a href="../kellerautomat/" title="Kellerautomat">Antwort</a>.</li>
+<li>Wie lautet das <strong>Pumping-Lemma</strong> (f&uuml;r regul&auml;re und kontextfreie Sprachen? Wie lautet <strong>Ogdens Lemma</strong>? Und wie benutzt man diese f&uuml;r Beweise? &rarr; <a href="../pumping-lemma/" title="Eine Sprache ist nicht regul&auml;r &ndash; Beweis mit dem Pumping-Lemma">Antwort</a></li>
+<li>Wie beweist man <strong>NP-Vollst&auml;ndigkeit</strong>?</li>
+</ul>
+<h2 id="some-random-facts">Some Random Facts</h2>
+<ul>
+<li>"aaa" ist in der Sprache aller Worter, die zwei mal "aa" enthalten. <small><sup><a href="#ref1" name="anchor1">[1]</a></sup></small></li>
+<li>Die Grammatik $G_1(\{S\}, \{\varepsilon\}, \{S \rightarrow \varepsilon\},S)$ erzeugt die Sprache $L(G_1) = \{\varepsilon\}$.<small><sup><a href="#ref2" name="anchor2">[2]</a></sup></small></li>
+<li>Die Grammatik $G_2(\{S\}, \{\varepsilon\}, \{\},S)$ erzeugt die Sprache $L(G_2) = \{\}$.</li>
+<li>$L_1 := \{aba, bab, ab\}, L_2 := \{bb,ab,ba\}$. Dann ist 
+$L_1 / L_2 = \{\varepsilon, a, b\}$ und 
+$L_1 \setminus L_2 = \{aba, bab\}$<small><sup><a href="#ref3" name="anchor3">[3]</a></sup></small></li>
+<li>$PKP \notin \cal NPC$<small><sup><a href="#ref4" name="anchor4">[4]</a></sup></small></li>
+<li>Es kann sein, dass die Ableitung eines Wortes nicht eindeutig ist, aber der Syntaxbaum eindeutig ist.</li>
+<li>F&uuml;r jedes Wort w gibt es einen DEA, der w akzeptiert<small><sup><a href="#ref5" name="anchor5">[5]</a></sup></small></li>
+<li>$L' \alpha L$ bedeutet, dass L' polynomial transformierbar in L ist.</li>
+<li>$L' \alpha_T L$ bedeutet, dass L' Turing-reduzierbar in L ist.</li>
+</ul>
+<h2 id="termin">Termin</h2>
+<p><strong>Datum</strong>: Mittwoch, der 22.02.2012 um 14:00 Uhr (siehe <a href="http://i11www.iti.uni-karlsruhe.de/teaching/winter2011/tgi/index">Vorlesungswebsite</a>)<br/>
+<strong>Ort</strong>: Steht <a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2011/tgi/anmeldung.pdf">hier</a>. Ich schreibe im Tulla, manche noch im Gaede und andere im HS a. F., Daimler oder Benz. Laut dieser Liste schreiben 295 Personen diese Klausur!<br/>
+<strong>Dauer</strong>: 120 min. (siehe <a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2011/tgi/tgi1112-t1.pdf">erste Folie</a>)<br/>
+<strong>Punkte</strong>: Bisher waren es meist ca. 60, von denen man 20 zum Bestehen ben&ouml;tigt hat.<br/>
+<strong>&Uuml;bungsschein</strong>: <a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2011/tgi/scheine.pdf">Liste</a> der 195 Leute, die ihn bestanden haben. Der &Uuml;bungsschein bringt einen Klausurbonus. Allerdings habe ich keine Ahnung, wie hoch dieser ist.
+edit: +0,3 zur Klausurnot (Danke Alexander ☺)<br/></p>
+<p>Ach ja, ich habe "<a href="http://info.php-4.info/attachment.php?attachmentid=260&amp;sid=dcc186e19164016b828792ff3c04a046">Yet Another Info 3 Resume</a>" noch gar nicht verlinkt. Das ist sehr kurz und hat viele wichtige Informationen.</p>
+<h2 id="klausurergebnisse">Klausurergebnisse</h2>
+<p>Die Klausurergebnisse sind nun <a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2011/tgi/notenhk.pdf">&ouml;ffentlich</a>. Die Liste scheint nach Matrikelnummer sortiert zu sein ... tolle Anonymisierung, da wir ja auch im Saal nach Matrikelnummern sortiert waren. Und falls irgendjemand es vergessen hat: Hier ist die <a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2011/tgi/anmeldung.pdf">&ouml;ffentliche Liste der Matrikelnummern</a>. Tja, so werden wir verschaukelt was den Datenschutz angeht.</p>
+<p>edit: Das Leck scheint ausgebessert worden zu sein. Nun sind die Noten nach Klausur-ID sortiert. Sehr sch&ouml;n ☺</p>
+<figure class="aligncenter">
+<a href="../images/2012/02/tgi-notenverteilung-300x257.png"><img alt="Notenverteilung der TGI Klausur im WS 2011/2012 am KIT" class="size-medium wp-image-18881" src="../images/2012/02/tgi-notenverteilung-300x257.png" style="max-width:300px;max-height:257px"/></a>
+<figcaption class="text-center">Notenverteilung der TGI Klausur im WS 2011/2012 am KIT</figcaption>
+</figure>
+<h2 id="einzelnachweise">Einzelnachweise</h2>
+<ol>
+<li><a href="#anchor1" name="ref1">&uarr;</a>: 2. Klausur WS 2003/2004, Aufgabe 1a</li>
+<li><a href="#anchor2" name="ref2">&uarr;</a>: 1. Klausur WS 2003/2004, Aufgabe 5</li>
+<li><a href="#anchor3" name="ref3">&uarr;</a>: 1. Klausur WS 2007/2008, Aufgabe 3c</li>
+<li><a href="#anchor4" name="ref4">&uarr;</a>: 1. Klausur WS 2007/2008, Aufgabe 5</li>
+<li><a href="#anchor5" name="ref5">&uarr;</a>: 1. Klausur WS 2010/2011, Aufgabe 5</li>
+</ol>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2012-02-18T16:57:30+01:00">Feb 18, 2012</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#german-posts-ref">German posts</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#klausur-ref">Klausur
+                    <span>35</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

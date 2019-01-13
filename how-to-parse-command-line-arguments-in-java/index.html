@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Programming, Java, Code, " />
+
+<meta property="og:title" content="How to parse command line arguments in Java "/>
+<meta property="og:url" content="../how-to-parse-command-line-arguments-in-java/" />
+<meta property="og:description" content="If you are using Eclipse, you might want to add your arguments. To specify them, go to: Run → Run Configurations ... → Arguments args4j args4j is a small Java class library that makes it easy to parse command line options/arguments in your CUI application. Source: args4j.kohsuke.org Lets see how …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2012-07-19T17:00:04+02:00" />
+<meta name="twitter:title" content="How to parse command line arguments in Java ">
+<meta name="twitter:description" content="If you are using Eclipse, you might want to add your arguments. To specify them, go to: Run → Run Configurations ... → Arguments args4j args4j is a small Java class library that makes it easy to parse command line options/arguments in your CUI application. Source: args4j.kohsuke.org Lets see how …">
+<meta property="og:image" content="2012/07/java-thumb.png" />
+<meta name="twitter:image" content="2012/07/java-thumb.png" >
+
+        <title>How to parse command line arguments in Java  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../how-to-parse-command-line-arguments-in-java/"> How to parse command line arguments in Java  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#args4j" title="args4j">args4j</a><ul><li><a class="toc-href" href="#requirements" title="Requirements">Requirements</a></li><li><a class="toc-href" href="#source-example" title="Source Example">Source Example</a></li><li><a class="toc-href" href="#usage-examples" title="Usage Examples">Usage Examples</a></li></ul></li><li><a class="toc-href" href="#commons-cli_1" title="Commons CLI">Commons CLI</a><ul><li><a class="toc-href" href="#installation" title="Installation">Installation</a></li><li><a class="toc-href" href="#usage-examples_1" title="Usage examples">Usage examples</a></li></ul></li><li><a class="toc-href" href="#see-also_1" title="See also">See also</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>If you are using Eclipse, you might want to add your arguments. To specify them, go to:
+Run &rarr; Run Configurations ... &rarr; Arguments</p>
+<h2 id="args4j">args4j</h2>
+<blockquote>args4j is a small Java class library that makes it easy to parse command line options/arguments in your CUI application.</blockquote>
+<p>Source: <a href="http://args4j.kohsuke.org/">args4j.kohsuke.org</a></p>
+<p>Lets see how easy it really is.</p>
+<h3 id="requirements">Requirements</h3>
+<p>First, you have to get the package. It is not in my Ubuntu-Version, but <a href="http://packages.ubuntu.com/quantal/libargs4j-java">Ubuntu Quantal will have args4j</a>. The package is called <code>libargs4j-java</code>.</p>
+<p>If you can't install it this way, you have to <a href="http://maven.jenkins-ci.org/content/repositories/releases/args4j/">download args4j</a>. Currently, it is <a href="http://maven.jenkins-ci.org/content/repositories/releases/args4j/args4j/2.0.21/args4j-2.0.21.jar">args4j-2.0.21.jar</a>.</p>
+<p>You can add this as an external jar to Eclipse:
+<ol>
+<li>Right-click on your project.</li>
+<li>Select "Properties"</li>
+<li>Type "java build path" in the input field at the upper left corner of the window.</li>
+</ol></p>
+<p>Now it should look like this:
+<figure class="aligncenter">
+<a href="../images/2012/07/java-eclipse-project-properties-libraries-300x214.png"><img alt="Project properties in Eclipse - Libraries" class="size-medium wp-image-33151" src="../images/2012/07/java-eclipse-project-properties-libraries-300x214.png" style="max-width:300px;max-height:214px"/></a>
+<figcaption class="text-center">Project properties in Eclipse - Libraries</figcaption>
+</figure></p>
+<p>Now you have to click on "Add External Jar" and add the args4j.jar file.</p>
+<h3 id="source-example">Source Example</h3>
+<p>As always in Java, you add another class for parsing your command line values. I've called it CommandLineValues.java and it does only check for the command line argument <code>-i FILE</code> or <code>--input FILE</code>.</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.File</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.kohsuke.args4j.CmdLineException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.kohsuke.args4j.CmdLineParser</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.kohsuke.args4j.Option</span><span class="o">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * This class handles the programs arguments.</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CommandLineValues</span> <span class="o">{</span>
+    <span class="nd">@Option</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"-i"</span><span class="o">,</span> <span class="n">aliases</span> <span class="o">=</span> <span class="o">{</span> <span class="s">"--input"</span> <span class="o">},</span> <span class="n">required</span> <span class="o">=</span> <span class="kc">true</span><span class="o">,</span>
+            <span class="n">usage</span> <span class="o">=</span> <span class="s">"input file with two matrices"</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="n">File</span> <span class="n">source</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="kt">boolean</span> <span class="n">errorFree</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">CommandLineValues</span><span class="o">(</span><span class="n">String</span><span class="o">...</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">CmdLineParser</span> <span class="n">parser</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CmdLineParser</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+        <span class="n">parser</span><span class="o">.</span><span class="na">setUsageWidth</span><span class="o">(</span><span class="mi">80</span><span class="o">);</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">parser</span><span class="o">.</span><span class="na">parseArgument</span><span class="o">(</span><span class="n">args</span><span class="o">);</span>
+
+            <span class="k">if</span> <span class="o">(!</span><span class="n">getSource</span><span class="o">().</span><span class="na">isFile</span><span class="o">())</span> <span class="o">{</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="n">CmdLineException</span><span class="o">(</span><span class="n">parser</span><span class="o">,</span>
+                        <span class="s">"--input is no valid input file."</span><span class="o">);</span>
+            <span class="o">}</span>
+
+            <span class="n">errorFree</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">CmdLineException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
+            <span class="n">parser</span><span class="o">.</span><span class="na">printUsage</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">err</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Returns whether the parameters could be parsed without an</span>
+<span class="cm">     * error.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @return true if no error occurred.</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isErrorFree</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">errorFree</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Returns the source file.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @return The source file.</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">File</span> <span class="nf">getSource</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">source</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+<p>Here is some part of the main file:</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">CommandLineValues</span> <span class="n">values</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CommandLineValues</span><span class="o">(</span><span class="n">args</span><span class="o">);</span>
+    <span class="n">CmdLineParser</span> <span class="n">parser</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CmdLineParser</span><span class="o">(</span><span class="n">values</span><span class="o">);</span>
+
+    <span class="k">try</span> <span class="o">{</span>
+        <span class="n">parser</span><span class="o">.</span><span class="na">parseArgument</span><span class="o">(</span><span class="n">args</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">CmdLineException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">exit</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="c1">// Now you can use the command line values</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;&gt;</span> <span class="n">matrices</span> <span class="o">=</span>
+        <span class="n">read</span><span class="o">(</span><span class="n">values</span><span class="o">.</span><span class="na">getSource</span><span class="o">());</span>
+    <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">A</span> <span class="o">=</span> <span class="n">matrices</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+    <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">B</span> <span class="o">=</span> <span class="n">matrices</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="kt">int</span><span class="o">[][]</span> <span class="n">C</span> <span class="o">=</span> <span class="n">ijkAlgorithm</span><span class="o">(</span><span class="n">A</span><span class="o">,</span> <span class="n">B</span><span class="o">);</span>
+    <span class="n">printMatrix</span><span class="o">(</span><span class="n">C</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+<h3 id="usage-examples">Usage Examples</h3>
+<p>If you do not specify the required parameters, you get a quite good error message:</p>
+<div class="highlight"><pre><span></span>moose@pc07:~/Desktop$ java -jar matrix-multiplication.jar
+Option <span class="s2">"-i (--input)"</span> is required
+ -i <span class="o">(</span>--input<span class="o">)</span> FILE : input file with two matrices
+</pre></div>
+<p>Help is <strong>not</strong> automatically generated:</p>
+<div class="highlight"><pre><span></span>moose@pc07:~/Desktop$ java -jar matrix-multiplication.jar --help
+<span class="s2">"--help"</span> is not a valid option
+ -i <span class="o">(</span>--input<span class="o">)</span> FILE : input file with two matrices
+</pre></div>
+<p>If you want to have default parameters, you simply assign the values to the attributes:</p>
+<div class="highlight"><pre><span></span><span class="nd">@Option</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"-l"</span><span class="o">,</span> <span class="n">aliases</span> <span class="o">=</span> <span class="o">{</span> <span class="s">"--leafsize"</span> <span class="o">},</span> <span class="n">required</span> <span class="o">=</span> <span class="kc">false</span><span class="o">,</span>
+        <span class="n">usage</span> <span class="o">=</span> <span class="s">"input file with two matrices"</span><span class="o">)</span>
+<span class="kd">private</span> <span class="kt">int</span> <span class="n">leafsize</span> <span class="o">=</span> <span class="mi">32</span><span class="o">;</span>
+</pre></div>
+<p>Note: <a href="http://stackoverflow.com/q/7834111/562769">How can I prevent Eclipse from adding the 'final' for certain lines of Java code?</a></p>
+<h2 id="commons-cli_1">Commons CLI</h2>
+<h3 id="installation">Installation</h3>
+<p>As for args4j, they offer a jar file which is in <a href="http://ftp-stud.hs-esslingen.de/pub/Mirrors/ftp.apache.org/dist//commons/cli/binaries/commons-cli-1.2-bin.tar.gz">commons-cli-1.2-bin.tar.gz</a> on the <a href="http://commons.apache.org/cli/download_cli.cgi">download-page</a>.</p>
+<p>If you just want to test if you have the required packages, copy this piece of code to Eclipse:</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CommandLineValues</span> <span class="o">{</span>
+    <span class="n">CommandLineParser</span> <span class="n">parser</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BasicParser</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></div>
+<p>If you get the following error, you don't have the required <code>org.apache.commons.cli</code>:
+<figure class="aligncenter">
+<a href="../images/2012/07/java-eclipse-cli-lib-error.png"><img alt="Java error mentioned by Eclipse: Missing org.apache.commons.cli" class="size-full wp-image-33201" src="../images/2012/07/java-eclipse-cli-lib-error.png" style="max-width:431px;max-height:89px"/></a>
+<figcaption class="text-center">Java error mentioned by Eclipse: Missing org.apache.commons.cli</figcaption>
+</figure></p>
+<h3 id="usage-examples_1">Usage examples</h3>
+<p>I have not found a single, complete and working usage example.</p>
+<h2 id="see-also_1">See also</h2>
+<ul>
+<li><a href="http://stackoverflow.com/q/367706/562769">Is there a good command line argument parser for Java?</a> - A lot of other command line parsers are mentioned for Java.</li>
+<li><a href="http://args4j.kohsuke.org/args4j/apidocs/">args4j JavaDoc</a></li>
+<li><a href="http://commons.apache.org/cli/api-release/index.html">Apache CLI JavaDoc</a></li>
+</ul>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2012-07-19T17:00:04+02:00">Jul 19, 2012</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#java-ref">Java
+                    <span>36</span>
+</a></li>
+                <li><a href="../tags.html#programming-ref">Programming
+                    <span>48</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Chrome, Firefox, Web Development, HTML5, Code, " />
+
+<meta property="og:title" content="Search Engine Autodiscovery "/>
+<meta property="og:url" content="../search-engine-autodiscovery/" />
+<meta property="og:description" content="Recently I read a very good post about search engine autodiscovery by Jan Phillip. Did you know that many browsers can detect an internal search engine automatically? Firefox gives you the possibility to add such a search engine to your browser: Firefox: Add search engine detected via autodiscovery OpenSearch OpenSearch …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2011-10-22T11:12:07+02:00" />
+<meta name="twitter:title" content="Search Engine Autodiscovery ">
+<meta name="twitter:description" content="Recently I read a very good post about search engine autodiscovery by Jan Phillip. Did you know that many browsers can detect an internal search engine automatically? Firefox gives you the possibility to add such a search engine to your browser: Firefox: Add search engine detected via autodiscovery OpenSearch OpenSearch …">
+<meta property="og:image" content="2011/10/firefox-add-search-engine-thumb.png" />
+<meta name="twitter:image" content="2011/10/firefox-add-search-engine-thumb.png" >
+
+        <title>Search Engine Autodiscovery  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../search-engine-autodiscovery/"> Search Engine Autodiscovery  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#opensearch" title="OpenSearch">OpenSearch</a></li><li><a class="toc-href" href="#google-chrome-autodiscovery" title="Google Chrome Autodiscovery">Google Chrome Autodiscovery</a></li><li><a class="toc-href" href="#drawbacks" title="Drawbacks">Drawbacks</a></li><li><a class="toc-href" href="#this-article-in-a-nutshell" title="This article in a nutshell">This article in a nutshell</a></li><li><a class="toc-href" href="#further-reading" title="Further reading">Further reading</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>Recently I read a very good post about search engine autodiscovery <a href="http://www.knallisworld.de/blog/2011/04/14/autodiscovery-der-searchengine-in-google-chrome-opensearch/">by Jan Phillip</a>. Did you know that many browsers can detect an internal search engine automatically? 
+Firefox gives you the possibility to add such a search engine to your browser:
+<figure class="aligncenter">
+<a href="../images/2011/10/firefox-add-search-engine.png"><img alt="Firefox: Add search engine detected via autodiscovery" class="size-full wp-image-6921" src="../images/2011/10/firefox-add-search-engine.png" style="max-width:294px;max-height:236px"/></a>
+<figcaption class="text-center">Firefox: Add search engine detected via autodiscovery</figcaption>
+</figure></p>
+<h2 id="opensearch">OpenSearch</h2>
+<p><a href="http://en.wikipedia.org/wiki/OpenSearch">OpenSearch</a> is a collection of technologies. This project aims to create a standard for publishing the metadata which describes a search engine: name, description, URL-pattern, language, ...</p>
+<p>A <abbr title="OpenSearch Description Document">OSSD</abbr> looks like this:</p>
+<div class="highlight"><pre><span></span><span class="nt">&lt;OpenSearchDescription</span> <span class="na">xmlns=</span><span class="s">"http://a9.com/-/spec/opensearch/1.1/"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ShortName&gt;</span>Example<span class="nt">&lt;/ShortName&gt;</span>
+    <span class="nt">&lt;Description&gt;</span>My example search engine<span class="nt">&lt;/Description&gt;</span>
+    <span class="nt">&lt;InputEncoding&gt;</span>UTF-8<span class="nt">&lt;/InputEncoding&gt;</span>
+    <span class="nt">&lt;Image</span> <span class="na">height=</span><span class="s">"16"</span> <span class="na">width=</span><span class="s">"16"</span> <span class="na">type=</span><span class="s">"image/x-icon"</span><span class="nt">&gt;</span>
+        http://example.org/favicon.ico
+    <span class="nt">&lt;/Image&gt;</span>
+    <span class="nt">&lt;Url</span> <span class="na">type=</span><span class="s">"text/html"</span> 
+         <span class="na">template=</span><span class="s">"http://example.org/index.html#search={searchTerms}"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/OpenSearchDescription&gt;</span>
+</pre></div>
+<p>The browser needs a hint where it can find the OSSD. So you have to add the following tag to your website:</p>
+<div class="highlight"><pre><span></span><span class="nt">&lt;link</span> <span class="na">title =</span> <span class="s">"Example"</span> 
+      <span class="na">type  =</span> <span class="s">"application/opensearchdescription+xml"</span> 
+      <span class="na">rel   =</span> <span class="s">"search"</span> 
+      <span class="na">href  =</span> <span class="s">"http://example.org/opensearch.xml"</span><span class="nt">&gt;</span>
+</pre></div>
+<p>Now you can add the websites internal search engine automatically to Chrome and easily to Firefox and Internet Explorer 8+. </p>
+<p>Additionally, you can add this little piece of JavaScript to tell Firefox 2+ and Internet Explorer 7+ that your site supports OpenSearch:</p>
+<div class="highlight"><pre><span></span><span class="nb">window</span><span class="p">.</span><span class="nx">external</span><span class="p">.</span><span class="nx">AddSearchProvider</span><span class="p">(</span><span class="s2">"http://exampl.org/opensearch.xml"</span><span class="p">);</span>
+</pre></div>
+<h2 id="google-chrome-autodiscovery">Google Chrome Autodiscovery</h2>
+<p>Google doesn't provide a <abbr title="user interface">UI</abbr> for adding an internal search engine. Instead, you can add it via Settings:</p>
+<figure class="aligncenter">
+<a href="../images/2011/10/google-chrome-add-search-300x206.png"><img alt="Add Search Engines via Settings in Google Chrome" class="size-medium wp-image-6891" src="../images/2011/10/google-chrome-add-search-300x206.png" style="max-width:300px;max-height:206px"/></a>
+<figcaption class="text-center">Add Search Engines via Settings in Google Chrome</figcaption>
+</figure>
+<p>Chrome also adds the sites internal search engine automatically. Did you ever notice this? Here are some screenshots:</p>
+<figure class="aligncenter">
+<a href="../images/2011/10/google-chrome-search-1.png"><img alt="Google Chrome Search - Hit tab to search this site" class="size-full wp-image-6841" src="../images/2011/10/google-chrome-search-1.png" style="max-width:659px;max-height:31px"/></a>
+<figcaption class="text-center">Google Chrome Search - Hit tab to search this site</figcaption>
+</figure>
+<figure class="aligncenter">
+<a href="../images/2011/10/google-chrome-search-2.png"><img alt="Google Chrome Search - Search with the websites internal search engine" class="size-full wp-image-6851" src="../images/2011/10/google-chrome-search-2.png" style="max-width:656px;max-height:30px"/></a>
+<figcaption class="text-center">Google Chrome Search - Search with the websites internal search engine</figcaption>
+</figure>
+<p>Interestingly the auto discovery only works if the search engine is at the homepage. You have to have either an input field of the type <code>search</code> or of the type <code>text</code> with the name <code>s</code>:</p>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">form</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"search"</span> <span class="na">name</span><span class="o">=</span><span class="s">"s"</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</pre></div>
+<p>or</p>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">form</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">name</span><span class="o">=</span><span class="s">"s"</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</pre></div>
+<h2 id="drawbacks">Drawbacks</h2>
+<ul>
+<li>It seems as if Safari didn't support OSSD natively. (14.04.2011)</li>
+<li>Internet Explorer 9 seems not to support OSSD.</li>
+<li>No support by Opera.</li>
+</ul>
+<h2 id="this-article-in-a-nutshell">This article in a nutshell</h2>
+<ul>
+<li>opensearch.xml gives meta information about your websites internal search engine</li>
+<li>For Chromes autodiscovery you will need to add an input fild with "type=search" or "name=s"</li>
+<li>It is not necessary for Chrome that the user can see the form (display:none with CSS) nor that it the site start page is loaded long (meta redirect after 0 seconds).</li>
+<li>Adding the search engine manually is possible in almost all browsers</li>
+<li>With OSSD you can manage more than one internal search engine.</li>
+</ul>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li>OpenSearch.org:
+    <ul>
+<li><a href="http://www.opensearch.org/Community/OpenSearch_search_clients">OpenSearch search clients</a></li>
+<li><a href="http://www.opensearch.org/Documentation/Developer_best_practices_guide">Developer best practices guide</a></li>
+</ul>
+</li>
+<li>David Walsh: <a href="http://davidwalsh.name/open-search">Add Your Website to Firefox&rsquo;s Search Bar Using OpenSearch XML</a>.</li>
+</ul>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2011-10-22T11:12:07+02:00">Okt 22, 2011</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#chrome-ref">Chrome
+                    <span>5</span>
+</a></li>
+                <li><a href="../tags.html#firefox-ref">Firefox
+                    <span>2</span>
+</a></li>
+                <li><a href="../tags.html#html5-ref">HTML5
+                    <span>5</span>
+</a></li>
+                <li><a href="../tags.html#web-development-ref">Web Development
+                    <span>12</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

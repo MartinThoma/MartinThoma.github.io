@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Klausur, German posts, " />
+
+<meta property="og:title" content="Mustererkennung - Klausur "/>
+<meta property="og:url" content="../mustererkennung-klausur/" />
+<meta property="og:description" content="Dieser Artikel beschäftigt sich mit der Vorlesung „Mustererkennung“ am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr.-Ing. Jürgen Beyerer im Sommersemester 2015 gehört und einige Abschnitte direkt aus den Folien übernommen. Behandelter Stoff Vorlesung Datum Kapitel Inhalt 15.04.2015 Einleitung $\hat{w}$ - das …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2015-04-27T21:15:00+02:00" />
+<meta name="twitter:title" content="Mustererkennung - Klausur ">
+<meta name="twitter:description" content="Dieser Artikel beschäftigt sich mit der Vorlesung „Mustererkennung“ am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr.-Ing. Jürgen Beyerer im Sommersemester 2015 gehört und einige Abschnitte direkt aus den Folien übernommen. Behandelter Stoff Vorlesung Datum Kapitel Inhalt 15.04.2015 Einleitung $\hat{w}$ - das …">
+<meta property="og:image" content="logos/klausur.png" />
+<meta name="twitter:image" content="logos/klausur.png" >
+
+        <title>Mustererkennung - Klausur  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../mustererkennung-klausur/"> Mustererkennung - Klausur  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#behandelter-stoff" title="Behandelter Stoff">Behandelter Stoff</a><ul><li><a class="toc-href" href="#vorlesung" title="Vorlesung">Vorlesung</a></li><li><a class="toc-href" href="#folien" title="Folien">Folien</a></li><li><a class="toc-href" href="#prufungsfragen" title="Pr&uuml;fungsfragen">Pr&uuml;fungsfragen</a></li></ul></li><li><a class="toc-href" href="#material-und-links_1" title="Material und Links">Material und Links</a></li><li><a class="toc-href" href="#ubungsbetrieb" title="&Uuml;bungsbetrieb">&Uuml;bungsbetrieb</a></li><li><a class="toc-href" href="#vorlesungsempfehlungen" title="Vorlesungsempfehlungen">Vorlesungsempfehlungen</a></li><li><a class="toc-href" href="#termine-und-klausurablauf" title="Termine und Klausurablauf">Termine und Klausurablauf</a></li><li><a class="toc-href" href="#notenverteilung" title="Notenverteilung">Notenverteilung</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesung &bdquo;Mustererkennung&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://ies.anthropomatik.kit.edu/mitarbeiter.php?person=beyerer">Herrn Prof. Dr.-Ing. J&uuml;rgen Beyerer</a> im Sommersemester 2015 geh&ouml;rt und einige Abschnitte direkt aus den Folien &uuml;bernommen.</div>
+<h2 id="behandelter-stoff">Behandelter Stoff</h2>
+<h3 id="vorlesung">Vorlesung</h3>
+<table>
+<tr>
+<th>Datum</th>
+<th>Kapitel</th>
+<th>Inhalt</th>
+</tr>
+<tr>
+<td>15.04.2015</td>
+<td><a href="https://ies.anthropomatik.kit.edu/ies/download/lehre/me/ME-Kap1_V33.pdf">Einleitung</a></td>
+<td>$\hat{w}$ - das <code>^</code> bedeutet, dass die Klasse gesch&auml;tzt ist.</td>
+</tr>
+<tr>
+<td>22.04.2015</td>
+<td><a href="https://ies.anthropomatik.kit.edu/ies/download/lehre/me/ME-Kap2_V85.pdf">Kapitel 2 - Merkmale</a>: 1-31?</td>
+<td>Welt; Dom&auml;ne; Objekte; Klassen; Merkmalsraum; Merkmalsvektor; Klassifikation; Skalen (nominal, ordinal, intervall-, verh&auml;ltnis- und absolutskaliert); Projektionen; <a href="https://de.wikipedia.org/wiki/Norm_(Mathematik)#Definition">Norm</a> (Minkowski, Euklidisch, Chebychev, Mahalanobis); <a href="https://de.wikipedia.org/wiki/Metrischer_Raum#Formale_Definition">Metrik</a> (Tanimoto)</td>
+</tr>
+<tr>
+<td>14.07.2015</td>
+<td><a href="http://ies.anthropomatik.kit.edu/ies/download/lehre/me/ME-Kap8_V25.pdf">Kapitel 8 - Klassifikatoren</a> (1-28), <a href="https://ies.anthropomatik.kit.edu/ies/download/lehre/me/ME-Kap9_V29.pdf">Kapitel 9</a>: 1-?</td>
+<td>Entscheidungsb&auml;ume, Grammatiken; Lernen nach Vapnik, VC-Dimension, Kreuzvalidierung und Leave-One-Out, Boosting</td>
+</tr>
+</table>
+<h3 id="folien">Folien</h3>
+<h4 id="me-kap1_v31pdf">ME-Kap1_V31.pdf</h4>
+<p><strong>Einleitendes Kapitel</strong> welches erkl&auml;rt, was Klassifikation ist.</p>
+<ul>
+<li>Beispiele f&uuml;r Klassifikation: Blumen/Schmetterlinge in Arten; Schrauben in Schraubentypen; Sch&uuml;ttgut in Mineralien, Pflanzen, Glasscheiben, Diamante, ...</li>
+<li>Formalismen</li>
+<li>Dom&auml;ne <span class="math">\(\Omega \subseteq\)</span> Welt, Elemente der Dom&auml;ne hei&szlig;en Objekte, Objekte werden in paarweise disjunkte &Auml;quivalenzklassen <span class="math">\(\omega_i\)</span> gruppiert, sodass jedes Objekt genau eine &Auml;quivalenzklasse hat.</li>
+<li>Man beobachtet / misst Eigenschaften realer Objekte. Dies kann als Funktion
+    <strong>m</strong> aufgefasst werden, die von der Dom&auml;ne in den Merkmalsraum abbildet.
+    Optimalerweise ist diese Abbildung injektiv, bei ung&uuml;nstig gew&auml;hlten
+    Merkmalen jedoch nicht. Klassifikatoren arbeiten auf dem Merkmalsraum und
+    finden eine Partition des Merkmalsraumes in Klassen</li>
+<li><strong>Muster</strong>: Gesamtheit der beobachteten / gemessenen Werte einer einzelnen
+  Stichprobe (eines einzelnen Objekts).</li>
+<li><strong>Erkennung</strong>: (Wieder)erkennung von etwas, was bereits bekannt ist.</li>
+<li><strong>Merkmale</strong>: eruirbare, charakteristische Eigenschaften, die als Basis f&uuml;r
+  die Untersuchung von Mustern dienen soll.</li>
+<li><strong>Mustererkennungsschritte</strong>: Sensierung ergibt Muster; Vorverarbeitung;
+  Segmentierung; Merkmalsextraktion ergibt Merkmale; Klassifikation ergibt
+  &Auml;quivalenzklassen</li>
+<li><strong>&Uuml;berwachtes lernen</strong>: Vorklassifizierte Beispiele sowie die Klassenstruktur
+  sind gegeben; eventuell auch Auftrittswahrscheinlichkeiten <span class="math">\(P(\omega_i)\)</span> der
+  Klassen</li>
+<li>Gesamtstichprobe wird in die disjunkten Mengen Lernstrichprobe,
+  Validierungsstichprobe und Teststichprobe zerlegt.</li>
+</ul>
+<h4 id="merkmale">Merkmale</h4>
+<p>Slides: <code>ME-Kap2_V84.pdf</code></p>
+<p>In diesem Foliensatz geht es um <strong>Merkmale</strong> und ihre Eigenschaften.</p>
+<table border="1">
+<tr>
+<th rowspan="3">&nbsp;</th>
+<th colspan="5">Skala</th>
+</tr>
+<tr>
+<th colspan="2">qualitativ (kategorial)</th>
+<th colspan="3">quantitativ (metrisch)</th>
+</tr>
+<tr>
+<th>Nominal-</th>
+<th>Ordinal-</th>
+<th>Intervall-</th>
+<th>Verh&auml;ltnis-</th>
+<th>Absolut</th>
+</tr>
+<tr>
+<th>Empirische Relation</th>
+<td>~ &Auml;quivalenz</td>
+<td>~ &Auml;quivalenz<br/>Ordnung</td>
+<td>~ &Auml;quivalenz<br/>Ordnung<br/>Emp. Addition</td>
+<td>~ &Auml;quivalenz<br/>Ordnung<br/>Emp. Addition<br/>Emp. Multipliation</td>
+<td>~ &Auml;quivalenz<br/>Ordnung<br/>Emp. Addition<br/>Emp. Multipliation</td>
+</tr>
+<tr>
+<th>Zul&auml;ssige Transformationen</th>
+<td>m' = f(m)<br/>f bijektiv</td>
+<td>m' = f(m)<br/>f streng monoton</td>
+<td>m' = am+b<br/>mit a&gt;0</td>
+<td>m' = am<br/>mit a&gt;0</td>
+<td>m' = m</td>
+</tr>
+<tr>
+<th>Beispiele zugeh&ouml;rige Merkmale</th>
+<td>Telefonnummern, Kfz-Kennz., Typen, PLZ, Geschlecht</td>
+<td>G&uuml;teklassen, H&auml;rtegrad, Windst&auml;rke</td>
+<td>Temp. in &deg;C, &deg;F, Kalenderzeit, geographische H&ouml;he</td>
+<td>Masse, L&auml;nge, el. Strom</td>
+<td>Quantenzahlen, Teilchenanzahl, Fehlerzahl</td>
+</tr>
+<tr>
+<th>Werte von m</th>
+<td>Zahlen, Namen, Symbole</td>
+<td>in der Regel nat&uuml;rliche Zahlen</td>
+<td>in der Regel reele Zahlen</td>
+<td>in der Regel reele Zahlen &gt; 0</td>
+<td>in der Regel nat&uuml;rliche Zahlen</td>
+</tr>
+</table>
+<p>Der Merkmalsraum ist h&auml;ufig ein <span class="math">\(\mathbb{R}^n\)</span> mit <span class="math">\(n&gt;3\)</span>. Er kann auf
+vorhandene Strukturen analysiert werden, indem er auf einen 2- oder
+3-dimensionalen unterraum projeziert wird. Dies kann bei einfachen Projektionen
+jedoch nicht erfolgreich sein, wenn beispielsweise zwei Klassen Schalenf&ouml;rmig
+um den Urspruch angeordnet sind.</p>
+<p>Um Stichproben im Merkmalsraum zu vergleichen k&ouml;nnen Metriken benutzt werden.
+Eine <a href="https://de.wikipedia.org/wiki/Metrischer_Raum#Formale_Definition">Metrik</a>
+ist eine Abbildung <span class="math">\(d(m_1, m_2)\)</span>, f&uuml;r die gilt:</p>
+<ul>
+<li>Positive Definitheit: <span class="math">\(d(m_1, m_2) \geq 0\)</span> und <span class="math">\(d(m_1, m_2) = 0 \Leftrightarrow m_1 = m_2\)</span>,</li>
+<li>Symmetrie: <span class="math">\(d(m_1, m_2) = d(m_2, m_1)\)</span>,</li>
+<li>Dreiecksungleichung: <span class="math">\(d(m_1, m_2) \leq d(m_1, m_3) + d(m_3, m_2)\)</span></li>
+</ul>
+<p>Metriken k&ouml;nnen durch <a href="https://de.wikipedia.org/wiki/Norm_(Mathematik)#Definition">Normen</a>
+erzeugt werden, indem <span class="math">\(d(m_1, m_2) := \|m_1 - m_2\|\)</span> definiert wird. Eine Norm
+ist eine Abbildung <span class="math">\(\| \cdot \|: V \rightarrow \mathbb{R}_0^+, x \mapsto \|x\|\)</span>
+f&uuml;r die gilt:</p>
+<ul>
+<li>Definitheit: <span class="math">\(\|x\| = 0 \Rightarrow x = 0\)</span></li>
+<li>Absolute Homogenit&auml;t: <span class="math">\(\|\alpha \cdot x \| = \alpha \cdot \| x \|\)</span></li>
+<li>Dreiecksungleichung: <span class="math">\(\|x+y\| \leq \|x\| + \|y\|\)</span></li>
+</ul>
+<p>Typische Normen sind die
+<a href="https://de.wikipedia.org/wiki/Euklidische_Norm">euklidische Norm</a> und die
+Mahalanobis Norm <span class="math">\(\|m\| := \sqrt{m^T A m}\)</span> mit <span class="math">\(A\)</span> positiv definit.</p>
+<p><strong>Hauptkomponentenanalyse</strong> (HKA, engl. PCA)</p>
+<ol>
+<li>Finde <span class="math">\(m_0\)</span>, sodass <span class="math">\(J_0(m) := \sum_{k=1}^N \|m - m_k\|^2\)</span> minimal ist, also
+   <span class="math">\(m_0 = \frac{1}{N} \sum_{k=1}^N m_k\)</span></li>
+<li>Finde Gerade <span class="math">\(h: m = \bar{m} + ae\)</span>, welche die Punkte optimal repr&auml;sentiert.<ol>
+<li>Finden der <span class="math">\(a_k\)</span> (TODO: Was ist das?)<br/>
+   Fehlerma&szlig; <span class="math">\(J_1(a_1, \dots, a_N, e) = \sum_{k=1}^N \|\bar{m} + a_k e - m_k \|^2\)</span>.<br/>
+   Ergibt: <span class="math">\(a_k = e^T (m_k - \bar{m})\)</span></li>
+<li>Berechnung des optimalen Richtungsvektors<br/>
+   Streumatrix <span class="math">\(S := \sum_{k=1}^N (m_k - \bar{m}) (m_k - \bar{m})^T\)</span></li>
+</ol>
+</li>
+<li>Finden eines affinen <span class="math">\(d'\)</span>-dimensionalen Unterraumes des Merkmalsraumes,
+   welcher die Daten <span class="math">\(D\)</span> mit minimalen quadratischem Fehler repr&auml;sentiert.</li>
+</ol>
+<p>Siehe <a href="https://gist.github.com/MartinThoma/09799f5d143c09399eed">gist</a> f&uuml;r
+eine kurze Python-Implementierung. Keine Garantie f&uuml;r die Korrektheit!</p>
+<ul>
+<li>Kernelized PCA</li>
+<li>Independent Component Analysis (ICA)</li>
+<li>Multiple Discriminant Analysis (MDA)</li>
+</ul>
+<h4 id="me-kap3_v52pdf">ME-Kap3_V52.pdf</h4>
+<p><strong>Bayessche Klassifikatoren</strong> w&auml;hlen die Klasse aus, die die gr&ouml;&szlig;te
+Wahrscheinlichkeit besitzt. Dazu verfolgt man den Ansatz</p>
+<div class="math">$$P(\omega|m) = \frac{p(m|\omega) \cdot P(\omega)}{p(m)}$$</div>
+<p>Dabei wird <span class="math">\(P(\omega|m)\)</span> die <em>A Posteriori Wahrscheinlichkeitsverteilung</em>
+und <span class="math">\(P(\omega)\)</span> die <em>A Priori Wahrscheinlichkeitsverteilung</em> genannt.</p>
+<h4 id="me-kap4_v33pdf">ME-Kap4_V33.pdf</h4>
+<p><strong>Parametersch&auml;tzung</strong> kann entweder mit der Likelihood-Methodik oder mit der
+Bayesschen Methodik durchgef&uuml;hrt werden. Die Idee der Likelihood-Methodik ist
+es, den Parameter <span class="math">\(\theta\)</span> als unbekannte konstante (d.h. nicht-stochastische)
+Gr&ouml;&szlig;e anzusehen. Man w&auml;hlt <span class="math">\(\theta\)</span> also so, dass die Wahrscheinlichkeit der
+Beobachtungen gegeben <span class="math">\(\theta\)</span> maximiert wird.</p>
+<p>Die Bayessche Methodik geht dagegen davon aus, dass <span class="math">\(\theta\)</span> auch eine
+Zufallsvariable ist und &uuml;ber eine Wahrscheinlichkeitsverteilung beschrieben
+werden kann.</p>
+<p>Sch&auml;tzer k&ouml;nnen verschiedene Qualit&auml;tskriterien erf&uuml;llen, z.B.
+<a href="https://de.wikipedia.org/wiki/Erwartungstreue">Erwartungstreue</a>
+oder <a href="https://de.wikipedia.org/wiki/Konsistenz_(Statistik)">Konsistenz</a>.</p>
+<p>Bei der Parametersch&auml;tzung k&ouml;nnen folgende Fehler passieren:</p>
+<ul>
+<li>Bayesscher Fehler: (TODO: Was ist das?)</li>
+<li>Modellfehler: Unpassendes Modell gew&auml;hlt (Falsche Verteilungsannahme?)</li>
+<li>Sch&auml;tzfehler: Zu wenige Daten um Parameter korrekt zu bestimmen</li>
+</ul>
+<h4 id="me-kap5_v31pdf">ME-Kap5_V31.pdf</h4>
+<p><strong>Parameterfreie Methoden</strong> hei&szlig;en "parameterfrei", weil sie keine konkrete
+Wahrscheinlichkeitsverteilung parametrisieren und den Parameter sch&auml;tzen.
+Die Parameterfreien Methoden k&ouml;nnen sehr wohl Parameter benutzen. Beispiele
+sind:</p>
+<ul>
+<li><a href="https://de.wikipedia.org/wiki/Kerndichtesch%C3%A4tzer">Parzen Window</a></li>
+<li><a href="https://de.wikipedia.org/wiki/N%C3%A4chste-Nachbarn-Klassifikation">N&auml;chste Nachbarn</a></li>
+</ul>
+<h4 id="me-kap6_v18pdf">ME-Kap6_V18.pdf</h4>
+<p><strong>Allgemeine Problemstellungen</strong>:</p>
+<ul>
+<li>Dimension des Merkmalsraumes</li>
+<li>Overfitting</li>
+</ul>
+<h4 id="me-kap7_v54pdf">ME-Kap7_V54.pdf</h4>
+<p><strong>Spezielle Klassifikatoren</strong>:</p>
+<ul>
+<li>Lineare Diskriminanzfunktionen: Linear bezieht sich hier auf die Kombination
+  der Merkmale. Man kann allerdings Merkmale w&auml;hlen, die z.B. das quadrat eines
+  gemessenen wertes sind.</li>
+<li>Perzeptron</li>
+<li>Lineare Regression</li>
+<li>K&uuml;nstliche Neuronale Netze</li>
+<li>Support Vector Machines (SVMs)</li>
+<li>Matched Filter</li>
+<li>HMMs (Sequenzen)</li>
+<li>Klassifikation mit R&uuml;ckweisung (Maximum / Minimum / Differenz / Abstand)</li>
+</ul>
+<h4 id="me-kap8_v21pdf">ME-Kap8_V21.pdf</h4>
+<p><strong>Klassifikation bei nominalen Merkmalen</strong>:</p>
+<ul>
+<li>Entscheidungsb&auml;ume</li>
+<li>String-Verfahren</li>
+<li>Grammatiken</li>
+</ul>
+<h4 id="me-kap9_v27pdf">ME-Kap9_V27.pdf</h4>
+<p><strong>Klassifikatorunabh&auml;ngige Prinzipien</strong>:</p>
+<ul>
+<li>Generalisierung / Generalisierungsf&auml;higkeit</li>
+<li>VC-Konfidenz / <a href="https://martin-thoma.com/machine-learning-1-course/#vc-dimension">VC-Dimension</a></li>
+<li>Structural Risc Minimization</li>
+<li><a href="https://de.wikipedia.org/wiki/Kreuzvalidierungsverfahren">Kreuzvalidierungsverfahren</a> / Leave-one-out</li>
+<li>Boosting</li>
+</ul>
+<h3 id="prufungsfragen">Pr&uuml;fungsfragen</h3>
+<ul>
+<li>Warum ist ein hochdimensionaler Merkmalsraum schlecht
+  (<a href="https://en.wikipedia.org/wiki/Curse_of_dimensionality">curse of dimensionality</a>)?</li>
+<li>Je nach Klassifikator, viele zu lernende Parameter</li>
+<li>Daten haben einen sehr hohen Abstand zueinander &rarr; Gefahr des Overfittings</li>
+<li>Wie kann man die Dimension des Merkmalsraumes reduzieren?<br/>
+  &rarr; Merkmalsauswahl, suboptimales iteratives Verfahren, HKA
+  (Varianzen maximieren), MDA (Klassentrennbarkeit maximieren), ICA</li>
+<li>Wie viele M&ouml;glichkeiten gibt es 5 Merkmale aus 10 auszuw&auml;hlen? &rarr; <a href="https://de.wikipedia.org/wiki/Binomialkoeffizient">Binomialkoeffizient</a></li>
+<li>Was ist Overfitting?<br/>
+  &rarr; Siehe <a href="https://martin-thoma.com/machine-learning-1-course/#overfitting">ML 1</a></li>
+<li>Welche Probleme gibt es, wenn man L&auml;nge, Masse und Temperatur als Merkmale hat?</li>
+<li>Unterschiedliche Einheiten (&rarr; Entdimensionalisieren)</li>
+<li>Unterschiedliche Skalen (&rarr; Teilen durch Varianz oder durch Wertebereich)</li>
+<li>Unterschiedliche Wertebereiche (&rarr; Durchschnitt abziehen)</li>
+<li>Wie funktioniert MDA?<br/>
+  &rarr; Sie maximiert <span markdown="0"><span class="math">\(J(w) = \frac{|m'_1 - m'_2|^2}{{s'}_1^2 - {s'}_2^2}\)</span></span>
+  (im 2-Klassen Fall, wobei <span class="math">\(w\)</span> die Ebene ist, auf die projeziert wird)</li>
+<li>Wie unterscheidet sich PCA/MDA von dem suboptimalen Algorithmus zur
+  Merkmalsauswahl?<br/>
+  &rarr; PCA/MDA sind Klassifikatorunabh&auml;ngig, aber der suboptimale
+  Algorithmus ben&ouml;tigt bereits einen Klassifikator.</li>
+<li>Wie lautet die Fundamentalformel der Bayesschen Klassifikation?<br/>
+  &rarr; <span class="math">\(P(A|B) = \frac{P(A)\, P(B | A)}{P(B)}\)</span> (wobei &uuml;blicherweise B das Merkmal
+  ist und A die Klasse)</li>
+<li>Wie lautet die Hauptformel der PCA?<br/>
+<span class="math">\(m' = A^T \cdot (m - \bar{m})\)</span>, wobei <span class="math">\(A\)</span> die Basiswechselmatrix ist.</li>
+<li>Wie kann man invariante Merkmale erzeugen?<br/>
+  &rarr; Integration &uuml;ber eine Transformationsgruppe, Differentielle Methode,
+  Normalisierung</li>
+<li>Wie kann man normalisieren?<br/>
+  &rarr; Fourierdeskriptoren kann man invariant bzgl. Translation und Rotation und
+  radialer Streckung (Skalierung) machen</li>
+<li>Wie lauten die Prinzipien (A) - (E) der SVMs?<ul>
+<li>(A) Lineare Trennung mit maximalen Abstand der Trennebenen zu den
+      n&auml;chstgelegenen Stichproben (Support Vektoren)</li>
+<li>(B) Duale Formulierung des linearen Klassifikators.
+      (vgl. <a href="https://de.wikipedia.org/wiki/Support_Vector_Machine#Duales_Problem">Wiki</a>, <span class="math">\(k(m) = w^T m + b = \langle w, m \rangle + b = \sum_{j=1}^N \alpha_j z_j \langle m_j, m \rangle + b\)</span>)</li>
+<li>(C) Nichtlineare Abbildung der prim&auml;ren Merkmale in einen
+      hochdimensionalen Merkmalsraum <span class="math">\(\Phi\)</span></li>
+<li>(D) Implizite Nutzung des unter Umst&auml;nden <span class="math">\(\infty\)</span>-dimensionalen
+      Eigenfunktionsraumes einer sog. Kernfunktion <span class="math">\(K\)</span> als transformierten
+      Merkmalsraum <span class="math">\(\Phi\)</span>. Dabei m&uuml;ssen die transformierten Merkmale nicht
+      explizit berechnet werden und der Klassifikator hat trotz der hohen
+      Dimension von <span class="math">\(\Phi\)</span> nur eine niedrige Zahl von freien Parametern
+      (Kernel-Trick).</li>
+<li>(E) Relaxation der Forderung nach linearer Trennbarkeit durch Einf&uuml;hrung
+      von Schlupfvariablen (slack variables).</li>
+</ul>
+</li>
+<li>Wie lautet die Dichtefunktion der <a href="https://de.wikipedia.org/wiki/Mehrdimensionale_Normalverteilung"><span class="math">\(d\)</span>-dimensionale Gau&szlig;verteilung</a>? <span class="math">\(f_X(x) = \frac{1}{\sqrt{((2\pi)^d \det{\Sigma})}} \exp(-\frac{1}{2}(x-\mu)^T \Sigma^{-1} (x-\mu))\)</span></li>
+<li>Wie lautet Mercers Theorem? &rarr; <a href="https://de.wikipedia.org/wiki/Satz_von_Mercer">wiki</a></li>
+<li>Wie ist die <a href="https://de.wikipedia.org/wiki/Kullback-Leibler-Divergenz">Kullback-Leibler-Divergenz</a> defininiert?</li>
+</ul>
+<h2 id="material-und-links_1">Material und Links</h2>
+<ul>
+<li><a href="http://ies.anthropomatik.kit.edu/lehre_mustererkennung.php">Vorlesungswebsite</a>: Ist passwortgesch&uuml;tzt. Das Passwort (das ausnahmsweise mal nicht zu erraten ist) kann ich hier nat&uuml;rlich nicht schreiben. Aber der Benutzername ist <code>asbstudent</code>.</li>
+<li>SVMs</li>
+<li><a href="http://stats.stackexchange.com/q/19181/25741">Why bother with the dual problem when fitting SVM?</a></li>
+<li><a href="http://research.microsoft.com/pubs/67119/svmtutorial.pdf">A Tutorial on Support Vector Machines for Pattern Recognition</a></li>
+</ul>
+<h2 id="ubungsbetrieb">&Uuml;bungsbetrieb</h2>
+<p>Es gibt keine &Uuml;bungsbl&auml;tter, keine &Uuml;bungen, keine Tutorien und keine
+Bonuspunkte.</p>
+<h2 id="vorlesungsempfehlungen">Vorlesungsempfehlungen</h2>
+<p>Folgende Vorlesungen sind &auml;hnlich:</p>
+<ul>
+<li><a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/">Analysetechniken gro&szlig;er Datenbest&auml;nde</a></li>
+<li><a href="https://martin-thoma.com/informationsfusion/">Informationsfusion</a></li>
+<li><a href="https://martin-thoma.com/machine-learning-1-course/">Machine Learning 1</a></li>
+<li><a href="https://martin-thoma.com/machine-learning-2-course/">Machine Learning 2</a></li>
+<li><a href="https://martin-thoma.com/mustererkennung-klausur/">Mustererkennung</a></li>
+<li><a href="https://martin-thoma.com/neuronale-netze-vorlesung/">Neuronale Netze</a></li>
+<li><a href="https://martin-thoma.com/lma/">Lokalisierung Mobiler Agenten</a></li>
+<li><a href="https://martin-thoma.com/probabilistische-planung/">Probabilistische Planung</a></li>
+</ul>
+<h2 id="termine-und-klausurablauf">Termine und Klausurablauf</h2>
+<p><strong>Datum</strong>: Donnerstag, der 10.09.2015 von 11:00-13:00 Uhr (Quelle: Wurde in der Vorlesung vom 22.04.2015 gesagt)<br/>
+<strong>Ort</strong>: <a href="http://www.kithub.de/map/2287">Gerthsen-H&ouml;rsal</a><br/>
+<strong>Punkte</strong>: 90<br/>
+<strong>Zeit</strong>: 90 min<br/>
+<strong>Punkteverteilung</strong>: ?<br/></p>
+<ul>
+<li>ab 60.5: 1.7</li>
+</ul>
+<p><strong>Bestehensgrenze</strong>: ?<br/>
+<strong>&Uuml;bungsschein</strong>: gibt es nicht<br/>
+<strong>Bonuspunkte</strong>: gibt es nicht<br/>
+<strong>Ergebnisse</strong>: Am 30.09.2015 war die (vorl&auml;ufige) Note im Notenauszug<br/>
+<strong>Einsicht</strong>: Montag 12.10.2015,  9:00-15:00 Uhr im <a href="https://www.kithub.de/map/2577">Geb. 50.21</a>, Raum 015.1<br/>
+<strong>Erlaubte Hilfsmittel</strong>: keine</p>
+<h2 id="notenverteilung">Notenverteilung</h2>
+<p>Wenn ihr mir schreibt was ihr habt, kann ich das updaten:</p>
+<ul>
+<li>1,3: min 1</li>
+<li>2,0: min 1</li>
+</ul>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2015-04-27T21:15:00+02:00">Apr 27, 2015</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#german-posts-ref">German posts</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#klausur-ref">Klausur
+                    <span>35</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

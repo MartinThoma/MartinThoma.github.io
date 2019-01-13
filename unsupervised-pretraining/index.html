@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Machine Learning, Neural Networks, Machine Learning, " />
+
+<meta property="og:title" content="Unsupervised Pretraining "/>
+<meta property="og:url" content="../unsupervised-pretraining/" />
+<meta property="og:description" content="Neural networks have thousands, often millions of parameters. They take hundrets of features and predict thousands of classes. The features can often not be seen independantly, but have to be taken as a whole into consideration. Most parameters are not independant either. And still, we use only on the order …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2017-06-08T20:00:00+02:00" />
+<meta name="twitter:title" content="Unsupervised Pretraining ">
+<meta name="twitter:description" content="Neural networks have thousands, often millions of parameters. They take hundrets of features and predict thousands of classes. The features can often not be seen independantly, but have to be taken as a whole into consideration. Most parameters are not independant either. And still, we use only on the order …">
+<meta property="og:image" content="logos/ml.png" />
+<meta name="twitter:image" content="logos/ml.png" >
+
+        <title>Unsupervised Pretraining  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../unsupervised-pretraining/"> Unsupervised Pretraining  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#auto-encoders" title="Auto-Encoders">Auto-Encoders</a></li><li><a class="toc-href" href="#crop-position-prediction" title="Crop position prediction">Crop position prediction</a></li><li><a class="toc-href" href="#order" title="Order">Order</a></li><li><a class="toc-href" href="#weakly-supervision" title="Weakly Supervision">Weakly Supervision</a></li><li><a class="toc-href" href="#more" title="More">More</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>Neural networks have thousands, often millions of parameters. They take
+hundrets of features and predict thousands of classes. The features can often
+not be seen independantly, but have to be taken as a whole into consideration.
+Most parameters are not independant either. And still, we use only on the order
+of several ten-thousand to a million data points to optimize the millions of
+parameters in a network. We know that more labeled data leads to better
+results, but labeling is costly. Obtaining more data, however, is comparatively
+cheap. Hence we want to use the unlabeled data to learn good features. The
+complete process is semi-supervised and works as follows:</p>
+<ol>
+<li><strong>Unsupervised training</strong>: Train a neural network with unlabeled data</li>
+<li><strong>Network modification</strong>: Change something in the network. Often, the output
+   layer is adjusted.</li>
+<li><strong>Supervised training</strong>: Train the neural network with labeled data</li>
+</ol>
+<p>In the following, I will introduce all unsupervised training methods I know.</p>
+<h2 id="auto-encoders">Auto-Encoders</h2>
+<p>The idea of an auto-encoder is to restore the input. Hence it has to have an
+output layer which is capable of doing so. This means you have to choose your
+activation function carefully and probably normalize the range of values of the
+input. For example, if your inputs have negative values you cannot use the
+logistic function or ReLU. If it doesn't sum to one, you can't use softmax. If
+the range of values is outside of [-1, 1], you can't use most of the activation
+functions.</p>
+<p>Also, you have to make sure the shape of the output is the same as the input.</p>
+<p>After that, you have multiple options:</p>
+<ol>
+<li>Bottleneck features: You can force the auto-encoder to learn a feature
+   reduction by introducing a bottleneck. After the training is finished,
+   everything after the bottleneck could be removed.</li>
+<li>Restauration: The input of the network is changed in some way which has to
+   be restored by the network. This could be white noise, Gaussian noise, or
+   completely removing some parts of the image (as done in <a href="http://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Pathak_Context_Encoders_Feature_CVPR_2016_paper.pdf">Context Encoders: Feature Learning by Inpainting</a>). Look for "denoising auto-encoder".</li>
+</ol>
+<p>Literature:</p>
+<ul>
+<li>Jonathan Masci, Ueli Meier, Dan Ciresan, and J&uuml;rgen Schmidhuber: <a href="http://people.idsia.ch/~masci/papers/2011_icann.pdf">Stacked Convolutional Auto-Encoders for Hierarchical Feature Extraction</a></li>
+</ul>
+<h2 id="crop-position-prediction">Crop position prediction</h2>
+<p>If you have a CNN and images as input, crop it into 9 pieces which are loosely
+placed in a grid over the image (with some variable padding). Give the network
+the middle crop and randomly one of the 8 others. The network has to predict
+which crop it got. Hence the network has 8 output units.</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<img alt="Predict the position of an image crop" src="../images/2017/05/crop-position-prediction.png" style="width: 512px;"/>
+<figcaption class="text-center">Predict the position of an image crop<br/>Image source: <a href="https://arxiv.org/pdf/1505.05192.pdf">Unsupervised Visual Representation Learning by Context Prediction</a></figcaption>
+</figure>
+<p>Literature:</p>
+<ul>
+<li>Carl Doersch, Abhinav Gupta, Alexei A. Efros: <a href="https://arxiv.org/abs/1505.05192">Unsupervised Visual Representation Learning by Context Prediction</a></li>
+</ul>
+<h2 id="order">Order</h2>
+<p>I could imagine that you could do something similar to the crop position
+prediction with time series data. For example, if you have audio data you could
+give the network two samples and let it predict which one comes first.</p>
+<p>Or if you have a video, you can predict the next frame. See <a href="https://arxiv.org/abs/1605.08104">Deep Predictive Coding Networks for Video Prediction and Unsupervised Learning</a>.</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<img alt="Predict the next frame of a video." src="../images/2017/06/predict-next-frame.png" style="width: 512px;"/>
+<figcaption class="text-center">Predict the next frame of a video.<br/>Image source: <a href="https://arxiv.org/abs/1605.08104">Deep Predictive Coding Networks for Video Prediction and Unsupervised Learning</a></figcaption>
+</figure>
+<h2 id="weakly-supervision">Weakly Supervision</h2>
+<p>The more detailed / high quality labels are, the more expensive. For example,
+it is often simpler to classify one complete image than to assign a class label
+to each pixel of the image. But you can build models for semantic segmentation
+without having a single image which was semantically labeled.</p>
+<p>This is what I call <em>weak supervision</em>.</p>
+<p>Another example is counting: You have many images of street scenes. Each image
+has the number of cars in that image as a label. The idea is that a neural
+network should learn a car classifier from this information.</p>
+<p>I think I have seen something similar before, but I don't remember where (NIPS 2016?)</p>
+<h2 id="more">More</h2>
+<p>I have seen <a href="https://papers.nips.cc/paper/5548-discriminative-unsupervised-feature-learning-with-convolutional-neural-networks.pdf">Discriminative Unsupervised Feature Learning with Convolutional Neural Networks</a> but I didn't understand what they are doing. They take a random patch of one image, apply random data augmentations
+to that image and assign it a (random) class. How is that supposed to help?</p>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2017-06-08T20:00:00+02:00">Jun 8, 2017</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#machine-learning-ref">Machine Learning</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#machine-learning-ref">Machine Learning
+                    <span>76</span>
+</a></li>
+                <li><a href="../tags.html#neural-networks-ref">Neural Networks
+                    <span>6</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="JavaScript, Code, " />
+
+<meta property="og:title" content="JavaScript: WTF?!? "/>
+<meta property="og:url" content="../javascript-wtf/" />
+<meta property="og:description" content="JavaScript is THE web programming language. It gets interpreted by your browser and web applications like Google Mail, Google Maps and Facebook make heavy use of them. Almost always, when you see something working smoothly / interactive, you see JavaScript in action. But JavaScript has a lot of &#34;features&#34; which are …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2013-06-26T22:51:52+02:00" />
+<meta name="twitter:title" content="JavaScript: WTF?!? ">
+<meta name="twitter:description" content="JavaScript is THE web programming language. It gets interpreted by your browser and web applications like Google Mail, Google Maps and Facebook make heavy use of them. Almost always, when you see something working smoothly / interactive, you see JavaScript in action. But JavaScript has a lot of &#34;features&#34; which are …">
+
+        <title>JavaScript: WTF?!?  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../javascript-wtf/"> JavaScript: WTF?!?  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#weak-typing" title="Weak typing">Weak typing</a></li><li><a class="toc-href" href="#weak-typing-and-string-concatenation" title="Weak typing and string concatenation">Weak typing and string concatenation</a></li><li><a class="toc-href" href="#automatic-semicolons" title="Automatic semicolons">Automatic semicolons</a></li><li><a class="toc-href" href="#truth-table" title="Truth table">Truth table</a></li><li><a class="toc-href" href="#the-truth" title="The truth">The truth</a></li><li><a class="toc-href" href="#date" title="Date">Date</a></li><li><a class="toc-href" href="#integer-overflow" title="Integer overflow">Integer overflow</a></li><li><a class="toc-href" href="#function-parameters" title="Function parameters">Function parameters</a></li><li><a class="toc-href" href="#global-variables" title="Global variables">Global variables</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>JavaScript is THE web programming language. It gets interpreted by your browser and web applications like Google Mail, Google Maps and Facebook make heavy use of them. Almost always, when you see something working smoothly / interactive, you see JavaScript in action.</p>
+<p>But JavaScript has a lot of "features" which are ... well, I don't have words for those. Just continue reading.</p>
+<p>Most of the following content is from a StackOverflow question <a href="http://stackoverflow.com/q/1995113/562769">Strangest language feature</a></p>
+<h2 id="weak-typing">Weak typing</h2>
+<p><strong>Example</strong></p>
+<div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">3.</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+</pre></div>
+<p><strong>Output</strong></p>
+<div class="highlight"><pre><span></span><span class="s1">'3'</span>
+</pre></div>
+<p><strong>Explanation</strong>
+<strong>3.</strong> is a floating point and can get converted to a string. But <code>3.toString()</code> gives </p>
+<div class="highlight"><pre><span></span>SyntaxError: Unexpected token ILLEGAL 
+</pre></div>
+<h2 id="weak-typing-and-string-concatenation">Weak typing and string concatenation</h2>
+<p><strong>Example</strong></p>
+<div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'5'</span> <span class="o">+</span> <span class="mi">3</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'5'</span> <span class="o">-</span> <span class="mi">3</span><span class="p">);</span>
+</pre></div>
+<p><strong>Output</strong></p>
+<div class="highlight"><pre><span></span><span class="s1">'53'</span>
+<span class="m">2</span>
+</pre></div>
+<p><strong>Explanation</strong>
+JavaScript automatically converts datatypes and <code>+</code> is used for string concatenation and for addition. </p>
+<p>In the first case, as the first datatype is a string and <code>+</code> is defined for strings as concatenation, JS converts <code>3</code> to <code>'3'</code> which results in the string <code>'53'</code>.</p>
+<p>In the second case, <code>-</code> is only defined for subtraction so <code>'5'</code> gets converted to a number (int? float? I don't know. I guess int.)</p>
+<h2 id="automatic-semicolons">Automatic semicolons</h2>
+<p><strong>Example 1</strong></p>
+<div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">test</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span>
+    <span class="p">{</span>
+        <span class="nx">id</span> <span class="o">:</span> <span class="mi">1338</span><span class="p">,</span>
+        <span class="nx">title</span> <span class="o">:</span> <span class="s1">'This is a test'</span>
+    <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">test</span><span class="p">());</span>
+</pre></div>
+<p><strong>Example 2</strong></p>
+<div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">test</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span>
+        <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">test</span><span class="p">());</span>
+</pre></div>
+<p><strong>Output 1</strong></p>
+<div class="highlight"><pre><span></span>Uncaught SyntaxError: Unexpected token :
+</pre></div>
+<p><strong>Output 2</strong></p>
+<div class="highlight"><pre><span></span>undefined
+</pre></div>
+<p><strong>Explanation</strong>
+JS adds a <code>;</code> at every line end. Automatically. You can't prevent it.</p>
+<p>Please note that the second output is no error! It has a (valid) return value of <code>undefined</code>.</p>
+<h2 id="truth-table">Truth table</h2>
+<p><strong>Example</strong></p>
+<div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"------- 0 == XYZ ---------"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">0</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">0</span> <span class="o">==</span> <span class="kc">false</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">0</span> <span class="o">==</span> <span class="s1">''</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">0</span> <span class="o">==</span> <span class="kc">null</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">0</span> <span class="o">==</span> <span class="kc">undefined</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">0</span> <span class="o">==</span> <span class="s2">" \t\r\n"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">0</span> <span class="o">==</span> <span class="s1">'0'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">0</span> <span class="o">==</span> <span class="s1">'false'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"------- false == XYZ ---------"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">false</span> <span class="o">==</span> <span class="kc">false</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">false</span> <span class="o">==</span> <span class="s1">''</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">false</span> <span class="o">==</span> <span class="kc">null</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">false</span> <span class="o">==</span> <span class="kc">undefined</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">false</span> <span class="o">==</span> <span class="s2">" \t\r\n"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">false</span> <span class="o">==</span> <span class="s1">'0'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">false</span> <span class="o">==</span> <span class="s1">'false'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"------- '' == XYZ ---------"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">''</span> <span class="o">==</span> <span class="s1">''</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">''</span> <span class="o">==</span> <span class="kc">null</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">''</span> <span class="o">==</span> <span class="kc">undefined</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">''</span> <span class="o">==</span> <span class="s2">" \t\r\n"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">''</span> <span class="o">==</span> <span class="s1">'0'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">''</span> <span class="o">==</span> <span class="s1">'false'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"------- null == XYZ ---------"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">null</span> <span class="o">==</span> <span class="kc">null</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">null</span> <span class="o">==</span> <span class="kc">undefined</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">null</span> <span class="o">==</span> <span class="s2">" \t\r\n"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">null</span> <span class="o">==</span> <span class="s1">'0'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">null</span> <span class="o">==</span> <span class="s1">'false'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"------- undefined == XYZ ---------"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">undefined</span> <span class="o">==</span> <span class="kc">undefined</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">undefined</span> <span class="o">==</span> <span class="s2">" \t\r\n"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">undefined</span> <span class="o">==</span> <span class="s1">'0'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">undefined</span> <span class="o">==</span> <span class="s1">'false'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"-------  \t\r\n == XYZ ---------"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">" \t\r\n"</span> <span class="o">==</span> <span class="s2">" \t\r\n"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">" \t\r\n"</span> <span class="o">==</span> <span class="s1">'0'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">" \t\r\n"</span> <span class="o">==</span> <span class="s1">'false'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"------- '0' == XYZ ---------"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'0'</span> <span class="o">==</span> <span class="s1">'0'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'0'</span> <span class="o">==</span> <span class="s1">'false'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"------- 'false' == XYZ ---------"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'false'</span> <span class="o">==</span> <span class="s1">'false'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"--------------------"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"-------  XYZ == 0 ---------"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">0</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">false</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">''</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">null</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">undefined</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">" \t\r\n"</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'0'</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'false'</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"-------  XYZ == false ---------"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">false</span> <span class="o">==</span> <span class="kc">false</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">''</span> <span class="o">==</span> <span class="kc">false</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">null</span> <span class="o">==</span> <span class="kc">false</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">undefined</span> <span class="o">==</span> <span class="kc">false</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">" \t\r\n"</span> <span class="o">==</span> <span class="kc">false</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'0'</span> <span class="o">==</span> <span class="kc">false</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'false'</span> <span class="o">==</span> <span class="kc">false</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"-------  XYZ == '' ---------"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">''</span> <span class="o">==</span> <span class="s1">''</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">null</span> <span class="o">==</span> <span class="s1">''</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">undefined</span> <span class="o">==</span> <span class="s1">''</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">" \t\r\n"</span> <span class="o">==</span> <span class="s1">''</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'0'</span> <span class="o">==</span> <span class="s1">''</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'false'</span> <span class="o">==</span> <span class="s1">''</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"-------  XYZ == null ---------"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">null</span> <span class="o">==</span> <span class="kc">null</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">undefined</span> <span class="o">==</span> <span class="kc">null</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">" \t\r\n"</span> <span class="o">==</span> <span class="kc">null</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'0'</span> <span class="o">==</span> <span class="kc">null</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'false'</span> <span class="o">==</span> <span class="kc">null</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"-------  XYZ == undefined ---------"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">undefined</span> <span class="o">==</span> <span class="kc">undefined</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">" \t\r\n"</span> <span class="o">==</span> <span class="kc">undefined</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'0'</span> <span class="o">==</span> <span class="kc">undefined</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'false'</span> <span class="o">==</span> <span class="kc">undefined</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"-------  XYZ == \t\r\n ---------"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">" \t\r\n"</span> <span class="o">==</span> <span class="s2">" \t\r\n"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'0'</span> <span class="o">==</span> <span class="s2">" \t\r\n"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'false'</span> <span class="o">==</span> <span class="s2">" \t\r\n"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"-------  XYZ == '0' ---------"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'0'</span> <span class="o">==</span> <span class="s1">'0'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'false'</span> <span class="o">==</span> <span class="s1">'0'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"-------  XYZ == 'false' ---------"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'false'</span> <span class="o">==</span> <span class="s1">'false'</span><span class="p">);</span>
+</pre></div>
+<p><strong>Output</strong></p>
+<table>
+<tr>
+<th>==</th>
+<th>0</th>
+<th>false</th>
+<th>''</th>
+<th>null</th>
+<th>undefined</th>
+<th>" \t\r\n"</th>
+<th>'0'</th>
+<th>'false'</th>
+</tr>
+<tr>
+<th>0</th>
+<td style="background-color: lime;">true</td>
+<td style="background-color: lime;">true</td>
+<td style="background-color: lime;">true</td>
+<td style="background-color: red;">false</td>
+<td style="background-color: red;">false</td>
+<td style="background-color: lime;">true</td>
+<td style="background-color: lime;">true</td>
+<td style="background-color: red;">false</td>
+</tr>
+<tr>
+<th>false</th>
+<td style="background-color: lime;">true</td>
+<td style="background-color: lime;">true</td>
+<td style="background-color: lime;">true</td>
+<td style="background-color: red;">false</td>
+<td style="background-color: red;">false</td>
+<td style="background-color: lime;">true</td>
+<td style="background-color: lime;">true</td>
+<td style="background-color: red;">false</td>
+</tr>
+<tr>
+<th>''</th>
+<td style="background-color: lime;">true</td>
+<td style="background-color: lime;">true</td>
+<td style="background-color: lime;">true</td>
+<td style="background-color: red;">false</td>
+<td style="background-color: red;">false</td>
+<td style="background-color: red;">false</td>
+<td style="background-color: red;">false</td>
+<td style="background-color: red;">false</td>
+</tr>
+<tr>
+<th>null</th>
+<td style="background-color: red;">false</td>
+<td style="background-color: red;">false</td>
+<td style="background-color: red;">false</td>
+<td style="background-color: lime;">true</td>
+<td style="background-color: lime;">true</td>
+<td style="background-color: red;">false</td>
+<td style="background-color: red;">false</td>
+<td style="background-color: red;">false</td>
+</tr>
+<tr>
+<th>undefined</th>
+<td style="background-color: red;">false</td>
+<td style="background-color: red;">false</td>
+<td style="background-color: red;">false</td>
+<td style="background-color: lime;">true</td>
+<td style="background-color: lime;">true</td>
+<td style="background-color: red;">false</td>
+<td style="background-color: red;">false</td>
+<td style="background-color: red;">false</td>
+</tr>
+<tr>
+<th>" \t\r\n"</th>
+<td style="background-color: lime;">true</td>
+<td style="background-color: lime;">true</td>
+<td style="background-color: red;">false</td>
+<td style="background-color: red;">false</td>
+<td style="background-color: red;">false</td>
+<td style="background-color: lime;">true</td>
+<td style="background-color: red;">false</td>
+<td style="background-color: red;">false</td>
+</tr>
+<tr>
+<th>'0'</th>
+<td style="background-color: lime;">true</td>
+<td style="background-color: lime;">true</td>
+<td style="background-color: red;">false</td>
+<td style="background-color: red;">false</td>
+<td style="background-color: red;">false</td>
+<td style="background-color: red;">false</td>
+<td style="background-color: lime;">true</td>
+<td style="background-color: red;">false</td>
+</tr>
+<tr>
+<th>'false'</th>
+<td style="background-color: red;">false</td>
+<td style="background-color: red;">false</td>
+<td style="background-color: red;">false</td>
+<td style="background-color: red;">false</td>
+<td style="background-color: red;">false</td>
+<td style="background-color: red;">false</td>
+<td style="background-color: red;">false</td>
+<td style="background-color: lime;">true</td>
+</tr>
+</table>
+<p><strong>Explanation</strong>
+Wow. This is fucked up. I've expected that strings compared to anything that is not the string itself evaluates to false.</p>
+<p>At least the table is symmetric and the diagonal is true. Please also note that JavaScript has a <code>===</code> operator.</p>
+<h2 id="the-truth">The truth</h2>
+<p><strong>Example</strong></p>
+<div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">2</span> <span class="o">==</span> <span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">2</span> <span class="o">==</span> <span class="p">[[</span><span class="mi">2</span><span class="p">]]);</span>
+</pre></div>
+<p><strong>Output</strong></p>
+<div class="highlight"><pre><span></span><span class="nb">true</span>
+<span class="nb">true</span>
+</pre></div>
+<p><strong>Explanation</strong>
+At <a href="http://stackoverflow.com/a/1724551/562769">StackOverflow</a></p>
+<h2 id="date">Date</h2>
+<p><strong>Example</strong></p>
+<div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">futureDate</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span><span class="mi">77</span><span class="p">,</span><span class="mi">154</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">futureDate</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">futureDate</span><span class="p">.</span><span class="nx">getYear</span><span class="p">());</span>
+</pre></div>
+<p><strong>Output</strong></p>
+<div class="highlight"><pre><span></span>Tue Nov <span class="m">01</span> <span class="m">2016</span> <span class="m">00</span>:00:00 GMT+0100 <span class="o">(</span>CET<span class="o">)</span> 
+<span class="m">116</span>
+</pre></div>
+<p><strong>Explanation</strong>
+77 months and 154 days from the 0th day of 0th month of 2010</p>
+<p>You should use <code>getFullYear()</code> instead of <code>getYear()</code>, as the later one returns <code>year - 1900</code> (Why? When is this useful?)</p>
+<h2 id="integer-overflow">Integer overflow</h2>
+<p><strong>Example</strong></p>
+<div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">111111111111111111111</span><span class="p">);</span>
+</pre></div>
+<p><strong>Output</strong></p>
+<div class="highlight"><pre><span></span><span class="m">111111111111111110000</span> 
+</pre></div>
+<p><strong>Explanation</strong>
+It's ok that JavaScript fails at handling this integer. I think it converts this to a float, but I'm not sure about that. But no matter what it does here, it doesn't throw an error. That's bad. How is a developer supposed to know in a big application know when something went wrong?</p>
+<h2 id="function-parameters">Function parameters</h2>
+<blockquote>In Javascript, declaring the parameters a function accepts is only a convenience to the programmer. All variables passed through the function call are accessible by the keyword <code>arguments</code>. So the following would alert "world":
+
+wzxhzdk:16
+
+</blockquote>
+<p><a href="http://stackoverflow.com/a/2023908/562769">Source</a> on StackOverflow</p>
+<h2 id="global-variables">Global variables</h2>
+<p><strong>Example</strong></p>
+<div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">test</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">a</span> <span class="o">=</span> <span class="mi">1337</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">test</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+</pre></div>
+<p><strong>Output</strong></p>
+<div class="highlight"><pre><span></span><span class="m">1337</span>
+</pre></div>
+<p><strong>Explanation</strong>
+When you forget to use <code>var</code> inside of <code>test()</code> you might accidentally use a global variable. </p>
+<h2 id="see-also">See also</h2>
+<p>Do you know some more JavaScript WTFs?</p>
+<p>You might also be interested in <a href="../php-a-strange-language/" title="PHP: A strange language">PHP: A strange language</a></p>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2013-06-26T22:51:52+02:00">Jun 26, 2013</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#javascript-ref">JavaScript
+                    <span>7</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

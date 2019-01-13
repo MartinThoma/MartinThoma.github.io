@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Python, Style Guide, Code, " />
+
+<meta property="og:title" content="Python Style Guide "/>
+<meta property="og:url" content="../python-style-guide/" />
+<meta property="og:description" content="Having a consistent code style for a project is important as it allows developers to code correctly without thinking too much about it. It makes code easier to read, maintain and after becomming used to the style also easier to write. Most of the time, it is not too important …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2018-07-01T20:00:00+02:00" />
+<meta name="twitter:title" content="Python Style Guide ">
+<meta name="twitter:description" content="Having a consistent code style for a project is important as it allows developers to code correctly without thinking too much about it. It makes code easier to read, maintain and after becomming used to the style also easier to write. Most of the time, it is not too important …">
+<meta property="og:image" content="logos/python.png" />
+<meta name="twitter:image" content="logos/python.png" >
+
+        <title>Python Style Guide  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../python-style-guide/"> Python Style Guide  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#general-coding" title="General Coding">General Coding</a><ul><li><a class="toc-href" href="#pep8" title="PEP8">PEP8</a></li><li><a class="toc-href" href="#pyflakes" title="PyFlakes">PyFlakes</a></li></ul></li><li><a class="toc-href" href="#docstrings_1" title="Docstrings">Docstrings</a><ul><li><a class="toc-href" href="#numpydoc" title="NumpyDoc">NumpyDoc</a></li><li><a class="toc-href" href="#google-style-docstrings" title="Google Style Docstrings">Google Style Docstrings</a></li><li><a class="toc-href" href="#sphinxdocstring" title="SphinxDocString">SphinxDocString</a></li></ul></li><li><a class="toc-href" href="#mccabe-code-complexity_1" title="McCabe code complexity">McCabe code complexity</a></li><li><a class="toc-href" href="#linters" title="Linters">Linters</a><ul><li><a class="toc-href" href="#error-codes" title="Error Codes">Error Codes</a></li></ul></li><li><a class="toc-href" href="#editor-support_1" title="Editor Support">Editor Support</a></li><li><a class="toc-href" href="#notes-on-details" title="Notes on Details">Notes on Details</a><ul><li><a class="toc-href" href="#maximum-line-length" title="Maximum Line Length">Maximum Line Length</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>Having a consistent code style for a project is important as it allows
+developers to code correctly without thinking too much about it. It makes code
+<strong>easier to read, maintain</strong> and after becomming used to the style also
+<strong>easier to write</strong>.</p>
+<p>Most of the time, it is not too important which standards to follow, but to
+decide in the team which ones you want to have and follow those consistently.
+To cite from PEP8:</p>
+<blockquote>
+<p>A style guide is about consistency. Consistency with [PEP8] is important.
+Consistency within a project is more important. Consistency within one module
+or function is the most important.</p>
+</blockquote>
+<p>Python has standards for general coding as well as for docstrings.</p>
+<h2 id="general-coding">General Coding</h2>
+<h3 id="pep8">PEP8</h3>
+<p>The <a href="https://www.python.org/dev/peps/pep-0008/">PEP8</a> was posted in July 2001
+and got an update in 2013.</p>
+<h3 id="pyflakes">PyFlakes</h3>
+<p><a href="https://launchpad.net/pyflakes">PyFlakes</a> is a very common tool to check
+Python code for potential errors. I've added the codes to the long table below.</p>
+<h2 id="docstrings_1">Docstrings</h2>
+<p>Python packages are usually documented on a function / class / method / package
+level directly in the code. The stuff in <code>docs/</code> is often only for building
+HTML out of the Python code, organzinging things (e.g. which package to show
+first) and a user manual.</p>
+<p>There is <a href="https://www.python.org/dev/peps/pep-0257/">PEP257</a> which defines some
+basic stuff. Building on this, there are two docstring style guides which
+cannot be combined: NumpyDoc an Google.</p>
+<p>Tools like <a href="http://sphinxcontrib-napoleon.readthedocs.io/en/latest/">napoleon</a>
+in combination with Sphinx can automatically create nice docs of both of them.</p>
+<h3 id="numpydoc">NumpyDoc</h3>
+<p>See <a href="https://github.com/numpy/numpy/blob/254c50af3a52c8b1444e46857e9ec59fcb212a41/doc/HOWTO_DOCUMENT.rst.txt">GitHub</a> for the guide.</p>
+<p>It looks as follows:</p>
+<div class="highlight"><pre><span></span>def get_meta(filepath, a_number, a_dict):
+    """
+    Get meta-information of an image.
+
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+    ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis
+    parturient montes, nascetur ridiculus mus.
+
+    Parameters
+    ----------
+    filepath : str
+        Get metadata from this file
+    a_number : int
+        Some more details
+    a_dict : dict
+        Configuration
+
+    Returns
+    -------
+    meta : dict
+        Extracted meta information
+
+    Raises
+    ------
+    IOError
+        File could not be read
+    """
+</pre></div>
+<h3 id="google-style-docstrings">Google Style Docstrings</h3>
+<p>See <a href="https://github.com/google/styleguide/blob/gh-pages/pyguide.md#38-comments-and-docstrings">Github</a>
+for the documentation.</p>
+<p>It looks as follows:</p>
+<div class="highlight"><pre><span></span>def get_meta(filepath, a_number, a_dict):
+    """Get meta-information of an image.
+
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+    ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis
+    parturient montes, nascetur ridiculus mus.
+
+    Args:
+        filepath: Get metadata from this file.
+        a_number: Some more details.
+        a_dict: Configuration.
+
+    Returns:
+        Extracted meta information:
+
+    Raises:
+        IOError: File could not be read.
+    """
+</pre></div>
+<h3 id="sphinxdocstring">SphinxDocString</h3>
+<p>It's super ugly and I find it hard to read, but this docstring type is also out
+there. <a href="https://github.com/JetBrains/intellij-community/blob/210e0ed138627926e10094bb9c76026319cec178/python/src/com/jetbrains/python/documentation/docstrings/SphinxDocString.java">SphinxDocString</a>. They use <a href="https://en.wikipedia.org/wiki/ReStructuredText">reStructuredText</a>:</p>
+<div class="highlight"><pre><span></span>def get_meta(filepath, a_number, a_dict):
+    """
+    Get meta-information of an image.
+
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+    ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis
+    parturient montes, nascetur ridiculus mus.
+
+    :param filepath: Get metadata from this file
+    :type filepath: str
+    :param a_number: Some more details
+    :type a_number: int
+    :param a_dict: Configuration
+    :type a_dict: dict
+
+    :returns: dict -- Extracted meta information
+
+    :raises: IOError
+    """
+</pre></div>
+<h2 id="mccabe-code-complexity_1">McCabe code complexity</h2>
+<p>The <a href="https://en.wikipedia.org/wiki/Cyclomatic_complexity">McCabe complexity</a>
+measures how difficult it is to read your code. To quote from Wikipedia:</p>
+<blockquote>
+<p>It is a quantitative measure of the number of linearly independent paths
+through a program's source code.
+[...]
+One of McCabe's original applications was to limit the complexity of routines
+during program development; he recommended that programmers should count the
+complexity of the modules they are developing, and split them into smaller
+modules whenever the cyclomatic complexity of the module exceeded 10.[2] This
+practice was adopted by the NIST Structured Testing methodology, with an
+observation that since McCabe's original publication, the figure of 10 had
+received substantial corroborating evidence, but that in some circumstances
+it may be appropriate to relax the restriction and permit modules with a
+complexity as high as 15.</p>
+</blockquote>
+<p>I think McCabe complexity is one way to find spots where the could could be
+improved for readability, but I'm not certain how often that actually works.</p>
+<p>There is a <a href="https://pypi.org/project/pytest-mccabe/">mccabe pytest plugin</a>.</p>
+<h2 id="linters">Linters</h2>
+<p>Linters are tools for static code analysis. Static code analysis is the task of
+analyzing a computer program without executing it. With executing the program,
+it would be dynamic code analysis which is done by coverage testing tools.</p>
+<p>Common Python linters are:</p>
+<ul>
+<li><a href="https://pypi.org/project/pycodestyle/"><code>pycodestyle</code></a> which replaces <code>pep8</code></li>
+<li><a href="https://github.com/PyCQA/pycodestyle"><code>pydocstyle</code></a></li>
+<li><a href="https://pypi.org/project/flake8/"><code>flake8</code></a></li>
+<li><a href="https://pypi.org/project/pyrama/"><code>pyrama</code></a> for checking package structure</li>
+<li><a href="https://github.com/rubik/radon"><code>radon</code></a>: Measuring the code complexity</li>
+</ul>
+<p>What you should forget</p>
+<ul>
+<li><a href="https://pypi.org/project/pylama/"><code>pylama</code></a>: Only wraps some other tools.
+  Use the pytest-plugins for those tools instead.</li>
+</ul>
+<h3 id="error-codes">Error Codes</h3>
+<p>The following error codes are from <a href="http://pycodestyle.pycqa.org/en/latest/intro.html"><code>pycodestyle</code></a> and
+<a href="http://pep257.readthedocs.io/en/latest/error_codes.html"><code>pydocstyle</code></a>.
+I added to a couple why they exist and added a suggestion if I think you should take them
+(from ✓✓ for a strong YES to ✘✘ for a strong NO). Please also have a
+look at <a href="https://lintlyci.github.io/Flake8Rules/">lintlyci.github.io/Flake8Rules</a>
+which gives a lot of good examples for those rules.</p>
+<p>There are also two footnotes for some codes:</p>
+<blockquote>
+<p>(*) In the default configuration, the checks E121, E123, E126, E133, E226,
+E241, E242, E704, W503, W504 and W505 are ignored because they are not rules
+unanimously accepted, and PEP 8 does not enforce them. Please note that if
+the option &ndash;ignore=errors is used, the default configuration will be
+overridden and ignore only the check(s) you skip. The check W503 is mutually
+exclusive with check W504. The check E133 is mutually exclusive with check
+E123. Use switch --hang-closing to report E133 instead of E123. Use switch
+--max-doc-length=n to report W505.</p>
+<p>(^) These checks can be disabled at the line level using the # noqa special
+comment. This possibility should be reserved for special cases.</p>
+</blockquote>
+<table class="table">
+<thead>
+<tr>
+<th>Code</th>
+<th>Meaning</th>
+<th>Suggestion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>E1</th>
+<th>Indentation</th>
+<td>Indentation carries a meaning in Python - if code is in a block or not.</td>
+</tr>
+<tr>
+<td>E101</td>
+<td>indentation contains mixed spaces and tabs<br/>
+                Why: When you mix spaces and tabs, you will get different indentation for different editor settings.</td>
+<td>✓✓</td>
+</tr>
+<tr>
+<td>E111</td>
+<td>indentation is not a multiple of four<br/>
+                Why: My guess is that 95% of all projects use 4 spaces - a single spaces is hard to read and more than
+                four is something you don't want to type that often</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>E112</td>
+<td>expected an indented block<br/>
+                Why: A bug</td>
+<td>✓✓</td>
+</tr>
+<tr>
+<td>E113</td>
+<td>unexpected indentation<br/>
+                Why: A bug</td>
+<td>✓✓</td>
+</tr>
+<tr>
+<td>E114</td>
+<td>indentation is not a multiple of four (comment)<br/>
+                Why: Easily leads to bugs</td>
+<td>✓✓</td>
+</tr>
+<tr>
+<td>E115</td>
+<td>expected an indented block (comment)<br/>
+                Why: Easily leads to bugs</td>
+<td>✓✓</td>
+</tr>
+<tr>
+<td>E116</td>
+<td>unexpected indentation (comment)<br/>
+                Why: Easily leads to bugs</td>
+<td>✓✓</td>
+</tr>
+<tr>
+<td colspan="3"></td>
+</tr>
+<tr>
+<td>E121 (*^)</td>
+<td>continuation line under-indented for hanging indent<br/>
+                Why: Usual code style</td>
+<td></td>
+</tr>
+<tr>
+<td>E122 (^)</td>
+<td>continuation line missing indentation or outdented<br/>
+                Why: Usual code style</td>
+<td></td>
+</tr>
+<tr>
+<td>E123 (*)</td>
+<td>closing bracket does not match indentation of opening bracket's line<br/>
+                Why: Readability</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>E124 (^)</td>
+<td>closing bracket does not match visual indentation<br/>
+                Why: Readability</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>E125 (^)</td>
+<td>continuation line with same indent as next logical line<br/>
+                Why: Readability</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>E126 (*^)</td>
+<td>continuation line over-indented for hanging indent<br/>
+                Why: Readability</td>
+<td></td>
+</tr>
+<tr>
+<td>E127 (^)</td>
+<td>continuation line over-indented for visual indent<br/>
+                Why: Readability</td>
+<td></td>
+</tr>
+<tr>
+<td>E128 (^)</td>
+<td>continuation line under-indented for visual indent<br/>
+                Why: Readability</td>
+<td></td>
+</tr>
+<tr>
+<td>E129 (^)</td>
+<td>visually indented line with same indent as next logical line<br/>
+                Why: Readability</td>
+<td></td>
+</tr>
+<tr>
+<td>E131 (^)</td>
+<td>continuation line unaligned for hanging indent<br/>
+                Why: Readability</td>
+<td></td>
+</tr>
+<tr>
+<td>E133 (*)</td>
+<td>closing bracket is missing indentation<br/>
+                Why: Readability</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="3"></td>
+</tr>
+<tr>
+<th>E2</th>
+<th>Whitespace</th>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://lintlyci.github.io/Flake8Rules/rules/E201.html">E201</a></td>
+<td>whitespace after <code>(</code><br/>
+                Why: Usual code style</td>
+<td></td>
+</tr>
+<tr>
+<td>E202</td>
+<td>whitespace before <code>)</code><br/>
+                Why: Usual code style</td>
+<td></td>
+</tr>
+<tr>
+<td>E203</td>
+<td>whitespace before <code></code><br/>
+                Why: Usual code style</td>
+<td></td>
+</tr>
+<tr>
+<td>E211</td>
+<td>whitespace before <code>(</code></td>
+<td></td>
+</tr>
+<tr>
+<td>E221</td>
+<td>multiple spaces before operator</td>
+<td></td>
+</tr>
+<tr>
+<td>E222</td>
+<td>multiple spaces after operator</td>
+<td></td>
+</tr>
+<tr>
+<td>E223</td>
+<td>tab before operator<br/>
+                Why: Try to avoid tabs in Python</td>
+<td>✓✓</td>
+</tr>
+<tr>
+<td>E224</td>
+<td>tab after operator<br/>
+                Why: Try to avoid tabs in Python</td>
+<td>✓✓</td>
+</tr>
+<tr>
+<td>E225</td>
+<td>missing whitespace around operator</td>
+<td></td>
+</tr>
+<tr>
+<td>E226 (*)</td>
+<td>missing whitespace around arithmetic operator</td>
+<td></td>
+</tr>
+<tr>
+<td>E227</td>
+<td>missing whitespace around bitwise or shift operator</td>
+<td></td>
+</tr>
+<tr>
+<td>E228</td>
+<td>missing whitespace around modulo operator</td>
+<td></td>
+</tr>
+<tr>
+<td>E231</td>
+<td>missing whitespace after <code>,</code>, <code>;</code>, or <code>:</code></td>
+<td></td>
+</tr>
+<tr>
+<td>E241 (*)</td>
+<td>multiple spaces after <code>,</code></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://lintlyci.github.io/Flake8Rules/rules/E242.html">E242</a> (*)</td>
+<td>tab after <code>,</code><br/>
+                Why: Try to avoid tabs in Python</td>
+<td>✓✓</td>
+</tr>
+<tr>
+<td>E251</td>
+<td>unexpected spaces around keyword / parameter equals</td>
+<td></td>
+</tr>
+<tr>
+<td>E261</td>
+<td>at least two spaces before inline comment</td>
+<td></td>
+</tr>
+<tr>
+<td>E262</td>
+<td>inline comment should start with `# `</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://lintlyci.github.io/Flake8Rules/rules/E265.html">E265</a></td>
+<td>block comment should start with `# `</td>
+<td></td>
+</tr>
+<tr>
+<td>E266</td>
+<td>too many leading <code>#</code> for block comment</td>
+<td></td>
+</tr>
+<tr>
+<td>E271</td>
+<td>multiple spaces after keyword<br/>
+                Why: I can see the reason for one space ... but many?</td>
+<td>✓✓</td>
+</tr>
+<tr>
+<td>E272</td>
+<td>multiple spaces before keyword<br/>
+                Why: I can see the reason for one space, but not for multiple</td>
+<td>✓✓</td>
+</tr>
+<tr>
+<td>E273</td>
+<td>tab after keyword<br/>
+                Why: Try to avoid tabs in Python</td>
+<td>✓✓</td>
+</tr>
+<tr>
+<td>E274</td>
+<td>tab before keyword<br/>
+                Why: Try to avoid tabs in Python</td>
+<td>✓✓</td>
+</tr>
+<tr>
+<td>E275</td>
+<td>missing whitespace after keyword</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="3"></td>
+</tr>
+<tr>
+<th>E3</th>
+<th>Blank line</th>
+<th></th>
+</tr>
+<tr>
+<td><a href="https://lintlyci.github.io/Flake8Rules/rules/E301.html">E301</a></td>
+<td>expected 1 blank line, found 0</td>
+<td></td>
+</tr>
+<tr>
+<td>E302</td>
+<td>expected 2 blank lines, found 0</td>
+<td></td>
+</tr>
+<tr>
+<td>E303</td>
+<td>too many blank lines (3)<br/>
+                Why: Don't make your code too stretched out. If you want to
+                separate code, make a new module.</td>
+<td>✓✓</td>
+</tr>
+<tr>
+<td>E304</td>
+<td>blank lines found after function decorator<br/>
+                Why: This is confusing. A function decorator changes the function
+                being decorated. If you separate them, I might miss that it
+                is there.</td>
+<td>✓✓</td>
+</tr>
+<tr>
+<td>E305</td>
+<td>expected 2 blank lines after end of function or class</td>
+<td></td>
+</tr>
+<tr>
+<td>E306</td>
+<td>expected 1 blank line before a nested definition</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="3"></td>
+</tr>
+<tr>
+<th>E4</th>
+<th>Import</th>
+<th></th>
+</tr>
+<tr>
+<td><a href="https://lintlyci.github.io/Flake8Rules/rules/E401.html">E401</a></td>
+<td>multiple imports on one line<br/>
+                Why: It's more readable to have one import per line, you can
+                structure them more easily and your editor can tell you which
+                one you're not using</td>
+<td>✓✓</td>
+</tr>
+<tr>
+<td><a href="https://lintlyci.github.io/Flake8Rules/rules/E402.html"></a>E402</td>
+<td>module level import not at top of file<br/>
+                Why: You should have all your imports at the top of your file.
+                However, there could be other code as well in between imports.
+                For example, setting the seed of `random`.</td>
+<td>✘</td>
+</tr>
+<tr>
+<td colspan="3"></td>
+</tr>
+<tr>
+<th>E5</th>
+<th>Line length</th>
+<th></th>
+</tr>
+<tr>
+<td><a href="https://lintlyci.github.io/Flake8Rules/rules/E501.html">E501</a> (^)</td>
+<td>line too long (&gt; 79 characters)<br/>
+                Why: See below.
+            </td>
+<td>✓✓</td>
+</tr>
+<tr>
+<td>E502</td>
+<td>the backslash is redundant between brackets</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="3"></td>
+</tr>
+<tr>
+<th>E7</th>
+<th>Statement</th>
+<th></th>
+</tr>
+<tr>
+<td><a href="https://lintlyci.github.io/Flake8Rules/rules/E701.html"></a>E701</td>
+<td>multiple statements on one line (colon)</td>
+<td></td>
+</tr>
+<tr>
+<td>E702</td>
+<td>multiple statements on one line (semicolon)</td>
+<td></td>
+</tr>
+<tr>
+<td>E703</td>
+<td>statement ends with a semicolon<br/>
+                Why: Likely unnecessary and due to a C / C++ / Java developer
+                (trying to) write Python code.</td>
+<td>✓✓</td>
+</tr>
+<tr>
+<td>E704 (*)</td>
+<td>multiple statements on one line (def)</td>
+<td></td>
+</tr>
+<tr>
+<td>E711 (^)</td>
+<td>comparison to None should be `if cond is None:`<br/>
+                Why: <a href="https://stackoverflow.com/a/14247383/562769">Example</a></td>
+<td>✓✓</td>
+</tr>
+<tr>
+<td>E712 (^)</td>
+<td>comparison to True should be `if cond is True:` or `if cond:`<br/>
+                Why: Because `if cond` is way easier to read</td>
+<td>✓✓</td>
+</tr>
+<tr>
+<td>E713</td>
+<td>test for membership should be `not in`</td>
+<td></td>
+</tr>
+<tr>
+<td>E714</td>
+<td>test for object identity should be `is not`</td>
+<td></td>
+</tr>
+<tr>
+<td>E721 (^)</td>
+<td>do not compare types, use `isinstance()`</td>
+<td></td>
+</tr>
+<tr>
+<td>E722</td>
+<td>do not use bare except, specify exception instead</td>
+<td></td>
+</tr>
+<tr>
+<td>E731</td>
+<td>do not assign a lambda expression, use a def<br/>
+                Why: <a href="https://stackoverflow.com/a/25010243/562769">Example</a>, DRY</td>
+<td></td>
+</tr>
+<tr>
+<td>E741</td>
+<td>do not use variables named <code>l</code>, <code>O</code>, or <code>I</code><br/>
+                Why: Those letters are hard to distinguish in some fonts.</td>
+<td>✓✓</td>
+</tr>
+<tr>
+<td>E742</td>
+<td>do not define classes named <code>l</code>, <code>O</code>, or <code>I</code><br/>
+                Why: Those letters are hard to distinguish in some fonts.</td>
+<td>✓✓</td>
+</tr>
+<tr>
+<td>E743</td>
+<td>do not define functions named <code>l</code>, <code>O</code>, or <code>I</code><br/>
+                Why: Those letters are hard to distinguish in some fonts.</td>
+<td>✓✓</td>
+</tr>
+<tr>
+<td colspan="3"></td>
+</tr>
+<tr>
+<th>E9</th>
+<th>Runtime</th>
+<th></th>
+</tr>
+<tr>
+<td><a href="https://lintlyci.github.io/Flake8Rules/rules/E901.html">E901</a></td>
+<td>SyntaxError or IndentationError</td>
+<td></td>
+</tr>
+<tr>
+<td>E902</td>
+<td>IOError</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="3"></td>
+</tr>
+<tr>
+<th>W1</th>
+<th>Indentation warning</th>
+<th></th>
+</tr>
+<tr>
+<td><a href="https://lintlyci.github.io/Flake8Rules/rules/W191.html">W191</a></td>
+<td>indentation contains tabs</td>
+<td>✓✓</td>
+</tr>
+<tr>
+<td colspan="3"></td>
+</tr>
+<tr>
+<th>W2</th>
+<th>Whitespace warning</th>
+<th></th>
+</tr>
+<tr>
+<td>W291</td>
+<td>trailing whitespace<br/>
+                Why: It just adds noise to `git diff`</td>
+<td>✓✓</td>
+</tr>
+<tr>
+<td>W292</td>
+<td>no newline at end of file<br/>
+                Why: <a href="https://stackoverflow.com/a/729795/562769">answer</a></td>
+<td></td>
+</tr>
+<tr>
+<td>W293</td>
+<td>blank line contains whitespace<br/>
+                Why: It just adds noise to `git diff`</td>
+<td>✓✓</td>
+</tr>
+<tr>
+<td colspan="3"></td>
+</tr>
+<tr>
+<th>W3</th>
+<th>Blank line warning</th>
+<th></th>
+</tr>
+<tr>
+<td>W391</td>
+<td>blank line at end of file</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="3"></td>
+</tr>
+<tr>
+<th>W5</th>
+<th>Line break warning</th>
+<th></th>
+</tr>
+<tr>
+<td>W503 (*)</td>
+<td>line break before binary operator</td>
+<td></td>
+</tr>
+<tr>
+<td>W504 (*)</td>
+<td>line break after binary operator</td>
+<td></td>
+</tr>
+<tr>
+<td>W505 (*^)</td>
+<td>doc line too long (82 &gt; 79 characters)</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="3"></td>
+</tr>
+<tr>
+<th>W6</th>
+<th>Deprecation warning</th>
+<th></th>
+</tr>
+<tr>
+<td><a href="https://lintlyci.github.io/Flake8Rules/rules/W601.html">W601</a></td>
+<td>.has_key() is deprecated, use `in`</td>
+<td>✓✓</td>
+</tr>
+<tr>
+<td>W602</td>
+<td>deprecated form of raising exception</td>
+<td></td>
+</tr>
+<tr>
+<td>W603</td>
+<td>`&lt;&gt;` is deprecated, use `!=`</td>
+<td>✓✓</td>
+</tr>
+<tr>
+<td><a href="https://lintlyci.github.io/Flake8Rules/rules/W604.html">W604</a></td>
+<td>backticks are deprecated, use `repr()`</td>
+<td>✓✓</td>
+</tr>
+<tr>
+<td>W605</td>
+<td>invalid escape sequence <code>x</code></td>
+<td></td>
+</tr>
+<tr>
+<td>W606</td>
+<td>`async` and `await` are reserved keywords starting with Python 3.7</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="3"></td>
+</tr>
+<tr>
+<th>F4</th>
+<th>Flake8 module import</th>
+<th></th>
+</tr>
+<tr>
+<td>F401</td>
+<td>module imported but unused</td>
+<td></td>
+</tr>
+<tr>
+<td>F402</td>
+<td>import module from line N shadowed by loop variable<br/>
+                Why: Potential bug.</td>
+<td>✓✓</td>
+</tr>
+<tr>
+<td>F403</td>
+<td>`from module import *` used; unable to detect undefined names</td>
+<td></td>
+</tr>
+<tr>
+<td>F404</td>
+<td>future import(s) name after other statements</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="3"></td>
+</tr>
+<tr>
+<td>F8</td>
+<td>Flake8 name errors</td>
+<td></td>
+</tr>
+<tr>
+<td>F811</td>
+<td>redefinition of unused name from line N<br/>
+                Why: Potentially unused code.</td>
+<td></td>
+</tr>
+<tr>
+<td>F812</td>
+<td>list comprehension redefines name from line N</td>
+<td></td>
+</tr>
+<tr>
+<td>F821</td>
+<td>undefined name name</td>
+<td></td>
+</tr>
+<tr>
+<td>F822</td>
+<td>undefined name name in __all__</td>
+<td></td>
+</tr>
+<tr>
+<td>F823</td>
+<td>local variable name ... referenced before assignment</td>
+<td></td>
+</tr>
+<tr>
+<td>F831</td>
+<td>duplicate argument name in function definition</td>
+<td></td>
+</tr>
+<tr>
+<td>F841</td>
+<td>local variable name is assigned to but never used</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="3"></td>
+</tr>
+<tr>
+<th>N8</th>
+<th>Naming conventions</th>
+<th></th>
+</tr>
+<tr>
+<td>N801</td>
+<td>class names should use CapWords convention</td>
+<td>✓✓</td>
+</tr>
+<tr>
+<td>N802</td>
+<td>function name should be lowercase</td>
+<td>✓✓</td>
+</tr>
+<tr>
+<td>N803</td>
+<td>argument name should be lowercase</td>
+<td>✓✓</td>
+</tr>
+<tr>
+<td>N804</td>
+<td>first argument of a classmethod should be named <code>cls</code></td>
+<td>✓✓</td>
+</tr>
+<tr>
+<td>N805</td>
+<td>first argument of a method should be named <code>self</code></td>
+<td>✓✓</td>
+</tr>
+<tr>
+<td>N806</td>
+<td>variable in function should be lowercase</td>
+<td>✓✓</td>
+</tr>
+<tr>
+<td>N807</td>
+<td>function name should not start or end with <code>__</code></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="3"></td>
+</tr>
+<tr>
+<td>N811</td>
+<td>constant imported as non constant</td>
+<td></td>
+</tr>
+<tr>
+<td>N812</td>
+<td>lowercase imported as non lowercase</td>
+<td></td>
+</tr>
+<tr>
+<td>N813</td>
+<td>camelcase imported as lowercase</td>
+<td></td>
+</tr>
+<tr>
+<td>N814</td>
+<td>camelcase imported as constant</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="3"></td>
+</tr>
+<tr>
+<th>D1</th>
+<th>Missing Docstrings</th>
+<th></th>
+</tr>
+<tr>
+<td>D100</td>
+<td>Missing docstring in public module</td>
+<td></td>
+</tr>
+<tr>
+<td>D101</td>
+<td>Missing docstring in public class</td>
+<td></td>
+</tr>
+<tr>
+<td>D102</td>
+<td>Missing docstring in public method</td>
+<td></td>
+</tr>
+<tr>
+<td>D103</td>
+<td>Missing docstring in public function</td>
+<td></td>
+</tr>
+<tr>
+<td>D104</td>
+<td>Missing docstring in public package</td>
+<td></td>
+</tr>
+<tr>
+<td>D105</td>
+<td>Missing docstring in magic method</td>
+<td></td>
+</tr>
+<tr>
+<th>D2</th>
+<th>Whitespace Issues</th>
+<th></th>
+</tr>
+<tr>
+<td>D200</td>
+<td>One-line docstring should fit on one line with quotes</td>
+<td></td>
+</tr>
+<tr>
+<td>D201</td>
+<td>No blank lines allowed before function docstring</td>
+<td></td>
+</tr>
+<tr>
+<td>D202</td>
+<td>No blank lines allowed after function docstring</td>
+<td></td>
+</tr>
+<tr>
+<td>D203</td>
+<td>1 blank line required before class docstring</td>
+<td></td>
+</tr>
+<tr>
+<td>D204</td>
+<td>1 blank line required after class docstring</td>
+<td></td>
+</tr>
+<tr>
+<td>D205</td>
+<td>1 blank line required between summary line and description</td>
+<td></td>
+</tr>
+<tr>
+<td>D206</td>
+<td>Docstring should be indented with spaces, not tabs</td>
+<td></td>
+</tr>
+<tr>
+<td>D207</td>
+<td>Docstring is under-indented</td>
+<td></td>
+</tr>
+<tr>
+<td>D208</td>
+<td>Docstring is over-indented</td>
+<td></td>
+</tr>
+<tr>
+<td>D209</td>
+<td>Multi-line docstring closing quotes should be on a separate line</td>
+<td></td>
+</tr>
+<tr>
+<td>D210</td>
+<td>No whitespaces allowed surrounding docstring text</td>
+<td></td>
+</tr>
+<tr>
+<td>D211</td>
+<td>No blank lines allowed before class docstring</td>
+<td></td>
+</tr>
+<tr>
+<td>D212</td>
+<td>Multi-line docstring summary should start at the first line</td>
+<td></td>
+</tr>
+<tr>
+<td>D213</td>
+<td>Multi-line docstring summary should start at the second line</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="3"></td>
+</tr>
+<tr>
+<th>D3</th>
+<th>Quotes Issues</th>
+<th></th>
+</tr>
+<tr>
+<td>D300</td>
+<td>Use &ldquo;&rdquo;&ldquo;triple double quotes&rdquo;&ldquo;&rdquo;</td>
+<td></td>
+</tr>
+<tr>
+<td>D301</td>
+<td>Use r&rdquo;&ldquo;&rdquo; if any backslashes in a docstring</td>
+<td></td>
+</tr>
+<tr>
+<td>D302</td>
+<td>Use u&rdquo;&ldquo;&rdquo; for Unicode docstrings</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="3"></td>
+</tr>
+<tr>
+<th>D4</th>
+<th>Docstring Content Issues</th>
+<th></th>
+</tr>
+<tr>
+<td>D400</td>
+<td>First line should end with a period</td>
+<td></td>
+</tr>
+<tr>
+<td>D401</td>
+<td>First line should be in imperative mood</td>
+<td></td>
+</tr>
+<tr>
+<td>D402</td>
+<td>First line should not be the functions signature</td>
+<td></td>
+</tr>
+<tr>
+<td>D403</td>
+<td>First word of the first line should be properly capitalized</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="editor-support_1">Editor Support</h2>
+<p>You should let your editor do as many automatic formatting changes as you can.</p>
+<ul>
+<li>Sublime Text: Python Flake8 Lint (tested, works fine) and <a href="https://github.com/wistful/SublimeAutoPEP8">Auto PEP8</a> (not tested)</li>
+<li>Spyder: <a href="https://github.com/spyder-ide/spyder-autopep8">Auto PEP8</a> (not tested)</li>
+</ul>
+<h2 id="notes-on-details">Notes on Details</h2>
+<h3 id="maximum-line-length">Maximum Line Length</h3>
+<p>You might consider a maximum line lenght of 80 characters too extreme /
+outdated.</p>
+<p>Well, please have a look how a <a href="https://stackoverflow.com/q/4129049/562769">3-way merge</a> would look like on your machine. This
+is how it looks like on mine:</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2018/07/3-way-merge-80-chars.png"><img alt="3-way merge with 80 character lines" src="../images/2018/07/3-way-merge-80-chars.png" style="width: 512px;"/></a>
+<figcaption class="text-center">3-way merge with 80 character lines</figcaption>
+</figure>
+<p>And now look at files with 100 characters:</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2018/07/3-way-merge-100-chars.png"><img alt="3-way merge with 100 character lines" src="../images/2018/07/3-way-merge-100-chars.png" style="width: 512px;"/></a>
+<figcaption class="text-center">3-way merge with 100 character lines</figcaption>
+</figure>
+<p>Sure, you can still do it. But for sure it also is less comfortable.</p>
+<p>Let's see how famous projects do it (<a href="https://github.com/MartinThoma/algorithms/blob/master/Python/linelength_check.py">code on GitHub</a>):</p>
+<table class="table">
+<tr>
+<th>Project</th>
+<th>95%-line length</th>
+<th>99%-line length</th>
+<th>100%-line length</th>
+</tr>
+<tr>
+<td><a href="https://github.com/numpy/numpy">numpy</a></td>
+<td>75</td>
+<td>80</td>
+<td><a href="https://github.com/numpy/numpy/blob/master/numpy/core/tests/test_multiarray.py#L3568">589</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/scipy/scipy">scipy</a></td>
+<td>76</td>
+<td>83</td>
+<td><a href="https://github.com/scipy/scipy/blob/master/scipy/signal/tests/test_windows.py#L471">5223</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/pandas-dev/pandas">pandas</a></td>
+<td>74</td>
+<td>79</td>
+<td><a href="https://github.com/pandas-dev/pandas/blob/master/pandas/tests/io/formats/test_to_html.py#L52">801</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/python-pillow/Pillow">Pillow</a></td>
+<td>73</td>
+<td>80</td>
+<td><a href="https://github.com/python-pillow/Pillow/blob/master/src/PIL/PdfParser.py#L181">185</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/zzzeek/sqlalchemy">sqlalchemy</a></td>
+<td>73</td>
+<td>78</td>
+<td><a href="https://github.com/zzzeek/sqlalchemy/blob/master/lib/sqlalchemy/dialects/postgresql/base.py#L477">144</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/requests/requests">requests</a></td>
+<td>77</td>
+<td>92</td>
+<td><a href="https://github.com/requests/requests/blob/master/requests/api.py#L22">172</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/python/cpython">cpython</a></td>
+<td>75</td>
+<td>81</td>
+<td><a href="https://github.com/python/cpython/blob/master/Lib/test/test_bz2.py#L61">1182</a></td>
+</tr>
+</table>
+<p>As you can see, all projects try to be below 79&nbsp;characters per line. They
+only break it for tests and documentation. Not for code. While I admit there
+are some cases where you will get above the 79&nbsp;character threshold, in
+most cases it just means that you should change the way you wrote your code.
+I've often seen it when you have many nested loops or conditions.</p>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2018-07-01T20:00:00+02:00">Jul 1, 2018</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#python-ref">Python
+                    <span>90</span>
+</a></li>
+                <li><a href="../tags.html#style-guide-ref">Style Guide
+                    <span>1</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

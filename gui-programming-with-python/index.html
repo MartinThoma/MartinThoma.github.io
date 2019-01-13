@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Python, GTK, Qt, tkinter, Code, " />
+
+<meta property="og:title" content="GUI programming with Python "/>
+<meta property="og:url" content="../gui-programming-with-python/" />
+<meta property="og:description" content="A graphical user interface (GUI) is essential for applications which should be used by standard computer users (non-developers, not computer scientists, ...). However, I have almost no experience with GUI development outside of the web. Multiple GUI toolkits exist and the only one I have ever used is Tk for a …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2015-01-23T14:39:00+01:00" />
+<meta name="twitter:title" content="GUI programming with Python ">
+<meta name="twitter:description" content="A graphical user interface (GUI) is essential for applications which should be used by standard computer users (non-developers, not computer scientists, ...). However, I have almost no experience with GUI development outside of the web. Multiple GUI toolkits exist and the only one I have ever used is Tk for a …">
+<meta property="og:image" content="logos/gui-programming.png" />
+<meta name="twitter:image" content="logos/gui-programming.png" >
+
+        <title>GUI programming with Python  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../gui-programming-with-python/"> GUI programming with Python  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#gui-toolkits" title="GUI toolkits">GUI toolkits</a></li><li><a class="toc-href" href="#comparison" title="Comparison">Comparison</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>A graphical user interface (GUI) is essential for applications which should be
+used by standard computer users (non-developers, not computer scientists, ...).
+However, I have almost no experience with GUI development outside of the web.</p>
+<p>Multiple GUI toolkits exist and the only one I have ever used is
+<a href="https://en.wikipedia.org/wiki/Tk_(software)">Tk</a> for a very, very simple GUI.</p>
+<p>In this article, I want to share some of my thoughts about GUI development with
+Python as a beginner. I might update this in future.</p>
+<h2 id="gui-toolkits">GUI toolkits</h2>
+<blockquote>
+<p>A widget toolkit, widget library, GUI toolkit, or UX library is a library or
+a collection of libraries containing a set of graphical control elements
+(called widgets) used to construct the graphical user interface (GUI) of
+programs.</p>
+</blockquote>
+<p>Source: <a href="https://en.wikipedia.org/wiki/Widget_toolkit">Widget toolkit</a></p>
+<h2 id="comparison">Comparison</h2>
+<p>I am only interested in GUI toolkits</p>
+<ul>
+<li>which work on Ubuntu 12.04+,</li>
+<li>which have a Python binding,</li>
+<li>which are OpenSource and have a good license,</li>
+<li>which are used by others (and hence have enough documentation and examples)</li>
+</ul>
+<p>It seems to me that only the following four toolkits fulfill these requirements:
+GTK, Qt, Tk, wxWidgets. Some of these have multiple Python bindings and all
+have multiple GUI builders / designers. I tried to find the most commonly used
+one. Please let me know if I should add something, replace something:</p>
+<style>
+    .data-table {
+        border-collapse: collapse;
+    }
+    .border-bottom {
+        border-bottom: 1px solid #000;
+    }
+    .border-right {
+        border-right: 1px solid #000;
+    }
+</style>
+<table class="data-table">
+<tr>
+<th class="border-bottom border-right">Name</th>
+<th class="border-bottom"><a href="https://en.wikipedia.org/wiki/GTK%2B">GTK+</a></th>
+<th class="border-bottom"><a href="https://en.wikipedia.org/wiki/Qt_(software)">Qt</a></th>
+<th class="border-bottom"><a href="https://en.wikipedia.org/wiki/Tk_(software)">Tk</a></th>
+<th class="border-bottom"><a href="https://en.wikipedia.org/wiki/WxWidgets">wxWidgets</a></th>
+</tr>
+<tr>
+<th class="border-right">Latest version (23.01.2015)</th>
+<td>3.14.1</td>
+<td>5.4.0</td>
+<td>8.6.3</td>
+<td>3.0.2</td>
+</tr>
+<tr>
+<th class="border-right">Official Website</th>
+<td><a href="http://www.gtk.org/">gtk.org</a></td>
+<td><a href="https://qt-project.org/">qt-project.org</a></td>
+<td><a href="http://www.tcl.tk/">tcl.tk</a></td>
+<td><a href="http://wxwidgets.org/">wxwidgets.org</a></td>
+</tr>
+<tr>
+<th class="border-right">Initial release</th>
+<td>1998</td>
+<td>1995</td>
+<td>1991</td>
+<td>1992</td>
+</tr>
+<tr>
+<th class="border-right">Written in</th>
+<td>C</td>
+<td>C++</td>
+<td>C</td>
+<td>C++</td>
+</tr>
+<tr>
+<th class="border-right">Documentation</th>
+<td><a href="http://www.gtk.org/documentation.php">gtk.org/documentation.php</a></td>
+<td><a href="http://doc.qt.io/">doc.qt.io</a></td>
+<td><a href="http://www.tkdocs.com/">tkdocs.com</a></td>
+<td><a href="http://wxwidgets.org/docs/">wxwidgets.org/docs</a></td>
+</tr>
+<tr>
+<th class="border-right">Tutorial</th>
+<td><a href="https://developer.gnome.org/gtk-tutorial/stable/">developer.gnome.org/gtk-tutorial/stable</a></td>
+<td><a href="http://qt-project.org/doc/qt-4.8/tutorials.html">qt-project.org/doc/qt-4.8/tutorials.html</a></td>
+<td><a href="http://www.tkdocs.com/tutorial/index.html">tkdocs.com/tutorial</a></td>
+<td><a href="https://www.wxwidgets.org/docs/tutorials/">wxwidgets.org/docs/tutorials</a></td>
+</tr>
+<tr>
+<th class="border-right">StackOverflow questions</th>
+<td>4,715</td>
+<td>37,626</td>
+<td>929</td>
+<td>1,918</td>
+</tr>
+<tr>
+<td class="border-right">StackOverflow unanswered</td>
+<td>1,159</td>
+<td>9,704</td>
+<td>208</td>
+<td>429</td>
+</tr>
+<tr>
+<th class="border-right">License</th>
+<td>LGPL 2.1&nbsp;</td>
+<td>LGLP 3.0 (mutliple</td>
+<td>BSD-style</td>
+<td>wxWindows License</td>
+</tr>
+<tr>
+<th class="border-right">Python binding</th>
+<td>PyGTK (<a href="http://www.pygtk.org/pygtk2reference/">docs</a>)</td>
+<td>PySide (<a href="http://qt-project.org/wiki/PySide">docs</a>), PyQt</td>
+<td>Tkinter (<a href="https://docs.python.org/3/library/tkinter.html">docs</a>)</td>
+<td>wxPython (<a href="http://www.wxpython.org/">docs</a>)</td>
+</tr>
+<tr>
+<th class="border-right">Python 3 support</th>
+<td>yes</td>
+<td>yes</td>
+<td>yes?</td>
+<td>yes</td>
+</tr>
+<tr>
+<th class="border-right">Designer</th>
+<td>Glade Interface Designer</td>
+<td>QtDesigner, QtCreator, QDevelop, Edyuk</td>
+<td>SpecTcl</td>
+<td>wxGlade</td>
+</tr>
+<tr>
+<th class="border-right">Famous applications</th>
+<td>Gnome applications like Inkscape, <a href="https://github.com/elbersb/otr-verwaltung">OTR-Verwaltung</a></td><!-- GTK-->
+<td>vlc, Virtual Box, KDE applications like K3B, <a href="https://github.com/dae/anki">Anki</a></td><!-- Qt-->
+<td>I could not find any</td><!-- Tk-->
+<td>Code::Blocks<br/>FileZilla<br/>0 A.D.</td><!-- wxwidgets-->
+</tr>
+</table>
+<p>There are also some applications which use custom UI toolkits:</p>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=2822114">Sublime Text</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Firefox">Firefox</a></li>
+<li><a href="http://ask.libreoffice.org/en/question/81/which-gui-toolkit-is-used-by-lo/">LibreOffice</a></li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/List_of_widget_toolkits">List of widget toolkits</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Graphical_user_interface_builder">Graphical user interface builder</a></li>
+<li><a href="https://python-gtk-3-tutorial.readthedocs.org/en/latest/">The Python GTK+ 3 Tutorial</a></li>
+<li><a href="http://stackoverflow.com/q/349409/562769">Why are Tk GUI's considered ugly?</a></li>
+<li><a href="http://stackoverflow.com/q/19584076/562769">wxPython vs PyQt vs PyGTK: when and what to use?</a></li>
+<li><a href="http://askubuntu.com/q/85144">What's the difference between GTK and QT?</a></li>
+</ul>
+<p>Qt-specific</p>
+<ul>
+<li><a href="http://qt-project.org/wiki/Differences_Between_PySide_and_PyQt">Differences Between PySide and PyQt</a></li>
+<li><a href="http://askubuntu.com/q/140740/10425">Should I use PyQt or PySide for a new Qt project?</a></li>
+<li><a href="http://stackoverflow.com/q/6888750/562769">PyQt or PySide - which one to use</a></li>
+<li><a href="http://pythonthusiast.pythonblogs.com/230_pythonthusiast/archive/1348_developing_cross_platform_application_using_qt_pyqt_and_pyside__introduction-part_1_of_5.html">Developing Cross Platform Application using Qt, PyQt and PySide : Introduction - Part 1 of 5</a></li>
+</ul>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2015-01-23T14:39:00+01:00">Jan 23, 2015</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#gtk-ref">GTK
+                    <span>1</span>
+</a></li>
+                <li><a href="../tags.html#python-ref">Python
+                    <span>90</span>
+</a></li>
+                <li><a href="../tags.html#qt-ref">Qt
+                    <span>1</span>
+</a></li>
+                <li><a href="../tags.html#tkinter-ref">tkinter
+                    <span>1</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

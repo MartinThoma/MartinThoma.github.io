@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Linux, Command Line, Memory, Code, " />
+
+<meta property="og:title" content="Linux Memory Consumption "/>
+<meta property="og:url" content="../linux-memory-consumption/" />
+<meta property="og:description" content="free I&#39;ve you want to check your memory consumption on a Linux machine, you can use free. moose@pc07:~$ free -m total used free shared buffers cached Mem: 3952 2832 1119 0 117 1565 -/+ buffers/cache: 1150 2802 Swap: 8656 0 8656 This means: I have a total of 3952 …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2012-02-10T21:04:45+01:00" />
+<meta name="twitter:title" content="Linux Memory Consumption ">
+<meta name="twitter:description" content="free I&#39;ve you want to check your memory consumption on a Linux machine, you can use free. moose@pc07:~$ free -m total used free shared buffers cached Mem: 3952 2832 1119 0 117 1565 -/+ buffers/cache: 1150 2802 Swap: 8656 0 8656 This means: I have a total of 3952 …">
+
+        <title>Linux Memory Consumption  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../linux-memory-consumption/"> Linux Memory Consumption  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#free" title="free">free</a></li><li><a class="toc-href" href="#top" title="top">top</a></li><li><a class="toc-href" href="#pmap" title="pmap">pmap</a></li><li><a class="toc-href" href="#vmstat" title="vmstat">vmstat</a></li><li><a class="toc-href" href="#sources" title="Sources">Sources</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <h2 id="free">free</h2>
+<p>I've you want to check your memory consumption on a Linux machine, you can use free.</p>
+<div class="highlight"><pre><span></span>moose@pc07:~$ free -m
+             total       used       free     shared    buffers     cached
+Mem:          <span class="m">3952</span>       <span class="m">2832</span>       <span class="m">1119</span>          <span class="m">0</span>        <span class="m">117</span>       <span class="m">1565</span>
+-/+ buffers/cache:       <span class="m">1150</span>       <span class="m">2802</span>
+Swap:         <span class="m">8656</span>          <span class="m">0</span>       <span class="m">8656</span>
+</pre></div>
+<p>This means: I have a total of 3952 MB <a href="http://en.wikipedia.org/wiki/Random-access_memory">RAM</a>, used and free should be clear, shared is memory which is shared between processes, e.g. shared libraries. The "buffers" entry tells you how much of your RAM is being used for disk buffering. Over 8 GB got swapped out.</p>
+<h2 id="top">top</h2>
+<p>top will give you something like Windows' task manager in the command line. If you press "M" it gets sorted by memory utilization:</p>
+<figure class="aligncenter">
+<a href="../images/2012/02/top-memory.png"><img alt="top sorted by memory utilization" class="size-full wp-image-13591" src="../images/2012/02/top-memory.png" style="max-width:500px;max-height:497px"/></a>
+<figcaption class="text-center">top sorted by memory utilization</figcaption>
+</figure>
+<h2 id="pmap">pmap</h2>
+<p>pmap reports a memory map of a process. Lets make an example. Eclipse has the process ID (pid) 4526 at the moment.</p>
+<div class="highlight"><pre><span></span>pmap <span class="m">4526</span>
+</pre></div>
+<p>gives the following output:</p>
+<div class="highlight"><pre><span></span><span class="m">4526</span>:   /usr/lib/eclipse/eclipse
+Address   Kbytes Mode  Offset           Device    Mapping
+<span class="m">08048000</span>      <span class="m">16</span> r-x-- <span class="m">0000000000000000</span> <span class="m">008</span>:00001 eclipse
+0804c000       <span class="m">4</span> r---- <span class="m">0000000000003000</span> <span class="m">008</span>:00001 eclipse
+0804d000       <span class="m">4</span> rw--- <span class="m">0000000000004000</span> <span class="m">008</span>:00001 eclipse
+096c4000   <span class="m">11608</span> rw--- <span class="m">0000000000000000</span> <span class="m">000</span>:00000   <span class="o">[</span> anon <span class="o">]</span>
+62e40000   <span class="m">43776</span> rw--- <span class="m">0000000000000000</span> <span class="m">000</span>:00000   <span class="o">[</span> anon <span class="o">]</span>
+<span class="m">65900000</span>  <span class="m">130944</span> rw--- <span class="m">0000000000000000</span> <span class="m">000</span>:00000   <span class="o">[</span> anon <span class="o">]</span>
+6d8e0000   <span class="m">87424</span> rw--- <span class="m">0000000000000000</span> <span class="m">000</span>:00000   <span class="o">[</span> anon <span class="o">]</span>
+72e40000  <span class="m">262144</span> rw--- <span class="m">0000000000000000</span> <span class="m">000</span>:00000   <span class="o">[</span> anon <span class="o">]</span>
+82e40000   <span class="m">44800</span> rw--- <span class="m">0000000000000000</span> <span class="m">000</span>:00000   <span class="o">[</span> anon <span class="o">]</span>
+85a00000     <span class="m">512</span> ----- <span class="m">0000000000000000</span> <span class="m">000</span>:00000   <span class="o">[</span> anon <span class="o">]</span>
+85a80000  <span class="m">216832</span> rw--- <span class="m">0000000000000000</span> <span class="m">000</span>:00000   <span class="o">[</span> anon <span class="o">]</span>
+92e40000    <span class="m">6312</span> r--s- <span class="m">0000000000001000</span> <span class="m">008</span>:00001 classes.jsa
+9346a000    <span class="m">3928</span> rw--- <span class="m">0000000000000000</span> <span class="m">000</span>:00000   <span class="o">[</span> anon <span class="o">]</span>
+<span class="m">93840000</span>    <span class="m">7412</span> rw--- 000000000062b000 <span class="m">008</span>:00001 classes.jsa
+93f7d000    <span class="m">4876</span> rw--- <span class="m">0000000000000000</span> <span class="m">000</span>:00000   <span class="o">[</span> anon <span class="o">]</span>
+<span class="m">94440000</span>     <span class="m">904</span> rw--- 0000000000d68000 <span class="m">008</span>:00001 classes.jsa
+<span class="m">94522000</span>    <span class="m">3192</span> rw--- <span class="m">0000000000000000</span> <span class="m">000</span>:00000   <span class="o">[</span> anon <span class="o">]</span>
+<span class="m">94840000</span>      <span class="m">32</span> r-xs- 0000000000e4a000 <span class="m">008</span>:00001 classes.jsa
+<span class="m">94848000</span>    <span class="m">4064</span> rw--- <span class="m">0000000000000000</span> <span class="m">000</span>:00000   <span class="o">[</span> anon <span class="o">]</span>
+b17f5000      <span class="m">44</span> r--s- <span class="m">0000000000070000</span> <span class="m">008</span>:00001 org.eclipse.jdt.junit_3.5.2.r352_v20100113-0800.jar
+b1800000     <span class="m">144</span> rw--- <span class="m">0000000000000000</span> <span class="m">000</span>:00000   <span class="o">[</span> anon <span class="o">]</span>
+b1824000     <span class="m">880</span> ----- <span class="m">0000000000000000</span> <span class="m">000</span>:00000   <span class="o">[</span> anon <span class="o">]</span>
+b1909000      <span class="m">12</span> ----- <span class="m">0000000000000000</span> <span class="m">000</span>:00000   <span class="o">[</span> anon <span class="o">]</span>
+b190c000     <span class="m">312</span> rwx-- <span class="m">0000000000000000</span> <span class="m">000</span>:00000   <span class="o">[</span> anon <span class="o">]</span>
+b195a000      <span class="m">12</span> ----- <span class="m">0000000000000000</span> <span class="m">000</span>:00000   <span class="o">[</span> anon <span class="o">]</span>
+b195d000     <span class="m">312</span> rwx-- <span class="m">0000000000000000</span> <span class="m">000</span>:00000   <span class="o">[</span> anon <span class="o">]</span>
+b19ab000      <span class="m">12</span> ----- <span class="m">0000000000000000</span> <span class="m">000</span>:00000   <span class="o">[</span> anon <span class="o">]</span>
+b19ae000     <span class="m">312</span> rwx-- <span class="m">0000000000000000</span> <span class="m">000</span>:00000   <span class="o">[</span> anon <span class="o">]</span>
+b19fc000      <span class="m">12</span> ----- <span class="m">0000000000000000</span> <span class="m">000</span>:00000   <span class="o">[</span> anon <span class="o">]</span>
+b19ff000     <span class="m">312</span> rwx-- <span class="m">0000000000000000</span> <span class="m">000</span>:00000   <span class="o">[</span> anon <span class="o">]</span>
+b1a4d000      <span class="m">16</span> r-x-- <span class="m">0000000000000000</span> <span class="m">008</span>:00001 libattr.so.1.1.0
+b1a51000       <span class="m">4</span> r---- <span class="m">0000000000003000</span> <span class="m">008</span>:00001 libattr.so.1.1.0
+b1a52000       <span class="m">4</span> rw--- <span class="m">0000000000004000</span> <span class="m">008</span>:00001 libattr.so.1.1.0
+b1a53000      <span class="m">24</span> r-x-- <span class="m">0000000000000000</span> <span class="m">008</span>:00001 libfam.so.0.0.0
+b1a59000       <span class="m">4</span> r---- <span class="m">0000000000006000</span> <span class="m">008</span>:00001 libfam.so.0.0.0
+b1a5a000       <span class="m">4</span> rw--- <span class="m">0000000000007000</span> <span class="m">008</span>:00001 libfam.so.0.0.0
+b1a5b000      <span class="m">24</span> r-x-- <span class="m">0000000000000000</span> <span class="m">008</span>:00001 libacl.so.1.1.0
+b1a61000       <span class="m">4</span> r---- <span class="m">0000000000006000</span> <span class="m">008</span>:00001 libacl.so.1.1.0
+b1a62000       <span class="m">4</span> rw--- <span class="m">0000000000007000</span> <span class="m">008</span>:00001 libacl.so.1.1.0
+b1a63000      <span class="m">48</span> r-x-- <span class="m">0000000000000000</span> <span class="m">008</span>:00001 libfile.so
+b1a6f000       <span class="m">4</span> r---- 000000000000b000 <span class="m">008</span>:00001 libfile.so
+b1a70000       <span class="m">4</span> rw--- 000000000000c000 <span class="m">008</span>:00001 libfile.so
+b1a71000     <span class="m">100</span> r--s- <span class="m">0000000000000000</span> <span class="m">008</span>:00001 mime.cache
+b1a8a000      <span class="m">12</span> r-x-- <span class="m">0000000000000000</span> <span class="m">008</span>:00001 libgpg-error.so.0.4.0
+b1a8d000       <span class="m">4</span> r---- <span class="m">0000000000002000</span> <span class="m">008</span>:00001 libgpg-error.so.0.4.0
+<span class="o">[</span>...<span class="o">]</span>
+b755a000       <span class="m">4</span> r--s- <span class="m">0000000000001000</span> <span class="m">008</span>:00001 runtime_registry_compatibility.jar
+b755b000       <span class="m">4</span> rw--- <span class="m">0000000000000000</span> <span class="m">000</span>:00000   <span class="o">[</span> anon <span class="o">]</span>
+b755c000      <span class="m">28</span> r-x-- <span class="m">0000000000000000</span> <span class="m">008</span>:00001 libvorbisfile.so.3.3.2
+b7563000       <span class="m">4</span> r---- <span class="m">0000000000006000</span> <span class="m">008</span>:00001 libvorbisfile.so.3.3.2
+b7564000       <span class="m">4</span> rw--- <span class="m">0000000000007000</span> <span class="m">008</span>:00001 libvorbisfile.so.3.3.2
+b7565000      <span class="m">16</span> r-x-- <span class="m">0000000000000000</span> <span class="m">008</span>:00001 libcanberra-gtk-module.so
+b7569000       <span class="m">4</span> ----- <span class="m">0000000000004000</span> <span class="m">008</span>:00001 libcanberra-gtk-module.so
+b756a000       <span class="m">4</span> r---- <span class="m">0000000000004000</span> <span class="m">008</span>:00001 libcanberra-gtk-module.so
+b756b000       <span class="m">4</span> rw--- <span class="m">0000000000005000</span> <span class="m">008</span>:00001 libcanberra-gtk-module.so
+b756c000      <span class="m">44</span> r-x-- <span class="m">0000000000000000</span> <span class="m">008</span>:00001 eclipse_1208.so
+b7577000       <span class="m">4</span> r---- 000000000000a000 <span class="m">008</span>:00001 eclipse_1208.so
+b7578000       <span class="m">4</span> rw--- 000000000000b000 <span class="m">008</span>:00001 eclipse_1208.so
+b7579000     <span class="m">252</span> r---- <span class="m">0000000000000000</span> <span class="m">008</span>:00001 LC_CTYPE
+b75b8000    <span class="m">1144</span> r---- <span class="m">0000000000000000</span> <span class="m">008</span>:00001 LC_COLLATE
+b76d6000       <span class="m">4</span> rw--- <span class="m">0000000000000000</span> <span class="m">000</span>:00000   <span class="o">[</span> anon <span class="o">]</span>
+b76d7000    <span class="m">1356</span> r-x-- <span class="m">0000000000000000</span> <span class="m">008</span>:00001 libc-2.11.1.so
+b782a000       <span class="m">4</span> ----- <span class="m">0000000000153000</span> <span class="m">008</span>:00001 libc-2.11.1.so
+b782b000       <span class="m">8</span> r---- <span class="m">0000000000153000</span> <span class="m">008</span>:00001 libc-2.11.1.so
+b782d000       <span class="m">4</span> rw--- <span class="m">0000000000155000</span> <span class="m">008</span>:00001 libc-2.11.1.so
+b782e000      <span class="m">16</span> rw--- <span class="m">0000000000000000</span> <span class="m">000</span>:00000   <span class="o">[</span> anon <span class="o">]</span>
+b7832000       <span class="m">8</span> r-x-- <span class="m">0000000000000000</span> <span class="m">008</span>:00001 libdl-2.11.1.so
+b7834000       <span class="m">4</span> r---- <span class="m">0000000000001000</span> <span class="m">008</span>:00001 libdl-2.11.1.so
+b7835000       <span class="m">4</span> rw--- <span class="m">0000000000002000</span> <span class="m">008</span>:00001 libdl-2.11.1.so
+b7836000      <span class="m">84</span> r-x-- <span class="m">0000000000000000</span> <span class="m">008</span>:00001 libpthread-2.11.1.so
+b784b000       <span class="m">4</span> r---- <span class="m">0000000000014000</span> <span class="m">008</span>:00001 libpthread-2.11.1.so
+b784c000       <span class="m">4</span> rw--- <span class="m">0000000000015000</span> <span class="m">008</span>:00001 libpthread-2.11.1.so
+b784d000       <span class="m">8</span> rw--- <span class="m">0000000000000000</span> <span class="m">000</span>:00000   <span class="o">[</span> anon <span class="o">]</span>
+b784f000       <span class="m">4</span> r---- <span class="m">0000000000000000</span> <span class="m">000</span>:00000   <span class="o">[</span> anon <span class="o">]</span>
+b7850000       <span class="m">4</span> r---- <span class="m">0000000000000000</span> <span class="m">008</span>:00001 LC_NUMERIC
+b7851000       <span class="m">4</span> r---- <span class="m">0000000000000000</span> <span class="m">008</span>:00001 LC_TIME
+b7852000       <span class="m">4</span> r---- <span class="m">0000000000000000</span> <span class="m">008</span>:00001 LC_MONETARY
+b7853000       <span class="m">4</span> r---- <span class="m">0000000000000000</span> <span class="m">008</span>:00001 SYS_LC_MESSAGES
+b7854000       <span class="m">4</span> r---- <span class="m">0000000000000000</span> <span class="m">008</span>:00001 LC_PAPER
+b7855000       <span class="m">4</span> r---- <span class="m">0000000000000000</span> <span class="m">008</span>:00001 LC_NAME
+b7856000       <span class="m">4</span> r---- <span class="m">0000000000000000</span> <span class="m">008</span>:00001 LC_ADDRESS
+b7857000       <span class="m">4</span> r---- <span class="m">0000000000000000</span> <span class="m">008</span>:00001 LC_TELEPHONE
+b7858000       <span class="m">4</span> r---- <span class="m">0000000000000000</span> <span class="m">008</span>:00001 LC_MEASUREMENT
+b7859000      <span class="m">28</span> r--s- <span class="m">0000000000000000</span> <span class="m">008</span>:00001 gconv-modules.cache
+b7860000       <span class="m">4</span> r---- <span class="m">0000000000000000</span> <span class="m">008</span>:00001 LC_IDENTIFICATION
+b7861000       <span class="m">8</span> rw--- <span class="m">0000000000000000</span> <span class="m">000</span>:00000   <span class="o">[</span> anon <span class="o">]</span>
+b7863000       <span class="m">4</span> r-x-- <span class="m">0000000000000000</span> <span class="m">000</span>:00000   <span class="o">[</span> anon <span class="o">]</span>
+b7864000     <span class="m">108</span> r-x-- <span class="m">0000000000000000</span> <span class="m">008</span>:00001 ld-2.11.1.so
+b787f000       <span class="m">4</span> r---- 000000000001a000 <span class="m">008</span>:00001 ld-2.11.1.so
+b7880000       <span class="m">4</span> rw--- 000000000001b000 <span class="m">008</span>:00001 ld-2.11.1.so
+bfa49000      <span class="m">12</span> ----- <span class="m">0000000000000000</span> <span class="m">000</span>:00000   <span class="o">[</span> anon <span class="o">]</span>
+bfa4d000     <span class="m">304</span> rwx-- <span class="m">0000000000000000</span> <span class="m">000</span>:00000   <span class="o">[</span> stack <span class="o">]</span>
+bfa99000       <span class="m">4</span> rw--- <span class="m">0000000000000000</span> <span class="m">000</span>:00000   <span class="o">[</span> anon <span class="o">]</span>
+mapped: 927836K    writeable/private: 881752K    shared: 13572K
+</pre></div>
+<p>So at the moment eclipse is using 927MB of virtual memory. But it need "only" about 186 MB real, physical memory. According to <a href="http://virtualthreads.blogspot.com/2006/02/understanding-memory-usage-on-linux.html">virtualthreads.blogspot.com</a> all data segments have the access rights rw--- and all code segments have the rights r-x--.</p>
+<h2 id="vmstat">vmstat</h2>
+<p>Virtual memory statistics gives you the following information:</p>
+<p>Here is the example:</p>
+<div class="highlight"><pre><span></span>moose@pc07:~$ vmstat 
+procs -----------memory---------- ---swap-- -----io---- -system-- ----cpu----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa
+ <span class="m">0</span>  <span class="m">0</span>      <span class="m">0</span> <span class="m">1120696</span> <span class="m">119948</span> <span class="m">1599112</span>    <span class="m">0</span>    <span class="m">0</span>    <span class="m">21</span>    <span class="m">35</span>  <span class="m">416</span>  <span class="m">116</span> <span class="m">12</span>  <span class="m">5</span> <span class="m">82</span>  <span class="m">1</span>
+</pre></div>
+<p>--memory--
+<strong>swpd</strong>: sum of the used virtual memory.
+<strong>free</strong>: amount of unused physical memory.
+<strong>buff</strong>: amount of physical memory which gets used as disc-buffer.
+<strong>cache</strong>: amount of physical memory which gets used as cache.
+--swap--
+<strong>si</strong>: amount of memory which gets loaded from hdd to your RAM. If this is positive, you need more RAM.
+<strong>so</strong>: amount of memory which gets loaded from RAM to hdd.
+--io--
+<strong>bi</strong>: input of block devices
+<strong>bo</strong>: output of block devices
+--system--
+<strong>in</strong>: Number of interrupts per second
+<strong>cs</strong>: Context-switches per second
+--cpu--
+<strong>us</strong>: CPU time spent for user processes
+<strong>sy</strong>: CPU time spent for kernel processes
+<strong>id</strong>: idle processor time
+<strong>wa</strong>: Waiting for input / output</p>
+<h2 id="sources">Sources</h2>
+<ul>
+<li><a href="http://linuxwiki.de/vmstat">LinuxWiki</a> (German)</li>
+<li><a href="http://www.cyberciti.biz/faq/linux-check-memory-usage/">cyberciti.biz</a></li>
+</ul>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2012-02-10T21:04:45+01:00">Feb 10, 2012</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#command-line-ref">Command Line
+                    <span>7</span>
+</a></li>
+                <li><a href="../tags.html#linux-ref">Linux
+                    <span>16</span>
+</a></li>
+                <li><a href="../tags.html#memory-ref">Memory
+                    <span>1</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

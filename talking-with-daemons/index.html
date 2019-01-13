@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Python, RPC, daemon, Code, " />
+
+<meta property="og:title" content="Talking with Daemons "/>
+<meta property="og:url" content="../talking-with-daemons/" />
+<meta property="og:description" content="Everybody knows that training big machine learning models takes a lot of computing power. However, it takes much less computing power to evaluate the model for a single instance. One important factor when measuring the time of a program which only runs one image classification is the time for loading …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2016-04-27T23:26:00+02:00" />
+<meta name="twitter:title" content="Talking with Daemons ">
+<meta name="twitter:description" content="Everybody knows that training big machine learning models takes a lot of computing power. However, it takes much less computing power to evaluate the model for a single instance. One important factor when measuring the time of a program which only runs one image classification is the time for loading …">
+<meta property="og:image" content="logos/daemon.png" />
+<meta name="twitter:image" content="logos/daemon.png" >
+
+        <title>Talking with Daemons  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../talking-with-daemons/"> Talking with Daemons  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#rpc-basics" title="RPC basics">RPC basics</a></li><li><a class="toc-href" href="#server" title="Server">Server</a></li><li><a class="toc-href" href="#client" title="Client">Client</a></li><li><a class="toc-href" href="#timing" title="Timing">Timing</a></li><li><a class="toc-href" href="#a-small-chat" title="A small chat">A small chat</a></li><li><a class="toc-href" href="#daemons" title="Daemons">Daemons</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>Everybody knows that training big machine learning models takes a lot of
+computing power. However, it takes much less computing power to evaluate the
+model for a single instance. One important factor when measuring the time
+of a program which only runs one image classification is the time for loading
+the model itself. Only the reading / structuring of the computational graph.
+We don't want to load the model often.</p>
+<p>One possible way around this is making a web service. The user connects to it,
+uploads an image and gets the result. But the model is loaded all the time and
+the web service is running all the time.</p>
+<p>One problem with this approach is that you might want to work on the web
+interface and not having to reload the machine learning part all the time. I
+also think this might be one of the most inefficient ways to realize
+<abbr title="inter process communication">IPC</abbr>.</p>
+<p>Today, it came to my mind that there might be a cleaner approach. I thought
+about creating a daemon and using RPCs.</p>
+<p><strong>Credits to <a href="http://stackoverflow.com/a/658156/562769">codeape</a>. He provided the basis for the examples below.</strong></p>
+<h2 id="rpc-basics">RPC basics</h2>
+<p>RPC is short for <i>remote procedure call</i>. It is a call to a function which
+is not in the same address space as the calling function. So basically code in
+program A calls code from program B.</p>
+<p>In Python, this is actually pretty easy to use with
+<a href="https://pythonhosted.org/Pyro4/">Pyro</a>.</p>
+<h2 id="server">Server</h2>
+<p>Create a file <code>summon_daemon.py</code>:</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+
+<span class="sd">"""The server."""</span>
+
+<span class="kn">import</span> <span class="nn">Pyro.core</span>
+
+
+<span class="k">class</span> <span class="nc">Bartimaeus</span><span class="p">(</span><span class="n">Pyro</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">ObjBase</span><span class="p">):</span>
+    <span class="sd">"""The called class."""</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">"""Constructor."""</span>
+        <span class="n">Pyro</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">ObjBase</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">up</span><span class="p">):</span>
+        <span class="sd">"""Count up."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">+=</span> <span class="n">up</span>
+        <span class="k">return</span> <span class="s2">"I was called {count} times."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="p">)</span>
+
+<span class="n">Pyro</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">initServer</span><span class="p">()</span>
+<span class="n">daemon</span> <span class="o">=</span> <span class="n">Pyro</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">Daemon</span><span class="p">()</span>
+<span class="n">uri</span> <span class="o">=</span> <span class="n">daemon</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">Bartimaeus</span><span class="p">(),</span> <span class="s2">"bartid"</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s2">"The daemon runs on port: {port}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="n">daemon</span><span class="o">.</span><span class="n">port</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">"The object's uri is: {uri}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">uri</span><span class="o">=</span><span class="n">uri</span><span class="p">))</span>
+
+<span class="n">daemon</span><span class="o">.</span><span class="n">requestLoop</span><span class="p">()</span>
+</pre></div>
+<h2 id="client">Client</h2>
+<p>And a <code>call_daemon.py</code>:</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+
+<span class="sd">"""Talk with the daemon."""</span>
+
+<span class="kn">import</span> <span class="nn">Pyro.core</span>
+
+<span class="c1"># you have to change the URI below to match your own host/port.</span>
+<span class="n">bartimaeus</span> <span class="o">=</span> <span class="n">Pyro</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getProxyForURI</span><span class="p">(</span><span class="s2">"PYROLOC://localhost:7766/bartid"</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">bartimaeus</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+<h2 id="timing">Timing</h2>
+<p>I was interested how fast this is locally. So I made a tiny test:</p>
+<p>Server (<code>summon_daemon.py</code>):</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="sd">"""The server."""</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">Pyro.core</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">format</span><span class="o">=</span><span class="s1">'</span><span class="si">%(asctime)s</span><span class="s1"> </span><span class="si">%(levelname)s</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">'</span><span class="p">,</span>
+                    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
+                    <span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Bartimaeus</span><span class="p">(</span><span class="n">Pyro</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">ObjBase</span><span class="p">):</span>
+    <span class="sd">"""The called class."""</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">"""Constructor."""</span>
+        <span class="n">Pyro</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">ObjBase</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">up</span><span class="p">):</span>
+        <span class="sd">"""Count up."""</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"new up: </span><span class="si">%i</span><span class="s2">"</span><span class="p">,</span> <span class="n">up</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">+=</span> <span class="n">up</span>
+        <span class="k">return</span> <span class="s2">"I was called {count} times."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="p">)</span>
+
+<span class="n">Pyro</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">initServer</span><span class="p">()</span>
+<span class="n">daemon</span> <span class="o">=</span> <span class="n">Pyro</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">Daemon</span><span class="p">()</span>
+<span class="n">uri</span> <span class="o">=</span> <span class="n">daemon</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">Bartimaeus</span><span class="p">(),</span> <span class="s2">"bartid"</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s2">"The daemon runs on port: {port}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="n">daemon</span><span class="o">.</span><span class="n">port</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">"The object's uri is: {uri}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">uri</span><span class="o">=</span><span class="n">uri</span><span class="p">))</span>
+
+<span class="n">daemon</span><span class="o">.</span><span class="n">requestLoop</span><span class="p">()</span>
+</pre></div>
+<p>Client (<code>call_daemon.py</code>):</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="sd">"""Talk with the daemon."""</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">Pyro.core</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">format</span><span class="o">=</span><span class="s1">'</span><span class="si">%(asctime)s</span><span class="s1"> </span><span class="si">%(levelname)s</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">'</span><span class="p">,</span>
+                    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
+                    <span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">up</span><span class="p">):</span>
+    <span class="sd">"""Do something with bartimaeus - who lives in another realm."""</span>
+    <span class="c1"># you have to change the URI below to match your own host/port.</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Send up: </span><span class="si">%i</span><span class="s2">"</span><span class="p">,</span> <span class="n">up</span><span class="p">)</span>
+    <span class="n">bartimaeus</span> <span class="o">=</span> <span class="n">Pyro</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getProxyForURI</span><span class="p">(</span><span class="s2">"PYROLOC://localhost:7766/bartid"</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">bartimaeus</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">up</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">get_parser</span><span class="p">():</span>
+    <span class="sd">"""Get parser object for call_demon.py."""</span>
+    <span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span><span class="p">,</span> <span class="n">ArgumentDefaultsHelpFormatter</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="vm">__doc__</span><span class="p">,</span>
+                            <span class="n">formatter_class</span><span class="o">=</span><span class="n">ArgumentDefaultsHelpFormatter</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-n"</span><span class="p">,</span>
+                        <span class="n">dest</span><span class="o">=</span><span class="s2">"up"</span><span class="p">,</span>
+                        <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s2">"count up"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">parser</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">get_parser</span><span class="p">()</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+    <span class="n">main</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">up</span><span class="p">)</span>
+</pre></div>
+<p>resulting in about 0.004s from sending to receiving.</p>
+<figure class="aligncenter">
+<a href="../images/2016/04/daemon.png"><img alt="About 0.004s from sending to receiving" class="" src="../images/2016/04/daemon.png" style="max-width:500px;"/></a>
+<figcaption class="text-center">About 0.004s from sending to receiving</figcaption>
+</figure>
+<h2 id="a-small-chat">A small chat</h2>
+<p>You could implement a very simple chat with this. I only have version 3.16 of
+<a href="https://pythonhosted.org/Pyro4/">Pyro</a> which seems not to have
+<a href="https://pythonhosted.org/Pyro4/clientcode.html#pyro-callbacks">callbacks</a> so
+that the server can inform the client when a new message is there. This means
+the following toy implementation expects the user to send messages to receive
+the current ones. Not nice, but I just wanted to give it a try:</p>
+<p>Server:</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+
+<span class="sd">"""A chat server."""</span>
+
+<span class="kn">import</span> <span class="nn">Pyro.core</span>
+
+
+<span class="k">class</span> <span class="nc">Chat</span><span class="p">(</span><span class="n">Pyro</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">ObjBase</span><span class="p">):</span>
+    <span class="sd">"""The called class."""</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">"""Constructor."""</span>
+        <span class="n">Pyro</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">ObjBase</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">msgs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clients</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">receive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sender</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">last_msg</span><span class="p">):</span>
+        <span class="sd">"""Receive a message."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">msgs</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">sender</span><span class="p">,</span> <span class="n">msg</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">"[{sender}] {msg}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sender</span><span class="o">=</span><span class="n">sender</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="n">msg</span><span class="p">))</span>
+        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">msgs</span><span class="p">[</span><span class="n">last_msg</span><span class="p">:],</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">msgs</span><span class="p">))</span>
+
+<span class="n">Pyro</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">initServer</span><span class="p">()</span>
+<span class="n">daemon</span> <span class="o">=</span> <span class="n">Pyro</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">Daemon</span><span class="p">()</span>
+<span class="n">uri</span> <span class="o">=</span> <span class="n">daemon</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">Chat</span><span class="p">(),</span> <span class="s2">"chat"</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s2">"The daemon runs on port: {port}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="n">daemon</span><span class="o">.</span><span class="n">port</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">"The object's uri is: {uri}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">uri</span><span class="o">=</span><span class="n">uri</span><span class="p">))</span>
+
+<span class="n">daemon</span><span class="o">.</span><span class="n">requestLoop</span><span class="p">()</span>
+</pre></div>
+<p>Client:</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="sd">"""A chat client."""</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">Pyro.core</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">format</span><span class="o">=</span><span class="s1">'</span><span class="si">%(asctime)s</span><span class="s1"> </span><span class="si">%(levelname)s</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">'</span><span class="p">,</span>
+                    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
+                    <span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="sd">"""Run the chat."""</span>
+    <span class="n">chat_server</span> <span class="o">=</span> <span class="n">Pyro</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getProxyForURI</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+    <span class="n">last_msg_id</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"*"</span><span class="o">*</span><span class="mi">80</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"* Chat started. You are called '{name}'."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"*"</span><span class="o">*</span><span class="mi">80</span><span class="p">)</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">()</span>
+        <span class="n">new_msgs</span><span class="p">,</span> <span class="n">last_msg_id</span> <span class="o">=</span> <span class="n">chat_server</span><span class="o">.</span><span class="n">receive</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">last_msg_id</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">sender</span><span class="p">,</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">new_msgs</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">"[{sender}] {msg}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sender</span><span class="o">=</span><span class="n">sender</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="n">msg</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">get_parser</span><span class="p">():</span>
+    <span class="sd">"""Get parser object for chat_client.py."""</span>
+    <span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span><span class="p">,</span> <span class="n">ArgumentDefaultsHelpFormatter</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="vm">__doc__</span><span class="p">,</span>
+                            <span class="n">formatter_class</span><span class="o">=</span><span class="n">ArgumentDefaultsHelpFormatter</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"--server"</span><span class="p">,</span>
+                        <span class="n">dest</span><span class="o">=</span><span class="s2">"server"</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s2">"starts with PYRO://"</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"--name"</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s2">"what others see"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">parser</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">get_parser</span><span class="p">()</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+    <span class="n">main</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">server</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+<h2 id="daemons">Daemons</h2>
+<p>A <a href="https://en.wikipedia.org/wiki/Daemon_(computing)">daemon</a> is a computer
+program that runs as a background process, rather than being under the direct
+control of an interactive user.</p>
+<p>You can <a href="http://stackoverflow.com/a/16420140/562769">create a simple daemon</a>,
+too.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="https://www.reddit.com/r/learnprogramming/comments/4gq8mn/web_service_for_ipc_pros_and_cons/">Web Service for IPC: Pros and Cons?</a></li>
+</ul>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2016-04-27T23:26:00+02:00">Apr 27, 2016</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#daemon-ref">daemon
+                    <span>1</span>
+</a></li>
+                <li><a href="../tags.html#python-ref">Python
+                    <span>90</span>
+</a></li>
+                <li><a href="../tags.html#rpc-ref">RPC
+                    <span>1</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

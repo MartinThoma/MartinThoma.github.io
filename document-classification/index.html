@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="NLP, Machine Learning, Classification, Machine Learning, " />
+
+<meta property="og:title" content="Document Classification "/>
+<meta property="og:url" content="../document-classification/" />
+<meta property="og:description" content="This article explains how to classify texts. Suppose you have a text classification problem. For example, you want to classify incoming emails as (C1) spam (C2) notifications (C3) personal. Hence each email belongs to exactly one of three classes. Basic Setup Suppose you have corpus of 1000 emails. You make …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2017-07-26T20:00:00+02:00" />
+<meta name="twitter:title" content="Document Classification ">
+<meta name="twitter:description" content="This article explains how to classify texts. Suppose you have a text classification problem. For example, you want to classify incoming emails as (C1) spam (C2) notifications (C3) personal. Hence each email belongs to exactly one of three classes. Basic Setup Suppose you have corpus of 1000 emails. You make …">
+<meta property="og:image" content="logos/ml.png" />
+<meta name="twitter:image" content="logos/ml.png" >
+
+        <title>Document Classification  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../document-classification/"> Document Classification  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#basic-setup" title="Basic Setup">Basic Setup</a></li><li><a class="toc-href" href="#get-features" title="Get Features">Get Features</a><ul><li><a class="toc-href" href="#word-presence-feature" title="Word Presence Feature">Word Presence Feature</a></li><li><a class="toc-href" href="#tf-idf" title="Tf-idf">Tf-idf</a></li><li><a class="toc-href" href="#terms-instead-of-words" title="Terms instead of Words">Terms instead of Words</a></li></ul></li><li><a class="toc-href" href="#classifiers_1" title="Classifiers">Classifiers</a></li><li><a class="toc-href" href="#feature-engineering" title="Feature Engineering">Feature Engineering</a></li><li><a class="toc-href" href="#evaluation" title="Evaluation">Evaluation</a></li><li><a class="toc-href" href="#public-datasets" title="Public Datasets">Public Datasets</a></li><li><a class="toc-href" href="#literature" title="Literature">Literature</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>This article explains how to classify texts.</p>
+<p>Suppose you have a text classification problem. For example, you want to
+classify incoming emails as (C1) spam (C2) notifications (C3) personal. Hence each email belongs to exactly one of three classes.</p>
+<h2 id="basic-setup">Basic Setup</h2>
+<p>Suppose <strong>you have corpus</strong> of 1000 emails. You make a <strong>stratified split</strong>
+into 600 training emails and 400 test emails. The class C1 is 40% of the data,
+C2 is 10% of the data and C3 is 50% of the data in both, the training and the
+test set. Don't touch the test set until the very end.</p>
+<p>Let <span class="math">\(I_1 \subsetneq 1, \dots, 600\)</span> be the set of indices of emails which belong
+to class C1, <span class="math">\(I_2 \subsetneq 1, \dots, 600\)</span> be the set of indices of emails
+which belong to set C2 and <span class="math">\(I_3 \subsetneq 1, \dots, 600\)</span> be the set of emails
+which belong to set C3.</p>
+<h2 id="get-features">Get Features</h2>
+<p>Now you <strong>build a list of unique words</strong> <span class="math">\(w\)</span>. Let <span class="math">\(W \in \mathbb{N}\)</span> denote the total number of unique words in the training set. So you know which words appear in the documents in the training set. There are certainly words which you did not see in the training set. Don't worry about this.</p>
+<p>Let the count how often word <span class="math">\(w\)</span> appears in email <span class="math">\(i = 1, \dots, N\)</span> be denoted by <span class="math">\(n_{w,i} \in \mathbb{N}\)</span>. Let <span class="math">\(n_{w, \text{total}} = \sum_{i=1}^N n_{w,i}\)</span> be the count how often the word <span class="math">\(w\)</span> appears in all documents combined.</p>
+<h3 id="word-presence-feature">Word Presence Feature</h3>
+<p>For each word, you can have a binary feature: Either the word is in the e-mail or not. I call this the "word presence feature".</p>
+<p>Now you can calculate: If a word <span class="math">\(w\)</span> appears in a document, the probability that the e-mail belongs to class 1 is</p>
+<div class="math">$$P(C_1|w) = \frac{\sum_{i \in I_1} 1_{n_{w,i} \geq 1}}{n_{w, \text{u}} = \sum_{i \in I_1 \cup I_2 \cup I_3} 1_{n_{w,i} \geq 1}}$$</div>
+<p>Hence you divide the number of e-mails of the first class in which the word <span class="math">\(w\)</span> appeared at least once by the total count of e-mails in which the word <span class="math">\(w\)</span> appeared at least once.</p>
+<p>Ok, but you don't only have one feature, but many. You are interested in
+<span class="math">\(P(C_1 | w_1, \dots, w_N)\)</span>.</p>
+<p>By applying Bayes Rule, we get:</p>
+<div class="math">\begin{align}
+  P(C_1 | w_1, \dots, w_N) &amp;= \frac{P(w_1, \dots, w_N | C_1) \cdot P(C_1)}{P(w_1, \dots, w_N)}\\
+  &amp;= \frac{P(w_1 | C_1) \cdot P(w_2 | w_2, C_1) \dots \cdot P( w_{N} |w_1, \dots, w_{N-1}, C_1) \cdot P(C_1)}{P(w_1, \dots, w_N)}
+\end{align}</div>
+<p>Now, <span class="math">\(P(C_1) = 0.4\)</span> is called the a priori probability of the class <span class="math">\(C_1\)</span>. So
+if we knew nothing about the content of the e-mail, we would guess <span class="math">\(C_1\)</span> has
+a probability of 40% as it is the amout of e-mails in that class.</p>
+<p>The other terms are more difficult. We don't have enough data for this. So we
+make the simplifying (and wrong!) assumption that words are independant of each
+other. Then we get:</p>
+<div class="math">\begin{align}
+  P(C_1 | w_1, \dots, w_N) &amp;= \frac{P(w_1 | C_1) \cdot P(w_2 | C_1) \dots \cdot P( w_{N} | C_1) \cdot P(C_1)}{P(w_1, \dots, w_N)}
+\end{align}</div>
+<p>As we know that</p>
+<div class="math">$$1 = \sum_{i=1}^3 P(C_i | w_1, \dots, w_N)$$</div>
+<p>it is sufficient to calculate the nominators and divide each of the three
+denominators by the sum of all three.</p>
+<p>Congratulations, your first document classifier is working!</p>
+<h3 id="tf-idf">Tf-idf</h3>
+<p>For each word, we can measure how often it appears in a given e-mail. Certainly,
+the more often it appears the more important it is. But the longer the e-mail is,
+the less important it is. So we should divide by the total count of words of
+an e-mail. This is called the term frequency (Tf) of a word in a document (e-mail).
+Sometimes, this is also denoted by <span class="math">\(\text{tf}(w, d)\)</span> where <span class="math">\(w\)</span> is the word (term)
+and <span class="math">\(d\)</span> is the document (e-mail).</p>
+<p>Next, we realize that some words contain more information than others. For
+example, the word "the" might occur in almost every document. We do so by dividing by</p>
+<div class="math">$$\text{idf}(w, D) = \frac{N}{|d \in D: w \in d|}$$</div>
+<p>where <span class="math">\(N = 600\)</span> is the total amount of documents we have in the training set.
+The denominator is the total count of words in all documents in the training
+set combined.</p>
+<p>Hence we can get a Tf-idf feature for all words.</p>
+<p>You can see that this allows us to apply the same Bayesian approach as before.
+In fact, you should now see that the Bayesian approach is not part of the
+features, but a classifier! And if you look at the <a href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf#Definition">tf-idf Wikipedia page</a> you can see that there are a couple of similar features!</p>
+<h3 id="terms-instead-of-words">Terms instead of Words</h3>
+<p>I've only talked about words before, but you can calculate tf-idf for <em>terms</em>,
+too.</p>
+<p>Take "New York" as an example. You might see "New" in an e-mail and you might
+see "York" in an e-mail. But the combined term "New York" is something
+different than seeing both single words. Hence you might want to have the
+tf-idf feature of "New York", too.</p>
+<h2 id="classifiers_1">Classifiers</h2>
+<p>I've introduced the Bayes Classifer, but there are a lot more. Most notably:</p>
+<ul>
+<li><a href="https://martin-thoma.com/svm-with-sklearn/">SVMs</a></li>
+<li>Neural Networks</li>
+<li>Decision Trees (and Random Forests)</li>
+</ul>
+<p>See my <a href="https://martin-thoma.com/comparing-classifiers/">Comparing Classifiers</a>
+for a lot more classifiers.</p>
+<h2 id="feature-engineering">Feature Engineering</h2>
+<p>One thing I would try to find out is which features are really good. You can
+probably figure out keywords with this approach. Hence you can make sense of
+the decision. And you might be able to throw away a lot of words.</p>
+<p>PCA / LDA are two feature reduction methods that might be interesting. Other methods are:</p>
+<ul>
+<li>Forward Feature Construction:<ol>
+<li>Start with an empty set of features.</li>
+<li>For each feature not in the feature list: Find the one where adding it leads to the best accuracy.</li>
+<li>If the desired accuracy is reached, stop. Otherwise continue with 2.</li>
+</ol>
+</li>
+<li>Feature Elimination<ol>
+<li>Start with all features.</li>
+<li>For each feature in the feature list: Try where removing it leads to the least loss in accuracy.</li>
+<li>If the accuracy dropped below the required accuracy, stop and take the last feature list. Otherwise, continue with 2.</li>
+</ol>
+</li>
+</ul>
+<h2 id="evaluation">Evaluation</h2>
+<p>Last, but not least, I suggest the following approach to evaluate what you apply for your e-mail classifier:</p>
+<ul>
+<li>Split the training set into 500 e-mails for training and 100 e-mails for validation</li>
+<li>Traing all methods you guess on the 500 e-mails. Evluate on the 100 e-mails what is best.</li>
+<li>Make sure everything is what you think it should be like. Run your experiments with those 500 / 100 e-mails</li>
+<li>When you're finished, evaluate on the 400 e-mails your final setup. Only once. This is your estimate how good you really are.</li>
+</ul>
+<p>You might also want to have a look at cross-validation.</p>
+<h2 id="public-datasets">Public Datasets</h2>
+<p>I'm not aware of public datasets for document classification, but you can easily
+create one by scraping wikipedia categories / subreddits.</p>
+<p>Leave a comment if I forgot something / you know more details :-)</p>
+<h2 id="literature">Literature</h2>
+<ul>
+<li>Juan Ramos: <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.121.1424&amp;rep=rep1&amp;type=pdf">Using TF-IDF to Determine Word Relevance in Document Queries </a></li>
+</ul>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2017-07-26T20:00:00+02:00">Jul 26, 2017</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#machine-learning-ref">Machine Learning</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#classification-ref">Classification
+                    <span>6</span>
+</a></li>
+                <li><a href="../tags.html#machine-learning-ref">Machine Learning
+                    <span>76</span>
+</a></li>
+                <li><a href="../tags.html#nlp-ref">NLP
+                    <span>3</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

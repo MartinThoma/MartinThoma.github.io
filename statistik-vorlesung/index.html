@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Klausur, Statistik, German posts, " />
+
+<meta property="og:title" content="Statistik - Klausur "/>
+<meta property="og:url" content="../statistik-vorlesung/" />
+<meta property="og:description" content="Dieser Artikel beschäftigt sich mit der Vorlesung „Statistik“ am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr. Bernhard Klar im Wintersemester 2016 / 2017 gehört. Behandelter Stoff Kapitel 0: Vorwissen Empirisches $p$-Quantil Das empirische $p$-Quantil, $0 &lt; p &lt; 1$, ist definiert durch $$x_p := \begin{cases …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2017-01-15T17:30:00+01:00" />
+<meta name="twitter:title" content="Statistik - Klausur ">
+<meta name="twitter:description" content="Dieser Artikel beschäftigt sich mit der Vorlesung „Statistik“ am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr. Bernhard Klar im Wintersemester 2016 / 2017 gehört. Behandelter Stoff Kapitel 0: Vorwissen Empirisches $p$-Quantil Das empirische $p$-Quantil, $0 &lt; p &lt; 1$, ist definiert durch $$x_p := \begin{cases …">
+<meta property="og:image" content="logos/klausur.png" />
+<meta name="twitter:image" content="logos/klausur.png" >
+
+        <title>Statistik - Klausur  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../statistik-vorlesung/"> Statistik - Klausur  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#behandelter-stoff" title="Behandelter Stoff">Behandelter Stoff</a><ul><li><a class="toc-href" href="#kapitel-0-vorwissen" title="Kapitel 0: Vorwissen">Kapitel 0: Vorwissen</a></li><li><a class="toc-href" href="#kapitel-1-parameterschatzung" title="Kapitel 1: Parameter&shy;sch&auml;tzung">Kapitel 1: Parameter&shy;sch&auml;tzung</a></li><li><a class="toc-href" href="#kapitel-2-konfidenzbereiche" title="Kapitel 2: Konfidenz&shy;bereiche">Kapitel 2: Konfidenz&shy;bereiche</a></li><li><a class="toc-href" href="#kapitel-3-statistische-tests" title="Kapitel 3: Statistische Tests">Kapitel 3: Statistische Tests</a></li><li><a class="toc-href" href="#kapitel-4-2-stichproben-vergleiche-nv" title="Kapitel 4: 2-Stichproben Vergleiche (NV)">Kapitel 4: 2-Stichproben Vergleiche (NV)</a></li><li><a class="toc-href" href="#kapitel-5-lineare-regression" title="Kapitel 5: Lineare Regression">Kapitel 5: Lineare Regression</a></li><li><a class="toc-href" href="#kapitel-6-varianz-und-kovarianzanalyse" title="Kapitel 6: Varianz- und Kovarianz&shy;analyse">Kapitel 6: Varianz- und Kovarianz&shy;analyse</a></li><li><a class="toc-href" href="#kapitel-7-kategoriale-daten" title="Kapitel 7: Kategoriale Daten">Kapitel 7: Kategoriale Daten</a></li><li><a class="toc-href" href="#kapitel-8-nichtparametrische-verfahren" title="Kapitel 8: Nicht&shy;parametrische Verfahren">Kapitel 8: Nicht&shy;parametrische Verfahren</a></li></ul></li><li><a class="toc-href" href="#abkurzungen_1" title="Abk&uuml;rzungen">Abk&uuml;rzungen</a></li><li><a class="toc-href" href="#symbolverzeichnis" title="Symbolverzeichnis">Symbolverzeichnis</a></li><li><a class="toc-href" href="#verteilungen" title="Verteilungen">Verteilungen</a></li><li><a class="toc-href" href="#python" title="Python">Python</a></li><li><a class="toc-href" href="#klausur-aufbau" title="Klausur Aufbau">Klausur Aufbau</a></li><li><a class="toc-href" href="#prufungsfragen" title="Pr&uuml;fungsfragen">Pr&uuml;fungsfragen</a></li><li><a class="toc-href" href="#material-und-links" title="Material und Links">Material und Links</a></li><li><a class="toc-href" href="#literatur" title="Literatur">Literatur</a></li><li><a class="toc-href" href="#ubungsbetrieb" title="&Uuml;bungsbetrieb">&Uuml;bungsbetrieb</a></li><li><a class="toc-href" href="#termine-und-klausurablauf" title="Termine und Klausurablauf">Termine und Klausurablauf</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesung &bdquo;Statistik&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://www.math.kit.edu/stoch/~klar/de">Herrn Prof. Dr. Bernhard Klar</a> im Wintersemester 2016 / 2017 geh&ouml;rt.</div>
+<h2 id="behandelter-stoff">Behandelter Stoff</h2>
+<h3 id="kapitel-0-vorwissen">Kapitel 0: Vorwissen</h3>
+<dl>
+<dt><dfn id="empirisches-quartil">Empirisches $p$-Quantil</dfn></dt>
+<dd>
+        Das empirische $p$-Quantil, $0 &lt; p &lt; 1$, ist definiert durch
+
+        $$x_p := \begin{cases}x_{(\lceil n p\rceil)} &amp; n \cdot p \notin \mathbb{N}\\
+                              \frac{1}{2} \left ( x_{(np)} + x_{(np + 1)}\right ) &amp; n \cdot p \in \mathbb{N}\end{cases}$$
+    </dd>
+<dt><dfn>Unteres Quartil</dfn></dt>
+<dd>$$x_{1/4}$$</dd>
+<dt><dfn>Empirischer Median</dfn></dt>
+<dd>$$x_{1/2}$$</dd>
+<dt><dfn>Rechenregeln f&uuml;r Covarianz</dfn></dt>
+<dd>
+
+        $$C(U_1 + U_2, V) = C(U_1, V) + C(U_2, V)$$
+        $$C(AU, B^T V) = A C(U, V) B$$
+
+    </dd>
+<dt><a href="https://de.wikipedia.org/wiki/Normalverteilung"><dfn id="normalverteilug">Normalverteilung</dfn></a></dt>
+<dd>
+
+        Dichte:
+
+        $$f(x) = \frac{1}{\sigma \sqrt{2 \pi}} e^{- \frac{1}{2} {\left ( \frac{x-\mu}{\sigma} \right )}^2}$$
+
+    </dd>
+<dt><a href="https://de.wikipedia.org/wiki/Korrelationskoeffizient#Definitionen"><dfn id="korrelationskoeffizient">Korrelationskoeffizient</dfn></a></dt>
+<dd>$$\rho_{X,Y} =\frac{\operatorname{Cov}(X,Y)}{\sqrt{\operatorname{Var}(X)\operatorname{Var}(Y)}}=\frac{\sigma_{X,Y}^2}{\sigma_{X}\sigma_{Y}}$$</dd>
+<!--     <dt><dfn>Rechenregeln Multivariate Normalverteilung</dfn></dt>
+    <dd>
+
+
+
+    </dd> -->
+</dl>
+<h3 id="kapitel-1-parameterschatzung">Kapitel 1: Parameter&shy;sch&auml;tzung</h3>
+<dl>
+<dt><dfn>Stichprobenraum</dfn></dt>
+<dd>Der Stichprobenraum $\mathfrak{X}$ ist eine Menge von Daten.</dd>
+<dt><dfn id="statistisches-modell">Statistisches Modell</dfn></dt>
+<dd>Ein Tupel $(\mathfrak{X}, (P_\theta)_{\theta \in \Theta})$ hei&szlig;t
+        <i>statistisches Modell</i>, wenn $\mathfrak{X}$ ein Stichprobenraum
+        und $(P_\theta)_{\theta \in \Theta}$ eine Familie von
+        Verteilungen $P_\theta$ ist, welche durch $\theta \in \Theta$
+        parametrisiert ist.
+        </dd>
+<dt><dfn>Sch&auml;tzer</dfn></dt>
+<dd>Sei $(\mathfrak{X}, (P_\theta)_{\theta \in \Theta})$ ein statistisches
+        Modell und $T: \mathfrak{X} \rightarrow \tilde{\Theta}$ eine Abbildung.
+        Dann hei&szlig;t $T$ ein Sch&auml;tzer f&uuml;r $\theta$.</dd>
+<dt><dfn id="maximum-likelihood-estimator">Maximum-Likelihood-Sch&auml;tzer</dfn></dt>
+<dd>
+<ol>
+<li><b>Likelihood-Funktion</b>: Multipliziere die Wahrscheinlichkeit der Werte um $L_x(\vartheta)$ zu bestimmen</li>
+<li><b>Log-Likelihood</b>: Logarithmiere die Likelihood-Funktion $l_x(\vartheta) = \log L_x(\vartheta)$, falls dadurch die Funktion vereinfacht wird</li>
+<li><b>Maximieren</b>: Leite die (Log)likelihood-Funktion ab und setze sie gleich 0 um
+            den Maximum-Likelihood-Sch&auml;tzer $\hat{\vartheta}$ zu bestimmen.</li>
+<li><b>Maximalstelle</b>: Pr&uuml;fe ob zweite Ableitung negativ ist</li>
+</ol>
+</dd>
+<dt><dfn id="momentenschaetzer">Momentensch&auml;tzer</dfn></dt>
+<dd>
+<ol>
+<li>Es sollen z.B. $\mu$ und $\sigma^2$ gesch&auml;tzt werden.</li>
+<li>Dr&uuml;cke $\mu$ und $\sigma^2$ als Funktion der Momente $E X$, $E X^2$, ... aus.</li>
+</ol>
+
+    N&uuml;tzlich: $V(X) = E X^2 - (E X)^2$
+
+    </dd>
+<dt><a href="https://de.wikipedia.org/wiki/Starkes_Gesetz_der_gro%C3%9Fen_Zahlen#Formulierung"><dfn>Starkes Gesetz gro&szlig;er Zahlen</dfn></a></dt>
+<dd>Es seien $Y_1, Y_2, Y_3, \dots$ eine Folge u.i.v. ZV mit existierendem
+        Erwartungswert. Dann gilt:
+        $$P(\left \{ \omega \in \Omega : \lim_{n \rightarrow \infty} \frac{1}{n} \sum_{i=1}^n Y_i(\omega) = E Y_i \right \}) = 1$$
+
+        Schreibweise:
+        $$\frac{1}{n} \sum_{i=1}^n Y_i \stackrel{P-f.s.}{\longrightarrow} E(Y_1)$$
+        </dd>
+<dt><dfn id="score-funktion">Score-Funktion</dfn></dt>
+<dd>$$U_\vartheta(X_1) := \frac{\partial \log f(X_1, \vartheta)}{\partial \vartheta}$$</dd>
+<dt><dfn id="fisher-information">Fisher-Information</dfn></dt>
+<dd>$$I(\vartheta) := \mathbb{E}_\vartheta(U_\vartheta^2) = - \mathbb{E}_\vartheta \left [ \frac{\partial U_\vartheta (X_1)}{\partial \vartheta} \right ] \in [0, \infty]$$</dd>
+<dt><dfn id="cramer-rao">Cram&eacute;r-Rao Ungleichung</dfn></dt>
+<dd>$$V_\vartheta(T) \geq \frac{[E_\vartheta' (T) (\vartheta)]^2}{n I (\vartheta)}$$
+
+        F&uuml;r erwartungstreue Sch&auml;tzer $T$ gilt:
+        $$V_\vartheta(T) \geq \frac{1}{n I (\vartheta)}$$
+    </dd>
+<dt><a href="https://de.wikipedia.org/wiki/Cauchy-Schwarzsche_Ungleichung"><dfn>Cauchy-Schwarz Ungleichung</dfn></a></dt>
+<dd>$$|\langle x, y \rangle | \leq \| x \| \cdot \| y \|$$</dd>
+<dt><a href="https://de.wikipedia.org/wiki/Zentraler_Grenzwertsatz"><dfn>Zentraler Grenzwertsatz</dfn></a> (<dfn id="zgws">ZGWS</dfn>)</dt>
+<dd>Sei $(X_n)_{n \geq 1}$ eine Folge von u.i.v. Zufallsvariablen mit
+        $0 &lt; \sigma^2 = V(X_1) &lt; \infty $. Mit $\mu = \mathbb{E}(X_1)$ gilt
+        dann:
+        $$P(\frac{\sqrt{n}(\bar{X}_n - \mu)}{\sigma} &lt; c) \stackrel{n \rightarrow \infty}{\longrightarrow} \Phi(c)$$</dd>
+<dt><dfn>Score-Gleichung</dfn></dt>
+<dd>Score-Funktion gleich 0 setzen:
+        $$\sum_{i=1}^n \frac{\partial f(x_i, \vartheta)}{\partial \vartheta} = 0$$
+    </dd>
+<dt><dfn>Bias</dfn> (<dfn>Verzerrung</dfn>)</dt>
+<dd>$$b_T(\vartheta) := E_\vartheta(T) - \gamma(\vartheta)$$</dd>
+<dt><dfn>Mittlere Quadratische Abweichung</dfn> (<dfn id="mqa">MQA</dfn>)</dt>
+<dd>
+    $$MQA_T(\vartheta) = E_\vartheta(T - \gamma(\vartheta))^2$$
+
+
+    Es gilt:
+    $$MQA_T(\vartheta) = V_\vartheta(T) + b_T^2 (\vartheta)$$
+    </dd>
+<dt><dfn>Satz 1.7.5</dfn> (<dfn>Asymptotische Verteilung konsistenter Sch&auml;tzer</dfn>)</dt>
+<dd>$$\sqrt{n} (\hat{\vartheta}_n - \vartheta) \stackrel{D_\vartheta}{\rightarrow} \mathcal{N}(0, \frac{1}{I_1 (\vartheta)})$$</dd>
+</dl>
+<h3 id="kapitel-2-konfidenzbereiche">Kapitel 2: Konfidenz&shy;bereiche</h3>
+<dl>
+<dt><dfn id="konfidenzintervall">Konfidenzintervall</dfn> (<dfn>Vertrauensintervall</dfn>)</dt>
+<dd>
+
+        Ein Konfidenzintervall ist ein Intervall $[U, O]$ f&uuml;r einen Parameter
+        $\vartheta$, sodass gilt:
+
+        $$P([U, O] \ni \vartheta) = 1 - \alpha$$
+
+        <ul>
+<li>1-Stichproben-t-Test: $I(X) = \left [\bar{X} - \frac{S}{\sqrt{n}} \cdot t_{n-1;1-\frac{\alpha}{2}}, \bar{X} + \frac{S}{\sqrt{n}} \cdot t_{n-1;1-\frac{\alpha}{2}} \right]$</li>
+<li>Approximativer Binomialtest: $I(X) = \left [ \hat{p}_n - z_{1-\frac{\alpha}{2}} \sqrt{\hat{p}_n (1- \hat{p}_n)/n}, \hat{p}_n + z_{1-\frac{\alpha}{2}} \sqrt{\hat{p}_n (1- \hat{p}_n) / n} \right ]$</li>
+</ul>
+
+        Konfidenzintervalle zur Konfidenzwahrschwahrscheinlichkeit $1-\alpha$
+        haben immer die Form:
+        $$[T - \hat{\sigma} \cdot z_{1-\frac{\alpha}{2}; T + \hat{sigma} \cdot z_{1-\frac{\alpha}{2}}]$$
+        wobei $T$ der Sch&auml;tzer ist, $\hat{\sigma}$ die gesch&auml;tze Varianz des
+        Sch&auml;tzers und $z_{1-\frac{\alpha}{2}$ die Quantilfunktion zur Verteilung
+        des Sch&auml;tzers.
+    </dd>
+<dt><dfn id="satz-von-student">Satz von Student</dfn></dt>
+<dd>Es seien $X_1, X_2, \dots, X_n \stackrel{uiv}{\sim} \mathcal{N}(\mu, \sigma^2),\quad n\geq 2$ sowie $\bar{X} = \frac{1}{n} \sum_{i=1}^n X_i$, $S^2 = \frac{1}{n-1} \sum_{i=1}^n {(X_i - \bar{X})}^2$ sowie $S = \sqrt{S^2}$. Dann gilt:
+
+    <ol>
+<li>$\bar{X} \sim \mathcal{N}(\mu, \frac{\sigma}{n})$</li>
+<li>$\bar{X}$ und $S^2$ sind unabh&auml;ngig</li>
+<li>$\frac{1}{\sigma^2} \sum_{i=1}^n {(X_i - \bar{X})}^2 \sim \chi_{n-1}^2$</li>
+<li>$T = \frac{\sqrt{n} (\bar{X} - \mu)}{S} \sim t_{n-1}$</li>
+</ol>
+</dd>
+</dl>
+<h3 id="kapitel-3-statistische-tests">Kapitel 3: Statistische Tests</h3>
+<dl>
+<dt><dfn>Tests Allgemein</dfn></dt>
+<dd>
+
+        Bei statistischen Tests hat man immer eine Testgr&ouml;&szlig;e $T(x_1, \dots,
+        x_n)$, die auf der Stichprobe $x_1, \dots, x_n$ basiert. Um Aussagen
+        machen zu k&ouml;nnen, muss man die Verteilung von $T$ unter der
+        Nullhypothese $H_0$ kennen. Wenn die Verteilung von $T$ der
+        Studentischen-$t$-Verteilung entspricht ($T \sim t_n$), dann hat man
+        einen $t$-Test.<br/>
+<br/>
+        Wenn der Testentscheid, ob $H_0$ verworfen wird so
+        aussieht:
+        $$H_0 \text{ wird verworfen, falls } T &lt; 123$$
+        dann liegt ein einseitiger Test vor.
+        Falls der Testentscheid, ob $H_0$ verworfen wird so
+        aussieht:
+        $$H_0 \text{ wird verworfen, falls } T &lt; -123 \text{ oder } T &gt; +123$$
+        dann liegt ein zweiseitiger Test vor. Kurz schreibt man dann auch meistens
+        $$H_0 \text{ wird verworfen, falls } |T| &gt; 123$$
+        <br/>
+        In dem beschriebenen Fall liegt eine Stichprobe $X_1, \dots, X_n$ vor,
+        welche aus einer Verteilung gezogen wurde. Es ist aber auch m&ouml;glich,
+        dass man zwei Stichproben $X_1, \dots, X_n$ und $Y_1, \dots, Y_m$ hat.
+        Das ist z.B. bei Medikamententests h&auml;ufig der Fall. Da will man wissen
+        ob beide Stichproben aus der gleichen Verteilung stammen (also das
+        Medikament nichts macht) oder eben nicht.
+
+    </dd>
+<dt><dfn>$z$-Test</dfn></dt>
+<dd>
+<ul>
+<li>Hypothesen: $H_0$: $\mu = \mu_0$ vs $H_1: \mu &lt; \mu_0$</li>
+<li>Testgr&ouml;&szlig;e: $T(x_1, \dots, x_n) = \frac{\sqrt{n} (\bar{x} - \mu_0)}{\sigma}$</li>
+<li>Verteilung: $T \stackrel{H_0}{\sim} \mathcal{N}(0, 1)$</li>
+<li>Testentscheid: $H_0$ verwerfen, falls $T \leq \Phi^{-1}(\alpha) = z_\alpha$</li>
+</ul>
+</dd>
+<dt><dfn>Zweiseitiger Ein-Stichproben-$t$-Test</dfn></dt>
+<dd>
+<ul>
+<li>Testgr&ouml;&szlig;e: $T(x_1, \dots, x_n) = \frac{\sqrt{n} (\bar{x} - \mu_0)}{s}$</li>
+<li>Verteilung: $T \stackrel{H_0}{\sim} t_{n-1}$</li>
+<li>Testentscheid: $H_0$ verwerfen, falls $|T| \geq t_{n-1; 1-\frac{\alpha}{2}}$</li>
+</ul>
+</dd>
+<dt><dfn>Einseitiger Ein-Stichproben-$t$-Test</dfn></dt>
+<dd>
+<ul>
+<li>Testgr&ouml;&szlig;e: $T(x_1, \dots, x_n) = \frac{\sqrt{n} (\bar{x} - \mu_0)}{s}$</li>
+<li>Verteilung: $T \stackrel{H_0}{\sim} t_{n-1}$</li>
+<li>Testentscheid: $H_0$ verwerfen, falls $T \geq t_{n-1; 1-\alpha}$</li>
+</ul>
+</dd>
+<dt><dfn>Ein-Stichproben-Varianz-Test</dfn></dt>
+<dd>
+<ul>
+<li>Hypothesen: $H_0: \sigma^2 = \sigma_0^2$ gegen $H_1: \sigma^2 &gt; \sigma_0^2$</li>
+<li>Testgr&ouml;&szlig;e: $\chi^2 := \frac{(n-1)S^2}{\sigma_0^2}$</li>
+<li>Verteilung: $\chi^2 \stackrel{H_0}{\sim} \chi_{n-1}^2$</li>
+<li>Testentscheid: $H_0$ verwerfen, falls $\chi^2 \geq \chi^2_{n-1;1-\alpha}$</li>
+</ul>
+</dd>
+<dt><a href="https://de.wikipedia.org/wiki/G%C3%BCtefunktion"><dfn id="guetefunktion">G&uuml;tefunktion</dfn></a></dt>
+<dd>Die G&uuml;tefunktion ist $g(\vartheta) = P_\vartheta(\text{Test verwirft } H_0), \quad \vartheta \in \Theta$.<br/>
+        Ist die Nullhypothese einelementig (also $H_0: \vartheta = \vartheta_0$), so gilt $g(\vartheta_0) = \alpha$.
+        Ist die Alternative einelementig (also: $H_1: \vartheta = \vartheta_1$), so gilt $g(\vartheta_1) = 1- \text{Fehler 2. Art}$.</dd>
+<dt><dfn id="neyman-pearson-test">Neyman-Pearson-Test</dfn> (<dfn>NP-Test</dfn>)</dt>
+<dd>
+
+        Sei $h_0(x) = \prod_{i=1}^n f(x, \vartheta_0)$ und
+        $h_1(x) = \prod_{i=1}^n f(x, \vartheta_1)$.<br/>
+<br/>
+        Testentscheid: Verwerfe $H_0$, falls $h_0(x) \leq c h_1(x)$, wobei
+        $c$ so gew&auml;hlt wird, dass das Niveau $\alpha$ eingehalten wird.
+
+    </dd>
+<dt><dfn id="likelihood-quotienten-test">Likelihood-Quotienten-Test</dfn></dt>
+<dd>
+<ul>
+<li>Testgr&ouml;&szlig;e: $$\Lambda = \frac{\sup_{\vartheta \in \Theta} L_x (\vartheta)}{\sup_{\vartheta \in \Theta_0} L_x (\vartheta)}$$</li>
+<li>Hypothesen: $H_0$: $\vartheta \in \Theta_0$ vs $H_1$: $\vartheta \in \Theta \setminus \Theta_0$</li>
+<li>Verteilung: Ist der Sch&auml;tzer konsistent, so gilt $$2 \log(\Lambda_n) \sim \chi_1^2$$</li>
+<li>Testentscheid: Verwerfe $H_0$, falls $\Lambda &gt; c$.
+                W&auml;hle $c$ so, dass Niveau $\alpha$ eingehalten wird.<br/>
+                Also: Verwerfe $H_0$, falls
+                $2 \log \Lambda_n \geq \chi^2_{1, 1-\alpha}$</li>
+</ul>
+</dd>
+<dt><dfn id="approximativer-binomialtest">Approximativer Binomialtest</dfn></dt>
+<dd>
+        Gegeben seien $X_1, \dots, X_n \sim Bin(1, p)$, $p$ unbekannt.
+
+        <ul>
+<li>Hypothesen: $H_0: p = p_0$ vs $H_1: p = p_1$</li>
+<li>Testgr&ouml;&szlig;e: $T_n(x) = \frac{\sqrt{n}(\bar{X} - p)}{\sqrt{p (1-p)}}$</li>
+<li>Verteilung: $T_n \stackrel{H_0}{\sim} \mathcal{N}(0, 1)$</li>
+<li>Testentscheid: $H_0$ verwerfen, falls $T_n &gt; z_{1-\alpha}$</li>
+</ul>
+</dd>
+</dl>
+<h3 id="kapitel-4-2-stichproben-vergleiche-nv">Kapitel 4: 2-Stichproben Vergleiche (NV)</h3>
+<dl>
+<dt><dfn id="f-test-varianzquotient">F-Test f&uuml;r den Varianzquotienten</dfn></dt>
+<dd>
+
+        Gegeben sind zwei Stichproben $X_1, \dots, X_m$ sowie $Y_1, \dots, Y_n$
+        mit $X_i \sim \mathcal{N}(\mu, \sigma^2)$ und $\mathcal{N}(\nu, \tau^2)$.
+
+        <ul>
+<li>Hypothesen: $H_0: \sigma^2 = \tau^2$ vs $H_1: \sigma^2 \neq \tau^2$</li>
+<li>Testgr&ouml;&szlig;e:
+        $$Q_{m,n} = \frac{\frac{1}{m-1} \sum_{i=1}^m {(X_i - \bar{X}_m)}^2}{\frac{1}{n-1} \sum_{i=1}^n {(Y_i - \bar{Y}_n)}^2}$$</li>
+<li>Verteilung: $Q_{m,n} \stackrel{H_0}{\sim} F_{m-1, n-1}$</li>
+<li>Testentscheid: $H_0$ verwerfen, falls $Q_{m,n} \leq F_{m-1,n-1;\frac{\alpha}{2}}$ oder $Q_{m,n} \geq F_{m-1,n-1;1-\frac{\alpha}{2}}$</li>
+</ul>
+</dd>
+</dl>
+<h3 id="kapitel-5-lineare-regression">Kapitel 5: Lineare Regression</h3>
+<dl>
+<dt>Satz 5.4.1</dt>
+<dd>Unter $H_0$ ist die Teststatistik $F = \frac{(TSS - RSS)/(p-r)}{RSS/(n-p)}$ Fisher-verteilt mit $p-r$ Z&auml;hler- und $n-p$ Nenner-Freiheitsgraden.</dd>
+<dt id="anova-tafel">ANOVA-Tafel</dt>
+<dd>
+<table class="table">
+<tr>
+<td>&nbsp;</td>
+<th>Freiheitsgrade</th>
+<th>Quadratsumme</th>
+<th>mittlere Quadratsumme</th>
+<th>Teststatistik</th>
+</tr>
+<tr>
+<th>Regression</th>
+<td>$k-1$</td>
+<td>TSS - RSS</td>
+<td>$\frac{TSS-RSS}{k-1}$</td>
+<td>F = $\frac{TSS-RSS/(k-1)}{RSS/(n-k)}$</td>
+</tr>
+<tr>
+<th>Residuen</th>
+<td>$n-k$</td>
+<td>RSS</td>
+<td>$\frac{RSS}{n-k}$</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th>Gesamt</th>
+<td>$n-1$</td>
+<td>TSS</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+
+        $H_0$: $\mu_1 = \mu_2 = \dots = \mu_k$<br/>
+        $H_0$ verwerfen, wenn $F \geq F_{k-1, n-k; 1- \alpha}$.
+    </dd>
+<dt><dfn id="least-squares-estimator">Kleinster-Quadrate-Sch&auml;tzer</dfn></dt>
+<dd>
+
+        Der Kleinste-Quadrate-Sch&auml;tzer f&uuml;r das klassische lineares Modell
+        $Y = X \beta + \epsilon$ lautet:
+        $$\hat{\beta} = (X^T X)^{-1} X^T Y$$
+        $$\hat{Y} \sim N_n(X \beta, \sigma^2 H)$$
+        $$\hat{\varepsilon}_i \sim \mathcal{N}(0, (1-H_{ii}) \sigma^2)$$
+
+        Der &uuml;bliche Sch&auml;tzer f&uuml;r $\sigma^2$ ist
+        $$\hat{\sigma}^2 = \frac{1}{n-p} \| Y - \hat{Y} \|^2$$
+
+        Die folgenden Sachen kann man alle in der Klausur aus obigen Angaben
+        herleiten (vgl. <a href="http://math.stackexchange.com/q/2159447/6876">math.SE</a>):
+        Es gilt:
+        $$\hat{\beta} \sim N_p(\beta, \sigma^2 (X^T X)^{-1})$$
+        $$\hat{\beta}_i \sim \mathcal{N}(\beta_i, \sigma^2 (X^T X)^{-1}_{i+1, i+1})$$
+        sowie
+        $$(n-p)\hat{\sigma}^2/\sigma^2 \sim \chi^2_{n-p}$$
+
+        Sch&auml;tzer f&uuml;r die Standardabweichung von $\hat{\beta}$:
+        $$se(\hat{\beta}_i) = \hat{\sigma} \sqrt{{(X^T X)}^{-1}_{i,i}}$$
+    </dd>
+</dl>
+<h3 id="kapitel-6-varianz-und-kovarianzanalyse">Kapitel 6: Varianz- und Kovarianz&shy;analyse</h3>
+<dl>
+<dt><dfn>Modellannahmen der Varianzanalyse</dfn></dt>
+<dd>
+
+        Das Rauschen ist unabh&auml;ngig und jeweils $\varepsilon_i \sim \mathcal{N}(0, \sigma^2)$.
+
+    </dd>
+<dt><dfn>Summenrestriktionen</dfn></dt>
+<dd>Es muss ein balanciertes Design ($n_1 = n_2 = \dots = n_k$) vorliegen.
+        Dann muss
+        $$\sum_{i=1}^k \alpha_i = 0$$
+        gelten.
+
+        Das Modell ist $Y = X \beta + \varepsilon$ mit Design-Matrix
+        $$X = \begin{pmatrix}1      &amp; 1&amp; 0      &amp;        &amp;0\\
+                             \vdots &amp; \vdots &amp; \vdots &amp;        &amp;\vdots\\
+                             \vdots &amp; 1      &amp; 0      &amp;        &amp;\vdots\\
+                             \vdots &amp; 0      &amp; 1      &amp;        &amp;\vdots\\
+                             \vdots &amp; \vdots &amp; \vdots &amp;        &amp; \vdots\\
+                             \vdots &amp; \vdots &amp; 1      &amp;        &amp; 0\\
+                             \vdots &amp; \vdots &amp; 0      &amp;        &amp; 1\\
+                             \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp;\vdots\\
+                             \vdots &amp; 0      &amp; 0      &amp;        &amp; 1\\
+                             \vdots &amp; -1     &amp; -1     &amp; \dots  &amp; -1\\
+                             \vdots &amp; \vdots &amp; \vdots &amp;        &amp; \vdots\\
+                             1      &amp; -1     &amp; -1     &amp; \dots  &amp; -1\\\end{pmatrix}$$
+        und Parametervektor
+        $$\beta := \begin{pmatrix}\mu\\\alpha_2\\\dots\\\alpha_k\end{pmatrix}$$
+    </dd>
+<dt><a href="https://de.wikipedia.org/wiki/Bonferroni-Methode"><dfn>Bonferroni-Korrektur</dfn></a></dt>
+<dd>Es liegt eine Familie von $m$ Tests vor. Man macht eine globale Nullhypothese,
+        dass alle Nullhypothesen gelten. Alle $m$ Test werden auf dem Niveau
+        $\frac{\alpha}{m}$ durchgef&uuml;hrt, sodass insgesamt das Niveau $\alpha$
+        erreicht wird.</dd>
+<dt><dfn id="bestimmtheitsmass">Bestimmtheitsma&szlig; $R^2$</dfn></dt>
+<dd>
+
+        $$R^2 = 1 - \frac{RSS}{TSS} = 1 - \frac{\sum_{i=1}^n (y_i - \hat{y}_i)}{\sum_{i=1}^n (y_i - \bar{y}_i)}$$
+
+        Es gilt: $R^2 \in [0, 1]$
+
+        Ist die Kenntnis von $x$ wichtig f&uuml;r die Vorhersage von $y$, so ist das
+        Bestimmtheitsma&szlig; nahe bei 1.
+    </dd>
+<dt><dfn id="globaler-f-test">Globaler $F$-Test</dfn></dt>
+<dd>
+<ul>
+<li>Hypothesen: $H_0$: $\mu_1 = \mu_2 = \dots = \mu_k$ vs $H_1: \exists i, j: \mu_i \neq \mu_j$</li>
+<li>Testgr&ouml;&szlig;e: $F = \frac{(TSS - RSS) / (k-1)}{RSS / (n-k)}$</li>
+<li>Verteilung: $F \stackrel{H_0}{\sim} F_{k-1, n-k}$</li>
+<li>Testentscheid: $H_0$ verwerfen, falls $F \geq F_{k-1, n-k; 1 - \alpha}$</li>
+</ul>
+</dd>
+</dl>
+<h3 id="kapitel-7-kategoriale-daten">Kapitel 7: Kategoriale Daten</h3>
+<p>-</p>
+<h3 id="kapitel-8-nichtparametrische-verfahren">Kapitel 8: Nicht&shy;parametrische Verfahren</h3>
+<dl>
+<dt><dfn id="vorzeichen-test">Vorzeichen-Test f&uuml;r den Median</dfn></dt>
+<dd>
+        Teste die Hypothese ob eine Gr&ouml;&szlig;e $M$ den Mittelwert $\mu$ hat gegen
+        die Alternative $H_1$: $M \neq \mu$.
+        Bilde die Pr&uuml;fgr&ouml;&szlig;e
+        $$S_n = \sum_{i=1}^n \mathbb{1}_{X_i &gt; \mu}$$
+        Falls $H_0$ gilt, dann ist $S_n \sim Bin(n, 0.5)$
+        Lehne $H_0$ ab, wenn $S_n \leq c$ oder $S_n \geq n - c$. Bestimme $c$
+        so, dass
+        $$P_{H_0}(S_n \leq c) + P_{H_0}(S_n \geq n - c) \stackrel{!}{\leq} \alpha$$
+
+    </dd>
+</dl>
+<h2 id="abkurzungen_1">Abk&uuml;rzungen</h2>
+<ul>
+<li>MQA: Mittlere Quadratische Abweichung</li>
+<li>RSS: Residual Sum of Squares</li>
+<li>SQI: Summe der Quadrate innerhalb der Gruppen</li>
+<li>SQZ: Summe der Quadrate zwischen den Gruppen</li>
+<li>TSS: Total Sum of Squares (<span class="math">\(TSS = \sum_{i=1}^n {(y_i - \bar{y}_n)}^2\)</span>)</li>
+<li>uiv, u.i.v.: unabh&auml;ngig identisch verteilt</li>
+</ul>
+<h2 id="symbolverzeichnis">Symbolverzeichnis</h2>
+<table class="table">
+<tr>
+<th>Symbol</th>
+<th>Bedeutung</th>
+</tr>
+<tr>
+<td>$c_\alpha$</td>
+<td>$\Phi^{-1}(\alpha)$: Inverse Verteilungsfunktion der Standardnormalverteilung</td>
+</tr>
+<tr>
+<td>$E(X)$</td>
+<td>Erwartungswert der Zufallsvariable $X$</td>
+</tr>
+<tr>
+<td>$\mathcal{N}(\mu, \sigma^2)$</td>
+<td>Normalverteilung mit Mittelwert $\mu$ und Standardabweichung $\sigma$</td>
+</tr>
+<tr>
+<td>$Pois(\lambda)$</td>
+<td>Poisson-Verteilung</td>
+</tr>
+<tr>
+<td>$t_{n; \beta}$</td>
+<td>Das $\beta$-Quantil der $t_n$-Verteilung.</td>
+</tr>
+<tr>
+<td>$V(X)$</td>
+<td>Varianz der Zufallsvariable $X$</td>
+</tr>
+<tr>
+<td>$\mathfrak{X}$</td>
+<td>Stichprobenraum</td>
+</tr>
+<tr>
+<td>$X \sim A$</td>
+<td>Die Zufallsvariable $X$ ist $AB$-Verteilt.</td>
+</tr>
+<tr>
+<td>$z_{1 - \alpha}$</td>
+<td>Inverse quantilsfunktion der Standardnormalverteilung: $z_{1 - \alpha} = \Phi^{-1}(1-\alpha)$</td>
+</tr>
+</table>
+<h2 id="verteilungen">Verteilungen</h2>
+<table>
+<tr>
+<th>Verteilung</th>
+<th>Schreibweise</th>
+<th>$\mathbb{E}(X)$</th>
+<th>$Var(x)$</th>
+<th>Bemerkung</th>
+</tr>
+<tr>
+<td><a href="https://de.wikipedia.org/wiki/Binomialverteilung">Binomial-Verteilung</a></td>
+<td>$X \sim Bin(n, p)$</td>
+<td>$n \cdot p$</td>
+<td>$n \cdot p \cdot (1-p)$</td>
+<td>$n$-maliges Bernoulli-Experiment</td>
+</tr>
+<tr>
+<td><a href="https://de.wikipedia.org/wiki/Poisson-Verteilung">Poisson-Verteilung</a></td>
+<td>$X \sim Pois(\lambda)$</td>
+<td>$\lambda$</td>
+<td>$\lambda$</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://de.wikipedia.org/wiki/Exponentialverteilung">Exponential-Verteilung</a></td>
+<td>$X \sim Exp(\lambda)$</td>
+<td>$\frac{1}{\lambda}$</td>
+<td>$\frac{1}{\lambda^2}$</td>
+<td>Zerfall-Prozess</td>
+</tr>
+<tr>
+<td><a href="https://de.wikipedia.org/wiki/Normalverteilung">Normalverteilung</a></td>
+<td>$X \sim \mathcal{N}(\mu, \sigma^2)$</td>
+<td>$\mu$</td>
+<td>$\sigma^2$</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://de.wikipedia.org/wiki/Gleichverteilung">Gleichverteilung</a></td>
+<td>$X \sim U[a, b]$</td>
+<td>$\frac{b-a}{2}$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://de.wikipedia.org/wiki/Chi-Quadrat-Verteilung">$\chi^2$-Verteilung</a></td>
+<td>$X \sim \chi^2_n$</td>
+<td>$n$</td>
+<td>$2n$</td>
+<td>Summe von $n$ normalverteilugen Zuvallsvariablen $X_1, \dots, X_n$</td>
+</tr>
+<tr>
+<td><a href="https://de.wikipedia.org/wiki/Studentsche_t-Verteilung">$t$-Verteilung</a></td>
+<td>$X \sim t_k$</td>
+<td>$n$</td>
+<td>$2n$</td>
+<td>$X = \frac{N}{\sqrt{\frac{Y}{k}}}$ mit $Y \sim \chi^2_k$ und $N \sim \mathcal{N}(0, 1)$</td>
+</tr>
+<tr>
+<td><a href="https://de.wikipedia.org/wiki/F-Verteilung">$F$-Verteilung</a></td>
+<td>$X \sim F_{m,n}$</td>
+<td>$\frac{n}{n-2}$ f&uuml;r $n &gt; 2$</td>
+<td>$\frac{2n^2 (m+n-2)}{m(n-2)^2 (n-4)}$ f&uuml;r $n &gt; 4$</td>
+<td>$X = \frac{\frac{1}{r}R}{\frac{1}{s}S}$ mit $R \sim \chi^2_r$, $S \sim \chi^2_s$</td>
+</tr>
+</table>
+<h2 id="python">Python</h2>
+<p>You might want to look into <a href="https://docs.scipy.org/doc/scipy/reference/stats.html"><code>scipy.stats</code></a>
+as it offers many convenient functions.</p>
+<p>For example, if you have to find the 95%-Quantile of the <span class="math">\(F_{k=3,n=19}\)</span> distribution,
+this is what you do:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.stats</span>
+
+<span class="c1"># Create a variable representing the distribution</span>
+<span class="n">rv</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">f</span><span class="p">(</span><span class="n">dfn</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">dfd</span><span class="o">=</span><span class="mi">19</span><span class="p">)</span>
+
+<span class="c1"># Percent point function</span>
+<span class="n">rv</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.95</span><span class="p">)</span>  <span class="c1"># gives 3.1273500051133989</span>
+</pre></div>
+<h2 id="klausur-aufbau">Klausur Aufbau</h2>
+<ul>
+<li>Aufgabe 1 und 2<ul>
+<li><a href="#maximum-likelihood-estimator">ML-Sch&auml;tzer bestimmen</a></li>
+<li><a href="#score-function">Score-Funktion</a> / <a href="#fisher-information">Fisher-Information</a></li>
+<li><a href="#cramer-rao">Cram&eacute;r-Rao-Schranke</a></li>
+<li>asymptotisch Erwartungstreue / Konsistenz von Sch&auml;tzern</li>
+<li>Erwartungswert, Varianz, <a href="#mqa">MQA</a> eines Sch&auml;tzers bestimmen</li>
+<li><a href="#momentenschaetzer">Momentensch&auml;tzer</a> bestimmen</li>
+</ul>
+</li>
+<li>Aufgabe 3<ul>
+<li><a href="#neyman-pearson-test">Neyman-Pearson-Test</a></li>
+<li><a href="#zgws">ZGWS</a></li>
+<li><a href="#likelihood-quotienten-test">Likelihood-Quotienten-Test</a></li>
+</ul>
+</li>
+<li>Aufgabe 4<ul>
+<li><a href="#statistisches-modell">Statistisches Modell</a> angeben</li>
+<li><a href="#empirisches-quartil">Quartile</a> und Median einer Stichprobe bestimmen</li>
+<li><a href="#vorzeichen-test">Vorzeichen-Test</a> f&uuml;r Median</li>
+</ul>
+</li>
+<li>Aufgabe 5<ul>
+<li><a href="#satz-von-student">Satz von Student</a></li>
+<li><a href="#konfidenzintervall">Konfidenzintervall</a></li>
+<li><a href="#guetefunktion">G&uuml;tefunktion</a></li>
+<li>Beziehung zwischen Konfidenzintervall und Tests</li>
+</ul>
+</li>
+<li>Aufgabe 6<ul>
+<li><a href="#korrelationskoeffizient">Korrelationskoeffizient</a></li>
+<li><a href="#anova-tafel">ANOVA-Tafel</a></li>
+<li>Modellannahmen bei einfacher Varianzanalyse</li>
+</ul>
+</li>
+<li>Aufgabe 7<ul>
+<li>Lineares Regressionsmodell</li>
+<li><a href="#least-squares-estimator">Kleinster-Quadrate-Sch&auml;tzer</a></li>
+<li><a href="#bestimmtheitsmass">Bestimmtheitsma&szlig;</a></li>
+<li>Chi-Quadrat-Test auf Homogenit&auml;t (<span class="math">\(D := \sum_{i=1}^n \frac{n_i {(\hat{p}_i - \hat{p})}^2}{\hat{p} (1 - \hat{p})} \stackrel{H_0}{\sim} \chi^2_{k-1}\)</span>)</li>
+</ul>
+</li>
+<li>Various<ul>
+<li>Exp-Verteilung und Zusammenhang mit Gamma-Verteilung</li>
+<li>Binomial-Verteilung</li>
+<li>1-Stichproben t-Test</li>
+<li><a href="#f-test-varianzquotient">F-Test f&uuml;r den Varianzquotienten</a></li>
+<li><a href="#globaler-f-test">Globaler F-Test</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="prufungsfragen">Pr&uuml;fungsfragen</h2>
+<ul>
+<li>Kann ein Sch&auml;tzer Erwartungstreu und Konsistent sein?<br/>
+  &rarr; Ja. Seien <span class="math">\(X_1, \dots, X_n \stackrel{uiv}{\sim} Bin(1, \vartheta)\)</span> mit
+     <span class="math">\(\vartheta \in (0, 1)\)</span>. Sei au&szlig;erdem <span class="math">\(\hat{\vartheta}_n = \frac{1}{n} \sum_{i=1}^n x_i\)</span>.
+     <span class="math">\(\hat{\vartheta}_n\)</span> ist erwartungstreu und konsistent.</li>
+<li>Kann ein Sch&auml;tzer weder Erwartungstreu noch Konsistent sein?<br/>
+  &rarr; Ja. Seien <span class="math">\(X_1, \dots, X_n \stackrel{uiv}{\sim} Bin(1, \vartheta)\)</span> mit
+     <span class="math">\(\vartheta \in (0, 1)\)</span>. Der Sch&auml;tzer <span class="math">\(\hat{\vartheta} = 0.5\)</span> ist weder
+     Erwartungstreu noch konsistent f&uuml;r <span class="math">\(\vartheta \neq 0.5\)</span>.</li>
+<li>Kann ein Sch&auml;tzer Erwartungstreu, aber nicht konsistent sein?<br/>
+  &rarr; Ja. Setting wie zuvor und <span class="math">\(\hat{\vartheta} = x_n\)</span> (siehe <a href="http://math.stackexchange.com/q/2149771/6876">math.SE</a>)</li>
+<li>Kann ein Sch&auml;tzer nicht Erwartungstreu, aber konsistent sein?<br/>
+  &rarr; Ja. Setting wie zuvor und <span class="math">\(\hat{\vartheta} = \frac{1}{n} \sum_{i=1}^n x_i + \frac{1}{n}\)</span> (siehe <a href="http://math.stackexchange.com/q/2149771/6876">math.SE</a>)</li>
+</ul>
+<h2 id="material-und-links">Material und Links</h2>
+<ul>
+<li><a href="http://www.math.kit.edu/stoch/lehre/stat2016w/">Vorlesungswebsite</a></li>
+<li><a href="https://ilias.studium.kit.edu/ilias.php?ref_id=603377&amp;cmd=frameset&amp;cmdClass=ilrepositorygui&amp;cmdNode=75&amp;baseClass=ilRepositoryGUI">Illias</a></li>
+<li>StackExchange<ul>
+<li><a href="http://stats.stackexchange.com/q/156778/25741">Percentile vs quantile vs quartile</a></li>
+<li><a href="http://math.stackexchange.com/q/2120746/6876">When is Fishers exact test used; when are approximative tests used?</a></li>
+<li><a href="http://math.stackexchange.com/q/2157587/6876">What is the range of values of the Fisher information?</a></li>
+<li><a href="http://math.stackexchange.com/q/2159447/6876">How can I calculate the distribution of the least-squares estimator <span class="math">\(\hat{\beta}\)</span>?</a></li>
+</ul>
+</li>
+<li>Blog-Artikel<ul>
+<li><a href="https://martin-thoma.com/abs-function/">The Absolute Value Function</a> - vgl. Konfidenzintervalle</li>
+<li><a href="https://martin-thoma.com/p-value/">The p value</a></li>
+</ul>
+</li>
+<li><a href="https://ankiweb.net/shared/info/245843947">Anki-Karten</a> (<a href="https://martin-thoma.com/anki/Statistik.apkg">direct download</a>)</li>
+<li><a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/normal-distribution">Verteilungsfunktion der Normalverteilung</a> als Tabelle</li>
+<li><a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/normal-distribution-z">Inverse Verteilungsfunktion der Normalverteilung</a> als Tabelle</li>
+<li>Fehlende Musterl&ouml;sungen: <a href="https://github.com/MartinThoma/KIT-Musterloesungen/tree/master/Statistik">KIT-Musterloesungen</a> - Verbesserungshinweise nehme ich immer gerne entgegen (<code>info@martin-thoma.de</code>)</li>
+</ul>
+<h2 id="literatur">Literatur</h2>
+<ul>
+<li>Skript von Dr. B. Klar: Statistik</li>
+<li>[<a href="#ref-bic01-anchor" name="ref-bic01">Bic01</a>] P.J. Bickel and K.A. Doksum. Mathematical statistics, 2nd ed.</li>
+<li>[<a href="#ref-cza11-anchor" name="ref-cza11">Cza11</a>] C. Cazado and T. Schmidt. Mathematische Statistik.</li>
+</ul>
+<h2 id="ubungsbetrieb">&Uuml;bungsbetrieb</h2>
+<p>&Uuml;bungsbl&auml;tter sind freiwillig.</p>
+<h2 id="termine-und-klausurablauf">Termine und Klausurablauf</h2>
+<p><strong>Datum</strong>: 01.03.2017, 7:30 - 9:30 Uhr (Quelle: <a href="http://www.math.kit.edu/stoch/lehre/stat2016w/event/statklausur1/">Vorlesungswebsite</a> - Ja, es ist wirklich so fr&uuml;h!)<br/>
+<strong>Ort</strong>: <a href="https://www.kithub.de/map/2086">Benz-H&ouml;rsaal Geb. 10.21</a><br/>
+<strong>Punkte</strong>: 60<br/>
+<strong>Zeit</strong>: 2h<br/>
+<strong>Punkteverteilung</strong>: TODO<br/>
+<strong>Bestehensgrenze</strong>: mit 20 Punkten hat man bestanden<br/>
+<strong>&Uuml;bungsschein</strong>: gibt es nicht<br/>
+<strong>Bonuspunkte</strong>: gibt es nicht<br/>
+<strong>Nicht vergessen</strong>:</p>
+<ul>
+<li>Studentenausweis</li>
+<li>Taschenrechner</li>
+<li>Uhr</li>
+<li>Brille</li>
+<li>Geodreieck</li>
+</ul>
+<p><strong>Einsicht</strong>: Am 2. M&auml;rz standen schon die Noten fest. Am 16.03.17 um 11:00 - 11:30 Uhr im Raum 2.071 des
+Mathematikgeb&auml;udes ist die Einsicht.</p>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2017-01-15T17:30:00+01:00">Jan 15, 2017</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#german-posts-ref">German posts</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#klausur-ref">Klausur
+                    <span>35</span>
+</a></li>
+                <li><a href="../tags.html#statistik-ref">Statistik
+                    <span>1</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

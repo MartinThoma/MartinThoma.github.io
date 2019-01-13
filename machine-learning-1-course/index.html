@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Klausur, Reinforcement Learning, Clustering, German posts, " />
+
+<meta property="og:title" content="Machine Learning 1 "/>
+<meta property="og:url" content="../machine-learning-1-course/" />
+<meta property="og:description" content="Dieser Artikel beschäftigt sich mit der Vorlesung „Machine Learning 1“ am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr. Zöllner im Wintersemester 2014/2015 gehört.Es gibt auch einen Artikel über Machine Learning 2. Folien Einordnungskriterien Slide name: ML-Einordnungskriterien.pdf Algorithmus Inferenztyp Lernebene Lernvorgang Beispielgebung …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2015-11-09T16:02:00+01:00" />
+<meta name="twitter:title" content="Machine Learning 1 ">
+<meta name="twitter:description" content="Dieser Artikel beschäftigt sich mit der Vorlesung „Machine Learning 1“ am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr. Zöllner im Wintersemester 2014/2015 gehört.Es gibt auch einen Artikel über Machine Learning 2. Folien Einordnungskriterien Slide name: ML-Einordnungskriterien.pdf Algorithmus Inferenztyp Lernebene Lernvorgang Beispielgebung …">
+<meta property="og:image" content="logos/klausur.png" />
+<meta name="twitter:image" content="logos/klausur.png" >
+
+        <title>Machine Learning 1  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../machine-learning-1-course/"> Machine Learning 1  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#folien" title="Folien">Folien</a><ul><li><a class="toc-href" href="#einordnungskriterien" title="Einordnungskriterien">Einordnungskriterien</a></li><li><a class="toc-href" href="#einfuhrung" title="Einf&uuml;hrung">Einf&uuml;hrung</a></li><li><a class="toc-href" href="#induktives-lernen" title="Induktives Lernen">Induktives Lernen</a></li><li><a class="toc-href" href="#reinforcement-learning" title="Reinforcement Learning">Reinforcement Learning</a></li><li><a class="toc-href" href="#lerntheorie" title="Lerntheorie">Lerntheorie</a></li><li><a class="toc-href" href="#neuronale-netze" title="Neuronale Netze">Neuronale Netze</a></li><li><a class="toc-href" href="#instanzbasiertes-lernen" title="Instanzbasiertes Lernen">Instanzbasiertes Lernen</a></li><li><a class="toc-href" href="#svm" title=" SVM"> SVM</a></li><li><a class="toc-href" href="#entscheidungsbaume" title=" Entscheidungsb&auml;ume"> Entscheidungsb&auml;ume</a></li><li><a class="toc-href" href="#bayes-lernen" title="Bayes Lernen">Bayes Lernen</a></li><li><a class="toc-href" href="#hmm" title=" HMM"> HMM</a></li><li><a class="toc-href" href="#markov-logik-netze" title="Markov Logik Netze">Markov Logik Netze</a></li><li><a class="toc-href" href="#evolutionare-algorithmen" title="Evolution&auml;re Algorithmen">Evolution&auml;re Algorithmen</a></li><li><a class="toc-href" href="#deduktives-lernen" title="Deduktives Lernen">Deduktives Lernen</a></li><li><a class="toc-href" href="#unuberwachte-lernverfahren" title=" Un&uuml;berwachte Lernverfahren"> Un&uuml;berwachte Lernverfahren</a></li></ul></li><li><a class="toc-href" href="#prufungsfragen_1" title="Pr&uuml;fungsfragen">Pr&uuml;fungsfragen</a></li><li><a class="toc-href" href="#material-und-links" title="Material und Links">Material und Links</a></li><li><a class="toc-href" href="#literatur" title="Literatur">Literatur</a></li><li><a class="toc-href" href="#ubungsbetrieb" title="&Uuml;bungsbetrieb">&Uuml;bungsbetrieb</a></li><li><a class="toc-href" href="#vorlesungsempfehlungen" title="Vorlesungsempfehlungen">Vorlesungsempfehlungen</a></li><li><a class="toc-href" href="#termine-und-klausurablauf" title="Termine und Klausurablauf">Termine und Klausurablauf</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesung &bdquo;Machine Learning 1&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://www.fzi.de/wir-ueber-uns/organisation/mitarbeiter/address/39/?no_cache=1">Herrn Prof. Dr. Z&ouml;llner</a> im Wintersemester 2014/2015 geh&ouml;rt.<br/>Es gibt auch einen Artikel &uuml;ber <a href="//martin-thoma.com/machine-learning-2-course/">Machine Learning 2</a>.</div>
+<h2 id="folien">Folien</h2>
+<h3 id="einordnungskriterien">Einordnungskriterien</h3>
+<p>Slide name: <code>ML-Einordnungskriterien.pdf</code></p>
+<table class="table" style="font-size: 0.8em;table-layout:initial;">
+<thead>
+<tr>
+<th colspan="2" rowspan="2">Algorithmus</th>
+<th colspan="2" style="text-align: center; border-right: solid;">Inferenztyp</th>
+<th colspan="2" style="text-align: center; border-right: solid;">Lernebene</th>
+<th colspan="2" style="text-align: center; border-right: solid;">Lernvorgang</th>
+<th colspan="2" style="text-align: center; border-right: solid;">Beispielgebung</th>
+<th colspan="2" style="text-align: center; border-right: solid;">Beispielumfang</th>
+<th colspan="2" style="text-align: center;">Hintergrundwissen</th>
+</tr>
+<tr>
+<td style="text-align: center;"><abbr title="induktiv">ind.</abbr></td>
+<td style="text-align: center; border-right: solid;"><abbr title="deduktiv">ded.</abbr></td>
+<td style="text-align: center;"><abbr title="symbolisch">symb.</abbr></td>
+<td style="text-align: center; border-right: solid;"><abbr title="subsymbolisch">subsymb.</abbr></td>
+<td style="text-align: center;">&uuml;berwacht</td>
+<td style="text-align: center; border-right: solid;"><abbr title="un&uuml;berwacht">un&uuml;b.</abbr></td>
+<td style="text-align: center;"><abbr title="inkrementell">inkr.</abbr></td>
+<td style="text-align: center; border-right: solid;"><abbr title="nicht inkrementell">nicht inkr.</abbr></td>
+<td style="text-align: center;">gering</td>
+<td style="text-align: center; border-right: solid;">gro&szlig;</td>
+<td style="text-align: center;"><abbr title="empirisch">emp.</abbr></td>
+<td style="text-align: center;"><abbr title="axiomatisch">axio.</abbr></td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2"><abbr title="k nearest neighbor"><span markdown="0">$k$</span>-NN</abbr></td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">&nbsp;</td>
+<td style="text-align: center; border-right: solid;">x</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">&nbsp;</td>
+<td style="text-align: center; border-right: solid;">x</td>
+<td style="text-align: center;">&nbsp;</td>
+<td style="text-align: center; border-right: solid;">x</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2"><abbr title="Support Vector Machines"><a href="#svm">SVMs</a></abbr></td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">&nbsp;</td>
+<td style="text-align: center; border-right: solid;">x</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">&nbsp;</td>
+<td style="text-align: center; border-right: solid;">x</td>
+<td style="text-align: center;">&nbsp;</td>
+<td style="text-align: center; border-right: solid;">x</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="2"><a href="#decision-trees">Decision Trees</a></td>
+<td>ID3</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">&nbsp;</td>
+<td style="text-align: center; border-right: solid;">x</td>
+<td style="text-align: center;">&nbsp;</td>
+<td style="text-align: center; border-right: solid;">x</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">&nbsp;</td>
+</tr>
+<tr>
+<td>ID5R</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">&nbsp;</td>
+<td style="text-align: center; border-right: solid;">x</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="2"><abbr title="neuronale Netze">NN</abbr></td>
+<td>klassisch</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">&nbsp;</td>
+<td style="text-align: center; border-right: solid;">x</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">&nbsp;</td>
+<td style="text-align: center; border-right: solid;">x</td>
+<td style="text-align: center;">&nbsp;</td>
+<td style="text-align: center; border-right: solid;">x</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">&nbsp;</td>
+</tr>
+<tr>
+<td>Auto-Encoder</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">&nbsp;</td>
+<td style="text-align: center; border-right: solid;">x</td>
+<td style="text-align: center;">&nbsp;</td>
+<td style="text-align: center; border-right: solid;">x</td>
+<td style="text-align: center;">&nbsp;</td>
+<td style="text-align: center; border-right: solid;">x</td>
+<td style="text-align: center;">&nbsp;</td>
+<td style="text-align: center; border-right: solid;">x</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2">Bayessche Netze</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">&nbsp;</td>
+<td style="text-align: center; border-right: solid;">x</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">&nbsp;</td>
+<td style="text-align: center; border-right: solid;">x</td>
+<td style="text-align: center;">&nbsp;</td>
+<td style="text-align: center; border-right: solid;">x</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2"><abbr title="Hidden Markov Models"><a href="#hmm">HMMs</a></abbr></td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">&nbsp;</td>
+<td style="text-align: center; border-right: solid;">x</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">&nbsp;</td>
+<td style="text-align: center; border-right: solid;">x</td>
+<td style="text-align: center;">&nbsp;</td>
+<td style="text-align: center; border-right: solid;">x</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2">Version-Space Algorithmus</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">&nbsp;</td>
+<td style="text-align: center; border-right: solid;">x</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2">Specific-to-General Konzeptlernen</td>
+<td style="text-align: center;">?</td>
+<td style="text-align: center; border-right: solid;">?</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">?</td>
+<td style="text-align: center; border-right: solid;">?</td>
+<td style="text-align: center;">?</td>
+<td style="text-align: center; border-right: solid;">?</td>
+<td style="text-align: center;">?</td>
+<td style="text-align: center; border-right: solid;">?</td>
+<td style="text-align: center;">?</td>
+<td style="text-align: center;">?</td>
+</tr>
+<tr>
+<td colspan="2">k-means clustering</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">&nbsp;</td>
+<td style="text-align: center; border-right: solid;">x</td>
+<td style="text-align: center;">&nbsp;</td>
+<td style="text-align: center; border-right: solid;">x</td>
+<td style="text-align: center;">&nbsp;</td>
+<td style="text-align: center; border-right: solid;">x</td>
+<td style="text-align: center;">&nbsp;</td>
+<td style="text-align: center; border-right: solid;">x</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2">AHC</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">&nbsp;</td>
+<td style="text-align: center; border-right: solid;">x</td>
+<td style="text-align: center;">&nbsp;</td>
+<td style="text-align: center; border-right: solid;">x</td>
+<td style="text-align: center;">&nbsp;</td>
+<td style="text-align: center; border-right: solid;">x</td>
+<td style="text-align: center;">&nbsp;</td>
+<td style="text-align: center; border-right: solid;">x</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2">COBWEB</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">&nbsp;</td>
+<td style="text-align: center; border-right: solid;">x</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2">CBR</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2"><abbr title="Erkl&auml;rungsbasierte Generalisierung">EBG</abbr></td>
+<td style="text-align: center;">&nbsp;</td>
+<td style="text-align: center; border-right: solid;">x</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center; border-right: solid;">&nbsp;</td>
+<td style="text-align: center;">&nbsp;</td>
+<td style="text-align: center;">x</td>
+</tr>
+</tbody>
+</table>
+<h3 id="einfuhrung">Einf&uuml;hrung</h3>
+<p>Slide name: <code>MLI_01_Einfuehrung_slides1.pdf</code></p>
+<ul>
+<li>Was ist Intelligenz? (Probleml&ouml;sen, Erinnern, Sprache, Kreativit&auml;t,
+  Bewusstsein, &Uuml;berleben in komplexen Welten, )</li>
+<li>Wissensrepr&auml;sentation:<ul>
+<li>Assoziierte Paare (Eingangs- und Ausgangsvariablen)</li>
+<li>Entscheidungsb&auml;ume (Klassen diskriminieren)</li>
+<li>Parameter in algebraischen ausdr&uuml;cken</li>
+<li>Formale Grammatiken</li>
+<li>Logikbasierte Ausdr&uuml;cke</li>
+<li>Taxonomien</li>
+<li>Semantische Netze</li>
+<li>Markov-Ketten</li>
+</ul>
+</li>
+</ul>
+<dl>
+<dt><dfn>Machine Learning</dfn> von Tom Mitchell</dt>
+<dd>A computer program is said to learn from experience E with respect to
+      some class of tasks T and performance measure P, if its performance at
+      tasks in T, as measured by P, improves with experience E.</dd>
+<dt><dfn>Deduktion</dfn></dt>
+<dd>Die Deduktion ist eine Schlussfolgerung von gegebenen Pr&auml;missen auf die
+      logisch zwingenden Konsequenzen. Deduktion ist schon bei Aristoteles als
+      &bdquo;Schluss vom Allgemeinen auf das Besondere&ldquo; verstanden worden.</dd>
+<dt><dfn>Modus ponens</dfn></dt>
+<dd>Der Modus ponens ist eine Art des logischen Schlie&szlig;ens. Er besagt: Wenn
+      die Pr&auml;missen $A \rightarrow B$ und $A$ gelten, dann gilt auch $B$.</dd>
+<dt><dfn>Abduktion</dfn> by Peirce</dt>
+<dd>Deduction proves that something must be; Induction shows that something
+      actually is operative; Abduction merely suggests that something may
+      be.</dd>
+</dl>
+<h3 id="induktives-lernen">Induktives Lernen</h3>
+<p>Slide name: <code>MLI_02_InduktivesLernen_slides1.pdf</code></p>
+<dl>
+<dt><dfn>Version Space</dfn></dt>
+<dd>Der Raum aller Hypotesen, welche mit den Trainingsbeispielen konsistent sind.</dd>
+<dt><dfn>Version Space Algorithmus</dfn></dt>
+<dd>Der Version Space Algorithmus ist ein bin&auml;rer Klassifikator f&uuml;r
+        diskrete Feature-Spaces. Er startet mit der generellsten Hypothese
+        $G = (?, \dots, ?)$ - alles ist wahr - und der speziellsten Hypothese
+        $S = (\#, \dots, \#)$ - nichts ist wahr. Wenn ein Beispiel mit dem Label
+        <code>true</code> gesehen wird, dann wird die speziellste Hypothese
+        angepasst und veralgemeinert. Wenn ein Beispiel mit dem Label
+        <code>false</code> gesehen wird, wird die generellste Hypothese spezialisiert.<br/>
+        So kann man den Raum aller mit den Trainingsdaten konsistenten
+        Hypothesen finden.</dd>
+<dt><dfn>Konzept</dfn></dt>
+<dd>Ein <i>Konzept</i> beschreibt eine Untermenge von Objekten oder
+        Ereignissen definiert auf einer gr&ouml;&szlig;erer Menge.</dd>
+<dt><dfn>Konsistenz</dfn></dt>
+<dd>Keine negativen Beispiele werden positiv klassifiziert.</dd>
+<dt><dfn>Vollst&auml;ndigkeit</dfn></dt>
+<dd>Alle positiven Beispiele werden als positiv klassifiziert.</dd>
+</dl>
+<ul>
+<li>Algorithmen: B&auml;ume (W&auml;lder?)<ul>
+<li>Suche vom Allgemeinen zum Speziellen: Negative Beispiele f&uuml;hren zur Spezialisierung</li>
+<li>Suche vom Speziellen zum Allgemeinen: Positive Beispiele f&uuml;hren zur Verallgemeinerung</li>
+<li><a href="https://de.wikipedia.org/wiki/Versionsraum">Version Space</a>: Beides gleichzeitig anwenden</li>
+</ul>
+</li>
+<li>Pr&auml;zendenzgraphen: In welcher Reihenfolge werden Aktionen ausgef&uuml;hrt?</li>
+</ul>
+<p>Version Space Algorithmus ist:</p>
+<ul>
+<li>Induktiver Inferenztyp</li>
+<li>Symbolische Ebene des Lernens</li>
+<li>&Uuml;berwachtes Lernen</li>
+<li>Inkrementelle Beispielgebung</li>
+<li>Umfangreich (viele Beispiele)</li>
+<li>Empirisches Hintergrundwissen</li>
+<li>Voraussetzungen: Konsistente Beispiele, korrekte Hypothese im Hypothesenraum</li>
+<li>Positive Aspekte:</li>
+<li>Es ist feststellbar, welche Art von Beispielen noch n&ouml;tig ist</li>
+<li>Es ist feststellbar, wann das Lernen abgeschlossen ist</li>
+</ul>
+<p>Weiteres</p>
+<dl>
+<dt><dfn>Inductive bias</dfn></dt>
+<dd>Induktives Lernen ben&ouml;tigt Vorannahmen.</dd>
+<dt><dfn>Bias</dfn> ("Vorzugskriterium")</dt>
+<dd>Vorschrift, nach der Hypothese gebildet werden.</dd>
+</dl>
+<h3 id="reinforcement-learning">Reinforcement Learning</h3>
+<p>Slide name: <code>MLI_03_ReinforcementLearning_slides1.pdf</code></p>
+<p>Siehe auch:</p>
+<ul>
+<li><a href="../probabilistische-planung">Probabilistische Planung</a></li>
+<li><a href="../neuronale-netze-vorlesung/#tocAnchor-1-1-9">Neuronale Netze</a></li>
+<li><a href="../machine-learning-2-course/#tocAnchor-1-1-5">Machine Learning 2</a></li>
+<li><a href="https://github.com/MartinThoma/cat-vs-mouse">Cat vs. Mouse code</a></li>
+<li>Berkeley<ul>
+<li>CS188 Intro to AI: <a href="http://ai.berkeley.edu/reinforcement.html">Project 3: Reinforcement Learning</a></li>
+<li>Dan Klein, Pieter Abbeel: <a href="https://www.youtube.com/watch?v=w33Lplx49_A">Lecture 10: Reinforcement Learning</a> on YouTube. University of California, Berkeley. This expalins TD-learning.</li>
+</ul>
+</li>
+<li><a href="http://datascience.stackexchange.com/q/9832/8820">What is the Q function and what is the V function in reinforcement learning?</a></li>
+<li><a href="http://www.nervanasys.com/demystifying-deep-reinforcement-learning/">Demystifying Deep Reinforcement Learning</a></li>
+</ul>
+<dl>
+<dt><a href="https://de.wikipedia.org/wiki/Markow-Entscheidungsproblem"><dfn>Markovsches Entscheidungsproblem</dfn></a> (<dfn>Markov Decision Process</dfn>, <dfn id="mdp">MDP</dfn>)</dt>
+<dd>Ein Markovsches Entscheidungsproblem ist ein 5-Tupel $(S, A, P, R, p_0)$,
+      wobei
+      <ul>
+<li>$S$ eine endliche Zustandsmenge (states),</li>
+<li>$A(s)$ eine Menge von m&ouml;glichen Aktionen im Zustand $s$,</li>
+<li>$P(s, s', a) = P(s_{t+1} = s' | s_t = s, a_t = a)$: Die Wahrscheinlichkeit
+              im Zeitschritt $t+1$ im Zustand $s'$ zu sein, wenn man zum Zeitpunkt
+              $t$ im Zustand $s$ ist und die Aktion $a$ ausf&uuml;hrt</li>
+<li>$R(s, s', a) \in \mathbb{R}$: Die direkte Belohnung, wenn durch die Aktion $a$ vom Zustand $s$ in den Zustand $s'$ gekommen ist.</li>
+<li>$p_0$ ist die Startverteilung auf die Zust&auml;nde $S$</li>
+</ul>
+
+       Manchmal wird auch der Diskontierungsfaktor $\gamma \in [0, 1]$, welche
+       die Bedeutung von direkten Belohnungen im Vergleich zu k&uuml;nftigen
+       Belohnungen anzeigt, hier schon genannt. Allerdings finde ich das
+       an dieser Stelle eher unpassend, da $\gamma$ eher verwendet wird um
+       die L&ouml;sung in der Praxis bestimmen zu k&ouml;nnen. Mit dem Problem hat
+       $\gamma$ an sich nichts zu tun.
+
+  </dd>
+<dt><a href="https://en.wikipedia.org/wiki/Reinforcement_learning"><dfn>Reinforcement Learning</dfn></a> (<dfn>RL</dfn>, <dfn><a href="https://de.wikipedia.org/wiki/Best%C3%A4rkendes_Lernen">Best&auml;rkendes Lernen</a></dfn>)</dt>
+<dd>Beim best&auml;rkenden Lernen liegt ein Markow-Entscheidungsproblemen vor.
+      Es gibt also einen Agenten, der Aktionen ausf&uuml;hren kann. Diese k&ouml;nnen
+      (nicht notwendigerweise sofort) bewertet werden.</dd>
+<dt><dfn id="policy">Policy</dfn> (<dfn>Strategie</dfn>)</dt>
+<dd>Siehe <a href="../probabilistische-planung/#policy">Probabilistische Planung</a>.</dd>
+<dt><dfn>Policy Learning</dfn></dt>
+<dd>Unter <i>Policy Learning</i> versteht man die Suche nach einer
+      optimalen Strategie $\pi^*$.</dd>
+<dt><dfn id="v-function">V-Funktion</dfn> (<dfn>Value function</dfn>, <dfn>State-Value function</dfn>)</dt>
+<dd>Die Funktion $V^\pi: S \rightarrow \mathbb{R}$ hei&szlig;t Value-Funktion.
+      Sie gibt den erwarteten Wert (nicht die Belohnung, da bei der V-Funktion
+      noch der Diskontierungsfaktor eingeht!) eines Zustands $s$ unter der
+      Strategie $\pi$ an.<br/>
+<br/>
+      Mit $V^*$ wird der Wert unter der optimalen Strategie bezeichnet.</dd>
+<dt><dfn id="q-function">Q-Funktion</dfn> (<dfn>Action-Value function</dfn>, <dfn>Quality function</dfn>)</dt>
+<dd>Siehe <a href="../probabilistische-planung/#q-function">Probabilistische Planung</a>.</dd>
+<dt><a name="rl-eligibility-trace"></a><dfn>Eligibility Traces</dfn></dt>
+<dd>Siehe <a href="../probabilistische-planung/#eligibility-trace">Probabilistische Planung</a>.</dd>
+</dl>
+<ul>
+<li>Beispiel f&uuml;r RL: Roboter muss zu einem Ziel navigieren</li>
+</ul>
+<p>Algorithmen:</p>
+<dl>
+<dt><dfn>Simple Value Iteration</dfn></dt>
+<dd>Simple Value Iteration estimates the value function by updating it
+        as long as necessary to converge:
+
+        $$\hat{V}^*(s_t) \leftarrow r_t + \gamma \hat{V}^*(s_{t+1})$$
+
+        "Simple" means that the transition function is deterministic.
+        <!--
+        In the
+        non-deterministic case the update rule is
+
+        $$\hat{V}^*(s_t) \leftarrow r_t + \gamma E(\hat{V}^*(s_{t+1}))$$ -->
+
+        It is explained in
+
+        <ul>
+<li>Sebastian Thrun: <a href="https://www.youtube.com/watch?v=oefOCk3koZo">Unit 9 17 Value Iteration 1</a> on YouTube.</li>
+<li>Sebastian Thrun: <a href="https://www.youtube.com/watch?v=8-pzJXUiXrM">Unit 9 17 Value Iteration 2</a> on YouTube.</li>
+<li>Sebastian Thrun: <a href="https://www.youtube.com/watch?v=glHKJ359Cnc">Unit 9 17 Value Iteration 3</a> on YouTube.</li>
+</ul>
+</dd>
+<dt><dfn>Simple Temporal Difference Learning</dfn></dt>
+<dd>Simple Temporal Difference Learning is just like
+        Simple Value Iteration, but now the Value function is updated with
+        a learning rate $\alpha$:
+        $$\hat{V}^*(s_t) \leftarrow (1-\alpha) \cdot \hat{V}^*(s_t) + \alpha(r_t + \gamma \hat{V}^*(s_{t+1}))$$
+
+        Mehr dazu im <a href="#td-learning">n&auml;chsten Abschnitt</a>.
+    </dd>
+<dt><dfn id="q-learning">Q-Learning</dfn></dt>
+<dd>Siehe <a href="../probabilistische-planung/#q-learning">Probabilistische Planung</a>.</dd>
+<dt><dfn id="sarsa">SARSA</dfn> (<dfn>State-Action-Reward-State-Action</dfn>)</dt>
+<dd>Siehe <a href="../probabilistische-planung/#sarsa">Probabilistische Planung</a>.</dd>
+<dt><dfn>SARSA($\lambda$)</dfn></dt>
+<dd>Siehe <a href="../probabilistische-planung/#sarsa-lambda">Probabilistische Planung</a>.</dd>
+</dl>
+<h4 id="td-learning"><a name="td-learning"></a> TD-Learning</h4>
+<ul>
+<li>R. Sutton und A. Barto: <a href="https://webdocs.cs.ualberta.ca/~sutton/book/ebook/node60.html">Temporal-Difference Learning</a>. 1998.</li>
+</ul>
+<p>Der TD-Learning Algorithmus besch&auml;ftigt sich mit dem Sch&auml;tzen der Value-Funktion
+<span class="math">\(V^\pi\)</span> f&uuml;r eine gegebene Strategie <span class="math">\(\pi\)</span>. Das wird auch <i>policy evaluation</i>
+oder <i>prediction</i> genannt.</p>
+<ul>
+<li><a href="https://de.wikipedia.org/wiki/Temporal_Difference_Learning">TD-Learning</a> (Temporal Difference Learning)</li>
+</ul>
+<h4 id="siehe-auch">Siehe auch</h4>
+<ul>
+<li><a href="https://de.wikipedia.org/wiki/Optimalit%C3%A4tsprinzip_von_Bellman">Optimalit&auml;tsprinzip von Bellman</a></li>
+<li>Guest Post (Part I): <a href="http://www.nervanasys.com/demystifying-deep-reinforcement-learning/">Demystifying Deep Reinforcement Learning</a></li>
+</ul>
+<h3 id="lerntheorie">Lerntheorie</h3>
+<p>Slide name: <code>MLI_04_Lerntheorie_slides1.pdf</code></p>
+<dl>
+<dt><dfn>Ockhams Rasiermesser</dfn> (Quelle: <a href="https://de.wikipedia.org/wiki/Ockhams_Rasiermesser">Wikipedia</a>)</dt>
+<dd>Von mehreren m&ouml;glichen Erkl&auml;rungen f&uuml;r ein und denselben Sachverhalt ist
+  die einfachste Theorie allen anderen vorzuziehen. Eine Theorie ist einfach,
+  wenn sie m&ouml;glichst wenige Variablen und Hypothesen enth&auml;lt, und wenn diese in
+  klaren logischen Beziehungen zueinander stehen, aus denen der zu erkl&auml;rende
+  Sachverhalt logisch folgt.</dd>
+<dt><a href="" name="overfitting"></a><dfn>Overfitting</dfn></dt>
+<dd>Zu starke Anpassung des Klassifizierers an die Lerndaten; geringe
+      Generalisierungsf&auml;hgikeit</dd>
+<dt><a href="https://en.wikipedia.org/wiki/Structural_risk_minimization"><dfn>Structural Risc Minimization</dfn></a> (<dfn>SRM</dfn>)</dt>
+<dd>Unter <i>Structural risk minimization</i> versteht man die Abw&auml;gung
+      zwischen einem einfachen Modell und einem komplexen Modell, welches
+      auf den Trainingsdaten besser funktioniert aber eventuell mehr unter
+      Overfitting leidet.</dd>
+<dt><dfn>Vapnik-Chervonenkis Dimension</dfn> (<dfn id="vc-dimension">VC-Dimension</dfn>)</dt>
+<dd>Die <abbr title="Vapnik-Chervonenkis">VC</abbr>-Dimension $VC(H, X) \in \mathbb{N} \cup \infty$
+      eines Hypothesenraumes $H$ ist gleich der maximalen Anzahl an
+      Datenpunkten aus $X$, die von $H$ beliebig in zwei Mengen gespalten
+      werden k&ouml;nnen. Dabei muss es nur eine Teilmenge $X' \subseteq X $ der
+      Gr&ouml;&szlig;e $n$ geben, damit $VC(H, X) \geq n$ gilt.
+
+      Falls beliebige Teilmengen von $X$ durch $H$ separiert werden k&ouml;nnen,
+      so gilt $VC(H, X) = \infty$.
+
+      Praktisch gesehen ist $X$, die Menge aller m&ouml;glichen Features, sowie
+      $H$, die Menge aller m&ouml;glichen Trennlinien im Feature-Space, vorgegeben.
+      Die Frage ist ob man eine Teilmenge $X' \subseteq X$ findet mit
+      $|X'| = n$, sodass man f&uuml;r $X'$ jede M&ouml;gliche Teilung in zwei
+      Mengen durch $H$ realisieren kann.</dd>
+<dt><a href="https://en.wikipedia.org/wiki/Probably_approximately_correct_learning">Probably approximately correct learning</a> (<dfn>PAC</dfn>)</dt>
+<dd>PAC macht eine Aussage &uuml;ber die Anzahl der ben&ouml;tigten Stichproben, wenn
+      man einen bestimmten realen Fehler mit einer frei zu w&auml;hlenden
+      Wahrscheinlichkeit bekommen will.</dd>
+</dl>
+<ul>
+<li>Lernmaschine wird definiert durch Hypothesenraum <span class="math">\(\{h_\alpha: \alpha \in A\}\)</span>
+  und Lernverfahren. Das Lernverfahren ist die Methode um <span class="math">\(\alpha_{\text{opt}}\)</span>
+  mit Hilfe von Lernbeispielen zu finden.</li>
+<li>Probleme beim Lernen:<ul>
+<li>Gr&ouml;&szlig;e des Hypothesenraums im Vergleich zur Anzahl der Trainingsdaten.</li>
+<li>Das Verfahren k&ouml;nnte nur suboptimale L&ouml;sungen finden.</li>
+<li>Das Verfahren k&ouml;nnte die passende Hypothese nicht beinhalten.</li>
+</ul>
+</li>
+<li>Lernproblemtypen: Sei die Menge der Lernbeispiele in <span class="math">\(X \times Y\)</span>, mit <span class="math">\(X \times Y =\)</span>...<ul>
+<li><span class="math">\(\{Attribut_1, Attribut_2, ...\} \times \{True, False\}\)</span>: Konzeptlernen</li>
+<li><span class="math">\(\mathbb{R}^n \times \{Klasse_1, ..., Klasse_n\}\)</span>: Klassifikation</li>
+<li><span class="math">\(\mathbb{R}^n \times \mathbb{R}\)</span>: Regression</li>
+</ul>
+</li>
+<li>Gradientenabstieg, Overfitting</li>
+<li>Kreuzvalidierung</li>
+<li>PAC<ul>
+<li>Folie 35: Was ist eine Instanz der L&auml;nge <span class="math">\(n\)</span>?<br/>
+  Eine Hypothese mit <span class="math">\(n\)</span> Literalen.</li>
+</ul>
+</li>
+</ul>
+<h4 id="boosting">Boosting</h4>
+<p><dl>
+<dt><a href="https://de.wikipedia.org/wiki/Boosting"><dfn>Boosting</dfn></a></dt>
+<dd>Kombiniere mehrere schwache Modelle um ein gutes zu bekommen, indem
+      Trainingsbeispiele unterschiedlich gewichtet werden.</dd>
+<dt><a href="https://en.wikipedia.org/wiki/Bootstrap_aggregating"><dfn>Bagging</dfn></a> (<dfn>Bootstrap aggregating</dfn>)</dt>
+<dd>Kombiniere mehrere schwache Modelle um ein gutes zu bekommen. Dabei
+      bekommt jedes schwache Modell nur eine Teilmenge aller Trainingsdaten.</dd>
+<dt><dfn>AdaBoost</dfn> (<dfn>Adaptive Boosting</dfn>; see <a href="https://www.youtube.com/watch?v=ix6IvwbVpw0">YouTube</a>)</dt>
+<dd>Learn a classifier for data. Get examples where the classifier got it
+      wrong. Train new classifier on the wrong ones.</dd>
+</dl></p>
+<ul>
+<li>Folie 22:<ul>
+<li>Wof&uuml;r steht <span class="math">\(i\)</span> und welchen Wertebereich hat <span class="math">\(i\)</span>?<br/>
+  &rarr; <span class="math">\(i\)</span> ist eine Z&auml;hlvariable, welche die Trainingsdaten durchnummeriert.</li>
+<li>Stellt <span class="math">\(W_k(i)\)</span> die Wahrscheinlichkeit dar, dass Beispiel <span class="math">\(i\)</span> im <span class="math">\(k\)</span>-ten
+  Durchlauf f&uuml;r das Training verwendet wird?<br/>
+  &rarr; Nein. <span class="math">\(W_k(i)\)</span> ist das Gewicht des <span class="math">\(i\)</span>-ten Trainingsbeispiels
+  f&uuml;r den <span class="math">\(k\)</span>-ten klassifikator. Siehe Folie&nbsp;24 und folgende f&uuml;r
+  ein Beispiel.</li>
+</ul>
+</li>
+</ul>
+<p>Siehe auch:</p>
+<ul>
+<li>Alexander Ihler: <a href="https://www.youtube.com/watch?v=ix6IvwbVpw0">AdaBoost</a>.</li>
+</ul>
+<figure class="aligncenter">
+<a href="../images/2015/12/ml-ensemble-learning.png"><img alt="Ensemble Learning Techniques: Boosting, Bagging, Random Subspaces, Pasting, Random Patches" class="" src="../images/2015/12/ml-ensemble-learning.png" style="max-width:500px;"/></a>
+<figcaption class="text-center">Ensemble Learning Techniques: Boosting, Bagging, Random Subspaces, Pasting, Random Patches</figcaption>
+</figure>
+<p>Weiteres:</p>
+<dl>
+<dt><dfn id="stacking">Stacking</dfn></dt>
+<dd>A committee learner, usually OLS or LASSO</dd>
+<dt><dfn id="bagging">Bagging/Bragging</dfn></dt>
+<dd>Learnier is fit, results are mean/median aggregated with the aim of reduction variance</dd>
+<dt><dfn>Boosting</dfn></dt>
+<dd>Build chain of learners.</dd>
+</dl>
+<h4 id="vc-dimension">VC-Dimension</h4>
+<dl>
+<dt><dfn>VC-Dimension</dfn>, siehe <a href="https://youtu.be/puDzy2XmR5c">YouTube</a> und [<a href="#ref-mit97" name="ref-mit97-anchor">Mit97</a>]</dt>
+<dd>Sei $H^\alpha = \{h_\alpha : \alpha \in A\}$ der Hypothesenraum. Die
+      VC-Dimension $VC(h_\alpha)$ von $H^\alpha$ ist gleich der maximalen
+      Anzahl von beliebig platzierten Datenpunkten, die von $H^\alpha$ separiert
+      werden k&ouml;nnen.</dd>
+</dl>
+<ul>
+<li>Folie 44: <span class="math">\(\eta \in [0, 1]\)</span> ist ein Parameter, der beliebig gew&auml;hlt
+  werden kann. Siehe Info-Box <a href="#fehlerabschaetzung">Absch&auml;tzung des realen Fehlers</a>.</li>
+</ul>
+<h3 id="neuronale-netze">Neuronale Netze</h3>
+<p>Slide name: <code>MLI_05_Neuronale_Netze_slides1.pdf</code></p>
+<ul>
+<li>Einsatzfelder:<ul>
+<li>Klassifiktion: Spracherkennung, Schrifterkennung</li>
+<li>Funktionsapproximation</li>
+<li>Mustervervollst&auml;ndigung: Kodierung, Bilderkennung (NODO: Warum z&auml;hlt das nicht zu Klassifikation?)</li>
+</ul>
+</li>
+<li>Perzeptron von Rosenblatt (1960)<ul>
+<li>Auswertung: Input-Vektor und Bias mit Gewichten multiplizieren, addieren und Aktivierungsfunktion anwenden.</li>
+<li>Training: Zuf&auml;llige Initialisierung des Gewichtsvektors, addieren von fehlklassifizierten Vektoren auf Gewichtsvektor.</li>
+</ul>
+</li>
+<li>Gradientenabstieg</li>
+<li>Software:</li>
+<li><a href="http://lasagne.readthedocs.org/en/latest/index.html">Lasagne</a>: Python, hat eine exzellente Dokumentation, die auch gr&ouml;&szlig;tenteils auf explizit auf Literatur verweist und die Formeln hinter den Funktionen direkt angibt.</li>
+<li><a href="https://martin-thoma.com/tensor-flow-quick/">Google TensorFlow</a></li>
+</ul>
+<dl>
+<dt><dfn>Cascade Correlation</dfn> (siehe Fahlman und Lebiere: <a href="http://papers.nips.cc/paper/207-the-cascade-correlation-learning-architecture.pdf">The Cascade-Correlation Learning Architecture</a>)</dt>
+<dd>Cascade Correlation ist ein konstruktiver Algorithmus zum erzeugen
+        von Feed-Forward Neuronalen Netzen. Diese haben eine andere Architektur
+        als typische multilayer Perceptrons. Bei Netzen, welche durch
+        Cascade Correlation aufgebaut werden, ist jede Hidden Unit mit
+        den Input-Neuronen verbunden, mit den Output-Neuronen und mit allen
+        Hidden Units in der Schicht zuvor.<br/>
+<br/>
+        Siehe <a href="https://www.youtube.com/watch?v=1E3XZr-bzZ4">YouTube</a> (4:05 min)
+        und <a href="http://datascience.stackexchange.com/q/9672/8820">How exactly does adding a new unit work in Cascade Correlation?</a></dd>
+<dt><a href="https://en.wikipedia.org/wiki/Rprop"><abbr title="Resilient Propagation"><dfn>RPROP</dfn></abbr></a> (siehe <a href="https://www.youtube.com/watch?v=Cy2g9_hR-5Y">YouTube</a> - 15:00min)</dt>
+<dd><i>Rprop</i> ist eine Gewichtsupdate-Regel f&uuml;r neuronale Netze. Sie
+        betrachtet nur das Vorzeichen des Gradienten, jedoch nicht den Betrag.
+        Jedes Gewicht wird unabh&auml;ngig von den anderen behandelt.
+
+        Der Algorithmus hat Konstanten $\eta^- \in \mathbb{R}_{\le 1}$ sowie
+        $\eta^+ \in \mathbb{R}_{\ge 1}$. F&uuml;r jedes Gewicht ist au&szlig;erdem
+        $\eta=1$ zu Beginn.
+
+        Bei jedem Gewichtsupdate wird &uuml;berpr&uuml;ft, ob sich das Vorzeichen des
+        Gradienten f&uuml;r dieses Gewicht ge&auml;ndert hat. Falls ja, wird das Gewicht
+        um $\eta \cdot \eta^+$ bzw $\eta \cdot \eta^-$ ge&auml;ndert. Au&szlig;erdem
+        kann eine minimale bzw. eine Maximale &Auml;nderung gesetzt werden.
+        </dd>
+<dt><a href="https://en.wikipedia.org/wiki/Delta_rule"><dfn>Delta-Regel</dfn></a>, siehe <a href="http://www.neuronalesnetz.de/delta.html">neuronalesnetz.de</a></dt>
+<dd>Die Delta-Regel ist ein Lernalgorithmus f&uuml;r neuronale Netze mit nur
+        einer Schicht. Sie ist ein Spezialfall des algemeineren
+        Backpropagation-Algorithmus und lautet wie folgt:
+        $$\Delta w_{ji} = \alpha (t_j - y_j) \varphi'(h_j) x_i$$
+        wobei
+
+        <ul>
+<li>$\Delta w_{ji} \in \mathbb{R}$ die &Auml;nderung des Gewichts von Input $i$
+        zum Neuron $j$,</li>
+<li>$\alpha \in [0, 1]$ die Lernrate (typischerweise $\alpha \approx 0.1$),</li>
+<li>$t_j \in \mathbb{R}$ der Zielwert des Neurons $j$,</li>
+<li>$y_j \in \mathbb{R}$ die tats&auml;chliche Ausgabe,</li>
+<li>$\varphi'$ die Ableitung der Aktivierungsfunktion des Neurons,</li>
+<li>$h_j \in \mathbb{R}$ die gewichtete Summe der Eingaben des Neurons und</li>
+<li>$x_i \in \mathbb{R}$ der $i$-te Input</li>
+</ul>
+
+        ist.
+    </dd>
+<dt><dfn>Gradient-Descent Algorithmus</dfn></dt>
+<dd>Der Gradient-Descent Algorithmus ist ein Optimierungsalgorithmus f&uuml;r
+        differenzierbare Funktionen. Er startet an einer zuf&auml;lligen Stelle $x_0$.
+        Dann wird folgender Schritt mehrfach ausgef&uuml;hrt:
+        $$x_0 \gets x_0 - \alpha \cdot \text(grad) f (x_0)$$
+        wobei $\alpha \in (0, 1]$ die Lernrate ist und $f$ die zu
+        optimierende Funktion. Dabei k&ouml;nnte $\alpha$ mit der Zeit auch
+        kleiner gemacht werden.
+    </dd>
+<dt><dfn>Backpropagation</dfn> (siehe <a href="http://neuralnetworksanddeeplearning.com/chap2.html">neuralnetworksanddeeplearning.com</a>)</dt>
+<dd>Der Backpropagation-Algorithmus ist eine Variante des Gradient-Descent
+        Algorithmus, welche f&uuml;r <abbr title="multilayer Perceptrons">MLPs</abbr>
+        angepasst wurde. Sie besteht aus drei Schritten:
+
+        <ul>
+<li><b>Forward-Pass</b>: Lege die Input-Features an das Netz an und erhalte den Output</li>
+<li><b>Fehlerberechnung</b>: Mache das f&uuml;r alle Daten</li>
+<li><b>Backward-Pass</b>: Passe die Gewichte </li>
+</ul>
+
+        Im Grunde ist Backpropagation nur eine Geschwindigkeitsoptimierte
+        Variante des Gradient-Descent Algorithmus, da die Gradienten im
+        Backpropagation-Algorithmus auf geschickte Weise berechnet werden.</dd>
+<dt><a href="https://de.wikipedia.org/wiki/Radiale_Basisfunktion"><dfn>Radiale Basisfunktion</dfn></a> (<dfn>Radial Basis Function</dfn>, <dfn>RBF</dfn>)</dt>
+<dd>Eine <i>radiale Basisfunktion</i> ist eine Funktion $f: D \rightarrow \mathbb{R}$,
+        f&uuml;r die $f(x) = f(\|x\|)$ gilt bzw. allgemeiner, f&uuml;r die ein $c \in D$
+        existiert, sodass $f(x, c) = f(\|x - c\|)$ gilt.
+
+        Der Wert der Funktion h&auml;ngt also nur von der Distanz zum Ursprung bzw.
+        allgemeiner zu einem Punkt $c \in D$ ab.
+
+        Ein typisches Beispiel sind gau&szlig;sche RBFs:
+        $f(x) = e^{-(a (x - c)^2)}$, wobei $a, c$ Konstanten sind.</dd>
+<dt><a href="https://en.wikipedia.org/wiki/Radial_basis_function_network"><dfn>Radial-Basis Funktion Netz</dfn></a> (<dfn>RBF-Netz</dfn>)</dt>
+<dd>Ein <i>Radial-Basis Funktion Netz</i> ist eine neuronales Netz,
+        welches als Aktivierungsfunktionen RBFs verwendet. Dabei gibt es dann
+        f&uuml;r jedes Neuron im Grunde zwei Parameter: Der Radius und das Zentrum
+        (vgl. Folie&nbsp;39 f&uuml;r die Gewichtsanpassung).
+    </dd>
+<dt><a name="dda-algorithm"></a><dfn>Dynamic Decay Adjustment</dfn> (<dfn>DDA</dfn>)</dt>
+<dd>DDA ist ein konstruktiver Lernalgorithmus f&uuml;r RBF-Netze welcher
+        in [<a href="#ref-ber95" name="ref-ber95-anchor">Ber95</a>] vorgestellt
+        wird.
+
+        Bei den Netzwerken, die DDA annimmt, gibt es sog. <i>Prototypen</i>.
+        Das scheinen einfach Neuronen mit RBF-Aktivierungsfunktionen zu sein,
+        welche f&uuml;r eine Klasse stehen.
+
+        Zwei Schwellwerte, $\theta^+$ und $\theta^-$, werden eingef&uuml;hrt.
+        Der Schwellwert $\theta^+$ muss beim Training eines Beispiels der
+        Klasse $y_1$ von einem Neuron der Klasse $y_1$ &uuml;berschritten
+        werden. Falls das nicht der Fall ist, wird ein neues Neuron
+        hinzugef&uuml;gt.<br/>
+        Der Schwellwert $\theta^-$ ist eine obere Grenze f&uuml;r die Aktivierung
+        von Neuronen, die zu anderen Klassen geh&ouml;ren. Ist eine Aktivierung
+        h&ouml;her, wird der Radius des zugeh&ouml;rigen Neurons verringert.<br/>
+        $\theta^+ = 0.4$ und $\theta^- = 0.2$ sind sinnvolle Werte.
+        <br/>
+        Laut einem Pr&uuml;fungsprotokoll lernt DDA nach Vapnik korrekt.<br/>
+<br/>
+        Siehe auch: <a href="http://www.ra.cs.uni-tuebingen.de/SNNS/UserManual/node193.html">The Dynamic Decay Adjustment Algorithm</a></dd>
+</dl>
+<h4 id="siehe-auch_1">Siehe auch</h4>
+<ul>
+<li><a href="//martin-thoma.com/neuronale-netze-vorlesung/">Neuronale Netze - Vorlesung</a></li>
+<li><a href="http://datascience.stackexchange.com/q/9869/8820">What are prototypes in RBF networks?</a></li>
+</ul>
+<h3 id="instanzbasiertes-lernen">Instanzbasiertes Lernen</h3>
+<p>Slide name: <code>MLI_06_InstanzbasiertesLernen_slides1.pdf</code></p>
+<dl>
+<dt><dfn>Instanzenbasiertes Lernen</dfn> bzw. <dfn>Lazy Learning</dfn></dt>
+<dd><i>Instanzenbasiertes Lernen</i> ist ein Lernverfahren, welches einfach nur
+      die Beispiele abspeichert, also faul (engl. lazy) ist. Soll der Lerner
+      neue Daten klassifizieren, so wird die Klasse des &auml;hnlichsten
+      Datensatzes gew&auml;hlt.</dd>
+<dt><dfn>Case-based Reasoning</dfn> bzw. kurz <dfn>CBR</dfn></dt>
+<dd><i>CBR</i> ist ein allgemeines, abstraktes Framework und kein direkt anwendbarer
+      Algorithmus. Die Idee ist, dass nach &auml;hnlichen, bekannten F&auml;llen gesucht
+      wird, auf die der aktuelle Fall &uuml;bertragen werden kann.</dd>
+<dt><dfn>Fall</dfn> im Kontext des CBR</dt>
+<dd>Ein Fall ist eine Abstraktion eines Ereignisses, die in Zeit und Raum
+      begrenzt ist. Ein Fall enth&auml;lt eine Problembeschreibung, eine L&ouml;sung und
+      ein Ergebnis. Zus&auml;tzlich kann ein Fall eine Erkl&auml;rung enthalten warum
+      das Ergebnis auftrat, Informationen &uuml;ber die L&ouml;sungsmethode, Verweise
+      auf andere F&auml;lle oder G&uuml;teinformationen enthalten.</dd>
+</dl>
+<ul>
+<li>
+<p>Beispiel f&uuml;r Lazy Learning: <abbr title="k Nearest Neighbors"><span class="math">\(k\)</span>-NN</abbr>,
+  <abbr title="Case-based Reasoning">CBR</abbr></p>
+</li>
+<li>
+<p>NODO: Folie 3: &bdquo;Flei&szlig;ige&ldquo; Lernalgorithmen mit dem gleichen Hypothesenraum sind
+  eingeschr&auml;nkter - was ist damit gemeint? Was sind flei&szlig;ige Lernalgorithmen?
+  Lernalgorithmen, welche den meisten Rechenaufwand beim Lernen investieren, wo
+  aber das auswerten vergleichsweise billig ist?</p>
+</li>
+</ul>
+<h3 id="svm"><a name="svm"></a> SVM</h3>
+<p>Slide name: <code>MLI_07_SVM_slides1.pdf</code></p>
+<p>Eine Erkl&auml;rung von <abbr title="Support Vector Machines">SVMs</abbr>
+findet sich im Artikel <a href="//martin-thoma.com/svm-with-sklearn/">Using SVMs with sklearn</a>.</p>
+<ul>
+<li>SVMs sind laut Vapnik die Lernmaschine mit der kleinsten m&ouml;glichen VC-
+  Dimension, falls die Klassen linear trennbar sind.</li>
+<li>Prim&auml;res Optimierungsproblem: Finde einen Sattelpunkt der Funktion<br/>
+<span class="math">\(L_P = L(\vec{w}, b, \vec{\alpha}) = \frac{1}{2}\|\vec{w}\|^2 - \sum_{i=1}^N \alpha_i (y_i(\vec{w}\vec{x_i}+b)-1)\)</span>
+  wobei <span class="math">\(\alpha_1, \dots, \alpha_N \geq 0\)</span> Lagrange-Multiplikatoren sind</li>
+<li>Soft Margin Hyperebene</li>
+<li>Der Parameter <span class="math">\(C\)</span> dient der Regularisierung. Ist <span class="math">\(C\)</span> gro&szlig; gibt es wenige
+  Missklassifikationen in der Trainingsdatenmenge. Ist <span class="math">\(C\)</span> klein, werden die
+  Margins gr&ouml;&szlig;er.</li>
+<li>Nichtlineare Kernelmethoden</li>
+<li>Kernel-Trick</li>
+</ul>
+<div class="alert alert-info"><h4><a name="fehlerabschaetzung"></a>Absch&auml;tzung des realen Fehlers</h4>
+Der reale Fehler kann durch den empirischen Fehler und die VC-Dimension wie
+folgt abgesch&auml;tzt werden:
+
+Mit Wahrscheinlichkeit $P(1-\eta)$ gilt:
+$$E(h_\alpha) \leq E_{emp}(h_\alpha) + \sqrt{\frac{VC(h_\alpha)}{N} \cdot (\log(2 N / VC(h_\alpha)) + 1) - \frac{\log(\eta  / 4)}{N}}$$
+
+wobei gilt:
+
+<ul>
+<li>$E(h_\alpha)$ ist der reale Fehler der mit der Hypothese $h_\alpha$
+        gemacht wird</li>
+<li>$E_{emp}(h_\alpha)$ ist der empirische Fehler der mit der Hypothese $h_\alpha$
+        gemacht wird</li>
+<li>$VC(h_\alpha)$ ist die VC-Dimension der Lernmaschine</li>
+<li>$N$ ist die Anzahl der Lernbeispiele</li>
+<li>$0 \leq \eta \leq 1$</li>
+</ul>
+
+Dieser Term wird in der <i>Structural Risc Minimization</i> minimiert.
+</div>
+<h3 id="entscheidungsbaume"><a name="decision-trees"></a> Entscheidungsb&auml;ume</h3>
+<p>Slide name: <code>MLI_08_Entscheidungsbaeume_slides1.pdf</code></p>
+<dl>
+<dt><dfn>Entscheidungsbaum</dfn> (<dfn>Decision Tree</dfn>)</dt>
+<dd>Ein Entscheidungsbaum ist ein Klassifikator in Baumstruktur. Die
+      inneren Knoten des Entscheidungsbaumes sind Attributtests, die Bl&auml;tter
+      sind Klassen.<br/>
+<br/>
+      Typischerweise wird ein Entscheidungsbaum aufgebaut, indem das jeweilige
+      Attribut mit dem h&ouml;chsten Information Gain als n&auml;chster Knoten hinzugef&uuml;gt
+      wird. Siehe
+      <a href="https://en.wikipedia.org/wiki/Information_gain_in_decision_trees">Information gain in decision trees</a> f&uuml;r weitere Informationen.</dd>
+<dt><a href="https://de.wikipedia.org/wiki/ID3"><dfn>ID3</dfn></a> (siehe <a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/source-code/Pseudocode/ID3">pseudocode</a>)</dt>
+<dd>ID3 ist ein Top-Bottom Verfahren zum Aufbau eines Entscheidungsbaumes.</dd>
+<dt><a href="https://de.wikipedia.org/wiki/C4.5"><dfn>C4.5</dfn></a> (siehe <a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/source-code/Pseudocode/ID3">pseudocode</a>)</dt>
+<dd>ID3 ist ein Top-Bottom Verfahren zum Aufbau eines Entscheidungsbaumes, welches auf ID3 basiert.</dd>
+<dt><dfn>Random Forest</dfn>, Quelle: <a href="https://de.wikipedia.org/wiki/Random_Forest">Wikipedia</a></dt>
+<dd>Ein Random Forest ist ein Klassifikationsverfahren, welches aus mehreren
+  verschiedenen, unkorrelierten Entscheidungsb&auml;umen besteht. Alle
+  Entscheidungsb&auml;ume sind unter einer bestimmten Art von Randomisierung w&auml;hrend
+  des Lernprozesses gewachsen. F&uuml;r eine Klassifikation darf jeder Baum in
+  diesem Wald eine Entscheidung treffen und die Klasse mit den meisten Stimmen
+  entscheidet die endg&uuml;ltige Klassifikation.</dd>
+</dl>
+<ul>
+<li>Der Algorithmus ID5R dienen dem Aufbau eines Entscheidungsbaumes.</li>
+<li>C4.5 unterst&uuml;tzt - im Gegensatz zu ID3 - kontinuierliche Attributwerte.
+  Au&szlig;erdem kann C4.5 mit fehlenden Attributwerten umgehen.</li>
+<li>M&ouml;gliches Qualtit&auml;tsma&szlig; ist Entropie:<br/>
+<span class="math">\(Entropie(S) = - p_\oplus \log_2 p_\oplus - p_\ominus \log_2 p_\ominus\)</span>
+  wobei <span class="math">\(\oplus\)</span> die positiven Beispiele und <span class="math">\(\ominus\)</span> die negativen Beispiele
+  bezeichnet.</li>
+<li>Folie 41: Wo ist der Vorteil von ID5R im Vergleich zu ID3, wenn das
+  Ergebnis &auml;quivalent ist?<br/>
+  &rarr; ID5R kann inkrementell verwendet werden. Es ist bei ID5R - im Gegensatz
+  zu ID3 - also nicht n&ouml;tig bei neuen Trainingsdaten neu zu trainieren.</li>
+<li>Random Forest: Erstelle mehrere Entscheidungsb&auml;ume mit einer zuf&auml;lligen
+  Wahl an Attributen. Jeder Baum stimmt f&uuml;r eine Klasse und die Klasse, f&uuml;r die
+  die meisten Stimmen, wird gew&auml;hlt.</li>
+</ul>
+<h3 id="bayes-lernen">Bayes Lernen</h3>
+<p>Slide name: <code>MLI_09_BayesLernen_slides1.pdf</code></p>
+<p>Siehe auch:</p>
+<ul>
+<li><a href="https://martin-thoma.com/machine-learning-2-course/#dynamic-bayes-networks">Dynamische Bayesssche Netze</a> in ML2</li>
+</ul>
+<dl>
+<dt><dfn>Satz von Bayes</dfn></dt>
+<dd>Seien $A, B$ Ereignisse, $P(B) &gt; 0$. Dann gilt:
+      $P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}$<br/>
+      Dabei wird $P(A)$ a priori Wahrscheinlichkeit, $P(B|A)$ likelihood,
+      und $P(A|B)$ a posteriori Wahrscheinlichkeit genannt.</dd>
+<dt><dfn>Naiver Bayes-Klassifikator</dfn></dt>
+<dd>Ein Klassifizierer hei&szlig;t naiver Bayes-Klassifikator, wenn er den
+      Satz von Bayes unter der naiven Annahme der Unabh&auml;ngigkeit der Features
+      benutzt.</dd>
+<dt><dfn>Produktregel</dfn></dt>
+<dd>$P(A \land B) = P(A|B) \cdot P(B) = P(B|A) \cdot P(A)$</dd>
+<dt><dfn>Summenregel</dfn></dt>
+<dd>$P(A \lor B) = P(A) + P(B) - P(A \land P)$</dd>
+<dt><dfn>Theorem der totalen Wahrscheinlichkeit</dfn></dt>
+<dd>Es seien $A_1, \dots, A_n$ Ereignisse mit $i \neq j \Rightarrow A_i \cap A_j = \emptyset \;\;\;\forall i, j \in 1, \dots, n$ und $\sum_{i=1}^n A_i = 1$. Dann gilt:<br/>
+      $P(B) = \sum_{i=1}^n P(B|A_i) P(A_i)$</dd>
+<dt><dfn>Maximum A Posteriori Hypothese</dfn> (MAP-Hypothese)</dt>
+<dd>Sei $H$ der Raum aller Hypothesen und $D$ die Menge der beobachteten
+      Daten. Dann hei&szlig;t<br/>
+      $h_{MAP} = \text{arg max}_{h \in H} P(h|D) \cdot P(h)$<br/>
+      die Menge der Maximum A Posteriori Hypothesen.</dd>
+<dt><dfn>Maximum Likelihood Hypothese</dfn> (ML-Hypothese)</dt>
+<dd>Sei $H$ der Raum aller Hypothesen und $D$ die Menge der beobachteten
+      Daten. Dann hei&szlig;t<br/>
+      $h_{ML} = \text{arg max}_{h \in H} P(h|D)$<br/>
+      die Menge der Maximum Likelihood Hypothesen.</dd>
+<dt><dfn>Normalverteilung</dfn></dt>
+<dd>Eine stetige Zufallsvariable $X$ mit der Wahrscheinlichkeitsdichte
+      $f\colon\mathbb{R}\to\mathbb{R}$, gegeben durch<br/>
+      $f(x) = \frac {1}{\sigma\sqrt{2\pi}} e^{-\frac {1}{2} \left(\frac{x-\mu}{\sigma}\right)^2}$<br/>
+      hei&szlig;t $\mathcal N\left(\mu, \sigma^2\right)$-verteilt, normalverteilt
+      mit den Erwartungswert $\mu$ und Varianz $\sigma^2$.</dd>
+<dt><a href="https://de.wikipedia.org/wiki/Minimum_Description_Length"><dfn>Prinzip der minimalen Beschreibungsl&auml;nge</dfn></a></dt>
+<dd>Das Prinzip der minimalen Beschreibungsl&auml;nge ist eine formale
+      Beschreibung von Ockhams Rasiermesser. Nach diesem Prinzip werden
+      Hypothesen bevorzugt, die zur besten Kompression gegebener Daten f&uuml;hren.
+  </dd>
+<dt><a href="https://de.wikipedia.org/wiki/Gibbs-Sampling"><dfn>Gibbs-Algorithmus</dfn></a> (<a href="http://stats.stackexchange.com/a/10216/25741">stats.stackexchange</a>)</dt>
+<dd>Der Algorithmus von Gibbs ist eine Methode um Stichproben von bedingten
+      Verteilungen zu erzeugen.
+  </dd>
+<dt><a href="https://de.wikipedia.org/wiki/Bedingte_Unabh%C3%A4ngigkeit"><dfn>Bedingte Unabh&auml;ngigkeit</dfn></a></dt>
+<dd>Seien $X, Y, Z$ Zufallsvariablen. Dann hei&szlig;t $X$ bedingt unabh&auml;ngig
+      von $Y$ gegeben $Z$, wenn $$P(X|Y,Z) = P(X|Z)$$ gilt.
+  </dd>
+<dt><a href="https://en.wikipedia.org/wiki/Additive_smoothing"><dfn>Add $k$ smoothing</dfn></a></dt>
+<dd>Unter Add-$k$-smoothing versteht man eine Technik, durch die
+      sichergestellt wird, dass die gesch&auml;tzte Wahrscheinlichkeit f&uuml;r kein
+      Ereignis gleich null ist. Wenn man $d \in \mathbb{N}$ m&ouml;gliche
+      Ergebnisse eines Experiments hat, $N \in \mathbb{N}$ experimente
+      durchgef&uuml;hrt werden, dann sch&auml;tzt man die Wahrscheinlichkeit von dem
+      Ergebnis $i$ mit
+      $$\hat{\theta_i} = \frac{x_i + k}{N+ kd}, $$
+      wobei $x_i$ die Anzahl der Beobachtungen von $i$ ist und $k \geq 0$
+      der Gl&auml;ttungsparameter ist.
+  </dd>
+<dt><a href="https://de.wikipedia.org/wiki/Bayessches_Netz" id="bayes-net"><dfn>Bayessches Netz</dfn></a> (Quelle: [<a href="#ref-dar09" name="ref-dar09-anchor">Dar09</a>])</dt>
+<dd>Ein bayessches Netz ist ein Tupel $(G, \Theta)$ mit:
+
+  <ul>
+<li>$G = (\mathbf{X}, E)$ ist ein <abbr title="Directed Acyclical Graph">DAG</abbr>
+          der <b>Struktur</b> des Bayesschen Netzwerks genant wird. Dabei
+          ist $\mathbf{X} = \{X_1, X_2, \dots, X_n\}$ die Menge der Knoten.
+          Jeder Knoten entspricht einer Zufallsvariablen (z.B. Attribut).<br/>
+<br/>
+          Existiert eine gerichtete Kante $(X_i, X_j) \in E$, so existiert
+          eine direkte Abh&auml;ngigkeit zwischen $X_i$ und $X_j$.</li>
+<li>$\Theta$ ist die Menge der bedingten Wahrscheinlichkeitsverteilungen
+          und hei&szlig;t <b>Parametrisierung</b> des bayesschen Netzwerks. Es
+          existiert f&uuml;r jedes $X_i$ genau eine Verteilung in $\Theta$,
+          welche in Abh&auml;ngigkeit der Elternknoten beschrieben wird.</li>
+</ul>
+
+  In einem bayesschem Netz berechnet sich die gemeinsame Verteilung wie folgt:
+
+  $$P(X_1, \dots, X_N) = \prod_{i=1}^N P(X_i | \text{Eltern}(X_i))$$
+
+  Die Modelierung von Bayesschen Netzen erfolgt meist durch den Menschen mit
+  Expertenwissen. Alternativ kann die Struktur durch
+  <abbr title="Markov Chain Monte Carlo">MCMC</abbr> bestimmt werden.
+  Sobald die Struktur gegeben ist wird die Menge der Verteilungen $\Theta$
+  durch den Expectation Maximization Algorithmus bestimmt.
+  </dd>
+</dl>
+<p>Fragen:</p>
+<ul>
+<li>Folie 23: Warum ist <span class="math">\(h_{MAP(x)}\)</span> nicht die wahrscheinlichste
+  Klassifikation?</li>
+<li>Folie 24: Was ist <span class="math">\(V\)</span>?</li>
+<li><a href="http://datascience.stackexchange.com/q/9818/8820">Is there any domain where Bayesian Networks outperform neural networks?</a></li>
+</ul>
+<h3 id="hmm"><a name="hmm"></a> HMM</h3>
+<p>Slide name: <code>MLI_10_HMM_slides1.pdf</code></p>
+<dl>
+<dt><dfn>Markov-Bedingung</dfn> (Beschr&auml;nkter Horizont)</dt>
+<dd>$P(q_{t+1}=S_{t+1}|q_t = S_t, q_{t-1} = S_{t-1}, \dots) = P(q_{t+1}=S_{t+1}|q_t = S_t)$</dd>
+<dt><dfn>Hidden Markov Modell</dfn> (<dfn>HMM</dfn>)</dt>
+<dd>Eine HMM ist ein Tupel $\lambda = (S, V, A, B, \Pi)$:
+      <ul>
+<li>$S = \{S_1, \dots, S_n\}$: Menge der Zust&auml;nde</li>
+<li>$V = \{v_1, \dots, v_m\}$: Menge der Ausgabezeichen</li>
+<li>$A \in [0,1]^{n \times n}$ = (a_{ij}): &Uuml;bergangsmatrix, die die Wahrscheinlichkeit von Zustand $i$ in Zustand $j$ zu kommen beinhaltet</li>
+<li>$B = (b_{ik})$ die Emissionswahrscheinlichkeit $v_k$ im Zustand $S_i$ zu beobachten</li>
+<li>$\Pi = (\pi_i) = P(q_1 = i)$: Die Startverteilung, wobei $q_t$ den Zustand zum Zeitpunkt $t$ bezeichnet</li>
+</ul></dd>
+<dt><a href="https://de.wikipedia.org/wiki/Forward-Algorithmus"><dfn>Vorw&auml;rts-Algorithmus</dfn></a></dt>
+<dd>Der Vorw&auml;rts-Algorithmus l&ouml;st das Evaluierungsproblem. Er benutzt dazu
+      dynamische Programmierung: Die Variablen $\alpha_t(i) = P(o_1 o_2 \dots o_t; q_t = s_i | \lambda)$ gibt die Wahrscheinlichkeit
+      an zum Zeitpunkt $t \in 1 \leq t \leq T$ im Zustand $s_i \in S$ zu
+      sein und die Sequenz $o_1 o_2 \dots o_t$ beobachtet zu haben. Diese
+      werden rekursiv berechnet. Dabei beginnt man mit Zeitpunkt $t=1$, berechnet
+      die Wahrscheinlichkeit $o_1$ beobachtet zu haben f&uuml;r jeden Zustand.
+      <br/>
+      Die Wahrscheinlichkeit der beobachteten Sequenz, gegeben die HMM $\lambda$,
+      ist dann einfach die Summe der $\alpha_i$ des letzten Zeitschritts.</dd>
+<dt><a href="https://de.wikipedia.org/wiki/Backward-Algorithmus"><dfn>R&uuml;ckw&auml;rts-Algorithmus</dfn></a></dt>
+<dd>Der R&uuml;ckw&auml;rts-Algorithmus l&ouml;st das Dekodierungsproblem. Er benutzt dazu
+      dynamische Programmierung: Die Variablen $\beta_t(i) = P(o_{t+1} o_{t+2} \dots o_{T}|q_t = s_i, \lambda)$ geben
+      die Wahrscheinlichkeit an, dass die Sequenz $o_{t+1} o_{t+2} \dots o_{T}$
+      beobachtet werden wird, gegeben das HMM&nbsp;$\lambda$ und den
+      Startzustand&nbsp;$s_i$.</dd>
+<dt><dfn>Forward-Backward Algorithm</dfn></dt>
+<dd>Der Forward-Backward Algorithmus berechnet f&uuml;r jeden Zeitpunkt die
+      Wahrscheinlichkeitsverteilung der Zust&auml;nde. Daf&uuml;r gl&auml;ttet er die Werte
+      des Vorw&auml;rts- und des R&uuml;ckw&auml;rts-Algorithmus:
+      $$\gamma_t(i) = \frac{\alpha_t(i) \beta_t(i)}{P(O|\lambda)}$$
+
+      Er findet jedoch nicht die wahrscheinlichste Zustandssequenz.
+      </dd>
+<dt><a href="https://de.wikipedia.org/wiki/Viterbi-Algorithmus"><dfn>Viterbi-Algorithmus</dfn></a></dt>
+<dd>L&ouml;st P2:
+      <br/>
+  Siehe <a href="../apply-viterbi-algorithm/">How to apply the Viterbi algorithm</a></dd>
+<dt><a href="https://de.wikipedia.org/wiki/Baum-Welch-Algorithmus"><dfn>Baum-Welch-Algorithmus</dfn></a></dt>
+<dd>L&ouml;st P3:
+
+      Gegeben sei eine Trainingssequenz $O_{\text{train}}$ und ein Modell
+      $$\lambda = \{S, V, A, B, \Pi\}$$
+
+
+      Gesucht ist ein Modell
+
+      $$\bar \lambda = \text{arg max}_{\bar \lambda = \{S, V, \bar A, \bar B, \bar Pi\}} P(O_{\text{train}}|\lambda)$$
+
+      Der Baum-Welch-Algorithmus geht wie folgt vor:
+
+      <ol>
+<li>Bestimme $P(O_{\text{train}} | \lambda)$</li>
+<li>Sch&auml;tze ein besseres Modell $\bar \lambda$: TODO - Genauer! (Folie 31 - 36)</li>
+</ol>
+
+      Iteriere diese Schritte so lange, bis ein lokales Maximum gefunden wurde.
+      </dd>
+<dt><dfn>Ergodisches Modell</dfn></dt>
+<dd>Unter dem <i>ergodischen Modell</i> versteht man im Kontext von
+      <abbr title="Hidden Markov Models">HMMs</abbr> die vollverbundene
+      Topologie inclusive Schleifen.</dd>
+<dt><dfn>Bakis-Modell</dfn> (<dfn>Links-nach-Rechts-Modell</dfn>)</dt>
+<dd>Unter dem <i>Bakis-Modell</i> versteht man im Kontext von
+      <abbr title="Hidden Markov Models">HMMs</abbr> eine Links-nach-Rechts
+      Topologie, bei der maximal ein Zustand &uuml;bersprungen werden kann.
+      Das bedeutet, es gibt eine Ordnung &uuml;ber den Zust&auml;nden. Von einem
+      Zustand $i$ kommt man in die Zust&auml;nde $i, i+1, i+2$.</dd>
+</dl>
+<p>Die drei Probleme von HMMs sind</p>
+<ul>
+<li><strong>P1 - Evaluierungsproblem</strong>: Wie wahrscheinlich ist eine Sequenz
+  <span class="math">\(\bf{o} = o_1 o_2 \dots o_T\)</span>
+  gegeben ein HMM <span class="math">\(\lambda\)</span>, also <span class="math">\(P(\bf{o}|\lambda)\)</span>.</li>
+<li><strong>P2 - Dekodierungsproblem</strong>: Finden der wahrscheinlichsten Zustandssequenz <span markdown="0"><span class="math">\(s_1, \dots, s_T\)</span></span>,
+  gegeben eine Sequenz von Beobachtungen <span class="math">\(\bf{o} = o_1 o_2 \dots o_T\)</span>.</li>
+<li><strong>P3 - Lernproblem</strong>: Optimieren der Modellparameter</li>
+</ul>
+<p>Anwendungen:</p>
+<ul>
+<li>Gestenerkennung</li>
+<li>Phonem-Erkennung</li>
+</ul>
+<h3 id="markov-logik-netze">Markov Logik Netze</h3>
+<p>Slides: <code>MLI_11-MLN_slides1</code></p>
+<p>Markov Logik Netze sind Sammlungen von Tupeln aus Gewichten <span class="math">\(w_i\)</span> und
+pr&auml;dikatenlogischen Formeln. Die Idee hinter Markov Logik Netzen ist ein
+aufweichen der harten Bedingungen der Pr&auml;dikatenlogik. Eine pr&auml;dikatenlogische
+Formel ist entweder wahr oder falsch. Eine Formel in MLNs kann auch "meistens"
+erf&uuml;llt sein. Das wird durch das Gewicht repr&auml;sentiert.</p>
+<dl>
+<dt><a href="https://de.wikipedia.org/wiki/Markov_Logik_Netze"><dfn>Markov Logik Netze</dfn></a> (<dfn>MLN</dfn>)</dt>
+<dd>Ein Markov Logik Netz ist ein Menge aus Tupeln $L = (F_i, w_i)$, wobei $F_i$ eine Formel der Pr&auml;dikatenlogik erster Ordnung und $w_i \in \mathbb{R}$ ein Gewicht ist.
+      Ein MLN ist eine Schablone f&uuml;r ein MRF.</dd>
+<dt><a name="mrf-definition"></a><dfn>Markov Random Field</dfn> (<dfn>Markov Netzwerk</dfn>, <dfn>MRF</dfn>)</dt>
+<dd>Ein MRF ist ein ungerichtetes Probabilistisches Grafisches Modell.<br/>
+      MRFs sind zur Modellierung von Korrelation geeignet.</dd>
+<dt><a name="mln-jpd"></a><dfn>Verbundwahrscheinlichkeit in MLNs</dfn></dt>
+<dd>$P(x) = \frac{1}{Z} \exp(\sum_{i} w_i f_i(x))$ wobei $f_i$ das $i$-te Feature und $w_i$ ein
+           Gewicht ist. Beispielsweise k&ouml;nnte $$f_i(x) = f_i(\text{smoking}, \text{cancer}) = \begin{cases}1 &amp;\text{if } \neg \text{smoking} \lor \text{cancer}\\ 0 &amp;\text{otherwise}\end{cases}$$
+           gelten.</dd>
+<dt><a name="mln-inference"></a><dfn>Inferenz in MLNs</dfn></dt>
+<dd><abbr title="Maximum a posteriori">MAP</abbr>:
+      \begin{align}\text{arg max}_y P(y | x) &amp;= \frac{1}{Z} \exp(\sum_{i} w_i n_i(x, y))\\
+         &amp;= \sum_{i} w_i n_i(x, y) \end{align}</dd>
+</dl>
+<p>Siehe auch:</p>
+<ul>
+<li>Matthew Richardson, Pedro Domingos: <a href="http://link.springer.com/article/10.1007/s10994-006-5833-1">Markov logic networks</a></li>
+<li>Pedro Domingos, Matthew Richardson: <a href="http://homes.cs.washington.edu/~pedrod/papers/srl04.pdf">Markov Logic: A Unifying Framework for Statistical Relational Learning</a>, 2007.</li>
+<li>Coursera: <a href="https://www.coursera.org/course/pgm">Probabilistic Graphical Models</a></li>
+<li>Pedro Domingos: <a href="https://www.youtube.com/watch?v=bW5DzNZgGxY">Unifying Logical and Statistical AI</a>, September 2009.</li>
+<li>Software: <a href="https://alchemy.cs.washington.edu/">Alchemy</a></li>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=BLAoNJvQZQ4">11 4 M4 Markov Logic Formalism 11 39</a></li>
+</ul>
+<h3 id="evolutionare-algorithmen">Evolution&auml;re Algorithmen</h3>
+<p>Slides: <code>MLI_12_EvolutionaereAlgorithmen_slides1.pdf</code></p>
+<p>Siehe auch:</p>
+<ul>
+<li>[<a href="#ref-mit97" name="ref-mit97-anchor">Mit97</a>]</li>
+<li><a href="http://deap.readthedocs.org/en/master/index.html">DEAP</a> wenn du es
+  ausprobieren willst.</li>
+<li><a href="http://stackoverflow.com/q/7787232/562769">Difference between genetic algorithms and evolution strategies?</a></li>
+</ul>
+<dl>
+<dt><dfn>Individuum</dfn></dt>
+<dd>Eine m&ouml;gliche Hypothese</dd>
+<dt><dfn>Population</dfn> (<dfn>Generation</dfn>)</dt>
+<dd>Hypothesenmenge</dd>
+<dt><dfn>Erzeugung von Nachkommen</dfn></dt>
+<dd>Generierung neuer Hypothesen durch Rekombination und Mutation</dd>
+<dt><dfn>Fitness-Funktion</dfn></dt>
+<dd>Die Fitness-Funktion ist das zu optimierende Kriterium. Sie beschreibt
+        die G&uuml;te einer Hypothese.</dd>
+<dt><dfn>Selektion</dfn></dt>
+<dd>Auswahl der Hypothesen, welche die beste Probleml&ouml;sung erzeugen.</dd>
+<dt><dfn>Evolution&auml;re Strategien</dfn></dt>
+<dd>Das Wissen wird durch reele Zahlen und Vektoren repr&auml;sentiert.</dd>
+<dt><dfn>Genetische Programmierung</dfn></dt>
+<dd>Das Wissen wird duch baumartige Strukturen repr&auml;sentiert.</dd>
+<dt><dfn>Mutation</dfn></dt>
+<dd>Unter <i>Mutation</i> versteht man die zuf&auml;llige &Auml;nderung einzelner
+        Gene.
+
+        Beispiele:
+
+        <ul>
+<li>Bit-Inversion: Zuf&auml;llig Gleichverteilt pro Gen / Feste Anzahl,
+                aber zuf&auml;llige Gene</li>
+<li>Translation: Verschieben von Teilsequenzen</li>
+<li>Invertiertes Einf&uuml;gen</li>
+<li>Spezielle Mutationsoperatoren sind anwendungsspezifisch</li>
+</ul>
+</dd>
+<dt><dfn>Rekombination</dfn></dt>
+<dd>Bei der <i>Rekombination</i> werden die Eigenschaften zweier Eltern
+        gemischt. Dies kann Diskret passieren, wenn manche Gene von einem
+        Elternteil &uuml;bernommen werden und andere vom anderen Elternteil.
+        Alternativ kann die Rekombination auch durch <i>intermedi&auml;re
+        Rekombination</i> passieren. Das bedeutet, das ein Gen gemittelt
+        wird.</dd>
+</dl>
+<p>Grundalgorithmus:</p>
+<div class="highlight"><pre><span></span>Fitness-Function f
+Population p
+
+while f(p) &ne; optimal:
+    p_parents &larr; selection(p)
+    p_children &larr; generate_children(p_parents)
+    p &larr; p_parents + p_children
+    fitness &larr; f(p)
+    p &larr; selection_kill(p, fitness)
+</pre></div>
+<p>Probleme:</p>
+<ul>
+<li>Genetischer Drift: Manche Individuen vermehren sich zuf&auml;llig mehr als andere.
+  Diese sind nicht unbedingt besser f&uuml;r das Problem geeignet.</li>
+<li>Crowding, Ausrei&szlig;erproblem: Fitte Individuen dominieren die Population. Das
+  ist ein Problem wegen lokaler Maxima.</li>
+</ul>
+<p>Mating:</p>
+<ul>
+<li>Inselmodell: Die Evolution l&auml;uft weitgehend getrennt. Es passiert nur
+  vereinzelt, dass Individuen der Inseln ausgetauscht werden.</li>
+<li>Nachbarschaftsmodell: Nachkommen d&uuml;rfen nur von Individuen erzeugt werden,
+  die in ihrer Nachbarschaft die beste Fitness besitzen</li>
+<li>Globales Modell: Alle d&uuml;rfen sich mit allen verbinden.</li>
+</ul>
+<p>Evolution:</p>
+<ul>
+<li>Lamark'sche Evolution: Die Individuen &auml;ndern sich nach der Erzeugung. Sie
+  lernen also. Dabei wird der Genotyp ver&auml;ndert und auch vererbt.</li>
+<li>Baldwin'sche Evolution: Die Individuen &auml;ndern sich nach der Erzeugung, aber
+  der Genotyp bleibt gleich</li>
+<li>Hybride Verfahren: Es gibt sich ver&auml;ndernde und gleich bleibende Ph&auml;notypen.</li>
+</ul>
+<p>Anwendungen:</p>
+<ul>
+<li>Traveling Salesman</li>
+<li>Flugplanoptimierung</li>
+<li>Mischung von Kaffesorten</li>
+<li>Cybermotten: Motten m&uuml;ssen optimales Muster finden, um sich vor einer Fl&auml;che
+               wei&szlig;en Rauschens zu verbergen.</li>
+<li>Snakebot (Ivan Tanev) [<a href="#ref-pro06" name="ref-pro06-anchor">Pro06</a>]</li>
+</ul>
+<h3 id="deduktives-lernen">Deduktives Lernen</h3>
+<p>Slides: <code>MLI_13_DeduktivesLernen_slides1.pdf</code></p>
+<p>Siehe auch: <a href="//martin-thoma.com/formale-systeme/">Formale Systeme</a></p>
+<dl>
+<dt><dfn>Modus Ponens</dfn></dt>
+<dd>$$\frac{A, A \rightarrow B}{B}$$</dd>
+<dt><dfn>Erkl&auml;rungsbasiertes Lernen</dfn> (<dfn>EBL</dfn>, <dfn>Explanation Based Learning</dfn> by [<a href="#ref-mit97" name="ref-mit97-anchor">Mit97</a>])</dt>
+<dd>The key insight behind explanation-based generalization is that it is
+        possible to form a justified generalization of a single positive
+        training example provided the learning system is endowed with some
+        <b>explanatory capabilitie</b>. In particular, the system must be able
+        to explain to itself <b>why the training example is an example of the
+        concept</b> under study. Thus, the generalizer is presumed to possess a
+        definition of the concept under study as well as <b>domain
+        knowledge</b> for constructing the required explanation.</dd>
+<dt><dfn>Explanation Based Generalization</dfn> (<dfn>EBG</dfn>)</dt>
+<dd>EBG ist ein Prozess, bei dem implizites Wissen in explizites
+        umgewandelt wird.
+
+        EBG geht wie folgt vor:
+
+        <ol>
+<li>Explain: Finden einer Erkl&auml;rung, warum das Beispiel die
+                Definition des Zielkonzepts erf&uuml;llt. Dies ist einfaches
+                Anwenden des Modus Ponens.</li>
+<li>Generalize: Generalisieren der Erkl&auml;rung; bestimme also
+                hinreichende Bedingungen unter denen die gefundene
+                Erkl&auml;rungsstruktur g&uuml;ltig ist.</li>
+</ol>
+
+        Bei der EBG werden also Makro-Operatoren erzeugt.
+
+        Ein Beispiel f&uuml;r Software welche EBG benutzt ist
+        <abbr title="STanford Resarch Institute Problem Solver">STRIPS</abbr>.
+    </dd>
+<dt><dfn>KBANN</dfn> (<dfn>Knowledge-Based Artificial Neural Networks</dfn>)</dt>
+<dd>KBANN ist ein hybrides Verfahren. Die Idee ist ein neuronales Netz
+        geschickt zu konstruieren. Dieses wird dann wie gewohnt mit
+        Gradient Descent durch Trainingsbeispiele verfeinert.
+
+        Der Algorithmus gibt eine Netzarchtiktur vor:
+        <ul>
+<li>Dabei wird pro Instanzattribut ein Netz-Input verwendet. F&uuml;r
+                 jede Klausel wird ein Neuron hinzugef&uuml;gt.</li>
+<li>Dieses ist mit dem Instanzattribut durch das Gewicht $w$
+                 verbunden wenn es nicht negiert ist, sonst durch das Gewicht
+                 $-w$.</li>
+<li>Der Schwellwert der Aktivierungsfunktion wird auf
+                 $-(n- 0.5)w$ gesetzt, wobei $n$ die Anzahl der nicht-negierten
+                 Bedingungsteile ist.</li>
+<li>Verbinde die restlichen Neuronen von Schicht $i$ mit Schicht
+                $i+1$ indem zuf&auml;llige kleine Gewichte gesetzt werden.</li>
+</ul>
+
+         Angewendet werden kann KBANN:
+         <ul>
+<li>Lernen von physikalischen Objektklassen</li>
+<li>Erkennung von biologischen Konzepten in DNS-Sequenzen</li>
+</ul>
+</dd>
+</dl>
+<h3 id="unuberwachte-lernverfahren"><a name="unsupervised-learning"></a> Un&uuml;berwachte Lernverfahren</h3>
+<p>Slides: <code>MLI_14_UnueberwachtesLernen_slides1.pdf</code></p>
+<dl>
+<dt><dfn>$k$-means Clustering</dfn></dt>
+<dd>Der $k$-means Clustering Algorithmus finden $k$ Cluster in einem
+        Datensatz. Dabei ist $k \in \mathbb{N}_{\geq 1}$ vom Benutzer zu
+        w&auml;hlen.
+
+        Zuerst initialisert $k$-means die Zentroiden, also zentrale Punkte
+        f&uuml;r Cluster, zuf&auml;llig. Dann geht $k$-means geht iterativ vor:
+
+        <ol>
+<li>Weise jeden Datenpunkt seinem n&auml;chsten Cluster zu.</li>
+<li>Verschiebe die $k$ Zentroide in ihr Clusterzentrum</li>
+</ol>
+
+        Siehe auch: <a href="//martin-thoma.com/k-nearest-neighbor-classification-interactive-example/">Interaktives Beispiel</a>
+</dd>
+<dt><dfn>Fuzzy $k$-means</dfn></dt>
+<dd>Im Gegensatz zum $k$-means Algorithmus, wo jeder Datenpunkt in genau
+        einem Cluster ist, wei&szlig;t der Fuzzy $k$-means Algorithmus jedem
+        Datenpunkte eine Zugeh&ouml;rigkeitswahrscheinlichkeit zu. Je weiter
+        der Datenpunkt vom Zentroid entfernt ist, desto unwahrscheinlicher
+        wird die Zugeh&ouml;rigkeit.
+
+        Die Cluster-Zugeh&ouml;rigkeit des Datenpunktes $x_i$ zum Cluster $c_j$
+        kann als Wahrscheinlichkeit in Abh&auml;ngigkeit der Distanz
+        $$d_{ij} = |x_i - z_j|^2$$
+        zum Zentroiden
+        $z_j$ ausgedr&uuml;ckt werden:
+        $$P(c_j | x_i) = \frac{(\frac{1}{d_{ij}})^{\frac{1}{b-1}}}{\sum_{r=1}^k (\frac{1}{d_{ir}})^{\frac{1}{b-1}}}$$
+        wobei $b \in \mathbb{R}_{\geq 1}$ ein frei zu w&auml;hlender Parameter ist.
+
+        Die Zentroide werden dann wie folgt neu berechnet:
+
+        $$z_j = \frac{\sum_{i=1}^n [P(z_j|x_i)]^b \cdot x_i}{\sum_{i=1}^n [P(z_j | x_i)]^b}$$
+    </dd>
+<dt><a href="https://de.wikipedia.org/wiki/Hierarchische_Clusteranalyse"><dfn>Hierarchisches Clustern</dfn></a></dt>
+<dd>Die Idee des hierarchischen Clusterns ist die iterative Vereinigung
+        von Clustern zu gr&ouml;&szlig;eren Clustern.
+
+        Ergebisse k&ouml;nnen durch ein Dendrogramm beschrieben werden.
+
+        Anwendung: Einordnung von Schrauben in ein Ordnungssystem
+    </dd>
+<dt><dfn id="agglomerative-hierarchical-clustering">Agglomerative Hierarchical Clustering</dfn> (<dfn id="ahc">AHC</dfn>)</dt>
+<dd>AHC ist ein hierarchisches Clusteringverfahren.
+
+    Dabei ist ein Clusterdistanz-Schwellwert $t \in \mathbb{R}$ und eine
+    minimale Cluster-Anzahl $k \in \mathbb{N}$ zu w&auml;hlen. Auch ein Distanzma&szlig;
+    f&uuml;r Cluster (nearest neighbor, farest neighor, mean distance, ...) ist
+    als Hyperparameter zu w&auml;hlen.
+
+    Dann geht AHC wie folgt vor:
+
+    <div class="highlight">
+<pre><code class="language-text" data-lang="text">
+c &larr; k  # Minimale Anzahl an Clustern
+c' &larr; n  # Anzahl der Datenpunkte
+
+# Weise jedem Punkt sein eigenes Clusterzentrum zu
+for i in range(1, n):
+    D_i &larr; {x_i}
+
+# Vereinige Clusterzentren
+do:
+    c' := c' -1
+    find closest clusters D_i, D_j
+    if d(D_i, D_j) ⩽ t:
+        merge(D_i, Dj)
+    else:
+        break
+until c = c'
+    </code></pre>
+</div>
+        The result can be visualized as a Dendrogramm.
+    </dd>
+<dt><a href="https://en.wikipedia.org/wiki/Conceptual_clustering"><dfn>Begriffliche Ballung</dfn></a></dt>
+<dd>Bei Algorithmen der Begrifflichen Ballung werden Konzeptbeschreibungen
+        generiert.</dd>
+<dt><a href="https://en.wikipedia.org/wiki/Cobweb_(clustering)"><dfn>COBWEB</dfn></a></dt>
+<dd>Cobweb ist ein Algorithmus zur begrifflichen Ballung. Er lernt durch
+        inkrementelles Aufbauen eines Strukturbaumes. Dabei sind nominale
+        Attribute gestattet. Dabei wird ein Datenpunkt $x_i$ zum Cluster
+        $c_j$ geclustert, wenn man die Attributwerte von $x_i$ durch die
+        Kentniss von $c_j$ gut vorhersagen kann (<span markdown="0">$P(x_i | c_j)$</span>,
+        predictability) und zugleich der Cluster gut vorhergesagt werden kann,
+        wenn die Attributwerte gegeben sind (<span markdown="0">$P(c_j|x_i)$</span>, predictiveness).
+
+        Es soll also in inter-Klassen&auml;hnlichkeit minimiert und die
+        intra-Klassen&auml;hnlichkeit maximimiert werden. Daf&uuml;r wird die
+        Category Utility verwendet:
+
+        <div>
+        $$\text{CU} = \sum_{k=1}^K \sum_{i=1}^I \sum_{j=1}^{J(i)} P(A_i = V_{ij}) \cdot P(A_i = V_ij | C_k) \cdot P(C_k | A_i = V_{ij})$$
+        </div>
+
+        Dabei gilt:
+
+        <ul>
+<li>$K$: Anzahl der Cluster</li>
+<li>$I$: Anzahl der Attribute</li>
+<li>$J(i)$: Anzahl der Attributwerte des $i$-ten Attributs</li>
+<li>$V_{ji}$: $j$-ter m&ouml;glicher Wert f&uuml;r Attribut $i$</li>
+<li>$P(A_i = V_ij | C_k)$: Predictability</li>
+<li>$P(C_k | A_i = V_{ij}$: Predictiveness</li>
+</ul>
+
+        Anwendung: Interpretation von <abbr title="Elektromyographie">EMGs</abbr>
+</dd>
+</dl>
+<h2 id="prufungsfragen_1">Pr&uuml;fungsfragen</h2>
+<ul>
+<li>Was ist Induktives Lernen?<br/>
+        &rarr; Eine gro&szlig;e Menge an Beispielen wird gegeben. Der Lerner muss selbst
+           das Konzept herausfinden.</li>
+<li>Was ist Deduktives Lernen?<br/>
+        &rarr; Fakten werden gegeben. Der lernende bekommt das allgemeine Konzept
+           gesagt und muss nur logische Schlussfolgerungen machen.</li>
+<li>SVMs
+    <ul>
+<li>Wie funktioniert SRM bei SVMs?<br/>
+            &rarr; Dualit&auml;t zwischen Feature- und Hypothesenraum: Radius der Hyperkugel
+               wird minimiert.</li>
+<li>Warum lernen SVMs "korrekt"?<br/>
+            &rarr; Es gibt ein Theorem (TODO: Welches?) das besagt, dass die VC-Dimension
+            eines Klassifiers, welcher Datenpunkte im $n$-Dimensionalen Raum
+            innerhalb einer Kugel mit Radius $D$ durch eine Hyperebene mit
+            mindestens Abstand $\Delta$ trennen will, durch $(\frac{D}{\Delta})^2$
+            beschr&auml;nkt ist. Die SVM minimiert genau diesen Quotienten, da sie den
+            Margin maximiert.
+
+            Alternativ: Erkl&auml;rung durch Strukturierung des Hypothesenraumes (TODO).</li>
+</ul></li>
+<li>Reinforcement Learning
+        <ul>
+<li>Wie lautet die Bellman-Gleichung?<br/>
+                &rarr; $Q(s, a) = r + \gamma \max_{a'} Q(s', a')$ wobei $\gamma$ ein
+                Diskontierungsfaktor ist, $s'$ der Zustand in den man kommt, wenn
+                man $a$ ausf&uuml;hrt und $r$ der Reward nach ausf&uuml;hren von $a$ in
+                $s$ ist.</li>
+<li>Was ist Value Iteration und wie lautet die Formel?<br/>
+                &rarr; Sch&auml;tzen der Value-Funktion durch iteratives anwenden von $\hat{V}^*(s_t) \leftarrow r_t + \gamma \hat{V}^*(s_{t+1})$</li>
+<li>Was sind Eligibility Traces im Kontext von Reinforcement Learning?<br/>
+                &rarr; Siehe <a href="#rl-eligibility-trace">oben</a></li>
+<li>Wie funktioniert Q-Learning?<br/>
+                &rarr; Siehe <a href="#q-learning">Abschnitt Q-Learning</a></li>
+</ul>
+</li>
+<li>Evolution&auml;re Algorithmen: Was ist wichtig?
+        <ul>
+<li>Population / Individuen: Wie Individuen darstellen<br/>
+                &rarr; Durch Gene (Attribute), z.B. als Bitstring</li>
+<li>Gegebener Ablauf (Wahl der Eltern, Generierung der Individuen)</li>
+<li>Wie kann man Kombinieren?<br/>
+                &rarr; vgl. <i>Rekombination</i></li>
+<li>Fitness Function</li>
+<li>Was sind die wichtigsten Elemente von evolution&auml;ren Algorithmen?<br/>
+                &rarr; Mutation, Rekombination, Fittness-Funktion, Selektion</li>
+<li>Was ist Landmarksche / Baldwinsche Evolution?</li>
+</ul>
+</li>
+<li>Wie lautet die Fehlerabsch&auml;tzung von Vapnik?<br/>
+        &rarr; Siehe <a href="#fehlerabschaetzung">Absch&auml;tzung des realen Fehlers</a> durch den empirischen Fehler
+           und die VC-Dimension.</li>
+<li>Was versteht man unter Cascade Correlation?<br/>
+        &rarr; <a href="https://www.youtube.com/watch?v=1E3XZr-bzZ4">YouTube</a> (4:05 min)</li>
+<li>Welche &uuml;bwerwachten Lernverfahren gibt es?<br/>
+        &rarr; Neuronale Netze, SVMs</li>
+<li>Wie funktioniert Inferenz in Markov Logik Netzen?<br/>
+        &rarr; Siehe <a href="#mln-inference">oben</a></li>
+<li>Wie wird die Verbundwahrscheinlichkeit / Weltwahrscheinlichkeit in Markov Logik Netzen berechnet?<br/>
+        &rarr; Siehe <a href="#mln-jpd">oben</a></li>
+<li>Was ist Dynamic Decay Adjustment (DDA)?<br/>
+        &rarr; Siehe <a href="#dda-algorithm">oben</a></li>
+<li>Was ist erkl&auml;rungsbasierte Generalisierung (EBG)?<br/>
+        &rarr; Der Agent lernt keine neuen Konzepte, aber er lernt &uuml;ber Verbindungen
+           bekannter Konzepte.</li>
+<li>Wie lautet die Formel f&uuml;r Entropie / Information Gain?<br/>
+        &rarr; $\text{Entropie} = - \sum_{i} p_i \log p_i$ und $KL(P, Q) = \sum_{x \in X} P(x) \cdot \log \frac{P(x)}{Q(x)}$</li>
+<li>Was ist Cobweb?<br/>
+        &rarr; Siehe <a href="#unsupervised-learning">Unsupervised Learning</a></li>
+</ul>
+<h2 id="material-und-links">Material und Links</h2>
+<ul>
+<li><a href="http://cg.ivd.kit.edu/lehre/ws2015/cg/index.php">Vorlesungswebsite</a></li>
+<li><a href="http://cg.ivd.kit.edu/lehre/ws2015/cg/uebung.php">&Uuml;bungswebsite</a></li>
+<li>StackExchange</li>
+<li><a href="http://datascience.stackexchange.com/q/8642/8820">What is the difference between concept learning and classification?</a></li>
+<li><a href="http://datascience.stackexchange.com/q/10000/8820">What is the difference between a (dynamic) Bayes network and a HMM?</a></li>
+<li><a href="//martin-thoma.com/machine-learning-2-course/">Zusammenfassung der Vorlesung ML 2</a></li>
+<li>Udacity</li>
+<li><a href="https://www.udacity.com/course/knowledge-based-ai-cognitive-systems--ud409">Knowledge-Based AI: Cognitive Systems</a>: Unter anderem gibt es eine Lektion zu Explanation-Based Learning (erkl&auml;rungsbasierte Generalisierung)</li>
+</ul>
+<h2 id="literatur">Literatur</h2>
+<ul>
+<li>[<a href="#ref-mit97-anchor" name="ref-mit97">Mit97</a>] T. Mitchell.
+  Machine Learning. McGraw-Hill, 1997.</li>
+<li>[<a href="#ref-dar09-anchor" name="ref-dar09">Dar09</a>] A. Darwiche.
+  Modeling and reasoning with Bayesian networks. Cambridge University Press,
+  Cambridge [u.a.], 2009.</li>
+<li>[<a href="#ref-ber95-anchor" name="ref-ber95">Ber95</a>] M.&nbsp;Berthold and
+  J.&nbsp;Diamond. Boosting the Performance of RBF Networks with Dynamic Decay
+  Adjustment. Advances in Neural Information Processing, 1995. [<a href="http://kops.uni-konstanz.de/handle/123456789/5427">Online</a>]</li>
+<li>[<a href="#ref-pro06-anchor" name="ref-pro06">Pro06</a>] Prokopenko, Mikhail and Gerasimov, Vadim and
+  Tanev, Ivan. Evolving Spatiotemporal Coordination in a Modular Robotic
+  System. Springer, 2006.</li>
+</ul>
+<h2 id="ubungsbetrieb">&Uuml;bungsbetrieb</h2>
+<p>Es gibt keine &Uuml;bungsbl&auml;tter, keine &Uuml;bungen, keine Tutorien und keine
+Bonuspunkte.</p>
+<h2 id="vorlesungsempfehlungen">Vorlesungsempfehlungen</h2>
+<p>Folgende Vorlesungen sind &auml;hnlich:</p>
+<ul>
+<li><a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/">Analysetechniken gro&szlig;er Datenbest&auml;nde</a></li>
+<li><a href="https://martin-thoma.com/informationsfusion/">Informationsfusion</a></li>
+<li><a href="https://martin-thoma.com/machine-learning-1-course/">Machine Learning 1</a></li>
+<li><a href="https://martin-thoma.com/machine-learning-2-course/">Machine Learning 2</a></li>
+<li><a href="https://martin-thoma.com/mustererkennung-klausur/">Mustererkennung</a></li>
+<li><a href="https://martin-thoma.com/neuronale-netze-vorlesung/">Neuronale Netze</a></li>
+<li><a href="https://martin-thoma.com/lma/">Lokalisierung Mobiler Agenten</a></li>
+<li><a href="https://martin-thoma.com/probabilistische-planung/">Probabilistische Planung</a></li>
+</ul>
+<p>Folgende Vorlesungen habe ich nicht geh&ouml;rt, k&ouml;nnten aber interessant sein:</p>
+<ul>
+<li>B&ouml;hm: <a href="https://dbis.ipd.kit.edu/english/2422.php">Big Data Analytics</a></li>
+<li>B&ouml;hm: <a href="http://dbis.ipd.kit.edu/2391.php">Analysetechniken gro&szlig;er Datenbest&auml;nde 2</a></li>
+<li>B&ouml;hm: <a href="http://dbis.ipd.kit.edu/2393.php">Praktikum: Analysetechniken gro&szlig;er Datenbest&auml;nde</a></li>
+</ul>
+<p>Noch kann ich folgende Veranstaltungen nicht einsch&auml;tzen und w&uuml;rde mich &uuml;ber
+Feedback von dir freuen:</p>
+<ul>
+<li>Beyerer: <a href="https://www.kithub.de/vvz/22542/events/42519">Projektpraktikum: Bildauswertung und -fusion</a></li>
+<li><a href="https://www.kithub.de/vvz/22127/events/41442">Big Data @ BOSCH</a></li>
+<li>Cayoglu, Streit: <a href="https://www.kithub.de/vvz/22260/events/44993">Big Data Tools</a></li>
+<li>Hartenstein: <a href="https://www.kithub.de/vvz/22548/events/45543">Big Data Mining auf GPUs</a></li>
+<li>Hanebeck: <a href="https://www.kithub.de/vvz/22544/events/43438">Von Big Data zu Data Science: Moderne Methoden der Informationsverarbeitung</a></li>
+<li>Nakhaeizadeh: <a href="https://www.kithub.de/vvz/21974/events/46245">Data Mining</a></li>
+<li>Studer (AIFB): <a href="https://www.kithub.de/vvz/21970/events/44546">Knowledge Discovery</a></li>
+</ul>
+<h2 id="termine-und-klausurablauf">Termine und Klausurablauf</h2>
+<p><strong>Datum</strong>: M&uuml;ndliche Pr&uuml;fung (in Zukunft schriftlich)<br/>
+<strong>Ort</strong>: nach Absprache<br/>
+<strong>Zeit</strong>: 15&nbsp;min<br/>
+<strong>&Uuml;bungsschein</strong>: gibt es nicht<br/>
+<strong>Bonuspunkte</strong>: gibt es nicht<br/>
+<strong>Ergebnisse</strong>: werden ca. 5&nbsp;-&nbsp;10&nbsp;min. nach der m&uuml;ndlichen Pr&uuml;fung gesagt<br/>
+<strong>Erlaubte Hilfsmittel</strong>: keine</p>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2015-11-09T16:02:00+01:00">Nov 9, 2015</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#german-posts-ref">German posts</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#clustering-ref">Clustering
+                    <span>4</span>
+</a></li>
+                <li><a href="../tags.html#klausur-ref">Klausur
+                    <span>35</span>
+</a></li>
+                <li><a href="../tags.html#reinforcement-learning-ref">Reinforcement Learning
+                    <span>7</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

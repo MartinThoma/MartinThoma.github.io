@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Computer science, LaTeX, Abstract machine, Tikz, My bits and bytes, " />
+
+<meta property="og:title" content="How to draw a finite-state machine "/>
+<meta property="og:url" content="../how-to-draw-a-finite-state-machine/" />
+<meta property="og:description" content="Finite-state machines are necessary to show that some problems are computable (or not). As I am currently learning something about them, I would like to be able to plot those finite automatons automatically. I will use graphviz. Nondeterministic finite-state machine Nondeterministic finite-state machine This image is created from a gv-file …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2011-10-29T09:37:50+02:00" />
+<meta name="twitter:title" content="How to draw a finite-state machine ">
+<meta name="twitter:description" content="Finite-state machines are necessary to show that some problems are computable (or not). As I am currently learning something about them, I would like to be able to plot those finite automatons automatically. I will use graphviz. Nondeterministic finite-state machine Nondeterministic finite-state machine This image is created from a gv-file …">
+<meta property="og:image" content="2011/10/deterministic-finite-state-machine-thumb.png" />
+<meta name="twitter:image" content="2011/10/deterministic-finite-state-machine-thumb.png" >
+
+        <title>How to draw a finite-state machine  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../how-to-draw-a-finite-state-machine/"> How to draw a finite-state machine  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#nondeterministic-finite-state-machine" title="Nondeterministic finite-state machine">Nondeterministic finite-state machine</a></li><li><a class="toc-href" href="#deterministic-finite-state-machine" title="Deterministic finite-state machine">Deterministic finite-state machine</a></li><li><a class="toc-href" href="#latex" title="LaTeX">LaTeX</a><ul><li><a class="toc-href" href="#markov-models" title="Markov models">Markov models</a></li></ul></li><li><a class="toc-href" href="#further-reading_1" title="Further Reading">Further Reading</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p><a href="http://en.wikipedia.org/wiki/Deterministic_finite-state_machine">Finite-state machines</a> are necessary to show that some problems are computable (or not).</p>
+<p>As I am currently learning something about them, I would like to be able to plot those finite automatons automatically. I will use <a href="http://www.graphviz.org/">graphviz</a>.
+<h2 id="nondeterministic-finite-state-machine">Nondeterministic finite-state machine</h2>
+<figure class="aligncenter">
+<a href="../images/2011/10/myFiniteStateMachine1.png"><img alt="Nondeterministic finite-state machine" class="size-full wp-image-8141 " src="../images/2011/10/myFiniteStateMachine1.png" style="max-width:365px;max-height:119px;"/></a>
+<figcaption class="text-center">Nondeterministic finite-state machine</figcaption>
+</figure></p>
+<p>This image is created from a gv-file. I saved it as fsm.gv:</p>
+<div class="highlight"><pre><span></span>digraph finite<span class="nb">_</span>state<span class="nb">_</span>machine <span class="nb">{</span>
+    rankdir=LR;
+    size="8,5"
+
+    node [shape = doublecircle]; S;
+    node [shape = point ]; qi
+
+    node [shape = circle];
+    qi -&gt; S;
+    S  -&gt; q1 [ label = "a" ];
+    S  -&gt; S  [ label = "a" ];
+    q1 -&gt; S  [ label = "a" ];
+    q1 -&gt; q2 [ label = "b" ];
+    q2 -&gt; q1 [ label = "b" ];
+    q2 -&gt; q2 [ label = "b" ];
+<span class="nb">}</span>
+</pre></div>
+<p>To create a graph (or the picture of the nondeterministic finite-state machine) you have to enter the following command in Ubuntu Linux:</p>
+<div class="highlight"><pre><span></span>dot -Tpng fsm.gv -o myFiniteStateMachine.png
+</pre></div>
+<h2 id="deterministic-finite-state-machine">Deterministic finite-state machine</h2>
+<figure class="aligncenter">
+<a href="../images/2011/10/deterministic-finite-state-machine.png"><img alt="Deterministic finite-state machine" class="size-full wp-image-8171" src="../images/2011/10/deterministic-finite-state-machine.png" style="max-width:528px;max-height:248px"/></a>
+<figcaption class="text-center">Deterministic finite-state machine</figcaption>
+</figure>
+<div class="highlight"><pre><span></span>digraph finite<span class="nb">_</span>state<span class="nb">_</span>machine <span class="nb">{</span>
+    rankdir=LR;
+    size="8,5"
+
+    node [shape = doublecircle, label="<span class="nb">{</span>f<span class="nb">}</span>", fontsize=12] f;
+    node [shape = doublecircle, label="<span class="nb">{</span>q2, f<span class="nb">}</span>", fontsize=10] q2f;
+
+    node [shape = circle, label="S", fontsize=14] S;
+    node [shape = circle, label="<span class="nb">{</span>q1<span class="nb">}</span>", fontsize=12] q1;
+    node [shape = circle, label="<span class="nb">{</span>q2<span class="nb">}</span>", fontsize=12] q2;
+
+    node [shape = point ]; qi
+    qi -&gt; S;
+
+    S   -&gt; q1  [ label = "a" ];
+    S   -&gt; q2f [ label = "b" ];
+    S   -&gt; q2  [ label = "c" ];
+
+    q1  -&gt; q2  [ label = "b" ];
+
+    q2f -&gt; f   [ label = "b" ];
+    q2f -&gt; q2  [ label = "c" ];
+
+    q2  -&gt; f   [ label = "b" ];
+    q2  -&gt; q2  [ label = "c" ];
+<span class="nb">}</span>
+</pre></div>
+<h2 id="latex">LaTeX</h2>
+<p>If you want to draw finite-state machines with LaTeX, you might want to give <a href="http://www.texample.net/tikz/examples/feature/automata-and-petri-nets/">tikz</a> a try.</p>
+<p>This is the most minimalistic version I could create. It is equivalent to the nondeterministic finite-state machine I've described above:</p>
+<div class="highlight"><pre><span></span><span class="k">\documentclass</span><span class="nb">{</span>scrartcl<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span>
+<span class="k">\usetikzlibrary</span><span class="nb">{</span>arrows,automata<span class="nb">}</span>
+
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[&gt;=stealth',shorten &gt;=1pt,auto,node distance=2cm]
+  <span class="k">\node</span><span class="na">[initial,state,accepting]</span> (S)      <span class="nb">{</span><span class="s">$</span><span class="nb">S</span><span class="s">$</span><span class="nb">}</span>;
+  <span class="k">\node</span><span class="na">[state]</span>         (q1) [right of=S]  <span class="nb">{</span><span class="s">$</span><span class="nb">q_</span><span class="m">1</span><span class="s">$</span><span class="nb">}</span>;
+  <span class="k">\node</span><span class="na">[state]</span>         (q2) [right of=q1] <span class="nb">{</span><span class="s">$</span><span class="nb">q_</span><span class="m">2</span><span class="s">$</span><span class="nb">}</span>;
+
+
+  <span class="k">\path</span><span class="na">[-&gt;]</span> (S)  edge [loop above] node <span class="nb">{</span>a<span class="nb">}</span> (S)
+             edge              node <span class="nb">{</span>a<span class="nb">}</span> (q1)
+        (q1) edge [bend left]  node <span class="nb">{</span>a<span class="nb">}</span> (S)
+             edge              node <span class="nb">{</span>b<span class="nb">}</span> (q2)
+        (q2) edge [loop above] node <span class="nb">{</span>b<span class="nb">}</span> (q2)
+             edge [bend left]  node <span class="nb">{</span>b<span class="nb">}</span> (q1);
+<span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+<p>This was the most basic example which shows how to draw a finite-state automaton with LaTeX. You can get it as a PDF with this command:</p>
+<div class="highlight"><pre><span></span>pdflatex latexsheet.tex -output-format<span class="o">=</span>pdf
+</pre></div>
+<p>If you want to see some more fancy stuff, take a look at this example of a non-deterministic finite state machine:</p>
+<figure class="aligncenter">
+<a href="../images/2011/10/latex-finite-state-machine.png"><img alt="Finite-state-machine with LaTeX" class="size-full wp-image-13421" src="../images/2011/10/latex-finite-state-machine.png" style="max-width:400px;max-height:147px"/></a>
+<figcaption class="text-center">Finite-state-machine with LaTeX</figcaption>
+</figure>
+<div class="highlight"><pre><span></span><span class="k">\documentclass</span><span class="nb">{</span>scrartcl<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span>
+<span class="k">\usetikzlibrary</span><span class="nb">{</span>arrows,automata<span class="nb">}</span>
+
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[&gt;=stealth',shorten &gt;=1pt,auto,node distance=2cm]
+  <span class="k">\node</span><span class="na">[initial,state,accepting]</span> (S)      <span class="nb">{</span><span class="s">$</span><span class="nb">S</span><span class="s">$</span><span class="nb">}</span>;
+  <span class="k">\node</span><span class="na">[state]</span>         (q1) [right of=S]  <span class="nb">{</span><span class="s">$</span><span class="nb">q_</span><span class="m">1</span><span class="s">$</span><span class="nb">}</span>;
+  <span class="k">\node</span><span class="na">[state]</span>         (q2) [right of=q1] <span class="nb">{</span><span class="s">$</span><span class="nb">q_</span><span class="m">2</span><span class="s">$</span><span class="nb">}</span>;
+
+  <span class="k">\path</span><span class="na">[-&gt;]</span>          (S)  edge [loop above] node <span class="nb">{</span>a<span class="nb">}</span> (S);
+  <span class="k">\path</span><span class="na">[-&gt;, dashed]</span>  (S)  edge              node <span class="nb">{</span>a<span class="nb">}</span> (q1);
+  <span class="k">\path</span><span class="na">[-&gt;, dotted]</span>  (q1) edge [bend left]  node <span class="nb">{</span>a<span class="nb">}</span> (S);
+  <span class="k">\path</span><span class="na">[-&gt;&gt;, dotted]</span> (q1) edge             node <span class="nb">{</span>b<span class="nb">}</span> (q2);
+  <span class="k">\path</span>              (q2) edge [loop above] node <span class="nb">{</span>b<span class="nb">}</span> (q2)
+             edge [bend left]  node <span class="nb">{</span>b<span class="nb">}</span> (q1);
+<span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+<h3 id="markov-models">Markov models</h3>
+<div class="highlight"><pre><span></span><span class="k">\documentclass</span><span class="nb">{</span>scrartcl<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span>
+<span class="k">\usetikzlibrary</span><span class="nb">{</span>arrows,automata<span class="nb">}</span>
+
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[-&gt;,&gt;=stealth',shorten &gt;=1pt,node distance=2.8cm]
+    <span class="c">% When you want to use // inside of nodes, you have to algin</span>
+    <span class="k">\tikzstyle</span><span class="nb">{</span>every state<span class="nb">}</span>=[align=center]
+    <span class="k">\node</span><span class="na">[state,initial,label=below:Start]</span> (Start)
+                                            <span class="nb">{</span>A 0.6<span class="k">\\</span>B 0.2<span class="k">\\</span>C 0.2<span class="nb">}</span>;
+    <span class="k">\node</span><span class="na">[state,label=below:Mitte]</span> (Mitte) [right of=Start] 
+                                            <span class="nb">{</span>A 0.1<span class="k">\\</span>B 0.1<span class="k">\\</span>C 0.8<span class="nb">}</span>;
+    <span class="k">\node</span><span class="na">[state,label=below:Ende]</span> (Ende)   [right of=Mitte] 
+                                            <span class="nb">{</span>A 0.5<span class="k">\\</span>B 0.2<span class="k">\\</span>C 0.3<span class="nb">}</span>;
+    <span class="k">\path</span> (Start) edge               node[above] <span class="nb">{</span>0.2<span class="nb">}</span> (Mitte);
+    <span class="k">\path</span> (Mitte) edge               node[above] <span class="nb">{</span>0.8<span class="nb">}</span> (Ende);
+    <span class="k">\path</span> (Start) edge  [loop above] node        <span class="nb">{</span>0.8<span class="nb">}</span> (Start);
+    <span class="k">\path</span> (Mitte) edge  [loop above] node        <span class="nb">{</span>0.2<span class="nb">}</span> (Mitte);
+    <span class="k">\path</span> (Ende)  edge  [loop above] node        <span class="nb">{</span>1<span class="nb">}</span>  (Ende);
+<span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+<h2 id="further-reading_1">Further Reading</h2>
+<ul>
+<li><a href="http://www.graphviz.org/doc/info/shapes.html">DOT Node Shape reference</a></li>
+<li><a href="http://wiki.ubuntuusers.de/Graphviz">ubuntuusers.de</a> (German): Installation on Ubuntu</li>
+<li><a href="http://www.wikischool.de/wiki/WikiSchool:Graphviz">Wikischool.de</a> (German): Many examples</li>
+</ul>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2011-10-29T09:37:50+02:00">Okt 29, 2011</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#my-bits-and-bytes-ref">My bits and bytes</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#abstract-machine-ref">Abstract machine
+                    <span>4</span>
+</a></li>
+                <li><a href="../tags.html#computer-science-ref">Computer science
+                    <span>8</span>
+</a></li>
+                <li><a href="../tags.html#latex-ref">LaTeX
+                    <span>28</span>
+</a></li>
+                <li><a href="../tags.html#tikz-ref">Tikz
+                    <span>6</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

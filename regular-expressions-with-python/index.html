@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Python, RegEx, Code, " />
+
+<meta property="og:title" content="Regular Expressions with Python "/>
+<meta property="og:url" content="../regular-expressions-with-python/" />
+<meta property="og:description" content="Python supports regular expressions (RegEx) just as any other general purpose programming language. This mini article shows two examples how to use them. The package which gives RegEx support is called re. Replacing Spaces Replace multiple whitespace characters (spaces, tabs, newlines, ...) by a single space (by Nasir): import re text …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2015-01-20T13:35:00+01:00" />
+<meta name="twitter:title" content="Regular Expressions with Python ">
+<meta name="twitter:description" content="Python supports regular expressions (RegEx) just as any other general purpose programming language. This mini article shows two examples how to use them. The package which gives RegEx support is called re. Replacing Spaces Replace multiple whitespace characters (spaces, tabs, newlines, ...) by a single space (by Nasir): import re text …">
+<meta property="og:image" content="logos/python.png" />
+<meta name="twitter:image" content="logos/python.png" >
+
+        <title>Regular Expressions with Python  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../regular-expressions-with-python/"> Regular Expressions with Python  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#replacing-spaces" title="Replacing Spaces">Replacing Spaces</a></li><li><a class="toc-href" href="#unquoting" title="Unquoting">Unquoting</a></li><li><a class="toc-href" href="#all-paragraphs" title="All paragraphs">All paragraphs</a></li><li><a class="toc-href" href="#common-regexes" title="Common RegExes">Common RegExes</a><ul><li><a class="toc-href" href="#numbers" title="Numbers">Numbers</a></li><li><a class="toc-href" href="#email" title="Email">Email</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>Python supports regular expressions (RegEx) just as any other general purpose
+programming language. This mini article shows two examples how to use them.</p>
+<p>The package which gives RegEx support is called
+<a href="https://docs.python.org/3/library/re.html"><code>re</code></a>.</p>
+<h2 id="replacing-spaces">Replacing Spaces</h2>
+<p>Replace multiple whitespace characters (spaces, tabs, newlines, ...) by a
+single space (by <a href="http://stackoverflow.com/a/1546245/562769">Nasir</a>):</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">"The   fox jumped   over    the log."</span>
+<span class="n">replaced</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">"\s\s+"</span><span class="p">,</span> <span class="s2">" "</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</pre></div>
+<p>To speed things up you can also
+<a href="https://docs.python.org/3/library/re.html#re.compile"><code>compile</code></a> the pattern.
+This has also the advantage that you can specify that you want to match newline
+characters (<code>\n</code> and <code>\r</code>) with the dot by setting the
+<a href="https://docs.python.org/3/library/re.html#re.DOTALL"><code>re.DOTALL</code></a> flag.</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">"\s\s+"</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">DOTALL</span><span class="p">)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">"The   fox jumped   over    the log."</span>
+<span class="n">pattern</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">" "</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</pre></div>
+<h2 id="unquoting">Unquoting</h2>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="k">def</span> <span class="nf">remove_quotes</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="sd">"""Remove 'test'."""</span>
+    <span class="k">def</span> <span class="nf">unquote</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">u</span><span class="s1">' </span><span class="si">%s</span><span class="s1"> '</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">" '([^ ]+?.*[^ ]+?)' "</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pattern</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">unquote</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">"The quoted 'text piece' will get unquoted."</span>
+<span class="n">remove_quotes</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+<h2 id="all-paragraphs">All paragraphs</h2>
+<p>If you want to get the content within all paragraph tags (<code>&lt;p&gt; ... &lt;/p&gt;</code> in
+arbitrary spacing) you can use:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">"&lt;p&gt;(.*?)&lt;/p&gt;"</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span> <span class="o">|</span> <span class="n">re</span><span class="o">.</span><span class="n">DOTALL</span><span class="p">)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">"""</span>
+<span class="s2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus placerat</span>
+<span class="s2">turpis vitae malesuada tempor. Fusce cursus condimentum leo, ut bibendum justo</span>
+<span class="s2">varius sit amet. In accumsan interdum nibh at fermentum. Nulla commodo, mi vel</span>
+<span class="s2">ultricies efficitur, nulla tortor sagittis tortor, quis laoreet augue orci</span>
+<span class="s2">vitae justo.</span>
+
+<span class="s2">sasdf &lt;p&gt;Suspendisse porttitor risus et est consequat condimentum.</span>
+<span class="s2">In in eleifend ipsum, eu pulvinar nunc. Nullam vel imperdiet eros.</span>
+<span class="s2">Phasellus vel arcu convallis, semper quam eu, convallis velit.</span>
+
+<span class="s2">&lt;/p&gt;</span>
+
+
+<span class="s2">&lt;P&gt;Sed tempus magna quis neque varius aliquam. Quisque maximus et augue non</span>
+<span class="s2">dapibus. Nullam et ante imperdiet, fringilla diam nec, mattis quam.&lt;/p&gt;</span>
+
+<span class="s2">&lt;P&gt;Ut fermentum lacus id semper imperdiet. Donec et purus consectetur,</span>
+<span class="s2">fermentum mi nec, viverra dolor. Quisque posuere ultricies leo et efficitur.</span>
+<span class="s2">Aliquam venenatis quis mi ac tempus.&lt;/p&gt;</span>
+
+<span class="s2">Maecenas in nisl lacinia, finibus velit eu, aliquet elit. Morbi orci libero,</span>
+<span class="s2">interdum id vehicula vitae, &lt;p&gt;congue vel&lt;/p&gt;p&gt; lectus. Morbi lobortis eros</span>
+<span class="s2">mollis, cursus velit at, convallis dolor. Nullam volutpat neque at risus</span>
+<span class="s2">porttitor, faucibus tristique tellus suscipit. In sed purus quis sem tincidunt</span>
+<span class="s2">lobortis. Vivamus ut blandit erat, sed sollicitudin felis. Etiam placerat,</span>
+<span class="s2">sapien et vulputate placerat, mi lectus tristique nisi, vitae finibus tellus</span>
+<span class="s2">nisi a massa. Nullam sit amet scelerisque lectus. Fusce porta justo ac</span>
+<span class="s2">scelerisque auctor. Integer vestibulum tellus at quam molestie dapibus.</span>
+<span class="s2">Suspendisse quis quam tortor. Nullam consequat tempus orci eget scelerisque. Ut</span>
+<span class="s2">auctor lorem enim, id rutrum eros congue varius. In justo lacus, molestie vitae</span>
+<span class="s2">nibh eu, venenatis auctor ex.</span>
+<span class="s2">"""</span>
+
+<span class="n">matches</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+<p>Matches is the following list (breaked at some points for easier reading):</p>
+<div class="highlight"><pre><span></span>['Suspendisse porttitor risus et est consequat condimentum.\n
+  In in eleifend ipsum, eu pulvinar nunc. Nullam vel imperdiet eros.\n
+  Phasellus vel arcu convallis, semper quam eu, convallis velit.\n\n',
+ 'Sed tempus magna quis neque varius aliquam. Quisque maximus et augue non\n
+  dapibus. Nullam et ante imperdiet, fringilla diam nec, mattis quam.',
+ 'Ut fermentum lacus id semper imperdiet. Donec et purus consectetur,\n
+  fermentum mi nec, viverra dolor.
+  Quisque posuere ultricies leo et efficitur.\n
+  Aliquam venenatis quis mi ac tempus.',
+ 'congue vel']
+</pre></div>
+<h2 id="common-regexes">Common RegExes</h2>
+<h3 id="numbers">Numbers</h3>
+<h4 id="non-negative-even-numbers">non-negative even numbers</h4>
+<p><strong>RegEx</strong>: <code>^\d*[02468]$</code>
+<strong>Description</strong>: All even numbers end with either 0, 2, 4, 6 or 8.
+<strong>Matches</strong>: 12 | 2 | 012 | 4 | 44
+<strong>Non-Matches</strong>: -12 | 3 | 13</p>
+<h4 id="percentage">Percentage</h4>
+<p><strong>RegEx</strong>: <code>^\d{0,2}(\.[0-9]{1,2})?$|^(100)(\.[0]{1,2})?$</code>
+<strong>Description</strong>: All percentages with 0, 1 or 2 decimal places without the percent sign.
+<strong>Matches</strong>: 0 | 0.0 | 0.00 | 12.42 | 100 | 100.0 | 100.00
+<strong>Non-Matches</strong>: -12.42 | +12.42 | 112.42</p>
+<h3 id="email">Email</h3>
+<p><strong>RegEx</strong>: <code>^((?:(?:(?:\w[\.\-\+]?)*)\w)+)\@((?:(?:(?:\w[\.\-\+]?){0,62})\w)+)\.(\w{2,6})$</code>
+Description: Not a 100% email validation. It doesn't work with IP-Adresses, but it's good for most common cases. At least I hope so.
+<strong>Matches</strong>: a-b-c@d-e-f.com | a@b.ce | Me@my.museum
+<strong>Non-Matches</strong>: abc@def.g | a--b@c--d.fe | -abc@-def-.def
+<strong>Source</strong>: <a href="http://regexlib.com/REDetails.aspx?regexp_id=600">Sebastian Hiller</a></p>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2015-01-20T13:35:00+01:00">Jan 20, 2015</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#python-ref">Python
+                    <span>90</span>
+</a></li>
+                <li><a href="../tags.html#regex-ref">RegEx
+                    <span>3</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Machine Learning, Data Science, Machine Learning, " />
+
+<meta property="og:title" content="Feature Importance "/>
+<meta property="og:url" content="../feature-importance/" />
+<meta property="og:description" content="Trust is important for a Data Scientist. If you are in a position where you can apply a classification / regression model where the company used rules before, you have to be able to build trust why your model is better than the old system. Stakeholders want to understand what the …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2018-06-05T20:00:00+02:00" />
+<meta name="twitter:title" content="Feature Importance ">
+<meta name="twitter:description" content="Trust is important for a Data Scientist. If you are in a position where you can apply a classification / regression model where the company used rules before, you have to be able to build trust why your model is better than the old system. Stakeholders want to understand what the …">
+<meta property="og:image" content="logos/ml.png" />
+<meta name="twitter:image" content="logos/ml.png" >
+
+        <title>Feature Importance  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../feature-importance/"> Feature Importance  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#feature-selection" title="Feature Selection">Feature Selection</a><ul><li><a class="toc-href" href="#feature-construction" title="Feature Construction">Feature Construction</a></li><li><a class="toc-href" href="#feature-elimination" title="Feature Elimination">Feature Elimination</a></li></ul></li><li><a class="toc-href" href="#xor-example_1" title="XOR-Example">XOR-Example</a><ul><li><a class="toc-href" href="#2-features" title="2 Features">2 Features</a></li><li><a class="toc-href" href="#3-features" title="3 Features">3 Features</a></li><li><a class="toc-href" href="#n-features" title="n Features">n Features</a></li><li><a class="toc-href" href="#soft-xor" title="Soft-XOR">Soft-XOR</a></li></ul></li><li><a class="toc-href" href="#what-are-alternatives_1" title="What are alternatives?">What are alternatives?</a></li><li><a class="toc-href" href="#when-can-we-use-feature-importance" title="When can we use feature importance?">When can we use feature importance?</a></li><li><a class="toc-href" href="#todos" title="TODOs">TODOs</a></li><li><a class="toc-href" href="#tldr" title="TL;DR">TL;DR</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>Trust is important for a Data Scientist. If you are in a position where you can
+apply a classification / regression model where the company used rules before,
+you have to be able to build trust why your model is better than the old
+system. Stakeholders want to understand what the model does. If you have a
+rule-based system in your mind, a very natural question is:</p>
+<p><strong>What is the most important feature?</strong></p>
+<p>This question is problematic and having a feature importance example for trees in <a href="http://scikit-learn.org/stable/auto_examples/ensemble/plot_forest_importances.html">sklearn</a> without a fat warning doesn't help. I failed to give a simple conclusive answer in
+the past why this is problematic. This article fixes this issue.</p>
+<h2 id="feature-selection">Feature Selection</h2>
+<p>Before I come to the examples, I want to introduce two simple ways of feature
+selection. Feature selection is the process of selecting which features you
+want to use for your models. The intention of having a small feature set is to
+keep the model as simple as possible. Simpler models tend to be more robust and
+easier to understand. In the simplest case, this is done manually. But there
+are also two intuitive ways to do it automatically: A constructive approach and
+a destructive approach.</p>
+<p>Both are greedy algorithms.</p>
+<p>You can find more <a href="http://scikit-learn.org/stable/modules/feature_selection.html">feature selection algorithms in sklearn</a>.</p>
+<h3 id="feature-construction">Feature Construction</h3>
+<p>Let's say you have <span class="math">\(n\)</span> features in total and a model of type <span class="math">\(m\)</span> (e.g. a
+Decision Tree). Then you train <span class="math">\(n\)</span> instances of <span class="math">\(m\)</span>, each of them on a
+different feature. You select the feature of the best model and repeat the
+process. Stop once your improvement is below a threshold.</p>
+<p>In pythonic Pseudocode:</p>
+<div class="highlight"><pre><span></span>def construct_features(feature_list, BaseModel, threshold, score):
+    """
+    Constructive feature selection algorithm
+
+    Parameters
+    ----------
+    feature_list : list
+    base_model : class
+    threshold : float
+    score : function
+        Takes model as input and returns a float between 0 and infty, where
+        higher is better.
+
+    Returns
+    -------
+    features : list
+    """
+    trained_models = []
+    features = []  # Set of current best features
+    nb_features = 1
+    condition = True
+    last_score = 0
+    while condition:
+        for feature in feature_list:
+            m = BaseModel(nb_features)
+            m.train(features + [feature])
+            trained_models.append((score(m), m, feature))
+        features.append(sorted(trained_models)[0])
+
+        # Check if it is time to stop
+        condition = score(m) - last_score &gt; threshold
+        last_score = score(m)
+    return features
+</pre></div>
+<h3 id="feature-elimination">Feature Elimination</h3>
+<p>The same as construction, but the other way around: You start with the complete
+feature set and remove one feature at a time, trying to keep the score as high
+as possible.</p>
+<h2 id="xor-example_1">XOR-Example</h2>
+<h3 id="2-features">2 Features</h3>
+<p>Let's start simple: We have 2 binary features and one target:</p>
+<div class="highlight"><pre><span></span>x1  x2    y
+------------
+0   0     0
+0   1     1
+1   0     1
+1   1     0
+</pre></div>
+<p>Now, what is the most important feature in this case? x1 or x2?</p>
+<p>You can easily see that having only one feature cannot be better than
+random in this case!
+<strong>You need both features and a non-linear classifier to get better than random!</strong></p>
+<h3 id="3-features">3 Features</h3>
+<p>A similar setting as before: 3 binary features and the target is XOR of all
+of them:</p>
+<div class="highlight"><pre><span></span><span class="gh">x1  x2  x3    y</span>
+<span class="gh">---------------</span>
+0   0   0     0
+0   0   1     1
+0   1   0     1
+0   1   1     0
+1   0   0     1
+1   0   1     0
+1   1   0     0
+1   1   1     1
+</pre></div>
+<p>Things to note here:</p>
+<ul>
+<li>If you take only one feature, then the target <span class="math">\(y\)</span> is exatly 50% of the time
+  equal to that feature and exactly 50% of the time the opposite. No matter
+  which feature you take.</li>
+<li>If you take two features, you don't get any more information as the target
+  then completely depends on the last one.</li>
+</ul>
+<p>From those observations, you can conclude that neither one nor two features can
+be better than random at predicting the target. No matter which type of model
+you take. It's plain and simple impossible. The important information is there,
+but only in combination.</p>
+<h3 id="n-features">n Features</h3>
+<p>The principle shown in the two examples above generalizes. If your target is
+XOR of the features, then you need all features to be better than random!</p>
+<h3 id="soft-xor">Soft-XOR</h3>
+<p>You might argue that this is an artificial example. I agree.</p>
+<p>So let's make it less artificial. Take the features and labels from the 3-XOR
+example. It is essentially a <span class="math">\(8 \times 4\)</span> matrix. Just add a random value in
+<span class="math">\([-0.01, 0.01]\)</span> to each value. The problem itself didn't change, but it looks
+less artificial.</p>
+<p>Now, you might argue that XOR-like feature behaviour is artificial. That might
+be true as well, but especially business data could also simply count as
+artificial.</p>
+<h2 id="what-are-alternatives_1">What are alternatives?</h2>
+<p>Now that I've explained why feature importance is misleading and needs to be
+taken with big caution, what are alternatives to explain what the model does?</p>
+<ul>
+<li><strong>Model lab</strong>: See <a href="https://martin-thoma.com/ds-project-guide/#model-lab">here</a>. Letting stakeholders poke the model.</li>
+<li><strong>lime</strong>: <a href="https://github.com/marcotcr/lime">Local Interpretable Model-Agnostic Explanations</a></li>
+<li><strong>Common Language</strong>: Use the same language as your stakeholders / the community to explain what your model does. Especially when it comes to the metrics you use.</li>
+</ul>
+<h2 id="when-can-we-use-feature-importance">When can we use feature importance?</h2>
+<p>If the problem is linear / has a big linear part. So if a linear model gives
+good results, then the feature importance makes sense. A linear model is of the
+form</p>
+<div class="math">$$y := \sum_{i=1}^n a_i \cdot x_i$$</div>
+<p>So each feature <span class="math">\(x_i \in \mathbb{R}\)</span> has a weight <span class="math">\(a_i \in \mathbb{R}\)</span>. This
+weight is the importance of the feature.</p>
+<h2 id="todos">TODOs</h2>
+<p>Explain how sklearn / <a href="https://github.com/catboost/catboost">catboost</a> calculates feature importances</p>
+<h2 id="tldr">TL;DR</h2>
+<p>Feature importances don't make any sense if the problem is non-linear enough.
+Many problems, however, could potentially be described in a linear way.</p>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2018-06-05T20:00:00+02:00">Jun 5, 2018</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#machine-learning-ref">Machine Learning</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#data-science-ref">Data Science
+                    <span>3</span>
+</a></li>
+                <li><a href="../tags.html#machine-learning-ref">Machine Learning
+                    <span>76</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

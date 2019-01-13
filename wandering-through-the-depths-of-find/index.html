@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Linux, Command Line, Bash, Code, " />
+
+<meta property="og:title" content="Wandering through the depths of find "/>
+<meta property="og:url" content="../wandering-through-the-depths-of-find/" />
+<meta property="og:description" content="find is a very mighty tool. It allows you to apply a very detailed search syntax. Every Linux user should know how to use it. Very basic usage \( find /home -iname &amp;#039;Tux*&amp;#039;&#34; title=&#34;\) find /home -iname &#39;Tux*&#39;&#34; width=&#34;500&#34; height=&#34;100&#34; class=&#34;alignnone size-full wp-image-2671&#34; /&gt; I told you …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2011-12-28T16:01:18+01:00" />
+<meta name="twitter:title" content="Wandering through the depths of find ">
+<meta name="twitter:description" content="find is a very mighty tool. It allows you to apply a very detailed search syntax. Every Linux user should know how to use it. Very basic usage \( find /home -iname &amp;#039;Tux*&amp;#039;&#34; title=&#34;\) find /home -iname &#39;Tux*&#39;&#34; width=&#34;500&#34; height=&#34;100&#34; class=&#34;alignnone size-full wp-image-2671&#34; /&gt; I told you …">
+<meta property="og:image" content="2011/09/Tux.png" />
+<meta name="twitter:image" content="2011/09/Tux.png" >
+
+        <title>Wandering through the depths of find  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../wandering-through-the-depths-of-find/"> Wandering through the depths of find  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#very-basic-usage" title="Very basic usage">Very basic usage</a></li><li><a class="toc-href" href="#redirecting-errors" title="Redirecting errors">Redirecting errors</a></li><li><a class="toc-href" href="#real-life-example" title="Real life example">Real life example</a></li><li><a class="toc-href" href="#snippets" title="Snippets">Snippets</a></li><li><a class="toc-href" href="#further-reading" title="Further reading">Further reading</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>find is a very mighty tool. It allows you to apply a very detailed search syntax. Every Linux user should know how to use it.</p>
+<h2 id="very-basic-usage">Very basic usage</h2>
+<p><a href="../images/2011/09/find-basic1.png"><img alt="&lt;span class=" math"="" src="../images/2011/09/find-basic1.png"/>\( find  /home -iname &amp;#039;Tux*&amp;#039;" title="\)</a></p> find  /home -iname 'Tux*'" width="500" height="100" class="alignnone size-full wp-image-2671" /&gt;
+<p>I told you I would start with the very basics, didn't I? So, you can need the option -iname if you want to do basic matching against the filename. The * can be used as a placeholder.</p>
+<h2 id="redirecting-errors">Redirecting errors</h2>
+<p>You might get some "Permission denied" errors. They are very bothersome if you combine commands in the bash. So you redirect them to /dev/null, a special file which discards everything it gets:</p>
+<p><a href="../images/2011/09/find-error-redirection.png"><img &gt;<="" a="" alt="find /home -iname 'Tux*' 2&gt;/dev/null" class="alignnone size-full wp-image-2691" height="100" src="../images/2011/09/find-error-redirection.png" title="find /home -iname 'Tux*' 2&gt;/dev/null" width="500"/></a></p>
+<h2 id="real-life-example">Real life example</h2>
+<p>I am also a developer who likes to have good names for constants, database tables and variables. Sometimes, like today, I think it's time to change a database table a bit. It got a lot more rows and the old name doesn't really fit any longer. I used a constant for the table name in all scripts. This constant was SOFTWARE_USER_TABLE and should now be USER_INFO_TABLE. So I have to search recursively and case-sensitive in my project and replace all occurrences in all strings by the new string. Except for .svn-directories, of course.
+The easiest way to achieve this is via find, xargs and sed:</p>
+<div class="highlight"><pre><span></span>find . -path <span class="s1">'*/.svn'</span> -prune -o -type f -print0 <span class="p">|</span> xargs -0 sed -i <span class="s1">'s/SOFTWARE_USER_TABLE/USER_INFO_TABLE/g'</span>
+</pre></div>
+<p>Now the explanation of the different commands:
+<strong>find:</strong>
+<ul>
+<li>.: search in the current working directory</li>
+<li>-path '*/.svn' -prune': If a directory starting with .svn is in the path to the file, skip it</li>
+<li>-o: atlernative (OR)</li>
+<li>-type f: only search for files</li>
+<li>-print0: print  the  full  file name on the standard output, followed by a null character (instead of the newline character that -print uses).  This allows file names that contain newlines or other types of white space  to  be  correctly  interpreted by programs that process the find output.  This option corresponds to the -0 option of xargs.</li>
+</ul>
+<strong>xargs</strong> -0: exchanges the arguments. -0 means that input items are terminated by a null character instead of by whitespace, and the quotes and backslash are not special (every character is taken lit erally).  Disables the end of file string, which is treated like any other argument.  Useful when input  items  might  contain  white  space,  quote marks, or backslashes.  The GNU find -print0 option produces input suitable for this mode.
+<strong>sed:</strong>
+<ul>
+<li>-i: edit the given file in-place. If you would not use -i, it would just print everything in standard output</li>
+<li>/g: edit the file globally. If you would not use g, sed would only replace the first occurrence of SOFTWARE_USER_TABLE</li>
+</ul></p>
+<h2 id="snippets">Snippets</h2>
+<p>move all files in subdirectories to a single directory:</p>
+<div class="highlight"><pre><span></span>find -type f -exec mv <span class="o">{}</span> collection/ <span class="se">\;</span>
+</pre></div>
+<p>find all files which are bigger than 20MB and print their location and size. Maybe you could use du for this one, but I don't know how:</p>
+<div class="highlight"><pre><span></span>find / -type f -size +20000k -exec ls -lh <span class="o">{}</span> <span class="se">\;</span> <span class="m">2</span>&gt;/dev/null <span class="p">|</span> awk <span class="s1">'{ print $5 ":\t" $8 }'</span>
+</pre></div>
+<p>find files in the home folder owned by alice:</p>
+<div class="highlight"><pre><span></span>find /home -user alice
+</pre></div>
+<h2 id="further-reading">Further reading</h2>
+<p>Note that you should use grep if you want to search for patterns in single files.</p>
+<ul>
+<li><a href="http://linux.die.net/man/1/find">man page</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Find">Wikipedia</a></li>
+</ul>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2011-12-28T16:01:18+01:00">Dez 28, 2011</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#bash-ref">Bash
+                    <span>6</span>
+</a></li>
+                <li><a href="../tags.html#command-line-ref">Command Line
+                    <span>7</span>
+</a></li>
+                <li><a href="../tags.html#linux-ref">Linux
+                    <span>16</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

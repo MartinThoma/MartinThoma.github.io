@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="OS, Operating Systems, TLB, Cache, German posts, " />
+
+<meta property="og:title" content="Adressierung "/>
+<meta property="og:url" content="../adressierung/" />
+<meta property="og:description" content="Dies ist eine Zusammenfassung von mir zu dem Themen Caches, Addressierung und TLB. Ich habe insbesondere bei dem letzem Teil (Cache-Typen und TLBs) das Gefühl, dass ich das noch nicht richtig verstanden habe, deshalb ist der Inhalt hier mit Vorsicht zu genießen. Bitte meldet mir Fehler oder Unstimmigkeiten (per E-Mail …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2013-01-11T17:15:56+01:00" />
+<meta name="twitter:title" content="Adressierung ">
+<meta name="twitter:description" content="Dies ist eine Zusammenfassung von mir zu dem Themen Caches, Addressierung und TLB. Ich habe insbesondere bei dem letzem Teil (Cache-Typen und TLBs) das Gefühl, dass ich das noch nicht richtig verstanden habe, deshalb ist der Inhalt hier mit Vorsicht zu genießen. Bitte meldet mir Fehler oder Unstimmigkeiten (per E-Mail …">
+
+        <title>Adressierung  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../adressierung/"> Adressierung  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#allgemeines" title="Allgemeines">Allgemeines</a></li><li><a class="toc-href" href="#physical-address-and-virtual-address" title="Physical address and virtual address">Physical address and virtual address</a></li><li><a class="toc-href" href="#cache-modelle" title="Cache-Modelle">Cache-Modelle</a><ul><li><a class="toc-href" href="#physically-indexed-physically-tagged" title="Physically Indexed, Physically Tagged">Physically Indexed, Physically Tagged</a></li><li><a class="toc-href" href="#virtually-indexed-physically-tagged" title="Virtually indexed, physically tagged">Virtually indexed, physically tagged</a></li><li><a class="toc-href" href="#physically-indexed-virtually-tagged" title="Physically Indexed / Virtually Tagged">Physically Indexed / Virtually Tagged</a></li><li><a class="toc-href" href="#virtually-indexed-virtually-tagged" title="Virtually Indexed / Virtually Tagged">Virtually Indexed / Virtually Tagged</a></li></ul></li><li><a class="toc-href" href="#quellen_1" title="Quellen">Quellen</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <div class="info">Dies ist eine Zusammenfassung von mir zu dem Themen Caches, Addressierung und TLB. Ich habe insbesondere bei dem letzem Teil (Cache-Typen und TLBs) das Gef&uuml;hl, dass ich das noch nicht richtig verstanden habe, deshalb ist der Inhalt hier mit Vorsicht zu genie&szlig;en. Bitte meldet mir Fehler oder Unstimmigkeiten (per E-Mail an info@martin-thoma.de oder direkt als Kommentar).</div>
+<h2 id="allgemeines">Allgemeines</h2>
+<p>CPU-Caches sind aus Cache-Zeilen aufgebaut. Diese sind die kleinsten adressierbaren Einheiten im Cache. Die L&auml;nge der Cache-Zeilen variiert, aber 32-64 Byte sind &uuml;blich.<small><sup><a href="#ref1" name="anchor1">[1]</a></sup></small> Nun ist der Cache deutlich kleiner als der Hauptspeicher und man muss eine schnelle M&ouml;glichkeit haben, Hauptspeicher-Adressen auf den Cache abzubilden.</p>
+<p>Eine M&ouml;glichkeit das zu machen, ist ein sog. &bdquo;direct mapped
+cache&ldquo;. Das ist im Prinzip eine Hash-Funktion, die zus&auml;tlich noch
+schnell von der Hardware umgesetzt werden k&ouml;nnen muss. Also unterteilt man
+gedanklich die Hauptspeicheradressen in 3 Teile:
+<ul>
+<li>Tag</li>
+<li>Index</li>
+<li>Block-Offset</li>
+</ul></p>
+<p>Der Index gibt direkt die Cache-Zeile an, in der die Daten einer
+Hauptspeicheradresse landen werden. Es w&auml;re also z.B. m&ouml;glich, die
+Pins des Adressbus, auf denen die Index-Bits liegen, auf einen Multiplexer zu
+legen, der die entsprechende Cache-Zeile durchschaltet.</p>
+<p>Es gilt also: Index-L&auml;nge in Bit = <span class="math">\(\log_2(\text{Cache-Zeilen})\)</span></p>
+<p>Nun kann es passieren, dass viele Hauptspeicher-Adressen in der selben Zeile
+landen. Um diese unterscheiden zu k&ouml;nnen, speichert man folgendes in einer
+Cache-Zeile:
+<ul>
+<li>Tag</li>
+<li>Datenblock</li>
+<li>Flags</li>
+</ul></p>
+<p>Der Datenblock beinhaltet die eigentlichen Daten aus dem Hauptspeicher.
+Ben&ouml;tigt nun ein Programm die Daten aus einer Hauptspeicheradresse, wird
+der Index dieser Adresse extrahiert und an dieser Cache-Zeile nachgeschaut.
+Wenn dann die Tags &uuml;bereinstimmen, ist es die richtige Adresse und man
+kann die Daten aus dem Cache entnehmen.</p>
+<p>Da man durch den Block-Offset ja eine ganze Reihe von Hauptspeicher-Adressen
+zusammenfasst, muss gelten:</p>
+<p>Gr&ouml;&szlig;e der Cache-Zeile <span class="math">\(= 2^{\text{L&auml;nge des Block-offsets}} \cdot\)</span>
+Gr&ouml;&szlig;e des Inhalts einer Hauptspeicheradresse</p>
+<p>Der Block-Offset wird nicht weiter verwendet. Es wird schlicht ignoriert.</p>
+<p>Der Tag muss aktiv im Cache gespeichert werden und die L&auml;nge des Tags im
+Cache muss mindestens so lang sein wie die Tag-L&auml;nge der Hauptspeicher-
+Adresse. Nat&uuml;rlich wird der Tag im Cache genau so lang sein wie der in der
+Hauptspeicher-Adresse. Man hat ja keinen Speicher zu verschenken.</p>
+<p>Bei einem Voll-Assoziativem Cache w&uuml;rde es also keinen Index geben. Eine
+Hauptspeicher-Adresse w&uuml;rde dann nur in Tag und Block-Offset geteilt
+werden.</p>
+<p>Bei einem <span class="math">\(n\)</span>-fach Satzassoziativem Cache gibt es <span class="math">\(\frac{\text{Cachzeilen}}{n}\)</span> S&auml;tze mit jeweils <span class="math">\(n\)</span> Cachezeilen. Das Datenwort kann nur in einem Satz stehen, dort aber an einer beliebigen Stelle. Nun geht die CPU wie folgt vor:</p>
+<ol>
+<li>Datenwort mit Hauptspeicheradresse x = $x_\text{tag}$ | $x_\text{index}$ | $x_\text{blockoffset}$ wird ben&ouml;tigt</li>
+<li>$x_\text{index}$ = der zu durchsuchende Satz im Cache<br/>
+    Dieser Satz wird zu den $n$ Vergleichern durchgeschaltet</li>
+<li>Jeder Vergleicher vergleich den $x_\text{tag}$ und den in der Cache-Zeile gespeicherten tag</li>
+<li>Wird die Adresse gefunden &rarr; Cache Hit<br/>
+    Datenwort in keiner Cache-Zeile: Cache-Miss, Hauptspeicherzugriff</li>
+</ol>
+<h2 id="physical-address-and-virtual-address">Physical address and virtual address</h2>
+<p>Die physische Adresse entspricht dem, womit man den Speicherbaustein anspricht. Nun kann es m&ouml;glich sein, dass man mehrere RAM-Bausteine hat oder dass das Programm theoretische mehr Speicher braucht als an Hauptspeicher zur verf&uuml;gung steht. Dennoch will man als Programmierer einheitlich adressieren. Also nutzt man im Userspace virtuelle Adressen (Im Kernel-Space k&ouml;nnen sowohl physische als auch virtuelle Adressen genutzt werden, siehe <a href="http://stackoverflow.com/a/6261020/562769">StackOverflow</a>). Au&szlig;erdem will man Speicherschutz herstellen.
+Die virtuellen Adressen sind scheinbar zusammenh&auml;ngend und der Adressraum ist sehr gro&szlig;. Der virtuelle Adressraum ist in Bl&ouml;cke (Pages) unterteilt und die Pages werden von langsamen, aber gro&szlig;en auf schnelle, aber kleine Speichermedien je nach Bedarf aus- oder eingelagert.</p>
+<p>Das passiert allerdings selten. Um zu sehen, wie h&auml;ufig das der Fall ist, sollte man sich folgendes anschauen:
+<ul>
+<li>/proc/swaps</li>
+<li>/proc/meminfo - ein paar <a href="http://www.centos.org/docs/5/html/5.2/Deployment_Guide/s2-proc-meminfo.html">Erkl&auml;rungen zu meminfo</a></li>
+<li><code>vmstat -s</code></li>
+</ul></p>
+<h2 id="cache-modelle">Cache-Modelle</h2>
+<p>Fordert nun ein Prozess die Daten einer virtuellen Adresse an, kommt es nun auf die verschiedenen Cache-Modelle (PIPT, VIPT, VIVIT) an. Es gilt jedoch immer: Die CPU schaut im TLB nach, ob sie direkt erfahren kann, wo die Daten sind. Falls das nicht funktiniert, geht es wie folgt weiter:</p>
+<h3 id="physically-indexed-physically-tagged">Physically Indexed, Physically Tagged</h3>
+<p>Hier wird der index und der tag aus der physischen Adresse gezogen. Damit muss zuerst die MMU die virtuelle Adresse in eine physische Adresse umwandeln, bevor man im Cache nachschauen kann.</p>
+<h3 id="virtually-indexed-physically-tagged">Virtually indexed, physically tagged</h3>
+<p>Man bekommt den Index aus der virtuellen Adresse, kann im Cache nachschauen ob dort &uuml;berhaupt etwas steht, falls ja muss aber noch die MMU die physische Adresse nachschlagen damit man den tag &uuml;berpr&uuml;fen kann.</p>
+<div class="frage">Frage: Wieso steht in den Folien "No ambiguities"?<br/>Annahme: Wir haben eine virtuelle Adresse 123456789. Der Index sind die Ziffern [4,6] also 456. Nun wird das auf die physische Adresse 123456789 gemappt. Der Tag sind die Ziffern [1,3] also 123.<br/>Nun haben wir eine zweite virtuelle Adresse 000456000. Der index sind die Ziffern [4,6] also 456. Die zugeh&ouml;rige phyische Adresse sein 123000000. Der Tag sind die Ziffern [1,3] also 123.<br/>Nun m&uuml;sste doch fehlerhaft ein Cache-Hit herauskommen, oder?</div>
+<h3 id="physically-indexed-virtually-tagged">Physically Indexed / Virtually Tagged</h3>
+<p>Macht keinen Sinn, weil man Probleme wegen Doppeldeutigkeiten bekommen kann und man auf jeden Fall immer zuerst die MMU nutzen kann.</p>
+<h3 id="virtually-indexed-virtually-tagged">Virtually Indexed / Virtually Tagged</h3>
+<p>Kein MMU-Zugriff ben&ouml;tigt, also schneller als die anderen Varianten. Birgt aber ein paar Probleme (Ambiguity, Alias)</p>
+<h2 id="quellen_1">Quellen</h2>
+<p>[^1] <a href="http://alasir.com/articles/cache_principles/cache_line_tag_index.html">Functional Principles of Cache Memory</a></p>
+<ul>
+<li><a href="http://people.cs.umass.edu/~emery/classes/cmpsci377/current/notes/lecture_15_vm.pdf">Page-Table Lookups</a></li>
+<li><a href="http://de.wikipedia.org/wiki/Virtuelle_Adresse#Motivation">Virtuelle Adresse</a></li>
+<li><a href="http://en.wikipedia.org/wiki/CPU_cache">CPU cache</a></li>
+<li><a href="http://lwn.net/Articles/106177/">Four-level page tables</a></li>
+<li><a href="http://bottomupcs.sourceforge.net/csbu/x2816.htm">Linux Specifics: Address Space Layout</a></li>
+<li><a href="http://www.ecst.csuchico.edu/~hilzer/csci152/htm/EAT-TLB.htm">Some example assignments</a> (Memory access times, With and without TLBs)</li>
+</ul>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2013-01-11T17:15:56+01:00">Jan 11, 2013</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#german-posts-ref">German posts</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#cache-ref">Cache
+                    <span>1</span>
+</a></li>
+                <li><a href="../tags.html#operating-systems-ref">Operating Systems
+                    <span>5</span>
+</a></li>
+                <li><a href="../tags.html#os-ref">OS
+                    <span>5</span>
+</a></li>
+                <li><a href="../tags.html#tlb-ref">TLB
+                    <span>1</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

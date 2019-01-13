@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Klausur, German posts, " />
+
+<meta property="og:title" content="Algorithmen-Klausur "/>
+<meta property="og:url" content="../algorithmen-klausur/" />
+<meta property="og:description" content="Für die Klausur in Algorithmen I sollte man Folgendes auf jeden Fall wissen: Wie sind die Landau-Symbole \(\cal O(f(n)), \Theta(f(n)), \Omega(f(n))\) definiert? → Antwort Wie lautet das Master-Theorem? → Antwort Wie funktioniert der Bellman-Ford-Algorithmus und was macht er? → Antwort Wie funktioniert der Dijkstra-Algorithmus und was macht …if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2012-07-16T09:00:25+02:00" />
+<meta name="twitter:title" content="Algorithmen-Klausur ">
+<meta name="twitter:description" content="Für die Klausur in Algorithmen I sollte man Folgendes auf jeden Fall wissen: Wie sind die Landau-Symbole \(\cal O(f(n)), \Theta(f(n)), \Omega(f(n))\) definiert? → Antwort Wie lautet das Master-Theorem? → Antwort Wie funktioniert der Bellman-Ford-Algorithmus und was macht er? → Antwort Wie funktioniert der Dijkstra-Algorithmus und was macht …if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width">
+<meta property="og:image" content="2012/02/klausur-test-thumbnail.jpg" />
+<meta name="twitter:image" content="2012/02/klausur-test-thumbnail.jpg" >
+
+        <title>Algorithmen-Klausur  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../algorithmen-klausur/"> Algorithmen-Klausur  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#some-random-facts" title="Some Random Facts">Some Random Facts</a></li><li><a class="toc-href" href="#termine" title="Termine">Termine</a></li><li><a class="toc-href" href="#nicht-vergessen" title="Nicht vergessen">Nicht vergessen</a></li><li><a class="toc-href" href="#klausurergebnisse" title="Klausurergebnisse">Klausurergebnisse</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>F&uuml;r die Klausur in Algorithmen I sollte man Folgendes auf jeden Fall wissen:
+<ul>
+<li>Wie sind die Landau-Symbole <span class="math">\(\cal O(f(n)), \Theta(f(n)), \Omega(f(n))\)</span> definiert? &rarr; <a href="../definitionen-aus-gbi/#Komplexittstheorie" title="Definitionen aus GBI">Antwort</a></li>
+<li>Wie lautet das Master-Theorem? &rarr; <a href="http://de.wikipedia.org/wiki/Master-Theorem#Allgemeine_Form">Antwort</a></li>
+<li>Wie funktioniert der Bellman-Ford-Algorithmus und was macht er? &rarr; <a href="http://de.wikipedia.org/wiki/Bellman-Ford-Algorithmus">Antwort</a></li>
+<li>Wie funktioniert der Dijkstra-Algorithmus und was macht er? &rarr; <a href="http://de.wikipedia.org/wiki/Dijkstra-Algorithmus">Antwort</a></li>
+<li>Wie funktioniert der Algorithmus von Kruskal und was macht er? &rarr; <a href="http://de.wikipedia.org/wiki/Algorithmus_von_Kruskal">Antwort</a></li>
+<li>Wie funktioniert der Algorithmus von Prim und was macht er? &rarr; <a href="http://de.wikipedia.org/wiki/Algorithmus_von_Prim">Antwort</a></li>
+<li>Was ist ein Heap, ein B-Baum, ein Digitaler Baum und was ein Suchbaum? &rarr; <a href="../ubersicht-uber-datenstrukturen/">Antwort</a></li>
+<li>Sei <span class="math">\(A :=\)</span> {Insertionsort, Quicksort, Mergesort, Heapsort, Selectionsort}. Beantworte und begr&uuml;nde f&uuml;r <span class="math">\(x \in A\)</span> folgende Fragen:
+<ul>
+<li>Wie funktioniert x?</li>
+<li>Ist x stabil?</li>
+<li>Arbeitet x in-place?</li>
+<li>Hat x im Worst-Case optimales Laufzeitverhalten?</li>
+<li>Hat x im Worst-Case optimales Speicherplatzverhalten?</li>
+</ul></li></ul></p>
+<p>&rarr; <a href="../ubersicht-uber-sortieralgorithmen/" title="&Uuml;bersicht &uuml;ber Sortieralgorithmen">Antwort</a>
+</p>
+<li>Wie funktioniert Radixsort? &rarr; <a href="http://de.wikipedia.org/wiki/Radixsort">Antwort</a></li>
+<li>Warum ist Radixsort und <a href="http://de.wikipedia.org/wiki/Countingsort">Countingsort</a> nur schlecht mit den Sortieralgorithmen aus vergleichbar?</li>
+<li>Welches Worst-Case Laufzeitverhalten hat die <a href="http://de.wikipedia.org/wiki/Breitensuche#Laufzeit">Breitensuche</a>, welches die <a href="http://de.wikipedia.org/wiki/Tiefensuche#Laufzeit">Tiefensuche</a>?</li>
+
+<h2 id="some-random-facts">Some Random Facts</h2>
+Das ist ein Graph, bei dem der Algorithmus von Dijkstra fehlschl&auml;gt:
+<figure class="aligncenter">
+<a href="../images/2012/07/dijkstra-fail.gif"><img alt="Minimales Beispiel f&uuml;r einen Graphen, bei dem der Dijkstra-Algorithmus fehlschl&auml;gt." class=" wp-image-31761 " src="../images/2012/07/dijkstra-fail.gif" style="max-width:278px;max-height:278px;"/></a>
+<figcaption class="text-center">Minimales Beispiel f&uuml;r einen Graphen, bei dem der Dijkstra-Algorithmus fehlschl&auml;gt.</figcaption>
+</figure>
+<h2 id="termine">Termine</h2>
+<p><strong>Datum</strong>: Dienstag, der 31.07.2012 um 17:00 Uhr<br/>
+<strong>Ort</strong>: 
+<blockquote>Die Sitze sind alphabetisch nach Ihrem Nachnamen eingeteilt:<br/>
+A-C   H&ouml;rsaal am Fasanengarten(50.35)<br/>
+D-J    Gerthsen H&ouml;rsaal(30.21)<br/>
+K-O   Audimax(30.95)<br/>
+P-R   Daimler(10.21)<br/>
+S        Benz(10.21)<br/>
+T-V   Tulla(11.40)<br/>
+W-Z  Neue Chemie(30.46) </blockquote></p>
+<p><strong>Dauer</strong>: 120 min. (<a href="https://studium.kit.edu/sites/vab/0x32F499D5541AEE45A9509B71A4796335/Start/homepage.aspx">Quelle</a>)<br/>
+<strong>Punkte</strong>: 60<br/>
+<strong>&Uuml;bungsschein</strong>: Gibt es nicht. Bonuspunkte gibt es auch nicht.<br/>
+<strong>Sitzplatzverteilung</strong>: <a href="https://studium.kit.edu/sites/vab/0x32F499D5541AEE45A9509B71A4796335/Vorlesungsunterlagen/Forms/AllItems.aspx">hier</a></p>
+<h2 id="nicht-vergessen">Nicht vergessen</h2>
+<ul>
+<li>Studentenausweis</li>
+<li>Kugelschreiber</li>
+</ul>
+<h2 id="klausurergebnisse">Klausurergebnisse</h2>
+<p>Die Klausurergebnisse h&auml;ngen im SCC, 3. OG, aus.</p>
+<p><strong>Klausureinsicht</strong>: 23.08.2012 und 24.08.2012</p>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2012-07-16T09:00:25+02:00">Jul 16, 2012</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#german-posts-ref">German posts</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#klausur-ref">Klausur
+                    <span>35</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Programming, Python, Challenge, Project Euler, Code, " />
+
+<meta property="og:title" content="Project Euler: Problem 35 "/>
+<meta property="og:url" content="../project-euler-problem-35/" />
+<meta property="og:description" content="The task in Problem 35 of Project Euler is: The number, 197, is called a circular prime because all rotations of the digits: 197, 971, and 719, are themselves prime. There are thirteen such primes below 100: 2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73, 79, and …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2012-11-17T13:23:01+01:00" />
+<meta name="twitter:title" content="Project Euler: Problem 35 ">
+<meta name="twitter:description" content="The task in Problem 35 of Project Euler is: The number, 197, is called a circular prime because all rotations of the digits: 197, 971, and 719, are themselves prime. There are thirteen such primes below 100: 2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73, 79, and …">
+<meta property="og:image" content="2012/04/leonhard-euler.jpg" />
+<meta name="twitter:image" content="2012/04/leonhard-euler.jpg" >
+
+        <title>Project Euler: Problem 35  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../project-euler-problem-35/"> Project Euler: Problem 35  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#how-to-solve" title="How to solve">How to solve</a></li><li><a class="toc-href" href="#the-implementation" title="The implementation">The implementation</a><ul><li><a class="toc-href" href="#sieve-of-eratosthenes" title="Sieve of Eratosthenes">Sieve of Eratosthenes</a></li><li><a class="toc-href" href="#iscircularprime" title="isCircularPrime">isCircularPrime</a></li><li><a class="toc-href" href="#some-more-speedups" title="Some more speedups">Some more speedups</a></li><li><a class="toc-href" href="#the-final-snippet" title="The final snippet">The final snippet</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>The task in <a href="http://projecteuler.net/problem=35">Problem 35</a> of Project Euler is:</p>
+<blockquote>The number, 197, is called a circular prime because all rotations of the digits: 197, 971, and 719, are themselves prime.
+
+There are thirteen such primes below 100: 2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73, 79, and 97.
+
+How many circular primes are there below one million?</blockquote>
+<h2 id="how-to-solve">How to solve</h2>
+<p>If you have heard of the sieve of Eratosthenes, this one sounds quite easy:
+<ol>
+<li>Find all primes below one million</li>
+<li>For each prime, do:
+    <ol>
+<li>Generate all rotations</li>
+<li>Check for every rotation if it is a prime</li>
+</ol>
+</li>
+<li>Count the number of circular primes</li>
+</ol></p>
+<h2 id="the-implementation">The implementation</h2>
+<h3 id="sieve-of-eratosthenes">Sieve of Eratosthenes</h3>
+<p>The finds all primes below <span class="math">\(n \in \mathbb{N}\)</span>. But you can make a lot of mistakes in the implementation.</p>
+<p>First, this is the way the sieve of Eratosthenes works:</p>
+<figure class="aligncenter">
+<a href="../images/2012/11/Sieve_of_Eratosthenes_animation.gif"><img alt="Sieve of Eratosthenes animation" class="size-full" link="../project-euler-problem-35/sieve_of_eratosthenes_animation/" src="../images/2012/11/Sieve_of_Eratosthenes_animation.gif" style="max-width:445px;max-height:503px"/></a>
+<figcaption class="text-center">Sieve of Eratosthenes: algorithm steps for primes below 121 (including optimization of starting from prime's square).<br/>Source: <a href="http://commons.wikimedia.org/wiki/File:Sieve_of_Eratosthenes_animation.gif">Wikimedia</a></figcaption>
+</figure>
+<p>For example, this implementation is not good:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">getPrimesBelowN</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1000000</span><span class="p">):</span>
+    <span class="sd">""" Sieve of Eratosthenes """</span>
+    <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">ceil</span>
+    <span class="n">roundUp</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">,</span> <span class="n">prime</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">ceil</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">/</span> <span class="n">prime</span><span class="p">))</span>
+
+    <span class="n">primes</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">currentPrime</span> <span class="ow">in</span> <span class="n">primes</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">multiplicant</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">roundUp</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">currentPrime</span><span class="p">)):</span>
+            <span class="n">noPrime</span> <span class="o">=</span> <span class="n">multiplicant</span> <span class="o">*</span> <span class="n">currentPrime</span>
+            <span class="k">if</span> <span class="n">noPrime</span> <span class="ow">in</span> <span class="n">primes</span><span class="p">:</span> 
+                <span class="n">primes</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">noPrime</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">primes</span>
+</pre></div>
+<p>Whats bad with this code? 
+Well, just think about what it does: For every <code>noPrime</code> Python has to go through the whole list. I couldn't find how <code>in</code> is implemented, but I guess it is linear. So Python has to go through the whole list for <code>in</code>. Additionally, <code>remove</code> could also be expensive.</p>
+<p>How could this get improved? Here is a better solution:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">getPrimesBelowN</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1000000</span><span class="p">):</span>
+    <span class="sd">""" Sieve of Eratosthenes """</span>
+    <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">ceil</span>
+    <span class="n">roundUp</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">,</span> <span class="n">prime</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">ceil</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">/</span> <span class="n">prime</span><span class="p">))</span>
+
+    <span class="n">primes</span> <span class="o">=</span> <span class="p">[</span><span class="bp">True</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+    <span class="n">primes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="n">primes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="n">primeList</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">currentPrime</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">primes</span><span class="p">[</span><span class="n">currentPrime</span><span class="p">]:</span>
+            <span class="k">continue</span>
+        <span class="n">primeList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">currentPrime</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">multiplicant</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">roundUp</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">currentPrime</span><span class="p">)):</span>
+            <span class="n">primes</span><span class="p">[</span><span class="n">multiplicant</span> <span class="o">*</span> <span class="n">currentPrime</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="k">return</span> <span class="n">primeList</span>
+</pre></div>
+<p>This solution does not need to search for <code>noPrime</code>, it simply jumps there in the list.</p>
+<p>A generator version of the sieve of Erasthostenes can be found on <a href="http://code.activestate.com/recipes/117119-sieve-of-eratosthenes/">code.activestate.com</a>.</p>
+<h3 id="iscircularprime">isCircularPrime</h3>
+<p>Rotation the digits of a number is the same as cutting the number into two pieces and switching the position of the pieces:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">isCircularPrime</span><span class="p">(</span><span class="n">primes</span><span class="p">,</span> <span class="n">number</span><span class="p">):</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">number</span><span class="p">)):</span>
+        <span class="n">rotatedNumber</span> <span class="o">=</span> <span class="n">number</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">number</span><span class="p">)]</span> <span class="o">+</span> <span class="n">number</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">rotatedNumber</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">primes</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">return</span> <span class="bp">True</span>
+</pre></div>
+<p>Here is the same problem as above, in the sieving algorithm: Searching through the list takes much more time than jumping to a position in the list. So this one is better:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">isCircularPrime</span><span class="p">(</span><span class="n">primes</span><span class="p">,</span> <span class="n">number</span><span class="p">):</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">number</span><span class="p">)):</span>
+        <span class="n">rotatedNumber</span> <span class="o">=</span> <span class="n">number</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">number</span><span class="p">)]</span> <span class="o">+</span> <span class="n">number</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">primes</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">rotatedNumber</span><span class="p">)]:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">return</span> <span class="bp">True</span>
+</pre></div>
+<h3 id="some-more-speedups">Some more speedups</h3>
+Every prime that contains one of the digits 0, 2, 4, 6 or 8 can't be a circular prime, because one rotation exist where that digit is at the end. This rotation would be divisible by 2 and thus not be a prime (except for 2, of course).
+You can use the same thought for the digit 5.
+
+So you can skip those digits
+
+<h3 id="the-final-snippet">The final snippet</h3>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="k">def</span> <span class="nf">getPrimesBelowN</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1000000</span><span class="p">):</span>
+    <span class="sd">"""Get all primes below n with the sieve of Eratosthenes. </span>
+<span class="sd">    @return: a list 0..n with boolean values that indicate if </span>
+<span class="sd">             i in 0..n is a prime.</span>
+<span class="sd">    """</span>
+    <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">ceil</span>
+    <span class="n">primes</span> <span class="o">=</span> <span class="p">[</span><span class="bp">True</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+    <span class="n">primes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="n">primes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="n">primeList</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">roundUp</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">,</span> <span class="n">prime</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">ceil</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">/</span> <span class="n">prime</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">currentPrime</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">primes</span><span class="p">[</span><span class="n">currentPrime</span><span class="p">]:</span>
+            <span class="k">continue</span>
+        <span class="n">primeList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">currentPrime</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">multiplicant</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">roundUp</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">currentPrime</span><span class="p">)):</span>
+            <span class="n">primes</span><span class="p">[</span><span class="n">multiplicant</span> <span class="o">*</span> <span class="n">currentPrime</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="k">return</span> <span class="n">primes</span>
+
+<span class="k">def</span> <span class="nf">isCircularPrime</span><span class="p">(</span><span class="n">primes</span><span class="p">,</span> <span class="n">number</span><span class="p">):</span>
+    <span class="sd">"""Check if number is a circular prime.</span>
+
+<span class="sd">    Keyword arguments:</span>
+<span class="sd">    primes -- a list from 0..n with boolean values that indicate if </span>
+<span class="sd">              i in 0..n is a prime</span>
+<span class="sd">    number -- the integer you want to check</span>
+<span class="sd">    """</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">number</span><span class="p">)):</span>
+        <span class="n">rotatedNumber</span> <span class="o">=</span> <span class="n">number</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">number</span><span class="p">)]</span> <span class="o">+</span> <span class="n">number</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">primes</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">rotatedNumber</span><span class="p">)]:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">return</span> <span class="bp">True</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Start sieving."</span><span class="p">)</span>
+    <span class="n">primes</span> <span class="o">=</span> <span class="n">getPrimesBelowN</span><span class="p">(</span><span class="mi">1000000</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"End sieving."</span><span class="p">)</span>
+    <span class="n">numberOfPrimes</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="k">print</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>    <span class="c1"># I print them now, because I want to skip all primes</span>
+    <span class="k">print</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>    <span class="c1"># that contain one of those digits: 0,2,4,5,6,8</span>
+    <span class="k">for</span> <span class="n">prime</span><span class="p">,</span> <span class="n">isPrime</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">primes</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">isPrime</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="s2">"2"</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">prime</span><span class="p">))</span> <span class="ow">or</span> \
+           <span class="p">(</span><span class="s2">"4"</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">prime</span><span class="p">))</span> <span class="ow">or</span> <span class="p">(</span><span class="s2">"6"</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">prime</span><span class="p">))</span> <span class="ow">or</span> \
+           <span class="p">(</span><span class="s2">"8"</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">prime</span><span class="p">))</span> <span class="ow">or</span> <span class="p">(</span><span class="s2">"0"</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">prime</span><span class="p">))</span> <span class="ow">or</span> \
+           <span class="p">(</span><span class="s2">"5"</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">prime</span><span class="p">)):</span>
+            <span class="k">continue</span>
+        <span class="k">if</span> <span class="n">isCircularPrime</span><span class="p">(</span><span class="n">primes</span><span class="p">,</span> <span class="n">prime</span><span class="p">):</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">prime</span><span class="p">)</span>
+            <span class="n">numberOfPrimes</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Number of circular primes: </span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="n">numberOfPrimes</span><span class="p">)</span>
+</pre></div>
+<p>It takes about 1.096 seconds (in comparison: having the version of <code>isCircularPrime</code> that searches through the list of primes took over 5 minutes!)</p>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2012-11-17T13:23:01+01:00">Nov 17, 2012</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#challenge-ref">Challenge
+                    <span>7</span>
+</a></li>
+                <li><a href="../tags.html#programming-ref">Programming
+                    <span>48</span>
+</a></li>
+                <li><a href="../tags.html#project-euler-ref">Project Euler
+                    <span>9</span>
+</a></li>
+                <li><a href="../tags.html#python-ref">Python
+                    <span>90</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

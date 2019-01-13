@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Klausur, Sensors, Machine Learning, German posts, " />
+
+<meta property="og:title" content="Lokalisierung Mobiler Agenten "/>
+<meta property="og:url" content="../lma/" />
+<meta property="og:description" content="Dieser Artikel beschäftigt sich mit der Vorlesung „Lokalisierung Mobiler Agenten“ am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Dr.-Ing. Gerhard Kurz im Sommersemester 2016 gehört. Behandelter Stoff Übersicht Datum Kapitel Inhalt 17.05.2016 5. Vorlesung Hessische Normalform, Least Squares 24.05.2016 6. Vorlesung …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2016-05-18T20:00:00+02:00" />
+<meta name="twitter:title" content="Lokalisierung Mobiler Agenten ">
+<meta name="twitter:description" content="Dieser Artikel beschäftigt sich mit der Vorlesung „Lokalisierung Mobiler Agenten“ am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Dr.-Ing. Gerhard Kurz im Sommersemester 2016 gehört. Behandelter Stoff Übersicht Datum Kapitel Inhalt 17.05.2016 5. Vorlesung Hessische Normalform, Least Squares 24.05.2016 6. Vorlesung …">
+<meta property="og:image" content="logos/klausur.png" />
+<meta name="twitter:image" content="logos/klausur.png" >
+
+        <title>Lokalisierung Mobiler Agenten  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../lma/"> Lokalisierung Mobiler Agenten  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#behandelter-stoff" title="Behandelter Stoff">Behandelter Stoff</a><ul><li><a class="toc-href" href="#ubersicht" title="&Uuml;bersicht">&Uuml;bersicht</a></li><li><a class="toc-href" href="#statische-lokalisierung" title="Statische Lokalisierung">Statische Lokalisierung</a></li></ul></li><li><a class="toc-href" href="#dynamische-lokalisierung_1" title="Dynamische Lokalisierung">Dynamische Lokalisierung</a></li><li><a class="toc-href" href="#slam" title="SLAM">SLAM</a></li><li><a class="toc-href" href="#material-und-links" title="Material und Links">Material und Links</a></li><li><a class="toc-href" href="#vorlesungsempfehlungen" title="Vorlesungsempfehlungen">Vorlesungsempfehlungen</a></li><li><a class="toc-href" href="#termine-und-klausurablauf" title="Termine und Klausurablauf">Termine und Klausurablauf</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesung &bdquo;Lokalisierung Mobiler Agenten&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://isas.uka.de/User:Kurz/de?uselang=de">Herrn Dr.-Ing. Gerhard Kurz</a> im Sommersemester 2016 geh&ouml;rt.</div>
+<h2 id="behandelter-stoff">Behandelter Stoff</h2>
+<h3 id="ubersicht">&Uuml;bersicht</h3>
+<table>
+<tr>
+<th>Datum</th>
+<th>Kapitel</th>
+<th>Inhalt</th>
+</tr>
+<tr>
+<td>17.05.2016</td>
+<td>5. Vorlesung</td>
+<td>Hessische Normalform, Least Squares</td>
+</tr>
+<tr>
+<td>24.05.2016</td>
+<td>6. Vorlesung</td>
+<td>Least Squares</td>
+</tr>
+<tr>
+<td>21.06.2016</td>
+<td>10. Vorlesung</td>
+<td>Optimalit&auml;tsbeweise (Erwartungstreue); Stochastische Kombination</td>
+</tr>
+<tr>
+<td>28.06.2016</td>
+<td>11. Vorlesung</td>
+<td>Dynamische Lokalisierung (Kalman Filter: Pr&auml;diktions und Filterschritt)</td>
+</tr>
+<tr>
+<td>05.07.2016</td>
+<td>12. Vorlesung</td>
+<td>Kalman Filter: Filterschritt; SLAM</td>
+</tr>
+<tr>
+<td>12.07.2016</td>
+<td>13. Vorlesung</td>
+<td>Particle Filter, SLAM</td>
+</tr>
+</table>
+<h3 id="statische-lokalisierung">Statische Lokalisierung</h3>
+<p>Slides: <code>20160517-lma-1</code></p>
+<dl>
+<dt><dfn>Hessische Normalform</dfn> (<a href="https://en.wikipedia.org/wiki/Hesse_normal_form"><dfn>Hesse normal form</dfn></a>)</dt>
+<dd>An equation describing a plane:
+
+      $$x \cdot n - d = 0$$
+
+      where $x$ is a point, $n$ is the normal of the plane and $d$ is the
+      distance of the plane to $0$.
+  </dd>
+<dt><a href="https://de.wikipedia.org/wiki/Methode_der_kleinsten_Quadrate"><dfn>Methode der kleinsten Quadrate</dfn></a> (<dfn>Least Squares Methode</dfn>)</dt>
+<dd>Bei der Lokalisierung mobiler Agenten in einem Raum mit 4&nbsp;W&auml;nden
+      gen&uuml;gen zwei nicht-parallele Abstandsmessungen. Hat man mehr Messungen,
+      so kann man mit der Methode kleinster Quadrate die beste Position
+      bestimmen.<br/>
+<br/>
+      Der Fehler ist dann $e = y - H x$.<br/>
+<br/>
+      Damit definiert man das G&uuml;tema&szlig;
+
+      $$G(x) = (y- Hx)^T W^{-1} (y-Hx)$$
+
+      wobei $W^{-1}$ eine symmetrisch positiv definite Gewichtungsmatrix ist.
+      </dd>
+<dt><dfn>Rekursive Methode kleinster Quadrate</dfn></dt>
+<dd>Wenn bereits einmal die beste Ebene bestimmt wurde will man nicht wieder
+       alles neu berechnen, wenn ein neues Sensorergebnis hinzukommt.
+
+       Bei uns mit Vektorwertigen Sensoren, nicht wie im wie im Skript mit
+       Skalaren.</dd>
+</dl>
+<p>Slides: <code>6. Vorlesung</code></p>
+<dl>
+<dt><a href="https://de.wikipedia.org/wiki/Sherman-Morrison-Woodbury-Formel"><dfn>Sherman-Morrison-Woodbury Formel</dfn></a></dt>
+<dd>F&uuml;r zwei $n\times k$-Matrizen $U, V$ gilt:<br/>
+        Die $k\times k$-Matrix $E-V^T A^{-1}U$ sei regul&auml;r, dann gilt
+        $$(A-UV^T)^{-1} = A^{-1}+A^{-1}U(E-V^TA^{-1}U)^{-1}V^T A^{-1}$$
+    </dd>
+</dl>
+<h2 id="dynamische-lokalisierung_1">Dynamische Lokalisierung</h2>
+<dl>
+<dt><dfn id="kalman-filter">Kalman-Filter</dfn></dt>
+<dd>Siehe <a href="https://martin-thoma.com/kalman-filter/">Kalman-filter Artikel</a>.</dd>
+</dl>
+<h2 id="slam">SLAM</h2>
+<dl>
+<dt><a href="https://de.wikipedia.org/wiki/Simultaneous_Localization_and_Mapping"><dfn id="slam">SLAM</dfn></a> (<dfn>Simultaneous Location and Mapping</dfn>)</dt>
+<dd>SLAM ist ein Algorithmus, welcher zugleich eine Karte erstellt und
+        einen mobilen Agenten auf der Karte lokalisiert. Eine Karte sind
+        positionen von Landmarken.<br/>
+<br/>
+<u>Ans&auml;tze</u>:
+
+        <ul>
+<li>Filterung (rekursiv): z.B. Kalman-Filter;
+                <abbr title="Extended Kalman Filter">EKF</abbr>,
+                <abbr title="Unscented Kalman Filter">UKF</abbr> (sigma-Punkte / samples; einfach zu implementieren und liefert h&auml;ufig bessere Ergebnisse als EKF),
+                Partikelfilter (Wahrscheinlichkeitsdichten werden durch Partikel / samples repr&auml;sentiert)<br/>
+                $\Rightarrow$ Sch&auml;tzen f&uuml;r Zeitschritt</li>
+<li>Smoothing / Gl&auml;ttung (batch): Nachteile (Rechenaufwendig, erst nach batch ist Ergebnis da, man muss Daten speichern) und Vorteile (komplette Trajektorie, optimale Sch&auml;tzung selbiger); z.B.
+                Graph-based SLAM</li>
+</ul>
+<u>Loop Closure</u>: Wenn der Agent wieder an einen Punkt kommt, an dem
+        er bereits war, kann ein Kreis geschlossen werden. Daher k&ouml;nnen die
+        vorherigen Landmarken im Kreis neu gesch&auml;tzt werden. Allerdings kann
+        ein falsches Loop Closure zur Divergenz des Filters f&uuml;hren.<br/>
+<br/>
+<u>Herausforderungen</u>:
+        <ul>
+<li>Datenassoziation: Erkennen ob Landmarken die gleichen sind.</li>
+<li>Komplexit&auml;t (gro&szlig;e Karte)</li>
+<li>Ver&auml;nderung der Umgebung: z.B. Auto als Landmarke erkannt; neue Br&uuml;cke kommt hinzu oder wurde abgerissen</li>
+<li>Nichtlinearit&auml;ten des Prolems</li>
+</ul>
+</dd>
+<dt><dfn>Landmarke</dfn></dt>
+<dd>Ein gut sichtbares / wiedererkennbares Objekt, welches zur Abstandsmessung
+        benutzt werden kann.</dd>
+<dt><dfn>EKF SLAM</dfn></dt>
+<dd>
+
+        EKF SLAM basiert auf dem Extended Kalman Filter.
+
+        <u>Vereinfachungen</u>:
+
+        <ul>
+<li>Problem in 2D</li>
+<li>Feste Zahl von punktf&ouml;rmigen Landmarken</li>
+<li>Assoziationen bekannt: Landmarken werden zuverl&auml;ssig erkannt
+                und nicht verwechselt.</li>
+</ul>
+
+        Zustand $\mathbf{x}_k = [\underbrace{x_k, y_k, \theta_k}_{\text{Pose des Roboters}}, \underbrace{m_{1, x}, m_{1, y}}_{\text{LM 1}}, \dots, \underbrace{m_{M, x}, m_{M, y}}_{\text{LM } M}]$
+        <br/>
+
+        Dimension von $\mathbf{x}_k$: $3 + 2 M$.<br/>
+        Kovarianz hat $(3+2M)^2$ Elemente, d.h. der Speicheraufwand ist
+        quadratisch in der Zahl der Landmarken.<br/>
+<br/>
+        Systemgleichung: $x_{k+1} = a_k (x_k, M_k) + w_k$<br/>
+        $x_{k+1} \approx A_k x_k + w_k,$
+        wobei $A_k$ Jaccobi-Matrix von $a_k(x_k, u_k)$ f&uuml;r festes $u_k$ an der
+        Stelle $\hat{x}_k^e$.<br/>
+<br/>
+        Messgleichung: $y_k = h(x_k) + v_k$<br/>
+        In der Regel sind nicht alle Landmarken zugleich sichtbar. In diesem
+        Fall werden Zeilen in der Messabbildung weggelassen.
+        $$y_k = H_k(x_k) + v_k,$$
+        wobei $H_k$ die Jaccobi-Matrix von $h(x_k)$ an der Stelle $\hat{x}_k^P$
+        ist.
+    </dd>
+<dt><a href="https://en.wikipedia.org/wiki/Particle_filter"><dfn id="particle-filter">Particle Filter</dfn></a> (<dfn>Partikelfilter</dfn>, <dfn>Sequential Monte Carlo</dfn>, <dfn>SMC</dfn>)</dt>
+<dd>
+
+        Idee: Sch&auml;tze Zustand &uuml;ber Partikel.
+
+        <u>Ansatz</u>: Sample aus Tranistionsdichte
+        $$f(x_{k+1} | x_k = p_k^1, u_k$$
+
+        Implementierung:
+
+        <ul>
+<li>Rauschen $w_k$ samples $\rightarrow v_k^1, \dots, v_k^N$</li>
+<li>Propagiere durch $x_{k+1} = a_N(x_N, u_N) + w_N$, d.h.
+                $p^1_{k+1} = a_k (p_k^1, u_k) + v_k^1$</li>
+<li>Gewichte bleiben gleich</li>
+</ul>
+<u>Problem</u>: Viele Partikel $p_k^i$ haben geringes Gewicht $w_k^i$<br/>
+<u>L&ouml;sung</u>: Resampling mit sequential importance resampling (SIR:
+                       ziehe $N$ neue Partikel mit Gewichten $\frac{1}{n}$ aus
+                       Menge der alten Partikel,
+                       wobei die Wahrscheinlichkeit das Partikel $p_k^i$ zu ziehen
+                       gerade $w_k^i$ ist.)
+    </dd>
+</dl>
+<h2 id="material-und-links">Material und Links</h2>
+<p>Die Vorlesung wurde gestreamt und ist unter
+<a href="http://mml-streamdb01.ira.uka.de/">mml-streamdb01.ira.uka.de</a> verf&uuml;gbar.</p>
+<ul>
+<li><a href="http://isas.uka.de/Lokalisierung_mobiler_Agenten_(SS_2016)/de?uselang=de">Vorlesungswebsite</a></li>
+</ul>
+<p>Literatur und Links:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=U6vr3iNrwRA&amp;list=PLgnQpQtFTOGQrZ4O5QzbIHgl3b1JHimN_">SLAM-Vorlesung der Uni Freiburg</a> (<a href="http://ais.informatik.uni-freiburg.de/teaching/ws13/mapping/">Material</a>)</li>
+</ul>
+<h2 id="vorlesungsempfehlungen">Vorlesungsempfehlungen</h2>
+<p>Folgende Vorlesungen sind &auml;hnlich:</p>
+<ul>
+<li><a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/">Analysetechniken gro&szlig;er Datenbest&auml;nde</a></li>
+<li><a href="https://martin-thoma.com/informationsfusion/">Informationsfusion</a></li>
+<li><a href="https://martin-thoma.com/machine-learning-1-course/">Machine Learning 1</a></li>
+<li><a href="https://martin-thoma.com/machine-learning-2-course/">Machine Learning 2</a></li>
+<li><a href="https://martin-thoma.com/mustererkennung-klausur/">Mustererkennung</a></li>
+<li><a href="https://martin-thoma.com/neuronale-netze-vorlesung/">Neuronale Netze</a></li>
+<li><a href="https://martin-thoma.com/lma/">Lokalisierung Mobiler Agenten</a></li>
+<li><a href="https://martin-thoma.com/probabilistische-planung/">Probabilistische Planung</a></li>
+</ul>
+<h2 id="termine-und-klausurablauf">Termine und Klausurablauf</h2>
+<p>Es ist eine m&uuml;ndliche Pr&uuml;fung.</p>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2016-05-18T20:00:00+02:00">Mai 18, 2016</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#german-posts-ref">German posts</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#klausur-ref">Klausur
+                    <span>35</span>
+</a></li>
+                <li><a href="../tags.html#machine-learning-ref">Machine Learning
+                    <span>76</span>
+</a></li>
+                <li><a href="../tags.html#sensors-ref">Sensors
+                    <span>1</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

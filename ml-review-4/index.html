@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Machine Learning, matplotlib, Color, Machine Learning, " />
+
+<meta property="og:title" content="ML Review 4 "/>
+<meta property="og:url" content="../ml-review-4/" />
+<meta property="og:description" content="This Review gives an overview of intersting stuff I stumbled over which are related to machine learning. New Developments KittiSeg (reddit): A toolkit for semantic segmentation based on TensorVision AudioSet: A dataset for accoustic events Publications Evolution Strategies as a Scalable Alternative to Reinforcement Learning Controllable Text Generation Stopping GAN …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2017-03-25T20:00:00+01:00" />
+<meta name="twitter:title" content="ML Review 4 ">
+<meta name="twitter:description" content="This Review gives an overview of intersting stuff I stumbled over which are related to machine learning. New Developments KittiSeg (reddit): A toolkit for semantic segmentation based on TensorVision AudioSet: A dataset for accoustic events Publications Evolution Strategies as a Scalable Alternative to Reinforcement Learning Controllable Text Generation Stopping GAN …">
+<meta property="og:image" content="logos/ml.png" />
+<meta name="twitter:image" content="logos/ml.png" >
+
+        <title>ML Review 4  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../ml-review-4/"> ML Review 4  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#new-developments" title="New Developments">New Developments</a></li><li><a class="toc-href" href="#publications" title="Publications">Publications</a></li><li><a class="toc-href" href="#software" title="Software">Software</a></li><li><a class="toc-href" href="#interesting-questions" title="Interesting Questions">Interesting Questions</a></li><li><a class="toc-href" href="#miscallenious" title="Miscallenious">Miscallenious</a><ul><li><a class="toc-href" href="#color-maps" title="Color Maps">Color Maps</a></li><li><a class="toc-href" href="#class-distribution" title="Class distribution">Class distribution</a></li><li><a class="toc-href" href="#blogs-websites" title="Blogs / Websites">Blogs / Websites</a></li></ul></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>This Review gives an overview of intersting stuff I stumbled over which are
+related to machine learning.</p>
+<h2 id="new-developments">New Developments</h2>
+<ul>
+<li><a href="https://github.com/MarvinTeichmann/KittiSeg">KittiSeg</a> (<a href="https://www.reddit.com/r/MachineLearning/comments/5y8c5w/p_kittiseg_a_toolkit_to_perform_semantic/">reddit</a>): A toolkit for semantic segmentation based on <a href="https://github.com/TensorVision/TensorVision">TensorVision</a></li>
+<li><a href="https://research.google.com/audioset/">AudioSet</a>: A dataset for accoustic events</li>
+</ul>
+<h2 id="publications">Publications</h2>
+<!-- e.g. arXiv -->
+<ul>
+<li><a href="https://arxiv.org/abs/1703.03864">Evolution Strategies as a Scalable Alternative to Reinforcement Learning</a></li>
+<li><a href="https://arxiv.org/abs/1703.00955">Controllable Text Generation</a></li>
+<li><a href="https://arxiv.org/abs/1703.02528">Stopping GAN Violence: Generative Unadversarial Networks</a>: Probably one of the funniest ML things I've seen so far. Reminds me of <a href="https://www.youtube.com/watch?v=DQWI1kvmwRg">Machine Learning A Cappella - Overfitting Thriller</a></li>
+<li><a href="https://arxiv.org/abs/1703.06857">Deep Neural Networks Do Not Recognize Negative Images</a></li>
+<li><a href="https://arxiv.org/abs/1703.06618">Twitter100k: A Real-world Dataset for Weakly Supervised Cross-Media Retrieval</a></li>
+<li><a href="http://opensurfaces.cs.cornell.edu/publications/minc/">MINC-2500</a> dataset</li>
+<li><a href="https://arxiv.org/abs/1703.06817">Second-order Convolutional Neural Networks</a></li>
+</ul>
+<h2 id="software">Software</h2>
+<!-- e.g. Theano, Keras, ... -->
+<ul>
+<li><a href="https://github.com/Pi-DeepLearning/RaspberryPi-FaceDetection-MTCNN-Caffe-With-Motion">Pi-DeepLearning</a> (<a href="https://www.reddit.com/r/MachineLearning/comments/5xrt2m/pmtcnn_face_detection_on_raspberry_pi_3_with/">reddit</a>)</li>
+<li><a href="https://deepdetect.com/">DeepDetect</a> (<a href="https://github.com/beniz/deepdetect">GitHub</a>)</li>
+</ul>
+<h2 id="interesting-questions">Interesting Questions</h2>
+<!-- For example StackExchange -->
+<ul>
+<li><a href="http://stackoverflow.com/q/42648465/562769">How to predict an item's category given its name?</a></li>
+<li><a href="https://www.reddit.com/r/MLQuestions/comments/5yuc22/how_do_you_share_models/">How do you share models?</a></li>
+<li><a href="http://stackoverflow.com/q/41251698/562769">How many FLOPs does tanh need?</a></li>
+</ul>
+<h2 id="miscallenious">Miscallenious</h2>
+<h3 id="color-maps">Color Maps</h3>
+<p>Color Maps are important for visualizing data. But the default color map for
+many applications is jet, which is bad for several reasons:</p>
+<ul>
+<li>It's hard to estimate distances from jet</li>
+<li>Doesn't work well when printed in grayscale</li>
+<li>Even worse if you are colorblind</li>
+</ul>
+<figure class="wp-caption aligncenter img-thumbnail">
+<img alt="Jet and the new colormaps" src="../images/2017/03/colormaps.png" style="width: 512px"/>
+<figcaption class="text-center">Jet and the new colormaps</figcaption>
+</figure>
+<p>The YouTube clip <a href="https://www.youtube.com/watch?v=xAoljeRJ3lU">A Better Default Colormap for Matplotlib</a>
+by Nathaniel Smith and St&eacute;fan van der Walt gives a short introduction into
+color theory. They introduce <a href="http://colorspacious.readthedocs.io/en/latest/">colorspacious</a>
+and <a href="https://github.com/matplotlib/viscm">viscm</a>. <code>viscm</code> is a tool for
+creating new color maps. They created <code>viridis</code> as a better alternative to
+<code>jet</code>.</p>
+<p>A blog post with roughly the same content is at <a href="https://bids.github.io/colormap/">bids.github.io/colormap</a>.
+This is the default for matplotlib 2.0. If you wonder which matplotlib version
+you have:</p>
+<div class="highlight"><pre><span></span><span class="err">$</span> <span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s2">"import matplotlib;print(matplotlib.__version__)"</span>
+</pre></div>
+<p>That is how you update matplotlib:</p>
+<div class="highlight"><pre><span></span>$ sudo -H pip install matplotlib --upgrade
+</pre></div>
+<p>Here is a list of other matplotlib colormaps:</p>
+<div class="highlight"><pre><span></span>['Accent', 'afmhot', 'autumn', 'binary', 'Blues', 'bone', 'BrBG', 'brg',
+'BuGn', 'BuP', 'bwr', 'CMRmap', 'cool', 'coolwarm', 'copper', 'cubehelix',
+'Dark2', 'flag', 'gist_earth', 'gist_gray', 'gist_heat', 'gist_ncar',
+'gist_rainbow', 'gist_stern', 'gist_yarg', 'GnB', 'gnuplot', 'gnuplot2',
+'gray', 'Greens', 'Greys', 'hot', 'hsv', 'jet', 'nipy_spectral', 'ocean',
+'Oranges', 'OrRd', 'Paired', 'Pastel1', 'Pastel2', 'pink', 'PiYG', 'PRGn',
+'prism', 'PuB', 'PuBuGn', 'PuOr', 'PuRd', 'Purples', 'rainbow', 'RdB', 'RdGy',
+'RdP', 'RdYlB', 'RdYlGn', 'Reds', 'seismic', 'Set1', 'Set2', 'Set3',
+'Spectral', 'spectral', 'spring', 'summer', 'terrain', 'Vega10', 'Vega20',
+'Vega20b', 'Vega20c', 'winter', 'Wistia', 'YlGn', 'YlGnB', 'YlOrBr', 'YlOrRd']
+</pre></div>
+<p>Finally, some interesting links:</p>
+<ul>
+<li><a href="http://stackoverflow.com/a/32484915/562769">How to use viridis in matplotlib 1.4</a></li>
+<li>Matplotlib: <a href="http://matplotlib.org/users/colormaps.html">Choosing Colormaps</a></li>
+</ul>
+<h3 id="class-distribution">Class distribution</h3>
+<p>You should always know if your data is severly unevenly distributed. Here is
+a little script to visualize the data distribution:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>  <span class="c1"># your labels</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">data</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">2</span><span class="p">))</span>  <span class="c1"># yes, +2.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+<p>or</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>  <span class="c1"># your labels</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+<p>For the CIFAR100 training data, this is pretty boring:</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<img alt="Distribution of the CIFAR 100 training data." src="../images/2017/03/cifar100_data_dist.png" style="width: 512px;"/>
+<figcaption class="text-center">Distribution of the CIFAR 100 training data.</figcaption>
+</figure>
+<h3 id="blogs-websites">Blogs / Websites</h3>
+<ul>
+<li><a href="https://martin-thoma.com/ensembles/">Ensembles</a></li>
+<li><a href="https://cloud.google.com/blog/big-data/2016/12/how-to-train-and-classify-images-using-google-cloud-machine-learning-and-cloud-dataflow">How to train and classify images using Google Cloud Machine Learning and Cloud Dataflow</a></li>
+<li><a href="https://cloudplatformonline.com/Machine-Learning-Startup-Competition.html">Machine Learning Startup Competition</a></li>
+<li><a href="https://medium.com/athelas/paper-1-baidus-deep-voice-675a323705df#.z937u7dki">Baidu Deep Voice explained: Part 1 &mdash; the Inference Pipeline</a></li>
+<li><a href="https://techcrunch.com/2017/03/17/laying-a-trap-for-self-driving-cars/">Laying a trap for self-driving cars</a></li>
+<li><a href="https://martin-thoma.com/image-classification/">SotA in Classification</a></li>
+<li><a href="https://martin-thoma.com/object-detection/">SotA in Object detection</a></li>
+</ul>
+<div class="navigation clearfix">
+<div class="alignleft">
+<a href="https://martin-thoma.com/ml-review-3/" rel="prev">&laquo; Previous Review</a>
+</div>
+<div class="alignright">
+<a href="https://martin-thoma.com/ml-review-5/" rel="next">Next Review &raquo;</a>
+</div>
+</div>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2017-03-25T20:00:00+01:00">Mär 25, 2017</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#machine-learning-ref">Machine Learning</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#color-ref">Color
+                    <span>2</span>
+</a></li>
+                <li><a href="../tags.html#machine-learning-ref">Machine Learning
+                    <span>76</span>
+</a></li>
+                <li><a href="../tags.html#matplotlib-ref">matplotlib
+                    <span>7</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Linux, Scheduling, Cyberculture, " />
+
+<meta property="og:title" content="SLURM "/>
+<meta property="og:url" content="../slurm/" />
+<meta property="og:description" content="SLURM is short for &#39;Simple Linux Utility for Resource Management&#39;. It helps you to make use of a cluster by giving you a command line interface to add jobs to a queue. That means, you and other users can specify program calls that get executed as soon als all conditions …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2014-01-24T14:58:00+01:00" />
+<meta name="twitter:title" content="SLURM ">
+<meta name="twitter:description" content="SLURM is short for &#39;Simple Linux Utility for Resource Management&#39;. It helps you to make use of a cluster by giving you a command line interface to add jobs to a queue. That means, you and other users can specify program calls that get executed as soon als all conditions …">
+<meta property="og:image" content="2014/01/slurm-logo.png" />
+<meta name="twitter:image" content="2014/01/slurm-logo.png" >
+
+        <title>SLURM  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../slurm/"> SLURM  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#slurm-basic-usage" title="SLURM basic usage">SLURM basic usage</a></li><li><a class="toc-href" href="#help-texts" title="Help texts">Help texts</a><ul><li><a class="toc-href" href="#sbatch" title="sbatch">sbatch</a></li><li><a class="toc-href" href="#squeue" title="squeue">squeue</a></li></ul></li><li><a class="toc-href" href="#more-information_1" title="More information">More information</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>SLURM is short for 'Simple Linux Utility for Resource Management'.
+It helps you to make use of a <abbr title="a data center ... many computers">cluster</abbr>
+by giving you a command line
+interface to add jobs to a queue. That means, you and other users can
+specify program calls that get executed as soon als all conditions
+are met.</p>
+<p>I currently need to work with this, because I have some pretty heavy
+tasks that occur periodically, but don't need to be executed immediately.
+More concrete, I am working in the field of ASR - Automatic Speech Recognition.
+In ASR you have models that include probabilities for ... well, let's
+don't get into detail for that. The important part is that those models
+need to be trained. And they can get adapted to speakers.</p>
+<p>As soon as you have more recordings, you can try to improve the model. 
+And this training involves a lot of computation and
+data processing. As the training job is executed periodically, but
+not always when a new recording is present, you might also have
+recordings for many different speakers. So you can improve many models
+when this script is started. So this can be done on different computers
+in parallel.</p>
+<h2 id="slurm-basic-usage">SLURM basic usage</h2>
+<p>A simple call could look like this:</p>
+<div class="highlight"><pre><span></span>srun python test.py -aflag -param value
+</pre></div>
+<p>Other notable commands are:</p>
+<ul>
+<li><code>squeue</code>: Gives a list of all running / pending jobs</li>
+<li><code>sbatch</code>: Run a batch script in background</li>
+<li><code>scancel</code>: Stop a job</li>
+</ul>
+<p>Important parameters for <code>srun</code> are:</p>
+<ul>
+<li><code>--mem=[X in MB]</code></li>
+<li><code>--job-name=[Name of your SLURM job]</code></li>
+<li><code>--dependency</code>: Start this job when all dependencies are met. This
+     could be time or other jobs</li>
+</ul>
+<p>Another important command is <code>squeue</code>. It allows you to list all jobs in
+command line (if you have a GUI: <code>sview</code>).</p>
+<p>You can get your jobs only with <code>squeue -u mthoma</code>, where <code>mthoma</code> should be
+replaced by your user name.</p>
+<h2 id="help-texts">Help texts</h2>
+<h3 id="sbatch">sbatch</h3>
+<div class="highlight"><pre><span></span>$ sbatch --help
+Usage: sbatch [OPTIONS...] executable [args...]
+
+Parallel run options:
+  -A, --account=name          charge job to specified account
+      --begin=time            defer job until HH:MM MM/DD/YY
+  -c, --cpus-per-task=ncpus   number of cpus required per task
+      --comment=name          arbitrary comment
+  -d, --dependency=type:jobid defer job until condition on jobid is satisfied
+  -D, --workdir=directory     set working directory for batch script
+  -e, --error=err             file for batch script's standard error
+      --export[=names]        specify environment variables to export
+      --get-user-env          load environment from local cluster
+      --gid=group_id          group ID to run job as (user root only)
+      --gres=list             required generic resources
+  -H, --hold                  submit job in held state
+  -i, --input=in              file for batch script's standard input
+  -I, --immediate             exit if resources are not immediately available
+      --jobid=id              run under already allocated job
+  -J, --job-name=jobname      name of job
+  -k, --no-kill               do not kill job on node failure
+  -L, --licenses=names        required license, comma separated
+  -m, --distribution=type     distribution method for processes to nodes
+                              (type = block|cyclic|arbitrary)
+  -M, --clusters=names        Comma separated list of clusters to issue
+                              commands to.  Default is current cluster.
+                              Name of 'all' will submit to run on all clusters.
+      --mail-type=type        notify on state change: BEGIN, END, FAIL or ALL
+      --mail-user=user        who to send email notification for job state
+                              changes
+  -n, --ntasks=ntasks         number of tasks to run
+      --nice[=value]          decrease secheduling priority by value
+      --no-requeue            if set, do not permit the job to be requeued
+      --ntasks-per-node=n     number of tasks to invoke on each node
+  -N, --nodes=N               number of nodes on which to run (N = min[-max])
+  -o, --output=out            file for batch script's standard output
+  -O, --overcommit            overcommit resources
+  -p, --partition=partition   partition requested
+      --propagate[=rlimits]   propagate all [or specific list of] rlimits
+      --qos=qos               quality of service
+  -Q, --quiet                 quiet mode (suppress informational messages)
+      --requeue               if set, permit the job to be requeued
+  -t, --time=minutes          time limit
+      --time-min=minutes      minimum time limit (if distinct)
+  -s, --share                 share nodes with other jobs
+      --uid=user_id           user ID to run job as (user root only)
+  -v, --verbose               verbose mode (multiple -v's increase verbosity)
+
+Constraint options:
+      --contiguous            demand a contiguous range of nodes
+  -C, --constraint=list       specify a list of constraints
+  -F, --nodefile=filename     request a specific list of hosts
+      --mem=MB                minimum amount of real memory
+      --mincpus=n             minimum number of logical processors (threads) per node
+      --reservation=name      allocate resources from named reservation
+      --tmp=MB                minimum amount of temporary disk
+  -w, --nodelist=hosts...     request a specific list of hosts
+  -x, --exclude=hosts...      exclude a specific list of hosts
+
+Consumable resources related options:
+      --exclusive             allocate nodes in exclusive mode when
+                              cpu consumable resource is enabled
+      --mem-per-cpu=MB        maximum amount of real memory per allocated
+                              cpu required by the job.
+                              --mem &gt;= --mem-per-cpu if --mem is specified.
+
+Affinity/Multi-core options: (when the task/affinity plugin is enabled)
+  -B  --extra-node-info=S[:C[:T]]            Expands to:
+       --sockets-per-node=S   number of sockets per node to allocate
+       --cores-per-socket=C   number of cores per socket to allocate
+       --threads-per-core=T   number of threads per core to allocate
+                              each field can be 'min' or wildcard '*'
+                              total cpus requested = (N x S x C x T)
+
+      --ntasks-per-core=n     number of tasks to invoke on each core
+      --ntasks-per-socket=n   number of tasks to invoke on each socket
+      --cpu_bind=             Bind tasks to CPUs
+                              (see "--cpu_bind=help" for options)
+      --hint=                 Bind tasks according to application hints
+                              (see "--hint=help" for options)
+      --mem_bind=             Bind memory to locality domains (ldom)
+                              (see "--mem_bind=help" for options)
+
+
+Help options:
+  -h, --help                  show this help message
+  -u, --usage                 display brief usage message
+
+Other options:
+  -V, --version               output version information and exit
+</pre></div>
+<h3 id="squeue">squeue</h3>
+<div class="highlight"><pre><span></span>squeue --help
+Usage: squeue [OPTIONS]
+  -A, --account=account(s)        comma separated list of accounts
+                  to view, default is all accounts
+  -a, --all                       display jobs in hidden partitions
+  -h, --noheader                  no headers on output
+      --hide                      do not display jobs in hidden partitions
+  -i, --iterate=seconds           specify an interation period
+  -j, --job=job(s)                comma separated list of jobs IDs
+                  to view, default is all
+  -l, --long                      long report
+  -M, --clusters=cluster_name     cluster to issue commands to.  Default is
+                                  current cluster.  cluster with no name will
+                                  reset to default.
+  -n, --nodes=hostlist            list of nodes to view, default is 
+                  all nodes
+  -o, --format=format             format specification
+  -p, --partition=partition(s)    comma separated list of partitions
+                  to view, default is all partitions
+  -q, --qos=qos(s)                comma separated list of qos's
+                  to view, default is all qos's
+  -s, --step=step(s)              comma separated list of job steps
+                  to view, default is all
+  -S, --sort=fields               comma separated list of fields to sort on
+      --start                     print expected start times of pending jobs
+  -t, --states=states             comma separated list of states to view,
+                  default is pending and running,
+                  '--states=all' reports all states
+  -u, --user=user_name(s)         comma separated list of users to view
+  -v, --verbose                   verbosity level
+  -V, --version                   output version information and exit
+
+Help options:
+  --help                          show this help message
+  --usage                         display a brief summary of squeue options
+</pre></div>
+<h2 id="more-information_1">More information</h2>
+<ul>
+<li>Manpages:</li>
+<li><a href="https://computing.llnl.gov/tutorials/linux_clusters/man/srun.txt">srun</a></li>
+<li><a href="https://computing.llnl.gov/tutorials/linux_clusters/man/scancel.txt">scancel</a></li>
+<li><a href="https://computing.llnl.gov/linux/slurm/quickstart.html">SLURM Quickstart Guide</a></li>
+<li><a href="https://rc.fas.harvard.edu/kb/high-performance-computing/slurm/">SLURM Overview from Harvard</a></li>
+</ul>
+            
+            <div id="disqus_thread"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2014-01-24T14:58:00+01:00">Jan 24, 2014</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#cyberculture-ref">Cyberculture</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#linux-ref">Linux
+                    <span>16</span>
+</a></li>
+                <li><a href="../tags.html#scheduling-ref">Scheduling
+                    <span>2</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
