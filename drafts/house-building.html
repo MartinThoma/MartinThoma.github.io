@@ -14,20 +14,20 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="Python, Software Engineering, Code, " />
+<meta name="keywords" content="Machine Learning, My bits and bytes, " />
 
-<meta property="og:title" content="Closures "/>
-<meta property="og:url" content="../closures/" />
-<meta property="og:description" content="A closure is a technique for implementing lexically scoped name binding in a language with first-class functions. Pairs This post is triggered by this question and the nice answer by Martijn Pieters. Here is a super short example: def cons(a, b): def pair(f): return f(a, b) return …" />
+<meta property="og:title" content="House Building "/>
+<meta property="og:url" content="../drafts/house-building.html" />
+<meta property="og:description" content="Did you know that there are various differnt ways to build single-family houses? For sure you know that one can build houses from concrete and bricks as well as from wood, but there are some differences I&#39;ve just recently learned about. In this article I want to collect them. Brikawood …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
-<meta property="og:article:published_time" content="2018-10-19T20:00:00+02:00" />
-<meta name="twitter:title" content="Closures ">
-<meta name="twitter:description" content="A closure is a technique for implementing lexically scoped name binding in a language with first-class functions. Pairs This post is triggered by this question and the nice answer by Martijn Pieters. Here is a super short example: def cons(a, b): def pair(f): return f(a, b) return …">
-<meta property="og:image" content="logos/python.png" />
-<meta name="twitter:image" content="logos/python.png" >
+<meta property="og:article:published_time" content="2019-02-03T20:00:00+01:00" />
+<meta name="twitter:title" content="House Building ">
+<meta name="twitter:description" content="Did you know that there are various differnt ways to build single-family houses? For sure you know that one can build houses from concrete and bricks as well as from wood, but there are some differences I&#39;ve just recently learned about. In this article I want to collect them. Brikawood …">
+<meta property="og:image" content="logos/star.png" />
+<meta name="twitter:image" content="logos/star.png" >
 
-        <title>Closures  · Martin Thoma
+        <title>House Building  · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -95,7 +95,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../closures/"> Closures  </a></h1>
+    <h1><a href="../drafts/house-building.html"> House Building  </a></h1>
     </header>
 </div>
 
@@ -103,132 +103,86 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#pairs" title="Pairs">Pairs</a></li><li><a class="toc-href" href="#partial" title="partial">partial</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#brikawood" title="Brikawood">Brikawood</a></li><li><a class="toc-href" href="#clay-houses" title="Clay houses">Clay houses</a></li><li><a class="toc-href" href="#tiny-house" title="Tiny House">Tiny House</a></li><li><a class="toc-href" href="#own-home" title="Own Home">Own Home</a></li><li><a class="toc-href" href="#self-sufficiency" title="Self-Sufficiency">Self-Sufficiency</a><ul><li><a class="toc-href" href="#electricity" title="Electricity">Electricity</a></li><li><a class="toc-href" href="#heat" title="Heat">Heat</a></li><li><a class="toc-href" href="#clean-water" title="Clean Water">Clean Water</a></li><li><a class="toc-href" href="#water-cleaning" title="Water cleaning">Water cleaning</a></li><li><a class="toc-href" href="#food" title="Food">Food</a></li></ul></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>A <a href="https://en.wikipedia.org/wiki/Closure_(computer_programming)">closure</a> is a
-technique for implementing lexically scoped name binding in a language with
-first-class functions.</p>
-<h2 id="pairs">Pairs</h2>
-<p>This post is triggered by <a href="https://stackoverflow.com/q/52481607/562769">this question</a>
-and the nice answer by Martijn Pieters.</p>
-<p>Here is a super short example:</p>
-<div class="highlight"><pre><span></span>def cons(a, b):
-    def pair(f):
-        return f(a, b)
-    return pair
-
-
-def car(pair):
-    def return_first(x, y):
-        return x
-    return pair(return_first)
-
-
-def cdr(pair):
-    def return_last(a, b):
-        return b
-    return pair(return_last)
-
-
-cons_return = cons(42, 1337)
-print(cons_return)
-print(car(cons_return))
-print(cdr(cons_return))
-</pre></div>
-<p>What is the output of the 3 print statements? Why?</p>
-<p>As there are not too many possible answers, you can easily guess it. But can
-you explain it?</p>
-<p>Explanation:</p>
-<ol>
-<li><code>pair</code> is a function, hence <code>cons</code> returns a function. Note that it
-   returns the function, not the return value of the function. So the first
-   output is something like <code>&lt;function cons.&lt;locals&gt;.pair at 0x7f63aa5fa840&gt;</code>.</li>
-<li>Once <code>pair</code> is called, <code>a</code> and <code>b</code> are set in this name space. Hence
-   <code>cons</code> can return different functions!</li>
-<li><code>car</code> and <code>cdr</code> are basically the same, so let's just focus on <code>car</code>.</li>
-<li><code>car</code> has a function as its parameter. It calls this function and gives
-   it a function that wants two parameters. This parameter function just
-   returns its first argument.</li>
-<li>Once <code>car</code> is called, the new function <code>pair</code> is called with the local
-   context of <code>cons</code>. Then <code>return_first</code> is called within that context.</li>
-</ol>
-<p>Once you print some intermediate results you get a better understanding:</p>
-<div class="highlight"><pre><span></span>def cons(a, b):
-    print('cons called with a={}, b={}'.format(a, b))
-    def pair(f):
-        print('pair called with a={}, b={}, f={}'.format(a, b, f))
-        return f(a, b)
-    return pair
-
-
-def car(pair):
-    print('car called with pair={} (a, b are undefined)'.format(pair))
-    def return_first(x, y):
-        print('return_first called with x={}, y={}'.format(x, y))
-        return x
-    return pair(return_first)
-
-
-def cdr(pair):
-    def return_last(a, b):
-        return b
-    return pair(return_last)
-
-
-cons_return = cons(42, 1337)
-print(cons_return)
-print()
-print(car(cons_return))
-</pre></div>
-<p>gives</p>
-<div class="highlight"><pre><span></span>cons called with a=42, b=1337
-&lt;function cons.&lt;locals&gt;.pair at 0x7fbb5fe7c840&gt;
-
-car called with pair=&lt;function cons.&lt;locals&gt;.pair at 0x7fbb5fe7c840&gt; (a, b are undefined)
-pair called with a=42, b=1337, f=&lt;function car.&lt;locals&gt;.return_first at 0x7fbb5fe7c8c8&gt;
-return_first called with x=42, y=1337
-42
-</pre></div>
-<p>I don't know about you, but this really gives me headaches. I'm don't know why,
-but closures are super popular in JavaScript.</p>
-<p>Let's see the one example I know they are super useful for.</p>
-<h2 id="partial">partial</h2>
-<p>Pythons <a href="https://docs.python.org/3/library/functools.html#functools.partial"><code>functools.partial</code></a>
-can be used to create simpler functions where some of the arguments are already
-filled.</p>
-<p>It's implementation is roughly:</p>
-<div class="highlight"><pre><span></span>def partial(func, *args, **keywords):
-    def newfunc(*fargs, **fkeywords):
-        newkeywords = keywords.copy()
-        newkeywords.update(fkeywords)
-        return func(*args, *fargs, **newkeywords)
-    newfunc.func = func
-    newfunc.args = args
-    newfunc.keywords = keywords
-    return newfunc
-</pre></div>
-<p>And you can use it like this:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
-
-
-<span class="k">def</span> <span class="nf">power</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">exponent</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">base</span><span class="o">**</span><span class="n">exponent</span>
-
-<span class="n">basetwo</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">power</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">basetwo</span><span class="p">(</span><span class="n">exponent</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>  <span class="c1"># prints 1024</span>
-</pre></div>
-<p>Please note that the call <code>basetwo(10)</code> gives the error</p>
-<div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File "/home/moose/foobar.py", line 8, in &lt;module&gt;
-    print(basetwo(10))  # prints 1024
-TypeError: power() got multiple values for argument 'base'
-</pre></div>
-<p>as you supply power both as a keyword-argument and as a position-based
-argument.</p>
+            <p>Did you know that there are various differnt ways to build single-family
+houses? For sure you know that one can build houses from concrete and bricks as
+well as from wood, but there are some differences I've just recently learned
+about. In this article I want to collect them.</p>
+<h2 id="brikawood">Brikawood</h2>
+<p>Brikawood houses are build from Lego-like wooden bricks. No screws, no glue.
+Only wood pieces that fit well together. Aparently it is possible to build those
+houses earthquake-proof (<a href="https://en.wikipedia.org/wiki/Richter_magnitude_scale">Richter scale 8.5</a>, <a href="http://www.inspiraction.news/en/2016/10/28/brikawood-an-ecological-house-built-with-wooden-bricks/">source</a>).</p>
+<p>All Brikawood houses are <a href="https://en.wikipedia.org/wiki/Passive_house">Passive houses</a>.</p>
+<h2 id="clay-houses">Clay houses</h2>
+<ul>
+<li>Fachwerk</li>
+<li><a href="https://de.wikipedia.org/wiki/Lehmhaus_Rauch">Lehmhaus Rauch</a></li>
+<li><a href="https://de.wikipedia.org/wiki/Lehmbau">Lehmbau</a></li>
+</ul>
+<p>Disadvantages:</p>
+<ul>
+<li>Heavy rain can destroy it: A part of the <a href="https://en.wikipedia.org/wiki/Great_Mosque_of_Djenn%C3%A9">Great Mosque of Djenn&eacute;</a> collapsed after 75 mm of rain had fallen in a 24-hour period</li>
+</ul>
+<h2 id="tiny-house">Tiny House</h2>
+<ul>
+<li>mobile</li>
+<li>max 18m^2</li>
+</ul>
+<p>Think of a utility trailer for normal cars. Nothing for trucks. For example,
+6.15m x 2.35m (inner part: 4.61m x 2.21m) with a maximum weight of 3000kg, where
+the trailer itself weights 990kg. Or the W&ouml;rmann Team-Liner 3573/244.</p>
+<h2 id="own-home">Own Home</h2>
+<p>Klemens Jakob</p>
+<p>about 18m^2</p>
+<p>https://ownworld.org/</p>
+<h2 id="self-sufficiency">Self-Sufficiency</h2>
+<p>Self-sufficient houses are sometimes also called off-grid houses. The idea is
+the be independent of the rest of the world.</p>
+<h3 id="electricity">Electricity</h3>
+<p>You can generate electricity with solar panels. Other options you might think
+of are not possible:</p>
+<ul>
+<li>Bio gas: You don't have enough biologic material to produce gass</li>
+<li>Geo-Thermi:</li>
+<li>
+<p>Wind: Too big - you might not want that in your garden. And you might not be allowed to have something that big in your garden</p>
+</li>
+<li>
+<p>Solar-Wechselrichter</p>
+</li>
+<li>Batterie-Wechselrichter</li>
+</ul>
+<p>You also need a way to store energy for times when your solar panels don't produce
+electric energy (e.g. at night):</p>
+<ul>
+<li>Battery</li>
+</ul>
+<h3 id="heat">Heat</h3>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Heat_pump">Heat Pump</a></li>
+<li>Good insulation</li>
+</ul>
+<p>You can also store heat:</p>
+<ul>
+<li>Ice storage</li>
+<li>Big, well-insulated water tanks (half a year of storage time!)</li>
+</ul>
+<h3 id="clean-water">Clean Water</h3>
+<h3 id="water-cleaning">Water cleaning</h3>
+<p>The biggest factor for sure is the toilet. There are composting toilets and
+toilets which seperate diretly between poo and pee.</p>
+<h3 id="food">Food</h3>
+<ul>
+<li>Green-house</li>
+<li>Chicken for eggs</li>
+<li>Trees: Apples, Pears</li>
+<li><a href="https://en.wikipedia.org/wiki/Ribes">Ribes</a></li>
+</ul>
             
             <div id="disqus_thread"></div>
 <script>
@@ -254,18 +208,15 @@ argument.</p>
         <section>
         <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2018-10-19T20:00:00+02:00">Okt 19, 2018</time>
+            <time pubdate="pubdate" datetime="2019-02-03T20:00:00+01:00">Feb 3, 2019</time>
             <br/>
             by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
             <h4>Category</h4>
-            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <a class="category-link" href="../categories.html#my-bits-and-bytes-ref">My bits and bytes</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
-                <li><a href="../tags.html#python-ref">Python
-                    <span>90</span>
-</a></li>
-                <li><a href="../tags.html#software-engineering-ref">Software Engineering
-                    <span>7</span>
+                <li><a href="../tags.html#machine-learning-ref">Machine Learning
+                    <span>77</span>
 </a></li>
             </ul>
 <h4>Contact</h4>
