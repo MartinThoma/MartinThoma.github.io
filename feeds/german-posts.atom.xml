@@ -19201,62 +19201,59 @@ Der Kaiser von China spielt mit einem Bauern Schach. Nachdem er das Spiel verlor
 &lt;h2 id="losung"&gt;L&amp;ouml;sung&lt;/h2&gt;
 &lt;p&gt;Ein Schachbrett hat &lt;span class="math"&gt;\(8 \cdot 8 = 64\)&lt;/span&gt; Felder. F&amp;uuml;r das &lt;span class="math"&gt;\(i\)&lt;/span&gt;-te Feld, &lt;span class="math"&gt;\(1 \le i \le 64\)&lt;/span&gt;, muss der Kaiser &lt;span class="math"&gt;\(2^{i-1}\)&lt;/span&gt; Reisk&amp;ouml;rner abgeben.
 Insgesamt muss er also &lt;span class="math"&gt;\(\sum_{i=1}^{64} 2^{i-1}\)&lt;/span&gt; Reisk&amp;ouml;rner abgeben.
-Das sind &lt;span class="math"&gt;\(2^{64} - 1 = 18446744073709551615 \approx 1{,}84 \cdot 10^{19}\)&lt;/span&gt; Reisk&amp;ouml;rner. &lt;/p&gt;
+Das sind &lt;span class="math"&gt;\(2^{64} - 1 = 18446744073709551615 \approx 1{,}84 \cdot 10^{19}\)&lt;/span&gt; Reisk&amp;ouml;rner.&lt;/p&gt;
+&lt;h2 id="beweis"&gt;Beweis&lt;/h2&gt;
+&lt;p&gt;&lt;b&gt;Behauptung: &lt;/b&gt; &lt;span class="math"&gt;\(\sum_{i=1}^{n} 2^{i-1} = 2^n -1\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Beweis:&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(\sum_{i=1}^{n} 2^{i-1} = \sum_{i=0}^{n-1} 2^i\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Induktionsanfang:&lt;/b&gt; F&amp;uuml;r &lt;span class="math"&gt;\(n=1\)&lt;/span&gt; gilt &lt;span class="math"&gt;\(\sum_{i=0}^{n-1} 2^i = 2^0 = 1 = 2^1 - 1\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Induktionsvorraussetzung:&lt;/b&gt; Sei &lt;span class="math"&gt;\(n \in \mathbb{N}_{\geq 1}\)&lt;/span&gt; beliebig, aber fest und es gelte &lt;span class="math"&gt;\(\sum_{i=1}^{n} 2^{i-1} = 2^n -1\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Induktionsschluss&lt;/b&gt;:&lt;/p&gt;
+&lt;div class="math"&gt;\begin{align}
+\sum_{i=0}^{n} 2^i &amp;amp;= 2^n + \sum_{i=0}^{n-1} 2^i\\
+&amp;amp;\stackrel{IV}{=} 2^n + (2^n -1)\\
+&amp;amp;=2 \cdot 2^n - 1\\
+&amp;amp;= 2^{n+1} - 1
+\end{align}&lt;/div&gt;
 &lt;h2 id="vergleiche"&gt;Vergleiche&lt;/h2&gt;
 &lt;p&gt;Wie viel sind 18.446.744.073.709.551.615 Reisk&amp;ouml;rner?&lt;/p&gt;
 &lt;h3 id="erdabdeckung"&gt;Erdabdeckung&lt;/h3&gt;
 &lt;p&gt;W&amp;uuml;rde man die Erde gleichm&amp;auml;&amp;szlig;ig mit Reisk&amp;ouml;rnern abdecken, wie hoch w&amp;auml;re diese Schicht?&lt;/p&gt;
 &lt;p&gt;Die Erde hat eine Oberfl&amp;auml;che von ca. 510 Millionen &lt;span class="math"&gt;\(\text{km}^2\)&lt;/span&gt;, ein Basmati-Reiskorn ist ca 6,5 mm lang, hat einen Durchmesser von ca. 1,5 mm und hat vereinfacht eine Kreiszylinderform.&lt;/p&gt;
 &lt;p&gt;Daraus ergibt sich folgende Gleichung, bei der &lt;span class="math"&gt;\(x\)&lt;/span&gt; die H&amp;ouml;he der Reisschicht ist:&lt;/p&gt;
-&lt;p&gt;$
-    &lt;/p&gt;
 &lt;div class="math"&gt;\begin{align}
-        x \cdot A_{Erde} &amp;amp;= (2^{64}-1) \cdot 6,5\text{mm} \cdot (1,5\text{mm})^2 \cdot \pi \\
-        x &amp;amp;= \frac{(2^{64}-1) \cdot 6,5\text{mm} \cdot (1,5\text{mm})^2 \cdot \pi}{A_{Erde}} \\
-        x &amp;amp;= \frac{(2^{64}-1) \cdot 45,9458\text{mm}^3}{510 \cdot 10^6 \cdot 10^{12} \text{mm}^2} \\
-        x &amp;amp;= \frac{8,47550 \cdot 10^{20} \text{mm}^3}{510 \cdot 10^{18} \text{mm}^2} \\
-        x &amp;amp;= 1,662\text{mm}
-    \end{align}&lt;/div&gt;
-&lt;p&gt;
-$&lt;/p&gt;
+    x \cdot A_{Erde} &amp;amp;= (2^{64}-1) \cdot 6,5\text{mm} \cdot (1,5\text{mm})^2 \cdot \pi \\
+    x &amp;amp;= \frac{(2^{64}-1) \cdot 6,5\text{mm} \cdot (1,5\text{mm})^2 \cdot \pi}{A_{Erde}} \\
+    x &amp;amp;= \frac{(2^{64}-1) \cdot 45,9458\text{mm}^3}{510 \cdot 10^6 \cdot 10^{12} \text{mm}^2} \\
+    x &amp;amp;= \frac{8,47550 \cdot 10^{20} \text{mm}^3}{510 \cdot 10^{18} \text{mm}^2} \\
+    x &amp;amp;= 1,662\text{mm}
+\end{align}&lt;/div&gt;
 &lt;p&gt;Die Erde k&amp;ouml;nnte also komplett mit ca. 1,662 mm Reis, also etwas mehr als einem Reiskorn, bedeckt werden.&lt;/p&gt;
 &lt;h3 id="reispackungen"&gt;Reispackungen&lt;/h3&gt;
 &lt;p&gt;Den vorhergehenden Vergleich finde ich noch etwas unpraktisch. Wieviele Reispackungen w&amp;auml;ren das?&lt;/p&gt;
 &lt;p&gt;Eine handels&amp;uuml;bliche Packung Reis beinhaltet ca. 1 kg Reis. Ein Reiskorn wiegt ca. 65 mg.&lt;/p&gt;
-&lt;p&gt;$
-    &lt;/p&gt;
 &lt;div class="math"&gt;\begin{align}
-        x &amp;amp;:= \text{Reispackungen} \\
-        x \cdot 1\text{kg}     &amp;amp;= 65\text{mg} \cdot (2^{64}-1) \\
-        x \cdot 10^6\text{mg} &amp;amp;= 1199038364791120854975\text{mg} \\
-        x &amp;amp;\approx 1,2 \cdot 10^{15}
-    \end{align}&lt;/div&gt;
-&lt;p&gt;
-$&lt;/p&gt;
+    x &amp;amp;:= \text{Reispackungen} \\
+    x \cdot 1\text{kg}     &amp;amp;= 65\text{mg} \cdot (2^{64}-1) \\
+    x \cdot 10^6\text{mg} &amp;amp;= 1199038364791120854975\text{mg} \\
+    x &amp;amp;\approx 1,2 \cdot 10^{15}
+\end{align}&lt;/div&gt;
 &lt;h3 id="reispackungen-pro-person"&gt;Reispackungen pro Person&lt;/h3&gt;
 &lt;p&gt;Auch &lt;span class="math"&gt;\(1,2 \cdot 10^{15}\)&lt;/span&gt; ist noch zu gro&amp;szlig;, um sich etwas darunter vorstellen zu k&amp;ouml;nnen.
 Wie viele Reispackungen w&amp;auml;ren das pro Person auf der Erde?&lt;/p&gt;
-&lt;p&gt;$
-    &lt;/p&gt;
 &lt;div class="math"&gt;\begin{align}
-        x &amp;amp;:= \text{Reispackungen pro Mensch} \\
-        x &amp;amp;= \frac{1,2 \cdot 10^{15}}{6,93 \cdot 10^9} \\
-        x &amp;amp;\approx 1,7 \cdot 10^5
-    \end{align}&lt;/div&gt;
-&lt;p&gt;
-$
-Jeder Mensch w&amp;uuml;rde also 170.000 Packungen Reis von Kaiser von China bekommen. Um den t&amp;auml;glichen Kalorienbedarf zu decken werden ca. 1,1 kg Reis ben&amp;ouml;tigt. Es k&amp;ouml;nnten also alle Menschen der Erde ca. 154.545 Tage, das sind &amp;uuml;ber 423 Jahre, ern&amp;auml;hrt werden!&lt;/p&gt;
+    x &amp;amp;:= \text{Reispackungen pro Mensch} \\
+    x &amp;amp;= \frac{1,2 \cdot 10^{15}}{6,93 \cdot 10^9} \\
+    x &amp;amp;\approx 1,7 \cdot 10^5
+\end{align}&lt;/div&gt;
+&lt;p&gt;Jeder Mensch w&amp;uuml;rde also 170.000 Packungen Reis von Kaiser von China bekommen. Um den t&amp;auml;glichen Kalorienbedarf zu decken werden ca. 1,1 kg Reis ben&amp;ouml;tigt. Es k&amp;ouml;nnten also alle Menschen der Erde ca. 154.545 Tage, das sind &amp;uuml;ber 423 Jahre, ern&amp;auml;hrt werden!&lt;/p&gt;
 &lt;h3 id="marktwert"&gt;Marktwert&lt;/h3&gt;
 &lt;p&gt;Reis kostet auf dem Weltmarkt ca. 600 US-Dollar pro metrischer Tonne (&lt;a href="http://www.markt-daten.de/charts/imf/imf014.htm"&gt;Quelle&lt;/a&gt;).&lt;/p&gt;
-&lt;p&gt;$
-    &lt;/p&gt;
 &lt;div class="math"&gt;\begin{align}
-        x &amp;amp;:= \text{Marktwert} \\
-        x &amp;amp;= \frac{1,2 \cdot 10^{15}}{1000} \cdot 600 \text{ US-Dollar}\\
-        x &amp;amp;= 720000000000000
-    \end{align}&lt;/div&gt;
-&lt;p&gt;
-$&lt;/p&gt;
+    x &amp;amp;:= \text{Marktwert} \\
+    x &amp;amp;= \frac{1,2 \cdot 10^{15}}{1000} \cdot 600 \text{ US-Dollar}\\
+    x &amp;amp;= 720000000000000
+\end{align}&lt;/div&gt;
 &lt;p&gt;Der Reis h&amp;auml;tte also einen Marktwert von 720 Billionen US-Dollar.&lt;/p&gt;
 &lt;p&gt;Zum Vergleich: Das BIP der gesamten Welt, also die Summe der Werte aller G&amp;uuml;ter und Dienstleistung, lag 2007 bei ca. 54 Billionen US-Dollar (&lt;a href="http://www.bpb.de/wissen/I6PFEV,0,WeltBruttoinlandsprodukt.html"&gt;Quelle&lt;/a&gt;).&lt;/p&gt;</content><category term="mathematics"></category><category term="chess"></category></entry><entry><title>Klausur Analysis I und II</title><link href="https://martin-thoma.com/klausur-analysis-i-und-ii/" rel="alternate"></link><published>2012-08-14T17:13:24+02:00</published><updated>2012-08-14T17:13:24+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2012-08-14:/klausur-analysis-i-und-ii/</id><summary type="html">&lt;div class="info"&gt;Dieser Artikel richtet sich vor allem an Studenten, die im Sommersemester 2012 bei Herrn Prof. Dr. Schmoeger am KIT die Klausur &amp;uuml;ber Analysis schreiben werden.&lt;/div&gt;
 &lt;h2 id="vorbereitung"&gt;Vorbereitung&lt;/h2&gt;
