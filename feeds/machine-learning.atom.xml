@@ -384,7 +384,10 @@ shown. On StumbleUpon, your next stumble. On a news page, another article.&lt;/p
   well.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Recommender systems based on product similarity are also called "content-based recommender systems".
-Recommander systems baed on user similarity are also called "collaborative filtering".&lt;/p&gt;
+The New York Times article recommendation is an example for that.&lt;/p&gt;
+&lt;p&gt;Recommander systems based on user similarity are also called "collaborative
+filtering".&lt;/p&gt;
+&lt;p&gt;Pandora is an example for content-based recommendation + collaborative filtering.&lt;/p&gt;
 &lt;h2 id="basic-content-based-recommendations"&gt;Basic Content-based Recommendations&lt;/h2&gt;
 &lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Edit_distance"&gt;Levenshteins edit distance&lt;/a&gt;
 applied on the product name is probably the simplest approach that has a
@@ -399,7 +402,11 @@ mimimal chance of some reasonable results.&lt;/p&gt;
 a product to a vector and use a similarity measure (e.g. cosine similarity). If
 you have natural laguage descriptions you can use tf-idf features and then use
 a similarity measure. You would then recommend the most similar products.&lt;/p&gt;
-&lt;h2 id="basic-collaborative-filtering"&gt;Basic Collaborative Filtering&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;Cosine-Similarity&lt;/dt&gt;
+&lt;dd&gt;Let $x$ and $y$ be items. Their cosine similarity is defined as $$f(x, y) := \frac{\sum_i x_i y_i}{\sqrt{\sum_i x_i^2} \sqrt{\sum_i y_i^2}}$$&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h2 id="user-based-collaborative-filtering"&gt;User-Based Collaborative Filtering&lt;/h2&gt;
 &lt;p&gt;Users can have different scales on which they rate stuff:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Binary: Like / Dislike (and "not seen")&lt;/li&gt;
@@ -410,20 +417,71 @@ a similarity measure. You would then recommend the most similar products.&lt;/p&
 &lt;p&gt;So you want to find the utility function &lt;span class="math"&gt;\(u: C \times I \rightarrow R\)&lt;/span&gt; where
 &lt;span class="math"&gt;\(C\)&lt;/span&gt; is the set of customers, &lt;span class="math"&gt;\(I\)&lt;/span&gt; is the set of items and &lt;span class="math"&gt;\(R\)&lt;/span&gt; is the &lt;em&gt;ordered&lt;/em&gt;
 set of ratings. By a simple transformation you can make it &lt;span class="math"&gt;\(R = [0, 1]\)&lt;/span&gt;.&lt;/p&gt;
-&lt;p&gt;The utility function &lt;span class="math"&gt;\(u\)&lt;/span&gt; can be fully defined by a matrix. Most elements of the
-matrix are not known, though.&lt;/p&gt;
+&lt;p&gt;The utility function &lt;span class="math"&gt;\(u\)&lt;/span&gt; can be fully defined by a user-item rating matrix.
+Most elements of the matrix are not known, though.&lt;/p&gt;
+&lt;p&gt;Based on the user-item rating matrix you build up a user-user similarity matrix.&lt;/p&gt;
+&lt;p&gt;You look up similar users, generate candidates for recommendation, score and filter candidates (items the user already knows).&lt;/p&gt;
 &lt;p&gt;See also: &lt;a href="https://martin-thoma.com/collaborative-filtering/"&gt;Collaborative Filtering&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;In some sense, bestellsers are a special case of collaborative filtering:
 Simply recommending what got sold most.&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;Adjusted Cosine&lt;/dt&gt;
+&lt;dd&gt;$$f(x, y) := \frac{\sum_i (x_i -\bar{x}) (y_i - \bar{y})}{\sqrt{\sum_i (x_i - \bar{x})^2} \sqrt{\sum_i (y_i - \bar{y})^2}}$$
+    Applicable mostly to get a similar user based on ratings. The idea is that different people have different baselines from which they operate, e.g. in a 5 star rating you could always give 5 stars if nothing is wrong. Or always 3 stars and if there is something really good, give more.&lt;/dd&gt;
+&lt;dt&gt;item-based pearson similarity&lt;/dt&gt;
+&lt;dd&gt;$$f(x, y) := \frac{\sum_i (x_i - \bar{j})(y_i - \bar{j})}{\sqrt{\sum_i (x_i - \bar{j})^2} \sqrt{\sum_i (y_i - \bar{j})^2}}$$&lt;/dd&gt;
+&lt;dt&gt;Spearman rank correlation&lt;/dt&gt;
+&lt;dd&gt;Pearson similarity based on ranks (position in the recommendation), not ratings. Usually not use in practice.&lt;/dd&gt;
+&lt;dt&gt;Mean Squared Difference Similarity&lt;/dt&gt;
+&lt;dd&gt;$$MSD(x, y) := \frac{\sum_{i \in I_{x, y}} (x_i - y_i)^2}{|I_{x, y}|}$$
+        and the similarity:
+        $$MSDsim(x, y) := \frac{1}{MSD(x, y) + 1}$$&lt;/dd&gt;
+&lt;dt&gt;Jaccard Similarity&lt;/dt&gt;
+&lt;dd&gt;$$\frac{A \cap B}{A \cup B}$$&lt;/dd&gt;
+&lt;/dl&gt;
 &lt;h2 id="basic-basket-analysis"&gt;Basic Basket Analysis&lt;/h2&gt;
 &lt;p&gt;See &lt;a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/#association-rules"&gt;Association Rule Mining&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id="evaluation"&gt;Evaluation&lt;/h2&gt;
-&lt;p&gt;One way to evaluate if recommendation systems work is by the typical train-test split&lt;/p&gt;
+&lt;p&gt;One way to evaluate if recommendation systems work is by the typical train-test split.&lt;/p&gt;
+&lt;p&gt;Possible Metrics, where &lt;span class="math"&gt;\(y\)&lt;/span&gt; is the real value and &lt;span class="math"&gt;\(p(x)\)&lt;/span&gt; is the predicted value:&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;Mean Absolute Error (MAE)&lt;/dt&gt;
+&lt;dd&gt;$\frac{1}{n} \sum_{i=1}^n |y_i - p(x_i)| \in [0, 1]$, where lower is better&lt;/dd&gt;
+&lt;dt&gt;Root Mean Square Error (RMSE)&lt;/dt&gt;
+&lt;dd&gt;$\sqrt{\frac{1}{n} \sum_{i=1}^n {(y_i - p(x_i))}^2} \in [0, \infty)$, where lower is better&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;The problem with those two ways is that low-rated items don't matter much. If
+95% of the users look at &lt;span class="math"&gt;\(n\)&lt;/span&gt; items, then you want the Top-&lt;span class="math"&gt;\(n\)&lt;/span&gt; recommendations
+to be (1) more relevant than the rest for the user and (2) the order of the
+top-&lt;span class="math"&gt;\(n\)&lt;/span&gt; elements to be correct.&lt;/p&gt;
+&lt;p&gt;Metrics for top-n recommenders:&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;Hit Rate&lt;/dt&gt;
+&lt;dd&gt;Number of hits in your $n$ recommendations, divided by the number of users&lt;/dd&gt;
+&lt;dt&gt;Average Reciprocal Hit Rank (ARHR)&lt;/dt&gt;
+&lt;dd&gt;$\frac{1}{|Users| \cdot \sum_{i=1}^n \frac{1}{rank_i}}$&lt;/dd&gt;
+&lt;dt&gt;Cumulative Hit Rate (cHR)&lt;/dt&gt;
+&lt;dd&gt;Throw away low-ranking stuff (hence you need a threshold)&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;Other quality indicators for a recommendation system&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;Diversity&lt;/dt&gt;
+&lt;dd&gt;How broad is the variety of items recommended to people?&lt;/dd&gt;
+&lt;dt&gt;Novelty&lt;/dt&gt;
+&lt;dd&gt;How many new/unfamiliar things do get recommended to a user? The higher the novelty, the more likely the user will discover something new. If it is too high, the user doesn't trust the recommendation anymore.&lt;/dd&gt;
+&lt;dt&gt;Churn&lt;/dt&gt;
+&lt;dd&gt;How often do recommendations for a user change?&lt;/dd&gt;
+&lt;dt&gt;Responsiveness&lt;/dt&gt;
+&lt;dd&gt;How quickly are recommendations adjusted?&lt;/dd&gt;
+&lt;/dl&gt;
 &lt;h2 id="typical-problems"&gt;Typical Problems&lt;/h2&gt;
 &lt;h3 id="cold-start-problem"&gt;Cold-Start Problem&lt;/h3&gt;
 &lt;p&gt;The cold-start problem is central and only fixable by content-based
 recommendation. If there is a new product, not a single user has rated it. It
 is not possible by collaborative filtering to recommend it.&lt;/p&gt;
+&lt;h3 id="sparsity"&gt;Sparsity&lt;/h3&gt;
+&lt;p&gt;You have so many items, that two users have no item in common and two items usually
+don't have properties in common.&lt;/p&gt;
 &lt;h3 id="wrong-recommendation-mode"&gt;Wrong Recommendation Mode&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;You have bought the DVD "Lord of the Rings" and get the Blue Ray recommended.&lt;/li&gt;
@@ -433,6 +491,27 @@ is not possible by collaborative filtering to recommend it.&lt;/p&gt;
 &lt;h3 id="the-bubble"&gt;The Bubble&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;You will never be recommended a movie where you didn't like the genre before.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="surrogate-problem"&gt;Surrogate-Problem&lt;/h3&gt;
+&lt;p&gt;Ultimatively, we want to maximize user engagement. In order to achieve this, we
+define a surrogate (e.g. accuracy of predicting user ratings).&lt;/p&gt;
+&lt;p&gt;The problem is that the choice of the surrogate matters a lot. A different
+surrogate might have way bigger impact on our real goal than an improvement in
+achieving the surrogate goal.&lt;/p&gt;
+&lt;h1 id="vocabulary"&gt;Vocabulary&lt;/h1&gt;
+&lt;dl&gt;
+&lt;dt&gt;Top-N Recommendation&lt;/dt&gt;
+&lt;dd&gt;Recommend N items&lt;/dd&gt;
+&lt;dt&gt;mise en sc&amp;egrave;ne&lt;/dt&gt;
+&lt;dd&gt;The idea in content-based filtering for movies to extract properties
+        directly from the movie itself. It includes:
+        Average shot length, color variance, mean motion average across all the
+        frames, lightning, number of shots&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h2 id="papers_1"&gt;Papers&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Paul Covington, Jay Adams, Emre Sargin: &lt;a href="https://storage.googleapis.com/pub-tools-public-publication-data/pdf/45530.pdf"&gt;Deep Neural Networks for YouTube Recommendations&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Yashar Deldjoo, Mehdi Elahi, Paolo Cremonesi: Using Visual Features and Latent Factors for Movie Recommendations, 2016.&lt;/li&gt;
 &lt;/ul&gt;</content><category term="Machine Learning"></category></entry><entry><title>Regression</title><link href="https://martin-thoma.com/regression/" rel="alternate"></link><published>2018-07-18T20:00:00+02:00</published><updated>2018-07-18T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-07-18:/regression/</id><summary type="html">&lt;div class="info"&gt;A while ago, this link pointed to the content which is now in the &lt;a href="https://martin-thoma.com/forecasting/"&gt;Forecasting article&lt;/a&gt;.&lt;/div&gt;
 &lt;p&gt;Regression is one of the core tasks in machine learning. In this task, you get
 some input and your target variable is a single floating point number. For
