@@ -1,5 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Cyberculture</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/cyberculture.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2019-02-17T20:00:00+01:00</updated><entry><title>Monitors</title><link href="https://martin-thoma.com/monitors/" rel="alternate"></link><published>2019-02-17T20:00:00+01:00</published><updated>2019-02-17T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2019-02-17:/monitors/</id><summary type="html">&lt;p&gt;I'm thinking about getting a new monitor, because my &lt;a href="https://www.cnet.com/products/acer-al1916w-lcd-monitor-19/"&gt;Acer
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Cyberculture</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/cyberculture.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2019-04-10T20:00:00+02:00</updated><entry><title>Digital Process Automation</title><link href="https://martin-thoma.com/digital-process-automation/" rel="alternate"></link><published>2019-04-10T20:00:00+02:00</published><updated>2019-04-10T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2019-04-10:/digital-process-automation/</id><summary type="html">&lt;p&gt;Many people work a significant amount of their time in front of a computer
+today. And for many there are repetitive tasks. If the task is shared by many
+people, this is a chance to develop dedicated software for it. Tabular
+calculations (excel), writing documents (word), communicating (e-mail / chat
+software …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Many people work a significant amount of their time in front of a computer
+today. And for many there are repetitive tasks. If the task is shared by many
+people, this is a chance to develop dedicated software for it. Tabular
+calculations (excel), writing documents (word), communicating (e-mail / chat
+software) are some examples.&lt;/p&gt;
+&lt;p&gt;But there are other tasks which are not so common. Which are too specialized so
+that it's not worth to pay a developer for designing, programming, testing,
+maintenance; to pay for marketing, support, legal fees, and infrastructure.&lt;/p&gt;
+&lt;p&gt;This is the part where it becomes interesting to learn to use some tools.&lt;/p&gt;
+&lt;h2 id="text-editors"&gt;Text Editors&lt;/h2&gt;
+&lt;p&gt;My favorite editor is &lt;a href="https://martin-thoma.com/sublime-text/"&gt;Sublime Text&lt;/a&gt; hence
+the links / names in the following are for it. But there are a couple of other
+editors like &lt;a href="https://atom.io/"&gt;Atom&lt;/a&gt; or &lt;a href="https://code.visualstudio.com/"&gt;Visual Studio Code&lt;/a&gt;
+that might have the same features.&lt;/p&gt;
+&lt;p&gt;Suppose you have a long list of names, phone numbers and e-mail addresses which
+was provided by your "contacts" export:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Martin Thoma; +49 123 456; foo@martin-thoma.de
+Adam Aaron;+1 23 456 789; aaron@gmx.net
+Berta Booth;002 345678; bb@googlemail.com
+...
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You want to insert the e-mail addresses in another system. But for that you
+need to have only the e-mail addresses in double quotes &lt;code&gt;"&lt;/code&gt;. How do you get that?&lt;/p&gt;
+&lt;p&gt;You could, of course, just manually copy all of the e-mail addresses to another
+file. Assuming you have maybe 80 of those and it takes you 5 seconds for each
+entry in average, you would need less than 7 minutes. That is ok. But it is
+boring. And this kind of task will come more than once in your live.&lt;/p&gt;
+&lt;p&gt;So, instead, you can learn a tiny bit about &lt;strong&gt;regular expressions&lt;/strong&gt;. They are a
+way to define patterns in text. For example, &lt;code&gt;.&lt;/code&gt; matches any single character
+except a newline. With &lt;code&gt;+&lt;/code&gt; you say that you want at least one of the things you
+defined before the &lt;code&gt;+&lt;/code&gt;. If you have the combination &lt;code&gt;.+&lt;/code&gt;, it means that you
+want to match any single character and as many of them as possible. By adding a
+&lt;code&gt;?&lt;/code&gt; you say you want to match as few as possible. Hence the search &lt;code&gt;.+?;.+?;&lt;/code&gt;
+means that you want to find any characters, then a &lt;code&gt;;&lt;/code&gt;, then again any
+caracters until the next &lt;code&gt;;&lt;/code&gt; comes. In my editor it looks like this:&lt;/p&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;a href="../images/2019/04/regex-matches.png"&gt;&lt;img alt="3 matches for the RegEx .+?;.+?;" src="../images/2019/04/regex-matches.png" style="width: 512px;"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;3 matches for the RegEx .+?;.+?;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Then, I press &lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;Shift&lt;/kbd&gt;+&lt;kbd&gt;L&lt;/kbd&gt; to get &lt;strong&gt;multiple cursors&lt;/strong&gt;.
+From this point on everything I enter will be applied to all matches. First, you can
+delete the name and phone number. Then you enter &lt;code&gt;"&lt;/code&gt; to make the opening double
+quote, then you press &lt;kbd&gt;End&lt;/kbd&gt; to get to each end of the line. You press
+&lt;kbd&gt;"&lt;/kbd&gt; again to get the closing double quote. Task solved.&lt;/p&gt;
+&lt;p&gt;For 80 entries, this would have reduced the time from 7 minutes of an annoying
+repetitive task to about 15 seconds.&lt;/p&gt;
+&lt;p&gt;For more about regex, you might want to look at a &lt;a href="https://www.debuggex.com/cheatsheet/regex/python"&gt;cheat sheet&lt;/a&gt;
+or go through a tutorial. Another cool thing is to enter different things with
+multiple cursors, e.g. a sequence of numbers. Have a look at &lt;a href="https://github.com/duydao/Text-Pastry/wiki/Number-Range"&gt;Text Pastry&lt;/a&gt; for that.&lt;/p&gt;
+&lt;h2 id="shortcuts"&gt;Shortcuts&lt;/h2&gt;
+&lt;p&gt;All operating systems and most programs define some keyboard shortcuts. If the
+programs are really nice (like Sublime Text), you can re-define the shortcuts
+yourself. This can save so much time. Some shortcuts I use all the time:&lt;/p&gt;
+&lt;p&gt;Operating System&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;Switch Windows&lt;/dt&gt;
+&lt;dd&gt;&lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;Tab&lt;/kbd&gt;&lt;/dd&gt;
+&lt;dt&gt;Switch Workspaces&lt;/dt&gt;
+&lt;dd&gt;&lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;[arrow]&lt;/kbd&gt;&lt;/dd&gt;
+&lt;dt&gt;Close Window&lt;/dt&gt;
+&lt;dd&gt;&lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;F4&lt;/kbd&gt;&lt;/dd&gt;
+&lt;dt&gt;Lock Screen&lt;/dt&gt;
+&lt;dd&gt;&lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;L&lt;/kbd&gt;&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;Programs&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;Save&lt;/dt&gt;
+&lt;dd&gt;&lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;S&lt;/kbd&gt;&lt;/dd&gt;
+&lt;dt&gt;Open&lt;/dt&gt;
+&lt;dd&gt;&lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;O&lt;/kbd&gt;&lt;/dd&gt;
+&lt;dt&gt;Switch Tabs&lt;/dt&gt;
+&lt;dd&gt;&lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;[number]&lt;/kbd&gt;&lt;/dd&gt;
+&lt;dt&gt;Execute (Sublime)&lt;/dt&gt;
+&lt;dd&gt;&lt;kbd&gt;F5&lt;/kbd&gt;&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h2 id="shell-and-scripting"&gt;Shell and Scripting&lt;/h2&gt;
+&lt;p&gt;A little bit of knowledge of a shell is helpful. For Linux, the most common
+shell is called bash. Knowing some command line tools and how to execute them
+in simple shell scripts is pretty powerful.&lt;/p&gt;
+&lt;p&gt;Here are some of the basic commands, roughly in the order how often I need them:&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;Change Directory&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;cd [relative or absolute path]&lt;/code&gt;&lt;/dd&gt;
+&lt;dt&gt;Find within a file&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;grep&lt;/code&gt;&lt;/dd&gt;
+&lt;dt&gt;Look up what you execute in the past&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;history&lt;/code&gt;&lt;/dd&gt;
+&lt;dt&gt;List files/directories&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;ls&lt;/code&gt;&lt;/dd&gt;
+&lt;dt&gt;Open a file&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;xdg-open&lt;/code&gt;&lt;/dd&gt;
+&lt;dt&gt;Move a file&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;mv origin destination&lt;/code&gt;&lt;/dd&gt;
+&lt;dt&gt;Copy a file&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;cp origin destination&lt;/code&gt;&lt;/dd&gt;
+&lt;dt&gt;Delete a file&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;rm filepath&lt;/code&gt;&lt;/dd&gt;
+&lt;dt&gt;Disk usage&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;df -h&lt;/code&gt; and &lt;code&gt;ncdu&lt;/code&gt; (&lt;a href="https://dev.yorhel.nl/ncdu"&gt;website&lt;/a&gt;)&lt;/dd&gt;
+&lt;dt&gt;Running processes&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;top&lt;/code&gt; and &lt;code&gt;htop&lt;/code&gt;&lt;/dd&gt;
+&lt;dt&gt;Repetedly execute something&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;watch&lt;/code&gt;&lt;/dd&gt;
+&lt;dt&gt;Show content of a text file&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;cat&lt;/code&gt;, &lt;code&gt;head&lt;/code&gt;, &lt;code&gt;tail&lt;/code&gt;&lt;/dd&gt;
+&lt;dt&gt;Word / line / character counts&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;wc&lt;/code&gt;&lt;/dd&gt;
+&lt;dt&gt;Locating files&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;locate&lt;/code&gt;, &lt;code&gt;find&lt;/code&gt;&lt;/dd&gt;
+&lt;dt&gt;Read the manual&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;man&lt;/code&gt;&lt;/dd&gt;
+&lt;dt&gt;Print working Directory&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;pwd&lt;/code&gt;&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;And some things you have to install&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;Show differences between text files&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;meld file1 file2&lt;/code&gt; (&lt;a href="http://meldmerge.org/"&gt;website&lt;/a&gt;)&lt;/dd&gt;
+&lt;dt&gt;Download a webpage&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;curl&lt;/code&gt; or &lt;code&gt;wget&lt;/code&gt; or &lt;code&gt;httpie&lt;/code&gt; (&lt;a href="https://httpie.org/"&gt;website&lt;/a&gt;)&lt;/dd&gt;
+&lt;dt&gt;Manipulate JSON files&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;jq&lt;/code&gt; (&lt;a href="https://stedolan.github.io/jq/"&gt;website&lt;/a&gt;)&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;&lt;code&gt;vim&lt;/code&gt; and its various plugins like NERDTree and Powerline are a completely
+seperate topic.&lt;/p&gt;
+&lt;p&gt;See also:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://martin-thoma.com/working-terminal/"&gt;ZSH and Oh-My-ZSH&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://martin-thoma.com/linux-commands-for-working-from-home/"&gt;Linux Commands for Working from home&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="screen-automation"&gt;Screen automation&lt;/h2&gt;
+&lt;p&gt;Some times tools don't come with the necessary interfaces to automate things.
+The simplest example are IDLE games like &lt;a href="http://orteil.dashnet.org/cookieclicker/"&gt;Cookie Clicker&lt;/a&gt;.
+In this case you just have to click. Fast. All the time.&lt;/p&gt;
+&lt;p&gt;So what you can use is &lt;a href="https://www.semicomplete.com/projects/xdotool/"&gt;&lt;code&gt;xdotool&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;First, navigate to where you want to click. Leave your cursor there and execute
+&lt;code&gt;xdotool getmouselocation&lt;/code&gt;. Once you know the location, you can move there with
+&lt;code&gt;xdotool mousemove 100 200&lt;/code&gt; and execute a left click with &lt;code&gt;xdotool click 1&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;So a script for this could be:&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; i in &lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;..500&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+  xdotool click &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+  sleep &lt;span class="m"&gt;0&lt;/span&gt;.001
+  &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$i&lt;/span&gt;
+&lt;span class="k"&gt;done&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</content><category term="Automation"></category><category term="Shell"></category><category term="Productivity"></category></entry><entry><title>Monitors</title><link href="https://martin-thoma.com/monitors/" rel="alternate"></link><published>2019-02-17T20:00:00+01:00</published><updated>2019-02-17T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2019-02-17:/monitors/</id><summary type="html">&lt;p&gt;I'm thinking about getting a new monitor, because my &lt;a href="https://www.cnet.com/products/acer-al1916w-lcd-monitor-19/"&gt;Acer
 AL1916W&lt;/a&gt; has a maximum resolution of 1440 &amp;times; 900 whereas my notebook has 2560
 &amp;times; 1440 (&lt;a href="http://www.martin-thoma.de/screen-resolution/"&gt;check
 yours&lt;/a&gt;). This means when I connect the two, windows I drag to my external
