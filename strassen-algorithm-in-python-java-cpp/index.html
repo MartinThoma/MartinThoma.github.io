@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Part II: The Strassen algorithm in Python, Java and C++ "/>
 <meta property="og:url" content="../strassen-algorithm-in-python-java-cpp/" />
-<meta property="og:description" content="This is Part II of my matrix multiplication series. Part I was about simple matrix multiplication algorithms and Part II was about the Strassen algorithm. Part III is about parallel matrix multiplication. The usual matrix multiplication of two \(n \times n\) matrices has a time-complexity of \(\mathcal{O}(n^3 …if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width" />
+<meta property="og:description" content="This is Part II of my matrix multiplication series. Part I was about simple matrix multiplication algorithms and Part II was about the Strassen algorithm. Part III is about parallel matrix multiplication. The usual matrix multiplication of two \(n \times n\) matrices has a time-complexity of \(\mathcal{O}(n^3 …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2013-01-23T10:35:55+01:00" />
 <meta name="twitter:title" content="Part II: The Strassen algorithm in Python, Java and C++ ">
-<meta name="twitter:description" content="This is Part II of my matrix multiplication series. Part I was about simple matrix multiplication algorithms and Part II was about the Strassen algorithm. Part III is about parallel matrix multiplication. The usual matrix multiplication of two \(n \times n\) matrices has a time-complexity of \(\mathcal{O}(n^3 …if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width">
+<meta name="twitter:description" content="This is Part II of my matrix multiplication series. Part I was about simple matrix multiplication algorithms and Part II was about the Strassen algorithm. Part III is about parallel matrix multiplication. The usual matrix multiplication of two \(n \times n\) matrices has a time-complexity of \(\mathcal{O}(n^3 …">
 
         <title>Part II: The Strassen algorithm in Python, Java and C++  · Martin Thoma
 </title>
@@ -101,7 +101,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#the-implementations" title="The implementations">The implementations</a></li><li><a class="toc-href" href="#tests-and-setting" title="Tests and Setting">Tests and Setting</a></li><li><a class="toc-href" href="#python" title="Python">Python</a></li><li><a class="toc-href" href="#java" title="Java">Java</a></li><li><a class="toc-href" href="#c" title="C++">C++</a></li><li><a class="toc-href" href="#conclusion" title="Conclusion">Conclusion</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#the implementations" title="The implementations">The implementations</a></li><li><a class="toc-href" href="#tests and setting" title="Tests and Setting">Tests and Setting</a></li><li><a class="toc-href" href="#python" title="Python">Python</a></li><li><a class="toc-href" href="#java" title="Java">Java</a></li><li><a class="toc-href" href="#c++" title="C++">C++</a></li><li><a class="toc-href" href="#conclusion" title="Conclusion">Conclusion</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -110,7 +110,7 @@ MathJax.Hub.Queue(function() {
             <div class="info">This is Part II of my matrix multiplication series. <a href="../matrix-multiplication-python-java-cpp/">Part I</a> was about simple matrix multiplication algorithms and <a href="../strassen-algorithm-in-python-java-cpp/">Part II</a> was about the Strassen algorithm.
 <a href="../part-iii-matrix-multiplication-on-multiple-cores-in-python-java-and-c/">Part III</a> is about parallel matrix multiplication.</div>
 <p>The usual matrix multiplication of two <span class="math">\(n \times n\)</span> matrices has a time-complexity of <span class="math">\(\mathcal{O}(n^3)\)</span>. This means, if <span class="math">\(n\)</span> doubles, the time for the computation increases by a factor of 8. But you don't have to use that much resources. The <a href="http://en.wikipedia.org/wiki/Strassen_algorithm">Strassen algorithm</a> has a time complexity of <span class="math">\(\mathcal O(n^{log_2(7)+o(1)}) \approx \cal O(n^{2.807})\)</span>. The idea is similar to the <a href="http://en.wikipedia.org/wiki/Karatsuba_algorithm">Karatsuba algorithm</a> for simple multiplication. Basically, you make a tradeof: Instead of one multiplication, you use many additions. As additions are - at least for humans - easier, you might rather like to use many additions. Lets see how the Strassen algortihms execution time compares to the other execution times in Part I. As last time, I'll multiply two <span class="math">\(2000 \times 2000\)</span> matrices that have to be read from a file. Everything - reading, calculation and writing the result - counts to the execution time.</p>
-<h2 id="the-implementations">The implementations</h2>
+<h2 id="the implementations">The implementations</h2>
 <p>As last time, I've added the scripts to a <a href="https://github.com/MartinThoma/matrix-multiplication">GIT repository</a>, so feel free to test it on your machine. I will use the  I am also happy if you post some of your solutions with running times ☺
 If you know other languages, you could create a script for these. I focus on Python, Java and C++.</p>
 <p>I have implemented only the Strassen algorithm for this post. Please take a look at Wikipedia for a detailed explanation how this algorithm works. The important idea of the algorithm is that you break both matrices into four <span class="math">\(\frac{n}{2} \times \frac{n}{2}\)</span> matrices and multiply them in a clever way. Note that you can also use the Strassen algorithm recursively for those <span class="math">\(\frac{n}{2} \times \frac{n}{2}\)</span> matrices. You can do this until you have <span class="math">\(1 \times 1\)</span> matrices which are simple numbers. But it does make sense to stop this recursion and use the <a href="../matrix-multiplication-python-java-cpp/#ikj-algorithm">ikj-algorithm</a> as soon as the matrices are small enough. But what exactly is "small enough"? I'll test that. The size when you use the ikj-algorithm is called <code>LEAF_SIZE</code> in my scripts. Note that only leaf sizes of multiples of two matter as the size of the (sub-)matrices that get passed to strassenR are multiples of two.</p>
@@ -142,7 +142,7 @@ If you know other languages, you could create a script for these. I focus on Pyt
 <li><strong>Output</strong>: The result has to get printed to standard output.</li>
 <li>The result has to be formatted like the input (tabs for separation of number, \n for marks a new line)</li>
 </ul></p>
-<h2 id="tests-and-setting">Tests and Setting</h2>
+<h2 id="tests and setting">Tests and Setting</h2>
 <p><a href="../matrix-multiplication-python-java-cpp/#The_Tests">Tests and setting</a> are the same as in the first part.</p>
 <h2 id="python">Python</h2>
 <p>I&rsquo;ve used Python 2.6.5.</p>
@@ -494,7 +494,7 @@ LEAF_SIZE   Time
 <a href="../images/2013/01/bchart-simple.png"><img alt="Matrix multiplication with Java: Execution time in seconds for different leafsizes" class="size-full wp-image-54901" src="../images/2013/01/bchart-simple.png" style="max-width:500px;max-height:349px"/></a>
 <figcaption class="text-center">Matrix multiplication with Java: Execution time in seconds for different leafsizes</figcaption>
 </figure></p>
-<h2 id="c">C++</h2>
+<h2 id="c++">C++</h2>
 <div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;sstream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp"></span>
@@ -813,7 +813,7 @@ LEAF_SIZE   Time
                     <span>3</span>
 </a></li>
                 <li><a href="../tags.html#python-ref">Python
-                    <span>91</span>
+                    <span>92</span>
 </a></li>
                 <li><a href="../tags.html#strassen-algorithm-ref">Strassen algorithm
                     <span>1</span>

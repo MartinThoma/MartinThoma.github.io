@@ -103,7 +103,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#a-quick-example" title="A quick example">A quick example</a></li><li><a class="toc-href" href="#the-sgr-attribuge" title="The sgr attribuge">The sgr attribuge</a></li><li><a class="toc-href" href="#the-setaf-attribute" title="The setaf attribute">The setaf attribute</a></li><li><a class="toc-href" href="#misc" title="Misc">Misc</a></li><li><a class="toc-href" href="#advanced-example" title="Advanced Example">Advanced Example</a></li><li><a class="toc-href" href="#colorize-c-c-output" title="Colorize C / C++ output">Colorize C / C++ output</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#a quick example" title="A quick example">A quick example</a></li><li><a class="toc-href" href="#the sgr attribuge" title="The sgr attribuge">The sgr attribuge</a></li><li><a class="toc-href" href="#the setaf attribute" title="The setaf attribute">The setaf attribute</a></li><li><a class="toc-href" href="#misc" title="Misc">Misc</a></li><li><a class="toc-href" href="#advanced example" title="Advanced Example">Advanced Example</a></li><li><a class="toc-href" href="#colorize c / c++ output" title="Colorize C / C++ output">Colorize C / C++ output</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -113,7 +113,7 @@ MathJax.Hub.Queue(function() {
 <p>You can change this standard behaviour. You can add color to your output.</p>
 <p>This is the way you do it:</p>
 <p>The mini-program tput can initialize a terminal or query terminfo database. If you want to know more about it, you can take a look at the <a href="http://linux.die.net/man/1/tput">tput manpage</a>.</p>
-<h2 id="a-quick-example">A quick example</h2>
+<h2 id="a quick example">A quick example</h2>
 <div class="highlight"><pre><span></span><span class="c1"># Text color variables</span>
 <span class="nv">txtred</span><span class="o">=</span><span class="k">$(</span>tput setaf <span class="m">1</span><span class="k">)</span>    <span class="c1"># Red</span>
 <span class="nv">txtreset</span><span class="o">=</span><span class="k">$(</span>tput sgr0<span class="k">)</span>     <span class="c1"># Reset your text</span>
@@ -123,14 +123,14 @@ MathJax.Hub.Queue(function() {
 <p>A shorter way would be</p>
 <div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">"Roses are `tput setaf 1`red`tput sgr0`."</span>
 </pre></div>
-<h2 id="the-sgr-attribuge">The sgr attribuge</h2>
+<h2 id="the sgr attribuge">The sgr attribuge</h2>
 <div class="highlight"><pre><span></span>tput sgr <span class="m">0</span> <span class="m">1</span>     turn off standout<span class="p">;</span> turn on underline
 tput sgr <span class="m">0</span> <span class="m">0</span>     turn off standout<span class="p">;</span> turn off underline
 tput sgr <span class="m">1</span> <span class="m">1</span>     turn on standout<span class="p">;</span> turn on underline
 tput sgr <span class="m">1</span> <span class="m">0</span>     turn on standout<span class="p">;</span> turn off underline
 tput sgr0        short <span class="k">for</span> sgr <span class="m">0</span> <span class="m">0</span>
 </pre></div>
-<h2 id="the-setaf-attribute">The setaf attribute</h2>
+<h2 id="the setaf attribute">The setaf attribute</h2>
 <div class="highlight"><pre><span></span>setaf <span class="m">1</span> Red
 setaf <span class="m">2</span> Green
 setaf <span class="m">3</span> Yellow
@@ -146,7 +146,7 @@ setaf <span class="m">7</span> Gray
 <p>Reset your style:</p>
 <div class="highlight"><pre><span></span>tput sgr0
 </pre></div>
-<h2 id="advanced-example">Advanced Example</h2>
+<h2 id="advanced example">Advanced Example</h2>
 <p>Imagine you had a script which generated much output. All messages are important for you, but some are more important than others. You definitely want to see all "[ERROR]" output. So you want to apply a red and bold modification to the stream.</p>
 <p>This is the way how "[ERROR]" gets red and bold:</p>
 <div class="highlight"><pre><span></span><span class="sb">`</span>tput setaf <span class="m">1</span><span class="sb">``</span>tput bold<span class="sb">`</span><span class="o">[</span>ERROR<span class="o">]</span><span class="sb">`</span>tput sgr0<span class="sb">`</span>
@@ -167,7 +167,7 @@ setaf <span class="m">7</span> Gray
 <p>Doesn't work? Well, lets analyse it. Instead of replacing <code>tput setaf 1</code> it gets printed directly. This means, something we did prevented the bash of replacing our command. If you look carefully at the command, you might see that I used ' instead of ". If you change this, everything is fine:</p>
 <div class="highlight"><pre><span></span>python output.py <span class="p">|</span> sed <span class="s2">"s/</span><span class="nv">$$</span><span class="s2">ERROR</span><span class="nv">$$</span><span class="s2">/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/"</span>
 </pre></div>
-<h2 id="colorize-c-c-output">Colorize C / C++ output</h2>
+<h2 id="colorize c / c++ output">Colorize C / C++ output</h2>
 <p>You need <a href="http://en.wikipedia.org/wiki/ANSI_escape_code">ANSI color codes</a>:</p>
 <div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 

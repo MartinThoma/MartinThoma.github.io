@@ -103,7 +103,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#the-implementations" title="The implementations">The implementations</a></li><li><a class="toc-href" href="#python" title="Python">Python</a></li><li><a class="toc-href" href="#java" title="Java">Java</a><ul><li><a class="toc-href" href="#information-for-parallelism" title="Information for parallelism">Information for parallelism</a></li></ul></li><li><a class="toc-href" href="#c_1" title="C++">C++</a><ul><li><a class="toc-href" href="#more-information" title="More Information">More Information</a></li></ul></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#the implementations" title="The implementations">The implementations</a></li><li><a class="toc-href" href="#python" title="Python">Python</a></li><li><a class="toc-href" href="#java" title="Java">Java</a><ul><li><a class="toc-href" href="#information for parallelism" title="Information for parallelism">Information for parallelism</a></li></ul></li><li><a class="toc-href" href="#c++_1" title="C++">C++</a><ul><li><a class="toc-href" href="#more information" title="More Information">More Information</a></li></ul></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -112,7 +112,7 @@ MathJax.Hub.Queue(function() {
             <div class="info">This is Part III of my matrix multiplication series. <a href="../matrix-multiplication-python-java-cpp/">Part I</a> was about simple matrix multiplication algorithms and <a href="../strassen-algorithm-in-python-java-cpp/">Part II</a> was about the Strassen algorithm.
 <a href="../part-iii-matrix-multiplication-on-multiple-cores-in-python-java-and-c/">Part III</a> is about parallel matrix multiplication.</div>
 <p>We got some pretty interesting results for matrix multiplication so far. Now, I would like to get to know in how far performance increases (or decreases) if I make use of multiple cores. I only have two cores, so I hope somebody with a better computer will also run the ikj single core algorithm form part I and the parallel version from this article and post the results as a comment.</p>
-<h2 id="the-implementations">The implementations</h2>
+<h2 id="the implementations">The implementations</h2>
 <p>As last time, I&rsquo;ve added the scripts to a <a href="https://github.com/MartinThoma/matrix-multiplication">GIT repository</a>. So you can test it on your machine.</p>
 <p>Before we start implementing code for multiple processors, we have to get an algorithm that is actually parallelisable. You could use <a href="https://en.wikipedia.org/wiki/Cannon%27s_algorithm">Cannon's algorithm</a>, a algorithm that makes use of <a href="http://en.wikipedia.org/wiki/Systolic_array">systolic arrays</a> or try to find a solution by your own. The <a href="http://www.netlib.org/lapack/lawnspdf/lawn96.pdf">Scalable Universal Matrix Multiplication Algorithm</a> (short: SUMMA) could also work. The paper that I've linked is well-written and easy to understand. You should definitively read it, if you're interested in matrix multiplication.</p>
 <p>I will not use any advanced algorithm in this article. I will make the outer most for loop of the ikj-algorithm (see part I) execute in parallel.</p>
@@ -490,13 +490,13 @@ sys 0m0.512s
 </pre></div>
 <p>Note that real time is lower than user time. The reason is simply that the execution time on each processor is added. So user time might be double as high as real time!</p>
 <p>We got from 40.571s down to 0m30.188s!</p>
-<h3 id="information-for-parallelism">Information for parallelism</h3>
+<h3 id="information for parallelism">Information for parallelism</h3>
 <ul>
 <li><a href="http://docs.oracle.com/javase/tutorial/essential/concurrency/pools.html">Thread pools</a></li>
 <li><a href="http://www.ibm.com/developerworks/library/j-jtp0730/index.html">Java theory and practice: Thread pools and work queues</a></li>
 <li><a href="http://stackoverflow.com/questions/tagged/java+parallel-processing">StackOverflow</a></li>
 </ul>
-<h2 id="c_1">C++</h2>
+<h2 id="c++_1">C++</h2>
 <p>Making the ikj-algorithm parallel is trivial with C++. You only need to add <code>#pragma omp parallel for</code> before the outer most for loop and add <code>-fopenmp</code> as a compile flag!
 (If you really want to see the code, go to <a href="https://github.com/MartinThoma/matrix-multiplication/tree/master/C%2B%2B/Parallel">my Git repository</a>.)</p>
 <div class="highlight"><pre><span></span>$ <span class="nb">time</span> ./ikj-algorithm.out <span class="m">2</span> <span class="m">2000</span>.in &gt; <span class="m">2000</span>-parallel.out
@@ -506,7 +506,7 @@ user    0m20.569s
 sys 0m0.156s
 </pre></div>
 <p>So we got from 20.407 seconds down to 12.563 seconds by adding only one line!</p>
-<h3 id="more-information">More Information</h3>
+<h3 id="more information">More Information</h3>
 <ul>
 <li><a href="http://bisqwit.iki.fi/story/howto/openmp/">Guide into OpenMP: Easy multithreading programming for C++</a></li>
 </ul>
@@ -552,7 +552,7 @@ sys 0m0.156s
                     <span>3</span>
 </a></li>
                 <li><a href="../tags.html#python-ref">Python
-                    <span>91</span>
+                    <span>92</span>
 </a></li>
             </ul>
 <h4>Contact</h4>

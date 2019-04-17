@@ -101,7 +101,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#short-answer" title="Short Answer">Short Answer</a></li><li><a class="toc-href" href="#long-answer" title="Long answer">Long answer</a><ul><li><a class="toc-href" href="#the-general-answer" title="The general answer">The general answer</a></li><li><a class="toc-href" href="#actual-assembly-code" title="Actual assembly code">Actual assembly code</a></li></ul></li><li><a class="toc-href" href="#what-you-should-have-learned_1" title="What you should have learned">What you should have learned</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#short answer" title="Short Answer">Short Answer</a></li><li><a class="toc-href" href="#long answer" title="Long answer">Long answer</a><ul><li><a class="toc-href" href="#the general answer" title="The general answer">The general answer</a></li><li><a class="toc-href" href="#actual assembly code" title="Actual assembly code">Actual assembly code</a></li></ul></li><li><a class="toc-href" href="#what you should have learned_1" title="What you should have learned">What you should have learned</a></li><li><a class="toc-href" href="#see also" title="See also">See also</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -132,7 +132,7 @@ MathJax.Hub.Queue(function() {
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
-<h2 id="short-answer">Short Answer</h2>
+<h2 id="short answer">Short Answer</h2>
 <p>It depends on your compiler flags!</p>
 <p>If you compile it with no optimization, you might get 43:</p>
 <div class="highlight"><pre><span></span>$ gcc -O0 cpuzzle-1.c <span class="p">;</span> ./a.out 
@@ -148,15 +148,15 @@ aufgabe-3.c:5: warning: <span class="k">function</span> returns address of <span
 <span class="nv">x</span> <span class="o">=</span> <span class="m">5</span>
 <span class="nv">x</span> <span class="o">=</span> <span class="m">5</span>
 </pre></div>
-<h2 id="long-answer">Long answer</h2>
-<h3 id="the-general-answer">The general answer</h3>
+<h2 id="long answer">Long answer</h2>
+<h3 id="the general answer">The general answer</h3>
 <p>Lets analyse this code line by line.</p>
 <p>Line 3 - 7 is a function <strong>f</strong> that returns a pointer to an integer. The pointer points to a local variable. As far as I know it is not defined what value should be there after you leave the function (has anybody a source for that?). 
 The variable is a so called local or automatic variable and is located on the stack frame.</p>
 <p>Line 9 - 14 is a function <strong>g</strong> that doesn't take any parameter and doesn't return anything. This function <em>should</em> not have any influence on the behavior of the program. It puts 42 on the stack and increases it by one.</p>
 <p>Line 17 calls f and stores the returned function pointer in the variable x.</p>
 <p>Line 18 calls g. Remember that g should not have any influence on the other program. But you saved a pointer to a local variable which is not in the scope of the main function. So g is allowed to use the space which was previously used by the local variable i in the function f. It uses this space for j = 42 and increases it by 1. So if you access the address of the former variable i in f you will get 43.</p>
-<h3 id="actual-assembly-code">Actual assembly code</h3>
+<h3 id="actual assembly code">Actual assembly code</h3>
 <p>You still want to get more into detail? Ok ...
 First you should get your assembly code. If you're running a Linux machine, you can type this into the console:</p>
 <div class="highlight"><pre><span></span>gcc -S -O0 cpuzzle-1.c <span class="p">;</span> gcc cpuzzle-1.c -o cpuzzle<span class="p">;</span> mv cpuzzle-1.s cpuzzle-1-O0.s
@@ -188,9 +188,9 @@ When allocating memory, align it such that each new section must start at a loca
 <figcaption class="text-center">C Puzzle #1, Assembly code part 2: Annotated</figcaption>
 </figure>
 <p>You might also be interested in <a href="http://refspecs.linuxbase.org/LSB_4.0.0/LSB-Core-generic/LSB-Core-generic/libc---printf-chk-1.html">__printf_chk</a>. An implementation is <a href="http://www.ic.unicamp.br/~islene/2s2008-mo806/libc/debug/printf_chk.c">here</a>.</p>
-<h2 id="what-you-should-have-learned_1">What you should have learned</h2>
+<h2 id="what you should have learned_1">What you should have learned</h2>
 <p>Never return pointers to local variables / variables in the wrong scope.</p>
-<h2 id="see-also">See also</h2>
+<h2 id="see also">See also</h2>
 <ul>
 <li>Wikipedia:
     <ul>

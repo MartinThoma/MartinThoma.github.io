@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Spline interpolation "/>
 <meta property="og:url" content="../spline-interpolation/" />
-<meta property="og:description" content="Just like before with polynomial interpolation, we have a list of \(n+1\) given point \((x_i, y_i)\) with \(x_0 &lt; x_1 &lt; \dots &lt; x_n\). We want to find a function that goes through those points and approximates the underlying function that produced that points as good as possible. Polynomial interpolation The problem …if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width" />
+<meta property="og:description" content="Just like before with polynomial interpolation, we have a list of \(n+1\) given point \((x_i, y_i)\) with \(x_0 &lt; x_1 &lt; \dots &lt; x_n\). We want to find a function that goes through those points and approximates the underlying function that produced that points as good as possible. Polynomial interpolation The problem …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2013-06-30T13:58:20+02:00" />
 <meta name="twitter:title" content="Spline interpolation ">
-<meta name="twitter:description" content="Just like before with polynomial interpolation, we have a list of \(n+1\) given point \((x_i, y_i)\) with \(x_0 &lt; x_1 &lt; \dots &lt; x_n\). We want to find a function that goes through those points and approximates the underlying function that produced that points as good as possible. Polynomial interpolation The problem …if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width">
+<meta name="twitter:description" content="Just like before with polynomial interpolation, we have a list of \(n+1\) given point \((x_i, y_i)\) with \(x_0 &lt; x_1 &lt; \dots &lt; x_n\). We want to find a function that goes through those points and approximates the underlying function that produced that points as good as possible. Polynomial interpolation The problem …">
 <meta property="og:image" content="2013/06/spline-thumb.png" />
 <meta name="twitter:image" content="2013/06/spline-thumb.png" >
 
@@ -103,7 +103,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#polynomial-interpolation" title="Polynomial interpolation">Polynomial interpolation</a></li><li><a class="toc-href" href="#splines" title="Splines">Splines</a></li><li><a class="toc-href" href="#possible-ancillary-conditions" title="Possible ancillary conditions">Possible ancillary conditions</a></li><li><a class="toc-href" href="#code-for-natural-splines" title="Code for natural splines">Code for natural splines</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#polynomial interpolation" title="Polynomial interpolation">Polynomial interpolation</a></li><li><a class="toc-href" href="#splines" title="Splines">Splines</a></li><li><a class="toc-href" href="#possible ancillary conditions" title="Possible ancillary conditions">Possible ancillary conditions</a></li><li><a class="toc-href" href="#code for natural splines" title="Code for natural splines">Code for natural splines</a></li><li><a class="toc-href" href="#see also" title="See also">See also</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -111,7 +111,7 @@ MathJax.Hub.Queue(function() {
             
             <p>Just like before with polynomial interpolation, we have a list of <span class="math">\(n+1\)</span> given point <span class="math">\((x_i, y_i)\)</span> with <span class="math">\(x_0 &lt; x_1 &lt; \dots &lt; x_n\)</span>.</p>
 <p>We want to find a function that goes through those points and approximates the underlying function that produced that points as good as possible.</p>
-<h2 id="polynomial-interpolation">Polynomial interpolation</h2>
+<h2 id="polynomial interpolation">Polynomial interpolation</h2>
 <p>The problem of polynomial interpolation were oscillations at the end of the interval you wanted to interpolate (see <a href="../html5/polynom-interpolation.htm?function=1%2F(25*x*x%2B1)&amp;evaluationSteps=0.01&amp;X_MIN=-1.5&amp;X_MAX=1.5&amp;Y_MAX=1.2&amp;Y_MIN=-1.2&amp;X_TICKS_STEPS=0.2&amp;Y_TICKS_STEPS=0.2&amp;X_FROM=-1&amp;X_TO=1&amp;N_EVALUATION_POINTS=10&amp;points=%5B%5D&amp;tschebyscheffSwitch=true&amp;equallySwitch=true">interactive example</a>):</p>
 <figure class="aligncenter">
 <a href="../images/2013/06/polynomial-interpolation-oscillation-300x105.png"><img alt="Oscillations you get with polynomial interpolation" class="size-medium wp-image-72001" src="../images/2013/06/polynomial-interpolation-oscillation-300x105.png" style="max-width:300px;max-height:105px"/></a>
@@ -151,7 +151,7 @@ $$</div>
 $$</div>
 <p>All equations we have are linear. Please note that the variables we want to determine are <span class="math">\(a_i, b_i, c_i, d_i\)</span>. So <span class="math">\(x_i^3\)</span> is simply a multiplicative constant that we have to evaluate before we solve our system of equations.</p>
 <p>But at the moment, we only have <span class="math">\(2n+2\cdot(n-1) = 4n -2\)</span> equations, but we have <span class="math">\(4n\)</span> variables. So we need ancillary conditions to solve this linear system of equations.</p>
-<h2 id="possible-ancillary-conditions">Possible ancillary conditions</h2>
+<h2 id="possible ancillary conditions">Possible ancillary conditions</h2>
 <ul>
 <li><strong>natural splines</strong>: $s''(x_0) =0, \;\;\; s''(x_n) = 0$</li>
 <li><strong>clamped splines</strong>: $s'(x_0) = f'(x_0),\;\;\; s'(x_n)= f'(x_n)$ where $y_0'$ and $y_n'$ can be any value</li>
@@ -163,7 +163,7 @@ $$</div>
 <a href="../images/2013/06/ancillary-conditions-splines-results.png"><img alt="Different results for different ancillary conditions" class="size-full wp-image-72221" src="../images/2013/06/ancillary-conditions-splines-results.png" style="max-width:500px;max-height:267px"/></a>
 <figcaption class="text-center">Different results for different ancillary conditions</figcaption>
 </figure>
-<h2 id="code-for-natural-splines">Code for natural splines</h2>
+<h2 id="code for natural splines">Code for natural splines</h2>
 <p>I will store splines as a list of maps. Each map is one piece of the spline and has:
 <ul>
 <li><span class="math">\(u\)</span>: Start of the interval</li>
@@ -272,7 +272,7 @@ $$</div>
         <span class="n">tmp</span> <span class="o">+=</span> <span class="n">niceCubicPolynomial</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
         <span class="k">print</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
 </pre></div>
-<h2 id="see-also">See also</h2>
+<h2 id="see also">See also</h2>
 <ul>
 <li><a href="http://math.stackexchange.com/q/430141/6876">How do the different ancillary conditions for splines differ?</a></li>
 </ul>

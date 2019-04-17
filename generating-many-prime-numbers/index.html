@@ -103,7 +103,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#trivial-approach" title="Trivial approach">Trivial approach</a></li><li><a class="toc-href" href="#sieve-of-eratosthenes" title="Sieve of Eratosthenes">Sieve of Eratosthenes</a><ul><li><a class="toc-href" href="#a-first-try" title="A first try">A first try</a></li><li><a class="toc-href" href="#ofstream-endl-n-and-buffers" title="ofstream, endl, \n and buffers">ofstream, endl, \n and buffers</a></li><li><a class="toc-href" href="#improve-sieving" title="Improve sieving">Improve sieving</a></li><li><a class="toc-href" href="#primesieve" title="primesieve">primesieve</a></li></ul></li><li><a class="toc-href" href="#sieve-of-atkin_1" title="Sieve of Atkin">Sieve of Atkin</a><ul><li><a class="toc-href" href="#my-first-implementation" title="My first implementation">My first implementation</a></li><li><a class="toc-href" href="#primegen" title="Primegen">Primegen</a></li></ul></li><li><a class="toc-href" href="#see-also_1" title="See also">See also</a></li><li><a class="toc-href" href="#finally" title="Finally">Finally</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#trivial approach" title="Trivial approach">Trivial approach</a></li><li><a class="toc-href" href="#sieve of eratosthenes" title="Sieve of Eratosthenes">Sieve of Eratosthenes</a><ul><li><a class="toc-href" href="#a first try" title="A first try">A first try</a></li><li><a class="toc-href" href="#ofstream, endl, \n and buffers" title="ofstream, endl, \n and buffers">ofstream, endl, \n and buffers</a></li><li><a class="toc-href" href="#improve sieving" title="Improve sieving">Improve sieving</a></li><li><a class="toc-href" href="#primesieve" title="primesieve">primesieve</a></li></ul></li><li><a class="toc-href" href="#sieve of atkin_1" title="Sieve of Atkin">Sieve of Atkin</a><ul><li><a class="toc-href" href="#my first implementation" title="My first implementation">My first implementation</a></li><li><a class="toc-href" href="#primegen" title="Primegen">Primegen</a></li></ul></li><li><a class="toc-href" href="#see also_1" title="See also">See also</a></li><li><a class="toc-href" href="#finally" title="Finally">Finally</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -111,7 +111,7 @@ MathJax.Hub.Queue(function() {
             
             <p>Today, a fellow student claimed that it would take much time to check the first 1,000,000 numbers for primes. I claimed that it would be a matter of seconds to do so for the first 1,000,000,000 numbers.</p>
 <p>So, lets prove my claim.</p>
-<h2 id="trivial-approach">Trivial approach</h2>
+<h2 id="trivial approach">Trivial approach</h2>
 <div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt; // cin, cout</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;cmath&gt; // sqrt</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
@@ -163,8 +163,8 @@ user    15m56.904s
 sys 2m12.500s
 </pre></div>
 <p>16 minutes ... not exactly "seconds". But please keep in mind that I also wrote the result to a txt-file. This txt file is 502.0 MB big. It takes quite a lot of time to write such an amount of data from memory to disk.</p>
-<h2 id="sieve-of-eratosthenes">Sieve of Eratosthenes</h2>
-<h3 id="a-first-try">A first try</h3>
+<h2 id="sieve of eratosthenes">Sieve of Eratosthenes</h2>
+<h3 id="a first try">A first try</h3>
 <div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt; // cin, cout</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
 
@@ -198,7 +198,7 @@ user    1m4.908s
 sys 2m11.748s
 </pre></div>
 <p>I'm getting closer to "seconds". ☺</p>
-<h3 id="ofstream-endl-n-and-buffers">ofstream, endl, \n and buffers</h3>
+<h3 id="ofstream, endl, \n and buffers">ofstream, endl, \n and buffers</h3>
 <p>Writing 502.0 MB takes some time. It's not getting better when I pipe this through bash. So lets write it directly:</p>
 <div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;fstream&gt; // ofstream</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
@@ -311,7 +311,7 @@ sys 0m0.640s
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
-<h3 id="improve-sieving">Improve sieving</h3>
+<h3 id="improve sieving">Improve sieving</h3>
 <p>The following change was suggested by <em>Niklas B.</em>. Thanks!</p>
 <p>Take a look at the inner for loop. This one does the sieving, so it gets executed very often. In this loop, you have to calculate <code>j<em>i</em></code> for checking the condition of the loop and again for setting it to false. You can get rid of one of those operations. Additionally, you don't have to start sieving at <code>2</code></p>p, but you can start at <code>p*p</code> as you already sieved out all multiples of the first, second, ..., current-1-th prime. 
 <div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt; // fopen</span><span class="cp"></span>
@@ -360,9 +360,9 @@ sys 0m0.436s
 <h3 id="primesieve">primesieve</h3>
 <p><a href="https://code.google.com/p/primesieve/">Primesieve</a> is a free software program and C++ library that generates prime numbers and prime k-tuplets (twin primes, prime triplets, ...) <span class="math">\(&lt; 2^{64}\)</span> using a highly optimized implementation of the sieve of Eratosthenes.</p>
 <p>According to the GUI, it finds all 50,847,534 primes below 1,000,000,000 in 0.16 seconds. But write them to a file...</p>
-<h2 id="sieve-of-atkin_1">Sieve of Atkin</h2>
+<h2 id="sieve of atkin_1">Sieve of Atkin</h2>
 <p>Arthur Oliver Lonsdale Atkin (July 31, 1925 &ndash; December 28, 2008) was a British mathematician who invented this sieve. I've implemented it according to the <a href="http://en.wikipedia.org/wiki/Sieve_of_Atkin#Pseudocode">pseudocode provided in Wikipedia</a>. A <a href="http://stackoverflow.com/a/12066272/562769">very long explanation of Atkins sieve</a> is on StackOverflow</p>
-<h3 id="my-first-implementation">My first implementation</h3>
+<h3 id="my first implementation">My first implementation</h3>
 <div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt; // fopen</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;iostream&gt; // atoi</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
@@ -458,7 +458,7 @@ user    0m10.649s
 sys 0m0.708s
 </pre></div>
 <p>About 11 seconds for writing all primes between 2 and 1,000,000,000 to a txt file.</p>
-<h2 id="see-also_1">See also</h2>
+<h2 id="see also_1">See also</h2>
 <p>You might want to try the following Project Euler problem sets:
 <ul>
 <li>Project Euler

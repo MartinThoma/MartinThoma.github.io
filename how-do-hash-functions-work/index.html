@@ -103,14 +103,14 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#connect-four" title="Connect four">Connect four</a></li><li><a class="toc-href" href="#the-task" title="The task">The task</a></li><li><a class="toc-href" href="#implementation" title="Implementation">Implementation</a></li><li><a class="toc-href" href="#how-is-this-realated-to-hash-functions" title="How is this realated to hash functions?">How is this realated to hash functions?</a></li><li><a class="toc-href" href="#a-hash-function" title="A hash function">A hash function</a></li><li><a class="toc-href" href="#linear-probing" title="Linear probing">Linear probing</a></li><li><a class="toc-href" href="#quadratic-probing" title="Quadratic probing">Quadratic probing</a></li><li><a class="toc-href" href="#double-hashing" title="Double hashing">Double hashing</a></li><li><a class="toc-href" href="#performance" title="Performance">Performance</a></li><li><a class="toc-href" href="#why-are-hash-functions-important" title="Why are hash functions important?">Why are hash functions important?</a></li><li><a class="toc-href" href="#final-notes" title="Final notes">Final notes</a></li><li><a class="toc-href" href="#resources" title="Resources">Resources</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#connect four" title="Connect four">Connect four</a></li><li><a class="toc-href" href="#the task" title="The task">The task</a></li><li><a class="toc-href" href="#implementation" title="Implementation">Implementation</a></li><li><a class="toc-href" href="#how is this realated to hash functions?" title="How is this realated to hash functions?">How is this realated to hash functions?</a></li><li><a class="toc-href" href="#a hash function" title="A hash function">A hash function</a></li><li><a class="toc-href" href="#linear probing" title="Linear probing">Linear probing</a></li><li><a class="toc-href" href="#quadratic probing" title="Quadratic probing">Quadratic probing</a></li><li><a class="toc-href" href="#double hashing" title="Double hashing">Double hashing</a></li><li><a class="toc-href" href="#performance" title="Performance">Performance</a></li><li><a class="toc-href" href="#why are hash functions important?" title="Why are hash functions important?">Why are hash functions important?</a></li><li><a class="toc-href" href="#final notes" title="Final notes">Final notes</a></li><li><a class="toc-href" href="#resources" title="Resources">Resources</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>Everybody who has written a noticeable amount of Java code should know the method <code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html#hashCode()">hashCode</a>()</code>. But most beginners have difficulties to understand the significance of this little method. The following article gives you one small example with some impressions how much hash functions influence execution time.</p>
-<h2 id="connect-four">Connect four</h2>
+<h2 id="connect four">Connect four</h2>
 <blockquote>Connect Four [...] is a two-player game in which the players first choose a color and then take turns dropping colored discs from the top into a seven-column, six-row vertically-suspended grid. The pieces fall straight down, occupying the next available space within the column. The object of the game is to connect four of one's own discs of the same color next to each other vertically, horizontally, or diagonally before your opponent.
 </blockquote>
 <p><small>Source: <a href="http://en.wikipedia.org/wiki/Connect_Four">Wikipedia</a></small></p>
@@ -119,7 +119,7 @@ MathJax.Hub.Queue(function() {
 <a href="../images/2013/05/connect-four.gif"><img alt="Connect Four" class="size-full wp-image-65311" src="../images/2013/05/connect-four.gif" style="max-width:320px;max-height:190px"/></a>
 <figcaption class="text-center">Connect Four<br/>Source: <a href="http://commons.wikimedia.org/wiki/File:Connect_Four.gif">commons.wikimedia.org</a></figcaption>
 </figure>
-<h2 id="the-task">The task</h2>
+<h2 id="the task">The task</h2>
 <p>Imagine you would like to find a good strategy where to drop your disk. A simple brute-force method is to create a so called <a href="http://en.wikipedia.org/wiki/Game_tree">game tree</a>. This means you go through each possibility at each situation that could occur in the game for both players. </p>
 <p>This approach has generally two problems:
 <ol>
@@ -331,7 +331,7 @@ MathJax.Hub.Queue(function() {
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
-<h2 id="how-is-this-realated-to-hash-functions">How is this realated to hash functions?</h2>
+<h2 id="how is this realated to hash functions?">How is this realated to hash functions?</h2>
 <p>You might have noticed a few functions that I didn't explain by now:
 <ul>
 <li><code>didBoardAlreadyOccur(board)</code>: Checks if a given board is stored in database.</li>
@@ -340,7 +340,7 @@ MathJax.Hub.Queue(function() {
 <li><code>setBoard(insertID, board)</code>: Insert board into database at position insertID</li>
 </ul></p>
 <p>How would you implement <code>didBoardAlreadyOccur(board)</code>? This function (or insertID) will be the slowest part of the code and will be called VERY often. So it needs to be as fast as possible.</p>
-<h2 id="a-hash-function">A hash function</h2>
+<h2 id="a hash function">A hash function</h2>
 <p>Most of the time you can create hash functions by mapping values to integers. In my case, I mapped the board - which is a two-dimensional char array - to one integer by thinking of it as a very long number. I think of a red disc as the digit 1, a black disc as the digit 2 and an empty field as 0:</p>
 <div class="highlight"><pre><span></span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">charToInt</span><span class="p">(</span><span class="kt">char</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">RED</span><span class="p">)</span> <span class="p">{</span>
@@ -379,7 +379,7 @@ MathJax.Hub.Queue(function() {
 <li>Linear probing</li>
 <li>Quadratic probing</li>
 </ul></p>
-<h2 id="linear-probing">Linear probing</h2>
+<h2 id="linear probing">Linear probing</h2>
 <p>The idea of linear probing is very simple: </p>
 <p>Inserting a new item:
 <ol>
@@ -397,12 +397,12 @@ MathJax.Hub.Queue(function() {
 <p>Deleting is complicated. You have to look at all items after the deleted one, remove them from your array and insert them again. That's not good.</p>
 <p>The problem of linear probing is <strong>clustering</strong>. When you have some hash values that are close together, you might get hash collisions faster. When you've got your first collisions, you resolve them by inserting the value close to the value where you originally wanted to save it. So you get one big cluster quite fast. When you want to insert an element in the cluster, you first have to search the end of the cluster. That's bad for performance.</p>
 <p>An advantage of linear probing compared to quadratic probing is that you might get a better performance due to cache effects.</p>
-<h2 id="quadratic-probing">Quadratic probing</h2>
+<h2 id="quadratic probing">Quadratic probing</h2>
 <p>The idea of quadratic probing is the same as for linear probing, but you try to fix the clustering-problem by using a clever way to search for a free spot:</p>
 <p><span class="math">\(h_i(x) = \left(h(x) + (-1)^{i+1} \cdot \left\lceil\frac{i}{2}\right\rceil^2\right) \bmod~m\)</span></p>
 <p>where <span class="math">\(h\)</span> is your hash function and <span class="math">\(i\)</span> is your i-th try to find a free spot while you have <span class="math">\(m\)</span> spots in total.</p>
 <p>This one also suffers from clustering, but it's not as bad as with linear clustering.</p>
-<h2 id="double-hashing">Double hashing</h2>
+<h2 id="double hashing">Double hashing</h2>
 <p>This solution could be the best one, but also the hardest one to implement correctly. You could find a free spot by using a second hash function <span class="math">\(h'\)</span> like this:</p>
 <p><span class="math">\(h_i(x) = (h(x)+h'(x)\cdot i) ~ \bmod ~ m\)</span></p>
 <p>BUT you have to make sure that <span class="math">\(Pr[h(x)=h(y) \land h'(x)=h'(y)] = \frac{1}{m^2}\)</span></p>
@@ -413,14 +413,14 @@ MathJax.Hub.Queue(function() {
 <figcaption class="text-center">Linear probing, quadratic probing and double hashing for connect four</figcaption>
 </figure>
 <p>You can see that linear probing performs much worse than quadratic probing and double hashing. When you compare quadratic probing with double hashing, there seems not to be a big difference. But note that my second hash function is almost the same as the first one. You could probably choose a better second hash function and get better results (suggestions are welcome).</p>
-<h2 id="why-are-hash-functions-important">Why are hash functions important?</h2>
+<h2 id="why are hash functions important?">Why are hash functions important?</h2>
 <p>Hash functions help you to map a big amount of data to a small space. They are important, because they are a relevant part of many datastructures. The better they are, the faster will operations on those datastructures work. Better means: Faster to compute or less collisions.</p>
 <p>Some datastructures like this are:
 <ul>
 <li><a href="http://docs.oracle.com/javase/7/docs/api/java/util/HashMap.html">HashMap</a> and <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Hashtable.html">HashTable</a> (&rarr; <a href="http://stackoverflow.com/a/40878/562769">difference</a>)</li>
 <li><a href="http://docs.oracle.com/javase/7/docs/api/java/util/HashSet.html">HashSet</a></li>
 </ul></p>
-<h2 id="final-notes">Final notes</h2>
+<h2 id="final notes">Final notes</h2>
 <p>Another resolution for hash collisions is creating a linked list. This means you will not suffer from clustering and you can insert in <span class="math">\(\mathcal{O}(1)\)</span>. But searching for an element is still in <span class="math">\(\mathcal{O}(n)\)</span>, where <span class="math">\(n\)</span> is the number of elements that were already inserted.</p>
 <h2 id="resources">Resources</h2>
 <p>You can find the <a href="https://github.com/MartinThoma/connect-four/tree/master/C">code at GitHub</a>.</p>

@@ -101,7 +101,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#rwx" title="RWX">RWX</a><ul><li><a class="toc-href" href="#files" title="Files">Files</a></li><li><a class="toc-href" href="#folders" title="Folders">Folders</a></li></ul></li><li><a class="toc-href" href="#user-group-others_1" title="User, Group, Others">User, Group, Others</a></li><li><a class="toc-href" href="#suid-sgid-sticky-bit" title="SUID, SGID, Sticky Bit">SUID, SGID, Sticky Bit</a><ul><li><a class="toc-href" href="#files_1" title="Files">Files</a></li><li><a class="toc-href" href="#folders_1" title="Folders">Folders</a></li></ul></li><li><a class="toc-href" href="#type_1" title="Type">Type</a></li><li><a class="toc-href" href="#stat" title="stat">stat</a></li><li><a class="toc-href" href="#attributes" title="Attributes">Attributes</a><ul><li><a class="toc-href" href="#version" title="Version">Version</a></li><li><a class="toc-href" href="#append-only" title="Append only">Append only</a></li><li><a class="toc-href" href="#immutable" title="Immutable">Immutable</a></li><li><a class="toc-href" href="#secure-deletion-and-undeletable" title="Secure deletion and undeletable">Secure deletion and undeletable</a></li><li><a class="toc-href" href="#synchronous-update" title="Synchronous update">Synchronous update</a></li></ul></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#rwx" title="RWX">RWX</a><ul><li><a class="toc-href" href="#files" title="Files">Files</a></li><li><a class="toc-href" href="#folders" title="Folders">Folders</a></li></ul></li><li><a class="toc-href" href="#user, group, others_1" title="User, Group, Others">User, Group, Others</a></li><li><a class="toc-href" href="#suid, sgid, sticky bit" title="SUID, SGID, Sticky Bit">SUID, SGID, Sticky Bit</a><ul><li><a class="toc-href" href="#files_1" title="Files">Files</a></li><li><a class="toc-href" href="#folders_1" title="Folders">Folders</a></li></ul></li><li><a class="toc-href" href="#type_1" title="Type">Type</a></li><li><a class="toc-href" href="#stat" title="stat">stat</a></li><li><a class="toc-href" href="#attributes" title="Attributes">Attributes</a><ul><li><a class="toc-href" href="#version" title="Version">Version</a></li><li><a class="toc-href" href="#append only" title="Append only">Append only</a></li><li><a class="toc-href" href="#immutable" title="Immutable">Immutable</a></li><li><a class="toc-href" href="#secure deletion and undeletable" title="Secure deletion and undeletable">Secure deletion and undeletable</a></li><li><a class="toc-href" href="#synchronous update" title="Synchronous update">Synchronous update</a></li></ul></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -132,7 +132,7 @@ MathJax.Hub.Queue(function() {
 <li><strong>W</strong>rite: you need this to create new files / folders in the direcotry</li>
 <li><strong>x</strong> ... like "enter"?: if that is missing, you can't enter the directory.</li>
 </ul></p>
-<h2 id="user-group-others_1">User, Group, Others</h2>
+<h2 id="user, group, others_1">User, Group, Others</h2>
 <p>The rights above can be set for the user who created the file (sometimes also called the owner). Then the group that owns the file and all others. This is the reason why you have three times the rights from above:</p>
 <div class="highlight"><pre><span></span>moose@pc07:~/Downloads$ ls -l
 total <span class="m">29624</span>
@@ -159,7 +159,7 @@ drwxr-xr-x  <span class="m">5</span> moose moose     <span class="m">4096</span>
 </pre></div>
 <p>You might wonder what happens when you execute <code>chmod +x filename</code>. Does it set the execute-flag only for the user? Or for all three - user, group, others? Try and find out. You might want to remove all rights with <code>chmod 000 filename</code> before you start.</p>
 <p>Did you know that you can search for file permissions with <code>find /home/ -perm 777</code>?</p>
-<h2 id="suid-sgid-sticky-bit">SUID, SGID, Sticky Bit</h2>
+<h2 id="suid, sgid, sticky bit">SUID, SGID, Sticky Bit</h2>
 <h3 id="files_1">Files</h3>
 <p>Sometimes, you want to execute programs as root, although the user who started the execution isn't root. Take passwd, the program that allows users to change passwords, for example:</p>
 <div class="highlight"><pre><span></span>moose@pc07:/usr/bin$ ls -l <span class="p">|</span> grep passwd$
@@ -249,7 +249,7 @@ Change: <span class="m">2013</span>-03-04 <span class="m">21</span>:31:51.154184
 <p>You can set the version like this:</p>
 <div class="highlight"><pre><span></span>chattr -v <span class="m">1339</span> testfile
 </pre></div>
-<h3 id="append-only">Append only</h3>
+<h3 id="append only">Append only</h3>
 <p>This one is weird. Theoretically, it should allow me to append to a file, but not to change / delete anything in the file.</p>
 <p>First of all, I had to use sudo to add this attribute:</p>
 <div class="highlight"><pre><span></span>sudo chattr +a testfile
@@ -275,10 +275,10 @@ One more line
 <p>So I guess I found another bug in gEdit.</p>
 <h3 id="immutable">Immutable</h3>
 <p>You can mark a file as immutable with <code>sudo chattr +i testfile</code>. It's funny, you can't see that with <code>ls -l</code>, you have to use <code>lsattr</code>. I guess if you manage to get root privileges and want to troll somebody, you could set this bit. I think this might take quite a while until you recognize it.</p>
-<h3 id="secure-deletion-and-undeletable">Secure deletion and undeletable</h3>
+<h3 id="secure deletion and undeletable">Secure deletion and undeletable</h3>
 <p>When secure deletion is set with <code>chattr +s testfile</code> the operating system overwrites the file with random data when it is deleted.</p>
 <p><code>chattr +u testfile</code> makes your file undeletable. This is strange. You can still delete the file with <code>rm</code>, but the system will not overwrite it. I've just <a href="http://unix.stackexchange.com/q/66870/4784">asked a question on SE</a>.</p>
-<h3 id="synchronous-update">Synchronous update</h3>
+<h3 id="synchronous update">Synchronous update</h3>
 <p>when you set <code>chattr +S testfile</code> the file gets directly written to the HDD and not buffered by the kernel cache.</p>
             
             <div id="disqus_thread"></div>

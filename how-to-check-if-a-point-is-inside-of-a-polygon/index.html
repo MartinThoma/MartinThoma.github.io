@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="How to check if a point is inside of a polygon? "/>
 <meta property="og:url" content="../how-to-check-if-a-point-is-inside-of-a-polygon/" />
-<meta property="og:description" content="Suppose you have a with \(n\) sides. This is called a \(n\)-glon. Basics about polygones A \(n\)-glon can be defined by a list of \(n\) points. Note that the order is important: [A, B, C, D, E, F, G] != [A, B, C, D, F, E, G] I will …if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width" />
+<meta property="og:description" content="Suppose you have a with \(n\) sides. This is called a \(n\)-glon. Basics about polygones A \(n\)-glon can be defined by a list of \(n\) points. Note that the order is important: [A, B, C, D, E, F, G] != [A, B, C, D, F, E, G] I will …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2013-11-18T21:36:09+01:00" />
 <meta name="twitter:title" content="How to check if a point is inside of a polygon? ">
-<meta name="twitter:description" content="Suppose you have a with \(n\) sides. This is called a \(n\)-glon. Basics about polygones A \(n\)-glon can be defined by a list of \(n\) points. Note that the order is important: [A, B, C, D, E, F, G] != [A, B, C, D, F, E, G] I will …if (!document.getElementById(&#39;mathjaxscript_pelican_#%@#$@#&#39;)) { var align = &#34;center&#34;, indent = &#34;0em&#34;, linebreak = &#34;false&#34;; if (false) { align = (screen.width">
+<meta name="twitter:description" content="Suppose you have a with \(n\) sides. This is called a \(n\)-glon. Basics about polygones A \(n\)-glon can be defined by a list of \(n\) points. Note that the order is important: [A, B, C, D, E, F, G] != [A, B, C, D, F, E, G] I will …">
 <meta property="og:image" content="2013/11/polygon-is-point-inside-thumb.png" />
 <meta name="twitter:image" content="2013/11/polygon-is-point-inside-thumb.png" >
 
@@ -103,14 +103,14 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#basics-about-polygones" title="Basics about polygones">Basics about polygones</a></li><li><a class="toc-href" href="#is-a-point-in-a-triangle-a-rectangle" title="Is a point in a triangle / a rectangle">Is a point in a triangle / a rectangle</a></li><li><a class="toc-href" href="#is-a-point-inside-of-a-n-glon" title="Is a point inside of a n-glon?">Is a point inside of a n-glon?</a><ul><li><a class="toc-href" href="#count-crossing-line-segments" title="Count Crossing Line Segments">Count Crossing Line Segments</a></li><li><a class="toc-href" href="#triangularization" title="Triangularization">Triangularization</a></li></ul></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#basics about polygones" title="Basics about polygones">Basics about polygones</a></li><li><a class="toc-href" href="#is a point in a triangle / a rectangle" title="Is a point in a triangle / a rectangle">Is a point in a triangle / a rectangle</a></li><li><a class="toc-href" href="#is a point inside of a n-glon?" title="Is a point inside of a n-glon?">Is a point inside of a n-glon?</a><ul><li><a class="toc-href" href="#count crossing line segments" title="Count Crossing Line Segments">Count Crossing Line Segments</a></li><li><a class="toc-href" href="#triangularization" title="Triangularization">Triangularization</a></li></ul></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>Suppose you have a with <span class="math">\(n\)</span> sides. This is called a <span class="math">\(n\)</span>-glon.</p>
-<h2 id="basics-about-polygones">Basics about polygones</h2>
+<h2 id="basics about polygones">Basics about polygones</h2>
 <p>A <span class="math">\(n\)</span>-glon can be defined by a list of <span class="math">\(n\)</span> points.</p>
 <p>Note that the order is important:</p>
 <figure class="aligncenter">
@@ -118,11 +118,11 @@ MathJax.Hub.Queue(function() {
 <figcaption class="text-center">[A, B, C, D, E, F, G] != [A, B, C, D, F, E, G]</figcaption>
 </figure>
 <p>I will not consider self-intersecting polygones for the following statements. I'm aware of them, but whenever you have a self-intersecting polygon you can create multiple polygones that cover the same area and don't intersect each other (some pairs might have a finite number of points in common, but not an infinite number).</p>
-<h2 id="is-a-point-in-a-triangle-a-rectangle">Is a point in a triangle / a rectangle</h2>
+<h2 id="is a point in a triangle / a rectangle">Is a point in a triangle / a rectangle</h2>
 <p>It is quite easy to check weather a point is inside of a triangle or inside of a rectangle. I have already written an article about <a href="../how-to-check-if-a-point-is-inside-a-rectangle/">how to check if a point is inside of a rectangle</a>.</p>
-<h2 id="is-a-point-inside-of-a-n-glon">Is a point inside of a n-glon?</h2>
+<h2 id="is a point inside of a n-glon?">Is a point inside of a n-glon?</h2>
 <p>Let <span class="math">\(P\)</span> be a point and <span class="math">\(N = [P_1, P_2, \dots, P_n]\)</span> be a <span class="math">\(n\)</span>-glon. It is now much more difficult to check if <span class="math">\(P\)</span> is inside of <span class="math">\(N\)</span>. The area-approach works for convex <span class="math">\(n\)</span>-glons, but that's it.</p>
-<h3 id="count-crossing-line-segments">Count Crossing Line Segments</h3>
+<h3 id="count crossing line segments">Count Crossing Line Segments</h3>
 <p>However, you can try another approach which I have visualized in the following image:</p>
 <figure class="aligncenter">
 <img alt="Check if P is inside of N" class="size-full" src="../images/2013/11/polygon-is-point-inside.png" style="max-width: 512px; max-height: 481px;"/>
@@ -173,7 +173,7 @@ MathJax.Hub.Queue(function() {
                     <span>5</span>
 </a></li>
                 <li><a href="../tags.html#python-ref">Python
-                    <span>91</span>
+                    <span>92</span>
 </a></li>
             </ul>
 <h4>Contact</h4>

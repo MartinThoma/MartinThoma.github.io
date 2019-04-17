@@ -103,7 +103,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#lambda" title="lambda">lambda</a></li><li><a class="toc-href" href="#mapfunction-sequence" title="map(function, sequence)">map(function, sequence)</a></li><li><a class="toc-href" href="#reducefunction-sequence" title="reduce(function, sequence)">reduce(function, sequence)</a></li><li><a class="toc-href" href="#filterfunction-sequence" title="filter(function, sequence)">filter(function, sequence)</a></li><li><a class="toc-href" href="#some-more-examples" title="Some more examples">Some more examples</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#lambda" title="lambda">lambda</a></li><li><a class="toc-href" href="#map(function, sequence)" title="map(function, sequence)">map(function, sequence)</a></li><li><a class="toc-href" href="#reduce(function, sequence)" title="reduce(function, sequence)">reduce(function, sequence)</a></li><li><a class="toc-href" href="#filter(function, sequence)" title="filter(function, sequence)">filter(function, sequence)</a></li><li><a class="toc-href" href="#some more examples" title="Some more examples">Some more examples</a></li><li><a class="toc-href" href="#see also" title="See also">See also</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -139,7 +139,7 @@ So imagine you would like to make a lambda function like this:</p>
 <div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">==</span><span class="mi">0</span> <span class="ow">and</span> <span class="mi">42</span> <span class="ow">or</span> <span class="n">x</span><span class="o">==</span><span class="mi">1</span> <span class="ow">and</span> <span class="mi">1337</span> <span class="ow">or</span> <span class="mi">0</span>
 </pre></div>
 <p>(Thanks to <a href="http://eikke.com/python-ifelse-in-lambda/">Ikke's blog</a> for the hint!)</p>
-<h2 id="mapfunction-sequence">map(function, sequence)</h2>
+<h2 id="map(function, sequence)">map(function, sequence)</h2>
 <p>Map is a function with two parameters. The first parameter is another function, the second is a sequence. Map returns a list. It only applies function to every item of the sequence.</p>
 <p>Here are some examples:</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -157,7 +157,7 @@ So imagine you would like to make a lambda function like this:</p>
 <span class="n">l</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 <p>Output: [0, -9, -16, -21, -24, -25, -24, -21, -16, -9, 0, 11, 24, 39, 56, 75, 96, 119, 144, 171]</p>
-<h2 id="reducefunction-sequence">reduce(function, sequence)</h2>
+<h2 id="reduce(function, sequence)">reduce(function, sequence)</h2>
 <p>You can quite often reduce problems to an operation on two elements. Reduce takes two elements from sequence, uses function on them and saves the result. Then it takes the result and another element of the sequence and uses function...</p>
 <p>Example: Imagine you would like to get the sum of a list. Then you need to add two elements of the list, save the result and add another element, save the result, add another element, ...</p>
 <div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="nb">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span><span class="mi">63</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
@@ -172,7 +172,7 @@ So imagine you would like to make a lambda function like this:</p>
 <p>Output: 2
 6
 3628800</p>
-<h2 id="filterfunction-sequence">filter(function, sequence)</h2>
+<h2 id="filter(function, sequence)">filter(function, sequence)</h2>
 <p>filter gets all elements from sequence, where function returns true:</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_prime</span><span class="p">(</span><span class="n">element</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">element</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
@@ -189,7 +189,7 @@ So imagine you would like to make a lambda function like this:</p>
 <span class="n">r</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="n">is_prime</span><span class="p">,</span> <span class="n">my_list</span><span class="p">)</span>
 </pre></div>
 <p>r = [13, 2, 7, 11, 11]</p>
-<h2 id="some-more-examples">Some more examples</h2>
+<h2 id="some more examples">Some more examples</h2>
 <p>Task: What is the sum of digits of <span class="math">\(2^n, n \in \mathbb{N}\)</span>?</p>
 <div class="highlight"><pre><span></span><span class="n">sumOfDigits</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">exp</span><span class="p">:</span> <span class="nb">reduce</span><span class="p">(</span>
                                   <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">,</span>
@@ -217,7 +217,7 @@ So imagine you would like to make a lambda function like this:</p>
 <span class="k">print</span><span class="p">(</span><span class="s2">"Cipher Text: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">cipher</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="s2">"Plain Text: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">decode</span><span class="p">(</span><span class="n">cipher</span><span class="p">))</span>
 </pre></div>
-<h2 id="see-also">See also</h2>
+<h2 id="see also">See also</h2>
 <ul>
 <li>Wikipedia:
     <ul>
@@ -265,7 +265,7 @@ So imagine you would like to make a lambda function like this:</p>
                     <span>49</span>
 </a></li>
                 <li><a href="../tags.html#python-ref">Python
-                    <span>91</span>
+                    <span>92</span>
 </a></li>
             </ul>
 <h4>Contact</h4>
