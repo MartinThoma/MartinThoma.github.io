@@ -103,7 +103,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#arithmethic" title="Arithmethic">Arithmethic</a></li><li><a class="toc-href" href="#element-lookup" title="Element lookup">Element lookup</a></li><li><a class="toc-href" href="#networks" title="Networks">Networks</a><ul><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li><li><a class="toc-href" href="#code_1" title="Code">Code</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#arithmethic" title="Arithmethic">Arithmethic</a></li><li><a class="toc-href" href="#element-lookup" title="Element lookup">Element lookup</a></li><li><a class="toc-href" href="#algorithms" title="Algorithms">Algorithms</a><ul><li><a class="toc-href" href="#sorting" title="Sorting">Sorting</a></li></ul></li><li><a class="toc-href" href="#networks_1" title="Networks">Networks</a><ul><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li><li><a class="toc-href" href="#code_1" title="Code">Code</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -151,7 +151,7 @@ the time here.</p>
 <span class="n">divide_vectors</span>      <span class="o">:</span> <span class="n">min</span><span class="o">:</span>  <span class="mf">17.2</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">mean</span><span class="o">:</span>  <span class="mf">18.2</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">max</span><span class="o">:</span>   <span class="mf">71.9</span><span class="err">&mu;</span><span class="n">s</span>
 </pre></div>
 <p>You can see how bad this measure is with something like</p>
-<div class="highlight"><pre><span></span>durations = np.array(timeit.repeat('4+500000', repeat=5000, number=1)) * 10**6
+<div class="highlight"><pre><span></span>durations = np.array(timeit.repeat('4+500000', repeat=5000, number=1))
 </pre></div>
 <p>which gives</p>
 <div class="highlight"><pre><span></span><span class="n">add</span>                 <span class="o">:</span> <span class="n">min</span><span class="o">:</span> <span class="mf">0.08</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">mean</span><span class="o">:</span> <span class="mf">0.15</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">max</span><span class="o">:</span>   <span class="mf">1.38</span><span class="err">&mu;</span><span class="n">s</span>
@@ -172,7 +172,80 @@ is that numpy arrays are quite a bit worse.</p>
 lookup(dict)        : min: 355.8&mu;s, mean: 407.3&mu;s, max: 1895.2&mu;s
 lookup(np array)    : min: 711.1&mu;s, mean: 855.7&mu;s, max: 1665.5&mu;s
 </pre></div>
-<h2 id="networks">Networks</h2>
+<h2 id="algorithms">Algorithms</h2>
+<h3 id="sorting">Sorting</h3>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2019/04/sorting-speed.png"><img alt="Sorting speed in Python" src="../images/2019/04/sorting-speed.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Sorting speed in Python</figcaption>
+</figure>
+<table class="table">
+<tr>
+<th>Samples</th>
+<th>min</th>
+<th>median</th>
+<th>max</th>
+</tr>
+<tr>
+<td>10</td>
+<td>1.6&mu;s</td>
+<td>2.1&mu;s</td>
+<td>191.7&mu;s</td>
+</tr>
+<tr>
+<td>100</td>
+<td>16.6&mu;s</td>
+<td>24.9&mu;s</td>
+<td>121.7&mu;s</td>
+</tr>
+<tr>
+<td>500</td>
+<td>110.6&mu;s</td>
+<td>115.2&mu;s</td>
+<td>467.9&mu;s</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>246.1&mu;s</td>
+<td>258.6&mu;s</td>
+<td>1133.4&mu;s</td>
+</tr>
+<tr>
+<td>2000</td>
+<td>543.1&mu;s</td>
+<td>562.6&mu;s</td>
+<td>934.5&mu;s</td>
+</tr>
+<tr>
+<td>3000</td>
+<td>859.8&mu;s</td>
+<td>913.8&mu;s</td>
+<td>2933.8&mu;s</td>
+</tr>
+<tr>
+<td>4000</td>
+<td>1188.0&mu;s</td>
+<td>1258.0&mu;s</td>
+<td>2859.0&mu;s</td>
+</tr>
+<tr>
+<td>5000</td>
+<td>1519.6&mu;s</td>
+<td>1631.4&mu;s</td>
+<td>2828.4&mu;s</td>
+</tr>
+</table>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">timeit</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="n">durations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="kp">array</span><span class="p">(</span><span class="n">timeit</span><span class="o">.</span><span class="kp">repeat</span><span class="p">(</span><span class="s1">'sorted(arr)'</span><span class="p">,</span>
+                                   <span class="n">setup</span><span class="o">=</span><span class="s1">'import numpy as np;arr = np.random.random(100_000)'</span><span class="p">,</span>
+                                   <span class="kp">repeat</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'min: {min:5.1f}&mu;s, mean: {mean:5.1f}&mu;s, max: {max:6.1f}&mu;s'</span>
+      <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="n">durations</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">,</span>
+              <span class="kp">mean</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="kp">mean</span><span class="p">(</span><span class="n">durations</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">,</span>
+              <span class="nb">max</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">durations</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">,</span>
+              <span class="p">))</span>
+</pre></div>
+<h2 id="networks_1">Networks</h2>
 <p>When you talk about "speed" in a network context, there are two important values:</p>
 <dl>
 <dt><a href="https://en.wikipedia.org/wiki/Network_delay">Latency</a></dt>
