@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Jordansche Normalform: 4x4 Matrizen "/>
 <meta property="og:url" content="../jordansche-normalform-4x4-matrizen/" />
-<meta property="og:description" content="Hier sind \begin{align} \dim \text{Eig}(-1) &amp;= \dim \text{Kern}(A +1 \cdot I) \\ &amp;= \dim \text{Kern} \begin{pmatrix} 2 &amp; 2 &amp; 47 &amp; 11\\ 3 &amp; 3 &amp; 8 &amp; 15\\ 0 &amp; 0 &amp; 4 &amp; 1\\ 0 &amp; 0 &amp; 8 &amp; 2 \end{pmatrix}\\ &amp;= \dim \text{Kern} \begin{pmatrix} 1 &amp; 1 &amp; 1.5 &amp; 0\\ 1 &amp; 1 …" />
+<meta property="og:description" content="Hier sind $4 \times 4$ Beispiele zum Hauptartikel Wie berechnet man die Jordan’sche Normalform?. Beispiel 1 Gegeben sei die Matrix \(A \in \mathbb{R}^{4 \times 4}\): \(A := \begin{pmatrix} 1 &amp; 2 &amp; 47 &amp; 11\\ 3 &amp; 2 &amp; 8 &amp; 15\\ 0 &amp; 0 &amp; 3 &amp; 1\\ 0 &amp; 0 &amp; 8 &amp; 1 \end{pmatrix}\). Jordannormalform …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2012-09-10T11:28:08+02:00" />
 <meta name="twitter:title" content="Jordansche Normalform: 4x4 Matrizen ">
-<meta name="twitter:description" content="Hier sind \begin{align} \dim \text{Eig}(-1) &amp;= \dim \text{Kern}(A +1 \cdot I) \\ &amp;= \dim \text{Kern} \begin{pmatrix} 2 &amp; 2 &amp; 47 &amp; 11\\ 3 &amp; 3 &amp; 8 &amp; 15\\ 0 &amp; 0 &amp; 4 &amp; 1\\ 0 &amp; 0 &amp; 8 &amp; 2 \end{pmatrix}\\ &amp;= \dim \text{Kern} \begin{pmatrix} 1 &amp; 1 &amp; 1.5 &amp; 0\\ 1 &amp; 1 …">
+<meta name="twitter:description" content="Hier sind $4 \times 4$ Beispiele zum Hauptartikel Wie berechnet man die Jordan’sche Normalform?. Beispiel 1 Gegeben sei die Matrix \(A \in \mathbb{R}^{4 \times 4}\): \(A := \begin{pmatrix} 1 &amp; 2 &amp; 47 &amp; 11\\ 3 &amp; 2 &amp; 8 &amp; 15\\ 0 &amp; 0 &amp; 3 &amp; 1\\ 0 &amp; 0 &amp; 8 &amp; 1 \end{pmatrix}\). Jordannormalform …">
 <meta property="og:image" content="2012/08/jordan-normal-form-block1.png" />
 <meta name="twitter:image" content="2012/08/jordan-normal-form-block1.png" >
 
@@ -103,15 +103,36 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#basiswechselmatrix bestimmen" title="Basiswechselmatrix bestimmen">Basiswechselmatrix bestimmen</a></li><li><a class="toc-href" href="#programmierung" title="Programmierung">Programmierung</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#beispiel 1" title="Beispiel 1">Beispiel 1</a><ul><li><a class="toc-href" href="#jordannormalform bestimmen" title="Jordannormalform bestimmen">Jordannormalform bestimmen</a></li><li><a class="toc-href" href="#basiswechselmatrix bestimmen" title="Basiswechselmatrix bestimmen">Basiswechselmatrix bestimmen</a></li><li><a class="toc-href" href="#programmierung" title="Programmierung">Programmierung</a></li></ul></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <div class="info">Hier sind
-
-\begin{align}
+            <div class="info">Hier sind $4 \times 4$ Beispiele zum Hauptartikel <a href="../wie-berechnet-man-die-jordansche-normalform/" title="Wie berechnet man die Jordan&rsquo;sche Normalform?">Wie berechnet man die Jordan&rsquo;sche Normalform?</a>.</div>
+<h2 id="beispiel 1">Beispiel 1</h2>
+<p>Gegeben sei die Matrix <span class="math">\(A \in \mathbb{R}^{4 \times 4}\)</span>:
+<span class="math">\(A := <div class="math">\begin{pmatrix}
+1 &amp; 2 &amp; 47 &amp; 11\\
+3 &amp; 2 &amp;  8 &amp; 15\\
+0 &amp; 0 &amp;  3 &amp;  1\\
+0 &amp; 0 &amp;  8 &amp; 1
+\end{pmatrix}</div>\)</span>.</p>
+<h3 id="jordannormalform bestimmen">Jordannormalform bestimmen</h3>
+<p><strong>1. Charakteristisches Polynom berechnen:</strong>
+<span class="math">\(p_A(\lambda) = (\lambda - 5) \cdot (\lambda - 4) \cdot (\lambda + 1)^2\)</span>.</p>
+<p>(&rarr; <a href="http://www.wolframalpha.com/input/?i=%7B%7B1%2C2%2C47%2C11%7D%2C%7B3%2C2%2C8%2C15%7D%2C%7B0%2C0%2C3%2C1%7D%2C%7B0%2C0%2C8%2C1%7D%7D">Wolfram|Alpha</a> und &bdquo;<a href="../wie-berechnet-man-das-charakteristische-polynom/">Wie berechnet man das charakteristische Polynom?</a>&ldquo;)</p>
+<p>Daraus folgt: 
+<ul>
+<li><span class="math">\(\lambda = 5\)</span> ist Eigenwert mit der algebraischen Vielfachheit 1.</li>
+<li><span class="math">\(\lambda = 4\)</span> ist Eigenwert mit der algebraischen Vielfachheit 1.</li>
+<li><span class="math">\(\lambda = -1\)</span> ist Eigenwert mit der algebraischen Vielfachheit 2.</li>
+</ul></p>
+<p>Es gibt also genau drei Jordan-Bl&ouml;cke in der Jordannormalform. Zwei davon haben die Kantenl&auml;nge 1 und deshalb nur ein Jordan-K&auml;stchen.</p>
+<p><strong>2. Anzahl der Jordank&auml;stchen bestimmen:</strong></p>
+<p>$
+</p>
+<div class="math">\begin{align}
 \dim \text{Eig}(-1) &amp;= \dim \text{Kern}(A +1 \cdot I) \\
 &amp;= \dim \text{Kern} \begin{pmatrix}
 2 &amp; 2 &amp; 47 &amp; 11\\
@@ -144,9 +165,9 @@ MathJax.Hub.Queue(function() {
 0 &amp; 0 &amp;  0 &amp; 1
 \end{pmatrix} = \dim \left [ \begin{pmatrix}1\\-1\\0\\0 \end{pmatrix}\right ]\\
 &amp;= 1
-\end{align}
-
-Es gibt im Jordanblock zu \begin{align}
+\end{align}</div>
+<p>Es gibt im Jordanblock zu </p>
+<div class="math">\begin{align}
 \dim \text{Eig}(1) &amp;= \dim \text{Kern}(A-E)\\
  &amp;= \dim \text{Kern }\begin{pmatrix}
 -2 &amp; -2 &amp;  2 &amp;  2\\
@@ -165,13 +186,16 @@ Es gibt im Jordanblock zu \begin{align}
  0 &amp;  0 &amp;  0 &amp;  1 \end{pmatrix}
 \\
  &amp;= \dim \left [\begin{pmatrix}0\\1\\1\\0\end{pmatrix} \right ] = 1
-\end{align}J_B = 
-\begin{pmatrix}
+\end{align}</div>
+<p>J_B = 
+</p>
+<div class="math">\begin{pmatrix}
 -1 &amp;  0 &amp; 0 &amp; 0\\
  0 &amp; -1 &amp; 0 &amp; 0\\
  0 &amp;  0 &amp; 1 &amp; 1\\
  0 &amp;  0 &amp; 0 &amp; 1
-\end{pmatrix}\begin{align}
+\end{pmatrix}</div>
+<div class="math">\begin{align}
 K_2(1) &amp;= \text{Kern}(\Omega(1)^2) \\
        &amp;= \text{Kern }\begin{pmatrix}
 -2 &amp; -2 &amp;  2 &amp;  2\\
@@ -189,7 +213,9 @@ K_2(1) &amp;= \text{Kern}(\Omega(1)^2) \\
  0 &amp;  0 &amp;  0 &amp;  0\\
  0 &amp;  0 &amp;  0 &amp;  0 \end{pmatrix} \\
        &amp;= \left [ \begin{pmatrix}0\\1\\1\\0\end{pmatrix}, \begin{pmatrix}1\\0\\0\\1\end{pmatrix} \right ]
-\end{align}K_2(1)\begin{align}
+\end{align}</div>
+<p>K_2(1)</p>
+<div class="math">\begin{align}
 \Omega &amp;= \begin{pmatrix}
 0  &amp;  0 &amp; -1 &amp; -1\\
 -1 &amp; -1 &amp;  0 &amp;  0\\
@@ -208,9 +234,9 @@ K_2(1) &amp;= \text{Kern}(\Omega(1)^2) \\
  0 &amp; 0 &amp; 0 &amp; 0\\
  0 &amp; 0 &amp; 0 &amp; 0
 \end{pmatrix}
-\end{align}.
-
-\begin{align}
+\end{align}</div>
+<p>.</p>
+<div class="math">\begin{align}
   \text{Eig}(1) &amp;= K_1(1) = \text{Kern}(\Omega) \\
   &amp;= \text{Kern} \begin{pmatrix}
      1 &amp; 1 &amp; 0 &amp; 0\\
@@ -219,8 +245,8 @@ K_2(1) &amp;= \text{Kern}(\Omega(1)^2) \\
      0 &amp; 0 &amp; 0 &amp; 0
    \end{pmatrix}\\
   &amp;= \left [ \begin{pmatrix}1\\-1\\0\\0\end{pmatrix}, \begin{pmatrix}0\\0\\1\\-1\end{pmatrix} \right ]
-\end{align}
-\begin{align}
+\end{align}</div>
+<div class="math">\begin{align}
   K_2(1) &amp;= \text{Kern}(\Omega^2) \\
   &amp;= \text{Kern} \begin{pmatrix}
      1 &amp; 1 &amp; 1 &amp; 1\\
@@ -230,45 +256,41 @@ K_2(1) &amp;= \text{Kern}(\Omega(1)^2) \\
    \end{pmatrix}\\
   &amp;= \left [ \begin{pmatrix}1\\-1\\0\\0\end{pmatrix}, \begin{pmatrix}1\\0\\-1\\0\end{pmatrix}, \begin{pmatrix}1\\0\\0\\-1\end{pmatrix} \right ]\\
   K_3(1) &amp;= \text{Kern}(\Omega^3) = \mathbb{R}^4\\
-\end{align}K_3(1) = \mathbb{R}^4$ ist das gr&ouml;&szlig;te Jordank&auml;stchen von der Gr&ouml;&szlig;e 3. Damit ergibt sich folgende Jordannormalform:
-
-$J = 
-\begin{pmatrix}
+\end{align}</div>
+<p>K_3(1) = \mathbb{R}^4$ ist das gr&ouml;&szlig;te Jordank&auml;stchen von der Gr&ouml;&szlig;e 3. Damit ergibt sich folgende Jordannormalform:</p>
+<p><span class="math">\(J = 
+<div class="math">\begin{pmatrix}
 1 &amp; 0 &amp; 0 &amp; 0\\
 0 &amp; 1 &amp; 1 &amp; 0\\
 0 &amp; 0 &amp; 1 &amp; 1\\
 0 &amp; 0 &amp; 0 &amp; 1
-   \end{pmatrix}$
-
+   \end{pmatrix}</div>\)</span></p>
 <h3 id="basiswechselmatrix bestimmen">Basiswechselmatrix bestimmen</h3>
-F&uuml;r jedes Jordank&auml;stchen der L&auml;nge $i$ muss nun 1 Vektor gew&auml;hlt werden und $i-1$ Vektoren m&uuml;ssen bestimmt werden. Daf&uuml;r muss $\Omega(\lambda) := C - \lambda \cdot E$ bestimmt werden. 
-
-<strong>Eigenwert 1:</strong>
+<p>F&uuml;r jedes Jordank&auml;stchen der L&auml;nge <span class="math">\(i\)</span> muss nun 1 Vektor gew&auml;hlt werden und <span class="math">\(i-1\)</span> Vektoren m&uuml;ssen bestimmt werden. Daf&uuml;r muss <span class="math">\(\Omega(\lambda) := C - \lambda \cdot E\)</span> bestimmt werden. </p>
+<p><strong>Eigenwert 1:</strong>
 <strong>K&auml;stchengr&ouml;&szlig;e 3</strong>
-$b_1 \in K_3(1) \land b_1 \notin K_2(1) \Rightarrow b_1 \in \left [ \begin{pmatrix}1\\0\\0\\0\end{pmatrix} \right ]$. W&auml;hle $b_1 = \begin{pmatrix}1\\0\\0\\0\end{pmatrix}$.
-
-$b_2 = \Omega(b_1) = \begin{pmatrix}0\\-1\\0\\1\end{pmatrix}$.
-
-$b_3 = \Omega^2(b_1) = \Omega(b_2)= \begin{pmatrix}-1\\1\\1\\-1\end{pmatrix}$
-
-<strong>K&auml;stchengr&ouml;&szlig;e 1</strong>
-$b_4 = \begin{pmatrix}1\\-1\\0\\0\end{pmatrix}$
-
-Das 1-er K&auml;stchen soll zuerst kommen, also muss $b_4$ zuerst in die Basiswechselmatrix.
-Unsere gesuchte Matrix $S$ f&uuml;r die oben angegebene JNF ist also:
-$S = \begin{pmatrix}
+<span class="math">\(b_1 \in K_3(1) \land b_1 \notin K_2(1) \Rightarrow b_1 \in \left [ <div class="math">\begin{pmatrix}1\\0\\0\\0\end{pmatrix}</div> \right ]\)</span>. W&auml;hle <span class="math">\(b_1 = <div class="math">\begin{pmatrix}1\\0\\0\\0\end{pmatrix}</div>\)</span>.</p>
+<p><span class="math">\(b_2 = \Omega(b_1) = <div class="math">\begin{pmatrix}0\\-1\\0\\1\end{pmatrix}</div>\)</span>.</p>
+<p><span class="math">\(b_3 = \Omega^2(b_1) = \Omega(b_2)= <div class="math">\begin{pmatrix}-1\\1\\1\\-1\end{pmatrix}</div>\)</span></p>
+<p><strong>K&auml;stchengr&ouml;&szlig;e 1</strong>
+<span class="math">\(b_4 = <div class="math">\begin{pmatrix}1\\-1\\0\\0\end{pmatrix}</div>\)</span></p>
+<p>Das 1-er K&auml;stchen soll zuerst kommen, also muss <span class="math">\(b_4\)</span> zuerst in die Basiswechselmatrix.
+Unsere gesuchte Matrix <span class="math">\(S\)</span> f&uuml;r die oben angegebene JNF ist also:
+$S = </p>
+<div class="math">\begin{pmatrix}
 b_4 &amp; b_3 &amp; b_2 &amp; b_1
-\end{pmatrix} = \begin{pmatrix}
+\end{pmatrix}</div>
+<p> = </p>
+<div class="math">\begin{pmatrix}
 1  &amp; -1 &amp;  0 &amp; 1\\
 -1 &amp;  1 &amp; -1 &amp; 0\\
  0 &amp;  1 &amp;  0 &amp; 0\\
  0 &amp; -1 &amp;  1 &amp; 0
-\end{pmatrix} $
-
-Nun sollte
-$J = S^{-1} \cdot C \cdot S$ gelten. Also, Schritt f&uuml;r Schritt:
-
-\begin{align}
+\end{pmatrix}</div>
+<p> $</p>
+<p>Nun sollte
+<span class="math">\(J = S^{-1} \cdot C \cdot S\)</span> gelten. Also, Schritt f&uuml;r Schritt:</p>
+<div class="math">\begin{align}
 S^{-1} \cdot C \cdot S &amp;= \begin{pmatrix}
 0 &amp; -1 &amp; 0 &amp; -1\\
 0 &amp;  0 &amp; 1 &amp;  0\\
@@ -306,12 +328,58 @@ S^{-1} \cdot C \cdot S &amp;= \begin{pmatrix}
 0 &amp; 0 &amp; 1 &amp; 1\\
 0 &amp; 0 &amp; 0 &amp; 1
    \end{pmatrix}
-\end{align}
-
+\end{align}</div>
 <h3 id="programmierung">Programmierung</h3>
-Hier habe ich mal f&uuml;r Leute, die kein Python haben, als Kommentar das Ergebnis pr&auml;sentiert. Ich denke damit ist klar, welchen Einfluss die Reihenfolge der Basisvektoren hat.
+<p>Hier habe ich mal f&uuml;r Leute, die kein Python haben, als Kommentar das Ergebnis pr&auml;sentiert. Ich denke damit ist klar, welchen Einfluss die Reihenfolge der Basisvektoren hat.</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
 
-wzxhzdk:0</div>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">linalg</span>
+<span class="n">numpy</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">suppress</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
+
+<span class="n">C</span>  <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+<span class="n">b1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">b2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">b3</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">b4</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">S</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">matrix</span><span class="p">([</span><span class="n">b4</span><span class="p">,</span><span class="n">b1</span><span class="p">,</span><span class="n">b2</span><span class="p">,</span><span class="n">b3</span><span class="p">])</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span> <span class="c1"># [[ 1  0  0  0]</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">"4123"</span><span class="p">)</span>                               <span class="c1">#  [ 0  1  0  0]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="o">*</span> <span class="n">C</span> <span class="o">*</span> <span class="n">S</span><span class="p">)</span>                <span class="c1">#  [ 0  1  1  0]</span>
+                                            <span class="c1">#  [ 0  0  1  1]]</span>
+
+<span class="n">S</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">matrix</span><span class="p">([</span><span class="n">b4</span><span class="p">,</span><span class="n">b1</span><span class="p">,</span><span class="n">b3</span><span class="p">,</span><span class="n">b2</span><span class="p">])</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span> <span class="c1">#[[ 1  0  0  0]</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">"4132"</span><span class="p">)</span>                               <span class="c1"># [ 0  1  0  0]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="o">*</span> <span class="n">C</span> <span class="o">*</span> <span class="n">S</span><span class="p">)</span>                <span class="c1"># [ 0  0  1  1]</span>
+                                            <span class="c1"># [ 0  1  0  1]]</span>
+
+<span class="n">S</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">matrix</span><span class="p">([</span><span class="n">b4</span><span class="p">,</span><span class="n">b2</span><span class="p">,</span><span class="n">b1</span><span class="p">,</span><span class="n">b3</span><span class="p">])</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span> <span class="c1"># [[ 1  0  0  0]</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">"4213"</span><span class="p">)</span>                               <span class="c1">#  [ 0  1  1  0]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="o">*</span> <span class="n">C</span> <span class="o">*</span> <span class="n">S</span><span class="p">)</span>                <span class="c1">#  [ 0  0  1  0]</span>
+                                            <span class="c1">#  [ 0  1  0  1]]</span>
+
+<span class="n">S</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">matrix</span><span class="p">([</span><span class="n">b4</span><span class="p">,</span><span class="n">b2</span><span class="p">,</span><span class="n">b3</span><span class="p">,</span><span class="n">b1</span><span class="p">])</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span> <span class="c1"># [[ 1  0  0  0]</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">"4231"</span><span class="p">)</span>                               <span class="c1">#  [ 0  1  0  1]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="o">*</span> <span class="n">C</span> <span class="o">*</span> <span class="n">S</span><span class="p">)</span>                <span class="c1">#  [ 0  1  1  0]</span>
+                                            <span class="c1">#  [ 0  0  0  1]]</span>
+
+<span class="n">S</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">matrix</span><span class="p">([</span><span class="n">b4</span><span class="p">,</span><span class="n">b3</span><span class="p">,</span><span class="n">b1</span><span class="p">,</span><span class="n">b2</span><span class="p">])</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span> <span class="c1"># [[ 1  0  0  0]</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">"4312"</span><span class="p">)</span>                               <span class="c1">#  [ 0  1  0  1]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="o">*</span> <span class="n">C</span> <span class="o">*</span> <span class="n">S</span><span class="p">)</span>                <span class="c1">#  [ 0  0  1  0]</span>
+                                            <span class="c1">#  [ 0  0  1  1]]</span>
+
+<span class="n">S</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">matrix</span><span class="p">([</span><span class="n">b4</span><span class="p">,</span><span class="n">b3</span><span class="p">,</span><span class="n">b2</span><span class="p">,</span><span class="n">b1</span><span class="p">])</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span> <span class="c1"># [[ 1  0  0  0]</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">"4321"</span><span class="p">)</span>                               <span class="c1">#  [ 0  1  1  0]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="o">*</span> <span class="n">C</span> <span class="o">*</span> <span class="n">S</span><span class="p">)</span>                <span class="c1">#  [ 0  0  1  1]</span>
+                                            <span class="c1">#  [ 0  0  0  1]]</span>
+
+<span class="n">S</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">matrix</span><span class="p">([</span><span class="n">b3</span><span class="p">,</span><span class="n">b2</span><span class="p">,</span><span class="n">b1</span><span class="p">,</span><span class="n">b4</span><span class="p">])</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span> <span class="c1"># [[ 1  1  0  0]</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">"3214"</span><span class="p">)</span>                               <span class="c1">#  [ 0  1  1  0]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="o">*</span> <span class="n">C</span> <span class="o">*</span> <span class="n">S</span><span class="p">)</span>                <span class="c1">#  [ 0  0  1  0]</span>
+                                            <span class="c1">#  [ 0  0  0  1]]</span>
+</pre></div>
             
             <div id="disqus_thread"></div>
 <script>
