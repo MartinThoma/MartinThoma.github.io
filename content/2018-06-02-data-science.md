@@ -78,6 +78,30 @@ I try to avoid clustering and pure EDA tasks as they are ill-defined. You can't
 say when you are ready which makes it hard to get satisfying results.
 
 
+## Data Science vs Business Analytics
+
+Both, data science and business analytics are closely related. They certainly
+have big overlaps. Here are some differences:
+
+<table>
+    <tr>
+        <th></th>
+        <th>Business Intelligence</th>
+        <th>Data Science</th>
+    </tr>
+    <tr>
+        <th>Tasks</th>
+        <td>Reports</td>
+        <td>Predictive models</td>
+    </tr>
+    <tr>
+        <td>Tool</td>
+        <td>Qlickview, SAP</td>
+        <td>Pandas, sklearn, Jupiter notebooks, Tensorflow, Keras, XGBoost, scipy, numpy</td>
+    </tr>
+</table>
+
+
 ## Data Scientist vs Data Engineer
 
 Both, data scientists and data engineers, deal with data. While the engineer
@@ -93,8 +117,8 @@ creation and analysis tasks.
     </tr>
     <tr>
         <td>Typical Background</td>
-        <td>Computer Science + Mathematics</td>
         <td>Computer Science + Software Engineering</td>
+        <td>Computer Science + Mathematics</td>
     </tr>
     <tr>
         <td>Tasks</td>
