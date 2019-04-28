@@ -4,7 +4,7 @@ title: WhatsApp Data
 slug: whatsapp-data
 author: Martin Thoma
 date: 2018-12-23 20:00
-category: My bits and bytes
+category: Cyberculture
 tags: Machine Learning, WhatsApp, Text Mining, Pandas
 featured_image: logos/ml.png
 ---

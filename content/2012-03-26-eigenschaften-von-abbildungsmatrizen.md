@@ -17,8 +17,8 @@ Eine Abbildungsmatrix beschreibt eine lineare Abbildungs zwischen zwei endlichdi
 </ul>
 </div>
 Sei V ein n-dimensionaler $\mathbb{K}$-Vektorraum mit der Basis $B = \{b_1, b_2, ..., b_n\}$ und W ein m-dimensonaler $\mathbb{K}$-Vektorraum mit der Basis $C = \{c_1, c_2, ..., c_m\}$.
-<div class="definition">
 
+<div class="definition">
 Sei $\Phi:V \rightarrow W$ eine lineare Abbildung.
 
 Dann ordnen wir der linearen Abbildung $\Phi$ in folgender Weise eine Matrix A zu:
@@ -28,38 +28,39 @@ Dann gilt:
 $\Phi(x) = A \cdot x ~~~\text{ mit } x \in V$
 
 Diese Matrix A nennt man <strong>Abbildungsmatrix</strong>.
-
 </div>
+
 <h2>Beispiele</h2>
 Sei $\Phi: \mathbb{R}^4 \rightarrow \mathbb{R}^3$.
+
 <h3>Nullzeile</h3>
-$A_1 = \left . \underbrace{\begin{pmatrix} 0 &amp; 0 &amp; 0 &amp; 0 \\1 &amp; 2 &amp; 3 &amp; 4 \\5 &amp; 6 &amp; 7 &amp; 8 \end{pmatrix}}_\text{dim V} \right \} \text{dim W}$
+$$A_1 = \left . \underbrace{\begin{pmatrix} 0 & 0 & 0 & 0 \\1 & 2 & 3 & 4 \\5 & 6 & 7 & 8 \end{pmatrix}}_\text{dim V} \right \} \text{dim W}$$
 <h4>Standardbasis</h4>
-Sei $B_S = (\begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \\ 0 \\ 0 \end{pmatrix}, \begin{pmatrix} 0 \\ 0 \\ 1 \\ 0 \end{pmatrix}, \begin{pmatrix} 0 \\ 0 \\ 0 \\ 1 \end{pmatrix})$ und
-$C_S = (\begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}, \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix})$
+Sei $$B_S = (\begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \\ 0 \\ 0 \end{pmatrix}, \begin{pmatrix} 0 \\ 0 \\ 1 \\ 0 \end{pmatrix}, \begin{pmatrix} 0 \\ 0 \\ 0 \\ 1 \end{pmatrix})$$ und
+$$C_S = (\begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}, \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix})$$
 Also sind B und C die geordnete Standardbasis des $\mathbb{R}^4$ bzw. des $\mathbb{R}^3$.
 
 Was macht nun eine Abbildung $\Phi$ mit der Matrix $A_1$?
 
 Ich denke ist ist leicht ersichtlich, dass bei einer Abbildungsmatrix dieser Form die erste Komponente des Bildvektors immer 0 ist.
 
-$\Phi_1(\begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \end{pmatrix}) = \begin{pmatrix} 0 \\ 30 \\ 70 \end{pmatrix}$ (siehe <a href="http://www.wolframalpha.com/input/?i=%7B%7B0%2C0%2C0%2C0%7D%2C%7B1%2C2%2C3%2C4%7D%2C%7B5%2C6%2C7%2C8%7D%7D.%7B%7B1%7D%2C%7B2%7D%2C%7B3%7D%2C%7B4%7D%7D">Wolfram|Alpha</a>)
-$\Phi_1(\begin{pmatrix} 5 \\ -2 \\ 7 \\ -1 \end{pmatrix}) = \begin{pmatrix} 0 \\ 18 \\ 54 \end{pmatrix}$ (siehe <a href="http://www.wolframalpha.com/input/?i=%7B%7B0%2C0%2C0%2C0%7D%2C%7B1%2C2%2C3%2C4%7D%2C%7B5%2C6%2C7%2C8%7D%7D.%7B%7B5%7D%2C%7B-2%7D%2C%7B7%7D%2C%7B-1%7D%7D">Wolfram|Alpha</a>)
+$$\Phi_1(\begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \end{pmatrix}) = \begin{pmatrix} 0 \\ 30 \\ 70 \end{pmatrix}$$ (siehe <a href="http://www.wolframalpha.com/input/?i=%7B%7B0%2C0%2C0%2C0%7D%2C%7B1%2C2%2C3%2C4%7D%2C%7B5%2C6%2C7%2C8%7D%7D.%7B%7B1%7D%2C%7B2%7D%2C%7B3%7D%2C%7B4%7D%7D">Wolfram|Alpha</a>)
+$$\Phi_1(\begin{pmatrix} 5 \\ -2 \\ 7 \\ -1 \end{pmatrix}) = \begin{pmatrix} 0 \\ 18 \\ 54 \end{pmatrix}$$ (siehe <a href="http://www.wolframalpha.com/input/?i=%7B%7B0%2C0%2C0%2C0%7D%2C%7B1%2C2%2C3%2C4%7D%2C%7B5%2C6%2C7%2C8%7D%7D.%7B%7B5%7D%2C%7B-2%7D%2C%7B7%7D%2C%7B-1%7D%7D">Wolfram|Alpha</a>)
 <h4>Andere Basis</h4>
-Sei $B_1 = (\begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \end{pmatrix}, \begin{pmatrix} 1 \\ 3 \\ 3 \\ 7 \end{pmatrix}, \begin{pmatrix} 3 \\ 1 \\ 4 \\ 1 \end{pmatrix}, \begin{pmatrix} 2 \\ 7 \\ 1 \\ 8 \end{pmatrix})$ und
-$C_1 = (\begin{pmatrix} 2 \\ 3 \\ 5 \end{pmatrix}, \begin{pmatrix} 3 \\ 5 \\ 7 \end{pmatrix}, \begin{pmatrix} 5 \\ 7 \\ 11 \end{pmatrix})$
+Sei $$B_1 = (\begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \end{pmatrix}, \begin{pmatrix} 1 \\ 3 \\ 3 \\ 7 \end{pmatrix}, \begin{pmatrix} 3 \\ 1 \\ 4 \\ 1 \end{pmatrix}, \begin{pmatrix} 2 \\ 7 \\ 1 \\ 8 \end{pmatrix})$$ und
+$$C_1 = (\begin{pmatrix} 2 \\ 3 \\ 5 \end{pmatrix}, \begin{pmatrix} 3 \\ 5 \\ 7 \end{pmatrix}, \begin{pmatrix} 5 \\ 7 \\ 11 \end{pmatrix})$$
 
 Auch hier schauen wir uns wieder die Abbildung $\Phi$ mit der Abbildungsmatrix $A_1$ an.
 
-$\Phi_1(\underbrace{\begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \end{pmatrix}}_\text{in Basis C}) = A_1 \cdot \begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \end{pmatrix} = \underbrace{\begin{pmatrix} 0 \\ 30 \\ 70 \end{pmatrix}}_\text{in Basis B}$
+$$\Phi_1(\underbrace{\begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \end{pmatrix}}_\text{in Basis C}) = A_1 \cdot \begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \end{pmatrix} = \underbrace{\begin{pmatrix} 0 \\ 30 \\ 70 \end{pmatrix}}_\text{in Basis B}$$
 
 Auch hier ist also die erste Komponente jedes Bildvektors 0. Allerdings haben die Bildvektoren nun eine andere Basis. Sie werden sozusagen anders interpretiert.
 <h3>Nullspalte</h3>
-$A_2 = \begin{pmatrix} 0 &amp; 1 &amp; 2 &amp; 3 \\0 &amp; 4 &amp; 5 &amp; 6 \\0 &amp; 7 &amp; 8 &amp; 9 \end{pmatrix}$
+$$A_2 = \begin{pmatrix} 0 & 1 & 2 & 3 \\0 & 4 & 5 & 6 \\0 & 7 & 8 & 9 \end{pmatrix}$$
 
 Nun mal wieder zwei Beispiel-Abbildungen:
-$\Phi_2(\begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \end{pmatrix}) = \begin{pmatrix} 20 \\ 47 \\ 74 \end{pmatrix}$ (siehe <a href="http://www.wolframalpha.com/input/?i=%7B%7B0%2C1%2C2%2C3%7D%2C%7B0%2C4%2C5%2C6%7D%2C%7B0%2C7%2C8%2C9%7D%7D.%7B%7B1%7D%2C%7B2%7D%2C%7B3%7D%2C%7B4%7D%7D">Wolfram|Alpha</a>)
-$\Phi_2(\begin{pmatrix} 100 \\ 2 \\ 3 \\ 7 \end{pmatrix}) = \begin{pmatrix} 20 \\ 47 \\ 74 \end{pmatrix}$ (siehe <a href="http://www.wolframalpha.com/input/?i=%7B%7B0%2C1%2C2%2C3%7D%2C%7B0%2C4%2C5%2C6%7D%2C%7B0%2C7%2C8%2C9%7D%7D.%7B%7B100%7D%2C%7B2%7D%2C%7B3%7D%2C%7B4%7D%7D">Wolfram|Alpha</a>)
+$$\Phi_2(\begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \end{pmatrix}) = \begin{pmatrix} 20 \\ 47 \\ 74 \end{pmatrix}$$ (siehe <a href="http://www.wolframalpha.com/input/?i=%7B%7B0%2C1%2C2%2C3%7D%2C%7B0%2C4%2C5%2C6%7D%2C%7B0%2C7%2C8%2C9%7D%7D.%7B%7B1%7D%2C%7B2%7D%2C%7B3%7D%2C%7B4%7D%7D">Wolfram|Alpha</a>)
+$$\Phi_2(\begin{pmatrix} 100 \\ 2 \\ 3 \\ 7 \end{pmatrix}) = \begin{pmatrix} 20 \\ 47 \\ 74 \end{pmatrix}$$ (siehe <a href="http://www.wolframalpha.com/input/?i=%7B%7B0%2C1%2C2%2C3%7D%2C%7B0%2C4%2C5%2C6%7D%2C%7B0%2C7%2C8%2C9%7D%7D.%7B%7B100%7D%2C%7B2%7D%2C%7B3%7D%2C%7B4%7D%7D">Wolfram|Alpha</a>)
 
 Wenn die Abbildungsmatrix eine Nullspalte hat, ist es egal was der abzubildende Vektor als Eintrag an dieser Stelle hat.
 <h2>Basiswechsel bei Abbildungen</h2>
@@ -103,14 +104,14 @@ A_1′ = T_S^{C1} \cdot A_1 \cdot T_{B1}^S =
 $$ (siehe <a href="http://www.wolframalpha.com/input/?i=%7B%7B-3%2C+-1%2C+2%7D%2C+%7B-1%2C+3%2F2%2C+-1%2F2%7D%2C+%7B2%2C+-1%2F2%2C+-1%2F2%7D%7D+*+%7B%7B0%2C0%2C0%2C0%7D%2C%7B1%2C2%2C3%2C4%7D%2C%7B5%2C6%2C7%2C8%7D%7D+*+%7B%7B1%2C1%2C3%2C2%7D%2C%7B2%2C3%2C1%2C7%7D%2C%7B3%2C3%2C4%2C1%7D%2C%7B4%2C7%2C1%2C8%7D%7D">Wolfram|Alpha</a>)
 
 Ein Test ob es stimmen kann:
-z.B. sind $\begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \end{pmatrix}_S = 1 \cdot \begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \end{pmatrix} + 0 \cdot \begin{pmatrix} 1 \\ 3 \\ 3 \\ 7 \end{pmatrix} + 0 \cdot \begin{pmatrix} 3 \\ 1 \\ 4 \\ 1 \end{pmatrix} + 0 \cdot \begin{pmatrix} 2 \\ 7 \\ 1 \\ 8 \end{pmatrix} = \begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \end{pmatrix}_{B_1} $ und
-$\begin{pmatrix} 0 \\ 30 \\ 70 \end{pmatrix}_S = 110 \cdot \begin{pmatrix} 2 \\ 3 \\ 5 \end{pmatrix} + 10 \cdot \begin{pmatrix} 3 \\ 5 \\ 7 \end{pmatrix} -50 \cdot \begin{pmatrix} 5 \\ 7 \\ 11 \end{pmatrix} = \begin{pmatrix} 110 \\ 10 \\ -50 \end{pmatrix}_{C_1}$
+z.B. sind $$\begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \end{pmatrix}_S = 1 \cdot \begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \end{pmatrix} + 0 \cdot \begin{pmatrix} 1 \\ 3 \\ 3 \\ 7 \end{pmatrix} + 0 \cdot \begin{pmatrix} 3 \\ 1 \\ 4 \\ 1 \end{pmatrix} + 0 \cdot \begin{pmatrix} 2 \\ 7 \\ 1 \\ 8 \end{pmatrix} = \begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \end{pmatrix}_{B_1}$$ und
+$$\begin{pmatrix} 0 \\ 30 \\ 70 \end{pmatrix}_S = 110 \cdot \begin{pmatrix} 2 \\ 3 \\ 5 \end{pmatrix} + 10 \cdot \begin{pmatrix} 3 \\ 5 \\ 7 \end{pmatrix} -50 \cdot \begin{pmatrix} 5 \\ 7 \\ 11 \end{pmatrix} = \begin{pmatrix} 110 \\ 10 \\ -50 \end{pmatrix}_{C_1}$$
 
-$\begin{pmatrix}
-110 &amp; 156 &amp; 93 &amp; 195 \\
-10 &amp; 16 &amp; 3 &amp; 15 \\
--50 &amp; -72 &amp; -39 &amp; -87
-\end{pmatrix} \cdot \begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \end{pmatrix}_{B_1} = \begin{pmatrix} 110 \\ 10 \\ -50 \end{pmatrix}$ (siehe <a href="http://www.wolframalpha.com/input/?i=%7B%7B110%2C+156%2C+93%2C+195%7D%2C+%7B10%2C+16%2C+3%2C+15%7D%2C+%7B-50%2C+-72%2C+-39%2C+-87%7D%7D+*+%7B%7B1%7D%2C%7B0%7D%2C%7B0%7D%2C%7B0%7D%7D">Wolfram|Alpha</a>)
+$$\begin{pmatrix}
+110 & 156 & 93 & 195 \\
+10 & 16 & 3 & 15 \\
+-50 & -72 & -39 & -87
+\end{pmatrix} \cdot \begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \end{pmatrix}_{B_1} = \begin{pmatrix} 110 \\ 10 \\ -50 \end{pmatrix}$$ (siehe <a href="http://www.wolframalpha.com/input/?i=%7B%7B110%2C+156%2C+93%2C+195%7D%2C+%7B10%2C+16%2C+3%2C+15%7D%2C+%7B-50%2C+-72%2C+-39%2C+-87%7D%7D+*+%7B%7B1%7D%2C%7B0%7D%2C%7B0%7D%2C%7B0%7D%7D">Wolfram|Alpha</a>)
 
 Ich habe keine Ahnung, wie man nur mit den Basen B und C und der Abbildungsmatrix $A_1'$ wieder auf die Abbildungsmatrix $A_1$ kommt. Ich habe auf <a title="How can I determinate the bases for the most simple representation of a linear transformation?" href="http://math.stackexchange.com/q/123495/6876">Stackexchange</a> mal nachgefragt, aber das ist nicht von Erfolg gekr&ouml;nt gewesen.
 <h2>Anzahl der Abbildungsmatrizen</h2>
@@ -125,9 +126,10 @@ Sei $F: V \rightarrow V$ die Shift-Abbildung $(Fp)(t) = p(t+1)$
 Wenn V allerdings der $\mathbb{Z}/ 2 \mathbb{Z}$ und W der $\mathbb{Z}/ 3 \mathbb{Z}$ &uuml;ber jeweils den K&ouml;rper $\mathbb{Z}/ 2 \mathbb{Z}$ sind, dann ist die Abbildungsmatrix eine 1x1 Matrix. Das eine Element dieser 1x1 Matrix kann zwei verschiedene Werte - 0 und 1 - annehmen. Selbst wenn W der $\mathbb{Z}/ 41 \mathbb{Z}$ w&auml;re, w&uuml;rde es nur zwei verschiedene Abbildungen geben.
 
 Wenn V der $\mathbb{Z}/ 3 \mathbb{Z}$ und W der $\mathbb{Z}/ 2 \mathbb{Z}$ ist, dann gibt es nur eine lineare Abbildung $\Phi: V \rightarrow W$(die Nullabbildung).
-Die Abbildungsmatrix $\begin{pmatrix}1\end{pmatrix}$ bezeichnet keine lineare Abbildung $\Phi$, da 2 in V ist, aber nicht in W.
+Die Abbildungsmatrix $(1)$ bezeichnet keine lineare Abbildung $\Phi$, da 2 in V ist, aber nicht in W.
 
 Es scheint also so zu sein, dass man im Allgemeinen nichts &uuml;ber die Anzahl der linearen Abbildungen sagen kann.
+
 <h2>Dies und das</h2>
 Zwei lineare Abbildungen k&ouml;nnen hintereinander ausgef&uuml;hrt werden, indem ihre Matrizen multipliziert werden:
 $\Phi_1 : V \rightarrow W, \Phi_1(x) := A_1 \cdot x$

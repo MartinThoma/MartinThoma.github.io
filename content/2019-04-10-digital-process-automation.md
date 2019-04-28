@@ -4,8 +4,8 @@ title: Digital Process Automation
 slug: digital-process-automation
 author: Martin Thoma
 date: 2019-04-10 20:00
-category: My bits and bytes
-tags: Automation, Shell
+category: Cyberculture
+tags: Automation, Shell, Productivity
 featured_image: logos/star.png
 ---
 
@@ -159,6 +159,8 @@ And some things you have to install
     <dd><code>curl</code> or <code>wget</code> or <code>httpie</code> (<a href="https://httpie.org/">website</a>)</dd>
     <dt>Manipulate JSON files</dt>
     <dd><code>jq</code> (<a href="https://stedolan.github.io/jq/">website</a>)</dd>
+    <dt>Environment Variable Loading / Unloading</dt>
+    <dd><a href="https://direnv.net/">direnv</a></dd>
 </dl>
 
 `vim` and its various plugins like NERDTree and Powerline are a completely

@@ -4,7 +4,7 @@ title: Code Challenges in ML
 slug: code-challenges-in-ml
 author: Martin Thoma
 date: 2018-12-25 20:00
-category: My bits and bytes
+category: Machine Learning
 tags: Machine Learning
 featured_image: logos/ml.png
 ---

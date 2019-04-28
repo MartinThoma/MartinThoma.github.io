@@ -29,7 +29,7 @@ Sobald man diese Zerlegung hat, kann man die Eigenwerte und die algebraische Vie
 <h3>Anzahl der Jordankästchen bestimmen</h3>
 Jeder Eigenwert hat genau einen Jordanblock. Jeder Jordanblock hat wiederum Jordankästchen. Das sieht so aus:
 
-<span>\(  J =
+$$J =
     \left(
       \begin{array}{*4{c}}
         A_{\lambda_1} &               &        & 0\\
@@ -37,7 +37,7 @@ Jeder Eigenwert hat genau einen Jordanblock. Jeder Jordanblock hat wiederum Jord
                       &               & \ddots &  \\
            0          &               &        & A_{\lambda_k}
       \end{array}
-    \right)\)</span>
+    \right)$$
 
 <span>$A_{\lambda_i}$</span> sind die Jordanblöcke zu den Eigenwerten <span>$\lambda_i$</span>.
 

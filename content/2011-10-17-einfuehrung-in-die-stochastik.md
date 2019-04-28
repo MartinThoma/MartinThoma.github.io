@@ -55,8 +55,9 @@ Wie stark weichen die Werte von einander ab?
 Wie gro&szlig; ist die Schwankung relativ zum Durchschnitt?
 
 <strong>Stichproben-Median / Zentralwert</strong>: W&uuml;rde mal alle Werte einer Stichprobe sortieren, sollte der Median der Wert in der Mitte sein. Das ist <em>nicht</em> der Durchschnitt!
-$\tilde x := \begin{cases} x_{\frac{n+1}{2}}, & \mbox{wenn }   n \mbox{ ungerade} \\
-                                 \frac{1}{2} (x_\frac{n}{2} + x_{\frac{n}{2} + 1}), & \mbox{wenn } n \mbox{ gerade} \end{cases}$
+
+$$\tilde x := \begin{cases} x_{\frac{n+1}{2}}, & \mbox{wenn }   n \mbox{ ungerade} \\
+                                 \frac{1}{2} (x_\frac{n}{2} + x_{\frac{n}{2} + 1}), & \mbox{wenn } n \mbox{ gerade} \end{cases}$$
 
 <strong>Quantil</strong>: Das Quantil unterteilt die Verteilung der Werte der Zufallsvariablen in zwei Bereiche: Links vom $\alpha$-Quantil liegen $100 \cdot p$ Prozent aller Beobachtungswerte bzw. $100 \cdot p$ Prozent der Gesamtzahl der Zufallswerte. Rechts davon liegen $100 \cdot (1-p)$ Prozent aller Beobachtungswerte bzw. $100 \cdot (1-p)$ Prozent der Gesamtzahl der Zufallswerte. 
 
@@ -82,13 +83,14 @@ Weitere Visualisierungsm&ouml;glichkeiten:
 
 <h2>Ann&auml;herungen</h2>
 Durch eine <a href="http://de.wikipedia.org/wiki/Regressionsanalyse">Regressionsanalyse</a> kann man ein Regressionsmodell erstellen. Es legt den Typ einer Regressionsfunktion fest. Eine Regressionsfunktion kann z.B. die <a href="http://de.wikipedia.org/wiki/Regressionsfunktion">Methode der kleinsten Quadrate</a> sein:
-$\sum \limits_{j=1}^{n}\overbrace{(\underbrace{y_i -a -b \cdot x_j}_{\text{Residuum}})^2}^{
+
+$$\sum \limits_{j=1}^{n}\overbrace{(\underbrace{y_i -a -b \cdot x_j}_{\text{Residuum}})^2}^{
 \begin{array}{l}
 \text{Damit sich negative positive}\\
 \text{Abweichungen nicht gegenseitig}\\
 \text{aufheben}
 \end{array}
-}$
+}$$
 
 <h3>Geradenparameter errechnen</h3>
 Tja, hier hat er die Folien viel zu schnell durchgeschaltet ... ich habe nur folgendes:

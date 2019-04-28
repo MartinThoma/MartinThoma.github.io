@@ -135,13 +135,13 @@ My algorithm needs space for the inverse matrix, so it is in $\mathcal{O}(n^2)$.
 <h2>Inverting an upper triangular matrix</h2>
 Suppose you have an upper triangular matrix $A \in \mathbb{R^{n \times n}}$ that you would like to invert. It could look like this:
 
-$\begin{pmatrix}
+$$\begin{pmatrix}
 2 & 7 & 1 & 8 & 2\\
 0 & 8 & 1 & 8 & 2\\
 0 & 0 & 8 & 4 & 5\\
 0 & 0 & 0 & 9 & 0\\
 0 & 0 & 0 & 0 & 4
-\end{pmatrix}$
+\end{pmatrix}$$
 
 How could we improve the algorithm from above to get speed it up?
 

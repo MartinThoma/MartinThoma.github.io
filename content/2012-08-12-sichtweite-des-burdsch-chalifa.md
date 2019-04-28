@@ -44,33 +44,29 @@ Gesucht ist die gr&uuml;n eingezeichnete Kurve, die sich &uuml;ber die Erdoberfl
 Um diese zu berechnen, m&uuml;ssen wir wissen welchen Radius die Kreisfl&auml;che hat, die entsteht, wenn man die Erde am 25. Breitengrad schneidet. Der Radius dieser Kreisfl&auml;che sei $r_{25}$.
 
 <h3>Berechnung</h3>
-$
-        \begin{align}
-            \text{Breitengrad} &= 25 + \frac{11}{60} + \frac{50}{60 \cdot 60} \\
-            \text{Breitengrad} &= \frac{9071}{360} \approx 25,1972 \\
-            \cos(\frac{9071}{360}) &= \frac{r_{25,1972}}{6370\text{km}} \\
-            r_{25,1972} &= \cos(\frac{9071}{360}) \cdot 6370\text{km} \\
-            r_{25,1972} &\approx 5764\text{km}
-        \end{align}
-$
+
+\begin{align}
+    \text{Breitengrad} &= 25 + \frac{11}{60} + \frac{50}{60 \cdot 60} \\
+    \text{Breitengrad} &= \frac{9071}{360} \approx 25,1972 \\
+    \cos(\frac{9071}{360}) &= \frac{r_{25,1972}}{6370\text{km}} \\
+    r_{25,1972} &= \cos(\frac{9071}{360}) \cdot 6370\text{km} \\
+    r_{25,1972} &\approx 5764\text{km}
+\end{align}
 
 Der soeben errechnete Radius kann einfach in die im ersten Abschnitt erarbeitete Formel eingesetzt werden:
-$
-    \begin{align}
-        x &= 2 \cdot r \cdot \pi \cdot \frac{\cos^{-1}(\frac{r}{r+h})}{360^\circ} \\
-          &= 2 \cdot 5764 \text{km} \cdot \pi \cdot \frac{\cos^{-1}(\frac{5764}{5764,83})}{360^\circ} \\
-          &\approx 97,8 \text{km}
-    \end{align}
-$
+
+\begin{align}
+x &= 2 \cdot r \cdot \pi \cdot \frac{\cos^{-1}(\frac{r}{r+h})}{360^\circ} \\
+  &= 2 \cdot 5764 \text{km} \cdot \pi \cdot \frac{\cos^{-1}(\frac{5764}{5764,83})}{360^\circ} \\
+  &\approx 97,8 \text{km}
+\end{align}
 
 Nun sollte man noch ber&uuml;cksichtigen, dass die Beobachter wohl nicht auf der Erde kriechen, sondern ihre Augen in einer H&ouml;he von ca. 1,6m sind:
 
-$
-    \begin{align}
-        x &= 2 \cdot 5764 \text{km} \cdot \frac{\pi}{360^\circ} \cdot ( \cos^{-1}(\frac{5764}{5764,83}) + \cos^{-1}(\frac{5764}{5764,0016}) \\
-          &\approx 102 \text{km}
-    \end{align}
-$
+\begin{align}
+    x &= 2 \cdot 5764 \text{km} \cdot \frac{\pi}{360^\circ} \cdot ( \cos^{-1}(\frac{5764}{5764,83}) + \cos^{-1}(\frac{5764}{5764,0016}) \\
+      &\approx 102 \text{km}
+\end{align}
 
 <h3>Antwort</h3>
 Der am weitesten entfernte Punkt, der direkt &ouml;stlich vom Burdsch Chalifa steht und von dem aus die Spitze des Burdsch Chalifa unter optimalen Bedinungen noch erkannt werden kann, liegt ca. 102 km entfernt.

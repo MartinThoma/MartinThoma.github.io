@@ -5,7 +5,7 @@ slug: make-json-serializable
 author: Martin Thoma
 date: 2018-06-27 20:00
 category: Code
-tags: Python, Software Development, JSON
+tags: Python, Software Engineering, JSON
 featured_image: logos/python.png
 ---
 When you're developing a service which has to communicate with a REST endpoint,

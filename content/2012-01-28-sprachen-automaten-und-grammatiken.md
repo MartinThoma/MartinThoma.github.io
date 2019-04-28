@@ -37,7 +37,7 @@ Die folgende Tabelle gibt einen Überblick über formale Sprachen, die Automaten
 <td><span style="color:green;" title="Yes">&#10004;</span></td>
 <td><span style="color:green;" title="Yes">&#10004;</span></td>
 <td><span style="color:green;" title="Yes">&#10004;</span></td>
-<td><span style="color:green;" title="Yes">&#10004;</span></td>
+<td><span style="color:red;" title="No">&#10008;</span></td>
 <td>D. <a href="http://de.wikipedia.org/wiki/Turingmaschine">Turingmaschine</a>, ND. Turingmaschine</td>
 </tr>
 <tr>
@@ -55,9 +55,9 @@ Die folgende Tabelle gibt einen Überblick über formale Sprachen, die Automaten
 <td><a href="http://de.wikipedia.org/wiki/Kontextfreie_Grammatik">kontextfrei</a></td>
 <td>$A \rightarrow v$</td>
 <td><span style="color:green;" title="Yes">&#10004;</span></td>
+<td><span style="color:red;" title="No">&#10008;</span></td>
 <td><span style="color:green;" title="Yes">&#10004;</span></td>
-<td><span style="color:green;" title="Yes">&#10004;</span></td>
-<td><span style="color:green;" title="Yes">&#10004;</span></td>
+<td><span style="color:red;" title="No">&#10008;</span></td>
 <td>ND. <a href="http://de.wikipedia.org/wiki/Kellerautomat">Kellerautomat</a></td>
 </tr>
 <tr>

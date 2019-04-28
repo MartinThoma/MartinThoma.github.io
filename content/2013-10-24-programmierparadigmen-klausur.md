@@ -179,7 +179,7 @@ Stehen seit dem 17.04.2014 fest.
 ## Kritik
 
 In der Vorlesung werden zu viele Inhalte behandelt. Eine Folge ist, dass
-nichts richtig behandelt werden. Außerdem erscheinen mir einige der Inhalte
+nichts richtig behandelt wird. Außerdem erscheinen mir einige der Inhalte
 weder in der Wissenschaft noch in der Wirtschaft relevant zu sein (Prolog, X10).
 Ich würde vorschlagen diese Inhalte zu entfernen. Wenn man der Meinung ist,
 dass man Parallelität mehr behandeln sollte, dann wäre vermutlich CUDA deutlich

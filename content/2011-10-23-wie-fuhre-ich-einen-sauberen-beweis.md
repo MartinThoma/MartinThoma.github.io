@@ -25,12 +25,14 @@ N&ouml;tig ist manchmal nur die Behauptung und der Beweis. Mit der Vorraussetzun
 
 <strong>Behauptung</strong>: $M = (1,5)$
 
-<strong>Beweis</strong>: Per Definition gilt: $|x-3| : = 
+<strong>Beweis</strong>: Per Definition gilt:
+
+$$|x-3| : = 
 \left \{ \begin{array}{ll}
 x      & \text{, falls } x \geq 3 \\
 -(x-3) & \text{, falls } x \lt 3
 \end{array}
-\right.$
+\right.$$
 
 $ M = \{x \in \mathbb{R} \lt 2 \} = \underbrace{\{x \in \mathbb{R} : |x-3| \lt 2 \land x \geq 3 \}}_{M_1} \cup \underbrace{\{x \in \mathbb{R}: |x -3| \lt 2 \land x \lt 3\}}_{M_2}$
 

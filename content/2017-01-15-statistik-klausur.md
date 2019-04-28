@@ -140,17 +140,13 @@ featured_image: logos/klausur.png
 <dl>
     <dt><dfn id="konfidenzintervall">Konfidenzintervall</dfn> (<dfn>Vertrauensintervall</dfn>)</dt>
     <dd>
-
         Ein Konfidenzintervall ist ein Intervall $[U, O]$ für einen Parameter
         $\vartheta$, sodass gilt:
-
         $$P([U, O] \ni \vartheta) = 1 - \alpha$$
-
         <ul>
             <li>1-Stichproben-t-Test: $I(X) = \left [\bar{X} - \frac{S}{\sqrt{n}} \cdot t_{n-1;1-\frac{\alpha}{2}}, \bar{X} + \frac{S}{\sqrt{n}} \cdot t_{n-1;1-\frac{\alpha}{2}} \right]$</li>
             <li>Approximativer Binomialtest: $I(X) = \left [ \hat{p}_n - z_{1-\frac{\alpha}{2}} \sqrt{\hat{p}_n (1- \hat{p}_n)/n}, \hat{p}_n + z_{1-\frac{\alpha}{2}} \sqrt{\hat{p}_n (1- \hat{p}_n) / n} \right ]$</li>
         </ul>
-
         Konfidenzintervalle zur Konfidenzwahrschwahrscheinlichkeit $1-\alpha$
         haben immer die Form:
         $$[T - \hat{\sigma} \cdot z_{1-\frac{\alpha}{2}; T + \hat{sigma} \cdot z_{1-\frac{\alpha}{2}}]$$
@@ -160,14 +156,12 @@ featured_image: logos/klausur.png
     </dd>
     <dt><dfn id="satz-von-student">Satz von Student</dfn></dt>
     <dd>Es seien $X_1, X_2, \dots, X_n \stackrel{uiv}{\sim} \mathcal{N}(\mu, \sigma^2),\quad n\geq 2$ sowie $\bar{X} = \frac{1}{n} \sum_{i=1}^n X_i$, $S^2 = \frac{1}{n-1} \sum_{i=1}^n {(X_i - \bar{X})}^2$ sowie $S = \sqrt{S^2}$. Dann gilt:
-
     <ol>
         <li>$\bar{X} \sim \mathcal{N}(\mu, \frac{\sigma}{n})$</li>
         <li>$\bar{X}$ und $S^2$ sind unabhängig</li>
         <li>$\frac{1}{\sigma^2} \sum_{i=1}^n {(X_i - \bar{X})}^2 \sim \chi_{n-1}^2$</li>
         <li>$T = \frac{\sqrt{n} (\bar{X} - \mu)}{S} \sim t_{n-1}$</li>
     </ol>
-
     </dd>
 </dl>
 

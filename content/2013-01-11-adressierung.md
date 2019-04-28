@@ -100,7 +100,8 @@ Macht keinen Sinn, weil man Probleme wegen Doppeldeutigkeiten bekommen kann und 
 Kein MMU-Zugriff ben&ouml;tigt, also schneller als die anderen Varianten. Birgt aber ein paar Probleme (Ambiguity, Alias)
 
 ## Quellen
-[^1] <a href="http://alasir.com/articles/cache_principles/cache_line_tag_index.html">Functional Principles of Cache Memory</a>
+
+ [^1]: <a href="http://alasir.com/articles/cache_principles/cache_line_tag_index.html">Functional Principles of Cache Memory</a>
 
 <ul>
   <li><a href="http://people.cs.umass.edu/~emery/classes/cmpsci377/current/notes/lecture_15_vm.pdf">Page-Table Lookups</a></li>

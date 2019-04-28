@@ -29,20 +29,20 @@ In Wolfram|Alpha ben&ouml;tigt man daf&uuml;r &uuml;brigens das Schl&uuml;sselwo
 <h3>Aufgabenstellung</h3>
 Sei $A \in \mathbb{R}^{3 \times 3}$ und definiert als
 
-$A := \begin{pmatrix}
+$$A := \begin{pmatrix}
 1 & 2 & 3\\
 4 & 5 & 6\\
 7 & 8 & 9
-\end{pmatrix}$
+\end{pmatrix}$$
 
 Sei $\Phi: \mathbb{R}^3 \rightarrow \mathbb{R}^3$ eine lineare Abbildung und definiert als
 
-$\Phi(x) := A \cdot x$.
+$$\Phi(x) := A \cdot x$$
 
 Was ist der Kern von $\Phi$?
 
 <h3>Rechnung</h3>
-$
+$$
 \begin{pmatrix}
 1 & 2 & 3\\
 4 & 5 & 6\\
@@ -66,48 +66,48 @@ $
 0 & 1 &  2\\
 0 & 0 &  0
 \end{pmatrix} 
-$
+$$
 
 Man sieht direkt, dass die Matrix den Rang 2 hat. Also muss der L&ouml;sungsraum 1-dimensional sein. Mit dem -1-Trick kommt nam auf den L&ouml;sungsraum:
 
-$\mathcal{L} = \left [
+$$\mathcal{L} = \left [
 \begin{pmatrix}
 -1\\
 2\\
 -1
 \end{pmatrix} 
-\right ]$
+\right ]$$
 
 Also:
 
-$\text{Kern } \Phi = \left [
+$$\text{Kern } \Phi = \left [
 \begin{pmatrix}
 -1\\
 2\\
 -1
 \end{pmatrix} 
-\right ]$
+\right ]$$
 
 <h2>Beispiel #2</h2>
 <h3>Aufgabenstellung</h3>
 Sei $A \in \mathbb{R}^{5 \times 5}$ und definiert als
 
-$A := \begin{pmatrix}
+$$A := \begin{pmatrix}
 -1 & -1 & -2 & -2 & -1\\
 3  &  0 &  2 &  1 &  2\\
 0  &  1 &  1 &  1 &  0\\
 -1 & -1 & -2 & -2 & -1\\
  2 &  1 &  3 &  3 &  2
-\end{pmatrix}$
+\end{pmatrix}$$
 
 Sei $\varphi: \mathbb{R}^5 \rightarrow \mathbb{R}^5$ eine lineare Abbildung und definiert als
 
-$\varphi(x) := A \cdot x$.
+$$\varphi(x) := A \cdot x$$
 
 Was ist der Kern von $\varphi$?
 
 <h3>Rechnung</h3>
-$\begin{pmatrix}
+$$\begin{pmatrix}
 -1 & -1 & -2 & -2 & -1\\
 3  &  0 &  2 &  1 &  2\\
 0  &  1 &  1 &  1 &  0\\
@@ -127,9 +127,9 @@ x_5
 0 \\
 0 \\
 0
-\end{pmatrix}$
+\end{pmatrix}$$
 
-$\leadsto 
+$$\leadsto 
 \begin{pmatrix}
 -1 & -1 & -2 & -2 & -1\\
 3  &  0 &  2 &  1 &  2\\
@@ -144,9 +144,9 @@ $\leadsto
  0 &  1 &  1 &  1 &  0\\
  0 &  0 &  0 &  0 &  0\\
  0 & -1 & -1 & -1 &  0
-\end{pmatrix}$
+\end{pmatrix}$$
 
-$\leadsto 
+$$\leadsto 
 \begin{pmatrix}
  1 &  1 &  2 &  2 &  1\\
  0 &  1 &  1 &  1 &  0\\
@@ -161,12 +161,12 @@ $\leadsto
  0 &  0 &  1 &  2 &  1\\
  0 &  0 &  0 &  0 &  0\\
  0 &  0 &  0 &  0 &  0
-\end{pmatrix}$
+\end{pmatrix}$$
 
 Die Matrix hat Rang 3, daraus folgt, dass die Dimension des L&ouml;sungsraumes 2 ist.
 Wieder &uuml;ber den -1-Trick kann man den L&ouml;sungsraum direkt ablesen:
 
-$\mathcal{L} =
+$$\mathcal{L} =
 \left [
 \begin{pmatrix}
   -1\\
@@ -185,4 +185,4 @@ $\mathcal{L} =
 \right ]
 =
 \text{Kern} \varphi
-$
+$$

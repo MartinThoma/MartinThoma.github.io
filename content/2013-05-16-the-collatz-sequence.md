@@ -11,17 +11,17 @@ The goal of this post is to show you some tools that allow you to visualize data
 
 The Collatz sequences $(c^n_i)$ of a number $n \in \mathbb{N}_{> 0}$ is defined like this:
 
-$f:\mathbb{N}_{>0} \rightarrow \mathbb{N}_{> 0}\;\;\;\;f(n) := \begin{cases}
+$$f:\mathbb{N}_{>0} \rightarrow \mathbb{N}_{> 0}\;\;\;\;f(n) := \begin{cases}
 \frac{n}{2}   & \text{if } n \text{ is even}\\
 3 \cdot n + 1 & \text{if } n \text{ is odd}
-\end{cases}$
+\end{cases}$$
 
 So the sequence $(c^n_{i})$ is defined as:
 
-$c^n_{i} := \begin{cases}
+$$c^n_{i} := \begin{cases}
 n   & \text{if } i = 0\\
 f(c^n_i) & \text{otherwise} 
-\end{cases}$
+\end{cases}$$
 
 You can define a directed graph $G=(V, E)$ like this:
 

@@ -154,7 +154,7 @@ Daraus folgt: Die Jordansche Normalform der Matrix ist:
 <div>$$S^{-1} = \frac{1}{7} \cdot \begin{pmatrix}3 & -1 \\ 1 & 2 \end{pmatrix}$$</div>
 
 <h3>Anmerkung</h3>
-Man hätte übrigens jeden Vektor aus <span>$\left [ \begin{pmatrix}2 \\ -1 \end{pmatrix} \right ] $</span> nehmen können. Angenommen, man hätte den Vektor <span>$\begin{pmatrix}-14 \\ 7 \end{pmatrix}$</span> gewählt:
+Man hätte übrigens jeden Vektor aus $$\left [ \begin{pmatrix}2 \\ -1 \end{pmatrix} \right ]$$ nehmen können. Angenommen, man hätte den Vektor <span>$$\begin{pmatrix}-14 \\ 7 \end{pmatrix}$$</span> gewählt:
 
 <div>$$S = \begin{pmatrix}-14 & 1 \\ 7 & 3 \end{pmatrix}$$</div>
 <div>$$S^{-1} = \frac{1}{49} \cdot \begin{pmatrix}-3 & 1 \\ 7 & 14 \end{pmatrix}$$</div>

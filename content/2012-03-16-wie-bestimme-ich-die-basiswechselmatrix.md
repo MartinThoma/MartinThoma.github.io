@@ -17,16 +17,17 @@ und
 
 <div>$$\bar B = \{\underbrace{\begin{pmatrix} 3 \\ 5 \end{pmatrix}}_{\bar b_1}, \underbrace{\begin{pmatrix} 8 \\ 13 \end{pmatrix}}_{\bar b_2} \}$$</div>
 
-Sei nun <span markdown="0">$v := \begin{pmatrix} 1 \\ 1 \end{pmatrix}$</span> ein Vektor zur Standardbasis.
+Sei nun $$v := \begin{pmatrix} 1 \\ 1 \end{pmatrix}$$ ein Vektor zur Standardbasis.
 Da <span markdown="0">$B$</span> und <span markdown="0">$\bar B$</span> auch Basen des <span markdown="0">$\mathbb{R}^2$</span> sind, kann man v auch zu diesen Basen darstellen:
-<span markdown="0">$\Theta_{B}(v) = \begin{pmatrix} -1 \\ 1 \end{pmatrix}$</span> und
-<span markdown="0">$\Theta_{\bar B}(v) = \begin{pmatrix} -5 \\ 2 \end{pmatrix}$</span>
+
+$$\Theta_{B}(v) = \begin{pmatrix} -1 \\ 1 \end{pmatrix}$$ und
+$$\Theta_{\bar B}(v) = \begin{pmatrix} -5 \\ 2 \end{pmatrix}$$
 
 Wie kann man nun diese neue Darstellung berechnen?
 Nun, wir bestimmen eine Matrix A für die gilt:
 <span markdown="0">$A \cdot \Theta_B(v) = \Theta_{\bar B}(v) ~~~ \forall v \in \mathbb{R}^2$</span>. Diese Matrix findet man, indem man beide geordneten Basen nebeneinander schreibt und die rechte Seite "durchgaußt":
 
-<span markdown="0">\(\left( \begin{array}{c c | c c}
+$$\left( \begin{array}{c c | c c}
   1 & 2 & 3 &  8 \\
   2 & 3 & 5 & 13
 \end{array} \right)
@@ -54,7 +55,7 @@ Nun, wir bestimmen eine Matrix A für die gilt:
 \left( \begin{array}{c c | c c}
   3 & -2 & 1 &  0 \\
   -1 & 1 & 0 &  1
-\end{array} \right)\)</span>
+\end{array} \right)$$
 
 Links steht die geordnete Basis B und rechts die geordnete Basis <span markdown="0">$\bar B$</span>, also (von \| nach) und rechts wendet man Gauß an.
 

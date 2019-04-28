@@ -13,7 +13,7 @@ Sei $A \in \mathfrak{B}_d$ mit $A^0 \neq \emptyset$ und $\lambda_d (A \setminus 
 
 In Anwendungen: $Y \in \mathfrak{B}_d$ und $f: Y \rightarrow \overline{\mathbb{R}}$ messbar.
 
-<strong>Aufgabe</strong>: Berechne $\int_Y f(x) dy$ falls es existiert.
+<strong>Aufgabe</strong>: Berechne $\int_Y f(x) dy$ falls es existiert.<br/>
 <strong>Vorgehensweise:</strong>
 <ol type="i" style="list-style-type:lower-roman;">
    <li>Zeige $f$ integrierbar oder $f \geq 0$ auf $Y$</li>
@@ -23,8 +23,8 @@ $\phi$ sollte so gew&auml;hlt sein, dass die sp&auml;teren Rechenwege relativ ei
 </ol>
 
 <h2>Beispiele</h2>
-Sei $Y := \{(x,y) \in \mathbb{R}^2 | 1 \leq \| (2,2) - (x,y)\| \leq 2\}$.
-Setze $\phi : \mathbb{R}^2 \rightarrow \mathbb{R}^2$ mit $\phi(r, \varphi) := \begin{pmatrix}2\\2\end{pmatrix} + r \cdot \begin{pmatrix}\cos(\varphi)\\ \sin(\varphi) \end{pmatrix}$
+Sei $$Y := \{(x,y) \in \mathbb{R}^2 | 1 \leq \| (2,2) - (x,y)\| \leq 2\}$$
+Setze $\phi : \mathbb{R}^2 \rightarrow \mathbb{R}^2$ mit $$\phi(r, \varphi) := \begin{pmatrix}2\\2\end{pmatrix} + r \cdot \begin{pmatrix}\cos(\varphi)\\ \sin(\varphi) \end{pmatrix}$$
 
 $\phi \in C^1(\mathbb{R}^2, \mathbb{R}^2)$ und f&uuml;r $r \in \mathbb{R}$ gilt $\det \phi'(r, \varphi) = \det \left ( \begin{array}{cc}
 \cos(\varphi) & - r \sin(\varphi)\\

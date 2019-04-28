@@ -30,11 +30,11 @@ Es gibt viele Identit&auml;ten, die sich gut mit einem Induktionsbeweis zeigen l
 Bei den folgenden Identit&auml;ten sei $n \in \mathbb{N}$.
 
 <h4>Gau&szlig;sche Summenformel</h4>
-<strong>Behauptung</strong>: $\sum_{k=1}^n k = \frac{1}{2} \cdot n \cdot (n+1)$
-<strong>Beweis</strong>: durch vollst&auml;ndige Induktion
-<strong>I.A.</strong>: Sei n = 1. Dann: $\sum_{k=1}^1 k = 1 = \frac{1}{2} \cdot 1 \cdot (1+1)$
+<strong>Behauptung</strong>: $\sum_{k=1}^n k = \frac{1}{2} \cdot n \cdot (n+1)$<br/>
+<strong>Beweis</strong>: durch vollst&auml;ndige Induktion<br/>
+<strong>I.A.</strong>: Sei n = 1. Dann: $\sum_{k=1}^1 k = 1 = \frac{1}{2} \cdot 1 \cdot (1+1)$<br/>
 <strong>I.V.</strong>: Sei $n \in \mathbb{N}$ beliebig, aber fest und es gelte: 
-$\sum_{k=1}^n k = \frac{1}{2} \cdot n \cdot (n+1)$
+$\sum_{k=1}^n k = \frac{1}{2} \cdot n \cdot (n+1)$<br/>
 <strong>I.S.</strong>:
 $\sum_{k=1}^{n+1} k = \sum_{k=1}^{n} k + (n+1) \stackrel{I.V.}{=} \frac{1}{2} \cdot n \cdot (n+1) + (n+1) = $
 $= \frac{1}{2} \cdot (n^2 + n) + (n+1) = \frac{1}{2} \cdot (n^2 + 3n + 2) = \frac{1}{2} \cdot (n+1)(n+2) \blacksquare$
@@ -99,13 +99,13 @@ Sei G(V, E) ein Bin&auml;rbaum.
 G ist ein voller Bin&auml;rbaum $: \Leftrightarrow$ alle inneren Knoten von G haben den Verzweigungsgrad 2
 G ist ein voller, vollst&auml;ndiger Bin&auml;rbaum $: \Leftrightarrow$ G ist ein voller Bin&auml;rbaum und alle Bl&auml;tter haben die gleiche H&ouml;he
 
-<strong>Behauptung</strong> ${\cal B} (n)$: Jeder volle, vollst&auml;ndige Bin&auml;rbaum der H&ouml;he $n, n \in \mathbb{N}$ hat $2^{n-1} - 1$ innere Knoten.
-<strong>Beweis</strong>: durch strukturelle Induktion
-<strong>I.A.</strong>: zeige ${\cal B} (1)$. 
+<strong>Behauptung</strong> ${\cal B} (n)$: Jeder volle, vollst&auml;ndige Bin&auml;rbaum der H&ouml;he $n, n \in \mathbb{N}$ hat $2^{n-1} - 1$ innere Knoten.<br/>
+<strong>Beweis</strong>: durch strukturelle Induktion<br/>
+<strong>I.A.</strong>: zeige ${\cal B} (1)$.<br/>
 Ein voller, vollst&auml;ndiger Bin&auml;rbaum der H&ouml;he n = 1 besteht nur aus einem Knoten. Er hat also $0 = 2^{n-1} - 1 = 2^{1-1} - 1 = 2^0 - 1 = 1 - 1 = 0$ innere Knoten.
 <strong>I.V.</strong>: F&uuml;r beliebige, aber feste volle, vollst&auml;ndige Bin&auml;rb&auml;ume G der H&ouml;he n gilt:
-G hat $2^{n-1} - 1$ innere Knoten.
-<strong>I.S.</strong>: zeige ${\cal B} (n+1)$ 
+G hat $2^{n-1} - 1$ innere Knoten.<br/>
+<strong>I.S.</strong>: zeige ${\cal B} (n+1)$<br/>
 F&uuml;r jeden vollen, vollst&auml;ndigen Bin&auml;rbaum der H&ouml;he $n+1$ gibt es einen Teilgraphen T, der ein voller, vollst&auml;ndiger Bin&auml;rbaum der H&ouml;he n ist. $\stackrel{I.V.}{\Rightarrow}$ T hat $2^{n-1} - 1$ innere Knoten. Das sind auch innere Knoten von G. Da die H&ouml;he von G um eins h&ouml;her ist als die von T und sowohl G als auch T volle, vollst&auml;dige Bin&auml;rbaume sind, kommen zu jedem der $2^{n-1}$ Bl&auml;tter aus T noch 2 Bl&auml;tter. Dadurch hat G genau $2^{n-1}$ innere Knoten mehr als T $\Rightarrow$ G hat $2^{n-1}-1+2^{n-1} = 2^n - 1$ innere Knoten $\blacksquare$
 
 <h4>Aussagenlogische Ausdr&uuml;cke</h4>
@@ -118,15 +118,15 @@ Definition: Aussagenlogischer Ausdruck
   <li>Ein Wort &uuml;ber V ist nur dann ein aussagenlogischer Ausdruck &uuml;ber V, falls dies aufgrund endlich oftmaliger Anwendung von (i) und (ii) der Fall ist.</li>
 </ol>
 
-<strong>Behauptung</strong> Jeder aussagenlogischer Ausdruck endet entweder auf eine Variable oder auf eine schlie&szlig;ende Klammer.
-<strong>Beweis</strong>: durch strukturelle Induktion
-<strong>I.A.</strong>: Jeder aussagenlogischer Ausdruck aus (i) endet auf eine Variable.
+<strong>Behauptung</strong> Jeder aussagenlogischer Ausdruck endet entweder auf eine Variable oder auf eine schlie&szlig;ende Klammer.<br/>
+<strong>Beweis</strong>: durch strukturelle Induktion<br/>
+<strong>I.A.</strong>: Jeder aussagenlogischer Ausdruck aus (i) endet auf eine Variable.<br/>
 <strong>I.V.</strong>: F&uuml;r beliebige, aber feste aussagenlogische Ausdr&uuml;cke A gilt:
-A endet auf eine Variable oder eine schlie&szlig;ende Klammer.
+A endet auf eine Variable oder eine schlie&szlig;ende Klammer.<br/>
 <strong>I.S.</strong>: Ein aussagenlogischer Ausdruck kann nur durch endlich h&auml;ufige Anwendung von (i) und (ii) erzeugt werden (vgl. (iii)). (i) erf&uuml;llt die Bedingung laut I.V., (ii) auch. $\blacksquare$
 
-<strong>Behauptung</strong> F&uuml;r jeden aussagenlogischen Ausdruck A gibt es einen &auml;quivalenten aussagenlogischen Ausdruck B, der nur $\neg$ und $\land$ als Operatoren verwendet.
-<strong>Beweis</strong>: durch strukturelle Induktion
+<strong>Behauptung</strong> F&uuml;r jeden aussagenlogischen Ausdruck A gibt es einen &auml;quivalenten aussagenlogischen Ausdruck B, der nur $\neg$ und $\land$ als Operatoren verwendet.<br/>
+<strong>Beweis</strong>: durch strukturelle Induktion<br/>
 <strong>I.A.</strong>: 
 Seien $p_1, p_2$ aussagenlogische Variablen. Dann gilt:
 $p_1 \lor p_2 = \neg (\neg p_1 \land \neg p_2)$
@@ -135,8 +135,8 @@ $p_1 \Rightarrow p_2 = p_1 \land \neg p_2$
 F&uuml;r alle weiteren Ausdr&uuml;cke aus (i) und (ii) gilt die Behauptung offensichtlich.
 
 <strong>I.V.</strong>: F&uuml;r beliebige, aber feste aussagenlogische Ausdr&uuml;cke A gilt:
-Es gibt einen &auml;quivalenten aussagenlogischen Ausdruck B, der nur $\neg$ und $\land$ als Operatoren verwendet.
-<strong>I.S.</strong>: Ein aussagenlogischer Ausdruck kann nur durch endlich h&auml;ufige Anwendung von (i) und (ii) erzeugt werden (vgl. (iii)). (i) und (ii) erf&uuml;llen die Bedingung laut I.V.. $\blacksquare$
+Es gibt einen &auml;quivalenten aussagenlogischen Ausdruck B, der nur $\neg$ und $\land$ als Operatoren verwendet.<br/>
+<strong>I.S.</strong>: Ein aussagenlogischer Ausdruck kann nur durch endlich h&auml;ufige Anwendung von (i) und (ii) erzeugt werden (vgl. (iii)). (i) und (ii) erf&uuml;llen die Bedingung laut I.V.. $\blacksquare$<br/>
 
 <h2>Unendlich - Wann Induktion nicht funktioniert</h2>
 Mit Induktion kann man Aussagen f&uuml;r beliebig gro&szlig;e/kleine ganze Zahlen treffen. Allerdings eben nur f&uuml;r ganze Zahlen. Unendlich ist keine ganze Zahl. Also kann man auch keine Aussagen f&uuml;r "unendliche Aussagen" treffen.
@@ -149,12 +149,12 @@ Es gilt: U und V  sind offene Mengen $\Rightarrow U \cap V$ ist offen.*
 
 Nun k&ouml;nnte man den Trugschluss machen, dass der Schnitt unendlich vieler offener Mengen auch offen ist. Der <strong>falsche Induktionsbeweis</strong> w&uuml;rde in etwa so aussehen:
 
-<strong>Voraussetungen:</strong> Seien $M_i, i \in \mathbb{N}_0$ offene Mengen. Sei M eine Menge und definiert durch $M := \displaystyle \bigcap_{i=0}^\infty M_i$.
-<strong>Behauptung</strong>: M ist offen.
-<strong>Beweis</strong>: durch vollst&auml;ndige Induktion
-<strong>I.A.</strong>: Sei n = 1. Dann: $\cap_{i=0}^1 M_i = M_0 \cap M_1$ ist laut * offen.
+<strong>Voraussetungen:</strong> Seien $M_i, i \in \mathbb{N}_0$ offene Mengen. Sei M eine Menge und definiert durch $M := \displaystyle \bigcap_{i=0}^\infty M_i$.<br/>
+<strong>Behauptung</strong>: M ist offen.<br/>
+<strong>Beweis</strong>: durch vollst&auml;ndige Induktion<br/>
+<strong>I.A.</strong>: Sei n = 1. Dann: $\cap_{i=0}^1 M_i = M_0 \cap M_1$ ist laut * offen.<br/>
 <strong>I.V.</strong>: Sei $n \in \mathbb{N}$ beliebig, aber fest und es gelte: 
-$\displaystyle \bigcap_{i=0}^n M_i$ ist offen.
+$\displaystyle \bigcap_{i=0}^n M_i$ ist offen.<br/>
 <strong>I.S.</strong>:
 $\displaystyle \bigcap_{i=0}^{n+1} M_i = \bigcap_{i=0}^{n} M_i \cap M_{n+1}$. Nun gilt:
 $\displaystyle \bigcap_{i=0}^{n} M_i$ ist per I.V. offen.

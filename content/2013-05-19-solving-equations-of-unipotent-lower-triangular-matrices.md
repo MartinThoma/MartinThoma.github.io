@@ -13,7 +13,7 @@ Suppose you have an equation like $L \cdot x = b$ with $L \in \mathbb{R}^{n \tim
 <h2>Example</h2>
 With $n=5$, the problem could look like this:
 
-$\begin{pmatrix}
+$$\begin{pmatrix}
 1 & 0 & 0 & 0 & 0\\
 2 & 1 & 0 & 0 & 0\\
 7 & 1 & 1 & 0 & 0\\
@@ -21,7 +21,7 @@ $\begin{pmatrix}
 1 & 8 & 2 & 8 & 1
 \end{pmatrix} \cdot 
 \begin{pmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \end{pmatrix} =
-\begin{pmatrix}   3 \\ 1   \\ 4   \\ 1   \\ 5   \end{pmatrix}$
+\begin{pmatrix}   3 \\ 1   \\ 4   \\ 1   \\ 5   \end{pmatrix}$$
 
 This is only a shorthand for:
 \begin{align}

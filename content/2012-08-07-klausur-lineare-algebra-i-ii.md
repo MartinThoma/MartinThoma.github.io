@@ -48,7 +48,7 @@ Ihr solltet auf jeden Fall die <a href="../lernkontrolle-lineare-algebra-i/" tit
        <li>$\det A^T = \det A$</li>
        <li>$\det(A \cdot B) = \det A \cdot \det B$</li>
        <li>$\det(A^{-1}) = \frac{1}{\det A}$</li>
-       <li>$\det \begin{pmatrix}A & * \\0 & B\end{pmatrix} = \det A \cdot det(B)$ ("K&auml;stchensatz")</li>
+       <li>$$\det \begin{pmatrix}A & * \\0 & B\end{pmatrix} = \det A \cdot det(B)$$ ("K&auml;stchensatz")</li>
        <li>Bei beliebig gro&szlig;en Matrizen &agrave; la $A \in \mathbb{R}^{n \times n}$ gibt es ein paar Dinge, die beim Suchen der Determinante hilfreich sein k&ouml;nnen:
          <ul>
            <li>Ist die Matrix symmetrisch? Falls ja, muss man sich nur die Zeilen anschauen. Falls nein, k&ouml;nnen die folgenden Tipps sowohl f&uuml;r die Zeilen als auch f&uuml;r die Spalten &uuml;berpr&uuml;ft werden.</li>

@@ -539,9 +539,9 @@ what you could do better:
 
 ## References ##
 
-[^1] [Linux and the Samsung Series 9 NP900X3C](http://blog.jospoortvliet.com/2012/09/linux-and-samsung-series-9-np900x3c.html): A review for the NP900X3C and openSUSE on 24th or September, 2012.
-[^2] [Samsung Series 9 - Ubuntu Community Page](https://help.ubuntu.com/community/SamsungSeries9)
-[^3] [Linux auf Samsung Series 9 2012](http://www.sump.org/blog/213)
-[^4] [Tuxedo Book DC1502 im Test](http://www.pcwelt.de/produkte/Tuxedo-Book_DC1502-Standard-Notebook-Test-8115776.html)
-[^5] [No wireless with Intel Centrino Advanced-N 7260](http://askubuntu.com/questions/322511/no-wireless-with-intel-centrino-advanced-n-7260)
-[^6] [AsusZenbook - Ubuntu Community Page](https://help.ubuntu.com/community/AsusZenbook)
+[^1]: [Linux and the Samsung Series 9 NP900X3C](http://blog.jospoortvliet.com/2012/09/linux-and-samsung-series-9-np900x3c.html): A review for the NP900X3C and openSUSE on 24th or September, 2012.
+[^2]: [Samsung Series 9 - Ubuntu Community Page](https://help.ubuntu.com/community/SamsungSeries9)
+[^3]: [Linux auf Samsung Series 9 2012](http://www.sump.org/blog/213)
+[^4]: [Tuxedo Book DC1502 im Test](http://www.pcwelt.de/produkte/Tuxedo-Book_DC1502-Standard-Notebook-Test-8115776.html)
+[^5]: [No wireless with Intel Centrino Advanced-N 7260](http://askubuntu.com/questions/322511/no-wireless-with-intel-centrino-advanced-n-7260)
+[^6]: [AsusZenbook - Ubuntu Community Page](https://help.ubuntu.com/community/AsusZenbook)
