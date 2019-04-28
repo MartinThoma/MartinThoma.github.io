@@ -24,6 +24,7 @@ For 3 people, you need:
 * 500g rice noodles
 * 8 [spring onions](https://en.wikipedia.org/wiki/Scallion)
 * 3 red onions
+* Sprigs of fresh mint and/or Asian/Thai basil
 * 3-5 [star anise](https://en.wikipedia.org/wiki/Illicium_verum)
 * 25g [ginger](https://en.wikipedia.org/wiki/Ginger)
 * 4 red hot Chili peppers
@@ -52,7 +53,7 @@ For all of the following, you will need roughly 1h.
 Rice noodles:
 
 1. Put the rice noodles for 15min in warm water.
-2. Sieve the noodles out of the water and[shock](https://en.wikipedia.org/wiki/Shocking_(cooking)) the noodles
+2. Sieve the noodles out of the water and [shock](https://en.wikipedia.org/wiki/Shocking_(cooking)) the noodles
 3. Let the noodles dry
 4. Pour boiling water over the noodles
 5. Let the noodles dry
@@ -82,3 +83,6 @@ Serve (for each person):
 3. Sprinkle some of the cutted spring onions over the noodles
 4. Put some lemon over the meal
 5. Put beef / chicken over the meal
+6. Decorate with the mint/basil
+
+People can then put additional fish sauce in their bowl as they like it
