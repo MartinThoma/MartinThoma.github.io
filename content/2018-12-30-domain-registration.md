@@ -37,42 +37,24 @@ With sites like <a href="http://whois.domaintools.com/">whois.domaintools.com</a
 or tools like `whois` you can look up who owns a domain:
 
 ```
-$ whois comment.it
-
-*********************************************************************
-* Please note that the following result could be a subgroup of      *
-* the data contained in the database.                               *
-*                                                                   *
-* Additional information can be visualized at:                      *
-* http://www.nic.it/cgi-bin/Whois/whois.cgi                         *
-*********************************************************************
-
-Domain:             comment.it
-Status:             ok
-Created:            2001-01-24 00:00:00
-Last Update:        2017-01-08 00:41:49
-Expire Date:        2017-12-23
-
-Registrant
-  Organization:     Valerio Morfino
-
-Admin Contact
-  Name:             Valerio Morfino
-  Organization:     Valerio Morfino
-
-Technical Contacts
-  Name:             Tophost Srl > Registra il tuo dominio con www.tophost.it
-  Organization:     Tophost Srl > L'hosting più conveniente d'Italia
-
-Registrar
-  Organization:     Seeweb S.r.l.
-  Name:             TOPHOST-REG
-  Web:              http://www.tophost.it
-
-Nameservers
-  ns1.th.seeweb.it
-  ns2.th.seeweb.it
-
+$ whois martin-thoma.com
+   Domain Name: MARTIN-THOMA.COM
+   Registry Domain ID: 1678176835_DOMAIN_COM-VRSN
+   Registrar WHOIS Server: whois.namecheap.com
+   Registrar URL: http://www.namecheap.com
+   Updated Date: 2018-01-25T12:13:13Z
+   Creation Date: 2011-09-21T08:11:13Z
+   Registry Expiry Date: 2024-09-21T08:11:13Z
+   Registrar: NameCheap, Inc.
+   Registrar IANA ID: 1068
+   Registrar Abuse Contact Email: abuse@namecheap.com
+   Registrar Abuse Contact Phone: +1.6613102107
+   Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+   Name Server: AMY.NS.CLOUDFLARE.COM
+   Name Server: KAI.NS.CLOUDFLARE.COM
+   DNSSEC: unsigned
+   URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+>>> Last update of whois database: 2019-02-07T21:00:04Z <<<
 ```
 
 
