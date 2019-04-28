@@ -130,6 +130,8 @@ such as "what is the most important feature" problematic.
 
 #### Model Lab
 
+<a href="https://github.com/MartinThoma/model-lab">I've started the development!</a>
+
 You can build trust by giving access to your model. If you can give your
 stakeholders an easy to use interface in which they can enter / manipulate
 features and see the output of a model, they will either build more trust in
