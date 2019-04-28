@@ -84,9 +84,9 @@ The ones with green background color were recommended for Nepal.
         <td>760 g (48)</td>
         <td>2 side vents per leg, UPF 50+, gaiter hooks</td>
     </tr>
-    <tr>
+    <tr style="background-color: green;">
         <td>Fjällräven <a href="https://www.bergfreunde.de/fjaellraeven-keb-gaiter-trousers-trekkinghose/">Keb Gaiter Trousers</a></td>
-        <td>200 EUR</td>
+        <td>230 EUR</td>
         <td>G-1000 Eco: 65% Polyester, 35% cotton</td>
         <td>640g (M)</td>
         <td>1 side vent per leg, zip-off, gaiter hooks</td>
