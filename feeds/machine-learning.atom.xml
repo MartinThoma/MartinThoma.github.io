@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Machine Learning</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/machine-learning.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2019-04-27T20:00:00+02:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>Siamese Networks</title><link href="https://martin-thoma.com/siamese-networks/" rel="alternate"></link><published>2019-04-27T20:00:00+02:00</published><updated>2019-04-27T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2019-04-27:/siamese-networks/</id><summary type="html">&lt;p&gt;Siamese Networks are feature extractors trained to learn an embedding in &lt;span class="math"&gt;\(\mathbb{R}^n\)&lt;/span&gt;
 where not the absolute output is important, but the relative one.&lt;/p&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;a href="../images/2019/04/siamese-networks.png"&gt;&lt;img alt="Schema of a Siamese Network" src="../images/2019/04/siamese-networks.png" style="width: 512px;"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;Schema of a Siamese Network $m_1$.&lt;/figcaption&gt;
+&lt;/figure&gt;
 &lt;p&gt;The original paper&lt;sup id="fnref-1"&gt;&lt;a class="footnote-ref" href="#fn-1"&gt;1&lt;/a&gt;&lt;/sup&gt; was about signature verification. You have one original
-signature and one that might be the same or might be a different …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Siamese Networks are feature extractors trained to learn an embedding in &lt;span class="math"&gt;\(\mathbb{R}^n\)&lt;/span&gt;
+signature and one that might be the …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Siamese Networks are feature extractors trained to learn an embedding in &lt;span class="math"&gt;\(\mathbb{R}^n\)&lt;/span&gt;
 where not the absolute output is important, but the relative one.&lt;/p&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;a href="../images/2019/04/siamese-networks.png"&gt;&lt;img alt="Schema of a Siamese Network" src="../images/2019/04/siamese-networks.png" style="width: 512px;"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;Schema of a Siamese Network $m_1$.&lt;/figcaption&gt;
+&lt;/figure&gt;
 &lt;p&gt;The original paper&lt;sup id="fnref-1"&gt;&lt;a class="footnote-ref" href="#fn-1"&gt;1&lt;/a&gt;&lt;/sup&gt; was about signature verification. You have one original
 signature and one that might be the same or might be a different one. Instead
 of having one output that directly says "same" or "different", they decided to
@@ -11,7 +19,21 @@ have one network that maps the input to &lt;span class="math"&gt;\(\mathbb{R}^{4
 euclidean distance with some threshold&lt;sup id="fnref-2"&gt;&lt;a class="footnote-ref" href="#fn-2"&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
 &lt;p&gt;Today, the nicest usage I know is DeepFace&lt;sup id="fnref-3"&gt;&lt;a class="footnote-ref" href="#fn-3"&gt;3&lt;/a&gt;&lt;/sup&gt;. It is a neural network which maps
 faces to &lt;span class="math"&gt;\(\mathbb{R}^{128}\)&lt;/span&gt; by combining a lot of clever ideas.&lt;/p&gt;
-&lt;h2 id="landmark-distances"&gt;Landmark Distances&lt;/h2&gt;
+&lt;h2 id="key-idea"&gt;Key Idea&lt;/h2&gt;
+&lt;p&gt;You have one network &lt;span class="math"&gt;\(m_1\)&lt;/span&gt; which is embedded into another network which
+combines two inputs of &lt;span class="math"&gt;\(m_1\)&lt;/span&gt;. So for training a triplet &lt;span class="math"&gt;\((d_1, d_2, t)\)&lt;/span&gt; is
+used, where &lt;span class="math"&gt;\(d_1\)&lt;/span&gt; and &lt;span class="math"&gt;\(d_2\)&lt;/span&gt; are both processed individually by &lt;span class="math"&gt;\(m_1\)&lt;/span&gt;. The two
+outputs &lt;span class="math"&gt;\(d_{1}'\)&lt;/span&gt; and &lt;span class="math"&gt;\(d_{2}'\)&lt;/span&gt; are then combined by another network &lt;span class="math"&gt;\(m_2\)&lt;/span&gt;. &lt;span class="math"&gt;\(m_2\)&lt;/span&gt;
+can simply be a merging layer. The loss is then calculated based on the output
+of &lt;span class="math"&gt;\(m_2\)&lt;/span&gt;.&lt;/p&gt;
+&lt;h2 id="applications"&gt;Applications&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Signature Verification: Given two signatures, do they belong to the same person?&lt;/li&gt;
+&lt;li&gt;Face Verification: Given two faces, are they the same person?&lt;/li&gt;
+&lt;li&gt;Koch, G., Zemel, R., &amp;amp; Salakhutdinov, R. (2015, July). &lt;a href="https://www.cs.cmu.edu/~rsalakhu/papers/oneshot1.pdf"&gt;Siamese neural networks for one-shot image recognition&lt;/a&gt;. In ICML deep learning workshop (Vol. 2).&lt;/li&gt;
+&lt;li&gt;Leal-Taix&amp;eacute;, L., Canton-Ferrer, C., &amp;amp; Schindler, K. (2016). &lt;a href="https://www.ethz.ch/content/dam/ethz/special-interest/baug/igp/photogrammetry-remote-sensing-dam/documents/pdf/learning-tracking-siamese.pdf"&gt;Learning by tracking: Siamese CNN for robust target association&lt;/a&gt;. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition Workshops (pp. 33-40).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="application-landmark-distances"&gt;Application: Landmark Distances&lt;/h2&gt;
 &lt;p&gt;Think of autonomous cars. They might know some landmarks and be able to
 identify them. Then they can measure the distance to those landmarks. And maybe
 some landmarks are added later. I wondered how well a neural network does in

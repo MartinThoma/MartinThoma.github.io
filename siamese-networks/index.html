@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Siamese Networks "/>
 <meta property="og:url" content="../siamese-networks/" />
-<meta property="og:description" content="Siamese Networks are feature extractors trained to learn an embedding in \(\mathbb{R}^n\) where not the absolute output is important, but the relative one. The original paper1 was about signature verification. You have one original signature and one that might be the same or might be a different …" />
+<meta property="og:description" content="Siamese Networks are feature extractors trained to learn an embedding in \(\mathbb{R}^n\) where not the absolute output is important, but the relative one. Schema of a Siamese Network $m_1$. The original paper1 was about signature verification. You have one original signature and one that might be the …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2019-04-27T20:00:00+02:00" />
 <meta name="twitter:title" content="Siamese Networks ">
-<meta name="twitter:description" content="Siamese Networks are feature extractors trained to learn an embedding in \(\mathbb{R}^n\) where not the absolute output is important, but the relative one. The original paper1 was about signature verification. You have one original signature and one that might be the same or might be a different …">
+<meta name="twitter:description" content="Siamese Networks are feature extractors trained to learn an embedding in \(\mathbb{R}^n\) where not the absolute output is important, but the relative one. Schema of a Siamese Network $m_1$. The original paper1 was about signature verification. You have one original signature and one that might be the …">
 <meta property="og:image" content="logos/ml.png" />
 <meta name="twitter:image" content="logos/ml.png" >
 
@@ -103,7 +103,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#landmark-distances" title="Landmark Distances">Landmark Distances</a></li><li><a class="toc-href" href="#footnotes" title="Footnotes">Footnotes</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#key-idea" title="Key Idea">Key Idea</a></li><li><a class="toc-href" href="#applications" title="Applications">Applications</a></li><li><a class="toc-href" href="#application-landmark-distances" title="Application: Landmark Distances">Application: Landmark Distances</a></li><li><a class="toc-href" href="#footnotes" title="Footnotes">Footnotes</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -111,6 +111,10 @@ MathJax.Hub.Queue(function() {
             
             <p>Siamese Networks are feature extractors trained to learn an embedding in <span class="math">\(\mathbb{R}^n\)</span>
 where not the absolute output is important, but the relative one.</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2019/04/siamese-networks.png"><img alt="Schema of a Siamese Network" src="../images/2019/04/siamese-networks.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Schema of a Siamese Network $m_1$.</figcaption>
+</figure>
 <p>The original paper<sup id="fnref-1"><a class="footnote-ref" href="#fn-1">1</a></sup> was about signature verification. You have one original
 signature and one that might be the same or might be a different one. Instead
 of having one output that directly says "same" or "different", they decided to
@@ -118,7 +122,21 @@ have one network that maps the input to <span class="math">\(\mathbb{R}^{4 \time
 euclidean distance with some threshold<sup id="fnref-2"><a class="footnote-ref" href="#fn-2">2</a></sup>.</p>
 <p>Today, the nicest usage I know is DeepFace<sup id="fnref-3"><a class="footnote-ref" href="#fn-3">3</a></sup>. It is a neural network which maps
 faces to <span class="math">\(\mathbb{R}^{128}\)</span> by combining a lot of clever ideas.</p>
-<h2 id="landmark-distances">Landmark Distances</h2>
+<h2 id="key-idea">Key Idea</h2>
+<p>You have one network <span class="math">\(m_1\)</span> which is embedded into another network which
+combines two inputs of <span class="math">\(m_1\)</span>. So for training a triplet <span class="math">\((d_1, d_2, t)\)</span> is
+used, where <span class="math">\(d_1\)</span> and <span class="math">\(d_2\)</span> are both processed individually by <span class="math">\(m_1\)</span>. The two
+outputs <span class="math">\(d_{1}'\)</span> and <span class="math">\(d_{2}'\)</span> are then combined by another network <span class="math">\(m_2\)</span>. <span class="math">\(m_2\)</span>
+can simply be a merging layer. The loss is then calculated based on the output
+of <span class="math">\(m_2\)</span>.</p>
+<h2 id="applications">Applications</h2>
+<ul>
+<li>Signature Verification: Given two signatures, do they belong to the same person?</li>
+<li>Face Verification: Given two faces, are they the same person?</li>
+<li>Koch, G., Zemel, R., &amp; Salakhutdinov, R. (2015, July). <a href="https://www.cs.cmu.edu/~rsalakhu/papers/oneshot1.pdf">Siamese neural networks for one-shot image recognition</a>. In ICML deep learning workshop (Vol. 2).</li>
+<li>Leal-Taix&eacute;, L., Canton-Ferrer, C., &amp; Schindler, K. (2016). <a href="https://www.ethz.ch/content/dam/ethz/special-interest/baug/igp/photogrammetry-remote-sensing-dam/documents/pdf/learning-tracking-siamese.pdf">Learning by tracking: Siamese CNN for robust target association</a>. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition Workshops (pp. 33-40).</li>
+</ul>
+<h2 id="application-landmark-distances">Application: Landmark Distances</h2>
 <p>Think of autonomous cars. They might know some landmarks and be able to
 identify them. Then they can measure the distance to those landmarks. And maybe
 some landmarks are added later. I wondered how well a neural network does in
