@@ -257,6 +257,18 @@ You might wonder how it relates to `nose`. The main thing you should remember
 is that [nose is no longer maintained](https://nose.readthedocs.io/en/latest/#note-to-users).
 
 
+### radon
+
+[`radon`](https://pypi.org/project/radon/) computes several maintainability
+measures. The best one is the maintainability index. Here is how I use it
+for my `mpu` package:
+
+```
+$ radon mi mpu
+```
+
+
+
 ### tox
 
 [`tox`](https://en.wikipedia.org/wiki/Tox_(Python_testing_wrapper)) is a
