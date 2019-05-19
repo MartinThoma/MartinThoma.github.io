@@ -1,5 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - The Web</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/the-web.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2018-08-03T20:00:00+02:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>Usernames</title><link href="https://martin-thoma.com/usernames/" rel="alternate"></link><published>2018-08-03T20:00:00+02:00</published><updated>2018-08-03T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-08-03:/usernames/</id><summary type="html">&lt;p&gt;Usernames are used for identification in two places in web services: To let
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - The Web</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/the-web.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2019-05-18T20:00:00+02:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>REST</title><link href="https://martin-thoma.com/rest/" rel="alternate"></link><published>2019-05-18T20:00:00+02:00</published><updated>2019-05-18T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2019-05-18:/rest/</id><summary type="html">&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Representational_state_transfer"&gt;REST&lt;/a&gt; is a
+software architectural style that defines a set of constraints to be used for
+creating Web services.&lt;/p&gt;
+&lt;p&gt;Most explanations of REST give too many details, such as &lt;a href="https://en.wikipedia.org/wiki/Representational_state_transfer#Architectural_constraints"&gt;the architectural constraints&lt;/a&gt;. To get a glimpse how REST works, this is not necessary. In this article I try to focus …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Representational_state_transfer"&gt;REST&lt;/a&gt; is a
+software architectural style that defines a set of constraints to be used for
+creating Web services.&lt;/p&gt;
+&lt;p&gt;Most explanations of REST give too many details, such as &lt;a href="https://en.wikipedia.org/wiki/Representational_state_transfer#Architectural_constraints"&gt;the architectural constraints&lt;/a&gt;. To get a glimpse how REST works, this is not necessary. In this article I try to focus on the bare minimum.&lt;/p&gt;
+&lt;h2 id="http-methods"&gt;HTTP Methods&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://developer.mozilla.org/de/docs/Web/HTTP/Methods"&gt;HTTP methods&lt;/a&gt; were
+designed in 1991, whereas REST was designed in 2000. The following are
+explanations of HTTP methods in the REST context. The HTTP Methods in REST map
+to CRUD which is from 1983:&lt;/p&gt;
+&lt;table class="table"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;HTTP&lt;/th&gt;
+&lt;th&gt;CRUD&lt;/th&gt;
+&lt;th&gt;SQL&lt;/th&gt;
+&lt;th&gt;REST meaning&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;POST&lt;/td&gt;
+&lt;td rowspan="2"&gt;CREATE&lt;/td&gt;
+&lt;td rowspan="2"&gt;INSERT&lt;/td&gt;
+&lt;td&gt;Create a new resrouce, but server decides on URI / ID.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;PUT&lt;/td&gt;
+&lt;td&gt;Like POST, but the server creates the URI / ID.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GET&lt;/td&gt;
+&lt;td&gt;READ&lt;/td&gt;
+&lt;td&gt;SELECT&lt;/td&gt;
+&lt;td&gt;Retrieve one or multiple resources. This MUST NOT change an resource!&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;PUT&lt;/td&gt;
+&lt;td rowspan="2"&gt;UPDATE&lt;/td&gt;
+&lt;td rowspan="2"&gt;UPDATE&lt;/td&gt;
+&lt;td&gt;Like POST, but the server creates the URI / ID.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;PATCH&lt;/td&gt;
+&lt;td&gt;Change a resource&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DELETE&lt;/td&gt;
+&lt;td&gt;DELETE&lt;/td&gt;
+&lt;td&gt;DELETE&lt;/td&gt;
+&lt;td&gt;Delete one or multiple resources.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;table class="table"&gt;
+&lt;tr&gt;
+&lt;th&gt;HTTP method&lt;/th&gt;
+&lt;th&gt;Response Status Code&lt;/th&gt;
+&lt;th&gt;Response Body (JSON or Empty)&lt;/th&gt;
+&lt;th&gt;Meaning&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td rowspan="2"&gt;GET&lt;/td&gt;
+&lt;td&gt;200&lt;/td&gt;
+&lt;td&gt;The resource&lt;/td&gt;
+&lt;td&gt;Found resource&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;404&lt;/td&gt;
+&lt;td&gt;Empty or error description&lt;/td&gt;
+&lt;td&gt;Resource not found&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td rowspan="3"&gt;POST&lt;/td&gt;
+&lt;td&gt;201&lt;/td&gt;
+&lt;td&gt;The created resource&lt;/td&gt;
+&lt;td&gt;Resource created&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;400&lt;/td&gt;
+&lt;td&gt;Empty or error description&lt;/td&gt;
+&lt;td&gt;Invalid resource&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;409&lt;/td&gt;
+&lt;td&gt;Empty or error description&lt;/td&gt;
+&lt;td&gt;Resource already exists&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;PUT&lt;/td&gt;
+&lt;td&gt;201&lt;/td&gt;
+&lt;td&gt;Empty? Description? Resource?&lt;/td&gt;
+&lt;td&gt;Update resource&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td rowspan="2"&gt;PATCH&lt;/td&gt;
+&lt;td&gt;200&lt;/td&gt;
+&lt;td&gt;Empty? Description? Resource?&lt;/td&gt;
+&lt;td&gt;Update resource&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;404&lt;/td&gt;
+&lt;td&gt;Empty or error description&lt;/td&gt;
+&lt;td&gt;Resource not found&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td rowspan="2"&gt;DELETE&lt;/td&gt;
+&lt;td&gt;200&lt;/td&gt;
+&lt;td&gt;Empty&lt;/td&gt;
+&lt;td&gt;Resource deleted&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;404&lt;/td&gt;
+&lt;td&gt;Empty&lt;/td&gt;
+&lt;td&gt;Resource not found&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;h2 id="naming-conventions"&gt;Naming Conventions&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Only Nouns&lt;/li&gt;
+&lt;li&gt;Only Plural forms&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="example"&gt;Example&lt;/h2&gt;
+&lt;p&gt;Let's say we have an educational website &lt;code&gt;educate.me&lt;/code&gt;. It has lessons:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;lesson = {"lesson_id": "int",
+          "author_id": "int",
+          "content": "blob",
+          "expected_age": "int",
+          "creation_date": "datetime"}
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You need a possibility to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;list all existing lessons&lt;/li&gt;
+&lt;li&gt;get a single lesson&lt;/li&gt;
+&lt;li&gt;add a new lesson&lt;/li&gt;
+&lt;li&gt;delete a lesson&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So your service then has the following URLs:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;GET educate.me/lessons&lt;/code&gt;: List all lessons&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;GET educate.me/lessons/id/42&lt;/code&gt;: List the lesson with ID 42.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;POST educate.me/lessons&lt;/code&gt;: Add a new lesson&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;DELETE educate.me/lessons/id/42&lt;/code&gt;: Delete the lesson with ID 42.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="pimp-get"&gt;Pimp GET&lt;/h2&gt;
+&lt;p&gt;You should provide filtering, sorting, field selection and pagination for
+collections.&lt;/p&gt;
+&lt;h3 id="pagination"&gt;Pagination&lt;/h3&gt;
+&lt;p&gt;In the example above, &lt;code&gt;GET educate.me/lessons&lt;/code&gt; could return
+something arbitrary big. Instead, it should be limited to something reasonable
+like 20, 100 or 500 elements. Then the call gets a limit an an offset:
+&lt;code&gt;GET educate.me/lessons?offset=40&amp;amp;limit=20&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;With pagination, the order becomes important. You could sort by default by ID,
+but maybe you want to offer some sorting options.&lt;/p&gt;
+&lt;h3 id="sorting"&gt;Sorting&lt;/h3&gt;
+&lt;p&gt;You can allow sorting options with the syntax
+&lt;code&gt;GET educate.me/lessons?sort=-creation_date,+lesson_id&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id="filtering"&gt;Filtering&lt;/h3&gt;
+&lt;p&gt;Most of the time, clients are not interested in all of the data. They are
+interested in a part of it.&lt;/p&gt;
+&lt;p&gt;Some filtering options you might want to consider in the example above:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;?content=*euclid*&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;?creation_date&amp;lt;=2019-05-30&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;?author_id=42&amp;amp;content=*euclid*&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="API"></category><category term="Web"></category><category term="Design"></category><category term="Architecture"></category></entry><entry><title>Usernames</title><link href="https://martin-thoma.com/usernames/" rel="alternate"></link><published>2018-08-03T20:00:00+02:00</published><updated>2018-08-03T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-08-03:/usernames/</id><summary type="html">&lt;p&gt;Usernames are used for identification in two places in web services: To let
 people log in and to allow people recognizing each other. In this article I
 want to share some ideas on usernames.&lt;/p&gt;
 &lt;h2 id="username-vs-display-name"&gt;Username vs Display name&lt;/h2&gt;
