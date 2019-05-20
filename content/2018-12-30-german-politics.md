@@ -87,6 +87,10 @@ is a problem.
 
 **The solution**: Simplify tax laws.
 
+Concrete examples:
+
+* [Grand Theft Europe](https://correctiv.org/top-stories/2019/05/06/grand-theft-europe/)
+
 
 ### Mandatory Public Health Insurance
 
