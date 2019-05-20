@@ -146,6 +146,34 @@ Other quality indicators for a recommendation system
     <dd>How quickly are recommendations adjusted?</dd>
 </dl>
 
+Another way to evaluate is to ask the user:
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2019/05/youtube-feedback-1.png"><img src="../images/2019/05/youtube-feedback-1.png" alt="A jellyfish" style="width: 512px;"/></a>
+    <figcaption class="text-center">YouTube Asking for feedback: 1 Star</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2019/05/youtube-feedback-2.png"><img src="../images/2019/05/youtube-feedback-2.png" alt="A jellyfish" style="width: 512px;"/></a>
+    <figcaption class="text-center">YouTube Asking for feedback: 2 Star</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2019/05/youtube-feedback-3.png"><img src="../images/2019/05/youtube-feedback-3.png" alt="A jellyfish" style="width: 512px;"/></a>
+    <figcaption class="text-center">YouTube Asking for feedback: 3 Star</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2019/05/youtube-feedback-4.png"><img src="../images/2019/05/youtube-feedback-4.png" alt="A jellyfish" style="width: 512px;"/></a>
+    <figcaption class="text-center">YouTube Asking for feedback: 4 Star</figcaption>
+</figure>
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2019/05/youtube-feedback-5.png"><img src="../images/2019/05/youtube-feedback-5.png" alt="A jellyfish" style="width: 512px;"/></a>
+    <figcaption class="text-center">YouTube Asking for feedback: 5 Star</figcaption>
+</figure>
+
+
 ## Typical Problems
 
 ### Cold-Start Problem
