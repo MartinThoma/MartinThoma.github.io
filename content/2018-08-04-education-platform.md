@@ -113,6 +113,11 @@ only a single page.
     </tbody>
 </table>
 
+And some more I didn't investigate so far:
+
+* Skillshare
+* Brilliant
+
 
 All of the projects I found have at least one of the following problems:
 
