@@ -14,7 +14,7 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="API, Web, Design, Architecture, The Web, " />
+<meta name="keywords" content="API, Web, Design, Architecture, Flask, The Web, " />
 
 <meta property="og:title" content="REST "/>
 <meta property="og:url" content="../rest/" />
@@ -104,7 +104,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#http-methods" title="HTTP Methods">HTTP Methods</a></li><li><a class="toc-href" href="#overview" title="Overview">Overview</a></li><li><a class="toc-href" href="#naming-conventions" title="Naming Conventions">Naming Conventions</a></li><li><a class="toc-href" href="#example" title="Example">Example</a></li><li><a class="toc-href" href="#pimp-get" title="Pimp GET">Pimp GET</a><ul><li><a class="toc-href" href="#pagination" title="Pagination">Pagination</a></li><li><a class="toc-href" href="#sorting" title="Sorting">Sorting</a></li><li><a class="toc-href" href="#filtering" title="Filtering">Filtering</a></li></ul></li><li><a class="toc-href" href="#see-also_1" title="See also">See also</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#http-methods" title="HTTP Methods">HTTP Methods</a></li><li><a class="toc-href" href="#overview" title="Overview">Overview</a></li><li><a class="toc-href" href="#naming-conventions" title="Naming Conventions">Naming Conventions</a></li><li><a class="toc-href" href="#example" title="Example">Example</a></li><li><a class="toc-href" href="#pimp-get" title="Pimp GET">Pimp GET</a><ul><li><a class="toc-href" href="#pagination" title="Pagination">Pagination</a></li><li><a class="toc-href" href="#sorting" title="Sorting">Sorting</a></li><li><a class="toc-href" href="#filtering" title="Filtering">Filtering</a></li></ul></li><li><a class="toc-href" href="#flask_1" title="Flask">Flask</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -308,7 +308,54 @@ interested in a part of it.</p>
 <li><code>?creation_date&lt;=2019-05-30</code></li>
 <li><code>?author_id=42&amp;content=*euclid*</code></li>
 </ul>
-<h2 id="see-also_1">See also</h2>
+<h2 id="flask_1">Flask</h2>
+<p>You can build REST APIs with <a href="https://flask-restplus.readthedocs.io/en/stable/">Flask-RESTPlus</a>:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+
+<span class="sd">"""Simple Flask/Swagger/REST-API example."""</span>
+
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+<span class="kn">from</span> <span class="nn">flask_restplus</span> <span class="kn">import</span> <span class="n">Resource</span><span class="p">,</span> <span class="n">Api</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">Api</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="s1">'/doc'</span><span class="p">)</span>
+
+
+<span class="nd">@api.route</span><span class="p">(</span><span class="s1">'/lessons'</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">VersionAPI</span><span class="p">(</span><span class="n">Resource</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">get_all_lessons</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">add_posted_lesson</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">'0.0.0.0'</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+<h2 id="see-also">See also</h2>
 <ul>
 <li><a href="https://restfulapi.net/resource-naming/">REST Resource Naming Guide</a></li>
 </ul>
@@ -352,6 +399,9 @@ interested in a part of it.</p>
 </a></li>
                 <li><a href="../tags.html#design-ref">Design
                     <span>8</span>
+</a></li>
+                <li><a href="../tags.html#flask-ref">Flask
+                    <span>3</span>
 </a></li>
                 <li><a href="../tags.html#web-ref">Web
                     <span>2</span>

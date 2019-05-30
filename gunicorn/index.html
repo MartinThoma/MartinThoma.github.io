@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="gunicorn, Flask, Code, " />
+
+<meta property="og:title" content="Gunicorn "/>
+<meta property="og:url" content="../gunicorn/" />
+<meta property="og:description" content="sync Async Workers tornado AsyncIO Workers worker gevent eventlet gaiohttp gthread core characteristic * Per request a process* Blocks other requests until it is finished * based on the Greenlet library* Program-level threads * based on the Greenlet library* Program-level threads *provides async I/O non-blocking design model* ideal for handling long requests …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2019-05-24T20:00:00+02:00" />
+<meta name="twitter:title" content="Gunicorn ">
+<meta name="twitter:description" content="sync Async Workers tornado AsyncIO Workers worker gevent eventlet gaiohttp gthread core characteristic * Per request a process* Blocks other requests until it is finished * based on the Greenlet library* Program-level threads * based on the Greenlet library* Program-level threads *provides async I/O non-blocking design model* ideal for handling long requests …">
+<meta property="og:image" content="logos/flask.png" />
+<meta name="twitter:image" content="logos/flask.png" >
+
+        <title>Gunicorn  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../gunicorn/"> Gunicorn  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#performance" title="Performance">Performance</a><ul><li><a class="toc-href" href="#constant-response" title="Constant Response">Constant Response</a></li><li><a class="toc-href" href="#io-bound" title="I/O Bound">I/O Bound</a></li><li><a class="toc-href" href="#cpu-bound" title="CPU Bound">CPU Bound</a></li></ul></li><li><a class="toc-href" href="#alternatives_1" title="Alternatives">Alternatives</a></li><li><a class="toc-href" href="#notes" title="Notes">Notes</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li><li><a class="toc-href" href="#sources" title="Sources">Sources</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <table>
+<tr>
+<th></th>
+<th rowspan="2">sync</th>
+<th colspan="2">Async Workers</th>
+<th rowspan="2">tornado</th>
+<th colspan="2">AsyncIO Workers</th>
+</tr>
+<tr>
+<td>worker</td>
+<td>gevent</td>
+<td>eventlet</td>
+<td>gaiohttp</td>
+<td>gthread</td>
+</tr>
+<tr>
+<td>core characteristic</td>
+<td>* Per request a process<br/>* Blocks other requests until it is finished</td>
+<td>*&nbsp;based on the Greenlet library<br/>* Program-level threads</td>
+<td>*&nbsp;based on the Greenlet library<br/>* Program-level threads</td>
+<td>*provides async I/O non-blocking design model<br/>*&nbsp;ideal for handling long requests</td>
+<td></td>
+<td>* Per request a thread</td>
+</tr>
+<tr>
+<td>workload</td>
+<td>* No long I/O<br/>* No heavy CPU<br/>* No requests to external pages</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>URL</td>
+<td></td>
+<td>http://www.gevent.org/</td>
+<td>https://eventlet.net/</td>
+<td></td>
+<td>https://aiohttp.readthedocs.io/en/stable/</td>
+<td></td>
+</tr>
+</table>
+<h2 id="performance">Performance</h2>
+<p>Performance can be measured in at least three ways:</p>
+<ul>
+<li>throughput (requests per second),</li>
+<li>latency (minimum),</li>
+<li>latency (average)</li>
+</ul>
+<p>I use locust with a hatch rate so that in 10s all users are hatched to get some
+numbers. I use the following <code>locustfile.py</code>:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">locust</span> <span class="kn">import</span> <span class="n">HttpLocust</span><span class="p">,</span> <span class="n">TaskSet</span><span class="p">,</span> <span class="n">task</span>
+
+
+<span class="k">class</span> <span class="nc">WebsiteTasks</span><span class="p">(</span><span class="n">TaskSet</span><span class="p">):</span>
+    <span class="nd">@task</span>
+    <span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">WebsiteUser</span><span class="p">(</span><span class="n">HttpLocust</span><span class="p">):</span>
+    <span class="n">task_set</span> <span class="o">=</span> <span class="n">WebsiteTasks</span>
+    <span class="n">min_wait</span> <span class="o">=</span> <span class="mi">5000</span>
+    <span class="n">max_wait</span> <span class="o">=</span> <span class="mi">15000</span>
+</pre></div>
+<p>I had to execute <code>ulimit -S -n 10240</code> in order to test the 10,000 users. Otherwise
+I got</p>
+<div class="highlight"><pre><span></span>[2019-05-26 12:25:03,499] pc07/ERROR/stderr: OSError: [Errno 16] Device or resource busy
+[2019-05-26 12:25:03,499] pc07/ERROR/stderr: 
+[2019-05-26 12:25:03,499] pc07/ERROR/stderr: 2019-05-26T10:25:03Z
+[2019-05-26 12:25:03,499] pc07/ERROR/stderr: 
+[2019-05-26 12:25:03,499] pc07/ERROR/stderr: (&lt;ThreadPool at 0x7fc2e275d4a8 0/10/10 hub=&lt;Hub at 0x7fc2e7c84780 thread_ident=0x140475181328192&gt;&gt;, &lt;built-in function getaddrinfo&gt;) failed with OSError
+</pre></div>
+<h3 id="constant-response">Constant Response</h3>
+<p>The following <code>app.py</code> is probably the simplest one possible.</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s1">'hello world!'</span>
+</pre></div>
+<p>Let's first have a look at the median response time by the number of users:</p>
+<table class="table">
+<tr>
+<th>Users</th>
+<th>Development Server</th>
+<th>gevent (1 worker, 1000 connections)</th>
+<th>gevent (4 workers, 1000 connections)</th>
+<th>gevent (12 workers, 1000 connections)</th>
+<th>sync (4 workers)</th>
+<th>gthread (4 workers)</th>
+</tr>
+<tr>
+<td>10</td>
+<td>8ms - 9ms; 1 Req/ s</td>
+<td>8ms - 9ms; 1 Req/ s</td>
+<td>8ms - 11ms; 1 Req/ s</td>
+<td>6ms - 10ms; 1 Req/ s</td>
+<td>7ms - 9ms; 1 Req/s</td>
+<td>6ms - 12ms; 1 Req/s</td>
+</tr>
+<tr>
+<td>100</td>
+<td>10ms; 10 Req/s</td>
+<td>8ms - 9ms; 10 Req/s</td>
+<td>8ms - 9ms; 10 Req/s</td>
+<td>8ms - 9ms; 10 Req/s</td>
+<td>7ms - 9ms; 10 Req/s</td>
+<td>8ms - 12ms; 10 Req/s</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>12ms - 30ms; 100 Req/s</td>
+<td>8ms - 12ms; 100 Req/s</td>
+<td>7ms - 10ms; 100 Req/s</td>
+<td>5ms - 12ms; 100 Req/s</td>
+<td>6ms - 8ms; 100 Req/s</td>
+<td>8ms - 11ms; 100 Req/s</td>
+</tr>
+<tr>
+<td>10&thinsp;000</td>
+<td>150ms - 34000ms; 170 - 270 Req/s</td>
+<td>8100ms - 41000ms; 220 - 440 Req/s</td>
+<td>340ms - 11000ms; 200 - 625 Req/s</td>
+<td>150ms - 96000ms; 130 - 410 Req/s</td>
+<td>81ms - 101000ms; 220 - 750 Req/s</td>
+<td>350ms - 93000ms; 270 - 533 Req/s</td>
+</tr>
+</table>
+<p>You can clearly see that there is no real difference up to 100 users. At 1000
+users, the development server gets slow. gevent does not care about it. At
+10,000 users, gevent gets slow. But the real difference was the 95-percentile
+response time. This varies over time. A lot.</p>
+<h3 id="io-bound">I/O Bound</h3>
+<p>Let's say our workload was I/O bound. Maybe we need to request another API
+before we can answer. To simulate this, I let the request sleep for 1s before
+it answers:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s1">'hello world!'</span>
+</pre></div>
+<table>
+<tr>
+<th></th>
+<th>Development Server</th>
+<th>gevent (1 worker, 1000 connections)</th>
+<th>gevent (4 workers, 1000 connections)</th>
+<th>gevent (12 workers, 1000 connections)</th>
+<th>sync (4 workers)</th>
+<th>gthread (4 workers)</th>
+</tr>
+<tr>
+<td>1000</td>
+<td>1000ms; 1000-1200ms</td>
+<td>1000ms; 1000-1100ms</td>
+<td>1000ms; 1000ms</td>
+<td>1000ms; 1s-1.1ms</td>
+<td>32s-37s;35s-97s</td>
+<td>Fails</td>
+</tr>
+<tr>
+<td>10,000</td>
+<td>3.2s-8.4ms;5.2ms-76s</td>
+<td>2.4s-8.5s; 28s - 132s</td>
+<td>2.8s-9.7s; 16s-290s</td>
+<td>1.8s - 11s; 6.7s - 150s</td>
+<td>29s - 131s;45s-183s</td>
+<td>Fails</td>
+</tr>
+</table>
+<h3 id="cpu-bound">CPU Bound</h3>
+<p>Let's say our workload was CPU bound:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s1">'hello world!'</span>
+</pre></div>
+<h2 id="alternatives_1">Alternatives</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/UWSGI">uWSGI</a> (<a href="https://uwsgi-docs.readthedocs.io/en/latest/">docs</a> )is both a protocol and an application server; the application server can serve uWSGI, FastCGI, and HTTP protocols. Seems to be used together with gevent.</li>
+<li><a href="https://en.wikipedia.org/wiki/Tornado_(web_server)">Tornado</a>: a scalable, non-blocking web server and web application framework</li>
+</ul>
+<p>While I searched, I also found:</p>
+<ul>
+<li>TWISTED WEB</li>
+<li>CHERRYPY</li>
+<li>WAITRESS</li>
+<li>CHAUSSETTE</li>
+<li><a href="https://github.com/mopemope/meinheld">meinheld</a>: a high performance asynchronous WSGI Web Server (based on picoev)</li>
+</ul>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><code>gevent_pywsgi</code> and <code>gevent_wsgi</code> are the same.<sup id="fnref-1"><a class="footnote-ref" href="#fn-1">1</a></sup></li>
+<li><code>gevent</code> uses the gunicorn event parser, while <code>gevent_wsgi</code> uses the event
+  parser within itself.<sup id="fnref2-1"><a class="footnote-ref" href="#fn-1">1</a></sup></li>
+<li>If you need to handle a high volume of concurrent requests and your
+  application performs a lot of waiting on I/O (database, streaming responses,
+  upstream requests, etc) then gevent can be a good choice.<sup id="fnref3-1"><a class="footnote-ref" href="#fn-1">1</a></sup></li>
+<li>I didn't include Sanic, because it is less tested then Flask.[^2]</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li>2018-01-30: <a href="https://medium.com/@genchilu/brief-introduction-about-the-types-of-worker-in-gunicorn-and-respective-suitable-scenario-67b0c0e7bd62">Brief introduction about the types of worker in gunicorn and respective suitable scenario</a></li>
+<li>2015-01-20: <a href="https://www.spirulasystems.com/blog/2015/01/20/gunicorn-worker-types/">Gunicorn Worker Types</a></li>
+<li>2017-01-17: Reddit-comment by <a href="https://www.reddit.com/r/Python/comments/5og4hl/is_there_any_reason_to_use_flask_over_sanic/dcjbqml/">desmoulinmichel</a></li>
+<li>2012-09-12: <a href="https://ivan-site.com/2012/09/benchmark-uwsgi-vs-gunicorn-for-async-workers/">Benchmark uWSGI vs gunicorn for async workers</a> by Ivan Dyedov</li>
+</ul>
+<h2 id="sources">Sources</h2>
+<div class="footnote">
+<hr/>
+<ol>
+<li id="fn-1">
+<p>Randall Leeds: <a href="https://github.com/benoitc/gunicorn/issues/305#issuecomment-469345296">Github, 2019-03-04</a>&nbsp;<a class="footnote-backref" href="#fnref-1" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref2-1" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref3-1" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+</ol>
+</div>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2019-05-24T20:00:00+02:00">Mai 24, 2019</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#flask-ref">Flask
+                    <span>3</span>
+</a></li>
+                <li><a href="../tags.html#gunicorn-ref">gunicorn
+                    <span>2</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink no-print';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
