@@ -15,7 +15,7 @@ DEFAULT_LANG = u'en'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_RSS = 'feeds/index.xml'
-CATEGORY_FEED_RSS = 'feeds/%s.rss.xml'
+CATEGORY_FEED_RSS = 'feeds/{slug}.rss.xml'
 FEED_USE_SUMMARY = False
 
 FEED_ALL_ATOM = None
