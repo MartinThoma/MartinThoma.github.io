@@ -40,18 +40,21 @@ It would be nice if  supported storing / rendering directly from Markdown. It
 that doesn't exist, I might convert the HTML to Markdown and back with Pandoc.
 
 <table class="table">
+    <thead>
+        <tr>
+            <th>Editor</th>
+            <th><a href="https://quilljs.com/">QuillJS</a></th>
+            <th><a href="https://summernote.org/">Summernote</a></th>
+            <th><a href="https://ckeditor.com/ckeditor-4/">CKEditor 4</a></th>
+            <th><a href="https://alex-d.github.io/Trumbowyg/">Trumbowyg</a></th>
+            <th><a href="https://imperavi.com/redactor/">Redactor</a></th>
+            <th><a href="https://yabwe.github.io/medium-editor/">Medium</a></th>
+            <th><a href="https://www.froala.com/">Froala</a></th>
+        </tr>
+    </thead>
+    <tbody>
     <tr>
-        <th>Editor</th>
-        <th><a href="https://quilljs.com/">QuillJS</a></th>
-        <th><a href="https://summernote.org/">Summernote</a></th>
-        <th><a href="https://ckeditor.com/ckeditor-4/">CKEditor 4</a></th>
-        <th><a href="https://alex-d.github.io/Trumbowyg/">Trumbowyg</a></th>
-        <th><a href="https://imperavi.com/redactor/">Redactor</a></th>
-        <th><a href="https://yabwe.github.io/medium-editor/">Medium</a></th>
-        <th><a href="https://www.froala.com/">Froala</a></th>
-    </tr>
-    <tr>
-        <td>Bold/Italic/Underline</td>
+        <th>Bold/Italic/Underline</th>
         <td>B+I+U</td>
         <td>B+U</td>
         <td>B+I</td>
@@ -61,98 +64,98 @@ that doesn't exist, I might convert the HTML to Markdown and back with Pandoc.
         <td>B+I+U</td>
     </tr>
     <tr>
-        <td>Headings</td>
+        <th>Headings</th>
         <td>3</td>
-        <td>6</td>
+        <td style="background-color: #f2dede;">6</td>
         <td>3</td>
         <td>4</td>
-        <td>6</td>
+        <td style="background-color: #f2dede;">6</td>
         <td>2</td>
         <td>4</td>
     </tr>
     <tr>
-        <td>Tables</td>
-        <td>No</td>
-        <td>Good</td>
+        <th>Tables</th>
+        <td style="background-color: #f2dede;">No</td>
+        <td style="background-color: #c9f8c9;">Good</td>
         <td>Ok</td>
-        <td>Bad, via Plugin</td>
+        <td style="background-color: #f2dede;">Bad, via Plugin</td>
         <td>Ok</td>
-        <td>Good, via plugin</td>
-        <td>Good</td>
+        <td style="background-color: #c9f8c9;">Good, via plugin</td>
+        <td style="background-color: #c9f8c9;">Good</td>
     </tr>
     <tr>
-        <td>Lists</td>
+        <th>Lists</th>
         <td>ol+ul</td>
         <td>ol+ul</td>
         <td>ol+ul</td>
         <td>ol+ul</td>
         <td>ol+ul</td>
-        <td>No</td>
+        <td style="background-color: #f2dede;">No</td>
         <td>ol+ul</td>
     </tr>
     <tr>
-        <td>Links</td>
+        <th>Links</th>
         <td>Yes</td>
         <td>Yes</td>
         <td>Yes</td>
         <td>Yes</td>
         <td>Yes</td>
         <td>Yes</td>
-        <td>Yes</td>
-    </tr>
-    <tr>
-        <td>File Upload</td>
-        <td>No</td>
-        <td>No</td>
-        <td>Yes</td>
-        <td>No</td>
-        <td>Yes</td>
-        <td>No</td>
         <td>Yes</td>
     </tr>
     <tr>
-        <td>Images</td>
-        <td>No</td>
-        <td>Good</td>
-        <td>Good</td>
-        <td>Bad</td>
+        <th>File Upload</th>
+        <td style="background-color: #f2dede;">No</td>
+        <td style="background-color: #f2dede;">No</td>
+        <td>Yes</td>
+        <td style="background-color: #f2dede;">No</td>
+        <td>Yes</td>
+        <td style="background-color: #f2dede;">No</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <th>Images</th>
+        <td style="background-color: #f2dede;">No</td>
+        <td style="background-color: #c9f8c9;">Good</td>
+        <td style="background-color: #c9f8c9;">Good</td>
+        <td style="background-color: #f2dede;">Bad</td>
         <td>Basic, nice</td>
-        <td>Bad, via plugin</td>
-        <td>Very Good</td>
+        <td style="background-color: #f2dede;">Bad, via plugin</td>
+        <td style="background-color: #c9f8c9;">Very Good</td>
     </tr>
     <tr>
-        <td>Code</td>
-        <td>No</td>
+        <th>Code</th>
+        <td style="background-color: #f2dede;">No</td>
         <td>Yes</td>
-        <td>No</td>
+        <td style="background-color: #f2dede;">No</td>
         <td>via plugin</td>
         <td>Bad</td>
-        <td>No</td>
+        <td style="background-color: #f2dede;">No</td>
         <td>Bad</td>
     </tr>
     <tr>
-        <td>MathJax</td>
-        <td>No</td>
-        <td>No</td>
-        <td>No</td>
-        <td>via plugin</td>
-        <td>No</td>
-        <td>No</td>
-        <td>No</td>
+        <th>MathJax</th>
+        <td style="background-color: #f2dede;">No</td>
+        <td style="background-color: #f2dede;">No</td>
+        <td style="background-color: #f2dede;">No</td>
+        <td style="background-color: #c9f8c9;">via plugin</td>
+        <td style="background-color: #f2dede;">No</td>
+        <td style="background-color: #f2dede;">No</td>
+        <td style="background-color: #f2dede;">No</td>
     </tr>
     <tr>
-        <td>(Y)ouTube / (V)imeo</td>
-        <td>No</td>
-        <td>Y+V</td>
-        <td>No</td>
-        <td>No</td>
-        <td>No</td>
+        <th>(Y)ouTube / (V)imeo</th>
+        <td style="background-color: #f2dede;">No</td>
+        <td style="background-color: #c9f8c9;">Y+V</td>
+        <td style="background-color: #f2dede;">No</td>
+        <td style="background-color: #f2dede;">No</td>
+        <td style="background-color: #f2dede;">No</td>
         <td>Bad, via plugin</td>
-        <td>Yes</td>
+        <td style="background-color: #c9f8c9;">Yes</td>
     </tr>
     <tr>
-        <td>Output</td>
-        <td>JSON</td>
+        <th>Output</th>
+        <td style="background-color: #c9f8c9;">JSON</td>
         <td>HTML</td>
         <td>HTML</td>
         <td>HTML</td>
@@ -161,15 +164,16 @@ that doesn't exist, I might convert the HTML to Markdown and back with Pandoc.
         <td>HTML</td>
     </tr>
     <tr>
-        <td>License/Price</td>
-        <td>BSD</td>
-        <td>MIT</td>
-        <td>GPLv2, LGPLv2.1</td>
-        <td>MIT</td>
+        <th>License/Price</th>
+        <td style="background-color: #c9f8c9;">BSD</td>
+        <td style="background-color: #c9f8c9;">MIT</td>
+        <td style="background-color: #c9f8c9;">GPLv2, LGPLv2.1</td>
+        <td style="background-color: #c9f8c9;">MIT</td>
         <td>$199</td>
-        <td>MIT</td>
-        <td>$1199</td>
+        <td style="background-color: #c9f8c9;">MIT</td>
+        <td style="background-color: #f2dede;">$1199</td>
     </tr>
+    </tbody>
 </table>
 
 One should also mention that there are a couple of Markdown editors out there.
