@@ -115,7 +115,7 @@ that doesn't exist, I might convert the HTML to Markdown and back with Pandoc.
     </tr>
     <tr>
         <th>Images</th>
-        <td style="background-color: #f2dede;">No</td>
+        <td style="background-color: #f2dede;">Bad</td>
         <td style="background-color: #c9f8c9;">Good</td>
         <td style="background-color: #c9f8c9;">Good</td>
         <td style="background-color: #f2dede;">Bad</td>
@@ -125,8 +125,8 @@ that doesn't exist, I might convert the HTML to Markdown and back with Pandoc.
     </tr>
     <tr>
         <th>Code</th>
-        <td style="background-color: #f2dede;">No</td>
         <td>Yes</td>
+        <td>Bad</td>
         <td style="background-color: #f2dede;">No</td>
         <td>via plugin</td>
         <td>Bad</td>
@@ -135,10 +135,10 @@ that doesn't exist, I might convert the HTML to Markdown and back with Pandoc.
     </tr>
     <tr>
         <th>MathJax</th>
-        <td style="background-color: #f2dede;">No</td>
-        <td style="background-color: #f2dede;">No</td>
-        <td style="background-color: #f2dede;">No</td>
-        <td style="background-color: #c9f8c9;">via plugin</td>
+        <td>Bad</td>
+        <td style="background-color: #f2dede;">Good, <a href="https://github.com/tylerecouture/summernote-math">via plugin</a></td>
+        <td style="background-color: #c9f8c9;">Good, <a href="https://ckeditor.com/cke4/addon/mathjax">via plugin</a></td>
+        <td style="background-color: #c9f8c9;">Basic, <a href="https://alex-d.github.io/Trumbowyg/demos/#plugins-mathml">via plugin</a></td>
         <td style="background-color: #f2dede;">No</td>
         <td style="background-color: #f2dede;">No</td>
         <td style="background-color: #f2dede;">No</td>
