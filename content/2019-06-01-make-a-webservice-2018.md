@@ -54,6 +54,16 @@ that doesn't exist, I might convert the HTML to Markdown and back with Pandoc.
     </thead>
     <tbody>
     <tr>
+        <th>Toolbar</th>
+        <td><a href="https://quilljs.com/docs/modules/toolbar/#container">custom</a></td>
+        <td><a href="https://summernote.org/deep-dive/">custom</a></td>
+        <td><a href="https://ckeditor.com/docs/ckeditor4/latest/guide/dev_toolbar.html">custom</a></td>
+        <td>?</td>
+        <td><a href="https://imperavi.com/redactor/examples/buttons/change-buttons-in-the-toolbar/">custom</a></td>
+        <td><a href="https://github.com/yabwe/medium-editor/issues/1133">?</a></td>
+        <td><a href="https://www.froala.com/wysiwyg-editor/v1.2/docs/examples/custom-toolbar">custom</a></td>
+    </tr>
+    <tr>
         <th>Bold/Italic/Underline</th>
         <td>B+I+U</td>
         <td>B+U</td>
@@ -66,7 +76,7 @@ that doesn't exist, I might convert the HTML to Markdown and back with Pandoc.
     <tr>
         <th>Headings</th>
         <td>3</td>
-        <td style="background-color: #f2dede;">6</td>
+        <td>6</td>
         <td>3</td>
         <td>4</td>
         <td style="background-color: #f2dede;">6</td>
@@ -127,7 +137,7 @@ that doesn't exist, I might convert the HTML to Markdown and back with Pandoc.
         <th>Code</th>
         <td>Yes</td>
         <td>Bad, also <a href="https://epiksel.github.io/summernote-highlight/">via plugin</a></td>
-        <td style="background-color: #f2dede;">No</td>
+        <td style="background-color: #c9f8c9;">Good, <a href="https://ckeditor.com/docs/ckeditor4/latest/examples/codesnippet.html">via Plugin</a></td>
         <td>via plugin</td>
         <td>Bad</td>
         <td style="background-color: #f2dede;">No</td>
@@ -136,7 +146,7 @@ that doesn't exist, I might convert the HTML to Markdown and back with Pandoc.
     <tr>
         <th>MathJax</th>
         <td>Bad</td>
-        <td style="background-color: #f2dede;">Good, <a href="https://github.com/tylerecouture/summernote-math">via plugin</a></td>
+        <td style="background-color: #c9f8c9;">Good, <a href="https://github.com/tylerecouture/summernote-math">via plugin</a></td>
         <td style="background-color: #c9f8c9;">Good, <a href="https://ckeditor.com/cke4/addon/mathjax">via plugin</a></td>
         <td style="background-color: #c9f8c9;">Basic, <a href="https://alex-d.github.io/Trumbowyg/demos/#plugins-mathml">via plugin</a></td>
         <td style="background-color: #f2dede;">No</td>
@@ -155,13 +165,23 @@ that doesn't exist, I might convert the HTML to Markdown and back with Pandoc.
     </tr>
     <tr>
         <th>Output</th>
-        <td style="background-color: #c9f8c9;">JSON</td>
+        <td style="background-color: #f2dede;">JSON</td>
         <td>HTML</td>
         <td>HTML</td>
         <td>HTML</td>
         <td>HTML</td>
         <td>HTML</td>
         <td>HTML</td>
+    </tr>
+    <tr>
+        <th>Community</th>
+        <td><a href="https://stackoverflow.com/questions/tagged/quill">604 SO</a></td>
+        <td><a href="https://stackoverflow.com/questions/tagged/summernote">716 SO</a></td>
+        <td style="background-color: #c9f8c9;"><a href="https://stackoverflow.com/questions/tagged/ckeditor">8033 SO</a></td>
+        <td style="background-color: #f2dede;"><a href="https://stackoverflow.com/questions/tagged/trumbowyg">38 SO</a></td>
+        <td><a href="https://stackoverflow.com/questions/tagged/redactor">268 SO</a></td>
+        <td style="background-color: #f2dede;"><a href="https://stackoverflow.com/questions/tagged/medium-editor">60 SO</a></td>
+        <td><a href="https://stackoverflow.com/questions/tagged/froala">344 SO</a></td>
     </tr>
     <tr>
         <th>License/Price</th>
@@ -172,16 +192,6 @@ that doesn't exist, I might convert the HTML to Markdown and back with Pandoc.
         <td>$199</td>
         <td style="background-color: #c9f8c9;">MIT</td>
         <td style="background-color: #f2dede;">$1199</td>
-    </tr>
-    <tr>
-        <th>Community</th>
-        <td><a href="https://stackoverflow.com/questions/tagged/quill">604 SO</a></td>
-        <td><a href="https://stackoverflow.com/questions/tagged/summernote">716 SO</a></td>
-        <td><a href="https://stackoverflow.com/questions/tagged/ckeditor">8033 SO</a></td>
-        <td><a href="https://stackoverflow.com/questions/tagged/trumbowyg">38 SO</a></td>
-        <td><a href="https://stackoverflow.com/questions/tagged/redactor">268 SO</a></td>
-        <td><a href="https://stackoverflow.com/questions/tagged/medium-editor">60 SO</a></td>
-        <td><a href="https://stackoverflow.com/questions/tagged/froala">344 SO</a></td>
     </tr>
     </tbody>
 </table>
