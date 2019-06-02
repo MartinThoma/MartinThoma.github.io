@@ -126,7 +126,7 @@ that doesn't exist, I might convert the HTML to Markdown and back with Pandoc.
     <tr>
         <th>Code</th>
         <td>Yes</td>
-        <td>Bad</td>
+        <td>Bad, also <a href="https://epiksel.github.io/summernote-highlight/">via plugin</a></td>
         <td style="background-color: #f2dede;">No</td>
         <td>via plugin</td>
         <td>Bad</td>
@@ -140,8 +140,8 @@ that doesn't exist, I might convert the HTML to Markdown and back with Pandoc.
         <td style="background-color: #c9f8c9;">Good, <a href="https://ckeditor.com/cke4/addon/mathjax">via plugin</a></td>
         <td style="background-color: #c9f8c9;">Basic, <a href="https://alex-d.github.io/Trumbowyg/demos/#plugins-mathml">via plugin</a></td>
         <td style="background-color: #f2dede;">No</td>
-        <td style="background-color: #f2dede;">No</td>
-        <td style="background-color: #f2dede;">No</td>
+        <td style="background-color: #f2dede;"><a href="https://github.com/yabwe/medium-editor/issues/1500">No</a></td>
+        <td style="background-color: #f2dede;">Questionable, <a href="https://www.froala.com/wysiwyg-editor/examples/wiris">via plugin</a></td>
     </tr>
     <tr>
         <th>(Y)ouTube / (V)imeo</th>
@@ -179,12 +179,15 @@ that doesn't exist, I might convert the HTML to Markdown and back with Pandoc.
 One should also mention that there are a couple of Markdown editors out there.
 Usually, you can only write Markdown and see a preview:
 
+* [StackEdit](https://stackedit.io/)
+* [HackMD](https://hackmd.io/)
 * [SimpleMDE](https://simplemde.com/)
-
 
 See also:
 
-* https://www.tiny.cloud/ (TinyMCE)
+* [OryEditor](https://ory-editor.aeneas.io/): Similar to Medium, but a lot more functionality
+* [Trix](https://trix-editor.org/): Another super basic editor. Looks nice.
+* [TinyMCE](https://www.tiny.cloud/)
 
 
 ## Decisions
