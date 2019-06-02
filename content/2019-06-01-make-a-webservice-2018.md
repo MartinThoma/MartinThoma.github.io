@@ -173,6 +173,16 @@ that doesn't exist, I might convert the HTML to Markdown and back with Pandoc.
         <td style="background-color: #c9f8c9;">MIT</td>
         <td style="background-color: #f2dede;">$1199</td>
     </tr>
+    <tr>
+        <th>Community</th>
+        <td><a href="https://stackoverflow.com/questions/tagged/quill">604 SO</a></td>
+        <td><a href="https://stackoverflow.com/questions/tagged/summernote">716 SO</a></td>
+        <td><a href="https://stackoverflow.com/questions/tagged/ckeditor">8033 SO</a></td>
+        <td><a href="https://stackoverflow.com/questions/tagged/trumbowyg">38 SO</a></td>
+        <td><a href="https://stackoverflow.com/questions/tagged/redactor">268 SO</a></td>
+        <td><a href="https://stackoverflow.com/questions/tagged/medium-editor">60 SO</a></td>
+        <td><a href="https://stackoverflow.com/questions/tagged/froala">344 SO</a></td>
+    </tr>
     </tbody>
 </table>
 
