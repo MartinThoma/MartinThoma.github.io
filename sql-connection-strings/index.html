@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="SQL Connection Strings "/>
 <meta property="og:url" content="../sql-connection-strings/" />
-<meta property="og:description" content="When you want to connect to a database in SQLAlchemy, you need a connection string. It usually has the form dialect[+driver]://user:password@host/dbname[?key=value..] Quite often, the user is root and the host is localhost. Once you have the valid connection string, you can test it …" />
+<meta property="og:description" content="When you want to connect to a database in SQLAlchemy, you need a connection string. It usually has the form dialect[+driver]://user:password@host/dbname[?key=value..] Quite often, the user is root and the host is localhost. Once you have the valid connection string, you can test if …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2019-06-02T20:00:00+02:00" />
 <meta name="twitter:title" content="SQL Connection Strings ">
-<meta name="twitter:description" content="When you want to connect to a database in SQLAlchemy, you need a connection string. It usually has the form dialect[+driver]://user:password@host/dbname[?key=value..] Quite often, the user is root and the host is localhost. Once you have the valid connection string, you can test it …">
+<meta name="twitter:description" content="When you want to connect to a database in SQLAlchemy, you need a connection string. It usually has the form dialect[+driver]://user:password@host/dbname[?key=value..] Quite often, the user is root and the host is localhost. Once you have the valid connection string, you can test if …">
 <meta property="og:image" content="logos/python.png" />
 <meta name="twitter:image" content="logos/python.png" >
 
@@ -104,7 +104,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#sqlite" title="SQLite">SQLite</a></li><li><a class="toc-href" href="#mysql-and-mariadb" title="MySQL and MariaDB">MySQL and MariaDB</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#sqlite" title="SQLite">SQLite</a></li><li><a class="toc-href" href="#mysql-and-mariadb" title="MySQL and MariaDB">MySQL and MariaDB</a></li><li><a class="toc-href" href="#others" title="Others">Others</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -115,7 +115,7 @@ string. It usually has the form</p>
 <div class="highlight"><pre><span></span>dialect[+driver]://user:password@host/dbname[?key=value..]
 </pre></div>
 <p>Quite often, the <code>user</code> is <code>root</code> and the <code>host</code> is <code>localhost</code>.</p>
-<p>Once you have the valid connection string, you can test it via this script:</p>
+<p>Once you have the valid connection string, you can <strong>test if it works</strong> via this script:</p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sqlalchemy</span>
 <span class="n">engine</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">create_engine</span><span class="p">(</span><span class="n">SQLALCHEMY_DATABASE_URI</span><span class="p">,</span> <span class="n">echo</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">engine</span><span class="o">.</span><span class="n">table_names</span><span class="p">())</span>
@@ -141,6 +141,13 @@ the path which is kind of the name of the database.</p>
 <p>Connection:</p>
 <div class="highlight"><pre><span></span>SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://user:password@host/dbname'
 </pre></div>
+<p>There are a lot of <a href="https://docs.sqlalchemy.org/en/13/dialects/mysql.html">other MySQL drivers</a>:</p>
+<ul>
+<li><a href="https://pypi.org/project/MySQL-python/"><code>mysqldb</code></a>: C extension; does not work with Python 3 (<a href="https://stackoverflow.com/a/14076841/562769">reasons for pymysql</a>)</li>
+<li><a href="https://dev.mysql.com/doc/connector-python/en/"><code>mysqlconnector</code></a>: Officially provided by MySQL; worst performance and not downloadable via PyPI (<a href="https://stackoverflow.com/a/46396881/562769">source</a>)</li>
+</ul>
+<h2 id="others">Others</h2>
+<p>I haven't tried it, but <a href="https://docs.sqlalchemy.org/en/13/dialects/index.html">sqlalchemy lists more</a> like Oracle, Microsoft SQL Server and Sybase.</p>
             
             <div id="disqus_thread" class="no-print"></div>
 <script>
