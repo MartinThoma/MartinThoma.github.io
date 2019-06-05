@@ -223,9 +223,22 @@ class ThemoduleNameTest(unittest.TestCase):
 
 ### pytest
 
-[`pytest`](https://docs.pytest.org/en/latest/) is a framework
+[`pytest`](https://docs.pytest.org/en/latest/) is a framework which makes
+testing with Python WAY easier. You can simply add files `test_<modulename>.py`
+with `text_xyz()` functions and assert statements:
 
-It also comes with some neat plugins:
+```
+text_xy():
+    import mymodule
+    assert mymodule.f(1) == 2
+```
+
+Then you execute `pytest` in the project folder (without any arguments) and
+it runs your tests!
+
+#### pytest plugins
+
+pytest also comes with some neat plugins:
 
 * [`pytest-ordering`](https://github.com/ftobia/pytest-ordering): Executing
   tests in a given order is nice when you have some super fast ones and some
@@ -252,7 +265,6 @@ ignore = D104, D105, D107, D301, D413, D203, D212, D100
 match_dir = mpu
 ```
 
-
 You might wonder how it relates to `nose`. The main thing you should remember
 is that [nose is no longer maintained](https://nose.readthedocs.io/en/latest/#note-to-users).
 
@@ -266,7 +278,6 @@ for my `mpu` package:
 ```
 $ radon mi mpu
 ```
-
 
 
 ### tox
@@ -351,6 +362,22 @@ export FOOBAR="foobar"
 ```
 
 Of course, you should *not* add the `.envrc` file to your git repository.
+
+For AWS, there is <a href="https://aws.amazon.com/kms/">KMS</a> to store
+credentials.
+
+## Mutation Testing
+
+Mutation Testing is a nice idea how to test your tests. You "mutate" your code
+slightly and want at least one test to fail.
+
+So you change constants (off-by-one), you change the order of operations.
+
+There is [`cosmic-ray`](https://github.com/sixty-north/cosmic-ray), but last
+time I checked it didn't quite help me.
+
+There is also [`mutmut`](https://pypi.org/project/mutmut/), but I haven't even
+tried that one.
 
 
 ## See also
