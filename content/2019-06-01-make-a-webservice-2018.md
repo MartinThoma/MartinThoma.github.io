@@ -13,6 +13,15 @@ I started doing web-stuff again! There are a gazillion decisions to take when
 you create even a medium-sized web service. This article is intended to give
 a small overview
 
+## Quick n' Dirty
+
+You can set up a first page in about than 10 minutes, if you have a [DigitalOcean](https://m.do.co/c/b5dd0c5d61b9) account and the domain via namecheap:
+
+1. Create [Docker digital ocean droplet](https://marketplace.digitalocean.com/apps/docker)
+2. Add SSH-Key to machine
+3. Clone github repository
+4. Create A-Record in namecheap ([takes 24h](https://support.stackpath.com/hc/en-us/articles/360001079683-How-long-does-it-take-for-DNS-changes-to-be-reflected-))
+
 ## Flask Ecosystem
 
 * Miguel Grinberg: [The Flask Mega-Tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xv-a-better-application-structure)
@@ -20,6 +29,10 @@ a small overview
 * DB
     * [Flask-SQLalchemy](https://flask-sqlalchemy.palletsprojects.com/en/2.x/)
     * [Flask-Migrate](https://flask-migrate.readthedocs.io/en/latest/)
+
+## Databases
+
+* [MariaDB vs MySQL](https://blog.panoply.io/a-comparative-vmariadb-vs-mysql)
 
 
 ## Front-End Framework
@@ -184,6 +197,16 @@ that doesn't exist, I might convert the HTML to Markdown and back with Pandoc.
         <td><a href="https://stackoverflow.com/questions/tagged/froala">344 SO</a></td>
     </tr>
     <tr>
+        <th>Dependencies</th>
+        <td></td>
+        <td>jQuery</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
         <th>License/Price</th>
         <td style="background-color: #c9f8c9;">BSD</td>
         <td style="background-color: #c9f8c9;">MIT</td>
@@ -212,8 +235,9 @@ See also:
 
 ## Decisions
 
-* Display name? User name?
+* Display name, Username or Handle? (<a href="https://help.disqus.com/user-profile/what-is-the-difference-between-my-username-and-my-display-name">Disqus</a>, <a href="https://help.kik.com/hc/en-us/articles/115006041908-Username-vs-display-name">Kik</a>, <a href="https://community.spotify.com/t5/Social/Username-and-Displayed-name-are-different/td-p/4564880">Spotify</a>, <a href="https://help.twitch.tv/s/article/username-rename-and-recycling-policies?language=en_US">Twitch</a>)
 * How Many Characters may a display name have? (e.g. [30 on StackExchange](https://meta.stackoverflow.com/questions/307118/maximum-size-for-display-names))
+* Where are hard deletes allowed, where only soft deletes?
 
 
 ## Favicon
@@ -222,6 +246,7 @@ See also:
 * [Feather Icons](https://feathericons.com/)
 * https://favicon.io/favicon-generator/
 * https://icons8.de/icons
+* [gridicons](https://github.com/Automattic/gridicons) (Wordpress)
 
 
 ## Small Services
@@ -242,4 +267,19 @@ See also:
 
 ## TODO
 
-* OpenID: https://developer.okta.com/blog/2017/07/25/oidc-primer-part-1 and https://developer.okta.com/product/
+* OpenID: https://developer.okta.com/blog/2017/07/25/oidc-primer-part-1 and https://developer.okta.com/product/, [Coding Horror](https://blog.codinghorror.com/openid-does-the-world-really-need-yet-another-username-and-password/)
+* [Login design](https://blog.codinghorror.com/the-god-login/)
+* Bootstrap:
+    * https://startbootstrap.com/templates/
+    * https://getbootstrap.com/docs/4.1/examples/
+    * https://getbootstrap.com/docs/4.1/examples/dashboard/
+* Stock Photos:
+    * https://www.pexels.com/photo/beach-blue-sky-idyllic-island-373394/
+    * https://blog.snappa.com/free-stock-photos/
+    * https://pixabay.com/de/
+    * https://www.foleon.com/blog/5-sites-for-free-stock-photos
+    * https://www.canva.com/photos/free/
+    * https://unsplash.com/free-stock-photos
+* Flask-Admin for database management
+* Flask-Assets for asset management
+* Flask-Security for authentication
