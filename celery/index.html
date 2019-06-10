@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Message Queue, inter-process communication, Architecture, Code, " />
+
+<meta property="og:title" content="Celery "/>
+<meta property="og:url" content="../celery/" />
+<meta property="og:description" content="Celery is a task queue. I was experimenting with it today and want to share some insights. The Problem Think of YouTube. Users can upload videos, but before they are shown on the platform they need to get processed. Converting the format, checking for illegal content. This takes a considerable …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2019-06-10T20:00:00+02:00" />
+<meta name="twitter:title" content="Celery ">
+<meta name="twitter:description" content="Celery is a task queue. I was experimenting with it today and want to share some insights. The Problem Think of YouTube. Users can upload videos, but before they are shown on the platform they need to get processed. Converting the format, checking for illegal content. This takes a considerable …">
+<meta property="og:image" content="logos/python.png" />
+<meta name="twitter:image" content="logos/python.png" >
+
+        <title>Celery  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../celery/"> Celery  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#the-problem" title="The Problem">The Problem</a></li><li><a class="toc-href" href="#solution-1-conversion-server" title="Solution 1: Conversion Server">Solution 1: Conversion Server</a></li><li><a class="toc-href" href="#solution-2-message-queue" title="Solution 2: Message Queue">Solution 2: Message Queue</a></li><li><a class="toc-href" href="#celery" title="Celery">Celery</a><ul><li><a class="toc-href" href="#setuppy" title="setup.py">setup.py</a></li><li><a class="toc-href" href="#docker-composeyml" title="docker-compose.yml">docker-compose.yml</a></li><li><a class="toc-href" href="#configpy" title="config.py">config.py</a></li><li><a class="toc-href" href="#apppy" title="app.py">app.py</a></li><li><a class="toc-href" href="#celery_workerpy" title="celery_worker.py">celery_worker.py</a></li><li><a class="toc-href" href="#dockerfile" title="Dockerfile">Dockerfile</a></li><li><a class="toc-href" href="#tasks" title="Tasks">Tasks</a></li></ul></li><li><a class="toc-href" href="#see-also_1" title="See also">See also</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p><a href="https://en.wikipedia.org/wiki/Celery_(software)">Celery</a> is a task queue. I
+was experimenting with it today and want to share some insights.</p>
+<h2 id="the-problem">The Problem</h2>
+<p>Think of YouTube. Users can upload videos, but before they are shown on the
+platform they need to get processed. Converting the format, checking for
+illegal content. This takes a considerable amount of time, so you don't want to
+let the user stare at a loading screen while you create the backup. So simply
+having a synchronous call is not working, as those tasks can easily take more
+than one minute and thus the user might get a timeout. And for sure the user
+would not like it, if he didn't get any feedback. Also, it might create
+considerable work and thus you might not want to run it on the same machine.</p>
+<h2 id="solution-1-conversion-server">Solution 1: Conversion Server</h2>
+<p>To solve the load and the waiting time problem of the file conversion, we can
+create a "conversion server". Another machine which takes care of file
+conversions. Then instead of letting the user wait, we just tell him "conversion is in progress".
+We make a call to the conversion server with our video id (vid) and wait for the
+response.</p>
+<p>Then we need to somehow call that conversion server. There are several
+approaches to this:</p>
+<p><em>Synchronous call</em>: We could make a small REST API, but then we would again
+have the problem that the conversion can take arbitrary long.</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2019/06/conversion-server-sync.png"><img alt="Communication by a synchronous request with a conversion server" src="../images/2019/06/conversion-server-sync.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Communication by a synchronous request with a conversion server</figcaption>
+</figure>
+<p><em>Polling</em>: We could make the web app poll, hence give the conversion server
+<code>/videos/&lt;id&gt;</code> and let it return <code>{"status": 0.0}</code>, <code>{"status": 0.5}</code>, ...,
+<code>{"status": 1.0, "result_uri": "s3://bucket/42.mpg"}</code>. The disadvantage of
+polling is that the web app needs to administrate it. For example, maybe you
+want to send the user an e-mail once the conversion is done. You want to send
+this e-mail ASAP. So you need to keep polling once the request was sent. During
+peak times the number of videos in the conversion queue might get longer and
+thus we might end up polling a lot of videos, putting unnecessary load on the
+(internal) API of the conversion server.</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2019/06/conversion-server-polling.png"><img alt="Communication by polling" src="../images/2019/06/conversion-server-polling.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Communication by polling</figcaption>
+</figure>
+<p><em>Callback</em>: Instead of having to ask again and again if the conversion is done,
+we could give the conversion server a callback URL. Once it is done, it calls
+the callback back. Hence callback. It works like this:</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2019/06/conversion-server-callback.png"><img alt="Communication by a callback" src="../images/2019/06/conversion-server-callback.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Communication by a callback</figcaption>
+</figure>
+<h2 id="solution-2-message-queue">Solution 2: Message Queue</h2>
+<p>All three variants of the first solution have one fundamental problem: They
+don't scale well. Assume suddenly you get from several dozend users to tens of
+thousands. You will have peak times during which you need to convert way more
+videos. So you would like to spin up new instances and basically be able to
+do double the work with double the amount of machines.</p>
+<p>How would you do that, starting with a single conversion server?</p>
+<p>You would probably create a conversion service:</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2019/06/conversion-service-callback-api.png"><img alt="A file conversion service based on callbacks" src="../images/2019/06/conversion-service-callback-api.png" style="width: 512px;"/></a>
+<figcaption class="text-center">A file conversion service based on callbacks</figcaption>
+</figure>
+<p>Here the API and the load balancer are overhead. And it is not clear how the
+"load balancer" would actually work.</p>
+<p>Just store the kind of work you want to do somewhere and let "workers" pick up
+the task. This means you need to pass messages between the web app which
+contains the upload form / the dashboard for the user and between the workers.</p>
+<p>Instead of having the API and the load balancer, you can use a message broker system like
+<a href="https://en.wikipedia.org/wiki/RabbitMQ">RabbitMQ</a>,
+<a href="https://redis.io/topics/pubsub">Redis</a> or
+<a href="https://en.wikipedia.org/wiki/Amazon_Simple_Queue_Service">Amazon SQS</a>. The core
+of those message broker systems is that you can send and receive messages.
+Sometimes you send it to a topic, in other system it is called a queue.
+Consumers / clients can read / listen to those queues / topics.</p>
+<h2 id="celery">Celery</h2>
+<p>Celery is a task queue. While not being to deep in the topic, I would say the
+main advantage of celery compared to usuing the message brokers directly is
+simplicity. It's easier to use than rabbitmq directly. Additionally, you get
+flexibility to change the message broker.</p>
+<p>It comes with a monitoring tool called <a href="https://flower.readthedocs.io/en/latest/">flower</a>.</p>
+<p>Structurally, my app looked like this:</p>
+<div class="highlight"><pre><span></span>.
+├── celery_worker.py
+├── docker-compose.yml
+├── Dockerfile
+└── web
+    ├── Dockerfile
+    ├── my_project
+    │&nbsp;&nbsp; ├── app.py
+    │&nbsp;&nbsp; ├── config.py
+    │&nbsp;&nbsp; ├── __init__.py
+    │&nbsp;&nbsp; ├── main (other flask Blueprints look similar)
+    │&nbsp;&nbsp; │&nbsp;&nbsp; ├── __init__.py
+    │&nbsp;&nbsp; │&nbsp;&nbsp; ├── routes.py
+    │&nbsp;&nbsp; │&nbsp;&nbsp; ├── static
+    │&nbsp;&nbsp; │&nbsp;&nbsp; └── templates
+    │&nbsp;&nbsp; ├── models.py
+    │&nbsp;&nbsp; ├── static
+    │&nbsp;&nbsp; ├── templates
+    │&nbsp;&nbsp; └── wsgi.py
+    ├── Makefile
+    ├── setup.cfg
+    └── setup.py
+</pre></div>
+<p>And I ran it either with <code>docker-compose up</code> or via</p>
+<div class="highlight"><pre><span></span>celery -A celery_worker.py worker --loglevel=debug
+</pre></div>
+<p>In the following, I give some details about how I adjusted the listed files.</p>
+<h3 id="setuppy">setup.py</h3>
+<p>Add the new requirement: <code>celery==4.3.0</code></p>
+<h3 id="docker-composeyml">docker-compose.yml</h3>
+<p>I've added the following lines:</p>
+<div class="highlight"><pre><span></span>version: "3"
+services:
+  broker:
+    image: "rabbitmq:3-management"
+    container_name: broker
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - 'rabbitmq_data:/data'
+  flower:
+    image: mher/flower
+    container_name: flower
+    command: ["flower", "--broker=amqp://guest:guest@broker:5672//", "--port=8888"]
+    ports:
+       - 8888:8888
+  worker:
+    container_name: worker
+    build: .
+    depends_on:
+      - broker
+    links:
+      - db
+    environment:
+      CELERY_HOST: broker
+      MYSQL_PORT: 3306
+      MYSQL_ROOT_PASSWORD: foo
+      MYSQL_DATABASE: bar
+      MYSQL_HOST: db
+volumes:
+  rabbitmq_data:
+</pre></div>
+<p>Of course, there is also the "web" service which I cropped out here for keeping
+it simple.</p>
+<h3 id="configpy">config.py</h3>
+<p>I've added the following:</p>
+<div class="highlight"><pre><span></span><span class="ss">CELERY_HOST =</span> os<span class="o">.</span>environ<span class="o">.</span>get<span class="p">(</span><span class="err">'</span>CELERY_HOST'<span class="p">,</span> <span class="err">'</span>localhost'<span class="p">)</span>
+<span class="ss">CELERY_BROKER_URL =</span> <span class="err">'</span><span class="l">amqp://guest:guest@</span><span class="p">{</span>host<span class="p">}:</span><span class="mi">5672</span><span class="o">//</span><span class="err">'</span> <span class="err">\</span>
+    <span class="o">.</span>format<span class="p">(</span><span class="ss">host=</span>CELERY_HOST<span class="p">)</span>
+<span class="ss">CELERY_BACKEND =</span> <span class="err">'</span>sqlalchemy'
+<span class="ss">CELERY_RESULT_DBURI =</span> <span class="err">'</span>sqla<span class="o">+</span><span class="err">'</span> <span class="o">+</span> SQLALCHEMY_DATABASE_URI
+</pre></div>
+<h3 id="apppy">app.py</h3>
+<p>I followed the application factory pattern (<code>create_app</code>). On the global level
+of <code>app.py</code> (not hidden in a function), I've added:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">celery</span> <span class="kn">import</span> <span class="n">Celery</span>
+
+<span class="n">celery</span> <span class="o">=</span> <span class="n">Celery</span><span class="p">(</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">broker</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">CELERY_BROKER_URL</span><span class="p">)</span>
+</pre></div>
+<p>and within the <code>create_app</code>:</p>
+<div class="highlight"><pre><span></span>def create_app(config=None):
+    # some stuff ...
+    app = Flask(__name__,
+                template_folder='templates',
+                static_folder='static')
+    # some stuff ...
+    celery.conf.update(app.config)
+</pre></div>
+<h3 id="celery_workerpy">celery_worker.py</h3>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="kn">from</span> <span class="nn">my_project.app</span> <span class="kn">import</span> <span class="n">celery</span><span class="p">,</span> <span class="n">create_app</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">create_app</span><span class="p">()</span>
+<span class="n">app</span><span class="o">.</span><span class="n">app_context</span><span class="p">()</span><span class="o">.</span><span class="n">push</span><span class="p">()</span>
+</pre></div>
+</td></tr></table>
+<h3 id="dockerfile">Dockerfile</h3>
+<div class="highlight"><pre><span></span>FROM python:3.7-slim
+LABEL maintainer="info@martin-thoma.de"
+LABEL description="This is for executing a celery worker"
+
+# Copy projects code
+COPY web/ /opt/app
+COPY celery_worker.py /opt/app
+WORKDIR /opt/app
+RUN pip install -e . --no-cache-dir
+
+# Start worker
+ENTRYPOINT ["sh", "-c"]
+CMD ["celery -A celery_worker.celery worker --loglevel=debug"]
+</pre></div>
+<h3 id="tasks">Tasks</h3>
+<p>In one of the <code>routes.py</code>:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">my_project.app</span> <span class="kn">import</span> <span class="n">celery</span>
+
+<span class="nd">@backup.route</span><span class="p">(</span><span class="s1">'/videos/&lt;vid&gt;/convert'</span><span class="p">)</span>
+<span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">convert</span><span class="p">(</span><span class="n">vid</span><span class="p">):</span>
+    <span class="sd">"""Convert a video. This can take time"""</span>
+    <span class="n">flash</span><span class="p">(</span><span class="s1">'Started converting video'</span><span class="p">,</span> <span class="s1">'info'</span><span class="p">)</span>
+    <span class="n">convert_video</span><span class="o">.</span><span class="n">delay</span><span class="p">(</span><span class="n">vid</span><span class="p">)</span>  <span class="c1"># returns almost instantly</span>
+
+<span class="nd">@celery.task</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'convert_video'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">convert_video</span><span class="p">(</span><span class="n">user_id</span><span class="p">):</span>
+    <span class="c1"># Executing this is what takes long</span>
+    <span class="c1"># ... put the file conversion in here!</span>
+    <span class="k">return</span> <span class="mi">42</span>
+</pre></div>
+<h2 id="see-also_1">See also</h2>
+<ul>
+<li><a href="https://stackoverflow.com/q/42151544/562769">Is there any reason to use RabbitMQ over Kafka?</a></li>
+</ul>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2019-06-10T20:00:00+02:00">Jun 10, 2019</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#architecture-ref">Architecture
+                    <span>3</span>
+</a></li>
+                <li><a href="../tags.html#inter-process-communication-ref">inter-process communication
+                    <span>1</span>
+</a></li>
+                <li><a href="../tags.html#message-queue-ref">Message Queue
+                    <span>1</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink no-print';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
