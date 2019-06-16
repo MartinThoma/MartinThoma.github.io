@@ -137,37 +137,37 @@ You might also be interested in [features of a CA](https://premium.wpmudev.org/b
         <th>Employees</th>
     </tr>
     <tr>
-        <td>Let's encrypt</td>
+        <th>Let's encrypt</th>
         <td>Free</td>
         <td>2014</td>
         <td>13</td>
     </tr>
     <tr>
-        <td>DigiCert</td>
+        <th>DigiCert</th>
         <td>$218 / Year</td>
         <td>2003</td>
         <td>1000+</td>
     </tr>
     <tr>
-        <td>GlobalSign</td>
-        <td>$349 / Year</td>
-        <td>1996</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>GeoTrust</td>
+        <th>GeoTrust</th>
         <td>$149 / Year</td>
         <td>2001</td>
         <td></td>
     </tr>
     <tr>
-        <td>Entrust</td>
+        <th>GlobalSign</th>
+        <td>$349 / Year</td>
+        <td>1996</td>
+        <td></td>
+    </tr>
+    <tr>
+        <th>Entrust</th>
         <td>$199 / Year</td>
         <td>1994</td>
         <td>350</td>
     </tr>
     <tr>
-        <td>Comodo</td>
+        <th>Comodo</th>
         <td>$89 / Year</td>
         <td>1998</td>
         <td>1200+</td>
@@ -199,18 +199,18 @@ Here are super short explanations what the important terms mean:
 ## Nginx SSL options
 
 You can find options for nginx at [cipherli.st](https://cipherli.st/),
-[mozilla.github.io](https://mozilla.github.io/server-side-tls/ssl-config-generator/) as well as in [certbot](https://raw.githubusercontent.com/certbot/certbot/master/certbot-nginx/certbot_nginx/options-ssl-nginx.conf). The configuration at [miguelgrinberg.com](https://blog.miguelgrinberg.com/post/running-your-flask-application-over-https) was another one I looked at:
+[mozilla.github.io](https://mozilla.github.io/server-side-tls/ssl-config-generator/) as well as in [certbot](https://raw.githubusercontent.com/certbot/certbot/master/certbot-nginx/certbot_nginx/options-ssl-nginx.conf).
 
 <table>
     <tr>
         <th>Config</th>
-        <th>miguelgrinberg.com</th>
-        <th>cipherli.st</th>
-        <th>certbot</th>
-        <th></th>
+        <th><a href="https://blog.miguelgrinberg.com/post/running-your-flask-application-over-https">Miguel Grinberg</a></th>
+        <th><a href="https://cipherli.st/">cipherli.st</a></th>
+        <th><a href="https://raw.githubusercontent.com/certbot/certbot/master/certbot-nginx/certbot_nginx/options-ssl-nginx.conf">certbot</a></th>
+        <th>Explanation</th>
     </tr>
     <tr>
-        <td>ssl_session_timeout</td>
+        <td><a href="http://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_session_timeout">ssl_session_timeout</a></td>
         <td>1d</td>
         <td>10m</td>
         <td>1d</td>
@@ -231,35 +231,35 @@ You can find options for nginx at [cipherli.st](https://cipherli.st/),
         <td>The higher this value, the more likely there are some devices which don't support it</td>
     </tr>
     <tr>
-        <td>ssl_ciphers</td>
+        <td><a href="http://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_ciphers">ssl_ciphers</a></td>
         <td>MANY!</td>
-        <td>EECDH+AESGCM:EDH+AESGCM</td>
+        <td>EECDH + AESGCM:EDH + AESGCM</td>
         <td>MANY!</td>
         <td></td>
     </tr>
     <tr>
-        <td>ssl_session_cache</td>
+        <td><a href="http://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_session_cache">ssl_session_cache</a></td>
         <td>shared:SSL:50m</td>
         <td>shared:SSL:10m</td>
         <td>shared:le_nginx_SSL:1m</td>
         <td></td>
     </tr>
     <tr>
-        <td>ssl_session_tickets</td>
+        <td><a href="http://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_session_tickets">ssl_session_tickets</a></td>
         <td></td>
         <td>off</td>
         <td>off</td>
         <td></td>
     </tr>
     <tr>
-        <td>ssl_stapling</td>
+        <td><a href="http://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_stapling">ssl_stapling</a></td>
         <td>on</td>
         <td>on</td>
         <td></td>
         <td>OCSP</td>
     </tr>
     <tr>
-        <td>ssl_stapling_verify</td>
+        <td><a href="http://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_stapling_verify">ssl_stapling_verify</a></td>
         <td>on</td>
         <td>on</td>
         <td></td>
