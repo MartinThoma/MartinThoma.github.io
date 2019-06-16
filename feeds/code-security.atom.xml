@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Code, Security</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/code-security.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2019-06-16T20:00:00+02:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>TLS and Nginx</title><link href="https://martin-thoma.com/tls-and-nginx/" rel="alternate"></link><published>2019-06-16T20:00:00+02:00</published><updated>2019-06-16T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2019-06-16:/tls-and-nginx/</id><summary type="html">&lt;p&gt;Transport security is an important topic nowadays. We don't want a man in the
+middle (MITM) to be able to read our communication with banks, our e-mails, or our
+medical apps. Hence we need encryption of our data at the transport layer
+level.&lt;/p&gt;
+&lt;h2 id="the-problem-of-internet-connections"&gt;The Problem of Internet Connections&lt;/h2&gt;
+&lt;p&gt;The internet …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Transport security is an important topic nowadays. We don't want a man in the
+middle (MITM) to be able to read our communication with banks, our e-mails, or our
+medical apps. Hence we need encryption of our data at the transport layer
+level.&lt;/p&gt;
+&lt;h2 id="the-problem-of-internet-connections"&gt;The Problem of Internet Connections&lt;/h2&gt;
+&lt;p&gt;The internet is a network. It is not connecting your machine with every other
+one directly, but uses nodes in between. As it is basically connecting everybody,
+you also have some attackers within the network:&lt;/p&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;a href="../images/2019/06/internet.png"&gt;&lt;img alt="The Internet: Connecting you with Services and Attackers" src="../images/2019/06/internet.png" style="width: 512px;"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;The Internet: Connecting you with Services and Attackers&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;The internet is engineered in a way that very often you can imagine the
+connection between you and a service as a direct one, although it is not
+direct. That connection is not save. At the very least you can imagine people
+reading your traffic (e.g. when you use a wireless connection that's called &lt;a href="https://en.wikipedia.org/wiki/Packet_analyzer"&gt;WLAN Sniffing&lt;/a&gt;, the same thing works
+when you're in the same network). In a worse case they might be able to change
+your communication. These types of attacks are called &lt;a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack"&gt;Man-in-the-middle attack&lt;/a&gt;:&lt;/p&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;a href="../images/2019/06/man-in-the-middle.png"&gt;&lt;img alt="A Man in the Middle Attack" src="../images/2019/06/man-in-the-middle.png" style="width: 512px;"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;A Man in the Middle Attack&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id="the-solution-public-key-cryptography"&gt;The Solution: Public-key cryptography&lt;/h2&gt;
+&lt;p&gt;There is a super neat technique called &lt;a href="https://en.wikipedia.org/wiki/Public-key_cryptography"&gt;Public-key cryptography&lt;/a&gt;.
+It enables you to generate two keys. We call one of them the public key and the
+other the private key.&lt;/p&gt;
+&lt;p&gt;Imaginethem as a combination of keys / locks:
+&lt;em&gt; Stuff that is encrypted (locked) with the private key can only be decrypted
+  (unlocked) with the public key
+&lt;/em&gt; Stuff that is encrypted with the public key can only be decrypted with the
+  private key.&lt;/p&gt;
+&lt;p&gt;So we make the pulic key ... well, public. Meaning we share the public key with
+the world. Whenever somebody wants to send us a message, they can use our
+public key and only we will be able to read it as long as we keep the private
+key private.&lt;/p&gt;
+&lt;h2 id="the-problem-of-manipulating-mitm"&gt;The Problem of Manipulating MITM&lt;/h2&gt;
+&lt;p&gt;Public-key cryptography is awesome, once we have shared the public key with the
+world. But we might not even get that far, if an attacker manages to intercept
+our messages. The attacker could share his public key with the world instead.
+Then, when somebody wants to have a private communcation with us, they use the
+attackers public key. The attacker reads the message, decrypts it with our
+public key and we think everything was fine.&lt;/p&gt;
+&lt;h2 id="the-solution-certificate-authorities"&gt;The Solution: Certificate Authorities&lt;/h2&gt;
+&lt;p&gt;A &lt;a href="https://en.wikipedia.org/wiki/Certificate_authority"&gt;Certificate Authority&lt;/a&gt;
+(CA) is a trusted third party. A certificate is a digital document which says
+"This public key belongs to that domain". It is bascially again public key
+cryptography, but with a trusted third party. The website owner sends their
+public key to the certificate authority. The authority makes sure that it was
+actually send from the domain. If that is the case, the CA signs the public key
+with their private key. The public key of the CA is well known (e.g. delivered
+with the browser at installation).&lt;/p&gt;
+&lt;h2 id="the-problem-compromised-certificates"&gt;The Problem: Compromised Certificates&lt;/h2&gt;
+&lt;p&gt;It can happen that an attacker gets temporary access to the web services server.
+Then the attacker can copy the private key of the service.&lt;/p&gt;
+&lt;h2 id="the-solution-ocsp-stapling"&gt;The Solution: OCSP Stapling&lt;/h2&gt;
+&lt;p&gt;The web service has to revoke the certificate. This means it has to tell the CA
+that the private key was compromized. But how does the client (user) get to
+know about this?&lt;/p&gt;
+&lt;p&gt;Three possibilities: CRL, OCSP,  &amp;amp; &lt;a href="https://en.wikipedia.org/wiki/OCSP_stapling"&gt;OCSP stapling&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;There is a pretty good video about &lt;a href="https://www.youtube.com/watch?v=WXNKQ_otO_g"&gt;Revocation of digital certificates: CRL, OCSP, OCSP stapling&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Essentially, OCSP stapling means that the server lets the CA not only certify
+the private key, but also add a timestamp.&lt;/p&gt;
+&lt;h2 id="overview-of-certificate-authorities"&gt;Overview of Certificate Authorities&lt;/h2&gt;
+&lt;p&gt;You can see the Certificate Authority in Chrome by clicking on the lock icon
+left of the URL:&lt;/p&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;a href="../images/2019/06/chrome-ca.png"&gt;&lt;img alt="Checking the Certificate Authority in Chrome" src="../images/2019/06/chrome-ca.png" style="width: 512px;"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;Checking the Certificate Authority in Chrome&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Commonly used Certificate Authorities are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Let%27s_Encrypt"&gt;Let's Encrypt&lt;/a&gt;: Used by BMW, StackOverflow, ccc.de, kit.edu&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/DigiCert"&gt;DigiCert&lt;/a&gt;: Used by Reddit, Twitter, Audi, Amazon, mozilla.org, Instagram, live.com, netflix.com, ebay.com, emirates.com, paypal.com, n26.com, deutsche-bank.de&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/GlobalSign"&gt;GlobalSign&lt;/a&gt;: Used by Wikpedia, Baidu.com, qq.com, post.de&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/GeoTrust"&gt;GeoTrust&lt;/a&gt;: nokia.com, tk.de, sixt.com, qantas.com, mit.edu&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Entrust"&gt;Entrust&lt;/a&gt;: comdirect.com&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Comodo_Group"&gt;Comodo&lt;/a&gt;: namecheap.com&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There are also some German ones:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Bundesdruckerei"&gt;D-Trust&lt;/a&gt;: sparkasse.de, elster.de, bundesdruckerei.de&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://de.wikipedia.org/wiki/ZIVIT"&gt;ZIVIT&lt;/a&gt;: bund.de&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://de.wikipedia.org/wiki/Telesec"&gt;Telesec&lt;/a&gt;: bundesregierung.de, telekom.de&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://de.wikipedia.org/wiki/DFN-Verein"&gt;DFN-Verein&lt;/a&gt;: tum.de, uni-muenchen.de, uni-heidelberg.de, charite.de, rwth-aachen.de, fernuni-hagen.de&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Microsoft and Google have their own CA. It's a bit weird that Microsoft uses
+Digicert for live.com.&lt;/p&gt;
+&lt;p&gt;You might also be interested in &lt;a href="https://premium.wpmudev.org/blog/ssl-certificate-authorities-reviewed/"&gt;features of a CA&lt;/a&gt;.&lt;/p&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;CA&lt;/th&gt;
+&lt;th&gt;Price&lt;/th&gt;
+&lt;th&gt;Founded in&lt;/th&gt;
+&lt;th&gt;Employees&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Let's encrypt&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Free&lt;/td&gt;
+&lt;td&gt;2014&lt;/td&gt;
+&lt;td&gt;13&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DigiCert&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;$218 / Year&lt;/td&gt;
+&lt;td&gt;2003&lt;/td&gt;
+&lt;td&gt;1000+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GlobalSign&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;$349 / Year&lt;/td&gt;
+&lt;td&gt;1996&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GeoTrust&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;$149 / Year&lt;/td&gt;
+&lt;td&gt;2001&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Entrust&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;$199 / Year&lt;/td&gt;
+&lt;td&gt;1994&lt;/td&gt;
+&lt;td&gt;350&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Comodo&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;$89 / Year&lt;/td&gt;
+&lt;td&gt;1998&lt;/td&gt;
+&lt;td&gt;1200+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;I was not happy with the usage numbers. Let's encrypt claims to have
+152&amp;thinsp;288&amp;thinsp;000 domains (2018-12-30, &lt;a href="https://letsencrypt.org/stats/#growth"&gt;source&lt;/a&gt;), but &lt;a href="https://w3techs.com/technologies/overview/ssl_certificate/all"&gt;w3techs.com&lt;/a&gt; says they have a market share of 0.1%. According
+to them, IdenTrust has a market share of 49.9%, Sectigo of 25.0% and Digicert of
+13.6%.&lt;/p&gt;
+&lt;h2 id="ssl-tls-and-https"&gt;SSL, TLS and HTTPS&lt;/h2&gt;
+&lt;p&gt;Here are super short explanations what the important terms mean:&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;SSL (Secure Sockets Layer)&lt;/dt&gt;
+&lt;dd&gt;A cryptographic protocol used for network traffic&lt;/dd&gt;
+&lt;dt&gt;TLS (Transport Layer Security)&lt;/dt&gt;
+&lt;dd&gt;An updated version of SSL.&lt;/dd&gt;
+&lt;dt&gt;HTTPS (Hypertext Transfer Protocol Secure)&lt;/dt&gt;
+&lt;dd&gt;Using HTTP with transport layer encription (e.g. SSL or TLS)&lt;/dd&gt;
+&lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Public_key_certificate"&gt;Certificate&lt;/a&gt;&lt;/dt&gt;
+&lt;dd&gt;An electronic document used to prove the ownership of a public key.&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h2 id="nginx-ssl-options"&gt;Nginx SSL options&lt;/h2&gt;
+&lt;p&gt;You can find options for nginx at &lt;a href="https://cipherli.st/"&gt;cipherli.st&lt;/a&gt;,
+&lt;a href="https://mozilla.github.io/server-side-tls/ssl-config-generator/"&gt;mozilla.github.io&lt;/a&gt; as well as in &lt;a href="https://raw.githubusercontent.com/certbot/certbot/master/certbot-nginx/certbot_nginx/options-ssl-nginx.conf"&gt;certbot&lt;/a&gt;. The configuration at &lt;a href="https://blog.miguelgrinberg.com/post/running-your-flask-application-over-https"&gt;miguelgrinberg.com&lt;/a&gt; was another one I looked at:&lt;/p&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Config&lt;/th&gt;
+&lt;th&gt;miguelgrinberg.com&lt;/th&gt;
+&lt;th&gt;cipherli.st&lt;/th&gt;
+&lt;th&gt;certbot&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ssl_session_timeout&lt;/td&gt;
+&lt;td&gt;1d&lt;/td&gt;
+&lt;td&gt;10m&lt;/td&gt;
+&lt;td&gt;1d&lt;/td&gt;
+&lt;td&gt;The lower this value, the higher the load on your&lt;br/&gt;&amp;nbsp; server and the higher the security.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ssl_prefer_server_ciphers&lt;/td&gt;
+&lt;td&gt;on&lt;/td&gt;
+&lt;td&gt;on&lt;/td&gt;
+&lt;td&gt;on&lt;/td&gt;
+&lt;td&gt;tell the client that we have a preferred order of cipher suites&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ssl_protocols&lt;/td&gt;
+&lt;td&gt;TLSv1 TLSv1.1 TLSv1.2&lt;/td&gt;
+&lt;td&gt;TLSv1.3&lt;/td&gt;
+&lt;td&gt;TLSv1 TLSv1.1 TLSv1.2&lt;/td&gt;
+&lt;td&gt;The higher this value, the more likely there are some devices which don't support it&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ssl_ciphers&lt;/td&gt;
+&lt;td&gt;MANY!&lt;/td&gt;
+&lt;td&gt;EECDH+AESGCM:EDH+AESGCM&lt;/td&gt;
+&lt;td&gt;MANY!&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ssl_session_cache&lt;/td&gt;
+&lt;td&gt;shared:SSL:50m&lt;/td&gt;
+&lt;td&gt;shared:SSL:10m&lt;/td&gt;
+&lt;td&gt;shared:le_nginx_SSL:1m&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ssl_session_tickets&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;off&lt;/td&gt;
+&lt;td&gt;off&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ssl_stapling&lt;/td&gt;
+&lt;td&gt;on&lt;/td&gt;
+&lt;td&gt;on&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;OCSP&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ssl_stapling_verify&lt;/td&gt;
+&lt;td&gt;on&lt;/td&gt;
+&lt;td&gt;on&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;verification of the OCSP responses received from the CA&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security"&gt;HSTS&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;add_header Strict-Transport-Security max-age=15768000;&lt;/td&gt;
+&lt;td&gt;add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload";&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Tell the client that we don't like HTTP&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;add_header X-Frame-Options DENY;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;make sure it is not embedded in a frame or iframe&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;add_header X-Content-Type-Options nosniff;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;See &lt;a href="https://en.wikipedia.org/wiki/Content_sniffing"&gt;Content sniffing&lt;/a&gt; and &lt;a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options"&gt;mozilla.org&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;add_header X-XSS-Protection "1; mode=block";&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection"&gt;mozilla.org&lt;/a&gt;, &lt;a href="https://stackoverflow.com/q/9090577/562769"&gt;stackoverflow&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;You might also want to redirect http to https (&lt;code&gt;return 301 https://$host$request_uri;&lt;/code&gt;). HSTS is the more secure option, though.&lt;/p&gt;
+&lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Philipp: &lt;a href="https://medium.com/@pentacent/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71"&gt;Nginx and Let&amp;rsquo;s Encrypt with Docker in Less Than 5 Minutes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Brett Thorson: &lt;a href="https://www.youtube.com/watch?v=g_kLD2BQGSI"&gt;How SSL and OCSP Work&lt;/a&gt; on YouTube. 18.09.2015.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://serverfault.com/q/971627/113899"&gt;How can I decide which ssl_protocols and ssl_ciphers to set with nginx?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bjornjohansen.no/optimizing-https-nginx"&gt;Optimizing HTTPS on Nginx&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://stackoverflow.com/q/23040408/562769"&gt;When should HSTS be enabled?&lt;/a&gt; and &lt;a href="https://security.stackexchange.com/q/17264/3286"&gt;HSTS extra security over HTTPS&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="nginx"></category><category term="SSL"></category><category term="TLS"></category></entry></feed>
