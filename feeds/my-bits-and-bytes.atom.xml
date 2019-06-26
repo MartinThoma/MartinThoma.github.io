@@ -7,6 +7,20 @@ I want to store the history how they changed over time. I wonder what the
 advantages / disadvantages of different options are.&lt;/p&gt;
 &lt;p&gt;I've looked at a couple of well-known CMS systems to see what they are doing
 and to get a clearer picture about the different options.&lt;/p&gt;
+&lt;h2 id="wordpress-one-table"&gt;Wordpress: One Table&lt;/h2&gt;
+&lt;p&gt;Wordpress seems to have only one table where all revisions are stored. They decided to make the &lt;code&gt;post_type&lt;/code&gt; either "post" or "revision" - meaning they always duplicate the current version, but they store all revisions and have a super easy time going back.&lt;/p&gt;
+&lt;p&gt;I wonder if backups would be more complicated if the amount of data reached the level Wikipedia has.&lt;/p&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;a href="../images/2019/06/wordpress-cms.png"&gt;&lt;img alt="How Wordpress stores page versions" src="../images/2019/06/wordpress-cms.png" style="width: 512px;"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;How Wordpress stores page versions&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id="joomla"&gt;Joomla&lt;/h2&gt;
+&lt;p&gt;Joomla seems to take an approach similar to Wordpress, but moving the versions
+in another table. The current revision is always in &lt;code&gt;joomla_content&lt;/code&gt;&lt;/p&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;a href="../images/2019/06/joomla-cms.png"&gt;&lt;img alt="How Joomla stores page versions" src="../images/2019/06/joomla-cms.png" style="width: 512px;"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;How Joomla stores page versions&lt;/figcaption&gt;
+&lt;/figure&gt;
 &lt;h2 id="mediawiki-separate-data-from-metadata"&gt;MediaWiki: Separate data from metadata&lt;/h2&gt;
 &lt;p&gt;MediaWiki stores the bulk of information in a separate table called "text". The page-metadata is stored in "page", the revision metadata in "revision".&lt;/p&gt;
 &lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
@@ -23,20 +37,7 @@ ORDER BY revision.rev_timestamp DESC LIMIT 1
 &lt;p&gt;If a page is edited, they have to insert to &lt;code&gt;revision&lt;/code&gt; and to &lt;code&gt;text&lt;/code&gt;. And there are some things like the title where changes are not tracked.&lt;/p&gt;
 &lt;p&gt;If one wants to revert edits, one creates a new revision. The text does not have to be duplicated, though. So one text entry can belong to multiple revisions.&lt;/p&gt;
 &lt;p&gt;Creating backups can be done separately for text and all other tables. This can be of advantage if the amount of data is huge. Also, the &lt;a href="https://www.mediawiki.org/wiki/Manual:Text_table#old_flags"&gt;&lt;code&gt;text.old_flags&lt;/code&gt;&lt;/a&gt; can contain compression flags - meaning old revisions can be compressed for more storage efficiency while the current one can be text for being able to show it quickly.&lt;/p&gt;
-&lt;h2 id="wordpress-one-table"&gt;Wordpress: One Table&lt;/h2&gt;
-&lt;p&gt;Wordpress seems to have only one table where all revisions are stored. They decided to make the &lt;code&gt;post_type&lt;/code&gt; either "post" or "revision" - meaning they always duplicate the current version, but they store all revisions and have a super easy time going back.&lt;/p&gt;
-&lt;p&gt;I wonder if backups would be more complicated if the amount of data reached the level Wikipedia has.&lt;/p&gt;
-&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
-&lt;a href="../images/2019/06/wordpress-cms.png"&gt;&lt;img alt="How Wordpress stores page versions" src="../images/2019/06/wordpress-cms.png" style="width: 512px;"/&gt;&lt;/a&gt;
-&lt;figcaption class="text-center"&gt;How Wordpress stores page versions&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;h2 id="joomla"&gt;Joomla&lt;/h2&gt;
-&lt;p&gt;Joomla seems to take an approach similar to Wordpress, but moving the versions
-in another table. The current revision is always in &lt;code&gt;joomla_content&lt;/code&gt;&lt;/p&gt;
-&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
-&lt;a href="../images/2019/06/joomla-cms.png"&gt;&lt;img alt="How Joomla stores page versions" src="../images/2019/06/joomla-cms.png" style="width: 512px;"/&gt;&lt;/a&gt;
-&lt;figcaption class="text-center"&gt;How Joomla stores page versions&lt;/figcaption&gt;
-&lt;/figure&gt;</content><category term="architecture"></category><category term="CMS"></category></entry><entry><title>Computer Temperature</title><link href="https://martin-thoma.com/computer-temperature/" rel="alternate"></link><published>2019-06-05T20:00:00+02:00</published><updated>2019-06-05T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2019-06-05:/computer-temperature/</id><summary type="html">&lt;p&gt;I just realized that my Thinkpad T460p gets really loud. I suspect that there
+&lt;h2 id="tldr"&gt;TL;DR&lt;/h2&gt;</content><category term="architecture"></category><category term="CMS"></category></entry><entry><title>Computer Temperature</title><link href="https://martin-thoma.com/computer-temperature/" rel="alternate"></link><published>2019-06-05T20:00:00+02:00</published><updated>2019-06-05T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2019-06-05:/computer-temperature/</id><summary type="html">&lt;p&gt;I just realized that my Thinkpad T460p gets really loud. I suspect that there
 is just quite some dust in the machine so that the fan gets louder. But I'm not
 sure how to check that and I hesitate to open the machine. So let's see which
 information I can …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I just realized that my Thinkpad T460p gets really loud. I suspect that there

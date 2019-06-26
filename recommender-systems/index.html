@@ -104,7 +104,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#conceptual-approaches" title="Conceptual Approaches">Conceptual Approaches</a></li><li><a class="toc-href" href="#basic-content-based-recommendations" title="Basic Content-based Recommendations">Basic Content-based Recommendations</a></li><li><a class="toc-href" href="#user-based-collaborative-filtering" title="User-Based Collaborative Filtering">User-Based Collaborative Filtering</a></li><li><a class="toc-href" href="#basic-basket-analysis" title="Basic Basket Analysis">Basic Basket Analysis</a></li><li><a class="toc-href" href="#evaluation" title="Evaluation">Evaluation</a></li><li><a class="toc-href" href="#typical-problems" title="Typical Problems">Typical Problems</a><ul><li><a class="toc-href" href="#cold-start-problem" title="Cold-Start Problem">Cold-Start Problem</a></li><li><a class="toc-href" href="#sparsity" title="Sparsity">Sparsity</a></li><li><a class="toc-href" href="#wrong-recommendation-mode" title="Wrong Recommendation Mode">Wrong Recommendation Mode</a></li><li><a class="toc-href" href="#the-bubble" title="The Bubble">The Bubble</a></li><li><a class="toc-href" href="#surrogate-problem" title="Surrogate-Problem">Surrogate-Problem</a></li></ul></li><li><a class="toc-href" href="#papers_1" title="Papers">Papers</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#conceptual-approaches" title="Conceptual Approaches">Conceptual Approaches</a></li><li><a class="toc-href" href="#basic-content-based-recommendations" title="Basic Content-based Recommendations">Basic Content-based Recommendations</a></li><li><a class="toc-href" href="#user-based-collaborative-filtering" title="User-Based Collaborative Filtering">User-Based Collaborative Filtering</a></li><li><a class="toc-href" href="#basic-basket-analysis" title="Basic Basket Analysis">Basic Basket Analysis</a></li><li><a class="toc-href" href="#evaluation" title="Evaluation">Evaluation</a></li><li><a class="toc-href" href="#typical-problems" title="Typical Problems">Typical Problems</a><ul><li><a class="toc-href" href="#cold-start-problem" title="Cold-Start Problem">Cold-Start Problem</a></li><li><a class="toc-href" href="#sparsity" title="Sparsity">Sparsity</a></li><li><a class="toc-href" href="#wrong-recommendation-mode" title="Wrong Recommendation Mode">Wrong Recommendation Mode</a></li><li><a class="toc-href" href="#the-bubble" title="The Bubble">The Bubble</a></li><li><a class="toc-href" href="#surrogate-problem" title="Surrogate-Problem">Surrogate-Problem</a></li></ul></li><li><a class="toc-href" href="#matrix-factorization_1" title="Matrix Factorization">Matrix Factorization</a></li><li><a class="toc-href" href="#papers" title="Papers">Papers</a></li><li><a class="toc-href" href="#datasets" title="Datasets">Datasets</a></li><li><a class="toc-href" href="#other-resources" title="Other Resources">Other Resources</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -270,10 +270,38 @@ achieving the surrogate goal.</p>
         Average shot length, color variance, mean motion average across all the
         frames, lightning, number of shots</dd>
 </dl>
-<h2 id="papers_1">Papers</h2>
+<h2 id="matrix-factorization_1">Matrix Factorization</h2>
+<p>Matrix Factorization is one way to do collaborative filtering. It was done
+for the Netflix prize and is described in [^3]. A <a href="https://surprise.readthedocs.io/en/stable/matrix_factorization.html#surprise.prediction_algorithms.matrix_factorization.SVD">neat short description</a> is in
+SurpriseLib.</p>
+<p><strong>Input</strong>: The ratings of <span class="math">\(n\)</span> users for <span class="math">\(m\)</span> movies in a matrix <span class="math">\(R \in \mathbb{R}^{n \times m}\)</span>.</p>
+<p><strong>Algorithm</strong>: Singular value decomposition (SVD) takes <span class="math">\(R\)</span> and gives three matrices <span class="math">\(U \in \mathbb{R}^{n \times r}\)</span>, a descendingly sorted diagonal matrix <span class="math">\(\Sigma \in \mathbb{R}^{r \times r}\)</span> and <span class="math">\(V \in \mathbb{R}^{r \times m}\)</span>
+such that <span class="math">\(R = U \cdot \Sigma \cdot V\)</span>.</p>
+<p>The rows in <span class="math">\(U\)</span> represent the users. It's called the "latent space". Latent is
+math slang for "hidden" (see <a href="https://en.wikipedia.org/wiki/Latent_variable">latent variable</a>). This means we have a reasonable way to represent users.</p>
+<p>The rows in <span class="math">\(V\)</span> represent the movies in the latent space.</p>
+<p>You crop at some point of <span class="math">\(\Sigma\)</span> to the first <span class="math">\(k\)</span> singular features (with <span class="math">\(k &lt; r\)</span>).</p>
+<p>The problem is that many values of <span class="math">\(R\)</span> are missing. Simon Funk found a solution
+to that problem. Instead of imputing the values (filling the matrix), he re-formulated the problem
+to</p>
+<div class="math">$$\min_{u_i, v_i} \sum_{p_{ij}} \left ( p_{ij} - u_i \cdot v_j \right )^2 \text{ with } u_i \in \mathbb{R}^{1 \times r}, v_j \in \mathbb{R}^{r \times 1}$$</div>
+<p>This is a minimization problem that can be solved by gradient descent. As you
+only consider values <span class="math">\(p_{ij}\)</span> that are not zero, you don't have to invent the
+remainding ones.</p>
+<h2 id="papers">Papers</h2>
 <ul>
-<li>Paul Covington, Jay Adams, Emre Sargin: <a href="https://storage.googleapis.com/pub-tools-public-publication-data/pdf/45530.pdf">Deep Neural Networks for YouTube Recommendations</a></li>
-<li>Yashar Deldjoo, Mehdi Elahi, Paolo Cremonesi: Using Visual Features and Latent Factors for Movie Recommendations, 2016.</li>
+<li>[^1]: Paul Covington, Jay Adams, Emre Sargin: <a href="https://storage.googleapis.com/pub-tools-public-publication-data/pdf/45530.pdf">Deep Neural Networks for YouTube Recommendations</a></li>
+<li>[^2]: Yashar Deldjoo, Mehdi Elahi, Paolo Cremonesi: Using Visual Features and Latent Factors for Movie Recommendations, 2016.</li>
+<li>[^3]: Ruslan Salakhutdinov and Andriy Mnih: <a href="http://papers.nips.cc/paper/3208-probabilistic-matrix-factorization.pdf">Probabilistic Matrix Factorization</a>, 2008.</li>
+</ul>
+<h2 id="datasets">Datasets</h2>
+<ul>
+<li><a href="https://grouplens.org/datasets/movielens/100k/">MovieLens 100K Dataset</a></li>
+</ul>
+<h2 id="other-resources">Other Resources</h2>
+<ul>
+<li><a href="https://datascience.stackexchange.com/q/749/8820">Meaning of latent features?</a></li>
+<li>Simon Funk: <a href="https://sifter.org/~simon/journal/20061211.html">Netflix Update: Try This at Home</a></li>
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>

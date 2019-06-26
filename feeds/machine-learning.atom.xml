@@ -936,10 +936,38 @@ achieving the surrogate goal.&lt;/p&gt;
         Average shot length, color variance, mean motion average across all the
         frames, lightning, number of shots&lt;/dd&gt;
 &lt;/dl&gt;
-&lt;h2 id="papers_1"&gt;Papers&lt;/h2&gt;
+&lt;h2 id="matrix-factorization_1"&gt;Matrix Factorization&lt;/h2&gt;
+&lt;p&gt;Matrix Factorization is one way to do collaborative filtering. It was done
+for the Netflix prize and is described in [^3]. A &lt;a href="https://surprise.readthedocs.io/en/stable/matrix_factorization.html#surprise.prediction_algorithms.matrix_factorization.SVD"&gt;neat short description&lt;/a&gt; is in
+SurpriseLib.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Input&lt;/strong&gt;: The ratings of &lt;span class="math"&gt;\(n\)&lt;/span&gt; users for &lt;span class="math"&gt;\(m\)&lt;/span&gt; movies in a matrix &lt;span class="math"&gt;\(R \in \mathbb{R}^{n \times m}\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Algorithm&lt;/strong&gt;: Singular value decomposition (SVD) takes &lt;span class="math"&gt;\(R\)&lt;/span&gt; and gives three matrices &lt;span class="math"&gt;\(U \in \mathbb{R}^{n \times r}\)&lt;/span&gt;, a descendingly sorted diagonal matrix &lt;span class="math"&gt;\(\Sigma \in \mathbb{R}^{r \times r}\)&lt;/span&gt; and &lt;span class="math"&gt;\(V \in \mathbb{R}^{r \times m}\)&lt;/span&gt;
+such that &lt;span class="math"&gt;\(R = U \cdot \Sigma \cdot V\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;The rows in &lt;span class="math"&gt;\(U\)&lt;/span&gt; represent the users. It's called the "latent space". Latent is
+math slang for "hidden" (see &lt;a href="https://en.wikipedia.org/wiki/Latent_variable"&gt;latent variable&lt;/a&gt;). This means we have a reasonable way to represent users.&lt;/p&gt;
+&lt;p&gt;The rows in &lt;span class="math"&gt;\(V\)&lt;/span&gt; represent the movies in the latent space.&lt;/p&gt;
+&lt;p&gt;You crop at some point of &lt;span class="math"&gt;\(\Sigma\)&lt;/span&gt; to the first &lt;span class="math"&gt;\(k\)&lt;/span&gt; singular features (with &lt;span class="math"&gt;\(k &amp;lt; r\)&lt;/span&gt;).&lt;/p&gt;
+&lt;p&gt;The problem is that many values of &lt;span class="math"&gt;\(R\)&lt;/span&gt; are missing. Simon Funk found a solution
+to that problem. Instead of imputing the values (filling the matrix), he re-formulated the problem
+to&lt;/p&gt;
+&lt;div class="math"&gt;$$\min_{u_i, v_i} \sum_{p_{ij}} \left ( p_{ij} - u_i \cdot v_j \right )^2 \text{ with } u_i \in \mathbb{R}^{1 \times r}, v_j \in \mathbb{R}^{r \times 1}$$&lt;/div&gt;
+&lt;p&gt;This is a minimization problem that can be solved by gradient descent. As you
+only consider values &lt;span class="math"&gt;\(p_{ij}\)&lt;/span&gt; that are not zero, you don't have to invent the
+remainding ones.&lt;/p&gt;
+&lt;h2 id="papers"&gt;Papers&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Paul Covington, Jay Adams, Emre Sargin: &lt;a href="https://storage.googleapis.com/pub-tools-public-publication-data/pdf/45530.pdf"&gt;Deep Neural Networks for YouTube Recommendations&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Yashar Deldjoo, Mehdi Elahi, Paolo Cremonesi: Using Visual Features and Latent Factors for Movie Recommendations, 2016.&lt;/li&gt;
+&lt;li&gt;[^1]: Paul Covington, Jay Adams, Emre Sargin: &lt;a href="https://storage.googleapis.com/pub-tools-public-publication-data/pdf/45530.pdf"&gt;Deep Neural Networks for YouTube Recommendations&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[^2]: Yashar Deldjoo, Mehdi Elahi, Paolo Cremonesi: Using Visual Features and Latent Factors for Movie Recommendations, 2016.&lt;/li&gt;
+&lt;li&gt;[^3]: Ruslan Salakhutdinov and Andriy Mnih: &lt;a href="http://papers.nips.cc/paper/3208-probabilistic-matrix-factorization.pdf"&gt;Probabilistic Matrix Factorization&lt;/a&gt;, 2008.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="datasets"&gt;Datasets&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://grouplens.org/datasets/movielens/100k/"&gt;MovieLens 100K Dataset&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="other-resources"&gt;Other Resources&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://datascience.stackexchange.com/q/749/8820"&gt;Meaning of latent features?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Simon Funk: &lt;a href="https://sifter.org/~simon/journal/20061211.html"&gt;Netflix Update: Try This at Home&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content><category term="Machine Learning"></category></entry><entry><title>Regression</title><link href="https://martin-thoma.com/regression/" rel="alternate"></link><published>2018-07-18T20:00:00+02:00</published><updated>2018-07-18T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-07-18:/regression/</id><summary type="html">&lt;div class="info"&gt;A while ago, this link pointed to the content which is now in the &lt;a href="https://martin-thoma.com/forecasting/"&gt;Forecasting article&lt;/a&gt;.&lt;/div&gt;
 &lt;p&gt;Regression is one of the core tasks in machine learning. In this task, you get
 some input and your target variable is a single floating point number. For
