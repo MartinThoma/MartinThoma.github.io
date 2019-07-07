@@ -793,7 +793,8 @@ shown. On StumbleUpon, your next stumble. On a news page, another article.&lt;/p
 &lt;p&gt;Recommender systems based on product similarity are also called "content-based recommender systems".
 The New York Times article recommendation is an example for that.&lt;/p&gt;
 &lt;p&gt;Recommander systems based on user similarity are also called "collaborative
-filtering".&lt;/p&gt;
+filtering". &lt;a href="https://movielens.org/"&gt;movielens.org&lt;/a&gt; is an example
+for that.&lt;/p&gt;
 &lt;p&gt;Pandora is an example for content-based recommendation + collaborative filtering.&lt;/p&gt;
 &lt;h2 id="basic-content-based-recommendations"&gt;Basic Content-based Recommendations&lt;/h2&gt;
 &lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Edit_distance"&gt;Levenshteins edit distance&lt;/a&gt;
@@ -812,6 +813,10 @@ a similarity measure. You would then recommend the most similar products.&lt;/p&
 &lt;dl&gt;
 &lt;dt&gt;Cosine-Similarity&lt;/dt&gt;
 &lt;dd&gt;Let $x$ and $y$ be items. Their cosine similarity is defined as $$f(x, y) := \frac{\sum_i x_i y_i}{\sqrt{\sum_i x_i^2} \sqrt{\sum_i y_i^2}}$$&lt;/dd&gt;
+&lt;dt&gt;Centered Cosine Similarity&lt;/dt&gt;
+&lt;dd&gt;Subtract the mean value from all elements. If you have null values, don't change anything there. Then apply the cosine similarity.&lt;/dd&gt;
+&lt;dt&gt;Jaccard Similarity&lt;/dt&gt;
+&lt;dd&gt;Let $x$ and $y$ be items and $r_x, r_y$ be their attributes. Their jaccard similarity is defined as $$f(x, y) := \frac{|r_x \cap r_y|}{|r_x \cup r_y|}$$&lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h2 id="user-based-collaborative-filtering"&gt;User-Based Collaborative Filtering&lt;/h2&gt;
 &lt;p&gt;Users can have different scales on which they rate stuff:&lt;/p&gt;
@@ -826,7 +831,7 @@ a similarity measure. You would then recommend the most similar products.&lt;/p&
 set of ratings. By a simple transformation you can make it &lt;span class="math"&gt;\(R = [0, 1]\)&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;The utility function &lt;span class="math"&gt;\(u\)&lt;/span&gt; can be fully defined by a user-item rating matrix.
 Most elements of the matrix are not known, though.&lt;/p&gt;
-&lt;p&gt;Based on the user-item rating matrix you build up a user-user similarity matrix.&lt;/p&gt;
+&lt;p&gt;Based on the user-item rating matrix &lt;span class="math"&gt;\(R\)&lt;/span&gt; you build up a user-user similarity matrix.&lt;/p&gt;
 &lt;p&gt;You look up similar users, generate candidates for recommendation, score and filter candidates (items the user already knows).&lt;/p&gt;
 &lt;p&gt;See also: &lt;a href="https://martin-thoma.com/collaborative-filtering/"&gt;Collaborative Filtering&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;In some sense, bestellsers are a special case of collaborative filtering:
@@ -848,6 +853,24 @@ Simply recommending what got sold most.&lt;/p&gt;
 &lt;/dl&gt;
 &lt;h2 id="basic-basket-analysis"&gt;Basic Basket Analysis&lt;/h2&gt;
 &lt;p&gt;See &lt;a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/#association-rules"&gt;Association Rule Mining&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="more-collaborative-filtering"&gt;More Collaborative Filtering&lt;/h2&gt;
+&lt;p&gt;There are many &lt;a href="https://en.wikipedia.org/wiki/Collaborative_filtering"&gt;Collaborative filtering&lt;/a&gt; (CF) approaches&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;Item-based collaborative filtering&lt;/dt&gt;
+&lt;dd&gt;"users who liked what you liked, also like..."&lt;ol&gt;
+&lt;li&gt;Build an item-item matrix determining relationships between pairs of items&lt;/li&gt;
+&lt;li&gt;Infer the tastes of the current user by examining the matrix and matching that user's data&lt;/li&gt;
+&lt;/ol&gt;&lt;a href="https://en.wikipedia.org/wiki/Slope_One"&gt;Slope One&lt;/a&gt; is an example&lt;/dd&gt;
+&lt;dt&gt;Matrix Factorization&lt;/dt&gt;
+&lt;dd&gt;Factorize the rating matrix $R$ into a user-embedding matrix $U$ and an item embedding matrix $V$ such that $R = U \times \Sigma \times V$.&lt;/dd&gt;
+&lt;dt&gt;User-based collaborative filtering&lt;/dt&gt;
+&lt;dd&gt;&lt;ol&gt;
+&lt;li&gt;Look for users who share the same rating patterns with the active user (the user whom the prediction is for).&lt;/li&gt;
+&lt;li&gt;Use the ratings from those like-minded users found in step 1 to calculate a prediction for the active user&lt;/li&gt;
+&lt;/ol&gt;
+&lt;a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm"&gt;k-NN&lt;/a&gt; is one example.
+    &lt;/dd&gt;
+&lt;/dl&gt;
 &lt;h2 id="evaluation"&gt;Evaluation&lt;/h2&gt;
 &lt;p&gt;One way to evaluate if recommendation systems work is by the typical train-test split.&lt;/p&gt;
 &lt;p&gt;Possible Metrics, where &lt;span class="math"&gt;\(y\)&lt;/span&gt; is the real value and &lt;span class="math"&gt;\(p(x)\)&lt;/span&gt; is the predicted value:&lt;/p&gt;
@@ -968,6 +991,7 @@ remainding ones.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://datascience.stackexchange.com/q/749/8820"&gt;Meaning of latent features?&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Simon Funk: &lt;a href="https://sifter.org/~simon/journal/20061211.html"&gt;Netflix Update: Try This at Home&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Houtao Deng: &lt;a href="https://towardsdatascience.com/recommender-systems-in-practice-cef9033bb23a"&gt;Recommender Systems in Practice&lt;/a&gt;, 2019.&lt;/li&gt;
 &lt;/ul&gt;</content><category term="Machine Learning"></category></entry><entry><title>Regression</title><link href="https://martin-thoma.com/regression/" rel="alternate"></link><published>2018-07-18T20:00:00+02:00</published><updated>2018-07-18T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-07-18:/regression/</id><summary type="html">&lt;div class="info"&gt;A while ago, this link pointed to the content which is now in the &lt;a href="https://martin-thoma.com/forecasting/"&gt;Forecasting article&lt;/a&gt;.&lt;/div&gt;
 &lt;p&gt;Regression is one of the core tasks in machine learning. In this task, you get
 some input and your target variable is a single floating point number. For

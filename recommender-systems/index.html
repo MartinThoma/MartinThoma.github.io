@@ -104,7 +104,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#conceptual-approaches" title="Conceptual Approaches">Conceptual Approaches</a></li><li><a class="toc-href" href="#basic-content-based-recommendations" title="Basic Content-based Recommendations">Basic Content-based Recommendations</a></li><li><a class="toc-href" href="#user-based-collaborative-filtering" title="User-Based Collaborative Filtering">User-Based Collaborative Filtering</a></li><li><a class="toc-href" href="#basic-basket-analysis" title="Basic Basket Analysis">Basic Basket Analysis</a></li><li><a class="toc-href" href="#evaluation" title="Evaluation">Evaluation</a></li><li><a class="toc-href" href="#typical-problems" title="Typical Problems">Typical Problems</a><ul><li><a class="toc-href" href="#cold-start-problem" title="Cold-Start Problem">Cold-Start Problem</a></li><li><a class="toc-href" href="#sparsity" title="Sparsity">Sparsity</a></li><li><a class="toc-href" href="#wrong-recommendation-mode" title="Wrong Recommendation Mode">Wrong Recommendation Mode</a></li><li><a class="toc-href" href="#the-bubble" title="The Bubble">The Bubble</a></li><li><a class="toc-href" href="#surrogate-problem" title="Surrogate-Problem">Surrogate-Problem</a></li></ul></li><li><a class="toc-href" href="#matrix-factorization_1" title="Matrix Factorization">Matrix Factorization</a></li><li><a class="toc-href" href="#papers" title="Papers">Papers</a></li><li><a class="toc-href" href="#datasets" title="Datasets">Datasets</a></li><li><a class="toc-href" href="#other-resources" title="Other Resources">Other Resources</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#conceptual-approaches" title="Conceptual Approaches">Conceptual Approaches</a></li><li><a class="toc-href" href="#basic-content-based-recommendations" title="Basic Content-based Recommendations">Basic Content-based Recommendations</a></li><li><a class="toc-href" href="#user-based-collaborative-filtering" title="User-Based Collaborative Filtering">User-Based Collaborative Filtering</a></li><li><a class="toc-href" href="#basic-basket-analysis" title="Basic Basket Analysis">Basic Basket Analysis</a></li><li><a class="toc-href" href="#more-collaborative-filtering" title="More Collaborative Filtering">More Collaborative Filtering</a></li><li><a class="toc-href" href="#evaluation" title="Evaluation">Evaluation</a></li><li><a class="toc-href" href="#typical-problems" title="Typical Problems">Typical Problems</a><ul><li><a class="toc-href" href="#cold-start-problem" title="Cold-Start Problem">Cold-Start Problem</a></li><li><a class="toc-href" href="#sparsity" title="Sparsity">Sparsity</a></li><li><a class="toc-href" href="#wrong-recommendation-mode" title="Wrong Recommendation Mode">Wrong Recommendation Mode</a></li><li><a class="toc-href" href="#the-bubble" title="The Bubble">The Bubble</a></li><li><a class="toc-href" href="#surrogate-problem" title="Surrogate-Problem">Surrogate-Problem</a></li></ul></li><li><a class="toc-href" href="#matrix-factorization_1" title="Matrix Factorization">Matrix Factorization</a></li><li><a class="toc-href" href="#papers" title="Papers">Papers</a></li><li><a class="toc-href" href="#datasets" title="Datasets">Datasets</a></li><li><a class="toc-href" href="#other-resources" title="Other Resources">Other Resources</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -127,7 +127,8 @@ shown. On StumbleUpon, your next stumble. On a news page, another article.</p>
 <p>Recommender systems based on product similarity are also called "content-based recommender systems".
 The New York Times article recommendation is an example for that.</p>
 <p>Recommander systems based on user similarity are also called "collaborative
-filtering".</p>
+filtering". <a href="https://movielens.org/">movielens.org</a> is an example
+for that.</p>
 <p>Pandora is an example for content-based recommendation + collaborative filtering.</p>
 <h2 id="basic-content-based-recommendations">Basic Content-based Recommendations</h2>
 <p><a href="https://en.wikipedia.org/wiki/Edit_distance">Levenshteins edit distance</a>
@@ -146,6 +147,10 @@ a similarity measure. You would then recommend the most similar products.</p>
 <dl>
 <dt>Cosine-Similarity</dt>
 <dd>Let $x$ and $y$ be items. Their cosine similarity is defined as $$f(x, y) := \frac{\sum_i x_i y_i}{\sqrt{\sum_i x_i^2} \sqrt{\sum_i y_i^2}}$$</dd>
+<dt>Centered Cosine Similarity</dt>
+<dd>Subtract the mean value from all elements. If you have null values, don't change anything there. Then apply the cosine similarity.</dd>
+<dt>Jaccard Similarity</dt>
+<dd>Let $x$ and $y$ be items and $r_x, r_y$ be their attributes. Their jaccard similarity is defined as $$f(x, y) := \frac{|r_x \cap r_y|}{|r_x \cup r_y|}$$</dd>
 </dl>
 <h2 id="user-based-collaborative-filtering">User-Based Collaborative Filtering</h2>
 <p>Users can have different scales on which they rate stuff:</p>
@@ -160,7 +165,7 @@ a similarity measure. You would then recommend the most similar products.</p>
 set of ratings. By a simple transformation you can make it <span class="math">\(R = [0, 1]\)</span>.</p>
 <p>The utility function <span class="math">\(u\)</span> can be fully defined by a user-item rating matrix.
 Most elements of the matrix are not known, though.</p>
-<p>Based on the user-item rating matrix you build up a user-user similarity matrix.</p>
+<p>Based on the user-item rating matrix <span class="math">\(R\)</span> you build up a user-user similarity matrix.</p>
 <p>You look up similar users, generate candidates for recommendation, score and filter candidates (items the user already knows).</p>
 <p>See also: <a href="https://martin-thoma.com/collaborative-filtering/">Collaborative Filtering</a></p>
 <p>In some sense, bestellsers are a special case of collaborative filtering:
@@ -182,6 +187,24 @@ Simply recommending what got sold most.</p>
 </dl>
 <h2 id="basic-basket-analysis">Basic Basket Analysis</h2>
 <p>See <a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/#association-rules">Association Rule Mining</a></p>
+<h2 id="more-collaborative-filtering">More Collaborative Filtering</h2>
+<p>There are many <a href="https://en.wikipedia.org/wiki/Collaborative_filtering">Collaborative filtering</a> (CF) approaches</p>
+<dl>
+<dt>Item-based collaborative filtering</dt>
+<dd>"users who liked what you liked, also like..."<ol>
+<li>Build an item-item matrix determining relationships between pairs of items</li>
+<li>Infer the tastes of the current user by examining the matrix and matching that user's data</li>
+</ol><a href="https://en.wikipedia.org/wiki/Slope_One">Slope One</a> is an example</dd>
+<dt>Matrix Factorization</dt>
+<dd>Factorize the rating matrix $R$ into a user-embedding matrix $U$ and an item embedding matrix $V$ such that $R = U \times \Sigma \times V$.</dd>
+<dt>User-based collaborative filtering</dt>
+<dd><ol>
+<li>Look for users who share the same rating patterns with the active user (the user whom the prediction is for).</li>
+<li>Use the ratings from those like-minded users found in step 1 to calculate a prediction for the active user</li>
+</ol>
+<a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">k-NN</a> is one example.
+    </dd>
+</dl>
 <h2 id="evaluation">Evaluation</h2>
 <p>One way to evaluate if recommendation systems work is by the typical train-test split.</p>
 <p>Possible Metrics, where <span class="math">\(y\)</span> is the real value and <span class="math">\(p(x)\)</span> is the predicted value:</p>
@@ -302,6 +325,7 @@ remainding ones.</p>
 <ul>
 <li><a href="https://datascience.stackexchange.com/q/749/8820">Meaning of latent features?</a></li>
 <li>Simon Funk: <a href="https://sifter.org/~simon/journal/20061211.html">Netflix Update: Try This at Home</a></li>
+<li>Houtao Deng: <a href="https://towardsdatascience.com/recommender-systems-in-practice-cef9033bb23a">Recommender Systems in Practice</a>, 2019.</li>
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>
