@@ -157,7 +157,7 @@ memory consumption of all of them is not relevant.</p>
 <tr>
 <td style="background-color: red">Constant 1</td>
 <td style="background-color: red">2.422</td>
-<td>6.939</td>
+<td style="background-color: red">6.939</td>
 <td>I don't expect this to be awesome, but it should be better than MAE of 5.</td>
 </tr>
 <tr>
@@ -187,7 +187,7 @@ memory consumption of all of them is not relevant.</p>
 <tr>
 <td>User-adjusted movie rating</td>
 <td>0.825</td>
-<td>1.042</td>
+<td style="background-color: green">1.042</td>
 <td>Use the Median movie rating, but add user bias</td>
 </tr>
 </tbody>
@@ -292,7 +292,15 @@ memory consumption of all of them is not relevant.</p>
  97
  98
  99
-100</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+100
+101
+102
+103
+104
+105
+106
+107
+108</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 
 <span class="sd">"""Analyze the quality of recommendations."""</span>
 
@@ -364,13 +372,19 @@ memory consumption of all of them is not relevant.</p>
         <span class="k">return</span> <span class="n">results</span>
 
 
-<span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="n">true_ratings</span><span class="p">,</span> <span class="n">predicted_ratings</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="n">true_ratings</span><span class="p">,</span> <span class="n">predicted_ratings</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="s1">'mae'</span><span class="p">):</span>
     <span class="sd">"""Evaluate the results of a rating prediction."""</span>
     <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">true_ratings</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">predicted_ratings</span><span class="p">)</span>
-    <span class="n">absolute_errors</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span>
-                          <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">true_ratings</span><span class="p">,</span> <span class="n">predicted_ratings</span><span class="p">))</span>
-    <span class="n">mae</span> <span class="o">=</span> <span class="n">absolute_errors</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">true_ratings</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">mae</span>
+    <span class="k">if</span> <span class="n">func</span> <span class="o">==</span> <span class="s1">'mae'</span><span class="p">:</span>
+        <span class="n">absolute_errors</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span>
+                              <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">true_ratings</span><span class="p">,</span> <span class="n">predicted_ratings</span><span class="p">))</span>
+        <span class="n">mae</span> <span class="o">=</span> <span class="n">absolute_errors</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">true_ratings</span><span class="p">)</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">mae</span>
+    <span class="k">elif</span> <span class="n">func</span> <span class="o">==</span> <span class="s1">'mse'</span><span class="p">:</span>
+        <span class="n">sq_errors</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+                        <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">true_ratings</span><span class="p">,</span> <span class="n">predicted_ratings</span><span class="p">))</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">sq_errors</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">true_ratings</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">val</span>
 
 
 <span class="nd">@click.command</span><span class="p">()</span>
@@ -386,8 +400,10 @@ memory consumption of all of them is not relevant.</p>
     <span class="n">m</span> <span class="o">=</span> <span class="n">BaselineRecommender</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="n">strategy</span><span class="p">,</span> <span class="n">constant</span><span class="o">=</span><span class="n">constant</span><span class="p">)</span>
     <span class="n">m</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'train'</span><span class="p">][</span><span class="s1">'x'</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">'train'</span><span class="p">][</span><span class="s1">'y'</span><span class="p">])</span>
     <span class="n">y_pred</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'test'</span><span class="p">][</span><span class="s1">'x'</span><span class="p">])</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'test'</span><span class="p">][</span><span class="s1">'y'</span><span class="p">][</span><span class="s1">'rating'</span><span class="p">],</span> <span class="n">y_pred</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">'MAE of baseline: {:0.3f}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+    <span class="n">mae</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'test'</span><span class="p">][</span><span class="s1">'y'</span><span class="p">][</span><span class="s1">'rating'</span><span class="p">],</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="s1">'mae'</span><span class="p">)</span>
+    <span class="n">mse</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'test'</span><span class="p">][</span><span class="s1">'y'</span><span class="p">][</span><span class="s1">'rating'</span><span class="p">],</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="s1">'mse'</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'MAE of baseline: {:0.3f}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mae</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'MSE of baseline: {:0.3f}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mse</span><span class="p">))</span>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
