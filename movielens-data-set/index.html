@@ -143,43 +143,51 @@ to be given with exactly three decimal places.</p>
 <h2 id="baselines">Baselines</h2>
 <p>All of the following evaluations took roughly 43s on my Thinkpad T460p. The
 memory consumption of all of them is not relevant.</p>
+<div class="warning">Most of the following recommenders are completely useless. The constant recommender does not order the movies at all, the median user rating does not order for a user. And the median movie rating recommender is not personalized, which indicates that a content-based approach might be better. Still, you can see the MAE / MSE score is vastly different. This is an indicator that the evaluating function should be changed.</div>
 <table class="table">
 <thead>
 <tr>
 <th>Name</th>
 <th>MAE</th>
+<th>MSE</th>
 <th>Comment</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Constant 1</td>
+<td style="background-color: red">Constant 1</td>
 <td style="background-color: red">2.422</td>
+<td>6.939</td>
 <td>I don't expect this to be awesome, but it should be better than MAE of 5.</td>
 </tr>
 <tr>
-<td>Constant 5</td>
+<td style="background-color: red">Constant 5</td>
 <td>1.603</td>
+<td>3.761</td>
 <td>Together with Constant 5, this gives the range in which all recommenders will be.</td>
 </tr>
 <tr>
-<td>Constant 2.5</td>
+<td style="background-color: red">Constant 2.5</td>
 <td>1.217</td>
+<td>1.996</td>
 <td>Predicting the middle is the best if you have absolute no prior knowledge and MAE.</td>
 </tr>
 <tr>
-<td>Median User Rating</td>
+<td style="background-color: red">Median User Rating</td>
 <td>0.733</td>
+<td>1.112</td>
 <td>Every user in the test set was also in the training set!</td>
 </tr>
 <tr>
 <td>Median Movie Rating</td>
 <td style="background-color: green">0.723</td>
+<td>1.061</td>
 <td>For known movies, predict their median value. For unknown ones, predict the median of all medians of movie ratings.</td>
 </tr>
 <tr>
 <td>User-adjusted movie rating</td>
 <td>0.825</td>
+<td>1.042</td>
 <td>Use the Median movie rating, but add user bias</td>
 </tr>
 </tbody>
@@ -395,6 +403,7 @@ memory consumption of all of them is not relevant.</p>
 <h2 id="publications">Publications</h2>
 <ul>
 <li>Prateek Sappadla, Yash Sadhwani, Pranit Arora: <a href="http://www.codeheroku.com/static/workshop/hw/movie_recommendation/MovieRecommenderSystem.pdf">Movie Recommender System</a>: They claim to have reached MSE=0.65 with matrix factorization and 0.70 with k-nearest users.</li>
+<li>Shuyu Luo: <a href="https://towardsdatascience.com/intro-to-recommender-system-collaborative-filtering-64a238194a26">Introduction to Recommender System</a>, 2018.</li>
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>
