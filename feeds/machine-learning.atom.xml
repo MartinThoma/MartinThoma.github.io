@@ -817,6 +817,11 @@ a similarity measure. You would then recommend the most similar products.&lt;/p&
 &lt;dd&gt;Subtract the mean value from all elements. If you have null values, don't change anything there. Then apply the cosine similarity.&lt;/dd&gt;
 &lt;dt&gt;Jaccard Similarity&lt;/dt&gt;
 &lt;dd&gt;Let $x$ and $y$ be items and $r_x, r_y$ be their attributes. Their jaccard similarity is defined as $$f(x, y) := \frac{|r_x \cap r_y|}{|r_x \cup r_y|}$$&lt;/dd&gt;
+&lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Minkowski_distance"&gt;Minkowski Distance&lt;/a&gt;&lt;/dt&gt;
+&lt;dd&gt;$$f(x, y) := \left ( \sum_{i=1}^n {|x_i - y_i|}^p \right )^{1/p}$$&lt;/dd&gt;
+&lt;dt&gt;&lt;a href="https://en.wikipedia.org/wiki/Mahalanobis_distance"&gt;Mahalanobis distance&lt;/a&gt;&lt;/dt&gt;
+&lt;dd&gt;The Mahalanobis distance of an observation &lt;math&gt;\vec{x} = ( x_1, x_2, x_3, \dots, x_N )^T&lt;/math&gt; from a set of observations with mean $\vec{\mu} = ( \mu_1, \mu_2, \mu_3, \dots , \mu_N )^T$ and covariance matrix $S$ is defined as:
+    $$D_M(\vec{x}) = \sqrt{(\vec{x} - \vec{\mu})^T S^{-1} (\vec{x}-\vec{\mu})}$$&lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h2 id="user-based-collaborative-filtering"&gt;User-Based Collaborative Filtering&lt;/h2&gt;
 &lt;p&gt;Users can have different scales on which they rate stuff:&lt;/p&gt;
@@ -871,7 +876,18 @@ Simply recommending what got sold most.&lt;/p&gt;
 &lt;a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm"&gt;k-NN&lt;/a&gt; is one example.
     &lt;/dd&gt;
 &lt;/dl&gt;
+&lt;p&gt;One line of work goes in the direction of matrix factorization with alternating
+least squares (ALS).[^5,^6] They have a training algorithm with has a time complexity
+of &lt;span class="math"&gt;\(\mathcal{O}(MNK^2)\)&lt;/span&gt; for one iteration, where &lt;span class="math"&gt;\(M\)&lt;/span&gt; is the number of users,
+&lt;span class="math"&gt;\(N\)&lt;/span&gt; is the number of items and &lt;span class="math"&gt;\(K\)&lt;/span&gt; is the dimension of the latent space.&lt;/p&gt;
 &lt;h2 id="evaluation"&gt;Evaluation&lt;/h2&gt;
+&lt;p&gt;There are two conceptually very different ways to think about recommender systems[^4]:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Matrix Completion: You have a matrix of user-item ratings. This matrix has
+  many NULL values. You want to fill them.&lt;/li&gt;
+&lt;li&gt;Ranking: Recommend the top-k items for a given user.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="matrix-completion"&gt;Matrix Completion&lt;/h3&gt;
 &lt;p&gt;One way to evaluate if recommendation systems work is by the typical train-test split.&lt;/p&gt;
 &lt;p&gt;Possible Metrics, where &lt;span class="math"&gt;\(y\)&lt;/span&gt; is the real value and &lt;span class="math"&gt;\(p(x)\)&lt;/span&gt; is the predicted value:&lt;/p&gt;
 &lt;dl&gt;
@@ -880,12 +896,20 @@ Simply recommending what got sold most.&lt;/p&gt;
 &lt;dt&gt;Root Mean Square Error (RMSE)&lt;/dt&gt;
 &lt;dd&gt;$\sqrt{\frac{1}{n} \sum_{i=1}^n {(y_i - p(x_i))}^2} \in [0, \infty)$, where lower is better&lt;/dd&gt;
 &lt;/dl&gt;
+&lt;h3 id="ranking"&gt;Ranking&lt;/h3&gt;
 &lt;p&gt;The problem with those two ways is that low-rated items don't matter much. If
 95% of the users look at &lt;span class="math"&gt;\(n\)&lt;/span&gt; items, then you want the Top-&lt;span class="math"&gt;\(n\)&lt;/span&gt; recommendations
 to be (1) more relevant than the rest for the user and (2) the order of the
 top-&lt;span class="math"&gt;\(n\)&lt;/span&gt; elements to be correct.&lt;/p&gt;
 &lt;p&gt;Metrics for top-n recommenders:&lt;/p&gt;
 &lt;dl&gt;
+&lt;dt&gt;Precision@k&lt;/dt&gt;
+&lt;dd&gt;$\frac{\text{recommended items @k that are relevant}}{k}$. This gives
+        you the portion of items that are relevant to your user.&lt;/dd&gt;
+&lt;dt&gt;Recall@k&lt;/dt&gt;
+&lt;dd&gt;$\frac{\text{recommended items @k that are relevant}}{total relevant items}$. If precision is high and recall is low, it might indicate that $k$ is just very small. If recall is high and precision is low it might show that not so many items are relevant in comparison to the choice of $k$.&lt;/dd&gt;
+&lt;dt&gt;Average Precision@k&lt;/dt&gt;
+&lt;dd&gt;TODO&lt;/dd&gt;
 &lt;dt&gt;Hit Rate&lt;/dt&gt;
 &lt;dd&gt;Number of hits in your $n$ recommendations, divided by the number of users&lt;/dd&gt;
 &lt;dt&gt;Average Reciprocal Hit Rank (ARHR)&lt;/dt&gt;
@@ -893,6 +917,7 @@ top-&lt;span class="math"&gt;\(n\)&lt;/span&gt; elements to be correct.&lt;/p&gt
 &lt;dt&gt;Cumulative Hit Rate (cHR)&lt;/dt&gt;
 &lt;dd&gt;Throw away low-ranking stuff (hence you need a threshold)&lt;/dd&gt;
 &lt;/dl&gt;
+&lt;h3 id="other"&gt;Other&lt;/h3&gt;
 &lt;p&gt;Other quality indicators for a recommendation system&lt;/p&gt;
 &lt;dl&gt;
 &lt;dt&gt;Diversity&lt;/dt&gt;
@@ -904,6 +929,7 @@ top-&lt;span class="math"&gt;\(n\)&lt;/span&gt; elements to be correct.&lt;/p&gt
 &lt;dt&gt;Responsiveness&lt;/dt&gt;
 &lt;dd&gt;How quickly are recommendations adjusted?&lt;/dd&gt;
 &lt;/dl&gt;
+&lt;h3 id="user-feedback"&gt;User Feedback&lt;/h3&gt;
 &lt;p&gt;Another way to evaluate is to ask the user:&lt;/p&gt;
 &lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
 &lt;a href="../images/2019/05/youtube-feedback-1.png"&gt;&lt;img alt="A jellyfish" src="../images/2019/05/youtube-feedback-1.png" style="width: 512px;"/&gt;&lt;/a&gt;
@@ -925,7 +951,7 @@ top-&lt;span class="math"&gt;\(n\)&lt;/span&gt; elements to be correct.&lt;/p&gt
 &lt;a href="../images/2019/05/youtube-feedback-5.png"&gt;&lt;img alt="A jellyfish" src="../images/2019/05/youtube-feedback-5.png" style="width: 512px;"/&gt;&lt;/a&gt;
 &lt;figcaption class="text-center"&gt;YouTube Asking for feedback: 5 Star&lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;h2 id="typical-problems"&gt;Typical Problems&lt;/h2&gt;
+&lt;h2 id="typical-problems_1"&gt;Typical Problems&lt;/h2&gt;
 &lt;h3 id="cold-start-problem"&gt;Cold-Start Problem&lt;/h3&gt;
 &lt;p&gt;The cold-start problem is central and only fixable by content-based
 recommendation. If there is a new product, not a single user has rated it. It
@@ -960,7 +986,11 @@ achieving the surrogate goal.&lt;/p&gt;
         frames, lightning, number of shots&lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h2 id="matrix-factorization_1"&gt;Matrix Factorization&lt;/h2&gt;
-&lt;p&gt;Matrix Factorization is one way to do collaborative filtering. It was done
+&lt;p&gt;Matrix Factorization is factorization in the same way as with natural numbers:
+Take a matrix &lt;span class="math"&gt;\(R\)&lt;/span&gt; and factorize it in &lt;span class="math"&gt;\(U\)&lt;/span&gt; and &lt;span class="math"&gt;\(V\)&lt;/span&gt; such that &lt;span class="math"&gt;\(R = U \cdot V\)&lt;/span&gt;. If
+the complete matrix &lt;span class="math"&gt;\(R\)&lt;/span&gt; is given, &lt;span class="math"&gt;\(R\)&lt;/span&gt; can be factorized with Singular Value
+Decomposition (SVD) or Probabilistic Latent Semantic Analysis (PLSA).&lt;/p&gt;
+&lt;p&gt;Matrix Factorization is also one way to do collaborative filtering. It was done
 for the Netflix prize and is described in [^3]. A &lt;a href="https://surprise.readthedocs.io/en/stable/matrix_factorization.html#surprise.prediction_algorithms.matrix_factorization.SVD"&gt;neat short description&lt;/a&gt; is in
 SurpriseLib.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Input&lt;/strong&gt;: The ratings of &lt;span class="math"&gt;\(n\)&lt;/span&gt; users for &lt;span class="math"&gt;\(m\)&lt;/span&gt; movies in a matrix &lt;span class="math"&gt;\(R \in \mathbb{R}^{n \times m}\)&lt;/span&gt;.&lt;/p&gt;
@@ -982,16 +1012,41 @@ remainding ones.&lt;/p&gt;
 &lt;li&gt;[^1]: Paul Covington, Jay Adams, Emre Sargin: &lt;a href="https://storage.googleapis.com/pub-tools-public-publication-data/pdf/45530.pdf"&gt;Deep Neural Networks for YouTube Recommendations&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;[^2]: Yashar Deldjoo, Mehdi Elahi, Paolo Cremonesi: Using Visual Features and Latent Factors for Movie Recommendations, 2016.&lt;/li&gt;
 &lt;li&gt;[^3]: Ruslan Salakhutdinov and Andriy Mnih: &lt;a href="http://papers.nips.cc/paper/3208-probabilistic-matrix-factorization.pdf"&gt;Probabilistic Matrix Factorization&lt;/a&gt;, 2008.&lt;/li&gt;
+&lt;li&gt;[^4]: C. C. Aggarwal: Recommender systems, 2016. Springer International Publishing. Pages 1-28.&lt;/li&gt;
+&lt;li&gt;[^5]: Xiangnan He, Hanwang Zhang, Min-Yen Kan, Tat-Seng Chua: &lt;a href="https://arxiv.org/pdf/1708.05024.pdf"&gt;Fast Matrix Factorization for Online Recommendation with Implicit Feedback&lt;/a&gt;, 2017.&lt;/li&gt;
+&lt;li&gt;[^6]: Yifan Hu, Yehuda Koren, Chris Volinsky: &lt;a href="http://yifanhu.net/PUB/cf.pdf"&gt;Collaborative Filtering for Implicit Feedback Datasets&lt;/a&gt;, 2008.&lt;/li&gt;
+&lt;li&gt;[^7]: Robert M. Bell, Yehuda Koren and Chris Volinsky: &lt;a href="https://www.netflixprize.com/assets/ProgressPrize2007_KorBell.pdf"&gt;The BellKor solution to the Netflix Prize&lt;/a&gt;, 2007.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="code"&gt;Code&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Github: &lt;a href="https://github.com/topics/recommender-system?l=python"&gt;recommender-system&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/benfred/implicit"&gt;benfred/implicit&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="datasets"&gt;Datasets&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://grouplens.org/datasets/movielens/100k/"&gt;MovieLens 100K Dataset&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.kaggle.com/neferfufi/lastfm"&gt;Last.fm dataset&lt;/a&gt; / &lt;a href="https://www.upf.edu/web/mtg/lastfm360k"&gt;Last.fm 360k&lt;/a&gt; / &lt;a href="https://gist.github.com/victorkohler/0931d181ef126e0740d8aac6933f13f4"&gt;Last.fm 1k&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="other-resources"&gt;Other Resources&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://datascience.stackexchange.com/q/749/8820"&gt;Meaning of latent features?&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Simon Funk: &lt;a href="https://sifter.org/~simon/journal/20061211.html"&gt;Netflix Update: Try This at Home&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Houtao Deng: &lt;a href="https://towardsdatascience.com/recommender-systems-in-practice-cef9033bb23a"&gt;Recommender Systems in Practice&lt;/a&gt;, 2019.&lt;/li&gt;
+&lt;li&gt;Victor: &lt;a href="https://medium.com/radon-dev/als-implicit-collaborative-filtering-5ed653ba39fe"&gt;ALS Implicit Collaborative Filtering&lt;/a&gt;, 2017 - explains [^6] neatly.&lt;/li&gt;
+&lt;li&gt;Implicit&lt;ul&gt;
+&lt;li&gt;Ben Frederickson: &lt;a href="http://www.benfrederickson.com/fast-implicit-matrix-factorization/"&gt;Faster Implicit Matrix Factorization&lt;/a&gt;, 12.12.2016.&lt;/li&gt;
+&lt;li&gt;Ben Frederickson: &lt;a href="http://www.benfrederickson.com/matrix-factorization/"&gt;Finding Similar Music using Matrix Factorization&lt;/a&gt;, 02.10.2017.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Not read so far:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Leskovec, Rajaraman, Ullman: &lt;a href="https://www.youtube.com/watch?v=h9gpufJFF-0"&gt;Collaborative Filtering&lt;/a&gt;. Lecture 43 of "Mininig of Massive Datasets". Stanford University.&lt;/li&gt;
+&lt;li&gt;Maher Malaeb: &lt;a href="https://medium.com/@m_n_malaeb/the-easy-guide-for-building-python-collaborative-filtering-recommendation-system-in-2017-d2736d2e92a8"&gt;The easy guide for building python collaborative filtering recommendation system&lt;/a&gt;, 2017.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://surprise.readthedocs.io/en/stable/notation_standards.html#salakhutdinov2008a"&gt;surprise docs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gist.githubusercontent.com/mahermalaeb/3d03feb1bbada7e7e1438f86b1a8abb9/raw/781f21f7591d99f5197a83799594a02f524dd6e4/surprise_tutorial.py"&gt;surprise gist&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Houtao Deng: &lt;a href="https://towardsdatascience.com/recommender-systems-in-practice-cef9033bb23a"&gt;Recommender Systems in Practice&lt;/a&gt;, 2013&lt;/li&gt;
+&lt;li&gt;Kaggle: &lt;a href="https://www.kaggle.com/duykhanh99/tutorials-recommendation-system"&gt;Tutorials Recommendation System&lt;/a&gt;, 2019.&lt;/li&gt;
 &lt;/ul&gt;</content><category term="Machine Learning"></category></entry><entry><title>Regression</title><link href="https://martin-thoma.com/regression/" rel="alternate"></link><published>2018-07-18T20:00:00+02:00</published><updated>2018-07-18T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2018-07-18:/regression/</id><summary type="html">&lt;div class="info"&gt;A while ago, this link pointed to the content which is now in the &lt;a href="https://martin-thoma.com/forecasting/"&gt;Forecasting article&lt;/a&gt;.&lt;/div&gt;
 &lt;p&gt;Regression is one of the core tasks in machine learning. In this task, you get
 some input and your target variable is a single floating point number. For
