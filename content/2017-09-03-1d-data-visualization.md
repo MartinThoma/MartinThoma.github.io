@@ -17,6 +17,7 @@ example script:
 
 """Visualize C_0.99 for all languages except the 10 with most characters."""
 
+import matplotlib.pyplot as plt
 import seaborn as sns
 sns.set_style("whitegrid")
 
@@ -29,9 +30,9 @@ def plot_1d(l, colors=None, xlabel='', ylabel=''):
     ax.set(xlabel=xlabel, ylabel=ylabel, label='big')
     ax.set_xticks([])
 
-    sns.plt.savefig('example.pdf')
-    sns.plt.savefig('example.png')
-    sns.plt.show()
+    plt.savefig('example.pdf')
+    plt.savefig('example.png')
+    plt.show()
 
 
 if __name__ == '__main__':
@@ -74,3 +75,9 @@ which gives
 ## Prerequesites
 
 You need to install [`seaborn`](http://seaborn.pydata.org/installing.html).
+
+## See also
+
+* [`seaborn.barplot`](https://seaborn.pydata.org/generated/seaborn.barplot.html)
+* [`seaborn.countplot`](https://seaborn.pydata.org/generated/seaborn.countplot.html)
+* [`seaborn.distplot`](https://seaborn.pydata.org/generated/seaborn.distplot.html)
