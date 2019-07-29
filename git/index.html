@@ -104,7 +104,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#why-version-control" title="Why Version Control">Why Version Control</a></li><li><a class="toc-href" href="#change-steps" title="Change steps">Change steps</a></li><li><a class="toc-href" for'="" href="#what-its-not-for" not="" s="" title="What it">What it's not for</a></li><li><a class="toc-href" href="#commit-messages" title="Commit Messages">Commit Messages</a></li><li><a class="toc-href" href="#git-log" title="git log">git log</a></li><li><a class="toc-href" href="#git-diff" title="git diff">git diff</a></li><li><a class="toc-href" href="#git-blame" title="git blame">git blame</a></li><li><a class="toc-href" href="#git-squash" title="git squash">git squash</a></li><li><a class="toc-href" href="#merging" title="Merging">Merging</a></li><li><a class="toc-href" href="#tagging" title="Tagging">Tagging</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#why-version-control" title="Why Version Control">Why Version Control</a></li><li><a class="toc-href" href="#change-steps" title="Change steps">Change steps</a></li><li><a class="toc-href" for'="" href="#what-its-not-for" not="" s="" title="What it">What it's not for</a></li><li><a class="toc-href" href="#commit-messages" title="Commit Messages">Commit Messages</a></li><li><a class="toc-href" href="#git-log" title="git log">git log</a></li><li><a class="toc-href" href="#git-diff" title="git diff">git diff</a></li><li><a class="toc-href" href="#git-blame" title="git blame">git blame</a></li><li><a class="toc-href" href="#git-squash" title="git squash">git squash</a></li><li><a class="toc-href" href="#merging" title="Merging">Merging</a></li><li><a class="toc-href" href="#tagging" title="Tagging">Tagging</a></li><li><a class="toc-href" href="#git-hooks" title="Git Hooks">Git Hooks</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -333,6 +333,33 @@ for example.</p>
 <p>You can also show diffs / logs with the tags, e.g.:</p>
 <div class="highlight"><pre><span></span>$ git diff v0.2.0..v0.3.0
 </pre></div>
+<h2 id="git-hooks">Git Hooks</h2>
+<p><a href="https://en.wikipedia.org/wiki/Hooking">Software Hooks</a> are a plugin-technique.
+Hooks allow users to alter and extend the software. In git, there are many
+different hooks. They follow the naming schema <code>[pre/post]-[event]</code> hook. Here
+are some with possible use-cases.</p>
+<ul>
+<li><code>pre-commit</code>:<ul>
+<li>Check the commit message for spelling errors</li>
+<li>Apply a linter to check for coding standards</li>
+<li>Execute (fast) tests to ensure correctnes</li>
+</ul>
+</li>
+<li><code>pre-receive</code>:<ul>
+<li>Enforce project coding standards.</li>
+<li>Enforce working tests</li>
+</ul>
+</li>
+<li><code>post-commit</code>:<ul>
+<li>Notify team members of a new commit (e.g. via e-mail or slack)</li>
+</ul>
+</li>
+<li><code>post-receive</code>:<ul>
+<li>Push the code to production</li>
+</ul>
+</li>
+</ul>
+<p>See also: <a href="https://githooks.com/">githooks.com</a></p>
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="http://files.zeroturnaround.com/pdf/zt_git_cheat_sheet.pdf">Rebellabs git Cheat Sheet</a></li>
