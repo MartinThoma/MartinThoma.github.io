@@ -258,11 +258,39 @@ See also:
 
 * [Flask-Mail](https://pythonhosted.org/Flask-Mail/)
 * Mailgun, mailchimp ?
+* [SendGrid](https://sendgrid.com/) ([users](https://stackshare.io/sendgrid))
+* Mail-Server [Docker `tvial/docker-mailserver:latest`](https://github.com/tomav/docker-mailserver): Requires 1 GB RAM
 
 
 ## Image Upload
 
 * [Imgur](https://imgur.com/)?
+
+## Social Stuff
+
+There are two aspects of social service optimization: Making it easy to share
+stuff from your site and being active on that site. Or at least reachable.
+
+* Twitter:
+    * Is it worth to create an account?
+    * [Twitter Card](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/summary-card-with-large-image.html)
+* Facebook:
+    * [Open Graph](https://en.wikipedia.org/wiki/Facebook_Platform#Open_Graph_protocol)
+
+
+## Payment
+
+* PayPal?
+* [Stripe](https://stripe.com) ([users](https://stackshare.io/stripe)) ?
+
+
+## Tests
+
+* Google: [Pagespeed Insights](https://developers.google.com/speed/pagespeed/insights/)
+* Google Analytics
+* [gtmetrix.com](https://gtmetrix.com/reports/enzado.com/oM61ID2t): 98% speed, 93% YSlow, 0.9s, 219kb, 11 Requests
+* [thinkwithgoogle.com: Test My Site](https://www.thinkwithgoogle.com/intl/de-de/feature/testmysite): 1.6s in einem 4G-Netz
+* [IPv6](https://ipv6-test.com/validate.php)
 
 
 ## TODO
