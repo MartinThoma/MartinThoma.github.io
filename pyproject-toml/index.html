@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Python, packaging, Code, " />
+
+<meta property="og:title" content="pyproject.toml "/>
+<meta property="og:url" content="../pyproject-toml/" />
+<meta property="og:description" content="The pyproject.toml file is a solution for defining the build system as a dependency. Also, other kinds of meta-data and the install requirements can be defined in it. If you are interested in a sample project, try pypa/sampleproject or try the packaging tutorial. Example [project] name = &#34;infer_pyproject&#34; version …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2019-07-30T20:00:00+02:00" />
+<meta name="twitter:title" content="pyproject.toml ">
+<meta name="twitter:description" content="The pyproject.toml file is a solution for defining the build system as a dependency. Also, other kinds of meta-data and the install requirements can be defined in it. If you are interested in a sample project, try pypa/sampleproject or try the packaging tutorial. Example [project] name = &#34;infer_pyproject&#34; version …">
+<meta property="og:image" content="logos/python.png" />
+<meta name="twitter:image" content="logos/python.png" >
+
+        <title>pyproject.toml  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../pyproject-toml/"> pyproject.toml  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#example" title="Example">Example</a></li><li><a class="toc-href" href="#history" title="History">History</a></li><li><a class="toc-href" href="#tools" title="Tools">Tools</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>The <code>pyproject.toml</code> file is a solution for defining the build system as a
+dependency. Also, other kinds of meta-data and the install requirements can be
+defined in it.</p>
+<p>If you are interested in a sample project, try <a href="https://github.com/pypa/sampleproject">pypa/sampleproject</a> or try the <a href="https://packaging.python.org/tutorials/packaging-projects/">packaging tutorial</a>.</p>
+<h2 id="example">Example</h2>
+<div class="highlight"><pre><span></span><span class="k">[project]</span>
+<span class="na">name</span> <span class="o">=</span> <span class="s">"infer_pyproject"</span>
+<span class="na">version</span> <span class="o">=</span> <span class="s">"0.1.0"</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">"Create a pyproject.toml file for an existing project."</span>
+<span class="na">authors</span> <span class="o">=</span> <span class="s">[</span>
+<span class="s">    "Martin Thoma &lt;info@martin-thoma.de&gt;"</span>
+<span class="na">]</span>
+<span class="na">license</span> <span class="o">=</span> <span class="s">"MIT"</span>
+<span class="na">readme</span> <span class="o">=</span> <span class="s">"README.md"</span>
+<span class="na">python</span> <span class="o">=</span> <span class="s">"^3.6"</span>
+<span class="na">homepage</span> <span class="o">=</span> <span class="s">"https://github.com/MartinThoma/infer_pyproject"</span>
+<span class="na">repository</span> <span class="o">=</span> <span class="s">"https://github.com/MartinThoma/infer_pyproject"</span>
+<span class="na">documentation</span> <span class="o">=</span> <span class="s">"https://github.com/MartinThoma/infer_pyproject"</span>
+
+<span class="na">keywords</span> <span class="o">=</span> <span class="s">["packaging", "dependency", "infer", "pyproject.toml"]</span>
+
+<span class="na">classifiers</span> <span class="o">=</span> <span class="s">[</span>
+<span class="s">    "Topic :: Software Development"</span>
+<span class="na">]</span>
+
+<span class="c1"># Requirements</span>
+<span class="k">[dependencies]</span>
+<span class="na">Click</span> <span class="o">=</span> <span class="s">"^7.0"</span>
+
+<span class="k">[dev-dependencies]</span>
+<span class="na">black</span> <span class="o">=</span> <span class="s">{ version = "^18.3-alpha.0", python = "^3.6" }</span>
+
+<span class="k">[scripts]</span>
+<span class="na">poetry</span> <span class="o">=</span> <span class="s">"infer_pyproject.cli:main"</span>
+
+<span class="k">[build-system]</span>
+<span class="na">requires</span> <span class="o">=</span> <span class="s">[</span>
+<span class="s">    "setuptools &gt;= 35.0.2",</span>
+<span class="s">    "setuptools_scm &gt;= 2.0.0, &lt;3"</span>
+<span class="na">]</span>
+<span class="na">build-backend</span> <span class="o">=</span> <span class="s">"setuptools.build_meta"</span>
+
+<span class="k">[tool.black]</span>
+<span class="na">line-length</span> <span class="o">=</span> <span class="s">88</span>
+<span class="na">target_version</span> <span class="o">=</span> <span class="s">['py36']</span>
+<span class="na">include</span> <span class="o">=</span> <span class="s">'\.pyi?$'</span>
+<span class="na">exclude</span> <span class="o">=</span> <span class="s">'''</span>
+
+<span class="na">(</span>
+  <span class="na">/(</span>
+      <span class="na">\.eggs         # exclude a few common directories in the</span>
+    <span class="na">| \.git          # root of the project</span>
+    <span class="na">| \.hg</span>
+    <span class="na">| \.mypy_cache</span>
+    <span class="na">| \.tox</span>
+    <span class="na">| \.venv</span>
+    <span class="na">| _build</span>
+    <span class="na">| buck-out</span>
+    <span class="na">| build</span>
+    <span class="na">| dist</span>
+  <span class="na">)/</span>
+  <span class="na">| foo.py           # also separately exclude a file named foo.py in</span>
+                     <span class="c1"># the root of the project</span>
+<span class="na">)</span>
+<span class="na">'''</span>
+</pre></div>
+<h2 id="history">History</h2>
+<ul>
+<li>1990-08-09: First commit of <a href="https://github.com/python/cpython/commit/7f777ed95a19224294949e1b4ce56bbffcb1fe9f">cpython</a></li>
+<li>1998: distutils was drafted in IPC7 (<a href="https://www.python.org/community/sigs/current/distutils-sig/doc/ipc7_devday/">source</a>)</li>
+<li>1999-03-22: First <a href="https://github.com/python/cpython/commit/2689e3ddce7">distutil commit to cpython</a></li>
+<li>2000-11-16: <a href="https://www.python.org/dev/peps/pep-0229/#implementation">PEP 229 -- Using Distutils to Build Python</a></li>
+<li>2003-07-06: First capture of pypi.org found on <a href="https://web.archive.org/web/20030706220147/http://www.pypi.org/">waybackmachine</a></li>
+<li>2004-03-19: First commit of <a href="https://github.com/pypa/setuptools/commit/8423e1ed14ac1691c2863c6e8cac9230cf558d7b">setuptools</a></li>
+<li>2006-05-13: First version of <a href="https://pypi.org/project/setuptools">setuptools</a> was released</li>
+<li>2007-09-14: First commit of <a href="https://github.com/pypa/virtualenv/commit/e02aa46f4f0eb5321c31641e89bde2c9b92547bb">virtualenv</a></li>
+<li>2008-10-16: First commit of <a href="https://github.com/pypa/pip/commit/c2000d7de68ef955a85cf8f5f6e78d4f25c10103">pip</a></li>
+<li>2013-08-13: First commit of <a href="https://github.com/pypa/twine/commit/fafe960cae661ab9e3ac8837803777ba9aadd831">twine</a></li>
+<li>2015-01-24: First commit of <a href="https://github.com/pypa/warehouse/commit/41358eaf559c1011fc3e94149e716e1dfc79e391">PyPI warehouse</a></li>
+<li>2015-03-16: First version of <a href="https://pypi.org/project/flit">flint</a> was released</li>
+<li>2015-09-30: <a href="https://www.python.org/dev/peps/pep-0517/">PEP 517 -- A build-system independent format for source trees</a> (provisional)</li>
+<li>2015-10-26: <a href="https://www.python.org/dev/peps/pep-0516/">PEP 516 -- Build system abstraction for pip/conda etc</a> (rejected)</li>
+<li>2015-11-11: <a href="https://www.python.org/dev/peps/pep-0508/">PEP 508 -- Dependency specification for Python Software Packages</a> (active)</li>
+<li>2016-05-10: <a href="https://www.python.org/dev/peps/pep-0518/">PEP 518 -- Specifying Minimum Build System Requirements for Python Projects</a> (provisional)</li>
+<li>2016-11-18: First commit of <a href="https://github.com/pypa/pipfile/commit/8bfff2988d0575cacae8a15ae22fd3f9749c5055">pipfile</a></li>
+<li>2017-01-20: First commit of <a href="https://github.com/pypa/pipenv/commit/be4b70e646e6232834e9f9917fdc1adde2156f47">pipenv</a></li>
+<li>2018-02-28: First version of <a href="https://pypi.org/project/poetry">Poetry</a> was released</li>
+</ul>
+<h2 id="tools">Tools</h2>
+<dl>
+<dt>Python Package</dt>
+<dd>A bundle of software. This includes code and meta-data, such as requirements, a short and a long description, the license. It also contains instructions how to build the software. Formerly this was done with distutils.</dd>
+<dt>distuils</dt>
+<dd>Lets you create source distributions (<code>python setup.py sdist</code>). Sometime building takes a long time, so you might want to share already built distributions. You can do that with <code>python setup.py bdist</code>.</dd>
+<dt>setuptools</dt>
+<dd>Like distutils, but a 3rd party library. It is de-facto standard, but does not come with Python.</dd>
+<dt><code>setup.py</code></dt>
+<dd>Python file which specifies a package. As it can be arbitrary code, there is no way to know the dependencies of a package for sure without executing <code>setup.py</code>.</dd>
+<dt>PyPI (Python Packaging Index)</dt>
+<dd>PyPI is the official third-party software repository for Python. Here people can share their code in form of Python packages.</dd>
+<dt><code>easy_install</code></dt>
+<dd>Easy_install is a package manager which is replaced by pip, because it could not uninstall and did not know what was installed. Other <a href="https://packaging.python.org/discussions/pip-vs-easy-install/">reasons</a> as well.</dd>
+<dt>egg distribution</dt>
+<dd>"Egg" is a single-file importable distribution format for Python-related projects. Eggs are to Pythons as Jars are to Java, but eggs are richer than jars; they hold interesting metadata such as licensing details, release dependencies, ... (<a href="https://wiki.python.org/moin/egg">source</a>). It is a zip file.</dd>
+<dt>pip</dt>
+<dd>pip is a de facto standard package manager for Python. It allows to install packages and installs required packages. pip introduced <code>requirements.txt</code></dd>
+<dt>requirements.txt</dt>
+<dd>It allows pinning versions of a dependency. The <code>setup.py</code> includes abstract requirements, the <code>requirements.txt</code> includes concrete ones. Abstract requirements are more flexible, concrete ones are stable.</dd>
+<dt>wheel distribution</dt>
+<dd>The wheel binary package format is specified in <a href="https://www.python.org/dev/peps/pep-0427/">PEP 427</a>. It is similar to egg distributions. It is a zip file.</dd>
+<dt>twine</dt>
+<dd>Allowed to securely upload a package to PyPI.</dd>
+<dt>conda</dt>
+<dd>conda is a Python-agnostic packaging tool and installer. If you need more than Python / if you don't have Python installed. It supports C, Fortran, R, Perl, Java, ...</dd>
+<dt>pipfile and pipfile.lock</dt>
+<dd>A pipfile should be easier to maintain than multiple <code>requirements.txt</code> files, e.g. for testing / environments (dev, stage, prod). The pipfile.lock is automatically generated and tracks interdependencies of the required packages; it is similar to <a href="https://bundler.io/v1.7/rationale.html#checking-your-code-into-version-control"><code>gemfile.lock</code></a> in Ruby and <a href="https://yarnpkg.com/lang/en/docs/yarn-lock/"><code>yarn.lock</code></a> in JavaScript. pipenv is the tool to use with those files.</dd>
+<dt><code>pyproject.toml</code></dt>
+<dd>A build-system independent way to specify project dependencies. <code>setup.py</code> is bad as it is 3rd party and requires code execution. It is a way to step away from distutils / setuptools. The specified build system can be setuptools as well.</dd>
+<dt><a href="https://github.com/pyenv/pyenv">pyenv</a></dt>
+<dd>Install different Python versions. It is similar to rbenv from Ruby.</dd>
+<dt>pipenv</dt>
+<dd>Wrapper for virtualenv. See pipfile for more info.</dd>
+<dt><a href="https://virtualenvwrapper.readthedocs.io/en/latest/">virtualenvwrapper</a></dt>
+<dd>Another virtuelenv wrapper.</dd>
+<dt><a href="https://poetry.eustace.io/docs/pyproject/">Poetry</a></dt>
+<dd>Meant to be a successor of pipenv, but seems not production-ready yet (<a href="https://frostming.com/2019/01-04/pipenv-poetry">source</a>).</dd>
+<dt><a href="https://dephell.org/">DepHell</a></dt>
+<dd>A Python project management tool. Can convert between setup.py &lt;-&gt; pyproject.toml.</dd>
+</dl>
+<h2 id="see-also">See also</h2>
+<ul>
+<li>Jeff Triplett: <a href="https://opensource.com/article/18/2/why-python-devs-should-use-pipenv">Why Python devs should use Pipenv</a>, 2018-02-28.</li>
+<li>Sarahan, McCormick, Fillion-Robin: <a href="https://www.youtube.com/watch?v=xiI1i525ljE">The Sheer Joy of Packaging</a>, 2018.</li>
+<li>Poetry: <a href="https://poetry.eustace.io/docs/pyproject/">The pyproject.toml file</a></li>
+<li>Frost Ming: <a href="https://frostming.com/2019/01-04/pipenv-poetry">A deeper look into Pipenv and Poetry</a>, 2019-01-04.</li>
+</ul>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2019-07-30T20:00:00+02:00">Jul 30, 2019</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#packaging-ref">packaging
+                    <span>1</span>
+</a></li>
+                <li><a href="../tags.html#python-ref">Python
+                    <span>93</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink no-print';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
