@@ -76,7 +76,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 <strong>Begriffe</strong>
 <ul>
   <li>Was sind Tristate-Treiber? &rarr; <span class="hint" title="Gatterform, die nicht nur Hi und Lo weiterleiten kann, sondern auch einen dritten, gegen Spannungen beider Polarit&auml;ten, hochohmigen Zustand haben k&ouml;nnen. Dadurch kann z.B. ein Baustein vom Bus abgetrennt werden. Sie dienen zum Abschalten des gleichzeitigen Zugriffs mehrerer Komponenten auf Systembusse.">Antwort</span></li>
-  <li>Was ist der Unterschied zwischen <span class="hint" title="Symbolische Repr&auml;sentation der Maschinensprache, die f&uuml;r den Menschen verst&auml;ndlich und anschaulich ist, z.B. add $s2, $s1, $s0">Assembler</span>, <span class="hint" title="Repr&auml;sentation von Anweisungen, die f&uuml;r einen Mikroprozessor unmittelbar verst&auml;ndlich sind, z.B. 00000000110000100011000000100001">Maschinensprache</span> und Mikrobefehlen?</li>
+  <li>Was ist der Unterschied zwischen <span class="hint" title="Symbolische Repr&auml;sentation der Maschinensprache, die f&uuml;r den Menschen verst&auml;ndlich und anschaulich ist, z.B. add &#36;s2, &#36;s1, &#36;s0">Assembler</span>, <span class="hint" title="Repr&auml;sentation von Anweisungen, die f&uuml;r einen Mikroprozessor unmittelbar verst&auml;ndlich sind, z.B. 00000000110000100011000000100001">Maschinensprache</span> und Mikrobefehlen?</li>
   <li>Wof&uuml;r stehen RISC und CISC und was sind Beispiele? &rarr; <span class="hint" title="Reduced Instruction Set Computer (z.B. MIPS), Complex Instruction Set Computer (z.B. x86)">Antwort</span></li>
   <li>Was ist ein User/System Bit, was ein Trace Bit und was ein Decimal bit? &rarr; <span class="hint" title="Das User/System bit bestimmt, ob sich das System im eingeschr&auml;nkten User-Modus oder im uneingeschr&auml;nktem Systemmodus befindet. Das Trace Bit erlaubt Befehlsabarbeitung im Einzelschritt-Modus zum Debuggen und das Decimal Bit entscheidet, ob Dual oder BCD gerechnet wird.">Antwort</span></li>
   <li>Welche Informationen k&ouml;nnen im Statusregister des Rechnewerkes stehen? &rarr; <span class="hint" title="Carry, Overflow, Zero, Sign, ...">Antwort</span></li>
@@ -115,9 +115,9 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 Typ-R Befehle sind arithmetisch-logische Befehle wie add, sub, and, or sowie Vergleichsbefehle wie <abbr title="set on less than">slt</abbr>.
 
 Typ-I Befehle sind Lade- und Speicherbefehle sowie Verzweigungsbefehle:
-<code>lw $rt, imm($rs)</code>
-<code>sw $rt, imm($rs)</code>
-<code>beq $rs, $rt, immediate</code>: Hier wird immediate als 16-Bit vorzeichenbehaftete Zahl interpretiert und als Offset benutzt. Die Basisadresse ist dabei im PC. Also lautet die Zieladresse: (PC zum Zeitpunkt des Befehls + 4) + immediate
+<code>lw &#36;rt, imm(&#36;rs)</code>
+<code>sw &#36;rt, imm(&#36;rs)</code>
+<code>beq &#36;rs, &#36;rt, immediate</code>: Hier wird immediate als 16-Bit vorzeichenbehaftete Zahl interpretiert und als Offset benutzt. Die Basisadresse ist dabei im PC. Also lautet die Zieladresse: (PC zum Zeitpunkt des Befehls + 4) + immediate
 
 <h4>Grundlegende Befehle</h4>
 <table>
@@ -129,27 +129,27 @@ Typ-I Befehle sind Lade- und Speicherbefehle sowie Verzweigungsbefehle:
   </thead>
   <tbody>
     <tr>
-      <td>li $t0, 9</td>
+      <td><code>li &#36;t0, 9</code></td>
       <td>load immediate: L&auml;dt eine Konstante in ein Register</td>
     </tr>
     <tr>
-      <td>sll $rd, $rd, shamt</td>
-      <td>shift left logical: $rd = $rs << shamt</td>
+      <td><code>sll &#36;rd, &#36;rs, shamt</code></td>
+      <td>shift left logical: <code>&#36;rd = &#36;rs << shamt</code></td>
     </tr>
     <tr>
-      <td>ble Rsrc1, Src2, label</td>
+      <td><code>ble Rsrc1, Src2, label</code></td>
       <td>Branch on Less Than Equal: Rsrc1 &le; Src2</td>
     </tr>
     <tr>
-      <td>bne $rs, $rt, imm</td>
-      <td>Branch on not equal: if($rs!=$rt) PC = PC + imm  (imm could also be a label)</td>
+      <td><code>bne &#36;rs, &#36;rt, imm</code></td>
+      <td>Branch on not equal: if(&#36;rs!=&#36;rt) PC = PC + imm  (imm could also be a label)</td>
     </tr>
     <tr>
-      <td>slti $rt, $rs, imm</td>
-      <td>Store less than immediate: if($rs < imm) {$rt = 1;} else {$rt = 0}</td>
+      <td><code>slti &#36;rt, &#36;rs, imm</code></td>
+      <td>Store less than immediate: <code>if(&#36;rs < imm) {&#36;rt = 1;} else {&#36;rt = 0}</code></td>
     </tr>
     <tr>
-      <td>la Rdest, address</td>
+      <td><code>la Rdest, address</code></td>
       <td>Load computed address, not the contents of the location, into register Rdest</td>
     </tr>
   </tbody>
@@ -173,7 +173,7 @@ In der Fetch-Phase muss das die neue Instruktion ins <abbr title="Instruktionsre
   <li>Takt: SDR &rarr; IR</li>
 </ol>
 
-Das zugeh&ouml;rige Mikroprogramm ist:
+Das zugehörige Mikroprogramm ist:
 ```text
 0010 0001 0000 1000 1000 0000 0001
 0001 0100 0000 0000 1000 0000 0010
