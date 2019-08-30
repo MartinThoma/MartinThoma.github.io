@@ -46,7 +46,8 @@ to find your network interface. In my case, it is `wlp3s0`. In most cases, it
 will be `wlan0` or `eth0` if you use a cable.
 
 I was mainly interested in WLAN. In my case, this is the interface `wlp3s0`.
-Now I have to enable monitoring of that interface:
+Now I have to enable monitoring of that interface. You might need super user
+(root) for that:
 
 ```bash
 $ vnstat -u -i wlp3s0

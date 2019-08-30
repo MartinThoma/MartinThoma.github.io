@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Simple Operations
+title: Simple Operations and Basic Numbers
 slug: simple-operations
 author: Martin Thoma
 date: 2019-04-17 20:00
 category: Code
-tags: Python
+tags: Python, Network, speed, Internet, Traffic
 featured_image: logos/python.png
 ---
 I just wondered how fast some simple operations are (in Python). Like the lookup of an
@@ -242,11 +242,11 @@ And some trhoughput values (partially measured, partially looked up / calculated
     </tr>
     <tr>
         <td>Video Streaming (Normal, 720p)</td>
-        <td colspan="2">0.250 MB/s</td>
+        <td colspan="2">0.250 MB/s (2.0 MBit/s)</td>
     </tr>
     <tr>
         <td>Video Streaming (High, 1080p)</td>
-        <td colspan="2">0.417 MB/s</td>
+        <td colspan="2">0.417 MB/s (3.3 MBit/s)</td>
     </tr>
 </table>
 
@@ -258,6 +258,42 @@ get_webpage (google.de,          11.3kB): min:  532ms, mean:  548ms, max:  574ms
 get_webpage (stackoverflow.com, 273.5kB): min: 1331ms, mean: 1686ms, max: 2462ms
 ```
 
+When you think about which internet contract to get, you might be wondering
+which speed is acceptable. The highest speed is probably necessary for video
+streaming:
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Speed</th>
+            <th>Comment</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>0.5 Mbit/s</td>
+        <td>Minimum required for Netfix[^1]</td>
+    </tr>
+    <tr>
+        <td>1.5 Mbit/s</td>
+        <td>Recommended speed for Netflix[^1]</td>
+    </tr>
+    <tr>
+        <td>3.0 Mbit/s</td>
+        <td>Recommended speed for Netflix with standard resolution[^1]</td>
+    </tr>
+    <tr>
+        <td>5.0 Mbit/s</td>
+        <td>Recommended speed for Netflix with HD resolution[^1]</td>
+    </tr>
+    <tr>
+        <td>25.0 Mbit/s</td>
+        <td>Recommended speed for Netflix with Ultra-HD resolution[^1]</td>
+    </tr>
+    </tbody>
+</table>
+
+
 ### See also
 
 * [Enhanced Data Rates for GSM Evolution](https://en.wikipedia.org/wiki/Enhanced_Data_Rates_for_GSM_Evolution)
@@ -267,3 +303,8 @@ get_webpage (stackoverflow.com, 273.5kB): min: 1331ms, mean: 1686ms, max: 2462ms
 ## Code
 
 See [Github](https://github.com/MartinThoma/algorithms/blob/master/Python/timing/lookup.py) for the snippet.
+
+
+## Footnotes
+
+[^1]: https://help.netflix.com/de/node/306
