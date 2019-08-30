@@ -355,7 +355,9 @@ jobs like cleaning people or handymen are also looking for jobs
 like Facebook (Groups, pages, sharing, upvoting), but with Markdown.
 
 
-## Bug Tracker for Users
+## Development Tools
+
+### Bug Tracker for Users
 
 * OpenID login
 * Profiles for users
@@ -384,11 +386,14 @@ like Facebook (Groups, pages, sharing, upvoting), but with Markdown.
 * Alternative Products: User Echo
 
 
-## Database administration interface
+### Database administration interface
 
 It would be nice to have a database administration interface similar to
 phpMyAdmin for other databases, too (postgres, sqlite). One could also make
 it a web service (dbadmin.io or something similar).
+
+I would probably do it with Python and SQLAlchemy. A good name might be
+`pydbadmin`.
 
 
 ## Chrome
