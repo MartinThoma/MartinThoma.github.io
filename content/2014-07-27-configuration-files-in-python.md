@@ -23,7 +23,7 @@ to GitHub.
 
 I will explain some alternatives I got to know for Python.
 
-<div class="info">I've created a module for configuration handling: [`cfg_load`](https://github.com/MartinThoma/cfg_load)</div>
+<div class="info">I've created a module for configuration handling: <a href="https://github.com/MartinThoma/cfg_load"><code>cfg_load</code></a></div>
 
 
 ## Python Configuration File
