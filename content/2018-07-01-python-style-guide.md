@@ -5,7 +5,7 @@ slug: python-style-guide
 author: Martin Thoma
 date: 2018-07-01 20:00
 category: Code
-tags: Python, Style Guide
+tags: Python, Style Guide, Flake8, PEP8
 featured_image: logos/python.png
 ---
 Having a consistent code style for a project is important as it allows
@@ -189,6 +189,8 @@ What you should forget
 
 * [`pylama`](https://pypi.org/project/pylama/): Only wraps some other tools.
   Use the pytest-plugins for those tools instead.
+
+<div class="info">Don't forget the <a href="https://github.com/psf/black">Black Auto-Formatter</a>. It is maintained by the Python Software Foundation, works well and has reasonable defaults. Makes you think and discuss less about formatting and solves many of the things linters complain about.</div>
 
 
 ### Error Codes
@@ -442,12 +444,12 @@ There are also two footnotes for some codes:
         </tr>
         <tr>
             <td>E262</td>
-            <td>inline comment should start with `# `</td>
+            <td>inline comment should start with <code># </code></td>
             <td></td>
         </tr>
         <tr>
             <td><a href="https://lintlyci.github.io/Flake8Rules/rules/E265.html">E265</a></td>
-            <td>block comment should start with `# `</td>
+            <td>block comment should start with <code># </code></td>
             <td></td>
         </tr>
         <tr>
@@ -548,7 +550,7 @@ There are also two footnotes for some codes:
             <td>module level import not at top of file<br/>
                 Why: You should have all your imports at the top of your file.
                 However, there could be other code as well in between imports.
-                For example, setting the seed of `random`.</td>
+                For example, setting the seed of <code>random</code>.</td>
             <td>✘</td>
         </tr>
         <tr>
@@ -603,29 +605,29 @@ There are also two footnotes for some codes:
         </tr>
         <tr>
             <td>E711 (^)</td>
-            <td>comparison to None should be `if cond is None:`<br/>
+            <td>comparison to None should be <code>if cond is None:</code><br/>
                 Why: <a href="https://stackoverflow.com/a/14247383/562769">Example</a></td>
             <td>✓✓</td>
         </tr>
         <tr>
             <td>E712 (^)</td>
-            <td>comparison to True should be `if cond is True:` or `if cond:`<br/>
-                Why: Because `if cond` is way easier to read</td>
+            <td>comparison to True should be <code>if cond is True:</code> or <code>if cond:</code><br/>
+                Why: Because <code>if cond</code> is way easier to read</td>
             <td>✓✓</td>
         </tr>
         <tr>
             <td>E713</td>
-            <td>test for membership should be `not in`</td>
+            <td>test for membership should be <code>not in</code></td>
             <td></td>
         </tr>
         <tr>
             <td>E714</td>
-            <td>test for object identity should be `is not`</td>
+            <td>test for object identity should be <code>is not</code></td>
             <td></td>
         </tr>
         <tr>
             <td>E721 (^)</td>
-            <td>do not compare types, use `isinstance()`</td>
+            <td>do not compare types, use <code>isinstance()</code></td>
             <td></td>
         </tr>
         <tr>
@@ -660,17 +662,17 @@ There are also two footnotes for some codes:
         <tr>
             <td colspan="3"></td>
         </tr>
-        <tr>
+        <tr style="background-color: #ff000055">
             <th>E9</th>
             <th>Runtime</th>
             <th></th>
         </tr>
-        <tr>
+        <tr style="background-color: #ff000055">
             <td><a href="https://lintlyci.github.io/Flake8Rules/rules/E901.html">E901</a></td>
             <td>SyntaxError or IndentationError</td>
             <td></td>
         </tr>
-        <tr>
+        <tr style="background-color: #ff000055">
             <td>E902</td>
             <td>IOError</td>
             <td></td>
@@ -699,7 +701,7 @@ There are also two footnotes for some codes:
         <tr>
             <td>W291</td>
             <td>trailing whitespace<br/>
-                Why: It just adds noise to `git diff`</td>
+                Why: It just adds noise to <code>git diff</code></td>
             <td>✓✓</td>
         </tr>
         <tr>
@@ -711,7 +713,7 @@ There are also two footnotes for some codes:
         <tr>
             <td>W293</td>
             <td>blank line contains whitespace<br/>
-                Why: It just adds noise to `git diff`</td>
+                Why: It just adds noise to <code>git diff</code></td>
             <td>✓✓</td>
         </tr>
         <tr>
@@ -760,7 +762,7 @@ There are also two footnotes for some codes:
         </tr>
         <tr>
             <td><a href="https://lintlyci.github.io/Flake8Rules/rules/W601.html">W601</a></td>
-            <td>.has_key() is deprecated, use `in`</td>
+            <td>.has_key() is deprecated, use <code>in</code></td>
             <td>✓✓</td>
         </tr>
         <tr>
@@ -770,12 +772,12 @@ There are also two footnotes for some codes:
         </tr>
         <tr>
             <td>W603</td>
-            <td>`&lt;&gt;` is deprecated, use `!=`</td>
+            <td><code>&lt;&gt;</code> is deprecated, use <code>!=</code></td>
             <td>✓✓</td>
         </tr>
         <tr>
             <td><a href="https://lintlyci.github.io/Flake8Rules/rules/W604.html">W604</a></td>
-            <td>backticks are deprecated, use `repr()`</td>
+            <td>backticks are deprecated, use <code>repr()</code></td>
             <td>✓✓</td>
         </tr>
         <tr>
@@ -785,7 +787,7 @@ There are also two footnotes for some codes:
         </tr>
         <tr>
             <td>W606</td>
-            <td>`async` and `await` are reserved keywords starting with Python 3.7</td>
+            <td><code>async</code> and <code>await</code> are reserved keywords starting with Python 3.7</td>
             <td></td>
         </tr>
         <tr>
@@ -796,12 +798,13 @@ There are also two footnotes for some codes:
             <th>Flake8 module import</th>
             <th></th>
         </tr>
-        <tr>
+        <tr style="background-color: #ffff0055">
             <td>F401</td>
-            <td>module imported but unused</td>
+            <td>module imported but unused<br/>
+                Why: Might keep unnecessary dependencies</td>
             <td></td>
         </tr>
-        <tr>
+        <tr style="background-color: #ffff0055">
             <td>F402</td>
             <td>import module from line N shadowed by loop variable<br/>
                 Why: Potential bug.</td>
@@ -809,7 +812,7 @@ There are also two footnotes for some codes:
         </tr>
         <tr>
             <td>F403</td>
-            <td>`from module import *` used; unable to detect undefined names</td>
+            <td><code>from module import *</code> used; unable to detect undefined names</td>
             <td></td>
         </tr>
         <tr>
@@ -825,7 +828,7 @@ There are also two footnotes for some codes:
             <td>Flake8 name errors</td>
             <td></td>
         </tr>
-        <tr>
+        <tr style="background-color: #ffff0055">
             <td>F811</td>
             <td>redefinition of unused name from line N<br/>
                 Why: Potentially unused code.</td>
