@@ -14,7 +14,7 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="Database, Redis, MySQL, Postgres, pickledb, Python, NoSQL, sysbench, Code, " />
+<meta name="keywords" content="Database, Redis, MySQL, MariaDB, Postgres, pickledb, Python, NoSQL, sysbench, Code, " />
 
 <meta property="og:title" content="Key-Value Stores "/>
 <meta property="og:url" content="../key-value-stores/" />
@@ -187,18 +187,21 @@ $ sysbench oltp_read_write --db-driver<span class="o">=</span>pgsql --pgsql-db<s
 valuable they are as they fluctuate quite a bit between consecutive runs.</p>
 <table class="table">
 <tr>
-<th>Database</th>
-<th>Transactions</th>
-<th>Queries</th>
-<th>Min Latency</th>
-<th>AVG latency</th>
-<th>Max latency</th>
+<th rowspan="2">Database</th>
+<th rowspan="2">Transactions</th>
+<th rowspan="2">Queries</th>
+<th colspan="4">Latency</th>
+</tr>
+<tr>
+<th>Min</th>
+<th>AVG</th>
+<th>Max</th>
 <th>95th percentile</th>
 </tr>
 <tr>
 <td>MariaDB 15.1</td>
-<td>484.81 / s</td>
-<td>9701.13 / s</td>
+<td>484.81&nbsp;/&nbsp;s</td>
+<td>9701.13&nbsp;/&nbsp;s</td>
 <td>14.25ms</td>
 <td>32.61ms</td>
 <td>137.37ms</td>
@@ -206,8 +209,8 @@ valuable they are as they fluctuate quite a bit between consecutive runs.</p>
 </tr>
 <tr>
 <td>Postgres 10.10</td>
-<td>457.44 / s</td>
-<td>9644.38 / s</td>
+<td>457.44&nbsp;/&nbsp;s</td>
+<td>9644.38&nbsp;/&nbsp;s</td>
 <td>5.44ms</td>
 <td>34.90ms</td>
 <td>2052.58ms</td>
@@ -216,20 +219,23 @@ valuable they are as they fluctuate quite a bit between consecutive runs.</p>
 </table>
 <h2 id="benchmark">Benchmark</h2>
 <p>This is not finished. You can find the <a href="https://github.com/MartinThoma/algorithms/tree/master/Python/databases/benchmark">code on Github</a>.</p>
-<p>If you don't make the <code>key</code> column a primary key, MySQL is quite a
+<p>If you don't make the <code>key</code> column a primary key, MariaDB is quite a
 bit faster.</p>
 <table class="table">
 <tr>
-<th>Database</th>
-<th>Bulk Write</th>
-<th>Bulk Read</th>
-<th>Read Latency (25%)</th>
-<th>Read Latency (50%)</th>
-<th>Read latency (95%)</th>
-<th>Read latency (99%)</th>
+<th rowspan="2">Database</th>
+<th rowspan="2">Bulk Write</th>
+<th rowspan="2">Bulk Read</th>
+<th colspan="4">Read Latency - Percentile</th>
 </tr>
 <tr>
-<td>dict</td>
+<th>25%</th>
+<th>50%</th>
+<th>95%</th>
+<th>99%</th>
+</tr>
+<tr>
+<td><a href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">dict</a></td>
 <td>2&thinsp;639&thinsp;859.62 inserts/s</td>
 <td></td>
 <td></td>
@@ -247,7 +253,7 @@ bit faster.</p>
 <td></td>
 </tr>
 <tr>
-<td>SQLite</td>
+<td><a href="https://en.wikipedia.org/wiki/SQLite">SQLite</a></td>
 <td>193&thinsp;930.10 inserts/s</td>
 <td></td>
 <td></td>
@@ -256,7 +262,7 @@ bit faster.</p>
 <td></td>
 </tr>
 <tr>
-<td>Memcached</td>
+<td><a href="https://en.wikipedia.org/wiki/Memcached">Memcached</a></td>
 <td>131&thinsp;635.98 inserts/s</td>
 <td></td>
 <td></td>
@@ -265,7 +271,7 @@ bit faster.</p>
 <td></td>
 </tr>
 <tr>
-<td>Redis</td>
+<td><a href="https://en.wikipedia.org/wiki/Redis">Redis</a></td>
 <td>46&thinsp;960.52 inserts/s<sup title="Inserted only 100k key-value pairs as the process got killed otherwise">*</sup></td>
 <td></td>
 <td></td>
@@ -274,7 +280,7 @@ bit faster.</p>
 <td></td>
 </tr>
 <tr>
-<td>MySQL (<a href="https://en.wikipedia.org/wiki/MyISAM">MyISAM</a>)</td>
+<td><a href="https://en.wikipedia.org/wiki/MariaDB">MariaDB</a> (<a href="https://en.wikipedia.org/wiki/MyISAM">MyISAM</a>)</td>
 <td>5273.53 inserts/s <sup title="Tested only with 100k inserts">*</sup></td>
 <td></td>
 <td></td>
@@ -283,7 +289,7 @@ bit faster.</p>
 <td></td>
 </tr>
 <tr>
-<td>MySQL (<a href="https://en.wikipedia.org/wiki/Aria_(storage_engine)">Aria</a>)</td>
+<td><a href="https://en.wikipedia.org/wiki/MariaDB">MariaDB</a> (<a href="https://en.wikipedia.org/wiki/Aria_(storage_engine)">Aria</a>)</td>
 <td>4638.86 inserts/s<sup title="Inserted only 100k key-value pairs as the process got killed otherwise">*</sup></td>
 <td></td>
 <td></td>
@@ -301,7 +307,7 @@ bit faster.</p>
 <td></td>
 </tr>
 <tr>
-<td>MySQL (<a href="https://en.wikipedia.org/wiki/InnoDB">InnoDB</a>)</td>
+<td><a href="https://en.wikipedia.org/wiki/MariaDB">MariaDB</a> (<a href="https://en.wikipedia.org/wiki/InnoDB">InnoDB</a>)</td>
 <td>1152.20 inserts/s <sup title="Tested only with 100k inserts">*</sup></td>
 <td></td>
 <td></td>
@@ -372,6 +378,9 @@ bit faster.</p>
             <ul class="list-of-tags tags-in-article">
                 <li><a href="../tags.html#database-ref">Database
                     <span>4</span>
+</a></li>
+                <li><a href="../tags.html#mariadb-ref">MariaDB
+                    <span>1</span>
 </a></li>
                 <li><a href="../tags.html#mysql-ref">MySQL
                     <span>4</span>
