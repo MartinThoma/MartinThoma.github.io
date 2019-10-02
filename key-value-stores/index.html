@@ -244,7 +244,7 @@ valuable they are as they fluctuate quite a bit between consecutive runs.</p>
 <td><span style="color:green;" title="Yes">✔</span></td>
 <td><span style="color:green;" title="Yes">✔</span></td>
 <td>TODO</td>
-<td>TODO</td>
+<td><span style="color:red;" title="No">✗</span></td>
 </tr>
 </tbody>
 </table>
@@ -252,14 +252,12 @@ valuable they are as they fluctuate quite a bit between consecutive runs.</p>
 <p>This is not finished. You can find the <a href="https://github.com/MartinThoma/algorithms/tree/master/Python/databases/benchmark">code on Github</a>.</p>
 <p>If you don't make the <code>key</code> column a primary key, MariaDB is quite a
 bit faster.</p>
-<p>Batching the bulk insert (<code>batch_size=1000</code>) increased the
-performance for MariaDB (Aria) to from roughly 3000&nbsp;inserts/s to
-4309&nbsp;inserts/s. I guess this is because this way I can avoid swapping.</p>
 <table class="table">
 <thead>
 <tr>
 <th rowspan="2">Database</th>
 <th rowspan="2">Bulk Write</th>
+<th rowspan="2">Batched Write</th>
 <th rowspan="2">Bulk Read</th>
 <th colspan="4">Read Latency - Percentile</th>
 </tr>
@@ -274,7 +272,8 @@ performance for MariaDB (Aria) to from roughly 3000&nbsp;inserts/s to
 <tr>
 <td><a href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">dict</a></td>
 <td class="text-right">2&thinsp;639&thinsp;859.62 inserts/s</td>
-<td></td>
+<td class="text-right">-</td>
+<td class="text-right">-</td>
 <td></td>
 <td></td>
 <td></td>
@@ -282,26 +281,29 @@ performance for MariaDB (Aria) to from roughly 3000&nbsp;inserts/s to
 </tr>
 <tr>
 <td><a href="https://en.wikipedia.org/wiki/SQLite">SQLite</a> (in-memory)</td>
-<td class="text-right">259&thinsp;834.14 inserts/s (1000 batch: 27&thinsp;151.94)</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td class="text-right">259&thinsp;834.14 inserts/s</td>
+<td class="text-right">27&thinsp;151.94 inserts/s</td>
+<td class="text-right">30&thinsp;615&thinsp;357&thinsp;664.23 selects/s</td>
+<td>32&mu;s</td>
+<td>33&mu;s</td>
+<td>40&mu;s</td>
+<td>69&mu;s</td>
 </tr>
 <tr>
 <td><a href="https://en.wikipedia.org/wiki/SQLite">SQLite</a></td>
-<td class="text-right">193&thinsp;930.10 inserts/s (TODO: try with batch)</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td class="text-right">193&thinsp;930.10 inserts/s</td>
+<td class="text-right">5963.33 inserts/s</td>
+<td class="text-right">30&thinsp;615&thinsp;357&thinsp;664.23 selects/s</td>
+<td>32&mu;s</td>
+<td>33&mu;s</td>
+<td>36&mu;s</td>
+<td>55&mu;s</td>
 </tr>
 <tr>
 <td><a href="https://en.wikipedia.org/wiki/Memcached">Memcached</a></td>
-<td class="text-right">131&thinsp;635.98 inserts/s (with batch: 120&thinsp;487.83)</td>
-<td></td>
+<td class="text-right">131&thinsp;635.98 inserts/s</td>
+<td class="text-right">120&thinsp;487.83 inserts/s</td>
+<td class="text-right"></td>
 <td></td>
 <td></td>
 <td></td>
@@ -309,8 +311,9 @@ performance for MariaDB (Aria) to from roughly 3000&nbsp;inserts/s to
 </tr>
 <tr>
 <td><a href="https://en.wikipedia.org/wiki/Redis">Redis</a></td>
-<td class="text-right">40&thinsp;494.49 inserts/s with batches (TODO: try without batch)</td>
-<td></td>
+<td class="text-right">5103.39 inserts/s</td>
+<td class="text-right">40&thinsp;494.49 inserts/s</td>
+<td class="text-right"></td>
 <td></td>
 <td></td>
 <td></td>
@@ -318,8 +321,9 @@ performance for MariaDB (Aria) to from roughly 3000&nbsp;inserts/s to
 </tr>
 <tr>
 <td><a href="https://en.wikipedia.org/wiki/MariaDB">MariaDB</a> (<a href="https://en.wikipedia.org/wiki/MyISAM">MyISAM</a>)</td>
+<td class="text-right">3412.18 inserts/s</td>
 <td class="text-right">4885.09 inserts/s</td>
-<td></td>
+<td class="text-right"></td>
 <td></td>
 <td></td>
 <td></td>
@@ -327,8 +331,9 @@ performance for MariaDB (Aria) to from roughly 3000&nbsp;inserts/s to
 </tr>
 <tr>
 <td><a href="https://en.wikipedia.org/wiki/MariaDB">MariaDB</a> (<a href="https://en.wikipedia.org/wiki/Aria_(storage_engine)">Aria</a>)</td>
+<td class="text-right">2546.49 inserts/s</td>
 <td class="text-right">4309.30 inserts/s</td>
-<td></td>
+<td class="text-right"></td>
 <td></td>
 <td></td>
 <td></td>
@@ -336,17 +341,19 @@ performance for MariaDB (Aria) to from roughly 3000&nbsp;inserts/s to
 </tr>
 <tr>
 <td><a href="https://en.wikipedia.org/wiki/PostgreSQL">PostgreSQL</a></td>
+<td class="text-right">1767.12 inserts/s</td>
 <td class="text-right">3529.08 inserts/s</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td class="text-right">24&amp;thisp;385&amp;thisp;488&amp;thisp;372.09 selects/s</td>
+<td>35&mu;s</td>
+<td>36&mu;s</td>
+<td>62&mu;s</td>
+<td>100&mu;s</td>
 </tr>
 <tr>
 <td><a href="https://en.wikipedia.org/wiki/MariaDB">MariaDB</a> (<a href="https://en.wikipedia.org/wiki/InnoDB">InnoDB</a>)</td>
-<td class="text-right">1152.20 inserts/s <sup title="Tested only with 100k inserts">*</sup> (with batching: 643.56 inserts/s)</td>
-<td></td>
+<td class="text-right">1152.20 inserts/s <sup title="Tested only with 100k inserts">*</sup></td>
+<td class="text-right">643.56 inserts/s</td>
+<td class="text-right"></td>
 <td></td>
 <td></td>
 <td></td>
@@ -354,6 +361,9 @@ performance for MariaDB (Aria) to from roughly 3000&nbsp;inserts/s to
 </tr>
 </tbody>
 </table>
+<p>For some DBs, batching improved the bulk insert quite a bit. I guess this is
+because this way I can avoid swapping. Maybe changing the batch-size from 1000
+to higher numbers additionally increases the throughput.</p>
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="https://stackoverflow.com/q/2474746/562769">How many keys are too many in memcached?</a></li>
