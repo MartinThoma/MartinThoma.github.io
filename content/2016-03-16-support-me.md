@@ -148,6 +148,12 @@ Thank you to all supporters :-)
         <th>Message</th>
     </tr>
     <tr>
+        <td><time datetime="2019-09-29">29.09.2019</time></td>
+        <td><span class="price">2.00&nbsp;<span class="currency">Euro</span></span></td>
+        <td>Rakan *</td>
+        <td>Great blog for KIT students :)</td>
+    </tr>
+    <tr>
         <td><time datetime="2017-03-19">19.03.2017</time></td>
         <td><span class="price">3.14&nbsp;<span class="currency">Euro</span></span></td>
         <td>Oliver Knieps</td>
