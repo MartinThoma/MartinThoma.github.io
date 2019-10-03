@@ -272,23 +272,23 @@ streaming:
     <tbody>
     <tr>
         <td>0.5 Mbit/s</td>
-        <td>Minimum required for Netfix[^1]</td>
+        <td>Minimum required for Netfix<sup><a href="#fn-1" name="fnref-1">[1]</a></sup></td>
     </tr>
     <tr>
         <td>1.5 Mbit/s</td>
-        <td>Recommended speed for Netflix[^1]</td>
+        <td>Recommended speed for Netflix<sup><a href="#fn-1" name="fnref-1">[1]</a></sup></td>
     </tr>
     <tr>
         <td>3.0 Mbit/s</td>
-        <td>Recommended speed for Netflix with standard resolution[^1]</td>
+        <td>Recommended speed for Netflix with standard resolution<sup><a href="#fn-1" name="fnref-1">[1]</a></sup></td>
     </tr>
     <tr>
         <td>5.0 Mbit/s</td>
-        <td>Recommended speed for Netflix with HD resolution[^1]</td>
+        <td>Recommended speed for Netflix with HD resolution<sup><a href="#fn-1" name="fnref-1">[1]</a></sup></td>
     </tr>
     <tr>
         <td>25.0 Mbit/s</td>
-        <td>Recommended speed for Netflix with Ultra-HD resolution[^1]</td>
+        <td>Recommended speed for Netflix with Ultra-HD resolution<sup><a href="#fn-1" name="fnref-1">[1]</a></sup></td>
     </tr>
     </tbody>
 </table>
@@ -307,4 +307,4 @@ See [Github](https://github.com/MartinThoma/algorithms/blob/master/Python/timing
 
 ## Footnotes
 
-[^1]: https://help.netflix.com/de/node/306
+[^1]: Netflix: <a href="https://help.netflix.com/en/node/306">Internet Connection Speed Recommendations</a>, read 2019-08-30.
