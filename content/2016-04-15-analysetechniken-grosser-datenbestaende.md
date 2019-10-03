@@ -5,7 +5,7 @@ slug: analysetechniken-grosser-datenbestaende
 author: Martin Thoma
 date: 2016-04-15 11:22
 category: German posts
-tags: Klausur, Clustering
+tags: Klausur, Clustering, Association Rules, SVM, Decision Tree
 featured_image: logos/klausur.png
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Analysetechniken für große Datenbestände&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="https://dbis.ipd.kit.edu/english/336.php">Herrn Prof. Dr.-Ing. Klemens Böhm</a> im Wintersemester 2015/2016 gehört.</div>
@@ -143,7 +143,7 @@ Slides: `1-Einleitung.pdf`
       <li>Clustering</li>
       <li>Finden von <a href="https://de.wikipedia.org/wiki/Assoziationsanalyse">Association Rules</a></li>
   </ul></dd>
-  <dt><a href="https://en.wikipedia.org/wiki/Decision_stump"><dfn>1-Rule</dfn></a> (<dfn>Decision stump</dfn>)</dt>
+  <dt><a href="https://en.wikipedia.org/wiki/Decision_stump"><dfn id="1-rule">1-Rule</dfn></a> (<dfn>Decision stump</dfn>)</dt>
   <dd>1-Rules ist ein Klassifikationsverfahren. Jedes Attribut wird für sich
       betrachtet. Es wird anhand von dem Attribut gesplittet, bei dem die
       Fehlerquote am geringsten ist.</dd>
@@ -161,7 +161,7 @@ Slides: `1-Einleitung.pdf`
           <li>Alternate Clustering</li>
       </ul>
   </dd>
-  <dt><a href="https://en.wikipedia.org/wiki/Association_rule_learning"><dfn>Association Rules</dfn></a></dt>
+  <dt><a href="https://en.wikipedia.org/wiki/Association_rule_learning"><dfn id="association-rules">Association Rules</dfn></a></dt>
   <dd>Association Rules sind Regeln der Form:
       Wenn eine Transaktion A enthält, dann auch B (formal: $A \Rightarrow B$).
       <br/>
@@ -172,7 +172,7 @@ Slides: `1-Einleitung.pdf`
       <br/>
       Association Rules sind stark mit <a href="https://en.wikipedia.org/wiki/Collaborative_filtering">Collaborative filtering</a> verwandt.
   </dd>
-  <dt><dfn>Predictive Maintenance</dfn></dt>
+  <dt><dfn id="predictive-maintenance">Predictive Maintenance</dfn></dt>
   <dd>Ziel: Für Motoren will man vorhersagen, wann diese einen Fehler aufweisen
       und damit gewartet werden müssen.
 
@@ -183,7 +183,7 @@ Slides: `1-Einleitung.pdf`
           <li>Ausfall wird nicht vorhergesagt, tritt aber ein: Teurer Ausfall</li>
       </ul>
   </dd>
-  <dt><dfn>Change detection</dfn></dt>
+  <dt><dfn id="change-detection">Change detection</dfn></dt>
   <dd>Erkennung wesentlicher Veränderungen in einer Zeitreihe.</dd>
 </dl>
 
@@ -205,18 +205,16 @@ Slides: `2-statistGrundlagen.pdf`
             <li>Outlier</li>
         </ul>
     </dd>
-    <dt><dfn>Metrische Daten</dfn></dt>
+    <dt><dfn id="metrische-daten">Metrische Daten</dfn></dt>
     <dd>Ein Metrischer Raum ist eine Menge $M$ mit einer Funktion
         $d: M \times M \rightarrow \mathbb{R}_0^+$ für die gilt:
-
         <ul>
             <li>Symmetrie: $\forall p,q \in M: d(p, q) = d(q, p) $</li>
             <li>Definitheit: $\forall p,q \in M: d(p, q) = 0 \Leftrightarrow p = q$</li>
             <li>Dreiecksungleichung: $\forall p,q,r \in M: d(p, r) \leq d(p,q) + d(q, r)$</li>
         </ul>
-
     </dd>
-    <dt><dfn>Aggregatfunktion</dfn></dt>
+    <dt><dfn id="aggregatfunktion">Aggregatfunktion</dfn></dt>
     <dd>Eine Funktion, welche als Eingabe eine Menge von Werten erwartet und
         einen Wert ausgibt (z.B. SUM, COUNT, MIN, MAX, AVG, MEAN,
         häufigster Wert, Truncated Average, mid range).<br/>
@@ -224,29 +222,27 @@ Slides: `2-statistGrundlagen.pdf`
         Aggregatfunktionen sind entweder <strong>distributiv</strong>,
         <strong>algebraisch</strong> oder <strong>holistisch</strong>.
     </dd>
-    <dt><dfn>Distributive Aggregatfunktion</dfn></dt>
+    <dt><dfn id="distributive-aggregatfunktion">Distributive Aggregatfunktion</dfn></dt>
     <dd>
         Es gibt eine Funktion $G$, so dass
         $$F(\{X_{i,j}\}) = G(\{F(X_{i,j} | i=1, \dots, l) | j = 1, \dots, J\})$$
-
         MIN, MAX und COUNT sind distributive Aggregatfunktionen.
     </dd>
-    <dt><dfn>Algebraische Aggregatfunktion</dfn></dt>
+    <dt><dfn id="algebraische-aggregatfunktion">Algebraische Aggregatfunktion</dfn></dt>
     <dd>Es gibt eine Funktion $G$, die ein $M$-Tupel liefert und $H$,
         so dass
         $$F(\{X_{i,j}\}) = H(\{G(\{X_{i,j} | i=1, \dots, l\}) | j=1, \dots, J\})$$
-
         AVG ist eine Algebraische Aggregatfunktion. Hier berechnet $G$ die
         Summe und gibt zusätzlich die Anzahl der Werte zurück. $H$ summiert
         die Summen auf und teilt das Ergebnis durch die Gesamtzahl.<br/>
         <br/>
         Weitere: Truncated Average</dd>
-    <dt><dfn>Holistische Aggregatfunktion</dfn></dt>
+    <dt><dfn id="holistische-aggregatfunktion">Holistische Aggregatfunktion</dfn></dt>
     <dd>Man kann keine Beschränkung des Speicherbedarfs für Sub-Aggregate,
         d.h. Aggregate über $\{X_{i,j}| i=1, \dots, l\}$, angeben.<br/>
         <br/>
         Der häufigste Wert und der Median sind holistische Aggregatfunktionen.</dd>
-    <dt><dfn>Self-Maintainable Aggregatfunktion</dfn></dt>
+    <dt><dfn id="self-maintainable-aggregatfunktion">Self-Maintainable Aggregatfunktion</dfn></dt>
     <dd>Wenn man den aktuellen Wert der Aggregatfunktion kennt und man löscht
         einen Wert bzw. fügt einen Wert ein, dann kann man direkt den neuen
         Wert der Aggregatfunktion über den angepassten Datenbestand berechnen.<br/>
@@ -254,25 +250,24 @@ Slides: `2-statistGrundlagen.pdf`
         Nicht-self-maintainable ist der häufigste Wert.<br/>
         <br/>
         MIN und MAX ist self-maintainable bzgl. Einfügen.</dd>
-    <dt><dfn>Mid-Range</dfn></dt>
+    <dt><dfn id="mid-range">Mid-Range</dfn></dt>
     <dd>$$\frac{MAX-MIN}{2}$$</dd>
-    <dt><dfn>Entropie</dfn></dt>
+    <dt><dfn id="entropie">Entropie</dfn></dt>
     <dd>$$E(S) = - \sum_{j} p_j \cdot \log p_j$$
-
         $E(S)=0$ ist minimal, wenn es ein $j$ gibt mit $p_j = 1$.
         $E(S)=\log(n)$ ist maximal, wenn $p_i = p_j$ gilt für $i, j$.</dd>
-    <dt><dfn>Korrelationsmaße</dfn></dt>
+    <dt><dfn id="korrelationsmasse">Korrelationsmaße</dfn></dt>
     <dd>Sind üblicherweise auf [-1, 1] normiert. Die Kovarianz ist ein
         nicht-normiertes Korrelationsmaß.</dd>
-    <dt><a href="https://de.wikipedia.org/wiki/Kovarianz_(Stochastik)#Definition"><dfn>Kovarianz</dfn></a></dt>
+    <dt><a href="https://de.wikipedia.org/wiki/Kovarianz_(Stochastik)#Definition"><dfn id="kovarianz">Kovarianz</dfn></a></dt>
     <dd>$$\operatorname{Cov}(X,Y) := \operatorname E\bigl[(X - \operatorname E(X)) \cdot (Y - \operatorname E(Y))\bigr]$$</dd>
-    <dt><a id="korrelationskoeffizient" href="https://de.wikipedia.org/wiki/Korrelationskoeffizient#Definitionen"><dfn>Korrelationskoeffizient</dfn></a></dt>
+    <dt><a id="korrelationskoeffizient" href="https://de.wikipedia.org/wiki/Korrelationskoeffizient#Definitionen"><dfn id="korrelationskoeffizient">Korrelationskoeffizient</dfn></a></dt>
     <dd>$$\varrho(X,Y) =\frac{\operatorname{Cov}(X,Y)}{\sigma(X)\sigma(Y)} \in [-1, 1]$$</dd>
-    <dt><dfn>PCA</dfn> (<dfn>Principal Component Analysis</dfn>)</dt>
+    <dt><dfn id="pca">PCA</dfn> (<dfn>Principal Component Analysis</dfn>)</dt>
     <dd>PCA ist ein Algorithmus zur Reduktion von Daten durch das Entfernen von
         Attributen. Er projeziert die Datenobjekte auf eine Hyperebene, sodass
         ein Maximum der Varianz beibehalten wird (vgl. <a href="https://martin-thoma.com/neuronale-netze-vorlesung/#pca">Neuronale Netze</a>)</dd>
-    <dt><a href="https://de.wikipedia.org/wiki/Chi-Quadrat-Test#Unabh.C3.A4ngigkeitstest"><dfn>Chi-Quadrat-Test</dfn></a></dt>
+    <dt><a href="https://de.wikipedia.org/wiki/Chi-Quadrat-Test#Unabh.C3.A4ngigkeitstest"><dfn id="chi-quadrat-test">Chi-Quadrat-Test</dfn></a></dt>
     <dd>Oberbegriff für mehrere Tests; hier nur der Unabhängigkeitstest.<br/>
         <br/>
         Gegeben sind zwei Verteilungen von Zufallsvariablen $X, Y$. Die Frage
@@ -281,23 +276,17 @@ Slides: `2-statistGrundlagen.pdf`
         und die Ausprägungen $j=1, \dots, m_2$ des Merkmals $Y$ sowie
         wie häufig diese in Kombination auftreten ($n_{ij}$). Man schätzt den
         erwarteten Wert durch $e_{ij} = \frac{1}{n} \left(\sum_{k=1}^{m_2} n_{ik} \right) \cdot \left (\sum_{k=1}^{m_2} n_{kj}\right )$. Der Chi-Quadrat wert ist dann:
-
         $$\chi^2 = \sum_{i=1}^{m_1} \sum_{j=1}^{m_2} \frac{(n_{ij} - e_{ij})^2}{e_{ij}}$$
-
         Daraus wird ein $p$-Wert abgeleitet. Wenn dieser unter einem
         Schwellwert wie $\alpha = 0.01$ ist, dann wird die Hypothese, dass
         die Verteilungen unabhängig sind, zurückgewiesen.
-
         Die Nullhypothese, dass $X, Y$ unabhängig sind wird auf dem
         Signifikanzniveau $\alpha$ verworfen, falls
-
         $$\chi^2 > \chi^2_{(1-\alpha; (m_1-1)(m_2-1))}$$
-
         </dd>
-    <dt><a href="https://de.wikipedia.org/wiki/Kolmogorow-Smirnow-Test"><dfn>Kolmogorow-Smirnow-Test</dfn></a> (<dfn>KSA-Test</dfn>)</dt>
+    <dt><a href="https://de.wikipedia.org/wiki/Kolmogorow-Smirnow-Test"><dfn>Kolmogorow-Smirnow-Test</dfn></a> (<dfn id="ksa-test">KSA-Test</dfn>)</dt>
     <dd>Test auf unabhängigkeit kontinuierlicher Verteilungen, also:
         $$H_0: F_X(x) = F_0(x)$$
-
         Es wird die empirsche Verteilungsfunktion $S$ gebildet und diese mit
         der hypothetischen Verteilungsfunktion $F_0$ verglichen, wobei
         $S(x_0) = 0$ gesetzt wird:
@@ -307,7 +296,7 @@ Slides: `2-statistGrundlagen.pdf`
         näherungsweise
         $$d_\alpha = \sqrt{\frac{-\frac{1}{2} \ln(\frac{\alpha}{2})}{n}}$$
         </dd>
-    <dt><a href="https://de.wikipedia.org/wiki/Wilcoxon-Mann-Whitney-Test"><dfn>Wilcoxon-Mann-Whitney-Test</dfn></a> ($U$-Test)</dt>
+    <dt><a href="https://de.wikipedia.org/wiki/Wilcoxon-Mann-Whitney-Test"><dfn id="wilcoxon-mann-whitney-test">Wilcoxon-Mann-Whitney-Test</dfn></a> ($U$-Test)</dt>
     <dd>Es seien $X,Y$ Zufallsvariablen mit Verteilungsfunktionen
         $F_X(x) = F_Y(x-a)$ für ein $a \in \mathbb{R}$.<br/>
         <br/>
@@ -315,9 +304,8 @@ Slides: `2-statistGrundlagen.pdf`
         Vorgehen: Gemeinsame Stichprobe sortieren, Rangsumme für $X$ und $Y$
         bilden, Betrag der Differenz mit Tabelleneintrag vergleichen.
     </dd>
-    <dt><dfn>Datenreduktion</dfn></dt>
+    <dt><dfn id="datenreduktion">Datenreduktion</dfn></dt>
     <dd>
-
         <ul>
             <li>Numerosity Reduction: Reduziere die Anzahl der betrachteten
                 Datenobjekte
@@ -331,7 +319,6 @@ Slides: `2-statistGrundlagen.pdf`
             </ul>
             </li>
             <li>Dimensionality Reduction: Reduziere die Anzahl der Attribute.
-
             <ul>
                 <li>Forward Feature Construction: Starte nur mit einem Feature
                     und gebe dem Classifier so lange neue Features, bis die
@@ -344,21 +331,17 @@ Slides: `2-statistGrundlagen.pdf`
             </li>
             <li>Diskretisierung: Reduziere die Werte pro Attribut.</li>
         </ul>
-
     </dd>
-    <dt><dfn>Visualisierung von Daten</dfn></dt>
+    <dt><dfn id="visualisierung-von-daten">Visualisierung von Daten</dfn></dt>
     <dd>
-
         <ul>
             <li>Boxplots: Whiskers</li>
             <li>Histogramme: Nicht geeignet für viele Dimensionen.</li>
             <li>Dendogramme</li>
         </ul>
-
     </dd>
     <dt><dfn>Grundbegriffe der Wahrscheinlichkeitstheorie</dfn></dt>
     <dd>
-
         <ul>
             <li>Wahrscheinlichkeitsraum</li>
             <li>Ereignis</li>
@@ -368,7 +351,6 @@ Slides: `2-statistGrundlagen.pdf`
             <li>Kovarianzmatrix</li>
             <li>Bernoulli-Experiment</li>
         </ul>
-
     </dd>
 </dl>
 
@@ -385,21 +367,19 @@ Slides: `3-Informatik-Grundlagen.pdf`
         durch <a href="https://de.wikipedia.org/wiki/B%2B-Baum">B<sup>+</sup>-Bäume</a>.</dd>
     <dt><dfn>Anfragetypen</dfn></dt>
     <dd>
-
         <ul>
             <li>Punkt-Anfragen: Ist ein Punkt im Datensatz?</li>
             <li>Bereichs-Anfragen: Ist mindestens ein Datenobjekt im gegebenen Bereich?</li>
             <li>Nearest-Neighbor-Anfragen (NN-Anfragen): Was ist das nächste Datenobjekt zu einem gegebenen Punkt?</li>
         </ul>
-
     </dd>
-    <dt><dfn>kD-Baum</dfn></dt>
+    <dt><dfn id="kd-baum">kD-Baum</dfn></dt>
     <dd>Siehe <a href="https://martin-thoma.com/cg-klausur/#kd-tree">Computergrafik</a>.</dd>
-    <dt><a href="https://en.wikipedia.org/wiki/K-D-B-tree"><dfn>kDB-Baum</dfn></a></dt>
+    <dt><a href="https://en.wikipedia.org/wiki/K-D-B-tree"><dfn id="kdb-baum">kDB-Baum</dfn></a></dt>
     <dd>Ein balancierter kD-Baum. Die Balancierung wird durch eine Kombination
         aus heterogenem k-d-Baum und B*-Baum erreicht. Der baum ist also nicht
         auf logischer, sondern nur auf physischer Ebene balanciert.</dd>
-    <dt><a id="r-tree"></a><dfn>R-Baum</dfn></dt>
+    <dt><a id="r-tree"></a><dfn id="r-baum">R-Baum</dfn></dt>
     <dd>Ein R-Baum ist ein balancierter Baum, welcher die Datenobjekte in
         minimale <abbr title="umhüllende achsenparallele bounding-boxen">AABBs</abbr>
         einschließt. Jeder Knoten hat eine solche AABB und jedes der Kinder -
@@ -407,7 +387,7 @@ Slides: `3-Informatik-Grundlagen.pdf`
         Diese AABBs können sich überschneiden.<br/>
         <br/>
         Siehe auch: <a href="http://cs.stackexchange.com/q/56337/2914">What is the difference between a R-tree and a BVH?</a></dd>
-    <dt><dfn>Nearest Neighbor in R-Tree</dfn></dt>
+    <dt><dfn id="nearest-neighbor-r-tree">Nearest Neighbor in R-Tree</dfn></dt>
     <dd>Siehe <a href="https://github.com/MartinThoma/algorithms/blob/master/nearest-neighbor-r-tree/nn_r_tree_pseudo.py">Pseudo-Code</a>.</dd>
 </dl>
 
@@ -421,26 +401,22 @@ Dieses Kapitel beschäftigt sich mit der Klassifikation mit Entscheidungsbäumen
 <dl>
     <dt><dfn>Qualitätskriterien für Entscheidungsbäume</dfn></dt>
     <dd>
-
         <ul>
             <li>Ergebnisqualität</li>
             <li>Kompaktheit: Je kompakter der Baum, desto besser kann die
                 Entscheidung vom Benutzer nachempfunden werden.</li>
         </ul>
-
     </dd>
     <dt><dfn>Wahl der Split-Attribute</dfn></dt>
     <dd>Entropie eines Splits minimieren:
-
     $$E(S_1, S_2) = \frac{n_1}{n} E(S_1) + \frac{n_2}{n} E(S_2)$$
-
     </dd>
     <dt><dfn>Overfitting</dfn></dt>
     <dd>Entscheidungsbaum ist zu sehr an Trainingsdatenbestand angepasst</dd>
-    <dt><dfn>Prepruning</dfn> (<dfn>Forward pruning</dfn>)</dt>
+    <dt><dfn id="prepruning">Prepruning</dfn> (<dfn>Forward pruning</dfn>)</dt>
     <dd>Schon beim Erstellen des Entscheidungsbaumes wird ab einer gewissen
         Tiefe abgebrochen</dd>
-    <dt><dfn>Postpruning</dfn> (<dfn>Backward pruning</dfn>)</dt>
+    <dt><dfn id="postpruning">Postpruning</dfn> (<dfn>Backward pruning</dfn>)</dt>
     <dd>Der Entscheidungsbaum wird komplett aufgebaut, aber dannach wird
         greprunt.</dd>
 </dl>
@@ -451,41 +427,40 @@ Dieses Kapitel beschäftigt sich mit der Klassifikation mit Entscheidungsbäumen
 Slides: `5-Evaluation.pdf`
 
 <dl>
-    <dt><dfn>Resubsitution Error</dfn></dt>
+    <dt><dfn id="resubsitution-error">Resubsitution Error</dfn></dt>
     <dd>Trainingsfehler</dd>
     <dt><a id="cross-validation"></a><dfn>$k$-Fold Cross-Validation</dfn> (<dfn>Kreuzvalidierung</dfn>)</dt>
     <dd>Unterteile den Datensatz in $k$ Teile. Dabei sollten die Klassen in
         etwa gleich häufig in allen Teilen vorkommen.
-
         Mache nun $k$ durchläufe, wobei der $k$-te Datensatz immer zum
         Testen und alle anderen zum Trainieren verwendet werden. Berechne die
         $k$ Testfehler. Mittle diese am Ende. Das ist ein besserer Schätzwert
         für den realen Fehler als eine einmalige Unterteilung in Training- und
         Testmenge.</dd>
-    <dt><a href="https://en.wikipedia.org/wiki/Stratified_sampling" id="stratification"><dfn>Stratification</dfn></a></dt>
+    <dt><a href="https://en.wikipedia.org/wiki/Stratified_sampling" id="stratification"><dfn id="stratification">Stratification</dfn></a></dt>
     <dd>Sicherstellen, dass bestimmte Eigenschaften (z.B. Klassenzugehörigkeit) in Partitionen etwa gleich verteilt ist.</dd>
-    <dt><dfn>Loss function</dfn></dt>
+    <dt><dfn id="loss-function">Loss function</dfn></dt>
     <dd>Eine Funktion, die angibt, wie viel man durch eine unkorrekte
         Vorhersage verliert.</dd>
-    <dt><dfn>Informational Loss function</dfn></dt>
+    <dt><dfn id="information-loss-function">Informational Loss function</dfn></dt>
     <dd>$$- \log_2 p_i$$ - Wahrscheinlichkeiten der nicht-eintretenden Klassen spielen keine Rolle</dd>
-    <dt><dfn>Quadratic Loss function</dfn></dt>
+    <dt><dfn id="quadratic-loss-function">Quadratic Loss function</dfn></dt>
     <dd>$$\sum_{j} (p_j - a_j)^2$$ mit tatsächlichem Label $a_j \in \{0,1\}$
         und geschätzter Wahrscheinlichkeit $p_j$ für die Klasse $j$.</dd>
-    <dt><dfn>Bias</dfn></dt>
+    <dt><dfn id="bias">Bias</dfn></dt>
     <dd>Das Verfahren an sich funktioniert nicht gut. Selbst beliebig viele
         Trainingsdaten beheben dieses Problem nicht. Der Fehler ist
         inhärent im Verfahren verankert.</dd>
-    <dt><dfn>Varianz</dfn></dt>
+    <dt><dfn id="varianz">Varianz</dfn></dt>
     <dd>Fehler welcher durch das Fehlen von Trainingsdaten verursacht wird.</dd>
     <dt><a id="erfolgsquote"></a><dfn>Gesamt-Erfolgsquote</dfn></dt>
     <dd>$$\frac{TP+TN}{TP+TN+FP+FN}$$</dd>
-    <dt><dfn>Konfusionsmatrix</dfn> (<dfn>Confusion matrix</dfn>)</dt>
+    <dt><dfn>Konfusionsmatrix</dfn> (<dfn id="confusion-matrix">Confusion matrix</dfn>)</dt>
     <dd>Eine Tabelle, in der jede Zeile für die tatsächlichen Klassen stehen
         und die Spalten für die vorhergesagten Klassen. Die Diagonalelemente
         zählen also die richtig vorhergesagten Datenobjekte; alle anderen
         Zellen zählen falsche Vorhersagen.</dd>
-    <dt><dfn>Kappa-Koeffizient</dfn> (<a href="https://de.wikipedia.org/wiki/Cohens_Kappa"><dfn>Cohens Kappa</dfn></a>)</dt>
+    <dt><dfn id="kappa-koeffizient">Kappa-Koeffizient</dfn> (<a href="https://de.wikipedia.org/wiki/Cohens_Kappa"><dfn id="cohens-kappa">Cohens Kappa</dfn></a>)</dt>
     <dd>Vergleich mit Klassifier, der nur den Anteil der Klassenzugehörigkeit
         schätzt:
         $$\kappa =\frac{p_0-p_c}{1-p_c}$$
@@ -495,53 +470,41 @@ Slides: `5-Evaluation.pdf`
         $i$ und der zweite Klassifizierer die Klasse $j$ vorhergesagt hat
         sowie $N$ die Gesamtzahl der Datenobjekte und $z$ die Gesamtzahl
         der Klassen, dann gilt:
-
         $$p_0 = \frac{\sum_{i=1}^z h_{ii}}{N}$$
-
         Die erwartete Übereinstimmung $p_c$ wird über die Randhäufigkeiten
         geschätzt:
         $$p_c = \frac{1}{N^2} \sum_{i=1}^z h_{.i} \cdot h_{i.}$$
-
         Der Wertebereich ist also: $\kappa \in (-\infty; 1]$, wobei
         der minimale Wert von $\kappa$ nicht beliebig klein werden kann.</dd>
-    <dt><a href="https://en.wikipedia.org/wiki/Association_rule_learning#Lift"><dfn>Lift-Faktor</dfn></a></dt>
+    <dt><a href="https://en.wikipedia.org/wiki/Association_rule_learning#Lift"><dfn id="lift-faktor">Lift-Faktor</dfn></a></dt>
     <dd>Faktor, um den sich die Rücklaufquote erhöht:
-
         $$\mathrm{lift}(X\Rightarrow Y) = \frac{ \mathrm{support}(X \cup Y)}{ \mathrm{support}(X) \cdot \mathrm{support}(Y) }$$
-
         Der Lift ist ein Indiz für die Unabhängigkeit von $X$ und $Y$.
         Ist der Lift nahe bei 1, dann spricht das für die Unabhängigkeit. Ein
         Lift-Faktor kleiner als 1 bedeutet, dass die Itemsets zusammen seltener
         vorkommen als bei Unabhängigkeit zu erwarten wäre. Ein Lift-Faktor von
         größer als 1 bedeutet, dass die Itemsets zusammen häufiger vorkommen
         als bei Unabhängigkeit zu erwarten wäre.
-
     </dd>
-    <dt><a href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic"><dfn>ROC</dfn></a> (<dfn>Receiver Operator Characteristic</dfn>)</dt>
+    <dt><a href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic"><dfn id="roc">ROC</dfn></a> (<dfn>Receiver Operator Characteristic</dfn>)</dt>
     <dd>x-Achse: $\frac{FP}{FP+TN} \cdot 100$ (FP-Rate),<br/>
         y-Achse: $\frac{TP}{TP+FN} \cdot 100$ (TP-Rate)
-
         Siehe auch: <a href="https://www.reddit.com/r/answers/comments/4g2wgx/where_does_the_name_receiver_operating/">Namensherkunft</a></dd>
-    <dt><dfn>Recall</dfn> (<dfn>True Positive Rate</dfn>, <dfn>TPR</dfn>, <dfn>Sensitivität</dfn>)</dt>
+    <dt><dfn id="recall">Recall</dfn> (<dfn id="true-positive-rate">True Positive Rate</dfn>, <dfn>TPR</dfn>, <dfn id="sensitivitaet">Sensitivität</dfn>)</dt>
     <dd>$$TPR = \frac{TP}{TP + FN} = 1 - FNR \in [0, 1]$$
-
         Der Recall gibt den Anteil der erkannten positiven aus allen positiven
         an.
-
         <i>Sensitivität</i> ist ein in der Medizin üblicher Begriff.</dd>
-    <dt><dfn>Precision</dfn> (<dfn>Genauigkeit</dfn>)</dt>
+    <dt><dfn id="precision">Precision</dfn> (<dfn>Genauigkeit</dfn>)</dt>
     <dd>$$Precision = \frac{TP}{TP + FP} \in [0, 1]$$
-
         Die Precision gibt den Anteil der real positiven aus den als positiv
         erkannten an.</dd>
-    <dt><a href="https://en.wikipedia.org/wiki/F1_score"><dfn>F-Measure</dfn></a> (<dfn>F1 score</dfn>)</dt>
+    <dt><a href="https://en.wikipedia.org/wiki/F1_score"><dfn id="f-measure">F-Measure</dfn></a> (<dfn id="f1-score">F1 score</dfn>)</dt>
     <dd>$$\frac{2 \cdot \text{precision} \cdot \text{recall}}{\text{recall} + \text{precision}}$$</dd>
-    <dt><dfn>Correlation Coefficient</dfn></dt>
+    <dt><dfn id="correlation-coefficient">Correlation Coefficient</dfn></dt>
     <dd>Der Correlation Coefficient ist kein Fehlermaß. Der
         $CC(p, a)$ ist groß, wenn sich $p$ und $a$ ähnlich sind.
-
         $$CC(p, a) = \frac{COV(p, a)}{\sigma(p) \cdot \sigma(a)}$$
-
         Mit $\sigma(x) = \frac{1}{n-1} \cdot \sum_{i} (x_i - \bar{x})^2$</dd>
     <dt><dfn>Code</dfn></dt>
     <dd>Abbildung, die jedem Element des Alphabets eine Folge aus 0en und
@@ -585,39 +548,35 @@ Anwendungen von Association Rules denkbar:
 * Medicine: [Implementation of Apriori Algorithm in Health Care Sector: A Survey](http://static.ijcsce.org/wp-content/uploads/2013/12/IJCSCE110513.pdf)
 
 <dl>
-    <dt><dfn>Frequent Itemset</dfn></dt>
+    <dt><dfn id="frequent-itemset">Frequent Itemset</dfn></dt>
     <dd>Ein Frequent Itemset ist eine Menge von Items, die häufig zusammen
         gekauft werden.</dd>
-    <dt><dfn>Transaktion</dfn> (<dfn>Itemset</dfn>)</dt>
+    <dt><dfn id="transaktion">Transaktion</dfn> (<dfn id="itemset">Itemset</dfn>)</dt>
     <dd>Menge von Items, die zusammen gekauft wurden.</dd>
-    <dt><dfn>Association rules</dfn></dt>
+    <dt><dfn id="association-rule">Association rules</dfn></dt>
     <dd>Drücken aus wie Phänomene zueinander in Beziehung stehen.
-
         Beispiel: Wer Bier kauft, der kauft auch Chips.</dd>
     <dt><a id="support"></a><dfn>Support</dfn></dt>
     <dd>Die Anzahl der Transaktionen, die das Itemset $I$ enthalten wird
     <i>Support von $I$</i> genannt.<br/>
         Es gilt:
         $$\text{support}(A \Rightarrow B) = \text{support}(A \cup B)$$</dd>
-    <dt><dfn>Closed Itemset</dfn></dt>
+    <dt><dfn id="closed-itemset">Closed Itemset</dfn></dt>
     <dd>Ein Itemset $I$ heißt closed, wenn es keine echte Obermenge $I' \supsetneq I$ gibt,
         die den gleichen Support $\text{support}(I') = \text{support}(I)$ hat.</dd>
     <dt><a id="confidence"></a><dfn>Confidence</dfn></dt>
     <dd>Confidence von $A \Rightarrow B$ ist der Anteil der Transaktionen,
         die $A$ und $B$ enthalten, von den Transaktione die $A$ enthalten:
-
         $$\text{conf}(A \Rightarrow B) = \frac{\text{support}(A \cup B)}{\text{support}(A)} \in [0, 1]$$</dd>
-    <dt><dfn>Apriori Algorithmus</dfn></dt>
+    <dt><dfn id="apriori-algorithmus">Apriori Algorithmus</dfn></dt>
     <dd>Der Apriori-Algorithmus ist ein Generate-and-Test-Algorithmus zum
         Finden von Frequent Itemsets.
-
         <ol>
             <li>Erzeuge alle einelementigen Frequent Itemsets</li>
             <li>for k in range(2, n): Erzeuge die $k$-elementigen frequent
                 Itemsets (join, prune, support counting)</li>
             <li>Frequent itemsets: Association Rules</li>
         </ol>
-
         Der Algorithmus nutzt aus, dass eine notwendige Bedingung für
         $k$-elementige Frequent Itemsets ist, dass alle $k-1$-elementigen
         Frequent Itemsets auch Frequent sein müssen.
@@ -630,7 +589,7 @@ Anwendungen von Association Rules denkbar:
             <li>Hashfilter</li>
         </ul>
     </dd>
-    <dt><dfn>Hash-Filter</dfn> (<dfn>Hash-Tabelle</dfn>)</dt>
+    <dt><dfn id="hash-filter">Hash-Filter</dfn> (<dfn>Hash-Tabelle</dfn>)</dt>
     <dd>Unterstützt das Support-Counting für viele Kandidaten.
         Die Hash-Tabelle wird einmalig für alle Kandidaten der Länge $k$
         aufgebaut und stellt eine notwendige, aber keine hinreichnde
@@ -687,9 +646,9 @@ Anwendungen von Association Rules denkbar:
 
     Siehe auch: <a href="https://www.cs.sfu.ca/~jpei/publications/sigmod00.pdf">Mining Frequent Patterns without Candidate Generation</a> und <a href="http://www.singularities.com/blog/2015/08/apriori-vs-fpgrowth-for-frequent-item-set-mining">ein sehr guter Blog post</a>
     </dd>
-    <dt><dfn>Sampling</dfn></dt>
+    <dt><dfn id="sampling">Sampling</dfn></dt>
     <dd>Berechnung auf einer Stichprobe durchführen</dd>
-    <dt><dfn>Negative Border</dfn></dt>
+    <dt><dfn id="negative-border">Negative Border</dfn></dt>
     <dd>Die negative border ist abhängig vom minimalen geforderten Support.
         Wenn dieser Schwellenwert größer wird, wandert die negative border
         nach oben; es gibt also weniger frequent Itemsets.</dd>
