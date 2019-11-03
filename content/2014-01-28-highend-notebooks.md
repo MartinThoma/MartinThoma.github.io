@@ -16,7 +16,7 @@ second does not work propperly with the new Linux kernel), I'm would like to hav
 a high end notebook this time. I hope that I not have to think about
 notebooks for at least 5 years after that.
 
-## Requirements ##
+## Requirements
 I work quite a lot with the computer, so the keyboard and the display
 have to be good. What does good mean? Well, the display has to be
 **at least 15"** and as I don't want to see my pixels any longer it

@@ -4,8 +4,8 @@ title: TLS and Nginx
 slug: tls-and-nginx
 author: Martin Thoma
 date: 2019-06-16 20:00
-category: Code, Security
-tags: nginx, SSL, TLS
+category: Code
+tags: nginx, SSL, TLS, Security
 featured_image: logos/nginx.png
 ---
 Transport security is an important topic nowadays. We don't want a man in the

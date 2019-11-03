@@ -3,9 +3,9 @@ layout: post
 title: Fitness Trackers
 slug: fitness-trackers
 author: Martin Thoma
-date: 2019-01-01 20:00
+date: 2019-11-01 20:00
 category: My bits and bytes
-tags: devices, Hardware, sleep
+tags: devices, Hardware, sleep, Review
 featured_image: logos/star.png
 ---
 [Fitness trackers](https://en.wikipedia.org/wiki/Activity_tracker) are devices
@@ -72,76 +72,76 @@ activated when I showered.
 <table class="table">
     <tr>
         <th></th>
-        <th>Xiaomi Mi Band 4&nbsp;2019</th>
+        <th>Xiaomi Mi&nbsp;Band&nbsp;4 2019</th>
         <th>Honor Band 5</th>
     </tr>
     <tr>
-        <td>Price</td>
+        <th>Price</th>
         <td>34 EUR</td>
         <td>44 EUR</td>
     </tr>
     <tr>
-        <td>Step Counter</td>
+        <th>Step Counter</th>
         <td>✔️</td>
         <td>✔️</td>
     </tr>
     <tr>
-        <td>Bluetooth</td>
+        <th>Bluetooth</th>
         <td>5</td>
         <td>4.2</td>
     </tr>
     <tr>
-        <td>Weigth</td>
-        <td>22 g</td>
-        <td>23g</td>
+        <th>Weigth</th>
+        <td>22&thinsp;g</td>
+        <td>23&thinsp;g</td>
     </tr>
     <tr>
-        <td>Size</td>
+        <th>Size</th>
         <td>32 x 17.9 x 12 mm</td>
         <td>43 × 17.2 × 11.5 mm</td>
     </tr>
     <tr>
-        <td>Water Resistance</td>
-        <td>50 m</td>
-        <td>50 m</td>
+        <th>Water Resistance</th>
+        <td>50&thinsp;m</td>
+        <td>50&thinsp;m</td>
     </tr>
     <tr>
-        <td>Clock</td>
+        <th>Clock</th>
         <td>✔️</td>
         <td>✔️</td>
     </tr>
     <tr>
-        <td>Battery</td>
+        <th>Battery</th>
         <td>135 mAh</td>
         <td>100 mAh</td>
     </tr>
     <tr>
-        <td>Sensors</td>
+        <th>Sensors</th>
         <td>Acceleration,&nbsp;Gyroscope,&nbsp; heart rate</td>
         <td>Accelerometer, Gyrometer, Blood oxygen</td>
     </tr>
     <tr>
-        <td>GPS</td>
+        <th>GPS</th>
         <td>✗</td>
         <td>✗</td>
     </tr>
     <tr>
-        <td>Sleep Tracking</td>
+        <th>Sleep Tracking</th>
         <td>✔️</td>
         <td>✔️</td>
     </tr>
     <tr>
-        <td>Battery Life (continuous use)</td>
+        <th>Battery Life (continuous use)</th>
         <td>13 days</td>
         <td>6 days</td>
     </tr>
     <tr>
-        <td>Samsung Health</td>
+        <th>Samsung Health</th>
         <td>✗</td>
         <td>✗</td>
     </tr>
     <tr>
-        <td>Google Fit</td>
+        <th>Google Fit</th>
         <td>✔️</td>
         <td>✗</td>
     </tr>
@@ -218,13 +218,17 @@ possible to use any fitness tracker with any fitness app, but at the moment
 * [Walking](../images/2019/10/mi-walking.jpg)
 * [Workouts](../images/2019/10/mi-workouts.jpg)
 
-There is another app:
+There is another app - [Notify & Fitness for Mi Band](https://play.google.com/store/apps/details?id=com.mc.miband1). It is ok, but you have to pay for every single feature:
 
 * [](../images/2019/10/mi-note-app.jpg)
 
 ### Samsung Health
 
+[Samsung Health App](https://play.google.com/store/apps/dev?id=5200379633052405703)
+
 ### Google Fit
+
+[Google Fit App](https://play.google.com/store/apps/details?id=com.google.android.apps.fitness)
 
 ### Other Fitness Apps
 
@@ -237,6 +241,7 @@ There is another app:
 * Sworkit Workouts
 * Calorie Counter: MyFitnessPal
 * Home Workout: No Equipment
+* [Mi Fit](https://play.google.com/store/apps/details?id=com.xiaomi.hm.health)
 
 ## See also
 
