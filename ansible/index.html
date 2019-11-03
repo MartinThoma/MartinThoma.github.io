@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Python, Ansible, Devops, IaC, Configuration Management, Code, " />
+
+<meta property="og:title" content="Ansible "/>
+<meta property="og:url" content="../ansible/" />
+<meta property="og:description" content="Ansible is a configuration management tool maintained by Red Hat. It has to be installed on a controll machine. On the target machine, no configuration is needed. The control machine connects to the target machines via SSH. Which problem does it solve? In short: Ansible makes configurations repeatable. Why this …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2019-11-03T20:00:00+01:00" />
+<meta name="twitter:title" content="Ansible ">
+<meta name="twitter:description" content="Ansible is a configuration management tool maintained by Red Hat. It has to be installed on a controll machine. On the target machine, no configuration is needed. The control machine connects to the target machines via SSH. Which problem does it solve? In short: Ansible makes configurations repeatable. Why this …">
+<meta property="og:image" content="logos/ansible.png" />
+<meta name="twitter:image" content="logos/ansible.png" >
+
+        <title>Ansible  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../ansible/"> Ansible  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#which-problem-does-it-solve" title="Which problem does it solve?">Which problem does it solve?</a></li><li><a class="toc-href" href="#installation" title="Installation">Installation</a></li><li><a class="toc-href" href="#vocabulary" title="Vocabulary">Vocabulary</a></li><li><a class="toc-href" href="#usage" title="Usage">Usage</a></li><li><a class="toc-href" href="#alternatives" title="Alternatives">Alternatives</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>Ansible is a configuration management tool maintained by Red Hat. It has to be
+installed on a controll machine. On the target machine, no configuration is
+needed. The control machine connects to the target machines via SSH.</p>
+<h2 id="which-problem-does-it-solve">Which problem does it solve?</h2>
+<p><strong>In short</strong>: Ansible makes configurations repeatable.</p>
+<p>Why this is good:</p>
+<ul>
+<li>Disaster Recovery: You have a web service running on AWS. Your account was
+  hacked and deleted. Having your infrastructure defined as code (IaC), you can
+  re-create all resources with the configuration you had before.</li>
+<li>Site Reliability: Having IaC, you can have code reviews for changes. This
+  helps to reduce human error.</li>
+<li>Scalability: If we want to add more services, it is easier to repeat
+  patterns. So this might help different teams at a company to keep in sync.</li>
+</ul>
+<p><strong>In long</strong>:</p>
+<p>If you have a web service running, you hopefully have the code for that service
+under version control (e.g. <code>git</code>).</p>
+<p>Version control helps to keep the same state
+everywhere, find the changes (<a href="https://github.com/takluyver/bisect-demo"><code>git bisect</code></a> (<a href="https://git-scm.com/docs/git-bisect">docs</a>) / <a href="https://git-scm.com/docs/git-blame"><code>git blame</code></a>),
+undo the change (<a href="https://git-scm.com/docs/git-revert"><code>git revert</code></a>). So the
+version control gives you documentation and archives changes.</p>
+<p>However, if you have a web service running, the software is not the only
+important thing. It has to run somewhere. This means you actually need a
+physical machine. You don't need to own it / take care about the hardware, but
+it needs to exist. Suppose you use Amazons Cloud AWS. Then you can use
+<a href="https://en.wikipedia.org/wiki/Terraform_(software)">Terraform</a> / <a href="https://aws.amazon.com/cloudformation">AWS CloudFormation</a> to define in code on which kinds of
+machines it is running. The idea to have this written in code is called
+<a href="https://en.wikipedia.org/wiki/Infrastructure_as_code">Infrastructure as code</a> (IaC).
+It allows you to have the infrastructure under version control and get the same
+benefits as were mentioned about version control for code.</p>
+<p>Next, you need to configure the machines: Add certificates, SSH keys, LDAP,
+install Docker. This is where Ansible helps.</p>
+<h2 id="installation">Installation</h2>
+<p>Ansible is written in Python. For this reason, the simplest way to install it
+might be via the Python Package installer <code>pip</code>:</p>
+<div class="highlight"><pre><span></span>$ pip install ansible
+</pre></div>
+<p>To test if it worked:</p>
+<div class="highlight"><pre><span></span>$ ansible --version
+ansible <span class="m">2</span>.9.0
+  config <span class="nv">file</span> <span class="o">=</span> None
+  configured module search <span class="nv">path</span> <span class="o">=</span> <span class="o">[</span><span class="s1">'/home/moose/.ansible/plugins/modules'</span>, <span class="s1">'/usr/share/ansible/plugins/modules'</span><span class="o">]</span>
+  ansible python module <span class="nv">location</span> <span class="o">=</span> /home/moose/.local/lib/python3.6/site-packages/ansible
+  executable <span class="nv">location</span> <span class="o">=</span> /home/moose/.local/bin/ansible
+  python <span class="nv">version</span> <span class="o">=</span> <span class="m">3</span>.6.8 <span class="o">(</span>default, Oct  <span class="m">7</span> <span class="m">2019</span>, <span class="m">12</span>:59:55<span class="o">)</span> <span class="o">[</span>GCC <span class="m">8</span>.3.0<span class="o">]</span>
+</pre></div>
+<h2 id="vocabulary">Vocabulary</h2>
+<dl>
+<dt>Task</dt>
+<dd>A task is a command executed on the target machine. A task is a call to an Ansible module.</dd>
+<dt>Role</dt>
+<dd>A list of tasks. Every role is a directory below <code>/roles</code> and contains a `main.yml` which defines the tasks.</dd>
+<dt><a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html">Playbook</a></dt>
+<dd>Determines which task/role should be applied to which target machine. </dd>
+<dt><a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#variables-discovered-from-systems-facts">Facts</a></dt>
+<dd>Facts are information derived from speaking with your remote systems.</dd>
+<dt>Idempotency</dt>
+<dd>An idempotent operation can be applied multiple times without changing the result beyond the initial application. Basically, it means "repeatable".</dd>
+<dt>Convergence</dt>
+<dd>Bring resources to a desired state if they diverge</dd>
+<dt>Immutability</dt>
+<dd>Resources are never changed. They are only created and destroyed. (Terraform and CloudFormation work like this)</dd>
+</dl>
+<h2 id="usage">Usage</h2>
+<p>Ad hoc command to check the connection:</p>
+<div class="highlight"><pre><span></span>$ ansible -m ping all
+</pre></div>
+<p>Ad hoc command to get the available disk space:</p>
+<div class="highlight"><pre><span></span><span class="c1"># ansible -m [module] -a '[module options]' [target]</span>
+$ ansible -m shell -a <span class="s1">'df -h'</span> all
+</pre></div>
+<p>Ansible executes stuff with your account. If you need root, specify <code>-b</code> and
+<code>-k</code> to ask for a password.</p>
+<p>The default project structure is:</p>
+<div class="highlight"><pre><span></span>.
+├── playbook.yml
+└── roles
+    ├── example-role
+    │&nbsp;&nbsp; ├── files
+    │&nbsp;&nbsp; │&nbsp;&nbsp; └── foo.txt
+    │&nbsp;&nbsp; └── tasks
+    │&nbsp;&nbsp;     └── main.yml
+    └── foo-role
+        └── tasks
+            └── main.yml
+</pre></div>
+<p>The <code>main.yml</code> files have the following structure:</p>
+<div class="highlight"><pre><span></span><span class="c1"># Choose a descriptive name for the task as ansible will print them when</span>
+<span class="c1"># executing</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install a list of packages</span>
+  <span class="nt">apt</span><span class="p">:</span>  <span class="c1"># The ansible module</span>
+    <span class="nt">pkg</span><span class="p">:</span> <span class="c1"># install the following packages</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">foo</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">bar</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Add some file to the target machines</span>
+  <span class="nt">copy</span><span class="p">:</span>
+    <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">../files/foo.txt</span>
+    <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/absolute/path/foo.txt</span>
+</pre></div>
+<p>The <code>playbook.yml</code> file has the following structure:</p>
+<div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">all</span>
+  <span class="nt">become</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>  <span class="c1"># become another user; by default root</span>
+</pre></div>
+<p>You can then execute the playbook via</p>
+<div class="highlight"><pre><span></span>$ ansible-playbook playbook.yml
+</pre></div>
+<h2 id="alternatives">Alternatives</h2>
+<p><a href="https://en.wikipedia.org/wiki/Puppet_(company)#Puppet">Puppet</a> and <a href="https://en.wikipedia.org/wiki/Chef_(software)">Chef</a> are two other configuration management tools which are often used.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li>Ben's IT Lessons: <a href="https://www.youtube.com/watch?v=icR-df2Olm8">Ansible - A Beginner's Tutorial, Part 1</a> / <a href="https://www.youtube.com/watch?v=pRZA9ymZXn0">Part 2</a>, 2017.</li>
+<li>Ansible: <a href="https://docs.ansible.com/ansible/2.4/list_of_all_modules.html">List of Ansible Modules</a></li>
+<li>halfercode on Reddit: <a href="https://www.reddit.com/r/docker/comments/5mfx0e/does_docker_make_ansible_and_similar/">Does Docker make Ansible and similar orchestration tools redundant?</a>, 2017.</li>
+</ul>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2019-11-03T20:00:00+01:00">Nov 3, 2019</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#ansible-ref">Ansible
+                    <span>1</span>
+</a></li>
+                <li><a href="../tags.html#configuration-management-ref">Configuration Management
+                    <span>1</span>
+</a></li>
+                <li><a href="../tags.html#devops-ref">Devops
+                    <span>1</span>
+</a></li>
+                <li><a href="../tags.html#iac-ref">IaC
+                    <span>1</span>
+</a></li>
+                <li><a href="../tags.html#python-ref">Python
+                    <span>95</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink no-print';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
