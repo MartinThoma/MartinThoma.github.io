@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Data analysis, EDA, JSON, JSONL, Code, " />
+
+<meta property="og:title" content="jq "/>
+<meta property="og:url" content="../jq/" />
+<meta property="og:description" content="jq is a command line tool for processing JSON data. It is useful when executing small ad-hoc tasks. In this sense, it is similar to sed, awk and grep. It is very good for the first step in exploratory data analysis: Getting an idea what you actually have. Installation # Ubuntu …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2019-11-03T12:00:00+01:00" />
+<meta name="twitter:title" content="jq ">
+<meta name="twitter:description" content="jq is a command line tool for processing JSON data. It is useful when executing small ad-hoc tasks. In this sense, it is similar to sed, awk and grep. It is very good for the first step in exploratory data analysis: Getting an idea what you actually have. Installation # Ubuntu …">
+<meta property="og:image" content="logos/data-science.png" />
+<meta name="twitter:image" content="logos/data-science.png" >
+
+        <title>jq  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../jq/"> jq  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#installation" title="Installation">Installation</a></li><li><a class="toc-href" href="#usage-example" title="Usage Example">Usage Example</a></li><li><a class="toc-href" href="#workflows" title="Workflows">Workflows</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p><code>jq</code> is a command line tool for processing JSON data. It is useful when
+executing small ad-hoc tasks. In this sense, it is similar to <code>sed</code>, <code>awk</code> and
+<code>grep</code>. It is very good for the first step in exploratory data analysis:
+Getting an idea what you actually have.</p>
+<h2 id="installation">Installation</h2>
+<div class="highlight"><pre><span></span># Ubuntu
+$ sudo apt-get install jq
+</pre></div>
+<p>Check if it worked:</p>
+<div class="highlight"><pre><span></span>$ jq --version
+jq-1.5-1-a5b5cbe
+</pre></div>
+<h2 id="usage-example">Usage Example</h2>
+<p>There are <a href="https://github.com/jdorfman/awesome-json-datasets#movies">tons of JSON dataset examples</a>. Let's use <a href="https://raw.githubusercontent.com/prust/wikipedia-movie-data/master/movies.json">American movies scraped from Wikipedia</a>.</p>
+<div class="highlight"><pre><span></span># Download the data
+$ wget https://raw.githubusercontent.com/prust/wikipedia-movie-data/master/movies.json
+
+# What do we have here?
+$ wc movies.json
+      0  144969 3386161 movies.json
+
+# Everything is in one super long line. Is it a dict or a list?
+$ head -c 80 movies.json
+[{"title":"After Dark in Central Park","year":1900,"cast":[],"genres":[]},{"titl%
+
+# List. How many movies do we have?
+$ cat movies.json | jq '. | length'
+28795
+
+# Let's look at the first 5 examples to see which data fields we have:
+$ cat movies.json | jq '.[:5]'
+[
+  {
+    "title": "After Dark in Central Park",
+    "year": 1900,
+    "cast": [],
+    "genres": []
+  },
+  {
+    "title": "Boarding School Girls' Pajama Parade",
+    "year": 1900,
+    "cast": [],
+    "genres": []
+  },
+  {
+    "title": "Buffalo Bill's Wild West Parad",
+    "year": 1900,
+    "cast": [],
+    "genres": []
+  },
+  {
+    "title": "Caught",
+    "year": 1900,
+    "cast": [],
+    "genres": []
+  },
+  {
+    "title": "Clowns Spinning Hats",
+    "year": 1900,
+    "cast": [],
+    "genres": []
+  }
+]
+</pre></div>
+<p>At this point, I would usually switch to Pandas. However, let's see how far
+we get with <code>jq</code>.</p>
+<p>I want to see the titles. To do so, I first extract each list element. Then
+I extract the <code>title</code> field from each of them. To allow me scolling through it,
+I apply <code>less</code>:</p>
+<div class="highlight"><pre><span></span>$ cat movies.json <span class="p">|</span> jq <span class="s1">'.[] | .title'</span> <span class="p">|</span> less
+<span class="s2">"After Dark in Central Park"</span>
+<span class="s2">"Boarding School Girls' Pajama Parade"</span>
+<span class="s2">"Buffalo Bill's Wild West Parad"</span>
+<span class="s2">"Caught"</span>
+<span class="s2">"Clowns Spinning Hats"</span>
+<span class="s2">"Capture of Boer Battery by British"</span>
+<span class="s2">"The Enchanted Drawing"</span>
+<span class="s2">"Feeding Sea Lions"</span>
+<span class="s2">"How to Make a Fat Wife Out of Two Lean Ones"</span>
+<span class="s2">"New Life Rescue"</span>
+<span class="s2">"New Morning Bath"</span>
+...
+</pre></div>
+<p>Now I want to find errors in the data:</p>
+<div class="highlight"><pre><span></span>$ cat movies.json <span class="p">|</span> jq <span class="s1">'.[] | .title | select(length&lt;=2)'</span>
+<span class="s2">"It"</span>
+<span class="s2">"M"</span>
+<span class="s2">"W"</span>
+<span class="s2">"FM"</span>
+<span class="s2">"10"</span>
+<span class="s2">"Q"</span>
+<span class="s2">"Da"</span>
+<span class="s2">"It"</span>
+<span class="s2">"Ed"</span>
+<span class="s2">"54"</span>
+<span class="s2">"Pi"</span>
+<span class="s2">"Go"</span>
+<span class="s2">"CQ"</span>
+<span class="s2">"O"</span>
+<span class="s2">"RV"</span>
+<span class="s2">"P2"</span>
+<span class="s2">"21"</span>
+<span class="s2">"W."</span>
+<span class="s2">"9"</span>
+<span class="s2">"Up"</span>
+<span class="s2">"42"</span>
+<span class="s2">"XX"</span>
+<span class="s2">"It"</span>
+
+$ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .title | length] | max'</span>
+<span class="m">110</span>
+$ cat movies.json <span class="p">|</span> jq <span class="s1">'.[] | .title | select(length&gt;=100)'</span>
+<span class="s2">"Cornell-Columbia-University of Pennsylvania Boat Race at Ithaca, N.Y., Showing Lehigh Valley Observation Train"</span>
+<span class="s2">"The Green Goods Man; or, Josiah and Samanthy's Experience with the Original 'American Confidence Game'"</span>
+
+<span class="c1"># Alternatively:</span>
+$ cat movies.json <span class="p">|</span> jq <span class="s1">'max_by(.title | length).title'</span>
+<span class="s2">"Cornell-Columbia-University of Pennsylvania Boat Race at Ithaca, N.Y., Showing Lehigh Valley Observation Train"</span>
+</pre></div>
+<p>WTF, <a href="https://www.imdb.com/title/tt0235439/">The Green Goods Man...</a> and
+<a href="https://www.imdb.com/title/tt0357570/">Cornell-Columbia-University ...</a> are
+actually movies! Also <a href="https://www.imdb.com/title/tt0120577/?ref_=nv_sr_1?ref_=nv_sr_1">54</a>,
+<a href="https://www.imdb.com/title/tt0449089/?ref_=nv_sr_1?ref_=nv_sr_1">RV</a>,
+<a href="https://www.imdb.com/title/tt0043766/?ref_=fn_al_tt_2">M</a> and
+<a href="https://www.imdb.com/title/tt3166542/?ref_=fn_al_tt_3">W</a> are actually titles!</p>
+<p>Ok, let's see which value range the year covers:</p>
+<div class="highlight"><pre><span></span>$ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .year] | min'</span>
+<span class="m">1900</span>
+$ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .year] | max'</span>
+<span class="m">2018</span>
+</pre></div>
+<p>Let's see which ones were published in 1900:</p>
+<div class="highlight"><pre><span></span>$ cat movies.json <span class="p">|</span> jq <span class="s1">'.[] | select(.year == 1900) | .title'</span>
+<span class="s2">"After Dark in Central Park"</span>
+<span class="s2">"Boarding School Girls' Pajama Parade"</span>
+<span class="s2">"Buffalo Bill's Wild West Parad"</span>
+<span class="s2">"Caught"</span>
+<span class="s2">"Clowns Spinning Hats"</span>
+<span class="s2">"Capture of Boer Battery by British"</span>
+<span class="s2">"The Enchanted Drawing"</span>
+<span class="s2">"Feeding Sea Lions"</span>
+<span class="s2">"How to Make a Fat Wife Out of Two Lean Ones"</span>
+<span class="s2">"New Life Rescue"</span>
+<span class="s2">"New Morning Bath"</span>
+<span class="s2">"Searching Ruins on Broadway, Galveston, for Dead Bodies"</span>
+<span class="s2">"The Tribulations of an Amateur Photographer"</span>
+<span class="s2">"Trouble in Hogan's Alley"</span>
+<span class="s2">"Two Old Sparks"</span>
+<span class="s2">"The Wonder, Ching Ling Foo"</span>
+<span class="s2">"Watermelon Contest"</span>
+</pre></div>
+<p>Now, what about the <code>cast</code> field? How often is there at least one value? What
+is the maximum number of cast members we have?</p>
+<div class="highlight"><pre><span></span>$ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .cast | length] | max'</span>
+<span class="m">35</span>
+
+$ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .cast | select(length&gt;=1)] | length'</span>
+<span class="m">27871</span>
+$ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .cast | select(length&gt;=2)] | length'</span>
+<span class="m">26145</span>
+$ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .cast | select(length&gt;=3)] | length'</span>
+<span class="m">13755</span>
+$ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .cast | select(length&gt;=10)] | length'</span>
+<span class="m">394</span>
+$ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .cast | select(length&gt;=20)] | length'</span>
+<span class="m">23</span>
+$ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .cast | select(length&gt;=30)] | length'</span>
+<span class="m">3</span>
+
+<span class="c1"># Get the titles for which we have at least 30 actors:</span>
+$ cat movies.json <span class="p">|</span> jq <span class="s1">'.[] | select(.cast|length&gt;=30) | .title'</span>
+<span class="s2">"Cars 2"</span>
+<span class="s2">"The Twilight Saga: Breaking Dawn - Part 2"</span>
+<span class="s2">"Anchorman 2: The Legend Continues"</span>
+</pre></div>
+<p>Now I would like to see for which actors we have most titles. Also, I would
+like to get a list of all actors in the dataset. However, I have no clue how to
+do this with <code>jq</code>.</p>
+<h2 id="workflows">Workflows</h2>
+<p>When I see json in the internet, I want my browser to display it in a nice way. <a href="https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=de">JSONView</a> is good for that, but fails if the JSON becomes huge.</p>
+<p>Also, usually I start with opening it in Sublime Text. <a href="https://packagecontrol.io/packages/JSON%20Reindent">JSON Reindent</a> helps me to see the structure.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="https://stedolan.github.io/jq/">Official Website</a> and <a href="https://github.com/stedolan/jq">git repository</a></li>
+</ul>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2019-11-03T12:00:00+01:00">Nov 3, 2019</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#data-analysis-ref">Data analysis
+                    <span>2</span>
+</a></li>
+                <li><a href="../tags.html#eda-ref">EDA
+                    <span>3</span>
+</a></li>
+                <li><a href="../tags.html#json-ref">JSON
+                    <span>3</span>
+</a></li>
+                <li><a href="../tags.html#jsonl-ref">JSONL
+                    <span>1</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink no-print';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
