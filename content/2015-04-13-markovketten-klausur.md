@@ -4,16 +4,31 @@ title: Markovsche Ketten - Klausur
 author: Martin Thoma
 date: 2015-04-13 13:42
 category: German posts
-tags: Klausur
+tags: Klausur, mathematics, lecture-notes
 featured_image: logos/klausur.png
 ---
-<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Markovsche Ketten&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn <a href="http://www.math.kit.edu/stoch/~klar/de">Dr. Bernhard Klar</a> im Sommersemester 2015 gehört. Der Artikel wird bis zur Klausur laufend erweitert.</div>
+<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Markovsche Ketten&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn <a href="http://www.math.kit.edu/stoch/~klar/de">Dr. Bernhard Klar</a> im Sommersemester 2015 gehört. Aufgrund des sehr guten Skripts wurde dieser Artikel nie richtig begonnen.</div>
 
 ## Behandelter Stoff
 
 Es wäre toll, wenn ich von jeder Vorlesung einen Mitschrieb hochladen könnte.
-Gibt es Leute, die eine Kamera / einen Scanner haben und mir ihren Mitschrieb
-als JPG-Bilder schicken würden? Einfach an info@martin-thoma.de schicken.
+Gibt es Leute, die mir ihren Mitschrieb schicken würden? Einfach an info@martin-thoma.de schicken.
+
+<dl>
+    <dt><dfn>Stochastische Matrix</dfn></dt>
+    <dd>Sei $S$ eine Menge und $P = (p_{ij})_{i,j \in S}$ eine Matrix. $P$ heißt <i>stochastische Matrix</i>, falls $\forall i,j \in S: p_{i,j} \geq 0$ gilt und $\forall i \in S: \sum_{j \in S} p_{ij} = 1$ gilt.</dd>
+    <dt><dfn>Markov-Kette</dfn></dt>
+    <dd>Seit $P$ eine stochastische Matrix. Eine Folge $X_0, X_1, X_2, \dots$ von $S$-wertigen Zufallsvariablen heißt homogene Markov-Kette mit <dfn>Übergangsmatrix</dfn> $P$, falls für alle $n \in \mathbb{N}$ und alle Zustände $i_k \in S$ mit $\mathbb{P}(X_0 = i_0, \dots, X_n = i_n) > 0$ gilt
+    $$\mathbb{P}(X_{n+1} = i_{n+1} | X_0 = i_0, \dots, X_n = i_n) = \mathbb{P}(X_{n+1} = i_{n+1} | X_n = i_n) = p_{i_n, i_{n+1}}$$
+    Die $p_{ij}$ heißen <dfn>Übergangswahrscheinlichkeiten</dfn> und die <dfn>Startverteilung</dfn> $\nu$ der Kette ist definiert durch $\nu(i) = \mathbb{P}(X_0 = i)$ mit $i \in S$.</dd>
+    <dt><dfn>Irreduzible Markov-Kette</dfn></dt>
+    <dd>Eine Markov-Kette $(X_n)$ beziehungsweise die Übergangsmatrix $P$ heißen irreduziebel, falls $S$ nur aus einer Klasse besteht.</dd>
+    <dt><dfn>Recurrenter Zustand</dfn></dt>
+    <dd>Ein Zustand $i \in S$ heißt rekurrent, falls $f_{ii}^* = 1$.</dd>
+    <dt><dfn>Transienter Zustand</dfn></dt>
+    <dd>Ein Zustand $i \in S$ heißt rekurrent, falls $f_{ii}^* \neq 1$.</dd>
+</dl>
+
 
 ### Vorlesung
 
@@ -58,6 +73,9 @@ Zur Vorlesung gibt es das Skript "Markov-Ketten" von Frau Prof. Dr. Bäuerle.
 ### Sonstiges
 
 * [Markov Chains](http://setosa.io/blog/2014/07/26/markov-chains/): A very short introduction to markov chains with beautiful visualizations
+* [Wahrscheinlichkeitstheorie - Klausur (Info)](https://martin-thoma.com/wt-klausur/)
+* [Statistik - Klausur](https://martin-thoma.com/statistik-vorlesung/)
+* [Einführung in die Stochastik](https://martin-thoma.com/einfuhrung-in-die-stochastik/)
 
 ### Wichtigster Stoff
 
