@@ -58,7 +58,8 @@ def assign_user_to_variant(user_id: int, distribution: Dict[str, float]) -> str:
 In case the `user_id` is not an integer, you have two ways to assign one:
 
 1. Have another table mapping the strings to the numbers, counting up from 0.
-2. Use a hash (e.g. MD5) and convert the hexstring to a number (base 16 conversion)
+2. Use a hash (e.g. MD5) and convert the hexstring to a number (base 16 conversion).
+   Optimizely uses a <a href="https://en.wikipedia.org/wiki/MurmurHash">MurmurHash</a> (Python: <a href="https://pypi.org/project/mmh3/">mmh3</a>)
 
 
 ## Seeding Solution
@@ -172,3 +173,4 @@ care of how <code>random.random()</code> actually works
 [^1]: [Random Number Generator Overview](http://www.pcg-random.org/)
 [^2]: Melissa E. O'Neill: [PCG: A Family of Simple Fast Space-Efficient Statistically Good Algorithms for Random Number Generation](https://www.cs.hmc.edu/tr/hmc-cs-2014-0905.pdf), 2014.
 [^3]: Babu, Thomas: [Freestyle, a randomized version of ChaCha for resisting offline brute-force and dictionary attacks](https://arxiv.org/abs/1802.03201), 2018.
+[^4]: Optimizely: [How bucketing works](https://docs.developers.optimizely.com/full-stack/docs/how-bucketing-works)
