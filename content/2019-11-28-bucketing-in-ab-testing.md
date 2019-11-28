@@ -160,6 +160,13 @@ PHP and Golang do either not at all or at least not clearly state what the
 default random number generator is.
 
 
+## TL;DR
+
+Bucketing is easy as long as you have one system (OS and Programming language /
+library) where you execute the bucketing. Once you have more, you need to take
+care of how <code>random.random()</code> actually works
+
+
 ## See also
 
 [^1]: [Random Number Generator Overview](http://www.pcg-random.org/)
