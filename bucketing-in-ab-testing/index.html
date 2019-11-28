@@ -118,7 +118,12 @@ assigned to the same bucket consistently.</p>
 <p>We want to store a variation per user in a database. Hence we have <a href="https://martin-thoma.com/key-value-stores/">key-value store</a> with the user-identifier as key and
 the variation as value.</p>
 <p>The code then is as follows:</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_variation</span><span class="p">(</span><span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+
+
+<span class="k">def</span> <span class="nf">get_variation</span><span class="p">(</span><span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="c1"># Some initialization / connection with a key_value_store</span>
     <span class="n">variation</span> <span class="o">=</span> <span class="n">key_value_store</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">variation</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
         <span class="c1"># The user_id was not in the key_value_store</span>
@@ -161,7 +166,11 @@ not so nice that you need to access a database.</p>
 <p>Instead, you can play around with the seed of the random number generator. This
 makes the database call redundant. By seeding we can guarantee the output of
 the random number generator while still having (pseudo) random numbers.</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">assign_user_to_variant</span><span class="p">(</span><span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">distribution</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+
+
+<span class="k">def</span> <span class="nf">assign_user_to_variant</span><span class="p">(</span><span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">distribution</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="sd">"""</span>
 <span class="sd">    Assign the user_id to a variant.</span>
 
@@ -205,19 +214,19 @@ solution. In the following is a list of the components:</p>
 <tbody>
 <tr>
 <td><a href="https://en.wikipedia.org/wiki/Mersenne_Twister">Mersenne Twister</a></td>
-<td class="text-center"><span style="color:green;" title="Yes">✔️</span></td>
+<td class="text-center" style="background-color: #ccffcc"><span style="color:green;" title="Yes">✔️</span></td>
 <td style="background-color: #ccffcc">Very different results</td>
 <td><a href="https://docs.python.org/3/library/random.html">Python 3.8</a>, <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/Random.html">R</a></td>
 </tr>
 <tr>
 <td><a href="https://en.wikipedia.org/wiki/Linear_congruential_generator">Linear congruential generator</a></td>
-<td class="text-center"><span style="color:green;" title="Yes">✔️</span></td>
+<td class="text-center" style="background-color: #ccffcc"><span style="color:green;" title="Yes">✔️</span></td>
 <td style="background-color: #ffd3d3">Similar results</td>
 <td><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Random.html">Java 8</a>, <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4713.pdf">C++</a>, <a href="https://www.php.net/manual/en/function.rand.php">PHP?</a>, <a href="https://www.nu42.com/2014/05/perl-5200-brings-better-prng-to-windows.html">Perl</a></td>
 </tr>
 <tr>
 <td><a href="https://en.wikipedia.org/wiki/Permuted_congruential_generator">Permuted Congruential Generator</a> <sup id="fnref-2"><a class="footnote-ref" href="#fn-2">2</a></sup></td>
-<td class="text-center"><span style="color:green;" title="Yes">✔️</span></td>
+<td class="text-center" style="background-color: #ccffcc"><span style="color:green;" title="Yes">✔️</span></td>
 <td class="text-center">?</td>
 <td><a href="https://docs.scipy.org/doc/numpy/reference/random/bit_generators/pcg64.html">Numpy</a></td>
 </tr>
