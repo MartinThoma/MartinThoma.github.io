@@ -118,36 +118,36 @@ assigned to the same bucket consistently.</p>
 <p>We want to store a variation per user in a database. Hence we have <a href="https://martin-thoma.com/key-value-stores/">key-value store</a> with the user-identifier as key and
 the variation as value.</p>
 <p>The code then is as follows:</p>
-<div class="highlight"><pre><span></span>def get_variation(user_id: int) -&gt; str:
-    variation = key_value_store.get(user_id)
-    if variation is None:
-        # The user_id was not in the key_value_store
-        variation = assign_user_to_variant(user_id, {"A": 0.6, "B": 0.4})
-    return variation
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_variation</span><span class="p">(</span><span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">variation</span> <span class="o">=</span> <span class="n">key_value_store</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">variation</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="c1"># The user_id was not in the key_value_store</span>
+        <span class="n">variation</span> <span class="o">=</span> <span class="n">assign_user_to_variant</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="p">{</span><span class="s2">"A"</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">})</span>
+    <span class="k">return</span> <span class="n">variation</span>
 
 
-def assign_user_to_variant(user_id: int, distribution: Dict[str, float]) -&gt; str:
-    """
-    Assign the user_id to a variant.
+<span class="k">def</span> <span class="nf">assign_user_to_variant</span><span class="p">(</span><span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">distribution</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">"""</span>
+<span class="sd">    Assign the user_id to a variant.</span>
 
-    Parameters
-    ----------
-    user_id : int
-    distribution : Dict[str, float]
-        Maps the name of a variant to a float. The sum of all should be 1.
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    user_id : int</span>
+<span class="sd">    distribution : Dict[str, float]</span>
+<span class="sd">        Maps the name of a variant to a float. The sum of all should be 1.</span>
 
-    Returns
-    -------
-    variant : str
-    """
-    assert sum(distribution.values()) == 1.0
-    user_number = random.random()  # in the interval [0, 1]
-    prob_sum = 0.0
-    for variant, prob in sorted(distribution.items()):
-        if prob_sum &lt;= user_number &lt; prob_sum + prob:
-            return variant
-        prob_sum += prob
-    return variant
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    variant : str</span>
+<span class="sd">    """</span>
+    <span class="k">assert</span> <span class="nb">sum</span><span class="p">(</span><span class="n">distribution</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="o">==</span> <span class="mf">1.0</span>
+    <span class="n">user_number</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>  <span class="c1"># in the interval [0, 1]</span>
+    <span class="n">prob_sum</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">for</span> <span class="n">variant</span><span class="p">,</span> <span class="n">prob</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">distribution</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+        <span class="k">if</span> <span class="n">prob_sum</span> <span class="o">&lt;=</span> <span class="n">user_number</span> <span class="o">&lt;</span> <span class="n">prob_sum</span> <span class="o">+</span> <span class="n">prob</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">variant</span>
+        <span class="n">prob_sum</span> <span class="o">+=</span> <span class="n">prob</span>
+    <span class="k">return</span> <span class="n">variant</span>
 </pre></div>
 <p>In case the <code>user_id</code> is not an integer, you have two ways to assign one:</p>
 <ol>
@@ -161,29 +161,29 @@ not so nice that you need to access a database.</p>
 <p>Instead, you can play around with the seed of the random number generator. This
 makes the database call redundant. By seeding we can guarantee the output of
 the random number generator while still having (pseudo) random numbers.</p>
-<div class="highlight"><pre><span></span>def assign_user_to_variant(user_id: int, distribution: Dict[str, float]) -&gt; str:
-    """
-    Assign the user_id to a variant.
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">assign_user_to_variant</span><span class="p">(</span><span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">distribution</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">"""</span>
+<span class="sd">    Assign the user_id to a variant.</span>
 
-    Parameters
-    ----------
-    user_id : int
-    distribution : Dict[str, float]
-        Maps the name of a variant to a float. The sum of all should be 1.
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    user_id : int</span>
+<span class="sd">    distribution : Dict[str, float]</span>
+<span class="sd">        Maps the name of a variant to a float. The sum of all should be 1.</span>
 
-    Returns
-    -------
-    variant : str
-    """
-    assert sum(distribution.values()) == 1.0
-    random.seed(user_id)
-    user_number = random.random()  # in the interval [0, 1]
-    prob_sum = 0.0
-    for variant, prob in sorted(distribution.items()):
-        if prob_sum &lt;= user_number &lt; prob_sum + prob:
-            return variant
-        prob_sum += prob
-    return variant
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    variant : str</span>
+<span class="sd">    """</span>
+    <span class="k">assert</span> <span class="nb">sum</span><span class="p">(</span><span class="n">distribution</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="o">==</span> <span class="mf">1.0</span>
+    <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+    <span class="n">user_number</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>  <span class="c1"># in the interval [0, 1]</span>
+    <span class="n">prob_sum</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">for</span> <span class="n">variant</span><span class="p">,</span> <span class="n">prob</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">distribution</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+        <span class="k">if</span> <span class="n">prob_sum</span> <span class="o">&lt;=</span> <span class="n">user_number</span> <span class="o">&lt;</span> <span class="n">prob_sum</span> <span class="o">+</span> <span class="n">prob</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">variant</span>
+        <span class="n">prob_sum</span> <span class="o">+=</span> <span class="n">prob</span>
+    <span class="k">return</span> <span class="n">variant</span>
 </pre></div>
 <h2 id="random-number-generators">Random Number Generators</h2>
 <p>We might want to generate the variations across multiple systems. Most of the
@@ -205,32 +205,32 @@ solution. In the following is a list of the components:</p>
 <tbody>
 <tr>
 <td><a href="https://en.wikipedia.org/wiki/Mersenne_Twister">Mersenne Twister</a></td>
-<td>✓</td>
-<td>Very different results</td>
+<td class="text-center"><span style="color:green;" title="Yes">✔️</span></td>
+<td style="background-color: #ccffcc">Very different results</td>
 <td><a href="https://docs.python.org/3/library/random.html">Python 3.8</a>, <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/Random.html">R</a></td>
 </tr>
 <tr>
 <td><a href="https://en.wikipedia.org/wiki/Linear_congruential_generator">Linear congruential generator</a></td>
-<td>✓</td>
-<td>Similar results</td>
+<td class="text-center"><span style="color:green;" title="Yes">✔️</span></td>
+<td style="background-color: #ffd3d3">Similar results</td>
 <td><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Random.html">Java 8</a>, <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4713.pdf">C++</a>, <a href="https://www.php.net/manual/en/function.rand.php">PHP?</a>, <a href="https://www.nu42.com/2014/05/perl-5200-brings-better-prng-to-windows.html">Perl</a></td>
 </tr>
 <tr>
 <td><a href="https://en.wikipedia.org/wiki/Permuted_congruential_generator">Permuted Congruential Generator</a> <sup id="fnref-2"><a class="footnote-ref" href="#fn-2">2</a></sup></td>
-<td>✓</td>
-<td>?</td>
+<td class="text-center"><span style="color:green;" title="Yes">✔️</span></td>
+<td class="text-center">?</td>
 <td><a href="https://docs.scipy.org/doc/numpy/reference/random/bit_generators/pcg64.html">Numpy</a></td>
 </tr>
 <tr>
 <td><a href="https://en.wikipedia.org/wiki/Salsa20#ChaCha20_adoption">ChaCha20</a></td>
-<td>?</td>
-<td>?</td>
+<td class="text-center">?</td>
+<td class="text-center">?</td>
 <td><a href="https://rust-random.github.io/rand/rand/rngs/struct.StdRng.html">Rust</a></td>
 </tr>
 <tr>
 <td><a href="https://en.wikipedia.org/wiki/Xorshift">xorshift128+</a></td>
-<td>?</td>
-<td>?</td>
+<td class="text-center">?</td>
+<td class="text-center">?</td>
 <td><a href="https://v8.dev/blog/math-random">JavaScript (V8)</a></td>
 </tr>
 </tbody>
