@@ -8,7 +8,6 @@ category: Code
 tags: Database, Redis, MySQL, MariaDB, Postgres, pickledb, Python, NoSQL, sysbench, DBaaS
 featured_image: logos/db.png
 ---
-<div class="info">This is a first draft - many more things are about to be added 🙂</div>
 [Key-value stores](https://en.wikipedia.org/wiki/Key-value_database) are
 specialized NoSQL databases. Essentially, they are dictionaries[^1].
 
