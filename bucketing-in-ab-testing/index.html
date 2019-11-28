@@ -14,7 +14,7 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="Data Science, A/B-Testing, Code, " />
+<meta name="keywords" content="Data Science, A/B-Testing, Random Number Generator, Code, " />
 
 <meta property="og:title" content="Bucketing in A/B-Testing "/>
 <meta property="og:url" content="../bucketing-in-ab-testing/" />
@@ -104,7 +104,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#database-solution" title="Database Solution">Database Solution</a></li><li><a class="toc-href" href="#seeding-solution" title="Seeding Solution">Seeding Solution</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#database-solution" title="Database Solution">Database Solution</a></li><li><a class="toc-href" href="#seeding-solution" title="Seeding Solution">Seeding Solution</a></li><li><a class="toc-href" href="#random-number-generators" title="Random Number Generators">Random Number Generators</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -184,6 +184,35 @@ the random number generator while still having (pseudo) random numbers.</p>
         prob_sum += prob
     return variant
 </pre></div>
+<h2 id="random-number-generators">Random Number Generators</h2>
+<p>We might want to generate the variations across multiple systems. Most of the
+code above is trivial to execute in any programming language. However, the
+output of <code>random.seed(0); random.random()</code> might differ between programming
+languages or even versions of a programming language. The reason are
+differences in the random number generators.</p>
+<p>A Pseudo-Random Number Generator (RNG) is a key component for the described
+solution. In the following is a list of the components:</p>
+<table class="table">
+<thead>
+<tr>
+<th>Name</th>
+<th>Neighboring Seeds</th>
+<th>Used By</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Mersenne_Twister">Mersenne Twister</a></td>
+<td>Very different results</td>
+<td><a href="https://docs.python.org/3/library/random.html">Python 3.8</a></td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Linear_congruential_generator">Linear congruential generator</a></td>
+<td>Similar results</td>
+<td><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Random.html">Java 8</a></td>
+</tr>
+</tbody>
+</table>
             
             <div id="disqus_thread" class="no-print"></div>
 <script>
@@ -221,6 +250,9 @@ the random number generator while still having (pseudo) random numbers.</p>
 </a></li>
                 <li><a href="../tags.html#data-science-ref">Data Science
                     <span>4</span>
+</a></li>
+                <li><a href="../tags.html#random-number-generator-ref">Random Number Generator
+                    <span>1</span>
 </a></li>
             </ul>
 <h4>Contact</h4>
