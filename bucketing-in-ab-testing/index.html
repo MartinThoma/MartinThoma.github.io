@@ -104,7 +104,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#database-solution" title="Database Solution">Database Solution</a></li><li><a class="toc-href" href="#seeding-solution" title="Seeding Solution">Seeding Solution</a></li><li><a class="toc-href" href="#random-number-generators" title="Random Number Generators">Random Number Generators</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#database-solution" title="Database Solution">Database Solution</a></li><li><a class="toc-href" href="#seeding-solution" title="Seeding Solution">Seeding Solution</a></li><li><a class="toc-href" href="#random-number-generators" title="Random Number Generators">Random Number Generators</a></li><li><a class="toc-href" href="#tldr" title="TL;DR">TL;DR</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -152,7 +152,8 @@ def assign_user_to_variant(user_id: int, distribution: Dict[str, float]) -&gt; s
 <p>In case the <code>user_id</code> is not an integer, you have two ways to assign one:</p>
 <ol>
 <li>Have another table mapping the strings to the numbers, counting up from 0.</li>
-<li>Use a hash (e.g. MD5) and convert the hexstring to a number (base 16 conversion)</li>
+<li>Use a hash (e.g. MD5) and convert the hexstring to a number (base 16 conversion).
+   Optimizely uses a <a href="https://en.wikipedia.org/wiki/MurmurHash">MurmurHash</a> (Python: <a href="https://pypi.org/project/mmh3/">mmh3</a>)</li>
 </ol>
 <h2 id="seeding-solution">Seeding Solution</h2>
 <p>The above solution is nice, because it is absolutely clear how it works. It is
@@ -240,6 +241,10 @@ important property in many contexts. In the context of A/B-Testing, however, it
 does not matter. State size is also interesting.</p>
 <p>PHP and Golang do either not at all or at least not clearly state what the
 default random number generator is.</p>
+<h2 id="tldr">TL;DR</h2>
+<p>Bucketing is easy as long as you have one system (OS and Programming language /
+library) where you execute the bucketing. Once you have more, you need to take
+care of how <code>random.random()</code> actually works</p>
 <h2 id="see-also">See also</h2>
 <div class="footnote">
 <hr/>
@@ -252,6 +257,9 @@ default random number generator is.</p>
 </li>
 <li id="fn-3">
 <p>Babu, Thomas: <a href="https://arxiv.org/abs/1802.03201">Freestyle, a randomized version of ChaCha for resisting offline brute-force and dictionary attacks</a>, 2018.&nbsp;<a class="footnote-backref" href="#fnref-3" title="Jump back to footnote 3 in the text">↩</a></p>
+</li>
+<li id="fn-4">
+<p>Optimizely: <a href="https://docs.developers.optimizely.com/full-stack/docs/how-bucketing-works">How bucketing works</a>&nbsp;<a class="footnote-backref" href="#fnref-4" title="Jump back to footnote 4 in the text">↩</a></p>
 </li>
 </ol>
 </div>
