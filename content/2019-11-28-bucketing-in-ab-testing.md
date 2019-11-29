@@ -204,10 +204,58 @@ solution. In the following is a list of the components:
     </tbody>
 </table>
 
-I cannot judge the statistical quality of those, but I recommend reading [^1]
-and [^2]. Security in the sense of predictability of the sequence is also an
-important property in many contexts. In the context of A/B-Testing, however, it
-does not matter. State size is also interesting.
+I cannot properly judge the statistical quality of those, but I recommend
+reading [^1] and [^2].
+
+However, I tried [`java-random`](https://pypi.org/project/java-random/) and
+visualized the results ([code](https://github.com/MartinThoma/algorithms/blob/master/Python/random/generate_number_image.py)).
+What you see is 1000 random numbers generated. The colum is the seed, the row
+are 1000 consecutive random numbers. Clearly, the numpy and the Python version
+look better:
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Java</th>
+        <th>Python</th>
+        <th>Numpy (PCG64)</th>
+    </tr>
+    </thead>
+    <tr>
+        <td><a href="../images/2019/11/1000-random-numbers-java.png"><img src="../images/2019/11/1000-random-numbers-java.png" alt="Java Pseudo-Random Number Generator" width="300" height="300"/></a></td>
+        <td><a href="../images/2019/11/1000-random-numbers-python.png"><img src="../images/2019/11/1000-random-numbers-python.png" alt="Python Pseudo-Random Number Generator" width="300" height="300"/></a></td>
+        <td><a href="../images/2019/11/1000-random-numbers-numpy.png"><img src="../images/2019/11/1000-random-numbers-numpy.png" alt="Numpy Pseudo-Random Number Generator" width="300" height="300"/></a></td>
+    </tr>
+    <tr>
+        <td>Do you see the stripes? This means neighboring seeds lead to similar sequences. Kudos to my colleague James who made me aware of this problem.</td>
+        <td colspan="2">This is how it should look like - no pattern to be seen.</td>
+    </tr>
+    <tr>
+        <th>MT19937</th>
+        <th>Philox</th>
+        <th>Xoroshiro128</th>
+    </tr>
+    <tr>
+        <td><a href="../images/2019/11/1000-random-numbers-MT19937.png"><img src="../images/2019/11/1000-random-numbers-MT19937.png" alt="MT19937 PRNG" width="300" height="300"/></a></td>
+        <td><a href="../images/2019/11/1000-random-numbers-Philox.png"><img src="../images/2019/11/1000-random-numbers-Philox.png" alt="Philox PRNG" width="300" height="300"/></a></td>
+        <td><a href="../images/2019/11/1000-random-numbers-Xoroshiro128.png"><img src="../images/2019/11/1000-random-numbers-Xoroshiro128.png" alt="Xoroshiro128 PRNG" width="300" height="300"/></a></td>
+    </tr>
+    <tr>
+        <th>SFC64</th>
+        <th>Xorshift1024</th>
+        <th>ThreeFry</th>
+    </tr>
+    <tr>
+        <td><a href="../images/2019/11/1000-random-numbers-SFC64.png"><img src="../images/2019/11/1000-random-numbers-SFC64.png" alt="SFC64 PRNG" width="300" height="300"/></a></td>
+        <td><a href="../images/2019/11/1000-random-numbers-Xorshift1024.png"><img src="../images/2019/11/1000-random-numbers-Xorshift1024.png" alt="Xorshift1024 PRNG" width="300" height="300"/></a></td>
+        <td><a href="../images/2019/11/1000-random-numbers-ThreeFry.png"><img src="../images/2019/11/1000-random-numbers-ThreeFry.png" alt="ThreeFry PRNG" width="300" height="300"/></a></td>
+    </tr>
+</table>
+
+
+Security in the sense of predictability of the sequence is also an important
+property in many contexts. In the context of A/B-Testing, however, it does not
+matter. State size is also interesting.
 
 PHP and Golang do either not at all or at least not clearly state what the
 default random number generator is.
@@ -226,3 +274,6 @@ care of how <code>random.random()</code> actually works
 [^2]: Melissa E. O'Neill: [PCG: A Family of Simple Fast Space-Efficient Statistically Good Algorithms for Random Number Generation](https://www.cs.hmc.edu/tr/hmc-cs-2014-0905.pdf), 2014.
 [^3]: Babu, Thomas: [Freestyle, a randomized version of ChaCha for resisting offline brute-force and dictionary attacks](https://arxiv.org/abs/1802.03201), 2018.
 [^4]: Optimizely: [How bucketing works](https://docs.developers.optimizely.com/full-stack/docs/how-bucketing-works)
+[^5]: Dario Gieselaar
+: [The Engineering Problem of A/B Testing](https://levelup.gitconnected.com/the-engineering-problem-of-a-b-testing-ac1adfd492a8), 2019. - Just a nice post about A/B Testing in general.
+[^6]: [Bit Generators](https://docs.scipy.org/doc/numpy/reference/random/bit_generators/)
