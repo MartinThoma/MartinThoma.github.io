@@ -14,16 +14,16 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="Data, IaC, AWS, My bits and bytes, " />
+<meta name="keywords" content="Data, IaC, AWS, Kafka, Data Science, Data Engineering, My bits and bytes, " />
 
 <meta property="og:title" content="Data Platforms "/>
 <meta property="og:url" content="../drafts/data-platforms.html" />
-<meta property="og:description" content="The technologies around handling data are overwhelming. Too many choices, too little overview. Let&#39;s order that a bit. Services AWS Lambda Compute Running small and short scripts after a triggering event. Has a delay of a couple of seconds. Provides Computational Resources. AWS Cloudformation Infrastructure as Code (IaC) Tool AWS …" />
+<meta property="og:description" content="Big coorporations have a lot of data which is analyzed under different aspects all the time. Micro services are built which have their own data flows, applications and services are updated while they are running. Bugs get fixed. If you have many different data sources and you want to analyze …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2019-11-29T20:00:00+01:00" />
 <meta name="twitter:title" content="Data Platforms ">
-<meta name="twitter:description" content="The technologies around handling data are overwhelming. Too many choices, too little overview. Let&#39;s order that a bit. Services AWS Lambda Compute Running small and short scripts after a triggering event. Has a delay of a couple of seconds. Provides Computational Resources. AWS Cloudformation Infrastructure as Code (IaC) Tool AWS …">
+<meta name="twitter:description" content="Big coorporations have a lot of data which is analyzed under different aspects all the time. Micro services are built which have their own data flows, applications and services are updated while they are running. Bugs get fixed. If you have many different data sources and you want to analyze …">
 <meta property="og:image" content="logos/star.png" />
 <meta name="twitter:image" content="logos/star.png" >
 
@@ -104,14 +104,64 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#services" title="Services">Services</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#services" title="Services">Services</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>The technologies around handling data are overwhelming. Too many choices, too
-little overview. Let's order that a bit.</p>
+            <!--
+
+Buzz-Words: label label-warning
+Technologies: label label-primary
+Roles
+    --->
+<p>Big coorporations have a lot of data which is analyzed under different aspects
+all the time. Micro services are built which have their own data flows,
+applications and services are updated while they are running. Bugs get fixed.</p>
+<p>If you have many different data sources and you want to analyze them often, you
+want a <a href="https://en.wikipedia.org/wiki/Data_warehouse">Data Warehouse</a> (DWH). A
+central place where the data lives. It is likely not completely recent, but
+should not be too old either. One Data Warehousing solution as a service
+is <a href="https://en.wikipedia.org/wiki/Snowflake_Inc.">Snowflake</a>.
+<a href="https://en.wikipedia.org/wiki/Amazon_Redshift">Amazon Redshift</a> is another one
+(<a href="https://www.youtube.com/watch?v=_qKm6o1zK3U">promo video</a>).</p>
+<p>You can execute SQL queries in those warehouses. But sometimes a table as a
+result is not enough. You need graphics. The first step might be Excel, but
+very often this is cumbersome as the data load is too big, as one needs to
+download the data from the warehouse. Then
+<a href="https://en.wikipedia.org/wiki/Tableau_Software">Tableau</a>
+(<a href="https://www.youtube.com/watch?v=VUVqj7YsWmU">promo&nbsp;video</a>) and
+<a href="https://en.wikipedia.org/wiki/Qlik">QlikView</a>
+(<a href="https://www.youtube.com/watch?v=sqILcEwlHSI">promo&nbsp;video</a>) come into
+play. The Buzzword here are "data driven" and "self-service BI". People using
+this software are often called <i>Business Analysts</i> and work in an <i>BI
+department</i>. They usually create dashboards and reports which drive business
+decisions.</p>
+<p>Sometimes, analysis of the past behavior is not enough. You need a predictive
+model for future cases. Maybe even have it as a part of a customer-facing
+product. Now you need a <i>Data Scientist</i>. The work starts at the
+warehouse. As the warehouses and QlikView / Tableaus options are too limited,
+the data scientist gets a dump of the relevant parts. This might include some
+aggregtions, filtering and unions in the warehouse before, but at some point it
+will likely be imported in an environment where Python can be used. The Data
+Scientist analyzes the data, e.g. with a
+<a href="https://en.wikipedia.org/wiki/Project_Jupyter">Jupyter&nbsp;Notebook</a>. Usually
+the data contains many problems like unrealistic values or missing data (NULL
+values). Then the model creation part starts. This could still happen in the
+Notebook.</p>
+<p>One the model is ready and seems to work well enough for practice, a
+<i>Data&nbsp;Engineer</i> gets involved. The mentioned delay a Data Warehouse
+has and the different kind of workload the model typically requires makes it
+necessary to get the data from a different source. If it should be event-based,
+it might be <a href="https://en.wikipedia.org/wiki/Apache_Kafka">Apache&nbsp;Kafka</a> for
+messaging, <a href="https://en.wikipedia.org/wiki/Apache_Flink">Apache&nbsp;Flink</a>. The
+important point to notice here is that machine learning models typically
+contain two seperate phases: Model training and model inference. At training
+time, one needs to process a lot of data and needs a lot of computational
+power. At inference time, each requests data is tiny. The amount of computation
+necessary is small. So it is a mixed execution mode: Regularly re-train a model
+in a batch-way and have a continuously running service for inference.</p>
 <h2 id="services">Services</h2>
 <dl>
 <dt><dfn>AWS Lambda</dfn> <span class="label label-primary">Compute</span></dt>
@@ -125,6 +175,10 @@ little overview. Let's order that a bit.</p>
 <dt><dfn>AWS InnoDB</dfn> <span class="label label-primary">Storage</span></dt>
 <dd></dd>
 </dl>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="https://www.predictiveanalyticstoday.com/top-open-source-commercial-stream-analytics-platforms/">Top 20 Free, Open Source and Premium Stream Analytics Platforms</a></li>
+</ul>
             
             <div id="disqus_thread" class="no-print"></div>
 <script>
@@ -163,8 +217,15 @@ little overview. Let's order that a bit.</p>
                 <li><a href="../tags.html#data-ref">Data
                     <span>5</span>
 </a></li>
+                <li><a href="../tags.html#data-engineering-ref">Data Engineering
+</a></li>
+                <li><a href="../tags.html#data-science-ref">Data Science
+                    <span>5</span>
+</a></li>
                 <li><a href="../tags.html#iac-ref">IaC
                     <span>1</span>
+</a></li>
+                <li><a href="../tags.html#kafka-ref">Kafka
 </a></li>
             </ul>
 <h4>Contact</h4>
