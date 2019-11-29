@@ -194,6 +194,44 @@ the random number generator while still having (pseudo) random numbers.</p>
         <span class="n">prob_sum</span> <span class="o">+=</span> <span class="n">prob</span>
     <span class="k">return</span> <span class="n">variant</span>
 </pre></div>
+<p>Please note that this has another nice property: If you change the distribution
+slightly, then as many users as possible keep what they have.</p>
+<p>A potential problematic property: Always the same users get to be in the "A"
+variant. So if you always choose the names "current" vs. "new", then some users
+will always end up in A/B&nbsp;tests. This is not good as the new variant might be
+brittle or have flaws.</p>
+<p>Instead, we can give the test an unique name and thus do:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+
+<span class="kn">import</span> <span class="nn">mmh3</span>
+
+<span class="k">def</span> <span class="nf">assign_user_to_variant</span><span class="p">(</span><span class="n">user_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">test_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">distribution</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">"""</span>
+<span class="sd">    Assign the user_id to a variant.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    user_id : str</span>
+<span class="sd">    test_name : str</span>
+<span class="sd">    distribution : Dict[str, float]</span>
+<span class="sd">        Maps the name of a variant to a float. The sum of all should be 1.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    variant : str</span>
+<span class="sd">    """</span>
+    <span class="k">assert</span> <span class="nb">sum</span><span class="p">(</span><span class="n">distribution</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="o">==</span> <span class="mf">1.0</span>
+    <span class="n">seed</span> <span class="o">=</span> <span class="n">mmh3</span><span class="o">.</span><span class="n">hash</span><span class="p">(</span><span class="n">user_id</span> <span class="o">+</span> <span class="n">test_name</span><span class="p">)</span>
+    <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+    <span class="n">user_number</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>  <span class="c1"># in the interval [0, 1]</span>
+    <span class="n">prob_sum</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">for</span> <span class="n">variant</span><span class="p">,</span> <span class="n">prob</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">distribution</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+        <span class="k">if</span> <span class="n">prob_sum</span> <span class="o">&lt;=</span> <span class="n">user_number</span> <span class="o">&lt;</span> <span class="n">prob_sum</span> <span class="o">+</span> <span class="n">prob</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">variant</span>
+        <span class="n">prob_sum</span> <span class="o">+=</span> <span class="n">prob</span>
+    <span class="k">return</span> <span class="n">variant</span>
+</pre></div>
 <h2 id="random-number-generators">Random Number Generators</h2>
 <p>We might want to generate the variations across multiple systems. Most of the
 code above is trivial to execute in any programming language. However, the
@@ -216,7 +254,7 @@ solution. In the following is a list of the components:</p>
 <td><a href="https://en.wikipedia.org/wiki/Mersenne_Twister">Mersenne Twister</a></td>
 <td class="text-center" style="background-color: #ccffcc"><span style="color:green;" title="Yes">✔️</span></td>
 <td style="background-color: #ccffcc">Very different results</td>
-<td><a href="https://docs.python.org/3/library/random.html">Python 3.8</a>, <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/Random.html">R</a></td>
+<td><a href="https://docs.python.org/3/library/random.html">Python 2.3 to 3.8</a>, <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/Random.html">R</a></td>
 </tr>
 <tr>
 <td><a href="https://en.wikipedia.org/wiki/Linear_congruential_generator">Linear congruential generator</a></td>
@@ -244,10 +282,30 @@ solution. In the following is a list of the components:</p>
 </tr>
 </tbody>
 </table>
-<p>I cannot judge the statistical quality of those, but I recommend reading <sup id="fnref-1"><a class="footnote-ref" href="#fn-1">1</a></sup>
-and <sup id="fnref-2"><a class="footnote-ref" href="#fn-2">2</a></sup>. Security in the sense of predictability of the sequence is also an
-important property in many contexts. In the context of A/B-Testing, however, it
-does not matter. State size is also interesting.</p>
+<p>I cannot properly judge the statistical quality of those, but I recommend
+reading <sup id="fnref-1"><a class="footnote-ref" href="#fn-1">1</a></sup> and <sup id="fnref-2"><a class="footnote-ref" href="#fn-2">2</a></sup>.</p>
+<p>However, I tried <a href="https://pypi.org/project/java-random/"><code>java-random</code></a> and
+visualized the results (<a href="https://github.com/MartinThoma/algorithms/blob/master/Python/random/generate_number_image.py">code</a>).
+What you see is 1000 random numbers generated. The row is the seed, the column
+are 1000 consecutive random numbers. Clearly, the numpy and the Python version
+look better:</p>
+<table class="table">
+<thead>
+<tr>
+<th>Java</th>
+<th>Python</th>
+<th>Numpy</th>
+</tr>
+</thead>
+<tr>
+<td><img alt="Java Pseudo-Random Number Generator" height="300" src="../images/2019/11/1000-random-numbers-java.png" width="300"/></td>
+<td><img alt="Python Pseudo-Random Number Generator" height="300" src="../images/2019/11/1000-random-numbers-python.png" width="300"/></td>
+<td><img alt="Numpy Pseudo-Random Number Generator" height="300" src="../images/2019/11/1000-random-numbers-numpy.png" width="300"/></td>
+</tr>
+</table>
+<p>Security in the sense of predictability of the sequence is also an important
+property in many contexts. In the context of A/B-Testing, however, it does not
+matter. State size is also interesting.</p>
 <p>PHP and Golang do either not at all or at least not clearly state what the
 default random number generator is.</p>
 <h2 id="tldr">TL;DR</h2>
@@ -269,6 +327,13 @@ care of how <code>random.random()</code> actually works</p>
 </li>
 <li id="fn-4">
 <p>Optimizely: <a href="https://docs.developers.optimizely.com/full-stack/docs/how-bucketing-works">How bucketing works</a>&nbsp;<a class="footnote-backref" href="#fnref-4" title="Jump back to footnote 4 in the text">↩</a></p>
+</li>
+<li id="fn-5">
+<dl>
+<dt>Dario Gieselaar</dt>
+<dd><a href="https://levelup.gitconnected.com/the-engineering-problem-of-a-b-testing-ac1adfd492a8">The Engineering Problem of A/B Testing</a>, 2019. - Just a nice post about A/B Testing in general.</dd>
+</dl>
+<p><a class="footnote-backref" href="#fnref-5" title="Jump back to footnote 5 in the text">↩</a></p>
 </li>
 </ol>
 </div>
