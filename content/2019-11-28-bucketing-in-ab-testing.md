@@ -22,8 +22,13 @@ the variation as value.
 
 The code then is as follows:
 
-```
+```python
+import random
+from typing import Dict
+
+
 def get_variation(user_id: int) -> str:
+    # Some initialization / connection with a key_value_store
     variation = key_value_store.get(user_id)
     if variation is None:
         # The user_id was not in the key_value_store
@@ -68,10 +73,14 @@ The above solution is nice, because it is absolutely clear how it works. It is
 not so nice that you need to access a database.
 
 Instead, you can play around with the seed of the random number generator. This
-makes the database call redundant. By seeding we can guarantee the output of
+makes the database call obsolete. By seeding we can guarantee the output of
 the random number generator while still having (pseudo) random numbers.
 
-```
+```python
+import random
+from typing import Dict
+
+
 def assign_user_to_variant(user_id: int, distribution: Dict[str, float]) -> str:
     """
     Assign the user_id to a variant.
@@ -87,6 +96,49 @@ def assign_user_to_variant(user_id: int, distribution: Dict[str, float]) -> str:
     variant : str
     """
     assert sum(distribution.values()) == 1.0
+    random.seed(user_id)
+    user_number = random.random()  # in the interval [0, 1]
+    prob_sum = 0.0
+    for variant, prob in sorted(distribution.items()):
+        if prob_sum <= user_number < prob_sum + prob:
+            return variant
+        prob_sum += prob
+    return variant
+```
+
+Please note that this has another nice property: If you change the distribution
+slightly, then as many users as possible keep what they have.
+
+A potential problematic property: Always the same users get to be in the "A"
+variant. So if you always choose the names "current" vs. "new", then some users
+will always end up in A/B&nbsp;tests. This is not good as the new variant might be
+brittle or have flaws.
+
+Instead, we can give the test an unique name and thus do:
+
+```python
+import random
+from typing import Dict
+
+import mmh3
+
+def assign_user_to_variant(user_id: str, test_name: str, distribution: Dict[str, float]) -> str:
+    """
+    Assign the user_id to a variant.
+
+    Parameters
+    ----------
+    user_id : str
+    test_name : str
+    distribution : Dict[str, float]
+        Maps the name of a variant to a float. The sum of all should be 1.
+
+    Returns
+    -------
+    variant : str
+    """
+    assert sum(distribution.values()) == 1.0
+    seed = mmh3.hash(user_id + test_name)
     random.seed(user_id)
     user_number = random.random()  # in the interval [0, 1]
     prob_sum = 0.0
@@ -121,32 +173,32 @@ solution. In the following is a list of the components:
     <tbody>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Mersenne_Twister">Mersenne Twister</a></td>
-            <td>✓</td>
-            <td>Very different results</td>
-            <td><a href="https://docs.python.org/3/library/random.html">Python 3.8</a>, <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/Random.html">R</a></td>
+            <td style="background-color: #ccffcc" class="text-center"><span style="color:green;" title="Yes">✔️</span></td>
+            <td style="background-color: #ccffcc">Very different results</td>
+            <td><a href="https://docs.python.org/3/library/random.html">Python 2.3 to 3.8</a>, <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/Random.html">R</a></td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Linear_congruential_generator">Linear congruential generator</a></td>
-            <td>✓</td>
-            <td>Similar results</td>
+            <td style="background-color: #ccffcc" class="text-center"><span style="color:green;" title="Yes">✔️</span></td>
+            <td style="background-color: #ffd3d3">Similar results</td>
             <td><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Random.html">Java 8</a>, <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4713.pdf">C++</a>, <a href="https://www.php.net/manual/en/function.rand.php">PHP?</a>, <a href="https://www.nu42.com/2014/05/perl-5200-brings-better-prng-to-windows.html">Perl</a></td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Permuted_congruential_generator">Permuted Congruential Generator</a> <sup id="fnref-2"><a class="footnote-ref" href="#fn-2">2</a></sup></td>
-            <td>✓</td>
-            <td>?</td>
+            <td style="background-color: #ccffcc" class="text-center"><span style="color:green;" title="Yes">✔️</span></td>
+            <td class="text-center">?</td>
             <td><a href="https://docs.scipy.org/doc/numpy/reference/random/bit_generators/pcg64.html">Numpy</a></td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Salsa20#ChaCha20_adoption">ChaCha20</a></td>
-            <td>?</td>
-            <td>?</td>
+            <td class="text-center">?</td>
+            <td class="text-center">?</td>
             <td><a href="https://rust-random.github.io/rand/rand/rngs/struct.StdRng.html">Rust</a></td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Xorshift">xorshift128+</a></td>
-            <td>?</td>
-            <td>?</td>
+            <td class="text-center">?</td>
+            <td class="text-center">?</td>
             <td><a href="https://v8.dev/blog/math-random">JavaScript (V8)</a></td>
         </tr>
     </tbody>
