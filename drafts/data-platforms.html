@@ -104,7 +104,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#services" title="Services">Services</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#cloud-service-overview" title="Cloud Service Overview">Cloud Service Overview</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -114,7 +114,7 @@ MathJax.Hub.Queue(function() {
 
 Buzz-Words: label label-warning
 Technologies: label label-primary
-Roles
+Roles: label label-info
     --->
 <p>Big coorporations have a lot of data which is analyzed under different aspects
 all the time. Micro services are built which have their own data flows,
@@ -123,46 +123,48 @@ applications and services are updated while they are running. Bugs get fixed.</p
 want a <a href="https://en.wikipedia.org/wiki/Data_warehouse">Data Warehouse</a> (DWH). A
 central place where the data lives. It is likely not completely recent, but
 should not be too old either. One Data Warehousing solution as a service
-is <a href="https://en.wikipedia.org/wiki/Snowflake_Inc.">Snowflake</a>.
-<a href="https://en.wikipedia.org/wiki/Amazon_Redshift">Amazon Redshift</a> is another one
+is <a href="https://en.wikipedia.org/wiki/Snowflake_Inc."><span class="label label-primary">Snowflake</span></a>.
+<a href="https://en.wikipedia.org/wiki/Amazon_Redshift"><span class="label label-primary">Amazon Redshift</span></a> is another one
 (<a href="https://www.youtube.com/watch?v=_qKm6o1zK3U">promo video</a>).</p>
 <p>You can execute SQL queries in those warehouses. But sometimes a table as a
 result is not enough. You need graphics. The first step might be Excel, but
 very often this is cumbersome as the data load is too big, as one needs to
 download the data from the warehouse. Then
-<a href="https://en.wikipedia.org/wiki/Tableau_Software">Tableau</a>
+<a href="https://en.wikipedia.org/wiki/Tableau_Software"><span class="label label-primary">Tableau</span></a>
 (<a href="https://www.youtube.com/watch?v=VUVqj7YsWmU">promo&nbsp;video</a>) and
-<a href="https://en.wikipedia.org/wiki/Qlik">QlikView</a>
+<a href="https://en.wikipedia.org/wiki/Qlik"><span class="label label-primary">QlikView</span></a>
 (<a href="https://www.youtube.com/watch?v=sqILcEwlHSI">promo&nbsp;video</a>) come into
-play. The Buzzword here are "data driven" and "self-service BI". People using
-this software are often called <i>Business Analysts</i> and work in an <i>BI
-department</i>. They usually create dashboards and reports which drive business
-decisions.</p>
+play. The Buzzword here are <span class="label label-danger">data driven</span> and <span class="label label-danger">self-service BI</span>. People using
+this software are often called <span class="label label-info">Business
+Analysts</span> and work in an <i>BI department</i>. They usually create
+dashboards and reports which drive business decisions.</p>
 <p>Sometimes, analysis of the past behavior is not enough. You need a predictive
 model for future cases. Maybe even have it as a part of a customer-facing
-product. Now you need a <i>Data Scientist</i>. The work starts at the
-warehouse. As the warehouses and QlikView / Tableaus options are too limited,
-the data scientist gets a dump of the relevant parts. This might include some
-aggregtions, filtering and unions in the warehouse before, but at some point it
-will likely be imported in an environment where Python can be used. The Data
-Scientist analyzes the data, e.g. with a
-<a href="https://en.wikipedia.org/wiki/Project_Jupyter">Jupyter&nbsp;Notebook</a>. Usually
+product. Now you need a <span class="label label-info">Data Scientist</span>.
+The work starts at the warehouse. As the warehouses and QlikView / Tableaus
+options are too limited, the data scientist gets a dump of the relevant parts.
+This might include some aggregtions, filtering and unions in the warehouse
+before, but at some point it will likely be imported in an environment where
+Python can be used. The Data Scientist analyzes the data, e.g. with a
+<a href="https://en.wikipedia.org/wiki/Project_Jupyter"><span class="label label-primary">Jupyter&nbsp;Notebook</span></a>. Usually
 the data contains many problems like unrealistic values or missing data (NULL
 values). Then the model creation part starts. This could still happen in the
-Notebook.</p>
-<p>One the model is ready and seems to work well enough for practice, a
-<i>Data&nbsp;Engineer</i> gets involved. The mentioned delay a Data Warehouse
-has and the different kind of workload the model typically requires makes it
-necessary to get the data from a different source. If it should be event-based,
-it might be <a href="https://en.wikipedia.org/wiki/Apache_Kafka">Apache&nbsp;Kafka</a> for
-messaging, <a href="https://en.wikipedia.org/wiki/Apache_Flink">Apache&nbsp;Flink</a>. The
+Notebook. To solve the prediction task, the data scientist might use models
+such as <a class="label label-danger" href="https://en.wikipedia.org/wiki/Support-vector_machine">SVMs</a>, <a class="label label-danger" href="https://en.wikipedia.org/wiki/Artificial_neural_network">neural networks</a> or <a class="label label-danger" href="https://en.wikipedia.org/wiki/Random_forest">Random Forests</a>.</p>
+<p>One the model is ready and seems to work well enough for practice, a <span class="label label-info">Data&nbsp;Engineer</span> gets involved. The mentioned
+delay a Data Warehouse has and the different kind of workload the model
+typically requires makes it necessary to get the data from a different source.
+If it should be event-based, it might be <a class="label label-primary" href="https://en.wikipedia.org/wiki/Apache_Kafka">Apache&nbsp;Kafka</a> for
+messaging or <a class="label label-primary" href="https://en.wikipedia.org/wiki/Apache_Flink">Apache&nbsp;Flink</a>. The
 important point to notice here is that machine learning models typically
 contain two seperate phases: Model training and model inference. At training
 time, one needs to process a lot of data and needs a lot of computational
 power. At inference time, each requests data is tiny. The amount of computation
 necessary is small. So it is a mixed execution mode: Regularly re-train a model
-in a batch-way and have a continuously running service for inference.</p>
-<h2 id="services">Services</h2>
+in a batch-way and have a continuously running service for inference.
+They might build things like <a class="label label-danger" href="https://milinda.pathirage.org/kappa-architecture.com/">Kappa Architectures</a> or <a class="label label-danger" href="https://en.wikipedia.org/wiki/Lambda_architecture">Lambda Architectures</a>. To
+do so, many cloud technologies can be used (see "Cloud Service Overview").</p>
+<h2 id="cloud-service-overview">Cloud Service Overview</h2>
 <dl>
 <dt><dfn>AWS Lambda</dfn> <span class="label label-primary">Compute</span></dt>
 <dd>Running small and short scripts after a triggering event. Has a delay of a couple of seconds. Provides Computational Resources.</dd>
@@ -171,13 +173,16 @@ in a batch-way and have a continuously running service for inference.</p>
 <dt><dfn>AWS EC2</dfn> <span class="label label-primary">Compute</span></dt>
 <dd></dd>
 <dt><dfn>AWS S3</dfn> <span class="label label-primary">Storage</span></dt>
-<dd></dd>
+<dd>Store Files</dd>
 <dt><dfn>AWS InnoDB</dfn> <span class="label label-primary">Storage</span></dt>
-<dd></dd>
+<dd>Key-Value Store</dd>
+<dt><dfn>AWS SSM</dfn> <span class="label label-primary">Storage</span></dt>
+<dd>Store Passwords and configuration</dd>
 </dl>
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="https://www.predictiveanalyticstoday.com/top-open-source-commercial-stream-analytics-platforms/">Top 20 Free, Open Source and Premium Stream Analytics Platforms</a></li>
+<li>PyBay2018: <a href="https://www.youtube.com/watch?v=lmP75mp3-Rg">How to Instantly Publish Data to the Internet with Datasette</a></li>
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>
