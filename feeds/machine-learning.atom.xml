@@ -1,5 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Machine Learning</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/machine-learning.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2019-04-27T20:00:00+02:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>Siamese Networks</title><link href="https://martin-thoma.com/siamese-networks/" rel="alternate"></link><published>2019-04-27T20:00:00+02:00</published><updated>2019-04-27T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2019-04-27:/siamese-networks/</id><summary type="html">&lt;p&gt;Siamese Networks are feature extractors trained to learn an embedding in &lt;span class="math"&gt;\(\mathbb{R}^n\)&lt;/span&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Machine Learning</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/machine-learning.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2019-12-02T20:00:00+01:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>Data Applications</title><link href="https://martin-thoma.com/data-applications/" rel="alternate"></link><published>2019-12-02T20:00:00+01:00</published><updated>2019-12-02T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2019-12-02:/data-applications/</id><summary type="html">&lt;p&gt;"Data is the new oil", "we need to be data driven",
+"we need to apply AI to keep being competitive" are some of the prashes I hear
+a lot. As I haven't seen yet a clear article pointing out what is done with
+the data ... here you are 🙂&lt;/p&gt;
+&lt;h2 id="why-its-complicated"&gt;Why it's …&lt;/h2&gt;</summary><content type="html">&lt;p&gt;"Data is the new oil", "we need to be data driven",
+"we need to apply AI to keep being competitive" are some of the prashes I hear
+a lot. As I haven't seen yet a clear article pointing out what is done with
+the data ... here you are 🙂&lt;/p&gt;
+&lt;h2 id="why-its-complicated"&gt;Why it's complicated&lt;/h2&gt;
+&lt;p&gt;Coorporations have a lot of data which is analyzed under different aspects
+all the time. Micro services are built which have their own data flows,
+applications and services are updated while they are running. Bugs get fixed.
+All of this makes the data very heterogenous.&lt;/p&gt;
+&lt;p&gt;Data quality problems include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Mixed attribute availability&lt;/strong&gt;: Changes and bugs lead to NULL values.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Semantic Changes&lt;/strong&gt;: The applications which produce the data might change.
+  Maybe you have "price" column somewhere. At one point it included tax, at
+  another it doesn't. Time might be local, server and UTC. Durations might be
+  seconds and milliseconds.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Consistency&lt;/strong&gt;: The data format might change. Maybe the user name is sometimes "FIRSTNAME
+  LASTNAME" and in other cases "LASTNAME, FIRSTNAME".&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Duplicates&lt;/strong&gt;: Some entries might be duplicated, e.g. multiple form submission.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Engineering problems include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Big Data&lt;/strong&gt;: The amount of data might be bigger than what fits into memory.
+  Maybe even bigger than what fits on a single machine.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Fast Data&lt;/strong&gt;: The incoming data might need to be processed in a few
+  milliseconds.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Privacy&lt;/strong&gt;: How do we make the platform GDPR complient?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Security&lt;/strong&gt;: Authentifiction and Authorization&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--
+
+Buzz-Words: label label-warning
+Technologies: label label-primary
+Roles: label label-info
+    ---&gt;
+&lt;h2 id="data-warehouse"&gt;Data Warehouse&lt;/h2&gt;
+&lt;p&gt;If you have many different data sources and you want to analyze them often, you
+want a &lt;a href="https://en.wikipedia.org/wiki/Data_warehouse"&gt;Data Warehouse&lt;/a&gt; (DWH). A
+central place where the data lives. It is likely not completely recent, but
+should not be too old either. One Data Warehousing solution as a service
+is &lt;a href="https://en.wikipedia.org/wiki/Snowflake_Inc."&gt;&lt;span class="label label-primary"&gt;Snowflake&lt;/span&gt;&lt;/a&gt;.
+&lt;a href="https://en.wikipedia.org/wiki/Amazon_Redshift"&gt;&lt;span class="label label-primary"&gt;Amazon Redshift&lt;/span&gt;&lt;/a&gt; is another one
+(&lt;a href="https://www.youtube.com/watch?v=_qKm6o1zK3U"&gt;promo video&lt;/a&gt;).
+You can execute SQL queries in those warehouses. So you can already make use of
+that data to answer simple questions.&lt;/p&gt;
+&lt;h2 id="reports-and-dashboards"&gt;Reports and Dashboards&lt;/h2&gt;
+&lt;p&gt;Sometimes a table as a result is not enough. You need graphics. The first step
+might be Excel, but very often this is cumbersome as the data load is too big,
+as one needs to download the data from the warehouse. Then
+&lt;a href="https://en.wikipedia.org/wiki/Tableau_Software"&gt;&lt;span class="label label-primary"&gt;Tableau&lt;/span&gt;&lt;/a&gt;
+(&lt;a href="https://www.youtube.com/watch?v=VUVqj7YsWmU"&gt;promo&amp;nbsp;video&lt;/a&gt;) and
+&lt;a href="https://en.wikipedia.org/wiki/Qlik"&gt;&lt;span class="label label-primary"&gt;QlikView&lt;/span&gt;&lt;/a&gt;
+(&lt;a href="https://www.youtube.com/watch?v=sqILcEwlHSI"&gt;promo&amp;nbsp;video&lt;/a&gt;) come into
+play. The Buzzword here are &lt;span class="label label-danger"&gt;data driven&lt;/span&gt; and &lt;span class="label label-danger"&gt;self-service BI&lt;/span&gt;. People using
+this software are often called &lt;span class="label label-info"&gt;Business
+Analysts&lt;/span&gt; and work in an &lt;i&gt;BI department&lt;/i&gt;. They usually create
+dashboards and reports which drive business decisions.&lt;/p&gt;
+&lt;h2 id="poc-model-creation"&gt;POC: Model creation&lt;/h2&gt;
+&lt;p&gt;Sometimes, analysis of the past behavior is not enough. You need a predictive
+model for future cases. Maybe even have it as a part of a customer-facing
+product. Now you need a &lt;span class="label label-info"&gt;Data Scientist&lt;/span&gt;.
+The work starts at the warehouse. As the warehouses and QlikView / Tableaus
+options are too limited, the data scientist gets a dump of the relevant parts.
+This might include some aggregtions, filtering and unions in the warehouse
+before, but at some point it will likely be imported in an environment where
+Python can be used. The Data Scientist analyzes the data, e.g. with a
+&lt;a href="https://en.wikipedia.org/wiki/Project_Jupyter"&gt;&lt;span class="label label-primary"&gt;Jupyter&amp;nbsp;Notebook&lt;/span&gt;&lt;/a&gt;. Usually
+the data contains many problems like unrealistic values or missing data (NULL
+values). Then the model creation part starts. This could still happen in the
+Notebook. To solve the prediction task, the data scientist might use models
+such as &lt;a class="label label-danger" href="https://en.wikipedia.org/wiki/Support-vector_machine"&gt;SVMs&lt;/a&gt;, &lt;a class="label label-danger" href="https://en.wikipedia.org/wiki/Artificial_neural_network"&gt;neural networks&lt;/a&gt; or &lt;a class="label label-danger" href="https://en.wikipedia.org/wiki/Random_forest"&gt;Random Forests&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The data scientists create a &lt;dfn&gt;Proof of Concept (PoC)&lt;/dfn&gt;. The model is
+not in a state to be used directly in production, because a lot of the cables
+might not be connected. But it should be clear from the PoC if the data allows
+building the kind of model you want to have. A valid outcome of the PoC is that
+it is (currently) not possible.&lt;/p&gt;
+&lt;p&gt;The two parts that can consume arbitrary much time are data cleaning and model
+optimization. Even after the PoC. If you're interested in that topic, ping me
+in the comments.&lt;/p&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;a href="../images/2019/12/data-warehouse-analytics.png"&gt;&lt;img alt="Relationship between Data Warehouse, Reports, Dashboards and Notebooks" src="../images/2019/12/data-warehouse-analytics.png" style="width: 512px;"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;Relationship between Data Warehouse, Reports, Dashboards and Notebooks&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id="from-poc-to-mvp"&gt;From POC to MVP&lt;/h2&gt;
+&lt;div class="info"&gt;There might be a "prototype" step in between. It might be that the data science work looks promising, but too many questions are still unclear from the look-and-feel of the product. For the real product one needs a lot of developer time for making sure it scales well, having a nice design and making sure to get the security parts right. Instead of investing that time right away, one might create a prototype which cuts corners and gives internal stakeholders a better impression of the end product. They can then decide if they want to invest the money to create an MVP.&lt;/div&gt;
+&lt;p&gt;Once the model is ready and seems to work well enough for practice, a &lt;span class="label label-info"&gt;Data&amp;nbsp;Engineer&lt;/span&gt; gets involved. The mentioned
+delay a Data Warehouse often has and the different kind of workload the model
+typically requires makes it necessary to get the data from a different source.
+If it should be event-based, it might be &lt;a class="label label-primary" href="https://en.wikipedia.org/wiki/Apache_Kafka"&gt;Apache&amp;nbsp;Kafka&lt;/a&gt; for
+messaging or &lt;a class="label label-primary" href="https://en.wikipedia.org/wiki/Apache_Flink"&gt;Apache&amp;nbsp;Flink&lt;/a&gt;.
+The important point to notice here is that machine learning models typically
+contain two seperate phases: Model training and model inference. At training
+time, one needs to process a lot of data and needs a lot of computational
+power. At inference time, each requests data is tiny. The amount of computation
+necessary is small. So it is a mixed execution mode: Regularly re-train a model
+in a batch-way and have a continuously running service for inference.
+They might build things like &lt;a class="label label-danger" href="https://milinda.pathirage.org/kappa-architecture.com/"&gt;Kappa Architectures&lt;/a&gt; or &lt;a class="label label-danger" href="https://en.wikipedia.org/wiki/Lambda_architecture"&gt;Lambda Architectures&lt;/a&gt;. To
+do so, many cloud technologies can be used (see "Cloud Service Overview").&lt;/p&gt;
+&lt;p&gt;If you wish to get more information about this part, ping me in the comments.&lt;/p&gt;
+&lt;h2 id="cloud-service-overview"&gt;Cloud Service Overview&lt;/h2&gt;
+&lt;p&gt;The following cloud services might be used to create services which run in
+the cloud:&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;dfn&gt;AWS Lambda&lt;/dfn&gt; &lt;span class="label label-primary"&gt;Compute&lt;/span&gt;&lt;/dt&gt;
+&lt;dd&gt;Running small and short scripts after a triggering event. Has a delay of a couple of seconds. Provides Computational Resources.&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;AWS Cloudformation&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;Infrastructure as Code (IaC) Tool&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;AWS EC2&lt;/dfn&gt; &lt;span class="label label-primary"&gt;Compute&lt;/span&gt; (&lt;a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html"&gt;AWS&lt;/a&gt;)&lt;/dt&gt;
+&lt;dd&gt;provides scalable computing capacity; &lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;AWS S3&lt;/dfn&gt; &lt;span class="label label-primary"&gt;Storage&lt;/span&gt;&lt;/dt&gt;
+&lt;dd&gt;Store Files&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;AWS InnoDB&lt;/dfn&gt; &lt;span class="label label-primary"&gt;Storage&lt;/span&gt;&lt;/dt&gt;
+&lt;dd&gt;Key-Value Store&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;AWS SSM&lt;/dfn&gt; &lt;span class="label label-primary"&gt;Storage&lt;/span&gt;&lt;/dt&gt;
+&lt;dd&gt;Store Passwords and configuration&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;AWS Athena&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;run interactive queries directly against data in Amazon S3&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;AWS Kinesis&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;a real-time data processing platform&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;AWS Redshift&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;fully managed, petabyte-scale data warehouse to run complex queries on collections of structured data&lt;/dd&gt;
+&lt;dt&gt;&lt;dfn&gt;Amazon EMR&lt;/dfn&gt;&lt;/dt&gt;
+&lt;dd&gt;deploy open source, big data frameworks like Apache Hadoop, Spark, Presto, HBase, and Flink&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.predictiveanalyticstoday.com/top-open-source-commercial-stream-analytics-platforms/"&gt;Top 20 Free, Open Source and Premium Stream Analytics Platforms&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;PyBay2018: &lt;a href="https://www.youtube.com/watch?v=lmP75mp3-Rg"&gt;How to Instantly Publish Data to the Internet with Datasette&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Data"></category><category term="IaC"></category><category term="AWS"></category><category term="Kafka"></category><category term="Data Science"></category><category term="Data Engineering"></category></entry><entry><title>Siamese Networks</title><link href="https://martin-thoma.com/siamese-networks/" rel="alternate"></link><published>2019-04-27T20:00:00+02:00</published><updated>2019-04-27T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2019-04-27:/siamese-networks/</id><summary type="html">&lt;p&gt;Siamese Networks are feature extractors trained to learn an embedding in &lt;span class="math"&gt;\(\mathbb{R}^n\)&lt;/span&gt;
 where not the absolute output is important, but the relative one.&lt;/p&gt;
 &lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
 &lt;a href="../images/2019/04/siamese-networks.png"&gt;&lt;img alt="Schema of a Siamese Network" src="../images/2019/04/siamese-networks.png" style="width: 512px;"/&gt;&lt;/a&gt;
