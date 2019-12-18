@@ -174,7 +174,7 @@ solution. In the following is a list of the components:
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Mersenne_Twister">Mersenne Twister</a></td>
             <td style="background-color: #ccffcc" class="text-center"><span style="color:green;" title="Yes">✔️</span></td>
-            <td style="background-color: #ccffcc">Very different results</td>
+            <td style="background-color: #ccffcc">Different results</td>
             <td><a href="https://docs.python.org/3/library/random.html">Python 2.3 to 3.8</a>, <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/Random.html">R</a></td>
         </tr>
         <tr>
@@ -200,6 +200,18 @@ solution. In the following is a list of the components:
             <td class="text-center">?</td>
             <td class="text-center">?</td>
             <td><a href="https://v8.dev/blog/math-random">JavaScript (V8)</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://en.wikipedia.org/wiki/Xoroshiro128%2B">Xoroshiro128+</a></td>
+            <td style="background-color: #ccffcc" class="text-center"><span style="color:green;" title="Yes">✔️</span></td>
+            <td style="background-color: #ccffcc">Different results</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><a href="https://en.wikipedia.org/wiki/Counter-based_random_number_generator_(CBRNG)">Threefry / Philox</a></td>
+            <td style="background-color: #ccffcc" class="text-center"><span style="color:green;" title="Yes">✔️</span></td>
+            <td style="background-color: #ccffcc">Different results</td>
+            <td></td>
         </tr>
     </tbody>
 </table>
@@ -227,7 +239,7 @@ look better:
         <td><a href="../images/2019/11/1000-random-numbers-numpy.png"><img src="../images/2019/11/1000-random-numbers-numpy.png" alt="Numpy Pseudo-Random Number Generator" width="300" height="300"/></a></td>
     </tr>
     <tr>
-        <td>Do you see the stripes? This means neighboring seeds lead to similar sequences. Kudos to my colleague James who made me aware of this problem.</td>
+        <td>Do you see the stripes? This means neighboring seeds lead to similar sequences. Kudos to my colleague <a href="http://jblewitt.com/blog/">James Blewitt</a> who made me aware of this problem.</td>
         <td colspan="2">This is how it should look like - no pattern to be seen.</td>
     </tr>
     <tr>
@@ -274,6 +286,7 @@ care of how <code>random.random()</code> actually works
 [^2]: Melissa E. O'Neill: [PCG: A Family of Simple Fast Space-Efficient Statistically Good Algorithms for Random Number Generation](https://www.cs.hmc.edu/tr/hmc-cs-2014-0905.pdf), 2014.
 [^3]: Babu, Thomas: [Freestyle, a randomized version of ChaCha for resisting offline brute-force and dictionary attacks](https://arxiv.org/abs/1802.03201), 2018.
 [^4]: Optimizely: [How bucketing works](https://docs.developers.optimizely.com/full-stack/docs/how-bucketing-works)
-[^5]: Dario Gieselaar
-: [The Engineering Problem of A/B Testing](https://levelup.gitconnected.com/the-engineering-problem-of-a-b-testing-ac1adfd492a8), 2019. - Just a nice post about A/B Testing in general.
+[^5]: Dario Gieselaar: [The Engineering Problem of A/B Testing](https://levelup.gitconnected.com/the-engineering-problem-of-a-b-testing-ac1adfd492a8), 2019. - Just a nice post about A/B Testing in general.
 [^6]: [Bit Generators](https://docs.scipy.org/doc/numpy/reference/random/bit_generators/)
+[^7]: PyPI: [randomgen](https://pypi.org/project/randomgen/)
+[^8]: Wikipedia: [List of random number generators](https://en.wikipedia.org/wiki/List_of_random_number_generators)

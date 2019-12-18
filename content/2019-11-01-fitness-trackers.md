@@ -82,8 +82,8 @@ activated when I showered.
     </tr>
     <tr>
         <th>Step Counter</th>
-        <td>✔️</td>
-        <td>✔️</td>
+        <td><span style="color:green;" title="Yes">✔️</span></td>
+        <td><span style="color:green;" title="Yes">✔️</span></td>
     </tr>
     <tr>
         <th>Bluetooth</th>
@@ -107,8 +107,8 @@ activated when I showered.
     </tr>
     <tr>
         <th>Clock</th>
-        <td>✔️</td>
-        <td>✔️</td>
+        <td><span style="color:green;" title="Yes">✔️</span></td>
+        <td><span style="color:green;" title="Yes">✔️</span></td>
     </tr>
     <tr>
         <th>Battery</th>
@@ -127,8 +127,8 @@ activated when I showered.
     </tr>
     <tr>
         <th>Sleep Tracking</th>
-        <td>✔️</td>
-        <td>✔️</td>
+        <td><span style="color:green;" title="Yes">✔️</span></td>
+        <td><span style="color:green;" title="Yes">✔️</span></td>
     </tr>
     <tr>
         <th>Battery Life (continuous use)</th>
@@ -142,7 +142,7 @@ activated when I showered.
     </tr>
     <tr>
         <th>Google Fit</th>
-        <td>✔️</td>
+        <td><span style="color:green;" title="Yes">✔️</span></td>
         <td>✗</td>
     </tr>
 </table>

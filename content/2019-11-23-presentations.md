@@ -3,7 +3,7 @@ layout: post
 title: How to hold good Presentations
 slug: presentations
 author: Martin Thoma
-date: 2019-01-17 20:00
+date: 2019-11-17 20:00
 category: My bits and bytes
 tags: Presentations, Knowledge Sharing
 featured_image: logos/star.png
@@ -77,6 +77,18 @@ cannot possibly knwo what it is about, this is pretty open to everybody.
 The last title is taken from a paper. You will lose most people with the title
 alone, but you will make sure that the audience has some technical background
 
+
+## Presentation Programs
+
+Many people use Microsoft Power Point. It's a very good tool to quickly create
+something that looks ok.
+
+I like to use [LaTeX Beamer](https://martin-thoma.com/latex-beamer/), which is
+good if you want to have mathematical formulas and be sure that things always
+look the same (not having slides move a bit).
+
+Raymond Hettinger tried a couple of different approaches. For example, I have
+seen him [using Sphinx](https://www.youtube.com/watch?v=_GP9OpZPUYc) (<a href="http://www.sphinx-doc.org/en/master/">docs</a>).
 
 ## Slides
 
