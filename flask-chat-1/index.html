@@ -104,7 +104,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#architecture" title="Architecture">Architecture</a></li><li><a class="toc-href" href="#project-structure" title="Project Structure">Project Structure</a></li><li><a class="toc-href" href="#how-it-works" title="How it works">How it works</a></li><li><a class="toc-href" href="#why-this-is-awful" title="Why this is awful">Why this is awful</a></li><li><a class="toc-href" href="#complete-project" title="Complete Project">Complete Project</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#architecture" title="Architecture">Architecture</a></li><li><a class="toc-href" href="#project-structure" title="Project Structure">Project Structure</a></li><li><a class="toc-href" href="#how-it-works" title="How it works">How it works</a></li><li><a class="toc-href" href="#user-experience" title="User Experience">User Experience</a></li><li><a class="toc-href" href="#why-this-is-awful" title="Why this is awful">Why this is awful</a></li><li><a class="toc-href" href="#complete-project" title="Complete Project">Complete Project</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -165,6 +165,17 @@ the latest message it has seen. This means most of the time the server returns
 an empty response.</p>
 <p>When the client sends a new message, it is stored in the database.</p>
 <p>That's it.</p>
+<h2 id="user-experience">User Experience</h2>
+<p>A key point that took me a bit to implement is to add the most recent messages
+at the bottom and keep scrolling with the most recent ones - but only if you
+didn't scroll up before.</p>
+<p>The key CSS classes you have are:</p>
+<ul>
+<li><code>message</code>: It can either be one you received or one you sent.</li>
+<li><code>conversation</code>: The block that contains the stream of messages.</li>
+</ul>
+<p>See <a href="https://codepen.io/swaibu/pen/QxJjwN">this codepen</a> for a nice the theme
+by Rumbiiha Swaibu.</p>
 <h2 id="why-this-is-awful">Why this is awful</h2>
 <p>Missing core functionality:</p>
 <ul>
@@ -173,6 +184,7 @@ an empty response.</p>
   change the ID to somebody elses ID. To have arbitrary many IDs. It is hard to
   know who writes something. This topic comes with a lot of other topics like
   single sign on (SSO), 2FA / MFA, password recovery...</li>
+<li>Formatting: Allow users to format messages (bold, italic, links, math mode, ...)</li>
 <li>Chatrooms: People want to have private conversations. Conversations splitted
   by topic.</li>
 <li>Search: Once you have different rooms, you might want to search across rooms.</li>
@@ -181,7 +193,8 @@ an empty response.</p>
 </ul>
 <p>Other missing functionality:</p>
 <ul>
-<li>Video chat</li>
+<li>Calls and Video chat</li>
+<li>Themes: Let users change the default looks</li>
 <li>Tennants: Besides chats / chatrooms, you might want to run the chat
   appliction as a service for organizations. They have their own (seperate)
   users and chat rooms. Maybe have some possibilities for customization.</li>
