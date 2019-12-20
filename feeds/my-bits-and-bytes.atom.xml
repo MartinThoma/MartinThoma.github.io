@@ -1,5 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - My bits and bytes</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/my-bits-and-bytes.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2019-12-18T20:00:00+01:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>Chicken Fried Rice</title><link href="https://martin-thoma.com/chicken-fried-rice/" rel="alternate"></link><published>2019-12-18T20:00:00+01:00</published><updated>2019-12-18T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2019-12-18:/chicken-fried-rice/</id><summary type="html">&lt;p&gt;Chicken with fried rice is nice for getting rid of leftovers.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - My bits and bytes</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/my-bits-and-bytes.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2019-12-20T12:00:00+01:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>Flask Chat - Part I</title><link href="https://martin-thoma.com/flask-chat-1/" rel="alternate"></link><published>2019-12-20T12:00:00+01:00</published><updated>2019-12-20T12:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2019-12-20:/flask-chat-1/</id><summary type="html">&lt;p&gt;Chat applications are everywhere nowadays. The two best-known ones are probably
+Slack and WhatsApp. If you keep the amount of users low (e.g. less than 100)
+and the number of features limited, then it is actually pretty easy to create
+such a chat app.&lt;/p&gt;
+&lt;p&gt;I've create a small proof …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Chat applications are everywhere nowadays. The two best-known ones are probably
+Slack and WhatsApp. If you keep the amount of users low (e.g. less than 100)
+and the number of features limited, then it is actually pretty easy to create
+such a chat app.&lt;/p&gt;
+&lt;p&gt;I've create a small proof of concept chat app with Flask and jQuery. It runs in
+the browser.&lt;/p&gt;
+&lt;h2 id="architecture"&gt;Architecture&lt;/h2&gt;
+&lt;p&gt;We will keep it simple for this tutorial:&lt;/p&gt;
+&lt;figure class="wp-caption aligncenter img-thumbnail"&gt;
+&lt;a href="../images/2019/12/chat-flask.png"&gt;&lt;img alt="Chat App" src="../images/2019/12/chat-flask.png" style="width: 512px;"/&gt;&lt;/a&gt;
+&lt;figcaption class="text-center"&gt;Chat App&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;We store the messages - and only that - in a single table in a SQLite database.
+We have an API which has one endpoint &lt;code&gt;messages&lt;/code&gt; which allows to
+&lt;code&gt;GET&lt;/code&gt; messages (filtered by id) and to &lt;code&gt;POST&lt;/code&gt; a new
+message.&lt;/p&gt;
+&lt;p&gt;The backend is done with Flask.&lt;/p&gt;
+&lt;p&gt;The front end is partially done with &lt;a href="https://jinja.palletsprojects.com/en/2.10.x/"&gt;Jinja2&lt;/a&gt; and partially with jQuery.&lt;/p&gt;
+&lt;h2 id="project-structure"&gt;Project Structure&lt;/h2&gt;
+&lt;p&gt;The folder structure is typical for Flask applications:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;.
+├── app
+│&amp;nbsp;&amp;nbsp; ├── api.py
+│&amp;nbsp;&amp;nbsp; ├── docs
+│&amp;nbsp;&amp;nbsp; ├── __init__.py
+│&amp;nbsp;&amp;nbsp; ├── main
+│&amp;nbsp;&amp;nbsp; │&amp;nbsp;&amp;nbsp; ├── __init__.py
+│&amp;nbsp;&amp;nbsp; │&amp;nbsp;&amp;nbsp; └── routes.py
+│&amp;nbsp;&amp;nbsp; ├── models.py
+│&amp;nbsp;&amp;nbsp; ├── static
+│&amp;nbsp;&amp;nbsp; └── templates
+├── Dockerfile
+├── migrations
+├── pyproject.toml
+├── README.md
+├── requirements.txt
+├── start.sh
+└── wsgi.py
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In the root directory, you have a &lt;code&gt;start.sh&lt;/code&gt; which uses the
+&lt;code&gt;wsgi.py&lt;/code&gt; to start a &lt;a href="https://en.wikipedia.org/wiki/Gunicorn"&gt;gunicorn&lt;/a&gt;
+server. The &lt;code&gt;pyproject.toml&lt;/code&gt; gives some basic configuration.&lt;/p&gt;
+&lt;p&gt;Within the &lt;code&gt;app&lt;/code&gt; directory, there is a single &lt;a href="https://flask.palletsprojects.com/en/1.0.x/blueprints/"&gt;blueprint&lt;/a&gt; called "main". The &lt;code&gt;models.py&lt;/code&gt;
+defines the &lt;a href="https://flask-sqlalchemy.palletsprojects.com/en/2.x/models/"&gt;sqlalchemy database models&lt;/a&gt;, the &lt;code&gt;api.py&lt;/code&gt; defines the REST API with &lt;a href="https://flask-restplus.readthedocs.io/en/stable/"&gt;flask restplus&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The front end is in the templates directory.&lt;/p&gt;
+&lt;h2 id="how-it-works"&gt;How it works&lt;/h2&gt;
+&lt;p&gt;When a new user opens the website, they get a session variable with a unique
+identifier. They receive all messages which were ever written (yes, in a
+productive system this is an aweful idea) and they store the latest message ID
+they have seen.&lt;/p&gt;
+&lt;p&gt;Locally, jQuery asks every 500ms for new messages. For this request, it gives
+the latest message it has seen. This means most of the time the server returns
+an empty response.&lt;/p&gt;
+&lt;p&gt;When the client sends a new message, it is stored in the database.&lt;/p&gt;
+&lt;p&gt;That's it.&lt;/p&gt;
+&lt;h2 id="why-this-is-aweful"&gt;Why this is aweful&lt;/h2&gt;
+&lt;p&gt;Missing functionality:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Registration and Authentication: It is important who writes something. So
+  people want to know the sender. In the system above, it is super easy to
+  change the ID to somebody elses ID. To have arbitrary many IDs. It is hard
+  to know who writes something.&lt;/li&gt;
+&lt;li&gt;Chatrooms: People want to have private conversations. Conversations splitted
+  by topic.&lt;/li&gt;
+&lt;li&gt;Search: Once you have different rooms, you might want to search across rooms.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Engineering:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Polling: Pining the server twice per second is no big deal if you have few
+  users. But the more users you get, the worse this will become.&lt;/li&gt;
+&lt;li&gt;Pagination: Getting all messages in the beginning is a really bad idea.&lt;/li&gt;
+&lt;li&gt;Backups were not even mentioned&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="complete-project"&gt;Complete Project&lt;/h2&gt;
+&lt;p&gt;If you want to get the complete project and look at the code, here you are:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git clone https://github.com/MartinThoma/flask-chat.git
+$ git checkout v1.0
+&lt;/pre&gt;&lt;/div&gt;</content><category term="Python"></category><category term="Flask"></category></entry><entry><title>Chicken Fried Rice</title><link href="https://martin-thoma.com/chicken-fried-rice/" rel="alternate"></link><published>2019-12-18T20:00:00+01:00</published><updated>2019-12-18T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2019-12-18:/chicken-fried-rice/</id><summary type="html">&lt;p&gt;Chicken with fried rice is nice for getting rid of leftovers.&lt;/p&gt;
 &lt;p&gt;It takes about 20 minutes to cook.&lt;/p&gt;
 &lt;h2 id="ingredients"&gt;Ingredients&lt;/h2&gt;
 &lt;ul&gt;
@@ -60,7 +141,165 @@
 &lt;li&gt;Add all ingredients to the wok.&lt;/li&gt;
 &lt;li&gt;Add salt and pepper.&lt;/li&gt;
 &lt;li&gt;Add the spring onion.&lt;/li&gt;
-&lt;/ol&gt;</content><category term="cooking"></category><category term="recipe"></category><category term="Chinese"></category></entry><entry><title>Apple Pancakes</title><link href="https://martin-thoma.com/apple-pancakes/" rel="alternate"></link><published>2019-12-18T12:00:00+01:00</published><updated>2019-12-18T12:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2019-12-18:/apple-pancakes/</id><summary type="html">&lt;p&gt;Apple Pancakes are a sweet main dish. Yes, I know, for most people outside of
+&lt;/ol&gt;</content><category term="cooking"></category><category term="recipe"></category><category term="Chinese"></category></entry><entry><title>Financial Planning</title><link href="https://martin-thoma.com/financial-planning/" rel="alternate"></link><published>2019-12-18T20:00:00+01:00</published><updated>2019-12-18T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2019-12-18:/financial-planning/</id><summary type="html">&lt;p&gt;Recently I started to think way more seriously about my finances. I think I
+should have done that more than 5 years ago and I guess this is the case for
+many people.&lt;/p&gt;
+&lt;p&gt;I think about it in goals similar to &lt;a href="https://en.wikipedia.org/wiki/Maslow%27s_hierarchy_of_needs"&gt;Maslow's hierarchy of needs&lt;/a&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;Basic Needs&lt;/em&gt;: Rent, Food, Insurances …&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;p&gt;Recently I started to think way more seriously about my finances. I think I
+should have done that more than 5 years ago and I guess this is the case for
+many people.&lt;/p&gt;
+&lt;p&gt;I think about it in goals similar to &lt;a href="https://en.wikipedia.org/wiki/Maslow%27s_hierarchy_of_needs"&gt;Maslow's hierarchy of needs&lt;/a&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;Basic Needs&lt;/em&gt;: Rent, Food, Insurances, Communication&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Extended Needs&lt;/em&gt;: Hobbies&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Retirement&lt;/em&gt;: House, Monthly cost&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;No matter what I do, I don't want to risk my appartment. I don't want to risk
+having enough food and I don't want to risk that I can't afford my insurances.&lt;/p&gt;
+&lt;h2 id="needs"&gt;Needs&lt;/h2&gt;
+&lt;h3 id="basic-needs"&gt;Basic Needs&lt;/h3&gt;
+&lt;table class="table"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Item&lt;/th&gt;
+&lt;th&gt;EUR / Month&lt;/th&gt;
+&lt;th&gt;EUR / Year&lt;/th&gt;
+&lt;th&gt;Comment&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;th&gt;Rent&lt;/th&gt;
+&lt;td&gt;510&lt;/td&gt;
+&lt;td&gt;6120&lt;/td&gt;
+&lt;td&gt;This includes everything: Heating, electricity, waste (&lt;a href="https://de.wikipedia.org/wiki/Nebenkosten"&gt;Nebenkosten&lt;/a&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Food &amp;amp; Hygene&lt;/th&gt;
+&lt;td&gt;150&lt;/td&gt;
+&lt;td&gt;1800&lt;/td&gt;
+&lt;td&gt;This might be hard to estimate. If you have a seperate bank account or pay in cash, you can just check what is currently the case.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Transportation&lt;/td&gt;
+&lt;td&gt;86&lt;/td&gt;
+&lt;td&gt;1032&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://www.mvg.de/tickets-tarife/vielfahrer/isarcard.html"&gt;IsarCard M&lt;/a&gt; and 30 EUR for visiting people outside of Munich&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Communication&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;In my case Internet is included in the rent and I can use the work phone for the few calls I need make&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Clothes&lt;/td&gt;
+&lt;td&gt;50&lt;/td&gt;
+&lt;td&gt;600&lt;/td&gt;
+&lt;td&gt;This is super hard to estimate. I basically have no idea how to do this well&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://en.wikipedia.org/wiki/Liability_insurance"&gt;Liability insurance&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;3.34&lt;/td&gt;
+&lt;td&gt;40.08&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tfoot&gt;
+&lt;tr&gt;
+&lt;th&gt;Sum&lt;/th&gt;
+&lt;th&gt;800&lt;/th&gt;
+&lt;th&gt;9592&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/tfoot&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;According to &lt;a href="https://www.numbeo.com/cost-of-living/city-estimator/in/Munich"&gt;numbeo&lt;/a&gt;
+I should consider a monthly cost of 1293&amp;thinsp;EUR. They think I should rather
+calculate with 200 EUR / month for food and only 32 EUR / month for clothes.&lt;/p&gt;
+&lt;h3 id="extended-needs"&gt;Extended Needs&lt;/h3&gt;
+&lt;p&gt;This is highly personal. To give you some ideas:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Bouldering: 600 EUR / year = 50 EUR / month&lt;/li&gt;
+&lt;li&gt;Vacation: 600 EUR / year = 50 EUR / month&lt;/li&gt;
+&lt;li&gt;Books: 40 EUR / month&lt;/li&gt;
+&lt;li&gt;Dating: 25 EUR / month&lt;/li&gt;
+&lt;li&gt;Going in a restaurant once a month: 25 EUR / month&lt;/li&gt;
+&lt;li&gt;Going to the cinema once a month: 10 EUR / month&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;That would be 200 EUR / month.&lt;/p&gt;
+&lt;h3 id="retirement"&gt;Retirement&lt;/h3&gt;
+&lt;p&gt;Now this is an interesting one. How much money do I need to live the rest of my
+live? You could say that it is simply "Basic Needs" + "Extended Needs". Keep in
+mind that both points will sharply increase when you have children. Also, as an
+eldery person you might have different needs compared to your current
+situation. On the one hand, you might be able to live in a location which is
+way cheaper as you don't need to be close to your job. On the other hand, you
+might need to be close to doctors or you might need to live in the ground
+floor.&lt;/p&gt;
+&lt;p&gt;Considering those is hard on its own. Let's say you want 1500 EUR / month.&lt;/p&gt;
+&lt;h2 id="planning_1"&gt;Planning&lt;/h2&gt;
+&lt;p&gt;The amount of money in "Basic Needs" can be used in two ways:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Security&lt;/strong&gt;: I want to have at least 3 months on my bank account at all
+  times. This is money which should only be touched when the shit hits the fan.
+  Not for Christmas spendings. I have a hard time even saying what that could
+  be ... maybe when my employer would suddenly stop paying me?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Minimum Income&lt;/strong&gt;: This much money I need to make every month, no matter
+  what.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The money you can invest is Income - Basic Needs - Extended Needs. Now we get
+to the interesting point.&lt;/p&gt;
+&lt;h3 id="when-is-it-enough"&gt;When is it enough?&lt;/h3&gt;
+&lt;p&gt;When could you happily retire and live from your fortune?&lt;/p&gt;
+&lt;p&gt;Assume you were 30 years old and expect to become 90 years old. This means
+there are still 60 years to cover. With the 1500 EUR / month from the
+retirement section, this would mean you need 1&amp;thinsp;080&amp;thinsp;000 EUR. But
+it does not consider interest.&lt;/p&gt;
+&lt;p&gt;Let's assume that you would get 3% interest (excluding inflation). Assuming you
+have a fortune of &lt;span class="math"&gt;\(F\)&lt;/span&gt; you would need:&lt;/p&gt;
+&lt;div class="math"&gt;\begin{align}
+    0.03 \cdot F &amp;amp;= 1500 \text{EUR / month} \cdot 12 \text{months}\\
+    F &amp;amp;= 600000 \text{EUR}
+\end{align}&lt;/div&gt;
+&lt;p&gt;Once you reach one of the two points, you don't need to work anymore.&lt;/p&gt;
+&lt;h3 id="investments"&gt;Investments&lt;/h3&gt;
+&lt;h4 id="transactional-account"&gt;Transactional account&lt;/h4&gt;
+&lt;p&gt;A &lt;a href="https://en.wikipedia.org/wiki/Transaction_account"&gt;transaction account&lt;/a&gt; (aka
+current account or checking account) is not for investment. It is for daily
+business. You can make some money when you use reward programs for changing
+banking accounts, but that's it. In many cases they also cost money. And this
+does not even consider inflation.&lt;/p&gt;
+&lt;h4 id="certificate-of-deposit"&gt;Certificate of deposit&lt;/h4&gt;
+&lt;p&gt;A &lt;a href="https://en.wikipedia.org/wiki/Certificate_of_deposit"&gt;Certificate of deposit&lt;/a&gt;
+is one of the simplest and savest financial products you can get. You are
+guaranteed to get the money back. However, the interest is pretty low. At the
+moment, if you invest for 5 years you get about 0.6%. Inflation is at 1.5%,
+meaning you lose money.&lt;/p&gt;
+&lt;h4 id="crowdfunding"&gt;Crowdfunding&lt;/h4&gt;
+&lt;p&gt;You can invest in many different things via crowdfunding:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Exporo"&gt;Exporo&lt;/a&gt;: Real estate&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Kickstarter"&gt;Kickstarter&lt;/a&gt;: Business ideas&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I don't like them too much as I miss transparency.&lt;/p&gt;
+&lt;h4 id="exchange-traded-funds"&gt;Exchange Traded Funds&lt;/h4&gt;
+&lt;p&gt;I like &lt;a href="https://en.wikipedia.org/wiki/Exchange-traded_fund"&gt;ETFs&lt;/a&gt;. The most
+important difference between ETFs is the index they track. Besides that:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Replication: Physical or Synthetical&lt;/li&gt;
+&lt;li&gt;TER&lt;/li&gt;
+&lt;li&gt;Currency&lt;/li&gt;
+&lt;li&gt;Type of distribution: Accumulating vs Distributing&lt;/li&gt;
+&lt;li&gt;Rebalancing-Intervall: Quarterly&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you want to build up a fortune, you should invest in accumulating ETFs. If
+you want to live from your money right now, you should invest in distributing
+ETFs.&lt;/p&gt;
+&lt;p&gt;If you invested in &lt;a href="https://www.finanzen.net/etf/comstage_1_euro_stoxx_50r_ucits_etf"&gt;DE000ETF9504&lt;/a&gt;
+a year ago, you would have gotten +23.9%, but please notice that it dropped in
+value after the first year!&lt;/p&gt;</content><category term="Money"></category></entry><entry><title>Apple Pancakes</title><link href="https://martin-thoma.com/apple-pancakes/" rel="alternate"></link><published>2019-12-18T12:00:00+01:00</published><updated>2019-12-18T12:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2019-12-18:/apple-pancakes/</id><summary type="html">&lt;p&gt;Apple Pancakes are a sweet main dish. Yes, I know, for most people outside of
 Germany this sounds superweird. If you are used to US pancakes, be aware that
 the following pancakes taste way different. No need for maple syrup as my apple
 pancakes have a nice flavour on their …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Apple Pancakes are a sweet main dish. Yes, I know, for most people outside of
@@ -818,14 +1057,14 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tr&gt;
-&lt;td&gt;Banana&lt;/td&gt;
+&lt;td&gt;Banana (Bananen)&lt;/td&gt;
 &lt;td&gt;1 / week&lt;/td&gt;
 &lt;td&gt;1 week&lt;/td&gt;
 &lt;td&gt;0.99 EUR / kg&lt;/td&gt;
 &lt;td&gt;8.91 EUR / year&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;Apples&lt;/td&gt;
+&lt;td&gt;Apples (&amp;Auml;pfel)&lt;/td&gt;
 &lt;td&gt;3 kg / year&lt;/td&gt;
 &lt;td&gt;3 months (?)&lt;/td&gt;
 &lt;td&gt;0.89 EUR / kg&lt;/td&gt;
@@ -887,15 +1126,15 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Onion&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;2 kg / 3 months&lt;/td&gt;
+&lt;td&gt;2 months (?)&lt;/td&gt;
+&lt;td&gt;0.79 EUR / 2kg&lt;/td&gt;
+&lt;td&gt;3.16 EUR / year&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Garlic&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;2 months (?)&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
@@ -909,7 +1148,7 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;a href="https://en.wikipedia.org/wiki/Cherry_tomato"&gt;Cherrystrauchtomaten&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;1 week&lt;/td&gt;
 &lt;td&gt;1.99 EUR / package&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
@@ -1048,7 +1287,7 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tr&gt;
-&lt;td&gt;Milk&lt;/td&gt;
+&lt;td&gt;Milk (Milch)&lt;/td&gt;
 &lt;td&gt;1 L / week&lt;/td&gt;
 &lt;td&gt;2 months(?)&lt;/td&gt;
 &lt;td&gt;0.65 EUR / L&lt;/td&gt;
@@ -1109,7 +1348,7 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;23.94 EUR / year&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;Jasmin Rice&lt;/td&gt;
+&lt;td&gt;Jasmin Rice (Reis)&lt;/td&gt;
 &lt;td&gt;1 kg / 2 months&lt;/td&gt;
 &lt;td&gt;2 years&lt;/td&gt;
 &lt;td&gt;1.89 EUR / kg&lt;/td&gt;
