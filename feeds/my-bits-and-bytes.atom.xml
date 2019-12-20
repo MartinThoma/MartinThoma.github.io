@@ -51,14 +51,14 @@ defines the &lt;a href="https://flask-sqlalchemy.palletsprojects.com/en/2.x/mode
 &lt;h2 id="how-it-works"&gt;How it works&lt;/h2&gt;
 &lt;p&gt;When a new user opens the website, they get a session variable with a unique
 identifier. They receive all messages which were ever written (yes, in a
-productive system this is an aweful idea) and they store the latest message ID
+productive system this is an awful idea) and they store the latest message ID
 they have seen.&lt;/p&gt;
 &lt;p&gt;Locally, jQuery asks every 500ms for new messages. For this request, it gives
 the latest message it has seen. This means most of the time the server returns
 an empty response.&lt;/p&gt;
 &lt;p&gt;When the client sends a new message, it is stored in the database.&lt;/p&gt;
 &lt;p&gt;That's it.&lt;/p&gt;
-&lt;h2 id="why-this-is-aweful"&gt;Why this is aweful&lt;/h2&gt;
+&lt;h2 id="why-this-is-awful"&gt;Why this is awful&lt;/h2&gt;
 &lt;p&gt;Missing core functionality:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Registration and Authentication: It is important who writes something. So
@@ -81,10 +81,12 @@ an empty response.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;p&gt;Engineering:&lt;/p&gt;
 &lt;ul&gt;
+&lt;li&gt;Scalability: If the database comes to its limits, you have to get a bigger
+  machine. Other databases like AWS DynamoDB might have better behaviour.&lt;/li&gt;
+&lt;li&gt;Backups were not even mentioned&lt;/li&gt;
 &lt;li&gt;Polling: Pining the server twice per second is no big deal if you have few
   users. But the more users you get, the worse this will become.&lt;/li&gt;
 &lt;li&gt;Pagination: Getting all messages in the beginning is a really bad idea.&lt;/li&gt;
-&lt;li&gt;Backups were not even mentioned&lt;/li&gt;
 &lt;li&gt;Front Ends: You might want way more. For example, native apps for smartphones.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="complete-project"&gt;Complete Project&lt;/h2&gt;
