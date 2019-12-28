@@ -14,20 +14,20 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="Development, My bits and bytes, " />
+<meta name="keywords" content="Machine Learning, My bits and bytes, " />
 
-<meta property="og:title" content="Software Stacks "/>
-<meta property="og:url" content="../drafts/software-stacks.html" />
-<meta property="og:description" content="Software stacks are projects of software which nicely work together. They are sometimes also called solution stacks. Here are some of which I know that they are widely spread. LAMP What it is good for: Simple start for creating web services. Software: Linux: Operating System Apache: Web Server MySQL: Database …" />
+<meta property="og:title" content="Face Recognition "/>
+<meta property="og:url" content="../face-recognition/" />
+<meta property="og:description" content="This is an article I had for quite a while as a draft. As part of my yearly cleanup, I&#39;ve published it without finishing it. It might not be finished or have other problems. A few days ago, I took a flight from Nepal back to Germany. I was 3 …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
-<meta property="og:article:published_time" content="2019-01-17T20:00:00+01:00" />
-<meta name="twitter:title" content="Software Stacks ">
-<meta name="twitter:description" content="Software stacks are projects of software which nicely work together. They are sometimes also called solution stacks. Here are some of which I know that they are widely spread. LAMP What it is good for: Simple start for creating web services. Software: Linux: Operating System Apache: Web Server MySQL: Database …">
-<meta property="og:image" content="logos/star.png" />
-<meta name="twitter:image" content="logos/star.png" >
+<meta property="og:article:published_time" content="2019-12-28T20:00:00+01:00" />
+<meta name="twitter:title" content="Face Recognition ">
+<meta name="twitter:description" content="This is an article I had for quite a while as a draft. As part of my yearly cleanup, I&#39;ve published it without finishing it. It might not be finished or have other problems. A few days ago, I took a flight from Nepal back to Germany. I was 3 …">
+<meta property="og:image" content="logos/ml.png" />
+<meta name="twitter:image" content="logos/ml.png" >
 
-        <title>Software Stacks  · Martin Thoma
+        <title>Face Recognition  · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../drafts/software-stacks.html"> Software Stacks  </a></h1>
+    <h1><a href="../face-recognition/"> Face Recognition  </a></h1>
     </header>
 </div>
 
@@ -104,74 +104,51 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#lamp" title="LAMP">LAMP</a></li><li><a class="toc-href" href="#lnmp" title="LNMP">LNMP</a></li><li><a class="toc-href" href="#mean" title="MEAN">MEAN</a></li><li><a class="toc-href" href="#elk" title="ELK">ELK</a></li><li><a class="toc-href" href="#android" title="Android">Android</a></li><li><a class="toc-href" href="#ios" title="iOS">iOS</a></li><li><a class="toc-href" href="#epp" title="EPP">EPP</a></li><li><a class="toc-href" href="#rsn" title="RSN">RSN</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#face-recognition-tasks" title="Face Recognition Tasks">Face Recognition Tasks</a></li><li><a class="toc-href" href="#important-papers" title="Important papers">Important papers</a></li><li><a class="toc-href" href="#problems" title="Problems">Problems</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>Software stacks are projects of software which nicely work together.
-They are sometimes also called <a href="https://en.wikipedia.org/wiki/Solution_stack">solution stacks</a>. Here are some of which I know that they are widely spread.</p>
-<h2 id="lamp">LAMP</h2>
-<p>What it is good for: Simple start for creating web services.</p>
-<p>Software:</p>
+            <div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
+<p>A few days ago, I took a flight from Nepal back to Germany. I was 3 weeks
+trekking. Of course, I did not take my beard trimmer with me. So what is
+usually a three-day beard became a 3 week beard. And when I tried to get through
+those automatic face recognition entries for EU citicenz, the machine spent like
+one minute trying to recognize me (usually it takes about 5 seconds).</p>
+<p>That was when I started wondering what the current state of face recognition is.
+Not only the state of the art techniques, but more what is currently available
+in free software.</p>
+<h2 id="face-recognition-tasks">Face Recognition Tasks</h2>
+<p>There are four main tasks in face recognition:</p>
 <ul>
-<li>Linux: Operating System</li>
-<li><a href="https://en.wikipedia.org/wiki/Apache_HTTP_Server">Apache</a>: Web Server</li>
-<li>MySQL: Database management system</li>
-<li>PHP: Programming language</li>
+<li><strong>Face Detection</strong>: Given an image, draw an axis-aligned bounding box around each face</li>
+<li><strong>Face Alignment</strong>: Transform a face to be in a canonical pose</li>
+<li><strong>Face Representation</strong>: Find a representation for a face which is suitable for follow-up tasks</li>
+<li><strong>Face Verification</strong>: Given two face representations, decide if they are the same</li>
 </ul>
-<h2 id="lnmp">LNMP</h2>
-<p>What it is good for: Creating web services.</p>
-<p>Software:</p>
+<h2 id="important-papers">Important papers</h2>
 <ul>
-<li>Linux: Operating System</li>
-<li>Nginx: web server</li>
-<li>MySQL / MariaDB: Database management system</li>
-<li>Perl, PHP, Python: Programming language</li>
+<li><a href="https://www.cs.toronto.edu/~ranzato/publications/taigman_cvpr14.pdf">Deep Face: closing the gap to human level performance</a> (<a href="http://www.shortscience.org/paper?bibtexKey=conf/cvpr/TaigmanYRW14#martinthoma">summary</a>)</li>
+<li><a href="https://arxiv.org/abs/1503.03832">FaceNet: A unified embedding for face recognition and clustering</a> (<a href="http://www.shortscience.org/paper?bibtexKey=journals/corr/1503.03832">summary</a>)</li>
+<li><a href="https://www.robots.ox.ac.uk/~vgg/publications/2015/Parkhi15/parkhi15.pdf">Deep Face recognition</a> (<a href="http://www.shortscience.org/paper?bibtexKey=conf/bmvc/ParkhiVZ15">summary</a>)</li>
 </ul>
-<h2 id="mean">MEAN</h2>
-<p>What it is good for: Creating web services.</p>
-<p>Software:</p>
+<h2 id="problems">Problems</h2>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2019/04/face_recongition_error_statue.jpg"><img alt="A face, but not a human" src="../images/2019/04/face_recongition_error_statue.jpg" style="width: 400px;"/></a>
+<figcaption class="text-center">A face, but not a human</figcaption>
+</figure>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2019/04/face_recongition_error_statue-3.jpg"><img alt="Again a couple of faces, but not human faces" src="../images/2019/04/face_recongition_error_statue-3.jpg" style="width: 512px;"/></a>
+<figcaption class="text-center">Again a couple of faces, but not human faces</figcaption>
+</figure>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2019/04/face_recongition_error_noface.jpg"><img alt="No face at all - not even close" src="../images/2019/04/face_recongition_error_noface.jpg" style="width: 512px;"/></a>
+<figcaption class="text-center">No face at all - not even close</figcaption>
+</figure>
+<h2 id="see-also">See also</h2>
 <ul>
-<li>MongoDB: Database</li>
-<li>Express.js: Controller layer</li>
-<li>Angular: Presentation layer</li>
-<li>Node.js: Web server</li>
-</ul>
-<h2 id="elk">ELK</h2>
-<p>What it is good for: Search, analyze and visualize data in real time.</p>
-<p>Software:</p>
-<ul>
-<li>Elasticsearch: search and analytics engine</li>
-<li>Logstash: server‑side data processing pipeline</li>
-<li>Kibana: let users visualize data</li>
-</ul>
-<h2 id="android">Android</h2>
-<p>Software:</p>
-<ul>
-<li>Editor: <a href="https://developer.android.com/studio/">Android Studio</a></li>
-<li>Programming language: Java / <a href="https://en.wikipedia.org/wiki/Kotlin_(programming_language)">Kotlin</a></li>
-</ul>
-<h2 id="ios">iOS</h2>
-<p>Software:</p>
-<ul>
-<li>Operating System: <a href="https://en.wikipedia.org/wiki/MacOS">macOS</a></li>
-<li>Editor: <a href="https://en.wikipedia.org/wiki/Xcode">Xcode</a></li>
-<li>Programming language: <a href="https://en.wikipedia.org/wiki/Swift_(programming_language)">Swift</a></li>
-</ul>
-<h2 id="epp">EPP</h2>
-<p>https://medium.com/coding-artist/full-stack-react-with-phoenix-chapter-6-creating-a-postgresql-api-service-9f2775161d3f</p>
-<ul>
-<li>Elixir</li>
-<li>Phoenix</li>
-<li>Postgres</li>
-</ul>
-<h2 id="rsn">RSN</h2>
-<ul>
-<li>React</li>
-<li>Spring Boot</li>
-<li>Neo4J</li>
+<li>https://pypi.org/project/face_recognition/</li>
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>
@@ -198,15 +175,15 @@ They are sometimes also called <a href="https://en.wikipedia.org/wiki/Solution_s
         <section>
         <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2019-01-17T20:00:00+01:00">Jan 17, 2019</time>
+            <time pubdate="pubdate" datetime="2019-12-28T20:00:00+01:00">Dez 28, 2019</time>
             <br/>
             by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
             <h4>Category</h4>
             <a class="category-link" href="../categories.html#my-bits-and-bytes-ref">My bits and bytes</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
-                <li><a href="../tags.html#development-ref">Development
-                    <span>2</span>
+                <li><a href="../tags.html#machine-learning-ref">Machine Learning
+                    <span>79</span>
 </a></li>
             </ul>
 <h4>Contact</h4>
