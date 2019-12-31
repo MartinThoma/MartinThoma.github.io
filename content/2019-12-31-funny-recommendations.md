@@ -3,8 +3,7 @@ layout: post
 title: Funny Machine Learning
 slug: funny-ml
 author: Martin Thoma
-status: draft
-date: 2019-08-27 20:00
+date: 2019-12-31 20:00
 category: My bits and bytes
 tags: Machine Learning, Funny
 featured_image: logos/star.png
@@ -12,6 +11,7 @@ featured_image: logos/star.png
 Machine Learning brings awesome results, but sometimes it fails. And sometimes
 it fails in a funny way 😁
 
+<div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
 
 ## Item To Item Recommendations
 

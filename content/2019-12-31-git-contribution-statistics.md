@@ -3,7 +3,6 @@ layout: post
 title: Git Contribution Statistics
 slug: git-contribution-statistics
 author: Martin Thoma
-status: draft
 date: 2019-12-31 20:00
 category: Code
 tags: git
@@ -16,6 +15,8 @@ manual process (and maybe just anybody who added a line of code / documentation
 / gave valuable feedback should be in the author list), I wondered how to do
 this automatically. So here are a few ways. To keep it short, I will crop the
 first ten.
+
+<div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
 
 
 ## Commit Count

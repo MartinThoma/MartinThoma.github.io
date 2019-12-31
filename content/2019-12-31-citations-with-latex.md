@@ -3,16 +3,79 @@ layout: post
 title: Citations with LaTeX
 slug: citations-with-latex
 author: Martin Thoma
-status: draft
-date: 2019-12-28 20:00
+date: 2019-12-31 20:00
 category: My bits and bytes
 tags: LaTeX
 featured_image: logos/latex.png
 ---
+<div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
 
 ## Minimal Example
 
-TODO
+This is in my [LaTeX-examples](https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/seminar-paper)
+
+The `main.tex` looks as follows:
+
+```
+\documentclass[a4paper,12pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage[raiselinks=true,
+            bookmarks=true,
+            bookmarksopenlevel=1,
+            bookmarksopen=true,
+            bookmarksnumbered=true,
+            breaklinks,
+            hyperindex=true,
+            plainpages=false,
+            pdfpagelabels=true,
+            pdfborder={0 0 0.5}]{hyperref}
+
+\usepackage[
+natbib,
+backend=biber,
+style=alphabetic,
+citestyle=authoryear
+]{biblatex}
+\addbibresource{bibliography.bib}
+
+\begin{document}
+Reference sentences are too often Lorem Ipsum \parencites[p. 345]{alice}[p. 123]{bob}
+\end{document}
+```
+
+and the `bibliography.bib` like this:
+
+```
+% Encoding: UTF-8
+@article{alice,
+  title={The Theory of Lorem},
+  author={Al Alice},
+  journal={Journal of Foo},
+  volume={5},
+  number={4},
+  pages={123--456},
+  year={1992},
+  publisher={Springer}
+}
+
+@Book{bob,
+  title     = {A guide to Ipsum},
+  publisher = {Cambridge university press},
+  year      = {2010},
+  author    = {Bobby Bob},
+}
+
+```
+
+Compile it with
+
+```
+pdflatex main.tex -output-format=pdf
+biber main
+pdflatex main.tex -output-format=pdf
+```
 
 ## The bibliography file
 

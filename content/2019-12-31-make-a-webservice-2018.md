@@ -3,15 +3,16 @@ layout: post
 title: Make a Webservice
 slug: make-a-webservice
 author: Martin Thoma
-status: draft
-date: 2019-06-01 20:00
+date: 2019-12-31 20:00
 category: The Web
 tags: Web Development
 featured_image: logos/star.png
 ---
 I started doing web-stuff again! There are a gazillion decisions to take when
 you create even a medium-sized web service. This article is intended to give
-a small overview
+a small overview.
+
+<div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
 
 ## Quick n' Dirty
 

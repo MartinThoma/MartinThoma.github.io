@@ -3,9 +3,8 @@ layout: post
 title: Flask Plugins
 slug: flask-plugins
 author: Martin Thoma
-status: draft
-date: 2019-06-16 20:00
-category: My bits and bytes
+date: 2019-12-31 20:00
+category: Code
 tags: Flask
 featured_image: logos/flask.png
 ---
@@ -13,6 +12,7 @@ The Flask Ecosystem has [a lot of extensions](http://flask.pocoo.org/extensions/
 I'll introduce a couple I've stumbled over. There is also an [awesome list](https://github.com/humiaozuzu/awesome-flask), but it contains too many extensions and too little
 explanation when to use what.
 
+<div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
 
 ## Databases
 
@@ -139,7 +139,7 @@ Flask-Mail.
 
 ## Translations
 
-Flask-Babel
+[Flask-Babel](https://pypi.org/project/Flask-Babel/)
 
 
 ## Also
