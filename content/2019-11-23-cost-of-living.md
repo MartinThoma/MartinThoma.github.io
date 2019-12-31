@@ -6,7 +6,7 @@ author: Martin Thoma
 date: 2019-11-23 20:00
 category: My bits and bytes
 tags: Money
-featured_image: logos/star.png
+featured_image: logos/money.png
 ---
 How expensive is my style of living? How different would it be in other parts
 of the world? How does inflation affect me personally? How much would I have to
@@ -132,11 +132,16 @@ which I think I really need... turns out, it's a lot of stuff.
         <td>40.00 EUR</td>
         <td>20 years</td>
     </tr>
+    <tr>
+        <td>4x Frontbox 19.2L</td>
+        <td>71.96 EUR</td>
+        <td>10 years</td>
+    </tr>
     </tbody>
     <tfoot>
         <tr>
             <td>Total</td>
-            <td>1806.42 EUR</td>
+            <td>1878.38 EUR</td>
             <td>-</td>
         </tr>
     </tfoot>
@@ -416,6 +421,12 @@ which I think I really need... turns out, it's a lot of stuff.
         <td>1 year</td>
         <td>3.00 EUR / year</td>
     </tr>
+    <tr>
+        <td>25 DVDs</td>
+        <td>7.99 EUR</td>
+        <td>25 / 5 years</td>
+        <td>1.60 EUR / year</td>
+    </tr>
     </tbody>
 </table>
 
@@ -452,14 +463,14 @@ Fabrics:
         </tr>
     </thead>
     <tr>
-        <td>Banana</td>
-        <td>1 / week</td>
+        <td>Banana (Bananen)</td>
+        <td>0.35 kg / week</td>
         <td>1 week</td>
-        <td>0.99 EUR / kg</td>
-        <td>8.91 EUR / year</td>
+        <td>1.79 EUR / kg</td>
+        <td>32.58 EUR / year</td>
     </tr>
     <tr>
-        <td>Apples</td>
+        <td>Apples (Äpfel)</td>
         <td>3 kg / year</td>
         <td>3 months (?)</td>
         <td>0.89 EUR / kg</td>
@@ -467,10 +478,10 @@ Fabrics:
     </tr>
     <tr>
         <td>Mango</td>
-        <td></td>
-        <td></td>
+        <td>5 / year</td>
+        <td>3 weeks</td>
         <td>0.99 EUR / piece</td>
-        <td></td>
+        <td>4.95 EUR / year</td>
     </tr>
     <tr>
         <td>Annanas in a tin can</td>
@@ -485,6 +496,20 @@ Fabrics:
         <td>2 weeks</td>
         <td>0.39 / piece</td>
         <td>4.68 EUR / year</td>
+    </tr>
+    <tr>
+        <td><a href="https://en.wikipedia.org/wiki/Vaccinium">Blueberries</a> (Heidelbeeren)</td>
+        <td>1.5 kg / year</td>
+        <td>2 weeks</td>
+        <td>1.29 EUR / 125g</td>
+        <td>15.48 EUR / year</td>
+    </tr>
+    <tr>
+        <td><a href="https://en.wikipedia.org/wiki/Diospyros_kaki">Kaki</a> / Sharon</td>
+        <td>5 kg / year</td>
+        <td>2 weeks (?)</td>
+        <td>1.79 EUR / kg</td>
+        <td>8.95 EUR / year</td>
     </tr>
 </table>
 
@@ -501,37 +526,37 @@ Fabrics:
         </tr>
     </thead>
     <tr>
-        <td>Potato</td>
+        <td>Potato (Kartoffeln)</td>
         <td></td>
         <td>3 months (?)</td>
         <td>0.75 EUR / 2kg</td>
         <td></td>
     </tr>
     <tr>
-        <td>Carrots</td>
+        <td>Carrots (Karotten)</td>
         <td></td>
         <td>3 months (?)</td>
         <td>0.99 EUR / 2kg</td>
         <td></td>
     </tr>
     <tr>
-        <td>Spring onion</td>
+        <td>Spring onion (Frühlingszwiebeln)</td>
         <td>1 bundle / 2 weeks</td>
         <td>2 weeks (?)</td>
         <td>0.59 EUR / bundle</td>
         <td>15.39 EUR / year</td>
     </tr>
     <tr>
-        <td>Onion</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>Onion (Zwiebeln)</td>
+        <td>2 kg / 3 months</td>
+        <td>2 months (?)</td>
+        <td>0.79 EUR / 2kg</td>
+        <td>3.16 EUR / year</td>
     </tr>
     <tr>
-        <td>Garlic</td>
+        <td>Garlic (Knoblauch)</td>
         <td></td>
-        <td></td>
+        <td>2 months (?)</td>
         <td></td>
         <td></td>
     </tr>
@@ -545,7 +570,7 @@ Fabrics:
     <tr>
         <td><a href="https://en.wikipedia.org/wiki/Cherry_tomato">Cherrystrauchtomaten</a></td>
         <td></td>
-        <td></td>
+        <td>1 week</td>
         <td>1.99 EUR / package</td>
         <td></td>
     </tr>
@@ -557,7 +582,7 @@ Fabrics:
         <td></td>
     </tr>
     <tr>
-        <td>Mais (Corn in a can)</td>
+        <td>Corn in a can (Mais in der Dose)</td>
         <td>2520g</td>
         <td>33 months</td>
         <td>1.19 EUR / 420g (Abtropfgewicht)</td>
@@ -565,7 +590,7 @@ Fabrics:
     </tr>
     <tr>
         <td><a href="https://en.wikipedia.org/wiki/Capsicum">Pepper</a> (Paprika)</td>
-        <td>6kg / year</td>
+        <td>6 kg / year</td>
         <td>2 weeks</td>
         <td>1.29 EUR / 500g</td>
         <td>15.48 EUR / year</td>
@@ -576,6 +601,13 @@ Fabrics:
         <td>?</td>
         <td>1.39 EUR / 500g</td>
         <td>16.68 EUR / year</td>
+    </tr>
+    <tr>
+        <td><a href="https://en.wikipedia.org/wiki/Zucchini">Zucchini</a></td>
+        <td>6kg / year (<span title="one piece is about 262g">*</span>)</td>
+        <td>1 month (?)</td>
+        <td>1.99 EUR / kg</td>
+        <td>11.94 EUR / kg</td>
     </tr>
 </table>
 
@@ -613,6 +645,13 @@ Fabrics:
         <td>30.94 EUR / year</td>
     </tr>
     <tr>
+        <td><a href="https://en.wikipedia.org/wiki/Pretzel">Laugenbrezel</a></td>
+        <td>100 pieces</td>
+        <td>?</td>
+        <td>1.29 EUR / 10 pieces</td>
+        <td>12.90 EUR</td>
+    </tr>
+    <tr>
         <td>Butter (not salted)</td>
         <td>250g / 2 weeks (?)</td>
         <td>?</td>
@@ -639,6 +678,13 @@ Fabrics:
         <td>0.69 EUR / 125 g (<abbr title="Abtropfgewicht">ATG</abbr>)</td>
         <td></td>
         <td></td>
+    </tr>
+    <tr>
+        <td><a href="https://en.wikipedia.org/wiki/Mortadella">Mortadella</a> Wurst</td>
+        <td>1 package / month</td>
+        <td>0.89 EUR / (package)?</td>
+        <td></td>
+        <td>10.68 EUR / year</td>
     </tr>
     <tr>
         <td>Marmelade (Strawberry)</td>
@@ -691,11 +737,18 @@ General Cooking:
         </tr>
     </thead>
     <tr>
-        <td>Milk</td>
+        <td>Milk (Milch)</td>
         <td>1 L / week</td>
-        <td>2 months(?)</td>
+        <td>2 months (?)</td>
         <td>0.65 EUR / L</td>
         <td>33.90 EUR / year</td>
+    </tr>
+    <tr>
+        <td><a href="https://en.wikipedia.org/wiki/Whipped_cream">Whipped Cream</a> (Schlagsahne 30%)</td>
+        <td>2.4 kg / year</td>
+        <td>2 weeks (?)</td>
+        <td>0.63 EUR / 200 g</td>
+        <td>7.56 EUR / year</td>
     </tr>
     <tr>
         <td>Sunflower oil</td>
@@ -754,7 +807,7 @@ General Cooking:
         <td>23.94 EUR / year</td>
     </tr>
     <tr>
-        <td>Jasmin Rice</td>
+        <td>Jasmin Rice (Reis)</td>
         <td>1 kg / 2 months</td>
         <td>2 years</td>
         <td>1.89 EUR / kg</td>
@@ -795,6 +848,13 @@ General Cooking:
             <td>?</td>
             <td>2.69 EUR / 400g</td>
             <td>32.28 EUR / year</td>
+        </tr>
+        <tr>
+            <td><a href="https://en.wikipedia.org/wiki/Weisswurst">Weißwurst</a></td>
+            <td>2.8 kg</td>
+            <td>?</td>
+            <td>2.19 EUR / 280g</td>
+            <td>21.90 EUR / year</td>
         </tr>
     </tbody>
 </table>
@@ -848,11 +908,11 @@ General Cooking:
             <td>5.70 EUR / year</td>
         </tr>
         <tr>
-            <td>Röstzwiebeln</td>
-            <td></td>
-            <td></td>
-            <td>1.98 EUR / </td>
-            <td></td>
+            <td><a href="https://en.wikipedia.org/wiki/Fried_onion">Fried Onion</a> (Röstzwiebeln)</td>
+            <td>3kg / year</td>
+            <td>1 year</td>
+            <td>0.99 EUR / 150g</td>
+            <td>19.80 EUR / year</td>
         </tr>
         <tr>
             <td>Pickles (Cornichons)</td>
@@ -899,9 +959,9 @@ General Cooking:
     </tr>
     <tr>
         <td>8x200 Toilet paper (3 layers)</td>
-        <td>2.15 EUR</td>
+        <td>2.15 EUR / 6 rolls</td>
         <td>One Roll per week (?)</td>
-        <td>14.02 EUR/year</td>
+        <td>14.02 EUR / year</td>
     </tr>
     <tr>
         <td>Toothbrush (Oral-B Pulsar)</td>
@@ -1039,9 +1099,15 @@ pills and maybe a couple of months for creams and ointment.
     </tr>
     <tr>
         <td><a href="https://de.wikipedia.org/wiki/Privathaftpflichtversicherung">Privathaftpflichtversicherung</a> (getsafe via check24)</td>
-        <td>40.08</td>
+        <td>40.08 EUR</td>
         <td>Each year</td>
         <td>40.08 EUR / year</td>
+    </tr>
+    <tr>
+        <td><a href="https://en.wikipedia.org/wiki/Travel_insurance">Travel insurance (health)</a> (ergo direkt)</td>
+        <td>9.90 EUR</td>
+        <td>Each year</td>
+        <td>9.90 EUR / year</td>
     </tr>
     </tbody>
     <tfoot>
@@ -1049,7 +1115,7 @@ pills and maybe a couple of months for creams and ointment.
             <td>Total</td>
             <td>-</td>
             <td>-</td>
-            <td>2019.68 EUR / year</td>
+            <td>2029.58 EUR / year</td>
         </tr>
     </tfoot>
 </table>

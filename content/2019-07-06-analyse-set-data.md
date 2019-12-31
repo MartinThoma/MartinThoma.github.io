@@ -4,7 +4,7 @@ title: How to analyze Set Data
 slug: analyze-set-data
 author: Martin Thoma
 date: 2019-07-06 20:00
-category: My bits and bytes
+category: Code
 tags: EDA, CMO
 featured_image: logos/star.png
 ---

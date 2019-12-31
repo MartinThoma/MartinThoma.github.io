@@ -14,14 +14,14 @@ It takes about 20 minutes to cook.
 
 ## Ingredients
 
-* 400g chicken
-* 1 teaspoon of starch
-* 1 teaspoon soy sauce
+* 400g&nbsp;chicken
+* 1&nbsp;teaspoon of starch
+* 1&nbsp;teaspoon soy sauce
 * a little bit of baking powder
-* 2 eggs
-* 2 Carrots
-* 1 small onion
-* Spring onion
+* 2&nbsp;eggs
+* 2&nbsp;Carrots
+* 1&nbsp;small onion
+* Spring&nbsp;onion
 * Oil
 * Garlic
 * Rice

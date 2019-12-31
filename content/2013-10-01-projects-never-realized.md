@@ -712,3 +712,8 @@ Hardware:
     * Write short emails / SMS
     * Read out emails / SMS
     * Make entries in calendar
+
+## Coupon Sharing
+
+There are coupons I receive, but never use (e.g. [Penny](https://en.wikipedia.org/wiki/Penny_(supermarket)) or [Sanifair](https://de.wikipedia.org/wiki/Sanifair)).
+I would like to be able to give them to others.

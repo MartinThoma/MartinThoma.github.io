@@ -3,7 +3,6 @@ layout: post
 title: Code Quality
 slug: code-quality
 author: Martin Thoma
-status: draft
 date: 2018-12-30 20:00
 category: Code
 tags: Python

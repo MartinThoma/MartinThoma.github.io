@@ -5,7 +5,7 @@ slug: online-tools
 author: Martin Thoma
 date: 2017-09-24 20:00
 category: Cyberculture
-tags: Tools, Webservice, Development
+tags: Tools, Web Services, Development
 featured_image: logos/development.png
 ---
 Once in a while I find really useful webservices that follow the Unix

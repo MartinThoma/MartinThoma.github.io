@@ -5,7 +5,7 @@ slug: siomay-ayam
 author: Martin Thoma
 date: 2019-01-20 20:00
 category: My bits and bytes
-tags: cooking, recipe, Indonesia
+tags: cooking, recipe, Indonesia, main dish
 featured_image: logos/cooking.png
 ---
 Siomay Ayam is an indonesian dish which is comparable to [Maultaschen](https://en.wikipedia.org/wiki/Maultasche).
