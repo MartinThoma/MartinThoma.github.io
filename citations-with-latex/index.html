@@ -17,13 +17,13 @@
 <meta name="keywords" content="LaTeX, My bits and bytes, " />
 
 <meta property="og:title" content="Citations with LaTeX "/>
-<meta property="og:url" content="../drafts/citations-with-latex.html" />
-<meta property="og:description" content="Minimal Example TODO The bibliography file This is the core for your citations. Your citation library, if you want so. You can fill this file with JabRef or by hand. Packages natbib biber Commands % Normal one: Cite two elements \cite{ref2007, ref2009} % Cite in parenthesis \citep{ref2007, ref2009} % Cite only …" />
+<meta property="og:url" content="../citations-with-latex/" />
+<meta property="og:description" content="This is an article I had for quite a while as a draft. As part of my yearly cleanup, I&#39;ve published it without finishing it. It might not be finished or have other problems. Minimal Example This is in my LaTeX-examples The main.tex looks as follows: \documentclass[a4paper,12pt …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
-<meta property="og:article:published_time" content="2019-12-28T20:00:00+01:00" />
+<meta property="og:article:published_time" content="2019-12-31T20:00:00+01:00" />
 <meta name="twitter:title" content="Citations with LaTeX ">
-<meta name="twitter:description" content="Minimal Example TODO The bibliography file This is the core for your citations. Your citation library, if you want so. You can fill this file with JabRef or by hand. Packages natbib biber Commands % Normal one: Cite two elements \cite{ref2007, ref2009} % Cite in parenthesis \citep{ref2007, ref2009} % Cite only …">
+<meta name="twitter:description" content="This is an article I had for quite a while as a draft. As part of my yearly cleanup, I&#39;ve published it without finishing it. It might not be finished or have other problems. Minimal Example This is in my LaTeX-examples The main.tex looks as follows: \documentclass[a4paper,12pt …">
 <meta property="og:image" content="logos/latex.png" />
 <meta name="twitter:image" content="logos/latex.png" >
 
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../drafts/citations-with-latex.html"> Citations with LaTeX  </a></h1>
+    <h1><a href="../citations-with-latex/"> Citations with LaTeX  </a></h1>
     </header>
 </div>
 
@@ -110,8 +110,62 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <h2 id="minimal-example">Minimal Example</h2>
-<p>TODO</p>
+            <div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
+<h2 id="minimal-example">Minimal Example</h2>
+<p>This is in my <a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/seminar-paper">LaTeX-examples</a></p>
+<p>The <code>main.tex</code> looks as follows:</p>
+<div class="highlight"><pre><span></span><span class="k">\documentclass</span><span class="na">[a4paper,12pt]</span><span class="nb">{</span>scrartcl<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="na">[utf8]</span><span class="nb">{</span>inputenc<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="na">[english]</span><span class="nb">{</span>babel<span class="nb">}</span>
+
+<span class="k">\usepackage</span>[raiselinks=true,
+            bookmarks=true,
+            bookmarksopenlevel=1,
+            bookmarksopen=true,
+            bookmarksnumbered=true,
+            breaklinks,
+            hyperindex=true,
+            plainpages=false,
+            pdfpagelabels=true,
+            pdfborder=<span class="nb">{</span>0 0 0.5<span class="nb">}</span>]<span class="nb">{</span>hyperref<span class="nb">}</span>
+
+<span class="k">\usepackage</span>[
+natbib,
+backend=biber,
+style=alphabetic,
+citestyle=authoryear
+]<span class="nb">{</span>biblatex<span class="nb">}</span>
+<span class="k">\addbibresource</span><span class="nb">{</span>bibliography.bib<span class="nb">}</span>
+
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+Reference sentences are too often Lorem Ipsum <span class="k">\parencites</span><span class="na">[p. 345]</span><span class="nb">{</span>alice<span class="nb">}</span>[p. 123]<span class="nb">{</span>bob<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+<p>and the <code>bibliography.bib</code> like this:</p>
+<div class="highlight"><pre><span></span><span class="c">% Encoding: UTF-8</span>
+<span class="p">@</span><span class="n">article</span><span class="p">{</span><span class="n">alice</span><span class="p">,</span>
+  <span class="n">title</span><span class="p">={</span><span class="n">The</span> <span class="n">Theory</span> <span class="n">of</span> <span class="n">Lorem</span><span class="p">},</span>
+  <span class="n">author</span><span class="p">={</span><span class="n">Al</span> <span class="n">Alice</span><span class="p">},</span>
+  <span class="n">journal</span><span class="p">={</span><span class="n">Journal</span> <span class="n">of</span> <span class="n">Foo</span><span class="p">},</span>
+  <span class="n">volume</span><span class="p">={</span><span class="mi">5</span><span class="p">},</span>
+  <span class="n">number</span><span class="p">={</span><span class="mi">4</span><span class="p">},</span>
+  <span class="n">pages</span><span class="p">={</span><span class="mi">123</span><span class="o">--</span><span class="mi">456</span><span class="p">},</span>
+  <span class="n">year</span><span class="p">={</span><span class="mi">1992</span><span class="p">},</span>
+  <span class="n">publisher</span><span class="p">={</span><span class="n">Springer</span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="p">@</span><span class="n">Book</span><span class="p">{</span><span class="n">bob</span><span class="p">,</span>
+  <span class="n">title</span>     <span class="p">=</span> <span class="p">{</span><span class="n">A</span> <span class="n">guide</span> <span class="n">to</span> <span class="n">Ipsum</span><span class="p">},</span>
+  <span class="n">publisher</span> <span class="p">=</span> <span class="p">{</span><span class="n">Cambridge</span> <span class="n">university</span> <span class="n">press</span><span class="p">},</span>
+  <span class="n">year</span>      <span class="p">=</span> <span class="p">{</span><span class="mi">2010</span><span class="p">},</span>
+  <span class="n">author</span>    <span class="p">=</span> <span class="p">{</span><span class="n">Bobby</span> <span class="n">Bob</span><span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+<p>Compile it with</p>
+<div class="highlight"><pre><span></span>pdflatex main.tex -output-format=pdf
+biber main
+pdflatex main.tex -output-format=pdf
+</pre></div>
 <h2 id="the-bibliography-file">The bibliography file</h2>
 <p>This is the core for your citations. Your citation library, if you want so.
 You can fill this file with JabRef or by hand.</p>
@@ -165,7 +219,7 @@ You can fill this file with JabRef or by hand.</p>
         <section>
         <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2019-12-28T20:00:00+01:00">Dez 28, 2019</time>
+            <time pubdate="pubdate" datetime="2019-12-31T20:00:00+01:00">Dez 31, 2019</time>
             <br/>
             by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
             <h4>Category</h4>
@@ -173,7 +227,7 @@ You can fill this file with JabRef or by hand.</p>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
                 <li><a href="../tags.html#latex-ref">LaTeX
-                    <span>28</span>
+                    <span>29</span>
 </a></li>
             </ul>
 <h4>Contact</h4>

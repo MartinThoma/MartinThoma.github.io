@@ -14,20 +14,20 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="Machine Learning, My bits and bytes, " />
+<meta name="keywords" content="Docker, Code, " />
 
-<meta property="og:title" content="Coding Fonts "/>
-<meta property="og:url" content="../drafts/coding-fonts.html" />
-<meta property="og:description" content="The font choice for developing software is important. Developers read code all the time. Powerline Fonts https://github.com/powerline/fonts Ligatures Ligatures are a design method of combining two characters (graphemes) to get a nicer way of printing them together. Historically, this has been done with &#34;ff&#34;, &#34;fi&#34;, &#34;fl …" />
+<meta property="og:title" content="How to Speed up Docker "/>
+<meta property="og:url" content="../docker-speedup/" />
+<meta property="og:description" content="Building a Docker container can take quite a while. However, there are some easy parts to speed them up. This is an article I had for quite a while as a draft. As part of my yearly cleanup, I&#39;ve published it without finishing it. It might not be finished or …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
-<meta property="og:article:published_time" content="2019-09-22T20:00:00+02:00" />
-<meta name="twitter:title" content="Coding Fonts ">
-<meta name="twitter:description" content="The font choice for developing software is important. Developers read code all the time. Powerline Fonts https://github.com/powerline/fonts Ligatures Ligatures are a design method of combining two characters (graphemes) to get a nicer way of printing them together. Historically, this has been done with &#34;ff&#34;, &#34;fi&#34;, &#34;fl …">
+<meta property="og:article:published_time" content="2019-12-31T20:00:00+01:00" />
+<meta name="twitter:title" content="How to Speed up Docker ">
+<meta name="twitter:description" content="Building a Docker container can take quite a while. However, there are some easy parts to speed them up. This is an article I had for quite a while as a draft. As part of my yearly cleanup, I&#39;ve published it without finishing it. It might not be finished or …">
 <meta property="og:image" content="logos/star.png" />
 <meta name="twitter:image" content="logos/star.png" >
 
-        <title>Coding Fonts  · Martin Thoma
+        <title>How to Speed up Docker  · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../drafts/coding-fonts.html"> Coding Fonts  </a></h1>
+    <h1><a href="../docker-speedup/"> How to Speed up Docker  </a></h1>
     </header>
 </div>
 
@@ -104,92 +104,32 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#powerline-fonts" title="Powerline Fonts">Powerline Fonts</a></li><li><a class="toc-href" href="#ligatures" title="Ligatures">Ligatures</a></li><li><a class="toc-href" href="#ubuntu-mono" title="Ubuntu Mono">Ubuntu Mono</a></li><li><a class="toc-href" href="#fira-code" title="Fira Code">Fira Code</a></li><li><a class="toc-href" href="#cascadia-code" title="Cascadia Code">Cascadia Code</a></li><li><a class="toc-href" href="#others" title="Others">Others</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#install-early-copy-late" title="Install Early, Copy Late">Install Early, Copy Late</a></li><li><a class="toc-href" href="#dockerignore" title=".dockerignore">.dockerignore</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>The font choice for developing software is important. Developers read code all
-the time.</p>
-<h2 id="powerline-fonts">Powerline Fonts</h2>
-<p>https://github.com/powerline/fonts</p>
-<h2 id="ligatures">Ligatures</h2>
-<p><a href="https://en.wikipedia.org/wiki/Orthographic_ligature">Ligatures</a> are a design
-method of combining two characters (graphemes) to get a nicer way of printing
-them together. Historically, this has been done with "ff", "fi", "fl". For
-code, other options are possible. I'm not saying any of those are a good idea:</p>
-<table class="table">
-<thead>
-<tr>
-<th>Original</th>
-<th>Unicode</th>
-<th>Screenshot</th>
-<th>Comment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>!=</td>
-<td>&ne;</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>-&gt;</td>
-<td>&rarr;</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>=&gt;</td>
-<td>&rArr;</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>&gt;=</td>
-<td>&ge;</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>&lt;=</td>
-<td>&le;</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>==</td>
-<td>=</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>++</td>
-<td>++</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>How to Enable Ligatures:</p>
+            <p>Building a Docker container can take quite a while. However, there are some
+easy parts to speed them up.</p>
+<div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
+<h2 id="install-early-copy-late">Install Early, Copy Late</h2>
+<p>Make sure you install dependencies early and copy code late during building
+the container. This helps to cache the dependencies.</p>
+<p>You might also want to look at dependency pinning.</p>
+<h2 id="dockerignore">.dockerignore</h2>
+<p>Make sure you don't re-build the container with stuff you don't need.</p>
+<p>You can check the included files via</p>
+<div class="highlight"><pre><span></span>sudo docker build -t test .
+sudo docker run --entrypoint /usr/bin/find -it test
+sudo docker images | grep ^test
+</pre></div>
+<p>When I started looking at the size of my Flask image, it was 357MB.
+Without copying any of the code, it was <code>349MB</code>.</p>
+<h2 id="see-also">See also</h2>
 <ul>
-<li><a href="https://www.sublimetext.com/docs/3/ligatures.html">Sublime Text</a></li>
-</ul>
-<h2 id="ubuntu-mono">Ubuntu Mono</h2>
-<h2 id="fira-code">Fira Code</h2>
-<p>https://github.com/tonsky/FiraCode</p>
-<h2 id="cascadia-code">Cascadia Code</h2>
-<p>https://www.ghacks.net/2019/09/19/microsoft-releases-new-open-source-font-cascadia-code/
-https://github.com/microsoft/cascadia-code
-https://hub.packtpub.com/microsoft-releases-cascadia-code-version-1909-16-it-is-the-latest-monospaced-font-for-windows-terminal-and-visual-studio-code/
-https://devblogs.microsoft.com/commandline/cascadia-code/</p>
-<h2 id="others">Others</h2>
-<ul>
-<li>Cedar Code</li>
-<li>Emerald Code</li>
-<li>Seattle Code</li>
+<li><a href="https://codefresh.io/docker-tutorial/not-ignore-dockerignore-2/">Do not ignore .dockerignore</a></li>
+<li><a href="https://zzz.buzz/2018/05/23/differences-of-rules-between-gitignore-and-dockerignore/">Differences of Rules Between .gitignore and .dockerignore</a></li>
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>
@@ -216,15 +156,15 @@ https://devblogs.microsoft.com/commandline/cascadia-code/</p>
         <section>
         <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2019-09-22T20:00:00+02:00">Sep 22, 2019</time>
+            <time pubdate="pubdate" datetime="2019-12-31T20:00:00+01:00">Dez 31, 2019</time>
             <br/>
             by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
             <h4>Category</h4>
-            <a class="category-link" href="../categories.html#my-bits-and-bytes-ref">My bits and bytes</a>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
-                <li><a href="../tags.html#machine-learning-ref">Machine Learning
-                    <span>79</span>
+                <li><a href="../tags.html#docker-ref">Docker
+                    <span>2</span>
 </a></li>
             </ul>
 <h4>Contact</h4>
