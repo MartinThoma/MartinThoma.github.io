@@ -717,3 +717,9 @@ Hardware:
 
 There are coupons I receive, but never use (e.g. [Penny](https://en.wikipedia.org/wiki/Penny_(supermarket)) or [Sanifair](https://de.wikipedia.org/wiki/Sanifair)).
 I would like to be able to give them to others.
+
+## GIMP
+
+Add good support to improve scanned documents:
+
+* [Rotation](https://gitlab.gnome.org/GNOME/gimp/issues/2927)
