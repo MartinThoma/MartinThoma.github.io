@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Python, Community, PyPI, Code, " />
+
+<meta property="og:title" content="PyPI Analysis 2020 "/>
+<meta property="og:url" content="../pypi-2020/" />
+<meta property="og:description" content="I&#39;ve created an introductory post where I looked at the packages meta data in a very superficial way. In the second post I analyzed the relationships between packages by looking at a dependency graph. Now, in the beginning of 2020, I&#39;ve updated the code and ran my analysis again. Have …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2020-01-09T20:00:00+01:00" />
+<meta name="twitter:title" content="PyPI Analysis 2020 ">
+<meta name="twitter:description" content="I&#39;ve created an introductory post where I looked at the packages meta data in a very superficial way. In the second post I analyzed the relationships between packages by looking at a dependency graph. Now, in the beginning of 2020, I&#39;ve updated the code and ran my analysis again. Have …">
+<meta property="og:image" content="logos/python.png" />
+<meta name="twitter:image" content="logos/python.png" >
+
+        <title>PyPI Analysis 2020  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../pypi-2020/"> PyPI Analysis 2020  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#maximum-length" title="Maximum length">Maximum length</a></li><li><a class="toc-href" href="#platforms" title="Platforms">Platforms</a></li><li><a class="toc-href" href="#licenses" title="Licenses">Licenses</a></li><li><a class="toc-href" href="#size" title="Size">Size</a></li><li><a class="toc-href" href="#package-type" title="Package type">Package type</a></li><li><a class="toc-href" href="#dependencies" title="Dependencies">Dependencies</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>I've created an <a href="https://martin-thoma.com/analyzing-pypi-metadata/">introductory post</a>
+where I looked at the packages meta data in a very superficial way.</p>
+<p>In the <a href="https://martin-thoma.com/analyzing-pypi-metadata-2/">second post</a> I
+analyzed the relationships between packages by looking at a dependency graph.</p>
+<p>Now, in the beginning of 2020, I've updated the code and ran my analysis again.
+Have fun 🙂</p>
+<p>Out of 208,492, only 176,107 are used.</p>
+<p>There are 90,682 authors of Python packages. The ten
+most active authors are:</p>
+<table class="table">
+<thead>
+<tr>
+<th>Author</th>
+<th>Created packages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>8948</td>
+</tr>
+<tr>
+<td>UNKNOWN</td>
+<td>1399</td>
+</tr>
+<tr>
+<td>The Guardians</td>
+<td>1140</td>
+</tr>
+<tr>
+<td>Tecnativa, Odoo Community Association (OCA)</td>
+<td>554</td>
+</tr>
+<tr>
+<td>OpenStack</td>
+<td>466</td>
+</tr>
+<tr>
+<td>hfpython</td>
+<td>460</td>
+</tr>
+<tr>
+<td>Paul Sokolovsky</td>
+<td>450</td>
+</tr>
+<tr>
+<td>Microsoft Corporation</td>
+<td>394</td>
+</tr>
+<tr>
+<td>Eficent, Odoo Community Association (OCA)</td>
+<td>329</td>
+</tr>
+<tr>
+<td>Akretion,Odoo Community Association (OCA)</td>
+<td>290</td>
+</tr>
+</tbody>
+</table>
+<h2 id="maximum-length">Maximum length</h2>
+<table class="table">
+<thead>
+<tr>
+<th>Column</th>
+<th>NULL values</th>
+<th>Maximum Length</th>
+<th>Entry</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>0</td>
+<td>80</td>
+<td>Aaaaaaaaaaaaaaaaaaa-aaaaaaaaa-aaaaaaasa-aaaaaaasa-aaaaasaa-aaaaaaasa-bbbbbbbbbbb</td>
+</tr>
+<tr>
+<td>version</td>
+<td>560</td>
+<td>70</td>
+<td>1.0dev-BZR-r115-panta-elasticworld.org-20100520155735-sf3yrsr0pvyvlm8m</td>
+</tr>
+<tr>
+<td>stable_version</td>
+<td>560</td>
+<td>7</td>
+<td>UNKNOWN</td>
+</tr>
+<tr>
+<td>release_url</td>
+<td>560</td>
+<td>128</td>
+<td>https://pypi.org/project/softwarefabrica.django.appserver/1.0dev-BZR-r10-panta-elasticworld.org-20091023132843-vitk6k7e5qlvhej5/</td>
+</tr>
+<tr>
+<td>package_url</td>
+<td>560</td>
+<td>106</td>
+<td>https://pypi.org/project/Aaaaaaaaaaaaaaaaaaa-aaaaaaaaa-aaaaaaasa-aaaaaaasa-aaaaasaa-aaaaaaasa-bbbbbbbbbbb/</td>
+</tr>
+<tr>
+<td>bugtrack_url</td>
+<td>560</td>
+<td>4</td>
+<td>None</td>
+</tr>
+<tr>
+<td>summary</td>
+<td>7717</td>
+<td>210</td>
+<td>采集百度手机卫士 360手机卫士 搜狗号码通三个平台对手机号码的标注信息. 1.1.0: 加入搜狗API采集方式，但与从网页采集结果是一致的。 1.2.0：采用多线程，将不同源分开采集，避免互相影响。 1.3.1：加入命令行工具，加入对IP的处理工具。 1.3.3：可以使用--file xxx.csv 命令指定文件。 1.3.4：改用百度和360手机版本，减少下载量；尝试遇到反爬退出。 1.3.5：完善使用代理下载。</td>
+</tr>
+<tr>
+<td>home_page</td>
+<td>17927</td>
+<td>150</td>
+<td>http://127.0.0.1:8888/USK@~osOPnNLdMLVrYVNTahLufdwOuMhhC4GkpIHulnSm04,bwAmjkK-BZZnj-bujBQehwgGqUM1AUFhzTW4hcDGXQ0,AQACAAE/infocalypse_and_pyFreenet/5/</td>
+</tr>
+<tr>
+<td>author</td>
+<td>8948</td>
+<td>255</td>
+<td>['Diemer, Jens', 'Hall, Dave', 'van der Boor, Diederik', 'Chainz, Adam', 'Cornehl, Denis', 'Fahed, Sami', 'Hoppe, Johannes', 'Iakovlev, Maksim', 'Lagovas', 'Larin, Nikita', 'Lavin, Mark', 'Lis&aacute;k, Peter', 'Marques de Ara&uacute;jo, Rodrigo Pinheiro', 'Mihelac, Bo</td>
+</tr>
+<tr>
+<td>author_email</td>
+<td>16619</td>
+<td>255</td>
+<td>jan-gerd.tenberge@uni-muenster.de, cuihtlauac.alvarado@orange.com, juan@grigera.com.ar, lyj7694@gmail.com, pi8027@gmail.com, zhuyanzi@gmail.com, sree314@gmail.com, jochen.schroeder@chalmers.se, alex.fu27@gmail.com, hi@xiangji.me, hakon.j.d.johnsen@ntnu.no</td>
+</tr>
+<tr>
+<td>license</td>
+<td>44374</td>
+<td>255</td>
+<td>Copyright &copy; 2012 Kenan Yildirim.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the &ldquo;Software&rdquo;), to deal in
+the Software without restriction, including without limitation </td>
+</tr>
+<tr>
+<td>keywords</td>
+<td>92634</td>
+<td>4033</td>
+<td>algorithmic,algotrading,altcoin,altcoins,api,arbitrage,backtest,backtesting,bitcoin,bot,btc,cny,coin,coins,crypto,cryptocurrency,crypto currency,crypto market,currency,currencies,darkcoin,dash,digital currency,doge,dogecoin,e-commerce,etc,eth,ether,ethereum,exchange,exchanges,eur,framework,invest,investing,investor,library,light,litecoin,ltc,market,market data,markets,merchandise,merchant,minimal,ohlcv,order,orderbook,order book,price,price data,pricefeed,private,public,ripple,strategy,ticker,tickers,toolkit,trade,trader,trading,usd,volume,xbt,xrp,zec,zerocoin,1Broker,1BTCXE,ACX,acx.io,allcoin,allcoin.com,ANX,ANXPro,bibox,bibox.com,Binance,binance.com,bit2c.co.il,Bit2C,BitBay,BitBays,bitcoincoid,Bitcoin.co.id,Bitfinex,bitFLyer,bitflyer.jp,bithumb,bithumb.com,bitlish,BitMarket,BitMEX,Bitso,Bitstamp,Bittrex,BL3P,Bleutrade,bleutrade.com,BlinkTrade,braziliex,braziliex.com,BtcBox,btcbox.co.jp,BTCC,BTCChina,BTC-e,BTCe,BTCExchange,btcexchange.ph,BTC Markets,btcmarkets,btcmarkets.net,BTCTrader,btctrader.com,btc-trade.com.ua,BTC Trade UA,BTCTurk,btcturk.com,BTCX,btc-x,bter,Bter.com,BX.in.th,ccex,C-CEX,cex,CEX.IO,CHBTC,ChileBit,chilebit.net,coincheck,CoinExchange,coinexchange.io,coingi,coingi.com,CoinMarketCap,CoinMate,Coinsecure,CoinSpot,coinspot.com.au,Crypto Capital,cryptocapital.co,DSX,dsx.uk,EXMO,flowBTC,flowbtc.com,FoxBit,foxbit.exchange,FYB-SE,FYB-SG,Gatecoin,GDAX,Gemini,HitBTC,Huobi,HuobiPRO,huobi.pro,Independent Reserve,independentreserve.com,itBit,jubi.com,Kraken,Kucoin,Kuna,LakeBTC,lakebtc.com,LiveCoin,Liqui,liqui.io,luno,mercado,MercadoBitcoin,mercadobitcoin.br,mixcoins,mixcoins.com,nova,novaexchange,novaexchange.com,OKCoin,OKCoin.com,OKCoin.cn,OKEX,okex.com,Paymium,Poloniex,QuadrigaCX,Qryptos,QUOINEX,Southxchange,SurBitcoin,surbitcoin.com,Tidex,tidex.com,TheRockTrading,UrduBit,urdubit.com,Vaultoro,VBTC,vbtc.exchange,vbtc.vn,VirWoX,WEX,wex.nz,xBTCe,xbtce.com,YoBit,yobit.net,YUNBI,Zaif,ZB,1btcxe.com,Allcoin,anxpro.com,anybits.com,Anybits,bcex.top,BCEX,Bibox,big.one,BigONE,bitbank.cc,bitbank,bitbay.net,bitfinex.com,bitFlyer,bitforex.com,Bitforex,Bithumb,bitibu.com,Bitibu,bitkk.com,bitkk,bitlish.com,Bitlish,bitmarket.pl,bitmarket.net,bitmex.com,bitsane.com,Bitsane,bitso.com,bitstamp.net,bittrex.com,bit-z.com,Bit-Z,bl3p.eu,bitonic.nl,Braziliex,btc-alpha.com,BTC-Alpha,btcchina.com,btctrade.im,BtcTrade.im,buda.com,Buda,bx.in.th,c-cex.com,cex.io,trade.chbtc.com,cobinhood.com,COBINHOOD,coinbase.com,Coinbase,prime.coinbase.com,Coinbase Prime,pro.coinbase.com,Coinbase Pro,coincheck.com,coinegg.com,CoinEgg,coinex.com,CoinEx,coinfalcon.com,CoinFalcon,coinfloor.co.uk,coinfloor,Coingi,coinmarketcap.com,coinmate.io,coinnest.co.kr,coinnest,coinone.co.kr,CoinOne,cointiger.pro,CoinTiger,coolcoin.com,CoolCoin,coss.io,COSS,crex24.com,CREX24,cryptonbtc.com,Crypton,deribit.com,Deribit,ethfinex.com,Ethfinex,exmo.me,exx.com,EXX,fcoin.com,FCoin,trader.flowbtc.com,fybse.se,fybsg.com,gatecoin.com,gate.io,Gate.io,gdax.com,gemini.com,getbtc.org,GetBTC,hadax.com,HADAX,hitbtc.com,Huobi Pro,huobi.com.ru,Huobi Russia,ice3x.com,ice3x.co.za,ICE3X,indodax.com,INDODAX,itbit.com,kkex.com,KKEX,kraken.com,kucoin.com,KuCoin,kuna.io,lbank.info,LBank,liquid.com,Liquid,livecoin.net,luno.com,lykke.com,Lykke,mercadobitcoin.com.br,Mercado Bitcoin,MixCoins,negociecoins.com.br,NegocieCoins,Novaexchange,okcoin.cn,OKCoin CNY,okcoin.com,OKCoin USD,paymium.com,poloniex.com,quadrigacx.com,rightbtc.com,RightBTC,southxchange.com,SouthXchange,stronghold.co,Stronghold,theocean.trade,The Ocean,therocktrading.com,tidebit.com,TideBit,uex.com,UEX,upbit.com,Upbit,vaultoro.com,virwox.com,yunbi.com,zaif.jp,zb.com,fcoinjp.com,FCoinJP,binance.je,Binance Jersey,bequant.io,Bequant,mandalaex.com,Mandala,dx.exchange,DX.Exchange,oceanex.pro.com,OceanEx,flowbtc.com.br,foxbit.com.br,latoken.com,Latoken,bitmart.com,BitMart,digifinex.vip,DigiFinex,idex.market,IDEX,adara.io,Adara,binance.us,Binance US,whitebit.com,WhiteBit,bitmax.io,BitMax,bytetrade.com,ByteTrade,ftx.com,FTX,{hostname},bw.com,stex.com,STEX,BW,timex.io,TimeX,bitz.com</td>
+</tr>
+<tr>
+<td>requires_python</td>
+<td>112090</td>
+<td>94</td>
+<td>&gt;=2.7, &gt;=2.7.1, !=3.0, !=3.0.*, !=3.1, !=3.1.*, !=3.2, !=3.2.*, !=3.3, !=3.3.*, !=3.4, !=3.4.*</td>
+</tr>
+<tr>
+<td>maintainer</td>
+<td>140232</td>
+<td>145</td>
+<td>Brian Drawert, Kevin Sanft, Sean Matthew, George Hall, Dalton Nickerson, Samuel Hodges, Emma Weisgerber, Eliot Dixon, Ghilman Brock, W.R. Jackson</td>
+</tr>
+<tr>
+<td>maintainer_email</td>
+<td>140745</td>
+<td>137</td>
+<td>xgzhao0201@gmail.com,                  fuyuhaoy@gmail.com,                  guangrenna@gmail.com,                  shulinluo999@gmail.com</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>126048</td>
+<td>255</td>
+<td>This is to inform you that we have receive your mail now regarding payment you are about to receirve what :$4,500.00 in next i hour like you said to us and assure you that once we confirm the fee your ATM CARD will get to you within 48 hours and that is m</td>
+</tr>
+<tr>
+<td>download_url</td>
+<td>129479</td>
+<td>183</td>
+<td>http://pypi.python.org/packages/source/s/softwarefabrica.django.appserver/softwarefabrica.django.appserver-1.0dev-BZR-r10-panta-elasticworld.org-20091023132843-vitk6k7e5qlvhej5.tar.gz</td>
+</tr>
+</tbody>
+</table>
+<h2 id="platforms">Platforms</h2>
+<table class="table">
+<thead>
+<tr>
+<th>Platform</th>
+<th>Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>126048</td>
+</tr>
+<tr>
+<td>UNKNOWN</td>
+<td>61530</td>
+</tr>
+<tr>
+<td>ANY</td>
+<td>12163</td>
+</tr>
+<tr>
+<td>LINUX</td>
+<td>1644</td>
+</tr>
+<tr>
+<td>ALL</td>
+<td>1146</td>
+</tr>
+<tr>
+<td>OS Independent</td>
+<td>1018</td>
+</tr>
+<tr>
+<td>None</td>
+<td>494</td>
+</tr>
+<tr>
+<td>Windows</td>
+<td>493</td>
+</tr>
+<tr>
+<td>POSIX</td>
+<td>458</td>
+</tr>
+<tr>
+<td>Posix; MacOS X; Windows</td>
+<td>340</td>
+</tr>
+<tr>
+<td>UNIX</td>
+<td>238</td>
+</tr>
+<tr>
+<td>Aix</td>
+<td>152</td>
+</tr>
+<tr>
+<td>Platform Independent</td>
+<td>130</td>
+</tr>
+<tr>
+<td>MacOS X</td>
+<td>102</td>
+</tr>
+<tr>
+<td>POSIX,Windows</td>
+<td>71</td>
+</tr>
+<tr>
+<td>WIN32</td>
+<td>61</td>
+</tr>
+<tr>
+<td>Cross Platform</td>
+<td>53</td>
+</tr>
+<tr>
+<td>GNU/Linux</td>
+<td>51</td>
+</tr>
+<tr>
+<td>Independent</td>
+<td>49</td>
+</tr>
+<tr>
+<td>Posix; MacOS X</td>
+<td>46</td>
+</tr>
+</tbody>
+</table>
+<h2 id="licenses">Licenses</h2>
+<table class="table">
+<thead>
+<tr>
+<th>License</th>
+<th>Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MIT</td>
+<td>53876</td>
+</tr>
+<tr>
+<td></td>
+<td>44374</td>
+</tr>
+<tr>
+<td>UNKNOWN</td>
+<td>17531</td>
+</tr>
+<tr>
+<td>BSD</td>
+<td>14056</td>
+</tr>
+<tr>
+<td>MIT LICENSE</td>
+<td>8221</td>
+</tr>
+<tr>
+<td>GPL</td>
+<td>5720</td>
+</tr>
+<tr>
+<td>AGPL-3</td>
+<td>5680</td>
+</tr>
+<tr>
+<td>GPLV3</td>
+<td>3902</td>
+</tr>
+<tr>
+<td>APACHE 2.0</td>
+<td>3340</td>
+</tr>
+<tr>
+<td>APACHE LICENSE 2.0</td>
+<td>2587</td>
+</tr>
+</tbody>
+</table>
+<h2 id="size">Size</h2>
+<p>What is currently the biggest Python package?</p>
+<table class="table">
+<thead>
+<tr>
+<th>Package</th>
+<th>Release Number</th>
+<th>Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mxnet-cu90</td>
+<td>1.6.0b20200104</td>
+<td>600072419</td>
+</tr>
+<tr>
+<td>mxnet-cu92</td>
+<td>1.6.0b20200104</td>
+<td>597864995</td>
+</tr>
+<tr>
+<td>de422</td>
+<td>2009.1</td>
+<td>545298406</td>
+</tr>
+<tr>
+<td>mxnet-cu101mkl</td>
+<td>1.6.0b20191125</td>
+<td>531461766</td>
+</tr>
+<tr>
+<td>mxnet-cu101</td>
+<td>1.6.0b20191125</td>
+<td>496083826</td>
+</tr>
+<tr>
+<td>cntk-gpu</td>
+<td>2.7</td>
+<td>492634379</td>
+</tr>
+<tr>
+<td>mxnet-cu100mkl</td>
+<td>1.6.0b20191125</td>
+<td>489934559</td>
+</tr>
+<tr>
+<td>mxnet-cu100</td>
+<td>1.6.0b20191125</td>
+<td>454417230</td>
+</tr>
+<tr>
+<td>mxnet-cu92mkl</td>
+<td>1.6.0b20191118</td>
+<td>451872769</td>
+</tr>
+<tr>
+<td>mxnet-cu90mkl</td>
+<td>1.6.0b20191115</td>
+<td>426535845</td>
+</tr>
+<tr>
+<td>mxnet-cu91mkl</td>
+<td>1.3.1b20180926</td>
+<td>388511352</td>
+</tr>
+<tr>
+<td>h2o4gpu</td>
+<td>0.3.2</td>
+<td>366174349</td>
+</tr>
+<tr>
+<td>tensorflow-gpu</td>
+<td>2.1.0rc2</td>
+<td>356520201</td>
+</tr>
+<tr>
+<td>tensorflow</td>
+<td>2.1.0rc2</td>
+<td>355848376</td>
+</tr>
+<tr>
+<td>mxnet-cu91</td>
+<td>1.3.1b20180926</td>
+<td>345869254</td>
+</tr>
+</tbody>
+</table>
+<h2 id="package-type">Package type</h2>
+<table class="table">
+<thead>
+<tr>
+<th>License</th>
+<th>Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sdist</td>
+<td>180307</td>
+</tr>
+<tr>
+<td>bdist_wheel</td>
+<td>106515</td>
+</tr>
+<tr>
+<td>bdist_egg</td>
+<td>8150</td>
+</tr>
+<tr>
+<td>bdist_wininst</td>
+<td>1201</td>
+</tr>
+<tr>
+<td>bdist_dumb</td>
+<td>804</td>
+</tr>
+<tr>
+<td>bdist_rpm</td>
+<td>44</td>
+</tr>
+<tr>
+<td>bdist_msi</td>
+<td>33</td>
+</tr>
+<tr>
+<td>bdist_dmg</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<h2 id="dependencies">Dependencies</h2>
+<p>Out of 208&thinsp;492 packages, only 176&thinsp;107 packages are used.</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2020/01/pypi-imported-packages.png"><img alt="Weighted module imports by Python packages" src="../images/2020/01/pypi-imported-packages.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Weighted module imports by Python packages</figcaption>
+</figure>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2020/01/pypi-imported-packages-count.png"><img alt="Module imports of Python packages" src="../images/2020/01/pypi-imported-packages-count.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Module imports of Python packages</figcaption>
+</figure>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2020/01/pypi-imported-packages-excluding-system.png"><img alt="Module imports of Python packages, excluding system packages" src="../images/2020/01/pypi-imported-packages-excluding-system.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Module imports of Python packages, excluding system packages</figcaption>
+</figure>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2020/01/pypi-imported-packages-excluding-system-count.png"><img alt="Module imports of Python modules excluding system modules" src="../images/2020/01/pypi-imported-packages-excluding-system-count.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Module imports of Python modules excluding system modules</figcaption>
+</figure>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2020-01-09T20:00:00+01:00">Jan 9, 2020</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#community-ref">Community
+                    <span>4</span>
+</a></li>
+                <li><a href="../tags.html#pypi-ref">PyPI
+                    <span>3</span>
+</a></li>
+                <li><a href="../tags.html#python-ref">Python
+                    <span>99</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink no-print';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

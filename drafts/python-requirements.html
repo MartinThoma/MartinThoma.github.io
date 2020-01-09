@@ -14,16 +14,16 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="Python, setup.py, requirements.txt, My bits and bytes, " />
+<meta name="keywords" content="Python, setup.py, requirements.txt, Software Development, My bits and bytes, " />
 
 <meta property="og:title" content="Python Requirements "/>
 <meta property="og:url" content="../drafts/python-requirements.html" />
-<meta property="og:description" content="Pythons package management is a constant source of confusion. There are too many tools. Dependency Formats There are two common formats to denote dependencies: Within the setup.py and requirements.txt files. setup.py is used to install packages, whereas requirements.txt files are used to prepare a development environment …" />
+<meta property="og:description" content="Pythons package management is a constant source of confusion. There are too many tools. xkcd shows this pretty well: xkcd The Python environmental protection agency wants to seal it in a cement chamber, with pictorial messages to future civilizations warning them about the danger of using sudo to install random …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2019-06-07T20:00:00+02:00" />
 <meta name="twitter:title" content="Python Requirements ">
-<meta name="twitter:description" content="Pythons package management is a constant source of confusion. There are too many tools. Dependency Formats There are two common formats to denote dependencies: Within the setup.py and requirements.txt files. setup.py is used to install packages, whereas requirements.txt files are used to prepare a development environment …">
+<meta name="twitter:description" content="Pythons package management is a constant source of confusion. There are too many tools. xkcd shows this pretty well: xkcd The Python environmental protection agency wants to seal it in a cement chamber, with pictorial messages to future civilizations warning them about the danger of using sudo to install random …">
 <meta property="og:image" content="logos/star.png" />
 <meta name="twitter:image" content="logos/star.png" >
 
@@ -104,18 +104,125 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#dependency-formats" title="Dependency Formats">Dependency Formats</a><ul><li><a class="toc-href" href="#requirementstxt" title="requirements.txt">requirements.txt</a></li><li><a class="toc-href" href="#setuppy" title="setup.py">setup.py</a></li></ul></li><li><a class="toc-href" href="#create-requirementstxt_1" title="Create requirements.txt">Create requirements.txt</a><ul><li><a class="toc-href" href="#pip-freeze" title="pip freeze">pip freeze</a></li><li><a class="toc-href" href="#pipreqs" title="pipreqs">pipreqs</a></li></ul></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#glossary" title="Glossary">Glossary</a></li><li><a class="toc-href" href="#what-we-need" title="What we need">What we need</a><ul><li><a class="toc-href" href="#case-1-writing-a-runnable" title="Case 1: Writing a runnable">Case 1: Writing a runnable</a></li><li><a class="toc-href" href="#case-2-writing-a-framework-library" title="Case 2: Writing a Framework / Library">Case 2: Writing a Framework / Library</a></li></ul></li><li><a class="toc-href" href="#distribution-formats_1" title="Distribution formats">Distribution formats</a><ul><li><a class="toc-href" href="#egg" title="Egg">Egg</a></li><li><a class="toc-href" href="#wheel" title="Wheel">Wheel</a></li></ul></li><li><a class="toc-href" href="#dependency-formats_1" title="Dependency Formats">Dependency Formats</a><ul><li><a class="toc-href" href="#requirementstxt" title="requirements.txt">requirements.txt</a></li><li><a class="toc-href" href="#setuppy" title="setup.py">setup.py</a></li></ul></li><li><a class="toc-href" href="#create-requirementstxt_1" title="Create requirements.txt">Create requirements.txt</a><ul><li><a class="toc-href" href="#pip-freeze" title="pip freeze">pip freeze</a></li><li><a class="toc-href" href="#pipreqs" title="pipreqs">pipreqs</a></li></ul></li><li><a class="toc-href" href="#create-executables_1" title="Create Executables">Create Executables</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>Pythons package management is a constant source of confusion. There are <a href="https://stackoverflow.com/q/25337706/562769">too many tools</a>.</p>
-<h2 id="dependency-formats">Dependency Formats</h2>
+            <p>Pythons package management is a constant source of confusion. There are <a href="https://stackoverflow.com/q/25337706/562769">too many tools</a>. <a href="https://xkcd.com/1987/">xkcd</a> shows this pretty well:</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="https://xkcd.com/1987/"><img alt="The Python environmental protection agency wants to seal it in a cement chamber, with pictorial messages to future civilizations warning them about the danger of using sudo to install random Python packages." src="https://imgs.xkcd.com/comics/python_environment.png" style="width: 512px;"/></a>
+<figcaption class="text-center">xkcd The Python environmental protection agency wants to seal it in a cement chamber, with pictorial messages to future civilizations warning them about the danger of using sudo to install random Python packages. (<a href="https://www.explainxkcd.com/wiki/index.php/1987:_Python_Environment">explanation</a>)</figcaption>
+</figure>
+<h2 id="glossary">Glossary</h2>
+<p>The following is mostly taken from Wikipedia and <a href="https://docs.python.org/3/glossary.html">the Python glossary</a>:</p>
+<dl>
+<dt>Interpreter</dt>
+<dd>An interpreter is a computer program that directly executes instructions written in a programming or scripting language, without requiring them previously to have been compiled into a machine language program. <a href="https://en.wikipedia.org/wiki/CPython">CPython</a> is the standard Python interpreter.</dd>
+<dt><a href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">REPL</a>, <dfn>Interactive Console</dfn></dt>
+<dd>A read&ndash;eval&ndash;print loop (REPL) is an interactive computer programming environment that takes single user inputs (i.e., single expressions), evaluates (executes) them, and returns the result to the user; a program written in a REPL environment is executed piecewise. When you just enter <code>python</code> in the console, then you start an interactive console.</dd>
+<dt>Script</dt>
+<dd>A single file that the interpreter can use as input and execute.</dd>
+<dt><a href="https://en.wikipedia.org/wiki/Namespace">Namespace</a></dt>
+<dd>The place where a variable is stored. A namespace ensures that all the identifiers within it have unique names so that they can be easily identified</dd>
+<dt><a href="https://docs.python.org/3/tutorial/modules.html">Module</a></dt>
+<dd>An object that serves as an organizational unit of Python code. Modules have a namespace containing arbitrary Python objects. Modules are loaded into Python by the process of importing. A module is a <code>.py</code> file containing Python definitions and statements. The file name is the module name with the suffix .py appended. Within a module, the module&rsquo;s name (as a string) is available as the value of the global variable __name__</dd>
+<dt><a href="https://docs.python.org/3/tutorial/modules.html#packages">Package</a></dt>
+<dd>A package is a folder with an <code>__init__.py</code> file. A package is a Python module with an <code>__path__</code> attribute.</dd>
+<dt>Subpackage</dt>
+<dd>If package B is contained in package A, then B is called a <dfn>subpackage</dfn> of A.</dd>
+</dl>
+<h2 id="what-we-need">What we need</h2>
+<p>It's often easier to understand something if you had the same need as the
+developers had when they created it. Imagine we start with an interactive console.
+In principle, this is Python. But what if...</p>
+<ol>
+<li>We want to be able to store functions/objects for later use: We need a <strong>Python script</strong></li>
+<li>We want to be able to group functions/objects to avoid naming colisions (open!): We need <strong>Python modules</strong></li>
+<li>We want to organize modules: We need <strong>Python packages</strong> which means we need a <code>__init__.py</code> file</li>
+<li>We don't want to remember where packages are and we don't want to manipulate the <a href="https://docs.python.org/3/library/sys.html#sys.path"><code>sys.path</code></a>:<ul>
+<li>Install packages, e.g. with <code>pip</code></li>
+<li>Add a <code>setup.py</code><ul>
+<li><a href="https://docs.python.org/3/library/distutils.html#module-distutils"><code>distutils</code></a> (deprecated, use setuptools) - same for <a href="https://pypi.org/project/distribute/0.7.3/"><code>distribute</code></a> and <a href="https://pypi.org/project/Distutils2/"><code>distutils2</code></a></li>
+<li><a href="https://setuptools.readthedocs.io/en/latest/"><code>setuptools</code></a><ul>
+<li>declare dependencies</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Metadata<ul>
+<li><a href="https://martin-thoma.com/python-projects/#documentation">README</a></li>
+<li><a href="https://tldrlegal.com/">License</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Create a package sceleton: <a href="https://github.com/MartinThoma/cookiecutter-python-package">cookiecutter</a></li>
+</ol>
+<h3 id="case-1-writing-a-runnable">Case 1: Writing a runnable</h3>
+<p>In this case, I mean anything that should be directly executed. It could be a
+web service, it could be a command line program or something with a GUI.</p>
+<ol>
+<li>We want our exact results to be repeatable (reproducibility): Version pinning in <a href="https://packaging.python.org/discussions/install-requires-vs-requirements/#requirements-files">requirements.txt</a></li>
+<li>Dependencies of our dependencies might break: Version pinning of sub-dependencies with <code>pip freeze</code>, <code>pip-tools</code></li>
+<li>We don't want to maintain security updates: <a href="https://github.com/pypa/pipenv">pipenv</a> (Pipfile / Pipfile.lock)</li>
+</ol>
+<table class="table">
+<thead>
+<tr>
+<th>Language</th>
+<th>Specification file for libraries</th>
+<th>Desired dependencies</th>
+<th>Locked dependencies</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Python</td>
+<td>setup.py</td>
+<td>Pipfile</td>
+<td>Pipfile.lock</td>
+</tr>
+<tr>
+<td>Ruby</td>
+<td>.gemspec</td>
+<td>Gemfile</td>
+<td>Gemfile.lock</td>
+</tr>
+<tr>
+<td>Rust</td>
+<td>Cargo.toml</td>
+<td>Cargo.toml</td>
+<td>Cargo.lock</td>
+</tr>
+</tbody>
+</table>
+<h3 id="case-2-writing-a-framework-library">Case 2: Writing a Framework / Library</h3>
+<ol>
+<li>We want to share packages: PyPI as a package hosting service, <code>twine</code> as a program to upload</li>
+<li>Different packages might need different versions of the same library, hence we want virtual environments: <code>virtualenv</code></li>
+</ol>
+<h2 id="distribution-formats_1">Distribution formats</h2>
+<p>There are <strong>source distributions</strong> (sdist) and <strong>built distributions</strong> (bdist,
+sometimes also called "binary distribution"). The format is usually <a href="https://www.python.org/dev/peps/pep-0427/">wheel</a> (egg exists as well).</p>
+<h3 id="egg">Egg</h3>
+<ul>
+<li>Contains .pyc files (might even only be that!) which could be incompatible
+  with your python version</li>
+</ul>
+<h3 id="wheel">Wheel</h3>
+<ul>
+<li>Only Python Code</li>
+<li>May Target a Python version</li>
+</ul>
+<h2 id="dependency-formats_1">Dependency Formats</h2>
 <p>There are two common formats to denote dependencies: Within the <code>setup.py</code> and
 <code>requirements.txt</code> files.</p>
 <p><code>setup.py</code> is used to install packages, whereas <code>requirements.txt</code> files are
 used to prepare a development environment.</p>
+<p>As an alternative to <code>requirements.txt</code>, you can use <code>Pipfile</code> + <code>Pipfile.lock</code>.
+However, the <code>requirements.txt</code> is still the de facto standard.</p>
 <h3 id="requirementstxt">requirements.txt</h3>
 <p>The structure of a <code>requirements.txt</code> file is super simple:</p>
 <div class="highlight"><pre><span></span>virtualenv==15.1.0
@@ -137,17 +244,131 @@ wily==1.12.2
 <p>It is meant to be used: TODO</p>
 <p>There are nice tools like <code>piprot</code> which tells you how outdated the requirements are.</p>
 <h3 id="setuppy">setup.py</h3>
-<h2 id="create-requirementstxt_1">Create requirements.txt</h2>
-<h3 id="pip-freeze">pip freeze</h3>
-<div class="highlight"><pre><span></span>$ pip freeze &gt; requirements.txt
+<p>I usually end up using something like the following:</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="sd">"""mpu: Martins Python Utilities."""</span>
+
+<span class="c1"># Core Library</span>
+<span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c1"># Third party</span>
+<span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">find_packages</span><span class="p">,</span> <span class="n">setup</span>
+
+
+<span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="n">file_name</span><span class="p">):</span>
+    <span class="sd">"""Read a text file and return the content as a string."""</span>
+    <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="n">file_name</span><span class="p">),</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span>
+    <span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+
+<span class="n">requires_datetime</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"pytz"</span><span class="p">]</span>
+<span class="n">requires_image</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Pillow"</span><span class="p">]</span>
+<span class="n">requires_io</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"pytz"</span><span class="p">,</span> <span class="s2">"tzlocal"</span><span class="p">]</span>
+<span class="n">requires_aws</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"boto3"</span><span class="p">]</span>
+<span class="n">requires_tests</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"pytest"</span><span class="p">,</span>
+    <span class="s2">"pytest-cov"</span><span class="p">,</span>
+    <span class="s2">"pytest-mccabe"</span><span class="p">,</span>
+    <span class="s2">"pytest-flake8"</span><span class="p">,</span>
+    <span class="s2">"simplejson"</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">requires_all</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="p">[</span><span class="s2">"pandas"</span><span class="p">,</span> <span class="s2">"python-magic"</span><span class="p">]</span>
+    <span class="o">+</span> <span class="n">requires_datetime</span>
+    <span class="o">+</span> <span class="n">requires_image</span>
+    <span class="o">+</span> <span class="n">requires_io</span>
+    <span class="o">+</span> <span class="n">requires_aws</span>
+    <span class="o">+</span> <span class="n">requires_tests</span>
+<span class="p">)</span>
+
+<span class="n">setup</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">"mpu"</span><span class="p">,</span>
+    <span class="n">version</span><span class="o">=</span><span class="s2">"0.21.0"</span><span class="p">,</span>  <span class="c1"># keep in sync with mpu/_version.py</span>
+    <span class="n">author</span><span class="o">=</span><span class="s2">"Martin Thoma"</span><span class="p">,</span>
+    <span class="n">author_email</span><span class="o">=</span><span class="s2">"info@martin-thoma.de"</span><span class="p">,</span>
+    <span class="n">maintainer</span><span class="o">=</span><span class="s2">"Martin Thoma"</span><span class="p">,</span>
+    <span class="n">maintainer_email</span><span class="o">=</span><span class="s2">"info@martin-thoma.de"</span><span class="p">,</span>
+    <span class="n">packages</span><span class="o">=</span><span class="n">find_packages</span><span class="p">(),</span>
+    <span class="n">package_data</span><span class="o">=</span><span class="p">{</span><span class="s2">"mpu"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"units/currencies.csv"</span><span class="p">,</span> <span class="s2">"data/*"</span><span class="p">,</span> <span class="s2">"package/templates/*"</span><span class="p">]},</span>
+    <span class="n">extras_require</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">"all"</span><span class="p">:</span> <span class="n">requires_all</span><span class="p">,</span>
+        <span class="s2">"aws"</span><span class="p">:</span> <span class="n">requires_aws</span><span class="p">,</span>
+        <span class="s2">"datetime"</span><span class="p">:</span> <span class="n">requires_datetime</span><span class="p">,</span>
+        <span class="s2">"image"</span><span class="p">:</span> <span class="n">requires_image</span><span class="p">,</span>
+        <span class="s2">"io"</span><span class="p">:</span> <span class="n">requires_io</span><span class="p">,</span>
+        <span class="s2">"tests"</span><span class="p">:</span> <span class="n">requires_tests</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="n">tests_require</span><span class="o">=</span><span class="n">requires_tests</span><span class="p">,</span>
+    <span class="n">platforms</span><span class="o">=</span><span class="p">[</span><span class="s2">"Linux"</span><span class="p">],</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">"https://github.com/MartinThoma/mpu"</span><span class="p">,</span>
+    <span class="n">license</span><span class="o">=</span><span class="s2">"MIT"</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s2">"Martins Python Utilities"</span><span class="p">,</span>
+    <span class="n">long_description</span><span class="o">=</span><span class="n">read</span><span class="p">(</span><span class="s2">"README.md"</span><span class="p">),</span>
+    <span class="n">long_description_content_type</span><span class="o">=</span><span class="s2">"text/markdown"</span><span class="p">,</span>
+    <span class="n">install_requires</span><span class="o">=</span><span class="p">[],</span>
+    <span class="n">keywords</span><span class="o">=</span><span class="p">[</span><span class="s2">"utility"</span><span class="p">],</span>
+    <span class="n">download_url</span><span class="o">=</span><span class="s2">"https://github.com/MartinThoma/mpu"</span><span class="p">,</span>
+    <span class="n">classifiers</span><span class="o">=</span><span class="p">[</span>
+        <span class="s2">"Development Status :: 3 - Alpha"</span><span class="p">,</span>
+        <span class="s2">"Environment :: Console"</span><span class="p">,</span>
+        <span class="s2">"Intended Audience :: Developers"</span><span class="p">,</span>
+        <span class="s2">"Intended Audience :: Information Technology"</span><span class="p">,</span>
+        <span class="s2">"License :: OSI Approved :: MIT License"</span><span class="p">,</span>
+        <span class="s2">"Natural Language :: English"</span><span class="p">,</span>
+        <span class="s2">"Programming Language :: Python :: 3.6"</span><span class="p">,</span>
+        <span class="s2">"Topic :: Software Development"</span><span class="p">,</span>
+        <span class="s2">"Topic :: Utilities"</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="n">zip_safe</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
-<p>The disadvantage of this approach is that you will capture everything which is
-currently installed.</p>
+<p>For quite a while, I did create a <code>config</code> dictionary and used
+<code>setup(**config)</code>. However, I'm not sure if this adds any benefit.</p>
+<h2 id="create-requirementstxt_1">Create requirements.txt</h2>
+<p>In order to create a <code>requirements.txt</code> where the requirements are pinned down,
+even for requirements of my requirements, I usually do this:</p>
+<h3 id="pip-freeze">pip freeze</h3>
+<div class="highlight"><pre><span></span>$ virtualenv venv
+$ <span class="nb">source</span> venv/bin/activate
+
+<span class="c1"># Add additional targets, if wanted!</span>
+$ pip install .
+
+$ pip freeze &gt; requirements.txt
+</pre></div>
 <h3 id="pipreqs">pipreqs</h3>
+<p>If you think your setup.py might miss something, try <a href="https://pypi.org/project/pipreqs/"><code>pipreqs</code></a>:</p>
 <div class="highlight"><pre><span></span>$ pip install pipreqs
 $ pipreqs /project/path
 </pre></div>
-<p>A similar tool is <code>pipdeptree</code>.</p>
+<p>A similar tool is <a href="https://pypi.org/project/pipdeptree/"><code>pipdeptree</code></a>.</p>
+<h2 id="create-executables_1">Create Executables</h2>
+<p><a href="https://pex.readthedocs.io/en/stable/">pex</a> provides a general purpose Python
+environment virtualization solution similar in spirit to virtualenv. PEX files
+have been used by Twitter to deploy Python applications to production since
+2011.</p>
+<p>Here is how you use it:</p>
+<div class="highlight"><pre><span></span>$ pip install pex
+$ pex -vv --disable-cache --python-shebang<span class="o">=</span><span class="s2">"/usr/bin/env python3.6"</span> --output-file<span class="o">=</span>fooexecutable --requirement<span class="o">=</span>requirements.txt -e modulename
+</pre></div>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="https://stackoverflow.com/q/25337706/562769">setuptools vs. distutils: why is distutils still a thing?</a></li>
+<li><a href="https://medium.com/@joel.barmettler/how-to-upload-your-python-package-to-pypi-65edc5fe9c56">How to upload your python package to PyPi</a>, 07.05.2018.</li>
+<li><a href="https://stackoverflow.com/q/46330327/562769">How are Pipfile and Pipfile.lock used?</a></li>
+<li><a href="https://realpython.com/pipenv-guide/#dependency-management-with-requirementstxt">Pipenv: A Guide to the New Python Packaging Tool</a></li>
+<li><a href="https://github.com/pypa/pipfile/issues/27#issuecomment-262264222">Comparison with Rust and Ruby</a>, 22.11.2016.</li>
+<li><a href="https://github.com/jazzband/pip-tools/issues/679#issuecomment-418251444">Why to keep requirements.txt + pip-compile and not go to pipenv + Pipfile</a></li>
+<li><a href="https://packaging.python.org/tutorials/managing-dependencies/#managing-dependencies">Managing Application Dependencies</a>: poetry, hatch, pip-tools</li>
+<li><a href="https://blog.godatadriven.com/setup-py">A Practical Guide to Using Setup.py</a></li>
+<li><a href="https://packaging.python.org/discussions/wheel-vs-egg/">Wheel vs Egg</a></li>
+<li><a href="http://sedimental.org/the_packaging_gradient.html">The Many Layers of Packaging</a></li>
+</ul>
             
             <div id="disqus_thread" class="no-print"></div>
 <script>
@@ -181,11 +402,14 @@ $ pipreqs /project/path
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
                 <li><a href="../tags.html#python-ref">Python
-                    <span>98</span>
+                    <span>99</span>
 </a></li>
                 <li><a href="../tags.html#requirementstxt-ref">requirements.txt
 </a></li>
                 <li><a href="../tags.html#setuppy-ref">setup.py
+</a></li>
+                <li><a href="../tags.html#software-development-ref">Software Development
+                    <span>3</span>
 </a></li>
             </ul>
 <h4>Contact</h4>
