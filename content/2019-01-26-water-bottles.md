@@ -5,7 +5,7 @@ slug: water-bottles
 author: Martin Thoma
 date: 2019-01-25 20:00
 category: My bits and bytes
-tags: Gear, Trekking
+tags: Gear, Trekking, Review
 featured_image: logos/hiking.png
 ---
 When I go hiking in Europe, I usually take simple plastic one-way bottles form
