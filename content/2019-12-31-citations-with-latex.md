@@ -8,6 +8,12 @@ category: My bits and bytes
 tags: LaTeX
 featured_image: logos/latex.png
 ---
+Managing citations is a core task when writing scientific documents. Of course,
+there are lots of options to do this with LaTeX. This makes it super confusing.
+If you need help, try [tex.stackexchange.com](https://tex.stackexchange.com/).
+The guys there are super helpful and extremely knowledgable. If you don't even
+know how to formulate your question properly, try the [tex webchat](https://chat.stackexchange.com/rooms/41/tex-latex-and-friends).
+
 <div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
 
 ## Minimal Example
@@ -80,7 +86,7 @@ pdflatex main.tex -output-format=pdf
 ## The bibliography file
 
 This is the core for your citations. Your citation library, if you want so.
-You can fill this file with JabRef or by hand.
+You can fill this file with [JabRef](https://www.jabref.org/) or by hand.
 
 ## Packages
 

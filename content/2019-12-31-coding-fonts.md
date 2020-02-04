@@ -4,9 +4,9 @@ title: Coding Fonts
 slug: coding-fonts
 author: Martin Thoma
 date: 2019-12-31 20:00
-category: My bits and bytes
+category: Code
 tags: Machine Learning
-featured_image: logos/star.png
+featured_image: logos/code.png
 ---
 The font choice for developing software is important. Developers read code all
 the time.

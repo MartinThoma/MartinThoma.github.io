@@ -8,7 +8,6 @@ category: The Web
 tags: HTML, Semantic Web
 featured_image: logos/html.png
 ---
-<div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
 
 The web is constantly evolving, and so it the language of it: HTML. Many
 changes users notice are around JavaScript, but we also got [semantic tags](https://www.w3schools.com/html/html5_semantic_elements.asp) such
@@ -23,6 +22,7 @@ which gives us neat <a href="https://developers.google.com/search/docs/guides/in
 
 But [I miss a standard to annotate quantities](https://stackoverflow.com/q/53097575/562769).
 
+<div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
 
 ## The problem
 

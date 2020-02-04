@@ -132,3 +132,4 @@ each table and each image needs a number.
   tool which can detect many flaws in academic writing.
 * [Difference between Paper and Article for scientific writings](https://english.stackexchange.com/a/263206/9880)
 * [Literature Review versus Literature Survey. What is the difference?](https://academia.stackexchange.com/q/15080/4092)
+* [Citations with LaTeX](https://martin-thoma.com/citations-with-latex/)

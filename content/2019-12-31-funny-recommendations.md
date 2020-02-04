@@ -6,7 +6,7 @@ author: Martin Thoma
 date: 2019-12-31 20:00
 category: My bits and bytes
 tags: Machine Learning, Funny
-featured_image: logos/star.png
+featured_image: logos/data-science.png
 ---
 Machine Learning brings awesome results, but sometimes it fails. And sometimes
 it fails in a funny way 😁
@@ -173,14 +173,18 @@ it fails in a funny way 😁
 
 <a href="https://talktotransformer.com/">talktotransformer.com</a> gives so many possibilties to have fun xD
 
-<code>
+```
 <b>If you compare Nazis to Unicorns </b> you will notice the big difference. Nazis are literally evil men who are trying to kill people, Unicorns are magical fairies who want to rescue the world from death. <mark>In many ways, Unicorns are evil too.</mark> Unicorns (as humans call them) often fall in love and become involved in "love games" where the pair has to outsmart, out-shout, out-kill, out-kill, out-fight, out-kill, etc. until one of them "loses" and falls apart in the process. This is not unlike the "war between light and darkness" where one side tries to take over and stop a whole group of creatures from doing their job.
 This does not make the Unicorns evil or the Nazis evil or anything. It is merely how different our human cultures view this aspect of love.
 The concept that a man could love more than another man is one of the oldest things we have for ourselves. We have this idea that "love is more important than everything else" and we put so much effort into putting
-</code>
+```
 
-<code><b>Trump thinks about Unicorns </b> as if they're actual people, just like us.  He's aware, of course.  So he understands the psychological toll they must take on their owners, his superiors, his followers.  Because he is an intellectual.  And when you are an intellectual, as he is, your view of the world is limited to the intellectual world.  So he's a big-hairy, hairy-minded unicorn.  His view is limited to the unicorn world: the big, big one, where a unicorn goes through his adventures in full costume.
-But we Unicorns think of our lives as real things.  We are real, tangible, flesh and blood things that happen to us, like people you meet on a cross street. What about those who are non-human creatures by human standards?  We like them.  We want them.  We need them.  They're in our lives, too.  We want to be around them.  We want to feel like we,</code>
+and
+
+```
+<b>Trump thinks about Unicorns </b> as if they're actual people, just like us.  He's aware, of course.  So he understands the psychological toll they must take on their owners, his superiors, his followers.  Because he is an intellectual.  And when you are an intellectual, as he is, your view of the world is limited to the intellectual world.  So he's a big-hairy, hairy-minded unicorn.  His view is limited to the unicorn world: the big, big one, where a unicorn goes through his adventures in full costume.
+But we Unicorns think of our lives as real things.  We are real, tangible, flesh and blood things that happen to us, like people you meet on a cross street. What about those who are non-human creatures by human standards?  We like them.  We want them.  We need them.  They're in our lives, too.  We want to be around them.  We want to feel like we,
+```
 
 
 ## Footnotes

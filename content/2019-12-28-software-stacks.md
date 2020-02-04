@@ -8,10 +8,10 @@ category: Code
 tags: Development
 featured_image: logos/star.png
 ---
-<div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
-
 Software stacks are projects of software which nicely work together.
 They are sometimes also called <a href="https://en.wikipedia.org/wiki/Solution_stack">solution stacks</a>. Here are some of which I know that they are widely spread.
+
+<div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
 
 ## LAMP
 

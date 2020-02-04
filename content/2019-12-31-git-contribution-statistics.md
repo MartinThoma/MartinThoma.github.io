@@ -6,7 +6,7 @@ author: Martin Thoma
 date: 2019-12-31 20:00
 category: Code
 tags: git
-featured_image: logos/star.png
+featured_image: logos/git.png
 ---
 I've just received a letter that the Scipy community will write a "scipy 1.0"
 paper and is wondering who should be mentioned as an author. So they want to
