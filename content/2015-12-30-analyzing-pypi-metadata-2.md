@@ -5,7 +5,7 @@ slug: analyzing-pypi-metadata-2
 author: Martin Thoma
 date: 2015-12-30 13:28
 category: Code
-tags: Python, Community, SQL
+tags: Python, Community, SQL, PyPI
 featured_image: logos/python.png
 ---
 

@@ -4,7 +4,7 @@ title: Analyzing PyPI Metadata
 author: Martin Thoma
 date: 2015-01-18 20:19
 category: Code
-tags: Python, Community, SQL
+tags: Python, Community, SQL, PyPI
 featured_image: logos/python.png
 ---
 
