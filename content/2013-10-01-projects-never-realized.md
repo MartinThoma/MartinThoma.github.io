@@ -407,7 +407,12 @@ After the changes in desktop environments, <a href="https://en.wikipedia.org/wik
 * Creating a LaTeX plugin for Pluma that auto-completes the environments.
 
 
-## LaTeX Tools
+## Typesetting
+
+I love creating beautiful documents. My tool of choice at the moment is LaTeX
+(TeXlive with Sublime Text and console + Jabref)
+
+### LaTeX Tools
 I would like to create online tools (pure HTML/CSS/JavaScript) that make the
 following tasks simpler.
 
@@ -424,8 +429,102 @@ Also, I would like to create an app that helps users to create formulas. This
 app should run on smartphones and on tablets. I don't think that this can be
 done with pure JavaScript.
 
+### New Typesetting Language
 
-## Jabber Messaging App
+I do realize that LaTeX is hard. I'm not quite sure yet, but I'd say it is
+harder than necessary. However, having a language which is purely based on
+text, openly documented, and human-writable for typesetting is pretty awesome.
+
+There are a couple of <a href="https://en.wikipedia.org/wiki/Markup_language">markup languages</a>
+and I've summarized the relevant ones in the following table.
+
+What I don't consider relevant:
+
+* <a href="https://en.wikipedia.org/wiki/ReStructuredText">reStructuredText</a> (reST):
+  Yes, it is widespread in Python documentation. I have no idea why. It looks
+  like a less readable and more flexible version of Markdown. However, as you
+  can mix Markdown with HTML almost all things you can to in reST are also
+  possible in Markdown + HTML.
+* Anything for images: InkML
+* Markdown flavours:
+    * CriticMarkup: No fenced code blocks
+    * CommonMark: No Syntax highlighting, no footnotes
+    * GFM: No footnotes
+    * <a href="https://rawgit.com/fletcher/human-markdown-reference/master/index.html">MultiMarkdown</a> (MMD): Despite being powerful, it is not well-known and I'm not sure if there is a solid implementation
+* MediaWiki: Not used anywhere except MediaWiki (Wikipedia); more complicated than HTML
+
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th><a href="https://github.github.com/gfm/">Markdown</a> (GFM)</th>
+            <th>LaTeX</th>
+            <th>HTML+MathML</th>
+            <th>OpenDocument</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Human Writability Score (higher is better)</td>
+        <td>99</td>
+        <td>50</td>
+        <td>70</td>
+        <td>10</td>
+    </tr>
+    <tr>
+        <td>Human Readability Score (higher is better)</td>
+        <td>99</td>
+        <td>30</td>
+        <td>50</td>
+        <td>5</td>
+    </tr>
+    <tr>
+        <td>Parsability Score (higher is better)</td>
+        <td>75</td>
+        <td>5</td>
+        <td>80</td>
+        <td>70</td>
+    </tr>
+    <tr>
+        <td colspan="4">How flexible are you?</td>
+    </tr>
+    <tr>
+        <td>Tables</td>
+        <td>25</td>
+        <td>80</td>
+        <td>90</td>
+        <td>75</td>
+    </tr>
+    <tr>
+        <td>Mathematics</td>
+        <td><a href="https://github.com/cben/mathdown/wiki/math-in-markdown">50</a></td>
+        <td>99</td>
+        <td>99</td>
+        <td>90</td>
+    </tr>
+    <tr>
+        <td>Footnotes</td>
+        <td>No</td>
+        <td>99</td>
+        <td>10</td>
+        <td>95</td>
+    </tr>
+    <tr>
+        <td>Citations</td>
+        <td>No</td>
+        <td>99</td>
+        <td>No</td>
+        <td>90</td>
+    </tr>
+    </tbody>
+</table>
+
+
+## App Development
+
+Things for mobile - factually only Android and iOS matter.
+
+### Jabber Messaging App
 
 There are some commercial messangers which are wide-spread (WhatsApp, Facebook Messanger, Skype),
 some known secure messangers (Threema, Signal) and lots of other messangers
@@ -447,6 +546,27 @@ However, there seems not to be a single client which has the following:
     * UTF-8
     * Typing indicator
     * Status: Message on server / Message on target client / Message read
+
+
+### Podcast Player
+
+I currently use [Podcast Addict](https://play.google.com/store/apps/details?id=com.bambuna.podcastaddict&hl=de).
+It has 4.7 stars at roughly 500k downloads... which should mean it's good, right?
+
+I'm super unhappy with a couple of things:
+
+* Adding new podcasts: I always have to search this.
+* Finding new podcasts: Isn't there a good search engine for them?
+* Information about new podcasts: I want to know when there is a new episode.
+* Download management: Podcasts are big in file size. I want the ones I have
+  already listened to to be deleted, but still track what I have listened to
+  (and how much of it). Also over devices / installs. So some form of login /
+  registration is desired.
+* Interface: What I want to do is simple
+    * Explore: Find new podcasts
+    * Subscribe / unsubscribe to podcasts
+    * Download episodes
+    * Play
 
 
 ## Open Hardware
@@ -712,6 +832,12 @@ Hardware:
     * Write short emails / SMS
     * Read out emails / SMS
     * Make entries in calendar
+
+
+### Date Extraction Package
+
+See [this datascience.stackexchange question](https://datascience.stackexchange.com/q/45854/8820)
+
 
 ## Coupon Sharing
 
