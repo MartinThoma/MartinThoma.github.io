@@ -365,18 +365,47 @@ which I think I really need... turns out, it's a lot of stuff.
 
 ## Kitchen
 
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Total Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Kleiner Teller (<a href="https://www.ikea.com/de/de/p/flitighet-dessertteller-weiss-70346654/">FLITIGHET</a>)</td>
+            <td>6.00 EUR / 4 pieces</td>
+        </tr>
+        <tr>
+            <td>Großer Teller (<a href="https://www.ikea.com/de/de/p/vaerdera-teller-weiss-10277352/">VÄRDERA</a>)</td>
+            <td>11.96 EUR / 4 pieces</td>
+        </tr>
+        <tr>
+            <td>Gläßer (<a href="https://www.ikea.com/de/de/p/ikea-365-glas-klarglas-60279711/">IKEA 365+</a>)</td>
+            <td>4.99 EUR / 6 pieces</td>
+        </tr>
+        <tr>
+            <td>Becher (<a href="https://www.ikea.com/de/de/p/dinera-becher-beige-60350646/">DINERA</a>)</td>
+            <td>7.96 EUR / 4 pieces</td>
+        </tr>
+        <tr>
+            <td>Handrührgerät (<a href="Bosch MFQ3540">Bosch MFQ3540</a>)</td>
+            <td>33.99 EUR</td>
+        </tr>
+        <tr>
+            <td>Besteck (<a href="https://www.ikea.com/de/de/p/mopsig-besteck-16-tlg-00343003/">MOPSIG</a>: 4 Gabeln, Messer, Suppen- und Teelöffel)</td>
+            <td>5.00 EUR</td>
+        </tr>
+    </tbody>
+</table>
+
 * Teller
-    * Groß
-    * Klein
-    * Suppe
-* Gläßer
-* Tassen
-* Besteck
+    * Suppe / Tiefer teller
 * Töpfe
 * Mixer
 * Nudelsieb
 * Plastik-Dosen
-* Handrührgerät: Bosch MFQ3540
 
 
 ## Other Stuff
@@ -1489,7 +1518,7 @@ pills and maybe a couple of months for creams and ointment.
         <td>79.10 EUR</td>
         <td>Each month</td>
         <td>949.20 EUR / year</td>
-        <td>37.00 EUR / 130kg</td>
+        <td>71.00 EUR / 250kg</td>
     </tr>
     <tr>
         <td>Restaurant (work)</td>
@@ -1524,7 +1553,7 @@ pills and maybe a couple of months for creams and ointment.
         <td>13 EUR</td>
         <td>Each 6 Weeks</td>
         <td>113.00 EUR / year</td>
-        <td>0 EUR</td>
+        <td>13 EUR / 1 time</td>
     </tr>
     <tr>
         <td><a href="https://www.check24.de/handytarife">SIM card</a></td>
