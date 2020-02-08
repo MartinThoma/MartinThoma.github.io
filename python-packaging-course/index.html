@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Python, git, black, isort, Code, " />
+
+<meta property="og:title" content="Python Packaging Course "/>
+<meta property="og:url" content="../python-packaging-course/" />
+<meta property="og:description" content="The Python Environment is old. Python development started before the internet. Naturally, such a grown environment is messy: Python Environment In this course, you will learn the details about Python packaging and how all of the tools related. Application Types Library: Should be included in other code. It will never …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2020-02-08T20:00:00+01:00" />
+<meta name="twitter:title" content="Python Packaging Course ">
+<meta name="twitter:description" content="The Python Environment is old. Python development started before the internet. Naturally, such a grown environment is messy: Python Environment In this course, you will learn the details about Python packaging and how all of the tools related. Application Types Library: Should be included in other code. It will never …">
+<meta property="og:image" content="logos/python.png" />
+<meta name="twitter:image" content="logos/python.png" >
+
+        <title>Python Packaging Course  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../python-packaging-course/"> Python Packaging Course  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#application-types" title="Application Types">Application Types</a></li><li><a class="toc-href" href="#development-environment" title="Development Environment">Development Environment</a></li><li><a class="toc-href" href="#starting-a-project" title="Starting a Project">Starting a Project</a><ul><li><a class="toc-href" href="#formatting" title="Formatting">Formatting</a></li><li><a class="toc-href" href="#unit-testing" title="Unit Testing">Unit Testing</a></li><li><a class="toc-href" href="#documentation" title="Documentation">Documentation</a></li><li><a class="toc-href" href="#security" title="Security">Security</a></li><li><a class="toc-href" href="#versions" title="Versions">Versions</a></li></ul></li><li><a class="toc-href" href="#see-also_1" title="See also">See also</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>The Python Environment is old. Python development started before the internet.
+Naturally, such a grown environment is messy:</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="https://xkcd.com/1987/"><img alt="The Python environmental protection agency wants to seal it in a cement chamber, with pictorial messages to future civilizations warning them about the danger of using sudo to install random Python packages." src="https://imgs.xkcd.com/comics/python_environment.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Python Environment</figcaption>
+</figure>
+<p>In this course, you will learn the details about Python packaging and how all
+of the tools related.</p>
+<h2 id="application-types">Application Types</h2>
+<ul>
+<li>Library: Should be included in other code. It will never be executed
+  directly. It does NOT have an entry point.</li>
+<li>CLI Application: Command line applications are supposed to be executed in
+  their own environment. It receives input via the CLI, might access local
+  storage or make web requests. It could read environment variables. It should
+  be started, execute the tasks, and finish. It has an entry point.</li>
+<li>GUI Applications: Similar to command line applications, but with a GUI
+  instead of a CLI.</li>
+<li>Service: Similar to a command line application, but it never finishes. It
+  just runs in the background.</li>
+<li>Notebooks: Ad-hoc scripts which are primarily used for data analysis.</li>
+</ul>
+<h2 id="development-environment">Development Environment</h2>
+<p>I like the ZSH shell with the plugin <a href="https://github.com/ohmyzsh/ohmyzsh">Oh My ZSH</a>
+and <a href="https://www.sublimetext.com/">Sublime Text</a> as an editor with many
+different plugins.</p>
+<p>A common alternatives to ZSH are <a href="https://fishshell.com/">Fish</a>. Common
+alternatives to Sublime Text are <a href="https://atom.io/">Atom</a> and <a href="https://code.visualstudio.com/">VS Code</a>.
+If you want more, <a href="https://www.jetbrains.com/de-de/pycharm/">PyCharm</a>.</p>
+<p>Make sure you have <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git"><code>git</code></a>, <a href="https://pypi.org/project/pipenv/"><code>pipenv</code></a>, <a href="https://cookiecutter.readthedocs.io/en/1.7.0/installation.html#install-cookiecutter">cookiecutter</a> and <a href="https://pre-commit.com/"><code>pre-commit</code></a> installed.</p>
+<h2 id="starting-a-project">Starting a Project</h2>
+<p>Suppose you want to develop a new <code>awesome_project</code>. Then you create a folder
+and make it a git repository:</p>
+<div class="highlight"><pre><span></span><span class="err">$</span> <span class="n">cookiecutter</span> <span class="nl">https</span><span class="p">:</span><span class="c1">//github.com/MartinThoma/cookiecutter-python-package</span>
+<span class="n">full_name</span> <span class="p">[</span><span class="n">Martin</span> <span class="n">Thoma</span><span class="p">]</span><span class="o">:</span>
+<span class="n">email</span> <span class="p">[</span><span class="n">info</span><span class="p">@</span><span class="n">martin</span><span class="o">-</span><span class="n">thoma</span><span class="p">.</span><span class="n">de</span><span class="p">]</span><span class="o">:</span>
+<span class="n">github_username</span> <span class="p">[</span><span class="n">MartinThoma</span><span class="p">]</span><span class="o">:</span>
+<span class="n">project_name</span> <span class="p">[</span><span class="n">Awesome</span> <span class="n">Project</span><span class="p">]</span><span class="o">:</span>
+<span class="n">project_slug</span> <span class="p">[</span><span class="n">awesome_project</span><span class="p">]</span><span class="o">:</span>
+<span class="n">project_short_description</span> <span class="p">[</span><span class="n">Awesome</span> <span class="n">Project</span> <span class="n">lets</span> <span class="n">you</span> <span class="n">feel</span> <span class="n">the</span> <span class="n">pure</span> <span class="n">awesomeness</span> <span class="n">of</span> <span class="n">awesome</span><span class="p">.]</span><span class="o">:</span>
+<span class="n">version</span> <span class="p">[</span><span class="mf">0.1.0</span><span class="p">]</span><span class="o">:</span>
+<span class="n">Select</span> <span class="nl">open_source_license</span><span class="p">:</span>
+<span class="mi">1</span> <span class="o">-</span> <span class="n">MIT</span> <span class="n">license</span>
+<span class="mi">2</span> <span class="o">-</span> <span class="n">BSD</span> <span class="n">license</span>
+<span class="mi">3</span> <span class="o">-</span> <span class="n">Not</span> <span class="n">open</span> <span class="n">source</span>
+<span class="n">Choose</span> <span class="n">from</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">:</span>
+
+<span class="err">$</span> <span class="n">cd</span> <span class="n">awesome_project</span>
+<span class="err">$</span> <span class="n">git</span> <span class="n">init</span>
+</pre></div>
+<p>To make sure that a failing hard drive does cause only little loss of work and
+to allow collaboration, we add a remote. <a href="https://github.com/">Github</a>
+and <a href="https://about.gitlab.com/">Gitlab</a> are excellent choices. Once you created
+an empty repository there, add it as a remote locally:</p>
+<div class="highlight"><pre><span></span>$ git remote add origin git@github.com:MartinThoma/awesome_project.git
+</pre></div>
+<p>Before starting development, it's a good idea to make sure that you don't get
+into trouble for having different versions of Python / packages.
+<a href="https://github.com/pypa/pipenv"><code>pipenv</code></a> is my tool of choice. At this point,
+using Python 3.8 is a good idea (<a href="https://devguide.python.org/#status-of-python-branches">current support status of Python versions</a>).</p>
+<div class="highlight"><pre><span></span><span class="c1"># Initialize the virtual environment</span>
+$ pipenv --python <span class="m">3</span>.8
+
+<span class="c1"># Import the requirements</span>
+$ pipenv install -r requirements-dev.txt
+
+<span class="c1"># Import the dev requirements</span>
+$ pipenv install --dev --pre -r requirements-dev.txt
+
+<span class="c1"># Make sure the repository stays that nice</span>
+$ pre-commit install
+</pre></div>
+<h3 id="formatting">Formatting</h3>
+<p>By the mentioned cookiecutter template, formatting is to a big extend already
+handled:</p>
+<ul>
+<li><a href="https://github.com/psf/black">black</a>: An opinionated formatter which respects PEP8 and implements a lot of <a href="https://flake8.pycqa.org/en/latest/">Flake8</a></li>
+<li><a href="https://github.com/timothycrosley/isort">isort</a>: Sort imports</li>
+</ul>
+<p>The only missing thing is a docstring style formatter. I like the
+<a href="https://numpydoc.readthedocs.io/en/latest/format.html">numpydoc docstring format</a>
+a lot.</p>
+<p>If you want to know more about formatting, I recommend to read my
+<a href="https://martin-thoma.com/python-style-guide/">Python style guide</a>.</p>
+<h3 id="unit-testing">Unit Testing</h3>
+<p>Before you start testing your application, you should decide which Python version
+you want to support. An orientation should be which CPython versions currently
+receive security updates (see <a href="https://stackoverflow.com/q/60126561/562769">SO Question</a>).</p>
+<p>Python has multiple testing frameworks. Use <a href="https://docs.pytest.org/en/latest/">pytest</a>.
+It's extremely widespread, stable and super simple to use.</p>
+<p>The cookiecutter template installs a couple of useful plugins:</p>
+<ul>
+<li><a href="https://pypi.org/project/pytest-cov/"><code>pytest-cov</code></a>: Generate a test
+  coverage report. This helps you to identify sections where bugs cannot
+  possibly be catched by a unittest.</li>
+<li><a href="https://pypi.org/project/pytest-black/"><code>pytest-black</code></a>: Check if black was
+  applied.</li>
+<li><a href="https://pypi.org/project/pytest-flake8/"><code>pytest-flake8</code></a>: Another formatting test.</li>
+<li><a href="https://pypi.org/project/pytest-mccabe/"><code>pytest-mccabe</code></a>: Check if a
+  section of your code might be too complicated.</li>
+</ul>
+<p>You might also want to give <a href="https://pypi.org/project/mutmut/"><code>mutmut</code></a> a try.
+It could help you to discover which lines have been checked, but maybe not
+thoroughly enough.</p>
+<p>To run all of your tests, execute <code>tox</code>.</p>
+<h3 id="documentation">Documentation</h3>
+<p>If you develop a library, you need documentation. For the other application
+types not so much.</p>
+<p><a href="https://www.sphinx-doc.org/en/master/">Sphinx</a> as a documentation generator
+and <a href="https://readthedocs.org/">readthedocs.org</a> as a hosting platforms are the
+tools of choice.</p>
+<h3 id="security">Security</h3>
+<p>If you develop an application, you need to be sure to update your dependencies
+if vulnerabilities occur. The package <a href="https://pypi.org/project/bandit/"><code>bandit</code></a>
+and the services <a href="https://snyk.io/">snyk.io</a> / <a href="https://pyup.io/">pyup.io</a>
+can help you to detect those cases.</p>
+<h3 id="versions">Versions</h3>
+<p>It is good practice to make <code>[module].__version__</code> available. Of course, it
+should be the same as the version you see via <code>pip freeze</code>. And then it would
+be nice if the git commit whould have a <a href="https://git-scm.com/book/en/v2/Git-Basics-Tagging">git tag</a>.</p>
+<p>Of course, you can all of that manually. If you want a tool, <a href="https://pypi.org/project/bumpversion/">bumpversion</a>
+is pretty widespread. However, it is not maintained. So some people use <a href="https://pypi.org/project/bump2version/">bump2version</a>.
+I'm not too sure if I would use that.</p>
+<h2 id="see-also_1">See also</h2>
+<ul>
+<li>Alexander VanTol: <a href="https://realpython.com/pipenv-guide/">Pipenv: A Guide to the New Python Packaging Tool</a>,</li>
+<li>packaging.python.org:<ul>
+<li>Tutorial: <a href="https://packaging.python.org/tutorials/packaging-projects/">Packaging Python Projects</a></li>
+<li><a href="https://packaging.python.org/glossary/">Glossary</a></li>
+</ul>
+</li>
+<li>Knewton: <a href="https://medium.com/knerd/the-nine-circles-of-python-dependency-hell-481d53e3e025">The Nine Circles of Python Dependency Hell</a>, 2015</li>
+<li>Martin Thoma: <a href="https://stackoverflow.com/q/60084441/562769">How does Python / pip handle conflicting transitive dependencies?</a>, 2020</li>
+<li><a href="https://setuptools.readthedocs.io/en/latest/setuptools.html">Building and Distributing Packages with Setuptools</a></li>
+<li><a href="https://tldrlegal.com/">Tl;DR Legal</a>: Compare licenses</li>
+<li>Conda<ul>
+<li><a href="https://docs.conda.io/projects/conda-build/en/latest/user-guide/tutorials/build-pkgs.html">Building conda packages from scratch</a></li>
+<li><a href="https://conda.io/projects/conda-build/en/latest/user-guide/tutorials/build-pkgs-skeleton.html#overview">Building conda packages with conda skeleton</a></li>
+<li>Martin Thoma: <a href="https://stackoverflow.com/q/59040271/562769">Is there a point in creating a conda package from an PyPI package?</a>, 2019.</li>
+</ul>
+</li>
+</ul>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2020-02-08T20:00:00+01:00">Feb 8, 2020</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#black-ref">black
+                    <span>1</span>
+</a></li>
+                <li><a href="../tags.html#git-ref">git
+                    <span>7</span>
+</a></li>
+                <li><a href="../tags.html#isort-ref">isort
+                    <span>1</span>
+</a></li>
+                <li><a href="../tags.html#python-ref">Python
+                    <span>101</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink no-print';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
