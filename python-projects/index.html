@@ -133,14 +133,13 @@ things, and off-by-1 errors.</p>
 <p>For now, assume your module is called <code>foo_module</code></p>
 <h2 id="project-structure">Project structure</h2>
 <div class="highlight"><pre><span></span><span class="n">foo_module</span> <span class="o">:</span> <span class="n">the</span> <span class="n">git</span> <span class="n">repository</span> <span class="n">root</span> <span class="n">dir</span>
-<span class="err">├──</span> <span class="n">bin</span>
-<span class="err">│</span>   <span class="err">└──</span> <span class="n">foo_module</span>
 <span class="err">├──</span> <span class="n">configs</span>
 <span class="err">│</span>   <span class="err">└──</span> <span class="n">module</span><span class="o">.</span><span class="na">yaml</span>
 <span class="err">├──</span> <span class="n">docker</span><span class="o">-</span><span class="n">compose</span><span class="o">.</span><span class="na">yml</span>
 <span class="err">├──</span> <span class="n">Dockerfile</span>
 <span class="err">├──</span> <span class="n">foo_module</span>
 <span class="err">│</span>   <span class="err">├──</span> <span class="n">api</span><span class="o">.</span><span class="na">py</span>
+<span class="err">│</span>   <span class="err">├──</span> <span class="n">cli</span><span class="o">.</span><span class="na">py</span>
 <span class="err">│</span>   <span class="err">├──</span> <span class="n">config</span><span class="o">.</span><span class="na">yaml</span>
 <span class="err">│</span>   <span class="err">├──</span> <span class="n">controller</span><span class="o">.</span><span class="na">py</span>
 <span class="err">│</span>   <span class="err">├──</span> <span class="n">credentials</span><span class="o">.</span><span class="na">yaml</span>
@@ -156,8 +155,6 @@ things, and off-by-1 errors.</p>
     <span class="err">└──</span> <span class="n">test_utils</span><span class="o">.</span><span class="na">py</span>
 </pre></div>
 <ul>
-<li>The <code>bin</code> directory should contain exactly one file. That file should not
-  end in <code>.py</code>.</li>
 <li>Having a <code>Dockerfile</code> and a <code>docker-compose.yml</code> might be nice if you have
   not purely Python dependencies. See <a href="https://martin-thoma.com/docker/">my Docker article</a>.</li>
 </ul>
@@ -173,19 +170,6 @@ things, and off-by-1 errors.</p>
 <span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
 
 <span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">'name'</span><span class="p">:</span> <span class="s1">'foo_module'</span><span class="p">,</span>
-    <span class="s1">'version'</span><span class="p">:</span> <span class="s1">'0.1.0'</span><span class="p">,</span>
-    <span class="s1">'author'</span><span class="p">:</span> <span class="s1">'Martin Thoma'</span><span class="p">,</span>
-    <span class="s1">'author_email'</span><span class="p">:</span> <span class="s1">'info@martin-thoma.de'</span><span class="p">,</span>
-    <span class="s1">'maintainer'</span><span class="p">:</span> <span class="s1">'Martin Thoma'</span><span class="p">,</span>
-    <span class="s1">'maintainer_email'</span><span class="p">:</span> <span class="s1">'info@martin-thoma.de'</span><span class="p">,</span>
-    <span class="s1">'packages'</span><span class="p">:</span> <span class="n">find_packages</span><span class="p">(),</span>
-    <span class="s1">'scripts'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'bin/foo_module'</span><span class="p">],</span>
-    <span class="s1">'platforms'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Linux'</span><span class="p">],</span>
-    <span class="s1">'url'</span><span class="p">:</span> <span class="s1">'https://github.com/MartinThoma/language-identification'</span><span class="p">,</span>
-    <span class="s1">'license'</span><span class="p">:</span> <span class="s1">'MIT'</span><span class="p">,</span>
-    <span class="s1">'description'</span><span class="p">:</span> <span class="s1">'Language identification Toolkit'</span><span class="p">,</span>
-    <span class="s1">'long_description'</span><span class="p">:</span> <span class="p">(</span><span class="s2">"A tookit for language identification."</span><span class="p">),</span>
     <span class="s1">'install_requires'</span><span class="p">:</span> <span class="p">[</span>
         <span class="s1">'click&gt;=6.7'</span><span class="p">,</span>
         <span class="s1">'numpy&gt;=1.14.0'</span><span class="p">,</span>
@@ -214,9 +198,45 @@ things, and off-by-1 errors.</p>
 
 <span class="n">setup</span><span class="p">(</span><span class="o">**</span><span class="n">config</span><span class="p">)</span>
 </pre></div>
+<p>The <code>cli.py</code> could look like this:</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+
+<span class="c1"># Third party modules</span>
+<span class="kn">import</span> <span class="nn">click</span>
+
+<span class="c1"># First party modules</span>
+<span class="kn">import</span> <span class="nn">foo_module</span>
+
+
+<span class="nd">@click.group</span><span class="p">()</span>
+<span class="nd">@click.version_option</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">foo_module</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">entry_point</span><span class="p">():</span>
+    <span class="sd">"""Awesomeproject spreads pure awesomeness."""</span>
+</pre></div>
 <p>The setup.cfg should look like this:</p>
 <div class="highlight"><pre><span></span><span class="k">[metadata]</span>
-<span class="na">description-file</span> <span class="o">=</span> <span class="s">README.md</span>
+<span class="na">name</span> <span class="o">=</span> <span class="s">foo_module</span>
+<span class="na">version</span> <span class="o">=</span> <span class="s">0.1.0</span>
+
+<span class="na">author</span> <span class="o">=</span> <span class="s">Martin Thoma</span>
+<span class="na">author_email</span> <span class="o">=</span> <span class="s">info@martin-thoma.de</span>
+<span class="na">maintainer</span> <span class="o">=</span> <span class="s">Martin Thoma</span>
+<span class="na">maintainer_email</span> <span class="o">=</span> <span class="s">info@martin-thoma.de</span>
+
+<span class="na">platforms</span> <span class="o">=</span> <span class="s">Linux</span>
+
+<span class="na">url</span> <span class="o">=</span> <span class="s">https://github.com/MartinThoma/language-identification</span>
+<span class="na">license</span> <span class="o">=</span> <span class="s">MIT</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">Language identification Toolkit</span>
+<span class="na">long_description</span> <span class="o">=</span> <span class="s">file: README.md</span>
+<span class="na">long_description_content_type</span> <span class="o">=</span> <span class="s">text/markdown</span>
+
+<span class="k">[options]</span>
+<span class="na">packages</span> <span class="o">=</span> <span class="s">find:</span>
+
+<span class="k">[options.entry_points]</span>
+<span class="na">console_scripts</span> <span class="o">=</span><span class="s"></span>
+<span class="s">    foo_module = foo_module.cli:entry_point</span>
 
 <span class="k">[tool:pytest]</span>
 <span class="na">addopts</span> <span class="o">=</span> <span class="s">./tests/ --doctest-modules --cov=./foo_module --cov-report html:tests/reports/coverage-html --pep8</span>
@@ -246,47 +266,47 @@ Stick to that.</p>
 <h2 id="logging">Logging</h2>
 <p>Use the <a href="https://docs.python.org/3/library/logging.html"><code>logging</code></a> library.</p>
 <p>Add the logging configuration to the modules configuration file (<code>configs/module.yaml</code>):</p>
-<div class="highlight"><pre><span></span><span class="n">LOGGING</span><span class="o">:</span>
-  <span class="n">version</span><span class="o">:</span> <span class="mi">1</span>
-  <span class="n">disable_existing_loggers</span><span class="o">:</span> <span class="n">False</span>
-  <span class="n">formatters</span><span class="o">:</span>
-      <span class="n">simple</span><span class="o">:</span>
-          <span class="n">format</span><span class="o">:</span> <span class="s2">"%(asctime)s - %(name)s - %(levelname)s - %(message)s"</span>
+<div class="highlight"><pre><span></span><span class="nt">LOGGING</span><span class="p">:</span>
+  <span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">disable_existing_loggers</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+  <span class="nt">formatters</span><span class="p">:</span>
+      <span class="nt">simple</span><span class="p">:</span>
+          <span class="nt">format</span><span class="p">:</span> <span class="s">"%(asctime)s</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">%(name)s</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">%(levelname)s</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">%(message)s"</span>
 
-  <span class="n">handlers</span><span class="o">:</span>
-      <span class="n">console</span><span class="o">:</span>
-          <span class="kd">class</span><span class="o">:</span> <span class="n">logging</span><span class="o">.</span><span class="na">StreamHandler</span>
-          <span class="n">level</span><span class="o">:</span> <span class="n">DEBUG</span>
-          <span class="n">formatter</span><span class="o">:</span> <span class="n">simple</span>
-          <span class="n">stream</span><span class="o">:</span> <span class="n">ext</span><span class="o">://</span><span class="n">sys</span><span class="o">.</span><span class="na">stdout</span>
+  <span class="nt">handlers</span><span class="p">:</span>
+      <span class="nt">console</span><span class="p">:</span>
+          <span class="nt">class</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">logging.StreamHandler</span>
+          <span class="nt">level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DEBUG</span>
+          <span class="nt">formatter</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">simple</span>
+          <span class="nt">stream</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ext://sys.stdout</span>
 
-      <span class="n">info_file_handler</span><span class="o">:</span>
-          <span class="kd">class</span><span class="o">:</span> <span class="n">logging</span><span class="o">.</span><span class="na">handlers</span><span class="o">.</span><span class="na">RotatingFileHandler</span>
-          <span class="n">level</span><span class="o">:</span> <span class="n">INFO</span>
-          <span class="n">formatter</span><span class="o">:</span> <span class="n">simple</span>
-          <span class="n">filename</span><span class="o">:</span> <span class="n">lidtk</span><span class="o">.</span><span class="na">info</span><span class="o">.</span><span class="na">log</span>
-          <span class="n">maxBytes</span><span class="o">:</span> <span class="mi">10485760</span> <span class="err">#</span> <span class="mi">10</span><span class="n">MB</span>
-          <span class="n">backupCount</span><span class="o">:</span> <span class="mi">20</span>
-          <span class="n">encoding</span><span class="o">:</span> <span class="n">utf8</span>
+      <span class="nt">info_file_handler</span><span class="p">:</span>
+          <span class="nt">class</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">logging.handlers.RotatingFileHandler</span>
+          <span class="nt">level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">INFO</span>
+          <span class="nt">formatter</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">simple</span>
+          <span class="nt">filename</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">lidtk.info.log</span>
+          <span class="nt">maxBytes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10485760</span> <span class="c1"># 10MB</span>
+          <span class="nt">backupCount</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">20</span>
+          <span class="nt">encoding</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">utf8</span>
 
-      <span class="n">error_file_handler</span><span class="o">:</span>
-          <span class="kd">class</span><span class="o">:</span> <span class="n">logging</span><span class="o">.</span><span class="na">handlers</span><span class="o">.</span><span class="na">RotatingFileHandler</span>
-          <span class="n">level</span><span class="o">:</span> <span class="n">ERROR</span>
-          <span class="n">formatter</span><span class="o">:</span> <span class="n">simple</span>
-          <span class="n">filename</span><span class="o">:</span> <span class="n">lidtk</span><span class="o">.</span><span class="na">errors</span><span class="o">.</span><span class="na">log</span>
-          <span class="n">maxBytes</span><span class="o">:</span> <span class="mi">10485760</span> <span class="err">#</span> <span class="mi">10</span><span class="n">MB</span>
-          <span class="n">backupCount</span><span class="o">:</span> <span class="mi">20</span>
-          <span class="n">encoding</span><span class="o">:</span> <span class="n">utf8</span>
+      <span class="nt">error_file_handler</span><span class="p">:</span>
+          <span class="nt">class</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">logging.handlers.RotatingFileHandler</span>
+          <span class="nt">level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ERROR</span>
+          <span class="nt">formatter</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">simple</span>
+          <span class="nt">filename</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">lidtk.errors.log</span>
+          <span class="nt">maxBytes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10485760</span> <span class="c1"># 10MB</span>
+          <span class="nt">backupCount</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">20</span>
+          <span class="nt">encoding</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">utf8</span>
 
-  <span class="n">loggers</span><span class="o">:</span>
-      <span class="n">my_module</span><span class="o">:</span>
-          <span class="n">level</span><span class="o">:</span> <span class="n">ERROR</span>
-          <span class="n">handlers</span><span class="o">:</span> <span class="o">[</span><span class="n">console</span><span class="o">]</span>
-          <span class="n">propagate</span><span class="o">:</span> <span class="n">no</span>
+  <span class="nt">loggers</span><span class="p">:</span>
+      <span class="nt">my_module</span><span class="p">:</span>
+          <span class="nt">level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ERROR</span>
+          <span class="nt">handlers</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">console</span><span class="p p-Indicator">]</span>
+          <span class="nt">propagate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">no</span>
 
-  <span class="n">root</span><span class="o">:</span>
-      <span class="n">level</span><span class="o">:</span> <span class="n">INFO</span>
-      <span class="n">handlers</span><span class="o">:</span> <span class="o">[</span><span class="n">console</span><span class="o">,</span> <span class="n">info_file_handler</span><span class="o">,</span> <span class="n">error_file_handler</span><span class="o">]</span>
+  <span class="nt">root</span><span class="p">:</span>
+      <span class="nt">level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">INFO</span>
+      <span class="nt">handlers</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">console</span><span class="p p-Indicator">,</span> <span class="nv">info_file_handler</span><span class="p p-Indicator">,</span> <span class="nv">error_file_handler</span><span class="p p-Indicator">]</span>
 </pre></div>
 <p>In your main script <code>bin/foo_module</code>, you should load this:</p>
 <div class="highlight"><pre><span></span><span class="c1"># core modules</span>
@@ -312,7 +332,8 @@ Stick to that.</p>
    see faster where things break. And keep in mind: That future developer might
    be yourself, after not having worked with your code for a while.</li>
 </ol>
-<p>Use <a href="https://docs.pytest.org/en/latest/"><code>pytest</code></a> and <a href="http://tox.readthedocs.io/en/latest/index.html"><code>tox</code></a>. The <code>tox.ini</code> should look like this:</p>
+<p>Use <a href="https://docs.pytest.org/en/latest/"><code>pytest</code></a> and <a href="http://tox.readthedocs.io/en/latest/index.html"><code>tox</code></a>.
+The <code>tox.ini</code> should look like this:</p>
 <div class="highlight"><pre><span></span><span class="k">[tox]</span>
 <span class="na">envlist</span> <span class="o">=</span> <span class="s">py35, py36</span>
 <span class="na">skip_missing_interpreters</span> <span class="o">=</span> <span class="s">true</span>
