@@ -104,7 +104,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#package-management-tools" title="Package Management Tools">Package Management Tools</a><ul><li><a class="toc-href" href="#distutils" title="Distutils">Distutils</a></li><li><a class="toc-href" href="#setuptools" title="Setuptools">Setuptools</a></li><li><a class="toc-href" href="#distribute" title="Distribute">Distribute</a></li></ul></li><li><a class="toc-href" href="#pip-installer_1" title="PIP Installer">PIP Installer</a></li><li><a class="toc-href" href="#environments" title="Environments">Environments</a><ul><li><a class="toc-href" href="#virtualenv" title="Virtualenv">Virtualenv</a></li><li><a class="toc-href" href="#virtualenvwrapper" title="Virtualenvwrapper">Virtualenvwrapper</a></li></ul></li><li><a class="toc-href" href="#creating-packages_1" title="Creating packages">Creating packages</a></li><li><a class="toc-href" href="#additional-information" title="Additional information">Additional information</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#package-management-tools" title="Package Management Tools">Package Management Tools</a><ul><li><a class="toc-href" href="#distutils" title="Distutils">Distutils</a></li><li><a class="toc-href" href="#setuptools" title="Setuptools">Setuptools</a></li><li><a class="toc-href" href="#distribute" title="Distribute">Distribute</a></li></ul></li><li><a class="toc-href" href="#pip_1" title="PIP">PIP</a></li><li><a class="toc-href" href="#environments" title="Environments">Environments</a></li><li><a class="toc-href" href="#creating-packages" title="Creating packages">Creating packages</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -112,14 +112,13 @@ MathJax.Hub.Queue(function() {
             
             <div class="info">This is a quick article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it.
 
-I wrote this when I did not know much about packaging. I wrote a tutorial <a href="https://martin-thoma.com/python-projects/">how to create Python packages</a> in 2018 as well.</div>
+I wrote this when I did not know much about packaging. I wrote a tutorial <a href="https://martin-thoma.com/python-projects/">how to create Python packages</a> in 2018 as well. In 2020, I gave a <a href="https://martin-thoma.com/python-packaging-course/">Python Packaging Course</a> which is better structured, up-to-date and has way more details.</div>
 <p>The following article is a wrap-up of the talk <a href="https://www.youtube.com/watch?v=MSs3QmHhvpE">Python Packages</a>
 from Daniel Hepper given at a German <a href="https://2013.de.pycon.org/schedule/sessions/15/">PyCon 2013</a>.</p>
 <p>distutils have very limited functionality. This is the reason why you should
 use setuptools. But 'distribute' is compatible to setuptools.</p>
 <p><a href="https://pypi.python.org/pypi">PyPi</a> is the Python Package Index. They distribute
 packages in form of "eggs". You can install them with easy_install or with pip.</p>
-<p>virtualenv / virtualenvwrapper</p>
 <h2 id="package-management-tools">Package Management Tools</h2>
 <h3 id="distutils">Distutils</h3>
 <p>Distutils is part of the standard library. When you run</p>
@@ -134,78 +133,18 @@ packages in form of "eggs". You can install them with easy_install or with pip.<
 <li>No Package listing (so you can't automatically search pypi)</li>
 </ul>
 <h3 id="setuptools">Setuptools</h3>
-<p>Setuptools are startet when you install a package with <code>easy_install</code>:</p>
-<div class="highlight"><pre><span></span>easy_install package
-</pre></div>
-<p>Setuptools are an extension for distutils. Setuptools offers dependency management.
+<p>Setuptools is an extension for distutils. Setuptools offers dependency management.
 With setuptools, so called 'egg files' were introduced. Those files are comparable
 to jar files in Java.</p>
 <h3 id="distribute">Distribute</h3>
-<p>Distribute was a fork of setuptools that got merged back to setuptools. So 
-don't use distribute, but use setuptools.</p>
-<h2 id="pip-installer_1">PIP Installer</h2>
-<p>PIP is short for 'PIP installs Python'. It can only install files from sources;
-so it does not support egg files.</p>
-<p>PIP commands are</p>
-<ul>
-<li>install</li>
-<li>uninstall</li>
-<li>freeze</li>
-<li>search</li>
-<li>bundle</li>
-<li>unzip</li>
-<li>zip</li>
-<li>wheel</li>
-<li>help</li>
-</ul>
+<p>Distribute was a fork of setuptools that got merged back to setuptools. So
+don't use distribute, use setuptools.</p>
+<h2 id="pip_1">PIP</h2>
+<p>See <a href="https://martin-thoma.com/python-packaging-course/">Python Packaging Course</a></p>
 <h2 id="environments">Environments</h2>
-<p>It might be the case that you have to have a Django 1.4 and a Django 1.5 project.
-In that case, you need different environments.</p>
-<h3 id="virtualenv">Virtualenv</h3>
-<div class="highlight"><pre><span></span>$ pip freeze
-$ virtualenv my_env
-$ <span class="nb">source</span> my_env/bin/activate
-</pre></div>
-<h3 id="virtualenvwrapper">Virtualenvwrapper</h3>
-<h2 id="creating-packages_1">Creating packages</h2>
-<p>A project could have this structure:</p>
-<div class="highlight"><pre><span></span>$ tree
-.
-├── LICENSE
-├── MANIFEST
-├── pyconde2013news
-│&nbsp;&nbsp; └── __init__.py
-├── README
-└── setup.py
-</pre></div>
-<p>With this setup.py:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">distutils.core</span> <span class="kn">import</span> <span class="n">setup</span>
-<span class="n">setup</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"pycon2013news"</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s2">"0.1"</span><span class="p">,</span> <span class="n">py_modules</span><span class="o">=</span><span class="p">[</span><span class="s2">"pycon2013news"</span><span class="p">],)</span>
-</pre></div>
-<p>This can directly be registered on PyPi:</p>
-<div class="highlight"><pre><span></span>python setup.py register
-</pre></div>
-<p>But a problem of this code is that it does not show the dependencies. So you
-should rather use setuptools for your setup.py:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
-<span class="n">setup</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"pycon2013news"</span><span class="p">,</span>
-      <span class="n">version</span><span class="o">=</span><span class="s2">"0.1"</span><span class="p">,</span>
-      <span class="n">py_modules</span><span class="o">=</span><span class="p">[</span><span class="s2">"pycon2013news"</span><span class="p">],</span>
-      <span class="n">description</span><span class="o">=</span><span class="s2">"Reads latest news headlines from the PyCon.DE 2013 website"</span><span class="p">)</span>
-      <span class="n">author</span><span class="o">=</span><span class="s2">"Daniel Hepper"</span><span class="p">,</span>
-      <span class="n">author_email</span><span class="o">=</span><span class="s2">"daniel@butfriendly.com"</span><span class="p">,</span>
-      <span class="n">url</span><span class="o">=</span><span class="s2">"https://github.com/dhepper/pyconde2013news"</span><span class="p">,</span>
-      <span class="n">install_requires</span><span class="o">=</span><span class="p">[</span>
-          <span class="s2">"beautifulsoup4==4.3.2"</span><span class="p">,</span>
-          <span class="s2">"requests==2.0.0"</span>
-      <span class="p">]</span>
-</pre></div>
-<p>When you add <code>scripts</code> argument to setup, you can later execute those.
-Entry points are also interesting.</p>
-<h2 id="additional-information">Additional information</h2>
-<ul>
-<li>http://guide.python-distribute.org/contributing.html</li>
-</ul>
+<p>See <a href="https://martin-thoma.com/virtual-environments/">Virtual Environments</a></p>
+<h2 id="creating-packages">Creating packages</h2>
+<p>See <a href="https://martin-thoma.com/python-packaging-course/">Python Packaging Course</a></p>
             
             <div id="disqus_thread" class="no-print"></div>
 <script>

@@ -104,7 +104,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#application-types" title="Application Types">Application Types</a></li><li><a class="toc-href" href="#development-environment" title="Development Environment">Development Environment</a></li><li><a class="toc-href" href="#starting-a-project" title="Starting a Project">Starting a Project</a><ul><li><a class="toc-href" href="#formatting" title="Formatting">Formatting</a></li><li><a class="toc-href" href="#unit-testing" title="Unit Testing">Unit Testing</a></li><li><a class="toc-href" href="#documentation" title="Documentation">Documentation</a></li><li><a class="toc-href" href="#security" title="Security">Security</a></li><li><a class="toc-href" href="#versions" title="Versions">Versions</a></li></ul></li><li><a class="toc-href" href="#see-also_1" title="See also">See also</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#application-types" title="Application Types">Application Types</a></li><li><a class="toc-href" href="#development-environment" title="Development Environment">Development Environment</a></li><li><a class="toc-href" href="#starting-a-project" title="Starting a Project">Starting a Project</a><ul><li><a class="toc-href" href="#formatting" title="Formatting">Formatting</a></li><li><a class="toc-href" href="#unit-testing" title="Unit Testing">Unit Testing</a></li><li><a class="toc-href" href="#documentation" title="Documentation">Documentation</a></li><li><a class="toc-href" href="#security" title="Security">Security</a></li><li><a class="toc-href" href="#versions" title="Versions">Versions</a></li><li><a class="toc-href" href="#project-structure" title="Project Structure">Project Structure</a></li></ul></li><li><a class="toc-href" href="#setuptools-files_1" title="Setuptools Files">Setuptools Files</a><ul><li><a class="toc-href" href="#setuppy" title="setup.py">setup.py</a></li><li><a class="toc-href" href="#setupcfg" title="setup.cfg">setup.cfg</a></li></ul></li><li><a class="toc-href" href="#creating-a-package_1" title="Creating a package">Creating a package</a></li><li><a class="toc-href" href="#share-the-package" title="Share the Package">Share the Package</a></li><li><a class="toc-href" href="#package-management-modules" title="Package Management Modules">Package Management Modules</a><ul><li><a class="toc-href" href="#distutils" title="distutils">distutils</a></li></ul></li><li><a class="toc-href" href="#distribute_1" title="distribute">distribute</a><ul><li><a class="toc-href" href="#setuptools" title="setuptools">setuptools</a></li></ul></li><li><a class="toc-href" href="#package-distribution-formats_1" title="Package Distribution Formats">Package Distribution Formats</a></li><li><a class="toc-href" href="#pip" title="PIP">PIP</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -135,7 +135,7 @@ of the tools related.</p>
 <h2 id="development-environment">Development Environment</h2>
 <p>I like the ZSH shell with the plugin <a href="https://github.com/ohmyzsh/ohmyzsh">Oh My ZSH</a>
 and <a href="https://www.sublimetext.com/">Sublime Text</a> as an editor with many
-different plugins.</p>
+different plugins; I've written down some of <a href="https://martin-thoma.com/sublime-text/">my Sublime Text plugins</a>.</p>
 <p>A common alternatives to ZSH are <a href="https://fishshell.com/">Fish</a>. Common
 alternatives to Sublime Text are <a href="https://atom.io/">Atom</a> and <a href="https://code.visualstudio.com/">VS Code</a>.
 If you want more, <a href="https://www.jetbrains.com/de-de/pycharm/">PyCharm</a>.</p>
@@ -174,7 +174,7 @@ using Python 3.8 is a good idea (<a href="https://devguide.python.org/#status-of
 $ pipenv --python <span class="m">3</span>.8
 
 <span class="c1"># Import the requirements</span>
-$ pipenv install -r requirements-dev.txt
+$ pipenv install -r requirements.txt
 
 <span class="c1"># Import the dev requirements</span>
 $ pipenv install --dev --pre -r requirements-dev.txt
@@ -233,7 +233,140 @@ be nice if the git commit whould have a <a href="https://git-scm.com/book/en/v2/
 <p>Of course, you can all of that manually. If you want a tool, <a href="https://pypi.org/project/bumpversion/">bumpversion</a>
 is pretty widespread. However, it is not maintained. So some people use <a href="https://pypi.org/project/bump2version/">bump2version</a>.
 I'm not too sure if I would use that.</p>
-<h2 id="see-also_1">See also</h2>
+<h3 id="project-structure">Project Structure</h3>
+<div class="highlight"><pre><span></span>awesome-project  # (git root)
+├── awesome_project  # This is the package
+│&nbsp;&nbsp; ├── cli.py
+│&nbsp;&nbsp; ├── __init__.py  # Required until Python 3.3; I'd still add it
+│&nbsp;&nbsp; └── _version.py
+├── README.md
+├── requirements-dev.txt
+├── requirements.txt
+├── setup.cfg
+├── setup.py
+├── tests
+│&nbsp;&nbsp; └── test_awesome_project.py
+└── tox.ini
+</pre></div>
+<h2 id="setuptools-files_1">Setuptools Files</h2>
+<p>If you have the described project structure, then packaging is not a big deal.</p>
+<h3 id="setuppy">setup.py</h3>
+<p>Make sure it has at least</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+
+<span class="n">setup</span><span class="p">()</span>
+</pre></div>
+<h3 id="setupcfg">setup.cfg</h3>
+<p>The <code>setup.cfg</code> is read by <code>setuptools.setup()</code>. It can contain a lot of things,
+but a minimal one would look like this:</p>
+<div class="highlight"><pre><span></span><span class="k">[metadata]</span>
+<span class="na">name</span> <span class="o">=</span> <span class="s">awesome_project</span>
+
+<span class="na">author</span> <span class="o">=</span> <span class="s">Martin Thoma</span>
+<span class="na">author_email</span> <span class="o">=</span> <span class="s">info@martin-thoma.de</span>
+
+<span class="c1"># keep in sync with awesome_project/_version.py</span>
+<span class="na">version</span> <span class="o">=</span> <span class="s">0.1.0</span>
+
+<span class="na">description</span> <span class="o">=</span> <span class="s">Awesome Project lets you feel the pure awesomeness of awesome.'</span>
+<span class="na">long_description</span> <span class="o">=</span> <span class="s">file: README.md</span>
+<span class="na">long_description_content_type</span> <span class="o">=</span> <span class="s">text/markdown</span>
+
+<span class="na">license</span> <span class="o">=</span> <span class="s">MIT license</span>
+
+<span class="k">[options]</span>
+<span class="na">packages</span> <span class="o">=</span> <span class="s">find:</span>
+<span class="na">python_requires</span> <span class="o">=</span> <span class="s">&gt;= 3.0</span>
+</pre></div>
+<h2 id="creating-a-package_1">Creating a package</h2>
+<p>Create a source distribution file:</p>
+<div class="highlight"><pre><span></span>$ python setup.py sdist
+</pre></div>
+<p>Create a wheel:</p>
+<div class="highlight"><pre><span></span>$ python setup.py bdist_wheel
+</pre></div>
+<h2 id="share-the-package">Share the Package</h2>
+<p>After creating it, upload it to PyPI with <a href="https://pypi.org/project/twine/">twine</a>:</p>
+<div class="highlight"><pre><span></span>$ twine upload dist/*
+
+<span class="c1"># Alternatively, if you want to sign it with GPG:</span>
+$ twine upload -s dist/*
+</pre></div>
+<div class="info">There is <code>python setup.py upload</code> as well. It didn't use https for quite a while. While this changed, the de-facto standard is still twine. For <a href="https://pypi.org/project/twine/">reasons</a>.</div>
+<h2 id="package-management-modules">Package Management Modules</h2>
+<h3 id="distutils">distutils</h3>
+<p>Deprecated. Use setuptools.</p>
+<h2 id="distribute_1">distribute</h2>
+<p>Was a fork of setuptools which got merged back. Use setuptools.</p>
+<h3 id="setuptools">setuptools</h3>
+<p><a href="https://setuptools.readthedocs.io/en/latest/setuptools.html">Setuptools</a> is used in the <code>setup.py</code> and gives you a lot of commands:</p>
+<div class="highlight"><pre><span></span>$ python setup.py --help-commands
+Standard commands:
+  build             build everything needed to install
+  build_py          <span class="s2">"build"</span> pure Python modules <span class="o">(</span>copy to build directory<span class="o">)</span>
+  build_ext         build C/C++ extensions <span class="o">(</span>compile/link to build directory<span class="o">)</span>
+  build_clib        build C/C++ libraries used by Python extensions
+  build_scripts     <span class="s2">"build"</span> scripts <span class="o">(</span>copy and fixup <span class="c1">#! line)</span>
+  clean             clean up temporary files from <span class="s1">'build'</span> <span class="nb">command</span>
+  install           install everything from build directory
+  install_lib       install all Python modules <span class="o">(</span>extensions and pure Python<span class="o">)</span>
+  install_headers   install C/C++ header files
+  install_scripts   install scripts <span class="o">(</span>Python or otherwise<span class="o">)</span>
+  install_data      install data files
+  sdist             create a <span class="nb">source</span> distribution <span class="o">(</span>tarball, zip file, etc.<span class="o">)</span>
+  register          register the distribution with the Python package index
+  bdist             create a built <span class="o">(</span>binary<span class="o">)</span> distribution
+  bdist_dumb        create a <span class="s2">"dumb"</span> built distribution
+  bdist_rpm         create an RPM distribution
+  bdist_wininst     create an executable installer <span class="k">for</span> MS Windows
+  check             perform some checks on the package
+  upload            upload binary package to PyPI
+
+Extra commands:
+  bdist_wheel       create a wheel distribution
+  <span class="nb">alias</span>             define a shortcut to invoke one or more commands
+  bdist_egg         create an <span class="s2">"egg"</span> distribution
+  develop           install package in <span class="s1">'development mode'</span>
+  dist_info         create a .dist-info directory
+  easy_install      Find/get/install Python packages
+  egg_info          create a distribution<span class="err">'</span>s .egg-info directory
+  install_egg_info  Install an .egg-info directory <span class="k">for</span> the package
+  rotate            delete older distributions, keeping N newest files
+  saveopts          save supplied options to setup.cfg or other config file
+  setopt            <span class="nb">set</span> an option in setup.cfg or another config file
+  <span class="nb">test</span>              run unit tests after in-place build <span class="o">(</span>deprecated<span class="o">)</span>
+  upload_docs       Upload documentation to PyPI
+  flake8            Run Flake8 on modules registered in setup.py
+
+usage: setup.py <span class="o">[</span>global_opts<span class="o">]</span> cmd1 <span class="o">[</span>cmd1_opts<span class="o">]</span> <span class="o">[</span>cmd2 <span class="o">[</span>cmd2_opts<span class="o">]</span> ...<span class="o">]</span>
+   or: setup.py --help <span class="o">[</span>cmd1 cmd2 ...<span class="o">]</span>
+   or: setup.py --help-commands
+   or: setup.py cmd --help
+</pre></div>
+<h2 id="package-distribution-formats_1">Package Distribution Formats</h2>
+<p>There are 3 common formats:</p>
+<ul>
+<li>Source distributions</li>
+<li>Egg</li>
+<li>Wheel</li>
+</ul>
+<p>Egg is outdated and can be replaced by either source distributions or wheel (<a href="https://packaging.python.org/discussions/wheel-vs-egg/">source</a>)</p>
+<h2 id="pip">PIP</h2>
+<p>PIP is short for 'PIP installs Python'. It can only install files from sources;
+so it does not support egg files.</p>
+<p>PIP commands are</p>
+<ul>
+<li>install</li>
+<li>uninstall</li>
+<li>freeze</li>
+<li>search</li>
+<li>bundle</li>
+<li>unzip</li>
+<li>zip</li>
+<li>wheel</li>
+<li>help</li>
+</ul>
+<h2 id="see-also">See also</h2>
 <ul>
 <li>Alexander VanTol: <a href="https://realpython.com/pipenv-guide/">Pipenv: A Guide to the New Python Packaging Tool</a>,</li>
 <li>packaging.python.org:<ul>
@@ -251,6 +384,15 @@ I'm not too sure if I would use that.</p>
 <li>Martin Thoma: <a href="https://stackoverflow.com/q/59040271/562769">Is there a point in creating a conda package from an PyPI package?</a>, 2019.</li>
 </ul>
 </li>
+</ul>
+<p>Other Packaging stuff:</p>
+<ul>
+<li><a href="http://logix4u.net/component/content/article/27-tutorials/44-how-to-create-windows-executable-exe-from-python-script">How to create Windows executable (.exe) from Python script</a>: You need to work on a Windows system for this.</li>
+<li><a href="http://www.py2exe.org/">py2exe</a> - <a href="http://www.py2exe.org/index.cgi/Tutorial">Tutorial</a></li>
+<li><a href="http://stackoverflow.com/a/113014/562769">py2exe - generate single executable file</a></li>
+<li><a href="http://stackoverflow.com/q/17709813/562769">compiling .py into windows AND mac executables on Ubuntu</a></li>
+<li><a href="https://milkator.wordpress.com/2014/07/19/windows-executable-from-python-developing-in-ubuntu/">Windows .exe*cutable from Python developing in Ubuntu</a></li>
+<li><a href="http://stackoverflow.com/q/2950971/562769">Cross-compiling a Python script on Linux into a Windows executable</a></li>
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>
