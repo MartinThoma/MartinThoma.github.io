@@ -37,14 +37,13 @@ For now, assume your module is called `foo_module`
 
 ```
 foo_module : the git repository root dir
-├── bin
-│   └── foo_module
 ├── configs
 │   └── module.yaml
 ├── docker-compose.yml
 ├── Dockerfile
 ├── foo_module
 │   ├── api.py
+│   ├── cli.py
 │   ├── config.yaml
 │   ├── controller.py
 │   ├── credentials.yaml
@@ -60,8 +59,6 @@ foo_module : the git repository root dir
     └── test_utils.py
 ```
 
-* The `bin` directory should contain exactly one file. That file should not
-  end in `.py`.
 * Having a `Dockerfile` and a `docker-compose.yml` might be nice if you have
   not purely Python dependencies. See [my Docker article](https://martin-thoma.com/docker/).
 
@@ -78,24 +75,11 @@ except:
 
 The `setup.py` should look like this:
 
-```
+```python
 from setuptools import find_packages
 from setuptools import setup
 
 config = {
-    'name': 'foo_module',
-    'version': '0.1.0',
-    'author': 'Martin Thoma',
-    'author_email': 'info@martin-thoma.de',
-    'maintainer': 'Martin Thoma',
-    'maintainer_email': 'info@martin-thoma.de',
-    'packages': find_packages(),
-    'scripts': ['bin/foo_module'],
-    'platforms': ['Linux'],
-    'url': 'https://github.com/MartinThoma/language-identification',
-    'license': 'MIT',
-    'description': 'Language identification Toolkit',
-    'long_description': ("A tookit for language identification."),
     'install_requires': [
         'click>=6.7',
         'numpy>=1.14.0',
@@ -125,11 +109,50 @@ config = {
 setup(**config)
 ```
 
+The `cli.py` could look like this:
+
+```python
+#!/usr/bin/env python
+
+# Third party modules
+import click
+
+# First party modules
+import foo_module
+
+
+@click.group()
+@click.version_option(version=foo_module.__version__)
+def entry_point():
+    """Awesomeproject spreads pure awesomeness."""
+```
+
 The setup.cfg should look like this:
 
-```
+```ini
 [metadata]
-description-file = README.md
+name = foo_module
+version = 0.1.0
+
+author = Martin Thoma
+author_email = info@martin-thoma.de
+maintainer = Martin Thoma
+maintainer_email = info@martin-thoma.de
+
+platforms = Linux
+
+url = https://github.com/MartinThoma/language-identification
+license = MIT
+description = Language identification Toolkit
+long_description = file: README.md
+long_description_content_type = text/markdown
+
+[options]
+packages = find:
+
+[options.entry_points]
+console_scripts =
+    foo_module = foo_module.cli:entry_point
 
 [tool:pytest]
 addopts = ./tests/ --doctest-modules --cov=./foo_module --cov-report html:tests/reports/coverage-html --pep8
@@ -165,7 +188,7 @@ Use the [`logging`](https://docs.python.org/3/library/logging.html) library.
 
 Add the logging configuration to the modules configuration file (`configs/module.yaml`):
 
-```
+```yaml
 LOGGING:
   version: 1
   disable_existing_loggers: False
@@ -238,9 +261,10 @@ Tests are written for three purposes:
    see faster where things break. And keep in mind: That future developer might
    be yourself, after not having worked with your code for a while.
 
-Use [`pytest`](https://docs.pytest.org/en/latest/) and [`tox`](http://tox.readthedocs.io/en/latest/index.html). The `tox.ini` should look like this:
+Use [`pytest`](https://docs.pytest.org/en/latest/) and [`tox`](http://tox.readthedocs.io/en/latest/index.html).
+The `tox.ini` should look like this:
 
-```
+```ini
 [tox]
 envlist = py35, py36
 skip_missing_interpreters = true

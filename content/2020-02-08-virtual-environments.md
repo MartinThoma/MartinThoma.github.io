@@ -12,7 +12,7 @@ A virtual environment is an isolated Python environments. It has it's own
 installed `site-packages` which can be different from the systems
 `site-packages`.
 
-The TL;DR: `pipenv` is your friend; it allows you to forget about the others.
+TL;DR: `pipenv` is your friend; it allows you to forget about the others.
 
 ## virtualenv
 
@@ -172,3 +172,4 @@ RUN pip install . --no-deps
 * [`virtualenv`](https://virtualenv.pypa.io/en/latest/)
 * [What is the difference between venv, pyvenv, pyenv, virtualenv, virtualenvwrapper, pipenv, etc?](https://stackoverflow.com/a/41573588/562769)
 * [Generate requirements.txt from Pipfile.lock](https://github.com/pypa/pipenv/issues/3493#issuecomment-511708312)
+* [`virtualenvwrapper`](https://pypi.org/project/virtualenvwrapper/): extensions to virtualenv

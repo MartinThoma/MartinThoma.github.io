@@ -5,7 +5,7 @@ slug: python-packaging-course
 author: Martin Thoma
 date: 2020-02-08 20:00
 category: Code
-tags: Python, git, black, isort
+tags: Python, git, black, isort, cookiecutter
 featured_image: logos/python.png
 ---
 The Python Environment is old. Python development started before the internet.
@@ -38,13 +38,13 @@ of the tools related.
 
 I like the ZSH shell with the plugin [Oh My ZSH](https://github.com/ohmyzsh/ohmyzsh)
 and [Sublime Text](https://www.sublimetext.com/) as an editor with many
-different plugins.
+different plugins; I've written down some of [my Sublime Text plugins](https://martin-thoma.com/sublime-text/).
 
 A common alternatives to ZSH are [Fish](https://fishshell.com/). Common
 alternatives to Sublime Text are [Atom](https://atom.io/) and [VS Code](https://code.visualstudio.com/).
 If you want more, [PyCharm](https://www.jetbrains.com/de-de/pycharm/).
 
-Make sure you have [`git`](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [`pipenv`](https://pypi.org/project/pipenv/), [cookiecutter](https://cookiecutter.readthedocs.io/en/1.7.0/installation.html#install-cookiecutter) and [`pre-commit`](https://pre-commit.com/) installed.
+Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [pipenv](https://pypi.org/project/pipenv/), [cookiecutter](https://cookiecutter.readthedocs.io/en/1.7.0/installation.html#install-cookiecutter) and [pre-commit](https://pre-commit.com/) installed.
 
 ## Starting a Project
 Suppose you want to develop a new `awesome_project`. Then you create a folder
@@ -88,7 +88,7 @@ using Python 3.8 is a good idea ([current support status of Python versions](htt
 $ pipenv --python 3.8
 
 # Import the requirements
-$ pipenv install -r requirements-dev.txt
+$ pipenv install -r requirements.txt
 
 # Import the dev requirements
 $ pipenv install --dev --pre -r requirements-dev.txt
@@ -165,6 +165,198 @@ Of course, you can all of that manually. If you want a tool, [bumpversion](https
 is pretty widespread. However, it is not maintained. So some people use [bump2version](https://pypi.org/project/bump2version/).
 I'm not too sure if I would use that.
 
+### Project Structure
+
+```
+awesome-project  # (git root)
+├── awesome_project  # This is the package
+│   ├── cli.py
+│   ├── __init__.py  # Required until Python 3.3; I'd still add it
+│   └── _version.py
+├── README.md
+├── requirements-dev.txt
+├── requirements.txt
+├── setup.cfg
+├── setup.py
+├── tests
+│   └── test_awesome_project.py
+└── tox.ini
+```
+
+## Setuptools Files
+
+If you have the described project structure, then packaging is not a big deal.
+
+### setup.py
+
+Make sure it has at least
+
+```python
+from setuptools import setup
+
+setup()
+```
+
+### setup.cfg
+
+The `setup.cfg` is read by `setuptools.setup()`. It can contain a lot of things,
+but a minimal one would look like this:
+
+```ini
+[metadata]
+name = awesome_project
+
+author = Martin Thoma
+author_email = info@martin-thoma.de
+
+# keep in sync with awesome_project/_version.py
+version = 0.1.0
+
+description = Awesome Project lets you feel the pure awesomeness of awesome.'
+long_description = file: README.md
+long_description_content_type = text/markdown
+
+license = MIT license
+
+[options]
+packages = find:
+python_requires = >= 3.0
+```
+
+## Creating a distribution
+
+Create a source distribution file:
+
+```bash
+$ python setup.py sdist
+```
+
+Create a wheel distribution:
+
+```bash
+$ python setup.py bdist_wheel
+```
+
+## Share the Package
+
+After creating it, upload it to PyPI with [twine](https://pypi.org/project/twine/).
+
+To do so, first setup your `~/.pypirc` file:
+
+```
+[distutils]
+index-servers =
+  pypi
+  pypitest
+
+[pypi]
+username: YourUsername
+password: plaintext whatever you had
+
+[pypitest]
+repository: https://test.pypi.org/legacy/
+username: YourUsername
+password: plaintext whatever you had
+```
+
+Now you can upload the distributions you've built before:
+
+```bash
+$ twine upload --repository pypitest dist/*
+
+# Alternatively, if you want to sign it with GPG:
+$ twine upload --repository pypitest -s dist/*
+```
+
+<div class="info">There is <code>python setup.py upload</code> as well. It didn't use https for quite a while. While this changed, the de-facto standard is still twine. For <a href="https://pypi.org/project/twine/">reasons</a>.</div>
+
+
+## Package Management Modules
+
+### distutils
+
+Deprecated. Use setuptools.
+
+## distribute
+
+Was a fork of setuptools which got merged back. Use setuptools.
+
+### setuptools
+
+[Setuptools](https://setuptools.readthedocs.io/en/latest/setuptools.html) is used in the `setup.py` and gives you a lot of commands:
+
+```
+$ python setup.py --help-commands
+Standard commands:
+  build             build everything needed to install
+  build_py          "build" pure Python modules (copy to build directory)
+  build_ext         build C/C++ extensions (compile/link to build directory)
+  build_clib        build C/C++ libraries used by Python extensions
+  build_scripts     "build" scripts (copy and fixup #! line)
+  clean             clean up temporary files from 'build' command
+  install           install everything from build directory
+  install_lib       install all Python modules (extensions and pure Python)
+  install_headers   install C/C++ header files
+  install_scripts   install scripts (Python or otherwise)
+  install_data      install data files
+  sdist             create a source distribution (tarball, zip file, etc.)
+  register          register the distribution with the Python package index
+  bdist             create a built (binary) distribution
+  bdist_dumb        create a "dumb" built distribution
+  bdist_rpm         create an RPM distribution
+  bdist_wininst     create an executable installer for MS Windows
+  check             perform some checks on the package
+  upload            upload binary package to PyPI
+
+Extra commands:
+  bdist_wheel       create a wheel distribution
+  alias             define a shortcut to invoke one or more commands
+  bdist_egg         create an "egg" distribution
+  develop           install package in 'development mode'
+  dist_info         create a .dist-info directory
+  easy_install      Find/get/install Python packages
+  egg_info          create a distribution's .egg-info directory
+  install_egg_info  Install an .egg-info directory for the package
+  rotate            delete older distributions, keeping N newest files
+  saveopts          save supplied options to setup.cfg or other config file
+  setopt            set an option in setup.cfg or another config file
+  test              run unit tests after in-place build (deprecated)
+  upload_docs       Upload documentation to PyPI
+  flake8            Run Flake8 on modules registered in setup.py
+
+usage: setup.py [global_opts] cmd1 [cmd1_opts] [cmd2 [cmd2_opts] ...]
+   or: setup.py --help [cmd1 cmd2 ...]
+   or: setup.py --help-commands
+   or: setup.py cmd --help
+```
+
+## Package Distribution Formats
+
+There are 3 common formats:
+
+* Source distributions
+* Egg
+* Wheel
+
+Egg is outdated and can be replaced by either source distributions or wheel ([source](https://packaging.python.org/discussions/wheel-vs-egg/))
+
+## PIP
+
+PIP is short for 'PIP installs Python'. It can only install files from sources;
+so it does not support egg files.
+
+PIP commands are
+
+* install
+* uninstall
+* freeze
+* search
+* bundle
+* unzip
+* zip
+* wheel
+* help
+
 
 ## See also
 
@@ -180,3 +372,12 @@ I'm not too sure if I would use that.
     * [Building conda packages from scratch](https://docs.conda.io/projects/conda-build/en/latest/user-guide/tutorials/build-pkgs.html)
     * [Building conda packages with conda skeleton](https://conda.io/projects/conda-build/en/latest/user-guide/tutorials/build-pkgs-skeleton.html#overview)
     * Martin Thoma: [Is there a point in creating a conda package from an PyPI package?](https://stackoverflow.com/q/59040271/562769), 2019.
+
+Other Packaging stuff:
+
+* [How to create Windows executable (.exe) from Python script](http://logix4u.net/component/content/article/27-tutorials/44-how-to-create-windows-executable-exe-from-python-script): You need to work on a Windows system for this.
+* [py2exe](http://www.py2exe.org/) - [Tutorial](http://www.py2exe.org/index.cgi/Tutorial)
+  * [py2exe - generate single executable file](http://stackoverflow.com/a/113014/562769)
+* [compiling .py into windows AND mac executables on Ubuntu](http://stackoverflow.com/q/17709813/562769)
+* [Windows .exe*cutable from Python developing in Ubuntu](https://milkator.wordpress.com/2014/07/19/windows-executable-from-python-developing-in-ubuntu/)
+* [Cross-compiling a Python script on Linux into a Windows executable](http://stackoverflow.com/q/2950971/562769)
