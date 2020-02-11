@@ -15,9 +15,6 @@ I wrote this when I did not know much about packaging. I wrote a tutorial <a hre
 The following article is a wrap-up of the talk [Python Packages](https://www.youtube.com/watch?v=MSs3QmHhvpE)
 from Daniel Hepper given at a German [PyCon 2013](https://2013.de.pycon.org/schedule/sessions/15/).
 
-distutils have very limited functionality. This is the reason why you should
-use setuptools. But 'distribute' is compatible to setuptools.
-
 [PyPi](https://pypi.python.org/pypi) is the Python Package Index. They distribute
 packages in form of "eggs". You can install them with easy_install or with pip.
 
@@ -51,14 +48,10 @@ to jar files in Java.
 Distribute was a fork of setuptools that got merged back to setuptools. So
 don't use distribute, use setuptools.
 
-## PIP
+## PIP and Creating packages
 
 See [Python Packaging Course](https://martin-thoma.com/python-packaging-course/)
 
 ## Environments
 
 See [Virtual Environments](https://martin-thoma.com/virtual-environments/)
-
-## Creating packages
-
-See [Python Packaging Course](https://martin-thoma.com/python-packaging-course/)

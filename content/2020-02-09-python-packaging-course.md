@@ -212,7 +212,7 @@ author_email = info@martin-thoma.de
 # keep in sync with awesome_project/_version.py
 version = 0.1.0
 
-description = Awesome Project lets you feel the pure awesomeness of awesome.'
+description = Awesome Project lets you feel the pure awesomeness of awesome.
 long_description = file: README.md
 long_description_content_type = text/markdown
 
@@ -340,22 +340,28 @@ There are 3 common formats:
 
 Egg is outdated and can be replaced by either source distributions or wheel ([source](https://packaging.python.org/discussions/wheel-vs-egg/))
 
-## PIP
+## Package manager
 
-PIP is short for 'PIP installs Python'. It can only install files from sources;
-so it does not support egg files.
+PIP is short for 'PIP installs Python'. Use it. Don't use `easy_install`.
 
 PIP commands are
 
-* install
-* uninstall
-* freeze
-* search
-* bundle
-* unzip
-* zip
-* wheel
-* help
+```
+  install       Install packages.
+  download      Download packages.
+  uninstall     Uninstall packages.
+  freeze        Output installed packages in requirements format.
+  list          List installed packages.
+  show          Show information about installed packages.
+  check         Verify installed packages have compatible dependencies.
+  config        Manage local and global configuration.
+  search        Search PyPI for packages.
+  wheel         Build wheels from your requirements.
+  hash          Compute hashes of package archives.
+  completion    A helper command used for command completion.
+  debug         Show information useful for debugging.
+  help          Show help for commands.
+```
 
 
 ## See also

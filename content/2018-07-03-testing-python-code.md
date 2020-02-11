@@ -168,14 +168,13 @@ Your [project structure](https://martin-thoma.com/python-projects/) should be:
 
 ```
 foo_module : the git repository root dir
-├── bin
-│   └── foo_module
 ├── configs
 │   └── module.yaml
 ├── docker-compose.yml
 ├── Dockerfile
 ├── foo_module
 │   ├── api.py
+│   ├── cli.py
 │   ├── config.yaml
 │   ├── controller.py
 │   ├── credentials.yaml
@@ -228,7 +227,7 @@ testing with Python WAY easier. You can simply add files `test_<modulename>.py`
 with `text_xyz()` functions and assert statements:
 
 ```
-text_xy():
+def text_xy():
     import mymodule
     assert mymodule.f(1) == 2
 ```

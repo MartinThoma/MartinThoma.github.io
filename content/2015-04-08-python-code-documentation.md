@@ -46,8 +46,7 @@ def preprocessing(self, algorithms):
 
 ## The Google Way
 
-Google documented its format at [http://google-styleguide.googlecode.com/](http://google-styleguide.googlecode.com/svn/trunk/pyguide.html). (I'm wondering where that will move, now that they plan
-to shut code.google.com down. Probably to GitHub.)
+Google documented its format at [google.github.io](http://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings).
 
 ```python
 def preprocessing(self, algorithms):
