@@ -104,7 +104,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#python" title="Python">Python</a><ul><li><a class="toc-href" href="#pypy" title="pypy">pypy</a></li></ul></li><li><a class="toc-href" href="#c_1" title="C++">C++</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#python" title="Python">Python</a><ul><li><a class="toc-href" href="#pypy" title="pypy">pypy</a></li></ul></li><li><a class="toc-href" href="#c_1" title="C++">C++</a></li><li><a class="toc-href" href="#using-c-from-python" title="Using C++ from Python">Using C++ from Python</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -189,16 +189,37 @@ the old machine needed.</p>
 </tr>
 <tr>
 <th><a href="https://en.wikipedia.org/wiki/SciPy">SciPy</a></th>
-<td>45<br/>version: 1.1.0</td>
+<td>45 (<span style="color: green;">2.6x</span>)<br/>version: 1.1.0</td>
 <td>20<br/>version: 1.4.1</td>
 <td colspan="2"><a href="https://stackoverflow.com/q/60248443/562769">Installation problems</a></td>
 </tr>
 <tr>
-<th>Strassen (LEAF_SIZE=8)</th>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<th><a href="https://martin-thoma.com/strassen-algorithm-in-python-java-cpp/">Strassen (LEAF_SIZE=8)</a></th>
+<td>1709 (<span style="color: green;">1.7x</span>)</td>
+<td>1780</td>
+<td>190</td>
+<td>125</td>
+</tr>
+<tr>
+<th><a href="https://martin-thoma.com/strassen-algorithm-in-python-java-cpp/">Strassen (LEAF_SIZE=64)</a></th>
+<td>855 (<span style="color: green;">3.4x</span>)</td>
+<td>1022</td>
+<td>44</td>
+<td>41</td>
+</tr>
+<tr>
+<th>ikj (2 threads)</th>
+<td>953</td>
+<td>1611</td>
+<td>37</td>
+<td>32</td>
+</tr>
+<tr>
+<th>ikj (4 threads)</th>
+<td>459</td>
+<td>762</td>
+<td>19</td>
+<td>17</td>
 </tr>
 </tbody>
 </table>
@@ -206,6 +227,13 @@ the old machine needed.</p>
 <ul>
 <li>pypy is crazy fast compared to CPython - up to a speedup of 34x 😲</li>
 <li>Python 2.7 is faster than 3.8 for this benchmark 😢</li>
+<li>Ways to improve; speedups are always compared to the naive ijk algorithm:<ul>
+<li>Cache optimization: The ikj algorithm gave a 1.08x speedup</li>
+<li>Algorithmic: The Strassen algorithm gave a 1.84x speedup</li>
+<li>Parallelization: Using 4 threads instead of 1 with a super simple algorithm gave a 2.47x speedup</li>
+<li>Libraries: Using numpy gave a <strong>94.2x speedup</strong>!</li>
+</ul>
+</li>
 <li>Numpy and scipy are the way to go, just as expected 🤷&zwj;♂️</li>
 </ul>
 <h3 id="pypy">pypy</h3>
@@ -250,6 +278,63 @@ for more information why PyPy is that fast.</p>
 <ul>
 <li>Debug flags / Optimization settings while compiling make a huge difference</li>
 <li>It's way faster than Python</li>
+</ul>
+<h2 id="using-c-from-python">Using C++ from Python</h2>
+<p>Obviously, C++ is way faster than pure Python. Astonishingly, C++ is also
+faster than Numpy for this simple number crunching task. So the idea is to
+combine both: Have the nice interface of Python with the raw computing power
+of C++.</p>
+<p>However, there are many ways to combine the two:</p>
+<ul>
+<li><a href="https://docs.python.org/3/library/subprocess.html">subprocess</a> 🙄</li>
+<li>ctypes: <a href="https://stackoverflow.com/a/5082294/562769">beginner tutorial</a></li>
+<li><a href="https://cffi.readthedocs.io/en/release-0.6/">cffi</a></li>
+<li>cython</li>
+<li>c extensions: <a href="https://github.com/jiffyclub/cext23">examples</a></li>
+<li><a href="https://pybind11.readthedocs.io/en/stable/">pybind11</a></li>
+<li><a href="https://pyplusplus.readthedocs.io/en/latest/">Py++</a></li>
+</ul>
+<p><a href="https://eev.ee/blog/2013/09/13/cython-versus-cffi/">Cython versus CFFI</a>
+helped me to wrap my head around this topic a bit.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="https://bids.berkeley.edu/resources/videos/cffi-ctypes-cython-good-bad-and-ugly">Matti Picus</a>: <a href="https://www.youtube.com/watch?v=EABNkHRtMLo">CFFI, Ctypes, Cython: the Good, the Bad and the Ugly</a> at EuroSciPy, 2018. (first presented at <a href="https://pyvideo.org/pycon-israel-2017/cffi-ctypes-cython-the-good-the-bad-and-the-ugly.html">PyCon Israel 2017</a>)<ul>
+<li>2:10 Begins</li>
+<li>4:05 Matti Picus introduces himself</li>
+<li>5:02 He will use Mandelbrot as an example</li>
+<li>15:00 C implementation</li>
+<li>18:00 C done: 130ms (Python 3057ms)</li>
+<li>18:15 ctypes is writing python in c<ul>
+<li>Take a shared object (*.so) or ddl</li>
+<li>20:48 ctypes.Structure</li>
+<li>24:00 Memory managment / free-ing memory</li>
+<li>36:00 Create *.so</li>
+<li>38:40 Load dll / *.so</li>
+<li>44:24 Timing - 1554ms</li>
+</ul>
+</li>
+<li>45:10 cffi - cffi came out as a replacement for ctypes. cffi is writing c in python. Use c as directly as possible.<ul>
+<li>46:20 Load C header in Python; header needs to be in very specific format. IT CAN'T HANDLE MACROS!</li>
+<li>50:20 cffi memory management</li>
+<li>52:37 Call function</li>
+<li>53:33 Timing - 640ms</li>
+<li>53:50 Q/A</li>
+</ul>
+</li>
+<li>55:36 Cython - can be used from jupyter notebook<ul>
+<li>Cython has a own language; like a mix between C and Python</li>
+<li>56:58 Cython creates a shared object</li>
+<li>1:00:07 cpdef - a mixture between c and python</li>
+<li>1:02:12 Timing - 594ms</li>
+</ul>
+</li>
+<li>1:02:49 cppyy - C++!<ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Armin Rigo: <a href="https://www.youtube.com/watch?v=ejUzVcvTLgI">CFFI: calling C from Python</a> at EuroPython, 2016.</li>
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>
