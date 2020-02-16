@@ -225,17 +225,31 @@ the old machine needed.</p>
 </table>
 <p>Things to note:</p>
 <ul>
-<li>pypy is crazy fast compared to CPython - up to a speedup of 34x 😲</li>
+<li>pypy is crazy fast compared to CPython - up to a speedup of 34x 😲 So JIT is
+  worth a try. I actually wanted to try
+  <a href="https://github.com/dropbox/pyston">Pyston</a>
+  (<a href="https://pybenchmarks.org/u64q/benchmark.php?test=all&amp;lang=pypy&amp;lang2=pyston&amp;data=u64q">comparison</a>)
+  as well, but the built failed with pyenv.</li>
 <li>Python 2.7 is faster than 3.8 for this benchmark 😢</li>
 <li>Ways to improve; speedups are always compared to the naive ijk algorithm:<ul>
 <li>Cache optimization: The ikj algorithm gave a 1.08x speedup</li>
 <li>Algorithmic: The Strassen algorithm gave a 1.84x speedup</li>
 <li>Parallelization: Using 4 threads instead of 1 with a super simple algorithm gave a 2.47x speedup</li>
+<li>Time:<ul>
+<li>New Hardware which is 8 years newer gave a 2.6x speedup on the naive
+  solution</li>
+<li>Running the old code with updated libraries on my new machine gave a
+  6x speedup compared to running the older version of numpy on the old
+  machine.</li>
+</ul>
+</li>
 <li>Libraries: Using numpy gave a <strong>94.2x speedup</strong>!</li>
 </ul>
 </li>
 <li>Numpy and scipy are the way to go, just as expected 🤷&zwj;♂️</li>
 </ul>
+<p>You might also be interested in <a href="https://pybenchmarks.org/">pybenchmarks.org</a>
+which seems to be similar to <a href="https://benchmarksgame-team.pages.debian.net/benchmarksgame/index.html">The Benchmarks Game</a>.</p>
 <h3 id="pypy">pypy</h3>
 <p>Quoting from the <a href="https://opensource.googleblog.com/2010/04/pypy-12-released.html">PyPy 1.2 Release notes</a>:</p>
 <blockquote>
@@ -243,6 +257,7 @@ the old machine needed.</p>
 often beat CPython, ranging from being slightly slower, to speedups of up to
 2x on real application code, to speedups of up to 10x on small benchmarks.</p>
 </blockquote>
+<p>Another resource which states that PyPy is faster than CPython is <a href="https://pybenchmarks.org/u64q/pypy.php">pybenchmarks.org</a> (also <a href="https://pybenchmarks.org/u64q/pypy3.php">PyPy 3</a>).</p>
 <p>PyPy uses <a href="https://en.wikipedia.org/wiki/Just-in-time_compilation">Just-in-time compilation</a> (JIT)
 to get those speedups.</p>
 <p>Go to <a href="https://stackoverflow.com/q/2591879/562769">PyPy &mdash; How can it possibly beat CPython?</a>
@@ -328,13 +343,16 @@ helped me to wrap my head around this topic a bit.</p>
 <li>1:02:12 Timing - 594ms</li>
 </ul>
 </li>
-<li>1:02:49 cppyy - C++!<ul>
-<li></li>
+<li>1:02:49 <a href="https://cppyy.readthedocs.io/en/latest/">cppyy</a> - C++!<ul>
+<li>1:03:30 LLVM</li>
 </ul>
 </li>
+<li>1:09 Final thoughts</li>
 </ul>
 </li>
 <li>Armin Rigo: <a href="https://www.youtube.com/watch?v=ejUzVcvTLgI">CFFI: calling C from Python</a> at EuroPython, 2016.</li>
+<li><a href="https://stackoverflow.com/q/36526708/562769">Comparing Python, Numpy, Numba and C++ for matrix multiplication</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Nuitka">Nuitka</a> (<a href="https://pybenchmarks.org/u64q/nuitka.php">Benchmark</a>)</li>
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>
