@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Matrix Multiplication: 2020 Update "/>
 <meta property="og:url" content="../matrix-multiplication-2020/" />
-<meta property="og:description" content="In 2012 I wrote a series of articles about matrix multiplication (see Performance of Matrix multiplication in Python, Java and C++). Now I&#39;m preparing a course about speeding up Python. For this reason I need an example of code that is fairly simple to understand and can be optimized. So …" />
+<meta property="og:description" content="In 2012 I wrote a series of articles about matrix multiplication. Now I&#39;m preparing a course about speeding up Python. For this reason I need an example of code that is fairly simple to understand and can be optimized. So let&#39;s update the results of my old articles :-) The code …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2020-02-16T20:00:00+01:00" />
 <meta name="twitter:title" content="Matrix Multiplication: 2020 Update ">
-<meta name="twitter:description" content="In 2012 I wrote a series of articles about matrix multiplication (see Performance of Matrix multiplication in Python, Java and C++). Now I&#39;m preparing a course about speeding up Python. For this reason I need an example of code that is fairly simple to understand and can be optimized. So …">
+<meta name="twitter:description" content="In 2012 I wrote a series of articles about matrix multiplication. Now I&#39;m preparing a course about speeding up Python. For this reason I need an example of code that is fairly simple to understand and can be optimized. So let&#39;s update the results of my old articles :-) The code …">
 <meta property="og:image" content="logos/python.png" />
 <meta name="twitter:image" content="logos/python.png" >
 
@@ -111,10 +111,10 @@ MathJax.Hub.Queue(function() {
 
             
             <p>In 2012 I wrote a series of articles about matrix
-multiplication (see <a href="https://martin-thoma.com/matrix-multiplication-python-java-cpp/">Performance of Matrix multiplication in Python, Java and C++</a>). Now I'm preparing a course about speeding up Python. For this
+multiplication. Now I'm preparing a course about speeding up Python. For this
 reason I need an example of code that is fairly simple to understand and can be
 optimized. So let's update the results of my old articles :-)</p>
-<p>The code can be found in a git repository on GitHub: <a href="https://github.com/MartinThoma/matrix-multiplication">github.com/MartinThoma/matrix-multiplication</a></p>
+<p>The code can be found in a git repository on GitHub (<a href="https://github.com/MartinThoma/matrix-multiplication">github.com/MartinThoma/matrix-multiplication</a>) and you can have a look at the <a href="https://martin-thoma.com/matrix-multiplication-python-java-cpp/">old article</a> as well, if you want.</p>
 <p>All scripts are tested on my new Thinkpad T460p. For comparision, I've also
 added the laptop I had before when I wrote the 2012 matrix multiplication article:</p>
 <table class="table">
@@ -152,6 +152,9 @@ added the laptop I had before when I wrote the 2012 matrix multiplication articl
 <p>In the following table you can see the execution times for the different
 algorithms and different Python versions. As input, I took the
 <code>2000.in</code> test set. To switch Python versions, I used <code>pyenv</code></p>
+<p>For Python 2.7, you can see the speedup compared to my 2012 machine. A speedup
+of 2.6x means that you could run the code on the new machine 2.6x in the time
+the old machine needed.</p>
 <table class="table">
 <thead>
 <tr>
@@ -165,21 +168,21 @@ algorithms and different Python versions. As input, I took the
 <tbody>
 <tr>
 <th>ijk</th>
-<td>1253</td>
+<td>1253 (<span style="color: green;">2.6x</span>)</td>
 <td>1884</td>
 <td>158</td>
 <td>147</td>
 </tr>
 <tr>
 <th>ikj</th>
-<td>901s</td>
+<td>901s (<span style="color: green;">2.9x</span>)</td>
 <td>1735</td>
 <td>52</td>
 <td>50</td>
 </tr>
 <tr>
 <th><a href="https://en.wikipedia.org/wiki/NumPy">NumPy</a></th>
-<td>20<br/>version: 1.14.4</td>
+<td>20 (<span style="color: green;">~6x</span>)<br/>version: 1.14.4</td>
 <td>20<br/>version: 1.18.1</td>
 <td>42</td>
 <td>36</td>
@@ -189,6 +192,13 @@ algorithms and different Python versions. As input, I took the
 <td>45<br/>version: 1.1.0</td>
 <td>20<br/>version: 1.4.1</td>
 <td colspan="2"><a href="https://stackoverflow.com/q/60248443/562769">Installation problems</a></td>
+</tr>
+<tr>
+<th>Strassen (LEAF_SIZE=8)</th>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
