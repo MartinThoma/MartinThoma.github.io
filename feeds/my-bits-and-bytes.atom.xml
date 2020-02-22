@@ -1,5 +1,527 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - My bits and bytes</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/my-bits-and-bytes.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2020-01-05T20:00:00+01:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>36C3</title><link href="https://martin-thoma.com/36c3/" rel="alternate"></link><published>2020-01-05T20:00:00+01:00</published><updated>2020-01-05T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-01-05:/36c3/</id><summary type="html">&lt;p&gt;36C3 is the 36th
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - My bits and bytes</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/my-bits-and-bytes.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2020-02-22T20:00:00+01:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>File Compression</title><link href="https://martin-thoma.com/file-compression/" rel="alternate"></link><published>2020-02-22T20:00:00+01:00</published><updated>2020-02-22T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-02-22:/file-compression/</id><summary type="html">&lt;p&gt;I'm currently creating a backup of my domain &lt;a href="http://www.martin-thoma.de/"&gt;martin-thoma.de&lt;/a&gt;.
+It is pretty small, but the MySQL database behind it grew extremely as I stored
+every drawing from &lt;a href="http://write-math.com/"&gt;write-math.com&lt;/a&gt; in there.
+For this reason, I want to store that specific table in a compressed way. But
+which compression format …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I'm currently creating a backup of my domain &lt;a href="http://www.martin-thoma.de/"&gt;martin-thoma.de&lt;/a&gt;.
+It is pretty small, but the MySQL database behind it grew extremely as I stored
+every drawing from &lt;a href="http://write-math.com/"&gt;write-math.com&lt;/a&gt; in there.
+For this reason, I want to store that specific table in a compressed way. But
+which compression format is the best for which use case?&lt;/p&gt;
+&lt;p&gt;This article is only about loss-less compression. There are many more things
+to say about lossy compression.&lt;/p&gt;
+&lt;h2 id="usage"&gt;Usage&lt;/h2&gt;
+&lt;table class="table"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Format&lt;/th&gt;
+&lt;th&gt;(Un)compress&lt;/th&gt;
+&lt;th&gt;Command&lt;/th&gt;
+&lt;th&gt;Time&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ZIP&lt;/td&gt;
+&lt;td&gt;compress&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;zip output.zip input.sql&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;92s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ZIP&lt;/td&gt;
+&lt;td&gt;extract&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href="https://linux.die.net/man/1/unzip"&gt;unzip&lt;/a&gt; output.zip -d outputdir&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;29s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;gzip&lt;/td&gt;
+&lt;td&gt;compress&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href="https://linux.die.net/man/1/gzip"&gt;gzip&lt;/a&gt; -1 -k backup.sql&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;51s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;gzip&lt;/td&gt;
+&lt;td&gt;compress&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;gzip -2 -k backup.sql&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;50s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;gzip&lt;/td&gt;
+&lt;td&gt;compress&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;gzip -3 -k backup.sql&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;54s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;gzip&lt;/td&gt;
+&lt;td&gt;compress&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;gzip -4 -k backup.sql&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;58s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;gzip&lt;/td&gt;
+&lt;td&gt;compress&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;gzip -5 -k backup.sql&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;65s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;gzip&lt;/td&gt;
+&lt;td&gt;compress&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;gzip -6 -k backup.sql&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;89s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;gzip&lt;/td&gt;
+&lt;td&gt;compress&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;gzip -7 -k backup.sql&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;110s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;gzip&lt;/td&gt;
+&lt;td&gt;compress&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;gzip -8 -k backup.sql&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;319s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;gzip&lt;/td&gt;
+&lt;td&gt;compress&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;gzip -9 -k backup.sql&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;372s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;gzip&lt;/td&gt;
+&lt;td&gt;extract&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;gzip -d backup.sql.gz&lt;/code&gt; (-1 to -6)&lt;/td&gt;
+&lt;td&gt;58s to 62s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;tr&gt;
+&lt;td&gt;gzip&lt;/td&gt;
+&lt;td&gt;extract&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;gzip -d backup.sql.gz&lt;/code&gt; (-7)&lt;/td&gt;
+&lt;td&gt;50s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;gzip&lt;/td&gt;
+&lt;td&gt;extract&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;gzip -d backup.sql.gz&lt;/code&gt; (-8)&lt;/td&gt;
+&lt;td&gt;49s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;gzip&lt;/td&gt;
+&lt;td&gt;extract&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;gzip -d backup.sql.gz&lt;/code&gt; (-9)&lt;/td&gt;
+&lt;td&gt;51s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;bz2&lt;/td&gt;
+&lt;td&gt;compress&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href="https://linux.die.net/man/1/bzip2"&gt;bzip2&lt;/a&gt; -1 -k -z backup.sql&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;287s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;bz2&lt;/td&gt;
+&lt;td&gt;compress&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;bzip2 -2 -k -z backup.sql&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;285s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;bz2&lt;/td&gt;
+&lt;td&gt;compress&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;bzip2 -3 -k -z backup.sql&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;294s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;bz2&lt;/td&gt;
+&lt;td&gt;compress&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;bzip2 -4 -k -z backup.sql&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;301s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;bz2&lt;/td&gt;
+&lt;td&gt;compress&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;bzip2 -5 -k -z backup.sql&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;363s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;bz2&lt;/td&gt;
+&lt;td&gt;compress&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;bzip2 -6 -k -z backup.sql&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;356s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;bz2&lt;/td&gt;
+&lt;td&gt;compress&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;bzip2 -7 -k -z backup.sql&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;364s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;bz2&lt;/td&gt;
+&lt;td&gt;compress&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;bzip2 -8 -k -z backup.sql&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;407s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;bz2&lt;/td&gt;
+&lt;td&gt;compress&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;bzip2 -9 -k -z backup.sql&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;369s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;bz2&lt;/td&gt;
+&lt;td&gt;extract&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;bzip2 -d backup.sql.bz2&lt;/code&gt; (-1 to -9)&lt;/td&gt;
+&lt;td&gt;102s to 109s&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;7z&lt;/td&gt;
+&lt;td&gt;compress&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;7z a backup.sql.7z backup.sql&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;466s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;7z&lt;/td&gt;
+&lt;td&gt;extract&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;7z e backup.sql.7z&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;49s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;7z (ultra)&lt;/td&gt;
+&lt;td&gt;compress&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;7z a out.7z -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on backup.sql&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;1562s&lt;/td&gt;
+&lt;/tr&gt;
+
+
+&lt;h2 id="my-system"&gt;My System&lt;/h2&gt;
+&lt;table class="table"&gt;
+&lt;thead&gt;
+&lt;tr style="background-color:#cdcdcd"&gt;
+&lt;th&gt;&amp;nbsp;&lt;/th&gt;
+&lt;th&gt;Thinkpad T460p&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="background-color:#efefef"&gt;CPU (&lt;a href="https://ark.intel.com/content/www/de/de/ark/compare.html?productIds=42925,88967"&gt;comparison on ark.inten.com&lt;/a&gt;)&lt;/td&gt;
+&lt;td&gt;8x Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="background-color:#efefef"&gt;RAM&lt;/td&gt;
+&lt;td&gt;8 GB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="background-color:#efefef"&gt;Video Card&lt;/td&gt;
+&lt;td&gt;Nvidia GeForce 940MX&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="background-color:#efefef"&gt;System&lt;/td&gt;
+&lt;td&gt;Ubuntu 18.04.3 LTS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="background-color:#efefef"&gt;Disk&lt;/td&gt;
+&lt;td&gt;Ubuntu 18.04.3 LTS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="7z-benchmark"&gt;7z Benchmark&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ 7z b
+
+&lt;span class="m"&gt;7&lt;/span&gt;-Zip &lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;64&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="m"&gt;16&lt;/span&gt;.02 : Copyright &lt;span class="o"&gt;(&lt;/span&gt;c&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="m"&gt;1999&lt;/span&gt;-2016 Igor Pavlov : &lt;span class="m"&gt;2016&lt;/span&gt;-05-21
+p7zip Version &lt;span class="m"&gt;16&lt;/span&gt;.02 &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;locale&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;en_US.UTF-8,Utf16&lt;span class="o"&gt;=&lt;/span&gt;on,HugeFiles&lt;span class="o"&gt;=&lt;/span&gt;on,64 bits,8 CPUs Intel&lt;span class="o"&gt;(&lt;/span&gt;R&lt;span class="o"&gt;)&lt;/span&gt; Core&lt;span class="o"&gt;(&lt;/span&gt;TM&lt;span class="o"&gt;)&lt;/span&gt; i7-6700HQ CPU @ &lt;span class="m"&gt;2&lt;/span&gt;.60GHz &lt;span class="o"&gt;(&lt;/span&gt;506E3&lt;span class="o"&gt;)&lt;/span&gt;,ASM,AES-NI&lt;span class="o"&gt;)&lt;/span&gt;
+
+Intel&lt;span class="o"&gt;(&lt;/span&gt;R&lt;span class="o"&gt;)&lt;/span&gt; Core&lt;span class="o"&gt;(&lt;/span&gt;TM&lt;span class="o"&gt;)&lt;/span&gt; i7-6700HQ CPU @ &lt;span class="m"&gt;2&lt;/span&gt;.60GHz &lt;span class="o"&gt;(&lt;/span&gt;506E3&lt;span class="o"&gt;)&lt;/span&gt;
+CPU Freq:  &lt;span class="m"&gt;1737&lt;/span&gt;  &lt;span class="m"&gt;2731&lt;/span&gt;  &lt;span class="m"&gt;3166&lt;/span&gt;  &lt;span class="m"&gt;3349&lt;/span&gt;  &lt;span class="m"&gt;3271&lt;/span&gt;  &lt;span class="m"&gt;3108&lt;/span&gt;  &lt;span class="m"&gt;3181&lt;/span&gt;  &lt;span class="m"&gt;3202&lt;/span&gt;  &lt;span class="m"&gt;3157&lt;/span&gt;
+
+RAM size:    &lt;span class="m"&gt;7404&lt;/span&gt; MB,  &lt;span class="c1"&gt;# CPU hardware threads:   8&lt;/span&gt;
+RAM usage:   &lt;span class="m"&gt;1765&lt;/span&gt; MB,  &lt;span class="c1"&gt;# Benchmark threads:      8&lt;/span&gt;
+
+                       Compressing  &lt;span class="p"&gt;|&lt;/span&gt;                  Decompressing
+Dict     Speed Usage    R/U Rating  &lt;span class="p"&gt;|&lt;/span&gt;      Speed Usage    R/U Rating
+         KiB/s     %   MIPS   MIPS  &lt;span class="p"&gt;|&lt;/span&gt;      KiB/s     %   MIPS   MIPS
+
+&lt;span class="m"&gt;22&lt;/span&gt;:      &lt;span class="m"&gt;15592&lt;/span&gt;   &lt;span class="m"&gt;618&lt;/span&gt;   &lt;span class="m"&gt;2455&lt;/span&gt;  &lt;span class="m"&gt;15168&lt;/span&gt;  &lt;span class="p"&gt;|&lt;/span&gt;     &lt;span class="m"&gt;175880&lt;/span&gt;   &lt;span class="m"&gt;731&lt;/span&gt;   &lt;span class="m"&gt;2053&lt;/span&gt;  &lt;span class="m"&gt;15002&lt;/span&gt;
+&lt;span class="m"&gt;23&lt;/span&gt;:      &lt;span class="m"&gt;12156&lt;/span&gt;   &lt;span class="m"&gt;632&lt;/span&gt;   &lt;span class="m"&gt;1958&lt;/span&gt;  &lt;span class="m"&gt;12386&lt;/span&gt;  &lt;span class="p"&gt;|&lt;/span&gt;     &lt;span class="m"&gt;171362&lt;/span&gt;   &lt;span class="m"&gt;738&lt;/span&gt;   &lt;span class="m"&gt;2008&lt;/span&gt;  &lt;span class="m"&gt;14829&lt;/span&gt;
+&lt;span class="m"&gt;24&lt;/span&gt;:      &lt;span class="m"&gt;13697&lt;/span&gt;   &lt;span class="m"&gt;643&lt;/span&gt;   &lt;span class="m"&gt;2289&lt;/span&gt;  &lt;span class="m"&gt;14727&lt;/span&gt;  &lt;span class="p"&gt;|&lt;/span&gt;     &lt;span class="m"&gt;164813&lt;/span&gt;   &lt;span class="m"&gt;754&lt;/span&gt;   &lt;span class="m"&gt;1918&lt;/span&gt;  &lt;span class="m"&gt;14465&lt;/span&gt;
+&lt;span class="m"&gt;25&lt;/span&gt;:      &lt;span class="m"&gt;13105&lt;/span&gt;   &lt;span class="m"&gt;654&lt;/span&gt;   &lt;span class="m"&gt;2287&lt;/span&gt;  &lt;span class="m"&gt;14964&lt;/span&gt;  &lt;span class="p"&gt;|&lt;/span&gt;     &lt;span class="m"&gt;151047&lt;/span&gt;   &lt;span class="m"&gt;742&lt;/span&gt;   &lt;span class="m"&gt;1812&lt;/span&gt;  &lt;span class="m"&gt;13443&lt;/span&gt;
+----------------------------------  &lt;span class="p"&gt;|&lt;/span&gt; ------------------------------
+Avr:             &lt;span class="m"&gt;637&lt;/span&gt;   &lt;span class="m"&gt;2247&lt;/span&gt;  &lt;span class="m"&gt;14311&lt;/span&gt;  &lt;span class="p"&gt;|&lt;/span&gt;              &lt;span class="m"&gt;741&lt;/span&gt;   &lt;span class="m"&gt;1948&lt;/span&gt;  &lt;span class="m"&gt;14435&lt;/span&gt;
+Tot:             &lt;span class="m"&gt;689&lt;/span&gt;   &lt;span class="m"&gt;2098&lt;/span&gt;  &lt;span class="m"&gt;14373&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;and&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ 7z b -mm&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="se"&gt;\*&lt;/span&gt; -mmt&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="se"&gt;\*&lt;/span&gt;
+
+&lt;span class="m"&gt;7&lt;/span&gt;-Zip &lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;64&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="m"&gt;16&lt;/span&gt;.02 : Copyright &lt;span class="o"&gt;(&lt;/span&gt;c&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="m"&gt;1999&lt;/span&gt;-2016 Igor Pavlov : &lt;span class="m"&gt;2016&lt;/span&gt;-05-21
+p7zip Version &lt;span class="m"&gt;16&lt;/span&gt;.02 &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;locale&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;en_US.UTF-8,Utf16&lt;span class="o"&gt;=&lt;/span&gt;on,HugeFiles&lt;span class="o"&gt;=&lt;/span&gt;on,64 bits,8 CPUs Intel&lt;span class="o"&gt;(&lt;/span&gt;R&lt;span class="o"&gt;)&lt;/span&gt; Core&lt;span class="o"&gt;(&lt;/span&gt;TM&lt;span class="o"&gt;)&lt;/span&gt; i7-6700HQ CPU @ &lt;span class="m"&gt;2&lt;/span&gt;.60GHz &lt;span class="o"&gt;(&lt;/span&gt;506E3&lt;span class="o"&gt;)&lt;/span&gt;,ASM,AES-NI&lt;span class="o"&gt;)&lt;/span&gt;
+
+Intel&lt;span class="o"&gt;(&lt;/span&gt;R&lt;span class="o"&gt;)&lt;/span&gt; Core&lt;span class="o"&gt;(&lt;/span&gt;TM&lt;span class="o"&gt;)&lt;/span&gt; i7-6700HQ CPU @ &lt;span class="m"&gt;2&lt;/span&gt;.60GHz &lt;span class="o"&gt;(&lt;/span&gt;506E3&lt;span class="o"&gt;)&lt;/span&gt;
+CPU Freq:  &lt;span class="m"&gt;2661&lt;/span&gt;  &lt;span class="m"&gt;2917&lt;/span&gt;  &lt;span class="m"&gt;3208&lt;/span&gt;  &lt;span class="m"&gt;3272&lt;/span&gt;  &lt;span class="m"&gt;3177&lt;/span&gt;  &lt;span class="m"&gt;3302&lt;/span&gt;  &lt;span class="m"&gt;3269&lt;/span&gt;  &lt;span class="m"&gt;3246&lt;/span&gt;  &lt;span class="m"&gt;3188&lt;/span&gt;
+
+RAM size:    &lt;span class="m"&gt;7404&lt;/span&gt; MB,  &lt;span class="c1"&gt;# CPU hardware threads:   8&lt;/span&gt;
+RAM usage:    &lt;span class="m"&gt;225&lt;/span&gt; MB,  &lt;span class="c1"&gt;# Benchmark threads:      1&lt;/span&gt;
+
+
+Method           Speed Usage    R/U Rating   E/U Effec
+                 KiB/s     %   MIPS   MIPS     %     %
+
+CPU                      &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;3186&lt;/span&gt;   &lt;span class="m"&gt;3186&lt;/span&gt;
+CPU                      &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;3180&lt;/span&gt;   &lt;span class="m"&gt;3180&lt;/span&gt;
+CPU                      &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;3129&lt;/span&gt;   &lt;span class="m"&gt;3129&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;
+
+LZMA:x1          &lt;span class="m"&gt;11260&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;4121&lt;/span&gt;   &lt;span class="m"&gt;4116&lt;/span&gt;   &lt;span class="m"&gt;132&lt;/span&gt;   &lt;span class="m"&gt;132&lt;/span&gt;
+                 &lt;span class="m"&gt;33725&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;2750&lt;/span&gt;   &lt;span class="m"&gt;2746&lt;/span&gt;    &lt;span class="m"&gt;88&lt;/span&gt;    &lt;span class="m"&gt;88&lt;/span&gt;
+LZMA:x5:mt1       &lt;span class="m"&gt;2596&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;3245&lt;/span&gt;   &lt;span class="m"&gt;3244&lt;/span&gt;   &lt;span class="m"&gt;104&lt;/span&gt;   &lt;span class="m"&gt;104&lt;/span&gt;
+                 &lt;span class="m"&gt;32537&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;2745&lt;/span&gt;   &lt;span class="m"&gt;2744&lt;/span&gt;    &lt;span class="m"&gt;88&lt;/span&gt;    &lt;span class="m"&gt;88&lt;/span&gt;
+LZMA:x5:mt2       &lt;span class="m"&gt;5446&lt;/span&gt;   &lt;span class="m"&gt;180&lt;/span&gt;   &lt;span class="m"&gt;3780&lt;/span&gt;   &lt;span class="m"&gt;6804&lt;/span&gt;   &lt;span class="m"&gt;121&lt;/span&gt;   &lt;span class="m"&gt;217&lt;/span&gt;
+                 &lt;span class="m"&gt;34839&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;2939&lt;/span&gt;   &lt;span class="m"&gt;2939&lt;/span&gt;    &lt;span class="m"&gt;94&lt;/span&gt;    &lt;span class="m"&gt;94&lt;/span&gt;
+Deflate:x1       &lt;span class="m"&gt;38939&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;4944&lt;/span&gt;   &lt;span class="m"&gt;4944&lt;/span&gt;   &lt;span class="m"&gt;158&lt;/span&gt;   &lt;span class="m"&gt;158&lt;/span&gt;
+                &lt;span class="m"&gt;112657&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;3500&lt;/span&gt;   &lt;span class="m"&gt;3500&lt;/span&gt;   &lt;span class="m"&gt;112&lt;/span&gt;   &lt;span class="m"&gt;112&lt;/span&gt;
+Deflate:x5        &lt;span class="m"&gt;8530&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;3285&lt;/span&gt;   &lt;span class="m"&gt;3284&lt;/span&gt;   &lt;span class="m"&gt;105&lt;/span&gt;   &lt;span class="m"&gt;105&lt;/span&gt;
+                &lt;span class="m"&gt;102640&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;3189&lt;/span&gt;   &lt;span class="m"&gt;3186&lt;/span&gt;   &lt;span class="m"&gt;102&lt;/span&gt;   &lt;span class="m"&gt;102&lt;/span&gt;
+Deflate:x7        &lt;span class="m"&gt;5016&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;5558&lt;/span&gt;   &lt;span class="m"&gt;5558&lt;/span&gt;   &lt;span class="m"&gt;178&lt;/span&gt;   &lt;span class="m"&gt;178&lt;/span&gt;
+                &lt;span class="m"&gt;121815&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;3780&lt;/span&gt;   &lt;span class="m"&gt;3780&lt;/span&gt;   &lt;span class="m"&gt;121&lt;/span&gt;   &lt;span class="m"&gt;121&lt;/span&gt;
+Deflate64:x5     &lt;span class="m"&gt;11477&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;4961&lt;/span&gt;   &lt;span class="m"&gt;4960&lt;/span&gt;   &lt;span class="m"&gt;159&lt;/span&gt;   &lt;span class="m"&gt;159&lt;/span&gt;
+                &lt;span class="m"&gt;118711&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;3713&lt;/span&gt;   &lt;span class="m"&gt;3713&lt;/span&gt;   &lt;span class="m"&gt;119&lt;/span&gt;   &lt;span class="m"&gt;119&lt;/span&gt;
+BZip2:x1          &lt;span class="m"&gt;6447&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;3895&lt;/span&gt;   &lt;span class="m"&gt;3895&lt;/span&gt;   &lt;span class="m"&gt;125&lt;/span&gt;   &lt;span class="m"&gt;125&lt;/span&gt;
+                 &lt;span class="m"&gt;30463&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;3303&lt;/span&gt;   &lt;span class="m"&gt;3302&lt;/span&gt;   &lt;span class="m"&gt;106&lt;/span&gt;   &lt;span class="m"&gt;106&lt;/span&gt;
+BZip2:x5          &lt;span class="m"&gt;5066&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;4228&lt;/span&gt;   &lt;span class="m"&gt;4228&lt;/span&gt;   &lt;span class="m"&gt;135&lt;/span&gt;   &lt;span class="m"&gt;135&lt;/span&gt;
+                 &lt;span class="m"&gt;15084&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;2961&lt;/span&gt;   &lt;span class="m"&gt;2961&lt;/span&gt;    &lt;span class="m"&gt;95&lt;/span&gt;    &lt;span class="m"&gt;95&lt;/span&gt;
+BZip2:x5:mt2      &lt;span class="m"&gt;9708&lt;/span&gt;   &lt;span class="m"&gt;194&lt;/span&gt;   &lt;span class="m"&gt;4167&lt;/span&gt;   &lt;span class="m"&gt;8103&lt;/span&gt;   &lt;span class="m"&gt;133&lt;/span&gt;   &lt;span class="m"&gt;259&lt;/span&gt;
+                 &lt;span class="m"&gt;42347&lt;/span&gt;   &lt;span class="m"&gt;160&lt;/span&gt;   &lt;span class="m"&gt;5185&lt;/span&gt;   &lt;span class="m"&gt;8311&lt;/span&gt;   &lt;span class="m"&gt;166&lt;/span&gt;   &lt;span class="m"&gt;266&lt;/span&gt;
+BZip2:x7          &lt;span class="m"&gt;1648&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;4271&lt;/span&gt;   &lt;span class="m"&gt;4271&lt;/span&gt;   &lt;span class="m"&gt;137&lt;/span&gt;   &lt;span class="m"&gt;137&lt;/span&gt;
+                 &lt;span class="m"&gt;27652&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;5423&lt;/span&gt;   &lt;span class="m"&gt;5423&lt;/span&gt;   &lt;span class="m"&gt;173&lt;/span&gt;   &lt;span class="m"&gt;173&lt;/span&gt;
+PPMD:x1           &lt;span class="m"&gt;4516&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;4672&lt;/span&gt;   &lt;span class="m"&gt;4671&lt;/span&gt;   &lt;span class="m"&gt;149&lt;/span&gt;   &lt;span class="m"&gt;149&lt;/span&gt;
+                  &lt;span class="m"&gt;4234&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;4987&lt;/span&gt;   &lt;span class="m"&gt;4987&lt;/span&gt;   &lt;span class="m"&gt;159&lt;/span&gt;   &lt;span class="m"&gt;159&lt;/span&gt;
+PPMD:x5           &lt;span class="m"&gt;3289&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;5575&lt;/span&gt;   &lt;span class="m"&gt;5574&lt;/span&gt;   &lt;span class="m"&gt;178&lt;/span&gt;   &lt;span class="m"&gt;178&lt;/span&gt;
+                  &lt;span class="m"&gt;3070&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;5753&lt;/span&gt;   &lt;span class="m"&gt;5753&lt;/span&gt;   &lt;span class="m"&gt;184&lt;/span&gt;   &lt;span class="m"&gt;184&lt;/span&gt;
+Delta:4         &lt;span class="m"&gt;863808&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;5309&lt;/span&gt;   &lt;span class="m"&gt;5307&lt;/span&gt;   &lt;span class="m"&gt;170&lt;/span&gt;   &lt;span class="m"&gt;170&lt;/span&gt;
+                &lt;span class="m"&gt;953462&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;5858&lt;/span&gt;   &lt;span class="m"&gt;5858&lt;/span&gt;   &lt;span class="m"&gt;187&lt;/span&gt;   &lt;span class="m"&gt;187&lt;/span&gt;
+BCJ            &lt;span class="m"&gt;1672730&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;6852&lt;/span&gt;   &lt;span class="m"&gt;6852&lt;/span&gt;   &lt;span class="m"&gt;219&lt;/span&gt;   &lt;span class="m"&gt;219&lt;/span&gt;
+               &lt;span class="m"&gt;1654731&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;6778&lt;/span&gt;   &lt;span class="m"&gt;6778&lt;/span&gt;   &lt;span class="m"&gt;217&lt;/span&gt;   &lt;span class="m"&gt;217&lt;/span&gt;
+AES256CBC:1     &lt;span class="m"&gt;201192&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;4946&lt;/span&gt;   &lt;span class="m"&gt;4945&lt;/span&gt;   &lt;span class="m"&gt;158&lt;/span&gt;   &lt;span class="m"&gt;158&lt;/span&gt;
+                &lt;span class="m"&gt;189151&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;4650&lt;/span&gt;   &lt;span class="m"&gt;4649&lt;/span&gt;   &lt;span class="m"&gt;149&lt;/span&gt;   &lt;span class="m"&gt;149&lt;/span&gt;
+AES256CBC:2     &lt;span class="m"&gt;854545&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;7002&lt;/span&gt;   &lt;span class="m"&gt;7000&lt;/span&gt;   &lt;span class="m"&gt;224&lt;/span&gt;   &lt;span class="m"&gt;224&lt;/span&gt;
+               &lt;span class="m"&gt;3411324&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;6986&lt;/span&gt;   &lt;span class="m"&gt;6986&lt;/span&gt;   &lt;span class="m"&gt;223&lt;/span&gt;   &lt;span class="m"&gt;223&lt;/span&gt;
+CRC32:1         &lt;span class="m"&gt;398309&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;2901&lt;/span&gt;   &lt;span class="m"&gt;2900&lt;/span&gt;    &lt;span class="m"&gt;93&lt;/span&gt;    &lt;span class="m"&gt;93&lt;/span&gt;
+CRC32:4        &lt;span class="m"&gt;1302032&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;2907&lt;/span&gt;   &lt;span class="m"&gt;2906&lt;/span&gt;    &lt;span class="m"&gt;93&lt;/span&gt;    &lt;span class="m"&gt;93&lt;/span&gt;
+CRC32:8        &lt;span class="m"&gt;2657729&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;3604&lt;/span&gt;   &lt;span class="m"&gt;3604&lt;/span&gt;   &lt;span class="m"&gt;115&lt;/span&gt;   &lt;span class="m"&gt;115&lt;/span&gt;
+CRC64          &lt;span class="m"&gt;1196491&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;2451&lt;/span&gt;   &lt;span class="m"&gt;2450&lt;/span&gt;    &lt;span class="m"&gt;78&lt;/span&gt;    &lt;span class="m"&gt;78&lt;/span&gt;
+SHA256          &lt;span class="m"&gt;201949&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;4121&lt;/span&gt;   &lt;span class="m"&gt;4120&lt;/span&gt;   &lt;span class="m"&gt;132&lt;/span&gt;   &lt;span class="m"&gt;132&lt;/span&gt;
+SHA1            &lt;span class="m"&gt;553725&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;5190&lt;/span&gt;   &lt;span class="m"&gt;5183&lt;/span&gt;   &lt;span class="m"&gt;166&lt;/span&gt;   &lt;span class="m"&gt;166&lt;/span&gt;
+BLAKE2sp        &lt;span class="m"&gt;325681&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;7167&lt;/span&gt;   &lt;span class="m"&gt;7165&lt;/span&gt;   &lt;span class="m"&gt;229&lt;/span&gt;   &lt;span class="m"&gt;229&lt;/span&gt;
+
+CPU                      &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;3364&lt;/span&gt;   &lt;span class="m"&gt;3363&lt;/span&gt;
+------------------------------------------------------
+Tot:                     &lt;span class="m"&gt;111&lt;/span&gt;   &lt;span class="m"&gt;3690&lt;/span&gt;   &lt;span class="m"&gt;4120&lt;/span&gt;   &lt;span class="m"&gt;119&lt;/span&gt;   &lt;span class="m"&gt;132&lt;/span&gt;
+
+
+RAM usage:    &lt;span class="m"&gt;901&lt;/span&gt; MB,  &lt;span class="c1"&gt;# Benchmark threads:      4&lt;/span&gt;
+
+
+Method           Speed Usage    R/U Rating   E/U Effec
+                 KiB/s     %   MIPS   MIPS     %     %
+
+CPU                      &lt;span class="m"&gt;399&lt;/span&gt;   &lt;span class="m"&gt;3084&lt;/span&gt;  &lt;span class="m"&gt;12318&lt;/span&gt;
+CPU                      &lt;span class="m"&gt;400&lt;/span&gt;   &lt;span class="m"&gt;3090&lt;/span&gt;  &lt;span class="m"&gt;12353&lt;/span&gt;
+CPU                      &lt;span class="m"&gt;400&lt;/span&gt;   &lt;span class="m"&gt;3090&lt;/span&gt;  &lt;span class="m"&gt;12354&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;400&lt;/span&gt;
+
+LZMA:x1          &lt;span class="m"&gt;49593&lt;/span&gt;   &lt;span class="m"&gt;397&lt;/span&gt;   &lt;span class="m"&gt;4571&lt;/span&gt;  &lt;span class="m"&gt;18130&lt;/span&gt;   &lt;span class="m"&gt;148&lt;/span&gt;   &lt;span class="m"&gt;587&lt;/span&gt;
+                &lt;span class="m"&gt;127780&lt;/span&gt;   &lt;span class="m"&gt;399&lt;/span&gt;   &lt;span class="m"&gt;2607&lt;/span&gt;  &lt;span class="m"&gt;10406&lt;/span&gt;    &lt;span class="m"&gt;84&lt;/span&gt;   &lt;span class="m"&gt;337&lt;/span&gt;
+LZMA:x5:mt1      &lt;span class="m"&gt;11043&lt;/span&gt;   &lt;span class="m"&gt;396&lt;/span&gt;   &lt;span class="m"&gt;3482&lt;/span&gt;  &lt;span class="m"&gt;13796&lt;/span&gt;   &lt;span class="m"&gt;113&lt;/span&gt;   &lt;span class="m"&gt;447&lt;/span&gt;
+                &lt;span class="m"&gt;123224&lt;/span&gt;   &lt;span class="m"&gt;399&lt;/span&gt;   &lt;span class="m"&gt;2602&lt;/span&gt;  &lt;span class="m"&gt;10391&lt;/span&gt;    &lt;span class="m"&gt;84&lt;/span&gt;   &lt;span class="m"&gt;336&lt;/span&gt;
+LZMA:x5:mt2      &lt;span class="m"&gt;15408&lt;/span&gt;   &lt;span class="m"&gt;694&lt;/span&gt;   &lt;span class="m"&gt;2774&lt;/span&gt;  &lt;span class="m"&gt;19250&lt;/span&gt;    &lt;span class="m"&gt;90&lt;/span&gt;   &lt;span class="m"&gt;623&lt;/span&gt;
+                &lt;span class="m"&gt;115385&lt;/span&gt;   &lt;span class="m"&gt;394&lt;/span&gt;   &lt;span class="m"&gt;2472&lt;/span&gt;   &lt;span class="m"&gt;9730&lt;/span&gt;    &lt;span class="m"&gt;80&lt;/span&gt;   &lt;span class="m"&gt;315&lt;/span&gt;
+Deflate:x1      &lt;span class="m"&gt;127310&lt;/span&gt;   &lt;span class="m"&gt;396&lt;/span&gt;   &lt;span class="m"&gt;4079&lt;/span&gt;  &lt;span class="m"&gt;16165&lt;/span&gt;   &lt;span class="m"&gt;132&lt;/span&gt;   &lt;span class="m"&gt;523&lt;/span&gt;
+                &lt;span class="m"&gt;377145&lt;/span&gt;   &lt;span class="m"&gt;399&lt;/span&gt;   &lt;span class="m"&gt;2934&lt;/span&gt;  &lt;span class="m"&gt;11718&lt;/span&gt;    &lt;span class="m"&gt;95&lt;/span&gt;   &lt;span class="m"&gt;379&lt;/span&gt;
+Deflate:x5       &lt;span class="m"&gt;39249&lt;/span&gt;   &lt;span class="m"&gt;399&lt;/span&gt;   &lt;span class="m"&gt;3791&lt;/span&gt;  &lt;span class="m"&gt;15112&lt;/span&gt;   &lt;span class="m"&gt;123&lt;/span&gt;   &lt;span class="m"&gt;489&lt;/span&gt;
+                &lt;span class="m"&gt;371312&lt;/span&gt;   &lt;span class="m"&gt;399&lt;/span&gt;   &lt;span class="m"&gt;2892&lt;/span&gt;  &lt;span class="m"&gt;11527&lt;/span&gt;    &lt;span class="m"&gt;94&lt;/span&gt;   &lt;span class="m"&gt;373&lt;/span&gt;
+Deflate:x7       &lt;span class="m"&gt;15420&lt;/span&gt;   &lt;span class="m"&gt;398&lt;/span&gt;   &lt;span class="m"&gt;4291&lt;/span&gt;  &lt;span class="m"&gt;17085&lt;/span&gt;   &lt;span class="m"&gt;139&lt;/span&gt;   &lt;span class="m"&gt;553&lt;/span&gt;
+                &lt;span class="m"&gt;370053&lt;/span&gt;   &lt;span class="m"&gt;399&lt;/span&gt;   &lt;span class="m"&gt;2880&lt;/span&gt;  &lt;span class="m"&gt;11483&lt;/span&gt;    &lt;span class="m"&gt;93&lt;/span&gt;   &lt;span class="m"&gt;372&lt;/span&gt;
+Deflate64:x5     &lt;span class="m"&gt;32242&lt;/span&gt;   &lt;span class="m"&gt;388&lt;/span&gt;   &lt;span class="m"&gt;3596&lt;/span&gt;  &lt;span class="m"&gt;13933&lt;/span&gt;   &lt;span class="m"&gt;116&lt;/span&gt;   &lt;span class="m"&gt;451&lt;/span&gt;
+                &lt;span class="m"&gt;364650&lt;/span&gt;   &lt;span class="m"&gt;399&lt;/span&gt;   &lt;span class="m"&gt;2855&lt;/span&gt;  &lt;span class="m"&gt;11407&lt;/span&gt;    &lt;span class="m"&gt;92&lt;/span&gt;   &lt;span class="m"&gt;369&lt;/span&gt;
+BZip2:x1         &lt;span class="m"&gt;19452&lt;/span&gt;   &lt;span class="m"&gt;399&lt;/span&gt;   &lt;span class="m"&gt;2949&lt;/span&gt;  &lt;span class="m"&gt;11753&lt;/span&gt;    &lt;span class="m"&gt;95&lt;/span&gt;   &lt;span class="m"&gt;381&lt;/span&gt;
+                &lt;span class="m"&gt;101048&lt;/span&gt;   &lt;span class="m"&gt;399&lt;/span&gt;   &lt;span class="m"&gt;2743&lt;/span&gt;  &lt;span class="m"&gt;10955&lt;/span&gt;    &lt;span class="m"&gt;89&lt;/span&gt;   &lt;span class="m"&gt;355&lt;/span&gt;
+BZip2:x5         &lt;span class="m"&gt;15092&lt;/span&gt;   &lt;span class="m"&gt;400&lt;/span&gt;   &lt;span class="m"&gt;3150&lt;/span&gt;  &lt;span class="m"&gt;12595&lt;/span&gt;   &lt;span class="m"&gt;102&lt;/span&gt;   &lt;span class="m"&gt;408&lt;/span&gt;
+                 &lt;span class="m"&gt;61031&lt;/span&gt;   &lt;span class="m"&gt;400&lt;/span&gt;   &lt;span class="m"&gt;2996&lt;/span&gt;  &lt;span class="m"&gt;11979&lt;/span&gt;    &lt;span class="m"&gt;97&lt;/span&gt;   &lt;span class="m"&gt;388&lt;/span&gt;
+BZip2:x5:mt2     &lt;span class="m"&gt;16446&lt;/span&gt;   &lt;span class="m"&gt;783&lt;/span&gt;   &lt;span class="m"&gt;1754&lt;/span&gt;  &lt;span class="m"&gt;13726&lt;/span&gt;    &lt;span class="m"&gt;57&lt;/span&gt;   &lt;span class="m"&gt;444&lt;/span&gt;
+                 &lt;span class="m"&gt;93754&lt;/span&gt;   &lt;span class="m"&gt;727&lt;/span&gt;   &lt;span class="m"&gt;2530&lt;/span&gt;  &lt;span class="m"&gt;18402&lt;/span&gt;    &lt;span class="m"&gt;82&lt;/span&gt;   &lt;span class="m"&gt;596&lt;/span&gt;
+BZip2:x7          &lt;span class="m"&gt;4855&lt;/span&gt;   &lt;span class="m"&gt;397&lt;/span&gt;   &lt;span class="m"&gt;3166&lt;/span&gt;  &lt;span class="m"&gt;12578&lt;/span&gt;   &lt;span class="m"&gt;102&lt;/span&gt;   &lt;span class="m"&gt;407&lt;/span&gt;
+                 &lt;span class="m"&gt;62094&lt;/span&gt;   &lt;span class="m"&gt;400&lt;/span&gt;   &lt;span class="m"&gt;3046&lt;/span&gt;  &lt;span class="m"&gt;12177&lt;/span&gt;    &lt;span class="m"&gt;99&lt;/span&gt;   &lt;span class="m"&gt;394&lt;/span&gt;
+PPMD:x1          &lt;span class="m"&gt;14300&lt;/span&gt;   &lt;span class="m"&gt;400&lt;/span&gt;   &lt;span class="m"&gt;3701&lt;/span&gt;  &lt;span class="m"&gt;14790&lt;/span&gt;   &lt;span class="m"&gt;120&lt;/span&gt;   &lt;span class="m"&gt;479&lt;/span&gt;
+                 &lt;span class="m"&gt;13009&lt;/span&gt;   &lt;span class="m"&gt;399&lt;/span&gt;   &lt;span class="m"&gt;3836&lt;/span&gt;  &lt;span class="m"&gt;15320&lt;/span&gt;   &lt;span class="m"&gt;124&lt;/span&gt;   &lt;span class="m"&gt;496&lt;/span&gt;
+PPMD:x5           &lt;span class="m"&gt;9590&lt;/span&gt;   &lt;span class="m"&gt;399&lt;/span&gt;   &lt;span class="m"&gt;4075&lt;/span&gt;  &lt;span class="m"&gt;16253&lt;/span&gt;   &lt;span class="m"&gt;132&lt;/span&gt;   &lt;span class="m"&gt;526&lt;/span&gt;
+                  &lt;span class="m"&gt;8516&lt;/span&gt;   &lt;span class="m"&gt;394&lt;/span&gt;   &lt;span class="m"&gt;4050&lt;/span&gt;  &lt;span class="m"&gt;15960&lt;/span&gt;   &lt;span class="m"&gt;131&lt;/span&gt;   &lt;span class="m"&gt;517&lt;/span&gt;
+Delta:4        &lt;span class="m"&gt;2229140&lt;/span&gt;   &lt;span class="m"&gt;399&lt;/span&gt;   &lt;span class="m"&gt;3429&lt;/span&gt;  &lt;span class="m"&gt;13696&lt;/span&gt;   &lt;span class="m"&gt;111&lt;/span&gt;   &lt;span class="m"&gt;443&lt;/span&gt;
+               &lt;span class="m"&gt;2407149&lt;/span&gt;   &lt;span class="m"&gt;397&lt;/span&gt;   &lt;span class="m"&gt;3727&lt;/span&gt;  &lt;span class="m"&gt;14790&lt;/span&gt;   &lt;span class="m"&gt;121&lt;/span&gt;   &lt;span class="m"&gt;479&lt;/span&gt;
+BCJ            &lt;span class="m"&gt;4218363&lt;/span&gt;   &lt;span class="m"&gt;398&lt;/span&gt;   &lt;span class="m"&gt;4344&lt;/span&gt;  &lt;span class="m"&gt;17278&lt;/span&gt;   &lt;span class="m"&gt;141&lt;/span&gt;   &lt;span class="m"&gt;559&lt;/span&gt;
+               &lt;span class="m"&gt;4682966&lt;/span&gt;   &lt;span class="m"&gt;393&lt;/span&gt;   &lt;span class="m"&gt;4880&lt;/span&gt;  &lt;span class="m"&gt;19181&lt;/span&gt;   &lt;span class="m"&gt;158&lt;/span&gt;   &lt;span class="m"&gt;621&lt;/span&gt;
+AES256CBC:1     &lt;span class="m"&gt;516685&lt;/span&gt;   &lt;span class="m"&gt;391&lt;/span&gt;   &lt;span class="m"&gt;3250&lt;/span&gt;  &lt;span class="m"&gt;12698&lt;/span&gt;   &lt;span class="m"&gt;105&lt;/span&gt;   &lt;span class="m"&gt;411&lt;/span&gt;
+                &lt;span class="m"&gt;488100&lt;/span&gt;   &lt;span class="m"&gt;397&lt;/span&gt;   &lt;span class="m"&gt;3018&lt;/span&gt;  &lt;span class="m"&gt;11996&lt;/span&gt;    &lt;span class="m"&gt;98&lt;/span&gt;   &lt;span class="m"&gt;388&lt;/span&gt;
+AES256CBC:2    &lt;span class="m"&gt;2548047&lt;/span&gt;   &lt;span class="m"&gt;399&lt;/span&gt;   &lt;span class="m"&gt;5228&lt;/span&gt;  &lt;span class="m"&gt;20874&lt;/span&gt;   &lt;span class="m"&gt;169&lt;/span&gt;   &lt;span class="m"&gt;676&lt;/span&gt;
+               &lt;span class="m"&gt;9436324&lt;/span&gt;   &lt;span class="m"&gt;397&lt;/span&gt;   &lt;span class="m"&gt;4874&lt;/span&gt;  &lt;span class="m"&gt;19326&lt;/span&gt;   &lt;span class="m"&gt;158&lt;/span&gt;   &lt;span class="m"&gt;626&lt;/span&gt;
+CRC32:1        &lt;span class="m"&gt;1304042&lt;/span&gt;   &lt;span class="m"&gt;400&lt;/span&gt;   &lt;span class="m"&gt;2375&lt;/span&gt;   &lt;span class="m"&gt;9493&lt;/span&gt;    &lt;span class="m"&gt;77&lt;/span&gt;   &lt;span class="m"&gt;307&lt;/span&gt;
+CRC32:4        &lt;span class="m"&gt;4019189&lt;/span&gt;   &lt;span class="m"&gt;399&lt;/span&gt;   &lt;span class="m"&gt;2246&lt;/span&gt;   &lt;span class="m"&gt;8971&lt;/span&gt;    &lt;span class="m"&gt;73&lt;/span&gt;   &lt;span class="m"&gt;290&lt;/span&gt;
+CRC32:8        &lt;span class="m"&gt;7320978&lt;/span&gt;   &lt;span class="m"&gt;400&lt;/span&gt;   &lt;span class="m"&gt;2484&lt;/span&gt;   &lt;span class="m"&gt;9927&lt;/span&gt;    &lt;span class="m"&gt;80&lt;/span&gt;   &lt;span class="m"&gt;321&lt;/span&gt;
+CRC64          &lt;span class="m"&gt;3549391&lt;/span&gt;   &lt;span class="m"&gt;399&lt;/span&gt;   &lt;span class="m"&gt;1824&lt;/span&gt;   &lt;span class="m"&gt;7269&lt;/span&gt;    &lt;span class="m"&gt;59&lt;/span&gt;   &lt;span class="m"&gt;235&lt;/span&gt;
+SHA256          &lt;span class="m"&gt;505381&lt;/span&gt;   &lt;span class="m"&gt;395&lt;/span&gt;   &lt;span class="m"&gt;2607&lt;/span&gt;  &lt;span class="m"&gt;10310&lt;/span&gt;    &lt;span class="m"&gt;84&lt;/span&gt;   &lt;span class="m"&gt;334&lt;/span&gt;
+SHA1           &lt;span class="m"&gt;1255910&lt;/span&gt;   &lt;span class="m"&gt;380&lt;/span&gt;   &lt;span class="m"&gt;3093&lt;/span&gt;  &lt;span class="m"&gt;11755&lt;/span&gt;   &lt;span class="m"&gt;100&lt;/span&gt;   &lt;span class="m"&gt;381&lt;/span&gt;
+BLAKE2sp        &lt;span class="m"&gt;451934&lt;/span&gt;   &lt;span class="m"&gt;377&lt;/span&gt;   &lt;span class="m"&gt;2638&lt;/span&gt;   &lt;span class="m"&gt;9943&lt;/span&gt;    &lt;span class="m"&gt;85&lt;/span&gt;   &lt;span class="m"&gt;322&lt;/span&gt;
+
+CPU                      &lt;span class="m"&gt;360&lt;/span&gt;   &lt;span class="m"&gt;2275&lt;/span&gt;   &lt;span class="m"&gt;8188&lt;/span&gt;
+------------------------------------------------------
+Tot:                     &lt;span class="m"&gt;440&lt;/span&gt;   &lt;span class="m"&gt;3063&lt;/span&gt;  &lt;span class="m"&gt;13276&lt;/span&gt;    &lt;span class="m"&gt;98&lt;/span&gt;   &lt;span class="m"&gt;430&lt;/span&gt;
+
+
+RAM usage:   &lt;span class="m"&gt;1802&lt;/span&gt; MB,  &lt;span class="c1"&gt;# Benchmark threads:      8&lt;/span&gt;
+
+
+Method           Speed Usage    R/U Rating   E/U Effec
+                 KiB/s     %   MIPS   MIPS     %     %
+
+CPU                      &lt;span class="m"&gt;596&lt;/span&gt;   &lt;span class="m"&gt;2352&lt;/span&gt;  &lt;span class="m"&gt;14024&lt;/span&gt;
+CPU                      &lt;span class="m"&gt;759&lt;/span&gt;   &lt;span class="m"&gt;2489&lt;/span&gt;  &lt;span class="m"&gt;18901&lt;/span&gt;
+CPU                      &lt;span class="m"&gt;727&lt;/span&gt;   &lt;span class="m"&gt;2477&lt;/span&gt;  &lt;span class="m"&gt;18016&lt;/span&gt;   &lt;span class="m"&gt;110&lt;/span&gt;   &lt;span class="m"&gt;800&lt;/span&gt;
+
+LZMA:x1          &lt;span class="m"&gt;20619&lt;/span&gt;   &lt;span class="m"&gt;590&lt;/span&gt;   &lt;span class="m"&gt;1277&lt;/span&gt;   &lt;span class="m"&gt;7538&lt;/span&gt;    &lt;span class="m"&gt;57&lt;/span&gt;   &lt;span class="m"&gt;335&lt;/span&gt;
+                &lt;span class="m"&gt;110780&lt;/span&gt;   &lt;span class="m"&gt;616&lt;/span&gt;   &lt;span class="m"&gt;1466&lt;/span&gt;   &lt;span class="m"&gt;9023&lt;/span&gt;    &lt;span class="m"&gt;65&lt;/span&gt;   &lt;span class="m"&gt;401&lt;/span&gt;
+LZMA:x5:mt1       &lt;span class="m"&gt;9602&lt;/span&gt;   &lt;span class="m"&gt;633&lt;/span&gt;   &lt;span class="m"&gt;1895&lt;/span&gt;  &lt;span class="m"&gt;11997&lt;/span&gt;    &lt;span class="m"&gt;84&lt;/span&gt;   &lt;span class="m"&gt;533&lt;/span&gt;
+                &lt;span class="m"&gt;135560&lt;/span&gt;   &lt;span class="m"&gt;734&lt;/span&gt;   &lt;span class="m"&gt;1557&lt;/span&gt;  &lt;span class="m"&gt;11432&lt;/span&gt;    &lt;span class="m"&gt;69&lt;/span&gt;   &lt;span class="m"&gt;508&lt;/span&gt;
+LZMA:x5:mt2      &lt;span class="m"&gt;10958&lt;/span&gt;   &lt;span class="m"&gt;696&lt;/span&gt;   &lt;span class="m"&gt;1968&lt;/span&gt;  &lt;span class="m"&gt;13690&lt;/span&gt;    &lt;span class="m"&gt;87&lt;/span&gt;   &lt;span class="m"&gt;608&lt;/span&gt;
+                &lt;span class="m"&gt;114711&lt;/span&gt;   &lt;span class="m"&gt;686&lt;/span&gt;   &lt;span class="m"&gt;1411&lt;/span&gt;   &lt;span class="m"&gt;9674&lt;/span&gt;    &lt;span class="m"&gt;63&lt;/span&gt;   &lt;span class="m"&gt;430&lt;/span&gt;
+Deflate:x1      &lt;span class="m"&gt;120232&lt;/span&gt;   &lt;span class="m"&gt;707&lt;/span&gt;   &lt;span class="m"&gt;2158&lt;/span&gt;  &lt;span class="m"&gt;15267&lt;/span&gt;    &lt;span class="m"&gt;96&lt;/span&gt;   &lt;span class="m"&gt;678&lt;/span&gt;
+                &lt;span class="m"&gt;368073&lt;/span&gt;   &lt;span class="m"&gt;728&lt;/span&gt;   &lt;span class="m"&gt;1572&lt;/span&gt;  &lt;span class="m"&gt;11437&lt;/span&gt;    &lt;span class="m"&gt;70&lt;/span&gt;   &lt;span class="m"&gt;508&lt;/span&gt;
+Deflate:x5       &lt;span class="m"&gt;39116&lt;/span&gt;   &lt;span class="m"&gt;707&lt;/span&gt;   &lt;span class="m"&gt;2131&lt;/span&gt;  &lt;span class="m"&gt;15061&lt;/span&gt;    &lt;span class="m"&gt;95&lt;/span&gt;   &lt;span class="m"&gt;669&lt;/span&gt;
+                &lt;span class="m"&gt;391901&lt;/span&gt;   &lt;span class="m"&gt;708&lt;/span&gt;   &lt;span class="m"&gt;1719&lt;/span&gt;  &lt;span class="m"&gt;12168&lt;/span&gt;    &lt;span class="m"&gt;76&lt;/span&gt;   &lt;span class="m"&gt;540&lt;/span&gt;
+Deflate:x7       &lt;span class="m"&gt;15543&lt;/span&gt;   &lt;span class="m"&gt;736&lt;/span&gt;   &lt;span class="m"&gt;2339&lt;/span&gt;  &lt;span class="m"&gt;17222&lt;/span&gt;   &lt;span class="m"&gt;104&lt;/span&gt;   &lt;span class="m"&gt;765&lt;/span&gt;
+                &lt;span class="m"&gt;416000&lt;/span&gt;   &lt;span class="m"&gt;756&lt;/span&gt;   &lt;span class="m"&gt;1707&lt;/span&gt;  &lt;span class="m"&gt;12910&lt;/span&gt;    &lt;span class="m"&gt;76&lt;/span&gt;   &lt;span class="m"&gt;573&lt;/span&gt;
+Deflate64:x5     &lt;span class="m"&gt;33348&lt;/span&gt;   &lt;span class="m"&gt;703&lt;/span&gt;   &lt;span class="m"&gt;2050&lt;/span&gt;  &lt;span class="m"&gt;14411&lt;/span&gt;    &lt;span class="m"&gt;91&lt;/span&gt;   &lt;span class="m"&gt;640&lt;/span&gt;
+                &lt;span class="m"&gt;381221&lt;/span&gt;   &lt;span class="m"&gt;742&lt;/span&gt;   &lt;span class="m"&gt;1607&lt;/span&gt;  &lt;span class="m"&gt;11926&lt;/span&gt;    &lt;span class="m"&gt;71&lt;/span&gt;   &lt;span class="m"&gt;530&lt;/span&gt;
+BZip2:x1         &lt;span class="m"&gt;19466&lt;/span&gt;   &lt;span class="m"&gt;743&lt;/span&gt;   &lt;span class="m"&gt;1583&lt;/span&gt;  &lt;span class="m"&gt;11761&lt;/span&gt;    &lt;span class="m"&gt;70&lt;/span&gt;   &lt;span class="m"&gt;522&lt;/span&gt;
+                &lt;span class="m"&gt;107349&lt;/span&gt;   &lt;span class="m"&gt;705&lt;/span&gt;   &lt;span class="m"&gt;1650&lt;/span&gt;  &lt;span class="m"&gt;11637&lt;/span&gt;    &lt;span class="m"&gt;73&lt;/span&gt;   &lt;span class="m"&gt;517&lt;/span&gt;
+BZip2:x5         &lt;span class="m"&gt;14640&lt;/span&gt;   &lt;span class="m"&gt;757&lt;/span&gt;   &lt;span class="m"&gt;1614&lt;/span&gt;  &lt;span class="m"&gt;12219&lt;/span&gt;    &lt;span class="m"&gt;72&lt;/span&gt;   &lt;span class="m"&gt;543&lt;/span&gt;
+                 &lt;span class="m"&gt;77475&lt;/span&gt;   &lt;span class="m"&gt;738&lt;/span&gt;   &lt;span class="m"&gt;2061&lt;/span&gt;  &lt;span class="m"&gt;15207&lt;/span&gt;    &lt;span class="m"&gt;92&lt;/span&gt;   &lt;span class="m"&gt;675&lt;/span&gt;
+BZip2:x5:mt2     &lt;span class="m"&gt;15561&lt;/span&gt;   &lt;span class="m"&gt;731&lt;/span&gt;   &lt;span class="m"&gt;1776&lt;/span&gt;  &lt;span class="m"&gt;12987&lt;/span&gt;    &lt;span class="m"&gt;79&lt;/span&gt;   &lt;span class="m"&gt;577&lt;/span&gt;
+                 &lt;span class="m"&gt;80522&lt;/span&gt;   &lt;span class="m"&gt;758&lt;/span&gt;   &lt;span class="m"&gt;2085&lt;/span&gt;  &lt;span class="m"&gt;15805&lt;/span&gt;    &lt;span class="m"&gt;93&lt;/span&gt;   &lt;span class="m"&gt;702&lt;/span&gt;
+BZip2:x7          &lt;span class="m"&gt;5127&lt;/span&gt;   &lt;span class="m"&gt;775&lt;/span&gt;   &lt;span class="m"&gt;1714&lt;/span&gt;  &lt;span class="m"&gt;13284&lt;/span&gt;    &lt;span class="m"&gt;76&lt;/span&gt;   &lt;span class="m"&gt;590&lt;/span&gt;
+                 &lt;span class="m"&gt;69233&lt;/span&gt;   &lt;span class="m"&gt;782&lt;/span&gt;   &lt;span class="m"&gt;1737&lt;/span&gt;  &lt;span class="m"&gt;13577&lt;/span&gt;    &lt;span class="m"&gt;77&lt;/span&gt;   &lt;span class="m"&gt;603&lt;/span&gt;
+PPMD:x1          &lt;span class="m"&gt;13343&lt;/span&gt;   &lt;span class="m"&gt;739&lt;/span&gt;   &lt;span class="m"&gt;1867&lt;/span&gt;  &lt;span class="m"&gt;13800&lt;/span&gt;    &lt;span class="m"&gt;83&lt;/span&gt;   &lt;span class="m"&gt;613&lt;/span&gt;
+                 &lt;span class="m"&gt;11466&lt;/span&gt;   &lt;span class="m"&gt;720&lt;/span&gt;   &lt;span class="m"&gt;1876&lt;/span&gt;  &lt;span class="m"&gt;13503&lt;/span&gt;    &lt;span class="m"&gt;83&lt;/span&gt;   &lt;span class="m"&gt;600&lt;/span&gt;
+PPMD:x5           &lt;span class="m"&gt;9060&lt;/span&gt;   &lt;span class="m"&gt;740&lt;/span&gt;   &lt;span class="m"&gt;2074&lt;/span&gt;  &lt;span class="m"&gt;15355&lt;/span&gt;    &lt;span class="m"&gt;92&lt;/span&gt;   &lt;span class="m"&gt;682&lt;/span&gt;
+                  &lt;span class="m"&gt;5011&lt;/span&gt;   &lt;span class="m"&gt;648&lt;/span&gt;   &lt;span class="m"&gt;1449&lt;/span&gt;   &lt;span class="m"&gt;9392&lt;/span&gt;    &lt;span class="m"&gt;64&lt;/span&gt;   &lt;span class="m"&gt;417&lt;/span&gt;
+Delta:4        &lt;span class="m"&gt;1425436&lt;/span&gt;   &lt;span class="m"&gt;592&lt;/span&gt;   &lt;span class="m"&gt;1478&lt;/span&gt;   &lt;span class="m"&gt;8758&lt;/span&gt;    &lt;span class="m"&gt;66&lt;/span&gt;   &lt;span class="m"&gt;389&lt;/span&gt;
+               &lt;span class="m"&gt;1668622&lt;/span&gt;   &lt;span class="m"&gt;575&lt;/span&gt;   &lt;span class="m"&gt;1783&lt;/span&gt;  &lt;span class="m"&gt;10252&lt;/span&gt;    &lt;span class="m"&gt;79&lt;/span&gt;   &lt;span class="m"&gt;455&lt;/span&gt;
+BCJ            &lt;span class="m"&gt;1763558&lt;/span&gt;   &lt;span class="m"&gt;544&lt;/span&gt;   &lt;span class="m"&gt;1328&lt;/span&gt;   &lt;span class="m"&gt;7224&lt;/span&gt;    &lt;span class="m"&gt;59&lt;/span&gt;   &lt;span class="m"&gt;321&lt;/span&gt;
+               &lt;span class="m"&gt;2872698&lt;/span&gt;   &lt;span class="m"&gt;569&lt;/span&gt;   &lt;span class="m"&gt;2070&lt;/span&gt;  &lt;span class="m"&gt;11767&lt;/span&gt;    &lt;span class="m"&gt;92&lt;/span&gt;   &lt;span class="m"&gt;522&lt;/span&gt;
+AES256CBC:1     &lt;span class="m"&gt;473162&lt;/span&gt;   &lt;span class="m"&gt;723&lt;/span&gt;   &lt;span class="m"&gt;1609&lt;/span&gt;  &lt;span class="m"&gt;11628&lt;/span&gt;    &lt;span class="m"&gt;71&lt;/span&gt;   &lt;span class="m"&gt;516&lt;/span&gt;
+                &lt;span class="m"&gt;482136&lt;/span&gt;   &lt;span class="m"&gt;744&lt;/span&gt;   &lt;span class="m"&gt;1592&lt;/span&gt;  &lt;span class="m"&gt;11849&lt;/span&gt;    &lt;span class="m"&gt;71&lt;/span&gt;   &lt;span class="m"&gt;526&lt;/span&gt;
+AES256CBC:2    &lt;span class="m"&gt;3391242&lt;/span&gt;   &lt;span class="m"&gt;638&lt;/span&gt;   &lt;span class="m"&gt;4356&lt;/span&gt;  &lt;span class="m"&gt;27781&lt;/span&gt;   &lt;span class="m"&gt;193&lt;/span&gt;  &lt;span class="m"&gt;1234&lt;/span&gt;
+               &lt;span class="m"&gt;7308622&lt;/span&gt;   &lt;span class="m"&gt;649&lt;/span&gt;   &lt;span class="m"&gt;2307&lt;/span&gt;  &lt;span class="m"&gt;14968&lt;/span&gt;   &lt;span class="m"&gt;102&lt;/span&gt;   &lt;span class="m"&gt;665&lt;/span&gt;
+CRC32:1        &lt;span class="m"&gt;2005570&lt;/span&gt;   &lt;span class="m"&gt;744&lt;/span&gt;   &lt;span class="m"&gt;1961&lt;/span&gt;  &lt;span class="m"&gt;14601&lt;/span&gt;    &lt;span class="m"&gt;87&lt;/span&gt;   &lt;span class="m"&gt;648&lt;/span&gt;
+CRC32:4        &lt;span class="m"&gt;5340310&lt;/span&gt;   &lt;span class="m"&gt;769&lt;/span&gt;   &lt;span class="m"&gt;1550&lt;/span&gt;  &lt;span class="m"&gt;11920&lt;/span&gt;    &lt;span class="m"&gt;69&lt;/span&gt;   &lt;span class="m"&gt;529&lt;/span&gt;
+CRC32:8        &lt;span class="m"&gt;8750400&lt;/span&gt;   &lt;span class="m"&gt;749&lt;/span&gt;   &lt;span class="m"&gt;1585&lt;/span&gt;  &lt;span class="m"&gt;11866&lt;/span&gt;    &lt;span class="m"&gt;70&lt;/span&gt;   &lt;span class="m"&gt;527&lt;/span&gt;
+CRC64          &lt;span class="m"&gt;4884587&lt;/span&gt;   &lt;span class="m"&gt;707&lt;/span&gt;   &lt;span class="m"&gt;1416&lt;/span&gt;  &lt;span class="m"&gt;10004&lt;/span&gt;    &lt;span class="m"&gt;63&lt;/span&gt;   &lt;span class="m"&gt;444&lt;/span&gt;
+SHA256          &lt;span class="m"&gt;469742&lt;/span&gt;   &lt;span class="m"&gt;751&lt;/span&gt;   &lt;span class="m"&gt;1277&lt;/span&gt;   &lt;span class="m"&gt;9583&lt;/span&gt;    &lt;span class="m"&gt;57&lt;/span&gt;   &lt;span class="m"&gt;426&lt;/span&gt;
+SHA1           &lt;span class="m"&gt;1292792&lt;/span&gt;   &lt;span class="m"&gt;725&lt;/span&gt;   &lt;span class="m"&gt;1669&lt;/span&gt;  &lt;span class="m"&gt;12101&lt;/span&gt;    &lt;span class="m"&gt;74&lt;/span&gt;   &lt;span class="m"&gt;537&lt;/span&gt;
+BLAKE2sp        &lt;span class="m"&gt;810867&lt;/span&gt;   &lt;span class="m"&gt;764&lt;/span&gt;   &lt;span class="m"&gt;2335&lt;/span&gt;  &lt;span class="m"&gt;17839&lt;/span&gt;   &lt;span class="m"&gt;104&lt;/span&gt;   &lt;span class="m"&gt;792&lt;/span&gt;
+
+CPU                      &lt;span class="m"&gt;775&lt;/span&gt;   &lt;span class="m"&gt;2390&lt;/span&gt;  &lt;span class="m"&gt;18537&lt;/span&gt;
+------------------------------------------------------
+Tot:                     &lt;span class="m"&gt;696&lt;/span&gt;   &lt;span class="m"&gt;1710&lt;/span&gt;  &lt;span class="m"&gt;11921&lt;/span&gt;    &lt;span class="m"&gt;76&lt;/span&gt;   &lt;span class="m"&gt;529&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="compression-rates_1"&gt;Compression Rates&lt;/h2&gt;
+&lt;table class="table"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;File&lt;/th&gt;
+&lt;th&gt;File Size&lt;/th&gt;
+&lt;th&gt;.zip&lt;/th&gt;
+&lt;th&gt;.gz&lt;/th&gt;
+&lt;th&gt;.bz2&lt;/th&gt;
+&lt;th&gt;.7z&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;MySQL SQL dump&lt;/td&gt;
+&lt;td&gt;3.5 GB&lt;/td&gt;
+&lt;td&gt;634 MB&lt;/td&gt;
+&lt;td&gt;1: 737 MB&lt;br/&gt;2: 729 MB&lt;br/&gt;3: 722 MB&lt;br/&gt;4: 654 MB&lt;br/&gt;5: 638 MB&lt;br/&gt;6: 634 MB&lt;br/&gt;7: 610 MB&lt;br/&gt;8: 606 MB&lt;br/&gt;9: 606 MB&lt;/td&gt;
+&lt;td&gt;1: 534 MB&lt;br/&gt;2: 525 MB&lt;br/&gt;3: 521 MB&lt;br/&gt;4: 519 MB&lt;br/&gt;5: 518 MB&lt;br/&gt;6: 518 MB&lt;br/&gt;7: 518 MB&lt;br/&gt;8: 518 MB&lt;br/&gt;9: 518 MB&lt;/td&gt;
+&lt;td&gt;default: 471 MB&lt;br/&gt;ultra: 398 MB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="features"&gt;Features&lt;/h2&gt;
+&lt;table class="table"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Format&lt;/th&gt;
+&lt;th&gt;Archiving&lt;/th&gt;
+&lt;th&gt;Compression&lt;/th&gt;
+&lt;th&gt;Integrity Check&lt;/th&gt;
+&lt;th&gt;Partial Extraction&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://sevenzip.osdn.jp/chm/cmdline/"&gt;7z&lt;/a&gt; (&lt;a href="https://linux.die.net/man/1/7z"&gt;man&lt;/a&gt;)&lt;/td&gt;
+&lt;td style="color: green;"&gt;✔&lt;/td&gt;
+&lt;td style="color: green;"&gt;✔&lt;/td&gt;
+&lt;td style="color: green;"&gt;✔&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;zip (&lt;a href="https://linux.die.net/man/1/zip"&gt;man&lt;/a&gt;)&lt;/td&gt;
+&lt;td style="color: green;"&gt;✔&lt;/td&gt;
+&lt;td style="color: green;"&gt;✔&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td style="color: green;"&gt;✔&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;tar (&lt;a href="https://linux.die.net/man/1/tar"&gt;man&lt;/a&gt;)&lt;/td&gt;
+&lt;td style="color: green;"&gt;✔&lt;/td&gt;
+&lt;td style="color: red;"&gt;✗&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;gzip (&lt;a href="https://linux.die.net/man/1/gzip"&gt;man&lt;/a&gt;)&lt;/td&gt;
+&lt;td style="color: red;"&gt;✗&lt;/td&gt;
+&lt;td style="color: green;"&gt;✔&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;bzip2 (&lt;a href="https://linux.die.net/man/1/bzip2"&gt;man&lt;/a&gt;)&lt;/td&gt;
+&lt;td style="color: red;"&gt;✗&lt;/td&gt;
+&lt;td style="color: green;"&gt;✔&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Wikipedia:&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/List_of_archive_formats"&gt;List of archive formats&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Comparison_of_file_archivers"&gt;Comparison of file archivers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Hutter_Prize"&gt;Hutter Prize&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Martin Thoma: &lt;a href="https://martin-thoma.com/data-backup-strategies/"&gt;Data Backup Strategies&lt;/a&gt;, 2013.&lt;/li&gt;
+&lt;li&gt;Jeff Atwood:&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://blog.codinghorror.com/file-compression-in-the-multi-core-era/"&gt;File Compression in the Multi-Core Era&lt;/a&gt;, 2009.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://blog.codinghorror.com/dont-use-zip-use-rar/"&gt;Don't Use ZIP, Use RAR&lt;/a&gt;, 2007.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://blog.codinghorror.com/compression-and-cliffs/"&gt;Compression and Cliffs&lt;/a&gt;, 2005.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Lossy compression:&lt;ul&gt;
+&lt;li&gt;Jeff Atwood: &lt;a href="https://blog.codinghorror.com/a-comparison-of-jpeg-compression-levels-and-recompression/"&gt;A Comparison of JPEG Compression Levels and Recompression&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Jeff Atwood: &lt;a href="https://blog.codinghorror.com/getting-the-most-out-of-png/"&gt;Getting the Most Out of PNG&lt;/a&gt;, 2007.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://superuser.com/q/1305867/64857"&gt;What is the maximum size of a zip file on Windows 10 Pro 64-Bit?&lt;/a&gt;, 2018&lt;/li&gt;
+&lt;/ul&gt;</content><category term="compression"></category><category term="gzip"></category><category term="bz2"></category><category term="7z"></category><category term="zip"></category><category term="backup"></category><category term="speed"></category></entry><entry><title>36C3</title><link href="https://martin-thoma.com/36c3/" rel="alternate"></link><published>2020-01-05T20:00:00+01:00</published><updated>2020-01-05T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-01-05:/36c3/</id><summary type="html">&lt;p&gt;36C3 is the 36th
 &lt;a href="https://en.wikipedia.org/wiki/Chaos_Communication_Congress"&gt;Chaos Communication Congress&lt;/a&gt;.
 A congress for computer stuff; a lot about security.&lt;/p&gt;
 &lt;style&gt;
