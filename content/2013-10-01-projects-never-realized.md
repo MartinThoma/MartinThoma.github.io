@@ -32,7 +32,11 @@ should be able to say "When there is a new book of the 'Harry Potter' series,
 send me an e-mail!" or "When there is a new book of the 'Harry Potter' series
 translated to 'German', send me an e-mail!".
 
-## Science and Education Platform
+## Society
+
+Anything related to how we live together.
+
+### Science and Education Platform
 Sometimes, scientists get new insights that are able to influence millions. But until such a great invention or discovery is made, hundreds or thousands of people might have thought about the same problem. Today, with <abbr title="Massive open online courses"><a href="https://en.wikipedia.org/wiki/Massive_open_online_course">MOOCs</a></abbr> education in some fields is quite open to a lot of people. <a href="https://www.khanacademy.org/">Khan academy</a> offers many very basic courses, <a href="https://www.coursera.org/">Coursea</a> and <a href="https://www.udacity.com">Udacity</a> a few advanced ones. But the process of creating new content seems to be quite closed. <a href="https://en.wikiversity.org">Wikiversity</a> is more open, but very limited. For example, I think it is not possible to include <a href="../html5/graphic-filters/graphic-filters.htm">my graphic filter examples</a>. And it is not possible to track progress of students.
 
 I think it is necessary to gamify this. Both, students and educators, should
@@ -66,6 +70,80 @@ implementation. For this project, you would need:
 * A teacher for students.
 * Somebody, who has experience with gamification.
 * Somebody, who has contacts to politics and knows how to advertise.
+
+### Banking
+
+I think our banking system is a mess. It is astonishing to me that you can
+transfer / withdraw money just with a single number (IBAN).
+
+Instead, I would like to have an open protocol which uses modern software
+engineering methods to keep things save. Especially:
+
+* As a customer, I want to have a secure way to authenticate.
+    * This way should be consistent across banks
+* As a customer, I want my bank to have high security standards.
+    * This should be verified by external parties.
+* As a customer, I DON'T want to write anything except for an reciever-ID.
+    * The receiver-ID should have a checksum to prevent mistakes
+    * The receiver-ID should be easy to write (ASCII) and only have writable characters (no whitespaces)
+* As a customer, I want immediate feedback if the transaction was successful or
+  not (e.g. receiver-ID didn't exist / checksum was wrong)
+* As a customer, I want to be able to generate as many receiver-IDs as I want
+  (basically random IBANs).
+    * Each of those should either be handled internally at the bank as an alias,
+      e.g. the money goes to another "receiver-ID" which is directly connected to the same account.
+      Or it should be a different "space" of money. This way, one could
+      easily see where money came from
+* As a customer, I want to have as many sender-IDs as I want.
+    * This helps to protect my privacy, in case cooperations analyze my buying
+      behaviour.
+* As a company, I want to have support for a subscription model. The subscription includes the amount, the day of first payment, the interval (every X days; every first day of a month, every last day of a month, every 15th of a month, every first day of a year, ...), the earliest day of cancellation, the cancellation deadline (e.g. earliest in 3 months), .
+    * As a customer, I want to have control over all subscriptions. This means
+      I need to have the possibility at my bank to cancel subscriptions.
+    * As a customer, I want this cancellation of payment to optionally be a
+      legal cancellation of the contract as well.
+    * As a company, I want to get notified if a customer cancelled a subscription.
+    * As a receiver of money, I want to be able to cancel subscriptions (e.g. if I can't deliver anymore; if the customer had an acceptable reason to cancel early)
+* As a customer, I want to export all my data.
+    * Personal data they have about me.
+    * Transactions: Time, Sender-ID, Receiver-ID, Amount, Message
+    * Subscriptions: See above
+* As a customer, I want to be able to import subscriptions.
+    * I want to be able to transfer subscriptions between accounts.
+* As a customer, I want money transfers to be similar fast as e-mails are.
+
+
+### Good Citizen
+
+I often see minor things that could be improved: Broken glass bottles on the
+street when I'm cycling to work, a bit of trash or a dead animal lying around,
+people who park their car wrong in a way that is potentially dangerous
+(e.g. so that children crossing the street could be overlooked), intersections
+where the default right of way should be changed. Streets which need to be
+fixed, because plants / ice broke it open.
+
+And I can imagine way more:
+
+* **Commute**: I would be fine with stating my most common rides. For example,
+  something close to my home address and something close to my work address and
+  the times when I go to / from work. With this data, one could potentially
+  improve the schedule of busses / trains.
+* **Trash cans**: Reporting a missing trash can, so that people throw their
+  trash in the can instead of on the street.
+* **Stations**: We have very different bus/train stations. Some have only a
+  sign, indicating that a bus will stop there. Some have a roof to protect
+  against rain. Some have seating. Some even have a small waiting spot which is
+  protected against wind. And sometimes that waiting spot is even heated. I
+  know one train station that has no shelter and almost no seats, but should
+  have everything, because people often get stuck there. Maybe it would be even
+  be possible to switch the directions of trains there, so that the direction
+  that has most often issues is at the outside. Then one could have businesses
+  there which sell warm food / provide protection against the elements.
+
+Right now, there is no good way to report those minor suggestions for
+improvement. I would like to have an app for it. So people could report them,
+discuss them and the city could take care of the most important ones / the ones
+that require least amount of money.
 
 
 ## Advertisement Site
