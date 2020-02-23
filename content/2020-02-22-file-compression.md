@@ -14,6 +14,43 @@ every drawing from <a href="http://write-math.com/">write-math.com</a> in there.
 For this reason, I want to store that specific table in a compressed way. But
 which compression format is the best for which use case?
 
+This article is only about loss-less compression. There are many more things
+to say about lossy compression.
+
+## My System
+
+<table class="table">
+    <thead>
+        <tr style="background-color:#cdcdcd">
+            <th>&nbsp;</th>
+            <th>Thinkpad T460p</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="background-color:#efefef">CPU (<a href="https://ark.intel.com/content/www/de/de/ark/compare.html?productIds=42925,88967">comparison on ark.inten.com</a>)</td>
+            <td>8x Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz</td>
+        </tr>
+        <tr>
+            <td style="background-color:#efefef">RAM</td>
+            <td>8 GB</td>
+        </tr>
+        <tr>
+            <td style="background-color:#efefef">Video Card</td>
+            <td>Nvidia GeForce 940MX</td>
+        </tr>
+        <tr>
+            <td style="background-color:#efefef">System</td>
+            <td>Ubuntu 18.04.3 LTS</td>
+        </tr>
+        <tr>
+            <td style="background-color:#efefef">Disk</td>
+            <td>SAMSUNG MZ7LN512HCHP (<a href="https://www.notebookcheck.com/Test-Lenovo-ThinkPad-T460p-Core-i7-GeForce-940MX-Notebook.163310.0.html#c2263026">PM871 series</a>)</td>
+        </tr>
+    </tbody>
+</table>
+
+
 ## Usage
 
 <table class="table">
@@ -48,7 +85,7 @@ which compression format is the best for which use case?
             <td>gzip</td>
             <td>compress</td>
             <td><code>gzip -2 -k backup.sql</code></td>
-            <td>50s</td>
+            <td style="background-color: #b1fcb1;">50s</td>
         </tr>
         <tr>
             <td>gzip</td>
@@ -78,19 +115,19 @@ which compression format is the best for which use case?
             <td>gzip</td>
             <td>compress</td>
             <td><code>gzip -7 -k backup.sql</code></td>
-            <td>110s</td>
+            <td style="background-color: #ffbebe;">110s</td>
         </tr>
         <tr>
             <td>gzip</td>
             <td>compress</td>
             <td><code>gzip -8 -k backup.sql</code></td>
-            <td>319s</td>
+            <td style="background-color: #ffbebe;">319s</td>
         </tr>
         <tr>
             <td>gzip</td>
             <td>compress</td>
             <td><code>gzip -9 -k backup.sql</code></td>
-            <td>372s</td>
+            <td style="background-color: #ffbebe;">372s</td>
         </tr>
         <tr>
             <td>gzip</td>
@@ -98,91 +135,77 @@ which compression format is the best for which use case?
             <td><code>gzip -d backup.sql.gz</code> (-1 to -6)</td>
             <td>58s to 62s</td>
         </tr>
-        </tr>
         <tr>
             <td>gzip</td>
             <td>extract</td>
-            <td><code>gzip -d backup.sql.gz</code> (-7)</td>
-            <td>50s</td>
-        </tr>
-        <tr>
-            <td>gzip</td>
-            <td>extract</td>
-            <td><code>gzip -d backup.sql.gz</code> (-8)</td>
-            <td>49s</td>
-        </tr>
-        <tr>
-            <td>gzip</td>
-            <td>extract</td>
-            <td><code>gzip -d backup.sql.gz</code> (-9)</td>
-            <td>51s</td>
+            <td><code>gzip -d backup.sql.gz</code> (-7 to -9)</td>
+            <td>49s to 50s</td>
         </tr>
         <tr>
             <td>bz2</td>
             <td>compress</td>
             <td><code><a href="https://linux.die.net/man/1/bzip2">bzip2</a> -1 -k -z backup.sql</code></td>
-            <td>287s</td>
+            <td style="background-color: #ffbebe;">287s</td>
         </tr>
         <tr>
             <td>bz2</td>
             <td>compress</td>
             <td><code>bzip2 -2 -k -z backup.sql</code></td>
-            <td>285s</td>
+            <td style="background-color: #ffbebe;">285s</td>
         </tr>
         <tr>
             <td>bz2</td>
             <td>compress</td>
             <td><code>bzip2 -3 -k -z backup.sql</code></td>
-            <td>294s</td>
+            <td style="background-color: #ffbebe;">294s</td>
         </tr>
         <tr>
             <td>bz2</td>
             <td>compress</td>
             <td><code>bzip2 -4 -k -z backup.sql</code></td>
-            <td>301s</td>
+            <td style="background-color: #ffbebe;">301s</td>
         </tr>
         <tr>
             <td>bz2</td>
             <td>compress</td>
             <td><code>bzip2 -5 -k -z backup.sql</code></td>
-            <td>363s</td>
+            <td style="background-color: #ffbebe;">363s</td>
         </tr>
         <tr>
             <td>bz2</td>
             <td>compress</td>
             <td><code>bzip2 -6 -k -z backup.sql</code></td>
-            <td>356s</td>
+            <td style="background-color: #ffbebe;">356s</td>
         </tr>
         <tr>
             <td>bz2</td>
             <td>compress</td>
             <td><code>bzip2 -7 -k -z backup.sql</code></td>
-            <td>364s</td>
+            <td style="background-color: #ffbebe;">364s</td>
         </tr>
         <tr>
             <td>bz2</td>
             <td>compress</td>
             <td><code>bzip2 -8 -k -z backup.sql</code></td>
-            <td>407s</td>
+            <td style="background-color: #ffbebe;">407s</td>
         </tr>
         <tr>
             <td>bz2</td>
             <td>compress</td>
             <td><code>bzip2 -9 -k -z backup.sql</code></td>
-            <td>369s</td>
+            <td style="background-color: #ffbebe;">369s</td>
         </tr>
         <tr>
             <td>bz2</td>
             <td>extract</td>
             <td><code>bzip2 -d backup.sql.bz2</code> (-1 to -9)</td>
-            <td>102s to 109s</td>
-        </tr>
+            <td style="background-color: #ffbebe;">102s to 109s</td>
         </tr>
         <tr>
             <td>7z</td>
             <td>compress</td>
             <td><code>7z a backup.sql.7z backup.sql</code></td>
-            <td>466s</td>
+            <td style="background-color: #ffbebe;">466s</td>
         </tr>
         <tr>
             <td>7z</td>
@@ -194,46 +217,13 @@ which compression format is the best for which use case?
             <td>7z (ultra)</td>
             <td>compress</td>
             <td><code>7z a out.7z -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on backup.sql</code></td>
-            <td>1562s</td>
-        </tr>
-    </tbody>
-</table>
-
-## My System
-
-<table class="table">
-    <thead>
-        <tr style="background-color:#cdcdcd">
-            <th>&nbsp;</th>
-            <th>Thinkpad T460p</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="background-color:#efefef">CPU (<a href="https://ark.intel.com/content/www/de/de/ark/compare.html?productIds=42925,88967">comparison on ark.inten.com</a>)</td>
-            <td>8x Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz</td>
-        </tr>
-        <tr>
-            <td style="background-color:#efefef">RAM</td>
-            <td>8 GB</td>
-        </tr>
-        <tr>
-            <td style="background-color:#efefef">Video Card</td>
-            <td>Nvidia GeForce 940MX</td>
-        </tr>
-        <tr>
-            <td style="background-color:#efefef">System</td>
-            <td>Ubuntu 18.04.3 LTS</td>
-        </tr>
-        <tr>
-            <td style="background-color:#efefef">Disk</td>
-            <td>Ubuntu 18.04.3 LTS</td>
+            <td style="background-color: red;">1562s</td>
         </tr>
     </tbody>
 </table>
 
 
-### 7z Benchmark
+## 7z Benchmark
 
 ```
 $ 7z b
@@ -459,10 +449,10 @@ Tot:                     696   1710  11921    76   529
     </thead>
     <tbody>
         <tr>
-            <td>MySQL SQL dump</td>
+            <td>MySQL DB dump</td>
             <td>3.5 GB</td>
-            <td>634 MB</td>
-            <td>1: 737 MB<br/>2: 729 MB<br/>3: 722 MB<br/>4: 654 MB<br/>5: 638 MB<br/>6: 634 MB<br/>7: 610 MB<br/>8: 606 MB<br/>9: 606 MB</td>
+            <td><span style="color: orange">634 MB</span></td>
+            <td>1: 737 MB<br/>2: 729 MB<br/>3: 722 MB<br/>4: 654 MB<br/>5: 638 MB<br/><span style="color: orange">6: 634 MB</span><br/>7: 610 MB<br/>8: 606 MB<br/>9: 606 MB</td>
             <td>1: 534 MB<br/>2: 525 MB<br/>3: 521 MB<br/>4: 519 MB<br/>5: 518 MB<br/>6: 518 MB<br/>7: 518 MB<br/>8: 518 MB<br/>9: 518 MB</td>
             <td>default: 471 MB<br/>ultra: 398 MB</td>
         </tr>
@@ -487,13 +477,13 @@ Tot:                     696   1710  11921    76   529
             <td style="color: green;">✔</td>
             <td style="color: green;">✔</td>
             <td style="color: green;">✔</td>
-            <td></td>
+            <td style="color: green;"><a href="https://unix.stackexchange.com/q/460615/4784">✔</a></td>
         </tr>
         <tr>
             <td>zip (<a href="https://linux.die.net/man/1/zip">man</a>)</td>
             <td style="color: green;">✔</td>
             <td style="color: green;">✔</td>
-            <td></td>
+            <td style="color: green;"><a href="https://unix.stackexchange.com/a/197136/4784">✔</a></td>
             <td style="color: green;">✔</td>
         </tr>
         <tr>
@@ -501,7 +491,7 @@ Tot:                     696   1710  11921    76   529
             <td style="color: green;">✔</td>
             <td style="color: red;">✗</td>
             <td></td>
-            <td></td>
+            <td style="color: green;"><a href="https://unix.stackexchange.com/a/35315/4784"></a></td>
         </tr>
         <tr>
             <td>gzip (<a href="https://linux.die.net/man/1/gzip">man</a>)</td>

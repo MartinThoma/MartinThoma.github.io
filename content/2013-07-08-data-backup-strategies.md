@@ -16,15 +16,15 @@ The situation is similar for my external hard drive: A lot of video files, some 
 <h2>Online Services</h2>
 I want to back up one computer with at least 200 GB which I don't need to access often and 10 GB that need to access often.
 
-A backup service should include software, that ...
+A backup service should include software, that …
 <ul>
-  <li>... allows me to configurate upload / dowload bandwidth limts</li>
-  <li>... should integrate into my <abbr title="operating system">os</abbr> in such a way that it feels like using a hard disk</li>
-  <li>... lets me upload files of sizes up to 5 GB</li>
-  <li>... uploads in background automatically as soon as my notebook gets an internet connection</li>
-  <li>... uploads only parts of files, if only parts changed</li>
-  <li>... starts uploading as soon as a file changed</li>
-  <li>... creates checksums and compares them to check if files were correctly uploaded</li>
+  <li>… allows me to configurate upload / dowload bandwidth limts</li>
+  <li>… should integrate into my <abbr title="operating system">os</abbr> in such a way that it feels like using a hard disk</li>
+  <li>… lets me upload files of sizes up to 5 GB</li>
+  <li>… uploads in background automatically as soon as my notebook gets an internet connection</li>
+  <li>… uploads only parts of files, if only parts changed</li>
+  <li>… starts uploading as soon as a file changed</li>
+  <li>… creates checksums and compares them to check if files were correctly uploaded</li>
 </ul>
 
 A version control would be great, but that's a feature I don't expect. Also a possibility to share content (single files with a code) would be great, but I don't know if any of those services offers that.
@@ -42,80 +42,80 @@ A version control would be great, but that's a feature I don't expect. Also a po
   <td><a href="http://www.backblaze.com/">Backblaze</a></td>
   <td style="text-align:right;"><a href="http://www.backblaze.com/de_DE/online-backup-about.html">37.06</a></td>
   <td>&nbsp;</td>
-  <td><img src="../images/2013/07/cancel.png" alt="cancel" width="16" height="16" class="alignnone size-full wp-image-73371" /></td>
-  <td><img src="../images/2013/07/cancel.png" alt="cancel" width="16" height="16" class="alignnone size-full wp-image-73371" /> <img src="../images/2013/07/windows-icon.png" alt="Windows icon" width="16" height="16" class="size-full wp-image-73321" /> <img src="../images/2013/07/mac-icon.png" alt="Mac - Icon" width="16" height="16" class="size-full wp-image-73331" /></td>
+  <td><span style="color:red;">✗</span></td>
+  <td><span style="color:red;">✗</span> <img src="../images/2013/07/windows-icon.png" alt="Windows icon" width="30" height="30" class="border-0" /> <img src="../images/2013/07/mac-icon.png" alt="Mac - Icon" width="30" height="30" class="border-0" /></td>
   <td><a href="http://en.wikipedia.org/wiki/Backblaze">Wiki</a></td>
 </tr>
 <tr>
   <td><a href="http://www.carbonite.com/">Carbonite</a></td>
   <td style="text-align:right;"><a href="http://www.carbonite.com/online-backup/pricing-plans">46.78</a></td>
   <td>&nbsp;</td>
-  <td><img src="../images/2013/07/accept.png" alt="accept icon" width="16" height="16" class="size-full wp-image-73351" /></td>
-  <td><img src="../images/2013/07/cancel.png" alt="cancel" width="16" height="16" class="alignnone size-full wp-image-73371" /> <img src="../images/2013/07/windows-icon.png" alt="Windows icon" width="16" height="16" class="size-full wp-image-73321" /> <img src="../images/2013/07/mac-icon.png" alt="Mac - Icon" width="16" height="16" class="size-full wp-image-73331" /></td>
+  <td><span style="color:green;">✔</span></td>
+  <td><span style="color:red;">✗</span> <img src="../images/2013/07/windows-icon.png" alt="Windows icon" width="30" height="30" class="border-0" /> <img src="../images/2013/07/mac-icon.png" alt="Mac - Icon" width="30" height="30" class="border-0" /></td>
   <td><a href="http://en.wikipedia.org/wiki/Carbonite_(online_backup)">Wiki</a></td>
 </tr>
 <tr>
   <td><a href="http://www.crashplan.com/">CrashPlan</a></td>
   <td style="text-align:right;"><a href="http://www.crashplan.com/consumer/compare.html">46.78</a></td>
   <td>&nbsp;</td>
-  <td><img src="../images/2013/07/accept.png" alt="accept icon" width="16" height="16" class="size-full wp-image-73351" /></td>
-  <td><img src="../images/2013/07/tux.png" alt="Tux - Icon" width="16" height="16" class="size-full wp-image-73301" /> <img src="../images/2013/07/windows-icon.png" alt="Windows icon" width="16" height="16" class="size-full wp-image-73321" /> <img src="../images/2013/07/mac-icon.png" alt="Mac - Icon" width="16" height="16" class="size-full wp-image-73331" /></td>
+  <td><span style="color:green;">✔</span></td>
+  <td>🐧 <img src="../images/2013/07/windows-icon.png" alt="Windows icon" width="30" height="30" class="border-0" /> <img src="../images/2013/07/mac-icon.png" alt="Mac - Icon" width="30" height="30" class="border-0" /></td>
   <td><a href="http://en.wikipedia.org/wiki/Crashplan#CrashPlan">Wiki</a></td>
 </tr>
 <tr>
   <td><a href="https://www.idrive.com/index.html">IDrive</a></td>
   <td style="text-align:right;"><a href="https://www.idrive.com/pricing.htm">116.58</a></td>
   <td>&nbsp;</td>
-  <td><img src="../images/2013/07/accept.png" alt="accept icon" width="16" height="16" class="size-full wp-image-73351" /></td>
-  <td><img src="../images/2013/07/tux.png" alt="Tux - Icon" width="16" height="16" class="size-full wp-image-73301" /> <img src="../images/2013/07/windows-icon.png" alt="Windows icon" width="16" height="16" class="size-full wp-image-73321" /> <img src="../images/2013/07/mac-icon.png" alt="Mac - Icon" width="16" height="16" class="size-full wp-image-73331" /></td>
+  <td><span style="color:green;">✔</span></td>
+  <td>🐧 <img src="../images/2013/07/windows-icon.png" alt="Windows icon" width="30" height="30" class="border-0" /> <img src="../images/2013/07/mac-icon.png" alt="Mac - Icon" width="30" height="30" class="border-0" /></td>
   <td>-</td>
 </tr>
 <tr>
   <td><a href="https://www.jungledisk.com/">Jungle Disk</a></td>
   <td style="text-align:right;"><a href="https://www.jungledisk.com/personal/desktop/pricing/">238.62</a></td>
   <td>&nbsp;</td>
-  <td><img src="../images/2013/07/cancel.png" alt="cancel" width="16" height="16" class="alignnone size-full wp-image-73371" /></td>
-  <td><img src="../images/2013/07/tux.png" alt="Tux - Icon" width="16" height="16" class="size-full wp-image-73301" /> <img src="../images/2013/07/windows-icon.png" alt="Windows icon" width="16" height="16" class="size-full wp-image-73321" /> ?</td>
+  <td><span style="color:red;">✗</span></td>
+  <td>🐧 <img src="../images/2013/07/windows-icon.png" alt="Windows icon" width="30" height="30" class="border-0" /> ?</td>
   <td><a href="http://en.wikipedia.org/wiki/Jungle_Disk">Wiki</a></td>
 </tr>
 <tr>
   <td><a href="http://www.mimedia.com/">MiMedia</a></td>
   <td style="text-align:right;"><a href="http://www.mimedia.com/more-space/">77.20</a></td>
   <td>&nbsp;</td>
-  <td><img src="../images/2013/07/accept.png" alt="accept icon" width="16" height="16" class="size-full wp-image-73351" /></td>
-  <td>? <img src="../images/2013/07/windows-icon.png" alt="Windows icon" width="16" height="16" class="size-full wp-image-73321" /> <img src="../images/2013/07/mac-icon.png" alt="Mac - Icon" width="16" height="16" class="size-full wp-image-73331" /></td>
+  <td><span style="color:green;">✔</span></td>
+  <td>? <img src="../images/2013/07/windows-icon.png" alt="Windows icon" width="30" height="30" class="border-0" /> <img src="../images/2013/07/mac-icon.png" alt="Mac - Icon" width="30" height="30" class="border-0" /></td>
   <td><a href="http://en.wikipedia.org/wiki/MiMedia">Wiki</a></td>
 </tr>
 <tr>
   <td><a href="http://mozy.com/">Mozy</a></td>
   <td style="text-align:right;"><a href="http://mozy.com/home/pricing/">131.00</a></td>
   <td>&nbsp;</td>
-  <td><img src="../images/2013/07/accept.png" alt="accept icon" width="16" height="16" class="size-full wp-image-73351" /></td>
-  <td><img src="../images/2013/07/cancel.png" alt="cancel" width="16" height="16" class="alignnone size-full wp-image-73371" /> <img src="../images/2013/07/windows-icon.png" alt="Windows icon" width="16" height="16" class="size-full wp-image-73321" /> <img src="../images/2013/07/mac-icon.png" alt="Mac - Icon" width="16" height="16" class="size-full wp-image-73331" /></td>
+  <td><span style="color:green;">✔</span></td>
+  <td><span style="color:red;">✗</span> <img src="../images/2013/07/windows-icon.png" alt="Windows icon" width="30" height="30" class="border-0" /> <img src="../images/2013/07/mac-icon.png" alt="Mac - Icon" width="30" height="30" class="border-0" /></td>
   <td><a href="http://en.wikipedia.org/wiki/Mozy">Wiki</a></td>
 </tr>
 <tr>
   <td><a href="http://www.nomadesk.com">Nomadesk</a></td>
   <td style="text-align:right;"><a href="http://www.nomadesk.com/pricing/">93.57</a></td>
   <td>&nbsp;</td>
-  <td><img src="../images/2013/07/accept.png" alt="accept icon" width="16" height="16" class="size-full wp-image-73351" /></td>
-  <td><img src="../images/2013/07/cancel.png" alt="cancel" width="16" height="16" class="alignnone size-full wp-image-73371" /> <img src="../images/2013/07/windows-icon.png" alt="Windows icon" width="16" height="16" class="size-full wp-image-73321" /> <img src="../images/2013/07/cancel.png" alt="cancel" width="16" height="16" class="alignnone size-full wp-image-73371" /></td>
+  <td><span style="color:green;">✔</span></td>
+  <td><span style="color:red;">✗</span> <img src="../images/2013/07/windows-icon.png" alt="Windows icon" width="30" height="30" class="border-0" /> <span style="color:red;">✗</span></td>
   <td>-</td>
 </tr>
 <tr>
   <td><a href="https://www.sugarsync.com/">SugarSync</a></td>
   <td style="text-align:right;"><a href="https://www.sugarsync.com/plans/">194.94</a></td>
   <td>&nbsp;</td>
-  <td><img src="../images/2013/07/accept.png" alt="accept icon" width="16" height="16" class="size-full wp-image-73351" /></td>
-  <td><img src="../images/2013/07/cancel.png" alt="cancel" width="16" height="16" class="alignnone size-full wp-image-73371" /> <img src="../images/2013/07/windows-icon.png" alt="Windows icon" width="16" height="16" class="size-full wp-image-73321" /> <img src="../images/2013/07/mac-icon.png" alt="Mac - Icon" width="16" height="16" class="size-full wp-image-73331" /></td>
+  <td><span style="color:green;">✔</span></td>
+  <td><span style="color:red;">✗</span> <img src="../images/2013/07/windows-icon.png" alt="Windows icon" width="30" height="30" class="border-0" /> <img src="../images/2013/07/mac-icon.png" alt="Mac - Icon" width="30" height="30" class="border-0" /></td>
   <td><a href="http://en.wikipedia.org/wiki/SugarSync">Wiki</a></td>
 </tr>
 <tr>
   <td><a href="https://one.ubuntu.com/">Ubuntu One</a></td>
   <td style="text-align:right;"><a href="https://one.ubuntu.com/services/">187.09</a></td>
   <td>&nbsp;</td>
-  <td><img src="../images/2013/07/accept.png" alt="accept icon" width="16" height="16" class="size-full wp-image-73351" /></td>
-  <td><img src="../images/2013/07/tux.png" alt="Tux - Icon" width="16" height="16" class="size-full wp-image-73301" /> <img src="../images/2013/07/cancel.png" alt="cancel" width="16" height="16" class="alignnone size-full wp-image-73371" /> <img src="../images/2013/07/cancel.png" alt="cancel" width="16" height="16" class="alignnone size-full wp-image-73371" /></td>
+  <td><span style="color:green;">✔</span></td>
+  <td>🐧 <span style="color:red;">✗</span> <span style="color:red;">✗</span></td>
   <td><a href="http://en.wikipedia.org/wiki/Ubuntu_One">Wiki</a></td>
 </tr>
 </table>
@@ -168,4 +168,5 @@ You could probably also make an external HDD raid.
 <h2>See also</h2>
 <ul>
   <li><a href="http://www.marco.org/2010/11/20/instapapers-backup-method">Instapaper&rsquo;s backup method</a></li>
+  <li><a href="https://martin-thoma.com/file-compression/">File compression</a></li>
 </ul>
