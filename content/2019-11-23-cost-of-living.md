@@ -491,6 +491,14 @@ which I think I really need... turns out, it's a lot of stuff.
         <td></td>
         <td>1.19 EUR / 75ml</td>
     </tr>
+    <tr>
+        <td>Flowers</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>2.99 EUR / 1</td>
+    </tr>
     </tbody>
 </table>
 
@@ -533,7 +541,15 @@ Fabrics:
         <td>1 week</td>
         <td>1.79 EUR / kg</td>
         <td>32.58 EUR / year</td>
-        <td>0.24 EUR / 0.242 kg</td>
+        <td>0.44 EUR / 0.446 kg</td>
+    </tr>
+    <tr>
+        <td><a href="https://en.wikipedia.org/wiki/Mandarin_orange">Mandarin orange</a> (Mandarinen)</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>3.68 EUR / 1.75 kg</td>
     </tr>
     <tr>
         <td>Apples (Äpfel)</td>
@@ -787,7 +803,7 @@ Fabrics:
         <td>2 weeks (?)</td>
         <td>0.59 EUR / kg</td>
         <td>23.01 EUR / year</td>
-        <td>2.47 EUR / 1250g</td>
+        <td>3.36 EUR / 2000g</td>
     </tr>
     <tr>
         <td>Croissants</td>
@@ -811,7 +827,7 @@ Fabrics:
         <td>3 months</td>
         <td>1.29 EUR / 250g</td>
         <td>33.54 EUR / year</td>
-        <td>1.39 EUR / 250g</td>
+        <td>2.74 EUR / 500g</td>
     </tr>
     <tr>
         <td>Margarine</td>
@@ -819,7 +835,7 @@ Fabrics:
         <td>?</td>
         <td>0.85 EUR / 500g</td>
         <td>?</td>
-        <td>500g (one package)</td>
+        <td>0.85 EUR / 500g (one package)</td>
     </tr>
     <tr>
         <td><a href="https://en.wikipedia.org/wiki/Mustard_(condiment)">Mustard</a> (medium-hot; Senf)</td>
@@ -870,12 +886,12 @@ Fabrics:
         <td>0</td>
     </tr>
     <tr>
-        <td>Marmelade (Strawberry)</td>
+        <td>Marmelade / Konfitüre (Strawberry)</td>
         <td>?</td>
-        <td>?</td>
+        <td>18 months</td>
         <td>0.99 EUR / glass</td>
         <td></td>
-        <td>0</td>
+        <td>0.99 EUR / 450g</td>
     </tr>
     <tr>
         <td>Obatzter</td>
@@ -926,6 +942,14 @@ I also count mixes like "Knorr fix" in here.
         <td></td>
         <td>0.79 EUR / 1 piece</td>
     </tr>
+    <tr>
+        <td>Gemüsebrühe</td>
+        <td></td>
+        <td>22 months</td>
+        <td>0.59 EUR</td>
+        <td></td>
+        <td>0.59 EUR / 140g</td>
+    </tr>
 </table>
 
 
@@ -948,15 +972,15 @@ General Cooking:
         <td>2 months (?)</td>
         <td>0.65 EUR / L</td>
         <td>33.90 EUR / year</td>
-        <td>1.30 EUR / 2 L</td>
+        <td>1.95 EUR / 3 L</td>
     </tr>
     <tr>
         <td><a href="https://en.wikipedia.org/wiki/Whipped_cream">Whipped Cream</a> (Schlagsahne 30%)</td>
         <td>2.4 kg / year</td>
-        <td>2 weeks (?)</td>
+        <td>2 weeks</td>
         <td>0.63 EUR / 200 g</td>
         <td>7.56 EUR / year</td>
-        <td>0</td>
+        <td>0.63 EUR / 200g</td>
     </tr>
     <tr>
         <td>Sunflower oil (Sonnenblumenöl)</td>
@@ -996,7 +1020,7 @@ General Cooking:
         <td>1 year</td>
         <td>0.39 EUR / kg</td>
         <td>0.39 EUR / year</td>
-        <td>1.19 EUR / 1 kg</td>
+        <td>1.58 EUR / 2 kg</td>
     </tr>
 </table>
 
@@ -1237,7 +1261,7 @@ General Cooking:
             <td>2 weeks (?)</td>
             <td>0.29 EUR / piece</td>
             <td>45.37 EUR</td>
-            <td>3.99 EUR / 11 piece</td>
+            <td>5.15 EUR / 15 piece</td>
         </tr>
         <tr>
             <td>Natural Joghurt (Joghurt Pur)</td>
@@ -1253,15 +1277,23 @@ General Cooking:
             <td>months to years</td>
             <td></td>
             <td></td>
-            <td>7.11 EUR / 5 packages</td>
+            <td>8.50 EUR / 6 packages</td>
+        </tr>
+        <tr>
+            <td>Bakery non-sweet (Semmeln)</td>
+            <td></td>
+            <td>1 day</td>
+            <td></td>
+            <td></td>
+            <td>3.70 / 5 pieces</td>
         </tr>
         <tr>
             <td>Bakery Sweets (<a href="https://de.wikipedia.org/wiki/Teilchen_(Backware)">Teilchen</a>; Bienenstichplunder)</td>
             <td></td>
+            <td>1 day</td>
             <td></td>
             <td></td>
-            <td></td>
-            <td>0.79 EUR / 1 piece</td>
+            <td>7.99 EUR / 4 pieces</td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Trail_mix">Trail Mix</a> (Studentenfutter)</td>
@@ -1306,10 +1338,10 @@ General Cooking:
         <tr>
             <td>Pickles (Cornichons)</td>
             <td></td>
-            <td></td>
+            <td>34 months</td>
             <td>0.99 EUR / bottle</td>
             <td></td>
-            <td>0 EUR</td>
+            <td>0.99 EUR / 190g</td>
         </tr>
         <tr>
             <td>Eggs (Eier)</td>
@@ -1333,7 +1365,7 @@ General Cooking:
             <td>2 months</td>
             <td>1.99 EUR / 4 pieces</td>
             <td>11.94 EUR / year</td>
-            <td>1.99 EUR / 4 pieces</td>
+            <td>3.98 EUR / 8 pieces</td>
         </tr>
         <tr>
             <td>Wasser</td>
@@ -1379,7 +1411,7 @@ General Cooking:
         <td>3.45 EUR</td>
         <td>One per 3 months</td>
         <td>13.80 EUR / year</td>
-        <td>3.45 EUR / 1 piece</td>
+        <td>6.90 EUR / 2 piece</td>
     </tr>
     <tr>
         <td>Tootpaste (Odol med 3)</td>
@@ -1393,7 +1425,7 @@ General Cooking:
         <td>2.55 EUR for 200ml</td>
         <td>200ml / 60 days</td>
         <td>15.52 EUR / year</td>
-        <td>0</td>
+        <td>2.45 EUR / 200ml</td>
     </tr>
     <tr>
         <td>Soap</td>
@@ -1514,25 +1546,25 @@ pills and maybe a couple of months for creams and ointment.
     </thead>
     <tbody>
     <tr>
-        <td>Public transportation - ÖPNV ticket</td>
+        <td>Public transportation - ÖPNV ticket (DB, Bahn, Reisen)</td>
         <td>79.10 EUR</td>
         <td>Each month</td>
         <td>949.20 EUR / year</td>
-        <td>71.00 EUR / 250kg</td>
+        <td>71.00 EUR / 250km</td>
     </tr>
     <tr>
         <td>Restaurant (work)</td>
         <td></td>
         <td></td>
         <td></td>
-        <td>35 EUR / 3 time</td>
+        <td>45 EUR / 4 time</td>
     </tr>
     <tr>
         <td>Restaurant (private)</td>
+        <td>15 EUR / person</td>
         <td></td>
         <td></td>
-        <td></td>
-        <td>8 EUR / 1 time</td>
+        <td>40 EUR / 3 people (2 times in total)</td>
     </tr>
     <tr>
         <td>Bouldering</td>
@@ -1540,6 +1572,13 @@ pills and maybe a couple of months for creams and ointment.
         <td>Each year</td>
         <td>600.00 EUR/ year</td>
         <td>0 EUR</td>
+    </tr>
+    <tr>
+        <td>Climbing (Klettern: Kletterwelt München)</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>15.90 EUR / 1 time</td>
     </tr>
     <tr>
         <td>GEZ / <a href="https://de.wikipedia.org/wiki/Rundfunkbeitrag">Rundfunkbeitrag</a></td>
