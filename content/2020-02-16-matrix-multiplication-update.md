@@ -69,6 +69,7 @@ the old machine needed.
             <th>Python 3.8.1</th>
             <th>pypy3.6-7.3.0</th>
             <th>pypy-c-jit-latest</th>
+            <th>Python 3.8.1 + cython</th>
         </tr>
     </thead>
     <tbody>
@@ -78,13 +79,15 @@ the old machine needed.
             <td>1884</td>
             <td>158</td>
             <td>147</td>
+            <td>1088</td>
         </tr>
         <tr>
             <th>ikj</th>
             <td>901s (<span style="color: green;">2.9x</span>)</td>
-            <td>1735</td>
+            <td>1072</td>
             <td>52</td>
             <td>50</td>
+            <td>441</td>
         </tr>
         <tr>
             <th><a href="https://en.wikipedia.org/wiki/NumPy">NumPy</a></th>
@@ -92,12 +95,14 @@ the old machine needed.
             <td>20<br/>version: 1.18.1</td>
             <td>42</td>
             <td>36</td>
+            <td>22</td>
         </tr>
         <tr>
             <th><a href="https://en.wikipedia.org/wiki/SciPy">SciPy</a></th>
             <td>45 (<span style="color: green;">2.6x</span>)<br/>version: 1.1.0</td>
             <td>20<br/>version: 1.4.1</td>
             <td colspan="2"><a href="https://stackoverflow.com/q/60248443/562769">Installation problems</a></td>
+            <td>-</td>
         </tr>
         <tr>
             <th><a href="https://martin-thoma.com/strassen-algorithm-in-python-java-cpp/">Strassen (LEAF_SIZE=8)</a></th>
@@ -105,6 +110,7 @@ the old machine needed.
             <td>1780</td>
             <td>190</td>
             <td>125</td>
+            <td>-</td>
         </tr>
         <tr>
             <th><a href="https://martin-thoma.com/strassen-algorithm-in-python-java-cpp/">Strassen (LEAF_SIZE=64)</a></th>
@@ -112,6 +118,7 @@ the old machine needed.
             <td>1022</td>
             <td>44</td>
             <td>41</td>
+            <td>441</td>
         </tr>
         <tr>
             <th>ikj (2 threads)</th>
@@ -119,6 +126,7 @@ the old machine needed.
             <td>1611</td>
             <td>37</td>
             <td>32</td>
+            <td>-</td>
         </tr>
         <tr>
             <th>ikj (4 threads)</th>
@@ -126,6 +134,7 @@ the old machine needed.
             <td>762</td>
             <td>19</td>
             <td>17</td>
+            <td>-</td>
         </tr>
     </tbody>
 </table>
@@ -150,6 +159,93 @@ Things to note:
           machine.
     * Libraries: Using numpy gave a **94.2x speedup**!
 * Numpy and scipy are the way to go, just as expected 🤷‍♂️
+
+I was interested in the influence of the machine, so I ran the algorithms with
+Python 3.8 on others as well:
+
+<table class="table">
+    <thead>
+        <tr style="background-color:#cdcdcd">
+            <th>&nbsp;</th>
+            <th>Thinkpad T460p<br/>(Reference Machine)</th>
+            <th>EliteBook-1040</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="background-color:#efefef">CPU (<a href="https://ark.intel.com/content/www/de/de/ark/compare.html?productIds=42925,88967">comparison on ark.inten.com</a>)</td>
+            <td>8x Intel(R) Core(TM) i7-6700HQ<br/>CPU @ 2.60GHz</td>
+            <td>4x Intel(R) Core(TM) i5-6300U<br/>CPU @ 2.40GHz</td>
+        </tr>
+        <tr>
+            <td style="background-color:#efefef">RAM</td>
+            <td>8 GB</td>
+            <td>16 GB</td>
+        </tr>
+        <tr>
+            <td style="background-color:#efefef">Video Card</td>
+            <td>Nvidia GeForce 940MX</td>
+            <td>Intel HD Graphics 520</td>
+        </tr>
+        <tr>
+            <td style="background-color:#efefef">System</td>
+            <td>Ubuntu 18.04.3 LTS</td>
+            <td>Ubuntu 18.04.4 LTS</td>
+        </tr>
+    </tbody>
+</table>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Algorithm</th>
+            <th>Thinkpad T460p</th>
+            <th>EliteBook-1040</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>ijk</th>
+            <td>1884</td>
+            <td>1891</td>
+        </tr>
+        <tr>
+            <th>ikj</th>
+            <td>1072</td>
+            <td>1455</td>
+        </tr>
+        <tr>
+            <th><a href="https://en.wikipedia.org/wiki/NumPy">NumPy 1.18.1</a></th>
+            <td>20</td>
+            <td>21</td>
+        </tr>
+        <tr>
+            <th><a href="https://martin-thoma.com/strassen-algorithm-in-python-java-cpp/">Strassen (LEAF_SIZE=8)</a></th>
+            <td>1780</td>
+            <td>TODO</td>
+        </tr>
+        <tr>
+            <th><a href="https://martin-thoma.com/strassen-algorithm-in-python-java-cpp/">Strassen (LEAF_SIZE=64)</a></th>
+            <td>1022</td>
+            <td>TODO</td>
+        </tr>
+        <tr>
+            <th>ikj (2 threads)</th>
+            <td>1611</td>
+            <td>TODO</td>
+        </tr>
+        <tr>
+            <th>ikj (4 threads)</th>
+            <td>762</td>
+            <td>TODO</td>
+        </tr>
+    </tbody>
+</table>
+
+The interesting thing to note here is that the EliteBook is about the same
+speed for the ikj-algorithm (even a tiny bit slower), but the EliteBook is way
+slower for the ikj algorithm.
+
 
 You might also be interested in [pybenchmarks.org](https://pybenchmarks.org/)
 which seems to be similar to [The Benchmarks Game](https://benchmarksgame-team.pages.debian.net/benchmarksgame/index.html).

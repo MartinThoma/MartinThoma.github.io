@@ -1188,3 +1188,39 @@ only break it for tests and documentation. Not for code. While I admit there
 are some cases where you will get above the 79&nbsp;character threshold, in
 most cases it just means that you should change the way you wrote your code.
 I've often seen it when you have many nested loops or conditions.
+
+Another argument against longer line lengths is readability. Long lines are
+just harder to read. Newspapers could also have way longer lines and less
+columns. But they don't do that. Websites also make columns. Let's look at the
+number of characters in a line for a couple:
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Website</th>
+            <th>Category</th>
+            <th>Characters</th>
+        </tr>
+    </thead>
+    <tr>
+        <td>Focus.de</td>
+        <td>News</td>
+        <td>70</td>
+    </tr>
+    <tr>
+        <td>washingtonpost.com</td>
+        <td>News</td>
+        <td>99</td>
+    </tr>
+    <tr>
+        <td>Sueddeutsche.de</td>
+        <td>News</td>
+        <td>68</td>
+    </tr>
+    <tr>
+        <td>Medium.com</td>
+        <td>Blog posts</td>
+        <td>73</td>
+    </tr>
+</table>
+
