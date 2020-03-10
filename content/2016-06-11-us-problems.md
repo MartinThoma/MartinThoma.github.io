@@ -60,6 +60,14 @@ with their vote. Namely:
 * [Felony disenfranchisement](https://en.wikipedia.org/wiki/Felony_disenfranchisement):
   Making people not being allowed to vote - this seems to be a problem in Germany, too.
 * [Voter suppression in the United States](https://en.wikipedia.org/wiki/Voter_suppression_in_the_United_States)
+* [John Oliver: Gerrymandering](https://www.youtube.com/watch?v=A-4dIImaodQ)
+* Excluding larger groups of the population by
+    * Having the day of vote not on Sunday (e.g. Super Tuesday)
+    * Voter ID laws
+    * Having extremely long queues in some areas (having to wait several HOURS! - I'm used to be finished in about 10 minutes)
+* Tactical voting: People don't vote for the candidate they like best, but for
+  the one they think has the highest chance to win. This would be fixed by
+  ranked-choice voting.
 
 
 ## Consumer Safety
