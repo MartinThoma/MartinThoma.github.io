@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Python, Migration, My bits and bytes, " />
+
+<meta property="og:title" content="Migrate to Python 3 "/>
+<meta property="og:url" content="../migrate/" />
+<meta property="og:description" content="When I gave a Python Packaging Course, I advised my students to always use Python 3. After all, Python 2 is dead. But one student said she had to use Python 2 as there is a package she definitely needs to use. And it&#39;s Python 2 only. What can one …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2020-03-10T20:00:00+01:00" />
+<meta name="twitter:title" content="Migrate to Python 3 ">
+<meta name="twitter:description" content="When I gave a Python Packaging Course, I advised my students to always use Python 3. After all, Python 2 is dead. But one student said she had to use Python 2 as there is a package she definitely needs to use. And it&#39;s Python 2 only. What can one …">
+<meta property="og:image" content="logos/python.png" />
+<meta name="twitter:image" content="logos/python.png" >
+
+        <title>Migrate to Python 3  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../migrate/"> Migrate to Python 3  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#naming" title="Naming">Naming</a></li><li><a class="toc-href" href="#structure" title="Structure">Structure</a></li><li><a class="toc-href" href="#general-cleanup" title="General Cleanup">General Cleanup</a></li><li><a class="toc-href" href="#2to3" title="2to3">2to3</a></li><li><a class="toc-href" href="#unit-tests" title="Unit Tests">Unit Tests</a></li><li><a class="toc-href" href="#sphinx-and-readthedocs" title="Sphinx and ReadTheDocs">Sphinx and ReadTheDocs</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>When I gave a Python Packaging Course, I advised my students to always use Python 3.
+After all, <a href="https://pythonclock.org/">Python 2 is dead</a>. But one student said
+she had to use Python 2 as there is a package she definitely needs to use. And
+it's Python 2 only. What can one do in such a scenario?</p>
+<p>I see the following options:</p>
+<ol>
+<li>Ask the maintainer to move the package</li>
+<li>Create a fork and move the package yourself</li>
+<li>Use an interface</li>
+</ol>
+<p>Don't forget to be polite when you ask. After all, you want something. And
+you're most likely asking somebody who does this in their free-time.</p>
+<p>When you have a program which has an interface (e.g. a web API like REST or a
+command line interface), then you can execute it with Python 2 from Python 3.
+Basically doing a system-level call, e.g. with
+<a href="https://docs.python.org/2/library/os.html#os.system"><code>os.system</code></a>. That is
+rarely the case and pretty straight forward. So let's come to the interesting
+part: Forking a package.</p>
+<h2 id="naming">Naming</h2>
+<p>The package <a href="https://code.google.com/archive/p/protpy/downloads"><code>propy</code></a> was
+not maintained anymore and the original authors didn't reply. So I chose to
+create a fork which I wanted to work with Python 3.</p>
+<p>I thought about just keeping the name, but <a href="https://pypi.org/project/propy/"><code>propy</code> on PyPI</a>
+was already taken by an unrelated project. And, after all, making sure there
+is some difference might not be the worst idea.</p>
+<p>So I chose the name <a href="https://pypi.org/project/propy3/">propy3</a> - a Python 3
+compatible version of propy.</p>
+<h2 id="structure">Structure</h2>
+<p>I want all my projects to have this structure:</p>
+<div class="highlight"><pre><span></span>propy3
+├── docs
+│&nbsp;&nbsp; ├── Makefile
+│&nbsp;&nbsp; ├── requirements.txt
+│&nbsp;&nbsp; └── source
+├── Makefile
+├── MANIFEST.in
+├── propy
+│&nbsp;&nbsp; └── __init__.py
+├── README.md
+├── setup.cfg
+├── setup.py
+├── tests
+└── tox.ini
+</pre></div>
+<p>with a setup.py like this:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+
+<span class="n">setup</span><span class="p">()</span>
+</pre></div>
+<p>and a setup.cfg like this:</p>
+<div class="highlight"><pre><span></span><span class="k">[metadata]</span>
+<span class="c1"># https://setuptools.readthedocs.io/en/latest/setuptools.html#configuring-setup-using-setup-cfg-files</span>
+<span class="na">name</span> <span class="o">=</span> <span class="s">propy3</span>
+<span class="na">version</span> <span class="o">=</span> <span class="s">1.0.0a2</span>
+<span class="na">author</span> <span class="o">=</span> <span class="s">Dongsheng Cao</span>
+<span class="na">author_email</span> <span class="o">=</span> <span class="s">oriental-cds@163.com</span>
+<span class="na">maintainer</span> <span class="o">=</span> <span class="s">Martin Thoma</span>
+<span class="na">maintainer_email</span> <span class="o">=</span> <span class="s">info@martin-thoma.de</span>
+
+<span class="na">license</span> <span class="o">=</span> <span class="s">GPL</span>
+
+<span class="na">url</span> <span class="o">=</span> <span class="s">http://cbdd.csu.edu.cn/index</span>
+
+<span class="na">description</span> <span class="o">=</span> <span class="s">Compute protein descriptors</span>
+<span class="na">long_description</span> <span class="o">=</span> <span class="s">file: README.md</span>
+<span class="na">long_description_content_type</span> <span class="o">=</span> <span class="s">text/markdown</span>
+
+<span class="na">keywords</span> <span class="o">=</span> <span class="s">Bio-Informatics, Protein</span>
+
+<span class="na">classifiers</span> <span class="o">=</span><span class="s"></span>
+<span class="s">    License :: OSI Approved :: GNU General Public License (GPL)</span>
+<span class="s">    Programming Language :: Python :: 3</span>
+<span class="s">    Programming Language :: Python :: 3.6</span>
+<span class="s">    Programming Language :: Python :: 3.7</span>
+<span class="s">    Programming Language :: Python :: 3.8</span>
+<span class="s">    Topic :: Scientific/Engineering :: Bio-Informatics</span>
+
+<span class="k">[options]</span>
+<span class="na">include_package_data</span> <span class="o">=</span> <span class="s">True</span>
+<span class="na">packages</span> <span class="o">=</span> <span class="s">find:</span>
+
+<span class="k">[tool:pytest]</span>
+<span class="na">addopts</span> <span class="o">=</span> <span class="s">--doctest-modules --mccabe --cov=./propy --cov-append --cov-report html:tests/reports/coverage-html --cov-report xml:tests/reports/coverage.xml --cov-report term --flake8 --ignore=docs/ --ignore=propy/__main__.py --durations=3 --black</span>
+<span class="na">doctest_encoding</span> <span class="o">=</span> <span class="s">utf-8</span>
+
+<span class="c1"># Just temporarily: Increase from 10 to 25</span>
+<span class="na">mccabe-complexity</span><span class="o">=</span><span class="s">25</span>
+
+<span class="k">[pydocstyle]</span>
+<span class="na">convention</span><span class="o">=</span><span class="s">numpy</span>
+<span class="na">match_dir</span> <span class="o">=</span> <span class="s">propy</span>
+
+<span class="k">[flake8]</span>
+<span class="na">match_dir</span> <span class="o">=</span> <span class="s">propy</span>
+<span class="na">max-line-length</span> <span class="o">=</span> <span class="s">80</span>
+<span class="na">select</span> <span class="o">=</span> <span class="s">C,E,F,W,B,B950</span>
+<span class="c1"># Just temporarily: E731</span>
+<span class="na">ignore</span> <span class="o">=</span> <span class="s">E501,W503,E203, E731</span>
+
+<span class="k">[mypy]</span>
+<span class="na">ignore_missing_imports</span><span class="o">=</span><span class="s">true</span>
+<span class="na">check_untyped_defs</span><span class="o">=</span><span class="s">true</span>
+<span class="na">disallow_untyped_defs</span><span class="o">=</span><span class="s">false</span>
+<span class="na">warn_redundant_casts</span><span class="o">=</span><span class="s">true</span>
+<span class="na">warn_unused_configs</span><span class="o">=</span><span class="s">true</span>
+<span class="na">disallow_untyped_calls</span><span class="o">=</span><span class="s">false</span>
+<span class="na">follow_imports</span><span class="o">=</span><span class="s">skip</span>
+<span class="na">mypy_path</span><span class="o">=</span><span class="s">typeshed/pyi:typeshed/imports</span>
+</pre></div>
+<h2 id="general-cleanup">General Cleanup</h2>
+<ol>
+<li>Move documentation to <code>/docs</code></li>
+<li>Remove generated files and add a <a href="https://www.gitignore.io/"><code>.gitignore</code> file</a></li>
+<li>Apply <a href="https://github.com/psf/black"><code>black</code></a></li>
+<li>Apply <a href="https://github.com/timothycrosley/isort"><code>isort</code></a></li>
+<li>Remove trailing spaces</li>
+</ol>
+<p>I do this by putting the following <code>.pre-commit-config.yaml</code> file in the root
+directory of the project:</p>
+<div class="highlight"><pre><span></span># pre-commit run --all-files
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.3.0
+    hooks:
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
+-   repo: https://github.com/asottile/seed-isort-config
+    rev: v1.9.3
+    hooks:
+    -   id: seed-isort-config
+        args: [--application-directories=app]
+-   repo: https://github.com/pre-commit/mirrors-isort
+    rev: v4.3.21
+    hooks:
+    -   id: isort
+-   repo: https://github.com/psf/black
+    rev: stable
+    hooks:
+    - id: black
+      language_version: python3.6
+</pre></div>
+<p>And then executing <code>pre-commit run --all-files</code>.</p>
+<h2 id="2to3">2to3</h2>
+<p>The tool <a href="https://docs.python.org/3/library/2to3.html">2to3</a> can help to make
+the move.</p>
+<p>However, it is not optimal:</p>
+<ul>
+<li><a href="https://stackoverflow.com/q/55559825/562769">It adds too many paranthesis for print sometimes</a></li>
+<li>It sometimes wraps zip / map / filter unnecessarily in a <code>list</code></li>
+</ul>
+<h2 id="unit-tests">Unit Tests</h2>
+<p>Setting up pytest and continuous integration (e.g. Travis) is pretty helpful</p>
+<h2 id="sphinx-and-readthedocs">Sphinx and ReadTheDocs</h2>
+<p>Might help to make the tool discoverable.</p>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2020-03-10T20:00:00+01:00">Mär 10, 2020</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#my-bits-and-bytes-ref">My bits and bytes</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#migration-ref">Migration
+                    <span>1</span>
+</a></li>
+                <li><a href="../tags.html#python-ref">Python
+                    <span>105</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink no-print';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

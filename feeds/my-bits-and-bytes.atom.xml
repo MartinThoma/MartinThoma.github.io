@@ -1,5 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - My bits and bytes</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/my-bits-and-bytes.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2020-02-22T20:00:00+01:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>File Compression</title><link href="https://martin-thoma.com/file-compression/" rel="alternate"></link><published>2020-02-22T20:00:00+01:00</published><updated>2020-02-22T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-02-22:/file-compression/</id><summary type="html">&lt;p&gt;I'm currently creating a backup of my domain &lt;a href="http://www.martin-thoma.de/"&gt;martin-thoma.de&lt;/a&gt;.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - My bits and bytes</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/my-bits-and-bytes.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2020-03-10T20:00:00+01:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>Migrate to Python 3</title><link href="https://martin-thoma.com/migrate/" rel="alternate"></link><published>2020-03-10T20:00:00+01:00</published><updated>2020-03-10T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-03-10:/migrate/</id><summary type="html">&lt;p&gt;When I gave a Python Packaging Course, I advised my students to always use Python 3.
+After all, &lt;a href="https://pythonclock.org/"&gt;Python 2 is dead&lt;/a&gt;. But one student said
+she had to use Python 2 as there is a package she definitely needs to use. And
+it's Python 2 only. What can one …&lt;/p&gt;</summary><content type="html">&lt;p&gt;When I gave a Python Packaging Course, I advised my students to always use Python 3.
+After all, &lt;a href="https://pythonclock.org/"&gt;Python 2 is dead&lt;/a&gt;. But one student said
+she had to use Python 2 as there is a package she definitely needs to use. And
+it's Python 2 only. What can one do in such a scenario?&lt;/p&gt;
+&lt;p&gt;I see the following options:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Ask the maintainer to move the package&lt;/li&gt;
+&lt;li&gt;Create a fork and move the package yourself&lt;/li&gt;
+&lt;li&gt;Use an interface&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Don't forget to be polite when you ask. After all, you want something. And
+you're most likely asking somebody who does this in their free-time.&lt;/p&gt;
+&lt;p&gt;When you have a program which has an interface (e.g. a web API like REST or a
+command line interface), then you can execute it with Python 2 from Python 3.
+Basically doing a system-level call, e.g. with
+&lt;a href="https://docs.python.org/2/library/os.html#os.system"&gt;&lt;code&gt;os.system&lt;/code&gt;&lt;/a&gt;. That is
+rarely the case and pretty straight forward. So let's come to the interesting
+part: Forking a package.&lt;/p&gt;
+&lt;h2 id="naming"&gt;Naming&lt;/h2&gt;
+&lt;p&gt;The package &lt;a href="https://code.google.com/archive/p/protpy/downloads"&gt;&lt;code&gt;propy&lt;/code&gt;&lt;/a&gt; was
+not maintained anymore and the original authors didn't reply. So I chose to
+create a fork which I wanted to work with Python 3.&lt;/p&gt;
+&lt;p&gt;I thought about just keeping the name, but &lt;a href="https://pypi.org/project/propy/"&gt;&lt;code&gt;propy&lt;/code&gt; on PyPI&lt;/a&gt;
+was already taken by an unrelated project. And, after all, making sure there
+is some difference might not be the worst idea.&lt;/p&gt;
+&lt;p&gt;So I chose the name &lt;a href="https://pypi.org/project/propy3/"&gt;propy3&lt;/a&gt; - a Python 3
+compatible version of propy.&lt;/p&gt;
+&lt;h2 id="structure"&gt;Structure&lt;/h2&gt;
+&lt;p&gt;I want all my projects to have this structure:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;propy3
+├── docs
+│&amp;nbsp;&amp;nbsp; ├── Makefile
+│&amp;nbsp;&amp;nbsp; ├── requirements.txt
+│&amp;nbsp;&amp;nbsp; └── source
+├── Makefile
+├── MANIFEST.in
+├── propy
+│&amp;nbsp;&amp;nbsp; └── __init__.py
+├── README.md
+├── setup.cfg
+├── setup.py
+├── tests
+└── tox.ini
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;with a setup.py like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;setuptools&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;setup&lt;/span&gt;
+
+&lt;span class="n"&gt;setup&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;and a setup.cfg like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;[metadata]&lt;/span&gt;
+&lt;span class="c1"&gt;# https://setuptools.readthedocs.io/en/latest/setuptools.html#configuring-setup-using-setup-cfg-files&lt;/span&gt;
+&lt;span class="na"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;propy3&lt;/span&gt;
+&lt;span class="na"&gt;version&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;1.0.0a2&lt;/span&gt;
+&lt;span class="na"&gt;author&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;Dongsheng Cao&lt;/span&gt;
+&lt;span class="na"&gt;author_email&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;oriental-cds@163.com&lt;/span&gt;
+&lt;span class="na"&gt;maintainer&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;Martin Thoma&lt;/span&gt;
+&lt;span class="na"&gt;maintainer_email&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;info@martin-thoma.de&lt;/span&gt;
+
+&lt;span class="na"&gt;license&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;GPL&lt;/span&gt;
+
+&lt;span class="na"&gt;url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;http://cbdd.csu.edu.cn/index&lt;/span&gt;
+
+&lt;span class="na"&gt;description&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;Compute protein descriptors&lt;/span&gt;
+&lt;span class="na"&gt;long_description&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;file: README.md&lt;/span&gt;
+&lt;span class="na"&gt;long_description_content_type&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;text/markdown&lt;/span&gt;
+
+&lt;span class="na"&gt;keywords&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;Bio-Informatics, Protein&lt;/span&gt;
+
+&lt;span class="na"&gt;classifiers&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&lt;/span&gt;
+&lt;span class="s"&gt;    License :: OSI Approved :: GNU General Public License (GPL)&lt;/span&gt;
+&lt;span class="s"&gt;    Programming Language :: Python :: 3&lt;/span&gt;
+&lt;span class="s"&gt;    Programming Language :: Python :: 3.6&lt;/span&gt;
+&lt;span class="s"&gt;    Programming Language :: Python :: 3.7&lt;/span&gt;
+&lt;span class="s"&gt;    Programming Language :: Python :: 3.8&lt;/span&gt;
+&lt;span class="s"&gt;    Topic :: Scientific/Engineering :: Bio-Informatics&lt;/span&gt;
+
+&lt;span class="k"&gt;[options]&lt;/span&gt;
+&lt;span class="na"&gt;include_package_data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;True&lt;/span&gt;
+&lt;span class="na"&gt;packages&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;find:&lt;/span&gt;
+
+&lt;span class="k"&gt;[tool:pytest]&lt;/span&gt;
+&lt;span class="na"&gt;addopts&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;--doctest-modules --mccabe --cov=./propy --cov-append --cov-report html:tests/reports/coverage-html --cov-report xml:tests/reports/coverage.xml --cov-report term --flake8 --ignore=docs/ --ignore=propy/__main__.py --durations=3 --black&lt;/span&gt;
+&lt;span class="na"&gt;doctest_encoding&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;utf-8&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Just temporarily: Increase from 10 to 25&lt;/span&gt;
+&lt;span class="na"&gt;mccabe-complexity&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;25&lt;/span&gt;
+
+&lt;span class="k"&gt;[pydocstyle]&lt;/span&gt;
+&lt;span class="na"&gt;convention&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;numpy&lt;/span&gt;
+&lt;span class="na"&gt;match_dir&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;propy&lt;/span&gt;
+
+&lt;span class="k"&gt;[flake8]&lt;/span&gt;
+&lt;span class="na"&gt;match_dir&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;propy&lt;/span&gt;
+&lt;span class="na"&gt;max-line-length&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;80&lt;/span&gt;
+&lt;span class="na"&gt;select&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;C,E,F,W,B,B950&lt;/span&gt;
+&lt;span class="c1"&gt;# Just temporarily: E731&lt;/span&gt;
+&lt;span class="na"&gt;ignore&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;E501,W503,E203, E731&lt;/span&gt;
+
+&lt;span class="k"&gt;[mypy]&lt;/span&gt;
+&lt;span class="na"&gt;ignore_missing_imports&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;true&lt;/span&gt;
+&lt;span class="na"&gt;check_untyped_defs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;true&lt;/span&gt;
+&lt;span class="na"&gt;disallow_untyped_defs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;false&lt;/span&gt;
+&lt;span class="na"&gt;warn_redundant_casts&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;true&lt;/span&gt;
+&lt;span class="na"&gt;warn_unused_configs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;true&lt;/span&gt;
+&lt;span class="na"&gt;disallow_untyped_calls&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;false&lt;/span&gt;
+&lt;span class="na"&gt;follow_imports&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;skip&lt;/span&gt;
+&lt;span class="na"&gt;mypy_path&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;typeshed/pyi:typeshed/imports&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="general-cleanup"&gt;General Cleanup&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Move documentation to &lt;code&gt;/docs&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Remove generated files and add a &lt;a href="https://www.gitignore.io/"&gt;&lt;code&gt;.gitignore&lt;/code&gt; file&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Apply &lt;a href="https://github.com/psf/black"&gt;&lt;code&gt;black&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Apply &lt;a href="https://github.com/timothycrosley/isort"&gt;&lt;code&gt;isort&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Remove trailing spaces&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;I do this by putting the following &lt;code&gt;.pre-commit-config.yaml&lt;/code&gt; file in the root
+directory of the project:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# pre-commit run --all-files
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.3.0
+    hooks:
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
+-   repo: https://github.com/asottile/seed-isort-config
+    rev: v1.9.3
+    hooks:
+    -   id: seed-isort-config
+        args: [--application-directories=app]
+-   repo: https://github.com/pre-commit/mirrors-isort
+    rev: v4.3.21
+    hooks:
+    -   id: isort
+-   repo: https://github.com/psf/black
+    rev: stable
+    hooks:
+    - id: black
+      language_version: python3.6
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And then executing &lt;code&gt;pre-commit run --all-files&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id="2to3"&gt;2to3&lt;/h2&gt;
+&lt;p&gt;The tool &lt;a href="https://docs.python.org/3/library/2to3.html"&gt;2to3&lt;/a&gt; can help to make
+the move.&lt;/p&gt;
+&lt;p&gt;However, it is not optimal:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://stackoverflow.com/q/55559825/562769"&gt;It adds too many paranthesis for print sometimes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;It sometimes wraps zip / map / filter unnecessarily in a &lt;code&gt;list&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="unit-tests"&gt;Unit Tests&lt;/h2&gt;
+&lt;p&gt;Setting up pytest and continuous integration (e.g. Travis) is pretty helpful&lt;/p&gt;
+&lt;h2 id="sphinx-and-readthedocs"&gt;Sphinx and ReadTheDocs&lt;/h2&gt;
+&lt;p&gt;Might help to make the tool discoverable.&lt;/p&gt;</content><category term="Python"></category><category term="Migration"></category></entry><entry><title>File Compression</title><link href="https://martin-thoma.com/file-compression/" rel="alternate"></link><published>2020-02-22T20:00:00+01:00</published><updated>2020-02-22T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-02-22:/file-compression/</id><summary type="html">&lt;p&gt;I'm currently creating a backup of my domain &lt;a href="http://www.martin-thoma.de/"&gt;martin-thoma.de&lt;/a&gt;.
 It is pretty small, but the MySQL database behind it grew extremely as I stored
 every drawing from &lt;a href="http://write-math.com/"&gt;write-math.com&lt;/a&gt; in there.
 For this reason, I want to store that specific table in a compressed way. But
@@ -3256,6 +3412,14 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;17.88 EUR / year&lt;/td&gt;
 &lt;td&gt;1.49 / 250 g&lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Citrons (Zitronen)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;2 weeks ?&lt;/td&gt;
+&lt;td&gt;1.19 EUR / 500g&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;1.19 EUR / 500g&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/table&gt;
 &lt;h3 id="vegetables"&gt;Vegetables&lt;/h3&gt;
 &lt;table&gt;
@@ -3412,6 +3576,14 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;1.29 EUR / 1 piece&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Ingwer&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;0.21 EUR / 0.036kg&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
 &lt;h3 id="bread-based"&gt;Bread-based&lt;/h3&gt;
@@ -4020,7 +4192,7 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;33 months&lt;/td&gt;
 &lt;td&gt;0.79 EUR / 400 ml&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;800 ml / 1.58 EUR&lt;/td&gt;
+&lt;td&gt;3.16 EUR / 1600 ml&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Zwieback&lt;/td&gt;
@@ -4028,7 +4200,7 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;11 months&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;1.39 EUR / 450 g&lt;/td&gt;
+&lt;td&gt;3.38 EUR / 1350 g&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -4066,11 +4238,11 @@ which I think I really need... turns out, it's a lot of stuff.&lt;/p&gt;
 &lt;td&gt;6.90 EUR / 2 piece&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;Tootpaste (Odol med 3)&lt;/td&gt;
+&lt;td&gt;Toothpaste (Odol med 3 Zahnpasta)&lt;/td&gt;
 &lt;td&gt;1.85 EUR&lt;/td&gt;
-&lt;td&gt;75ml per 2 months (?)&lt;/td&gt;
+&lt;td&gt;125ml per 80 days&lt;/td&gt;
 &lt;td&gt;11.10 EUR / year&lt;/td&gt;
-&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;(I started the year with about 380ml in Toothpaste... I don't think I will need to buy any)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Shampoo (sebamed Anti-Schuppen)&lt;/td&gt;
@@ -4172,9 +4344,33 @@ pills and maybe a couple of months for creams and ointment.&lt;/p&gt;
 &lt;td&gt;Em-eukal Gummidrops&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;1 year 5 months&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
 &lt;td&gt;1.65 EUR / 90g&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;3.30 EUR / 180g&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Kinder Em-eukal&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;1.15 EUR / 75g&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Erk&amp;auml;ltungsbalsam&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;2 years&lt;/td&gt;
+&lt;td&gt;1.95 EUR / 75ml&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;1.95 EUR / 75ml&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Vitamin C&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;2 years&lt;/td&gt;
+&lt;td&gt;0.40 EUR / 80g&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;0.40 EUR / 80g&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
 &lt;h2 id="services"&gt;Services&lt;/h2&gt;
@@ -4215,7 +4411,7 @@ pills and maybe a couple of months for creams and ointment.&lt;/p&gt;
 &lt;td&gt;15 EUR / person&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;40 EUR / 3 people (2 times in total)&lt;/td&gt;
+&lt;td&gt;160 EUR / 9 people (3 times in total)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Bouldering&lt;/td&gt;
@@ -5033,6 +5229,9 @@ of Remote Only work.&lt;/p&gt;
    conditioning. And no makeup is necessary.&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;No distraction&lt;/em&gt;: You are in charge of your concetration. You can switch off
    social media and communication channels and just focus on work.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Diseases&lt;/em&gt;: People tend to go to work even when they feel slightly not well.
+   So every year, diseases like the flue spread. If you work from home, you're
+   save from that.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id="for-the-company"&gt;For the Company&lt;/h3&gt;
 &lt;ol&gt;
@@ -5053,6 +5252,9 @@ of Remote Only work.&lt;/p&gt;
    fix stuff immediately is expensive. People don't want to be woken up at
    night to work. If your workers are all around the world, you can make
    use of the timezone differences.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Diseases&lt;/em&gt;: If the flue spreads in the office, you might suddenly loose a
+   complete team of developers. Or maybe the site reliability team. If you
+   let them work from home primarily, then the chance of this is way lower.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id="challenges_1"&gt;Challenges&lt;/h2&gt;
 &lt;h3 id="for-you_1"&gt;For You&lt;/h3&gt;
@@ -11822,6 +12024,16 @@ with their vote. Namely:&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Felony_disenfranchisement"&gt;Felony disenfranchisement&lt;/a&gt;:
   Making people not being allowed to vote - this seems to be a problem in Germany, too.&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Voter_suppression_in_the_United_States"&gt;Voter suppression in the United States&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=A-4dIImaodQ"&gt;John Oliver: Gerrymandering&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Excluding larger groups of the population by&lt;ul&gt;
+&lt;li&gt;Having the day of vote not on Sunday (e.g. Super Tuesday)&lt;/li&gt;
+&lt;li&gt;Voter ID laws&lt;/li&gt;
+&lt;li&gt;Having extremely long queues in some areas (having to wait several HOURS! - I'm used to be finished in about 10 minutes)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tactical voting: People don't vote for the candidate they like best, but for
+  the one they think has the highest chance to win. This would be fixed by
+  ranked-choice voting.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="consumer-safety"&gt;Consumer Safety&lt;/h2&gt;
 &lt;ul&gt;
