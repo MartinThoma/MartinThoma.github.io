@@ -623,7 +623,16 @@ Fabrics:
         <td>17.88 EUR / year</td>
         <td>1.49 / 250 g</td>
     </tr>
+    <tr>
+        <td>Citrons (Zitronen)</td>
+        <td></td>
+        <td>2 weeks ?</td>
+        <td>1.19 EUR / 500g</td>
+        <td></td>
+        <td>1.19 EUR / 500g</td>
+    </tr>
 </table>
+
 
 ### Vegetables
 
@@ -782,6 +791,14 @@ Fabrics:
         <td></td>
         <td>1.29 EUR / 1 piece</td>
     </tr>
+    <tr>
+        <td>Ingwer</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.21 EUR / 0.036kg</td>
+    </tr>
 </table>
 
 ### Bread-based
@@ -918,6 +935,7 @@ Fabrics:
         <td>3.47 EUR / 450g</td>
     </tr>
 </table>
+
 
 ### Spices
 
@@ -1405,7 +1423,7 @@ General Cooking:
             <td>33 months</td>
             <td>0.79 EUR / 400 ml</td>
             <td></td>
-            <td>800 ml / 1.58 EUR</td>
+            <td>3.16 EUR / 1600 ml</td>
         </tr>
         <tr>
             <td>Zwieback</td>
@@ -1413,7 +1431,7 @@ General Cooking:
             <td>11 months</td>
             <td></td>
             <td></td>
-            <td>1.39 EUR / 450 g</td>
+            <td>3.38 EUR / 1350 g</td>
         </tr>
     </tbody>
 </table>
@@ -1454,11 +1472,11 @@ General Cooking:
         <td>6.90 EUR / 2 piece</td>
     </tr>
     <tr>
-        <td>Tootpaste (Odol med 3)</td>
+        <td>Toothpaste (Odol med 3 Zahnpasta)</td>
         <td>1.85 EUR</td>
-        <td>75ml per 2 months (?)</td>
+        <td>125ml per 80 days</td>
         <td>11.10 EUR / year</td>
-        <td>0</td>
+        <td>(I started the year with about 380ml in Toothpaste... I don't think I will need to buy any)</td>
     </tr>
     <tr>
         <td>Shampoo (sebamed Anti-Schuppen)</td>
@@ -1564,9 +1582,33 @@ pills and maybe a couple of months for creams and ointment.
         <td>Em-eukal Gummidrops</td>
         <td></td>
         <td>1 year 5 months</td>
-        <td></td>
-        <td></td>
         <td>1.65 EUR / 90g</td>
+        <td></td>
+        <td>3.30 EUR / 180g</td>
+    </tr>
+    <tr>
+        <td>Kinder Em-eukal</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>1.15 EUR / 75g</td>
+    </tr>
+    <tr>
+        <td>Erkältungsbalsam</td>
+        <td></td>
+        <td>2 years</td>
+        <td>1.95 EUR / 75ml</td>
+        <td></td>
+        <td>1.95 EUR / 75ml</td>
+    </tr>
+    <tr>
+        <td>Vitamin C</td>
+        <td></td>
+        <td>2 years</td>
+        <td>0.40 EUR / 80g</td>
+        <td></td>
+        <td>0.40 EUR / 80g</td>
     </tr>
 </table>
 
@@ -1611,7 +1653,7 @@ pills and maybe a couple of months for creams and ointment.
         <td>15 EUR / person</td>
         <td></td>
         <td></td>
-        <td>40 EUR / 3 people (2 times in total)</td>
+        <td>160 EUR / 9 people (3 times in total)</td>
     </tr>
     <tr>
         <td>Bouldering</td>
