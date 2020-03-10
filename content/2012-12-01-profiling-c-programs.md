@@ -4,7 +4,7 @@ title: Profiling C programs
 author: Martin Thoma
 date: 2012-12-01 17:00:58.000000000 +01:00
 category: Code
-tags: C, profiling
+tags: C, profiling, Performance
 featured_image: 2012/12/call-graph-thumb.png
 ---
 If you have a working program and you want to improve its execution speed, you might want to profile it. An easy way to do so, is adding global variables, increasing them at interesting points and counting how often these points are executed. A more sophisticated way is using a profiler.
