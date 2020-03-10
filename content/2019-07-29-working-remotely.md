@@ -48,6 +48,9 @@ of Remote Only work.
    conditioning. And no makeup is necessary.
 6. *No distraction*: You are in charge of your concetration. You can switch off
    social media and communication channels and just focus on work.
+7. *Diseases*: People tend to go to work even when they feel slightly not well.
+   So every year, diseases like the flue spread. If you work from home, you're
+   save from that.
 
 
 ### For the Company
@@ -67,6 +70,9 @@ of Remote Only work.
    fix stuff immediately is expensive. People don't want to be woken up at
    night to work. If your workers are all around the world, you can make
    use of the timezone differences.
+5. *Diseases*: If the flue spreads in the office, you might suddenly loose a
+   complete team of developers. Or maybe the site reliability team. If you
+   let them work from home primarily, then the chance of this is way lower.
 
 
 ## Challenges
