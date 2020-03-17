@@ -565,7 +565,7 @@ Fabrics:
         <td>3 weeks</td>
         <td>0.99 EUR / piece</td>
         <td>4.95 EUR / year</td>
-        <td>3.29 EUR / 3 piece</td>
+        <td>5.51 EUR / 5 piece</td>
     </tr>
     <tr>
         <td>Strawberries (Erdbeeren)</td>
@@ -573,7 +573,7 @@ Fabrics:
         <td>3 days</td>
         <td>1.89 EUR / 500g</td>
         <td></td>
-        <td>3.88 EUR / 1000g</td>
+        <td>5.77 EUR / 1500g</td>
     </tr>
     <tr>
         <td>Annanas in a tin can</td>
@@ -581,7 +581,7 @@ Fabrics:
         <td>18 months</td>
         <td>0.79 EUR / 340g (<a href="https://de.wikipedia.org/wiki/Abtropfgewicht">Abtropfgewicht</a>)</td>
         <td>2.37 EUR / year</td>
-        <td>0</td>
+        <td>0.89 EUR / 340g</td>
     </tr>
     <tr>
         <td>Kiwi</td>
@@ -717,7 +717,7 @@ Fabrics:
         <td></td>
         <td>0.39 EUR / 400g</td>
         <td>0 EUR / year</td>
-        <td>0 EUR</td>
+        <td>0.98 EUR / 800g</td>
     </tr>
     <tr>
         <td><a href="https://en.wikipedia.org/wiki/Phaseolus_vulgaris">Beans</a> (🇩🇪 Buschbohnen, Prinzessinenbohnen)</td>
@@ -749,7 +749,15 @@ Fabrics:
         <td>33 months</td>
         <td>1.19 EUR / 420g (🇩🇪 Abtropfgewicht)</td>
         <td>7.14 EUR / year</td>
-        <td>1.19 EUR / 420g</td>
+        <td>2.48 EUR / 840g</td>
+    </tr>
+    <tr>
+        <td>🇩🇪 Maiskölbchen</td>
+        <td></td>
+        <td>18 months</td>
+        <td>0.89 EUR / 190g  (🇩🇪 Abtropfgewicht)</td>
+        <td></td>
+        <td>0.89 EUR / 190g</td>
     </tr>
     <tr>
         <td><a href="https://en.wikipedia.org/wiki/Capsicum">Pepper</a> (🇩🇪 Paprika)</td>
@@ -860,7 +868,7 @@ Fabrics:
         <td>3 months</td>
         <td>1.29 EUR / 250g</td>
         <td>33.54 EUR / year</td>
-        <td>7.63 EUR / 1250g</td>
+        <td>8.98 EUR / 1500g</td>
     </tr>
     <tr>
         <td>Margarine</td>
@@ -927,12 +935,12 @@ Fabrics:
         <td>0</td>
     </tr>
     <tr>
-        <td>🇩🇪 Marmelade / Konfitüre (Strawberry)</td>
+        <td>🇩🇪 Marmelade / Konfitüre (Strawberry, Preiselbeeren)</td>
         <td>?</td>
         <td>18 months</td>
         <td>0.99 EUR / 450g</td>
         <td></td>
-        <td>1.98 EUR / 900g</td>
+        <td>2.27 EUR / 1300g</td>
     </tr>
     <tr>
         <td>Obatzter</td>
@@ -977,12 +985,12 @@ I also count mixes like "Knorr fix" in here.
         <td>0</td>
     </tr>
     <tr>
-        <td>Knorr Fix (Nudelgratin)</td>
+        <td>Knorr Fix (Nudelgratin / Lasagne / Geschnetzeltes)</td>
         <td></td>
         <td></td>
         <td></td>
         <td></td>
-        <td>1.08 EUR / 2 piece</td>
+        <td>1.95 EUR / 5 piece</td>
     </tr>
     <tr>
         <td>Gemüsebrühe</td>
@@ -1014,7 +1022,7 @@ General Cooking:
         <td>2 months (?)</td>
         <td>0.65 EUR / L</td>
         <td>33.90 EUR / year</td>
-        <td>5.31 EUR / 8 L</td>
+        <td>7.05 EUR / 10 L</td>
     </tr>
     <tr>
         <td><a href="https://en.wikipedia.org/wiki/Whipped_cream">Whipped Cream</a> (Schlagsahne 30%)</td>
@@ -1160,7 +1168,7 @@ General Cooking:
         <td>2.99 EUR / 28g</td>
     </tr>
     <tr>
-        <td>Instant Noodles</td>
+        <td>Instant Noodles (Instant-Nudeln)</td>
         <td></td>
         <td>9 months</td>
         <td></td>
@@ -1238,6 +1246,14 @@ General Cooking:
             <td>0.69 EUR / 250g</td>
             <td>8.28 EUR</td>
             <td>1.38 EUR / 500g</td>
+        </tr>
+        <tr>
+            <td>Pesto</td>
+            <td></td>
+            <td>6 months</td>
+            <td>1.99 EUR / 200g</td>
+            <td></td>
+            <td>1.99 EUR / 200g</td>
         </tr>
     </tbody>
 </table>
@@ -1319,7 +1335,7 @@ General Cooking:
             <td>2 weeks (?)</td>
             <td>0.29 EUR / piece</td>
             <td>45.37 EUR</td>
-            <td>9.05 EUR / 28 piece</td>
+            <td>10.54 EUR / 33 piece</td>
         </tr>
         <tr>
             <td>Natural Joghurt (Joghurt Pur)</td>
@@ -1327,7 +1343,7 @@ General Cooking:
             <td></td>
             <td>0.75 EUR / 500g</td>
             <td></td>
-            <td>0 EUR</td>
+            <td>0.49 EUR / 500g</td>
         </tr>
         <tr>
             <td>Sweets like Cookies (Chips, chocolate, cake, waffles; Süßigkeiten, Kakao-Schnitten, Kekse)</td>
@@ -1335,7 +1351,7 @@ General Cooking:
             <td>months to years</td>
             <td></td>
             <td></td>
-            <td>18.81 EUR / 16 packages</td>
+            <td>22.10 EUR / 17 packages</td>
         </tr>
         <tr>
             <td>Bakery non-sweet (Semmeln)</td>
@@ -1415,7 +1431,15 @@ General Cooking:
             <td>?</td>
             <td>0.79 EUR / 1.5 L</td>
             <td>9.48 EUR / year</td>
-            <td>3.22 EUR / 5.5 L</td>
+            <td>4.07 EUR / 7.0 L</td>
+        </tr>
+        <tr>
+            <td>Milchgetränk / Joghurtgetränk</td>
+            <td></td>
+            <td>1 week (needs ❄️)</td>
+            <td>0.39 EUR / 250ml</td>
+            <td></td>
+            <td>0.39 EUR / 250ml</td>
         </tr>
         <tr>
             <td>Camembert</td>
@@ -1481,11 +1505,19 @@ General Cooking:
             <td></td>
             <td>0.39 EUR / 240g</td>
         </tr>
+        <tr>
+            <td>Semmelknödel</td>
+            <td></td>
+            <td>6 months</td>
+            <td>0.69 EUR / 200g (6 pieces)</td>
+            <td></td>
+            <td>0.69 EUR / 200g (6 pieces)</td>
+        </tr>
     </tbody>
 </table>
 
 
-## Hygiene
+## Hygiene and Cleaning
 
 <table class="table">
     <thead>
@@ -1582,6 +1614,13 @@ General Cooking:
         <td>4.14 EUR / year</td>
         <td>0.69 EUR / 1 piece</td>
     </tr>
+    <tr>
+        <td>Radierschwamm</td>
+        <td>1.89 EUR / 6 pieces</td>
+        <td></td>
+        <td></td>
+        <td>1.89 EUR / 6 pieces</td>
+    </tr>
     </tbody>
     <tfoot>
     <tr>
@@ -1617,6 +1656,14 @@ pills and maybe a couple of months for creams and ointment.
         <td>4.68 / 20 pieces</td>
         <td>2.34 EUR / year</td>
         <td>0</td>
+    </tr>
+    <tr>
+        <td>Ibuhexal Akut 400</td>
+        <td></td>
+        <td>4 years</td>
+        <td>3.45 EUR / 10 pieces</td>
+        <td></td>
+        <td>3.45 EUR / 10 pieces</td>
     </tr>
     <tr>
         <td>Aspirin 500mg</td>
@@ -1656,7 +1703,7 @@ pills and maybe a couple of months for creams and ointment.
         <td>2 years</td>
         <td>0.40 EUR / 80g</td>
         <td></td>
-        <td>0.80 EUR / 160g</td>
+        <td>1.20 EUR / 240g</td>
     </tr>
 </table>
 
