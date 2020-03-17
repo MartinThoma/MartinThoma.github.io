@@ -25,7 +25,7 @@ Alembic.
 
 ## REST API
 
-[Flask-RESTPlus](https://flask-restplus.readthedocs.io/en/stable/) is good
+[Flask-RESTX](https://flask-restx.readthedocs.io/en/stable/) is good
 for creating nice REST APIs. It also generates a swagger page 🙂
 
 [flask-restless](https://flask-restless.readthedocs.io/en/stable/index.html)
