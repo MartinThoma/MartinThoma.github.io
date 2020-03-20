@@ -576,6 +576,14 @@ Fabrics:
         <td>5.77 EUR / 1500g</td>
     </tr>
     <tr>
+        <td>Grapes (Trauben)</td>
+        <td></td>
+        <td>4 weeks</td>
+        <td>2.99 EUR / kg</td>
+        <td></td>
+        <td>1.76 EUR / 0.590kg</td>
+    </tr>
+    <tr>
         <td>Annanas in a tin can</td>
         <td>1020g / year</td>
         <td>18 months</td>
@@ -693,7 +701,7 @@ Fabrics:
         <td>2 weeks (?)</td>
         <td>0.59 EUR / bundle</td>
         <td>15.39 EUR / year</td>
-        <td>1.97 EUR / 3 bundles</td>
+        <td>2.46 EUR / 4 bundles</td>
     </tr>
     <tr>
         <td>Onion (🇩🇪 Speisezwiebeln)</td>
@@ -852,7 +860,7 @@ Fabrics:
         <td>1 day (3 weeks for backing)</td>
         <td>1.19 EUR / 4 pieces</td>
         <td>30.94 EUR / year</td>
-        <td>3.52 EUR / 7 piece</td>
+        <td>5.11 EUR / 9 piece</td>
     </tr>
     <tr>
         <td>🇩🇪 <a href="https://en.wikipedia.org/wiki/Pretzel">Laugenbrezel</a></td>
@@ -900,7 +908,7 @@ Fabrics:
         <td>4 months</td>
         <td>2.59 EUR / 400g</td>
         <td>67.34 EUR / year</td>
-        <td>7.77 EUR / 1200g</td>
+        <td>11.06 EUR / 1800g</td>
     </tr>
     <tr>
         <td>Frischkäse</td>
@@ -990,7 +998,7 @@ I also count mixes like "Knorr fix" in here.
         <td></td>
         <td></td>
         <td></td>
-        <td>1.95 EUR / 5 piece</td>
+        <td>2.82 EUR / 8 piece</td>
     </tr>
     <tr>
         <td>Gemüsebrühe</td>
@@ -1022,7 +1030,7 @@ General Cooking:
         <td>2 months (?)</td>
         <td>0.65 EUR / L</td>
         <td>33.90 EUR / year</td>
-        <td>7.05 EUR / 10 L</td>
+        <td>7.70 EUR / 11 L</td>
     </tr>
     <tr>
         <td><a href="https://en.wikipedia.org/wiki/Whipped_cream">Whipped Cream</a> (Schlagsahne 30%)</td>
@@ -1041,12 +1049,20 @@ General Cooking:
         <td>0.67 EUR / 200g</td>
     </tr>
     <tr>
+        <td>Müsli (Nougat Bits)</td>
+        <td></td>
+        <td>12 months</td>
+        <td>1.99 EUR / 750g</td>
+        <td></td>
+        <td>1.99 EUR / 750g</td>
+    </tr>
+    <tr>
         <td>Sunflower oil (Sonnenblumenöl)</td>
         <td>1 L / month</td>
         <td>1 year</td>
         <td>0.99 EUR / L</td>
         <td>11.88 EUR / year</td>
-        <td>2.98 EUR / 2 L</td>
+        <td>3.97 EUR / 3 L</td>
     </tr>
     <tr>
         <td>Sugar</td>
@@ -1335,7 +1351,7 @@ General Cooking:
             <td>2 weeks (?)</td>
             <td>0.29 EUR / piece</td>
             <td>45.37 EUR</td>
-            <td>10.54 EUR / 33 piece</td>
+            <td>11.70 EUR / 37 piece</td>
         </tr>
         <tr>
             <td>Natural Joghurt (Joghurt Pur)</td>
@@ -1343,7 +1359,7 @@ General Cooking:
             <td></td>
             <td>0.75 EUR / 500g</td>
             <td></td>
-            <td>0.49 EUR / 500g</td>
+            <td>1.15 EUR / 1000g</td>
         </tr>
         <tr>
             <td>Sweets like Cookies (Chips, chocolate, cake, waffles; Süßigkeiten, Kakao-Schnitten, Kekse)</td>
@@ -1351,7 +1367,15 @@ General Cooking:
             <td>months to years</td>
             <td></td>
             <td></td>
-            <td>22.10 EUR / 17 packages</td>
+            <td>22.85 EUR / 18 packages</td>
+        </tr>
+        <tr>
+            <td>Savory (Chips, Nachos, Sauce for nachos)</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>1.88 EUR / 2 packages</td>
         </tr>
         <tr>
             <td>Bakery non-sweet (Semmeln)</td>
@@ -1431,7 +1455,7 @@ General Cooking:
             <td>?</td>
             <td>0.79 EUR / 1.5 L</td>
             <td>9.48 EUR / year</td>
-            <td>4.07 EUR / 7.0 L</td>
+            <td>6.24 EUR / 11.5 L</td>
         </tr>
         <tr>
             <td>Milchgetränk / Joghurtgetränk</td>
