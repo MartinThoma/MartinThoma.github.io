@@ -147,13 +147,13 @@ also helps with Analysability, Modifiability and Testability.</p>
 </tr>
 <tr>
 <td>Cache<br/><img alt="Cache" src="../images/2020/03/cache.png"/></td>
-<td><a href="https://en.wikipedia.org/wiki/Memcached">Memcached</a>, <a href="https://en.wikipedia.org/wiki/Content_delivery_network">CDN</a></td>
+<td><a href="https://en.wikipedia.org/wiki/Memcached">Memcached</a>, <a href="https://en.wikipedia.org/wiki/Content_delivery_network">CDN</a> for static files, Redis, Cassandra</td>
 <td>Caches are important to make things fast and reduce load. There are many different ways to cache.</td>
 </tr>
 <tr>
 <td>Load Balancer<br/><img alt="Load Balancer" src="../images/2020/03/load-balancer.png"/></td>
 <td><a href="https://aws.amazon.com/de/elasticloadbalancing/">AWS ELB</a>, <a href="https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/">NGINX</a></td>
-<td>If you built your service in a way to be horizontally scalable, load balancing is crucial.</td>
+<td>If you built your service in a way to be horizontally scalable, load balancing is crucial. Round-robin or hashing on the IP address are possible choices.</td>
 </tr>
 </table>
 <h2 id="interfaces">Interfaces</h2>
@@ -163,6 +163,7 @@ define the interfaces between front ends and backend services.</p>
 <li><a href="https://martin-thoma.com/rest/">REST API</a>: <a href="https://en.wikipedia.org/wiki/OpenAPI_Specification">OpenAPI Specification</a> e.g. with <a href="https://flask-restx.readthedocs.io/en/latest/">Flask-RestX</a></li>
 <li><a href="https://json-schema.org/">JSON Schema</a></li>
 <li><a href="https://aseigneurin.github.io/2018/08/02/kafka-tutorial-4-avro-and-schema-registry.html">Avro</a></li>
+<li>Flat file: Sometimes it is enough to make a file available, e.g. via FTP or even HTTP (Amazon S3). The strenght of a single file is batch-load. You can keep the files and thus track the past. It is not a good choice for streaming / real time applications where you have a lot of events.</li>
 </ul>
 <h2 id="typical-patterns">Typical Patterns</h2>
 <ul>
