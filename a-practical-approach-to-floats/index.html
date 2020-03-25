@@ -14,7 +14,7 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="C, Coding, float, Code, " />
+<meta name="keywords" content="C, float, Python, IEEE 754, Code, " />
 
 <meta property="og:title" content="A practical approach to floats "/>
 <meta property="og:url" content="../a-practical-approach-to-floats/" />
@@ -101,7 +101,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="row">
-        <div class="col-sm-8 col-md-8 col-md-offset-2 article-content" id="contentAfterTitle">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#python-solution" title="Python Solution">Python Solution</a></li><li><a class="toc-href" href="#zero-representation" title="Zero Representation">Zero Representation</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
             <p>If you make a computer science degree, you will have to learn how numbers are internally represented. Most of the time, you get explanations like the pictures below:</p>
@@ -114,7 +120,7 @@ MathJax.Hub.Queue(function() {
 <figcaption class="text-center">Example of a floating point number</figcaption>
 </figure>
 <p>You will (have to) learn how <a href="http://en.wikipedia.org/wiki/IEEE_floating_point">IEEE 754 floats</a> are structured on a bit-wise level. But I also like to check if it is correct, what I've learned.</p>
-<p>So this is how you can check it: </p>
+<p>So this is how you can check it:</p>
 <div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdint.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt; // printf</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;limits.h&gt; // INT_MAX, UINT_MAX, ...</span><span class="cp"></span>
@@ -186,6 +192,49 @@ MathJax.Hub.Queue(function() {
 </pre></div>
 <p>I think I have tried all interesting values. Have fun trying it yourself ☺</p>
 <p>(hmm ... I could also try to make a visualization ... I will think about this when I have more time)</p>
+<h2 id="python-solution">Python Solution</h2>
+<p>Prerequesites:</p>
+<div class="highlight"><pre><span></span>pip install bitstring
+</pre></div>
+<p>Python code <code>convert.py</code>:</p>
+<div class="highlight"><pre><span></span><span class="c1"># Third party modules</span>
+<span class="kn">import</span> <span class="nn">bitstring</span>
+
+
+<span class="k">def</span> <span class="nf">float_to_bin</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">bit_array</span> <span class="o">=</span> <span class="n">bitstring</span><span class="o">.</span><span class="n">BitArray</span><span class="p">(</span><span class="nb">float</span><span class="o">=</span><span class="n">number</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">bit_array</span><span class="o">.</span><span class="n">bin</span>
+
+
+<span class="k">def</span> <span class="nf">bin_to_float</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="n">bit_array</span> <span class="o">=</span> <span class="n">bitstring</span><span class="o">.</span><span class="n">BitArray</span><span class="p">(</span><span class="nb">bin</span><span class="o">=</span><span class="n">number</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">bit_array</span><span class="o">.</span><span class="n">float</span>
+
+
+<span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">0</span><span class="p">,</span> <span class="o">+</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mf">12.0</span><span class="p">]:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">"{number:4.0f}: {float_to_bin(number)}"</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">bits</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"00000000000000000000000000000000"</span><span class="p">]:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">"{bits}: {bin_to_float(bits)}"</span><span class="p">)</span>
+</pre></div>
+<h2 id="zero-representation">Zero Representation</h2>
+<p>Zero has two representations: <code>00000000000000000000000000000000</code> which is
+positive 0 and <code>10000000000000000000000000000000</code> which is negative zero. They
+are considered equal in all programming languages I know.</p>
+<p>You can get the sign in Python like this:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_sign</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    &gt;&gt;&gt; get_sign(-12)</span>
+<span class="sd">    -1.0</span>
+<span class="sd">    &gt;&gt;&gt; get_sign(12)</span>
+<span class="sd">    1.0</span>
+<span class="sd">    &gt;&gt;&gt; get_sign(-0.0)</span>
+<span class="sd">    -1.0</span>
+<span class="sd">    &gt;&gt;&gt; get_sign(+0.0)</span>
+<span class="sd">    1.0</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">copysign</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">number</span><span class="p">)</span>
+</pre></div>
             
             <div id="disqus_thread" class="no-print"></div>
 <script>
@@ -221,11 +270,14 @@ MathJax.Hub.Queue(function() {
                 <li><a href="../tags.html#c-ref">C
                     <span>23</span>
 </a></li>
-                <li><a href="../tags.html#coding-ref">Coding
-                    <span>1</span>
-</a></li>
                 <li><a href="../tags.html#float-ref">float
                     <span>1</span>
+</a></li>
+                <li><a href="../tags.html#ieee-754-ref">IEEE 754
+                    <span>1</span>
+</a></li>
+                <li><a href="../tags.html#python-ref">Python
+                    <span>107</span>
 </a></li>
             </ul>
 <h4>Contact</h4>
