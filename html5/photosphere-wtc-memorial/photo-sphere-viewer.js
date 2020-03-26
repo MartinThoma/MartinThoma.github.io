@@ -98,7 +98,7 @@ var PhotoSphereViewer = function(args) {
      * @param phi
      * @returns phi
      */
-	 
+
     var setTiltAngle = function (phi){
         if (phi > TILT_UP_MAX) {
             phi = TILT_UP_MAX;
@@ -831,10 +831,10 @@ var PhotoSphereViewer = function(args) {
 	// Minimal and maximal fields of view in degrees
 	var PSV_FOV_MIN = (args.min_fov !== undefined) ? stayBetween(parseFloat(args.min_fov), 1, 179) : 30;
 	var PSV_FOV_MAX = (args.max_fov !== undefined) ? stayBetween(parseFloat(args.max_fov), 1, 179) : 90;
-	
+
 	// Maximum tilt up / down angle
     var TILT_UP_MAX = (args.tilt_up_max !== undefined) ? (Math.PI / 180) * args.tilt_up_max : Math.PI/2.0;
-    var TILT_DOWN_MAX = (args.tilt_down_max !== undefined) ? -(Math.PI / 180) * args.tilt_down_max : -Math.PI/2.0; 
+    var TILT_DOWN_MAX = (args.tilt_down_max !== undefined) ? -(Math.PI / 180) * args.tilt_down_max : -Math.PI/2.0;
 
 	// Animation constants
 	var PSV_FRAMES_PER_SECOND = 60;

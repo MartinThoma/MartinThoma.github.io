@@ -178,30 +178,30 @@ Ich habe ja gerade veranschaulicht, dass bei einem Basiswechsel zwar die Abbildu
 <p>Wenn man das machen will, kann man sich den Vorgang wie eine Ansammlung von Funktionen (im Sinne der Informatik) betrachten. Wir haben eine Funktion, die die Abbildung von der Standardbasis in die Standardbasis beschreibt. Als Input bekommen wir einen Vektor in der Basis <span class="math">\(B_1\)</span> und herauskommen soll ein Vektor in der Basis <span class="math">\(C_1\)</span>. Wir m&uuml;ssen also den Input-Vektor von der Basis <span class="math">\(B_1\)</span> in die Standardbasis umwandeln und den Output-Vektor der gegebenen Funktion von der Standardbasis in die Basis <span class="math">\(C_1\)</span> konvertieren.</p>
 <p>Dazu bestimmen wir zuerst die Basiswechselmatrix <span class="math">\(T_S^{B1}\)</span> von der Basis <span class="math">\(B_1\)</span> in die Standardbasis. Das ist genau die Basis selbst:
 </p>
-<div class="math">$$T_{B1}^S = 
-\begin{pmatrix} 
-1 &amp; 1 &amp; 3 &amp; 2 \\ 
-2 &amp; 3 &amp; 1 &amp; 7 \\ 
-3 &amp; 3 &amp; 4 &amp; 1 \\ 
-4 &amp; 7 &amp; 1 &amp; 8 
+<div class="math">$$T_{B1}^S =
+\begin{pmatrix}
+1 &amp; 1 &amp; 3 &amp; 2 \\
+2 &amp; 3 &amp; 1 &amp; 7 \\
+3 &amp; 3 &amp; 4 &amp; 1 \\
+4 &amp; 7 &amp; 1 &amp; 8
 \end{pmatrix}$$</div>
 <p> (siehe alten <a href="../wie-bestimme-ich-die-basiswechselmatrix/" title="Wie bestimme ich die Basiswechselmatrix?">Blogpost</a>)</p>
 <p>Und die Basiswechselmatrix <span class="math">\(T_S^{C1}\)</span> von der Standardbasis in die Basis <span class="math">\(C_1\)</span>. Das ist das Inverse der Basis <span class="math">\(C_1\)</span>:</p>
 <div class="math">$$
-T_S^{C1} = \frac{1}{2} \cdot 
-\begin{pmatrix} 
--6 &amp; -2 &amp; 4 \\ 
--2 &amp;  3 &amp; -1 \\ 
-4  &amp; -1 &amp; -1 
+T_S^{C1} = \frac{1}{2} \cdot
+\begin{pmatrix}
+-6 &amp; -2 &amp; 4 \\
+-2 &amp;  3 &amp; -1 \\
+4  &amp; -1 &amp; -1
 \end{pmatrix}
 $$</div>
 <p>Insgesamt sieht das dann so aus: <span class="math">\(T_S^{C1} \cdot (A_1 \cdot (T_{B1} \cdot x))\)</span>. Da f&uuml;r die Matrixmultiplikation das <a href="http://de.wikipedia.org/wiki/Assoziativgesetz">Assoziativgesetz</a> gilt, kann man das vereinfachen:</p>
 <div class="math">$$
-A_1&prime; = T_S^{C1} \cdot A_1 \cdot T_{B1}^S = 
-\begin{pmatrix} 
-110 &amp; 156 &amp;  93 &amp; 195 \\ 
- 10 &amp;  16 &amp;   3 &amp;  15 \\ 
--50 &amp; -72 &amp; -39 &amp; -87 
+A_1&prime; = T_S^{C1} \cdot A_1 \cdot T_{B1}^S =
+\begin{pmatrix}
+110 &amp; 156 &amp;  93 &amp; 195 \\
+ 10 &amp;  16 &amp;   3 &amp;  15 \\
+-50 &amp; -72 &amp; -39 &amp; -87
 \end{pmatrix}
 $$</div>
 <p> (siehe <a href="http://www.wolframalpha.com/input/?i=%7B%7B-3%2C+-1%2C+2%7D%2C+%7B-1%2C+3%2F2%2C+-1%2F2%7D%2C+%7B2%2C+-1%2F2%2C+-1%2F2%7D%7D+*+%7B%7B0%2C0%2C0%2C0%7D%2C%7B1%2C2%2C3%2C4%7D%2C%7B5%2C6%2C7%2C8%7D%7D+*+%7B%7B1%2C1%2C3%2C2%7D%2C%7B2%2C3%2C1%2C7%7D%2C%7B3%2C3%2C4%2C1%7D%2C%7B4%2C7%2C1%2C8%7D%7D">Wolfram|Alpha</a>)</p>

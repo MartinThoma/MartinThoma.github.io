@@ -110,7 +110,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>Suppose you have a list of <span class="math">\(n+1\)</span> given point <span class="math">\((x_i, y_i)\)</span> with <span class="math">\(i \in \{0, \dots, n\}\)</span> and <span class="math">\(\forall i,j \in \{0, \dots, n\}: i \neq j \Rightarrow x_i \neq x_j\)</span>. </p>
+            <p>Suppose you have a list of <span class="math">\(n+1\)</span> given point <span class="math">\((x_i, y_i)\)</span> with <span class="math">\(i \in \{0, \dots, n\}\)</span> and <span class="math">\(\forall i,j \in \{0, \dots, n\}: i \neq j \Rightarrow x_i \neq x_j\)</span>.</p>
 <p>Now you want to find a polynomial <span class="math">\(\displaystyle p(x) = \sum_{i=0}^n a_i \cdot x^i\)</span> that goes through all of the given points. This means:</p>
 <p><span class="math">\(\forall i \in \{0, \dots, n\}: p(x_i) = y_i\)</span></p>
 <h2 id="existence and uniqueness">Existence and uniqueness</h2>
@@ -128,7 +128,7 @@ a_0 \\
 \vdots \\
 a_n
 \end{pmatrix}
-= 
+=
 \begin{pmatrix}
 y_0 \\
 \vdots \\
@@ -175,7 +175,7 @@ y_n
 
 
 <span class="k">def</span> <span class="nf">gauss</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
-    <span class="sd">""" Solve a linear sysem of equations given by a n&amp;times;n matrix </span>
+    <span class="sd">""" Solve a linear sysem of equations given by a n&amp;times;n matrix</span>
 <span class="sd">        with a result vector n&amp;times;1. """</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 
@@ -213,7 +213,7 @@ y_n
 
 
 <span class="k">def</span> <span class="nf">setGauss</span><span class="p">(</span><span class="n">points</span><span class="p">):</span>
-    <span class="sd">""" Create a system of equations for gaussian elimination from </span>
+    <span class="sd">""" Create a system of equations for gaussian elimination from</span>
 <span class="sd">        a set of points. """</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
     <span class="n">A</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
@@ -258,7 +258,7 @@ y_n
 Space complexity for the polynomial: <span class="math">\(\mathcal{O}(n^2)\)</span> (where <span class="math">\(n\)</span> is the number of points)</p>
 <p>Time complexity to evaluate the value of <span class="math">\(p(x)\)</span> for any <span class="math">\(x \in \mathbb{R}\)</span>: <span class="math">\(\mathcal{O}(n)\)</span>.</p>
 <h2 id="polynomials">Polynomials</h2>
-<p><span class="math">\(\displaystyle \mathbb{R}_n[X] := \left \{p:\mathbb{R} \rightarrow \mathbb{R} | p(x) = \sum_{i=0}^n a_i \cdot x^i \text{ with } a_0, \dots, a_n \in \mathbb{R} \right \}\)</span> </p>
+<p><span class="math">\(\displaystyle \mathbb{R}_n[X] := \left \{p:\mathbb{R} \rightarrow \mathbb{R} | p(x) = \sum_{i=0}^n a_i \cdot x^i \text{ with } a_0, \dots, a_n \in \mathbb{R} \right \}\)</span></p>
 <p>So <span class="math">\(\mathbb{R}_n[X]\)</span> are all polynomials with real coefficients and degree not higher than latex]n<span class="math">\(. $\mathbb{R}_n[X]\)</span> forms a vector space for <span class="math">\(n \in \mathbb{N}_0\)</span>. The degree of that vector space is <span class="math">\(n+1\)</span>.</p>
 <p>What does that mean?</p>
 <p>This means you can use different bases for polynomials. The base we usually use for <span class="math">\(\mathbb{R}_n[X]\)</span> is <span class="math">\(\{x^0, x^1, x^2, x^3, \dots\}\)</span>, but you can switch the base.</p>
@@ -301,7 +301,7 @@ Space complexity for the polynomial: <span class="math">\(\mathcal{O}(n^2)\)</sp
 <h2 id="newton interpolation">Newton interpolation</h2>
 <p>Define</p>
 <p><span class="math">\(\displaystyle N_i(x) := \prod_{j=0}^{i-1} (x-x_j)\)</span></p>
-<p>So you know that </p>
+<p>So you know that</p>
 <p><span class="math">\(N_i(x) = 0 \Leftrightarrow \exists p \in \{1, \dots, i\}: x = x_{i-p}\)</span></p>
 <p>So your polynomial is</p>
 <p><span class="math">\(\displaystyle p(x) = \sum_{i=0}^n c_i \cdot N_i(x)\)</span></p>

@@ -136,14 +136,14 @@ MathJax.Hub.Queue(function() {
 <h2 id="short answer">Short Answer</h2>
 <p>It depends on your compiler flags!</p>
 <p>If you compile it with no optimization, you might get 43:</p>
-<div class="highlight"><pre><span></span>$ gcc -O0 cpuzzle-1.c <span class="p">;</span> ./a.out 
+<div class="highlight"><pre><span></span>$ gcc -O0 cpuzzle-1.c <span class="p">;</span> ./a.out
 aufgabe-3.c: In <span class="k">function</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>f<span class="p">&amp;</span>rsquo<span class="p">;</span>:
 aufgabe-3.c:5: warning: <span class="k">function</span> returns address of <span class="nb">local</span> variable
 <span class="nv">x</span> <span class="o">=</span> <span class="m">43</span>
 <span class="nv">x</span> <span class="o">=</span> <span class="m">43</span>
 </pre></div>
 <p>If you compile it with 03 Optimization, you might get 5.</p>
-<div class="highlight"><pre><span></span>$ gcc -O3 cpuzzle-1.c <span class="p">;</span> ./a.out 
+<div class="highlight"><pre><span></span>$ gcc -O3 cpuzzle-1.c <span class="p">;</span> ./a.out
 aufgabe-3.c: In <span class="k">function</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>f<span class="p">&amp;</span>rsquo<span class="p">;</span>:
 aufgabe-3.c:5: warning: <span class="k">function</span> returns address of <span class="nb">local</span> variable
 <span class="nv">x</span> <span class="o">=</span> <span class="m">5</span>
@@ -152,7 +152,7 @@ aufgabe-3.c:5: warning: <span class="k">function</span> returns address of <span
 <h2 id="long answer">Long answer</h2>
 <h3 id="the general answer">The general answer</h3>
 <p>Lets analyse this code line by line.</p>
-<p>Line 3 - 7 is a function <strong>f</strong> that returns a pointer to an integer. The pointer points to a local variable. As far as I know it is not defined what value should be there after you leave the function (has anybody a source for that?). 
+<p>Line 3 - 7 is a function <strong>f</strong> that returns a pointer to an integer. The pointer points to a local variable. As far as I know it is not defined what value should be there after you leave the function (has anybody a source for that?).
 The variable is a so called local or automatic variable and is located on the stack frame.</p>
 <p>Line 9 - 14 is a function <strong>g</strong> that doesn't take any parameter and doesn't return anything. This function <em>should</em> not have any influence on the behavior of the program. It puts 42 on the stack and increases it by one.</p>
 <p>Line 17 calls f and stores the returned function pointer in the variable x.</p>

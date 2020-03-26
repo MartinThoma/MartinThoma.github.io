@@ -121,7 +121,7 @@ MathJax.Hub.Queue(function() {
 <figcaption class="text-center">Connect Four<br/>Source: <a href="http://commons.wikimedia.org/wiki/File:Connect_Four.gif">commons.wikimedia.org</a></figcaption>
 </figure>
 <h2 id="the task">The task</h2>
-<p>Imagine you would like to find a good strategy where to drop your disk. A simple brute-force method is to create a so called <a href="http://en.wikipedia.org/wiki/Game_tree">game tree</a>. This means you go through each possibility at each situation that could occur in the game for both players. </p>
+<p>Imagine you would like to find a good strategy where to drop your disk. A simple brute-force method is to create a so called <a href="http://en.wikipedia.org/wiki/Game_tree">game tree</a>. This means you go through each possibility at each situation that could occur in the game for both players.</p>
 <p>This approach has generally two problems:
 <ol>
 <li>You have to know how to go through each situation. For connect four it is easy. Both players place their disks in turns and in every turn the current player has at most 7 possibilities. But it is impossible for games like <a href="http://en.wikipedia.org/wiki/Calvinball#Calvinball">Calvinball</a> or <a href="http://en.wikipedia.org/wiki/Mao_(card_game)">Mao</a>.</li>
@@ -136,14 +136,14 @@ MathJax.Hub.Queue(function() {
     <span class="kt">char</span> <span class="n">board</span><span class="p">[</span><span class="n">BOARD_WIDTH</span><span class="p">][</span><span class="n">BOARD_HEIGHT</span><span class="p">];</span>
 
     <span class="cm">/**</span>
-<span class="cm">     * What are the next game situations that I can reach from this </span>
-<span class="cm">     * board? </span>
+<span class="cm">     * What are the next game situations that I can reach from this</span>
+<span class="cm">     * board?</span>
 <span class="cm">     * The next[i] means that the player dropped the disc at column i</span>
 <span class="cm">     */</span>
     <span class="kt">int</span> <span class="n">next</span><span class="p">[</span><span class="mi">7</span><span class="p">];</span>
 
     <span class="cm">/* I could use a bitfield for this ... but it would make access</span>
-<span class="cm">     * much more inconvenient. </span>
+<span class="cm">     * much more inconvenient.</span>
 <span class="cm">     */</span>
     <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">isEmpty</span><span class="p">;</span>  <span class="c1">// Is this gamesitatution already filled?</span>
     <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">isFinished</span><span class="p">;</span> <span class="c1">// Is this game finished?</span>
@@ -154,11 +154,11 @@ MathJax.Hub.Queue(function() {
 </pre></div>
 <p>You need a check if one player won:</p>
 <div class="highlight"><pre><span></span><span class="cm">/*</span>
-<span class="cm"> * Check if player has won by placing a disc on (x,y). </span>
+<span class="cm"> * Check if player has won by placing a disc on (x,y).</span>
 <span class="cm"> * with direction (xDir, yDir)</span>
 <span class="cm"> * @return 1 iff RED won, -1 iff BLACK won and 0 if nobody won</span>
 <span class="cm"> */</span>
-<span class="kt">signed</span> <span class="kt">char</span> <span class="nf">hasPlayerWon</span><span class="p">(</span><span class="kt">char</span> <span class="n">board</span><span class="p">[</span><span class="n">BOARD_WIDTH</span><span class="p">][</span><span class="n">BOARD_HEIGHT</span><span class="p">],</span> 
+<span class="kt">signed</span> <span class="kt">char</span> <span class="nf">hasPlayerWon</span><span class="p">(</span><span class="kt">char</span> <span class="n">board</span><span class="p">[</span><span class="n">BOARD_WIDTH</span><span class="p">][</span><span class="n">BOARD_HEIGHT</span><span class="p">],</span>
                   <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">,</span> <span class="kt">char</span> <span class="n">xDir</span><span class="p">,</span> <span class="kt">char</span> <span class="n">yDir</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">char</span> <span class="n">color</span> <span class="o">=</span> <span class="n">board</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">];</span>
 
@@ -179,12 +179,12 @@ MathJax.Hub.Queue(function() {
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="cm">/* </span>
-<span class="cm"> * A new disc has been dropped. Check if this disc means that </span>
+<span class="cm">/*</span>
+<span class="cm"> * A new disc has been dropped. Check if this disc means that</span>
 <span class="cm"> * somebody won.</span>
 <span class="cm"> * @return 1 iff RED won, -1 iff BLACK won, otherwise NOT_FINISHED</span>
 <span class="cm"> */</span>
-<span class="kt">int</span> <span class="nf">isBoardFinished</span><span class="p">(</span><span class="kt">char</span> <span class="n">board</span><span class="p">[</span><span class="n">BOARD_WIDTH</span><span class="p">][</span><span class="n">BOARD_HEIGHT</span><span class="p">],</span> 
+<span class="kt">int</span> <span class="nf">isBoardFinished</span><span class="p">(</span><span class="kt">char</span> <span class="n">board</span><span class="p">[</span><span class="n">BOARD_WIDTH</span><span class="p">][</span><span class="n">BOARD_HEIGHT</span><span class="p">],</span>
                     <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">signed</span> <span class="kt">char</span> <span class="n">status</span><span class="p">;</span>
 
@@ -221,7 +221,7 @@ MathJax.Hub.Queue(function() {
 </pre></div>
 <p>If you need an explanation for this, you should read <a href="../check-x-in-a-row-for-board-games/" title="Check x-in-a-row for board games">this article</a>.</p>
 <p>And you need a function that can mirror boards (to get rid of identical, but mirrored situations) and one that can compare boards:</p>
-<div class="highlight"><pre><span></span><span class="kt">char</span> <span class="nf">isSameBoard</span><span class="p">(</span><span class="kt">char</span> <span class="n">a</span><span class="p">[</span><span class="n">BOARD_WIDTH</span><span class="p">][</span><span class="n">BOARD_HEIGHT</span><span class="p">],</span> 
+<div class="highlight"><pre><span></span><span class="kt">char</span> <span class="nf">isSameBoard</span><span class="p">(</span><span class="kt">char</span> <span class="n">a</span><span class="p">[</span><span class="n">BOARD_WIDTH</span><span class="p">][</span><span class="n">BOARD_HEIGHT</span><span class="p">],</span>
                  <span class="kt">char</span> <span class="n">b</span><span class="p">[</span><span class="n">BOARD_WIDTH</span><span class="p">][</span><span class="n">BOARD_HEIGHT</span><span class="p">])</span> <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">BOARD_WIDTH</span><span class="p">;</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">BOARD_HEIGHT</span><span class="p">;</span> <span class="n">y</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
@@ -248,7 +248,7 @@ MathJax.Hub.Queue(function() {
 <span class="cm"> * Make all possible turns that the player can make in this</span>
 <span class="cm"> * game situation.</span>
 <span class="cm"> */</span>
-<span class="kt">void</span> <span class="nf">makeTurns</span><span class="p">(</span><span class="kt">char</span> <span class="n">board</span><span class="p">[</span><span class="n">BOARD_WIDTH</span><span class="p">][</span><span class="n">BOARD_HEIGHT</span><span class="p">],</span> 
+<span class="kt">void</span> <span class="nf">makeTurns</span><span class="p">(</span><span class="kt">char</span> <span class="n">board</span><span class="p">[</span><span class="n">BOARD_WIDTH</span><span class="p">][</span><span class="n">BOARD_HEIGHT</span><span class="p">],</span>
    <span class="kt">char</span> <span class="n">currentPlayer</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">lastId</span><span class="p">,</span> <span class="kt">int</span> <span class="n">recursion</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">insertID</span><span class="p">;</span>
     <span class="kt">int</span> <span class="n">outcome</span><span class="p">;</span>
@@ -324,7 +324,7 @@ MathJax.Hub.Queue(function() {
                         <span class="p">}</span>
                     <span class="p">}</span>
 
-                    <span class="n">makeTurns</span><span class="p">(</span><span class="n">copy</span><span class="p">,</span> <span class="n">currentPlayer</span><span class="p">,</span> <span class="n">insertID</span><span class="p">,</span> 
+                    <span class="n">makeTurns</span><span class="p">(</span><span class="n">copy</span><span class="p">,</span> <span class="n">currentPlayer</span><span class="p">,</span> <span class="n">insertID</span><span class="p">,</span>
                               <span class="n">recursion</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
                 <span class="p">}</span>
             <span class="p">}</span>
@@ -364,7 +364,7 @@ MathJax.Hub.Queue(function() {
 
     <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">BOARD_WIDTH</span><span class="p">;</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">BOARD_HEIGHT</span><span class="p">;</span> <span class="n">y</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">index</span> <span class="o">+=</span> <span class="n">charToInt</span><span class="p">(</span><span class="n">board</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">])</span> <span class="o">*</span> 
+            <span class="n">index</span> <span class="o">+=</span> <span class="n">charToInt</span><span class="p">(</span><span class="n">board</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">])</span> <span class="o">*</span>
                      <span class="n">myPow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="p">((</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">*</span> <span class="n">BOARD_WIDTH</span><span class="p">)</span> <span class="o">%</span> <span class="n">HASH_MODULO</span><span class="p">));</span>
         <span class="p">}</span>
     <span class="p">}</span>
@@ -381,7 +381,7 @@ MathJax.Hub.Queue(function() {
 <li>Quadratic probing</li>
 </ul></p>
 <h2 id="linear probing">Linear probing</h2>
-<p>The idea of linear probing is very simple: </p>
+<p>The idea of linear probing is very simple:</p>
 <p>Inserting a new item:
 <ol>
 <li>You look at the index <span class="math">\(i\)</span> that your hash function gave you.</li>

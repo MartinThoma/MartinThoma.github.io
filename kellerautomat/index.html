@@ -108,7 +108,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>Ein Kellerautomat ist ein Endlicher Automat mit einem Stack ("Kellerspeicher"). Er wird mit PDA (pushdown automaton) bzw. NPDA (nondeterministic pushdown automaton) abgek&uuml;rzt. </p>
+            <p>Ein Kellerautomat ist ein Endlicher Automat mit einem Stack ("Kellerspeicher"). Er wird mit PDA (pushdown automaton) bzw. NPDA (nondeterministic pushdown automaton) abgek&uuml;rzt.</p>
 <p>Laut Wikipedia verwendet die Gleitkommaeinheit einen PDA. Dazu habe ich allerdings keine Quelle, das ist also mit Vorsicht zu genie&szlig;en.</p>
 <p>Ein weiterer Einsatzzweck ist die Syntaxanalyse einer Tokenfolge. Das kann f&uuml;r Compiler oder Interpreter von Interesse sein.</p>
 <h2 id="definitionen">Definitionen</h2>
@@ -140,7 +140,7 @@ einen Zustand und eine Menge Regeln (<span class="math">\(\delta\)</span>).</p>
 <p>Nun schaust du dir in jedem Schritt die oberste Karte auf dem Kartenstapel an und legst sie weg. Des Weiteren schaust du dir deine oberste Notiz an und legst sie weg und &uuml;berpr&uuml;fst deinen Zustand. Aus diesen Informationen schlussfolgerst du, was du als n&auml;chstes machst. Du kannst dir aussuchen in welchen Zustand du gehen willst und was du noch auf deinen Notiz-Stapel tun willst. Du kannst auch einfach nichts auf den Notiz-Stapel legen.</p>
 <h2 id="beispiele">Beispiele</h2>
 <p>Sei <span class="math">\(L = \{w \in \{0,1,2\}^* | w = 0^i1^j2^j ~~~ i, j \in \mathbb{N}\}\)</span></p>
-<p><span class="math">\((\{q_0, q_1, q_2\}, \{0, 1, 2\}, \{1, \#\}, q_0, \#, \delta, \emptyset)\)</span> mit </p>
+<p><span class="math">\((\{q_0, q_1, q_2\}, \{0, 1, 2\}, \{1, \#\}, q_0, \#, \delta, \emptyset)\)</span> mit</p>
 <p>$\delta(q_0, 0, #) = {(q_0, #), (q_1, #)}, $
 $\delta(q_1, 1, #) = {(q_1, 1)}, $
 $\delta(q_1, 1, 1) = {(q_1, 11)}, $
@@ -151,8 +151,8 @@ $\delta(p, a, Z) = \emptyset $ sonst.</p>
 <h2 id="umformungen">Umformungen</h2>
 <h3 id="akzeptierender endzustand - leerer stack">Akzeptierender Endzustand &rarr; leerer STACK</h3>
 <p>Siehe Skript von Prof. Dr. Dorothea Wagner, S. 107.</p>
-<p>Gegeben sei ein Kellerautomat <span class="math">\({\cal K}_1 (Q_1, \Sigma, \Gamma_1, \delta_1, q_0^1, Z_0^1, F_1)\)</span> der durch akzeptierenden Endzustand akzeptiert. 
-Wir wollen einen neuen Automaten <span class="math">\({\cal K}_2 (Q_2, \Sigma, \Gamma_2, \delta_2, q_0^2, Z_0^2, F_2)\)</span> der durch leeren STACK akzeptiert. </p>
+<p>Gegeben sei ein Kellerautomat <span class="math">\({\cal K}_1 (Q_1, \Sigma, \Gamma_1, \delta_1, q_0^1, Z_0^1, F_1)\)</span> der durch akzeptierenden Endzustand akzeptiert.
+Wir wollen einen neuen Automaten <span class="math">\({\cal K}_2 (Q_2, \Sigma, \Gamma_2, \delta_2, q_0^2, Z_0^2, F_2)\)</span> der durch leeren STACK akzeptiert.</p>
 <p><strong>Idee</strong>: Wir f&uuml;hren einen neuen Zustand <span class="math">\(q_E\)</span> ein, bei dessen Erreichen wir den STACK leeren. Um zu verhindern, dass der STACK zwischenzeitlich leer wird, legen wir zu beginn das STACK-Symbol <span class="math">\(Z_0^2\)</span> ab.</p>
 <p><strong>Formal</strong>:
 <span class="math">\(Q_2 := Q_1 \cup \{q_0^2, q_E\}\)</span>, wobei <span class="math">\(q_0^2\)</span> der neue Anfangszustand von <span class="math">\({\cal K}_2\)</span> ist.
@@ -168,15 +168,15 @@ Wir wollen einen neuen Automaten <span class="math">\({\cal K}_2 (Q_2, \Sigma, \
 <span class="math">\(\delta_2(q_E, \varepsilon, Z) = \{(q_E, \varepsilon)\}  \text{ f&amp;uuml;r } Z \in \Gamma_2\)</span></p>
 <h3 id="leerer stack - akzeptierender endzustand">Leerer STACK &rarr; akzeptierender Endzustand</h3>
 <p>Siehe Skript von Prof. Dr. Dorothea Wagner, S. 107.</p>
-<p>Gegeben sei ein Kellerautomat <span class="math">\({\cal K}_1 (Q_1, \Sigma, \Gamma_1, \delta_1, q_0^1, Z_0^1, F_1)\)</span> der durch leeren STACK akzeptiert. 
-Wir wollen einen neuen Automaten <span class="math">\({\cal K}_2 (Q_2, \Sigma, \Gamma_2, \delta_2, q_0^2, Z_0^2, F_2)\)</span> der durch akzeptierenden Endzustand akzeptiert. </p>
+<p>Gegeben sei ein Kellerautomat <span class="math">\({\cal K}_1 (Q_1, \Sigma, \Gamma_1, \delta_1, q_0^1, Z_0^1, F_1)\)</span> der durch leeren STACK akzeptiert.
+Wir wollen einen neuen Automaten <span class="math">\({\cal K}_2 (Q_2, \Sigma, \Gamma_2, \delta_2, q_0^2, Z_0^2, F_2)\)</span> der durch akzeptierenden Endzustand akzeptiert.</p>
 <p><strong>Idee</strong>: Wir legen ein zus&auml;tzliches Symbol <span class="math">\(Z_0^2\)</span> auf den STACK. Wird <span class="math">\(Z_0^2\)</span> gelesen, ist der STACK noch nicht leer, aber man kann in einen akzeptierenden Zustand <span class="math">\(q_F\)</span> wechseln.</p>
 <p><strong>Formal</strong>:
 <span class="math">\(Q_2 := Q_1 \cup \{q_0^2, q_F\}\)</span>, wobei <span class="math">\(q_0^2\)</span> Anfangszustand von <span class="math">\({\cal K}_2\)</span> ist und <span class="math">\(F_2 := \{q_F\}\)</span>
 <span class="math">\(\Gamma_2 := \Gamma_1 \cup \{Z_0^2\}\)</span>, wobei <span class="math">\(Z_0^2\)</span> Initialisierung des STACKS von <span class="math">\({\cal K}_2\)</span> ist und <span class="math">\(\delta_2\)</span> festgelegt durch:</p>
 <p>Zuerst sorgen wir daf&uuml;r, dass <span class="math">\(Z_0^2\)</span> ganz unten im STACK ist:
 </p>
-<div class="math">$$\delta_2(q_0^2, a, X) = 
+<div class="math">$$\delta_2(q_0^2, a, X) =
 \begin{cases}
 \{q_0^1, Z_0^1, Z_0^2\} &amp; \text{falls } a= \varepsilon \text{ und } X = Z_0^2\\
 \emptyset               &amp; \text{sonst}
