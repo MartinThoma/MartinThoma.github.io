@@ -32,8 +32,9 @@ An easy to use example is
 ```python
 from gensim.models import Word2Vec
 from nltk.corpus import brown
+
 model = Word2Vec(brown.sents())
-model.most_similar(positive=['woman', 'king'], negative=['man'], topn=3)
+model.most_similar(positive=["woman", "king"], negative=["man"], topn=3)
 ```
 
 which returns

@@ -78,6 +78,7 @@ def trans_for_ohe(labels):
     """Transform a flat list of labels to what one hot encoder needs."""
     return np.array(labels).reshape(len(labels), -1)
 
+
 labels_r = trans_for_ohe(labels)
 # The encoder has to know how many classes there are and what their names are.
 enc.fit(labels_r)
@@ -159,25 +160,25 @@ def trans_for_ohe(labels):
 
 def analyze_classifier(sess, i, w1, b1, w2, b2, XOR_X, XOR_T):
     """Visualize the classification."""
-    print('\nEpoch %i' % i)
-    print('Hypothesis %s' % sess.run(hypothesis,
-                                     feed_dict={input_: XOR_X,
-                                                target: XOR_T}))
-    print('w1=%s' % sess.run(w1))
-    print('b1=%s' % sess.run(b1))
-    print('w2=%s' % sess.run(w2))
-    print('b2=%s' % sess.run(b2))
-    print('cost (ce)=%s' % sess.run(cross_entropy,
-                                    feed_dict={input_: XOR_X,
-                                               target: XOR_T}))
+    print("\nEpoch %i" % i)
+    print(
+        "Hypothesis %s" % sess.run(hypothesis, feed_dict={input_: XOR_X, target: XOR_T})
+    )
+    print("w1=%s" % sess.run(w1))
+    print("b1=%s" % sess.run(b1))
+    print("w2=%s" % sess.run(w2))
+    print("b2=%s" % sess.run(b2))
+    print(
+        "cost (ce)=%s"
+        % sess.run(cross_entropy, feed_dict={input_: XOR_X, target: XOR_T})
+    )
     # Visualize classification boundary
     xs = np.linspace(-5, 5)
     ys = np.linspace(-5, 5)
     pred_classes = []
     for x in xs:
         for y in ys:
-            pred_class = sess.run(hypothesis,
-                                  feed_dict={input_: [[x, y]]})
+            pred_class = sess.run(hypothesis, feed_dict={input_: [[x, y]]})
             pred_classes.append((x, y, pred_class.argmax()))
     xs_p, ys_p = [], []
     xs_n, ys_n = [], []
@@ -188,7 +189,7 @@ def analyze_classifier(sess, i, w1, b1, w2, b2, XOR_X, XOR_T):
         else:
             xs_p.append(x)
             ys_p.append(y)
-    plt.plot(xs_p, ys_p, 'ro', xs_n, ys_n, 'bo')
+    plt.plot(xs_p, ys_p, "ro", xs_n, ys_n, "bo")
     plt.show()
 
 
@@ -204,19 +205,16 @@ XOR_T = enc.transform(trans_for_ohe(XOR_Y)).toarray()
 
 # The network
 nb_classes = 2
-input_ = tf.placeholder(tf.float32,
-                        shape=[None, len(XOR_X[0])],
-                        name="input")
-target = tf.placeholder(tf.float32,
-                        shape=[None, nb_classes],
-                        name="output")
+input_ = tf.placeholder(tf.float32, shape=[None, len(XOR_X[0])], name="input")
+target = tf.placeholder(tf.float32, shape=[None, nb_classes], name="output")
 nb_hidden_nodes = 2
 # enc = tf.one_hot([0, 1], 2)
-w1 = tf.Variable(tf.random_uniform([2, nb_hidden_nodes], -1, 1, seed=0),
-                 name="Weights1")
-w2 = tf.Variable(tf.random_uniform([nb_hidden_nodes, nb_classes], -1, 1,
-                                   seed=0),
-                 name="Weights2")
+w1 = tf.Variable(
+    tf.random_uniform([2, nb_hidden_nodes], -1, 1, seed=0), name="Weights1"
+)
+w2 = tf.Variable(
+    tf.random_uniform([nb_hidden_nodes, nb_classes], -1, 1, seed=0), name="Weights2"
+)
 b1 = tf.Variable(tf.zeros([nb_hidden_nodes]), name="Biases1")
 b2 = tf.Variable(tf.zeros([nb_classes]), name="Biases2")
 activation2 = tf.sigmoid(tf.matmul(input_, w1) + b1)

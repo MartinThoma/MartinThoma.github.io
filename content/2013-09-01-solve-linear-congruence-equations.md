@@ -29,12 +29,12 @@ Johannes Schickling has written a very nice <a href="http://schickling.github.io
 
 <h2>Python</h2>
 ```python
-
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+
 def ExtendedEuclideanAlgorithm(a, b):
-	"""
+    """
 		Calculates gcd(a,b) and a linear combination such that
 		gcd(a,b) = a*x + b*y
 
@@ -42,44 +42,42 @@ def ExtendedEuclideanAlgorithm(a, b):
 		If gcd(a,b) = 1 = a*x + b*y
 		Then x is multiplicative inverse of a modulo b.
 	"""
-	aO, bO = a, b
+    aO, bO = a, b
 
-	x=lasty=0
-	y=lastx=1
-	while (b!=0):
-		q= a/b
-		a, b = b, a%b
-		x, lastx = lastx-q*x, x
-		y, lasty = lasty-q*y, y
+    x = lasty = 0
+    y = lastx = 1
+    while b != 0:
+        q = a / b
+        a, b = b, a % b
+        x, lastx = lastx - q * x, x
+        y, lasty = lasty - q * y, y
 
-	return {
-		"x": lastx,
-		"y": lasty,
-		"gcd": aO * lastx + bO * lasty
-	}
+    return {"x": lastx, "y": lasty, "gcd": aO * lastx + bO * lasty}
+
 
 def solveLinearCongruenceEquations(rests, modulos):
-	"""
+    """
 	Solve a system of linear congruences.
 
 	>>> solveLinearCongruenceEquations([4, 12, 14], [19, 37, 43])
 	{'congruence class': 22804, 'modulo': 30229}
 	"""
-	assert len(rests) == len(modulos)
-	x = 0
-	M = reduce(lambda x, y: x*y, modulos)
+    assert len(rests) == len(modulos)
+    x = 0
+    M = reduce(lambda x, y: x * y, modulos)
 
-	for mi, resti in zip(modulos, rests):
-		Mi = M / mi
-		s = ExtendedEuclideanAlgorithm(Mi, mi)["x"]
-		e = s * Mi
-		x += resti * e
-	return {"congruence class": ((x % M) + M) % M, "modulo": M}
+    for mi, resti in zip(modulos, rests):
+        Mi = M / mi
+        s = ExtendedEuclideanAlgorithm(Mi, mi)["x"]
+        e = s * Mi
+        x += resti * e
+    return {"congruence class": ((x % M) + M) % M, "modulo": M}
+
 
 if __name__ == "__main__":
-	import doctest
-	doctest.testmod()
+    import doctest
 
+    doctest.testmod()
 ```
 
 <h2>Links</h2>

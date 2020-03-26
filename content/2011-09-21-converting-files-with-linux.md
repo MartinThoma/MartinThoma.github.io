@@ -299,18 +299,21 @@ My `svg2png` looks like this:
 import argparse
 
 parser = argparse.ArgumentParser(description="convert a svg file to png")
-parser.add_argument("-i", "--input", dest="input",
-                  help="read svg file", metavar="FILE")
-parser.add_argument("-o", "--output", dest="output",
-                  help="output png file", metavar="FILE")
-parser.add_argument("-w", "--width", dest="width", default=512, type=int,
-                  help="width of output png")
+parser.add_argument("-i", "--input", dest="input", help="read svg file", metavar="FILE")
+parser.add_argument(
+    "-o", "--output", dest="output", help="output png file", metavar="FILE"
+)
+parser.add_argument(
+    "-w", "--width", dest="width", default=512, type=int, help="width of output png"
+)
 
 args = parser.parse_args()
 
 import os
-command = "inkscape " + args.input + \
-          " -w " + str(args.width) + " --export-png=" + args.output
+
+command = (
+    "inkscape " + args.input + " -w " + str(args.width) + " --export-png=" + args.output
+)
 os.system(command)
 print("Executed command: " + command)
 ```
@@ -324,24 +327,30 @@ My pdf2png looks like this:
 import argparse
 
 parser = argparse.ArgumentParser(description="convert a svg file to png")
-parser.add_argument("-i", "--input", dest="input",
-                  help="read svg file", metavar="FILE")
-parser.add_argument("-o", "--output", dest="output",
-                  help="output png file", metavar="FILE")
-parser.add_argument("-w", "--width", dest="width", default=512, type=int,
-                  help="width of output png")
+parser.add_argument("-i", "--input", dest="input", help="read svg file", metavar="FILE")
+parser.add_argument(
+    "-o", "--output", dest="output", help="output png file", metavar="FILE"
+)
+parser.add_argument(
+    "-w", "--width", dest="width", default=512, type=int, help="width of output png"
+)
 
 args = parser.parse_args()
 
 import os
-commands=[]
-commands.append("pdf2svg "+args.input+" ~"+args.input+".svg")
-commands.append("inkscape ~"+args.input+".svg --export-plain-svg=~"+args.input+".svg")
-commands.append("svg2png -i ~"+args.input+".svg -o "+args.output+" -w " + str(args.width))
-commands.append("rm ~"+args.input+".svg")
+
+commands = []
+commands.append("pdf2svg " + args.input + " ~" + args.input + ".svg")
+commands.append(
+    "inkscape ~" + args.input + ".svg --export-plain-svg=~" + args.input + ".svg"
+)
+commands.append(
+    "svg2png -i ~" + args.input + ".svg -o " + args.output + " -w " + str(args.width)
+)
+commands.append("rm ~" + args.input + ".svg")
 for command in commands:
-	os.system(command)
-	print("Executed command: " + command)
+    os.system(command)
+    print("Executed command: " + command)
 
 args = parser.parse_args()
 ```

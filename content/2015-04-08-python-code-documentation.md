@@ -41,7 +41,6 @@ def preprocessing(self, algorithms):
     assert type(algorithms) is list
     for algorithm in algorithms:
         algorithm(self)
-
 ```
 
 ## The Google Way

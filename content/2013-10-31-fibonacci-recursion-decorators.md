@@ -20,13 +20,11 @@ $$
 The simplest solution to get this number is:
 
 ```python
-
 def fib(n):
     if n < 2:
         return n
     else:
-        return fib(n-1) + fib(n-2)
-
+        return fib(n - 1) + fib(n - 2)
 ```
 
 The problem is, of course, that the number of evaluations goes wild. Here is a table of the number of function calls
@@ -81,7 +79,6 @@ One way to solve the problem much faster (in fact in $\mathcal{O}(n)$ time and s
 A very neat way to achieve this are decorators. It might be a common problem that you have a recursive, mathematical function with no side effects. So you can write a wrapper that checks if the value has already been calculated. If not, the function proceeds as usual. It it has already been calculated, you can simply look it up:
 
 ```python
-
 def memoize(obj):
     cache = {}
 
@@ -89,15 +86,16 @@ def memoize(obj):
         if args not in cache:
             cache[args] = obj(*args, **kwargs)
         return cache[args]
+
     return memoizer
+
 
 @memoize
 def fib(n):
     if n < 2:
         return n
     else:
-        return fib(n-1) + fib(n-2)
-
+        return fib(n - 1) + fib(n - 2)
 ```
 
 Notice that I've only added <code>@memoize</code> over the function definiton of <code>fib</code>! I love Python ☺
@@ -112,13 +110,11 @@ RuntimeError: maximum recursion depth exceeded in comparison
 You can get around this limitation by successive calls of fib:
 
 ```python
-
 # Call to fill array
 fib(332)
 
 # The number of recursive steps is now much smaller:
 print(fib(500))
-
 ```
 
 That gave 139423224561697880139724382870407283950070256587697307264108962948325571622863290691557658876222521294125. A pretty big number.
@@ -133,10 +129,11 @@ $f(n) = \frac{\varphi^n - \psi^n}{\phi - \psi}$
 Although this is mathematically exact, it will not work on computers due to a fixed floating point precision. Lets check how long it works:
 
 ```python
-
 #!/usr/bin/env python
 
 import functools
+
+
 def memoize(obj):
     cache = {}
 
@@ -145,30 +142,38 @@ def memoize(obj):
         if args not in cache:
             cache[args] = obj(*args, **kwargs)
         return cache[args]
+
     return memoizer
+
 
 @memoize
 def fib(n):
     if n < 2:
         return n
     else:
-        return fib(n-1) + fib(n-2)
+        return fib(n - 1) + fib(n - 2)
+
 
 def moivreBinet(n):
-    phi = (5**0.5+1)/2
+    phi = (5 ** 0.5 + 1) / 2
     psi = 1 - phi
-    return int((phi**n - psi**n)/(phi - psi))
+    return int((phi ** n - psi ** n) / (phi - psi))
+
 
 from itertools import count
+
 for i in count(0):
     exact = fib(i)
     constTime = moivreBinet(i)
     if exact != constTime:
-        print(("The %i-th fibonacci number is %i. Moivre-Binet "
-             + "gives due to precicion error %i (delta=%i).") 
-                 % (i, exact, constTime, abs(exact-constTime)))
+        print(
+            (
+                "The %i-th fibonacci number is %i. Moivre-Binet "
+                + "gives due to precicion error %i (delta=%i)."
+            )
+            % (i, exact, constTime, abs(exact - constTime))
+        )
         break
-
 ```
 
 So the answer is:
@@ -181,14 +186,13 @@ This is a reason to prefer the $\mathcal{O}(n)$ solution over the $\mathcal{O}(1
 The following solution is fast and works 0.075 seconds for the 20000 Fibonacci number (which has 4180 digits).
 
 ```python
-
 def fib(n):
     def accFib(n, Nm2=0, Nm1=1):
         for i in range(n):
-            Nm2, Nm1 = Nm1, Nm1+Nm2
-        return Nm2   
-    return accFib(n)
+            Nm2, Nm1 = Nm1, Nm1 + Nm2
+        return Nm2
 
+    return accFib(n)
 ```
 
 <h2>Additional ressources</h2>

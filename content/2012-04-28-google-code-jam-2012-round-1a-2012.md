@@ -43,45 +43,47 @@ This works only for the small input set:
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+
 def line2floatlist(line):
-	""" Convert integers in one line, separated by space to a
-		list of integers.
-	"""
-	list = line.split(' ')
-	numbers = [ float(x) for x in list ]
-	return numbers
+    """
+    Convert integers in one line, separated by space to a list of integers.
+    """
+    list = line.split(" ")
+    numbers = [float(x) for x in list]
+    return numbers
+
 
 def prob(A, B, probabilities):
-	typesMin = float('inf')
-	for i in xrange(0, A + 1):
-		probKorrect = 1.0
-		for el in probabilities[0:(len(probabilities)-i)]:
-			probKorrect *= el
-		probWrong = 1.0 - probKorrect
-		remainingTypes = i + (B - A + i) + 1
-		remainingTypesErr = remainingTypes + B + 1
-		types = probKorrect * remainingTypes \
-				+ probWrong * remainingTypesErr
-		#print types
-		if types < typesMin:
-			typesMin = types
-	if (1+B+1) < typesMin:
-		typesMin = (1+B+1)
- 
-	return round(typesMin , 6)
-	#return typesMin
- 
+    typesMin = float("inf")
+    for i in xrange(0, A + 1):
+        probKorrect = 1.0
+        for el in probabilities[0 : (len(probabilities) - i)]:
+            probKorrect *= el
+        probWrong = 1.0 - probKorrect
+        remainingTypes = i + (B - A + i) + 1
+        remainingTypesErr = remainingTypes + B + 1
+        types = probKorrect * remainingTypes + probWrong * remainingTypesErr
+        # print types
+        if types < typesMin:
+            typesMin = types
+    if (1 + B + 1) < typesMin:
+        typesMin = 1 + B + 1
+
+    return round(typesMin, 6)
+    # return typesMin
+
+
 if __name__ == "__main__":
-	testcases = input()
- 
-	for caseNr in xrange(0, testcases):
-		A, B = raw_input().split(" ")
-		A = int(A)
-		B = int(B)
-		probabilities = line2floatlist(raw_input())
-		#print ((A+1), B)
-		#print probabilities
-		print("Case #%i: %.6lf" % (caseNr+1, prob(A, B, probabilities)))
+    testcases = input()
+
+    for caseNr in xrange(0, testcases):
+        A, B = raw_input().split(" ")
+        A = int(A)
+        B = int(B)
+        probabilities = line2floatlist(raw_input())
+        # print ((A+1), B)
+        # print probabilities
+        print("Case #%i: %.6lf" % (caseNr + 1, prob(A, B, probabilities)))
 ```
 
 <h2>Kingdom Rush</h2>
@@ -92,88 +94,93 @@ My solution works only for the small input set:
 
 from copy import deepcopy
 
+
 def line2intlist(line):
-	""" Convert integers in one line, separated by space to a
-		list of integers.
-	"""
-	list = line.split(' ')
-	numbers = [ int(x) for x in list ]
-	return numbers
+    """
+    Convert integers in one line, separated by space to a
+    list of integers.
+    """
+    list = line.split(" ")
+    numbers = [int(x) for x in list]
+    return numbers
+
 
 def isSolvable(starDict):
-	""" Is it possible to solve this one? """
-	intList = []
-	for index in starDict:
-		wasInFor = True
-		one, two = starDict[index]
-		intList.append(one)
-		intList.append(two)
-	intList.sort()
+    """ Is it possible to solve this one? """
+    intList = []
+    for index in starDict:
+        wasInFor = True
+        one, two = starDict[index]
+        intList.append(one)
+        intList.append(two)
+    intList.sort()
 
-	for levelVar in xrange(0, len(intList)):
-		if levelVar < intList[levelVar]:
-			return False
-	return True
+    for levelVar in xrange(0, len(intList)):
+        if levelVar < intList[levelVar]:
+            return False
+    return True
 
-def king(starDict, myLevel = 0, myCompetes = 0, partially = []):
-	somethingChanged = True
-	while somethingChanged:
-		removeList = []
-		somethingChanged = False
 
-		#all where i can do both
-		for index in starDict:
-			one, two = starDict[index]
-			if two <= myLevel:
-				removeList.append(index)
-				somethingChanged = True
+def king(starDict, myLevel=0, myCompetes=0, partially=[]):
+    somethingChanged = True
+    while somethingChanged:
+        removeList = []
+        somethingChanged = False
 
-		#remove them
-		for index in removeList:
-			myCompetes += 1
-			del starDict[index]
-			if index in partially:
-				myLevel += 1
-				partially.remove(index)
-			else:
-				myLevel += 2
+        # all where i can do both
+        for index in starDict:
+            one, two = starDict[index]
+            if two <= myLevel:
+                removeList.append(index)
+                somethingChanged = True
 
-	if starDict:
-		minCompetes = float('inf')
-		for index in starDict:
-			one, two = starDict[index]
-			if one <= myLevel and (index not in partially):
-				starDictTmp = deepcopy(starDict)
-				partiallyTmp = deepcopy(partially)
-				partiallyTmp.append(index)
-				tmpCompetes = king(starDictTmp, myLevel+1,  
-							myCompetes+1, partiallyTmp)
-				if tmpCompetes < minCompetes:
-					minCompetes = tmpCompetes
-		myCompetes = minCompetes
-	return myCompetes
+        # remove them
+        for index in removeList:
+            myCompetes += 1
+            del starDict[index]
+            if index in partially:
+                myLevel += 1
+                partially.remove(index)
+            else:
+                myLevel += 2
 
- 
+    if starDict:
+        minCompetes = float("inf")
+        for index in starDict:
+            one, two = starDict[index]
+            if one <= myLevel and (index not in partially):
+                starDictTmp = deepcopy(starDict)
+                partiallyTmp = deepcopy(partially)
+                partiallyTmp.append(index)
+                tmpCompetes = king(
+                    starDictTmp, myLevel + 1, myCompetes + 1, partiallyTmp
+                )
+                if tmpCompetes < minCompetes:
+                    minCompetes = tmpCompetes
+        myCompetes = minCompetes
+    return myCompetes
+
+
 if __name__ == "__main__":
-	testcases = input()
- 
-	for caseNr in xrange(0, testcases):
-		levels = input()
-		stars = []
-		for i in xrange(0, levels):
-			stars.append(line2intlist(raw_input()))
+    testcases = input()
 
-		#make stars dictionary
-		starDict = {}
-		level = 1
-		for el in stars:
-			starDict[level] = deepcopy(el)
-			level += 1
+    for caseNr in xrange(0, testcases):
+        levels = input()
+        stars = []
+        for i in xrange(0, levels):
+            stars.append(line2intlist(raw_input()))
 
-		if not isSolvable(starDict):
-			print("Case #%i: Too Bad" % (caseNr+1))
-		else:
-			print("Case #%i: %s" % (caseNr+1, king(starDict)))
+        # make stars dictionary
+        starDict = {}
+        level = 1
+        for el in stars:
+            starDict[level] = deepcopy(el)
+            level += 1
+
+        if not isSolvable(starDict):
+            print("Case #%i: Too Bad" % (caseNr + 1))
+        else:
+            print("Case #%i: %s" % (caseNr + 1, king(starDict)))
 ```
 
 <h2>Cruise Controll</h2>
@@ -181,28 +188,34 @@ Only 22 people have a perfect solution for this one.
 
 This is the solution of royf:
 ```python
-
 import itertools
 import math
 import numpy
 
+
 def read_word(f):
     return next(f).strip()
+
 
 def read_int(f, b=10):
     return int(read_word(f), b)
 
+
 def read_letters(f):
     return list(read_word(f))
+
 
 def read_digits(f, b=10):
     return [int(x, b) for x in read_letters(f)]
 
-def read_words(f, d=' '):
+
+def read_words(f, d=" "):
     return read_word(f).split(d)
 
-def read_ints(f, b=10, d=' '):
+
+def read_ints(f, b=10, d=" "):
     return [int(x, b) for x in read_words(f, d)]
+
 
 def read_arr(f, R, reader=read_ints, *args, **kwargs):
     res = []
@@ -210,19 +223,22 @@ def read_arr(f, R, reader=read_ints, *args, **kwargs):
         res.append(reader(f, *args, **kwargs))
     return res
 
+
 def solve(solver, fn, out_fn=None):
-    in_fn = fn + '.in'
+    in_fn = fn + ".in"
     if out_fn is None:
-        out_fn = fn + '.out'
-    with open(in_fn, 'r') as fi:
-        with open(out_fn, 'w') as fo:
+        out_fn = fn + ".out"
+    with open(in_fn, "r") as fi:
+        with open(out_fn, "w") as fo:
             T = read_int(fi)
             for i in range(T):
                 case = read_case(fi)
                 res = solver(case)
                 write_case(fo, i, res)
 
+
 ################################################################################
+
 
 def read_case(f):
     N = read_int(f)
@@ -232,30 +248,33 @@ def read_case(f):
         Cs.append((C, int(S), int(P)))
     return (N, Cs)
 
+
 def write_case(f, i, res):
-    f.write('Case #%d: '%i)
-    f.write('%s'%res)
-    f.write('\n')
+    f.write("Case #%d: " % i)
+    f.write("%s" % res)
+    f.write("\n")
+
 
 ################################################################################
 
-INF = float('inf')
+INF = float("inf")
 
 import heapq
+
 
 def solve_small(case):
     (N, Cs) = case
     col = []
     for i in range(N):
         (c1, s1, p1) = Cs[i]
-        for j in range(i+1, N):
+        for j in range(i + 1, N):
             (c2, s2, p2) = Cs[j]
             if s1 == s2:
-                if abs(p1-p2) < 5:
+                if abs(p1 - p2) < 5:
                     heapq.heappush(col, (-1, True, i, j))
                 continue
-            t1 = (p2-p1+5)/(s1-s2)
-            t2 = (p2-p1-5)/(s1-s2)
+            t1 = (p2 - p1 + 5) / (s1 - s2)
+            t2 = (p2 - p1 - 5) / (s1 - s2)
             if t1 > t2:
                 (t1, t2) = (t2, t1)
             if t2 < 0:
@@ -278,8 +297,8 @@ def solve_small(case):
             act[i].remove(j)
             act[j].remove(i)
         if t == -1:
-            l[i] = Cs[i][0] == 'L'
-            l[j] = Cs[j][0] == 'L'
+            l[i] = Cs[i][0] == "L"
+            l[j] = Cs[j][0] == "L"
             continue
         if c:
             if l[i] is None:
@@ -340,18 +359,19 @@ def solve_small(case):
                     for x in range(N):
                         if isinstance(l[x], tuple) and l[x][0] == k:
                             l[x] = (k_, not b ^ b_ ^ l[x][1])
-        else: #end col
+        else:  # end col
             if not act[i]:
                 l[i] = None
             if not act[j]:
                 l[j] = None
-    return 'Possible'
+    return "Possible"
+
 
 solve_large = solve_small
 
 ##def solve_large(case):
 
-DEBUG = 'i'
+DEBUG = "i"
 
 from run import *
 ```

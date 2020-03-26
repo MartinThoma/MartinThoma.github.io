@@ -350,32 +350,33 @@ def load_data(config={}):
     mlb = MultiLabelBinarizer()
 
     documents = reuters.fileids()
-    test = [d for d in documents if d.startswith('test/')]
-    train = [d for d in documents if d.startswith('training/')]
+    test = [d for d in documents if d.startswith("test/")]
+    train = [d for d in documents if d.startswith("training/")]
 
     docs = {}
-    docs['train'] = [reuters.raw(doc_id) for doc_id in train]
-    docs['test'] = [reuters.raw(doc_id) for doc_id in test]
-    xs = {'train': [], 'test': []}
-    xs['train'] = vectorizer.fit_transform(docs['train']).toarray()
-    xs['test'] = vectorizer.transform(docs['test']).toarray()
-    ys = {'train': [], 'test': []}
-    ys['train'] = mlb.fit_transform([reuters.categories(doc_id)
-                                     for doc_id in train])
-    ys['test'] = mlb.transform([reuters.categories(doc_id)
-                                for doc_id in test])
-    data = {'x_train': xs['train'], 'y_train': ys['train'],
-            'x_test': xs['test'], 'y_test': ys['test'],
-            'labels': globals()["labels"]}
+    docs["train"] = [reuters.raw(doc_id) for doc_id in train]
+    docs["test"] = [reuters.raw(doc_id) for doc_id in test]
+    xs = {"train": [], "test": []}
+    xs["train"] = vectorizer.fit_transform(docs["train"]).toarray()
+    xs["test"] = vectorizer.transform(docs["test"]).toarray()
+    ys = {"train": [], "test": []}
+    ys["train"] = mlb.fit_transform([reuters.categories(doc_id) for doc_id in train])
+    ys["test"] = mlb.transform([reuters.categories(doc_id) for doc_id in test])
+    data = {
+        "x_train": xs["train"],
+        "y_train": ys["train"],
+        "x_test": xs["test"],
+        "y_test": ys["test"],
+        "labels": globals()["labels"],
+    }
     return data
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     config = {}
     data = load_data(config)
-    print("len(data['x_train'])={}".format(len(data['x_train'])))
-    print("data['x_train'].shape={}".format(data['x_train'].shape))
-
+    print("len(data['x_train'])={}".format(len(data["x_train"])))
+    print("data['x_train'].shape={}".format(data["x_train"].shape))
 ```
 
 
@@ -400,11 +401,11 @@ def create_model(nb_classes, input_shape):
     """Create a MLP model."""
     input_ = Input(shape=input_shape)
     x = input_
-    x = Dense(256, activation='relu')(x)
+    x = Dense(256, activation="relu")(x)
     x = Dropout(0.5)(x)
-    x = Dense(256, activation='relu')(x)
+    x = Dense(256, activation="relu")(x)
     x = Dense(nb_classes)(x)
-    x = Activation('sigmoid')(x)
+    x = Activation("sigmoid")(x)
     model = Model(inputs=input_, outputs=x)
     return model
 
@@ -452,7 +453,7 @@ def f1(y_true, y_pred):
 
 def get_optimizer(config):
     """Return an optimizer."""
-    lr = config['optimizer']['initial_lr']
+    lr = config["optimizer"]["initial_lr"]
     optimizer = Adam(lr=lr)  # Using Adam instead of SGD to speed up training
     return optimizer
 
@@ -460,34 +461,43 @@ def get_optimizer(config):
 def main(data_module):
     """Load data, train model and evaluate it."""
     data = data_module.load_data()
-    model = create_model(data_module.n_classes, (data['x_train'].shape[1], ))
+    model = create_model(data_module.n_classes, (data["x_train"].shape[1],))
     print(model.summary())
-    optimizer = get_optimizer({'optimizer': {'initial_lr': 0.001}})
-    model.compile(loss='binary_crossentropy',
-                  optimizer=optimizer,
-                  metrics=[precision, recall, f1, "accuracy"])
+    optimizer = get_optimizer({"optimizer": {"initial_lr": 0.001}})
+    model.compile(
+        loss="binary_crossentropy",
+        optimizer=optimizer,
+        metrics=[precision, recall, f1, "accuracy"],
+    )
     t0 = time.time()
-    model.fit(data['x_train'], data['y_train'],
-              batch_size=32,
-              epochs=20,
-              validation_data=(data['x_test'], data['y_test']),
-              shuffle=True,
-              # callbacks=callbacks
-              )
+    model.fit(
+        data["x_train"],
+        data["y_train"],
+        batch_size=32,
+        epochs=20,
+        validation_data=(data["x_test"], data["y_test"]),
+        shuffle=True,
+        # callbacks=callbacks
+    )
     t1 = time.time()
     res = get_tptnfpfn(model, data)
     t2 = time.time()
-    print(("{clf_name:<30}: {acc:0.2f}% {f1:0.2f}% in {train_time:0.2f}s "
-           "train / {test_time:0.2f}s test")
-          .format(clf_name="MLP",
-                  acc=(get_accuracy(res) * 100),
-                  f1=(get_f_score(res) * 100),
-                  train_time=(t1 - t0),
-                  test_time=(t2 - t1)))
+    print(
+        (
+            "{clf_name:<30}: {acc:0.2f}% {f1:0.2f}% in {train_time:0.2f}s "
+            "train / {test_time:0.2f}s test"
+        ).format(
+            clf_name="MLP",
+            acc=(get_accuracy(res) * 100),
+            f1=(get_f_score(res) * 100),
+            train_time=(t1 - t0),
+            test_time=(t2 - t1),
+        )
+    )
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main(reuters)
-
 ```
 
 

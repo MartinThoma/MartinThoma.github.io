@@ -119,9 +119,7 @@ def main():
     x_test = np.atleast_2d(np.linspace(-5, 5, 1000)).T
 
     # Define the Regression Modell and fit it
-    gp = gaussian_process.GaussianProcess(theta0=1e-2,
-                                          thetaL=1e-4,
-                                          thetaU=1e-3)
+    gp = gaussian_process.GaussianProcess(theta0=1e-2, thetaL=1e-4, thetaU=1e-3)
     gp.fit(x_train, y_train)
 
     # Evaluate the result
@@ -138,7 +136,7 @@ def f(x):
 
     noise = [np.random.normal(loc=0.0, scale=1.0) for _ in range(len(list(x)))]
     noise = np.atleast_2d(noise).T
-    return x**2 + noise
+    return x ** 2 + noise
     # Totally fails for that one:
     # y = []
     # for el in x:
@@ -154,27 +152,31 @@ def plot_graph(x, x_train, y_pred, mse, function_tex):
     # based on the MSE
     sigma = np.sqrt(mse)
     from matplotlib import pyplot as pl
+
     pl.figure()
     y = f(x_train).ravel()
-    pl.plot(x, f(x), 'r:', label=u'$f(x) = %s$' % function_tex)
-    pl.plot(x_train, y, 'r.', markersize=10, label=u'Observations')
-    pl.plot(x, y_pred, 'b-', label=u'Prediction')
-    pl.fill(np.concatenate([x, x[::-1]]),
-            np.concatenate([y_pred - 1.9600 * sigma,
-                           (y_pred + 1.9600 * sigma)[::-1]]),
-            alpha=.5, fc='b', ec='None', label='95% confidence interval')
-    pl.xlabel('$x$')
-    pl.ylabel('$f(x)$')
+    pl.plot(x, f(x), "r:", label="$f(x) = %s$" % function_tex)
+    pl.plot(x_train, y, "r.", markersize=10, label="Observations")
+    pl.plot(x, y_pred, "b-", label="Prediction")
+    pl.fill(
+        np.concatenate([x, x[::-1]]),
+        np.concatenate([y_pred - 1.9600 * sigma, (y_pred + 1.9600 * sigma)[::-1]]),
+        alpha=0.5,
+        fc="b",
+        ec="None",
+        label="95% confidence interval",
+    )
+    pl.xlabel("$x$")
+    pl.ylabel("$f(x)$")
     y_min = min(min(y_pred), min(y)) * 1.1
     y_max = max(max(y_pred), max(y)) * 1.1
     pl.ylim(y_min, y_max)
-    pl.legend(loc='upper left')
+    pl.legend(loc="upper left")
     pl.show()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
-
 ```
 
 

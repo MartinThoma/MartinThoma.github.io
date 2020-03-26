@@ -24,11 +24,11 @@ except:
 
 import csv
 
-with open('eggs.csv', 'rt', newline='') as csvfile:
-    csvreader = csv.reader(csvfile, delimiter=';', quotechar='"')
+with open("eggs.csv", "rt", newline="") as csvfile:
+    csvreader = csv.reader(csvfile, delimiter=";", quotechar='"')
     next(csvreader, None)  # skip the headers
     for row in csvreader:
-        print(', '.join(row))
+        print(", ".join(row))
 ```
 
 
@@ -42,12 +42,11 @@ except:
 
 import csv
 
-with open('eggs.csv', 'w', newline='') as csvfile:
-    csvwriter = csv.writer(csvfile,
-                           delimiter=';',
-                           quotechar='"',
-                           quoting=csv.QUOTE_MINIMAL)
-    csvwriter.writerow(['Spam'] * 5 + ['Baked Beans'])  # Write header
+with open("eggs.csv", "w", newline="") as csvfile:
+    csvwriter = csv.writer(
+        csvfile, delimiter=";", quotechar='"', quoting=csv.QUOTE_MINIMAL
+    )
+    csvwriter.writerow(["Spam"] * 5 + ["Baked Beans"])  # Write header
     for row in container:
         csvwriter.writerow(row)  # Write data
 ```

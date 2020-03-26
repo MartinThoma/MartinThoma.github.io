@@ -39,8 +39,7 @@ def rename(rename, starts=None, ends=None, test=False):
     Only files which end with `ends` and start with `starts` are renamed to
     `rename-[Number]`.
     """
-    files = [f for f in os.listdir('.')
-             if os.path.isfile(f) and not f.endswith(".py")]
+    files = [f for f in os.listdir(".") if os.path.isfile(f) and not f.endswith(".py")]
     # Sort files by last modification / creation
     files.sort(key=lambda x: os.stat(x).st_ctime)  # st_ctime or st_mtime
     files.sort(key=lambda x: get_date_taken(x))
@@ -63,34 +62,41 @@ def rename(rename, starts=None, ends=None, test=False):
 def get_parser():
     """Parser for rename script."""
     from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
-    parser = ArgumentParser(description=__doc__,
-                            formatter_class=ArgumentDefaultsHelpFormatter)
-    parser.add_argument("-n", "--name",
-                        dest="name",
-                        help="new name",
-                        required=True,
-                        metavar="NAME")
-    parser.add_argument("-s", "--starts",
-                        dest="starts",
-                        help="Get files which start with this string",
-                        default=None,
-                        metavar="STARTS")
-    parser.add_argument("-e", "--ends",
-                        dest="ends",
-                        help="Get files which end with this string",
-                        default=None,
-                        metavar="ENDS")
-    parser.add_argument("-t", "--test",
-                        action="store_true",
-                        dest="test",
-                        default=False,
-                        help="don't change anything, just show what would be "
-                             "done")
+
+    parser = ArgumentParser(
+        description=__doc__, formatter_class=ArgumentDefaultsHelpFormatter
+    )
+    parser.add_argument(
+        "-n", "--name", dest="name", help="new name", required=True, metavar="NAME"
+    )
+    parser.add_argument(
+        "-s",
+        "--starts",
+        dest="starts",
+        help="Get files which start with this string",
+        default=None,
+        metavar="STARTS",
+    )
+    parser.add_argument(
+        "-e",
+        "--ends",
+        dest="ends",
+        help="Get files which end with this string",
+        default=None,
+        metavar="ENDS",
+    )
+    parser.add_argument(
+        "-t",
+        "--test",
+        action="store_true",
+        dest="test",
+        default=False,
+        help="don't change anything, just show what would be " "done",
+    )
     return parser
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     args = get_parser().parse_args()
     rename(args.name, starts=args.starts, ends=args.ends, test=args.test)
-
 ```

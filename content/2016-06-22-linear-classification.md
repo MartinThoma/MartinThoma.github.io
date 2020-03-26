@@ -161,7 +161,6 @@ import numpy as np
 
 
 class Perceptron(object):
-
     def __init__(self, eta=0.01, epochs=50):
         """
         Single perceptron unit.
@@ -193,6 +192,7 @@ class Perceptron(object):
     def predict(self, X):
         return np.where(self.net_input(X) >= 0.0, 1, -1)
 
+
 # Generate data
 X, target = make_blobs(random_state=0, centers=2, cluster_std=0.5)
 
@@ -202,7 +202,7 @@ f.fit(X, target)
 
 # Plot decision boundary
 xs = np.linspace(start=min(X[:, 0]), stop=max(X[:, 0]))
-plt.plot(xs, [-(f.w_[0] + f.w_[1] * xi) / f.w_[2] for xi in xs], 'r--')
+plt.plot(xs, [-(f.w_[0] + f.w_[1] * xi) / f.w_[2] for xi in xs], "r--")
 
 # Plot data
 plt.gray()

@@ -91,9 +91,9 @@ I will store splines as a list of maps. Each map is one piece of the spline and 
 Please note that I didn't test the code below. It's likely that there are errors with indices.
 
 ```python
-
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
 
 def niceCubicPolynomial(p):
     tmp = ""
@@ -117,6 +117,7 @@ def niceCubicPolynomial(p):
         tmp += "\t+ %.2f" % p["d"]
     return tmp
 
+
 def getSpline(points):
     """ points should be a list of maps,
         where each map represents a point and has "x" and "y" """
@@ -128,58 +129,64 @@ def getSpline(points):
     n = len(points) - 1
 
     # Set up a system of equations of form Ax=b
-    A = numpy.zeros(shape=(4*n,4*n))
-    b = numpy.zeros(shape=(4*n,1))
+    A = numpy.zeros(shape=(4 * n, 4 * n))
+    b = numpy.zeros(shape=(4 * n, 1))
 
     for i in range(0, n):
         # 2n equations from condtions (S2)
-        A[i][4*i+0] = points[i]["x"]**3
-        A[i][4*i+1] = points[i]["x"]**2
-        A[i][4*i+2] = points[i]["x"]
-        A[i][4*i+3] = 1
+        A[i][4 * i + 0] = points[i]["x"] ** 3
+        A[i][4 * i + 1] = points[i]["x"] ** 2
+        A[i][4 * i + 2] = points[i]["x"]
+        A[i][4 * i + 3] = 1
         b[i] = points[i]["y"]
 
-        A[n+i][4*i+0] = points[i+1]["x"]**3
-        A[n+i][4*i+1] = points[i+1]["x"]**2
-        A[n+i][4*i+2] = points[i+1]["x"]
-        A[n+i][4*i+3] = 1
-        b[n+i] = points[i+1]["y"]
+        A[n + i][4 * i + 0] = points[i + 1]["x"] ** 3
+        A[n + i][4 * i + 1] = points[i + 1]["x"] ** 2
+        A[n + i][4 * i + 2] = points[i + 1]["x"]
+        A[n + i][4 * i + 3] = 1
+        b[n + i] = points[i + 1]["y"]
 
         # 2n-2 equations for (S3):
         if i == 0:
             continue
         # point i is an inner point
-        A[2*n+(i-1)][4*(i-1)+0] = 3*points[i]["x"]**2
-        A[2*n+(i-1)][4*(i-1)+1] = 2*points[i]["x"]
-        A[2*n+(i-1)][4*(i-1)+2] = 1
-        A[2*n+(i-1)][4*(i-1)+0+4] = -3*points[i]["x"]**2
-        A[2*n+(i-1)][4*(i-1)+1+4] = -2*points[i]["x"]
-        A[2*n+(i-1)][4*(i-1)+2+4] = -1
-        b[2*n+(i-1)] = 0
+        A[2 * n + (i - 1)][4 * (i - 1) + 0] = 3 * points[i]["x"] ** 2
+        A[2 * n + (i - 1)][4 * (i - 1) + 1] = 2 * points[i]["x"]
+        A[2 * n + (i - 1)][4 * (i - 1) + 2] = 1
+        A[2 * n + (i - 1)][4 * (i - 1) + 0 + 4] = -3 * points[i]["x"] ** 2
+        A[2 * n + (i - 1)][4 * (i - 1) + 1 + 4] = -2 * points[i]["x"]
+        A[2 * n + (i - 1)][4 * (i - 1) + 2 + 4] = -1
+        b[2 * n + (i - 1)] = 0
 
-        A[3*n+(i-1)][4*(i-1)+0] = 6*points[i]["x"]
-        A[3*n+(i-1)][4*(i-1)+1] = 2
-        A[3*n+(i-1)][4*(i-1)+0+4] = -6*points[i]["x"]
-        A[3*n+(i-1)][4*(i-1)+1+4] = -2
-        b[3*n+(i-1)] = 0
+        A[3 * n + (i - 1)][4 * (i - 1) + 0] = 6 * points[i]["x"]
+        A[3 * n + (i - 1)][4 * (i - 1) + 1] = 2
+        A[3 * n + (i - 1)][4 * (i - 1) + 0 + 4] = -6 * points[i]["x"]
+        A[3 * n + (i - 1)][4 * (i - 1) + 1 + 4] = -2
+        b[3 * n + (i - 1)] = 0
     # Natural spline:
-    A[3*n-1+0][0+0] += 6*points[0]["x"]
-    A[3*n-1+0][0+1] += 2
-    b[3*n-1+0] += 0
+    A[3 * n - 1 + 0][0 + 0] += 6 * points[0]["x"]
+    A[3 * n - 1 + 0][0 + 1] += 2
+    b[3 * n - 1 + 0] += 0
 
-    A[3*n+n-1][4*(n-1)+0] += 6*points[n]["x"]
-    A[3*n+n-1][4*(n-1)+1] += 2
-    b[3*n+n-1] += 0
+    A[3 * n + n - 1][4 * (n - 1) + 0] += 6 * points[n]["x"]
+    A[3 * n + n - 1][4 * (n - 1) + 1] += 2
+    b[3 * n + n - 1] += 0
 
     x = scipy.linalg.solve(A, b)
     spline = []
     for i in range(0, n):
-        spline.append({"u": points[i]["x"], "v": points[i+1]["x"],
-                        "a": float(x[4*i+0]),
-                        "b": float(x[4*i+1]),
-                        "c": float(x[4*i+2]),
-                        "d": float(x[4*i+3])})
+        spline.append(
+            {
+                "u": points[i]["x"],
+                "v": points[i + 1]["x"],
+                "a": float(x[4 * i + 0]),
+                "b": float(x[4 * i + 1]),
+                "c": float(x[4 * i + 2]),
+                "d": float(x[4 * i + 3]),
+            }
+        )
     return spline
+
 
 if __name__ == "__main__":
     points = []
@@ -192,7 +199,6 @@ if __name__ == "__main__":
         tmp = "[%.2f, %.2f]:" % (p["u"], p["v"])
         tmp += niceCubicPolynomial(p)
         print(tmp)
-
 ```
 
 <h2>See also</h2>

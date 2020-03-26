@@ -117,15 +117,13 @@ This one could be solved with Graphs. You calculate one Graph, where every node 
 
 After you've created the graph, you can make something like that:
 ```python
-
 graph = createGraph(floorHeight, ceilingHeight)
 endReached = False
 nodesReached = []
-while (not endReached):
+while not endReached:
     tmp = getMinimumAdjacentNode(graph, nodesReached)
     nodesReached.append(tmp)
 return maxTime(nodesReached)
-
 ```
 
 <h2>Equal Sums</h2>

@@ -53,7 +53,7 @@ time = 0
 duration = 1
 volume = 100
 for digit in str(mp.pi):
-    if digit == '.':
+    if digit == ".":
         continue
     MyMIDI.addNote(track, channel, pitch + int(digit), time, duration, volume)
     time += 1
@@ -61,10 +61,9 @@ for digit in str(mp.pi):
         break
 
 # And write it to disk.
-binfile = open("output.mid", 'wb')
+binfile = open("output.mid", "wb")
 MyMIDI.writeFile(binfile)
 binfile.close()
-
 ```
 
 This will make the first 180 digits of $\pi$ to a MIDI file.

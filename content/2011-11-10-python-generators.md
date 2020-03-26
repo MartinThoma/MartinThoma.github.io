@@ -17,6 +17,7 @@ Imagine you wanted to display n Fibonacci numbers. This could be your normal app
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+
 def fibonacci(n):
     """ Build and return a list of the first 
         n >= 2 Fibonacci numbers """
@@ -27,6 +28,7 @@ def fibonacci(n):
         fibList.append(newFib)
     return fibList
 
+
 for nr, fib in enumerate(fibonacci(100)):
     print("The %i-th Fibonacci-Nr is %i" % (nr, fib))
 ```
@@ -34,8 +36,9 @@ for nr, fib in enumerate(fibonacci(100)):
 The disadvantage of this approach is that you have to keep every element of the sequence in memory. Of course, you could write something like this:
 
 ```python
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
 
 def fib(n):
     """ Calculate the n-th fibonacci number. """
@@ -44,7 +47,8 @@ def fib(n):
     elif n == 1:
         return 1
     else:
-        return fib(n-1) + fib(n-2)
+        return fib(n - 1) + fib(n - 2)
+
 
 for nr in xrange(1, 100):
     print("The %i-th Fibonacci-Nr is %i" % (nr, fib(nr)))
@@ -57,6 +61,7 @@ A generator could look like this:
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+
 def fibGenerator():
     """ A python fibonacci generator """
     a, b = 1, 1
@@ -64,9 +69,10 @@ def fibGenerator():
         yield a
         a, b = b, a + b
 
+
 myGenerator = fibGenerator()
 
-for nr in xrange(1,100):
+for nr in range(1, 100):
     print("The %i-th Fibonacci-Nr is %i" % (nr, myGenerator.next()))
 ```
 

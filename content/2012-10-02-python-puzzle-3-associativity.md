@@ -10,19 +10,19 @@ featured_image: 2011/09/Python-Logo.png
 What is the output of
 
 ```python
-1 in [] in 'a'
+1 in [] in "a"
 ```
 
 and what is the output of
 
 ```python
-(1 in []) in 'a'
+(1 in []) in "a"
 ```
 
 or
 
 ```python
-1 in ([] in 'a')
+1 in ([] in "a")
 ```
 
 

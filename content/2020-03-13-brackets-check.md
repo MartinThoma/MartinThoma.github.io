@@ -64,10 +64,10 @@ def check_bracket_validity(brackets: str):
     return len(stack) == 0
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import doctest
-    doctest.testmod()
 
+    doctest.testmod()
 ```
 
 
@@ -106,8 +106,9 @@ def check_bracket_validity(brackets: str):
     return len(s) == 0
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import doctest
+
     doctest.testmod()
 ```
 

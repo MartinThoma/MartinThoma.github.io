@@ -60,12 +60,17 @@ it is not that easy with Windows systems.
 
 ```python
 import numpy as np
-P = np.matrix([[1., 0., 0., 0., 0., 0.],
-               [1./4, 1./2, 0., 1./4, 0., 0.],
-               [0., 0., 0., 1., 0., 0.],
-               [1./16, 1./4, 1./8, 1./4, 1./4, 1./16],
-               [0., 0., 0., 1./4, 1./2, 1./4],
-               [0., 0., 0., 0., 0., 1.]])
+
+P = np.matrix(
+    [
+        [1.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+        [1.0 / 4, 1.0 / 2, 0.0, 1.0 / 4, 0.0, 0.0],
+        [0.0, 0.0, 0.0, 1.0, 0.0, 0.0],
+        [1.0 / 16, 1.0 / 4, 1.0 / 8, 1.0 / 4, 1.0 / 4, 1.0 / 16],
+        [0.0, 0.0, 0.0, 1.0 / 4, 1.0 / 2, 1.0 / 4],
+        [0.0, 0.0, 0.0, 0.0, 0.0, 1.0],
+    ]
+)
 ```
 
 A common matrix operation is taking the $n$-th power. This is how you do it
@@ -82,7 +87,7 @@ and this is the Python way:
 
 ```python
 n = 5
-Pn = P**n
+Pn = P ** n
 ```
 
 Visualizing data is a very important tool. For example, we want to know the
@@ -121,19 +126,23 @@ The Python equivalent is
 import numpy as np
 from matplotlib import pyplot
 
-P = np.matrix([[1., 0., 0., 0., 0., 0.],
-               [1./4, 1./2, 0., 1./4, 0., 0.],
-               [0., 0., 0., 1., 0., 0.],
-               [1./16, 1./4, 1./8, 1./4, 1./4, 1./16],
-               [0., 0., 0., 1./4, 1./2, 1./4],
-               [0., 0., 0., 0., 0., 1.]])
+P = np.matrix(
+    [
+        [1.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+        [1.0 / 4, 1.0 / 2, 0.0, 1.0 / 4, 0.0, 0.0],
+        [0.0, 0.0, 0.0, 1.0, 0.0, 0.0],
+        [1.0 / 16, 1.0 / 4, 1.0 / 8, 1.0 / 4, 1.0 / 4, 1.0 / 16],
+        [0.0, 0.0, 0.0, 1.0 / 4, 1.0 / 2, 1.0 / 4],
+        [0.0, 0.0, 0.0, 0.0, 0.0, 1.0],
+    ]
+)
 
 v = np.matrix([[0, 0, 1, 0, 0, 0]])
 
 # Get the data
 plot_data = []
 for step in range(20):
-    result = v * P**step
+    result = v * P ** step
     plot_data.append(np.array(result).flatten())
 
 # Convert the data format
@@ -141,15 +150,14 @@ plot_data = np.array(plot_data)
 
 # Create the plot
 pyplot.figure(1)
-pyplot.xlabel('Steps')
-pyplot.ylabel('Probability')
+pyplot.xlabel("Steps")
+pyplot.ylabel("Probability")
 lines = []
-for i, shape in zip(range(6), ['x', 'h', 'H', 's', '8', 'r+']):
-    line, = pyplot.plot(plot_data[:, i], shape, label="S%i" % (i+1))
+for i, shape in zip(range(6), ["x", "h", "H", "s", "8", "r+"]):
+    (line,) = pyplot.plot(plot_data[:, i], shape, label="S%i" % (i + 1))
     lines.append(line)
 pyplot.legend(handles=lines, loc=1)
 pyplot.show()
-
 ```
 
 The result looks like this

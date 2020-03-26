@@ -54,20 +54,21 @@ gcc sqrt-reference.c  -lgmp -lm -O0 -g3 -o reference.out
 
 This is the script I use to get the number of correct digits:
 ```python
-
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+
 def getScore(program, a, n):
     import os
+
     os.system("./reference.out " + str(a) + " > reference.txt")
     os.system("./" + program + " " + str(a) + " " + str(n) + " > result.txt")
 
-    f = open('reference.txt', 'r')
+    f = open("reference.txt", "r")
     reference = f.read()
     f.close()
 
-    f = open('result.txt', 'r')
+    f = open("result.txt", "r")
     result = f.read()
     f.close()
 
@@ -79,27 +80,37 @@ def getScore(program, a, n):
         else:
             break
     if points >= 2:
-        points -= 1 # decimal point
+        points -= 1  # decimal point
     return points
 
 
 if __name__ == "__main__":
     from argparse import ArgumentParser
-     
-    parser = ArgumentParser()
-     
-    # Add more options if you like
-    parser.add_argument("-p", "--program", dest="program",
-                      help="your program", metavar="FILE", required=True)
-    parser.add_argument("-a", metavar='A', type=int, required=True,
-                      help="calculate squre root of a")
-    parser.add_argument("-n", metavar='N', type=int, required=True,
-                      help="maximum n iterations")
-     
-    args = parser.parse_args()
- 
-print("Points for a=%i and n=%i: %i" % (args.a, args.n, getScore(args.program, args.a, args.n)))
 
+    parser = ArgumentParser()
+
+    # Add more options if you like
+    parser.add_argument(
+        "-p",
+        "--program",
+        dest="program",
+        help="your program",
+        metavar="FILE",
+        required=True,
+    )
+    parser.add_argument(
+        "-a", metavar="A", type=int, required=True, help="calculate squre root of a"
+    )
+    parser.add_argument(
+        "-n", metavar="N", type=int, required=True, help="maximum n iterations"
+    )
+
+    args = parser.parse_args()
+
+print(
+    "Points for a=%i and n=%i: %i"
+    % (args.a, args.n, getScore(args.program, args.a, args.n))
+)
 ```
 
 <h2>Newton's method</h2>

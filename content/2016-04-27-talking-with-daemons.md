@@ -64,6 +64,7 @@ class Bartimaeus(Pyro.core.ObjBase):
         self.counter += up
         return "I was called {count} times.".format(count=self.counter)
 
+
 Pyro.core.initServer()
 daemon = Pyro.core.Daemon()
 uri = daemon.connect(Bartimaeus(), "bartid")
@@ -108,9 +109,11 @@ import logging
 import sys
 import Pyro.core
 
-logging.basicConfig(format='%(asctime)s %(levelname)s %(message)s',
-                    level=logging.DEBUG,
-                    stream=sys.stdout)
+logging.basicConfig(
+    format="%(asctime)s %(levelname)s %(message)s",
+    level=logging.DEBUG,
+    stream=sys.stdout,
+)
 
 
 class Bartimaeus(Pyro.core.ObjBase):
@@ -126,6 +129,7 @@ class Bartimaeus(Pyro.core.ObjBase):
         logging.info("new up: %i", up)
         self.counter += up
         return "I was called {count} times.".format(count=self.counter)
+
 
 Pyro.core.initServer()
 daemon = Pyro.core.Daemon()
@@ -150,9 +154,11 @@ import logging
 import sys
 import Pyro.core
 
-logging.basicConfig(format='%(asctime)s %(levelname)s %(message)s',
-                    level=logging.DEBUG,
-                    stream=sys.stdout)
+logging.basicConfig(
+    format="%(asctime)s %(levelname)s %(message)s",
+    level=logging.DEBUG,
+    stream=sys.stdout,
+)
 
 
 def main(up):
@@ -166,20 +172,17 @@ def main(up):
 def get_parser():
     """Get parser object for call_demon.py."""
     from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
-    parser = ArgumentParser(description=__doc__,
-                            formatter_class=ArgumentDefaultsHelpFormatter)
-    parser.add_argument("-n",
-                        dest="up",
-                        default=1,
-                        type=int,
-                        help="count up")
+
+    parser = ArgumentParser(
+        description=__doc__, formatter_class=ArgumentDefaultsHelpFormatter
+    )
+    parser.add_argument("-n", dest="up", default=1, type=int, help="count up")
     return parser
 
 
 if __name__ == "__main__":
     args = get_parser().parse_args()
     main(args.up)
-
 ```
 
 resulting in about 0.004s from sending to receiving.
@@ -224,6 +227,7 @@ class Chat(Pyro.core.ObjBase):
         print("[{sender}] {msg}".format(sender=sender, msg=msg))
         return (self.msgs[last_msg:], len(self.msgs))
 
+
 Pyro.core.initServer()
 daemon = Pyro.core.Daemon()
 uri = daemon.connect(Chat(), "chat")
@@ -246,18 +250,20 @@ import logging
 import sys
 import Pyro.core
 
-logging.basicConfig(format='%(asctime)s %(levelname)s %(message)s',
-                    level=logging.DEBUG,
-                    stream=sys.stdout)
+logging.basicConfig(
+    format="%(asctime)s %(levelname)s %(message)s",
+    level=logging.DEBUG,
+    stream=sys.stdout,
+)
 
 
 def main(server, name):
     """Run the chat."""
     chat_server = Pyro.core.getProxyForURI(server)
     last_msg_id = 0
-    print("*"*80)
+    print("*" * 80)
     print("* Chat started. You are called '{name}'.".format(name=name))
-    print("*"*80)
+    print("*" * 80)
     while True:
         msg = raw_input()
         new_msgs, last_msg_id = chat_server.receive(name, msg, last_msg_id)
@@ -268,22 +274,20 @@ def main(server, name):
 def get_parser():
     """Get parser object for chat_client.py."""
     from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
-    parser = ArgumentParser(description=__doc__,
-                            formatter_class=ArgumentDefaultsHelpFormatter)
-    parser.add_argument("--server",
-                        dest="server",
-                        required=True,
-                        help="starts with PYRO://")
-    parser.add_argument("--name",
-                        required=True,
-                        help="what others see")
+
+    parser = ArgumentParser(
+        description=__doc__, formatter_class=ArgumentDefaultsHelpFormatter
+    )
+    parser.add_argument(
+        "--server", dest="server", required=True, help="starts with PYRO://"
+    )
+    parser.add_argument("--name", required=True, help="what others see")
     return parser
 
 
 if __name__ == "__main__":
     args = get_parser().parse_args()
     main(args.server, args.name)
-
 ```
 
 

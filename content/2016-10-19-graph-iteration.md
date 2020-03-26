@@ -129,6 +129,7 @@ def gen_all_mlps():
         for graph in gen:
             yield graph
 
+
 # Just for fun, generate the first 100 graphs:
 gen = gen_all_mlps()
 for i in range(100):

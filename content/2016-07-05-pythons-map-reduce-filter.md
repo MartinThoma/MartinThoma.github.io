@@ -23,7 +23,7 @@ You might also want to have a look at my old article
 
 ```python
 numbers = list(range(10))
-squares = map(lambda x: x**2, numbers)
+squares = map(lambda x: x ** 2, numbers)
 print(squares)
 ```
 
@@ -47,6 +47,7 @@ def is_prime(element):
             if element % i == 0:
                 return False
     return True
+
 
 myList = [4, 4, 9, 12, 13, 2, 7, 9, 11, 11]
 r = filter(is_prime, myList)
@@ -82,7 +83,7 @@ use loops.
 numbers = list(range(10))
 squares = []
 for x in numbers:
-    squares.append(x**2)
+    squares.append(x ** 2)
 print(squares)
 ```
 
@@ -100,6 +101,7 @@ def is_prime(element):
             if element % i == 0:
                 return False
     return True
+
 
 my_list = [4, 4, 9, 12, 13, 2, 7, 9, 11, 11]
 r = []
@@ -129,7 +131,7 @@ lets see how the code looks like without `map`, `reduce` and `filter`.
 
 ```python
 numbers = list(range(10))
-squares = [x**2 for x in numbers]
+squares = [x ** 2 for x in numbers]
 print(squares)
 ```
 
@@ -149,6 +151,7 @@ def is_prime(element):
             if element % i == 0:
                 return False
     return True
+
 
 my_list = [4, 4, 9, 12, 13, 2, 7, 9, 11, 11]
 r = [x for x in my_list if is_prime(x)]

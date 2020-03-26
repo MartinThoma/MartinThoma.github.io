@@ -44,9 +44,10 @@ I am lazy with calculating, so lets do it with Python:
 
 ```python
 from scipy.stats import binom
+
 confidence = 0.95
 n = 91
-p = 1 - 7./79
+p = 1 - 7.0 / 79
 binom.ppf(confidence, n, p)
 ```
 

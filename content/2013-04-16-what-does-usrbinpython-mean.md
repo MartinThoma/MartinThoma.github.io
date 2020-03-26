@@ -26,12 +26,11 @@ This is a <a href="http://en.wikipedia.org/wiki/Shebang_%28Unix%29">shebang</a>.
 For example, you have a file with this content:
 
 ```python
-
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 import sys
-print(sys.version_info)
 
+print(sys.version_info)
 ```
 
 Now you can execute it via <code>python3 yourFile.py</code>. But alternatively, you can make it executable and simply type <code>./yourFile.py</code>

@@ -14,20 +14,20 @@ A lambda creates an <a href="http://en.wikipedia.org/wiki/Anonymous_function">an
 
 Here are some examples for lambdas:
 ```python
-f = lambda x: x*x
+f = lambda x: x * x
 print(f(7))
 ```
 Output: 49
 
 ```python
-g = lambda x, y: x + y*y + abs(x)
-print(g(1,1), g(1, -1), g(-1, 1), g(10, 6), g(-10, 6))
+g = lambda x, y: x + y * y + abs(x)
+print(g(1, 1), g(1, -1), g(-1, 1), g(10, 6), g(-10, 6))
 ```
 Output: (3, 3, 1, 56, 36)
 
 ```python
 h = lambda myVar, anotherVar: set([myVar, anotherVar])
-print(h(1, 2), h('a', 1), h('a', 'a'), h(1, 1))
+print(h(1, 2), h("a", 1), h("a", "a"), h(1, 1))
 ```
 Output: (set([1, 2]), set(['a', 1]), set(['a']), set([1]))
 
@@ -45,7 +45,7 @@ def f(x):
 
 This is the way you would do it:
 ```python
-f = lambda x: x==0 and 42 or x==1 and 1337 or 0
+f = lambda x: x == 0 and 42 or x == 1 and 1337 or 0
 ```
 
 (Thanks to <a href="http://eikke.com/python-ifelse-in-lambda/">Ikke's blog</a> for the hint!)
@@ -56,7 +56,8 @@ Map is a function with two parameters. The first parameter is another function, 
 Here are some examples:
 ```python
 def square(x):
-    return x*x
+    return x * x
+
 
 l = map(square, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 ```
@@ -64,14 +65,14 @@ l = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 
 This is equivalent to:
 ```python
-l = map(lambda x: x*x, range(1, 11))
+l = map(lambda x: x * x, range(1, 11))
 ```
 
 You can also use more than one list:
 ```python
 a = range(-10, 10)
 b = range(0, 20)
-l = map(lambda x,y: x*y, a, b)
+l = map(lambda x, y: x * y, a, b)
 ```
 Output: [0, -9, -16, -21, -24, -25, -24, -21, -16, -9, 0, 11, 24, 39, 56, 75, 96, 119, 144, 171]
 
@@ -80,13 +81,13 @@ You can quite often reduce problems to an operation on two elements. Reduce take
 
 Example: Imagine you would like to get the sum of a list. Then you need to add two elements of the list, save the result and add another element, save the result, add another element, ...
 ```python
-r = reduce(lambda x,y: x+y, [1, 2,63, 3, 5])
+r = reduce(lambda x, y: x + y, [1, 2, 63, 3, 5])
 ```
 r = 74
 
 You can calculate the factorial n! like this:
 ```python
-fac = lambda n: reduce(lambda x, y: x*y, range(1, n+1))
+fac = lambda n: reduce(lambda x, y: x * y, range(1, n + 1))
 print(fac(2))
 print(fac(3))
 print(fac(10))
@@ -109,6 +110,7 @@ def is_prime(element):
                 return False
     return True
 
+
 my_list = [4, 4, 9, 12, 13, 2, 7, 9, 11, 11]
 r = filter(is_prime, my_list)
 ```
@@ -118,9 +120,8 @@ r = [13, 2, 7, 11, 11]
 Task: What is the sum of digits of $2^n, n \in \mathbb{N}$?
 ```python
 sumOfDigits = lambda exp: reduce(
-                                  lambda x,y: x+y,
-                                  map(lambda x: int(x), str(2**exp))
-                                )
+    lambda x, y: x + y, map(lambda x: int(x), str(2 ** exp))
+)
 print(sumOfDigits(2))
 print(sumOfDigits(3))
 print(sumOfDigits(4))
@@ -134,12 +135,12 @@ Output: 4
 Task: Encode and decode a string in the following way: Split Words by spaces. Every plaintext character gets a two-digit numerical representation in base 16. A is 01, B is 02 and Z is 1A.
 ```python
 # Thanks to lebenf: http://stackoverflow.com/a/3226719/562769
-chunks = lambda l, n: [l[x: x+n] for x in range(0, len(l), n)]
+chunks = lambda l, n: [l[x : x + n] for x in range(0, len(l), n)]
 
-decodeWord= lambda s: "".join(map(lambda x: chr(int(x,16)+64),chunks(s,2)))
-decode    = lambda s: " ".join(map(decodeWord, s.split(" ")))
-encodeWord= lambda p: "".join(map(lambda x: "%.2X" % (ord(x)-64), p))
-encode    = lambda p: " ".join(map(encodeWord, p.split(" ")))
+decodeWord = lambda s: "".join(map(lambda x: chr(int(x, 16) + 64), chunks(s, 2)))
+decode = lambda s: " ".join(map(decodeWord, s.split(" ")))
+encodeWord = lambda p: "".join(map(lambda x: "%.2X" % (ord(x) - 64), p))
+encode = lambda p: " ".join(map(encodeWord, p.split(" ")))
 
 cipher = encode("HELLO WORLD")
 print("Cipher Text: %s" % cipher)

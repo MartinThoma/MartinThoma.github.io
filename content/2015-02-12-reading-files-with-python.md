@@ -41,7 +41,7 @@ for details how I measured it.
 ### Completely
 
 ```python
-with open('filename.txt') as f:
+with open("filename.txt") as f:
     content = f.read()
 ```
 
@@ -49,7 +49,7 @@ is all you need to read a text file completely in a Python string variable
 `content`. You could, for example, split the whole string to a list of lines:
 
 ```python
-lines = content.split('\n')
+lines = content.split("\n")
 ```
 
 
@@ -58,7 +58,7 @@ You can read a text file line by line, but keep in mind that this will still
 have the endline character `\n` in each `line`!
 
 ```python
-with open('filename.txt') as f:
+with open("filename.txt") as f:
     for line in f:
         print(line)
 ```
@@ -71,8 +71,7 @@ appending (binary or text data). If you don't specify it, the default value
 is reading. So for writing you have to specify it:
 
 ```python
-
-with open('filename.txt', 'w') as f:
+with open("filename.txt", "w") as f:
     f.write("Hello world!")
 ```
 
@@ -91,7 +90,7 @@ files:
 ```python
 from __future__ import print_function
 
-with open('file.txt', 'w') as f:
+with open("file.txt", "w") as f:
     print("Hello World!", file=f)
 ```
 

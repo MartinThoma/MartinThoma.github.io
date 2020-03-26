@@ -871,20 +871,20 @@ and allows to tell if two faces are the same or different (face verification).
 The api could be something like:
 
 ```python
-
 import faces
 
-face_list = faces.get_face_locations('some_photo.jpg')
+face_list = faces.get_face_locations("some_photo.jpg")
 if len(face_list) >= 2:
-    if faces.is_same_person(face_list[0]['representation'],
-                            face_list[1]['representation']):
-        print(("The person found at %s and the person found "
-               "at %s are the same") %
-               (face_list[0]['location'],
-                face_list[1]['location']))
-        faces.save_overlay(input='some_photo.jpg',
-                           output='some_photo-overlay.jpg',
-                           face_list)
+    if faces.is_same_person(
+        face_list[0]["representation"], face_list[1]["representation"]
+    ):
+        print(
+            ("The person found at %s and the person found " "at %s are the same")
+            % (face_list[0]["location"], face_list[1]["location"])
+        )
+        faces.save_overlay(
+            input="some_photo.jpg", output="some_photo-overlay.jpg", face_list
+        )
 ```
 
 

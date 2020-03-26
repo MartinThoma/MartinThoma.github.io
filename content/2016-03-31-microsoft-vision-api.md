@@ -23,23 +23,25 @@ import urllib
 import json
 
 headers = {
-    'Content-type': 'application/json',
+    "Content-type": "application/json",
 }
 
-params = urllib.urlencode({
-    # Specify your subscription key
-    'subscription-key': 'yourhexadecimalone11111111111111',
-    # Specify values for optional parameters, as needed
-    'visualFeatures': 'All',
-})
+params = urllib.urlencode(
+    {
+        # Specify your subscription key
+        "subscription-key": "yourhexadecimalone11111111111111",
+        # Specify values for optional parameters, as needed
+        "visualFeatures": "All",
+    }
+)
 
 try:
     image_url = "http://www.martin-thoma.de/bilder/Martin_Thoma_web_thumb.jpg"
 
-    conn = httplib.HTTPSConnection('api.projectoxford.ai')
-    conn.request("POST", "/vision/v1/analyses?%s" % params,
-                 "{'Url': '%s'}" % image_url,
-                 headers)
+    conn = httplib.HTTPSConnection("api.projectoxford.ai")
+    conn.request(
+        "POST", "/vision/v1/analyses?%s" % params, "{'Url': '%s'}" % image_url, headers
+    )
     response = conn.getresponse()
     data = response.read()
     data = json.loads(data)
@@ -47,7 +49,6 @@ try:
     conn.close()
 except Exception as e:
     print("[Errno {0}] {1}".format(e.errno, e.strerror))
-
 ```
 
 which gives

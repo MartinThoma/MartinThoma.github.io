@@ -69,28 +69,30 @@ This is the reason why solving such a system of equations is sometimes called "f
 
 <h2>Python straightforward algorithm</h2>
 ```python
-
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
 
 def solveLowerUnitriangularMatrix(L, b):
     x = [0] * len(b)
     for step in range(0, len(b)):
         x[step] = b[step]
         for row in range(0, len(b)):
-            b[row] = b[row] - L[row][step]*x[step]
+            b[row] = b[row] - L[row][step] * x[step]
     return x
 
+
 if __name__ == "__main__":
-    L = [[1, 0, 0, 0, 0],
-         [2, 1, 0, 0, 0],
-         [7, 1, 1, 0, 0],
-         [8, 2, 8, 1, 0],
-         [1, 8, 2, 8, 1]]
-    b =  [3, 1, 4, 1, 5]
+    L = [
+        [1, 0, 0, 0, 0],
+        [2, 1, 0, 0, 0],
+        [7, 1, 1, 0, 0],
+        [8, 2, 8, 1, 0],
+        [1, 8, 2, 8, 1],
+    ]
+    b = [3, 1, 4, 1, 5]
 
     print(solveLowerUnitriangularMatrix(L, b))
-
 ```
 
 Pretty easy, isn't it? But can we even do better?
@@ -101,26 +103,28 @@ Yes, we can!
 Take a look at what's happening when row = 0 in line 9. We make a step that is not necessary. Also, we can take the space of b to store x!
 
 ```python
-
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+
 def solveLowerUnitriangularMatrix(L, b):
     for step in range(0, len(b)):
-        for row in range(step+1, len(b)):
-            b[row] -= L[row][step]*b[step]
+        for row in range(step + 1, len(b)):
+            b[row] -= L[row][step] * b[step]
+
 
 if __name__ == "__main__":
-    L = [[1, 0, 0, 0, 0],
-         [2, 1, 0, 0, 0],
-         [7, 1, 1, 0, 0],
-         [8, 2, 8, 1, 0],
-         [1, 8, 2, 8, 1]]
-    b =  [3, 1, 4, 1, 5]
+    L = [
+        [1, 0, 0, 0, 0],
+        [2, 1, 0, 0, 0],
+        [7, 1, 1, 0, 0],
+        [8, 2, 8, 1, 0],
+        [1, 8, 2, 8, 1],
+    ]
+    b = [3, 1, 4, 1, 5]
 
     solveLowerUnitriangularMatrix(L, b)
     print(b)
-
 ```
 
 Now it looks super clean, doesn't it ☺
@@ -156,35 +160,39 @@ In the last algorithm I've presented you can see that we actually don't check th
 This means, the following two function calls do give the same b:
 
 ```python
-
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+
 def solveLowerUnitriangularMatrix(L, b):
     for step in range(0, len(b)):
-        for row in range(step+1, len(b)):
-            b[row] -= L[row][step]*b[step]
+        for row in range(step + 1, len(b)):
+            b[row] -= L[row][step] * b[step]
     return L
 
+
 if __name__ == "__main__":
-    L = [[1, 0, 0, 0, 0],
-         [2, 1, 0, 0, 0],
-         [7, 1, 1, 0, 0],
-         [8, 2, 8, 1, 0],
-         [1, 8, 2, 8, 1]]
-    b =  [3, 1, 4, 1, 5]
+    L = [
+        [1, 0, 0, 0, 0],
+        [2, 1, 0, 0, 0],
+        [7, 1, 1, 0, 0],
+        [8, 2, 8, 1, 0],
+        [1, 8, 2, 8, 1],
+    ]
+    b = [3, 1, 4, 1, 5]
     solveLowerUnitriangularMatrix(L, b)
     print(b)
 
-    L = [[10, 9, 8, 7, 6],
-         [2, 5, 4, 3, 2],
-         [7, 1, 1, 0, 1],
-         [8, 2, 8, 2, 3],
-         [1, 8, 2, 8, 4]]
-    b =  [3, 1, 4, 1, 5]
+    L = [
+        [10, 9, 8, 7, 6],
+        [2, 5, 4, 3, 2],
+        [7, 1, 1, 0, 1],
+        [8, 2, 8, 2, 3],
+        [1, 8, 2, 8, 4],
+    ]
+    b = [3, 1, 4, 1, 5]
     solveLowerUnitriangularMatrix(L, b)
     print(b)
-
 ```
 
 So, theoretically, we could store some other information on and above of the diagonal. We also don't change L. Keep this in mind, this might be important in later articles.

@@ -21,6 +21,7 @@ single space (by [Nasir](http://stackoverflow.com/a/1546245/562769)):
 
 ```python
 import re
+
 text = "The   fox jumped   over    the log."
 replaced = re.sub("\s\s+", " ", text)
 ```
@@ -44,12 +45,16 @@ pattern.sub(" ", text)
 ```python
 import re
 
+
 def remove_quotes(text):
     """Remove 'test'."""
+
     def unquote(m):
-        return u' %s ' % str(m.group(1))
+        return " %s " % str(m.group(1))
+
     pattern = re.compile(" '([^ ]+?.*[^ ]+?)' ")
     return pattern.sub(unquote, text)
+
 
 text = "The quoted 'text piece' will get unquoted."
 remove_quotes(text)

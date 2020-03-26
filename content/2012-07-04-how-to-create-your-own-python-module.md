@@ -33,8 +33,9 @@ When you try to import a module, Python looks at these directories in the given 
 You get your PYTHONPATH and your default search path like this:
 ```python
 import os
-os.environ['PATH'].split(os.pathsep)
-os.environ['PYTHONPATH'].split(os.pathsep)
+
+os.environ["PATH"].split(os.pathsep)
+os.environ["PYTHONPATH"].split(os.pathsep)
 ```
 
 <h2>Example</h2>
@@ -45,8 +46,10 @@ I've just searched for a Python module for primes. It seems as if no such module
 This module offers some functions related to primes.
 """
 
+
 def miller_rabin(n):
     import random
+
     """ Source: http://en.literateprograms.org/
                     Miller-Rabin_primality_test_(Python)
         """
@@ -65,15 +68,17 @@ def miller_rabin(n):
             return False
     return True
 
+
 def miller_rabin_pass(a, s, d, n):
     a_to_power = pow(a, d, n)
     if a_to_power == 1:
         return True
-    for i in xrange(s-1):
+    for i in xrange(s - 1):
         if a_to_power == n - 1:
             return True
         a_to_power = (a_to_power * a_to_power) % n
     return a_to_power == n - 1
+
 
 def getPrimeFactors(n):
     """Return the prime factors of n.
@@ -88,6 +93,7 @@ def getPrimeFactors(n):
     [2, 2, 3, 3]
     """
     import math
+
     if not n >= 0:
         raise ValueError("n must be >= 0")
     if math.floor(n) != n:
@@ -97,7 +103,7 @@ def getPrimeFactors(n):
     else:
         n = long(n)
 
-    fact  = []
+    fact = []
 
     if n == 0:
         return fact
@@ -114,16 +120,18 @@ def getPrimeFactors(n):
         return fact
 
     check = 3
-    rootn = n**0.5
+    rootn = n ** 0.5
     while n != 1:
         while n % check == 0:
             fact.append(check)
             n /= check
-        check+=2
+        check += 2
     return fact
+
 
 if __name__ == "__main__":
     import doctest
+
     doctest.testmod()
 ```
 

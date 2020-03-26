@@ -34,27 +34,27 @@ import numpy as np
 from matplotlib.lines import Line2D
 
 # Get colors / markers / functions
-colors = ('b', 'g', 'r', 'c', 'm', 'y', 'k')
+colors = ("b", "g", "r", "c", "m", "y", "k")
 markers = []
 for m in Line2D.markers:
     try:
-        if len(m) == 1 and m != ' ':
+        if len(m) == 1 and m != " ":
             markers.append(m)
     except TypeError:
         pass
 
-f1 = lambda xs: [x**2 for x in xs]
-f2 = lambda xs: [x**3 for x in xs]
+f1 = lambda xs: [x ** 2 for x in xs]
+f2 = lambda xs: [x ** 3 for x in xs]
 f3 = lambda xs: np.sin(xs)
 f4 = lambda xs: np.log(xs)
-f5 = lambda xs: [x**0.5 for x in xs]
+f5 = lambda xs: [x ** 0.5 for x in xs]
 f6 = lambda xs: [x for x in xs]
 f7 = lambda xs: [x + 1 for x in xs]
 functions = [f1, f2, f3, f4, f5, f6, f7]
 
 # Define the plot
 plt.ylim(-1.0, 1.0)
-plt.title(u"Example for matplotlib markers", fontweight='bold', fontsize=20)
+plt.title("Example for matplotlib markers", fontweight="bold", fontsize=20)
 plt.xlabel(r"""x-axis label""", fontsize=20)
 plt.ylabel(r"""y-axis label""", fontsize=20)
 

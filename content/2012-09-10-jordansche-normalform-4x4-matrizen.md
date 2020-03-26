@@ -241,51 +241,51 @@ Hier habe ich mal für Leute, die kein Python haben, als Kommentar das Ergebnis 
 ```python
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
- 
+
 import numpy
 from numpy import linalg
+
 numpy.set_printoptions(precision=2, suppress=True, linewidth=120)
- 
-C  = [[1,0,-1,-1],[-1,0,0,0],[0,0,2,1],[1,1,0,1]]
+
+C = [[1, 0, -1, -1], [-1, 0, 0, 0], [0, 0, 2, 1], [1, 1, 0, 1]]
 C = numpy.matrix(C)
-b1 = [1,0,0,0]
-b2 = [0,-1,0,1]
-b3 = [-1,1,1,-1]
-b4 = [1,-1,0,0]
+b1 = [1, 0, 0, 0]
+b2 = [0, -1, 0, 1]
+b3 = [-1, 1, 1, -1]
+b4 = [1, -1, 0, 0]
 
-S = numpy.matrix([b4,b1,b2,b3]).transpose() # [[ 1  0  0  0]
-print("4123")                               #  [ 0  1  0  0]
-print(linalg.inv(S) * C * S)                #  [ 0  1  1  0]
-                                            #  [ 0  0  1  1]]
+S = numpy.matrix([b4, b1, b2, b3]).transpose()  # [[ 1  0  0  0]
+print("4123")  #                                   [ 0  1  0  0]
+print(linalg.inv(S) * C * S)  #                    [ 0  1  1  0]
+#                                                  [ 0  0  1  1]]
 
-S = numpy.matrix([b4,b1,b3,b2]).transpose() #[[ 1  0  0  0]
-print("4132")                               # [ 0  1  0  0]
-print(linalg.inv(S) * C * S)                # [ 0  0  1  1]
-                                            # [ 0  1  0  1]]
+S = numpy.matrix([b4, b1, b3, b2]).transpose()  # [[ 1  0  0  0]
+print("4132")  #                                   [ 0  1  0  0]
+print(linalg.inv(S) * C * S)  #                    [ 0  0  1  1]
+#                                                  [ 0  1  0  1]]
 
-S = numpy.matrix([b4,b2,b1,b3]).transpose() # [[ 1  0  0  0]
-print("4213")                               #  [ 0  1  1  0]
-print(linalg.inv(S) * C * S)                #  [ 0  0  1  0]
-                                            #  [ 0  1  0  1]]
+S = numpy.matrix([b4, b2, b1, b3]).transpose()  # [[ 1  0  0  0]
+print("4213")  #                                   [ 0  1  1  0]
+print(linalg.inv(S) * C * S)  #  [ 0  0  1  0]
+#  [ 0  1  0  1]]
 
-S = numpy.matrix([b4,b2,b3,b1]).transpose() # [[ 1  0  0  0]
-print("4231")                               #  [ 0  1  0  1]
-print(linalg.inv(S) * C * S)                #  [ 0  1  1  0]
-                                            #  [ 0  0  0  1]]
+S = numpy.matrix([b4, b2, b3, b1]).transpose()  # [[ 1  0  0  0]
+print("4231")  #  [ 0  1  0  1]
+print(linalg.inv(S) * C * S)  #  [ 0  1  1  0]
+#  [ 0  0  0  1]]
 
-S = numpy.matrix([b4,b3,b1,b2]).transpose() # [[ 1  0  0  0]
-print("4312")                               #  [ 0  1  0  1]
-print(linalg.inv(S) * C * S)                #  [ 0  0  1  0]
-                                            #  [ 0  0  1  1]]
+S = numpy.matrix([b4, b3, b1, b2]).transpose()  # [[ 1  0  0  0]
+print("4312")  #  [ 0  1  0  1]
+print(linalg.inv(S) * C * S)  #  [ 0  0  1  0]
+#  [ 0  0  1  1]]
 
-S = numpy.matrix([b4,b3,b2,b1]).transpose() # [[ 1  0  0  0]
-print("4321")                               #  [ 0  1  1  0]
-print(linalg.inv(S) * C * S)                #  [ 0  0  1  1]
-                                            #  [ 0  0  0  1]]
+S = numpy.matrix([b4, b3, b2, b1]).transpose()  # [[ 1  0  0  0]
+print("4321")  #  [ 0  1  1  0]
+print(linalg.inv(S) * C * S)  #  [ 0  0  1  1]
+#  [ 0  0  0  1]]
 
-S = numpy.matrix([b3,b2,b1,b4]).transpose() # [[ 1  1  0  0]
-print("3214")                               #  [ 0  1  1  0]
-print(linalg.inv(S) * C * S)                #  [ 0  0  1  0]
-                                            #  [ 0  0  0  1]]
-
+S = numpy.matrix([b3, b2, b1, b4]).transpose()  # [[ 1  1  0  0]
+print("3214")  #  [ 0  1  1  0]
+print(linalg.inv(S) * C * S)  #  [ 0  0  1  0]
+#  [ 0  0  0  1]]
 ```

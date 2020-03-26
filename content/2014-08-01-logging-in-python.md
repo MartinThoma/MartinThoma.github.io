@@ -19,12 +19,14 @@ Python has a nice logging module. You can use it like this:
 import logging
 import sys
 
-logging.basicConfig(format='%(asctime)s %(levelname)s %(message)s',
-                    level=logging.DEBUG,
-                    stream=sys.stdout)
-logging.debug('This message should go to the log file')
-logging.info('So should this')
-logging.warning('And this, too')
+logging.basicConfig(
+    format="%(asctime)s %(levelname)s %(message)s",
+    level=logging.DEBUG,
+    stream=sys.stdout,
+)
+logging.debug("This message should go to the log file")
+logging.info("So should this")
+logging.warning("And this, too")
 ```
 
 ## File output
@@ -34,12 +36,14 @@ logging.warning('And this, too')
 
 import logging
 
-logging.basicConfig(filename='logging.log',
-                    format='%(asctime)s %(levelname)s %(message)s',
-                    level=logging.DEBUG)
-logging.debug('This message should go to the log file')
-logging.info('So should this')
-logging.warning('And this, too')
+logging.basicConfig(
+    filename="logging.log",
+    format="%(asctime)s %(levelname)s %(message)s",
+    level=logging.DEBUG,
+)
+logging.debug("This message should go to the log file")
+logging.info("So should this")
+logging.warning("And this, too")
 ```
 
 ## See also

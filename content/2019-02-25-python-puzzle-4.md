@@ -12,13 +12,14 @@ What is the output of
 
 ```python
 def foo(bar=None, **kwargs):
-    print('\tbar={}'.format(bar))
-    print('\tkwargs={}'.format(kwargs))
+    print("\tbar={}".format(bar))
+    print("\tkwargs={}".format(kwargs))
 
-print('Test 1:')
+
+print("Test 1:")
 foo(bar=12, holla=13)
 
-print('Test 2:')
+print("Test 2:")
 foo(holla=13, bar=12)
 ```
 

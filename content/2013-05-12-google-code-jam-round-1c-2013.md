@@ -32,15 +32,15 @@ More information is on <a href="http://www.go-hero.net/jam/13/round/3">go-hero.n
 <h2>Consonants</h2>
 A solution from <a href="http://www.go-hero.net/jam/13/name/nip">nip</a>:
 ```python
-
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+
 def solve(s, n):
-    vowels = {'a', 'e', 'i', 'o', 'u'}
+    vowels = {"a", "e", "i", "o", "u"}
     nvalue = 0
-    count = 0 # how many consecutive consonants
-    pos = -1 # position of the last substring of n consonants
+    count = 0  # how many consecutive consonants
+    pos = -1  # position of the last substring of n consonants
     for i, c in enumerate(s):
         if c in vowels:
             count = 0
@@ -51,14 +51,14 @@ def solve(s, n):
         if pos >= 0:
             nvalue += pos
     return nvalue
- 
+
+
 if __name__ == "__main__":
     testcases = input()
-      
-    for caseNr in xrange(1, testcases+1):
+
+    for caseNr in xrange(1, testcases + 1):
         name, n = raw_input().split(" ")
         print("Case #%i: %s" % (caseNr, solve(name, int(n))))
-
 ```
 
 <h2>Pogo</h2>
@@ -73,24 +73,25 @@ You can calculate this with a simple loop (see code below).
 After you know the maximum number of steps, you can apply a greedy solution: Start from $(x|y)$ and always go into the direction that is farer away from the origin.
 
 ```python
-
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
 
 def calculateSteps(x, y):
     s = 0
     dist = abs(x) + abs(y)
-    while (s**2 + s)/2 < dist or ((s**2 + s)/2)%2 != dist%2:
+    while (s ** 2 + s) / 2 < dist or ((s ** 2 + s) / 2) % 2 != dist % 2:
         s += 1
     return s
- 
-def solve(x,y):
+
+
+def solve(x, y):
     """ starting at (0|0) and going i steps, 
-        how can you reach (x|y)? """   
+        how can you reach (x|y)? """
     s = calculateSteps(x, y)
- 
+
     solution = ""
-    for i in range(s, 1-1,-1):
+    for i in range(s, 1 - 1, -1):
         if abs(x) > abs(y):
             if x > 0:
                 solution += "E"
@@ -107,87 +108,102 @@ def solve(x,y):
                 y += i
     return solution[::-1]
 
+
 if __name__ == "__main__":
     testcases = input()
- 
-    for caseNr in xrange(1, testcases+1):
-        x,y = raw_input().split(" ")
-        x,y = int(x),int(y)
-        print("Case #%i: %s" % (caseNr, solve(x,y)))
 
+    for caseNr in xrange(1, testcases + 1):
+        x, y = raw_input().split(" ")
+        x, y = int(x), int(y)
+        print("Case #%i: %s" % (caseNr, solve(x, y)))
 ```
 
 <h2>The Great Wall</h2>
 The following solution is not applicable for the large input set, but it works fine for the small one:
 
 ```python
-
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 from collections import defaultdict
 
+
 def prepareTribes(tribes):
     tribeStack = []
     for tribe in tribes:
         for attackNumber in range(0, tribe["ni"]):
-            tribeStack.append({
-                "day" :tribe["di"]+attackNumber*tribe["delta_di"],
-                "west":2*(tribe["wi"]+attackNumber*tribe["delta_pi"]),
-                "east":2*(tribe["ei"]+attackNumber*tribe["delta_pi"]),
-                "height":tribe["si"]+attackNumber*tribe["delta_si"]
-            })
+            tribeStack.append(
+                {
+                    "day": tribe["di"] + attackNumber * tribe["delta_di"],
+                    "west": 2 * (tribe["wi"] + attackNumber * tribe["delta_pi"]),
+                    "east": 2 * (tribe["ei"] + attackNumber * tribe["delta_pi"]),
+                    "height": tribe["si"] + attackNumber * tribe["delta_si"],
+                }
+            )
     return sorted(tribeStack, key=lambda tribe: tribe["day"])
+
 
 def runAttack(wall, tribe):
     increase = []
     for i in xrange(tribe["west"], tribe["east"] + 1):
-        if wall[i] < tribe["height"]: # wall-ee
-            increase.append({"wallPos" : i, "height" : tribe["height"]})
+        if wall[i] < tribe["height"]:  # wall-ee
+            increase.append({"wallPos": i, "height": tribe["height"]})
 
     return increase
+
 
 def solve(tribes):
     wall = defaultdict(int)
     tribeStack = prepareTribes(tribes)
-    #for tribe in tribeStack:
+    # for tribe in tribeStack:
     #    print tribe["day"], "[" + str(tribe["west"]) + "," + str(tribe["east"])+"]", tribe["height"]
     successes = 0
     increase = []
     for i, tribe in enumerate(tribeStack):
         increaseTmp = runAttack(wall, tribe)
-        #print wall
-        #print tribe
+        # print wall
+        # print tribe
         if len(increaseTmp) > 0:
             successes += 1
 
         increase += increaseTmp
 
-        if i+1==len(tribeStack) or tribeStack[i+1]["day"] > tribe["day"]:
+        if i + 1 == len(tribeStack) or tribeStack[i + 1]["day"] > tribe["day"]:
             for el in increase:
                 if wall[el["wallPos"]] < el["height"]:
                     wall[el["wallPos"]] = el["height"]
     return successes
 
+
 if __name__ == "__main__":
     testcases = input()
-      
-    for caseNr in xrange(1, testcases+1):
-        N = input() # Number of tribes attacking the wall
+
+    for caseNr in xrange(1, testcases + 1):
+        N = input()  # Number of tribes attacking the wall
         tribes = []
         for tribe in range(N):
             di, ni, wi, ei, si, delta_di, delta_pi, delta_si = raw_input().split(" ")
-            tribes.append({"di":int(di), # the day of the tribe's first attack
-            "ni": int(ni), # the number of attacks from this tribe
-            "wi": int(wi), # the westmost 
-            "ei": int(ei), # and eastmost points respectively of the Wall attacked on the first attack
-            "si": int(si), # the strength of the first attack
-            "delta_di": int(delta_di), # the number of days between subsequent attacks by this tribe
-            "delta_pi": int(delta_pi), # the distance this tribe travels to the east between subsequent attacks (if this is negative, the tribe travels to the west)
-            "delta_si": int(delta_si) # the change in strength between subsequent attacks
-            })
+            tribes.append(
+                {
+                    "di": int(di),  # the day of the tribe's first attack
+                    "ni": int(ni),  # the number of attacks from this tribe
+                    "wi": int(wi),  # the westmost
+                    "ei": int(
+                        ei
+                    ),  # and eastmost points respectively of the Wall attacked on the first attack
+                    "si": int(si),  # the strength of the first attack
+                    "delta_di": int(
+                        delta_di
+                    ),  # the number of days between subsequent attacks by this tribe
+                    "delta_pi": int(
+                        delta_pi
+                    ),  # the distance this tribe travels to the east between subsequent attacks (if this is negative, the tribe travels to the west)
+                    "delta_si": int(
+                        delta_si
+                    ),  # the change in strength between subsequent attacks
+                }
+            )
         print("Case #%i: %s" % (caseNr, solve(tribes)))
-
 ```
 
 By the way, nobody has solved the large input set of this one with Python! But here is a <a href="http://www.go-hero.net/jam/13/name/eatmore">Java solution</a>.

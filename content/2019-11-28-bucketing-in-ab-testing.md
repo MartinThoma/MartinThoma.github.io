@@ -122,7 +122,10 @@ from typing import Dict
 
 import mmh3
 
-def assign_user_to_variant(user_id: str, test_name: str, distribution: Dict[str, float]) -> str:
+
+def assign_user_to_variant(
+    user_id: str, test_name: str, distribution: Dict[str, float]
+) -> str:
     """
     Assign the user_id to a variant.
 

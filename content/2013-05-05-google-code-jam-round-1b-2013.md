@@ -35,40 +35,44 @@ More information are on <a href="http://www.go-hero.net/jam/13/round/2">go-hero.
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+
 def howBigDoIget(A, motes):
     while len(motes) > 0 and A > min(motes):
         A += min(motes)
         motes.remove(min(motes))
     return A
 
+
 def stepsNeededForNext(A, motes):
     m = min(motes)
     steps = 0
     if m >= 1 and A == 1:
-        return 10**12
+        return 10 ** 12
     while A <= m:
-        A += (A-1)
+        A += A - 1
         steps += 1
     return steps
+
 
 def solve(A, motes):
     steps = 0
     A = howBigDoIget(A, motes)
     while len(motes) > 0 and A <= max(motes):
-        if (stepsNeededForNext(A, motes) >= len(motes)):
+        if stepsNeededForNext(A, motes) >= len(motes):
             steps += len(motes)
             return steps
         else:
-            A += (A-1)
+            A += A - 1
         A = howBigDoIget(A, motes)
         steps += 1
     return steps
- 
+
+
 if __name__ == "__main__":
     testcases = input()
-    for caseNr in xrange(1, testcases+1):
-        A, N = map(int,raw_input().split(" "))
-        motes = sorted(map(int,raw_input().split(" ")))
+    for caseNr in xrange(1, testcases + 1):
+        A, N = map(int, raw_input().split(" "))
+        motes = sorted(map(int, raw_input().split(" ")))
         copyed = motes[:]
         solution = solve(A, motes)
         if solution > N:
@@ -111,8 +115,11 @@ The rest is simple math. You have $rest$ diamonds left after you've build the ba
 import gmpy
 
 """ Calculate the binomial coefficient """
+
+
 def binomial(n, k):
-    return gmpy.comb(n,k)
+    return gmpy.comb(n, k)
+
 
 def solve(N, x, y):
     """
@@ -121,46 +128,47 @@ def solve(N, x, y):
     @return: possiblity, that a diamond will be at coordinate (x,y)
     """
     if x == 0:
-        n = y+1
-        if N >= (n*n+n)/2:
+        n = y + 1
+        if N >= (n * n + n) / 2:
             return 1.0
         else:
             return 0.0
 
     # From this point, x != 0 is True
 
-    xTmp = x + y # let target slide down
+    xTmp = x + y  # let target slide down
 
-    n = xTmp-1
-    baseDiamands = (n**2+n)/2
+    n = xTmp - 1
+    baseDiamands = (n ** 2 + n) / 2
 
     # are there enough diamonds left after you've build the basis?
     rest = N - baseDiamands
     if rest <= 0:
         return 0.0
 
-    # are there enough diamonds left so that you can guarantee that 
-    # you will  fill up the next bigger pyramid at least to the 
+    # are there enough diamonds left so that you can guarantee that
+    # you will  fill up the next bigger pyramid at least to the
     # target position?
-    biggerBaseDiamonds = baseDiamands+n+2+y
+    biggerBaseDiamonds = baseDiamands + n + 2 + y
     if N >= biggerBaseDiamonds:
         return 1.0
 
     # some math:
     # bernoulli
     prob = 0.0
-    hitsNeeded = y+1
+    hitsNeeded = y + 1
 
-    for k in range(hitsNeeded, rest+1):
-        prob += binomial(rest,k)
-    
-    return prob/2**rest
- 
+    for k in range(hitsNeeded, rest + 1):
+        prob += binomial(rest, k)
+
+    return prob / 2 ** rest
+
+
 if __name__ == "__main__":
     testcases = input()
-      
-    for caseNr in xrange(1, testcases+1):
-        N, x, y = map(int,raw_input().split(" "))
+
+    for caseNr in xrange(1, testcases + 1):
+        N, x, y = map(int, raw_input().split(" "))
         print("Case #%i: %.9Lf" % (caseNr, solve(N, abs(x), y)))
 ```
 

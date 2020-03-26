@@ -29,8 +29,7 @@ def main():
     numbers_a = numpy.random.uniform(size=samples)
     numbers_b = numpy.random.uniform(size=samples)
     numbers_c = numpy.random.uniform(size=samples)
-    numbers_max = [max(a, b, c)
-                   for a, b, c in zip(numbers_a, numbers_b, numbers_c)]
+    numbers_max = [max(a, b, c) for a, b, c in zip(numbers_a, numbers_b, numbers_c)]
 
     # Plot data
     plt.hist(numbers_max)
@@ -40,9 +39,8 @@ def main():
     plt.show()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
-
 ```
 
 and here is the plot for $n = 2$
@@ -88,7 +86,7 @@ def main(samples, n):
         for numbers_list in sublist:
             for i, el in enumerate(numbers_list):
                 max_list[i] = max(max_list[i], el)
-        plot_i = plt.hist(max_list, histtype='step', bins=200)
+        plot_i = plt.hist(max_list, histtype="step", bins=200)
         plots.append(plot_i)
     plt.title("Histogram")
     plt.xlabel("value")
@@ -98,22 +96,23 @@ def main(samples, n):
 
 def get_parser():
     from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
-    parser = ArgumentParser(description=__doc__,
-                            formatter_class=ArgumentDefaultsHelpFormatter)
-    parser.add_argument("-n",
-                        dest="n",
-                        default=3,
-                        type=int,
-                        help="n")
-    parser.add_argument("-s", "--samples",
-                        dest="samples",
-                        default=1000,
-                        type=int,
-                        help="number of samples per Y_n")
+
+    parser = ArgumentParser(
+        description=__doc__, formatter_class=ArgumentDefaultsHelpFormatter
+    )
+    parser.add_argument("-n", dest="n", default=3, type=int, help="n")
+    parser.add_argument(
+        "-s",
+        "--samples",
+        dest="samples",
+        default=1000,
+        type=int,
+        help="number of samples per Y_n",
+    )
     return parser
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     args = get_parser().parse_args()
     main(args.samples, args.n)
 ```

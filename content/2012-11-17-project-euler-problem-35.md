@@ -41,20 +41,19 @@ First, this is the way the sieve of Eratosthenes works:
 
 For example, this implementation is not good:
 ```python
-
 def getPrimesBelowN(n=1000000):
     """ Sieve of Eratosthenes """
     from math import ceil
+
     roundUp = lambda n, prime: int(ceil(float(n) / prime))
 
     primes = range(2, n)
     for currentPrime in primes:
         for multiplicant in xrange(2, roundUp(n, currentPrime)):
             noPrime = multiplicant * currentPrime
-            if noPrime in primes: 
+            if noPrime in primes:
                 primes.remove(noPrime)
     return primes
-
 ```
 
 Whats bad with this code? 
@@ -62,10 +61,10 @@ Well, just think about what it does: For every <code>noPrime</code> Python has t
 
 How could this get improved? Here is a better solution:
 ```python
-
 def getPrimesBelowN(n=1000000):
     """ Sieve of Eratosthenes """
     from math import ceil
+
     roundUp = lambda n, prime: int(ceil(float(n) / prime))
 
     primes = [True] * n
@@ -80,7 +79,6 @@ def getPrimesBelowN(n=1000000):
         for multiplicant in xrange(2, roundUp(n, currentPrime)):
             primes[multiplicant * currentPrime] = False
     return primeList
-
 ```
 
 This solution does not need to search for <code>noPrime</code>, it simply jumps there in the list.
@@ -93,7 +91,7 @@ Rotation the digits of a number is the same as cutting the number into two piece
 def isCircularPrime(primes, number):
     number = str(number)
     for i in xrange(0, len(number)):
-        rotatedNumber = number[i:len(number)] + number[0:i]
+        rotatedNumber = number[i : len(number)] + number[0:i]
         if int(rotatedNumber) not in primes:
             return False
     return True
@@ -102,15 +100,13 @@ def isCircularPrime(primes, number):
 Here is the same problem as above, in the sieving algorithm: Searching through the list takes much more time than jumping to a position in the list. So this one is better:
 
 ```python
-
 def isCircularPrime(primes, number):
     number = str(number)
     for i in xrange(0, len(number)):
-        rotatedNumber = number[i:len(number)] + number[0:i]
+        rotatedNumber = number[i : len(number)] + number[0:i]
         if not primes[int(rotatedNumber)]:
             return False
     return True
-
 ```
 
 <h3>Some more speedups</h2>
@@ -121,16 +117,17 @@ So you can skip those digits
 
 <h3>The final snippet</h3>
 ```python
-
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
- 
+
+
 def getPrimesBelowN(n=1000000):
     """Get all primes below n with the sieve of Eratosthenes. 
     @return: a list 0..n with boolean values that indicate if 
              i in 0..n is a prime.
     """
     from math import ceil
+
     primes = [True] * n
     primes[0] = False
     primes[1] = False
@@ -143,10 +140,11 @@ def getPrimesBelowN(n=1000000):
         for multiplicant in xrange(2, roundUp(n, currentPrime)):
             primes[multiplicant * currentPrime] = False
     return primes
- 
+
+
 def isCircularPrime(primes, number):
     """Check if number is a circular prime.
-     
+
     Keyword arguments:
     primes -- a list from 0..n with boolean values that indicate if 
               i in 0..n is a prime
@@ -154,30 +152,35 @@ def isCircularPrime(primes, number):
     """
     number = str(number)
     for i in xrange(0, len(number)):
-        rotatedNumber = number[i:len(number)] + number[0:i]
+        rotatedNumber = number[i : len(number)] + number[0:i]
         if not primes[int(rotatedNumber)]:
             return False
     return True
- 
+
+
 if __name__ == "__main__":
     print("Start sieving.")
     primes = getPrimesBelowN(1000000)
     print("End sieving.")
     numberOfPrimes = 2
-    print(2)    # I print them now, because I want to skip all primes
-    print(5)    # that contain one of those digits: 0,2,4,5,6,8
+    print(2)  # I print them now, because I want to skip all primes
+    print(5)  # that contain one of those digits: 0,2,4,5,6,8
     for prime, isPrime in enumerate(primes):
-        if (not isPrime) or ("2" in str(prime)) or \
-           ("4" in str(prime)) or ("6" in str(prime)) or \
-           ("8" in str(prime)) or ("0" in str(prime)) or \
-           ("5" in str(prime)):
+        if (
+            (not isPrime)
+            or ("2" in str(prime))
+            or ("4" in str(prime))
+            or ("6" in str(prime))
+            or ("8" in str(prime))
+            or ("0" in str(prime))
+            or ("5" in str(prime))
+        ):
             continue
         if isCircularPrime(primes, prime):
             print(prime)
             numberOfPrimes += 1
- 
-    print("Number of circular primes: %i" % numberOfPrimes)
 
+    print("Number of circular primes: %i" % numberOfPrimes)
 ```
 
 It takes about 1.096 seconds (in comparison: having the version of <code>isCircularPrime</code> that searches through the list of primes took over 5 minutes!)

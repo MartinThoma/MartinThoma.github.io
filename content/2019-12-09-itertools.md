@@ -23,7 +23,7 @@ the product of the length of all iterables.
 ```python
 import itertools
 
-list(itertools.product([1, 2, 3], ['A', 'B']))
+list(itertools.product([1, 2, 3], ["A", "B"]))
 ```
 
 results in

@@ -45,9 +45,7 @@ Create the following `test.py` file:
 # -*- coding: UTF-8 -*-
 
 print("Content-Type: text/html\n")
-print("Hello World! The answer to live, the universe and everything is %i." %
-      (2*21))
-
+print("Hello World! The answer to live, the universe and everything is %i." % (2 * 21))
 ```
 
 Now call `http://localhost/test.py`.

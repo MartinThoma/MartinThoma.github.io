@@ -83,9 +83,11 @@ I will use <a href="http://docs.python.org/2/library/fractions.html">fractions</
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+
 def solveUpperTriangularMatrix(R, b):
     # Convert R and b to Fraction
     from fractions import Fraction
+
     fR, fb = [], []
     for x, line in enumerate(R):
         fLine = []
@@ -97,7 +99,7 @@ def solveUpperTriangularMatrix(R, b):
 
     # The solution will be here
     x = [Fraction(0)] * len(b)
-    for step in range(len(b)-1, 0-1, -1):
+    for step in range(len(b) - 1, 0 - 1, -1):
         if fR[step][step] == 0:
             if fb[step] != 0:
                 return "No solution"
@@ -106,17 +108,20 @@ def solveUpperTriangularMatrix(R, b):
         else:
             x[step] = fb[step] / fR[step][step]
 
-        for row in range(step-1, 0-1, -1):
-            fb[row] -= fR[row][step]*x[step]
+        for row in range(step - 1, 0 - 1, -1):
+            fb[row] -= fR[row][step] * x[step]
     return x
 
+
 if __name__ == "__main__":
-    R = [[2, 7, 1, 8, 2],
-         [0, 8, 1, 8, 2],
-         [0, 0, 8, 4, 5],
-         [0, 0, 0, 9, 0],
-         [0, 0, 0, 0, 4]]
-    b =  [3, 1, 4, 1, 5]
+    R = [
+        [2, 7, 1, 8, 2],
+        [0, 8, 1, 8, 2],
+        [0, 0, 8, 4, 5],
+        [0, 0, 0, 9, 0],
+        [0, 0, 0, 0, 4],
+    ]
+    b = [3, 1, 4, 1, 5]
     x = solveUpperTriangularMatrix(R, b)
     print(x)
 
@@ -133,9 +138,11 @@ Just like for <a href="../solving-equations-of-unipotent-lower-triangular-matric
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+
 def solveUpperTriangularMatrix(R, b):
     # Convert R and b to Fraction
     from fractions import Fraction
+
     for x, line in enumerate(R):
         for y, el in enumerate(line):
             R[x][y] = Fraction(el)
@@ -143,7 +150,7 @@ def solveUpperTriangularMatrix(R, b):
         b[x] = Fraction(el)
 
     # The solution will be here
-    for step in range(len(b)-1, 0-1, -1):
+    for step in range(len(b) - 1, 0 - 1, -1):
         if R[step][step] == 0:
             if b[step] != 0:
                 return "No solution"
@@ -152,16 +159,19 @@ def solveUpperTriangularMatrix(R, b):
         else:
             b[step] = b[step] / R[step][step]
 
-        for row in range(step-1, 0-1, -1):
-            b[row] -= R[row][step]*b[step]
+        for row in range(step - 1, 0 - 1, -1):
+            b[row] -= R[row][step] * b[step]
+
 
 if __name__ == "__main__":
-    R = [[2, 7, 1, 8, 2],
-         [0, 8, 1, 8, 2],
-         [0, 0, 8, 4, 5],
-         [0, 0, 0, 9, 0],
-         [0, 0, 0, 0, 4]]
-    b =  [3, 1, 4, 1, 5]
+    R = [
+        [2, 7, 1, 8, 2],
+        [0, 8, 1, 8, 2],
+        [0, 0, 8, 4, 5],
+        [0, 0, 0, 9, 0],
+        [0, 0, 0, 0, 4],
+    ]
+    b = [3, 1, 4, 1, 5]
     solveUpperTriangularMatrix(R, b)
     print(b)
 ```

@@ -13,6 +13,7 @@ module PATH with
 
 ```python
 import sys
+
 print(sys.path)
 ```
 
@@ -20,6 +21,7 @@ and apped something to it with
 
 ```python
 import sys
+
 sys.path.append("/some/path/to/a/module")
 ```
 

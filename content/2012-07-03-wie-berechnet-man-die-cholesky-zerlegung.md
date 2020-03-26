@@ -24,6 +24,7 @@ Eine Python-Implementierung sieht so aus:
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+
 def getSD(A):
     """ @param A: eine quadratische, reele, positiv definite Matrix
         @return: Die Matrizen S und D, f&uuml;r die gilt:
@@ -32,14 +33,14 @@ def getSD(A):
     n = len(A)
     S = [[0 for j in range(n)] for i in range(n)]
     D = [[0 for j in range(n)] for i in range(n)]
- 
+
     for i in range(n):
         S[i][i] = 1.0
-     
+
     for j in range(n):
-        _summe  = sum(S[j][k]**2 * D[k][k] for k in range(j))
+        _summe = sum(S[j][k] ** 2 * D[k][k] for k in range(j))
         D[j][j] = A[j][j] - _summe
-        _summe  = sum(S[i][k]*S[j][k]*D[k][k] for k in range(j))
+        _summe = sum(S[i][k] * S[j][k] * D[k][k] for k in range(j))
         S[i][j] = 1.0 / D[j][j] * (A[i][j] - _summe)
     return S, D
 ```
@@ -48,7 +49,8 @@ def getSD(A):
 Ich habe mich mal nach Bibliotheken umgesehen, die die Cholesky-Zerlegung direkt beherrschen. NumPy kann es nat&uuml;rlich:
 ```python
 from numpy import linalg
-print(linalg.cholesky([[5,1],[1,1]]))
+
+print(linalg.cholesky([[5, 1], [1, 1]]))
 ```
 Gibt aus:
 ```bash
@@ -82,7 +84,6 @@ Die Cholesky-Zerlegung kann man folgenderma&szlig;en berechnen:
 In Python sieht das dann so aus:
 
 ```python
-
 def getL(A):
     n = len(A)
     L = [[0 for i in range(n)] for j in range(n)]
@@ -90,13 +91,10 @@ def getL(A):
     print("")
 
     for k in range(n):
-        L[k][k] = (A[k][k] - sum([L[k][i]**2 for i in range(k)]))**0.5
-        for i in range(k+1, n):
-            L[i][k] = (A[i][k] 
-                        - sum([L[i][j]*L[k][j] for j in range(k)])) \
-                      / L[k][k]
+        L[k][k] = (A[k][k] - sum([L[k][i] ** 2 for i in range(k)])) ** 0.5
+        for i in range(k + 1, n):
+            L[i][k] = (A[i][k] - sum([L[i][j] * L[k][j] for j in range(k)])) / L[k][k]
     return L
-
 ```
 
 <h2>Siehe auch</h2>

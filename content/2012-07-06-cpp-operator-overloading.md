@@ -266,7 +266,7 @@ int main(){
 <h2>Adding new operators</h2>
 I like Python very much. Python allows me to get the power of a number like this:
 ```python
-a = 2**10 # 1024
+a = 2 ** 10  # 1024
 ```
 
 Lets try it for C++:

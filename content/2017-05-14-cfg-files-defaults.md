@@ -79,7 +79,6 @@ def load_config_defaults(cfg_filename, cfg_default_filename):
 
 
 print(load_config_defaults("user_cfg.json", "default_cfg.json"))
-
 ```
 
 

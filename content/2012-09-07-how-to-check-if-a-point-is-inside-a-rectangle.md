@@ -56,34 +56,34 @@ def isPinRectangle(r, P):
         P: A point
     """
 
-    areaRectangle = 0.5*abs(
+    areaRectangle = 0.5 * abs(
         #                 y_A      y_C      x_D      x_B
-                        (r[0][1]-r[2][1])*(r[3][0]-r[1][0])
+        (r[0][1] - r[2][1]) * (r[3][0] - r[1][0])
         #                  y_B     y_D       x_A     x_C
-                      + (r[1][1]-r[3][1])*(r[0][0]-r[2][0])
-                    )
+        + (r[1][1] - r[3][1]) * (r[0][0] - r[2][0])
+    )
 
-    ABP = 0.5*(
-             r[0][0]*(r[1][1]-r[2][1])
-            +r[1][0]*(r[2][1]-r[0][1])
-            +r[2][0]*(r[0][1]-r[1][1])
-          )
-    BCP = 0.5*(
-             r[1][0]*(r[2][1]-r[3][1])
-            +r[2][0]*(r[3][1]-r[1][1])
-            +r[3][0]*(r[1][1]-r[2][1])
-          )
-    CDP = 0.5*(
-             r[2][0]*(r[3][1]-r[0][1])
-            +r[3][0]*(r[0][1]-r[2][1])
-            +r[0][0]*(r[2][1]-r[3][1])
-          )
-    DAP = 0.5*(
-             r[3][0]*(r[0][1]-r[1][1])
-            +r[0][0]*(r[1][1]-r[3][1])
-            +r[1][0]*(r[3][1]-r[0][1])
-          )
-    return areaRectangle == (ABP+BCP+CDP+DAP)
+    ABP = 0.5 * (
+        r[0][0] * (r[1][1] - r[2][1])
+        + r[1][0] * (r[2][1] - r[0][1])
+        + r[2][0] * (r[0][1] - r[1][1])
+    )
+    BCP = 0.5 * (
+        r[1][0] * (r[2][1] - r[3][1])
+        + r[2][0] * (r[3][1] - r[1][1])
+        + r[3][0] * (r[1][1] - r[2][1])
+    )
+    CDP = 0.5 * (
+        r[2][0] * (r[3][1] - r[0][1])
+        + r[3][0] * (r[0][1] - r[2][1])
+        + r[0][0] * (r[2][1] - r[3][1])
+    )
+    DAP = 0.5 * (
+        r[3][0] * (r[0][1] - r[1][1])
+        + r[0][0] * (r[1][1] - r[3][1])
+        + r[1][0] * (r[3][1] - r[0][1])
+    )
+    return areaRectangle == (ABP + BCP + CDP + DAP)
 ```
 
 ## Triangle
@@ -92,6 +92,7 @@ The same idea can easily be adopted to triangles:
 ```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
 
 class Point:
     """Represents a two dimensional point."""
@@ -108,6 +109,7 @@ class Point:
 
     def __str__(self):
         return repr(self)
+
 
 class Triangle:
     """Represents a triangle in R^2."""
@@ -130,20 +132,22 @@ class Triangle:
            100.0
         """
         a, b, c = self.a, self.b, self.c
-        return abs(a.x*(b.y-c.y)+b.x*(c.y-a.y)+c.x*(a.y-b.y))/2
+        return abs(a.x * (b.y - c.y) + b.x * (c.y - a.y) + c.x * (a.y - b.y)) / 2
 
     def isInside(self, p):
         """Check if p is inside this triangle."""
         assert isinstance(p, Point)
         currentArea = self.getArea()
-        pab = Triangle(p,self.a, self.b)
-        pac = Triangle(p,self.a, self.c)
-        pbc = Triangle(p,self.b, self.c)
-        newArea = pab.getArea()+pac.getArea()+pbc.getArea()
-        return (abs(currentArea - newArea) < Triangle.epsilon)
+        pab = Triangle(p, self.a, self.b)
+        pac = Triangle(p, self.a, self.c)
+        pbc = Triangle(p, self.b, self.c)
+        newArea = pab.getArea() + pac.getArea() + pbc.getArea()
+        return abs(currentArea - newArea) < Triangle.epsilon
+
 
 if __name__ == "__main__":
     import doctest
+
     doctest.testmod()
 ```
 

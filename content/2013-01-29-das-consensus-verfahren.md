@@ -38,129 +38,156 @@ Sobald man keine neuen Zeilen / Bl&ouml;cke mehr bilden kann, ist man fertig. Di
 Ich finde Algorithmen werden am eindeutigsten durch Implementierungen beschrieben. Hier ist meine f&uuml;r das Consensus-Verfahren:
 
 ```python
-
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+
 def initDatastructure(terme):
-	dictList = []
-	for nr, term in enumerate(terme):
-		dictList.append({'number': nr+1, 'gebildet':'', 
-					     'term':term, 'gestrichen': False})
-	return dictList
+    dictList = []
+    for nr, term in enumerate(terme):
+        dictList.append(
+            {"number": nr + 1, "gebildet": "", "term": term, "gestrichen": False}
+        )
+    return dictList
 
-''' check if item1 and item2 differ in at least one digit '''
+
+""" check if item1 and item2 differ in at least one digit """
+
+
 def hasComplementaryDigit(item1, item2):
-	term1 = item1['term']
-	term2 = item2['term']
-	for i in range(len(term1)):
-		if (term1[i] == '1' and term2[i] == '0') or \
-		   (term1[i] == '0' and term2[i] == '1'):
-			return True
-	return False
+    term1 = item1["term"]
+    term2 = item2["term"]
+    for i in range(len(term1)):
+        if (term1[i] == "1" and term2[i] == "0") or (
+            term1[i] == "0" and term2[i] == "1"
+        ):
+            return True
+    return False
 
-''' check if item1 and item2 have a consensus term '''
+
+""" check if item1 and item2 have a consensus term """
+
+
 def hasConsensus(item1, item2):
-	term1 = item1['term']
-	term2 = item2['term']
-	differences = 0
-	for i in range(len(term1)):
-		if (term1[i] != term2[i]) and (term1[i] != '-') and (term2[i] != '-'):
-			differences += 1
-	return differences <= 1
+    term1 = item1["term"]
+    term2 = item2["term"]
+    differences = 0
+    for i in range(len(term1)):
+        if (term1[i] != term2[i]) and (term1[i] != "-") and (term2[i] != "-"):
+            differences += 1
+    return differences <= 1
 
-''' create the consensus term of two items '''
+
+""" create the consensus term of two items """
+
+
 def getConsensus(item1, item2):
-	term1 = item1['term']
-	term2 = item2['term']
-	consensus = ''
-	for i in range(len(term1)):
-		if term1[i] == term2[i]:
-			consensus += term1[i]
-		elif (term1[i] != term2[i]) and (term1[i] != '-') and (term2[i] != '-'):
-			consensus += '-'
-		elif (term1[i] != term2[i]) and (term1[i] != '-'):
-			consensus += term1[i]
-		else:
-			consensus += term2[i]
+    term1 = item1["term"]
+    term2 = item2["term"]
+    consensus = ""
+    for i in range(len(term1)):
+        if term1[i] == term2[i]:
+            consensus += term1[i]
+        elif (term1[i] != term2[i]) and (term1[i] != "-") and (term2[i] != "-"):
+            consensus += "-"
+        elif (term1[i] != term2[i]) and (term1[i] != "-"):
+            consensus += term1[i]
+        else:
+            consensus += term2[i]
 
-	return consensus
+    return consensus
+
 
 def isIncludedIn(bigger, smaller):
-	for i in range(len(bigger)):
-		if bigger[i] != '-' and bigger[i] != smaller[i]:
-			return False
-	return True
+    for i in range(len(bigger)):
+        if bigger[i] != "-" and bigger[i] != smaller[i]:
+            return False
+    return True
+
 
 def consensusIsIncludedIn(dictList, consensus):
-	for element in dictList:
-		if element['gestrichen'] == False and \
-		   isIncludedIn(element['term'], consensus):
-			return element['number']
-	return False
+    for element in dictList:
+        if element["gestrichen"] == False and isIncludedIn(element["term"], consensus):
+            return element["number"]
+    return False
+
 
 def printList(dictList, horizontalLinesAfter):
-	print('Nr\t Gebildet aus \t W&uuml;rfel\t Gestrichen wegen')
-	for line, element in enumerate(dictList):
-		if element['gestrichen'] == False:
-			element['gestrichen'] = ''
-		if element['number'] == False:
-			element['number'] = ''
-		print('%s\t\t%s\t%s\t%s' % (element['number'], element['gebildet'], 
-				element['term'], element['gestrichen']))
-		if line in horizontalLinesAfter:
-			print('-'*50)
+    print("Nr\t Gebildet aus \t W&uuml;rfel\t Gestrichen wegen")
+    for line, element in enumerate(dictList):
+        if element["gestrichen"] == False:
+            element["gestrichen"] = ""
+        if element["number"] == False:
+            element["number"] = ""
+        print(
+            "%s\t\t%s\t%s\t%s"
+            % (
+                element["number"],
+                element["gebildet"],
+                element["term"],
+                element["gestrichen"],
+            )
+        )
+        if line in horizontalLinesAfter:
+            print("-" * 50)
+
 
 def consensus(terme):
-	dictList = initDatastructure(terme)
-	horizontalLinesAfter = [len(dictList)-1]
-	pointer2 = 1
-	nextNumber = len(dictList) + 1
+    dictList = initDatastructure(terme)
+    horizontalLinesAfter = [len(dictList) - 1]
+    pointer2 = 1
+    nextNumber = len(dictList) + 1
 
-	while pointer2 != (len(dictList)-1):
-		if pointer2 > horizontalLinesAfter[-1]:
-			horizontalLinesAfter.append(len(dictList)-1)
+    while pointer2 != (len(dictList) - 1):
+        if pointer2 > horizontalLinesAfter[-1]:
+            horizontalLinesAfter.append(len(dictList) - 1)
 
-		if dictList[pointer2]['gestrichen'] != False:
-			pointer2 += 1
-			continue
+        if dictList[pointer2]["gestrichen"] != False:
+            pointer2 += 1
+            continue
 
-		for pointer1 in range(pointer2 - 1, -1,-1):
-			if dictList[pointer1]['gestrichen'] != False:
-				continue
-			elif not hasComplementaryDigit(dictList[pointer1], dictList[pointer2]):
-				continue
-			elif not hasConsensus(dictList[pointer1], dictList[pointer2]):
-				continue
+        for pointer1 in range(pointer2 - 1, -1, -1):
+            if dictList[pointer1]["gestrichen"] != False:
+                continue
+            elif not hasComplementaryDigit(dictList[pointer1], dictList[pointer2]):
+                continue
+            elif not hasConsensus(dictList[pointer1], dictList[pointer2]):
+                continue
 
-			consensus = getConsensus(dictList[pointer1], dictList[pointer2])
+            consensus = getConsensus(dictList[pointer1], dictList[pointer2])
 
-			# Wird der neue Konsensus-Term eventuell bereits &uuml;berdeckt?
-			gestrichen = consensusIsIncludedIn(dictList, consensus)
-			if gestrichen == False:
-				nr = nextNumber
-				nextNumber += 1
-			else:
-				nr = False
+            # Wird der neue Konsensus-Term eventuell bereits &uuml;berdeckt?
+            gestrichen = consensusIsIncludedIn(dictList, consensus)
+            if gestrichen == False:
+                nr = nextNumber
+                nextNumber += 1
+            else:
+                nr = False
 
-			# Kann dank dem neuen Consensus-Term etwas gestrichen werden?
-			if gestrichen == False:
-				for element in dictList:
-					if element['gestrichen'] == False and \
-				  	   isIncludedIn(consensus, element['term']):
-						element['gestrichen'] = nr
+            # Kann dank dem neuen Consensus-Term etwas gestrichen werden?
+            if gestrichen == False:
+                for element in dictList:
+                    if element["gestrichen"] == False and isIncludedIn(
+                        consensus, element["term"]
+                    ):
+                        element["gestrichen"] = nr
 
-			dictList.append({'number' : nr, 
-							 'gebildet': str(dictList[pointer2]['number']) + 
-							           ', ' + str(dictList[pointer1]['number']),
-							 'term': consensus,
-							 'gestrichen' : gestrichen})
-		pointer2 += 1
-	printList(dictList, horizontalLinesAfter)
+            dictList.append(
+                {
+                    "number": nr,
+                    "gebildet": str(dictList[pointer2]["number"])
+                    + ", "
+                    + str(dictList[pointer1]["number"]),
+                    "term": consensus,
+                    "gestrichen": gestrichen,
+                }
+            )
+        pointer2 += 1
+    printList(dictList, horizontalLinesAfter)
 
-consensus(['-0-00', '--00-', '-1-00', '010-1', '1-11-', '110-1'])
-#consensus(['-00-', '-011', '0100'])
 
+consensus(["-0-00", "--00-", "-1-00", "010-1", "1-11-", "110-1"])
+# consensus(['-00-', '-011', '0100'])
 ```
 
 Ausgabe:

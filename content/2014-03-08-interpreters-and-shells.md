@@ -97,6 +97,7 @@ However, customizing the prompt is fairly easy:
 
 ```python
 import sys
+
 sys.ps1 = "-->"
 ```
 
