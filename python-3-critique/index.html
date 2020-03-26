@@ -181,12 +181,12 @@ which introduce the core concepts of a language. I think Python should have
 <p>Every function / object / method should have examples. So the
 <a href="https://docs.python.org/3/library/functions.html?highlight=len#len"><code>len</code></a>
 function should additionally have this:</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">some_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">23</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">some_list</span><span class="p">)</span>
-<span class="mi">4</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">other_list</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">456</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">other_list</span><span class="p">)</span>
-<span class="mi">2</span>
+<div class="highlight"><pre><span></span>&gt;&gt;&gt; some_list = [23, 12, -3, 0]
+&gt;&gt;&gt; len(some_list)
+4
+&gt;&gt;&gt; other_list = [[12, 32, 456], [1, 2, 3]]
+&gt;&gt;&gt; len(other_list)
+2
 </pre></div>
 <p>I think the PHP documentation is awesome. Take a look at
 <a href="http://php.net/manual/en/function.strlen.php"><code>strlen</code></a>. It is immediately
@@ -203,13 +203,13 @@ be nice.</p>
 That should not be possible. So there is an issue with namespaces.</p>
 <h2 id="joining-lists">Joining lists</h2>
 <p>Joining a list of strings works like this in Python 3:</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">el</span><span class="p">)</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
-<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">AttributeError</span><span class="p">:</span> <span class="s1">'list'</span> <span class="nb">object</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s1">'join'</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="s1">'0 1 2 3 4'</span>
+<div class="highlight"><pre><span></span>&gt;&gt;&gt; a = [str(el) for el in range(5)]
+&gt;&gt;&gt; a.join(" ")
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+AttributeError: 'list' object has no attribute 'join'
+&gt;&gt;&gt; " ".join(a)
+'0 1 2 3 4'
 </pre></div>
 <p>However, I think it is much more logical to apply a <code>join</code> method of a list
 with a string argument than a <code>join</code> method of a string with a list argument.

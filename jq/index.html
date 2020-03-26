@@ -115,7 +115,7 @@ executing small ad-hoc tasks. In this sense, it is similar to <code>sed</code>, 
 <code>grep</code>. It is very good for the first step in exploratory data analysis:
 Getting an idea what you actually have.</p>
 <h2 id="installation">Installation</h2>
-<div class="highlight"><pre><span></span># Ubuntu
+<div class="highlight"><pre><span></span><span class="c1"># Ubuntu</span>
 $ sudo apt-get install jq
 </pre></div>
 <p>Check if it worked:</p>
@@ -124,55 +124,55 @@ jq-1.5-1-a5b5cbe
 </pre></div>
 <h2 id="usage-example">Usage Example</h2>
 <p>There are <a href="https://github.com/jdorfman/awesome-json-datasets#movies">tons of JSON dataset examples</a>. Let's use <a href="https://raw.githubusercontent.com/prust/wikipedia-movie-data/master/movies.json">American movies scraped from Wikipedia</a>.</p>
-<div class="highlight"><pre><span></span># Download the data
+<div class="highlight"><pre><span></span><span class="c1"># Download the data</span>
 $ wget https://raw.githubusercontent.com/prust/wikipedia-movie-data/master/movies.json
 
-# What do we have here?
+<span class="c1"># What do we have here?</span>
 $ wc movies.json
-      0  144969 3386161 movies.json
+      <span class="m">0</span>  <span class="m">144969</span> <span class="m">3386161</span> movies.json
 
-# Everything is in one super long line. Is it a dict or a list?
-$ head -c 80 movies.json
-[{"title":"After Dark in Central Park","year":1900,"cast":[],"genres":[]},{"titl%
+<span class="c1"># Everything is in one super long line. Is it a dict or a list?</span>
+$ head -c <span class="m">80</span> movies.json
+<span class="o">[{</span><span class="s2">"title"</span>:<span class="s2">"After Dark in Central Park"</span>,<span class="s2">"year"</span>:1900,<span class="s2">"cast"</span>:<span class="o">[]</span>,<span class="s2">"genres"</span>:<span class="o">[]}</span>,<span class="o">{</span><span class="s2">"titl%</span>
 
-# List. How many movies do we have?
-$ cat movies.json | jq '. | length'
-28795
+<span class="s2"># List. How many movies do we have?</span>
+$<span class="s2"> cat movies.json | jq '. | length'</span>
+<span class="s2">28795</span>
 
-# Let's look at the first 5 examples to see which data fields we have:
-$ cat movies.json | jq '.[:5]'
-[
-  {
-    "title": "After Dark in Central Park",
-    "year": 1900,
-    "cast": [],
-    "genres": []
-  },
-  {
-    "title": "Boarding School Girls' Pajama Parade",
-    "year": 1900,
-    "cast": [],
-    "genres": []
-  },
-  {
-    "title": "Buffalo Bill's Wild West Parad",
-    "year": 1900,
-    "cast": [],
-    "genres": []
-  },
-  {
-    "title": "Caught",
-    "year": 1900,
-    "cast": [],
-    "genres": []
-  },
-  {
-    "title": "Clowns Spinning Hats",
-    "year": 1900,
-    "cast": [],
-    "genres": []
-  }
-]
+<span class="s2"># Let's look at the first 5 examples to see which data fields we have:</span>
+$<span class="s2"> cat movies.json | jq '.[:5]'</span>
+<span class="s2">[</span>
+<span class="s2">  {</span>
+<span class="s2">    "</span>title<span class="s2">": "</span>After Dark in Central Park<span class="s2">",</span>
+<span class="s2">    "</span>year<span class="s2">": 1900,</span>
+<span class="s2">    "</span>cast<span class="s2">": [],</span>
+<span class="s2">    "</span>genres<span class="s2">": []</span>
+<span class="s2">  },</span>
+<span class="s2">  {</span>
+<span class="s2">    "</span>title<span class="s2">": "</span>Boarding School Girls<span class="s1">' Pajama Parade",</span>
+<span class="s1">    "year": 1900,</span>
+<span class="s1">    "cast": [],</span>
+<span class="s1">    "genres": []</span>
+<span class="s1">  },</span>
+<span class="s1">  {</span>
+<span class="s1">    "title": "Buffalo Bill'</span>s Wild West Parad<span class="s2">",</span>
+<span class="s2">    "</span>year<span class="s2">": 1900,</span>
+<span class="s2">    "</span>cast<span class="s2">": [],</span>
+<span class="s2">    "</span>genres<span class="s2">": []</span>
+<span class="s2">  },</span>
+<span class="s2">  {</span>
+<span class="s2">    "</span>title<span class="s2">": "</span>Caught<span class="s2">",</span>
+<span class="s2">    "</span>year<span class="s2">": 1900,</span>
+<span class="s2">    "</span>cast<span class="s2">": [],</span>
+<span class="s2">    "</span>genres<span class="s2">": []</span>
+<span class="s2">  },</span>
+<span class="s2">  {</span>
+<span class="s2">    "</span>title<span class="s2">": "</span>Clowns Spinning Hats<span class="s2">",</span>
+<span class="s2">    "</span>year<span class="s2">": 1900,</span>
+<span class="s2">    "</span>cast<span class="s2">": [],</span>
+<span class="s2">    "</span>genres<span class="s2">": []</span>
+<span class="s2">  }</span>
+<span class="s2">]</span>
 </pre></div>
 <p>At this point, I would usually switch to Pandas. However, let's see how far
 we get with <code>jq</code>.</p>

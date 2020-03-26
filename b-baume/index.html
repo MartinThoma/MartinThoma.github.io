@@ -157,19 +157,19 @@ MathJax.Hub.Queue(function() {
 Aus (5.1) folgt: In einem B-Baum der Ordnung t = 1 m&uuml;ssten einzelne Knoten keine Schl&uuml;ssel haben. Das ist nicht sinnvoll. Also muss <span class="math">\(t \geq  2\)</span> gelten.</p>
 <h2 id="suchen eines schlussels">Suchen eines Schl&uuml;ssels</h2>
 <p>Das Suchen eines Schl&uuml;ssels funktioniert so:</p>
-<div class="highlight"><pre><span></span><span class="n">SEARCH</span><span class="o">-</span><span class="n">KEY</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-    <span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight"><pre><span></span>SEARCH-KEY(node, key):
+    int i = 0
 
-    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">node</span><span class="o">.</span><span class="n">n</span> <span class="ow">and</span> <span class="n">node</span><span class="o">.</span><span class="n">key</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">key</span> <span class="o">&lt;</span> <span class="n">key</span><span class="p">:</span>
-        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    while i &lt; node.n and node.key[i].key &lt; key:
+        i += 1
 
-    <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">key</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="n">key</span><span class="p">:</span> <span class="c1"># Schl&amp;uuml;ssel ist gesuchter Schl&amp;uuml;ssel</span>
-        <span class="k">return</span> <span class="n">node</span><span class="o">.</span><span class="n">key</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">satelittendaten</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">isLeaf</span><span class="p">:</span> <span class="c1"># Erfolglose Suche</span>
-        <span class="k">return</span> <span class="n">NIL</span>
-    <span class="k">else</span><span class="p">:</span> <span class="c1"># Rekursiv weitersuchen</span>
-        <span class="n">DISK</span><span class="o">-</span><span class="n">READ</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-        <span class="k">return</span> <span class="n">SEARCH</span><span class="o">-</span><span class="n">KEY</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">key</span><span class="p">)</span>
+    if node.key[i].key == key: # Schl&uuml;ssel ist gesuchter Schl&uuml;ssel
+        return node.key[i].satelittendaten
+    else if node.isLeaf: # Erfolglose Suche
+        return NIL
+    else: # Rekursiv weitersuchen
+        DISK-READ(node.c[i])
+        return SEARCH-KEY(node.c[i], key)
 </pre></div>
 <p>Es wird also zuerst der Knoten durchsucht und dann gegebenenfalls der passende Subbaum.</p>
 <p>Laut Vorlesung (Folie 97) gilt:

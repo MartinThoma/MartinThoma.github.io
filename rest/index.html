@@ -266,11 +266,13 @@ to CRUD which is from 1983:</p>
 </table>
 <h2 id="example">Example</h2>
 <p>Let's say we have an educational website <code>educate.me</code>. It has lessons:</p>
-<div class="highlight"><pre><span></span>lesson = {"lesson_id": "int",
-          "author_id": "int",
-          "content": "blob",
-          "expected_age": "int",
-          "creation_date": "datetime"}
+<div class="highlight"><pre><span></span><span class="n">lesson</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"lesson_id"</span><span class="p">:</span> <span class="s2">"int"</span><span class="p">,</span>
+    <span class="s2">"author_id"</span><span class="p">:</span> <span class="s2">"int"</span><span class="p">,</span>
+    <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"blob"</span><span class="p">,</span>
+    <span class="s2">"expected_age"</span><span class="p">:</span> <span class="s2">"int"</span><span class="p">,</span>
+    <span class="s2">"creation_date"</span><span class="p">:</span> <span class="s2">"datetime"</span><span class="p">,</span>
+<span class="p">}</span>
 </pre></div>
 <p>You need a possibility to:</p>
 <ul>
@@ -310,28 +312,7 @@ interested in a part of it.</p>
 </ul>
 <h2 id="flask_1">Flask</h2>
 <p>You can build REST APIs with <a href="https://flask-restx.readthedocs.io/en/latest/">Flask-RESTX</a>:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 
 <span class="sd">"""Simple Flask/Swagger/REST-API example."""</span>
 
@@ -339,10 +320,10 @@ interested in a part of it.</p>
 <span class="kn">from</span> <span class="nn">flask_restx</span> <span class="kn">import</span> <span class="n">Resource</span><span class="p">,</span> <span class="n">Api</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
-<span class="n">api</span> <span class="o">=</span> <span class="n">Api</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="s1">'/doc'</span><span class="p">)</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">Api</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="s2">"/doc"</span><span class="p">)</span>
 
 
-<span class="nd">@api.route</span><span class="p">(</span><span class="s1">'/lessons'</span><span class="p">)</span>
+<span class="nd">@api.route</span><span class="p">(</span><span class="s2">"/lessons"</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">VersionAPI</span><span class="p">(</span><span class="n">Resource</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">get_all_lessons</span><span class="p">()</span>
@@ -352,9 +333,8 @@ interested in a part of it.</p>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">'0.0.0.0'</span><span class="p">)</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s2">"0.0.0.0"</span><span class="p">)</span>
 </pre></div>
-</td></tr></table>
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="https://restfulapi.net/resource-naming/">REST Resource Naming Guide</a></li>

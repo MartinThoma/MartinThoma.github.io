@@ -124,26 +124,30 @@ MathJax.Hub.Queue(function() {
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
 
+
 <span class="k">def</span> <span class="nf">is_square</span><span class="p">(</span><span class="n">integer</span><span class="p">):</span>
     <span class="n">root</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">integer</span><span class="p">)</span>
-    <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">root</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">==</span> <span class="n">integer</span><span class="p">:</span> 
+    <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">root</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">==</span> <span class="n">integer</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">True</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">False</span>
 
-<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1000</span><span class="p">):</span>
+
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1000</span><span class="p">):</span>
     <span class="k">print</span> <span class="n">x</span>
     <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="n">z</span><span class="p">):</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">is_square</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="n">z</span><span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span>
+                    <span class="n">is_square</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
                     <span class="ow">and</span> <span class="n">is_square</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
                     <span class="ow">and</span> <span class="n">is_square</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">z</span><span class="p">)</span>
                     <span class="ow">and</span> <span class="n">is_square</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span>
                     <span class="ow">and</span> <span class="n">is_square</span><span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="n">z</span><span class="p">)</span>
-                    <span class="ow">and</span> <span class="n">is_square</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">z</span><span class="p">)):</span>
-                        <span class="k">print</span> <span class="p">(</span><span class="s2">"</span><span class="si">%i</span><span class="s2"> - </span><span class="si">%i</span><span class="s2"> - </span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
-                        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+                    <span class="ow">and</span> <span class="n">is_square</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span>
+                <span class="p">):</span>
+                    <span class="k">print</span> <span class="p">(</span><span class="s2">"</span><span class="si">%i</span><span class="s2"> - </span><span class="si">%i</span><span class="s2"> - </span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
+                    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 </pre></div>
 <p>This is quite fast until you reach about 500. So this is not a good way to solve it.</p>
 <h2 id="apply some math">Apply some math</h2>

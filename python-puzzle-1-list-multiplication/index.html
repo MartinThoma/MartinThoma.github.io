@@ -129,9 +129,9 @@ MathJax.Hub.Queue(function() {
 43 &amp; 50
 \end{pmatrix}</div>\)</span></p>
 <p>You might also have heard of Pythons overloaded multiplication:</p>
-<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">)</span>
-<span class="k">print</span><span class="p">([[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"abc"</span><span class="o">*</span><span class="mi">4</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
+<span class="k">print</span><span class="p">([[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">"abc"</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
 </pre></div>
 <p>Output:</p>
 <div class="highlight"><pre><span></span>[0, 0, 0, 0]
@@ -143,17 +143,19 @@ abcabcabcabc
 <div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
+
 <span class="k">def</span> <span class="nf">standardMatrixProduct</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-    <span class="n">C</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">n</span><span class="p">]</span><span class="o">*</span><span class="n">n</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
             <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
                 <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">C</span>
 
-<span class="n">A</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]]</span>
-<span class="n">B</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]]</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
+<span class="n">B</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]]</span>
 <span class="k">print</span> <span class="n">standardMatrixProduct</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
 </pre></div>
 <p>.

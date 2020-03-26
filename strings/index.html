@@ -500,18 +500,18 @@ encoded string.</p>
 of Python 3 within Python 2: All <code>"string literals"</code> are unicode strings. Otherwise,
 they are byte strings.</p>
 <p>A couple of really helpful examples from <a href="https://stackoverflow.com/a/18034409/562769">Bakuriu</a>:</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="sa">u</span><span class="s1">'&agrave;'</span><span class="p">)</span>  <span class="c1"># a single code point</span>
-<span class="mi">1</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="s1">'&agrave;'</span><span class="p">)</span>   <span class="c1"># by default utf-8 -&gt; takes two bytes</span>
-<span class="mi">2</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="sa">u</span><span class="s1">'&agrave;'</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">'utf-8'</span><span class="p">))</span>
-<span class="mi">2</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="sa">u</span><span class="s1">'&agrave;'</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">'latin1'</span><span class="p">))</span>  <span class="c1"># in latin1 it takes one byte</span>
-<span class="mi">1</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="sa">u</span><span class="s1">'&agrave;'</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">'utf-8'</span><span class="p">)</span>  <span class="c1"># terminal encoding is utf-8</span>
-<span class="err">&agrave;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="sa">u</span><span class="s1">'&agrave;'</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">'latin1'</span><span class="p">)</span> <span class="c1"># it cannot understand the latin1 byte</span>
-<span class="err">�</span>
+<div class="highlight"><pre><span></span>&gt;&gt;&gt; len(u'&agrave;')  # a single code point
+1
+&gt;&gt;&gt; len('&agrave;')   # by default utf-8 -&gt; takes two bytes
+2
+&gt;&gt;&gt; len(u'&agrave;'.encode('utf-8'))
+2
+&gt;&gt;&gt; len(u'&agrave;'.encode('latin1'))  # in latin1 it takes one byte
+1
+&gt;&gt;&gt; print u'&agrave;'.encode('utf-8')  # terminal encoding is utf-8
+&agrave;
+&gt;&gt;&gt; print u'&agrave;'.encode('latin1') # it cannot understand the latin1 byte
+�
 </pre></div>
 <h2 id="pitfalls_1">Pitfalls</h2>
 <p>Some pitfalls are listed in <a href="https://stackoverflow.com/a/15128103/562769">this SO answer</a>:</p>

@@ -132,19 +132,25 @@ that contains Python code. You might want to call it something like
 <p>A configuration file could look like this:</p>
 <div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="kn">import</span> <span class="nn">preprocessing</span>
-<span class="n">mysql</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'host'</span><span class="p">:</span> <span class="s1">'localhost'</span><span class="p">,</span>
-         <span class="s1">'user'</span><span class="p">:</span> <span class="s1">'root'</span><span class="p">,</span>
-         <span class="s1">'passwd'</span><span class="p">:</span> <span class="s1">'my secret password'</span><span class="p">,</span>
-         <span class="s1">'db'</span><span class="p">:</span> <span class="s1">'write-math'</span><span class="p">}</span>
-<span class="n">preprocessing_queue</span> <span class="o">=</span> <span class="p">[</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">scale_and_center</span><span class="p">,</span>
-                       <span class="n">preprocessing</span><span class="o">.</span><span class="n">dot_reduction</span><span class="p">,</span>
-                       <span class="n">preprocessing</span><span class="o">.</span><span class="n">connect_lines</span><span class="p">]</span>
+
+<span class="n">mysql</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"host"</span><span class="p">:</span> <span class="s2">"localhost"</span><span class="p">,</span>
+    <span class="s2">"user"</span><span class="p">:</span> <span class="s2">"root"</span><span class="p">,</span>
+    <span class="s2">"passwd"</span><span class="p">:</span> <span class="s2">"my secret password"</span><span class="p">,</span>
+    <span class="s2">"db"</span><span class="p">:</span> <span class="s2">"write-math"</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">preprocessing_queue</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">preprocessing</span><span class="o">.</span><span class="n">scale_and_center</span><span class="p">,</span>
+    <span class="n">preprocessing</span><span class="o">.</span><span class="n">dot_reduction</span><span class="p">,</span>
+    <span class="n">preprocessing</span><span class="o">.</span><span class="n">connect_lines</span><span class="p">,</span>
+<span class="p">]</span>
 <span class="n">use_anonymous</span> <span class="o">=</span> <span class="bp">True</span>
 </pre></div>
 <p>Within the actual code, you can use it like this:</p>
 <div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="kn">import</span> <span class="nn">databaseconfig</span> <span class="kn">as</span> <span class="nn">cfg</span>
-<span class="n">connect</span><span class="p">(</span><span class="n">cfg</span><span class="o">.</span><span class="n">mysql</span><span class="p">[</span><span class="s1">'host'</span><span class="p">],</span> <span class="n">cfg</span><span class="o">.</span><span class="n">mysql</span><span class="p">[</span><span class="s1">'user'</span><span class="p">],</span> <span class="n">cfg</span><span class="o">.</span><span class="n">mysql</span><span class="p">[</span><span class="s1">'password'</span><span class="p">])</span>
+
+<span class="n">connect</span><span class="p">(</span><span class="n">cfg</span><span class="o">.</span><span class="n">mysql</span><span class="p">[</span><span class="s2">"host"</span><span class="p">],</span> <span class="n">cfg</span><span class="o">.</span><span class="n">mysql</span><span class="p">[</span><span class="s2">"user"</span><span class="p">],</span> <span class="n">cfg</span><span class="o">.</span><span class="n">mysql</span><span class="p">[</span><span class="s2">"password"</span><span class="p">])</span>
 </pre></div>
 <p>The way you include the configuration might feel very convenient at a first
 glance, but imagine what happens when you get more configuration variables.
@@ -175,23 +181,32 @@ languages.</p>
 <p>You can read it like this:</p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'config.json'</span><span class="p">)</span> <span class="k">as</span> <span class="n">json_data_file</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"config.json"</span><span class="p">)</span> <span class="k">as</span> <span class="n">json_data_file</span><span class="p">:</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">json_data_file</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 <p>which outputs</p>
-<div class="highlight"><pre><span></span><span class="p">{</span><span class="sa">u</span><span class="s1">'mysql'</span><span class="p">:</span> <span class="p">{</span><span class="sa">u</span><span class="s1">'db'</span><span class="p">:</span> <span class="sa">u</span><span class="s1">'write-math'</span><span class="p">,</span>
-            <span class="sa">u</span><span class="s1">'host'</span><span class="p">:</span> <span class="sa">u</span><span class="s1">'localhost'</span><span class="p">,</span>
-            <span class="sa">u</span><span class="s1">'passwd'</span><span class="p">:</span> <span class="sa">u</span><span class="s1">'my secret password'</span><span class="p">,</span>
-            <span class="sa">u</span><span class="s1">'user'</span><span class="p">:</span> <span class="sa">u</span><span class="s1">'root'</span><span class="p">},</span>
- <span class="sa">u</span><span class="s1">'other'</span><span class="p">:</span> <span class="p">{</span><span class="sa">u</span><span class="s1">'preprocessing_queue'</span><span class="p">:</span> <span class="p">[</span><span class="sa">u</span><span class="s1">'preprocessing.scale_and_center'</span><span class="p">,</span>
-                                     <span class="sa">u</span><span class="s1">'preprocessing.dot_reduction'</span><span class="p">,</span>
-                                     <span class="sa">u</span><span class="s1">'preprocessing.connect_lines'</span><span class="p">],</span>
-            <span class="sa">u</span><span class="s1">'use_anonymous'</span><span class="p">:</span> <span class="bp">True</span><span class="p">}}</span>
+<div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="sa">u</span><span class="s2">"mysql"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="sa">u</span><span class="s2">"db"</span><span class="p">:</span> <span class="sa">u</span><span class="s2">"write-math"</span><span class="p">,</span>
+        <span class="sa">u</span><span class="s2">"host"</span><span class="p">:</span> <span class="sa">u</span><span class="s2">"localhost"</span><span class="p">,</span>
+        <span class="sa">u</span><span class="s2">"passwd"</span><span class="p">:</span> <span class="sa">u</span><span class="s2">"my secret password"</span><span class="p">,</span>
+        <span class="sa">u</span><span class="s2">"user"</span><span class="p">:</span> <span class="sa">u</span><span class="s2">"root"</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="sa">u</span><span class="s2">"other"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="sa">u</span><span class="s2">"preprocessing_queue"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="sa">u</span><span class="s2">"preprocessing.scale_and_center"</span><span class="p">,</span>
+            <span class="sa">u</span><span class="s2">"preprocessing.dot_reduction"</span><span class="p">,</span>
+            <span class="sa">u</span><span class="s2">"preprocessing.connect_lines"</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="sa">u</span><span class="s2">"use_anonymous"</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">}</span>
 </pre></div>
 <p>Writing JSON files is also easy. Just build up the dictionary and use</p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'config.json'</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"config.json"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
     <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">outfile</span><span class="p">)</span>
 </pre></div>
 <h2 id="yaml">YAML</h2>
@@ -221,25 +236,31 @@ It is available for several programming languages.</p>
 <p>You can read it like this:</p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">yaml</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"config.yml"</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">ymlfile</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"config.yml"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">ymlfile</span><span class="p">:</span>
     <span class="n">cfg</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">ymlfile</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="n">cfg</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="n">section</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">cfg</span><span class="p">[</span><span class="s1">'mysql'</span><span class="p">])</span>
-<span class="k">print</span><span class="p">(</span><span class="n">cfg</span><span class="p">[</span><span class="s1">'other'</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">cfg</span><span class="p">[</span><span class="s2">"mysql"</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">cfg</span><span class="p">[</span><span class="s2">"other"</span><span class="p">])</span>
 </pre></div>
 <p>It outputs:</p>
 <div class="highlight"><pre><span></span><span class="n">other</span>
 <span class="n">mysql</span>
-<span class="p">{</span><span class="s1">'passwd'</span><span class="p">:</span> <span class="s1">'my secret password'</span><span class="p">,</span>
- <span class="s1">'host'</span><span class="p">:</span> <span class="s1">'localhost'</span><span class="p">,</span>
- <span class="s1">'db'</span><span class="p">:</span> <span class="s1">'write-math'</span><span class="p">,</span>
- <span class="s1">'user'</span><span class="p">:</span> <span class="s1">'root'</span><span class="p">}</span>
-<span class="p">{</span><span class="s1">'preprocessing_queue'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'preprocessing.scale_and_center'</span><span class="p">,</span>
-                         <span class="s1">'preprocessing.dot_reduction'</span><span class="p">,</span>
-                         <span class="s1">'preprocessing.connect_lines'</span><span class="p">],</span>
- <span class="s1">'use_anonymous'</span><span class="p">:</span> <span class="bp">True</span><span class="p">}</span>
+<span class="p">{</span>
+    <span class="s2">"passwd"</span><span class="p">:</span> <span class="s2">"my secret password"</span><span class="p">,</span>
+    <span class="s2">"host"</span><span class="p">:</span> <span class="s2">"localhost"</span><span class="p">,</span>
+    <span class="s2">"db"</span><span class="p">:</span> <span class="s2">"write-math"</span><span class="p">,</span>
+    <span class="s2">"user"</span><span class="p">:</span> <span class="s2">"root"</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="p">{</span>
+    <span class="s2">"preprocessing_queue"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">"preprocessing.scale_and_center"</span><span class="p">,</span>
+        <span class="s2">"preprocessing.dot_reduction"</span><span class="p">,</span>
+        <span class="s2">"preprocessing.connect_lines"</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="s2">"use_anonymous"</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+<span class="p">}</span>
 </pre></div>
 <p>There is a <code>yaml.dump</code> method, so you can write the configuration the same way.
 Just build up a dictionary.</p>
@@ -281,58 +302,64 @@ Just build up a dictionary.</p>
 <span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="n">config</span><span class="o">.</span><span class="n">sections</span><span class="p">():</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">"Section: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">section</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">options</span> <span class="ow">in</span> <span class="n">config</span><span class="o">.</span><span class="n">options</span><span class="p">(</span><span class="n">section</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"x </span><span class="si">%s</span><span class="s2">:::</span><span class="si">%s</span><span class="s2">:::</span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">options</span><span class="p">,</span>
-                                  <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">section</span><span class="p">,</span> <span class="n">options</span><span class="p">),</span>
-                                  <span class="nb">str</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">options</span><span class="p">))))</span>
+        <span class="k">print</span><span class="p">(</span>
+            <span class="s2">"x </span><span class="si">%s</span><span class="s2">:::</span><span class="si">%s</span><span class="s2">:::</span><span class="si">%s</span><span class="s2">"</span>
+            <span class="o">%</span> <span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">section</span><span class="p">,</span> <span class="n">options</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">options</span><span class="p">)))</span>
+        <span class="p">)</span>
 
 <span class="c1"># Print some contents</span>
 <span class="k">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Print some contents"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'other'</span><span class="p">,</span> <span class="s1">'use_anonymous'</span><span class="p">))</span>  <span class="c1"># Just get the value</span>
-<span class="k">print</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">getboolean</span><span class="p">(</span><span class="s1">'other'</span><span class="p">,</span> <span class="s1">'use_anonymous'</span><span class="p">))</span>  <span class="c1"># You know the datatype?</span>
+<span class="k">print</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"other"</span><span class="p">,</span> <span class="s2">"use_anonymous"</span><span class="p">))</span>  <span class="c1"># Just get the value</span>
+<span class="k">print</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">getboolean</span><span class="p">(</span><span class="s2">"other"</span><span class="p">,</span> <span class="s2">"use_anonymous"</span><span class="p">))</span>  <span class="c1"># You know the datatype?</span>
 </pre></div>
 <p>which outputs</p>
-<div class="highlight"><pre><span></span><span class="n">List</span> <span class="nb">all</span> <span class="n">contents</span>
-<span class="n">Section</span><span class="p">:</span> <span class="n">mysql</span>
-<span class="n">x</span> <span class="n">host</span><span class="p">:::</span><span class="n">localhost</span><span class="p">:::</span><span class="o">&lt;</span><span class="nb">type</span> <span class="s1">'str'</span><span class="o">&gt;</span>
-<span class="n">x</span> <span class="n">user</span><span class="p">:::</span><span class="n">root</span><span class="p">:::</span><span class="o">&lt;</span><span class="nb">type</span> <span class="s1">'str'</span><span class="o">&gt;</span>
-<span class="n">x</span> <span class="n">passwd</span><span class="p">:::</span><span class="n">my</span> <span class="n">secret</span> <span class="n">password</span><span class="p">:::</span><span class="o">&lt;</span><span class="nb">type</span> <span class="s1">'str'</span><span class="o">&gt;</span>
-<span class="n">x</span> <span class="n">db</span><span class="p">:::</span><span class="n">write</span><span class="o">-</span><span class="n">math</span><span class="p">:::</span><span class="o">&lt;</span><span class="nb">type</span> <span class="s1">'str'</span><span class="o">&gt;</span>
-<span class="n">Section</span><span class="p">:</span> <span class="n">other</span>
-<span class="n">x</span> <span class="n">preprocessing_queue</span><span class="p">:::[</span><span class="s2">"preprocessing.scale_and_center"</span><span class="p">,</span>
-<span class="s2">"preprocessing.dot_reduction"</span><span class="p">,</span>
-<span class="s2">"preprocessing.connect_lines"</span><span class="p">]:::</span><span class="o">&lt;</span><span class="nb">type</span> <span class="s1">'str'</span><span class="o">&gt;</span>
-<span class="n">x</span> <span class="n">use_anonymous</span><span class="p">:::</span><span class="n">yes</span><span class="p">:::</span><span class="o">&lt;</span><span class="nb">type</span> <span class="s1">'str'</span><span class="o">&gt;</span>
+<div class="highlight"><pre><span></span>List all contents
+Section: mysql
+x host:::localhost:::&lt;type 'str'&gt;
+x user:::root:::&lt;type 'str'&gt;
+x passwd:::my secret password:::&lt;type 'str'&gt;
+x db:::write-math:::&lt;type 'str'&gt;
+Section: other
+x preprocessing_queue:::["preprocessing.scale_and_center",
+"preprocessing.dot_reduction",
+"preprocessing.connect_lines"]:::&lt;type 'str'&gt;
+x use_anonymous:::yes:::&lt;type 'str'&gt;
 
-<span class="n">Print</span> <span class="n">some</span> <span class="n">contents</span>
-<span class="n">yes</span>
-<span class="bp">True</span>
+Print some contents
+yes
+True
 </pre></div>
 <p>As you can see, you can use a standard data format that is easy to read and
 write. Methods like <code>getboolean</code> and <code>getint</code> allow you to get the datatype
 instead of a simple string.</p>
 <h4 id="writing-configuration">Writing configuration</h4>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
 <span class="n">configfile_name</span> <span class="o">=</span> <span class="s2">"config.ini"</span>
 
 <span class="c1"># Check if there is already a configurtion file</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">configfile_name</span><span class="p">):</span>
     <span class="c1"># Create the configuration file as it doesn't exist yet</span>
-    <span class="n">cfgfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">configfile_name</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span>
+    <span class="n">cfgfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">configfile_name</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span>
 
     <span class="c1"># Add content to the file</span>
     <span class="n">Config</span> <span class="o">=</span> <span class="n">ConfigParser</span><span class="o">.</span><span class="n">ConfigParser</span><span class="p">()</span>
-    <span class="n">Config</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="s1">'mysql'</span><span class="p">)</span>
-    <span class="n">Config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">'mysql'</span><span class="p">,</span> <span class="s1">'host'</span><span class="p">,</span> <span class="s1">'localhost'</span><span class="p">)</span>
-    <span class="n">Config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">'mysql'</span><span class="p">,</span> <span class="s1">'user'</span><span class="p">,</span> <span class="s1">'root'</span><span class="p">)</span>
-    <span class="n">Config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">'mysql'</span><span class="p">,</span> <span class="s1">'passwd'</span><span class="p">,</span> <span class="s1">'my secret password'</span><span class="p">)</span>
-    <span class="n">Config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">'mysql'</span><span class="p">,</span> <span class="s1">'db'</span><span class="p">,</span> <span class="s1">'write-math'</span><span class="p">)</span>
-    <span class="n">Config</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="s1">'other'</span><span class="p">)</span>
-    <span class="n">Config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">'other'</span><span class="p">,</span>
-               <span class="s1">'preprocessing_queue'</span><span class="p">,</span>
-               <span class="p">[</span><span class="s1">'preprocessing.scale_and_center'</span><span class="p">,</span>
-                <span class="s1">'preprocessing.dot_reduction'</span><span class="p">,</span>
-                <span class="s1">'preprocessing.connect_lines'</span><span class="p">])</span>
-    <span class="n">Config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">'other'</span><span class="p">,</span> <span class="s1">'use_anonymous'</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+    <span class="n">Config</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="s2">"mysql"</span><span class="p">)</span>
+    <span class="n">Config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">"mysql"</span><span class="p">,</span> <span class="s2">"host"</span><span class="p">,</span> <span class="s2">"localhost"</span><span class="p">)</span>
+    <span class="n">Config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">"mysql"</span><span class="p">,</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"root"</span><span class="p">)</span>
+    <span class="n">Config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">"mysql"</span><span class="p">,</span> <span class="s2">"passwd"</span><span class="p">,</span> <span class="s2">"my secret password"</span><span class="p">)</span>
+    <span class="n">Config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">"mysql"</span><span class="p">,</span> <span class="s2">"db"</span><span class="p">,</span> <span class="s2">"write-math"</span><span class="p">)</span>
+    <span class="n">Config</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="s2">"other"</span><span class="p">)</span>
+    <span class="n">Config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+        <span class="s2">"other"</span><span class="p">,</span>
+        <span class="s2">"preprocessing_queue"</span><span class="p">,</span>
+        <span class="p">[</span>
+            <span class="s2">"preprocessing.scale_and_center"</span><span class="p">,</span>
+            <span class="s2">"preprocessing.dot_reduction"</span><span class="p">,</span>
+            <span class="s2">"preprocessing.connect_lines"</span><span class="p">,</span>
+        <span class="p">],</span>
+    <span class="p">)</span>
+    <span class="n">Config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">"other"</span><span class="p">,</span> <span class="s2">"use_anonymous"</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
     <span class="n">Config</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cfgfile</span><span class="p">)</span>
     <span class="n">cfgfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>

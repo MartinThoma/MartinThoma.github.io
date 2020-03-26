@@ -136,13 +136,13 @@ calculate the gradient of high dimensional functions, which is nice, too.</p>
             <span class="n">best_err</span> <span class="o">=</span> <span class="n">err</span>
             <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*=</span> <span class="mf">1.1</span>
         <span class="k">else</span><span class="p">:</span>  <span class="c1"># There was no improvement</span>
-            <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">2</span><span class="o">*</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>  <span class="c1"># Go into the other direction</span>
+            <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>  <span class="c1"># Go into the other direction</span>
             <span class="n">err</span> <span class="o">=</span> <span class="n">A</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 
             <span class="k">if</span> <span class="n">err</span> <span class="o">&lt;</span> <span class="n">best_err</span><span class="p">:</span>  <span class="c1"># There was an improvement</span>
                 <span class="n">best_err</span> <span class="o">=</span> <span class="n">err</span>
                 <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*=</span> <span class="mf">1.05</span>
-            <span class="k">else</span>  <span class="c1"># There was no improvement</span>
+            <span class="k">else</span><span class="p">:</span>  <span class="c1"># There was no improvement</span>
                 <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
                 <span class="c1"># As there was no improvement, the step size in either</span>
                 <span class="c1"># direction, the step size might simply be too big.</span>

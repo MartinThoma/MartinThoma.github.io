@@ -142,17 +142,32 @@ MathJax.Hub.Queue(function() {
 <span class="kn">import</span> <span class="nn">HTMLParser</span>
 
 <span class="n">parser</span> <span class="o">=</span> <span class="n">OptionParser</span><span class="p">()</span>
-<span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s2">"-l"</span><span class="p">,</span> <span class="s2">"--lemma"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"lemma"</span><span class="p">,</span>
-                       <span class="n">default</span><span class="o">=</span><span class="s2">"Python"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"string"</span><span class="p">,</span>
-                       <span class="n">help</span><span class="o">=</span><span class="s2">"Which lemma should be checked?"</span><span class="p">)</span>
-<span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s2">"-m"</span><span class="p">,</span> <span class="s2">"--language"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"language"</span><span class="p">,</span>
-                       <span class="n">default</span><span class="o">=</span><span class="s2">"en"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"string"</span><span class="p">,</span>
-                       <span class="n">help</span><span class="o">=</span><span class="s2">"Which langauge should be used "</span> <span class="o">+</span>
-                            <span class="s2">"(english wiki, geman wiki, ... )"</span><span class="p">)</span>
-<span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s2">"-v"</span><span class="p">,</span> <span class="s2">"--verbose"</span><span class="p">,</span>
-                  <span class="n">action</span><span class="o">=</span><span class="s2">"store_true"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"verbose"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
-                  <span class="n">help</span><span class="o">=</span><span class="s2">"Show more information."</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span>
+    <span class="s2">"-l"</span><span class="p">,</span>
+    <span class="s2">"--lemma"</span><span class="p">,</span>
+    <span class="n">dest</span><span class="o">=</span><span class="s2">"lemma"</span><span class="p">,</span>
+    <span class="n">default</span><span class="o">=</span><span class="s2">"Python"</span><span class="p">,</span>
+    <span class="nb">type</span><span class="o">=</span><span class="s2">"string"</span><span class="p">,</span>
+    <span class="n">help</span><span class="o">=</span><span class="s2">"Which lemma should be checked?"</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span>
+    <span class="s2">"-m"</span><span class="p">,</span>
+    <span class="s2">"--language"</span><span class="p">,</span>
+    <span class="n">dest</span><span class="o">=</span><span class="s2">"language"</span><span class="p">,</span>
+    <span class="n">default</span><span class="o">=</span><span class="s2">"en"</span><span class="p">,</span>
+    <span class="nb">type</span><span class="o">=</span><span class="s2">"string"</span><span class="p">,</span>
+    <span class="n">help</span><span class="o">=</span><span class="s2">"Which langauge should be used "</span> <span class="o">+</span> <span class="s2">"(english wiki, geman wiki, ... )"</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span>
+    <span class="s2">"-v"</span><span class="p">,</span>
+    <span class="s2">"--verbose"</span><span class="p">,</span>
+    <span class="n">action</span><span class="o">=</span><span class="s2">"store_true"</span><span class="p">,</span>
+    <span class="n">dest</span><span class="o">=</span><span class="s2">"verbose"</span><span class="p">,</span>
+    <span class="n">default</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+    <span class="n">help</span><span class="o">=</span><span class="s2">"Show more information."</span><span class="p">,</span>
+<span class="p">)</span>
 <span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
 
 <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="n">lemma</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s2">"en"</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s2">"xml"</span><span class="p">):</span>
     <span class="sd">""" Get the Wikipedia Source Text (not the HTML source code) </span>
@@ -162,21 +177,27 @@ MathJax.Hub.Queue(function() {
 
 <span class="sd">        Returns None if page doesn't exist</span>
 <span class="sd">    """</span>
-    <span class="n">lemma</span>     <span class="o">=</span> <span class="n">lemma</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">" "</span><span class="p">,</span> <span class="s2">"_"</span><span class="p">)</span>
-    <span class="n">url</span>       <span class="o">=</span> <span class="s1">'http://'</span> <span class="o">+</span> <span class="n">language</span> <span class="o">+</span> <span class="s1">'.wikipedia.org/w/api.php'</span> <span class="o">+</span> \
-                <span class="s1">'?action=query&amp;format='</span> <span class="o">+</span> <span class="n">format</span> <span class="o">+</span> \
-                <span class="s1">'&amp;prop=revisions&amp;rvprop=content'</span> <span class="o">+</span> \
-                <span class="s1">'&amp;titles='</span> <span class="o">+</span> <span class="n">lemma</span>
-    <span class="n">request</span>   <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-    <span class="n">handle</span>    <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-    <span class="n">text</span>      <span class="o">=</span> <span class="n">handle</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">format</span> <span class="o">==</span> <span class="s1">'xml'</span><span class="p">:</span>
+    <span class="n">lemma</span> <span class="o">=</span> <span class="n">lemma</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">" "</span><span class="p">,</span> <span class="s2">"_"</span><span class="p">)</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">"http://"</span>
+        <span class="o">+</span> <span class="n">language</span>
+        <span class="o">+</span> <span class="s2">".wikipedia.org/w/api.php"</span>
+        <span class="o">+</span> <span class="s2">"?action=query&amp;format="</span>
+        <span class="o">+</span> <span class="n">format</span>
+        <span class="o">+</span> <span class="s2">"&amp;prop=revisions&amp;rvprop=content"</span>
+        <span class="o">+</span> <span class="s2">"&amp;titles="</span>
+        <span class="o">+</span> <span class="n">lemma</span>
+    <span class="p">)</span>
+    <span class="n">request</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">handle</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">handle</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">format</span> <span class="o">==</span> <span class="s2">"xml"</span><span class="p">:</span>
         <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulStoneSoup</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-        <span class="n">rev</span>  <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">rev</span>
+        <span class="n">rev</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">rev</span>
         <span class="k">if</span> <span class="n">rev</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">:</span>
             <span class="n">text</span> <span class="o">=</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">rev</span><span class="o">.</span><span class="n">contents</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
             <span class="n">text</span> <span class="o">=</span> <span class="n">HTMLParser</span><span class="o">.</span><span class="n">HTMLParser</span><span class="p">()</span><span class="o">.</span><span class="n">unescape</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-            <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="s2">"utf-8"</span> <span class="p">)</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">None</span>
     <span class="k">return</span> <span class="n">text</span>
@@ -184,24 +205,27 @@ MathJax.Hub.Queue(function() {
 <p>We are now able to access the needed information. Now we need to get the references without templates. To do so, I will use the <a href="http://docs.python.org/library/re.html">Python re module</a>:</p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 
+
 <span class="k">def</span> <span class="nf">getRef</span><span class="p">(</span><span class="n">page</span><span class="p">):</span>
     <span class="sd">""" Get all references without templates """</span>
     <span class="n">pattern</span> <span class="o">=</span> <span class="s2">"(&lt;ref&gt;\[.+?&lt;/ref&gt;)"</span>
     <span class="n">prog</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">pattern</span><span class="p">)</span>
-    <span class="n">m</span>    <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">page</span><span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">page</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">m</span>
 </pre></div>
 <p>Now the single references have to get parsed and the user has to confirm or edit the results:</p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">readline</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
 
-<span class="k">def</span> <span class="nf">rlinput</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">prefill</span><span class="o">=</span><span class="s1">''</span><span class="p">):</span>
+
+<span class="k">def</span> <span class="nf">rlinput</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">prefill</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
     <span class="sd">""" Promt the user for input, but prefill it. """</span>
     <span class="n">readline</span><span class="o">.</span><span class="n">set_startup_hook</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">readline</span><span class="o">.</span><span class="n">insert_text</span><span class="p">(</span><span class="n">prefill</span><span class="p">))</span>
     <span class="k">try</span><span class="p">:</span>
-      <span class="k">return</span> <span class="nb">raw_input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">raw_input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
     <span class="k">finally</span><span class="p">:</span>
-      <span class="n">readline</span><span class="o">.</span><span class="n">set_startup_hook</span><span class="p">()</span>
+        <span class="n">readline</span><span class="o">.</span><span class="n">set_startup_hook</span><span class="p">()</span>
+
 
 <span class="k">def</span> <span class="nf">improve</span><span class="p">(</span><span class="n">references</span><span class="p">,</span> <span class="n">page</span><span class="p">):</span>
     <span class="sd">""" Try to guess the right formatation for each reference and ask </span>
@@ -213,18 +237,21 @@ MathJax.Hub.Queue(function() {
     <span class="n">today</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
     <span class="n">accessdate</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">today</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">"%B </span><span class="si">%d</span><span class="s2">, %Y"</span><span class="p">))</span>
 
-
     <span class="k">for</span> <span class="n">refOld</span> <span class="ow">in</span> <span class="n">references</span><span class="p">:</span>
         <span class="n">url</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">urlPatternCompiled</span><span class="p">,</span> <span class="n">refOld</span><span class="p">)</span>
-        <span class="n">refNew</span> <span class="o">=</span> <span class="s2">"&lt;ref&gt;{{Citation "</span> <span class="o">+</span> \
-                 <span class="s2">"|url="</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">url</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> \
-                 <span class="s2">"|title= "</span> <span class="o">+</span> \
-                 <span class="s2">"|accessdate="</span>  <span class="o">+</span> <span class="n">accessdate</span> <span class="o">+</span> \
-                 <span class="s2">"}}&lt;/ref&gt;"</span>
+        <span class="n">refNew</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">"&lt;ref&gt;{{Citation "</span>
+            <span class="o">+</span> <span class="s2">"|url="</span>
+            <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">url</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="o">+</span> <span class="s2">"|title= "</span>
+            <span class="o">+</span> <span class="s2">"|accessdate="</span>
+            <span class="o">+</span> <span class="n">accessdate</span>
+            <span class="o">+</span> <span class="s2">"}}&lt;/ref&gt;"</span>
+        <span class="p">)</span>
 
         <span class="n">refNew</span> <span class="o">=</span> <span class="n">rlinput</span><span class="p">(</span><span class="n">refOld</span> <span class="o">+</span> <span class="s2">" (old):</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">refNew</span><span class="p">)</span>
         <span class="n">page</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">refOld</span><span class="p">,</span> <span class="n">refNew</span><span class="p">)</span>
-        <span class="k">print</span> <span class="s2">""</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">page</span>
 </pre></div>
@@ -243,20 +270,40 @@ MathJax.Hub.Queue(function() {
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
 
 <span class="n">parser</span> <span class="o">=</span> <span class="n">OptionParser</span><span class="p">()</span>
-<span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s2">"-l"</span><span class="p">,</span> <span class="s2">"--lemma"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"lemma"</span><span class="p">,</span>
-                       <span class="n">default</span><span class="o">=</span><span class="s2">"Python"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"string"</span><span class="p">,</span>
-                       <span class="n">help</span><span class="o">=</span><span class="s2">"Which lemma should be checked?"</span><span class="p">)</span>
-<span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s2">"-f"</span><span class="p">,</span> <span class="s2">"--file"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"filename"</span><span class="p">,</span>
-                  <span class="n">help</span><span class="o">=</span><span class="s2">"write corrected wiki source code to FILE"</span><span class="p">,</span> 
-                  <span class="n">metavar</span><span class="o">=</span><span class="s2">"FILE"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">"wikioutput.txt"</span><span class="p">)</span>
-<span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s2">"-m"</span><span class="p">,</span> <span class="s2">"--language"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"language"</span><span class="p">,</span>
-                       <span class="n">default</span><span class="o">=</span><span class="s2">"en"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"string"</span><span class="p">,</span>
-                       <span class="n">help</span><span class="o">=</span><span class="s2">"Which langauge should be used "</span> <span class="o">+</span>
-                            <span class="s2">"(english wiki, geman wiki, ... )"</span><span class="p">)</span>
-<span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s2">"-v"</span><span class="p">,</span> <span class="s2">"--verbose"</span><span class="p">,</span>
-                  <span class="n">action</span><span class="o">=</span><span class="s2">"store_true"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"verbose"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
-                  <span class="n">help</span><span class="o">=</span><span class="s2">"Show more information."</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span>
+    <span class="s2">"-l"</span><span class="p">,</span>
+    <span class="s2">"--lemma"</span><span class="p">,</span>
+    <span class="n">dest</span><span class="o">=</span><span class="s2">"lemma"</span><span class="p">,</span>
+    <span class="n">default</span><span class="o">=</span><span class="s2">"Python"</span><span class="p">,</span>
+    <span class="nb">type</span><span class="o">=</span><span class="s2">"string"</span><span class="p">,</span>
+    <span class="n">help</span><span class="o">=</span><span class="s2">"Which lemma should be checked?"</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span>
+    <span class="s2">"-f"</span><span class="p">,</span>
+    <span class="s2">"--file"</span><span class="p">,</span>
+    <span class="n">dest</span><span class="o">=</span><span class="s2">"filename"</span><span class="p">,</span>
+    <span class="n">help</span><span class="o">=</span><span class="s2">"write corrected wiki source code to FILE"</span><span class="p">,</span>
+    <span class="n">metavar</span><span class="o">=</span><span class="s2">"FILE"</span><span class="p">,</span>
+    <span class="n">default</span><span class="o">=</span><span class="s2">"wikioutput.txt"</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span>
+    <span class="s2">"-m"</span><span class="p">,</span>
+    <span class="s2">"--language"</span><span class="p">,</span>
+    <span class="n">dest</span><span class="o">=</span><span class="s2">"language"</span><span class="p">,</span>
+    <span class="n">default</span><span class="o">=</span><span class="s2">"en"</span><span class="p">,</span>
+    <span class="nb">type</span><span class="o">=</span><span class="s2">"string"</span><span class="p">,</span>
+    <span class="n">help</span><span class="o">=</span><span class="s2">"Which langauge should be used "</span> <span class="o">+</span> <span class="s2">"(english wiki, geman wiki, ... )"</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span>
+    <span class="s2">"-v"</span><span class="p">,</span>
+    <span class="s2">"--verbose"</span><span class="p">,</span>
+    <span class="n">action</span><span class="o">=</span><span class="s2">"store_true"</span><span class="p">,</span>
+    <span class="n">dest</span><span class="o">=</span><span class="s2">"verbose"</span><span class="p">,</span>
+    <span class="n">default</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+    <span class="n">help</span><span class="o">=</span><span class="s2">"Show more information."</span><span class="p">,</span>
+<span class="p">)</span>
 <span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
 
 <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="n">lemma</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s2">"en"</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s2">"xml"</span><span class="p">):</span>
     <span class="sd">""" Get the Wikipedia Source Text (not the HTML source code) </span>
@@ -266,39 +313,48 @@ MathJax.Hub.Queue(function() {
 
 <span class="sd">        Returns None if page doesn't exist</span>
 <span class="sd">    """</span>
-    <span class="n">lemma</span>     <span class="o">=</span> <span class="n">lemma</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">" "</span><span class="p">,</span> <span class="s2">"_"</span><span class="p">)</span>
-    <span class="n">url</span>       <span class="o">=</span> <span class="s1">'http://'</span> <span class="o">+</span> <span class="n">language</span> <span class="o">+</span> <span class="s1">'.wikipedia.org/w/api.php'</span> <span class="o">+</span> \
-                <span class="s1">'?action=query&amp;format='</span> <span class="o">+</span> <span class="n">format</span> <span class="o">+</span> \
-                <span class="s1">'&amp;prop=revisions&amp;rvprop=content'</span> <span class="o">+</span> \
-                <span class="s1">'&amp;titles='</span> <span class="o">+</span> <span class="n">lemma</span>
-    <span class="n">request</span>   <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-    <span class="n">handle</span>    <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-    <span class="n">text</span>      <span class="o">=</span> <span class="n">handle</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">format</span> <span class="o">==</span> <span class="s1">'xml'</span><span class="p">:</span>
+    <span class="n">lemma</span> <span class="o">=</span> <span class="n">lemma</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">" "</span><span class="p">,</span> <span class="s2">"_"</span><span class="p">)</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">"http://"</span>
+        <span class="o">+</span> <span class="n">language</span>
+        <span class="o">+</span> <span class="s2">".wikipedia.org/w/api.php"</span>
+        <span class="o">+</span> <span class="s2">"?action=query&amp;format="</span>
+        <span class="o">+</span> <span class="n">format</span>
+        <span class="o">+</span> <span class="s2">"&amp;prop=revisions&amp;rvprop=content"</span>
+        <span class="o">+</span> <span class="s2">"&amp;titles="</span>
+        <span class="o">+</span> <span class="n">lemma</span>
+    <span class="p">)</span>
+    <span class="n">request</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">handle</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">handle</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">format</span> <span class="o">==</span> <span class="s2">"xml"</span><span class="p">:</span>
         <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulStoneSoup</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-        <span class="n">rev</span>  <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">rev</span>
+        <span class="n">rev</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">rev</span>
         <span class="k">if</span> <span class="n">rev</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">:</span>
             <span class="n">text</span> <span class="o">=</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">rev</span><span class="o">.</span><span class="n">contents</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
             <span class="n">text</span> <span class="o">=</span> <span class="n">HTMLParser</span><span class="o">.</span><span class="n">HTMLParser</span><span class="p">()</span><span class="o">.</span><span class="n">unescape</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-            <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="s2">"utf-8"</span> <span class="p">)</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">None</span>
     <span class="k">return</span> <span class="n">text</span>
+
 
 <span class="k">def</span> <span class="nf">getRef</span><span class="p">(</span><span class="n">page</span><span class="p">):</span>
     <span class="sd">""" Get all references without templates """</span>
     <span class="n">pattern</span> <span class="o">=</span> <span class="s2">"(&lt;ref&gt;\[.+?&lt;/ref&gt;)"</span>
     <span class="n">prog</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">pattern</span><span class="p">)</span>
-    <span class="n">m</span>    <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">prog</span><span class="p">,</span> <span class="n">page</span><span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">prog</span><span class="p">,</span> <span class="n">page</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">m</span>
 
-<span class="k">def</span> <span class="nf">rlinput</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">prefill</span><span class="o">=</span><span class="s1">''</span><span class="p">):</span>
+
+<span class="k">def</span> <span class="nf">rlinput</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">prefill</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
     <span class="sd">""" Promt the user for input, but prefill it. """</span>
     <span class="n">readline</span><span class="o">.</span><span class="n">set_startup_hook</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">readline</span><span class="o">.</span><span class="n">insert_text</span><span class="p">(</span><span class="n">prefill</span><span class="p">))</span>
     <span class="k">try</span><span class="p">:</span>
-      <span class="k">return</span> <span class="nb">raw_input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">raw_input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
     <span class="k">finally</span><span class="p">:</span>
-      <span class="n">readline</span><span class="o">.</span><span class="n">set_startup_hook</span><span class="p">()</span>
+        <span class="n">readline</span><span class="o">.</span><span class="n">set_startup_hook</span><span class="p">()</span>
+
 
 <span class="k">def</span> <span class="nf">improve</span><span class="p">(</span><span class="n">references</span><span class="p">,</span> <span class="n">page</span><span class="p">):</span>
     <span class="sd">""" Try to guess the right formatation for each reference and ask </span>
@@ -310,14 +366,17 @@ MathJax.Hub.Queue(function() {
     <span class="n">today</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
     <span class="n">accessdate</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">today</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">"%B </span><span class="si">%d</span><span class="s2">, %Y"</span><span class="p">))</span>
 
-
     <span class="k">for</span> <span class="n">refOld</span> <span class="ow">in</span> <span class="n">references</span><span class="p">:</span>
         <span class="n">url</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">urlPatternCompiled</span><span class="p">,</span> <span class="n">refOld</span><span class="p">)</span>
-        <span class="n">refNew</span> <span class="o">=</span> <span class="s2">"&lt;ref&gt;{{Citation "</span> <span class="o">+</span> \
-                 <span class="s2">"|url="</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">url</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> \
-                 <span class="s2">"|title= "</span> <span class="o">+</span> \
-                 <span class="s2">"|accessdate="</span>  <span class="o">+</span> <span class="n">accessdate</span> <span class="o">+</span> \
-                 <span class="s2">"}}&lt;/ref&gt;"</span>
+        <span class="n">refNew</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">"&lt;ref&gt;{{Citation "</span>
+            <span class="o">+</span> <span class="s2">"|url="</span>
+            <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">url</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="o">+</span> <span class="s2">"|title= "</span>
+            <span class="o">+</span> <span class="s2">"|accessdate="</span>
+            <span class="o">+</span> <span class="n">accessdate</span>
+            <span class="o">+</span> <span class="s2">"}}&lt;/ref&gt;"</span>
+        <span class="p">)</span>
 
         <span class="n">refNew</span> <span class="o">=</span> <span class="n">rlinput</span><span class="p">(</span><span class="n">refOld</span> <span class="o">+</span> <span class="s2">" (old):</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">refNew</span><span class="p">)</span>
         <span class="n">page</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">refOld</span><span class="p">,</span> <span class="n">refNew</span><span class="p">)</span>
@@ -325,14 +384,17 @@ MathJax.Hub.Queue(function() {
 
     <span class="k">return</span> <span class="n">page</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"If you need more parameters like 'date': "</span> <span class="o">+</span> \
-          <span class="s2">"http://en.wikipedia.org/wiki/Template:Citation#"</span> <span class="o">+</span> \
-          <span class="s2">"Full_citation_parameters"</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="k">print</span> <span class="p">(</span>
+        <span class="s2">"If you need more parameters like 'date': "</span>
+        <span class="o">+</span> <span class="s2">"http://en.wikipedia.org/wiki/Template:Citation#"</span>
+        <span class="o">+</span> <span class="s2">"Full_citation_parameters"</span>
+    <span class="p">)</span>
     <span class="n">page</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">options</span><span class="o">.</span><span class="n">lemma</span><span class="p">)</span>
     <span class="n">references</span> <span class="o">=</span> <span class="n">getRef</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
     <span class="n">page</span> <span class="o">=</span> <span class="n">improve</span><span class="p">(</span><span class="n">references</span><span class="p">,</span> <span class="n">page</span><span class="p">)</span>
-    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">options</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">options</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
     <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">"Page has been written to </span><span class="si">%s</span><span class="s2">."</span> <span class="o">%</span> <span class="n">options</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>

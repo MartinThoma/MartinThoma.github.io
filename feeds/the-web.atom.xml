@@ -507,11 +507,13 @@ to CRUD which is from 1983:&lt;/p&gt;
 &lt;/table&gt;
 &lt;h2 id="example"&gt;Example&lt;/h2&gt;
 &lt;p&gt;Let's say we have an educational website &lt;code&gt;educate.me&lt;/code&gt;. It has lessons:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;lesson = {"lesson_id": "int",
-          "author_id": "int",
-          "content": "blob",
-          "expected_age": "int",
-          "creation_date": "datetime"}
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;lesson&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="s2"&gt;"lesson_id"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"int"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s2"&gt;"author_id"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"int"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s2"&gt;"content"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"blob"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s2"&gt;"expected_age"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"int"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s2"&gt;"creation_date"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"datetime"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;You need a possibility to:&lt;/p&gt;
 &lt;ul&gt;
@@ -551,28 +553,7 @@ interested in a part of it.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h2 id="flask_1"&gt;Flask&lt;/h2&gt;
 &lt;p&gt;You can build REST APIs with &lt;a href="https://flask-restx.readthedocs.io/en/latest/"&gt;Flask-RESTX&lt;/a&gt;:&lt;/p&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/env python&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/env python&lt;/span&gt;
 
 &lt;span class="sd"&gt;"""Simple Flask/Swagger/REST-API example."""&lt;/span&gt;
 
@@ -580,10 +561,10 @@ interested in a part of it.&lt;/p&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;flask_restx&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Resource&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Api&lt;/span&gt;
 
 &lt;span class="n"&gt;app&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Flask&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="vm"&gt;__name__&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;api&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Api&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;doc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'/doc'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;api&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Api&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;doc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"/doc"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
 
-&lt;span class="nd"&gt;@api.route&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'/lessons'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nd"&gt;@api.route&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"/lessons"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;VersionAPI&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Resource&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
         &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;get_all_lessons&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
@@ -593,9 +574,8 @@ interested in a part of it.&lt;/p&gt;
 
 
 &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;"__main__"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;host&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'0.0.0.0'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;host&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"0.0.0.0"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://restfulapi.net/resource-naming/"&gt;REST Resource Naming Guide&lt;/a&gt;&lt;/li&gt;

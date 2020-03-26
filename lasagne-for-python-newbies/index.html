@@ -318,12 +318,12 @@ it with <code>python theanotest.py</code>:</p>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">iters</span><span class="p">):</span>
     <span class="n">r</span> <span class="o">=</span> <span class="n">f</span><span class="p">()</span>
 <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="k">print</span> <span class="s1">'Looping </span><span class="si">%d</span><span class="s1"> times took'</span> <span class="o">%</span> <span class="n">iters</span><span class="p">,</span> <span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">,</span> <span class="s1">'seconds'</span>
-<span class="k">print</span> <span class="s1">'Result is'</span><span class="p">,</span> <span class="n">r</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">"Looping </span><span class="si">%d</span><span class="s2"> times took"</span> <span class="o">%</span> <span class="n">iters</span><span class="p">,</span> <span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">,</span> <span class="s2">"seconds"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">"Result is"</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">numpy</span><span class="o">.</span><span class="n">any</span><span class="p">([</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">op</span><span class="p">,</span> <span class="n">T</span><span class="o">.</span><span class="n">Elemwise</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">maker</span><span class="o">.</span><span class="n">fgraph</span><span class="o">.</span><span class="n">toposort</span><span class="p">()]):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">'Used the cpu'</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Used the cpu"</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">'Used the gpu'</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Used the gpu"</span><span class="p">)</span>
 </pre></div>
 <p>It should print the following (well, something similar):</p>
 <div class="highlight"><pre><span></span>Using gpu device 0: GeForce GTX TITAN Black
@@ -395,14 +395,17 @@ it and evaluates the result for a single image:</p>
 
     <span class="k">def</span> <span class="nf">pickle_load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">encoding</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+
 <span class="k">else</span><span class="p">:</span>
     <span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlretrieve</span>
 
     <span class="k">def</span> <span class="nf">pickle_load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">encoding</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">)</span>
 
-<span class="n">DATA_URL</span> <span class="o">=</span> <span class="s1">'http://deeplearning.net/data/mnist/mnist.pkl.gz'</span>
-<span class="n">DATA_FILENAME</span> <span class="o">=</span> <span class="s1">'mnist.pkl.gz'</span>
+
+<span class="n">DATA_URL</span> <span class="o">=</span> <span class="s2">"http://deeplearning.net/data/mnist/mnist.pkl.gz"</span>
+<span class="n">DATA_FILENAME</span> <span class="o">=</span> <span class="s2">"mnist.pkl.gz"</span>
 
 
 <span class="k">def</span> <span class="nf">_load_data</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">DATA_URL</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">DATA_FILENAME</span><span class="p">):</span>
@@ -411,8 +414,8 @@ it and evaluates the result for a single image:</p>
         <span class="k">print</span><span class="p">(</span><span class="s2">"Downloading MNIST dataset"</span><span class="p">)</span>
         <span class="n">urlretrieve</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
 
-    <span class="k">with</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">pickle_load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'latin-1'</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">pickle_load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"latin-1"</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">load_data</span><span class="p">():</span>
@@ -442,40 +445,40 @@ it and evaluates the result for a single image:</p>
 
 <span class="k">def</span> <span class="nf">nn_example</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="n">net1</span> <span class="o">=</span> <span class="n">NeuralNet</span><span class="p">(</span>
-        <span class="n">layers</span><span class="o">=</span><span class="p">[(</span><span class="s1">'input'</span><span class="p">,</span> <span class="n">layers</span><span class="o">.</span><span class="n">InputLayer</span><span class="p">),</span>
-                <span class="p">(</span><span class="s1">'hidden'</span><span class="p">,</span> <span class="n">layers</span><span class="o">.</span><span class="n">DenseLayer</span><span class="p">),</span>
-                <span class="p">(</span><span class="s1">'output'</span><span class="p">,</span> <span class="n">layers</span><span class="o">.</span><span class="n">DenseLayer</span><span class="p">),</span>
-                <span class="p">],</span>
+        <span class="n">layers</span><span class="o">=</span><span class="p">[</span>
+            <span class="p">(</span><span class="s2">"input"</span><span class="p">,</span> <span class="n">layers</span><span class="o">.</span><span class="n">InputLayer</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">"hidden"</span><span class="p">,</span> <span class="n">layers</span><span class="o">.</span><span class="n">DenseLayer</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">"output"</span><span class="p">,</span> <span class="n">layers</span><span class="o">.</span><span class="n">DenseLayer</span><span class="p">),</span>
+        <span class="p">],</span>
         <span class="c1"># layer parameters:</span>
-        <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="mi">28</span><span class="o">*</span><span class="mi">28</span><span class="p">),</span>
+        <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="mi">28</span> <span class="o">*</span> <span class="mi">28</span><span class="p">),</span>
         <span class="n">hidden_num_units</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>  <span class="c1"># number of units in 'hidden' layer</span>
         <span class="n">output_nonlinearity</span><span class="o">=</span><span class="n">lasagne</span><span class="o">.</span><span class="n">nonlinearities</span><span class="o">.</span><span class="n">softmax</span><span class="p">,</span>
         <span class="n">output_num_units</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>  <span class="c1"># 10 target values for the digits 0, 1, 2, ..., 9</span>
-
         <span class="c1"># optimization method:</span>
         <span class="n">update</span><span class="o">=</span><span class="n">nesterov_momentum</span><span class="p">,</span>
         <span class="n">update_learning_rate</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
         <span class="n">update_momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
-
         <span class="n">max_epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
         <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-        <span class="p">)</span>
+    <span class="p">)</span>
 
     <span class="c1"># Train the network</span>
-    <span class="n">net1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'X_train'</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">'y_train'</span><span class="p">])</span>
+    <span class="n">net1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"X_train"</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">"y_train"</span><span class="p">])</span>
 
     <span class="c1"># Try the network on new data</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"Feature vector (100-110): </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">data</span><span class="p">[</span><span class="s1">'X_test'</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">100</span><span class="p">:</span><span class="mi">110</span><span class="p">])</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"Label: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'y_test'</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"Predicted: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">net1</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="s1">'X_test'</span><span class="p">][</span><span class="mi">0</span><span class="p">]])))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Feature vector (100-110): </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">data</span><span class="p">[</span><span class="s2">"X_test"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">100</span><span class="p">:</span><span class="mi">110</span><span class="p">])</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Label: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"y_test"</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Predicted: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">net1</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="s2">"X_test"</span><span class="p">][</span><span class="mi">0</span><span class="p">]])))</span>
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">()</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"Got </span><span class="si">%i</span><span class="s2"> testing datasets."</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'X_train'</span><span class="p">]))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Got </span><span class="si">%i</span><span class="s2"> testing datasets."</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"X_train"</span><span class="p">]))</span>
     <span class="n">nn_example</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
 <p>The output is</p>
