@@ -20,7 +20,7 @@ featured_image: 2013/08/algebra-thumb.jpg
 
 
 def isPrime(a):
-    return all(a % i for i in xrange(2, a))
+    return all(a % i for i in range(2, a))
 
 
 # http://stackoverflow.com/a/14793082/562769

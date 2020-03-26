@@ -73,8 +73,8 @@ random.seed(1234)
 def createRandomMatrix(n):
 	maxVal = 1000 # I don't want to get Java / C++ into trouble
 	matrix = []
-	for i in xrange(n):
-		matrix.append([random.randint(0,maxVal) for el in xrange(n)])
+	for i in range(n):
+		matrix.append([random.randint(0,maxVal) for el in range(n)])
 	return matrix
 
 def saveMatrix(matrixA, matrixB, filename):
@@ -145,10 +145,10 @@ def printMatrix(matrix):
 
 def standardMatrixProduct(A, B):
 	n = len(A)
-	C = [[0 for i in xrange(n)] for j in xrange(n)]
-	for i in xrange(n):
-		for j in xrange(n):
-			for k in xrange(n):
+	C = [[0 for i in range(n)] for j in range(n)]
+	for i in range(n):
+		for j in range(n):
+			for k in range(n):
 				C[i][j] += A[i][k] * B[k][j]
 	return C
 
@@ -167,10 +167,10 @@ sys	0m2.980s
 ```python
 def ikjMatrixProduct(A, B):
 	n = len(A)
-	C = [[0 for i in xrange(n)] for j in xrange(n)]
-	for i in xrange(n):
-		for k in xrange(n):
-			for j in xrange(n):
+	C = [[0 for i in range(n)] for j in range(n)]
+	for i in range(n):
+		for k in range(n):
+			for j in range(n):
 				C[i][j] += A[i][k] * B[k][j]
 	return C
 ```

@@ -143,7 +143,7 @@ if __name__ == "__main__":
         print("Will open file now and print %i lines." % args.n)
 
     f = open(args.filename, 'r')
-    for i in xrange(args.n):
+    for i in range(args.n):
         print f.readline()
 ```
 

@@ -49,7 +49,7 @@ def getPrimesBelowN(n=1000000):
 
     primes = range(2, n)
     for currentPrime in primes:
-        for multiplicant in xrange(2, roundUp(n, currentPrime)):
+        for multiplicant in range(2, roundUp(n, currentPrime)):
             noPrime = multiplicant * currentPrime
             if noPrime in primes:
                 primes.remove(noPrime)
@@ -72,11 +72,11 @@ def getPrimesBelowN(n=1000000):
     primes[1] = False
     primeList = []
 
-    for currentPrime in xrange(2, n):
+    for currentPrime in range(2, n):
         if not primes[currentPrime]:
             continue
         primeList.append(currentPrime)
-        for multiplicant in xrange(2, roundUp(n, currentPrime)):
+        for multiplicant in range(2, roundUp(n, currentPrime)):
             primes[multiplicant * currentPrime] = False
     return primeList
 ```
@@ -90,7 +90,7 @@ Rotation the digits of a number is the same as cutting the number into two piece
 ```python
 def isCircularPrime(primes, number):
     number = str(number)
-    for i in xrange(0, len(number)):
+    for i in range(0, len(number)):
         rotatedNumber = number[i : len(number)] + number[0:i]
         if int(rotatedNumber) not in primes:
             return False
@@ -102,7 +102,7 @@ Here is the same problem as above, in the sieving algorithm: Searching through t
 ```python
 def isCircularPrime(primes, number):
     number = str(number)
-    for i in xrange(0, len(number)):
+    for i in range(0, len(number)):
         rotatedNumber = number[i : len(number)] + number[0:i]
         if not primes[int(rotatedNumber)]:
             return False
@@ -133,11 +133,11 @@ def getPrimesBelowN(n=1000000):
     primes[1] = False
     primeList = []
     roundUp = lambda n, prime: int(ceil(float(n) / prime))
-    for currentPrime in xrange(2, n):
+    for currentPrime in range(2, n):
         if not primes[currentPrime]:
             continue
         primeList.append(currentPrime)
-        for multiplicant in xrange(2, roundUp(n, currentPrime)):
+        for multiplicant in range(2, roundUp(n, currentPrime)):
             primes[multiplicant * currentPrime] = False
     return primes
 
@@ -151,7 +151,7 @@ def isCircularPrime(primes, number):
     number -- the integer you want to check
     """
     number = str(number)
-    for i in xrange(0, len(number)):
+    for i in range(0, len(number)):
         rotatedNumber = number[i : len(number)] + number[0:i]
         if not primes[int(rotatedNumber)]:
             return False

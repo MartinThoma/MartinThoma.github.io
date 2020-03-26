@@ -49,7 +49,7 @@ def line2intlist(line):
 
 
 def getAnswer(classDict, N):
-    for startPoint in xrange(1, N):
+    for startPoint in range(1, N):
         reachable = [startPoint]
         justAppended = [startPoint]
         while len(justAppended) > 0:
@@ -65,10 +65,10 @@ def getAnswer(classDict, N):
     return "No"
 
 
-for i in xrange(0, testcases):
+for i in range(0, testcases):
     N = input()
     classDict = {}
-    for classNr in xrange(1, N + 1):
+    for classNr in range(1, N + 1):
         liste = line2intlist(raw_input())
         classDict[classNr] = liste[1:]
     print("Case #%i: %s" % (i + 1, getAnswer(classDict, N)))

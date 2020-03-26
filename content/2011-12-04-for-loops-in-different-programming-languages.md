@@ -32,7 +32,7 @@ Python uses a generator or lists to loop:
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-for i in xrange(0, 10):
+for i in range(0, 10):
 	print("In loop: %i" % i)
 
 print("Out of loop: %i" % i)

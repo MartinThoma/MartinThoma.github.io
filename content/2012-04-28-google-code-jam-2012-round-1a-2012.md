@@ -55,7 +55,7 @@ def line2floatlist(line):
 
 def prob(A, B, probabilities):
     typesMin = float("inf")
-    for i in xrange(0, A + 1):
+    for i in range(0, A + 1):
         probKorrect = 1.0
         for el in probabilities[0 : (len(probabilities) - i)]:
             probKorrect *= el
@@ -76,7 +76,7 @@ def prob(A, B, probabilities):
 if __name__ == "__main__":
     testcases = input()
 
-    for caseNr in xrange(0, testcases):
+    for caseNr in range(0, testcases):
         A, B = raw_input().split(" ")
         A = int(A)
         B = int(B)
@@ -115,7 +115,7 @@ def isSolvable(starDict):
         intList.append(two)
     intList.sort()
 
-    for levelVar in xrange(0, len(intList)):
+    for levelVar in range(0, len(intList)):
         if levelVar < intList[levelVar]:
             return False
     return True
@@ -164,10 +164,10 @@ def king(starDict, myLevel=0, myCompetes=0, partially=[]):
 if __name__ == "__main__":
     testcases = input()
 
-    for caseNr in xrange(0, testcases):
+    for caseNr in range(0, testcases):
         levels = input()
         stars = []
-        for i in xrange(0, levels):
+        for i in range(0, levels):
             stars.append(line2intlist(raw_input()))
 
         # make stars dictionary

@@ -50,9 +50,9 @@ What do you think does the following piece of Python-Code print?
 def standardMatrixProduct(A, B):
 	n = len(A)
 	C = [[0]*n]*n
-	for i in xrange(n):
-		for j in xrange(n):
-			for k in xrange(n):
+	for i in range(n):
+		for j in range(n):
+			for k in range(n):
 				C[i][j] += A[i][k] * B[k][j]
 	return C
 
@@ -119,10 +119,10 @@ So this is one that works:
 ```python
 def standardMatrixProduct(A, B):
 	n = len(A)
-	C = [[0 for i in xrange(n)] for j in xrange(n)]
-	for i in xrange(n):
-		for j in xrange(n):
-			for k in xrange(n):
+	C = [[0 for i in range(n)] for j in range(n)]
+	for i in range(n):
+		for j in range(n):
+			for k in range(n):
 				print C
 				C[i][j] += A[i][k] * B[k][j]
 	return C

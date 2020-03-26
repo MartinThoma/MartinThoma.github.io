@@ -70,7 +70,7 @@ def solve(A, motes):
 
 if __name__ == "__main__":
     testcases = input()
-    for caseNr in xrange(1, testcases + 1):
+    for caseNr in range(1, testcases + 1):
         A, N = map(int, raw_input().split(" "))
         motes = sorted(map(int, raw_input().split(" ")))
         copyed = motes[:]
@@ -167,7 +167,7 @@ def solve(N, x, y):
 if __name__ == "__main__":
     testcases = input()
 
-    for caseNr in xrange(1, testcases + 1):
+    for caseNr in range(1, testcases + 1):
         N, x, y = map(int, raw_input().split(" "))
         print("Case #%i: %.9Lf" % (caseNr, solve(N, abs(x), y)))
 ```

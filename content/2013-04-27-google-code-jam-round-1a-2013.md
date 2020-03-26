@@ -93,7 +93,7 @@ def check(r, t, x):
 
 def solveFast(r, t):
     myRoots = roots((2, 2 * r + 3, 2 * r + 1 - t))
-    for i in xrange(2):
+    for i in range(2):
         if myRoots[i] >= 0:
             answer = int(ceil(myRoots[i])) + 1
             while not check(r, t, answer):
@@ -104,7 +104,7 @@ def solveFast(r, t):
 if __name__ == "__main__":
     testcases = input()
 
-    for caseNr in xrange(1, testcases + 1):
+    for caseNr in range(1, testcases + 1):
         line = raw_input()
         r, t = map(int, line.split(" "))
         print("Case #%i: %s" % (caseNr, solveFast(r, t)))
@@ -136,7 +136,7 @@ def merge(candidates, block):
     newCandidates = deepcopy(candidates)
     for el in set(block):
         diff = block.count(el) - newCandidates.count(el)
-        for i in xrange(diff):
+        for i in range(diff):
             newCandidates.append(el)
     return newCandidates
 
@@ -196,7 +196,7 @@ if __name__ == "__main__":
                     productToBuildungs[s][0] += 1
                     productToBuildungs[s][1].append(list(product))
 
-        for r in xrange(R):
+        for r in range(R):
             products = [int(el) for el in raw_input().split(" ") if int(el) != 1]
             print("".join(map(str, sorted(solve(N, M, products, productToBuildungs)))))
 ```

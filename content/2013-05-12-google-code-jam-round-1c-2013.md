@@ -56,7 +56,7 @@ def solve(s, n):
 if __name__ == "__main__":
     testcases = input()
 
-    for caseNr in xrange(1, testcases + 1):
+    for caseNr in range(1, testcases + 1):
         name, n = raw_input().split(" ")
         print("Case #%i: %s" % (caseNr, solve(name, int(n))))
 ```
@@ -112,7 +112,7 @@ def solve(x, y):
 if __name__ == "__main__":
     testcases = input()
 
-    for caseNr in xrange(1, testcases + 1):
+    for caseNr in range(1, testcases + 1):
         x, y = raw_input().split(" ")
         x, y = int(x), int(y)
         print("Case #%i: %s" % (caseNr, solve(x, y)))
@@ -145,7 +145,7 @@ def prepareTribes(tribes):
 
 def runAttack(wall, tribe):
     increase = []
-    for i in xrange(tribe["west"], tribe["east"] + 1):
+    for i in range(tribe["west"], tribe["east"] + 1):
         if wall[i] < tribe["height"]:  # wall-ee
             increase.append({"wallPos": i, "height": tribe["height"]})
 
@@ -178,7 +178,7 @@ def solve(tribes):
 if __name__ == "__main__":
     testcases = input()
 
-    for caseNr in xrange(1, testcases + 1):
+    for caseNr in range(1, testcases + 1):
         N = input()  # Number of tribes attacking the wall
         tribes = []
         for tribe in range(N):

@@ -50,7 +50,7 @@ def fib(n):
         return fib(n - 1) + fib(n - 2)
 
 
-for nr in xrange(1, 100):
+for nr in range(1, 100):
     print("The %i-th Fibonacci-Nr is %i" % (nr, fib(nr)))
 ```
 

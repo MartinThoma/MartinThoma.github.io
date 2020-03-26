@@ -53,10 +53,10 @@ def isCuriousFraction(numerator, denomiator):
 
 
 if __name__ == "__main__":
-    for i in xrange(10, 100):
+    for i in range(10, 100):
         if i % 10 == 0:  # those are not interesting
             continue
-        for j in xrange(i + 1, 100):
+        for j in range(i + 1, 100):
             isCuriousFraction(i, j)
 ```
 

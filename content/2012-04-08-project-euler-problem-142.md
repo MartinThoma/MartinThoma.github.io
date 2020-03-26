@@ -35,10 +35,10 @@ def is_square(integer):
     else:
         return False
 
-for x in xrange(3,1000):
+for x in range(3,1000):
 	print x
-	for y in xrange(2, x):
-		for z in xrange(1, y):
+	for y in range(2, x):
+		for z in range(1, y):
 			if (x > y and y > z):
 				if (is_square(x + y)
 					and is_square(x - y)

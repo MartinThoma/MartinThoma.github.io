@@ -84,9 +84,9 @@ def lineMult(start):
     # create a new numpy array using the same memory as mp_arr
     arr = numpy.frombuffer(mp_arr.get_obj(), dtype=ctypes.c_int)
     C = arr.reshape((n, n))
-    for i in xrange(start, start + part):
-        for k in xrange(n):
-            for j in xrange(n):
+    for i in range(start, start + part):
+        for k in range(n):
+            for j in range(n):
                 C[i][j] += A[i][k] * B[k][j]
 
 
@@ -190,9 +190,9 @@ def printMatrix(matrix, f):
 def lineMult(start):
     global A, B, C, part
     n = len(A)
-    for i in xrange(start, start + part):
-        for k in xrange(n):
-            for j in xrange(n):
+    for i in range(start, start + part):
+        for k in range(n):
+            for j in range(n):
                 C[i][j] += A[i][k] * B[k][j]
 
 
@@ -246,7 +246,7 @@ if __name__ == "__main__":
     if part < 1:
         part = 1
 
-    C = [[0 for i in xrange(n)] for j in xrange(n)]
+    C = [[0 for i in range(n)] for j in range(n)]
     C = ikjMatrixProduct(A, B, threadNumber)
     printMatrix(C, args.output)
 ```

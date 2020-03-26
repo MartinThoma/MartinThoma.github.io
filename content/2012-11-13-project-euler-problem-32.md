@@ -28,7 +28,7 @@ def isPandigitalString(string):
     if digits >= 10:
         return False
 
-    for i in xrange(1,digits+1):
+    for i in range(1,digits+1):
         if str(i) not in string:
             return False
     return True
@@ -46,8 +46,8 @@ def gives9PandigitalProduct(a, b):
 Now you need to figure out how to go through all possible combinations:
 ```python
 products = []
-for a in xrange(0, 100000):
-    for b in xrange(a, 100000):
+for a in range(0, 100000):
+    for b in range(a, 100000):
         if len(str(a*b) + str(a) + str(b)) > 9:
             break
         if gives9PandigitalProduct(a, b):

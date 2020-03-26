@@ -37,7 +37,7 @@ def decode(ciphertext, key="ynficwlbkuomxsevzpdrjgthaq",
 if __name__ == "__main__":
 	testcases = input()
 	 
-	for caseNr in xrange(0, testcases):
+	for caseNr in range(0, testcases):
 		cipher = raw_input()
 		print("Case #%i: %s" % (caseNr+1, decode(cipher)))
 ```
@@ -104,7 +104,7 @@ def maxGooglers(nrOfGooglers, surprising, p, points):
 if __name__ == "__main__":
 	testcases = input()
  
-	for caseNr in xrange(0, testcases):
+	for caseNr in range(0, testcases):
 		originalList = line2intlist(raw_input())
 		nrOfGooglers = originalList[0]
 		surprising = originalList[1]
@@ -152,7 +152,7 @@ def rot(num, rot):
 def getRotList(num):
 	""" Only return bigger rotated ones """
 	rotList = [num]
-	for i in xrange(1, len(str(num))):
+	for i in range(1, len(str(num))):
 		tmp = rot(num, i)
 		if tmp not in rotList and len(str(tmp)) == len(str(num)):
 			rotList.append(tmp)
@@ -183,14 +183,14 @@ if __name__ == "__main__":
 	try:
 		liste = pickle.load(open( "save.p", "rb" ))
 	except IOError:
-		for i in xrange(0, 2000001):
+		for i in range(0, 2000001):
 			tmp = getRotList(i)
 			liste.append(tmp)
 		pickle.dump(liste, open( "save.p", "wb" ))
 
 	testcases = input()
  
-	for caseNr in xrange(0, testcases):
+	for caseNr in range(0, testcases):
 		A, B = line2intlist(raw_input())
 		print("Case #%i: %i" % (caseNr+1, recycled(A, B, liste)))
 ```
@@ -344,7 +344,7 @@ def seeReflection(x, v, m, d):
 
 def getMap(H, W):
     map = []
-    for el in xrange(0, H):
+    for el in range(0, H):
         line = raw_input()
         tmp = []
         for char in line:
@@ -387,7 +387,7 @@ def process_case(m, H, W, D):
 
 if __name__ == "__main__":
     testcases = input()
-    for caseNr in xrange(0, testcases):
+    for caseNr in range(0, testcases):
         H, W, D = line2intlist(raw_input())
         map = getMap(H, W)
         print("Case #%i: %i" % (caseNr+1, process_case(map, H, W, D)))

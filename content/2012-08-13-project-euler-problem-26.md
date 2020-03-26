@@ -56,7 +56,7 @@ def getCycle(p, q):
 def euler26(maximum=1000):
     maxCycleLength = 0
     number = 1
-    for i in xrange(1, maximum +1):
+    for i in range(1, maximum +1):
         tmp = len(getCycle(1, i))
         if tmp > maxCycleLength:
             maxCycleLength = tmp
@@ -70,7 +70,7 @@ class TestSequenceFunctions(unittest.TestCase):
     def test_simpleSequences(self):
         self.assertEqual(getCycle(4,2), "")
         self.assertEqual(getCycle(1,6), "6")
-        for i in xrange(1,9):
+        for i in range(1,9):
             self.assertEqual(getCycle(i,9), str(i))
         self.assertEqual(getCycle(1,7), "142857")
 

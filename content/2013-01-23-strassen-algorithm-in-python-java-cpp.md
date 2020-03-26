@@ -78,26 +78,26 @@ def printMatrix(matrix):
 
 def ikjMatrixProduct(A, B):
     n = len(A)
-    C = [[0 for i in xrange(n)] for j in xrange(n)]
-    for i in xrange(n):
-        for k in xrange(n):
-            for j in xrange(n):
+    C = [[0 for i in range(n)] for j in range(n)]
+    for i in range(n):
+        for k in range(n):
+            for j in range(n):
                 C[i][j] += A[i][k] * B[k][j]
     return C
 
 def add(A, B):
     n = len(A)
-    C = [[0 for j in xrange(0, n)] for i in xrange(0, n)]
-    for i in xrange(0, n):
-        for j in xrange(0, n):
+    C = [[0 for j in range(0, n)] for i in range(0, n)]
+    for i in range(0, n):
+        for j in range(0, n):
             C[i][j] = A[i][j] + B[i][j]
     return C
 
 def subtract(A, B):
     n = len(A)
-    C = [[0 for j in xrange(0, n)] for i in xrange(0, n)]
-    for i in xrange(0, n):
-        for j in xrange(0, n):
+    C = [[0 for j in range(0, n)] for i in range(0, n)]
+    for i in range(0, n):
+        for j in range(0, n):
             C[i][j] = A[i][j] - B[i][j]
     return C
 
@@ -112,22 +112,22 @@ def strassenR(A, B):
     else:
         # initializing the new sub-matrices
         newSize = n/2
-        a11 = [[0 for j in xrange(0, newSize)] for i in xrange(0, newSize)]
-        a12 = [[0 for j in xrange(0, newSize)] for i in xrange(0, newSize)]
-        a21 = [[0 for j in xrange(0, newSize)] for i in xrange(0, newSize)]
-        a22 = [[0 for j in xrange(0, newSize)] for i in xrange(0, newSize)]
+        a11 = [[0 for j in range(0, newSize)] for i in range(0, newSize)]
+        a12 = [[0 for j in range(0, newSize)] for i in range(0, newSize)]
+        a21 = [[0 for j in range(0, newSize)] for i in range(0, newSize)]
+        a22 = [[0 for j in range(0, newSize)] for i in range(0, newSize)]
 
-        b11 = [[0 for j in xrange(0, newSize)] for i in xrange(0, newSize)]
-        b12 = [[0 for j in xrange(0, newSize)] for i in xrange(0, newSize)]
-        b21 = [[0 for j in xrange(0, newSize)] for i in xrange(0, newSize)]
-        b22 = [[0 for j in xrange(0, newSize)] for i in xrange(0, newSize)]
+        b11 = [[0 for j in range(0, newSize)] for i in range(0, newSize)]
+        b12 = [[0 for j in range(0, newSize)] for i in range(0, newSize)]
+        b21 = [[0 for j in range(0, newSize)] for i in range(0, newSize)]
+        b22 = [[0 for j in range(0, newSize)] for i in range(0, newSize)]
 
-        aResult = [[0 for j in xrange(0, newSize)] for i in xrange(0, newSize)]
-        bResult = [[0 for j in xrange(0, newSize)] for i in xrange(0, newSize)]
+        aResult = [[0 for j in range(0, newSize)] for i in range(0, newSize)]
+        bResult = [[0 for j in range(0, newSize)] for i in range(0, newSize)]
 
         # dividing the matrices in 4 sub-matrices:
-        for i in xrange(0, newSize):
-            for j in xrange(0, newSize):
+        for i in range(0, newSize):
+            for j in range(0, newSize):
                 a11[i][j] = A[i][j]            # top left
                 a12[i][j] = A[i][j + newSize]    # top right
                 a21[i][j] = A[i + newSize][j]    # bottom left
@@ -176,9 +176,9 @@ def strassenR(A, B):
         c22 = subtract(bResult, p2) # c22 = p1 + p3 - p2 + p6
  
         # Grouping the results obtained in a single matrix:
-        C = [[0 for j in xrange(0, n)] for i in xrange(0, n)]
-        for i in xrange(0, newSize):
-            for j in xrange(0, newSize):
+        C = [[0 for j in range(0, n)] for i in range(0, n)]
+        for i in range(0, newSize):
+            for j in range(0, newSize):
                 C[i][j] = c11[i][j]
                 C[i][j + newSize] = c12[i][j]
                 C[i + newSize][j] = c21[i][j]
@@ -195,16 +195,16 @@ def strassen(A, B):
     nextPowerOfTwo = lambda n: 2**int(ceil(log(n,2)))
     n = len(A)
     m = nextPowerOfTwo(n)
-    APrep = [[0 for i in xrange(m)] for j in xrange(m)]
-    BPrep = [[0 for i in xrange(m)] for j in xrange(m)]
-    for i in xrange(n):
-        for j in xrange(n):
+    APrep = [[0 for i in range(m)] for j in range(m)]
+    BPrep = [[0 for i in range(m)] for j in range(m)]
+    for i in range(n):
+        for j in range(n):
             APrep[i][j] = A[i][j]
             BPrep[i][j] = B[i][j]
     CPrep = strassenR(APrep, BPrep)
-    C = [[0 for i in xrange(n)] for j in xrange(n)]
-    for i in xrange(n):
-        for j in xrange(n):
+    C = [[0 for i in range(n)] for j in range(n)]
+    for i in range(n):
+        for j in range(n):
             C[i][j] = CPrep[i][j]
     return C
     
