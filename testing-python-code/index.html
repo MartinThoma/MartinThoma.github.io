@@ -137,6 +137,7 @@ improved my code.</p>
 <p>Suppose you have to test a function</p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
 
+
 <span class="k">def</span> <span class="nf">get_tomorrow</span><span class="p">():</span>
     <span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">today</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span>
@@ -145,6 +146,7 @@ improved my code.</p>
 the world. That is hard to test. While there is <a href="https://github.com/spulec/freezegun"><code>freezegun</code></a>,
 the simpler change is to add an argument:</p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
+
 
 <span class="k">def</span> <span class="nf">get_tomorrow</span><span class="p">(</span><span class="n">today</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">today</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
@@ -182,8 +184,9 @@ It executes code which is after the promt <code>&gt;&gt;&gt;</code>.</p>
         <span class="k">return</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">doctest</span>
+
     <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
 </pre></div>
 <p>If you execute this, it will directly check if the documentation matches actual
@@ -232,58 +235,36 @@ typical integration test is when you interact with a database.</p>
 <li>The test runner executes the tests.</li>
 </ul>
 <p>Your <a href="https://martin-thoma.com/python-projects/">project structure</a> should be:</p>
-<div class="highlight"><pre><span></span><span class="n">foo_module</span> <span class="o">:</span> <span class="n">the</span> <span class="n">git</span> <span class="n">repository</span> <span class="n">root</span> <span class="n">dir</span>
-<span class="err">├──</span> <span class="n">configs</span>
-<span class="err">│</span>   <span class="err">└──</span> <span class="n">module</span><span class="o">.</span><span class="na">yaml</span>
-<span class="err">├──</span> <span class="n">docker</span><span class="o">-</span><span class="n">compose</span><span class="o">.</span><span class="na">yml</span>
-<span class="err">├──</span> <span class="n">Dockerfile</span>
-<span class="err">├──</span> <span class="n">foo_module</span>
-<span class="err">│</span>   <span class="err">├──</span> <span class="n">api</span><span class="o">.</span><span class="na">py</span>
-<span class="err">│</span>   <span class="err">├──</span> <span class="n">cli</span><span class="o">.</span><span class="na">py</span>
-<span class="err">│</span>   <span class="err">├──</span> <span class="n">config</span><span class="o">.</span><span class="na">yaml</span>
-<span class="err">│</span>   <span class="err">├──</span> <span class="n">controller</span><span class="o">.</span><span class="na">py</span>
-<span class="err">│</span>   <span class="err">├──</span> <span class="n">credentials</span><span class="o">.</span><span class="na">yaml</span>
-<span class="err">│</span>   <span class="err">├──</span> <span class="n">__init__</span><span class="o">.</span><span class="na">py</span>
-<span class="err">│</span>   <span class="err">└──</span> <span class="n">utils</span><span class="o">.</span><span class="na">py</span>
-<span class="err">├──</span> <span class="n">tox</span><span class="o">.</span><span class="na">ini</span>
-<span class="err">├──</span> <span class="n">README</span><span class="o">.</span><span class="na">md</span>
-<span class="err">├──</span> <span class="n">requirements</span><span class="o">.</span><span class="na">txt</span>
-<span class="err">├──</span> <span class="n">setup</span><span class="o">.</span><span class="na">cfg</span>
-<span class="err">├──</span> <span class="n">setup</span><span class="o">.</span><span class="na">py</span>
-<span class="err">└──</span> <span class="n">tests</span> <span class="o">&lt;--------------------------</span>
-    <span class="err">├──</span> <span class="n">__init__</span><span class="o">.</span><span class="na">py</span>
-    <span class="err">└──</span> <span class="n">test_utils</span><span class="o">.</span><span class="na">py</span>
+<div class="highlight"><pre><span></span>foo_module : the git repository root dir
+├── configs
+│   └── module.yaml
+├── docker-compose.yml
+├── Dockerfile
+├── foo_module
+│   ├── api.py
+│   ├── cli.py
+│   ├── config.yaml
+│   ├── controller.py
+│   ├── credentials.yaml
+│   ├── __init__.py
+│   └── utils.py
+├── tox.ini
+├── README.md
+├── requirements.txt
+├── setup.cfg
+├── setup.py
+└── tests &lt;--------------------------
+    ├── __init__.py
+    └── test_utils.py
 </pre></div>
 <p>A simple unittest is usually stored in <code>tests/test_themodule_name.py</code> and might
 look like this:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 
 <span class="kn">import</span> <span class="nn">unittest</span>
 
-<span class="k">class</span> <span class="nc">ThemoduleNameTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
 
+<span class="k">class</span> <span class="nc">ThemoduleNameTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""Set things up for the test."""</span>
         <span class="c1"># e.g. initialize database mock</span>
@@ -295,20 +276,20 @@ look like this:</p>
     <span class="c1"># test routine A</span>
     <span class="k">def</span> <span class="nf">test_abc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""Test routine A"""</span>
-        <span class="k">print</span> <span class="s2">"FooTest:testA"</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">"FooTest:testA"</span><span class="p">)</span>
 
     <span class="c1"># test routine B</span>
     <span class="k">def</span> <span class="nf">testB</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""Test routine B"""</span>
-        <span class="k">print</span> <span class="s2">"FooTest:testB"</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">"FooTest:testB"</span><span class="p">)</span>
 </pre></div>
-</td></tr></table>
 <h3 id="pytest">pytest</h3>
 <p><a href="https://docs.pytest.org/en/latest/"><code>pytest</code></a> is a framework which makes
 testing with Python WAY easier. You can simply add files <code>test_&lt;modulename&gt;.py</code>
 with <code>text_xyz()</code> functions and assert statements:</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">text_xy</span><span class="p">():</span>
     <span class="kn">import</span> <span class="nn">mymodule</span>
+
     <span class="k">assert</span> <span class="n">mymodule</span><span class="o">.</span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
 </pre></div>
 <p>Then you execute <code>pytest</code> in the project folder (without any arguments) and
@@ -396,9 +377,9 @@ give later developers (including yourself) later a hint, you could create a
 <code>template.envrc</code> file which contains all relevant attributes, but not the
 values.</p>
 <p>For example:</p>
-<div class="highlight"><pre><span></span>export AWS_USERNAME="foobar"
-export AWS_PASSWORD="foobar"
-export FOOBAR="foobar"
+<div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">AWS_USERNAME</span><span class="o">=</span><span class="s2">"foobar"</span>
+<span class="nb">export</span> <span class="nv">AWS_PASSWORD</span><span class="o">=</span><span class="s2">"foobar"</span>
+<span class="nb">export</span> <span class="nv">FOOBAR</span><span class="o">=</span><span class="s2">"foobar"</span>
 </pre></div>
 <p>Of course, you should <em>not</em> add the <code>.envrc</code> file to your git repository.</p>
 <p>For AWS, there is <a href="https://aws.amazon.com/kms/">KMS</a> to store

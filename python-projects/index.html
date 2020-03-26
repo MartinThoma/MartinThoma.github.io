@@ -132,27 +132,27 @@ things, and off-by-1 errors.</p>
 </ul>
 <p>For now, assume your module is called <code>foo_module</code></p>
 <h2 id="project-structure">Project structure</h2>
-<div class="highlight"><pre><span></span><span class="n">foo_module</span> <span class="o">:</span> <span class="n">the</span> <span class="n">git</span> <span class="n">repository</span> <span class="n">root</span> <span class="n">dir</span>
-<span class="err">├──</span> <span class="n">configs</span>
-<span class="err">│</span>   <span class="err">└──</span> <span class="n">module</span><span class="o">.</span><span class="na">yaml</span>
-<span class="err">├──</span> <span class="n">docker</span><span class="o">-</span><span class="n">compose</span><span class="o">.</span><span class="na">yml</span>
-<span class="err">├──</span> <span class="n">Dockerfile</span>
-<span class="err">├──</span> <span class="n">foo_module</span>
-<span class="err">│</span>   <span class="err">├──</span> <span class="n">api</span><span class="o">.</span><span class="na">py</span>
-<span class="err">│</span>   <span class="err">├──</span> <span class="n">cli</span><span class="o">.</span><span class="na">py</span>
-<span class="err">│</span>   <span class="err">├──</span> <span class="n">config</span><span class="o">.</span><span class="na">yaml</span>
-<span class="err">│</span>   <span class="err">├──</span> <span class="n">controller</span><span class="o">.</span><span class="na">py</span>
-<span class="err">│</span>   <span class="err">├──</span> <span class="n">credentials</span><span class="o">.</span><span class="na">yaml</span>
-<span class="err">│</span>   <span class="err">├──</span> <span class="n">__init__</span><span class="o">.</span><span class="na">py</span>
-<span class="err">│</span>   <span class="err">└──</span> <span class="n">utils</span><span class="o">.</span><span class="na">py</span>
-<span class="err">├──</span> <span class="n">tox</span><span class="o">.</span><span class="na">ini</span>
-<span class="err">├──</span> <span class="n">README</span><span class="o">.</span><span class="na">md</span>
-<span class="err">├──</span> <span class="n">requirements</span><span class="o">.</span><span class="na">txt</span>
-<span class="err">├──</span> <span class="n">setup</span><span class="o">.</span><span class="na">cfg</span>
-<span class="err">├──</span> <span class="n">setup</span><span class="o">.</span><span class="na">py</span>
-<span class="err">└──</span> <span class="n">tests</span>
-    <span class="err">├──</span> <span class="n">__init__</span><span class="o">.</span><span class="na">py</span>
-    <span class="err">└──</span> <span class="n">test_utils</span><span class="o">.</span><span class="na">py</span>
+<div class="highlight"><pre><span></span>foo_module : the git repository root dir
+├── configs
+│   └── module.yaml
+├── docker-compose.yml
+├── Dockerfile
+├── foo_module
+│   ├── api.py
+│   ├── cli.py
+│   ├── config.yaml
+│   ├── controller.py
+│   ├── credentials.yaml
+│   ├── __init__.py
+│   └── utils.py
+├── tox.ini
+├── README.md
+├── requirements.txt
+├── setup.cfg
+├── setup.py
+└── tests
+    ├── __init__.py
+    └── test_utils.py
 </pre></div>
 <ul>
 <li>Having a <code>Dockerfile</code> and a <code>docker-compose.yml</code> might be nice if you have
@@ -160,10 +160,11 @@ things, and off-by-1 errors.</p>
 </ul>
 <p>the <code>foo_module/__init__.py</code> should look like this:</p>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pkg_resources</span> <span class="kn">import</span> <span class="n">get_distribution</span>
+
 <span class="k">try</span><span class="p">:</span>
-    <span class="n">__version__</span> <span class="o">=</span> <span class="n">get_distribution</span><span class="p">(</span><span class="s1">'lidtk'</span><span class="p">)</span><span class="o">.</span><span class="n">version</span>
+    <span class="n">__version__</span> <span class="o">=</span> <span class="n">get_distribution</span><span class="p">(</span><span class="s2">"lidtk"</span><span class="p">)</span><span class="o">.</span><span class="n">version</span>
 <span class="k">except</span><span class="p">:</span>
-    <span class="n">__version__</span> <span class="o">=</span> <span class="s1">'Not installed'</span>
+    <span class="n">__version__</span> <span class="o">=</span> <span class="s2">"Not installed"</span>
 </pre></div>
 <p>The <code>setup.py</code> should look like this:</p>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">find_packages</span>
@@ -308,10 +309,10 @@ Stick to that.</p>
 <span class="kn">import</span> <span class="nn">pkg_resources</span>
 <span class="kn">import</span> <span class="nn">yaml</span>
 
-<span class="n">filepath</span> <span class="o">=</span> <span class="n">pkg_resources</span><span class="o">.</span><span class="n">resource_filename</span><span class="p">(</span><span class="s1">'foo_module'</span><span class="p">,</span> <span class="s1">'configs/module.yaml'</span><span class="p">)</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
+<span class="n">filepath</span> <span class="o">=</span> <span class="n">pkg_resources</span><span class="o">.</span><span class="n">resource_filename</span><span class="p">(</span><span class="s2">"foo_module"</span><span class="p">,</span> <span class="s2">"configs/module.yaml"</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span>
-<span class="n">logging</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">dictConfig</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s1">'LOGGING'</span><span class="p">])</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">dictConfig</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">"LOGGING"</span><span class="p">])</span>
 </pre></div>
 <h2 id="tests">Tests</h2>
 <p>Tests are written for three purposes:</p>

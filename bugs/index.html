@@ -149,16 +149,16 @@ completely when you try to investigate them. As an example, imagine a bank
 account. You have one process P-in which receives ingoing transactions and
 another process P-out that handles outgoing transactions:</p>
 <p>P1:</p>
-<div class="highlight"><pre><span></span>def transfer_money(account, pay_amount):         # L0
-    current_total = account.get_current_total()  # L1
-    updated_total = current_total - pay_amount   # L2
-    account.set_current_total(updated_total)     # L3
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">transfer_money</span><span class="p">(</span><span class="n">account</span><span class="p">,</span> <span class="n">pay_amount</span><span class="p">):</span>  <span class="c1"># L0</span>
+    <span class="n">current_total</span> <span class="o">=</span> <span class="n">account</span><span class="o">.</span><span class="n">get_current_total</span><span class="p">()</span>  <span class="c1"># L1</span>
+    <span class="n">updated_total</span> <span class="o">=</span> <span class="n">current_total</span> <span class="o">-</span> <span class="n">pay_amount</span>  <span class="c1"># L2</span>
+    <span class="n">account</span><span class="o">.</span><span class="n">set_current_total</span><span class="p">(</span><span class="n">updated_total</span><span class="p">)</span>  <span class="c1"># L3</span>
 </pre></div>
 <p>P2:</p>
-<div class="highlight"><pre><span></span>def receive_money(account, get_amount):         # L4
-    current_total = account.get_current_total() # L5
-    updated_total = current_total + get_amount  # L6
-    account.set_current_total(updated_total)    # L7
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">receive_money</span><span class="p">(</span><span class="n">account</span><span class="p">,</span> <span class="n">get_amount</span><span class="p">):</span>  <span class="c1"># L4</span>
+    <span class="n">current_total</span> <span class="o">=</span> <span class="n">account</span><span class="o">.</span><span class="n">get_current_total</span><span class="p">()</span>  <span class="c1"># L5</span>
+    <span class="n">updated_total</span> <span class="o">=</span> <span class="n">current_total</span> <span class="o">+</span> <span class="n">get_amount</span>  <span class="c1"># L6</span>
+    <span class="n">account</span><span class="o">.</span><span class="n">set_current_total</span><span class="p">(</span><span class="n">updated_total</span><span class="p">)</span>  <span class="c1"># L7</span>
 </pre></div>
 <p>You have 3141 EUR on that account identified by 'FortKnox'. At midnight in the
 beginning of year 2018, you receive 42 EUR from your awesome company as a gift

@@ -136,13 +136,13 @@ inspired by <a href="https://www.youtube.com/watch?v=UjhX2sVf0eg">Michael Toppa 
 <h2 id="dictionaries">Dictionaries</h2>
 <h3 id="get">Get</h3>
 <p>Bad:</p>
-<div class="highlight"><pre><span></span>if 'key' in a_dictionary:
-    foobar = a_dictionary['key']
-else:
-    foobar = 'a default value'
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="s2">"key"</span> <span class="ow">in</span> <span class="n">a_dictionary</span><span class="p">:</span>
+    <span class="n">foobar</span> <span class="o">=</span> <span class="n">a_dictionary</span><span class="p">[</span><span class="s2">"key"</span><span class="p">]</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">foobar</span> <span class="o">=</span> <span class="s2">"a default value"</span>
 </pre></div>
 <p>Good:</p>
-<div class="highlight"><pre><span></span>foobar = a_dictionary.get('key', 'a default value')
+<div class="highlight"><pre><span></span><span class="n">foobar</span> <span class="o">=</span> <span class="n">a_dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"key"</span><span class="p">,</span> <span class="s2">"a default value"</span><span class="p">)</span>
 </pre></div>
 <p>Reasons:</p>
 <ul>
@@ -153,22 +153,22 @@ else:
 <p>A common problem is to check many error-cases until you do whatever you want to
 do.</p>
 <p>Bad:</p>
-<div class="highlight"><pre><span></span>def foo(bar):
-    if a(bar):
-        b = c(bar)
-        if b != 'xy':
-            doit(bar)
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">bar</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">a</span><span class="p">(</span><span class="n">bar</span><span class="p">):</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="n">bar</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">b</span> <span class="o">!=</span> <span class="s2">"xy"</span><span class="p">:</span>
+            <span class="n">doit</span><span class="p">(</span><span class="n">bar</span><span class="p">)</span>
 </pre></div>
 <p>Better:</p>
-<div class="highlight"><pre><span></span>def foo(bar):
-    if not a(bar):
-        return
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">bar</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">a</span><span class="p">(</span><span class="n">bar</span><span class="p">):</span>
+        <span class="k">return</span>
 
-    b = c(bar)
-    if b == 'xy':
-        return
+    <span class="n">b</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="n">bar</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="s2">"xy"</span><span class="p">:</span>
+        <span class="k">return</span>
 
-    doit(bar)
+    <span class="n">doit</span><span class="p">(</span><span class="n">bar</span><span class="p">)</span>
 </pre></div>
 <p>The reason why code structured like this is because:</p>
 <ul>
@@ -190,7 +190,7 @@ do.</p>
 </ol>
 <h2 id="namedtuples-instead-of-tuples">NamedTuples instead of Tuples</h2>
 <p>Bad: tuple</p>
-<div class="highlight"><pre><span></span>(1337, 42)
+<div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">1337</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span>
 </pre></div>
 <p>Better: <a href="https://docs.python.org/2/library/collections.html#collections.namedtuple"><code>namedtuple</code></a></p>
 <div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
@@ -220,17 +220,17 @@ short name is having iterators that are just <code>i</code> (an index integer). 
 one which I don't like is <code>tmp</code>.</p>
 <h2 id="naming-constants">Naming constants</h2>
 <p>Bad:</p>
-<div class="highlight"><pre><span></span>t0 = time.time()
-some_code()
-t1 = time.time()
-execution_time = (t1 - t0) / 3600
+<div class="highlight"><pre><span></span><span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">some_code</span><span class="p">()</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">execution_time</span> <span class="o">=</span> <span class="p">(</span><span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3600</span>
 </pre></div>
 <p>Better:</p>
-<div class="highlight"><pre><span></span>t0 = time.time()
-some_code()
-t1 = time.time()
-SECONDS_IN_A_HOUR = 3600
-execution_time_in_hours = (t1 - t0) / SECONDS_IN_A_HOUR
+<div class="highlight"><pre><span></span><span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">some_code</span><span class="p">()</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">SECONDS_IN_A_HOUR</span> <span class="o">=</span> <span class="mi">3600</span>
+<span class="n">execution_time_in_hours</span> <span class="o">=</span> <span class="p">(</span><span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">)</span> <span class="o">/</span> <span class="n">SECONDS_IN_A_HOUR</span>
 </pre></div>
 <p>Reasons why it is better:</p>
 <ul>
@@ -241,6 +241,7 @@ execution_time_in_hours = (t1 - t0) / SECONDS_IN_A_HOUR
 This way, it is guaranteed that the units will not accidentially be used in the
 wrong way.</p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pint</span>
+
 <span class="n">ureg</span> <span class="o">=</span> <span class="n">pint</span><span class="o">.</span><span class="n">UnitRegistry</span><span class="p">()</span>
 
 <span class="n">execution_time</span> <span class="o">=</span> <span class="p">(</span><span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">)</span> <span class="o">*</span> <span class="n">ureg</span><span class="o">.</span><span class="n">second</span>
@@ -248,27 +249,27 @@ wrong way.</p>
 </pre></div>
 <h2 id="first-list-pop">First List Pop</h2>
 <p>Bad:</p>
-<div class="highlight"><pre><span></span>del list_[0]
-list_.pop(0)
-list_.insert(0, 'foobar')
+<div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">list_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">list_</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">list_</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">"foobar"</span><span class="p">)</span>
 </pre></div>
 <p>Better: use <a href="https://docs.python.org/3/library/collections.html#collections.deque"><code>deque</code></a></p>
 <p>Reason: <span class="label label-info">Speed</span> - see <a href="https://wiki.python.org/moin/TimeComplexity">time complexity of data structure operations</a></p>
 <h2 id="avoid-mental-mapping">Avoid Mental Mapping</h2>
 <p>Worst:</p>
-<div class="highlight"><pre><span></span>list_ = ['a@de.com', 'foobar@fg.com', 'hot@martin.com']
-for i in range(len(list_)):
-    send(list_[i])
+<div class="highlight"><pre><span></span><span class="n">list_</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a@de.com"</span><span class="p">,</span> <span class="s2">"foobar@fg.com"</span><span class="p">,</span> <span class="s2">"hot@martin.com"</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">list_</span><span class="p">)):</span>
+    <span class="n">send</span><span class="p">(</span><span class="n">list_</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 </pre></div>
 <p>Bad:</p>
-<div class="highlight"><pre><span></span>list_ = ['a@de.com', 'foobar@fg.com', 'hot@martin.com']
-for el in list_:
-    send(el)
+<div class="highlight"><pre><span></span><span class="n">list_</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a@de.com"</span><span class="p">,</span> <span class="s2">"foobar@fg.com"</span><span class="p">,</span> <span class="s2">"hot@martin.com"</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">list_</span><span class="p">:</span>
+    <span class="n">send</span><span class="p">(</span><span class="n">el</span><span class="p">)</span>
 </pre></div>
 <p>Better:</p>
-<div class="highlight"><pre><span></span>email_addresses = ['a@de.com', 'foobar@fg.com', 'hot@martin.com']
-for email_address in email_addresses:
-    send(email_address)
+<div class="highlight"><pre><span></span><span class="n">email_addresses</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a@de.com"</span><span class="p">,</span> <span class="s2">"foobar@fg.com"</span><span class="p">,</span> <span class="s2">"hot@martin.com"</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">email_address</span> <span class="ow">in</span> <span class="n">email_addresses</span><span class="p">:</span>
+    <span class="n">send</span><span class="p">(</span><span class="n">email_address</span><span class="p">)</span>
 </pre></div>
 <p><span class="label label-info">Mental Complexity</span> Here we don't iterate
 over an integer number. We iterate over items. Those items have a semantic
@@ -279,22 +280,22 @@ something like:</p>
 </blockquote>
 <p>The last one is was closer to this natural form than the other two ones are.</p>
 <h2 id="ignored">ignored</h2>
-<div class="highlight"><pre><span></span><span class="k">try</span><span class="o">:</span>
-    <span class="n">os</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="s1">'foobar'</span><span class="o">)</span>
-<span class="n">except</span> <span class="n">OSError</span><span class="o">:</span>
-    <span class="n">pass</span>
+<div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"foobar"</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+    <span class="k">pass</span>
 </pre></div>
 <p>with ignored:</p>
-<div class="highlight"><pre><span></span>@contextmanager
-def ignored(*exceptions):
-    try:
-        yield
-    except exceptions:
-        pass
+<div class="highlight"><pre><span></span><span class="nd">@contextmanager</span>
+<span class="k">def</span> <span class="nf">ignored</span><span class="p">(</span><span class="o">*</span><span class="n">exceptions</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">yield</span>
+    <span class="k">except</span> <span class="n">exceptions</span><span class="p">:</span>
+        <span class="k">pass</span>
 </pre></div>
 <p>only</p>
-<div class="highlight"><pre><span></span>with ignored(OSError):
-    os.remove('foobar')
+<div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">ignored</span><span class="p">(</span><span class="ne">OSError</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"foobar"</span><span class="p">)</span>
 </pre></div>
 <h2 id="dont-add-unnecessary-prefixes-suffixes">Don't add unnecessary prefixes / suffixes</h2>
 <p>For example, a <code>Person</code> class does not need a <code>person_id</code> property. It is

@@ -117,29 +117,30 @@ string. It usually has the form</p>
 <p>Quite often, the <code>user</code> is <code>root</code> and the <code>host</code> is <code>localhost</code>.</p>
 <p>Once you have the valid connection string, you can <strong>test if it works</strong> via this script:</p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sqlalchemy</span>
+
 <span class="n">engine</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">create_engine</span><span class="p">(</span><span class="n">SQLALCHEMY_DATABASE_URI</span><span class="p">,</span> <span class="n">echo</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">engine</span><span class="o">.</span><span class="n">table_names</span><span class="p">())</span>
 </pre></div>
 <h2 id="sqlite">SQLite</h2>
 <p><code>requirements.txt</code>: None</p>
 <p>Connection:</p>
-<div class="highlight"><pre><span></span>SQLALCHEMY_DATABASE_URI = 'sqlite:///absolute_filepath'
+<div class="highlight"><pre><span></span><span class="n">SQLALCHEMY_DATABASE_URI</span> <span class="o">=</span> <span class="s2">"sqlite:///absolute_filepath"</span>
 
-# Example:
-SQLALCHEMY_DATABASE_URI = 'sqlite:////tmp/test.db'
+<span class="c1"># Example:</span>
+<span class="n">SQLALCHEMY_DATABASE_URI</span> <span class="o">=</span> <span class="s2">"sqlite:////tmp/test.db"</span>
 </pre></div>
 <p>The first two slashes come from the seperator of dialect and driver, the third
 one from the separation between credentials+host and dbname, the fourth one is
 the path which is kind of the name of the database.</p>
 <p>If you want an in-memory SQLite DB, just specify an empty URL (<a href="https://docs.sqlalchemy.org/en/13/core/engines.html#sqlite">source</a>):</p>
-<div class="highlight"><pre><span></span>SQLALCHEMY_DATABASE_URI = 'sqlite://'
+<div class="highlight"><pre><span></span><span class="n">SQLALCHEMY_DATABASE_URI</span> <span class="o">=</span> <span class="s2">"sqlite://"</span>
 </pre></div>
 <h2 id="mysql-and-mariadb">MySQL and MariaDB</h2>
 <p><code>requirements.txt</code>:</p>
 <div class="highlight"><pre><span></span>PyMySQL
 </pre></div>
 <p>Connection:</p>
-<div class="highlight"><pre><span></span>SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://user:password@host/dbname'
+<div class="highlight"><pre><span></span><span class="n">SQLALCHEMY_DATABASE_URI</span> <span class="o">=</span> <span class="s2">"mysql+pymysql://user:password@host/dbname"</span>
 </pre></div>
 <p>There are a lot of <a href="https://docs.sqlalchemy.org/en/13/dialects/mysql.html">other MySQL drivers</a>:</p>
 <ul>

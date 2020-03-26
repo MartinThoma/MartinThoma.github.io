@@ -221,16 +221,16 @@ consecutive trials.</p>
 </tr>
 </table>
 <p>The bigger NN is</p>
-<div class="highlight"><pre><span></span>model = Sequential()
-model.add(Flatten(input_shape=input_shape))
-model.add(Dense(16))
-model.add(Activation('relu'))
-model.add(Dense(16))
-model.add(Activation('relu'))
-model.add(Dense(16))
-model.add(Activation('relu'))
-model.add(Dense(nb_actions))
-model.add(Activation('softmax'))
+<div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Flatten</span><span class="p">(</span><span class="n">input_shape</span><span class="o">=</span><span class="n">input_shape</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">16</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="s2">"relu"</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">16</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="s2">"relu"</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">16</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="s2">"relu"</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="n">nb_actions</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="s2">"softmax"</span><span class="p">))</span>
 </pre></div>
 <p>Ok, so the bigger network is important. Also, 1000 training steps are not
 enough, but 10000 are. Let's see if we can reduce the episode memory. The
@@ -308,37 +308,13 @@ episode memory is what is used for training.</p>
 </table>
 <h3 id="all-environments">All environments</h3>
 <p>You can list all environments with</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 
 <span class="sd">"""Print OpenAI Gym Environment data."""</span>
 
 <span class="kn">import</span> <span class="nn">gym</span>
 <span class="kn">from</span> <span class="nn">gym</span> <span class="kn">import</span> <span class="n">envs</span>
+
 <span class="n">envids</span> <span class="o">=</span> <span class="p">[</span><span class="n">spec</span><span class="o">.</span><span class="n">id</span> <span class="k">for</span> <span class="n">spec</span> <span class="ow">in</span> <span class="n">envs</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">all</span><span class="p">()]</span>
 <span class="k">print</span><span class="p">(</span><span class="s1">'&lt;table class="table"&gt;'</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">envid</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">envids</span><span class="p">),</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
@@ -347,20 +323,19 @@ episode memory is what is used for training.</p>
         <span class="n">observations</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">observation_space</span>
         <span class="n">actions</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">action_space</span>
     <span class="k">except</span><span class="p">:</span>
-        <span class="n">observations</span> <span class="o">=</span> <span class="s1">'Error'</span>
-        <span class="n">actions</span> <span class="o">=</span> <span class="s1">'Error'</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">'&lt;tr&gt;&lt;td id="env-{i}"&gt;{i}&lt;/td&gt;'</span>
-          <span class="s1">'&lt;td&gt;&lt;a href="https://gym.openai.com/envs/{envid}/" id="{envid}"&gt;'</span>
-          <span class="s1">'{envid}&lt;/a&gt;&lt;/td&gt;'</span>
-          <span class="s1">'&lt;td&gt;{observations}&lt;/td&gt;'</span>
-          <span class="s1">'&lt;td&gt;{actions}&lt;/td&gt;&lt;/tr&gt;'</span>
-          <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="p">,</span>
-                  <span class="n">envid</span><span class="o">=</span><span class="n">envid</span><span class="p">,</span>
-                  <span class="n">observations</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">observations</span><span class="p">),</span>
-                  <span class="n">actions</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">actions</span><span class="p">)))</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">'&lt;/table&gt;'</span><span class="p">)</span>
+        <span class="n">observations</span> <span class="o">=</span> <span class="s2">"Error"</span>
+        <span class="n">actions</span> <span class="o">=</span> <span class="s2">"Error"</span>
+    <span class="k">print</span><span class="p">(</span>
+        <span class="s1">'&lt;tr&gt;&lt;td id="env-{i}"&gt;{i}&lt;/td&gt;'</span>
+        <span class="s1">'&lt;td&gt;&lt;a href="https://gym.openai.com/envs/{envid}/" id="{envid}"&gt;'</span>
+        <span class="s2">"{envid}&lt;/a&gt;&lt;/td&gt;"</span>
+        <span class="s2">"&lt;td&gt;{observations}&lt;/td&gt;"</span>
+        <span class="s2">"&lt;td&gt;{actions}&lt;/td&gt;&lt;/tr&gt;"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">envid</span><span class="o">=</span><span class="n">envid</span><span class="p">,</span> <span class="n">observations</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">observations</span><span class="p">),</span> <span class="n">actions</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">actions</span><span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">"&lt;/table&gt;"</span><span class="p">)</span>
 </pre></div>
-</td></tr></table>
 <p>which gives</p>
 <table class="table">
 <tr>

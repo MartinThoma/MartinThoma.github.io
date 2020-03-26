@@ -134,13 +134,13 @@ easy if they were in a single unit / in the unit you know. I would like
 browsers to be able to automatically convert units. But that is only possible
 if units can be identified easily.</p>
 <h2 id="intermediate-solution">Intermediate solution</h2>
-<div class="highlight"><pre><span></span><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"quantity temperature"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"value"</span><span class="nt">&gt;</span>-5<span class="nt">&lt;/span&gt;&lt;span</span> <span class="na">class=</span><span class="s">"unit"</span><span class="nt">&gt;</span>&deg;F<span class="nt">&lt;/span&gt;&lt;/span&gt;</span>
-<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"quantity power"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"value"</span><span class="nt">&gt;</span>400<span class="nt">&lt;/span&gt;&lt;span</span> <span class="na">class=</span><span class="s">"unit"</span><span class="nt">&gt;</span>kW<span class="nt">&lt;/span&gt;&lt;/span&gt;</span>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"quantity temperature"</span><span class="p">&gt;&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"value"</span><span class="p">&gt;</span>-5<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"unit"</span><span class="p">&gt;</span>&deg;F<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"quantity power"</span><span class="p">&gt;&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"value"</span><span class="p">&gt;</span>400<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"unit"</span><span class="p">&gt;</span>kW<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 <h2 id="good-solution">Good solution</h2>
 <p>The intermediate solution is a bit verbose. I would prefer a syntax like:</p>
-<div class="highlight"><pre><span></span><span class="nt">&lt;quantity</span> <span class="na">type=</span><span class="s">"temperature"</span><span class="nt">&gt;&lt;num&gt;</span>-5<span class="nt">&lt;/num&gt;&lt;unit&gt;</span>&deg;F<span class="nt">&lt;/unit&gt;&lt;/quantity&gt;</span>
-<span class="nt">&lt;quantity</span> <span class="na">type=</span><span class="s">"power"</span><span class="nt">&gt;&lt;num&gt;</span>400<span class="nt">&lt;/num&gt;&lt;unit&gt;</span>kW<span class="nt">&lt;/unit&gt;&lt;/quantity&gt;</span>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">quantity</span> <span class="na">type</span><span class="o">=</span><span class="s">"temperature"</span><span class="p">&gt;&lt;</span><span class="nt">num</span><span class="p">&gt;</span>-5<span class="p">&lt;/</span><span class="nt">num</span><span class="p">&gt;&lt;</span><span class="nt">unit</span><span class="p">&gt;</span>&deg;F<span class="p">&lt;/</span><span class="nt">unit</span><span class="p">&gt;&lt;/</span><span class="nt">quantity</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">quantity</span> <span class="na">type</span><span class="o">=</span><span class="s">"power"</span><span class="p">&gt;&lt;</span><span class="nt">num</span><span class="p">&gt;</span>400<span class="p">&lt;/</span><span class="nt">num</span><span class="p">&gt;&lt;</span><span class="nt">unit</span><span class="p">&gt;</span>kW<span class="p">&lt;/</span><span class="nt">unit</span><span class="p">&gt;&lt;/</span><span class="nt">quantity</span><span class="p">&gt;</span>
 </pre></div>
 <p>Where the <code>&lt;num&gt;</code> tag should be the number without any spaces / other tags, but
 it should also have easy ways to customize the numbers (preferably via CSS):</p>
@@ -149,8 +149,8 @@ it should also have easy ways to customize the numbers (preferably via CSS):</p>
 <li>Decimal seperator: <code>,</code> or <code>.</code></li>
 </ul>
 <p>You can do this number formatting with JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString"><code>toLocaleString</code></a>:</p>
-<div class="highlight"><pre><span></span>num = 1234567
-num.toLocaleString('en', {useGrouping:true})
+<div class="highlight"><pre><span></span><span class="nx">num</span> <span class="o">=</span> <span class="mi">1234567</span>
+<span class="nx">num</span><span class="p">.</span><span class="nx">toLocaleString</span><span class="p">(</span><span class="s1">'en'</span><span class="p">,</span> <span class="p">{</span><span class="nx">useGrouping</span><span class="o">:</span><span class="kc">true</span><span class="p">})</span>
 </pre></div>
 <p>gives <code>1,234,567.89</code></p>
 <h2 id="see-also">See also</h2>

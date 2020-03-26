@@ -270,55 +270,15 @@ should contain the following files:</p>
 └── pronounciation-dictionary.dict
 </pre></div>
 <p>Script:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
 
 <span class="sd">"""Recognize speech using CMU Sphinx (local)."""</span>
 
 <span class="c1"># 3rd party modules</span>
-<span class="kn">import</span> <span class="nn">speech_recognition</span> <span class="k">as</span> <span class="nn">sr</span>
+<span class="kn">import</span> <span class="nn">speech_recognition</span> <span class="kn">as</span> <span class="nn">sr</span>
 
 
-<span class="k">def</span> <span class="nf">recognize</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">recognize</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Transcribe an audio file to text.</span>
 
@@ -342,17 +302,16 @@ should contain the following files:</p>
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">text</span> <span class="o">=</span> <span class="n">recognize</span><span class="p">(</span><span class="s2">"input.wav"</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s2">"de-DE"</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">sr</span><span class="o">.</span><span class="n">UnknownValueError</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Sphinx could not understand audio"</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">"Sphinx could not understand audio"</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">sr</span><span class="o">.</span><span class="n">RequestError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Sphinx error; </span><span class="si">{0}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">"Sphinx error; {0}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
-</td></tr></table>
 <p>which results in:</p>
 <div class="highlight"><pre><span></span>h&auml;tten und l&auml;ndern der erwerb des handels mit ins kino zu beantragen was soll
 ich ich k&ouml;nnte mit dem land folgen gehabt das hei&szlig;t die f&uuml;r mein verstand schon
@@ -428,61 +387,15 @@ will need a credit card (pre-paid credit cards are not accepted).</p>
 </table>
 <p>Please note that there are many more for interactive and dictation mode.</p>
 <p>The following code is used to create a transcript:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
 
 <span class="sd">"""Recognize speech using Microsoft Bing Voice Recognition."""</span>
 
 <span class="c1"># 3rd party modules</span>
-<span class="kn">import</span> <span class="nn">speech_recognition</span> <span class="k">as</span> <span class="nn">sr</span>
+<span class="kn">import</span> <span class="nn">speech_recognition</span> <span class="kn">as</span> <span class="nn">sr</span>
 
 
-<span class="k">def</span> <span class="nf">recognize_bing</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">bing_key</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">recognize_bing</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">bing_key</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Transcribe an audio file to text.</span>
 
@@ -512,17 +425,16 @@ will need a credit card (pre-paid credit cards are not accepted).</p>
     <span class="n">bing_key</span> <span class="o">=</span> <span class="s2">"INSERT YOUR BING KEY HERE"</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">text</span> <span class="o">=</span> <span class="n">recognize_bing</span><span class="p">(</span><span class="s2">"input.wav"</span><span class="p">,</span> <span class="n">bing_key</span><span class="o">=</span><span class="n">bing_key</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s2">"de-DE"</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">sr</span><span class="o">.</span><span class="n">UnknownValueError</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Sphinx could not understand audio"</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">"Sphinx could not understand audio"</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">sr</span><span class="o">.</span><span class="n">RequestError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Sphinx error; </span><span class="si">{0}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">"Sphinx error; {0}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
-</td></tr></table>
 <p>This resulted in</p>
 <div class="highlight"><pre><span></span>Reaser Was ist haben sie Lust mit dem Kino zu kommen war schon dass ich k&ouml;nnte
 den Film gar nicht folgen.
@@ -540,56 +452,15 @@ k&ouml;nnte den Film gar nicht folgen
 </pre></div>
 <h3 id="google">Google</h3>
 <p>The script</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
 
 <span class="sd">"""Recognize speech using Googles ASR Service."""</span>
 
 <span class="c1"># 3rd party modules</span>
-<span class="kn">import</span> <span class="nn">speech_recognition</span> <span class="k">as</span> <span class="nn">sr</span>
+<span class="kn">import</span> <span class="nn">speech_recognition</span> <span class="kn">as</span> <span class="nn">sr</span>
 
 
-<span class="k">def</span> <span class="nf">recognize_google</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">recognize_google</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Transcribe an audio file to text.</span>
 
@@ -614,17 +485,16 @@ k&ouml;nnte den Film gar nicht folgen
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">text</span> <span class="o">=</span> <span class="n">recognize_google</span><span class="p">(</span><span class="s2">"input.wav"</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s2">"de-DE"</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">sr</span><span class="o">.</span><span class="n">UnknownValueError</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Sphinx could not understand audio"</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">"Sphinx could not understand audio"</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">sr</span><span class="o">.</span><span class="n">RequestError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Sphinx error; </span><span class="si">{0}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">"Sphinx error; {0}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
-</td></tr></table>
 <p>results in</p>
 <div class="highlight"><pre><span></span>Sphinx error; recognition connection failed: [Errno 32] Broken pipe
 </pre></div>
@@ -633,7 +503,7 @@ k&ouml;nnte den Film gar nicht folgen
 and the <a href="https://developers.google.com/apis-explorer/?hl=de#p/speech/v1/">developers page</a>.</p>
 <p>It can only be used for commerical purposes, so I can't try it right now.
 The command is</p>
-<div class="highlight"><pre><span></span>r.recognize_google_cloud(audio, credentials_json=GOOGLE_CLOUD_SPEECH_CREDENTIALS)
+<div class="highlight"><pre><span></span><span class="n">r</span><span class="o">.</span><span class="n">recognize_google_cloud</span><span class="p">(</span><span class="n">audio</span><span class="p">,</span> <span class="n">credentials_json</span><span class="o">=</span><span class="n">GOOGLE_CLOUD_SPEECH_CREDENTIALS</span><span class="p">)</span>
 </pre></div>
 <h3 id="ibm">IBM</h3>
 <p>IBM has a speech recognition service, see <a href="https://www.ibm.com/watson/services/speech-to-text/">starting page</a>.
@@ -652,54 +522,12 @@ as if it only supports</p>
 <h3 id="witai">Wit.ai</h3>
 <p>The service <a href="https://wit.ai/">wit.ai</a> seems to be much simpler to use. You set
 the language over the web interface.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
 
 <span class="sd">"""Recognize speech using wit.ai ASR Service."""</span>
 
 <span class="c1"># 3rd party modules</span>
-<span class="kn">import</span> <span class="nn">speech_recognition</span> <span class="k">as</span> <span class="nn">sr</span>
+<span class="kn">import</span> <span class="nn">speech_recognition</span> <span class="kn">as</span> <span class="nn">sr</span>
 
 
 <span class="k">def</span> <span class="nf">recognize_wit</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
@@ -728,17 +556,16 @@ the language over the web interface.</p>
     <span class="n">server_access_token</span> <span class="o">=</span> <span class="s2">"12ABCDEFGHIJKLMNOPQRSTUVWXYZABCD"</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">text</span> <span class="o">=</span> <span class="n">recognize_wit</span><span class="p">(</span><span class="s2">"input.wav"</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">server_access_token</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">sr</span><span class="o">.</span><span class="n">UnknownValueError</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Sphinx could not understand audio"</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">"Sphinx could not understand audio"</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">sr</span><span class="o">.</span><span class="n">RequestError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Sphinx error; </span><span class="si">{0}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">"Sphinx error; {0}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
-</td></tr></table>
 <p>results in</p>
 <div class="highlight"><pre><span></span>ey Alter was ist haben Sie Lust mit dem Kino zu kommen ich k&ouml;nnte den Film gar
 nicht folgen ich verliere meinen Verstand schon vergessen dieser Hitze komme

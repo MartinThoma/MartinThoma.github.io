@@ -126,13 +126,13 @@ According to "Neural Networks: Tricks of the Trade" PCA and ZCA whitening
 differ only by a rotation.</p>
 <h2 id="how-to-do-it">How to do it</h2>
 <p>When you look at the <a href="https://github.com/fchollet/keras/blob/master/keras/preprocessing/image.py#L670-L674">Keras code</a>, you can see the following:</p>
-<div class="highlight"><pre><span></span># Calculate principal components
-sigma = np.dot(flat_x.T, flat_x) / flat_x.shape[0]
-u, s, _ = linalg.svd(sigma)
-principal_components = np.dot(np.dot(u, np.diag(1. / np.sqrt(s + 10e-7))), u.T)
+<div class="highlight"><pre><span></span><span class="c1"># Calculate principal components</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">flat_x</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">flat_x</span><span class="p">)</span> <span class="o">/</span> <span class="n">flat_x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">u</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">sigma</span><span class="p">)</span>
+<span class="n">principal_components</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="mf">10e-7</span><span class="p">))),</span> <span class="n">u</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 
-# Apply ZCA whitening
-whitex = np.dot(flat_x, principal_components)
+<span class="c1"># Apply ZCA whitening</span>
+<span class="n">whitex</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">flat_x</span><span class="p">,</span> <span class="n">principal_components</span><span class="p">)</span>
 </pre></div>
 <p>So, at first you compute the covariance matrix <span class="math">\(\Sigma\)</span>. I'm not quite sure,
 but I think they should divide by <code>flat_x.shape[0] - 1</code> for the unbiased

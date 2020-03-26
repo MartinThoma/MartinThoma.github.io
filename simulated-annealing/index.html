@@ -129,47 +129,47 @@ For example, a matrix can be scored with</p>
 <div class="math">$$E(C) = \sum_{i=1}^n \sum_{j=1}^n (i - j)^2$$</div>
 <p>I've described the details in <a href="https://arxiv.org/pdf/1707.09725.pdf">Analysis and Optimization of Convolutional Neural Network Architectures, Chapter 5.2</a>.</p>
 <p>The simplest way to approach this problem is:</p>
-<div class="highlight"><pre><span></span>def optimize_brute_force(c, steps=1000):
-    # initialize
-    best_permutation = [i for i in range(len(c))]
-    best_score = calculate_score(best_permutation)
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">optimize_brute_force</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+    <span class="c1"># initialize</span>
+    <span class="n">best_permutation</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">))]</span>
+    <span class="n">best_score</span> <span class="o">=</span> <span class="n">calculate_score</span><span class="p">(</span><span class="n">best_permutation</span><span class="p">)</span>
 
-    for _ in range(steps):
-        # Create new candidate
-        permutation = [i for i in range(len(c))]
-        random.shuffle(permutation)
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">steps</span><span class="p">):</span>
+        <span class="c1"># Create new candidate</span>
+        <span class="n">permutation</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">))]</span>
+        <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">permutation</span><span class="p">)</span>
 
-        # Score candidate
-        score = calculate_score(permutation)
+        <span class="c1"># Score candidate</span>
+        <span class="n">score</span> <span class="o">=</span> <span class="n">calculate_score</span><span class="p">(</span><span class="n">permutation</span><span class="p">)</span>
 
-        # Replace if it improved
-        if score &lt; best_score:
-            best_score = score
-            best_permutation = permutation
-    return best_permutation
+        <span class="c1"># Replace if it improved</span>
+        <span class="k">if</span> <span class="n">score</span> <span class="o">&lt;</span> <span class="n">best_score</span><span class="p">:</span>
+            <span class="n">best_score</span> <span class="o">=</span> <span class="n">score</span>
+            <span class="n">best_permutation</span> <span class="o">=</span> <span class="n">permutation</span>
+    <span class="k">return</span> <span class="n">best_permutation</span>
 </pre></div>
 <p>Now, this is super inefficient. The reason is that the matrix has
 sub-structures which you destroy all the time. Instead of creating complete new
 permutations, you could simply swap two elements of the best permutation so
 far:</p>
-<div class="highlight"><pre><span></span>def optimize_greedy_swap(c, steps=1000):
-    # initialize
-    best_permutation = [i for i in range(len(c))]
-    best_score = calculate_score(best_permutation)
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">optimize_greedy_swap</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+    <span class="c1"># initialize</span>
+    <span class="n">best_permutation</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">))]</span>
+    <span class="n">best_score</span> <span class="o">=</span> <span class="n">calculate_score</span><span class="p">(</span><span class="n">best_permutation</span><span class="p">)</span>
 
-    for _ in range(steps):
-        # Create new candidate
-        i, j = random.sample(best_permutation, 2)
-        permutation = swap(copy(best_permutation), i, j)
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">steps</span><span class="p">):</span>
+        <span class="c1"># Create new candidate</span>
+        <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">best_permutation</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">permutation</span> <span class="o">=</span> <span class="n">swap</span><span class="p">(</span><span class="n">copy</span><span class="p">(</span><span class="n">best_permutation</span><span class="p">),</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
 
-        # Score candidate
-        score = calculate_score(permutation)
+        <span class="c1"># Score candidate</span>
+        <span class="n">score</span> <span class="o">=</span> <span class="n">calculate_score</span><span class="p">(</span><span class="n">permutation</span><span class="p">)</span>
 
-        # Replace if it improved
-        if score &lt; best_score:
-            best_score = score
-            best_permutation = permutation
-    return best_permutation
+        <span class="c1"># Replace if it improved</span>
+        <span class="k">if</span> <span class="n">score</span> <span class="o">&lt;</span> <span class="n">best_score</span><span class="p">:</span>
+            <span class="n">best_score</span> <span class="o">=</span> <span class="n">score</span>
+            <span class="n">best_permutation</span> <span class="o">=</span> <span class="n">permutation</span>
+    <span class="k">return</span> <span class="n">best_permutation</span>
 </pre></div>
 <p>But this is still not good. This problem is of a structure that can lead to
 local optima, where a single swap does not improve anything, but only two or
@@ -188,31 +188,28 @@ stable setting, the setting has to be closer to the current setting.</p>
 later, it might only be possible to make it worse from 1234 to 1300. Even later
 maybe only to 1250. And in the end it has to be strictly better.</p>
 <p>How does that look in code?</p>
-<div class="highlight"><pre><span></span>def optimize_greedy_swap(c,
-                         steps=1000,
-                         temperature=1000,
-                         cooling_factor=0.995):
-    # initialize
-    best_permutation = [i for i in range(len(c))]
-    best_score = calculate_score(best_permutation)
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">optimize_greedy_swap</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">cooling_factor</span><span class="o">=</span><span class="mf">0.995</span><span class="p">):</span>
+    <span class="c1"># initialize</span>
+    <span class="n">best_permutation</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">))]</span>
+    <span class="n">best_score</span> <span class="o">=</span> <span class="n">calculate_score</span><span class="p">(</span><span class="n">best_permutation</span><span class="p">)</span>
 
-    for _ in range(steps):
-        # Create new candidate
-        i, j = random.sample(best_permutation, 2)
-        permutation = swap(copy(best_permutation), i, j)
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">steps</span><span class="p">):</span>
+        <span class="c1"># Create new candidate</span>
+        <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">best_permutation</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">permutation</span> <span class="o">=</span> <span class="n">swap</span><span class="p">(</span><span class="n">copy</span><span class="p">(</span><span class="n">best_permutation</span><span class="p">),</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
 
-        # Score candidate
-        score = calculate_score(permutation)
+        <span class="c1"># Score candidate</span>
+        <span class="n">score</span> <span class="o">=</span> <span class="n">calculate_score</span><span class="p">(</span><span class="n">permutation</span><span class="p">)</span>
 
-        # Replace if it improved
-        is_better = score &lt; best_score
-        prob = exp(- (score - best_score) / temperature)
-        is_hot_enough = prob &gt; random.random()
-        if is_better or is_hot_enough:
-            best_score = score
-            best_permutation = permutation
-        temperature *= cooling_factor
-    return best_permutation
+        <span class="c1"># Replace if it improved</span>
+        <span class="n">is_better</span> <span class="o">=</span> <span class="n">score</span> <span class="o">&lt;</span> <span class="n">best_score</span>
+        <span class="n">prob</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">score</span> <span class="o">-</span> <span class="n">best_score</span><span class="p">)</span> <span class="o">/</span> <span class="n">temperature</span><span class="p">)</span>
+        <span class="n">is_hot_enough</span> <span class="o">=</span> <span class="n">prob</span> <span class="o">&gt;</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">is_better</span> <span class="ow">or</span> <span class="n">is_hot_enough</span><span class="p">:</span>
+            <span class="n">best_score</span> <span class="o">=</span> <span class="n">score</span>
+            <span class="n">best_permutation</span> <span class="o">=</span> <span class="n">permutation</span>
+        <span class="n">temperature</span> <span class="o">*=</span> <span class="n">cooling_factor</span>
+    <span class="k">return</span> <span class="n">best_permutation</span>
 </pre></div>
 <p>For this specific problem, I noticed that the temperature-trick was way less
 important than allowing to swap blocks. So once in a while, I don't swap single

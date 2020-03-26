@@ -219,19 +219,19 @@ All dependencies are now up-to-date!
 <p>If you want more isolation, have a look at <a href="https://martin-thoma.com/docker/">Docker</a>.
 I use the <a href="https://hub.docker.com/_/python"><code>python:3.8-slim-buster</code></a> (February 2020).</p>
 <p>The <code>Dockerfile</code> can then look like this:</p>
-<div class="highlight"><pre><span></span>FROM python:3.8-slim-buster
+<div class="highlight"><pre><span></span><span class="k">FROM</span><span class="s"> python:3.8-slim-buster</span>
 
-# Update and install extra packages
-RUN apt-get update &amp;&amp; apt-get install -y git build-essential
+<span class="c"># Update and install extra packages</span>
+<span class="k">RUN</span> apt-get update <span class="o">&amp;&amp;</span> apt-get install -y git build-essential
 
-# Install project dependencies
-COPY requirements.txt /opt/app/requirements.txt
-WORKDIR /opt/app
-RUN pip install -r requirements.txt
+<span class="c"># Install project dependencies</span>
+<span class="k">COPY</span> requirements.txt /opt/app/requirements.txt
+<span class="k">WORKDIR</span><span class="s"> /opt/app</span>
+<span class="k">RUN</span> pip install -r requirements.txt
 
-# Install project
-COPY . /opt/app
-RUN pip install . --no-deps
+<span class="c"># Install project</span>
+<span class="k">COPY</span> . /opt/app
+<span class="k">RUN</span> pip install . --no-deps
 </pre></div>
 <h2 id="see-also">See also</h2>
 <ul>

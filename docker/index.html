@@ -174,35 +174,35 @@ alternatives:</p>
 <h3 id="dockerfile">Dockerfile</h3>
 <p>A <code>Dockerfile</code> defines an image. It is a simple text file which could look
 as follows:</p>
-<div class="highlight"><pre><span></span>FROM ubuntu:latest
-LABEL maintainer="info@martin-thoma.de"
+<div class="highlight"><pre><span></span><span class="k">FROM</span><span class="s"> ubuntu:latest</span>
+<span class="k">LABEL</span> <span class="nv">maintainer</span><span class="o">=</span><span class="s2">"info@martin-thoma.de"</span>
 
-# Settings for the local user
-ENV APP_USER docker
-ENV APP_USER_UID 9999
-ENV APP_USER_GROUP docker
-ENV APP_USER_GROUP_GID 4711
+<span class="c"># Settings for the local user</span>
+<span class="k">ENV</span> APP_USER docker
+<span class="k">ENV</span> APP_USER_UID <span class="m">9999</span>
+<span class="k">ENV</span> APP_USER_GROUP docker
+<span class="k">ENV</span> APP_USER_GROUP_GID <span class="m">4711</span>
 
-# Install and update software
-RUN apt-get update -y
-RUN apt-get install -y python-pip python-dev build-essential
-RUN apt-get upgrade -y
+<span class="c"># Install and update software</span>
+<span class="k">RUN</span> apt-get update -y
+<span class="k">RUN</span> apt-get install -y python-pip python-dev build-essential
+<span class="k">RUN</span> apt-get upgrade -y
 
-# Copy projects code
-COPY . /opt/app
-WORKDIR /opt/app
-RUN pip install -r requirements.txt --no-cache-dir
+<span class="c"># Copy projects code</span>
+<span class="k">COPY</span> . /opt/app
+<span class="k">WORKDIR</span><span class="s"> /opt/app</span>
+<span class="k">RUN</span> pip install -r requirements.txt --no-cache-dir
 
-# Create user
-RUN groupadd --gid <span class="cp">${</span><span class="n">APP_USER_GROUP_GID</span><span class="cp">}</span> <span class="cp">${</span><span class="n">APP_USER_GROUP</span><span class="cp">}</span>
-RUN useradd --uid <span class="cp">${</span><span class="n">APP_USER_UID</span><span class="cp">}</span> --create-home -g <span class="cp">${</span><span class="n">APP_USER_GROUP</span><span class="cp">}</span> <span class="cp">${</span><span class="n">APP_USER</span><span class="cp">}</span>
-RUN chown -R <span class="nv">$APP_USER</span>:<span class="nv">$APP_USER_GROUP</span> /opt/app
+<span class="c"># Create user</span>
+<span class="k">RUN</span> groupadd --gid <span class="si">${</span><span class="nv">APP_USER_GROUP_GID</span><span class="si">}</span> <span class="si">${</span><span class="nv">APP_USER_GROUP</span><span class="si">}</span>
+<span class="k">RUN</span> useradd --uid <span class="si">${</span><span class="nv">APP_USER_UID</span><span class="si">}</span> --create-home -g <span class="si">${</span><span class="nv">APP_USER_GROUP</span><span class="si">}</span> <span class="si">${</span><span class="nv">APP_USER</span><span class="si">}</span>
+<span class="k">RUN</span> chown -R <span class="nv">$APP_USER</span>:<span class="nv">$APP_USER_GROUP</span> /opt/app
 
-# Start app
-USER docker
-RUN mkdir -p /opt/app/uploads
-ENTRYPOINT ["python"]
-CMD ["app.py"]
+<span class="c"># Start app</span>
+<span class="k">USER</span><span class="s"> docker</span>
+<span class="k">RUN</span> mkdir -p /opt/app/uploads
+<span class="k">ENTRYPOINT</span> <span class="p">[</span><span class="s2">"python"</span><span class="p">]</span>
+<span class="k">CMD</span> <span class="p">[</span><span class="s2">"app.py"</span><span class="p">]</span>
 </pre></div>
 <p>Let's go through it:</p>
 <ul>
@@ -222,22 +222,22 @@ but <a href="https://github.com/moby/moby/issues/4032#issuecomment-34597177">the
 <p>See also: <a href="https://stackoverflow.com/q/45594707/562769">What is pip's <code>--no-cache-dir</code> good for?</a>.</p>
 <h3 id="using-a-dockerfile">Using a Dockerfile</h3>
 <p>Build the image:</p>
-<div class="highlight"><pre><span></span># docker build -t a_tag_you_like .
+<div class="highlight"><pre><span></span><span class="c1"># docker build -t a_tag_you_like .</span>
 </pre></div>
 <p>Run the image in a container:</p>
-<div class="highlight"><pre><span></span># docker run a_tag_you_like
+<div class="highlight"><pre><span></span><span class="c1"># docker run a_tag_you_like</span>
 </pre></div>
 <h3 id="commands">Commands</h3>
 <p>Docker needs to be run in super-user mode. I indicate that with <code>#</code>. You can
 run <code>sudo su</code> in order to run all subsequent commands as a superuser.</p>
 <p>List all images:</p>
-<div class="highlight"><pre><span></span># docker image ls
+<div class="highlight"><pre><span></span><span class="c1"># docker image ls</span>
 </pre></div>
 <p>List all running containers:</p>
-<div class="highlight"><pre><span></span># docker container ls
+<div class="highlight"><pre><span></span><span class="c1"># docker container ls</span>
 </pre></div>
 <p>Go into an interactive (<code>-i</code>) bash in a pseudo-tty (<code>-t</code>) in a container with ID <code>4f7d3f0763ad</code>:</p>
-<div class="highlight"><pre><span></span># docker exec -it 4f7d3f0763ad bash
+<div class="highlight"><pre><span></span><span class="c1"># docker exec -it 4f7d3f0763ad bash</span>
 </pre></div>
 <h3 id="volumes">Volumes</h3>
 <p>If you copy the code directly into the image, you need to rebuild the image
@@ -248,84 +248,84 @@ volumes. There are two types of volumes:</p>
 <li>Share folders between host and containers</li>
 </ol>
 <p>List volumes:</p>
-<div class="highlight"><pre><span></span># docker volume ls
+<div class="highlight"><pre><span></span><span class="c1"># docker volume ls</span>
 </pre></div>
 <p>Remove volumes:</p>
-<div class="highlight"><pre><span></span># docker volume rm &lt;volume name&gt;
+<div class="highlight"><pre><span></span><span class="c1"># docker volume rm &lt;volume name&gt;</span>
 </pre></div>
 <h3 id="docker-composeyml">docker-compose.yml</h3>
 <p>The <code>docker-compose.yml</code> is a <a href="https://en.wikipedia.org/wiki/YAML">YAML file</a>
 which defines multi-container applications. It looks like this:</p>
-<div class="highlight"><pre><span></span>version: '3'  # Version number of the docker-compose file format
-services:
-  web:
-    build: .
-    command: app.py
-    ports:
-     - "8082:5000"
-    volumes:
-     - .:/opt/app  # enables hot code reloading
-     - uploads:/opt/app/uploads  # for data persistance (&lt;volume name&gt;:&lt;abs path in container&gt;)
-    links:
-     - db
-    hostname: myappserver
-    environment:
-    - MYSQL_ROOT_PASSWORD=p@ssw0rd123
-    - MYSQL_DATABASE=flask_db
-    - MYSQL_HOST=db
-    - MYSQL_PORT=3306
-    depends_on:
-    - db
-  db:
-    image: mysql
-    ports:
-    - "3307:3306"
-    environment:
-    - MYSQL_ROOT_PASSWORD=p@ssw0rd123
-    - MYSQL_DATABASE=flask_db
-    - MYSQL_HOST=mysqlserver
-    volumes:
-      - ./flask_db.sql:/docker-entrypoint-initdb.d/flask_db.sql
-volumes:
-    uploads:
-        driver: local
+<div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span> <span class="s">'3'</span>  <span class="c1"># Version number of the docker-compose file format</span>
+<span class="nt">services</span><span class="p">:</span>
+  <span class="nt">web</span><span class="p">:</span>
+    <span class="nt">build</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.</span>
+    <span class="nt">command</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">app.py</span>
+    <span class="nt">ports</span><span class="p">:</span>
+     <span class="p p-Indicator">-</span> <span class="s">"8082:5000"</span>
+    <span class="nt">volumes</span><span class="p">:</span>
+     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">.:/opt/app</span>  <span class="c1"># enables hot code reloading</span>
+     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">uploads:/opt/app/uploads</span>  <span class="c1"># for data persistance (&lt;volume name&gt;:&lt;abs path in container&gt;)</span>
+    <span class="nt">links</span><span class="p">:</span>
+     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">db</span>
+    <span class="nt">hostname</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">myappserver</span>
+    <span class="nt">environment</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">MYSQL_ROOT_PASSWORD=p@ssw0rd123</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">MYSQL_DATABASE=flask_db</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">MYSQL_HOST=db</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">MYSQL_PORT=3306</span>
+    <span class="nt">depends_on</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">db</span>
+  <span class="nt">db</span><span class="p">:</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mysql</span>
+    <span class="nt">ports</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="s">"3307:3306"</span>
+    <span class="nt">environment</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">MYSQL_ROOT_PASSWORD=p@ssw0rd123</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">MYSQL_DATABASE=flask_db</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">MYSQL_HOST=mysqlserver</span>
+    <span class="nt">volumes</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">./flask_db.sql:/docker-entrypoint-initdb.d/flask_db.sql</span>
+<span class="nt">volumes</span><span class="p">:</span>
+    <span class="nt">uploads</span><span class="p">:</span>
+        <span class="nt">driver</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
 </pre></div>
 <p>Start it with <code>docker-compose up</code>.</p>
 <p>The host name of each service is the name of the service itself.</p>
 <p>You can find the data persistance volume with:</p>
-<div class="highlight"><pre><span></span># docker volumes ls
+<div class="highlight"><pre><span></span><span class="c1"># docker volumes ls</span>
 DRIVER              VOLUME NAME
-local               db6caef4eae28832f35af0951e95ae77d6c29189a793300f5aa9523cd25af362
-local               flaskmysqldockerized_uploads
+<span class="nb">local</span>               db6caef4eae28832f35af0951e95ae77d6c29189a793300f5aa9523cd25af362
+<span class="nb">local</span>               flaskmysqldockerized_uploads
 </pre></div>
 <p>And you can find the path on the host with</p>
-<div class="highlight"><pre><span></span># docker volume inspect flaskmysqldockerized_uploads
-[
-    {
-        "Driver": "local",
-        "Labels": {
-            "com.docker.compose.project": "flaskmysqldockerized",
-            "com.docker.compose.volume": "uploads"
-        },
-        "Mountpoint": "/var/lib/docker/volumes/flaskmysqldockerized_uploads/_data",
-        "Name": "flaskmysqldockerized_uploads",
-        "Options": {},
-        "Scope": "local"
-    }
-]
+<div class="highlight"><pre><span></span><span class="c1"># docker volume inspect flaskmysqldockerized_uploads</span>
+<span class="o">[</span>
+    <span class="o">{</span>
+        <span class="s2">"Driver"</span>: <span class="s2">"local"</span>,
+        <span class="s2">"Labels"</span>: <span class="o">{</span>
+            <span class="s2">"com.docker.compose.project"</span>: <span class="s2">"flaskmysqldockerized"</span>,
+            <span class="s2">"com.docker.compose.volume"</span>: <span class="s2">"uploads"</span>
+        <span class="o">}</span>,
+        <span class="s2">"Mountpoint"</span>: <span class="s2">"/var/lib/docker/volumes/flaskmysqldockerized_uploads/_data"</span>,
+        <span class="s2">"Name"</span>: <span class="s2">"flaskmysqldockerized_uploads"</span>,
+        <span class="s2">"Options"</span>: <span class="o">{}</span>,
+        <span class="s2">"Scope"</span>: <span class="s2">"local"</span>
+    <span class="o">}</span>
+<span class="o">]</span>
 </pre></div>
 <h3 id="cleanup">Cleanup</h3>
 <p>Kill all running containers:</p>
-<div class="highlight"><pre><span></span># docker kill $(docker ps -q)
+<div class="highlight"><pre><span></span><span class="c1"># docker kill $(docker ps -q)</span>
 </pre></div>
 <p>Delete all stopped containers</p>
-<div class="highlight"><pre><span></span># docker rm $(docker ps -a -q)
+<div class="highlight"><pre><span></span><span class="c1"># docker rm $(docker ps -a -q)</span>
 </pre></div>
 <p>Delete all images</p>
-<div class="highlight"><pre><span></span># docker rmi $(docker images -q)
+<div class="highlight"><pre><span></span><span class="c1"># docker rmi $(docker images -q)</span>
 </pre></div>
 <p>Remove unused data</p>
-<div class="highlight"><pre><span></span># docker system prune
+<div class="highlight"><pre><span></span><span class="c1"># docker system prune</span>
 </pre></div>
 <h2 id="see-also_1">See also</h2>
 <ul>

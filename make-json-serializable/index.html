@@ -112,22 +112,22 @@ AWS Cloudwatch which has structured logs (json logs).</p>
 <p>Instead of doing it completely manually, you should use a pattern described
 by <a href="https://github.com/simplejson/simplejson/issues/52#issuecomment-23667961">jaraco</a>
 (and fixed by me):</p>
-<div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">MyCustom</span><span class="p">(</span><span class="nx">object</span><span class="p">)</span><span class="o">:</span>
-    <span class="nx">def</span> <span class="nx">__json__</span><span class="p">(</span><span class="nx">self</span><span class="p">)</span><span class="o">:</span>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyCustom</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__json__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">{</span>
-            <span class="s1">'a'</span><span class="o">:</span> <span class="nx">self</span><span class="p">.</span><span class="nx">a</span><span class="p">,</span>
-            <span class="s1">'b'</span><span class="o">:</span> <span class="nx">self</span><span class="p">.</span><span class="nx">b</span><span class="p">,</span>
-            <span class="s1">'__python__'</span><span class="o">:</span> <span class="s1">'mymodule.submodule:MyCustom.from_json'</span><span class="p">,</span>
+            <span class="s2">"a"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">,</span>
+            <span class="s2">"b"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">,</span>
+            <span class="s2">"__python__"</span><span class="p">:</span> <span class="s2">"mymodule.submodule:MyCustom.from_json"</span><span class="p">,</span>
         <span class="p">}</span>
 
-    <span class="nx">for_json</span> <span class="o">=</span> <span class="nx">__json__</span>  <span class="err">#</span> <span class="nx">supported</span> <span class="nx">by</span> <span class="nx">simplejson</span>
+    <span class="n">for_json</span> <span class="o">=</span> <span class="n">__json__</span>  <span class="c1"># supported by simplejson</span>
 
-    <span class="kd">@classmethod</span>
-    <span class="nx">def</span> <span class="nx">from_json</span><span class="p">(</span><span class="nx">cls</span><span class="p">,</span> <span class="nx">json</span><span class="p">)</span><span class="o">:</span>
-        <span class="nx">obj</span> <span class="o">=</span> <span class="nx">cls</span><span class="p">()</span>
-        <span class="nx">obj</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="nx">json</span><span class="p">[</span><span class="s1">'a'</span><span class="p">]</span>
-        <span class="nx">obj</span><span class="p">.</span><span class="nx">b</span> <span class="o">=</span> <span class="nx">json</span><span class="p">[</span><span class="s1">'b'</span><span class="p">]</span>
-        <span class="k">return</span> <span class="nx">obj</span>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_json</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">json</span><span class="p">):</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">()</span>
+        <span class="n">obj</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">json</span><span class="p">[</span><span class="s2">"a"</span><span class="p">]</span>
+        <span class="n">obj</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">json</span><span class="p">[</span><span class="s2">"b"</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">obj</span>
 </pre></div>
 <p>With that, the following workflow is possible:</p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">simplejson</span>

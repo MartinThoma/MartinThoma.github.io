@@ -129,25 +129,19 @@ the data. <a href="http://dask.pydata.org/en/latest/">Dask</a> is another option
 never actually used it.</p>
 <p>I use the <a href="https://www.kaggle.com/c/titanic/data">titanic training data</a> as
 an example:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'train.csv'</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"train.csv"</span><span class="p">)</span>
 </pre></div>
-</td></tr></table>
 <h2 id="how-many-datapoints-do-we-have">How many datapoints do we have?</h2>
-<div class="highlight"><pre><span></span>print("Total number of datapoints: {datapoints}".format(datapoints=len(df)))
+<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">"Total number of datapoints: {datapoints}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">datapoints</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)))</span>
 </pre></div>
 <p>shows we have 891 data points in total. Not too much.</p>
 <h2 id="which-columns-do-we-have">Which columns do we have?</h2>
-<div class="highlight"><pre><span></span>print(df.describe())
+<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
 </pre></div>
 <p>reveals</p>
 <div class="highlight"><pre><span></span>       PassengerId    Survived      Pclass         Age       SibSp  \
@@ -183,177 +177,7 @@ max      6.000000  512.329200
 <li>Fare: Not sure which unit would make sense here.</li>
 </ul>
 <p>Pandas <code>df.describe()</code> is not powerfull enough. So I wrote my own:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
-  2
-  3
-  4
-  5
-  6
-  7
-  8
-  9
- 10
- 11
- 12
- 13
- 14
- 15
- 16
- 17
- 18
- 19
- 20
- 21
- 22
- 23
- 24
- 25
- 26
- 27
- 28
- 29
- 30
- 31
- 32
- 33
- 34
- 35
- 36
- 37
- 38
- 39
- 40
- 41
- 42
- 43
- 44
- 45
- 46
- 47
- 48
- 49
- 50
- 51
- 52
- 53
- 54
- 55
- 56
- 57
- 58
- 59
- 60
- 61
- 62
- 63
- 64
- 65
- 66
- 67
- 68
- 69
- 70
- 71
- 72
- 73
- 74
- 75
- 76
- 77
- 78
- 79
- 80
- 81
- 82
- 83
- 84
- 85
- 86
- 87
- 88
- 89
- 90
- 91
- 92
- 93
- 94
- 95
- 96
- 97
- 98
- 99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158
-159
-160
-161
-162
-163
-164
-165
-166
-167
-168
-169
-170
-171</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="sd">"""Exploratory data analysis."""</span>
@@ -363,29 +187,33 @@ max      6.000000  512.329200
 <span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="c1"># 3rd party module</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 
 
-<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">'</span><span class="si">%(asctime)s</span><span class="s1"> </span><span class="si">%(levelname)s</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">'</span><span class="p">,</span>
-                    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
-                    <span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="n">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
+    <span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span>
+<span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">):</span>
     <span class="sd">"""Exploratory data analysis for the Titanic dataset."""</span>
     <span class="c1"># Read data</span>
-    <span class="n">dtype</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'PassengerId'</span><span class="p">:</span> <span class="s1">'str'</span><span class="p">,</span>
-             <span class="s1">'Embarked'</span><span class="p">:</span> <span class="s1">'category'</span><span class="p">,</span>
-             <span class="s1">'Survived'</span><span class="p">:</span> <span class="s1">'category'</span><span class="p">,</span>
-             <span class="s1">'Pclass'</span><span class="p">:</span> <span class="s1">'category'</span><span class="p">,</span>
-             <span class="s1">'Sex'</span><span class="p">:</span> <span class="s1">'category'</span><span class="p">,</span>
-             <span class="s1">'SibSp'</span><span class="p">:</span> <span class="s1">'uint8'</span><span class="p">,</span>
-             <span class="s1">'Parch'</span><span class="p">:</span> <span class="s1">'uint8'</span><span class="p">}</span>
+    <span class="n">dtype</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">"PassengerId"</span><span class="p">:</span> <span class="s2">"str"</span><span class="p">,</span>
+        <span class="s2">"Embarked"</span><span class="p">:</span> <span class="s2">"category"</span><span class="p">,</span>
+        <span class="s2">"Survived"</span><span class="p">:</span> <span class="s2">"category"</span><span class="p">,</span>
+        <span class="s2">"Pclass"</span><span class="p">:</span> <span class="s2">"category"</span><span class="p">,</span>
+        <span class="s2">"Sex"</span><span class="p">:</span> <span class="s2">"category"</span><span class="p">,</span>
+        <span class="s2">"SibSp"</span><span class="p">:</span> <span class="s2">"uint8"</span><span class="p">,</span>
+        <span class="s2">"Parch"</span><span class="p">:</span> <span class="s2">"uint8"</span><span class="p">,</span>
+    <span class="p">}</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
     <span class="n">describe_pandas_df</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">describe_pandas_df</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">describe_pandas_df</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Show basic information about a pandas dataframe.</span>
 
@@ -395,129 +223,158 @@ max      6.000000  512.329200
 <span class="sd">    dtype : dict</span>
 <span class="sd">        Maps column names to types</span>
 <span class="sd">    """</span>
-    <span class="k">if</span> <span class="n">dtype</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">dtype</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
         <span class="n">dtype</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Number of datapoints: </span><span class="si">{datapoints}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">datapoints</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)))</span>
-    <span class="n">column_info</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'int'</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">'float'</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">'category'</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">'other'</span><span class="p">:</span> <span class="p">[]}</span>
-    <span class="n">float_types</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'float64'</span><span class="p">]</span>
-    <span class="n">integer_types</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'int64'</span><span class="p">,</span> <span class="s1">'uint8'</span><span class="p">]</span>
-    <span class="n">other_types</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'object'</span><span class="p">,</span> <span class="s1">'category'</span><span class="p">]</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Number of datapoints: {datapoints}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">datapoints</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)))</span>
+    <span class="n">column_info</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"int"</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">"float"</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">"category"</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">"other"</span><span class="p">:</span> <span class="p">[]}</span>
+    <span class="n">float_types</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"float64"</span><span class="p">]</span>
+    <span class="n">integer_types</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"int64"</span><span class="p">,</span> <span class="s2">"uint8"</span><span class="p">]</span>
+    <span class="n">other_types</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"object"</span><span class="p">,</span> <span class="s2">"category"</span><span class="p">]</span>
     <span class="n">column_info_meta</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">column_name</span> <span class="ow">in</span> <span class="n">df</span><span class="p">:</span>
         <span class="n">column_info_meta</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="n">counter_obj</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
         <span class="n">value_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">counter_obj</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
         <span class="n">value_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">value_list</span><span class="p">)</span>
-        <span class="n">is_suspicious_cat</span> <span class="o">=</span> <span class="p">(</span><span class="n">value_count</span> <span class="o">&lt;=</span> <span class="mi">50</span> <span class="ow">and</span>
-                             <span class="nb">str</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span> <span class="o">!=</span> <span class="s1">'category'</span> <span class="ow">and</span>
-                             <span class="n">column_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dtype</span><span class="p">)</span>
+        <span class="n">is_suspicious_cat</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">value_count</span> <span class="o">&lt;=</span> <span class="mi">50</span>
+            <span class="ow">and</span> <span class="nb">str</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span> <span class="o">!=</span> <span class="s2">"category"</span>
+            <span class="ow">and</span> <span class="n">column_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dtype</span>
+        <span class="p">)</span>
         <span class="k">if</span> <span class="n">is_suspicious_cat</span><span class="p">:</span>
-            <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"Column '</span><span class="si">{}</span><span class="s2">' has only </span><span class="si">{}</span><span class="s2"> different values (</span><span class="si">{}</span><span class="s2">). "</span>
-                            <span class="s2">"You might want to make it a 'category'"</span>
-                            <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">column_name</span><span class="p">,</span>
-                                    <span class="n">value_count</span><span class="p">,</span>
-                                    <span class="n">value_list</span><span class="p">))</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                <span class="s2">"Column '{}' has only {} different values ({}). "</span>
+                <span class="s2">"You might want to make it a 'category'"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">column_name</span><span class="p">,</span> <span class="n">value_count</span><span class="p">,</span> <span class="n">value_list</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
         <span class="n">top_count_val</span> <span class="o">=</span> <span class="n">counter_obj</span><span class="p">[</span><span class="n">value_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
-        <span class="n">column_info_meta</span><span class="p">[</span><span class="n">column_name</span><span class="p">][</span><span class="s1">'top_count_val'</span><span class="p">]</span> <span class="o">=</span> <span class="n">top_count_val</span>
-        <span class="n">column_info_meta</span><span class="p">[</span><span class="n">column_name</span><span class="p">][</span><span class="s1">'value_list'</span><span class="p">]</span> <span class="o">=</span> <span class="n">value_list</span>
-        <span class="n">column_info_meta</span><span class="p">[</span><span class="n">column_name</span><span class="p">][</span><span class="s1">'value_count'</span><span class="p">]</span> <span class="o">=</span> <span class="n">value_count</span>
+        <span class="n">column_info_meta</span><span class="p">[</span><span class="n">column_name</span><span class="p">][</span><span class="s2">"top_count_val"</span><span class="p">]</span> <span class="o">=</span> <span class="n">top_count_val</span>
+        <span class="n">column_info_meta</span><span class="p">[</span><span class="n">column_name</span><span class="p">][</span><span class="s2">"value_list"</span><span class="p">]</span> <span class="o">=</span> <span class="n">value_list</span>
+        <span class="n">column_info_meta</span><span class="p">[</span><span class="n">column_name</span><span class="p">][</span><span class="s2">"value_count"</span><span class="p">]</span> <span class="o">=</span> <span class="n">value_count</span>
         <span class="k">if</span> <span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span> <span class="ow">in</span> <span class="n">integer_types</span><span class="p">:</span>
-            <span class="n">column_info</span><span class="p">[</span><span class="s1">'int'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">column_name</span><span class="p">)</span>
+            <span class="n">column_info</span><span class="p">[</span><span class="s2">"int"</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">column_name</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span> <span class="ow">in</span> <span class="n">float_types</span><span class="p">:</span>
-            <span class="n">column_info</span><span class="p">[</span><span class="s1">'float'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">column_name</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="nb">str</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span> <span class="o">==</span> <span class="s1">'category'</span><span class="p">:</span>
-            <span class="n">column_info</span><span class="p">[</span><span class="s1">'category'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">column_name</span><span class="p">)</span>
+            <span class="n">column_info</span><span class="p">[</span><span class="s2">"float"</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">column_name</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">str</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"category"</span><span class="p">:</span>
+            <span class="n">column_info</span><span class="p">[</span><span class="s2">"category"</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">column_name</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span> <span class="ow">in</span> <span class="n">other_types</span><span class="p">:</span>
-            <span class="n">column_info</span><span class="p">[</span><span class="s1">'other'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">column_name</span><span class="p">)</span>
+            <span class="n">column_info</span><span class="p">[</span><span class="s2">"other"</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">column_name</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">"!!! describe_pandas_df does not know type '</span><span class="si">{}</span><span class="s2">'"</span>
-                  <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">))</span>
+            <span class="k">print</span><span class="p">(</span>
+                <span class="s2">"!!! describe_pandas_df does not know type '{}'"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
 
     <span class="n">column_name_len</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">column_name</span><span class="p">)</span> <span class="k">for</span> <span class="n">column_name</span> <span class="ow">in</span> <span class="n">df</span><span class="p">)</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">## Integer Columns"</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"{column_name:&lt;</span><span class="si">{column_name_len}</span><span class="s2">}: Non-nan  mean   std   min   25%  "</span>
-          <span class="s2">" 50</span><span class="si">%   75%</span><span class="s2">   max"</span>
-          <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">column_name_len</span><span class="o">=</span><span class="n">column_name_len</span><span class="p">,</span>
-                  <span class="n">column_name</span><span class="o">=</span><span class="s2">"Column name"</span><span class="p">))</span>
-    <span class="k">for</span> <span class="n">column_name</span> <span class="ow">in</span> <span class="n">column_info</span><span class="p">[</span><span class="s1">'int'</span><span class="p">]:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"{column_name:&lt;</span><span class="si">{column_name_len}</span><span class="s2">}: </span><span class="si">{non_nan:&gt;7}</span><span class="s2">  "</span>
-              <span class="s2">"</span><span class="si">{mean:0.2f}</span><span class="s2">  </span><span class="si">{std:&gt;4.2f}</span><span class="s2">  "</span>
-              <span class="s2">"</span><span class="si">{min:&gt;4.0f}</span><span class="s2">  </span><span class="si">{q25:&gt;4.0f}</span><span class="s2">  </span><span class="si">{q50:&gt;4.0f}</span><span class="s2">  </span><span class="si">{q75:&gt;4.0f}</span><span class="s2">  </span><span class="si">{max:&gt;4.0f}</span><span class="s2">"</span>
-              <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">column_name_len</span><span class="o">=</span><span class="n">column_name_len</span><span class="p">,</span>
-                      <span class="n">column_name</span><span class="o">=</span><span class="n">column_name</span><span class="p">,</span>
-                      <span class="n">non_nan</span><span class="o">=</span><span class="nb">sum</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()),</span>
-                      <span class="n">mean</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
-                      <span class="n">std</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span>
-                      <span class="nb">min</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span>
-                      <span class="n">q25</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">),</span>
-                      <span class="n">q50</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.50</span><span class="p">),</span>
-                      <span class="n">q75</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">),</span>
-                      <span class="nb">max</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">])))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">## Integer Columns"</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span>
+        <span class="s2">"{column_name:&lt;{column_name_len}}: Non-nan  mean   std   min   25%  "</span>
+        <span class="s2">" 50</span><span class="si">%   75%</span><span class="s2">   max"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">column_name_len</span><span class="o">=</span><span class="n">column_name_len</span><span class="p">,</span> <span class="n">column_name</span><span class="o">=</span><span class="s2">"Column name"</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="k">for</span> <span class="n">column_name</span> <span class="ow">in</span> <span class="n">column_info</span><span class="p">[</span><span class="s2">"int"</span><span class="p">]:</span>
+        <span class="k">print</span><span class="p">(</span>
+            <span class="s2">"{column_name:&lt;{column_name_len}}: {non_nan:&gt;7}  "</span>
+            <span class="s2">"{mean:0.2f}  {std:&gt;4.2f}  "</span>
+            <span class="s2">"{min:&gt;4.0f}  {q25:&gt;4.0f}  {q50:&gt;4.0f}  {q75:&gt;4.0f}  {max:&gt;4.0f}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">column_name_len</span><span class="o">=</span><span class="n">column_name_len</span><span class="p">,</span>
+                <span class="n">column_name</span><span class="o">=</span><span class="n">column_name</span><span class="p">,</span>
+                <span class="n">non_nan</span><span class="o">=</span><span class="nb">sum</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()),</span>
+                <span class="n">mean</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+                <span class="n">std</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span>
+                <span class="nb">min</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span>
+                <span class="n">q25</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">),</span>
+                <span class="n">q50</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.50</span><span class="p">),</span>
+                <span class="n">q75</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">),</span>
+                <span class="nb">max</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]),</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">## Float Columns"</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"{column_name:&lt;</span><span class="si">{column_name_len}</span><span class="s2">}: Non-nan   mean    std    min    "</span>
-          <span class="s2">"25</span><span class="si">%    50%</span><span class="s2">    75%    max"</span>
-          <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">column_name_len</span><span class="o">=</span><span class="n">column_name_len</span><span class="p">,</span>
-                  <span class="n">column_name</span><span class="o">=</span><span class="s2">"Column name"</span><span class="p">))</span>
-    <span class="k">for</span> <span class="n">column_name</span> <span class="ow">in</span> <span class="n">column_info</span><span class="p">[</span><span class="s1">'float'</span><span class="p">]:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"{column_name:&lt;</span><span class="si">{column_name_len}</span><span class="s2">}: </span><span class="si">{non_nan:&gt;7}</span><span class="s2">  "</span>
-              <span class="s2">"</span><span class="si">{mean:5.2f}</span><span class="s2">  </span><span class="si">{std:&gt;4.2f}</span><span class="s2">  "</span>
-              <span class="s2">"</span><span class="si">{min:&gt;5.2f}</span><span class="s2">  </span><span class="si">{q25:&gt;5.2f}</span><span class="s2">  </span><span class="si">{q50:&gt;5.2f}</span><span class="s2">  </span><span class="si">{q75:&gt;5.2f}</span><span class="s2">  </span><span class="si">{max:&gt;5.2f}</span><span class="s2">"</span>
-              <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">column_name_len</span><span class="o">=</span><span class="n">column_name_len</span><span class="p">,</span>
-                      <span class="n">column_name</span><span class="o">=</span><span class="n">column_name</span><span class="p">,</span>
-                      <span class="n">non_nan</span><span class="o">=</span><span class="nb">sum</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()),</span>
-                      <span class="n">mean</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
-                      <span class="n">std</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span>
-                      <span class="nb">min</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span>
-                      <span class="n">q25</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">),</span>
-                      <span class="n">q50</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.50</span><span class="p">),</span>
-                      <span class="n">q75</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">),</span>
-                      <span class="nb">max</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">])))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">## Category Columns"</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"{column_name:&lt;</span><span class="si">{column_name_len}</span><span class="s2">}: Non-nan   unique   top (count)  "</span>
-          <span class="s2">"rest"</span>
-          <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">column_name_len</span><span class="o">=</span><span class="n">column_name_len</span><span class="p">,</span>
-                  <span class="n">column_name</span><span class="o">=</span><span class="s2">"Column name"</span><span class="p">))</span>
-    <span class="k">for</span> <span class="n">column_name</span> <span class="ow">in</span> <span class="n">column_info</span><span class="p">[</span><span class="s1">'category'</span><span class="p">]:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">## Float Columns"</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span>
+        <span class="s2">"{column_name:&lt;{column_name_len}}: Non-nan   mean    std    min    "</span>
+        <span class="s2">"25</span><span class="si">%    50%</span><span class="s2">    75%    max"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">column_name_len</span><span class="o">=</span><span class="n">column_name_len</span><span class="p">,</span> <span class="n">column_name</span><span class="o">=</span><span class="s2">"Column name"</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="k">for</span> <span class="n">column_name</span> <span class="ow">in</span> <span class="n">column_info</span><span class="p">[</span><span class="s2">"float"</span><span class="p">]:</span>
+        <span class="k">print</span><span class="p">(</span>
+            <span class="s2">"{column_name:&lt;{column_name_len}}: {non_nan:&gt;7}  "</span>
+            <span class="s2">"{mean:5.2f}  {std:&gt;4.2f}  "</span>
+            <span class="s2">"{min:&gt;5.2f}  {q25:&gt;5.2f}  {q50:&gt;5.2f}  {q75:&gt;5.2f}  {max:&gt;5.2f}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">column_name_len</span><span class="o">=</span><span class="n">column_name_len</span><span class="p">,</span>
+                <span class="n">column_name</span><span class="o">=</span><span class="n">column_name</span><span class="p">,</span>
+                <span class="n">non_nan</span><span class="o">=</span><span class="nb">sum</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()),</span>
+                <span class="n">mean</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+                <span class="n">std</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span>
+                <span class="nb">min</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span>
+                <span class="n">q25</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">),</span>
+                <span class="n">q50</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.50</span><span class="p">),</span>
+                <span class="n">q75</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">),</span>
+                <span class="nb">max</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]),</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">## Category Columns"</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span>
+        <span class="s2">"{column_name:&lt;{column_name_len}}: Non-nan   unique   top (count)  "</span>
+        <span class="s2">"rest"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">column_name_len</span><span class="o">=</span><span class="n">column_name_len</span><span class="p">,</span> <span class="n">column_name</span><span class="o">=</span><span class="s2">"Column name"</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="k">for</span> <span class="n">column_name</span> <span class="ow">in</span> <span class="n">column_info</span><span class="p">[</span><span class="s2">"category"</span><span class="p">]:</span>
         <span class="c1"># print(df[column_name].describe())</span>
-        <span class="n">rest_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">column_info_meta</span><span class="p">[</span><span class="n">column_name</span><span class="p">][</span><span class="s1">'value_list'</span><span class="p">][</span><span class="mi">1</span><span class="p">:])[:</span><span class="mi">40</span><span class="p">]</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"{column_name:&lt;</span><span class="si">{column_name_len}</span><span class="s2">}: </span><span class="si">{non_nan:&gt;7}</span><span class="s2">   </span><span class="si">{unique:&gt;6}</span><span class="s2">   "</span>
-              <span class="s2">"</span><span class="si">{top}</span><span class="s2"> (</span><span class="si">{count}</span><span class="s2">)  </span><span class="si">{rest}</span><span class="s2">"</span>
-              <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">column_name_len</span><span class="o">=</span><span class="n">column_name_len</span><span class="p">,</span>
-                      <span class="n">column_name</span><span class="o">=</span><span class="n">column_name</span><span class="p">,</span>
-                      <span class="n">non_nan</span><span class="o">=</span><span class="nb">sum</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()),</span>
-                      <span class="n">unique</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()),</span>
-                      <span class="n">top</span><span class="o">=</span><span class="n">column_info_meta</span><span class="p">[</span><span class="n">column_name</span><span class="p">][</span><span class="s1">'value_list'</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
-                      <span class="n">count</span><span class="o">=</span><span class="n">column_info_meta</span><span class="p">[</span><span class="n">column_name</span><span class="p">][</span><span class="s1">'top_count_val'</span><span class="p">],</span>
-                      <span class="n">rest</span><span class="o">=</span><span class="n">rest_str</span><span class="p">))</span>
+        <span class="n">rest_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">column_info_meta</span><span class="p">[</span><span class="n">column_name</span><span class="p">][</span><span class="s2">"value_list"</span><span class="p">][</span><span class="mi">1</span><span class="p">:])[:</span><span class="mi">40</span><span class="p">]</span>
+        <span class="k">print</span><span class="p">(</span>
+            <span class="s2">"{column_name:&lt;{column_name_len}}: {non_nan:&gt;7}   {unique:&gt;6}   "</span>
+            <span class="s2">"{top} ({count})  {rest}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">column_name_len</span><span class="o">=</span><span class="n">column_name_len</span><span class="p">,</span>
+                <span class="n">column_name</span><span class="o">=</span><span class="n">column_name</span><span class="p">,</span>
+                <span class="n">non_nan</span><span class="o">=</span><span class="nb">sum</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()),</span>
+                <span class="n">unique</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()),</span>
+                <span class="n">top</span><span class="o">=</span><span class="n">column_info_meta</span><span class="p">[</span><span class="n">column_name</span><span class="p">][</span><span class="s2">"value_list"</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+                <span class="n">count</span><span class="o">=</span><span class="n">column_info_meta</span><span class="p">[</span><span class="n">column_name</span><span class="p">][</span><span class="s2">"top_count_val"</span><span class="p">],</span>
+                <span class="n">rest</span><span class="o">=</span><span class="n">rest_str</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">## Other Columns"</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"{column_name:&lt;</span><span class="si">{column_name_len}</span><span class="s2">}: Non-nan   unique   top (count)"</span>
-          <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">column_name_len</span><span class="o">=</span><span class="n">column_name_len</span><span class="p">,</span>
-                  <span class="n">column_name</span><span class="o">=</span><span class="s2">"Column name"</span><span class="p">))</span>
-    <span class="k">for</span> <span class="n">column_name</span> <span class="ow">in</span> <span class="n">column_info</span><span class="p">[</span><span class="s1">'other'</span><span class="p">]:</span>
-        <span class="n">rest_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">column_info_meta</span><span class="p">[</span><span class="n">column_name</span><span class="p">][</span><span class="s1">'value_list'</span><span class="p">][</span><span class="mi">1</span><span class="p">:])[:</span><span class="mi">40</span><span class="p">]</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"{column_name:&lt;</span><span class="si">{column_name_len}</span><span class="s2">}: </span><span class="si">{non_nan:&gt;7}</span><span class="s2">   </span><span class="si">{unique:&gt;6}</span><span class="s2">   "</span>
-              <span class="s2">"</span><span class="si">{top}</span><span class="s2"> (</span><span class="si">{count}</span><span class="s2">)"</span>
-              <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">column_name_len</span><span class="o">=</span><span class="n">column_name_len</span><span class="p">,</span>
-                      <span class="n">column_name</span><span class="o">=</span><span class="n">column_name</span><span class="p">,</span>
-                      <span class="n">non_nan</span><span class="o">=</span><span class="nb">sum</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()),</span>
-                      <span class="n">unique</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()),</span>
-                      <span class="n">top</span><span class="o">=</span><span class="n">column_info_meta</span><span class="p">[</span><span class="n">column_name</span><span class="p">][</span><span class="s1">'value_list'</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
-                      <span class="n">count</span><span class="o">=</span><span class="n">column_info_meta</span><span class="p">[</span><span class="n">column_name</span><span class="p">][</span><span class="s1">'top_count_val'</span><span class="p">]))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">## Other Columns"</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span>
+        <span class="s2">"{column_name:&lt;{column_name_len}}: Non-nan   unique   top (count)"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">column_name_len</span><span class="o">=</span><span class="n">column_name_len</span><span class="p">,</span> <span class="n">column_name</span><span class="o">=</span><span class="s2">"Column name"</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="k">for</span> <span class="n">column_name</span> <span class="ow">in</span> <span class="n">column_info</span><span class="p">[</span><span class="s2">"other"</span><span class="p">]:</span>
+        <span class="n">rest_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">column_info_meta</span><span class="p">[</span><span class="n">column_name</span><span class="p">][</span><span class="s2">"value_list"</span><span class="p">][</span><span class="mi">1</span><span class="p">:])[:</span><span class="mi">40</span><span class="p">]</span>
+        <span class="k">print</span><span class="p">(</span>
+            <span class="s2">"{column_name:&lt;{column_name_len}}: {non_nan:&gt;7}   {unique:&gt;6}   "</span>
+            <span class="s2">"{top} ({count})"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">column_name_len</span><span class="o">=</span><span class="n">column_name_len</span><span class="p">,</span>
+                <span class="n">column_name</span><span class="o">=</span><span class="n">column_name</span><span class="p">,</span>
+                <span class="n">non_nan</span><span class="o">=</span><span class="nb">sum</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()),</span>
+                <span class="n">unique</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()),</span>
+                <span class="n">top</span><span class="o">=</span><span class="n">column_info_meta</span><span class="p">[</span><span class="n">column_name</span><span class="p">][</span><span class="s2">"value_list"</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+                <span class="n">count</span><span class="o">=</span><span class="n">column_info_meta</span><span class="p">[</span><span class="n">column_name</span><span class="p">][</span><span class="s2">"top_count_val"</span><span class="p">],</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">get_parser</span><span class="p">():</span>
     <span class="sd">"""Get parser object for exploratory data analysis."""</span>
-    <span class="kn">from</span> <span class="nn">argparse</span> <span class="k">import</span> <span class="n">ArgumentParser</span><span class="p">,</span> <span class="n">ArgumentDefaultsHelpFormatter</span>
-    <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="vm">__doc__</span><span class="p">,</span>
-                            <span class="n">formatter_class</span><span class="o">=</span><span class="n">ArgumentDefaultsHelpFormatter</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-f"</span><span class="p">,</span> <span class="s2">"--file"</span><span class="p">,</span>
-                        <span class="n">dest</span><span class="o">=</span><span class="s2">"filename"</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s2">"read this csv file"</span><span class="p">,</span>
-                        <span class="n">metavar</span><span class="o">=</span><span class="s2">"FILE"</span><span class="p">,</span>
-                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span><span class="p">,</span> <span class="n">ArgumentDefaultsHelpFormatter</span>
+
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">(</span>
+        <span class="n">description</span><span class="o">=</span><span class="vm">__doc__</span><span class="p">,</span> <span class="n">formatter_class</span><span class="o">=</span><span class="n">ArgumentDefaultsHelpFormatter</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">"-f"</span><span class="p">,</span>
+        <span class="s2">"--file"</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">"filename"</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">"read this csv file"</span><span class="p">,</span>
+        <span class="n">metavar</span><span class="o">=</span><span class="s2">"FILE"</span><span class="p">,</span>
+        <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="p">)</span>
     <span class="k">return</span> <span class="n">parser</span>
 
 
@@ -525,7 +382,6 @@ max      6.000000  512.329200
     <span class="n">args</span> <span class="o">=</span> <span class="n">get_parser</span><span class="p">()</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
     <span class="n">main</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
 </pre></div>
-</td></tr></table>
 <p>which gives:</p>
 <div class="highlight"><pre><span></span>Number of datapoints: 891
 
@@ -556,18 +412,15 @@ Cabin      :     204      148   A10 (1)
 <p>This is much more useful. In the process, I created a dictionary <code>dtypes</code> which
 tells pandas as which type it should load the columns.</p>
 <p>Also interesting:</p>
-<div class="highlight"><pre><span></span>df.groupby(df['foo']).count()
+<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"foo"</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
 </pre></div>
 <h3 id="show-single-feature-distribution">Show single-feature distribution</h3>
-<div class="highlight"><pre><span></span># Show histograms
-numeric_types = ['float64', 'int64', 'uint8']
-numerical_features = df.select_dtypes(include=numeric_types)
-numerical_features.hist(figsize=(30, 16),
-                        bins=50,
-                        xlabelsize=8,
-                        ylabelsize=8)
-plt.savefig("titanic-histograms.png")
-plt.show()
+<div class="highlight"><pre><span></span><span class="c1"># Show histograms</span>
+<span class="n">numeric_types</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"float64"</span><span class="p">,</span> <span class="s2">"int64"</span><span class="p">,</span> <span class="s2">"uint8"</span><span class="p">]</span>
+<span class="n">numerical_features</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="n">numeric_types</span><span class="p">)</span>
+<span class="n">numerical_features</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">xlabelsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">ylabelsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"titanic-histograms.png"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 <p>gives</p>
 <figure class="wp-caption aligncenter img-thumbnail">
@@ -577,6 +430,7 @@ plt.show()
 <h3 id="find-correlations">Find correlations</h3>
 <div class="highlight"><pre><span></span><span class="c1"># Show correlations</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
+
 <span class="n">corr</span> <span class="o">=</span> <span class="n">numerical_features</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"titanic-correlation.png"</span><span class="p">)</span>

@@ -134,39 +134,39 @@ Decision Tree). Then you train <span class="math">\(n\)</span> instances of <spa
 different feature. You select the feature of the best model and repeat the
 process. Stop once your improvement is below a threshold.</p>
 <p>In pythonic Pseudocode:</p>
-<div class="highlight"><pre><span></span>def construct_features(feature_list, BaseModel, threshold, score):
-    """
-    Constructive feature selection algorithm
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">construct_features</span><span class="p">(</span><span class="n">feature_list</span><span class="p">,</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">score</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Constructive feature selection algorithm</span>
 
-    Parameters
-    ----------
-    feature_list : list
-    base_model : class
-    threshold : float
-    score : function
-        Takes model as input and returns a float between 0 and infty, where
-        higher is better.
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    feature_list : list</span>
+<span class="sd">    base_model : class</span>
+<span class="sd">    threshold : float</span>
+<span class="sd">    score : function</span>
+<span class="sd">        Takes model as input and returns a float between 0 and infty, where</span>
+<span class="sd">        higher is better.</span>
 
-    Returns
-    -------
-    features : list
-    """
-    trained_models = []
-    features = []  # Set of current best features
-    nb_features = 1
-    condition = True
-    last_score = 0
-    while condition:
-        for feature in feature_list:
-            m = BaseModel(nb_features)
-            m.train(features + [feature])
-            trained_models.append((score(m), m, feature))
-        features.append(sorted(trained_models)[0])
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    features : list</span>
+<span class="sd">    """</span>
+    <span class="n">trained_models</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">features</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Set of current best features</span>
+    <span class="n">nb_features</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">condition</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">last_score</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">condition</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">feature_list</span><span class="p">:</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="n">BaseModel</span><span class="p">(</span><span class="n">nb_features</span><span class="p">)</span>
+            <span class="n">m</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">features</span> <span class="o">+</span> <span class="p">[</span><span class="n">feature</span><span class="p">])</span>
+            <span class="n">trained_models</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">score</span><span class="p">(</span><span class="n">m</span><span class="p">),</span> <span class="n">m</span><span class="p">,</span> <span class="n">feature</span><span class="p">))</span>
+        <span class="n">features</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">trained_models</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
 
-        # Check if it is time to stop
-        condition = score(m) - last_score &gt; threshold
-        last_score = score(m)
-    return features
+        <span class="c1"># Check if it is time to stop</span>
+        <span class="n">condition</span> <span class="o">=</span> <span class="n">score</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">-</span> <span class="n">last_score</span> <span class="o">&gt;</span> <span class="n">threshold</span>
+        <span class="n">last_score</span> <span class="o">=</span> <span class="n">score</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">features</span>
 </pre></div>
 <h3 id="feature-elimination">Feature Elimination</h3>
 <p>The same as construction, but the other way around: You start with the complete
@@ -189,8 +189,8 @@ random in this case!
 <h3 id="3-features">3 Features</h3>
 <p>A similar setting as before: 3 binary features and the target is XOR of all
 of them:</p>
-<div class="highlight"><pre><span></span><span class="gh">x1  x2  x3    y</span>
-<span class="gh">---------------</span>
+<div class="highlight"><pre><span></span>x1  x2  x3    y
+---------------
 0   0   0     0
 0   0   1     1
 0   1   0     1

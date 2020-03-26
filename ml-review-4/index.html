@@ -163,7 +163,7 @@ creating new color maps. They created <code>viridis</code> as a better alternati
 <p>A blog post with roughly the same content is at <a href="https://bids.github.io/colormap/">bids.github.io/colormap</a>.
 This is the default for matplotlib 2.0. If you wonder which matplotlib version
 you have:</p>
-<div class="highlight"><pre><span></span><span class="err">$</span> <span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s2">"import matplotlib;print(matplotlib.__version__)"</span>
+<div class="highlight"><pre><span></span>$ python -c <span class="s2">"import matplotlib;print(matplotlib.__version__)"</span>
 </pre></div>
 <p>That is how you update matplotlib:</p>
 <div class="highlight"><pre><span></span>$ sudo -H pip install matplotlib --upgrade
@@ -189,12 +189,14 @@ you have:</p>
 <p>You should always know if your data is severly unevenly distributed. Here is
 a little script to visualize the data distribution:</p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
 <span class="n">data</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>  <span class="c1"># your labels</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">data</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">2</span><span class="p">))</span>  <span class="c1"># yes, +2.</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 <p>or</p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
+
 <span class="n">data</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>  <span class="c1"># your labels</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>

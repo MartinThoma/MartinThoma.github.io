@@ -116,8 +116,8 @@ element in a dictionary. Here you have some, tested on my ThinkPad T460p (<a hre
 <p>I added/subtracted/multiplied/divided a thousand pairs of numbers to test the
 speed of basic arithmetic operations. I expected them to be FAST; essentially</p>
 <p>Let's have a look at the adding function:</p>
-<div class="highlight"><pre><span></span>def add(numbers):
-    return [a + b for a, b in numbers]
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">]</span>
 </pre></div>
 <p>The disassembled cPython Byte-Code looks like this:</p>
 <div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">dis</span>
@@ -134,32 +134,32 @@ speed of basic arithmetic operations. I expected them to be FAST; essentially</p
 operations are FAST. I think the tuple unpacking might actually have dominated
 the time here.</p>
 <p>Here are the results:</p>
-<div class="highlight"><pre><span></span><span class="n">add</span>                 <span class="o">:</span> <span class="n">min</span><span class="o">:</span> <span class="mf">177.3</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">mean</span><span class="o">:</span> <span class="mf">200.3</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">max</span><span class="o">:</span>  <span class="mf">522.2</span><span class="err">&mu;</span><span class="n">s</span>
-<span class="n">subtract</span>            <span class="o">:</span> <span class="n">min</span><span class="o">:</span> <span class="mf">168.4</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">mean</span><span class="o">:</span> <span class="mf">190.9</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">max</span><span class="o">:</span>  <span class="mf">538.8</span><span class="err">&mu;</span><span class="n">s</span>
-<span class="n">multiply</span>            <span class="o">:</span> <span class="n">min</span><span class="o">:</span> <span class="mf">165.4</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">mean</span><span class="o">:</span> <span class="mf">199.7</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">max</span><span class="o">:</span>  <span class="mf">515.8</span><span class="err">&mu;</span><span class="n">s</span>
-<span class="n">divide</span>              <span class="o">:</span> <span class="n">min</span><span class="o">:</span> <span class="mf">176.3</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">mean</span><span class="o">:</span> <span class="mf">213.7</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">max</span><span class="o">:</span>  <span class="mf">518.9</span><span class="err">&mu;</span><span class="n">s</span>
+<div class="highlight"><pre><span></span>add                 : min: 177.3&mu;s, mean: 200.3&mu;s, max:  522.2&mu;s
+subtract            : min: 168.4&mu;s, mean: 190.9&mu;s, max:  538.8&mu;s
+multiply            : min: 165.4&mu;s, mean: 199.7&mu;s, max:  515.8&mu;s
+divide              : min: 176.3&mu;s, mean: 213.7&mu;s, max:  518.9&mu;s
 
-<span class="mi">2</span><span class="o">**</span><span class="n">int</span> <span class="o">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">20</span><span class="o">)</span>      <span class="o">:</span> <span class="n">min</span><span class="o">:</span> <span class="mf">546.4</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">mean</span><span class="o">:</span> <span class="mf">597.5</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">max</span><span class="o">:</span>  <span class="mf">945.3</span><span class="err">&mu;</span><span class="n">s</span>
-<span class="mi">3</span><span class="o">**</span><span class="n">int</span> <span class="o">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">20</span><span class="o">)</span>      <span class="o">:</span> <span class="n">min</span><span class="o">:</span> <span class="mf">591.4</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">mean</span><span class="o">:</span> <span class="mf">648.8</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">max</span><span class="o">:</span> <span class="mf">1091.0</span><span class="err">&mu;</span><span class="n">s</span> <span class="o">&lt;-</span> <span class="n">BigInt</span>
-<span class="mf">3.131</span><span class="o">**</span><span class="n">int</span> <span class="o">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">20</span><span class="o">)</span>  <span class="o">:</span> <span class="n">min</span><span class="o">:</span> <span class="mf">295.0</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">mean</span><span class="o">:</span> <span class="mf">304.2</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">max</span><span class="o">:</span>  <span class="mf">602.3</span><span class="err">&mu;</span><span class="n">s</span>
-<span class="mi">2</span><span class="o">**</span><span class="n">float</span>            <span class="o">:</span> <span class="n">min</span><span class="o">:</span> <span class="mf">343.1</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">mean</span><span class="o">:</span> <span class="mf">371.9</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">max</span><span class="o">:</span>  <span class="mf">769.7</span><span class="err">&mu;</span><span class="n">s</span>
-<span class="mi">3</span><span class="o">**</span><span class="n">float</span>            <span class="o">:</span> <span class="n">min</span><span class="o">:</span> <span class="mf">347.3</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">mean</span><span class="o">:</span> <span class="mf">375.0</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">max</span><span class="o">:</span>  <span class="mf">748.9</span><span class="err">&mu;</span><span class="n">s</span>
-<span class="mf">3.131</span><span class="o">**</span><span class="n">float</span>        <span class="o">:</span> <span class="n">min</span><span class="o">:</span> <span class="mf">275.3</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">mean</span><span class="o">:</span> <span class="mf">299.3</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">max</span><span class="o">:</span>  <span class="mf">586.4</span><span class="err">&mu;</span><span class="n">s</span>
+2**int (0..20)      : min: 546.4&mu;s, mean: 597.5&mu;s, max:  945.3&mu;s
+3**int (0..20)      : min: 591.4&mu;s, mean: 648.8&mu;s, max: 1091.0&mu;s &lt;- BigInt
+3.131**int (0..20)  : min: 295.0&mu;s, mean: 304.2&mu;s, max:  602.3&mu;s
+2**float            : min: 343.1&mu;s, mean: 371.9&mu;s, max:  769.7&mu;s
+3**float            : min: 347.3&mu;s, mean: 375.0&mu;s, max:  748.9&mu;s
+3.131**float        : min: 275.3&mu;s, mean: 299.3&mu;s, max:  586.4&mu;s
 
-<span class="n">add_vectors</span>         <span class="o">:</span> <span class="n">min</span><span class="o">:</span>   <span class="mf">3.5</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">mean</span><span class="o">:</span>   <span class="mf">4.0</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">max</span><span class="o">:</span>   <span class="mf">34.8</span><span class="err">&mu;</span><span class="n">s</span>
-<span class="n">subtract_vectors</span>    <span class="o">:</span> <span class="n">min</span><span class="o">:</span>   <span class="mf">3.4</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">mean</span><span class="o">:</span>   <span class="mf">4.1</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">max</span><span class="o">:</span>   <span class="mf">28.5</span><span class="err">&mu;</span><span class="n">s</span>
-<span class="n">multiply_vectors</span>    <span class="o">:</span> <span class="n">min</span><span class="o">:</span>   <span class="mf">4.0</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">mean</span><span class="o">:</span>   <span class="mf">4.3</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">max</span><span class="o">:</span>   <span class="mf">30.7</span><span class="err">&mu;</span><span class="n">s</span>
-<span class="n">divide_vectors</span>      <span class="o">:</span> <span class="n">min</span><span class="o">:</span>  <span class="mf">17.2</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">mean</span><span class="o">:</span>  <span class="mf">18.2</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">max</span><span class="o">:</span>   <span class="mf">71.9</span><span class="err">&mu;</span><span class="n">s</span>
+add_vectors         : min:   3.5&mu;s, mean:   4.0&mu;s, max:   34.8&mu;s
+subtract_vectors    : min:   3.4&mu;s, mean:   4.1&mu;s, max:   28.5&mu;s
+multiply_vectors    : min:   4.0&mu;s, mean:   4.3&mu;s, max:   30.7&mu;s
+divide_vectors      : min:  17.2&mu;s, mean:  18.2&mu;s, max:   71.9&mu;s
 </pre></div>
 <p>You can see how bad this measure is with something like</p>
-<div class="highlight"><pre><span></span>durations = np.array(timeit.repeat('4+500000', repeat=5000, number=1))
+<div class="highlight"><pre><span></span><span class="n">durations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">timeit</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="s2">"4+500000"</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 </pre></div>
 <p>which gives</p>
-<div class="highlight"><pre><span></span><span class="n">add</span>                 <span class="o">:</span> <span class="n">min</span><span class="o">:</span> <span class="mf">0.08</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">mean</span><span class="o">:</span> <span class="mf">0.15</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">max</span><span class="o">:</span>   <span class="mf">1.38</span><span class="err">&mu;</span><span class="n">s</span>
-<span class="n">subtract</span>            <span class="o">:</span> <span class="n">min</span><span class="o">:</span> <span class="mf">0.08</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">mean</span><span class="o">:</span> <span class="mf">0.15</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">max</span><span class="o">:</span>   <span class="mf">1.51</span><span class="err">&mu;</span><span class="n">s</span>
-<span class="n">multiply</span>            <span class="o">:</span> <span class="n">min</span><span class="o">:</span> <span class="mf">0.06</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">mean</span><span class="o">:</span> <span class="mf">0.14</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">max</span><span class="o">:</span>   <span class="mf">1.77</span><span class="err">&mu;</span><span class="n">s</span>
-<span class="n">divide</span>              <span class="o">:</span> <span class="n">min</span><span class="o">:</span> <span class="mf">0.06</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">mean</span><span class="o">:</span> <span class="mf">0.13</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">max</span><span class="o">:</span>   <span class="mf">1.36</span><span class="err">&mu;</span><span class="n">s</span>
-<span class="n">modulo</span>              <span class="o">:</span> <span class="n">min</span><span class="o">:</span> <span class="mf">0.08</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">mean</span><span class="o">:</span> <span class="mf">0.15</span><span class="err">&mu;</span><span class="n">s</span><span class="o">,</span> <span class="n">max</span><span class="o">:</span>   <span class="mf">1.59</span><span class="err">&mu;</span><span class="n">s</span>
+<div class="highlight"><pre><span></span>add                 : min: 0.08&mu;s, mean: 0.15&mu;s, max:   1.38&mu;s
+subtract            : min: 0.08&mu;s, mean: 0.15&mu;s, max:   1.51&mu;s
+multiply            : min: 0.06&mu;s, mean: 0.14&mu;s, max:   1.77&mu;s
+divide              : min: 0.06&mu;s, mean: 0.13&mu;s, max:   1.36&mu;s
+modulo              : min: 0.08&mu;s, mean: 0.15&mu;s, max:   1.59&mu;s
 </pre></div>
 <p>I'm not sure if this test "suffers" from caching, especially as the max is way
 higher than the min and mean, but I guess it is save to say that all four
@@ -237,14 +237,22 @@ lookup(np array)    : min: 711.1&mu;s, mean: 855.7&mu;s, max: 1665.5&mu;s
 </table>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">timeit</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="n">durations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="kp">array</span><span class="p">(</span><span class="n">timeit</span><span class="o">.</span><span class="kp">repeat</span><span class="p">(</span><span class="s1">'sorted(arr)'</span><span class="p">,</span>
-                                   <span class="n">setup</span><span class="o">=</span><span class="s1">'import numpy as np;arr = np.random.random(100_000)'</span><span class="p">,</span>
-                                   <span class="kp">repeat</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">'min: {min:5.1f}&mu;s, mean: {mean:5.1f}&mu;s, max: {max:6.1f}&mu;s'</span>
-      <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="n">durations</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">,</span>
-              <span class="kp">mean</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="kp">mean</span><span class="p">(</span><span class="n">durations</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">,</span>
-              <span class="nb">max</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">durations</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">,</span>
-              <span class="p">))</span>
+
+<span class="n">durations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="n">timeit</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span>
+        <span class="s2">"sorted(arr)"</span><span class="p">,</span>
+        <span class="n">setup</span><span class="o">=</span><span class="s2">"import numpy as np;arr = np.random.random(100_000)"</span><span class="p">,</span>
+        <span class="n">repeat</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span>
+        <span class="n">number</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span>
+    <span class="s2">"min: {min:5.1f}&mu;s, mean: {mean:5.1f}&mu;s, max: {max:6.1f}&mu;s"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="nb">min</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="n">durations</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">6</span><span class="p">,</span>
+        <span class="n">mean</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">durations</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">6</span><span class="p">,</span>
+        <span class="nb">max</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">durations</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">6</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">)</span>
 </pre></div>
 <h2 id="networks_1">Networks</h2>
 <p>When you talk about "speed" in a network context, there are two important values:</p>

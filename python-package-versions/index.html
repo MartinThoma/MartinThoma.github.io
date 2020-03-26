@@ -134,10 +134,10 @@ solutions. I only wrap them up here.</p>
 <p>setup.py:</p>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
 
-<span class="n">setup</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="s1">'0.1.2'</span><span class="p">)</span>
+<span class="n">setup</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="s2">"0.1.2"</span><span class="p">)</span>
 </pre></div>
 <p>[yourpackage]/<strong>init</strong>.py:</p>
-<div class="highlight"><pre><span></span>__version__ = '0.1.2'
+<div class="highlight"><pre><span></span><span class="n">__version__</span> <span class="o">=</span> <span class="s2">"0.1.2"</span>
 </pre></div>
 <p>Positive:</p>
 <ul>
@@ -152,15 +152,15 @@ solutions. I only wrap them up here.</p>
 <p>setup.py:</p>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
 
-<span class="k">exec</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">'[yourpackage]/_version.py'</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="k">exec</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">"[yourpackage]/_version.py"</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
 
 <span class="n">setup</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">__version__</span><span class="p">)</span>
 </pre></div>
 <p>[yourpackage]/<strong>init</strong>.py:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="p">[</span><span class="n">yourpackage</span><span class="p">]</span><span class="o">.</span><span class="n">_version</span> <span class="kn">import</span> <span class="nn">__version__</span>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">yourpackage._version</span> <span class="kn">import</span> <span class="n">__version__</span>
 </pre></div>
 <p>[yourpackage]/_version.py:</p>
-<div class="highlight"><pre><span></span>__version__ = '0.1.2'
+<div class="highlight"><pre><span></span><span class="n">__version__</span> <span class="o">=</span> <span class="s2">"0.1.2"</span>
 </pre></div>
 <p>Positive:</p>
 <ul>
@@ -181,19 +181,22 @@ version string.</p>
 <p>setup.py:</p>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
 
+
 <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="n">file_name</span><span class="p">):</span>
     <span class="sd">"""Read a text file and return the content as a string."""</span>
-    <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="n">file_name</span><span class="p">),</span>
-                 <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="n">file_name</span><span class="p">),</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span>
+    <span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
-<span class="n">setup</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">read</span><span class="p">(</span><span class="s1">'[yourpackage]/version.txt'</span><span class="p">))</span>
+
+<span class="n">setup</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">read</span><span class="p">(</span><span class="s2">"[yourpackage]/version.txt"</span><span class="p">))</span>
 </pre></div>
 <p>[yourpackage]/<strong>init</strong>.py:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="p">[</span><span class="n">yourpackage</span><span class="p">]</span><span class="o">.</span><span class="n">_version</span> <span class="kn">import</span> <span class="nn">__version__</span>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">yourpackage._version</span> <span class="kn">import</span> <span class="n">__version__</span>
 </pre></div>
 <p>[yourpackage]/_version.py:</p>
-<div class="highlight"><pre><span></span>__version__ = '0.1.2'
+<div class="highlight"><pre><span></span><span class="n">__version__</span> <span class="o">=</span> <span class="s2">"0.1.2"</span>
 </pre></div>
 <h2 id="reading-setuppy">Reading setup.py</h2>
 <p>This approach is so bad that I don't want to post an example here. The idea
@@ -217,12 +220,12 @@ don't think they the first two look reliable enough to give them a try. And
 <p>setup.py:</p>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
 
-<span class="kn">import</span> <span class="p">[</span><span class="n">yourpackage</span><span class="p">]</span>
+<span class="kn">import</span> <span class="nn">yourpackage</span>
 
-<span class="n">setup</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="p">[</span><span class="n">yourpackage</span><span class="p">]</span><span class="o">.</span><span class="n">__version__</span><span class="p">))</span>
+<span class="n">setup</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">yourpackage</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
 </pre></div>
 <p>[yourpackage]/<strong>init</strong>.py:</p>
-<div class="highlight"><pre><span></span>[yourpackage]._version = '0.1.2'
+<div class="highlight"><pre><span></span><span class="n">yourpackage</span><span class="o">.</span><span class="n">_version</span> <span class="o">=</span> <span class="s2">"0.1.2"</span>
 </pre></div>
 <p>Positive:</p>
 <ul>
@@ -241,14 +244,12 @@ and do the following:</p>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
 
 <span class="n">setup</span><span class="p">(</span>
-    <span class="o">...</span><span class="p">,</span>
-    <span class="n">use_scm_version</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
-    <span class="n">setup_requires</span><span class="o">=</span><span class="p">[</span><span class="s1">'setuptools_scm'</span><span class="p">],</span>
-    <span class="o">...</span><span class="p">,</span>
+    <span class="o">...</span><span class="p">,</span> <span class="n">use_scm_version</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">setup_requires</span><span class="o">=</span><span class="p">[</span><span class="s2">"setuptools_scm"</span><span class="p">],</span> <span class="o">...</span><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>
 <p>[yourpackage]/<strong>init</strong>.py:</p>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pkg_resources</span> <span class="kn">import</span> <span class="n">get_distribution</span><span class="p">,</span> <span class="n">DistributionNotFound</span>
+
 <span class="k">try</span><span class="p">:</span>
     <span class="n">__version__</span> <span class="o">=</span> <span class="n">get_distribution</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span><span class="o">.</span><span class="n">version</span>
 <span class="k">except</span> <span class="n">DistributionNotFound</span><span class="p">:</span>

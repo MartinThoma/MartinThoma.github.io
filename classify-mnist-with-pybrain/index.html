@@ -124,25 +124,25 @@ Every instance is a 28 &times; 28 pixel grayscale image.</p>
 <li>t10k-labels-idx1-ubyte.gz:   test set labels (4.43 kB, 10000 labels)</li>
 </ul>
 <p>Both label files are like this:</p>
-<div class="highlight"><pre><span></span><span class="k">[offset] [type]          [value]          [description]</span>
-<span class="na">0000     32 bit integer  0x00000801(2049) magic number (MSB first)</span>
-<span class="na">0004     32 bit integer  60000            number of items</span>
-<span class="na">0008     unsigned byte   ??               label</span>
-<span class="na">0009     unsigned byte   ??               label</span>
-<span class="na">........</span>
-<span class="na">xxxx     unsigned byte   ??               label</span>
-<span class="na">The labels values are 0 to 9.</span>
+<div class="highlight"><pre><span></span>[offset] [type]          [value]          [description]
+0000     32 bit integer  0x00000801(2049) magic number (MSB first)
+0004     32 bit integer  60000            number of items
+0008     unsigned byte   ??               label
+0009     unsigned byte   ??               label
+........
+xxxx     unsigned byte   ??               label
+The labels values are 0 to 9.
 </pre></div>
 <p>and both image containers are like that:</p>
-<div class="highlight"><pre><span></span><span class="k">[offset] [type]          [value]          [description]</span>
-<span class="na">0000     32 bit integer  0x00000803(2051) magic number</span>
-<span class="na">0004     32 bit integer  60000            number of images</span>
-<span class="na">0008     32 bit integer  28               number of rows</span>
-<span class="na">0012     32 bit integer  28               number of columns</span>
-<span class="na">0016     unsigned byte   ??               pixel</span>
-<span class="na">0017     unsigned byte   ??               pixel</span>
-<span class="na">........</span>
-<span class="na">xxxx     unsigned byte   ??               pixel</span>
+<div class="highlight"><pre><span></span>[offset] [type]          [value]          [description]
+0000     32 bit integer  0x00000803(2051) magic number
+0004     32 bit integer  60000            number of images
+0008     32 bit integer  28               number of rows
+0012     32 bit integer  28               number of columns
+0016     unsigned byte   ??               pixel
+0017     unsigned byte   ??               pixel
+........
+xxxx     unsigned byte   ??               pixel
 </pre></div>
 <p>And they are, of course, compressed.</p>
 <h2 id="reading-the-dataset">Reading the dataset</h2>
