@@ -154,6 +154,7 @@ program A calls code from program B.</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">+=</span> <span class="n">up</span>
         <span class="k">return</span> <span class="s2">"I was called {count} times."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="p">)</span>
 
+
 <span class="n">Pyro</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">initServer</span><span class="p">()</span>
 <span class="n">daemon</span> <span class="o">=</span> <span class="n">Pyro</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">Daemon</span><span class="p">()</span>
 <span class="n">uri</span> <span class="o">=</span> <span class="n">daemon</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">Bartimaeus</span><span class="p">(),</span> <span class="s2">"bartid"</span><span class="p">)</span>
@@ -188,9 +189,11 @@ program A calls code from program B.</p>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">Pyro.core</span>
 
-<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">format</span><span class="o">=</span><span class="s1">'</span><span class="si">%(asctime)s</span><span class="s1"> </span><span class="si">%(levelname)s</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">'</span><span class="p">,</span>
-                    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
-                    <span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="n">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
+    <span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span>
+<span class="p">)</span>
 
 
 <span class="k">class</span> <span class="nc">Bartimaeus</span><span class="p">(</span><span class="n">Pyro</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">ObjBase</span><span class="p">):</span>
@@ -206,6 +209,7 @@ program A calls code from program B.</p>
         <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"new up: </span><span class="si">%i</span><span class="s2">"</span><span class="p">,</span> <span class="n">up</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">+=</span> <span class="n">up</span>
         <span class="k">return</span> <span class="s2">"I was called {count} times."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="p">)</span>
+
 
 <span class="n">Pyro</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">initServer</span><span class="p">()</span>
 <span class="n">daemon</span> <span class="o">=</span> <span class="n">Pyro</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">Daemon</span><span class="p">()</span>
@@ -226,9 +230,11 @@ program A calls code from program B.</p>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">Pyro.core</span>
 
-<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">format</span><span class="o">=</span><span class="s1">'</span><span class="si">%(asctime)s</span><span class="s1"> </span><span class="si">%(levelname)s</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">'</span><span class="p">,</span>
-                    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
-                    <span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="n">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
+    <span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span>
+<span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">up</span><span class="p">):</span>
@@ -242,13 +248,11 @@ program A calls code from program B.</p>
 <span class="k">def</span> <span class="nf">get_parser</span><span class="p">():</span>
     <span class="sd">"""Get parser object for call_demon.py."""</span>
     <span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span><span class="p">,</span> <span class="n">ArgumentDefaultsHelpFormatter</span>
-    <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="vm">__doc__</span><span class="p">,</span>
-                            <span class="n">formatter_class</span><span class="o">=</span><span class="n">ArgumentDefaultsHelpFormatter</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-n"</span><span class="p">,</span>
-                        <span class="n">dest</span><span class="o">=</span><span class="s2">"up"</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-                        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s2">"count up"</span><span class="p">)</span>
+
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">(</span>
+        <span class="n">description</span><span class="o">=</span><span class="vm">__doc__</span><span class="p">,</span> <span class="n">formatter_class</span><span class="o">=</span><span class="n">ArgumentDefaultsHelpFormatter</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-n"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"up"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"count up"</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">parser</span>
 
 
@@ -291,6 +295,7 @@ the current ones. Not nice, but I just wanted to give it a try:</p>
         <span class="k">print</span><span class="p">(</span><span class="s2">"[{sender}] {msg}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sender</span><span class="o">=</span><span class="n">sender</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="n">msg</span><span class="p">))</span>
         <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">msgs</span><span class="p">[</span><span class="n">last_msg</span><span class="p">:],</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">msgs</span><span class="p">))</span>
 
+
 <span class="n">Pyro</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">initServer</span><span class="p">()</span>
 <span class="n">daemon</span> <span class="o">=</span> <span class="n">Pyro</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">Daemon</span><span class="p">()</span>
 <span class="n">uri</span> <span class="o">=</span> <span class="n">daemon</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">Chat</span><span class="p">(),</span> <span class="s2">"chat"</span><span class="p">)</span>
@@ -310,18 +315,20 @@ the current ones. Not nice, but I just wanted to give it a try:</p>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">Pyro.core</span>
 
-<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">format</span><span class="o">=</span><span class="s1">'</span><span class="si">%(asctime)s</span><span class="s1"> </span><span class="si">%(levelname)s</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">'</span><span class="p">,</span>
-                    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
-                    <span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="n">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
+    <span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span>
+<span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
     <span class="sd">"""Run the chat."""</span>
     <span class="n">chat_server</span> <span class="o">=</span> <span class="n">Pyro</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getProxyForURI</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
     <span class="n">last_msg_id</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"*"</span><span class="o">*</span><span class="mi">80</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"*"</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">"* Chat started. You are called '{name}'."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">))</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"*"</span><span class="o">*</span><span class="mi">80</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"*"</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
     <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
         <span class="n">msg</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">()</span>
         <span class="n">new_msgs</span><span class="p">,</span> <span class="n">last_msg_id</span> <span class="o">=</span> <span class="n">chat_server</span><span class="o">.</span><span class="n">receive</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">last_msg_id</span><span class="p">)</span>
@@ -332,15 +339,14 @@ the current ones. Not nice, but I just wanted to give it a try:</p>
 <span class="k">def</span> <span class="nf">get_parser</span><span class="p">():</span>
     <span class="sd">"""Get parser object for chat_client.py."""</span>
     <span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span><span class="p">,</span> <span class="n">ArgumentDefaultsHelpFormatter</span>
-    <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="vm">__doc__</span><span class="p">,</span>
-                            <span class="n">formatter_class</span><span class="o">=</span><span class="n">ArgumentDefaultsHelpFormatter</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"--server"</span><span class="p">,</span>
-                        <span class="n">dest</span><span class="o">=</span><span class="s2">"server"</span><span class="p">,</span>
-                        <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s2">"starts with PYRO://"</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"--name"</span><span class="p">,</span>
-                        <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s2">"what others see"</span><span class="p">)</span>
+
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">(</span>
+        <span class="n">description</span><span class="o">=</span><span class="vm">__doc__</span><span class="p">,</span> <span class="n">formatter_class</span><span class="o">=</span><span class="n">ArgumentDefaultsHelpFormatter</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">"--server"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"server"</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"starts with PYRO://"</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"--name"</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"what others see"</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">parser</span>
 
 

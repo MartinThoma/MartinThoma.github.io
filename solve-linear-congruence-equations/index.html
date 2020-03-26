@@ -129,6 +129,7 @@ Johannes Schickling has written a very nice <a href="http://schickling.github.io
 <div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
+
 <span class="k">def</span> <span class="nf">ExtendedEuclideanAlgorithm</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">        Calculates gcd(a,b) and a linear combination such that</span>
@@ -140,19 +141,16 @@ Johannes Schickling has written a very nice <a href="http://schickling.github.io
 <span class="sd">    """</span>
     <span class="n">aO</span><span class="p">,</span> <span class="n">bO</span> <span class="o">=</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span>
 
-    <span class="n">x</span><span class="o">=</span><span class="n">lasty</span><span class="o">=</span><span class="mi">0</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">lastx</span><span class="o">=</span><span class="mi">1</span>
-    <span class="k">while</span> <span class="p">(</span><span class="n">b</span><span class="o">!=</span><span class="mi">0</span><span class="p">):</span>
-        <span class="n">q</span><span class="o">=</span> <span class="n">a</span><span class="o">/</span><span class="n">b</span>
-        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="o">%</span><span class="n">b</span>
-        <span class="n">x</span><span class="p">,</span> <span class="n">lastx</span> <span class="o">=</span> <span class="n">lastx</span><span class="o">-</span><span class="n">q</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span>
-        <span class="n">y</span><span class="p">,</span> <span class="n">lasty</span> <span class="o">=</span> <span class="n">lasty</span><span class="o">-</span><span class="n">q</span><span class="o">*</span><span class="n">y</span><span class="p">,</span> <span class="n">y</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">lasty</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">lastx</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">b</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">q</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">lastx</span> <span class="o">=</span> <span class="n">lastx</span> <span class="o">-</span> <span class="n">q</span> <span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="n">x</span>
+        <span class="n">y</span><span class="p">,</span> <span class="n">lasty</span> <span class="o">=</span> <span class="n">lasty</span> <span class="o">-</span> <span class="n">q</span> <span class="o">*</span> <span class="n">y</span><span class="p">,</span> <span class="n">y</span>
 
-    <span class="k">return</span> <span class="p">{</span>
-        <span class="s2">"x"</span><span class="p">:</span> <span class="n">lastx</span><span class="p">,</span>
-        <span class="s2">"y"</span><span class="p">:</span> <span class="n">lasty</span><span class="p">,</span>
-        <span class="s2">"gcd"</span><span class="p">:</span> <span class="n">aO</span> <span class="o">*</span> <span class="n">lastx</span> <span class="o">+</span> <span class="n">bO</span> <span class="o">*</span> <span class="n">lasty</span>
-    <span class="p">}</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"x"</span><span class="p">:</span> <span class="n">lastx</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">:</span> <span class="n">lasty</span><span class="p">,</span> <span class="s2">"gcd"</span><span class="p">:</span> <span class="n">aO</span> <span class="o">*</span> <span class="n">lastx</span> <span class="o">+</span> <span class="n">bO</span> <span class="o">*</span> <span class="n">lasty</span><span class="p">}</span>
+
 
 <span class="k">def</span> <span class="nf">solveLinearCongruenceEquations</span><span class="p">(</span><span class="n">rests</span><span class="p">,</span> <span class="n">modulos</span><span class="p">):</span>
     <span class="sd">"""</span>
@@ -163,7 +161,7 @@ Johannes Schickling has written a very nice <a href="http://schickling.github.io
 <span class="sd">    """</span>
     <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">rests</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">modulos</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">M</span> <span class="o">=</span> <span class="nb">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">,</span> <span class="n">modulos</span><span class="p">)</span>
+    <span class="n">M</span> <span class="o">=</span> <span class="nb">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">,</span> <span class="n">modulos</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">mi</span><span class="p">,</span> <span class="n">resti</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">modulos</span><span class="p">,</span> <span class="n">rests</span><span class="p">):</span>
         <span class="n">Mi</span> <span class="o">=</span> <span class="n">M</span> <span class="o">/</span> <span class="n">mi</span>
@@ -172,8 +170,10 @@ Johannes Schickling has written a very nice <a href="http://schickling.github.io
         <span class="n">x</span> <span class="o">+=</span> <span class="n">resti</span> <span class="o">*</span> <span class="n">e</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">"congruence class"</span><span class="p">:</span> <span class="p">((</span><span class="n">x</span> <span class="o">%</span> <span class="n">M</span><span class="p">)</span> <span class="o">+</span> <span class="n">M</span><span class="p">)</span> <span class="o">%</span> <span class="n">M</span><span class="p">,</span> <span class="s2">"modulo"</span><span class="p">:</span> <span class="n">M</span><span class="p">}</span>
 
+
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">doctest</span>
+
     <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
 </pre></div>
 <h2 id="links">Links</h2>

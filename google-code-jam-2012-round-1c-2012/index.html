@@ -132,21 +132,24 @@ MathJax.Hub.Queue(function() {
 </li>
 </ul>
 <h2 id="diamond inheritance">Diamond Inheritance</h2>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="kn">import</span> <span class="nn">psyco</span>
+
 <span class="n">psyco</span><span class="o">.</span><span class="n">full</span><span class="p">()</span>
 
 <span class="n">testcases</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
 
+
 <span class="k">def</span> <span class="nf">line2intlist</span><span class="p">(</span><span class="n">line</span><span class="p">):</span>
-    <span class="nb">list</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">' '</span><span class="p">)</span>
-    <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span> <span class="p">]</span>
+    <span class="nb">list</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
+    <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">numbers</span>
 
+
 <span class="k">def</span> <span class="nf">getAnswer</span><span class="p">(</span><span class="n">classDict</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">startPoint</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">startPoint</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
         <span class="n">reachable</span> <span class="o">=</span> <span class="p">[</span><span class="n">startPoint</span><span class="p">]</span>
         <span class="n">justAppended</span> <span class="o">=</span> <span class="p">[</span><span class="n">startPoint</span><span class="p">]</span>
         <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">justAppended</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
@@ -161,13 +164,14 @@ MathJax.Hub.Queue(function() {
             <span class="n">justAppended</span> <span class="o">=</span> <span class="n">newJustAppended</span>
     <span class="k">return</span> <span class="s2">"No"</span>
 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">testcases</span><span class="p">):</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">testcases</span><span class="p">):</span>
     <span class="n">N</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
     <span class="n">classDict</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="k">for</span> <span class="n">classNr</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">classNr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
         <span class="n">liste</span> <span class="o">=</span> <span class="n">line2intlist</span><span class="p">(</span><span class="nb">raw_input</span><span class="p">())</span>
         <span class="n">classDict</span><span class="p">[</span><span class="n">classNr</span><span class="p">]</span> <span class="o">=</span> <span class="n">liste</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"Case #</span><span class="si">%i</span><span class="s2">: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">getAnswer</span><span class="p">(</span><span class="n">classDict</span><span class="p">,</span> <span class="n">N</span><span class="p">)))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Case #</span><span class="si">%i</span><span class="s2">: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">getAnswer</span><span class="p">(</span><span class="n">classDict</span><span class="p">,</span> <span class="n">N</span><span class="p">)))</span>
 </pre></div>
 <h2 id="see also">See also</h2>
 <ul>

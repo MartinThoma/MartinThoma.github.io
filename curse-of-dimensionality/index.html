@@ -218,11 +218,11 @@ hypercube.</p>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">doctest</span>
+
     <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">]:</span>
         <span class="n">angles</span> <span class="o">=</span> <span class="n">get_angles</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"{:&gt;5} dim: {:0.4f} avg angle"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span>
-                                                    <span class="nb">sum</span><span class="p">(</span><span class="n">angles</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">angles</span><span class="p">)))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">"{:&gt;5} dim: {:0.4f} avg angle"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="n">angles</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">angles</span><span class="p">)))</span>
         <span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">angles</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">rug</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
         <span class="n">sns</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -288,7 +288,7 @@ about it.)</p>
 <span class="k">def</span> <span class="nf">beta</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="sd">"""Calculate the average distance of 2 points in [0, 1]^n."""</span>
     <span class="n">sum_</span> <span class="o">=</span> <span class="mf">0.0</span>
-    <span class="n">count_</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">6</span>
+    <span class="n">count_</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">6</span>
     <span class="n">less_one</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">max_d</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count_</span><span class="p">):</span>
@@ -302,9 +302,8 @@ about it.)</p>
 
 <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]:</span>
     <span class="n">avg_dist</span><span class="p">,</span> <span class="n">pr</span><span class="p">,</span> <span class="n">max_d</span> <span class="o">=</span> <span class="n">beta</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-    <span class="n">tmp</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"beta(n=</span><span class="si">%i</span><span class="s2">) = </span><span class="si">%0.4f</span><span class="s2">; "</span> <span class="o">%</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">avg_dist</span><span class="p">))</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="s2"> Pr(d(p1, p2) &lt; 1) = </span><span class="si">%0.4f</span><span class="s2">; alpha(n=</span><span class="si">%i</span><span class="s2">, 2) = </span><span class="si">%0.4f</span><span class="s2">"</span> <span class="o">%</span>
-          <span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">pr</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">max_d</span><span class="p">))</span>
+    <span class="n">tmp</span> <span class="o">=</span> <span class="s2">"beta(n=</span><span class="si">%i</span><span class="s2">) = </span><span class="si">%0.4f</span><span class="s2">; "</span> <span class="o">%</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">avg_dist</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="s2"> Pr(d(p1, p2) &lt; 1) = </span><span class="si">%0.4f</span><span class="s2">; alpha(n=</span><span class="si">%i</span><span class="s2">, 2) = </span><span class="si">%0.4f</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">pr</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">max_d</span><span class="p">))</span>
 </pre></div>
 <p>One can easily see that points get spaced much farer away in average the higher
 the dimension <span class="math">\(n\)</span> is. Now lets try to calculate the probability that two points

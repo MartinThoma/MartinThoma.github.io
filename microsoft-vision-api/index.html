@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Microsoft Vision API "/>
 <meta property="og:url" content="../microsoft-vision-api/" />
-<meta property="og:description" content="Microsoft just released a Computer Vision API. I tried it with a couple of Unidentified objects of Wikipedia and was not really impressed. Here is how to use it: #!/usr/bin/env python &#34;&#34;&#34;Example how to use the Microsoft Vision API.&#34;&#34;&#34; import httplib import urllib import json headers = { &#39;Content-type&#39;: &#39;application …" />
+<meta property="og:description" content="Microsoft just released a Computer Vision API. I tried it with a couple of Unidentified objects of Wikipedia and was not really impressed. Here is how to use it: #!/usr/bin/env python &#34;&#34;&#34;Example how to use the Microsoft Vision API.&#34;&#34;&#34; import httplib import urllib import json headers = { &#34;Content-type&#34;: &#34;application …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2016-03-31T14:49:00+02:00" />
 <meta name="twitter:title" content="Microsoft Vision API ">
-<meta name="twitter:description" content="Microsoft just released a Computer Vision API. I tried it with a couple of Unidentified objects of Wikipedia and was not really impressed. Here is how to use it: #!/usr/bin/env python &#34;&#34;&#34;Example how to use the Microsoft Vision API.&#34;&#34;&#34; import httplib import urllib import json headers = { &#39;Content-type&#39;: &#39;application …">
+<meta name="twitter:description" content="Microsoft just released a Computer Vision API. I tried it with a couple of Unidentified objects of Wikipedia and was not really impressed. Here is how to use it: #!/usr/bin/env python &#34;&#34;&#34;Example how to use the Microsoft Vision API.&#34;&#34;&#34; import httplib import urllib import json headers = { &#34;Content-type&#34;: &#34;application …">
 <meta property="og:image" content="logos/ml.png" />
 <meta name="twitter:image" content="logos/ml.png" >
 
@@ -123,23 +123,25 @@ of Wikipedia and was not really impressed.</p>
 <span class="kn">import</span> <span class="nn">json</span>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">'Content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="s2">"Content-type"</span><span class="p">:</span> <span class="s2">"application/json"</span><span class="p">,</span>
 <span class="p">}</span>
 
-<span class="n">params</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">urlencode</span><span class="p">({</span>
-    <span class="c1"># Specify your subscription key</span>
-    <span class="s1">'subscription-key'</span><span class="p">:</span> <span class="s1">'yourhexadecimalone11111111111111'</span><span class="p">,</span>
-    <span class="c1"># Specify values for optional parameters, as needed</span>
-    <span class="s1">'visualFeatures'</span><span class="p">:</span> <span class="s1">'All'</span><span class="p">,</span>
-<span class="p">})</span>
+<span class="n">params</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">urlencode</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="c1"># Specify your subscription key</span>
+        <span class="s2">"subscription-key"</span><span class="p">:</span> <span class="s2">"yourhexadecimalone11111111111111"</span><span class="p">,</span>
+        <span class="c1"># Specify values for optional parameters, as needed</span>
+        <span class="s2">"visualFeatures"</span><span class="p">:</span> <span class="s2">"All"</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">)</span>
 
 <span class="k">try</span><span class="p">:</span>
     <span class="n">image_url</span> <span class="o">=</span> <span class="s2">"http://www.martin-thoma.de/bilder/Martin_Thoma_web_thumb.jpg"</span>
 
-    <span class="n">conn</span> <span class="o">=</span> <span class="n">httplib</span><span class="o">.</span><span class="n">HTTPSConnection</span><span class="p">(</span><span class="s1">'api.projectoxford.ai'</span><span class="p">)</span>
-    <span class="n">conn</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">"POST"</span><span class="p">,</span> <span class="s2">"/vision/v1/analyses?</span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">params</span><span class="p">,</span>
-                 <span class="s2">"{'Url': '</span><span class="si">%s</span><span class="s2">'}"</span> <span class="o">%</span> <span class="n">image_url</span><span class="p">,</span>
-                 <span class="n">headers</span><span class="p">)</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">httplib</span><span class="o">.</span><span class="n">HTTPSConnection</span><span class="p">(</span><span class="s2">"api.projectoxford.ai"</span><span class="p">)</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">request</span><span class="p">(</span>
+        <span class="s2">"POST"</span><span class="p">,</span> <span class="s2">"/vision/v1/analyses?</span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">params</span><span class="p">,</span> <span class="s2">"{'Url': '</span><span class="si">%s</span><span class="s2">'}"</span> <span class="o">%</span> <span class="n">image_url</span><span class="p">,</span> <span class="n">headers</span>
+    <span class="p">)</span>
     <span class="n">response</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>

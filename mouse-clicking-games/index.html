@@ -126,38 +126,43 @@ position of your mouse.</p>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">clicks</span><span class="p">):</span>
         <span class="n">xrand</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="n">twiggle</span><span class="p">,</span> <span class="n">twiggle</span><span class="p">)</span>
         <span class="n">yrand</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="n">twiggle</span><span class="p">,</span> <span class="n">twiggle</span><span class="p">)</span>
-        <span class="n">xpos</span><span class="p">,</span> <span class="n">ypos</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="n">xrand</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="n">yrand</span>
+        <span class="n">xpos</span><span class="p">,</span> <span class="n">ypos</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">xrand</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">yrand</span>
         <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">"xdotool mousemove </span><span class="si">%i</span><span class="s2"> </span><span class="si">%i</span><span class="s2"> click 1"</span> <span class="o">%</span> <span class="p">(</span><span class="n">xpos</span><span class="p">,</span> <span class="n">ypos</span><span class="p">))</span>
         <span class="k">if</span> <span class="n">delay</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span>
 
     <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">()</span>
 
     <span class="c1"># Add more options if you like</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-c"</span><span class="p">,</span> <span class="s2">"--clicks"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"clicks"</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s2">"number of clicks that will be done"</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
-                        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-t"</span><span class="p">,</span> <span class="s2">"--twiggle"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"twiggle"</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s2">"how much should the cursor move randomly"</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
-                        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-x"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"x"</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s2">"x coordinate where to click"</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="mi">711</span><span class="p">,</span>
-                        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-y"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"y"</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s2">"y coordinate where to click"</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="mi">467</span><span class="p">,</span>
-                        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"--delay"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"delay"</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s2">"delay between clicks"</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
-                        <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">"-c"</span><span class="p">,</span>
+        <span class="s2">"--clicks"</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">"clicks"</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">"number of clicks that will be done"</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">"-t"</span><span class="p">,</span>
+        <span class="s2">"--twiggle"</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">"twiggle"</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">"how much should the cursor move randomly"</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">"-x"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"x coordinate where to click"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">711</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">"-y"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"y"</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"y coordinate where to click"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">467</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">"--delay"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"delay"</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"delay between clicks"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span>
+    <span class="p">)</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
     <span class="n">main</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">clicks</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">twiggle</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">delay</span><span class="p">)</span>
 </pre></div>

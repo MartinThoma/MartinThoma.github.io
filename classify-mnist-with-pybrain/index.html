@@ -165,8 +165,8 @@ create a method thad retrives the data for both files.</p>
 <span class="sd">       it as list of tuples.</span>
 <span class="sd">    """</span>
     <span class="c1"># Open the images with gzip in read binary mode</span>
-    <span class="n">images</span> <span class="o">=</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">imagefile</span><span class="p">,</span> <span class="s1">'rb'</span><span class="p">)</span>
-    <span class="n">labels</span> <span class="o">=</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">labelfile</span><span class="p">,</span> <span class="s1">'rb'</span><span class="p">)</span>
+    <span class="n">images</span> <span class="o">=</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">imagefile</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">labelfile</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span>
 
     <span class="c1"># Read the binary data</span>
 
@@ -175,19 +175,19 @@ create a method thad retrives the data for both files.</p>
     <span class="c1"># Get metadata for images</span>
     <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># skip the magic_number</span>
     <span class="n">number_of_images</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-    <span class="n">number_of_images</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s1">'&gt;I'</span><span class="p">,</span> <span class="n">number_of_images</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">number_of_images</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">"&gt;I"</span><span class="p">,</span> <span class="n">number_of_images</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">rows</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-    <span class="n">rows</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s1">'&gt;I'</span><span class="p">,</span> <span class="n">rows</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">"&gt;I"</span><span class="p">,</span> <span class="n">rows</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">cols</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-    <span class="n">cols</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s1">'&gt;I'</span><span class="p">,</span> <span class="n">cols</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">cols</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">"&gt;I"</span><span class="p">,</span> <span class="n">cols</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
     <span class="c1"># Get metadata for labels</span>
     <span class="n">labels</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># skip the magic_number</span>
     <span class="n">N</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-    <span class="n">N</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s1">'&gt;I'</span><span class="p">,</span> <span class="n">N</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">"&gt;I"</span><span class="p">,</span> <span class="n">N</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
     <span class="k">if</span> <span class="n">number_of_images</span> <span class="o">!=</span> <span class="n">N</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">'number of labels did not match the number of images'</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">"number of labels did not match the number of images"</span><span class="p">)</span>
 
     <span class="c1"># Get the data</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>  <span class="c1"># Initialize numpy array</span>
@@ -198,10 +198,10 @@ create a method thad retrives the data for both files.</p>
         <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">rows</span><span class="p">):</span>
             <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cols</span><span class="p">):</span>
                 <span class="n">tmp_pixel</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Just a single byte</span>
-                <span class="n">tmp_pixel</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s1">'&gt;B'</span><span class="p">,</span> <span class="n">tmp_pixel</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">tmp_pixel</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">"&gt;B"</span><span class="p">,</span> <span class="n">tmp_pixel</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
                 <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_pixel</span>
         <span class="n">tmp_label</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s1">'&gt;B'</span><span class="p">,</span> <span class="n">tmp_label</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">"&gt;B"</span><span class="p">,</span> <span class="n">tmp_label</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 <h2 id="viewing-data">Viewing data</h2>
@@ -262,38 +262,54 @@ simply flattens a list.</p>
 <span class="kn">from</span> <span class="nn">pybrain.structure.modules</span> <span class="kn">import</span> <span class="n">SoftmaxLayer</span>
 
 
-<span class="k">def</span> <span class="nf">classify</span><span class="p">(</span><span class="n">training</span><span class="p">,</span> <span class="n">testing</span><span class="p">,</span> <span class="n">HIDDEN_NEURONS</span><span class="p">,</span> <span class="n">MOMENTUM</span><span class="p">,</span> <span class="n">WEIGHTDECAY</span><span class="p">,</span>
-             <span class="n">LEARNING_RATE</span><span class="p">,</span> <span class="n">LEARNING_RATE_DECAY</span><span class="p">,</span> <span class="n">EPOCHS</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">classify</span><span class="p">(</span>
+    <span class="n">training</span><span class="p">,</span>
+    <span class="n">testing</span><span class="p">,</span>
+    <span class="n">HIDDEN_NEURONS</span><span class="p">,</span>
+    <span class="n">MOMENTUM</span><span class="p">,</span>
+    <span class="n">WEIGHTDECAY</span><span class="p">,</span>
+    <span class="n">LEARNING_RATE</span><span class="p">,</span>
+    <span class="n">LEARNING_RATE_DECAY</span><span class="p">,</span>
+    <span class="n">EPOCHS</span><span class="p">,</span>
+<span class="p">):</span>
     <span class="n">trndata</span> <span class="o">=</span> <span class="n">ClassificationDataSet</span><span class="p">(</span><span class="n">INPUT_FEATURES</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nb_classes</span><span class="o">=</span><span class="n">CLASSES</span><span class="p">)</span>
     <span class="n">tstdata</span> <span class="o">=</span> <span class="n">ClassificationDataSet</span><span class="p">(</span><span class="n">INPUT_FEATURES</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nb_classes</span><span class="o">=</span><span class="n">CLASSES</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">testing</span><span class="p">)):</span>
-        <span class="n">tstdata</span><span class="o">.</span><span class="n">addSample</span><span class="p">(</span><span class="n">ravel</span><span class="p">(</span><span class="n">testing</span><span class="p">[</span><span class="s1">'x'</span><span class="p">][</span><span class="n">i</span><span class="p">]),</span> <span class="p">[</span><span class="n">testing</span><span class="p">[</span><span class="s1">'y'</span><span class="p">][</span><span class="n">i</span><span class="p">]])</span>
+        <span class="n">tstdata</span><span class="o">.</span><span class="n">addSample</span><span class="p">(</span><span class="n">ravel</span><span class="p">(</span><span class="n">testing</span><span class="p">[</span><span class="s2">"x"</span><span class="p">][</span><span class="n">i</span><span class="p">]),</span> <span class="p">[</span><span class="n">testing</span><span class="p">[</span><span class="s2">"y"</span><span class="p">][</span><span class="n">i</span><span class="p">]])</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">trndata</span><span class="p">)):</span>
-        <span class="n">trndata</span><span class="o">.</span><span class="n">addSample</span><span class="p">(</span><span class="n">ravel</span><span class="p">(</span><span class="n">trndata</span><span class="p">[</span><span class="s1">'x'</span><span class="p">][</span><span class="n">i</span><span class="p">]),</span> <span class="p">[</span><span class="n">trndata</span><span class="p">[</span><span class="s1">'y'</span><span class="p">][</span><span class="n">i</span><span class="p">]])</span>
+        <span class="n">trndata</span><span class="o">.</span><span class="n">addSample</span><span class="p">(</span><span class="n">ravel</span><span class="p">(</span><span class="n">trndata</span><span class="p">[</span><span class="s2">"x"</span><span class="p">][</span><span class="n">i</span><span class="p">]),</span> <span class="p">[</span><span class="n">trndata</span><span class="p">[</span><span class="s2">"y"</span><span class="p">][</span><span class="n">i</span><span class="p">]])</span>
 
     <span class="c1"># This is necessary, but I don't know why</span>
     <span class="c1"># See http://stackoverflow.com/q/8154674/562769</span>
     <span class="n">trndata</span><span class="o">.</span><span class="n">_convertToOneOfMany</span><span class="p">()</span>
     <span class="n">tstdata</span><span class="o">.</span><span class="n">_convertToOneOfMany</span><span class="p">()</span>
 
-    <span class="n">fnn</span> <span class="o">=</span> <span class="n">buildNetwork</span><span class="p">(</span><span class="n">trndata</span><span class="o">.</span><span class="n">indim</span><span class="p">,</span> <span class="n">HIDDEN_NEURONS</span><span class="p">,</span> <span class="n">trndata</span><span class="o">.</span><span class="n">outdim</span><span class="p">,</span>
-                       <span class="n">outclass</span><span class="o">=</span><span class="n">SoftmaxLayer</span><span class="p">)</span>
+    <span class="n">fnn</span> <span class="o">=</span> <span class="n">buildNetwork</span><span class="p">(</span>
+        <span class="n">trndata</span><span class="o">.</span><span class="n">indim</span><span class="p">,</span> <span class="n">HIDDEN_NEURONS</span><span class="p">,</span> <span class="n">trndata</span><span class="o">.</span><span class="n">outdim</span><span class="p">,</span> <span class="n">outclass</span><span class="o">=</span><span class="n">SoftmaxLayer</span>
+    <span class="p">)</span>
 
-    <span class="n">trainer</span> <span class="o">=</span> <span class="n">BackpropTrainer</span><span class="p">(</span><span class="n">fnn</span><span class="p">,</span> <span class="n">dataset</span><span class="o">=</span><span class="n">trndata</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="n">MOMENTUM</span><span class="p">,</span>
-                              <span class="n">verbose</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">weightdecay</span><span class="o">=</span><span class="n">WEIGHTDECAY</span><span class="p">,</span>
-                              <span class="n">learningrate</span><span class="o">=</span><span class="n">LEARNING_RATE</span><span class="p">,</span>
-                              <span class="n">lrdecay</span><span class="o">=</span><span class="n">LEARNING_RATE_DECAY</span><span class="p">)</span>
+    <span class="n">trainer</span> <span class="o">=</span> <span class="n">BackpropTrainer</span><span class="p">(</span>
+        <span class="n">fnn</span><span class="p">,</span>
+        <span class="n">dataset</span><span class="o">=</span><span class="n">trndata</span><span class="p">,</span>
+        <span class="n">momentum</span><span class="o">=</span><span class="n">MOMENTUM</span><span class="p">,</span>
+        <span class="n">verbose</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">weightdecay</span><span class="o">=</span><span class="n">WEIGHTDECAY</span><span class="p">,</span>
+        <span class="n">learningrate</span><span class="o">=</span><span class="n">LEARNING_RATE</span><span class="p">,</span>
+        <span class="n">lrdecay</span><span class="o">=</span><span class="n">LEARNING_RATE_DECAY</span><span class="p">,</span>
+    <span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">EPOCHS</span><span class="p">):</span>
         <span class="n">trainer</span><span class="o">.</span><span class="n">trainEpochs</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">trnresult</span> <span class="o">=</span> <span class="n">percentError</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">testOnClassData</span><span class="p">(),</span>
-                                 <span class="n">trndata</span><span class="p">[</span><span class="s1">'class'</span><span class="p">])</span>
-        <span class="n">tstresult</span> <span class="o">=</span> <span class="n">percentError</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">testOnClassData</span><span class="p">(</span>
-                                 <span class="n">dataset</span><span class="o">=</span><span class="n">tstdata</span><span class="p">),</span> <span class="n">tstdata</span><span class="p">[</span><span class="s1">'class'</span><span class="p">])</span>
+        <span class="n">trnresult</span> <span class="o">=</span> <span class="n">percentError</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">testOnClassData</span><span class="p">(),</span> <span class="n">trndata</span><span class="p">[</span><span class="s2">"class"</span><span class="p">])</span>
+        <span class="n">tstresult</span> <span class="o">=</span> <span class="n">percentError</span><span class="p">(</span>
+            <span class="n">trainer</span><span class="o">.</span><span class="n">testOnClassData</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="n">tstdata</span><span class="p">),</span> <span class="n">tstdata</span><span class="p">[</span><span class="s2">"class"</span><span class="p">]</span>
+        <span class="p">)</span>
 
-        <span class="k">print</span><span class="p">(</span><span class="s2">"epoch: </span><span class="si">%4d</span><span class="s2">"</span> <span class="o">%</span> <span class="n">trainer</span><span class="o">.</span><span class="n">totalepochs</span><span class="p">,</span>
-              <span class="s2">"  train error: </span><span class="si">%5.2f%%</span><span class="s2">"</span> <span class="o">%</span> <span class="n">trnresult</span><span class="p">,</span>
-              <span class="s2">"  test error: </span><span class="si">%5.2f%%</span><span class="s2">"</span> <span class="o">%</span> <span class="n">tstresult</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span>
+            <span class="s2">"epoch: </span><span class="si">%4d</span><span class="s2">"</span> <span class="o">%</span> <span class="n">trainer</span><span class="o">.</span><span class="n">totalepochs</span><span class="p">,</span>
+            <span class="s2">"  train error: </span><span class="si">%5.2f%%</span><span class="s2">"</span> <span class="o">%</span> <span class="n">trnresult</span><span class="p">,</span>
+            <span class="s2">"  test error: </span><span class="si">%5.2f%%</span><span class="s2">"</span> <span class="o">%</span> <span class="n">tstresult</span><span class="p">,</span>
+        <span class="p">)</span>
     <span class="k">return</span> <span class="n">fnn</span>
 </pre></div>
 <h2 id="final-steps">Final steps</h2>
@@ -330,12 +346,12 @@ the data.</p>
 <span class="sd">    ------</span>
 <span class="sd">    dict</span>
 <span class="sd">    """</span>
-    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="s1">'</span><span class="si">%s</span><span class="s1">.pickle'</span> <span class="o">%</span> <span class="n">picklename</span><span class="p">):</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">'</span><span class="si">%s</span><span class="s1">.pickle'</span> <span class="o">%</span> <span class="n">picklename</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="s2">.pickle"</span> <span class="o">%</span> <span class="n">picklename</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="s2">.pickle"</span> <span class="o">%</span> <span class="n">picklename</span><span class="p">))</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="c1"># Open the images with gzip in read binary mode</span>
-        <span class="n">images</span> <span class="o">=</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">imagefile</span><span class="p">,</span> <span class="s1">'rb'</span><span class="p">)</span>
-        <span class="n">labels</span> <span class="o">=</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">labelfile</span><span class="p">,</span> <span class="s1">'rb'</span><span class="p">)</span>
+        <span class="n">images</span> <span class="o">=</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">imagefile</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">labelfile</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span>
 
         <span class="c1"># Read the binary data</span>
 
@@ -344,20 +360,21 @@ the data.</p>
         <span class="c1"># Get metadata for images</span>
         <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># skip the magic_number</span>
         <span class="n">number_of_images</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-        <span class="n">number_of_images</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s1">'&gt;I'</span><span class="p">,</span> <span class="n">number_of_images</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">number_of_images</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">"&gt;I"</span><span class="p">,</span> <span class="n">number_of_images</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">rows</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-        <span class="n">rows</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s1">'&gt;I'</span><span class="p">,</span> <span class="n">rows</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">rows</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">"&gt;I"</span><span class="p">,</span> <span class="n">rows</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">cols</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-        <span class="n">cols</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s1">'&gt;I'</span><span class="p">,</span> <span class="n">cols</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">cols</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">"&gt;I"</span><span class="p">,</span> <span class="n">cols</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
         <span class="c1"># Get metadata for labels</span>
         <span class="n">labels</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># skip the magic_number</span>
         <span class="n">N</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-        <span class="n">N</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s1">'&gt;I'</span><span class="p">,</span> <span class="n">N</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">N</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">"&gt;I"</span><span class="p">,</span> <span class="n">N</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
         <span class="k">if</span> <span class="n">number_of_images</span> <span class="o">!=</span> <span class="n">N</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">'The number of labels did not match '</span>
-                            <span class="s1">'the number of images.'</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+                <span class="s2">"The number of labels did not match "</span> <span class="s2">"the number of images."</span>
+            <span class="p">)</span>
 
         <span class="c1"># Get the data</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>  <span class="c1"># Initialize numpy array</span>
@@ -368,11 +385,11 @@ the data.</p>
             <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">rows</span><span class="p">):</span>
                 <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cols</span><span class="p">):</span>
                     <span class="n">tmp_pixel</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Just a single byte</span>
-                    <span class="n">tmp_pixel</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s1">'&gt;B'</span><span class="p">,</span> <span class="n">tmp_pixel</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-                    <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">tmp_pixel</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span><span class="p">)</span>
+                    <span class="n">tmp_pixel</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">"&gt;B"</span><span class="p">,</span> <span class="n">tmp_pixel</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmp_pixel</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span>
             <span class="n">tmp_label</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-            <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s1">'&gt;B'</span><span class="p">,</span> <span class="n">tmp_label</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'x'</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">:</span> <span class="n">y</span><span class="p">,</span> <span class="s1">'rows'</span><span class="p">:</span> <span class="n">rows</span><span class="p">,</span> <span class="s1">'cols'</span><span class="p">:</span> <span class="n">cols</span><span class="p">}</span>
+            <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">"&gt;B"</span><span class="p">,</span> <span class="n">tmp_label</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"x"</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">:</span> <span class="n">y</span><span class="p">,</span> <span class="s2">"rows"</span><span class="p">:</span> <span class="n">rows</span><span class="p">,</span> <span class="s2">"cols"</span><span class="p">:</span> <span class="n">cols</span><span class="p">}</span>
         <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="s2">.pickle"</span> <span class="o">%</span> <span class="n">picklename</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">data</span>
 
@@ -384,78 +401,130 @@ the data.</p>
     <span class="n">show</span><span class="p">()</span>
 
 
-<span class="k">def</span> <span class="nf">classify</span><span class="p">(</span><span class="n">training</span><span class="p">,</span> <span class="n">testing</span><span class="p">,</span> <span class="n">HIDDEN_NEURONS</span><span class="p">,</span> <span class="n">MOMENTUM</span><span class="p">,</span> <span class="n">WEIGHTDECAY</span><span class="p">,</span>
-             <span class="n">LEARNING_RATE</span><span class="p">,</span> <span class="n">LEARNING_RATE_DECAY</span><span class="p">,</span> <span class="n">EPOCHS</span><span class="p">):</span>
-    <span class="n">INPUT_FEATURES</span> <span class="o">=</span> <span class="n">testing</span><span class="p">[</span><span class="s1">'rows'</span><span class="p">]</span> <span class="o">*</span> <span class="n">testing</span><span class="p">[</span><span class="s1">'cols'</span><span class="p">]</span>
+<span class="k">def</span> <span class="nf">classify</span><span class="p">(</span>
+    <span class="n">training</span><span class="p">,</span>
+    <span class="n">testing</span><span class="p">,</span>
+    <span class="n">HIDDEN_NEURONS</span><span class="p">,</span>
+    <span class="n">MOMENTUM</span><span class="p">,</span>
+    <span class="n">WEIGHTDECAY</span><span class="p">,</span>
+    <span class="n">LEARNING_RATE</span><span class="p">,</span>
+    <span class="n">LEARNING_RATE_DECAY</span><span class="p">,</span>
+    <span class="n">EPOCHS</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="n">INPUT_FEATURES</span> <span class="o">=</span> <span class="n">testing</span><span class="p">[</span><span class="s2">"rows"</span><span class="p">]</span> <span class="o">*</span> <span class="n">testing</span><span class="p">[</span><span class="s2">"cols"</span><span class="p">]</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">"Input features: </span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="n">INPUT_FEATURES</span><span class="p">)</span>
     <span class="n">CLASSES</span> <span class="o">=</span> <span class="mi">10</span>
     <span class="n">trndata</span> <span class="o">=</span> <span class="n">ClassificationDataSet</span><span class="p">(</span><span class="n">INPUT_FEATURES</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nb_classes</span><span class="o">=</span><span class="n">CLASSES</span><span class="p">)</span>
     <span class="n">tstdata</span> <span class="o">=</span> <span class="n">ClassificationDataSet</span><span class="p">(</span><span class="n">INPUT_FEATURES</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nb_classes</span><span class="o">=</span><span class="n">CLASSES</span><span class="p">)</span>
 
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">testing</span><span class="p">[</span><span class="s1">'x'</span><span class="p">])):</span>
-        <span class="n">tstdata</span><span class="o">.</span><span class="n">addSample</span><span class="p">(</span><span class="n">ravel</span><span class="p">(</span><span class="n">testing</span><span class="p">[</span><span class="s1">'x'</span><span class="p">][</span><span class="n">i</span><span class="p">]),</span> <span class="p">[</span><span class="n">testing</span><span class="p">[</span><span class="s1">'y'</span><span class="p">][</span><span class="n">i</span><span class="p">]])</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">training</span><span class="p">[</span><span class="s1">'x'</span><span class="p">])):</span>
-        <span class="n">trndata</span><span class="o">.</span><span class="n">addSample</span><span class="p">(</span><span class="n">ravel</span><span class="p">(</span><span class="n">training</span><span class="p">[</span><span class="s1">'x'</span><span class="p">][</span><span class="n">i</span><span class="p">]),</span> <span class="p">[</span><span class="n">training</span><span class="p">[</span><span class="s1">'y'</span><span class="p">][</span><span class="n">i</span><span class="p">]])</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">testing</span><span class="p">[</span><span class="s2">"x"</span><span class="p">])):</span>
+        <span class="n">tstdata</span><span class="o">.</span><span class="n">addSample</span><span class="p">(</span><span class="n">ravel</span><span class="p">(</span><span class="n">testing</span><span class="p">[</span><span class="s2">"x"</span><span class="p">][</span><span class="n">i</span><span class="p">]),</span> <span class="p">[</span><span class="n">testing</span><span class="p">[</span><span class="s2">"y"</span><span class="p">][</span><span class="n">i</span><span class="p">]])</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">training</span><span class="p">[</span><span class="s2">"x"</span><span class="p">])):</span>
+        <span class="n">trndata</span><span class="o">.</span><span class="n">addSample</span><span class="p">(</span><span class="n">ravel</span><span class="p">(</span><span class="n">training</span><span class="p">[</span><span class="s2">"x"</span><span class="p">][</span><span class="n">i</span><span class="p">]),</span> <span class="p">[</span><span class="n">training</span><span class="p">[</span><span class="s2">"y"</span><span class="p">][</span><span class="n">i</span><span class="p">]])</span>
 
     <span class="c1"># This is necessary, but I don't know why</span>
     <span class="c1"># See http://stackoverflow.com/q/8154674/562769</span>
     <span class="n">trndata</span><span class="o">.</span><span class="n">_convertToOneOfMany</span><span class="p">()</span>
     <span class="n">tstdata</span><span class="o">.</span><span class="n">_convertToOneOfMany</span><span class="p">()</span>
 
-    <span class="n">fnn</span> <span class="o">=</span> <span class="n">buildNetwork</span><span class="p">(</span><span class="n">trndata</span><span class="o">.</span><span class="n">indim</span><span class="p">,</span> <span class="n">HIDDEN_NEURONS</span><span class="p">,</span> <span class="n">trndata</span><span class="o">.</span><span class="n">outdim</span><span class="p">,</span>
-                       <span class="n">outclass</span><span class="o">=</span><span class="n">SoftmaxLayer</span><span class="p">)</span>
+    <span class="n">fnn</span> <span class="o">=</span> <span class="n">buildNetwork</span><span class="p">(</span>
+        <span class="n">trndata</span><span class="o">.</span><span class="n">indim</span><span class="p">,</span> <span class="n">HIDDEN_NEURONS</span><span class="p">,</span> <span class="n">trndata</span><span class="o">.</span><span class="n">outdim</span><span class="p">,</span> <span class="n">outclass</span><span class="o">=</span><span class="n">SoftmaxLayer</span>
+    <span class="p">)</span>
 
-    <span class="n">trainer</span> <span class="o">=</span> <span class="n">BackpropTrainer</span><span class="p">(</span><span class="n">fnn</span><span class="p">,</span> <span class="n">dataset</span><span class="o">=</span><span class="n">trndata</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="n">MOMENTUM</span><span class="p">,</span>
-                              <span class="n">verbose</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">weightdecay</span><span class="o">=</span><span class="n">WEIGHTDECAY</span><span class="p">,</span>
-                              <span class="n">learningrate</span><span class="o">=</span><span class="n">LEARNING_RATE</span><span class="p">,</span>
-                              <span class="n">lrdecay</span><span class="o">=</span><span class="n">LEARNING_RATE_DECAY</span><span class="p">)</span>
+    <span class="n">trainer</span> <span class="o">=</span> <span class="n">BackpropTrainer</span><span class="p">(</span>
+        <span class="n">fnn</span><span class="p">,</span>
+        <span class="n">dataset</span><span class="o">=</span><span class="n">trndata</span><span class="p">,</span>
+        <span class="n">momentum</span><span class="o">=</span><span class="n">MOMENTUM</span><span class="p">,</span>
+        <span class="n">verbose</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">weightdecay</span><span class="o">=</span><span class="n">WEIGHTDECAY</span><span class="p">,</span>
+        <span class="n">learningrate</span><span class="o">=</span><span class="n">LEARNING_RATE</span><span class="p">,</span>
+        <span class="n">lrdecay</span><span class="o">=</span><span class="n">LEARNING_RATE_DECAY</span><span class="p">,</span>
+    <span class="p">)</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">"Start training"</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">EPOCHS</span><span class="p">):</span>
         <span class="n">trainer</span><span class="o">.</span><span class="n">trainEpochs</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">trnresult</span> <span class="o">=</span> <span class="n">percentError</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">testOnClassData</span><span class="p">(),</span>
-                                 <span class="n">trndata</span><span class="p">[</span><span class="s1">'class'</span><span class="p">])</span>
-        <span class="n">tstresult</span> <span class="o">=</span> <span class="n">percentError</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">testOnClassData</span><span class="p">(</span>
-                                 <span class="n">dataset</span><span class="o">=</span><span class="n">tstdata</span><span class="p">),</span> <span class="n">tstdata</span><span class="p">[</span><span class="s1">'class'</span><span class="p">])</span>
+        <span class="n">trnresult</span> <span class="o">=</span> <span class="n">percentError</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">testOnClassData</span><span class="p">(),</span> <span class="n">trndata</span><span class="p">[</span><span class="s2">"class"</span><span class="p">])</span>
+        <span class="n">tstresult</span> <span class="o">=</span> <span class="n">percentError</span><span class="p">(</span>
+            <span class="n">trainer</span><span class="o">.</span><span class="n">testOnClassData</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="n">tstdata</span><span class="p">),</span> <span class="n">tstdata</span><span class="p">[</span><span class="s2">"class"</span><span class="p">]</span>
+        <span class="p">)</span>
 
-        <span class="k">print</span><span class="p">(</span><span class="s2">"epoch: </span><span class="si">%4d</span><span class="s2">"</span> <span class="o">%</span> <span class="n">trainer</span><span class="o">.</span><span class="n">totalepochs</span><span class="p">,</span>
-              <span class="s2">"  train error: </span><span class="si">%5.2f%%</span><span class="s2">"</span> <span class="o">%</span> <span class="n">trnresult</span><span class="p">,</span>
-              <span class="s2">"  test error: </span><span class="si">%5.2f%%</span><span class="s2">"</span> <span class="o">%</span> <span class="n">tstresult</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span>
+            <span class="s2">"epoch: </span><span class="si">%4d</span><span class="s2">"</span> <span class="o">%</span> <span class="n">trainer</span><span class="o">.</span><span class="n">totalepochs</span><span class="p">,</span>
+            <span class="s2">"  train error: </span><span class="si">%5.2f%%</span><span class="s2">"</span> <span class="o">%</span> <span class="n">trnresult</span><span class="p">,</span>
+            <span class="s2">"  test error: </span><span class="si">%5.2f%%</span><span class="s2">"</span> <span class="o">%</span> <span class="n">tstresult</span><span class="p">,</span>
+        <span class="p">)</span>
     <span class="k">return</span> <span class="n">fnn</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">()</span>
 
     <span class="c1"># Add more options if you like</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-H"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s2">"H"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"hidden_neurons"</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s2">"number of neurons in the hidden layer"</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-e"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s2">"EPOCHS"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
-                        <span class="n">dest</span><span class="o">=</span><span class="s2">"epochs"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s2">"number of epochs to learn"</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-d"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s2">"W"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"weightdecay"</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s2">"weightdecay"</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-m"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s2">"M"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"momentum"</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s2">"momentum"</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-l"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s2">"ETA"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"learning_rate"</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s2">"learning rate"</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-ld"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s2">"ALPHA"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"lrdecay"</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s2">"learning rate decay"</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">"-H"</span><span class="p">,</span>
+        <span class="n">metavar</span><span class="o">=</span><span class="s2">"H"</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">"hidden_neurons"</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">"number of neurons in the hidden layer"</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">"-e"</span><span class="p">,</span>
+        <span class="n">metavar</span><span class="o">=</span><span class="s2">"EPOCHS"</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">"epochs"</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">"number of epochs to learn"</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">"-d"</span><span class="p">,</span>
+        <span class="n">metavar</span><span class="o">=</span><span class="s2">"W"</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">"weightdecay"</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">"weightdecay"</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">"-m"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s2">"M"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"momentum"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"momentum"</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">"-l"</span><span class="p">,</span>
+        <span class="n">metavar</span><span class="o">=</span><span class="s2">"ETA"</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">"learning_rate"</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">"learning rate"</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">"-ld"</span><span class="p">,</span>
+        <span class="n">metavar</span><span class="o">=</span><span class="s2">"ALPHA"</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">"lrdecay"</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">"learning rate decay"</span><span class="p">,</span>
+    <span class="p">)</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 
     <span class="k">print</span><span class="p">(</span><span class="s2">"Get testset"</span><span class="p">)</span>
-    <span class="n">testing</span> <span class="o">=</span> <span class="n">get_labeled_data</span><span class="p">(</span><span class="s1">'t10k-images-idx3-ubyte.gz'</span><span class="p">,</span>
-                               <span class="s1">'t10k-labels-idx1-ubyte.gz'</span><span class="p">,</span> <span class="s1">'testing'</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"Got </span><span class="si">%i</span><span class="s2"> testing datasets."</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">testing</span><span class="p">[</span><span class="s1">'x'</span><span class="p">]))</span>
+    <span class="n">testing</span> <span class="o">=</span> <span class="n">get_labeled_data</span><span class="p">(</span>
+        <span class="s2">"t10k-images-idx3-ubyte.gz"</span><span class="p">,</span> <span class="s2">"t10k-labels-idx1-ubyte.gz"</span><span class="p">,</span> <span class="s2">"testing"</span>
+    <span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Got </span><span class="si">%i</span><span class="s2"> testing datasets."</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">testing</span><span class="p">[</span><span class="s2">"x"</span><span class="p">]))</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">"Get trainingset"</span><span class="p">)</span>
-    <span class="n">training</span> <span class="o">=</span> <span class="n">get_labeled_data</span><span class="p">(</span><span class="s1">'train-images-idx3-ubyte.gz'</span><span class="p">,</span>
-                                <span class="s1">'train-labels-idx1-ubyte.gz'</span><span class="p">,</span> <span class="s1">'training'</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"Got </span><span class="si">%i</span><span class="s2"> training datasets."</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">training</span><span class="p">[</span><span class="s1">'x'</span><span class="p">]))</span>
-    <span class="n">classify</span><span class="p">(</span><span class="n">training</span><span class="p">,</span> <span class="n">testing</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">hidden_neurons</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">momentum</span><span class="p">,</span>
-             <span class="n">args</span><span class="o">.</span><span class="n">weightdecay</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">learning_rate</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">lrdecay</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">epochs</span><span class="p">)</span>
+    <span class="n">training</span> <span class="o">=</span> <span class="n">get_labeled_data</span><span class="p">(</span>
+        <span class="s2">"train-images-idx3-ubyte.gz"</span><span class="p">,</span> <span class="s2">"train-labels-idx1-ubyte.gz"</span><span class="p">,</span> <span class="s2">"training"</span>
+    <span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Got </span><span class="si">%i</span><span class="s2"> training datasets."</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">training</span><span class="p">[</span><span class="s2">"x"</span><span class="p">]))</span>
+    <span class="n">classify</span><span class="p">(</span>
+        <span class="n">training</span><span class="p">,</span>
+        <span class="n">testing</span><span class="p">,</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">hidden_neurons</span><span class="p">,</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">momentum</span><span class="p">,</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">weightdecay</span><span class="p">,</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">learning_rate</span><span class="p">,</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">lrdecay</span><span class="p">,</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">epochs</span><span class="p">,</span>
+    <span class="p">)</span>
 </pre></div>
 <h2 id="results">Results</h2>
 <p>I'll update that tomorrow:</p>

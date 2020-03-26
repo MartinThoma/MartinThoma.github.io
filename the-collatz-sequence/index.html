@@ -142,58 +142,70 @@ $\forall_{n \in \mathbb{N}_{&gt;0}} \exists_{i \in \mathbb{N}_{&gt;0}}: c^n_i = 
 
 <span class="c1"># Based on: http://en.wikipedia.org/wiki/File:Collatz-graph-all-30-no27.svg</span>
 
+
 <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">2</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">3</span><span class="o">*</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
+
 
 <span class="k">def</span> <span class="nf">writeDotfile</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span> <span class="n">explored</span><span class="p">):</span>
-    <span class="n">dotfile</span> <span class="o">=</span> <span class="nb">file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span>
+    <span class="n">dotfile</span> <span class="o">=</span> <span class="nb">file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span>
 
-    <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'digraph {</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+    <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"digraph {</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
     <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'node[style=filled,color=".7 .3 1.0"];</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
-    <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'1</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+    <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"1</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
     <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'node[style=filled,color=".95 .1 1"];</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
-    <span class="c1">#dotfile.write('size="15,8";\n')</span>
+    <span class="c1"># dotfile.write('size="15,8";\n')</span>
 
     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">limit</span><span class="p">):</span>
         <span class="k">while</span> <span class="n">n</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">explored</span><span class="p">:</span>
-            <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' -&gt; '</span><span class="p">)</span>
+            <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" -&gt; "</span><span class="p">)</span>
             <span class="n">explored</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
             <span class="n">n</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-        <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="s1">';</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
-    <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'}</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+        <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="s2">";</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"}</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+
 
 <span class="k">def</span> <span class="nf">createPng</span><span class="p">(</span><span class="n">dotfile</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">program</span><span class="p">):</span>
     <span class="kn">import</span> <span class="nn">os</span>
+
     <span class="n">command</span> <span class="o">=</span> <span class="n">program</span> <span class="o">+</span> <span class="s2">" -Tsvg "</span> <span class="o">+</span> <span class="n">dotfile</span> <span class="o">+</span> <span class="s2">" -o "</span> <span class="o">+</span> <span class="n">base</span> <span class="o">+</span> <span class="s2">".svg"</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">"Execute command: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">command</span><span class="p">)</span>
     <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
 
-    <span class="n">command</span> <span class="o">=</span> <span class="s2">"inkscape "</span><span class="o">+</span><span class="n">base</span><span class="o">+</span><span class="s2">".svg"</span><span class="o">+</span><span class="s2">" -w 512 --export-png="</span><span class="o">+</span><span class="n">base</span><span class="o">+</span><span class="s2">".png"</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="s2">"inkscape "</span> <span class="o">+</span> <span class="n">base</span> <span class="o">+</span> <span class="s2">".svg"</span> <span class="o">+</span> <span class="s2">" -w 512 --export-png="</span> <span class="o">+</span> <span class="n">base</span> <span class="o">+</span> <span class="s2">".png"</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">"Execute command: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">command</span><span class="p">)</span>
     <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">argparse</span>
 
-    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span>
-        <span class="n">description</span><span class="o">=</span><span class="s2">"Graph for small Collatz sequences"</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">"Graph for small Collatz sequences"</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">"-f"</span><span class="p">,</span>
+        <span class="s2">"--file"</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">"filename"</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="s2">"collatz-graph.gv"</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">"write dot-FILE"</span><span class="p">,</span>
+        <span class="n">metavar</span><span class="o">=</span><span class="s2">"FILE"</span><span class="p">,</span>
     <span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-f"</span><span class="p">,</span> <span class="s2">"--file"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"filename"</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="s2">"collatz-graph.gv"</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s2">"write dot-FILE"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s2">"FILE"</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-p"</span><span class="p">,</span> <span class="s2">"--program"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"program"</span><span class="p">,</span>
-                  <span class="n">help</span><span class="o">=</span><span class="s2">"dot, neato, twopi, circo, fdp, sfdp, osage"</span><span class="p">,</span> 
-                  <span class="n">metavar</span><span class="o">=</span><span class="s2">"PROGRAM"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">"dot"</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-n"</span><span class="p">,</span> 
-                      <span class="n">dest</span><span class="o">=</span><span class="s2">"limit"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> 
-                      <span class="n">help</span><span class="o">=</span><span class="s2">"limit"</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">"-p"</span><span class="p">,</span>
+        <span class="s2">"--program"</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">"program"</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">"dot, neato, twopi, circo, fdp, sfdp, osage"</span><span class="p">,</span>
+        <span class="n">metavar</span><span class="o">=</span><span class="s2">"PROGRAM"</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="s2">"dot"</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-n"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"limit"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"limit"</span><span class="p">)</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 
     <span class="n">writeDotfile</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">limit</span><span class="p">,</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">]))</span>
     <span class="kn">import</span> <span class="nn">os</span>
+
     <span class="n">createPng</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">filename</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">args</span><span class="o">.</span><span class="n">program</span><span class="p">)</span>
 </pre></div>
 <p>called like this:</p>

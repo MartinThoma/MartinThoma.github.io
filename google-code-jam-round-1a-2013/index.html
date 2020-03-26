@@ -180,24 +180,27 @@ t - \sum_{i=0}^x ((r+1+2i)^2 - (r+2i)^2) &amp;\geq 0\\
 
 <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">ceil</span><span class="p">,</span> <span class="n">roots</span>
 
+
 <span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">t</span><span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">r</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="n">t</span> <span class="o">-</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">r</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+
 
 <span class="k">def</span> <span class="nf">solveFast</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
-    <span class="n">myRoots</span> <span class="o">=</span> <span class="n">roots</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">r</span><span class="o">+</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">r</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="n">t</span><span class="p">))</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+    <span class="n">myRoots</span> <span class="o">=</span> <span class="n">roots</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">r</span> <span class="o">+</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">r</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">t</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">myRoots</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">answer</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">ceil</span><span class="p">(</span><span class="n">myRoots</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span> <span class="o">+</span> <span class="mi">1</span>
             <span class="k">while</span> <span class="ow">not</span> <span class="n">check</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">answer</span><span class="p">):</span>
                 <span class="n">answer</span> <span class="o">-=</span> <span class="mi">1</span>
             <span class="k">return</span> <span class="n">answer</span> <span class="o">+</span> <span class="mi">1</span>
 
+
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">testcases</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
 
-    <span class="k">for</span> <span class="n">caseNr</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">testcases</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">caseNr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">testcases</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
         <span class="n">line</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">()</span>
-        <span class="n">r</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">' '</span><span class="p">))</span>
+        <span class="n">r</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">))</span>
         <span class="k">print</span><span class="p">(</span><span class="s2">"Case #</span><span class="si">%i</span><span class="s2">: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span><span class="p">,</span> <span class="n">solveFast</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">)))</span>
 </pre></div>
 <h2 id="good luck_1">Good Luck</h2>
@@ -211,28 +214,34 @@ t - \sum_{i=0}^x ((r+1+2i)^2 - (r+2i)^2) &amp;\geq 0\\
 <span class="kn">import</span> <span class="nn">pprint</span>
 <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
 
+
 <span class="k">def</span> <span class="nf">mul</span><span class="p">(</span><span class="n">integers</span><span class="p">):</span>
     <span class="n">s</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">integers</span><span class="p">:</span>
         <span class="n">s</span> <span class="o">*=</span> <span class="n">p</span>
     <span class="k">return</span> <span class="n">s</span>
 
+
 <span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="n">candidates</span><span class="p">,</span> <span class="n">block</span><span class="p">):</span>
     <span class="n">newCandidates</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">candidates</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">block</span><span class="p">):</span>
         <span class="n">diff</span> <span class="o">=</span> <span class="n">block</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">el</span><span class="p">)</span> <span class="o">-</span> <span class="n">newCandidates</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">el</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">diff</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">diff</span><span class="p">):</span>
             <span class="n">newCandidates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">el</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">newCandidates</span>
+
 
 <span class="k">def</span> <span class="nf">canBeIn</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">candidates</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
     <span class="n">merged</span> <span class="o">=</span> <span class="n">merge</span><span class="p">(</span><span class="n">candidates</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
     <span class="k">return</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">merged</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">N</span><span class="p">)</span>
 
+
 <span class="sd">""" </span>
 <span class="sd">    N: number of numbers in total that got randomly picked</span>
 <span class="sd">    M: A_i in [2, M]</span>
 <span class="sd">"""</span>
+
+
 <span class="k">def</span> <span class="nf">solve</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">products</span><span class="p">,</span> <span class="n">productToBuildungs</span><span class="p">):</span>
     <span class="n">candidates</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -253,13 +262,14 @@ t - \sum_{i=0}^x ((r+1+2i)^2 - (r+2i)^2) &amp;\geq 0\\
 
     <span class="k">return</span> <span class="n">candidates</span>
 
+
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">testcases</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
 
-    <span class="k">for</span> <span class="n">caseNr</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">testcases</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">caseNr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">testcases</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
         <span class="k">print</span><span class="p">(</span><span class="s2">"Case #</span><span class="si">%i</span><span class="s2">:"</span> <span class="o">%</span> <span class="n">caseNr</span><span class="p">)</span>
         <span class="n">line</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">()</span>
-        <span class="n">arr</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">' '</span><span class="p">)</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
         <span class="n">R</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
         <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
         <span class="n">M</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
@@ -267,8 +277,8 @@ t - \sum_{i=0}^x ((r+1+2i)^2 - (r+2i)^2) &amp;\geq 0\\
 
         <span class="c1"># which products can I get</span>
         <span class="n">productToBuildungs</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-            <span class="k">for</span> <span class="n">product</span> <span class="ow">in</span> <span class="n">combinations_with_replacement</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">M</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">r</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">product</span> <span class="ow">in</span> <span class="n">combinations_with_replacement</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">M</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">r</span><span class="p">):</span>
                 <span class="n">s</span> <span class="o">=</span> <span class="n">mul</span><span class="p">(</span><span class="n">product</span><span class="p">)</span>
                 <span class="k">if</span> <span class="n">s</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">productToBuildungs</span><span class="p">:</span>
                     <span class="n">productToBuildungs</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">product</span><span class="p">)]]</span>
@@ -276,9 +286,9 @@ t - \sum_{i=0}^x ((r+1+2i)^2 - (r+2i)^2) &amp;\geq 0\\
                     <span class="n">productToBuildungs</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
                     <span class="n">productToBuildungs</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">product</span><span class="p">))</span>
 
-        <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">R</span><span class="p">):</span>
-            <span class="n">products</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">el</span><span class="p">)</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="nb">raw_input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">' '</span><span class="p">)</span> <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">el</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">]</span>
-            <span class="k">print</span><span class="p">(</span><span class="s1">''</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">solve</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">products</span><span class="p">,</span> <span class="n">productToBuildungs</span><span class="p">)))))</span>
+        <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">R</span><span class="p">):</span>
+            <span class="n">products</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">el</span><span class="p">)</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="nb">raw_input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span> <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">el</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">solve</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">products</span><span class="p">,</span> <span class="n">productToBuildungs</span><span class="p">)))))</span>
 </pre></div>
             
             <div id="disqus_thread" class="no-print"></div>

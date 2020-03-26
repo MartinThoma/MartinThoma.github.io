@@ -134,8 +134,7 @@ photos. The following script helps me to do so:</p>
 <span class="sd">    Only files which end with `ends` and start with `starts` are renamed to</span>
 <span class="sd">    `rename-[Number]`.</span>
 <span class="sd">    """</span>
-    <span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)</span>
-             <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">".py"</span><span class="p">)]</span>
+    <span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">"."</span><span class="p">)</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">".py"</span><span class="p">)]</span>
     <span class="c1"># Sort files by last modification / creation</span>
     <span class="n">files</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">st_ctime</span><span class="p">)</span>  <span class="c1"># st_ctime or st_mtime</span>
     <span class="n">files</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">get_date_taken</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
@@ -158,33 +157,41 @@ photos. The following script helps me to do so:</p>
 <span class="k">def</span> <span class="nf">get_parser</span><span class="p">():</span>
     <span class="sd">"""Parser for rename script."""</span>
     <span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span><span class="p">,</span> <span class="n">ArgumentDefaultsHelpFormatter</span>
-    <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="vm">__doc__</span><span class="p">,</span>
-                            <span class="n">formatter_class</span><span class="o">=</span><span class="n">ArgumentDefaultsHelpFormatter</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-n"</span><span class="p">,</span> <span class="s2">"--name"</span><span class="p">,</span>
-                        <span class="n">dest</span><span class="o">=</span><span class="s2">"name"</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s2">"new name"</span><span class="p">,</span>
-                        <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
-                        <span class="n">metavar</span><span class="o">=</span><span class="s2">"NAME"</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-s"</span><span class="p">,</span> <span class="s2">"--starts"</span><span class="p">,</span>
-                        <span class="n">dest</span><span class="o">=</span><span class="s2">"starts"</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s2">"Get files which start with this string"</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-                        <span class="n">metavar</span><span class="o">=</span><span class="s2">"STARTS"</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-e"</span><span class="p">,</span> <span class="s2">"--ends"</span><span class="p">,</span>
-                        <span class="n">dest</span><span class="o">=</span><span class="s2">"ends"</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s2">"Get files which end with this string"</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-                        <span class="n">metavar</span><span class="o">=</span><span class="s2">"ENDS"</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-t"</span><span class="p">,</span> <span class="s2">"--test"</span><span class="p">,</span>
-                        <span class="n">action</span><span class="o">=</span><span class="s2">"store_true"</span><span class="p">,</span>
-                        <span class="n">dest</span><span class="o">=</span><span class="s2">"test"</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s2">"don't change anything, just show what would be "</span>
-                             <span class="s2">"done"</span><span class="p">)</span>
+
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">(</span>
+        <span class="n">description</span><span class="o">=</span><span class="vm">__doc__</span><span class="p">,</span> <span class="n">formatter_class</span><span class="o">=</span><span class="n">ArgumentDefaultsHelpFormatter</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">"-n"</span><span class="p">,</span> <span class="s2">"--name"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"name"</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"new name"</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s2">"NAME"</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">"-s"</span><span class="p">,</span>
+        <span class="s2">"--starts"</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">"starts"</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">"Get files which start with this string"</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+        <span class="n">metavar</span><span class="o">=</span><span class="s2">"STARTS"</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">"-e"</span><span class="p">,</span>
+        <span class="s2">"--ends"</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">"ends"</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">"Get files which end with this string"</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+        <span class="n">metavar</span><span class="o">=</span><span class="s2">"ENDS"</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">"-t"</span><span class="p">,</span>
+        <span class="s2">"--test"</span><span class="p">,</span>
+        <span class="n">action</span><span class="o">=</span><span class="s2">"store_true"</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">"test"</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">"don't change anything, just show what would be "</span> <span class="s2">"done"</span><span class="p">,</span>
+    <span class="p">)</span>
     <span class="k">return</span> <span class="n">parser</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">get_parser</span><span class="p">()</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
     <span class="n">rename</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">starts</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">starts</span><span class="p">,</span> <span class="n">ends</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">ends</span><span class="p">,</span> <span class="n">test</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">test</span><span class="p">)</span>
 </pre></div>

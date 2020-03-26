@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Logging in Python "/>
 <meta property="og:url" content="../logging-in-python/" />
-<meta property="og:description" content="Python has a nice logging module. You can use it like this: Stream output #!/usr/bin/env python import logging import sys logging.basicConfig(format=&#39;%(asctime)s %(levelname)s %(message)s&#39;, level=logging.DEBUG, stream=sys.stdout) logging.debug(&#39;This message should go to the log file&#39;) logging.info(&#39;So …" />
+<meta property="og:description" content="Python has a nice logging module. You can use it like this: Stream output #!/usr/bin/env python import logging import sys logging.basicConfig( format=&#34;%(asctime)s %(levelname)s %(message)s&#34;, level=logging.DEBUG, stream=sys.stdout, ) logging.debug(&#34;This message should go to the log file&#34;) logging.info(&#34;So …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2014-08-01T21:15:00+02:00" />
 <meta name="twitter:title" content="Logging in Python ">
-<meta name="twitter:description" content="Python has a nice logging module. You can use it like this: Stream output #!/usr/bin/env python import logging import sys logging.basicConfig(format=&#39;%(asctime)s %(levelname)s %(message)s&#39;, level=logging.DEBUG, stream=sys.stdout) logging.debug(&#39;This message should go to the log file&#39;) logging.info(&#39;So …">
+<meta name="twitter:description" content="Python has a nice logging module. You can use it like this: Stream output #!/usr/bin/env python import logging import sys logging.basicConfig( format=&#34;%(asctime)s %(levelname)s %(message)s&#34;, level=logging.DEBUG, stream=sys.stdout, ) logging.debug(&#34;This message should go to the log file&#34;) logging.info(&#34;So …">
 <meta property="og:image" content="logos/python.png" />
 <meta name="twitter:image" content="logos/python.png" >
 
@@ -117,24 +117,28 @@ MathJax.Hub.Queue(function() {
 <span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
-<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">format</span><span class="o">=</span><span class="s1">'</span><span class="si">%(asctime)s</span><span class="s1"> </span><span class="si">%(levelname)s</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">'</span><span class="p">,</span>
-                    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
-                    <span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
-<span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">'This message should go to the log file'</span><span class="p">)</span>
-<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'So should this'</span><span class="p">)</span>
-<span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">'And this, too'</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="n">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
+    <span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"This message should go to the log file"</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"So should this"</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"And this, too"</span><span class="p">)</span>
 </pre></div>
 <h2 id="file-output">File output</h2>
 <div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 
 <span class="kn">import</span> <span class="nn">logging</span>
 
-<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">'logging.log'</span><span class="p">,</span>
-                    <span class="n">format</span><span class="o">=</span><span class="s1">'</span><span class="si">%(asctime)s</span><span class="s1"> </span><span class="si">%(levelname)s</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">'</span><span class="p">,</span>
-                    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
-<span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">'This message should go to the log file'</span><span class="p">)</span>
-<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'So should this'</span><span class="p">)</span>
-<span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">'And this, too'</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="n">filename</span><span class="o">=</span><span class="s2">"logging.log"</span><span class="p">,</span>
+    <span class="n">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"This message should go to the log file"</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"So should this"</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"And this, too"</span><span class="p">)</span>
 </pre></div>
 <h2 id="see-also">See also</h2>
 <ul>

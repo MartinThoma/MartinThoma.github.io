@@ -132,94 +132,116 @@ Sobald man alle Zeilen des vorhergehenden Block &uuml;berpr&uuml;ft hat, kann ma
 Sobald man keine neuen Zeilen / Bl&ouml;cke mehr bilden kann, ist man fertig. Die Zeilen, die nicht gestrichen wurden, sind Primimplikanten.</p>
 <h2 id="code">Code</h2>
 <p>Ich finde Algorithmen werden am eindeutigsten durch Implementierungen beschrieben. Hier ist meine f&uuml;r das Consensus-Verfahren:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
+
 
 <span class="k">def</span> <span class="nf">initDatastructure</span><span class="p">(</span><span class="n">terme</span><span class="p">):</span>
     <span class="n">dictList</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">nr</span><span class="p">,</span> <span class="n">term</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">terme</span><span class="p">):</span>
-        <span class="n">dictList</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">'number'</span><span class="p">:</span> <span class="n">nr</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'gebildet'</span><span class="p">:</span><span class="s1">''</span><span class="p">,</span> 
-                         <span class="s1">'term'</span><span class="p">:</span><span class="n">term</span><span class="p">,</span> <span class="s1">'gestrichen'</span><span class="p">:</span> <span class="bp">False</span><span class="p">})</span>
+        <span class="n">dictList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="p">{</span><span class="s2">"number"</span><span class="p">:</span> <span class="n">nr</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"gebildet"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span> <span class="s2">"term"</span><span class="p">:</span> <span class="n">term</span><span class="p">,</span> <span class="s2">"gestrichen"</span><span class="p">:</span> <span class="bp">False</span><span class="p">}</span>
+        <span class="p">)</span>
     <span class="k">return</span> <span class="n">dictList</span>
 
-<span class="sd">''' check if item1 and item2 differ in at least one digit '''</span>
+
+<span class="sd">""" check if item1 and item2 differ in at least one digit """</span>
+
+
 <span class="k">def</span> <span class="nf">hasComplementaryDigit</span><span class="p">(</span><span class="n">item1</span><span class="p">,</span> <span class="n">item2</span><span class="p">):</span>
-    <span class="n">term1</span> <span class="o">=</span> <span class="n">item1</span><span class="p">[</span><span class="s1">'term'</span><span class="p">]</span>
-    <span class="n">term2</span> <span class="o">=</span> <span class="n">item2</span><span class="p">[</span><span class="s1">'term'</span><span class="p">]</span>
+    <span class="n">term1</span> <span class="o">=</span> <span class="n">item1</span><span class="p">[</span><span class="s2">"term"</span><span class="p">]</span>
+    <span class="n">term2</span> <span class="o">=</span> <span class="n">item2</span><span class="p">[</span><span class="s2">"term"</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">term1</span><span class="p">)):</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">term1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'1'</span> <span class="ow">and</span> <span class="n">term2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'0'</span><span class="p">)</span> <span class="ow">or</span> \
-           <span class="p">(</span><span class="n">term1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'0'</span> <span class="ow">and</span> <span class="n">term2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'1'</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">term1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"1"</span> <span class="ow">and</span> <span class="n">term2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"0"</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span>
+            <span class="n">term1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"0"</span> <span class="ow">and</span> <span class="n">term2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"1"</span>
+        <span class="p">):</span>
             <span class="k">return</span> <span class="bp">True</span>
     <span class="k">return</span> <span class="bp">False</span>
 
-<span class="sd">''' check if item1 and item2 have a consensus term '''</span>
+
+<span class="sd">""" check if item1 and item2 have a consensus term """</span>
+
+
 <span class="k">def</span> <span class="nf">hasConsensus</span><span class="p">(</span><span class="n">item1</span><span class="p">,</span> <span class="n">item2</span><span class="p">):</span>
-    <span class="n">term1</span> <span class="o">=</span> <span class="n">item1</span><span class="p">[</span><span class="s1">'term'</span><span class="p">]</span>
-    <span class="n">term2</span> <span class="o">=</span> <span class="n">item2</span><span class="p">[</span><span class="s1">'term'</span><span class="p">]</span>
+    <span class="n">term1</span> <span class="o">=</span> <span class="n">item1</span><span class="p">[</span><span class="s2">"term"</span><span class="p">]</span>
+    <span class="n">term2</span> <span class="o">=</span> <span class="n">item2</span><span class="p">[</span><span class="s2">"term"</span><span class="p">]</span>
     <span class="n">differences</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">term1</span><span class="p">)):</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">term1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">term2</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="ow">and</span> <span class="p">(</span><span class="n">term1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">'-'</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">term2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">'-'</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">term1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">term2</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="ow">and</span> <span class="p">(</span><span class="n">term1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"-"</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">term2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"-"</span><span class="p">):</span>
             <span class="n">differences</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="n">differences</span> <span class="o">&lt;=</span> <span class="mi">1</span>
 
-<span class="sd">''' create the consensus term of two items '''</span>
+
+<span class="sd">""" create the consensus term of two items """</span>
+
+
 <span class="k">def</span> <span class="nf">getConsensus</span><span class="p">(</span><span class="n">item1</span><span class="p">,</span> <span class="n">item2</span><span class="p">):</span>
-    <span class="n">term1</span> <span class="o">=</span> <span class="n">item1</span><span class="p">[</span><span class="s1">'term'</span><span class="p">]</span>
-    <span class="n">term2</span> <span class="o">=</span> <span class="n">item2</span><span class="p">[</span><span class="s1">'term'</span><span class="p">]</span>
-    <span class="n">consensus</span> <span class="o">=</span> <span class="s1">''</span>
+    <span class="n">term1</span> <span class="o">=</span> <span class="n">item1</span><span class="p">[</span><span class="s2">"term"</span><span class="p">]</span>
+    <span class="n">term2</span> <span class="o">=</span> <span class="n">item2</span><span class="p">[</span><span class="s2">"term"</span><span class="p">]</span>
+    <span class="n">consensus</span> <span class="o">=</span> <span class="s2">""</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">term1</span><span class="p">)):</span>
         <span class="k">if</span> <span class="n">term1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">term2</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
             <span class="n">consensus</span> <span class="o">+=</span> <span class="n">term1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-        <span class="k">elif</span> <span class="p">(</span><span class="n">term1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">term2</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="ow">and</span> <span class="p">(</span><span class="n">term1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">'-'</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">term2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">'-'</span><span class="p">):</span>
-            <span class="n">consensus</span> <span class="o">+=</span> <span class="s1">'-'</span>
-        <span class="k">elif</span> <span class="p">(</span><span class="n">term1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">term2</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="ow">and</span> <span class="p">(</span><span class="n">term1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">'-'</span><span class="p">):</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="n">term1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">term2</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="ow">and</span> <span class="p">(</span><span class="n">term1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"-"</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">term2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"-"</span><span class="p">):</span>
+            <span class="n">consensus</span> <span class="o">+=</span> <span class="s2">"-"</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="n">term1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">term2</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="ow">and</span> <span class="p">(</span><span class="n">term1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"-"</span><span class="p">):</span>
             <span class="n">consensus</span> <span class="o">+=</span> <span class="n">term1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">consensus</span> <span class="o">+=</span> <span class="n">term2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 
     <span class="k">return</span> <span class="n">consensus</span>
 
+
 <span class="k">def</span> <span class="nf">isIncludedIn</span><span class="p">(</span><span class="n">bigger</span><span class="p">,</span> <span class="n">smaller</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bigger</span><span class="p">)):</span>
-        <span class="k">if</span> <span class="n">bigger</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">'-'</span> <span class="ow">and</span> <span class="n">bigger</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">smaller</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">bigger</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"-"</span> <span class="ow">and</span> <span class="n">bigger</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">smaller</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
             <span class="k">return</span> <span class="bp">False</span>
     <span class="k">return</span> <span class="bp">True</span>
 
+
 <span class="k">def</span> <span class="nf">consensusIsIncludedIn</span><span class="p">(</span><span class="n">dictList</span><span class="p">,</span> <span class="n">consensus</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">dictList</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">element</span><span class="p">[</span><span class="s1">'gestrichen'</span><span class="p">]</span> <span class="o">==</span> <span class="bp">False</span> <span class="ow">and</span> \
-           <span class="n">isIncludedIn</span><span class="p">(</span><span class="n">element</span><span class="p">[</span><span class="s1">'term'</span><span class="p">],</span> <span class="n">consensus</span><span class="p">):</span>
-            <span class="k">return</span> <span class="n">element</span><span class="p">[</span><span class="s1">'number'</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">element</span><span class="p">[</span><span class="s2">"gestrichen"</span><span class="p">]</span> <span class="o">==</span> <span class="bp">False</span> <span class="ow">and</span> <span class="n">isIncludedIn</span><span class="p">(</span><span class="n">element</span><span class="p">[</span><span class="s2">"term"</span><span class="p">],</span> <span class="n">consensus</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">element</span><span class="p">[</span><span class="s2">"number"</span><span class="p">]</span>
     <span class="k">return</span> <span class="bp">False</span>
 
+
 <span class="k">def</span> <span class="nf">printList</span><span class="p">(</span><span class="n">dictList</span><span class="p">,</span> <span class="n">horizontalLinesAfter</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">'Nr</span><span class="se">\t</span><span class="s1"> Gebildet aus </span><span class="se">\t</span><span class="s1"> W&amp;uuml;rfel</span><span class="se">\t</span><span class="s1"> Gestrichen wegen'</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Nr</span><span class="se">\t</span><span class="s2"> Gebildet aus </span><span class="se">\t</span><span class="s2"> W&amp;uuml;rfel</span><span class="se">\t</span><span class="s2"> Gestrichen wegen"</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">line</span><span class="p">,</span> <span class="n">element</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dictList</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">element</span><span class="p">[</span><span class="s1">'gestrichen'</span><span class="p">]</span> <span class="o">==</span> <span class="bp">False</span><span class="p">:</span>
-            <span class="n">element</span><span class="p">[</span><span class="s1">'gestrichen'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">''</span>
-        <span class="k">if</span> <span class="n">element</span><span class="p">[</span><span class="s1">'number'</span><span class="p">]</span> <span class="o">==</span> <span class="bp">False</span><span class="p">:</span>
-            <span class="n">element</span><span class="p">[</span><span class="s1">'number'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">''</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">'</span><span class="si">%s</span><span class="se">\t\t</span><span class="si">%s</span><span class="se">\t</span><span class="si">%s</span><span class="se">\t</span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="n">element</span><span class="p">[</span><span class="s1">'number'</span><span class="p">],</span> <span class="n">element</span><span class="p">[</span><span class="s1">'gebildet'</span><span class="p">],</span> 
-                <span class="n">element</span><span class="p">[</span><span class="s1">'term'</span><span class="p">],</span> <span class="n">element</span><span class="p">[</span><span class="s1">'gestrichen'</span><span class="p">]))</span>
+        <span class="k">if</span> <span class="n">element</span><span class="p">[</span><span class="s2">"gestrichen"</span><span class="p">]</span> <span class="o">==</span> <span class="bp">False</span><span class="p">:</span>
+            <span class="n">element</span><span class="p">[</span><span class="s2">"gestrichen"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">""</span>
+        <span class="k">if</span> <span class="n">element</span><span class="p">[</span><span class="s2">"number"</span><span class="p">]</span> <span class="o">==</span> <span class="bp">False</span><span class="p">:</span>
+            <span class="n">element</span><span class="p">[</span><span class="s2">"number"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">""</span>
+        <span class="k">print</span><span class="p">(</span>
+            <span class="s2">"</span><span class="si">%s</span><span class="se">\t\t</span><span class="si">%s</span><span class="se">\t</span><span class="si">%s</span><span class="se">\t</span><span class="si">%s</span><span class="s2">"</span>
+            <span class="o">%</span> <span class="p">(</span>
+                <span class="n">element</span><span class="p">[</span><span class="s2">"number"</span><span class="p">],</span>
+                <span class="n">element</span><span class="p">[</span><span class="s2">"gebildet"</span><span class="p">],</span>
+                <span class="n">element</span><span class="p">[</span><span class="s2">"term"</span><span class="p">],</span>
+                <span class="n">element</span><span class="p">[</span><span class="s2">"gestrichen"</span><span class="p">],</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
         <span class="k">if</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">horizontalLinesAfter</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="s1">'-'</span><span class="o">*</span><span class="mi">50</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">"-"</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+
 
 <span class="k">def</span> <span class="nf">consensus</span><span class="p">(</span><span class="n">terme</span><span class="p">):</span>
     <span class="n">dictList</span> <span class="o">=</span> <span class="n">initDatastructure</span><span class="p">(</span><span class="n">terme</span><span class="p">)</span>
-    <span class="n">horizontalLinesAfter</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">dictList</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">horizontalLinesAfter</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">dictList</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
     <span class="n">pointer2</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="n">nextNumber</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dictList</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
 
-    <span class="k">while</span> <span class="n">pointer2</span> <span class="o">!=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dictList</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">while</span> <span class="n">pointer2</span> <span class="o">!=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dictList</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">pointer2</span> <span class="o">&gt;</span> <span class="n">horizontalLinesAfter</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
-            <span class="n">horizontalLinesAfter</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dictList</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">horizontalLinesAfter</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dictList</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">dictList</span><span class="p">[</span><span class="n">pointer2</span><span class="p">][</span><span class="s1">'gestrichen'</span><span class="p">]</span> <span class="o">!=</span> <span class="bp">False</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">dictList</span><span class="p">[</span><span class="n">pointer2</span><span class="p">][</span><span class="s2">"gestrichen"</span><span class="p">]</span> <span class="o">!=</span> <span class="bp">False</span><span class="p">:</span>
             <span class="n">pointer2</span> <span class="o">+=</span> <span class="mi">1</span>
             <span class="k">continue</span>
 
-        <span class="k">for</span> <span class="n">pointer1</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pointer2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">dictList</span><span class="p">[</span><span class="n">pointer1</span><span class="p">][</span><span class="s1">'gestrichen'</span><span class="p">]</span> <span class="o">!=</span> <span class="bp">False</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">pointer1</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pointer2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">dictList</span><span class="p">[</span><span class="n">pointer1</span><span class="p">][</span><span class="s2">"gestrichen"</span><span class="p">]</span> <span class="o">!=</span> <span class="bp">False</span><span class="p">:</span>
                 <span class="k">continue</span>
             <span class="k">elif</span> <span class="ow">not</span> <span class="n">hasComplementaryDigit</span><span class="p">(</span><span class="n">dictList</span><span class="p">[</span><span class="n">pointer1</span><span class="p">],</span> <span class="n">dictList</span><span class="p">[</span><span class="n">pointer2</span><span class="p">]):</span>
                 <span class="k">continue</span>
@@ -239,20 +261,27 @@ Sobald man keine neuen Zeilen / Bl&ouml;cke mehr bilden kann, ist man fertig. Di
             <span class="c1"># Kann dank dem neuen Consensus-Term etwas gestrichen werden?</span>
             <span class="k">if</span> <span class="n">gestrichen</span> <span class="o">==</span> <span class="bp">False</span><span class="p">:</span>
                 <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">dictList</span><span class="p">:</span>
-                    <span class="k">if</span> <span class="n">element</span><span class="p">[</span><span class="s1">'gestrichen'</span><span class="p">]</span> <span class="o">==</span> <span class="bp">False</span> <span class="ow">and</span> \
-                       <span class="n">isIncludedIn</span><span class="p">(</span><span class="n">consensus</span><span class="p">,</span> <span class="n">element</span><span class="p">[</span><span class="s1">'term'</span><span class="p">]):</span>
-                        <span class="n">element</span><span class="p">[</span><span class="s1">'gestrichen'</span><span class="p">]</span> <span class="o">=</span> <span class="n">nr</span>
+                    <span class="k">if</span> <span class="n">element</span><span class="p">[</span><span class="s2">"gestrichen"</span><span class="p">]</span> <span class="o">==</span> <span class="bp">False</span> <span class="ow">and</span> <span class="n">isIncludedIn</span><span class="p">(</span>
+                        <span class="n">consensus</span><span class="p">,</span> <span class="n">element</span><span class="p">[</span><span class="s2">"term"</span><span class="p">]</span>
+                    <span class="p">):</span>
+                        <span class="n">element</span><span class="p">[</span><span class="s2">"gestrichen"</span><span class="p">]</span> <span class="o">=</span> <span class="n">nr</span>
 
-            <span class="n">dictList</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">'number'</span> <span class="p">:</span> <span class="n">nr</span><span class="p">,</span> 
-                             <span class="s1">'gebildet'</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">dictList</span><span class="p">[</span><span class="n">pointer2</span><span class="p">][</span><span class="s1">'number'</span><span class="p">])</span> <span class="o">+</span> 
-                                       <span class="s1">', '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">dictList</span><span class="p">[</span><span class="n">pointer1</span><span class="p">][</span><span class="s1">'number'</span><span class="p">]),</span>
-                             <span class="s1">'term'</span><span class="p">:</span> <span class="n">consensus</span><span class="p">,</span>
-                             <span class="s1">'gestrichen'</span> <span class="p">:</span> <span class="n">gestrichen</span><span class="p">})</span>
+            <span class="n">dictList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="p">{</span>
+                    <span class="s2">"number"</span><span class="p">:</span> <span class="n">nr</span><span class="p">,</span>
+                    <span class="s2">"gebildet"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">dictList</span><span class="p">[</span><span class="n">pointer2</span><span class="p">][</span><span class="s2">"number"</span><span class="p">])</span>
+                    <span class="o">+</span> <span class="s2">", "</span>
+                    <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">dictList</span><span class="p">[</span><span class="n">pointer1</span><span class="p">][</span><span class="s2">"number"</span><span class="p">]),</span>
+                    <span class="s2">"term"</span><span class="p">:</span> <span class="n">consensus</span><span class="p">,</span>
+                    <span class="s2">"gestrichen"</span><span class="p">:</span> <span class="n">gestrichen</span><span class="p">,</span>
+                <span class="p">}</span>
+            <span class="p">)</span>
         <span class="n">pointer2</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="n">printList</span><span class="p">(</span><span class="n">dictList</span><span class="p">,</span> <span class="n">horizontalLinesAfter</span><span class="p">)</span>
 
-<span class="n">consensus</span><span class="p">([</span><span class="s1">'-0-00'</span><span class="p">,</span> <span class="s1">'--00-'</span><span class="p">,</span> <span class="s1">'-1-00'</span><span class="p">,</span> <span class="s1">'010-1'</span><span class="p">,</span> <span class="s1">'1-11-'</span><span class="p">,</span> <span class="s1">'110-1'</span><span class="p">])</span>
-<span class="c1">#consensus(['-00-', '-011', '0100'])</span>
+
+<span class="n">consensus</span><span class="p">([</span><span class="s2">"-0-00"</span><span class="p">,</span> <span class="s2">"--00-"</span><span class="p">,</span> <span class="s2">"-1-00"</span><span class="p">,</span> <span class="s2">"010-1"</span><span class="p">,</span> <span class="s2">"1-11-"</span><span class="p">,</span> <span class="s2">"110-1"</span><span class="p">])</span>
+<span class="c1"># consensus(['-00-', '-011', '0100'])</span>
 </pre></div>
 <p>Ausgabe:</p>
 <div class="highlight"><pre><span></span>Nr   Gebildet aus    W&amp;uuml;rfel     Gestrichen wegen

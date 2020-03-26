@@ -140,13 +140,14 @@ How many circular primes are there below one million?</blockquote>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">getPrimesBelowN</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1000000</span><span class="p">):</span>
     <span class="sd">""" Sieve of Eratosthenes """</span>
     <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">ceil</span>
+
     <span class="n">roundUp</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">,</span> <span class="n">prime</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">ceil</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">/</span> <span class="n">prime</span><span class="p">))</span>
 
     <span class="n">primes</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">currentPrime</span> <span class="ow">in</span> <span class="n">primes</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">multiplicant</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">roundUp</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">currentPrime</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">multiplicant</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">roundUp</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">currentPrime</span><span class="p">)):</span>
             <span class="n">noPrime</span> <span class="o">=</span> <span class="n">multiplicant</span> <span class="o">*</span> <span class="n">currentPrime</span>
-            <span class="k">if</span> <span class="n">noPrime</span> <span class="ow">in</span> <span class="n">primes</span><span class="p">:</span> 
+            <span class="k">if</span> <span class="n">noPrime</span> <span class="ow">in</span> <span class="n">primes</span><span class="p">:</span>
                 <span class="n">primes</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">noPrime</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">primes</span>
 </pre></div>
@@ -156,6 +157,7 @@ Well, just think about what it does: For every <code>noPrime</code> Python has t
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">getPrimesBelowN</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1000000</span><span class="p">):</span>
     <span class="sd">""" Sieve of Eratosthenes """</span>
     <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">ceil</span>
+
     <span class="n">roundUp</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">,</span> <span class="n">prime</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">ceil</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">/</span> <span class="n">prime</span><span class="p">))</span>
 
     <span class="n">primes</span> <span class="o">=</span> <span class="p">[</span><span class="bp">True</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
@@ -163,11 +165,11 @@ Well, just think about what it does: For every <code>noPrime</code> Python has t
     <span class="n">primes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
     <span class="n">primeList</span> <span class="o">=</span> <span class="p">[]</span>
 
-    <span class="k">for</span> <span class="n">currentPrime</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">currentPrime</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">primes</span><span class="p">[</span><span class="n">currentPrime</span><span class="p">]:</span>
             <span class="k">continue</span>
         <span class="n">primeList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">currentPrime</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">multiplicant</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">roundUp</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">currentPrime</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">multiplicant</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">roundUp</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">currentPrime</span><span class="p">)):</span>
             <span class="n">primes</span><span class="p">[</span><span class="n">multiplicant</span> <span class="o">*</span> <span class="n">currentPrime</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
     <span class="k">return</span> <span class="n">primeList</span>
 </pre></div>
@@ -177,8 +179,8 @@ Well, just think about what it does: For every <code>noPrime</code> Python has t
 <p>Rotation the digits of a number is the same as cutting the number into two pieces and switching the position of the pieces:</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">isCircularPrime</span><span class="p">(</span><span class="n">primes</span><span class="p">,</span> <span class="n">number</span><span class="p">):</span>
     <span class="n">number</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">number</span><span class="p">)):</span>
-        <span class="n">rotatedNumber</span> <span class="o">=</span> <span class="n">number</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">number</span><span class="p">)]</span> <span class="o">+</span> <span class="n">number</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">number</span><span class="p">)):</span>
+        <span class="n">rotatedNumber</span> <span class="o">=</span> <span class="n">number</span><span class="p">[</span><span class="n">i</span> <span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">number</span><span class="p">)]</span> <span class="o">+</span> <span class="n">number</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">i</span><span class="p">]</span>
         <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">rotatedNumber</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">primes</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">False</span>
     <span class="k">return</span> <span class="bp">True</span>
@@ -186,8 +188,8 @@ Well, just think about what it does: For every <code>noPrime</code> Python has t
 <p>Here is the same problem as above, in the sieving algorithm: Searching through the list takes much more time than jumping to a position in the list. So this one is better:</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">isCircularPrime</span><span class="p">(</span><span class="n">primes</span><span class="p">,</span> <span class="n">number</span><span class="p">):</span>
     <span class="n">number</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">number</span><span class="p">)):</span>
-        <span class="n">rotatedNumber</span> <span class="o">=</span> <span class="n">number</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">number</span><span class="p">)]</span> <span class="o">+</span> <span class="n">number</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">number</span><span class="p">)):</span>
+        <span class="n">rotatedNumber</span> <span class="o">=</span> <span class="n">number</span><span class="p">[</span><span class="n">i</span> <span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">number</span><span class="p">)]</span> <span class="o">+</span> <span class="n">number</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">i</span><span class="p">]</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">primes</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">rotatedNumber</span><span class="p">)]:</span>
             <span class="k">return</span> <span class="bp">False</span>
     <span class="k">return</span> <span class="bp">True</span>
@@ -199,8 +201,9 @@ You can use the same thought for the digit 5.
 So you can skip those digits
 
 <h3 id="the final snippet">The final snippet</h3>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
+
 
 <span class="k">def</span> <span class="nf">getPrimesBelowN</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1000000</span><span class="p">):</span>
     <span class="sd">"""Get all primes below n with the sieve of Eratosthenes. </span>
@@ -208,18 +211,20 @@ So you can skip those digits
 <span class="sd">             i in 0..n is a prime.</span>
 <span class="sd">    """</span>
     <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">ceil</span>
+
     <span class="n">primes</span> <span class="o">=</span> <span class="p">[</span><span class="bp">True</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
     <span class="n">primes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
     <span class="n">primes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
     <span class="n">primeList</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">roundUp</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">,</span> <span class="n">prime</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">ceil</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">/</span> <span class="n">prime</span><span class="p">))</span>
-    <span class="k">for</span> <span class="n">currentPrime</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">currentPrime</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">primes</span><span class="p">[</span><span class="n">currentPrime</span><span class="p">]:</span>
             <span class="k">continue</span>
         <span class="n">primeList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">currentPrime</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">multiplicant</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">roundUp</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">currentPrime</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">multiplicant</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">roundUp</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">currentPrime</span><span class="p">)):</span>
             <span class="n">primes</span><span class="p">[</span><span class="n">multiplicant</span> <span class="o">*</span> <span class="n">currentPrime</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
     <span class="k">return</span> <span class="n">primes</span>
+
 
 <span class="k">def</span> <span class="nf">isCircularPrime</span><span class="p">(</span><span class="n">primes</span><span class="p">,</span> <span class="n">number</span><span class="p">):</span>
     <span class="sd">"""Check if number is a circular prime.</span>
@@ -230,24 +235,30 @@ So you can skip those digits
 <span class="sd">    number -- the integer you want to check</span>
 <span class="sd">    """</span>
     <span class="n">number</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">number</span><span class="p">)):</span>
-        <span class="n">rotatedNumber</span> <span class="o">=</span> <span class="n">number</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">number</span><span class="p">)]</span> <span class="o">+</span> <span class="n">number</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">number</span><span class="p">)):</span>
+        <span class="n">rotatedNumber</span> <span class="o">=</span> <span class="n">number</span><span class="p">[</span><span class="n">i</span> <span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">number</span><span class="p">)]</span> <span class="o">+</span> <span class="n">number</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">i</span><span class="p">]</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">primes</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">rotatedNumber</span><span class="p">)]:</span>
             <span class="k">return</span> <span class="bp">False</span>
     <span class="k">return</span> <span class="bp">True</span>
+
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">"Start sieving."</span><span class="p">)</span>
     <span class="n">primes</span> <span class="o">=</span> <span class="n">getPrimesBelowN</span><span class="p">(</span><span class="mi">1000000</span><span class="p">)</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">"End sieving."</span><span class="p">)</span>
     <span class="n">numberOfPrimes</span> <span class="o">=</span> <span class="mi">2</span>
-    <span class="k">print</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>    <span class="c1"># I print them now, because I want to skip all primes</span>
-    <span class="k">print</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>    <span class="c1"># that contain one of those digits: 0,2,4,5,6,8</span>
+    <span class="k">print</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># I print them now, because I want to skip all primes</span>
+    <span class="k">print</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># that contain one of those digits: 0,2,4,5,6,8</span>
     <span class="k">for</span> <span class="n">prime</span><span class="p">,</span> <span class="n">isPrime</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">primes</span><span class="p">):</span>
-        <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">isPrime</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="s2">"2"</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">prime</span><span class="p">))</span> <span class="ow">or</span> \
-           <span class="p">(</span><span class="s2">"4"</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">prime</span><span class="p">))</span> <span class="ow">or</span> <span class="p">(</span><span class="s2">"6"</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">prime</span><span class="p">))</span> <span class="ow">or</span> \
-           <span class="p">(</span><span class="s2">"8"</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">prime</span><span class="p">))</span> <span class="ow">or</span> <span class="p">(</span><span class="s2">"0"</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">prime</span><span class="p">))</span> <span class="ow">or</span> \
-           <span class="p">(</span><span class="s2">"5"</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">prime</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="p">(</span><span class="ow">not</span> <span class="n">isPrime</span><span class="p">)</span>
+            <span class="ow">or</span> <span class="p">(</span><span class="s2">"2"</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">prime</span><span class="p">))</span>
+            <span class="ow">or</span> <span class="p">(</span><span class="s2">"4"</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">prime</span><span class="p">))</span>
+            <span class="ow">or</span> <span class="p">(</span><span class="s2">"6"</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">prime</span><span class="p">))</span>
+            <span class="ow">or</span> <span class="p">(</span><span class="s2">"8"</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">prime</span><span class="p">))</span>
+            <span class="ow">or</span> <span class="p">(</span><span class="s2">"0"</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">prime</span><span class="p">))</span>
+            <span class="ow">or</span> <span class="p">(</span><span class="s2">"5"</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">prime</span><span class="p">))</span>
+        <span class="p">):</span>
             <span class="k">continue</span>
         <span class="k">if</span> <span class="n">isCircularPrime</span><span class="p">(</span><span class="n">primes</span><span class="p">,</span> <span class="n">prime</span><span class="p">):</span>
             <span class="k">print</span><span class="p">(</span><span class="n">prime</span><span class="p">)</span>
