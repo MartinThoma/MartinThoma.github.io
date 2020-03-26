@@ -47,23 +47,27 @@ you.
 
 
 ## Web and Services
+
 * [Flask](http://flask.pocoo.org): web framework
 * [boto3](https://github.com/boto/boto3): AWS
 * [moto](https://github.com/spulec/moto): Testing AWS boto3 code
 
 
 ## Datetime
+
 * [`dateutil`](https://dateutil.readthedocs.io/en/stable/): Parsing datetime strings
 * [`pytz`](https://pypi.org/project/pytz/): Timezones in Python
 * [`freezegun`](https://github.com/spulec/freezegun): Fake time for testing
 
 
 ## Testing
+
 * [`pytest`](https://docs.pytest.org/en/latest/): Writing unittests
 * [`tox`](https://tox.readthedocs.io/en/latest/): Running tests
 
 
 ## Misc
+
 * [`cfg_load`](https://github.com/MartinThoma/cfg_load): Loading of configuration files
 * [`exchangelib`](https://github.com/ecederstrand/exchangelib): Interactions with Microsoft Exchange Server
 * [`itertools`](https://docs.python.org/3/library/itertools.html): Iterating stuff

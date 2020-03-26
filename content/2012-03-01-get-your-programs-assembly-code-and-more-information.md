@@ -12,10 +12,13 @@ I've talked today with a fellow student about some system internals and we weren
 <h2>General Information</h2>
 It is important to know that I will use <strong>AT&T syntax</strong> in this article!
 This is AT&T Syntax:
+
 ```text
 movl %esp, %ebp
 ```
+
 And this is Intel Syntax:
+
 ```text
 MOVL EBP, ESP
 ```
@@ -60,6 +63,7 @@ Many instructions have suffixes. This is what they mean<small><sup><a href="#ref
 <h2>Simple example</h2>
 <h3>C-Code</h3>
 This program simply outputs
+
 ```c
 #include <stdio.h>
 
@@ -72,9 +76,11 @@ int main(void)
 
 <h3>Assembly</h3>
 Now I compile it and I save the assembly code:
+
 ```bash
 gcc -S test.c; gcc test.c -o test
 ```
+
 This gives me test.s (the assembly code) and an executable called "test".
 
 ```text
@@ -101,6 +107,7 @@ main:
 	.ident	"GCC: (Ubuntu 4.4.3-4ubuntu5) 4.4.3"
 	.section	.note.GNU-stack,"",@progbits
 ```
+
 This is code of the <a href="http://en.wikipedia.org/wiki/GNU_Assembler">GNU Assembler</a>. I guess other assemblers might produce other code. Could anybody please give me an example of other assemblers?
 
 The first and most important thing you might notice is that neither "1337" nor "42" appear in the assembly code, but 56154 which is 1337*42. I didn't use any optimization options! You might also notice that constants begin with a dollar sign and registers (esp, ebp) begin with a percent sign.
@@ -117,12 +124,14 @@ Line 14: I'm not quite sure why you need the 4. I thought the integer size could
 <code>objdump</code> gives even more information!
 
 Archive header information: objdump -a test
+
 ```text
 test:     file format elf32-i386
 test
 ```
 
 File header information: objdump -f test
+
 ```text
 test:     file format elf32-i386
 architecture: i386, flags 0x00000112:
@@ -131,6 +140,7 @@ start address 0x08048330
 ```
 
 Object specific file header contents: objdump -p test
+
 ```text
 test:     file format elf32-i386
 
@@ -180,6 +190,7 @@ Version References:
 ```
 
 Display the contents of the section headers: objdump -h test
+
 ```text
 test:     file format elf32-i386
 
@@ -240,6 +251,7 @@ Idx Name          Size      VMA       LMA       File off  Algn
 ```
 
 Display DWARF info in the file: objdump --dwarf test
+
 ```text
 test:     file format elf32-i386
 
@@ -247,11 +259,13 @@ Contents of the .eh_frame section:
 
 00000000 ZERO terminator
 ```
+
 By the way, <a href="http://en.wikipedia.org/wiki/Executable_and_Linkable_Format">ELF</a> is an executable file format and <a href="http://en.wikipedia.org/wiki/DWARF">DWARF</a> is a debugging file format. I guess they had to think quite long to find this <a href="http://en.wikipedia.org/wiki/Backronym">backronym</a>.
 
 <h2>Fibonacci</h2>
 <h3>C-Code</h3>
 This is the most simple version of Fibonacci I could find:<small><sup><a href="#ref7" name="anchor7">[7]</a></sup></small>
+
 ```c
 #include <stdio.h>
 
@@ -268,6 +282,7 @@ int main(void)
 ```
 
 <h3>Assembly</h3>
+
 ```text
 	.file	"test.c"
 	.text

@@ -31,6 +31,7 @@ More information is on <a href="http://www.go-hero.net/jam/13/round/3">go-hero.n
 
 <h2>Consonants</h2>
 A solution from <a href="http://www.go-hero.net/jam/13/name/nip">nip</a>:
+
 ```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
@@ -64,13 +65,19 @@ if __name__ == "__main__":
 <h2>Pogo</h2>
 This is a very clever solution from xiaowuc1 (translated from Java to Python).
 
-The idea is to calculate at first the maximum number of steps you need and then go from your target destination to the origin.
+The idea is to calculate at first the maximum number of steps you need and then
+go from your target destination to the origin.
 
-How many steps do you need?
-In the $i$ round, you will make $i$ steps. You need at least $x+y$ steps to get from $(0|0)$ to $(x|y)$. This means, you need to solve $\sum_{i=1}^n i = x + y$ for $n$. This is $\frac{n^2 + n}{2} = x+y$. You might also need to make one extra step if the parity of $\frac{n^2 + n}{2}$ is not the same as $x+y$.
-You can calculate this with a simple loop (see code below).
+How many steps do you need? In the $i$ round, you will make $i$ steps. You need
+at least $x+y$ steps to get from $(0|0)$ to $(x|y)$. This means, you need to
+solve $\sum_{i=1}^n i = x + y$ for $n$. This is $\frac{n^2 + n}{2} = x+y$. You
+might also need to make one extra step if the parity of $\frac{n^2 + n}{2}$ is
+not the same as $x+y$. You can calculate this with a simple loop (see code
+below).
 
-After you know the maximum number of steps, you can apply a greedy solution: Start from $(x|y)$ and always go into the direction that is farer away from the origin.
+After you know the maximum number of steps, you can apply a greedy solution:
+Start from $(x|y)$ and always go into the direction that is farer away from the
+origin.
 
 ```python
 #!/usr/bin/env python
@@ -118,8 +125,9 @@ if __name__ == "__main__":
         print("Case #%i: %s" % (caseNr, solve(x, y)))
 ```
 
-<h2>The Great Wall</h2>
-The following solution is not applicable for the large input set, but it works fine for the small one:
+## The Great Wall
+The following solution is not applicable for the large input set, but it works
+fine for the small one:
 
 ```python
 #!/usr/bin/env python
@@ -206,4 +214,6 @@ if __name__ == "__main__":
         print("Case #%i: %s" % (caseNr, solve(tribes)))
 ```
 
-By the way, nobody has solved the large input set of this one with Python! But here is a <a href="http://www.go-hero.net/jam/13/name/eatmore">Java solution</a>.
+By the way, nobody has solved the large input set of this one with Python! But
+here is a <a href="http://www.go-hero.net/jam/13/name/eatmore">Java
+solution</a>.

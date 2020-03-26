@@ -10,6 +10,7 @@ featured_image: 2012/04/code-jam-logo.png
 Here are some templates that are a good start for Google Code Jam.
 
 <h2>C++</h2>
+
 ```cpp
 
 #include <stdio.h>
@@ -39,11 +40,13 @@ int main(void) {
 ```
 
 Compile
+
 ```bash
 g++ A.cpp
 ```
 
 Execute
+
 ```bash
 ./a.out < A-small-practice.in > result.txt
 ```
@@ -67,12 +70,14 @@ if __name__ == "__main__":
 ```
 
 Execute
+
 ```bash
 python A.py < A-small-practice.in > result.txt
 ```
 
 <h2>Java</h2>
 This is an ajusted version of mystics solution for "Dancing with Googlers". You might want to take a look at <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Scanner.html">Scanner</a> and <a href="http://docs.oracle.com/javase/7/docs/api/java/io/PrintWriter.html">PrintWriter</a>.
+
 ```java
 
 import java.util.*;
@@ -139,7 +144,6 @@ public class DancingWithGoogle {
 		sc.close();
 	}
 }
-
 ```
 
 Adjust the path and execute it within Eclipse.
@@ -152,6 +156,7 @@ Input / output:
 </ul>
 
 Execute:
+
 ```bash
 php A.php input.txt > output.txt
 ```
@@ -160,6 +165,7 @@ php A.php input.txt > output.txt
 Did you know that you can also solve those tasks with JavaScript? I've explained <a href="http://stackoverflow.com/a/16242806/562769">how to install v8</a>.
 
 Here is a <a href="http://www.go-hero.net/jam/13/name/aditsu">solution from aditsu</a>:
+
 ```javascript
 
 // run with v8: d8 file.js < file.in
@@ -200,5 +206,4 @@ for (var i = 1; i <= t; ++i) {
 	res = res ? res + ' won' : dot ? 'Game has not completed' : 'Draw'
 	print('Case #' + i + ': ' + res)
 }
-
 ```

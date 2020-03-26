@@ -42,6 +42,7 @@ So the shell should save your last commands in a so called "history". This
 history should be at least
 
 ## Level 4: Customization
+
 * Promt
 * History length
 
@@ -51,9 +52,10 @@ work as follows:
 
 1. The autocomplete should never get farer than one folder.
 2. If there are multiple possibilities to autocomplete, then it should only
-  autocomplete what is in common. After a second <kbd>Tab</kbd> it should display
-  the possibilities and after a third <kbd>Tab</kbd> the shell should go to the
-  first possibility so that you can hit enter to use this possibility.
+   autocomplete what is in common. After a second <kbd>Tab</kbd> it should
+   display the possibilities and after a third <kbd>Tab</kbd> the shell should
+   go to the first possibility so that you can hit enter to use this
+   possibility.
 
 ## Level 6: Command autocompletion
 The autocomplete function should also complete commands.
@@ -70,10 +72,10 @@ Some stuff is nice to have, but not really essential:
 * <kbd>Ctrl</kbd> + <kbd>C</kbd> should stop the current command.
 * The configuration file should be stored in the home folder of the user and it should be called `.[name]rc`. The dot makes the file invisible by convention and 'rc' means 'resource configuration'.
 * The prompt configuration should be easy. Some patterns that are used quite often are
-  * `\w` for the working directory, where `$HOME` gets abbreviated with `~`
-  * `\u` the username
-  * `\h` the hostname
-  * Using colors for different parts
+    * `\w` for the working directory, where `$HOME` gets abbreviated with `~`
+    * `\u` the username
+    * `\h` the hostname
+    * Using colors for different parts
 * Navigation with <kbd>Pos 1</kbd> and <kbd>End</kbd> should work.
 
 ## Ranking
@@ -127,5 +129,6 @@ All shells in this level have path autocompletion as described in 5.1, but do no
 **Level 7**: ZSH is the best shell I have ever used. Especially with [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
 
 ## Additional resources
+
 * [How to change your shell prompt](http://www.understudy.net/custom.html):
   A list of files and commands that might be useful.
