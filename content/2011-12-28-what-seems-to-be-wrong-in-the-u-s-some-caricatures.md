@@ -30,7 +30,7 @@ If you are the owner of one of these websites and don't want me to publish your 
             <figcaption class="text-center">Dessert - the american style (from <a href=http://blog.seattlepi.com/davidhorsey/2011/09/19/how-we-slice-the-pie-in-the-usa/>David Horsey</a>)</figcaption>
         </figure>
 
-Some of the best caricatures are made by <a href="http://en.wikipedia.org/wiki/David_Horsey">David Horsey</a>. 
+Some of the best caricatures are made by <a href="http://en.wikipedia.org/wiki/David_Horsey">David Horsey</a>.
 
 <h2>Republicans</h2>
 The <a href="http://en.wikipedia.org/wiki/Republican_Party_(United_States)">Republican Party</a> is one of the two major contemporary political parties in the United States, along with the Democratic Party. Founded by anti-slavery expansion activists in 1854, it is often called the GOP (Grand Old Party). The party's platform generally reflects American conservatism in the U.S. political spectrum and is considered center-right, in contrast to the center-left Democratic Party.

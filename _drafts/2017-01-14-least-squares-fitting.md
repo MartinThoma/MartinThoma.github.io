@@ -3,17 +3,17 @@ layout: post
 title: Fitting linear data points with least squares method
 author: Martin Thoma
 date: 2013-09-08 06:40:21
-categories: 
+categories:
 - Mathematics
-tags: 
+tags:
 - Data
-featured_image: 
+featured_image:
 ---
 Suppose you have $n$ 2D data points $p_1, p_2, \dots, p_n$ and you want to get the line that fits those data points best. A line has the format $y = a \cdot x + b$ where $a$ and $b$ describe the line.
 
 Now we have to think about what "fits best" means. One way is to find $a$ and $b$ that minimize $f: \mathbb{R}^2 \rightarrow \mathbb{R}$ with $f(a, b) := \sum_{i=1}^n \left ((a \cdot p_i[x] + b) - p_i[y] \right )^2$.
 
-Lets say $a$ was constant. Then we would be in a situation that should be familiar. This is a quadratic function in $b$. So we can calculate $b$ like this: 
+Lets say $a$ was constant. Then we would be in a situation that should be familiar. This is a quadratic function in $b$. So we can calculate $b$ like this:
 
 To make it easier to read I'll write $x_i$ for the $x$-coordinate of the $i$-th point (and the same for $y$).
 

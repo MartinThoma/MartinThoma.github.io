@@ -174,7 +174,7 @@ Die Informatik-Proseminare sind leider sehr schlecht organisiert. Ich habe auf G
 <h3>Softstkills</h3>
 Von den 6 ECTS für Softskills sind ja schon 2 verpflichtend in Teamarbeit für die Softwareentwicklung (TSE - gehört zu PSE). Das ist nur ein Kniff mit dem Modulhandbuch, weil man wohl kein Stammmodul mit 8 ECTS machen konnte / wollte, also hat man PSE mit 6 ECTS und 2 ECTS für TSE. Praktisch bedeutet PSE auch so viel Arbeit, dass 8 ECTS angebracht sind (eher sogar mehr) und man muss im Team arbeiten. Man bekommt die Punkte also nicht geschenkt, aber man muss auch nichts au&szlig;erhalb von PSE dafür machen.
 
-Von den 4 übrigen Punkten kann man sich aus vielen interessanten <a href="http://www.hoc.kit.edu/lehrangebot.php">Kursen des HOC</a> etwas aussuchen, z.B. <a href="http://www.spz.kit.edu/">Kurse des Sprachenzentrums</a>. Diese sind deutlich besser als die Sprachkurse in der Schule. Ich habe mich für <a href="http://www.spz.kit.edu/englisch.php#List">English C1: Advanced</a> entschieden. Da ich aber auch ein Tutorium gehalten habe (was 4 ECTS und 8,67 Euro/Stunde gibt), hätte ich das nicht machen müssen. Der Kurs war aber so toll, dass ich es nicht bereue.  
+Von den 4 übrigen Punkten kann man sich aus vielen interessanten <a href="http://www.hoc.kit.edu/lehrangebot.php">Kursen des HOC</a> etwas aussuchen, z.B. <a href="http://www.spz.kit.edu/">Kurse des Sprachenzentrums</a>. Diese sind deutlich besser als die Sprachkurse in der Schule. Ich habe mich für <a href="http://www.spz.kit.edu/englisch.php#List">English C1: Advanced</a> entschieden. Da ich aber auch ein Tutorium gehalten habe (was 4 ECTS und 8,67 Euro/Stunde gibt), hätte ich das nicht machen müssen. Der Kurs war aber so toll, dass ich es nicht bereue.
 
 <h3>Weitere Kurse</h3>
 Ich habe folgendes belegt:
@@ -279,9 +279,9 @@ Es gibt den <a href="http://www.scienceslam-karlsruhe.de/index/science_Slam_karl
 Falls man mehr über Karlsruhe wissen will: Auch dazu gibt es einen <a href="https://de.wikipedia.org/wiki/Karlsruhe">Wikipedia-Artikel</a>.
 
 <h3>Wohnungen</h3>
-Tja, eine Wohnung zu finden ist in Karlsruhe schwer. Mit der Wohnungssuche sollte man sehr früh beginnen. Es gibt zwar <a href="http://www.studentenwerk-karlsruhe.de/de/wohnen/wohnheime_ka/">einige Wohnheime</a>, aber auch die sind voll. Und die Qualität der Wohnheime ist sehr unterschiedlich. Ich habe gehört, dass das HaDiKo und die Insterburg nicht so toll sind, aber das an der Waldhornstra&szlig;e soll sehr gut sein. Es gibt neben den Wohnheimen in dieser Liste noch mindestens eine weiteres (das <a href="http://www.ev-studentinnenwohnheim.de/">evangelische Studentinnen-Wohnheim</a> in Rüpurr). 
+Tja, eine Wohnung zu finden ist in Karlsruhe schwer. Mit der Wohnungssuche sollte man sehr früh beginnen. Es gibt zwar <a href="http://www.studentenwerk-karlsruhe.de/de/wohnen/wohnheime_ka/">einige Wohnheime</a>, aber auch die sind voll. Und die Qualität der Wohnheime ist sehr unterschiedlich. Ich habe gehört, dass das HaDiKo und die Insterburg nicht so toll sind, aber das an der Waldhornstra&szlig;e soll sehr gut sein. Es gibt neben den Wohnheimen in dieser Liste noch mindestens eine weiteres (das <a href="http://www.ev-studentinnenwohnheim.de/">evangelische Studentinnen-Wohnheim</a> in Rüpurr).
 
-Die zentralen Wohnungen sind meistens Altbauwohnungen. Ich habe meine über studenten-wg.de gefunden. 
+Die zentralen Wohnungen sind meistens Altbauwohnungen. Ich habe meine über studenten-wg.de gefunden.
 
 Allgemein gilt jedoch: Umso früher man sucht, umso besser.
 

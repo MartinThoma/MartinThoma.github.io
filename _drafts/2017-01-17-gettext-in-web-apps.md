@@ -3,12 +3,12 @@ layout: post
 title: Translating Web Applications with gettext
 author: Martin Thoma
 date: 2011-10-26 09:05:09
-categories: 
+categories:
 - Code
-tags: 
+tags:
 - PHP
 - Web Development
-featured_image: 
+featured_image:
 ---
 <h2>Installation</h2>
 http://stackoverflow.com/questions/5976068/php-gettext-debugging

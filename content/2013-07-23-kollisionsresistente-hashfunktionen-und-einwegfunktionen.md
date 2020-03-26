@@ -20,7 +20,7 @@ $f$ heißt eine Einwegfunktion, genau dann wenn für alle $x \in X$ gilt:
 <div class="definition">
 Eine Funktion $H:\{0,1\}^* \rightarrow \{0,1\}^k$ heißt <strong>kollisionsresistente Hashfunktion</strong>, wenn gilt:
 
-Jeder effiziente Algorithmus findet nur mit kleiner Wahrscheinlichkeit eine Kollision. 
+Jeder effiziente Algorithmus findet nur mit kleiner Wahrscheinlichkeit eine Kollision.
 </div>
 
 Was heißt &bdquo;kleine Wahrscheinlichkeit&ldquo;?

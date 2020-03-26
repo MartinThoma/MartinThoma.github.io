@@ -7,7 +7,7 @@ category: Code
 tags: Chrome, Firefox, Web Development, HTML5
 featured_image: 2011/10/firefox-add-search-engine-thumb.png
 ---
-Recently I read a very good post about search engine autodiscovery <a href="http://www.knallisworld.de/blog/2011/04/14/autodiscovery-der-searchengine-in-google-chrome-opensearch/">by Jan Phillip</a>. Did you know that many browsers can detect an internal search engine automatically? 
+Recently I read a very good post about search engine autodiscovery <a href="http://www.knallisworld.de/blog/2011/04/14/autodiscovery-der-searchengine-in-google-chrome-opensearch/">by Jan Phillip</a>. Did you know that many browsers can detect an internal search engine automatically?
 Firefox gives you the possibility to add such a search engine to your browser:
 <figure class="aligncenter">
             <a href="../images/2011/10/firefox-add-search-engine.png"><img src="../images/2011/10/firefox-add-search-engine.png" alt="Firefox: Add search engine detected via autodiscovery" style="max-width:294px;max-height:236px" class="size-full wp-image-6921"/></a>
@@ -26,20 +26,20 @@ A <abbr title="OpenSearch Description Document">OSSD</abbr> looks like this:
     <Image height="16" width="16" type="image/x-icon">
         http://example.org/favicon.ico
     </Image>
-    <Url type="text/html" 
+    <Url type="text/html"
          template="http://example.org/index.html#search={searchTerms}"/>
 </OpenSearchDescription>
 ```
 
 The browser needs a hint where it can find the OSSD. So you have to add the following tag to your website:
 ```xml
-<link title = "Example" 
-      type  = "application/opensearchdescription+xml" 
-      rel   = "search" 
+<link title = "Example"
+      type  = "application/opensearchdescription+xml"
+      rel   = "search"
       href  = "http://example.org/opensearch.xml">
 ```
 
-Now you can add the websites internal search engine automatically to Chrome and easily to Firefox and Internet Explorer 8+. 
+Now you can add the websites internal search engine automatically to Chrome and easily to Firefox and Internet Explorer 8+.
 
 Additionally, you can add this little piece of JavaScript to tell Firefox 2+ and Internet Explorer 7+ that your site supports OpenSearch:
 ```javascript

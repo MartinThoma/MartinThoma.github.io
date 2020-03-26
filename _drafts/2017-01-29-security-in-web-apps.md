@@ -3,12 +3,12 @@ layout: post
 title: Security in web applications
 author: Martin Thoma
 date: 2013-06-24 01:48:31
-categories: 
+categories:
 - Cyberculture
-tags: 
+tags:
 - PHP
 - Web Development
-featured_image: 
+featured_image:
 ---
 This article lists some thoughts to security in web applications.
 

@@ -13,7 +13,7 @@ Seien $\oplus, \otimes: \mathbb{R} \times \mathbb{R} \rightarrow \mathbb{R}$ Ver
 $\oplus(a, b) := a + b$
 $\otimes(a, b) := a - b$
 
-Sei $O:\mathbb{N} \rightarrow \mathbb{R}$ eine Abbildung und definiert durch 
+Sei $O:\mathbb{N} \rightarrow \mathbb{R}$ eine Abbildung und definiert durch
 $O(0) := 0, O(0^0) := 0^0, O(o) := O(o \otimes 0^0) \oplus O(o \otimes 0^0 \otimes 0^0)$.
 
 .
@@ -62,8 +62,8 @@ $f(0) := 0, f(1) := 1, f(x) := f(x - 1) + f(x - 1 - 1)$
 Das ist wiederum:
 Au&szlig;erdem ist $0^0 = 1$:
 $f:\mathbb{N} \rightarrow \mathbb{R}$
-$f(0) := 0$, 
-$f(1) := 1$, 
+$f(0) := 0$,
+$f(1) := 1$,
 $f(x) := f(x - 1) + f(x - 2)$
 
 Diese Folge wird <a href="http://de.wikipedia.org/wiki/Fibonacci-Folge">Fibonacci-Folge</a> genannt. Es ist schon sehr erstaunlich, wie beeinflussbar wir von Symbolen und Konventionen sind.

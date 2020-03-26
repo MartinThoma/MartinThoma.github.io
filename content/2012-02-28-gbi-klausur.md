@@ -60,7 +60,7 @@ Was man auf jeden Fall &uuml;ben sollte, sind die Aufgaben zu Turingmaschinen. D
   <li>Ein minimaler Endlicher Automat zu einer regul&auml;re Sprache L hat n Zust&auml;nde $\Leftrightarrow$ Es gibt n &Auml;quivalenzklassen bzgl. der Nerode-Relation zu L.</li>
   <li>Der Index der Nerode-Relation zu einer Sprache L ist nicht endlich $\Leftrightarrow$ L ist nicht regul&auml;r</li>
   <li>$S \circ R = \{(x, z) \in M_1 \times M_3 | \exists y \in M_2: (x, y) \in R \land (y, z) \in S\}$</li>
-  <li>r ist Wurzel von $G = (V, E) \Leftrightarrow \forall x \in V : $ Es gibt genau einen Pfad von r nach x.</li> 
+  <li>r ist Wurzel von $G = (V, E) \Leftrightarrow \forall x \in V : $ Es gibt genau einen Pfad von r nach x.</li>
 </ul>
 
 Zum &Uuml;ben habe ich mal eine "Klausur" erstellt. Hier ist die <a href='../images/2012/02/gbi-klausurvorbereitung.pdf'>PDF</a> und hier die <a href='../images/2012/02/gbi-klausurvorbereitung.zip'>LaTeX</a>-Datei.

@@ -7,7 +7,7 @@ category: Code
 tags: htaccess, Apache
 featured_image: 2011/09/Apache-Logo.png
 ---
-If your Website is running on an Apache2 Webserver, you can change the behavior of this server with .htaccess-files. 
+If your Website is running on an Apache2 Webserver, you can change the behavior of this server with .htaccess-files.
 
 Here are some examples:
 

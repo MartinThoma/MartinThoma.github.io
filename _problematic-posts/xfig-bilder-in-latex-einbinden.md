@@ -3,12 +3,12 @@ layout: post
 title: Wie sollte man xfig-Bilder in LaTeX-Dokumente einbinden?
 author: Martin Thoma
 date: 2013-04-18 05:27:30
-categories: 
+categories:
 - German posts
-tags: 
+tags:
 - Digitaltechnik
 - xfig
-featured_image: 
+featured_image:
 ---
 <a href="http://de.wikipedia.org/wiki/Xfig">xfig</a> 3.2 bietet 39 Export-Optionen. Im folgenden werde ich beschreiben, welche davon für das Einbinden von xfig-Bildern in LaTeX-Dokumente geeignet sind.
 
@@ -81,7 +81,7 @@ Erzeugt eine .latex-Datei mit folgendem Inhalt:
 
 Nun muss nur noch `\usepackage{color}` in die Präambel und die Datei eingebunden werden:
 
-```text
+```tex
 \documentclass[a4paper]{scrreprt}
 \usepackage{graphicx}
 \usepackage{graphics}
@@ -89,19 +89,19 @@ Nun muss nur noch `\usepackage{color}` in die Präambel und die Datei eingebunde
 
 \begin{document}
 \chapter{Your Chapter}
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam 
-nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam 
-erat, sed diam voluptua. At vero eos et accusam et justo duo dolores 
-et ea 
-rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem 
-ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur 
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+et ea
+rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
 sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
 dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
-et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea 
+et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
 takimata sanctus est Lorem ipsum dolor sit amet.
 \begin{figure}[h]
     \centering
-    \input{exampleImage.latex} 
+    \input{exampleImage.latex}
 \end{figure}
 \end{document}
 ```
@@ -112,21 +112,22 @@ Allerdings fällt auf, dass der Mathmode escapt wird.
 Hier werden zwei Dateien erstellt. Eine <code>.pdf_t</code> und eine <code>.pdf</code>.
 
 Eingebunden wird das ganze so:
-```text
+
+```tex
 \documentclass{article}
 \usepackage{graphicx}
 
 \begin{document}
 \section{Your Chapter}
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam 
-nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam 
-erat, sed diam voluptua. At vero eos et accusam et justo duo dolores 
-et ea 
-rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem 
-ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur 
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+et ea
+rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
 sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
 dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
-et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea 
+et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
 takimata sanctus est Lorem ipsum dolor sit amet.
 
 \begin{figure}[h!]

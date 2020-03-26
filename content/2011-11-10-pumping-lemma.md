@@ -15,7 +15,7 @@ Das <a href="http://de.wikipedia.org/wiki/Pumping-Lemma">Pumping-Lemma</a> ist e
 Dies kann man durch einen Widerspruchsbeweis zeigen. Dabei nimmt man an, dass die Behauptung falsch ist. Dann zeigt man, dass man durch die Annahme zu einem Widerspruch kommt.
 
 <h2>Beispiel</h2>
-<strong>Voraussetzung</strong>: 
+<strong>Voraussetzung</strong>:
 
 $L_2 = \{a^i b^j c^k | i \lt j \lt k\}$.
 
@@ -25,7 +25,7 @@ $L_2 = \{a^i b^j c^k | i \lt j \lt k\}$.
 
 <strong>Annahme</strong>: $L_2$ sei regul&auml;r.
 
-Aus dem Pumping-Lemma folgt: 
+Aus dem Pumping-Lemma folgt:
 $\exists n \in \mathbb{N}: \forall w \in \{w \in L_2 | |w| \geq n\}: $
 $\exists \text{ Darstellung } uvx = w \text{ mit } v \neq \varepsilon \land |uv| \leq n$ für die gilt:
 
@@ -35,7 +35,7 @@ In Worten: Wenn man ein Wort in L hat, dass mindestens so lang ist wie ein besti
 
 Sei $n \in \mathbb{N}$ die Konstante aus dem Pumping-Lemma.
 
-Betrachte nun $w = a^n b^{n+1} c^{n+2}$. Offensichtlich gilt $w \in L_2$. Da $|uv| \leq n$ muss in v mindestens ein a sein. 
+Betrachte nun $w = a^n b^{n+1} c^{n+2}$. Offensichtlich gilt $w \in L_2$. Da $|uv| \leq n$ muss in v mindestens ein a sein.
 
 $\Rightarrow uv^2 x = a^{n+2 \cdot i} b^{n+1} c^{n+2}, i \geq 1 $
 $\Rightarrow uv^2x \notin L_2 $

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 
+title: Medical Devices
 author: Martin Thoma
 date: 2014-03-20 21:09
 categories:
@@ -54,9 +54,9 @@ parts for other devices.
 ### Wristbands
 
 The [Jawbone UP24](https://en.wikipedia.org/wiki/Jawbone_(company)#UP24_design)
-is a wristband. 
+is a wristband.
 
-* Device: 
+* Device:
   * The "outer hull" is made out of rubber. It is water and sweat resistant.
   * It weights about 22g.
   * Only works with iOS.

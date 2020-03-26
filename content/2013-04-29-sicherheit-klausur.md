@@ -78,7 +78,7 @@ An diesem Artikel wird natürlich noch gearbeitet.
 <tr>
 <td>29.04.2013</td>
 <td rowspan="2" style="border-bottom:1px solid black;"><span class="hint" title="128 Bit, 160 Bit und 256 Bit hashes sind üblich">Hashfunktionen</span>, <a href="../kollisionsresistente-hashfunktionen-und-einwegfunktionen/">Kollisionsresistenz $\Rightarrow$ Einwegeigenschaft</a>, <span class="hint" title="Beeinflusste MD5, SHA-1, SHA-2. SHA-3 benutzt MD nicht.">Merkle-Damgard-Konstruktion</span> und Length-Extension-Problematik, Birthday Attack, Meet-in-the-Middle-Angriff</td>
-</tr> 
+</tr>
 <tr>
 <td style="border-bottom:1px solid black;"><a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL04.pdf">VL 04</a></td>
 </tr>
@@ -86,7 +86,7 @@ An diesem Artikel wird natürlich noch gearbeitet.
 <tr>
 <td>06.05.2013</td>
 <td rowspan="2" style="border-bottom:1px solid black;">Public-Key-Verschlüsselung (Idee, RSA); Meet-in-the-Middle-Angriff für Hashfunktionen</td>
-</tr> 
+</tr>
 <tr>
 <td style="border-bottom:1px solid black;"><a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL05.pdf">VL 05</a></td>
 </tr>
@@ -94,7 +94,7 @@ An diesem Artikel wird natürlich noch gearbeitet.
 <tr>
 <td>13.05.2013</td>
 <td rowspan="2" style="border-bottom:1px solid black;">Rest Public-Key-Verschlüsselung (ElGamal, Vergleich RSA/ElGamal), Symmetrische Authentifikation von Nachrichten (Sicherheitsmodell, Hash-then-Sign, <abbr title="Pseudorandom functions">PRFs</abbr>, <abbr title="Hash-based message authentication code">HMAC</abbr>), <a href="http://de.wikipedia.org/wiki/Message_Authentication_Code">MAC</a></td>
-</tr> 
+</tr>
 <tr>
 <td style="border-bottom:1px solid black;"><a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL06.pdf">VL 06</a></td>
 </tr>
@@ -102,7 +102,7 @@ An diesem Artikel wird natürlich noch gearbeitet.
 <tr>
 <td>27.05.2013</td>
 <td rowspan="2" style="border-bottom:1px solid black;">Asymmetrische Authentifikation von Nachrichten (RSA-PSS, ElGamal, DSA)</td>
-</tr> 
+</tr>
 <tr>
 <td style="border-bottom:1px solid black;"><a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL07.pdf">VL 07</a></td>
 </tr>
@@ -110,7 +110,7 @@ An diesem Artikel wird natürlich noch gearbeitet.
 <tr>
 <td>03.06.2013</td>
 <td rowspan="2" style="border-bottom:1px solid black;">Schlüsselaustausch (<span class="hint" title="Kommunikation über Key Center. Wichtig ist vor allem ein Zeitstempel.">Kerberos</span>, TLS, Angriffe)</td>
-</tr> 
+</tr>
 <tr>
 <td style="border-bottom:1px solid black;"><a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL08.pdf">VL 08</a></td>
 </tr>
@@ -118,7 +118,7 @@ An diesem Artikel wird natürlich noch gearbeitet.
 <tr>
 <td>10.06.2013</td>
 <td rowspan="2" style="border-bottom:1px solid black;">Schlüsselaustausch (TLS-Angriffe, weitere Verfahren), Identifikationsprotokolle</td>
-</tr> 
+</tr>
 <tr>
 <td style="border-bottom:1px solid black;"><a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL09.pdf">VL 09</a></td>
 </tr>
@@ -126,7 +126,7 @@ An diesem Artikel wird natürlich noch gearbeitet.
 <tr>
 <td>13.06.2013</td>
 <td rowspan="2" style="border-bottom:1px solid black;">Identifikationsprotokolle (Sicherheitsanalyse), Zero-Knowledge-Protokolle, Commitment &rarr; Hiding</td>
-</tr> 
+</tr>
 <tr>
 <td style="border-bottom:1px solid black;"><a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL10.pdf">VL 10</a></td>
 </tr>
@@ -134,7 +134,7 @@ An diesem Artikel wird natürlich noch gearbeitet.
 <tr>
 <td>17.06.2013</td>
 <td rowspan="2" style="border-bottom:1px solid black;">Zero-Knowledge-Protokolle, Nutzerauthentifikation</td>
-</tr> 
+</tr>
 <tr>
 <td style="border-bottom:1px solid black;"><a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL11.pdf">VL 11</a></td>
 </tr>
@@ -142,7 +142,7 @@ An diesem Artikel wird natürlich noch gearbeitet.
 <tr>
 <td>24.06.2013</td>
 <td rowspan="2" style="border-bottom:1px solid black;">Nutzerauthentifikation (Wörterbuchangriffe, interaktive Authentifikation, positionsbasierte Kryptographie); Rainbowtables; LM-Hashes</td>
-</tr> 
+</tr>
 <tr>
 <td style="border-bottom:1px solid black;"><a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL12.pdf">VL 12</a></td>
 </tr>
@@ -151,7 +151,7 @@ An diesem Artikel wird natürlich noch gearbeitet.
 <tr>
 <td>27.06.2013</td>
 <td rowspan="2" style="border-bottom:1px solid black;">Nutzerauthentifikation (positionsbasierte Kryptographie), Zugriffskontrolle (Bell-LaPadula)</td>
-</tr> 
+</tr>
 <tr>
 <td style="border-bottom:1px solid black;"><a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL13.pdf">VL 13</a></td>
 </tr>
@@ -159,7 +159,7 @@ An diesem Artikel wird natürlich noch gearbeitet.
 <tr>
 <td>01.07.2013</td>
 <td rowspan="2" style="border-bottom:1px solid black;">Zugriffskontrolle (Bell-LaPadula, Chinese Wall), Analyse grö&szlig;erer Systeme</td>
-</tr> 
+</tr>
 <tr>
 <td style="border-bottom:1px solid black;"><a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL14.pdf">VL 14</a></td>
 </tr>
@@ -167,7 +167,7 @@ An diesem Artikel wird natürlich noch gearbeitet.
 <tr>
 <td>08.07.2013</td>
 <td rowspan="2" style="border-bottom:1px solid black;">Analyse grö&szlig;erer Systeme, häufige Sicherheitsprobleme</td>
-</tr> 
+</tr>
 <tr>
 <td style="border-bottom:1px solid black;"><a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL15.pdf">VL 15</a></td>
 </tr>
@@ -175,7 +175,7 @@ An diesem Artikel wird natürlich noch gearbeitet.
 <tr>
 <td>11.07.2013</td>
 <td rowspan="2" style="border-bottom:1px solid black;">Häufige Sicherheitsprobleme</td>
-</tr> 
+</tr>
 <tr>
 <td style="border-bottom:1px solid black;"><a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL16.pdf">VL 16</a></td>
 </tr>
@@ -197,7 +197,7 @@ vernachlässigbar.
 <div class="definition">
 Eine über $k$ parametrisierte Funktion $H$ ist eine <strong>Einwegfunktion</strong> bzgl. der Urbildverteilung $\mathcal{X}_k$, wenn jeder PPT-Algorithmus nur mit höchstens vernachlässigbarer Wahrscheinlichkeit ein Urbild eines gegebenen, aus $\mathcal{X}_k$ gezogenen Bildes findet.
 
-Für jeden PPT-Algorithmus $\mathcal{A}$ ist 
+Für jeden PPT-Algorithmus $\mathcal{A}$ ist
 
 $Adv^{cr}_{H,\mathcal{A}}(k) := Pr[X' \leftarrow \mathcal{A}(1^k, H(X)): H(X) = H(X')]$
 

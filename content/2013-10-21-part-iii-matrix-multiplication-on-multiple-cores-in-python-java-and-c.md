@@ -379,7 +379,7 @@ public class Shell {
 		String filename;
 		int cores = Runtime.getRuntime().availableProcessors();
 		System.err.println("Number of cores:\t" + cores);
-		
+
 		int threads;
 		if (args.length < 3) {
 			filename = "3.in";

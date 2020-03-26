@@ -32,7 +32,7 @@ Just think about what you sort in your everyday life:
   <li>Playing cards</li>
 </ul>
 
-You can apply different algorithms like <a href="http://en.wikipedia.org/wiki/Selection_sort">selection sort</a> which you would use for numbers or <a href="http://en.wikipedia.org/wiki/Insertion_sort">insertion sort</a> which you would use for card games. No matter what algorithm you use, you need to be able to compare the elements. 
+You can apply different algorithms like <a href="http://en.wikipedia.org/wiki/Selection_sort">selection sort</a> which you would use for numbers or <a href="http://en.wikipedia.org/wiki/Insertion_sort">insertion sort</a> which you would use for card games. No matter what algorithm you use, you need to be able to compare the elements.
 
 Note that you can compare some objects, like countries, by many measures. You could look at the population, the birth rate or the area. No matter what you use to compare, the this will not influence the way you sort.
 

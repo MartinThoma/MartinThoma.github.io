@@ -17,7 +17,7 @@ This animation was automatically created. See <a href='../images/2012/05/LaTeX-e
 
 <h2>The ideas</h2>
 <h3>Draw the Graph</h3>
-If you want to visualize a graph algorithm, you should first try to get the image of the graph with Tikz. 
+If you want to visualize a graph algorithm, you should first try to get the image of the graph with Tikz.
 First include all packages / create the general structure of the document:
 
 ```latex
@@ -102,19 +102,19 @@ The number (2, 10 and 12 in this example) indicate the frame in which it should 
 ```latex
 \documentclass[hyperref={pdfpagelabels=false}]{beamer}
 \usepackage{lmodern}
- 
+
 \usepackage[utf8]{inputenc} % this is needed for german umlauts
 \usepackage[ngerman]{babel} % this is needed for german umlauts
 \usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
- 
+
 \usepackage{verbatim}
 \usepackage{tikz}
 \usetikzlibrary{arrows,shapes}
- 
+
 % see http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
 \usetheme{Frankfurt}
 \usefonttheme{professionalfonts}
- 
+
 \begin{document}
 
 \pgfdeclarelayer{background}
@@ -130,7 +130,7 @@ The number (2, 10 and 12 in this example) indicate the frame in which it should 
         \node (c) at (1,1) {$c$};
         \node (d) at (1,0) {$d$};
 		\node (e) at (3,1) {$d$};
- 
+
         % Connect vertices with edges and draw weights
         \path (a) edge node {} (b);
         \path (b) edge node {} (c);
@@ -162,7 +162,7 @@ You can make loops:
 
 ```latex
 	% Draw the vertices.
-	\foreach \pos / \identifier / \name in {{(0,0)/a/a (this is text)}, 
+	\foreach \pos / \identifier / \name in {{(0,0)/a/a (this is text)},
 		{(0,1)/b/b}, {(1,1)/c/c}, {(1,0)/d/d}, {(3,1)/e/d}}
 		\node (\identifier) at \pos {$\name$};
 ```
@@ -209,7 +209,7 @@ You can make loops:
 		\begin{tikzpicture}[->,scale=1.8, auto,swap]
 			% Draw the vertices. First you define a list.
 			\foreach \pos/\name in {{(0,0)/a}, {(0,2)/b}, {(1,2)/c},
-				                    {(1,0)/d}, {(2,1)/e}, {(3,1)/f}, 
+				                    {(1,0)/d}, {(2,1)/e}, {(3,1)/f},
 									{(4,2)/g}, {(5,2)/h}, {(4,0)/i},
 									{(5,0)/j}}
 				\node[vertex] (\name) at \pos {$\name$};
@@ -222,24 +222,24 @@ You can make loops:
 										g/h/, h/j/, j/i/, i/g/}
 				\path (\source) edge [\pos] node {} (\dest);
 
-			% Start animating the edge selection. 
-			% For convenience we use a background layer to 
-			% highlight edges. This way we don't have to worry about 
-			% the highlighting covering weight labels. 
+			% Start animating the edge selection.
+			% For convenience we use a background layer to
+			% highlight edges. This way we don't have to worry about
+			% the highlighting covering weight labels.
 			\begin{pgfonlayer}{background}
 				\foreach \source / \dest / \fr / \pos in {d/a/1/,
-						a/b/2/, b/c/3/, c/d/4/, d/e/5/, e/c/6/, 
+						a/b/2/, b/c/3/, c/d/4/, d/e/5/, e/c/6/,
 						c/e/7/bend left, e/f/8/, f/g/9/,
-						g/f/10/bend right, f/i/11/, i/g/12/, g/h/13/, 
+						g/f/10/bend right, f/i/11/, i/g/12/, g/h/13/,
 						h/j/14/, j/i/15/, i/f/16/bend left}
-				    \path<\fr->[selected edge] (\source.center) edge 
+				    \path<\fr->[selected edge] (\source.center) edge
 										[\pos] node {} (\dest.center);
 			\end{pgfonlayer}
 		\end{tikzpicture}
 	\end{figure}
-	Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
+	Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
 	sed diam nonumy eirmod tempor invidunt ut labore et dolore
-	magna aliquyam erat, sed diam voluptua. At vero eos et 
+	magna aliquyam erat, sed diam voluptua. At vero eos et
 	accusam et.
 \end{frame}
 \end{document}

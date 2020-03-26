@@ -11,7 +11,7 @@ featured_image: 2012/04/leonhard-euler.jpg
 
 The motivation for starting Project Euler, and its continuation, is to provide a platform for the inquiring mind to delve into unfamiliar areas and learn new concepts in a fun and recreational context.
 
-Today, I would like to discuss problem 142. I've seen a <a href="http://blog.san-ss.com.ar/2011/12/project-euler-problem-142-solved.html">post from Santiago Alessandri</a>, so I liked to do the task by myself. 
+Today, I would like to discuss problem 142. I've seen a <a href="http://blog.san-ss.com.ar/2011/12/project-euler-problem-142-solved.html">post from Santiago Alessandri</a>, so I liked to do the task by myself.
 
 The task is:
 <blockquote>Find the smallest x + y + z with integers $x > y > z > 0$ such that x + y, x - y, x + z, x - z, y + z, y - z are all perfect squares.</blockquote>

@@ -7,7 +7,7 @@ category: Cyberculture
 tags: Python, Project Euler
 featured_image: 2011/09/Python-Logo.png
 ---
-Today, I've been trying to get used to <a href="../functional-programming-in-python/" title="Functional Programming in Python">Pythons functional programming tools</a> by solving <a href="http://projecteuler.net/about">Project-Euler</a> tasks. To make them more interesting, I've solved them in one line. But I realized, that it is difficult to read online as only about 70 characters get displayed without a scrollbar. So I made multi-line solutions out of them. 
+Today, I've been trying to get used to <a href="../functional-programming-in-python/" title="Functional Programming in Python">Pythons functional programming tools</a> by solving <a href="http://projecteuler.net/about">Project-Euler</a> tasks. To make them more interesting, I've solved them in one line. But I realized, that it is difficult to read online as only about 70 characters get displayed without a scrollbar. So I made multi-line solutions out of them.
 
 These snippets are also good examples what's possible to do with Python and to show that Python is fast.
 

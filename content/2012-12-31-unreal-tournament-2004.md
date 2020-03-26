@@ -9,7 +9,7 @@ featured_image: 2012/12/ut2004-logo.png
 ---
 I am currently at home and I found <a href="http://en.wikipedia.org/wiki/Unreal_Tournament_2004">Unreal Tournament 2004</a> in my old stuff. Of course, I had to play it again ☺
 
-Before you start, you might want to get the latest version. You have to find the patches by yourself. According to <a href="http://liandri.beyondunreal.com/Unreal_Tournament_2004#Patches">this page</a>, you get all updates / bonus content with "<a href="http://liandri.beyondunreal.com/Unreal_Tournament_2004#Bonus_Packs">Mega Pack</a>" (201 MB). 
+Before you start, you might want to get the latest version. You have to find the patches by yourself. According to <a href="http://liandri.beyondunreal.com/Unreal_Tournament_2004#Patches">this page</a>, you get all updates / bonus content with "<a href="http://liandri.beyondunreal.com/Unreal_Tournament_2004#Bonus_Packs">Mega Pack</a>" (201 MB).
 
 It's asthonishing that there is neither a possibility to upgrade the game within the game, nor an official source for patches. I guess providing a patches is an easy way to spread viruses. Do I have any chance to check if it's a valid patch or a patch with a virus?
 

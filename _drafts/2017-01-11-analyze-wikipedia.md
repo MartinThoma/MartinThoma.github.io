@@ -3,9 +3,9 @@ layout: post
 title: How to analyse Wikipedia
 author: Martin Thoma
 date: 2013-01-31 03:55:00
-categories: 
+categories:
 - The Web
-tags: 
+tags:
 - Wikipedia
 featured_image: 2011/09/Wikipedia-logo.png
 ---

@@ -7,7 +7,7 @@ category: The Web
 tags: WordPress
 featured_image: 2011/09/WordPress-Logo.png
 ---
-This article is about creating a new WordPress blog. This includes installing and basic customization. 
+This article is about creating a new WordPress blog. This includes installing and basic customization.
 
 You need to know how how to upload files and how your MySQL database credentials.
 

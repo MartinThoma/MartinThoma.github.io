@@ -47,7 +47,7 @@ Close the window and look closely at the image. It should now look like this:
             <figcaption class="text-center">Traced bitmap in Inkscape</figcaption>
         </figure>
 
-You have to click at a part of the image that is currently not selected and then hit the remove key. 
+You have to click at a part of the image that is currently not selected and then hit the remove key.
 
 Now select the "Edit path by nodes" tool:
 <figure class="aligncenter">
@@ -77,21 +77,21 @@ As soon as you're finished, you should save your signature as SVG (if you want t
 
 \begin{document}
 \section*{Some Text}
-Lorem ipsum dolor sit amet, pro discere accusam detraxit ei. Ei 
-maluisset definitiones ius. Ut quo persius reprimique, sed ea 
-postulant consulatu, essent tibique et cum. Usu ne etiam facilis, 
-eam everti eruditi ea, his ad eros sententiae. Cu amet admodum 
+Lorem ipsum dolor sit amet, pro discere accusam detraxit ei. Ei
+maluisset definitiones ius. Ut quo persius reprimique, sed ea
+postulant consulatu, essent tibique et cum. Usu ne etiam facilis,
+eam everti eruditi ea, his ad eros sententiae. Cu amet admodum
 recteque mei.
 
-Postea aeterno officiis pri in, per te quis numquam, ius ei veri 
-consul. Ei sententiae constituam vix, ad quidam noster bonorum mel. 
-Eu ius rebum disputationi, invenire signiferumque mei ea. Euripidis 
-expetendis argumentum sit eu, viris latine persecuti mel at. Mel ut 
+Postea aeterno officiis pri in, per te quis numquam, ius ei veri
+consul. Ei sententiae constituam vix, ad quidam noster bonorum mel.
+Eu ius rebum disputationi, invenire signiferumque mei ea. Euripidis
+expetendis argumentum sit eu, viris latine persecuti mel at. Mel ut
 clita fabellas laboramus, an discere inermis est.
 
-Nulla liberavisse usu in. Augue comprehensam ut pro, ne vel dicit 
-oblique. Vel dico omnium et, vis an tota solum argumentum. Eam 
-omnes quidam in. Eu eam illum malorum diceret, nonumes mentitum 
+Nulla liberavisse usu in. Augue comprehensam ut pro, ne vel dicit
+oblique. Vel dico omnium et, vis an tota solum argumentum. Eam
+omnes quidam in. Eu eam illum malorum diceret, nonumes mentitum
 repudiare eam et.\\
 
 \noindent Yours faithfully\\

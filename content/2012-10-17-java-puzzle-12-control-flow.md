@@ -32,7 +32,7 @@ public class HelloWorld {
 .
 
 <h2>Answer</h2>
-The output is "Yes". 
+The output is "Yes".
 
 <h2>Explanation</h2>
 The <code>;</code> means, that no block is executed. The <code>{ ... }</code> is just a code block and not really related to the <code>if</code>-statement.

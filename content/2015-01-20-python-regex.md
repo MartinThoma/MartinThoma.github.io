@@ -146,4 +146,3 @@ Description: Not a 100% email validation. It doesn't work with IP-Adresses, but 
 <strong>Matches</strong>: a-b-c@d-e-f.com | a@b.ce | Me@my.museum
 <strong>Non-Matches</strong>: abc@def.g | a--b@c--d.fe | -abc@-def-.def
 <strong>Source</strong>: <a href="http://regexlib.com/REDetails.aspx?regexp_id=600">Sebastian Hiller</a>
-

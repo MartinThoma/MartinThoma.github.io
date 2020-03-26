@@ -47,4 +47,3 @@ As every state depends only on the state before, you can get the most likely pat
 ## See also
 
 * [Wikipedia](https://en.wikipedia.org/wiki/Viterbi_algorithm)
-

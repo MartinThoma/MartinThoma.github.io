@@ -45,6 +45,6 @@ This means, for every check you have to check $n^2$ pairs of line segments for c
 This algorithm is in $\mathcal{O}(n^2)$ time complexity (it does need a constant amount of additional space).
 
 <h3>Triangularization</h3>
-When you have a lot of querys, you might want to divide your polygon into convex polygones. The easiest way to do this might be dividing $N$ into triangles. 
+When you have a lot of querys, you might want to divide your polygon into convex polygones. The easiest way to do this might be dividing $N$ into triangles.
 
 That way, you can check for every triangle if $P$ is inside of it. I assume that the number of triangles is not bigger than $n$. As the check is in constant time for one triangle, you would have an algorithm that needs $\mathcal{O}(n)$ time and space for its checks (+ some preprocessing which is done only once).

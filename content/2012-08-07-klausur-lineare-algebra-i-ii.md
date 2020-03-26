@@ -42,7 +42,7 @@ Ihr solltet auf jeden Fall die <a href="../lernkontrolle-lineare-algebra-i/" tit
       <li>$\tilde{A} = S^{-1} A S$, S = Matrix des Basiswechsels</li>
     </ul>
   </li>
-  <li><strong>Determinante</strong>: 
+  <li><strong>Determinante</strong>:
      <ul>
        <li>Laplacesche Entwicklungsformel (z.B. nach i-ter Spalte)</li>
        <li>$\det A^T = \det A$</li>
@@ -107,7 +107,7 @@ Mit diesen Aufgabentypen sollte man rechnen:
   <li>$\cos \omega(a,b) = \frac{\langle a, b \rangle}{\|a\| \cdot \| b \|}$</li>
   <li>Orthogonal, ONB, Orthogonal-Komplement</li>
   <li>$x \perp y$, $\langle x, y \rangle = 0$</li>
-  <li>orthogonale / unit&auml;re Matrizen: 
+  <li>orthogonale / unit&auml;re Matrizen:
      <ul>
        <li>$S \cdot S^T = E$</li>
        <li>$\det S \cdot \det S^T = \det E = 1$</li>
@@ -151,7 +151,7 @@ Es empfiehlt sich, einen Lernplan aufzustellen. Wenn ich die &Uuml;bungsbl&auml;
   <li>Studentenausweis</li>
   <li>Leere Bl&auml;tter</li>
   <li>Essen und Trinken (4h Klausur!!!)</li>
-</ul> 
+</ul>
 
 Ein paar interessante Aussagen:
 <blockquote>In den letzten Jahren reichten 20 Punkte zum bestehen</blockquote>

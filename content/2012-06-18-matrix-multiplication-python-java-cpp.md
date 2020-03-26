@@ -30,7 +30,7 @@ I have implemented these three types of algorithms for this post:
 
 If you post a solution, please consider these restrictions:
 <ul>
-    <li><strong>Input</strong>: The input file should get passed with the parameter <code>-i</code>, e.g.: 
+    <li><strong>Input</strong>: The input file should get passed with the parameter <code>-i</code>, e.g.:
     <code>python -i 2000.in</code> or <code>java Shell -i 2000.in</code></li>
     <li>The standard value for the command line parameter -i should be "2000.in" (a $2000 \times 2000$ matrix)</li>
     <li>The user should <em>not</em> have to give the size of the matrix!</li>
@@ -679,7 +679,7 @@ Result read(string filename) {
 	return ab;
 }
 
-vector< vector<int> > ijkalgorithm(vector< vector<int> > A, 
+vector< vector<int> > ijkalgorithm(vector< vector<int> > A,
 									vector< vector<int> > B) {
 	int n = A.size();
 
@@ -777,7 +777,7 @@ void printMatrix(boost::numeric::ublas::matrix<int> matrix) {
 			cout << matrix(i, j);
 			if(j+1 != matrix.size2()) {
 				cout << "\t";
-			}	
+			}
 		}
 		cout << endl;
 	}

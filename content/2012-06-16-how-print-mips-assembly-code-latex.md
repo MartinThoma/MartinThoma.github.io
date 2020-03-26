@@ -25,20 +25,20 @@ If you like to print highlighted MIPS assembly code in LaTeX, you can use the li
 \usepackage[margin=2.5cm]{geometry} %layout
 \usepackage{listings} % needed for the inclusion of source code
 \usepackage{mips}
- 
+
 % the following is needed for syntax highlighting
 \usepackage{color}
-  
+
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
- 
+
 \lstset{ %
   language=[mips]Assembler,       % the language of the code
   basicstyle=\footnotesize,       % the size of the fonts that are used for the code
   numbers=left,                   % where to put the line-numbers
   numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
-  stepnumber=1,                   % the step between two line-numbers. If it's 1, each line 
+  stepnumber=1,                   % the step between two line-numbers. If it's 1, each line
                                   % will be numbered
   numbersep=5pt,                  % how far the line-numbers are from the code
   backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
@@ -59,10 +59,10 @@ If you like to print highlighted MIPS assembly code in LaTeX, you can use the li
   escapeinside={\%*}{*)},            % if you want to add a comment within your code
   morekeywords={*,...}               % if you want to add more keywords to the set
 }
- 
+
 % this is needed for forms and links within the text
-\usepackage{hyperref}  
- 
+\usepackage{hyperref}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Variablen                                                          %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -71,7 +71,7 @@ If you like to print highlighted MIPS assembly code in LaTeX, you can use the li
 \title{Aufgabe 5}
 \author{\authorName}
 \date{\today}
- 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % PDF Meta information                                               %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -79,8 +79,8 @@ If you like to print highlighted MIPS assembly code in LaTeX, you can use the li
   pdfauthor   = {\authorName},
   pdfkeywords = {\tags},
   pdftitle    = {This is the title}
-} 
- 
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % THE DOCUMENT BEGINS                                                %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

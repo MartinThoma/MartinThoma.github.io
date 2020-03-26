@@ -27,7 +27,7 @@ N&ouml;tig ist manchmal nur die Behauptung und der Beweis. Mit der Vorraussetzun
 
 <strong>Beweis</strong>: Per Definition gilt:
 
-$$|x-3| : = 
+$$|x-3| : =
 \left \{ \begin{array}{ll}
 x      & \text{, falls } x \geq 3 \\
 -(x-3) & \text{, falls } x \lt 3

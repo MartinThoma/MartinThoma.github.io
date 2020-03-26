@@ -28,26 +28,26 @@ Du kommst im Urwald zu einem Fluss mit gefährlichen Krokodilen. Keine Brücke, 
 Wie merkt man, dass ein Elefant im Kühlschrank war?
 <span style="background-color:#000;color:#000">An den Fußstapfen in der Butter.</span>
 
-Warum darf man nach 24 Uhr nicht mehr in den Urwald? 
+Warum darf man nach 24 Uhr nicht mehr in den Urwald?
 <span style="background-color:#000;color:#000">Weil dann die elefanten Fallschirm springen.</span>
 
 Warum haben Krokodile so platte Nasen?
 <span style="background-color:#000;color:#000">Weil sie nach 24 Uhr im Urwald waren.</span>
 
 <h2>Autokollision</h2>
-Was sagt ein Hund kurz bevor er von einem Auto angefahren wird? 
+Was sagt ein Hund kurz bevor er von einem Auto angefahren wird?
 <span style="background-color:#000;color:#000">hilf...</span>
 
-Und ein Pferd? 
+Und ein Pferd?
 <span style="background-color:#000;color:#000">hilf... </span>
 
-Und ein Elefant? 
+Und ein Elefant?
 <span style="background-color:#000;color:#000">Komm nur.</span>
 
 <h2>Busfahrer</h2>
 Du bist der Busfahrer. Der Bus startet den Motor und fährt los. Es steigen fünf Leute ein. Er fährt weiter und drei steigen aus. Weiter geht es, und sieben steigen ein, und fünf aus. Der Bus hält und alle müssen aussteigen weil jetzt Endhaltestation ist.
 
-Frage: Wie alt ist der Busfahrer? 
+Frage: Wie alt ist der Busfahrer?
 <span style="background-color:#000;color:#000">DU bist der Busfahrer!</span>
 
 <h2>Schnell antworten</h2>
@@ -93,17 +93,17 @@ Was schwimmt und fängt mit N an?
 Was schwimmt und fängt mit S an?
 <span style="background-color:#000;color:#000">Schon wieder ein Brett.</span>
 
-Was ist braun, groß, lebt 10 Meter unter der Erde und frisst Steine? 
+Was ist braun, groß, lebt 10 Meter unter der Erde und frisst Steine?
 <span style="background-color:#000;color:#000">Der große, braune, unterirdische Steinfresser.</span>
 
-Was ist braun, lebt 10 Meter unter der Erde und Frisst Sand? 
+Was ist braun, lebt 10 Meter unter der Erde und Frisst Sand?
 <span style="background-color:#000;color:#000">Die Oma vom großen, braunen, unterirdischen Steinfresser.</span>
 
-Was sagt Tarzan wenn er ne Herde Elefanten durch den Wald laufen sieht? 
+Was sagt Tarzan wenn er ne Herde Elefanten durch den Wald laufen sieht?
 <span style="background-color:#000;color:#000">Guck mal, eine Herde Elefanten!</span>
-Was sagt Tarzan wenn er eine Herde Elefanten mit Sonnenbrille durch den Wald laufen sieht? 
+Was sagt Tarzan wenn er eine Herde Elefanten mit Sonnenbrille durch den Wald laufen sieht?
 <span style="background-color:#000;color:#000">Nichts, denn er erkennt sie nicht.</span>
-Was sagt Tarzan wenn er ne Herde Giraffen durch den Wald laufen sieht? 
+Was sagt Tarzan wenn er ne Herde Giraffen durch den Wald laufen sieht?
 <span style="background-color:#000;color:#000">Nochmal fall ich auf euer Verkleidungsspiel nicht rein!</span>
 
 Wenn man ein Loch von Berlin aus quer durch die Erde bohren und einen Stein reinwerfen würde, wie weit würde er fallen? <span style="background-color:#000;color:#000">10 Meter, dann wird er vom großen, braunen unterirdischen Steinfresser aufgefressen.</span>

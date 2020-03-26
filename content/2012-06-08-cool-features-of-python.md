@@ -52,7 +52,7 @@ print(sumOfDigits)
 Python has no need for a special class as it has arbitrary length integers (see <a href="http://docs.python.org/release/3.1.5/c-api/long.html">source</a>)
 
 <h3>Swich values of variables</h3>
-<strong>Description</strong>: You want to make sure, that variable a is smaller than b ($a < b$). 
+<strong>Description</strong>: You want to make sure, that variable a is smaller than b ($a < b$).
 <strong>Most languages</strong>:
 ```python
 tmp = a

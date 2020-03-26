@@ -59,7 +59,7 @@ ALTER TABLE `guestbook`
 </figure>
 
 
-### 
+###
 
 
 ## Java

@@ -33,11 +33,11 @@ $\phi \in C^1(\mathbb{R}^2, \mathbb{R}^2)$ und f&uuml;r $r \in \mathbb{R}$ gilt 
 
 F&uuml;r $r \neq 0$ gilt also $\det \phi'(r, \varphi) \neq 0$ f&uuml;r jedes $\varphi \in \mathbb{R}$. $\phi$ ist nicht injektiv auf $\mathbb{R}^2$. Setze $A := [1,2] \times [0, 2\pi]$.
 
-Dann ist $A^0 = (1,2) \times (0,2 \pi)$ und$ \phi$ auf $A^0$ injektiv. Au&szlig;erdem ist $\det \phi'(x) \neq 0$ f&uuml;r $x \in A^0$. 
+Dann ist $A^0 = (1,2) \times (0,2 \pi)$ und$ \phi$ auf $A^0$ injektiv. Au&szlig;erdem ist $\det \phi'(x) \neq 0$ f&uuml;r $x \in A^0$.
 
 F&uuml;r $f:Y \rightarrow \mathbb{R}$ mit $f(Y_1, Y_2) := Y_1 - Y_2$ gilt $f \in \mathfrak{L}^1(Y)$ ($Y$ kompakt, $f$ stetig)
 
-Au&szlig;erdem: 
+Au&szlig;erdem:
 
 \begin{align}
 \int_Y f(y) dy &= \int_\phi(A) f(y) dy \\

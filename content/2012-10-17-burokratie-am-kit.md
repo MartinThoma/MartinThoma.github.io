@@ -34,7 +34,7 @@ Das <a href="http://www.kit.edu/studieren/1960.php">Studienb&uuml;ro</a> hat fol
 Es hat also in der Woche nur 8 Stunden ge&ouml;ffnet. Ich war heute (Mittwoch) um 9:40 Uhr Studienb&uuml;ro und es war bereits eine Schlange von ca. 20 Leuten vor der T&uuml;r. Als p&uuml;nktlich um 10:00 Uhr der Eingang ge&ouml;ffnet wurde, reichte die Schlange bereits bis zum gegen&uuml;berliegenden Geb&auml;ude. Man muss nun beobachten, wie sich das im laufe des Semesters verh&auml;lt, aber es ist schon ein deutliches Indiz daf&uuml;r, dass hier entweder M&auml;ngel in der Organisation und Struktur des Studiums bzw. der damit verbundenen Software (z.B. QISPOS) vorliegen, oder zu wenig Personal vorhanden ist.
 
 <h3>Schalter und Schlangen</h3>
-Momentan sind Zettelrollen in verschiedenen Farben aufgestellt. Die Farben sind je nach Studiengang unterschiedlich. Auf jedem Zettel steht eine Nummer und diese wird aufgerufen. Dazu steht eine Frau an der T&uuml;r, ruft die Nummer und h&auml;lt die T&uuml;r auf. 
+Momentan sind Zettelrollen in verschiedenen Farben aufgestellt. Die Farben sind je nach Studiengang unterschiedlich. Auf jedem Zettel steht eine Nummer und diese wird aufgerufen. Dazu steht eine Frau an der T&uuml;r, ruft die Nummer und h&auml;lt die T&uuml;r auf.
 
 Ich wei&szlig; nicht ob diese Frau noch irgendetwas anderes macht, aber es scheint nicht der Fall zu sein. Wenn sie in dieser Zeit einen weiteren Schalter betreuen w&uuml;rde und das Aufrufen wie bei der Bahn oder im Finanzamt &uuml;ber eine elektronische Anzeige geschehen w&uuml;rde, h&auml;tte man vermutlich schon eine Effizienzsteigerung. Die aktuelle Nummer k&ouml;nnte man dann auch &uuml;ber einen Webdienst verf&uuml;gbar machen, sodass man in der Zwischenzeit auch etwas sinnvolleres machen kann.
 
@@ -44,10 +44,10 @@ Nach ein paar Minuten wurde gefragt: "Gibt es noch irgendjemanden der einen blau
 Als ich dann endlich im Studienb&uuml;ro zu meinem Schalter gekommen bin, konnte ich mein Problem vorstellen. Ich versuche das m&ouml;glichst wortw&ouml;rtlich wiederzugeben:
 
 1. Das Modul "Algorithmen I" war nicht als bestanden markiert, obwohl ich die Klausur "Algorithmen I" bestanden habe, diese auch als bestanden im System stand und es keine weiteren Voraussetzungen gibt.
-Das habe ich der Angestellten so gesagt. 
+Das habe ich der Angestellten so gesagt.
 Angestellte: &bdquo;Da kann ich nichts machen, ich brauche erst ein Formular. Ohne Formular geht da nichts, da m&uuml;ssen sie zu Frau Gheta, ich muss 3 Schalter betreuen und habe daf&uuml;r keine Zeit.&ldquo;
 
-Was soll denn das? Ein kurzer Blick ins Modulhandbuch - ich konnte auch sagen an welcher Stelle - ein Blick auf meine Leistungen (die sie bereits aufgerufen hatte) und alles w&auml;re klar geweisen. Also habe ich das Problem 
+Was soll denn das? Ein kurzer Blick ins Modulhandbuch - ich konnte auch sagen an welcher Stelle - ein Blick auf meine Leistungen (die sie bereits aufgerufen hatte) und alles w&auml;re klar geweisen. Also habe ich das Problem
 nochmals beschrieben
 Ich: &bdquo;Ich habe alle Teile des Moduls bestanden, warum ist dann das Modul nicht als bestanden markiert?&ldquo;
 Sie schaut in ihr System und sagt mir, dass ich noch nicht alles aus der Theoretischen Informatik bestanden habe.
@@ -74,7 +74,7 @@ Dieses System muss ziemlich schwere Voraussetzungen erf&uuml;llen: Es muss funkt
   <li>Sonstige Systemfehler kommen vor: Das Modul Algorithmen wurde bei mir nicht als bestanden markiert, obwohl es offensichtlich bestanden war.</li>
 </ul>
 
-Das sind jetzt nur ein paar Fehler, die mir pers&ouml;nlich passiert sind. Es gibt bestimmt noch mehr. Und von unsch&ouml;nen Dingen wie langen Ladezeiten, einer schlechten Men&uuml;f&uuml;hrung oder einer fehlenden Suchfunktion will ich mal gar nicht reden. 
+Das sind jetzt nur ein paar Fehler, die mir pers&ouml;nlich passiert sind. Es gibt bestimmt noch mehr. Und von unsch&ouml;nen Dingen wie langen Ladezeiten, einer schlechten Men&uuml;f&uuml;hrung oder einer fehlenden Suchfunktion will ich mal gar nicht reden.
 
 Da frage ich mich schon, was das KIT daf&uuml;r bezahlt. Einfach gesagt, sehe ich zwei M&ouml;glichkeiten:
 <ol>

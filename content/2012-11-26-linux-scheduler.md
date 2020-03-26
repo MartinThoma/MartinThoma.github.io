@@ -34,7 +34,7 @@ Ich habe mal ein Video von Moritz' Programm gemacht:
 <iframe width="420" height="315" src="//www.youtube.com/embed/DOOrbrcM3YU" frameborder="0" allowfullscreen></iframe>
 
 <h2>Referenzen</h2>
-[1] <a name="ref1" href="#anchor1">&uarr;</a>: &bdquo;<a href="http://en.wikipedia.org/wiki/O%281%29_scheduler">O(1) Scheduler</a>&ldquo; in: Wikipedia, the free encyclopedia.  Abgerufen am 13.&nbsp;November 2012.   
+[1] <a name="ref1" href="#anchor1">&uarr;</a>: &bdquo;<a href="http://en.wikipedia.org/wiki/O%281%29_scheduler">O(1) Scheduler</a>&ldquo; in: Wikipedia, the free encyclopedia.  Abgerufen am 13.&nbsp;November 2012.
 [2] <a name="ref2" href="#anchor2">&uarr;</a>: &bdquo;<a href="http://en.wikipedia.org/wiki/Completely_Fair_Scheduler">Completely Fair Scheduler</a>&ldquo; in: Wikipedia, the free encyclopedia. Abgerufen am 13. November 2012.
 [3] <a name="ref3" href="#anchor3">&uarr;</a>: Ingo Moln&aacute;r, &bdquo;<a href="http://people.redhat.com/mingo/cfs-scheduler/sched-design-CFS.txt">This is the CFS scheduler</a>&ldquo;.  Abgerufen am 13. November 2012.
 [4] <a name="ref4" href="#anchor4">&uarr;</a>: Daniel P. Bovet und Marco Cesati, &bdquo;<a href="http://oreilly.com/catalog/linuxkernel/chapter/ch10.html">Understanding the Linux Kernel</a>&ldquo;. O'Reilly, 2000, abgerufen am 13. November 2012.

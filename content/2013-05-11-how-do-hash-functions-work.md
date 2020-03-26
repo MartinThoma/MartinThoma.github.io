@@ -22,7 +22,7 @@ It looks like this:
         </figure>
 
 <h2>The task</h2>
-Imagine you would like to find a good strategy where to drop your disk. A simple brute-force method is to create a so called <a href="http://en.wikipedia.org/wiki/Game_tree">game tree</a>. This means you go through each possibility at each situation that could occur in the game for both players. 
+Imagine you would like to find a good strategy where to drop your disk. A simple brute-force method is to create a so called <a href="http://en.wikipedia.org/wiki/Game_tree">game tree</a>. This means you go through each possibility at each situation that could occur in the game for both players.
 
 This approach has generally two problems:
 <ol>
@@ -44,14 +44,14 @@ struct gamesituation {
     char board[BOARD_WIDTH][BOARD_HEIGHT];
 
     /**
-     * What are the next game situations that I can reach from this 
-     * board? 
+     * What are the next game situations that I can reach from this
+     * board?
      * The next[i] means that the player dropped the disc at column i
      */
     int next[7];
 
     /* I could use a bitfield for this ... but it would make access
-     * much more inconvenient. 
+     * much more inconvenient.
      */
     unsigned char isEmpty;  // Is this gamesitatution already filled?
     unsigned char isFinished; // Is this game finished?
@@ -66,11 +66,11 @@ You need a check if one player won:
 ```c
 
 /*
- * Check if player has won by placing a disc on (x,y). 
+ * Check if player has won by placing a disc on (x,y).
  * with direction (xDir, yDir)
  * @return 1 iff RED won, -1 iff BLACK won and 0 if nobody won
  */
-signed char hasPlayerWon(char board[BOARD_WIDTH][BOARD_HEIGHT], 
+signed char hasPlayerWon(char board[BOARD_WIDTH][BOARD_HEIGHT],
                   int x, int y, char xDir, char yDir) {
     char color = board[x][y];
 
@@ -91,12 +91,12 @@ signed char hasPlayerWon(char board[BOARD_WIDTH][BOARD_HEIGHT],
     return 0;
 }
 
-/* 
- * A new disc has been dropped. Check if this disc means that 
+/*
+ * A new disc has been dropped. Check if this disc means that
  * somebody won.
  * @return 1 iff RED won, -1 iff BLACK won, otherwise NOT_FINISHED
  */
-int isBoardFinished(char board[BOARD_WIDTH][BOARD_HEIGHT], 
+int isBoardFinished(char board[BOARD_WIDTH][BOARD_HEIGHT],
                     int x, int y) {
     signed char status;
 
@@ -137,7 +137,7 @@ If you need an explanation for this, you should read <a href="../check-x-in-a-ro
 And you need a function that can mirror boards (to get rid of identical, but mirrored situations) and one that can compare boards:
 ```c
 
-char isSameBoard(char a[BOARD_WIDTH][BOARD_HEIGHT], 
+char isSameBoard(char a[BOARD_WIDTH][BOARD_HEIGHT],
                  char b[BOARD_WIDTH][BOARD_HEIGHT]) {
     for (int x = 0; x < BOARD_WIDTH; x++) {
         for (int y = 0; y < BOARD_HEIGHT; y++) {
@@ -169,7 +169,7 @@ You need a function that makes all possible moves for the players:
  * Make all possible turns that the player can make in this
  * game situation.
  */
-void makeTurns(char board[BOARD_WIDTH][BOARD_HEIGHT], 
+void makeTurns(char board[BOARD_WIDTH][BOARD_HEIGHT],
    char currentPlayer, unsigned int lastId, int recursion) {
     unsigned int insertID;
     int outcome;
@@ -245,7 +245,7 @@ void makeTurns(char board[BOARD_WIDTH][BOARD_HEIGHT],
                         }
                     }
 
-                    makeTurns(copy, currentPlayer, insertID, 
+                    makeTurns(copy, currentPlayer, insertID,
                               recursion + 1);
                 }
             }
@@ -297,7 +297,7 @@ unsigned int getFirstIndex(char board[BOARD_WIDTH][BOARD_HEIGHT]) {
 
     for (int x = 0; x < BOARD_WIDTH; x++) {
         for (int y = 0; y < BOARD_HEIGHT; y++) {
-            index += charToInt(board[x][y]) * 
+            index += charToInt(board[x][y]) *
                      myPow(3, ((x + y * BOARD_WIDTH) % HASH_MODULO));
         }
     }
@@ -317,7 +317,7 @@ This means, you will have two board situations that map to the same hash number.
 </ul>
 
 <h2>Linear probing</h2>
-The idea of linear probing is very simple: 
+The idea of linear probing is very simple:
 
 Inserting a new item:
 <ol>

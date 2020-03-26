@@ -14,7 +14,7 @@ Diese &Uuml;bersicht beinhaltet grundlegende Datenstrukturen. Es gibt weitaus <a
             <a href="../images/2012/07/array.png"><img src="../images/2012/07/array.png" alt="Array" style="max-width:500px;max-height:225px" class="size-full wp-image-34531"/></a>
             <figcaption class="text-center">Array</figcaption>
         </figure>
-Ein Array, auch <a href="http://de.wikipedia.org/wiki/Feld_(Datentyp)">Feld</a> genannt, ist eine Datenstruktur. 
+Ein Array, auch <a href="http://de.wikipedia.org/wiki/Feld_(Datentyp)">Feld</a> genannt, ist eine Datenstruktur.
 Charakteristika:
 <ul>
   <li>Ein Array hat eine feste, nicht ver&auml;nderbare Gr&ouml;&szlig;e.</li>
@@ -38,7 +38,7 @@ Hashtabellen werden hier benutzt:
 
 Sie garantieren eine amortisierte Laufzeit von ${\cal O}(1)$ f&uuml;r Suchen, L&ouml;schen und Einf&uuml;gen.
 
-Folgende Begriffe sollte man kennen: 
+Folgende Begriffe sollte man kennen:
 <ul>
   <li><a href="http://de.wikipedia.org/wiki/Divisionsrestmethode">Divisions-Rest-Methode</a>: $h(k) = k \mod m$</li>
   <li><a href="http://de.wikipedia.org/wiki/Multiplikative_Methode">Multiplikationsmethode</a>: $h(k) = \lfloor A \cdot k \mod 1 \rfloor$, mit z.B. $A \approx \frac{\sqrt{5}-1}{2}$</li>
@@ -466,7 +466,7 @@ $G$ hei&szlig;t <strong>gerichteter Baum</strong> $: \Leftrightarrow \exists_{r 
 <div class="definition">Sei $G = (V, E)$ ein gerichteter Baum und sei $r \in V$ das $r$ aus der Definition. $r$ hei&szlig;t <strong>Wurzel</strong> von $G$.</div>
 
 ACHTUNG: Die folgende Definition habe ich mir ausgedacht! NICHT IN DER KLAUSUR VERWENDEN!
-<div class="definition">Sei $E \subseteq V \times V$ eine Menge ungerichteter Kanten. 
+<div class="definition">Sei $E \subseteq V \times V$ eine Menge ungerichteter Kanten.
 Dann bezeichne $G(E) := \{(v, w) | \{v, w\} \in E\}$ die Menge aller zugeh&ouml;rigen gerichteten Kanten.</div>
 
 <div class="definition">Sei $U = (V, E)$ ein ungerichteter Graph.
@@ -739,7 +739,7 @@ Mehr zu B-B&auml;umen gibt es in diesem <a href="../b-baume/" title="B-B&auml;um
         </figure>
 Bildquelle: <a href="http://commons.wikimedia.org/wiki/File:Trie.svg">Wikipedia</a>
 
-Ein Trie ist ein spezieller digitaler Baum. 
+Ein Trie ist ein spezieller digitaler Baum.
 <blockquote>Ein Trie oder Pr&auml;fixbaum ist eine Datenstruktur, die in der Informatik zum Suchen nach Zeichenketten verwendet wird. Es handelt sich dabei um einen speziellen Suchbaum zur gleichzeitigen Speicherung mehrerer Zeichenketten.</blockquote>
 Quelle: <a href="http://de.wikipedia.org/wiki/Trie">Wikipedia</a>
 

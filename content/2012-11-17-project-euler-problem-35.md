@@ -56,7 +56,7 @@ def getPrimesBelowN(n=1000000):
     return primes
 ```
 
-Whats bad with this code? 
+Whats bad with this code?
 Well, just think about what it does: For every <code>noPrime</code> Python has to go through the whole list. I couldn't find how <code>in</code> is implemented, but I guess it is linear. So Python has to go through the whole list for <code>in</code>. Additionally, <code>remove</code> could also be expensive.
 
 How could this get improved? Here is a better solution:
@@ -122,8 +122,8 @@ So you can skip those digits
 
 
 def getPrimesBelowN(n=1000000):
-    """Get all primes below n with the sieve of Eratosthenes. 
-    @return: a list 0..n with boolean values that indicate if 
+    """Get all primes below n with the sieve of Eratosthenes.
+    @return: a list 0..n with boolean values that indicate if
              i in 0..n is a prime.
     """
     from math import ceil
@@ -146,7 +146,7 @@ def isCircularPrime(primes, number):
     """Check if number is a circular prime.
 
     Keyword arguments:
-    primes -- a list from 0..n with boolean values that indicate if 
+    primes -- a list from 0..n with boolean values that indicate if
               i in 0..n is a prime
     number -- the integer you want to check
     """

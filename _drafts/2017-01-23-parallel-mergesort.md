@@ -3,9 +3,9 @@ layout: post
 title: Parallel Mergesort
 author: Martin Thoma
 date: 2013-03-05 05:23:42
-categories: 
+categories:
 - Code
-tags: 
+tags:
 - Big Data
 - concurrency
 - Java
@@ -30,19 +30,19 @@ def generateNumbers(min=-1000, max=1000, n=1000000):
 
 if __name__ == "__main__":
     from argparse import ArgumentParser
-     
+
     parser = ArgumentParser()
-     
+
     # Add more options if you like
     parser.add_argument("-f", "--file", dest="myFilenameVariable",
                       help="write report to FILE", metavar="FILE")
-    parser.add_argument("-n", metavar='N', type=int, dest="n", 
+    parser.add_argument("-n", metavar='N', type=int, dest="n",
                         default=1000000, help="The number of "
                         + "numbers you want to generate.")
-    parser.add_argument("-min", metavar='N', type=int, dest="min", 
+    parser.add_argument("-min", metavar='N', type=int, dest="min",
                         default=-1000, help="The minimum number "
                         + "that might get generated.")
-    parser.add_argument("-max", metavar='N', type=int, dest="max", 
+    parser.add_argument("-max", metavar='N', type=int, dest="max",
                         default=1000, help="The maximum number that "
                         + "might get generated.")
     args = parser.parse_args()
@@ -78,13 +78,13 @@ Exception in thread "main" java.lang.reflect.InvocationTargetException
 	at java.lang.reflect.Method.invoke(Method.java:616)
 	at org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader.main(JarRsrcLoader.java:56){% endhighlight %}
 
-Seems as ArrayList can only store 38,647,475 numbers. 
+Seems as ArrayList can only store 38,647,475 numbers.
 
 I also tried LinkedList, but it only stored 21,267,753 numbers and aborted after 3m14.704s - ArrayList only needed about a minute. This makes sense, as LinkedList needs more memory than ArrayList. Interestingly, this number differs. In a second execution it were 21,267,754 numbers.
 
 Ok, let's increase the heap size:
 {% highlight bash %}java -Xms2500m -Xmx2500m -jar Sort.jar -i numbers.txt -o outputsorted.txt{% endhighlight %}
-2 GB was not enough for ArrayList. It could only store 86,956,820 numbers. We get closer. How much space do we need at minimum? $(\text{number of numbers}) \cdot (\text{size of one number}) = 32 \text{bit } \cdot 100,000,000 = 4 Byte \cdot 100,000,000 = 400 MB$. 
+2 GB was not enough for ArrayList. It could only store 86,956,820 numbers. We get closer. How much space do we need at minimum? $(\text{number of numbers}) \cdot (\text{size of one number}) = 32 \text{bit } \cdot 100,000,000 = 4 Byte \cdot 100,000,000 = 400 MB$.
 
 <h3>Use an array</h3>
 Hmm ... ok, lets make it more efficient and use an array.

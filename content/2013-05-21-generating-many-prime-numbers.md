@@ -17,7 +17,7 @@ So, lets prove my claim.
 #include <iostream> // cin, cout
 #include <cmath> // sqrt
 #include <vector>
- 
+
 using namespace std;
 vector<unsigned long> primeList;
 
@@ -62,7 +62,7 @@ sys	0m15.229s
 
 ```
 
-So 41 seconds for all primes not bigger than 100,000,000. 
+So 41 seconds for all primes not bigger than 100,000,000.
 
 Now, lets test it for 1,000,000,000:
 ```bash
@@ -82,7 +82,7 @@ sys	2m12.500s
 
 #include <iostream> // cin, cout
 #include <vector>
- 
+
 using namespace std;
 
 void sieveOfEratosthenes(unsigned long n) {
@@ -126,7 +126,7 @@ Writing 502.0 MB takes some time. It's not getting better when I pipe this throu
 ```cpp
 #include <fstream> // ofstream
 #include <vector>
- 
+
 using namespace std;
 
 void sieveOfEratosthenes(unsigned long n) {
@@ -196,7 +196,7 @@ void sieveOfEratosthenes(unsigned long n) {
     for (unsigned long i=3; i<n; i+=2) {
         if (primesEratosthenes[i] == true) {
             fwrite(&i, sizeof(unsigned long),1, pFile);
-     
+
             for (unsigned long j=2; j*i<=n; j++) {
                 primesEratosthenes[j*i] = false;
             }
@@ -264,36 +264,36 @@ int main(int argc, char* argv[]) {
 <h3>Improve sieving</h3>
 The following change was suggested by <em>Niklas B.</em>. Thanks!
 
-Take a look at the inner for loop. This one does the sieving, so it gets executed very often. In this loop, you have to calculate <code>j*i</code> for checking the condition of the loop and again for setting it to false. You can get rid of one of those operations. Additionally, you don't have to start sieving at <code>2*p</code>, but you can start at <code>p*p</code> as you already sieved out all multiples of the first, second, ..., current-1-th prime. 
+Take a look at the inner for loop. This one does the sieving, so it gets executed very often. In this loop, you have to calculate <code>j*i</code> for checking the condition of the loop and again for setting it to false. You can get rid of one of those operations. Additionally, you don't have to start sieving at <code>2*p</code>, but you can start at <code>p*p</code> as you already sieved out all multiples of the first, second, ..., current-1-th prime.
 
 ```cpp
 
 #include <stdio.h> // fopen
 #include <iostream> // atoi
 #include <vector>
- 
+
 using namespace std;
- 
+
 void sieveOfEratosthenes(long long n) {
     FILE* pFile;
     pFile = fopen("huge-prime-list.bin", "wb");
     vector<bool> primesEratosthenes (n+1, true);
- 
+
     long long tmp = 2;
     fwrite(&tmp, sizeof(long long),1, pFile);
     for (long long i=3; i<n; i+=2) {
         if (primesEratosthenes[i]) {
             fwrite(&i, sizeof(long long), 1, pFile);
-      
+
             for (long long j=i*i; j<=n; j+=i) {
                 primesEratosthenes[j] = false;
             }
         }
     }
- 
+
     fclose(pFile);
 }
- 
+
 int main(int argc, char* argv[]) {
     if (argc != 2) {
         cout << "You have to specify n" << endl;
@@ -331,7 +331,7 @@ Arthur Oliver Lonsdale Atkin (July 31, 1925 &ndash; December 28, 2008) was a Bri
 #include <stdio.h> // fopen
 #include <iostream> // atoi
 #include <vector>
-#include <cmath> // sqrt, ceil, 
+#include <cmath> // sqrt, ceil,
 
 using namespace std;
 
@@ -344,7 +344,7 @@ void sieveOfAtkin(long long limit) {
     // initialize the sieve
 	vector<bool> is_prime(limit, false);
 
-    // put in candidate primes: 
+    // put in candidate primes:
     // integers which have an odd number of
     // representations by certain quadratic forms
 	for (long long x = 1; x <= root; x++) {

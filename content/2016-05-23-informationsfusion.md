@@ -42,7 +42,7 @@ Signal, usw. eingeführt.
     <dd>Ein Merkmal ist eine beobachtbare oder physikalisch messbare Eigenschaft eines oder mehrerer Objekte.</dd>
     <dt><dfn>Vorraussetzungen für Informationsfusion</dfn></dt>
     <dd>
-        
+
         <ul>
             <li>Gemeinsamer Sachverhalt
             <ul>

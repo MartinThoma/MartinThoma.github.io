@@ -3,9 +3,9 @@ layout: post
 title: Python, GTK and Glade
 author: Martin Thoma
 date: 2014-11-22 17:19
-categories: 
+categories:
 - Code
-tags: 
+tags:
 - Python
 - GTK
 - Glade
@@ -52,4 +52,3 @@ If this works, the installation went fine. If not, you should ask for help
 * [Python GI API Reference](http://lazka.github.io/pgi-docs/index.html#Gtk-3.0)
 
 http://www.pygtk.org/articles/pygtk-glade-gui/Creating_a_GUI_using_PyGTK_and_Glade.htm
-

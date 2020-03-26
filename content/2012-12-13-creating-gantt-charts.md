@@ -168,7 +168,7 @@ creates
 
 Full source is <a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/gantt">here</a>.
 
-Although the result looks very nice, I don't think LaTeX is an optimal solution for Gantt charts of software projects. Yes, you get a great result. But it takes a lot of time and after a week or so this particular chart is definitely outdated. You can't add more information directly as you could do it with HTML tooltips. I don't know if you can produce a linked PDF, but I guess this would be quite a lot of manual work. 
+Although the result looks very nice, I don't think LaTeX is an optimal solution for Gantt charts of software projects. Yes, you get a great result. But it takes a lot of time and after a week or so this particular chart is definitely outdated. You can't add more information directly as you could do it with HTML tooltips. I don't know if you can produce a linked PDF, but I guess this would be quite a lot of manual work.
 
 <h2>More tools</h2>
 <a href="http://www.projectlibre.org/">ProjectLibre</a> was recommended to me, but it is not in the Ubuntu repository ☹

@@ -7,7 +7,7 @@ author: Martin Thoma
 date: 2014-03-20 21:09
 category: Review
 tags: Review, Restaurant
-featured_image: 
+featured_image:
 ---
 
 3 of 5 stars

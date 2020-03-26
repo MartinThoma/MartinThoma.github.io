@@ -11,7 +11,7 @@ I've talked today with a fellow student about some system internals and we weren
 
 <h2>General Information</h2>
 It is important to know that I will use <strong>AT&T syntax</strong> in this article!
-This is AT&T Syntax: 
+This is AT&T Syntax:
 ```text
 movl %esp, %ebp
 ```
@@ -59,7 +59,7 @@ Many instructions have suffixes. This is what they mean<small><sup><a href="#ref
 
 <h2>Simple example</h2>
 <h3>C-Code</h3>
-This program simply outputs 
+This program simply outputs
 ```c
 #include <stdio.h>
 

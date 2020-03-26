@@ -18,4 +18,3 @@ systems providing commodities and services essential to enable, sustain, or
 enhance societal living conditions."
 
 Source: [Wikipedia](https://en.wikipedia.org/w/index.php?title=Infrastructure&oldid=729069435)
-

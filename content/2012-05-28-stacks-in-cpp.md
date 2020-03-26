@@ -24,7 +24,7 @@ int main(){
 	cout << "Size of stack: " << myStack.size() << endl;
 
 	myStack.push(4);
-	
+
 	// get the element on the top
 	cout << "Top: " << myStack.top() << endl;
 

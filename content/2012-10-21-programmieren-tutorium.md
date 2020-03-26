@@ -39,7 +39,7 @@ Aber hier sind <a href="../learning-java/">Video-Tutorials</a> zu finden.
 
 Ich habe gerade <a href="http://www.javatutorialhub.com/java-platform.html">javatutorialhub.com</a> gefunden. Das erweckt auch einen guten ersten Eindruck.
 
-Auf Udacity, einer Online-Universität, gibt es eine <a href="https://www.udacity.com/course/cs046">Einführung in die Programmierung mit Java</a>. 
+Auf Udacity, einer Online-Universität, gibt es eine <a href="https://www.udacity.com/course/cs046">Einführung in die Programmierung mit Java</a>.
 
 <h2>Artikel</h2>
 Ich habe ein paar Artikel geschrieben, die für euch interessant sein könnten:

@@ -5,7 +5,7 @@ author: Martin Thoma
 date: 2014-12-30 21:30
 category: German posts
 tags: mathematics
-featured_image: 
+featured_image:
 ---
 
 <div class="info">This is a quick article I had for quite a while as a draft.

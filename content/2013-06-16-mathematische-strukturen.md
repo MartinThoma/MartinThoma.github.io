@@ -130,7 +130,7 @@ Beispiele:
 <h2>Modul</h2>
 <div class="definition">Sei $(R, +_R, \cdot_R)$ ein Ring und $(M, +_M)$ eine kommutative Gruppe.
 
-Au&szlig;erdem sei 
+Au&szlig;erdem sei
 
 $\cdot_V: R \times M \rightarrow M$
 
@@ -154,7 +154,7 @@ Beispiele:
 
 <h2>Vektorraum</h2>
 <div class="definition">Sei $(K, +_K, \cdot_K)$ ein K&ouml;rper und $(V,+_V)$ eine kommutative Gruppe.
-Au&szlig;erdem sei 
+Au&szlig;erdem sei
 
 $\cdot_V: K \times V \rightarrow V$
 
@@ -196,7 +196,7 @@ Beispiele:
 </ul>
 
 <h3>Integrit&auml;tsring</h3>
-<div class="definition">Es sei $R$ ein vom Null-Ring verschiedener Ring. 
+<div class="definition">Es sei $R$ ein vom Null-Ring verschiedener Ring.
 
 $R$ hei&szlig;t integrit&auml;tsring $:\Leftrightarrow R$ ist kommuativ und Nullteilerfrei.</div>
 
@@ -206,7 +206,7 @@ Beispiele:
 </ul>
 
 <h3>Hauptidealring</h3>
-<div class="definition">Es sei $R$ ein Integrit&auml;tsring. 
+<div class="definition">Es sei $R$ ein Integrit&auml;tsring.
 
 $R$ hei&szlig;t Hauptidealring $:\Leftrightarrow$ Jedes Ideal $I \subseteq R$ ist ein Hauptideal.</div>
 
@@ -223,7 +223,7 @@ Beispiele:
 <h3>Ideal</h3>
 <div class="definition">Sei $(R, +, \cdot)$ ein Ring und $I \subseteq R$.
 
-$I$ hei&szlig;t Ideal $:\Leftrightarrow$ 
+$I$ hei&szlig;t Ideal $:\Leftrightarrow$
 <ol style="list-style-type:lower-roman">
   <li>$(I, +)$ ist eine Gruppe,</li>
   <li>$\forall r \in R \forall a \in I: r \cdot a \in I$ und</li>

@@ -70,7 +70,7 @@ First, take a look at statements of this structure:
 ```java
 i += s
 ```
-where <code>i</code> is the integer and s is a statement (e.g. <code>++i</code>). This gets evaluated to 
+where <code>i</code> is the integer and s is a statement (e.g. <code>++i</code>). This gets evaluated to
 ```java
 i = a + s
 ```

@@ -34,7 +34,7 @@ Nun $\mathbb{Z}[\sqrt{z}] \subseteq A$:
 <li>$(A, \cdot)$ ist Untermonoid von $(\mathbb{R}, \cdot)$, denn
   <ul>
     <li>$1 = 1 + 0 \sqrt{z} \in A$</li>
-    <li>$\forall (a+b \sqrt{z}), (c + d \sqrt{z}) \in A:$ 
+    <li>$\forall (a+b \sqrt{z}), (c + d \sqrt{z}) \in A:$
         $(a+b\sqrt{z}) \cdot (c+ d\sqrt{z}) = \underbrace{(ac + z bd)}_{\in \mathbb{Z}} + \underbrace{(ad + bc)}_{\in \mathbb{Z}} \sqrt{z} \in A$</li>
   </ul>
 </li>

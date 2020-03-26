@@ -7,7 +7,7 @@ category: Code
 tags: mathematics, numerical analysis, JavaScript, numerics, polynomial, canvas
 featured_image: 2013/06/polynom.png
 ---
-Suppose you have a list of $n+1$ given point $(x_i, y_i)$ with $i \in \{0, \dots, n\}$ and $\forall i,j \in \{0, \dots, n\}: i \neq j \Rightarrow x_i \neq x_j$. 
+Suppose you have a list of $n+1$ given point $(x_i, y_i)$ with $i \in \{0, \dots, n\}$ and $\forall i,j \in \{0, \dots, n\}: i \neq j \Rightarrow x_i \neq x_j$.
 
 Now you want to find a polynomial $\displaystyle p(x) = \sum_{i=0}^n a_i \cdot x^i$ that goes through all of the given points. This means:
 
@@ -31,7 +31,7 @@ a_0 \\
 \vdots \\
 a_n
 \end{pmatrix}
-= 
+=
 \begin{pmatrix}
 y_0 \\
 \vdots \\
@@ -85,7 +85,7 @@ def pprintPolynomial(A):
 
 
 def gauss(A):
-    """ Solve a linear sysem of equations given by a n&times;n matrix 
+    """ Solve a linear sysem of equations given by a n&times;n matrix
         with a result vector n&times;1. """
     n = len(A)
 
@@ -123,7 +123,7 @@ def gauss(A):
 
 
 def setGauss(points):
-    """ Create a system of equations for gaussian elimination from 
+    """ Create a system of equations for gaussian elimination from
         a set of points. """
     n = len(points) - 1
     A = [[0 for i in range(n + 2)] for j in range(n + 1)]
@@ -174,7 +174,7 @@ Space complexity for the polynomial: $\mathcal{O}(n^2)$ (where $n$ is the number
 Time complexity to evaluate the value of $p(x)$ for any $x \in \mathbb{R}$: $\mathcal{O}(n)$.
 
 <h2>Polynomials</h2>
-$\displaystyle \mathbb{R}_n[X] := \left \{p:\mathbb{R} \rightarrow \mathbb{R} | p(x) = \sum_{i=0}^n a_i \cdot x^i \text{ with } a_0, \dots, a_n \in \mathbb{R} \right \}$ 
+$\displaystyle \mathbb{R}_n[X] := \left \{p:\mathbb{R} \rightarrow \mathbb{R} | p(x) = \sum_{i=0}^n a_i \cdot x^i \text{ with } a_0, \dots, a_n \in \mathbb{R} \right \}$
 
 So $\mathbb{R}_n[X]$ are all polynomials with real coefficients and degree not higher than latex]n$. $\mathbb{R}_n[X]$ forms a vector space for $n \in \mathbb{N}_0$. The degree of that vector space is $n+1$.
 
@@ -236,7 +236,7 @@ Define
 
 $\displaystyle N_i(x) := \prod_{j=0}^{i-1} (x-x_j)$
 
-So you know that 
+So you know that
 
 $N_i(x) = 0 \Leftrightarrow \exists p \in \{1, \dots, i\}: x = x_{i-p}$
 

@@ -10,13 +10,13 @@ featured_image: logos/ai.png
 
 pfile is a binary file format that is used in
 <abbr title="Automatic Speech Recognition">ASR</abbr>
-for storing feature vectors and their corresponding labels. 
+for storing feature vectors and their corresponding labels.
 This file format is sometimes also called
 <abbr title="International Computer ScienceInstitute">ICSI</abbr>
 feature file archive format. But this file format cannot be used for ASR only,
 but also for many other <abbr title="Machine Learning">ML</abbr> tasks.
 
-> The file consists of a fixed length ascii header followed by zero or more 
+> The file consists of a fixed length ascii header followed by zero or more
 variable length binary sections. Each parameter in the header has a name and a
 list of zero or more value strings. The programmer's interface to pfiles (see
 param.h and pfile.h) allows each parameter value to be interpreted as integer,
@@ -29,7 +29,7 @@ of the pfile. The value strings for these parameters give the size and offset
 > A binary section can be used as a one dimensional sequence of values, or as a
 > sequence of fixed length rows in a two dimensional matrix.
 >
->Some parameters are automatically added by the pfile command. For example, 
+>Some parameters are automatically added by the pfile command. For example,
 > pfile_header is a parameter that contains the length and version number of
 > the header.
 
@@ -37,7 +37,7 @@ Source: [old-site.clsp.jhu.edu/ws96/ris/man/pfile.doc](http://old-site.clsp.jhu.
 
 ## pfile_utils
 
-`pfile_utils` is a toolset to manage pfiles. It is part of the 
+`pfile_utils` is a toolset to manage pfiles. It is part of the
 [SPRACHcore software package](http://www1.icsi.berkeley.edu/~dpwe/projects/sprach/sprachcore.html).
 The project is located at
 [code.google.com/p/pfile-utilities](https://code.google.com/p/pfile-utilities)

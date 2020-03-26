@@ -3,11 +3,11 @@ layout: post
 title: Learning Python
 author: Martin Thoma
 date: 2013-11-10 03:55:31
-categories: 
+categories:
 - Code
-tags: 
+tags:
 - Python
-featured_image: 
+featured_image:
 ---
 <h2>Install Python</h2>
 Python is already installed on most Linux systems. Just type <code>python --version</code> in terminal to test if you have Python.

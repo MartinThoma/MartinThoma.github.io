@@ -23,9 +23,9 @@ As you can see, you can construct this quite easily on paper:
   <li>The endpoint is $P'$.</li>
 </ol>
 
-How can you do that without drawing it? 
+How can you do that without drawing it?
 
-First you have to get the perpendicular $s(x) = m_s \cdot x + t$ (the dashed red line). 
+First you have to get the perpendicular $s(x) = m_s \cdot x + t$ (the dashed red line).
 
 You have to know this: $m_s = - \frac{1}{m}$
 And then you know that $P$ is on $s$. So you simply put in the values $x,y$ of P and solve to $t$:

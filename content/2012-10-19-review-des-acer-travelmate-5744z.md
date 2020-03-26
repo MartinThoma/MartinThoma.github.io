@@ -37,7 +37,7 @@ edit: *argh* - also mit Ubuntu 12.04 (und Lubuntu 12.04 sowie Ubuntu mit Gnome/G
 
 <strong>Weiteres</strong>:
 <ul>
-  <li>Acer Nplify 802.11b/g/n: 
+  <li>Acer Nplify 802.11b/g/n:
 <blockquote>Acer Nplify, a high-throughput wireless solution, delivers superior performance and reliable connections while enabling emerging voice, video and data applications.</blockquote>
 </li>
   <li>SD-Kartenleser</li>

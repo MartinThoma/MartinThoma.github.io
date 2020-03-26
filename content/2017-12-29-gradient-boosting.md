@@ -16,4 +16,3 @@ See the following video "Ensembles (3): Gradient Boosting" by Prof. Alexander
 Ihler of the University of California for more information:
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/sRktKszFmSk" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-

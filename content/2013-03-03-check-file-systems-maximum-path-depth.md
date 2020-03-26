@@ -56,7 +56,7 @@ int main () {
 Now run it:
 ```bash
 
-$ time ./createDirectories 
+$ time ./createDirectories
 
 return code		: -1
 Created sub-directories	: 1018
@@ -75,7 +75,7 @@ Ok, something went wrong at the end. Lets see what crashes when I enter this pat
 $ cd one/one/one .... one/
 $ mkdir two
 $ cd two
-cd: error retrieving current directory: getcwd: cannot access 
+cd: error retrieving current directory: getcwd: cannot access
     parent directories: File name too long
 
 ```
@@ -92,7 +92,7 @@ Then I've opened the folder "one" and double clicked as fast as I could. CPU uti
 When I use a single character for sub-directories, I get:
 ```bash
 
-moose@pc07:~/Desktop/Test$ ./createDirectories 
+moose@pc07:~/Desktop/Test$ ./createDirectories
 return code		: -1
 Created sub-directories	: 2036
 length of pathname	: 4096

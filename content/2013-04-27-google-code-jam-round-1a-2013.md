@@ -61,7 +61,7 @@ while($line = fgets ($fp)) {
 ```
 
 <h3>Large</h3>
-*Argh* I've copied the wrong equation from my pad to my computer 
+*Argh* I've copied the wrong equation from my pad to my computer
 
 You basically have to solve this:
 \begin{align}
@@ -146,7 +146,7 @@ def canBeIn(b, candidates, N):
     return not (len(merged) > N)
 
 
-""" 
+"""
     N: number of numbers in total that got randomly picked
     M: A_i in [2, M]
 """

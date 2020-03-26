@@ -142,7 +142,7 @@ Wikipedia says:
 > YAML (rhymes with camel) is a human-readable data serialization format that
 > takes concepts from programming languages such as C, Perl, and Python, and
 > ideas from XML and the data format of electronic mail (RFC 2822). YAML was
-> first proposed by Clark Evans in 2001, who designed it together with 
+> first proposed by Clark Evans in 2001, who designed it together with
 > Ingy döt Net and Oren Ben-Kiki.
 > It is available for several programming languages.
 

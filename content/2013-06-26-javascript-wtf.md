@@ -24,9 +24,9 @@ console.log(3..toString());
 ```
 
 <strong>Explanation</strong>
-<strong>3.</strong> is a floating point and can get converted to a string. But <code>3.toString()</code> gives 
+<strong>3.</strong> is a floating point and can get converted to a string. But <code>3.toString()</code> gives
 ```bash
-SyntaxError: Unexpected token ILLEGAL 
+SyntaxError: Unexpected token ILLEGAL
 ```
 
 <h2>Weak typing and string concatenation</h2>
@@ -45,7 +45,7 @@ console.log('5' - 3);
 ```
 
 <strong>Explanation</strong>
-JavaScript automatically converts datatypes and <code>+</code> is used for string concatenation and for addition. 
+JavaScript automatically converts datatypes and <code>+</code> is used for string concatenation and for addition.
 
 In the first case, as the first datatype is a string and <code>+</code> is defined for strings as concatenation, JS converts <code>3</code> to <code>'3'</code> which results in the string <code>'53'</code>.
 
@@ -332,7 +332,7 @@ console.log(futureDate.getYear());
 
 <strong>Output</strong>
 ```bash
-Tue Nov 01 2016 00:00:00 GMT+0100 (CET) 
+Tue Nov 01 2016 00:00:00 GMT+0100 (CET)
 116
 ```
 
@@ -351,7 +351,7 @@ console.log(111111111111111111111);
 
 <strong>Output</strong>
 ```bash
-111111111111111110000 
+111111111111111110000
 ```
 
 <strong>Explanation</strong>
@@ -391,7 +391,7 @@ console.log(a);
 ```
 
 <strong>Explanation</strong>
-When you forget to use <code>var</code> inside of <code>test()</code> you might accidentally use a global variable. 
+When you forget to use <code>var</code> inside of <code>test()</code> you might accidentally use a global variable.
 
 <h2>See also</h2>
 Do you know some more JavaScript WTFs?

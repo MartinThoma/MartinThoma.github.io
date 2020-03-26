@@ -47,25 +47,25 @@ $$
 1 & 2 & 3\\
 4 & 5 & 6\\
 7 & 8 & 9
-\end{pmatrix} 
+\end{pmatrix}
 \leadsto
 \begin{pmatrix}
 1 &  2 &  3\\
 0 & -3 & -6\\
 0 & -6 & -12
-\end{pmatrix} 
+\end{pmatrix}
 \leadsto
 \begin{pmatrix}
 1 & 2 & 3\\
 0 & 1 & 2\\
 0 & 1 & 2
-\end{pmatrix} 
+\end{pmatrix}
 \leadsto
 \begin{pmatrix}
 1 & 0 & -1\\
 0 & 1 &  2\\
 0 & 0 &  0
-\end{pmatrix} 
+\end{pmatrix}
 $$
 
 Man sieht direkt, dass die Matrix den Rang 2 hat. Also muss der L&ouml;sungsraum 1-dimensional sein. Mit dem -1-Trick kommt nam auf den L&ouml;sungsraum:
@@ -75,7 +75,7 @@ $$\mathcal{L} = \left [
 -1\\
 2\\
 -1
-\end{pmatrix} 
+\end{pmatrix}
 \right ]$$
 
 Also:
@@ -85,7 +85,7 @@ $$\text{Kern } \Phi = \left [
 -1\\
 2\\
 -1
-\end{pmatrix} 
+\end{pmatrix}
 \right ]$$
 
 <h2>Beispiel #2</h2>
@@ -120,7 +120,7 @@ x_2 \\
 x_3 \\
 x_4 \\
 x_5
-\end{pmatrix} = 
+\end{pmatrix} =
 \begin{pmatrix}
 0 \\
 0 \\
@@ -129,7 +129,7 @@ x_5
 0
 \end{pmatrix}$$
 
-$$\leadsto 
+$$\leadsto
 \begin{pmatrix}
 -1 & -1 & -2 & -2 & -1\\
 3  &  0 &  2 &  1 &  2\\
@@ -137,7 +137,7 @@ $$\leadsto
 -1 & -1 & -2 & -2 & -1\\
  2 &  1 &  3 &  3 &  2
 \end{pmatrix}
-\leadsto 
+\leadsto
 \begin{pmatrix}
 -1 & -1 & -2 & -2 & -1\\
  0 & -3 & -4 & -5 & -4\\
@@ -146,7 +146,7 @@ $$\leadsto
  0 & -1 & -1 & -1 &  0
 \end{pmatrix}$$
 
-$$\leadsto 
+$$\leadsto
 \begin{pmatrix}
  1 &  1 &  2 &  2 &  1\\
  0 &  1 &  1 &  1 &  0\\
@@ -154,7 +154,7 @@ $$\leadsto
  0 &  0 &  0 &  0 &  0\\
  0 &  0 &  0 &  0 &  0
 \end{pmatrix}
-\leadsto 
+\leadsto
 \begin{pmatrix}
  1 &  0 &  0 & -1 &  0\\
  0 &  1 &  0 & -1 & -1\\

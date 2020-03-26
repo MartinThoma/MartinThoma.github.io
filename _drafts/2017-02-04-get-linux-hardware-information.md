@@ -105,7 +105,7 @@ or
 
 ```bash
 $ sudo lshw -class multimedia
-  *-multimedia            
+  *-multimedia
        description: Audio device
        product: 5 Series/3400 Series Chipset High Definition Audio
        vendor: Intel Corporation
@@ -180,7 +180,7 @@ or
 
 ```bash
 $ sudo lshw -class cpu
-  *-cpu                   
+  *-cpu
        description: CPU
        product: Intel(R) Pentium(R) CPU        P6200  @ 2.13GHz
        vendor: Intel Corp.
@@ -222,7 +222,7 @@ Or
 
 ```bash
 sudo lshw -class display
-  *-display               
+  *-display
        description: VGA compatible controller
        product: Core Processor Integrated Graphics Controller
        vendor: Intel Corporation
@@ -247,7 +247,7 @@ $ nvidia-smi
 ```bash
 $ /usr/lib/nux/unity_support_test -p
 OpenGL vendor string:   Intel Open Source Technology Center
-OpenGL renderer string: Mesa DRI Intel(R) Ironlake Mobile 
+OpenGL renderer string: Mesa DRI Intel(R) Ironlake Mobile
 OpenGL version string:  2.1 Mesa 9.2.1
 
 Not software rendered:    yes
@@ -330,8 +330,8 @@ $ sudo lspci -v -s 02:00.0
 or
 
 ```bash
-$ sudo lshw -class network   
-  *-network               
+$ sudo lshw -class network
+  *-network
        description: Wireless interface
        product: AR9485 Wireless Network Adapter
        vendor: Qualcomm Atheros

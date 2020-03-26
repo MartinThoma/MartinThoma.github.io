@@ -65,7 +65,7 @@ Ein symmetrisches Verschlüsselungsverfahren ist semantisch sicher, wenn es für
 vernachlässigbar (als Funktion im Sicherheitsparameter <span markdown="0">$K$</span>) ist.
 </div>
 
-Hier ist 
+Hier ist
 <ul>
   <li><span markdown="0">$M$</span> eine Nachricht (Message),</li>
   <li><span markdown="0">$\text{Enc(K, M)}$</span>  die Verschlüsselung einer konkreten Nachricht <span markdown="0">$M$</span> mit dem Schlüssel <span markdown="0">$K$</span>,</li>

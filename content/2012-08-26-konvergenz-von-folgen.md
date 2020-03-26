@@ -9,7 +9,7 @@ featured_image: 2012/08/limes-thumbnail.png
 ---
 <div class="definition">Sei $(a_n)$ eine Folge.
 
-$(a_n)$ hei&szlig;t <strong>konvergent</strong> $:\Leftrightarrow \exists_{a \in \mathbb{R}} \forall_{ \varepsilon > 0} \exists_{n_0 = n_0(\varepsilon) \in \mathbb{N}}: |a_n - a | < \varepsilon~~~\forall n \geq n_0$. 
+$(a_n)$ hei&szlig;t <strong>konvergent</strong> $:\Leftrightarrow \exists_{a \in \mathbb{R}} \forall_{ \varepsilon > 0} \exists_{n_0 = n_0(\varepsilon) \in \mathbb{N}}: |a_n - a | < \varepsilon~~~\forall n \geq n_0$.
 
 In diesem Fall hei&szlig;t a der <strong>Grenzwert</strong> von $(a_n)$ und man schreibt:
 $\displaystyle \lim_{n \rightarrow \infty} (a_n) = a$.

@@ -17,7 +17,7 @@ Der Mond ist leicht. Er &uuml;bt deshalb eine weitaus geringere Anziehungskraft 
 ### Definitionen und Gr&ouml;&szlig;en
 Die <a href="http://de.wikipedia.org/wiki/Atmosph%C3%A4re_(Astronomie)">Atmosph&auml;re</a> bezeichnet die gasf&ouml;rmige H&uuml;lle um einen Himmelsk&ouml;rper.
 
-Die <a href="http://de.wikipedia.org/wiki/Fluchtgeschwindigkeit#Zweite_kosmische_Geschwindigkeit_oder_Fluchtgeschwindigkeit">Fluchtgeschwindigkeit</a> 
+Die <a href="http://de.wikipedia.org/wiki/Fluchtgeschwindigkeit#Zweite_kosmische_Geschwindigkeit_oder_Fluchtgeschwindigkeit">Fluchtgeschwindigkeit</a>
 
 Der Mond hat Temperaturen von bis zu 130 &deg;C. Das sind 403,15 Kelvin.
 Die Masse des <a href="http://de.wikipedia.org/wiki/Mond">Mondes</a> betr&auml;gt $7,349 \cdot 10^{22} kg$, der Radius betr&auml;gt 1738 km.

@@ -10,7 +10,7 @@ featured_image: 2012/11/Karlsruhe.png
 Da ich mein Erstwohnsitz inzwischen Karlsruhe ist, darf ich hier w&auml;hlen. Am Sonntag, den 2. Dezember 2012 ist die Wahl des Oberb&uuml;rgermeisters in Karlsruhe. Seit 1970 wird dieses Amt von einem CDU'ler besetzt.<small><sup><a href="#ref1" name="anchor1">[1]</a></sup></small> <a href="http://de.wikipedia.org/wiki/Heinz_Fenrich">Heinz Fenrich</a> (CDU) ist seit 1998 im Amt, hat aber die Altersgrenze erreicht und kann somit nicht wieder gew&auml;hlt werden.
 
 <h2>Die Kandidaten</h2>
-Die UStA hat den 7 Kandidaten einige Fragen gestellt und kurze Informationen bereitgestellt (<a href="http://www.usta.de/wiki/buergermeisterwahl2012">Link</a> - Vielen Dank daf&uuml;r!). 
+Die UStA hat den 7 Kandidaten einige Fragen gestellt und kurze Informationen bereitgestellt (<a href="http://www.usta.de/wiki/buergermeisterwahl2012">Link</a> - Vielen Dank daf&uuml;r!).
 
 Hier mal das Interessanteste:
 
@@ -113,7 +113,7 @@ alias &bdquo;Herr Kruscht&ldquo;
   <tr><td>Wikipedia</td><td><a href="http://de.wikipedia.org/wiki/Ingo_Wellenreuther">Link</a></td></tr>
 </table>
 
-Ist gegen die U-Bahn, m&ouml;chte das Karlsruher Rathaus auf den Werderplatz bauen. 
+Ist gegen die U-Bahn, m&ouml;chte das Karlsruher Rathaus auf den Werderplatz bauen.
 &bdquo;Das jetzige Rathaus soll eine Kindertagesst&auml;tte werden und die S&uuml;dstadt eine eigenst&auml;ndige Stadt.&ldquo;
 Herabsenkung des Wahlalters auf 16 Jahre.
 

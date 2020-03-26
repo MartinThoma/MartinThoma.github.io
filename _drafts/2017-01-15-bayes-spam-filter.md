@@ -3,11 +3,11 @@ layout: post
 title: How to build a spam filter with Bayes filter
 author: Martin Thoma
 date: 2013-08-05 12:55:38
-categories: 
+categories:
 - Code
-tags: 
+tags:
 - probability
-featured_image: 
+featured_image:
 ---
 For a Bayes filter, you need training data. So you need emails that are labeled as "ham" and others that are labeled as "spam".
 

@@ -7,7 +7,7 @@ category: My bits and bytes
 tags: LaTeX
 featured_image: logos/latex.png
 ---
-It's crazy how much time I have wasted today just for searching for a working example how to plot a function within LaTeX. Here are two complete examples which worked for me. 
+It's crazy how much time I have wasted today just for searching for a working example how to plot a function within LaTeX. Here are two complete examples which worked for me.
 
 I have used this command to generate the PDF-file:
 
@@ -44,9 +44,9 @@ pdflatex latex.tex -output-format=pdf
         </figure>
 ```latex
 \documentclass{article}
- 
+
 \usepackage{tikz}
- 
+
 \begin{document}
     \begin{tikzpicture}
           \draw[very thin,color=gray] (0.0,0.0) grid (1.8,3.8);
@@ -57,7 +57,7 @@ pdflatex latex.tex -output-format=pdf
           \draw [domain=0:1/3,red] plot (\x,3*3*\x);
           \draw [domain=1/3:2/3,red] plot (\x,2*3-3*3*\x);
           \draw [domain=2/3:1.5,red] plot (\x,0);
- 
+
           \draw [domain=0:1/4,orange] plot (\x,4*4*\x);
           \draw [domain=1/4:2/4,orange] plot (\x,2*4-4*4*\x);
           \draw [domain=2/4:1.5,orange] plot (\x,0);

@@ -68,7 +68,7 @@ Copy and paste the following:
     	<style id="hexadecimal" 	_name="Hexadecimal number" 	map-to="def:base-n-integer"/>
 	<style id="label"		_name="Label"			map-to="def:identifier" />
     </styles>
-    
+
     <default-regex-options case-sensitive="false"/>
 
     <definitions>
@@ -79,7 +79,7 @@ Copy and paste the following:
         </define-regex>
 
         <context id="mal">
-            <include>	
+            <include>
 		<context id="preprocessor" style-ref="preprocessor">
 			<prefix>^\.</prefix>
 			<keyword>data</keyword>
@@ -129,7 +129,7 @@ Copy and paste the following:
                     </match>
                 </context>
 
-                <context id="registers" style-ref="register">			
+                <context id="registers" style-ref="register">
 			<match extended="true">
 				(\$
 					(
@@ -143,7 +143,7 @@ Copy and paste the following:
 						(zero)
 					)
 				)\b
-			</match>			
+			</match>
                 </context>
 
 		<context id="label" style-ref="label">
@@ -208,8 +208,8 @@ Copy and paste the following:
 			<keyword>done</keyword>
 			<keyword>syscall</keyword>
 			<keyword>andi</keyword>
-                </context>                               
-                
+                </context>
+
                 <context id="types" style-ref="type">
 			<prefix>\.</prefix>
 			<keyword>byte</keyword>
@@ -217,7 +217,7 @@ Copy and paste the following:
 			<keyword>asciiz</keyword>
 			<keyword>ascii</keyword>
 			<keyword>float</keyword>
-                </context>         
+                </context>
             </include>
         </context>
     </definitions>

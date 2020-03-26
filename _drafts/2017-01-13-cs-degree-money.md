@@ -3,12 +3,12 @@ layout: post
 title: How much is a Computer Science degree worth in Germany?
 author: Martin Thoma
 date: 2011-12-24 03:47:09
-categories: 
+categories:
 - My bits and bytes
-tags: 
+tags:
 - jobs
 - working
-featured_image: 
+featured_image:
 ---
 You have quite a lot of possible employers if you have a bachelor or a master in computer science:
 
@@ -17,7 +17,7 @@ You have quite a lot of possible employers if you have a bachelor or a master in
 [caption id="attachment_10331" align="alignright" width="128" caption="BND"]<a href="../images/2011/12/BND.png"><img src="../images/2011/12/BND.png" alt="BND" title="BND" width="128" height="128" class="size-full wp-image-10331" /></a>[/caption]
 You can work in the "<a href="http://www.bnd.bund.de/cln_092/nn_1365898/DE/JobsUndKarriere/Hoeherer__Dienst/Hoeherer__Dienst__node.html?__nnn=true">Höherer Dienst</a>" (<a href="http://de.wikipedia.org/wiki/H%C3%B6herer_Dienst">Wiki</a>)
 
-If you have a Bachelor and you know something about IT-Security, Windows, Linux, Office, your English is good and you are willing to travel you could work for the BND. You have to be German for this job. You would get your money according to the "<a href="http://de.wikipedia.org/wiki/Tarifvertrag_f%C3%BCr_den_%C3%B6ffentlichen_Dienst">Tarifvertrag für den öffentlichen Dienst</a> (TVöD) in der Entgeltgruppe 10" - which is 2,578 Euro/month in your first year and about 3,789 Euro after 15 years.  
+If you have a Bachelor and you know something about IT-Security, Windows, Linux, Office, your English is good and you are willing to travel you could work for the BND. You have to be German for this job. You would get your money according to the "<a href="http://de.wikipedia.org/wiki/Tarifvertrag_f%C3%BCr_den_%C3%B6ffentlichen_Dienst">Tarifvertrag für den öffentlichen Dienst</a> (TVöD) in der Entgeltgruppe 10" - which is 2,578 Euro/month in your first year and about 3,789 Euro after 15 years.
 
 Tarifliche Sonderzulagen können ggf. gewährt werden. Die Möglichkeit einer späteren Verbeamtung ist gegeben.
 

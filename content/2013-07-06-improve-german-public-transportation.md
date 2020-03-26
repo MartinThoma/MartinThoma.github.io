@@ -99,15 +99,15 @@ Martin Thoma</blockquote>
 
 Answer from 08.07.2013:
 <blockquote>Sehr geehrter Herr Thoma,
- 
+
 bitte entschuldigen Sie die sp&auml;te Antwort.
- 
+
 Vielen Dank f&uuml;r Ihre Email, Ihre Kooperationsanfrage ist bei uns eingegangen. Wir freuen uns sehr, dass Sie mit MeinFernbus.de, dem Marktf&uuml;hrer im deutschen Fernbusverkehr, zusammenarbeiten m&ouml;chten.
- 
+
 Wir pr&uuml;fen gerne eine entsprechende Zusammenarbeit. Zu gegebener Zeit setzt sich unser Kooperationsmanager mit Ihnen in Verbindung. Aufgrund der Vielzahl eingehender Anfragen bitten wir Sie zun&auml;chst noch um etwas Geduld.
- 
+
 Vielen Dank f&uuml;r Ihr Verst&auml;ndnis, herzliche Gr&uuml;&szlig;e aus der Hauptstadt
-               
+
 Friederike Freytag</blockquote>
 
 

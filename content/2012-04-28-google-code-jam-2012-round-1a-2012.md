@@ -184,7 +184,7 @@ if __name__ == "__main__":
 ```
 
 <h2>Cruise Controll</h2>
-Only 22 people have a perfect solution for this one. 
+Only 22 people have a perfect solution for this one.
 
 This is the solution of royf:
 ```python

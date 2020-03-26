@@ -13,6 +13,6 @@ I am very interested in the development of Google+. As I am also quite active on
 
 if there wouldn't be so many reverts / minor edits. Most edits I get informed of are either bot-edits (The article is now available in Tiếng Việt! Fantastic!) or simply reverted after a few hours.
 
-I'm searching for a tool which reads my feed and generates a new feed. This new feed should contain only messages when relevant changes were made. Does something like this already exist? Does somebody want to invent such a web service? 
+I'm searching for a tool which reads my feed and generates a new feed. This new feed should contain only messages when relevant changes were made. Does something like this already exist? Does somebody want to invent such a web service?
 
 At the moment I don't have the time to do it myself, so I tagged this post with "idea". If you're searching for an idea for a new project, just take a look at those topics.

@@ -16,7 +16,7 @@ Sometimes I would like to create a single picture with Tikz for later usage on W
 \documentclass[varwidth=true, border=2pt]{standalone}
 
 \usepackage{tikz}
-\usetikzlibrary{arrows,positioning} 
+\usetikzlibrary{arrows,positioning}
 
 \begin{document}
 \begin{tikzpicture}
@@ -34,7 +34,7 @@ Sometimes I would like to create a single picture with Tikz for later usage on W
 \setlength\PreviewBorder{2mm}
 
 \usepackage{tikz}
-\usetikzlibrary{arrows,positioning} 
+\usetikzlibrary{arrows,positioning}
 
 \begin{document}
 \begin{preview}

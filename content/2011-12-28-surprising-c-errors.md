@@ -132,7 +132,7 @@ int main()
     printf("Characters: %i\n", strlen(myArray));
     strcpy(myArray, "abc");
     printf("Characters: %i\n", strlen(myArray));
-    strcpy(myArray, "Hello World!"); 
+    strcpy(myArray, "Hello World!");
     printf("Characters: %i\n", strlen(myArray));
     printf("String: -%s-\n", myArray);
     printf("Size: %i Byte\n\n", sizeof(myArray));

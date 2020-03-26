@@ -107,26 +107,26 @@ Die .gv sieht so aus:
 digraph finite_state_machine {
     rankdir=LR;
     size="8,5"
- 
+
     node [shape = doublecircle, label="{S}"] S;
     node [shape = doublecircle, label="{q1, S}"] q1S;
- 
+
     node [shape = circle, label="{q2}"] q2;
     node [shape = circle, label="{q1, q2}"] q1q2;
     node [shape = circle, label="{}"] T;
- 
+
     node [shape = point ]; qi
     qi -> S;
- 
+
     S   -> q1S   [ label = "a" ];
     S   -> T     [ label = "b" ];
- 
+
     q1S -> q1S   [ label = "a"];
     q1S -> q2    [ label = "b"];
- 
+
     q2  -> T     [ label = "a"];
     q2  -> q1q2  [ label = "b"];
- 
+
     q1q2 -> S    [ label = "a"];
     q1q2 -> q1q2 [ label = "b"];
 

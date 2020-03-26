@@ -311,7 +311,7 @@ Das entspricht $G_1$. Das sieht man, wenn man ...
  <li>... die Spalte a und b tauscht</li>
  <li>... die Zeilen a und b tauscht</li>
  <li>... die Elemente a und b tauscht</li>
-</ol> 
+</ol>
 
 <h4>#2: b auf (1, 1)</h4>
 <table>
@@ -434,4 +434,4 @@ Das entspricht $G_1$. Das sieht man, wenn man ...
  <li>... die Spalte b und c tauscht</li>
  <li>... die Zeilen b und c tauscht</li>
  <li>... die Elemente b und c tauscht</li>
-</ol> 
+</ol>

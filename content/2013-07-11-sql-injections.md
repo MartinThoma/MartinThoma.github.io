@@ -7,7 +7,7 @@ category: Code
 tags: PHP, Database, IT-Security, MySQL, SQL
 featured_image: 2013/07/blackhat.png
 ---
-<abbr title="Structured Query Language">SQL</abbr> is a language that allows prorammers to access data in databases. Most of the time (always?) you pass your queries in form of strings to the database. In online services it is quite common that the programmer formulates a template and the user fills in variables. 
+<abbr title="Structured Query Language">SQL</abbr> is a language that allows prorammers to access data in databases. Most of the time (always?) you pass your queries in form of strings to the database. In online services it is quite common that the programmer formulates a template and the user fills in variables.
 
 <h2>Example: IMDb</h2>
 Take a look at <a href="http://www.imdb.com/">IMDb</a>. Users can search for movies by title:
@@ -163,7 +163,7 @@ Just a few famous examples to show you that this happens all the time:
   <li>2006: 800,000 datasets of personal information of students of UCLA (<a href="http://www.schneier.com/blog/archives/2006/12/major_privacy_b_1.html">source</a>)</li>
   <li>2008, 2009: Heartland Payment Systems; 130 million credit and debit cards (<a href="http://www.zdnet.com/blog/government/gonzales-just-tip-of-iceberg-in-heartland-attack/5252">source 1</a>, <a href="http://www.computerworld.com.au/article/315418/sql_injection_attacks_led_massive_data_breaches/">source 2</a>, see <a href="http://en.wikipedia.org/wiki/Albert_Gonzalez">Albert Gonzalez</a>)</li>
   <li>2010: Royal Navy Website; Passwords and Usernames stolen (<a href="http://www.eweek.com/c/a/Security/Hacker-Hits-British-Navy-Website-With-SQL-Injection-Attack-108377/">source</a>)</li>
-  <li>2011: Sony: 
+  <li>2011: Sony:
 
 <blockquote>LulzSec says it accessed the passwords, email addresses, home addresses and dates of birth of one million users. The group says it also stole all admin details of Sony Pictures, including passwords. 75,000 music codes and 3.5 million music coupons were also accessed, according to the press release.</blockquote>
 

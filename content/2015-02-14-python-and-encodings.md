@@ -36,7 +36,7 @@ with other encodings, you can change the encoding like this:
 
 ```text
 $ iconv -f UTF-8 -t ISO-8859-1 test.txt > test-iso-8859-1.txt
-$ file test-iso-8859-1.txt 
+$ file test-iso-8859-1.txt
 test-iso-8859-1.txt: ISO-8859 text
 ```
 

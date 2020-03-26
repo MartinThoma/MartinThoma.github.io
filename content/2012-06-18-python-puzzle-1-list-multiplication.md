@@ -15,15 +15,15 @@ $C = A \cdot B, C \in \mathbb{R}^{n \times n}$ where the components of C are def
 $c_{i,j} = \sum_{k=1}^n a_{i,k} \cdot b_{k, j}$
 
 Note that this means:
-$\begin{pmatrix} 
+$\begin{pmatrix}
 1 & 2 \\
 3 & 4
-\end{pmatrix} \cdot 
-\begin{pmatrix} 
+\end{pmatrix} \cdot
+\begin{pmatrix}
 5 & 6 \\
 7 & 8
-\end{pmatrix} = 
-\begin{pmatrix} 
+\end{pmatrix} =
+\begin{pmatrix}
 19 & 22 \\
 43 & 50
 \end{pmatrix}$

@@ -17,33 +17,33 @@ Es muss folgende Gleichung erf&uuml;llen:
 $(\frac{1}{10} + \frac{1}{5}i) \cdot (c + di) = 1$
 $\Leftrightarrow (\frac{1}{10} \cdot c - \frac{1}{5} d) + (\frac{1}{5} c + \frac{1}{10} d)i = 1$
 $\Leftrightarrow (\frac{1}{10} \cdot c - \frac{1}{5} d) = 1 \land (\frac{1}{5} c + \frac{1}{10} d) = 0$
-$\Leftrightarrow \left( \begin{array}{c c | c} 
-  \frac{1}{10} & -\frac{1}{5} & 1 \\ 
+$\Leftrightarrow \left( \begin{array}{c c | c}
+  \frac{1}{10} & -\frac{1}{5} & 1 \\
   \frac{1}{5} & \frac{1}{10}  & 0
 \end{array} \right)
-\Leftrightarrow \left( \begin{array}{c c | c} 
-  \frac{1}{10} & -\frac{1}{5} & 1 \\ 
+\Leftrightarrow \left( \begin{array}{c c | c}
+  \frac{1}{10} & -\frac{1}{5} & 1 \\
   0 & \frac{1+4}{10}  & -2
-\end{array} \right) = 
-\left( \begin{array}{c c | c} 
-  \frac{1}{10} & -\frac{1}{5} & 1 \\ 
+\end{array} \right) =
+\left( \begin{array}{c c | c}
+  \frac{1}{10} & -\frac{1}{5} & 1 \\
   0 & \frac{1}{2}  & -2
 \end{array} \right)$
-$\Leftrightarrow \left( \begin{array}{c c | c} 
-  \frac{1}{10} & -\frac{1}{5} & 1 \\ 
+$\Leftrightarrow \left( \begin{array}{c c | c}
+  \frac{1}{10} & -\frac{1}{5} & 1 \\
   0 & 1 & -4
 \end{array} \right)
-\Leftrightarrow \left( \begin{array}{c c | c} 
-  \frac{1}{10} & 0 & 1 - \frac{4}{5} \\ 
+\Leftrightarrow \left( \begin{array}{c c | c}
+  \frac{1}{10} & 0 & 1 - \frac{4}{5} \\
   0 & 1 & -4
 \end{array} \right) =
-\left( \begin{array}{c c | c} 
-  \frac{1}{10} & 0 & \frac{1}{5} \\ 
+\left( \begin{array}{c c | c}
+  \frac{1}{10} & 0 & \frac{1}{5} \\
   0 & 1 & -4
 \end{array} \right)$
 $\Leftrightarrow
-\left( \begin{array}{c c | c} 
-  1 & 0 & 2 \\ 
+\left( \begin{array}{c c | c}
+  1 & 0 & 2 \\
   0 & 1 & -4
 \end{array} \right)$
 
@@ -60,36 +60,36 @@ $\Leftrightarrow (a c - b d) + (b c + a d)i = 1$
 $\Leftrightarrow (a c - b d) = 1 \land (b c + a d) = 0$
 
 <h3>Fall 1: a ungleich 0</h3>
-$\Leftrightarrow \left( \begin{array}{c c | c} 
-  a & -b & 1 \\ 
+$\Leftrightarrow \left( \begin{array}{c c | c}
+  a & -b & 1 \\
   b & a  & 0
 \end{array} \right)
-\Leftrightarrow \left( \begin{array}{c c | c} 
-  a & -b & 1 \\ 
+\Leftrightarrow \left( \begin{array}{c c | c}
+  a & -b & 1 \\
   0 & a + \frac{b^2}{a}  & - \frac{b}{a}
 \end{array} \right)
-= \left( \begin{array}{c c | c} 
-  a & -b & 1 \\ 
+= \left( \begin{array}{c c | c}
+  a & -b & 1 \\
   0 & \frac{a^2 + b^2}{a}  & - \frac{b}{a}
 \end{array} \right)$
-$\Leftrightarrow \left( \begin{array}{c c | c} 
-  a & -b & 1 \\ 
+$\Leftrightarrow \left( \begin{array}{c c | c}
+  a & -b & 1 \\
   0 & 1 & -\frac{b}{a^2 + b^2}
 \end{array} \right)
-\Leftrightarrow \left( \begin{array}{c c | c} 
-  a & 0 & 1 - \frac{b^2}{a^2 + b^2} \\ 
+\Leftrightarrow \left( \begin{array}{c c | c}
+  a & 0 & 1 - \frac{b^2}{a^2 + b^2} \\
   0 & 1 & -\frac{b}{a^2 + b^2}
 \end{array} \right)
-\Leftrightarrow \left( \begin{array}{c c | c} 
-  1 & 0 & (1 - \frac{b^2}{a^2 + b^2})/a \\ 
+\Leftrightarrow \left( \begin{array}{c c | c}
+  1 & 0 & (1 - \frac{b^2}{a^2 + b^2})/a \\
   0 & 1 & -\frac{b}{a^2 + b^2}
 \end{array} \right)$
-$= \left( \begin{array}{c c | c} 
-  1 & 0 & (\frac{a^2 + b^2 - b^2}{a^2 + b^2})/a \\ 
+$= \left( \begin{array}{c c | c}
+  1 & 0 & (\frac{a^2 + b^2 - b^2}{a^2 + b^2})/a \\
   0 & 1 & -\frac{b}{a^2 + b^2}
 \end{array} \right)
-= \left( \begin{array}{c c | c} 
-  1 & 0 & \frac{a}{a^2 + b^2} \\ 
+= \left( \begin{array}{c c | c}
+  1 & 0 & \frac{a}{a^2 + b^2} \\
   0 & 1 & -\frac{b}{a^2 + b^2}
 \end{array} \right)$
 

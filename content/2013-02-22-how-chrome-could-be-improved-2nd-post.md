@@ -76,7 +76,7 @@ I write Blogs in German and in English. So I would like a spell-checker option a
 It would be great, if I could see the number of the page your currently on. Sometimes PDF-Documents don't even have numbers (e.g. LaTeX beamer slides). What do you do if you have a question to one slide if there are dozens of slides? Manually count them, to get the page number you're looking for?
 
 <strong>UPDATE</strong>: You actually can jump to any page and share it as links! You only have to add <code>#page=123</code>.
-For example, you can take a look at this <a href="http://paws.wcu.edu/tsfoguel/tikzpgfmanual.pdf#page231">huge TikZ PDF manual</a>. 
+For example, you can take a look at this <a href="http://paws.wcu.edu/tsfoguel/tikzpgfmanual.pdf#page231">huge TikZ PDF manual</a>.
 
 <strong>UPDATE2</strong>: You could automatically adjust this <code>#page=123</code> string according to the page that gets currently viewed. This would make sharing much easier and it would fix the issue that you don't know where you. Another advantage of this solution is that it doesn't bloat up the user interface.
 
@@ -127,7 +127,7 @@ They have added support to many of the time-elements like week:
 
 If you want to check how your browser displays the different input types, here is a <a href="http://www.martin-thoma.de/html5/input.php">test page for input elements</a>.
 
-According to 
+According to
 
 <h2>What was realized that I don't need?</h2>
 The German wiki offers a really nice <a href="http://de.wikipedia.org/wiki/Google_Chrome#Versionsgeschichte">overview of version changes</a>:
@@ -146,5 +146,5 @@ Although I think that this feature is very cool, it doesn't quite work. Here is 
 I said: "Hallo Marie. Die Web Speech API funktioniert nocht nicht so richtig." (German)
 which means "Hello Marie. The Web Speech API doesn't quite work by now."
 Web Speech recognized: "Hallo Mausi Mausi. Zieh dich aus." (German)
-which means "Hello darling. Undress!". 
+which means "Hello darling. Undress!".
 I guess this would be interesting if I sent it per email without checking the recognized text.

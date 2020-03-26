@@ -23,7 +23,7 @@ Beispiele sind:
   <li><code>Auto</code> ist ein <code>Luxusgut</code>.</li>
 </ul>
 
-Beachte dass <code>Auto</code> hier sowohl von <code>Luxusgut</code>, als auch von <code>Fortbewegungsmittel</code> erbt. Das geht in manchen Programmiersprachen (C++, Python), in anderen nicht (Java). 
+Beachte dass <code>Auto</code> hier sowohl von <code>Luxusgut</code>, als auch von <code>Fortbewegungsmittel</code> erbt. Das geht in manchen Programmiersprachen (C++, Python), in anderen nicht (Java).
 
 <h3>Assoziation</h3>
 <figure class="alignright">
@@ -80,7 +80,7 @@ Beispiele sind:
         </figure>
 
 <h2>Sequenzdiagramme</h2>
-<a href="http://de.wikipedia.org/wiki/Sequenzdiagramm">Sequenzdiagramme</a> haben wieder eigene Pfeile. 
+<a href="http://de.wikipedia.org/wiki/Sequenzdiagramm">Sequenzdiagramme</a> haben wieder eigene Pfeile.
 <figure class="aligncenter">
             <a href="../images/2012/07/sequenzdiagram.png"><img src="../images/2012/07/sequenzdiagram.png" alt="UML Sequenzdiagramm" style="max-width:421px;max-height:259px" class="size-full wp-image-32951"/></a>
             <figcaption class="text-center">UML Sequenzdiagramm</figcaption>

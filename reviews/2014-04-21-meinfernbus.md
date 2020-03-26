@@ -16,7 +16,7 @@ Der Bus war gut zu erkennen, da er in den "MeinFernbus-Grün" und mit einem deut
 
 Obwohl am Ostermontag einige Staus waren, ist der Bus pünktlich und sicher in Karlsruhe angekommen. Der Bussfahrer (ich glaube er heißt "Schöffel") hat sehr früh erkannt, dass es einen Stau geben wird und ihn dank guter Ortskenntnis umfahren. Während der Fahrt hat er im Raum Stuttgart auf einige "Sehenswürdigkeiten" an denen wir vorbeigekommen sind hingewiesen. Man hat sich ein bisschen wie auf Sightseeing-Tour gefühlt :-)
 
-Der Bus selbst war gut: Es gab eine Steckdose für je zwei Sitzplätze, die Sitze konnte man etwas in den Gang ausfahren sodass man mehr Platz hatte. Die Toilette scheint funktioniert zu haben, es gab Kaffee, Wasser, Cola, ... zu trinken und (eingeschweiste) Sandwiches zum kaufen. Die Getränke haben 1.50 Euro gekostet 
+Der Bus selbst war gut: Es gab eine Steckdose für je zwei Sitzplätze, die Sitze konnte man etwas in den Gang ausfahren sodass man mehr Platz hatte. Die Toilette scheint funktioniert zu haben, es gab Kaffee, Wasser, Cola, ... zu trinken und (eingeschweiste) Sandwiches zum kaufen. Die Getränke haben 1.50 Euro gekostet
 (bis auf den Kaffe, der Kostet glaube ich 0.50 Euro) und die Snacks 1.00 Euro.
 
 Alles in allem kann ich MeinFernbus.de nur empfehlen!

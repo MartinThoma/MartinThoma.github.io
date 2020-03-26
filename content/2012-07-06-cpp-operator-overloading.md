@@ -18,7 +18,7 @@ Imagine you wanted to store some data - lets say the prename, surname and age - 
 ```cpp
 
 for (int i=0; i< 4; i++) {
-    cout << "Person(" << myArray[i].prename << " " 
+    cout << "Person(" << myArray[i].prename << " "
          << myArray[i].surname << ", " << myArray[i].age << ")";
 }
 
@@ -40,13 +40,13 @@ typedef struct person {
     int age;
 
     // constructor
-    person(string p, string s, int age) : 
+    person(string p, string s, int age) :
         prename(p), surname(s), age(age) {}
 } Person;
 
 // "toString" for C++
 std::ostream& operator<<(std::ostream &strm, const person &a) {
-  return strm << "Person(" << a.prename << " " << a.surname << ", " 
+  return strm << "Person(" << a.prename << " " << a.surname << ", "
               << a.age << ")";
 }
 
@@ -68,7 +68,7 @@ int main(){
 
 <h2>Sorting</h2>
 You can sort by overloading <code><</code>.
-You can use a sort by adding 
+You can use a sort by adding
 ```cpp
 #include <algorithm>
 ```
@@ -88,7 +88,7 @@ typedef struct person {
     int age;
 
     // constructor
-    person(string p, string s, int age) : 
+    person(string p, string s, int age) :
         prename(p), surname(s), age(age) {}
 } Person;
 
@@ -105,7 +105,7 @@ bool operator<(const Person& a, const Person& b){
 
 // "toString" for C++
 std::ostream& operator<<(std::ostream &strm, const person &a) {
-  return strm << "Person(" << a.prename << " " << a.surname << ", " 
+  return strm << "Person(" << a.prename << " " << a.surname << ", "
               << a.age << ")";
 }
 
@@ -191,37 +191,37 @@ You can also define <code>==</code> for your structs.
 I know this example does NOT make any sense. But it is an example you can work with:
 ```cpp
 #include <iostream>
- 
+
 using namespace std;
- 
+
 typedef struct person {
     // attributes
     string prename;
     string surname;
     int age;
- 
+
     // constructor
-    person(string p, string s, int age) : 
+    person(string p, string s, int age) :
         prename(p), surname(s), age(age) {}
 } Person;
- 
+
 // "comperator" for C++
 bool operator==(const Person& a, const Person& b){
     return a.age == 30;
 }
- 
+
 int main(){
     Person Martin ("Martin", "Thoma", 22);
     Person Andreas ("Andreas", "Thoma", 22);
     Person AndiOld ("Andreas", "Berger", 30);
     Person AndiYoung ("Andreas", "Berger", 22);
- 
+
     Person myArray[] = {Martin, Andreas, AndiOld, AndiYoung};
- 
+
     for (int i=0; i< 4; i++) {
         cout << (myArray[i] == myArray[i]) << endl;
     }
- 
+
     return 0;
 }
 ```
@@ -230,35 +230,35 @@ int main(){
 You can also define casts:
 ```cpp
 #include <iostream>
- 
+
 using namespace std;
- 
+
 typedef struct person {
     // attributes
     string prename;
     string surname;
     int age;
- 
+
     // constructor
-    person(string p, string s, int age) : 
+    person(string p, string s, int age) :
         prename(p), surname(s), age(age) {}
 
     // prefix
     operator int() { return age; }
 } Person;
- 
+
 int main(){
     Person Martin ("Martin", "Thoma", 22);
     Person Andreas ("Andreas", "Thoma", 22);
     Person AndiOld ("Andreas", "Berger", 30);
     Person AndiYoung ("Andreas", "Berger", 22);
- 
+
     Person myArray[] = {Martin, Andreas, AndiOld, AndiYoung};
- 
+
     for (int i=0; i< 4; i++) {
         cout << int(myArray[i]) << endl;
     }
- 
+
     return 0;
 }
 ```
@@ -321,16 +321,16 @@ operators.cpp:7: error: &lsquo;int operator*(int, int)&rsquo; must have an argum
 You can wrap the integer like this:
 ```cpp
 #include <iostream>
- 
+
 using namespace std;
- 
+
 typedef struct integer {
     int inner;
-  
+
     // constructor
     integer(int i) : inner(i) {}
 } Integer;
- 
+
 int operator^(Integer a, Integer b){
     int power = 1;
     for (int i=0; i < b.inner; i++) {
@@ -338,7 +338,7 @@ int operator^(Integer a, Integer b){
     }
     return power;
 }
- 
+
 int main(){
     cout << (Integer(2)^Integer(10)) << endl; // outputs 1024
     return 0;
@@ -347,7 +347,7 @@ int main(){
 
 <h2>See also</h2>
 <ul>
-  <li>A class for <a href="../fractions-in-cpp/">dealing with fractions</a> - which includes 7 examples for operator overloading</li> 
+  <li>A class for <a href="../fractions-in-cpp/">dealing with fractions</a> - which includes 7 examples for operator overloading</li>
   <li><a href="http://en.wikipedia.org/wiki/Operators_in_C_and_C%2B%2B">Operators in C and C++</a></li>
   <li><a href="http://stackoverflow.com/a/4421715/562769">The General Syntax of operator overloading in C++</a>. sbi, Stack Overflow.</li>
   <li><a href="http://stackoverflow.com/a/4421708/562769">The Three Basic Rules of Operator Overloading in C++</a>. sbi, Stack Overflow.</li>

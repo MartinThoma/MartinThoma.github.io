@@ -7,7 +7,7 @@ category: Code
 tags: Programming, Python, Google, Google Code Jam, competition
 featured_image: 2012/04/code-jam-logo.png
 ---
-I've passed the <a href="https://code.google.com/codejam/contest/1460488/dashboard">Qualification Round</a> of Google Code Jam 2012. I've learned, that I am not allowed to submit the large dataset after the first 8 minutes. 
+I've passed the <a href="https://code.google.com/codejam/contest/1460488/dashboard">Qualification Round</a> of Google Code Jam 2012. I've learned, that I am not allowed to submit the large dataset after the first 8 minutes.
 
 18,365 programmers took part in this contest. 15,692 had at least 20 points and advanced to the First Rounds.
 
@@ -214,7 +214,7 @@ if __name__ == "__main__":
 ```
 
 <h2>Problem D: Hall of Mirrors</h2>
-This one was very hard. I had some ideas, but none of them seemed to work. 
+This one was very hard. I had some ideas, but none of them seemed to work.
 
 This is a solution based on the solution of "dwenzel". At the moment, I've only made some comments and broke some lines to let them fit into my blog. This solution needs about 2 minutes 42 seconds for the small input set and 2 minutes 12 seconds for the large input set.
 

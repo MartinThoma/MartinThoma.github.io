@@ -122,13 +122,13 @@ Interessant, aber vermutlich nicht Klausurrelevant.
   <li>Bayer-Pattern</li>
   <li>Lochkamera-Modell</li>
   <li>Affine Punktoperatoren: $g := round(a \cdot I(u,v) + b)
-I'(u,v) := 
+I'(u,v) :=
 \begin{cases}
 0 &\text{, falls } g < 0\\
 q &\text{, falls } g > q\\
 g &\text{sonst}
 \end{cases}$
-    <ul> 
+    <ul>
       <li>Kontrasterh&ouml;hung: $b=0; a > 1$</li>
       <li>Kontrastverminderung: $b=0; a < 1$</li>
       <li>Helligkeitserh&ouml;hung:  $b>0; a = 1$</li>
@@ -269,7 +269,7 @@ Offiziell nicht Klausurrelevant.
       <li><a href="../word-error-rate-calculation/">Word Error Rate (WER) calculation</a></li>
     </ul>
   </li>
-  <li>Grafische Faltung: 
+  <li>Grafische Faltung:
     <ul>
       <li><a href="http://www.jhu.edu/signals/convolve/">John Hopkins University</a>, Java Applet</li>
       <li><a href="http://www.onmyphd.com/?p=convolution">onmyphd.com</a>, JavaScript</li>

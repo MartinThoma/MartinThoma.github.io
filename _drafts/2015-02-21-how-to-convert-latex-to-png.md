@@ -3,9 +3,9 @@ layout: post
 title: How to Convert LaTeX to PNG
 author: Martin Thoma
 date: 2014-11-22 17:19
-categories: 
+categories:
 - Code
-tags: 
+tags:
 - Python
 - LaTeX
 featured_image: logos/latex.png

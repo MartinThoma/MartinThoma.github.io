@@ -12,7 +12,7 @@ will make sure the following things work. Take it as a quality guide. They
 are ordered by level of importance. The first thing is the most basic one that
 has to work, the last one is less necessary, but much cooler if you support it.
 
-In the following, I'll only talk about shells. But most of it will also apply 
+In the following, I'll only talk about shells. But most of it will also apply
 to interpreters.
 
 ## Level 0: Robustness
@@ -38,7 +38,7 @@ to be able to navigate with left / right arrow keys through the console.
 ## Level 3: History with up / down arrow keys
 When you use the up-array, you should get the last command you've entered.
 When you press it twice, you get the second last command...
-So the shell should save your last commands in a so called "history". This 
+So the shell should save your last commands in a so called "history". This
 history should be at least
 
 ## Level 4: Customization
@@ -69,7 +69,7 @@ Some stuff is nice to have, but not really essential:
 * <kbd>Ctrl</kbd> + <kbd>D</kbd> as a shortcut for exiting.
 * <kbd>Ctrl</kbd> + <kbd>C</kbd> should stop the current command.
 * The configuration file should be stored in the home folder of the user and it should be called `.[name]rc`. The dot makes the file invisible by convention and 'rc' means 'resource configuration'.
-* The prompt configuration should be easy. Some patterns that are used quite often are 
+* The prompt configuration should be easy. Some patterns that are used quite often are
   * `\w` for the working directory, where `$HOME` gets abbreviated with `~`
   * `\u` the username
   * `\h` the hostname
@@ -86,7 +86,7 @@ I guess so.
 
 The `scala` interactive interpreter is slow.
 
-**Level 1**: `csh` prints "^[[D" when I press the left arrow and "^[[C" when 
+**Level 1**: `csh` prints "^[[D" when I press the left arrow and "^[[C" when
 I press the right arrow. When I press <kbd>Tab</kbd> it only prints tab. What
 a crap.
 
@@ -113,7 +113,7 @@ let cur fill = do { cwd <- System.Directory.getCurrentDirectory; return (":set p
 :doprompt
 ```
 
-**Level 4.5**: `bash` is robust, takes about 0.11 seconds to start, has a history of 
+**Level 4.5**: `bash` is robust, takes about 0.11 seconds to start, has a history of
 500 lines as you can verify with `echo $HISTSIZE`, is customizable with `.bashrc`.
 
 `tcsh` takes about 0.02 seconds to start, has a default history size of 100 lines

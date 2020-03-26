@@ -27,7 +27,7 @@ $ octave
 
 ## Configuration
 
-Create a file `~/.octaverc` in your home folder. Write 
+Create a file `~/.octaverc` in your home folder. Write
 
 ```text
 PS1('>>');

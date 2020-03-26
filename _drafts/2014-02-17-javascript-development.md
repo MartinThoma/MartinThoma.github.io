@@ -13,12 +13,12 @@ featured_image:
 ---
 The possibilities you have today with JavaScript are fantastic. It's not even
 close to what you could do with JS in 2005. The speed increased A LOT and hence
-programs got more complex. Hence developers had the need to make development 
+programs got more complex. Hence developers had the need to make development
 easier.
 
 ## Node Package Manager
 One way to speed up development is using the node package manager (short: npm). It allows
-you to install JavaScript libraries. I'd say it is comparable to Rubys `gem` 
+you to install JavaScript libraries. I'd say it is comparable to Rubys `gem`
 command.
 
 ### Installation
@@ -48,7 +48,7 @@ node -v
 
 ### Usage
 
-The command 
+The command
 
 ```bash
 sudo npm install jslint -g

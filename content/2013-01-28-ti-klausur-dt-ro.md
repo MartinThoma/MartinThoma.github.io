@@ -388,7 +388,7 @@ Die Klausuren sind alle sehr &auml;hnlich aufgebaut. Eine typische Klausur hat 1
 <strong>Punkte</strong>: (vermutlich) 90<br/>
 <strong>Bestehensgrenze</strong>: (vermutlich) 40<br/>
 <strong>&Uuml;bungsschein</strong>: Wird nicht ins Studienportal eingetragen<br/>
-<strong>Bonuspunkte</strong>: 
+<strong>Bonuspunkte</strong>:
 <ul>
   <li>&Uuml;bungsschein RO: 1 Bonuspunkt</li>
   <li>&Uuml;bungsschein DT: 1 Bonuspunkt</li>

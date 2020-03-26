@@ -36,7 +36,7 @@ Das es ein solches Problem gibt, hat Cook 1971 mit <a href="http://de.wikipedia.
         </figure>
 
 F&uuml;r alle folgenden Beweise, dass ein Problem in $\cal NPC$ liegt, wurde der Satz von Cook verwendet.
-Laut diesem Satz (dessen Beweis wahnsinning lang ist) l&auml;sst sich jede Probleminstanz von Problemen in $\cal NP$ sich in eine Instanz von SAT umwandeln. Es reicht also zu zeigen, dass sich eine beliebige SAT-Instanz I  in eine Instanz I' des neuen Problems in polynomialzeit umwandeln l&auml;sst. Diese beiden Instzanzen m&uuml;ssen in folgender Beziehung stehen: 
+Laut diesem Satz (dessen Beweis wahnsinning lang ist) l&auml;sst sich jede Probleminstanz von Problemen in $\cal NP$ sich in eine Instanz von SAT umwandeln. Es reicht also zu zeigen, dass sich eine beliebige SAT-Instanz I  in eine Instanz I' des neuen Problems in polynomialzeit umwandeln l&auml;sst. Diese beiden Instzanzen m&uuml;ssen in folgender Beziehung stehen:
 F&uuml;r I existiert eine L&ouml;sung $\Leftrightarrow$ f&uuml;r I' existiert eine L&ouml;sung:
 <figure class="aligncenter">
             <a href="../images/2012/02/proof-new-npc.png"><img src="../images/2012/02/proof-new-npc.png" alt="Beweis, dass 3-SAT in NPC liegt" style="max-width:460px;max-height:354px" class="size-full wp-image-15241"/></a>

@@ -32,7 +32,7 @@ nautilus /home/moose/Desktop/testFolder/
 Nautilus opens and instantly closes again.
 
 <h2>My Nautilus</h2>
-I use Ubuntu 10.04.4 LTS with Nautilus 2.30.1. 
+I use Ubuntu 10.04.4 LTS with Nautilus 2.30.1.
 
 <h2>Bug report?</h2>
 I know, the current version of <a href="http://en.wikipedia.org/wiki/Nautilus_(file_manager)">Nautilus</a> is 3.6.1, but how often do you find a bug which is so easy to reproduce?

@@ -39,7 +39,7 @@ elf        gpl       jpeg-jfif  msoffice   png
 <h2>Where is my USB-Stick?</h2>
 ```bash
 $ sudo fdisk -l
-[sudo] password for moose: 
+[sudo] password for moose:
 
 Disk /dev/sda: 320.1 GB, 320072933376 bytes
 255 heads, 63 sectors/track, 38913 cylinders
@@ -70,4 +70,4 @@ sudo magicrescue -r png -r jpeg-jfif -r gimp-xcf \
 -r jpeg-exif -d /home/moose/output/ /dev/sdc1
 ```
 
-Just got the image back ☺ 
+Just got the image back ☺

@@ -31,12 +31,12 @@ public class test {
     public static void main(String[] args) {
         double fahrenheit = 100;
         double celsius = fahrenheitToCelsius(fahrenheit);
-        System.out.format("%.2f&deg; Fahrenheit is %.2f&deg; C\n", 
+        System.out.format("%.2f&deg; Fahrenheit is %.2f&deg; C\n",
                 fahrenheit, celsius);
 
         fahrenheit = 30;
         celsius = fahrenheitToCelsius(fahrenheit);
-        System.out.format("%.2f&deg; Fahrenheit is %.2f&deg; C\n", 
+        System.out.format("%.2f&deg; Fahrenheit is %.2f&deg; C\n",
                 fahrenheit, celsius);
     }
 }

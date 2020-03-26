@@ -19,7 +19,7 @@ Imagine you wanted to display n Fibonacci numbers. This could be your normal app
 
 
 def fibonacci(n):
-    """ Build and return a list of the first 
+    """ Build and return a list of the first
         n >= 2 Fibonacci numbers """
 
     fibList = [1, 1]

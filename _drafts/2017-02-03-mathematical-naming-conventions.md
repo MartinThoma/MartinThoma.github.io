@@ -3,12 +3,12 @@ layout: post
 title: Mathematical naming conventions
 author: Martin Thoma
 date: 2012-11-01 10:03:04
-categories: 
+categories:
 - Cyberculture
-tags: 
+tags:
 - convention
 - mathematics
-featured_image: 
+featured_image:
 ---
 I've sometimes wondered why mathematicans seemingly always used symbols that
 are very similar. One reason might be naming  conventions, the other might be

@@ -12,7 +12,7 @@ featured_image: 2011/10/do-it-yourself-thumb.jpg
             <figcaption class="text-center">Do-it-yourself - Some random tools (Thumbnail)</figcaption>
         </figure>
 
-I've decided to fill some holes in my ceiling and my wall today. I don't want to paint my room the next time as it is too cold at the moment, but the holes were really ugly. I've added a photo of them. So I went to the next hardware store and asked what could be done. I thought I needed to use gypsum which is gray, so it wouldn't look very good. Additionally you can buy gypsum only in 1.5 kg bags. 
+I've decided to fill some holes in my ceiling and my wall today. I don't want to paint my room the next time as it is too cold at the moment, but the holes were really ugly. I've added a photo of them. So I went to the next hardware store and asked what could be done. I thought I needed to use gypsum which is gray, so it wouldn't look very good. Additionally you can buy gypsum only in 1.5 kg bags.
 <br/>
 <br/>
 <br/>

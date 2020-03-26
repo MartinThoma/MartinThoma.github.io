@@ -19,17 +19,17 @@ that satisfies the following two conditions
 
 <strong>Theorem</strong>: $G_m$ is a group
 
-<strong>Proof</strong>: 
+<strong>Proof</strong>:
 
 Let $m \in M$.
 
 $\stackrel{identity}{\Rightarrow}e_G \in G_m$
 
 Let $a \in G_m$. This means, that $a \circ m = m$. And $\exists a^{-1} \in G$, as $G$ is a group.
-$a^{-1} \cdot a = e_G$, this means $(a^{-1} \cdot a) \circ m = m$. 
+$a^{-1} \cdot a = e_G$, this means $(a^{-1} \cdot a) \circ m = m$.
 $\stackrel{associativity}{\Rightarrow}a^{-1} \circ (a \circ m) = m \Leftrightarrow a^{-1} \circ m = m \Leftrightarrow a^{-1} \in G_m$
 
-Let $a, b \in G_m$. 
+Let $a, b \in G_m$.
 Then: $a \circ m = m$ and $b \circ m = m$
 
 $\Rightarrow a \circ (b \circ m) = m$

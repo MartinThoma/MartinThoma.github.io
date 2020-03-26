@@ -22,7 +22,7 @@ Note the missing point.
 <div class="separator" style="clear: both; text-align: center;">
 <img border="0" height="168" width="400" src="../images/2011/09/Google-Translator-Justin-Bieber-Puberty.png" /></div>
 
-Did you know the Beatbox? 
+Did you know the Beatbox?
 Type "pv zk pv pv zk pv zk zk pv pv pv zk pv zk zk pzk pzk pvzkpkzvpvzk kkkkkk bsch", translate from German to German and listen to it:
 <iframe width="512" height="321" src="//www.youtube.com/embed/KtjYKMtGNRc" frameborder="0" allowfullscreen></iframe>
 

@@ -19,7 +19,7 @@ $$\begin{pmatrix}
 7 & 1 & 1 & 0 & 0\\
 8 & 2 & 8 & 1 & 0\\
 1 & 8 & 2 & 8 & 1
-\end{pmatrix} \cdot 
+\end{pmatrix} \cdot
 \begin{pmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \end{pmatrix} =
 \begin{pmatrix}   3 \\ 1   \\ 4   \\ 1   \\ 5   \end{pmatrix}$$
 
@@ -137,7 +137,7 @@ I'll analyze the second algorithm.
 
 Let's assume that line 7 takes $c$ operations and $n$ is the size of $L \in \mathbb{R}^{n \times n}$.
 
-Then we would have a total of 
+Then we would have a total of
 
 \begin{align}
 \text{Operations} &= \sum_{i=1}^n \left ( \sum_{j=i+1}^n c \right )\\
@@ -156,7 +156,7 @@ Well, thats simple: $\mathcal{O}(1)$!
 I do ignore the size of the input. So $\mathcal{O}(1)$ means: For variable sized input data I do need a constant amount of additional space.
 
 <h2>More improvements</h2>
-In the last algorithm I've presented you can see that we actually don't check the values on or above of the diagonal. 
+In the last algorithm I've presented you can see that we actually don't check the values on or above of the diagonal.
 This means, the following two function calls do give the same b:
 
 ```python

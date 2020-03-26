@@ -24,17 +24,17 @@ Eine Eigenschaft der Chomsky-Normalform ist, dass jedes Wort aus $2 \cdot |w| - 
 Aus einer Grammatik $G (V, \Sigma, P, S)$ kann mit folgenden vier Schritten eine Grammatik $G' (V', \Sigma, P', S)$ in Chomsky-Normalform (CNF) erstellt werden:
 
 <h3>Schritt 1</h3>
-Immer wenn ein Symbol aus $\Sigma$ in einer Produktion steht, wird dieses durch $Y_a$ ersetzt und eine neue Produktion $Y_a \rightarrow a$ zu P' hinzugef&uuml;gt. 
+Immer wenn ein Symbol aus $\Sigma$ in einer Produktion steht, wird dieses durch $Y_a$ ersetzt und eine neue Produktion $Y_a \rightarrow a$ zu P' hinzugef&uuml;gt.
 
 Es ist somit sichergestellt, dass alle Regeln entweder nur Nicht-Terminale auf der rechten Seite der Produktion stehen haben oder $\varepsilon$ oder dass dort ein einzelnes Terminal steht.
 
 <h3>Schritt 2</h3>
-Immer wenn mehr als zwei Variablen auf der rechten Seite stehen, werden diese durch neue ersetzt. Sagen wir es stehen rechts m Variablen. Dann f&uuml;hrt man m - 2 neue Variablen ein, f&uuml;gt diese zu V' hinzu, und macht aus einer Regel $A \rightarrow B_1 B_2 ... B_m$ die Regeln $A \rightarrow B_1 C_1, C_1 \rightarrow B_2 C_2, ..., C_{i+1} \rightarrow B_i C_i ... C_{m-2} \rightarrow B_{m-3} C_{m-3}$. 
+Immer wenn mehr als zwei Variablen auf der rechten Seite stehen, werden diese durch neue ersetzt. Sagen wir es stehen rechts m Variablen. Dann f&uuml;hrt man m - 2 neue Variablen ein, f&uuml;gt diese zu V' hinzu, und macht aus einer Regel $A \rightarrow B_1 B_2 ... B_m$ die Regeln $A \rightarrow B_1 C_1, C_1 \rightarrow B_2 C_2, ..., C_{i+1} \rightarrow B_i C_i ... C_{m-2} \rightarrow B_{m-3} C_{m-3}$.
 
 An dieser Stelle ist sichergestellt, dass alle Regeln entweder nur ein oder zwei Nicht-Terminale auf der rechten Seite der Produktion stehen haben oder $\varepsilon$ oder dass dort ein einzelnes Terminal steht.
 
 <h3>Schritt 3</h3>
-Nun wollen wir alle $\varepsilon$-&Uuml;berg&auml;nge entfernen. 
+Nun wollen wir alle $\varepsilon$-&Uuml;berg&auml;nge entfernen.
 
 Um dies zu erreichen, suchen wir alle Regeln, die nach $\varepsilon$ abbilden, also von der Form $A \rightarrow \varepsilon$ sind. Dabei streichen wir die Regeln $A \rightarrow \varepsilon$. Falls A nun nicht mehr auf der linken Seite auftaucht, streichen wir es &uuml;berall aus der rechten Seite. Falls dabei eine Regel zu $B \rightarrow \varepsilon$ wird, streichen wir auch diese. Das wiederholen wir so lange, bis keine $\varepsilon$-&Uuml;berg&auml;nge mehr vorhanden sind.
 Am Ende f&uuml;gen wir die Regel $S' \rightarrow S | \varepsilon$ hinzu, falls die Grammatik auf das leere Wort abbilden konnte.

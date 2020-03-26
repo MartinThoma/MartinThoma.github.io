@@ -86,7 +86,7 @@ Comparisons:
     Flask seem to have a bigger "fanbase", but Django is used more often in
     industry.
 * [Django vs. Pylons (Pyramid)](http://stackoverflow.com/q/48681/562769)
-* 
+*
 
 I've found a great short answer on [stacktrace.ch](http://blog.stacktrace.ch/post/49178654214)
 to the question when you should use which framework:

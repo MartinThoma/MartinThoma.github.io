@@ -64,7 +64,7 @@ Go to <code><u>H</u>elp &rarr; Install New <u>S</u>oftware ...</code>
 
 Install <code>http://eclipse-cs.sf.net/update/</code> as a new "repository".
 
-After you have installed the plugin, you have to activate it for your project. To do so, you have to go to <code><u>P</u>roject &rarr; <u>P</u>roperties</code> and check <code>Checkstyle active for this project</code>. Then you have to change to the <code>Local Check Configurations</code> tab and load your personal checkstyle xml files. 
+After you have installed the plugin, you have to activate it for your project. To do so, you have to go to <code><u>P</u>roject &rarr; <u>P</u>roperties</code> and check <code>Checkstyle active for this project</code>. Then you have to change to the <code>Local Check Configurations</code> tab and load your personal checkstyle xml files.
 
 <figure class="aligncenter">
             <a href="../images/2011/11/eclipse-checkstyle-properties-300x104.png"><img src="../images/2011/11/eclipse-checkstyle-properties-300x104.png" alt="Checkstyle properties in eclipse" style="max-width:300px;max-height:104px" class="size-medium wp-image-9681"/></a>

@@ -140,14 +140,14 @@ Java-Nutzer m&uuml;ssen sich dar&uuml;ber im klaren sein, dass alle Elemente, di
 /** This class calculates numbers of the Tribonacci sequence. */
 public final class Tribonacci {
     /**
-     * Utility classes should not have a public or default 
+     * Utility classes should not have a public or default
      * constructor.
      */
     private Tribonacci() {
     }
 
     /**
-     * Calculate the n'th Element of the Tribonacci sequence (a_n). 
+     * Calculate the n'th Element of the Tribonacci sequence (a_n).
      * The sequence is defined as:
      *   a_0 = a_1 = a_2 = a
      *   a_n = a_(n-1) + a_(n-2) + a_(n-3)
@@ -172,7 +172,7 @@ public final class Tribonacci {
     }
 
     /**
-     * Prints out the Tribonacci number a_36 
+     * Prints out the Tribonacci number a_36
      * the (37th Tribonacci number)
      * @param args the command line arguments
      */

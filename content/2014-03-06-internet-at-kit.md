@@ -21,7 +21,7 @@ At KIT are a lot of WLANs, but only two are important: `wkit-802.1x` and `eduroa
 * CA certificate: deutsche-telekom-root-ca-2.crt ([source](http://www.scc.kit.edu/downloads/ism/dtag-root-ca-2.cer))
 * PEAP version: Automatic
 * Inner authentification: MSCHAPv2
-* Username: 
+* Username:
   * for `wkit-802.1x`: uabcd (Your username. It begins with 'u' and has 5 letters)
   * for `eduroam`: uabcd@student.kit.edu
 * Password: (Your password)
@@ -51,7 +51,7 @@ The `-n` flag disables GUI. It will show this:
 
 ```bash
 Server certificate verified and CN is vpn.kit.edu. Saving in /home/moose/.juniper_networks/network_connect/config/vpn.kit.edu.der.
-Password: 
+Password:
 Connecting to vpn.kit.edu : 443.
 Waiting for ncsvc for 3 seconds... done
 ncsvc is running, but tunnel is not established yet. Waiting for 3 seconds... done

@@ -37,7 +37,7 @@ The following LaTeX-Code used TikZ and PGFplots:
 \documentclass{article}
 \usepackage[pdftex,active,tightpage]{preview}
 \setlength\PreviewBorder{2mm}
- 
+
 \usepackage{pgfplots}
 \usepackage{tikz}
 \usetikzlibrary{arrows, positioning, calc}
@@ -72,9 +72,9 @@ The following LaTeX-Code used TikZ and PGFplots:
       \draw[blue, dashed, thick](a |- current plot begin) -- (a);
 
       % plot the stirling-formulae
-      \addplot[domain=0:60, red, thick] 
-        {1-(365/(365-x))^(365.5-x)*e^(-x)}; 
-    \end{axis} 
+      \addplot[domain=0:60, red, thick]
+        {1-(365/(365-x))^(365.5-x)*e^(-x)};
+    \end{axis}
 \end{tikzpicture}
 \end{preview}
 \end{document}

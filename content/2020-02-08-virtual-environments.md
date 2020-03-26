@@ -106,11 +106,11 @@ Installing setuptools, pip, wheel...
 done.
 Running virtualenv with interpreter /home/moose/.pyenv/versions/3.8.1/bin/python3.8
 
-✔ Successfully created virtual environment! 
+✔ Successfully created virtual environment!
 Virtualenv location: /home/moose/.local/share/virtualenvs/clana-oPEDiD9W
 requirements.txt found, instead of Pipfile! Converting…
-✔ Success! 
-Warning: Your Pipfile now contains pinned versions, if your requirements.txt did. 
+✔ Success!
+Warning: Your Pipfile now contains pinned versions, if your requirements.txt did.
 We recommend updating your Pipfile to specify the "*" version, instead.
 ```
 
@@ -131,7 +131,7 @@ Set your `Pipfile.lock`:
 $ pipenv lock
 Locking [dev-packages] dependencies…
 Locking [packages] dependencies…
-✔ Success! 
+✔ Success!
 Updated Pipfile.lock (310e7d)!
 ```
 

@@ -20,7 +20,7 @@ $a \in M$: a ist ein Element von M
 $a \notin M$: a ist kein Element von M
 
 <h3>Funktionen</h3>
-Seien M, N Mengen mit $M \neq \emptyset \neq N$. 
+Seien M, N Mengen mit $M \neq \emptyset \neq N$.
 $f: \underbrace{M}_{\mathbb{D}} \to \underbrace{N}_{\mathbb{W}}$
 
 <h3>Logische Zeichen</h3>
@@ -65,7 +65,7 @@ f&uuml;r $b \neq 0: \frac{a}{b} := a \cdot b^{-1}$
 Alle Rechenregeln bzgl der Grundrechenarten lassen sich aus A.1 - A.9 herleiten. Diese Regeln seien von nun an bekannt.
 
 <strong>Behauptung</strong>: Es existiert genau ein $0 \in \mathbb{R}: a+0 = a \forall a \in \mathbb{R}$
-<strong>Beweis</strong>: 
+<strong>Beweis</strong>:
 Existenz: folgt aus A.5
 Eindeutigkeit: Sei $\tilde 0 \in \mathbb{R} \text{ mit }a+\tilde 0 a \forall a \in \mathbb{R}$
 Mit $a = 0: 0 = 0 + \tilde 0 \underbrace{=}_{\text{A.3}} \tilde 0 + 0 \underbrace{=}_{\text{A.5}} = \tilde 0$
@@ -94,8 +94,8 @@ $a \gt b: \Leftrightarrow b \lt a$
 
 Alle Regeln f&uuml;r Ungleichungen lassen sich aus A.1 - A.14 herleiten. Diese Regeln seien nun bekannt.
 
-<strong>Definition</strong>: F&uuml;r $a \in \mathbb{R}$ sei 
-$$|a| : = 
+<strong>Definition</strong>: F&uuml;r $a \in \mathbb{R}$ sei
+$$|a| : =
 \left \{ \begin{array}{ll}
 a  & \text{, falls } a \geq 0 \\
 -a & \text{, falls } a \lt 0

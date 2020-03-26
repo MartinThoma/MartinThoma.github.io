@@ -240,7 +240,7 @@ public class ZipArchiv extends File implements NodeContainer {
     public void addNode(Node n) {
         nodes.add(n);
     }
-    
+
     @SuppressWarnings("unchecked")
     public <T> ArrayList<T> get(Class<T> clazz) {
         ArrayList<T> allElements = new ArrayList<T>();

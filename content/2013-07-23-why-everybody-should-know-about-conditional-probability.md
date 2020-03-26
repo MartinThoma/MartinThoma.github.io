@@ -16,7 +16,7 @@ A probability is a numerical value in [0, 1] that is assigned to events (or lets
 
 The sum of all probabilities of all outcomes of one experiment is always 1.
 
-Example: Your experiment $x$ could be throwing a coin. The outcome of your experiment is either head or tails. So if 
+Example: Your experiment $x$ could be throwing a coin. The outcome of your experiment is either head or tails. So if
 $Pr[x = \text{head}] = 0.6$, then $Pr[x = \text{tail}] = 0.4$.
 
 Now you might argue that the coin can also stand on its border. This would result in a different model of the situation with different probabilities, e.g.:
@@ -34,7 +34,7 @@ $Pr[A|BC] = \frac{Pr[B|AC] \cdot Pr[A|C]}{Pr[B|C]}$
 <h2>Cancer</h2>
 Lets say the probability of having cancer is $Pr[C] = 0.01$. This means the probability of not having cancer is $Pr[\neg C] = 0.99$.
 
-Now you have cancer tests. They can either be positive (+) which means they say you have cancer. Or they are negative (-), which means according to the test, you don't have cancer. 
+Now you have cancer tests. They can either be positive (+) which means they say you have cancer. Or they are negative (-), which means according to the test, you don't have cancer.
 
 They are not always working as expected. So you get so called "false positives" and "false negatives".
 

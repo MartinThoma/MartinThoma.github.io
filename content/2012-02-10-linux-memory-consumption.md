@@ -138,7 +138,7 @@ Virtual memory statistics gives you the following information:
 
 Here is the example:
 ```bash
-moose@pc07:~$ vmstat 
+moose@pc07:~$ vmstat
 procs -----------memory---------- ---swap-- -----io---- -system-- ----cpu----
  r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa
  0  0      0 1120696 119948 1599112    0    0    21    35  416  116 12  5 82  1

@@ -16,7 +16,7 @@ $\displaystyle \int_a^b f'(x)\cdot g(x)\,\mathrm{d}x = \left [f(x)\cdot g(x) \ri
 <h2>Beispiel</h2>
 Folgendes <a href="http://de.wikipedia.org/wiki/Partielle_Integration#Beispiel_1">Beispiel aus Wikipedia</a> zeigt, wie man das geschickt nutzen kann:
 
-<strong>Aufgabe</strong>: 
+<strong>Aufgabe</strong>:
 Berechne $\int \sin(x) \cdot \cos(x) \,\mathrm{d}x$
 
 <strong>L&ouml;sung</strong>:

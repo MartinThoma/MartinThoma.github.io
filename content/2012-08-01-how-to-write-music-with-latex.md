@@ -7,7 +7,7 @@ category: The Web
 tags: LaTeX, music, note, sheet music
 featured_image: 2012/08/latex-music-thumb.png
 ---
-It is possible to write music with LaTeX. My girlfriend was quite surprised of this, so I decided to <del datetime="2012-08-01T08:01:06+00:00">write a little tutorial</del> show some examples. 
+It is possible to write music with LaTeX. My girlfriend was quite surprised of this, so I decided to <del datetime="2012-08-01T08:01:06+00:00">write a little tutorial</del> show some examples.
 
 <h2>Symbols</h2>
 <figure class="aligncenter">
@@ -18,7 +18,7 @@ It is possible to write music with LaTeX. My girlfriend was quite surprised of t
 \documentclass[a4paper,12pt]{article}
 \usepackage{wasysym}
 \begin{document}
-\eighthnote ~~~ \halfnote ~~~ \twonotes ~~~ \fullnote ~~~ 
+\eighthnote ~~~ \halfnote ~~~ \twonotes ~~~ \fullnote ~~~
 \quarternote ~~~ $\natural$ ~~~ $\flat$ ~~~ $\sharp$
 \end{document}
 ```
@@ -98,7 +98,7 @@ to get this:
 
 <h2>LilyPond</h2>
 <h3>Preparation</h3>
-Make sure that you have installed <a href="http://en.wikipedia.org/wiki/GNU_LilyPond">GNU LilyPond</a> and LaTeX. 
+Make sure that you have installed <a href="http://en.wikipedia.org/wiki/GNU_LilyPond">GNU LilyPond</a> and LaTeX.
 
 Ubuntu-Users have to type
 
@@ -130,7 +130,7 @@ Save the following source as `lilybook.lytex`:
       c'4 f16
     \end{lilypond}
 
-    Larger examples can be put into a separate file, and introduced 
+    Larger examples can be put into a separate file, and introduced
     with \verb+\lilypondfile+.
 \end{document}
 ```
@@ -161,7 +161,7 @@ Output:
   <li><a href="http://www.tug.org/texlive/Contents/live/texmf-dist/doc/latex/abc/abc.pdf">ABC-environment Documentation</a></li>
 </ul>
 </li>
-<li>LilyPond 
+<li>LilyPond
 <ul>
   <li><a href="http://lilypond.org/doc/v2.14/Documentation/learning/index#top">LilyPond &mdash; Learning Manual</a></li>
   <li><a href="http://lilypond.org/doc/v2.14/Documentation/essay.pdf">Lilypond 2.14 Documentation</a></li>

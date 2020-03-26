@@ -16,11 +16,11 @@ Wenn man also f&uuml;r n = 1 zeigt dass die Aussage A(n) korrekt ist, dann gilt 
 
 <h2>Aufbau</h2>
 <ul>
-  <li><strong>Induktionsanfang</strong> (I.A.): 
+  <li><strong>Induktionsanfang</strong> (I.A.):
 Zeige, dass die Aussage f&uuml;r ein bestimmtes $n_0$ (also z.B. $n_0 = 0$) gilt. Daf&uuml;r muss man einfach nur einsetzen.</li>
-  <li><strong>Induktionsvorraussetzung</strong> (I.V.)): 
+  <li><strong>Induktionsvorraussetzung</strong> (I.V.)):
 "Sei $n \in \mathbb{N}$ beliebig, aber fest und es gelte: <Aussage>"</li>
-  <li><strong>Induktionsschluss</strong> (I.S.): 
+  <li><strong>Induktionsschluss</strong> (I.S.):
 Ausgehend von I.V. ist zu zeigen, dass die Aussage f&uuml;r $n_0 + 1$ gilt.</li>
 </ul>
 
@@ -33,7 +33,7 @@ Bei den folgenden Identit&auml;ten sei $n \in \mathbb{N}$.
 <strong>Behauptung</strong>: $\sum_{k=1}^n k = \frac{1}{2} \cdot n \cdot (n+1)$<br/>
 <strong>Beweis</strong>: durch vollst&auml;ndige Induktion<br/>
 <strong>I.A.</strong>: Sei n = 1. Dann: $\sum_{k=1}^1 k = 1 = \frac{1}{2} \cdot 1 \cdot (1+1)$<br/>
-<strong>I.V.</strong>: Sei $n \in \mathbb{N}$ beliebig, aber fest und es gelte: 
+<strong>I.V.</strong>: Sei $n \in \mathbb{N}$ beliebig, aber fest und es gelte:
 $\sum_{k=1}^n k = \frac{1}{2} \cdot n \cdot (n+1)$<br/>
 <strong>I.S.</strong>:
 $\sum_{k=1}^{n+1} k = \sum_{k=1}^{n} k + (n+1) \stackrel{I.V.}{=} \frac{1}{2} \cdot n \cdot (n+1) + (n+1) = $
@@ -59,9 +59,9 @@ $(a+b)^{n+1} = (a+b)(a+b)^n = (a+b) \underbrace{\sum_{k=0}^{n} \binom{n}{k} a^{n
 
 <strong>I.V.</strong>: Sei $n \in \mathbb{N}$ und es gelte $(a+b)^{n+1} = (a+b)(a+b)^n = (a+b) \sum_{k=0}^{n} \binom{n}{k} a^{n-k} b^k$
 
-<strong>I.S.</strong>: 
+<strong>I.S.</strong>:
 
-\begin{align} 
+\begin{align}
 (a+b)^{k+1} &= (a+b)(a+b)^n \\
 &= (a+b) \sum_{k=0}^{n} \binom{n}{k} a^{n-k} b^k \\
 &= \sum_{k=0}^{n} \binom{n}{k} a^{n+1-k} b^k + \sum_{k=0}^n \binom{n}{k} a^{n-k} b^{k+1} \\
@@ -127,7 +127,7 @@ A endet auf eine Variable oder eine schlie&szlig;ende Klammer.<br/>
 
 <strong>Behauptung</strong> F&uuml;r jeden aussagenlogischen Ausdruck A gibt es einen &auml;quivalenten aussagenlogischen Ausdruck B, der nur $\neg$ und $\land$ als Operatoren verwendet.<br/>
 <strong>Beweis</strong>: durch strukturelle Induktion<br/>
-<strong>I.A.</strong>: 
+<strong>I.A.</strong>:
 Seien $p_1, p_2$ aussagenlogische Variablen. Dann gilt:
 $p_1 \lor p_2 = \neg (\neg p_1 \land \neg p_2)$
 $p_1 \Leftrightarrow p_2 = \neg (p_1 \land \neg p_2) \land \neg (\neg p_1 \land p_2)$
@@ -153,7 +153,7 @@ Nun k&ouml;nnte man den Trugschluss machen, dass der Schnitt unendlich vieler of
 <strong>Behauptung</strong>: M ist offen.<br/>
 <strong>Beweis</strong>: durch vollst&auml;ndige Induktion<br/>
 <strong>I.A.</strong>: Sei n = 1. Dann: $\cap_{i=0}^1 M_i = M_0 \cap M_1$ ist laut * offen.<br/>
-<strong>I.V.</strong>: Sei $n \in \mathbb{N}$ beliebig, aber fest und es gelte: 
+<strong>I.V.</strong>: Sei $n \in \mathbb{N}$ beliebig, aber fest und es gelte:
 $\displaystyle \bigcap_{i=0}^n M_i$ ist offen.<br/>
 <strong>I.S.</strong>:
 $\displaystyle \bigcap_{i=0}^{n+1} M_i = \bigcap_{i=0}^{n} M_i \cap M_{n+1}$. Nun gilt:
@@ -161,10 +161,10 @@ $\displaystyle \bigcap_{i=0}^{n} M_i$ ist per I.V. offen.
 $M_{n+1}$ ist per Vorraussetzung offen.
 Der Schnitt von beiden ist wegen * offen. Da n beliebig gro&szlig; werden kann, ist auch M offen $\blacksquare$
 
-Allerdings gilt: 
+Allerdings gilt:
 $\displaystyle \bigcap_{n=1}^\infty \left (1 - \frac{1}{n}, 2+\frac{1}{n} \right) = [1, 2]$, also ein Gegenbeispiel.
 
-Der "Beweis" ist also offensichtlich falsch. Wo ist aber der Fehler? 
+Der "Beweis" ist also offensichtlich falsch. Wo ist aber der Fehler?
 Man hat gezeigt, dass beliebig viele Schnitte von offenen Mengen wieder offen sind. Die Behauptung sagt aber, dass unendlich viele Schnitte offener Mengen wieder offen sind. Es gibt also einen unterschied zwischen "beliebig viel" und "unendlich".
 
 <h2>Weitere &Uuml;bungen</h2>

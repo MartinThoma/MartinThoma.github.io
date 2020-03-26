@@ -22,7 +22,7 @@ Anagramme sind Permutationen: "ANGSTBUDE" und "BUNDESTAG"
 Das Wesentliche ist also, dass es bei Permutationen auf die Reihenfolge ankommt.
 
 <h3>k-Permutation</h3>
-Eine k-Permutation w&auml;hlt aus n Objekten k aus. 
+Eine k-Permutation w&auml;hlt aus n Objekten k aus.
 
 Wenn wir also die 6 Objekte [1, 2, 5, -7, -1, 3] haben, w&auml;ren [1, 2, 5], [5, 2, 1], [-7, 2, 3] und [-7, 3, 3] verschiedene 3-Permutationen davon.
 

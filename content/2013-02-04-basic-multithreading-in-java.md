@@ -9,7 +9,7 @@ featured_image: 2013/02/multithreading.png
 ---
 A lot of computing power is wasted in many programs as most programs use only one core. If your program is computation intensive, you might want to put some extra effort in your program and make use of this wasted computing power.
 
-There are two ways to execute your code on multiple cores: Multiprocessing and multithreading. Both, processes and threads, provide the possibility to execute code sequences independently and concurrently. But where is the difference? 
+There are two ways to execute your code on multiple cores: Multiprocessing and multithreading. Both, processes and threads, provide the possibility to execute code sequences independently and concurrently. But where is the difference?
 <ul>
   <li>When you execute code in <strong>multiple processes</strong>, the operating system handles the scheduling. It decides when which process gets executed and tries to find an optimal order. Every process has its own memory segment. A process is sometimes also called "kernel level thread".</li>
   <li>When you execute code in <strong>multiple threads</strong>, all threads have one process they belong to (see <a href="http://eliezerciriaco.blogspot.de/2009/07/multi-threading-models.html">Multi-Threading models</a>, also from <a href="http://docs.oracle.com/cd/E19455-01/806-3461/6jck06gqk/index.html">Java</a>). Every set of threads that have the same process share their memory.</li>
@@ -110,7 +110,7 @@ When you execute the code above, the output will vary. Why is this the case?
 
 In short: The execution order is not defined and <code>RaceCondition.bigSum++</code> is not atomic.
 
-Let's imagine that you call this with two threads only: 
+Let's imagine that you call this with two threads only:
 <code>java Main 2 2000</code>
 
 Now you could get this execution order:
@@ -146,7 +146,7 @@ You can get all values in $[2, \text{NR}\_\text{THREADS} \cdot \text{BIG}\_\text
 Usually, you don't want to get different results when you give the same input to your program. How can you fix this? Take a look at <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/atomic/AtomicLong.html">AtomicLong</a> and replace the <code>long bigNr</code> by the <code>AtomicLong bigNr</code>.
 
 <h2>Playing with BASH</h2>
-If you want to execute this more often, you could save it as a executable JAR and execute the following bash script. It takes three arguments: 
+If you want to execute this more often, you could save it as a executable JAR and execute the following bash script. It takes three arguments:
 <ul>
   <li>$1: The number of times you execute a the program with a fixed number of THREADS</li>
   <li>$2: The maximum number of THREADS you would like to use</li>

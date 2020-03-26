@@ -37,7 +37,7 @@ This is a basic presentation:
 \usepackage{hyperref}
 \usepackage[utf8]{inputenc} % this is needed for german umlauts
 \usepackage[english]{babel} % this is needed for german umlauts
-\usepackage[T1]{fontenc}    % this is needed for correct output 
+\usepackage[T1]{fontenc}    % this is needed for correct output
                             % of umlauts in pdf
 
 \begin{document}
@@ -144,20 +144,20 @@ You can use it like this:
     Some text\\
     \uncover<2->{Uncover me on slide 2 (-)\\}
     \visible<3->{visible from slide 3 on (-)\\}
-    \only<4->{only from slide 4 (-)\\} 
+    \only<4->{only from slide 4 (-)\\}
     \onslide<5->{on slide 5 and further (-)\\}
     \uncover<6>{Uncover me on slide 6 \\}
     \visible<7>{visible on 7\\}
-    \only<8>{only on slide 8 \\} 
+    \only<8>{only on slide 8 \\}
     \alt<8>{I am on slide 8\\}{I am not on slide 8\\}
     \onslide<9>{on slide 9\\}
 \end{frame}
 ```
 
-Note that the numbers work like `\uncover<n-m>{ELEMENT}`. If no `m` 
+Note that the numbers work like `\uncover<n-m>{ELEMENT}`. If no `m`
 is specified, ELEMENT is visible until end of this frame.
 
-When you have a list and you want to uncover it element by element, 
+When you have a list and you want to uncover it element by element,
 you can use this:
 
 ```latex

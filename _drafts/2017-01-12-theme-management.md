@@ -3,13 +3,13 @@ layout: post
 title: A classical, system-independant theme management
 author: Martin Thoma
 date: 2012-12-19 12:49:47
-categories: 
+categories:
 - Cyberculture
-tags: 
+tags:
 - Linux
 - Windows
 - XML
-featured_image: 
+featured_image:
 ---
 I just had the problem, that I wanted to customize my theme in Windows, but I didn't know how to do it in Windows. I stumbled over <a href="http://www.addictivetips.com/windows-tips/on-screen-volume-control-indicator-for-windows/">3RVX</a>.
 

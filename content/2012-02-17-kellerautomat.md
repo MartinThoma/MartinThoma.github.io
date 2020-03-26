@@ -6,7 +6,7 @@ date: 2012-02-17 20:17:01.000000000 +01:00
 category: German posts
 tags: Abstract machine, Theoretical computer science
 ---
-Ein Kellerautomat ist ein Endlicher Automat mit einem Stack ("Kellerspeicher"). Er wird mit PDA (pushdown automaton) bzw. NPDA (nondeterministic pushdown automaton) abgek&uuml;rzt. 
+Ein Kellerautomat ist ein Endlicher Automat mit einem Stack ("Kellerspeicher"). Er wird mit PDA (pushdown automaton) bzw. NPDA (nondeterministic pushdown automaton) abgek&uuml;rzt.
 
 Laut Wikipedia verwendet die Gleitkommaeinheit einen PDA. Dazu habe ich allerdings keine Quelle, das ist also mit Vorsicht zu genie&szlig;en.
 
@@ -50,7 +50,7 @@ Nun schaust du dir in jedem Schritt die oberste Karte auf dem Kartenstapel an un
 <h2>Beispiele</h2>
 Sei $L = \{w \in \{0,1,2\}^* | w = 0^i1^j2^j ~~~ i, j \in \mathbb{N}\}$
 
-$(\{q_0, q_1, q_2\}, \{0, 1, 2\}, \{1, \#\}, q_0, \#, \delta, \emptyset)$ mit 
+$(\{q_0, q_1, q_2\}, \{0, 1, 2\}, \{1, \#\}, q_0, \#, \delta, \emptyset)$ mit
 
 $\delta(q_0, 0, \#) = \{(q_0, \#), (q_1, \#)\}, $
 $\delta(q_1, 1, \#) = \{(q_1, 1)\}, $
@@ -66,8 +66,8 @@ Da $|\delta(q_0, 0, \#) = 2 > 1|$ ist dieser Kellerautomat Nicht-Deterministisch
 <h3>Akzeptierender Endzustand &rarr; leerer STACK</h3>
 Siehe Skript von Prof. Dr. Dorothea Wagner, S. 107.
 
-Gegeben sei ein Kellerautomat ${\cal K}_1 (Q_1, \Sigma, \Gamma_1, \delta_1, q_0^1, Z_0^1, F_1)$ der durch akzeptierenden Endzustand akzeptiert. 
-Wir wollen einen neuen Automaten ${\cal K}_2 (Q_2, \Sigma, \Gamma_2, \delta_2, q_0^2, Z_0^2, F_2)$ der durch leeren STACK akzeptiert. 
+Gegeben sei ein Kellerautomat ${\cal K}_1 (Q_1, \Sigma, \Gamma_1, \delta_1, q_0^1, Z_0^1, F_1)$ der durch akzeptierenden Endzustand akzeptiert.
+Wir wollen einen neuen Automaten ${\cal K}_2 (Q_2, \Sigma, \Gamma_2, \delta_2, q_0^2, Z_0^2, F_2)$ der durch leeren STACK akzeptiert.
 
 <strong>Idee</strong>: Wir f&uuml;hren einen neuen Zustand $q_E$ ein, bei dessen Erreichen wir den STACK leeren. Um zu verhindern, dass der STACK zwischenzeitlich leer wird, legen wir zu beginn das STACK-Symbol $Z_0^2$ ab.
 
@@ -92,8 +92,8 @@ $\delta_2(q_E, \varepsilon, Z) = \{(q_E, \varepsilon)\}  \text{ f&uuml;r } Z \in
 <h3>Leerer STACK &rarr; akzeptierender Endzustand</h3>
 Siehe Skript von Prof. Dr. Dorothea Wagner, S. 107.
 
-Gegeben sei ein Kellerautomat ${\cal K}_1 (Q_1, \Sigma, \Gamma_1, \delta_1, q_0^1, Z_0^1, F_1)$ der durch leeren STACK akzeptiert. 
-Wir wollen einen neuen Automaten ${\cal K}_2 (Q_2, \Sigma, \Gamma_2, \delta_2, q_0^2, Z_0^2, F_2)$ der durch akzeptierenden Endzustand akzeptiert. 
+Gegeben sei ein Kellerautomat ${\cal K}_1 (Q_1, \Sigma, \Gamma_1, \delta_1, q_0^1, Z_0^1, F_1)$ der durch leeren STACK akzeptiert.
+Wir wollen einen neuen Automaten ${\cal K}_2 (Q_2, \Sigma, \Gamma_2, \delta_2, q_0^2, Z_0^2, F_2)$ der durch akzeptierenden Endzustand akzeptiert.
 
 <strong>Idee</strong>: Wir legen ein zus&auml;tzliches Symbol $Z_0^2$ auf den STACK. Wird $Z_0^2$ gelesen, ist der STACK noch nicht leer, aber man kann in einen akzeptierenden Zustand $q_F$ wechseln.
 
@@ -102,7 +102,7 @@ $Q_2 := Q_1 \cup \{q_0^2, q_F\}$, wobei $q_0^2$ Anfangszustand von ${\cal K}_2$ 
 $\Gamma_2 := \Gamma_1 \cup \{Z_0^2\}$, wobei $Z_0^2$ Initialisierung des STACKS von ${\cal K}_2$ ist und $\delta_2$ festgelegt durch:
 
 Zuerst sorgen wir daf&uuml;r, dass $Z_0^2$ ganz unten im STACK ist:
-$$\delta_2(q_0^2, a, X) = 
+$$\delta_2(q_0^2, a, X) =
 \begin{cases}
 \{q_0^1, Z_0^1, Z_0^2\} & \text{falls } a= \varepsilon \text{ und } X = Z_0^2\\
 \emptyset               & \text{sonst}

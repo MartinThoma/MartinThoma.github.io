@@ -20,7 +20,7 @@ sudo apt-get install openjdk-6-jre openjdk-6-jdk openjdk-6-source openjdk-6-demo
 Dann werden etwa 276 MB an Archiven heruntergeladen und 662 MB an zus&auml;tzlichen Packeten installiert. Bei meiner Internetverbindung (DSL 1000 ☹ ) hat das ca 40 Minuten gedauert.
 
 <h2>CheckStyle</h2>
-Siehe eclipse-cs.sourceforge.net mit <a href="http://eclipse-cs.sourceforge.net/downloads.html">detaillierten Installationsanweisungen</a>. 
+Siehe eclipse-cs.sourceforge.net mit <a href="http://eclipse-cs.sourceforge.net/downloads.html">detaillierten Installationsanweisungen</a>.
 
 <h2>Subversive</h2>
 Siehe eclipse.org: <a href="http://www.eclipse.org/subversive/downloads.php#indigo_stable">Download Suversive</a>.

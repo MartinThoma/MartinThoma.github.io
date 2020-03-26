@@ -86,7 +86,7 @@ def calculateSteps(x, y):
 
 
 def solve(x, y):
-    """ starting at (0|0) and going i steps, 
+    """ starting at (0|0) and going i steps,
         how can you reach (x|y)? """
     s = calculateSteps(x, y)
 

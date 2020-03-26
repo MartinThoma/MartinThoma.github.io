@@ -70,7 +70,7 @@ In Numerik haben wir bei Herrn Dr. Wei&szlig; folgendes als Cholesky-Zerlegung k
 
 Sei $A \in \mathbb{R}^{n \times n}$ eine symmetrische, positiv definite Matrix. Dann existiert eine Zerlegung $A = \bar L \cdot \bar{L}^T$, wobei $\bar L$ eine untere Dreiecksmatrix ist.
 
-Wenn man wie gewohnt eine LR-Zerlegung der Matrix $A$ durchf&uuml;hrt, erh&auml;lt man zwei Matrizen $L, R \in \mathbb{R}^{n \times n}$, wobei gilt: $R = D \cdot L^T$, wobei $D$ eine positiv definite Diagonalmatrix ist. 
+Wenn man wie gewohnt eine LR-Zerlegung der Matrix $A$ durchf&uuml;hrt, erh&auml;lt man zwei Matrizen $L, R \in \mathbb{R}^{n \times n}$, wobei gilt: $R = D \cdot L^T$, wobei $D$ eine positiv definite Diagonalmatrix ist.
 
 Offensichtlich gilt: $\bar L = L \cdot D^{\frac{1}{2}}$.
 

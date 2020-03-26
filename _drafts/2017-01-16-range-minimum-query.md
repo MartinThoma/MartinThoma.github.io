@@ -3,9 +3,9 @@ layout: post
 title: A fast solution for Range Minimum Query
 author: Martin Thoma
 date: 2012-05-22 11:48:43
-categories: 
+categories:
 - Code
-tags: 
+tags:
 - C
 - ICPC
 - TopCoder
@@ -133,7 +133,7 @@ Huge input set: 107m56.560s = 1 hour 48 minutes
 ### Apply Sparse Tables Algorithm by rows
 Small input set:
 Large input set:
-Huge input set: 
+Huge input set:
 
 
 ## See also

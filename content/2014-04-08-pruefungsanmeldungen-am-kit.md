@@ -18,7 +18,7 @@ angemeldet zu haben, als die Anmeldung freigeschaltet wurde.
 Meiner Meinung nach sind wir Studenten hier in einer ungerechtfertigt
 schlechten Position: Sollte tatsächlich ein Fehler passiert sein und meine
 Anmeldung nicht funktioniert haben bzw. die Anmeldung (wie oder warum auch immer)
-rückgängig gemacht worden sein, habe ich keinerlei Möglichkeit zu beweisen, 
+rückgängig gemacht worden sein, habe ich keinerlei Möglichkeit zu beweisen,
 dass ich angemeldet war und nicht etwa es einfach vergessen habe. Was ich in
 meinem konkreten Fall nicht ausschließen will, schließlich ist das schon zwei
 Monate her und ich habe mich für einige Prüfungen angemeldet und keine
@@ -105,8 +105,8 @@ aus einem öffentlichen und einem privaten Schlüssel erstellt. Wenn sich ein
 Student von der Prüfung abmeldet, bekommt er einen Text, z. B. etwas in dieser
 Richtung:
 
-> Ich, Martin Thoma (Matrikelnummer: 1612345), melde mich hiermit 
-> am 08.04.2014 um 12:34:56 Uhr von der Prüfung "Programmierparadigmen" 
+> Ich, Martin Thoma (Matrikelnummer: 1612345), melde mich hiermit
+> am 08.04.2014 um 12:34:56 Uhr von der Prüfung "Programmierparadigmen"
 > (Prüfungsdatum: 10.04.2014) ab.
 
 Diese muss er mit seinem privaten Schlüssel signieren. Die Uni muss daher den
@@ -248,7 +248,7 @@ Sollte jemand den Vorschlag modifizieren wollen, hier ist das HTML dazu:
             </tr>
         </tbody></table>
 
-        
+
     </div>
 ```
 
@@ -291,7 +291,7 @@ sollte darauf hingewiesen werden, dass Weiteres nicht gerade optimal gelöst ist
   Zeitpunkten statt. Die Anmeldung sollte breits zu Semesterbegin für alle
   Klausuren möglich sein.
 * Die **Einsicht** ist immer schlecht organisiert. Da sich die Prüfungstermine
-  größtenteils in der vorlesungsfreien Zeit befinden und darin aber stark 
+  größtenteils in der vorlesungsfreien Zeit befinden und darin aber stark
   gestreut sind (manche sind zu Beginn, manche in der Mitte, manche am Ende)
   sind die Zeitpunkte, zu denen
   man als Student Ferien hat sehr stark eingeschränkt. Wenn man dann erst nach

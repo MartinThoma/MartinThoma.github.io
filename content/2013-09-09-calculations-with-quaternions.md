@@ -7,7 +7,7 @@ category: Mathematics
 tags: quaternions
 featured_image: 2013/08/algebra-thumb.jpg
 ---
-<a href="https://en.wikipedia.org/wiki/Quaternion">Quaternions</a> are an expansion of the concept of complex numbers on structures with four (instead of two) components. A quaterion $h$ can be written as a vector or in the form of $h = h_0 + ih_1 + j h_2 + kh_3$, where $i, j$ and $k$ are related to the $i$ in complex numbers. Accordingly $h_0$ is often called real part and h_1, h_2, h_3 are called imaginary part of a quaternion. 
+<a href="https://en.wikipedia.org/wiki/Quaternion">Quaternions</a> are an expansion of the concept of complex numbers on structures with four (instead of two) components. A quaterion $h$ can be written as a vector or in the form of $h = h_0 + ih_1 + j h_2 + kh_3$, where $i, j$ and $k$ are related to the $i$ in complex numbers. Accordingly $h_0$ is often called real part and h_1, h_2, h_3 are called imaginary part of a quaternion.
 
 For $i, j$ and $k$ the following rules are applied:
 
@@ -30,7 +30,7 @@ But for numbers in $\mathbb{R}$, it is commutative (<a href="http://math.stackex
 The multiplication is:
 
 \begin{align}
-x  y 
+x  y
 &=( x_0 y_0 - x_1 y_1 - x_2 y_2 - x_3 y_3)\\
 &+( x_0 y_1 + x_1 y_0 + x_2 y_3 - x_3 y_2) \mathrm i\\
 &+( x_0 y_2 - x_1 y_3 + x_2 y_0 + x_3 y_1) \mathrm j\\
@@ -43,20 +43,20 @@ This means, when you're given an element $x = x_0 + x_1 \mathrm i + x_2 \mathrm 
 \begin{align}
 x_0 y_0 - x_1 y_1 - x_2 y_2 - x_3 y_3 &= 1\\
 x_0 y_1 + x_1 y_0 + x_2 y_3 - x_3 y_2 &= 0\\
-x_0 y_2 - x_1 y_3 + x_2 y_0 + x_3 y_1 &= 0\\ 
+x_0 y_2 - x_1 y_3 + x_2 y_0 + x_3 y_1 &= 0\\
 x_0 y_3 + x_1 y_2 - x_2 y_1 + x_3 y_0 &= 0\\
 \end{align}
 
 which can be written as:
 
-$$\left(\begin{array}{cccc|c} 
+$$\left(\begin{array}{cccc|c}
     x_0 & -x_1 & -x_2 & -x_3 & 1\\
     x_1 &  x_0 & -x_3 &  x_2 & 0\\
     x_2 &  x_3 &  x_0 & -x_1 & 0\\
     x_3 & -x_2 &  x_1 &  x_0 & 0
   \end{array}\right).$$
 
-According to <a href="http://www.mathworks.de/de/help/aeroblks/quaternioninverse.html">mathworks</a> it is 
+According to <a href="http://www.mathworks.de/de/help/aeroblks/quaternioninverse.html">mathworks</a> it is
 
 $y = \frac{x_0 - \mathrm i x_1 - \mathrm j x_2 - \mathrm k x_3}{x_0^2 + x_1^2 + x_2^2 + x_3^2}$
 
@@ -121,4 +121,3 @@ where $\vec u$ describes the axis you rotate by.
 
 In this case $R_y$ is the y-axis, so
 $$\vec u = \begin{pmatrix}0\\1\\0\end{pmatrix}$$.
-

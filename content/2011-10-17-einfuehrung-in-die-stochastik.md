@@ -41,7 +41,7 @@ $H_x (a_j)$ : <strong>Absolute H&auml;ufigkeit</strong>
 $h_x(a_j) := \frac{H_x (a_j)}{n}$ : <strong>Relative H&auml;ufigkeit</strong>
 <strong>Empirische Verteilungsfunktion</strong>
 $t \mapsto \underbrace{F_x(t)}_{\text{empirische Verteilungsfunktion}} := \sum \limits_{j: a_j \le t} {h_x (a_j)}, t \in \mathbb{R}$
-Eine alternative Definition der <a href="http://de.wikipedia.org/wiki/Empirische_Verteilungsfunktion">empirischen Verteilungsfunktion</a> ist 
+Eine alternative Definition der <a href="http://de.wikipedia.org/wiki/Empirische_Verteilungsfunktion">empirischen Verteilungsfunktion</a> ist
 $F_x(t) := \frac{1}{n} \sum \limits_{i=1}^n 1 \{ x_i \le t \}$
 
 <strong>Arithmetisches Mittel</strong> ("Durchschnitt"): $\overline x = \frac{1}{n} \sum \limits_{i=1}^n x_i = \frac{x_1 + ... + x_n}{n}$
@@ -51,7 +51,7 @@ Welcher Wert liegt in der Mitte?
 <strong>Stichproben-Standardabweichung</strong>: $s_x := + \sqrt{s_x^2}$
 Wie stark weichen die Werte von einander ab?
 
-<strong>Stichproben-Variationskoeffizient</strong>: $v_x := \frac{s_x}{\overline x}$ 
+<strong>Stichproben-Variationskoeffizient</strong>: $v_x := \frac{s_x}{\overline x}$
 Wie gro&szlig; ist die Schwankung relativ zum Durchschnitt?
 
 <strong>Stichproben-Median / Zentralwert</strong>: W&uuml;rde mal alle Werte einer Stichprobe sortieren, sollte der Median der Wert in der Mitte sein. Das ist <em>nicht</em> der Durchschnitt!
@@ -59,7 +59,7 @@ Wie gro&szlig; ist die Schwankung relativ zum Durchschnitt?
 $$\tilde x := \begin{cases} x_{\frac{n+1}{2}}, & \mbox{wenn }   n \mbox{ ungerade} \\
                                  \frac{1}{2} (x_\frac{n}{2} + x_{\frac{n}{2} + 1}), & \mbox{wenn } n \mbox{ gerade} \end{cases}$$
 
-<strong>Quantil</strong>: Das Quantil unterteilt die Verteilung der Werte der Zufallsvariablen in zwei Bereiche: Links vom $\alpha$-Quantil liegen $100 \cdot p$ Prozent aller Beobachtungswerte bzw. $100 \cdot p$ Prozent der Gesamtzahl der Zufallswerte. Rechts davon liegen $100 \cdot (1-p)$ Prozent aller Beobachtungswerte bzw. $100 \cdot (1-p)$ Prozent der Gesamtzahl der Zufallswerte. 
+<strong>Quantil</strong>: Das Quantil unterteilt die Verteilung der Werte der Zufallsvariablen in zwei Bereiche: Links vom $\alpha$-Quantil liegen $100 \cdot p$ Prozent aller Beobachtungswerte bzw. $100 \cdot p$ Prozent der Gesamtzahl der Zufallswerte. Rechts davon liegen $100 \cdot (1-p)$ Prozent aller Beobachtungswerte bzw. $100 \cdot (1-p)$ Prozent der Gesamtzahl der Zufallswerte.
 
 Das Quartil ist das 0,25-Quantil.
 

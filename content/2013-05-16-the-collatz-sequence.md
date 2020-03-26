@@ -20,7 +20,7 @@ So the sequence $(c^n_{i})$ is defined as:
 
 $$c^n_{i} := \begin{cases}
 n   & \text{if } i = 0\\
-f(c^n_i) & \text{otherwise} 
+f(c^n_i) & \text{otherwise}
 \end{cases}$$
 
 You can define a directed graph $G=(V, E)$ like this:
@@ -190,13 +190,13 @@ The data was created as a 116.9 MB csv file with this C++ code:
 
 #define SURPRESS_OUTPUT true
 #define SHOW_DICT_CREATION false
- 
+
 using namespace std;
 
 struct element {
     /** What is the next collatz number? */
     unsigned long long next;
-    
+
     /** How many steps does it take until you reach 1? */
     unsigned long long steps;
 };
@@ -274,7 +274,7 @@ void insertCollatz(unsigned long long i){
 }
 
 void printCollatz() {
-    for(map<unsigned long long, struct element>::iterator it=collatz.begin(); 
+    for(map<unsigned long long, struct element>::iterator it=collatz.begin();
         it!=collatz.end(); ++it) {
         unsigned long long next = (*it).first;
         while(next != 1) {
@@ -299,7 +299,7 @@ int main(int argc, char* argv[]) {
     collatz[1] = e;
 
     unsigned long long maxCollatz = (unsigned long long) atoi(argv[1]);
- 
+
     for (unsigned long long i = 2; i <= maxCollatz; i++) {
         insertCollatz(i);
         saveULong = i;
@@ -312,7 +312,7 @@ int main(int argc, char* argv[]) {
     cerr << "maxStepsToOne: " << maxStepsToOne << endl;
     cerr << "maxEntry: " << maxEntry << endl;
     cerr << "entries: " << collatz.size() << endl;
-    
+
     //printCollatz();
     printSteps(maxCollatz);
 

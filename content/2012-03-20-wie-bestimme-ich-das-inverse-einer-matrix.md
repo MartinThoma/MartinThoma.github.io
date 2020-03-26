@@ -13,20 +13,20 @@ Das Inverse einer Matrix A wird berechnet, indem eine Matrix (A|E) gebildet wird
 
 <h2>Beispiel</h2>
 <h3>Ein Inverses existiert</h3>
-$$\left( \begin{array}{c c c c | c c c c} 
-  4 & 2 & 4 & 2 & 1 & 0 & 0 & 0 \\ 
-  3 & 1 & 4 & 1 & 0 & 1 & 0 & 0\\ 
-  2 & 7 & 1 & 8 & 0 & 0 & 1 & 0\\ 
-  0 & 1 & 1 & 2 & 0 & 0 & 0 & 1 
+$$\left( \begin{array}{c c c c | c c c c}
+  4 & 2 & 4 & 2 & 1 & 0 & 0 & 0 \\
+  3 & 1 & 4 & 1 & 0 & 1 & 0 & 0\\
+  2 & 7 & 1 & 8 & 0 & 0 & 1 & 0\\
+  0 & 1 & 1 & 2 & 0 & 0 & 0 & 1
 \end{array} \right) \rightsquigarrow
-\left( \begin{array}{c c c c | c c c c} 
-  2 & 1 & 2 & 1 & \frac{1}{2} & 0 & 0 & 0 \\ 
-  0 & -\frac{1}{2} & 1 & -\frac{1}{2} & -\frac{3}{4} & 1 & 0 & 0\\ 
-  0 & 6 & -1 & 7 & -\frac{1}{2} & 0 & 1 & 0\\ 
-  0 & 1 & 1 & 2 & 0 & 0 & 0 & 1 
+\left( \begin{array}{c c c c | c c c c}
+  2 & 1 & 2 & 1 & \frac{1}{2} & 0 & 0 & 0 \\
+  0 & -\frac{1}{2} & 1 & -\frac{1}{2} & -\frac{3}{4} & 1 & 0 & 0\\
+  0 & 6 & -1 & 7 & -\frac{1}{2} & 0 & 1 & 0\\
+  0 & 1 & 1 & 2 & 0 & 0 & 0 & 1
 \end{array} \right)$$
 
-$$\rightsquigarrow^* 
+$$\rightsquigarrow^*
 \frac{1}{8}
 \begin{pmatrix}
 12  & -12 & -2 &   2 \\

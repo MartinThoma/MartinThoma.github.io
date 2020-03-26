@@ -3,12 +3,12 @@ layout: post
 title: PHP Template Engines
 author: Martin Thoma
 date: 2011-10-02 12:52:01
-categories: 
+categories:
 - Code
 - The Web
-tags: 
+tags:
 - PHP
-featured_image: 
+featured_image:
 ---
 Template engines help to separate code and design. This concept is known as <a href="http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">Model-view-controller</a> (MVC).
 

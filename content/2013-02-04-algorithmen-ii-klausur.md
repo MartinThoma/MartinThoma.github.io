@@ -17,7 +17,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
       <li>Wert eines Flusses, s-t-Schnitt</li>
       <li>(Minimale) Schnitte, erhöhende Wege</li>
       <li>Max-Flow Min-Cut Theorem</li>
-      <li>Ford-Fulkerson-Algorithmus: 
+      <li>Ford-Fulkerson-Algorithmus:
         <ul>
           <li>Erhöhende Wege, Vorwärts- und R&uuml;ckwärtskanten</li>
           <li>Spezialfall: Algorithmus von Edmonds und Karp
@@ -58,7 +58,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
     <ul>
       <li>Was ist ein einfaches Polygon, was ein konvexes Polygon?</li>
       <li>Sweep Line Algorithmus</li>
-      <li>Konvexe H&uuml;lle: 
+      <li>Konvexe H&uuml;lle:
         <ul>
           <li>Graham Scan</li>
           <li>Gift Wrapping Algorithmus (Jarvis March) &rarr; <a href="http://codegolf.stackexchange.com/q/11035/5240">Code Golf</a></li>
@@ -69,7 +69,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
     <ul>
       <li>Rabin & Karp</li>
       <li>Endlichen Automaten</li>
-      <li>Vorberechnungen f&uuml;r viele Suchanfragen: 
+      <li>Vorberechnungen f&uuml;r viele Suchanfragen:
         <ul>
           <li>Suffixbäume</li>
           <li>Suffixarray</li>
@@ -163,7 +163,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 <h2>Komplexitätsklassen</h2>
 <div class="definition">Die Klasse $\mathcal{PP}$ (probabilistic polynomial) enthält alle Entscheidungsprobleme $\Pi$, f&uuml;r die es einen polynomialen, randomisierten Algorithmus $A$ gibt, so dass f&uuml;r alle Instanzen $I$ von $\Pi$ gilt:
 $
-\begin{cases} 
+\begin{cases}
 I    \in Y_\Pi & Pr[A(I) \text{ ist "Ja"}] \ge \frac{1}{2} \\
 I \notin Y_\Pi & Pr[A(I) \text{ ist "Ja"}] \le \frac{1}{2}
 \end{cases}$
@@ -171,7 +171,7 @@ I \notin Y_\Pi & Pr[A(I) \text{ ist "Ja"}] \le \frac{1}{2}
 
 <div class="definition">Die Klasse $\mathcal{BPP}$ (bounded error PP) enthält alle Entscheidungsprobleme $\Pi$, f&uuml;r die es einen polynomialen, randomisierten Algorithmus $A$ gibt, so dass f&uuml;r alle Instanzen $I$ von $\Pi$ gilt:
 $
-\begin{cases} 
+\begin{cases}
 I    \in Y_\Pi & Pr[A(I) \text{ ist "Ja"}] \geq \frac{3}{4} \\
 I \notin Y_\Pi & Pr[A(I) \text{ ist "Ja"}] \leq \frac{1}{4}
 \end{cases}$
@@ -179,7 +179,7 @@ I \notin Y_\Pi & Pr[A(I) \text{ ist "Ja"}] \leq \frac{1}{4}
 
 <div class="definition">Die Klasse $\mathcal{RP}$ (randomisiert polynomial) enthält alle Entscheidungsprobleme $\Pi$, f&uuml;r die es einen polynomialen, randomisierten Algorithmus $A$ gibt, so dass f&uuml;r alle Instanzen $I$ von $\Pi$ gilt:
 $
-\begin{cases} 
+\begin{cases}
 I    \in Y_\Pi & Pr[A(I) \text{ ist "Ja"}] \geq \frac{1}{2} \\
 I \notin Y_\Pi & Pr[A(I) \text{ ist "Ja"}] = 0
 \end{cases}$

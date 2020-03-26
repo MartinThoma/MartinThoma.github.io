@@ -3,9 +3,9 @@ layout: post
 title: LU decomposition of a matrix
 author: Martin Thoma
 date: 2013-05-20 03:18:30
-categories: 
+categories:
 - Code
-tags: 
+tags:
 - mathematics
 - Matrix
 - numerics
@@ -58,7 +58,7 @@ $
 = \begin{pmatrix}
 0 & 0 \cdot r_{1,2} \\
 l_{2,1} \cdot r_{1,1} & l_{2,1} \cdot r_{1,2} + l_{2,2} \cdot r_{2,2} \\
-\end{pmatrix} = 
+\end{pmatrix} =
 \begin{pmatrix}
 0 & 0 \\
 l_{2,1} \cdot r_{1,1} & l_{2,1} \cdot r_{1,2} + l_{2,2} \cdot r_{2,2} \\
@@ -81,7 +81,7 @@ l_{2,1} \cdot 0 & l_{2,1} \cdot r_{1,2} + l_{2,2} \cdot r_{2,2} \\
 \begin{pmatrix}
 0 & l_{1,1} \cdot r_{1,2} \\
 0 & l_{2,1} \cdot r_{1,2} + l_{2,2} \cdot r_{2,2} \\
-\end{pmatrix} 
+\end{pmatrix}
 $
 
 So $r_{1,1} \neq 0$
@@ -144,8 +144,7 @@ A $LUP$ decomposition, with:
     <li>$L\cdot U = P \cdot A$</li>
 </ul>
 
-does always exist for a non-singular square matrices $A \in \mathbb{R}^{n \times n}$. 
+does always exist for a non-singular square matrices $A \in \mathbb{R}^{n \times n}$.
 
 <h3>Finding P</h3>
 For some reasons I don't understand (yet) it is better when entries with big absolute values are on the top. This is called pivoting.
-

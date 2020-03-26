@@ -30,7 +30,7 @@ int main() {
     phonebook["Charlie"] = "Alice";
 
     // Look stuff up
-    cout << "The phone number of Alice is " 
+    cout << "The phone number of Alice is "
          << phonebook["Alice"] << endl;
 
     cout << "Number of phone book entries: "
@@ -38,7 +38,7 @@ int main() {
 
     // Print everything
     cout << "Iterate over all phonebook entries: " << endl;
-    for(map<string,string>::iterator it=phonebook.begin(); 
+    for(map<string,string>::iterator it=phonebook.begin();
         it!=phonebook.end(); ++it) {
         cout << "\t" << (*it).first << ": " << (*it).second << endl;
     }

@@ -101,7 +101,7 @@ Which gives:
 
 ```bash
 
-./struct-example.out 
+./struct-example.out
 (2.00|5.00)
 (3.00|-4.00)
 (2.00|5.00)
@@ -147,7 +147,7 @@ int main() {
 Result:
 ```bash
 
-./struct-example.out 
+./struct-example.out
 (3.00|-10.00)
 Distance: 13.00
 

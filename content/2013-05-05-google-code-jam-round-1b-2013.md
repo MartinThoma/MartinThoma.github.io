@@ -171,4 +171,3 @@ if __name__ == "__main__":
         N, x, y = map(int, raw_input().split(" "))
         print("Case #%i: %.9Lf" % (caseNr, solve(N, abs(x), y)))
 ```
-

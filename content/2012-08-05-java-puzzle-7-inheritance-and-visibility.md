@@ -89,8 +89,8 @@ public class test3 {
 
 <strong>test2.java</strong>:
 ```bash
-Exception in thread "main" java.lang.Error: Unresolved compilation 
-      problem: 
+Exception in thread "main" java.lang.Error: Unresolved compilation
+      problem:
 	The field Animal.height is not visible
 
 	at test.main(test.java:4)
@@ -98,8 +98,8 @@ Exception in thread "main" java.lang.Error: Unresolved compilation
 
 <strong>test3.java</strong>:
 ```bash
-Exception in thread "main" java.lang.Error: Unresolved compilation 
-      problem: 
+Exception in thread "main" java.lang.Error: Unresolved compilation
+      problem:
 	The field Animal.height is not visible
 
 	at test.main(test.java:4)

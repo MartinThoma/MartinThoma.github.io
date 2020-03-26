@@ -11,7 +11,7 @@ The United States public debt increased from \$10.7 trillion in 2008 to \$14.2 t
 
 Today it is incredibly easy to gain raw data, but without context they aren't worth anything. You have to know some different information of the same context with which you can compare the given information.
 
-If I told you that 24 petabytes equals approximately 1,600 years of a high quality video you can get a feeling for the information. This can be done even better if you use graphical elements. 
+If I told you that 24 petabytes equals approximately 1,600 years of a high quality video you can get a feeling for the information. This can be done even better if you use graphical elements.
 
 Here are two great examples of data visualization.
 

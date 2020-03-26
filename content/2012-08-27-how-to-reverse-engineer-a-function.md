@@ -7,7 +7,7 @@ category: Cyberculture
 tags: Wikipedia, mathematics
 featured_image: 2012/08/cubic-function-thumb.png
 ---
-I am currently improving many articles on Wikipedia as a preparation for some math exams. And I recently started to create images with LaTeX / TikZ. 
+I am currently improving many articles on Wikipedia as a preparation for some math exams. And I recently started to create images with LaTeX / TikZ.
 
 Today, I've found <a href="http://commons.wikimedia.org/wiki/File:Intermediatevaluetheorem.png">this image</a> in the article about the Intermediate value theorem:
 <figure class="aligncenter">
@@ -86,14 +86,14 @@ And here is an approximation:
 \usepackage{xcolor}
 \definecolor{horizontalLineColor}{HTML}{008000}
 \definecolor{verticalLineColor}{HTML}{FF0000}
- 
+
 \begin{document}
 
 % Define this as a command to ensure that it is same in both cases
 \newcommand*{\ShowIntersection}[2]{
-\fill 
-    [name intersections={of=#1 and #2, name=i, total=\t}] 
-    [red, opacity=1, every node/.style={above left, black, opacity=1}] 
+\fill
+    [name intersections={of=#1 and #2, name=i, total=\t}]
+    [red, opacity=1, every node/.style={above left, black, opacity=1}]
     \foreach \s in {1,...,\t}{(i-\s) circle (2pt)
         node [above left] {\s}};
 }
@@ -114,8 +114,8 @@ And here is an approximation:
         xticklabels={,,},
         yticklabels={,,}
     ]
-      \addplot[name path global=a, domain=55:161, dotted, blue, 
-               thick,samples=500, label=$y=f(x)$] 
+      \addplot[name path global=a, domain=55:161, dotted, blue,
+               thick,samples=500, label=$y=f(x)$]
         {113/132078*x*x*x-11865/44026*x*x+1169437/44026*x-93155207/132078};
       % ( 55 |  82.7344) and (161 | 156.011) are on the graph
       \coordinate (b) at (axis cs: 55,170);
@@ -133,7 +133,7 @@ And here is an approximation:
       % (100 | 111.494)
       \coordinate (f) at (axis cs:100, 111.494);
       \draw[red,dashed](f |- 0,0) -- (f);
-    \end{axis} 
+    \end{axis}
 \end{tikzpicture}
 \end{preview}
 \end{document}

@@ -131,7 +131,7 @@ It seems to get better. <a href="http://goodnoows.com/">Good Noows</a> lets me s
 However, it has no Android App and seems not to support export.
 
 <h3>Bloglines</h3>
-<a href="http://www.bloglines.com/index.html">Bloglines</a> offers an export function! I can't login with Google, but I can import my 109 Feeds. 
+<a href="http://www.bloglines.com/index.html">Bloglines</a> offers an export function! I can't login with Google, but I can import my 109 Feeds.
 
 It looks like this:
 <a href="../images/2013/03/bloglines.png"><img src="../images/2013/03/bloglines-300x184.png" alt="bloglines" width="300" height="184" class="aligncenter size-medium wp-image-61351" /></a>

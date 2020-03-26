@@ -7,7 +7,7 @@ category: Code
 tags: PHP, Benchmark, Web Development
 featured_image: 2011/09/PHP-logo.png
 ---
-I used ApacheBenchmark (<a href="http://httpd.apache.org/docs/2.0/programs/ab.html" rel="nofollow">ab</a>) to make a few Benchmark tests I was interested in. 
+I used ApacheBenchmark (<a href="http://httpd.apache.org/docs/2.0/programs/ab.html" rel="nofollow">ab</a>) to make a few Benchmark tests I was interested in.
 
 If you like to view some more, go to <a href="http://www.phpbench.com/" rel="nofollow">www.phpbench.com</a>.
 
@@ -56,7 +56,7 @@ Total:          2    2   0.0      2       2
 
 ```
 
-Now I make 1000 requests to this empty file: 
+Now I make 1000 requests to this empty file:
 ```bash
 ab -n 1000 -c 1 localhost/empty.php
 ```
@@ -81,12 +81,12 @@ for($i=0; $i<5; $i++) {
 }
 ```
 
-1.817 ms 
+1.817 ms
 
 ```php
 for($i=0; $i<5; $i++) {
     $chunk = array_intersect_key($MyArray, array($i*7=>1, $i*7+1=>2, $i*7+2=>3, $i*7+3=>4, $i*7+4=>5, $i*7+5=>6));
-    if(count($chunk) > 0){$maximum = max(array_map('count', $chunk));} 
+    if(count($chunk) > 0){$maximum = max(array_map('count', $chunk));}
     else {$maximum = 0;}
     echo $maximum.' ';
 }

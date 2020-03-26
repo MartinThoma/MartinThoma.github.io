@@ -43,16 +43,16 @@ h  hei&szlig;t Homomorphismus $:\Leftrightarrow h(\varepsilon) = \varepsilon \la
 <h2>Abbildungen und Relationen</h2>
 Seien A und B Mengen.
 
-R hei&szlig;t bin&auml;re Relation von A in B $:\Leftrightarrow R \subseteq A \times B$ 
+R hei&szlig;t bin&auml;re Relation von A in B $:\Leftrightarrow R \subseteq A \times B$
 
 Sei im Folgendem R eine bin&auml;re Relation von A in B.
 
-R ist linkstotal $:\Leftrightarrow \forall_{a \in A} : \exists_{b \in B} : (a, b) \in R$ 
-R ist rechtseindeutig $:\Leftrightarrow \forall_{a \in A} : \forall_{b_1, b_2 \in B: b_1 \neq b_2} : (a, b_1) \in R \Rightarrow (a, b_2) \notin R$ 
+R ist linkstotal $:\Leftrightarrow \forall_{a \in A} : \exists_{b \in B} : (a, b) \in R$
+R ist rechtseindeutig $:\Leftrightarrow \forall_{a \in A} : \forall_{b_1, b_2 \in B: b_1 \neq b_2} : (a, b_1) \in R \Rightarrow (a, b_2) \notin R$
 R hei&szlig;t Abbildung $:\Leftrightarrow$ R ist linkstotal und rechtseindeutig.
 F&uuml;r Abbildungen schreibt man auch: $R: A \rightarrow B$.
 
-R hei&szlig;t linkseindeutig $:\Leftrightarrow \forall_{(a_1, b_1) \in R} : \forall_{(a_2, b_2) \in R} : (a_1, b_1) \in R \Rightarrow (a_2, b_2) \notin R$ 
+R hei&szlig;t linkseindeutig $:\Leftrightarrow \forall_{(a_1, b_1) \in R} : \forall_{(a_2, b_2) \in R} : (a_1, b_1) \in R \Rightarrow (a_2, b_2) \notin R$
 R hei&szlig;t injektiv $:\Leftrightarrow$ R ist eine linkseindeutige Abbildung.
 R hei&szlig;t rechtstotal $:\Leftrightarrow \forall_{b \in B} : \exists_{a \in A} : (a, b) \in R$
 R hei&szlig;t surjektiv $:\Leftrightarrow$ R ist eine rechtstotale Abbildung.
@@ -77,7 +77,7 @@ $x \in T$ hei&szlig;t kleinstes Element von T $:\Leftrightarrow$ $\forall_{y \in
 Das maximale Element und das gr&ouml;&szlig;te Element werden analog definiert.
 
 R hei&szlig;t vollst&auml;ndige Halbordnung $:\Leftrightarrow$ R ist eine Halbordnung, besitzt ein kleinstes Element und jede aufsteigende Kette besitzt ein Supremum.
-R hei&szlig;t Totalordnung $:\Leftrightarrow \forall_{a,b \in M} : aRb \lor bRa$ 
+R hei&szlig;t Totalordnung $:\Leftrightarrow \forall_{a,b \in M} : aRb \lor bRa$
 
 Sei $\equiv \subseteq M \times M$ eine &Auml;quivalenzrelation, $f : M \rightarrow M$ eine Funktion und $\diamond$ eine bin&auml;re Operation auf der Menge M.
 $f$ hei&szlig;t vertr&auml;glich $: \Leftrightarrow \forall_{x,y \in M} : x \equiv y \Rightarrow f(x) \equiv f(y)$

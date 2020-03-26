@@ -204,8 +204,8 @@ It is much easier to check if two bounding boxes intersect. It's simply:
  *         <code>false</code> otherwise.
  */
 public boolean doBoundingBoxesIntersect(Point[] a, Point[] b) {
-    return a[0].x <= b[1].x 
-        && a[1].x >= b[0].x 
+    return a[0].x <= b[1].x
+        && a[1].x >= b[0].x
         && a[0].y <= b[1].y
         && a[1].y >= b[0].y;
 }
@@ -291,7 +291,7 @@ When we have one line $a$ through the origin and one line segment $b$, you can c
 
 ```java
 /**
- * Check if line segment first touches or crosses the line that is 
+ * Check if line segment first touches or crosses the line that is
  * defined by line segment second.
  *
  * @param first line segment interpreted as line
@@ -304,7 +304,7 @@ public boolean lineSegmentTouchesOrCrossesLine(LineSegment a,
         LineSegment b) {
     return isPointOnLine(a, b.first)
             || isPointOnLine(a, b.second)
-            || (isPointRightOfLine(a, b.first) ^ 
+            || (isPointRightOfLine(a, b.first) ^
                 isPointRightOfLine(a, b.second));
 }
 ```
@@ -332,7 +332,7 @@ By the way, testcase F5 is the only reason why you need <code>doBoundingBoxesInt
 
 <h2>Where do two line segments intersect?</h2>
 When you know that two line segments intersect, you can also calculate the intersection.
-The intersection could be a line or only a point. 
+The intersection could be a line or only a point.
 
 I did this with JavaScript:
 
@@ -374,7 +374,7 @@ function getIntersection(a, b) {
                 b = tmp;
             }
 
-            // Now we know that the y-value of a["first"] is the 
+            // Now we know that the y-value of a["first"] is the
             // lowest of all 4 y values
             // this means, we are either in case (AAA):
             //   a: x--------------x
@@ -404,7 +404,7 @@ function getIntersection(a, b) {
         // a and b switched
         x1 = b["first"]["x"];
         x2 = x1;
-        
+
         var tmp = a;
         a = b;
         b = tmp;
@@ -427,9 +427,9 @@ function getIntersection(a, b) {
         tb = b["first"]["y"] - mb*b["first"]["x"];
         if (ma == mb) {
             // Case (CA)
-            // both lines are in parallel. As we know that they 
+            // both lines are in parallel. As we know that they
             // intersect, the intersection could be a line
-            // when we rotated this, it would be the same situation 
+            // when we rotated this, it would be the same situation
             // as in case (AA)
 
             // Normalize

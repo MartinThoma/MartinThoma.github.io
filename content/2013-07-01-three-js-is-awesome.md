@@ -7,7 +7,7 @@ category: Code
 tags: JavaScript Game, JavaScript, three.js
 featured_image: 2013/07/threejs-reflection-thumb.png
 ---
-I recently discovered <a href="http://en.wikipedia.org/wiki/Three.js">three.js</a>, a JavaScript library/API used to create and display animated 3D computer graphics. 
+I recently discovered <a href="http://en.wikipedia.org/wiki/Three.js">three.js</a>, a JavaScript library/API used to create and display animated 3D computer graphics.
 
 Here are some examples what you can do with three.js. It's pure JavaScript, no Flash required!
 

@@ -87,7 +87,7 @@ INSERT INTO  `wm_users` (
     `email` ,
     `password` ,
     `confirmation_code` ,
-    `status` 
+    `status`
 ) VALUES (
     :display_name, :email, :password, :confirmation_code, 'deactivated'
 );

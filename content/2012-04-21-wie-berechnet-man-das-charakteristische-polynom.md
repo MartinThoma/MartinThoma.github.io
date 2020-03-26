@@ -13,7 +13,7 @@ Will man das charakteristische Polynom einer Abbildungsmatrix berechnen, so muss
 Man darf eine <strong>Zeile mit einer Konstanten a multiplizieren</strong>, muss dann aber die Determinante durch a teilen:
 <a id="more"></a><a id="more-22721"></a>
 $$det \begin{pmatrix}
-3 & 2 & 12 & 5 \\ 
+3 & 2 & 12 & 5 \\
 2 & 1 &  6 & 4 \\
 2 & 0 &  2 & -3\\
 2 & 2 &  7 & 4
@@ -21,7 +21,7 @@ $$det \begin{pmatrix}
 \begin{array}{c} | \cdot 2 \\ | \cdot 3 \\ | \cdot 3 \\ | \cdot 3 \end{array}
  = \frac{1}{2} \cdot (\frac{1}{3})^3 \cdot
 det \begin{pmatrix}
-6 & 4 & 24 & 10 \\ 
+6 & 4 & 24 & 10 \\
 6 & 3 & 18 & 12 \\
 6 & 0 &  6 & -9\\
 6 & 6 & 21 & 12
@@ -30,19 +30,19 @@ $$
 
 Man darf zwei <strong>Zeilen / Spalten tauschen</strong>, muss dann aber die Determinante mit (-1) multiplizieren:
 $$det \begin{pmatrix}
-6 & 4 & 24 & 10 \\ 
+6 & 4 & 24 & 10 \\
 6 & 3 & 18 & 12 \\
 6 & 0 &  6 & -9\\
 6 & 6 & 21 & 12
 \end{pmatrix} \begin{array}{c} \cdot  \\  \cdot \\ \leftarrow \\ \leftarrow \end{array} = -
 det \begin{pmatrix}
-6 & 4 & 24 & 10 \\ 
+6 & 4 & 24 & 10 \\
 6 & 3 & 18 & 12 \\
 6 & 6 & 21 & 12 \\
 6 & 0 &  6 & -9
-\end{pmatrix} = 
+\end{pmatrix} =
 det \begin{pmatrix}
-6 & 24 & 4 & 10 \\ 
+6 & 24 & 4 & 10 \\
 6 & 18 & 3 & 12 \\
 6 & 21 & 6 & 12 \\
 6 & 6  & 0 & -9

@@ -24,7 +24,7 @@ $p_A(\lambda) = (\lambda - 5) \cdot (\lambda - 4) \cdot (\lambda + 1)^2$.
 
 (&rarr; <a href="http://www.wolframalpha.com/input/?i=%7B%7B1%2C2%2C47%2C11%7D%2C%7B3%2C2%2C8%2C15%7D%2C%7B0%2C0%2C3%2C1%7D%2C%7B0%2C0%2C8%2C1%7D%7D">Wolfram|Alpha</a> und &bdquo;<a href="../wie-berechnet-man-das-charakteristische-polynom/">Wie berechnet man das charakteristische Polynom?</a>&ldquo;)
 
-Daraus folgt: 
+Daraus folgt:
 <ul>
   <li>$\lambda = 5$ ist Eigenwert mit der algebraischen Vielfachheit 1.</li>
   <li>$\lambda = 4$ ist Eigenwert mit der algebraischen Vielfachheit 1.</li>
@@ -90,7 +90,7 @@ Es gibt im Jordanblock zu \begin{align}
 \\
  &= \dim \left [\begin{pmatrix}0\\1\\1\\0\end{pmatrix} \right ] = 1
 \end{align}
-$$J_B = 
+$$J_B =
 \begin{pmatrix}
 -1 &  0 & 0 & 0\\
  0 & -1 & 0 & 0\\
@@ -159,7 +159,7 @@ $$J_B =
 
 $K_3(1) = \mathbb{R}^4$ ist das gr&ouml;&szlig;te Jordankästchen von der Gr&ouml;&szlig;e 3. Damit ergibt sich folgende Jordannormalform:
 
-$$J = 
+$$J =
 \begin{pmatrix}
 1 & 0 & 0 & 0\\
 0 & 1 & 1 & 0\\
@@ -168,7 +168,7 @@ $$J =
    \end{pmatrix}$$
 
 <h3>Basiswechselmatrix bestimmen</h3>
-Für jedes Jordankästchen der Länge $i$ muss nun 1 Vektor gewählt werden und $i-1$ Vektoren müssen bestimmt werden. Dafür muss $\Omega(\lambda) := C - \lambda \cdot E$ bestimmt werden. 
+Für jedes Jordankästchen der Länge $i$ muss nun 1 Vektor gewählt werden und $i-1$ Vektoren müssen bestimmt werden. Dafür muss $\Omega(\lambda) := C - \lambda \cdot E$ bestimmt werden.
 
 <strong>Eigenwert 1:</strong>
 <strong>Kästchengr&ouml;&szlig;e 3</strong>
@@ -207,7 +207,7 @@ S^{-1} \cdot C \cdot S &= \begin{pmatrix}
 -1 & 0 &  0 &  0\\
  0 & 0 &  2 &  1\\
  1 & 1 &  0 &  1
-\end{pmatrix} \cdot 
+\end{pmatrix} \cdot
 \begin{pmatrix}
 1  & -1 &  0 & 1\\
 -1 &  1 & -1 & 0\\

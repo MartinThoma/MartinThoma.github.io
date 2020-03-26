@@ -7,7 +7,7 @@ category: Code
 tags: Python, Wikipedia, RegEx
 featured_image: 2011/09/Python-Logo.png
 ---
-Wikipedia articles are full of references. Those references should be formatted the same way. It is much easier to use a template for citations than trying to guess the right way how to cite. Unfortunately most Wikipedia users don't know the <a href="http://en.wikipedia.org/wiki/Template:Citation" title="Template:Citation">Template:Citation</a>. 
+Wikipedia articles are full of references. Those references should be formatted the same way. It is much easier to use a template for citations than trying to guess the right way how to cite. Unfortunately most Wikipedia users don't know the <a href="http://en.wikipedia.org/wiki/Template:Citation" title="Template:Citation">Template:Citation</a>.
 
 So I try to fix all manual styled citations when I edit an article. Doing this manually is quite time intensive. This is the reason why I wrote a little Python-script.
 
@@ -17,7 +17,7 @@ So I try to fix all manual styled citations when I edit an article. Doing this m
 <ref>[http://peter.mapledesign.co.uk/weblog/archives/python-is-slow Python is... slow?] December 21st, 2004 &mdash; Peter Bowyer&rsquo;s weblog]</ref>
 ```
 
-should be 
+should be
 
 ```html
 <ref>{{Citation |url=http://peter.mapledesign.co.uk/weblog/archives/python-is-slow |title=Python is... slow? |accessdate=September 24, 2011}}</ref>
@@ -27,13 +27,13 @@ should be
 <ref>[http://www.nongnu.org/pydbc/ Contracts for Python], PyDBC</ref>
 ```
 
-should be 
+should be
 
 ```html
 <ref>{{Citation |url=http://www.nongnu.org/pydbc/ |title=Contracts for Python |accessdate=September 24, 2011}}</ref>
 ```
 
-So, all that has to be done is 
+So, all that has to be done is
 <ol>
 	<li>Finding all <ref>-Tags without a template in one article</li>
         <li>Trying to find the URL of this reference</li>
@@ -83,7 +83,7 @@ parser.add_option(
 
 
 def load(lemma, language="en", format="xml"):
-    """ Get the Wikipedia Source Text (not the HTML source code) 
+    """ Get the Wikipedia Source Text (not the HTML source code)
 
         format:xml,json, ...
         language:en, de, ...
@@ -147,7 +147,7 @@ def rlinput(prompt, prefill=""):
 
 
 def improve(references, page):
-    """ Try to guess the right formatation for each reference and ask 
+    """ Try to guess the right formatation for each reference and ask
         the user to confirm or edit the formatation of the reference. """
 
     urlPattern = "http.+? "
@@ -228,7 +228,7 @@ parser.add_option(
 
 
 def load(lemma, language="en", format="xml"):
-    """ Get the Wikipedia Source Text (not the HTML source code) 
+    """ Get the Wikipedia Source Text (not the HTML source code)
 
         format:xml,json, ...
         language:en, de, ...
@@ -279,7 +279,7 @@ def rlinput(prompt, prefill=""):
 
 
 def improve(references, page):
-    """ Try to guess the right formatation for each reference and ask 
+    """ Try to guess the right formatation for each reference and ask
         the user to confirm or edit the formatation of the reference. """
 
     urlPattern = "http.+? "

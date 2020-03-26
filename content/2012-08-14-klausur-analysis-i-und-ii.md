@@ -42,7 +42,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
       <li>Riemann-Integral</li>
       <li>Uneigentliche Integrale</li>
       <li><a href="http://de.wikipedia.org/wiki/Riemann-Stieltjes-Integral">Riemann-Stieltjes-Integral</a></li>
-      <li>Partielle Integration<br/>$\int_a^b f'(x)\cdot g(x)\,\mathrm{d}x 
+      <li>Partielle Integration<br/>$\int_a^b f'(x)\cdot g(x)\,\mathrm{d}x
 = [f(x)\cdot g(x)]_{a}^{b} - \int_a^b f(x)\cdot g'(x)\,\mathrm{d}x.$</li>
     </ul>
   </li>

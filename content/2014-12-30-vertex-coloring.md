@@ -18,7 +18,7 @@ The <span style="font-variant: small-caps;">Vertex Coloring</span> problem can b
 <span style="font-variant: small-caps;">Vertex Coloring</span>
 Let $G = (V, E)$ be an undirected graph.
 
-Find a function $f: V \rightarrow \{1, \dots, n\}, n \in \mathbb{N}$ such that: 
+Find a function $f: V \rightarrow \{1, \dots, n\}, n \in \mathbb{N}$ such that:
 
 $\forall e=\{v_1, v_2\} \in E: f(v_1) \neq f(v_2)$.
 
@@ -53,7 +53,7 @@ I think learning from errors is important. This is the reason why I share the fo
 <h3>First WRONG try: Fix adjacent vertices</h3>
 [caption id="attachment_69891" align="aligncenter" width="512"]<a href="../images/2013/06/Vertex-coloring.png"><img src="../images/2013/06/Vertex-coloring.png" alt="A vertex coloring algorithm that does not work" width="512" height="281" class="size-full wp-image-69891" /></a> A vertex coloring algorithm that does not work[/caption]
 
-The time complexity of this algorithm is in $\mathcal{O}(|V|^2)$. This should make you suspicious, as <span style="font-variant: small-caps;">Vertex Coloring</span> is in $\mathcal{NPC}$. So if it was correct, it would solve the <a href="http://en.wikipedia.org/wiki/P_versus_NP_problem">P vs. NP problem</a> which is worth a million dollars. 
+The time complexity of this algorithm is in $\mathcal{O}(|V|^2)$. This should make you suspicious, as <span style="font-variant: small-caps;">Vertex Coloring</span> is in $\mathcal{NPC}$. So if it was correct, it would solve the <a href="http://en.wikipedia.org/wiki/P_versus_NP_problem">P vs. NP problem</a> which is worth a million dollars.
 
 But an example why it doesn't work is better. Just try it for the following graph:
 
@@ -103,7 +103,7 @@ If you and your friend repeat this "proof" $t$ times (for large $t$), your frien
 Source: <a href="http://mathoverflow.net/questions/22624/example-of-a-good-zero-knowledge-proof/22628#22628">mathoverflow.net</a>
 
 Lets make this more concrete. Say you want to authenticate somebody. This person is identified as the "only" person who knows a three-coloring of a big graph. This makes him/her special.
-If you simply asked him "what's the three coloring for your graph?" he would no longer be the only person who knows the three coloring. 
+If you simply asked him "what's the three coloring for your graph?" he would no longer be the only person who knows the three coloring.
 
 So you want to get sure that he knows a three coloring without getting it.
 

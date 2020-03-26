@@ -27,13 +27,13 @@ You can do that from home via SSH. Just replace `s_thoma` by `s_[your last name]
 
 ```bash
 $ ssh s_thoma@i08fs1.ira.uka.de
-s_thoma@i08fs1.ira.uka.de's password: 
+s_thoma@i08fs1.ira.uka.de's password:
 s_thoma@i08fs1(~)$ passwd
 Changing password for user s_thoma.
-Enter login(AD) password: 
-Current Password: 
-New password: 
-Retype new password: 
+Enter login(AD) password:
+Current Password:
+New password:
+Retype new password:
 AD password information changed for s_thoma
 passwd: all authentication tokens updated successfully.
 s_thoma@i08fs1(~)$ exit

@@ -27,4 +27,3 @@ I need some people who
   <li>know how to advertise</li>
   <li>like to support this project with money (I have to pay 26.16 Euro per year for hosting this service. If I get more money I will save it for the next years hosting costs. If it's much more I could try to find a professional designer.)</li>
 </ul>
-

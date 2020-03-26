@@ -24,4 +24,4 @@ You only have to go to:
 
 Preferences &rarr; Gadgets tab &rarr; Browsing &rarr; check "Suppress display of the fundraiser banner"
 
-Now I'm happy ☺ 
+Now I'm happy ☺

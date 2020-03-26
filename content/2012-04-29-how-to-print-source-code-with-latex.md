@@ -25,12 +25,12 @@ Here is an minimal example how you could print Source Code with LaTeX:
 \usepackage[utf8]{inputenc} % this is needed for german umlauts
 \usepackage[ngerman]{babel} % this is needed for german umlauts
 % this is needed for correct output of umlauts in pdf
-\usepackage[T1]{fontenc}    
+\usepackage[T1]{fontenc}
 \usepackage[margin=2.5cm]{geometry} %layout
 \usepackage{listings} % needed for the inclusion of source code
 
 % this is needed for forms and links within the text
-\usepackage{hyperref}  
+\usepackage{hyperref}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % THE DOCUMENT BEGINS                      %
@@ -55,7 +55,7 @@ If you want to customize a little bit more and if you want to get highlighted (c
 
 % the following is needed for syntax highlighting
 \usepackage{color}
- 
+
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
@@ -65,7 +65,7 @@ If you want to customize a little bit more and if you want to get highlighted (c
   basicstyle=\footnotesize,       % the size of the fonts that are used for the code
   numbers=left,                   % where to put the line-numbers
   numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
-  stepnumber=1,                   % the step between two line-numbers. If it's 1, each line 
+  stepnumber=1,                   % the step between two line-numbers. If it's 1, each line
                                   % will be numbered
   numbersep=5pt,                  % how far the line-numbers are from the code
   backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
@@ -88,7 +88,7 @@ If you want to customize a little bit more and if you want to get highlighted (c
 }
 
 % this is needed for forms and links within the text
-\usepackage{hyperref}  
+\usepackage{hyperref}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Variablen                                 						 %
@@ -106,7 +106,7 @@ If you want to customize a little bit more and if you want to get highlighted (c
   pdfauthor   = {\authorName},
   pdfkeywords = {\tags},
   pdftitle    = {This is the title}
-} 
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % THE DOCUMENT BEGINS             	                              	 %
@@ -177,13 +177,13 @@ Lexers:
 * asy:
     Asymptote (filenames *.asy)
 * basemake:
-    Makefile 
+    Makefile
 * bash, sh:
     Bash (filenames *.sh, *.ebuild, *.eclass)
 * bat:
     Batchfile (filenames *.bat, *.cmd)
 * bbcode:
-    BBCode 
+    BBCode
 * befunge:
     Befunge (filenames *.befunge)
 * boo:
@@ -225,13 +225,13 @@ Lexers:
 * diff, udiff:
     Diff (filenames *.diff, *.patch)
 * django, jinja:
-    Django/Jinja 
+    Django/Jinja
 * dpatch:
     Darcs Patch (filenames *.dpatch, *.darcspatch)
 * dylan:
     Dylan (filenames *.dylan)
 * erb:
-    ERB 
+    ERB
 * erl:
     Erlang erl session (filenames *.erl-sh)
 * erlang:
@@ -245,7 +245,7 @@ Lexers:
 * genshi, kid, xml+genshi, xml+kid:
     Genshi (filenames *.kid)
 * genshitext:
-    Genshi Text 
+    Genshi Text
 * glsl:
     GLSL (filenames *.vert, *.frag, *.geo)
 * gnuplot:
@@ -273,7 +273,7 @@ Lexers:
 * lhs, literate-haskell:
     Literate Haskell (filenames *.lhs)
 * lighty, lighttpd:
-    Lighttpd configuration file 
+    Lighttpd configuration file
 * llvm:
     LLVM (filenames *.ll)
 * logtalk:
@@ -289,7 +289,7 @@ Lexers:
 * matlab, octave:
     Matlab (filenames *.m)
 * matlabsession:
-    Matlab session 
+    Matlab session
 * minid:
     MiniD (filenames *.md)
 * modelica:
@@ -303,15 +303,15 @@ Lexers:
 * myghty:
     Myghty (filenames *.myt, autodelegate)
 * mysql:
-    MySQL 
+    MySQL
 * nasm:
     NASM (filenames *.asm, *.ASM)
 * newspeak:
     Newspeak (filenames *.ns2)
 * nginx:
-    Nginx configuration file 
+    Nginx configuration file
 * numpy:
-    NumPy 
+    NumPy
 * objdump:
     objdump (filenames *.objdump)
 * objective-c, objectivec, obj-c, objc:
@@ -333,21 +333,21 @@ Lexers:
 * py3tb:
     Python 3.0 Traceback (filenames *.py3tb)
 * pycon:
-    Python console session 
+    Python console session
 * pytb:
     Python Traceback (filenames *.pytb)
 * python, py:
     Python (filenames *.py, *.pyw, *.sc, SConstruct, SConscript)
 * python3, py3:
-    Python 3 
+    Python 3
 * ragel:
     Ragel [a lot more gets supported, I've shortened it]
 * raw:
-    Raw token data 
+    Raw token data
 * rb, ruby:
     Ruby (filenames *.rb, *.rbw, Rakefile, *.rake, *.gemspec, *.rbx)
 * rbcon, irb:
-    Ruby irb session 
+    Ruby irb session
 * rebol:
     REBOL (filenames *.r, *.r3)
 * redcode:
@@ -383,7 +383,7 @@ Lexers:
 * text:
     Text only (filenames *.txt)
 * trac-wiki, moin:
-    MoinMoin/Trac Wiki markup 
+    MoinMoin/Trac Wiki markup
 * vala, vapi:
     Vala (filenames *.vala, *.vapi)
 * vb.net, vbnet:

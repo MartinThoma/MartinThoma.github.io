@@ -99,4 +99,3 @@ Where you might want freedom:
         <td>must start with a letter or digit</td>
     </tr>
 </table>
-

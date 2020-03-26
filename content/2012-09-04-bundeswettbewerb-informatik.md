@@ -37,7 +37,7 @@ Und noch ein Schlusswort zur Motivation: Eine gute Dokumentation zu schreiben is
 Wenn ihr ein Skript habt, dass eventuell nicht sofort, aber nach ein paar Stunden die L&ouml;sung ausgeben sollte, dann vergesst nicht, auch eine Ausgabe mit Zwischenergebnissen daf&uuml;r einzubauen! Kaum etwas ist &auml;rgerlicher, als ein Programm, das lange l&auml;uft und am Ende keine Ausgabe macht oder sich aufh&auml;ngt.
 
 <h3>Doku ist wichtig</h3>
-Bei der Korrektur wird zuerst die Dokumentation angesehen. Nat&uuml;rlich ist die L&ouml;sungsidee wichtig, aber eine negativ bewertete Dokumentation ist &auml;rgerlich. Also lest euch bitte die Dokumentation nochmals durch und &uuml;berpr&uuml;ft, ob die wichtigen L&ouml;sungsideen verst&auml;ndlich erkl&auml;rt wurden. 
+Bei der Korrektur wird zuerst die Dokumentation angesehen. Nat&uuml;rlich ist die L&ouml;sungsidee wichtig, aber eine negativ bewertete Dokumentation ist &auml;rgerlich. Also lest euch bitte die Dokumentation nochmals durch und &uuml;berpr&uuml;ft, ob die wichtigen L&ouml;sungsideen verst&auml;ndlich erkl&auml;rt wurden.
 
 Ich denke das ist wohl der einzige Aspekt, wo euch andere helfen k&ouml;nnen. Gerade Leute ohne Programmierkenntnis sollten eure L&ouml;sungsidee verstehen k&ouml;nnen. Mein Vater (der nicht programmieren kann) hat h&auml;ufig meine Einseundungen nochmals auf Rechtschreib- und Grammatikfehler sowie auf fehlende Zusammenh&auml;nge &uuml;berpr&uuml;ft. Er konnte zwar nicht sagen, was dort nicht stimmt, hat aber h&auml;ufig ... naja, sagen wir mal Stellen gefunden, bei denen meine Deutschlehrer wohl Zahnschmerzen h&auml;tten (trifft wohl auch auf diesen Blog zu ;-) )
 

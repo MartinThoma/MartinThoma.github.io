@@ -7,7 +7,7 @@ author: Martin Thoma
 date: 2014-03-20 21:09
 category: Review
 tags: Review, Hotel
-featured_image: 
+featured_image:
 ---
 <div class="hreview">
 <div class="description item vcard">

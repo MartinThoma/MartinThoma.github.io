@@ -3,15 +3,15 @@ layout: post
 title: Sweep-Line algorithm for intersections
 author: Martin Thoma
 date: 2013-10-19 11:54:51
-categories: 
+categories:
 - Code
-tags: 
+tags:
 - algorithms
 - Geometry
 - Java
-featured_image: 
+featured_image:
 ---
-Suppose you're given a lot of lines. Your task is to give a list of all pairs of lines that cross. 
+Suppose you're given a lot of lines. Your task is to give a list of all pairs of lines that cross.
 
 The list of lines might be something like this:
 <table>
@@ -51,7 +51,7 @@ You can visualize the given lines like this:
 
 Now your list of pairs should look like this:
 [[a, b], [a, c], [a, d], [d, g], [e, b], [e, c], [e, d], [e, f], [e, g], [f, g], [k, l], [m, n], [h, o]]
-So we have 15 lines and 13 intersections. 
+So we have 15 lines and 13 intersections.
 
 <h2>What is an intersection?</h2>
 <div class="definition">Two lines $a, b$ intersect $:\Leftrightarrow \exists \text{Point} P: P \in a \land P \in b$</div>

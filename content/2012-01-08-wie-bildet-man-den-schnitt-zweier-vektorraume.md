@@ -72,7 +72,7 @@ $$\left( \begin{array}{c c c c}
   0 & 0 & 1 & \frac{1}{2}\\
   0 & 0 & 0 & 0
 \end{array} \right)$$
-heraus, siehe <a href="http://www.wolframalpha.com/input/?i=RowReduce%5B%7B%7B2%2C+7%2C+1%2C+8%7D%2C%7B3%2C+1%2C+4%2C+1%7D%2C%7B0%2C+0%2C+4%2C+2%7D%2C%7B36%2C+126%2C+8%2C+139%7D%7D%5D">Wolfram|Alpha</a>. 
+heraus, siehe <a href="http://www.wolframalpha.com/input/?i=RowReduce%5B%7B%7B2%2C+7%2C+1%2C+8%7D%2C%7B3%2C+1%2C+4%2C+1%7D%2C%7B0%2C+0%2C+4%2C+2%7D%2C%7B36%2C+126%2C+8%2C+139%7D%7D%5D">Wolfram|Alpha</a>.
 
 Die Basis für $U_2$ ist also $$\left \{\begin{pmatrix} 1 \\ 0 \\ 0 \\ -\frac{29}{38} \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \\ 0 \\ \frac{49}{38} \end{pmatrix}, \begin{pmatrix} 0 \\ 0 \\ 1 \\ \frac{1}{2} \end{pmatrix} \right \}$$
 
@@ -96,7 +96,7 @@ $$\left( \begin{array}{c c c c | c c c c}
   1 & 0 & 0 & - \frac{29}{38} & 0 & 0 & 0 & 0 \\
   0 & 1 & 0 & \frac{49}{38} & 0 & 0 & 0 & 0 \\
   0 & 0 & 1 & \frac{1}{38} & 0 & 0 & 0 & 0
-\end{array} \right) \rightsquigarrow 
+\end{array} \right) \rightsquigarrow
 \left( \begin{array}{c c c c | c c c c}
   1 & 0 & 0 & 4 & 1 & 0 & 0 & 4 \\
   0 & 1 & 0 & 3 & 0 & 1 & 0 & 3 \\
@@ -131,26 +131,26 @@ Zusätzlich steht links oben die Basis für $U_1 + U_2$. Wenn man das noch etwas
 
 <h2>Methode 2</h2>
 <h3>Angabe</h3>
-$$U_1 = \left [ 
+$$U_1 = \left [
 \left \{\begin{pmatrix} 1 \\ 0 \\ 0 \\ 4 \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \\ 0 \\ 3 \end{pmatrix}, \begin{pmatrix} 0 \\ 0 \\ 1 \\ -2 \end{pmatrix} \right \}
 \right ]$$
 
-$$U_2 = \left [ 
+$$U_2 = \left [
 \left \{\begin{pmatrix} 1 \\ 0 \\ 0 \\ -\frac{29}{38} \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \\ 0 \\ \frac{49}{38} \end{pmatrix}, \begin{pmatrix} 0 \\ 0 \\ 1 \\ \frac{1}{38} \end{pmatrix} \right \}
 \right ]$$
 
 <h3>Rechnung</h3>
 Es gilt:
-$x \in U_1 \cap U_2$ 
-$\Leftrightarrow x \in U_1 \land x \in U_2$ 
+$x \in U_1 \cap U_2$
+$\Leftrightarrow x \in U_1 \land x \in U_2$
 $\Leftrightarrow x = a \cdot x_1 + b \cdot x_2 + c \cdot x_3 = d \cdot y_1 + e \cdot y_2 + f \cdot y_3$ mit $a, b, c, d, e, f  \in \mathbb{R}$.
 $$\begin{pmatrix}
 1 & 0 & 0 & 1 & 0 & 0\\
 0 & 1 & 0 & 0 & 1 & 0\\
 0 & 0 & 1 & 0 & 0 & 1\\
 4 & 3 & 2 & -\frac{29}{38} & \frac{49}{38} & \frac{1}{38}
-\end{pmatrix} 
-\rightsquigarrow 
+\end{pmatrix}
+\rightsquigarrow
 \begin{pmatrix}
 1 & 0 & 0 & 1 & 0 & 0\\
 0 & 1 & 0 & 0 & 1 & 0\\

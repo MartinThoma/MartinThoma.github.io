@@ -94,6 +94,6 @@ public class test {
 ```
 
 <h2>Explanation</h2>
-It's a <a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6430675">bug</a>. 
+It's a <a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6430675">bug</a>.
 
 See also: <a href="http://stackoverflow.com/q/9902968/562769">Why does Math.round(0.49999999999999994) return 1</a>

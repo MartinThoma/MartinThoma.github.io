@@ -126,5 +126,3 @@ a couple of times:
 ## My analysis
 
 * weekday/weekend cycles: http://www.climate-lab-book.ac.uk/spirals/
-
-

@@ -7,7 +7,7 @@ author: Martin Thoma
 date: 2014-03-20 21:09
 category: Review
 tags: Review, Museum
-featured_image: 
+featured_image:
 ---
 
 ACHTUNG: Für das Dialogmuseum sollte man sich anmelden!

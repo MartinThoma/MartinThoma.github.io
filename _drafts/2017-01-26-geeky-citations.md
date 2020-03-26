@@ -3,13 +3,13 @@ layout: post
 title: Geeky Bash.org cites
 author: Martin Thoma
 date: 2012-12-31 08:58:33
-categories: 
+categories:
 - Cyberculture
 - The Web
-tags: 
+tags:
 - bash.org
 - funny
-featured_image: 
+featured_image:
 ---
 <blockquote>God used fork() to create Eve.</blockquote>
 <a href="http://bash.org/?362">source</a>
@@ -23,13 +23,13 @@ featured_image:
 * RainbowW has quit (Read error: 54 (Connection reset by peer))
 [sheenmaster] jamesd: being a Windows user is like living is a cheap vegas hotel.  Every morning, you wake up with a new disease.  The floor beneath your bed is likely to fall through at any time, but at least you can burn the hotel down and rebuild it or move to another room.
 [jamesd] "Memory is like gasoline. You use it up when you are running. Of course you get it all back when you reboot..."
-[jamesd]  -- Actual explanation obtained from the Micro$oft help desk. 
+[jamesd]  -- Actual explanation obtained from the Micro$oft help desk.
 [sheenmaster] haha
 [sheenmaster] Damn Microsoft for coming up with better jokes than we do!</blockquote>
 <a href="http://www.bash.org/?233331">source</a>
 
 <blockquote>[the_JinX] Now, Play Russian Roulette In Bash, Just Run This Line:
-[the_JinX] [ $[ $RANDOM % 6 ] == 0 ] && rm -rf / || echo "You live" 
+[the_JinX] [ $[ $RANDOM % 6 ] == 0 ] && rm -rf / || echo "You live"
 [psychosquee[]] the_JinX: What are the odds?
 [the_JinX] 1 in 6 chance of removing your linux
 * psychosquee[] has quit IRC (Connection reset by peer)

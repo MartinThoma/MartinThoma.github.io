@@ -123,13 +123,13 @@ If you want to see some more fancy stuff, take a look at this example of a non-d
 \documentclass{scrartcl}
 \usepackage{tikz}
 \usetikzlibrary{arrows,automata}
- 
+
 \begin{document}
 \begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=2cm]
   \node[initial,state,accepting] (S)      {$S$};
   \node[state]         (q1) [right of=S]  {$q_1$};
   \node[state]         (q2) [right of=q1] {$q_2$};
- 
+
   \path[->]          (S)  edge [loop above] node {a} (S);
   \path[->, dashed]  (S)  edge              node {a} (q1);
   \path[->, dotted]  (q1) edge [bend left]  node {a} (S);
@@ -152,9 +152,9 @@ If you want to see some more fancy stuff, take a look at this example of a non-d
     \tikzstyle{every state}=[align=center]
     \node[state,initial,label=below:Start] (Start)
                                             {A 0.6\\B 0.2\\C 0.2};
-    \node[state,label=below:Mitte] (Mitte) [right of=Start] 
+    \node[state,label=below:Mitte] (Mitte) [right of=Start]
                                             {A 0.1\\B 0.1\\C 0.8};
-    \node[state,label=below:Ende] (Ende)   [right of=Mitte] 
+    \node[state,label=below:Ende] (Ende)   [right of=Mitte]
                                             {A 0.5\\B 0.2\\C 0.3};
     \path (Start) edge               node[above] {0.2} (Mitte);
     \path (Mitte) edge               node[above] {0.8} (Ende);

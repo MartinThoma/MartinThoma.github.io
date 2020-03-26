@@ -574,7 +574,7 @@ Achtung - Das Geld muss geschickt bei Airbnb bevor du erhalten die Schlüssel. W
 Wenn du willst bezahlen im Voraus für 6 Monate oder 1 Jahr, ich kann machen ein Rabatt. Für 6 Monate du wirst zahlen 1.750€ und für 1 Jahr du wirst zahlen 3.300€.
 
 Zu starten die Transaktion Ich brauche die folgenden Angaben:
- 
+
 Vollständiger Name:
 Straße:
 Stadt:
@@ -584,7 +584,7 @@ Handynummer:
 Wie viel Sie wollen zu zahlen: 1.050€ (Ein Monat und die Kaution), 1.750€ (für 6 Monate-Kaution inbegriffen) oder 3.300€ (für 1 Jahr-Kaution inbegriffen)?
 
 Ich werde für die Dienste der Agentur zahlen, so dass es keine Kosten für Sie.
- 
+
 Vielen Dank!
 ```
 

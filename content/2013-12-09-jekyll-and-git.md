@@ -8,10 +8,10 @@ featured_image: 2013/12/jekyll-thumbnail.png
 description: Jekyll, a static blog generator, is nice for several reasons. Those reasons and some hints how to migrate from WordPress to Jekyll are provided below.
 ---
 
-You've probably noticed that I didn't write any posts the last few 
-weeks. The reason is that I've migrated my WordPress Blog to Jekyll. 
-This means it takes some source files and generates purely static 
-pages from that. The generation process is independant of user 
+You've probably noticed that I didn't write any posts the last few
+weeks. The reason is that I've migrated my WordPress Blog to Jekyll.
+This means it takes some source files and generates purely static
+pages from that. The generation process is independant of user
 requests.
 
 [Jekyll](http://jekyllrb.com/) is a static blog generator, just like
@@ -136,7 +136,7 @@ GitHub also offers some help on [setting up a custom domain with Pages](https://
 ## FTP Server ##
 If you have your own FTP server, you probably want to use it.
 
-One tool that might now come to your mind is `rsync`. But rsync 
+One tool that might now come to your mind is `rsync`. But rsync
 needs SSH ([source](http://serverfault.com/a/24627/113899)). If you
 have SSH, then you can do something like this:
 
@@ -169,7 +169,7 @@ faster, the latter supports fenced code blocks. I finally stuck with
 redcarped, because Liquid has problems when it comes to C++ for loops
 after curly braces.
 
-Other Markdown parsers are `maruku` (which has a 
+Other Markdown parsers are `maruku` (which has a
 [Multiple lines for HTML &lt;li&gt;-tag](https://github.com/bhollis/maruku/issues/121)
 issue) and `kramdown` (which is slow and does not handle fenced
 code blocks and LaTeX correctly).
@@ -225,7 +225,7 @@ Site search is a real problem. I've seen three solutions so far:
    a SQLite database like it was [described here](http://www.businessguide.co.uk/blog/jekyll-search-ways-to-search-a-static-site/).
 2. **Static JavaScript**: Create a JSON file or something similar and
    search dynamically with JavaScript in it.
-3. **External Search Engines**: You could use a search engine for 
+3. **External Search Engines**: You could use a search engine for
    searching your site, of course.
    * Hosted by you:
    * Commercial
@@ -261,9 +261,9 @@ layout: post
 title: ${1:}
 author: Martin Thoma
 date: 2014-11-22 17:19
-categories: 
+categories:
 - ${2:Cyberculture}
-tags: 
+tags:
 - ${3:Rating}
 featured_image: logos/${4:star.png}
 ---
@@ -303,4 +303,3 @@ I've also used LinkChecker to check if all new links are valid. I've found quite
 * <a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages#setting-the-domain-in-your-repo">Setting up a custom domain with Pages</a>
 * <a href="https://alybadawy.com/developing/2013/08/02/search-a-jekyll-generated-website/">Search a Jekyll-generated website</a>
 * <a href="http://philipm.at/2011/jekyll_vs_hyde.html">Jekyll vs. Hyde - A Comparison Of Two Static Site Generators</a>
-

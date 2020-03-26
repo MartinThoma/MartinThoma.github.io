@@ -5,7 +5,7 @@ author: Martin Thoma
 date: 2014-11-22 17:19
 categories:
 - Code
-tags: 
+tags:
 - GMM
 - Naive Bayes classifier
 featured_image: logos/ai.png
@@ -35,7 +35,7 @@ Now you see that calculating each GMM involves $n$ calculations of the
 $e$ function.
 
 In speech recognition this is done very often, so you want to calculate it
-fast. To do so, the kNN algorithm can be combined with 
+fast. To do so, the kNN algorithm can be combined with
 
 
 ## Exp-function
@@ -50,4 +50,3 @@ According to him, "the C function implementation itself is entirely platform dep
 
 Well, that is interesting. Lets see if I can find information by CPU
 producers:
-

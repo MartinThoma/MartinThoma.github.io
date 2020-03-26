@@ -24,7 +24,7 @@ I will show this in two steps:
 $X \cap Y$ is not empty:
 $e_G \in X \land e_G \in Y \Rightarrow e_G \in (X \cap Y)$
 
-$X \cap Y$ has inverse elements. Let $a \in (X \cap Y)$. As a is in $X$ and $X$ is a group, $a^{-1} \in X$. The same is true for $Y$. So: 
+$X \cap Y$ has inverse elements. Let $a \in (X \cap Y)$. As a is in $X$ and $X$ is a group, $a^{-1} \in X$. The same is true for $Y$. So:
 $\forall a \in (X \cap Y) \exists a^{-1} \in (X \cap Y): a \cdot a^{-1} = a^{-1} \cdot a = e_G$
 
 $\forall a,b \in (X \cap Y): a \cdot b^{-1} \in (X \cap Y)$, because both, $a$ and $b^{-1}$ are in $X$. As $X$ is a group, the result has to be in $X$. Same argumentation for $Y$. Then the result is in $X$ and $Y \blacksquare$
@@ -37,9 +37,9 @@ $N \lhd G :\Leftrightarrow \forall n \in N \forall g \in G: g \cdot n \cdot g^{-
 
 <strong>Theorem</strong>: $(X \cap Y) \lhd G$
 
-<strong>Proof</strong>: 
+<strong>Proof</strong>:
 
-$X \cap Y$ is a subgroup of $G$ as I have proved above. 
+$X \cap Y$ is a subgroup of $G$ as I have proved above.
 
 $\forall n \in (X \cap Y) \forall g \in G: g \cdot n \cdot g^{-1} \in X$ and
 $\forall n \in (X \cap Y) \forall g \in G: g \cdot n \cdot g^{-1} \in Y$

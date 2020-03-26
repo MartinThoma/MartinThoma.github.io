@@ -37,14 +37,14 @@ int main(int argc, char *argv[]) {
     mpf_init(res);
     mpf_init(a);
     mpf_set_str(a, "2", 10);
-    mpf_sqrt (res, a); 
+    mpf_sqrt (res, a);
     gmp_printf("%.1000Ff\n\n", res); // Increase this number.
     return 0;
 }
 
 ```
 
-You need <a href="http://gmplib.org/manual">GMP</a> (<code>libgmp-dev</code>) to compile this. 
+You need <a href="http://gmplib.org/manual">GMP</a> (<code>libgmp-dev</code>) to compile this.
 
 Compile it like this:
 
@@ -121,9 +121,9 @@ With long double:
 
 #include <iostream>
 #include <cmath>
- 
+
 using namespace std;
- 
+
 long double newton(int a, int n) {
     long double x = ((long double)a)/2;
     for (int i=0; i<n; i++) {
@@ -131,7 +131,7 @@ long double newton(int a, int n) {
     }
     return x;
 }
- 
+
 int main(int argc, char *argv[]) {
     if (argc != 3) {
         cout << "Please enter exactly two arguments." << endl;
@@ -174,9 +174,9 @@ So I gave it a try:
 
 #include <iostream>
 #include <cmath>
- 
+
 using namespace std;
- 
+
 long double ln(int S, int n) {
     long double tmp = S - 1;
     long double result = tmp;
@@ -204,7 +204,7 @@ long double e(long double x, int n) {
 long double sqrt(int a, int n) {
     return e(ln(a, n)*0.5, n);
 }
- 
+
 int main(int argc, char *argv[]) {
     if (argc != 3) {
         cout << "Please enter exactly two arguments." << endl;

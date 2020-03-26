@@ -58,7 +58,7 @@ Hier ist das <a href='../images/2012/03/kuendigung-archiv.zip'>Archiv</a> mit be
     \date{\today}%Change this if you want a different date than today
     \subject{Kündigung}
     \opening{Sehr geehrte Damen und Herren,}
-    hiermit kündige ich meinen Vertrag für die Kundennummer 
+    hiermit kündige ich meinen Vertrag für die Kundennummer
 	\Kundennr~ zum \Kuendigungsdatum.\\
 
     \noindent Ich bitte um eine Bestätigung der Kündigung.

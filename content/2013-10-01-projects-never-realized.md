@@ -260,7 +260,7 @@ For example, you can describe a product with the following labels:
 As you can see, it is possible to create nested categories with this structure.
 You an also create lists this way.
 
-Now clients should store information like this and share it. 
+Now clients should store information like this and share it.
 
 ### Views
 When information is presented like this, it is quite useless. But what about

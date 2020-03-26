@@ -81,7 +81,7 @@ Einiges h&auml;tte ich bei vielen Modulen schreiben k&ouml;nnen, z.B. der Beweis
       <li>Beispiele: alle Ringe und K&ouml;rper</li>
     </ul>
   </li>
-  <li><a href="http://de.wikipedia.org/wiki/Ringtheorie">Ringe</a>: 
+  <li><a href="http://de.wikipedia.org/wiki/Ringtheorie">Ringe</a>:
     <ul>
       <li><a href="http://de.wikipedia.org/wiki/Ringtheorie#Ring">Definition</a></li>
       <li>Beispiele: alle K&ouml;rper</li>

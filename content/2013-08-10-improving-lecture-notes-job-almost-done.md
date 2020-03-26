@@ -13,7 +13,7 @@ Some of you might know that I've bin improving the lecture notes for the compute
 This was kind of funny. I send Prof. Dr. Asfour some notes of passages that could be improved (mainly typos). About two days later he proposed me to correct it by myself. Another day later I signed the contract. I've never signed a contract that fast.
 
 <h2>What I did</h2>
-My job was 
+My job was
 <ul>
   <li>to correct errors (German language, statements about computer science and LaTeX),</li>
   <li>find parts that were outdated and update them,</li>
@@ -24,7 +24,7 @@ My job was
 So Prof. Dr. Asfour created a SVN repository with all LaTeX sources of the latest lecture notes (which were already great!). He also sent me Emails he received from students who mentioned errors just like I did and some notes from a tutor who tried to improve the script some time ago.
 
 <h2>Revisions</h2>
-With <code>svn checkout svn://somepath@1 working-directory</code> you can checkout the first revision of a SVN repository. 
+With <code>svn checkout svn://somepath@1 working-directory</code> you can checkout the first revision of a SVN repository.
 
 Total number of files and folders: <code>find . | wc -l</code>
 <ul>

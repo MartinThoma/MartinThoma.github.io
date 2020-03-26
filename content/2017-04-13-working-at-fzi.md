@@ -135,4 +135,3 @@ If you want to get your money back from the code card, you have to go to the
     <img src="../images/2017/06/fzi-opening-times.jpg" alt="Opening times of FZI" style="width: 512px;"/>
     <figcaption class="text-center">Opening times of FZI</figcaption>
 </figure>
-

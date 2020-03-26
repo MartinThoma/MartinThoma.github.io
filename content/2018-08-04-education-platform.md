@@ -225,5 +225,3 @@ Things I want to have for an education platform:
 
 
 ## Drafts
-
-

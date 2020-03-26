@@ -146,7 +146,7 @@ The question is: Should the MediaViewer be activated per default?
 
 ### Good comments
 
-* The default setting for logged-in users should be the same as for unregistered users, so that new users have fewer surprises to deal with. 
+* The default setting for logged-in users should be the same as for unregistered users, so that new users have fewer surprises to deal with.
 
 ### Alternatives to default-enable MediaViewer
 

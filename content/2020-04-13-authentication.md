@@ -62,4 +62,3 @@ Con:
 * https://github.com/hasgeek/lastuser
 * https://en.wikipedia.org/wiki/Argon2
 * https://de.slideshare.net/StefanKienzl/api-authentifizierung-und-autorisierung
-

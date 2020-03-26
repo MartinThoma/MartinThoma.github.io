@@ -64,5 +64,3 @@ Creating backups can be done separately for text and all other tables. This can 
 
 
 ## TL;DR
-
-

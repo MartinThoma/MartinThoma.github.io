@@ -101,7 +101,7 @@ of Remote Only work.
 
 * Chat: **[Slack](https://slack.com/enterprise)**, HipChat
 * Ticket System: Jira
-* Documentation: 
+* Documentation:
 * Office: **[G-Suite](https://gsuite.google.com/intl/en/)**, [Office 365](https://www.microsoft.com/en-us/p/office-365-business/cfq7ttc0k62t?source=lp&activetab=pivot:overviewtab)
 * Cloud: [Amazon](https://en.wikipedia.org/wiki/Amazon_Web_Services), [Google](https://en.wikipedia.org/wiki/Google_Cloud_Platform), [Microsoft](https://en.wikipedia.org/wiki/Microsoft_Azure)
 

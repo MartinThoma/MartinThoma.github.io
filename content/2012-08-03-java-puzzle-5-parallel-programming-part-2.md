@@ -82,8 +82,8 @@ This is an order of execution which would lead to a wrong value:
 <tr>
 <td>```text
 checks if (globalVar > 0)
-looping ... 
-looping ... 
+looping ...
+looping ...
 execute test.globalVar--;
 ```</td>
 <td>```text
@@ -113,7 +113,7 @@ With <code>javap -c MyParallelClass</code> you can view the <a href="http://en.w
 ```java
 
 Compiled from "MyParallelClass.java"
-public class MyParallelClass extends java.lang.Object 
+public class MyParallelClass extends java.lang.Object
                         implements java.lang.Runnable{
 public int counter;
 
@@ -162,7 +162,7 @@ The interesting part of the bytecode is:
    34:	isub
    35:	putstatic	#3; //Field test.globalVar:I
 ```
-You can see that the JVM has to execute 4 commands for <code>test.globalVar--;</code>. 
+You can see that the JVM has to execute 4 commands for <code>test.globalVar--;</code>.
 
 <h2>See also</h2>
 <ul>

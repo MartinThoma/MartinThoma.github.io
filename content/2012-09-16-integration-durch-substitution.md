@@ -21,7 +21,7 @@ Also:
 &= \frac{1}{2} \int e^u du\\
 &= \frac{1}{2} \int e^u du\\
 &= \frac{1}{2} e^u + C \\
-&\stackrel{resub}{=} \frac{1}{2} e^{2x} + C 
+&\stackrel{resub}{=} \frac{1}{2} e^{2x} + C
 \end{align}
 
 <h3>Beispiel 2</h3>
@@ -58,7 +58,7 @@ Nun wird eine <a href="../partielle-integration/" title="Partielle Integration">
 
 \begin{align}
 2 \int_1^2 u \cdot e^u \;\mathrm{d}u &= 2 ([e^u \cdot u]_1^2 - \int_1^2 e^u du) \\
-&= 2((e^2 \cdot 2 - e) - [e^u]_1^2)\\ 
+&= 2((e^2 \cdot 2 - e) - [e^u]_1^2)\\
 &= 2 \cdot (2e^2 -e - (e^2 - e)) \\
 &= 2 \cdot e^2
 \end{align}

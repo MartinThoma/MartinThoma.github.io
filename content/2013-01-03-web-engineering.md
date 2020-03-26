@@ -65,7 +65,7 @@ Im Folgenden sind einige Stichpunkte aufgelistet, die jedem etwas sagen sollten.
   <li>< 6 Entwickler</li>
   <li>< 6 Monate</li>
   <li><abbr title="Release early, release often">RERO</abbr></li>
-  <li>Verantwortungsbereiche: 
+  <li>Verantwortungsbereiche:
     <ul>
       <li>Product Management: Wie verkaufe ich die Software?</li>
       <li>Program Management: Wie bringe ich das Projekt zu einem erfolgreichem Abschluss?</li>
@@ -130,7 +130,7 @@ Im Folgenden sind einige Stichpunkte aufgelistet, die jedem etwas sagen sollten.
   <li>Reuse-Oriented Approaches</li>
   <li>Agile Methoden:
     <ul>
-      <li>Scrum: 
+      <li>Scrum:
         <ul>
           <li>Rollen: Scrum Master, Product Owner, Development Team</li>
           <li>Iterations, Sprints, User Stories</li>
@@ -146,7 +146,7 @@ Im Folgenden sind einige Stichpunkte aufgelistet, die jedem etwas sagen sollten.
 
 <h3>PART 3: Requirements Engineering</h3>
 <ul>
-  <li>Ablauf: 
+  <li>Ablauf:
     <ol>
       <li>Initiate: Project Charter, Identify business opportunity, gather business requirements, <abbr title="target customer">FOR</abbr> WHO <abbr title="product name">THE</abbr> <abbr title="product category">IS</abbr> <abbr title="key benefit">THAT</abbr> <abbr title="primary competition">UNLIKE</abbr> <abbr title="primary difference">OUR PRODUCT</abbr></li>
       <li>Elicitation: Refine requirements (Busines requirements, functional requirements, non-functional requirements), Coopers Persona-Ansatz (<a href="http://de.wikipedia.org/wiki/Persona_(Mensch-Computer-Interaktion)#Beispiel">Beispiele</a>)</li>

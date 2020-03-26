@@ -1223,4 +1223,3 @@ number of characters in a line for a couple:
         <td>73</td>
     </tr>
 </table>
-

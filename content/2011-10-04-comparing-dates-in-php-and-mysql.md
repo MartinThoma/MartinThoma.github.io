@@ -13,7 +13,7 @@ Sometimes you need to know compare PHP dates. You need to know what is later or 
 <h3>time formats and functions</h3>
 PHP knows these time / date formats:
 <ul>
-  <li>UNIX Timestamp: Integer - The number of seconds after 1970. Related functions are 
+  <li>UNIX Timestamp: Integer - The number of seconds after 1970. Related functions are
     <ul>
        <li>int <a href="http://www.php.net/manual/en/function.mktime.php">`mktime([ int \$hour = date("H") [, int \$minute = date("i") [, int \$second = date("s") [, int \$month = date("n") [, int \$day = date("j") [, int \$year = date("Y") [, int \$is_dst = -1 ]]]]]]])`</a></li>
        <li>int <a href="http://www.php.net/manual/en/function.time.php">`time()`</a></li>
@@ -22,7 +22,7 @@ PHP knows these time / date formats:
 I recommend using `YYYY-MM-DD HH:mm:ss` if possible.</li>
     </ul>
   </li>
-  <li>Associative Arrays. The array looks like this 
+  <li>Associative Arrays. The array looks like this
 
 ```php
 Array
@@ -38,7 +38,7 @@ Array
     [warnings] => Array()
     [error_count] => 0
     [errors] => Array()
-    [is_localtime] => 
+    [is_localtime] =>
 )
 ```
 
@@ -52,7 +52,7 @@ The related functions are:
 </ul>
 
 <h3>Comparisons</h3>
-Comparing UNIX Timestamps is like comparing integers. No problem. 
+Comparing UNIX Timestamps is like comparing integers. No problem.
 
 Comparing Arrays is more interesting. What do you think will the following script print?
 
@@ -76,13 +76,13 @@ if ($d1 < $d2) {
 ?>
 ```
 
-It prints '$d1 is less than $d2.' as 
+It prints '$d1 is less than $d2.' as
 
 ```php
 date_parse ("2011-05-11");
 ```
 
-is basically the same as 
+is basically the same as
 
 ```php
 date_parse ("2011-05-11 00:00:00");

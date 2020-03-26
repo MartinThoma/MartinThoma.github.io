@@ -32,7 +32,7 @@ Take a look at these screenshots:
         </figure>
 
 <h2>LaTeX</h2>
-I only know MetaUML for creating class diagrams entirely in LaTeX. Does anybody know something different? 
+I only know MetaUML for creating class diagrams entirely in LaTeX. Does anybody know something different?
 
 Of course, you can include a diagram created with Dia:
 <ol>
@@ -49,13 +49,13 @@ input metauml;
 beginfig(1);
 	Class.World("World")
 		   ("-age: int",
-			"#ressources: List") 
+			"#ressources: List")
 		   ("+sayHello(): void");
 
 	Class.NoHuman("Human")
 		   ("-birthday: Date",
 			"-nickname: String",
-			"-secret: String") 
+			"-secret: String")
 		   ("+code(language: Language): Program");
 
 	leftToRight(50)(World, NoHuman);

@@ -52,9 +52,9 @@ s:	bgeu $s2, $s0, eval # while $s2 < $s0
 	bne $t0, $0, w
 	addu $s1, $s1, $s2	# $s1 += $s2
 w:	addi $s2, $s2, 1	# $s2++
-	j s;				# /endwhile	
+	j s;				# /endwhile
 
-eval: seq $s0, $s0, $s1	# Compare the sum of divisors with A	
+eval: seq $s0, $s0, $s1	# Compare the sum of divisors with A
 	li $v0 , 4			# |
 	la $a0 , output		# |
 	syscall				# |=> Print string "output"
@@ -104,7 +104,7 @@ s:	lb 		$t0, ($t1)  # => $t0: the current value (char)
 	bge $t3, $t0, w		# if $t0 <= 96: jump to w
 	j small
 w:	addi $t1, $t1, 1	# $t1++
-	j s;				# /endwhile	
+	j s;				# /endwhile
 
 small:
 	addi	$t0, -84 	# -97 + 13

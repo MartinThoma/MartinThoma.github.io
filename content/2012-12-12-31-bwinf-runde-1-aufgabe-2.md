@@ -33,9 +33,9 @@ Der folgende Code muss als partition.mod gespeichert werden:
 
 /* Written in GNU MathProg by Martin Thoma <info@martin-thoma.de> */
 
-/* Given a set of items I = {1,...,m} with weight w[i] > 0, the 
+/* Given a set of items I = {1,...,m} with weight w[i] > 0, the
    PARTITION problem is to split the set of items into two sets
-   such that the absolute value of the difference of the sum of 
+   such that the absolute value of the difference of the sum of
    weights of the two sets is minimal */
 
 param m, integer, > 0;

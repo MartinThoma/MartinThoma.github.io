@@ -85,11 +85,11 @@ changes the case and probably my opinion.<br/>
 And you should not say so too fast. Some people are charismatic, some can speak
 or write very good. When you hear a new argument the first time, you might have
 difficulties to find a correct counter argument. But when you're with friends
-you should be able to say: 
+you should be able to say:
 
 > That's the first time I've heard that. I have to think about it.
 
-or something like 
+or something like
 
 > I've never seen it from that perspective.
 
@@ -97,7 +97,7 @@ People like to teach and this makes them feel more comfortable discussing with
 you. You don't give up your opinion with statements like these, but it's simply
 being honest.
 
-Speaking of honesty, there is a similar DON'T: Don't say something like 
+Speaking of honesty, there is a similar DON'T: Don't say something like
 
 > Yes, I agree with you, but [Whatever he just said negated]
 
@@ -114,7 +114,7 @@ isolated and has to defend his point of view alone. That's ok. But don't make it
 worse for him:
 
 * Give him enough time to think and to talk.
-* Only one person and argument at a time. It's difficult to switch and to 
+* Only one person and argument at a time. It's difficult to switch and to
   concentrate on two (or even more) separate discussions.
 * Try to support him when he has trouble with finding the correct words or the
   best way to express himself. It is difficult to tell when you simply have to

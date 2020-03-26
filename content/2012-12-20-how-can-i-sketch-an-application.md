@@ -9,7 +9,7 @@ featured_image: 2012/12/balsamiq-mockup.png
 ---
 I've recently participated in a medium size software project. This project is rather fixed for a web project, so we don't suffer from rapid changes ("rapid" in terms of other web applications), but nether the less they change. The task seemed to be clear at the beginning, but bit for bit my team of developers discovered details that were not so clear. In this project I have learned that a GUI / prototype driven development can be of great benefit. I assumed this beforehand, but I didn't expect how much it helped.
 
-So, I had the idea to create a good GUI to have something to talk about. How do you create a GUI for a web project? 
+So, I had the idea to create a good GUI to have something to talk about. How do you create a GUI for a web project?
 
 <h2>HTML</h2>
 <ul>
@@ -18,18 +18,18 @@ So, I had the idea to create a good GUI to have something to talk about. How do 
   <li>everything I write is obviously possible to realize</li>
 </ul>
 
-but 
+but
 
 <ul>
   <li>the result looks too much like the resulting product. The customer might think that we already have some functional prototype
   <li>it is also unsatisfying to print HTML pages or screenshots of rendered browser views</li>
-  <li>although HTML is easy, arranging items on a screen might take a while</li> 
+  <li>although HTML is easy, arranging items on a screen might take a while</li>
 </ul>
 
-<h2>GIMP</h2> 
+<h2>GIMP</h2>
 GIMP was the next option I tried, but its disadvantage is too severe to think seriously about using it for rapid GUI prototyping: It takes ages!
 
-A friend of mine helped me out of my misery. He told me of a product called "<a href="http://www.balsamiq.com/">Balsamiq</a>". 
+A friend of mine helped me out of my misery. He told me of a product called "<a href="http://www.balsamiq.com/">Balsamiq</a>".
 
 <h2>Balsamiq</h2>
 Balsamiq is easy to use, has a lot of very intuitive features and is able to generate a linked PDF. This means, you can add links to some parts of the interface and simulate interactivity. The user should have opened the slides in full screen, so that on slide fills the screen. Then you might even think it was an web application.

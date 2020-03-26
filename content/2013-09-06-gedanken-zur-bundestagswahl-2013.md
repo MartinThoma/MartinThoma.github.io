@@ -6,7 +6,7 @@ date: 2013-09-06 11:54:58.000000000 +02:00
 category: German posts
 tags: politics, SPD, CDU, CSU, Piratenpartei, LINKE, Grüne, FDP
 ---
-Am 22. September 2013 findet die Bundestagswahl 2013 statt. 
+Am 22. September 2013 findet die Bundestagswahl 2013 statt.
 
 <h2>Worum geht es?</h2>
 <iframe width="512" height="288" src="//www.youtube.com/embed/qP6ye8R_QEA" frameborder="0" allowfullscreen></iframe>
@@ -314,7 +314,7 @@ Es ist sehr einfach, was dagegen hilft:
   <li>Höhe Erbschaftsvermögen (um eine konkrete Zahl zu nennen: > 10,000,000 Euro) müssen stark mit Erbschaftssteuer eingeschränkt werden. Davor darf es keine &bdquo;Steuerflucht&ldquo; geben. (Existiert dieses Problem?)</li>
 </ul>
 
-Ich bin au&szlig;erdem davon überzeugt, dass viele Menschen, die eigentlich Anspruch auf Sozialleistungen hätten, diesen nicht in Anspruch nehmen. Zum einen, weil sie es nicht wollen (<a href="http://www.wdr2.de/aktuell/hartzvier122.html">Quelle</a>), zum anderen aber vermutlich auch, weil sie nicht wissen, dass sie Anspruch haben. 
+Ich bin au&szlig;erdem davon überzeugt, dass viele Menschen, die eigentlich Anspruch auf Sozialleistungen hätten, diesen nicht in Anspruch nehmen. Zum einen, weil sie es nicht wollen (<a href="http://www.wdr2.de/aktuell/hartzvier122.html">Quelle</a>), zum anderen aber vermutlich auch, weil sie nicht wissen, dass sie Anspruch haben.
 
 Hier mal ein paar Leistungen, die es gibt:
 <ul>
@@ -345,27 +345,27 @@ Die <a href="https://de.wikipedia.org/wiki/Eurokrise">Eurokrise</a> muss beendet
 Hier kann man nicht davon ausgehen, dass irgendeine Partei eine belegbar gute Lösung vorbringt. Wie auch? Das Problem gab es noch nie. Aber die Frage nach dem, was man zu tun gedenkt ist doch interessant:
 
 <ul>
-  <li>CDU / CSU: 
+  <li>CDU / CSU:
     <ul>
       <li>Für: Sparma&szlig;nahmen, Schuldenbremse, <a href="https://de.wikipedia.org/wiki/Stabilit%C3%A4ts-_und_Wachstumspakt">Stabilitätspakt</a>, Europäische Bankenunion</li>
       <li>Gegen: Eurobonds</li>
     </ul>
-  <li>SPD: 
+  <li>SPD:
     <ul>
       <li>Für: Finanztransaktionssteuer</li>
     </ul>
   </li>
-  <li>DIE LINKE.: 
+  <li>DIE LINKE.:
     <ul>
       <li>Für: Einmalige Abgabe von 10% auf Vermögen zur Schuldentilgung bei einem Freibetrag von 1.000.000 Euro auf Privatvermögen und 2.000.000 Euro auf Betriebsvermögen; Finanztransaktionssteuer</li>
     </ul>
   </li>
-  <li>Piraten: 
+  <li>Piraten:
     <ul>
       <li>Für: Finanztransaktionssteuer; Schuldenschnitte</li>
     </ul>
   </li>
-  <li>Grüne: 
+  <li>Grüne:
     <ul>
       <li>Für: Vermögensabgabe (vergleichbar mit LINKE)</li>
     </ul>
@@ -387,7 +387,7 @@ Siehe zu Abgeordnetenbestechung:
 </ul>
 
 <h3>Energiewende</h3>
-Die Versorgung mit Energie ist ein essentieller bestandteil der öffentlichen Infrastruktur. Sei es in Form von elektrischer Energie für Haushalte und Firmen, in Form von Wärme oder in Form von Mobilität. Dabei wäre es schön, das Problem nachhaltig zu lösen. 
+Die Versorgung mit Energie ist ein essentieller bestandteil der öffentlichen Infrastruktur. Sei es in Form von elektrischer Energie für Haushalte und Firmen, in Form von Wärme oder in Form von Mobilität. Dabei wäre es schön, das Problem nachhaltig zu lösen.
 
 Momentan geschieht dies in Form von <a href="https://de.wikipedia.org/wiki/Liste_von_Onshore-Windparks_in_Deutschland">On</a>- und <a href="https://de.wikipedia.org/wiki/Liste_der_Offshore-Windparks">Offshore Windkraftparks</a> sowie im <a href="https://de.wikipedia.org/wiki/Netzausbau">Netzausbau</a>. Das <a href="https://de.wikipedia.org/wiki/Erneuerbare-Energien-Gesetz">Erneuerbare-Energien-Gesetz</a> (EEG) soll dabei helfen und regelt die sog. <a href="https://de.wikipedia.org/wiki/Einspeiseverg%C3%BCtung">Einspeisevergütung</a>.
 
@@ -401,7 +401,7 @@ Im Bezug auf Steuern sehe ich zwei gro&szlig;e Probleme:
 Das Konzerne Länder gegeneinander ausspielen, sieht man an Google (<a href="http://www.googlewatchblog.de/2012/11/frankreich-milliarden-euro-steuernachzahlung/">Quelle</a>). Versteht mich jetzt nicht falsch, ich finde Google super. Aber jedes Unternehmen wird, wenn es ihm auf legale Art möglich ist, versuchen Kosten (also auch Steuern) so niedrig wie möglich zu halten. Also sollte man sich doch innerhalb der Euro-Zone auf ein gemeinsames Steuersystem einigen können, oder?
 
 Au&szlig;erdem scheint es mir in Deutschland zu viele Steuern/Abgaben zu geben und diese auch zu kompliziert zu sein
-Sinnvoll finde ich 
+Sinnvoll finde ich
 <ul>
   <li>Erbschaftssteuer: Sie sorgt dafür, dass sich Reichtum weniger stark anhäuft.</li>
   <li><span class="hint" title="Mehrwertsteuer">Umsatzsteuer</span>: Sie stellt einen einfachen Weg dar, wie der Staat an Geld kommt. Sie betrifft alle gleichmä&szlig;ig. Ich finde es nicht sinnvoll, hier zwischen verschiedenen Klassen (Lebensmittel, Luxusgüter) zu unterscheiden. Wenn Lebensmittel mehr kosten würden, würde man ihren Wert vielleicht mehr schätzen.
@@ -442,7 +442,7 @@ Ich wei&szlig; nicht, wie die Lohnsteuer berechnet wird. Sinnvoll würde ich fol
   </li>
 </ul>
 
-Bitte hängt euch nicht an den Zahlen auf. Das sollte nur das System veranschaulichen. Mit diesem System wäre es ganz einfach zu berechnen, wer wieviel zahlen muss. Damit kann es auch nicht passieren, dass jemand trotz höherem Einkommen weniger Geld hat. 
+Bitte hängt euch nicht an den Zahlen auf. Das sollte nur das System veranschaulichen. Mit diesem System wäre es ganz einfach zu berechnen, wer wieviel zahlen muss. Damit kann es auch nicht passieren, dass jemand trotz höherem Einkommen weniger Geld hat.
 
 Hier mal eine Grafik über das Steueraufkommen in Deutschland:
 

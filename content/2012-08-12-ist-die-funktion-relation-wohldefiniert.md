@@ -18,12 +18,12 @@ Sei $f:\mathbb{Q} \rightarrow \mathbb{Q}$ eine Abbildung und definiert durch:
 $f(\frac{p}{q}) := \frac{p}{q}$
 
 <strong>Frage</strong>: Ist $f$ wohldefiniert?
-<strong>Antwort</strong>: Ja. 
-Es sei $\frac{p'}{q'}$ die vollst&auml;ndig gek&uuml;rzte Darstellung von $\frac{p}{q}$. 
+<strong>Antwort</strong>: Ja.
+Es sei $\frac{p'}{q'}$ die vollst&auml;ndig gek&uuml;rzte Darstellung von $\frac{p}{q}$.
 Also gilt: $p = p' \cdot \lambda \land q = q' \cdot \lambda$ mit $\lambda \in \mathbb{R} \setminus \{0\}$.
 $\Rightarrow \frac{p}{q} = \frac{p' \cdot \lambda}{q' \cdot \lambda}$.
 $\Rightarrow f(\frac{p}{q}) = \frac{p' \cdot \lambda}{q' \cdot \lambda} = \frac{p'}{q'}$.
-$\Rightarrow f(\frac{p}{q})$ ist unabh&auml;ngig vom Repr&auml;sentanten. 
+$\Rightarrow f(\frac{p}{q})$ ist unabh&auml;ngig vom Repr&auml;sentanten.
 $\Rightarrow f$ ist wohldefiniert $\blacksquare$
 
 <h2>Beispiel 2</h2>
@@ -32,7 +32,7 @@ Sei $f:\mathbb{Q} \rightarrow \mathbb{Q}$ eine Abbildung und definiert durch:
 $f(\frac{p}{q}) := \frac{p+1}{q}$
 
 <strong>Frage</strong>: Ist $f$ wohldefiniert?
-<strong>Antwort</strong>: Nein. 
+<strong>Antwort</strong>: Nein.
 
 $f(\frac{0}{1}) = \frac{0+1}{1} = 1 \neq \frac{1}{2} = \frac{0+1}{2} = f(\frac{0}{2}) \blacksquare$
 
@@ -44,7 +44,7 @@ $f(\frac{p}{q}) := \frac{p-q}{p+q}$
 <strong>Frage</strong>: Ist $f$ wohldefiniert?
 <strong>Antwort</strong>: Ja.
 
-Es sei $\frac{p'}{q'}$ die vollst&auml;ndig gek&uuml;rzte Darstellung von $\frac{p}{q}$. 
+Es sei $\frac{p'}{q'}$ die vollst&auml;ndig gek&uuml;rzte Darstellung von $\frac{p}{q}$.
 Also gilt: $p = p' \cdot \lambda \land q = q' \cdot \lambda$ mit $\lambda \in \mathbb{R} \setminus \{0\}$.
 
 $\Rightarrow f(\frac{p}{q}) = f(\frac{\lambda \cdot p'}{\lambda \cdot q'}) = \frac{\lambda \cdot p' - \lambda \cdot q'}{\lambda \cdot p' + \lambda \cdot q'} = \frac{\lambda (p' - q')}{\lambda (p' + q')} = \frac{p' - q'}{p' + q'} \blacksquare$

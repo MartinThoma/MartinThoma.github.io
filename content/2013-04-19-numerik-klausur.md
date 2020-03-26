@@ -153,7 +153,7 @@ Die Aufgabenbl&auml;tter stehen <a href="http://www.math.kit.edu/ianm3/lehre/num
 <ul>
   <li>Aufgabe 1: LR-Zerlegung oder Cholesky-Zerlegung; Gau&szlig;-Elimination mit Spaltenpivotwahl; L&ouml;sen eines LGS</li>
   <li>Aufgabe 2: Nicht-lineare Gleichungssysteme, Fixpunktiteration, Newton-Verfahren</li>
-  <li>Aufgabe 3: 
+  <li>Aufgabe 3:
     <ul>
       <li>a) Polynominterpolation mit Lagrange-Polynomen</li>
       <li>b) Newton-Darstellung des Polynoms bestimmen</li>

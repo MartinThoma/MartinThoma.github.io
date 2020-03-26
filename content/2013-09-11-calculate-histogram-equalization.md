@@ -16,7 +16,7 @@ $A = \begin{pmatrix}
 \end{pmatrix}$
 
 <h2>Histogram</h2>
-Now the histogram is a function $H: [0,255] \rightarrow \mathbb{N}_0$. 
+Now the histogram is a function $H: [0,255] \rightarrow \mathbb{N}_0$.
 
 The histogram of $A$ is
 

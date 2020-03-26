@@ -25,11 +25,11 @@ It looks like this in Chromes PDF reader:
 
 \usepackage{hyperref}  % this is needed for forms and links within the text
 
-\hypersetup{ 
-  pdfauthor   = {Martin Thoma}, 
-  pdfkeywords = {Martin Thoma, exmple, LaTeX, form}, 
-  pdftitle    = {An example for a LaTeX form} 
-} 
+\hypersetup{
+  pdfauthor   = {Martin Thoma},
+  pdfkeywords = {Martin Thoma, exmple, LaTeX, form},
+  pdftitle    = {An example for a LaTeX form}
+}
 
 \begin{document}
 
@@ -48,11 +48,11 @@ Name: 			\> \TextField[name=name,width=3cm,charsize=12pt]
 Prename: \TextField[name=vor,width=3cm,charsize=12pt]
 {\mbox{}} \\
 
-City: 			\> 
+City: 			\>
 \ChoiceMenu[combo,name=city,width=5cm,charsize=12pt,default=Karlsruhe]{\mbox{}}
 {Chemnitz,Dresden,Leipzig,Berlin,Hamburg,Karlsruhe,M&uuml;nchen} \\
 
-Sex: 	\> 
+Sex: 	\>
 \ChoiceMenu[radio,default=f,name=sex,charsize=14pt]{\mbox{}}{Male=m,Female=f}
 \end{tabbing}
 

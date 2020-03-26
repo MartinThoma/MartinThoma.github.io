@@ -214,7 +214,7 @@ The following professions are needed to build a house:
 
 
 * https://www.fernstudiumcheck.de/fernstudium/bauingenieurwesen
-* 
+*
 
 ### Base
 

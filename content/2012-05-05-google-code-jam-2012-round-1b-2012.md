@@ -32,7 +32,7 @@ featured_image: 2012/04/code-jam-logo.png
 
 <h2>Safety in Numbers</h2>
 I tried this approach:
-X is the sum of all points given by judges. The visitors have an equal amount of points to give. 
+X is the sum of all points given by judges. The visitors have an equal amount of points to give.
 $P_i$ is the number of total points of contestant i.
 $J_i$ is the number of points of contestant i by the judges.
 $V_i$ is the percentage of the visitors points contestant i gets.

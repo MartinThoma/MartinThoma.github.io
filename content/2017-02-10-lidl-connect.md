@@ -95,4 +95,3 @@ Update, 02.02.2017: The new Lidl Connect SIM card with my old number arrived.
 Seems not to be active at the moment.
 
 Update, 06.02.2017: Finally, I have the Lidl SIM card with my new number 🙂
-

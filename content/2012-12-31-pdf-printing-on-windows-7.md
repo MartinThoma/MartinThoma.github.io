@@ -7,9 +7,9 @@ category: Cyberculture
 tags: PDF, windowsrage, Windows 7
 featured_image: 2012/10/pdf-icon.png
 ---
-"Printing" files on PDF-printers is useful as you can save everything as a digital PDF file instead of printing it. 
+"Printing" files on PDF-printers is useful as you can save everything as a digital PDF file instead of printing it.
 
-I've just installed <a href="http://www.heise.de/download/typing-test-tq-1128987.html">Typing Test TQ</a> for testing my typing speed and I wanted to save my results. This wasn't possible, but I could print them. So I thought I could print it to a PDF file and store it this way on my computer. Once again, I didn't think of Microsoft. 
+I've just installed <a href="http://www.heise.de/download/typing-test-tq-1128987.html">Typing Test TQ</a> for testing my typing speed and I wanted to save my results. This wasn't possible, but I could print them. So I thought I could print it to a PDF file and store it this way on my computer. Once again, I didn't think of Microsoft.
 
 <h2>The Linux-Way</h2>
 How would you solve this problem on a Debian machine? Well, most Debian machines would have a PDF printer pre-installed. So you would simply click on print, choose the PDF printer and be happy.

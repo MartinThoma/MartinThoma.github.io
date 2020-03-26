@@ -59,7 +59,7 @@ Usage example:
 </ul>
 
 ### Parentheses
-The size of brackets `[ ]`, (curly) braces `{ }` and parentheses `( )` can be 
+The size of brackets `[ ]`, (curly) braces `{ }` and parentheses `( )` can be
 adjusted with these commands:
 
 ```latex
