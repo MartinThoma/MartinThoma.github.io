@@ -34,7 +34,7 @@ You don't have root access. However, you can install Python packages via
 virtualenv (at `nobackup` - you don't need this to be backed up and you want
 to have less limitations on your venv size):
 
-```
+```shell
 $ mkdir ml-venv
 $ cd ~/ml-venv
 $ virtualenv ml
@@ -50,7 +50,7 @@ you need.
 
 Add
 
-```
+```bash
 export LD_LIBRARY_PATH=/fzi/ids/thoma/nobackup/cuda/lib64/
 ```
 
@@ -62,7 +62,7 @@ adjust the path to the `lib64` folder.
 
 With `nvidia-smi` you can see which processes currently use the graphics card:
 
-```
+```text
 Thu Apr 13 19:14:50 2017
 +-----------------------------------------------------------------------------+
 | NVIDIA-SMI 361.93.02              Driver Version: 361.93.02                 |
@@ -86,7 +86,7 @@ Thu Apr 13 19:14:50 2017
 But it doesn't tell you how long the process is already running and which user
 started it. With
 
-```
+```shell
 $ ps -p 32756 -o user -o time
 ```
 
@@ -101,14 +101,14 @@ and [How to copy files from one machine to another using ssh](https://unix.stack
 
 Copy `foo.txt` from localhost to a remote host:
 
-```
+```shell
 $ scp foo.txt yourusername@remotehost.com:/home/remote/dir
 ```
 
 
 ## Disk usage
 
-```
+```shell
 $ quota -s -u user1
 $ df -h .
 $ du -h .

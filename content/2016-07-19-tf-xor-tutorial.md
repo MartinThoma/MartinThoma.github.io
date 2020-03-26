@@ -236,7 +236,7 @@ with tf.Session() as sess:
 
 The output is:
 
-```
+```text
 Epoch 0
 Hypothesis [[ 0.48712057  0.51287943]
  [ 0.3380821   0.66191792]

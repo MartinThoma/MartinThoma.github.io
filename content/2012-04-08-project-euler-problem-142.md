@@ -28,26 +28,30 @@ I don't want to post the solution (if you want to cheat, I guess you could easil
 import sys
 from math import sqrt
 
+
 def is_square(integer):
     root = sqrt(integer)
-    if int(root + 0.5) ** 2 == integer: 
+    if int(root + 0.5) ** 2 == integer:
         return True
     else:
         return False
 
-for x in range(3,1000):
-	print x
-	for y in range(2, x):
-		for z in range(1, y):
-			if (x > y and y > z):
-				if (is_square(x + y)
-					and is_square(x - y)
-					and is_square(x + z)
-					and is_square(x - z)
-					and is_square(y + z)
-					and is_square(y - z)):
-						print ("%i - %i - %i" % (x, y, z))
-						sys.exit()
+
+for x in range(3, 1000):
+    print(x)
+    for y in range(2, x):
+        for z in range(1, y):
+            if x > y and y > z:
+                if (
+                    is_square(x + y)
+                    and is_square(x - y)
+                    and is_square(x + z)
+                    and is_square(x - z)
+                    and is_square(y + z)
+                    and is_square(y - z)
+                ):
+                    print("%i - %i - %i" % (x, y, z))
+                    sys.exit()
 ```
 
 This is quite fast until you reach about 500. So this is not a good way to solve it.

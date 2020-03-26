@@ -109,6 +109,7 @@ execute all four bytecode commands of "test.globalVar--;"
 
 <h2>A side note</h2>
 With <code>javap -c MyParallelClass</code> you can view the <a href="http://en.wikipedia.org/wiki/Java_bytecode">bytecode</a> of the class <code>MyParallelClass</code>. It looks like this:
+
 ```java
 
 Compiled from "MyParallelClass.java"
@@ -154,12 +155,12 @@ public void run();
 Some links to the reference: <a href="https://www.vmth.ucdavis.edu/incoming/Jasmin/ref--19.html">getstatic</a>, <a href="https://www.vmth.ucdavis.edu/incoming/Jasmin/ref--21.html">iconst_1</a>, <a href="https://www.vmth.ucdavis.edu/incoming/Jasmin/ref-_isub.html">isub</a>, <a href="https://www.vmth.ucdavis.edu/incoming/Jasmin/ref-putstati.html">putstatic</a>
 
 The interesting part of the bytecode is:
+
 ```java
    30:	getstatic	#3; //Field test.globalVar:I
    33:	iconst_1
    34:	isub
    35:	putstatic	#3; //Field test.globalVar:I
-
 ```
 You can see that the JVM has to execute 4 commands for <code>test.globalVar--;</code>. 
 

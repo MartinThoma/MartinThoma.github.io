@@ -38,7 +38,7 @@ solve. I will not go into detail in this post.
 
 ## Project structure
 
-```
+```text
 .
 ├── artifacts
 │   ├── train : Logfiles, trained models
@@ -48,7 +48,6 @@ solve. I will not go into detail in this post.
 ├── models : Scripts defining how the model looks like
 ├── optimizers : Scripts defining the optimizeres
 └── train : Script to run the training
-
 ```
 
 The important part here is that you have an `experiments/` folder which
@@ -61,7 +60,7 @@ set in the configuration.
 
 An example from my masters thesis is `cifar10_opt.yaml`:
 
-```
+```yaml
 dataset:
   script_path: ../datasets/cifar10_keras.py
 model:
@@ -107,7 +106,7 @@ evaluate:
 
 I load it like this:
 
-```
+```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
@@ -120,9 +119,11 @@ import yaml
 import imp
 import pprint
 
-logging.basicConfig(format='%(asctime)s %(levelname)s %(message)s',
-                    level=logging.DEBUG,
-                    stream=sys.stdout)
+logging.basicConfig(
+    format="%(asctime)s %(levelname)s %(message)s",
+    level=logging.DEBUG,
+    stream=sys.stdout,
+)
 
 
 def main(yaml_filepath):
@@ -137,9 +138,9 @@ def main(yaml_filepath):
     # Here is an example how you load modules of which you put the path in the
     # configuration. Use this for configuring the model you use, for dataset
     # loading, ...
-    dpath = cfg['dataset']['script_path']
+    dpath = cfg["dataset"]["script_path"]
     sys.path.insert(1, os.path.dirname(dpath))
-    data = imp.load_source('data', cfg['dataset']['script_path'])
+    data = imp.load_source("data", cfg["dataset"]["script_path"])
 
 
 def load_cfg(yaml_filepath):
@@ -155,7 +156,7 @@ def load_cfg(yaml_filepath):
     cfg : dict
     """
     # Read YAML experiment definition file
-    with open(yaml_filepath, 'r') as stream:
+    with open(yaml_filepath, "r") as stream:
         cfg = yaml.load(stream)
     cfg = make_paths_absolute(os.path.dirname(yaml_filepath), cfg)
     return cfg
@@ -188,20 +189,24 @@ def make_paths_absolute(dir_, cfg):
 def get_parser():
     """Get parser object."""
     from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
-    parser = ArgumentParser(description=__doc__,
-                            formatter_class=ArgumentDefaultsHelpFormatter)
-    parser.add_argument("-f", "--file",
-                        dest="filename",
-                        help="experiment definition file",
-                        metavar="FILE",
-                        required=True)
+
+    parser = ArgumentParser(
+        description=__doc__, formatter_class=ArgumentDefaultsHelpFormatter
+    )
+    parser.add_argument(
+        "-f",
+        "--file",
+        dest="filename",
+        help="experiment definition file",
+        metavar="FILE",
+        required=True,
+    )
     return parser
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     args = get_parser().parse_args()
     main(args.filename)
-
 ```
 
 ## Starting small

@@ -22,7 +22,7 @@ However, it did not work. I guess it is executed to soon.
 An alternative which worked is adding a file `~/.config/shift.deskop` with the
 following content:
 
-```
+```ini
 [Desktop Entry]
 Type=Application
 Name=shift

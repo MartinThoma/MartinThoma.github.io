@@ -32,7 +32,7 @@ that might have the same features.
 Suppose you have a long list of names, phone numbers and e-mail addresses which
 was provided by your "contacts" export:
 
-```
+```text
 Martin Thoma; +49 123 456; foo@martin-thoma.de
 Adam Aaron;+1 23 456 789; aaron@gmx.net
 Berta Booth;002 345678; bb@googlemail.com
@@ -185,7 +185,7 @@ First, navigate to where you want to click. Leave your cursor there and execute
 
 So a script for this could be:
 
-```
+```bash
 #!/bin/bash
 for i in {1..500}; do
   xdotool click 1 &

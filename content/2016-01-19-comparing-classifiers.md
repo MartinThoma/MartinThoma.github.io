@@ -113,7 +113,7 @@ Most notably the [MNIST Expert tutorial](https://www.tensorflow.org/versions/mas
 
 #### Simple Network
 
-```
+```text
 Classifier: NN 500:200
 Training time: 79.5696s
 Testing time: 0.3480s
@@ -134,7 +134,7 @@ Accuracy: 0.9798
 
 #### Dropout Network
 
-```
+```text
 Classifier: NN 500:200 dropout
 Training time: 118.2654s
 Testing time: 0.3918s
@@ -155,7 +155,7 @@ Accuracy: 0.9780
 
 #### CNN
 
-```
+```text
 Classifier: CNN
 Training time: 391.8810s
 Testing time: 1.2035s
@@ -189,7 +189,7 @@ around.
 
 #### Linear SVM
 
-```
+```text
 Classifier: linear SVM
 Training time: 168.6950s
 Testing time: 158.0101s
@@ -209,7 +209,7 @@ Accuracy: 0.9416
 
 #### Adjusted SVM
 
-```
+```text
 Classifier: adj. SVM
 Training time: 347.1539s
 Testing time: 234.5724s
@@ -235,7 +235,7 @@ Data:
 * `n_estimators=50`
 * `n_jobs=10`
 
-```
+```text
 Classifier: Random Forest
 Training time: 2.1359s
 Testing time: 26.0763s
@@ -259,7 +259,7 @@ Alternatively:
 * `n_estimators=10`
 * `max_features=1`
 
-```
+```text
 Classifier: Random Forest 2
 Training time: 0.2077s
 Testing time: 22.2770s
@@ -280,7 +280,7 @@ Accuracy: 0.5715
 
 ### k nearest neightbors
 
-```
+```text
 Classifier: k nn
 Training time: 4.6439s
 Testing time: 1261.7815s
@@ -305,7 +305,7 @@ Data:
 
 * `max_depth=5`
 
-```
+```text
 Classifier: Decision Tree
 Training time: 3.1346s
 Testing time: 0.0313s
@@ -329,7 +329,7 @@ Accuracy: 0.6540
 You should note that you can use arbitrary base classifiers with Adaboost.
 The default ones of [`sklearn.ensemble.AdaBoostClassifier`](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html) is [`sklearn.tree.DecisionTreeClassifies`](http://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html)
 
-```
+```text
 Classifier: AdaBoost
 Training time: 37.6443s
 Testing time: 1.5815s
@@ -361,7 +361,7 @@ See also:
 * [Recruit Coupon Purchase Winner's Interview: 2nd place](http://blog.kaggle.com/2015/10/21/recruit-coupon-purchase-winners-interview-2nd-place-halla-yang/)
 * [Dato Truly Native? Winner's Interview: 2nd place](http://blog.kaggle.com/2015/10/30/dato-winners-interview-2nd-place-mortehu/)
 
-```
+```text
 Classifier: Gradient Boosting
 Training time: 2409.8094s
 Testing time: 0.4159s
@@ -382,7 +382,7 @@ Accuracy: 0.9435
 
 ### Naive Bayes
 
-```
+```text
 Classifier: Naive Bayes
 Training time: 0.3814s
 Testing time: 0.8863s
@@ -403,7 +403,7 @@ Accuracy: 0.5615
 
 ### LDA
 
-```
+```text
 Classifier: LDA
 Training time: 20.6464s
 Testing time: 0.0910s
@@ -424,7 +424,7 @@ Accuracy: 0.8642
 
 ### QDA
 
-```
+```text
 Classifier: QDA
 Training time: 23.0527s
 Testing time: 6.2259s

@@ -46,7 +46,7 @@ If you write a paper, I think the following would be the best practice for repro
 
 For logging the versions, you might want to use something like this:
 
-```
+```python
 #!/usr/bin/env python
 
 # core modules
@@ -62,14 +62,14 @@ def get_logstring():
     logstring : str
     """
     logstring = []
-    with open('/proc/cpuinfo') as f:
+    with open("/proc/cpuinfo") as f:
         cpuinfo = f.readlines()
     for line in cpuinfo:
         if "model name" in line:
             logstring.append("CPU: {}".format(line.strip()))
             break
 
-    with open('/proc/driver/nvidia/version') as f:
+    with open("/proc/driver/nvidia/version") as f:
         version = f.read().strip()
     logstring.append("GPU driver: {}".format(version))
     logstring.append("VGA: {}".format(find_vga()))
@@ -77,9 +77,9 @@ def get_logstring():
 
 
 def find_vga():
-    vga = subprocess.check_output("lspci | grep -i 'vga\|3d\|2d'",
-                                  shell=True,
-                                  executable='/bin/bash')
+    vga = subprocess.check_output(
+        "lspci | grep -i 'vga\|3d\|2d'", shell=True, executable="/bin/bash"
+    )
     return vga
 
 
@@ -88,7 +88,7 @@ print(get_logstring())
 
 which gives something like
 
-```
+```text
 CPU: model name    : Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz
 GPU driver: NVRM version: NVIDIA UNIX x86_64 Kernel Module  384.90  Tue Sep 19 19:17:35 PDT 2017
 GCC version:  gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.5)

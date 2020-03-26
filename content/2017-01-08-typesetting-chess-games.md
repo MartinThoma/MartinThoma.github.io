@@ -16,7 +16,7 @@ featured_image: logos/latex.png
     <figcaption class="text-center">Chessboard - simple example</figcaption>
 </figure>
 
-```
+```tex
 \documentclass{article}
 \usepackage[pdftex,active,tightpage]{preview}
 \setlength\PreviewBorder{5mm}
@@ -46,7 +46,7 @@ From <a href="http://tex.stackexchange.com/a/54192/5645">tex.stackexchange.com</
     <figcaption class="text-center">Simple example with skak</figcaption>
 </figure>
 
-```
+```tex
 \documentclass{article}
 \usepackage[pdftex,active,tightpage]{preview}
 \setlength\PreviewBorder{5mm}

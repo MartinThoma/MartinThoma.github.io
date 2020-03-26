@@ -748,7 +748,7 @@ insights in how good the models are.
     </tbody>
 </table>
 
-```
+```text
 absolute_errors = [15, 36, 11, 30, 23, 15, 23, 4, 31, 10, 28,22,11,27,26,13,5,7,4,41,11,38,35,8,24,42,19,20,8]
 ```
 

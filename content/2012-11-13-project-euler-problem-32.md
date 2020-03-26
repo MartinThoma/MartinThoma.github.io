@@ -28,7 +28,7 @@ def isPandigitalString(string):
     if digits >= 10:
         return False
 
-    for i in range(1,digits+1):
+    for i in range(1, digits + 1):
         if str(i) not in string:
             return False
     return True
@@ -37,7 +37,7 @@ def isPandigitalString(string):
 We also need a check if a product of two numbers is 9-pandigital:
 ```python
 def gives9PandigitalProduct(a, b):
-    numbers = str(a) + str(b) + str(a*b)
+    numbers = str(a) + str(b) + str(a * b)
     if len(numbers) != 9:
         return False
     return isPandigitalString(numbers)
@@ -48,11 +48,11 @@ Now you need to figure out how to go through all possible combinations:
 products = []
 for a in range(0, 100000):
     for b in range(a, 100000):
-        if len(str(a*b) + str(a) + str(b)) > 9:
+        if len(str(a * b) + str(a) + str(b)) > 9:
             break
         if gives9PandigitalProduct(a, b):
-            products.append(a*b)
-            print("%i x %i = %i" % (a, b, a*b))
+            products.append(a * b)
+            print("%i x %i = %i" % (a, b, a * b))
 
 print(sum(set(products)))
 ```
@@ -60,10 +60,27 @@ print(sum(set(products)))
 <h2>One-liner</h2>
 This is from Thaddeus Abiye from Ethiopia:
 ```python
-print sum(set(map(lambda x:int(x[0:4]),filter(lambda x:sorted([i for i in x])==map(str,range(1,10)),[str(a*b)+str(a)+str(b) for a in range(1,2000) for b in range(1,100)]))))
+print(
+    sum(
+        set(
+            map(
+                lambda x: int(x[0:4]),
+                filter(
+                    lambda x: sorted([i for i in x]) == map(str, range(1, 10)),
+                    [
+                        str(a * b) + str(a) + str(b)
+                        for a in range(1, 2000)
+                        for b in range(1, 100)
+                    ],
+                ),
+            )
+        )
+    )
+)
 ```
 
-It needs one line and 173 characters, but I think it's hard to read.
+It needs one line (if it was not black-formatted) and 173 characters, but I
+think it's hard to read.
 
 <h2>Data about my solution</h2>
 <ul>

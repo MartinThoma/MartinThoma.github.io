@@ -225,7 +225,7 @@ to say about lossy compression.
 
 ## 7z Benchmark
 
-```
+```shell
 $ 7z b
 
 7-Zip [64] 16.02 : Copyright (c) 1999-2016 Igor Pavlov : 2016-05-21
@@ -252,7 +252,7 @@ Tot:             689   2098  14373
 
 and
 
-```
+```shell
 $ 7z b -mm=\* -mmt=\*
 
 7-Zip [64] 16.02 : Copyright (c) 1999-2016 Igor Pavlov : 2016-05-21

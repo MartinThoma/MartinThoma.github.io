@@ -154,7 +154,7 @@ How can such a web service look from a software perspective?
 Each model consists of a package with a `model.py` which contains an
 `infer(input_dict)` function and a `description.json`:
 
-```
+```json
 {
     "name": "Titanic Survival Model",
     "parameters": [

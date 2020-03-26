@@ -16,7 +16,7 @@ content of a website.
 
 ## Installation
 
-```
+```bash
 pip install selenium chromedriver_installer
 ```
 
@@ -25,7 +25,7 @@ pip install selenium chromedriver_installer
 When you execute the follwing example with Python it should open a Chromium
 browser window with the Wikipedia main page. Nothing too exciting.
 
-```
+```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
@@ -46,15 +46,15 @@ def main():
 def get_browser():
     """Get the browser (a "driver")."""
     # find the path with 'which chromedriver'
-    path_to_chromedriver = ('/home/moose/GitHub/algorithms/scraping/'
-                            'venv/bin/chromedriver')
+    path_to_chromedriver = (
+        "/home/moose/GitHub/algorithms/scraping/venv/bin/chromedriver"
+    )
     browser = webdriver.Chrome(executable_path=path_to_chromedriver)
     return browser
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
-
 ```
 
 
@@ -70,7 +70,7 @@ Chrome, this is done with the *developer tools*. You can open them with
     <figcaption class="text-center">Text</figcaption>
 </figure>
 
-```
+```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
@@ -98,15 +98,15 @@ def main():
 def get_browser():
     """Get the browser (a "driver")."""
     # find the path with 'which chromedriver'
-    path_to_chromedriver = ('/home/moose/GitHub/algorithms/scraping/'
-                            'venv/bin/chromedriver')
+    path_to_chromedriver = (
+        "/home/moose/GitHub/algorithms/scraping/" "venv/bin/chromedriver"
+    )
     browser = webdriver.Chrome(executable_path=path_to_chromedriver)
     return browser
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
-
 ```
 
 You know now:
@@ -130,7 +130,7 @@ A headless browser is one without a GUI. PhantomJS is one example.
 You can install it via apt, but that has problems ([source](https://stackoverflow.com/q/36770303/562769)).
 You can install it via
 
-```
+```bash
 sudo apt-get install nodejs-legacy
 sudo npm install -g phantomjs
 ```
@@ -139,7 +139,7 @@ but that might be a security risk. Your choice.
 
 Run it:
 
-```
+```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
@@ -163,14 +163,14 @@ def get_browser():
     return browser
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
 ```
 
 
 ## Download webpage
 
-```
+```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
@@ -192,37 +192,39 @@ def main():
 def get_browser():
     """Get the browser (a "driver")."""
     # find the path with 'which chromedriver'
-    path_to_chromedriver = ('/home/moose/GitHub/algorithms/scraping/'
-                            'venv/bin/chromedriver')
+    path_to_chromedriver = (
+        "/home/moose/GitHub/algorithms/scraping/" "venv/bin/chromedriver"
+    )
     download_dir = "/home/moose/selenium-download/"
     print("Is directory: {}".format(os.path.isdir(download_dir)))
 
     from selenium.webdriver.chrome.options import Options
-    chrome_options = Options()
-    chrome_options.add_experimental_option('prefs', {
-        "plugins.plugins_list": [{"enabled": False,
-                                  "name": "Chrome PDF Viewer"}],
-        "download": {
-            "prompt_for_download": False,
-            "default_directory": download_dir
-        }
-    })
 
-    browser = webdriver.Chrome(path_to_chromedriver,
-                               chrome_options=chrome_options)
+    chrome_options = Options()
+    chrome_options.add_experimental_option(
+        "prefs",
+        {
+            "plugins.plugins_list": [{"enabled": False, "name": "Chrome PDF Viewer"}],
+            "download": {
+                "prompt_for_download": False,
+                "default_directory": download_dir,
+            },
+        },
+    )
+
+    browser = webdriver.Chrome(path_to_chromedriver, chrome_options=chrome_options)
     return browser
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
-
 ```
 
 Credits: [How can I download something with Selenium and Chrome?](https://stackoverflow.com/q/45743028/562769)
 
 The following alternative (kind of) works:
 
-```
+```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
@@ -246,7 +248,7 @@ def main():
     cookies = browser.get_cookies()
 
     for cookie in cookies:
-        session.cookies.set(cookie['name'], cookie['value'])
+        session.cookies.set(cookie["name"], cookie["value"])
     response = session.get(download_link)
     # write
     path = os.path.abspath("temp.pdf")
@@ -261,9 +263,8 @@ def get_browser():
     return browser
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
-
 ```
 
 

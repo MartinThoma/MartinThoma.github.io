@@ -31,7 +31,7 @@ nice Sankey diagrams with a simple interface.
 
 A typical workday in Munich:
 
-```
+```text
 Study [9] Day
 Sleep [8] Day
 Commuting [0.4] Day
@@ -64,7 +64,7 @@ gives
 
 and
 
-```
+```text
 Day [9.5] Study
 Study [6] Lectures
 Study [1] Self-study

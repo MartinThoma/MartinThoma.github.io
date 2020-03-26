@@ -17,7 +17,7 @@ If you are interested in a sample project, try [pypa/sampleproject](https://gith
 
 ## Example
 
-```
+```ini
 [project]
 name = "infer_pyproject"
 version = "0.1.0"

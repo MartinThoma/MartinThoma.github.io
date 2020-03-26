@@ -64,7 +64,7 @@ article summarizes some tools and tricks to speed up this work.
 
 ## Alias
 
-```
+```shell
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 ```
@@ -84,7 +84,7 @@ There are various commands with the "bang" `!`:
 
 `cd -` jumps back to the directory in which you were before:
 
-```
+```text
 /home/moose$ cd foobar
 /home/moose/foobar$ cd -
 /home/moose$

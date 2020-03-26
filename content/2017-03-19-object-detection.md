@@ -28,7 +28,7 @@ Here is an easy to use example
 
 ## Code
 
-```
+```python
 #!/usr/bin/env python
 
 """
@@ -84,9 +84,9 @@ def create_overlay(img, results, voc_classes, plt_fname):
     top_ymax = det_ymax[top_indices]
     colors = plt.cm.hsv(np.linspace(0, 1, 21)).tolist()
 
-    plt.imshow(img / 255.)
+    plt.imshow(img / 255.0)
     currentAxis = plt.gca()
-    currentAxis.axis('off')
+    currentAxis.axis("off")
 
     for i in range(top_conf.shape[0]):
         xmin = int(round(top_xmin[i] * img.shape[1]))
@@ -96,15 +96,15 @@ def create_overlay(img, results, voc_classes, plt_fname):
         score = top_conf[i]
         label = int(top_label_indices[i])
         label_name = voc_classes[label - 1]
-        display_txt = '{:0.2f}, {}'.format(score, label_name)
+        display_txt = "{:0.2f}, {}".format(score, label_name)
         coords = (xmin, ymin), xmax - xmin + 1, ymax - ymin + 1
         color = colors[label]
-        currentAxis.add_patch(plt.Rectangle(*coords,
-                                            fill=False,
-                                            edgecolor=color,
-                                            linewidth=2))
-        currentAxis.text(xmin, ymin, display_txt,
-                         bbox={'facecolor': color, 'alpha': 0.5})
+        currentAxis.add_patch(
+            plt.Rectangle(*coords, fill=False, edgecolor=color, linewidth=2)
+        )
+        currentAxis.text(
+            xmin, ymin, display_txt, bbox={"facecolor": color, "alpha": 0.5}
+        )
     plt.savefig(plt_fname)
 
 
@@ -117,14 +117,32 @@ def main(img_paths):
     img_paths : list of strings
     """
     # Load the model
-    voc_classes = ['Aeroplane', 'Bicycle', 'Bird', 'Boat', 'Bottle',
-                   'Bus', 'Car', 'Cat', 'Chair', 'Cow', 'Diningtable',
-                   'Dog', 'Horse', 'Motorbike', 'Person', 'Pottedplant',
-                   'Sheep', 'Sofa', 'Train', 'Tvmonitor']
+    voc_classes = [
+        "Aeroplane",
+        "Bicycle",
+        "Bird",
+        "Boat",
+        "Bottle",
+        "Bus",
+        "Car",
+        "Cat",
+        "Chair",
+        "Cow",
+        "Diningtable",
+        "Dog",
+        "Horse",
+        "Motorbike",
+        "Person",
+        "Pottedplant",
+        "Sheep",
+        "Sofa",
+        "Train",
+        "Tvmonitor",
+    ]
     NUM_CLASSES = len(voc_classes) + 1
     input_shape = (300, 300, 3)
     model = SSD300(input_shape, num_classes=NUM_CLASSES)
-    model.load_weights('weights_SSD300.hdf5', by_name=True)
+    model.load_weights("weights_SSD300.hdf5", by_name=True)
     bbox_util = BBoxUtility(NUM_CLASSES)
 
     # Load the inputs
@@ -143,23 +161,25 @@ def main(img_paths):
 
     # Visualize
     for i, img in enumerate(images):
-        create_overlay(img, results[i], voc_classes,
-                       "{}-det.png".format(img_paths[i]))
+        create_overlay(img, results[i], voc_classes, "{}-det.png".format(img_paths[i]))
 
 
 def get_parser():
     """Get parser object."""
     from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
-    parser = ArgumentParser(description=__doc__,
-                            formatter_class=ArgumentDefaultsHelpFormatter)
-    parser.add_argument("-f", "--file",
-                        dest="filename",
-                        help="Detect objects in image",
-                        metavar="IMAGE")
-    parser.add_argument("--folder",
-                        dest="folder",
-                        help="Detect objects in JPG images in folder",
-                        metavar="FOLDER")
+
+    parser = ArgumentParser(
+        description=__doc__, formatter_class=ArgumentDefaultsHelpFormatter
+    )
+    parser.add_argument(
+        "-f", "--file", dest="filename", help="Detect objects in image", metavar="IMAGE"
+    )
+    parser.add_argument(
+        "--folder",
+        dest="folder",
+        help="Detect objects in JPG images in folder",
+        metavar="FOLDER",
+    )
     return parser
 
 
@@ -167,6 +187,7 @@ if __name__ == "__main__":
     args = get_parser().parse_args()
     if args.folder is not None:
         import glob
+
         images = glob.glob("%s/*.jpg" % args.folder)
     elif args.filename is not None:
         images = [args.filename]
@@ -174,7 +195,6 @@ if __name__ == "__main__":
         args.print_help()
         sys.exit(0)
     main(images)
-
 ```
 
 

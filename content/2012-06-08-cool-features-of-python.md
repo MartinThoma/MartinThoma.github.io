@@ -41,10 +41,10 @@ public class test {
 
 <strong>Python</strong>: (was much faster in both computation and programming time!)
 ```python
-big = 2**100000
+big = 2 ** 100000
 sumOfDigits = 0
 for digit in str(big):
-	sumOfDigits += int(digit)
+    sumOfDigits += int(digit)
 
 print(sumOfDigits)
 ```
@@ -62,13 +62,14 @@ b = max(tmp, b)
 
 <strong>Python</strong>:
 ```python
-a, b = min(a, b), max(a,b)
+a, b = min(a, b), max(a, b)
 ```
 
 <h3>Return more than one variable</h3>
 <strong>Description</strong>: Evaluate $f: \mathbb{R}^2 \rightarrow \mathbb{R}^3, f(x, y) := (x^2, y^2, x+y)$
 <strong>Most languages</strong>:
-```python
+
+```java
 double function(double x, double y) {
   double returnValues[3];
   returnValues[0] = x*x;
@@ -84,8 +85,9 @@ printf("Part 3: %.2f", values[2]);
 
 <strong>Python</strong>:
 ```python
-def function (x, y):
-    return (x*x, y*y, x+y)
+def function(x, y):
+    return (x * x, y * y, x + y)
+
 
 a, b, c = function(4, 5)
 print("Part 1: %.2f" % a)
@@ -129,8 +131,10 @@ if (-5 <= x &amp;&amp; x <= 42)
 ```
 
 <strong>Python</strong>:
+
 ```python
 if -5 <= x <= 42:
+    pass
 ```
 
 <h3>Enumeration</h3>
@@ -150,13 +154,13 @@ for (int element : myList) {
 myList = [1, 3, 3, 7]
 
 for nr, element in enumerate(myList):
-	print("%i: %i" % (nr, element))
+    print("%i: %i" % (nr, element))
 ```
 
 ### Named String formatting
 Python allows you to give parameters names:
 ```python
-print("The %(foo)s is %(bar)i." % {'foo': 'answer', 'bar':42})
+print("The %(foo)s is %(bar)i." % {"foo": "answer", "bar": 42})
 ```
 
 ### any() and all()
@@ -238,7 +242,7 @@ else:
 
 ```python
 for element in myList[::n]:
-    print elemenet
+    print(elemenet)
 ```
 
 ### Dynamically add properties to objects and classes
@@ -247,28 +251,29 @@ for element in myList[::n]:
 class Node(object):
     value = 3
 
+
 a = Node()
 b = Node()
 
-print a.value
+print(a.value)
 
 """ colorize the node! """
-#print a.color ==> AttributeError
+# print(a.color) ==> AttributeError
 
 # thats ok, although the object originally had no attribute "color"
-a.color = "white" 
-print a.color 
+a.color = "white"
+print(a.color)
 
 # You can even add a property to the class
 Node.special = "here is it"
-print b.special
+print(b.special)
 ```
 
 ### Imaginary numbers
 Python directly supports usage of imaginary numbers:
 
 ```python
-(2j + 1)**2
+(2j + 1) ** 2
 ```
 
 Output: `(-3+4j)`

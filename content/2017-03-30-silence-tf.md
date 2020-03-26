@@ -10,13 +10,13 @@ featured_image: logos/tensor-flow.png
 ---
 Set the environment variable
 
-```
+```bash
 TF_CPP_MIN_LOG_LEVEL=2
 ```
 
 if you're also annoyed by messages like
 
-```
+```text
 I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcublas.so.8.0 locally
 I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcudnn.so.5 locally
 I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcufft.so.8.0 locally
@@ -41,7 +41,6 @@ I tensorflow/core/common_runtime/gpu/gpu_device.cc:916] 0:   Y
 I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce 940MX, pci bus id: 0000:02:00.0)
 W tensorflow/core/common_runtime/bfc_allocator.cc:217] Ran out of memory trying to allocate 1.11GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory is available.
 W tensorflow/core/common_runtime/bfc_allocator.cc:217] Ran out of memory trying to allocate 1.11GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory is available.
-
 ```
 
 I've added `export TF_CPP_MIN_LOG_LEVEL=2` to my `~/.profile`. Note that this

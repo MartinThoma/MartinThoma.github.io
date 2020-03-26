@@ -22,7 +22,7 @@ This is in my [LaTeX-examples](https://github.com/MartinThoma/LaTeX-examples/tre
 
 The `main.tex` looks as follows:
 
-```
+```tex
 \documentclass[a4paper,12pt]{scrartcl}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
@@ -53,7 +53,7 @@ Reference sentences are too often Lorem Ipsum \parencites[p. 345]{alice}[p. 123]
 
 and the `bibliography.bib` like this:
 
-```
+```bibtex
 % Encoding: UTF-8
 @article{alice,
   title={The Theory of Lorem},
@@ -72,12 +72,11 @@ and the `bibliography.bib` like this:
   year      = {2010},
   author    = {Bobby Bob},
 }
-
 ```
 
 Compile it with
 
-```
+```bash
 pdflatex main.tex -output-format=pdf
 biber main
 pdflatex main.tex -output-format=pdf

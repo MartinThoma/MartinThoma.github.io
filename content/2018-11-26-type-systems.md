@@ -23,7 +23,7 @@ I like the definition of [pythonconquerstheuniverse](https://pythonconquerstheun
 
 Something you can do in a dynamic language, but not in a static language:
 
-```
+```python
 foo = "bar"
 foo = 9
 ```
@@ -45,7 +45,7 @@ Continuing with the definition of [pythonconquerstheuniverse](https://pythonconq
 
 What you can do in weakly typed languages, but not in strongly typed languages:
 
-```
+```python
 foo = "hello"
 bar = 1337
 foo + bar
@@ -53,7 +53,7 @@ foo + bar
 
 Instead, the strongly typed language needs something like that:
 
-```
+```python
 foo = "hello"
 bar = 1337
 foo + str(bar)

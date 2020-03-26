@@ -48,48 +48,69 @@ Wikipedia offers an <a href="http://en.wikipedia.org/w/api.php" title="Wikipedia
 ```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
- 
+
 import urllib2
 from optparse import OptionParser
 from BeautifulSoup import BeautifulStoneSoup
 import HTMLParser
- 
+
 parser = OptionParser()
-parser.add_option("-l", "--lemma", dest="lemma",
-                       default="Python", type="string",
-                       help="Which lemma should be checked?")
-parser.add_option("-m", "--language", dest="language",
-                       default="en", type="string",
-                       help="Which langauge should be used " +
-                            "(english wiki, geman wiki, ... )")
-parser.add_option("-v", "--verbose",
-                  action="store_true", dest="verbose", default=False,
-                  help="Show more information.")
+parser.add_option(
+    "-l",
+    "--lemma",
+    dest="lemma",
+    default="Python",
+    type="string",
+    help="Which lemma should be checked?",
+)
+parser.add_option(
+    "-m",
+    "--language",
+    dest="language",
+    default="en",
+    type="string",
+    help="Which langauge should be used " + "(english wiki, geman wiki, ... )",
+)
+parser.add_option(
+    "-v",
+    "--verbose",
+    action="store_true",
+    dest="verbose",
+    default=False,
+    help="Show more information.",
+)
 (options, args) = parser.parse_args()
- 
+
+
 def load(lemma, language="en", format="xml"):
     """ Get the Wikipedia Source Text (not the HTML source code) 
- 
+
         format:xml,json, ...
         language:en, de, ...
- 
+
         Returns None if page doesn't exist
     """
-    lemma     = lemma.replace(" ", "_")
-    url       = 'http://' + language + '.wikipedia.org/w/api.php' + \
-                '?action=query&format=' + format + \
-                '&prop=revisions&rvprop=content' + \
-                '&titles=' + lemma
-    request   = urllib2.Request(url)
-    handle    = urllib2.urlopen(request)
-    text      = handle.read()
-    if format == 'xml':
+    lemma = lemma.replace(" ", "_")
+    url = (
+        "http://"
+        + language
+        + ".wikipedia.org/w/api.php"
+        + "?action=query&format="
+        + format
+        + "&prop=revisions&rvprop=content"
+        + "&titles="
+        + lemma
+    )
+    request = urllib2.Request(url)
+    handle = urllib2.urlopen(request)
+    text = handle.read()
+    if format == "xml":
         soup = BeautifulStoneSoup(text)
-        rev  = soup.rev
+        rev = soup.rev
         if rev != None:
             text = unicode(rev.contents[0])
             text = HTMLParser.HTMLParser().unescape(text)
-            text = text.encode( "utf-8" )
+            text = text.encode("utf-8")
         else:
             return None
     return text
@@ -100,11 +121,12 @@ We are now able to access the needed information. Now we need to get the referen
 ```python
 import re
 
+
 def getRef(page):
     """ Get all references without templates """
     pattern = "(<ref>\[.+?</ref>)"
     prog = re.compile(pattern)
-    m    = re.findall(pattern, page)
+    m = re.findall(pattern, page)
     return m
 ```
 
@@ -114,13 +136,15 @@ Now the single references have to get parsed and the user has to confirm or edit
 import readline
 from datetime import date
 
-def rlinput(prompt, prefill=''):
+
+def rlinput(prompt, prefill=""):
     """ Promt the user for input, but prefill it. """
     readline.set_startup_hook(lambda: readline.insert_text(prefill))
     try:
-      return raw_input(prompt)
+        return raw_input(prompt)
     finally:
-      readline.set_startup_hook()
+        readline.set_startup_hook()
+
 
 def improve(references, page):
     """ Try to guess the right formatation for each reference and ask 
@@ -132,18 +156,21 @@ def improve(references, page):
     today = date.today()
     accessdate = str(today.strftime("%B %d, %Y"))
 
-
     for refOld in references:
         url = re.findall(urlPatternCompiled, refOld)
-        refNew = "<ref>{{Citation " + \
-                 "|url=" + str(url[0]) + \
-                 "|title= " + \
-                 "|accessdate="  + accessdate + \
-                 "}}</ref>"
+        refNew = (
+            "<ref>{{Citation "
+            + "|url="
+            + str(url[0])
+            + "|title= "
+            + "|accessdate="
+            + accessdate
+            + "}}</ref>"
+        )
 
         refNew = rlinput(refOld + " (old):\n", refNew)
         page = page.replace(refOld, refNew)
-        print ""
+        print("")
 
     return page
 ```
@@ -153,7 +180,7 @@ Here is the full script:
 ```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
- 
+
 import urllib2
 from optparse import OptionParser
 from BeautifulSoup import BeautifulStoneSoup
@@ -163,64 +190,93 @@ import re
 
 import readline
 from datetime import date
- 
+
 parser = OptionParser()
-parser.add_option("-l", "--lemma", dest="lemma",
-                       default="Python", type="string",
-                       help="Which lemma should be checked?")
-parser.add_option("-f", "--file", dest="filename",
-                  help="write corrected wiki source code to FILE", 
-                  metavar="FILE", default="wikioutput.txt")
-parser.add_option("-m", "--language", dest="language",
-                       default="en", type="string",
-                       help="Which langauge should be used " +
-                            "(english wiki, geman wiki, ... )")
-parser.add_option("-v", "--verbose",
-                  action="store_true", dest="verbose", default=False,
-                  help="Show more information.")
+parser.add_option(
+    "-l",
+    "--lemma",
+    dest="lemma",
+    default="Python",
+    type="string",
+    help="Which lemma should be checked?",
+)
+parser.add_option(
+    "-f",
+    "--file",
+    dest="filename",
+    help="write corrected wiki source code to FILE",
+    metavar="FILE",
+    default="wikioutput.txt",
+)
+parser.add_option(
+    "-m",
+    "--language",
+    dest="language",
+    default="en",
+    type="string",
+    help="Which langauge should be used " + "(english wiki, geman wiki, ... )",
+)
+parser.add_option(
+    "-v",
+    "--verbose",
+    action="store_true",
+    dest="verbose",
+    default=False,
+    help="Show more information.",
+)
 (options, args) = parser.parse_args()
- 
+
+
 def load(lemma, language="en", format="xml"):
     """ Get the Wikipedia Source Text (not the HTML source code) 
- 
+
         format:xml,json, ...
         language:en, de, ...
- 
+
         Returns None if page doesn't exist
     """
-    lemma     = lemma.replace(" ", "_")
-    url       = 'http://' + language + '.wikipedia.org/w/api.php' + \
-                '?action=query&format=' + format + \
-                '&prop=revisions&rvprop=content' + \
-                '&titles=' + lemma
-    request   = urllib2.Request(url)
-    handle    = urllib2.urlopen(request)
-    text      = handle.read()
-    if format == 'xml':
+    lemma = lemma.replace(" ", "_")
+    url = (
+        "http://"
+        + language
+        + ".wikipedia.org/w/api.php"
+        + "?action=query&format="
+        + format
+        + "&prop=revisions&rvprop=content"
+        + "&titles="
+        + lemma
+    )
+    request = urllib2.Request(url)
+    handle = urllib2.urlopen(request)
+    text = handle.read()
+    if format == "xml":
         soup = BeautifulStoneSoup(text)
-        rev  = soup.rev
+        rev = soup.rev
         if rev != None:
             text = unicode(rev.contents[0])
             text = HTMLParser.HTMLParser().unescape(text)
-            text = text.encode( "utf-8" )
+            text = text.encode("utf-8")
         else:
             return None
     return text
+
 
 def getRef(page):
     """ Get all references without templates """
     pattern = "(<ref>\[.+?</ref>)"
     prog = re.compile(pattern)
-    m    = re.findall(prog, page)
+    m = re.findall(prog, page)
     return m
 
-def rlinput(prompt, prefill=''):
+
+def rlinput(prompt, prefill=""):
     """ Promt the user for input, but prefill it. """
     readline.set_startup_hook(lambda: readline.insert_text(prefill))
     try:
-      return raw_input(prompt)
+        return raw_input(prompt)
     finally:
-      readline.set_startup_hook()
+        readline.set_startup_hook()
+
 
 def improve(references, page):
     """ Try to guess the right formatation for each reference and ask 
@@ -232,29 +288,35 @@ def improve(references, page):
     today = date.today()
     accessdate = str(today.strftime("%B %d, %Y"))
 
-
     for refOld in references:
         url = re.findall(urlPatternCompiled, refOld)
-        refNew = "<ref>{{Citation " + \
-                 "|url=" + str(url[0]) + \
-                 "|title= " + \
-                 "|accessdate="  + accessdate + \
-                 "}}</ref>"
+        refNew = (
+            "<ref>{{Citation "
+            + "|url="
+            + str(url[0])
+            + "|title= "
+            + "|accessdate="
+            + accessdate
+            + "}}</ref>"
+        )
 
         refNew = rlinput(refOld + " (old):\n", refNew)
         page = page.replace(refOld, refNew)
-        print ""
+        print("")
 
     return page
 
-if __name__ == '__main__':
-    print("If you need more parameters like 'date': " + \
-          "http://en.wikipedia.org/wiki/Template:Citation#" + \
-          "Full_citation_parameters")
+
+if __name__ == "__main__":
+    print(
+        "If you need more parameters like 'date': "
+        + "http://en.wikipedia.org/wiki/Template:Citation#"
+        + "Full_citation_parameters"
+    )
     page = load(options.lemma)
     references = getRef(page)
     page = improve(references, page)
-    f = open(options.filename, 'w')
+    f = open(options.filename, "w")
     f.write(page)
     f.close()
     print("Page has been written to %s." % options.filename)

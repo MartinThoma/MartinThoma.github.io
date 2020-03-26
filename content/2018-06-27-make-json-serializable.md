@@ -20,13 +20,13 @@ by [jaraco](https://github.com/simplejson/simplejson/issues/52#issuecomment-2366
 (and fixed by me):
 
 
-```
+```python
 class MyCustom(object):
     def __json__(self):
         return {
-            'a': self.a,
-            'b': self.b,
-            '__python__': 'mymodule.submodule:MyCustom.from_json',
+            "a": self.a,
+            "b": self.b,
+            "__python__": "mymodule.submodule:MyCustom.from_json",
         }
 
     for_json = __json__  # supported by simplejson
@@ -34,14 +34,14 @@ class MyCustom(object):
     @classmethod
     def from_json(cls, json):
         obj = cls()
-        obj.a = json['a']
-        obj.b = json['b']
+        obj.a = json["a"]
+        obj.b = json["b"]
         return obj
 ```
 
 With that, the following workflow is possible:
 
-```
+```python
 import simplejson
 
 obj = MyCustom()

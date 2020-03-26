@@ -24,7 +24,7 @@ set, there are still 12017 words.
 
 ## Classes and Labels
 
-```
+```text
                              nr of documents   mean number of
         class name            train   test    words in train set
      1: earn                : 2877    1087    104.4
@@ -121,7 +121,7 @@ set, there are still 12017 words.
 
 By far most documents have either one or two labels, but some have up to 15:
 
-```
+```text
 labelcount= 1, documentcount=9160
 labelcount= 2, documentcount=1173
 labelcount= 3, documentcount= 255
@@ -145,7 +145,7 @@ classes? For example, `wheat` should imply `grain`.
 
 Here are the 50 strongest predictors:
 
-```
+```text
 castor-oil => cotton-oil (0.999742566611)
 castor-oil => groundnut-oil (0.999742566611)
 castor-oil => lin-oil (0.999742566611)
@@ -242,7 +242,7 @@ The following are the accuracies as well as the training and test times. All
 classifiers got the same tf-idf features.
 
 
-```
+```text
 Used vocabulary size = 26147
 
 Classifier                      Acc     F1
@@ -302,7 +302,7 @@ See [GitHub](https://github.com/MartinThoma/algorithms/blob/master/ML/nlp/).
 
 If you use it, please cite this article or link to this blog post:
 
-```
+```bibtex
 @Misc{Thom2017-reuters,
   Title                    = {The Reuters Dataset},
 

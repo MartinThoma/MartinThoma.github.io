@@ -237,8 +237,8 @@ P&lt;GBRGREGORY&lt;BARNETT&lt;&lt;&lt;&lt;&lt;
 
 Mal schauen was / wer sich hinter chelsea-homes.co.uk steckt:
 
-```
-whois chelsea-homes.co.uk
+```text
+$ whois chelsea-homes.co.uk
 
     Domain name:
         chelsea-homes.co.uk
@@ -429,7 +429,7 @@ the adress of it again? (I want to live quite central in Munich)
 
 Via `immonet` from `Анастасия Бондарь <anastasiia.bondar@amls.email>`:
 
-```
+```text
 Hello,
 
 I am in search of persons to rent my apartment, to use and be a responsible
@@ -453,7 +453,7 @@ Anastasiia Bondar.
 
 My answer:
 
-```
+```text
 Hello Anastasiia,
 
 that sounds good! When can I have a look at the apartment? (I'm currently in
@@ -466,7 +466,7 @@ Martin
 
 Scammer reply:
 
-```
+```text
 Hello,
 
 My apartment was rented through Uniplaces agency by some students and now they
@@ -517,7 +517,7 @@ Anastasiia Bondar
 
 Von `Jonathan Addy <jonnaddy@gmail.com>`:
 
-```
+```text
 Hallo,
 
 Die Wohnung ist verfügbar. Die monatliche Miete ist 350€
@@ -545,7 +545,7 @@ Jonathan Addy.
 
 Meine Antwort:
 
-```
+```text
 Sehr geehrter Herr Addy,
 
 - Nur ich werde in der Wohnung wohnen.
@@ -561,7 +561,7 @@ Martin Thoma
 
 Seine Antwort:
 
-```
+```text
 Hallo,
 
 Danke für Ihre E-Mail.

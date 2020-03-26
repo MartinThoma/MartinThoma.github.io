@@ -39,8 +39,12 @@ model.most_similar(positive=["woman", "king"], negative=["man"], topn=3)
 
 which returns
 
-```
-[(u'scored', 0.9442702531814575), (u'calling', 0.9424217939376831), (u'native', 0.9412217736244202)]
+```python
+[
+    ("scored", 0.9442702531814575),
+    ("calling", 0.9424217939376831),
+    ("native", 0.9412217736244202),
+]
 ```
 
 So the corpus is not that good, but it should work with a bigger one.

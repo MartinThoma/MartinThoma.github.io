@@ -34,11 +34,11 @@ differ only by a rotation.
 
 When you look at the <a href="https://github.com/fchollet/keras/blob/master/keras/preprocessing/image.py#L670-L674">Keras code</a>, you can see the following:
 
-```
+```python
 # Calculate principal components
 sigma = np.dot(flat_x.T, flat_x) / flat_x.shape[0]
 u, s, _ = linalg.svd(sigma)
-principal_components = np.dot(np.dot(u, np.diag(1. / np.sqrt(s + 10e-7))), u.T)
+principal_components = np.dot(np.dot(u, np.diag(1.0 / np.sqrt(s + 10e-7))), u.T)
 
 # Apply ZCA whitening
 whitex = np.dot(flat_x, principal_components)

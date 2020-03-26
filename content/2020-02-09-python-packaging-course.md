@@ -50,7 +50,7 @@ Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installi
 Suppose you want to develop a new `awesome_project`. Then you create a folder
 and make it a git repository:
 
-```
+```shell
 $ cookiecutter https://github.com/MartinThoma/cookiecutter-python-package
 full_name [Martin Thoma]:
 email [info@martin-thoma.de]:
@@ -74,7 +74,7 @@ to allow collaboration, we add a remote. [Github](https://github.com/)
 and [Gitlab](https://about.gitlab.com/) are excellent choices. Once you created
 an empty repository there, add it as a remote locally:
 
-```
+```shell
 $ git remote add origin git@github.com:MartinThoma/awesome_project.git
 ```
 
@@ -167,7 +167,7 @@ I'm not too sure if I would use that.
 
 ### Project Structure
 
-```
+```text
 awesome-project  # (git root)
 ├── awesome_project  # This is the package
 │   ├── cli.py
@@ -243,7 +243,7 @@ After creating it, upload it to PyPI with [twine](https://pypi.org/project/twine
 
 To do so, first setup your `~/.pypirc` file:
 
-```
+```ini
 [distutils]
 index-servers =
   pypi
@@ -285,7 +285,7 @@ Was a fork of setuptools which got merged back. Use setuptools.
 
 [Setuptools](https://setuptools.readthedocs.io/en/latest/setuptools.html) is used in the `setup.py` and gives you a lot of commands:
 
-```
+```shell
 $ python setup.py --help-commands
 Standard commands:
   build             build everything needed to install
@@ -346,7 +346,7 @@ PIP is short for 'PIP installs Python'. Use it. Don't use `easy_install`.
 
 PIP commands are
 
-```
+```text
   install       Install packages.
   download      Download packages.
   uninstall     Uninstall packages.

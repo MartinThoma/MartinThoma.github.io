@@ -28,8 +28,8 @@ list(itertools.product([1, 2, 3], ["A", "B"]))
 
 results in
 
-```
-[(1, 'A'), (1, 'B'), (2, 'A'), (2, 'B'), (3, 'A'), (3, 'B')]
+```python
+[(1, "A"), (1, "B"), (2, "A"), (2, "B"), (3, "A"), (3, "B")]
 ```
 
 **Ben Blanks Explanation**:
@@ -42,7 +42,7 @@ list(itertools.product([1, 2, 3, 4], [1, 2, 3, 4]))
 
 results in
 
-```
+```text
 1,1  1,2  1,3  1,4
 2,1  2,2  2,3  2,4
 3,1  3,2  3,3  3,4
@@ -68,7 +68,7 @@ list(itertools.permutations([1, 2, 3, 4], r=2))
 
 results in
 
-```
+```text
  .   1,2  1,3  1,4
 2,1   .   2,3  2,4
 3,1  3,2   .   3,4
@@ -91,7 +91,7 @@ list(itertools.combinations([1, 2, 3, 4], r=2))
 
 results in
 
-```
+```text
  .   1,2  1,3  1,4
  .    .   2,3  2,4
  .    .    .   3,4
@@ -112,7 +112,7 @@ list(combinations_with_replacement([1, 2, 3, 4], r=2))
 
 results in
 
-```
+```text
  1,1  1,2  1,3  1,4
   .   2,2  2,3  2,4
   .    .   3,3  3,4

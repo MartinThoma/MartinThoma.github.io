@@ -25,7 +25,7 @@ The first string contains the rules how to format. <code>%i</code> means that th
 
 ## Save as string
 
-```python
+```python-repl
 >>> a = "Why is %i the answer?" % 42
 >>> a
 'Why is 42 the answer?'
@@ -35,14 +35,14 @@ The first string contains the rules how to format. <code>%i</code> means that th
 ## Named formatting
 You might prefer named formatting:
 
-```python
+```python-repl
 >>> "{guy} loves {girl}.".format(girl="Marie", guy="Martin")
 'Martin loves Marie.'
 ```
 
 You can also store this first in a dictionary an unpack it:
 
-```python
+```python-repl
 >>> myDictionary = {"girl":"Marie","guy": "Martin","other":"Internet"}
 >>> "{guy} loves {girl}.".format(girl="Marie", guy="Martin")
 'Martin loves Marie.'
@@ -56,7 +56,7 @@ You can format time any way you like, just look at <a href="http://docs.python.o
 Question: I would like to print a list! How do I do that?
 Answer: Convert your list to a string
 
-```python
+```python-repl
 >>> myList = [1,2,3]
 >>> print("Your list: %s" % (str(myList)))
 Your list: [1, 2, 3]
@@ -74,7 +74,7 @@ When you build your own objects, you should add an implementation for the method
   <td>Integer</td>
   <td>
 
-```python
+```python-repl
 >>> print("%i" % (123))
 123
 
@@ -87,7 +87,7 @@ When you build your own objects, you should add an implementation for the method
   <td>String</td>
   <td>
 
-```python
+```python-repl
 >>> print("%s" % ("Martin"))
 Martin
 
@@ -100,7 +100,7 @@ Martin
   <td>Int as octal</td>
   <td>
 
-```python
+```python-repl
 >>> print("%o" % (123.123))
 173
 ```
@@ -112,7 +112,7 @@ Martin
   <td>Int as hexadecimal (lower case)</td>
   <td>
 
-```python
+```python-repl
 >>> print("%x" % (123.123))
 7b
 ```
@@ -124,7 +124,7 @@ Martin
   <td>Int as hexadecimal (upper case)</td>
   <td>
 
-```python
+```python-repl
 >>> print("%X" % (123.123))
 7B
 ```
@@ -136,7 +136,7 @@ Martin
   <td>Floating point</td>
   <td>
 
-```python
+```python-repl
 >>> print("%f" % (123.123))
 123.123000
 ```
@@ -148,7 +148,7 @@ Martin
   <td>Floating point with two decimal places</td>
   <td>
 
-```python
+```python-repl
 >>> print("%.2f" % (123.123))
 123.12
 ```
@@ -160,7 +160,7 @@ Martin
   <td>Floating point in scientific notation</td>
   <td>
 
-```python
+```python-repl
 >>> print("%e" % (123.123))
 1.231230e+02
 ```
@@ -172,7 +172,7 @@ Martin
   <td>Percent sign</td>
   <td>
 
-```python
+```python-repl
 >>> print("%i%%" % (65))
 65%
 ```
@@ -184,7 +184,7 @@ Martin
   <td>Print a float with 2 decimal places. Add spaces if this has less than 6 characters.</td>
   <td>
 
-```python
+```python-repl
 >>> print("%6.2f" % (65.123))
  65.12
 ```
@@ -197,18 +197,16 @@ Martin
 ## Columns
 
 ```python
-my_list = [('Easybox 1234', 54, 'DC:9F:DB:B2:B1:1C'),
-           ('FRITZ!Box 6360 Cable', 12, '24:65:11:06:71:54'),
-           ('wkit-802.1x', 15, 'A0:D3:C1:9F:FF:11')]
-header = u"{0:<20}{1:>6}{2:>20}".format('SSID',
-                                        'Signal',
-                                        'HwAddress')
+my_list = [
+    ("Easybox 1234", 54, "DC:9F:DB:B2:B1:1C"),
+    ("FRITZ!Box 6360 Cable", 12, "24:65:11:06:71:54"),
+    ("wkit-802.1x", 15, "A0:D3:C1:9F:FF:11"),
+]
+header = "{0:<20}{1:>6}{2:>20}".format("SSID", "Signal", "HwAddress")
 print(header)
-print("-"*len(header))
+print("-" * len(header))
 for ssid, signal, hwaddress in my_list:
-    print(u"{0:<20}{1:>6}{2:>20}".format(ssid,
-                                         str(signal)+'%',
-                                         hwaddress))
+    print("{0:<20}{1:>6}{2:>20}".format(ssid, str(signal) + "%", hwaddress))
 ```
 
 results in

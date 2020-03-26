@@ -11,16 +11,16 @@ featured_image: 2012/06/MIPS-Ingenic_JZ4730.jpg
 The perfect number check in MIPS is quite easy to realize. Here is some pythonic Pseudocode
 
 ```python
-n = input() 			# read a positive integer n from the user
+n = input()  # read a positive integer n from the user
 sumOfDivisors = 0
-for i in range(1, n):	# go from 1 to n-1
-	if n % i == 0:		# if i is a divisor
-		sumOfDivisors += i
+for i in range(1, n):  # go from 1 to n-1
+    if n % i == 0:  # if i is a divisor
+        sumOfDivisors += i
 
 if sumOfDivisors == n:
-	print "1"
+    print("1")
 else:
-	print "0"
+    print("0")
 ```
 
 And here is the MIPS-Code:

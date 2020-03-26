@@ -54,7 +54,7 @@ However, some built-in functions do not follow this naming scheme:
 
 Have a look at the following code:
 
-```
+```python
 import datetime
 
 x = datetime.datetime(2017, 01, 01, 12, 00)
@@ -100,7 +100,7 @@ Every function / object / method should have examples. So the
 [`len`](https://docs.python.org/3/library/functions.html?highlight=len#len)
 function should additionally have this:
 
-```python
+```python-repl
 >>> some_list = [23, 12, -3, 0]
 >>> len(some_list)
 4
@@ -130,7 +130,7 @@ That should not be possible. So there is an issue with namespaces.
 
 Joining a list of strings works like this in Python 3:
 
-```python
+```python-repl
 >>> a = [str(el) for el in range(5)]
 >>> a.join(" ")
 Traceback (most recent call last):

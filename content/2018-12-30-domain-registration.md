@@ -36,7 +36,7 @@ which is already registered by somebody else than registering it yourself.
 With sites like <a href="http://whois.domaintools.com/">whois.domaintools.com</a>
 or tools like `whois` you can look up who owns a domain:
 
-```
+```shell
 $ whois martin-thoma.com
    Domain Name: MARTIN-THOMA.COM
    Registry Domain ID: 1678176835_DOMAIN_COM-VRSN

@@ -58,7 +58,7 @@ to sync the time.
 
 For manual checking.
 
-```
+```shell
 $ ntpq -pn
      remote           refid      st t when poll reach   delay   offset  jitter
 ==============================================================================
@@ -114,9 +114,8 @@ and an **offset parameter**. You could also add an **order** and a **limit** par
 
 The endpoint should return
 
-```
-{"continue": 100,
- "data": FOOBAR}
+```python
+{"continue": 100, "data": FOOBAR}
 ```
 
 where the value of `continue` is the next index to continue. So in case you
@@ -149,7 +148,7 @@ Also, you should be really careful about units:
 
 Help your API users by making nice error messages. Something like
 
-```
+```text
 HTTP Status 400
 
 {

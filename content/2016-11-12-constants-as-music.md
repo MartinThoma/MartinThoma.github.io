@@ -76,14 +76,14 @@ information.
 
 I use `timidity` to create a `.wav` and then `lame` to convert it to mp3:
 
-```
+```shell
 $ timidity -Ow -o output.wav output.mid
 $ lame output.wav pi.mp3
 ```
 
 For YouTube, I had to convert it to avi:
 
-```
+```shell
 $ ffmpeg -loop 1 -r 1 -i pi.jpg -i pi.mp3 -c:a copy -shortest pi.avi
 ```
 

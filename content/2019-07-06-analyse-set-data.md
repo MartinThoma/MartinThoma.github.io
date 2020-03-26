@@ -78,7 +78,7 @@ contains publication data from almost 2 million publications.
 Use [DBLPParser](https://github.com/IsaacChanghau/DBLPParser) to create a CSV
 file.
 
-```
+```python
 from collections import Counter
 import numpy as np
 import pandas as pd
@@ -90,22 +90,20 @@ import clana.io
 import clana.visualize_cm
 
 # Load the data
-df = pd.read_csv('articles.csv')
-df['author'] = df['author'].str.split('::')
+df = pd.read_csv("articles.csv")
+df["author"] = df["author"].str.split("::")
 
 # Analyze the data
-df = df[~df['author'].isna()]
-authors = [author
-           for authorset in df['author'].tolist()
-           for author in authorset]
+df = df[~df["author"].isna()]
+authors = [author for authorset in df["author"].tolist() for author in authorset]
 author_count = Counter(authors)
 
-print('* Publications: {}'.format(len(df)))
-print('* Unique elements: {}'.format(len(author_count)))
-print('* Most common:')
+print("* Publications: {}".format(len(df)))
+print("* Unique elements: {}".format(len(author_count)))
+print("* Most common:")
 most_common = sorted(author_count.items(), key=lambda n: n[1], reverse=True)
 for name, count in most_common[:10]:
-    print('    {:>4}x {}'.format(count, name))
+    print("    {:>4}x {}".format(count, name))
 
 unique_authors = sorted(list(author_count.keys()))
 
@@ -116,16 +114,13 @@ def get_biggest_clusters(edges, n=10):
         for author in authorset:
             G.add_node(author)
 
-    for authorset in progressbar.progressbar(df['author'].tolist()[:10_000]):
+    for authorset in progressbar.progressbar(df["author"].tolist()[:10_000]):
         for author1, author2 in combinations(authorset, 2):
             G.add_edge(author1, author2)
 
     print("Edges were added")
 
-    components = [c
-                  for c in sorted(nx.connected_components(G),
-                                  key=len,
-                                  reverse=True)]
+    components = [c for c in sorted(nx.connected_components(G), key=len, reverse=True)]
     return components[:n]
 
 
@@ -143,30 +138,31 @@ def create_matrix(nodes, edges):
     return mat, sorted(nodes)
 
 
-components = get_biggest_clusters(df['author'])
-print('* Biggest clusters: {}'.format([len(el) for el in components]))
+components = get_biggest_clusters(df["author"])
+print("* Biggest clusters: {}".format([len(el) for el in components]))
 
-component_w_publications = [(author, author_count[author])
-                            for author in components[0]]
-component_w_publications = sorted(component_w_publications,
-                                  key=lambda n: n[1],
-                                  reverse=True)
+component_w_publications = [(author, author_count[author]) for author in components[0]]
+component_w_publications = sorted(
+    component_w_publications, key=lambda n: n[1], reverse=True
+)
 authors = [author for author, count in component_w_publications[:1_00]]
-mat, labels = create_matrix(authors, df['author'].tolist())
+mat, labels = create_matrix(authors, df["author"].tolist())
 
-clana.visualize_cm.main('coauthors.json',
-                        perm_file='',
-                        steps=1_000_000,
-                        labels_file='labels.json',
-                        zero_diagonal=False,
-                        output='cm-ordered.pdf')
-clana.io.write_cm('coauthors.json', mat)
-clana.io.write_labels('labels.json', labels)
+clana.visualize_cm.main(
+    "coauthors.json",
+    perm_file="",
+    steps=1_000_000,
+    labels_file="labels.json",
+    zero_diagonal=False,
+    output="cm-ordered.pdf",
+)
+clana.io.write_cm("coauthors.json", mat)
+clana.io.write_labels("labels.json", labels)
 ```
 
 Results:
 
-```
+```text
 * Publications: 2,054,474
 * Unique elements: 1,475,717
 * Most common
@@ -198,7 +194,7 @@ The CMO technique is described in
 
 ## MovieLens 20M
 
-```
+```python
 from collections import Counter
 import numpy as np
 import pandas as pd
@@ -210,21 +206,19 @@ import clana.io
 import clana.visualize_cm
 
 # Load the data
-df = pd.read_csv('movies.csv')
-df['genres'] = df['genres'].str.split('|')
+df = pd.read_csv("movies.csv")
+df["genres"] = df["genres"].str.split("|")
 
 # Analyze the data
-list_values = [value
-               for valueset in df['genres'].tolist()
-               for value in valueset]
+list_values = [value for valueset in df["genres"].tolist() for value in valueset]
 value_count = Counter(list_values)
 
-print('* Movies: {}'.format(len(df)))
-print('* Unique genres: {}'.format(len(value_count)))
-print('* Most common:')
+print("* Movies: {}".format(len(df)))
+print("* Unique genres: {}".format(len(value_count)))
+print("* Most common:")
 most_common = sorted(value_count.items(), key=lambda n: n[1], reverse=True)
 for name, count in most_common[:10]:
-    print('    {:>4}x {}'.format(count, name))
+    print("    {:>4}x {}".format(count, name))
 
 unique_genres = sorted(list(value_count.keys()))
 
@@ -235,16 +229,13 @@ def get_biggest_clusters(edges, n=10):
         for author in authorset:
             G.add_node(author)
 
-    for authorset in progressbar.progressbar(df['genres'].tolist()[:10_000]):
+    for authorset in progressbar.progressbar(df["genres"].tolist()[:10_000]):
         for author1, author2 in combinations(authorset, 2):
             G.add_edge(author1, author2)
 
     print("Edges were added")
 
-    components = [c
-                  for c in sorted(nx.connected_components(G),
-                                  key=len,
-                                  reverse=True)]
+    components = [c for c in sorted(nx.connected_components(G), key=len, reverse=True)]
     return components[:n]
 
 
@@ -262,30 +253,31 @@ def create_matrix(nodes, edges):
     return mat, sorted(nodes)
 
 
-components = get_biggest_clusters(df['genres'])
-print('* Biggest clusters: {}'.format([len(el) for el in components]))
+components = get_biggest_clusters(df["genres"])
+print("* Biggest clusters: {}".format([len(el) for el in components]))
 
-component_w_publications = [(author, value_count[author])
-                            for author in components[0]]
-component_w_publications = sorted(component_w_publications,
-                                  key=lambda n: n[1],
-                                  reverse=True)
+component_w_publications = [(author, value_count[author]) for author in components[0]]
+component_w_publications = sorted(
+    component_w_publications, key=lambda n: n[1], reverse=True
+)
 authors = [author for author, count in component_w_publications[:1_00]]
-mat, labels = create_matrix(authors, df['genres'].tolist())
+mat, labels = create_matrix(authors, df["genres"].tolist())
 
-clana.io.write_cm('genre-combinations.json', mat)
-clana.io.write_labels('labels.json', labels)
-clana.visualize_cm.main('genre-combinations.json',
-                        perm_file='',
-                        steps=1_000_000,
-                        labels_file='labels.json',
-                        zero_diagonal=False,
-                        output='cm-genre-combinations.pdf')
+clana.io.write_cm("genre-combinations.json", mat)
+clana.io.write_labels("labels.json", labels)
+clana.visualize_cm.main(
+    "genre-combinations.json",
+    perm_file="",
+    steps=1_000_000,
+    labels_file="labels.json",
+    zero_diagonal=False,
+    output="cm-genre-combinations.pdf",
+)
 ```
 
 Results:
 
-```
+```text
 * Movies: 27278
 * Unique genres: 20
 * Most common:

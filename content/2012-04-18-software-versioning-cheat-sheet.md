@@ -14,22 +14,27 @@ If you're at the KIT and you have SWT, then you'll probably need this command:
 ```bash
 svn checkout https://svn.ipd.kit.edu/lehre/vorlesung/SWT1/SS12/stud/ SWT/ --username swt1
 ```
+
 You will be asked for a password. I hope you remember it.
 
 <h2>SVN</h2>
+
 ```bash
 svn co URL LocalTarget --username yourUserName
 ```
+
 Source: <a href="http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.checkout.html">svn checkout</a>
 
-```bash
-svn up
+```shell
+$ svn up
 ```
+
 Source: <a href="http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.update.html">svn update</a>
 
-```bash
-svn log -l 4
+```shell
+$ svn log -l 4
 ```
+
 Source: <a href="http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.log.html">svn log</a>
 
 <h3>Updating the repository</h3>
@@ -42,18 +47,20 @@ If you need to execute the command often, you might want to define an alias. ali
 ```bash
 alias swt='svn up /home/moose/Studium/SWT'
 ```
+
 Now you only have to enter "swt" to execute "svn up /home/moose/Studium/SWT".
 
 <h3>Nice diffs</h3>
 You can modify your config file:
 
-```bash
-gedit ~/.subversion/config
+```shell
+$ gedit ~/.subversion/config
 ```
 
 and change <code>diff-cmd</code> to <code>meld</code>.
 
 <h3>Compare revisions</h3>
+
 ```bash
 svn diff -r 63:64
 ```
@@ -128,7 +135,7 @@ $ git config --global diff.image.command 'simple-imagediff'
 
 Add `simple-imagediff` as an executable:
 
-```
+```shell
 $ cat ~/.local/bin/simple-imagediff
 #!/usr/bin/env python
 

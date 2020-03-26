@@ -83,7 +83,7 @@ foo(holla=13, bar=12)
 
 Output:
 
-```
+```text
 Test 1:
     bar=12
     kwargs={'holla': 13}

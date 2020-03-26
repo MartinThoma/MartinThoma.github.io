@@ -186,7 +186,7 @@ for the rest.
 
 To install it, run
 
-```
+```shell
 $ sudo -H pip install SpeechRecognition --upgrade
 $ sudo -H pip install pocketsphinx
 ```
@@ -201,7 +201,7 @@ to the right directory with the right name. At the end, the folder
 `/usr/local/lib/python3.5/dist-packages/speech_recognition/pocketsphinx-data/de-DE`
 should contain the following files:
 
-```
+```text
 .
 ├── acoustic-model
 │   ├── feat.params
@@ -218,7 +218,7 @@ should contain the following files:
 
 Script:
 
-```
+```python
 #!/usr/bin/env python3
 
 """Recognize speech using CMU Sphinx (local)."""
@@ -258,13 +258,13 @@ def main():
         print("Sphinx error; {0}".format(e))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
 ```
 
 which results in:
 
-```
+```text
 hätten und ländern der erwerb des handels mit ins kino zu beantragen was soll
 ich ich könnte mit dem land folgen gehabt das heißt die für mein verstand schon
 vergessen gürtel kommentare und ebenso in sicher schaffen erhard war sie
@@ -347,7 +347,7 @@ Please note that there are many more for interactive and dictation mode.
 
 The following code is used to create a transcript:
 
-```
+```python
 #!/usr/bin/env python3
 
 """Recognize speech using Microsoft Bing Voice Recognition."""
@@ -393,14 +393,13 @@ def main():
         print("Sphinx error; {0}".format(e))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
-
 ```
 
 This resulted in
 
-```
+```text
 Reaser Was ist haben sie Lust mit dem Kino zu kommen war schon dass ich könnte
 den Film gar nicht folgen.
 ```
@@ -415,7 +414,7 @@ By default, SpeechRecognition package uses the endpoint
 
 Changing this to `conversation` changes the result to
 
-```
+```text
 Die erster Was ist haben sie Lust mit dem Kino zu kommen war schon dass ich
 könnte den Film gar nicht folgen
 ```
@@ -424,7 +423,7 @@ könnte den Film gar nicht folgen
 
 The script
 
-```
+```python
 #!/usr/bin/env python3
 
 """Recognize speech using Googles ASR Service."""
@@ -465,14 +464,13 @@ def main():
         print("Sphinx error; {0}".format(e))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
-
 ```
 
 results in
 
-```
+```text
 Sphinx error; recognition connection failed: [Errno 32] Broken pipe
 ```
 
@@ -485,7 +483,7 @@ and the [developers page](https://developers.google.com/apis-explorer/?hl=de#p/s
 It can only be used for commerical purposes, so I can't try it right now.
 The command is
 
-```
+```python
 r.recognize_google_cloud(audio, credentials_json=GOOGLE_CLOUD_SPEECH_CREDENTIALS)
 ```
 
@@ -513,7 +511,7 @@ The service [wit.ai](https://wit.ai/) seems to be much simpler to use. You set
 the language over the web interface.
 
 
-```
+```python
 #!/usr/bin/env python3
 
 """Recognize speech using wit.ai ASR Service."""
@@ -555,14 +553,13 @@ def main():
         print("Sphinx error; {0}".format(e))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
-
 ```
 
 results in
 
-```
+```text
 ey Alter was ist haben Sie Lust mit dem Kino zu kommen ich könnte den Film gar
 nicht folgen ich verliere meinen Verstand schon vergessen dieser Hitze komme
 ich da könnte ebenso in Griechisch sie verlieren den Verstand die reden dann
@@ -592,7 +589,7 @@ Alexa Skills.
 
 Trying it with the SpeechRecognition package yields
 
-```
+```text
 Sphinx error; recognition request failed: Bad Gateway
 ```
 

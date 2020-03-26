@@ -21,7 +21,7 @@ first ten.
 
 ## Commit Count
 
-```
+```shell
 $ git shortlog -s -n --all --no-merges
   2183  Pauli Virtanen
   1565  Ralf Gommers
@@ -53,7 +53,7 @@ open `out/index.html` in a browser.
 
 General:
 
-```
+```text
 Project name: scipy
 Generated: 2019-06-19 19:00:08 (in 89 seconds)
 Generator: GitStats (version 2015.10.03), git version 2.17.1, gnuplot 5.2 patchlevel 2
@@ -67,7 +67,7 @@ Authors: 850 (average 24.9 commits per author)
 
 ## Git Fame
 
-```
+```shell
 $ sudo apt-get install python-pip python-dev build-essential
 $ pip install --user git-fame
 $ git fame
@@ -75,7 +75,7 @@ $ git fame
 
 gives
 
-```
+```text
 Total commits: 21178
 Total ctimes: 22524
 Total files: 9415

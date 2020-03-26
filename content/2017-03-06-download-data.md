@@ -19,13 +19,13 @@ For ImageNet, you have to register at [image-net.org](http://image-net.org/).
 
 Download the files like this:
 
-```
+```shell
 $ aria2c -s 16 [URL]
 ```
 
 After downloading the file, use
 
-```
+```shell
 $ md5sum [Filename]
 ```
 
@@ -38,10 +38,11 @@ The ImageNet training data tar file contains 1000&nbsp;files of the form
 Each of those files contains JPEGs of one class. You can look the class label
 up with
 
-```
+```python
 from nltk.corpus import wordnet as wn
-print(wn._synset_from_pos_and_offset('n', 1440764))
-print(wn._synset_from_pos_and_offset('n', 1443537))
+
+print(wn._synset_from_pos_and_offset("n", 1440764))
+print(wn._synset_from_pos_and_offset("n", 1443537))
 ```
 
 which reveals
@@ -54,7 +55,7 @@ which reveals
 If you extract all 1000 of those tar files into one directory, this takes about
 6 hours with a script like this:
 
-```
+```python
 #!/usr/bin/env python
 
 import glob
@@ -64,6 +65,7 @@ import tarfile
 def untar(fname, targetd_dir):
     with tarfile.open(fname) as tar:
         tar.extractall(path=targetd_dir)
+
 
 files = glob.glob("ILSVRC2012_img_train/*.tar")
 

@@ -69,22 +69,27 @@ I created two "random" matrices $A, B \in \mathbb{N}^{2000 \times 2000}$ with th
 # -*- coding: utf-8 -*-
 
 import random
+
 random.seed(1234)
 
+
 def createRandomMatrix(n):
-	maxVal = 1000 # I don't want to get Java / C++ into trouble
-	matrix = []
-	for i in range(n):
-		matrix.append([random.randint(0,maxVal) for el in range(n)])
-	return matrix
+    maxVal = 1000  # I don't want to get Java / C++ into trouble
+    matrix = []
+    for i in range(n):
+        matrix.append([random.randint(0, maxVal) for el in range(n)])
+    return matrix
+
 
 def saveMatrix(matrixA, matrixB, filename):
-	f = open(filename, 'w')
-	for i, matrix in enumerate([matrixA, matrixB]):
-		if i != 0:
-			f.write("\n")
-		for line in matrix:
-			f.write("\t".join(map(str, line)) + "\n")
+    f = open(filename, "w")
+    for i, matrix in enumerate([matrixA, matrixB]):
+        if i != 0:
+            f.write("\n")
+        for line in matrix:
+            f.write("\t".join(map(str, line)) + "\n")
+
+
 n = 3
 matrixA = createRandomMatrix(n)
 matrixB = createRandomMatrix(n)
@@ -124,35 +129,45 @@ I've used Python 2.6.5.
 # -*- coding: utf-8 -*-
 
 from optparse import OptionParser
+
 parser = OptionParser()
-parser.add_option("-i", dest="filename", default="2000.in",
-     help="input file with two matrices", metavar="FILE")
+parser.add_option(
+    "-i",
+    dest="filename",
+    default="2000.in",
+    help="input file with two matrices",
+    metavar="FILE",
+)
 (options, args) = parser.parse_args()
 
+
 def read(filename):
-	lines = open(filename, 'r').read().splitlines()
-	A = []
-	B = []
-	matrix = A
-	for line in lines:
-		if line != "":
-			matrix.append(map(int, line.split("\t")))
-		else:
-			matrix = B
-	return A, B
+    lines = open(filename, "r").read().splitlines()
+    A = []
+    B = []
+    matrix = A
+    for line in lines:
+        if line != "":
+            matrix.append(map(int, line.split("\t")))
+        else:
+            matrix = B
+    return A, B
+
 
 def printMatrix(matrix):
-	for line in matrix:
-		print "\t".join(map(str,line))
+    for line in matrix:
+        print("\t".join(map(str, line)))
+
 
 def standardMatrixProduct(A, B):
-	n = len(A)
-	C = [[0 for i in range(n)] for j in range(n)]
-	for i in range(n):
-		for j in range(n):
-			for k in range(n):
-				C[i][j] += A[i][k] * B[k][j]
-	return C
+    n = len(A)
+    C = [[0 for i in range(n)] for j in range(n)]
+    for i in range(n):
+        for j in range(n):
+            for k in range(n):
+                C[i][j] += A[i][k] * B[k][j]
+    return C
+
 
 A, B = read(options.filename)
 C = standardMatrixProduct(A, B)
@@ -169,13 +184,13 @@ sys	0m2.980s
 
 ```python
 def ikjMatrixProduct(A, B):
-	n = len(A)
-	C = [[0 for i in range(n)] for j in range(n)]
-	for i in range(n):
-		for k in range(n):
-			for j in range(n):
-				C[i][j] += A[i][k] * B[k][j]
-	return C
+    n = len(A)
+    C = [[0 for i in range(n)] for j in range(n)]
+    for i in range(n):
+        for k in range(n):
+            for j in range(n):
+                C[i][j] += A[i][k] * B[k][j]
+    return C
 ```
 
 ```shell
@@ -189,6 +204,7 @@ sys	0m2.000s
 
 ```python
 import psyco
+
 psyco.full()
 ```
 
@@ -211,32 +227,41 @@ NumPy-Version: 1.3.0 (Current version is 1.6.2, see <a href="http://en.wikipedia
 import numpy
 
 from optparse import OptionParser
+
 parser = OptionParser()
-parser.add_option("-i", dest="filename", default="2000.in",
-     help="input file with two matrices", metavar="FILE")
+parser.add_option(
+    "-i",
+    dest="filename",
+    default="2000.in",
+    help="input file with two matrices",
+    metavar="FILE",
+)
 (options, args) = parser.parse_args()
 
+
 def read(filename):
-	lines = open(filename, 'r').read().splitlines()
-	A = []
-	B = []
-	matrix = A
-	for line in lines:
-		if line != "":
-			matrix.append(map(int, line.split("\t")))
-		else:
-			matrix = B
-	return A, B
+    lines = open(filename, "r").read().splitlines()
+    A = []
+    B = []
+    matrix = A
+    for line in lines:
+        if line != "":
+            matrix.append(map(int, line.split("\t")))
+        else:
+            matrix = B
+    return A, B
+
 
 def printMatrix(matrix):
-	matrix = numpy.array(matrix)
-	for line in matrix:
-		print "\t".join(map(str,line))
+    matrix = numpy.array(matrix)
+    for line in matrix:
+        print("\t".join(map(str, line)))
+
 
 A, B = read(options.filename)
 A = numpy.matrix(A)
 B = numpy.matrix(B)
-C = A * B # easy and intuitive, isn't it?
+C = A * B  # easy and intuitive, isn't it?
 printMatrix(C)
 ```
 
@@ -257,32 +282,41 @@ import numpy
 import scipy
 
 from optparse import OptionParser
+
 parser = OptionParser()
-parser.add_option("-i", dest="filename", default="2000.in",
-     help="input file with two matrices", metavar="FILE")
+parser.add_option(
+    "-i",
+    dest="filename",
+    default="2000.in",
+    help="input file with two matrices",
+    metavar="FILE",
+)
 (options, args) = parser.parse_args()
 
+
 def read(filename):
-	lines = open(filename, 'r').read().splitlines()
-	A = []
-	B = []
-	matrix = A
-	for line in lines:
-		if line != "":
-			matrix.append(map(int, line.split("\t")))
-		else:
-			matrix = B
-	return A, B
+    lines = open(filename, "r").read().splitlines()
+    A = []
+    B = []
+    matrix = A
+    for line in lines:
+        if line != "":
+            matrix.append(map(int, line.split("\t")))
+        else:
+            matrix = B
+    return A, B
+
 
 def printMatrix(matrix):
-	matrix = numpy.array(matrix)
-	for line in matrix:
-		print "\t".join(map(str,line))
+    matrix = numpy.array(matrix)
+    for line in matrix:
+        print("\t".join(map(str, line)))
+
 
 A, B = read(options.filename)
 A = scipy.matrix(A)
 B = scipy.matrix(B)
-C = A * B # easy and intuitive, isn't it?
+C = A * B  # easy and intuitive, isn't it?
 printMatrix(C)
 ```
 

@@ -14,7 +14,7 @@ The simplest way to combine several classifiers is by averaging their prediction
 For example, if you have three&nbsp;models and four&nbsp;classes, you might get
 predictions like this:
 
-```
+```text
 model 1(x1) = [0.1, 0.5, 0.3, 0.1],
 model 2(x1) = [0.5, 0.3, 0.1, 0.1],
 model 3(x1) = [0.4, 0.4, 0.1, 0.1]
@@ -26,7 +26,7 @@ $$\left [\frac{0.1+0.5+0.4}{3}, \frac{0.5+0.3+0.4}{3}, \frac{0.4+0.2+0.2}{3}, \f
 Note that this is different from pluarlity voting (PV) where every model gives
 only one vote for the most likely class. In the case from above, it would be
 
-```
+```text
 model 1(x1) = [0, 1, 0, 0],
 model 2(x1) = [1, 0, 0, 0],
 model 3(x1) = [1, 0, 0, 0]  # tie - lets just take the first
@@ -55,7 +55,7 @@ differed in the border mode for one convolutional layer (valid vs same).
 
 The accuracies of the single models were:
 
-```
+```text
 model 1: 57.02
 model 2: 61.85
 model 3: 48.59

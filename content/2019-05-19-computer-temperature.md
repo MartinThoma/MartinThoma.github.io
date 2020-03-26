@@ -25,7 +25,7 @@ information I can get form the software.
 
 My room temperature is 24°C, my CPU temperature is roughly 50°C:
 
-```
+```text
 sensors
 coretemp-isa-0000
 Adapter: ISA adapter
@@ -57,8 +57,8 @@ temp1:        +47.0°C
 
 My HDD (a Samsung SSD) is roughly 40°C.
 
-```
-sudo hddtemp /dev/sda
+```shell
+$ sudo hddtemp /dev/sda
 /dev/sda: SAMSUNG MZ7LN512HCHP-0001L              �: 39°C
 ```
 
@@ -73,8 +73,8 @@ coincidence, though.
 Changing from Nvidia to Intel dropped the CPU temperature from roughly 50°C to
 roughly 40°C and the SSD to 38°C.
 
-```
-sensors
+```shell
+$ sensors
 coretemp-isa-0000
 Adapter: ISA adapter
 Package id 0:  +42.0°C  (high = +100.0°C, crit = +100.0°C)

@@ -19,14 +19,14 @@ speed of basic arithmetic operations. I expected them to be FAST; essentially
 
 Let's have a look at the adding function:
 
-```
+```python
 def add(numbers):
     return [a + b for a, b in numbers]
 ```
 
 The disassembled cPython Byte-Code looks like this:
 
-```
+```python-prompt
 >>> import dis
 >>> dis.dis(add)
   2           0 LOAD_CONST               1 (<code object <listcomp> at 0x7feabba81300, file "<stdin>", line 2>)
@@ -44,7 +44,7 @@ the time here.
 
 Here are the results:
 
-```
+```text
 add                 : min: 177.3μs, mean: 200.3μs, max:  522.2μs
 subtract            : min: 168.4μs, mean: 190.9μs, max:  538.8μs
 multiply            : min: 165.4μs, mean: 199.7μs, max:  515.8μs
@@ -65,13 +65,13 @@ divide_vectors      : min:  17.2μs, mean:  18.2μs, max:   71.9μs
 
 You can see how bad this measure is with something like
 
-```
-durations = np.array(timeit.repeat('4+500000', repeat=5000, number=1))
+```python
+durations = np.array(timeit.repeat("4+500000", repeat=5000, number=1))
 ```
 
 which gives
 
-```
+```text
 add                 : min: 0.08μs, mean: 0.15μs, max:   1.38μs
 subtract            : min: 0.08μs, mean: 0.15μs, max:   1.51μs
 multiply            : min: 0.06μs, mean: 0.14μs, max:   1.77μs
@@ -91,7 +91,7 @@ Timing how quickly one can retrieve the element from a [direct access](https://e
 data structure by index. Not very surprisingly, lists are fastest. A bit surprising
 is that numpy arrays are quite a bit worse.
 
-```
+```text
 lookup(list)        : min: 134.0μs, mean: 157.0μs, max:  482.0μs
 lookup(dict)        : min: 355.8μs, mean: 407.3μs, max: 1895.2μs
 lookup(np array)    : min: 711.1μs, mean: 855.7μs, max: 1665.5μs
@@ -163,17 +163,25 @@ lookup(np array)    : min: 711.1μs, mean: 855.7μs, max: 1665.5μs
     </tr>
 </table>
 
-```
+```python
 import timeit
 import numpy as np
-durations = np.array(timeit.repeat('sorted(arr)',
-                                   setup='import numpy as np;arr = np.random.random(100_000)',
-                                   repeat=5000, number=1))
-print('min: {min:5.1f}μs, mean: {mean:5.1f}μs, max: {max:6.1f}μs'
-      .format(min=min(durations) * 10**6,
-              mean=np.mean(durations) * 10**6,
-              max=max(durations) * 10**6,
-              ))
+
+durations = np.array(
+    timeit.repeat(
+        "sorted(arr)",
+        setup="import numpy as np;arr = np.random.random(100_000)",
+        repeat=5000,
+        number=1,
+    )
+)
+print(
+    "min: {min:5.1f}μs, mean: {mean:5.1f}μs, max: {max:6.1f}μs".format(
+        min=min(durations) * 10 ** 6,
+        mean=np.mean(durations) * 10 ** 6,
+        max=max(durations) * 10 ** 6,
+    )
+)
 ```
 
 ## Networks
@@ -252,7 +260,7 @@ And some trhoughput values (partially measured, partially looked up / calculated
 
 Some measurements how quickly I get web pages:
 
-```
+```text
 get_webpage (martin-thoma.de,     2.3kB): min:  353ms, mean:  367ms, max:  390ms
 get_webpage (google.de,          11.3kB): min:  532ms, mean:  548ms, max:  574ms
 get_webpage (stackoverflow.com, 273.5kB): min: 1331ms, mean: 1686ms, max: 2462ms

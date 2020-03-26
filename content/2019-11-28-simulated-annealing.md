@@ -36,7 +36,7 @@ I've described the details in [Analysis and Optimization of Convolutional Neural
 
 The simplest way to approach this problem is:
 
-```
+```python
 def optimize_brute_force(c, steps=1000):
     # initialize
     best_permutation = [i for i in range(len(c))]
@@ -62,7 +62,7 @@ sub-structures which you destroy all the time. Instead of creating complete new
 permutations, you could simply swap two elements of the best permutation so
 far:
 
-```
+```python
 def optimize_greedy_swap(c, steps=1000):
     # initialize
     best_permutation = [i for i in range(len(c))]
@@ -105,11 +105,8 @@ maybe only to 1250. And in the end it has to be strictly better.
 
 How does that look in code?
 
-```
-def optimize_greedy_swap(c,
-                         steps=1000,
-                         temperature=1000,
-                         cooling_factor=0.995):
+```python
+def optimize_greedy_swap(c, steps=1000, temperature=1000, cooling_factor=0.995):
     # initialize
     best_permutation = [i for i in range(len(c))]
     best_score = calculate_score(best_permutation)
@@ -124,7 +121,7 @@ def optimize_greedy_swap(c,
 
         # Replace if it improved
         is_better = score < best_score
-        prob = exp(- (score - best_score) / temperature)
+        prob = exp(-(score - best_score) / temperature)
         is_hot_enough = prob > random.random()
         if is_better or is_hot_enough:
             best_score = score

@@ -45,7 +45,7 @@ process. Stop once your improvement is below a threshold.
 
 In pythonic Pseudocode:
 
-```
+```python
 def construct_features(feature_list, BaseModel, threshold, score):
     """
     Constructive feature selection algorithm
@@ -95,7 +95,7 @@ as possible.
 
 Let's start simple: We have 2 binary features and one target:
 
-```
+```text
 x1  x2    y
 ------------
 0   0     0
@@ -116,7 +116,7 @@ random in this case!
 A similar setting as before: 3 binary features and the target is XOR of all
 of them:
 
-```
+```text
 x1  x2  x3    y
 ---------------
 0   0   0     0

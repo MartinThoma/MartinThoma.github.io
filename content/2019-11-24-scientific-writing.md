@@ -22,7 +22,7 @@ a blog post.
 
 Most papers I read have the following structure:
 
-```
+```text
    Abstract
 1. Introduction
 2. Related Work

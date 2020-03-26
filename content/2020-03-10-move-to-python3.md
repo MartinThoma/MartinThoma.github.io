@@ -48,7 +48,7 @@ compatible version of propy.
 
 I want all my projects to have this structure:
 
-```
+```text
 propy3
 ├── docs
 │   ├── Makefile
@@ -148,7 +148,7 @@ mypy_path=typeshed/pyi:typeshed/imports
 I do this by putting the following `.pre-commit-config.yaml` file in the root
 directory of the project:
 
-```
+```yaml
 # pre-commit run --all-files
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks

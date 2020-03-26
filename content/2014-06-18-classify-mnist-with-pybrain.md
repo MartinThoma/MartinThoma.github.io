@@ -26,7 +26,7 @@ MNIST comes in 4 files ([download here](http://yann.lecun.com/exdb/mnist/)):
 
 Both label files are like this:
 
-```
+```text
 [offset] [type]          [value]          [description]
 0000     32 bit integer  0x00000801(2049) magic number (MSB first)
 0004     32 bit integer  60000            number of items
@@ -39,7 +39,7 @@ The labels values are 0 to 9.
 
 and both image containers are like that:
 
-```
+```text
 [offset] [type]          [value]          [description]
 0000     32 bit integer  0x00000803(2051) magic number
 0004     32 bit integer  60000            number of images

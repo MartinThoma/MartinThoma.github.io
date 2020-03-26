@@ -10,7 +10,7 @@ featured_image: logos/python.png
 One feature I really miss in Pythons interactive shell is tab autocompletion.
 Thanks to [blog.e-shell.org](http://blog.e-shell.org/221) I know how to get it:
 
-```python
+```python-repl
 >>> import rlcompleter, readline
 >>> readline.parse_and_bind('tab:complete')
 >>> smtplib.
@@ -46,7 +46,8 @@ Now if you want to always have that, you can get it by editing your
 
 ```python
 import rlcompleter, readline
-readline.parse_and_bind('tab:complete')
+
+readline.parse_and_bind("tab:complete")
 ```
 
 You also have to make sure that the environment variable `PYTHONSTARTUP` is set to

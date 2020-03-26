@@ -17,7 +17,7 @@ in [`git tag`](https://git-scm.com/book/en/v2/Git-Basics-Tagging).
 
 `setup.py` should have the version string in the setup function:
 
-```
+```python
 from setuptools import setup
 
 setup(version=__version__)
@@ -39,16 +39,16 @@ solutions. I only wrap them up here.
 
 setup.py:
 
-```
+```python
 from setuptools import setup
 
-setup(version='0.1.2')
+setup(version="0.1.2")
 ```
 
 [yourpackage]/__init__.py:
 
-```
-__version__ = '0.1.2'
+```python
+__version__ = "0.1.2"
 ```
 
 Positive:
@@ -65,24 +65,24 @@ Negative:
 
 setup.py:
 
-```
+```python
 from setuptools import setup
 
-exec(open('[yourpackage]/_version.py').read())
+exec(open("[yourpackage]/_version.py").read())
 
 setup(version=__version__)
 ```
 
 [yourpackage]/__init__.py:
 
-```
-from [yourpackage]._version import __version__
+```python
+from yourpackage._version import __version__
 ```
 
 [yourpackage]/_version.py:
 
-```
-__version__ = '0.1.2'
+```python
+__version__ = "0.1.2"
 ```
 
 
@@ -107,28 +107,31 @@ version string.
 
 setup.py:
 
-```
+```python
 from setuptools import setup
+
 
 def read(file_name):
     """Read a text file and return the content as a string."""
-    with io.open(os.path.join(os.path.dirname(__file__), file_name),
-                 encoding='utf-8') as f:
+    with io.open(
+        os.path.join(os.path.dirname(__file__), file_name), encoding="utf-8"
+    ) as f:
         return f.read()
 
-setup(version=read('[yourpackage]/version.txt'))
+
+setup(version=read("[yourpackage]/version.txt"))
 ```
 
 [yourpackage]/__init__.py:
 
-```
-from [yourpackage]._version import __version__
+```python
+from yourpackage._version import __version__
 ```
 
 [yourpackage]/_version.py:
 
-```
-__version__ = '0.1.2'
+```python
+__version__ = "0.1.2"
 ```
 
 
@@ -161,18 +164,18 @@ don't think they the first two look reliable enough to give them a try. And
 
 setup.py:
 
-```
+```python
 from setuptools import setup
 
-import [yourpackage]
+import yourpackage
 
-setup(version=[yourpackage].__version__))
+setup(version=yourpackage.__version__)
 ```
 
 [yourpackage]/__init__.py:
 
-```
-[yourpackage]._version = '0.1.2'
+```python
+yourpackage._version = "0.1.2"
 ```
 
 Positive:
@@ -194,21 +197,19 @@ and do the following:
 
 setup.py:
 
-```
+```python
 from setuptools import setup
 
 setup(
-    ...,
-    use_scm_version=True,
-    setup_requires=['setuptools_scm'],
-    ...,
+    ..., use_scm_version=True, setup_requires=["setuptools_scm"], ...,
 )
 ```
 
 [yourpackage]/__init__.py:
 
-```
+```python
 from pkg_resources import get_distribution, DistributionNotFound
+
 try:
     __version__ = get_distribution(__name__).version
 except DistributionNotFound:

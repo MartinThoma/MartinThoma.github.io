@@ -38,17 +38,17 @@ The principles layed out below can be grouped in several categories:
 
 Bad:
 
-```
-if 'key' in a_dictionary:
-    foobar = a_dictionary['key']
+```python
+if "key" in a_dictionary:
+    foobar = a_dictionary["key"]
 else:
-    foobar = 'a default value'
+    foobar = "a default value"
 ```
 
 Good:
 
-```
-foobar = a_dictionary.get('key', 'a default value')
+```python
+foobar = a_dictionary.get("key", "a default value")
 ```
 
 Reasons:
@@ -64,23 +64,23 @@ do.
 
 Bad:
 
-```
+```python
 def foo(bar):
     if a(bar):
         b = c(bar)
-        if b != 'xy':
+        if b != "xy":
             doit(bar)
 ```
 
 Better:
 
-```
+```python
 def foo(bar):
     if not a(bar):
         return
 
     b = c(bar)
-    if b == 'xy':
+    if b == "xy":
         return
 
     doit(bar)
@@ -114,13 +114,13 @@ Good: `config`
 
 Bad: tuple
 
-```
+```python
 (1337, 42)
 ```
 
 Better: [`namedtuple`](https://docs.python.org/2/library/collections.html#collections.namedtuple)
 
-```
+```python-repl
 >>> from collections import namedtuple
 >>> Point = namedtuple('Point', ['x', 'y'])
 >>> Point
@@ -156,7 +156,7 @@ one which I don't like is `tmp`.
 
 Bad:
 
-```
+```python
 t0 = time.time()
 some_code()
 t1 = time.time()
@@ -165,7 +165,7 @@ execution_time = (t1 - t0) / 3600
 
 Better:
 
-```
+```python
 t0 = time.time()
 some_code()
 t1 = time.time()
@@ -183,8 +183,9 @@ Even better: Use a unit library like [pint](https://pint.readthedocs.io/en/lates
 This way, it is guaranteed that the units will not accidentially be used in the
 wrong way.
 
-```
+```python
 import pint
+
 ureg = pint.UnitRegistry()
 
 execution_time = (t1 - t0) * ureg.second
@@ -196,10 +197,10 @@ execution_time.to(ureg.hour).magnitude
 
 Bad:
 
-```
+```python
 del list_[0]
 list_.pop(0)
-list_.insert(0, 'foobar')
+list_.insert(0, "foobar")
 ```
 
 Better: use [`deque`](https://docs.python.org/3/library/collections.html#collections.deque)
@@ -211,24 +212,24 @@ Reason: <span class="label label-info">Speed</span> - see [time complexity of da
 
 Worst:
 
-```
-list_ = ['a@de.com', 'foobar@fg.com', 'hot@martin.com']
+```python
+list_ = ["a@de.com", "foobar@fg.com", "hot@martin.com"]
 for i in range(len(list_)):
     send(list_[i])
 ```
 
 Bad:
 
-```
-list_ = ['a@de.com', 'foobar@fg.com', 'hot@martin.com']
+```python
+list_ = ["a@de.com", "foobar@fg.com", "hot@martin.com"]
 for el in list_:
     send(el)
 ```
 
 Better:
 
-```
-email_addresses = ['a@de.com', 'foobar@fg.com', 'hot@martin.com']
+```python
+email_addresses = ["a@de.com", "foobar@fg.com", "hot@martin.com"]
 for email_address in email_addresses:
     send(email_address)
 ```
@@ -245,9 +246,9 @@ The last one is was closer to this natural form than the other two ones are.
 
 ## ignored
 
-```
+```python
 try:
-    os.remove('foobar')
+    os.remove("foobar")
 except OSError:
     pass
 ```
@@ -255,7 +256,7 @@ except OSError:
 
 with ignored:
 
-```
+```python
 @contextmanager
 def ignored(*exceptions):
     try:
@@ -267,9 +268,9 @@ def ignored(*exceptions):
 
 only
 
-```
+```python
 with ignored(OSError):
-    os.remove('foobar')
+    os.remove("foobar")
 ```
 
 

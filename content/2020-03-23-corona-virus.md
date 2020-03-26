@@ -244,7 +244,7 @@ to implement that.
 
 On the training data:
 
-```
+```text
 LogitRegressor(beta=0.1980, c=13.4600, max_population=64000000.0)
 Day 2020-02-24: 91 (+91) predicted vs 16 in reality
 Day 2020-02-25: 111 (+20) predicted vs 18 in reality
@@ -283,7 +283,7 @@ training data for Germany.
 
 Here are the predictions from 2020-03-23:
 
-```
+```text
 Date: Total infections at the end of the day (new infections on that day)
 2020-03-24: 28,451 (+5,109) -- was 29,542
 2020-03-25: 34,678 (+6,226)

@@ -38,13 +38,18 @@ A configuration file could look like this:
 ```python
 #!/usr/bin/env python
 import preprocessing
-mysql = {'host': 'localhost',
-         'user': 'root',
-         'passwd': 'my secret password',
-         'db': 'write-math'}
-preprocessing_queue = [preprocessing.scale_and_center,
-                       preprocessing.dot_reduction,
-                       preprocessing.connect_lines]
+
+mysql = {
+    "host": "localhost",
+    "user": "root",
+    "passwd": "my secret password",
+    "db": "write-math",
+}
+preprocessing_queue = [
+    preprocessing.scale_and_center,
+    preprocessing.dot_reduction,
+    preprocessing.connect_lines,
+]
 use_anonymous = True
 ```
 
@@ -53,7 +58,8 @@ Within the actual code, you can use it like this:
 ```python
 #!/usr/bin/env python
 import databaseconfig as cfg
-connect(cfg.mysql['host'], cfg.mysql['user'], cfg.mysql['password'])
+
+connect(cfg.mysql["host"], cfg.mysql["user"], cfg.mysql["password"])
 ```
 
 The way you include the configuration might feel very convenient at a first
@@ -93,7 +99,7 @@ You can read it like this:
 ```python
 import json
 
-with open('config.json') as json_data_file:
+with open("config.json") as json_data_file:
     data = json.load(json_data_file)
 print(data)
 ```
@@ -101,21 +107,30 @@ print(data)
 which outputs
 
 ```python
-{u'mysql': {u'db': u'write-math',
-            u'host': u'localhost',
-            u'passwd': u'my secret password',
-            u'user': u'root'},
- u'other': {u'preprocessing_queue': [u'preprocessing.scale_and_center',
-                                     u'preprocessing.dot_reduction',
-                                     u'preprocessing.connect_lines'],
-            u'use_anonymous': True}}
+{
+    "mysql": {
+        "db": "write-math",
+        "host": "localhost",
+        "passwd": "my secret password",
+        "user": "root",
+    },
+    "other": {
+        "preprocessing_queue": [
+            "preprocessing.scale_and_center",
+            "preprocessing.dot_reduction",
+            "preprocessing.connect_lines",
+        ],
+        "use_anonymous": True,
+    },
+}
 ```
 
 Writing JSON files is also easy. Just build up the dictionary and use
 
 ```python
 import json
-with open('config.json', 'w') as outfile:
+
+with open("config.json", "w") as outfile:
     json.dump(data, outfile)
 ```
 
@@ -152,13 +167,13 @@ You can read it like this:
 ```python
 import yaml
 
-with open("config.yml", 'r') as ymlfile:
+with open("config.yml", "r") as ymlfile:
     cfg = yaml.load(ymlfile)
 
 for section in cfg:
     print(section)
-print(cfg['mysql'])
-print(cfg['other'])
+print(cfg["mysql"])
+print(cfg["other"])
 ```
 
 It outputs:
@@ -166,14 +181,20 @@ It outputs:
 ```python
 other
 mysql
-{'passwd': 'my secret password',
- 'host': 'localhost',
- 'db': 'write-math',
- 'user': 'root'}
-{'preprocessing_queue': ['preprocessing.scale_and_center',
-                         'preprocessing.dot_reduction',
-                         'preprocessing.connect_lines'],
- 'use_anonymous': True}
+{
+    "passwd": "my secret password",
+    "host": "localhost",
+    "db": "write-math",
+    "user": "root",
+}
+{
+    "preprocessing_queue": [
+        "preprocessing.scale_and_center",
+        "preprocessing.dot_reduction",
+        "preprocessing.connect_lines",
+    ],
+    "use_anonymous": True,
+}
 ```
 
 There is a `yaml.dump` method, so you can write the configuration the same way.
@@ -224,19 +245,20 @@ print("List all contents")
 for section in config.sections():
     print("Section: %s" % section)
     for options in config.options(section):
-        print("x %s:::%s:::%s" % (options,
-                                  config.get(section, options),
-                                  str(type(options))))
+        print(
+            "x %s:::%s:::%s"
+            % (options, config.get(section, options), str(type(options)))
+        )
 
 # Print some contents
 print("\nPrint some contents")
-print(config.get('other', 'use_anonymous'))  # Just get the value
-print(config.getboolean('other', 'use_anonymous'))  # You know the datatype?
+print(config.get("other", "use_anonymous"))  # Just get the value
+print(config.getboolean("other", "use_anonymous"))  # You know the datatype?
 ```
 
 which outputs
 
-```python
+```text
 List all contents
 Section: mysql
 x host:::localhost:::<type 'str'>
@@ -262,27 +284,32 @@ instead of a simple string.
 
 ```python
 import os
+
 configfile_name = "config.ini"
 
 # Check if there is already a configurtion file
 if not os.path.isfile(configfile_name):
     # Create the configuration file as it doesn't exist yet
-    cfgfile = open(configfile_name, 'w')
+    cfgfile = open(configfile_name, "w")
 
     # Add content to the file
     Config = ConfigParser.ConfigParser()
-    Config.add_section('mysql')
-    Config.set('mysql', 'host', 'localhost')
-    Config.set('mysql', 'user', 'root')
-    Config.set('mysql', 'passwd', 'my secret password')
-    Config.set('mysql', 'db', 'write-math')
-    Config.add_section('other')
-    Config.set('other',
-               'preprocessing_queue',
-               ['preprocessing.scale_and_center',
-                'preprocessing.dot_reduction',
-                'preprocessing.connect_lines'])
-    Config.set('other', 'use_anonymous', True)
+    Config.add_section("mysql")
+    Config.set("mysql", "host", "localhost")
+    Config.set("mysql", "user", "root")
+    Config.set("mysql", "passwd", "my secret password")
+    Config.set("mysql", "db", "write-math")
+    Config.add_section("other")
+    Config.set(
+        "other",
+        "preprocessing_queue",
+        [
+            "preprocessing.scale_and_center",
+            "preprocessing.dot_reduction",
+            "preprocessing.connect_lines",
+        ],
+    )
+    Config.set("other", "use_anonymous", True)
     Config.write(cfgfile)
     cfgfile.close()
 ```

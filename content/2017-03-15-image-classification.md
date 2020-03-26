@@ -43,7 +43,7 @@ The code defines one of the state of the art
 models, a so called ResNet. See [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385) for details. Then it downloads the weights, stores them for
 subsequent uses and applies it to the data.
 
-```
+```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """ResNet50 model for Keras."""
@@ -60,11 +60,13 @@ from keras.applications import ResNet50
 from keras.utils.data_utils import get_file
 
 CLASS_INDEX = None
-CLASS_INDEX_PATH = ('https://s3.amazonaws.com/deep-learning-models/'
-                    'image-models/imagenet_class_index.json')
+CLASS_INDEX_PATH = (
+    "https://s3.amazonaws.com/deep-learning-models/"
+    "image-models/imagenet_class_index.json"
+)
 
 
-def preprocess_input(x, dim_ordering='default'):
+def preprocess_input(x, dim_ordering="default"):
     """
     Standard preprocessing of image data.
 
@@ -84,11 +86,11 @@ def preprocess_input(x, dim_ordering='default'):
     numpy array
         The preprocessed image
     """
-    if dim_ordering == 'default':
+    if dim_ordering == "default":
         dim_ordering = K.image_dim_ordering()
-    assert dim_ordering in {'tf', 'th'}
+    assert dim_ordering in {"tf", "th"}
 
-    if dim_ordering == 'th':
+    if dim_ordering == "th":
         x[:, 0, :, :] -= 103.939
         x[:, 1, :, :] -= 116.779
         x[:, 2, :, :] -= 123.68
@@ -121,14 +123,16 @@ def decode_predictions(preds, top=5):
     """
     global CLASS_INDEX
     if len(preds.shape) != 2 or preds.shape[1] != 1000:
-        raise ValueError('`decode_predictions` expects '
-                         'a batch of predictions '
-                         '(i.e. a 2D array of shape (samples, 1000)). '
-                         'Found array with shape: ' + str(preds.shape))
+        raise ValueError(
+            "`decode_predictions` expects "
+            "a batch of predictions "
+            "(i.e. a 2D array of shape (samples, 1000)). "
+            "Found array with shape: " + str(preds.shape)
+        )
     if CLASS_INDEX is None:
-        fpath = get_file('imagenet_class_index.json',
-                         CLASS_INDEX_PATH,
-                         cache_subdir='models')
+        fpath = get_file(
+            "imagenet_class_index.json", CLASS_INDEX_PATH, cache_subdir="models"
+        )
         CLASS_INDEX = json.load(open(fpath))
     results = []
     for pred in preds:
@@ -161,14 +165,19 @@ def is_valid_file(parser, arg):
 def get_parser():
     """Get parser object."""
     from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
-    parser = ArgumentParser(description=__doc__,
-                            formatter_class=ArgumentDefaultsHelpFormatter)
-    parser.add_argument("-f", "--file",
-                        dest="filename",
-                        type=lambda x: is_valid_file(parser, x),
-                        help="Classify image",
-                        metavar="IMAGE",
-                        required=True)
+
+    parser = ArgumentParser(
+        description=__doc__, formatter_class=ArgumentDefaultsHelpFormatter
+    )
+    parser.add_argument(
+        "-f",
+        "--file",
+        dest="filename",
+        type=lambda x: is_valid_file(parser, x),
+        help="Classify image",
+        metavar="IMAGE",
+        required=True,
+    )
     return parser
 
 
@@ -176,23 +185,24 @@ if __name__ == "__main__":
     args = get_parser().parse_args()
 
     # Load model
-    model = ResNet50(include_top=True, weights='imagenet')
+    model = ResNet50(include_top=True, weights="imagenet")
 
     img_path = args.filename
     img = image.load_img(img_path, target_size=(224, 224))
     x = image.img_to_array(img)
     x = np.expand_dims(x, axis=0)
     x = preprocess_input(x)
-    print('Input image shape:', x.shape)
+    print("Input image shape:", x.shape)
     t0 = time.time()
     preds = model.predict(x)
     t1 = time.time()
     print("Prediction time: {:0.3f}s".format(t1 - t0))
     for wordnet_id, class_name, prob in decode_predictions(preds)[0]:
-        print("{wid}\t{prob:>6}%\t{name}".format(wid=wordnet_id,
-                                                 name=class_name,
-                                                 prob="%0.2f" % (prob * 100)))
-
+        print(
+            "{wid}\t{prob:>6}%\t{name}".format(
+                wid=wordnet_id, name=class_name, prob="%0.2f" % (prob * 100)
+            )
+        )
 ```
 
 Store it as `resnet50.py` and make it executable.
@@ -202,19 +212,19 @@ Store it as `resnet50.py` and make it executable.
 
 ## How to use
 
-```
+```shell
 $ ./resnet50.py -f honey-bee.jpg
 ```
 
 alternatively, if you have a GPU but not that much memory:
 
-```
+```shell
 $ CUDA_VISIBLE_DEVICES="" ./resnet50.py -f honey-bee.jpg
 ```
 
 If you apply this to the jellyfish image from above, you get:
 
-```
+```text
 Input image shape: (1, 224, 224, 3)
 n01910747    100.00%    jellyfish
 n01496331      0.00%    electric_ray

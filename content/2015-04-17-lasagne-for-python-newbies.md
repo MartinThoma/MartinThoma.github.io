@@ -20,7 +20,7 @@ process.
 Ubuntu-based systems will have Python installed, but I'm not too sure about
 pip. You can get it with
 
-```
+```shell
 $ sudo apt-get install python-pip
 ```
 
@@ -243,17 +243,17 @@ iters = 1000
 rng = numpy.random.RandomState(22)
 x = shared(numpy.asarray(rng.rand(vlen), config.floatX))
 f = function([], T.exp(x))
-print f.maker.fgraph.toposort()
+print(f.maker.fgraph.toposort())
 t0 = time.time()
 for i in range(iters):
     r = f()
 t1 = time.time()
-print 'Looping %d times took' % iters, t1 - t0, 'seconds'
-print 'Result is', r
+print("Looping %d times took" % iters, t1 - t0, "seconds")
+print("Result is", r)
 if numpy.any([isinstance(x.op, T.Elemwise) for x in f.maker.fgraph.toposort()]):
-    print('Used the cpu')
+    print("Used the cpu")
 else:
-    print('Used the gpu')
+    print("Used the gpu")
 ```
 
 It should print the following (well, something similar):
@@ -293,7 +293,7 @@ might first take some time to download, but should then run quite fast. If
 your machine does not use the GPU it will take ages (e.g. on my laptop it takes
 about a minute for one epoch)
 
-```
+```text
 Lasagne/examples$ python mnist.py
 Loading data...
 Downloading MNIST dataset
@@ -349,14 +349,17 @@ if PY2:
 
     def pickle_load(f, encoding):
         return pickle.load(f)
+
+
 else:
     from urllib.request import urlretrieve
 
     def pickle_load(f, encoding):
         return pickle.load(f, encoding=encoding)
 
-DATA_URL = 'http://deeplearning.net/data/mnist/mnist.pkl.gz'
-DATA_FILENAME = 'mnist.pkl.gz'
+
+DATA_URL = "http://deeplearning.net/data/mnist/mnist.pkl.gz"
+DATA_FILENAME = "mnist.pkl.gz"
 
 
 def _load_data(url=DATA_URL, filename=DATA_FILENAME):
@@ -365,8 +368,8 @@ def _load_data(url=DATA_URL, filename=DATA_FILENAME):
         print("Downloading MNIST dataset")
         urlretrieve(url, filename)
 
-    with gzip.open(filename, 'rb') as f:
-        return pickle_load(f, encoding='latin-1')
+    with gzip.open(filename, "rb") as f:
+        return pickle_load(f, encoding="latin-1")
 
 
 def load_data():
@@ -396,40 +399,40 @@ def load_data():
 
 def nn_example(data):
     net1 = NeuralNet(
-        layers=[('input', layers.InputLayer),
-                ('hidden', layers.DenseLayer),
-                ('output', layers.DenseLayer),
-                ],
+        layers=[
+            ("input", layers.InputLayer),
+            ("hidden", layers.DenseLayer),
+            ("output", layers.DenseLayer),
+        ],
         # layer parameters:
-        input_shape=(None, 28*28),
+        input_shape=(None, 28 * 28),
         hidden_num_units=100,  # number of units in 'hidden' layer
         output_nonlinearity=lasagne.nonlinearities.softmax,
         output_num_units=10,  # 10 target values for the digits 0, 1, 2, ..., 9
-
         # optimization method:
         update=nesterov_momentum,
         update_learning_rate=0.01,
         update_momentum=0.9,
-
         max_epochs=10,
         verbose=1,
-        )
+    )
 
     # Train the network
-    net1.fit(data['X_train'], data['y_train'])
+    net1.fit(data["X_train"], data["y_train"])
 
     # Try the network on new data
-    print("Feature vector (100-110): %s" % data['X_test'][0][100:110])
-    print("Label: %s" % str(data['y_test'][0]))
-    print("Predicted: %s" % str(net1.predict([data['X_test'][0]])))
+    print("Feature vector (100-110): %s" % data["X_test"][0][100:110])
+    print("Label: %s" % str(data["y_test"][0]))
+    print("Predicted: %s" % str(net1.predict([data["X_test"][0]])))
 
 
 def main():
     data = load_data()
-    print("Got %i testing datasets." % len(data['X_train']))
+    print("Got %i testing datasets." % len(data["X_train"]))
     nn_example(data)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
 ```
 

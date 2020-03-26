@@ -63,49 +63,51 @@ time.
 
 Here is a usage example:
 
-```
+```python
 from flask_login import LoginManager
 from flask_login import current_user, login_user, login_required, logout_user
 
 login_manager = LoginManager()
-login_manager.login_view = 'auth.login'
+login_manager.login_view = "auth.login"
+
 
 @login_manager.user_loader
 def load_user(id):
     return User.query.get(int(id))
 
+
 @login_required
-@app.route('/private')
+@app.route("/private")
 def some_private_view():
-    return 'You can only watch this if you're logged in'
+    return "You can only watch this if you're logged in"
 
 
-@auth.route('/login', methods=['GET', 'POST'])
+@auth.route("/login", methods=["GET", "POST"])
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('main.index'))
+        return redirect(url_for("main.index"))
     form = LoginForm()  # You have to create LoginForm on your own
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
         if user is None or not user.check_password(form.password.data):
-            flash('Invalid email or password', 'error')
-            return redirect(url_for('auth.login'))
+            flash("Invalid email or password", "error")
+            return redirect(url_for("auth.login"))
         login_user(user, remember=form.remember_me.data)
-        return redirect(url_for('some_private_view'))
-    return render_template('login.html', form=form)
+        return redirect(url_for("some_private_view"))
+    return render_template("login.html", form=form)
 
 
 @auth.route("/logout")
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('main.index'))
+    return redirect(url_for("main.index"))
 
 
-@auth.route('/register', methods=['GET', 'POST'])
+@auth.route("/register", methods=["GET", "POST"])
 def register():
     if current_user.is_authenticated:
-        return redirect(url_for('main.index'))
+        return redirect(url_for("main.index"))
     form = RegistrationForm()  # You have to write RegistrationForm on your own
     if form.validate_on_submit():
         user = User(email=form.email.data)
@@ -113,12 +115,11 @@ def register():
         db.session.add(user)
         db.session.commit()
         user = User.query.filter_by(id=user.id).first_or_404()
-        user.display_name = 'user_{}'.format(user.id)
+        user.display_name = "user_{}".format(user.id)
         db.session.commit()
-        flash('Congratulations, you are now a registered user!')
-        return redirect(url_for('auth.login'))
-    return render_template('register.html', form=form)
-
+        flash("Congratulations, you are now a registered user!")
+        return redirect(url_for("auth.login"))
+    return render_template("register.html", form=form)
 ```
 
 

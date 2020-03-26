@@ -15,19 +15,19 @@ share is a git repository, creating a bundle is a pretty good way to do it.
 
 You can create a bundle with
 
-```
+```shell
 $ git bundle create repository-name.bundle --all
 ```
 
 Then you can restore the repository by cloning:
 
-```
+```shell
 $ git clone repository-name.bundle
 ```
 
 You can also use a bundle as a remote. Hence
 
-```
+```shell
 $ git fetch origin
 $ git pull
 ```

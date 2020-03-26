@@ -18,7 +18,7 @@ Verbesserungsvorschläge habt, könnt ihr mir gerne eine E-Mail schreiben
 
 ## Vorlage
 
-```
+```tex
 \documentclass[a4paper,12pt]{article}
 \usepackage{amssymb} % needed for math
 \usepackage{amsmath} % needed for math
@@ -84,12 +84,11 @@ Martin Thoma
 
 
 \end{document}
-
 ```
 
 und Makefile
 
-```
+```makefile
 DOKUMENT = abschlussbericht
 
 make:

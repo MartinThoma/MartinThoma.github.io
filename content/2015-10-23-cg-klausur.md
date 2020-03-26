@@ -953,13 +953,13 @@ bekommt, dann solltet ihr einfach die obigen Pakete installieren, den
 
 Außerdem:
 
-```bash
+```shell
 $ pacman -Syy
 ```
 
 ausführen. Dann bekommt man auch nicht mehr 404er wenn man mit
 
-```
+```shell
 $ pacman -S vim
 ```
 

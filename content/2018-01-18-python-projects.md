@@ -35,7 +35,7 @@ For now, assume your module is called `foo_module`
 
 ## Project structure
 
-```
+```text
 foo_module : the git repository root dir
 ├── configs
 │   └── module.yaml
@@ -64,12 +64,13 @@ foo_module : the git repository root dir
 
 the `foo_module/__init__.py` should look like this:
 
-```
+```python
 from pkg_resources import get_distribution
+
 try:
-    __version__ = get_distribution('lidtk').version
+    __version__ = get_distribution("lidtk").version
 except:
-    __version__ = 'Not installed'
+    __version__ = "Not installed"
 ```
 
 
@@ -228,16 +229,16 @@ LOGGING:
 
 In your main script `bin/foo_module`, you should load this:
 
-```
+```python
 # core modules
 import logging.config
 import pkg_resources
 import yaml
 
-filepath = pkg_resources.resource_filename('foo_module', 'configs/module.yaml')
-with open(filepath, 'r') as stream:
+filepath = pkg_resources.resource_filename("foo_module", "configs/module.yaml")
+with open(filepath, "r") as stream:
     config = yaml.load(stream)
-logging.config.dictConfig(config['LOGGING'])
+logging.config.dictConfig(config["LOGGING"])
 ```
 
 
@@ -314,7 +315,7 @@ The `requirements.txt` is for deployment. It has concrete dependencies.
 
 If you don't need this distinction, you can make a `requirements.txt` like this:
 
-```
+```text
 --index-url https://pypi.python.org/simple/
 
 -e .

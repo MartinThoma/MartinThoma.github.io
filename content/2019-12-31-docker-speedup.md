@@ -27,7 +27,7 @@ Make sure you don't re-build the container with stuff you don't need.
 
 You can check the included files via
 
-```
+```bash
 sudo docker build -t test .
 sudo docker run --entrypoint /usr/bin/find -it test
 sudo docker images | grep ^test

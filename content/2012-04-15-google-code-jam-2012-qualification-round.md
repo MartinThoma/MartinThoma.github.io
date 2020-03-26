@@ -19,27 +19,30 @@ This one was easy. It's a <a href="http://en.wikipedia.org/wiki/Simple_substitut
 ```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
- 
-def decode(ciphertext, key="ynficwlbkuomxsevzpdrjgthaq", 
-                  alphabet="abcdefghijklmnopqrstuvwxyz"):
-    dic={}  
-    for i in range(0,len(key)):  
-        dic[key[i]] = alphabet[i]  
-  
-    plaintext=""  
-    for l in ciphertext:  
-        if l in dic:  
-            l=dic[l]  
-        plaintext+=l
-  
-    return plaintext 
+
+
+def decode(
+    ciphertext, key="ynficwlbkuomxsevzpdrjgthaq", alphabet="abcdefghijklmnopqrstuvwxyz"
+):
+    dic = {}
+    for i in range(0, len(key)):
+        dic[key[i]] = alphabet[i]
+
+    plaintext = ""
+    for l in ciphertext:
+        if l in dic:
+            l = dic[l]
+        plaintext += l
+
+    return plaintext
+
 
 if __name__ == "__main__":
-	testcases = input()
-	 
-	for caseNr in range(0, testcases):
-		cipher = raw_input()
-		print("Case #%i: %s" % (caseNr+1, decode(cipher)))
+    testcases = input()
+
+    for caseNr in range(0, testcases):
+        cipher = raw_input()
+        print("Case #%i: %s" % (caseNr + 1, decode(cipher)))
 ```
 
 A minimalistic python solution for this one was suggested by Niklas B. He makes use of <a href="http://docs.python.org/reference/expressions.html#lambda">Lambdas</a>, <a href="http://docs.python.org/library/stdtypes.html#str.translate">str.translate()</a> and <a href="http://docs.python.org/library/string.html#string.maketrans">str.maketrans()</a>:
@@ -52,10 +55,10 @@ import string as s
 testcases = input()
 
 key = "ynficwlbkuomxsevzpdrjgthaq"
-decode= lambda c: s.translate(c, s.maketrans(key, s.ascii_lowercase))
+decode = lambda c: s.translate(c, s.maketrans(key, s.ascii_lowercase))
 
 for i in range(0, testcases):
-	print decode(raw_input())
+    print(decode(raw_input()))
 ```
 
 <h2>Problem B: Dancing With the Googlers</h2>
@@ -64,53 +67,60 @@ for i in range(0, testcases):
 # -*- coding: utf-8 -*-
 
 from math import ceil, floor
- 
+
+
 def line2intlist(line):
-	list = line.split(' ')
-	numbers = [ int(x) for x in list ]
-	return numbers
+    list = line.split(" ")
+    numbers = [int(x) for x in list]
+    return numbers
+
 
 def getDist(points, isSurprising=False):
-	p = floor(points / 3.0)
-	trip = [p, p, p]
-	if 3*p < points:
-		trip[0] += 1
-	if (3*p + 1) < points:
-		trip[1] += 1
+    p = floor(points / 3.0)
+    trip = [p, p, p]
+    if 3 * p < points:
+        trip[0] += 1
+    if (3 * p + 1) < points:
+        trip[1] += 1
 
-	trip.sort(reverse=True)
+    trip.sort(reverse=True)
 
-	if isSurprising and (trip[1] == trip[0]) and trip[1] > 0:
-		trip[1] -= 1
-		trip[0] += 1
-		trip.sort(reverse=True)
+    if isSurprising and (trip[1] == trip[0]) and trip[1] > 0:
+        trip[1] -= 1
+        trip[0] += 1
+        trip.sort(reverse=True)
 
-	return trip
- 
+    return trip
+
+
 def maxGooglers(nrOfGooglers, surprising, p, points):
-	mg = 0
-	surp = 0
-	for pi in points:
-		trip = getDist(pi, True)
-		if ceil(pi/3.0) >= p:
-			mg += 1
-		elif trip[0] >= p:
-			surp += 1
-	
-	mg += min(surp, surprising)
+    mg = 0
+    surp = 0
+    for pi in points:
+        trip = getDist(pi, True)
+        if ceil(pi / 3.0) >= p:
+            mg += 1
+        elif trip[0] >= p:
+            surp += 1
 
-	return mg
- 
+    mg += min(surp, surprising)
+
+    return mg
+
+
 if __name__ == "__main__":
-	testcases = input()
- 
-	for caseNr in range(0, testcases):
-		originalList = line2intlist(raw_input())
-		nrOfGooglers = originalList[0]
-		surprising = originalList[1]
-		p = originalList[2]
-		points = originalList[3:]
-		print("Case #%i: %i" % (caseNr+1, maxGooglers(nrOfGooglers, surprising, p, points)))
+    testcases = input()
+
+    for caseNr in range(0, testcases):
+        originalList = line2intlist(raw_input())
+        nrOfGooglers = originalList[0]
+        surprising = originalList[1]
+        p = originalList[2]
+        points = originalList[3:]
+        print(
+            "Case #%i: %i"
+            % (caseNr + 1, maxGooglers(nrOfGooglers, surprising, p, points))
+        )
 ```
 
 <h2>Problem C: Recycled Numbers</h2>
@@ -127,72 +137,80 @@ try:
 except:
     import pickle
 
+
 def line2intlist(line):
-	list = line.split(' ')
-	numbers = [ int(x) for x in list ]
-	return numbers
+    list = line.split(" ")
+    numbers = [int(x) for x in list]
+    return numbers
+
 
 def binomialCoefficient(n, k):
     if k < 0 or k > n:
         return 0
-    if k > n - k: # take advantage of symmetry
+    if k > n - k:  # take advantage of symmetry
         k = n - k
     c = 1
     for i in range(k):
-        c = c * (n - (k - (i+1)))
-        c = c // (i+1)
+        c = c * (n - (k - (i + 1)))
+        c = c // (i + 1)
     return c
-	#return n * (n - 1) / 2
+
+
+# return n * (n - 1) / 2
+
 
 def rot(num, rot):
-	num = str(num)
-	num = num[len(num)-rot:len(num)] + num[0:len(num)-rot]  
-	return int(num)
+    num = str(num)
+    num = num[len(num) - rot : len(num)] + num[0 : len(num) - rot]
+    return int(num)
+
 
 def getRotList(num):
-	""" Only return bigger rotated ones """
-	rotList = [num]
-	for i in range(1, len(str(num))):
-		tmp = rot(num, i)
-		if tmp not in rotList and len(str(tmp)) == len(str(num)):
-			rotList.append(tmp)
-	return sorted(rotList)
+    """ Only return bigger rotated ones """
+    rotList = [num]
+    for i in range(1, len(str(num))):
+        tmp = rot(num, i)
+        if tmp not in rotList and len(str(tmp)) == len(str(num)):
+            rotList.append(tmp)
+    return sorted(rotList)
+
 
 def inBorder(rotations, A, B):
-	count = 0
-	for el in rotations:
-		if A <= el and el <= B:
-			count += 1
-	return count
+    count = 0
+    for el in rotations:
+        if A <= el and el <= B:
+            count += 1
+    return count
+
 
 def recycled(A, B, liste):
-	pairs = 0
-	minList = range(0, B+1)
+    pairs = 0
+    minList = range(0, B + 1)
 
-	for tmpList in liste[A:B+1]:
-		if minList[tmpList[0]]:
-			nrInBorder = inBorder(tmpList, A, B)
-			pairs += binomialCoefficient(nrInBorder, 2)
-			minList[tmpList[0]] = 0
-			
+    for tmpList in liste[A : B + 1]:
+        if minList[tmpList[0]]:
+            nrInBorder = inBorder(tmpList, A, B)
+            pairs += binomialCoefficient(nrInBorder, 2)
+            minList[tmpList[0]] = 0
 
-	return pairs
+    return pairs
+
 
 if __name__ == "__main__":
-	liste = []
-	try:
-		liste = pickle.load(open( "save.p", "rb" ))
-	except IOError:
-		for i in range(0, 2000001):
-			tmp = getRotList(i)
-			liste.append(tmp)
-		pickle.dump(liste, open( "save.p", "wb" ))
+    liste = []
+    try:
+        liste = pickle.load(open("save.p", "rb"))
+    except IOError:
+        for i in range(0, 2000001):
+            tmp = getRotList(i)
+            liste.append(tmp)
+        pickle.dump(liste, open("save.p", "wb"))
 
-	testcases = input()
- 
-	for caseNr in range(0, testcases):
-		A, B = line2intlist(raw_input())
-		print("Case #%i: %i" % (caseNr+1, recycled(A, B, liste)))
+    testcases = input()
+
+    for caseNr in range(0, testcases):
+        A, B = line2intlist(raw_input())
+        print("Case #%i: %i" % (caseNr + 1, recycled(A, B, liste)))
 ```
 
 <h2>Problem D: Hall of Mirrors</h2>
@@ -210,10 +228,12 @@ from math import floor, ceil, sqrt
 
 precision = 0.01
 
+
 def line2intlist(line):
-    list = line.split(' ')
-    numbers = [ int(x) for x in list ]
+    list = line.split(" ")
+    numbers = [int(x) for x in list]
     return numbers
+
 
 def seeReflection(x, v, m, d):
     cur_y = x[0]
@@ -222,8 +242,7 @@ def seeReflection(x, v, m, d):
     vx = v[1]
     dist = 0
     while dist <= d + precision:
-        if abs(cur_x - x[1]) < precision and \
-           abs(cur_y - x[0]) < precision and dist > 0:
+        if abs(cur_x - x[1]) < precision and abs(cur_y - x[0]) < precision and dist > 0:
             return True
 
         if vy == 0:
@@ -251,8 +270,8 @@ def seeReflection(x, v, m, d):
                     vy = -vy
             dist += 0.5
         else:
-            # Find how far is the next time we hit something 
-			# .0 or .5
+            # Find how far is the next time we hit something
+            # .0 or .5
             if vy < 0:
                 dy = cur_y - floor(cur_y)
             else:
@@ -289,8 +308,7 @@ def seeReflection(x, v, m, d):
             roundx = round(cur_x)
             ybounce = False
             xbounce = False
-            if abs(cur_y - roundy) < precision and \
-               abs(cur_x - roundx) < precision:
+            if abs(cur_y - roundy) < precision and abs(cur_x - roundx) < precision:
                 # Case we're at a corner
                 neighbors = []
                 intx = int(roundx)
@@ -348,21 +366,22 @@ def getMap(H, W):
         line = raw_input()
         tmp = []
         for char in line:
-            if char == '.':
-                 tmp.append(0)
-            elif char == '#':
+            if char == ".":
+                tmp.append(0)
+            elif char == "#":
                 tmp.append(1)
             else:
                 tmp.append(2)
         map.append(tmp)
     return map
 
+
 def process_case(m, H, W, D):
     vectors = set()
     ratios = set()
     for i in range(D + 1):
         for j in range(1, D + 1):
-            if i <= j and i*i + j*j <= D * D:
+            if i <= j and i * i + j * j <= D * D:
                 ratio = float(i) / float(j)
                 if ratio not in ratios:
                     vectors.add((i, j))
@@ -385,12 +404,13 @@ def process_case(m, H, W, D):
             count += 1
     return count
 
+
 if __name__ == "__main__":
     testcases = input()
     for caseNr in range(0, testcases):
         H, W, D = line2intlist(raw_input())
         map = getMap(H, W)
-        print("Case #%i: %i" % (caseNr+1, process_case(map, H, W, D)))
+        print("Case #%i: %i" % (caseNr + 1, process_case(map, H, W, D)))
 ```
 
 <h2>See also</h2>

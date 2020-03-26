@@ -155,7 +155,7 @@ activated when I showered.
 
 #### Menu
 
-```
+```text
 ├── Clock, Date, Steps, Battery
 ├── Status
 │   ├── Steps, Distance Calories

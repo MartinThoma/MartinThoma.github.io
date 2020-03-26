@@ -19,35 +19,43 @@ If we used the ikj-algorithm for this multiplication, we needed $n^2 \cdot m$ op
 <h2>Python</h2>
 <h3>NumPy</h3>
 I guess doing this with NumPy is the best option:
-```python
 
+```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
- 
+
 import numpy
 
 from optparse import OptionParser
+
 parser = OptionParser()
-parser.add_option("-i", dest="filename", default="2000.in",
-     help="input file with two matrices", metavar="FILE")
+parser.add_option(
+    "-i",
+    dest="filename",
+    default="2000.in",
+    help="input file with two matrices",
+    metavar="FILE",
+)
 (options, args) = parser.parse_args()
- 
+
+
 def read(filename):
-    lines = open(filename, 'r').read().splitlines()
+    lines = open(filename, "r").read().splitlines()
     J = []
     for line in lines:
         J.append(map(int, line.split("\t")))
     return numpy.matrix(J)
- 
+
+
 def printMatrix(matrix):
     matrix = numpy.array(matrix)
     for line in matrix:
-        print "\t".join(map(str,line))
+        print("\t".join(map(str, line)))
+
 
 J = read(options.filename)
 R = J * J.T
 printMatrix(R)
-
 ```
 
 Time:

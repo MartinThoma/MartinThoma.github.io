@@ -39,8 +39,9 @@ improved my code.
 
 Suppose you have to test a function
 
-```
+```python
 import datetime
+
 
 def get_tomorrow():
     today = datetime.datetime.now()
@@ -51,8 +52,9 @@ then you have a problem. The execution of this depends on the current state of
 the world. That is hard to test. While there is [`freezegun`](https://github.com/spulec/freezegun),
 the simpler change is to add an argument:
 
-```
+```python
 import datetime
+
 
 def get_tomorrow(today=None):
     if today is None:
@@ -86,7 +88,7 @@ It executes code which is after the promt `>>> `.
 
 A simple example:
 
-```
+```python
 def fibonacci(n):
     """
     Calculate the n-th fibonacci number.
@@ -102,10 +104,10 @@ def fibonacci(n):
         return fibonacci(n - 1) + fibonacci(n - 2)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import doctest
-    doctest.testmod()
 
+    doctest.testmod()
 ```
 
 If you execute this, it will directly check if the documentation matches actual
@@ -166,7 +168,7 @@ To put it into context:
 
 Your [project structure](https://martin-thoma.com/python-projects/) should be:
 
-```
+```text
 foo_module : the git repository root dir
 ├── configs
 │   └── module.yaml
@@ -193,13 +195,13 @@ foo_module : the git repository root dir
 A simple unittest is usually stored in `tests/test_themodule_name.py` and might
 look like this:
 
-```
+```python
 #!/usr/bin/env python
 
 import unittest
 
-class ThemoduleNameTest(unittest.TestCase):
 
+class ThemoduleNameTest(unittest.TestCase):
     def setUp(self):
         """Set things up for the test."""
         # e.g. initialize database mock
@@ -211,12 +213,12 @@ class ThemoduleNameTest(unittest.TestCase):
     # test routine A
     def test_abc(self):
         """Test routine A"""
-        print "FooTest:testA"
+        print("FooTest:testA")
 
     # test routine B
     def testB(self):
         """Test routine B"""
-        print "FooTest:testB"
+        print("FooTest:testB")
 ```
 
 
@@ -226,9 +228,10 @@ class ThemoduleNameTest(unittest.TestCase):
 testing with Python WAY easier. You can simply add files `test_<modulename>.py`
 with `text_xyz()` functions and assert statements:
 
-```
+```python
 def text_xy():
     import mymodule
+
     assert mymodule.f(1) == 2
 ```
 
@@ -253,7 +256,7 @@ pytest also comes with some neat plugins:
 
 I recommend to add the following to your `setup.cfg`:
 
-```
+```ini
 [tool:pytest]
 addopts = ./tests/ --doctest-modules --mccabe --cov=./mpu --cov-append --cov-report html:tests/reports/coverage-html --cov-report xml:tests/reports/coverage.xml --pep8 --ignore=docs/
 doctest_encoding = utf-8
@@ -274,7 +277,7 @@ is that [nose is no longer maintained](https://nose.readthedocs.io/en/latest/#no
 measures. The best one is the maintainability index. Here is how I use it
 for my `mpu` package:
 
-```
+```shell
 $ radon mi mpu
 ```
 
@@ -287,7 +290,7 @@ your `setup.py`.
 
 You can install [`tox`](https://pypi.org/project/tox/) via
 
-```
+```shell
 $ pip install tox
 ```
 
@@ -300,7 +303,7 @@ to generate coverage reports.
 
 I recommend creating a `.coveragerc` file in your projects root directory:
 
-```
+```ini
 [run]
 source = mpu  # folder where your project is
 branch = True
@@ -354,7 +357,7 @@ values.
 
 For example:
 
-```
+```bash
 export AWS_USERNAME="foobar"
 export AWS_PASSWORD="foobar"
 export FOOBAR="foobar"

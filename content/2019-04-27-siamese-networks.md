@@ -54,7 +54,7 @@ While this problem is better solved with another approach, I was just curious
 how well a simple neural network would do. The answer was ... underwhelming.
 I guess I made an error, but at the moment I can't find it:
 
-```
+```python
 #!/usr/bin/env python
 
 """
@@ -78,11 +78,13 @@ from sklearn.metrics.pairwise import euclidean_distances
 import numpy as np
 from scipy.spatial.distance import euclidean
 from sklearn.model_selection import train_test_split
+
 np.random.seed(0)
 
 
 def main():
     import doctest
+
     doctest.testmod()
 
     # Configure Problem
@@ -94,25 +96,28 @@ def main():
     nn = create_network(n_reference_points, n_dim)
 
     # Make the network trainable
-    dists1_in = Input(shape=(n_reference_points, ))
-    dists2_in = Input(shape=(n_reference_points, ))
+    dists1_in = Input(shape=(n_reference_points,))
+    dists2_in = Input(shape=(n_reference_points,))
     point1_out = nn(dists1_in)
     point2_out = nn(dists2_in)
     merged_vector = Concatenate(axis=-1)([point1_out, point2_out])
     model = Model(inputs=[dists1_in, dists2_in], outputs=merged_vector)
-    model.compile(loss=partial(dual_loss, n_dim=n_dim), optimizer='adam')
+    model.compile(loss=partial(dual_loss, n_dim=n_dim), optimizer="adam")
 
     # Generate Data
     points = generate_data(n_points=n_points, n_dim=n_dim)
     print(points[:n_reference_points])
     distances = get_distances(points, n_reference_points)
-    train_points, test_points, train_distances, test_distances = \
-        train_test_split(points, distances, )
-    distances_p1s, distances_p2s, pair_distances = \
-        get_train_data(train_points, train_distances)
+    train_points, test_points, train_distances, test_distances = train_test_split(
+        points, distances,
+    )
+    distances_p1s, distances_p2s, pair_distances = get_train_data(
+        train_points, train_distances
+    )
 
-    model.fit([distances_p1s, distances_p2s],
-              pair_distances, batch_size=128, epochs=100)
+    model.fit(
+        [distances_p1s, distances_p2s], pair_distances, batch_size=128, epochs=100
+    )
     predicted_points = nn.predict(test_distances)
     error = measure_error(test_points, predicted_points)
     print("Error: {:0.3f}".format(error))
@@ -154,11 +159,11 @@ def get_distances(points, n_reference_points):
 
 
 def create_network(n_reference_points, n_dim):
-    input_ = Input(shape=(n_reference_points, ))
+    input_ = Input(shape=(n_reference_points,))
     x = input_
-    x = Dense(200, activation='relu')(x)
-    x = Dense(200, activation='relu')(x)
-    x = Dense(n_dim, activation='sigmoid')(x)
+    x = Dense(200, activation="relu")(x)
+    x = Dense(200, activation="relu")(x)
+    x = Dense(n_dim, activation="sigmoid")(x)
     model = Model(inputs=input_, outputs=x)
     return model
 
@@ -224,11 +229,11 @@ def measure_error(real_points, predicted_points):
     """
     real_distances = np.tril(euclidean_distances(real_points), 0).reshape(-1)
     pred_point_distances = np.tril(euclidean_distances(predicted_points)).reshape(-1)
-    diff = sum(((real_distances - pred_point_distances)**2)**0.5)
+    diff = sum(((real_distances - pred_point_distances) ** 2) ** 0.5)
     return diff / len(real_points)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
 ```
 

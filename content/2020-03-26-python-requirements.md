@@ -138,7 +138,7 @@ However, the `requirements.txt` is still the de facto standard.
 
 The structure of a `requirements.txt` file is super simple:
 
-```
+```text
 virtualenv==15.1.0
 visitor==0.1.3
 vtk==8.1.1
@@ -156,7 +156,7 @@ One line of the format `[package]==[version]`per requirement.
 
 It can be installed via
 
-```
+```shell
 $ pip install -r requirements.txt
 ```
 
@@ -265,7 +265,7 @@ even for requirements of my requirements, I usually do this:
 
 ### pip freeze
 
-```
+```shell
 $ virtualenv venv
 $ source venv/bin/activate
 
@@ -279,7 +279,7 @@ $ pip freeze > requirements.txt
 
 If you think your setup.py might miss something, try [`pipreqs`](https://pypi.org/project/pipreqs/):
 
-```
+```shell
 $ pip install pipreqs
 $ pipreqs /project/path
 ```
@@ -295,7 +295,7 @@ have been used by Twitter to deploy Python applications to production since
 
 Here is how you use it:
 
-```
+```shell
 $ pip install pex
 $ pex -vv --disable-cache --python-shebang="/usr/bin/env python3.6" --output-file=fooexecutable --requirement=requirements.txt -e modulename
 ```

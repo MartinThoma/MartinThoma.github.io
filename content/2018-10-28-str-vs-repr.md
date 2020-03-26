@@ -10,7 +10,7 @@ featured_image: logos/python.png
 ---
 The goal of `__repr__` is to be unambiguous and the goal of `__str__` is to be readable. Bonus points, if `__repr__` returns what is needed to create the object. Some examples are:
 
-```
+```python-repl
 >>> repr([42, 1337])
 '[42, 1337]'
 >>> repr({42, 1337})
@@ -35,17 +35,16 @@ are the same.
 
 The following code sample shows how `__repr__` and `__str__` are used:
 
-```
+```python
 class Foo(object):
-
     def __repr__(self):
-        return '__repr__'
+        return "__repr__"
 
     def __str__(self):
-        return '__str__'
+        return "__str__"
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     bar = Foo()
 
     print(bar)
@@ -66,7 +65,7 @@ Playing with this gives the following insights:
 
 It's a bit different once you get to third party libraries:
 
-```
+```python-repl
 >>> import numpy as np
 >>> a = np.array([42, 1337])
 >>> str(a)
@@ -79,7 +78,7 @@ Some - like Pandas Dataframes have a very different string representation.
 
 Others just don't care to implement somehting reasonable at all:
 
-```
+```python-repl
 >>> from keras.models import Sequential
 >>> model = Sequential()
 >>> repr(model)
@@ -91,7 +90,7 @@ Others just don't care to implement somehting reasonable at all:
 
 Also - sadly - it is not done well with Enums:
 
-```
+```python-repl
 class ExistsStrategy(enum.Enum):
     """Strategies what to do when a file already exists."""
 

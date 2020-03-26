@@ -59,7 +59,7 @@ See [GitHub](https://github.com/numpy/numpy/blob/254c50af3a52c8b1444e46857e9ec59
 
 It looks as follows:
 
-```
+```python
 def get_meta(filepath, a_number, a_dict):
     """
     Get meta-information of an image.
@@ -97,7 +97,7 @@ for the documentation.
 
 It looks as follows:
 
-```
+```python
 def get_meta(filepath, a_number, a_dict):
     """Get meta-information of an image.
 
@@ -123,7 +123,7 @@ def get_meta(filepath, a_number, a_dict):
 It's super ugly and I find it hard to read, but this docstring type is also out
 there. [SphinxDocString](https://github.com/JetBrains/intellij-community/blob/210e0ed138627926e10094bb9c76026319cec178/python/src/com/jetbrains/python/documentation/docstrings/SphinxDocString.java). They use [reStructuredText](https://en.wikipedia.org/wiki/ReStructuredText):
 
-```
+```python
 def get_meta(filepath, a_number, a_dict):
     """
     Get meta-information of an image.

@@ -27,11 +27,21 @@ from argparse import ArgumentParser
 parser = ArgumentParser()
 
 # Add more options if you like
-parser.add_argument("-f", "--file", dest="myFilenameVariable",
-                    help="write report to FILE", metavar="FILE")
-parser.add_argument("-q", "--quiet",
-                    action="store_false", dest="verbose", default=True,
-                    help="don't print status messages to stdout")
+parser.add_argument(
+    "-f",
+    "--file",
+    dest="myFilenameVariable",
+    help="write report to FILE",
+    metavar="FILE",
+)
+parser.add_argument(
+    "-q",
+    "--quiet",
+    action="store_false",
+    dest="verbose",
+    default=True,
+    help="don't print status messages to stdout",
+)
 
 args = parser.parse_args()
 
@@ -77,29 +87,38 @@ It is absolutely no problem to calculate the 100,000st Fibonacci number.
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+
 def mul(A, B):
     a, b, c = A
     d, e, f = B
-    return a*d + b*e, a*e + b*f, b*e + c*f
+    return a * d + b * e, a * e + b * f, b * e + c * f
+
 
 def pow(A, n):
-    if n == 1:     return A
-    if n & 1 == 0: return pow(mul(A, A), n//2)
-    else:          return mul(A, pow(mul(A, A), (n-1)//2))
+    if n == 1:
+        return A
+    if n & 1 == 0:
+        return pow(mul(A, A), n // 2)
+    else:
+        return mul(A, pow(mul(A, A), (n - 1) // 2))
+
 
 def fib(n):
-    if n < 2: return n
-    return pow((1,1,0), n-1)[0]
+    if n < 2:
+        return n
+    return pow((1, 1, 0), n - 1)[0]
+
 
 if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser(description="Fibonacci-Script")
-    parser.add_argument("-n", metavar='N', type=int,
-                        help="print the N-th fibonacci number")
+    parser.add_argument(
+        "-n", metavar="N", type=int, help="print the N-th fibonacci number"
+    )
 
     args = parser.parse_args()
-    print fib(args.n)
+    print(fib(args.n))
 ```
 
 Note that it uses <code>type=int</code> not <code>type="int"</code> as it was in optparse.
@@ -110,41 +129,54 @@ Note that it uses <code>type=int</code> not <code>type="int"</code> as it was in
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+
 def mul(A, B):
     a, b, c = A
     d, e, f = B
-    return a*d + b*e, a*e + b*f, b*e + c*f
+    return a * d + b * e, a * e + b * f, b * e + c * f
+
 
 def pow(A, n):
-    if n == 1:     return A
-    if n & 1 == 0: return pow(mul(A, A), n//2)
-    else:          return mul(A, pow(mul(A, A), (n-1)//2))
+    if n == 1:
+        return A
+    if n & 1 == 0:
+        return pow(mul(A, A), n // 2)
+    else:
+        return mul(A, pow(mul(A, A), (n - 1) // 2))
+
 
 def fib(n):
-    if n < 2: return n
-    return pow((1,1,0), n-1)[0]
+    if n < 2:
+        return n
+    return pow((1, 1, 0), n - 1)[0]
+
 
 if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser(description="less script")
-    parser.add_argument("-f", "--file", dest="filename",
-                        help="write report to FILE", metavar="FILE")
-    parser.add_argument("-n",
-                        dest="n", default=10, type=int,
-                        help="how many lines get printed")
-    parser.add_argument("-q", "--quiet",
-                        action="store_false", dest="verbose",
-                        default=True,
-                        help="don't print status messages to stdout")
+    parser.add_argument(
+        "-f", "--file", dest="filename", help="write report to FILE", metavar="FILE"
+    )
+    parser.add_argument(
+        "-n", dest="n", default=10, type=int, help="how many lines get printed"
+    )
+    parser.add_argument(
+        "-q",
+        "--quiet",
+        action="store_false",
+        dest="verbose",
+        default=True,
+        help="don't print status messages to stdout",
+    )
 
     args = parser.parse_args()
     if args.verbose:
         print("Will open file now and print %i lines." % args.n)
 
-    f = open(args.filename, 'r')
+    f = open(args.filename, "r")
     for i in range(args.n):
-        print f.readline()
+        print(f.readline())
 ```
 
 ### Example 3: copy-paste template
@@ -183,23 +215,29 @@ def is_valid_file(parser, arg):
 def get_parser():
     """Get parser object for script xy.py."""
     from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
-    parser = ArgumentParser(description=__doc__,
-                            formatter_class=ArgumentDefaultsHelpFormatter)
-    parser.add_argument("-f", "--file",
-                        dest="filename",
-                        type=lambda x: is_valid_file(parser, x),
-                        help="write report to FILE",
-                        metavar="FILE")
-    parser.add_argument("-n",
-                        dest="n",
-                        default=10,
-                        type=int,
-                        help="how many lines get printed")
-    parser.add_argument("-q", "--quiet",
-                        action="store_false",
-                        dest="verbose",
-                        default=True,
-                        help="don't print status messages to stdout")
+
+    parser = ArgumentParser(
+        description=__doc__, formatter_class=ArgumentDefaultsHelpFormatter
+    )
+    parser.add_argument(
+        "-f",
+        "--file",
+        dest="filename",
+        type=lambda x: is_valid_file(parser, x),
+        help="write report to FILE",
+        metavar="FILE",
+    )
+    parser.add_argument(
+        "-n", dest="n", default=10, type=int, help="how many lines get printed"
+    )
+    parser.add_argument(
+        "-q",
+        "--quiet",
+        action="store_false",
+        dest="verbose",
+        default=True,
+        help="don't print status messages to stdout",
+    )
     return parser
 
 

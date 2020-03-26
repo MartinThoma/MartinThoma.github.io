@@ -38,11 +38,11 @@ and prints the age in years (a single integer).
 
 ## Tests
 
-```
-assert get_age('1996-02-29T15:45:54;Europe/Berlin;2018-10-03T09:47:50') == 22
-assert get_age('2008-04-28T15:45:54;Europe/Berlin;2018-10-03T09:47:50') == 10
-assert get_age('2008-11-28T15:45:54;Europe/Berlin;2018-10-03T09:47:50') == 9
-assert get_age('2006-03-01T00:00:00;Europe/Berlin;2008-02-29T23:59:59') == 1
+```python
+assert get_age("1996-02-29T15:45:54;Europe/Berlin;2018-10-03T09:47:50") == 22
+assert get_age("2008-04-28T15:45:54;Europe/Berlin;2018-10-03T09:47:50") == 10
+assert get_age("2008-11-28T15:45:54;Europe/Berlin;2018-10-03T09:47:50") == 9
+assert get_age("2006-03-01T00:00:00;Europe/Berlin;2008-02-29T23:59:59") == 1
 ```
 
 
@@ -54,7 +54,7 @@ I hope to see many solutions in different programming languages.
 
 Author: Martin Thoma
 
-```
+```python
 def get_age(input_):
     """
     Calculate the age of a person
@@ -63,7 +63,7 @@ def get_age(input_):
     import pytz
 
     # parse input
-    born, born_tz, now = input_.split(';')
+    born, born_tz, now = input_.split(";")
     tz = pytz.timezone(born_tz)
     born = parse(born).replace(tzinfo=pytz.utc).astimezone(tz)
     now = parse(now).replace(tzinfo=pytz.utc)
@@ -72,5 +72,4 @@ def get_age(input_):
     year_not_finished = (now.month, now.day) < (born.month, born.day)
     age = now.year - born.year - int(year_not_finished)
     return age
-
 ```

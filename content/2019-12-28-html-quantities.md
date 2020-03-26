@@ -41,7 +41,7 @@ if units can be identified easily.
 
 ## Intermediate solution
 
-```
+```html
 <span class="quantity temperature"><span class="value">-5</span><span class="unit">°F</span></span>
 <span class="quantity power"><span class="value">400</span><span class="unit">kW</span></span>
 ```
@@ -51,7 +51,7 @@ if units can be identified easily.
 
 The intermediate solution is a bit verbose. I would prefer a syntax like:
 
-```
+```html
 <quantity type="temperature"><num>-5</num><unit>°F</unit></quantity>
 <quantity type="power"><num>400</num><unit>kW</unit></quantity>
 ```
@@ -64,7 +64,7 @@ it should also have easy ways to customize the numbers (preferably via CSS):
 
 You can do this number formatting with JavaScript [`toLocaleString`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString):
 
-```
+```js
 num = 1234567
 num.toLocaleString('en', {useGrouping:true})
 ```

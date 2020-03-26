@@ -10,7 +10,7 @@ featured_image: logos/code.png
 ---
 Pythons Trove Classifiers have 7 stages of software development:
 
-```
+```text
 Development Status :: 1 - Planning
 Development Status :: 2 - Pre-Alpha
 Development Status :: 3 - Alpha
@@ -46,7 +46,7 @@ has passed or which type of change was done.
 I suggest taking 5 minutes to read [semver.org](https://semver.org), but the
 bare minimum you need to know about it is:
 
-```
+```text
 Given a version number MAJOR.MINOR.PATCH, increment the:
 
 MAJOR version when you make incompatible API changes,

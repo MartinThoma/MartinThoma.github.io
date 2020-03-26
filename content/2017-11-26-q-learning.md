@@ -40,7 +40,7 @@ set of actions $\mathcal{A}$, then you have $|\mathcal{S}| \cdot |\mathcal{A}|$
 possibilities to rate. For some of the observations you also receive a reward.
 But rewards might be delayed:
 
-```
+```text
                       a0 --- s3, r=10
                     /
      a0-- s1, r= 10 - a1 --- s4, r= 0
@@ -95,7 +95,7 @@ The latest code can be found on [Github MartinThoma:algorithms/](https://github.
 
 First, the configuration file:
 
-```
+```yaml
 model_name: 'qlearning'
 problem:
   gamma: 0.99  # discounting factor
@@ -112,7 +112,7 @@ testing:
 
 Now the code:
 
-```
+```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
@@ -131,10 +131,12 @@ import numpy as np
 
 np.random.seed(280490)
 
-logging.basicConfig(format='%(asctime)s %(levelname)s %(message)s',
-                    level=logging.DEBUG,
-                    stream=sys.stdout)
-np.set_printoptions(formatter={'float_kind': lambda x: "{:.2f}".format(x)})
+logging.basicConfig(
+    format="%(asctime)s %(levelname)s %(message)s",
+    level=logging.DEBUG,
+    stream=sys.stdout,
+)
+np.set_printoptions(formatter={"float_kind": lambda x: "{:.2f}".format(x)})
 
 
 def main(environment_name, agent_cfg_file):
@@ -150,9 +152,10 @@ def main(environment_name, agent_cfg_file):
 
     # Set up environment and agent
     env = gym.make(environment_name)
-    cfg['env'] = env
-    cfg['serialize_path'] = ('artifacts/{}-{}.pickle'
-                             .format(cfg['model_name'], environment_name))
+    cfg["env"] = env
+    cfg["serialize_path"] = "artifacts/{}-{}.pickle".format(
+        cfg["model_name"], environment_name
+    )
     agent = load_agent(cfg, env)
 
     agent = train_agent(cfg, env, agent)
@@ -174,10 +177,10 @@ class QTableAgent:
         self.nb_obs = nb_observations
         self.nb_act = nb_actions
         self.Q = np.zeros([nb_observations, nb_actions])
-        self.lr = agent_cfg['training']['learning_rate']
-        self.gamma = agent_cfg['problem']['gamma']  # discount
+        self.lr = agent_cfg["training"]["learning_rate"]
+        self.gamma = agent_cfg["problem"]["gamma"]  # discount
         self.epoch = 0
-        self.exploration = agent_cfg['training']['exploration']
+        self.exploration = agent_cfg["training"]["exploration"]
 
     def reset(self):
         """Reset the agent. Call this at the beginning of an episode."""
@@ -199,19 +202,19 @@ class QTableAgent:
         assert self.epoch >= 1, "Reset before you run an episode."
         action = np.argmax(self.Q[observation, :])
         if not no_exploration:
-            if self.exploration['name'] == 'epsilon-greedy':
-                if np.random.uniform() < self.exploration['epsilon']:
+            if self.exploration["name"] == "epsilon-greedy":
+                if np.random.uniform() < self.exploration["epsilon"]:
                     action = np.random.random_integers(0, self.nb_act - 1)
-            elif self.exploration['name'] == 'Boltzmann':
+            elif self.exploration["name"] == "Boltzmann":
                 T = 1
-                clip = self.exploration['clip']
-                q_values = self.Q[observation, :].astype('float64')
+                clip = self.exploration["clip"]
+                q_values = self.Q[observation, :].astype("float64")
                 q_values = np.clip(q_values / T, clip[0], clip[1])
                 exp_values = np.exp(q_values)
                 probs = exp_values / np.sum(exp_values)
                 action = np.random.choice(range(self.nb_act), p=probs)
             else:
-                raise NotImplemented(self.exploration['name'])
+                raise NotImplemented(self.exploration["name"])
         return action
 
     def remember(self, prev_state, action, reward, state, is_done):
@@ -233,18 +236,17 @@ class QTableAgent:
 
     def save(self, path):
         """Serialize an agent."""
-        data = {'Q': self.Q,
-                'epoch': self.epoch}
-        with open(path, 'wb') as handle:
+        data = {"Q": self.Q, "epoch": self.epoch}
+        with open(path, "wb") as handle:
             pickle.dump(data, handle, protocol=pickle.HIGHEST_PROTOCOL)
         return self
 
     def load(self, path):
         """Load an agent."""
-        with open(path, 'rb') as handle:
+        with open(path, "rb") as handle:
             data = pickle.load(handle)
-            self.Q = data['Q']
-            self.epoch = data['epoch']
+            self.Q = data["Q"]
+            self.epoch = data["epoch"]
         return self
 
 
@@ -258,8 +260,8 @@ def load_agent(cfg, env):
     env : OpenAI environment
     """
     agent = QTableAgent(cfg, env.observation_space.n, env.action_space.n)
-    if os.path.isfile(cfg['serialize_path']):
-        agent.load(cfg['serialize_path'])
+    if os.path.isfile(cfg["serialize_path"]):
+        agent.load(cfg["serialize_path"])
     return agent
 
 
@@ -279,7 +281,7 @@ def train_agent(cfg, env, agent):
     agent : object
     """
     cum_reward = 0.0
-    for episode in range(cfg['training']['nb_epochs']):
+    for episode in range(cfg["training"]["nb_epochs"]):
         agent.reset()
         observation_previous = env.reset()
         is_done = False
@@ -287,22 +289,20 @@ def train_agent(cfg, env, agent):
             action = agent.act(observation_previous)
             observation, reward, is_done, _ = env.step(action)
             cum_reward += reward
-            agent.remember(observation_previous, action, reward, observation,
-                           is_done)
+            agent.remember(observation_previous, action, reward, observation, is_done)
             observation_previous = observation
-        if episode % cfg['training']['print_score'] == 0 and episode > 0:
-            agent.save(cfg['serialize_path'])
-            print("Average score: {:>5.2f}"
-                  .format(cum_reward / (episode + 1)))
+        if episode % cfg["training"]["print_score"] == 0 and episode > 0:
+            agent.save(cfg["serialize_path"])
+            print("Average score: {:>5.2f}".format(cum_reward / (episode + 1)))
             print(agent.Q)
-    agent.save(cfg['serialize_path'])
+    agent.save(cfg["serialize_path"])
     return agent
 
 
 def test_agent(cfg, env, agent):
     """Calculate average reward."""
     cum_reward = 0.0
-    for episode in range(cfg['testing']['nb_epochs']):
+    for episode in range(cfg["testing"]["nb_epochs"]):
         agent.reset()
         observation_previous = env.reset()
         is_done = False
@@ -311,7 +311,7 @@ def test_agent(cfg, env, agent):
             observation, reward, is_done, _ = env.step(action)
             cum_reward += reward
             observation_previous = observation
-    return cum_reward / cfg['testing']['nb_epochs']
+    return cum_reward / cfg["testing"]["nb_epochs"]
 
 
 # General code for loading ML configuration files
@@ -328,7 +328,7 @@ def load_cfg(yaml_filepath):
     cfg : dict
     """
     # Read YAML experiment definition file
-    with open(yaml_filepath, 'r') as stream:
+    with open(yaml_filepath, "r") as stream:
         cfg = yaml.load(stream)
     cfg = make_paths_absolute(os.path.dirname(yaml_filepath), cfg)
     return cfg
@@ -361,25 +361,30 @@ def make_paths_absolute(dir_, cfg):
 def get_parser():
     """Get parser object."""
     from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
-    parser = ArgumentParser(description=__doc__,
-                            formatter_class=ArgumentDefaultsHelpFormatter)
-    parser.add_argument("--env",
-                        dest="environment_name",
-                        help="OpenAI Gym environment",
-                        metavar="ENVIRONMENT",
-                        default="FrozenLake-v0")
-    parser.add_argument("--agent",
-                        dest="agent_cfg_file",
-                        required=True,
-                        metavar="AGENT_YAML",
-                        help="Configuration file for the agent")
+
+    parser = ArgumentParser(
+        description=__doc__, formatter_class=ArgumentDefaultsHelpFormatter
+    )
+    parser.add_argument(
+        "--env",
+        dest="environment_name",
+        help="OpenAI Gym environment",
+        metavar="ENVIRONMENT",
+        default="FrozenLake-v0",
+    )
+    parser.add_argument(
+        "--agent",
+        dest="agent_cfg_file",
+        required=True,
+        metavar="AGENT_YAML",
+        help="Configuration file for the agent",
+    )
     return parser
 
 
 if __name__ == "__main__":
     args = get_parser().parse_args()
     main(args.environment_name, args.agent_cfg_file)
-
 ```
 
 ## Results

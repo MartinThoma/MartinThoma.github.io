@@ -19,23 +19,22 @@ example script:
 
 import matplotlib.pyplot as plt
 import seaborn as sns
+
 sns.set_style("whitegrid")
 
 
-def plot_1d(l, colors=None, xlabel='', ylabel=''):
+def plot_1d(l, colors=None, xlabel="", ylabel=""):
     """Plot a 1D list l of numbers."""
-    ax = sns.barplot([i for i in range(len(l))],
-                     l,
-                     palette=colors)
-    ax.set(xlabel=xlabel, ylabel=ylabel, label='big')
+    ax = sns.barplot([i for i in range(len(l))], l, palette=colors)
+    ax.set(xlabel=xlabel, ylabel=ylabel, label="big")
     ax.set_xticks([])
 
-    plt.savefig('example.pdf')
-    plt.savefig('example.png')
+    plt.savefig("example.pdf")
+    plt.savefig("example.png")
     plt.show()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     l = [41, 44, 46, 46, 47, 47, 48, 48, 49, 51, 52, 53, 53, 53, 53, 55, 55,
          55, 55, 56, 56, 56, 56, 56, 56, 57, 57, 57, 57, 57, 57, 57, 57, 58,
          58, 58, 58, 59, 59, 59, 59, 59, 59, 59, 59, 60, 60, 60, 60, 60, 60,
@@ -54,14 +53,13 @@ if __name__ == '__main__':
     en_found = False
     for value in l:
         if value == 60 and not en_found:  # eng
-            colors.append('red')
+            colors.append("red")
             en_found = True
         elif value == 88:  # rus
-            colors.append('blue')
+            colors.append("blue")
         else:
-            colors.append('grey')
-    plot_1d(l, colors, xlabel='Languages', ylabel='$|C_{99}|$')
-
+            colors.append("grey")
+    plot_1d(l, colors, xlabel="Languages", ylabel="$|C_{99}|$")
 ```
 
 which gives

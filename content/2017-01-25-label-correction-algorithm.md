@@ -38,7 +38,7 @@ Special cases:
 
 ## Python
 
-```
+```python
 #!/usr/bin/env python
 
 """Label Correction algorithm."""
@@ -47,9 +47,11 @@ Special cases:
 import logging
 import sys
 
-logging.basicConfig(format='%(asctime)s %(levelname)s %(message)s',
-                    level=logging.DEBUG,
-                    stream=sys.stdout)
+logging.basicConfig(
+    format="%(asctime)s %(levelname)s %(message)s",
+    level=logging.DEBUG,
+    stream=sys.stdout,
+)
 
 
 class LIFO(list):
@@ -72,9 +74,8 @@ class Graph(object):
     def add_node(self, name=None):
         """Add a new node and return its index."""
         node_index = len(self.nodes)
-        if name.startswith('index-'):
-            logging.warning('Node names beginning with "index-" may cause '
-                            'problems.')
+        if name.startswith("index-"):
+            logging.warning('Node names beginning with "index-" may cause ' "problems.")
         if name is None:
             name = "index-%i" % node_index
         self.nodes.append(node_index)
@@ -84,9 +85,9 @@ class Graph(object):
         # Add weight from new node to other nodes and vice-versa
         self.edges.append([])
         for n1 in self.nodes:
-            self.edges[node_index].append(float('inf'))
+            self.edges[node_index].append(float("inf"))
             if n1 != node_index:
-                self.edges[n1].append(float('inf'))
+                self.edges[n1].append(float("inf"))
 
         # From the node to itself has distance 0
         self.edges[node_index][node_index] = 0
@@ -120,10 +121,7 @@ class Graph(object):
         self.neighbors[i2].append(i1)
 
 
-def label_correction(graph,
-                     start_node, t,
-                     h=None, m=None,
-                     K=None):
+def label_correction(graph, start_node, t, h=None, m=None, K=None):
     """
     Label correction algorithm for graph searches.
 
@@ -147,16 +145,16 @@ def label_correction(graph,
     if h is None:
         h = lambda g, n1, n2: 0.0
     if m is None:
-        m = lambda g, n1, n2: float('inf')
+        m = lambda g, n1, n2: float("inf")
     if K is None:
         K = LIFO()
     d = []
     parents = []
     for node in graph.nodes:
-        d.append(float('inf'))
+        d.append(float("inf"))
         parents.append(None)
     d[start_node] = 0
-    u = float('inf')  # shortest distance from start_node to t
+    u = float("inf")  # shortest distance from start_node to t
     K.append(start_node)
     while len(K) > 0:
         logging.info("K=%s" % str(K))
@@ -179,37 +177,34 @@ def label_correction(graph,
         current = parents[current]
     path.append(current)
     named_path.append(graph.index2name[current])
-    return {'shortest_distance': u,
-            'path': path[::-1],
-            'named_path': named_path[::-1]}
+    return {"shortest_distance": u, "path": path[::-1], "named_path": named_path[::-1]}
 
 
 def sample_1():
     """A simple search problem."""
     g = Graph()
     for i in range(13):
-        g.add_node(name=chr(ord('A') + i))
-    g.set_edge_by_name('A', 'B', 1)
-    g.set_edge_by_name('A', 'C', 1)
-    g.set_edge_by_name('B', 'D', 1)
-    g.set_edge_by_name('B', 'E', 1)
-    g.set_edge_by_name('C', 'F', 1)
-    g.set_edge_by_name('C', 'G', 1)
-    g.set_edge_by_name('D', 'H', 1)
-    g.set_edge_by_name('D', 'I', 1)
-    g.set_edge_by_name('E', 'J', 1)
-    g.set_edge_by_name('G', 'K', 1)
-    g.set_edge_by_name('H', 'L', 1)
-    g.set_edge_by_name('J', 'M', 1)
-    i1 = g.get_node_index('A')
-    i2 = g.get_node_index('F')
+        g.add_node(name=chr(ord("A") + i))
+    g.set_edge_by_name("A", "B", 1)
+    g.set_edge_by_name("A", "C", 1)
+    g.set_edge_by_name("B", "D", 1)
+    g.set_edge_by_name("B", "E", 1)
+    g.set_edge_by_name("C", "F", 1)
+    g.set_edge_by_name("C", "G", 1)
+    g.set_edge_by_name("D", "H", 1)
+    g.set_edge_by_name("D", "I", 1)
+    g.set_edge_by_name("E", "J", 1)
+    g.set_edge_by_name("G", "K", 1)
+    g.set_edge_by_name("H", "L", 1)
+    g.set_edge_by_name("J", "M", 1)
+    i1 = g.get_node_index("A")
+    i2 = g.get_node_index("F")
     ret = label_correction(g, i1, i2)
     print(ret)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     sample_1()
-
 ```
 
 

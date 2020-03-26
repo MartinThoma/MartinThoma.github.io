@@ -55,7 +55,7 @@ and `\definecolor{name}{model}{color-spec}` where:
 
 For example:
 
-```
+```tex
 \definecolor{orange}{HTML}{FF7F00}
 \definecolor{orange}{rgb}{1,0.5,0}
 \definecolor{orange}{RGB}{255,127,0}

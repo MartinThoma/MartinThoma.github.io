@@ -119,7 +119,7 @@ if __name__ == "__main__":
 
 When you call this script with
 
-```
+```shell
 $ ./plot-random-variable.py -n 4 --samples 100000
 ```
 

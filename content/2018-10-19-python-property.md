@@ -13,9 +13,8 @@ why and how to use it.
 
 The following super basic `Location` class is used:
 
-```
+```python
 def Location(object):
-
     def __init__(self, longitude, latitude):
         self.longitude = longitude
         self.latitude = latitude
@@ -27,30 +26,30 @@ def Location(object):
 Let's say, you want to add a range check for the properties of the class. You
 could make something like:
 
-```
+```python
 class Location(object):
-
     def __init__(self, longitude, latitude):
         self.set_latitude(latitude)
         self.set_longitude(longitude)
 
     def set_latitude(self, latitude):
         if not (-90 <= latitude <= 90):
-            raise ValueError('latitude was {}, but has to be in [-90, 90]'
-                             .format(latitude))
+            raise ValueError(
+                "latitude was {}, but has to be in [-90, 90]".format(latitude)
+            )
         self.latitude = latitude
 
     def set_longitude(self, longitude):
         if not (-180 <= longitude <= 180):
-            raise ValueError('longitude was {}, but has to be in [-180, 180]'
-                             .format(longitude))
+            raise ValueError(
+                "longitude was {}, but has to be in [-180, 180]".format(longitude)
+            )
         self.longitude = longitude
-
 ```
 
 which would then be called like this:
 
-```
+```python
 my_position = Location(48.137222222222, 11.575555555556)
 
 # Update after a while
@@ -69,7 +68,7 @@ With Python 2.2, the `property` class was added to simplify it ([source](https:/
 
 With that, you can change the class to
 
-```
+```python
 class Location(object):
     """Representation of a point on Earth."""
 
@@ -79,14 +78,16 @@ class Location(object):
 
     def set_latitude(self, latitude):
         if not (-90 <= latitude <= 90):
-            raise ValueError('latitude was {}, but has to be in [-90, 90]'
-                             .format(latitude))
+            raise ValueError(
+                "latitude was {}, but has to be in [-90, 90]".format(latitude)
+            )
         self._latitude = latitude
 
     def set_longitude(self, longitude):
         if not (-180 <= longitude <= 180):
-            raise ValueError('longitude was {}, but has to be in [-180, 180]'
-                             .format(longitude))
+            raise ValueError(
+                "longitude was {}, but has to be in [-180, 180]".format(longitude)
+            )
         self._longitude = longitude
 
     def get_longitude(self):
@@ -106,12 +107,11 @@ my_position.latitude = 48.2
 my_position.longitude = 42.6
 
 my_position.latitude = 123  # Fails
-
 ```
 
 Here is how the `help` of this class looks like:
 
-```
+```text
 Help on class Location in module __main__:
 
 class Location(builtins.object)
@@ -164,7 +164,7 @@ It makes the behaviour less error-prone when you inherit from such a class.
 
 Here is how it is used:
 
-```
+```python
 class Location(object):
     """Representation of a point on Earth."""
 
@@ -185,15 +185,17 @@ class Location(object):
     @latitude.setter
     def latitude(self, latitude):
         if not (-90 <= latitude <= 90):
-            raise ValueError('latitude was {}, but has to be in [-90, 90]'
-                             .format(latitude))
+            raise ValueError(
+                "latitude was {}, but has to be in [-90, 90]".format(latitude)
+            )
         self._latitude = latitude
 
     @longitude.setter
     def longitude(self, longitude):
         if not (-180 <= longitude <= 180):
-            raise ValueError('longitude was {}, but has to be in [-180, 180]'
-                             .format(longitude))
+            raise ValueError(
+                "longitude was {}, but has to be in [-180, 180]".format(longitude)
+            )
         self._longitude = longitude
 
 
@@ -208,7 +210,7 @@ my_position.latitude = 123  # Fails
 
 Here is how the `help` of this class looks like:
 
-```
+```text
 Help on class Location in module __main__:
 
 class Location(builtins.object)

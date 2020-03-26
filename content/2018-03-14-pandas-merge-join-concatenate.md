@@ -13,34 +13,32 @@ dataframes. So here are some examples that should make it crystal clear.
 
 First, we create two dataframes:
 
-```
+```python
 #!/usr/bin/env python
 
 import pandas as pd
 
-countries = ['Germany', 'France', 'Indonesia']
-inhabitants = [82.5 * 10**6, 66.9 * 10**6, 255.5 * 10**6]
-capitals = ['Berlin', 'Paris', 'Jakarta']
+countries = ["Germany", "France", "Indonesia"]
+inhabitants = [82.5 * 10 ** 6, 66.9 * 10 ** 6, 255.5 * 10 ** 6]
+capitals = ["Berlin", "Paris", "Jakarta"]
 
-df1 = pd.DataFrame({'country': countries,
-                    'inhabitant': inhabitants,
-                    'capital': capitals})
-df1 = df1[['country', 'capital', 'inhabitant']]
+df1 = pd.DataFrame(
+    {"country": countries, "inhabitant": inhabitants, "capital": capitals}
+)
+df1 = df1[["country", "capital", "inhabitant"]]
 print(df1)
 
-countries = ['Germany', 'Italy', 'Spain', 'Austria']
-capitals = ['Berlin', 'Rome', 'Madrid', 'Vienna']
+countries = ["Germany", "Italy", "Spain", "Austria"]
+capitals = ["Berlin", "Rome", "Madrid", "Vienna"]
 hdis = [0.926, 0.897, 0.844, 0.893]
-df2 = pd.DataFrame({'country': countries,
-                    'capital': capitals,
-                    'HDI': hdis})
-df2 = df2[['country', 'capital', 'HDI']]
+df2 = pd.DataFrame({"country": countries, "capital": capitals, "HDI": hdis})
+df2 = df2[["country", "capital", "HDI"]]
 print(df2)
 ```
 
 So `df1` is:
 
-```
+```text
      country  capital   inhabitant
 0    Germany   Berlin   82500000.0
 1     France    Paris   66900000.0
@@ -49,7 +47,7 @@ So `df1` is:
 
 and `df2` is
 
-```
+```text
    country capital    HDI
 0  Germany  Berlin  0.926
 1    Italy    Rome  0.897
@@ -62,7 +60,7 @@ and `df2` is
 The [pandas docs](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.merge.html)
 tell you that it has the syntax:
 
-```
+```python-repl
 >>> df1.merge(df2, on='country', how='inner')
    country capital_x  inhabitant capital_y    HDI
 0  Germany    Berlin  82500000.0    Berlin  0.926
@@ -72,7 +70,7 @@ Please note that the column `capital` was duplicated as it is in both tables
 
 Then you can do all of the usual operations we know from SQL JOINs, e.g. a LEFT JOIN:
 
-```
+```python-repl
 >>> df1.merge(df2, on='country', how='left')
      country capital_x   inhabitant capital_y    HDI
 0    Germany    Berlin   82500000.0    Berlin  0.926
@@ -82,7 +80,7 @@ Then you can do all of the usual operations we know from SQL JOINs, e.g. a LEFT 
 
 A RIGHT JOIN:
 
-```
+```python-repl
 >>> df1.merge(df2, on='country', how='right')
    country capital_x  inhabitant capital_y    HDI
 0  Germany    Berlin  82500000.0    Berlin  0.926
@@ -93,7 +91,7 @@ A RIGHT JOIN:
 
 OUTER JOIN:
 
-```
+```python-repl
 >>> df1.merge(df2, on='country', how='outer')
      country capital_x   inhabitant capital_y    HDI
 0    Germany    Berlin   82500000.0    Berlin  0.926
@@ -127,7 +125,7 @@ states:
 
 Having a look at the following example:
 
-```
+```python-repl
 >>> df1.join(df2, on='country', how='outer', lsuffix='_df1')
   country_df1 capital_df1   inhabitant country capital    HDI
 0     Germany      Berlin   82500000.0     NaN     NaN    NaN
@@ -151,7 +149,7 @@ don't have that anymore.
 [Pandas Documentation](http://pandas.pydata.org/pandas-docs/stable/generated/pandas.concat.html)
 and the example
 
-```
+```python-repl
 >>> pd.concat([df1, df2])
      HDI  capital    country   inhabitant
 0    NaN   Berlin    Germany   82500000.0

@@ -30,9 +30,9 @@ $\begin{pmatrix}
 
 You might also have heard of Pythons overloaded multiplication:
 ```python
-print([0]*4)
-print([[0]*4]*4)
-print("abc"*4)
+print([0] * 4)
+print([[0] * 4] * 4)
+print("abc" * 4)
 ```
 Output:
 ```text
@@ -43,22 +43,25 @@ abcabcabcabc
 
 <h2>Question</h2>
 What do you think does the following piece of Python-Code print?
+
 ```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-def standardMatrixProduct(A, B):
-	n = len(A)
-	C = [[0]*n]*n
-	for i in range(n):
-		for j in range(n):
-			for k in range(n):
-				C[i][j] += A[i][k] * B[k][j]
-	return C
 
-A = [[1,2], [3,4]]
-B = [[5,6], [7,8]]
-print standardMatrixProduct(A, B)
+def standardMatrixProduct(A, B):
+    n = len(A)
+    C = [[0] * n] * n
+    for i in range(n):
+        for j in range(n):
+            for k in range(n):
+                C[i][j] += A[i][k] * B[k][j]
+    return C
+
+
+A = [[1, 2], [3, 4]]
+B = [[5, 6], [7, 8]]
+print(standardMatrixProduct(A, B))
 ```
 
 
@@ -118,12 +121,12 @@ Python creates only one list and makes pointers to it!
 So this is one that works:
 ```python
 def standardMatrixProduct(A, B):
-	n = len(A)
-	C = [[0 for i in range(n)] for j in range(n)]
-	for i in range(n):
-		for j in range(n):
-			for k in range(n):
-				print C
-				C[i][j] += A[i][k] * B[k][j]
-	return C
+    n = len(A)
+    C = [[0 for i in range(n)] for j in range(n)]
+    for i in range(n):
+        for j in range(n):
+            for k in range(n):
+                print(C)
+                C[i][j] += A[i][k] * B[k][j]
+    return C
 ```

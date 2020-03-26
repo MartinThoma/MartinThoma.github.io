@@ -78,7 +78,7 @@ for this problem.
 
 sysbench:
 
-```
+```shell
 $ mysql
 > create database sbtest;
 $ sysbench oltp_read_write --db-driver=mysql --mysql-db=dbtest --mysql-user=root --mysql-password=YOUR_PASSWORD prepare

@@ -17,7 +17,7 @@ Wenn ein Endlicher Automat gegeben ist, kann durch die Konstruktion von &Auml;qu
 </ol>
 
 <h2>Beispiel</h2>
-Gegeben sei folgender Endlicher Automat A: 
+Gegeben sei folgender Endlicher Automat A:
 $A = (\{0,1\}, \{S, A, B, C, D, E, F, G, H, I\}, S, \sigma, \{D\})$ mit folgender &Uuml;bergangsfunktion $\sigma$:
 <figure class="aligncenter">
             <a href="../images/2012/02/endlicher-automat-gross.png"><img src="../images/2012/02/endlicher-automat-gross.png" alt="Endlicher Automat mit &uuml;berfl&uuml;ssigen Zust&auml;nden" style="max-width:392px;max-height:389px" class="size-full wp-image-13451"/></a>
@@ -26,7 +26,7 @@ $A = (\{0,1\}, \{S, A, B, C, D, E, F, G, H, I\}, S, \sigma, \{D\})$ mit folgende
 
 Es ist offensichtlich, dass I nicht erreicht werden kann. Da der Graph gerichtet ist, kann man schnell sehen, dass auch  H und G nicht erreicht werden k&ouml;nnen. Algorithmisch kann man diese Zust&auml;nde durch eine Tiefensuche bestimmen.
 
-Nach Schritt 1 haben wir also den Automaten 
+Nach Schritt 1 haben wir also den Automaten
 $A_1 = (\{0,1\}, \{S, A, B, C, D, E, F\}, S, \sigma, \{D\})$:
 <figure class="aligncenter">
             <a href="../images/2012/02/endlicher-automat-kleiner.png"><img src="../images/2012/02/endlicher-automat-kleiner.png" alt="Keine &uuml;berfl&uuml;ssen Zust&auml;nde im Endlichen Automaten" style="max-width:340px;max-height:381px" class="size-full wp-image-13471"/></a>
@@ -59,14 +59,15 @@ Im n&auml;chsten Schritt sehen wir, dass "1" nicht mehr trennt und "0" auch nich
 
 <h2>LaTeX</h2>
 Das ist der LaTeX-Code f&uuml;r die Automaten:
-```python
+
+```tex
 \documentclass{scrartcl}
 \usepackage{amsmath}
 \usepackage{tikz}
 \usepackage{pst-node}
 \usetikzlibrary{arrows,automata}
 
- 
+
 \begin{document}
 \begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=2cm]
   \node[initial,state]   (S)                          {$S$};
@@ -79,7 +80,7 @@ Das ist der LaTeX-Code f&uuml;r die Automaten:
   \node[state]           (G) [left of=B]              {$G$};
   \node[state]           (H) [right of=S]             {$H$};
   \node[state]           (I) [left of=A]              {$I$};
- 
+
   \path[->]          (S)  edge              node {0, 1} (A);
   \path[->]          (A)  edge              node {0}    (B);
   \path[->]          (A)  edge              node {1}    (C);
@@ -105,7 +106,7 @@ Ueberfluessige weg:
   \node[state,accepting] (D) [right of=A, below of=S] {$D$};
   \node[state]           (E) [below of=C]             {$E$};
   \node[state]           (F) [below of=B]             {$F$};
- 
+
   \path[->]          (S)  edge              node {0, 1} (A);
   \path[->]          (A)  edge              node {0}    (B);
   \path[->]          (A)  edge              node {1}    (C);
@@ -126,7 +127,7 @@ Minimal:
   \node[state]           (C) [below of=A, right of=A] {$C$};
   \node[state,accepting] (D) [right of=A, below of=S] {$D$};
 
- 
+
   \path[->]          (S)  edge              node {0, 1} (A);
   \path[->]          (A)  edge              node {0}    (B);
   \path[->]          (A)  edge              node {1}    (C);
@@ -140,7 +141,8 @@ Minimal:
 ```
 
 Und hier die Bilder mit den Pfeilchen:
-```python
+
+```tex
 \documentclass{article}
 \usepackage{amsmath}
 

@@ -83,7 +83,7 @@ following tools
 
 ## My Copy-Paste answer for dubious E-Mails
 
-```
+```text
 Dear Sir or Madam,
 
 Yes, I am interested in writing a review for your work.

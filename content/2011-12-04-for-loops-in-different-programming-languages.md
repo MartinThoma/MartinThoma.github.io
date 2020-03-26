@@ -33,7 +33,7 @@ Python uses a generator or lists to loop:
 # -*- coding: utf-8 -*-
 
 for i in range(0, 10):
-	print("In loop: %i" % i)
+    print("In loop: %i" % i)
 
 print("Out of loop: %i" % i)
 ```
@@ -100,7 +100,7 @@ foreach ($array as $key=>$value) {
 array = [0, 1, 2, 3, 4]
 
 for value in array:
-    print "Foreach: %i" % value
+    print("Foreach: %i" % value)
 ```
 
 <h2>More information</h2>

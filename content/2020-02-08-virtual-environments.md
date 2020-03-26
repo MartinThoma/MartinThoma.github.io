@@ -37,7 +37,7 @@ Installation: See [GitHub](https://github.com/pyenv/pyenv#installation)
 
 Usage:
 
-```
+```shell
 $ pyenv install --list
 Available versions:
   2.1.3
@@ -93,7 +93,7 @@ environments.
 
 First, create a virtual environment:
 
-```
+```shell
 $ pipenv --python 3.8
 Creating a virtualenv for this project…
 Pipfile: /home/moose/GitHub/clana/Pipfile
@@ -116,7 +116,7 @@ We recommend updating your Pipfile to specify the "*" version, instead.
 
 Activate the environment:
 
-```
+```shell
 $ pipenv shell
 Launching subshell in virtual environment…
  . /home/moose/.local/share/virtualenvs/clana-oPEDiD9W/bin/activate
@@ -127,7 +127,7 @@ pip 20.0.2 from /home/moose/.local/share/virtualenvs/clana-oPEDiD9W/lib/python3.
 
 Set your `Pipfile.lock`:
 
-```
+```shell
 $ pipenv lock
 Locking [dev-packages] dependencies…
 Locking [packages] dependencies…
@@ -137,7 +137,7 @@ Updated Pipfile.lock (310e7d)!
 
 Make sure your environment has exactly the stuff installed that you need:
 
-```
+```shell
 $ pipenv sync
 Installing dependencies from Pipfile.lock (310e7d)…
   🐍   ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ 14/14 — 00:00:06
@@ -151,7 +151,7 @@ I use the [`python:3.8-slim-buster`](https://hub.docker.com/_/python) (February 
 
 The `Dockerfile` can then look like this:
 
-```
+```dockerfile
 FROM python:3.8-slim-buster
 
 # Update and install extra packages

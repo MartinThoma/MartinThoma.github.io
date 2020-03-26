@@ -11,7 +11,7 @@ featured_image: logos/python.png
 When you want to connect to a database in SQLAlchemy, you need a connection
 string. It usually has the form
 
-```
+```text
 dialect[+driver]://user:password@host/dbname[?key=value..]
 ```
 
@@ -19,8 +19,9 @@ Quite often, the `user` is `root` and the `host` is `localhost`.
 
 Once you have the valid connection string, you can **test if it works** via this script:
 
-```
+```python
 import sqlalchemy
+
 engine = sqlalchemy.create_engine(SQLALCHEMY_DATABASE_URI, echo=True)
 print(engine.table_names())
 ```
@@ -34,11 +35,11 @@ print(engine.table_names())
 
 Connection:
 
-```
-SQLALCHEMY_DATABASE_URI = 'sqlite:///absolute_filepath'
+```python
+SQLALCHEMY_DATABASE_URI = "sqlite:///absolute_filepath"
 
 # Example:
-SQLALCHEMY_DATABASE_URI = 'sqlite:////tmp/test.db'
+SQLALCHEMY_DATABASE_URI = "sqlite:////tmp/test.db"
 ```
 
 The first two slashes come from the seperator of dialect and driver, the third
@@ -47,8 +48,8 @@ the path which is kind of the name of the database.
 
 If you want an in-memory SQLite DB, just specify an empty URL ([source](https://docs.sqlalchemy.org/en/13/core/engines.html#sqlite)):
 
-```
-SQLALCHEMY_DATABASE_URI = 'sqlite://'
+```python
+SQLALCHEMY_DATABASE_URI = "sqlite://"
 ```
 
 
@@ -56,14 +57,14 @@ SQLALCHEMY_DATABASE_URI = 'sqlite://'
 
 `requirements.txt`:
 
-```
+```text
 PyMySQL
 ```
 
 Connection:
 
-```
-SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://user:password@host/dbname'
+```python
+SQLALCHEMY_DATABASE_URI = "mysql+pymysql://user:password@host/dbname"
 ```
 
 There are a lot of [other MySQL drivers](https://docs.sqlalchemy.org/en/13/dialects/mysql.html):
