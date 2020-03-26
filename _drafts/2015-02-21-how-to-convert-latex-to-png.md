@@ -30,48 +30,52 @@ To test it, I've used:
 Using another website for creating the PNG is probably the easiest way:
 
 ```python
-    #!/usr/bin/env python
+#!/usr/bin/env python
 
-    import requests
-
-
-    def formula_as_file(formula, file_path):
-        """Contact a web service to convert ``formula`` into a PNG which will be
-           stored in ``file_path.
-        """
-        url = "http://latex.codecogs.com/png.latex"
-        r = requests.get('%s?\dpi{300} \huge %s' % (url, formula))
-        with open(file_path, 'wb') as f:
-            f.write(r.content)
+import requests
 
 
-    def main():
-        """Run examples."""
-        formulas = []
-        formula = (r"\bold H = \begin{bmatrix}"
-                   r"\dfrac{\partial^2 f}{\partial x_1^2} & "
-                   r"\dfrac{\partial^2 f}{\partial x_1\,\partial x_2} & "
-                   r"\cdots & "
-                   r"\dfrac{\partial^2 f}{\partial x_1\,\partial x_n} \\[2.2ex]"
-                   r"\dfrac{\partial^2 f}{\partial x_2\,\partial x_1} & "
-                   r"\dfrac{\partial^2 f}{\partial x_2^2} & "
-                   r"\cdots & "
-                   r"\dfrac{\partial^2 f}{\partial x_2\,\partial x_n} \\[2.2ex]"
-                   r"\vdots & \vdots & \ddots & \vdots \\[2.2ex]"
-                   r"\dfrac{\partial^2 f}{\partial x_n\,\partial x_1} & "
-                   r"\dfrac{\partial^2 f}{\partial x_n\,\partial x_2} & "
-                   r"\cdots & \dfrac{\partial^2 f}{\partial x_n^2}"
-                   r"\end{bmatrix}.")
-        formulas.append(("hesse-matrix.png", formula))
-        formula = (r"\int x^a\,dx = \frac{x^{a+1}}{a+1} + "
-                   r"C \qquad\text{(for } a\neq -1\text{)}\,\!")
-        formulas.append(("cavalieri-quadrature-formula.png", formula))
-        for file_path, formula in formulas:
-            formula_as_file(formula, file_path)
+def formula_as_file(formula, file_path):
+    """Contact a web service to convert ``formula`` into a PNG which will be
+       stored in ``file_path.
+    """
+    url = "http://latex.codecogs.com/png.latex"
+    r = requests.get("%s?\dpi{300} \huge %s" % (url, formula))
+    with open(file_path, "wb") as f:
+        f.write(r.content)
 
-    if __name__ == '__main__':
-        main()
 
+def main():
+    """Run examples."""
+    formulas = []
+    formula = (
+        r"\bold H = \begin{bmatrix}"
+        r"\dfrac{\partial^2 f}{\partial x_1^2} & "
+        r"\dfrac{\partial^2 f}{\partial x_1\,\partial x_2} & "
+        r"\cdots & "
+        r"\dfrac{\partial^2 f}{\partial x_1\,\partial x_n} \\[2.2ex]"
+        r"\dfrac{\partial^2 f}{\partial x_2\,\partial x_1} & "
+        r"\dfrac{\partial^2 f}{\partial x_2^2} & "
+        r"\cdots & "
+        r"\dfrac{\partial^2 f}{\partial x_2\,\partial x_n} \\[2.2ex]"
+        r"\vdots & \vdots & \ddots & \vdots \\[2.2ex]"
+        r"\dfrac{\partial^2 f}{\partial x_n\,\partial x_1} & "
+        r"\dfrac{\partial^2 f}{\partial x_n\,\partial x_2} & "
+        r"\cdots & \dfrac{\partial^2 f}{\partial x_n^2}"
+        r"\end{bmatrix}."
+    )
+    formulas.append(("hesse-matrix.png", formula))
+    formula = (
+        r"\int x^a\,dx = \frac{x^{a+1}}{a+1} + "
+        r"C \qquad\text{(for } a\neq -1\text{)}\,\!"
+    )
+    formulas.append(("cavalieri-quadrature-formula.png", formula))
+    for file_path, formula in formulas:
+        formula_as_file(formula, file_path)
+
+
+if __name__ == "__main__":
+    main()
 ```
 
 However, this approach has two problems:
@@ -138,30 +142,34 @@ def formula_as_file(formula, file_path, packages=""):
 def main():
     """Run examples."""
     formulas = []
-    formula = (r"\bold H = \begin{bmatrix}"
-               r"\dfrac{\partial^2 f}{\partial x_1^2} & "
-               r"\dfrac{\partial^2 f}{\partial x_1\,\partial x_2} & "
-               r"\cdots & "
-               r"\dfrac{\partial^2 f}{\partial x_1\,\partial x_n} \\[2.2ex]"
-               r"\dfrac{\partial^2 f}{\partial x_2\,\partial x_1} & "
-               r"\dfrac{\partial^2 f}{\partial x_2^2} & "
-               r"\cdots & "
-               r"\dfrac{\partial^2 f}{\partial x_2\,\partial x_n} \\[2.2ex]"
-               r"\vdots & \vdots & \ddots & \vdots \\[2.2ex]"
-               r"\dfrac{\partial^2 f}{\partial x_n\,\partial x_1} & "
-               r"\dfrac{\partial^2 f}{\partial x_n\,\partial x_2} & "
-               r"\cdots & \dfrac{\partial^2 f}{\partial x_n^2}"
-               r"\end{bmatrix}.")
+    formula = (
+        r"\bold H = \begin{bmatrix}"
+        r"\dfrac{\partial^2 f}{\partial x_1^2} & "
+        r"\dfrac{\partial^2 f}{\partial x_1\,\partial x_2} & "
+        r"\cdots & "
+        r"\dfrac{\partial^2 f}{\partial x_1\,\partial x_n} \\[2.2ex]"
+        r"\dfrac{\partial^2 f}{\partial x_2\,\partial x_1} & "
+        r"\dfrac{\partial^2 f}{\partial x_2^2} & "
+        r"\cdots & "
+        r"\dfrac{\partial^2 f}{\partial x_2\,\partial x_n} \\[2.2ex]"
+        r"\vdots & \vdots & \ddots & \vdots \\[2.2ex]"
+        r"\dfrac{\partial^2 f}{\partial x_n\,\partial x_1} & "
+        r"\dfrac{\partial^2 f}{\partial x_n\,\partial x_2} & "
+        r"\cdots & \dfrac{\partial^2 f}{\partial x_n^2}"
+        r"\end{bmatrix}."
+    )
     formulas.append(("hesse-matrix.png", formula))
-    formula = (r"\int x^a\,dx = \frac{x^{a+1}}{a+1} + "
-               r"C \qquad\text{(for } a\neq -1\text{)}\,\!")
+    formula = (
+        r"\int x^a\,dx = \frac{x^{a+1}}{a+1} + "
+        r"C \qquad\text{(for } a\neq -1\text{)}\,\!"
+    )
     formulas.append(("cavalieri-quadrature-formula.png", formula))
     for file_path, formula in formulas:
         formula_as_file(formula, file_path)
 
-if __name__ == '__main__':
-    main()
 
+if __name__ == "__main__":
+    main()
 ```
 
 
@@ -193,30 +201,30 @@ class Renderer(Renderer):
             return self.textDefault(node.nodeName)
 
         # Start tag
-        s.append('<%s>' % node.nodeName)
+        s.append("<%s>" % node.nodeName)
 
         # See if we have any attributes to render
         if node.hasAttributes():
-            s.append('<attributes>')
+            s.append("<attributes>")
             for key, value in node.attributes.items():
                 # If the key is 'self', don't render it
                 # these nodes are the same as the child nodes
-                if key == 'self':
+                if key == "self":
                     continue
-                s.append('<%s>%s</%s>' % (key, unicode(value), key))
-            s.append('</attributes>')
+                s.append("<%s>%s</%s>" % (key, unicode(value), key))
+            s.append("</attributes>")
 
         # Invoke rendering on child nodes
         s.append(unicode(node))
 
         # End tag
-        s.append('</%s>' % node.nodeName)
+        s.append("</%s>" % node.nodeName)
 
-        return u'\n'.join(s)
+        return "\n".join(s)
 
     def textDefault(self, node):
         """ Rendering method for all text nodes """
-        return node.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+        return node.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 ```
 
 main.py
@@ -229,11 +237,13 @@ from plasTeX.TeX import TeX
 
 
 def handle_equation(node):
-    return u'<div><img src="%s"/></div>' % node.image.url
+    return '<div><img src="%s"/></div>' % node.image.url
+
 
 # Instantiate a TeX processor and parse the input text
 tex = TeX()
-tex.input(r'''
+tex.input(
+    r"""
 \documentclass{book}
 \begin{document}
 
@@ -246,16 +256,17 @@ Previous paragraph.
 Next paragraph.
 
 \end{document}
-''')
+"""
+)
 document = tex.parse()
 
 # Instantiate the renderer
 renderer = Renderer()
 
 # Insert the rendering method into all of the environments that might need it
-renderer['equation'] = handle_equation
-renderer['displaymath'] = handle_equation
-renderer['eqnarray'] = handle_equation
+renderer["equation"] = handle_equation
+renderer["displaymath"] = handle_equation
+renderer["eqnarray"] = handle_equation
 
 # Render the document
 renderer.render(document)

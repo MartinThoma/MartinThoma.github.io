@@ -22,9 +22,7 @@ import httplib
 import urllib
 import json
 
-headers = {
-    "Content-type": "application/json",
-}
+headers = {"Content-type": "application/json"}
 
 params = urllib.urlencode(
     {

@@ -81,8 +81,8 @@ from setuptools import find_packages
 from setuptools import setup
 
 config = {
-    "install_requires": ["click>=6.7", "numpy>=1.14.0", "scipy>=1.0.0",],
-    "tests_require": ["pytest>=3.3.2", "pytest-cov>=2.5.1", "pytest-pep8>=1.0.6",],
+    "install_requires": ["click>=6.7", "numpy>=1.14.0", "scipy>=1.0.0"],
+    "tests_require": ["pytest>=3.3.2", "pytest-cov>=2.5.1", "pytest-pep8>=1.0.6"],
     "keywords": ["Machine Learning", "Data Science"],
     "download_url": "https://github.com/MartinThoma/language-identification",
     "classifiers": [

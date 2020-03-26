@@ -715,7 +715,7 @@ J_k(x_k) &= \min_{a_k \in A_k(x_k)} \left (g_k(x_k, a_k) + \mathbb{E}(J_{k+1}(x_
         Strategien endlich, aber es gibt unendlich viele Wertevektoren.<br/>
 
         <figure class="wp-caption aligncenter img-thumbnail">
-            <img src="../images/2016/07/Policy-Iteration.png" alt="Pseudocode for Policy iteration algorithm" />
+            <img src="../images/2016/07/policy-iteration-caps.png" alt="Pseudocode for Policy iteration algorithm" />
             <figcaption class="text-center">Pseudocode for Policy iteration algorithm</figcaption>
         </figure><br/>
 

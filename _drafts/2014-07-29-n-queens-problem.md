@@ -28,8 +28,7 @@ def add_queen(queen_positions, size):
     @param size            - positive integer; the size of the square board
     @return a new list of queens or -1 if no queen could be added
     """
-    candidates = set(list(range(size))) - set(map(lambda n: n[0],
-                                                  queen_positions))
+    candidates = set(list(range(size))) - set(map(lambda n: n[0], queen_positions))
     new_qeen_y = len(queen_positions)
     # Remove diagonal ones
     for queen_y, queen_x in enumerate(queen_positions):
@@ -69,12 +68,13 @@ def solve(n):
             queen_positions = backtrack(queen_positions)
     return queen_positions
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     n = 22
     solution = solve(n)
     for y, x_meta in enumerate(solution):
         x = x_meta[0]
-        print("o"*(x) + "#" + "o"*(n-x-1))
+        print("o" * (x) + "#" + "o" * (n - x - 1))
 ```
 
 ```bash
@@ -124,6 +124,4 @@ remove the -1 caused by the queen there. So I thought about something different:
 This way we can use a simple 2D array to figure out if a position is valid.
 We will only check if queens from above can capture queens from below:
 
-```python
-
-```
+TODO

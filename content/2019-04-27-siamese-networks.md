@@ -109,7 +109,7 @@ def main():
     print(points[:n_reference_points])
     distances = get_distances(points, n_reference_points)
     train_points, test_points, train_distances, test_distances = train_test_split(
-        points, distances,
+        points, distances
     )
     distances_p1s, distances_p2s, pair_distances = get_train_data(
         train_points, train_distances
