@@ -194,7 +194,7 @@ A simple unittest is usually stored in `tests/test_themodule_name.py` and might
 look like this:
 
 ```
-#!/usr/bin/python
+#!/usr/bin/env python
 
 import unittest
 

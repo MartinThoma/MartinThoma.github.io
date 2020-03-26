@@ -40,7 +40,7 @@ python jam.py < A-small-practice.in > results.txt
 <h2>Passwords</h2>
 This works only for the small input set:
 ```python
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 
@@ -89,7 +89,7 @@ if __name__ == "__main__":
 <h2>Kingdom Rush</h2>
 My solution works only for the small input set:
 ```python
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 from copy import deepcopy

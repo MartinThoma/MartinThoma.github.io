@@ -44,7 +44,7 @@ abcabcabcabc
 <h2>Question</h2>
 What do you think does the following piece of Python-Code print?
 ```python
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 def standardMatrixProduct(A, B):

@@ -54,7 +54,7 @@ If you post a solution, please consider these restrictions:
 I&rsquo;ve used Python 2.6.5.
 
 ```python
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 from optparse import OptionParser

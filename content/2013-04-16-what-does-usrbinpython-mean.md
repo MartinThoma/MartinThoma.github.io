@@ -1,6 +1,6 @@
 ---
 layout: post
-title: What does #!/usr/bin/python mean?
+title: What does #!/usr/bin/env python mean?
 author: Martin Thoma
 date: 2013-04-16 18:23:17.000000000 +02:00
 category: Code
@@ -12,8 +12,8 @@ You've probably already seen one of the following lines:
 ```text
 
 #!/bin/sh
-#!/usr/bin/python
-#!/usr/bin/python3
+#!/usr/bin/env python
+#!/usr/bin/env python3
 #!/usr/bin/env python
 #!/usr/bin/perl
 #!/usr/bin/php
@@ -26,7 +26,7 @@ This is a <a href="http://en.wikipedia.org/wiki/Shebang_%28Unix%29">shebang</a>.
 For example, you have a file with this content:
 
 ```python
-#!/usr/bin/python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import sys
 

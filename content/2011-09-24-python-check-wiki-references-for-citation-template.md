@@ -46,7 +46,7 @@ So, all that has to be done is
 Wikipedia offers an <a href="http://en.wikipedia.org/w/api.php" title="Wikipedia API">API</a> for accessing the needed information. I will use this API and Pythons <a href="http://docs.python.org/library/optparse.html">optparse</a>, <a href="http://www.crummy.com/software/BeautifulSoup/documentation.html">BeautifulSoup</a> and <a href="http://docs.python.org/library/htmlparser.html">HTMLParser</a> to get the raw wiki text in UTF-8 encoding:
 
 ```python
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
  
 import urllib2
@@ -151,7 +151,7 @@ def improve(references, page):
 Here is the full script:
 
 ```python
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
  
 import urllib2

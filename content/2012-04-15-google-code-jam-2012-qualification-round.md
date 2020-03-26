@@ -17,7 +17,7 @@ These are my solutions:
 This one was easy. It's a <a href="http://en.wikipedia.org/wiki/Simple_substitution#Simple_substitution">simple substitution cipher</a>:
 
 ```python
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
  
 def decode(ciphertext, key="ynficwlbkuomxsevzpdrjgthaq", 
@@ -44,7 +44,7 @@ if __name__ == "__main__":
 
 A minimalistic python solution for this one was suggested by Niklas B. He makes use of <a href="http://docs.python.org/reference/expressions.html#lambda">Lambdas</a>, <a href="http://docs.python.org/library/stdtypes.html#str.translate">str.translate()</a> and <a href="http://docs.python.org/library/string.html#string.maketrans">str.maketrans()</a>:
 ```python
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 import string as s
@@ -60,7 +60,7 @@ for i in range(0, testcases):
 
 <h2>Problem B: Dancing With the Googlers</h2>
 ```python
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 from math import ceil, floor
@@ -119,7 +119,7 @@ The small dataset of this one was easy, but I had to change my code a bit to mak
 I've tried cPickle for the 2,000,000 list. It took 128.7 MB and 1 minute 6.287s for the large data set after it was pickled. Without pickling it took 1 minute 31.900s.
 
 ```python
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 try:
@@ -203,7 +203,7 @@ This is a solution based on the solution of "dwenzel". At the moment, I've only 
 You might also be interested in the <a href="http://code.google.com/codejam/contest/1460488/dashboard#s=a&a=3">official Contest Analysis</a> with some hints to this challenge.
 
 ```python
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 from math import floor, ceil, sqrt

@@ -21,7 +21,7 @@ If we used the ikj-algorithm for this multiplication, we needed $n^2 \cdot m$ op
 I guess doing this with NumPy is the best option:
 ```python
 
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
  
 import numpy

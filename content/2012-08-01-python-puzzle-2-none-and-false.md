@@ -11,7 +11,7 @@ Python automatically casts to boolean if you use another type of variable for a 
 
 Here is an example:
 ```python
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 if [1]:
@@ -41,7 +41,7 @@ Everything gets printed.
 
 Now the riddle. What is the output of the following script:
 ```python
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 if None == False:

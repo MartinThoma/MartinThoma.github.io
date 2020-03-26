@@ -117,7 +117,7 @@ So you can skip those digits
 
 <h3>The final snippet</h3>
 ```python
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 

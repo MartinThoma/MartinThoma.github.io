@@ -239,7 +239,7 @@ S^{-1} \cdot C \cdot S &= \begin{pmatrix}
 <h3>Programmierung</h3>
 Hier habe ich mal für Leute, die kein Python haben, als Kommentar das Ergebnis präsentiert. Ich denke damit ist klar, welchen Einfluss die Reihenfolge der Basisvektoren hat.
 ```python
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 import numpy

@@ -29,7 +29,7 @@ A for loop usually consists of an initialization part, a condition and an iterat
 <h2>Pythons special structure</h2>
 Python uses a generator or lists to loop:
 ```python
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 for i in range(0, 10):

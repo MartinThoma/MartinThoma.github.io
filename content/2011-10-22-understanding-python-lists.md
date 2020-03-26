@@ -11,7 +11,7 @@ This article is about Python lists. I just want to show you some examples of the
 
 Imagine you have the following Python source code:
 ```python
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import copy
 

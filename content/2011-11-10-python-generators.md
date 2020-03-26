@@ -14,7 +14,7 @@ Generators help you to program iterators. They look almost like normal functions
 Imagine you wanted to display n Fibonacci numbers. This could be your normal approach:
 
 ```python
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 
@@ -58,7 +58,7 @@ This needs much less memory, but much more time. You have to recalculate the fir
 
 A generator could look like this:
 ```python
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 

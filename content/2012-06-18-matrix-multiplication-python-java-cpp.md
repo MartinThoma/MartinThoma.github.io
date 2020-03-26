@@ -64,7 +64,7 @@ The <code>bigMatrix.out</code> was produced by the Python ijk-implementation. I 
 <h2>The Setting</h2>
 I created two "random" matrices $A, B \in \mathbb{N}^{2000 \times 2000}$ with this script. The file that was created needs about 29.7 MB and is also in the GIT-Hub repository. But you can also create the matrices with this script:
 ```python
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 import random
@@ -118,7 +118,7 @@ I've used Python 2.6.5.
 
 <h3>ijk-algorithm</h3>
 ```python
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 from optparse import OptionParser
@@ -201,7 +201,7 @@ Amazing, isn't it?
 NumPy-Version: 1.3.0 (Current version is 1.6.2, see <a href="http://en.wikipedia.org/wiki/NumPy">Wiki</a>)
 
 ```python
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 import numpy
@@ -246,7 +246,7 @@ sys	0m0.520s
 You might need to install <code>python-scitools</code>.
 
 ```python
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 import numpy

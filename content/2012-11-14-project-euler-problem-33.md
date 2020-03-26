@@ -24,7 +24,7 @@ How do we check a given nominator / denominator pair? Well, we can go through ea
 
 <h2>My solution</h2>
 ```python
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 

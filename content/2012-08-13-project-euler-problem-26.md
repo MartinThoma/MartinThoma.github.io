@@ -20,7 +20,7 @@ You look at the rest. If you've seen the rest before, you are just about to get 
 This brute force solution finds the solution instantly.
 
 ```python
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 import unittest

@@ -38,7 +38,7 @@ Sobald man keine neuen Zeilen / Bl&ouml;cke mehr bilden kann, ist man fertig. Di
 Ich finde Algorithmen werden am eindeutigsten durch Implementierungen beschrieben. Hier ist meine f&uuml;r das Consensus-Verfahren:
 
 ```python
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 

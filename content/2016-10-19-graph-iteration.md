@@ -80,7 +80,7 @@ all MLPs with $n-i$ neurons in $k-1$ layers and add $i$ neurons to the $k$-th
 layer:
 
 ```python
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 """Iterate over all MLPs."""

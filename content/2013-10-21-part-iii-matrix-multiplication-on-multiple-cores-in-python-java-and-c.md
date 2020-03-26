@@ -54,7 +54,7 @@ sys	0m2.092s
 
 When we share memory, the code looks like this:
 ```python
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 import multiprocessing, numpy, ctypes
@@ -163,7 +163,7 @@ sys	0m9.533s
 When we don't use shared memory, things run faster:
 
 ```python
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 import multiprocessing, numpy, ctypes
