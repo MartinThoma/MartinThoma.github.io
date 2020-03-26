@@ -4,7 +4,7 @@ title: A practical approach to floats
 author: Martin Thoma
 date: 2012-10-23 12:40:45.000000000 +02:00
 category: Code
-tags: C, Coding, float
+tags: C, float, Python, IEEE 754
 featured_image: 2012/10/float-scheme1.png
 ---
 If you make a computer science degree, you will have to learn how numbers are internally represented. Most of the time, you get explanations like the pictures below:
@@ -21,7 +21,7 @@ If you make a computer science degree, you will have to learn how numbers are in
 
 You will (have to) learn how <a href="http://en.wikipedia.org/wiki/IEEE_floating_point">IEEE 754 floats</a> are structured on a bit-wise level. But I also like to check if it is correct, what I've learned.
 
-So this is how you can check it: 
+So this is how you can check it:
 ```c
 #include <stdint.h>
 #include <stdio.h> // printf
@@ -71,7 +71,7 @@ void setMantissa(union myUnion *u, int mantissa) {
 
 int main() {
 	union myUnion testVar;
-	
+
 	printf("Manual guessing\n");
 	testVar.i = 0;
 	setSign(&testVar, 1);
@@ -86,7 +86,7 @@ int main() {
 	printf("What does nan evaluate to?\n");
 	testVar.f = NAN;
 	printValue(testVar);
-	
+
 	printf("The example above and switched first bit on\n");
     testVar.i = 0xbf200000;
 	printValue(testVar);
@@ -96,3 +96,60 @@ int main() {
 I think I have tried all interesting values. Have fun trying it yourself ☺
 
 (hmm ... I could also try to make a visualization ... I will think about this when I have more time)
+
+
+## Python Solution
+
+Prerequesites:
+
+```bash
+pip install bitstring
+```
+
+Python code `convert.py`:
+
+```python
+# Third party modules
+import bitstring
+
+
+def float_to_bin(number: float) -> str:
+    bit_array = bitstring.BitArray(float=number, length=32)
+    return bit_array.bin
+
+
+def bin_to_float(number: str) -> float:
+    bit_array = bitstring.BitArray(bin=number)
+    return bit_array.float
+
+
+for number in [0, -0, +0, 12, 12.0]:
+    print(f"{number:4.0f}: {float_to_bin(number)}")
+
+for bits in ["00000000000000000000000000000000"]:
+    print(f"{bits}: {bin_to_float(bits)}")
+```
+
+
+## Zero Representation
+
+Zero has two representations: `00000000000000000000000000000000` which is
+positive 0 and `10000000000000000000000000000000` which is negative zero. They
+are considered equal in all programming languages I know.
+
+You can get the sign in Python like this:
+
+```python
+def get_sign(number):
+    """
+    >>> get_sign(-12)
+    -1.0
+    >>> get_sign(12)
+    1.0
+    >>> get_sign(-0.0)
+    -1.0
+    >>> get_sign(+0.0)
+    1.0
+    """
+    return math.copysign(1.0, number)
+```
