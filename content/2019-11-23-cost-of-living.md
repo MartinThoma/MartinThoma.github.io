@@ -565,7 +565,15 @@ Fabrics:
         <td>3 weeks</td>
         <td>0.99 EUR / piece</td>
         <td>4.95 EUR / year</td>
-        <td>5.51 EUR / 5 piece</td>
+        <td>6.20 EUR / 6 piece</td>
+    </tr>
+    <tr>
+        <td>Mango (Tin can)</td>
+        <td></td>
+        <td>1 year</td>
+        <td>1.29 EUR / 250g</td>
+        <td></td>
+        <td>1.29 EUR / 250g</td>
     </tr>
     <tr>
         <td>Strawberries (Erdbeeren)</td>
@@ -605,7 +613,7 @@ Fabrics:
         <td>2 weeks</td>
         <td>1.29 EUR / 125g</td>
         <td>15.48 EUR / year</td>
-        <td>0</td>
+        <td>0.99 EUR / 125g</td>
     </tr>
     <tr>
         <td><a href="https://en.wikipedia.org/wiki/Diospyros_kaki">Kaki</a> / Sharon</td>
@@ -958,6 +966,14 @@ Fabrics:
         <td></td>
         <td>3.47 EUR / 450g</td>
     </tr>
+    <tr>
+        <td>Nougat Creme (e.g. Nutella)</td>
+        <td></td>
+        <td>1 year</td>
+        <td>1.29 EUR / 400g</td>
+        <td></td>
+        <td>1.29 EUR / 400g</td>
+    </tr>
 </table>
 
 
@@ -991,6 +1007,14 @@ I also count mixes like "Knorr fix" in here.
         <td>0.59 EUR / 50g</td>
         <td>1.18 EUR / year</td>
         <td>0</td>
+    </tr>
+    <tr>
+        <td>Garlic powder (Knoblauch-Gewürzpulver)</td>
+        <td></td>
+        <td>3 years</td>
+        <td>0.49 EUR / 70g</td>
+        <td></td>
+        <td>0.49 EUR / 70g</td>
     </tr>
     <tr>
         <td>Knorr Fix (Nudelgratin / Lasagne / Geschnetzeltes)</td>
@@ -1049,12 +1073,20 @@ General Cooking:
         <td>0.67 EUR / 200g</td>
     </tr>
     <tr>
-        <td>Müsli (Nougat Bits)</td>
+        <td>Haferflocken</td>
         <td></td>
-        <td>12 months</td>
+        <td>1 year</td>
+        <td>0.49 EUR / 500g</td>
+        <td></td>
+        <td>0.49 EUR / 500g</td>
+    </tr>
+    <tr>
+        <td>Müsli (Nougat/Granola Bits)</td>
+        <td></td>
+        <td>1 year</td>
         <td>1.99 EUR / 750g</td>
         <td></td>
-        <td>1.99 EUR / 750g</td>
+        <td>3.98 EUR / 750g</td>
     </tr>
     <tr>
         <td>Sunflower oil (Sonnenblumenöl)</td>
@@ -1351,7 +1383,7 @@ General Cooking:
             <td>2 weeks (?)</td>
             <td>0.29 EUR / piece</td>
             <td>45.37 EUR</td>
-            <td>11.70 EUR / 37 piece</td>
+            <td>12.29 EUR / 38 piece</td>
         </tr>
         <tr>
             <td>Natural Joghurt (Joghurt Pur)</td>
@@ -1367,7 +1399,7 @@ General Cooking:
             <td>months to years</td>
             <td></td>
             <td></td>
-            <td>22.85 EUR / 18 packages</td>
+            <td>24.84 EUR / 19 packages</td>
         </tr>
         <tr>
             <td>Savory (Chips, Nachos, Sauce for nachos)</td>
@@ -1455,7 +1487,15 @@ General Cooking:
             <td>?</td>
             <td>0.79 EUR / 1.5 L</td>
             <td>9.48 EUR / year</td>
-            <td>6.24 EUR / 11.5 L</td>
+            <td>7.82 EUR / 14.5 L</td>
+        </tr>
+        <tr>
+            <td>Malz</td>
+            <td></td>
+            <td>1 year</td>
+            <td>0.29 EUR / 0.5L</td>
+            <td></td>
+            <td>0.29 EUR / 0.5L</td>
         </tr>
         <tr>
             <td>Milchgetränk / Joghurtgetränk</td>
@@ -1527,15 +1567,15 @@ General Cooking:
             <td></td>
             <td>0.39 EUR / 240g</td>
             <td></td>
-            <td>0.39 EUR / 240g</td>
+            <td>0.78 EUR / 480g</td>
         </tr>
         <tr>
             <td>Semmelknödel</td>
             <td></td>
-            <td>6 months</td>
+            <td>1 year</td>
             <td>0.69 EUR / 200g (6 pieces)</td>
             <td></td>
-            <td>0.69 EUR / 200g (6 pieces)</td>
+            <td>1.38 EUR / 200g (12 pieces)</td>
         </tr>
     </tbody>
 </table>
@@ -1729,6 +1769,22 @@ pills and maybe a couple of months for creams and ointment.
         <td></td>
         <td>1.20 EUR / 240g</td>
     </tr>
+    <tr>
+        <td>Magnesium (240mg/piece)</td>
+        <td></td>
+        <td>2 years</td>
+        <td>0.40 EUR / 78g</td>
+        <td></td>
+        <td>0.40 EUR / 78g</td>
+    </tr>
+    <tr>
+        <td>Multivitamin <sup title="1.1mg B1, 1.4 mg B2, 16mg Niacin, 6mg Pantothensäure, B6 1.4 mg, Folsäure 200ug, B12 2.5 ug, Biotin 50 ug, C 80mg, E 12 mg">*</sup></td>
+        <td></td>
+        <td>2 years</td>
+        <td>0.40 EUR / 86g</td>
+        <td></td>
+        <td>0.40 EUR / 86g</td>
+    </tr>
 </table>
 
 
@@ -1833,4 +1889,18 @@ pills and maybe a couple of months for creams and ointment.
             <td>-</td>
         </tr>
     </tfoot>
+</table>
+
+
+## Other
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>2020</th>
+    </tr>
+    <tr>
+        <td>Moving</td>
+        <td>35 EUR</td>
+    </tr>
 </table>
