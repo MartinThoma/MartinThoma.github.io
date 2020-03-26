@@ -53,14 +53,14 @@ The following summarizes what Harald Lesch discuessed ([video](https://www.youtu
 
 * 5% of people who get COVID-19 need intensive care at hospital ([source](https://jamanetwork.com/journals/jama/fullarticle/2762130))
 * A hospitalized case stays there for 11 days in average ([source](https://www.npr.org/sections/goatsandsoda/2020/03/20/815408287/how-the-novel-coronavirus-and-the-flu-are-alike-and-different))
-* Germany has 28,000 intensive care beds in hospitals ([source](https://www.mdr.de/wissen/kliniken-krankenhaeuser-deutschland-kapazitaet-corona-100.html))
+* Germany has 28,000 intensive care beds in hospitals ([source](https://www.mdr.de/wissen/kliniken-krankenhaeuser-deutschland-kapazitaet-corona-100.html)). However, there are still other diseases. So we can't use all of them just for COVID-19 cases.
 
 This means once we have more than 28000/0.05 = 560k new infections per day, we
 have a problem.
 
-The infections seem to follow an exponential growth, but that doesn't make
-much sense within limited populations. It's [exponential
-growth](https://en.wikipedia.org/wiki/Logistic_growth):
+The infections seem to follow an exponential growth pattern, but that doesn't
+make much sense within limited populations. Assuming a [logistic growth
+pattern](https://en.wikipedia.org/wiki/Logistic_growth) makes more sense:
 
 * It starts like exponential growth
 * At some point it flattens out to linear growth
@@ -143,7 +143,7 @@ If you want a video of a young person being affected:
 
 The [Coronavirus](https://en.wikipedia.org/wiki/Coronavirus) causes the [Coronavirus disease 2019](https://en.wikipedia.org/wiki/Coronavirus_disease_2019), in short: COVID-19.
 
-It is sometimes also called Wuhan virus ([nature.com, 2020-01-21](https://www.nature.com/articles/d41586-020-00146-w)), Fox News calls it ["chinese" coronavirus (2020-03-12)](https://www.youtube.com/watch?v=QI-9v-TdshU), [Trump, 2020-03-18](https://www.youtube.com/watch?v=7zatCqqRY_I). Especially in the US I have heard the term "foreign virus" pretty often. **Those names should not be used.** It should not be called like this, because it doesn't add anything to the discussion. "Coronavirus" is short, everybody knows what is meant. Adding "Wuhan", "Chinese" or "foreign" only strengthens racial biases. There are several other examples of viruses in the past where we didn't use this naming:
+It is sometimes also called Wuhan virus ([nature.com, 2020-01-21](https://www.nature.com/articles/d41586-020-00146-w)), Fox News calls it ["chinese" coronavirus (2020-03-12)](https://www.youtube.com/watch?v=QI-9v-TdshU), [Trump, 2020-03-18](https://www.youtube.com/watch?v=7zatCqqRY_I). Especially in the US I have heard the term "foreign virus" pretty often. **Those names should not be used.** It should not be called like this, because it doesn't add anything to the discussion. "Coronavirus" is short, everybody knows what is meant. Adding "Wuhan", "Chinese" or "foreign" only strengthens racism and [Xenophobia](https://en.wikipedia.org/wiki/Xenophobia). There are several other examples of viruses in the past where we didn't use this naming:
 
 * [2009 flu pandemic](https://en.wikipedia.org/wiki/2009_flu_pandemic): Commonly known as swine flu. Nobody said "Mexican virus"
 * [2015–16 Zika virus epidemic](https://en.wikipedia.org/wiki/2015%E2%80%9316_Zika_virus_epidemic): Nobody said "Brazilian virus"
