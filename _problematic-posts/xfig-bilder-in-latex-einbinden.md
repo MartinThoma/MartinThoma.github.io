@@ -31,7 +31,6 @@ Die 9 Pixel-Formate schließe ich direkt aus, da ich hochqualitative Bilder will
 </tr>
 </table>
 
-
 <h2>Detaillierte Ergebnisse</h2>
 Ich habe mit xfig folgendes Bild erstellt:
 

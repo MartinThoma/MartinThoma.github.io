@@ -1,18 +1,17 @@
-Prerequisites
-=============
-* `git clone git@github.com:MartinThoma/MartinThoma.github.io.git --recursive` to get the blog data
-* `pip install -r requirements.txt --user` to install the required software
-* `make html-local` and `make serve` to see the result on http://127.0.0.1:8000/
+# Prerequisites
 
-TODO
-=====
+- `git clone git@github.com:MartinThoma/MartinThoma.github.io.git --recursive` to get the blog data
+- `pip install -r requirements.txt --user` to install the required software
+- `make html-local` and `make serve` to see the result on http://127.0.0.1:8000/
 
-* `linkchecker https://martin-thoma.com -F csv`
-* add pagination for category pages / tag pages
-* Semantic anchors created by TOC
-* Newlines
+# TODO
+
+- `linkchecker https://martin-thoma.com -F csv`
+- add pagination for category pages / tag pages
+- Semantic anchors created by TOC
+- Newlines
   - e.g. 2013-03-16-c-puzzle-3.html (http://martinthoma.github.io/c-puzzle-3/)
-* Don't check for Latex ($...$) inside of highlight environment or
+- Don't check for Latex ($...$) inside of highlight environment or
   fenced code blocks (Abostrophes):
   - http://martinthoma.github.io/c-puzzle-3/
   - http://martin-thoma.com/plotting-graphs-with-pgfplots-latex-and-tikz/
@@ -20,32 +19,29 @@ TODO
   - http://martin-thoma.com/how-to-search-for-mathematical-symbols-in-latex/
   - http://martin-thoma.com/latex-versioning-a-great-experience/
   - All posts tagged with "PHP"
-* Markdown rendered within fenced code tag: http://martin-thoma.com/how-to-print-source-code-with-latex/
-* Fix posts:
+- Markdown rendered within fenced code tag: http://martin-thoma.com/how-to-print-source-code-with-latex/
+- Fix posts:
   - http://martin-thoma.com/comparing-dates-in-php-and-mysql/
   - http://martin-thoma.com/algorithmen-ii-klausur/ (LaTeX)
   - http://martin-thoma.com/solving-linear-equations-with-gaussian-elimination/ (LaTeX at bottom)
-* Apply CSS Rules from [CSS Wizardry](https://github.com/csswizardry/CSS-Guidelines)
+- Apply CSS Rules from [CSS Wizardry](https://github.com/csswizardry/CSS-Guidelines)
 
+# Improve
 
-Improve
-========
-* Site speed
-  * Minify results
-  * Combine CSS / JS files
-  * Remove JS files if possible
-  * Remove parts of JS that are not used
-* Excerpts
+- Site speed
+  - Minify results
+  - Combine CSS / JS files
+  - Remove JS files if possible
+  - Remove parts of JS that are not used
+- Excerpts
 
+# Testen
 
-Testen
-=======
-* WordPress "Caption" tags
-* RSS Feed
+- WordPress "Caption" tags
+- RSS Feed
 
+# Required
 
-Required
-========
 First:
 
     sudo apt-get install rubygems ruby-dev libmagickwand-dev
@@ -58,9 +54,7 @@ Then
     sudo juicer install jslint
     sudo juicer install yui_compressor
 
-
-Install
-========
+# Install
 
 See http://martin-thoma.com/jekyll-and-git/
 
@@ -93,7 +87,6 @@ ${9:}
     <!-- <scope>source.python</scope> -->
 </snippet>
 ```
-
 
 ### caption-tag
 
