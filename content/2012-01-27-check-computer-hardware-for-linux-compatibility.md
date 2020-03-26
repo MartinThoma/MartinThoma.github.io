@@ -13,7 +13,9 @@ Linux users who are not very skilled have a big problem: If they want to buy a n
 <a href="http://kmuto.jp/debian/hcl/">This site</a> checks your whole system. You only need to boot a Linux system (e.g. via <a href="http://en.wikipedia.org/wiki/Live_CD">LiveCD</a>) and execute:
 ```bash
 lspci -n
-``` in the terminal (which pops up if you type Ctrl + Alt + T). Copy it, paste it into the provided form and you will get a list of your hardware and simply "Yes" if this component works with Debian.
+```
+
+in the terminal (which pops up if you type Ctrl + Alt + T). Copy it, paste it into the provided form and you will get a list of your hardware and simply "Yes" if this component works with Debian.
 
 <h2>Linux HCL</h2>
 The <a href="http://linuxhcl.com/">Linux HCL</a> provides a lot of hand-written reviews of users. Here is my <a href="http://linuxhcl.com/browse/product?id=7719">review of my notebook</a>.

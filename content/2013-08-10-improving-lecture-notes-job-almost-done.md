@@ -37,7 +37,7 @@ How often did I change files (<a href="http://wirespeed.wordpress.com/2011/06/08
 ```bash
 svn log -qvr 1:HEAD|perl -nle 'print if /^Changed paths:/ ... /^-+$/ and /^\s/' \
     | sort | uniq -c | sort -n
-``` 
+```
 
 ```bash
 

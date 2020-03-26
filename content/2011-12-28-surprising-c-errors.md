@@ -10,6 +10,7 @@ featured_image: 2011/12/compare-programming-languages.png
 Those errors might be surprising and a good exercise for C beginners:
 
 <h2>Empty printf</h2>
+
 ```c
 #include <stdio.h>
 
@@ -19,11 +20,13 @@ int main()
     return 0;
 }
 ```
+
 ```bash
 error: zero-length gnu_printf format string
 ```
 
 <h2>Macros</h2>
+
 ```c
 #include <stdio.h>
 #define MY_MACRO printf("Hello World\n");
@@ -38,12 +41,14 @@ int main()
     return 0;
 }
 ```
+
 ```bash
 macro.c: In function &lsquo;main&rsquo;:
 macro.c:8: error: &lsquo;else&rsquo; without a previous &lsquo;if&rsquo;
 ```
 
 <h2>Single and Double quotes</h2>
+
 ```c
 #include <stdio.h>
 
@@ -53,6 +58,7 @@ int main()
     return 0;
 }
 ```
+
 ```bash
 macro.c:5:9: warning: character constant too long for its type
 macro.c: In function &lsquo;main&rsquo;:
@@ -63,6 +69,7 @@ macro.c:5: warning: format not a string literal and no format arguments
 ```
 
 Thanks to <a href="http://www.drpaulcarter.com/cs/common-c-errors.php#3.1">drpaulcarter.com</a> for this example:
+
 ```c
 int main()
 {
@@ -71,6 +78,7 @@ int main()
     return 0;
 }
 ```
+
 ```bash
 macro.c: In function &lsquo;main&rsquo;:
 macro.c:3: warning: initialization makes pointer from integer without a cast
@@ -78,6 +86,7 @@ macro.c:3: warning: initialization makes pointer from integer without a cast
 ```
 
 <h2>Pointers</h2>
+
 ```c
 #include <string.h>
 
@@ -89,6 +98,7 @@ int main()
     return 0;
 }
 ```
+
 ```bash
 macro.c: In function &lsquo;main&rsquo;:
 macro.c:7: warning: &lsquo;myPointer&rsquo; is used uninitialized in this function
@@ -96,6 +106,7 @@ macro.c:7: warning: &lsquo;myPointer&rsquo; is used uninitialized in this functi
 ```
 
 <h2>Loops</h2>
+
 ```c
 int main()
 {
@@ -105,9 +116,11 @@ int main()
     return 0;
 }
 ```
+
 No compiler error, but an infinite loop.
 
 <h2>Null terminator of Strings</h2>
+
 ```c
 #include <stdio.h>
 #include <stdlib.h>
@@ -139,7 +152,9 @@ int main()
     return 0;
 }
 ```
+
 Again, you don't get a compiler error, but some strange results:
+
 ```bash
 Characters: 0
 Characters: 3
@@ -154,7 +169,6 @@ Characters: 12
 String: -Hello World!-
 Size: 4 Byte
 Characters: 13
-
 ```
 
 <h2>Further reading</h2>

@@ -39,7 +39,7 @@ still know what was meant.
 
 Example 1:
 
-```
+```text
 EN: The spiders
 DE: Die Spinnen
 DE: Die spinnen!
@@ -48,7 +48,7 @@ EN: They are crazy!
 
 Example 2:
 
-```
+```text
 EN: The captured flea
 DE: Der gefangene Floh.
 DE: Der Gefangene floh.
@@ -57,7 +57,7 @@ EN: The prisoner fled.
 
 Example 3: Single words
 
-```
+```text
 EN: tremendous | the lawn         | the drink
 DE: ungeheuer  | der Rasen        | der Trank
 DE: Ungeheuer  |     rasen        |  er trank
@@ -74,7 +74,7 @@ misunderstood:
 
 Example 1:
 
-```
+```text
 EN: We eat, kids. (Talking to the children)
 DE: Wir essen, Kinder.
 DE: Wir essen Kinder.
@@ -83,7 +83,7 @@ EN: We eat kids. (Saying that you eat children as a dish)
 
 **Example 2**: This one is actually confusing. Likely also with context.
 
-```
+```text
 EN: Professors say, students are doing well.
 DE: Professoren sagen, Studenten haben es gut.
 DE: Professoren, sagen Studenten, haben es gut.
@@ -92,7 +92,7 @@ EN: Professors, students say, are doing well.
 
 Example 3:
 
-```
+```text
 EN: Don't kill him, release him!
 DE: Tötet ihn nicht, freilassen!
 DE: Tötet ihn, nicht freilassen!
@@ -101,7 +101,7 @@ EN: Kill him, don't release him!
 
 Example 4:
 
-```
+```text
 EN: We recommend him to follow.
 DE: Wir empfehlen ihm, zu folgen.
 DE: Wir empfehlen, ihm zu folgen.
@@ -110,7 +110,7 @@ EN: We recommend to follow him.
 
 Example 5: Even [deepl has problems with this](https://www.deepl.com/translate)
 
-```
+```text
 EN: He doesn't want her.
 DE: Er will sie nicht.
 DE: Er will, sie nicht.
@@ -121,7 +121,7 @@ EN: He likes, but she doesn't.
 
 Where you only have `the` in English, you have `der`, `die`, `das` in German.
 
-```
+```text
 EN: It's the table.
 DE: Es ist der Tisch.
 
@@ -141,7 +141,7 @@ many words have quite arbitrary grammatical gender:
 
 And the article also changes for plural forms:
 
-```
+```text
 EN - Singular: the girl    | the box   | the key
 EN - Plural  : the girls   | the boxes | the keys
 DE - Singular: das Mädchen | die Box   | der Schlüssel
@@ -150,7 +150,7 @@ DE - Plural  : die Mädchen | die Boxen | die Schlüssel
 
 Of course, it changes with different [grammatical cases](https://en.wikipedia.org/wiki/Grammatical_case):
 
-```
+```text
 EN: the key
 DE: der Schlüssel
 
@@ -207,7 +207,7 @@ words:
 
 German has crazy long words. The longest one I've seen in 8th grade or so is
 
-```
+```text
 DE: Brandrodungswanderhackfeldbau
 EN: slash-and-burn migration hackfield cultivation
 ```

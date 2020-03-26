@@ -12,6 +12,7 @@ featured_image: 2012/04/eclipse-logo.png
 
 <h2>Installation</h2>
 F&uuml;r die Installation von Java, Subversion (SVN), Eclipse und Checkstyle samt Dokumentation muss folgendes in der Konsole eingegeben werden:
+
 ```bash
 sudo apt-get install openjdk-6-jre openjdk-6-jdk openjdk-6-source openjdk-6-demo openjdk-6-doc openjdk-6-jre-headless openjdk-6-jre-lib subversion libapache2-svn eclipse checkstyle checkstyle-doc
 ```
@@ -25,9 +26,11 @@ Siehe eclipse-cs.sourceforge.net mit <a href="http://eclipse-cs.sourceforge.net/
 Siehe eclipse.org: <a href="http://www.eclipse.org/subversive/downloads.php#indigo_stable">Download Suversive</a>.
 Diese Erkl&auml;rung ist aber nicht so toll.
 
-Nach der Installation und dem Neustart von Eclipse muss man das "Subversive Connector Kit" ausw&auml;hlen. Kurz in der Konsole ```bash
+Nach der Installation und dem Neustart von Eclipse muss man das "Subversive Connector Kit" ausw&auml;hlen. Kurz in der Konsole
+```bash
 svn --version
-``` eingeben. Bei mir ist anscheinend Subversion in der Version 1.6.12 installiert. Also w&auml;hle ich "SVN Kit 1.3.7".
+```
+eingeben. Bei mir ist anscheinend Subversion in der Version 1.6.12 installiert. Also w&auml;hle ich "SVN Kit 1.3.7".
 
 Zuerst muss man den SVN Connector installieren:
 ```text

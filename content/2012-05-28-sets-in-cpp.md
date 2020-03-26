@@ -7,7 +7,7 @@ category: Code
 tags: STL, Set, CPP
 featured_image: 2012/05/CPP-thumb.png
 ---
-``` cpp
+```cpp
 #include <iostream>
 #include <set>
 #include <iterator>
@@ -20,7 +20,7 @@ int main() {
 
 	// insert one element
 	mySet.insert(5);
-	
+
 	// insert another element
 	mySet.insert(4);
 

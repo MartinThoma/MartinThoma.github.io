@@ -42,7 +42,7 @@ In the development of a bigger web service you have several key components:
 
 Create a project:
 
-```
+```text
 $ django-admin startproject mysite
 $ tree mysite
 mysite
@@ -56,7 +56,7 @@ mysite
 
 Create an app:
 
-```
+```shell
 $ cd mysite
 $ python manage.py startapp polls
 $ tree .
@@ -81,7 +81,7 @@ $ tree .
 
 Create DB:
 
-```
+```shell
 $ python manage.py migrate
 Operations to perform:
   Apply all migrations: admin, auth, contenttypes, sessions
@@ -106,7 +106,7 @@ Running migrations:
 Make migrations - files that tell Django that the model changed and how it
 changed:
 
-```
+```shell
 $ python manage.py makemigrations polls
 Migrations for 'polls':
   polls/migrations/0001_initial.py
@@ -120,7 +120,7 @@ Migrations for 'polls':
 
 Content is delivered by views. A simple view looks like this:
 
-```
+```python
 from django.http import HttpResponse
 
 
@@ -130,7 +130,7 @@ def index(request):
 
 ## ORM
 
-```
+```shell
 $ python manage.py shell
 In [2]: Question.objects.all()
 Out[2]: <QuerySet [<Question: What's new?>]
@@ -143,13 +143,13 @@ Out[2]: <QuerySet [<Question: What's new?>]
 
 Interactive shell
 
-```
+```shell
 $ python manage.py shell
 ```
 
 Create an admin (superuser):
 
-```
+```shell
 $ python manage.py createsuperuser
 ```
 
