@@ -73,7 +73,7 @@ var _deepCopy = function(source) {
       if (_hasOwn.call(source, prop)) {
         copy[prop] = _deepCopy(source[prop]);
       }
-    }    
+    }
   }
 
   return copy;

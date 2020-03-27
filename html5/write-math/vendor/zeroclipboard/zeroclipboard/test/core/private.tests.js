@@ -414,7 +414,7 @@
     var goodTarget = $("#goodTargetId")[0];
     var badTarget1 = $("#badTargetId1")[0];
     var badTarget2 = $("#badTargetId2")[0];
-    
+
     assert.notEqual(relTarget, null, "The related target is `null`");
     assert.strictEqual(_getRelatedTarget(goodTarget), relTarget, "Element with `data-clipboard-target` returns `null`");
     assert.strictEqual(_getRelatedTarget(badTarget1), null, "Element with `data-clipboard-target` that doesn't much any elements returns `null`");

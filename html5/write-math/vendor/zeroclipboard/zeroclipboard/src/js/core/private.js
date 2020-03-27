@@ -846,7 +846,7 @@ var _preprocessEvent = function(event) {
     case "_mouseover":
       // Set this as the new currently active element
       ZeroClipboard.focus(element);
-      
+
       if (_globalConfig.bubbleEvents === true && sourceIsSwf) {
         if (
           element &&
@@ -1793,7 +1793,7 @@ var _getSafeZIndex = function(val) {
  * @see {@link https://github.com/zeroclipboard/zeroclipboard/issues/511}
  * @see {@link http://zeroclipboard.org/test-iframes.html}
  *
- * @returns `true` (is sandboxed), `false` (is not sandboxed), or `null` (uncertain) 
+ * @returns `true` (is sandboxed), `false` (is not sandboxed), or `null` (uncertain)
  * @private
  */
 var _detectSandbox = function(doNotReassessFlashSupport) {
