@@ -130,6 +130,124 @@ make sure that the people don't need to come in person.
 Countries can make sure they have clear plans what to do. Especially hospitals
 need to be equipped (material and people).
 
+## Course of disease
+
+A lot of the following is from [Wikipedia](https://en.wikipedia.org/wiki/Coronavirus_disease_2019).
+
+Everything starts with the **infection**. The virus is spread via respiratory
+droplets produced when people cough or sneeze[^1]. The virus stays alive outside
+of the human body on different materials for an astonishing long time[^2]:
+
+<table class="table">
+    <tr>
+        <th>Material</th>
+        <th>No virus found after</th>
+        <th>Estimated livetime</th>
+    </tr>
+    <tr>
+        <td>Copper</td>
+        <td>4h</td>
+        <td>18h</td>
+    </tr>
+    <tr>
+        <td>Cardboard</td>
+        <td>24h</td>
+        <td>55h</td>
+    </tr>
+    <tr>
+        <td>Stainless steel</td>
+        <td>72h</td>
+        <td>90h</td>
+    </tr>
+    <tr>
+        <td>Plastic</td>
+        <td>72h</td>
+        <td>100h</td>
+    </tr>
+</table>
+
+After the infection, the following symptoms may appear[^3]. The time between
+infection and symptoms is called *incubation period* and is typically five to
+six days for COVID-19 but may range from two to 14 days[^4].
+
+There are also [asymptomatic](https://en.wikipedia.org/wiki/Asymptomatic)
+cases. That means people have the infection and are infecting others, but don't
+show any symptoms. There might be 50% of infected people being asymptomatic[^6].
+Please note that I The Guardian gave a source for that number, but within that
+source I can't find it.
+
+<table class="table">
+    <tr>
+        <th>Symptom</th>
+        <th>%</th>
+    </tr>
+    <tr>
+        <td>Fever</td>
+        <td>87.9</td>
+    </tr>
+    <tr>
+        <td>Dry cough</td>
+        <td>67.7</td>
+    </tr>
+    <tr>
+        <td>Fatigue</td>
+        <td>38.1</td>
+    </tr>
+    <tr>
+        <td>Sputum production</td>
+        <td>33.4</td>
+    </tr>
+    <tr>
+        <td>Loss of smell and taste</td>
+        <td>30 to 66</td>
+    </tr>
+    <tr>
+        <td>Shortness of breath</td>
+        <td>18.6</td>
+    </tr>
+    <tr>
+        <td>Muscle or joint pain</td>
+        <td>14.8</td>
+    </tr>
+    <tr>
+        <td>Sore throat</td>
+        <td>13.9</td>
+    </tr>
+    <tr>
+        <td>Headache</td>
+        <td>13.6</td>
+    </tr>
+    <tr>
+        <td>Chills</td>
+        <td>11.4</td>
+    </tr>
+    <tr>
+        <td>Nausea or vomiting</td>
+        <td>5.0</td>
+    </tr>
+    <tr>
+        <td>Nasal congestion</td>
+        <td>4.8</td>
+    </tr>
+    <tr>
+        <td>Diarrhoea</td>
+        <td>3.7 to 31</td>
+    </tr>
+    <tr>
+        <td>Haemoptysis</td>
+        <td>0.9</td>
+    </tr>
+    <tr>
+        <td>Conjunctival congestion</td>
+        <td>0.8</td>
+    </tr>
+</table>
+
+Mild symptoms in an otherwise healthy individual may resolve over just a few
+days. Similar to influenza, for an individual with other ongoing health issues,
+such as a respiratory condition, recovery may take weeks and in severe cases
+could be potentially fatal.[^5]
+
 
 ## Myth: It affects only the elderly
 
@@ -378,6 +496,40 @@ Date: Total infections at the end of the day (new infections on that day)
 2020-06-22: 63,997,376 (+574)
 ```
 
+## How bad is it?
+
+* Hospitals have difficulties getting rid of the dead ([New York](https://www.youtube.com/watch?v=bE68xVXf8Kw))
+* Hospitals don't have enough equipment:
+    * [Italy: We no longer help those over 60](https://www.jpost.com/International/Israeli-doctor-in-Italy-We-no-longer-help-those-over-60-621856)
+* Supply Chains break
+    * [Ethanol](https://www.faz.net/aktuell/wirtschaft/unternehmen/corona-herstellern-von-desinfektionsmitteln-geht-ethanol-aus-16689993.html)
+    * [Mexican cartels and leads to shortages of meth and fentanyl](https://www.the-sun.com/news/567928/coronavirus-hits-mexican-cartels-and-leads-to-shortages-of-meth-and-fentanyl-as-chemicals-cant-be-sourced-from-china/)
+* Many local stores close ([Elbschlosskeller](https://twitter.com/UUlrichson1/status/1239991614099148801?s=20))
+* Organized Crime starts to help
+    * [Randsomeware Ethics](https://www.bleepingcomputer.com/news/security/ransomware-gangs-to-stop-attacking-health-orgs-during-pandemic/)
+    * [Gangs in Rio de Janeiro](https://twitter.com/AndrewCesare/status/1242174265547468803)
+* Various websites scale down, to reduce network traffic:
+    * Sony: [Playstation](https://www.heise.de/newsticker/meldung/Playstation-Network-Sony-verringert-Download-Geschwindigkeit-4689896.html)
+    * [Akamai](https://blogs.akamai.com/2020/03/working-together-to-manage-global-internet-traffic-increases.html)
+
+
+## Positive Developments
+
+* **Online Services**: Companies are highly incentivized to check their remote
+  working capabilities, schools and universities have to think about which
+  materials they offer online, libraries increase their e-book offer. Even
+  churches start to stream the church service. I hope that this permanently
+  increases the online material. There are always people who can't leave their
+  house. People who might be too old or people who need to stay at hospital.
+  There are always people who have time for this at that specific moment.
+  People who work multiple jobs or are simply working at other shifts. Adding
+  material online makes our society more inclusive.
+* **Social Contact**: Yes, we cannot see each other. But at least I started to
+  contact more friends and talk more often with family. I'm not the only one
+  who does that ([German
+  source](https://www.heise.de/newsticker/meldung/In-Deutschland-wird-mehr-und-laenger-telefoniert-4688664.html))
+
+
 ## See also
 
 * Statistics:
@@ -392,3 +544,12 @@ Date: Total infections at the end of the day (new infections on that day)
     * [Australian Government Department of Health](https://www.youtube.com/watch?v=2WCtGFNENYU)
     * Harald Lesch: [Coronavirus – unnötiger Alarm bei COVID-19?](https://www.youtube.com/watch?v=Fx11Y4xjDwA) (German)
     * 3Blue1Brown: [Exponential Growth and Epidemia](https://www.youtube.com/watch?v=Kas0tIxDvrg), 2020-03-08 on YouTube.
+
+## Footnotes
+
+[^1]: Centers for Disease Control and Prevention: [How Coronavirus Spreads](https://www.cdc.gov/coronavirus/2019-ncov/prepare/transmission.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2F2019-ncov%2Fabout%2Ftransmission.html), March 2020.
+[^2]: an Doremalen N, Bushmaker T, Morris DH, Holbrook MG, Gamble A, Williamson BN, et al. (March 2020). "[Aerosol and Surface Stability of SARS-CoV-2 as Compared with SARS-CoV-1](https://www.nejm.org/doi/10.1056/NEJMc2004973)". The New England Journal of Medicine. Massachusetts Medical Society.
+[^3]: [Report of the WHO-China Joint Mission on Coronavirus Disease 2019 (COVID-19)](https://www.who.int/docs/default-source/coronaviruse/who-china-joint-mission-on-covid-19-final-report.pdf). World Health Organization (WHO). February 2020.
+[^4]: [Q&A on coronaviruses (COVID-19)](https://www.who.int/news-room/q-a-detail/q-a-coronaviruses), World Health Organization (WHO). March 2020.
+[^5]: [New South Wales](https://en.wikipedia.org/wiki/New_South_Wales) Government: [COVID-19 - Frequently asked questions](https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx), March 2020.
+[^6]: Danielle Renwick: [Have I already had coronavirus? How would I know and what should I do?](https://www.theguardian.com/us-news/2020/mar/23/have-i-already-had-covid19-coronavirus). 2020-03-24.
