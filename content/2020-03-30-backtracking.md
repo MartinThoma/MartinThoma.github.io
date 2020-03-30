@@ -6,7 +6,7 @@ author: Martin Thoma
 date: 2020-03-30 20:00
 category: My bits and bytes
 tags: Code, Algorithms, Constraint-satisfaction, Constraint Optimization, Operations Research
-featured_image: logos/star.png
+featured_image: logos/ai.png
 ---
 Backtracking is a concept for solving discrete constraint-satisfaction
 problems. Those problems don't have an optimal solution, but just solutions
@@ -15,8 +15,74 @@ If it doesn't work, go back and try something else.
 
 Backtracking is often implemented with recursion.
 
+
+## The Structure
+
+Typically, when you apply backtracking, it looks like this:
+
+```python
+partial_solutions = [initial_solution_draft]  # stack or queue
+while partial_solutions:
+    partial_solution = partial_solutions.pop()
+    if is_complete(partial_solution):
+        return partial_solution
+    for choice in choices(partial_solution):
+        extended_solution = extend(partial_solution, choice)
+        if is_valid(extended_solution):
+            partial_solutions.append(extended_solution)
+return None  # Constraints could not be satisfied
+```
+
+As you can see, it is essentially just a way to brute-force the problem.
+
 The rest of the article consists of examples. I checked the n-queens example
 for correctness, but not the others.
+
+
+## Backtracking vs DFS
+
+When you apply Backtracking, you first define a solution space. This might
+happen implicitly, e.g. by defining a data structure. For example, in the
+n-queens problem the solution space is all permutations of the number from 0 to
+(n-1). Everything else is guaranteed not to be a solution. And most of the
+permutations are also no solutions.
+
+Depth First Search (DFS) is one way to search in the solution space for a
+solution that satisfies the constraints. It is the typical choice to iterate
+the solution space. Other search algorithms are Breadth First Search (BFS) and
+A\*.
+
+
+## Backtracking vs B&B
+
+Branch-and-Bound (B&B) is a [label correction algorithms](https://martin-thoma.com/label-correction-algorithm/).
+It is a search algorithm which uses a lower bound and an upper bound for the search. Think of a shortest-path problem.
+
+With the lower bound, the minimum length of a given partial solution from
+source to sink can be calculated. If that minimum length is longer than another
+answer which was already found, then the calculation at that point can be
+aborted.
+
+With the upper bound, one can extend the partial solutons. Essentially, one can
+make the pruning described before more efficient. We don't have to find a
+concrete solution anymore, but for partial solutions we already know the
+distance they will take at most.
+
+B&B is a special case of backtracking: Backtracking with pruning is B&B[^1].
+
+See also:
+
+* GeeksForGeeks: 0/1 Knapsack - [Backtracking](https://www.geeksforgeeks.org/printing-items-01-knapsack/) and [Branch and Bound](https://www.geeksforgeeks.org/branch-and-bound-algorithm/)
+* StackOverflow: [Difference between 'backtracking' and 'branch and bound'](https://stackoverflow.com/q/30025421/562769)
+
+
+## Runtime Complexity
+
+Assume that you have to go $n$ steps and at every step you have $a \geq 2$
+choices. This means the runtime is exponential - $\mathcal{O}(\alpha^n)$.
+
+If you add more rules to `is_valid` - excluding more solutions - you reduce
+$\alpha$. This can mean a huge speedup.
 
 ## n Queens
 
@@ -116,6 +182,67 @@ def is_threatening(x1: int, y1: int, x2: int, y2: int) -> bool:
     same_diagonal = same_diagonal_major or same_diagonal_minor
     return same_row or same_col or same_diagonal
 ```
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>n</th>
+            <th>solutions (<a href="https://oeis.org/A000170">A000170</a>)</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>10</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>4</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>40</td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td>92</td>
+    </tr>
+    <tr>
+        <td>9</td>
+        <td>352</td>
+    </tr>
+    <tr>
+        <td>10</td>
+        <td>724</td>
+    </tr>
+    <tr>
+        <td>11</td>
+        <td>2680</td>
+    </tr>
+    <tr>
+        <td>12</td>
+        <td>14200</td>
+    </tr>
+    </tbody>
+</table>
+
 
 ## Maze finding
 
@@ -294,3 +421,7 @@ GNU Linear Programming Kit, as well.
 ## See also
 
 * Google OR-Tools: [The N-queens Problem](https://developers.google.com/optimization/cp/queens)
+
+## Footnotes
+
+[^1]: [Kevin Buchin](https://www.win.tue.nl/~kbuchin/): [Backtracking / Branch-and-Bound](https://www.win.tue.nl/~kbuchin/teaching/2IL15/backtracking.pdf). In Algorithms (2IL15) – 2014.
