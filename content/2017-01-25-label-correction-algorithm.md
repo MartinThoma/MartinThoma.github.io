@@ -10,7 +10,9 @@ featured_image: logos/ai.png
 ---
 The label-correction algorithm is a generalization which includes very common
 graph search algorithms like breadth first search (BFS), depth first search (DFS),
-[A*](https://en.wikipedia.org/wiki/A*_search_algorithm), [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) and [Branch and bound](https://en.wikipedia.org/wiki/Branch_and_bound) as special cases.
+[A\*](https://en.wikipedia.org/wiki/A*_search_algorithm),
+[Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) and
+[Branch and bound](https://en.wikipedia.org/wiki/Branch_and_bound) as special cases.
 
 
 ## Pseudocode
@@ -29,10 +31,10 @@ of the optimal solution.
 
 Special cases:
 
-* [Depth-first search](https://en.wikipedia.org/wiki/Depth-first_search): K is LIFO list / Stack
-* [Breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search): K is FIFO list
+* [Depth-first search](https://en.wikipedia.org/wiki/Depth-first_search): K is a stack (LIFO list)
+* [Breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search): K is a queue (FIFO list)
 * [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm): K is [priority queue](https://en.wikipedia.org/wiki/Priority_queue)
-* [A*](https://en.wikipedia.org/wiki/A*_search_algorithm): K ist priority queue, $h_j$ is non-trivial
+* [A\*](https://en.wikipedia.org/wiki/A*_search_algorithm): K ist priority queue, $h_j$ is non-trivial
 * [Branch and bound](https://en.wikipedia.org/wiki/Branch_and_bound): K ist priority queue, $h_j$ and $m_j$ are non-trivial
 
 
@@ -217,4 +219,4 @@ if __name__ == "__main__":
 ## See also
 
 * [My implementations on GitHub](https://github.com/MartinThoma/algorithms/tree/master/label-korrektur-algorithmus)
-* [Python Lists as Fifo, Lifo Queues Using Deque Collections](http://www.idiotinside.com/2015/03/01/python-lists-as-fifo-lifo-queues-using-deque-collections/)
+* [Python Lists as FIFO, LIFO Queues Using Deque Collections](http://www.idiotinside.com/2015/03/01/python-lists-as-fifo-lifo-queues-using-deque-collections/)
