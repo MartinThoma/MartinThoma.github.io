@@ -179,67 +179,83 @@ source I can't find it.
 <table class="table">
     <tr>
         <th>Symptom</th>
-        <th>%</th>
+        <th>Corona %</th>
+        <th>Influenca</th>
     </tr>
     <tr>
         <td>Fever</td>
         <td>87.9</td>
+        <td>✔️</td>
     </tr>
     <tr>
         <td>Dry cough</td>
         <td>67.7</td>
+        <td>✔️ (not sure if dry)</td>
     </tr>
     <tr>
         <td>Fatigue</td>
         <td>38.1</td>
+        <td>✔️</td>
     </tr>
     <tr>
         <td>Sputum production</td>
         <td>33.4</td>
+        <td>?</td>
     </tr>
     <tr>
         <td>Loss of smell and taste</td>
         <td>30 to 66</td>
+        <td>?</td>
     </tr>
     <tr>
         <td>Shortness of breath</td>
         <td>18.6</td>
+        <td>✔️ (emergency warning sign)</td>
     </tr>
     <tr>
         <td>Muscle or joint pain</td>
         <td>14.8</td>
+        <td>✔️</td>
     </tr>
     <tr>
         <td>Sore throat</td>
         <td>13.9</td>
+        <td>✔️</td>
     </tr>
     <tr>
         <td>Headache</td>
         <td>13.6</td>
+        <td>✔️</td>
     </tr>
     <tr>
         <td>Chills</td>
         <td>11.4</td>
+        <td>✔️</td>
     </tr>
     <tr>
         <td>Nausea or vomiting</td>
         <td>5.0</td>
+        <td>✔️ (rather in children; emergency warning sign)</td>
     </tr>
     <tr>
         <td>Nasal congestion</td>
         <td>4.8</td>
+        <td>✔️</td>
     </tr>
     <tr>
         <td>Diarrhoea</td>
         <td>3.7 to 31</td>
+        <td>✔️ (rather in children)</td>
     </tr>
     <tr>
         <td>Haemoptysis</td>
         <td>0.9</td>
+        <td>?</td>
     </tr>
     <tr>
         <td>Conjunctival congestion</td>
         <td>0.8</td>
+        <td>?</td>
     </tr>
 </table>
 
@@ -406,9 +422,9 @@ Date: Total infections at the end of the day (new infections on that day)
 2020-03-24: 28,451 (+5,109) -- was 29,542
 2020-03-25: 34,678 (+6,226)
 2020-03-26: 42,266 (+7,588)
-2020-03-27: 51,513 (+9,247)
+2020-03-27: 51,513 (+9,247)  -- somewhat accurate until here
 2020-03-28: 62,781 (+11,268)
-2020-03-29: 76,512 (+13,730)
+2020-03-29: 76,512 (+13,730)  -- pretty bad from here
 2020-03-30: 93,240 (+16,729)
 2020-03-31: 113,620 (+20,380)
 2020-04-01: 138,445 (+24,825)
@@ -501,13 +517,22 @@ Date: Total infections at the end of the day (new infections on that day)
 * Hospitals have difficulties getting rid of the dead ([New York](https://www.youtube.com/watch?v=bE68xVXf8Kw))
 * Hospitals don't have enough equipment:
     * [Italy: We no longer help those over 60](https://www.jpost.com/International/Israeli-doctor-in-Italy-We-no-longer-help-those-over-60-621856)
+    * Twitter: [NHS gets medical equipment from @MedFet_UK (Medical Fetish Organization)](https://twitter.com/MedFet_UK/status/1243590308878848002)
 * Supply Chains break
     * [Ethanol](https://www.faz.net/aktuell/wirtschaft/unternehmen/corona-herstellern-von-desinfektionsmitteln-geht-ethanol-aus-16689993.html)
     * [Mexican cartels and leads to shortages of meth and fentanyl](https://www.the-sun.com/news/567928/coronavirus-hits-mexican-cartels-and-leads-to-shortages-of-meth-and-fentanyl-as-chemicals-cant-be-sourced-from-china/)
+* Supply of single goods breaks
+    * Toilet paper everywhere
+    * Personally, I've been searching for rice, flour and oil for a week. Also
+      pasta got rare. It's still available once in a while, but not well-stocked.
+    * [Condoms](https://www.theguardian.com/world/2020/mar/27/global-condom-shortage-coronavirus-shuts-down-production)
 * Many local stores close ([Elbschlosskeller](https://twitter.com/UUlrichson1/status/1239991614099148801?s=20))
 * Organized Crime starts to help
     * [Randsomeware Ethics](https://www.bleepingcomputer.com/news/security/ransomware-gangs-to-stop-attacking-health-orgs-during-pandemic/)
     * [Gangs in Rio de Janeiro](https://twitter.com/AndrewCesare/status/1242174265547468803)
+* Events get cancelled:
+    * 2020-03-12: [Leipziger Buchmesse](https://www.tagesschau.de/inland/corona-deutschland-103.html) - 100,000 visitors expected
+    * [Wimbledon](https://us.cnn.com/2020/03/30/tennis/wimbledon-tennis-coronavirus-spt-int/index.html)
 * Various websites scale down, to reduce network traffic:
     * Sony: [Playstation](https://www.heise.de/newsticker/meldung/Playstation-Network-Sony-verringert-Download-Geschwindigkeit-4689896.html)
     * [Akamai](https://blogs.akamai.com/2020/03/working-together-to-manage-global-internet-traffic-increases.html)
@@ -544,6 +569,10 @@ Date: Total infections at the end of the day (new infections on that day)
     * [Australian Government Department of Health](https://www.youtube.com/watch?v=2WCtGFNENYU)
     * Harald Lesch: [Coronavirus – unnötiger Alarm bei COVID-19?](https://www.youtube.com/watch?v=Fx11Y4xjDwA) (German)
     * 3Blue1Brown: [Exponential Growth and Epidemia](https://www.youtube.com/watch?v=Kas0tIxDvrg), 2020-03-08 on YouTube.
+* [Stack Exchange](https://medicalsciences.stackexchange.com/questions/tagged/covid-19?tab=Votes): I'm not sure how good this is
+* [How To Tell If We're Beating COVID-19](https://youtu.be/54XLXg4fYsc)
+* Crowdsourcing
+    * [COVID-19 Kaggle community contributions](https://www.kaggle.com/covid-19-contributions)
 
 ## Footnotes
 
