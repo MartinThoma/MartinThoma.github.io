@@ -14,16 +14,16 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="Code, Algorithms, Constraint-satisfaction, Constraint Optimization, Operations Research, My bits and bytes, " />
+<meta name="keywords" content="Code, Algorithms, Constraint-satisfaction, COP, CSP, Operations Research, Backtracking, Branch-and-Bound, My bits and bytes, " />
 
 <meta property="og:title" content="Backtracking "/>
 <meta property="og:url" content="../backtracking/" />
-<meta property="og:description" content="Backtracking is a concept for solving discrete constraint-satisfaction problems. Those problems don&#39;t have an optimal solution, but just solutions which satisfy the constraints. The idea of backtracking is to try a solution. If it doesn&#39;t work, go back and try something else. Backtracking is often implemented with recursion. The Structure …" />
+<meta property="og:description" content="Backtracking is a concept for solving discrete constraint satisfaction problems (CSPs). Those problems don&#39;t have an optimal solution, but just solutions which satisfy the constraints. The idea of backtracking is to try a solution. If it doesn&#39;t work, go back and try something else. Backtracking is often implemented with recursion …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2020-03-30T20:00:00+02:00" />
 <meta name="twitter:title" content="Backtracking ">
-<meta name="twitter:description" content="Backtracking is a concept for solving discrete constraint-satisfaction problems. Those problems don&#39;t have an optimal solution, but just solutions which satisfy the constraints. The idea of backtracking is to try a solution. If it doesn&#39;t work, go back and try something else. Backtracking is often implemented with recursion. The Structure …">
+<meta name="twitter:description" content="Backtracking is a concept for solving discrete constraint satisfaction problems (CSPs). Those problems don&#39;t have an optimal solution, but just solutions which satisfy the constraints. The idea of backtracking is to try a solution. If it doesn&#39;t work, go back and try something else. Backtracking is often implemented with recursion …">
 <meta property="og:image" content="logos/ai.png" />
 <meta name="twitter:image" content="logos/ai.png" >
 
@@ -110,11 +110,12 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>Backtracking is a concept for solving discrete constraint-satisfaction
-problems. Those problems don't have an optimal solution, but just solutions
-which satisfy the constraints. The idea of backtracking is to try a solution.
-If it doesn't work, go back and try something else.</p>
-<p>Backtracking is often implemented with recursion.</p>
+            <p>Backtracking is a concept for solving discrete constraint satisfaction problems
+(CSPs). Those problems don't have an optimal solution, but just solutions which
+satisfy the constraints. The idea of backtracking is to try a solution. If it
+doesn't work, go back and try something else.</p>
+<p>Backtracking is often implemented with recursion, but does not need to use
+recursion.</p>
 <h2 id="the-structure">The Structure</h2>
 <p>Typically, when you apply backtracking, it looks like this:</p>
 <div class="highlight"><pre><span></span><span class="n">partial_solutions</span> <span class="o">=</span> <span class="p">[</span><span class="n">initial_solution_draft</span><span class="p">]</span>  <span class="c1"># stack or queue</span>
@@ -137,13 +138,19 @@ happen implicitly, e.g. by defining a data structure. For example, in the
 n-queens problem the solution space is all permutations of the number from 0 to
 (n-1). Everything else is guaranteed not to be a solution. And most of the
 permutations are also no solutions.</p>
-<p>Depth First Search (DFS) is one way to search in the solution space for a
-solution that satisfies the constraints. It is the typical choice to iterate
-the solution space. Other search algorithms are Breadth First Search (BFS) and
-A*.</p>
+<p>Depth First Search (DFS) is a graph traversal algorithm. It is one way to
+search in the solution space for a solution that satisfies the constraints. It
+is the typical choice to iterate the solution space. Other search algorithms
+are Breadth First Search (BFS) and A*.</p>
 <h2 id="backtracking-vs-bb">Backtracking vs B&amp;B</h2>
-<p>Branch-and-Bound (B&amp;B) is a <a href="https://martin-thoma.com/label-correction-algorithm/">label correction algorithms</a>.
-It is a search algorithm which uses a lower bound and an upper bound for the search. Think of a shortest-path problem.</p>
+<p>Branch-and-Bound (B&amp;B) is a concept to solve discrete constrained optimization
+problems (COPs). They are similar to CSPs, but besides having the constraints
+they have an optimization criterion. In contrast to backtracking, B&amp;B uses
+Breadth-First Search.</p>
+<p>B&amp;B is a <a href="https://martin-thoma.com/label-correction-algorithm/">label correction algorithm</a>.
+It is a search algorithm which uses a lower bound and an upper bound for the
+search. Think of a shortest-path problem.</p>
+<p>One part of the name, the bound, refers to the way B&amp;B prunes the space of possible solutions: It gets a heuristic which gets an upper bound. If this cannot be improved, a sup-tree can be discarded.</p>
 <p>With the lower bound, the minimum length of a given partial solution from
 source to sink can be calculated. If that minimum length is longer than another
 answer which was already found, then the calculation at that point can be
@@ -152,12 +159,6 @@ aborted.</p>
 make the pruning described before more efficient. We don't have to find a
 concrete solution anymore, but for partial solutions we already know the
 distance they will take at most.</p>
-<p>B&amp;B is a special case of backtracking: Backtracking with pruning is B&amp;B<sup id="fnref-1"><a class="footnote-ref" href="#fn-1">1</a></sup>.</p>
-<p>See also:</p>
-<ul>
-<li>GeeksForGeeks: 0/1 Knapsack - <a href="https://www.geeksforgeeks.org/printing-items-01-knapsack/">Backtracking</a> and <a href="https://www.geeksforgeeks.org/branch-and-bound-algorithm/">Branch and Bound</a></li>
-<li>StackOverflow: <a href="https://stackoverflow.com/q/30025421/562769">Difference between 'backtracking' and 'branch and bound'</a></li>
-</ul>
 <h2 id="runtime-complexity">Runtime Complexity</h2>
 <p>Assume that you have to go <span class="math">\(n\)</span> steps and at every step you have <span class="math">\(a \geq 2\)</span>
 choices. This means the runtime is exponential - <span class="math">\(\mathcal{O}(\alpha^n)\)</span>.</p>
@@ -479,6 +480,8 @@ GNU Linear Programming Kit, as well.</p>
 <h2 id="see-also">See also</h2>
 <ul>
 <li>Google OR-Tools: <a href="https://developers.google.com/optimization/cp/queens">The N-queens Problem</a></li>
+<li>cs.StackExchange: <a href="https://cs.stackexchange.com/q/123382/2914">Backtracking vs Branch-and-Bound</a></li>
+<li>StackOverflow: <a href="https://stackoverflow.com/q/30025421/562769">Difference between 'backtracking' and 'branch and bound'</a></li>
 </ul>
 <h2 id="footnotes">Footnotes</h2>
 <div class="footnote">
@@ -524,13 +527,22 @@ GNU Linear Programming Kit, as well.</p>
                 <li><a href="../tags.html#algorithms-ref">Algorithms
                     <span>12</span>
 </a></li>
+                <li><a href="../tags.html#backtracking-ref">Backtracking
+                    <span>1</span>
+</a></li>
+                <li><a href="../tags.html#branch-and-bound-ref">Branch-and-Bound
+                    <span>2</span>
+</a></li>
                 <li><a href="../tags.html#code-ref">Code
                     <span>5</span>
 </a></li>
-                <li><a href="../tags.html#constraint-optimization-ref">Constraint Optimization
+                <li><a href="../tags.html#constraint-satisfaction-ref">Constraint-satisfaction
                     <span>1</span>
 </a></li>
-                <li><a href="../tags.html#constraint-satisfaction-ref">Constraint-satisfaction
+                <li><a href="../tags.html#cop-ref">COP
+                    <span>1</span>
+</a></li>
+                <li><a href="../tags.html#csp-ref">CSP
                     <span>1</span>
 </a></li>
                 <li><a href="../tags.html#operations-research-ref">Operations Research

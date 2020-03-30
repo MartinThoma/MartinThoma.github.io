@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - My bits and bytes</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/my-bits-and-bytes.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2020-03-30T20:00:00+02:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>Backtracking</title><link href="https://martin-thoma.com/backtracking/" rel="alternate"></link><published>2020-03-30T20:00:00+02:00</published><updated>2020-03-30T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-03-30:/backtracking/</id><summary type="html">&lt;p&gt;Backtracking is a concept for solving discrete constraint-satisfaction
-problems. Those problems don't have an optimal solution, but just solutions
-which satisfy the constraints. The idea of backtracking is to try a solution.
-If it doesn't work, go back and try something else.&lt;/p&gt;
-&lt;p&gt;Backtracking is often implemented with recursion.&lt;/p&gt;
-&lt;h2 id="the-structure"&gt;The Structure …&lt;/h2&gt;</summary><content type="html">&lt;p&gt;Backtracking is a concept for solving discrete constraint-satisfaction
-problems. Those problems don't have an optimal solution, but just solutions
-which satisfy the constraints. The idea of backtracking is to try a solution.
-If it doesn't work, go back and try something else.&lt;/p&gt;
-&lt;p&gt;Backtracking is often implemented with recursion.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - My bits and bytes</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/my-bits-and-bytes.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2020-03-30T20:00:00+02:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>Backtracking</title><link href="https://martin-thoma.com/backtracking/" rel="alternate"></link><published>2020-03-30T20:00:00+02:00</published><updated>2020-03-30T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-03-30:/backtracking/</id><summary type="html">&lt;p&gt;Backtracking is a concept for solving discrete constraint satisfaction problems
+(CSPs). Those problems don't have an optimal solution, but just solutions which
+satisfy the constraints. The idea of backtracking is to try a solution. If it
+doesn't work, go back and try something else.&lt;/p&gt;
+&lt;p&gt;Backtracking is often implemented with recursion …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Backtracking is a concept for solving discrete constraint satisfaction problems
+(CSPs). Those problems don't have an optimal solution, but just solutions which
+satisfy the constraints. The idea of backtracking is to try a solution. If it
+doesn't work, go back and try something else.&lt;/p&gt;
+&lt;p&gt;Backtracking is often implemented with recursion, but does not need to use
+recursion.&lt;/p&gt;
 &lt;h2 id="the-structure"&gt;The Structure&lt;/h2&gt;
 &lt;p&gt;Typically, when you apply backtracking, it looks like this:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;partial_solutions&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;initial_solution_draft&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;  &lt;span class="c1"&gt;# stack or queue&lt;/span&gt;
@@ -31,13 +31,19 @@ happen implicitly, e.g. by defining a data structure. For example, in the
 n-queens problem the solution space is all permutations of the number from 0 to
 (n-1). Everything else is guaranteed not to be a solution. And most of the
 permutations are also no solutions.&lt;/p&gt;
-&lt;p&gt;Depth First Search (DFS) is one way to search in the solution space for a
-solution that satisfies the constraints. It is the typical choice to iterate
-the solution space. Other search algorithms are Breadth First Search (BFS) and
-A*.&lt;/p&gt;
+&lt;p&gt;Depth First Search (DFS) is a graph traversal algorithm. It is one way to
+search in the solution space for a solution that satisfies the constraints. It
+is the typical choice to iterate the solution space. Other search algorithms
+are Breadth First Search (BFS) and A*.&lt;/p&gt;
 &lt;h2 id="backtracking-vs-bb"&gt;Backtracking vs B&amp;amp;B&lt;/h2&gt;
-&lt;p&gt;Branch-and-Bound (B&amp;amp;B) is a &lt;a href="https://martin-thoma.com/label-correction-algorithm/"&gt;label correction algorithms&lt;/a&gt;.
-It is a search algorithm which uses a lower bound and an upper bound for the search. Think of a shortest-path problem.&lt;/p&gt;
+&lt;p&gt;Branch-and-Bound (B&amp;amp;B) is a concept to solve discrete constrained optimization
+problems (COPs). They are similar to CSPs, but besides having the constraints
+they have an optimization criterion. In contrast to backtracking, B&amp;amp;B uses
+Breadth-First Search.&lt;/p&gt;
+&lt;p&gt;B&amp;amp;B is a &lt;a href="https://martin-thoma.com/label-correction-algorithm/"&gt;label correction algorithm&lt;/a&gt;.
+It is a search algorithm which uses a lower bound and an upper bound for the
+search. Think of a shortest-path problem.&lt;/p&gt;
+&lt;p&gt;One part of the name, the bound, refers to the way B&amp;amp;B prunes the space of possible solutions: It gets a heuristic which gets an upper bound. If this cannot be improved, a sup-tree can be discarded.&lt;/p&gt;
 &lt;p&gt;With the lower bound, the minimum length of a given partial solution from
 source to sink can be calculated. If that minimum length is longer than another
 answer which was already found, then the calculation at that point can be
@@ -46,12 +52,6 @@ aborted.&lt;/p&gt;
 make the pruning described before more efficient. We don't have to find a
 concrete solution anymore, but for partial solutions we already know the
 distance they will take at most.&lt;/p&gt;
-&lt;p&gt;B&amp;amp;B is a special case of backtracking: Backtracking with pruning is B&amp;amp;B&lt;sup id="fnref-1"&gt;&lt;a class="footnote-ref" href="#fn-1"&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
-&lt;p&gt;See also:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;GeeksForGeeks: 0/1 Knapsack - &lt;a href="https://www.geeksforgeeks.org/printing-items-01-knapsack/"&gt;Backtracking&lt;/a&gt; and &lt;a href="https://www.geeksforgeeks.org/branch-and-bound-algorithm/"&gt;Branch and Bound&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;StackOverflow: &lt;a href="https://stackoverflow.com/q/30025421/562769"&gt;Difference between 'backtracking' and 'branch and bound'&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 &lt;h2 id="runtime-complexity"&gt;Runtime Complexity&lt;/h2&gt;
 &lt;p&gt;Assume that you have to go &lt;span class="math"&gt;\(n\)&lt;/span&gt; steps and at every step you have &lt;span class="math"&gt;\(a \geq 2\)&lt;/span&gt;
 choices. This means the runtime is exponential - &lt;span class="math"&gt;\(\mathcal{O}(\alpha^n)\)&lt;/span&gt;.&lt;/p&gt;
@@ -373,6 +373,8 @@ GNU Linear Programming Kit, as well.&lt;/p&gt;
 &lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Google OR-Tools: &lt;a href="https://developers.google.com/optimization/cp/queens"&gt;The N-queens Problem&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;cs.StackExchange: &lt;a href="https://cs.stackexchange.com/q/123382/2914"&gt;Backtracking vs Branch-and-Bound&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;StackOverflow: &lt;a href="https://stackoverflow.com/q/30025421/562769"&gt;Difference between 'backtracking' and 'branch and bound'&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="footnotes"&gt;Footnotes&lt;/h2&gt;
 &lt;div class="footnote"&gt;
@@ -382,7 +384,7 @@ GNU Linear Programming Kit, as well.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.win.tue.nl/~kbuchin/"&gt;Kevin Buchin&lt;/a&gt;: &lt;a href="https://www.win.tue.nl/~kbuchin/teaching/2IL15/backtracking.pdf"&gt;Backtracking / Branch-and-Bound&lt;/a&gt;. In Algorithms (2IL15) &amp;ndash; 2014.&amp;nbsp;&lt;a class="footnote-backref" href="#fnref-1" title="Jump back to footnote 1 in the text"&gt;↩&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</content><category term="Code"></category><category term="Algorithms"></category><category term="Constraint-satisfaction"></category><category term="Constraint Optimization"></category><category term="Operations Research"></category></entry><entry><title>Coronavirus disease 2019</title><link href="https://martin-thoma.com/covid-19/" rel="alternate"></link><published>2020-03-23T20:00:00+01:00</published><updated>2020-03-23T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-03-23:/covid-19/</id><summary type="html">&lt;p&gt;The &lt;a href="https://en.wikipedia.org/wiki/Coronavirus"&gt;Coronavirus&lt;/a&gt; runs around the
+&lt;/div&gt;</content><category term="Code"></category><category term="Algorithms"></category><category term="Constraint-satisfaction"></category><category term="COP"></category><category term="CSP"></category><category term="Operations Research"></category><category term="Backtracking"></category><category term="Branch-and-Bound"></category></entry><entry><title>Coronavirus disease 2019</title><link href="https://martin-thoma.com/covid-19/" rel="alternate"></link><published>2020-03-23T20:00:00+01:00</published><updated>2020-03-23T20:00:00+01:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-03-23:/covid-19/</id><summary type="html">&lt;p&gt;The &lt;a href="https://en.wikipedia.org/wiki/Coronavirus"&gt;Coronavirus&lt;/a&gt; runs around the
 world and causes many changes in our everyday lives. Correct information is
 important so that people behave well.&lt;/p&gt;
 &lt;h2 id="what-are-good-sources"&gt;What are good sources?&lt;/h2&gt;
