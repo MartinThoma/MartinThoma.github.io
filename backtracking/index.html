@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Code, Algorithms, Constraint-satisfaction, Constraint Optimization, Operations Research, My bits and bytes, " />
+
+<meta property="og:title" content="Backtracking "/>
+<meta property="og:url" content="../backtracking/" />
+<meta property="og:description" content="Backtracking is a concept for solving discrete constraint-satisfaction problems. Those problems don&#39;t have an optimal solution, but just solutions which satisfy the constraints. The idea of backtracking is to try a solution. If it doesn&#39;t work, go back and try something else. Backtracking is often implemented with recursion. The Structure …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2020-03-30T20:00:00+02:00" />
+<meta name="twitter:title" content="Backtracking ">
+<meta name="twitter:description" content="Backtracking is a concept for solving discrete constraint-satisfaction problems. Those problems don&#39;t have an optimal solution, but just solutions which satisfy the constraints. The idea of backtracking is to try a solution. If it doesn&#39;t work, go back and try something else. Backtracking is often implemented with recursion. The Structure …">
+<meta property="og:image" content="logos/ai.png" />
+<meta name="twitter:image" content="logos/ai.png" >
+
+        <title>Backtracking  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../backtracking/"> Backtracking  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#the-structure" title="The Structure">The Structure</a></li><li><a class="toc-href" href="#backtracking-vs-dfs" title="Backtracking vs DFS">Backtracking vs DFS</a></li><li><a class="toc-href" href="#backtracking-vs-bb" title="Backtracking vs B&amp;B">Backtracking vs B&amp;B;</a></li><li><a class="toc-href" href="#runtime-complexity" title="Runtime Complexity">Runtime Complexity</a></li><li><a class="toc-href" href="#n-queens" title="n Queens">n Queens</a></li><li><a class="toc-href" href="#maze-finding" title="Maze finding">Maze finding</a></li><li><a class="toc-href" href="#sudoku" title="Sudoku">Sudoku</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li><li><a class="toc-href" href="#footnotes" title="Footnotes">Footnotes</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>Backtracking is a concept for solving discrete constraint-satisfaction
+problems. Those problems don't have an optimal solution, but just solutions
+which satisfy the constraints. The idea of backtracking is to try a solution.
+If it doesn't work, go back and try something else.</p>
+<p>Backtracking is often implemented with recursion.</p>
+<h2 id="the-structure">The Structure</h2>
+<p>Typically, when you apply backtracking, it looks like this:</p>
+<div class="highlight"><pre><span></span><span class="n">partial_solutions</span> <span class="o">=</span> <span class="p">[</span><span class="n">initial_solution_draft</span><span class="p">]</span>  <span class="c1"># stack or queue</span>
+<span class="k">while</span> <span class="n">partial_solutions</span><span class="p">:</span>
+    <span class="n">partial_solution</span> <span class="o">=</span> <span class="n">partial_solutions</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">is_complete</span><span class="p">(</span><span class="n">partial_solution</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">partial_solution</span>
+    <span class="k">for</span> <span class="n">choice</span> <span class="ow">in</span> <span class="n">choices</span><span class="p">(</span><span class="n">partial_solution</span><span class="p">):</span>
+        <span class="n">extended_solution</span> <span class="o">=</span> <span class="n">extend</span><span class="p">(</span><span class="n">partial_solution</span><span class="p">,</span> <span class="n">choice</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">is_valid</span><span class="p">(</span><span class="n">extended_solution</span><span class="p">):</span>
+            <span class="n">partial_solutions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">extended_solution</span><span class="p">)</span>
+<span class="k">return</span> <span class="bp">None</span>  <span class="c1"># Constraints could not be satisfied</span>
+</pre></div>
+<p>As you can see, it is essentially just a way to brute-force the problem.</p>
+<p>The rest of the article consists of examples. I checked the n-queens example
+for correctness, but not the others.</p>
+<h2 id="backtracking-vs-dfs">Backtracking vs DFS</h2>
+<p>When you apply Backtracking, you first define a solution space. This might
+happen implicitly, e.g. by defining a data structure. For example, in the
+n-queens problem the solution space is all permutations of the number from 0 to
+(n-1). Everything else is guaranteed not to be a solution. And most of the
+permutations are also no solutions.</p>
+<p>Depth First Search (DFS) is one way to search in the solution space for a
+solution that satisfies the constraints. It is the typical choice to iterate
+the solution space. Other search algorithms are Breadth First Search (BFS) and
+A*.</p>
+<h2 id="backtracking-vs-bb">Backtracking vs B&amp;B</h2>
+<p>Branch-and-Bound (B&amp;B) is a <a href="https://martin-thoma.com/label-correction-algorithm/">label correction algorithms</a>.
+It is a search algorithm which uses a lower bound and an upper bound for the search. Think of a shortest-path problem.</p>
+<p>With the lower bound, the minimum length of a given partial solution from
+source to sink can be calculated. If that minimum length is longer than another
+answer which was already found, then the calculation at that point can be
+aborted.</p>
+<p>With the upper bound, one can extend the partial solutons. Essentially, one can
+make the pruning described before more efficient. We don't have to find a
+concrete solution anymore, but for partial solutions we already know the
+distance they will take at most.</p>
+<p>B&amp;B is a special case of backtracking: Backtracking with pruning is B&amp;B<sup id="fnref-1"><a class="footnote-ref" href="#fn-1">1</a></sup>.</p>
+<p>See also:</p>
+<ul>
+<li>GeeksForGeeks: 0/1 Knapsack - <a href="https://www.geeksforgeeks.org/printing-items-01-knapsack/">Backtracking</a> and <a href="https://www.geeksforgeeks.org/branch-and-bound-algorithm/">Branch and Bound</a></li>
+<li>StackOverflow: <a href="https://stackoverflow.com/q/30025421/562769">Difference between 'backtracking' and 'branch and bound'</a></li>
+</ul>
+<h2 id="runtime-complexity">Runtime Complexity</h2>
+<p>Assume that you have to go <span class="math">\(n\)</span> steps and at every step you have <span class="math">\(a \geq 2\)</span>
+choices. This means the runtime is exponential - <span class="math">\(\mathcal{O}(\alpha^n)\)</span>.</p>
+<p>If you add more rules to <code>is_valid</code> - excluding more solutions - you reduce
+<span class="math">\(\alpha\)</span>. This can mean a huge speedup.</p>
+<h2 id="n-queens">n Queens</h2>
+<p>The <a href="https://en.wikipedia.org/wiki/Eight_queens_puzzle">n Queens puzzle</a> is
+probably the most common example. You have a n&times;n chess board and n queens. You
+need to place the queens on the chess board in such a way that they don't
+threaten each other.</p>
+<p>A queen threatens another queen if it is&hellip;</p>
+<ul>
+<li>&hellip; in the same row</li>
+<li>&hellip; in the same column</li>
+<li>&hellip; in the same diagonal</li>
+</ul>
+<p>If you say that the first coordinate x is the row and the second one, y, is the
+column, then you can easily determine if they threaten each other:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span>
+
+
+<span class="k">def</span> <span class="nf">all_n_queens_solutions</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]]:</span>
+    <span class="sd">"""</span>
+<span class="sd">    Find all possible solutions to the n-queens problem.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n : int</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    all_solutions : List[List[int]]</span>
+<span class="sd">        Each inner list represents a single solution.</span>
+<span class="sd">        The first digit of it is the column of the queen in the first row.</span>
+<span class="sd">        The second digit is the column of the queen in the second row, ...</span>
+
+<span class="sd">    Note</span>
+<span class="sd">    ----</span>
+<span class="sd">    Columns are 0-based.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; all_n_queens_solutions(1)</span>
+<span class="sd">    [(0,)]</span>
+<span class="sd">    &gt;&gt;&gt; all_n_queens_solutions(2)</span>
+<span class="sd">    []</span>
+<span class="sd">    &gt;&gt;&gt; all_n_queens_solutions(3)</span>
+<span class="sd">    []</span>
+<span class="sd">    &gt;&gt;&gt; all_n_queens_solutions(4)</span>
+<span class="sd">    [(1, 3, 0, 2), (2, 0, 3, 1)]</span>
+<span class="sd">    """</span>
+    <span class="n">solutions</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">solution_queue</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[()]</span>  <span class="c1"># contains valid partial solutions</span>
+    <span class="k">while</span> <span class="n">solution_queue</span><span class="p">:</span>
+        <span class="n">solution</span> <span class="o">=</span> <span class="n">solution_queue</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">solution</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">is_new_threatening</span><span class="p">(</span><span class="n">solution</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">solution</span><span class="p">),</span> <span class="n">y</span><span class="o">=</span><span class="n">i</span><span class="p">):</span>
+                    <span class="n">new_solution</span> <span class="o">=</span> <span class="n">solution</span> <span class="o">+</span> <span class="p">(</span><span class="n">i</span><span class="p">,)</span>
+                    <span class="n">solution_queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_solution</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># It's finished!</span>
+            <span class="n">solutions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">solution</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">solutions</span>
+
+
+<span class="k">def</span> <span class="nf">is_new_threatening</span><span class="p">(</span><span class="n">solution</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">x_old</span><span class="p">,</span> <span class="n">y_old</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">solution</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">is_threatening</span><span class="p">(</span><span class="n">x_old</span><span class="p">,</span> <span class="n">y_old</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">True</span>
+    <span class="k">return</span> <span class="bp">False</span>
+
+
+<span class="k">def</span> <span class="nf">is_threatening</span><span class="p">(</span><span class="n">x1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">x2</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y2</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="sd">"""</span>
+<span class="sd">    Check if the positions are threatening each other.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; is_threatening(0, 1, 1, 0)</span>
+<span class="sd">    True</span>
+<span class="sd">    """</span>
+    <span class="n">same_row</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">==</span> <span class="n">x2</span>
+    <span class="n">same_col</span> <span class="o">=</span> <span class="n">y1</span> <span class="o">==</span> <span class="n">y2</span>
+
+    <span class="n">delta1</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">)</span>
+    <span class="n">major_coords1</span> <span class="o">=</span> <span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">delta1</span><span class="p">,</span> <span class="n">y1</span> <span class="o">-</span> <span class="n">delta1</span><span class="p">)</span>
+    <span class="n">delta2</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
+    <span class="n">major_coords2</span> <span class="o">=</span> <span class="p">(</span><span class="n">x2</span> <span class="o">-</span> <span class="n">delta2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">-</span> <span class="n">delta2</span><span class="p">)</span>
+    <span class="n">same_diagonal_major</span> <span class="o">=</span> <span class="n">major_coords1</span> <span class="o">==</span> <span class="n">major_coords2</span>
+
+    <span class="n">delta1</span> <span class="o">=</span> <span class="n">x1</span>
+    <span class="n">delta2</span> <span class="o">=</span> <span class="n">x2</span>
+    <span class="n">minor_coords1</span> <span class="o">=</span> <span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">delta1</span><span class="p">,</span> <span class="n">y1</span> <span class="o">+</span> <span class="n">delta1</span><span class="p">)</span>
+    <span class="n">minor_coords2</span> <span class="o">=</span> <span class="p">(</span><span class="n">x2</span> <span class="o">-</span> <span class="n">delta2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">+</span> <span class="n">delta2</span><span class="p">)</span>
+    <span class="n">same_diagonal_minor</span> <span class="o">=</span> <span class="n">minor_coords1</span> <span class="o">==</span> <span class="n">minor_coords2</span>
+    <span class="n">same_diagonal</span> <span class="o">=</span> <span class="n">same_diagonal_major</span> <span class="ow">or</span> <span class="n">same_diagonal_minor</span>
+    <span class="k">return</span> <span class="n">same_row</span> <span class="ow">or</span> <span class="n">same_col</span> <span class="ow">or</span> <span class="n">same_diagonal</span>
+</pre></div>
+<table class="table">
+<thead>
+<tr>
+<th>n</th>
+<th>solutions (<a href="https://oeis.org/A000170">A000170</a>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2</td>
+</tr>
+<tr>
+<td>5</td>
+<td>10</td>
+</tr>
+<tr>
+<td>6</td>
+<td>4</td>
+</tr>
+<tr>
+<td>7</td>
+<td>40</td>
+</tr>
+<tr>
+<td>8</td>
+<td>92</td>
+</tr>
+<tr>
+<td>9</td>
+<td>352</td>
+</tr>
+<tr>
+<td>10</td>
+<td>724</td>
+</tr>
+<tr>
+<td>11</td>
+<td>2680</td>
+</tr>
+<tr>
+<td>12</td>
+<td>14200</td>
+</tr>
+</tbody>
+</table>
+<h2 id="maze-finding">Maze finding</h2>
+<p>In order to find a solution in a maze, one can apply depth first search (DFS).
+DFS can be seen as a specific form of backtracking
+(<a href="https://stackoverflow.com/a/1294741/562769">source</a>).</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span>
+
+
+<span class="k">def</span> <span class="nf">find_way_out</span><span class="p">(</span>
+    <span class="n">maze</span><span class="p">,</span> <span class="n">current_pos</span><span class="p">:</span> <span class="n">Position</span><span class="p">,</span> <span class="n">current_path</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Position</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Position</span><span class="p">,</span> <span class="o">...</span><span class="p">]]:</span>
+    <span class="k">if</span> <span class="n">is_exit</span><span class="p">(</span><span class="n">current_pos</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">current_path</span>
+    <span class="k">if</span> <span class="n">current_path</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">current_path</span> <span class="o">=</span> <span class="p">[</span><span class="n">current_pos</span><span class="p">]</span>
+    <span class="c1"># Implement possible_paths for your problem</span>
+    <span class="k">for</span> <span class="n">next_step</span> <span class="ow">in</span> <span class="n">possible_paths</span><span class="p">(</span><span class="n">maze</span><span class="p">,</span> <span class="n">current_pos</span><span class="p">):</span>
+        <span class="n">next_pos</span> <span class="o">=</span> <span class="n">step</span><span class="p">(</span><span class="n">current_pos</span><span class="p">,</span> <span class="n">next_step</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">next_pos</span> <span class="o">==</span> <span class="n">current_path</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="c1"># We just came from this position</span>
+            <span class="k">continue</span>
+        <span class="n">solution</span> <span class="o">=</span> <span class="n">find_way_out</span><span class="p">(</span><span class="n">maze</span><span class="p">,</span> <span class="n">next_pos</span><span class="p">,</span> <span class="n">current_path</span> <span class="o">+</span> <span class="p">(</span><span class="n">next_pos</span><span class="p">,))</span>
+        <span class="k">if</span> <span class="n">solution</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">solution</span>
+    <span class="c1"># We didn't find a way out</span>
+    <span class="k">return</span> <span class="bp">None</span>
+</pre></div>
+<p>The reason why I used a tuple is to prevent modification. This way, I can be
+sure that the recursive calls work on copies.</p>
+<p>Once Python hits a recurision depth of about 500, you will see a
+<a href="https://docs.python.org/3/library/exceptions.html#RecursionError">RecursionError</a>.
+So if we need to make more than 500 steps, this will not work anymore. Hence an
+iterative soltuion is better. Please note that it is still backtracking and
+that it is still DFS. It's just not recursive anymore:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span>
+
+
+<span class="k">def</span> <span class="nf">find_way_out</span><span class="p">(</span>
+    <span class="n">maze</span><span class="p">,</span> <span class="n">current_pos</span><span class="p">:</span> <span class="n">Position</span><span class="p">,</span> <span class="n">current_path</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Position</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Position</span><span class="p">,</span> <span class="o">...</span><span class="p">]]:</span>
+    <span class="k">if</span> <span class="n">is_exit</span><span class="p">(</span><span class="n">current_pos</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">current_path</span>
+    <span class="k">if</span> <span class="n">current_path</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">current_path</span> <span class="o">=</span> <span class="p">[</span><span class="n">current_pos</span><span class="p">]</span>
+    <span class="n">explore</span> <span class="o">=</span> <span class="p">[(</span><span class="n">current_pos</span><span class="p">,</span> <span class="n">current_path</span><span class="p">)]</span>
+    <span class="k">while</span> <span class="n">explore</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">is_exit</span><span class="p">(</span><span class="n">current_pos</span><span class="p">):</span>
+        <span class="n">current_pos</span><span class="p">,</span> <span class="n">current_path</span> <span class="o">=</span> <span class="n">explore</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">next_step</span> <span class="ow">in</span> <span class="n">possible_paths</span><span class="p">(</span><span class="n">maze</span><span class="p">,</span> <span class="n">current_pos</span><span class="p">):</span>
+            <span class="n">next_pos</span> <span class="o">=</span> <span class="n">step</span><span class="p">(</span><span class="n">current_pos</span><span class="p">,</span> <span class="n">next_step</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">next_pos</span> <span class="o">==</span> <span class="n">current_path</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="c1"># We just came from this position</span>
+                <span class="k">continue</span>
+            <span class="n">explore</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">next_pos</span><span class="p">,</span> <span class="n">current_path</span> <span class="o">+</span> <span class="p">(</span><span class="n">next_pos</span><span class="p">,)))</span>
+    <span class="k">return</span> <span class="bp">None</span>
+</pre></div>
+<h2 id="sudoku">Sudoku</h2>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span>
+
+
+<span class="k">class</span> <span class="nc">SudokuBoard</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="n">board</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]):</span>
+        <span class="c1"># A board is a 9x9 matrix which has values in 1 to 9.</span>
+        <span class="c1"># The value 0 denotes that the cell is empty</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">board</span><span class="p">)</span> <span class="o">==</span> <span class="mi">9</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">board</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">row</span><span class="p">)</span> <span class="o">==</span> <span class="mi">9</span>
+            <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">row</span><span class="p">:</span>
+                <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">el</span> <span class="o">&lt;=</span> <span class="mi">9</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">board</span> <span class="o">=</span> <span class="n">board</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_valid</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">digit</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
+        <span class="k">assert</span> <span class="n">digit</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">digit</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">validate_position</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">f</span><span class="s2">"You can't set {digit} at ({x}, {y})"</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">is_valid</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">"""Check if the sudoku-rule is fulfilled."""</span>
+        <span class="c1"># Check Rows and columns</span>
+        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">9</span><span class="p">):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">validate_row</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">validate_column</span><span class="p">(</span><span class="n">index</span><span class="p">)):</span>
+                <span class="k">return</span> <span class="bp">False</span>
+
+        <span class="c1"># Check blocks</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+                <span class="c1"># (i, j) is the top-left element of the block</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">is_valid_sudoku_set</span><span class="p">(</span><span class="n">get_block</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)):</span>
+                    <span class="k">return</span> <span class="bp">False</span>
+        <span class="c1"># All fine :-)</span>
+        <span class="k">return</span> <span class="bp">True</span>
+
+    <span class="k">def</span> <span class="nf">validate_row</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">row_index</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">is_valid_sudoku_set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="p">[</span><span class="n">row_index</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">validate_column</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">column_index</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="n">col</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">row_index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">9</span><span class="p">):</span>
+            <span class="n">col</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="p">[</span><span class="n">row_index</span><span class="p">][</span><span class="n">column_index</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">is_valid_sudoku_set</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">validate_position</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">"""Make sure the given position doesn't break the board."""</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">validate_row</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">validate_column</span><span class="p">(</span><span class="n">y</span><span class="p">)):</span>
+            <span class="k">return</span> <span class="bp">False</span>
+
+        <span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">//</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span> <span class="o">//</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">is_valid_sudoku_set</span><span class="p">(</span><span class="n">get_block</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)):</span>
+            <span class="k">return</span> <span class="bp">False</span>
+        <span class="k">return</span> <span class="bp">True</span>
+
+    <span class="k">def</span> <span class="nf">is_solved</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="n">el</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">board</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">row</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_valid</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">get_first_zero_position</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]:</span>
+        <span class="k">for</span> <span class="n">row_index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">col_index</span><span class="p">,</span> <span class="n">element</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">element</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="p">(</span><span class="n">row_index</span><span class="p">,</span> <span class="n">col_index</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">is_valid_sudoku_set</span><span class="p">(</span><span class="n">numbers</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">digit</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">c</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">digit</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="k">elif</span> <span class="n">digit</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">False</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="n">f</span><span class="s2">"Value '{digit}' found, but expected int in [0, 9]"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="bp">True</span>
+
+
+<span class="k">def</span> <span class="nf">get_block</span><span class="p">(</span><span class="n">board</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]],</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">di</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">dj</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+            <span class="k">yield</span> <span class="n">board</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">di</span><span class="p">][</span><span class="n">j</span> <span class="o">+</span> <span class="n">dj</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">solve_sudoko</span><span class="p">(</span><span class="n">board</span><span class="p">:</span> <span class="n">SudokuBoard</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">SudokuBoard</span><span class="p">]:</span>
+    <span class="n">stack</span> <span class="o">=</span> <span class="p">[</span><span class="n">board</span><span class="p">]</span>  <span class="c1"># we want a DFS</span>
+    <span class="k">while</span> <span class="n">stack</span><span class="p">:</span>
+        <span class="n">board</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">board</span><span class="o">.</span><span class="n">is_solved</span><span class="p">():</span>
+            <span class="k">return</span> <span class="n">board</span>
+        <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">board</span><span class="o">.</span><span class="n">get_first_zero_position</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">digit</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+                <span class="n">new_board</span> <span class="o">=</span> <span class="n">SudokuBoard</span><span class="p">(</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="p">))</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">new_board</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">digit</span><span class="p">)</span>
+                    <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_board</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                    <span class="c1"># Setting digit at that position would make the board invalid</span>
+                    <span class="k">continue</span>
+</pre></div>
+<p>You can solve Sudoku with <a href="https://gist.github.com/ymakino/4605973">GLPK</a>, the
+GNU Linear Programming Kit, as well.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li>Google OR-Tools: <a href="https://developers.google.com/optimization/cp/queens">The N-queens Problem</a></li>
+</ul>
+<h2 id="footnotes">Footnotes</h2>
+<div class="footnote">
+<hr/>
+<ol>
+<li id="fn-1">
+<p><a href="https://www.win.tue.nl/~kbuchin/">Kevin Buchin</a>: <a href="https://www.win.tue.nl/~kbuchin/teaching/2IL15/backtracking.pdf">Backtracking / Branch-and-Bound</a>. In Algorithms (2IL15) &ndash; 2014.&nbsp;<a class="footnote-backref" href="#fnref-1" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+</ol>
+</div>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2020-03-30T20:00:00+02:00">Mär 30, 2020</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#my-bits-and-bytes-ref">My bits and bytes</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#algorithms-ref">Algorithms
+                    <span>12</span>
+</a></li>
+                <li><a href="../tags.html#code-ref">Code
+                    <span>5</span>
+</a></li>
+                <li><a href="../tags.html#constraint-optimization-ref">Constraint Optimization
+                    <span>1</span>
+</a></li>
+                <li><a href="../tags.html#constraint-satisfaction-ref">Constraint-satisfaction
+                    <span>1</span>
+</a></li>
+                <li><a href="../tags.html#operations-research-ref">Operations Research
+                    <span>1</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink no-print';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
