@@ -4,17 +4,17 @@ title: Backtracking
 slug: backtracking
 author: Martin Thoma
 date: 2020-03-30 20:00
-category: My bits and bytes
-tags: Code, Algorithms, Constraint-satisfaction, Constraint Optimization, Operations Research
+category: Code
+tags: Algorithms, Constraint-satisfaction, COP, CSP, Operations Research, Backtracking, Branch-and-Bound
 featured_image: logos/ai.png
 ---
-Backtracking is a concept for solving discrete constraint-satisfaction
-problems. Those problems don't have an optimal solution, but just solutions
-which satisfy the constraints. The idea of backtracking is to try a solution.
-If it doesn't work, go back and try something else.
+Backtracking is a concept for solving discrete constraint satisfaction problems
+(CSPs). Those problems don't have an optimal solution, but just solutions which
+satisfy the constraints. The idea of backtracking is to try a solution. If it
+doesn't work, go back and try something else.
 
-Backtracking is often implemented with recursion.
-
+Backtracking is often implemented with recursion, but does not need to use
+recursion.
 
 ## The Structure
 
@@ -47,16 +47,24 @@ n-queens problem the solution space is all permutations of the number from 0 to
 (n-1). Everything else is guaranteed not to be a solution. And most of the
 permutations are also no solutions.
 
-Depth First Search (DFS) is one way to search in the solution space for a
-solution that satisfies the constraints. It is the typical choice to iterate
-the solution space. Other search algorithms are Breadth First Search (BFS) and
-A\*.
+Depth First Search (DFS) is a graph traversal algorithm. It is one way to
+search in the solution space for a solution that satisfies the constraints. It
+is the typical choice to iterate the solution space. Other search algorithms
+are Breadth First Search (BFS) and A\*.
 
 
 ## Backtracking vs B&B
 
-Branch-and-Bound (B&B) is a [label correction algorithms](https://martin-thoma.com/label-correction-algorithm/).
-It is a search algorithm which uses a lower bound and an upper bound for the search. Think of a shortest-path problem.
+Branch-and-Bound (B&B) is a concept to solve discrete constrained optimization
+problems (COPs). They are similar to CSPs, but besides having the constraints
+they have an optimization criterion. In contrast to backtracking, B&B uses
+Breadth-First Search.
+
+B&B is a [label correction algorithm](https://martin-thoma.com/label-correction-algorithm/).
+It is a search algorithm which uses a lower bound and an upper bound for the
+search. Think of a shortest-path problem.
+
+One part of the name, the bound, refers to the way B&B prunes the space of possible solutions: It gets a heuristic which gets an upper bound. If this cannot be improved, a sup-tree can be discarded.
 
 With the lower bound, the minimum length of a given partial solution from
 source to sink can be calculated. If that minimum length is longer than another
@@ -67,13 +75,6 @@ With the upper bound, one can extend the partial solutons. Essentially, one can
 make the pruning described before more efficient. We don't have to find a
 concrete solution anymore, but for partial solutions we already know the
 distance they will take at most.
-
-B&B is a special case of backtracking: Backtracking with pruning is B&B[^1].
-
-See also:
-
-* GeeksForGeeks: 0/1 Knapsack - [Backtracking](https://www.geeksforgeeks.org/printing-items-01-knapsack/) and [Branch and Bound](https://www.geeksforgeeks.org/branch-and-bound-algorithm/)
-* StackOverflow: [Difference between 'backtracking' and 'branch and bound'](https://stackoverflow.com/q/30025421/562769)
 
 
 ## Runtime Complexity
@@ -421,6 +422,8 @@ GNU Linear Programming Kit, as well.
 ## See also
 
 * Google OR-Tools: [The N-queens Problem](https://developers.google.com/optimization/cp/queens)
+* cs.StackExchange: [Backtracking vs Branch-and-Bound](https://cs.stackexchange.com/q/123382/2914)
+* StackOverflow: [Difference between 'backtracking' and 'branch and bound'](https://stackoverflow.com/q/30025421/562769)
 
 ## Footnotes
 
