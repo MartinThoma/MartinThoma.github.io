@@ -5,7 +5,7 @@ slug: itertools
 author: Martin Thoma
 date: 2019-12-09 20:00
 category: Code
-tags: Python, itertools
+tags: Python, itertools, permutations, combinations
 featured_image: logos/python.png
 ---
 [Itertools](https://docs.python.org/3/library/itertools.html) is a tiny Python
