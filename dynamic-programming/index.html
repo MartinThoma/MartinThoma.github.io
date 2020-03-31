@@ -14,7 +14,7 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="Code, Fibonacci, Python, Algorithms, " />
+<meta name="keywords" content="Algorithms, Code, Fibonacci, Python, COP, CSP, Algorithms, " />
 
 <meta property="og:title" content="Dynamic Programming "/>
 <meta property="og:url" content="../dynamic-programming/" />
@@ -24,8 +24,8 @@
 <meta property="og:article:published_time" content="2020-03-31T20:00:00+02:00" />
 <meta name="twitter:title" content="Dynamic Programming ">
 <meta name="twitter:description" content="Dynamic Programming is a technique to find the solution to a problem by computing the solution of one or more sub-problems. So the problem needs to have optimal substructure. If you compute the solution bottom-up, then it is Dynamic Programming. If you compute it top-down, then you might use memoization …">
-<meta property="og:image" content="logos/python.png" />
-<meta name="twitter:image" content="logos/python.png" >
+<meta property="og:image" content="logos/ai.png" />
+<meta name="twitter:image" content="logos/ai.png" >
 
         <title>Dynamic Programming  · Martin Thoma
 </title>
@@ -104,7 +104,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#terminology" title="Terminology">Terminology</a><ul><li><a class="toc-href" href="#memoization" title="Memoization">Memoization</a></li><li><a class="toc-href" href="#backtracking" title="Backtracking">Backtracking</a></li><li><a class="toc-href" href="#divide-and-conquer" title="Divide and Conquer">Divide and Conquer</a></li></ul></li><li><a class="toc-href" href="#fibonacci-sequence_1" title="Fibonacci Sequence">Fibonacci Sequence</a></li><li><a class="toc-href" href="#longest-increasing-subsequence" title="Longest Increasing Subsequence">Longest Increasing Subsequence</a></li><li><a class="toc-href" href="#edit-distance" title="Edit Distance">Edit Distance</a></li><li><a class="toc-href" href="#change-making-problem" title="Change Making Problem">Change Making Problem</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#terminology" title="Terminology">Terminology</a><ul><li><a class="toc-href" href="#memoization" title="Memoization">Memoization</a></li><li><a class="toc-href" href="#backtracking" title="Backtracking">Backtracking</a></li><li><a class="toc-href" href="#divide-and-conquer" title="Divide and Conquer">Divide and Conquer</a></li></ul></li><li><a class="toc-href" href="#fibonacci-sequence_1" title="Fibonacci Sequence">Fibonacci Sequence</a></li><li><a class="toc-href" href="#longest-increasing-subsequence" title="Longest Increasing Subsequence">Longest Increasing Subsequence</a></li><li><a class="toc-href" href="#edit-distance" title="Edit Distance">Edit Distance</a></li><li><a class="toc-href" href="#change-making-problem" title="Change Making Problem">Change Making Problem</a></li><li><a class="toc-href" href="#01-knapsack" title="0/1 Knapsack">0/1 Knapsack</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -405,9 +405,60 @@ this makes the solution a bit shorter.</p>
 <p>The bottom-up solution would calculate all the possible sums. Although that
 would be the dynamic programming solution, I'm currently to lazy to write it
 (aka: I leave it as an exercise to the reader).</p>
+<h2 id="01-knapsack">0/1 Knapsack</h2>
+<p>You have a list of items which have a weight and a value. You have a maximum
+weight you can carry. What is the maximum value you can get?</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span>
+
+
+<span class="k">def</span> <span class="nf">solve_knapsack</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]],</span> <span class="n">max_weight</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="sd">"""</span>
+<span class="sd">    The items have (weight, value) as order</span>
+
+<span class="sd">    &gt;&gt;&gt; items = [(2, 2), (5, 7), (4, 3)]</span>
+<span class="sd">    &gt;&gt;&gt; solve_knapsack(items, max_weight=10)</span>
+<span class="sd">    10</span>
+<span class="sd">    &gt;&gt;&gt; solve_knapsack(items, max_weight=11)</span>
+<span class="sd">    12</span>
+<span class="sd">    """</span>
+    <span class="c1"># A non-positive weight is a no-brainer: we would always add it</span>
+    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">weight</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">weight</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">items</span><span class="p">)</span>
+
+    <span class="c1"># ... except if the value is negtive</span>
+    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">value</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">weight</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">items</span><span class="p">)</span>
+
+    <span class="c1"># c[i][j] is the optimal solution if you have</span>
+    <span class="c1"># a maximum weight of j and only the items items[:(i+1)]</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">weight</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_weight</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">))]</span>
+    <span class="k">for</span> <span class="n">item_index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">remaining_weight</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_weight</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="c1"># Can the item at item_index be added?</span>
+            <span class="n">item</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="n">item_index</span><span class="p">]</span>
+            <span class="n">not_adding</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="n">item_index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">remaining_weight</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">remaining_weight</span><span class="p">:</span>
+                <span class="c1"># This works even for item_index = 0 as the matrix is</span>
+                <span class="c1"># initialized with zeroes. Hence looking at the last element is</span>
+                <span class="c1"># zero.</span>
+                <span class="n">c</span><span class="p">[</span><span class="n">item_index</span><span class="p">][</span><span class="n">remaining_weight</span><span class="p">]</span> <span class="o">=</span> <span class="n">not_adding</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Yes we can!</span>
+                <span class="n">adding_it</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">c</span><span class="p">[</span><span class="n">item_index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">remaining_weight</span> <span class="o">-</span> <span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+                <span class="n">c</span><span class="p">[</span><span class="n">item_index</span><span class="p">][</span><span class="n">remaining_weight</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">not_adding</span><span class="p">,</span> <span class="n">adding_it</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">c</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">max_weight</span><span class="p">]</span>
+</pre></div>
+<p>You can see that the solution has a time complexity of <span class="math">\(\mathcal{O}(n \cdot m)\)</span>
+where <span class="math">\(n\)</span> is the number of items and <span class="math">\(m\)</span> is the maximum weight. It also has this
+space complexity.</p>
+<p>You can also see that this solution would fail if <code>max_weight</code> was
+not an integer. While one could simply multiply everything with large enough
+numbers, this might make</p>
 <h2 id="see-also">See also</h2>
 <ul>
+<li>Wikipedia:<ul>
 <li><a href="https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm">Floyd&ndash;Warshall algorithm</a>: finding shortest paths in a weighted graph</li>
+<li><a href="https://en.wikipedia.org/wiki/Knapsack_problem#0-1_knapsack_problem">Knapsack problem</a></li>
+</ul>
+</li>
 <li>Karpathy: <a href="https://cs.stanford.edu/people/karpathy/reinforcejs/gridworld_dp.html">GridWorld: Dynamic Programming Demo</a></li>
 <li>StackOverflow:<ul>
 <li><a href="https://stackoverflow.com/q/3592943/562769">Difference between back tracking and dynamic programming</a></li>
@@ -448,8 +499,17 @@ would be the dynamic programming solution, I'm currently to lazy to write it
             <a class="category-link" href="../categories.html#algorithms-ref">Algorithms</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#algorithms-ref">Algorithms
+                    <span>13</span>
+</a></li>
                 <li><a href="../tags.html#code-ref">Code
                     <span>5</span>
+</a></li>
+                <li><a href="../tags.html#cop-ref">COP
+                    <span>3</span>
+</a></li>
+                <li><a href="../tags.html#csp-ref">CSP
+                    <span>3</span>
 </a></li>
                 <li><a href="../tags.html#fibonacci-ref">Fibonacci
                     <span>3</span>
