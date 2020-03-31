@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Code, Fibonacci, Python, Algorithms, " />
+
+<meta property="og:title" content="Dynamic Programming "/>
+<meta property="og:url" content="../dynamic-programming/" />
+<meta property="og:description" content="Dynamic Programming is a technique to find the solution to a problem by computing the solution of one or more sub-problems. So the problem needs to have optimal substructure. Memoization It happens very often that you need to solve the same sub-problem multiple times. Think of the Fibonacci sequence, where …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2020-03-30T20:00:00+02:00" />
+<meta name="twitter:title" content="Dynamic Programming ">
+<meta name="twitter:description" content="Dynamic Programming is a technique to find the solution to a problem by computing the solution of one or more sub-problems. So the problem needs to have optimal substructure. Memoization It happens very often that you need to solve the same sub-problem multiple times. Think of the Fibonacci sequence, where …">
+<meta property="og:image" content="logos/python.png" />
+<meta name="twitter:image" content="logos/python.png" >
+
+        <title>Dynamic Programming  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../dynamic-programming/"> Dynamic Programming  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#memoization" title="Memoization">Memoization</a></li><li><a class="toc-href" href="#terminology" title="Terminology">Terminology</a><ul><li><a class="toc-href" href="#backtracking" title="Backtracking">Backtracking</a></li><li><a class="toc-href" href="#divide-and-conquer" title="Divide and Conquer">Divide and Conquer</a></li></ul></li><li><a class="toc-href" href="#fibonacci-sequence_1" title="Fibonacci Sequence">Fibonacci Sequence</a></li><li><a class="toc-href" href="#longest-increasing-subsequence" title="Longest Increasing Subsequence">Longest Increasing Subsequence</a></li><li><a class="toc-href" href="#edit-distance" title="Edit Distance">Edit Distance</a></li><li><a class="toc-href" href="#change-making-problem" title="Change Making Problem">Change Making Problem</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>Dynamic Programming is a technique to find the solution to a problem by
+computing the solution of one or more sub-problems. So the problem needs to
+have <a href="https://en.wikipedia.org/wiki/Optimal_substructure">optimal substructure</a>.</p>
+<h2 id="memoization">Memoization</h2>
+<p>It happens very often that you need to solve the same sub-problem multiple times.
+Think of the Fibonacci sequence, where you might calculate</p>
+<div class="math">\begin{align}
+f(7) &amp;= f(6) + f(5)\\
+&amp;= f(5) + f(4) + f(5)\\
+&amp;= f(4) + f(3) + f(4) + f(4) + f(3)\\
+&amp;=\dots
+\end{align}</div>
+<p>In order to prevent this, you can memoize it. That means you store the
+parameters of a function call and its result. Once you see these parameters
+again, you can directly return the result without recalculating the function.</p>
+<p>In Python, you can use the <a href="https://docs.python.org/3/library/functools.html#functools.lru_cache"><code>functools.lru_cache</code></a>
+decorator for that. See the Fibonacci example below for a concrete example.</p>
+<p>TL;DR: Memoization is a technique to speed-up function calls by caching their
+results.</p>
+<h2 id="terminology">Terminology</h2>
+<p>I don't think the distinction here is important. It is important to understand
+the concept: You can solve a big problem by solving smaller sub-problems and
+combining the answers. This is not necessarily done by a recursive function
+call, but could also happen by storing sub-problems in a dictionary and
+iterating over a sequence of numbers.</p>
+<h3 id="backtracking">Backtracking</h3>
+<p>Both, Backtracking and Dynamic Programming, are used to solve discrete
+constraint satisfaction problems (CSPs). I would call bottom-up approaches
+<em>Dynamic Programming</em> and top-down approaches <em>Backtracking</em></p>
+<h3 id="divide-and-conquer">Divide and Conquer</h3>
+<p>Divide and Conquer algorithms, such as <a href="https://en.wikipedia.org/wiki/Merge_sort">merge sort</a>,
+Binary search,
+and the <a href="https://en.wikipedia.org/wiki/Euclidean_algorithm">Euclidean algorithm</a>,
+also divide the original problem into smaller sub-problems.</p>
+<p>The important point with divide and conquer is that the subproblems can be
+solved independently.</p>
+<p>For Dynamic Programming, two subproblems A and B might share a sub-subproblem C.</p>
+<h2 id="fibonacci-sequence_1">Fibonacci Sequence</h2>
+<p>The Fibonacci sequence is defined as:</p>
+<div class="math">$$
+f(n) := \begin{cases}
+n               &amp;\text{if } n \leq 1\\
+f(n-1) + f(n-2) &amp;\text{otherwise}
+\end{cases}
+$$</div>
+<p>The inefficient, but straight-forward implementation is</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span>
+    <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+<p>The best solution to this one is:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    &gt;&gt;&gt; f(0)</span>
+<span class="sd">    0</span>
+<span class="sd">    &gt;&gt;&gt; f(1)</span>
+<span class="sd">    1</span>
+<span class="sd">    &gt;&gt;&gt; f(2)</span>
+<span class="sd">    1</span>
+<span class="sd">    &gt;&gt;&gt; f(3)</span>
+<span class="sd">    2</span>
+<span class="sd">    &gt;&gt;&gt; f(5)</span>
+<span class="sd">    5</span>
+<span class="sd">    """</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span>
+    <span class="k">return</span> <span class="n">a</span>
+</pre></div>
+<p>Have a look at <a href="https://martin-thoma.com/fibonacci-recursion-decorators/">Fibonacci, recursion and decorators</a>
+if you are interested in more details.</p>
+<h2 id="longest-increasing-subsequence">Longest Increasing Subsequence</h2>
+<p>A sub-sequence of an sequence is any subset of a sequence in the same order.
+Please note that a sub-sequence does not have to be contiguous.</p>
+<p>For this example, I want a strictly increasing subsequence.</p>
+<p>The brute-force solution is to generate all sub-sequences and check if they are
+increasing. The generate-and-check pattern is in <span class="math">\(\mathcal{O}(2^n)\)</span>. It is easy
+to implement with Python:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">chain</span><span class="p">,</span> <span class="n">combinations</span>
+
+
+<span class="k">def</span> <span class="nf">longest_increasing_subsequence</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+    <span class="n">lis</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span>
+        <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">subseq</span><span class="p">),</span> <span class="n">subseq</span><span class="p">)</span> <span class="k">for</span> <span class="n">subseq</span> <span class="ow">in</span> <span class="n">powerset</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span> <span class="k">if</span> <span class="n">is_increasing</span><span class="p">(</span><span class="n">subseq</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">lis</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">powerset</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">chain</span><span class="o">.</span><span class="n">from_iterable</span><span class="p">(</span><span class="n">combinations</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">is_increasing</span><span class="p">(</span><span class="n">sequence</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="n">e1</span> <span class="o">&lt;</span> <span class="n">e2</span> <span class="k">for</span> <span class="n">e1</span><span class="p">,</span> <span class="n">e2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">sequence</span><span class="p">,</span> <span class="n">sequence</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span>
+</pre></div>
+<p>The following Dynamic Programming approach takes <span class="math">\(\mathcal{O}(n^2)\)</span> in time
+and additionally <span class="math">\(\mathcal{O}(n)\)</span> space.</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
+
+<span class="k">def</span> <span class="nf">longest_increasing_subsequence</span><span class="p">(</span><span class="n">numbers</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="sd">"""</span>
+<span class="sd">    &gt;&gt;&gt; longest_increasing_subsequence([])</span>
+<span class="sd">    0</span>
+<span class="sd">    &gt;&gt;&gt; longest_increasing_subsequence([4321])</span>
+<span class="sd">    1</span>
+<span class="sd">    &gt;&gt;&gt; longest_increasing_subsequence([1,2,3,4,5])</span>
+<span class="sd">    5</span>
+<span class="sd">    &gt;&gt;&gt; longest_increasing_subsequence([1,2,3,4,5,5])</span>
+<span class="sd">    5</span>
+<span class="sd">    &gt;&gt;&gt; longest_increasing_subsequence([5,4,3,2,1])</span>
+<span class="sd">    1</span>
+<span class="sd">    &gt;&gt;&gt; longest_increasing_subsequence([1,7,2,3,4])</span>
+<span class="sd">    4</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+
+    <span class="c1"># For each index, calculate the longest subsequence which ends with that index</span>
+    <span class="n">max_endswith</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># include the index</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)):</span>
+        <span class="n">max_len_before</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">numbers</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+                <span class="n">max_len_before</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_len_before</span><span class="p">,</span> <span class="n">max_endswith</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+        <span class="n">max_endswith</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">max_len_before</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_endswith</span><span class="p">)</span>
+</pre></div>
+<p>Using <a href="https://en.wikipedia.org/wiki/Patience_sorting">Patience sorting</a> is
+a <span class="math">\(\mathcal{O}(n \log(n))\)</span> solution with additional <span class="math">\(\mathcal{O}(n)\)</span> space (<a href="https://www.youtube.com/watch?v=22s1xxRvy28">video</a>).</p>
+<h2 id="edit-distance">Edit Distance</h2>
+<p>The edit distance, also known as <a href="https://en.wikipedia.org/wiki/Levenshtein_distance">Levenshtein distance</a>,
+calculates the number of operations two words are apart. Typically, one allows
+removal of characters, adding characters or changing a character. And typically,
+all of them have a count of 1.</p>
+<p>A real-world application of the edit distance is in automatic speech recognition (ASR).
+There the edit distance is used to calcuate the word error rate (WER): <a href="https://martin-thoma.com/word-error-rate-calculation/">Word Error Rate Calculation</a></p>
+<div class="math">\begin{align}
+m &amp;:= |w_1|\\
+n &amp;:= |w_2|\\
+\end{align}</div>
+<p>We want to compute a distance matrix <span class="math">\(d \in \mathbb{N}_0^{m \times n}\)</span>:</p>
+<div class="math">\begin{align}
+D_{0, 0} &amp;= 0\\
+D_{i, 0} &amp;= i, \text{ for } 1 \leq i \leq m\\
+D_{0, j} &amp;= j, \text{ for } 1 \leq j \leq n
+\end{align}</div>
+<div class="math">$$
+\text{For } 1 \leq i\leq m, 1\leq j \leq n\\
+D_{i, j} = \min \begin{cases}
+D_{i - 1, j - 1}&amp;+ 0 \ {\rm if}\ u_i = v_j\\
+D_{i - 1, j - 1}&amp;+ 1 \ {\rm(Replacement)} \\
+D_{i, j - 1}&amp;+ 1 \ {\rm(Insertion)} \\
+D_{i - 1, j}&amp;+ 1 \ {\rm(Deletion)}
+\end{cases}
+$$</div>
+<p>Each cell <span class="math">\((i, j)\)</span> of the matrix <span class="math">\(D\)</span> is a sub-problem of the original one:</p>
+<div class="highlight"><pre><span></span><span class="n">edit_distance</span><span class="p">(</span><span class="n">w1</span><span class="p">[:</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">w2</span><span class="p">[:</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+</pre></div>
+<p>The complete code looks as follows:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">edit_distance</span><span class="p">(</span><span class="n">w1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">w2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="sd">"""</span>
+<span class="sd">    &gt;&gt;&gt; edit_distance("foobar", "")</span>
+<span class="sd">    6</span>
+<span class="sd">    &gt;&gt;&gt; edit_distance("", "")</span>
+<span class="sd">    0</span>
+<span class="sd">    &gt;&gt;&gt; edit_distance("foobar", "foobar")</span>
+<span class="sd">    0</span>
+<span class="sd">    &gt;&gt;&gt; edit_distance("fobar", "foobar")</span>
+<span class="sd">    1</span>
+<span class="sd">    &gt;&gt;&gt; edit_distance("foobar", "fobar")</span>
+<span class="sd">    1</span>
+<span class="sd">    &gt;&gt;&gt; edit_distance("stackoverflow", "stackingoverflow")</span>
+<span class="sd">    3</span>
+<span class="sd">    &gt;&gt;&gt; edit_distance("overflow", "stack")</span>
+<span class="sd">    8</span>
+<span class="sd">    &gt;&gt;&gt; edit_distance("stack", "overflow")</span>
+<span class="sd">    8</span>
+<span class="sd">    """</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">w1</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">w2</span><span class="p">)</span>
+
+    <span class="c1"># Initialize</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">el</span> <span class="o">=</span> <span class="n">j</span>
+            <span class="k">elif</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">el</span> <span class="o">=</span> <span class="n">i</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">el</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">el</span><span class="p">)</span>
+        <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+
+    <span class="c1"># Compute</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">w1</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">w2</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span>
+                <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">options</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+                <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">d</span><span class="p">[</span><span class="n">m</span><span class="p">][</span><span class="n">n</span><span class="p">]</span>
+</pre></div>
+<p>A 16 minute video explanation is given by <a href="https://www.youtube.com/watch?v=MiqoA-yF-0M">Back To Back SWE</a>.</p>
+<h2 id="change-making-problem">Change Making Problem</h2>
+<p>Imagine your are the cashier at a supermarket. You have to give change to the
+customer and you want to give the least number of coins possible.</p>
+<p>There is a top-down and a bottom-up solution.</p>
+<p>A recursive top-down solution is:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Set</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">lru_cache</span>
+
+
+<span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">least_coins</span><span class="p">(</span><span class="n">coins</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">amount</span><span class="p">:</span> <span class="mi">11</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+    <span class="sd">"""</span>
+<span class="sd">    &gt;&gt;&gt; least_coins(frozenset({2,5,10,20,50,100}), 1)</span>
+<span class="sd">    &gt;&gt;&gt; least_coins(frozenset({1,2,5,10,20,50,100}), 0)</span>
+<span class="sd">    0</span>
+<span class="sd">    &gt;&gt;&gt; least_coins(frozenset({1,2,5,10,20,50,100}), 3)</span>
+<span class="sd">    2</span>
+<span class="sd">    &gt;&gt;&gt; least_coins(frozenset({1,2,5,10,20,50,100}), 4)</span>
+<span class="sd">    2</span>
+<span class="sd">    &gt;&gt;&gt; least_coins(frozenset({1,2,5,10,20,50,100}), 8)</span>
+<span class="sd">    3</span>
+<span class="sd">    &gt;&gt;&gt; least_coins(frozenset({1,2,5,10,20,50,100}), 18)</span>
+<span class="sd">    4</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">amount</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">amount</span> <span class="ow">in</span> <span class="n">coins</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="n">possible_solutions</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">coin</span> <span class="ow">in</span> <span class="n">coins</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">coin</span> <span class="o">&lt;</span> <span class="n">amount</span><span class="p">:</span>
+            <span class="n">solution</span> <span class="o">=</span> <span class="n">least_coins</span><span class="p">(</span><span class="n">coins</span><span class="p">,</span> <span class="n">amount</span> <span class="o">-</span> <span class="n">coin</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">solution</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="n">possible_solutions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">solution</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">possible_solutions</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+</pre></div>
+<p>Note that I used an LRU cache. This saves the 512 <strong>l</strong>east <strong>r</strong>ecently
+<strong>u</strong>sed function calls and its output. So we don't have to re-compute too
+much. That decorator requires hashable parameters, hence we have to use
+frozenset. Set is not hashable.</p>
+<p>Now the top-down iterative solution:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Set</span><span class="p">,</span> <span class="n">Optional</span>
+
+
+<span class="k">def</span> <span class="nf">least_coins</span><span class="p">(</span><span class="n">coins</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">amount</span><span class="p">:</span> <span class="mi">11</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+    <span class="sd">"""</span>
+<span class="sd">    &gt;&gt;&gt; least_coins({2,5,10,20,50,100}, 1)</span>
+<span class="sd">    &gt;&gt;&gt; least_coins({1,2,5,10,20,50,100}, 0)</span>
+<span class="sd">    0</span>
+<span class="sd">    &gt;&gt;&gt; least_coins({1,2,5,10,20,50,100}, 3)</span>
+<span class="sd">    2</span>
+<span class="sd">    &gt;&gt;&gt; least_coins({1,2,5,10,20,50,100}, 4)</span>
+<span class="sd">    2</span>
+<span class="sd">    &gt;&gt;&gt; least_coins({1,2,5,10,20,50,100}, 8)</span>
+<span class="sd">    3</span>
+<span class="sd">    &gt;&gt;&gt; least_coins({1,2,5,10,20,50,100}, 18)</span>
+<span class="sd">    4</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">amount</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">amount</span> <span class="ow">in</span> <span class="n">coins</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">assert</span> <span class="n">amount</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">coin</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">coin</span> <span class="ow">in</span> <span class="n">coins</span><span class="p">)</span>
+    <span class="c1"># coins_used, remaining_amount</span>
+    <span class="n">partial_solutions</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="n">amount</span><span class="p">)]</span>
+    <span class="n">possible_solutions</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="n">partial_solutions</span><span class="p">:</span>
+        <span class="n">coins_used</span><span class="p">,</span> <span class="n">remaining_amount</span> <span class="o">=</span> <span class="n">partial_solutions</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">remaining_amount</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">possible_solutions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">coins_used</span><span class="p">)</span>
+            <span class="k">continue</span>
+        <span class="k">for</span> <span class="n">coin</span> <span class="ow">in</span> <span class="n">coins</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">coin</span> <span class="o">&lt;=</span> <span class="n">remaining_amount</span><span class="p">:</span>
+                <span class="n">partial_solution</span> <span class="o">=</span> <span class="p">(</span><span class="n">coins_used</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">remaining_amount</span> <span class="o">-</span> <span class="n">coin</span><span class="p">)</span>
+                <span class="n">partial_solutions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">partial_solution</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">possible_solutions</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+</pre></div>
+<p>I removed the LRU cache and used normal sets. I could have kept both, but
+this makes the solution a bit shorter.</p>
+<p>The bottom-up solution would calculate all the possible sums. Although that
+would be the dynamic programming solution, I'm currently to lazy to write it
+(aka: I leave it as an exercise to the reader).</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm">Floyd&ndash;Warshall algorithm</a>: finding shortest paths in a weighted graph</li>
+<li>Karpathy: <a href="https://cs.stanford.edu/people/karpathy/reinforcejs/gridworld_dp.html">GridWorld: Dynamic Programming Demo</a></li>
+<li>StackOverflow: <a href="https://stackoverflow.com/q/3592943/562769">Difference between back tracking and dynamic programming</a></li>
+<li>🇩🇪 Martin Thoma: <a href="https://martin-thoma.com/probabilistische-planung/#dynamic-programming">Probabilistische Planung</a></li>
+</ul>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2020-03-30T20:00:00+02:00">Mär 30, 2020</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#algorithms-ref">Algorithms</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#code-ref">Code
+                    <span>5</span>
+</a></li>
+                <li><a href="../tags.html#fibonacci-ref">Fibonacci
+                    <span>3</span>
+</a></li>
+                <li><a href="../tags.html#python-ref">Python
+                    <span>108</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink no-print';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
