@@ -104,7 +104,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#terminology" title="Terminology">Terminology</a><ul><li><a class="toc-href" href="#memoization" title="Memoization">Memoization</a></li><li><a class="toc-href" href="#backtracking" title="Backtracking">Backtracking</a></li><li><a class="toc-href" href="#divide-and-conquer" title="Divide and Conquer">Divide and Conquer</a></li></ul></li><li><a class="toc-href" href="#fibonacci-sequence_1" title="Fibonacci Sequence">Fibonacci Sequence</a></li><li><a class="toc-href" href="#longest-increasing-subsequence" title="Longest Increasing Subsequence">Longest Increasing Subsequence</a></li><li><a class="toc-href" href="#edit-distance" title="Edit Distance">Edit Distance</a></li><li><a class="toc-href" href="#change-making-problem" title="Change Making Problem">Change Making Problem</a></li><li><a class="toc-href" href="#01-knapsack" title="0/1 Knapsack">0/1 Knapsack</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#terminology" title="Terminology">Terminology</a><ul><li><a class="toc-href" href="#memoization" title="Memoization">Memoization</a></li><li><a class="toc-href" href="#backtracking" title="Backtracking">Backtracking</a></li><li><a class="toc-href" href="#divide-and-conquer" title="Divide and Conquer">Divide and Conquer</a></li></ul></li><li><a class="toc-href" href="#fibonacci-sequence_1" title="Fibonacci Sequence">Fibonacci Sequence</a></li><li><a class="toc-href" href="#longest-increasing-subsequence" title="Longest Increasing Subsequence">Longest Increasing Subsequence</a></li><li><a class="toc-href" href="#edit-distance" title="Edit Distance">Edit Distance</a></li><li><a class="toc-href" href="#change-making-problem" title="Change Making Problem">Change Making Problem</a></li><li><a class="toc-href" href="#01-knapsack" title="0/1 Knapsack">0/1 Knapsack</a><ul><li><a class="toc-href" href="#climbing-stairs" title="Climbing Stairs">Climbing Stairs</a></li></ul></li><li><a class="toc-href" href="#egg-drop_1" title="Egg Drop">Egg Drop</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -452,6 +452,145 @@ space complexity.</p>
 <p>You can also see that this solution would fail if <code>max_weight</code> was
 not an integer. While one could simply multiply everything with large enough
 numbers, this might make</p>
+<h3 id="climbing-stairs">Climbing Stairs</h3>
+<p>There are n stairs and you can take either one or two stairs. How many unique
+ways exist to climb the stairs?</p>
+<p>First, a recursive solution:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">lru_cache</span>
+
+
+<span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">stairs</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="sd">"""</span>
+<span class="sd">    &gt;&gt;&gt; stairs(1)</span>
+<span class="sd">    1</span>
+<span class="sd">    &gt;&gt;&gt; stairs(2)</span>
+<span class="sd">    2</span>
+<span class="sd">    &gt;&gt;&gt; stairs(3)</span>
+<span class="sd">    3</span>
+<span class="sd">    &gt;&gt;&gt; stairs(4)</span>
+<span class="sd">    5</span>
+<span class="sd">    """</span>
+    <span class="k">assert</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">2</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">stairs</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">stairs</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+<p>You should directly notice that this looks VERY similar to the fibonacci sequence.
+Only the starting numbers are different. Hence the solution is the same, except
+for the starting numbers:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">stairs</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="sd">"""</span>
+<span class="sd">    &gt;&gt;&gt; stairs(1)</span>
+<span class="sd">    1</span>
+<span class="sd">    &gt;&gt;&gt; stairs(2)</span>
+<span class="sd">    2</span>
+<span class="sd">    &gt;&gt;&gt; stairs(3)</span>
+<span class="sd">    3</span>
+<span class="sd">    &gt;&gt;&gt; stairs(4)</span>
+<span class="sd">    5</span>
+<span class="sd">    """</span>
+    <span class="k">assert</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">1</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">a</span>
+</pre></div>
+<h2 id="egg-drop_1">Egg Drop</h2>
+<p>Given <span class="math">\(n\)</span> eggs and <span class="math">\(m\)</span> floors, how often do you need to let an egg drop to know
+for sure the highest floor at which the eggs still don't break?</p>
+<p>Some clarifications:</p>
+<ul>
+<li>Floors start at zero.</li>
+<li>The eggs are guaranteed not to break at floor 0.</li>
+<li>The eggs are guaranteed to break from floor <span class="math">\(m +1\)</span>.</li>
+<li>If an egg does not break at floor <span class="math">\(i\)</span>, it will not break at floor <span class="math">\(i-1\)</span>.</li>
+<li>If an egg breaks at floor <span class="math">\(i\)</span>, it will also break at floor <span class="math">\(i+1\)</span>.</li>
+</ul>
+<p>I know this sounds very simple and a was about to just drop the problem. I
+thought it was simply binary search, hence with applying the logarithm you
+could solve it. I was wrong, though. Think about the situation where you have
+20 floors and 2 eggs. If you use the first egg for the 10th floor, the worst case
+is that the searched floor is the 9th one:</p>
+<ul>
+<li>1st egg breaks at 10th floor</li>
+<li>2nd egg needs to be dropped from floor 1, 2, 3, 4, 5, 6, 7, 8, 9</li>
+</ul>
+<p>Hence binary search needs 10 egg drops for 2 eggs and 20 floors</p>
+<p>Now consider this:</p>
+<ul>
+<li>1st egg is dropped from 7th floor<ul>
+<li>It breaks: 2nd egg needs to be dropped from floor 1,2,3,4,5,6 =&gt; 7 egg drops</li>
+<li>It doesn't break: 1st egg is dropped from floor 14<ul>
+<li>It breaks: 2nd egg needs to be dropped from floor 8, 9, 10, 11, 12, 13 =&gt; 8 egg drops</li>
+<li>It doesn't break: Try floor 15, 16, 17, 18, 19 =&gt; 7 egg drops</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Obviously, binary search is not the best solution.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">egg_drop</span><span class="p">(</span><span class="n">eggs</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">floors</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="sd">"""</span>
+<span class="sd">    &gt;&gt;&gt; egg_drop(42, 0)</span>
+<span class="sd">    0</span>
+<span class="sd">    &gt;&gt;&gt; egg_drop(42, 1)</span>
+<span class="sd">    1</span>
+<span class="sd">    &gt;&gt;&gt; egg_drop(1, 5)</span>
+<span class="sd">    5</span>
+<span class="sd">    &gt;&gt;&gt; egg_drop(2, 100)</span>
+<span class="sd">    14</span>
+<span class="sd">    """</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># s[remaining_floors][remaining_eggs]</span>
+    <span class="k">for</span> <span class="n">floor</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">floors</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">reduced_eggs</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">eggs</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">floor</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">el</span> <span class="o">=</span> <span class="n">floor</span>
+            <span class="k">elif</span> <span class="n">reduced_eggs</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">el</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="k">elif</span> <span class="n">reduced_eggs</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">el</span> <span class="o">=</span> <span class="n">floor</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">el</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="n">row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">el</span><span class="p">)</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">floor</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">floors</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">n_egg</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">eggs</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="c1"># The number of eggs we need here at least, if we throw the egg</span>
+            <span class="c1"># from the optimal floor. Throwing it in a conservative way</span>
+            <span class="c1"># would mean we start in the lowest floor and go upwards. That is</span>
+            <span class="c1"># always possible.</span>
+            <span class="n">best_choice</span> <span class="o">=</span> <span class="n">floors</span>
+            <span class="k">for</span> <span class="n">chosen_floor</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">floor</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">breaks</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">s</span><span class="p">[</span><span class="n">chosen_floor</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">n_egg</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+                <span class="n">no_break</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">s</span><span class="p">[</span><span class="n">floor</span> <span class="o">-</span> <span class="n">chosen_floor</span><span class="p">][</span><span class="n">n_egg</span><span class="p">]</span>
+                <span class="n">worst_case</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">breaks</span><span class="p">,</span> <span class="n">no_break</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">worst_case</span> <span class="o">&lt;</span> <span class="n">best_choice</span><span class="p">:</span>
+                    <span class="c1"># This reads weird ... we just found a better choice where</span>
+                    <span class="c1"># to throw eggs from</span>
+                    <span class="n">best_choice</span> <span class="o">=</span> <span class="n">worst_case</span>
+            <span class="n">s</span><span class="p">[</span><span class="n">floor</span><span class="p">][</span><span class="n">n_egg</span><span class="p">]</span> <span class="o">=</span> <span class="n">best_choice</span>
+    <span class="k">return</span> <span class="n">s</span><span class="p">[</span><span class="n">floors</span><span class="p">][</span><span class="n">eggs</span><span class="p">]</span>
+</pre></div>
+<p>This algorithm has a time complexity of <span class="math">\(\mathcal{O}(m^2 \cdot n)\)</span> and need
+<span class="math">\(\mathcal{O}(n \cdot m)\)</span> in additional space. You can improve the runtime by
+looking at the sequence of worst_case. It should go down and then up again. If
+you notice that it went down but starts to go up again, you can abort the
+<code>chosen_floor</code> loop. I don't think that changes the worst-case
+asymptotical runtime, though.</p>
+<p>Now that we have a solution which is correct, we can look for patterns in the
+pure numbers:</p>
+<ul>
+<li>2 eggs, starting with 0 floors: 0, 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, ...: <a href="https://oeis.org/A123578">A123578</a> - 1 times one, 2 times two, 3 times three, ...</li>
+<li>3 eggs, starting with 0 floors: 0, 1, 2x 2, 4x 3, 7x 4, 11x 5, 16x 6</li>
+</ul>
+<p>Another observation is that if we have enough eggs, we can perform binary
+search and more eggs will not result in less egg drops.</p>
 <h2 id="see-also">See also</h2>
 <ul>
 <li>Wikipedia:<ul>
