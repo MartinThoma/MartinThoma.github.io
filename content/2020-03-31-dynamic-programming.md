@@ -3,17 +3,27 @@ layout: post
 title: Dynamic Programming
 slug: dynamic-programming
 author: Martin Thoma
-date: 2020-03-30 20:00
+date: 2020-03-31 20:00
 category: Algorithms
-tags: Code, Fibonacci, Python
-featured_image: logos/python.png
+tags: Algorithms, Code, Fibonacci, Python, COP, CSP
+featured_image: logos/ai.png
 ---
 Dynamic Programming is a technique to find the solution to a problem by
 computing the solution of one or more sub-problems. So the problem needs to
 have [optimal substructure](https://en.wikipedia.org/wiki/Optimal_substructure).
 
+If you compute the solution bottom-up, then it is Dynamic Programming. If you
+compute it top-down, then you might use memoization.
 
-## Memoization
+## Terminology
+
+I don't think the distinction here is important. It is important to understand
+the concept: You can solve a big problem by solving smaller sub-problems and
+combining the answers. This is not necessarily done by a recursive function
+call, but could also happen by storing sub-problems in a dictionary and
+iterating over a sequence of numbers.
+
+### Memoization
 
 It happens very often that you need to solve the same sub-problem multiple times.
 Think of the Fibonacci sequence, where you might calculate
@@ -35,21 +45,14 @@ decorator for that. See the Fibonacci example below for a concrete example.
 TL;DR: Memoization is a technique to speed-up function calls by caching their
 results.
 
-
-## Terminology
-
-I don't think the distinction here is important. It is important to understand
-the concept: You can solve a big problem by solving smaller sub-problems and
-combining the answers. This is not necessarily done by a recursive function
-call, but could also happen by storing sub-problems in a dictionary and
-iterating over a sequence of numbers.
-
-
 ### Backtracking
 
 Both, Backtracking and Dynamic Programming, are used to solve discrete
-constraint satisfaction problems (CSPs). I would call bottom-up approaches
-*Dynamic Programming* and top-down approaches *Backtracking*
+constraint problems. Dynamic Programming typically solves constraint
+optimization problems (COPs) and backtracking constraint satisfaction problems
+(CSPs).
+
+Usually *Dynamic Programming* is bottom-up and *Backtracking* uses top-down approaches.
 
 
 ### Divide and Conquer
@@ -85,7 +88,7 @@ def f(n):
     return f(n - 1) + f(n - 2)
 ```
 
-The best solution to this one is:
+The best solution to this is the following dynamic programming solution:
 
 ```python
 def f(n):
@@ -370,9 +373,67 @@ would be the dynamic programming solution, I'm currently to lazy to write it
 (aka: I leave it as an exercise to the reader).
 
 
+## 0/1 Knapsack
+
+You have a list of items which have a weight and a value. You have a maximum
+weight you can carry. What is the maximum value you can get?
+
+```python
+from typing import List, Tuple
+
+
+def solve_knapsack(items: List[Tuple[int, int]], max_weight: int) -> int:
+    """
+    The items have (weight, value) as order
+
+    >>> items = [(2, 2), (5, 7), (4, 3)]
+    >>> solve_knapsack(items, max_weight=10)
+    10
+    >>> solve_knapsack(items, max_weight=11)
+    12
+    """
+    # A non-positive weight is a no-brainer: we would always add it
+    assert all(weight > 0 for weight, value in items)
+
+    # ... except if the value is negtive
+    assert all(value >= 0 for weight, value in items)
+
+    # c[i][j] is the optimal solution if you have
+    # a maximum weight of j and only the items items[:(i+1)]
+    c = [[0 for weight in range(max_weight + 1)] for item in range(len(items))]
+    for item_index in range(len(items)):
+        for remaining_weight in range(max_weight + 1):
+            # Can the item at item_index be added?
+            item = items[item_index]
+            not_adding = c[item_index - 1][remaining_weight]
+            if item[0] > remaining_weight:
+                # This works even for item_index = 0 as the matrix is
+                # initialized with zeroes. Hence looking at the last element is
+                # zero.
+                c[item_index][remaining_weight] = not_adding
+            else:
+                # Yes we can!
+                adding_it = item[1] + c[item_index - 1][remaining_weight - item[0]]
+                c[item_index][remaining_weight] = max(not_adding, adding_it)
+    return c[len(items) - 1][max_weight]
+```
+
+You can see that the solution has a time complexity of $\mathcal{O}(n \cdot m)$
+where $n$ is the number of items and $m$ is the maximum weight. It also has this
+space complexity.
+
+You can also see that this solution would fail if <code>max_weight</code> was
+not an integer. While one could simply multiply everything with large enough
+numbers, this might make
+
+
 ## See also
 
-* [Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm): finding shortest paths in a weighted graph
+* Wikipedia:
+    * [Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm): finding shortest paths in a weighted graph
+    * [Knapsack problem](https://en.wikipedia.org/wiki/Knapsack_problem#0-1_knapsack_problem)
 * Karpathy: [GridWorld: Dynamic Programming Demo](https://cs.stanford.edu/people/karpathy/reinforcejs/gridworld_dp.html)
-* StackOverflow: [Difference between back tracking and dynamic programming](https://stackoverflow.com/q/3592943/562769)
+* StackOverflow:
+    * [Difference between back tracking and dynamic programming](https://stackoverflow.com/q/3592943/562769)
+    * [What is the difference between dynamic programming and branch and bound?](https://stackoverflow.com/q/16814830/562769)
 * 🇩🇪 Martin Thoma: [Probabilistische Planung](https://martin-thoma.com/probabilistische-planung/#dynamic-programming)
