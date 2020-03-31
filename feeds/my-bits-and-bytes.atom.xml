@@ -350,7 +350,7 @@ self-isolation. One could analogize to other countries, but I was too lazy
 to implement that.&lt;/p&gt;
 &lt;h3 id="predictions"&gt;Predictions&lt;/h3&gt;
 &lt;p&gt;On the training data:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;LogitRegressor(beta=0.1980, c=13.4600, max_population=64000000.0)
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;LogitRegressor(beta=0.198, c=13.460, max_population=64000000.0)
 Day 2020-02-24: 91 (+91) predicted vs 16 in reality
 Day 2020-02-25: 111 (+20) predicted vs 18 in reality
 Day 2020-02-26: 136 (+24) predicted vs 21 in reality
@@ -384,7 +384,7 @@ Day 2020-03-23: 23,342 (+4,192) predicted vs 22,672 in reality
 &lt;p&gt;Let's see when the predictions start to fall apart. They will, because the
 training data does not contain the isolation and also there isn't a lot of
 training data for Germany.&lt;/p&gt;
-&lt;p&gt;Here are the predictions from 2020-03-23:&lt;/p&gt;
+&lt;p&gt;Here are the &lt;a href="https://gist.github.com/MartinThoma/e35d7ee2cdf288be090ffc822bb53f1b"&gt;predictions from 2020-03-23&lt;/a&gt;:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Date: Total infections at the end of the day (new infections on that day)
 2020-03-24: 28,451 (+5,109) -- was 29,542
 2020-03-25: 34,678 (+6,226)
@@ -392,91 +392,139 @@ training data for Germany.&lt;/p&gt;
 2020-03-27: 51,513 (+9,247)  -- somewhat accurate until here
 2020-03-28: 62,781 (+11,268)
 2020-03-29: 76,512 (+13,730)  -- pretty bad from here
-2020-03-30: 93,240 (+16,729)
-2020-03-31: 113,620 (+20,380)
-2020-04-01: 138,445 (+24,825)
-2020-04-02: 168,679 (+30,234)
-2020-04-03: 205,495 (+36,816)
-2020-04-04: 250,315 (+44,820)
-2020-04-05: 304,863 (+54,548)
-2020-04-06: 371,230 (+66,366)
-2020-04-07: 451,941 (+80,711)
-2020-04-08: 550,049 (+98,108)
-2020-04-09: 669,229 (+119,181)
-2020-04-10: 813,902 (+144,672)
-2020-04-11: 989,361 (+175,459)
-2020-04-12: 1,201,925 (+212,564)
-2020-04-13: 1,459,101 (+257,176)
-2020-04-14: 1,769,755 (+310,654)
-2020-04-15: 2,144,282 (+374,527)
-2020-04-16: 2,594,763 (+450,481)
-2020-04-17: 3,135,087 (+540,324)
-2020-04-18: 3,780,998 (+645,911)
-2020-04-19: 4,550,035 (+769,038)
-2020-04-20: 5,461,306 (+911,271)
-2020-04-21: 6,535,022 (+1,073,716)
-2020-04-22: 7,791,737 (+1,256,715)
-2020-04-23: 9,251,217 (+1,459,480)
-2020-04-24: 10,930,911 (+1,679,694)
-2020-04-25: 12,844,031 (+1,913,120)
-2020-04-26: 14,997,360 (+2,153,329)
-2020-04-27: 17,388,984 (+2,391,624)
-2020-04-28: 20,006,289 (+2,617,305)
-2020-04-29: 22,824,631 (+2,818,341)
-2020-04-30: 25,807,100 (+2,982,469)
-2020-05-01: 28,905,699 (+3,098,599)
-2020-05-02: 32,064,000 (+3,158,301)
-2020-05-03: 35,221,055 (+3,157,055)
-2020-05-04: 38,316,010 (+3,094,955)
-2020-05-05: 41,292,711 (+2,976,700)
-2020-05-06: 44,103,564 (+2,810,854)
-2020-05-07: 46,712,145 (+2,608,581)
-2020-05-08: 49,094,309 (+2,382,163)
-2020-05-09: 51,237,904 (+2,143,595)
-2020-05-10: 53,141,410 (+1,903,506)
-2020-05-11: 54,811,915 (+1,670,505)
-2020-05-12: 56,262,843 (+1,450,928)
-2020-05-13: 57,511,771 (+1,248,928)
-2020-05-14: 58,578,524 (+1,066,753)
-2020-05-15: 59,483,661 (+905,137)
-2020-05-16: 60,247,363 (+763,702)
-2020-05-17: 60,888,679 (+641,316)
-2020-05-18: 61,425,081 (+536,401)
-2020-05-19: 61,872,236 (+447,156)
-2020-05-20: 62,243,960 (+371,723)
-2020-05-21: 62,552,262 (+308,302)
-2020-05-22: 62,807,474 (+255,212)
-2020-05-23: 63,018,402 (+210,928)
-2020-05-24: 63,192,502 (+174,100)
-2020-05-25: 63,336,048 (+143,546)
-2020-05-26: 63,454,297 (+118,249)
-2020-05-27: 63,551,635 (+97,338)
-2020-05-28: 63,631,711 (+80,076)
-2020-05-29: 63,697,554 (+65,843)
-2020-05-30: 63,751,672 (+54,118)
-2020-05-31: 63,796,137 (+44,465)
-2020-06-01: 63,832,661 (+36,524)
-2020-06-02: 63,862,656 (+29,995)
-2020-06-03: 63,887,284 (+24,628)
-2020-06-04: 63,907,502 (+20,218)
-2020-06-05: 63,924,097 (+16,596)
-2020-06-06: 63,937,718 (+13,621)
-2020-06-07: 63,948,897 (+11,179)
-2020-06-08: 63,958,071 (+9,174)
-2020-06-09: 63,965,598 (+7,528)
-2020-06-10: 63,971,775 (+6,177)
-2020-06-11: 63,976,843 (+5,068)
-2020-06-12: 63,981,002 (+4,158)
-2020-06-13: 63,984,414 (+3,412)
-2020-06-14: 63,987,213 (+2,799)
-2020-06-15: 63,989,509 (+2,297)
-2020-06-16: 63,991,394 (+1,884)
-2020-06-17: 63,992,939 (+1,546)
-2020-06-18: 63,994,208 (+1,268)
-2020-06-19: 63,995,248 (+1,040)
-2020-06-20: 63,996,102 (+854)
-2020-06-21: 63,996,802 (+700)
-2020-06-22: 63,997,376 (+574)
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now, 2020-03-31, the following regression fits way better. This means the
+growth rate was reduced from 19.8% to 15.1%. I'm more positive than the
+estimator. I guess we don't have enough data for the quarantine. It would make
+most sense to me to analogize with Italy.&lt;/p&gt;
+&lt;p&gt;Anyway, here you are with the bad estimators estimates:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;LogitRegressor(beta=0.151, c=12.220, max_population=64000000.0)
+Day 2020-02-24: 316 (+316) predicted vs 16 in reality
+Day 2020-02-25: 367 (+51) predicted vs 18 in reality
+Day 2020-02-26: 427 (+60) predicted vs 21 in reality
+Day 2020-02-27: 496 (+70) predicted vs 26 in reality
+Day 2020-02-28: 577 (+81) predicted vs 53 in reality
+Day 2020-02-29: 671 (+94) predicted vs 66 in reality
+Day 2020-03-01: 781 (+109) predicted vs 117 in reality
+Day 2020-03-02: 908 (+127) predicted vs 150 in reality
+Day 2020-03-03: 1,056 (+148) predicted vs 188 in reality
+Day 2020-03-04: 1,228 (+172) predicted vs 240 in reality
+Day 2020-03-05: 1,428 (+200) predicted vs 349 in reality
+Day 2020-03-06: 1,661 (+233) predicted vs 534 in reality
+Day 2020-03-07: 1,932 (+271) predicted vs 684 in reality
+Day 2020-03-08: 2,247 (+315) predicted vs 847 in reality
+Day 2020-03-09: 2,613 (+366) predicted vs 1,112 in reality
+Day 2020-03-10: 3,039 (+426) predicted vs 1,460 in reality
+Day 2020-03-11: 3,535 (+495) predicted vs 1,884 in reality
+Day 2020-03-12: 4,111 (+576) predicted vs 2,369 in reality
+Day 2020-03-13: 4,781 (+670) predicted vs 3,062 in reality
+Day 2020-03-14: 5,560 (+779) predicted vs 3,795 in reality
+Day 2020-03-15: 6,466 (+906) predicted vs 4,838 in reality
+Day 2020-03-16: 7,520 (+1,054) predicted vs 6,012 in reality
+Day 2020-03-17: 8,745 (+1,226) predicted vs 7,156 in reality
+Day 2020-03-18: 10,170 (+1,425) predicted vs 8,198 in reality
+Day 2020-03-19: 11,828 (+1,657) predicted vs 10,999 in reality
+Day 2020-03-20: 13,755 (+1,927) predicted vs 13,957 in reality
+Day 2020-03-21: 15,997 (+2,242) predicted vs 16,662 in reality
+Day 2020-03-22: 18,603 (+2,607) predicted vs 18,610 in reality
+Day 2020-03-23: 21,635 (+3,031) predicted vs 22,672 in reality
+Day 2020-03-24: 25,160 (+3,525) predicted vs 27,436 in reality
+Day 2020-03-25: 29,259 (+4,099) predicted vs 31,554 in reality
+Day 2020-03-26: 34,025 (+4,767) predicted vs 36,508 in reality
+Day 2020-03-27: 39,568 (+5,543) predicted vs 42,288 in reality
+Day 2020-03-28: 46,013 (+6,445) predicted vs 48,582 in reality
+Day 2020-03-29: 53,506 (+7,494) predicted vs 52,547 in reality
+Day 2020-03-30: 62,219 (+8,713) predicted vs 57,298 in reality
+---
+date, predicted accummulated sick, new sick
+2020-03-31: 72,349 (+10,130)
+2020-04-01: 84,127 (+11,777)
+2020-04-02: 97,818 (+13,691)
+2020-04-03: 113,734 (+15,916)
+2020-04-04: 132,234 (+18,500)
+2020-04-05: 153,735 (+21,502)
+2020-04-06: 178,724 (+24,988)
+2020-04-07: 207,761 (+29,037)
+2020-04-08: 241,497 (+33,737)
+2020-04-09: 280,688 (+39,191)
+2020-04-10: 326,206 (+45,518)
+2020-04-11: 379,061 (+52,856)
+2020-04-12: 440,422 (+61,361)
+2020-04-13: 511,635 (+71,213)
+2020-04-14: 594,256 (+82,620)
+2020-04-15: 690,073 (+95,817)
+2020-04-16: 801,145 (+111,072)
+2020-04-17: 929,831 (+128,687)
+2020-04-18: 1,078,836 (+149,005)
+2020-04-19: 1,251,245 (+172,409)
+2020-04-20: 1,450,571 (+199,326)
+2020-04-21: 1,680,799 (+230,229)
+2020-04-22: 1,946,432 (+265,633)
+2020-04-23: 2,252,528 (+306,096)
+2020-04-24: 2,604,739 (+352,212)
+2020-04-25: 3,009,340 (+404,600)
+2020-04-26: 3,473,232 (+463,893)
+2020-04-27: 4,003,940 (+530,708)
+2020-04-28: 4,609,564 (+605,624)
+2020-04-29: 5,298,702 (+689,138)
+2020-04-30: 6,080,319 (+781,618)
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Looking at the US is also interesting:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;LogitRegressor(beta=0.206, c=14.536, max_population=262400000.0)
+Day 2020-02-24: 128 (+128) predicted vs 14 in reality
+Day 2020-02-25: 157 (+29) predicted vs 14 in reality
+Day 2020-02-26: 193 (+36) predicted vs 15 in reality
+Day 2020-02-27: 237 (+44) predicted vs 15 in reality
+Day 2020-02-28: 291 (+54) predicted vs 19 in reality
+Day 2020-02-29: 358 (+67) predicted vs 24 in reality
+Day 2020-03-01: 439 (+82) predicted vs 42 in reality
+Day 2020-03-02: 540 (+101) predicted vs 57 in reality
+Day 2020-03-03: 663 (+124) predicted vs 85 in reality
+Day 2020-03-04: 815 (+152) predicted vs 111 in reality
+Day 2020-03-05: 1,002 (+186) predicted vs 175 in reality
+Day 2020-03-06: 1,231 (+229) predicted vs 252 in reality
+Day 2020-03-07: 1,512 (+282) predicted vs 353 in reality
+Day 2020-03-08: 1,858 (+346) predicted vs 497 in reality
+Day 2020-03-09: 2,283 (+425) predicted vs 645 in reality
+Day 2020-03-10: 2,806 (+522) predicted vs 936 in reality
+Day 2020-03-11: 3,447 (+642) predicted vs 1,205 in reality
+Day 2020-03-12: 4,236 (+789) predicted vs 1,598 in reality
+Day 2020-03-13: 5,205 (+969) predicted vs 2,163 in reality
+Day 2020-03-14: 6,396 (+1,191) predicted vs 2,825 in reality
+Day 2020-03-15: 7,858 (+1,463) predicted vs 3,501 in reality
+Day 2020-03-16: 9,656 (+1,798) predicted vs 4,373 in reality
+Day 2020-03-17: 11,865 (+2,209) predicted vs 5,664 in reality
+Day 2020-03-18: 14,579 (+2,714) predicted vs 8,074 in reality
+Day 2020-03-19: 17,914 (+3,335) predicted vs 12,022 in reality
+Day 2020-03-20: 22,011 (+4,097) predicted vs 17,439 in reality
+Day 2020-03-21: 27,046 (+5,035) predicted vs 23,710 in reality
+Day 2020-03-22: 33,232 (+6,186) predicted vs 32,341 in reality
+Day 2020-03-23: 40,832 (+7,601) predicted vs 42,751 in reality
+Day 2020-03-24: 50,171 (+9,339) predicted vs 52,690 in reality
+Day 2020-03-25: 61,645 (+11,474) predicted vs 64,916 in reality
+Day 2020-03-26: 75,742 (+14,097) predicted vs 81,966 in reality
+Day 2020-03-27: 93,062 (+17,320) predicted vs 100,997 in reality
+Day 2020-03-28: 114,341 (+21,279) predicted vs 121,105 in reality
+Day 2020-03-29: 140,483 (+26,142) predicted vs 141,288 in reality
+Day 2020-03-30: 172,598 (+32,115) predicted vs 162,126 in reality
+---
+2020-03-30: 172,598 (+32,115)
+2020-03-31: 212,049 (+39,451)
+2020-04-01: 260,508 (+48,459)
+2020-04-02: 320,027 (+59,519)
+2020-04-03: 393,124 (+73,097)
+2020-04-04: 482,887 (+89,763)
+2020-04-05: 593,100 (+110,212)  &amp;lt;------- Hit 0.5 million
+2020-04-06: 728,397 (+135,297)
+2020-04-07: 894,452 (+166,055)
+2020-04-08: 1,098,204 (+203,752) &amp;lt;------- Hit one million
+2020-04-09: 1,348,131 (+249,927)
+2020-04-10: 1,654,576 (+306,445)
+2020-04-11: 2,030,137 (+375,561)
+2020-04-12: 2,490,130 (+459,993) &amp;lt;------- Trump wants it to be over
+2020-04-13: 3,053,127 (+562,997)
+2020-04-14: 3,741,581 (+688,454)
+2020-04-15: 4,582,533 (+840,951)
 &lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id="how-bad-is-it_1"&gt;How bad is it?&lt;/h2&gt;
 &lt;ul&gt;
@@ -553,7 +601,11 @@ training data for Germany.&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://youtu.be/54XLXg4fYsc"&gt;How To Tell If We're Beating COVID-19&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Crowdsourcing&lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.kaggle.com/covid-19-contributions"&gt;COVID-19 Kaggle community contributions&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://aatishb.com/covidtrends/"&gt;Trajectory of COVID-19 Confirmed Cases&lt;/a&gt;: Explanation at &lt;a href="https://www.youtube.com/watch?v=54XLXg4fYsc"&gt;minutephysics&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://aatishb.com/covidtrends/"&gt;Trajectory of COVID-19 Confirmed Cases&lt;/a&gt;: Explanation at &lt;a href="https://www.youtube.com/watch?v=54XLXg4fYsc"&gt;minutephysics&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://aatishb.com/covidtrends/?country=Brazil&amp;amp;country=China&amp;amp;country=Egypt&amp;amp;country=India&amp;amp;country=Indonesia&amp;amp;country=Japan&amp;amp;country=Mexico&amp;amp;country=Nigeria&amp;amp;country=Pakistan&amp;amp;country=Philippines&amp;amp;country=Russia&amp;amp;country=US"&gt;Countries with more than 100m inhabitants&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://aatishb.com/covidtrends/?country=Austria&amp;amp;country=Belgium&amp;amp;country=Bulgaria&amp;amp;country=Croatia&amp;amp;country=Cyprus&amp;amp;country=Czechia&amp;amp;country=Estonia&amp;amp;country=Finland&amp;amp;country=France&amp;amp;country=Germany&amp;amp;country=Hungary&amp;amp;country=Ireland&amp;amp;country=Italy&amp;amp;country=Latvia&amp;amp;country=Lithuania&amp;amp;country=Luxembourg&amp;amp;country=Malta&amp;amp;country=Netherlands&amp;amp;country=Poland&amp;amp;country=Portugal&amp;amp;country=Romania&amp;amp;country=Slovakia&amp;amp;country=Slovenia&amp;amp;country=Spain&amp;amp;country=Sweden&amp;amp;country=Switzerland"&gt;European Union&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
