@@ -427,6 +427,158 @@ not an integer. While one could simply multiply everything with large enough
 numbers, this might make
 
 
+### Climbing Stairs
+
+There are n stairs and you can take either one or two stairs. How many unique
+ways exist to climb the stairs?
+
+First, a recursive solution:
+
+```python
+from functools import lru_cache
+
+
+@lru_cache(maxsize=512)
+def stairs(n: int) -> int:
+    """
+    >>> stairs(1)
+    1
+    >>> stairs(2)
+    2
+    >>> stairs(3)
+    3
+    >>> stairs(4)
+    5
+    """
+    assert n >= 1
+    if n == 1:
+        return 1
+    elif n == 2:
+        return 2
+    else:
+        return stairs(n - 2) + stairs(n - 1)
+```
+
+You should directly notice that this looks VERY similar to the fibonacci sequence.
+Only the starting numbers are different. Hence the solution is the same, except
+for the starting numbers:
+
+```python
+def stairs(n: int) -> int:
+    """
+    >>> stairs(1)
+    1
+    >>> stairs(2)
+    2
+    >>> stairs(3)
+    3
+    >>> stairs(4)
+    5
+    """
+    assert n >= 1
+    a, b = 1, 1
+    for _ in range(n):
+        a, b = b, a + b
+    return a
+```
+
+## Egg Drop
+
+Given $n$ eggs and $m$ floors, how often do you need to let an egg drop to know
+for sure the highest floor at which the eggs still don't break?
+
+Some clarifications:
+
+* Floors start at zero.
+* The eggs are guaranteed not to break at floor 0.
+* The eggs are guaranteed to break from floor $m +1$.
+* If an egg does not break at floor $i$, it will not break at floor $i-1$.
+* If an egg breaks at floor $i$, it will also break at floor $i+1$.
+
+I know this sounds very simple and a was about to just drop the problem. I
+thought it was simply binary search, hence with applying the logarithm you
+could solve it. I was wrong, though. Think about the situation where you have
+20 floors and 2 eggs. If you use the first egg for the 10th floor, the worst case
+is that the searched floor is the 9th one:
+
+* 1st egg breaks at 10th floor
+* 2nd egg needs to be dropped from floor 1, 2, 3, 4, 5, 6, 7, 8, 9
+
+Hence binary search needs 10 egg drops for 2 eggs and 20 floors
+
+Now consider this:
+
+* 1st egg is dropped from 7th floor
+    * It breaks: 2nd egg needs to be dropped from floor 1,2,3,4,5,6 => 7 egg drops
+    * It doesn't break: 1st egg is dropped from floor 14
+        * It breaks: 2nd egg needs to be dropped from floor 8, 9, 10, 11, 12, 13 => 8 egg drops
+        * It doesn't break: Try floor 15, 16, 17, 18, 19 => 7 egg drops
+
+Obviously, binary search is not the best solution.
+
+```python
+def egg_drop(eggs: int, floors: int) -> int:
+    """
+    >>> egg_drop(42, 0)
+    0
+    >>> egg_drop(42, 1)
+    1
+    >>> egg_drop(1, 5)
+    5
+    >>> egg_drop(2, 100)
+    14
+    """
+    s = []  # s[remaining_floors][remaining_eggs]
+    for floor in range(floors + 1):
+        row = []
+        for reduced_eggs in range(eggs + 1):
+            if floor <= 1:
+                el = floor
+            elif reduced_eggs == 0:
+                el = None
+            elif reduced_eggs == 1:
+                el = floor
+            else:
+                el = None
+            row.append(el)
+        s.append(row)
+
+    for floor in range(2, floors + 1):
+        for n_egg in range(2, eggs + 1):
+            # The number of eggs we need here at least, if we throw the egg
+            # from the optimal floor. Throwing it in a conservative way
+            # would mean we start in the lowest floor and go upwards. That is
+            # always possible.
+            best_choice = floors
+            for chosen_floor in range(1, floor + 1):
+                breaks = 1 + s[chosen_floor - 1][n_egg - 1]
+                no_break = 1 + s[floor - chosen_floor][n_egg]
+                worst_case = max(breaks, no_break)
+                if worst_case < best_choice:
+                    # This reads weird ... we just found a better choice where
+                    # to throw eggs from
+                    best_choice = worst_case
+            s[floor][n_egg] = best_choice
+    return s[floors][eggs]
+```
+
+This algorithm has a time complexity of $\mathcal{O}(m^2 \cdot n)$ and need
+$\mathcal{O}(n \cdot m)$ in additional space. You can improve the runtime by
+looking at the sequence of worst_case. It should go down and then up again. If
+you notice that it went down but starts to go up again, you can abort the
+<code>chosen_floor</code> loop. I don't think that changes the worst-case
+asymptotical runtime, though.
+
+Now that we have a solution which is correct, we can look for patterns in the
+pure numbers:
+
+* 2 eggs, starting with 0 floors: 0, 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, ...: [A123578](https://oeis.org/A123578) - 1 times one, 2 times two, 3 times three, ...
+* 3 eggs, starting with 0 floors: 0, 1, 2x 2, 4x 3, 7x 4, 11x 5, 16x 6
+
+Another observation is that if we have enough eggs, we can perform binary
+search and more eggs will not result in less egg drops.
+
+
 ## See also
 
 * Wikipedia:
