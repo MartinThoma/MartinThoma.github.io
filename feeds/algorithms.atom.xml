@@ -2,12 +2,19 @@
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Martin Thoma - Algorithms</title><link href="https://martin-thoma.com/" rel="alternate"></link><link href="https://martin-thoma.com/feeds/algorithms.atom.xml" rel="self"></link><id>https://martin-thoma.com/</id><updated>2020-03-31T20:00:00+02:00</updated><subtitle>A blog about Code, the Web and Cyberculture</subtitle><entry><title>Dynamic Programming</title><link href="https://martin-thoma.com/dynamic-programming/" rel="alternate"></link><published>2020-03-31T20:00:00+02:00</published><updated>2020-03-31T20:00:00+02:00</updated><author><name>Martin Thoma</name></author><id>tag:martin-thoma.com,2020-03-31:/dynamic-programming/</id><summary type="html">&lt;p&gt;Dynamic Programming is a technique to find the solution to a problem by
 computing the solution of one or more sub-problems. So the problem needs to
 have &lt;a href="https://en.wikipedia.org/wiki/Optimal_substructure"&gt;optimal substructure&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id="memoization"&gt;Memoization&lt;/h2&gt;
-&lt;p&gt;It happens very often that you need to solve the same sub-problem multiple times.
-Think of the Fibonacci sequence, where …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Dynamic Programming is a technique to find the solution to a problem by
+&lt;p&gt;If you compute the solution bottom-up, then it is Dynamic Programming. If you
+compute it top-down, then you might use memoization …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Dynamic Programming is a technique to find the solution to a problem by
 computing the solution of one or more sub-problems. So the problem needs to
 have &lt;a href="https://en.wikipedia.org/wiki/Optimal_substructure"&gt;optimal substructure&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id="memoization"&gt;Memoization&lt;/h2&gt;
+&lt;p&gt;If you compute the solution bottom-up, then it is Dynamic Programming. If you
+compute it top-down, then you might use memoization.&lt;/p&gt;
+&lt;h2 id="terminology"&gt;Terminology&lt;/h2&gt;
+&lt;p&gt;I don't think the distinction here is important. It is important to understand
+the concept: You can solve a big problem by solving smaller sub-problems and
+combining the answers. This is not necessarily done by a recursive function
+call, but could also happen by storing sub-problems in a dictionary and
+iterating over a sequence of numbers.&lt;/p&gt;
+&lt;h3 id="memoization"&gt;Memoization&lt;/h3&gt;
 &lt;p&gt;It happens very often that you need to solve the same sub-problem multiple times.
 Think of the Fibonacci sequence, where you might calculate&lt;/p&gt;
 &lt;div class="math"&gt;\begin{align}
@@ -23,16 +30,12 @@ again, you can directly return the result without recalculating the function.&lt
 decorator for that. See the Fibonacci example below for a concrete example.&lt;/p&gt;
 &lt;p&gt;TL;DR: Memoization is a technique to speed-up function calls by caching their
 results.&lt;/p&gt;
-&lt;h2 id="terminology"&gt;Terminology&lt;/h2&gt;
-&lt;p&gt;I don't think the distinction here is important. It is important to understand
-the concept: You can solve a big problem by solving smaller sub-problems and
-combining the answers. This is not necessarily done by a recursive function
-call, but could also happen by storing sub-problems in a dictionary and
-iterating over a sequence of numbers.&lt;/p&gt;
 &lt;h3 id="backtracking"&gt;Backtracking&lt;/h3&gt;
 &lt;p&gt;Both, Backtracking and Dynamic Programming, are used to solve discrete
-constraint satisfaction problems (CSPs). I would call bottom-up approaches
-&lt;em&gt;Dynamic Programming&lt;/em&gt; and top-down approaches &lt;em&gt;Backtracking&lt;/em&gt;&lt;/p&gt;
+constraint problems. Dynamic Programming typically solves constraint
+optimization problems (COPs) and backtracking constraint satisfaction problems
+(CSPs).&lt;/p&gt;
+&lt;p&gt;Usually &lt;em&gt;Dynamic Programming&lt;/em&gt; is bottom-up and &lt;em&gt;Backtracking&lt;/em&gt; uses top-down approaches.&lt;/p&gt;
 &lt;h3 id="divide-and-conquer"&gt;Divide and Conquer&lt;/h3&gt;
 &lt;p&gt;Divide and Conquer algorithms, such as &lt;a href="https://en.wikipedia.org/wiki/Merge_sort"&gt;merge sort&lt;/a&gt;,
 Binary search,
@@ -55,7 +58,7 @@ $$&lt;/div&gt;
         &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;The best solution to this one is:&lt;/p&gt;
+&lt;p&gt;The best solution to this is the following dynamic programming solution:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;f&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="sd"&gt;"""&lt;/span&gt;
 &lt;span class="sd"&gt;    &amp;gt;&amp;gt;&amp;gt; f(0)&lt;/span&gt;
@@ -299,6 +302,10 @@ would be the dynamic programming solution, I'm currently to lazy to write it
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm"&gt;Floyd&amp;ndash;Warshall algorithm&lt;/a&gt;: finding shortest paths in a weighted graph&lt;/li&gt;
 &lt;li&gt;Karpathy: &lt;a href="https://cs.stanford.edu/people/karpathy/reinforcejs/gridworld_dp.html"&gt;GridWorld: Dynamic Programming Demo&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;StackOverflow: &lt;a href="https://stackoverflow.com/q/3592943/562769"&gt;Difference between back tracking and dynamic programming&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;StackOverflow:&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://stackoverflow.com/q/3592943/562769"&gt;Difference between back tracking and dynamic programming&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://stackoverflow.com/q/16814830/562769"&gt;What is the difference between dynamic programming and branch and bound?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;🇩🇪 Martin Thoma: &lt;a href="https://martin-thoma.com/probabilistische-planung/#dynamic-programming"&gt;Probabilistische Planung&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content><category term="Code"></category><category term="Fibonacci"></category><category term="Python"></category></entry></feed>

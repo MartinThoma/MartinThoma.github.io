@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Dynamic Programming "/>
 <meta property="og:url" content="../dynamic-programming/" />
-<meta property="og:description" content="Dynamic Programming is a technique to find the solution to a problem by computing the solution of one or more sub-problems. So the problem needs to have optimal substructure. Memoization It happens very often that you need to solve the same sub-problem multiple times. Think of the Fibonacci sequence, where …" />
+<meta property="og:description" content="Dynamic Programming is a technique to find the solution to a problem by computing the solution of one or more sub-problems. So the problem needs to have optimal substructure. If you compute the solution bottom-up, then it is Dynamic Programming. If you compute it top-down, then you might use memoization …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2020-03-31T20:00:00+02:00" />
 <meta name="twitter:title" content="Dynamic Programming ">
-<meta name="twitter:description" content="Dynamic Programming is a technique to find the solution to a problem by computing the solution of one or more sub-problems. So the problem needs to have optimal substructure. Memoization It happens very often that you need to solve the same sub-problem multiple times. Think of the Fibonacci sequence, where …">
+<meta name="twitter:description" content="Dynamic Programming is a technique to find the solution to a problem by computing the solution of one or more sub-problems. So the problem needs to have optimal substructure. If you compute the solution bottom-up, then it is Dynamic Programming. If you compute it top-down, then you might use memoization …">
 <meta property="og:image" content="logos/python.png" />
 <meta name="twitter:image" content="logos/python.png" >
 
@@ -104,7 +104,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#memoization" title="Memoization">Memoization</a></li><li><a class="toc-href" href="#terminology" title="Terminology">Terminology</a><ul><li><a class="toc-href" href="#backtracking" title="Backtracking">Backtracking</a></li><li><a class="toc-href" href="#divide-and-conquer" title="Divide and Conquer">Divide and Conquer</a></li></ul></li><li><a class="toc-href" href="#fibonacci-sequence_1" title="Fibonacci Sequence">Fibonacci Sequence</a></li><li><a class="toc-href" href="#longest-increasing-subsequence" title="Longest Increasing Subsequence">Longest Increasing Subsequence</a></li><li><a class="toc-href" href="#edit-distance" title="Edit Distance">Edit Distance</a></li><li><a class="toc-href" href="#change-making-problem" title="Change Making Problem">Change Making Problem</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#terminology" title="Terminology">Terminology</a><ul><li><a class="toc-href" href="#memoization" title="Memoization">Memoization</a></li><li><a class="toc-href" href="#backtracking" title="Backtracking">Backtracking</a></li><li><a class="toc-href" href="#divide-and-conquer" title="Divide and Conquer">Divide and Conquer</a></li></ul></li><li><a class="toc-href" href="#fibonacci-sequence_1" title="Fibonacci Sequence">Fibonacci Sequence</a></li><li><a class="toc-href" href="#longest-increasing-subsequence" title="Longest Increasing Subsequence">Longest Increasing Subsequence</a></li><li><a class="toc-href" href="#edit-distance" title="Edit Distance">Edit Distance</a></li><li><a class="toc-href" href="#change-making-problem" title="Change Making Problem">Change Making Problem</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -113,7 +113,15 @@ MathJax.Hub.Queue(function() {
             <p>Dynamic Programming is a technique to find the solution to a problem by
 computing the solution of one or more sub-problems. So the problem needs to
 have <a href="https://en.wikipedia.org/wiki/Optimal_substructure">optimal substructure</a>.</p>
-<h2 id="memoization">Memoization</h2>
+<p>If you compute the solution bottom-up, then it is Dynamic Programming. If you
+compute it top-down, then you might use memoization.</p>
+<h2 id="terminology">Terminology</h2>
+<p>I don't think the distinction here is important. It is important to understand
+the concept: You can solve a big problem by solving smaller sub-problems and
+combining the answers. This is not necessarily done by a recursive function
+call, but could also happen by storing sub-problems in a dictionary and
+iterating over a sequence of numbers.</p>
+<h3 id="memoization">Memoization</h3>
 <p>It happens very often that you need to solve the same sub-problem multiple times.
 Think of the Fibonacci sequence, where you might calculate</p>
 <div class="math">\begin{align}
@@ -129,16 +137,12 @@ again, you can directly return the result without recalculating the function.</p
 decorator for that. See the Fibonacci example below for a concrete example.</p>
 <p>TL;DR: Memoization is a technique to speed-up function calls by caching their
 results.</p>
-<h2 id="terminology">Terminology</h2>
-<p>I don't think the distinction here is important. It is important to understand
-the concept: You can solve a big problem by solving smaller sub-problems and
-combining the answers. This is not necessarily done by a recursive function
-call, but could also happen by storing sub-problems in a dictionary and
-iterating over a sequence of numbers.</p>
 <h3 id="backtracking">Backtracking</h3>
 <p>Both, Backtracking and Dynamic Programming, are used to solve discrete
-constraint satisfaction problems (CSPs). I would call bottom-up approaches
-<em>Dynamic Programming</em> and top-down approaches <em>Backtracking</em></p>
+constraint problems. Dynamic Programming typically solves constraint
+optimization problems (COPs) and backtracking constraint satisfaction problems
+(CSPs).</p>
+<p>Usually <em>Dynamic Programming</em> is bottom-up and <em>Backtracking</em> uses top-down approaches.</p>
 <h3 id="divide-and-conquer">Divide and Conquer</h3>
 <p>Divide and Conquer algorithms, such as <a href="https://en.wikipedia.org/wiki/Merge_sort">merge sort</a>,
 Binary search,
@@ -161,7 +165,7 @@ $$</div>
         <span class="k">return</span> <span class="n">n</span>
     <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
-<p>The best solution to this one is:</p>
+<p>The best solution to this is the following dynamic programming solution:</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    &gt;&gt;&gt; f(0)</span>
@@ -405,7 +409,11 @@ would be the dynamic programming solution, I'm currently to lazy to write it
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm">Floyd&ndash;Warshall algorithm</a>: finding shortest paths in a weighted graph</li>
 <li>Karpathy: <a href="https://cs.stanford.edu/people/karpathy/reinforcejs/gridworld_dp.html">GridWorld: Dynamic Programming Demo</a></li>
-<li>StackOverflow: <a href="https://stackoverflow.com/q/3592943/562769">Difference between back tracking and dynamic programming</a></li>
+<li>StackOverflow:<ul>
+<li><a href="https://stackoverflow.com/q/3592943/562769">Difference between back tracking and dynamic programming</a></li>
+<li><a href="https://stackoverflow.com/q/16814830/562769">What is the difference between dynamic programming and branch and bound?</a></li>
+</ul>
+</li>
 <li>🇩🇪 Martin Thoma: <a href="https://martin-thoma.com/probabilistische-planung/#dynamic-programming">Probabilistische Planung</a></li>
 </ul>
             
