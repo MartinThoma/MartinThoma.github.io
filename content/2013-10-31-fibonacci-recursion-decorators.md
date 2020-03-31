@@ -101,10 +101,9 @@ def fib(n):
 Notice that I've only added <code>@memoize</code> over the function definiton of <code>fib</code>! I love Python ☺
 
 By the way, this formula has also some limitations. Python has a fixed maximum recursion depth. So <code>fib(332)</code> worked fine, but <code>fib(333)</code> gave:
-```bash
 
+```text
 RuntimeError: maximum recursion depth exceeded in comparison
-
 ```
 
 You can get around this limitation by successive calls of fib:
@@ -187,12 +186,10 @@ The following solution is fast and works 0.075 seconds for the 20000 Fibonacci n
 
 ```python
 def fib(n):
-    def accFib(n, Nm2=0, Nm1=1):
-        for i in range(n):
-            Nm2, Nm1 = Nm1, Nm1 + Nm2
-        return Nm2
-
-    return accFib(n)
+    a, b = 0, 1
+    for i in range(n):
+        a, b = a + b, a
+    return a
 ```
 
 <h2>Additional ressources</h2>
