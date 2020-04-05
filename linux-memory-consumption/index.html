@@ -16,16 +16,16 @@
 
 <meta name="keywords" content="Linux, Command Line, Memory, Code, " />
 
-<meta property="og:title" content="Linux Memory Consumption "/>
+<meta property="og:title" content="Linux Memory Consumption"/>
 <meta property="og:url" content="../linux-memory-consumption/" />
 <meta property="og:description" content="free I&#39;ve you want to check your memory consumption on a Linux machine, you can use free. moose@pc07:~$ free -m total used free shared buffers cached Mem: 3952 2832 1119 0 117 1565 -/+ buffers/cache: 1150 2802 Swap: 8656 0 8656 This means: I have a total of 3952 …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2012-02-10T21:04:45+01:00" />
-<meta name="twitter:title" content="Linux Memory Consumption ">
+<meta name="twitter:title" content="Linux Memory Consumption">
 <meta name="twitter:description" content="free I&#39;ve you want to check your memory consumption on a Linux machine, you can use free. moose@pc07:~$ free -m total used free shared buffers cached Mem: 3952 2832 1119 0 117 1565 -/+ buffers/cache: 1150 2802 Swap: 8656 0 8656 This means: I have a total of 3952 …">
 
-        <title>Linux Memory Consumption  · Martin Thoma
+        <title>Linux Memory Consumption · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -94,7 +94,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../linux-memory-consumption/"> Linux Memory Consumption  </a></h1>
+    <h1><a href="../linux-memory-consumption/"> Linux Memory Consumption </a></h1>
     </header>
 </div>
 
@@ -110,12 +110,12 @@ MathJax.Hub.Queue(function() {
             
             <h2 id="free">free</h2>
 <p>I've you want to check your memory consumption on a Linux machine, you can use free.</p>
-<div class="highlight"><pre><span></span>moose@pc07:~$ free -m
+<div class="highlight"><pre><span></span><code>moose@pc07:~$ free -m
              total       used       free     shared    buffers     cached
 Mem:          <span class="m">3952</span>       <span class="m">2832</span>       <span class="m">1119</span>          <span class="m">0</span>        <span class="m">117</span>       <span class="m">1565</span>
 -/+ buffers/cache:       <span class="m">1150</span>       <span class="m">2802</span>
 Swap:         <span class="m">8656</span>          <span class="m">0</span>       <span class="m">8656</span>
-</pre></div>
+</code></pre></div>
 <p>This means: I have a total of 3952 MB <a href="http://en.wikipedia.org/wiki/Random-access_memory">RAM</a>, used and free should be clear, shared is memory which is shared between processes, e.g. shared libraries. The "buffers" entry tells you how much of your RAM is being used for disk buffering. Over 8 GB got swapped out.</p>
 <h2 id="top">top</h2>
 <p>top will give you something like Windows' task manager in the command line. If you press "M" it gets sorted by memory utilization:</p>
@@ -125,10 +125,10 @@ Swap:         <span class="m">8656</span>          <span class="m">0</span>     
 </figure>
 <h2 id="pmap">pmap</h2>
 <p>pmap reports a memory map of a process. Lets make an example. Eclipse has the process ID (pid) 4526 at the moment.</p>
-<div class="highlight"><pre><span></span>pmap <span class="m">4526</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>pmap <span class="m">4526</span>
+</code></pre></div>
 <p>gives the following output:</p>
-<div class="highlight"><pre><span></span><span class="m">4526</span>:   /usr/lib/eclipse/eclipse
+<div class="highlight"><pre><span></span><code><span class="m">4526</span>:   /usr/lib/eclipse/eclipse
 Address   Kbytes Mode  Offset           Device    Mapping
 <span class="m">08048000</span>      <span class="m">16</span> r-x-- <span class="m">0000000000000000</span> <span class="m">008</span>:00001 eclipse
 0804c000       <span class="m">4</span> r---- <span class="m">0000000000003000</span> <span class="m">008</span>:00001 eclipse
@@ -224,16 +224,16 @@ bfa49000      <span class="m">12</span> ----- <span class="m">0000000000000000</
 bfa4d000     <span class="m">304</span> rwx-- <span class="m">0000000000000000</span> <span class="m">000</span>:00000   <span class="o">[</span> stack <span class="o">]</span>
 bfa99000       <span class="m">4</span> rw--- <span class="m">0000000000000000</span> <span class="m">000</span>:00000   <span class="o">[</span> anon <span class="o">]</span>
 mapped: 927836K    writeable/private: 881752K    shared: 13572K
-</pre></div>
+</code></pre></div>
 <p>So at the moment eclipse is using 927MB of virtual memory. But it need "only" about 186 MB real, physical memory. According to <a href="http://virtualthreads.blogspot.com/2006/02/understanding-memory-usage-on-linux.html">virtualthreads.blogspot.com</a> all data segments have the access rights rw--- and all code segments have the rights r-x--.</p>
 <h2 id="vmstat">vmstat</h2>
 <p>Virtual memory statistics gives you the following information:</p>
 <p>Here is the example:</p>
-<div class="highlight"><pre><span></span>moose@pc07:~$ vmstat
+<div class="highlight"><pre><span></span><code>moose@pc07:~$ vmstat
 procs -----------memory---------- ---swap-- -----io---- -system-- ----cpu----
  r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa
  <span class="m">0</span>  <span class="m">0</span>      <span class="m">0</span> <span class="m">1120696</span> <span class="m">119948</span> <span class="m">1599112</span>    <span class="m">0</span>    <span class="m">0</span>    <span class="m">21</span>    <span class="m">35</span>  <span class="m">416</span>  <span class="m">116</span> <span class="m">12</span>  <span class="m">5</span> <span class="m">82</span>  <span class="m">1</span>
-</pre></div>
+</code></pre></div>
 <p>--memory--
 <strong>swpd</strong>: sum of the used virtual memory.
 <strong>free</strong>: amount of unused physical memory.

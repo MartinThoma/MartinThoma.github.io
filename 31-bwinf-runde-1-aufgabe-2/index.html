@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="BwInf, GLPK, German posts, " />
 
-<meta property="og:title" content="31. BwInf - Runde 1, Aufgabe 2 "/>
+<meta property="og:title" content="31. BwInf - Runde 1, Aufgabe 2"/>
 <meta property="og:url" content="../31-bwinf-runde-1-aufgabe-2/" />
 <meta property="og:description" content="Die Aufgabenstellung Zum Transport von Geld werden schwer bewachte Geldtransporter eingesetzt. In einem solchen Geldtransporter können Koffer mit Münzen transportiert werden. Die Koffer enthalten Münzen in unterschiedlicher Menge und mit unterschiedlichem Gesamtwert. Entsprechend unterscheiden sich die Koffer in Gewicht und Wert. Da kommt so einiges an Gewicht zusammen. Es ist …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2012-12-12T12:12:58+01:00" />
-<meta name="twitter:title" content="31. BwInf - Runde 1, Aufgabe 2 ">
+<meta name="twitter:title" content="31. BwInf - Runde 1, Aufgabe 2">
 <meta name="twitter:description" content="Die Aufgabenstellung Zum Transport von Geld werden schwer bewachte Geldtransporter eingesetzt. In einem solchen Geldtransporter können Koffer mit Münzen transportiert werden. Die Koffer enthalten Münzen in unterschiedlicher Menge und mit unterschiedlichem Gesamtwert. Entsprechend unterscheiden sich die Koffer in Gewicht und Wert. Da kommt so einiges an Gewicht zusammen. Es ist …">
 <meta property="og:image" content="2012/09/bwinf-thumb.png" />
 <meta name="twitter:image" content="2012/09/bwinf-thumb.png" >
 
-        <title>31. BwInf - Runde 1, Aufgabe 2  · Martin Thoma
+        <title>31. BwInf - Runde 1, Aufgabe 2 · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../31-bwinf-runde-1-aufgabe-2/"> 31. BwInf - Runde 1, Aufgabe 2  </a></h1>
+    <h1><a href="../31-bwinf-runde-1-aufgabe-2/"> 31. BwInf - Runde 1, Aufgabe 2 </a></h1>
     </header>
 </div>
 
@@ -125,7 +125,7 @@ Unser Transporter hat links und rechts je einen Kofferraum. F&uuml;r jeden Koffe
 </figure>
 <h2 id="losung mit glpk">L&ouml;sung mit GLPK</h2>
 <p>Der folgende Code muss als partition.mod gespeichert werden:</p>
-<div class="highlight"><pre><span></span>/* PARTITION */
+<div class="highlight"><pre><span></span><code>/* PARTITION */
 
 /* Written in GNU MathProg by Martin Thoma &lt;info@martin-thoma.de&gt; */
 
@@ -214,19 +214,19 @@ param v := 1 672000, 2 10000, 3 10000, 4 10000, 5 10000, 6 10000, 7 10000, 8 244
 param c := 10000;
 
 end;
-</pre></div>
+</code></pre></div>
 <p>Jetzt muss man folgendes ausf&uuml;hren:</p>
-<div class="highlight"><pre><span></span>glpsol --output example.out --log example.log --math partition.mod
-</pre></div>
+<div class="highlight"><pre><span></span><code>glpsol --output example.out --log example.log --math partition.mod
+</code></pre></div>
 <p>Das ben&ouml;tigt f&uuml;r die gr&ouml;&szlig;te Eingabe etwa 18 Sekunden.</p>
 <p>Wenn man nun in die example.out schaut, sieht man unter anderem folgendes:</p>
-<div class="highlight"><pre><span></span>Problem:    partition
+<div class="highlight"><pre><span></span><code>Problem:    partition
 Rows:       47
 Columns:    80 (80 integer, 80 binary)
 Non-zeros:  640
 Status:     INTEGER OPTIMAL
 Objective:  obj = 5 (MINimum)
-</pre></div>
+</code></pre></div>
 <p>Die interessante Zahl ist die 5. Das ist das Minimum, das in dieser Aufgabe gesucht war. Wie es zu erreichen ist, sieht  man in der Ausgabe darunter.</p>
 <h2 id="weiteres">Weiteres</h2>
 <p>Man kann das Problem auch als MULTIPROCESSOR SCHEDULING mit zwei Maschinen betrachten (und nicht als PARTITION). Vor ein paar Tagen habe ich gelernt, dass es f&uuml;r MULTIPROCESSOR SCHEDULING auch ein <a href="http://de.wikipedia.org/wiki/Approximationsalgorithmus#PTAS.2FPAS">PAS</a> gibt. Dabei bestimmt man f&uuml;r eine konstante Anzahl an Koffern die optimale aufteilung und verteilt den rest mittels LIST SCHEDULING.</p>

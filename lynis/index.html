@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Lynis, Code, " />
 
-<meta property="og:title" content="Lynis "/>
+<meta property="og:title" content="Lynis"/>
 <meta property="og:url" content="../lynis/" />
 <meta property="og:description" content="Lynis is a auditing tool. This is an article I had for quite a while as a draft. As part of my yearly cleanup, I&#39;ve published it without finishing it. It might not be finished or have other problems. Installation $ sudo apt-get install colorized-logs Problems could not find languages directory …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2019-12-31T20:00:00+01:00" />
-<meta name="twitter:title" content="Lynis ">
+<meta name="twitter:title" content="Lynis">
 <meta name="twitter:description" content="Lynis is a auditing tool. This is an article I had for quite a while as a draft. As part of my yearly cleanup, I&#39;ve published it without finishing it. It might not be finished or have other problems. Installation $ sudo apt-get install colorized-logs Problems could not find languages directory …">
 <meta property="og:image" content="logos/star.png" />
 <meta name="twitter:image" content="logos/star.png" >
 
-        <title>Lynis  · Martin Thoma
+        <title>Lynis · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../lynis/"> Lynis  </a></h1>
+    <h1><a href="../lynis/"> Lynis </a></h1>
     </header>
 </div>
 
@@ -113,24 +113,24 @@ MathJax.Hub.Queue(function() {
             <p><a href="https://cisofy.com/documentation/lynis/get-started/">Lynis</a> is a auditing tool.</p>
 <div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
 <h2 id="installation">Installation</h2>
-<div class="highlight"><pre><span></span>$ sudo apt-get install colorized-logs
-</pre></div>
+<div class="highlight"><pre><span></span><code>$ sudo apt-get install colorized-logs
+</code></pre></div>
 <h2 id="problems">Problems</h2>
 <h3 id="could-not-find-languages-directory">could not find languages directory</h3>
 <p>https://github.com/CISOfy/lynis/issues/213</p>
 <h2 id="ubuntu-1804-audit_1">Ubuntu 18.04 Audit</h2>
-<div class="highlight"><pre><span></span>$ sudo -H ./lynis audit system <span class="p">|</span> ansi2html -la &gt; ~/report.html
-</pre></div>
+<div class="highlight"><pre><span></span><code>$ sudo -H ./lynis audit system <span class="p">|</span> ansi2html -la &gt; ~/report.html
+</code></pre></div>
 <p>The <a href="https://martin-thoma.com/pdf/lynis-report.pdf">lynis report of Ubuntu 18.04</a> is super long.</p>
 <h2 id="hardening">Hardening</h2>
-<div class="highlight"><pre><span></span>$ sudo apt-get update
+<div class="highlight"><pre><span></span><code>$ sudo apt-get update
 $ sudo apt-get upgrade
 $ sudo apt-get install debsecan debsums rkhunter
 $ sudo apt-get autoremove
-</pre></div>
+</code></pre></div>
 <h3 id="kernels">Kernels</h3>
 <p>List Kernels:</p>
-<div class="highlight"><pre><span></span>$ dpkg --list <span class="p">|</span> grep linux-image
+<div class="highlight"><pre><span></span><code>$ dpkg --list <span class="p">|</span> grep linux-image
 rc  linux-image-4.15.0-20-generic    <span class="m">4</span>.15.0-20.21    amd64    Signed kernel image generic
 rc  linux-image-4.15.0-22-generic    <span class="m">4</span>.15.0-22.24    amd64    Signed kernel image generic
 rc  linux-image-4.15.0-23-generic    <span class="m">4</span>.15.0-23.25    amd64    Signed kernel image generic
@@ -159,19 +159,19 @@ rc  linux-image-4.15.0-62-generic    <span class="m">4</span>.15.0-62.69    amd6
 ii  linux-image-4.15.0-64-generic    <span class="m">4</span>.15.0-64.73    amd64    Signed kernel image generic
 ii  linux-image-4.15.0-65-generic    <span class="m">4</span>.15.0-65.74    amd64    Signed kernel image generic
 ii  linux-image-generic              <span class="m">4</span>.15.0.65.67    amd64    Generic Linux kernel image
-</pre></div>
+</code></pre></div>
 <p>The one you currently use:</p>
-<div class="highlight"><pre><span></span>$ uname -r
+<div class="highlight"><pre><span></span><code>$ uname -r
 <span class="m">4</span>.15.0-65-generic
-</pre></div>
+</code></pre></div>
 <h3 id="php">PHP</h3>
 <p>Change <code>sublime /etc/php/7.2/apache2/php.ini</code> to the following lines:</p>
-<div class="highlight"><pre><span></span>allow_url_fopen = Off
+<div class="highlight"><pre><span></span><code>allow_url_fopen = Off
 expose_php = Off
-</pre></div>
+</code></pre></div>
 <p>Then restart:</p>
-<div class="highlight"><pre><span></span><span class="c1"># apache2ctl restart</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># apache2ctl restart</span>
+</code></pre></div>
 <h3 id="nameservers">Nameservers</h3>
 <ul>
 <li><a href="https://www.lrz.de/services/netzdienste/dns/">Betrieb des Nameserver-Dienstes im MWN</a></li>

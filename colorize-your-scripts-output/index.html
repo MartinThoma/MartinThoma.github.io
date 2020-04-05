@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Command Line, Bash, Scripting, C, Code, " />
 
-<meta property="og:title" content="Colorize your scripts output "/>
+<meta property="og:title" content="Colorize your scripts output"/>
 <meta property="og:url" content="../colorize-your-scripts-output/" />
 <meta property="og:description" content="The bash is very nice if you want to know exactly what your scripts are doing. Unfortunately, its almost always white colored text on a black background, without any accentuation. No bold text, nothing underlined and no colors are used. You can change this standard behaviour. You can add color …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2011-09-30T08:59:59+02:00" />
-<meta name="twitter:title" content="Colorize your scripts output ">
+<meta name="twitter:title" content="Colorize your scripts output">
 <meta name="twitter:description" content="The bash is very nice if you want to know exactly what your scripts are doing. Unfortunately, its almost always white colored text on a black background, without any accentuation. No bold text, nothing underlined and no colors are used. You can change this standard behaviour. You can add color …">
 <meta property="og:image" content="2011/09/Gnome-Terminal.png" />
 <meta name="twitter:image" content="2011/09/Gnome-Terminal.png" >
 
-        <title>Colorize your scripts output  · Martin Thoma
+        <title>Colorize your scripts output · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../colorize-your-scripts-output/"> Colorize your scripts output  </a></h1>
+    <h1><a href="../colorize-your-scripts-output/"> Colorize your scripts output </a></h1>
     </header>
 </div>
 
@@ -115,62 +115,62 @@ MathJax.Hub.Queue(function() {
 <p>This is the way you do it:</p>
 <p>The mini-program tput can initialize a terminal or query terminfo database. If you want to know more about it, you can take a look at the <a href="http://linux.die.net/man/1/tput">tput manpage</a>.</p>
 <h2 id="a quick example">A quick example</h2>
-<div class="highlight"><pre><span></span><span class="c1"># Text color variables</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Text color variables</span>
 <span class="nv">txtred</span><span class="o">=</span><span class="k">$(</span>tput setaf <span class="m">1</span><span class="k">)</span>    <span class="c1"># Red</span>
 <span class="nv">txtreset</span><span class="o">=</span><span class="k">$(</span>tput sgr0<span class="k">)</span>     <span class="c1"># Reset your text</span>
 <span class="nb">echo</span> <span class="s2">"Roses are </span><span class="si">${</span><span class="nv">txtred</span><span class="si">}</span><span class="s2">red</span><span class="si">${</span><span class="nv">txtreset</span><span class="si">}</span><span class="s2">."</span>
-</pre></div>
+</code></pre></div>
 <p>Simply copy this example line by line and then you'll see the expected example.</p>
 <p>A shorter way would be</p>
-<div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">"Roses are `tput setaf 1`red`tput sgr0`."</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">"Roses are `tput setaf 1`red`tput sgr0`."</span>
+</code></pre></div>
 <h2 id="the sgr attribuge">The sgr attribuge</h2>
-<div class="highlight"><pre><span></span>tput sgr <span class="m">0</span> <span class="m">1</span>     turn off standout<span class="p">;</span> turn on underline
+<div class="highlight"><pre><span></span><code>tput sgr <span class="m">0</span> <span class="m">1</span>     turn off standout<span class="p">;</span> turn on underline
 tput sgr <span class="m">0</span> <span class="m">0</span>     turn off standout<span class="p">;</span> turn off underline
 tput sgr <span class="m">1</span> <span class="m">1</span>     turn on standout<span class="p">;</span> turn on underline
 tput sgr <span class="m">1</span> <span class="m">0</span>     turn on standout<span class="p">;</span> turn off underline
 tput sgr0        short <span class="k">for</span> sgr <span class="m">0</span> <span class="m">0</span>
-</pre></div>
+</code></pre></div>
 <h2 id="the setaf attribute">The setaf attribute</h2>
-<div class="highlight"><pre><span></span>setaf <span class="m">1</span> Red
+<div class="highlight"><pre><span></span><code>setaf <span class="m">1</span> Red
 setaf <span class="m">2</span> Green
 setaf <span class="m">3</span> Yellow
 setaf <span class="m">4</span> Blue
 setaf <span class="m">5</span> Purple
 setaf <span class="m">6</span> Cyan
 setaf <span class="m">7</span> Gray
-</pre></div>
+</code></pre></div>
 <h2 id="misc">Misc</h2>
 <p>Make your text bold:</p>
-<div class="highlight"><pre><span></span>tput bold
-</pre></div>
+<div class="highlight"><pre><span></span><code>tput bold
+</code></pre></div>
 <p>Reset your style:</p>
-<div class="highlight"><pre><span></span>tput sgr0
-</pre></div>
+<div class="highlight"><pre><span></span><code>tput sgr0
+</code></pre></div>
 <h2 id="advanced example">Advanced Example</h2>
 <p>Imagine you had a script which generated much output. All messages are important for you, but some are more important than others. You definitely want to see all "[ERROR]" output. So you want to apply a red and bold modification to the stream.</p>
 <p>This is the way how "[ERROR]" gets red and bold:</p>
-<div class="highlight"><pre><span></span><span class="sb">`</span>tput setaf <span class="m">1</span><span class="sb">``</span>tput bold<span class="sb">`</span><span class="o">[</span>ERROR<span class="o">]</span><span class="sb">`</span>tput sgr0<span class="sb">`</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="sb">`</span>tput setaf <span class="m">1</span><span class="sb">``</span>tput bold<span class="sb">`</span><span class="o">[</span>ERROR<span class="o">]</span><span class="sb">`</span>tput sgr0<span class="sb">`</span>
+</code></pre></div>
 <p>You can test it with</p>
-<div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">"`tput setaf 1``tput bold`[ERROR]`tput sgr0`"</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">"`tput setaf 1``tput bold`[ERROR]`tput sgr0`"</span>
+</code></pre></div>
 <p>I've created a little python script called output.py for testing purposes. It simply outputs a quite long <a href="http://en.wikipedia.org/wiki/Lorem_ipsum">Lorem ipsum</a> text with some random [ERROR] messages.</p>
 <p>The next task is to replace the [ERROR] messages. The tool of my choice is sed. See the <a href="http://linux.die.net/man/1/sed">sed man page</a> for more information. The basic usage is</p>
-<div class="highlight"><pre><span></span>sed <span class="s1">'s/search/replace/'</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>sed <span class="s1">'s/search/replace/'</span>
+</code></pre></div>
 <p>So we pipe the output to sed:</p>
-<div class="highlight"><pre><span></span>python output.py <span class="p">|</span> sed <span class="s1">'s/$$ERROR$$/MYLOOOOOOOOOOOOOOOOOONGTEST/'</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>python output.py <span class="p">|</span> sed <span class="s1">'s/$$ERROR$$/MYLOOOOOOOOOOOOOOOOOONGTEST/'</span>
+</code></pre></div>
 <p>And now we bring it all together:</p>
-<div class="highlight"><pre><span></span>python output.py <span class="p">|</span> sed <span class="s1">'s/[ERROR]/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/'</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>python output.py <span class="p">|</span> sed <span class="s1">'s/[ERROR]/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/'</span>
+</code></pre></div>
 <p>Doesn't work? Well, lets analyse it. Instead of replacing <code>tput setaf 1</code> it gets printed directly. This means, something we did prevented the bash of replacing our command. If you look carefully at the command, you might see that I used ' instead of ". If you change this, everything is fine:</p>
-<div class="highlight"><pre><span></span>python output.py <span class="p">|</span> sed <span class="s2">"s/</span><span class="nv">$$</span><span class="s2">ERROR</span><span class="nv">$$</span><span class="s2">/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/"</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>python output.py <span class="p">|</span> sed <span class="s2">"s/</span><span class="nv">$$</span><span class="s2">ERROR</span><span class="nv">$$</span><span class="s2">/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/"</span>
+</code></pre></div>
 <h2 id="colorize c / c++ output">Colorize C / C++ output</h2>
 <p>You need <a href="http://en.wikipedia.org/wiki/ANSI_escape_code">ANSI color codes</a>:</p>
-<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -190,7 +190,7 @@ setaf <span class="m">7</span> Gray
     <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[9m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">"strike"</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 <p>\033 is the ASCII 27 ESC character. It has to be followed by "[". After that you can write one or two numbers separated by ";". Then you have to write "m". You can get back to standard output with "\033[0m".
 The numbers 30&ndash;37 change the color, 4 is a single underline.</p>
 <p>I guess these will also work for Java, but I didn't test it.</p>

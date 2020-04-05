@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Python, Apache, Code, " />
 
-<meta property="og:title" content="Execute Python on Apache2 "/>
+<meta property="og:title" content="Execute Python on Apache2"/>
 <meta property="og:url" content="../execute-python-on-apache2/" />
 <meta property="og:description" content="I have to run a very simple Python script on an Apache2 web server. These were the steps with which I made it work: Find the Apache2 config $ /usr/sbin/apache2 -V It is in /etc/apache2/apache2.conf Add CGI Somewhere in the /etc/apache2/apache2.conf there is …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2015-02-01T15:11:00+01:00" />
-<meta name="twitter:title" content="Execute Python on Apache2 ">
+<meta name="twitter:title" content="Execute Python on Apache2">
 <meta name="twitter:description" content="I have to run a very simple Python script on an Apache2 web server. These were the steps with which I made it work: Find the Apache2 config $ /usr/sbin/apache2 -V It is in /etc/apache2/apache2.conf Add CGI Somewhere in the /etc/apache2/apache2.conf there is …">
 <meta property="og:image" content="logos/python.png" />
 <meta name="twitter:image" content="logos/python.png" >
 
-        <title>Execute Python on Apache2  · Martin Thoma
+        <title>Execute Python on Apache2 · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../execute-python-on-apache2/"> Execute Python on Apache2  </a></h1>
+    <h1><a href="../execute-python-on-apache2/"> Execute Python on Apache2 </a></h1>
     </header>
 </div>
 
@@ -113,32 +113,32 @@ MathJax.Hub.Queue(function() {
             <p>I have to run a very simple Python script on an Apache2 web server. These were
 the steps with which I made it work:</p>
 <h2 id="find-the-apache2-config">Find the Apache2 config</h2>
-<div class="highlight"><pre><span></span>$ /usr/sbin/apache2 -V
-</pre></div>
+<div class="highlight"><pre><span></span><code>$ /usr/sbin/apache2 -V
+</code></pre></div>
 <p>It is in <code>/etc/apache2/apache2.conf</code></p>
 <h2 id="add-cgi">Add CGI</h2>
 <p>Somewhere in the <code>/etc/apache2/apache2.conf</code> there is a <code>&lt;Directory ...&gt;</code> part.
 I've added <code>Options ExecCGI</code> and <code>AddHandler cgi-script .py</code>. Now this part
 looks like this:</p>
-<div class="highlight"><pre><span></span>&lt;Directory /var/www/&gt;
+<div class="highlight"><pre><span></span><code>&lt;Directory /var/www/&gt;
     Options Indexes FollowSymLinks ExecCGI
     AddHandler cgi-script .py
     AllowOverride None
     Require all granted
 &lt;/Directory&gt;
-</pre></div>
+</code></pre></div>
 <h2 id="test-it">Test it</h2>
 <p>Create the following <code>test.py</code> file:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: UTF-8 -*-</span>
 
-<span class="k">print</span><span class="p">(</span><span class="s2">"Content-Type: text/html</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"Hello World! The answer to live, the universe and everything is </span><span class="si">%i</span><span class="s2">."</span> <span class="o">%</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="mi">21</span><span class="p">))</span>
-</pre></div>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Content-Type: text/html</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Hello World! The answer to live, the universe and everything is </span><span class="si">%i</span><span class="s2">."</span> <span class="o">%</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="mi">21</span><span class="p">))</span>
+</code></pre></div>
 <p>Now call <code>http://localhost/test.py</code>.</p>
 <p>If that doesn't work, take a look at the apache log files:</p>
-<div class="highlight"><pre><span></span>$ tail -f /var/log/apache2/error.log
-</pre></div>
+<div class="highlight"><pre><span></span><code>$ tail -f /var/log/apache2/error.log
+</code></pre></div>
             
             <div id="disqus_thread" class="no-print"></div>
 <script>

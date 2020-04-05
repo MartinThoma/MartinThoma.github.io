@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Python, CSV, Code, " />
 
-<meta property="og:title" content="Python and CSV "/>
+<meta property="og:title" content="Python and CSV"/>
 <meta property="og:url" content="../python-csv/" />
 <meta property="og:description" content="Python has a very nice module called csv which makes working with CSV very easy. This mini article is only a reminder for me so that I can easily find how to use it when I forget once again how it is used exactly. Reading CSV files try: from future …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2015-02-08T12:48:00+01:00" />
-<meta name="twitter:title" content="Python and CSV ">
+<meta name="twitter:title" content="Python and CSV">
 <meta name="twitter:description" content="Python has a very nice module called csv which makes working with CSV very easy. This mini article is only a reminder for me so that I can easily find how to use it when I forget once again how it is used exactly. Reading CSV files try: from future …">
 <meta property="og:image" content="logos/python.png" />
 <meta name="twitter:image" content="logos/python.png" >
 
-        <title>Python and CSV  · Martin Thoma
+        <title>Python and CSV · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../python-csv/"> Python and CSV  </a></h1>
+    <h1><a href="../python-csv/"> Python and CSV </a></h1>
     </header>
 </div>
 
@@ -116,7 +116,7 @@ which makes working with <abbr title="comma seperated values">CSV</abbr> very
 easy. This mini article is only a reminder for me so that I can easily find
 how to use it when I forget once again how it is used exactly.</p>
 <h2 id="reading-csv-files">Reading CSV files</h2>
-<div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
     <span class="kn">from</span> <span class="nn">future.builtins</span> <span class="kn">import</span> <span class="nb">open</span>
 <span class="k">except</span><span class="p">:</span>
     <span class="k">pass</span>
@@ -125,12 +125,12 @@ how to use it when I forget once again how it is used exactly.</p>
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"eggs.csv"</span><span class="p">,</span> <span class="s2">"rt"</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
     <span class="n">csvreader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">csvfile</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">";"</span><span class="p">,</span> <span class="n">quotechar</span><span class="o">=</span><span class="s1">'"'</span><span class="p">)</span>
-    <span class="nb">next</span><span class="p">(</span><span class="n">csvreader</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>  <span class="c1"># skip the headers</span>
+    <span class="nb">next</span><span class="p">(</span><span class="n">csvreader</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>  <span class="c1"># skip the headers</span>
     <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csvreader</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">", "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">row</span><span class="p">))</span>
-</pre></div>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">", "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">row</span><span class="p">))</span>
+</code></pre></div>
 <h2 id="writing-csv-files">Writing CSV files</h2>
-<div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
     <span class="kn">from</span> <span class="nn">future.builtins</span> <span class="kn">import</span> <span class="nb">open</span>
 <span class="k">except</span><span class="p">:</span>
     <span class="k">pass</span>
@@ -144,7 +144,7 @@ how to use it when I forget once again how it is used exactly.</p>
     <span class="n">csvwriter</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s2">"Spam"</span><span class="p">]</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">+</span> <span class="p">[</span><span class="s2">"Baked Beans"</span><span class="p">])</span>  <span class="c1"># Write header</span>
     <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">container</span><span class="p">:</span>
         <span class="n">csvwriter</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>  <span class="c1"># Write data</span>
-</pre></div>
+</code></pre></div>
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="http://stackoverflow.com/q/23051062/562769">Open files in 'rt' and 'wt' modes</a></li>

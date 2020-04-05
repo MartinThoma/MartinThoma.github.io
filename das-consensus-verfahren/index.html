@@ -16,16 +16,16 @@
 
 <meta name="keywords" content="Digitaltechnik, German posts, " />
 
-<meta property="og:title" content="Das Consensus-Verfahren "/>
+<meta property="og:title" content="Das Consensus-Verfahren"/>
 <meta property="og:url" content="../das-consensus-verfahren/" />
 <meta property="og:description" content="Mithilfe des Consensus-Verfahrens können Primimplikanten gefunden werden. Dazu braucht man eine Schaltfunktion \(f:\{0,1\}^n \rightarrow \{0,1\}\) in disjunktiver Normalform (DNF). Zu betonen ist, dass man keine Minimalform bekommt, da das Überdeckungsproblem noch gelöst werden muss. Dies kann man z.B. mit der zweiten Quineschen Tabelle machen. Dazu …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2013-01-29T16:23:14+01:00" />
-<meta name="twitter:title" content="Das Consensus-Verfahren ">
+<meta name="twitter:title" content="Das Consensus-Verfahren">
 <meta name="twitter:description" content="Mithilfe des Consensus-Verfahrens können Primimplikanten gefunden werden. Dazu braucht man eine Schaltfunktion \(f:\{0,1\}^n \rightarrow \{0,1\}\) in disjunktiver Normalform (DNF). Zu betonen ist, dass man keine Minimalform bekommt, da das Überdeckungsproblem noch gelöst werden muss. Dies kann man z.B. mit der zweiten Quineschen Tabelle machen. Dazu …">
 
-        <title>Das Consensus-Verfahren  · Martin Thoma
+        <title>Das Consensus-Verfahren · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -94,7 +94,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../das-consensus-verfahren/"> Das Consensus-Verfahren  </a></h1>
+    <h1><a href="../das-consensus-verfahren/"> Das Consensus-Verfahren </a></h1>
     </header>
 </div>
 
@@ -132,7 +132,7 @@ Sobald man alle Zeilen des vorhergehenden Block &uuml;berpr&uuml;ft hat, kann ma
 Sobald man keine neuen Zeilen / Bl&ouml;cke mehr bilden kann, ist man fertig. Die Zeilen, die nicht gestrichen wurden, sind Primimplikanten.</p>
 <h2 id="code">Code</h2>
 <p>Ich finde Algorithmen werden am eindeutigsten durch Implementierungen beschrieben. Hier ist meine f&uuml;r das Consensus-Verfahren:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 
@@ -140,7 +140,7 @@ Sobald man keine neuen Zeilen / Bl&ouml;cke mehr bilden kann, ist man fertig. Di
     <span class="n">dictList</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">nr</span><span class="p">,</span> <span class="n">term</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">terme</span><span class="p">):</span>
         <span class="n">dictList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-            <span class="p">{</span><span class="s2">"number"</span><span class="p">:</span> <span class="n">nr</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"gebildet"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span> <span class="s2">"term"</span><span class="p">:</span> <span class="n">term</span><span class="p">,</span> <span class="s2">"gestrichen"</span><span class="p">:</span> <span class="bp">False</span><span class="p">}</span>
+            <span class="p">{</span><span class="s2">"number"</span><span class="p">:</span> <span class="n">nr</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"gebildet"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span> <span class="s2">"term"</span><span class="p">:</span> <span class="n">term</span><span class="p">,</span> <span class="s2">"gestrichen"</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
         <span class="p">)</span>
     <span class="k">return</span> <span class="n">dictList</span>
 
@@ -155,8 +155,8 @@ Sobald man keine neuen Zeilen / Bl&ouml;cke mehr bilden kann, ist man fertig. Di
         <span class="k">if</span> <span class="p">(</span><span class="n">term1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"1"</span> <span class="ow">and</span> <span class="n">term2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"0"</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span>
             <span class="n">term1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"0"</span> <span class="ow">and</span> <span class="n">term2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"1"</span>
         <span class="p">):</span>
-            <span class="k">return</span> <span class="bp">True</span>
-    <span class="k">return</span> <span class="bp">False</span>
+            <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span>
 
 
 <span class="sd">""" check if item1 and item2 have a consensus term """</span>
@@ -195,25 +195,25 @@ Sobald man keine neuen Zeilen / Bl&ouml;cke mehr bilden kann, ist man fertig. Di
 <span class="k">def</span> <span class="nf">isIncludedIn</span><span class="p">(</span><span class="n">bigger</span><span class="p">,</span> <span class="n">smaller</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bigger</span><span class="p">)):</span>
         <span class="k">if</span> <span class="n">bigger</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"-"</span> <span class="ow">and</span> <span class="n">bigger</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">smaller</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
-            <span class="k">return</span> <span class="bp">False</span>
-    <span class="k">return</span> <span class="bp">True</span>
+            <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="kc">True</span>
 
 
 <span class="k">def</span> <span class="nf">consensusIsIncludedIn</span><span class="p">(</span><span class="n">dictList</span><span class="p">,</span> <span class="n">consensus</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">dictList</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">element</span><span class="p">[</span><span class="s2">"gestrichen"</span><span class="p">]</span> <span class="o">==</span> <span class="bp">False</span> <span class="ow">and</span> <span class="n">isIncludedIn</span><span class="p">(</span><span class="n">element</span><span class="p">[</span><span class="s2">"term"</span><span class="p">],</span> <span class="n">consensus</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">element</span><span class="p">[</span><span class="s2">"gestrichen"</span><span class="p">]</span> <span class="o">==</span> <span class="kc">False</span> <span class="ow">and</span> <span class="n">isIncludedIn</span><span class="p">(</span><span class="n">element</span><span class="p">[</span><span class="s2">"term"</span><span class="p">],</span> <span class="n">consensus</span><span class="p">):</span>
             <span class="k">return</span> <span class="n">element</span><span class="p">[</span><span class="s2">"number"</span><span class="p">]</span>
-    <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">return</span> <span class="kc">False</span>
 
 
 <span class="k">def</span> <span class="nf">printList</span><span class="p">(</span><span class="n">dictList</span><span class="p">,</span> <span class="n">horizontalLinesAfter</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"Nr</span><span class="se">\t</span><span class="s2"> Gebildet aus </span><span class="se">\t</span><span class="s2"> W&amp;uuml;rfel</span><span class="se">\t</span><span class="s2"> Gestrichen wegen"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Nr</span><span class="se">\t</span><span class="s2"> Gebildet aus </span><span class="se">\t</span><span class="s2"> W&amp;uuml;rfel</span><span class="se">\t</span><span class="s2"> Gestrichen wegen"</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">line</span><span class="p">,</span> <span class="n">element</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dictList</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">element</span><span class="p">[</span><span class="s2">"gestrichen"</span><span class="p">]</span> <span class="o">==</span> <span class="bp">False</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">element</span><span class="p">[</span><span class="s2">"gestrichen"</span><span class="p">]</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
             <span class="n">element</span><span class="p">[</span><span class="s2">"gestrichen"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">""</span>
-        <span class="k">if</span> <span class="n">element</span><span class="p">[</span><span class="s2">"number"</span><span class="p">]</span> <span class="o">==</span> <span class="bp">False</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">element</span><span class="p">[</span><span class="s2">"number"</span><span class="p">]</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
             <span class="n">element</span><span class="p">[</span><span class="s2">"number"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">""</span>
-        <span class="k">print</span><span class="p">(</span>
+        <span class="nb">print</span><span class="p">(</span>
             <span class="s2">"</span><span class="si">%s</span><span class="se">\t\t</span><span class="si">%s</span><span class="se">\t</span><span class="si">%s</span><span class="se">\t</span><span class="si">%s</span><span class="s2">"</span>
             <span class="o">%</span> <span class="p">(</span>
                 <span class="n">element</span><span class="p">[</span><span class="s2">"number"</span><span class="p">],</span>
@@ -223,7 +223,7 @@ Sobald man keine neuen Zeilen / Bl&ouml;cke mehr bilden kann, ist man fertig. Di
             <span class="p">)</span>
         <span class="p">)</span>
         <span class="k">if</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">horizontalLinesAfter</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="s2">"-"</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"-"</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">consensus</span><span class="p">(</span><span class="n">terme</span><span class="p">):</span>
@@ -236,12 +236,12 @@ Sobald man keine neuen Zeilen / Bl&ouml;cke mehr bilden kann, ist man fertig. Di
         <span class="k">if</span> <span class="n">pointer2</span> <span class="o">&gt;</span> <span class="n">horizontalLinesAfter</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
             <span class="n">horizontalLinesAfter</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dictList</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">dictList</span><span class="p">[</span><span class="n">pointer2</span><span class="p">][</span><span class="s2">"gestrichen"</span><span class="p">]</span> <span class="o">!=</span> <span class="bp">False</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">dictList</span><span class="p">[</span><span class="n">pointer2</span><span class="p">][</span><span class="s2">"gestrichen"</span><span class="p">]</span> <span class="o">!=</span> <span class="kc">False</span><span class="p">:</span>
             <span class="n">pointer2</span> <span class="o">+=</span> <span class="mi">1</span>
             <span class="k">continue</span>
 
         <span class="k">for</span> <span class="n">pointer1</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pointer2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">dictList</span><span class="p">[</span><span class="n">pointer1</span><span class="p">][</span><span class="s2">"gestrichen"</span><span class="p">]</span> <span class="o">!=</span> <span class="bp">False</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">dictList</span><span class="p">[</span><span class="n">pointer1</span><span class="p">][</span><span class="s2">"gestrichen"</span><span class="p">]</span> <span class="o">!=</span> <span class="kc">False</span><span class="p">:</span>
                 <span class="k">continue</span>
             <span class="k">elif</span> <span class="ow">not</span> <span class="n">hasComplementaryDigit</span><span class="p">(</span><span class="n">dictList</span><span class="p">[</span><span class="n">pointer1</span><span class="p">],</span> <span class="n">dictList</span><span class="p">[</span><span class="n">pointer2</span><span class="p">]):</span>
                 <span class="k">continue</span>
@@ -252,16 +252,16 @@ Sobald man keine neuen Zeilen / Bl&ouml;cke mehr bilden kann, ist man fertig. Di
 
             <span class="c1"># Wird der neue Konsensus-Term eventuell bereits &amp;uuml;berdeckt?</span>
             <span class="n">gestrichen</span> <span class="o">=</span> <span class="n">consensusIsIncludedIn</span><span class="p">(</span><span class="n">dictList</span><span class="p">,</span> <span class="n">consensus</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">gestrichen</span> <span class="o">==</span> <span class="bp">False</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">gestrichen</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
                 <span class="n">nr</span> <span class="o">=</span> <span class="n">nextNumber</span>
                 <span class="n">nextNumber</span> <span class="o">+=</span> <span class="mi">1</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">nr</span> <span class="o">=</span> <span class="bp">False</span>
+                <span class="n">nr</span> <span class="o">=</span> <span class="kc">False</span>
 
             <span class="c1"># Kann dank dem neuen Consensus-Term etwas gestrichen werden?</span>
-            <span class="k">if</span> <span class="n">gestrichen</span> <span class="o">==</span> <span class="bp">False</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">gestrichen</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
                 <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">dictList</span><span class="p">:</span>
-                    <span class="k">if</span> <span class="n">element</span><span class="p">[</span><span class="s2">"gestrichen"</span><span class="p">]</span> <span class="o">==</span> <span class="bp">False</span> <span class="ow">and</span> <span class="n">isIncludedIn</span><span class="p">(</span>
+                    <span class="k">if</span> <span class="n">element</span><span class="p">[</span><span class="s2">"gestrichen"</span><span class="p">]</span> <span class="o">==</span> <span class="kc">False</span> <span class="ow">and</span> <span class="n">isIncludedIn</span><span class="p">(</span>
                         <span class="n">consensus</span><span class="p">,</span> <span class="n">element</span><span class="p">[</span><span class="s2">"term"</span><span class="p">]</span>
                     <span class="p">):</span>
                         <span class="n">element</span><span class="p">[</span><span class="s2">"gestrichen"</span><span class="p">]</span> <span class="o">=</span> <span class="n">nr</span>
@@ -282,9 +282,9 @@ Sobald man keine neuen Zeilen / Bl&ouml;cke mehr bilden kann, ist man fertig. Di
 
 <span class="n">consensus</span><span class="p">([</span><span class="s2">"-0-00"</span><span class="p">,</span> <span class="s2">"--00-"</span><span class="p">,</span> <span class="s2">"-1-00"</span><span class="p">,</span> <span class="s2">"010-1"</span><span class="p">,</span> <span class="s2">"1-11-"</span><span class="p">,</span> <span class="s2">"110-1"</span><span class="p">])</span>
 <span class="c1"># consensus(['-00-', '-011', '0100'])</span>
-</pre></div>
+</code></pre></div>
 <p>Ausgabe:</p>
-<div class="highlight"><pre><span></span>Nr   Gebildet aus    W&amp;uuml;rfel     Gestrichen wegen
+<div class="highlight"><pre><span></span><code>Nr   Gebildet aus    W&amp;uuml;rfel     Gestrichen wegen
 1           -0-00   7
 2           --00-
 3           -1-00   7
@@ -304,7 +304,7 @@ Sobald man keine neuen Zeilen / Bl&ouml;cke mehr bilden kann, ist man fertig. Di
         10, 8   1111-   5
         10, 2   1--00   7
 --------------------------------------------------
-</pre></div>
+</code></pre></div>
 <h2 id="quellen">Quellen</h2>
 <p>Die Folien von Dr. Asfour (DT-VL12) sowie die Vorlesung (auf <a href="//www.youtube.com/watch?v=K1NAj4ecPDw#t=31m18s">YouTube</a> verf&uuml;gbar. Der <a href="//www.youtube.com/watch?v=K1NAj4ecPDw#t=47m30s">interessante Teil</a> beginnt erst sehr sp&auml;t.). Es wurde sogar <a href="//www.youtube.com/watch?v=4X1w0B4w65k#t=1h10m38s">sp&auml;ter nochmals von Herrn Prof. Dr. Asfour erkl&auml;rt</a>.</p>
             

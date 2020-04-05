@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Software Engineering, Bugs, Code, " />
 
-<meta property="og:title" content="Bugs "/>
+<meta property="og:title" content="Bugs"/>
 <meta property="og:url" content="../bugs/" />
 <meta property="og:description" content="Every software project which is not absolutely tiny likely has (or had) bugs, but astonishingly I learned very little about bugs during my university studies. So let&#39;s summarize a few important things. What are bugs I define a bug like this: A software bug is a fault in software that …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2018-08-21T20:00:00+02:00" />
-<meta name="twitter:title" content="Bugs ">
+<meta name="twitter:title" content="Bugs">
 <meta name="twitter:description" content="Every software project which is not absolutely tiny likely has (or had) bugs, but astonishingly I learned very little about bugs during my university studies. So let&#39;s summarize a few important things. What are bugs I define a bug like this: A software bug is a fault in software that …">
 <meta property="og:image" content="logos/bug.png" />
 <meta name="twitter:image" content="logos/bug.png" >
 
-        <title>Bugs  · Martin Thoma
+        <title>Bugs · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../bugs/"> Bugs  </a></h1>
+    <h1><a href="../bugs/"> Bugs </a></h1>
     </header>
 </div>
 
@@ -119,11 +119,11 @@ studies. So let's summarize a few important things.</p>
 <p>A <em>software bug</em> is a fault in software that causes incorrect behaviour.</p>
 </blockquote>
 <p>An example would be this <code>sum.py</code> executed with Python 3:</p>
-<div class="highlight"><pre><span></span>print("Please enter two numbers you would like to add:")
-n1 = input()
-n2 = input()
-print("The summ of those two numbers is {}".format(n1 + n2))
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">print("Please enter two numbers you would like to add:")</span>
+<span class="err">n1 = input()</span>
+<span class="err">n2 = input()</span>
+<span class="err">print("The summ of those two numbers is {}".format(n1 + n2))</span>
+</code></pre></div>
 <p>If you enter <code>42</code> and <code>1337</code> it will give <code>421337</code>. The reason for this
 behavior is that <code>input()</code> returns a string, not a number. So clearly neither
 the developer nor the user want this behaviour. But it is not always that easy.
@@ -149,17 +149,17 @@ completely when you try to investigate them. As an example, imagine a bank
 account. You have one process P-in which receives ingoing transactions and
 another process P-out that handles outgoing transactions:</p>
 <p>P1:</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">transfer_money</span><span class="p">(</span><span class="n">account</span><span class="p">,</span> <span class="n">pay_amount</span><span class="p">):</span>  <span class="c1"># L0</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">transfer_money</span><span class="p">(</span><span class="n">account</span><span class="p">,</span> <span class="n">pay_amount</span><span class="p">):</span>  <span class="c1"># L0</span>
     <span class="n">current_total</span> <span class="o">=</span> <span class="n">account</span><span class="o">.</span><span class="n">get_current_total</span><span class="p">()</span>  <span class="c1"># L1</span>
     <span class="n">updated_total</span> <span class="o">=</span> <span class="n">current_total</span> <span class="o">-</span> <span class="n">pay_amount</span>  <span class="c1"># L2</span>
     <span class="n">account</span><span class="o">.</span><span class="n">set_current_total</span><span class="p">(</span><span class="n">updated_total</span><span class="p">)</span>  <span class="c1"># L3</span>
-</pre></div>
+</code></pre></div>
 <p>P2:</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">receive_money</span><span class="p">(</span><span class="n">account</span><span class="p">,</span> <span class="n">get_amount</span><span class="p">):</span>  <span class="c1"># L4</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">receive_money</span><span class="p">(</span><span class="n">account</span><span class="p">,</span> <span class="n">get_amount</span><span class="p">):</span>  <span class="c1"># L4</span>
     <span class="n">current_total</span> <span class="o">=</span> <span class="n">account</span><span class="o">.</span><span class="n">get_current_total</span><span class="p">()</span>  <span class="c1"># L5</span>
     <span class="n">updated_total</span> <span class="o">=</span> <span class="n">current_total</span> <span class="o">+</span> <span class="n">get_amount</span>  <span class="c1"># L6</span>
     <span class="n">account</span><span class="o">.</span><span class="n">set_current_total</span><span class="p">(</span><span class="n">updated_total</span><span class="p">)</span>  <span class="c1"># L7</span>
-</pre></div>
+</code></pre></div>
 <p>You have 3141 EUR on that account identified by 'FortKnox'. At midnight in the
 beginning of year 2018, you receive 42 EUR from your awesome company as a gift
 for the New Year and you have to pay 1337 EUR in rent. Both happen pretty much

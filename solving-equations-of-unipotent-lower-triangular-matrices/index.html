@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Python, mathematics, Matrix, systems of equations, numerics, Code, " />
 
-<meta property="og:title" content="Solving equations of lower unitriangular matrices "/>
+<meta property="og:title" content="Solving equations of lower unitriangular matrices"/>
 <meta property="og:url" content="../solving-equations-of-unipotent-lower-triangular-matrices/" />
 <meta property="og:description" content="Suppose you have an equation like \(L \cdot x = b\) with \(L \in \mathbb{R}^{n \times n}\) and \(x,b \in \mathbb{R}^n\). \(b\) and \(L\) are given and you want to solve for \(x\). Example With \(n=5\), the problem could look like this: $$\begin{pmatrix} 1 …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2013-05-19T22:15:59+02:00" />
-<meta name="twitter:title" content="Solving equations of lower unitriangular matrices ">
+<meta name="twitter:title" content="Solving equations of lower unitriangular matrices">
 <meta name="twitter:description" content="Suppose you have an equation like \(L \cdot x = b\) with \(L \in \mathbb{R}^{n \times n}\) and \(x,b \in \mathbb{R}^n\). \(b\) and \(L\) are given and you want to solve for \(x\). Example With \(n=5\), the problem could look like this: $$\begin{pmatrix} 1 …">
 <meta property="og:image" content="2013/05/unipotent-lower-triangular-matrix.png" />
 <meta name="twitter:image" content="2013/05/unipotent-lower-triangular-matrix.png" >
 
-        <title>Solving equations of lower unitriangular matrices  · Martin Thoma
+        <title>Solving equations of lower unitriangular matrices · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../solving-equations-of-unipotent-lower-triangular-matrices/"> Solving equations of lower unitriangular matrices  </a></h1>
+    <h1><a href="../solving-equations-of-unipotent-lower-triangular-matrices/"> Solving equations of lower unitriangular matrices </a></h1>
     </header>
 </div>
 
@@ -159,7 +159,7 @@ First you see that <span class="math">\(x_1 = 3\)</span>. Now you replace every 
 <p>You can now easily see that you're in the same situation as in the first step! Next you will solve for <span class="math">\(x_2\)</span>, then for <span class="math">\(x_3, x_4\)</span> and finally for <span class="math">\(x_5\)</span>.</p>
 <p>This is the reason why solving such a system of equations is sometimes called "forward substitution".</p>
 <h2 id="python straightforward algorithm_1">Python straightforward algorithm</h2>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 
@@ -182,13 +182,13 @@ First you see that <span class="math">\(x_1 = 3\)</span>. Now you replace every 
     <span class="p">]</span>
     <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 
-    <span class="k">print</span><span class="p">(</span><span class="n">solveLowerUnitriangularMatrix</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
-</pre></div>
+    <span class="nb">print</span><span class="p">(</span><span class="n">solveLowerUnitriangularMatrix</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+</code></pre></div>
 <p>Pretty easy, isn't it? But can we even do better?</p>
 <h2 id="even better algorithm">Even better algorithm</h2>
 <p>Yes, we can!</p>
 <p>Take a look at what's happening when row = 0 in line 9. We make a step that is not necessary. Also, we can take the space of b to store x!</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 
@@ -209,8 +209,8 @@ First you see that <span class="math">\(x_1 = 3\)</span>. Now you replace every 
     <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 
     <span class="n">solveLowerUnitriangularMatrix</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-</pre></div>
+    <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</code></pre></div>
 <p>Now it looks super clean, doesn't it ☺</p>
 <p>Keep in mind that you have to store b if you need the values after you've applied this algorithm.
 This is the reason why there here. This algorithm "returns" its value by manipulating b.</p>
@@ -233,7 +233,7 @@ This is the reason why there here. This algorithm "returns" its value by manipul
 <h2 id="more improvements">More improvements</h2>
 <p>In the last algorithm I've presented you can see that we actually don't check the values on or above of the diagonal.
 This means, the following two function calls do give the same b:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 
@@ -254,7 +254,7 @@ This means, the following two function calls do give the same b:</p>
     <span class="p">]</span>
     <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
     <span class="n">solveLowerUnitriangularMatrix</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 
     <span class="n">L</span> <span class="o">=</span> <span class="p">[</span>
         <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
@@ -265,8 +265,8 @@ This means, the following two function calls do give the same b:</p>
     <span class="p">]</span>
     <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
     <span class="n">solveLowerUnitriangularMatrix</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-</pre></div>
+    <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</code></pre></div>
 <p>So, theoretically, we could store some other information on and above of the diagonal. We also don't change L. Keep this in mind, this might be important in later articles.</p>
             
             <div id="disqus_thread" class="no-print"></div>

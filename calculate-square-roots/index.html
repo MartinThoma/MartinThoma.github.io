@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="CPP, GMP, Cyberculture, " />
 
-<meta property="og:title" content="Calculate square roots "/>
+<meta property="og:title" content="Calculate square roots"/>
 <meta property="og:url" content="../calculate-square-roots/" />
 <meta property="og:description" content="Suppose you have an equation like this: \(x^2 = a, \;\;\;\; a \in \mathbb{R}_{\geq 0}\) Your task is to compute the solution \(x \in \mathbb{R}_{\geq 0}\). How do you solve this algorithmically? Input and output Write a program that takes two parameters \(a, n \in …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2013-06-06T20:54:10+02:00" />
-<meta name="twitter:title" content="Calculate square roots ">
+<meta name="twitter:title" content="Calculate square roots">
 <meta name="twitter:description" content="Suppose you have an equation like this: \(x^2 = a, \;\;\;\; a \in \mathbb{R}_{\geq 0}\) Your task is to compute the solution \(x \in \mathbb{R}_{\geq 0}\). How do you solve this algorithmically? Input and output Write a program that takes two parameters \(a, n \in …">
 <meta property="og:image" content="2013/06/sqrt-2.png" />
 <meta name="twitter:image" content="2013/06/sqrt-2.png" >
 
-        <title>Calculate square roots  · Martin Thoma
+        <title>Calculate square roots · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../calculate-square-roots/"> Calculate square roots  </a></h1>
+    <h1><a href="../calculate-square-roots/"> Calculate square roots </a></h1>
     </header>
 </div>
 
@@ -122,7 +122,7 @@ MathJax.Hub.Queue(function() {
 </ul></p>
 <p>Your program should output exactly one positive floating point number. The decimal separator is a point. At the end of the number should be a newline character <code>\n</code>.</p>
 <h2 id="reference code">Reference code</h2>
-<div class="highlight"><pre><span></span><span class="c1">// Thanks to http://stackoverflow.com/a/15363123/562769</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// Thanks to http://stackoverflow.com/a/15363123/562769</span>
 <span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;gmp.h&gt;</span><span class="cp"></span>
 
@@ -136,13 +136,13 @@ MathJax.Hub.Queue(function() {
     <span class="n">gmp_printf</span><span class="p">(</span><span class="s">"%.1000Ff</span><span class="se">\n\n</span><span class="s">"</span><span class="p">,</span> <span class="n">res</span><span class="p">);</span> <span class="c1">// Increase this number.</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 <p>You need <a href="http://gmplib.org/manual">GMP</a> (<code>libgmp-dev</code>) to compile this.</p>
 <p>Compile it like this:</p>
-<div class="highlight"><pre><span></span>gcc sqrt-reference.c  -lgmp -lm -O0 -g3 -o reference.out
-</pre></div>
+<div class="highlight"><pre><span></span><code>gcc sqrt-reference.c  -lgmp -lm -O0 -g3 -o reference.out
+</code></pre></div>
 <p>This is the script I use to get the number of correct digits:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 
@@ -161,7 +161,7 @@ MathJax.Hub.Queue(function() {
     <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
     <span class="n">points</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">areEqual</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">areEqual</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="k">while</span> <span class="n">reference</span><span class="p">[</span><span class="n">points</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="ow">and</span> <span class="n">result</span><span class="p">[</span><span class="n">points</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">reference</span><span class="p">[</span><span class="n">points</span><span class="p">]</span> <span class="o">==</span> <span class="n">result</span><span class="p">[</span><span class="n">points</span><span class="p">]:</span>
             <span class="n">points</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -184,26 +184,26 @@ MathJax.Hub.Queue(function() {
         <span class="n">dest</span><span class="o">=</span><span class="s2">"program"</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="s2">"your program"</span><span class="p">,</span>
         <span class="n">metavar</span><span class="o">=</span><span class="s2">"FILE"</span><span class="p">,</span>
-        <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s2">"-a"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s2">"A"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"calculate squre root of a"</span>
+        <span class="s2">"-a"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s2">"A"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"calculate squre root of a"</span>
     <span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s2">"-n"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s2">"N"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"maximum n iterations"</span>
+        <span class="s2">"-n"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s2">"N"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"maximum n iterations"</span>
     <span class="p">)</span>
 
     <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 
-<span class="k">print</span><span class="p">(</span>
+<span class="nb">print</span><span class="p">(</span>
     <span class="s2">"Points for a=</span><span class="si">%i</span><span class="s2"> and n=</span><span class="si">%i</span><span class="s2">: </span><span class="si">%i</span><span class="s2">"</span>
     <span class="o">%</span> <span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="n">getScore</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">program</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">n</span><span class="p">))</span>
 <span class="p">)</span>
-</pre></div>
+</code></pre></div>
 <h2 id="newton's method">Newton's method</h2>
 <p>How should be choose the initial value? I thought <span class="math">\(\frac{a}{2}\)</span> could be ok. In a good implementation you'll probably do this with a lookup table.</p>
 <p>With long double:</p>
-<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;cmath&gt;</span><span class="cp"></span>
 
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
@@ -226,7 +226,7 @@ MathJax.Hub.Queue(function() {
     <span class="n">printf</span><span class="p">(</span><span class="s">"%.80Lf</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">newton</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">n</span><span class="p">));</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 <p>I failed to convert this to a version that uses GMP :-/</p>
 <p>But it converges quite fast:</p>
 <figure class="aligncenter">
@@ -242,7 +242,7 @@ MathJax.Hub.Queue(function() {
 <p>and:</p>
 <p><span class="math">\(\displaystyle \ln(1+x) =- \sum_{k=0}^\infty \frac{(-x)^{k+1}}{k+1}\)</span></p>
 <p>So I gave it a try:</p>
-<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;cmath&gt;</span><span class="cp"></span>
 
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
@@ -285,7 +285,7 @@ MathJax.Hub.Queue(function() {
     <span class="n">printf</span><span class="p">(</span><span class="s">"%.80Lf</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">n</span><span class="p">));</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 <p>This converges VERY slow: For <span class="math">\(a = 2\)</span></p>
 <ul>
 <li>$n=1$: 1 digit correct</li>

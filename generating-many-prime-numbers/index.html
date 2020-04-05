@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="mathematics, Project Euler, CPP, prime number, Cyberculture, " />
 
-<meta property="og:title" content="Generating many prime numbers "/>
+<meta property="og:title" content="Generating many prime numbers"/>
 <meta property="og:url" content="../generating-many-prime-numbers/" />
 <meta property="og:description" content="Today, a fellow student claimed that it would take much time to check the first 1,000,000 numbers for primes. I claimed that it would be a matter of seconds to do so for the first 1,000,000,000 numbers. So, lets prove my claim. Trivial approach #include …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2013-05-21T22:50:10+02:00" />
-<meta name="twitter:title" content="Generating many prime numbers ">
+<meta name="twitter:title" content="Generating many prime numbers">
 <meta name="twitter:description" content="Today, a fellow student claimed that it would take much time to check the first 1,000,000 numbers for primes. I claimed that it would be a matter of seconds to do so for the first 1,000,000,000 numbers. So, lets prove my claim. Trivial approach #include …">
 <meta property="og:image" content="2012/04/leonhard-euler.jpg" />
 <meta name="twitter:image" content="2012/04/leonhard-euler.jpg" >
 
-        <title>Generating many prime numbers  · Martin Thoma
+        <title>Generating many prime numbers · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../generating-many-prime-numbers/"> Generating many prime numbers  </a></h1>
+    <h1><a href="../generating-many-prime-numbers/"> Generating many prime numbers </a></h1>
     </header>
 </div>
 
@@ -113,7 +113,7 @@ MathJax.Hub.Queue(function() {
             <p>Today, a fellow student claimed that it would take much time to check the first 1,000,000 numbers for primes. I claimed that it would be a matter of seconds to do so for the first 1,000,000,000 numbers.</p>
 <p>So, lets prove my claim.</p>
 <h2 id="trivial approach">Trivial approach</h2>
-<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt; // cin, cout</span><span class="cp"></span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt; // cin, cout</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;cmath&gt; // sqrt</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
 
@@ -147,26 +147,26 @@ MathJax.Hub.Queue(function() {
 
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 <p>Execute it for 100,000,000:</p>
-<div class="highlight"><pre><span></span><span class="nb">time</span> ./generate-prime-list.out <span class="m">100000000</span> &gt; primes.txt
+<div class="highlight"><pre><span></span><code><span class="nb">time</span> ./generate-prime-list.out <span class="m">100000000</span> &gt; primes.txt
 
 real    0m57.274s
 user    0m41.855s
 sys 0m15.229s
-</pre></div>
+</code></pre></div>
 <p>So 41 seconds for all primes not bigger than 100,000,000.</p>
 <p>Now, lets test it for 1,000,000,000:</p>
-<div class="highlight"><pre><span></span><span class="nb">time</span> ./generate-prime-list.out <span class="m">1000000000</span> &gt; primes.txt
+<div class="highlight"><pre><span></span><code><span class="nb">time</span> ./generate-prime-list.out <span class="m">1000000000</span> &gt; primes.txt
 
 real    18m18.205s
 user    15m56.904s
 sys 2m12.500s
-</pre></div>
+</code></pre></div>
 <p>16 minutes ... not exactly "seconds". But please keep in mind that I also wrote the result to a txt-file. This txt file is 502.0 MB big. It takes quite a lot of time to write such an amount of data from memory to disk.</p>
 <h2 id="sieve of eratosthenes">Sieve of Eratosthenes</h2>
 <h3 id="a first try">A first try</h3>
-<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt; // cin, cout</span><span class="cp"></span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt; // cin, cout</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
 
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
@@ -189,19 +189,19 @@ sys 2m12.500s
     <span class="n">sieveOfEratosthenes</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 <p>This one takes 1 minute 5 seconds:</p>
-<div class="highlight"><pre><span></span>make<span class="p">;</span><span class="nb">time</span> ./generate-prime-list.out <span class="m">1000000000</span> &gt; testPrimes.txt
+<div class="highlight"><pre><span></span><code>make<span class="p">;</span><span class="nb">time</span> ./generate-prime-list.out <span class="m">1000000000</span> &gt; testPrimes.txt
 g++ -std<span class="o">=</span>c++0x -Wall -pedantic -O3 -D NDEBUG generate-prime-list.cpp -o generate-prime-list.out
 
 real    3m20.436s
 user    1m4.908s
 sys 2m11.748s
-</pre></div>
+</code></pre></div>
 <p>I'm getting closer to "seconds". ☺</p>
 <h3 id="ofstream, endl, \n and buffers">ofstream, endl, \n and buffers</h3>
 <p>Writing 502.0 MB takes some time. It's not getting better when I pipe this through bash. So lets write it directly:</p>
-<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;fstream&gt; // ofstream</span><span class="cp"></span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;fstream&gt; // ofstream</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
 
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
@@ -227,24 +227,24 @@ sys 2m11.748s
     <span class="n">sieveOfEratosthenes</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-<div class="highlight"><pre><span></span><span class="nb">time</span> ./generate-prime-list.out <span class="m">1000000000</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">time</span> ./generate-prime-list.out <span class="m">1000000000</span>
 
 real    3m21.249s
 user    1m4.016s
 sys 2m12.332s
-</pre></div>
+</code></pre></div>
 <p>Ok, no real change :-/</p>
 <p>Another idea is to replace <code>endl</code> by <code>\n</code> (see <a href="http://stackoverflow.com/a/5192299/562769">explanation</a>)</p>
 <p>That was a good try. Now it needs only 46 seconds:</p>
-<div class="highlight"><pre><span></span><span class="nb">time</span> ./generate-prime-list.out <span class="m">1000000000</span>
+<div class="highlight"><pre><span></span><code><span class="nb">time</span> ./generate-prime-list.out <span class="m">1000000000</span>
 
 real    0m49.539s
 user    0m46.619s
 sys 0m0.920s
-</pre></div>
+</code></pre></div>
 <p>Another reason why this might be slow could be too many system calls. So I could buffer some and write them in blocks. I could also just write blocks of unsigned long numbers instead of a string representation. This might lead to a much smaller file size which in consequence is faster to write:</p>
-<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt; // fopen</span><span class="cp"></span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt; // fopen</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;iostream&gt; // atoi</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
 
@@ -275,18 +275,18 @@ sys 0m0.920s
     <span class="n">sieveOfEratosthenes</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 <p>And execute it:</p>
-<div class="highlight"><pre><span></span><span class="nb">time</span> ./generate-prime-list.out <span class="m">1000000000</span>
+<div class="highlight"><pre><span></span><code><span class="nb">time</span> ./generate-prime-list.out <span class="m">1000000000</span>
 
 real    0m39.700s
 user    0m38.546s
 sys 0m0.640s
-</pre></div>
+</code></pre></div>
 <p>38 seconds for all primes from 2 to 1,000,000,000. The file size is now only 203.4 MB.</p>
 <p>By the way, simply setting this with <code>setbuf(pFile, NULL);</code> to unbuffered resulted in 50 seconds execution time.</p>
 <p>You can get the list with this snippet:</p>
-<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp"></span>
 
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
@@ -311,11 +311,11 @@ sys 0m0.640s
         <span class="n">fclose</span><span class="p">(</span><span class="n">pFile</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 <h3 id="improve sieving">Improve sieving</h3>
 <p>The following change was suggested by <em>Niklas B.</em>. Thanks!</p>
 <p>Take a look at the inner for loop. This one does the sieving, so it gets executed very often. In this loop, you have to calculate <code>j<em>i</em></code> for checking the condition of the loop and again for setting it to false. You can get rid of one of those operations. Additionally, you don't have to start sieving at <code>2</code></p>p, but you can start at <code>p*p</code> as you already sieved out all multiples of the first, second, ..., current-1-th prime.
-<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt; // fopen</span><span class="cp"></span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt; // fopen</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;iostream&gt; // atoi</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
 
@@ -350,21 +350,21 @@ sys 0m0.640s
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 <p>Execute:</p>
-<div class="highlight"><pre><span></span><span class="nb">time</span> ./generate-prime-list.out <span class="m">1000000000</span>
+<div class="highlight"><pre><span></span><code><span class="nb">time</span> ./generate-prime-list.out <span class="m">1000000000</span>
 
 real    0m24.222s
 user    0m23.485s
 sys 0m0.436s
-</pre></div>
+</code></pre></div>
 <h3 id="primesieve">primesieve</h3>
 <p><a href="https://code.google.com/p/primesieve/">Primesieve</a> is a free software program and C++ library that generates prime numbers and prime k-tuplets (twin primes, prime triplets, ...) <span class="math">\(&lt; 2^{64}\)</span> using a highly optimized implementation of the sieve of Eratosthenes.</p>
 <p>According to the GUI, it finds all 50,847,534 primes below 1,000,000,000 in 0.16 seconds. But write them to a file...</p>
 <h2 id="sieve of atkin_1">Sieve of Atkin</h2>
 <p>Arthur Oliver Lonsdale Atkin (July 31, 1925 &ndash; December 28, 2008) was a British mathematician who invented this sieve. I've implemented it according to the <a href="http://en.wikipedia.org/wiki/Sieve_of_Atkin#Pseudocode">pseudocode provided in Wikipedia</a>. A <a href="http://stackoverflow.com/a/12066272/562769">very long explanation of Atkins sieve</a> is on StackOverflow</p>
 <h3 id="my first implementation">My first implementation</h3>
-<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt; // fopen</span><span class="cp"></span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt; // fopen</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;iostream&gt; // atoi</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;cmath&gt; // sqrt, ceil,</span><span class="cp"></span>
@@ -440,24 +440,24 @@ sys 0m0.436s
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 <p>Atkins sieve has a much worse performance than Sieve of Eratosthenes:</p>
-<div class="highlight"><pre><span></span><span class="nb">time</span> ./generate-prime-list.out <span class="m">1000000000</span>
+<div class="highlight"><pre><span></span><code><span class="nb">time</span> ./generate-prime-list.out <span class="m">1000000000</span>
 
 real    1m6.001s
 user    1m4.724s
 sys 0m0.604s
-</pre></div>
+</code></pre></div>
 <h3 id="primegen">Primegen</h3>
 <p><a href="http://cr.yp.to/primegen.html">Primegen</a> is an implementation by <a href="http://en.wikipedia.org/wiki/Daniel_J._Bernstein">Daniel J. Bernstein</a>. It's a little bit cluttered with 80 files and 3854 LOC in total.</p>
 <p>When I have some time, I'll update this article and create a new version of my sieve with ideas from Primegen.</p>
 <p>Primegen is fast:</p>
-<div class="highlight"><pre><span></span><span class="nb">time</span> ./primes &gt; primes.txt
+<div class="highlight"><pre><span></span><code><span class="nb">time</span> ./primes &gt; primes.txt
 
 real    0m11.677s
 user    0m10.649s
 sys 0m0.708s
-</pre></div>
+</code></pre></div>
 <p>About 11 seconds for writing all primes between 2 and 1,000,000,000 to a txt file.</p>
 <h2 id="see also_1">See also</h2>
 <p>You might want to try the following Project Euler problem sets:

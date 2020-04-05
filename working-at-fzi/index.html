@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Command line, Cyberculture, " />
 
-<meta property="og:title" content="Working at FZI "/>
+<meta property="og:title" content="Working at FZI"/>
 <meta property="og:url" content="../working-at-fzi/" />
 <meta property="og:description" content="If you are writing your Bachelors or Masters thesis or if you&#39;re a HiWi at FZI, you might find the following useful. OpenVPN Download the client.ovpn from the website your advisor gives you. This website can only be accessed outside of FZI and needs to be accessed by https …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2017-04-13T20:00:00+02:00" />
-<meta name="twitter:title" content="Working at FZI ">
+<meta name="twitter:title" content="Working at FZI">
 <meta name="twitter:description" content="If you are writing your Bachelors or Masters thesis or if you&#39;re a HiWi at FZI, you might find the following useful. OpenVPN Download the client.ovpn from the website your advisor gives you. This website can only be accessed outside of FZI and needs to be accessed by https …">
 <meta property="og:image" content="logos/star.png" />
 <meta name="twitter:image" content="logos/star.png" >
 
-        <title>Working at FZI  · Martin Thoma
+        <title>Working at FZI · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../working-at-fzi/"> Working at FZI  </a></h1>
+    <h1><a href="../working-at-fzi/"> Working at FZI </a></h1>
     </header>
 </div>
 
@@ -129,23 +129,23 @@ MathJax.Hub.Queue(function() {
 <p>You don't have root access. However, you can install Python packages via
 virtualenv (at <code>nobackup</code> - you don't need this to be backed up and you want
 to have less limitations on your venv size):</p>
-<div class="highlight"><pre><span></span>$ mkdir ml-venv
+<div class="highlight"><pre><span></span><code>$ mkdir ml-venv
 $ <span class="nb">cd</span> ~/ml-venv
 $ virtualenv ml
 $ <span class="nb">source</span> ml/bin/activate
-</pre></div>
+</code></pre></div>
 <p>Add the <code>source ml/bin/activate</code> (with the absolute path) to your <code>~/.bashrc</code>.
 Now you can use <code>pip install ...</code> to install whatever you need in which version
 you need.</p>
 <h2 id="cudnn">cuDNN</h2>
 <p>Add</p>
-<div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/fzi/ids/thoma/nobackup/cuda/lib64/
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/fzi/ids/thoma/nobackup/cuda/lib64/
+</code></pre></div>
 <p>to your <code>~/.bashrc</code>. If that doesn't exist anymore, just download cuDNN and
 adjust the path to the <code>lib64</code> folder.</p>
 <h2 id="blame-users">Blame users</h2>
 <p>With <code>nvidia-smi</code> you can see which processes currently use the graphics card:</p>
-<div class="highlight"><pre><span></span>Thu Apr 13 19:14:50 2017
+<div class="highlight"><pre><span></span><code>Thu Apr 13 19:14:50 2017
 +-----------------------------------------------------------------------------+
 | NVIDIA-SMI 361.93.02              Driver Version: 361.93.02                 |
 |-------------------------------+----------------------+----------------------+
@@ -163,24 +163,24 @@ adjust the path to the <code>lib64</code> folder.</p>
 |    0      2473    G   /usr/bin/X                                      24MiB |
 |    0     32756    C   ./caffe                                       5591MiB |
 +-----------------------------------------------------------------------------+
-</pre></div>
+</code></pre></div>
 <p>But it doesn't tell you how long the process is already running and which user
 started it. With</p>
-<div class="highlight"><pre><span></span>$ ps -p <span class="m">32756</span> -o user -o <span class="nb">time</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>$ ps -p <span class="m">32756</span> -o user -o <span class="nb">time</span>
+</code></pre></div>
 <p>(replace 32756 by the process ID, of course) you can find the user name and how
 long the process is running.</p>
 <h2 id="send-files">Send files</h2>
 <p>See <a href="https://martin-thoma.com/linux-commands-for-working-from-home/">Linux Commands for Working from home</a>
 and <a href="https://unix.stackexchange.com/a/106482/4784">How to copy files from one machine to another using ssh</a>.</p>
 <p>Copy <code>foo.txt</code> from localhost to a remote host:</p>
-<div class="highlight"><pre><span></span>$ scp foo.txt yourusername@remotehost.com:/home/remote/dir
-</pre></div>
+<div class="highlight"><pre><span></span><code>$ scp foo.txt yourusername@remotehost.com:/home/remote/dir
+</code></pre></div>
 <h2 id="disk-usage">Disk usage</h2>
-<div class="highlight"><pre><span></span>$ quota -s -u user1
+<div class="highlight"><pre><span></span><code>$ quota -s -u user1
 $ df -h .
 $ du -h .
-</pre></div>
+</code></pre></div>
 <h2 id="ssh-screen">SSH / screen</h2>
 <ul>
 <li><a href="http://stackoverflow.com/q/20807696/562769">How do I force detach Screen from another SSH session?</a></li>

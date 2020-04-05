@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Tensorflow, Machine Learning, " />
 
-<meta property="og:title" content="How to silence TensorFlow "/>
+<meta property="og:title" content="How to silence TensorFlow"/>
 <meta property="og:url" content="../silence-tf/" />
 <meta property="og:description" content="Set the environment variable TF_CPP_MIN_LOG_LEVEL=2 if you&#39;re also annoyed by messages like I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcublas.so.8.0 locally I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcudnn.so.5 locally I tensorflow/stream_executor/dso_loader.cc:135] successfully opened …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2017-03-30T20:00:00+02:00" />
-<meta name="twitter:title" content="How to silence TensorFlow ">
+<meta name="twitter:title" content="How to silence TensorFlow">
 <meta name="twitter:description" content="Set the environment variable TF_CPP_MIN_LOG_LEVEL=2 if you&#39;re also annoyed by messages like I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcublas.so.8.0 locally I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcudnn.so.5 locally I tensorflow/stream_executor/dso_loader.cc:135] successfully opened …">
 <meta property="og:image" content="logos/tensor-flow.png" />
 <meta name="twitter:image" content="logos/tensor-flow.png" >
 
-        <title>How to silence TensorFlow  · Martin Thoma
+        <title>How to silence TensorFlow · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../silence-tf/"> How to silence TensorFlow  </a></h1>
+    <h1><a href="../silence-tf/"> How to silence TensorFlow </a></h1>
     </header>
 </div>
 
@@ -105,10 +105,10 @@ MathJax.Hub.Queue(function() {
 
             
             <p>Set the environment variable</p>
-<div class="highlight"><pre><span></span><span class="nv">TF_CPP_MIN_LOG_LEVEL</span><span class="o">=</span><span class="m">2</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="nv">TF_CPP_MIN_LOG_LEVEL</span><span class="o">=</span><span class="m">2</span>
+</code></pre></div>
 <p>if you're also annoyed by messages like</p>
-<div class="highlight"><pre><span></span>I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcublas.so.8.0 locally
+<div class="highlight"><pre><span></span><code>I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcublas.so.8.0 locally
 I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcudnn.so.5 locally
 I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcufft.so.8.0 locally
 I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcuda.so.1 locally
@@ -132,7 +132,7 @@ I tensorflow/core/common_runtime/gpu/gpu_device.cc:916] 0:   Y
 I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -&gt; (device: 0, name: GeForce 940MX, pci bus id: 0000:02:00.0)
 W tensorflow/core/common_runtime/bfc_allocator.cc:217] Ran out of memory trying to allocate 1.11GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory is available.
 W tensorflow/core/common_runtime/bfc_allocator.cc:217] Ran out of memory trying to allocate 1.11GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory is available.
-</pre></div>
+</code></pre></div>
 <p>I've added <code>export TF_CPP_MIN_LOG_LEVEL=2</code> to my <code>~/.profile</code>. Note that this
 only suppresses the warnings. The better solution would be to compile
 Tensorflow with SSE-X support.</p>

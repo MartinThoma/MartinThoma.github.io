@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Python, date, time, datetime, Code, " />
 
-<meta property="og:title" content="Datetime "/>
+<meta property="og:title" content="Datetime"/>
 <meta property="og:url" content="../datetime/" />
 <meta property="og:description" content="Specifying a point in time is a pretty common task. And it is extraordinary difficult. Lets have a look at the different ways to specify a point in time. If you want to learn more about time, read my summary What every developer should know about time. Imagine the following …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2018-01-27T20:00:00+01:00" />
-<meta name="twitter:title" content="Datetime ">
+<meta name="twitter:title" content="Datetime">
 <meta name="twitter:description" content="Specifying a point in time is a pretty common task. And it is extraordinary difficult. Lets have a look at the different ways to specify a point in time. If you want to learn more about time, read my summary What every developer should know about time. Imagine the following …">
 <meta property="og:image" content="logos/python.png" />
 <meta name="twitter:image" content="logos/python.png" >
 
-        <title>Datetime  · Martin Thoma
+        <title>Datetime · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../datetime/"> Datetime  </a></h1>
+    <h1><a href="../datetime/"> Datetime </a></h1>
     </header>
 </div>
 
@@ -140,10 +140,10 @@ today,<sup>[<a href="#ref-1" name="ref-1-anchor">1</a>]</sup> so the type of
 calendar is at least something we don't have to worry about. But then the problems begin.
 I thought <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> would be a simple,
 human-readable, unabiguous format that looks like this:</p>
-<div class="highlight"><pre><span></span>2018-01-27T16:45:01+00:00
+<div class="highlight"><pre><span></span><code>2018-01-27T16:45:01+00:00
 2018-01-27T16:45:01+00:00
 1990-12-31T23:59:59+00:00
-</pre></div>
+</code></pre></div>
 <p>But due to leap seconds / days and due to changes in timezones I'm pretty sure
 there is one point in time which has two different ISO 8601 time stamps. Please
 let me know in the comments if you see one (best if it can be shown with some
@@ -178,7 +178,7 @@ programming languages).</p>
 </ul>
 <h2 id="python">Python</h2>
 <p>Let's check that with Python:</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">datetime</span>
 
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
@@ -213,12 +213,12 @@ programming languages).</p>
 <span class="c1">## Parsing stuff</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s1">'0020-11-01T00:00:00'</span><span class="p">,</span> <span class="s1">'%Y-%m-</span><span class="si">%d</span><span class="s1">T%H:%M:%S'</span><span class="p">)</span>
 <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 <p>By now, <a href="https://stackoverflow.com/questions/tagged/datetime-parsing+python">Datetime parsing with Python</a> is usually done like this:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dateutil</span> <span class="kn">import</span> <span class="n">parser</span> <span class="k">as</span> <span class="n">dateparser</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">dateutil</span> <span class="kn">import</span> <span class="n">parser</span> <span class="k">as</span> <span class="n">dateparser</span>
 
 <span class="n">date_obj</span> <span class="o">=</span> <span class="n">dateparser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">"Tue May 08 15:14:45 +0800 2012"</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 <p>Things that are unintuitive for me:</p>
 <ul>
 <li><span style="color: red;">⊝</span> Why don't all datetime objects have
@@ -235,9 +235,9 @@ programming languages).</p>
 <li><a href="https://howchoo.com/g/ywi5m2vkodk/working-with-datetime-objects-and-timezones-in-python">Working with datetime objects and timezones in Python</a></li>
 </ul>
 <h2 id="javascript">JavaScript</h2>
-<div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">toJSON</span><span class="p">());</span>
-</pre></div>
+</code></pre></div>
 <p>gives <code>2018-01-27T22:51:17.691Z</code>. So it is a ISO 8601 datetime with miliseconds
 and zero offset. Nice!</p>
 <p>You can also find this in the <a href="http://www.ecma-international.org/ecma-262/5.1/#sec-15.9.1.15">ECMA specification</a>:</p>
@@ -247,13 +247,13 @@ simplification of the ISO 8601 Extended Format. The format is as follows:</p>
 <p>YYYY-MM-DDTHH:mm:ss.sssZ</p>
 </blockquote>
 <h2 id="php5">PHP5</h2>
-<div class="highlight"><pre><span></span>$ php -a
+<div class="highlight"><pre><span></span><code>$ php -a
 Interactive mode enabled
 
 php &gt; <span class="nv">$dt</span> <span class="o">=</span> new DateTime<span class="o">()</span><span class="p">;</span>
 php &gt; <span class="nb">echo</span> <span class="nv">$dt</span>-&gt;format<span class="o">(</span>DateTime::ATOM<span class="o">)</span><span class="p">;</span>
 <span class="m">2018</span>-01-27T23:58:12+01:00
-</pre></div>
+</code></pre></div>
 <p>You can see that PHP gives you the ISO 8601 string with the zone offset, but
 not the milliseconds.</p>
 <h2 id="footnotes">Footnotes</h2>

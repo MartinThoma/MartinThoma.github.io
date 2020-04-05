@@ -16,16 +16,16 @@
 
 <meta name="keywords" content="Java, algorithms, Geometry, Code, " />
 
-<meta property="og:title" content="How to check if two line segments intersect "/>
+<meta property="og:title" content="How to check if two line segments intersect"/>
 <meta property="og:url" content="../how-to-check-if-two-line-segments-intersect/" />
 <meta property="og:description" content="You have to line segments and you want to know if they intersect. I&#39;ll give you an algorithm how to do it. Test cases First of all, we should think about how lines can be arranged: Testcase T1 Testcase T2 Testcase T3 Testcase T4 Testcase T5 Testcase T6 Testcase F1 …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2013-02-21T12:19:05+01:00" />
-<meta name="twitter:title" content="How to check if two line segments intersect ">
+<meta name="twitter:title" content="How to check if two line segments intersect">
 <meta name="twitter:description" content="You have to line segments and you want to know if they intersect. I&#39;ll give you an algorithm how to do it. Test cases First of all, we should think about how lines can be arranged: Testcase T1 Testcase T2 Testcase T3 Testcase T4 Testcase T5 Testcase T6 Testcase F1 …">
 
-        <title>How to check if two line segments intersect  · Martin Thoma
+        <title>How to check if two line segments intersect · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -94,7 +94,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../how-to-check-if-two-line-segments-intersect/"> How to check if two line segments intersect  </a></h1>
+    <h1><a href="../how-to-check-if-two-line-segments-intersect/"> How to check if two line segments intersect </a></h1>
     </header>
 </div>
 
@@ -289,7 +289,7 @@ MathJax.Hub.Queue(function() {
 </figure>
 <p>With this image in mind, it is obvious that the bounding boxes need to intersect if the lines should intersect. At this point you have to make a decision: If the endpoint of one line is on the other line, is this an intersection? I think so. If two lines have at least one point in common, they intersect. If two bounding boxes have at least one point in common, they intersect.</p>
 <p>It is much easier to check if two bounding boxes intersect. It's simply:</p>
-<div class="highlight"><pre><span></span><span class="cm">/**</span>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
 <span class="cm"> * Check if bounding boxes do intersect. If one bounding box</span>
 <span class="cm"> * touches the other, they do intersect.</span>
 <span class="cm"> * @param a first bounding box</span>
@@ -297,13 +297,13 @@ MathJax.Hub.Queue(function() {
 <span class="cm"> * @return &lt;code&gt;true&lt;/code&gt; if they intersect,</span>
 <span class="cm"> *         &lt;code&gt;false&lt;/code&gt; otherwise.</span>
 <span class="cm"> */</span>
-<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">doBoundingBoxesIntersect</span><span class="o">(</span><span class="n">Point</span><span class="o">[]</span> <span class="n">a</span><span class="o">,</span> <span class="n">Point</span><span class="o">[]</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="n">a</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">x</span> <span class="o">&lt;=</span> <span class="n">b</span><span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="na">x</span>
-        <span class="o">&amp;&amp;</span> <span class="n">a</span><span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="na">x</span> <span class="o">&gt;=</span> <span class="n">b</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">x</span>
-        <span class="o">&amp;&amp;</span> <span class="n">a</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">y</span> <span class="o">&lt;=</span> <span class="n">b</span><span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="na">y</span>
-        <span class="o">&amp;&amp;</span> <span class="n">a</span><span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="na">y</span> <span class="o">&gt;=</span> <span class="n">b</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">y</span><span class="o">;</span>
-<span class="o">}</span>
-</pre></div>
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">doBoundingBoxesIntersect</span><span class="p">(</span><span class="n">Point</span><span class="o">[]</span> <span class="n">a</span><span class="p">,</span> <span class="n">Point</span><span class="o">[]</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">x</span> <span class="o">&lt;=</span> <span class="n">b</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">.</span><span class="na">x</span>
+        <span class="o">&amp;&amp;</span> <span class="n">a</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">.</span><span class="na">x</span> <span class="o">&gt;=</span> <span class="n">b</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">x</span>
+        <span class="o">&amp;&amp;</span> <span class="n">a</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">y</span> <span class="o">&lt;=</span> <span class="n">b</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">.</span><span class="na">y</span>
+        <span class="o">&amp;&amp;</span> <span class="n">a</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">.</span><span class="na">y</span> <span class="o">&gt;=</span> <span class="n">b</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">y</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>If you have difficulties to understand why this works, take a look at this great <a href="http://silentmatt.com/rectangle-intersection/">animation for this formula</a>.</p>
 <h2 id="the algorithm">The algorithm</h2>
 <figure class="aligncenter">
@@ -330,7 +330,7 @@ MathJax.Hub.Queue(function() {
 \end{align}
 $$</div>
 <p>Ok, now you can check if a point is on a line:</p>
-<div class="highlight"><pre><span></span><span class="cm">/**</span>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
 <span class="cm"> * Checks if a Point is on a line</span>
 <span class="cm"> * @param a line (interpreted as line, although given as line</span>
 <span class="cm"> *                segment)</span>
@@ -338,17 +338,17 @@ $$</div>
 <span class="cm"> * @return &lt;code&gt;true&lt;/code&gt; if point is on line, otherwise</span>
 <span class="cm"> *         &lt;code&gt;false&lt;/code&gt;</span>
 <span class="cm"> */</span>
-<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isPointOnLine</span><span class="o">(</span><span class="n">LineSegment</span> <span class="n">a</span><span class="o">,</span> <span class="n">Point</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isPointOnLine</span><span class="p">(</span><span class="n">LineSegment</span> <span class="n">a</span><span class="p">,</span> <span class="n">Point</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Move the image, so that a.first is on (0|0)</span>
-    <span class="n">LineSegment</span> <span class="n">aTmp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LineSegment</span><span class="o">(</span><span class="k">new</span> <span class="n">Point</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">),</span> <span class="k">new</span> <span class="n">Point</span><span class="o">(</span>
-            <span class="n">a</span><span class="o">.</span><span class="na">second</span><span class="o">.</span><span class="na">x</span> <span class="o">-</span> <span class="n">a</span><span class="o">.</span><span class="na">first</span><span class="o">.</span><span class="na">x</span><span class="o">,</span> <span class="n">a</span><span class="o">.</span><span class="na">second</span><span class="o">.</span><span class="na">y</span> <span class="o">-</span> <span class="n">a</span><span class="o">.</span><span class="na">first</span><span class="o">.</span><span class="na">y</span><span class="o">));</span>
-    <span class="n">Point</span> <span class="n">bTmp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span><span class="o">(</span><span class="n">b</span><span class="o">.</span><span class="na">x</span> <span class="o">-</span> <span class="n">a</span><span class="o">.</span><span class="na">first</span><span class="o">.</span><span class="na">x</span><span class="o">,</span> <span class="n">b</span><span class="o">.</span><span class="na">y</span> <span class="o">-</span> <span class="n">a</span><span class="o">.</span><span class="na">first</span><span class="o">.</span><span class="na">y</span><span class="o">);</span>
-    <span class="kt">double</span> <span class="n">r</span> <span class="o">=</span> <span class="n">crossProduct</span><span class="o">(</span><span class="n">aTmp</span><span class="o">.</span><span class="na">second</span><span class="o">,</span> <span class="n">bTmp</span><span class="o">);</span>
-    <span class="k">return</span> <span class="n">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">r</span><span class="o">)</span> <span class="o">&lt;</span> <span class="n">EPSILON</span><span class="o">;</span>
-<span class="o">}</span>
-</pre></div>
+    <span class="n">LineSegment</span> <span class="n">aTmp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LineSegment</span><span class="p">(</span><span class="k">new</span> <span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="k">new</span> <span class="n">Point</span><span class="p">(</span>
+            <span class="n">a</span><span class="p">.</span><span class="na">second</span><span class="p">.</span><span class="na">x</span> <span class="o">-</span> <span class="n">a</span><span class="p">.</span><span class="na">first</span><span class="p">.</span><span class="na">x</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="na">second</span><span class="p">.</span><span class="na">y</span> <span class="o">-</span> <span class="n">a</span><span class="p">.</span><span class="na">first</span><span class="p">.</span><span class="na">y</span><span class="p">));</span>
+    <span class="n">Point</span> <span class="n">bTmp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="na">x</span> <span class="o">-</span> <span class="n">a</span><span class="p">.</span><span class="na">first</span><span class="p">.</span><span class="na">x</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="na">y</span> <span class="o">-</span> <span class="n">a</span><span class="p">.</span><span class="na">first</span><span class="p">.</span><span class="na">y</span><span class="p">);</span>
+    <span class="kt">double</span> <span class="n">r</span> <span class="o">=</span> <span class="n">crossProduct</span><span class="p">(</span><span class="n">aTmp</span><span class="p">.</span><span class="na">second</span><span class="p">,</span> <span class="n">bTmp</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">Math</span><span class="p">.</span><span class="na">abs</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">EPSILON</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>The second cool characteristic of the cross product is that it can be used to determine if a point b is left or right of the line through the origin and a point a:</p>
-<div class="highlight"><pre><span></span><span class="cm">/**</span>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
 <span class="cm"> * Checks if a point is right of a line. If the point is on the</span>
 <span class="cm"> * line, it is not right of the line.</span>
 <span class="cm"> * @param a line segment interpreted as a line</span>
@@ -356,16 +356,16 @@ $$</div>
 <span class="cm"> * @return &lt;code&gt;true&lt;/code&gt; if the point is right of the line,</span>
 <span class="cm"> *         &lt;code&gt;false&lt;/code&gt; otherwise</span>
 <span class="cm"> */</span>
-<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isPointRightOfLine</span><span class="o">(</span><span class="n">LineSegment</span> <span class="n">a</span><span class="o">,</span> <span class="n">Point</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isPointRightOfLine</span><span class="p">(</span><span class="n">LineSegment</span> <span class="n">a</span><span class="p">,</span> <span class="n">Point</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Move the image, so that a.first is on (0|0)</span>
-    <span class="n">LineSegment</span> <span class="n">aTmp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LineSegment</span><span class="o">(</span><span class="k">new</span> <span class="n">Point</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">),</span> <span class="k">new</span> <span class="n">Point</span><span class="o">(</span>
-            <span class="n">a</span><span class="o">.</span><span class="na">second</span><span class="o">.</span><span class="na">x</span> <span class="o">-</span> <span class="n">a</span><span class="o">.</span><span class="na">first</span><span class="o">.</span><span class="na">x</span><span class="o">,</span> <span class="n">a</span><span class="o">.</span><span class="na">second</span><span class="o">.</span><span class="na">y</span> <span class="o">-</span> <span class="n">a</span><span class="o">.</span><span class="na">first</span><span class="o">.</span><span class="na">y</span><span class="o">));</span>
-    <span class="n">Point</span> <span class="n">bTmp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span><span class="o">(</span><span class="n">b</span><span class="o">.</span><span class="na">x</span> <span class="o">-</span> <span class="n">a</span><span class="o">.</span><span class="na">first</span><span class="o">.</span><span class="na">x</span><span class="o">,</span> <span class="n">b</span><span class="o">.</span><span class="na">y</span> <span class="o">-</span> <span class="n">a</span><span class="o">.</span><span class="na">first</span><span class="o">.</span><span class="na">y</span><span class="o">);</span>
-    <span class="k">return</span> <span class="n">crossProduct</span><span class="o">(</span><span class="n">aTmp</span><span class="o">.</span><span class="na">second</span><span class="o">,</span> <span class="n">bTmp</span><span class="o">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">;</span>
-<span class="o">}</span>
-</pre></div>
+    <span class="n">LineSegment</span> <span class="n">aTmp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LineSegment</span><span class="p">(</span><span class="k">new</span> <span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="k">new</span> <span class="n">Point</span><span class="p">(</span>
+            <span class="n">a</span><span class="p">.</span><span class="na">second</span><span class="p">.</span><span class="na">x</span> <span class="o">-</span> <span class="n">a</span><span class="p">.</span><span class="na">first</span><span class="p">.</span><span class="na">x</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="na">second</span><span class="p">.</span><span class="na">y</span> <span class="o">-</span> <span class="n">a</span><span class="p">.</span><span class="na">first</span><span class="p">.</span><span class="na">y</span><span class="p">));</span>
+    <span class="n">Point</span> <span class="n">bTmp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="na">x</span> <span class="o">-</span> <span class="n">a</span><span class="p">.</span><span class="na">first</span><span class="p">.</span><span class="na">x</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="na">y</span> <span class="o">-</span> <span class="n">a</span><span class="p">.</span><span class="na">first</span><span class="p">.</span><span class="na">y</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">crossProduct</span><span class="p">(</span><span class="n">aTmp</span><span class="p">.</span><span class="na">second</span><span class="p">,</span> <span class="n">bTmp</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>When we have one line <span class="math">\(a\)</span> through the origin and one line segment <span class="math">\(b\)</span>, you can check if <span class="math">\(b\)</span> crosses <span class="math">\(a\)</span> by checking if the end points of <span class="math">\(b\)</span> are on different sides of <span class="math">\(a\)</span>:</p>
-<div class="highlight"><pre><span></span><span class="cm">/**</span>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
 <span class="cm"> * Check if line segment first touches or crosses the line that is</span>
 <span class="cm"> * defined by line segment second.</span>
 <span class="cm"> *</span>
@@ -375,30 +375,30 @@ $$</div>
 <span class="cm"> *                           crosses line second,</span>
 <span class="cm"> *         &lt;code&gt;false&lt;/code&gt; otherwise.</span>
 <span class="cm"> */</span>
-<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">lineSegmentTouchesOrCrossesLine</span><span class="o">(</span><span class="n">LineSegment</span> <span class="n">a</span><span class="o">,</span>
-        <span class="n">LineSegment</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="n">isPointOnLine</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">.</span><span class="na">first</span><span class="o">)</span>
-            <span class="o">||</span> <span class="n">isPointOnLine</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">.</span><span class="na">second</span><span class="o">)</span>
-            <span class="o">||</span> <span class="o">(</span><span class="n">isPointRightOfLine</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">.</span><span class="na">first</span><span class="o">)</span> <span class="o">^</span>
-                <span class="n">isPointRightOfLine</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">.</span><span class="na">second</span><span class="o">));</span>
-<span class="o">}</span>
-</pre></div>
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">lineSegmentTouchesOrCrossesLine</span><span class="p">(</span><span class="n">LineSegment</span> <span class="n">a</span><span class="p">,</span>
+        <span class="n">LineSegment</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">isPointOnLine</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="na">first</span><span class="p">)</span>
+            <span class="o">||</span> <span class="n">isPointOnLine</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="na">second</span><span class="p">)</span>
+            <span class="o">||</span> <span class="p">(</span><span class="n">isPointRightOfLine</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="na">first</span><span class="p">)</span> <span class="o">^</span>
+                <span class="n">isPointRightOfLine</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="na">second</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>Now you have everything you need:</p>
-<div class="highlight"><pre><span></span><span class="cm">/**</span>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
 <span class="cm"> * Check if line segments intersect</span>
 <span class="cm"> * @param a first line segment</span>
 <span class="cm"> * @param b second line segment</span>
 <span class="cm"> * @return &lt;code&gt;true&lt;/code&gt; if lines do intersect,</span>
 <span class="cm"> *         &lt;code&gt;false&lt;/code&gt; otherwise</span>
 <span class="cm"> */</span>
-<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">doLinesIntersect</span><span class="o">(</span><span class="n">LineSegment</span> <span class="n">a</span><span class="o">,</span> <span class="n">LineSegment</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">Point</span><span class="o">[]</span> <span class="n">box1</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="na">getBoundingBox</span><span class="o">();</span>
-    <span class="n">Point</span><span class="o">[]</span> <span class="n">box2</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="na">getBoundingBox</span><span class="o">();</span>
-    <span class="k">return</span> <span class="n">doBoundingBoxesIntersect</span><span class="o">(</span><span class="n">box1</span><span class="o">,</span> <span class="n">box2</span><span class="o">)</span>
-            <span class="o">&amp;&amp;</span> <span class="n">lineSegmentTouchesOrCrossesLine</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span>
-            <span class="o">&amp;&amp;</span> <span class="n">lineSegmentTouchesOrCrossesLine</span><span class="o">(</span><span class="n">b</span><span class="o">,</span> <span class="n">a</span><span class="o">);</span>
-<span class="o">}</span>
-</pre></div>
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">doLinesIntersect</span><span class="p">(</span><span class="n">LineSegment</span> <span class="n">a</span><span class="p">,</span> <span class="n">LineSegment</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Point</span><span class="o">[]</span> <span class="n">box1</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="na">getBoundingBox</span><span class="p">();</span>
+    <span class="n">Point</span><span class="o">[]</span> <span class="n">box2</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="na">getBoundingBox</span><span class="p">();</span>
+    <span class="k">return</span> <span class="n">doBoundingBoxesIntersect</span><span class="p">(</span><span class="n">box1</span><span class="p">,</span> <span class="n">box2</span><span class="p">)</span>
+            <span class="o">&amp;&amp;</span> <span class="n">lineSegmentTouchesOrCrossesLine</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+            <span class="o">&amp;&amp;</span> <span class="n">lineSegmentTouchesOrCrossesLine</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>By the way, testcase F5 is the only reason why you need <code>doBoundingBoxesIntersect(box1, box2)</code>. All other tests still pass if you remove this function.</p>
 <h2 id="where do two line segments intersect?_1">Where do two line segments intersect?</h2>
 <p>When you know that two line segments intersect, you can also calculate the intersection.
@@ -408,7 +408,7 @@ The intersection could be a line or only a point.</p>
 <p>Ihr Browser kann leider keine eingebetteten Frames anzeigen. Die Seite ist <a href="../html5/line-segment-intersection/">hier</a>.</p>
 </iframe>
 <p>This is the code that checks for line segments:</p>
-<div class="highlight"><pre><span></span><span class="cm">/** You know that lines a and b have an intersection and now you</span>
+<div class="highlight"><pre><span></span><code><span class="cm">/** You know that lines a and b have an intersection and now you</span>
 <span class="cm">    want to get it!</span>
 <span class="cm">*/</span>
 <span class="kd">function</span> <span class="nx">getIntersection</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
@@ -531,12 +531,12 @@ The intersection could be a line or only a point.</p>
 
     <span class="k">return</span> <span class="p">{</span><span class="s2">"first"</span><span class="o">:</span> <span class="p">{</span><span class="s2">"x"</span><span class="o">:</span><span class="nx">x1</span><span class="p">,</span> <span class="s2">"y"</span><span class="o">:</span><span class="nx">y1</span><span class="p">},</span> <span class="s2">"second"</span><span class="o">:</span> <span class="p">{</span><span class="s2">"x"</span><span class="o">:</span><span class="nx">x2</span><span class="p">,</span> <span class="s2">"y"</span><span class="o">:</span><span class="nx">y2</span><span class="p">}};</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 <h2 id="tl;dr">TL;DR</h2>
 <p>The complete, tested code is on <a href="https://github.com/MartinThoma/algorithms/tree/master/crossingLineCheck/Geometry/src">GitHub</a>. Here is the most important part:</p>
-<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Geometry</span> <span class="o">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Geometry</span> <span class="p">{</span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">double</span> <span class="n">EPSILON</span> <span class="o">=</span> <span class="mf">0.000001</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">double</span> <span class="n">EPSILON</span> <span class="o">=</span> <span class="mf">0.000001</span><span class="p">;</span>
 
     <span class="cm">/**</span>
 <span class="cm">     * Calculate the cross product of two points.</span>
@@ -544,9 +544,9 @@ The intersection could be a line or only a point.</p>
 <span class="cm">     * @param b second point</span>
 <span class="cm">     * @return the value of the cross product</span>
 <span class="cm">     */</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">crossProduct</span><span class="o">(</span><span class="n">Point</span> <span class="n">a</span><span class="o">,</span> <span class="n">Point</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">a</span><span class="o">.</span><span class="na">x</span> <span class="o">*</span> <span class="n">b</span><span class="o">.</span><span class="na">y</span> <span class="o">-</span> <span class="n">b</span><span class="o">.</span><span class="na">x</span> <span class="o">*</span> <span class="n">a</span><span class="o">.</span><span class="na">y</span><span class="o">;</span>
-    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">crossProduct</span><span class="p">(</span><span class="n">Point</span> <span class="n">a</span><span class="p">,</span> <span class="n">Point</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">a</span><span class="p">.</span><span class="na">x</span> <span class="o">*</span> <span class="n">b</span><span class="p">.</span><span class="na">y</span> <span class="o">-</span> <span class="n">b</span><span class="p">.</span><span class="na">x</span> <span class="o">*</span> <span class="n">a</span><span class="p">.</span><span class="na">y</span><span class="p">;</span>
+    <span class="p">}</span>
 
     <span class="cm">/**</span>
 <span class="cm">     * Check if bounding boxes do intersect. If one bounding box</span>
@@ -556,10 +556,10 @@ The intersection could be a line or only a point.</p>
 <span class="cm">     * @return &lt;code&gt;true&lt;/code&gt; if they intersect,</span>
 <span class="cm">     *         &lt;code&gt;false&lt;/code&gt; otherwise.</span>
 <span class="cm">     */</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">doBoundingBoxesIntersect</span><span class="o">(</span><span class="n">Point</span><span class="o">[]</span> <span class="n">a</span><span class="o">,</span> <span class="n">Point</span><span class="o">[]</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">a</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">x</span> <span class="o">&lt;=</span> <span class="n">b</span><span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="na">x</span> <span class="o">&amp;&amp;</span> <span class="n">a</span><span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="na">x</span> <span class="o">&gt;=</span> <span class="n">b</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">x</span> <span class="o">&amp;&amp;</span> <span class="n">a</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">y</span> <span class="o">&lt;=</span> <span class="n">b</span><span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="na">y</span>
-                <span class="o">&amp;&amp;</span> <span class="n">a</span><span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="na">y</span> <span class="o">&gt;=</span> <span class="n">b</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">y</span><span class="o">;</span>
-    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">doBoundingBoxesIntersect</span><span class="p">(</span><span class="n">Point</span><span class="o">[]</span> <span class="n">a</span><span class="p">,</span> <span class="n">Point</span><span class="o">[]</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">a</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">x</span> <span class="o">&lt;=</span> <span class="n">b</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">.</span><span class="na">x</span> <span class="o">&amp;&amp;</span> <span class="n">a</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">.</span><span class="na">x</span> <span class="o">&gt;=</span> <span class="n">b</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">x</span> <span class="o">&amp;&amp;</span> <span class="n">a</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">y</span> <span class="o">&lt;=</span> <span class="n">b</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">.</span><span class="na">y</span>
+                <span class="o">&amp;&amp;</span> <span class="n">a</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">.</span><span class="na">y</span> <span class="o">&gt;=</span> <span class="n">b</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">y</span><span class="p">;</span>
+    <span class="p">}</span>
 
     <span class="cm">/**</span>
 <span class="cm">     * Checks if a Point is on a line</span>
@@ -569,14 +569,14 @@ The intersection could be a line or only a point.</p>
 <span class="cm">     * @return &lt;code&gt;true&lt;/code&gt; if point is on line, otherwise</span>
 <span class="cm">     *         &lt;code&gt;false&lt;/code&gt;</span>
 <span class="cm">     */</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isPointOnLine</span><span class="o">(</span><span class="n">LineSegment</span> <span class="n">a</span><span class="o">,</span> <span class="n">Point</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isPointOnLine</span><span class="p">(</span><span class="n">LineSegment</span> <span class="n">a</span><span class="p">,</span> <span class="n">Point</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
         <span class="c1">// Move the image, so that a.first is on (0|0)</span>
-        <span class="n">LineSegment</span> <span class="n">aTmp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LineSegment</span><span class="o">(</span><span class="k">new</span> <span class="n">Point</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">),</span> <span class="k">new</span> <span class="n">Point</span><span class="o">(</span>
-                <span class="n">a</span><span class="o">.</span><span class="na">second</span><span class="o">.</span><span class="na">x</span> <span class="o">-</span> <span class="n">a</span><span class="o">.</span><span class="na">first</span><span class="o">.</span><span class="na">x</span><span class="o">,</span> <span class="n">a</span><span class="o">.</span><span class="na">second</span><span class="o">.</span><span class="na">y</span> <span class="o">-</span> <span class="n">a</span><span class="o">.</span><span class="na">first</span><span class="o">.</span><span class="na">y</span><span class="o">));</span>
-        <span class="n">Point</span> <span class="n">bTmp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span><span class="o">(</span><span class="n">b</span><span class="o">.</span><span class="na">x</span> <span class="o">-</span> <span class="n">a</span><span class="o">.</span><span class="na">first</span><span class="o">.</span><span class="na">x</span><span class="o">,</span> <span class="n">b</span><span class="o">.</span><span class="na">y</span> <span class="o">-</span> <span class="n">a</span><span class="o">.</span><span class="na">first</span><span class="o">.</span><span class="na">y</span><span class="o">);</span>
-        <span class="kt">double</span> <span class="n">r</span> <span class="o">=</span> <span class="n">crossProduct</span><span class="o">(</span><span class="n">aTmp</span><span class="o">.</span><span class="na">second</span><span class="o">,</span> <span class="n">bTmp</span><span class="o">);</span>
-        <span class="k">return</span> <span class="n">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">r</span><span class="o">)</span> <span class="o">&lt;</span> <span class="n">EPSILON</span><span class="o">;</span>
-    <span class="o">}</span>
+        <span class="n">LineSegment</span> <span class="n">aTmp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LineSegment</span><span class="p">(</span><span class="k">new</span> <span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="k">new</span> <span class="n">Point</span><span class="p">(</span>
+                <span class="n">a</span><span class="p">.</span><span class="na">second</span><span class="p">.</span><span class="na">x</span> <span class="o">-</span> <span class="n">a</span><span class="p">.</span><span class="na">first</span><span class="p">.</span><span class="na">x</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="na">second</span><span class="p">.</span><span class="na">y</span> <span class="o">-</span> <span class="n">a</span><span class="p">.</span><span class="na">first</span><span class="p">.</span><span class="na">y</span><span class="p">));</span>
+        <span class="n">Point</span> <span class="n">bTmp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="na">x</span> <span class="o">-</span> <span class="n">a</span><span class="p">.</span><span class="na">first</span><span class="p">.</span><span class="na">x</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="na">y</span> <span class="o">-</span> <span class="n">a</span><span class="p">.</span><span class="na">first</span><span class="p">.</span><span class="na">y</span><span class="p">);</span>
+        <span class="kt">double</span> <span class="n">r</span> <span class="o">=</span> <span class="n">crossProduct</span><span class="p">(</span><span class="n">aTmp</span><span class="p">.</span><span class="na">second</span><span class="p">,</span> <span class="n">bTmp</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">Math</span><span class="p">.</span><span class="na">abs</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">EPSILON</span><span class="p">;</span>
+    <span class="p">}</span>
 
     <span class="cm">/**</span>
 <span class="cm">     * Checks if a point is right of a line. If the point is on the</span>
@@ -586,13 +586,13 @@ The intersection could be a line or only a point.</p>
 <span class="cm">     * @return &lt;code&gt;true&lt;/code&gt; if the point is right of the line,</span>
 <span class="cm">     *         &lt;code&gt;false&lt;/code&gt; otherwise</span>
 <span class="cm">     */</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isPointRightOfLine</span><span class="o">(</span><span class="n">LineSegment</span> <span class="n">a</span><span class="o">,</span> <span class="n">Point</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isPointRightOfLine</span><span class="p">(</span><span class="n">LineSegment</span> <span class="n">a</span><span class="p">,</span> <span class="n">Point</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
         <span class="c1">// Move the image, so that a.first is on (0|0)</span>
-        <span class="n">LineSegment</span> <span class="n">aTmp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LineSegment</span><span class="o">(</span><span class="k">new</span> <span class="n">Point</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">),</span> <span class="k">new</span> <span class="n">Point</span><span class="o">(</span>
-                <span class="n">a</span><span class="o">.</span><span class="na">second</span><span class="o">.</span><span class="na">x</span> <span class="o">-</span> <span class="n">a</span><span class="o">.</span><span class="na">first</span><span class="o">.</span><span class="na">x</span><span class="o">,</span> <span class="n">a</span><span class="o">.</span><span class="na">second</span><span class="o">.</span><span class="na">y</span> <span class="o">-</span> <span class="n">a</span><span class="o">.</span><span class="na">first</span><span class="o">.</span><span class="na">y</span><span class="o">));</span>
-        <span class="n">Point</span> <span class="n">bTmp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span><span class="o">(</span><span class="n">b</span><span class="o">.</span><span class="na">x</span> <span class="o">-</span> <span class="n">a</span><span class="o">.</span><span class="na">first</span><span class="o">.</span><span class="na">x</span><span class="o">,</span> <span class="n">b</span><span class="o">.</span><span class="na">y</span> <span class="o">-</span> <span class="n">a</span><span class="o">.</span><span class="na">first</span><span class="o">.</span><span class="na">y</span><span class="o">);</span>
-        <span class="k">return</span> <span class="n">crossProduct</span><span class="o">(</span><span class="n">aTmp</span><span class="o">.</span><span class="na">second</span><span class="o">,</span> <span class="n">bTmp</span><span class="o">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">;</span>
-    <span class="o">}</span>
+        <span class="n">LineSegment</span> <span class="n">aTmp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LineSegment</span><span class="p">(</span><span class="k">new</span> <span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="k">new</span> <span class="n">Point</span><span class="p">(</span>
+                <span class="n">a</span><span class="p">.</span><span class="na">second</span><span class="p">.</span><span class="na">x</span> <span class="o">-</span> <span class="n">a</span><span class="p">.</span><span class="na">first</span><span class="p">.</span><span class="na">x</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="na">second</span><span class="p">.</span><span class="na">y</span> <span class="o">-</span> <span class="n">a</span><span class="p">.</span><span class="na">first</span><span class="p">.</span><span class="na">y</span><span class="p">));</span>
+        <span class="n">Point</span> <span class="n">bTmp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="na">x</span> <span class="o">-</span> <span class="n">a</span><span class="p">.</span><span class="na">first</span><span class="p">.</span><span class="na">x</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="na">y</span> <span class="o">-</span> <span class="n">a</span><span class="p">.</span><span class="na">first</span><span class="p">.</span><span class="na">y</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">crossProduct</span><span class="p">(</span><span class="n">aTmp</span><span class="p">.</span><span class="na">second</span><span class="p">,</span> <span class="n">bTmp</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
 
     <span class="cm">/**</span>
 <span class="cm">     * Check if line segment first touches or crosses the line that is</span>
@@ -604,13 +604,13 @@ The intersection could be a line or only a point.</p>
 <span class="cm">     *                           crosses line second,</span>
 <span class="cm">     *         &lt;code&gt;false&lt;/code&gt; otherwise.</span>
 <span class="cm">     */</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">lineSegmentTouchesOrCrossesLine</span><span class="o">(</span><span class="n">LineSegment</span> <span class="n">a</span><span class="o">,</span>
-            <span class="n">LineSegment</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">isPointOnLine</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">.</span><span class="na">first</span><span class="o">)</span>
-                <span class="o">||</span> <span class="n">isPointOnLine</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">.</span><span class="na">second</span><span class="o">)</span>
-                <span class="o">||</span> <span class="o">(</span><span class="n">isPointRightOfLine</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">.</span><span class="na">first</span><span class="o">)</span> <span class="o">^</span> <span class="n">isPointRightOfLine</span><span class="o">(</span><span class="n">a</span><span class="o">,</span>
-                        <span class="n">b</span><span class="o">.</span><span class="na">second</span><span class="o">));</span>
-    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">lineSegmentTouchesOrCrossesLine</span><span class="p">(</span><span class="n">LineSegment</span> <span class="n">a</span><span class="p">,</span>
+            <span class="n">LineSegment</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">isPointOnLine</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="na">first</span><span class="p">)</span>
+                <span class="o">||</span> <span class="n">isPointOnLine</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="na">second</span><span class="p">)</span>
+                <span class="o">||</span> <span class="p">(</span><span class="n">isPointRightOfLine</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="na">first</span><span class="p">)</span> <span class="o">^</span> <span class="n">isPointRightOfLine</span><span class="p">(</span><span class="n">a</span><span class="p">,</span>
+                        <span class="n">b</span><span class="p">.</span><span class="na">second</span><span class="p">));</span>
+    <span class="p">}</span>
 
     <span class="cm">/**</span>
 <span class="cm">     * Check if line segments intersect</span>
@@ -619,15 +619,15 @@ The intersection could be a line or only a point.</p>
 <span class="cm">     * @return &lt;code&gt;true&lt;/code&gt; if lines do intersect,</span>
 <span class="cm">     *         &lt;code&gt;false&lt;/code&gt; otherwise</span>
 <span class="cm">     */</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">doLinesIntersect</span><span class="o">(</span><span class="n">LineSegment</span> <span class="n">a</span><span class="o">,</span> <span class="n">LineSegment</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">Point</span><span class="o">[]</span> <span class="n">box1</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="na">getBoundingBox</span><span class="o">();</span>
-        <span class="n">Point</span><span class="o">[]</span> <span class="n">box2</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="na">getBoundingBox</span><span class="o">();</span>
-        <span class="k">return</span> <span class="n">doBoundingBoxesIntersect</span><span class="o">(</span><span class="n">box1</span><span class="o">,</span> <span class="n">box2</span><span class="o">)</span>
-                <span class="o">&amp;&amp;</span> <span class="n">lineSegmentTouchesOrCrossesLine</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span>
-                <span class="o">&amp;&amp;</span> <span class="n">lineSegmentTouchesOrCrossesLine</span><span class="o">(</span><span class="n">b</span><span class="o">,</span> <span class="n">a</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</pre></div>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">doLinesIntersect</span><span class="p">(</span><span class="n">LineSegment</span> <span class="n">a</span><span class="p">,</span> <span class="n">LineSegment</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Point</span><span class="o">[]</span> <span class="n">box1</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="na">getBoundingBox</span><span class="p">();</span>
+        <span class="n">Point</span><span class="o">[]</span> <span class="n">box2</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="na">getBoundingBox</span><span class="p">();</span>
+        <span class="k">return</span> <span class="n">doBoundingBoxesIntersect</span><span class="p">(</span><span class="n">box1</span><span class="p">,</span> <span class="n">box2</span><span class="p">)</span>
+                <span class="o">&amp;&amp;</span> <span class="n">lineSegmentTouchesOrCrossesLine</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+                <span class="o">&amp;&amp;</span> <span class="n">lineSegmentTouchesOrCrossesLine</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <h2 id="addendum">Addendum</h2>
 <p>Some notes for me:
 <ul>

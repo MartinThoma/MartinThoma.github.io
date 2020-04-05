@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Pandas, Code, " />
 
-<meta property="og:title" content="Pandas: Merge, join, concatenate "/>
+<meta property="og:title" content="Pandas: Merge, join, concatenate"/>
 <meta property="og:url" content="../pandas-merge-join-concatenate/" />
 <meta property="og:description" content="I always get confused about the different methods how to join Pandas dataframes. So here are some examples that should make it crystal clear. First, we create two dataframes: #!/usr/bin/env python import pandas as pd countries = [&#34;Germany&#34;, &#34;France&#34;, &#34;Indonesia&#34;] inhabitants = [82.5 * 10 ** 6, 66.9 * 10 ** 6 …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2018-03-14T20:00:00+01:00" />
-<meta name="twitter:title" content="Pandas: Merge, join, concatenate ">
+<meta name="twitter:title" content="Pandas: Merge, join, concatenate">
 <meta name="twitter:description" content="I always get confused about the different methods how to join Pandas dataframes. So here are some examples that should make it crystal clear. First, we create two dataframes: #!/usr/bin/env python import pandas as pd countries = [&#34;Germany&#34;, &#34;France&#34;, &#34;Indonesia&#34;] inhabitants = [82.5 * 10 ** 6, 66.9 * 10 ** 6 …">
 <meta property="og:image" content="logos/pandas.png" />
 <meta name="twitter:image" content="logos/pandas.png" >
 
-        <title>Pandas: Merge, join, concatenate  · Martin Thoma
+        <title>Pandas: Merge, join, concatenate · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../pandas-merge-join-concatenate/"> Pandas: Merge, join, concatenate  </a></h1>
+    <h1><a href="../pandas-merge-join-concatenate/"> Pandas: Merge, join, concatenate </a></h1>
     </header>
 </div>
 
@@ -113,9 +113,9 @@ MathJax.Hub.Queue(function() {
             <p>I always get confused about the different methods how to join Pandas
 dataframes. So here are some examples that should make it crystal clear.</p>
 <p>First, we create two dataframes:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="n">countries</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Germany"</span><span class="p">,</span> <span class="s2">"France"</span><span class="p">,</span> <span class="s2">"Indonesia"</span><span class="p">]</span>
 <span class="n">inhabitants</span> <span class="o">=</span> <span class="p">[</span><span class="mf">82.5</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">6</span><span class="p">,</span> <span class="mf">66.9</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">6</span><span class="p">,</span> <span class="mf">255.5</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">6</span><span class="p">]</span>
@@ -125,61 +125,61 @@ dataframes. So here are some examples that should make it crystal clear.</p>
     <span class="p">{</span><span class="s2">"country"</span><span class="p">:</span> <span class="n">countries</span><span class="p">,</span> <span class="s2">"inhabitant"</span><span class="p">:</span> <span class="n">inhabitants</span><span class="p">,</span> <span class="s2">"capital"</span><span class="p">:</span> <span class="n">capitals</span><span class="p">}</span>
 <span class="p">)</span>
 <span class="n">df1</span> <span class="o">=</span> <span class="n">df1</span><span class="p">[[</span><span class="s2">"country"</span><span class="p">,</span> <span class="s2">"capital"</span><span class="p">,</span> <span class="s2">"inhabitant"</span><span class="p">]]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">df1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df1</span><span class="p">)</span>
 
 <span class="n">countries</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Germany"</span><span class="p">,</span> <span class="s2">"Italy"</span><span class="p">,</span> <span class="s2">"Spain"</span><span class="p">,</span> <span class="s2">"Austria"</span><span class="p">]</span>
 <span class="n">capitals</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Berlin"</span><span class="p">,</span> <span class="s2">"Rome"</span><span class="p">,</span> <span class="s2">"Madrid"</span><span class="p">,</span> <span class="s2">"Vienna"</span><span class="p">]</span>
 <span class="n">hdis</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.926</span><span class="p">,</span> <span class="mf">0.897</span><span class="p">,</span> <span class="mf">0.844</span><span class="p">,</span> <span class="mf">0.893</span><span class="p">]</span>
 <span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"country"</span><span class="p">:</span> <span class="n">countries</span><span class="p">,</span> <span class="s2">"capital"</span><span class="p">:</span> <span class="n">capitals</span><span class="p">,</span> <span class="s2">"HDI"</span><span class="p">:</span> <span class="n">hdis</span><span class="p">})</span>
 <span class="n">df2</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[[</span><span class="s2">"country"</span><span class="p">,</span> <span class="s2">"capital"</span><span class="p">,</span> <span class="s2">"HDI"</span><span class="p">]]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
-</pre></div>
+<span class="nb">print</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
+</code></pre></div>
 <p>So <code>df1</code> is:</p>
-<div class="highlight"><pre><span></span>     country  capital   inhabitant
+<div class="highlight"><pre><span></span><code>     country  capital   inhabitant
 0    Germany   Berlin   82500000.0
 1     France    Paris   66900000.0
 2  Indonesia  Jakarta  255500000.0
-</pre></div>
+</code></pre></div>
 <p>and <code>df2</code> is</p>
-<div class="highlight"><pre><span></span>   country capital    HDI
+<div class="highlight"><pre><span></span><code>   country capital    HDI
 0  Germany  Berlin  0.926
 1    Italy    Rome  0.897
 2    Spain  Madrid  0.844
 3  Austria  Vienna  0.893
-</pre></div>
+</code></pre></div>
 <h2 id="merge">Merge</h2>
 <p>The <a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.merge.html">pandas docs</a>
 tell you that it has the syntax:</p>
-<div class="highlight"><pre><span></span>&gt;&gt;&gt; df1.merge(df2, on='country', how='inner')
-   country capital_x  inhabitant capital_y    HDI
-0  Germany    Berlin  82500000.0    Berlin  0.926
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">&gt;&gt;&gt; df1.merge(df2, on='country', how='inner')</span>
+<span class="err">   country capital_x  inhabitant capital_y    HDI</span>
+<span class="err">0  Germany    Berlin  82500000.0    Berlin  0.926</span>
+</code></pre></div>
 <p>Please note that the column <code>capital</code> was duplicated as it is in both tables</p>
 <p>Then you can do all of the usual operations we know from SQL JOINs, e.g. a LEFT JOIN:</p>
-<div class="highlight"><pre><span></span>&gt;&gt;&gt; df1.merge(df2, on='country', how='left')
-     country capital_x   inhabitant capital_y    HDI
-0    Germany    Berlin   82500000.0    Berlin  0.926
-1     France     Paris   66900000.0       NaN    NaN
-2  Indonesia   Jakarta  255500000.0       NaN    NaN
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">&gt;&gt;&gt; df1.merge(df2, on='country', how='left')</span>
+<span class="err">     country capital_x   inhabitant capital_y    HDI</span>
+<span class="err">0    Germany    Berlin   82500000.0    Berlin  0.926</span>
+<span class="err">1     France     Paris   66900000.0       NaN    NaN</span>
+<span class="err">2  Indonesia   Jakarta  255500000.0       NaN    NaN</span>
+</code></pre></div>
 <p>A RIGHT JOIN:</p>
-<div class="highlight"><pre><span></span>&gt;&gt;&gt; df1.merge(df2, on='country', how='right')
-   country capital_x  inhabitant capital_y    HDI
-0  Germany    Berlin  82500000.0    Berlin  0.926
-1    Italy       NaN         NaN      Rome  0.897
-2    Spain       NaN         NaN    Madrid  0.844
-3  Austria       NaN         NaN    Vienna  0.893
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">&gt;&gt;&gt; df1.merge(df2, on='country', how='right')</span>
+<span class="err">   country capital_x  inhabitant capital_y    HDI</span>
+<span class="err">0  Germany    Berlin  82500000.0    Berlin  0.926</span>
+<span class="err">1    Italy       NaN         NaN      Rome  0.897</span>
+<span class="err">2    Spain       NaN         NaN    Madrid  0.844</span>
+<span class="err">3  Austria       NaN         NaN    Vienna  0.893</span>
+</code></pre></div>
 <p>OUTER JOIN:</p>
-<div class="highlight"><pre><span></span>&gt;&gt;&gt; df1.merge(df2, on='country', how='outer')
-     country capital_x   inhabitant capital_y    HDI
-0    Germany    Berlin   82500000.0    Berlin  0.926
-1     France     Paris   66900000.0       NaN    NaN
-2  Indonesia   Jakarta  255500000.0       NaN    NaN
-3      Italy       NaN          NaN      Rome  0.897
-4      Spain       NaN          NaN    Madrid  0.844
-5    Austria       NaN          NaN    Vienna  0.893
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">&gt;&gt;&gt; df1.merge(df2, on='country', how='outer')</span>
+<span class="err">     country capital_x   inhabitant capital_y    HDI</span>
+<span class="err">0    Germany    Berlin   82500000.0    Berlin  0.926</span>
+<span class="err">1     France     Paris   66900000.0       NaN    NaN</span>
+<span class="err">2  Indonesia   Jakarta  255500000.0       NaN    NaN</span>
+<span class="err">3      Italy       NaN          NaN      Rome  0.897</span>
+<span class="err">4      Spain       NaN          NaN    Madrid  0.844</span>
+<span class="err">5    Austria       NaN          NaN    Vienna  0.893</span>
+</code></pre></div>
 <h2 id="join">Join</h2>
 <p>Join is just a convenience method, which uses merge and should be used if you
 want to merge on the index:</p>
@@ -199,16 +199,16 @@ Efficiently Join multiple DataFrame objects by index at once by passing a
 list.</p>
 </blockquote>
 <p>Having a look at the following example:</p>
-<div class="highlight"><pre><span></span>&gt;&gt;&gt; df1.join(df2, on='country', how='outer', lsuffix='_df1')
-  country_df1 capital_df1   inhabitant country capital    HDI
-0     Germany      Berlin   82500000.0     NaN     NaN    NaN
-1      France       Paris   66900000.0     NaN     NaN    NaN
-2   Indonesia     Jakarta  255500000.0     NaN     NaN    NaN
-2         NaN         NaN          NaN       0  Berlin  0.926
-2         NaN         NaN          NaN       1    Rome  0.897
-2         NaN         NaN          NaN       2  Madrid  0.844
-2         NaN         NaN          NaN       3  Vienna  0.893
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">&gt;&gt;&gt; df1.join(df2, on='country', how='outer', lsuffix='_df1')</span>
+<span class="err">  country_df1 capital_df1   inhabitant country capital    HDI</span>
+<span class="err">0     Germany      Berlin   82500000.0     NaN     NaN    NaN</span>
+<span class="err">1      France       Paris   66900000.0     NaN     NaN    NaN</span>
+<span class="err">2   Indonesia     Jakarta  255500000.0     NaN     NaN    NaN</span>
+<span class="err">2         NaN         NaN          NaN       0  Berlin  0.926</span>
+<span class="err">2         NaN         NaN          NaN       1    Rome  0.897</span>
+<span class="err">2         NaN         NaN          NaN       2  Madrid  0.844</span>
+<span class="err">2         NaN         NaN          NaN       3  Vienna  0.893</span>
+</code></pre></div>
 <p>I would say join and merge look extremely similar. You can notice differences
 in the function signature when you look at the help, but the difference in the
 output is more subtile. It's the index: For merge, you still have the typical
@@ -217,16 +217,16 @@ don't have that anymore.</p>
 <h2 id="concatenate">Concatenate</h2>
 <p><a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.concat.html">Pandas Documentation</a>
 and the example</p>
-<div class="highlight"><pre><span></span>&gt;&gt;&gt; pd.concat([df1, df2])
-     HDI  capital    country   inhabitant
-0    NaN   Berlin    Germany   82500000.0
-1    NaN    Paris     France   66900000.0
-2    NaN  Jakarta  Indonesia  255500000.0
-0  0.926   Berlin    Germany          NaN
-1  0.897     Rome      Italy          NaN
-2  0.844   Madrid      Spain          NaN
-3  0.893   Vienna    Austria          NaN
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">&gt;&gt;&gt; pd.concat([df1, df2])</span>
+<span class="err">     HDI  capital    country   inhabitant</span>
+<span class="err">0    NaN   Berlin    Germany   82500000.0</span>
+<span class="err">1    NaN    Paris     France   66900000.0</span>
+<span class="err">2    NaN  Jakarta  Indonesia  255500000.0</span>
+<span class="err">0  0.926   Berlin    Germany          NaN</span>
+<span class="err">1  0.897     Rome      Italy          NaN</span>
+<span class="err">2  0.844   Madrid      Spain          NaN</span>
+<span class="err">3  0.893   Vienna    Austria          NaN</span>
+</code></pre></div>
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="https://pandas.pydata.org/pandas-docs/stable/merging.html">Merge, join, and concatenate</a></li>

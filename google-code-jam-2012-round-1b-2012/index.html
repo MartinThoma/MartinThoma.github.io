@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Programming, Python, Google, C, Google Code Jam, competition, Code, " />
 
-<meta property="og:title" content="Google Code Jam 2012 – Round 1B 2012 "/>
+<meta property="og:title" content="Google Code Jam 2012 – Round 1B 2012"/>
 <meta property="og:url" content="../google-code-jam-2012-round-1b-2012/" />
 <meta property="og:description" content="5614 tried the first problem, but only 3281 people are listed in the scoreboard. So quite a lot tried to solve a problem, but couldn&#39;t even solve one. I think these problems were much harder than the ones from Round 1A 2012. Problem 1 (Safety in Numbers): Small Set: 2695 …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2012-05-05T21:20:45+02:00" />
-<meta name="twitter:title" content="Google Code Jam 2012 – Round 1B 2012 ">
+<meta name="twitter:title" content="Google Code Jam 2012 – Round 1B 2012">
 <meta name="twitter:description" content="5614 tried the first problem, but only 3281 people are listed in the scoreboard. So quite a lot tried to solve a problem, but couldn&#39;t even solve one. I think these problems were much harder than the ones from Round 1A 2012. Problem 1 (Safety in Numbers): Small Set: 2695 …">
 <meta property="og:image" content="2012/04/code-jam-logo.png" />
 <meta name="twitter:image" content="2012/04/code-jam-logo.png" >
 
-        <title>Google Code Jam 2012 – Round 1B 2012  · Martin Thoma
+        <title>Google Code Jam 2012 – Round 1B 2012 · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../google-code-jam-2012-round-1b-2012/"> Google Code Jam 2012 &ndash; Round 1B 2012  </a></h1>
+    <h1><a href="../google-code-jam-2012-round-1b-2012/"> Google Code Jam 2012 &ndash; Round 1B 2012 </a></h1>
     </header>
 </div>
 
@@ -151,7 +151,7 @@ X is the sum of all points given by judges. The visitors have an equal amount of
 <span class="math">\(V_i \geq \frac{N-1}{X \cdot N} \cdot (avg - p_i + X)\)</span></p>
 <p>Unfortunately, its possible that the other players can't get an equal number of points. So this approach is useless in this case.</p>
 <p>Here is an approach with an approximation, which also works for the large input set.</p>
-<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp"></span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 
@@ -205,18 +205,18 @@ X is the sum of all points given by judges. The visitors have an equal amount of
         <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 <h2 id="tide goes in, tide goes out">Tide Goes In, Tide Goes Out</h2>
 <p>This one could be solved with Graphs. You calculate one Graph, where every node is one cell. Every cell / node is connected to adjacent cells. Every cell has a value which is the time when you can enter them.</p>
 <p>After you've created the graph, you can make something like that:</p>
-<div class="highlight"><pre><span></span><span class="n">graph</span> <span class="o">=</span> <span class="n">createGraph</span><span class="p">(</span><span class="n">floorHeight</span><span class="p">,</span> <span class="n">ceilingHeight</span><span class="p">)</span>
-<span class="n">endReached</span> <span class="o">=</span> <span class="bp">False</span>
+<div class="highlight"><pre><span></span><code><span class="n">graph</span> <span class="o">=</span> <span class="n">createGraph</span><span class="p">(</span><span class="n">floorHeight</span><span class="p">,</span> <span class="n">ceilingHeight</span><span class="p">)</span>
+<span class="n">endReached</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="n">nodesReached</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">while</span> <span class="ow">not</span> <span class="n">endReached</span><span class="p">:</span>
     <span class="n">tmp</span> <span class="o">=</span> <span class="n">getMinimumAdjacentNode</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">nodesReached</span><span class="p">)</span>
     <span class="n">nodesReached</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
 <span class="k">return</span> <span class="n">maxTime</span><span class="p">(</span><span class="n">nodesReached</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 <h2 id="equal sums">Equal Sums</h2>
 <p>A trivial solution for the small one is to try every combination. You might want to take a look at Pythonss <a href="http://docs.python.org/library/itertools.html#itertools.combinations">itertools.combinations()</a>.</p>
 <h2 id="see also">See also</h2>

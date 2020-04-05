@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Python, command line arguments, Code, " />
 
-<meta property="og:title" content="How to parse command line arguments in Python "/>
+<meta property="og:title" content="How to parse command line arguments in Python"/>
 <meta property="og:url" content="../how-to-parse-command-line-arguments-in-python/" />
 <meta property="og:description" content="Argparse The argparse module makes it easy to write user-friendly command-line interfaces. The program defines what arguments it requires, and argparse will figure out how to parse those out of sys.argv. The argparse module also automatically generates help and usage messages and issues errors when users give the program …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2012-07-18T17:00:03+02:00" />
-<meta name="twitter:title" content="How to parse command line arguments in Python ">
+<meta name="twitter:title" content="How to parse command line arguments in Python">
 <meta name="twitter:description" content="Argparse The argparse module makes it easy to write user-friendly command-line interfaces. The program defines what arguments it requires, and argparse will figure out how to parse those out of sys.argv. The argparse module also automatically generates help and usage messages and issues errors when users give the program …">
 <meta property="og:image" content="2011/09/Python-Logo.png" />
 <meta name="twitter:image" content="2011/09/Python-Logo.png" >
 
-        <title>How to parse command line arguments in Python  · Martin Thoma
+        <title>How to parse command line arguments in Python · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../how-to-parse-command-line-arguments-in-python/"> How to parse command line arguments in Python  </a></h1>
+    <h1><a href="../how-to-parse-command-line-arguments-in-python/"> How to parse command line arguments in Python </a></h1>
     </header>
 </div>
 
@@ -117,7 +117,7 @@ MathJax.Hub.Queue(function() {
 <h3 id="usage">Usage</h3>
 <p>As far as I've just tried it, you can use argparse very similar to optparse. See this <a href="https://github.com/MartinThoma/matrix-multiplication/commit/7af938c54fd2effee3efe74352b76f01d2e817e5#Python/ikjMultiplication.py">diff</a> for my switch from optparse to argparse for a simple script.</p>
 <p>It is very easy to add command line <del>options</del> argument (if you require an option, it would not be an option any more, would it? I'll try to call them arguments from now on):</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span>
@@ -137,14 +137,14 @@ MathJax.Hub.Queue(function() {
     <span class="s2">"--quiet"</span><span class="p">,</span>
     <span class="n">action</span><span class="o">=</span><span class="s2">"store_false"</span><span class="p">,</span>
     <span class="n">dest</span><span class="o">=</span><span class="s2">"verbose"</span><span class="p">,</span>
-    <span class="n">default</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="n">default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">help</span><span class="o">=</span><span class="s2">"don't print status messages to stdout"</span><span class="p">,</span>
 <span class="p">)</span>
 
 <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">myFilenameVariable</span><span class="p">)</span>
-</pre></div>
+<span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">myFilenameVariable</span><span class="p">)</span>
+</code></pre></div>
 <p>Every option has some values like:
 <ul>
 <li><a href="http://docs.python.org/library/argparse.html#dest">dest</a>: You will access the value of option with this variable</li>
@@ -167,17 +167,17 @@ MathJax.Hub.Queue(function() {
 <li><a href="http://docs.python.org/library/argparse.html#type">type</a>: Use this command, if the argument is of another type (e.g. int or float).</li>
 </ul></p>
 <p>argparse automatically generates a help text. So if you call <code>python myScript.py --help</code> you will get something like that:</p>
-<div class="highlight"><pre><span></span>usage: ikjMultiplication.py <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>-i FILE<span class="o">]</span>
+<div class="highlight"><pre><span></span><code>usage: ikjMultiplication.py <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>-i FILE<span class="o">]</span>
 
 ikjMatrix multiplication
 
 optional arguments:
   -h, --help  show this <span class="nb">help</span> message and <span class="nb">exit</span>
   -i FILE     input file with two matrices
-</pre></div>
+</code></pre></div>
 <h3 id="example 1: fibonacci">Example 1: Fibonacci</h3>
 <p>It is absolutely no problem to calculate the 100,000st Fibonacci number.</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 
@@ -211,11 +211,11 @@ optional arguments:
     <span class="p">)</span>
 
     <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">fib</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">n</span><span class="p">))</span>
-</pre></div>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fib</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">n</span><span class="p">))</span>
+</code></pre></div>
 <p>Note that it uses <code>type=int</code> not <code>type="int"</code> as it was in optparse.</p>
 <h3 id="example 2: less">Example 2: less</h3>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 
@@ -255,21 +255,21 @@ optional arguments:
         <span class="s2">"--quiet"</span><span class="p">,</span>
         <span class="n">action</span><span class="o">=</span><span class="s2">"store_false"</span><span class="p">,</span>
         <span class="n">dest</span><span class="o">=</span><span class="s2">"verbose"</span><span class="p">,</span>
-        <span class="n">default</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="s2">"don't print status messages to stdout"</span><span class="p">,</span>
     <span class="p">)</span>
 
     <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"Will open file now and print </span><span class="si">%i</span><span class="s2"> lines."</span> <span class="o">%</span> <span class="n">args</span><span class="o">.</span><span class="n">n</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Will open file now and print </span><span class="si">%i</span><span class="s2"> lines."</span> <span class="o">%</span> <span class="n">args</span><span class="o">.</span><span class="n">n</span><span class="p">)</span>
 
     <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">n</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">())</span>
-</pre></div>
+        <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">())</span>
+</code></pre></div>
 <h3 id="example-3-copy-paste-template">Example 3: copy-paste template</h3>
 <p>This is how I use it most of the time. I want to show defaults in help:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="sd">"""Example for a simple program with a command line parser."""</span>
@@ -320,7 +320,7 @@ optional arguments:
         <span class="s2">"--quiet"</span><span class="p">,</span>
         <span class="n">action</span><span class="o">=</span><span class="s2">"store_false"</span><span class="p">,</span>
         <span class="n">dest</span><span class="o">=</span><span class="s2">"verbose"</span><span class="p">,</span>
-        <span class="n">default</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="s2">"don't print status messages to stdout"</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="k">return</span> <span class="n">parser</span>
@@ -328,7 +328,7 @@ optional arguments:
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">get_parser</span><span class="p">()</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 <h2 id="optparse_1">Optparse</h2>
 <div class="info">Deprecated since version 2.7: The optparse module is deprecated and will not be developed further; development will continue with the argparse module.</div>
 <p>Parsing command line arguments with <a href="http://docs.python.org/library/optparse.html">optparse</a> was very easy, but as it is deprecated and argparse works almost the same way, I will not make any examples. Just use argparse.</p>

@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="OS, Operating Systems, GNOME, file manager, Bug, Code, " />
 
-<meta property="og:title" content="Cyclic references kill Nautilus "/>
+<meta property="og:title" content="Cyclic references kill Nautilus"/>
 <meta property="og:url" content="../cyclic-references-kill-nautilus/" />
 <meta property="og:description" content="I just wanted to answer an assignment and noticed that cyclic references kill Nautilus. What I did mkdir testFolder cd testFolder touch testFile.txt ln -s testFile.txt mySoftlink rm testFile.txt ln -s mySoftlink testFile.txt ls -l total 0 lrwxrwxrwx 1 moose moose 10 2013-01-20 21:20 …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2013-01-20T21:46:34+01:00" />
-<meta name="twitter:title" content="Cyclic references kill Nautilus ">
+<meta name="twitter:title" content="Cyclic references kill Nautilus">
 <meta name="twitter:description" content="I just wanted to answer an assignment and noticed that cyclic references kill Nautilus. What I did mkdir testFolder cd testFolder touch testFile.txt ln -s testFile.txt mySoftlink rm testFile.txt ln -s mySoftlink testFile.txt ls -l total 0 lrwxrwxrwx 1 moose moose 10 2013-01-20 21:20 …">
 <meta property="og:image" content="2013/01/Nautilus.png" />
 <meta name="twitter:image" content="2013/01/Nautilus.png" >
 
-        <title>Cyclic references kill Nautilus  · Martin Thoma
+        <title>Cyclic references kill Nautilus · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../cyclic-references-kill-nautilus/"> Cyclic references kill Nautilus  </a></h1>
+    <h1><a href="../cyclic-references-kill-nautilus/"> Cyclic references kill Nautilus </a></h1>
     </header>
 </div>
 
@@ -112,7 +112,7 @@ MathJax.Hub.Queue(function() {
             
             <p>I just wanted to answer an assignment and noticed that cyclic references kill Nautilus.</p>
 <h2 id="what i did">What I did</h2>
-<div class="highlight"><pre><span></span>mkdir testFolder
+<div class="highlight"><pre><span></span><code>mkdir testFolder
 <span class="nb">cd</span> testFolder
 touch testFile.txt
 ln -s testFile.txt mySoftlink
@@ -122,10 +122,10 @@ ls -l
 total <span class="m">0</span>
 lrwxrwxrwx <span class="m">1</span> moose moose <span class="m">10</span> <span class="m">2013</span>-01-20 <span class="m">21</span>:20 myfile.txt -&gt; mySoftLink
 lrwxrwxrwx <span class="m">1</span> moose moose <span class="m">10</span> <span class="m">2013</span>-01-20 <span class="m">21</span>:18 mySoftLink -&gt; myfile.txt
-</pre></div>
+</code></pre></div>
 <p>Those two softlinks refer to each other. Now try to open this folder with Nautilus:</p>
-<div class="highlight"><pre><span></span>nautilus /home/moose/Desktop/testFolder/
-</pre></div>
+<div class="highlight"><pre><span></span><code>nautilus /home/moose/Desktop/testFolder/
+</code></pre></div>
 <p>Nautilus opens and instantly closes again.</p>
 <h2 id="my nautilus">My Nautilus</h2>
 <p>I use Ubuntu 10.04.4 LTS with Nautilus 2.30.1.</p>

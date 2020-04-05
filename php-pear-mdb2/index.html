@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="PHP, Web Development, PEAR, Database, Code, " />
 
-<meta property="og:title" content="PHP: PEAR MDB2 "/>
+<meta property="og:title" content="PHP: PEAR MDB2"/>
 <meta property="og:url" content="../php-pear-mdb2/" />
 <meta property="og:description" content="PEAR is short for PHP Extension and Application Repository. It provides a very easy method to get some common classes. PEAR MDB2 is a database class. It is a successor of PEAR DB. I took a look at version 1.4.1 which is currently the …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2011-09-24T01:38:35+02:00" />
-<meta name="twitter:title" content="PHP: PEAR MDB2 ">
+<meta name="twitter:title" content="PHP: PEAR MDB2">
 <meta name="twitter:description" content="PEAR is short for PHP Extension and Application Repository. It provides a very easy method to get some common classes. PEAR MDB2 is a database class. It is a successor of PEAR DB. I took a look at version 1.4.1 which is currently the …">
 <meta property="og:image" content="2011/09/PEAR-Logo.png" />
 <meta name="twitter:image" content="2011/09/PEAR-Logo.png" >
 
-        <title>PHP: PEAR MDB2  · Martin Thoma
+        <title>PHP: PEAR MDB2 · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../php-pear-mdb2/"> PHP: PEAR MDB2  </a></h1>
+    <h1><a href="../php-pear-mdb2/"> PHP: PEAR MDB2 </a></h1>
     </header>
 </div>
 
@@ -114,44 +114,44 @@ MathJax.Hub.Queue(function() {
 <p>PEAR MDB2 is a database class. It is a successor of PEAR DB. I took a look at version 1.4.1 which is currently the latest stable one.</p>
 <h2 id="install pear">Install PEAR</h2>
 <p>You can install PEAR on Ubuntu via</p>
-<div class="highlight"><pre><span></span>sudo apt-get install php-pear
-</pre></div>
+<div class="highlight"><pre><span></span><code>sudo apt-get install php-pear
+</code></pre></div>
 <p>You can check if it is installed with <a href="http://php.net/manual/en/function.phpinfo.php">phpinfo()</a>:</p>
-<div class="highlight"><pre><span></span><span class="cp">&lt;?php</span> <span class="nb">phpinfo</span><span class="p">();</span><span class="cp">?&gt;</span><span class="x"></span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span> <span class="nb">phpinfo</span><span class="p">();</span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
 <p>Something like <strong>.:/usr/share/php:/usr/share/pear</strong> should be in your <strong>include_path</strong>.</p>
 <h2 id="install pear mdb2">Install PEAR MDB2</h2>
 <p>PEAR MDB2 is then simply installed via</p>
-<div class="highlight"><pre><span></span>sudo pear install MDB2
-</pre></div>
+<div class="highlight"><pre><span></span><code>sudo pear install MDB2
+</code></pre></div>
 <p>Then install the optional MySQL package:</p>
-<div class="highlight"><pre><span></span>sudo pear install pear/MDB2#mysql
-</pre></div>
+<div class="highlight"><pre><span></span><code>sudo pear install pear/MDB2#mysql
+</code></pre></div>
 <h2 id="usage">Usage</h2>
 <p>I took a small chess database to test this package. You can set it up with <a href="http://code.google.com/p/community-chess/source/browse/trunk/install/chess.sql?spec=svn99&amp;r=98">this sql file</a>.</p>
 <p>It's sad, but only including <strong>MDB2.php</strong> shows 5 "Deprecated"-messages and 6 warings because of "Strict Standards".</p>
 <p>You can easily connect to the database:</p>
-<div class="highlight"><pre><span></span><span class="x">require_once "MDB2.php";</span>
+<div class="highlight"><pre><span></span><code><span class="x">require_once "MDB2.php";</span>
 
 <span class="x">$db   = new MDB2();</span>
 <span class="x">$dsn  = "mysql://chessuser:localpass@localhost/chess";</span>
 <span class="x">$mdb2 = MDB2::factory($dsn);</span>
 <span class="x">$mdb2-&gt;setFetchMode(MDB2_FETCHMODE_ASSOC);</span>
-</pre></div>
+</code></pre></div>
 <p>It is also very easy to fetch some data:</p>
-<div class="highlight"><pre><span></span><span class="x">$sql    = 'SELECT * FROM `chess_users`';</span>
+<div class="highlight"><pre><span></span><code><span class="x">$sql    = 'SELECT * FROM `chess_users`';</span>
 <span class="x">$result = $mdb2-&gt;query($sql);</span>
 <span class="x">while ($row = $result-&gt;fetchRow()) {</span>
 <span class="x">    print_r($row);</span>
 <span class="x">}</span>
-</pre></div>
+</code></pre></div>
 <p>or</p>
-<div class="highlight"><pre><span></span><span class="x">$sql    = 'SELECT * FROM `chess_users`';</span>
+<div class="highlight"><pre><span></span><code><span class="x">$sql    = 'SELECT * FROM `chess_users`';</span>
 <span class="x">$data = $mdb2-&gt;queryAll($sql);</span>
 <span class="x">print_r($data);</span>
-</pre></div>
+</code></pre></div>
 <p>This results in:</p>
-<div class="highlight"><pre><span></span>Array
+<div class="highlight"><pre><span></span><code>Array
 (
     [user_id] =&gt; 1
     [user_name] =&gt; abc
@@ -165,13 +165,13 @@ Array
     [user_password] =&gt; 098f6bcd4621d373cade4e832627b4f6
     [currentchesssoftware] =&gt; 0
 )
-</pre></div>
+</code></pre></div>
 <p>You can set limits via MDB2:</p>
-<div class="highlight"><pre><span></span><span class="x">$sql    = 'SELECT * FROM `chess_users`';</span>
+<div class="highlight"><pre><span></span><code><span class="x">$sql    = 'SELECT * FROM `chess_users`';</span>
 <span class="x">$mdb2-&gt;setLimit(1);</span>
 <span class="x">$data = $mdb2-&gt;queryAll($sql);</span>
 <span class="x">print_r($data);</span>
-</pre></div>
+</code></pre></div>
 <p>MDB2 offers lots of other features like choosing a (non)persistent connection, prepared statements or debuggin option. If you're interested in PEAR MDB2 I recommend to take a look at installationwiki.org.</p>
 <h2 id="sources">Sources</h2>
 <ul>

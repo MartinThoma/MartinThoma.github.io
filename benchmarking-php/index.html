@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="PHP, Benchmark, Web Development, Code, " />
 
-<meta property="og:title" content="Benchmarking PHP "/>
+<meta property="og:title" content="Benchmarking PHP"/>
 <meta property="og:url" content="../benchmarking-php/" />
 <meta property="og:description" content="I used ApacheBenchmark (ab) to make a few Benchmark tests I was interested in. If you like to view some more, go to www.phpbench.com. The most important options are: -n: Number of requests to perform -c: Number of multiple requests to make An empty file: moose@pc07:~$ ab …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2011-09-22T13:06:12+02:00" />
-<meta name="twitter:title" content="Benchmarking PHP ">
+<meta name="twitter:title" content="Benchmarking PHP">
 <meta name="twitter:description" content="I used ApacheBenchmark (ab) to make a few Benchmark tests I was interested in. If you like to view some more, go to www.phpbench.com. The most important options are: -n: Number of requests to perform -c: Number of multiple requests to make An empty file: moose@pc07:~$ ab …">
 <meta property="og:image" content="2011/09/PHP-logo.png" />
 <meta name="twitter:image" content="2011/09/PHP-logo.png" >
 
-        <title>Benchmarking PHP  · Martin Thoma
+        <title>Benchmarking PHP · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../benchmarking-php/"> Benchmarking PHP  </a></h1>
+    <h1><a href="../benchmarking-php/"> Benchmarking PHP </a></h1>
     </header>
 </div>
 
@@ -112,7 +112,7 @@ MathJax.Hub.Queue(function() {
 <li>-c: Number of multiple requests to make</li>
 </ul></p>
 <p>An empty file:</p>
-<div class="highlight"><pre><span></span>moose@pc07:~$ ab localhost/empty.php
+<div class="highlight"><pre><span></span><code>moose@pc07:~$ ab localhost/empty.php
 This is ApacheBench, Version <span class="m">2</span>.3 <span class="p">&amp;</span>amp<span class="p">;</span>lt<span class="p">;</span><span class="nv">$Revision</span>: <span class="m">655654</span> $<span class="p">&amp;</span>amp<span class="p">;</span>gt<span class="p">;</span>
 Copyright <span class="m">1996</span> Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
 Licensed to The Apache Software Foundation, http://www.apache.org/
@@ -145,14 +145,14 @@ Connect:        <span class="m">0</span>    <span class="m">0</span>   <span cla
 Processing:     <span class="m">2</span>    <span class="m">2</span>   <span class="m">0</span>.0      <span class="m">2</span>       <span class="m">2</span>
 Waiting:        <span class="m">0</span>    <span class="m">0</span>   <span class="m">0</span>.0      <span class="m">0</span>       <span class="m">0</span>
 Total:          <span class="m">2</span>    <span class="m">2</span>   <span class="m">0</span>.0      <span class="m">2</span>       <span class="m">2</span>
-</pre></div>
+</code></pre></div>
 <p>Now I make 1000 requests to this empty file:</p>
-<div class="highlight"><pre><span></span>ab -n <span class="m">1000</span> -c <span class="m">1</span> localhost/empty.php
-</pre></div>
+<div class="highlight"><pre><span></span><code>ab -n <span class="m">1000</span> -c <span class="m">1</span> localhost/empty.php
+</code></pre></div>
 <p>Time per request:       1.158 [ms] (mean)</p>
 <p>With a document of two bytes, I get 1.324 ms. A HTML-Document with 300 kB has 4.287 ms.</p>
 <p>Now I'll begin the test I'm interested in. It is related to <a href="http://stackoverflow.com/questions/4738605/undefined-offset-with-count" rel="nofollow">this Stackoverflow Question</a>. I'll make 10000 requests per Benchmark:</p>
-<div class="highlight"><pre><span></span><span class="x">for($i=0; $i&lt;5; $i++) {</span>
+<div class="highlight"><pre><span></span><code><span class="x">for($i=0; $i&lt;5; $i++) {</span>
 <span class="x">    $maximum = max(</span>
 <span class="x">                    @count($MyArray[$i*7]),</span>
 <span class="x">                    @count($MyArray[$i*7+1]),</span>
@@ -164,17 +164,17 @@ Total:          <span class="m">2</span>    <span class="m">2</span>   <span cla
 <span class="x">                   );</span>
 <span class="x">    echo $maximum.' ';</span>
 <span class="x">}</span>
-</pre></div>
+</code></pre></div>
 <p>1.817 ms</p>
-<div class="highlight"><pre><span></span><span class="x">for($i=0; $i&lt;5; $i++) {</span>
+<div class="highlight"><pre><span></span><code><span class="x">for($i=0; $i&lt;5; $i++) {</span>
 <span class="x">    $chunk = array_intersect_key($MyArray, array($i*7=&gt;1, $i*7+1=&gt;2, $i*7+2=&gt;3, $i*7+3=&gt;4, $i*7+4=&gt;5, $i*7+5=&gt;6));</span>
 <span class="x">    if(count($chunk) &gt; 0){$maximum = max(array_map('count', $chunk));}</span>
 <span class="x">    else {$maximum = 0;}</span>
 <span class="x">    echo $maximum.' ';</span>
 <span class="x">}</span>
-</pre></div>
+</code></pre></div>
 <p>1.801 ms</p>
-<div class="highlight"><pre><span></span><span class="x">for($i=0;$i&lt;5;$i++){</span>
+<div class="highlight"><pre><span></span><code><span class="x">for($i=0;$i&lt;5;$i++){</span>
 <span class="x">    $arr = array();</span>
 <span class="x">    for ($j=0;$j&lt;=6;$j++) {</span>
 <span class="x">        if (isset($MyArray[$i*7+$j])) $arr[] = count($MyArray[$i*7+$j]);</span>
@@ -183,7 +183,7 @@ Total:          <span class="m">2</span>    <span class="m">2</span>   <span cla
 <span class="x">    $maximum = max($arr);</span>
 <span class="x">    echo $maximum.' ';</span>
 <span class="x">}</span>
-</pre></div>
+</code></pre></div>
 <p>1.742 ms</p>
             
             <div id="disqus_thread" class="no-print"></div>

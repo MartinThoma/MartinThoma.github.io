@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Python, Network, speed, Internet, Traffic, Code, " />
 
-<meta property="og:title" content="Simple Operations and Basic Numbers "/>
+<meta property="og:title" content="Simple Operations and Basic Numbers"/>
 <meta property="og:url" content="../simple-operations/" />
 <meta property="og:description" content="I just wondered how fast some simple operations are (in Python). Like the lookup of an element in a dictionary. Here you have some, tested on my ThinkPad T460p (i7-6700HQ). Arithmethic I added/subtracted/multiplied/divided a thousand pairs of numbers to test the speed of basic arithmetic operations. I …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2019-04-17T20:00:00+02:00" />
-<meta name="twitter:title" content="Simple Operations and Basic Numbers ">
+<meta name="twitter:title" content="Simple Operations and Basic Numbers">
 <meta name="twitter:description" content="I just wondered how fast some simple operations are (in Python). Like the lookup of an element in a dictionary. Here you have some, tested on my ThinkPad T460p (i7-6700HQ). Arithmethic I added/subtracted/multiplied/divided a thousand pairs of numbers to test the speed of basic arithmetic operations. I …">
 <meta property="og:image" content="logos/python.png" />
 <meta name="twitter:image" content="logos/python.png" >
 
-        <title>Simple Operations and Basic Numbers  · Martin Thoma
+        <title>Simple Operations and Basic Numbers · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../simple-operations/"> Simple Operations and Basic Numbers  </a></h1>
+    <h1><a href="../simple-operations/"> Simple Operations and Basic Numbers </a></h1>
     </header>
 </div>
 
@@ -116,11 +116,11 @@ element in a dictionary. Here you have some, tested on my ThinkPad T460p (<a hre
 <p>I added/subtracted/multiplied/divided a thousand pairs of numbers to test the
 speed of basic arithmetic operations. I expected them to be FAST; essentially</p>
 <p>Let's have a look at the adding function:</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">]</span>
-</pre></div>
+</code></pre></div>
 <p>The disassembled cPython Byte-Code looks like this:</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">dis</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">dis</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">dis</span><span class="o">.</span><span class="n">dis</span><span class="p">(</span><span class="n">add</span><span class="p">)</span>
   <span class="mi">2</span>           <span class="mi">0</span> <span class="n">LOAD_CONST</span>               <span class="mi">1</span> <span class="p">(</span><span class="o">&lt;</span><span class="n">code</span> <span class="nb">object</span> <span class="o">&lt;</span><span class="n">listcomp</span><span class="o">&gt;</span> <span class="n">at</span> <span class="mh">0x7feabba81300</span><span class="p">,</span> <span class="nb">file</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2</span><span class="o">&gt;</span><span class="p">)</span>
               <span class="mi">2</span> <span class="n">LOAD_CONST</span>               <span class="mi">2</span> <span class="p">(</span><span class="s1">'add.&lt;locals&gt;.&lt;listcomp&gt;'</span><span class="p">)</span>
@@ -129,12 +129,12 @@ speed of basic arithmetic operations. I expected them to be FAST; essentially</p
               <span class="mi">8</span> <span class="n">GET_ITER</span>
              <span class="mi">10</span> <span class="n">CALL_FUNCTION</span>            <span class="mi">1</span>
              <span class="mi">12</span> <span class="n">RETURN_VALUE</span>
-</pre></div>
+</code></pre></div>
 <p>So you can see that it does more than <code>BINARY_ADD</code>. Still, the basic arithmetic
 operations are FAST. I think the tuple unpacking might actually have dominated
 the time here.</p>
 <p>Here are the results:</p>
-<div class="highlight"><pre><span></span>add                 : min: 177.3&mu;s, mean: 200.3&mu;s, max:  522.2&mu;s
+<div class="highlight"><pre><span></span><code>add                 : min: 177.3&mu;s, mean: 200.3&mu;s, max:  522.2&mu;s
 subtract            : min: 168.4&mu;s, mean: 190.9&mu;s, max:  538.8&mu;s
 multiply            : min: 165.4&mu;s, mean: 199.7&mu;s, max:  515.8&mu;s
 divide              : min: 176.3&mu;s, mean: 213.7&mu;s, max:  518.9&mu;s
@@ -150,17 +150,17 @@ add_vectors         : min:   3.5&mu;s, mean:   4.0&mu;s, max:   34.8&mu;s
 subtract_vectors    : min:   3.4&mu;s, mean:   4.1&mu;s, max:   28.5&mu;s
 multiply_vectors    : min:   4.0&mu;s, mean:   4.3&mu;s, max:   30.7&mu;s
 divide_vectors      : min:  17.2&mu;s, mean:  18.2&mu;s, max:   71.9&mu;s
-</pre></div>
+</code></pre></div>
 <p>You can see how bad this measure is with something like</p>
-<div class="highlight"><pre><span></span><span class="n">durations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">timeit</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="s2">"4+500000"</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">durations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">timeit</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="s2">"4+500000"</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</code></pre></div>
 <p>which gives</p>
-<div class="highlight"><pre><span></span>add                 : min: 0.08&mu;s, mean: 0.15&mu;s, max:   1.38&mu;s
+<div class="highlight"><pre><span></span><code>add                 : min: 0.08&mu;s, mean: 0.15&mu;s, max:   1.38&mu;s
 subtract            : min: 0.08&mu;s, mean: 0.15&mu;s, max:   1.51&mu;s
 multiply            : min: 0.06&mu;s, mean: 0.14&mu;s, max:   1.77&mu;s
 divide              : min: 0.06&mu;s, mean: 0.13&mu;s, max:   1.36&mu;s
 modulo              : min: 0.08&mu;s, mean: 0.15&mu;s, max:   1.59&mu;s
-</pre></div>
+</code></pre></div>
 <p>I'm not sure if this test "suffers" from caching, especially as the max is way
 higher than the min and mean, but I guess it is save to say that all four
 basic arithmetic operations are about the same execution time and are less than
@@ -169,10 +169,10 @@ basic arithmetic operations are about the same execution time and are less than
 <p>Timing how quickly one can retrieve the element from a <a href="https://en.wikipedia.org/wiki/Random_access">direct access</a>
 data structure by index. Not very surprisingly, lists are fastest. A bit surprising
 is that numpy arrays are quite a bit worse.</p>
-<div class="highlight"><pre><span></span>lookup(list)        : min: 134.0&mu;s, mean: 157.0&mu;s, max:  482.0&mu;s
+<div class="highlight"><pre><span></span><code>lookup(list)        : min: 134.0&mu;s, mean: 157.0&mu;s, max:  482.0&mu;s
 lookup(dict)        : min: 355.8&mu;s, mean: 407.3&mu;s, max: 1895.2&mu;s
 lookup(np array)    : min: 711.1&mu;s, mean: 855.7&mu;s, max: 1665.5&mu;s
-</pre></div>
+</code></pre></div>
 <h2 id="algorithms">Algorithms</h2>
 <h3 id="sorting">Sorting</h3>
 <figure class="wp-caption aligncenter img-thumbnail">
@@ -235,8 +235,8 @@ lookup(np array)    : min: 711.1&mu;s, mean: 855.7&mu;s, max: 1665.5&mu;s
 <td>2828.4&mu;s</td>
 </tr>
 </table>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">timeit</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">timeit</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="n">durations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
     <span class="n">timeit</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span>
@@ -246,14 +246,14 @@ lookup(np array)    : min: 711.1&mu;s, mean: 855.7&mu;s, max: 1665.5&mu;s
         <span class="n">number</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
     <span class="p">)</span>
 <span class="p">)</span>
-<span class="k">print</span><span class="p">(</span>
-    <span class="s2">"min: {min:5.1f}&mu;s, mean: {mean:5.1f}&mu;s, max: {max:6.1f}&mu;s"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">"min: </span><span class="si">{min:5.1f}</span><span class="s2">&mu;s, mean: </span><span class="si">{mean:5.1f}</span><span class="s2">&mu;s, max: </span><span class="si">{max:6.1f}</span><span class="s2">&mu;s"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
         <span class="nb">min</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="n">durations</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">6</span><span class="p">,</span>
         <span class="n">mean</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">durations</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">6</span><span class="p">,</span>
         <span class="nb">max</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">durations</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">6</span><span class="p">,</span>
     <span class="p">)</span>
 <span class="p">)</span>
-</pre></div>
+</code></pre></div>
 <h2 id="networks_1">Networks</h2>
 <p>When you talk about "speed" in a network context, there are two important values:</p>
 <dl>
@@ -324,10 +324,10 @@ lookup(np array)    : min: 711.1&mu;s, mean: 855.7&mu;s, max: 1665.5&mu;s
 </tr>
 </table>
 <p>Some measurements how quickly I get web pages:</p>
-<div class="highlight"><pre><span></span>get_webpage (martin-thoma.de,     2.3kB): min:  353ms, mean:  367ms, max:  390ms
+<div class="highlight"><pre><span></span><code>get_webpage (martin-thoma.de,     2.3kB): min:  353ms, mean:  367ms, max:  390ms
 get_webpage (google.de,          11.3kB): min:  532ms, mean:  548ms, max:  574ms
 get_webpage (stackoverflow.com, 273.5kB): min: 1331ms, mean: 1686ms, max: 2462ms
-</pre></div>
+</code></pre></div>
 <p>When you think about which internet contract to get, you might be wondering
 which speed is acceptable. The highest speed is probably necessary for video
 streaming:</p>
@@ -372,8 +372,8 @@ streaming:</p>
 <div class="footnote">
 <hr/>
 <ol>
-<li id="fn-1">
-<p>Netflix: <a href="https://help.netflix.com/en/node/306">Internet Connection Speed Recommendations</a>, read 2019-08-30.&nbsp;<a class="footnote-backref" href="#fnref-1" title="Jump back to footnote 1 in the text">↩</a></p>
+<li id="fn:1">
+<p>Netflix: <a href="https://help.netflix.com/en/node/306">Internet Connection Speed Recommendations</a>, read 2019-08-30.&nbsp;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
 </li>
 </ol>
 </div>

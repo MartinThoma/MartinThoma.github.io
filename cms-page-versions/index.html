@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="architecture, CMS, My bits and bytes, " />
 
-<meta property="og:title" content="CMS Page Versions "/>
+<meta property="og:title" content="CMS Page Versions"/>
 <meta property="og:url" content="../cms-page-versions/" />
 <meta property="og:description" content="I&#39;m currently building a service which contains a CMS. So I have pages of which I want to store the history how they changed over time. I wonder what the advantages / disadvantages of different options are. I&#39;ve looked at a couple of well-known CMS systems to see what they are …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2019-06-23T20:00:00+02:00" />
-<meta name="twitter:title" content="CMS Page Versions ">
+<meta name="twitter:title" content="CMS Page Versions">
 <meta name="twitter:description" content="I&#39;m currently building a service which contains a CMS. So I have pages of which I want to store the history how they changed over time. I wonder what the advantages / disadvantages of different options are. I&#39;ve looked at a couple of well-known CMS systems to see what they are …">
 <meta property="og:image" content="logos/star.png" />
 <meta name="twitter:image" content="logos/star.png" >
 
-        <title>CMS Page Versions  · Martin Thoma
+        <title>CMS Page Versions · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../cms-page-versions/"> CMS Page Versions  </a></h1>
+    <h1><a href="../cms-page-versions/"> CMS Page Versions </a></h1>
     </header>
 </div>
 
@@ -136,12 +136,12 @@ in another table. The current revision is always in <code>joomla_content</code><
 <figcaption class="text-center">How MediaWiki stores page versions</figcaption>
 </figure>
 <p>If they want to get the current text of a page, they have to do something like</p>
-<div class="highlight"><pre><span></span>SELECT *
-FROM revision
-JOIN text ON text.old_id = revision.rev_text_id
-WHERE revision.rev_page = 1
-ORDER BY revision.rev_timestamp DESC LIMIT 1
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">SELECT *</span>
+<span class="err">FROM revision</span>
+<span class="err">JOIN text ON text.old_id = revision.rev_text_id</span>
+<span class="err">WHERE revision.rev_page = 1</span>
+<span class="err">ORDER BY revision.rev_timestamp DESC LIMIT 1</span>
+</code></pre></div>
 <p>If a page is edited, they have to insert to <code>revision</code> and to <code>text</code>. And there are some things like the title where changes are not tracked.</p>
 <p>If one wants to revert edits, one creates a new revision. The text does not have to be duplicated, though. So one text entry can belong to multiple revisions.</p>
 <p>Creating backups can be done separately for text and all other tables. This can be of advantage if the amount of data is huge. Also, the <a href="https://www.mediawiki.org/wiki/Manual:Text_table#old_flags"><code>text.old_flags</code></a> can contain compression flags - meaning old revisions can be compressed for more storage efficiency while the current one can be text for being able to show it quickly.</p>

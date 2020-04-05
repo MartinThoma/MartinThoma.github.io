@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Database, Redis, MySQL, MariaDB, Postgres, pickledb, Python, NoSQL, sysbench, DBaaS, Code, " />
 
-<meta property="og:title" content="Key-Value Stores "/>
+<meta property="og:title" content="Key-Value Stores"/>
 <meta property="og:url" content="../key-value-stores/" />
 <meta property="og:description" content="Key-value stores are specialized NoSQL databases. Essentially, they are dictionaries1. Database Properties ACID is a set of properties of database transactions intended to guarantee validity even in the event of errors, power failures, etc: Atomicity: Either all statements are applied or none. This is important for SELECTs. C …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2019-09-29T20:00:00+02:00" />
-<meta name="twitter:title" content="Key-Value Stores ">
+<meta name="twitter:title" content="Key-Value Stores">
 <meta name="twitter:description" content="Key-value stores are specialized NoSQL databases. Essentially, they are dictionaries1. Database Properties ACID is a set of properties of database transactions intended to guarantee validity even in the event of errors, power failures, etc: Atomicity: Either all statements are applied or none. This is important for SELECTs. C …">
 <meta property="og:image" content="logos/db.png" />
 <meta name="twitter:image" content="logos/db.png" >
 
-        <title>Key-Value Stores  · Martin Thoma
+        <title>Key-Value Stores · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../key-value-stores/"> Key-Value Stores  </a></h1>
+    <h1><a href="../key-value-stores/"> Key-Value Stores </a></h1>
     </header>
 </div>
 
@@ -111,7 +111,7 @@ MathJax.Hub.Queue(function() {
 
             
             <p><a href="https://en.wikipedia.org/wiki/Key-value_database">Key-value stores</a> are
-specialized NoSQL databases. Essentially, they are dictionaries<sup id="fnref-1"><a class="footnote-ref" href="#fn-1">1</a></sup>.</p>
+specialized NoSQL databases. Essentially, they are dictionaries<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
 <h2 id="database-properties">Database Properties</h2>
 <p><a href="https://en.wikipedia.org/wiki/ACID">ACID</a> is a set of properties of database
 transactions intended to guarantee validity even in the event of errors, power
@@ -171,7 +171,7 @@ for this problem.</p>
 <li>EC2 xlarge: 630 reads/s; 483 read+writes / s</li>
 </ul>
 <p>sysbench:</p>
-<div class="highlight"><pre><span></span>$ mysql
+<div class="highlight"><pre><span></span><code>$ mysql
 &gt; create database sbtest<span class="p">;</span>
 $ sysbench oltp_read_write --db-driver<span class="o">=</span>mysql --mysql-db<span class="o">=</span>dbtest --mysql-user<span class="o">=</span>root --mysql-password<span class="o">=</span>YOUR_PASSWORD prepare
 $ sysbench oltp_read_write --db-driver<span class="o">=</span>mysql --mysql-db<span class="o">=</span>dbtest --threads<span class="o">=</span><span class="m">16</span> --events<span class="o">=</span><span class="m">100000</span> --mysql-user<span class="o">=</span>root --mysql-password<span class="o">=</span>YOUR_PASSWORD run
@@ -181,7 +181,7 @@ $ sudo -u postgres psql
 <span class="nv">postgres</span><span class="o">=</span><span class="c1"># grant all privileges on database sbtest to example_user;</span>
 $ sysbench oltp_read_write --db-driver<span class="o">=</span>pgsql --pgsql-db<span class="o">=</span>sbtest --pgsql-user<span class="o">=</span>example_user --pgsql-password<span class="o">=</span>example_password prepare
 $ sysbench oltp_read_write --db-driver<span class="o">=</span>pgsql --pgsql-db<span class="o">=</span>sbtest --threads<span class="o">=</span><span class="m">16</span> --events<span class="o">=</span><span class="m">100000</span> --pgsql-user<span class="o">=</span>example_user --pgsql-password<span class="o">=</span>example_password run
-</pre></div>
+</code></pre></div>
 <p>On my Thinkpad T460p I get the following numbers. However, I'm not certain how
 valuable they are as they fluctuate quite a bit between consecutive runs.</p>
 <table class="table">
@@ -407,9 +407,9 @@ to higher numbers additionally increases the throughput.</p>
 <div class="footnote">
 <hr/>
 <ol>
-<li id="fn-1">
+<li id="fn:1">
 <p>Dictionaries are a fundamental data structure in Python. They are called
-  <em>associative arrays</em> in PHP and <em>hashtable</em> in Java.&nbsp;<a class="footnote-backref" href="#fnref-1" title="Jump back to footnote 1 in the text">↩</a></p>
+  <em>associative arrays</em> in PHP and <em>hashtable</em> in Java.&nbsp;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
 </li>
 </ol>
 </div>

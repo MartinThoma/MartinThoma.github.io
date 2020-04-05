@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="machine learning, ensembles, Computer Vision, CIFAR 100, Machine Learning, " />
 
-<meta property="og:title" content="Ensembles "/>
+<meta property="og:title" content="Ensembles"/>
 <meta property="og:url" content="../ensembles/" />
 <meta property="og:description" content="Models which are combinations of other models are called an ensemble. The simplest way to combine several classifiers is by averaging their predictions. For example, if you have three models and four classes, you might get predictions like this: model 1(x1) = [0.1, 0.5, 0.3, 0.1 …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2017-03-11T20:00:00+01:00" />
-<meta name="twitter:title" content="Ensembles ">
+<meta name="twitter:title" content="Ensembles">
 <meta name="twitter:description" content="Models which are combinations of other models are called an ensemble. The simplest way to combine several classifiers is by averaging their predictions. For example, if you have three models and four classes, you might get predictions like this: model 1(x1) = [0.1, 0.5, 0.3, 0.1 …">
 <meta property="og:image" content="logos/ml.png" />
 <meta name="twitter:image" content="logos/ml.png" >
 
-        <title>Ensembles  · Martin Thoma
+        <title>Ensembles · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../ensembles/"> Ensembles  </a></h1>
+    <h1><a href="../ensembles/"> Ensembles </a></h1>
     </header>
 </div>
 
@@ -114,20 +114,20 @@ MathJax.Hub.Queue(function() {
 The simplest way to combine several classifiers is by averaging their predictions.</p>
 <p>For example, if you have three&nbsp;models and four&nbsp;classes, you might get
 predictions like this:</p>
-<div class="highlight"><pre><span></span>model 1(x1) = [0.1, 0.5, 0.3, 0.1],
+<div class="highlight"><pre><span></span><code>model 1(x1) = [0.1, 0.5, 0.3, 0.1],
 model 2(x1) = [0.5, 0.3, 0.1, 0.1],
 model 3(x1) = [0.4, 0.4, 0.1, 0.1]
-</pre></div>
+</code></pre></div>
 <p>the ensemble predicts
 </p>
 <div class="math">$$\left [\frac{0.1+0.5+0.4}{3}, \frac{0.5+0.3+0.4}{3}, \frac{0.4+0.2+0.2}{3}, \frac{0.1+0.1+0.1}{3} \right] \approx \left [0.3, 0.4, 0.2, 0.1 \right ]$$</div>
 <p> for <span class="math">\(x_1\)</span>.</p>
 <p>Note that this is different from pluarlity voting (PV) where every model gives
 only one vote for the most likely class. In the case from above, it would be</p>
-<div class="highlight"><pre><span></span>model 1(x1) = [0, 1, 0, 0],
+<div class="highlight"><pre><span></span><code>model 1(x1) = [0, 1, 0, 0],
 model 2(x1) = [1, 0, 0, 0],
 model 3(x1) = [1, 0, 0, 0]  # tie - lets just take the first
-</pre></div>
+</code></pre></div>
 <p>So the plurality voting ensemble would predict class&nbsp;1, whereas the
 average probability ensemble predicts class&nbsp;2. This comes from the fact
 that everybody might have different first choices, but they might agree on the
@@ -144,10 +144,10 @@ the same training data (the same batches). Model 1 and model 3 only differed in
 the second-last layer (one uses ReLU, the other tanh), model 1 and model 2 only
 differed in the border mode for one convolutional layer (valid vs same).</p>
 <p>The accuracies of the single models were:</p>
-<div class="highlight"><pre><span></span>model 1: 57.02
+<div class="highlight"><pre><span></span><code>model 1: 57.02
 model 2: 61.85
 model 3: 48.59
-</pre></div>
+</code></pre></div>
 <p>The ensemble accuracy is 62.98%. Hence the ensemble is 1.13 percentage points
 better than the best single model!</p>
 <p>Although I have read things like this before, it is the first time I actually

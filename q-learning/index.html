@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Machine learning, RL, Reinforcement Learning, Machine learning, " />
 
-<meta property="og:title" content="Q-Learning "/>
+<meta property="og:title" content="Q-Learning"/>
 <meta property="og:url" content="../q-learning/" />
 <meta property="og:description" content="Reinforcement Learning (RL) is about finding optimal actions automatically. So you have an environment env which has env.reset() -&gt; None: Start a new episode. This could be a new game in the case of chess. env.step(action) -&gt; observation, reward, is_done, additional_information: Make a step in the environment. The is_done …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2017-11-26T20:00:00+01:00" />
-<meta name="twitter:title" content="Q-Learning ">
+<meta name="twitter:title" content="Q-Learning">
 <meta name="twitter:description" content="Reinforcement Learning (RL) is about finding optimal actions automatically. So you have an environment env which has env.reset() -&gt; None: Start a new episode. This could be a new game in the case of chess. env.step(action) -&gt; observation, reward, is_done, additional_information: Make a step in the environment. The is_done …">
 <meta property="og:image" content="logos/ml.png" />
 <meta name="twitter:image" content="logos/ml.png" >
 
-        <title>Q-Learning  · Martin Thoma
+        <title>Q-Learning · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../q-learning/"> Q-Learning  </a></h1>
+    <h1><a href="../q-learning/"> Q-Learning </a></h1>
     </header>
 </div>
 
@@ -138,13 +138,13 @@ post as well.</p>
 set of actions <span class="math">\(\mathcal{A}\)</span>, then you have <span class="math">\(|\mathcal{S}| \cdot |\mathcal{A}|\)</span>
 possibilities to rate. For some of the observations you also receive a reward.
 But rewards might be delayed:</p>
-<div class="highlight"><pre><span></span>                      a0 --- s3, r=10
+<div class="highlight"><pre><span></span><code>                      a0 --- s3, r=10
                     /
      a0-- s1, r= 10 - a1 --- s4, r= 0
     /
 s0 -
     \a1 -- s2, r=-10 - a0 --- s5, r = 100
-</pre></div>
+</code></pre></div>
 <p>This shows that you start in state <code>s0</code> where you can execute actions <code>a0</code> and
 <code>a1</code>. Action <code>a0</code> lives you a reward of 10, action <code>a1</code> a reward of <code>-10</code>. So
 if you take the action greedy, you would take <code>a0</code> and end up in state <code>s1</code>.
@@ -179,7 +179,7 @@ If both, <span class="math">\(\mathcal{S}\)</span> and <span class="math">\(\mat
 to understand why the following code was written as it is.</p>
 <p>The latest code can be found on <a href="https://github.com/MartinThoma/algorithms/blob/master/ML/rl/q_table_agent.py">Github MartinThoma:algorithms/</a></p>
 <p>First, the configuration file:</p>
-<div class="highlight"><pre><span></span><span class="nt">model_name</span><span class="p">:</span> <span class="s">'qlearning'</span>
+<div class="highlight"><pre><span></span><code><span class="nt">model_name</span><span class="p">:</span> <span class="s">'qlearning'</span>
 <span class="nt">problem</span><span class="p">:</span>
   <span class="nt">gamma</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.99</span>  <span class="c1"># discounting factor</span>
 <span class="nt">training</span><span class="p">:</span>
@@ -191,9 +191,9 @@ to understand why the following code was written as it is.</p>
     <span class="nt">clip</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">-500</span><span class="p p-Indicator">,</span> <span class="nv">500</span><span class="p p-Indicator">]</span>
 <span class="nt">testing</span><span class="p">:</span>
   <span class="nt">nb_epochs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10000</span>
-</pre></div>
+</code></pre></div>
 <p>Now the code:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="sd">"""Q-Table Reinforcement Learning agent."""</span>
@@ -207,16 +207,16 @@ to understand why the following code was written as it is.</p>
 
 <span class="c1"># 3rd party modules</span>
 <span class="kn">import</span> <span class="nn">gym</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">280490</span><span class="p">)</span>
 
 <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
-    <span class="n">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
     <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
     <span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">formatter</span><span class="o">=</span><span class="p">{</span><span class="s2">"float_kind"</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">"{:.2f}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">)})</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">formatter</span><span class="o">=</span><span class="p">{</span><span class="s2">"float_kind"</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">"</span><span class="si">{:.2f}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">)})</span>
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">environment_name</span><span class="p">,</span> <span class="n">agent_cfg_file</span><span class="p">):</span>
@@ -233,15 +233,15 @@ to understand why the following code was written as it is.</p>
     <span class="c1"># Set up environment and agent</span>
     <span class="n">env</span> <span class="o">=</span> <span class="n">gym</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="n">environment_name</span><span class="p">)</span>
     <span class="n">cfg</span><span class="p">[</span><span class="s2">"env"</span><span class="p">]</span> <span class="o">=</span> <span class="n">env</span>
-    <span class="n">cfg</span><span class="p">[</span><span class="s2">"serialize_path"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"artifacts/{}-{}.pickle"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+    <span class="n">cfg</span><span class="p">[</span><span class="s2">"serialize_path"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"artifacts/</span><span class="si">{}</span><span class="s2">-</span><span class="si">{}</span><span class="s2">.pickle"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
         <span class="n">cfg</span><span class="p">[</span><span class="s2">"model_name"</span><span class="p">],</span> <span class="n">environment_name</span>
     <span class="p">)</span>
     <span class="n">agent</span> <span class="o">=</span> <span class="n">load_agent</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">env</span><span class="p">)</span>
 
     <span class="n">agent</span> <span class="o">=</span> <span class="n">train_agent</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">agent</span><span class="p">)</span>
     <span class="n">rewards</span> <span class="o">=</span> <span class="n">test_agent</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">agent</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"Average reward: {:5.3f}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rewards</span><span class="p">))</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"Trained epochs: {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">agent</span><span class="o">.</span><span class="n">epoch</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Average reward: </span><span class="si">{:5.3f}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rewards</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Trained epochs: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">agent</span><span class="o">.</span><span class="n">epoch</span><span class="p">))</span>
 
 
 <span class="k">class</span> <span class="nc">QTableAgent</span><span class="p">:</span>
@@ -266,7 +266,7 @@ to understand why the following code was written as it is.</p>
         <span class="sd">"""Reset the agent. Call this at the beginning of an episode."""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">epoch</span> <span class="o">+=</span> <span class="mi">1</span>
 
-    <span class="k">def</span> <span class="nf">act</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observation</span><span class="p">,</span> <span class="n">no_exploration</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">act</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observation</span><span class="p">,</span> <span class="n">no_exploration</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        Decide which action to execute.</span>
 
@@ -364,7 +364,7 @@ to understand why the following code was written as it is.</p>
     <span class="k">for</span> <span class="n">episode</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cfg</span><span class="p">[</span><span class="s2">"training"</span><span class="p">][</span><span class="s2">"nb_epochs"</span><span class="p">]):</span>
         <span class="n">agent</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
         <span class="n">observation_previous</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
-        <span class="n">is_done</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="n">is_done</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="k">while</span> <span class="ow">not</span> <span class="n">is_done</span><span class="p">:</span>
             <span class="n">action</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">act</span><span class="p">(</span><span class="n">observation_previous</span><span class="p">)</span>
             <span class="n">observation</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">is_done</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
@@ -373,8 +373,8 @@ to understand why the following code was written as it is.</p>
             <span class="n">observation_previous</span> <span class="o">=</span> <span class="n">observation</span>
         <span class="k">if</span> <span class="n">episode</span> <span class="o">%</span> <span class="n">cfg</span><span class="p">[</span><span class="s2">"training"</span><span class="p">][</span><span class="s2">"print_score"</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">episode</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">agent</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">cfg</span><span class="p">[</span><span class="s2">"serialize_path"</span><span class="p">])</span>
-            <span class="k">print</span><span class="p">(</span><span class="s2">"Average score: {:&gt;5.2f}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cum_reward</span> <span class="o">/</span> <span class="p">(</span><span class="n">episode</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)))</span>
-            <span class="k">print</span><span class="p">(</span><span class="n">agent</span><span class="o">.</span><span class="n">Q</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Average score: </span><span class="si">{:&gt;5.2f}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cum_reward</span> <span class="o">/</span> <span class="p">(</span><span class="n">episode</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">agent</span><span class="o">.</span><span class="n">Q</span><span class="p">)</span>
     <span class="n">agent</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">cfg</span><span class="p">[</span><span class="s2">"serialize_path"</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">agent</span>
 
@@ -385,9 +385,9 @@ to understand why the following code was written as it is.</p>
     <span class="k">for</span> <span class="n">episode</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cfg</span><span class="p">[</span><span class="s2">"testing"</span><span class="p">][</span><span class="s2">"nb_epochs"</span><span class="p">]):</span>
         <span class="n">agent</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
         <span class="n">observation_previous</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
-        <span class="n">is_done</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="n">is_done</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="k">while</span> <span class="ow">not</span> <span class="n">is_done</span><span class="p">:</span>
-            <span class="n">action</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">act</span><span class="p">(</span><span class="n">observation_previous</span><span class="p">,</span> <span class="n">no_exploration</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+            <span class="n">action</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">act</span><span class="p">(</span><span class="n">observation_previous</span><span class="p">,</span> <span class="n">no_exploration</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
             <span class="n">observation</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">is_done</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
             <span class="n">cum_reward</span> <span class="o">+=</span> <span class="n">reward</span>
             <span class="n">observation_previous</span> <span class="o">=</span> <span class="n">observation</span>
@@ -455,7 +455,7 @@ to understand why the following code was written as it is.</p>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
         <span class="s2">"--agent"</span><span class="p">,</span>
         <span class="n">dest</span><span class="o">=</span><span class="s2">"agent_cfg_file"</span><span class="p">,</span>
-        <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="n">metavar</span><span class="o">=</span><span class="s2">"AGENT_YAML"</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="s2">"Configuration file for the agent"</span><span class="p">,</span>
     <span class="p">)</span>
@@ -465,7 +465,7 @@ to understand why the following code was written as it is.</p>
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">get_parser</span><span class="p">()</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
     <span class="n">main</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">environment_name</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">agent_cfg_file</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 <h2 id="results">Results</h2>
 <table class="table">
 <tr>

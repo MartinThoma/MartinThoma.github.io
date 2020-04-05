@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Python, RegEx, Code, " />
 
-<meta property="og:title" content="Regular Expressions with Python "/>
+<meta property="og:title" content="Regular Expressions with Python"/>
 <meta property="og:url" content="../regular-expressions-with-python/" />
 <meta property="og:description" content="Python supports regular expressions (RegEx) just as any other general purpose programming language. This mini article shows two examples how to use them. The package which gives RegEx support is called re. Replacing Spaces Replace multiple whitespace characters (spaces, tabs, newlines, ...) by a single space (by Nasir): import re text …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2015-01-20T13:35:00+01:00" />
-<meta name="twitter:title" content="Regular Expressions with Python ">
+<meta name="twitter:title" content="Regular Expressions with Python">
 <meta name="twitter:description" content="Python supports regular expressions (RegEx) just as any other general purpose programming language. This mini article shows two examples how to use them. The package which gives RegEx support is called re. Replacing Spaces Replace multiple whitespace characters (spaces, tabs, newlines, ...) by a single space (by Nasir): import re text …">
 <meta property="og:image" content="logos/python.png" />
 <meta name="twitter:image" content="logos/python.png" >
 
-        <title>Regular Expressions with Python  · Martin Thoma
+        <title>Regular Expressions with Python · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../regular-expressions-with-python/"> Regular Expressions with Python  </a></h1>
+    <h1><a href="../regular-expressions-with-python/"> Regular Expressions with Python </a></h1>
     </header>
 </div>
 
@@ -117,24 +117,24 @@ programming language. This mini article shows two examples how to use them.</p>
 <h2 id="replacing-spaces">Replacing Spaces</h2>
 <p>Replace multiple whitespace characters (spaces, tabs, newlines, ...) by a
 single space (by <a href="http://stackoverflow.com/a/1546245/562769">Nasir</a>):</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">re</span>
 
 <span class="n">text</span> <span class="o">=</span> <span class="s2">"The   fox jumped   over    the log."</span>
 <span class="n">replaced</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">"\s\s+"</span><span class="p">,</span> <span class="s2">" "</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 <p>To speed things up you can also
 <a href="https://docs.python.org/3/library/re.html#re.compile"><code>compile</code></a> the pattern.
 This has also the advantage that you can specify that you want to match newline
 characters (<code>\n</code> and <code>\r</code>) with the dot by setting the
 <a href="https://docs.python.org/3/library/re.html#re.DOTALL"><code>re.DOTALL</code></a> flag.</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">re</span>
 
 <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">"\s\s+"</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">DOTALL</span><span class="p">)</span>
 <span class="n">text</span> <span class="o">=</span> <span class="s2">"The   fox jumped   over    the log."</span>
 <span class="n">pattern</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">" "</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 <h2 id="unquoting">Unquoting</h2>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">re</span>
 
 
 <span class="k">def</span> <span class="nf">remove_quotes</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
@@ -149,11 +149,11 @@ characters (<code>\n</code> and <code>\r</code>) with the dot by setting the
 
 <span class="n">text</span> <span class="o">=</span> <span class="s2">"The quoted 'text piece' will get unquoted."</span>
 <span class="n">remove_quotes</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 <h2 id="all-paragraphs">All paragraphs</h2>
 <p>If you want to get the content within all paragraph tags (<code>&lt;p&gt; ... &lt;/p&gt;</code> in
 arbitrary spacing) you can use:</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">re</span>
 
 <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">"&lt;p&gt;(.*?)&lt;/p&gt;"</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span> <span class="o">|</span> <span class="n">re</span><span class="o">.</span><span class="n">DOTALL</span><span class="p">)</span>
 <span class="n">text</span> <span class="o">=</span> <span class="s2">"""</span>
@@ -191,9 +191,9 @@ arbitrary spacing) you can use:</p>
 <span class="s2">"""</span>
 
 <span class="n">matches</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 <p>Matches is the following list (breaked at some points for easier reading):</p>
-<div class="highlight"><pre><span></span>['Suspendisse porttitor risus et est consequat condimentum.\n
+<div class="highlight"><pre><span></span><code>['Suspendisse porttitor risus et est consequat condimentum.\n
   In in eleifend ipsum, eu pulvinar nunc. Nullam vel imperdiet eros.\n
   Phasellus vel arcu convallis, semper quam eu, convallis velit.\n\n',
  'Sed tempus magna quis neque varius aliquam. Quisque maximus et augue non\n
@@ -203,7 +203,7 @@ arbitrary spacing) you can use:</p>
   Quisque posuere ultricies leo et efficitur.\n
   Aliquam venenatis quis mi ac tempus.',
  'congue vel']
-</pre></div>
+</code></pre></div>
 <h2 id="common-regexes">Common RegExes</h2>
 <h3 id="numbers">Numbers</h3>
 <h4 id="non-negative-even-numbers">non-negative even numbers</h4>

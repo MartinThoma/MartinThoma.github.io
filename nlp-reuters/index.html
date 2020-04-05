@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="NLP, Reuters, Classification, Machine Learning, Machine Learning, " />
 
-<meta property="og:title" content="The Reuters Dataset "/>
+<meta property="og:title" content="The Reuters Dataset"/>
 <meta property="og:url" content="../nlp-reuters/" />
 <meta property="og:description" content="Reuters is a benchmark dataset for document classification. To be more precise, it is a multi-class (e.g. there are multiple classes), multi-label (e.g. each document can belong to many classes) dataset. It has 90 classes, 7769 training documents and 3019 testing documents. It is the ModApte (R(90 …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2017-07-27T20:00:00+02:00" />
-<meta name="twitter:title" content="The Reuters Dataset ">
+<meta name="twitter:title" content="The Reuters Dataset">
 <meta name="twitter:description" content="Reuters is a benchmark dataset for document classification. To be more precise, it is a multi-class (e.g. there are multiple classes), multi-label (e.g. each document can belong to many classes) dataset. It has 90 classes, 7769 training documents and 3019 testing documents. It is the ModApte (R(90 …">
 <meta property="og:image" content="logos/ml.png" />
 <meta name="twitter:image" content="logos/ml.png" >
 
-        <title>The Reuters Dataset  · Martin Thoma
+        <title>The Reuters Dataset · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../nlp-reuters/"> The Reuters Dataset  </a></h1>
+    <h1><a href="../nlp-reuters/"> The Reuters Dataset </a></h1>
     </header>
 </div>
 
@@ -121,7 +121,7 @@ on the training set.</p>
 words which appear at least 5 times and at most 12672 times in the training
 set, there are still 12017 words.</p>
 <h2 id="classes-and-labels">Classes and Labels</h2>
-<div class="highlight"><pre><span></span>                             nr of documents   mean number of
+<div class="highlight"><pre><span></span><code>                             nr of documents   mean number of
         class name            train   test    words in train set
      1: earn                : 2877    1087    104.4
      2: acq                 : 1650     719    150.1
@@ -213,9 +213,9 @@ set, there are still 12017 words.</p>
     88: cotton-oil          :    1       2    1262.7
     89: rye                 :    1       1    383.0
     90: nkr                 :    1       2    122.3
-</pre></div>
+</code></pre></div>
 <p>By far most documents have either one or two labels, but some have up to 15:</p>
-<div class="highlight"><pre><span></span>labelcount= 1, documentcount=9160
+<div class="highlight"><pre><span></span><code>labelcount= 1, documentcount=9160
 labelcount= 2, documentcount=1173
 labelcount= 3, documentcount= 255
 labelcount= 4, documentcount=  91
@@ -229,12 +229,12 @@ labelcount=11, documentcount=   2
 labelcount=14, documentcount=   2
 labelcount=12, documentcount=   1
 labelcount=15, documentcount=   1
-</pre></div>
+</code></pre></div>
 <p>Let's look at the relationship between the classes. Which classes occur often
 together? Are there classes which can be used to predict the presence of other
 classes? For example, <code>wheat</code> should imply <code>grain</code>.</p>
 <p>Here are the 50 strongest predictors:</p>
-<div class="highlight"><pre><span></span>castor-oil =&gt; cotton-oil (0.999742566611)
+<div class="highlight"><pre><span></span><code>castor-oil =&gt; cotton-oil (0.999742566611)
 castor-oil =&gt; groundnut-oil (0.999742566611)
 castor-oil =&gt; lin-oil (0.999742566611)
 castor-oil =&gt; nkr (0.999742566611)
@@ -284,7 +284,7 @@ castor-oil =&gt; naphtha (0.999613849916)
 castor-oil =&gt; nzdlr (0.999613849916)
 castor-oil =&gt; palladium (0.999613849916)
 castor-oil =&gt; palmkernel (0.999613849916)
-</pre></div>
+</code></pre></div>
 <h2 id="multi-label-scoring">Multi-label Scoring</h2>
 <div class="warning">I have to work on the scoring; it seems as if I made a mistake in my experiments when I calculated the score.</div>
 <p>I've never been in a multi-label context, so it was not directly clear to me
@@ -318,7 +318,7 @@ share the results. You could adjust <a href="https://github.com/MartinThoma/algo
 <h2 id="classifier-comparison-tf-idf">Classifier comparison (tf-idf)</h2>
 <p>The following are the accuracies as well as the training and test times. All
 classifiers got the same tf-idf features.</p>
-<div class="highlight"><pre><span></span>Used vocabulary size = 26147
+<div class="highlight"><pre><span></span><code>Used vocabulary size = 26147
 
 Classifier                      Acc     F1
 --------------------------------------------------------------------------------
@@ -333,7 +333,7 @@ Random Forest (50 estimators) : 64.79% 63.69% in   14.82s train /    1.30s test
 Decision Tree                 : 55.75% 53.23% in   28.43s train /    0.22s test
 Naive Bayes                   : 43.86% 47.98% in  214.75s train /   88.79s test
 SVM, linear                   : 33.55% 29.67% in 6326.33s train / 2397.51s test
-</pre></div>
+</code></pre></div>
 <p>There are a couple of things to notice here:</p>
 <ul>
 <li><strong>Speed</strong>:<ul>
@@ -372,7 +372,7 @@ is pretty high from the beginning.</p>
 <h2 id="code_1">Code</h2>
 <p>See <a href="https://github.com/MartinThoma/algorithms/blob/master/ML/nlp/">GitHub</a>.</p>
 <p>If you use it, please cite this article or link to this blog post:</p>
-<div class="highlight"><pre><span></span><span class="nc">@Misc</span><span class="p">{</span><span class="nl">Thom2017-reuters</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="nc">@Misc</span><span class="p">{</span><span class="nl">Thom2017-reuters</span><span class="p">,</span>
   <span class="na">Title</span>                    <span class="p">=</span> <span class="s">{The Reuters Dataset}</span><span class="p">,</span>
 
   <span class="na">Author</span>                   <span class="p">=</span> <span class="s">{Martin Thoma}</span><span class="p">,</span>
@@ -381,9 +381,9 @@ is pretty high from the beginning.</p>
 
   <span class="na">Url</span>                      <span class="p">=</span> <span class="s">{https://martin-thoma.com/nlp-reuters}</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 <h3 id="data-loading">Data loading</h3>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="sd">"""</span>
@@ -441,11 +441,11 @@ is pretty high from the beginning.</p>
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">config</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"len(data['x_train'])={}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"x_train"</span><span class="p">])))</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"data['x_train'].shape={}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"x_train"</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
-</pre></div>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"len(data['x_train'])=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"x_train"</span><span class="p">])))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"data['x_train'].shape=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"x_train"</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+</code></pre></div>
 <h3 id="mlp">MLP</h3>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
 <span class="sd">"""Train and evaluate a MLP."""</span>
 
@@ -524,7 +524,7 @@ is pretty high from the beginning.</p>
     <span class="sd">"""Load data, train model and evaluate it."""</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">data_module</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
     <span class="n">model</span> <span class="o">=</span> <span class="n">create_model</span><span class="p">(</span><span class="n">data_module</span><span class="o">.</span><span class="n">n_classes</span><span class="p">,</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"x_train"</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],))</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
     <span class="n">optimizer</span> <span class="o">=</span> <span class="n">get_optimizer</span><span class="p">({</span><span class="s2">"optimizer"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"initial_lr"</span><span class="p">:</span> <span class="mf">0.001</span><span class="p">}})</span>
     <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
         <span class="n">loss</span><span class="o">=</span><span class="s2">"binary_crossentropy"</span><span class="p">,</span>
@@ -538,16 +538,16 @@ is pretty high from the beginning.</p>
         <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
         <span class="n">epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
         <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"x_test"</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">"y_test"</span><span class="p">]),</span>
-        <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="c1"># callbacks=callbacks</span>
     <span class="p">)</span>
     <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
     <span class="n">res</span> <span class="o">=</span> <span class="n">get_tptnfpfn</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
     <span class="n">t2</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-    <span class="k">print</span><span class="p">(</span>
+    <span class="nb">print</span><span class="p">(</span>
         <span class="p">(</span>
-            <span class="s2">"{clf_name:&lt;30}: {acc:0.2f}% {f1:0.2f}</span><span class="si">% i</span><span class="s2">n {train_time:0.2f}s "</span>
-            <span class="s2">"train / {test_time:0.2f}s test"</span>
+            <span class="s2">"</span><span class="si">{clf_name:&lt;30}</span><span class="s2">: </span><span class="si">{acc:0.2f}</span><span class="s2">% </span><span class="si">{f1:0.2f}% i</span><span class="s2">n </span><span class="si">{train_time:0.2f}</span><span class="s2">s "</span>
+            <span class="s2">"train / </span><span class="si">{test_time:0.2f}</span><span class="s2">s test"</span>
         <span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
             <span class="n">clf_name</span><span class="o">=</span><span class="s2">"MLP"</span><span class="p">,</span>
             <span class="n">acc</span><span class="o">=</span><span class="p">(</span><span class="n">get_accuracy</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">),</span>
@@ -560,7 +560,7 @@ is pretty high from the beginning.</p>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">main</span><span class="p">(</span><span class="n">reuters</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 <h2 id="see-also_1">See also</h2>
 <ul>
 <li>NLTK: <a href="http://www.nltk.org/book/ch02.html">Other datasets</a></li>

@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="algorithms, data structure, B-tree, German posts, " />
 
-<meta property="og:title" content="B-Bäume "/>
+<meta property="og:title" content="B-Bäume"/>
 <meta property="og:url" content="../b-baume/" />
 <meta property="og:description" content="Ein B-Baum ist eine Datenstruktur, die vor allem für Datenbanken (z.B. SQLite) und Dateisysteme (z.B. ext3) eingesetzt wird. Im Folgenden sollte man immer im Hinterkopf behalten, dass an den Schlüsseln auch Werte - sog. Satellitendaten - hängen. Der Einfachheit halber lasse ich diese aber hier weg. Definition Die folgende Definition …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2012-07-27T19:53:55+02:00" />
-<meta name="twitter:title" content="B-Bäume ">
+<meta name="twitter:title" content="B-Bäume">
 <meta name="twitter:description" content="Ein B-Baum ist eine Datenstruktur, die vor allem für Datenbanken (z.B. SQLite) und Dateisysteme (z.B. ext3) eingesetzt wird. Im Folgenden sollte man immer im Hinterkopf behalten, dass an den Schlüsseln auch Werte - sog. Satellitendaten - hängen. Der Einfachheit halber lasse ich diese aber hier weg. Definition Die folgende Definition …">
 <meta property="og:image" content="2012/07/b-tree-2-small-3-thumb.png" />
 <meta name="twitter:image" content="2012/07/b-tree-2-small-3-thumb.png" >
 
-        <title>B-Bäume  · Martin Thoma
+        <title>B-Bäume · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../b-baume/"> B-B&auml;ume  </a></h1>
+    <h1><a href="../b-baume/"> B-B&auml;ume </a></h1>
     </header>
 </div>
 
@@ -157,20 +157,20 @@ MathJax.Hub.Queue(function() {
 Aus (5.1) folgt: In einem B-Baum der Ordnung t = 1 m&uuml;ssten einzelne Knoten keine Schl&uuml;ssel haben. Das ist nicht sinnvoll. Also muss <span class="math">\(t \geq  2\)</span> gelten.</p>
 <h2 id="suchen eines schlussels">Suchen eines Schl&uuml;ssels</h2>
 <p>Das Suchen eines Schl&uuml;ssels funktioniert so:</p>
-<div class="highlight"><pre><span></span>SEARCH-KEY(node, key):
-    int i = 0
+<div class="highlight"><pre><span></span><code><span class="k">SEARCH</span><span class="o">-</span><span class="k">KEY</span><span class="p">(</span><span class="n">node</span><span class="p">,</span><span class="w"> </span><span class="k">key</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">    </span><span class="nc">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
 
-    while i &lt; node.n and node.key[i].key &lt; key:
-        i += 1
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="n">n</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="k">key</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="k">key</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">key</span><span class="err">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
 
-    if node.key[i].key == key: # Schl&uuml;ssel ist gesuchter Schl&uuml;ssel
-        return node.key[i].satelittendaten
-    else if node.isLeaf: # Erfolglose Suche
-        return NIL
-    else: # Rekursiv weitersuchen
-        DISK-READ(node.c[i])
-        return SEARCH-KEY(node.c[i], key)
-</pre></div>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="k">key</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="k">key</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">key</span><span class="err">:</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="n">Schl&uuml;ssel</span><span class="w"> </span><span class="n">ist</span><span class="w"> </span><span class="n">gesuchter</span><span class="w"> </span><span class="n">Schl&uuml;ssel</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="k">key</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="n">satelittendaten</span><span class="w"></span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="nl">isLeaf</span><span class="p">:</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="n">Erfolglose</span><span class="w"> </span><span class="n">Suche</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">NIL</span><span class="w"></span>
+<span class="w">    </span><span class="k">else</span><span class="err">:</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="n">Rekursiv</span><span class="w"> </span><span class="n">weitersuchen</span><span class="w"></span>
+<span class="w">        </span><span class="k">DISK</span><span class="o">-</span><span class="k">READ</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="n">c</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">SEARCH</span><span class="o">-</span><span class="k">KEY</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="n">c</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="k">key</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
 <p>Es wird also zuerst der Knoten durchsucht und dann gegebenenfalls der passende Subbaum.</p>
 <p>Laut Vorlesung (Folie 97) gilt:
 <ul>

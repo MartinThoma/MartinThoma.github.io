@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="C, OS, Nautilus, Code, " />
 
-<meta property="og:title" content="Check File Systems maximum path depth "/>
+<meta property="og:title" content="Check File Systems maximum path depth"/>
 <meta property="og:url" content="../check-file-systems-maximum-path-depth/" />
 <meta property="og:description" content="Today, I&#39;ve wondered how deep a path could be at maximum. I&#39;ve guessed the file system may be limiting that, but perhaps also some tools that I use for basic operations like listing a folders contents would fail before. So I&#39;ve created the following C-Snippet to test it: #include &lt;sys …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2013-03-03T20:51:24+01:00" />
-<meta name="twitter:title" content="Check File Systems maximum path depth ">
+<meta name="twitter:title" content="Check File Systems maximum path depth">
 <meta name="twitter:description" content="Today, I&#39;ve wondered how deep a path could be at maximum. I&#39;ve guessed the file system may be limiting that, but perhaps also some tools that I use for basic operations like listing a folders contents would fail before. So I&#39;ve created the following C-Snippet to test it: #include &lt;sys …">
 <meta property="og:image" content="2013/03/long-path-thumb.png" />
 <meta name="twitter:image" content="2013/03/long-path-thumb.png" >
 
-        <title>Check File Systems maximum path depth  · Martin Thoma
+        <title>Check File Systems maximum path depth · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../check-file-systems-maximum-path-depth/"> Check File Systems maximum path depth  </a></h1>
+    <h1><a href="../check-file-systems-maximum-path-depth/"> Check File Systems maximum path depth </a></h1>
     </header>
 </div>
 
@@ -111,7 +111,7 @@ MathJax.Hub.Queue(function() {
 
             
             <p>Today, I've wondered how deep a path could be at maximum. I've guessed the file system may be limiting that, but perhaps also some tools that I use for basic operations like listing a folders contents would fail before. So I've created the following C-Snippet to test it:</p>
-<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;sys/stat.h&gt;</span><span class="cp"></span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;sys/stat.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;sys/types.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
@@ -152,9 +152,9 @@ MathJax.Hub.Queue(function() {
     <span class="n">giveInformation</span><span class="p">();</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 <p>Now run it:</p>
-<div class="highlight"><pre><span></span>$ <span class="nb">time</span> ./createDirectories
+<div class="highlight"><pre><span></span><code>$ <span class="nb">time</span> ./createDirectories
 
 <span class="k">return</span> code     : -1
 Created sub-directories : <span class="m">1018</span>
@@ -163,28 +163,28 @@ length of pathname  : <span class="m">4096</span>
 real    0m0.281s
 user    0m0.004s
 sys 0m0.180s
-</pre></div>
+</code></pre></div>
 <p>Ok, something went wrong at the end. Lets see what crashes when I enter this path in Gnome terminal</p>
-<div class="highlight"><pre><span></span>$ <span class="nb">cd</span> one/one/one .... one/
+<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> one/one/one .... one/
 $ mkdir two
 $ <span class="nb">cd</span> two
 cd: error retrieving current directory: getcwd: cannot access
     parent directories: File name too long
-</pre></div>
+</code></pre></div>
 <p>Strangely, it showed me a path <code>/home/moose/.../one/one/one/one/tw$</code>. No, this is not a typo. It showed tw, not two. So, maybe the path can get only that long?
 Now I created a folder called "three" and one called "this". I entered both of them with cd, both showed <code>/home/moose/.../one/one/th</code>. So I guess this is a problem of Gnome Terminal and not a limitation of the file system.</p>
 <p>Let's see what Nautilus does. I <a href="../cyclic-references-kill-nautilus/" title="Cyclic references kill Nautilus">once got Nautilus to crash</a>, I think I get it another time:</p>
 <p>Contents, according to nautilus: <code>1,016 items, totalling 4.0 MB</code></p>
 <p>Then I've opened the folder "one" and double clicked as fast as I could. CPU utilization: 100%, but no crash. And 995 items are left ☺ Now a single double click causes 100% CPU utilization for about 25 seconds.</p>
 <p>When I use a single character for sub-directories, I get:</p>
-<div class="highlight"><pre><span></span>moose@pc07:~/Desktop/Test$ ./createDirectories
+<div class="highlight"><pre><span></span><code>moose@pc07:~/Desktop/Test$ ./createDirectories
 <span class="k">return</span> code     : -1
 Created sub-directories : <span class="m">2036</span>
 length of pathname  : <span class="m">4096</span>
-</pre></div>
+</code></pre></div>
 <h2 id="number of directories in one directory">Number of directories in one directory</h2>
 <p>Do you know how many folders can fit into one folder? Well, lets find out:</p>
-<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;sys/stat.h&gt;</span><span class="cp"></span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;sys/stat.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;sys/types.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
@@ -239,11 +239,11 @@ length of pathname  : <span class="m">4096</span>
     <span class="n">giveInformation</span><span class="p">();</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 <p>I've executed it and after eight minutes I canceled the execution.</p>
-<div class="highlight"><pre><span></span>$ ls <span class="p">|</span> wc -l
+<div class="highlight"><pre><span></span><code>$ ls <span class="p">|</span> wc -l
 <span class="m">378463</span>
-</pre></div>
+</code></pre></div>
 <p>Ok, not a million folders, but 378.463 is also quite a lot. When I try to open this folder with Nautilus, I get 140% CPU utilization by Nautilus. Quite impressive, for only showing some folders.</p>
 <p>You should probably not execute the script above, as <a href="http://unix.stackexchange.com/q/66806/4784">deleting the folder isn't that easy</a>.</p>
 <p>By the way, I got a new error message that I didn't know before:</p>

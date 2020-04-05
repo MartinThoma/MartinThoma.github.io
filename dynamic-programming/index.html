@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Algorithms, Code, Fibonacci, Python, COP, CSP, Algorithms, " />
 
-<meta property="og:title" content="Dynamic Programming "/>
+<meta property="og:title" content="Dynamic Programming"/>
 <meta property="og:url" content="../dynamic-programming/" />
 <meta property="og:description" content="Dynamic Programming is a technique to find the solution to a problem by computing the solution of one or more sub-problems. So the problem needs to have optimal substructure. If you compute the solution bottom-up, then it is Dynamic Programming. If you compute it top-down, then you might use memoization …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2020-03-31T20:00:00+02:00" />
-<meta name="twitter:title" content="Dynamic Programming ">
+<meta name="twitter:title" content="Dynamic Programming">
 <meta name="twitter:description" content="Dynamic Programming is a technique to find the solution to a problem by computing the solution of one or more sub-problems. So the problem needs to have optimal substructure. If you compute the solution bottom-up, then it is Dynamic Programming. If you compute it top-down, then you might use memoization …">
 <meta property="og:image" content="logos/ai.png" />
 <meta name="twitter:image" content="logos/ai.png" >
 
-        <title>Dynamic Programming  · Martin Thoma
+        <title>Dynamic Programming · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../dynamic-programming/"> Dynamic Programming  </a></h1>
+    <h1><a href="../dynamic-programming/"> Dynamic Programming </a></h1>
     </header>
 </div>
 
@@ -144,7 +144,7 @@ optimization problems (COPs) and backtracking constraint satisfaction problems
 (CSPs).</p>
 <p>Usually <em>Dynamic Programming</em> is bottom-up and <em>Backtracking</em> uses top-down approaches.</p>
 <h3 id="divide-and-conquer">Divide and Conquer</h3>
-<p>Divide and Conquer algorithms, such as <a href="https://en.wikipedia.org/wiki/Merge_sort">merge sort</a>,
+<p>Divide and Conquer algorithms, such as <a href="https://en.wikipedia.org/wiki/Merge_sort">merge sort</a>, <a href="https://en.wikipedia.org/wiki/Quicksort">quicksort</a>,
 Binary search,
 and the <a href="https://en.wikipedia.org/wiki/Euclidean_algorithm">Euclidean algorithm</a>,
 also divide the original problem into smaller sub-problems.</p>
@@ -160,13 +160,13 @@ f(n-1) + f(n-2) &amp;\text{otherwise}
 \end{cases}
 $$</div>
 <p>The inefficient, but straight-forward implementation is</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">n</span>
     <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 <p>The best solution to this is the following dynamic programming solution:</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    &gt;&gt;&gt; f(0)</span>
 <span class="sd">    0</span>
@@ -183,7 +183,7 @@ $$</div>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
         <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span>
     <span class="k">return</span> <span class="n">a</span>
-</pre></div>
+</code></pre></div>
 <p>Have a look at <a href="https://martin-thoma.com/fibonacci-recursion-decorators/">Fibonacci, recursion and decorators</a>
 if you are interested in more details.</p>
 <h2 id="longest-increasing-subsequence">Longest Increasing Subsequence</h2>
@@ -193,7 +193,7 @@ Please note that a sub-sequence does not have to be contiguous.</p>
 <p>The brute-force solution is to generate all sub-sequences and check if they are
 increasing. The generate-and-check pattern is in <span class="math">\(\mathcal{O}(2^n)\)</span>. It is easy
 to implement with Python:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">chain</span><span class="p">,</span> <span class="n">combinations</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">chain</span><span class="p">,</span> <span class="n">combinations</span>
 
 
 <span class="k">def</span> <span class="nf">longest_increasing_subsequence</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
@@ -209,10 +209,10 @@ to implement with Python:</p>
 
 <span class="k">def</span> <span class="nf">is_increasing</span><span class="p">(</span><span class="n">sequence</span><span class="p">):</span>
     <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="n">e1</span> <span class="o">&lt;</span> <span class="n">e2</span> <span class="k">for</span> <span class="n">e1</span><span class="p">,</span> <span class="n">e2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">sequence</span><span class="p">,</span> <span class="n">sequence</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span>
-</pre></div>
+</code></pre></div>
 <p>The following Dynamic Programming approach takes <span class="math">\(\mathcal{O}(n^2)\)</span> in time
 and additionally <span class="math">\(\mathcal{O}(n)\)</span> space.</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
 
 
 <span class="k">def</span> <span class="nf">longest_increasing_subsequence</span><span class="p">(</span><span class="n">numbers</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
@@ -242,7 +242,7 @@ and additionally <span class="math">\(\mathcal{O}(n)\)</span> space.</p>
                 <span class="n">max_len_before</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_len_before</span><span class="p">,</span> <span class="n">max_endswith</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
         <span class="n">max_endswith</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">max_len_before</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
     <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_endswith</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 <p>Using <a href="https://en.wikipedia.org/wiki/Patience_sorting">Patience sorting</a> is
 a <span class="math">\(\mathcal{O}(n \log(n))\)</span> solution with additional <span class="math">\(\mathcal{O}(n)\)</span> space (<a href="https://www.youtube.com/watch?v=22s1xxRvy28">video</a>).</p>
 <h2 id="edit-distance">Edit Distance</h2>
@@ -272,10 +272,10 @@ D_{i - 1, j}&amp;+ 1 \ {\rm(Deletion)}
 \end{cases}
 $$</div>
 <p>Each cell <span class="math">\((i, j)\)</span> of the matrix <span class="math">\(D\)</span> is a sub-problem of the original one:</p>
-<div class="highlight"><pre><span></span><span class="n">edit_distance</span><span class="p">(</span><span class="n">w1</span><span class="p">[:</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">w2</span><span class="p">[:</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">edit_distance</span><span class="p">(</span><span class="n">w1</span><span class="p">[:</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">w2</span><span class="p">[:</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+</code></pre></div>
 <p>The complete code looks as follows:</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">edit_distance</span><span class="p">(</span><span class="n">w1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">w2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">edit_distance</span><span class="p">(</span><span class="n">w1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">w2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
     <span class="sd">"""</span>
 <span class="sd">    &gt;&gt;&gt; edit_distance("foobar", "")</span>
 <span class="sd">    6</span>
@@ -320,14 +320,14 @@ $$</div>
                 <span class="n">options</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
                 <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">d</span><span class="p">[</span><span class="n">m</span><span class="p">][</span><span class="n">n</span><span class="p">]</span>
-</pre></div>
+</code></pre></div>
 <p>A 16 minute video explanation is given by <a href="https://www.youtube.com/watch?v=MiqoA-yF-0M">Back To Back SWE</a>.</p>
 <h2 id="change-making-problem">Change Making Problem</h2>
 <p>Imagine your are the cashier at a supermarket. You have to give change to the
 customer and you want to give the least number of coins possible.</p>
 <p>There is a top-down and a bottom-up solution.</p>
 <p>A recursive top-down solution is:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Set</span><span class="p">,</span> <span class="n">Optional</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Set</span><span class="p">,</span> <span class="n">Optional</span>
 <span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">lru_cache</span>
 
 
@@ -354,16 +354,16 @@ customer and you want to give the least number of coins possible.</p>
     <span class="k">for</span> <span class="n">coin</span> <span class="ow">in</span> <span class="n">coins</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">coin</span> <span class="o">&lt;</span> <span class="n">amount</span><span class="p">:</span>
             <span class="n">solution</span> <span class="o">=</span> <span class="n">least_coins</span><span class="p">(</span><span class="n">coins</span><span class="p">,</span> <span class="n">amount</span> <span class="o">-</span> <span class="n">coin</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">solution</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">solution</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="n">possible_solutions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">solution</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">possible_solutions</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
-</pre></div>
+    <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">possible_solutions</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
 <p>Note that I used an LRU cache. This saves the 512 <strong>l</strong>east <strong>r</strong>ecently
 <strong>u</strong>sed function calls and its output. So we don't have to re-compute too
 much. That decorator requires hashable parameters, hence we have to use
 frozenset. Set is not hashable.</p>
 <p>Now the top-down iterative solution:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Set</span><span class="p">,</span> <span class="n">Optional</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Set</span><span class="p">,</span> <span class="n">Optional</span>
 
 
 <span class="k">def</span> <span class="nf">least_coins</span><span class="p">(</span><span class="n">coins</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">amount</span><span class="p">:</span> <span class="mi">11</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
@@ -398,8 +398,8 @@ frozenset. Set is not hashable.</p>
             <span class="k">if</span> <span class="n">coin</span> <span class="o">&lt;=</span> <span class="n">remaining_amount</span><span class="p">:</span>
                 <span class="n">partial_solution</span> <span class="o">=</span> <span class="p">(</span><span class="n">coins_used</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">remaining_amount</span> <span class="o">-</span> <span class="n">coin</span><span class="p">)</span>
                 <span class="n">partial_solutions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">partial_solution</span><span class="p">)</span>
-    <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">possible_solutions</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
-</pre></div>
+    <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">possible_solutions</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
 <p>I removed the LRU cache and used normal sets. I could have kept both, but
 this makes the solution a bit shorter.</p>
 <p>The bottom-up solution would calculate all the possible sums. Although that
@@ -408,7 +408,7 @@ would be the dynamic programming solution, I'm currently to lazy to write it
 <h2 id="01-knapsack">0/1 Knapsack</h2>
 <p>You have a list of items which have a weight and a value. You have a maximum
 weight you can carry. What is the maximum value you can get?</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span>
 
 
 <span class="k">def</span> <span class="nf">solve_knapsack</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]],</span> <span class="n">max_weight</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
@@ -445,7 +445,7 @@ weight you can carry. What is the maximum value you can get?</p>
                 <span class="n">adding_it</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">c</span><span class="p">[</span><span class="n">item_index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">remaining_weight</span> <span class="o">-</span> <span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
                 <span class="n">c</span><span class="p">[</span><span class="n">item_index</span><span class="p">][</span><span class="n">remaining_weight</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">not_adding</span><span class="p">,</span> <span class="n">adding_it</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">c</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">max_weight</span><span class="p">]</span>
-</pre></div>
+</code></pre></div>
 <p>You can see that the solution has a time complexity of <span class="math">\(\mathcal{O}(n \cdot m)\)</span>
 where <span class="math">\(n\)</span> is the number of items and <span class="math">\(m\)</span> is the maximum weight. It also has this
 space complexity.</p>
@@ -456,7 +456,7 @@ numbers, this might make</p>
 <p>There are n stairs and you can take either one or two stairs. How many unique
 ways exist to climb the stairs?</p>
 <p>First, a recursive solution:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">lru_cache</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">lru_cache</span>
 
 
 <span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>
@@ -477,12 +477,12 @@ ways exist to climb the stairs?</p>
     <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">2</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">stairs</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">stairs</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
+        <span class="k">return</span> <span class="n">stairs</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">stairs</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
 <p>You should directly notice that this looks VERY similar to the fibonacci sequence.
 Only the starting numbers are different. Hence the solution is the same, except
 for the starting numbers:</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">stairs</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">stairs</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
     <span class="sd">"""</span>
 <span class="sd">    &gt;&gt;&gt; stairs(1)</span>
 <span class="sd">    1</span>
@@ -498,7 +498,7 @@ for the starting numbers:</p>
     <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
         <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
     <span class="k">return</span> <span class="n">a</span>
-</pre></div>
+</code></pre></div>
 <h2 id="egg-drop_1">Egg Drop</h2>
 <p>Given <span class="math">\(n\)</span> eggs and <span class="math">\(m\)</span> floors, how often do you need to let an egg drop to know
 for sure the highest floor at which the eggs still don't break?</p>
@@ -533,7 +533,7 @@ is that the searched floor is the 9th one:</p>
 </li>
 </ul>
 <p>Obviously, binary search is not the best solution.</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">egg_drop</span><span class="p">(</span><span class="n">eggs</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">floors</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">egg_drop</span><span class="p">(</span><span class="n">eggs</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">floors</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
     <span class="sd">"""</span>
 <span class="sd">    &gt;&gt;&gt; egg_drop(42, 0)</span>
 <span class="sd">    0</span>
@@ -551,11 +551,11 @@ is that the searched floor is the 9th one:</p>
             <span class="k">if</span> <span class="n">floor</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="n">el</span> <span class="o">=</span> <span class="n">floor</span>
             <span class="k">elif</span> <span class="n">reduced_eggs</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="n">el</span> <span class="o">=</span> <span class="bp">None</span>
+                <span class="n">el</span> <span class="o">=</span> <span class="kc">None</span>
             <span class="k">elif</span> <span class="n">reduced_eggs</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="n">el</span> <span class="o">=</span> <span class="n">floor</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">el</span> <span class="o">=</span> <span class="bp">None</span>
+                <span class="n">el</span> <span class="o">=</span> <span class="kc">None</span>
             <span class="n">row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">el</span><span class="p">)</span>
         <span class="n">s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
 
@@ -576,7 +576,7 @@ is that the searched floor is the 9th one:</p>
                     <span class="n">best_choice</span> <span class="o">=</span> <span class="n">worst_case</span>
             <span class="n">s</span><span class="p">[</span><span class="n">floor</span><span class="p">][</span><span class="n">n_egg</span><span class="p">]</span> <span class="o">=</span> <span class="n">best_choice</span>
     <span class="k">return</span> <span class="n">s</span><span class="p">[</span><span class="n">floors</span><span class="p">][</span><span class="n">eggs</span><span class="p">]</span>
-</pre></div>
+</code></pre></div>
 <p>This algorithm has a time complexity of <span class="math">\(\mathcal{O}(m^2 \cdot n)\)</span> and need
 <span class="math">\(\mathcal{O}(n \cdot m)\)</span> in additional space. You can improve the runtime by
 looking at the sequence of worst_case. It should go down and then up again. If
@@ -593,8 +593,10 @@ pure numbers:</p>
 search and more eggs will not result in less egg drops.</p>
 <h2 id="see-also">See also</h2>
 <ul>
-<li>Wikipedia:<ul>
-<li><a href="https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm">Floyd&ndash;Warshall algorithm</a>: finding shortest paths in a weighted graph</li>
+<li>Wikipedia: Some example for Dynamic Programming algorithms<ul>
+<li><a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra's algorithm</a>: single-source shortest path (SSSP)</li>
+<li><a href="https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm">Bellman&ndash;Ford algorithm</a>: single-source shortest-path algorithm (SSSP), <span class="math">\(\mathcal{O}(V^2 E)\)</span></li>
+<li><a href="https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm">Floyd&ndash;Warshall algorithm</a>: all-pairs shortest path algorithm, <span class="math">\(\mathcal{O}(V^3)\)</span></li>
 <li><a href="https://en.wikipedia.org/wiki/Knapsack_problem#0-1_knapsack_problem">Knapsack problem</a></li>
 </ul>
 </li>

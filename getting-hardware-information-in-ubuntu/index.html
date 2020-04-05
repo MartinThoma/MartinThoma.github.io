@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="cheat sheet, Linux, Ubuntu, Hardware, Code, " />
 
-<meta property="og:title" content="Getting Hardware Information in Ubuntu "/>
+<meta property="og:title" content="Getting Hardware Information in Ubuntu"/>
 <meta property="og:url" content="../getting-hardware-information-in-ubuntu/" />
 <meta property="og:description" content="I&#39;m using Ubuntu now for many years, but I always have to look the commands for retrieving hardware information up. Now I will not Google any longer but search in my own little cheat sheet. I guess most commands will work in every Linux distribution, but I tried it only …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2011-09-22T20:44:21+02:00" />
-<meta name="twitter:title" content="Getting Hardware Information in Ubuntu ">
+<meta name="twitter:title" content="Getting Hardware Information in Ubuntu">
 <meta name="twitter:description" content="I&#39;m using Ubuntu now for many years, but I always have to look the commands for retrieving hardware information up. Now I will not Google any longer but search in my own little cheat sheet. I guess most commands will work in every Linux distribution, but I tried it only …">
 <meta property="og:image" content="2011/09/Ubuntu-Logo.png" />
 <meta name="twitter:image" content="2011/09/Ubuntu-Logo.png" >
 
-        <title>Getting Hardware Information in Ubuntu  · Martin Thoma
+        <title>Getting Hardware Information in Ubuntu · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../getting-hardware-information-in-ubuntu/"> Getting Hardware Information in Ubuntu  </a></h1>
+    <h1><a href="../getting-hardware-information-in-ubuntu/"> Getting Hardware Information in Ubuntu </a></h1>
     </header>
 </div>
 
@@ -115,7 +115,7 @@ MathJax.Hub.Queue(function() {
 <p>Maybe you need to install some packages.</p>
 <p>If you know more commands, please post a comment!</p>
 <h2 id="cpu">CPU</h2>
-<div class="highlight"><pre><span></span>cat /proc/cpuinfo
+<div class="highlight"><pre><span></span><code>cat /proc/cpuinfo
 
 processor   : <span class="m">0</span>
 vendor_id   : GenuineIntel
@@ -174,22 +174,22 @@ clflush size    : <span class="m">64</span>
 cache_alignment : <span class="m">64</span>
 address sizes   : <span class="m">36</span> bits physical, <span class="m">48</span> bits virtual
 power management:
-</pre></div>
+</code></pre></div>
 <h2 id="ram">RAM</h2>
-<div class="highlight"><pre><span></span>free
+<div class="highlight"><pre><span></span><code>free
 
              total       used       free     shared    buffers     cached
 Mem:       <span class="m">4047112</span>    <span class="m">1712724</span>    <span class="m">2334388</span>          <span class="m">0</span>      <span class="m">94328</span>     <span class="m">744808</span>
 -/+ buffers/cache:     <span class="m">873588</span>    <span class="m">3173524</span>
 Swap:      <span class="m">8864760</span>          <span class="m">0</span>    <span class="m">8864760</span>
-</pre></div>
+</code></pre></div>
 <h2 id="graphic card">Graphic card</h2>
-<div class="highlight"><pre><span></span>lspci <span class="p">|</span> grep VGA
+<div class="highlight"><pre><span></span><code>lspci <span class="p">|</span> grep VGA
 
 <span class="m">00</span>:02.0 VGA compatible controller: Intel Corporation Mobile <span class="m">4</span> Series Chipset Integrated Graphics Controller <span class="o">(</span>rev <span class="m">07</span><span class="o">)</span>
-</pre></div>
+</code></pre></div>
 <p>And some more details:</p>
-<div class="highlight"><pre><span></span>lspci -s <span class="m">00</span>:02.0 -v
+<div class="highlight"><pre><span></span><code>lspci -s <span class="m">00</span>:02.0 -v
 <span class="m">00</span>:02.0 VGA compatible controller: Intel Corporation Mobile <span class="m">4</span> Series Chipset Integrated Graphics Controller <span class="o">(</span>rev <span class="m">07</span><span class="o">)</span>
     Subsystem: Acer Incorporated <span class="o">[</span>ALI<span class="o">]</span> Device 048a
     Flags: bus master, fast devsel, latency <span class="m">0</span>, IRQ <span class="m">29</span>
@@ -199,14 +199,14 @@ Swap:      <span class="m">8864760</span>          <span class="m">0</span>    <
     Capabilities: &lt;access denied&gt;
     Kernel driver in use: i915
     Kernel modules: i915
-</pre></div>
+</code></pre></div>
 <h2 id="audio chipset">Audio Chipset</h2>
-<div class="highlight"><pre><span></span>lspci <span class="p">|</span> grep Audio
+<div class="highlight"><pre><span></span><code>lspci <span class="p">|</span> grep Audio
 
 <span class="m">00</span>:1b.0 Audio device: Intel Corporation 82801I <span class="o">(</span>ICH9 Family<span class="o">)</span> HD Audio Controller <span class="o">(</span>rev <span class="m">03</span><span class="o">)</span>
-</pre></div>
+</code></pre></div>
 <p>And some more details:</p>
-<div class="highlight"><pre><span></span>lspci -s <span class="m">00</span>:1b.0 -v
+<div class="highlight"><pre><span></span><code>lspci -s <span class="m">00</span>:1b.0 -v
 <span class="m">00</span>:1b.0 Audio device: Intel Corporation 82801I <span class="o">(</span>ICH9 Family<span class="o">)</span> HD Audio Controller <span class="o">(</span>rev <span class="m">03</span><span class="o">)</span>
     Subsystem: Acer Incorporated <span class="o">[</span>ALI<span class="o">]</span> Device 048a
     Flags: bus master, fast devsel, latency <span class="m">0</span>, IRQ <span class="m">22</span>
@@ -214,14 +214,14 @@ Swap:      <span class="m">8864760</span>          <span class="m">0</span>    <
     Capabilities: &lt;access denied&gt;
     Kernel driver in use: HDA Intel
     Kernel modules: snd-hda-intel
-</pre></div>
+</code></pre></div>
 <h2 id="network chipset">Network Chipset</h2>
-<div class="highlight"><pre><span></span>lspci <span class="p">|</span> grep Network
+<div class="highlight"><pre><span></span><code>lspci <span class="p">|</span> grep Network
 
 <span class="m">04</span>:00.0 Network controller: Atheros Communications Inc. AR9287 Wireless Network Adapter <span class="o">(</span>rev <span class="m">01</span><span class="o">)</span>
-</pre></div>
+</code></pre></div>
 <p>Then get some more information:</p>
-<div class="highlight"><pre><span></span>lspci -s <span class="m">04</span>:00 -v
+<div class="highlight"><pre><span></span><code>lspci -s <span class="m">04</span>:00 -v
 <span class="m">04</span>:00.0 Network controller: Atheros Communications Inc. AR9287 Wireless Network Adapter <span class="o">(</span>rev <span class="m">01</span><span class="o">)</span>
     Subsystem: Foxconn International, Inc. Device e034
     Flags: bus master, fast devsel, latency <span class="m">0</span>, IRQ <span class="m">17</span>
@@ -229,11 +229,11 @@ Swap:      <span class="m">8864760</span>          <span class="m">0</span>    <
     Capabilities: &lt;access denied&gt;
     Kernel driver in use: ath9k
     Kernel modules: ath9k
-</pre></div>
+</code></pre></div>
 <h2 id="monitor">Monitor</h2>
 <p>The packages ddcprobe or xresprobe will help.</p>
 <h2 id="hard disk">Hard disk</h2>
-<div class="highlight"><pre><span></span>df -H
+<div class="highlight"><pre><span></span><code>df -H
 
 Dateisystem             Gr<span class="p">&amp;</span>ouml<span class="p">;&amp;</span>szlig<span class="p">;</span>e   Benut  Verf Ben% Eingeh<span class="p">&amp;</span>auml<span class="p">;</span>ngt auf
 /dev/sda1              307G    28G   264G  <span class="m">10</span>% /
@@ -242,7 +242,7 @@ none                   <span class="m">2</span>,1G   934k   <span class="m">2</s
 none                   <span class="m">2</span>,1G   209k   <span class="m">2</span>,1G   <span class="m">1</span>% /var/run
 none                   <span class="m">2</span>,1G      <span class="m">0</span>   <span class="m">2</span>,1G   <span class="m">0</span>% /var/lock
 none                   <span class="m">2</span>,1G      <span class="m">0</span>   <span class="m">2</span>,1G   <span class="m">0</span>% /lib/init/rw
-</pre></div>
+</code></pre></div>
             
             <div id="disqus_thread" class="no-print"></div>
 <script>

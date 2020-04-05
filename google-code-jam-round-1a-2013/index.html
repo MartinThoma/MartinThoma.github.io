@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Python, Google Code Jam, NumPy, itertools, Code, " />
 
-<meta property="og:title" content="Google Code Jam – Round 1A 2013 "/>
+<meta property="og:title" content="Google Code Jam – Round 1A 2013"/>
 <meta property="og:url" content="../google-code-jam-round-1a-2013/" />
 <meta property="og:description" content="Problem A (Bullseye): Small Set: 5856/6195 users (95%) Large Set: 1806/4795 users (38%) Problem B (Manage your Energy): Small Set: 2323/3789 users (61%) Large Set: 456/1133 users (40%) Problem C (Good Luck): Small Set: 1366/1774 users (77%) Large Set: 31/605 users (5%) More information …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2013-04-27T07:15:17+02:00" />
-<meta name="twitter:title" content="Google Code Jam – Round 1A 2013 ">
+<meta name="twitter:title" content="Google Code Jam – Round 1A 2013">
 <meta name="twitter:description" content="Problem A (Bullseye): Small Set: 5856/6195 users (95%) Large Set: 1806/4795 users (38%) Problem B (Manage your Energy): Small Set: 2323/3789 users (61%) Large Set: 456/1133 users (40%) Problem C (Good Luck): Small Set: 1366/1774 users (77%) Large Set: 31/605 users (5%) More information …">
 <meta property="og:image" content="2012/04/code-jam-logo.png" />
 <meta name="twitter:image" content="2012/04/code-jam-logo.png" >
 
-        <title>Google Code Jam – Round 1A 2013  · Martin Thoma
+        <title>Google Code Jam – Round 1A 2013 · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../google-code-jam-round-1a-2013/"> Google Code Jam &ndash; Round 1A 2013  </a></h1>
+    <h1><a href="../google-code-jam-round-1a-2013/"> Google Code Jam &ndash; Round 1A 2013 </a></h1>
     </header>
 </div>
 
@@ -133,7 +133,7 @@ MathJax.Hub.Queue(function() {
 <p>I'm too slow for Google Code Jam <em>sigh</em>. Nevertheless, here are my solutions:</p>
 <h2 id="bullseye">Bullseye</h2>
 <h3 id="small">Small</h3>
-<div class="highlight"><pre><span></span><span class="cp">&lt;?</span>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?</span>
 
 <span class="k">function</span> <span class="nf">solve</span><span class="p">(</span><span class="nv">$r</span><span class="p">,</span> <span class="nv">$t</span><span class="p">)</span> <span class="p">{</span>
     <span class="nv">$circles</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -157,7 +157,7 @@ MathJax.Hub.Queue(function() {
 
 <span class="p">}</span>
 <span class="cp">?&gt;</span><span class="x"></span>
-</pre></div>
+</code></pre></div>
 <h3 id="large">Large</h3>
 <p><em>Argh</em> I've copied the wrong equation from my pad to my computer</p>
 <p>You basically have to solve this:
@@ -175,7 +175,7 @@ t - \sum_{i=0}^x ((r+1+2i)^2 - (r+2i)^2) &amp;\geq 0\\
 \end{align}</div>
 <p>I have to know that <span class="math">\(1 \leq r\)</span> and <span class="math">\(1 \geq x \in \mathbb{N}\)</span>. So you have to round <span class="math">\(x_1, x_2\)</span> to the nearest solution.</p>
 <p>Did you know that Python has (in numpy) a method to calculate roots of a quadratic equation? See <a href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.roots.html">numpy.roots</a> for reference.</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">ceil</span><span class="p">,</span> <span class="n">roots</span>
@@ -199,14 +199,14 @@ t - \sum_{i=0}^x ((r+1+2i)^2 - (r+2i)^2) &amp;\geq 0\\
     <span class="n">testcases</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
 
     <span class="k">for</span> <span class="n">caseNr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">testcases</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="n">line</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">()</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">raw_input</span><span class="p">()</span>
         <span class="n">r</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">))</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"Case #</span><span class="si">%i</span><span class="s2">: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span><span class="p">,</span> <span class="n">solveFast</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">)))</span>
-</pre></div>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Case #</span><span class="si">%i</span><span class="s2">: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span><span class="p">,</span> <span class="n">solveFast</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">)))</span>
+</code></pre></div>
 <h2 id="good luck_1">Good Luck</h2>
 <p>This one solves at least the first test case, but not the second one.</p>
 <p>I love <a href="http://docs.python.org/2/library/itertools.html">itertools</a> ☺</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">factorial</span>
@@ -267,8 +267,8 @@ t - \sum_{i=0}^x ((r+1+2i)^2 - (r+2i)^2) &amp;\geq 0\\
     <span class="n">testcases</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
 
     <span class="k">for</span> <span class="n">caseNr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">testcases</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"Case #</span><span class="si">%i</span><span class="s2">:"</span> <span class="o">%</span> <span class="n">caseNr</span><span class="p">)</span>
-        <span class="n">line</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Case #</span><span class="si">%i</span><span class="s2">:"</span> <span class="o">%</span> <span class="n">caseNr</span><span class="p">)</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">raw_input</span><span class="p">()</span>
         <span class="n">arr</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
         <span class="n">R</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
         <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
@@ -287,9 +287,9 @@ t - \sum_{i=0}^x ((r+1+2i)^2 - (r+2i)^2) &amp;\geq 0\\
                     <span class="n">productToBuildungs</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">product</span><span class="p">))</span>
 
         <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">R</span><span class="p">):</span>
-            <span class="n">products</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">el</span><span class="p">)</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="nb">raw_input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span> <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">el</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">]</span>
-            <span class="k">print</span><span class="p">(</span><span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">solve</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">products</span><span class="p">,</span> <span class="n">productToBuildungs</span><span class="p">)))))</span>
-</pre></div>
+            <span class="n">products</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">el</span><span class="p">)</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">raw_input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span> <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">el</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">solve</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">products</span><span class="p">,</span> <span class="n">productToBuildungs</span><span class="p">)))))</span>
+</code></pre></div>
             
             <div id="disqus_thread" class="no-print"></div>
 <script>

@@ -16,16 +16,16 @@
 
 <meta name="keywords" content="JavaScript, Code, " />
 
-<meta property="og:title" content="JavaScript: WTF?!? "/>
+<meta property="og:title" content="JavaScript: WTF?!?"/>
 <meta property="og:url" content="../javascript-wtf/" />
 <meta property="og:description" content="JavaScript is THE web programming language. It gets interpreted by your browser and web applications like Google Mail, Google Maps and Facebook make heavy use of them. Almost always, when you see something working smoothly / interactive, you see JavaScript in action. But JavaScript has a lot of &#34;features&#34; which are …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2013-06-26T22:51:52+02:00" />
-<meta name="twitter:title" content="JavaScript: WTF?!? ">
+<meta name="twitter:title" content="JavaScript: WTF?!?">
 <meta name="twitter:description" content="JavaScript is THE web programming language. It gets interpreted by your browser and web applications like Google Mail, Google Maps and Facebook make heavy use of them. Almost always, when you see something working smoothly / interactive, you see JavaScript in action. But JavaScript has a lot of &#34;features&#34; which are …">
 
-        <title>JavaScript: WTF?!?  · Martin Thoma
+        <title>JavaScript: WTF?!? · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -94,7 +94,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../javascript-wtf/"> JavaScript: WTF?!?  </a></h1>
+    <h1><a href="../javascript-wtf/"> JavaScript: WTF?!? </a></h1>
     </header>
 </div>
 
@@ -113,31 +113,31 @@ MathJax.Hub.Queue(function() {
 <p>Most of the following content is from a StackOverflow question <a href="http://stackoverflow.com/q/1995113/562769">Strangest language feature</a></p>
 <h2 id="weak typing">Weak typing</h2>
 <p><strong>Example</strong></p>
-<div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">3.</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">3.</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+</code></pre></div>
 <p><strong>Output</strong></p>
-<div class="highlight"><pre><span></span><span class="s1">'3'</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="s1">'3'</span>
+</code></pre></div>
 <p><strong>Explanation</strong>
 <strong>3.</strong> is a floating point and can get converted to a string. But <code>3.toString()</code> gives</p>
-<div class="highlight"><pre><span></span>SyntaxError: Unexpected token ILLEGAL
-</pre></div>
+<div class="highlight"><pre><span></span><code>SyntaxError: Unexpected token ILLEGAL
+</code></pre></div>
 <h2 id="weak typing and string concatenation">Weak typing and string concatenation</h2>
 <p><strong>Example</strong></p>
-<div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'5'</span> <span class="o">+</span> <span class="mi">3</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'5'</span> <span class="o">+</span> <span class="mi">3</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'5'</span> <span class="o">-</span> <span class="mi">3</span><span class="p">);</span>
-</pre></div>
+</code></pre></div>
 <p><strong>Output</strong></p>
-<div class="highlight"><pre><span></span><span class="s1">'53'</span>
+<div class="highlight"><pre><span></span><code><span class="s1">'53'</span>
 <span class="m">2</span>
-</pre></div>
+</code></pre></div>
 <p><strong>Explanation</strong>
 JavaScript automatically converts datatypes and <code>+</code> is used for string concatenation and for addition.</p>
 <p>In the first case, as the first datatype is a string and <code>+</code> is defined for strings as concatenation, JS converts <code>3</code> to <code>'3'</code> which results in the string <code>'53'</code>.</p>
 <p>In the second case, <code>-</code> is only defined for subtraction so <code>'5'</code> gets converted to a number (int? float? I don't know. I guess int.)</p>
 <h2 id="automatic semicolons">Automatic semicolons</h2>
 <p><strong>Example 1</strong></p>
-<div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">test</span><span class="p">()</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">test</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span>
     <span class="p">{</span>
         <span class="nx">id</span> <span class="o">:</span> <span class="mi">1338</span><span class="p">,</span>
@@ -146,27 +146,27 @@ JavaScript automatically converts datatypes and <code>+</code> is used for strin
 <span class="p">}</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">test</span><span class="p">());</span>
-</pre></div>
+</code></pre></div>
 <p><strong>Example 2</strong></p>
-<div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">test</span><span class="p">()</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">test</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span>
         <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">test</span><span class="p">());</span>
-</pre></div>
+</code></pre></div>
 <p><strong>Output 1</strong></p>
-<div class="highlight"><pre><span></span>Uncaught SyntaxError: Unexpected token :
-</pre></div>
+<div class="highlight"><pre><span></span><code>Uncaught SyntaxError: Unexpected token :
+</code></pre></div>
 <p><strong>Output 2</strong></p>
-<div class="highlight"><pre><span></span>undefined
-</pre></div>
+<div class="highlight"><pre><span></span><code>undefined
+</code></pre></div>
 <p><strong>Explanation</strong>
 JS adds a <code>;</code> at every line end. Automatically. You can't prevent it.</p>
 <p>Please note that the second output is no error! It has a (valid) return value of <code>undefined</code>.</p>
 <h2 id="truth table">Truth table</h2>
 <p><strong>Example</strong></p>
-<div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"------- 0 == XYZ ---------"</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"------- 0 == XYZ ---------"</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">0</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">0</span> <span class="o">==</span> <span class="kc">false</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">0</span> <span class="o">==</span> <span class="s1">''</span><span class="p">);</span>
@@ -255,7 +255,7 @@ JS adds a <code>;</code> at every line end. Automatically. You can't prevent it.
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'false'</span> <span class="o">==</span> <span class="s1">'0'</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"-------  XYZ == 'false' ---------"</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'false'</span> <span class="o">==</span> <span class="s1">'false'</span><span class="p">);</span>
-</pre></div>
+</code></pre></div>
 <p><strong>Output</strong></p>
 <table>
 <tr>
@@ -363,57 +363,61 @@ Wow. This is fucked up. I've expected that strings compared to anything that is 
 <p>At least the table is symmetric and the diagonal is true. Please also note that JavaScript has a <code>===</code> operator.</p>
 <h2 id="the truth">The truth</h2>
 <p><strong>Example</strong></p>
-<div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">2</span> <span class="o">==</span> <span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+<div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">2</span> <span class="o">==</span> <span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">2</span> <span class="o">==</span> <span class="p">[[</span><span class="mi">2</span><span class="p">]]);</span>
-</pre></div>
+</code></pre></div>
 <p><strong>Output</strong></p>
-<div class="highlight"><pre><span></span><span class="nb">true</span>
+<div class="highlight"><pre><span></span><code><span class="nb">true</span>
 <span class="nb">true</span>
-</pre></div>
+</code></pre></div>
 <p><strong>Explanation</strong>
 At <a href="http://stackoverflow.com/a/1724551/562769">StackOverflow</a></p>
 <h2 id="date">Date</h2>
 <p><strong>Example</strong></p>
-<div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">futureDate</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span><span class="mi">77</span><span class="p">,</span><span class="mi">154</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">futureDate</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span><span class="mi">77</span><span class="p">,</span><span class="mi">154</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">futureDate</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">futureDate</span><span class="p">.</span><span class="nx">getYear</span><span class="p">());</span>
-</pre></div>
+</code></pre></div>
 <p><strong>Output</strong></p>
-<div class="highlight"><pre><span></span>Tue Nov <span class="m">01</span> <span class="m">2016</span> <span class="m">00</span>:00:00 GMT+0100 <span class="o">(</span>CET<span class="o">)</span>
+<div class="highlight"><pre><span></span><code>Tue Nov <span class="m">01</span> <span class="m">2016</span> <span class="m">00</span>:00:00 GMT+0100 <span class="o">(</span>CET<span class="o">)</span>
 <span class="m">116</span>
-</pre></div>
+</code></pre></div>
 <p><strong>Explanation</strong>
 77 months and 154 days from the 0th day of 0th month of 2010</p>
 <p>You should use <code>getFullYear()</code> instead of <code>getYear()</code>, as the later one returns <code>year - 1900</code> (Why? When is this useful?)</p>
 <h2 id="integer overflow">Integer overflow</h2>
 <p><strong>Example</strong></p>
-<div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">111111111111111111111</span><span class="p">);</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">111111111111111111111</span><span class="p">);</span>
+</code></pre></div>
 <p><strong>Output</strong></p>
-<div class="highlight"><pre><span></span><span class="m">111111111111111110000</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="m">111111111111111110000</span>
+</code></pre></div>
 <p><strong>Explanation</strong>
 It's ok that JavaScript fails at handling this integer. I think it converts this to a float, but I'm not sure about that. But no matter what it does here, it doesn't throw an error. That's bad. How is a developer supposed to know in a big application know when something went wrong?</p>
 <h2 id="function parameters">Function parameters</h2>
 <blockquote>In Javascript, declaring the parameters a function accepts is only a convenience to the programmer. All variables passed through the function call are accessible by the keyword <code>arguments</code>. So the following would alert "world":
 
-wzxhzdk:16
+<div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">blah</span><span class="p">(){</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="nx">arguments</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+<span class="p">}</span>
 
+<span class="nx">blah</span><span class="p">(</span><span class="s2">"hello"</span><span class="p">,</span> <span class="s2">"world"</span><span class="p">);</span>
+</code></pre></div>
 </blockquote>
 <p><a href="http://stackoverflow.com/a/2023908/562769">Source</a> on StackOverflow</p>
 <h2 id="global variables">Global variables</h2>
 <p><strong>Example</strong></p>
-<div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
 
 <span class="kd">function</span> <span class="nx">test</span><span class="p">()</span> <span class="p">{</span>
   <span class="nx">a</span> <span class="o">=</span> <span class="mi">1337</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nx">test</span><span class="p">();</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
-</pre></div>
+</code></pre></div>
 <p><strong>Output</strong></p>
-<div class="highlight"><pre><span></span><span class="m">1337</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="m">1337</span>
+</code></pre></div>
 <p><strong>Explanation</strong>
 When you forget to use <code>var</code> inside of <code>test()</code> you might accidentally use a global variable.</p>
 <h2 id="see also">See also</h2>

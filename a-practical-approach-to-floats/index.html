@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="C, float, Python, IEEE 754, Code, " />
 
-<meta property="og:title" content="A practical approach to floats "/>
+<meta property="og:title" content="A practical approach to floats"/>
 <meta property="og:url" content="../a-practical-approach-to-floats/" />
 <meta property="og:description" content="If you make a computer science degree, you will have to learn how numbers are internally represented. Most of the time, you get explanations like the pictures below: IEEE 754 single precision Example of a floating point number You will (have to) learn how IEEE 754 floats are structured on …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2012-10-23T12:40:45+02:00" />
-<meta name="twitter:title" content="A practical approach to floats ">
+<meta name="twitter:title" content="A practical approach to floats">
 <meta name="twitter:description" content="If you make a computer science degree, you will have to learn how numbers are internally represented. Most of the time, you get explanations like the pictures below: IEEE 754 single precision Example of a floating point number You will (have to) learn how IEEE 754 floats are structured on …">
 <meta property="og:image" content="2012/10/float-scheme1.png" />
 <meta name="twitter:image" content="2012/10/float-scheme1.png" >
 
-        <title>A practical approach to floats  · Martin Thoma
+        <title>A practical approach to floats · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../a-practical-approach-to-floats/"> A practical approach to floats  </a></h1>
+    <h1><a href="../a-practical-approach-to-floats/"> A practical approach to floats </a></h1>
     </header>
 </div>
 
@@ -121,7 +121,7 @@ MathJax.Hub.Queue(function() {
 </figure>
 <p>You will (have to) learn how <a href="http://en.wikipedia.org/wiki/IEEE_floating_point">IEEE 754 floats</a> are structured on a bit-wise level. But I also like to check if it is correct, what I've learned.</p>
 <p>So this is how you can check it:</p>
-<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdint.h&gt;</span><span class="cp"></span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;stdint.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt; // printf</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;limits.h&gt; // INT_MAX, UINT_MAX, ...</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;math.h&gt;   // needed for NAN</span><span class="cp"></span>
@@ -189,15 +189,15 @@ MathJax.Hub.Queue(function() {
     <span class="n">testVar</span><span class="p">.</span><span class="n">i</span> <span class="o">=</span> <span class="mh">0xbf200000</span><span class="p">;</span>
     <span class="n">printValue</span><span class="p">(</span><span class="n">testVar</span><span class="p">);</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 <p>I think I have tried all interesting values. Have fun trying it yourself ☺</p>
 <p>(hmm ... I could also try to make a visualization ... I will think about this when I have more time)</p>
 <h2 id="python-solution">Python Solution</h2>
 <p>Prerequesites:</p>
-<div class="highlight"><pre><span></span>pip install bitstring
-</pre></div>
+<div class="highlight"><pre><span></span><code>pip install bitstring
+</code></pre></div>
 <p>Python code <code>convert.py</code>:</p>
-<div class="highlight"><pre><span></span><span class="c1"># Third party modules</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Third party modules</span>
 <span class="kn">import</span> <span class="nn">bitstring</span>
 
 
@@ -212,17 +212,17 @@ MathJax.Hub.Queue(function() {
 
 
 <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">0</span><span class="p">,</span> <span class="o">+</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mf">12.0</span><span class="p">]:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">"{number:4.0f}: {float_to_bin(number)}"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{number:4.0f}</span><span class="s2">: {float_to_bin(number)}"</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">bits</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"00000000000000000000000000000000"</span><span class="p">]:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">"{bits}: {bin_to_float(bits)}"</span><span class="p">)</span>
-</pre></div>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{bits}</span><span class="s2">: {bin_to_float(bits)}"</span><span class="p">)</span>
+</code></pre></div>
 <h2 id="zero-representation">Zero Representation</h2>
 <p>Zero has two representations: <code>00000000000000000000000000000000</code> which is
 positive 0 and <code>10000000000000000000000000000000</code> which is negative zero. They
 are considered equal in all programming languages I know.</p>
 <p>You can get the sign in Python like this:</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_sign</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_sign</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    &gt;&gt;&gt; get_sign(-12)</span>
 <span class="sd">    -1.0</span>
@@ -234,7 +234,7 @@ are considered equal in all programming languages I know.</p>
 <span class="sd">    1.0</span>
 <span class="sd">    """</span>
     <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">copysign</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">number</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
             
             <div id="disqus_thread" class="no-print"></div>
 <script>

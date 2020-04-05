@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Microsoft, Dreamspark, Windows 7, Windows 8.1, Cyberculture, " />
 
-<meta property="og:title" content="Dreamspark SDM Odysee "/>
+<meta property="og:title" content="Dreamspark SDM Odysee"/>
 <meta property="og:url" content="../dreamspark-sdm-odysee/" />
 <meta property="og:description" content="I need to have Windows for work. As a student I should have free access to it. But when I try to download it, I have to use Microsofts &#34;Secure Download Manager&#34; (SDM). As a Ubuntu (Linux) user, this is easier said than done. TL;DR You need a Windows …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2015-03-24T13:04:00+01:00" />
-<meta name="twitter:title" content="Dreamspark SDM Odysee ">
+<meta name="twitter:title" content="Dreamspark SDM Odysee">
 <meta name="twitter:description" content="I need to have Windows for work. As a student I should have free access to it. But when I try to download it, I have to use Microsofts &#34;Secure Download Manager&#34; (SDM). As a Ubuntu (Linux) user, this is easier said than done. TL;DR You need a Windows …">
 <meta property="og:image" content="logos/microsoft.png" />
 <meta name="twitter:image" content="logos/microsoft.png" >
 
-        <title>Dreamspark SDM Odysee  · Martin Thoma
+        <title>Dreamspark SDM Odysee · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../dreamspark-sdm-odysee/"> Dreamspark SDM Odysee  </a></h1>
+    <h1><a href="../dreamspark-sdm-odysee/"> Dreamspark SDM Odysee </a></h1>
     </header>
 </div>
 
@@ -182,8 +182,8 @@ err:msidb:get_tablecolumns column 3 out of range</p>
 </blockquote>
 <h2 id="reverse-engineering-a-little-bit">Reverse Engineering ... a little bit</h2>
 <p>Taking a look at the <code>1234567890ab.sdx</code> file reveals that it contains only a single url:</p>
-<div class="highlight"><pre><span></span>http://kit.onthehub.com/WebStore/Account/SdmAuthorize.aspx?o=12345678-1234-1234-123a-12234567890a&amp;ws=12345678-1234-1234-1234-1234567890ab&amp;uid=12345678-1234-1234-1234-1234567890ab&amp;abc=5
-</pre></div>
+<div class="highlight"><pre><span></span><code>http://kit.onthehub.com/WebStore/Account/SdmAuthorize.aspx?o=12345678-1234-1234-123a-12234567890a&amp;ws=12345678-1234-1234-1234-1234567890ab&amp;uid=12345678-1234-1234-1234-1234567890ab&amp;abc=5
+</code></pre></div>
 <p>(I've replaced the numbers by 123... to avoid problems with other people using
 my link to download stuff)</p>
 <p>However, I cannot simply download it there. There is a page with two downloads,
@@ -195,7 +195,7 @@ but when I click on download nothing happens.</p>
 <p>So I use Chrome developer tools
 (<kbd>Ctrl</kbd>+<kbd>shift</kbd>+<kbd>i</kbd>) to see the request.</p>
 <p>It's a GET request which gets the response:</p>
-<div class="highlight"><pre><span></span><span class="nt">&lt;information&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;information&gt;</span>
     <span class="nt">&lt;oiopua&gt;</span>12345678-1234-1234-1234-1234567890ab<span class="nt">&lt;/oiopua&gt;</span>
     <span class="nt">&lt;edv&gt;</span>1234567890^^1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<span class="nt">&lt;/edv&gt;</span>
     <span class="nt">&lt;linkAvailable&gt;</span>1<span class="nt">&lt;/linkAvailable&gt;</span>
@@ -203,7 +203,7 @@ but when I click on download nothing happens.</p>
     <span class="nt">&lt;invokeExternalDownload&gt;</span>0<span class="nt">&lt;/invokeExternalDownload&gt;</span>
     <span class="nt">&lt;fileURL&gt;</span>http://software.dreamspark.com/dreamspark/GERMAN/de_windows_8.1_with_update_x64_dvd_4048209.01.sdc<span class="nt">&lt;/fileURL&gt;</span>
 <span class="nt">&lt;/information&gt;</span>
-</pre></div>
+</code></pre></div>
 <p>Although I can download the <code>.sdc</code> file, I cannot use it. It is an encrypted
 file (which would give the <code>.iso</code>, but I don't know how to encrypt it.).</p>
 <p>If you are interested in the file format, you might want to read

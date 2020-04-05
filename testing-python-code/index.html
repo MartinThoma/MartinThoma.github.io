@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Code, Testing, tox, pytest, coverage, Code, " />
 
-<meta property="og:title" content="Testing in Python "/>
+<meta property="og:title" content="Testing in Python"/>
 <meta property="og:url" content="../testing-python-code/" />
 <meta property="og:description" content="Testing code is important for the following reasons: Trust: You checked at least some cases if they work. So others can have more trust in the quality of your work and youself can also put more trust in it. Breaking Changes: For a bigger project, it is sometimes hard to …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2018-07-03T20:00:00+02:00" />
-<meta name="twitter:title" content="Testing in Python ">
+<meta name="twitter:title" content="Testing in Python">
 <meta name="twitter:description" content="Testing code is important for the following reasons: Trust: You checked at least some cases if they work. So others can have more trust in the quality of your work and youself can also put more trust in it. Breaking Changes: For a bigger project, it is sometimes hard to …">
 <meta property="og:image" content="logos/python.png" />
 <meta name="twitter:image" content="logos/python.png" >
 
-        <title>Testing in Python  · Martin Thoma
+        <title>Testing in Python · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../testing-python-code/"> Testing in Python  </a></h1>
+    <h1><a href="../testing-python-code/"> Testing in Python </a></h1>
     </header>
 </div>
 
@@ -135,24 +135,24 @@ concrete examples how writing tests with the aim of a high test coverage
 improved my code.</p>
 <h3 id="reproducibility">Reproducibility</h3>
 <p>Suppose you have to test a function</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">datetime</span>
 
 
 <span class="k">def</span> <span class="nf">get_tomorrow</span><span class="p">():</span>
     <span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">today</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 <p>then you have a problem. The execution of this depends on the current state of
 the world. That is hard to test. While there is <a href="https://github.com/spulec/freezegun"><code>freezegun</code></a>,
 the simpler change is to add an argument:</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">datetime</span>
 
 
-<span class="k">def</span> <span class="nf">get_tomorrow</span><span class="p">(</span><span class="n">today</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">today</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+<span class="k">def</span> <span class="nf">get_tomorrow</span><span class="p">(</span><span class="n">today</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">today</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">today</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 <p>Now the code is easy to test. As a side effect, the function is more flexible.
 You could generate the "today" datetime object before, log its value and rerun
 everything.</p>
@@ -169,7 +169,7 @@ the word 'and', the method needs to be split into at least one more part.</p>
 <p>Python has a module called <a href="https://docs.python.org/3/library/doctest.html"><code>doctest</code></a>.
 It executes code which is after the promt <code>&gt;&gt;&gt;</code>.</p>
 <p>A simple example:</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Calculate the n-th fibonacci number.</span>
 
@@ -188,7 +188,7 @@ It executes code which is after the promt <code>&gt;&gt;&gt;</code>.</p>
     <span class="kn">import</span> <span class="nn">doctest</span>
 
     <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 <p>If you execute this, it will directly check if the documentation matches actual
 execution. Try it by changing <code>8</code> to something else.</p>
 <p>Why it is nice:</p>
@@ -235,7 +235,7 @@ typical integration test is when you interact with a database.</p>
 <li>The test runner executes the tests.</li>
 </ul>
 <p>Your <a href="https://martin-thoma.com/python-projects/">project structure</a> should be:</p>
-<div class="highlight"><pre><span></span>foo_module : the git repository root dir
+<div class="highlight"><pre><span></span><code>foo_module : the git repository root dir
 ├── configs
 │   └── module.yaml
 ├── docker-compose.yml
@@ -256,10 +256,10 @@ typical integration test is when you interact with a database.</p>
 └── tests &lt;--------------------------
     ├── __init__.py
     └── test_utils.py
-</pre></div>
+</code></pre></div>
 <p>A simple unittest is usually stored in <code>tests/test_themodule_name.py</code> and might
 look like this:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
 <span class="kn">import</span> <span class="nn">unittest</span>
 
@@ -276,22 +276,22 @@ look like this:</p>
     <span class="c1"># test routine A</span>
     <span class="k">def</span> <span class="nf">test_abc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""Test routine A"""</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"FooTest:testA"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"FooTest:testA"</span><span class="p">)</span>
 
     <span class="c1"># test routine B</span>
     <span class="k">def</span> <span class="nf">testB</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""Test routine B"""</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"FooTest:testB"</span><span class="p">)</span>
-</pre></div>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"FooTest:testB"</span><span class="p">)</span>
+</code></pre></div>
 <h3 id="pytest">pytest</h3>
 <p><a href="https://docs.pytest.org/en/latest/"><code>pytest</code></a> is a framework which makes
 testing with Python WAY easier. You can simply add files <code>test_&lt;modulename&gt;.py</code>
 with <code>text_xyz()</code> functions and assert statements:</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">text_xy</span><span class="p">():</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">text_xy</span><span class="p">():</span>
     <span class="kn">import</span> <span class="nn">mymodule</span>
 
     <span class="k">assert</span> <span class="n">mymodule</span><span class="o">.</span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
-</pre></div>
+</code></pre></div>
 <p>Then you execute <code>pytest</code> in the project folder (without any arguments) and
 it runs your tests!</p>
 <h4 id="pytest-plugins">pytest plugins</h4>
@@ -310,7 +310,7 @@ it runs your tests!</p>
   functions are too complex.</li>
 </ul>
 <p>I recommend to add the following to your <code>setup.cfg</code>:</p>
-<div class="highlight"><pre><span></span><span class="k">[tool:pytest]</span>
+<div class="highlight"><pre><span></span><code><span class="k">[tool:pytest]</span>
 <span class="na">addopts</span> <span class="o">=</span> <span class="s">./tests/ --doctest-modules --mccabe --cov=./mpu --cov-append --cov-report html:tests/reports/coverage-html --cov-report xml:tests/reports/coverage.xml --pep8 --ignore=docs/</span>
 <span class="na">doctest_encoding</span> <span class="o">=</span> <span class="s">utf-8</span>
 <span class="na">mccabe-complexity</span><span class="o">=</span><span class="s">10</span>
@@ -318,28 +318,28 @@ it runs your tests!</p>
 <span class="k">[pydocstyle]</span>
 <span class="na">ignore</span> <span class="o">=</span> <span class="s">D104, D105, D107, D301, D413, D203, D212, D100</span>
 <span class="na">match_dir</span> <span class="o">=</span> <span class="s">mpu</span>
-</pre></div>
+</code></pre></div>
 <p>You might wonder how it relates to <code>nose</code>. The main thing you should remember
 is that <a href="https://nose.readthedocs.io/en/latest/#note-to-users">nose is no longer maintained</a>.</p>
 <h3 id="radon">radon</h3>
 <p><a href="https://pypi.org/project/radon/"><code>radon</code></a> computes several maintainability
 measures. The best one is the maintainability index. Here is how I use it
 for my <code>mpu</code> package:</p>
-<div class="highlight"><pre><span></span>$ radon mi mpu
-</pre></div>
+<div class="highlight"><pre><span></span><code>$ radon mi mpu
+</code></pre></div>
 <h3 id="tox">tox</h3>
 <p><a href="https://en.wikipedia.org/wiki/Tox_(Python_testing_wrapper)"><code>tox</code></a> is a
 testing tool which helps you to discover if you forgot to add dependencies to
 your <code>setup.py</code>.</p>
 <p>You can install <a href="https://pypi.org/project/tox/"><code>tox</code></a> via</p>
-<div class="highlight"><pre><span></span>$ pip install tox
-</pre></div>
+<div class="highlight"><pre><span></span><code>$ pip install tox
+</code></pre></div>
 <h2 id="coverage-reports_1">Coverage Reports</h2>
 <p>The <a href="http://coverage.readthedocs.io/en/latest/"><code>coverage</code></a> package and its
 <a href="https://pytest-cov.readthedocs.io/en/latest/"><code>pytest-cov</code></a> plugin allow you
 to generate coverage reports.</p>
 <p>I recommend creating a <code>.coveragerc</code> file in your projects root directory:</p>
-<div class="highlight"><pre><span></span><span class="k">[run]</span>
+<div class="highlight"><pre><span></span><code><span class="k">[run]</span>
 <span class="na">source</span> <span class="o">=</span> <span class="s">mpu  # folder where your project is</span>
 <span class="na">branch</span> <span class="o">=</span> <span class="s">True</span>
 
@@ -361,7 +361,7 @@ to generate coverage reports.</p>
     <span class="c1"># Don't complain if non-runnable code isn't run:</span>
     <span class="na">if 0:</span>
     <span class="na">if __name__</span> <span class="o">=</span><span class="s">= .__main__.:</span>
-</pre></div>
+</code></pre></div>
 <p>The <code>branch = True</code> enables the creation of branch coverage reports.</p>
 <h2 id="the-tricky-cases">The Tricky Cases</h2>
 <h3 id="file-system-interactions">File System Interactions</h3>
@@ -377,10 +377,10 @@ give later developers (including yourself) later a hint, you could create a
 <code>template.envrc</code> file which contains all relevant attributes, but not the
 values.</p>
 <p>For example:</p>
-<div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">AWS_USERNAME</span><span class="o">=</span><span class="s2">"foobar"</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">AWS_USERNAME</span><span class="o">=</span><span class="s2">"foobar"</span>
 <span class="nb">export</span> <span class="nv">AWS_PASSWORD</span><span class="o">=</span><span class="s2">"foobar"</span>
 <span class="nb">export</span> <span class="nv">FOOBAR</span><span class="o">=</span><span class="s2">"foobar"</span>
-</pre></div>
+</code></pre></div>
 <p>Of course, you should <em>not</em> add the <code>.envrc</code> file to your git repository.</p>
 <p>For AWS, there is <a href="https://aws.amazon.com/kms/">KMS</a> to store
 credentials.</p>

@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Internet, Traffic, Volume, DSL, Cyberculture, " />
 
-<meta property="og:title" content="Internet Traffic "/>
+<meta property="og:title" content="Internet Traffic"/>
 <meta property="og:url" content="../internet-traffic/" />
 <meta property="og:description" content="Do you have any idea how much internet traffic (volume) you need? How much do you download / upload on a usual day? I didn&#39;t have any idea, so I started recording it. In this article I will show you the results. For the context: A couple of internet providers moved …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2016-09-10T20:00:00+02:00" />
-<meta name="twitter:title" content="Internet Traffic ">
+<meta name="twitter:title" content="Internet Traffic">
 <meta name="twitter:description" content="Do you have any idea how much internet traffic (volume) you need? How much do you download / upload on a usual day? I didn&#39;t have any idea, so I started recording it. In this article I will show you the results. For the context: A couple of internet providers moved …">
 <meta property="og:image" content="logos/internet.png" />
 <meta name="twitter:image" content="logos/internet.png" >
 
-        <title>Internet Traffic  · Martin Thoma
+        <title>Internet Traffic · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../internet-traffic/"> Internet Traffic  </a></h1>
+    <h1><a href="../internet-traffic/"> Internet Traffic </a></h1>
     </header>
 </div>
 
@@ -121,28 +121,28 @@ traffic per month (and they unashamedly still call it an internet flat rate).</p
 recording it with <code>vnstat</code>.</p>
 <h2 id="how-to-measure">How to measure</h2>
 <p>Install <code>vnstat</code> and <code>vnstati</code>:</p>
-<div class="highlight"><pre><span></span>$ sudo apt-get install vnstat vnstati
-</pre></div>
+<div class="highlight"><pre><span></span><code>$ sudo apt-get install vnstat vnstati
+</code></pre></div>
 <p>Then execute</p>
-<div class="highlight"><pre><span></span>$ ip link
+<div class="highlight"><pre><span></span><code>$ ip link
 <span class="m">1</span>: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu <span class="m">65536</span> qdisc noqueue state UNKNOWN mode DEFAULT group default qlen <span class="m">1</span>
     link/loopback <span class="m">00</span>:00:00:00:00:00 brd <span class="m">00</span>:00:00:00:00:00
 <span class="m">2</span>: enp0s31f6: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu <span class="m">1500</span> qdisc pfifo_fast state DOWN mode DEFAULT group default qlen <span class="m">1000</span>
     link/ether <span class="m">98</span>:76:54:32:10:45 brd ff:ff:ff:ff:ff:ff
 <span class="m">3</span>: wlp3s0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span class="m">1500</span> qdisc mq state UP mode DORMANT group default qlen <span class="m">1000</span>
     link/ether <span class="m">12</span>:34:56:78:90:ab brd ff:ff:ff:ff:ff:ff
-</pre></div>
+</code></pre></div>
 <p>to find your network interface. In my case, it is <code>wlp3s0</code>. In most cases, it
 will be <code>wlan0</code> or <code>eth0</code> if you use a cable.</p>
 <p>I was mainly interested in WLAN. In my case, this is the interface <code>wlp3s0</code>.
 Now I have to enable monitoring of that interface. You might need super user
 (root) for that:</p>
-<div class="highlight"><pre><span></span>$ vnstat -u -i wlp3s0
-</pre></div>
+<div class="highlight"><pre><span></span><code>$ vnstat -u -i wlp3s0
+</code></pre></div>
 <p>To get the nice images, you have to execute the following code (with your
 network interface). It will create a <code>summary.png</code> image:</p>
-<div class="highlight"><pre><span></span>$ vnstati -vs -i wlp3s0 -o ~/summary.png
-</pre></div>
+<div class="highlight"><pre><span></span><code>$ vnstati -vs -i wlp3s0 -o ~/summary.png
+</code></pre></div>
 <figure class="wp-caption aligncenter img-thumbnail">
 <img alt="Internet traffic of August" src="../images/2016/09/vnstati-august.png"/>
 <figcaption class="text-center">Internet traffic of August</figcaption>
@@ -153,8 +153,8 @@ and <code>tx</code> is the transferred traffic.</p>
 <h3 id="general">General</h3>
 <p>I was not at home most of August, so the results you see in the image above
 might be different than usually. So lets get a summary for this year:</p>
-<div class="highlight"><pre><span></span>$ vnstati -vs -m -i wlp3s0 -o ~/summary.png
-</pre></div>
+<div class="highlight"><pre><span></span><code>$ vnstati -vs -m -i wlp3s0 -o ~/summary.png
+</code></pre></div>
 <figure class="wp-caption aligncenter img-thumbnail">
 <img alt="Internet traffic of May, June, July, August" src="../images/2016/09/vnstati-2016.png"/>
 <figcaption class="text-center">Internet traffic of May, June, July, August</figcaption>

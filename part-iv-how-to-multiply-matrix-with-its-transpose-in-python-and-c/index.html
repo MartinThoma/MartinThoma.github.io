@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Python, C, Code, " />
 
-<meta property="og:title" content="Part IV: How to multiply matrix with its transpose in Python and C++ "/>
+<meta property="og:title" content="Part IV: How to multiply matrix with its transpose in Python and C++"/>
 <meta property="og:url" content="../part-iv-how-to-multiply-matrix-with-its-transpose-in-python-and-c/" />
 <meta property="og:description" content="This is Part IV of my matrix multiplication series. Part I was about simple implementations and libraries: Performance of Matrix multiplication in Python, Java and C++, Part II was about multiplication with the Strassen algorithm and Part III will be about parallel matrix multiplication (I didn&#39;t write it yet). You …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2013-10-18T17:41:13+02:00" />
-<meta name="twitter:title" content="Part IV: How to multiply matrix with its transpose in Python and C++ ">
+<meta name="twitter:title" content="Part IV: How to multiply matrix with its transpose in Python and C++">
 <meta name="twitter:description" content="This is Part IV of my matrix multiplication series. Part I was about simple implementations and libraries: Performance of Matrix multiplication in Python, Java and C++, Part II was about multiplication with the Strassen algorithm and Part III will be about parallel matrix multiplication (I didn&#39;t write it yet). You …">
 <meta property="og:image" content="2012/03/Matrix-Inverses.png" />
 <meta name="twitter:image" content="2012/03/Matrix-Inverses.png" >
 
-        <title>Part IV: How to multiply matrix with its transpose in Python and C++  · Martin Thoma
+        <title>Part IV: How to multiply matrix with its transpose in Python and C++ · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../part-iv-how-to-multiply-matrix-with-its-transpose-in-python-and-c/"> Part IV: How to multiply matrix with its transpose in Python and C++  </a></h1>
+    <h1><a href="../part-iv-how-to-multiply-matrix-with-its-transpose-in-python-and-c/"> Part IV: How to multiply matrix with its transpose in Python and C++ </a></h1>
     </header>
 </div>
 
@@ -118,7 +118,7 @@ If we used the ikj-algorithm for this multiplication, we needed <span class="mat
 <h2 id="python">Python</h2>
 <h3 id="numpy">NumPy</h3>
 <p>I guess doing this with NumPy is the best option:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span>
@@ -147,22 +147,22 @@ If we used the ikj-algorithm for this multiplication, we needed <span class="mat
 <span class="k">def</span> <span class="nf">printMatrix</span><span class="p">(</span><span class="n">matrix</span><span class="p">):</span>
     <span class="n">matrix</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">matrix</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">line</span><span class="p">)))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">line</span><span class="p">)))</span>
 
 
 <span class="n">J</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="n">options</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
 <span class="n">R</span> <span class="o">=</span> <span class="n">J</span> <span class="o">*</span> <span class="n">J</span><span class="o">.</span><span class="n">T</span>
 <span class="n">printMatrix</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 <p>Time:</p>
-<div class="highlight"><pre><span></span>real    7m19.223s
+<div class="highlight"><pre><span></span><code>real    7m19.223s
 user    7m12.147s
 sys 0m2.388s
-</pre></div>
+</code></pre></div>
 <p>When you want to do this in an application, you might want to use <a href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.load.html">numpy.load</a>.</p>
 <h2 id="c++_1">C++</h2>
 <h3 id="first try">First try</h3>
-<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;sstream&gt;</span><span class="cp"></span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;sstream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
@@ -266,15 +266,15 @@ sys 0m2.388s
     <span class="n">printMatrix</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 <p>Time:</p>
-<div class="highlight"><pre><span></span>real    5m31.488s
+<div class="highlight"><pre><span></span><code>real    5m31.488s
 user    5m27.560s
 sys 0m1.812s
-</pre></div>
+</code></pre></div>
 <h3 id="direct multiplication">Direct multiplication</h3>
 <p>One might think that transposing first is a bad idea, because you can do this:</p>
-<div class="highlight"><pre><span></span><span class="n">vector</span><span class="o">&lt;</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">ikjDirect</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">J</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="n">vector</span><span class="o">&lt;</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">ikjDirect</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">J</span><span class="p">,</span>
                                    <span class="n">vector</span><span class="o">&lt;</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">R</span><span class="p">,</span>
                                    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">m</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="k">register</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
@@ -286,7 +286,7 @@ sys 0m1.812s
     <span class="p">}</span>
     <span class="k">return</span> <span class="n">R</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 <p>I stopped execution after 15 minutes.</p>
             
             <div id="disqus_thread" class="no-print"></div>

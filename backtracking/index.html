@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Algorithms, Constraint-satisfaction, COP, CSP, Operations Research, Backtracking, Branch-and-Bound, Code, " />
 
-<meta property="og:title" content="Backtracking "/>
+<meta property="og:title" content="Backtracking"/>
 <meta property="og:url" content="../backtracking/" />
 <meta property="og:description" content="Backtracking is a concept for solving discrete constraint satisfaction problems (CSPs). Those problems don&#39;t have an optimal solution, but just solutions which satisfy the constraints. The idea of backtracking is to try a solution. If it doesn&#39;t work, go back and try something else. Backtracking is often implemented with recursion …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2020-03-30T20:00:00+02:00" />
-<meta name="twitter:title" content="Backtracking ">
+<meta name="twitter:title" content="Backtracking">
 <meta name="twitter:description" content="Backtracking is a concept for solving discrete constraint satisfaction problems (CSPs). Those problems don&#39;t have an optimal solution, but just solutions which satisfy the constraints. The idea of backtracking is to try a solution. If it doesn&#39;t work, go back and try something else. Backtracking is often implemented with recursion …">
 <meta property="og:image" content="logos/ai.png" />
 <meta name="twitter:image" content="logos/ai.png" >
 
-        <title>Backtracking  · Martin Thoma
+        <title>Backtracking · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../backtracking/"> Backtracking  </a></h1>
+    <h1><a href="../backtracking/"> Backtracking </a></h1>
     </header>
 </div>
 
@@ -104,7 +104,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#the-structure" title="The Structure">The Structure</a></li><li><a class="toc-href" href="#backtracking-vs-dfs" title="Backtracking vs DFS">Backtracking vs DFS</a></li><li><a class="toc-href" href="#backtracking-vs-bb" title="Backtracking vs B&amp;B">Backtracking vs B&amp;B;</a></li><li><a class="toc-href" href="#runtime-complexity" title="Runtime Complexity">Runtime Complexity</a></li><li><a class="toc-href" href="#n-queens" title="n Queens">n Queens</a></li><li><a class="toc-href" href="#maze-finding" title="Maze finding">Maze finding</a></li><li><a class="toc-href" href="#sudoku" title="Sudoku">Sudoku</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li><li><a class="toc-href" href="#footnotes" title="Footnotes">Footnotes</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#the-structure" title="The Structure">The Structure</a></li><li><a class="toc-href" href="#backtracking-vs-dfs" title="Backtracking vs DFS">Backtracking vs DFS</a></li><li><a class="toc-href" href="#backtracking-vs-bb" title="Backtracking vs B&amp;B">Backtracking vs B&amp;B</a></li><li><a class="toc-href" href="#runtime-complexity" title="Runtime Complexity">Runtime Complexity</a></li><li><a class="toc-href" href="#n-queens" title="n Queens">n Queens</a></li><li><a class="toc-href" href="#maze-finding" title="Maze finding">Maze finding</a></li><li><a class="toc-href" href="#sudoku" title="Sudoku">Sudoku</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li><li><a class="toc-href" href="#footnotes" title="Footnotes">Footnotes</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -118,7 +118,7 @@ doesn't work, go back and try something else.</p>
 recursion.</p>
 <h2 id="the-structure">The Structure</h2>
 <p>Typically, when you apply backtracking, it looks like this:</p>
-<div class="highlight"><pre><span></span><span class="n">partial_solutions</span> <span class="o">=</span> <span class="p">[</span><span class="n">initial_solution_draft</span><span class="p">]</span>  <span class="c1"># stack or queue</span>
+<div class="highlight"><pre><span></span><code><span class="n">partial_solutions</span> <span class="o">=</span> <span class="p">[</span><span class="n">initial_solution_draft</span><span class="p">]</span>  <span class="c1"># stack or queue</span>
 <span class="k">while</span> <span class="n">partial_solutions</span><span class="p">:</span>
     <span class="n">partial_solution</span> <span class="o">=</span> <span class="n">partial_solutions</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">is_complete</span><span class="p">(</span><span class="n">partial_solution</span><span class="p">):</span>
@@ -127,8 +127,8 @@ recursion.</p>
         <span class="n">extended_solution</span> <span class="o">=</span> <span class="n">extend</span><span class="p">(</span><span class="n">partial_solution</span><span class="p">,</span> <span class="n">choice</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">is_valid</span><span class="p">(</span><span class="n">extended_solution</span><span class="p">):</span>
             <span class="n">partial_solutions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">extended_solution</span><span class="p">)</span>
-<span class="k">return</span> <span class="bp">None</span>  <span class="c1"># Constraints could not be satisfied</span>
-</pre></div>
+<span class="k">return</span> <span class="kc">None</span>  <span class="c1"># Constraints could not be satisfied</span>
+</code></pre></div>
 <p>As you can see, it is essentially just a way to brute-force the problem.</p>
 <p>The rest of the article consists of examples. I checked the n-queens example
 for correctness, but not the others.</p>
@@ -177,7 +177,7 @@ threaten each other.</p>
 </ul>
 <p>If you say that the first coordinate x is the row and the second one, y, is the
 column, then you can easily determine if they threaten each other:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span>
 
 
 <span class="k">def</span> <span class="nf">all_n_queens_solutions</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]]:</span>
@@ -228,8 +228,8 @@ column, then you can easily determine if they threaten each other:</p>
 <span class="k">def</span> <span class="nf">is_new_threatening</span><span class="p">(</span><span class="n">solution</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">x_old</span><span class="p">,</span> <span class="n">y_old</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">solution</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">is_threatening</span><span class="p">(</span><span class="n">x_old</span><span class="p">,</span> <span class="n">y_old</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-            <span class="k">return</span> <span class="bp">True</span>
-    <span class="k">return</span> <span class="bp">False</span>
+            <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span>
 
 
 <span class="k">def</span> <span class="nf">is_threatening</span><span class="p">(</span><span class="n">x1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">x2</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y2</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
@@ -257,7 +257,7 @@ column, then you can easily determine if they threaten each other:</p>
     <span class="n">same_diagonal_minor</span> <span class="o">=</span> <span class="n">minor_coords1</span> <span class="o">==</span> <span class="n">minor_coords2</span>
     <span class="n">same_diagonal</span> <span class="o">=</span> <span class="n">same_diagonal_major</span> <span class="ow">or</span> <span class="n">same_diagonal_minor</span>
     <span class="k">return</span> <span class="n">same_row</span> <span class="ow">or</span> <span class="n">same_col</span> <span class="ow">or</span> <span class="n">same_diagonal</span>
-</pre></div>
+</code></pre></div>
 <table class="table">
 <thead>
 <tr>
@@ -320,15 +320,15 @@ column, then you can easily determine if they threaten each other:</p>
 <p>In order to find a solution in a maze, one can apply depth first search (DFS).
 DFS can be seen as a specific form of backtracking
 (<a href="https://stackoverflow.com/a/1294741/562769">source</a>).</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span>
 
 
 <span class="k">def</span> <span class="nf">find_way_out</span><span class="p">(</span>
-    <span class="n">maze</span><span class="p">,</span> <span class="n">current_pos</span><span class="p">:</span> <span class="n">Position</span><span class="p">,</span> <span class="n">current_path</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Position</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="n">maze</span><span class="p">,</span> <span class="n">current_pos</span><span class="p">:</span> <span class="n">Position</span><span class="p">,</span> <span class="n">current_path</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Position</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Position</span><span class="p">,</span> <span class="o">...</span><span class="p">]]:</span>
     <span class="k">if</span> <span class="n">is_exit</span><span class="p">(</span><span class="n">current_pos</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">current_path</span>
-    <span class="k">if</span> <span class="n">current_path</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">current_path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">current_path</span> <span class="o">=</span> <span class="p">[</span><span class="n">current_pos</span><span class="p">]</span>
     <span class="c1"># Implement possible_paths for your problem</span>
     <span class="k">for</span> <span class="n">next_step</span> <span class="ow">in</span> <span class="n">possible_paths</span><span class="p">(</span><span class="n">maze</span><span class="p">,</span> <span class="n">current_pos</span><span class="p">):</span>
@@ -337,11 +337,11 @@ DFS can be seen as a specific form of backtracking
             <span class="c1"># We just came from this position</span>
             <span class="k">continue</span>
         <span class="n">solution</span> <span class="o">=</span> <span class="n">find_way_out</span><span class="p">(</span><span class="n">maze</span><span class="p">,</span> <span class="n">next_pos</span><span class="p">,</span> <span class="n">current_path</span> <span class="o">+</span> <span class="p">(</span><span class="n">next_pos</span><span class="p">,))</span>
-        <span class="k">if</span> <span class="n">solution</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">solution</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">solution</span>
     <span class="c1"># We didn't find a way out</span>
-    <span class="k">return</span> <span class="bp">None</span>
-</pre></div>
+    <span class="k">return</span> <span class="kc">None</span>
+</code></pre></div>
 <p>The reason why I used a tuple is to prevent modification. This way, I can be
 sure that the recursive calls work on copies.</p>
 <p>Once Python hits a recurision depth of about 500, you will see a
@@ -349,15 +349,15 @@ sure that the recursive calls work on copies.</p>
 So if we need to make more than 500 steps, this will not work anymore. Hence an
 iterative soltuion is better. Please note that it is still backtracking and
 that it is still DFS. It's just not recursive anymore:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span>
 
 
 <span class="k">def</span> <span class="nf">find_way_out</span><span class="p">(</span>
-    <span class="n">maze</span><span class="p">,</span> <span class="n">current_pos</span><span class="p">:</span> <span class="n">Position</span><span class="p">,</span> <span class="n">current_path</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Position</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="n">maze</span><span class="p">,</span> <span class="n">current_pos</span><span class="p">:</span> <span class="n">Position</span><span class="p">,</span> <span class="n">current_path</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Position</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Position</span><span class="p">,</span> <span class="o">...</span><span class="p">]]:</span>
     <span class="k">if</span> <span class="n">is_exit</span><span class="p">(</span><span class="n">current_pos</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">current_path</span>
-    <span class="k">if</span> <span class="n">current_path</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">current_path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">current_path</span> <span class="o">=</span> <span class="p">[</span><span class="n">current_pos</span><span class="p">]</span>
     <span class="n">explore</span> <span class="o">=</span> <span class="p">[(</span><span class="n">current_pos</span><span class="p">,</span> <span class="n">current_path</span><span class="p">)]</span>
     <span class="k">while</span> <span class="n">explore</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">is_exit</span><span class="p">(</span><span class="n">current_pos</span><span class="p">):</span>
@@ -368,10 +368,10 @@ that it is still DFS. It's just not recursive anymore:</p>
                 <span class="c1"># We just came from this position</span>
                 <span class="k">continue</span>
             <span class="n">explore</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">next_pos</span><span class="p">,</span> <span class="n">current_path</span> <span class="o">+</span> <span class="p">(</span><span class="n">next_pos</span><span class="p">,)))</span>
-    <span class="k">return</span> <span class="bp">None</span>
-</pre></div>
+    <span class="k">return</span> <span class="kc">None</span>
+</code></pre></div>
 <h2 id="sudoku">Sudoku</h2>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span>
 
 
@@ -392,23 +392,23 @@ that it is still DFS. It's just not recursive anymore:</p>
         <span class="k">assert</span> <span class="n">digit</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">digit</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">validate_position</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">f</span><span class="s2">"You can't set {digit} at ({x}, {y})"</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"You can't set </span><span class="si">{digit}</span><span class="s2"> at (</span><span class="si">{x}</span><span class="s2">, </span><span class="si">{y}</span><span class="s2">)"</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">is_valid</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="sd">"""Check if the sudoku-rule is fulfilled."""</span>
         <span class="c1"># Check Rows and columns</span>
         <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">9</span><span class="p">):</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">validate_row</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">validate_column</span><span class="p">(</span><span class="n">index</span><span class="p">)):</span>
-                <span class="k">return</span> <span class="bp">False</span>
+                <span class="k">return</span> <span class="kc">False</span>
 
         <span class="c1"># Check blocks</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
             <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
                 <span class="c1"># (i, j) is the top-left element of the block</span>
                 <span class="k">if</span> <span class="ow">not</span> <span class="n">is_valid_sudoku_set</span><span class="p">(</span><span class="n">get_block</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)):</span>
-                    <span class="k">return</span> <span class="bp">False</span>
+                    <span class="k">return</span> <span class="kc">False</span>
         <span class="c1"># All fine :-)</span>
-        <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">return</span> <span class="kc">True</span>
 
     <span class="k">def</span> <span class="nf">validate_row</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">row_index</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">is_valid_sudoku_set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="p">[</span><span class="n">row_index</span><span class="p">])</span>
@@ -422,13 +422,13 @@ that it is still DFS. It's just not recursive anymore:</p>
     <span class="k">def</span> <span class="nf">validate_position</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="sd">"""Make sure the given position doesn't break the board."""</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">validate_row</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">validate_column</span><span class="p">(</span><span class="n">y</span><span class="p">)):</span>
-            <span class="k">return</span> <span class="bp">False</span>
+            <span class="k">return</span> <span class="kc">False</span>
 
         <span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">//</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span>
         <span class="n">j</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span> <span class="o">//</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">is_valid_sudoku_set</span><span class="p">(</span><span class="n">get_block</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)):</span>
-            <span class="k">return</span> <span class="bp">False</span>
-        <span class="k">return</span> <span class="bp">True</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span>
 
     <span class="k">def</span> <span class="nf">is_solved</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="n">el</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">board</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">row</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_valid</span><span class="p">()</span>
@@ -447,10 +447,10 @@ that it is still DFS. It's just not recursive anymore:</p>
             <span class="k">continue</span>
         <span class="k">elif</span> <span class="n">digit</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]:</span>
             <span class="k">if</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="k">return</span> <span class="bp">False</span>
+                <span class="k">return</span> <span class="kc">False</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="n">f</span><span class="s2">"Value '{digit}' found, but expected int in [0, 9]"</span><span class="p">)</span>
-    <span class="k">return</span> <span class="bp">True</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Value '</span><span class="si">{digit}</span><span class="s2">' found, but expected int in [0, 9]"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">True</span>
 
 
 <span class="k">def</span> <span class="nf">get_block</span><span class="p">(</span><span class="n">board</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]],</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
@@ -474,7 +474,7 @@ that it is still DFS. It's just not recursive anymore:</p>
                 <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
                     <span class="c1"># Setting digit at that position would make the board invalid</span>
                     <span class="k">continue</span>
-</pre></div>
+</code></pre></div>
 <p>You can solve Sudoku with <a href="https://gist.github.com/ymakino/4605973">GLPK</a>, the
 GNU Linear Programming Kit, as well.</p>
 <h2 id="see-also">See also</h2>
@@ -487,8 +487,8 @@ GNU Linear Programming Kit, as well.</p>
 <div class="footnote">
 <hr/>
 <ol>
-<li id="fn-1">
-<p><a href="https://www.win.tue.nl/~kbuchin/">Kevin Buchin</a>: <a href="https://www.win.tue.nl/~kbuchin/teaching/2IL15/backtracking.pdf">Backtracking / Branch-and-Bound</a>. In Algorithms (2IL15) &ndash; 2014.&nbsp;<a class="footnote-backref" href="#fnref-1" title="Jump back to footnote 1 in the text">↩</a></p>
+<li id="fn:1">
+<p><a href="https://www.win.tue.nl/~kbuchin/">Kevin Buchin</a>: <a href="https://www.win.tue.nl/~kbuchin/teaching/2IL15/backtracking.pdf">Backtracking / Branch-and-Bound</a>. In Algorithms (2IL15) &ndash; 2014.&nbsp;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
 </li>
 </ol>
 </div>

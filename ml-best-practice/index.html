@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Machine Learning, Machine Learning, " />
 
-<meta property="og:title" content="Best practice for Machine Learning Projects "/>
+<meta property="og:title" content="Best practice for Machine Learning Projects"/>
 <meta property="og:url" content="../ml-best-practice/" />
 <meta property="og:description" content="I did a couple of machine learning projects so far and there are some patterns in the projects which turned out to be good ideas. In this post, I would like to share those patterns with you. Know your problem For me, a machine learning project really starts when you …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2017-11-15T20:00:00+01:00" />
-<meta name="twitter:title" content="Best practice for Machine Learning Projects ">
+<meta name="twitter:title" content="Best practice for Machine Learning Projects">
 <meta name="twitter:description" content="I did a couple of machine learning projects so far and there are some patterns in the projects which turned out to be good ideas. In this post, I would like to share those patterns with you. Know your problem For me, a machine learning project really starts when you …">
 <meta property="og:image" content="logos/ml.png" />
 <meta name="twitter:image" content="logos/ml.png" >
 
-        <title>Best practice for Machine Learning Projects  · Martin Thoma
+        <title>Best practice for Machine Learning Projects · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../ml-best-practice/"> Best practice for Machine Learning Projects  </a></h1>
+    <h1><a href="../ml-best-practice/"> Best practice for Machine Learning Projects </a></h1>
     </header>
 </div>
 
@@ -131,7 +131,7 @@ article. Usually, this starts with having a look at examples and making some
 graphs. EDA depends on what kind of data you have and which problem you want to
 solve. I will not go into detail in this post.</p>
 <h2 id="project-structure">Project structure</h2>
-<div class="highlight"><pre><span></span>.
+<div class="highlight"><pre><span></span><code>.
 ├── artifacts
 │&nbsp;&nbsp; ├── train : Logfiles, trained models
 │&nbsp;&nbsp; └── test  : Logfiles
@@ -140,14 +140,14 @@ solve. I will not go into detail in this post.</p>
 ├── models : Scripts defining how the model looks like
 ├── optimizers : Scripts defining the optimizeres
 └── train : Script to run the training
-</pre></div>
+</code></pre></div>
 <p>The important part here is that you have an <code>experiments/</code> folder which
 contains configuration files. So your scripts should not contain any
 hyperparameters. All hyperparameters, including the complete model, should be
 set in the configuration.</p>
 <h2 id="configuration-files">Configuration files</h2>
 <p>An example from my masters thesis is <code>cifar10_opt.yaml</code>:</p>
-<div class="highlight"><pre><span></span><span class="nt">dataset</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="nt">dataset</span><span class="p">:</span>
   <span class="nt">script_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">../datasets/cifar10_keras.py</span>
 <span class="nt">model</span><span class="p">:</span>
   <span class="nt">script_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">../models/optimized.py</span>
@@ -188,9 +188,9 @@ set in the configuration.</p>
     <span class="nt">channel_shift_range</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
     <span class="nt">featurewise_center</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
     <span class="nt">zca_whitening</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
-</pre></div>
+</code></pre></div>
 <p>I load it like this:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="sd">"""Run an experiment."""</span>
@@ -203,7 +203,7 @@ set in the configuration.</p>
 <span class="kn">import</span> <span class="nn">pprint</span>
 
 <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
-    <span class="n">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
     <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
     <span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span>
 <span class="p">)</span>
@@ -282,7 +282,7 @@ set in the configuration.</p>
         <span class="n">dest</span><span class="o">=</span><span class="s2">"filename"</span><span class="p">,</span>
         <span class="n">help</span><span class="o">=</span><span class="s2">"experiment definition file"</span><span class="p">,</span>
         <span class="n">metavar</span><span class="o">=</span><span class="s2">"FILE"</span><span class="p">,</span>
-        <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="k">return</span> <span class="n">parser</span>
 
@@ -290,7 +290,7 @@ set in the configuration.</p>
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">get_parser</span><span class="p">()</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
     <span class="n">main</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 <h2 id="starting-small">Starting small</h2>
 <p>Most machine learning tasks have a lot of computation. I'm speaking of many
 hours for the "real" task you want to solve. You will not be able to do so

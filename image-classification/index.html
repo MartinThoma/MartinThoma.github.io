@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="machine learning, Computer Vision, ImageNet, Machine Learning, " />
 
-<meta property="og:title" content="Image Classification "/>
+<meta property="og:title" content="Image Classification"/>
 <meta property="og:url" content="../image-classification/" />
 <meta property="og:description" content="Image classification is the following task: You have an image and you want to assign it one label. The set of possible labels is finite and typically not bigger than 1000. So for example, you might ask: What can you see in this image? A jellyfish It is one of …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2017-03-15T20:00:00+01:00" />
-<meta name="twitter:title" content="Image Classification ">
+<meta name="twitter:title" content="Image Classification">
 <meta name="twitter:description" content="Image classification is the following task: You have an image and you want to assign it one label. The set of possible labels is finite and typically not bigger than 1000. So for example, you might ask: What can you see in this image? A jellyfish It is one of …">
 <meta property="og:image" content="logos/ml.png" />
 <meta name="twitter:image" content="logos/ml.png" >
 
-        <title>Image Classification  · Martin Thoma
+        <title>Image Classification · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../image-classification/"> Image Classification  </a></h1>
+    <h1><a href="../image-classification/"> Image Classification </a></h1>
     </header>
 </div>
 
@@ -137,12 +137,12 @@ training samples. To be exact, it is the ImageNet Large Scale Visual Recognition
 <p>The code defines one of the state of the art
 models, a so called ResNet. See <a href="https://arxiv.org/abs/1512.03385">Deep Residual Learning for Image Recognition</a> for details. Then it downloads the weights, stores them for
 subsequent uses and applies it to the data.</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="sd">"""ResNet50 model for Keras."""</span>
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">time</span>
@@ -152,7 +152,7 @@ subsequent uses and applies it to the data.</p>
 <span class="kn">from</span> <span class="nn">keras.applications</span> <span class="kn">import</span> <span class="n">ResNet50</span>
 <span class="kn">from</span> <span class="nn">keras.utils.data_utils</span> <span class="kn">import</span> <span class="n">get_file</span>
 
-<span class="n">CLASS_INDEX</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">CLASS_INDEX</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="n">CLASS_INDEX_PATH</span> <span class="o">=</span> <span class="p">(</span>
     <span class="s2">"https://s3.amazonaws.com/deep-learning-models/"</span>
     <span class="s2">"image-models/imagenet_class_index.json"</span>
@@ -222,7 +222,7 @@ subsequent uses and applies it to the data.</p>
             <span class="s2">"(i.e. a 2D array of shape (samples, 1000)). "</span>
             <span class="s2">"Found array with shape: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">preds</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
         <span class="p">)</span>
-    <span class="k">if</span> <span class="n">CLASS_INDEX</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">CLASS_INDEX</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">fpath</span> <span class="o">=</span> <span class="n">get_file</span><span class="p">(</span>
             <span class="s2">"imagenet_class_index.json"</span><span class="p">,</span> <span class="n">CLASS_INDEX_PATH</span><span class="p">,</span> <span class="n">cache_subdir</span><span class="o">=</span><span class="s2">"models"</span>
         <span class="p">)</span>
@@ -269,7 +269,7 @@ subsequent uses and applies it to the data.</p>
         <span class="nb">type</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">is_valid_file</span><span class="p">(</span><span class="n">parser</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span>
         <span class="n">help</span><span class="o">=</span><span class="s2">"Classify image"</span><span class="p">,</span>
         <span class="n">metavar</span><span class="o">=</span><span class="s2">"IMAGE"</span><span class="p">,</span>
-        <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="k">return</span> <span class="n">parser</span>
 
@@ -278,41 +278,41 @@ subsequent uses and applies it to the data.</p>
     <span class="n">args</span> <span class="o">=</span> <span class="n">get_parser</span><span class="p">()</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 
     <span class="c1"># Load model</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">ResNet50</span><span class="p">(</span><span class="n">include_top</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s2">"imagenet"</span><span class="p">)</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">ResNet50</span><span class="p">(</span><span class="n">include_top</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s2">"imagenet"</span><span class="p">)</span>
 
     <span class="n">img_path</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">filename</span>
     <span class="n">img</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">load_img</span><span class="p">(</span><span class="n">img_path</span><span class="p">,</span> <span class="n">target_size</span><span class="o">=</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">))</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">img_to_array</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">preprocess_input</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"Input image shape:"</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Input image shape:"</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
     <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
     <span class="n">preds</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"Prediction time: {:0.3f}s"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Prediction time: </span><span class="si">{:0.3f}</span><span class="s2">s"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">))</span>
     <span class="k">for</span> <span class="n">wordnet_id</span><span class="p">,</span> <span class="n">class_name</span><span class="p">,</span> <span class="n">prob</span> <span class="ow">in</span> <span class="n">decode_predictions</span><span class="p">(</span><span class="n">preds</span><span class="p">)[</span><span class="mi">0</span><span class="p">]:</span>
-        <span class="k">print</span><span class="p">(</span>
-            <span class="s2">"{wid}</span><span class="se">\t</span><span class="s2">{prob:&gt;6}%</span><span class="se">\t</span><span class="s2">{name}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="s2">"</span><span class="si">{wid}</span><span class="se">\t</span><span class="si">{prob:&gt;6}</span><span class="s2">%</span><span class="se">\t</span><span class="si">{name}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                 <span class="n">wid</span><span class="o">=</span><span class="n">wordnet_id</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">class_name</span><span class="p">,</span> <span class="n">prob</span><span class="o">=</span><span class="s2">"</span><span class="si">%0.2f</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">prob</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
             <span class="p">)</span>
         <span class="p">)</span>
-</pre></div>
+</code></pre></div>
 <p>Store it as <code>resnet50.py</code> and make it executable.</p>
 <p>(In case the JSON becomes unavailable: <a href="https://github.com/MartinThoma/algorithms/blob/master/ML/ImageNet-classification/imagenet_class_index.json">Here you are</a>)</p>
 <h2 id="how-to-use">How to use</h2>
-<div class="highlight"><pre><span></span>$ ./resnet50.py -f honey-bee.jpg
-</pre></div>
+<div class="highlight"><pre><span></span><code>$ ./resnet50.py -f honey-bee.jpg
+</code></pre></div>
 <p>alternatively, if you have a GPU but not that much memory:</p>
-<div class="highlight"><pre><span></span>$ <span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="s2">""</span> ./resnet50.py -f honey-bee.jpg
-</pre></div>
+<div class="highlight"><pre><span></span><code>$ <span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="s2">""</span> ./resnet50.py -f honey-bee.jpg
+</code></pre></div>
 <p>If you apply this to the jellyfish image from above, you get:</p>
-<div class="highlight"><pre><span></span>Input image shape: (1, 224, 224, 3)
+<div class="highlight"><pre><span></span><code>Input image shape: (1, 224, 224, 3)
 n01910747    100.00%    jellyfish
 n01496331      0.00%    electric_ray
 n10565667      0.00%    scuba_diver
 n01914609      0.00%    sea_anemone
 n02607072      0.00%    anemone_fish
-</pre></div>
+</code></pre></div>
 <p>This takes about 6&nbsp;seconds on CPU on my laptop.</p>
 <h2 id="alternative-models">Alternative Models</h2>
 <p>If you are building an application, you might want to look into alternatives:</p>

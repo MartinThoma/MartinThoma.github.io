@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Linux, Command Line, Bash, Code, " />
 
-<meta property="og:title" content="Wandering through the depths of find "/>
+<meta property="og:title" content="Wandering through the depths of find"/>
 <meta property="og:url" content="../wandering-through-the-depths-of-find/" />
-<meta property="og:description" content="find is a very mighty tool. It allows you to apply a very detailed search syntax. Every Linux user should know how to use it. Very basic usage \( find /home -iname &amp;#039;Tux*&amp;#039;&#34; title=&#34;\) find /home -iname &#39;Tux*&#39;&#34; width=&#34;500&#34; height=&#34;100&#34; class=&#34;alignnone size-full wp-image-2671&#34; /&gt; I told you …" />
+<meta property="og:description" content="find is a very mighty tool. It allows you to apply a very detailed search syntax. Every Linux user should know how to use it. Very basic usage \( find /home -iname &#39;Tux*&#39;&#34; title=&#34;\) find /home -iname &#39;Tux*&#39;&#34; width=&#34;500&#34; height=&#34;100&#34; class=&#34;alignnone size-full wp-image-2671&#34; /&gt; I told you I would …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2011-12-28T16:01:18+01:00" />
-<meta name="twitter:title" content="Wandering through the depths of find ">
-<meta name="twitter:description" content="find is a very mighty tool. It allows you to apply a very detailed search syntax. Every Linux user should know how to use it. Very basic usage \( find /home -iname &amp;#039;Tux*&amp;#039;&#34; title=&#34;\) find /home -iname &#39;Tux*&#39;&#34; width=&#34;500&#34; height=&#34;100&#34; class=&#34;alignnone size-full wp-image-2671&#34; /&gt; I told you …">
+<meta name="twitter:title" content="Wandering through the depths of find">
+<meta name="twitter:description" content="find is a very mighty tool. It allows you to apply a very detailed search syntax. Every Linux user should know how to use it. Very basic usage \( find /home -iname &#39;Tux*&#39;&#34; title=&#34;\) find /home -iname &#39;Tux*&#39;&#34; width=&#34;500&#34; height=&#34;100&#34; class=&#34;alignnone size-full wp-image-2671&#34; /&gt; I told you I would …">
 <meta property="og:image" content="2011/09/Tux.png" />
 <meta name="twitter:image" content="2011/09/Tux.png" >
 
-        <title>Wandering through the depths of find  · Martin Thoma
+        <title>Wandering through the depths of find · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../wandering-through-the-depths-of-find/"> Wandering through the depths of find  </a></h1>
+    <h1><a href="../wandering-through-the-depths-of-find/"> Wandering through the depths of find </a></h1>
     </header>
 </div>
 
@@ -112,7 +112,7 @@ MathJax.Hub.Queue(function() {
             
             <p>find is a very mighty tool. It allows you to apply a very detailed search syntax. Every Linux user should know how to use it.</p>
 <h2 id="very basic usage">Very basic usage</h2>
-<p><a href="../images/2011/09/find-basic1.png"><img alt="&lt;span class=" math"="" src="../images/2011/09/find-basic1.png"/>\( find  /home -iname &amp;#039;Tux*&amp;#039;" title="\)</a></p> find  /home -iname 'Tux*'" width="500" height="100" class="alignnone size-full wp-image-2671" /&gt;
+<p><a href="../images/2011/09/find-basic1.png"><img alt="&lt;span class=" math"="" src="../images/2011/09/find-basic1.png"/>\( find  /home -iname 'Tux*'" title="\)</a></p> find  /home -iname 'Tux*'" width="500" height="100" class="alignnone size-full wp-image-2671" /&gt;
 <p>I told you I would start with the very basics, didn't I? So, you can need the option -iname if you want to do basic matching against the filename. The * can be used as a placeholder.</p>
 <h2 id="redirecting errors">Redirecting errors</h2>
 <p>You might get some "Permission denied" errors. They are very bothersome if you combine commands in the bash. So you redirect them to /dev/null, a special file which discards everything it gets:</p>
@@ -120,8 +120,8 @@ MathJax.Hub.Queue(function() {
 <h2 id="real life example">Real life example</h2>
 <p>I am also a developer who likes to have good names for constants, database tables and variables. Sometimes, like today, I think it's time to change a database table a bit. It got a lot more rows and the old name doesn't really fit any longer. I used a constant for the table name in all scripts. This constant was SOFTWARE_USER_TABLE and should now be USER_INFO_TABLE. So I have to search recursively and case-sensitive in my project and replace all occurrences in all strings by the new string. Except for .svn-directories, of course.
 The easiest way to achieve this is via find, xargs and sed:</p>
-<div class="highlight"><pre><span></span>find . -path <span class="s1">'*/.svn'</span> -prune -o -type f -print0 <span class="p">|</span> xargs -0 sed -i <span class="s1">'s/SOFTWARE_USER_TABLE/USER_INFO_TABLE/g'</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>find . -path <span class="s1">'*/.svn'</span> -prune -o -type f -print0 <span class="p">|</span> xargs -0 sed -i <span class="s1">'s/SOFTWARE_USER_TABLE/USER_INFO_TABLE/g'</span>
+</code></pre></div>
 <p>Now the explanation of the different commands:
 <strong>find:</strong>
 <ul>
@@ -139,14 +139,14 @@ The easiest way to achieve this is via find, xargs and sed:</p>
 </ul></p>
 <h2 id="snippets">Snippets</h2>
 <p>move all files in subdirectories to a single directory:</p>
-<div class="highlight"><pre><span></span>find -type f -exec mv <span class="o">{}</span> collection/ <span class="se">\;</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>find -type f -exec mv <span class="o">{}</span> collection/ <span class="se">\;</span>
+</code></pre></div>
 <p>find all files which are bigger than 20MB and print their location and size. Maybe you could use du for this one, but I don't know how:</p>
-<div class="highlight"><pre><span></span>find / -type f -size +20000k -exec ls -lh <span class="o">{}</span> <span class="se">\;</span> <span class="m">2</span>&gt;/dev/null <span class="p">|</span> awk <span class="s1">'{ print $5 ":\t" $8 }'</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>find / -type f -size +20000k -exec ls -lh <span class="o">{}</span> <span class="se">\;</span> <span class="m">2</span>&gt;/dev/null <span class="p">|</span> awk <span class="s1">'{ print $5 ":\t" $8 }'</span>
+</code></pre></div>
 <p>find files in the home folder owned by alice:</p>
-<div class="highlight"><pre><span></span>find /home -user alice
-</pre></div>
+<div class="highlight"><pre><span></span><code>find /home -user alice
+</code></pre></div>
 <h2 id="further reading">Further reading</h2>
 <p>Note that you should use grep if you want to search for patterns in single files.</p>
 <ul>

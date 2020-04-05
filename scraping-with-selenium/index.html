@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Scraping, Information Extraction, Testing, Cyberculture, " />
 
-<meta property="og:title" content="Scraping with Selenium "/>
+<meta property="og:title" content="Scraping with Selenium"/>
 <meta property="og:url" content="../scraping-with-selenium/" />
 <meta property="og:description" content="Selenium is a framework for testing web applications. And it is relly good for scraping JavaScript heavy websites. The idea is that you get a real browser to execute everything. In contrast to BeautifulSoup where you only fetch the content of a website. Installation pip install selenium chromedriver_installer Basic example …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2017-08-17T20:00:00+02:00" />
-<meta name="twitter:title" content="Scraping with Selenium ">
+<meta name="twitter:title" content="Scraping with Selenium">
 <meta name="twitter:description" content="Selenium is a framework for testing web applications. And it is relly good for scraping JavaScript heavy websites. The idea is that you get a real browser to execute everything. In contrast to BeautifulSoup where you only fetch the content of a website. Installation pip install selenium chromedriver_installer Basic example …">
 <meta property="og:image" content="logos/selenium.png" />
 <meta name="twitter:image" content="logos/selenium.png" >
 
-        <title>Scraping with Selenium  · Martin Thoma
+        <title>Scraping with Selenium · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../scraping-with-selenium/"> Scraping with Selenium  </a></h1>
+    <h1><a href="../scraping-with-selenium/"> Scraping with Selenium </a></h1>
     </header>
 </div>
 
@@ -115,12 +115,12 @@ scraping JavaScript heavy websites. The idea is that you get a real browser
 to execute everything. In contrast to BeautifulSoup where you only fetch the
 content of a website.</p>
 <h2 id="installation">Installation</h2>
-<div class="highlight"><pre><span></span>pip install selenium chromedriver_installer
-</pre></div>
+<div class="highlight"><pre><span></span><code>pip install selenium chromedriver_installer
+</code></pre></div>
 <h2 id="basic-example">Basic example</h2>
 <p>When you execute the follwing example with Python it should open a Chromium
 browser window with the Wikipedia main page. Nothing too exciting.</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="sd">"""A very basic selenium example."""</span>
@@ -149,7 +149,7 @@ browser window with the Wikipedia main page. Nothing too exciting.</p>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 <h2 id="basic-interaction">Basic interaction</h2>
 <p>Ok, now we want to search on Wikipedia by filling out the search bar. So we
 need to inspect the website and get an identifier for the search bar. In
@@ -159,7 +159,7 @@ Chrome, this is done with the <em>developer tools</em>. You can open them with
 <img alt="The inspection of the search bar with the Chrome Developer Tools reveals that it has the id 'searchInput'" src="../images/2017/08/chrome-dev-tools.png" style="width: 512px;"/>
 <figcaption class="text-center">Text</figcaption>
 </figure>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="sd">"""A very basic selenium example."""</span>
@@ -195,7 +195,7 @@ Chrome, this is done with the <em>developer tools</em>. You can open them with
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 <p>You know now:</p>
 <ul>
 <li>How to get elements by ID (<code>browser.find_element_by_id</code>)</li>
@@ -215,12 +215,12 @@ Chrome, this is done with the <em>developer tools</em>. You can open them with
 <p>A headless browser is one without a GUI. PhantomJS is one example.</p>
 <p>You can install it via apt, but that has problems (<a href="https://stackoverflow.com/q/36770303/562769">source</a>).
 You can install it via</p>
-<div class="highlight"><pre><span></span>sudo apt-get install nodejs-legacy
+<div class="highlight"><pre><span></span><code>sudo apt-get install nodejs-legacy
 sudo npm install -g phantomjs
-</pre></div>
+</code></pre></div>
 <p>but that might be a security risk. Your choice.</p>
 <p>Run it:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="sd">"""A very basic selenium example."""</span>
@@ -233,7 +233,7 @@ sudo npm install -g phantomjs
     <span class="n">browser</span> <span class="o">=</span> <span class="n">get_browser</span><span class="p">()</span>
     <span class="n">url</span> <span class="o">=</span> <span class="s2">"https://en.wikipedia.org"</span>
     <span class="n">browser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">browser</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">browser</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">get_browser</span><span class="p">():</span>
@@ -245,9 +245,9 @@ sudo npm install -g phantomjs
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 <h2 id="download-webpage">Download webpage</h2>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="sd">"""Selenium example for downloading a webpage."""</span>
@@ -272,7 +272,7 @@ sudo npm install -g phantomjs
         <span class="s2">"/home/moose/GitHub/algorithms/scraping/"</span> <span class="s2">"venv/bin/chromedriver"</span>
     <span class="p">)</span>
     <span class="n">download_dir</span> <span class="o">=</span> <span class="s2">"/home/moose/selenium-download/"</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"Is directory: {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">download_dir</span><span class="p">)))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Is directory: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">download_dir</span><span class="p">)))</span>
 
     <span class="kn">from</span> <span class="nn">selenium.webdriver.chrome.options</span> <span class="kn">import</span> <span class="n">Options</span>
 
@@ -280,9 +280,9 @@ sudo npm install -g phantomjs
     <span class="n">chrome_options</span><span class="o">.</span><span class="n">add_experimental_option</span><span class="p">(</span>
         <span class="s2">"prefs"</span><span class="p">,</span>
         <span class="p">{</span>
-            <span class="s2">"plugins.plugins_list"</span><span class="p">:</span> <span class="p">[{</span><span class="s2">"enabled"</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Chrome PDF Viewer"</span><span class="p">}],</span>
+            <span class="s2">"plugins.plugins_list"</span><span class="p">:</span> <span class="p">[{</span><span class="s2">"enabled"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Chrome PDF Viewer"</span><span class="p">}],</span>
             <span class="s2">"download"</span><span class="p">:</span> <span class="p">{</span>
-                <span class="s2">"prompt_for_download"</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+                <span class="s2">"prompt_for_download"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
                 <span class="s2">"default_directory"</span><span class="p">:</span> <span class="n">download_dir</span><span class="p">,</span>
             <span class="p">},</span>
         <span class="p">},</span>
@@ -294,10 +294,10 @@ sudo npm install -g phantomjs
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 <p>Credits: <a href="https://stackoverflow.com/q/45743028/562769">How can I download something with Selenium and Chrome?</a></p>
 <p>The following alternative (kind of) works:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="sd">"""Selenium example for downloading a webpage."""</span>
@@ -315,7 +315,7 @@ sudo npm install -g phantomjs
     <span class="n">browser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>  <span class="c1"># Open a PDF page</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
     <span class="n">download_link</span> <span class="o">=</span> <span class="n">url</span>  <span class="c1"># browser.current_url might be interesting, too</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"Download link: {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">download_link</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Download link: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">download_link</span><span class="p">))</span>
     <span class="n">session</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
     <span class="n">cookies</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="n">get_cookies</span><span class="p">()</span>
 
@@ -326,7 +326,7 @@ sudo npm install -g phantomjs
     <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">"temp.pdf"</span><span class="p">)</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"Written to {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Written to </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
 
 
 <span class="k">def</span> <span class="nf">get_browser</span><span class="p">():</span>
@@ -337,7 +337,7 @@ sudo npm install -g phantomjs
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 <h2 id="waiting">Waiting</h2>
 <p>Sometimes, you need to wait for the page to load. <code>browser.get</code> blocks until
 the page is loaded, but what about <code>.click()</code>? What about JavaScript generated

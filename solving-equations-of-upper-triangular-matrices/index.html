@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Python, mathematics, Matrix, systems of equations, numerics, Code, " />
 
-<meta property="og:title" content="Solving equations of upper triangular matrices "/>
+<meta property="og:title" content="Solving equations of upper triangular matrices"/>
 <meta property="og:url" content="../solving-equations-of-upper-triangular-matrices/" />
 <meta property="og:description" content="Suppose you have an equation like \(R \cdot x = b\) with \(R \in \mathbb{R}^{n \times n}\) and \(x,b \in \mathbb{R}^n\). \(b\) and \(R\) are given and you want to solve for \(x\). Example With \(n=5\), the problem could look like this: $$\begin{pmatrix} 2 …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2013-05-20T10:41:49+02:00" />
-<meta name="twitter:title" content="Solving equations of upper triangular matrices ">
+<meta name="twitter:title" content="Solving equations of upper triangular matrices">
 <meta name="twitter:description" content="Suppose you have an equation like \(R \cdot x = b\) with \(R \in \mathbb{R}^{n \times n}\) and \(x,b \in \mathbb{R}^n\). \(b\) and \(R\) are given and you want to solve for \(x\). Example With \(n=5\), the problem could look like this: $$\begin{pmatrix} 2 …">
 <meta property="og:image" content="2013/05/upper-triangular-matrix.png" />
 <meta name="twitter:image" content="2013/05/upper-triangular-matrix.png" >
 
-        <title>Solving equations of upper triangular matrices  · Martin Thoma
+        <title>Solving equations of upper triangular matrices · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../solving-equations-of-upper-triangular-matrices/"> Solving equations of upper triangular matrices  </a></h1>
+    <h1><a href="../solving-equations-of-upper-triangular-matrices/"> Solving equations of upper triangular matrices </a></h1>
     </header>
 </div>
 
@@ -163,7 +163,7 @@ MathJax.Hub.Queue(function() {
 \begin{pmatrix}\frac{1339}{1536} \\ -\frac{197}{768} \\ -\frac{97}{288} \\ \frac{1}{9} \\ \frac{5}{4}\end{pmatrix}$$</div>
 <h2 id="python straightforward algorithm_1">Python straightforward algorithm</h2>
 <p>I will use <a href="http://docs.python.org/2/library/fractions.html">fractions</a> for operations as I don't want to lose precision while dividing.</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 
@@ -206,15 +206,15 @@ MathJax.Hub.Queue(function() {
     <span class="p">]</span>
     <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">solveUpperTriangularMatrix</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
     <span class="c1"># Convert x to float</span>
     <span class="n">x</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div>
 <h2 id="a better algorithm">A better algorithm</h2>
 <p>Just like for <a href="../solving-equations-of-unipotent-lower-triangular-matrices/" title="Solving equations of unipotent lower triangular matrices">unipotent lower triangular matrices</a>, we can operate directly on the given input:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 
@@ -252,19 +252,19 @@ MathJax.Hub.Queue(function() {
     <span class="p">]</span>
     <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
     <span class="n">solveUpperTriangularMatrix</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-</pre></div>
+    <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</code></pre></div>
 <h2 id="conversion to fraction">Conversion to Fraction</h2>
 <p>You could think that the conversion to fraction is not necessary. But if you simply remove line 5 to 16, you will get:</p>
-<div class="highlight"><pre><span></span><span class="o">[</span><span class="m">1</span>, <span class="m">0</span>, -1, <span class="m">0</span>, <span class="m">1</span><span class="o">]</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="m">1</span>, <span class="m">0</span>, -1, <span class="m">0</span>, <span class="m">1</span><span class="o">]</span>
+</code></pre></div>
 <p>because of integer arithmetic. When you convert the input to float before
 passing it to <code>solveUpperTriangularMatrix</code>, you will get</p>
-<div class="highlight"><pre><span></span><span class="o">[</span><span class="m">0</span>.8717447916666666, -0.25651041666666663, -0.3368055555555556, <span class="m">0</span>.1111111111111111, <span class="m">1</span>.25<span class="o">]</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="m">0</span>.8717447916666666, -0.25651041666666663, -0.3368055555555556, <span class="m">0</span>.1111111111111111, <span class="m">1</span>.25<span class="o">]</span>
+</code></pre></div>
 <p>which is almost the same as when we calculated with Fraction and converted to float afterwards:</p>
-<div class="highlight"><pre><span></span><span class="o">[</span><span class="m">0</span>.8717447916666666, -0.2565104166666667, -0.3368055555555556, <span class="m">0</span>.1111111111111111, <span class="m">1</span>.25<span class="o">]</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="m">0</span>.8717447916666666, -0.2565104166666667, -0.3368055555555556, <span class="m">0</span>.1111111111111111, <span class="m">1</span>.25<span class="o">]</span>
+</code></pre></div>
 <p>So: Using Fractions needs some computing time, but you will get better results.</p>
 <h2 id="time complexity">Time complexity</h2>
 <p>I'll analyze the second algorithm.</p>

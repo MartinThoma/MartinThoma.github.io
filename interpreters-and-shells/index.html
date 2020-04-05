@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Shell, Code, " />
 
-<meta property="og:title" content="Interpreters and Shells "/>
+<meta property="og:title" content="Interpreters and Shells"/>
 <meta property="og:url" content="../interpreters-and-shells/" />
 <meta property="og:description" content="Should you ever be in the position to write a shell or interpreter I hope you will make sure the following things work. Take it as a quality guide. They are ordered by level of importance. The first thing is the most basic one that has to work, the last …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2014-03-08T11:49:00+01:00" />
-<meta name="twitter:title" content="Interpreters and Shells ">
+<meta name="twitter:title" content="Interpreters and Shells">
 <meta name="twitter:description" content="Should you ever be in the position to write a shell or interpreter I hope you will make sure the following things work. Take it as a quality guide. They are ordered by level of importance. The first thing is the most basic one that has to work, the last …">
 <meta property="og:image" content="2011/09/Gnome-Terminal.png" />
 <meta name="twitter:image" content="2011/09/Gnome-Terminal.png" >
 
-        <title>Interpreters and Shells  · Martin Thoma
+        <title>Interpreters and Shells · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../interpreters-and-shells/"> Interpreters and Shells  </a></h1>
+    <h1><a href="../interpreters-and-shells/"> Interpreters and Shells </a></h1>
     </header>
 </div>
 
@@ -187,18 +187,18 @@ a crap.</p>
 startup by specifying the environment variable <code>PYTHONSTARTUP</code>, but somehow this
 does not work on my system.<br/>
 However, customizing the prompt is fairly easy:</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="n">sys</span><span class="o">.</span><span class="n">ps1</span> <span class="o">=</span> <span class="s2">"--&gt;"</span>
-</pre></div>
+</code></pre></div>
 <p><strong>Level 4</strong>: <code>GHCi</code>, a Haskell compiler, has mastered level 4. The prompt can be
 configured via <code>~/.ghci</code> by adding <code>:set prompt "ghci&gt; "</code>.</p>
 <p>If you want to show the current path, you can do it like this (<a href="http://stackoverflow.com/a/11263118/562769">source</a>):</p>
-<div class="highlight"><pre><span></span><span class="kr">let</span> <span class="n">cur</span> <span class="n">fill</span> <span class="ow">=</span> <span class="kr">do</span> <span class="p">{</span> <span class="n">cwd</span> <span class="ow">&lt;-</span> <span class="kt">System</span><span class="o">.</span><span class="kt">Directory</span><span class="o">.</span><span class="n">getCurrentDirectory</span><span class="p">;</span> <span class="n">return</span> <span class="p">(</span><span class="s">":set prompt </span><span class="se">\"</span><span class="s">"</span> <span class="o">++</span> <span class="n">cwd</span> <span class="o">++</span> <span class="n">fill</span> <span class="o">++</span> <span class="s">" </span><span class="se">\"</span><span class="s">"</span><span class="p">);</span> <span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="kr">let</span> <span class="n">cur</span> <span class="n">fill</span> <span class="ow">=</span> <span class="kr">do</span> <span class="p">{</span> <span class="n">cwd</span> <span class="ow">&lt;-</span> <span class="kt">System</span><span class="o">.</span><span class="kt">Directory</span><span class="o">.</span><span class="n">getCurrentDirectory</span><span class="p">;</span> <span class="n">return</span> <span class="p">(</span><span class="s">":set prompt </span><span class="se">\"</span><span class="s">"</span> <span class="o">++</span> <span class="n">cwd</span> <span class="o">++</span> <span class="n">fill</span> <span class="o">++</span> <span class="s">" </span><span class="se">\"</span><span class="s">"</span><span class="p">);</span> <span class="p">}</span>
 <span class="kt">:</span><span class="n">def</span> <span class="n">doprompt</span> <span class="p">(</span><span class="nf">\</span><span class="kr">_</span> <span class="ow">-&gt;</span> <span class="n">cur</span> <span class="s">"&gt;"</span><span class="p">)</span>
 <span class="kt">:</span><span class="n">def</span> <span class="n">mycd</span> <span class="p">(</span><span class="nf">\</span><span class="n">dir</span> <span class="ow">-&gt;</span> <span class="kt">System</span><span class="o">.</span><span class="kt">Directory</span><span class="o">.</span><span class="n">setCurrentDirectory</span> <span class="n">dir</span> <span class="o">&gt;&gt;</span> <span class="n">cur</span> <span class="s">"&gt;"</span><span class="p">)</span>
 <span class="kt">:</span><span class="n">doprompt</span>
-</pre></div>
+</code></pre></div>
 <p><strong>Level 4.5</strong>: <code>bash</code> is robust, takes about 0.11 seconds to start, has a history of
 500 lines as you can verify with <code>echo $HISTSIZE</code>, is customizable with <code>.bashrc</code>.</p>
 <p><code>tcsh</code> takes about 0.02 seconds to start, has a default history size of 100 lines

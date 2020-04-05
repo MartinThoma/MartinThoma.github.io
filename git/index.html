@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Code, git, Code, " />
 
-<meta property="og:title" content="Git - Version Control Done Right "/>
+<meta property="og:title" content="Git - Version Control Done Right"/>
 <meta property="og:url" content="../git/" />
 <meta property="og:description" content="git is a (the!) version control system. In this article I&#39;ll try to show in a short way how to improve your usage of it. I assume you already know git clone, git commit, git push, git pull and git branch. Why Version Control When you write software, you usually …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2018-07-08T20:00:00+02:00" />
-<meta name="twitter:title" content="Git - Version Control Done Right ">
+<meta name="twitter:title" content="Git - Version Control Done Right">
 <meta name="twitter:description" content="git is a (the!) version control system. In this article I&#39;ll try to show in a short way how to improve your usage of it. I assume you already know git clone, git commit, git push, git pull and git branch. Why Version Control When you write software, you usually …">
 <meta property="og:image" content="logos/git.png" />
 <meta name="twitter:image" content="logos/git.png" >
 
-        <title>Git - Version Control Done Right  · Martin Thoma
+        <title>Git - Version Control Done Right · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../git/"> Git - Version Control Done Right  </a></h1>
+    <h1><a href="../git/"> Git - Version Control Done Right </a></h1>
     </header>
 </div>
 
@@ -152,16 +152,16 @@ diff. This includes:</p>
 <p>I like the <a href="https://docs.scipy.org/doc/numpy-1.13.0/dev/gitwash/development_workflow.html#writing-the-commit-message">SciPy commit message guide</a>.
 They start every message with a prefix. Copied from this page, here is how their
 messages look like:</p>
-<div class="highlight"><pre><span></span>ENH: add functionality X to numpy.&lt;submodule&gt;.
+<div class="highlight"><pre><span></span><code>ENH: add functionality X to numpy.&lt;submodule&gt;.
 
 The first line of the commit message starts with a capitalized acronym
 (options listed below) indicating what type of commit this is.  Then a blank
 line, then more text if needed.  Lines shouldn't be longer than 72
 characters.  If the commit is related to a ticket, indicate that with
 "See #3456", "See ticket 3456", "Closes #3456" or similar.
-</pre></div>
+</code></pre></div>
 <p>The prefixes I suggest to have, are:</p>
-<div class="highlight"><pre><span></span>API: an (incompatible) API change
+<div class="highlight"><pre><span></span><code>API: an (incompatible) API change
 BUG: bug fix
 DEP: deprecate something, or remove a deprecated object
 DEV: development tool or utility
@@ -172,7 +172,7 @@ REV: revert an earlier commit
 STY: style fix (whitespace, PEP8)
 TST: addition or modification of tests
 REL: related to releasing the project, e.g. change of a version number
-</pre></div>
+</code></pre></div>
 <p>I also suggest to keep those messages shorter than 80 characters.</p>
 <p>Services like GitHub can directly connect commits with issues if you reference
 the issues like <code>issue #123</code> in the commit message.</p>
@@ -183,7 +183,7 @@ the issues like <code>issue #123</code> in the commit message.</p>
 <h2 id="git-log">git log</h2>
 <p><a href="https://git-scm.com/docs/git-log"><code>git log</code></a> shows you the commit messages and
 other logged changes:</p>
-<div class="highlight"><pre><span></span>commit e44ed1e8e5bdcada8534369c5135e77677253de1 (HEAD -&gt; master, origin/master, origin/HEAD)
+<div class="highlight"><pre><span></span><code>commit e44ed1e8e5bdcada8534369c5135e77677253de1 (HEAD -&gt; master, origin/master, origin/HEAD)
 Author: Martin Thoma &lt;info@martin-thoma.de&gt;
 Date:   Fri Jul 6 07:21:10 2018 +0200
 
@@ -234,9 +234,9 @@ Date:   Tue Jul 3 23:21:01 2018 +0200
     ENH: Add mpu.path.get_all_files
 
     See issue #14
-</pre></div>
+</code></pre></div>
 <p>You can also adjust the output to your needs:</p>
-<div class="highlight"><pre><span></span>$ git log --pretty<span class="o">=</span>oneline
+<div class="highlight"><pre><span></span><code>$ git log --pretty<span class="o">=</span>oneline
 
 e44ed1e8e5bdcada8534369c5135e77677253de1 <span class="o">(</span>HEAD -&gt; master, origin/master, origin/HEAD<span class="o">)</span> DOC: Fix documentation of string <span class="k">return</span> values
 8cf8c8d4b168ef3b0a32617917195a352f4ce723 REL: v0.9.0
@@ -246,16 +246,16 @@ bb56e82fa402827b3de8140783e0c4fc95e3699d DOC: document mpu.path
 9d929238ef04ecb866775b3e687d782090c484bf STY: Fix issues discovered by codacy
 c31f575d3835049c65b8ab6c7fe909191779a912 <span class="o">(</span>tag: v0.8.0<span class="o">)</span> REL: Release v0.8.0
 f3f7f1192a7b495f74156977bda1bd220a87e4eb ENH: Add mpu.path.get_all_files
-</pre></div>
+</code></pre></div>
 <h2 id="git-diff">git diff</h2>
 <p><a href="https://git-scm.com/docs/git-diff"><code>git diff</code></a> compares two commits, e.g.</p>
-<div class="highlight"><pre><span></span>$ git diff e44ed1e8e5bdcada8534369c5135e77677253de1..8cf8c8d4b168ef3b0a32617917195a352f4ce723
-</pre></div>
+<div class="highlight"><pre><span></span><code>$ git diff e44ed1e8e5bdcada8534369c5135e77677253de1..8cf8c8d4b168ef3b0a32617917195a352f4ce723
+</code></pre></div>
 <p>Looking up the git hashes (<code>e44ed1...</code> and <code>8cf8c8d...</code>) is cumbersome, so
 there are shortcuts. For example <code>HEAD</code> is the latest version. And <code>^</code> gives
 you the version before. Hence</p>
-<div class="highlight"><pre><span></span>$ git diff HEAD^..HEAD
-</pre></div>
+<div class="highlight"><pre><span></span><code>$ git diff HEAD^..HEAD
+</code></pre></div>
 <p>compares the current version with that before.</p>
 <h2 id="git-blame">git blame</h2>
 <p><a href="https://git-scm.com/docs/git-blame"><code>git blame</code></a> gives you an overview who
@@ -263,7 +263,7 @@ last edited which line. It can be used to "blame" somebody for a change. Or,
 better, to find the person who to ask why something was done the way it
 currently is in the repository.</p>
 <p>For the a part of the <code>filters.py</code> in SciPy ndimages it looks like this:</p>
-<div class="highlight"><pre><span></span>e2fbe76393 scipy/ndimage/filters.py   (Jaime Fernandez         2018-03-07 01:15:11 +0100  298) @_ni_docstrings.docfiller
+<div class="highlight"><pre><span></span><code>e2fbe76393 scipy/ndimage/filters.py   (Jaime Fernandez         2018-03-07 01:15:11 +0100  298) @_ni_docstrings.docfiller
 a1a629221f scipy/ndimage/filters.py   (Tim Leslie              2013-04-12 11:36:45 +0000  299) def prewitt(input, axis=-1, output=None, mode="reflect", cval=0.0):
 ca465a651f Lib/ndimage/Lib/filters.py (Ed Schofield            2006-03-18 13:52:58 +0000  300)     """Calculate a Prewitt filter.
 a4eba7aeaf scipy/ndimage/filters.py   (Matthew Brett           2008-12-14 11:51:37 +0000  301)
@@ -298,7 +298,7 @@ ca465a651f Lib/ndimage/Lib/filters.py (Ed Schofield            2006-03-18 13:52:
 ca465a651f Lib/ndimage/Lib/filters.py (Ed Schofield            2006-03-18 13:52:58 +0000  330)     for ii in axes:
 7fb0a279ac scipy/ndimage/filters.py   (Alvaro Sanchez-Gonzalez 2016-11-25 10:03:14 +0000  331)         correlate1d(output, [1, 1, 1], ii, output, modes[ii], cval, 0,)
 6f3089c43b scipy/ndimage/filters.py   (Jaime Fernandez         2018-02-22 00:47:21 +0100  332)     return output
-</pre></div>
+</code></pre></div>
 <h2 id="git-squash">git squash</h2>
 <p>The git commit history should be kept clean. If you develop a new feature you
 might want to push the latest state - even if something is not working - from
@@ -331,8 +331,8 @@ for that.</p>
 <p>Github marks those tags as releases. See my <a href="https://github.com/MartinThoma/mpu/releases">mpu releases</a>,
 for example.</p>
 <p>You can also show diffs / logs with the tags, e.g.:</p>
-<div class="highlight"><pre><span></span>$ git diff v0.2.0..v0.3.0
-</pre></div>
+<div class="highlight"><pre><span></span><code>$ git diff v0.2.0..v0.3.0
+</code></pre></div>
 <h2 id="git-hooks">Git Hooks</h2>
 <p><a href="https://en.wikipedia.org/wiki/Hooking">Software Hooks</a> are a plugin-technique.
 Hooks allow users to alter and extend the software. In git, there are many

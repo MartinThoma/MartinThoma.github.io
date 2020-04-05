@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="API, Web, Design, Architecture, Flask, The Web, " />
 
-<meta property="og:title" content="REST "/>
+<meta property="og:title" content="REST"/>
 <meta property="og:url" content="../rest/" />
 <meta property="og:description" content="REST is a software architectural style that defines a set of constraints to be used for creating web services. Most explanations of REST give too many details, such as the architectural constraints. To get a glimpse how REST works, this is not necessary. In this article I try to focus …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2019-05-18T20:00:00+02:00" />
-<meta name="twitter:title" content="REST ">
+<meta name="twitter:title" content="REST">
 <meta name="twitter:description" content="REST is a software architectural style that defines a set of constraints to be used for creating web services. Most explanations of REST give too many details, such as the architectural constraints. To get a glimpse how REST works, this is not necessary. In this article I try to focus …">
 <meta property="og:image" content="logos/development.png" />
 <meta name="twitter:image" content="logos/development.png" >
 
-        <title>REST  · Martin Thoma
+        <title>REST · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../rest/"> REST  </a></h1>
+    <h1><a href="../rest/"> REST </a></h1>
     </header>
 </div>
 
@@ -266,14 +266,14 @@ to CRUD which is from 1983:</p>
 </table>
 <h2 id="example">Example</h2>
 <p>Let's say we have an educational website <code>educate.me</code>. It has lessons:</p>
-<div class="highlight"><pre><span></span><span class="n">lesson</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="n">lesson</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">"lesson_id"</span><span class="p">:</span> <span class="s2">"int"</span><span class="p">,</span>
     <span class="s2">"author_id"</span><span class="p">:</span> <span class="s2">"int"</span><span class="p">,</span>
     <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"blob"</span><span class="p">,</span>
     <span class="s2">"expected_age"</span><span class="p">:</span> <span class="s2">"int"</span><span class="p">,</span>
     <span class="s2">"creation_date"</span><span class="p">:</span> <span class="s2">"datetime"</span><span class="p">,</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 <p>You need a possibility to:</p>
 <ul>
 <li>list all existing lessons</li>
@@ -312,7 +312,7 @@ interested in a part of it.</p>
 </ul>
 <h2 id="flask_1">Flask</h2>
 <p>You can build REST APIs with <a href="https://flask-restx.readthedocs.io/en/latest/">Flask-RESTX</a>:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
 <span class="sd">"""Simple Flask/Swagger/REST-API example."""</span>
 
@@ -323,7 +323,7 @@ interested in a part of it.</p>
 <span class="n">api</span> <span class="o">=</span> <span class="n">Api</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="s2">"/doc"</span><span class="p">)</span>
 
 
-<span class="nd">@api.route</span><span class="p">(</span><span class="s2">"/lessons"</span><span class="p">)</span>
+<span class="nd">@api</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">"/lessons"</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">VersionAPI</span><span class="p">(</span><span class="n">Resource</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">get_all_lessons</span><span class="p">()</span>
@@ -334,7 +334,7 @@ interested in a part of it.</p>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s2">"0.0.0.0"</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="https://restfulapi.net/resource-naming/">REST Resource Naming Guide</a></li>

@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="A.I., Algorithms, Programming, Python, Machine Learning, Branch-and-Bound, Machine Learning, " />
 
-<meta property="og:title" content="Label Correction Algorithm "/>
+<meta property="og:title" content="Label Correction Algorithm"/>
 <meta property="og:url" content="../label-correction-algorithm/" />
 <meta property="og:description" content="The label-correction algorithm is a generalization which includes very common graph search algorithms like breadth first search (BFS), depth first search (DFS), A*, Dijkstra&#39;s algorithm and Branch and bound as special cases. Pseudocode Pseudocode for the Label correction algorithm Explanation: First if: The left hand side is a lower bound …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2017-01-25T20:00:00+01:00" />
-<meta name="twitter:title" content="Label Correction Algorithm ">
+<meta name="twitter:title" content="Label Correction Algorithm">
 <meta name="twitter:description" content="The label-correction algorithm is a generalization which includes very common graph search algorithms like breadth first search (BFS), depth first search (DFS), A*, Dijkstra&#39;s algorithm and Branch and bound as special cases. Pseudocode Pseudocode for the Label correction algorithm Explanation: First if: The left hand side is a lower bound …">
 <meta property="og:image" content="logos/ai.png" />
 <meta name="twitter:image" content="logos/ai.png" >
 
-        <title>Label Correction Algorithm  · Martin Thoma
+        <title>Label Correction Algorithm · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../label-correction-algorithm/"> Label Correction Algorithm  </a></h1>
+    <h1><a href="../label-correction-algorithm/"> Label Correction Algorithm </a></h1>
     </header>
 </div>
 
@@ -135,7 +135,7 @@ of the optimal solution.</p>
 <li><a href="https://en.wikipedia.org/wiki/Branch_and_bound">Branch and bound</a>: K ist priority queue, <span class="math">\(h_j\)</span> and <span class="math">\(m_j\)</span> are non-trivial</li>
 </ul>
 <h2 id="python">Python</h2>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
 <span class="sd">"""Label Correction algorithm."""</span>
 
@@ -144,7 +144,7 @@ of the optimal solution.</p>
 <span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
-    <span class="n">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
     <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
     <span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span>
 <span class="p">)</span>
@@ -167,12 +167,12 @@ of the optimal solution.</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">index2name</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">neighbors</span> <span class="o">=</span> <span class="p">[]</span>
 
-    <span class="k">def</span> <span class="nf">add_node</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">add_node</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">"""Add a new node and return its index."""</span>
         <span class="n">node_index</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"index-"</span><span class="p">):</span>
             <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">'Node names beginning with "index-" may cause '</span> <span class="s2">"problems."</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">name</span> <span class="o">=</span> <span class="s2">"index-</span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="n">node_index</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node_index</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name2index</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">node_index</span>
@@ -217,7 +217,7 @@ of the optimal solution.</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i2</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i1</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">label_correction</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">start_node</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">K</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">label_correction</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">start_node</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">K</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Label correction algorithm for graph searches.</span>
 
@@ -238,17 +238,17 @@ of the optimal solution.</p>
 <span class="sd">    K : list-like data structure, optional</span>
 <span class="sd">        Needs 'insert', 'pop'</span>
 <span class="sd">    """</span>
-    <span class="k">if</span> <span class="n">h</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">h</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">h</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">g</span><span class="p">,</span> <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">:</span> <span class="mf">0.0</span>
-    <span class="k">if</span> <span class="n">m</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">m</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">m</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">g</span><span class="p">,</span> <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="s2">"inf"</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">K</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">K</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">K</span> <span class="o">=</span> <span class="n">LIFO</span><span class="p">()</span>
     <span class="n">d</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">parents</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">graph</span><span class="o">.</span><span class="n">nodes</span><span class="p">:</span>
         <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="s2">"inf"</span><span class="p">))</span>
-        <span class="n">parents</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
+        <span class="n">parents</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
     <span class="n">d</span><span class="p">[</span><span class="n">start_node</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">u</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">"inf"</span><span class="p">)</span>  <span class="c1"># shortest distance from start_node to t</span>
     <span class="n">K</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">start_node</span><span class="p">)</span>
@@ -296,12 +296,12 @@ of the optimal solution.</p>
     <span class="n">i1</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">get_node_index</span><span class="p">(</span><span class="s2">"A"</span><span class="p">)</span>
     <span class="n">i2</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">get_node_index</span><span class="p">(</span><span class="s2">"F"</span><span class="p">)</span>
     <span class="n">ret</span> <span class="o">=</span> <span class="n">label_correction</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">sample_1</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 <h2 id="examples">Examples</h2>
 <ul>
 <li><a href="https://projecteuler.net/problem=18">Project Euler 18</a></li>

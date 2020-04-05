@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="PHP, Database, IT-Security, MySQL, SQL, Code, " />
 
-<meta property="og:title" content="SQL Injections "/>
+<meta property="og:title" content="SQL Injections"/>
 <meta property="og:url" content="../sql-injections/" />
 <meta property="og:description" content="SQL is a language that allows prorammers to access data in databases. Most of the time (always?) you pass your queries in form of strings to the database. In online services it is quite common that the programmer formulates a template and the user fills in variables. Example: IMDb Take …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2013-07-11T19:25:03+02:00" />
-<meta name="twitter:title" content="SQL Injections ">
+<meta name="twitter:title" content="SQL Injections">
 <meta name="twitter:description" content="SQL is a language that allows prorammers to access data in databases. Most of the time (always?) you pass your queries in form of strings to the database. In online services it is quite common that the programmer formulates a template and the user fills in variables. Example: IMDb Take …">
 <meta property="og:image" content="2013/07/blackhat.png" />
 <meta name="twitter:image" content="2013/07/blackhat.png" >
 
-        <title>SQL Injections  · Martin Thoma
+        <title>SQL Injections · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../sql-injections/"> SQL Injections  </a></h1>
+    <h1><a href="../sql-injections/"> SQL Injections </a></h1>
     </header>
 </div>
 
@@ -124,8 +124,8 @@ MathJax.Hub.Queue(function() {
 </figure>
 <p>You obviously interacted with imdb.com in a very dynamic way. The output of the website depends on what you typed in and IMDb has to search in its database for your search terms.</p>
 <p>The programmers might have created a query that looks like this</p>
-<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">movie</span><span class="o">`</span> <span class="k">WHERE</span> <span class="n">title</span><span class="o">=</span><span class="err">$</span><span class="n">_GET</span><span class="p">[</span><span class="s1">'q'</span><span class="p">]</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">movie</span><span class="o">`</span> <span class="k">WHERE</span> <span class="n">title</span><span class="o">=</span><span class="err">$</span><span class="n">_GET</span><span class="p">[</span><span class="s1">'q'</span><span class="p">]</span>
+</code></pre></div>
 <p>Where <code>$_GET['q']</code> is your query.</p>
 <h2 id="proof of concept">Proof of concept</h2>
 <p>You need:
@@ -137,7 +137,7 @@ MathJax.Hub.Queue(function() {
 </ul></p>
 <p>When you search for "LAMP" (for Linux users) or for "WAMP" (for Windows users) you find a lot of information how to install this.</p>
 <p>Place the following as <code>hack.php</code> in your web servers directory (might be <code>/var/www</code>):</p>
-<div class="highlight"><pre><span></span><span class="cp">&lt;?</span>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?</span>
 <span class="nv">$mysqlhost</span> <span class="o">=</span> <span class="s2">"localhost"</span><span class="p">;</span>
 <span class="nv">$mysqluser</span> <span class="o">=</span> <span class="s2">"root"</span><span class="p">;</span>
 <span class="nv">$mysqlpwd</span> <span class="o">=</span> <span class="s2">"asdfasdf"</span><span class="p">;</span>
@@ -162,9 +162,9 @@ MathJax.Hub.Queue(function() {
 <span class="x">  &lt;input type="text" name="q"/&gt;</span>
 <span class="x">  &lt;input type="submit" /&gt;</span>
 <span class="x">&lt;/form&gt;</span>
-</pre></div>
+</code></pre></div>
 <p>Now create a database called <code>imdb</code> with PHPMyAdmin and execute the following SQL:</p>
-<div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="k">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="o">`</span><span class="n">movies</span><span class="o">`</span> <span class="p">(</span>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="k">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="o">`</span><span class="n">movies</span><span class="o">`</span> <span class="p">(</span>
   <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
   <span class="o">`</span><span class="n">title</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
   <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span>
@@ -186,7 +186,7 @@ MathJax.Hub.Queue(function() {
 <span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">`</span><span class="n">users</span><span class="o">`</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">username</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">password</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">email</span><span class="o">`</span><span class="p">)</span> <span class="k">VALUES</span>
 <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'admin'</span><span class="p">,</span> <span class="s1">'qewrtqwert'</span><span class="p">,</span> <span class="s1">'admin@imdb.com'</span><span class="p">),</span>
 <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'user'</span><span class="p">,</span> <span class="s1">'secret'</span><span class="p">,</span> <span class="s1">'mylittlepony@stupid.com'</span><span class="p">);</span>
-</pre></div>
+</code></pre></div>
 <p>Now go to <a href="http://localhost/hack.php">http://localhost/hack.php</a>. It should look like this:</p>
 <figure class="aligncenter">
 <a href="../images/2013/07/hack-screenshot.png"><img alt="Screenshot of my minimal example" class="size-medium wp-image-73971" src="../images/2013/07/hack-screenshot.png" style="max-width:300px;max-height:85px"/></a>
@@ -198,19 +198,19 @@ MathJax.Hub.Queue(function() {
 <figcaption class="text-center">Normal use of the web service</figcaption>
 </figure>
 <p>This resulted in the following query:</p>
-<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">movies</span><span class="o">`</span> <span class="k">WHERE</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Harry Potter'</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">movies</span><span class="o">`</span> <span class="k">WHERE</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Harry Potter'</span>
+</code></pre></div>
 <p>But a Hacker could also enter a string like this: <code>' OR '1'='1</code>:</p>
 <figure class="aligncenter">
 <a href="../images/2013/07/hack-hacky-use.png"><img alt="What a hacker could do" class="size-medium" src="../images/2013/07/hack-hacky-use.png" style="max-width:300px;max-height:94px"/></a>
 <figcaption class="text-center">What a hacker could do</figcaption>
 </figure>
 <p>Even worse, the attacker could know that you use MySQL. Then he might know that MySQL uses <a href="http://dev.mysql.com/doc/refman/5.1/en/information-schema.html">INFORMATION_SCHEMA tables</a>. He might enter this into the title input element:</p>
-<div class="highlight"><pre><span></span><span class="s1">' UNION SELECT table_name, table_type FROM information_schema.tables WHERE '</span><span class="mi">1</span><span class="s1">'='</span><span class="mi">1</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="s1">' UNION SELECT table_name, table_type FROM information_schema.tables WHERE '</span><span class="mi">1</span><span class="s1">'='</span><span class="mi">1</span>
+</code></pre></div>
 <p>which results in this query:</p>
-<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">movies</span><span class="o">`</span> <span class="k">WHERE</span> <span class="n">title</span><span class="o">=</span><span class="s1">''</span> <span class="k">UNION</span> <span class="k">SELECT</span> <span class="k">table_name</span><span class="p">,</span> <span class="n">table_type</span> <span class="k">FROM</span> <span class="n">information_schema</span><span class="p">.</span><span class="n">tables</span> <span class="k">WHERE</span> <span class="s1">'1'</span><span class="o">=</span><span class="s1">'1'</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">movies</span><span class="o">`</span> <span class="k">WHERE</span> <span class="n">title</span><span class="o">=</span><span class="s1">''</span> <span class="k">UNION</span> <span class="k">SELECT</span> <span class="k">table_name</span><span class="p">,</span> <span class="n">table_type</span> <span class="k">FROM</span> <span class="n">information_schema</span><span class="p">.</span><span class="n">tables</span> <span class="k">WHERE</span> <span class="s1">'1'</span><span class="o">=</span><span class="s1">'1'</span>
+</code></pre></div>
 <p>which gives:</p>
 <figure class="aligncenter">
 <a href="../images/2013/07/sql-injection-example.png"><img alt="Attacker got all table names" class="size-medium" src="../images/2013/07/sql-injection-example.png" style="max-width:268px;max-height:300px"/></a>

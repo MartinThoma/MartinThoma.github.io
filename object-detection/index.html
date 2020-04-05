@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="machine learning, Computer Vision, Pascal VOC, Machine Learning, " />
 
-<meta property="og:title" content="Object Detection "/>
+<meta property="og:title" content="Object Detection"/>
 <meta property="og:url" content="../object-detection/" />
 <meta property="og:description" content="Object detection is the following task: You have an image and you want axis-aligned bounding boxes around every instance of a pre-defined set of object classes. The set of object classes is finite and typically not bigger than 1000. Here is an easy to use example Prerequisites Tensorflow CUDA CuDNN …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2017-03-19T20:00:00+01:00" />
-<meta name="twitter:title" content="Object Detection ">
+<meta name="twitter:title" content="Object Detection">
 <meta name="twitter:description" content="Object detection is the following task: You have an image and you want axis-aligned bounding boxes around every instance of a pre-defined set of object classes. The set of object classes is finite and typically not bigger than 1000. Here is an easy to use example Prerequisites Tensorflow CUDA CuDNN …">
 <meta property="og:image" content="logos/ml.png" />
 <meta name="twitter:image" content="logos/ml.png" >
 
-        <title>Object Detection  · Martin Thoma
+        <title>Object Detection · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../object-detection/"> Object Detection  </a></h1>
+    <h1><a href="../object-detection/"> Object Detection </a></h1>
     </header>
 </div>
 
@@ -127,7 +127,7 @@ than 1000.</p>
 <li><code>ssd.py</code> and <code>ssd_utils.py</code> from <a href="https://github.com/MartinThoma/algorithms/tree/master/ML/detection">github.com/MartinThoma/algorithms</a></li>
 </ul>
 <h2 id="code">Code</h2>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
 <span class="sd">"""</span>
 <span class="sd">Run object detection with VOC classes.</span>
@@ -138,8 +138,8 @@ than 1000.</p>
 
 <span class="kn">from</span> <span class="nn">keras.applications.imagenet_utils</span> <span class="kn">import</span> <span class="n">preprocess_input</span>
 <span class="kn">from</span> <span class="nn">keras.preprocessing</span> <span class="kn">import</span> <span class="n">image</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy.misc</span> <span class="kn">import</span> <span class="n">imread</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
@@ -194,11 +194,11 @@ than 1000.</p>
         <span class="n">score</span> <span class="o">=</span> <span class="n">top_conf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
         <span class="n">label</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">top_label_indices</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
         <span class="n">label_name</span> <span class="o">=</span> <span class="n">voc_classes</span><span class="p">[</span><span class="n">label</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
-        <span class="n">display_txt</span> <span class="o">=</span> <span class="s2">"{:0.2f}, {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">label_name</span><span class="p">)</span>
+        <span class="n">display_txt</span> <span class="o">=</span> <span class="s2">"</span><span class="si">{:0.2f}</span><span class="s2">, </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">label_name</span><span class="p">)</span>
         <span class="n">coords</span> <span class="o">=</span> <span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">ymin</span><span class="p">),</span> <span class="n">xmax</span> <span class="o">-</span> <span class="n">xmin</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">-</span> <span class="n">ymin</span> <span class="o">+</span> <span class="mi">1</span>
         <span class="n">color</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="n">label</span><span class="p">]</span>
         <span class="n">currentAxis</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span>
-            <span class="n">plt</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span><span class="o">*</span><span class="n">coords</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span><span class="o">*</span><span class="n">coords</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
         <span class="p">)</span>
         <span class="n">currentAxis</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
             <span class="n">xmin</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">display_txt</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="p">{</span><span class="s2">"facecolor"</span><span class="p">:</span> <span class="n">color</span><span class="p">,</span> <span class="s2">"alpha"</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">}</span>
@@ -240,7 +240,7 @@ than 1000.</p>
     <span class="n">NUM_CLASSES</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">voc_classes</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="n">input_shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
     <span class="n">model</span> <span class="o">=</span> <span class="n">SSD300</span><span class="p">(</span><span class="n">input_shape</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="n">NUM_CLASSES</span><span class="p">)</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">load_weights</span><span class="p">(</span><span class="s2">"weights_SSD300.hdf5"</span><span class="p">,</span> <span class="n">by_name</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">load_weights</span><span class="p">(</span><span class="s2">"weights_SSD300.hdf5"</span><span class="p">,</span> <span class="n">by_name</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">bbox_util</span> <span class="o">=</span> <span class="n">BBoxUtility</span><span class="p">(</span><span class="n">NUM_CLASSES</span><span class="p">)</span>
 
     <span class="c1"># Load the inputs</span>
@@ -259,7 +259,7 @@ than 1000.</p>
 
     <span class="c1"># Visualize</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">img</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">images</span><span class="p">):</span>
-        <span class="n">create_overlay</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">voc_classes</span><span class="p">,</span> <span class="s2">"{}-det.png"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">img_paths</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+        <span class="n">create_overlay</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">voc_classes</span><span class="p">,</span> <span class="s2">"</span><span class="si">{}</span><span class="s2">-det.png"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">img_paths</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
 
 
 <span class="k">def</span> <span class="nf">get_parser</span><span class="p">():</span>
@@ -283,17 +283,17 @@ than 1000.</p>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">get_parser</span><span class="p">()</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">folder</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">folder</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="kn">import</span> <span class="nn">glob</span>
 
         <span class="n">images</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="s2">/*.jpg"</span> <span class="o">%</span> <span class="n">args</span><span class="o">.</span><span class="n">folder</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">filename</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">filename</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">images</span> <span class="o">=</span> <span class="p">[</span><span class="n">args</span><span class="o">.</span><span class="n">filename</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">args</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
         <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
     <span class="n">main</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 <h2 id="examples">Examples</h2>
 <figure class="wp-caption aligncenter img-thumbnail">
 <img alt="St Josep La Boqueria" src="../images/2017/03/040-Barcelona-St-Josep-La-Boqueria-det.png" style="width:512px;"/>

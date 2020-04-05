@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Linux, ArchLinux, Cyberculture, " />
 
-<meta property="og:title" content="How to install Arch Linux 2013.10.01 "/>
+<meta property="og:title" content="How to install Arch Linux 2013.10.01"/>
 <meta property="og:url" content="../how-to-install-arch-linux-20131001/" />
 <meta property="og:description" content="I&#39;ve watched the following video which explains pretty much everything there is to know: You might also want to read the Arch Linux Installation Guide. The German guide is also very good. I just like to add some notes. They are primarily for myself, so you really should read the …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2013-10-07T03:19:05+02:00" />
-<meta name="twitter:title" content="How to install Arch Linux 2013.10.01 ">
+<meta name="twitter:title" content="How to install Arch Linux 2013.10.01">
 <meta name="twitter:description" content="I&#39;ve watched the following video which explains pretty much everything there is to know: You might also want to read the Arch Linux Installation Guide. The German guide is also very good. I just like to add some notes. They are primarily for myself, so you really should read the …">
 <meta property="og:image" content="2013/10/ArchLinux-logo.png" />
 <meta name="twitter:image" content="2013/10/ArchLinux-logo.png" >
 
-        <title>How to install Arch Linux 2013.10.01  · Martin Thoma
+        <title>How to install Arch Linux 2013.10.01 · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../how-to-install-arch-linux-20131001/"> How to install Arch Linux 2013.10.01  </a></h1>
+    <h1><a href="../how-to-install-arch-linux-20131001/"> How to install Arch Linux 2013.10.01 </a></h1>
     </header>
 </div>
 
@@ -117,85 +117,85 @@ MathJax.Hub.Queue(function() {
 <p>The Arch Linux installation setup is command line based.</p>
 <h2 id="keyboard layout">Keyboard layout</h2>
 <p>You can switch to a German keyboard layout with this command:</p>
-<div class="highlight"><pre><span></span>loadkeys de
-</pre></div>
+<div class="highlight"><pre><span></span><code>loadkeys de
+</code></pre></div>
 <h2 id="partitioning and mounting">Partitioning and mounting</h2>
 <p>You need a bootable partition and a swap partition (that is at least as big as much RAM you have). Partitioning can be done with <code>cfdisk</code> (configure disk).</p>
 <p>Check the result with</p>
-<div class="highlight"><pre><span></span>parted /dev/sda print
+<div class="highlight"><pre><span></span><code>parted /dev/sda print
 fdisk -l
-</pre></div>
+</code></pre></div>
 <p>Afterwards:</p>
-<div class="highlight"><pre><span></span>mkfs.ext4 /dev/sda1
+<div class="highlight"><pre><span></span><code>mkfs.ext4 /dev/sda1
 mkfs.ext4 /dev/sda3
 mkswap /dev/sda2
 swapon /dev/sda2
 mount /dev/sda1 /mnt
 mkdir /mnt/home
 mount /dev/sda3 /mnt/home/
-</pre></div>
+</code></pre></div>
 <h2 id="getting internet">Getting internet</h2>
 <p>I only have WLAN at the moment, which makes things more difficult:</p>
-<div class="highlight"><pre><span></span>wpa_passphrase <span class="s2">"SSID"</span> PASSWORD &gt; /etc/wpa_supplicant/wpa_supplicant.conf
+<div class="highlight"><pre><span></span><code>wpa_passphrase <span class="s2">"SSID"</span> PASSWORD &gt; /etc/wpa_supplicant/wpa_supplicant.conf
 wpa_supplicant -i wlp4so -D wext -c /etc/wpa_supplicant/wpa_supplicant.conf -B
 dhcpcd wlp4s0
-</pre></div>
+</code></pre></div>
 <p>wlp4s0 is the wlan interface (which is wlan0 most of the time). You get it with <code>ip link</code>.</p>
 <p>I had a lot of fun at this point as you can see <a href="http://unix.stackexchange.com/questions/93851/can-i-connet-to-internet-with-one-pc-and-give-over-lan-switch-internet-to-othe">here</a>.</p>
 <h2 id="install base system">Install base system</h2>
-<div class="highlight"><pre><span></span>packstrap -i /mnt base base base-devel
-</pre></div>
+<div class="highlight"><pre><span></span><code>packstrap -i /mnt base base base-devel
+</code></pre></div>
 <p>After accepting all defaults (by pressing enter) and letting it download:</p>
-<div class="highlight"><pre><span></span>genfstab -U -p /mnt  :  sed <span class="s1">'s/rw,realtime,data=ordered/defaults,realtime/'</span> &gt;&gt; /mnt/etc/fstab
+<div class="highlight"><pre><span></span><code>genfstab -U -p /mnt  :  sed <span class="s1">'s/rw,realtime,data=ordered/defaults,realtime/'</span> &gt;&gt; /mnt/etc/fstab
 arch-chroot /mnt
 nano /etc/locale.gen
-</pre></div>
+</code></pre></div>
 <p>Uncomment your language (from now on, your promt should be "sh-4.2#").</p>
-<div class="highlight"><pre><span></span><span class="nv">locale</span><span class="o">=</span>gen
+<div class="highlight"><pre><span></span><code><span class="nv">locale</span><span class="o">=</span>gen
 <span class="nb">echo</span> <span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8 &gt; /etc/locale.conf
 <span class="nb">export</span> <span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
 ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 hwclock --systohc --utc
 systemctl <span class="nb">enable</span> dhcpcd.service
-</pre></div>
+</code></pre></div>
 <p>Now edit and uncomment multilib. Then:</p>
-<div class="highlight"><pre><span></span>mkinitcpio -p linux
-</pre></div>
+<div class="highlight"><pre><span></span><code>mkinitcpio -p linux
+</code></pre></div>
 <p>Now set the password by entering <code>passwd</code>.
 Create your user:</p>
-<div class="highlight"><pre><span></span>useradd -m -g users -G wheel -s /bin/bash moose
+<div class="highlight"><pre><span></span><code>useradd -m -g users -G wheel -s /bin/bash moose
 passwd moose
-</pre></div>
+</code></pre></div>
 <p>Synchronise caches:</p>
-<div class="highlight"><pre><span></span>pacman -Syy
-</pre></div>
+<div class="highlight"><pre><span></span><code>pacman -Syy
+</code></pre></div>
 <p>Install grub:</p>
-<div class="highlight"><pre><span></span>pacman -S grub-bios
+<div class="highlight"><pre><span></span><code>pacman -S grub-bios
 pacman -S os-prober
 grub-install /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 <span class="nb">exit</span>
 restart
-</pre></div>
+</code></pre></div>
 <p>Give yourself sudo:</p>
-<div class="highlight"><pre><span></span>pacman -S sudo
+<div class="highlight"><pre><span></span><code>pacman -S sudo
 nano /etc/sudoers
-</pre></div>
+</code></pre></div>
 <p>Add your user to the bottom section "User privilege specification"</p>
 <h2 id="install gnome">Install GNOME</h2>
-<div class="highlight"><pre><span></span>pacman -S gnome xorg
+<div class="highlight"><pre><span></span><code>pacman -S gnome xorg
 systemctl <span class="nb">enable</span> gdm.service
-</pre></div>
+</code></pre></div>
 <h2 id="mate">MATE</h2>
 <p>Add the following to your /etc/pacman.conf:</p>
-<div class="highlight"><pre><span></span>[mate]
+<div class="highlight"><pre><span></span><code>[mate]
 SigLevel = Optional TrustAll
 Server = http://repo.mate-desktop.org/archlinux/$arch
-</pre></div>
+</code></pre></div>
 <p>Run</p>
-<div class="highlight"><pre><span></span><span class="c1"># pacman -Syy</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># pacman -Syy</span>
 <span class="c1"># pacman -S mate mate-extras</span>
-</pre></div>
+</code></pre></div>
 <p>Lets see if I get an answer to <a href="https://bbs.archlinux.org/viewtopic.php?id=170911">some essential basic questions</a>.</p>
             
             <div id="disqus_thread" class="no-print"></div>

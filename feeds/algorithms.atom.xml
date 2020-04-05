@@ -37,7 +37,7 @@ optimization problems (COPs) and backtracking constraint satisfaction problems
 (CSPs).&lt;/p&gt;
 &lt;p&gt;Usually &lt;em&gt;Dynamic Programming&lt;/em&gt; is bottom-up and &lt;em&gt;Backtracking&lt;/em&gt; uses top-down approaches.&lt;/p&gt;
 &lt;h3 id="divide-and-conquer"&gt;Divide and Conquer&lt;/h3&gt;
-&lt;p&gt;Divide and Conquer algorithms, such as &lt;a href="https://en.wikipedia.org/wiki/Merge_sort"&gt;merge sort&lt;/a&gt;,
+&lt;p&gt;Divide and Conquer algorithms, such as &lt;a href="https://en.wikipedia.org/wiki/Merge_sort"&gt;merge sort&lt;/a&gt;, &lt;a href="https://en.wikipedia.org/wiki/Quicksort"&gt;quicksort&lt;/a&gt;,
 Binary search,
 and the &lt;a href="https://en.wikipedia.org/wiki/Euclidean_algorithm"&gt;Euclidean algorithm&lt;/a&gt;,
 also divide the original problem into smaller sub-problems.&lt;/p&gt;
@@ -53,13 +53,13 @@ f(n-1) + f(n-2) &amp;amp;\text{otherwise}
 \end{cases}
 $$&lt;/div&gt;
 &lt;p&gt;The inefficient, but straight-forward implementation is&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;f&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;f&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
         &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The best solution to this is the following dynamic programming solution:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;f&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;f&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="sd"&gt;"""&lt;/span&gt;
 &lt;span class="sd"&gt;    &amp;gt;&amp;gt;&amp;gt; f(0)&lt;/span&gt;
 &lt;span class="sd"&gt;    0&lt;/span&gt;
@@ -76,7 +76,7 @@ $$&lt;/div&gt;
     &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
         &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Have a look at &lt;a href="https://martin-thoma.com/fibonacci-recursion-decorators/"&gt;Fibonacci, recursion and decorators&lt;/a&gt;
 if you are interested in more details.&lt;/p&gt;
 &lt;h2 id="longest-increasing-subsequence"&gt;Longest Increasing Subsequence&lt;/h2&gt;
@@ -86,7 +86,7 @@ Please note that a sub-sequence does not have to be contiguous.&lt;/p&gt;
 &lt;p&gt;The brute-force solution is to generate all sub-sequences and check if they are
 increasing. The generate-and-check pattern is in &lt;span class="math"&gt;\(\mathcal{O}(2^n)\)&lt;/span&gt;. It is easy
 to implement with Python:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;itertools&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;chain&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;combinations&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;itertools&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;chain&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;combinations&lt;/span&gt;
 
 
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;longest_increasing_subsequence&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;numbers&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
@@ -102,10 +102,10 @@ to implement with Python:&lt;/p&gt;
 
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;is_increasing&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sequence&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;all&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;e1&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;e2&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;e1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;e2&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;zip&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sequence&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sequence&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:]))&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The following Dynamic Programming approach takes &lt;span class="math"&gt;\(\mathcal{O}(n^2)\)&lt;/span&gt; in time
 and additionally &lt;span class="math"&gt;\(\mathcal{O}(n)\)&lt;/span&gt; space.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;typing&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;List&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;typing&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;List&lt;/span&gt;
 
 
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;longest_increasing_subsequence&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;numbers&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;List&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
@@ -135,7 +135,7 @@ and additionally &lt;span class="math"&gt;\(\mathcal{O}(n)\)&lt;/span&gt; space.
                 &lt;span class="n"&gt;max_len_before&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;max&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;max_len_before&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;max_endswith&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
         &lt;span class="n"&gt;max_endswith&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;max_len_before&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;max&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;max_endswith&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Using &lt;a href="https://en.wikipedia.org/wiki/Patience_sorting"&gt;Patience sorting&lt;/a&gt; is
 a &lt;span class="math"&gt;\(\mathcal{O}(n \log(n))\)&lt;/span&gt; solution with additional &lt;span class="math"&gt;\(\mathcal{O}(n)\)&lt;/span&gt; space (&lt;a href="https://www.youtube.com/watch?v=22s1xxRvy28"&gt;video&lt;/a&gt;).&lt;/p&gt;
 &lt;h2 id="edit-distance"&gt;Edit Distance&lt;/h2&gt;
@@ -165,10 +165,10 @@ D_{i - 1, j}&amp;amp;+ 1 \ {\rm(Deletion)}
 \end{cases}
 $$&lt;/div&gt;
 &lt;p&gt;Each cell &lt;span class="math"&gt;\((i, j)\)&lt;/span&gt; of the matrix &lt;span class="math"&gt;\(D\)&lt;/span&gt; is a sub-problem of the original one:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;edit_distance&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;w1&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;w2&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;edit_distance&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;w1&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;w2&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The complete code looks as follows:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;edit_distance&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;w1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;w2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;edit_distance&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;w1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;w2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
     &lt;span class="sd"&gt;"""&lt;/span&gt;
 &lt;span class="sd"&gt;    &amp;gt;&amp;gt;&amp;gt; edit_distance("foobar", "")&lt;/span&gt;
 &lt;span class="sd"&gt;    6&lt;/span&gt;
@@ -213,14 +213,14 @@ $$&lt;/div&gt;
                 &lt;span class="n"&gt;options&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
                 &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;min&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;options&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;A 16 minute video explanation is given by &lt;a href="https://www.youtube.com/watch?v=MiqoA-yF-0M"&gt;Back To Back SWE&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id="change-making-problem"&gt;Change Making Problem&lt;/h2&gt;
 &lt;p&gt;Imagine your are the cashier at a supermarket. You have to give change to the
 customer and you want to give the least number of coins possible.&lt;/p&gt;
 &lt;p&gt;There is a top-down and a bottom-up solution.&lt;/p&gt;
 &lt;p&gt;A recursive top-down solution is:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;typing&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Set&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Optional&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;typing&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Set&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Optional&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;functools&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;lru_cache&lt;/span&gt;
 
 
@@ -247,16 +247,16 @@ customer and you want to give the least number of coins possible.&lt;/p&gt;
     &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;coin&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;coins&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
         &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;coin&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;amount&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
             &lt;span class="n"&gt;solution&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;least_coins&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;coins&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;amount&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;coin&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;solution&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;solution&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
                 &lt;span class="n"&gt;possible_solutions&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;solution&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;min&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;possible_solutions&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;default&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;min&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;possible_solutions&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;default&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;None&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Note that I used an LRU cache. This saves the 512 &lt;strong&gt;l&lt;/strong&gt;east &lt;strong&gt;r&lt;/strong&gt;ecently
 &lt;strong&gt;u&lt;/strong&gt;sed function calls and its output. So we don't have to re-compute too
 much. That decorator requires hashable parameters, hence we have to use
 frozenset. Set is not hashable.&lt;/p&gt;
 &lt;p&gt;Now the top-down iterative solution:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;typing&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Set&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Optional&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;typing&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Set&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Optional&lt;/span&gt;
 
 
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;least_coins&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;coins&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Set&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;amount&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;Optional&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt;
@@ -291,8 +291,8 @@ frozenset. Set is not hashable.&lt;/p&gt;
             &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;coin&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="n"&gt;remaining_amount&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
                 &lt;span class="n"&gt;partial_solution&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;coins_used&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;remaining_amount&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;coin&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
                 &lt;span class="n"&gt;partial_solutions&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;partial_solution&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;min&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;possible_solutions&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;default&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;min&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;possible_solutions&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;default&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;None&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;I removed the LRU cache and used normal sets. I could have kept both, but
 this makes the solution a bit shorter.&lt;/p&gt;
 &lt;p&gt;The bottom-up solution would calculate all the possible sums. Although that
@@ -301,7 +301,7 @@ would be the dynamic programming solution, I'm currently to lazy to write it
 &lt;h2 id="01-knapsack"&gt;0/1 Knapsack&lt;/h2&gt;
 &lt;p&gt;You have a list of items which have a weight and a value. You have a maximum
 weight you can carry. What is the maximum value you can get?&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;typing&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;List&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Tuple&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;typing&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;List&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Tuple&lt;/span&gt;
 
 
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;solve_knapsack&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;List&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Tuple&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;]],&lt;/span&gt; &lt;span class="n"&gt;max_weight&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
@@ -338,7 +338,7 @@ weight you can carry. What is the maximum value you can get?&lt;/p&gt;
                 &lt;span class="n"&gt;adding_it&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;item_index&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;remaining_weight&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt;
                 &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;item_index&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;remaining_weight&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;max&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;not_adding&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;adding_it&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;max_weight&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;You can see that the solution has a time complexity of &lt;span class="math"&gt;\(\mathcal{O}(n \cdot m)\)&lt;/span&gt;
 where &lt;span class="math"&gt;\(n\)&lt;/span&gt; is the number of items and &lt;span class="math"&gt;\(m\)&lt;/span&gt; is the maximum weight. It also has this
 space complexity.&lt;/p&gt;
@@ -349,7 +349,7 @@ numbers, this might make&lt;/p&gt;
 &lt;p&gt;There are n stairs and you can take either one or two stairs. How many unique
 ways exist to climb the stairs?&lt;/p&gt;
 &lt;p&gt;First, a recursive solution:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;functools&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;lru_cache&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;functools&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;lru_cache&lt;/span&gt;
 
 
 &lt;span class="nd"&gt;@lru_cache&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;maxsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;512&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -370,12 +370,12 @@ ways exist to climb the stairs?&lt;/p&gt;
     &lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
         &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
     &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;stairs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;stairs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;stairs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;stairs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;You should directly notice that this looks VERY similar to the fibonacci sequence.
 Only the starting numbers are different. Hence the solution is the same, except
 for the starting numbers:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;stairs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;stairs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
     &lt;span class="sd"&gt;"""&lt;/span&gt;
 &lt;span class="sd"&gt;    &amp;gt;&amp;gt;&amp;gt; stairs(1)&lt;/span&gt;
 &lt;span class="sd"&gt;    1&lt;/span&gt;
@@ -391,7 +391,7 @@ for the starting numbers:&lt;/p&gt;
     &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;_&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
         &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id="egg-drop_1"&gt;Egg Drop&lt;/h2&gt;
 &lt;p&gt;Given &lt;span class="math"&gt;\(n\)&lt;/span&gt; eggs and &lt;span class="math"&gt;\(m\)&lt;/span&gt; floors, how often do you need to let an egg drop to know
 for sure the highest floor at which the eggs still don't break?&lt;/p&gt;
@@ -426,7 +426,7 @@ is that the searched floor is the 9th one:&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Obviously, binary search is not the best solution.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;egg_drop&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;eggs&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;floors&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;egg_drop&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;eggs&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;floors&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
     &lt;span class="sd"&gt;"""&lt;/span&gt;
 &lt;span class="sd"&gt;    &amp;gt;&amp;gt;&amp;gt; egg_drop(42, 0)&lt;/span&gt;
 &lt;span class="sd"&gt;    0&lt;/span&gt;
@@ -444,11 +444,11 @@ is that the searched floor is the 9th one:&lt;/p&gt;
             &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;floor&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
                 &lt;span class="n"&gt;el&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;floor&lt;/span&gt;
             &lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="n"&gt;reduced_eggs&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-                &lt;span class="n"&gt;el&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;
+                &lt;span class="n"&gt;el&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;
             &lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="n"&gt;reduced_eggs&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
                 &lt;span class="n"&gt;el&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;floor&lt;/span&gt;
             &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-                &lt;span class="n"&gt;el&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;
+                &lt;span class="n"&gt;el&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;
             &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;el&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
         &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
@@ -469,7 +469,7 @@ is that the searched floor is the 9th one:&lt;/p&gt;
                     &lt;span class="n"&gt;best_choice&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;worst_case&lt;/span&gt;
             &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;floor&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;n_egg&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;best_choice&lt;/span&gt;
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;floors&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;eggs&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This algorithm has a time complexity of &lt;span class="math"&gt;\(\mathcal{O}(m^2 \cdot n)\)&lt;/span&gt; and need
 &lt;span class="math"&gt;\(\mathcal{O}(n \cdot m)\)&lt;/span&gt; in additional space. You can improve the runtime by
 looking at the sequence of worst_case. It should go down and then up again. If
@@ -486,8 +486,10 @@ pure numbers:&lt;/p&gt;
 search and more eggs will not result in less egg drops.&lt;/p&gt;
 &lt;h2 id="see-also"&gt;See also&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Wikipedia:&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm"&gt;Floyd&amp;ndash;Warshall algorithm&lt;/a&gt;: finding shortest paths in a weighted graph&lt;/li&gt;
+&lt;li&gt;Wikipedia: Some example for Dynamic Programming algorithms&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm"&gt;Dijkstra's algorithm&lt;/a&gt;: single-source shortest path (SSSP)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm"&gt;Bellman&amp;ndash;Ford algorithm&lt;/a&gt;: single-source shortest-path algorithm (SSSP), &lt;span class="math"&gt;\(\mathcal{O}(V^2 E)\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm"&gt;Floyd&amp;ndash;Warshall algorithm&lt;/a&gt;: all-pairs shortest path algorithm, &lt;span class="math"&gt;\(\mathcal{O}(V^3)\)&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Knapsack_problem#0-1_knapsack_problem"&gt;Knapsack problem&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -498,4 +500,4 @@ search and more eggs will not result in less egg drops.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;🇩🇪 Martin Thoma: &lt;a href="https://martin-thoma.com/probabilistische-planung/#dynamic-programming"&gt;Probabilistische Planung&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="Algorithms"></category><category term="Code"></category><category term="Fibonacci"></category><category term="Python"></category><category term="COP"></category><category term="CSP"></category></entry></feed>
+&lt;/ul&gt;</content><category term="Algorithms"></category><category term="Algorithms"></category><category term="Code"></category><category term="Fibonacci"></category><category term="Python"></category><category term="COP"></category><category term="CSP"></category></entry></feed>

@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Python, Machine Learning, SVM, Classification, sklearn, Machine Learning, " />
 
-<meta property="og:title" content="Using SVMs with sklearn "/>
+<meta property="og:title" content="Using SVMs with sklearn"/>
 <meta property="og:url" content="../svm-with-sklearn/" />
 <meta property="og:description" content="Support Vector Machines (SVMs) is a group of powerful classifiers. In this article, I will give a short impression of how they work. I continue with an example how to use SVMs with sklearn. SVM theory SVMs can be described with 5 ideas in mind: Linear, binary classifiers: If data …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2016-01-14T12:25:00+01:00" />
-<meta name="twitter:title" content="Using SVMs with sklearn ">
+<meta name="twitter:title" content="Using SVMs with sklearn">
 <meta name="twitter:description" content="Support Vector Machines (SVMs) is a group of powerful classifiers. In this article, I will give a short impression of how they work. I continue with an example how to use SVMs with sklearn. SVM theory SVMs can be described with 5 ideas in mind: Linear, binary classifiers: If data …">
 <meta property="og:image" content="logos/ai.png" />
 <meta name="twitter:image" content="logos/ai.png" >
 
-        <title>Using SVMs with sklearn  · Martin Thoma
+        <title>Using SVMs with sklearn · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../svm-with-sklearn/"> Using SVMs with sklearn  </a></h1>
+    <h1><a href="../svm-with-sklearn/"> Using SVMs with sklearn </a></h1>
     </header>
 </div>
 
@@ -207,13 +207,13 @@ the MNIST dataset.</p>
 <ul>
 <li><code>cache_size</code>: <a href="http://datascience.stackexchange.com/a/996/8820">datascience.stackexchange.com</a></li>
 </ul>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
 <span class="sd">"""</span>
 <span class="sd">Train a SVM to categorize 28x28 pixel images into digits (MNIST dataset).</span>
 <span class="sd">"""</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
@@ -223,9 +223,9 @@ the MNIST dataset.</p>
     <span class="c1"># Get classifier</span>
     <span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
 
-    <span class="n">clf</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">probability</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s2">"rbf"</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mf">2.8</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.0073</span><span class="p">)</span>  <span class="c1"># cache_size=200,</span>
+    <span class="n">clf</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">probability</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s2">"rbf"</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mf">2.8</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.0073</span><span class="p">)</span>  <span class="c1"># cache_size=200,</span>
 
-    <span class="k">print</span><span class="p">(</span><span class="s2">"Start fitting. This may take a while"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Start fitting. This may take a while"</span><span class="p">)</span>
 
     <span class="c1"># take all of it - make that number lower for experiments</span>
     <span class="n">examples</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"train"</span><span class="p">][</span><span class="s2">"X"</span><span class="p">])</span>
@@ -247,15 +247,15 @@ the MNIST dataset.</p>
     <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
 
     <span class="n">predicted</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"test"</span><span class="p">][</span><span class="s2">"X"</span><span class="p">])</span>
-    <span class="k">print</span><span class="p">(</span>
+    <span class="nb">print</span><span class="p">(</span>
         <span class="s2">"Confusion matrix:</span><span class="se">\n</span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">metrics</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"test"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">],</span> <span class="n">predicted</span><span class="p">)</span>
     <span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"Accuracy: </span><span class="si">%0.4f</span><span class="s2">"</span> <span class="o">%</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"test"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">],</span> <span class="n">predicted</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Accuracy: </span><span class="si">%0.4f</span><span class="s2">"</span> <span class="o">%</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"test"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">],</span> <span class="n">predicted</span><span class="p">))</span>
 
     <span class="c1"># Print example</span>
     <span class="n">try_id</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="n">out</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"test"</span><span class="p">][</span><span class="s2">"X"</span><span class="p">][</span><span class="n">try_id</span><span class="p">])</span>  <span class="c1"># clf.predict_proba</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"out: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">out</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"out: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">out</span><span class="p">)</span>
     <span class="n">size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"test"</span><span class="p">][</span><span class="s2">"X"</span><span class="p">][</span><span class="n">try_id</span><span class="p">])</span> <span class="o">**</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">))</span>
     <span class="n">view_image</span><span class="p">(</span>
         <span class="n">data</span><span class="p">[</span><span class="s2">"test"</span><span class="p">][</span><span class="s2">"X"</span><span class="p">][</span><span class="n">try_id</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">size</span><span class="p">,</span> <span class="n">size</span><span class="p">)),</span> <span class="n">data</span><span class="p">[</span><span class="s2">"test"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">][</span><span class="n">try_id</span><span class="p">]</span>
@@ -274,7 +274,7 @@ the MNIST dataset.</p>
 <span class="sd">    """</span>
     <span class="kn">from</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">import</span> <span class="n">show</span><span class="p">,</span> <span class="n">imshow</span><span class="p">,</span> <span class="n">cm</span>
 
-    <span class="k">print</span><span class="p">(</span><span class="s2">"Label: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">label</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Label: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">label</span><span class="p">)</span>
     <span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">gray</span><span class="p">)</span>
     <span class="n">show</span><span class="p">()</span>
 
@@ -287,7 +287,7 @@ the MNIST dataset.</p>
 <span class="sd">    -------</span>
 <span class="sd">    dict</span>
 <span class="sd">    """</span>
-    <span class="n">simple</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="n">simple</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="k">if</span> <span class="n">simple</span><span class="p">:</span>  <span class="c1"># Load the simple, but similar digits dataset</span>
         <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_digits</span>
         <span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">shuffle</span>
@@ -342,7 +342,7 @@ the MNIST dataset.</p>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 <h2 id="results">Results</h2>
 <p>The script from above gives the following results:</p>
 <table>

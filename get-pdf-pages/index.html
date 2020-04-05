@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="PDF, Cyberculture, " />
 
-<meta property="og:title" content="Get PDF pages "/>
+<meta property="og:title" content="Get PDF pages"/>
 <meta property="og:url" content="../get-pdf-pages/" />
 <meta property="og:description" content="Once in a while, I want to get the total number of PDF pages of a document. You can do that with the command $ pdfinfo document.pdf | grep Pages | awk -F&#39;:&#39; &#39;{gsub(/ /, &#34;&#34;, $0);print $2}&#39; It works like this: Call pdfinfo to get a lot of information, including a line …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2016-02-29T09:51:00+01:00" />
-<meta name="twitter:title" content="Get PDF pages ">
+<meta name="twitter:title" content="Get PDF pages">
 <meta name="twitter:description" content="Once in a while, I want to get the total number of PDF pages of a document. You can do that with the command $ pdfinfo document.pdf | grep Pages | awk -F&#39;:&#39; &#39;{gsub(/ /, &#34;&#34;, $0);print $2}&#39; It works like this: Call pdfinfo to get a lot of information, including a line …">
 <meta property="og:image" content="logos/pdf.png" />
 <meta name="twitter:image" content="logos/pdf.png" >
 
-        <title>Get PDF pages  · Martin Thoma
+        <title>Get PDF pages · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../get-pdf-pages/"> Get PDF pages  </a></h1>
+    <h1><a href="../get-pdf-pages/"> Get PDF pages </a></h1>
     </header>
 </div>
 
@@ -106,8 +106,8 @@ MathJax.Hub.Queue(function() {
             
             <p>Once in a while, I want to get the total number of PDF pages of a document.
 You can do that with the command</p>
-<div class="highlight"><pre><span></span>$ pdfinfo document.pdf <span class="p">|</span> grep Pages <span class="p">|</span> awk -F<span class="s1">':'</span> <span class="s1">'{gsub(/ /, "", $0);print $2}'</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>$ pdfinfo document.pdf <span class="p">|</span> grep Pages <span class="p">|</span> awk -F<span class="s1">':'</span> <span class="s1">'{gsub(/ /, "", $0);print $2}'</span>
+</code></pre></div>
 <p>It works like this:</p>
 <ol>
 <li>Call <code>pdfinfo</code> to get a lot of information, including a line which begins
@@ -118,8 +118,8 @@ You can do that with the command</p>
 </ol>
 <p>Now we know how to get the number of pages of a PDF document for a single
 document. But what if you want to get it for all documents within a folder?</p>
-<div class="highlight"><pre><span></span>$ <span class="k">for</span> i in *.pdf<span class="p">;</span> <span class="k">do</span> pdfinfo <span class="nv">$i</span> <span class="p">|</span> grep Pages <span class="p">|</span> awk -F<span class="s1">':'</span> <span class="s1">'{gsub(/ /, "", $0);print $2}'</span><span class="p">;</span> <span class="k">done</span> <span class="p">|</span> paste -sd+ - <span class="p">|</span> bc
-</pre></div>
+<div class="highlight"><pre><span></span><code>$ <span class="k">for</span> i in *.pdf<span class="p">;</span> <span class="k">do</span> pdfinfo <span class="nv">$i</span> <span class="p">|</span> grep Pages <span class="p">|</span> awk -F<span class="s1">':'</span> <span class="s1">'{gsub(/ /, "", $0);print $2}'</span><span class="p">;</span> <span class="k">done</span> <span class="p">|</span> paste -sd+ - <span class="p">|</span> bc
+</code></pre></div>
 <p>It works like this:</p>
 <ol>
 <li><code>for i in *.pdf; do ...; done</code> goes through all files ending with <code>.pdf</code> and

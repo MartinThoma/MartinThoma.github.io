@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Chrome, Firefox, Web Development, HTML5, Code, " />
 
-<meta property="og:title" content="Search Engine Autodiscovery "/>
+<meta property="og:title" content="Search Engine Autodiscovery"/>
 <meta property="og:url" content="../search-engine-autodiscovery/" />
 <meta property="og:description" content="Recently I read a very good post about search engine autodiscovery by Jan Phillip. Did you know that many browsers can detect an internal search engine automatically? Firefox gives you the possibility to add such a search engine to your browser: Firefox: Add search engine detected via autodiscovery OpenSearch OpenSearch …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2011-10-22T11:12:07+02:00" />
-<meta name="twitter:title" content="Search Engine Autodiscovery ">
+<meta name="twitter:title" content="Search Engine Autodiscovery">
 <meta name="twitter:description" content="Recently I read a very good post about search engine autodiscovery by Jan Phillip. Did you know that many browsers can detect an internal search engine automatically? Firefox gives you the possibility to add such a search engine to your browser: Firefox: Add search engine detected via autodiscovery OpenSearch OpenSearch …">
 <meta property="og:image" content="2011/10/firefox-add-search-engine-thumb.png" />
 <meta name="twitter:image" content="2011/10/firefox-add-search-engine-thumb.png" >
 
-        <title>Search Engine Autodiscovery  · Martin Thoma
+        <title>Search Engine Autodiscovery · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../search-engine-autodiscovery/"> Search Engine Autodiscovery  </a></h1>
+    <h1><a href="../search-engine-autodiscovery/"> Search Engine Autodiscovery </a></h1>
     </header>
 </div>
 
@@ -119,7 +119,7 @@ Firefox gives you the possibility to add such a search engine to your browser:
 <h2 id="opensearch">OpenSearch</h2>
 <p><a href="http://en.wikipedia.org/wiki/OpenSearch">OpenSearch</a> is a collection of technologies. This project aims to create a standard for publishing the metadata which describes a search engine: name, description, URL-pattern, language, ...</p>
 <p>A <abbr title="OpenSearch Description Document">OSSD</abbr> looks like this:</p>
-<div class="highlight"><pre><span></span><span class="nt">&lt;OpenSearchDescription</span> <span class="na">xmlns=</span><span class="s">"http://a9.com/-/spec/opensearch/1.1/"</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;OpenSearchDescription</span> <span class="na">xmlns=</span><span class="s">"http://a9.com/-/spec/opensearch/1.1/"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;ShortName&gt;</span>Example<span class="nt">&lt;/ShortName&gt;</span>
     <span class="nt">&lt;Description&gt;</span>My example search engine<span class="nt">&lt;/Description&gt;</span>
     <span class="nt">&lt;InputEncoding&gt;</span>UTF-8<span class="nt">&lt;/InputEncoding&gt;</span>
@@ -129,17 +129,17 @@ Firefox gives you the possibility to add such a search engine to your browser:
     <span class="nt">&lt;Url</span> <span class="na">type=</span><span class="s">"text/html"</span>
          <span class="na">template=</span><span class="s">"http://example.org/index.html#search={searchTerms}"</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/OpenSearchDescription&gt;</span>
-</pre></div>
+</code></pre></div>
 <p>The browser needs a hint where it can find the OSSD. So you have to add the following tag to your website:</p>
-<div class="highlight"><pre><span></span><span class="nt">&lt;link</span> <span class="na">title =</span> <span class="s">"Example"</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;link</span> <span class="na">title =</span> <span class="s">"Example"</span>
       <span class="na">type  =</span> <span class="s">"application/opensearchdescription+xml"</span>
       <span class="na">rel   =</span> <span class="s">"search"</span>
       <span class="na">href  =</span> <span class="s">"http://example.org/opensearch.xml"</span><span class="nt">&gt;</span>
-</pre></div>
+</code></pre></div>
 <p>Now you can add the websites internal search engine automatically to Chrome and easily to Firefox and Internet Explorer 8+.</p>
 <p>Additionally, you can add this little piece of JavaScript to tell Firefox 2+ and Internet Explorer 7+ that your site supports OpenSearch:</p>
-<div class="highlight"><pre><span></span><span class="nb">window</span><span class="p">.</span><span class="nx">external</span><span class="p">.</span><span class="nx">AddSearchProvider</span><span class="p">(</span><span class="s2">"http://exampl.org/opensearch.xml"</span><span class="p">);</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">window</span><span class="p">.</span><span class="nx">external</span><span class="p">.</span><span class="nx">AddSearchProvider</span><span class="p">(</span><span class="s2">"http://exampl.org/opensearch.xml"</span><span class="p">);</span>
+</code></pre></div>
 <h2 id="google chrome autodiscovery">Google Chrome Autodiscovery</h2>
 <p>Google doesn't provide a <abbr title="user interface">UI</abbr> for adding an internal search engine. Instead, you can add it via Settings:</p>
 <figure class="aligncenter">
@@ -156,15 +156,15 @@ Firefox gives you the possibility to add such a search engine to your browser:
 <figcaption class="text-center">Google Chrome Search - Search with the websites internal search engine</figcaption>
 </figure>
 <p>Interestingly the auto discovery only works if the search engine is at the homepage. You have to have either an input field of the type <code>search</code> or of the type <code>text</code> with the name <code>s</code>:</p>
-<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">form</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"search"</span> <span class="na">name</span><span class="o">=</span><span class="s">"s"</span> <span class="p">/&gt;</span>
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
-</pre></div>
+</code></pre></div>
 <p>or</p>
-<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">form</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">name</span><span class="o">=</span><span class="s">"s"</span> <span class="p">/&gt;</span>
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
-</pre></div>
+</code></pre></div>
 <h2 id="drawbacks">Drawbacks</h2>
 <ul>
 <li>It seems as if Safari didn't support OSSD natively. (14.04.2011)</li>

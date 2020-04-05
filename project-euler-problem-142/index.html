@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Challenge, mathematics, Project Euler, Code, " />
 
-<meta property="og:title" content="Project Euler: Problem 142 "/>
+<meta property="og:title" content="Project Euler: Problem 142"/>
 <meta property="og:url" content="../project-euler-problem-142/" />
 <meta property="og:description" content="Project Euler is a series of challenging mathematical/computer programming problems that will require more than just mathematical insights to solve. Although mathematics will help you arrive at elegant and efficient methods, the use of a computer and programming skills will be required to solve most problems. The motivation for …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2012-04-08T22:40:43+02:00" />
-<meta name="twitter:title" content="Project Euler: Problem 142 ">
+<meta name="twitter:title" content="Project Euler: Problem 142">
 <meta name="twitter:description" content="Project Euler is a series of challenging mathematical/computer programming problems that will require more than just mathematical insights to solve. Although mathematics will help you arrive at elegant and efficient methods, the use of a computer and programming skills will be required to solve most problems. The motivation for …">
 <meta property="og:image" content="2012/04/leonhard-euler.jpg" />
 <meta name="twitter:image" content="2012/04/leonhard-euler.jpg" >
 
-        <title>Project Euler: Problem 142  · Martin Thoma
+        <title>Project Euler: Problem 142 · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../project-euler-problem-142/"> Project Euler: Problem 142  </a></h1>
+    <h1><a href="../project-euler-problem-142/"> Project Euler: Problem 142 </a></h1>
     </header>
 </div>
 
@@ -118,7 +118,7 @@ MathJax.Hub.Queue(function() {
 <p>I don't want to post the solution (if you want to cheat, I guess you could easily Google it), but some thoughts that might help you to get in the right direction.</p>
 <h2 id="first thought: brute-force">First thought: Brute-force</h2>
 <p><a href="http://en.wikipedia.org/wiki/Brute-force_search">Brute-force</a> is the easiest way that could give you the solution. So I wrote this piece of code:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="kn">import</span> <span class="nn">sys</span>
@@ -128,13 +128,13 @@ MathJax.Hub.Queue(function() {
 <span class="k">def</span> <span class="nf">is_square</span><span class="p">(</span><span class="n">integer</span><span class="p">):</span>
     <span class="n">root</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">integer</span><span class="p">)</span>
     <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">root</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">==</span> <span class="n">integer</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">return</span> <span class="kc">True</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">False</span>
+        <span class="k">return</span> <span class="kc">False</span>
 
 
 <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1000</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="n">z</span><span class="p">:</span>
@@ -146,9 +146,9 @@ MathJax.Hub.Queue(function() {
                     <span class="ow">and</span> <span class="n">is_square</span><span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="n">z</span><span class="p">)</span>
                     <span class="ow">and</span> <span class="n">is_square</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span>
                 <span class="p">):</span>
-                    <span class="k">print</span><span class="p">(</span><span class="s2">"</span><span class="si">%i</span><span class="s2"> - </span><span class="si">%i</span><span class="s2"> - </span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="si">%i</span><span class="s2"> - </span><span class="si">%i</span><span class="s2"> - </span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
                     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 <p>This is quite fast until you reach about 500. So this is not a good way to solve it.</p>
 <h2 id="apply some math">Apply some math</h2>
 <p>You can formalize the task like this:

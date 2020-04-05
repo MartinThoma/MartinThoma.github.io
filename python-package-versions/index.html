@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Python, Code, " />
 
-<meta property="og:title" content="Python Package Versions "/>
+<meta property="og:title" content="Python Package Versions"/>
 <meta property="og:url" content="../python-package-versions/" />
 <meta property="og:description" content="Python packages should (must?) have a version. It would be best if that version string was a semantic version, but this article is not about how your version string should look like. It&#39;s about how to have a consistent version string on PyPI and accessible via [yourpackage].__version__ - and preferably …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2018-11-13T20:00:00+01:00" />
-<meta name="twitter:title" content="Python Package Versions ">
+<meta name="twitter:title" content="Python Package Versions">
 <meta name="twitter:description" content="Python packages should (must?) have a version. It would be best if that version string was a semantic version, but this article is not about how your version string should look like. It&#39;s about how to have a consistent version string on PyPI and accessible via [yourpackage].__version__ - and preferably …">
 <meta property="og:image" content="logos/python.png" />
 <meta name="twitter:image" content="logos/python.png" >
 
-        <title>Python Package Versions  · Martin Thoma
+        <title>Python Package Versions · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../python-package-versions/"> Python Package Versions  </a></h1>
+    <h1><a href="../python-package-versions/"> Python Package Versions </a></h1>
     </header>
 </div>
 
@@ -117,10 +117,10 @@ a consistent <strong>version string on PyPI</strong> and <strong>accessible via
 <code>[yourpackage].__version__</code></strong> - and preferably make sure it is the same as used
 in <a href="https://git-scm.com/book/en/v2/Git-Basics-Tagging"><code>git tag</code></a>.</p>
 <p><code>setup.py</code> should have the version string in the setup function:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
 
 <span class="n">setup</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">__version__</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 <p>Having this makes sure that the correct version is on PyPI and you can work
 with that version via pip (e.g. <code>pip freeze</code>). But if you import the package
 via <code>import [yourpackage]</code> and execute <code>[yourpackage].__version__</code> it might not
@@ -132,13 +132,13 @@ for "single-sourcing the package version". So it is a know problem with known
 solutions. I only wrap them up here.</p>
 <h2 id="the-manual-approach">The Manual Approach</h2>
 <p>setup.py:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
 
 <span class="n">setup</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="s2">"0.1.2"</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 <p>[yourpackage]/<strong>init</strong>.py:</p>
-<div class="highlight"><pre><span></span><span class="n">__version__</span> <span class="o">=</span> <span class="s2">"0.1.2"</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">__version__</span> <span class="o">=</span> <span class="s2">"0.1.2"</span>
+</code></pre></div>
 <p>Positive:</p>
 <ul>
 <li>No new dependencies</li>
@@ -150,18 +150,18 @@ solutions. I only wrap them up here.</p>
 </ul>
 <h2 id="version-python-file">Version Python File</h2>
 <p>setup.py:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
 
-<span class="k">exec</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">"[yourpackage]/_version.py"</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="n">exec</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">"[yourpackage]/_version.py"</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
 
 <span class="n">setup</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">__version__</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 <p>[yourpackage]/<strong>init</strong>.py:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">yourpackage._version</span> <span class="kn">import</span> <span class="n">__version__</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">yourpackage._version</span> <span class="kn">import</span> <span class="n">__version__</span>
+</code></pre></div>
 <p>[yourpackage]/_version.py:</p>
-<div class="highlight"><pre><span></span><span class="n">__version__</span> <span class="o">=</span> <span class="s2">"0.1.2"</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">__version__</span> <span class="o">=</span> <span class="s2">"0.1.2"</span>
+</code></pre></div>
 <p>Positive:</p>
 <ul>
 <li>No new dependencies</li>
@@ -179,7 +179,7 @@ solutions. I only wrap them up here.</p>
 <p>Similar to the solution above, we use a text file which only contains the
 version string.</p>
 <p>setup.py:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
 
 
 <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="n">file_name</span><span class="p">):</span>
@@ -191,13 +191,13 @@ version string.</p>
 
 
 <span class="n">setup</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">read</span><span class="p">(</span><span class="s2">"[yourpackage]/version.txt"</span><span class="p">))</span>
-</pre></div>
+</code></pre></div>
 <p>[yourpackage]/<strong>init</strong>.py:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">yourpackage._version</span> <span class="kn">import</span> <span class="n">__version__</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">yourpackage._version</span> <span class="kn">import</span> <span class="n">__version__</span>
+</code></pre></div>
 <p>[yourpackage]/_version.py:</p>
-<div class="highlight"><pre><span></span><span class="n">__version__</span> <span class="o">=</span> <span class="s2">"0.1.2"</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">__version__</span> <span class="o">=</span> <span class="s2">"0.1.2"</span>
+</code></pre></div>
 <h2 id="reading-setuppy">Reading setup.py</h2>
 <p>This approach is so bad that I don't want to post an example here. The idea
 is that you can have the version in the <code>setup(version='fooversion')</code> and read
@@ -218,15 +218,15 @@ don't think they the first two look reliable enough to give them a try. And
 <code>zest.releaser</code> looks a bit complicated.</p>
 <h2 id="package-import">Package import</h2>
 <p>setup.py:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
 
 <span class="kn">import</span> <span class="nn">yourpackage</span>
 
 <span class="n">setup</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">yourpackage</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 <p>[yourpackage]/<strong>init</strong>.py:</p>
-<div class="highlight"><pre><span></span><span class="n">yourpackage</span><span class="o">.</span><span class="n">_version</span> <span class="o">=</span> <span class="s2">"0.1.2"</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">yourpackage</span><span class="o">.</span><span class="n">_version</span> <span class="o">=</span> <span class="s2">"0.1.2"</span>
+</code></pre></div>
 <p>Positive:</p>
 <ul>
 <li>No new dependencies</li>
@@ -241,19 +241,19 @@ don't think they the first two look reliable enough to give them a try. And
 <p>You can use <a href="https://pypi.org/project/setuptools_scm/"><code>setuptools_scm</code></a>
 and do the following:</p>
 <p>setup.py:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
 
-<span class="n">setup</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">use_scm_version</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">setup_requires</span><span class="o">=</span><span class="p">[</span><span class="s2">"setuptools_scm"</span><span class="p">],</span> <span class="o">...</span><span class="p">)</span>
-</pre></div>
+<span class="n">setup</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">use_scm_version</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">setup_requires</span><span class="o">=</span><span class="p">[</span><span class="s2">"setuptools_scm"</span><span class="p">],</span> <span class="o">...</span><span class="p">)</span>
+</code></pre></div>
 <p>[yourpackage]/<strong>init</strong>.py:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pkg_resources</span> <span class="kn">import</span> <span class="n">get_distribution</span><span class="p">,</span> <span class="n">DistributionNotFound</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pkg_resources</span> <span class="kn">import</span> <span class="n">get_distribution</span><span class="p">,</span> <span class="n">DistributionNotFound</span>
 
 <span class="k">try</span><span class="p">:</span>
     <span class="n">__version__</span> <span class="o">=</span> <span class="n">get_distribution</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span><span class="o">.</span><span class="n">version</span>
 <span class="k">except</span> <span class="n">DistributionNotFound</span><span class="p">:</span>
     <span class="c1"># package is not installed</span>
     <span class="k">pass</span>
-</pre></div>
+</code></pre></div>
 <p>Positive:</p>
 <ul>
 <li>git tags: You might have to / be able to use git tags to keep consistent

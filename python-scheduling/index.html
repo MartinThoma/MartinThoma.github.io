@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Python, Scheduling, Code, " />
 
-<meta property="og:title" content="Python Scheduling "/>
+<meta property="og:title" content="Python Scheduling"/>
 <meta property="og:url" content="../python-scheduling/" />
 <meta property="og:description" content="Suppose you wanted to build a tool which informs you whenever there is an update to a couple of websites you&#39;re interested in. And lets say the last-modified header was usable for this (it is not, but I want to focus on another problem). So you would need to save …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2017-08-21T20:00:00+02:00" />
-<meta name="twitter:title" content="Python Scheduling ">
+<meta name="twitter:title" content="Python Scheduling">
 <meta name="twitter:description" content="Suppose you wanted to build a tool which informs you whenever there is an update to a couple of websites you&#39;re interested in. And lets say the last-modified header was usable for this (it is not, but I want to focus on another problem). So you would need to save …">
 <meta property="og:image" content="logos/python.png" />
 <meta name="twitter:image" content="logos/python.png" >
 
-        <title>Python Scheduling  · Martin Thoma
+        <title>Python Scheduling · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../python-scheduling/"> Python Scheduling  </a></h1>
+    <h1><a href="../python-scheduling/"> Python Scheduling </a></h1>
     </header>
 </div>
 
@@ -116,20 +116,20 @@ update to a couple of websites you're interested in. And lets say the
 another problem). So you would need to save the <code>last_known_state</code> - which
 is a time stamp - with the latest <code>last-modified</code>. And you need to do this
 often. For each website. Lets say we have</p>
-<div class="highlight"><pre><span></span>Intervall | Name      | Website
+<div class="highlight"><pre><span></span><code>Intervall | Name      | Website
 ------------------------------------------------------------------
 60min     | Wikipedia | https://en.wikipedia.org/wiki/Named-entity_recognition
 300min    | Fefe      | https://blog.fefe.de/
-</pre></div>
+</code></pre></div>
 <h2 id="prerequisites">Prerequisites</h2>
 <p>We store the jobs in <code>jobs.csv</code> in the format</p>
-<div class="highlight"><pre><span></span>intervall;name;url;last-modified;process
+<div class="highlight"><pre><span></span><code>intervall;name;url;last-modified;process
 60;Wikipedia;https://en.wikipedia.org/wiki/Named-entity_recognition;-;-
 300;Fefe;https://blog.fefe.de/;-;-
-</pre></div>
+</code></pre></div>
 <p>Interacting with CSV files is simple (<a href="https://stackoverflow.com/a/41585079/562769">source</a>).</p>
 <p>It turns out, that sending notifications is also simple on Ubuntu:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 
@@ -148,14 +148,14 @@ often. For each website. Lets say we have</p>
     <span class="s2">"Change detected on &lt;a href='https://en.wikipedia.org/wiki/"</span>
     <span class="s2">"Named-entity_recognition'&gt;Named-entity recognition&lt;/a&gt;"</span><span class="p">,</span>
 <span class="p">)</span>
-</pre></div>
+</code></pre></div>
 <p>It looks like this:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
 <img alt="Notifications on Ubuntu" src="../images/2017/08/notification-python.png" style="width: 512px;"/>
 <figcaption class="text-center">Notifications on Ubuntu</figcaption>
 </figure>
 <p>Receiving the <code>last-modified</code> element from a website is as simple as</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 
@@ -170,11 +170,11 @@ often. For each website. Lets say we have</p>
     <span class="k">if</span> <span class="s2">"Last-Modified"</span> <span class="ow">in</span> <span class="n">header</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">header</span><span class="p">[</span><span class="s2">"Last-Modified"</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">None</span>
+        <span class="k">return</span> <span class="kc">None</span>
 
 
-<span class="k">print</span><span class="p">(</span><span class="n">get_last_modified</span><span class="p">(</span><span class="s2">"https://blog.fefe.de/"</span><span class="p">))</span>
-</pre></div>
+<span class="nb">print</span><span class="p">(</span><span class="n">get_last_modified</span><span class="p">(</span><span class="s2">"https://blog.fefe.de/"</span><span class="p">))</span>
+</code></pre></div>
 <h2 id="the-scheduling">The scheduling</h2>
 <p>We want to be able to spawn new website watchers any time and we want to be
 able to kill them easily. They should not take too much memory / CPU-time and
@@ -187,7 +187,7 @@ kill themselfes. You can also kill them directly by using the process id.</p>
 more a toy project than something serious, so I'll not dig into that. And if
 you simply used a database, you would not have a race condition as you could
 edit all entries independently.</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 
@@ -204,7 +204,7 @@ edit all entries independently.</p>
 
 
 <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
-    <span class="n">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
     <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
     <span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span>
 <span class="p">)</span>
@@ -228,13 +228,13 @@ edit all entries independently.</p>
     <span class="k">if</span> <span class="s2">"Last-Modified"</span> <span class="ow">in</span> <span class="n">header</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">header</span><span class="p">[</span><span class="s2">"Last-Modified"</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">None</span>
+        <span class="k">return</span> <span class="kc">None</span>
 
 
 <span class="k">def</span> <span class="nf">create_new_process</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">,</span> <span class="n">line_nr</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="n">line_nr</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"line_nr={line_nr}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">line_nr</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">line_nr</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"line_nr=</span><span class="si">{line_nr}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">line_nr</span><span class="p">)</span>
     <span class="n">jobs</span> <span class="o">=</span> <span class="n">read_jobs</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">)</span>
-    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Start job for '{name}'"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">jobs</span><span class="p">[</span><span class="n">line_nr</span><span class="p">][</span><span class="s2">"name"</span><span class="p">]))</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Start job for '</span><span class="si">{name}</span><span class="s2">'"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">jobs</span><span class="p">[</span><span class="n">line_nr</span><span class="p">][</span><span class="s2">"name"</span><span class="p">]))</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">job_runner</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">,</span> <span class="n">line_nr</span><span class="p">,</span> <span class="n">jobs</span><span class="p">))</span>
     <span class="n">p</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">p</span>
@@ -245,9 +245,9 @@ edit all entries independently.</p>
     <span class="n">url</span> <span class="o">=</span> <span class="n">jobs</span><span class="p">[</span><span class="n">line_nr</span><span class="p">][</span><span class="s2">"url"</span><span class="p">]</span>
     <span class="n">intervall</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">jobs</span><span class="p">[</span><span class="n">line_nr</span><span class="p">][</span><span class="s2">"intervall"</span><span class="p">])</span>
     <span class="n">last_modified_seen</span> <span class="o">=</span> <span class="n">jobs</span><span class="p">[</span><span class="n">line_nr</span><span class="p">][</span><span class="s2">"url"</span><span class="p">]</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"Run line_nr={}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">line_nr</span><span class="p">))</span>
-    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"process id:"</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Run line_nr=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">line_nr</span><span class="p">))</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"process id:"</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">())</span>
         <span class="c1"># Get websites last modified</span>
         <span class="n">last_modified_website</span> <span class="o">=</span> <span class="n">get_last_modified</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">last_modified_website</span> <span class="o">!=</span> <span class="n">last_modified_seen</span><span class="p">:</span>
@@ -257,7 +257,7 @@ edit all entries independently.</p>
             <span class="c1"># notify</span>
             <span class="n">sendmessage</span><span class="p">(</span>
                 <span class="s2">"Change detector"</span><span class="p">,</span>
-                <span class="s2">"Change detected on &lt;a href='{url}'&gt;{name}&lt;/a&gt;"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="s2">"Change detected on &lt;a href='</span><span class="si">{url}</span><span class="s2">'&gt;</span><span class="si">{name}</span><span class="s2">&lt;/a&gt;"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                     <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span>
                 <span class="p">),</span>
             <span class="p">)</span>
@@ -273,7 +273,7 @@ edit all entries independently.</p>
 <span class="k">def</span> <span class="nf">update_file</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">,</span> <span class="n">line_nr</span><span class="p">,</span> <span class="n">last_modified_website</span><span class="p">,</span> <span class="n">pid</span><span class="p">):</span>
     <span class="c1"># Race conditions!</span>
     <span class="n">jobs</span> <span class="o">=</span> <span class="n">read_jobs</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">jobs</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">jobs</span><span class="p">)</span>
     <span class="n">jobs</span><span class="p">[</span><span class="n">line_nr</span><span class="p">][</span><span class="s2">"last-modified"</span><span class="p">]</span> <span class="o">=</span> <span class="n">last_modified_website</span>
     <span class="n">jobs</span><span class="p">[</span><span class="n">line_nr</span><span class="p">][</span><span class="s2">"pid"</span><span class="p">]</span> <span class="o">=</span> <span class="n">pid</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
@@ -295,17 +295,17 @@ edit all entries independently.</p>
     <span class="n">csv_filepath</span> <span class="o">=</span> <span class="s2">"jobs.csv"</span>
     <span class="n">jobs</span> <span class="o">=</span> <span class="n">read_jobs</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">line_nr</span><span class="p">,</span> <span class="n">job</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">jobs</span><span class="p">):</span>
-        <span class="n">process_runs</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">"/proc/{}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">job</span><span class="p">[</span><span class="s2">"pid"</span><span class="p">]))</span>
+        <span class="n">process_runs</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">"/proc/</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">job</span><span class="p">[</span><span class="s2">"pid"</span><span class="p">]))</span>
         <span class="k">if</span> <span class="n">job</span><span class="p">[</span><span class="s2">"pid"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"stopped"</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">process_runs</span><span class="p">:</span>
             <span class="n">create_new_process</span><span class="p">(</span><span class="n">csv_filepath</span><span class="p">,</span> <span class="n">line_nr</span><span class="p">)</span>
             <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="https://docs.python.org/2/library/sched.html#sched.scheduler"><code>schedule</code></a>: defines a class which implements a general purpose event scheduler</li>

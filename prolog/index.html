@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Prolog, Programming language, Code, " />
 
-<meta property="og:title" content="Prolog "/>
+<meta property="og:title" content="Prolog"/>
 <meta property="og:url" content="../prolog/" />
 <meta property="og:description" content="Prolog is a logic programming language. Any prolog program consists of declaration of facts (also called objects) rules about objects and their relationship asking &#34;questions&#34; about objects and their relationship First steps At first you have to install swi-prolog. After installing it, you can call it with swipl. When you&#39;ve …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2014-04-02T16:36:00+02:00" />
-<meta name="twitter:title" content="Prolog ">
+<meta name="twitter:title" content="Prolog">
 <meta name="twitter:description" content="Prolog is a logic programming language. Any prolog program consists of declaration of facts (also called objects) rules about objects and their relationship asking &#34;questions&#34; about objects and their relationship First steps At first you have to install swi-prolog. After installing it, you can call it with swipl. When you&#39;ve …">
 <meta property="og:image" content="logos/swi-prolog.png" />
 <meta name="twitter:image" content="logos/swi-prolog.png" >
 
-        <title>Prolog  · Martin Thoma
+        <title>Prolog · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../prolog/"> Prolog  </a></h1>
+    <h1><a href="../prolog/"> Prolog </a></h1>
     </header>
 </div>
 
@@ -125,8 +125,8 @@ Don't forget the point at the end. It is important and somehow like the
 <code>;</code> in C.</p>
 <h2 id="defining-facts">Defining facts</h2>
 <p>The definition of facts can look like this:</p>
-<div class="highlight"><pre><span></span><span class="nf">loves</span><span class="p">(</span><span class="s s-Atom">john</span><span class="p">,</span><span class="nv">X</span><span class="p">).</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="nf">loves</span><span class="p">(</span><span class="s s-Atom">john</span><span class="p">,</span><span class="nv">X</span><span class="p">).</span>
+</code></pre></div>
 <ul>
 <li>Note that names of all relationships and all objects have to begin with a lower
 case letter. Variables begin with a capital letter.</li>
@@ -169,8 +169,8 @@ case letter. Variables begin with a capital letter.</li>
 <h2 id="rules_1">Rules</h2>
 <p>Rules consist of a head and a body. They are separated by <code>:-</code>.</p>
 <h2 id="questions">Questions</h2>
-<div class="highlight"><pre><span></span><span class="s s-Atom">?</span><span class="nf">own</span><span class="p">(</span><span class="s s-Atom">mary</span><span class="p">,</span><span class="s s-Atom">book</span><span class="p">)</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="s s-Atom">?</span><span class="nf">own</span><span class="p">(</span><span class="s s-Atom">mary</span><span class="p">,</span><span class="s s-Atom">book</span><span class="p">)</span>
+</code></pre></div>
 <p>This will invoke the prolog unifier. So Prolog will check if the fact
 <code>own(mary,book)</code> can be derived from the known facts. Important is that it
 starts with <code>?</code>. Everything else in questions is just like it was for facts.</p>
@@ -223,12 +223,12 @@ eaten / eats when the man is there.</p>
 The case that the goose is where the man is was done before.</p>
 <p>And the last case, the man is where the fox is. Now we have to make sure that
 the beans are not where the goose is:</p>
-<div class="highlight"><pre><span></span><span class="nf">p</span><span class="p">(</span><span class="s s-Atom">left</span><span class="p">).</span>
+<div class="highlight"><pre><span></span><code><span class="nf">p</span><span class="p">(</span><span class="s s-Atom">left</span><span class="p">).</span>
 <span class="nf">p</span><span class="p">(</span><span class="s s-Atom">right</span><span class="p">).</span>
 <span class="nf">valid</span><span class="p">((</span><span class="nv">Man</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">))</span> <span class="p">:-</span> <span class="nf">p</span><span class="p">(</span><span class="nv">Man</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Goose</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Fox</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Beans</span><span class="p">),</span> <span class="nv">Man</span> <span class="o">==</span> <span class="nv">Goose</span><span class="p">.</span>
 <span class="nf">valid</span><span class="p">((</span><span class="nv">Man</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">))</span> <span class="p">:-</span> <span class="nf">p</span><span class="p">(</span><span class="nv">Man</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Goose</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Fox</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Beans</span><span class="p">),</span> <span class="nv">Man</span> <span class="o">==</span> <span class="nv">Beans</span><span class="p">,</span> <span class="nv">Goose</span> <span class="s s-Atom">\=</span> <span class="nv">Fox</span><span class="p">.</span>
 <span class="nf">valid</span><span class="p">((</span><span class="nv">Man</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">))</span> <span class="p">:-</span> <span class="nf">p</span><span class="p">(</span><span class="nv">Man</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Goose</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Fox</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Beans</span><span class="p">),</span> <span class="nv">Man</span> <span class="o">==</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Goose</span> <span class="s s-Atom">\=</span> <span class="nv">Beans</span><span class="p">.</span>
-</pre></div>
+</code></pre></div>
 <p>The <code>step</code> is also quite simple. There are four possible actions you could take
 at each situation:</p>
 <ul>
@@ -236,7 +236,7 @@ at each situation:</p>
 <li>the man and the beans / goose / fox go the the other side.</li>
 </ul>
 <p>So here is  the code:</p>
-<div class="highlight"><pre><span></span><span class="nf">step</span><span class="p">((</span><span class="nv">Man1</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">),</span> <span class="s s-Atom">'Man'</span><span class="p">,</span> <span class="p">(</span><span class="nv">Man2</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">))</span> <span class="p">:-</span>
+<div class="highlight"><pre><span></span><code><span class="nf">step</span><span class="p">((</span><span class="nv">Man1</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">),</span> <span class="s s-Atom">'Man'</span><span class="p">,</span> <span class="p">(</span><span class="nv">Man2</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">))</span> <span class="p">:-</span>
     <span class="nv">Man1</span> <span class="s s-Atom">\=</span> <span class="nv">Man2</span><span class="p">.</span>
 
 <span class="nf">step</span><span class="p">((</span><span class="nv">Man1</span><span class="p">,</span> <span class="nv">Goose1</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">),</span> <span class="s s-Atom">'Goose'</span><span class="p">,</span> <span class="p">(</span><span class="nv">Man2</span><span class="p">,</span> <span class="nv">Goose2</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">))</span> <span class="p">:-</span>
@@ -247,7 +247,7 @@ at each situation:</p>
 
 <span class="nf">step</span><span class="p">((</span><span class="nv">Man1</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans1</span><span class="p">),</span> <span class="s s-Atom">'Beans'</span><span class="p">,</span> <span class="p">(</span><span class="nv">Man2</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans2</span><span class="p">))</span> <span class="p">:-</span>
     <span class="nv">Man1</span> <span class="s s-Atom">\=</span> <span class="nv">Man2</span><span class="p">,</span> <span class="nv">Beans1</span> <span class="s s-Atom">\=</span> <span class="nv">Beans2</span><span class="p">.</span>
-</pre></div>
+</code></pre></div>
 <p>And finally the reachable part.</p>
 <ul>
 <li>Either, you're already at the situation where you want to get to. So you don't
@@ -255,13 +255,13 @@ at each situation:</p>
 <li>Or you want to get from <code>S</code> to <code>G</code>. That is only possible, when you can get
   from <code>S</code> to an intermediate situation with one step less:</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="nf">reachable</span><span class="p">(</span><span class="nv">S</span><span class="p">,</span> <span class="k">_</span><span class="p">,</span> <span class="p">[],</span> <span class="nv">S</span><span class="p">).</span>
+<div class="highlight"><pre><span></span><code><span class="nf">reachable</span><span class="p">(</span><span class="nv">S</span><span class="p">,</span> <span class="k">_</span><span class="p">,</span> <span class="p">[],</span> <span class="nv">S</span><span class="p">).</span>
 <span class="nf">reachable</span><span class="p">(</span><span class="nv">S</span><span class="p">,</span> <span class="nv">Visited</span><span class="p">,</span> <span class="p">[</span><span class="nv">Step</span><span class="p">|</span><span class="nv">Steps</span><span class="p">],</span> <span class="nv">G</span><span class="p">)</span> <span class="p">:-</span>
     <span class="nf">step</span><span class="p">(</span><span class="nv">S</span><span class="p">,</span> <span class="nv">Step</span><span class="p">,</span> <span class="nv">Tmp</span><span class="p">),</span> <span class="nf">valid</span><span class="p">(</span><span class="nv">Tmp</span><span class="p">),</span> <span class="o">not</span><span class="p">(</span><span class="nf">member</span><span class="p">(</span><span class="nv">Tmp</span><span class="p">,</span> <span class="nv">Visited</span><span class="p">)),</span>
     <span class="nf">reachable</span><span class="p">(</span><span class="nv">Tmp</span><span class="p">,</span> <span class="p">[</span><span class="nv">Tmp</span><span class="p">|</span><span class="nv">Visited</span><span class="p">],</span> <span class="nv">Steps</span><span class="p">,</span> <span class="nv">G</span><span class="p">).</span>
-</pre></div>
+</code></pre></div>
 <p>Putting it together:</p>
-<div class="highlight"><pre><span></span><span class="nf">p</span><span class="p">(</span><span class="s s-Atom">left</span><span class="p">).</span>
+<div class="highlight"><pre><span></span><code><span class="nf">p</span><span class="p">(</span><span class="s s-Atom">left</span><span class="p">).</span>
 <span class="nf">p</span><span class="p">(</span><span class="s s-Atom">right</span><span class="p">).</span>
 <span class="nf">valid</span><span class="p">((</span><span class="nv">Man</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">))</span> <span class="p">:-</span> <span class="nf">p</span><span class="p">(</span><span class="nv">Man</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Goose</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Fox</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Beans</span><span class="p">),</span> <span class="nv">Man</span> <span class="o">==</span> <span class="nv">Goose</span><span class="p">.</span>
 <span class="nf">valid</span><span class="p">((</span><span class="nv">Man</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">))</span> <span class="p">:-</span> <span class="nf">p</span><span class="p">(</span><span class="nv">Man</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Goose</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Fox</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Beans</span><span class="p">),</span> <span class="nv">Man</span> <span class="o">==</span> <span class="nv">Beans</span><span class="p">,</span> <span class="nv">Goose</span> <span class="s s-Atom">\=</span> <span class="nv">Fox</span><span class="p">.</span>
@@ -292,7 +292,7 @@ at each situation:</p>
 <span class="nf">goal</span><span class="p">((</span><span class="s s-Atom">right</span><span class="p">,</span><span class="s s-Atom">right</span><span class="p">,</span><span class="s s-Atom">right</span><span class="p">,</span><span class="s s-Atom">right</span><span class="p">)).</span>
 
 <span class="nf">solve</span><span class="p">(</span><span class="nv">Steps</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">start</span><span class="p">(</span><span class="nv">S</span><span class="p">),</span> <span class="nf">goal</span><span class="p">(</span><span class="nv">G</span><span class="p">),</span> <span class="nf">reachable</span><span class="p">(</span><span class="nv">S</span><span class="p">,</span> <span class="p">[],</span> <span class="nv">Steps</span><span class="p">,</span> <span class="nv">G</span><span class="p">).</span>
-</pre></div>
+</code></pre></div>
 <p>You can load this with <code>swipl -s puzzle.pl</code> and get all solutions with <code>bagof(X, solve(T), L)</code>.
 When you press <code>;</code> after the first solution, you get the second solution.
 (Yes, this riddle has only two solutions that avoid redundant steps.)</p>

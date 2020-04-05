@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Python, RPC, daemon, Code, " />
 
-<meta property="og:title" content="Talking with Daemons "/>
+<meta property="og:title" content="Talking with Daemons"/>
 <meta property="og:url" content="../talking-with-daemons/" />
 <meta property="og:description" content="Everybody knows that training big machine learning models takes a lot of computing power. However, it takes much less computing power to evaluate the model for a single instance. One important factor when measuring the time of a program which only runs one image classification is the time for loading …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2016-04-27T23:26:00+02:00" />
-<meta name="twitter:title" content="Talking with Daemons ">
+<meta name="twitter:title" content="Talking with Daemons">
 <meta name="twitter:description" content="Everybody knows that training big machine learning models takes a lot of computing power. However, it takes much less computing power to evaluate the model for a single instance. One important factor when measuring the time of a program which only runs one image classification is the time for loading …">
 <meta property="og:image" content="logos/daemon.png" />
 <meta name="twitter:image" content="logos/daemon.png" >
 
-        <title>Talking with Daemons  · Martin Thoma
+        <title>Talking with Daemons · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../talking-with-daemons/"> Talking with Daemons  </a></h1>
+    <h1><a href="../talking-with-daemons/"> Talking with Daemons </a></h1>
     </header>
 </div>
 
@@ -134,7 +134,7 @@ program A calls code from program B.</p>
 <a href="https://pythonhosted.org/Pyro4/">Pyro</a>.</p>
 <h2 id="server">Server</h2>
 <p>Create a file <code>summon_daemon.py</code>:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
 <span class="sd">"""The server."""</span>
 
@@ -152,21 +152,21 @@ program A calls code from program B.</p>
     <span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">up</span><span class="p">):</span>
         <span class="sd">"""Count up."""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">+=</span> <span class="n">up</span>
-        <span class="k">return</span> <span class="s2">"I was called {count} times."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s2">"I was called </span><span class="si">{count}</span><span class="s2"> times."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="p">)</span>
 
 
 <span class="n">Pyro</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">initServer</span><span class="p">()</span>
 <span class="n">daemon</span> <span class="o">=</span> <span class="n">Pyro</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">Daemon</span><span class="p">()</span>
 <span class="n">uri</span> <span class="o">=</span> <span class="n">daemon</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">Bartimaeus</span><span class="p">(),</span> <span class="s2">"bartid"</span><span class="p">)</span>
 
-<span class="k">print</span><span class="p">(</span><span class="s2">"The daemon runs on port: {port}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="n">daemon</span><span class="o">.</span><span class="n">port</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"The object's uri is: {uri}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">uri</span><span class="o">=</span><span class="n">uri</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"The daemon runs on port: </span><span class="si">{port}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="n">daemon</span><span class="o">.</span><span class="n">port</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"The object's uri is: </span><span class="si">{uri}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">uri</span><span class="o">=</span><span class="n">uri</span><span class="p">))</span>
 
 <span class="n">daemon</span><span class="o">.</span><span class="n">requestLoop</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 <h2 id="client">Client</h2>
 <p>And a <code>call_daemon.py</code>:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
 <span class="sd">"""Talk with the daemon."""</span>
 
@@ -175,12 +175,12 @@ program A calls code from program B.</p>
 <span class="c1"># you have to change the URI below to match your own host/port.</span>
 <span class="n">bartimaeus</span> <span class="o">=</span> <span class="n">Pyro</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getProxyForURI</span><span class="p">(</span><span class="s2">"PYROLOC://localhost:7766/bartid"</span><span class="p">)</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">bartimaeus</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
-</pre></div>
+<span class="nb">print</span><span class="p">(</span><span class="n">bartimaeus</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</code></pre></div>
 <h2 id="timing">Timing</h2>
 <p>I was interested how fast this is locally. So I made a tiny test:</p>
 <p>Server (<code>summon_daemon.py</code>):</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="sd">"""The server."""</span>
@@ -190,7 +190,7 @@ program A calls code from program B.</p>
 <span class="kn">import</span> <span class="nn">Pyro.core</span>
 
 <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
-    <span class="n">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
     <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
     <span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span>
 <span class="p">)</span>
@@ -208,20 +208,20 @@ program A calls code from program B.</p>
         <span class="sd">"""Count up."""</span>
         <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"new up: </span><span class="si">%i</span><span class="s2">"</span><span class="p">,</span> <span class="n">up</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">+=</span> <span class="n">up</span>
-        <span class="k">return</span> <span class="s2">"I was called {count} times."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s2">"I was called </span><span class="si">{count}</span><span class="s2"> times."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="p">)</span>
 
 
 <span class="n">Pyro</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">initServer</span><span class="p">()</span>
 <span class="n">daemon</span> <span class="o">=</span> <span class="n">Pyro</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">Daemon</span><span class="p">()</span>
 <span class="n">uri</span> <span class="o">=</span> <span class="n">daemon</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">Bartimaeus</span><span class="p">(),</span> <span class="s2">"bartid"</span><span class="p">)</span>
 
-<span class="k">print</span><span class="p">(</span><span class="s2">"The daemon runs on port: {port}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="n">daemon</span><span class="o">.</span><span class="n">port</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"The object's uri is: {uri}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">uri</span><span class="o">=</span><span class="n">uri</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"The daemon runs on port: </span><span class="si">{port}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="n">daemon</span><span class="o">.</span><span class="n">port</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"The object's uri is: </span><span class="si">{uri}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">uri</span><span class="o">=</span><span class="n">uri</span><span class="p">))</span>
 
 <span class="n">daemon</span><span class="o">.</span><span class="n">requestLoop</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 <p>Client (<code>call_daemon.py</code>):</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="sd">"""Talk with the daemon."""</span>
@@ -231,7 +231,7 @@ program A calls code from program B.</p>
 <span class="kn">import</span> <span class="nn">Pyro.core</span>
 
 <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
-    <span class="n">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
     <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
     <span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span>
 <span class="p">)</span>
@@ -242,7 +242,7 @@ program A calls code from program B.</p>
     <span class="c1"># you have to change the URI below to match your own host/port.</span>
     <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Send up: </span><span class="si">%i</span><span class="s2">"</span><span class="p">,</span> <span class="n">up</span><span class="p">)</span>
     <span class="n">bartimaeus</span> <span class="o">=</span> <span class="n">Pyro</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getProxyForURI</span><span class="p">(</span><span class="s2">"PYROLOC://localhost:7766/bartid"</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">bartimaeus</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">up</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">bartimaeus</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">up</span><span class="p">))</span>
 
 
 <span class="k">def</span> <span class="nf">get_parser</span><span class="p">():</span>
@@ -259,7 +259,7 @@ program A calls code from program B.</p>
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">get_parser</span><span class="p">()</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
     <span class="n">main</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">up</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 <p>resulting in about 0.004s from sending to receiving.</p>
 <figure class="aligncenter">
 <a href="../images/2016/04/daemon.png"><img alt="About 0.004s from sending to receiving" class="" src="../images/2016/04/daemon.png" style="max-width:500px;"/></a>
@@ -273,7 +273,7 @@ that the server can inform the client when a new message is there. This means
 the following toy implementation expects the user to send messages to receive
 the current ones. Not nice, but I just wanted to give it a try:</p>
 <p>Server:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
 <span class="sd">"""A chat server."""</span>
 
@@ -292,7 +292,7 @@ the current ones. Not nice, but I just wanted to give it a try:</p>
     <span class="k">def</span> <span class="nf">receive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sender</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">last_msg</span><span class="p">):</span>
         <span class="sd">"""Receive a message."""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">msgs</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">sender</span><span class="p">,</span> <span class="n">msg</span><span class="p">))</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"[{sender}] {msg}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sender</span><span class="o">=</span><span class="n">sender</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="n">msg</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"[</span><span class="si">{sender}</span><span class="s2">] </span><span class="si">{msg}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sender</span><span class="o">=</span><span class="n">sender</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="n">msg</span><span class="p">))</span>
         <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">msgs</span><span class="p">[</span><span class="n">last_msg</span><span class="p">:],</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">msgs</span><span class="p">))</span>
 
 
@@ -300,13 +300,13 @@ the current ones. Not nice, but I just wanted to give it a try:</p>
 <span class="n">daemon</span> <span class="o">=</span> <span class="n">Pyro</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">Daemon</span><span class="p">()</span>
 <span class="n">uri</span> <span class="o">=</span> <span class="n">daemon</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">Chat</span><span class="p">(),</span> <span class="s2">"chat"</span><span class="p">)</span>
 
-<span class="k">print</span><span class="p">(</span><span class="s2">"The daemon runs on port: {port}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="n">daemon</span><span class="o">.</span><span class="n">port</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"The object's uri is: {uri}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">uri</span><span class="o">=</span><span class="n">uri</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"The daemon runs on port: </span><span class="si">{port}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="n">daemon</span><span class="o">.</span><span class="n">port</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"The object's uri is: </span><span class="si">{uri}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">uri</span><span class="o">=</span><span class="n">uri</span><span class="p">))</span>
 
 <span class="n">daemon</span><span class="o">.</span><span class="n">requestLoop</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 <p>Client:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="sd">"""A chat client."""</span>
@@ -316,7 +316,7 @@ the current ones. Not nice, but I just wanted to give it a try:</p>
 <span class="kn">import</span> <span class="nn">Pyro.core</span>
 
 <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
-    <span class="n">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
     <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
     <span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span>
 <span class="p">)</span>
@@ -326,14 +326,14 @@ the current ones. Not nice, but I just wanted to give it a try:</p>
     <span class="sd">"""Run the chat."""</span>
     <span class="n">chat_server</span> <span class="o">=</span> <span class="n">Pyro</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">getProxyForURI</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
     <span class="n">last_msg_id</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"*"</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"* Chat started. You are called '{name}'."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">))</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">"*"</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
-    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-        <span class="n">msg</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"*"</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"* Chat started. You are called '</span><span class="si">{name}</span><span class="s2">'."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"*"</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">raw_input</span><span class="p">()</span>
         <span class="n">new_msgs</span><span class="p">,</span> <span class="n">last_msg_id</span> <span class="o">=</span> <span class="n">chat_server</span><span class="o">.</span><span class="n">receive</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">last_msg_id</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">sender</span><span class="p">,</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">new_msgs</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="s2">"[{sender}] {msg}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sender</span><span class="o">=</span><span class="n">sender</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="n">msg</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"[</span><span class="si">{sender}</span><span class="s2">] </span><span class="si">{msg}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sender</span><span class="o">=</span><span class="n">sender</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="n">msg</span><span class="p">))</span>
 
 
 <span class="k">def</span> <span class="nf">get_parser</span><span class="p">():</span>
@@ -344,16 +344,16 @@ the current ones. Not nice, but I just wanted to give it a try:</p>
         <span class="n">description</span><span class="o">=</span><span class="vm">__doc__</span><span class="p">,</span> <span class="n">formatter_class</span><span class="o">=</span><span class="n">ArgumentDefaultsHelpFormatter</span>
     <span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s2">"--server"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"server"</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"starts with PYRO://"</span>
+        <span class="s2">"--server"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">"server"</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"starts with PYRO://"</span>
     <span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"--name"</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"what others see"</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"--name"</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"what others see"</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">parser</span>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">get_parser</span><span class="p">()</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
     <span class="n">main</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">server</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 <h2 id="daemons">Daemons</h2>
 <p>A <a href="https://en.wikipedia.org/wiki/Daemon_(computing)">daemon</a> is a computer
 program that runs as a background process, rather than being under the direct

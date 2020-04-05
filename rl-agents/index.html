@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Reinforcement Learning, Machine Learning, " />
 
-<meta property="og:title" content="RL Agents "/>
+<meta property="og:title" content="RL Agents"/>
 <meta property="og:url" content="../rl-agents/" />
 <meta property="og:description" content="Name Observation Space Action Space Paper SARSA discrete or continuous discrete Sutton and Barto, 2011, Blog Post DQN discrete or continuous discrete [MKSG+13], [MKSR+15], [HGS15] CEM discrete or continuous discrete Szita et al., 2006, Schulman, 2016 DDPG discrete or continuous continuous [LHPH+15] NAF discrete or continuous continuous …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2017-11-07T20:00:00+01:00" />
-<meta name="twitter:title" content="RL Agents ">
+<meta name="twitter:title" content="RL Agents">
 <meta name="twitter:description" content="Name Observation Space Action Space Paper SARSA discrete or continuous discrete Sutton and Barto, 2011, Blog Post DQN discrete or continuous discrete [MKSG+13], [MKSR+15], [HGS15] CEM discrete or continuous discrete Szita et al., 2006, Schulman, 2016 DDPG discrete or continuous continuous [LHPH+15] NAF discrete or continuous continuous …">
 <meta property="og:image" content="logos/ml.png" />
 <meta name="twitter:image" content="logos/ml.png" >
 
-        <title>RL Agents  · Martin Thoma
+        <title>RL Agents · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../rl-agents/"> RL Agents  </a></h1>
+    <h1><a href="../rl-agents/"> RL Agents </a></h1>
     </header>
 </div>
 
@@ -221,7 +221,7 @@ consecutive trials.</p>
 </tr>
 </table>
 <p>The bigger NN is</p>
-<div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
 <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Flatten</span><span class="p">(</span><span class="n">input_shape</span><span class="o">=</span><span class="n">input_shape</span><span class="p">))</span>
 <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">16</span><span class="p">))</span>
 <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="s2">"relu"</span><span class="p">))</span>
@@ -231,7 +231,7 @@ consecutive trials.</p>
 <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="s2">"relu"</span><span class="p">))</span>
 <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="n">nb_actions</span><span class="p">))</span>
 <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="s2">"softmax"</span><span class="p">))</span>
-</pre></div>
+</code></pre></div>
 <p>Ok, so the bigger network is important. Also, 1000 training steps are not
 enough, but 10000 are. Let's see if we can reduce the episode memory. The
 episode memory is what is used for training.</p>
@@ -308,7 +308,7 @@ episode memory is what is used for training.</p>
 </table>
 <h3 id="all-environments">All environments</h3>
 <p>You can list all environments with</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
 <span class="sd">"""Print OpenAI Gym Environment data."""</span>
 
@@ -316,7 +316,7 @@ episode memory is what is used for training.</p>
 <span class="kn">from</span> <span class="nn">gym</span> <span class="kn">import</span> <span class="n">envs</span>
 
 <span class="n">envids</span> <span class="o">=</span> <span class="p">[</span><span class="n">spec</span><span class="o">.</span><span class="n">id</span> <span class="k">for</span> <span class="n">spec</span> <span class="ow">in</span> <span class="n">envs</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">all</span><span class="p">()]</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">'&lt;table class="table"&gt;'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'&lt;table class="table"&gt;'</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">envid</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">envids</span><span class="p">),</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">env</span> <span class="o">=</span> <span class="n">gym</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="n">envid</span><span class="p">)</span>
@@ -325,17 +325,17 @@ episode memory is what is used for training.</p>
     <span class="k">except</span><span class="p">:</span>
         <span class="n">observations</span> <span class="o">=</span> <span class="s2">"Error"</span>
         <span class="n">actions</span> <span class="o">=</span> <span class="s2">"Error"</span>
-    <span class="k">print</span><span class="p">(</span>
-        <span class="s1">'&lt;tr&gt;&lt;td id="env-{i}"&gt;{i}&lt;/td&gt;'</span>
-        <span class="s1">'&lt;td&gt;&lt;a href="https://gym.openai.com/envs/{envid}/" id="{envid}"&gt;'</span>
-        <span class="s2">"{envid}&lt;/a&gt;&lt;/td&gt;"</span>
-        <span class="s2">"&lt;td&gt;{observations}&lt;/td&gt;"</span>
-        <span class="s2">"&lt;td&gt;{actions}&lt;/td&gt;&lt;/tr&gt;"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s1">'&lt;tr&gt;&lt;td id="env-</span><span class="si">{i}</span><span class="s1">"&gt;</span><span class="si">{i}</span><span class="s1">&lt;/td&gt;'</span>
+        <span class="s1">'&lt;td&gt;&lt;a href="https://gym.openai.com/envs/</span><span class="si">{envid}</span><span class="s1">/" id="</span><span class="si">{envid}</span><span class="s1">"&gt;'</span>
+        <span class="s2">"</span><span class="si">{envid}</span><span class="s2">&lt;/a&gt;&lt;/td&gt;"</span>
+        <span class="s2">"&lt;td&gt;</span><span class="si">{observations}</span><span class="s2">&lt;/td&gt;"</span>
+        <span class="s2">"&lt;td&gt;</span><span class="si">{actions}</span><span class="s2">&lt;/td&gt;&lt;/tr&gt;"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
             <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">envid</span><span class="o">=</span><span class="n">envid</span><span class="p">,</span> <span class="n">observations</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">observations</span><span class="p">),</span> <span class="n">actions</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">actions</span><span class="p">)</span>
         <span class="p">)</span>
     <span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"&lt;/table&gt;"</span><span class="p">)</span>
-</pre></div>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"&lt;/table&gt;"</span><span class="p">)</span>
+</code></pre></div>
 <p>which gives</p>
 <table class="table">
 <tr>

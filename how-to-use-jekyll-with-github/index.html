@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Jekyll, Git, GitHub, rsync, Blog, The Web, " />
 
-<meta property="og:title" content="How to use Jekyll with GitHub "/>
+<meta property="og:title" content="How to use Jekyll with GitHub"/>
 <meta property="og:url" content="../how-to-use-jekyll-with-github/" />
 <meta property="og:description" content="You&#39;ve probably noticed that I didn&#39;t write any posts the last few weeks. The reason is that I&#39;ve migrated my WordPress Blog to Jekyll. This means it takes some source files and generates purely static pages from that. The generation process is independant of user requests. Jekyll is a static …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2013-12-09T00:00:00+01:00" />
-<meta name="twitter:title" content="How to use Jekyll with GitHub ">
+<meta name="twitter:title" content="How to use Jekyll with GitHub">
 <meta name="twitter:description" content="You&#39;ve probably noticed that I didn&#39;t write any posts the last few weeks. The reason is that I&#39;ve migrated my WordPress Blog to Jekyll. This means it takes some source files and generates purely static pages from that. The generation process is independant of user requests. Jekyll is a static …">
 <meta property="og:image" content="2013/12/jekyll-thumbnail.png" />
 <meta name="twitter:image" content="2013/12/jekyll-thumbnail.png" >
 
-        <title>How to use Jekyll with GitHub  · Martin Thoma
+        <title>How to use Jekyll with GitHub · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../how-to-use-jekyll-with-github/"> How to use Jekyll with GitHub  </a></h1>
+    <h1><a href="../how-to-use-jekyll-with-github/"> How to use Jekyll with GitHub </a></h1>
     </header>
 </div>
 
@@ -167,12 +167,12 @@ the server.</p>
 </ul>
 <h2 id="install-jekyll">Install Jekyll</h2>
 <p>On an Ubunty system I need for this blog:</p>
-<div class="highlight"><pre><span></span>$ sudo apt-get install ruby1.9.1-dev imagemagick ruby-rmagick libmagickwand-dev ruby-execjs ruby-nokogiri
+<div class="highlight"><pre><span></span><code>$ sudo apt-get install ruby1.9.1-dev imagemagick ruby-rmagick libmagickwand-dev ruby-execjs ruby-nokogiri
 $ sudo gem install jekyll
 $ sudo gem install dimensions
 $ sudo gem install fileutils
 $ sudo mkdir -p /var/www/blog
-</pre></div>
+</code></pre></div>
 <h2 id="github">GitHub</h2>
 <h3 id="create-your-repository">Create your repository</h3>
 <ol>
@@ -182,22 +182,22 @@ $ sudo mkdir -p /var/www/blog
 <h3 id="branches">Branches</h3>
 <p>The way to use Jekyll with GitHub is by using branches.
 Go to your Git repository that cointains your blog:</p>
-<div class="highlight"><pre><span></span>moose@pc08 ~/Downloads/MartinThoma.github.io $ ls
+<div class="highlight"><pre><span></span><code>moose@pc08 ~/Downloads/MartinThoma.github.io $ ls
 _config.yml  favicon.ico  index.html  Makefile  Readme.md
 css          images       js          _plugins  _site
 _drafts      _includes    _layouts    _posts    thumbs
-</pre></div>
+</code></pre></div>
 <p>Now you should create a new branch that will contain your source files.
 The following command creates a branch <code>sources</code> that starts where
 the branch <code>master</code> currently is:</p>
-<div class="highlight"><pre><span></span>git checkout -b <span class="nb">source</span> master
-</pre></div>
+<div class="highlight"><pre><span></span><code>git checkout -b <span class="nb">source</span> master
+</code></pre></div>
 <p>Now update this branch to the server:</p>
-<div class="highlight"><pre><span></span>git push -u origin <span class="nb">source</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>git push -u origin <span class="nb">source</span>
+</code></pre></div>
 <p>When you enter</p>
-<div class="highlight"><pre><span></span>git checkout . master
-</pre></div>
+<div class="highlight"><pre><span></span><code>git checkout . master
+</code></pre></div>
 <p>you will switch to the <code>master</code> brach. The same way you can switch
 to the <code>source</code> branch. After you've entered the command, you can
 look at the folder in your file system. There will only be the data
@@ -218,8 +218,8 @@ have to:</p>
 <p>One tool that might now come to your mind is <code>rsync</code>. But rsync
 needs SSH (<a href="http://serverfault.com/a/24627/113899">source</a>). If you
 have SSH, then you can do something like this:</p>
-<div class="highlight"><pre><span></span>rsync -avz --delete _site/ user@host:/path/to/web/root
-</pre></div>
+<div class="highlight"><pre><span></span><code>rsync -avz --delete _site/ user@host:/path/to/web/root
+</code></pre></div>
 <p>The <code>--delete</code> options "delete[s] extraneous files from dest dirs",
 <code>-a</code> means archive which preserves the owner, group, change date
 and some more of files, <code>-v</code> is verbose as always and <code>-z</code> is for
@@ -227,11 +227,11 @@ compression while the file transfer happens. <code>--progress</code> might also
 be interesting, especially for the first upload.</p>
 <p>Otherwise, you might want to try <code>curlftpfs</code>. This program lets you
 mount a FTP folder:</p>
-<div class="highlight"><pre><span></span>curlftpfs ftp.example.com/backups /mnt/ftpserver
-</pre></div>
+<div class="highlight"><pre><span></span><code>curlftpfs ftp.example.com/backups /mnt/ftpserver
+</code></pre></div>
 <p>and you can also umount it:</p>
-<div class="highlight"><pre><span></span>rsync --delete /var/backups /mnt/ftpserver
-</pre></div>
+<div class="highlight"><pre><span></span><code>rsync --delete /var/backups /mnt/ftpserver
+</code></pre></div>
 <h2 id="markdown">Markdown</h2>
 <p>I've switched between <code>rdiscount</code> and <code>redcarpet</code>. The former is
 faster, the latter supports fenced code blocks. I finally stuck with
@@ -303,10 +303,10 @@ plugins and templates. Everything is quite easy. The Liquid templating
 language seems to be very similar to Django Templates (Python).</p>
 <h2 id="make-the-website-super-fast">Make the Website super-fast</h2>
 <h3 id="css-minification">CSS Minification</h3>
-<div class="highlight"><pre><span></span>sudo gem install juicer
+<div class="highlight"><pre><span></span><code>sudo gem install juicer
 juicer install jslint
 juicer install yui_compressor
-</pre></div>
+</code></pre></div>
 <h3 id="images">Images</h3>
 <p>I've included small images as base64 (used <a href="http://webcodertools.com/imagetobase64converter/Create">this online tool</a>). According to <a href="http://caniuse.com/datauri">caniuse</a> it's quite save to use.</p>
 <h2 id="site-search_1">Site Search</h2>
@@ -340,7 +340,7 @@ does only search in the title and category.</p>
 templates. <a href="https://github.com/Shopify/liquid/wiki/Liquid-for-Designers">Here</a>
 is a short introduction to Liquid.</p>
 <p>A Sublime Text template is the following:</p>
-<div class="highlight"><pre><span></span>&lt;snippet&gt;
+<div class="highlight"><pre><span></span><code>&lt;snippet&gt;
     &lt;content&gt;&lt;![CDATA[
 ---
 layout: post
@@ -360,7 +360,7 @@ ${5:}
     &lt;!-- Optional: Set a scope to limit where the snippet will trigger --&gt;
     &lt;!-- &lt;scope&gt;source.python&lt;/scope&gt; --&gt;
 &lt;/snippet&gt;
-</pre></div>
+</code></pre></div>
 <h2 id="some-tests">Some tests</h2>
 <ul>
 <li>Validation</li>

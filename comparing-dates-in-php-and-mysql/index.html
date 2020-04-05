@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="PHP, MySQL, Code, " />
 
-<meta property="og:title" content="Comparing Dates in PHP and MySQL "/>
+<meta property="og:title" content="Comparing Dates in PHP and MySQL"/>
 <meta property="og:url" content="../comparing-dates-in-php-and-mysql/" />
 <meta property="og:description" content="Sometimes you need to know compare PHP dates. You need to know what is later or if both dates are the same. PHP time formats and functions PHP knows these time / date formats: UNIX Timestamp: Integer - The number of seconds after 1970. Related functions are int mktime([ int \$hour = date …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2011-10-04T20:22:12+02:00" />
-<meta name="twitter:title" content="Comparing Dates in PHP and MySQL ">
+<meta name="twitter:title" content="Comparing Dates in PHP and MySQL">
 <meta name="twitter:description" content="Sometimes you need to know compare PHP dates. You need to know what is later or if both dates are the same. PHP time formats and functions PHP knows these time / date formats: UNIX Timestamp: Integer - The number of seconds after 1970. Related functions are int mktime([ int \$hour = date …">
 <meta property="og:image" content="2011/10/PHP-logo.png" />
 <meta name="twitter:image" content="2011/10/PHP-logo.png" >
 
-        <title>Comparing Dates in PHP and MySQL  · Martin Thoma
+        <title>Comparing Dates in PHP and MySQL · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../comparing-dates-in-php-and-mysql/"> Comparing Dates in PHP and MySQL  </a></h1>
+    <h1><a href="../comparing-dates-in-php-and-mysql/"> Comparing Dates in PHP and MySQL </a></h1>
     </header>
 </div>
 
@@ -125,7 +125,7 @@ I recommend using <code>YYYY-MM-DD HH:mm:ss</code> if possible.</li>
 </ul>
 </li>
 <li>Associative Arrays. The array looks like this</li></ul></p>
-<div class="highlight"><pre><span></span><span class="x">Array</span>
+<div class="highlight"><pre><span></span><code><span class="x">Array</span>
 <span class="x">(</span>
 <span class="x">    [year] =&gt; 2006</span>
 <span class="x">    [month] =&gt; 12</span>
@@ -140,7 +140,7 @@ I recommend using <code>YYYY-MM-DD HH:mm:ss</code> if possible.</li>
 <span class="x">    [errors] =&gt; Array()</span>
 <span class="x">    [is_localtime] =&gt;</span>
 <span class="x">)</span>
-</pre></div>
+</code></pre></div>
 <p>The related functions are:
     <ul>
 <li>array <a href="http://www.php.net/manual/en/function.date-parse.php">date_parse</a> (string $date)</li>
@@ -152,7 +152,7 @@ I recommend using <code>YYYY-MM-DD HH:mm:ss</code> if possible.</li>
 <h3 id="comparisons">Comparisons</h3>
 <p>Comparing UNIX Timestamps is like comparing integers. No problem.</p>
 <p>Comparing Arrays is more interesting. What do you think will the following script print?</p>
-<div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
 
 <span class="nv">$d1</span> <span class="o">=</span> <span class="nb">date_parse</span> <span class="p">(</span><span class="s2">"2011-05-11"</span><span class="p">);</span>
 <span class="nv">$d2</span> <span class="o">=</span> <span class="nb">date_parse</span> <span class="p">(</span><span class="s2">"2011-05-11 13:00:00"</span><span class="p">);</span>
@@ -169,13 +169,13 @@ I recommend using <code>YYYY-MM-DD HH:mm:ss</code> if possible.</li>
 <span class="p">}</span>
 
 <span class="cp">?&gt;</span><span class="x"></span>
-</pre></div>
+</code></pre></div>
 <p>It prints '$d1 is less than $d2.' as</p>
-<div class="highlight"><pre><span></span><span class="x">date_parse ("2011-05-11");</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="x">date_parse ("2011-05-11");</span>
+</code></pre></div>
 <p>is basically the same as</p>
-<div class="highlight"><pre><span></span><span class="x">date_parse ("2011-05-11 00:00:00");</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="x">date_parse ("2011-05-11 00:00:00");</span>
+</code></pre></div>
 <p>You can compare the Array to an integer, but I don't know what PHP does. It seems as if the array would always be considered as being greater. If you use the functions you'll be fine.</p>
 <h2 id="mysql_1">MySQL</h2>
 <h3 id="time formats and functions_1">time formats and functions</h3>
@@ -189,7 +189,7 @@ range is from '1000-01-01' to '9999-12-31'</li>
 range is from '1970-01-01 00:00:01' UTC to '2038-01-19 03:14:07' UTC</li>
 </ul></p>
 <p>Those examples show more than a long explanation:</p>
-<div class="highlight"><pre><span></span>mysql&gt; SELECT CURTIME<span class="o">()</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code>mysql&gt; SELECT CURTIME<span class="o">()</span><span class="p">;</span>
         -&gt; <span class="s1">'23:50:26'</span>
 <span class="c1"># Adding zero will NOT convert it to a UNIX timestamp:</span>
 mysql&gt; SELECT CURTIME<span class="o">()</span> + <span class="m">0</span><span class="p">;</span>
@@ -207,32 +207,32 @@ mysql&gt; SELECT UNIX_TIMESTAMP<span class="o">(</span><span class="s1">'2011-10
         -&gt; <span class="m">1317746025</span>
 <span class="c1"># You can also convert it:</span>
 mysql&gt; SELECT UNIX_TIMESTAMP<span class="o">(</span><span class="sb">`</span>my_datetime_row<span class="sb">`</span><span class="o">)</span> FROM <span class="sb">`</span>my_table<span class="sb">`</span>
-</pre></div>
+</code></pre></div>
 <h3 id="comparisons_1">Comparisons</h3>
 <p>You can compare two DATETIMEs like this:</p>
-<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">`</span><span class="n">my_row</span><span class="o">`</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">my_table</span><span class="o">`</span> <span class="k">WHEN</span> <span class="o">`</span><span class="n">datetime1</span><span class="o">`</span> <span class="o">&lt;</span> <span class="o">`</span><span class="n">datetime2</span><span class="o">`</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">`</span><span class="n">my_row</span><span class="o">`</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">my_table</span><span class="o">`</span> <span class="k">WHEN</span> <span class="o">`</span><span class="n">datetime1</span><span class="o">`</span> <span class="o">&lt;</span> <span class="o">`</span><span class="n">datetime2</span><span class="o">`</span>
+</code></pre></div>
 <p>It's of course not problem if you compare two UNIX Timestamps which are stored as integers in the database:</p>
-<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">`</span><span class="n">my_row</span><span class="o">`</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">my_table</span><span class="o">`</span> <span class="k">WHEN</span> <span class="o">`</span><span class="n">int1</span><span class="o">`</span> <span class="o">&lt;</span> <span class="o">`</span><span class="n">int2</span><span class="o">`</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">`</span><span class="n">my_row</span><span class="o">`</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">my_table</span><span class="o">`</span> <span class="k">WHEN</span> <span class="o">`</span><span class="n">int1</span><span class="o">`</span> <span class="o">&lt;</span> <span class="o">`</span><span class="n">int2</span><span class="o">`</span>
+</code></pre></div>
 <p>But what happens if you compare a DATETIME with a Timestamp (integer)?</p>
-<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">`</span><span class="n">my_row</span><span class="o">`</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">my_table</span><span class="o">`</span> <span class="k">WHEN</span> <span class="o">`</span><span class="n">datetime1</span><span class="o">`</span> <span class="o">&lt;</span> <span class="n">UNIX_TIMESTAMP</span><span class="p">()</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">`</span><span class="n">my_row</span><span class="o">`</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">my_table</span><span class="o">`</span> <span class="k">WHEN</span> <span class="o">`</span><span class="n">datetime1</span><span class="o">`</span> <span class="o">&lt;</span> <span class="n">UNIX_TIMESTAMP</span><span class="p">()</span>
+</code></pre></div>
 <p>This is basically:</p>
-<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">`</span><span class="n">my_row</span><span class="o">`</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">my_table</span><span class="o">`</span> <span class="k">WHEN</span> <span class="o">`</span><span class="n">datetime1</span><span class="o">`</span> <span class="o">&lt;</span> <span class="mi">1317750167</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">`</span><span class="n">my_row</span><span class="o">`</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">my_table</span><span class="o">`</span> <span class="k">WHEN</span> <span class="o">`</span><span class="n">datetime1</span><span class="o">`</span> <span class="o">&lt;</span> <span class="mi">1317750167</span>
+</code></pre></div>
 <p>And it compares the "integered" DATETIME 20111004210710 for 2011-10-04 21:07:10 with 1317750167. This is obviously crap. Don't do it. Never.
 Instead you should convert your dates with UNIX_TIMESTAMP(your_datetime) or  FROM_UNIXTIME(unix_timestamp).</p>
 <h2 id="comparing mysql types with php types_1">Comparing MySQL types with PHP types</h2>
 <p>The simplest way to compare MySQL DATE formats with PHP types is using strtotime(...) or date(...) if needed. If you have a DATETIME and you want to know if it's in the past, you can use</p>
-<div class="highlight"><pre><span></span><span class="x">if (strtotime($datetime) &lt; time()) {</span>
+<div class="highlight"><pre><span></span><code><span class="x">if (strtotime($datetime) &lt; time()) {</span>
 <span class="x">   echo '$datetime is in the past.';</span>
 <span class="x">}</span>
-</pre></div>
+</code></pre></div>
 <h2 id="from php to mysql">From PHP to MySQL</h2>
 <p>If you have a date you got via an date input field and want to submit it to MySQL, just use this piece of code:</p>
-<div class="highlight"><pre><span></span><span class="x">$mysqlFormat = date('Y-m-d H:i:s', strtotime($_POST['my_date']));</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="x">$mysqlFormat = date('Y-m-d H:i:s', strtotime($_POST['my_date']));</span>
+</code></pre></div>
             
             <div id="disqus_thread" class="no-print"></div>
 <script>

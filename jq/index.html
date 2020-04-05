@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Data analysis, EDA, JSON, JSONL, Code, " />
 
-<meta property="og:title" content="jq "/>
+<meta property="og:title" content="jq"/>
 <meta property="og:url" content="../jq/" />
 <meta property="og:description" content="jq is a command line tool for processing JSON data. It is useful when executing small ad-hoc tasks. In this sense, it is similar to sed, awk and grep. It is very good for the first step in exploratory data analysis: Getting an idea what you actually have. Installation # Ubuntu …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2019-11-03T12:00:00+01:00" />
-<meta name="twitter:title" content="jq ">
+<meta name="twitter:title" content="jq">
 <meta name="twitter:description" content="jq is a command line tool for processing JSON data. It is useful when executing small ad-hoc tasks. In this sense, it is similar to sed, awk and grep. It is very good for the first step in exploratory data analysis: Getting an idea what you actually have. Installation # Ubuntu …">
 <meta property="og:image" content="logos/jq.png" />
 <meta name="twitter:image" content="logos/jq.png" >
 
-        <title>jq  · Martin Thoma
+        <title>jq · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../jq/"> jq  </a></h1>
+    <h1><a href="../jq/"> jq </a></h1>
     </header>
 </div>
 
@@ -115,16 +115,16 @@ executing small ad-hoc tasks. In this sense, it is similar to <code>sed</code>, 
 <code>grep</code>. It is very good for the first step in exploratory data analysis:
 Getting an idea what you actually have.</p>
 <h2 id="installation">Installation</h2>
-<div class="highlight"><pre><span></span><span class="c1"># Ubuntu</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Ubuntu</span>
 $ sudo apt-get install jq
-</pre></div>
+</code></pre></div>
 <p>Check if it worked:</p>
-<div class="highlight"><pre><span></span>$ jq --version
+<div class="highlight"><pre><span></span><code>$ jq --version
 jq-1.5-1-a5b5cbe
-</pre></div>
+</code></pre></div>
 <h2 id="usage-example">Usage Example</h2>
 <p>There are <a href="https://github.com/jdorfman/awesome-json-datasets#movies">tons of JSON dataset examples</a>. Let's use <a href="https://raw.githubusercontent.com/prust/wikipedia-movie-data/master/movies.json">American movies scraped from Wikipedia</a>.</p>
-<div class="highlight"><pre><span></span><span class="c1"># Download the data</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Download the data</span>
 $ wget https://raw.githubusercontent.com/prust/wikipedia-movie-data/master/movies.json
 
 <span class="c1"># What do we have here?</span>
@@ -173,13 +173,13 @@ $<span class="s2"> cat movies.json | jq '.[:5]'</span>
 <span class="s2">    "</span>genres<span class="s2">": []</span>
 <span class="s2">  }</span>
 <span class="s2">]</span>
-</pre></div>
+</code></pre></div>
 <p>At this point, I would usually switch to Pandas. However, let's see how far
 we get with <code>jq</code>.</p>
 <p>I want to see the titles. To do so, I first extract each list element. Then
 I extract the <code>title</code> field from each of them. To allow me scolling through it,
 I apply <code>less</code>:</p>
-<div class="highlight"><pre><span></span>$ cat movies.json <span class="p">|</span> jq <span class="s1">'.[] | .title'</span> <span class="p">|</span> less
+<div class="highlight"><pre><span></span><code>$ cat movies.json <span class="p">|</span> jq <span class="s1">'.[] | .title'</span> <span class="p">|</span> less
 <span class="s2">"After Dark in Central Park"</span>
 <span class="s2">"Boarding School Girls' Pajama Parade"</span>
 <span class="s2">"Buffalo Bill's Wild West Parad"</span>
@@ -192,9 +192,9 @@ I apply <code>less</code>:</p>
 <span class="s2">"New Life Rescue"</span>
 <span class="s2">"New Morning Bath"</span>
 ...
-</pre></div>
+</code></pre></div>
 <p>Now I want to find errors in the data:</p>
-<div class="highlight"><pre><span></span>$ cat movies.json <span class="p">|</span> jq <span class="s1">'.[] | .title | select(length&lt;=2)'</span>
+<div class="highlight"><pre><span></span><code>$ cat movies.json <span class="p">|</span> jq <span class="s1">'.[] | .title | select(length&lt;=2)'</span>
 <span class="s2">"It"</span>
 <span class="s2">"M"</span>
 <span class="s2">"W"</span>
@@ -228,7 +228,7 @@ $ cat movies.json <span class="p">|</span> jq <span class="s1">'.[] | .title | s
 <span class="c1"># Alternatively:</span>
 $ cat movies.json <span class="p">|</span> jq <span class="s1">'max_by(.title | length).title'</span>
 <span class="s2">"Cornell-Columbia-University of Pennsylvania Boat Race at Ithaca, N.Y., Showing Lehigh Valley Observation Train"</span>
-</pre></div>
+</code></pre></div>
 <p>WTF, <a href="https://www.imdb.com/title/tt0235439/">The Green Goods Man...</a> and
 <a href="https://www.imdb.com/title/tt0357570/">Cornell-Columbia-University ...</a> are
 actually movies! Also <a href="https://www.imdb.com/title/tt0120577/?ref_=nv_sr_1?ref_=nv_sr_1">54</a>,
@@ -236,13 +236,13 @@ actually movies! Also <a href="https://www.imdb.com/title/tt0120577/?ref_=nv_sr_
 <a href="https://www.imdb.com/title/tt0043766/?ref_=fn_al_tt_2">M</a> and
 <a href="https://www.imdb.com/title/tt3166542/?ref_=fn_al_tt_3">W</a> are actually titles!</p>
 <p>Ok, let's see which value range the year covers:</p>
-<div class="highlight"><pre><span></span>$ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .year] | min'</span>
+<div class="highlight"><pre><span></span><code>$ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .year] | min'</span>
 <span class="m">1900</span>
 $ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .year] | max'</span>
 <span class="m">2018</span>
-</pre></div>
+</code></pre></div>
 <p>Let's see which ones were published in 1900:</p>
-<div class="highlight"><pre><span></span>$ cat movies.json <span class="p">|</span> jq <span class="s1">'.[] | select(.year == 1900) | .title'</span>
+<div class="highlight"><pre><span></span><code>$ cat movies.json <span class="p">|</span> jq <span class="s1">'.[] | select(.year == 1900) | .title'</span>
 <span class="s2">"After Dark in Central Park"</span>
 <span class="s2">"Boarding School Girls' Pajama Parade"</span>
 <span class="s2">"Buffalo Bill's Wild West Parad"</span>
@@ -260,10 +260,10 @@ $ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .year] | 
 <span class="s2">"Two Old Sparks"</span>
 <span class="s2">"The Wonder, Ching Ling Foo"</span>
 <span class="s2">"Watermelon Contest"</span>
-</pre></div>
+</code></pre></div>
 <p>Now, what about the <code>cast</code> field? How often is there at least one value? What
 is the maximum number of cast members we have?</p>
-<div class="highlight"><pre><span></span>$ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .cast | length] | max'</span>
+<div class="highlight"><pre><span></span><code>$ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .cast | length] | max'</span>
 <span class="m">35</span>
 
 $ cat movies.json <span class="p">|</span> jq <span class="s1">'[.[] | .cast | select(length&gt;=1)] | length'</span>
@@ -284,7 +284,7 @@ $ cat movies.json <span class="p">|</span> jq <span class="s1">'.[] | select(.ca
 <span class="s2">"Cars 2"</span>
 <span class="s2">"The Twilight Saga: Breaking Dawn - Part 2"</span>
 <span class="s2">"Anchorman 2: The Legend Continues"</span>
-</pre></div>
+</code></pre></div>
 <p>Now I would like to see for which actors we have most titles. Also, I would
 like to get a list of all actors in the dataset. However, I have no clue how to
 do this with <code>jq</code>.</p>

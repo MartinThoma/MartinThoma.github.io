@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Python, Code, " />
 
-<meta property="og:title" content="Python property "/>
+<meta property="og:title" content="Python property"/>
 <meta property="og:url" content="../python-property/" />
 <meta property="og:description" content="Python has a built-in decorator @property. In this article, you will learn why and how to use it. The following super basic Location class is used: def Location(object): def __init__(self, longitude, latitude): self.longitude = longitude self.latitude = latitude Getters and Setters Let&#39;s say, you want to add a …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2018-10-19T20:00:00+02:00" />
-<meta name="twitter:title" content="Python property ">
+<meta name="twitter:title" content="Python property">
 <meta name="twitter:description" content="Python has a built-in decorator @property. In this article, you will learn why and how to use it. The following super basic Location class is used: def Location(object): def __init__(self, longitude, latitude): self.longitude = longitude self.latitude = latitude Getters and Setters Let&#39;s say, you want to add a …">
 <meta property="og:image" content="logos/python.png" />
 <meta name="twitter:image" content="logos/python.png" >
 
-        <title>Python property  · Martin Thoma
+        <title>Python property · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../python-property/"> Python property  </a></h1>
+    <h1><a href="../python-property/"> Python property </a></h1>
     </header>
 </div>
 
@@ -113,15 +113,15 @@ MathJax.Hub.Queue(function() {
             <p>Python has a built-in decorator <code>@property</code>. In this article, you will learn
 why and how to use it.</p>
 <p>The following super basic <code>Location</code> class is used:</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Location</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">Location</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">longitude</span><span class="p">,</span> <span class="n">latitude</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">longitude</span> <span class="o">=</span> <span class="n">longitude</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">latitude</span> <span class="o">=</span> <span class="n">latitude</span>
-</pre></div>
+</code></pre></div>
 <h2 id="getters-and-setters">Getters and Setters</h2>
 <p>Let's say, you want to add a range check for the properties of the class. You
 could make something like:</p>
-<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Location</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Location</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">longitude</span><span class="p">,</span> <span class="n">latitude</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">set_latitude</span><span class="p">(</span><span class="n">latitude</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">set_longitude</span><span class="p">(</span><span class="n">longitude</span><span class="p">)</span>
@@ -129,31 +129,31 @@ could make something like:</p>
     <span class="k">def</span> <span class="nf">set_latitude</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">latitude</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="o">-</span><span class="mi">90</span> <span class="o">&lt;=</span> <span class="n">latitude</span> <span class="o">&lt;=</span> <span class="mi">90</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="s2">"latitude was {}, but has to be in [-90, 90]"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">latitude</span><span class="p">)</span>
+                <span class="s2">"latitude was </span><span class="si">{}</span><span class="s2">, but has to be in [-90, 90]"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">latitude</span><span class="p">)</span>
             <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">latitude</span> <span class="o">=</span> <span class="n">latitude</span>
 
     <span class="k">def</span> <span class="nf">set_longitude</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">longitude</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="o">-</span><span class="mi">180</span> <span class="o">&lt;=</span> <span class="n">longitude</span> <span class="o">&lt;=</span> <span class="mi">180</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="s2">"longitude was {}, but has to be in [-180, 180]"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">longitude</span><span class="p">)</span>
+                <span class="s2">"longitude was </span><span class="si">{}</span><span class="s2">, but has to be in [-180, 180]"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">longitude</span><span class="p">)</span>
             <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">longitude</span> <span class="o">=</span> <span class="n">longitude</span>
-</pre></div>
+</code></pre></div>
 <p>which would then be called like this:</p>
-<div class="highlight"><pre><span></span><span class="n">my_position</span> <span class="o">=</span> <span class="n">Location</span><span class="p">(</span><span class="mf">48.137222222222</span><span class="p">,</span> <span class="mf">11.575555555556</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">my_position</span> <span class="o">=</span> <span class="n">Location</span><span class="p">(</span><span class="mf">48.137222222222</span><span class="p">,</span> <span class="mf">11.575555555556</span><span class="p">)</span>
 
 <span class="c1"># Update after a while</span>
 <span class="n">my_position</span><span class="o">.</span><span class="n">set_latitude</span><span class="p">(</span><span class="mf">48.2</span><span class="p">)</span>
 <span class="n">my_position</span><span class="o">.</span><span class="n">set_longitude</span><span class="p">(</span><span class="mf">42.6</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 <p>This is what Java developers would do. Note that there is only the convention
 that tells you that the <code>latitude</code> property has a <code>set_latitude</code> setter and
 a <code>get_latitude</code> getter.</p>
 <h2 id="property-class">Property class</h2>
 <p>With Python 2.2, the <code>property</code> class was added to simplify it (<a href="https://www.python.org/download/releases/2.2.2/descrintro/#property">source</a>).</p>
 <p>With that, you can change the class to</p>
-<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Location</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Location</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">"""Representation of a point on Earth."""</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">longitude</span><span class="p">,</span> <span class="n">latitude</span><span class="p">):</span>
@@ -163,14 +163,14 @@ a <code>get_latitude</code> getter.</p>
     <span class="k">def</span> <span class="nf">set_latitude</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">latitude</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="o">-</span><span class="mi">90</span> <span class="o">&lt;=</span> <span class="n">latitude</span> <span class="o">&lt;=</span> <span class="mi">90</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="s2">"latitude was {}, but has to be in [-90, 90]"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">latitude</span><span class="p">)</span>
+                <span class="s2">"latitude was </span><span class="si">{}</span><span class="s2">, but has to be in [-90, 90]"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">latitude</span><span class="p">)</span>
             <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_latitude</span> <span class="o">=</span> <span class="n">latitude</span>
 
     <span class="k">def</span> <span class="nf">set_longitude</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">longitude</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="o">-</span><span class="mi">180</span> <span class="o">&lt;=</span> <span class="n">longitude</span> <span class="o">&lt;=</span> <span class="mi">180</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="s2">"longitude was {}, but has to be in [-180, 180]"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">longitude</span><span class="p">)</span>
+                <span class="s2">"longitude was </span><span class="si">{}</span><span class="s2">, but has to be in [-180, 180]"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">longitude</span><span class="p">)</span>
             <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_longitude</span> <span class="o">=</span> <span class="n">longitude</span>
 
@@ -191,9 +191,9 @@ a <code>get_latitude</code> getter.</p>
 <span class="n">my_position</span><span class="o">.</span><span class="n">longitude</span> <span class="o">=</span> <span class="mf">42.6</span>
 
 <span class="n">my_position</span><span class="o">.</span><span class="n">latitude</span> <span class="o">=</span> <span class="mi">123</span>  <span class="c1"># Fails</span>
-</pre></div>
+</code></pre></div>
 <p>Here is how the <code>help</code> of this class looks like:</p>
-<div class="highlight"><pre><span></span>Help on class Location in module __main__:
+<div class="highlight"><pre><span></span><code>Help on class Location in module __main__:
 
 class Location(builtins.object)
  |  Representation of a point on Earth.
@@ -223,7 +223,7 @@ class Location(builtins.object)
  |  latitude
  |
  |  longitude
-</pre></div>
+</code></pre></div>
 <div class="info">You should note the single leading underscore - that is Pythons way to denote private properties. It is not meant as the public interface of the class.<br/>
 <br/>
 There is also a leading double underscore. The interpreter changes the name of the attribute to prevent naming colisions. Just have a look at `dir(some_example_class)`. See also: [What's the meaning of underscores (_ &amp; __) in Python variable names?](https://www.youtube.com/watch?v=ALZmCy2u0jQ)</div>
@@ -236,7 +236,7 @@ anymore. Also, the <code>help</code> is polluted by the getters and setters.</p>
 <p>The property decorator is what should be used in Python (<a href="https://stackoverflow.com/a/52947521/562769">source</a>).
 It makes the behaviour less error-prone when you inherit from such a class.</p>
 <p>Here is how it is used:</p>
-<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Location</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Location</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">"""Representation of a point on Earth."""</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">longitude</span><span class="p">,</span> <span class="n">latitude</span><span class="p">):</span>
@@ -253,19 +253,19 @@ It makes the behaviour less error-prone when you inherit from such a class.</p>
         <span class="sd">"""Longitude of the location. East is positive, west is negative."""</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_longitude</span>
 
-    <span class="nd">@latitude.setter</span>
+    <span class="nd">@latitude</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">latitude</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">latitude</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="o">-</span><span class="mi">90</span> <span class="o">&lt;=</span> <span class="n">latitude</span> <span class="o">&lt;=</span> <span class="mi">90</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="s2">"latitude was {}, but has to be in [-90, 90]"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">latitude</span><span class="p">)</span>
+                <span class="s2">"latitude was </span><span class="si">{}</span><span class="s2">, but has to be in [-90, 90]"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">latitude</span><span class="p">)</span>
             <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_latitude</span> <span class="o">=</span> <span class="n">latitude</span>
 
-    <span class="nd">@longitude.setter</span>
+    <span class="nd">@longitude</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">longitude</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">longitude</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="o">-</span><span class="mi">180</span> <span class="o">&lt;=</span> <span class="n">longitude</span> <span class="o">&lt;=</span> <span class="mi">180</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="s2">"longitude was {}, but has to be in [-180, 180]"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">longitude</span><span class="p">)</span>
+                <span class="s2">"longitude was </span><span class="si">{}</span><span class="s2">, but has to be in [-180, 180]"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">longitude</span><span class="p">)</span>
             <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_longitude</span> <span class="o">=</span> <span class="n">longitude</span>
 
@@ -277,9 +277,9 @@ It makes the behaviour less error-prone when you inherit from such a class.</p>
 <span class="n">my_position</span><span class="o">.</span><span class="n">longitude</span> <span class="o">=</span> <span class="mf">42.6</span>
 
 <span class="n">my_position</span><span class="o">.</span><span class="n">latitude</span> <span class="o">=</span> <span class="mi">123</span>  <span class="c1"># Fails</span>
-</pre></div>
+</code></pre></div>
 <p>Here is how the <code>help</code> of this class looks like:</p>
-<div class="highlight"><pre><span></span>Help on class Location in module __main__:
+<div class="highlight"><pre><span></span><code>Help on class Location in module __main__:
 
 class Location(builtins.object)
  |  Representation of a point on Earth.
@@ -303,7 +303,7 @@ class Location(builtins.object)
  |
  |  longitude
  |      Longitude of the location. East is positive, west is negative.
-</pre></div>
+</code></pre></div>
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="https://stackoverflow.com/q/52899509/562769">Is there an advantage of using the property decorator compared to the property class?</a></li>

@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Algorithms, Machine Learning, optimization, Python, Machine Learning, " />
 
-<meta property="og:title" content="Linear Classification "/>
+<meta property="og:title" content="Linear Classification"/>
 <meta property="og:url" content="../linear-classification/" />
 <meta property="og:description" content="In classification problems you have data points \(x \in \mathbb{R}^m\) which you want to classify into one of \(k \in \mathbb{N}_{\geq 2}\) classes. This is a supervised task. This means you have \(n\) data points for training in a matrix \(X \in \mathbb{R}^{n …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2016-06-22T20:00:00+02:00" />
-<meta name="twitter:title" content="Linear Classification ">
+<meta name="twitter:title" content="Linear Classification">
 <meta name="twitter:description" content="In classification problems you have data points \(x \in \mathbb{R}^m\) which you want to classify into one of \(k \in \mathbb{N}_{\geq 2}\) classes. This is a supervised task. This means you have \(n\) data points for training in a matrix \(X \in \mathbb{R}^{n …">
 <meta property="og:image" content="logos/ml.png" />
 <meta name="twitter:image" content="logos/ml.png" >
 
-        <title>Linear Classification  · Martin Thoma
+        <title>Linear Classification · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../linear-classification/"> Linear Classification  </a></h1>
+    <h1><a href="../linear-classification/"> Linear Classification </a></h1>
     </header>
 </div>
 
@@ -110,14 +110,14 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>In classification problems you have data points <span class="math">\(x \in \mathbb{R}^m\)</span> which you want to classify into one of <span class="math">\(k \in \mathbb{N}_{\geq 2}\)</span> classes. This is a supervised task. This means you have <span class="math">\(n\)</span> data points for training in a matrix <span class="math">\(X \in \mathbb{R}^{n \times m}\)</span> with their labels.<sup id="fnref-1"><a class="footnote-ref" href="#fn-1">1</a></sup></p>
+            <p>In classification problems you have data points <span class="math">\(x \in \mathbb{R}^m\)</span> which you want to classify into one of <span class="math">\(k \in \mathbb{N}_{\geq 2}\)</span> classes. This is a supervised task. This means you have <span class="math">\(n\)</span> data points for training in a matrix <span class="math">\(X \in \mathbb{R}^{n \times m}\)</span> with their labels.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
 <p>Initially, the label might be something like "cat" or "dog". But the machine learning algorithms can't deal with those directly, so you need to encode the labels. The simplest way of encoding them is to use integers <span class="math">\(0, 1, \dots, k - 1\)</span>. However, in many cases it is handy to use a <em>one-hot encoding</em>. This means you make a <span class="math">\(k\)</span>-dimensional vector for each label. <span class="math">\((1, 0)\)</span> might encode "dog" and <span class="math">\((0, 1)\)</span> might encode "cat". <code>sklearn</code> supports this encoding in a convenient way
-(<a href="http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html">docs</a>). Another common encoding is <span class="math">\(-1\)</span> and <span class="math">\(1\)</span> for binary classification problems.<sup id="fnref-2"><a class="footnote-ref" href="#fn-2">2</a></sup></p>
+(<a href="http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html">docs</a>). Another common encoding is <span class="math">\(-1\)</span> and <span class="math">\(1\)</span> for binary classification problems.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
 <p>A linear model is one which applies only linear operations to the features. So basically the model may only be a matrix. Typically the elements of the matrix are called <em>weights</em>, because they weight the importance of each feature.</p>
-<p>The objective of such a classifier<sup id="fnref-4"><a class="footnote-ref" href="#fn-4">4</a></sup> is to find a matrix <span class="math">\(W^*\)</span> such that the MSE is as small as possible on the test set <span class="math">\(D\)</span>:</p>
+<p>The objective of such a classifier<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup> is to find a matrix <span class="math">\(W^*\)</span> such that the MSE is as small as possible on the test set <span class="math">\(D\)</span>:</p>
 <div class="math">$$W^* = \arg \min_{W} E_{MSE} (f_W, D)$$</div>
 <h2 id="one-hot-encoding">One-hot encoding</h2>
-<p>If one-hot encoded labels are used,<sup id="fnref-3"><a class="footnote-ref" href="#fn-3">3</a></sup> a linear classifier
+<p>If one-hot encoded labels are used,<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> a linear classifier
 </p>
 <div class="math">$$f: \text{feature space} \rightarrow \text{class space}$$</div>
 <p>
@@ -211,14 +211,14 @@ $$</div>
 <h2 id="implementation">Implementation</h2>
 <p>If I had to implement a linear binary classifier, I would use the delta rule
 and a perceptron unit:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
 <span class="sd">"""Example for a linear classifier using a perceptron and the delta rule."""</span>
 
 <span class="kn">from</span> <span class="nn">sklearn.datasets.samples_generator</span> <span class="kn">import</span> <span class="n">make_blobs</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 
 <span class="k">class</span> <span class="nc">Perceptron</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -269,7 +269,7 @@ and a perceptron unit:</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">gray</span><span class="p">()</span>
 <span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">target</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 <p>which gives:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
 <img alt="Classification with a Perceptron." src="../images/2016/06/perceptron-classification.png"/>
@@ -282,19 +282,19 @@ SVMs.</p>
 <div class="footnote">
 <hr/>
 <ol>
-<li id="fn-1">
+<li id="fn:1">
 <p>A label and a class are two different things. The class is a set which
   contains all data points which belong to this class. The label is only
-  a pointer to this class.&nbsp;<a class="footnote-backref" href="#fnref-1" title="Jump back to footnote 1 in the text">↩</a></p>
+  a pointer to this class.&nbsp;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
 </li>
-<li id="fn-2">
-<p>Classification problems with only two classes.&nbsp;<a class="footnote-backref" href="#fnref-2" title="Jump back to footnote 2 in the text">↩</a></p>
+<li id="fn:2">
+<p>Classification problems with only two classes.&nbsp;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">↩</a></p>
 </li>
-<li id="fn-3">
-<p>Also called "targets" sometimes, as we want our classifier to output those values.&nbsp;<a class="footnote-backref" href="#fnref-3" title="Jump back to footnote 3 in the text">↩</a></p>
+<li id="fn:3">
+<p>Also called "targets" sometimes, as we want our classifier to output those values.&nbsp;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">↩</a></p>
 </li>
-<li id="fn-4">
-<p>The objective function defines what is to be done during fitting / training / learning.&nbsp;<a class="footnote-backref" href="#fnref-4" title="Jump back to footnote 4 in the text">↩</a></p>
+<li id="fn:4">
+<p>The objective function defines what is to be done during fitting / training / learning.&nbsp;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">↩</a></p>
 </li>
 </ol>
 </div>

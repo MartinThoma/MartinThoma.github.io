@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Machine Learning, Research, Machine Learning, " />
 
-<meta property="og:title" content="Reproducibility in Machine Learning "/>
+<meta property="og:title" content="Reproducibility in Machine Learning"/>
 <meta property="og:url" content="../ml-reproducibility/" />
 <meta property="og:description" content="Getting reproducible results is important because of trust: Why should somebody else trust you, if you can get the same results repeatedly? Why do you trust your results in the first place? People make errors. Making sure you can repeat what you did before eliminates possibilities for human error. Here …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2017-12-13T20:00:00+01:00" />
-<meta name="twitter:title" content="Reproducibility in Machine Learning ">
+<meta name="twitter:title" content="Reproducibility in Machine Learning">
 <meta name="twitter:description" content="Getting reproducible results is important because of trust: Why should somebody else trust you, if you can get the same results repeatedly? Why do you trust your results in the first place? People make errors. Making sure you can repeat what you did before eliminates possibilities for human error. Here …">
 <meta property="og:image" content="logos/ml.png" />
 <meta name="twitter:image" content="logos/ml.png" >
 
-        <title>Reproducibility in Machine Learning  · Martin Thoma
+        <title>Reproducibility in Machine Learning · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../ml-reproducibility/"> Reproducibility in Machine Learning  </a></h1>
+    <h1><a href="../ml-reproducibility/"> Reproducibility in Machine Learning </a></h1>
     </header>
 </div>
 
@@ -143,7 +143,7 @@ feeling for how different things are.</p>
 <li>Always log information about <strong>drivers</strong> (e.g. <a href="https://stackoverflow.com/a/47781255/562769">like this for nVidia</a>) and <strong>hardware</strong>. Add this to the appendix of your paper. So in case of later changes one can at least check if there was a change which might cause numbers being different.</li>
 </ol>
 <p>For logging the versions, you might want to use something like this:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
 <span class="c1"># core modules</span>
 <span class="kn">import</span> <span class="nn">subprocess</span>
@@ -162,32 +162,32 @@ feeling for how different things are.</p>
         <span class="n">cpuinfo</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">cpuinfo</span><span class="p">:</span>
         <span class="k">if</span> <span class="s2">"model name"</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
-            <span class="n">logstring</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"CPU: {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()))</span>
+            <span class="n">logstring</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"CPU: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()))</span>
             <span class="k">break</span>
 
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"/proc/driver/nvidia/version"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">version</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-    <span class="n">logstring</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"GPU driver: {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">version</span><span class="p">))</span>
-    <span class="n">logstring</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"VGA: {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">find_vga</span><span class="p">()))</span>
+    <span class="n">logstring</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"GPU driver: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">version</span><span class="p">))</span>
+    <span class="n">logstring</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"VGA: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">find_vga</span><span class="p">()))</span>
     <span class="k">return</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">logstring</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">find_vga</span><span class="p">():</span>
     <span class="n">vga</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span>
-        <span class="s2">"lspci | grep -i 'vga\|3d\|2d'"</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">executable</span><span class="o">=</span><span class="s2">"/bin/bash"</span>
+        <span class="s2">"lspci | grep -i 'vga\|3d\|2d'"</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">executable</span><span class="o">=</span><span class="s2">"/bin/bash"</span>
     <span class="p">)</span>
     <span class="k">return</span> <span class="n">vga</span>
 
 
-<span class="k">print</span><span class="p">(</span><span class="n">get_logstring</span><span class="p">())</span>
-</pre></div>
+<span class="nb">print</span><span class="p">(</span><span class="n">get_logstring</span><span class="p">())</span>
+</code></pre></div>
 <p>which gives something like</p>
-<div class="highlight"><pre><span></span>CPU: model name    : Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz
+<div class="highlight"><pre><span></span><code>CPU: model name    : Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz
 GPU driver: NVRM version: NVIDIA UNIX x86_64 Kernel Module  384.90  Tue Sep 19 19:17:35 PDT 2017
 GCC version:  gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.5)
 VGA: 00:02.0 VGA compatible controller: Intel Corporation Skylake Integrated Graphics (rev 06)
 02:00.0 3D controller: NVIDIA Corporation GM108M [GeForce 940MX] (rev a2)
-</pre></div>
+</code></pre></div>
             
             <div id="disqus_thread" class="no-print"></div>
 <script>

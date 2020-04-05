@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Strings, Unicode, Encoding, UTF8, ASCII, Code, " />
 
-<meta property="og:title" content="Strings "/>
+<meta property="og:title" content="Strings"/>
 <meta property="og:url" content="../strings/" />
 <meta property="og:description" content="Strings are essential for developing applications. Yet they are not covered (enough) if you study computer science. In this article, I will explain what a string is, what Unicode, UTF-8, ASCII and encodings are and what their relationship is. Just when I was about to finish this, I found Joel …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2017-08-06T20:00:00+02:00" />
-<meta name="twitter:title" content="Strings ">
+<meta name="twitter:title" content="Strings">
 <meta name="twitter:description" content="Strings are essential for developing applications. Yet they are not covered (enough) if you study computer science. In this article, I will explain what a string is, what Unicode, UTF-8, ASCII and encodings are and what their relationship is. Just when I was about to finish this, I found Joel …">
 <meta property="og:image" content="logos/unicode.png" />
 <meta name="twitter:image" content="logos/unicode.png" >
 
-        <title>Strings  · Martin Thoma
+        <title>Strings · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../strings/"> Strings  </a></h1>
+    <h1><a href="../strings/"> Strings </a></h1>
     </header>
 </div>
 
@@ -465,19 +465,19 @@ seems to be possible to cover more symbols than 65536. For example,
 <a href="https://www.google.com/get/noto/">noto</a> seems to have a lot.</p>
 <h2 id="how-to-use-it">How to use it</h2>
 <h3 id="c">C</h3>
-<div class="highlight"><pre><span></span>L"Literal UCS-2 string"
-</pre></div>
+<div class="highlight"><pre><span></span><code>L"Literal UCS-2 string"
+</code></pre></div>
 <h3 id="c_1">C++</h3>
-<div class="highlight"><pre><span></span>wchar_t ("wide char")
-</pre></div>
+<div class="highlight"><pre><span></span><code>wchar_t ("wide char")
+</code></pre></div>
 <h3 id="python">Python</h3>
 <p>Use either <code>UCS2*</code> or <code>UCS4</code> for unicode characters. Which one is used is a
 compile time option.</p>
 <p>The <code>unicode(your_string)</code> function creates a unicode object from the given
 encoded string.</p>
 <p>Don't forget to put</p>
-<div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># -*- coding: utf-8 -*-</span>
+</code></pre></div>
 <p>at the beginning of all of your scripts.</p>
 <table class="table">
 <tr>
@@ -500,19 +500,19 @@ encoded string.</p>
 of Python 3 within Python 2: All <code>"string literals"</code> are unicode strings. Otherwise,
 they are byte strings.</p>
 <p>A couple of really helpful examples from <a href="https://stackoverflow.com/a/18034409/562769">Bakuriu</a>:</p>
-<div class="highlight"><pre><span></span>&gt;&gt;&gt; len(u'&agrave;')  # a single code point
-1
-&gt;&gt;&gt; len('&agrave;')   # by default utf-8 -&gt; takes two bytes
-2
-&gt;&gt;&gt; len(u'&agrave;'.encode('utf-8'))
-2
-&gt;&gt;&gt; len(u'&agrave;'.encode('latin1'))  # in latin1 it takes one byte
-1
-&gt;&gt;&gt; print u'&agrave;'.encode('utf-8')  # terminal encoding is utf-8
-&agrave;
-&gt;&gt;&gt; print u'&agrave;'.encode('latin1') # it cannot understand the latin1 byte
-�
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">&gt;&gt;&gt; len(u'&agrave;')  # a single code point</span>
+<span class="err">1</span>
+<span class="err">&gt;&gt;&gt; len('&agrave;')   # by default utf-8 -&gt; takes two bytes</span>
+<span class="err">2</span>
+<span class="err">&gt;&gt;&gt; len(u'&agrave;'.encode('utf-8'))</span>
+<span class="err">2</span>
+<span class="err">&gt;&gt;&gt; len(u'&agrave;'.encode('latin1'))  # in latin1 it takes one byte</span>
+<span class="err">1</span>
+<span class="err">&gt;&gt;&gt; print u'&agrave;'.encode('utf-8')  # terminal encoding is utf-8</span>
+<span class="err">&agrave;</span>
+<span class="err">&gt;&gt;&gt; print u'&agrave;'.encode('latin1') # it cannot understand the latin1 byte</span>
+<span class="err">�</span>
+</code></pre></div>
 <h2 id="pitfalls_1">Pitfalls</h2>
 <p>Some pitfalls are listed in <a href="https://stackoverflow.com/a/15128103/562769">this SO answer</a>:</p>
 <ul>
@@ -525,13 +525,13 @@ they are byte strings.</p>
 <p>In databases, you have to say which collation you want to use. It is about
 sorting. For English it is simple enough to sort by ASCII code, but how do you
 sort</p>
-<div class="highlight"><pre><span></span>Andr&eacute; &lt;- one char
+<div class="highlight"><pre><span></span><code>Andr&eacute; &lt;- one char
 Andr&eacute; &lt;- two chars
 Andrế
 Andrę́
 ...
 Andreas
-</pre></div>
+</code></pre></div>
 <h2 id="see-also">See also</h2>
 <ul>
 <li>Joel Spolsky: <a href="https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/">The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)</a></li>

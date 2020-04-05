@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Machine Learning, ASR, Service, Machine Learning, " />
 
-<meta property="og:title" content="ASR Services "/>
+<meta property="og:title" content="ASR Services"/>
 <meta property="og:url" content="../asr-services/" />
 <meta property="og:description" content="Automatic Speech Recognition (ASR) is really difficult to set up yourself. There are some toolkits like CMU Sphinx and others, but the last time I checked (some years ago) they either didn&#39;t really work or I couldn&#39;t manage to get them running. How does ASR work? One way to do …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2017-10-08T20:00:00+02:00" />
-<meta name="twitter:title" content="ASR Services ">
+<meta name="twitter:title" content="ASR Services">
 <meta name="twitter:description" content="Automatic Speech Recognition (ASR) is really difficult to set up yourself. There are some toolkits like CMU Sphinx and others, but the last time I checked (some years ago) they either didn&#39;t really work or I couldn&#39;t manage to get them running. How does ASR work? One way to do …">
 <meta property="og:image" content="logos/ml.png" />
 <meta name="twitter:image" content="logos/ml.png" >
 
-        <title>ASR Services  · Martin Thoma
+        <title>ASR Services · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../asr-services/"> ASR Services  </a></h1>
+    <h1><a href="../asr-services/"> ASR Services </a></h1>
     </header>
 </div>
 
@@ -246,9 +246,9 @@ case. In fact, I only noticed it when I created the transcript.</p>
 in the latest version (3.7.1) to interact with services. I will use Python&nbsp;3
 for the rest.</p>
 <p>To install it, run</p>
-<div class="highlight"><pre><span></span>$ sudo -H pip install SpeechRecognition --upgrade
+<div class="highlight"><pre><span></span><code>$ sudo -H pip install SpeechRecognition --upgrade
 $ sudo -H pip install pocketsphinx
-</pre></div>
+</code></pre></div>
 <h3 id="pocketsphinx">Pocketsphinx</h3>
 <p>Installation:</p>
 <p>Now follow <a href="https://github.com/Uberi/speech_recognition/blob/master/reference/pocketsphinx.rst#notes-on-the-structure-of-the-language-data">this guide</a> to get support
@@ -256,7 +256,7 @@ for German. You only have to download some files from Sourceforge and add them
 to the right directory with the right name. At the end, the folder
 <code>/usr/local/lib/python3.5/dist-packages/speech_recognition/pocketsphinx-data/de-DE</code>
 should contain the following files:</p>
-<div class="highlight"><pre><span></span>.
+<div class="highlight"><pre><span></span><code>.
 ├── acoustic-model
 │&nbsp;&nbsp; ├── feat.params
 │&nbsp;&nbsp; ├── feature_transform
@@ -268,17 +268,17 @@ should contain the following files:</p>
 │&nbsp;&nbsp; └── variances
 ├── language-model.lm.bin
 └── pronounciation-dictionary.dict
-</pre></div>
+</code></pre></div>
 <p>Script:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python3</span>
 
 <span class="sd">"""Recognize speech using CMU Sphinx (local)."""</span>
 
 <span class="c1"># 3rd party modules</span>
-<span class="kn">import</span> <span class="nn">speech_recognition</span> <span class="kn">as</span> <span class="nn">sr</span>
+<span class="kn">import</span> <span class="nn">speech_recognition</span> <span class="k">as</span> <span class="nn">sr</span>
 
 
-<span class="k">def</span> <span class="nf">recognize</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">recognize</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Transcribe an audio file to text.</span>
 
@@ -302,18 +302,18 @@ should contain the following files:</p>
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">text</span> <span class="o">=</span> <span class="n">recognize</span><span class="p">(</span><span class="s2">"input.wav"</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s2">"de-DE"</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">sr</span><span class="o">.</span><span class="n">UnknownValueError</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"Sphinx could not understand audio"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Sphinx could not understand audio"</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">sr</span><span class="o">.</span><span class="n">RequestError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"Sphinx error; {0}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Sphinx error; </span><span class="si">{0}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 <p>which results in:</p>
-<div class="highlight"><pre><span></span>h&auml;tten und l&auml;ndern der erwerb des handels mit ins kino zu beantragen was soll
+<div class="highlight"><pre><span></span><code>h&auml;tten und l&auml;ndern der erwerb des handels mit ins kino zu beantragen was soll
 ich ich k&ouml;nnte mit dem land folgen gehabt das hei&szlig;t die f&uuml;r mein verstand schon
 vergessen g&uuml;rtel kommentare und ebenso in sicher schaffen erhard war sie
 verlieren nicht den verstand sie reden sich das nein dann werden wir das
@@ -328,7 +328,7 @@ vern&uuml;nftig die beziehungen zu kuba zu normalisierung so sei dank der
 arbeitsleistung es um gewinne durch eine l&auml;nder schwarze eigentlich war es auch
 die anderer wenn dominiert das normalisiert ins auge sechs landwirte angesichts
 allgemeine haltung ich kann es noch f&uuml;r europa
-</pre></div>
+</code></pre></div>
 <p>This is bad for many reasons:</p>
 <ul>
 <li>The transcript is utterly wrong: For some parts you can notice that it does
@@ -387,15 +387,15 @@ will need a credit card (pre-paid credit cards are not accepted).</p>
 </table>
 <p>Please note that there are many more for interactive and dictation mode.</p>
 <p>The following code is used to create a transcript:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python3</span>
 
 <span class="sd">"""Recognize speech using Microsoft Bing Voice Recognition."""</span>
 
 <span class="c1"># 3rd party modules</span>
-<span class="kn">import</span> <span class="nn">speech_recognition</span> <span class="kn">as</span> <span class="nn">sr</span>
+<span class="kn">import</span> <span class="nn">speech_recognition</span> <span class="k">as</span> <span class="nn">sr</span>
 
 
-<span class="k">def</span> <span class="nf">recognize_bing</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">bing_key</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">recognize_bing</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">bing_key</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Transcribe an audio file to text.</span>
 
@@ -425,20 +425,20 @@ will need a credit card (pre-paid credit cards are not accepted).</p>
     <span class="n">bing_key</span> <span class="o">=</span> <span class="s2">"INSERT YOUR BING KEY HERE"</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">text</span> <span class="o">=</span> <span class="n">recognize_bing</span><span class="p">(</span><span class="s2">"input.wav"</span><span class="p">,</span> <span class="n">bing_key</span><span class="o">=</span><span class="n">bing_key</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s2">"de-DE"</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">sr</span><span class="o">.</span><span class="n">UnknownValueError</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"Sphinx could not understand audio"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Sphinx could not understand audio"</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">sr</span><span class="o">.</span><span class="n">RequestError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"Sphinx error; {0}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Sphinx error; </span><span class="si">{0}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 <p>This resulted in</p>
-<div class="highlight"><pre><span></span>Reaser Was ist haben sie Lust mit dem Kino zu kommen war schon dass ich k&ouml;nnte
+<div class="highlight"><pre><span></span><code>Reaser Was ist haben sie Lust mit dem Kino zu kommen war schon dass ich k&ouml;nnte
 den Film gar nicht folgen.
-</pre></div>
+</code></pre></div>
 <p>and took only 2.6s. It only recognized the first part because the
 SpeechRecognition package uses the REST interface instead of the WebSocket
 interface. The REST interface is limited to 15 seconds of audio (<a href="https://docs.microsoft.com/de-de/azure/cognitive-services/speech/home">source</a>).</p>
@@ -447,20 +447,20 @@ interface. The REST interface is limited to 15 seconds of audio (<a href="https:
 <p>https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1</p>
 </blockquote>
 <p>Changing this to <code>conversation</code> changes the result to</p>
-<div class="highlight"><pre><span></span>Die erster Was ist haben sie Lust mit dem Kino zu kommen war schon dass ich
+<div class="highlight"><pre><span></span><code>Die erster Was ist haben sie Lust mit dem Kino zu kommen war schon dass ich
 k&ouml;nnte den Film gar nicht folgen
-</pre></div>
+</code></pre></div>
 <h3 id="google">Google</h3>
 <p>The script</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python3</span>
 
 <span class="sd">"""Recognize speech using Googles ASR Service."""</span>
 
 <span class="c1"># 3rd party modules</span>
-<span class="kn">import</span> <span class="nn">speech_recognition</span> <span class="kn">as</span> <span class="nn">sr</span>
+<span class="kn">import</span> <span class="nn">speech_recognition</span> <span class="k">as</span> <span class="nn">sr</span>
 
 
-<span class="k">def</span> <span class="nf">recognize_google</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">recognize_google</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Transcribe an audio file to text.</span>
 
@@ -485,26 +485,26 @@ k&ouml;nnte den Film gar nicht folgen
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">text</span> <span class="o">=</span> <span class="n">recognize_google</span><span class="p">(</span><span class="s2">"input.wav"</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s2">"de-DE"</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">sr</span><span class="o">.</span><span class="n">UnknownValueError</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"Sphinx could not understand audio"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Sphinx could not understand audio"</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">sr</span><span class="o">.</span><span class="n">RequestError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"Sphinx error; {0}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Sphinx error; </span><span class="si">{0}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 <p>results in</p>
-<div class="highlight"><pre><span></span>Sphinx error; recognition connection failed: [Errno 32] Broken pipe
-</pre></div>
+<div class="highlight"><pre><span></span><code>Sphinx error; recognition connection failed: [Errno 32] Broken pipe
+</code></pre></div>
 <h3 id="google-cloud">Google Cloud</h3>
 <p>See <a href="https://cloud.google.com/speech/">documentation of Google cloud speech API</a>
 and the <a href="https://developers.google.com/apis-explorer/?hl=de#p/speech/v1/">developers page</a>.</p>
 <p>It can only be used for commerical purposes, so I can't try it right now.
 The command is</p>
-<div class="highlight"><pre><span></span><span class="n">r</span><span class="o">.</span><span class="n">recognize_google_cloud</span><span class="p">(</span><span class="n">audio</span><span class="p">,</span> <span class="n">credentials_json</span><span class="o">=</span><span class="n">GOOGLE_CLOUD_SPEECH_CREDENTIALS</span><span class="p">)</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">r</span><span class="o">.</span><span class="n">recognize_google_cloud</span><span class="p">(</span><span class="n">audio</span><span class="p">,</span> <span class="n">credentials_json</span><span class="o">=</span><span class="n">GOOGLE_CLOUD_SPEECH_CREDENTIALS</span><span class="p">)</span>
+</code></pre></div>
 <h3 id="ibm">IBM</h3>
 <p>IBM has a speech recognition service, see <a href="https://www.ibm.com/watson/services/speech-to-text/">starting page</a>.
 But looking at <a href="https://speech-to-text-demo.mybluemix.net">this page</a>, it seems
@@ -522,12 +522,12 @@ as if it only supports</p>
 <h3 id="witai">Wit.ai</h3>
 <p>The service <a href="https://wit.ai/">wit.ai</a> seems to be much simpler to use. You set
 the language over the web interface.</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python3</span>
 
 <span class="sd">"""Recognize speech using wit.ai ASR Service."""</span>
 
 <span class="c1"># 3rd party modules</span>
-<span class="kn">import</span> <span class="nn">speech_recognition</span> <span class="kn">as</span> <span class="nn">sr</span>
+<span class="kn">import</span> <span class="nn">speech_recognition</span> <span class="k">as</span> <span class="nn">sr</span>
 
 
 <span class="k">def</span> <span class="nf">recognize_wit</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
@@ -556,22 +556,22 @@ the language over the web interface.</p>
     <span class="n">server_access_token</span> <span class="o">=</span> <span class="s2">"12ABCDEFGHIJKLMNOPQRSTUVWXYZABCD"</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">text</span> <span class="o">=</span> <span class="n">recognize_wit</span><span class="p">(</span><span class="s2">"input.wav"</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">server_access_token</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">sr</span><span class="o">.</span><span class="n">UnknownValueError</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"Sphinx could not understand audio"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Sphinx could not understand audio"</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">sr</span><span class="o">.</span><span class="n">RequestError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"Sphinx error; {0}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Sphinx error; </span><span class="si">{0}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 <p>results in</p>
-<div class="highlight"><pre><span></span>ey Alter was ist haben Sie Lust mit dem Kino zu kommen ich k&ouml;nnte den Film gar
+<div class="highlight"><pre><span></span><code>ey Alter was ist haben Sie Lust mit dem Kino zu kommen ich k&ouml;nnte den Film gar
 nicht folgen ich verliere meinen Verstand schon vergessen dieser Hitze komme
 ich da k&ouml;nnte ebenso in Griechisch sie verlieren den Verstand die reden dann
 werden wir das jetzt
-</pre></div>
+</code></pre></div>
 <p>What is good:</p>
 <ul>
 <li>The transcript is mostly right.</li>
@@ -591,8 +591,8 @@ werden wir das jetzt
 seems not to be possible to change the language. It reminds me very much of
 Alexa Skills.</p>
 <p>Trying it with the SpeechRecognition package yields</p>
-<div class="highlight"><pre><span></span>Sphinx error; recognition request failed: Bad Gateway
-</pre></div>
+<div class="highlight"><pre><span></span><code>Sphinx error; recognition request failed: Bad Gateway
+</code></pre></div>
 <p>I don't think I'll put more time in that one.</p>
 <h2 id="related_1">Related</h2>
 <ul>
