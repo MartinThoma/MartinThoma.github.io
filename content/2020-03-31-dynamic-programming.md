@@ -57,7 +57,7 @@ Usually *Dynamic Programming* is bottom-up and *Backtracking* uses top-down appr
 
 ### Divide and Conquer
 
-Divide and Conquer algorithms, such as [merge sort](https://en.wikipedia.org/wiki/Merge_sort),
+Divide and Conquer algorithms, such as [merge sort](https://en.wikipedia.org/wiki/Merge_sort), [quicksort](https://en.wikipedia.org/wiki/Quicksort),
 Binary search,
 and the [Euclidean algorithm](https://en.wikipedia.org/wiki/Euclidean_algorithm),
 also divide the original problem into smaller sub-problems.
@@ -581,8 +581,10 @@ search and more eggs will not result in less egg drops.
 
 ## See also
 
-* Wikipedia:
-    * [Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm): finding shortest paths in a weighted graph
+* Wikipedia: Some example for Dynamic Programming algorithms
+    * [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm): single-source shortest path (SSSP)
+    * [Bellman–Ford algorithm](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm): single-source shortest-path algorithm (SSSP), $\mathcal{O}(V^2 E)$
+    * [Floyd–Warshall algorithm](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm): all-pairs shortest path algorithm, $\mathcal{O}(V^3)$
     * [Knapsack problem](https://en.wikipedia.org/wiki/Knapsack_problem#0-1_knapsack_problem)
 * Karpathy: [GridWorld: Dynamic Programming Demo](https://cs.stanford.edu/people/karpathy/reinforcejs/gridworld_dp.html)
 * StackOverflow:

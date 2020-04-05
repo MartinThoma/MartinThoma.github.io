@@ -87,6 +87,18 @@ behind us. I guess the truth is somewhere in between. I I would need to to
 guess, I would say that the situation will become more severe until maybe 20th
 of April and then becomes better.
 
+I was pretty confused when I was trying to calculate those numbers. It seemed as
+every scenario which stayed under the capacity of the healthcare system would
+take massive measures to reach (isolation) and then also make the pandemic take
+at least a year, rather two years. This was confirmed in [^7]. Obviously, it
+is not possible to keep those measures up that long.
+
+Now, the interesting part: **Due to economic reasons, we cannot keep
+half-isolation measures that we get herd immunity. But we could keep isolation
+for a couple of weeks even more extreme so that we can start contract tracing
+again.** Mai Thi also gives an example how long it would take with "Wuhan-Style" lockdown
+to contain the disease again: 56 days (see [Epidemic Calculator](https://gabgoh.github.io/COVID/index.html)).
+
 
 #### Support Others
 
@@ -265,13 +277,36 @@ such as a respiratory condition, recovery may take weeks and in severe cases
 could be potentially fatal.[^5]
 
 
-## Myth: It affects only the elderly
+## Herd immunity
+
+[Herd immunity](https://en.wikipedia.org/wiki/Herd_immunity) is the effect
+that, if enough people are immune to a disease, it doesn't spread. This "it
+doesn't spread" is hard for me to define more precisely, because it can be that
+other people get infected. Just not in an amount which is relevant for the
+complete herd.
+
+I tried to find numbers when heard immunity kicks in. According to [^7], it would be 60% - 70%.
+
+
+## Myth: COVID-19 affects only the elderly
 
 [A Medical Worker Describes Terrifying Lung Failure From COVID-19 — Even in His Young Patients.](https://www.propublica.org/article/a-medical-worker-describes--terrifying-lung-failure-from-covid19-even-in-his-young-patients)
 
 If you want a video of a young person being affected:
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/iFLSG-7K3Tc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+## Myth: COVID-19 is less severe than the flu
+
+There is a good [German source](https://www.tagesschau.de/faktenfinder/corona-grippevergleich-101.html):
+
+* Approximately 25,000 people died in Germany in 2017/2018 due to Influenza.
+  That year was an outlier. in 2013/2014
+  We currently have 1,107 dead people due to COVID-19, but we are just at the
+  start. Italy already has 14,000 dead people due to COVID-19.
+* We have vaccination against the flu, but not against COVID-19.
+
 
 ## Name
 
@@ -588,6 +623,7 @@ Day 2020-03-30: 172,598 (+32,115) predicted vs 162,126 in reality
 * Events get cancelled:
     * 2020-03-12: [Leipziger Buchmesse](https://www.tagesschau.de/inland/corona-deutschland-103.html) - 100,000 visitors expected
     * [Wimbledon](https://us.cnn.com/2020/03/30/tennis/wimbledon-tennis-coronavirus-spt-int/index.html)
+    * [Bayreuther Festspiele](https://www.bayreuther-tagblatt.de/bayreuther-festspiele-wegen-coronavirus-abgesagt/)
 * Various websites scale down, to reduce network traffic:
     * Sony: [Playstation](https://www.heise.de/newsticker/meldung/Playstation-Network-Sony-verringert-Download-Geschwindigkeit-4689896.html)
     * [Akamai](https://blogs.akamai.com/2020/03/working-together-to-manage-global-internet-traffic-increases.html)
@@ -615,14 +651,14 @@ Day 2020-03-30: 172,598 (+32,115) predicted vs 162,126 in reality
 * Statistics:
     * Johns Hopkins University: [Dashboard](https://coronavirus.jhu.edu/map.html)
     * [worldometers.info/coronavirus](https://www.worldometers.info/coronavirus/) - I'm NOT sure how trustworthy they are! The numbers currently roughly match the ones of Johns Hopkins University and they are trustworthy
-    * Robert-Koch-Institue: [COVID-19: Fallzahlen in Deutschland und weltweit](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Fallzahlen.html) (German)
-    * Berliner Morgenpost: [Coronavirus-Monitor](https://interaktiv.morgenpost.de/corona-virus-karte-infektionen-deutschland-weltweit/) (Map / Dashboard)
-    * statista.com: [Entwicklung der täglich neu gemeldeten Fallzahl des Coronavirus (COVID-19) in Deutschland seit Januar 2020](https://de.statista.com/statistik/daten/studie/1100739/umfrage/entwicklung-der-taeglichen-fallzahl-des-coronavirus-in-deutschland/)
+    * 🇩🇪 Robert-Koch-Institue: [COVID-19: Fallzahlen in Deutschland und weltweit](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Fallzahlen.html) (German)
+    * 🇩🇪 Berliner Morgenpost: [Coronavirus-Monitor](https://interaktiv.morgenpost.de/corona-virus-karte-infektionen-deutschland-weltweit/) (Map / Dashboard)
+    * 🇩🇪 statista.com: [Entwicklung der täglich neu gemeldeten Fallzahl des Coronavirus (COVID-19) in Deutschland seit Januar 2020](https://de.statista.com/statistik/daten/studie/1100739/umfrage/entwicklung-der-taeglichen-fallzahl-des-coronavirus-in-deutschland/)
 * Social Distancing
     * [Vox](https://www.youtube.com/watch?v=h9d86ocFlxE)
     * [The math behind why we need social distancing, starting right now](https://www.vox.com/2020/3/15/21180342/coronavirus-covid-19-us-social-distancing)
     * [Australian Government Department of Health](https://www.youtube.com/watch?v=2WCtGFNENYU)
-    * Harald Lesch: [Coronavirus – unnötiger Alarm bei COVID-19?](https://www.youtube.com/watch?v=Fx11Y4xjDwA) (German)
+    * 🇩🇪 Harald Lesch: [Coronavirus – unnötiger Alarm bei COVID-19?](https://www.youtube.com/watch?v=Fx11Y4xjDwA) (German)
     * 3Blue1Brown: [Exponential Growth and Epidemia](https://www.youtube.com/watch?v=Kas0tIxDvrg), 2020-03-08 on YouTube.
 * [Stack Exchange](https://medicalsciences.stackexchange.com/questions/tagged/covid-19?tab=Votes): I'm not sure how good this is
 * [How To Tell If We're Beating COVID-19](https://youtu.be/54XLXg4fYsc)
@@ -631,6 +667,7 @@ Day 2020-03-30: 172,598 (+32,115) predicted vs 162,126 in reality
     * [Trajectory of COVID-19 Confirmed Cases](https://aatishb.com/covidtrends/): Explanation at [minutephysics](https://www.youtube.com/watch?v=54XLXg4fYsc)
         * [Countries with more than 100m inhabitants](https://aatishb.com/covidtrends/?country=Brazil&country=China&country=Egypt&country=India&country=Indonesia&country=Japan&country=Mexico&country=Nigeria&country=Pakistan&country=Philippines&country=Russia&country=US)
         * [European Union](https://aatishb.com/covidtrends/?country=Austria&country=Belgium&country=Bulgaria&country=Croatia&country=Cyprus&country=Czechia&country=Estonia&country=Finland&country=France&country=Germany&country=Hungary&country=Ireland&country=Italy&country=Latvia&country=Lithuania&country=Luxembourg&country=Malta&country=Netherlands&country=Poland&country=Portugal&country=Romania&country=Slovakia&country=Slovenia&country=Spain&country=Sweden&country=Switzerland)
+    * [Epidemic Calculator](https://gabgoh.github.io/COVID/index.html)
 
 ## Footnotes
 
@@ -640,3 +677,6 @@ Day 2020-03-30: 172,598 (+32,115) predicted vs 162,126 in reality
 [^4]: [Q&A on coronaviruses (COVID-19)](https://www.who.int/news-room/q-a-detail/q-a-coronaviruses), World Health Organization (WHO). March 2020.
 [^5]: [New South Wales](https://en.wikipedia.org/wiki/New_South_Wales) Government: [COVID-19 - Frequently asked questions](https://www.health.nsw.gov.au/Infectious/alerts/Pages/coronavirus-faqs.aspx), March 2020.
 [^6]: Danielle Renwick: [Have I already had coronavirus? How would I know and what should I do?](https://www.theguardian.com/us-news/2020/mar/23/have-i-already-had-covid19-coronavirus). 2020-03-24.
+[^7]: 🇩🇪 Mai Thi Nguyen-Kim: [Corona geht gerade erst los](https://www.youtube.com/watch?v=3z0gnXgK8Do), 2020-04-01. On YouTube.
+[^8]: 🇩🇪 Deutsche Gesellschaft für Epidemiologie: [Stellungnahme der Deutschen Gesellschaft für Epidemiologie (DGEpi) zur Verbreitung des neuen
+Coronavirus (SARS-CoV-2)](https://www.dgepi.de/assets/Stellungnahmen/Stellungnahme2020Corona_DGEpi-21032020-v2.pdf), 2020-03-21.

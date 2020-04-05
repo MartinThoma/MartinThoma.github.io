@@ -589,7 +589,7 @@ Fabrics:
         <td>4 weeks</td>
         <td>2.99 EUR / kg</td>
         <td></td>
-        <td>1.76 EUR / 0.590kg</td>
+        <td>3.16 EUR / 1.058kg</td>
     </tr>
     <tr>
         <td>Annanas in a tin can</td>
@@ -749,7 +749,7 @@ Fabrics:
         <td>1 week</td>
         <td>1.99 EUR / package</td>
         <td></td>
-        <td>2.49 EUR / 300g (g)</td>
+        <td>3.48 EUR / 550g (g)</td>
     </tr>
     <tr>
         <td>Broccoli</td>
@@ -879,6 +879,14 @@ Fabrics:
         <td>1.29 EUR / 10 pieces</td>
     </tr>
     <tr>
+        <td>🇩🇪 Laugenstange</td>
+        <td></td>
+        <td>?</td>
+        <td>1.29 EUR / 8 pieces</td>
+        <td></td>
+        <td>1.29 EUR / 8 pieces</td>
+    </tr>
+    <tr>
         <td>Butter (not salted)</td>
         <td>250g / 2 weeks (?)</td>
         <td>3 months</td>
@@ -916,7 +924,7 @@ Fabrics:
         <td>4 months</td>
         <td>2.59 EUR / 400g</td>
         <td>67.34 EUR / year</td>
-        <td>11.06 EUR / 1800g</td>
+        <td>16.24 EUR / 2.6kg</td>
     </tr>
     <tr>
         <td>Frischkäse</td>
@@ -940,7 +948,7 @@ Fabrics:
         <td>0.69 EUR / 125 g (<abbr title="Abtropfgewicht">ATG</abbr>)</td>
         <td></td>
         <td></td>
-        <td>0</td>
+        <td>1.38 EUR / 250g</td>
     </tr>
     <tr>
         <td><a href="https://en.wikipedia.org/wiki/Mortadella">Mortadella</a> Wurst</td>
@@ -1054,7 +1062,7 @@ General Cooking:
         <td>2 months (?)</td>
         <td>0.65 EUR / L</td>
         <td>33.90 EUR / year</td>
-        <td>7.70 EUR / 11 L</td>
+        <td>9.00 EUR / 13 L</td>
     </tr>
     <tr>
         <td><a href="https://en.wikipedia.org/wiki/Whipped_cream">Whipped Cream</a> (Schlagsahne 30%)</td>
@@ -1062,7 +1070,7 @@ General Cooking:
         <td>2 weeks</td>
         <td>0.63 EUR / 200 g</td>
         <td>7.56 EUR / year</td>
-        <td>0.63 EUR / 200g</td>
+        <td>1.26 EUR / 400g</td>
     </tr>
     <tr>
         <td>Creme Fraiche (30%)</td>
@@ -1288,6 +1296,14 @@ General Cooking:
     </thead>
     <tbody>
         <tr>
+            <td>Pasta (Hartweizengrieß Bandnudeln)</td>
+            <td></td>
+            <td>2 years</td>
+            <td>0.59 EUR / 500g</td>
+            <td></td>
+            <td>0.59 EUR / 500g</td>
+        </tr>
+        <tr>
             <td>Tortelloni Pasta</td>
             <td>3 kg / year</td>
             <td>4 months</td>
@@ -1302,6 +1318,14 @@ General Cooking:
             <td>1.99 EUR / 200g</td>
             <td></td>
             <td>1.99 EUR / 200g</td>
+        </tr>
+        <tr>
+            <td>Passierte Tomaten</td>
+            <td></td>
+            <td>?</td>
+            <td>0.39 EUR / package</td>
+            <td></td>
+            <td>0.39 EUR / package</td>
         </tr>
     </tbody>
 </table>
@@ -1363,7 +1387,7 @@ General Cooking:
     </tbody>
 </table>
 
-### Other
+### Other Food
 
 <table class="table">
     <thead>
@@ -1383,7 +1407,7 @@ General Cooking:
             <td>2 weeks (?)</td>
             <td>0.29 EUR / piece</td>
             <td>45.37 EUR</td>
-            <td>12.29 EUR / 38 piece</td>
+            <td>13.16 EUR / 41 piece</td>
         </tr>
         <tr>
             <td>Natural Joghurt (Joghurt Pur)</td>
@@ -1394,12 +1418,12 @@ General Cooking:
             <td>1.15 EUR / 1000g</td>
         </tr>
         <tr>
-            <td>Sweets like Cookies (Chips, chocolate, cake, waffles; Süßigkeiten, Kakao-Schnitten, Kekse)</td>
+            <td>Sweets like Cookies (Chips, chocolate, cake, waffles, cookies; Süßigkeiten, Kakao-Schnitten, Kekse)</td>
             <td>-</td>
             <td>months to years</td>
             <td></td>
             <td></td>
-            <td>24.84 EUR / 19 packages</td>
+            <td>28.11 EUR / 22 packages</td>
         </tr>
         <tr>
             <td>Savory (Chips, Nachos, Sauce for nachos)</td>
@@ -1487,7 +1511,7 @@ General Cooking:
             <td>?</td>
             <td>0.79 EUR / 1.5 L</td>
             <td>9.48 EUR / year</td>
-            <td>7.82 EUR / 14.5 L</td>
+            <td>9.30 EUR / 17.0 L</td>
         </tr>
         <tr>
             <td>Malz</td>
@@ -1613,7 +1637,7 @@ General Cooking:
         <td>3.45 EUR</td>
         <td>One per 3 months</td>
         <td>13.80 EUR / year</td>
-        <td>6.90 EUR / 2 piece</td>
+        <td>10.35 EUR / 3 piece</td>
     </tr>
     <tr>
         <td>Toothpaste (Odol med 3 Zahnpasta)</td>
@@ -1634,7 +1658,7 @@ General Cooking:
         <td>0.65 EUR for 500ml</td>
         <td>500ml per month (?)</td>
         <td>7.80 EUR / year</td>
-        <td>0</td>
+        <td>0.55 EUR / 500ml</td>
     </tr>
     <tr>
         <td>Washing agent (Waschmittel)</td>
