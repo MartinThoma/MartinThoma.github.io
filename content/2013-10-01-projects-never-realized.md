@@ -11,7 +11,9 @@ I would really love to do them, but they seem to be a little bit too time
 consuming to do them in my free time. Please send me an E-Mail if you would
 like to realize them!
 
-## Book portal
+## Web Services
+
+### Book portal
 I really miss a book recommendation portal. It should allow you to mark books
 you've read or started to read, let you rate and tag books. The tags should be
 created by users, similar to the system StackExchange uses. Tags might be
@@ -31,6 +33,30 @@ And, very important, it should let you follow series and/or authors. So you
 should be able to say "When there is a new book of the 'Harry Potter' series,
 send me an e-mail!" or "When there is a new book of the 'Harry Potter' series
 translated to 'German', send me an e-mail!".
+
+### Manual portal
+
+Most pieces of electronics come with a manual. It might contain contains:
+
+* Product description: Specifications like type of battery, supported Bluetooth
+  standard, used frequencies, ... depends a lot on what it is
+* Function introduction: With images on where buttons are and what effect they
+  have. Especially important for combinations.
+* Safety Notice
+* Environmental notices (how to recycle it)
+* Replacements: I wish this was the case. Especially for big equipment like
+  washing machines / dishwashers, I wish the parts which might break like seals
+  should have clear names so that they are easy to order and instructions on
+  how to replace them.
+
+Same goes for medicine:
+
+* What is it for?
+* When should you NOT take it?
+* How much and at which time should you take it?
+* What do you do if you took too much?
+
+All of those manuals should be online. There should be an easy way to find them.
 
 ## Society
 
@@ -825,7 +851,6 @@ The needed functionality is:
 * If not too complicated: Let me back up all data on the phone via this
   micro-USB slot and let me also restore such a backup
 * 3.5mm phone jack for using a headset
-</ul>
 
 What is not needed:
 
