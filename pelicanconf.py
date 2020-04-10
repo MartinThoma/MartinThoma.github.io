@@ -50,6 +50,8 @@ DISQUS_SITENAME = "martinthoma"
 
 ARTICLE_URL = '{slug}/'
 ARTICLE_SAVE_AS = '{slug}/index.html'
+ARTICLE_LANG_URL = '{slug}.html'
+ARTICLE_LANG_SAVE_AS = '{slug}/index.html'
 AUTHOR_URL = 'author/{slug}/'
 PAGE_URL = 'pages/{slug}/'
 PAGE_SAVE_AS = 'pages/{slug}/index.html'
@@ -70,8 +72,6 @@ PLUGINS = ['pelican_plugin-render_math',
            'toc',
            'sitemap',
            'pelican_alias',
-           # 'bootstrapify',
-           #            'simple_footnotes',
            ]
 
 MARKDOWN = {
