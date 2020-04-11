@@ -557,7 +557,7 @@ Fabrics:
         <td>3 months (?)</td>
         <td>0.89 EUR / kg</td>
         <td>2.67 EUR / year</td>
-        <td>1.99 EUR / 1kg</td>
+        <td>2.98 EUR / 1.5kg</td>
     </tr>
     <tr>
         <td>Mango</td>
@@ -645,7 +645,7 @@ Fabrics:
         <td>2 weeks ?</td>
         <td>1.19 EUR / 500g</td>
         <td></td>
-        <td>2.38 EUR / 1000g</td>
+        <td>2.81 EUR / 7 pieces</td>
     </tr>
 </table>
 
@@ -715,9 +715,9 @@ Fabrics:
         <td>Onion (🇩🇪 Speisezwiebeln)</td>
         <td>2 kg / 3 months</td>
         <td>2 months (?)</td>
-        <td>0.79 EUR / 2kg</td>
+        <td>1.69 EUR / 2kg</td>
         <td>3.16 EUR / year</td>
-        <td>2.38 EUR / 2kg</td>
+        <td>4.07 EUR / 4kg</td>
     </tr>
     <tr>
         <td>Garlic (🇩🇪 Knoblauch)</td>
@@ -1070,7 +1070,7 @@ General Cooking:
         <td>2 months (?)</td>
         <td>0.65 EUR / L</td>
         <td>33.90 EUR / year</td>
-        <td>9.00 EUR / 13 L</td>
+        <td>9.65 EUR / 14 L</td>
     </tr>
     <tr>
         <td><a href="https://en.wikipedia.org/wiki/Whipped_cream">Whipped Cream</a> (Schlagsahne 30%)</td>
@@ -1110,7 +1110,7 @@ General Cooking:
         <td>1 year</td>
         <td>0.99 EUR / L</td>
         <td>11.88 EUR / year</td>
-        <td>3.97 EUR / 3 L</td>
+        <td>4.96 EUR / 4 L</td>
     </tr>
     <tr>
         <td>Sugar</td>
@@ -1385,12 +1385,12 @@ General Cooking:
             <td>2.99 EUR / 400g</td>
         </tr>
         <tr>
-            <td>Chicken (Hähnchenfilet)</td>
+            <td>Chicken (Hähnchenfilet / Hähnchengeschnetzeltes)</td>
             <td>4.8 kg</td>
             <td>?</td>
             <td>2.69 EUR / 400g</td>
             <td>32.28 EUR / year</td>
-            <td>5.68 EUR / 1000g</td>
+            <td>11.66 EUR / 1800g</td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Weisswurst">Weißwurst</a></td>
@@ -1431,7 +1431,7 @@ General Cooking:
             <td>2 weeks (?)</td>
             <td>0.29 EUR / piece</td>
             <td>45.37 EUR</td>
-            <td>14.88 EUR / 47 piece</td>
+            <td>15.42 EUR / 49 piece</td>
         </tr>
         <tr>
             <td>Natural Joghurt (Joghurt Pur)</td>
@@ -1447,7 +1447,7 @@ General Cooking:
             <td>months to years</td>
             <td></td>
             <td></td>
-            <td>31.20 EUR / 25 packages</td>
+            <td>33.19 EUR / 26 packages</td>
         </tr>
         <tr>
             <td>Savory (Chips, Nachos, Sauce for nachos)</td>
