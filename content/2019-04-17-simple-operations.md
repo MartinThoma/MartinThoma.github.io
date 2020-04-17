@@ -214,13 +214,18 @@ And some trhoughput values (partially measured, partially looked up / calculated
     </tr>
     <tr>
         <td>Gigabit Ethernet</td>
-        <td>1000 MB/s</td>
-        <td>1000 MB/s</td>
+        <td>1000 MBit/s</td>
+        <td>1000 MBit/s</td>
     </tr>
     <tr>
         <td>My Internet Connection</td>
-        <td>&nbsp;285 MB/s</td>
-        <td>&nbsp;25 MB/s</td>
+        <td>&nbsp;285 MBit/s</td>
+        <td>&nbsp;25 MBit/s</td>
+    </tr>
+    <tr>
+        <td>My Internet Connection (<a href="https://www.speedtest.net/result/9272895784">2020-04-12</a>)</td>
+        <td>&nbsp;96 MBit/s</td>
+        <td>&nbsp;7 MBit/s</td>
     </tr>
     <tr>
         <td>LTE (peak)</td>

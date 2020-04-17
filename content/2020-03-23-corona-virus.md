@@ -629,7 +629,7 @@ Day 2020-03-30: 172,598 (+32,115) predicted vs 162,126 in reality
     * [Akamai](https://blogs.akamai.com/2020/03/working-together-to-manage-global-internet-traffic-increases.html)
 
 
-## Positive Developments
+## Side-Effects
 
 * **Online Services**: Companies are highly incentivized to check their remote
   working capabilities, schools and universities have to think about which
@@ -644,6 +644,11 @@ Day 2020-03-30: 172,598 (+32,115) predicted vs 162,126 in reality
   contact more friends and talk more often with family. I'm not the only one
   who does that ([German
   source](https://www.heise.de/newsticker/meldung/In-Deutschland-wird-mehr-und-laenger-telefoniert-4688664.html))
+* **Weather Forcasting**: Aparently planes have sensors and contribute their
+  data to global weather forecasting. Now that less planes fly, forecasting
+  becomes harder. [ADM-Aeolus](https://en.wikipedia.org/wiki/ADM-Aeolus) might help.
+* **No school shootings**: [See Twitter](https://twitter.com/RobertKlemko/status/1249716012599083010) -
+  I'm not sure if that is related.
 
 
 ## See also
