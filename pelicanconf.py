@@ -95,8 +95,8 @@ TOC = {'TOC_HEADERS': '^h[2-3]',
 DIRECT_TEMPLATES = (('index', 'tags', 'categories', 'archives', 'search',
                      '404'))
 
-ARTICLE_EXCLUDES = ['html5', 'js', 'python']
-PAGE_EXCLUDES = ['html5', 'js', 'python']
+ARTICLE_EXCLUDES = ['html5', 'js', 'python', 'pdf']
+PAGE_EXCLUDES = ['html5', 'js', 'python', 'pdf']
 
 STATIC_PATHS = ['images',
                 'extra/CNAME',
@@ -115,7 +115,6 @@ EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},
                        'extra/print.css': {'path': 'static/print.css'},
                        'extra/favicon.ico': {'path': 'favicon.ico'},
                        'extra/opensearch.xml': {'path': 'opensearch.xml'},
-                       'pdf': {'path': 'pdf'},
                        'audio': {'path': 'audio'},
                        'js': {'path': 'js'},
                        'anki': {'path': 'anki'},

@@ -50,6 +50,8 @@ DISQUS_SITENAME = "martinthoma"
 
 ARTICLE_URL = '{slug}/'
 ARTICLE_SAVE_AS = '{slug}/index.html'
+ARTICLE_LANG_URL = '{slug}.html'
+ARTICLE_LANG_SAVE_AS = '{slug}/index.html'
 AUTHOR_URL = 'author/{slug}/'
 PAGE_URL = 'pages/{slug}/'
 PAGE_SAVE_AS = 'pages/{slug}/index.html'
@@ -70,8 +72,6 @@ PLUGINS = ['pelican_plugin-render_math',
            'toc',
            'sitemap',
            'pelican_alias',
-           # 'bootstrapify',
-           #            'simple_footnotes',
            ]
 
 MARKDOWN = {
@@ -95,26 +95,29 @@ TOC = {'TOC_HEADERS': '^h[2-3]',
 DIRECT_TEMPLATES = (('index', 'tags', 'categories', 'archives', 'search',
                      '404'))
 
-ARTICLE_EXCLUDES = ['html5', 'js', 'python']
-PAGE_EXCLUDES = ['html5', 'js', 'python']
+ARTICLE_EXCLUDES = ['html5', 'js', 'python', 'pdf']
+PAGE_EXCLUDES = ['html5', 'js', 'python', 'pdf']
 
 STATIC_PATHS = ['images',
                 'extra/CNAME',
                 'extra/custom.css',
+                'extra/print.css',
                 'extra/favicon.ico',
                 'extra/opensearch.xml',
                 'pdf',
+                'anki',
                 'audio',
                 'html5',
                 'js',
                 'python']
 EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},
                        'extra/custom.css': {'path': 'static/custom.css'},
+                       'extra/print.css': {'path': 'static/print.css'},
                        'extra/favicon.ico': {'path': 'favicon.ico'},
                        'extra/opensearch.xml': {'path': 'opensearch.xml'},
-                       'pdf': {'path': 'pdf'},
                        'audio': {'path': 'audio'},
                        'js': {'path': 'js'},
+                       'anki': {'path': 'anki'},
                        'python': {'path': 'python'}}
 OUTPUT_PATH = '/var/www/blog/'
 # SUMMARY_MAX_LENGTH = 0
