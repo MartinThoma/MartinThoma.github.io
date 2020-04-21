@@ -581,7 +581,7 @@ Fabrics:
         <td>3 days</td>
         <td>1.89 EUR / 500g</td>
         <td></td>
-        <td>5.77 EUR / 1500g</td>
+        <td>7.26 EUR / 2000g</td>
     </tr>
     <tr>
         <td>Grapes (Trauben)</td>
@@ -589,7 +589,7 @@ Fabrics:
         <td>4 weeks</td>
         <td>2.99 EUR / kg</td>
         <td></td>
-        <td>3.16 EUR / 1.058kg</td>
+        <td>7.04 EUR / 2.058kg</td>
     </tr>
     <tr>
         <td>Annanas in a tin can</td>
@@ -765,7 +765,7 @@ Fabrics:
         <td>33 months</td>
         <td>1.19 EUR / 420g (🇩🇪 Abtropfgewicht)</td>
         <td>7.14 EUR / year</td>
-        <td>3.77 EUR / 1260g</td>
+        <td>5.06 EUR / 1680g</td>
     </tr>
     <tr>
         <td>🇩🇪 Maiskölbchen</td>
@@ -860,7 +860,7 @@ Fabrics:
         <td>2 weeks (?)</td>
         <td>0.89 EUR / 750g</td>
         <td>23.01 EUR / year</td>
-        <td>6.92 EUR / 5000g</td>
+        <td>7.81 EUR / 5750g</td>
     </tr>
     <tr>
         <td>Croissants</td>
@@ -919,6 +919,14 @@ Fabrics:
         <td>1.69 EUR / 200ml</td>
     </tr>
     <tr>
+        <td>Remoulade</td>
+        <td></td>
+        <td>6 months</td>
+        <td>1.69 EUR / 200ml</td>
+        <td></td>
+        <td>3.38 EUR / 400ml</td>
+    </tr>
+    <tr>
         <td>Cheese (🇩🇪 Emmentaler Käse)</td>
         <td>400g / 2 weeks</td>
         <td>4 months</td>
@@ -932,7 +940,7 @@ Fabrics:
         <td>6 weeks</td>
         <td>0.99 EUR / 125g</td>
         <td></td>
-        <td>0.99 EUR / 125g</td>
+        <td>1.98 EUR / 250g</td>
     </tr>
     <tr>
         <td>Cheese (🇩🇪 Schweizer Hartkäse; Appenzeller)</td>
@@ -948,7 +956,7 @@ Fabrics:
         <td>0.69 EUR / 125 g (<abbr title="Abtropfgewicht">ATG</abbr>)</td>
         <td></td>
         <td></td>
-        <td>1.38 EUR / 250g</td>
+        <td>2.76 EUR / 500g</td>
     </tr>
     <tr>
         <td><a href="https://en.wikipedia.org/wiki/Mortadella">Mortadella</a> Wurst</td>
@@ -1030,7 +1038,7 @@ I also count mixes like "Knorr fix" in here.
         <td>3 years</td>
         <td>0.49 EUR / 70g</td>
         <td></td>
-        <td>0.49 EUR / 70g</td>
+        <td>0.98 EUR / 140g</td>
     </tr>
     <tr>
         <td>Knorr Fix (Nudelgratin / Lasagne / Geschnetzeltes)</td>
@@ -1070,7 +1078,7 @@ General Cooking:
         <td>2 months (?)</td>
         <td>0.65 EUR / L</td>
         <td>33.90 EUR / year</td>
-        <td>9.65 EUR / 14 L</td>
+        <td>10.30 EUR / 15 L</td>
     </tr>
     <tr>
         <td><a href="https://en.wikipedia.org/wiki/Whipped_cream">Whipped Cream</a> (Schlagsahne 30%)</td>
@@ -1142,7 +1150,7 @@ General Cooking:
         <td>1 year</td>
         <td>0.39 EUR / kg</td>
         <td>0.39 EUR / year</td>
-        <td>1.58 EUR / 2 kg</td>
+        <td>1.97 EUR / 3 kg</td>
     </tr>
 </table>
 
@@ -1205,7 +1213,7 @@ General Cooking:
         <td>2 years</td>
         <td>1.89 EUR / kg</td>
         <td>11.34 EUR / year</td>
-        <td>5.97 EUR / 3kg</td>
+        <td>7.96 EUR / 4kg</td>
     </tr>
     <tr>
         <td>Sushi Rice</td>
@@ -1431,7 +1439,7 @@ General Cooking:
             <td>2 weeks (?)</td>
             <td>0.29 EUR / piece</td>
             <td>45.37 EUR</td>
-            <td>15.42 EUR / 49 piece</td>
+            <td>18.16 EUR / 55 piece</td>
         </tr>
         <tr>
             <td>Natural Joghurt (Joghurt Pur)</td>
@@ -1447,7 +1455,7 @@ General Cooking:
             <td>months to years</td>
             <td></td>
             <td></td>
-            <td>33.19 EUR / 26 packages</td>
+            <td>36.28 EUR / 29 packages</td>
         </tr>
         <tr>
             <td>Savory (Chips, Nachos, Sauce for nachos)</td>
@@ -1559,7 +1567,7 @@ General Cooking:
             <td>2 months</td>
             <td>1.99 EUR / 4 pieces</td>
             <td>11.94 EUR / year</td>
-            <td>3.98 EUR / 8 pieces</td>
+            <td>5.97 EUR / 12 pieces</td>
         </tr>
         <tr>
             <td>Wasser</td>
@@ -1575,7 +1583,7 @@ General Cooking:
             <td>33 months</td>
             <td>0.79 EUR / 400 ml</td>
             <td></td>
-            <td>5.04 EUR / 2400 ml</td>
+            <td>6.62 EUR / 3200 ml</td>
         </tr>
         <tr>
             <td>Zwieback</td>
@@ -1704,6 +1712,20 @@ General Cooking:
         <td>1 per 3 days (?)</td>
         <td>5.53 EUR / year</td>
         <td>0</td>
+    </tr>
+    <tr>
+        <td>Rinsing Agent (Klarspüler)</td>
+        <td>0.85 EUR / 1 L</td>
+        <td></td>
+        <td></td>
+        <td>0.85 EUR / 1 L</td>
+    </tr>
+    <tr>
+        <td>Dishwasher Salt (Spülmaschinensalz)</td>
+        <td>0.70 EUR / 2kg</td>
+        <td></td>
+        <td></td>
+        <td>0.70 EUR / 2kg</td>
     </tr>
     <tr>
         <td>Shaving cream</td>
@@ -1957,5 +1979,13 @@ pills and maybe a couple of months for creams and ointment.
     <tr>
         <td>Moving</td>
         <td>35 EUR</td>
+    </tr>
+    <tr>
+        <td>Lack</td>
+        <td>0.99 EUR</td>
+    </tr>
+    <tr>
+        <td>Dishwasher</td>
+        <td>TODO</td>
     </tr>
 </table>
