@@ -14,20 +14,20 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="Machine Learning, My bits and bytes, " />
+<meta name="keywords" content="Computer Algebra System, sympy, Python, Code, " />
 
-<meta property="og:title" content="Latin Squares"/>
-<meta property="og:url" content="../drafts/latin-squares.html" />
-<meta property="og:description" content="The solver can actually do it. See also Wikipedia StackOverflow Creating a Latin Square program in python Generate Random Latin Squares Algorithm to generate Diagonal Latin Square matrix Projects Python: LatinSquareSolver JS: /jacobson-matthews-latin-square-js Paul Hankin: Generating Random Latin Squares" />
+<meta property="og:title" content="Equation Solving"/>
+<meta property="og:url" content="../equation-solving/" />
+<meta property="og:description" content="A friend recently asked me if I could help her to find the solution to a system of non-linear equations. I remembered Sympy, a Python library for symbolic computations. Installation is easy: pip install sympy Single Equation Solving from sympy import Eq, symbols, solve x = symbols(&#34;x&#34;) eq = Eq(x …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
-<meta property="og:article:published_time" content="2020-04-04T20:00:00+02:00" />
-<meta name="twitter:title" content="Latin Squares">
-<meta name="twitter:description" content="The solver can actually do it. See also Wikipedia StackOverflow Creating a Latin Square program in python Generate Random Latin Squares Algorithm to generate Diagonal Latin Square matrix Projects Python: LatinSquareSolver JS: /jacobson-matthews-latin-square-js Paul Hankin: Generating Random Latin Squares">
-<meta property="og:image" content="logos/star.png" />
-<meta name="twitter:image" content="logos/star.png" >
+<meta property="og:article:published_time" content="2020-04-21T20:00:00+02:00" />
+<meta name="twitter:title" content="Equation Solving">
+<meta name="twitter:description" content="A friend recently asked me if I could help her to find the solution to a system of non-linear equations. I remembered Sympy, a Python library for symbolic computations. Installation is easy: pip install sympy Single Equation Solving from sympy import Eq, symbols, solve x = symbols(&#34;x&#34;) eq = Eq(x …">
+<meta property="og:image" content="logos/python.png" />
+<meta name="twitter:image" content="logos/python.png" >
 
-        <title>Latin Squares · Martin Thoma
+        <title>Equation Solving · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../drafts/latin-squares.html"> Latin Squares </a></h1>
+    <h1><a href="../equation-solving/"> Equation Solving </a></h1>
     </header>
 </div>
 
@@ -104,28 +104,54 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#single-equation-solving" title="Single Equation Solving">Single Equation Solving</a></li><li><a class="toc-href" href="#equation-system-solving" title="Equation System Solving">Equation System Solving</a></li><li><a class="toc-href" href="#visualization" title="Visualization">Visualization</a></li><li><a class="toc-href" href="#alternatives" title="Alternatives">Alternatives</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
 
             
-            <p>The solver can actually do it.</p>
-<h2 id="see-also">See also</h2>
+            <p>A friend recently asked me if I could help her to find the solution to a
+system of non-linear equations. I remembered <a href="https://en.wikipedia.org/wiki/SymPy">Sympy</a>,
+a Python library for symbolic computations.</p>
+<p>Installation is easy:</p>
+<div class="highlight"><pre><span></span><code>pip install sympy
+</code></pre></div>
+<h2 id="single-equation-solving">Single Equation Solving</h2>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">Eq</span><span class="p">,</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">solve</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">"x"</span><span class="p">)</span>
+<span class="n">eq</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">solve</span><span class="p">(</span><span class="n">eq</span><span class="p">))</span>
+</code></pre></div>
+<p>And it returns <code>[-3, 3]</code>! Awesome! So it found all solutions for that single,
+simple equation!</p>
+<h2 id="equation-system-solving">Equation System Solving</h2>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">Eq</span><span class="p">,</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">solve</span>
+
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">"x y"</span><span class="p">)</span>
+<span class="n">eq1</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">,</span> <span class="mi">35</span><span class="p">)</span>
+<span class="n">eq2</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">solve</span><span class="p">([</span><span class="n">eq1</span><span class="p">,</span> <span class="n">eq2</span><span class="p">]))</span>
+</code></pre></div>
+<p>This returns <code>[{x: 5, y: 7}, {x: 7, y: 5}]</code> 🎉</p>
+<h2 id="visualization">Visualization</h2>
+<p>Equations can get really complicated and typos happen easily. Rendering the
+equations in a nice way helps a lot to find bugs. I do this by starting
+a <a href="https://jupyter.org/">Jupyter Notebook</a>. Just install <code>jupyter</code> and enter
+<code>jupyter notebook</code> in the console.</p>
+<p>Add this to a cell in the notebook and execute it:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">init_printing</span>
+
+<span class="n">init_printing</span><span class="p">()</span>
+</code></pre></div>
+<p>It looks like this:</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2020/04/jupyter-equation-solving.png"><img alt="Sympy in Jupyter Notebook" src="../images/2020/04/jupyter-equation-solving.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Sympy in Jupyter Notebook</figcaption>
+</figure>
+<h2 id="alternatives">Alternatives</h2>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Latin_square">Wikipedia</a></li>
-<li>StackOverflow<ul>
-<li><a href="https://stackoverflow.com/questions/25984746/creating-a-latin-square-program-in-python">Creating a Latin Square program in python</a></li>
-<li><a href="https://math.stackexchange.com/q/63131/6876">Generate Random Latin Squares</a></li>
-<li><a href="https://stackoverflow.com/q/33065138/562769">Algorithm to generate Diagonal Latin Square matrix</a></li>
-</ul>
-</li>
-<li>Projects<ul>
-<li>Python: <a href="https://github.com/nicholasRutherford/LatinSquareSolver">LatinSquareSolver</a></li>
-<li>JS: <a href="https://github.com/RAMPKORV/jacobson-matthews-latin-square-js/blob/master/getRandomLatinSquare.js">/jacobson-matthews-latin-square-js</a></li>
-</ul>
-</li>
-<li>Paul Hankin: <a href="https://blog.paulhankin.net/latinsquares/">Generating Random Latin Squares</a></li>
+<li><a href="https://github.com/sympy/sympy/wiki/SymPy-vs.-Mathematica">Wolfram Mathematica</a>: Pretty expensive, no Python binding</li>
 </ul>
             
             <div id="disqus_thread" class="no-print"></div>
@@ -152,15 +178,21 @@ MathJax.Hub.Queue(function() {
         <section>
         <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2020-04-04T20:00:00+02:00">Apr 4, 2020</time>
+            <time pubdate="pubdate" datetime="2020-04-21T20:00:00+02:00">Apr 21, 2020</time>
             <br/>
             by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
             <h4>Category</h4>
-            <a class="category-link" href="../categories.html#my-bits-and-bytes-ref">My bits and bytes</a>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
-                <li><a href="../tags.html#machine-learning-ref">Machine Learning
-                    <span>81</span>
+                <li><a href="../tags.html#computer-algebra-system-ref">Computer Algebra System
+                    <span>1</span>
+</a></li>
+                <li><a href="../tags.html#python-ref">Python
+                    <span>109</span>
+</a></li>
+                <li><a href="../tags.html#sympy-ref">sympy
+                    <span>1</span>
 </a></li>
             </ul>
 <h4>Contact</h4>
