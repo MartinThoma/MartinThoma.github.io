@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Software Development, Code, " />
+
+<meta property="og:title" content="How to build reliable Software"/>
+<meta property="og:url" content="../reliable-software/" />
+<meta property="og:description" content="Reliability in software development is an ambiguous term. Without thinking much about it, most people would call a system reliable if it just works. When reading specifications, you might read some of the following terms: Availability For (web) services, availability is the probability that at a random time the service …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2020-04-30T20:00:00+02:00" />
+<meta name="twitter:title" content="How to build reliable Software">
+<meta name="twitter:description" content="Reliability in software development is an ambiguous term. Without thinking much about it, most people would call a system reliable if it just works. When reading specifications, you might read some of the following terms: Availability For (web) services, availability is the probability that at a random time the service …">
+<meta property="og:image" content="logos/star.png" />
+<meta name="twitter:image" content="logos/star.png" >
+
+        <title>How to build reliable Software · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../reliable-software/"> How to build reliable Software </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#issue-types" title="Issue Types">Issue Types</a><ul><li><a class="toc-href" href="#hardware-issues" title="Hardware Issues">Hardware Issues</a></li><li><a class="toc-href" href="#bugs" title="Bugs">Bugs</a></li><li><a class="toc-href" href="#scalability" title="Scalability">Scalability</a></li><li><a class="toc-href" href="#third-party-issues" title="Third-Party Issues">Third-Party Issues</a></li></ul></li><li><a class="toc-href" href="#issue-prevention_1" title="Issue Prevention">Issue Prevention</a><ul><li><a class="toc-href" href="#code-reviews" title="Code reviews">Code reviews</a></li><li><a class="toc-href" href="#type-checking" title="Type Checking">Type Checking</a></li><li><a class="toc-href" href="#input-checking" title="Input Checking">Input Checking</a></li><li><a class="toc-href" href="#finding-code-smells" title="Finding Code Smells">Finding Code Smells</a></li><li><a class="toc-href" href="#dependencies" title="Dependencies">Dependencies</a></li><li><a class="toc-href" href="#testing" title="Testing">Testing</a></li></ul></li><li><a class="toc-href" href="#fault-tolerance_1" title="Fault Tolerance">Fault Tolerance</a></li><li><a class="toc-href" href="#fault-detection" title="Fault Detection">Fault Detection</a></li><li><a class="toc-href" href="#incidence-management" title="Incidence Management">Incidence Management</a></li><li><a class="toc-href" href="#maintenance" title="Maintenance">Maintenance</a></li><li><a class="toc-href" href="#checklists" title="Checklists">Checklists</a><ul><li><a class="toc-href" href="#software-development-process" title="Software Development Process">Software Development Process</a></li><li><a class="toc-href" href="#web-services" title="Web Services">Web Services</a></li><li><a class="toc-href" href="#applications" title="Applications">Applications</a></li></ul></li><li><a class="toc-href" href="#see-also_1" title="See also">See also</a></li><li><a class="toc-href" href="#footnotes" title="Footnotes">Footnotes</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>Reliability in software development is an ambiguous term. Without thinking much
+about it, most people would call a system reliable if <em>it just works</em>. When
+reading specifications, you might read some of the following terms:</p>
+<dl>
+<dt><dfn>Availability</dfn></dt>
+<dd>For (web) services, availability is the probability that at a random
+        time the service is working. It is usually calculated over a year as
+        availability = uptime / (uptime + downtime). If a web service has an
+        availability of 99.9% over a year, it means there were 57 minutes in
+        total in which the service was not usable.</dd>
+<dt><a href="https://en.wikipedia.org/wiki/Robustness_(computer_science)"><dfn>Robustness</dfn></a></dt>
+<dd>How much diversion from the specification can you take before things
+        start to break? I connect this with validation of user input,
+        used services not responding, parts of the hardware failing.</dd>
+<dt><dfn>Stability</dfn></dt>
+<dd>How long can you operate without failures? The connected measure is
+        <a href="https://en.wikipedia.org/wiki/Mean_time_between_failures">Mean Time Between Failures</a>
+        (<abbr title="Mean Time Between Failures">MTBF</abbr>).</dd>
+<dt><dfn>Resilience</dfn></dt>
+<dd>How long does it take to recover? Resilience is the ability of software
+        to handle unexpected situations without the user noticing or at least
+        with graceful degradation. When working on it, the <a href="https://en.wikipedia.org/wiki/Mean_time_to_recovery">Mean time to recovery</a> (MTTR)
+        is reduced.</dd>
+</dl>
+<p>ANSI/IEEE 1991 defines reliability as "the probability of failure-free software
+operation for a specified period of time in a specified environment". That sounds
+pretty much like my definition of availability.</p>
+<p>There are also different words for bugs like failure, fault or error.
+For this article, I don't distinguish them. I was curious if other people do
+and got <a href="https://twitter.com/themoosemind/status/1252992387338719239">mixed answers</a>.
+Definitions are given in <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
+<p>In this article, I try to show some good practices which help to built software
+people can rely on. I will not talk about anything security related. So
+integrity agains an attacker and confidentiality will not be discussed.</p>
+<h2 id="issue-types">Issue Types</h2>
+<p>Please note that reliability is not only about bugs. For example, think of the
+e-commerce website Amazon. Even if it is bug-free, it could be that so many
+people go on amazon.com on a black-friday sale that the servers (the hardware)
+can't handle the load. Either all people get a super slow experience or some
+just don't get an answer. This is not a bug, but it for sure is an issue.</p>
+<p>Having a clear understanding of what can go wrong helps to prevent the issue or
+at least deal with it in a good way.</p>
+<p>Looking at the effect on the system, you can distinguish those:</p>
+<ul>
+<li><strong>Crash Failures</strong>: The system is down</li>
+<li><strong>Ommision Failures</strong>: (response, brittle)</li>
+<li><strong>Timing Failures</strong>: System responses, but too late</li>
+<li><strong>Response Failures</strong>: System responses, but the response is wrong</li>
+</ul>
+<h3 id="hardware-issues">Hardware Issues</h3>
+<ul>
+<li>Disk failure</li>
+<li>Power outage</li>
+<li>Network<ul>
+<li>Loss of network connection, e.g. cable was cut</li>
+<li>Package loss</li>
+</ul>
+</li>
+<li>Bug within the Hardware, e.g. <a href="https://en.wikipedia.org/wiki/Pentium_FDIV_bug">Pentium FDIV bug</a></li>
+</ul>
+<h3 id="bugs">Bugs</h3>
+<p>A bug is a mistake made by the programmers. Besides some <a href="https://en.wikipedia.org/wiki/List_of_software_bugs">well-documented single bugs</a>
+there are groups of issues which occur often. For some of them, it depends on
+the programming language if they are possible at all.</p>
+<ul>
+<li><strong>Typos</strong>: Especially when entering strings, this can easily happen.</li>
+<li><strong><a href="https://en.wikipedia.org/wiki/Off-by-one_error">Off-by-one errors</a></strong> (also: greater / smaller than, greater or greater-equal) are either just typos or a missunderstanding by the developers, because they didn't think thoroughly about it.</li>
+<li><strong>Partial Change</strong>: You adjusted one part, but you needed to make the same change somewhere else. For example, this could happen when you define on which port your application should run. You change it in the application code, but not in the Dockerfile / docker-compose.yml</li>
+<li><strong>Unicode</strong>: <a href="https://en.wikipedia.org/wiki/Bush_hid_the_facts">Bush hid the facts</a></li>
+<li><strong>Timezones</strong>: Which timezone was used? What is the difference between a timezon and an offset? Can I use UTC everywere? Those questions are answered in <a href="https://zenodo.org/record/1443533#.XqCJcvIzYdg">What every developer should know about time</a>. As a very brief guideline: Usually it is fine to use UTC in ISO-8601 format for server-side events. For client-side events it is often desirable that you store the local time in ISO-8601 with the timezone as a string in two fields.</li>
+<li><strong>Floating-point comparisons</strong>: Don't use <code>if (a == b)</code>, but <code>if (abs(a-b) &lt; epsilon)</code>. See <a href="https://www.itu.dk/~sestoft/bachelor/IEEE754_article.pdf">What Every Computer Scientist Should Know About Floating-Point Arithmetic</a></li>
+<li><strong>Type missmatches</strong>:<ul>
+<li>Null: You expect an object of class Foo, but got a NULL pointer.</li>
+<li>Sub-ranges: You expect a positive integer, but got zero.</li>
+<li>Stringly typed: You expected either the string "ADMIN" or "USER", but got "user". Use Enums.</li>
+</ul>
+</li>
+<li><strong>Buffer Overflow</strong></li>
+<li>Inter-system communication and changing systems</li>
+<li><a href="https://en.wikipedia.org/wiki/Resource_leak"><strong>Resource Leaks</strong></a>: The program asks for a resource, but never gives it back.<ul>
+<li><a href="https://en.wikipedia.org/wiki/Memory_leak"><strong>Memory Leak</strong></a>: Memory which is no longer needed is never released.</li>
+<li><a href="https://en.wikipedia.org/wiki/Handle_leak"><strong>Handle Leak</strong></a>: Files are opened, but never closed. This means even if they are marked for deletion, they are not deleted. <a href="https://stackoverflow.com/questions/60852105/what-is-the-os-level-handle-of-tempfile-mkstemp-good-for">Happened to me</a>.</li>
+</ul>
+</li>
+<li><a href="https://en.wikipedia.org/wiki/Infinite_loop">Infinite Loop</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Deadlock">Deadlock</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Dangling_pointer">Dangling pointer</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Race_condition">Race condition</a></li>
+</ul>
+<h3 id="scalability">Scalability</h3>
+<p>There is the famous <a href="https://en.wikipedia.org/wiki/Slashdot_effect">hug of death</a>,
+when a famous website links to a small one. Or when a new service is mentioned
+in big media. The issue is that humans don't have a feeling for big numbers.
+A single request on a website is typically handled so fast that we tend to
+think that we can handle arbitrary numbers of users. And for most websites
+and most times this is practically true - there are simply not so many people
+comming to the website. But once you get from a few dozend parallel users to
+thousands or maybe even millions, things start to look different. You need to
+think about the amount of resources you need.</p>
+<p>There are two aspects to this:</p>
+<ul>
+<li>Big-O notation: How does the amount of resources grow with growing demand?
+  In many cases, you want <strong>linear growth</strong> or less.</li>
+<li>Infrastructure: Do you need bigger machines (vertical scaling) or can you
+  just buy more machines (<strong>horizontal scaling</strong>).</li>
+</ul>
+<p>You really want all things you do to be linear or sub-linear. This means in the
+worst case when you have double as many users you just have double as much
+needs for resources. And you really want horizontal scaling, because then
+double as much resources just means double the price.</p>
+<p>As an example: Assume you have a DNA matching website. You tell your customers
+that you will keep track of the latest research and tell them if that might
+lead to new insights about you. Something like finding markers that indicate
+risk for cancer. The resources you need are in <span class="math">\(\mathcal{O}(n)\)</span> where <span class="math">\(n\)</span> is
+the number of users. Once you get new research, you need to check all <span class="math">\(n\)</span>
+users. If the users double, you need to do double the work. And you can do it
+on different machines, hence you can scale horizontally.</p>
+<p>Now assume you would say that you apply the latest research for finding the
+optimal partner. Once you get new insights in the DNA, you need to compare
+every pair of DNA. This is in <span class="math">\(\mathcal{O}(n^2)\)</span>, meaning if you double your
+userbase you might have 4x the need of infrastrucutre!
+Now assume you would do it all on the same machine and you had a fixed time
+limit. Then you would need to buy faster machines. At some point, this is just
+physically not possible anymore. Then you need to change the algorithm to
+run on multiple machines. But with quadratic growth, you might hit limits there
+as well.</p>
+<h3 id="third-party-issues">Third-Party Issues</h3>
+<p>You might call another service to get parts you need. What could happen:</p>
+<ul>
+<li><strong>No answer</strong></li>
+<li><strong>To slow answer</strong>: Maybe the answer you got is not relevant anymore. Think
+  of a portal where you can trade stocks. You want to know the current price.
+  If the service needs 5 minutes to answer, the price will have changed. So
+  even if you get the answer eventually, it is useless.</li>
+<li><strong>Wrong parameters</strong>: The function you called needs other parameters. Maybe it
+  was a bug on your side, but maybe also the service just changed its behaviour.</li>
+<li><strong>Wrong format</strong>: You received an answer and it is correct, but the format of
+  it is unexpected. For example, I once say floating points from a database
+  having the German decimal separator (a comma instead of a point). And being
+  stored as a string instead of a float / decimal is a story of its own.</li>
+<li><strong>Wrong answer</strong>: The data just being plain wrong. Again, using a database
+  I've had a look at the birth dates and found somebody being born in the year
+  zero.</li>
+</ul>
+<h2 id="issue-prevention_1">Issue Prevention</h2>
+<p>It's nice if nothing goes wrong, right? So how can we avoid issues?</p>
+<p>There are so many things to write here, I guess I will move this to its own article.
+Here are some points:</p>
+<table class="table">
+<thead>
+<tr>
+<th>Issue</th>
+<th>Prevention / Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Type missmatches</td>
+<td>Use a typed language or type annotations and a type checker (mypy for Python, TypeScript for JavaScript)</td>
+</tr>
+<tr>
+<td>Partial Change</td>
+<td>Use constants instead of <a href="https://en.wikipedia.org/wiki/Magic_number_(programming)">magic values</a> (typically numbers or strings)</td>
+</tr>
+<tr>
+<td>Infinite Wait for Response</td>
+<td>Timeout: If a synchronous call does not get an answer, don't keep asking forever.</td>
+</tr>
+<tr>
+<td>Unnecessary repeats</td>
+<td>Circuit Breaker: Don't repeat stuff infinitely. [Hystrix](https://github.com/Netflix/Hystrix) would be a Java solution for that.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Fault-prevention patterns</li>
+</ul>
+<h3 id="code-reviews">Code reviews</h3>
+<p>Thorough code reviews can potentially prevent any bug. Of course, you
+don't have any guaranteed. But two people might catch more than one
+person.</p>
+<h3 id="type-checking">Type Checking</h3>
+<p>Some languages require that you state the type for everything, for example Java.
+Other languages, like Rust, support type inference (<a href="https://doc.rust-lang.org/stable/rust-by-example/types/inference.html">example</a>).
+Then there are languages and language extensions like TypeScript and type annotations
+for Python. There you don't need to annotate the types. If you do, you can
+run a static type checker over your code. They support incremental changes,
+meaning you can support some parts and the type checker tries to do its best.</p>
+<ul>
+<li>type safe: Subtypes (integer sub-ranges, enums)</li>
+</ul>
+<p>If you want compile-time type checking, you need to have a look at
+<a href="http://mypy-lang.org/"><code>mypy</code></a>. mypy is a big project known by all relevant
+members of Python. Less known is
+<a href="https://pydantic-docs.helpmanual.io/"><code>pydantic</code></a>. pydantic can support with
+run-time type checking. There are way more things to say about type checking
+in Python. Maybe I'll do that in another article.</p>
+<h3 id="input-checking">Input Checking</h3>
+<p>It sounds obvious, but check your input. Especially common are null values, e.g. when you
+get data from a database. Files might not exist on all platforms or they can be corrupted.
+APIs could change the format in which they return stuff.</p>
+<p>For APIs, schema validation is your friend. If that doesn't work, sanity checks and Regular Expressions (RegEx)
+might get you close enough.</p>
+<p>However, most schema validations are not super rigid. One simple check I miss in most
+cases is value ranges. For example, when I have a "day of birth" field for a current user, I can
+easily say tht anything which is more than 150 years in the past is wrong. Also, days of birth
+which are less than 12 years in the past might indicate an issue in most applications.</p>
+<p>Maybe I'll write an article about schema validation as well.</p>
+<h3 id="finding-code-smells">Finding Code Smells</h3>
+<p>The more code you write, the more possibilities you have to make mistakes. The more complex the
+code is, the more likely you mess something up.</p>
+<p>Just looking at the lines of code and the code complexity (e.g. cyclomatic complexity) might
+point you to places where errors could be likely.</p>
+<p>Looking at line test coverage / branch test coverage are two ways to find places where you might
+want to have a closer look.</p>
+<p>There are also linters like <a href="https://pypi.org/project/pylint/">pylint</a> and <a href="https://pypi.org/project/flake8/">flake8</a>.
+They mostly capture minor stylistic things which can be automatically fixed by
+code formatters like <a href="https://pypi.org/project/black/">black</a>.</p>
+<p>pylint, for example, can help you to detect duplicate code:</p>
+<div class="highlight"><pre><span></span><code>pylint --disable<span class="o">=</span>all --enable<span class="o">=</span>duplicate-code,similarities
+</code></pre></div>
+<h3 id="dependencies">Dependencies</h3>
+<p>Dependencies can break in two ways:</p>
+<ol>
+<li>Breaking changes in new versions</li>
+<li>Availability of Dependencies</li>
+</ol>
+<p>Version pinning solves the first issue, but not the second one. A notable case was <a href="https://en.wikipedia.org/wiki/Npm_(software)#Notable_breakages">left-pad in npm</a>. Removing a single dependency killed a lot of the ecosystem.</p>
+<p>You can avoid this by storing the depenencies, e.g. by having your own artifactory.</p>
+<h3 id="testing">Testing</h3>
+<p>There are lots of different things you can tests:</p>
+<ul>
+<li>Feature Tests</li>
+<li>Load-Tests</li>
+<li>Regression Tests: check if things still work. TODO: difference to unit tests / feature or load tests?</li>
+<li>Unit Tests</li>
+<li>Integration Tests</li>
+<li>End-to-End Tests</li>
+<li>Acceptance tests: Preconditions, postconditions, and assertions</li>
+</ul>
+<p>Don't get confused by that. Tools like <code>pytest</code> can have exactly the same structure for an
+unit test and an integration test.  They look the same. The difference is that an integration
+tests doesn't only look at your code in isolation, but at the way your code works with an external
+system.</p>
+<p>Testing is a huge topic. I covered a bit of it in <a href="https://martin-thoma.com/testing-python-code/">Testing in Python</a>,
+but there is certainly way more to write.</p>
+<h2 id="fault-tolerance_1">Fault Tolerance</h2>
+<p>There are some issues we cannot prevent, but we can design systems that can deal with them.</p>
+<table class="table">
+<tr>
+<th>Fault</th>
+<th>Measure</th>
+</tr>
+<tr>
+<td>Harware outage</td>
+<td>Redundancy. In most cases, I would recommend to simply take a cloud provider so that you don't have to deal with those issues</td>
+</tr>
+<tr>
+<td>Disk Failure</td>
+<td>Replication (e.g. <a href="https://en.wikipedia.org/wiki/RAID">RAID</a>)</td>
+</tr>
+<tr>
+<td>Network Transmission Errors</td>
+<td>Error-correcting codes; checksums. Some protocols like <a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol">TCP</a> do this automatically. Others, like <a href="https://en.wikipedia.org/wiki/User_Datagram_Protocol">UDP</a>, don't do it.</td>
+</tr>
+<tr>
+<td>Too high usage</td>
+<td>Graceful Degradation: It might be that you get so many users, you have to shut things down. You might then, for example, just switch off the computationally expensive features. For example, if you have an interactive service you could instead serve a static version of it.</td>
+</tr>
+</table>
+<h2 id="fault-detection">Fault Detection</h2>
+<p>Some faults slip through your system and cause an issue which can be seen by the customer. You can't prevent or tolerate every fault.</p>
+<p>But at least you can make sure that you notice when things go wrong. You can add logging to your service / application.
+When you use structured logging (JSON line log messages), you can easily create dashboards.</p>
+<p>Several services also make this visible to their customers in form of a status page (<a href="https://status.azure.com/de-de/status">Azure</a>, <a href="https://status.aws.amazon.com/">AWS</a>, <a href="https://www.githubstatus.com/">GitHub</a>, ...)</p>
+<p>For severe cases, you also want alerting: A slack notification, an e-mail or an SMS.</p>
+<p>By releasing the software first to a small group of beta-testers you can make sure that issues are less
+severe. For web serivces, this is called a canary release / canary deployment.</p>
+<h2 id="incidence-management">Incidence Management</h2>
+<p>Jeff Atwood has written <a href="https://blog.codinghorror.com/not-all-bugs-are-worth-fixing/">Not All Bugs Are Worth
+Fixing</a> in which
+he mentions the bug triage:</p>
+<blockquote>
+<p>Eric lists four questions that need to be answered during triage to decide
+whether a bug should be fixed or not:</p>
+<ul>
+<li><strong>Severity</strong>: When this bug happens, how bad is the impact?</li>
+<li><strong>Frequency</strong>: How often does this bug happen?</li>
+<li><strong>Cost</strong>: How much effort would be required to fix this bug?</li>
+<li><strong>Risk</strong>: What is the risk of fixing this bug?</li>
+</ul>
+</blockquote>
+<p>To estimate severity, risk and cost, you need to know something about the system.
+For the severity, you have to be able to estimate the consequences.</p>
+<p>In order to estimate frequency, logs can help.</p>
+<p>Once you've answered those questions and decided that the incidence actually is
+severe enough to take further action, you might want to escalate it. First, get
+everybody who is important for that in your organization in one (chat) room to
+discuss it. This might be developers of several teams, people from user support
+who might get questions about that problem, maybe even external companies.</p>
+<p>Once the incident is resolved or at least all of the information is on the table,
+you should write an <a href="https://www.atlassian.com/incident-management/postmortem">incidence postmortem</a>.
+This is a document intendet to give transparency to everybody and to prevent
+similar things from happening again. It is NOT about blaming people. You might
+even want to publish them. Here are a couple of incident postmortems which
+were made public:</p>
+<ul>
+<li>Microsoft: <a href="https://devblogs.microsoft.com/devopsservice/?p=16295">Performance Issues and failures in VSTS West Europe, 2018-02-07</a> (<a href="https://devblogs.microsoft.com/devopsservice/?cat=2">archive</a>)</li>
+<li>Cloudflare: <a href="https://blog.cloudflare.com/details-of-the-cloudflare-outage-on-july-2-2019/">Cloudflare outage, 2019-07-02</a></li>
+<li>Facebook: <a href="https://blog.thousandeyes.com/facebook-outage-deep-dive/">Configuration, 2015-01-29</a></li>
+<li>Google: <a href="https://googleblog.blogspot.com/2014/01/todays-outage-for-several-google.html">Configuration, 2014-01-24</a></li>
+<li>AWS: <a href="https://aws.amazon.com/de/message/5467D2/">DynamoDB Service Disruption and Related Impacts the US-East</a></li>
+<li><a href="https://github.com/danluu/post-mortems">many more</a></li>
+</ul>
+<p>See also:</p>
+<ul>
+<li>Google: <a href="https://landing.google.com/sre/sre-book/chapters/postmortem-culture/">Postmortem Culture: Learning from Failure</a></li>
+<li>Atlassian: <a href="https://www.atlassian.com/incident-management/postmortem/templates">Incident Postmortem Template</a></li>
+</ul>
+<h2 id="maintenance">Maintenance</h2>
+<p>Every software system needs maintenance. For example, you might need
+to update a timezone database. You might need to apply security patches of
+third-party dependencies you use. Upgrading the dependencies regularly makes
+it easier to upgrade. Look for deprecation warnings. Upgrading a single
+dependency when you have a good test suite is no big deal. Upgrading
+a lot of dependencies after years is not so fun.</p>
+<p>And you might have ticking bombs. This is part of the software that is expected
+to fail. It's usually a decision which was made to simplify the work for the
+moment, but is expected to be fixed in future. Many time-related things
+like the <a href="https://en.wikipedia.org/wiki/Year_2000_problem">Year 2000 problem</a>
+or the <a href="https://en.wikipedia.org/wiki/Year_2038_problem">Year 2038 problem</a>
+are in this category.</p>
+<h2 id="checklists">Checklists</h2>
+<p>Here are a few simple questions that might lead to more reliable software.</p>
+<h3 id="software-development-process">Software Development Process</h3>
+<p>This checklist focuses on your software development process. It is pretty
+general and is intendet to not depend on the specific software you're
+developing.</p>
+<ol>
+<li>Do you use Software Versioning (e.g git)?</li>
+<li>Do you have Pull Requests (Merge Requests) and Reviews?</li>
+<li>Testing<ol>
+<li>Do you have (enough) unit tests? (Line coverage, branch coverage)</li>
+<li>Do you have (enough) integration tests?</li>
+<li>Did you run load tests?</li>
+<li>Did you let users run your software?</li>
+</ol>
+</li>
+<li>Do you have log messages so that you can figure out what happened in case of
+   a failure?</li>
+<li>Do you have a blame-free incident management process with post-mortems for
+   severe cases?</li>
+<li>Do you have a CI/CD system in place? (e.g. <a href="https://docs.gitlab.com/ee/ci/pipelines/">Gitlab CI/CD</a> and <a href="https://github.com/marketplace/category/continuous-integration">many more</a>)</li>
+</ol>
+<h3 id="web-services">Web Services</h3>
+<p>A web service is anything that runs continuously in the web. It needs to be
+available and deal with different changing load. It could be a website or
+an API.</p>
+<ol>
+<li>Do you have a <code>dev</code>, <code>stg</code> and <code>prd</code> environment?</li>
+<li>Do you specify your infrastructure as code? (see
+   <a href="https://en.wikipedia.org/wiki/Infrastructure_as_code">IaC</a>, e.g. <a href="https://aws.amazon.com/de/cloudformation/">AWS
+   CloudFormation</a>)</li>
+<li>Do you have a <a href="https://en.wikipedia.org/wiki/Load_balancing_(computing)">load balancer</a>? (e.g.
+   <a href="https://en.wikipedia.org/wiki/Nginx">nginx</a> or <a href="https://aws.amazon.com/de/elasticloadbalancing/">AWS ELB</a>)</li>
+<li>Can you scale your infrastructure horizontally? (e.g. <a href="https://aws.amazon.com/de/autoscaling/">AWS Auto Scaling</a>)</li>
+<li>Do you have <a href="https://en.wikipedia.org/wiki/Feature_toggle#Canary_release">canary releases</a>?</li>
+<li>Monitoring<ol>
+<li>Do you have a health check in place which is independant of your current system?</li>
+<li>Do you show relevant system metrics (e.g. CPU and memory usage) in an easily accessible way (e.g. a Dashboard)?</li>
+<li>Do you show relevant business metrics (e.g. number of users) in an easily accessible way?</li>
+<li>Do you have a clear system who is on-call? Are those people able to fix issues? Did you train and try error cases?</li>
+</ol>
+</li>
+<li>Alerting: Do you have alerts for severe issues to trigger immediate attention?</li>
+<li>Backups:<ol>
+<li>Do you create backups of critical data regularly?</li>
+<li>Do you always have at least two independent backups?</li>
+</ol>
+</li>
+</ol>
+<p>Hardware:</p>
+<ol>
+<li>Do you have redundant network connections?</li>
+<li>Do you have redundant power supply?</li>
+</ol>
+<p>If it is an API:</p>
+<ol>
+<li>Did you add a specification? (e.g. <a href="https://en.wikipedia.org/wiki/OpenAPI_Specification">OpenAPI</a>)</li>
+<li>Did you version the API?</li>
+</ol>
+<h3 id="applications">Applications</h3>
+<ol>
+<li>Do you have an update mechanism in place?</li>
+<li>Did you run it on all platforms you want to support?</li>
+<li>Is it clear to the customer where and how they can get support / report issues?</li>
+</ol>
+<h2 id="see-also_1">See also</h2>
+<ul>
+<li>Sazzad Hissain Khan: <a href="https://medium.com/@hissain.khan/distinguishing-system-robustness-resilience-stability-flexibility-and-performance-f509e87bcc49">Distinguishing System Robustness, Resilience, Stability, Flexibility and Performance</a> on Medium, May 2019.</li>
+<li>Wikipedia:<ul>
+<li><a href="https://en.wikipedia.org/wiki/Reliability,_availability_and_serviceability">Reliability, availability and serviceability</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Infrastructure_as_code">Infrastructure as code</a></li>
+</ul>
+</li>
+<li>Stack Exchange:<ul>
+<li><a href="https://stackoverflow.com/q/6323049/562769">Understanding what Fault, Error and Failure mean</a></li>
+</ul>
+</li>
+<li>Algirdas Avizienis, Jean-Claude Laprie, Brian Randell, and Carl Landwehr: <a href="https://www.nasa.gov/pdf/636745main_day_3-algirdas_avizienis.pdf">Basic Concepts and Taxonomy of Dependable and Secure Computing</a> in IEEE Transactions on Dependable and Secure Computing, 2004.</li>
+</ul>
+<h2 id="footnotes">Footnotes</h2>
+<div class="footnote">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>Avizienis, Algirdas, Jean-Claude Laprie, and Brian Randell: <a href="https://www.cs.rutgers.edu/~rmartin/teaching/spring03/cs553/readings/avizienis00.pdf">Fundamental Concepts of Dependability</a>, 2001.&nbsp;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+</ol>
+</div>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2020-04-30T20:00:00+02:00">Apr 30, 2020</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#software-development-ref">Software Development
+                    <span>5</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink no-print';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

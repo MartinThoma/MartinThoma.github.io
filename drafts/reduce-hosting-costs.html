@@ -104,7 +104,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#wiki" title="Wiki">Wiki</a><ul><li><a class="toc-href" href="#interesting-stuff-i-found" title="Interesting Stuff I found">Interesting Stuff I found</a></li></ul></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#wiki" title="Wiki">Wiki</a><ul><li><a class="toc-href" href="#interesting-stuff-i-found" title="Interesting Stuff I found">Interesting Stuff I found</a></li></ul></li><li><a class="toc-href" href="#write-mathcom_1" title="write-math.com">write-math.com</a><ul><li><a class="toc-href" href="#ssh" title="SSH">SSH</a></li><li><a class="toc-href" href="#python" title="Python">Python</a></li></ul></li><li><a class="toc-href" href="#aws_1" title="AWS">AWS</a></li><li><a class="toc-href" href="#other-hosting-services" title="Other Hosting Services">Other Hosting Services</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -117,6 +117,7 @@ notice "by the way, you have to pay 12x the price as you use too much space in
 the MySQL database".</p>
 <p>So I talked with a good friend about it and realized that I might not need
 the database at all anymore.</p>
+<p>In this article, I document how I moved.</p>
 <h2 id="wiki">Wiki</h2>
 <p>I had an internal MediaWiki which I used to store notes. Nothing fancy, it was
 public in the beginning and started with notes for school. Back then, I didn't
@@ -141,7 +142,7 @@ know git and I'm not quite sure if GitHub existed back then.</p>
 <li><strong>Markup</strong>: I don't like the Wiki-Markup. I prefer Github Flavored Markdown
   with HTML for anything more complex.</li>
 </ul>
-<p>The solution now seemed simple: Migrate the content to a git repository!</p>
+<p>The solution now seemed simple: <strong>Migrate the content to a git repository!</strong></p>
 <p>This way I can back it up like I do with other local files, I don't have it
 online so the risk of it being exposed is way smaller, I can use markdown,
 uploading Media is only copying a file. I like it 🙂</p>
@@ -173,6 +174,68 @@ then.</p>
 <hr/>
 <p>There is another reason I used the wiki. Sometimes I needed to see diffs
 and I didn't know <a href="https://meldmerge.org/">meld</a> then 😄</p>
+<h2 id="write-mathcom_1">write-math.com</h2>
+<p>I had a bit weird solution here:</p>
+<ul>
+<li>5.00 USD / month for a Digital Ocean Droplet where the machine learning stuff was running</li>
+<li>13.16 USD / year for <a href="https://www.namecheap.com/domains/registration/gtld/com/">.com domain renewal at namecheap</a></li>
+<li>30.73 EUR / year for the database - this is the one I used for multiple things and also the one I want to get rid of</li>
+</ul>
+<p>So you could say that I paid about 100 EUR / year for write-math.com.</p>
+<p>I switched to Namecheap "Stellar" shared server hosting. They use <a href="https://www.namecheap.com/support/knowledgebase/article.aspx/129/22/what-version-of-the-software-is-used-on-your-servers">cPanel and
+3.7.3</a>. This way I can remove the Digital Ocean droplet and instead run it at Namecheap. I removed the need for the database entirely.</p>
+<p>Now I pay 17.28 USD/year for the hosting and 13.16 USD for the domain. So 30.44 USD / year or about 28 EUR / year.</p>
+<h3 id="ssh">SSH</h3>
+<p>First thing to do was to add my SSH key - only the public one (<a href="https://www.namecheap.com/support/knowledgebase/article.aspx/9428/89/how-to-connect-via-ssh-using-keys">docs</a>). Then go to the
+"Manage Shell" part, "Enable SSH access" and "authorize" the added key.</p>
+<p>Now you can access it via</p>
+<div class="highlight"><pre><span></span><code><span class="err">ssh USER@SERVER --port=PORT</span>
+</code></pre></div>
+<ul>
+<li>USER: cPanel username</li>
+<li>SERVER: hostname/IP of the server you are connecting to</li>
+<li>PORT: 21098 for a Shared server</li>
+</ul>
+<h3 id="python">Python</h3>
+<p>Setting up a <a href="https://www.namecheap.com/support/knowledgebase/article.aspx/10048/2182/how-to-work-with-python-app/">Python app via cPanel</a> is easy. Basically it
+creates a virtual environment for you. They use an Apache Webserver with
+<a href="https://en.wikipedia.org/wiki/Phusion_Passenger">Phusion Passenger</a></p>
+<p>There is a <code>passengar_wsgi.py</code></p>
+<p>See also:</p>
+<ul>
+<li>https://help.krystal.uk/python/creating-a-python-app-using-the-django-framework</li>
+<li>https://www.internetivo.com/clients/knowledgebase/99/Start-your-Python-Django-app-on-cPanel.html</li>
+<li>https://help.dreamhost.com/hc/en-us/articles/215769548-Passenger-and-Python-WSGI</li>
+<li>https://docs.cpanel.net/knowledge-base/web-services/how-to-install-a-python-wsgi-application/</li>
+<li>https://www.phusionpassenger.com/library/walkthroughs/start/python.html</li>
+<li>https://www.phusionpassenger.com/docs/tutorials/quickstart/python/</li>
+</ul>
+<p>I was a bit confused because there was a wsgi.py automatically created which
+overwrote my wsgi.py. Luckily, I use git and could simply run <code>git checkout .</code></p>
+<h2 id="aws_1">AWS</h2>
+<p>If you want to run the website on AWS, you have to pay at least one EC2 instance.
+With <code>t2.small</code>, this would be 0.023 USD/h which means 10.08 USD / month
+(<a href="https://aws.amazon.com/de/ec2/instance-types/t2/">EC2 prices</a>). You might
+also want to use AWS RDS which is pretty expensive. You can also <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-register-update.html">register
+domains via AWS Route 53</a>.
+It's 9 USD / year for .de domains and 12 USD / year for .com domains</p>
+<p>A <a href="https://aws.amazon.com/de/getting-started/projects/build-wordpress-website/services-costs/">guide by AWS</a>
+would lead to 450 USD/month for hosting a Wordpress blog.</p>
+<p><a href="https://www.youtube.com/watch?v=IFeA0jh36WQ">Craigerson</a> says that he pays
+only around 11 USD per month.</p>
+<h2 id="other-hosting-services">Other Hosting Services</h2>
+<p>They differ in:</p>
+<ul>
+<li>Time to first byte: That is pretty high for namecheap</li>
+<li>Price per month</li>
+<li>Availability</li>
+</ul>
+<p>See:</p>
+<ul>
+<li>https://www.hostinger.com/web-hosting</li>
+<li>https://www.bluehost.com/hosting/shared</li>
+<li>https://docs.google.com/spreadsheets/d/e/2PACX-1vTXQ11WibUUePRjr4k2HAFS3t0P_mRJVLLQgvKCdisiEUZS8jg3Z2eSLB9uBbsNzOJ2MLdkr9jWPQpC/pubhtml?fbclid=IwAR1wpUGuQr4kb3HcSMUsKG4-ywB7uIgWR3OngKQJomRM71GOkB1a5plyUkg</li>
+</ul>
             
             <div id="disqus_thread" class="no-print"></div>
 <script>
