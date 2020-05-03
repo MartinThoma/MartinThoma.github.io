@@ -42,7 +42,7 @@ function showGetResult()
             });
         },
         error: function() {
-            alert('An error occurred while processing XML file.'); 
+            alert('An error occurred while processing XML file.');
         }
      });
      return result;
