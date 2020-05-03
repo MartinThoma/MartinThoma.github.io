@@ -307,6 +307,10 @@ There is a good [German source](https://www.tagesschau.de/faktenfinder/corona-gr
   start. Italy already has 14,000 dead people due to COVID-19.
 * We have vaccination against the flu, but not against COVID-19.
 
+A comparison of deaths says more than a thousand words:
+
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/Si6BEgf"><a href="//imgur.com/a/Si6BEgf">It&#39;s just the flu</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
 
 ## Name
 
