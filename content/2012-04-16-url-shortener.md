@@ -85,9 +85,9 @@ Short URLs should live forever and never change.
 
 * <a href="http://mashable.com/2008/01/08/url-shortening-services/">URL Toolbox: 90+ URL Shortening Services</a> - if you wish to see some more
 * Wikipedia:
-  * <a href="http://en.wikipedia.org/wiki/Bitly">bitly</a>
-  * <a href="http://en.wikipedia.org/wiki/TinyURL">TinyURL</a>
-  * [URL shortening](https://en.wikipedia.org/wiki/URL_shortening)
-
+    * <a href="http://en.wikipedia.org/wiki/Bitly">bitly</a>
+    * <a href="http://en.wikipedia.org/wiki/TinyURL">TinyURL</a>
+    * [URL shortening](https://en.wikipedia.org/wiki/URL_shortening)
+* [phlasch](https://github.com/bbmokhtari/phlasch): A Python implementation of a URL shortener. Note that this is only the backend + API, not the frontend. I haven't used it so far, but it looks ok
 
 Did I miss quality measures?
