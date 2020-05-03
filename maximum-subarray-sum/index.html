@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Competitive Programming, Brute-Force, Code, " />
+
+<meta property="og:title" content="Maximum Contiguous Subarray Sum"/>
+<meta property="og:url" content="../maximum-subarray-sum/" />
+<meta property="og:description" content="The maximum contiguous subarray sum problem is one of the classics. Given an 1D array of numbers \(a_1, \dots, a_n\) with \(a_i \in \mathbb{R}\), find \(s\) such that: $$\exists l, r \in [1, \dots, n]: \forall p, q \in [1, \dots, n]: \sum_{i=p}^q \leq \sum_{i …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2020-05-03T20:00:00+02:00" />
+<meta name="twitter:title" content="Maximum Contiguous Subarray Sum">
+<meta name="twitter:description" content="The maximum contiguous subarray sum problem is one of the classics. Given an 1D array of numbers \(a_1, \dots, a_n\) with \(a_i \in \mathbb{R}\), find \(s\) such that: $$\exists l, r \in [1, \dots, n]: \forall p, q \in [1, \dots, n]: \sum_{i=p}^q \leq \sum_{i …">
+<meta property="og:image" content="logos/python.png" />
+<meta name="twitter:image" content="logos/python.png" >
+
+        <title>Maximum Contiguous Subarray Sum · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../maximum-subarray-sum/"> Maximum Contiguous Subarray Sum </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#edge-cases" title="Edge Cases">Edge Cases</a></li><li><a class="toc-href" href="#examples" title="Examples">Examples</a></li><li><a class="toc-href" href="#brute-force" title="Brute-Force">Brute-Force</a></li><li><a class="toc-href" href="#cummulative-sum-brute-force" title="Cummulative Sum Brute-Force">Cummulative Sum Brute-Force</a></li><li><a algorithm'="" class="toc-href" href="#kadanes-algorithm" s="" title="Kadane">Kadane's Algorithm</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>The maximum contiguous subarray sum problem is one of the classics. Given an
+1D array of numbers <span class="math">\(a_1, \dots, a_n\)</span> with <span class="math">\(a_i \in \mathbb{R}\)</span>, find <span class="math">\(s\)</span> such that:</p>
+<div class="math">$$\exists l, r \in [1, \dots, n]: \forall p, q \in [1, \dots, n]: \sum_{i=p}^q \leq \sum_{i=l}^r a_i = s$$</div>
+<p>In other words: Find the sum of the biggest continguous subarray.</p>
+<h2 id="edge-cases">Edge Cases</h2>
+<p>To make the rest a bit simpler, I will only use integers. It is also guaranteed
+that there is at least one element in the list.</p>
+<h2 id="examples">Examples</h2>
+<p>For any array without negative numbers, the sum of the whole array would be the
+solution.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">max_contiguous_subarray_sum</span><span class="p">([</span><span class="mi">11</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="mi">15</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">max_contiguous_subarray_sum</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="mi">11</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">max_contiguous_subarray_sum</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">])</span>
+<span class="o">-</span><span class="mi">1</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">max_contiguous_subarray_sum</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+<span class="o">-</span><span class="mi">2</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">max_contiguous_subarray_sum</span><span class="p">([</span><span class="mi">3</span><span class="p">])</span>
+<span class="mi">3</span>
+</code></pre></div>
+<h2 id="brute-force">Brute-Force</h2>
+<p>I like simple brute force solutions to make sure that more complex solutions
+are correct:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">accumulate</span>
+
+
+<span class="k">def</span> <span class="nf">max_contiguous_subarray_sum</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="n">max_sum</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">right</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">left</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">right</span><span class="p">):</span>
+            <span class="n">sum_</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">left</span><span class="p">:</span><span class="n">right</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+            <span class="n">max_sum</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_sum</span><span class="p">,</span> <span class="n">sum_</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">max_sum</span>
+</code></pre></div>
+<p>Complexity analysis:</p>
+<ul>
+<li>Time Complexity: <span class="math">\(\mathcal{O}(n^3)\)</span></li>
+<li>Space Complexity: <span class="math">\(\mathcal{O}(n)\)</span></li>
+</ul>
+<p>You might wonder why this has a time complexity of <span class="math">\(\mathcal{O}(n^3)\)</span>, although
+there are only two loops. The answer is simply the <code>sum</code> function.</p>
+<p>You might also wonder if the fact that the inner loop does not do <span class="math">\(n\)</span>
+operations but only <span class="math">\(\text{right}\)</span> operations makes any difference. In this
+case let's calculate the exact number of tumes we calculate <code>sum_</code>:</p>
+<ul>
+<li>right=0: 0x sum_ calculations</li>
+<li>right=1: 1x sum_ calculations</li>
+<li>right=2: 2x sum_ calculations</li>
+<li>...</li>
+<li>right=n-1: (n-1)x sum_ calculations</li>
+</ul>
+<p>Hence we calculate <code>sum_</code> exactly
+</p>
+<div class="math">$$\sum_{1}^{n-1} = \frac{(n-1)^2 + (n-1)}{2} = \frac{n^2 - n}{2}$$</div>
+<p>
+times.</p>
+<p>The amount of elements should also be considered:</p>
+<ul>
+<li>right=0: 0x sum_ calculations, sum-elements: up to 0</li>
+<li>right=1: 1x sum_ calculations, sum-elements: up to 1</li>
+<li>right=2: 2x sum_ calculations, sum-elements: up to 2</li>
+<li>...</li>
+<li>right=n-1: (n-1)x sum_ calculations, sum-elements: up to (n-1)</li>
+</ul>
+<p>Hence the <code>sum()</code> function needs to do</p>
+<div class="math">\begin{align}
+\sum_{i=1}^n (\sum_{j=1}^i j) &amp;= \sum_{i=1}^n \frac{i^2 + i}{2}\\
+&amp;= \frac{1}{2} \cdot \sum_{i=1}^n (i^2 + i) \\
+&amp;= \frac{1}{2} \cdot (\sum_{i=1}^n i + \sum_{i=1}^n i^2)) \\
+&amp;= \frac{1}{2} \frac{n^2 + n}{2} + \frac{1}{2} \cdot \frac{n \cdot (n + 1) \cdot (2n + 1)}{6}\\
+\end{align}</div>
+<p>Which means it's a time complexity of <span class="math">\(\mathcal{O}(n^3)\)</span>.</p>
+<h2 id="cummulative-sum-brute-force">Cummulative Sum Brute-Force</h2>
+<p>There is a pretty neat trick using the cummulative sum to prevent one of those
+loops</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">accumulate</span>
+
+
+<span class="k">def</span> <span class="nf">max_contiguous_subarray_sum</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="n">max_sum</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">cumsum</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">accumulate</span><span class="p">(</span><span class="n">nums</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">right</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">cumsum</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">left</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">right</span><span class="p">):</span>
+            <span class="n">sum_</span> <span class="o">=</span> <span class="n">cumsum</span><span class="p">[</span><span class="n">right</span><span class="p">]</span> <span class="o">-</span> <span class="n">cumsum</span><span class="p">[</span><span class="n">left</span><span class="p">]</span>
+            <span class="n">max_sum</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_sum</span><span class="p">,</span> <span class="n">sum_</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">max_sum</span>
+</code></pre></div>
+<p>Complexity analysis:</p>
+<ul>
+<li>Time Complexity: <span class="math">\(\mathcal{O}(n^2)\)</span></li>
+<li>Space Complexity: <span class="math">\(\mathcal{O}(n)\)</span></li>
+</ul>
+<h2 id="kadanes-algorithm">Kadane's Algorithm</h2>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
+
+<span class="k">def</span> <span class="nf">max_contiguous_subarray_sum</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="n">max_sum</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">'-inf'</span><span class="p">)</span>
+    <span class="n">current_sum</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
+        <span class="n">current_sum</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">current_sum</span> <span class="o">+</span> <span class="n">num</span><span class="p">)</span>
+        <span class="n">max_sum</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_sum</span><span class="p">,</span> <span class="n">current_sum</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">max_sum</span>
+</code></pre></div>
+<p>Complexity analysis:</p>
+<ul>
+<li>Time Complexity: <span class="math">\(\mathcal{O}(n)\)</span></li>
+<li>Space Complexity: <span class="math">\(\mathcal{O}(1)\)</span></li>
+</ul>
+<p>There cannot be any asymptotically better solution. For space complexity, it
+is obvious. For time complexity one can see that one needs to look at least
+at each element.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li>Wikipedia: <a href="https://en.wikipedia.org/wiki/Maximum_subarray_problem">Maximum subarray problem</a></li>
+<li>Geeks For Geeks: <a href="https://www.geeksforgeeks.org/largest-sum-contiguous-subarray/">Largest Sum Contiguous Subarray</a></li>
+</ul>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2020-05-03T20:00:00+02:00">Mai 3, 2020</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#brute-force-ref">Brute-Force
+                    <span>3</span>
+</a></li>
+                <li><a href="../tags.html#competitive-programming-ref">Competitive Programming
+                    <span>1</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
