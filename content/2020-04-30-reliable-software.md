@@ -198,6 +198,10 @@ Here are some points:
         <td>Unnecessary repeats</td>
         <td>Circuit Breaker: Don't repeat stuff infinitely. [Hystrix](https://github.com/Netflix/Hystrix) would be a Java solution for that.</td>
     </tr>
+    <tr>
+        <td>Infinite Loop</td>
+        <td>Use foreach-loops over while / for loops</td>
+    </tr>
     </tbody>
 </table>
 
@@ -473,9 +477,11 @@ If it is an API:
 * Wikipedia:
     * [Reliability, availability and serviceability](https://en.wikipedia.org/wiki/Reliability,_availability_and_serviceability)
     * [Infrastructure as code](https://en.wikipedia.org/wiki/Infrastructure_as_code)
+    * [Fault tolerance](https://en.wikipedia.org/wiki/Fault_tolerance)
 * Stack Exchange:
     * [Understanding what Fault, Error and Failure mean](https://stackoverflow.com/q/6323049/562769)
 * Algirdas Avizienis, Jean-Claude Laprie, Brian Randell, and Carl Landwehr: [Basic Concepts and Taxonomy of Dependable and Secure Computing](https://www.nasa.gov/pdf/636745main_day_3-algirdas_avizienis.pdf) in IEEE Transactions on Dependable and Secure Computing, 2004.
+* Igor Perikov: [5 patterns to make your microservice fault-tolerant](https://itnext.io/5-patterns-to-make-your-microservice-fault-tolerant-f3a1c73547b3), 2020-01-08.
 
 ## Footnotes
 
