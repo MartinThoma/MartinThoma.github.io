@@ -158,6 +158,7 @@ which I think I really need... turns out, it's a lot of stuff.
         <th>Price</th>
         <th>Durability</th>
         <th>Price / year</th>
+        <th>2020</th>
     </tr>
     </thead>
     <tbody>
@@ -166,126 +167,154 @@ which I think I really need... turns out, it's a lot of stuff.
         <td>93.80 EUR</td>
         <td>6 years</td>
         <td>15.64 EUR / year</td>
+        <td>0 EUR / 0 pieces</td>
     </tr>
     <tr>
         <td>10 Paar Sneaker (Mat &amp; Vic Cotton Classic)</td>
         <td>15.00 EUR</td>
         <td>5 years</td>
         <td>3.00 EUR / year</td>
+        <td>0 EUR / 0 pieces</td>
     </tr>
     <tr>
         <td>3 Paar Thermosocken (Vollfrottee)</td>
         <td>7.50 EUR</td>
         <td>6 years</td>
         <td>1.25 EUR / year</td>
+        <td>0 EUR / 0 pieces</td>
     </tr>
     <tr>
         <td>15 Paar Herrensocken</td>
         <td>37.50 EUR</td>
         <td>5 years</td>
         <td>7.50 EUR / year</td>
+        <td>0 EUR / 0 pieces</td>
     </tr>
     <tr>
         <td>4x Chino Hose</td>
         <td>120.00 EUR</td>
         <td>2 years</td>
         <td>60.00 EUR / year</td>
+        <td>0 EUR / 0 pieces</td>
     </tr>
     <tr>
         <td>5x Pullover</td>
         <td>150.00 EUR</td>
         <td>3 years</td>
         <td>50.00 EUR / year</td>
+        <td>0 EUR / 0 pieces</td>
     </tr>
     <tr>
         <td>3x Funktionsshirt</td>
         <td>63.00 EUR</td>
         <td>4 years</td>
         <td>15.75 EUR / year</td>
+        <td>0 EUR / 0 pieces</td>
     </tr>
     <tr>
         <td>5x Business-Hemd</td>
         <td>200.00 EUR</td>
         <td>4 years</td>
         <td>50.00 EUR / year</td>
+        <td>0 EUR / 0 pieces</td>
     </tr>
     <tr>
         <td>5x Sport Hose (PUMA Herren Active Woven Short 5')</td>
         <td>125.00 EUR</td>
         <td>6 years</td>
         <td>20.84 EUR / year</td>
+        <td>0 EUR / 0 pieces</td>
     </tr>
     <tr>
         <td>1x Ski-Handschuhe</td>
         <td>27.00 EUR</td>
         <td>10 years</td>
         <td>2.70 EUR / year</td>
+        <td>0 EUR / 0 pieces</td>
     </tr>
     <tr>
         <td>2x Jogginghose (lang, dick, Baumwoll-Fleece)</td>
         <td>40.00 EUR</td>
         <td>10 years</td>
         <td>4.00 EUR / year</td>
+        <td>0 EUR / 0 pieces</td>
     </tr>
     <tr>
         <td>10x T-shirt (Schwarz, S, Fruit of the Loom)</td>
         <td>20.00 EUR</td>
         <td>15 years</td>
         <td>1.34 EUR / year</td>
+        <td>0 EUR / 0 pieces</td>
     </tr>
     <tr>
         <td>1x Gürtel (80cm, 3cm Breit)</td>
         <td>22.00 EUR</td>
         <td>2 years</td>
         <td>11.00 EUR / year</td>
+        <td>0 EUR / 0 pieces</td>
     </tr>
     <tr>
         <td>1x Schal</td>
         <td>15.00 EUR</td>
         <td>15 years</td>
         <td>1.00 EUR / year</td>
+        <td>0 EUR / 0 pieces</td>
     </tr>
     <tr>
         <td>2x Badehose</td>
         <td>40.00 EUR</td>
         <td>20 years</td>
         <td>2.00 EUR / year</td>
+        <td>0 EUR / 0 pieces</td>
     </tr>
     <tr>
         <td>1x Wintermütze</td>
         <td>18.00 EUR</td>
         <td>15 years</td>
         <td>1.20 EUR / year</td>
+        <td>0 EUR / 0 pieces</td>
     </tr>
     <tr>
         <td>1x Funktionstuch (<a href="https://www.icebreaker.com/en-us/womens-hats-neckwear/apex-chute/103458.html">Icebreaker Apex Chute</a>)</td>
         <td>36.00 EUR</td>
         <td>15 years</td>
         <td>2.40 EUR / year</td>
+        <td>0 EUR / 0 pieces</td>
     </tr>
     <tr>
         <td>1x Cabanjacke</td>
         <td>80.00 EUR</td>
         <td>15 years</td>
         <td>5.34 EUR / year</td>
+        <td>0 EUR / 0 pieces</td>
     </tr>
     <tr>
         <td>2x Thermo-Hose</td>
         <td>60.00 EUR</td>
         <td>3 years</td>
         <td>20.00 EUR / year</td>
+        <td>0 EUR / 0 pieces</td>
     </tr>
     <tr>
         <td>3x Lange Unterhose</td>
         <td>105.00 EUR</td>
         <td>10 years</td>
         <td>10.50 EUR / year</td>
+        <td>0 EUR / 0 pieces</td>
     </tr>
     <tr>
         <td>2x Langes Funktionsunterhemd</td>
         <td>80.00 EUR</td>
         <td>15 years</td>
         <td>5.34 EUR / year</td>
+        <td>0 EUR / 0 pieces</td>
+    </tr>
+    <tr>
+        <td>Hausschuhe</td>
+        <td>6.99 EUR</td>
+        <td>4 years</td>
+        <td>-</td>
+        <td>6.99 EUR / 1 pair</td>
     </tr>
     </tbody>
     <tfoot>
@@ -294,6 +323,7 @@ which I think I really need... turns out, it's a lot of stuff.
         <td>1354.80 EUR</td>
         <td>-</td>
         <td>290.30 EUR / year</td>
+        <td>0 EUR / 0 pieces</td>
     </tr>
     </tfoot>
 </table>
@@ -541,7 +571,7 @@ Fabrics:
         <td>1 week</td>
         <td>1.79 EUR / kg</td>
         <td>32.58 EUR / year</td>
-        <td>1.42 EUR / 1.236 kg</td>
+        <td>1.79 EUR / 1.444 kg</td>
     </tr>
     <tr>
         <td><a href="https://en.wikipedia.org/wiki/Mandarin_orange">Mandarin orange</a> (Mandarinen)</td>
@@ -581,7 +611,7 @@ Fabrics:
         <td>3 days</td>
         <td>1.89 EUR / 500g</td>
         <td></td>
-        <td>7.26 EUR / 2000g</td>
+        <td>8.75 EUR / 2500g</td>
     </tr>
     <tr>
         <td>Grapes (Trauben)</td>
@@ -589,7 +619,7 @@ Fabrics:
         <td>4 weeks</td>
         <td>2.99 EUR / kg</td>
         <td></td>
-        <td>7.04 EUR / 2.058kg</td>
+        <td>8.93 EUR / 2.558kg</td>
     </tr>
     <tr>
         <td>Annanas in a tin can</td>
@@ -605,7 +635,7 @@ Fabrics:
         <td>2 weeks</td>
         <td>0.39 / piece</td>
         <td>4.68 EUR / year</td>
-        <td>0.87 EUR / 3 pieces</td>
+        <td>1.06 EUR / 4 pieces</td>
     </tr>
     <tr>
         <td><a href="https://en.wikipedia.org/wiki/Vaccinium">Blueberries</a> (Heidelbeeren)</td>
@@ -677,7 +707,7 @@ Fabrics:
         <td>3 months (?)</td>
         <td>0.99 EUR / 2kg</td>
         <td></td>
-        <td>1.88 EUR / 3 kg</td>
+        <td>3.67 EUR / 5 kg</td>
     </tr>
     <tr>
         <td>Zuckererbsen</td>
@@ -763,9 +793,9 @@ Fabrics:
         <td>Corn in a can (🇩🇪Mais in der Dose)</td>
         <td>2520g</td>
         <td>33 months</td>
-        <td>1.19 EUR / 420g (🇩🇪 Abtropfgewicht)</td>
+        <td>1.29 EUR / 420g (🇩🇪 Abtropfgewicht)</td>
         <td>7.14 EUR / year</td>
-        <td>5.06 EUR / 1680g</td>
+        <td>6.35 EUR / 2100g</td>
     </tr>
     <tr>
         <td>🇩🇪 Maiskölbchen</td>
@@ -863,6 +893,14 @@ Fabrics:
         <td>7.81 EUR / 5750g</td>
     </tr>
     <tr>
+        <td>Bread (Brot: Mehrkornbrot, Vollkornbrot, Kartoffelbrot)</td>
+        <td></td>
+        <td>4 days</td>
+        <td>1.29 EUR / 500g</td>
+        <td></td>
+        <td>3.87 EUR / 1500g</td>
+    </tr>
+    <tr>
         <td>Croissants</td>
         <td>104 pieces / year</td>
         <td>1 day (3 weeks for backing)</td>
@@ -890,9 +928,9 @@ Fabrics:
         <td>Butter (not salted)</td>
         <td>250g / 2 weeks (?)</td>
         <td>3 months</td>
-        <td>1.29 EUR / 250g</td>
+        <td>1.39 EUR / 250g</td>
         <td>33.54 EUR / year</td>
-        <td>8.98 EUR / 1500g</td>
+        <td>13.21 EUR / 2250g</td>
     </tr>
     <tr>
         <td>Margarine</td>
@@ -908,15 +946,15 @@ Fabrics:
         <td>9 months</td>
         <td>0.49 EUR / 200ml</td>
         <td>5.88 EUR / year</td>
-        <td>0.49 EUR / 200ml</td>
+        <td>0.98 EUR / 400ml</td>
     </tr>
     <tr>
         <td><a href="https://en.wikipedia.org/wiki/Mayonnaise">Mayonnaise</a></td>
         <td></td>
         <td>6 months</td>
-        <td></td>
-        <td></td>
         <td>1.69 EUR / 200ml</td>
+        <td></td>
+        <td>3.38 EUR / 400ml</td>
     </tr>
     <tr>
         <td>Remoulade</td>
@@ -927,12 +965,12 @@ Fabrics:
         <td>3.38 EUR / 400ml</td>
     </tr>
     <tr>
-        <td>Cheese (🇩🇪 Emmentaler Käse)</td>
+        <td>Cheese (🇩🇪 Emmentaler Käse; Limburger)</td>
         <td>400g / 2 weeks</td>
         <td>4 months</td>
         <td>2.69 EUR / 400g</td>
         <td>67.34 EUR / year</td>
-        <td>18.93 EUR / 3.0kg</td>
+        <td>25.61 EUR / 3.8kg</td>
     </tr>
     <tr>
         <td>Frischkäse</td>
@@ -940,7 +978,7 @@ Fabrics:
         <td>6 weeks</td>
         <td>0.99 EUR / 125g</td>
         <td></td>
-        <td>1.98 EUR / 250g</td>
+        <td>2.97 EUR / 375g</td>
     </tr>
     <tr>
         <td>Cheese (🇩🇪 Schweizer Hartkäse; Appenzeller)</td>
@@ -956,7 +994,7 @@ Fabrics:
         <td>0.69 EUR / 125 g (<abbr title="Abtropfgewicht">ATG</abbr>)</td>
         <td></td>
         <td></td>
-        <td>2.76 EUR / 500g</td>
+        <td>3.45 EUR / 625g</td>
     </tr>
     <tr>
         <td><a href="https://en.wikipedia.org/wiki/Mortadella">Mortadella</a> Wurst</td>
@@ -980,7 +1018,7 @@ Fabrics:
         <td>18 months</td>
         <td>0.99 EUR / 450g</td>
         <td></td>
-        <td>2.27 EUR / 1300g</td>
+        <td>3.26 EUR / 1750g</td>
     </tr>
     <tr>
         <td>Obatzter</td>
@@ -989,6 +1027,14 @@ Fabrics:
         <td></td>
         <td></td>
         <td>3.47 EUR / 450g</td>
+    </tr>
+    <tr>
+        <td>Crème fraîche based spread (Tomaten-Mozarella Brotaufstrich)</td>
+        <td></td>
+        <td>2 weeks</td>
+        <td>0.89 EUR / 150g</td>
+        <td></td>
+        <td>3.56 EUR / 600g</td>
     </tr>
     <tr>
         <td>Nougat Creme (e.g. Nutella)</td>
@@ -1078,7 +1124,7 @@ General Cooking:
         <td>2 months (?)</td>
         <td>0.65 EUR / L</td>
         <td>33.90 EUR / year</td>
-        <td>10.30 EUR / 15 L</td>
+        <td>10.95 EUR / 16 L</td>
     </tr>
     <tr>
         <td><a href="https://en.wikipedia.org/wiki/Whipped_cream">Whipped Cream</a> (Schlagsahne 30%)</td>
@@ -1086,7 +1132,7 @@ General Cooking:
         <td>2 weeks</td>
         <td>0.63 EUR / 200 g</td>
         <td>7.56 EUR / year</td>
-        <td>1.26 EUR / 400g</td>
+        <td>2.13 EUR / 600g</td>
     </tr>
     <tr>
         <td>Creme Fraiche (30%)</td>
@@ -1118,7 +1164,7 @@ General Cooking:
         <td>1 year</td>
         <td>0.99 EUR / L</td>
         <td>11.88 EUR / year</td>
-        <td>4.96 EUR / 4 L</td>
+        <td>5.95 EUR / 5 L</td>
     </tr>
     <tr>
         <td>Sugar</td>
@@ -1213,7 +1259,7 @@ General Cooking:
         <td>2 years</td>
         <td>1.89 EUR / kg</td>
         <td>11.34 EUR / year</td>
-        <td>7.96 EUR / 4kg</td>
+        <td>9.95 EUR / 5kg</td>
     </tr>
     <tr>
         <td>Sushi Rice</td>
@@ -1385,6 +1431,14 @@ General Cooking:
             <td>0</td>
         </tr>
         <tr>
+            <td>Prawn / Shrimp (Garnelen, e.g. <a href="https://en.wikipedia.org/wiki/Penaeus_monodon">Black Tiger</a>)</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
             <td>Rinderhackfleisch</td>
             <td>1.2 kg</td>
             <td>?</td>
@@ -1398,7 +1452,7 @@ General Cooking:
             <td>?</td>
             <td>2.69 EUR / 400g</td>
             <td>32.28 EUR / year</td>
-            <td>11.66 EUR / 1800g</td>
+            <td>13.95 EUR / 2100g</td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Weisswurst">Weißwurst</a></td>
@@ -1439,7 +1493,7 @@ General Cooking:
             <td>2 weeks (?)</td>
             <td>0.29 EUR / piece</td>
             <td>45.37 EUR</td>
-            <td>18.16 EUR / 55 piece</td>
+            <td>21.73 EUR / 70 piece</td>
         </tr>
         <tr>
             <td>Natural Joghurt (Joghurt Pur)</td>
@@ -1447,23 +1501,23 @@ General Cooking:
             <td></td>
             <td>0.75 EUR / 500g</td>
             <td></td>
-            <td>1.64 EUR / 1500g</td>
+            <td>2.03 EUR / 1675g</td>
         </tr>
         <tr>
-            <td>Sweets like Cookies (Chips, chocolate, cake, waffles, cookies; Süßigkeiten, Kakao-Schnitten, Kekse)</td>
+            <td>Sweets like Cookies (Chips, chocolate, cake, waffles, cookies; Süßigkeiten, Kakao-Schnitten, Kekse, Wassereis)</td>
             <td>-</td>
             <td>months to years</td>
             <td></td>
             <td></td>
-            <td>36.28 EUR / 29 packages</td>
+            <td>43.44 EUR / 33 packages</td>
         </tr>
         <tr>
-            <td>Savory (Chips, Nachos, Sauce for nachos)</td>
+            <td>Savory (Chips, Nachos, Sauce for nachos, Bake Rolls)</td>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
-            <td>1.88 EUR / 2 packages</td>
+            <td>2.87 EUR / 3 packages</td>
         </tr>
         <tr>
             <td>Bakery non-sweet (Semmeln)</td>
@@ -1551,7 +1605,7 @@ General Cooking:
             <td>1 year</td>
             <td>0.29 EUR / 0.5L</td>
             <td></td>
-            <td>0.29 EUR / 0.5L</td>
+            <td>0.54 EUR / 1.0L</td>
         </tr>
         <tr>
             <td>Milchgetränk / Joghurtgetränk</td>
@@ -1584,6 +1638,14 @@ General Cooking:
             <td>0.79 EUR / 400 ml</td>
             <td></td>
             <td>6.62 EUR / 3200 ml</td>
+        </tr>
+        <tr>
+            <td>Chili Sin Carne (in a tin can)</td>
+            <td></td>
+            <td>3 years</td>
+            <td>1.69 EUR / 800g</td>
+            <td></td>
+            <td>1.69 EUR / 800g</td>
         </tr>
         <tr>
             <td>Zwieback</td>
@@ -1987,5 +2049,9 @@ pills and maybe a couple of months for creams and ointment.
     <tr>
         <td>Dishwasher</td>
         <td>TODO</td>
+    </tr>
+    <tr>
+        <td>Dates / Girlfriend</td>
+        <td>31.99 EUR</td>
     </tr>
 </table>
