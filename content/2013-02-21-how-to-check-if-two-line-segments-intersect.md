@@ -578,3 +578,8 @@ Some notes for me:
 
 edit:
 I now have a more modern system. So I was able to use EclEmma, which works fine. And I have 100% branch code coverage for this part of code ☺
+
+
+## See also
+
+* `mpu.geometry`: [source](https://github.com/MartinThoma/mpu/blob/master/mpu/geometry.py)
