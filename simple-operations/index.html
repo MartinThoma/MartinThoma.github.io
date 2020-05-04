@@ -104,7 +104,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#arithmethic" title="Arithmethic">Arithmethic</a></li><li><a class="toc-href" href="#element-lookup" title="Element lookup">Element lookup</a></li><li><a class="toc-href" href="#algorithms" title="Algorithms">Algorithms</a><ul><li><a class="toc-href" href="#sorting" title="Sorting">Sorting</a></li></ul></li><li><a class="toc-href" href="#networks_1" title="Networks">Networks</a><ul><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li><li><a class="toc-href" href="#code_1" title="Code">Code</a></li><li><a class="toc-href" href="#footnotes" title="Footnotes">Footnotes</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#arithmethic" title="Arithmethic">Arithmethic</a></li><li><a class="toc-href" href="#element-lookup" title="Element lookup">Element lookup</a></li><li><a class="toc-href" href="#algorithms" title="Algorithms">Algorithms</a><ul><li><a class="toc-href" href="#sorting" title="Sorting">Sorting</a></li></ul></li><li><a class="toc-href" href="#networks_1" title="Networks">Networks</a><ul><li><a class="toc-href" href="#latency" title="Latency">Latency</a></li><li><a class="toc-href" href="#throughput" title="Throughput">Throughput</a></li><li><a class="toc-href" href="#combinations" title="Combinations">Combinations</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></li><li><a class="toc-href" href="#code_1" title="Code">Code</a></li><li><a class="toc-href" href="#footnotes" title="Footnotes">Footnotes</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -262,13 +262,31 @@ lookup(np array)    : min: 711.1&mu;s, mean: 855.7&mu;s, max: 1665.5&mu;s
 <dt><a href="https://en.wikipedia.org/wiki/Throughput">Throughput</a> (Bandwidth)</dt>
 <dd>Throughput is measured in kB/s and answers the question: If the first bit already arrived, how quickly will the rest be transfered?</dd>
 </dl>
+<h3 id="latency">Latency</h3>
 <p>Typical values:</p>
 <ul>
 <li>Ethernet Switch Latency: 50&mu;s - 125&mu;s</li>
 <li>Ping my router via W-LAN: 2.3ms in average</li>
 <li>Cable: Essentially non-existant as the signal travels with the speed of light</li>
 </ul>
-<p>And some trhoughput values (partially measured, partially looked up / calculated):</p>
+<p>And some other corner stones:</p>
+<ul>
+<li>Static pages with network:<ul>
+<li><a href="http://martin-thoma.de">http://martin-thoma.de via hosting.de</a>: 52ms - 61ms</li>
+<li>Google.de: 110ms - 170ms</li>
+<li><a href="https://joyn.de/">https://joyn.de</a>: 130ms - 190ms</li>
+<li><a href="https://blog.fefe.de/">https://blog.fefe.de</a>: 150ms - 180ms</li>
+<li><a href="https://martin-thoma.com/">https://martin-thoma.com</a> via GitHub: 320ms - 420ms</li>
+<li><a href="https://netflix.com/">https://netflix.com</a>: 230ms - 500ms</li>
+</ul>
+</li>
+<li>API request with network:<ul>
+<li><a href="https://write-math.com">https://write-math.com</a> via namecheap; a symbol classification request: 550ms - 820ms</li>
+</ul>
+</li>
+</ul>
+<h3 id="throughput">Throughput</h3>
+<p>And some throughput values (partially measured, partially looked up / calculated):</p>
 <table class="table">
 <tr>
 <th rowspan="2">Connection</th>
@@ -328,11 +346,6 @@ lookup(np array)    : min: 711.1&mu;s, mean: 855.7&mu;s, max: 1665.5&mu;s
 <td colspan="2">0.417 MB/s (3.3 MBit/s)</td>
 </tr>
 </table>
-<p>Some measurements how quickly I get web pages:</p>
-<div class="highlight"><pre><span></span><code>get_webpage (martin-thoma.de,     2.3kB): min:  353ms, mean:  367ms, max:  390ms
-get_webpage (google.de,          11.3kB): min:  532ms, mean:  548ms, max:  574ms
-get_webpage (stackoverflow.com, 273.5kB): min: 1331ms, mean: 1686ms, max: 2462ms
-</code></pre></div>
 <p>When you think about which internet contract to get, you might be wondering
 which speed is acceptable. The highest speed is probably necessary for video
 streaming:</p>
@@ -366,6 +379,12 @@ streaming:</p>
 </tr>
 </tbody>
 </table>
+<h3 id="combinations">Combinations</h3>
+<p>Some measurements how quickly I get web pages:</p>
+<div class="highlight"><pre><span></span><code>get_webpage (martin-thoma.de,     2.3kB): min:  353ms, mean:  367ms, max:  390ms
+get_webpage (google.de,          11.3kB): min:  532ms, mean:  548ms, max:  574ms
+get_webpage (stackoverflow.com, 273.5kB): min: 1331ms, mean: 1686ms, max: 2462ms
+</code></pre></div>
 <h3 id="see-also">See also</h3>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Enhanced_Data_Rates_for_GSM_Evolution">Enhanced Data Rates for GSM Evolution</a></li>
