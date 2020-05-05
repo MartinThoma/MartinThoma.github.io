@@ -195,13 +195,40 @@ When you talk about "speed" in a network context, there are two important values
     <dd>Throughput is measured in kB/s and answers the question: If the first bit already arrived, how quickly will the rest be transfered?</dd>
 </dl>
 
+
+
+### Latency
+
 Typical values:
 
 * Ethernet Switch Latency: 50μs - 125μs
-* Ping my router via W-LAN: 2.3ms in average
 * Cable: Essentially non-existant as the signal travels with the speed of light
 
-And some trhoughput values (partially measured, partially looked up / calculated):
+And some other corner stones:
+
+* Ping (via WLAN) in average
+    * My router: 2.3ms
+    * joyn.de: 19.4ms
+    * twitter.com: 25.7ms
+    * google.de: 26.3ms
+    * wikipedia.org: 29.1ms
+    * martin-thoma.de: 29.4ms
+    * martin-thoma.com: 30.3ms
+    * netflix.com: 50.8ms
+    * write-math.com: 248.0ms
+* Static pages with network:
+    * [http://martin-thoma.de via hosting.de](http://martin-thoma.de): 52ms - 61ms
+    * [https://google.de](https://google.de): 110ms - 170ms
+    * [https://joyn.de](https://joyn.de/): 130ms - 190ms
+    * [https://blog.fefe.de](https://blog.fefe.de/): 150ms - 180ms
+    * [https://martin-thoma.com](https://martin-thoma.com/) via GitHub: 320ms - 420ms
+    * [https://netflix.com](https://netflix.com/): 230ms - 500ms
+* API request with network:
+    * [https://write-math.com](https://write-math.com) via namecheap; a symbol classification request: 550ms - 820ms
+
+### Throughput
+
+And some throughput values (partially measured, partially looked up / calculated):
 
 <table class="table">
     <tr>
@@ -263,13 +290,6 @@ And some trhoughput values (partially measured, partially looked up / calculated
     </tr>
 </table>
 
-Some measurements how quickly I get web pages:
-
-```text
-get_webpage (martin-thoma.de,     2.3kB): min:  353ms, mean:  367ms, max:  390ms
-get_webpage (google.de,          11.3kB): min:  532ms, mean:  548ms, max:  574ms
-get_webpage (stackoverflow.com, 273.5kB): min: 1331ms, mean: 1686ms, max: 2462ms
-```
 
 When you think about which internet contract to get, you might be wondering
 which speed is acceptable. The highest speed is probably necessary for video
@@ -305,6 +325,17 @@ streaming:
     </tr>
     </tbody>
 </table>
+
+
+### Combinations
+
+Some measurements how quickly I get web pages:
+
+```text
+get_webpage (martin-thoma.de,     2.3kB): min:  353ms, mean:  367ms, max:  390ms
+get_webpage (google.de,          11.3kB): min:  532ms, mean:  548ms, max:  574ms
+get_webpage (stackoverflow.com, 273.5kB): min: 1331ms, mean: 1686ms, max: 2462ms
+```
 
 
 ### See also
