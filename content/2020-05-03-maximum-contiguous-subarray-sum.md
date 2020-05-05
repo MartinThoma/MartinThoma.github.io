@@ -167,3 +167,5 @@ at each element.
 * Wikipedia: [Maximum subarray problem](https://en.wikipedia.org/wiki/Maximum_subarray_problem)
 * Geeks For Geeks: [Largest Sum Contiguous Subarray](https://www.geeksforgeeks.org/largest-sum-contiguous-subarray/)
 * [Leetcode 53](https://leetcode.com/problems/maximum-subarray/)
+* Similar Problems:
+    * [Maximum Fixed-Length Contiguous Subarray](https://martin-thoma.com/maximum-fixed-length-contiguous-subarray/)
