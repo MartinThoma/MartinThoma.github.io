@@ -80,7 +80,7 @@ A version control would be great, but that's a feature I don't expect. Also a po
 </tr>
 <tr>
   <td><a href="http://www.mimedia.com/">MiMedia</a></td>
-  <td style="text-align:right;"><a href="http://www.mimedia.com/more-space/">77.20</a></td>
+  <td style="text-align:right;"><a href="http://www.mimedia.com/index.html#plans">77.20</a></td>
   <td>&nbsp;</td>
   <td><span style="color:green;">✔</span></td>
   <td>? <img src="../images/2013/07/windows-icon.png" alt="Windows icon" width="30" height="30" class="border-0" /> <img src="../images/2013/07/mac-icon.png" alt="Mac - Icon" width="30" height="30" class="border-0" /></td>
