@@ -103,7 +103,11 @@ key = base64.urlsafe_b64encode(kdf.derive(password.encode()))
 ```
 
 
-## Attacker Scenarios
+## Attack Scenarios
+
+For many attack scenarios there are better solutions than file encryption. But
+file encryption might provide additional security in case there is a breach
+elsewhere.
 
 ### Lost Device
 
@@ -113,7 +117,7 @@ Thinking about the flight she needed to catch, she forgot the laptop. The
 taxidriver sold the laptop on ebay and Bob bought it. He wants to see if there
 is valuable information on it and tries to get access.
 
-**Asessment**: To protect agains this, Alice should use full disk encryption
+**Assessment**: To protect agains this, Alice should use full disk encryption
 (FDE). If Alice doesn't have FDE, encrypting a single file might help for that
 single file. But as it only protects one file, it's certainly worse than FDE.
 
@@ -122,7 +126,7 @@ single file. But as it only protects one file, it's certainly worse than FDE.
 Alice catched a virus! No, not COVID-19, but one on her computer. Bob now has
 remote access to her machine.
 
-**Asessment**: In this case, I would say all hope is lost. The attacker can
+**Assessment**: In this case, I would say all hope is lost. The attacker can
 install a keylogger and will get the result he wants. Or a crypto trojan which
 prevents Alice from using her computer. Encrypting a single file might help if
 Alice doesn't access that file while the attacker has control. FDE would not
@@ -134,16 +138,20 @@ Bob has access to the computer of Alice, but just normal user permissions. He
 cannot install new software. He can just run installed software under the
 account of Alice.
 
-**Asessment**: Encrypting a single file helps as long as Alice doesn't access
+**Assessment**: Encrypting a single file helps as long as Alice doesn't access
 the file.
 
 
 ### Man in the Middle: E-Mail
 
-Alice sends data to Charlie. Bob
+Alice sends data to Charlie via e-mail. Bob catches the message while it's
+transmitted.
 
 Bob is here the [Man in the Middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack)
 and makes a Man in the Middle (MitM) attack.
+
+**Assessment**: The encryption of the e-mail would have helped. Using TLS would
+be preferable, though.
 
 
 ## See also
