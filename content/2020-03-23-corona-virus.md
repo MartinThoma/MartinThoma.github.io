@@ -677,6 +677,8 @@ Day 2020-03-30: 172,598 (+32,115) predicted vs 162,126 in reality
         * [Countries with more than 100m inhabitants](https://aatishb.com/covidtrends/?country=Brazil&country=China&country=Egypt&country=India&country=Indonesia&country=Japan&country=Mexico&country=Nigeria&country=Pakistan&country=Philippines&country=Russia&country=US)
         * [European Union](https://aatishb.com/covidtrends/?country=Austria&country=Belgium&country=Bulgaria&country=Croatia&country=Cyprus&country=Czechia&country=Estonia&country=Finland&country=France&country=Germany&country=Hungary&country=Ireland&country=Italy&country=Latvia&country=Lithuania&country=Luxembourg&country=Malta&country=Netherlands&country=Poland&country=Portugal&country=Romania&country=Slovakia&country=Slovenia&country=Spain&country=Sweden&country=Switzerland)
     * [Epidemic Calculator](https://gabgoh.github.io/COVID/index.html)
+* COVID-19 testing
+    * 🇩🇪 [So oft wird auf COVID-19 getestet](https://de.statista.com/infografik/21211/anzahl-der-durchgefuehrten-coronavirus-tests-je-1-mio-einwohner-in-laendern-weltweit/) on statista.com
 
 ## Footnotes
 
