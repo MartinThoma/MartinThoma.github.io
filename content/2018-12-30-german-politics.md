@@ -5,7 +5,7 @@ slug: german-politics-2018
 author: Martin Thoma
 date: 2018-12-30 20:00
 category: My bits and bytes
-tags: Germany, E-governance
+tags: Germany, E-governance, politics
 featured_image: logos/germany.png
 ---
 <div class="info">This is an article I had for quite a while as a draft. As part of my yearly cleanup, I've published it without finishing it. It might not be finished or have other problems.</div>
@@ -65,13 +65,19 @@ know the details (and details are super important), though.
     </tr>
     <tr>
         <td>8</td>
-        <td>E-Governance: Declare Place of Residency</td>
+        <td>E-Governance: <a href="https://martin-thoma.com/german-politics-2018/#declare-place-of-residency">Declare Place of Residency</a></td>
         <td><span style="color: red;">&#10071;</span></td>
         <td><span style="color: green;">&#10004;&#10004;</span></td>
     </tr>
     <tr>
         <td>9</td>
-        <td>Consumer protection: Mandatory software updates</td>
+        <td>Consumer protection: <a href="https://martin-thoma.com/german-politics-2018/#mandatory-software-updates">Mandatory software updates</a></td>
+        <td><span style="color: red;">&#10071;</span></td>
+        <td><span style="color: green;">&#10004;&#10004;&#10004;</span></td>
+    </tr>
+    <tr>
+        <td>10</td>
+        <td>Diets of politicians</td>
         <td><span style="color: red;">&#10071;</span></td>
         <td><span style="color: green;">&#10004;&#10004;&#10004;</span></td>
     </tr>
@@ -181,6 +187,33 @@ that.
 
 A first step would be to have a clear way to update devices. A next step could
 be to force comapnies to publish their source code in case of bankruptcy.
+
+
+## Diets of politicians
+
+The <a href="https://en.wikipedia.org/wiki/Diet_(assembly)">diet</a> of Germanys
+members of parliament are set by the parliament. This is a constant reason for
+rage for people who earn very little. "While their situation get's worse, the
+politicians put the mony in their pockets" or similar thoughts.
+
+I think that members of parliament (MP) should be paid really well. It is a hard
+job and an important one. But it should also be connected to performance to
+align the desires of the general population with the personal goals of MPs. And
+it should be updated automatically to make the heads of MPs free for politics.
+
+A simple way to achieve this would be to give MPs 4× the median income
+of working people in Germany. This would be roughly equal the amount they get
+right now. If they want to earn more, they have to make sure that 50% of the
+population earns more.
+
+According to <a href="https://www.focus.de/finanzen/karriere/einkommensverteilung-nach-perzentilen-so-viele-menschen-verdienen-in-deutschland-weniger-als-sie_id_10552510.html">Focus 2019</a>,
+the gross income of lowest earning 10% was 1201 EUR. So if we would like to
+connect the ambitions of MPs more to the poorer parts of the population, we
+could give them 8.3× the income of the 10-percentil.
+
+See also:
+
+* 🇩🇪 [Einkommensverteilung in Deutschland](https://de.wikipedia.org/wiki/Einkommensverteilung_in_Deutschland)
 
 
 ## Long-Term problems
