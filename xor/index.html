@@ -136,6 +136,7 @@ one. Find that single one.</p>
 and running in <span class="math">\(\mathcal{O}(n)\)</span>:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
 
+
 <span class="k">def</span> <span class="nf">find_outlier</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
         <span class="n">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">num</span> <span class="o">^</span> <span class="n">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -145,10 +146,13 @@ and running in <span class="math">\(\mathcal{O}(n)\)</span>:</p>
 <h3 id="missing-number">Missing Number</h3>
 <blockquote>
 <p>Given is an array of (n-1) numbers. Each number is in  1, ..., n and unique.
+This means you have all numbers from 1 to n, but one is missing and the
+array is not necessarily sorted.
 Find the missing number.</p>
 </blockquote>
 <p>The straight-forward solution with the XOR-trick is:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
 
 <span class="k">def</span> <span class="nf">find_missing</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
     <span class="c1"># Prepare</span>
@@ -233,7 +237,7 @@ the prepare-block is in <span class="math">\(\mathcal{O}(n)\)</span>.</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Hypothesis 1: If n % 4 == 0, then <span class="math">\(\text{ALL_XOR}(n) = n\)</span></strong></p>
+<h4 id="hypothesis-1-if-n-4-0-then-textall_xorn-n">Hypothesis 1: If n % 4 == 0, then <span class="math">\(\text{ALL_XOR}(n) = n\)</span></h4>
 <p>A <a href="https://en.wikipedia.org/wiki/Mathematical_induction">proof by induction</a> follows:</p>
 <p><strong>Base Case</strong> (BC): For <span class="math">\(n = 0\)</span> we have <span class="math">\(n\)</span> % 4 == 0 and <span class="math">\(\text{ALL_XOR}(n) = n = 0\)</span>.</p>
 <p><strong>Induction step</strong>: For <span class="math">\(n + 4\)</span>, we have:</p>
@@ -252,7 +256,7 @@ the prepare-block is in <span class="math">\(\mathcal{O}(n)\)</span>.</p>
 <li>A + K: Associativity and Kommutativity; I didn't prove it but it is pretty
   clear from the defintion</li>
 </ul>
-<p><strong>Hypothesis 2: If n % 4 == 1, then <span class="math">\(\text{ALL_XOR}(n) = 1\)</span></strong></p>
+<h4 id="hypothesis-2-if-n-4-1-then-textall_xorn-1">Hypothesis 2: If n % 4 == 1, then <span class="math">\(\text{ALL_XOR}(n) = 1\)</span></h4>
 <p>And another proof by induction!</p>
 <p><strong>Base Case</strong> (BC): For <span class="math">\(n = 1\)</span> we have <span class="math">\(n\)</span> % 4 == 1 and <span class="math">\(\text{ALL_XOR}(n) = 0 \oplus 1 = 1\)</span>.</p>
 <p><strong>Induction step</strong>: For <span class="math">\(n + 4\)</span>, we have:</p>
@@ -263,7 +267,7 @@ the prepare-block is in <span class="math">\(\mathcal{O}(n)\)</span>.</p>
 &amp;= (n+3) \oplus (n + 4)
 &amp;= 1
 \end{align}</div>
-<p><strong>Hypothesis 3: If n % 4 == 2, then <span class="math">\(\text{ALL_XOR}(n) = n+1\)</span></strong></p>
+<h4 id="hypothesis-3-if-n-4-2-then-textall_xorn-n1">Hypothesis 3: If n % 4 == 2, then <span class="math">\(\text{ALL_XOR}(n) = n+1\)</span></h4>
 <p>All good things come in threes!</p>
 <p><strong>Base Case</strong> (BC): For <span class="math">\(n = 2\)</span> we have <span class="math">\(n\)</span> % 4 == 2 and <span class="math">\(\text{ALL_XOR}(n) = 0 \oplus 1 \oplus 2 = 3\)</span>.</p>
 <p><strong>Induction step</strong>: For <span class="math">\(n + 4\)</span>, we have:</p>
@@ -274,7 +278,7 @@ the prepare-block is in <span class="math">\(\mathcal{O}(n)\)</span>.</p>
 &amp;\stackrel{(R)}{=} (n + 3) \oplus 2\\
 &amp;= n + 1
 \end{align}</div>
-<p><strong>Hypothesis 4: If n % 4 == 3, then <span class="math">\(\text{ALL_XOR}(n) = 0\)</span></strong></p>
+<h4 id="hypothesis-4-if-n-4-3-then-textall_xorn-0">Hypothesis 4: If n % 4 == 3, then <span class="math">\(\text{ALL_XOR}(n) = 0\)</span></h4>
 <p><strong>Base Case</strong> (BC): For <span class="math">\(n = 3\)</span> we have <span class="math">\(n\)</span> % 4 == 3 and <span class="math">\(\text{ALL_XOR}(n) = 0 \oplus 1 \oplus 2 \oplus 3 = 0\)</span>.</p>
 <p><strong>Induction step</strong>: For <span class="math">\(n + 4\)</span>, we have:</p>
 <div class="math">\begin{align}
@@ -286,6 +290,7 @@ the prepare-block is in <span class="math">\(\mathcal{O}(n)\)</span>.</p>
 \end{align}</div>
 <p>This means there is a faster solution!</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
 
 <span class="k">def</span> <span class="nf">find_missing</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
     <span class="c1"># Prepare</span>
