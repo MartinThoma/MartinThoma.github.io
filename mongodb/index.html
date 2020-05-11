@@ -119,15 +119,12 @@ store key/value pairs, use a <a href="https://martin-thoma.com/key-value-stores/
 <h2 id="concepts">Concepts</h2>
 <dl>
 <dt><dfn>Document</dfn></dt>
-<dd>The basic unit of MongoDB, similar to a row in SQL databases. Documents are analogous to JSON objects but exist in the database in a more type-rich format known as BSON.</dd>
+<dd>The basic unit of MongoDB, similar to a row in SQL databases. Documents are analogous to JSON objects but exist in the database in a more type-rich format known as BSON.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></dd>
 <dt><dfn>Collection</dfn></dt>
-<dd>A grouping of MongoDB documents. A collection is the equivalent of an RDBMS table. A collection exists within a single database. Collections do not enforce a schema. Documents within a collection can have different fields. Typically, all documents in a collection have a similar or related purpose.</dd>
+<dd>A grouping of MongoDB documents. A collection is the equivalent of an RDBMS table. A collection exists within a single database. Collections do not enforce a schema. Documents within a collection can have different fields. Typically, all documents in a collection have a similar or related purpose.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></dd>
 <dt><dfn>Database</dfn></dt>
-<dd>A physical container for collections. Each database gets its own set of files on the file system. A single MongoDB server typically has multiple databases.</dd>
+<dd>A physical container for collections. Each database gets its own set of files on the file system. A single MongoDB server typically has multiple databases.<sup id="fnref:3"><a class="footnote-ref" href="#fn:1">3</a></sup></dd>
 </dl>
-<p><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>
-<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>
-<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></p>
 <h2 id="db-installation">DB Installation</h2>
 <p>On Ubuntu, you can simply run</p>
 <div class="highlight"><pre><span></span><code>sudo apt-get install mongodb
@@ -144,11 +141,11 @@ For more comprehensive documentation, see
     http://docs.mongodb.org/
 Questions? Try the support group
     http://groups.google.com/group/mongodb-user
-Server has startup warnings: 
-<span class="m">2020</span>-05-11T10:36:11.938+0200 I STORAGE  <span class="o">[</span>initandlisten<span class="o">]</span> 
+Server has startup warnings:
+<span class="m">2020</span>-05-11T10:36:11.938+0200 I STORAGE  <span class="o">[</span>initandlisten<span class="o">]</span>
 <span class="m">2020</span>-05-11T10:36:11.938+0200 I STORAGE  <span class="o">[</span>initandlisten<span class="o">]</span> ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
 <span class="m">2020</span>-05-11T10:36:11.938+0200 I STORAGE  <span class="o">[</span>initandlisten<span class="o">]</span> **          See http://dochub.mongodb.org/core/prodnotes-filesystem
-<span class="m">2020</span>-05-11T10:36:12.720+0200 I CONTROL  <span class="o">[</span>initandlisten<span class="o">]</span> 
+<span class="m">2020</span>-05-11T10:36:12.720+0200 I CONTROL  <span class="o">[</span>initandlisten<span class="o">]</span>
 <span class="m">2020</span>-05-11T10:36:12.720+0200 I CONTROL  <span class="o">[</span>initandlisten<span class="o">]</span> ** WARNING: Access control is not enabled <span class="k">for</span> the database.
 <span class="m">2020</span>-05-11T10:36:12.720+0200 I CONTROL  <span class="o">[</span>initandlisten<span class="o">]</span> **          Read and write access to data and configuration is unrestricted.
 <span class="m">2020</span>-05-11T10:36:12.720+0200 I CONTROL  <span class="o">[</span>initandlisten<span class="o">]</span>
@@ -236,7 +233,7 @@ Successfully added user: <span class="o">{</span>
 <p>Install the database driver <a href="https://pypi.org/project/pymongo/"><code>pymongo</code></a>.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pymongo</span> <span class="kn">import</span> <span class="n">MongoClient</span>
 
-<span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">(</span><span class="s1">'mongodb://localhost:27017/'</span><span class="p">)</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">(</span><span class="s2">"mongodb://localhost:27017/"</span><span class="p">)</span>
 
 <span class="k">with</span> <span class="n">client</span><span class="p">:</span>
     <span class="n">db</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">admin</span>
@@ -244,7 +241,7 @@ Successfully added user: <span class="o">{</span>
     <span class="c1"># Get all</span>
     <span class="n">documents</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">examplecollection</span><span class="o">.</span><span class="n">find</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">document</span> <span class="ow">in</span> <span class="n">documents</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">document</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">document</span><span class="p">)</span>
 
     <span class="c1"># Delete the test user</span>
     <span class="n">db</span><span class="o">.</span><span class="n">examplecollection</span><span class="o">.</span><span class="n">delete_many</span><span class="p">({</span><span class="s2">"username"</span><span class="p">:</span> <span class="s2">"test"</span><span class="p">})</span>
