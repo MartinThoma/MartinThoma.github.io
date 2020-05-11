@@ -4,7 +4,7 @@ title: Dynamic Programming
 slug: dynamic-programming
 author: Martin Thoma
 date: 2020-03-31 20:00
-category: Algorithms
+category: Code
 tags: Algorithms, Code, Fibonacci, Python, COP, CSP
 featured_image: logos/ai.png
 ---
