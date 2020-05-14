@@ -447,11 +447,21 @@ Things to link:
 * arXiv profile page
 * http://dblp.uni-trier.de/ - http://dblp.uni-trier.de/pers/hd/t/Thoma_0001:Martin
 
+## Jobs
 
-## Job Portal for cheap jobs
+### Job Portal for cheap jobs
 
 It seems to me that LinkedIn is mainly for high-paid jobs. However, "cheap"
 jobs like cleaning people or handymen are also looking for jobs
+
+
+### Job Map
+
+The location of a job is super important. Being able to search for a job by
+location, money, weekly hours, vacation days and other factors would be nice.
+
+With [microformats for job listings](http://microformats.org/wiki/job-listing-formats)
+one could build a search engine for this.
 
 
 ## Social Network
