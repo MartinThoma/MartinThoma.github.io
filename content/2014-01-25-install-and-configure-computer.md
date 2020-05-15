@@ -10,15 +10,20 @@ featured_image: 2011/11/computer-fix-it-guy.jpg
 When I reinstall my computer, I usually do these following steps:
 
 1. Copy all data to an external HDD
-2. Write down all WLAN configurations (eventually with screenshots; NOT ONLY PASSWORDS!)
+2. Save configuration:
+    * Write down all WLAN configurations (eventually with screenshots; NOT ONLY PASSWORDS!)
+    * `.ssh` and `GPG` keys
+    * Filezilla configurations
 3. Write down all programs that I use.
-  1. Export configuration of those programs.
+    1. Export configuration of those programs.
 4. Wait a week or a month and see if someting is missing in the lists from above.
 5. Drop the old system and install a new one
 
-## Software I usually install ##
+
+## Software I usually install
 If possible, I will give the debian package names in the following list:
 
+* [`sublime_text`](//martin-thoma.com/sublime-text/)
 * [LaTeX](../how-to-install-the-latest-latex-version/) and scientific writing
     * [`jabref`](//martin-thoma.com/reference-management-with-jabref/): A reference manager
     * `gnuplot`
@@ -28,41 +33,33 @@ If possible, I will give the debian package names in the following list:
 * Multimedia
     * [`vlc`](http://www.videolan.org/vlc/): A very good DVD player
     * [OnlineTvRecorder](http://wiki.ubuntuusers.de/OnlineTvRecorder) and especially [OTR-Verwaltung](http://wiki.ubuntuusers.de/OTR-Verwaltung)
-     * `avidemux wine mplayer`
+    * `avidemux wine mplayer`
     * `sudo add-apt-repository ppa:clipgrab-team && sudo apt-get update && sudo apt-get install clipgrab`
 * Graphics
     * [`gimp`](http://www.gimp.org/)
     * [`inkscape`](http://www.inkscape.org/)
-    * `dia`
     * [`imagemagick`](http://www.imagemagick.org/script/index.php)
     * `pdf2svg librsvg2-bin`
 * Programming
-    * `vim`
-    * `python python3 python-numpy python-setuptools python-mysqldb python-scipy python-h5py python-matplotlib`
-    * `sudo -H pip install sklearn tflearn`
-    * `ruby ruby-sqlite3 ruby-mysql`
-    * `gcc g++ cmake build-essential gdb`
-    * OpenGL: `xorg-dev libglu1-mesa-dev freeglut3 freeglut3-dev libglew1.5 libglew1.5-dev libglu1-mesa libglu1-mesa-dev libgl1-mesa-glx libgl1-mesa-dev`
-    * `apache2 php5 php5-mysql`
     * `zsh` and [Oh-my-zsh](../working-terminal/)
-    * `eclipse`
-    * `sqlitebrowser`
-    * `tcl`
-    * `phpmyadmin selfhtml`
-    * `meld diffpdf`
-    * [`virtualbox`](https://wiki.ubuntuusers.de/virtualbox)
+    * General Tools: `sudo apt-get install make curl wget vim direnv zsh sqlitebrowser meld diffpdf`
+    * Pyton: [`pyenv`](https://github.com/pyenv/pyenv)
+    * MySQL: `sudo apt-get install phpmyadmin`
+    * [VS Code](https://code.visualstudio.com/)
+    * C/C++: `sudo apt-get install gcc g++ cmake build-essential gdb`
+    * `ruby ruby-sqlite3 ruby-mysql`
+    * PHP: `apache2 php5 php5-mysql`
 * Themes
     * Balazan-Theme from [bisigi-project](http://www.bisigi-project.org/?page_id=8&lang=en) (simply download it.)
 * Other
-    * [`sublime_text`](//martin-thoma.com/sublime-text/)
     * `libreoffice`
-    * `curl`
 * DRM-caused (I want to watch DVDs!)
     * `ubuntu-restricted-extras libdvd-pkg libdvdread4 libdvdnav4`, then run
     `sudo dpkg-reconfigure libdvd-pkg`
     * `totem banshee mplayer rythmbox`
 
-## Configure ##
+
+## Configure
 
 ### Set standards
 
@@ -105,13 +102,14 @@ After that, the following dialog will pop up. Choose "Menu Bar"
             <figcaption class="text-center">Add menu bar</figcaption>
         </figure>
 
-### DRM-Stuff ###
+### DRM-Stuff
+
 ```bash
 sudo /usr/share/doc/libdvdread4/install-css.sh
 sudo regionset #use that with caution
 ```
 
-### dotfiles ###
+### dotfiles
 See [github.com/MartinThoma/dotfiles](https://github.com/MartinThoma/dotfiles).
 
 ## Data
