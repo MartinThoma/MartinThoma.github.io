@@ -4,7 +4,7 @@ title: Java Puzzle #4: Parallel Programming
 author: Martin Thoma
 date: 2012-08-02 11:00:36.000000000 +02:00
 category: Code
-tags: Programming, Java, SWT I, puzzle
+tags: Programming, Java, SWT I, puzzle, multithreading
 featured_image: 2012/07/java-thumb.png
 ---
 What is the output of the following Java Snippet:

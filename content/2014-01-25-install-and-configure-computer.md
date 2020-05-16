@@ -4,7 +4,7 @@ title: Install and configure computer
 author: Martin Thoma
 date: 2014-01-25 10:14
 category: Cyberculture
-tags: Linux
+tags: Linux, Ubuntu
 featured_image: 2011/11/computer-fix-it-guy.jpg
 ---
 When I reinstall my computer, I usually do these following steps:
@@ -20,7 +20,22 @@ When I reinstall my computer, I usually do these following steps:
 5. Drop the old system and install a new one
 
 
+## Operating System
+
+I like to install the latest Ubuntu long term support version (LTS) with the
+MATE desktop environment: [Download link](https://ubuntu-mate.org/download/)
+
+Ubuntu is the operating system which is one of many flavors of Linux. Those
+flavours are called *distributions*. It is one
+of the most popular distributions according to [distrowatch.com](https://distrowatch.com/table.php?distribution=mx),
+just behind [MX Linux](https://en.wikipedia.org/wiki/MX_Linux), [Manjaro](https://en.wikipedia.org/wiki/Manjaro)
+and [Linux Mint](https://en.wikipedia.org/wiki/Linux_Mint).
+
+
+
+
 ## Software I usually install
+
 If possible, I will give the debian package names in the following list:
 
 * [`sublime_text`](//martin-thoma.com/sublime-text/)
@@ -43,7 +58,7 @@ If possible, I will give the debian package names in the following list:
 * Programming
     * `zsh` and [Oh-my-zsh](../working-terminal/)
     * General Tools: `sudo apt-get install make curl wget vim direnv zsh sqlitebrowser meld diffpdf`
-    * Pyton: [`pyenv`](https://github.com/pyenv/pyenv)
+    * Pyton: [`pyenv`](https://github.com/pyenv/pyenv), `pip install pip-tools`
     * MySQL: `sudo apt-get install phpmyadmin`
     * [VS Code](https://code.visualstudio.com/)
     * C/C++: `sudo apt-get install gcc g++ cmake build-essential gdb`
@@ -51,8 +66,12 @@ If possible, I will give the debian package names in the following list:
     * PHP: `apache2 php5 php5-mysql`
 * Themes
     * Balazan-Theme from [bisigi-project](http://www.bisigi-project.org/?page_id=8&lang=en) (simply download it.)
+* Work
+    * [Slack](https://slack.com/intl/de-de/downloads/linux)
+    * [Zoom](https://support.zoom.us/hc/en-us/articles/204206269-Installing-or-updating-Zoom-on-Linux)
 * Other
     * `libreoffice`
+    * PDF: qpdf ([1](https://askubuntu.com/a/672001/10425))
 * DRM-caused (I want to watch DVDs!)
     * `ubuntu-restricted-extras libdvd-pkg libdvdread4 libdvdnav4`, then run
     `sudo dpkg-reconfigure libdvd-pkg`

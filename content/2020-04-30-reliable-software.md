@@ -5,7 +5,7 @@ slug: reliable-software
 author: Martin Thoma
 date: 2020-04-30 20:00
 category: Code
-tags: Software Development
+tags: Software Engineering
 featured_image: logos/star.png
 ---
 Reliability in software development is an ambiguous term. Without thinking much

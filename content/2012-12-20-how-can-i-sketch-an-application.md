@@ -4,7 +4,7 @@ title: How can I sketch an application?
 author: Martin Thoma
 date: 2012-12-20 01:54:57.000000000 +01:00
 category: Code
-tags: Web Development, Software Development, Balsamiq, mockup, sketch
+tags: Web Development, Software Engineering, Balsamiq, mockup, sketch
 featured_image: 2012/12/balsamiq-mockup.png
 ---
 I've recently participated in a medium size software project. This project is rather fixed for a web project, so we don't suffer from rapid changes ("rapid" in terms of other web applications), but nether the less they change. The task seemed to be clear at the beginning, but bit for bit my team of developers discovered details that were not so clear. In this project I have learned that a GUI / prototype driven development can be of great benefit. I assumed this beforehand, but I didn't expect how much it helped.

@@ -5,7 +5,7 @@ slug: coding-fonts
 author: Martin Thoma
 date: 2019-12-31 20:00
 category: Code
-tags: Machine Learning
+tags: Software Development
 featured_image: logos/code.png
 ---
 The font choice for developing software is important. Developers read code all
@@ -90,6 +90,8 @@ How to Enable Ligatures:
 
 ## Ubuntu Mono
 
+[Google Fonts page](https://fonts.google.com/specimen/Ubuntu+Mono)
+
 ## Fira Code
 
 <figure class="wp-caption aligncenter img-thumbnail">
@@ -100,17 +102,12 @@ How to Enable Ligatures:
 [FiraCode](https://github.com/tonsky/FiraCode) is licensed under SIL Open Font License 1.1.
 It is a Monospaced font with programming ligatures.
 
+[Google Fonts Page](https://fonts.google.com/specimen/Fira+Code?query=fira)
+
 
 ## Cascadia Code
 
-* https://www.ghacks.net/2019/09/19/microsoft-releases-new-open-source-font-cascadia-code/
-* https://github.com/microsoft/cascadia-code
-* https://hub.packtpub.com/microsoft-releases-cascadia-code-version-1909-16-it-is-the-latest-monospaced-font-for-windows-terminal-and-visual-studio-code/
-* https://devblogs.microsoft.com/commandline/cascadia-code/
-
-
-## Others
-
-* Cedar Code
-* Emerald Code
-* Seattle Code
+* [Microsoft releases new open source font Cascadia Code](https://www.ghacks.net/2019/09/19/microsoft-releases-new-open-source-font-cascadia-code/), 2019
+* GitHub: [microsoft / cascadia-code](https://github.com/microsoft/cascadia-code)
+* [Microsoft releases Cascadia Code version 1909.16](https://hub.packtpub.com/microsoft-releases-cascadia-code-version-1909-16-it-is-the-latest-monospaced-font-for-windows-terminal-and-visual-studio-code/), 2019.
+* Kayla: [Cascadia Code](https://devblogs.microsoft.com/commandline/cascadia-code/), 2019.
