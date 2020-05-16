@@ -21,7 +21,10 @@ There are 3 standard ways to write docstrings: Sphinxy, Googley or NumPyDocy.
 ## The Sphinx Way
 
 ```python
-def preprocessing(self, algorithms):
+from typing import List
+
+
+def preprocessing(self, algorithms: List):
     """Apply preprocessing algorithms.
 
     :param algorithms: Preprocessing allgorithms which get applied in order.
@@ -38,7 +41,6 @@ def preprocessing(self, algorithms):
     ...                          'KIND': 'cubic'})]
     >>> a.preprocessing(preprocessing_queue)
     """
-    assert type(algorithms) is list
     for algorithm in algorithms:
         algorithm(self)
 ```
@@ -48,7 +50,10 @@ def preprocessing(self, algorithms):
 Google documented its format at [google.github.io](http://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings).
 
 ```python
-def preprocessing(self, algorithms):
+from typing import List
+
+
+def preprocessing(self, algorithms: List):
     """Apply preprocessing algorithms.
 
     Args:
@@ -68,7 +73,6 @@ def preprocessing(self, algorithms):
       ...                          'KIND': 'cubic'})]
       >>> a.preprocessing(preprocessing_queue)
     """
-    assert type(algorithms) is list
     for algorithm in algorithms:
         algorithm(self)
 ```
@@ -79,7 +83,10 @@ To get the google way render well in Sphinx, you need [Napoleon](https://pypi.py
 ## The NumPyDoc Way
 
 ```python
-def preprocessing(self, algorithms):
+from typing import List
+
+
+def preprocessing(self, algorithms: List):
     """Apply preprocessing algorithms.
 
     Parameters
@@ -100,7 +107,6 @@ def preprocessing(self, algorithms):
     ...                          'KIND': 'cubic'})]
     >>> a.preprocessing(preprocessing_queue)
     """
-    assert type(algorithms) is list
     for algorithm in algorithms:
         algorithm(self)
 ```
