@@ -52,9 +52,32 @@ Abstract dependencies are nice, but sometimes the version is important. Sometime
 
 ## Abstract or Concrete: When to use which?
 
-**For library/framework code**, you want to have maximum flexibility. Your library is likely not the only one your users use. If you give concrete dependencies, you might make it impossible for your users to have one set of packages installed which fulfills all requirements. So **you keep dependencies abstract**.
+For library/framework code, you want to have maximum flexibility. Your
+library is likely not the only one your users use. If you give concrete
+dependencies, you might make it impossible for your users to have one set of
+packages installed which fulfills all requirements:
 
-**For application code** on the other hand, the user just wants to run the application. You want to be as sure as possible that nothing fails. So you specify concrete dependencies. You say for everything your application needs where it comes from and in which version it is used. But this might not be enough. You might import a library A which itself needs a library B. So you **specify concrete dependencies and you apply version pinning**. That means you specify the exact version you need for all of your direct **and** indirect dependencies.
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2020/05/dependency-graph-pinning-conflict.svg"><img src="../images/2020/05/dependency-graph-pinning-conflict.svg" alt="A package version conflict if two packages pinned different versions of urllib" style="width: 512px;"/></a>
+    <figcaption class="text-center">A package version conflict if two packages pinned different versions of urllib</figcaption>
+</figure>
+
+So, **for library/framework code, you keep dependencies abstract**.
+
+For application code on the other hand, the user just wants to run the
+application. You want to be as sure as possible that nothing fails. So you
+specify concrete dependencies. You say for everything your application needs
+where it comes from and in which version it is used. But this might not be
+enough.
+
+<figure class="wp-caption aligncenter img-thumbnail">
+    <a href="../images/2020/05/dependency-graph.png"><img src="../images/2020/05/dependency-graph.png" alt="Dependency graph where wasabi could make things fail if only the version of spacy is pinned" style="width: 512px;"/></a>
+    <figcaption class="text-center">Dependency graph where wasabi could make things fail if only the version of spacy is pinned</figcaption>
+</figure>
+
+So, **for application code, you specify concrete dependencies and you apply
+version pinning**. That means you specify the exact version you need for all of
+your direct **and** indirect dependencies.
 
 <div class="alert alert-warning">The reason why this whole topic is so confusing, is the fact that the two concepts (application vs library) are not strictly seperated.</div>
 
@@ -86,7 +109,8 @@ Similar as egg was created to solve an issue and later replaced by a specified v
 
 ## Version pinning
 
-Version pinning is the act of specifying the exact version of your dependencies. Not only the direct dependencies, but also the indirect ones.
+Version pinning is the act of specifying the exact version of your
+dependencies. Not only the direct dependencies, but also the indirect ones.
 
 ### pip-compile
 
@@ -141,6 +165,8 @@ However, the `requirements.txt` is still the de facto standard.
 The structure of a `requirements.txt` file is super simple:
 
 ```text
+--index-url https://pypi.python.org/simple/
+-e https://github.com/foo/bar.git#egg=bar
 virtualenv==15.1.0
 visitor==0.1.3
 vtk==8.1.1
