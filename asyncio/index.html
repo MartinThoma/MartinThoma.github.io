@@ -14,7 +14,7 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="Python, Code, " />
+<meta name="keywords" content="Python, multithreading, multiprocessing, async, Code, " />
 
 <meta property="og:title" content="asyncio"/>
 <meta property="og:url" content="../asyncio/" />
@@ -118,11 +118,11 @@ library to write concurrent code using the async/await syntax.</p>
 ways to run stuff concurrently: In parallel or interleaved.</p>
 <p>The following images show the difference for compute-bound two tasks:</p>
 <figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2020/05/parallel-execution.png"><img alt="Parallel Execution" src="../images/2020/05/parallel-execution.png" style="width: 512px;"/></a>
+<a href="../images/2020/05/parallel-execution.svg"><img alt="Parallel Execution" src="../images/2020/05/parallel-execution.svg" style="width: 512px;"/></a>
 <figcaption class="text-center">Parallel Execution</figcaption>
 </figure>
 <figure class="wp-caption aligncenter img-thumbnail">
-<a href="../images/2020/05/interleaved-execution.png"><img alt="Interleaved Execution" src="../images/2020/05/interleaved-execution.png" style="width: 512px;"/></a>
+<a href="../images/2020/05/interleaved-execution.svg"><img alt="Interleaved Execution" src="../images/2020/05/interleaved-execution.svg" style="width: 512px;"/></a>
 <figcaption class="text-center">Interleaved Execution</figcaption>
 </figure>
 <p>Now you might wonder why on hell would you ever run things interleaved as it
@@ -165,21 +165,21 @@ application, they have to compute stuff while I/O is running.</p>
 <tbody>
 <tr>
 <td>Speed-up IO-bound tasks</td>
-<td>yes</td>
-<td>yes</td>
-<td>yes</td>
+<td style="color: green;">✔</td>
+<td style="color: green;">✔</td>
+<td style="color: green;">✔</td>
 </tr>
 <tr>
 <td>Speed-up CPU-bound tasks</td>
-<td>yes</td>
-<td>no</td>
-<td>no</td>
+<td style="color: green;">✔</td>
+<td style="color: red;">✗</td>
+<td style="color: red;">✗</td>
 </tr>
 <tr>
 <td>Use multiple CPU cores</td>
-<td>yes</td>
-<td>no</td>
-<td>no</td>
+<td style="color: green;">✔</td>
+<td style="color: red;">✗</td>
+<td style="color: red;">✗</td>
 </tr>
 <tr>
 <td>Scheduling</td>
@@ -208,7 +208,7 @@ application, they have to compute stuff while I/O is running.</p>
 <tbody>
 <tr>
 <td>Packages</td>
-<td><a href="https://docs.python.org/3/library/multiprocessing.html"><code>multiprocessing</code></a></td>
+<td><a href="https://docs.python.org/3/library/multiprocessing.html"><code>multiprocessing</code></a>, <a href="https://joblib.readthedocs.io/en/latest/parallel.html"><code>joblib</code></a></td>
 <td><a href="https://docs.python.org/3/library/threading.html"><code>threading</code></a></td>
 <td><a href="https://docs.python.org/3/library/asyncio.html"><code>asyncio</code></a>, <a href="https://greenlet.readthedocs.io/en/latest/"><code>greenlet</code></a></td>
 </tr>
@@ -236,7 +236,7 @@ package.</p>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">chunks</span><span class="p">):</span>
         <span class="n">j</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">job</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">chunk</span><span class="p">))</span>
         <span class="n">jobs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Created {len(jobs)} jobs."</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Created </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">jobs</span><span class="p">)</span><span class="si">}</span><span class="s2"> jobs."</span><span class="p">)</span>
 
     <span class="c1"># Start execution</span>
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">jobs</span><span class="p">:</span>
@@ -249,7 +249,7 @@ package.</p>
 
 <span class="k">def</span> <span class="nf">job</span><span class="p">(</span><span class="n">job_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">data_slice</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]):</span>
     <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data_slice</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"job </span><span class="si">{job_id}</span><span class="s2">: </span><span class="si">{item}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"job </span><span class="si">{</span><span class="n">job_id</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">)</span>
 
 
@@ -278,7 +278,7 @@ package.</p>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">chunks</span><span class="p">):</span>
         <span class="n">j</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">job</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">chunk</span><span class="p">))</span>
         <span class="n">jobs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Created {len(jobs)} jobs."</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Created </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">jobs</span><span class="p">)</span><span class="si">}</span><span class="s2"> jobs."</span><span class="p">)</span>
 
     <span class="c1"># Start execution</span>
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">jobs</span><span class="p">:</span>
@@ -291,7 +291,7 @@ package.</p>
 
 <span class="k">def</span> <span class="nf">job</span><span class="p">(</span><span class="n">job_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">data_slice</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]):</span>
     <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data_slice</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"job </span><span class="si">{job_id}</span><span class="s2">: </span><span class="si">{item}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"job </span><span class="si">{</span><span class="n">job_id</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">)</span>
 
 
@@ -431,8 +431,17 @@ I don't know anybody who used it and I don't know what it is doing.</p>
             <a class="category-link" href="../categories.html#code-ref">Code</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#async-ref">async
+                    <span>1</span>
+</a></li>
+                <li><a href="../tags.html#multiprocessing-ref">multiprocessing
+                    <span>1</span>
+</a></li>
+                <li><a href="../tags.html#multithreading-ref">multithreading
+                    <span>3</span>
+</a></li>
                 <li><a href="../tags.html#python-ref">Python
-                    <span>113</span>
+                    <span>114</span>
 </a></li>
             </ul>
 <h4>Contact</h4>
