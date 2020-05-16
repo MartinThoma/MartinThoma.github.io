@@ -6,7 +6,7 @@ author: Martin Thoma
 date: 2020-05-16 20:00
 category: Code
 tags: Python, setup.py, requirements.txt, Software Engineering
-featured_image: logos/star.png
+featured_image: logos/python.png
 ---
 Pythons package management is a constant source of confusion. One part of the
 confusion is in which format dependencies should get denoted. It gets worse, because there are [too many tools](https://stackoverflow.com/q/25337706/562769). [xkcd](https://xkcd.com/1987/) shows this pretty well:
@@ -79,7 +79,7 @@ So, **for application code, you specify concrete dependencies and you apply
 version pinning**. That means you specify the exact version you need for all of
 your direct **and** indirect dependencies.
 
-<div class="alert alert-warning">The reason why this whole topic is so confusing, is the fact that the two concepts (application vs library) are not strictly seperated.</div>
+<div class="alert alert-warning">The reason why this whole topic is so confusing, is the fact that the two concepts (application vs library) are not strictly seperated and that the file formats and tools have grown over time.</div>
 
 Practically, I suggest to keep dependencies in `setup.py` as loose as possible and add a `requirements.txt` which has pinned dependencies. This way one can install the package via pip and reasonably expect other things not to break while one can still use the `requirements.txt` and an virtual environment to isolate the application from the rest of the system.
 
@@ -188,10 +188,11 @@ It can be installed via
 $ pip install -r requirements.txt
 ```
 
-It is meant to be used: TODO
-
-
-There are nice tools like `piprot` which tells you how outdated the requirements are.
+There are nice tools like `piprot` which tells you how outdated the
+requirements are. I would not create a `requirements.txt` manually, but instead
+a `setup.py` or a `requirements.in` and let `pip-compile` create the
+`requirements.txt` with all the transitive dependencies. You can then also use
+`pip-compile -U` to upgrade the dependencies.
 
 
 ### setup.py
