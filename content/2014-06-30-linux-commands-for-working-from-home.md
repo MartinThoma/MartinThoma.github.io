@@ -4,7 +4,7 @@ title: Linux Commands for Working from home
 author: Martin Thoma
 date: 2014-06-30 13:41
 category: Code
-tags: SSH, Shell
+tags: SSH, Shell, Software Development
 featured_image: logos/shell.png
 ---
 

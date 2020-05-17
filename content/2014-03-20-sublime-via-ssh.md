@@ -4,7 +4,7 @@ title: How to use Sublime Text via SSH
 author: Martin Thoma
 date: 2014-03-20 21:09
 category: Code
-tags: Sublime Text, SSH
+tags: Sublime Text, SSH, Software Development
 featured_image: logos/sublime-text.png
 ---
 

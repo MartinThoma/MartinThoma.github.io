@@ -4,7 +4,7 @@ title: Sublime Text
 author: Martin Thoma
 date: 2014-03-01 17:01
 category: Code
-tags: Editor, Sublime Text
+tags: Editor, Sublime Text, Software Development
 featured_image: logos/sublime-text.png
 ---
 Sublime Text is the coolest editor I have ever used. It has a lot of features,
@@ -248,6 +248,7 @@ use of tooltips.
 Source: [Sublime Text Forum: Sublime Text 3 Beta](http://www.sublimetext.com/forum/viewtopic.php?f=2&t=10780&p=42383&hilit=+tooltip#p42383)
 
 ## More
+
 * [Documentation](https://www.sublimetext.com/docs/3/)
 * [colorsublime.com](http://colorsublime.com/): Lots of themes
 * [tmtheme-editor.herokuapp.com](http://tmtheme-editor.herokuapp.com/#/theme/Chrome%20DevTools): Adjust your theme online

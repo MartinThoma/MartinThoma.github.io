@@ -5,7 +5,7 @@ slug: digital-process-automation
 author: Martin Thoma
 date: 2019-04-10 20:00
 category: Cyberculture
-tags: Automation, Shell, Productivity
+tags: Automation, Shell, Productivity, Software Development
 featured_image: logos/star.png
 ---
 

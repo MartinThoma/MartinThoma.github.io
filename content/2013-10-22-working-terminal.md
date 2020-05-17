@@ -5,7 +5,7 @@ slug: working-terminal
 author: Martin Thoma
 date: 2013-10-22 10:40:46.000000000 +02:00
 category: Code
-tags: Linux, Command Line, Bash, ZSH, Terminal, Shell
+tags: Linux, Command Line, Bash, ZSH, Terminal, Shell, Software Development
 featured_image: 2011/09/Gnome-Terminal.png
 alias: [/working-terminal/bash-vs-zsh-spelling-correction/index.html,/working-terminal/bash-vs-zsh-time/]
 ---
@@ -48,18 +48,19 @@ $ ./solarized-mate.sh dark
 restart the terminal.
 
 
-## Oh-my-ZSH Installation ##
+## Oh-my-ZSH Installation
 Oh-my-ZSH is a plugin for ZSH. I think this plugin is very good and makes a big
 difference to Bash. So when you look at the screenshots below, keep in mind
 that this is not a "plain vanilla" zsh.
 
- * Install "<a href="https://github.com/robbyrussell/oh-my-zsh">Oh-my-ZSH</a>"
- * Install "<a href="https://github.com/Lokaltog/powerline-fonts">powerline fonts</a>" and change your Terminal font to one of them
- * Change your Terminal theme to "agnoster" by setting <code>ZSH_THEME="agnoster"</code> in <strong>~/.zshrc</strong>
- * Set your terminal theme to "Solarized Dark" (<a href="http://www.mintmate.org/?p=13">description</a>)
- * Make ZSH your default Shell in MATE Terminal (<a href="http://askubuntu.com/a/342342/10425">description</a>) and eventually <code>sudo chsh -s /usr/bin/zsh username</code>
+* Install "<a href="https://github.com/robbyrussell/oh-my-zsh">Oh-my-ZSH</a>"
+* Install "<a href="https://github.com/Lokaltog/powerline-fonts">powerline fonts</a>" and change your Terminal font to one of them
+* Change your Terminal theme to "agnoster" by setting <code>ZSH_THEME="agnoster"</code> in **~/.zshrc**
+* Set your terminal theme to "Solarized Dark" (<a href="http://www.mintmate.org/?p=13">description</a>)
+* Make ZSH your default Shell in MATE Terminal (<a href="http://askubuntu.com/a/342342/10425">description</a>) and eventually <code>sudo chsh -s /usr/bin/zsh username</code>
 
-## ZSH and Bash ##
+
+## ZSH and Bash
 Here are some differences. On the left side is zsh, on the right is bash:
 
 <ul class="gallery mw-gallery-traditional" style="max-width: 326px; width: 326px;">
@@ -124,9 +125,9 @@ I also begin to like the Git-specific prompt indicators:
             <figcaption class="text-center">ZSH 'git add' indicator</figcaption>
         </figure>
 
-## Some usefull tools ##
+## Some usefull tools
 
-### ack ###
+### ack
 You might already know `grep`. And if you've worked with it, you
 might already have typed something like the following:
 

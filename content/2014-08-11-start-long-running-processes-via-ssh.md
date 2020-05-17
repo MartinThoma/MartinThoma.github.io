@@ -4,7 +4,7 @@ title: Start long running processes via SSH
 author: Martin Thoma
 date: 2014-08-11 14:51
 category: Code
-tags: SSH, screen, nohup
+tags: SSH, screen, nohup, Software Development
 featured_image: logos/shell.png
 ---
 
@@ -18,20 +18,20 @@ to get it again!
 ### Basic usage
 You start it with
 
-```bash
+```shell
 $ screen
 ```
 
 You detach it with <kbd>Ctrl</kbd> + <kbd>a</kbd> and then <kbd>d</kbd>. After
 you pressed this key combination, you will see
 
-```bash
+```shell
 [detached]
 ```
 
 You get it back again with:
 
-```bash
+```shell
 $ screen -r
 ```
 
@@ -39,19 +39,19 @@ $ screen -r
 
 You can start a named session with
 
-```bash
+```shell
 $ screen -S foo
 ```
 
 and get it back with
 
-```bash
+```shell
 $ screen -r foo
 ```
 
 ## nohup
 
-```bash
+```shell
 $ nohup command &
 ```
 

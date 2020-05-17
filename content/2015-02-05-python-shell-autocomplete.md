@@ -4,7 +4,7 @@ title: Python Shell autocomplete
 author: Martin Thoma
 date: 2015-02-05 09:58
 category: Code
-tags: Python, Shell
+tags: Python, Shell, Software Development
 featured_image: logos/python.png
 ---
 One feature I really miss in Pythons interactive shell is tab autocompletion.

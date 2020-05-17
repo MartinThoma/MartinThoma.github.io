@@ -5,7 +5,7 @@ slug: software-development-stages
 author: Martin Thoma
 date: 2018-06-09 20:00
 category: Code
-tags: Software Development
+tags: Software Engineering
 featured_image: logos/code.png
 ---
 Pythons Trove Classifiers have 7 stages of software development:
@@ -70,6 +70,7 @@ on PyPI.
 
 
 ### 2 - Pre-Alpha
+
 * **Required properties**: There is already some software that gives an idea what
   it is supposed to do.
 * **Typical steps**: Drafting ideas, adding new features, refactoring a lot.
@@ -79,6 +80,7 @@ on PyPI.
 
 
 ### 3 - Alpha
+
 * **Required properties**: The software has the minimal required set of features
   to be useful. The architecture of the software is clear.
 * **Typical steps**: Internal testing. People close to the developers can use
@@ -88,6 +90,7 @@ on PyPI.
 
 
 ### 4 - Beta
+
 * **Required properties**: Software is feature complete
 * **Typical steps**: External testing, fixing bugs and performance problems.
   Usability testing.
@@ -96,14 +99,17 @@ on PyPI.
 
 
 ### 5 - Production/Stable
+
 * **Required properties**: No major bugs known, tests cover the most important
   cases.
 * **Typical steps**: Fixing bugs, adding updates and new features.
 * **Semantic version**: ≥ 1.0.0
+
 **[PyPI](https://pypi.org/search/?q=&o=&c=Development+Status+%3A%3A+5+-+Production%2FStable)**: 10,000+ projects, including [SQLAlchemy](https://pypi.org/project/SQLAlchemy/), [numpy](https://pypi.org/project/numpy/), [pandas](https://pypi.org/project/pandas/)
 
 
 ### 6 - Mature
+
 * **Required properties**: Software was in production for more than a year. No
   new features were required, no major/critical bugs are open.
 * **Typical steps**: Fixing minor bugs.
