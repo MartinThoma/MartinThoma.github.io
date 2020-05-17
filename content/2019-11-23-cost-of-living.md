@@ -590,12 +590,20 @@ Fabrics:
         <td>2.98 EUR / 1.5kg</td>
     </tr>
     <tr>
+        <td>Nektarinen</td>
+        <td>?</td>
+        <td>3 weeks</td>
+        <td>2.79 EUR / 500g</td>
+        <td>?</td>
+        <td>2.79 EUR / 500g</td>
+    </tr>
+    <tr>
         <td>Mango</td>
         <td>5 / year</td>
         <td>3 weeks</td>
         <td>0.99 EUR / piece</td>
         <td>4.95 EUR / year</td>
-        <td>6.20 EUR / 6 piece</td>
+        <td>7.19 EUR / 7 piece</td>
     </tr>
     <tr>
         <td>Mango (Tin can)</td>
@@ -675,7 +683,7 @@ Fabrics:
         <td>2 weeks ?</td>
         <td>1.19 EUR / 500g</td>
         <td></td>
-        <td>2.81 EUR / 7 pieces</td>
+        <td>4.00 EUR / 10 pieces</td>
     </tr>
 </table>
 
@@ -708,6 +716,14 @@ Fabrics:
         <td>0.99 EUR / 2kg</td>
         <td></td>
         <td>3.67 EUR / 5 kg</td>
+    </tr>
+    <tr>
+        <td>Brookkoli</td>
+        <td></td>
+        <td>2 weeks</td>
+        <td>1.49 EUR / 500g</td>
+        <td></td>
+        <td>1.49 EUR / 500g</td>
     </tr>
     <tr>
         <td>Zuckererbsen</td>
@@ -774,12 +790,12 @@ Fabrics:
         <td>1.79 EUR / 250g</td>
     </tr>
     <tr>
-        <td>Tomatos (🇩🇪 <a href="https://en.wikipedia.org/wiki/Cherry_tomato">Cherrystrauchtomaten</a>)</td>
+        <td>Tomatos (🇩🇪 <a href="https://en.wikipedia.org/wiki/Cherry_tomato">Cherrystrauchtomaten</a>, Romana-Tomaten)</td>
         <td></td>
         <td>1 week</td>
         <td>1.99 EUR / 250g (1 package)</td>
         <td></td>
-        <td>5.47 EUR / 550g</td>
+        <td>6.36 EUR / 800g</td>
     </tr>
     <tr>
         <td>Broccoli</td>
@@ -811,7 +827,7 @@ Fabrics:
         <td>2 weeks</td>
         <td>1.29 EUR / 500g</td>
         <td>15.48 EUR / year</td>
-        <td>1.52 EUR / 0.610 kg</td>
+        <td>2.33 EUR / 0.830 kg</td>
     </tr>
     <tr>
         <td>Champignons</td>
@@ -882,7 +898,7 @@ Fabrics:
         <td>1 day</td>
         <td>0.85 / piece</td>
         <td>85.00 EUR / year</td>
-        <td>0.85 EUR / 1 piece</td>
+        <td>1.75 EUR / 2 piece</td>
     </tr>
     <tr>
         <td>Toast (Sandwichtoast)</td>
@@ -904,9 +920,9 @@ Fabrics:
         <td>Croissants</td>
         <td>104 pieces / year</td>
         <td>1 day (3 weeks for backing)</td>
-        <td>1.19 EUR / 4 pieces</td>
+        <td>1.19 EUR / 4 pieces or 1.60 EUR / 1 piece at the baker</td>
         <td>30.94 EUR / year</td>
-        <td>5.11 EUR / 9 piece</td>
+        <td>6.71 EUR / 10 piece</td>
     </tr>
     <tr>
         <td>🇩🇪 <a href="https://en.wikipedia.org/wiki/Pretzel">Laugenbrezel</a></td>
@@ -930,7 +946,7 @@ Fabrics:
         <td>3 months</td>
         <td>1.39 EUR / 250g</td>
         <td>33.54 EUR / year</td>
-        <td>13.21 EUR / 2250g</td>
+        <td>14.46 EUR / 2500g</td>
     </tr>
     <tr>
         <td>Margarine</td>
@@ -970,7 +986,7 @@ Fabrics:
         <td>4 months</td>
         <td>2.69 EUR / 400g</td>
         <td>67.34 EUR / year</td>
-        <td>25.61 EUR / 3.8kg</td>
+        <td>28.30 EUR / 4.2kg</td>
     </tr>
     <tr>
         <td>Frischkäse</td>
@@ -989,15 +1005,15 @@ Fabrics:
         <td>2.59 EUR / 150g</td>
     </tr>
     <tr>
-        <td>Cheese (Mozarella)</td>
+        <td>Cheese (Mozzarella)</td>
         <td></td>
         <td>0.69 EUR / 125 g (<abbr title="Abtropfgewicht">ATG</abbr>)</td>
         <td></td>
         <td></td>
-        <td>3.45 EUR / 625g</td>
+        <td>4.14 EUR / 750g</td>
     </tr>
     <tr>
-        <td><a href="https://en.wikipedia.org/wiki/Mortadella">Mortadella</a> Wurst</td>
+        <td>Sausage (<a href="https://en.wikipedia.org/wiki/Mortadella">Mortadella</a> Wurst)</td>
         <td>1 package / month</td>
         <td>0.89 EUR / (package)?</td>
         <td></td>
@@ -1038,11 +1054,19 @@ Fabrics:
     </tr>
     <tr>
         <td>Nougat Creme (e.g. Nutella)</td>
-        <td></td>
+        <td>?</td>
         <td>1 year</td>
         <td>1.29 EUR / 400g</td>
-        <td></td>
+        <td>?</td>
         <td>1.29 EUR / 400g</td>
+    </tr>
+    <tr>
+        <td>Honey (Honig)</td>
+        <td>?</td>
+        <td>1 year</td>
+        <td>2.89 EUR / 500g</td>
+        <td>?</td>
+        <td>2.89 EUR / 500g</td>
     </tr>
 </table>
 
@@ -1076,7 +1100,7 @@ I also count mixes like "Knorr fix" in here.
         <td>3 years</td>
         <td>0.59 EUR / 50g</td>
         <td>1.18 EUR / year</td>
-        <td>0</td>
+        <td>0.59 EUR / 50g</td>
     </tr>
     <tr>
         <td>Garlic powder (Knoblauch-Gewürzpulver)</td>
@@ -1156,7 +1180,7 @@ General Cooking:
         <td>1 year</td>
         <td>1.99 EUR / 750g</td>
         <td></td>
-        <td>5.97 EUR / 2250g</td>
+        <td>7.96 EUR / 3000g</td>
     </tr>
     <tr>
         <td>Sunflower oil (Sonnenblumenöl)</td>
@@ -1444,18 +1468,26 @@ General Cooking:
             <td>?</td>
             <td>2.99 EUR / 400g</td>
             <td>8.97 EUR / year</td>
-            <td>2.99 EUR / 400g</td>
+            <td>9.29 EUR / 1200g</td>
         </tr>
         <tr>
-            <td>Chicken (Hähnchenfilet / Hähnchengeschnetzeltes)</td>
+            <td>Chicken (Hähnchenfilet / Hähnchengeschnetzeltes / Hähnchen-Minutenschnitzel)</td>
             <td>4.8 kg</td>
             <td>?</td>
             <td>2.69 EUR / 400g</td>
             <td>32.28 EUR / year</td>
-            <td>13.95 EUR / 2100g</td>
+            <td>16.94 EUR / 2500g</td>
         </tr>
         <tr>
-            <td><a href="https://en.wikipedia.org/wiki/Weisswurst">Weißwurst</a></td>
+            <td>Sausage (Würstchen, Bratwurst)</td>
+            <td>?</td>
+            <td>1 month</td>
+            <td>2.59 EUR / 800g</td>
+            <td>?</td>
+            <td>4.98 EUR / 1400g</td>
+        </tr>
+        <tr>
+            <td>Sausage (<a href="https://en.wikipedia.org/wiki/Weisswurst">Weißwurst</a>)</td>
             <td>2.8 kg</td>
             <td>?</td>
             <td>2.19 EUR / 280g</td>
@@ -1493,7 +1525,7 @@ General Cooking:
             <td>2 weeks (?)</td>
             <td>0.29 EUR / piece</td>
             <td>45.37 EUR</td>
-            <td>21.73 EUR / 70 piece</td>
+            <td>22.08 EUR / 71 piece</td>
         </tr>
         <tr>
             <td>Natural Joghurt (Joghurt Pur)</td>
@@ -1512,12 +1544,12 @@ General Cooking:
             <td>43.44 EUR / 33 packages</td>
         </tr>
         <tr>
-            <td>Savory (Chips, Nachos, Sauce for nachos, Bake Rolls)</td>
+            <td>Savory (Chips, Nachos, Sauce for nachos, Bake Rolls, Cashew or other nuts)</td>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
-            <td>2.87 EUR / 3 packages</td>
+            <td>6.65 EUR / 5 packages</td>
         </tr>
         <tr>
             <td>Bakery non-sweet (Semmeln)</td>
@@ -1581,7 +1613,7 @@ General Cooking:
             <td>34 months</td>
             <td>0.99 EUR / 190g</td>
             <td></td>
-            <td>4.95 EUR / 950g</td>
+            <td>5.94 EUR / 1140g</td>
         </tr>
         <tr>
             <td>Eggs (Eier)</td>
@@ -1597,7 +1629,15 @@ General Cooking:
             <td>?</td>
             <td>0.79 EUR / 1.5 L</td>
             <td>9.48 EUR / year</td>
-            <td>10.09 EUR / 18.5 L</td>
+            <td>11.87 EUR / 21.0 L</td>
+        </tr>
+        <tr>
+            <td>Softdrinks (Eistee)</td>
+            <td>?</td>
+            <td>2 months</td>
+            <td>0.79 EUR / 1.5 L</td>
+            <td>?</td>
+            <td>0.79 EUR / 1.5 L</td>
         </tr>
         <tr>
             <td>Malz</td>
@@ -1695,6 +1735,14 @@ General Cooking:
             <td></td>
             <td>1.38 EUR / 200g (12 pieces)</td>
         </tr>
+        <tr>
+            <td>Kartoffelsalat</td>
+            <td>?</td>
+            <td>2 weeks</td>
+            <td>1.89 EUR / 750g</td>
+            <td>?</td>
+            <td>1.89 EUR / 750g</td>
+        </tr>
     </tbody>
 </table>
 
@@ -1773,7 +1821,7 @@ General Cooking:
         <td>2.95 EUR for 65 pieces</td>
         <td>1 per 3 days (?)</td>
         <td>5.53 EUR / year</td>
-        <td>0</td>
+        <td>2.72 EUR / 60 pieces</td>
     </tr>
     <tr>
         <td>Rinsing Agent (Klarspüler)</td>

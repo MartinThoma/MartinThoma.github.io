@@ -58,12 +58,13 @@ If possible, I will give the debian package names in the following list:
 * Programming
     * `zsh` and [Oh-my-zsh](../working-terminal/)
     * General Tools: `sudo apt-get install make curl wget vim direnv zsh sqlitebrowser meld diffpdf`
-    * Pyton: [`pyenv`](https://github.com/pyenv/pyenv), `pip install pip-tools`
-    * MySQL: `sudo apt-get install phpmyadmin`
+    * Python: [`pyenv`](https://github.com/pyenv/pyenv), `pip install pip-tools`
+    * MySQL: `sudo apt-get install mysql-server && sudo apt-get install phpmyadmin`
     * [VS Code](https://code.visualstudio.com/)
     * C/C++: `sudo apt-get install gcc g++ cmake build-essential gdb`
     * `ruby ruby-sqlite3 ruby-mysql`
     * PHP: `apache2 php5 php5-mysql`
+    * JavaScript: `sudo apt-get install nodejs npm`
 * Themes
     * Balazan-Theme from [bisigi-project](http://www.bisigi-project.org/?page_id=8&lang=en) (simply download it.)
 * Work
