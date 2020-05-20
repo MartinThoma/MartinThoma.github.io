@@ -16,18 +16,18 @@
 
 <meta name="keywords" content="Big Data, Python, Code, " />
 
-<meta property="og:title" content="Big Data: Sorting"/>
+<meta property="og:title" content="Big Data: Sorting "/>
 <meta property="og:url" content="../drafts/big-data-sorting.html" />
 <meta property="og:description" content="Big Data was a common buzzword in industry in 2012 until 2017. It is still common, but hopefully less of a buzzword. Now other other buzzwords are more common: trends.embed.renderExploreWidget(&#34;TIMESERIES&#34;, {&#34;comparisonItem&#34;:[{&#34;keyword&#34;:&#34;/m/0bs2j8q&#34;,&#34;geo&#34;:&#34;&#34;,&#34;time&#34;:&#34;2008-01-01 2020-03-24&#34;},{&#34;keyword&#34;:&#34;/m/01hyh_&#34;,&#34;geo&#34;:&#34;&#34;,&#34;time&#34;:&#34;2008-01-01 2020-03-24&#34;},{&#34;keyword&#34;:&#34;/m …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2020-03-24T20:00:00+01:00" />
-<meta name="twitter:title" content="Big Data: Sorting">
+<meta name="twitter:title" content="Big Data: Sorting ">
 <meta name="twitter:description" content="Big Data was a common buzzword in industry in 2012 until 2017. It is still common, but hopefully less of a buzzword. Now other other buzzwords are more common: trends.embed.renderExploreWidget(&#34;TIMESERIES&#34;, {&#34;comparisonItem&#34;:[{&#34;keyword&#34;:&#34;/m/0bs2j8q&#34;,&#34;geo&#34;:&#34;&#34;,&#34;time&#34;:&#34;2008-01-01 2020-03-24&#34;},{&#34;keyword&#34;:&#34;/m/01hyh_&#34;,&#34;geo&#34;:&#34;&#34;,&#34;time&#34;:&#34;2008-01-01 2020-03-24&#34;},{&#34;keyword&#34;:&#34;/m …">
 <meta property="og:image" content="logos/python.png" />
 <meta name="twitter:image" content="logos/python.png" >
 
-        <title>Big Data: Sorting · Martin Thoma
+        <title>Big Data: Sorting  · Martin Thoma
 </title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -96,7 +96,7 @@ MathJax.Hub.Queue(function() {
 <article>
 <div class="row">
     <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
-    <h1><a href="../drafts/big-data-sorting.html"> Big Data: Sorting </a></h1>
+    <h1><a href="../drafts/big-data-sorting.html"> Big Data: Sorting  </a></h1>
     </header>
 </div>
 
@@ -104,7 +104,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#data-generation" title="Data Generation">Data Generation</a><ul><li><a class="toc-href" href="#disk-space" title="Disk Space">Disk Space</a></li><li><a class="toc-href" href="#generate-it" title="Generate it!">Generate it!</a></li></ul></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#data-generation" title="Data Generation">Data Generation</a><ul><li><a class="toc-href" href="#disk-space" title="Disk Space">Disk Space</a></li><li><a class="toc-href" href="#generate-it" title="Generate it!">Generate it!</a></li></ul></li><li><a class="toc-href" href="#bash-sorting_1" title="Bash Sorting">Bash Sorting</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -197,6 +197,28 @@ Lets say 550 million numbers. My machine needed about 0.05s to generate 10k, so
 I expect it to take <code>540540541 / 10_000  * 0.05 / 60 = 45 min</code>. A good time to
 get some food 🙂</p>
 <p>Done after 32 minutes. The file size is 20.4 GB.</p>
+<h2 id="bash-sorting_1">Bash Sorting</h2>
+<p>Chunk the data:</p>
+<div class="highlight"><pre><span></span><code>$ <span class="nb">time</span> split -l <span class="m">1000000</span> numbers-large.txt chunk
+
+real    <span class="m">108</span>,01s
+user    <span class="m">7</span>,34s
+sys    <span class="m">31</span>,64s
+</code></pre></div>
+<p>Sort the chunks:</p>
+<div class="highlight"><pre><span></span><code>$ <span class="nb">time</span> <span class="o">(</span><span class="k">for</span> X in chunk*<span class="p">;</span> <span class="k">do</span> sort -t<span class="s1">'|'</span> -k2 -nr &lt; <span class="nv">$X</span> &gt; sorted-<span class="nv">$X</span><span class="p">;</span> <span class="k">done</span><span class="o">)</span>
+
+real    <span class="m">800</span>,93s
+user    <span class="m">3356</span>,56s
+sys    <span class="m">98</span>,59s
+</code></pre></div>
+<p>Merge:</p>
+<div class="highlight"><pre><span></span><code>$ <span class="nb">time</span> <span class="o">(</span>sort -t<span class="s1">'|'</span> -k2 -nr -m sorted-chunk* &gt; sorted-huge-file<span class="o">)</span>
+
+real    <span class="m">1592</span>,89s
+user    <span class="m">1506</span>,60s
+sys    <span class="m">77</span>,40s
+</code></pre></div>
             
             <div id="disqus_thread" class="no-print"></div>
 <script>
