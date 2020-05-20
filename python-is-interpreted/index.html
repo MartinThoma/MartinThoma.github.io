@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Python, Code, " />
+
+<meta property="og:title" content="Python is interpreted "/>
+<meta property="og:url" content="../python-is-interpreted/" />
+<meta property="og:description" content="Python is interpreted. Python is a scripting language. I hear those two statements pretty often when people want to say that Python is slow or that Python is not suited for large systems. In this article I want to dispel those myths. Interpreted Language What does it mean to say …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2020-05-20T20:00:00+02:00" />
+<meta name="twitter:title" content="Python is interpreted ">
+<meta name="twitter:description" content="Python is interpreted. Python is a scripting language. I hear those two statements pretty often when people want to say that Python is slow or that Python is not suited for large systems. In this article I want to dispel those myths. Interpreted Language What does it mean to say …">
+<meta property="og:image" content="logos/python.png" />
+<meta name="twitter:image" content="logos/python.png" >
+
+        <title>Python is interpreted  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../python-is-interpreted/"> Python is interpreted  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#interpreted-language" title="Interpreted Language">Interpreted Language</a></li><li><a class="toc-href" href="#scripting-language" title="Scripting Language">Scripting Language</a></li><li><a class="toc-href" href="#myth-python-is-slow" title="Myth: Python is Slow">Myth: Python is Slow</a><ul><li><a class="toc-href" href="#speed-is-not-everything" title="Speed is not Everything">Speed is not Everything</a></li><li><a class="toc-href" href="#raw-number-crunching" title="Raw Number-Crunching">Raw Number-Crunching</a></li></ul></li><li><a class="toc-href" href="#myth-python-can-use-multiple-cores_1" title="Myth: Python can use multiple cores">Myth: Python can use multiple cores</a></li><li><a class="toc-href" href="#myth-python-cannot-be-used-in-big-systems" title="Myth: Python cannot be used in big systems">Myth: Python cannot be used in big systems</a></li><li><a class="toc-href" href="#how-to-make-python-fast" title="How to make Python Fast">How to make Python Fast</a></li><li><a class="toc-href" href="#how-to-build-big-systems-with-python" title="How to build big Systems with Python">How to build big Systems with Python</a></li><li><a class="toc-href" href="#footnotes" title="Footnotes">Footnotes</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>Python is interpreted. Python is a scripting language. I hear those two
+statements pretty often when people want to say that Python is slow or that
+Python is not suited for large systems. In this article I want to dispel those myths.</p>
+<h2 id="interpreted-language">Interpreted Language</h2>
+<p>What does it mean to say Python "is" an interpreted language? If you mean that Python is usually interpreted, that statement is correct. If you mean that Python is always interpreted, you are wrong[^6].</p>
+<p>Usually, this comes with the connotation that Python is slow.</p>
+<h2 id="scripting-language">Scripting Language</h2>
+<p>Next, what does it mean to say Python "is" a scripting language. According to Wikipedia:</p>
+<blockquote>
+<p>A scripting or script language is a programming language for a special run-time environment that automates the execution of tasks</p>
+</blockquote>
+<p>That sound a lot like "interpreted language" to me. However, later in the article you can read</p>
+<blockquote>
+<p>with the term "script" often used for small programs (up to a few thousand lines of code)</p>
+</blockquote>
+<p>Which leads to the myth that you can't build complex systems with Python.</p>
+<h2 id="myth-python-is-slow">Myth: Python is Slow</h2>
+<p>What people usually mean with that statement is that raw execution speed is low.</p>
+<h3 id="speed-is-not-everything">Speed is not Everything</h3>
+<p>However, they tend to forget other important properties like development speed,
+ease to find developers, flexibility of the built systems to adjust for future
+changes.</p>
+<p>A case in point is this claim about the speed of YouTube developers (<a href="https://news.ycombinator.com/item?id=16674628">ycombinator referencing "Python Interviews" by Mike Driscoll</a>). The fact that Python is well-suited for rapid prototyping is also appreciated at CERN[4^]. Same for Quora[5^].</p>
+<h3 id="raw-number-crunching">Raw Number-Crunching</h3>
+<p>Python has a lot of awesome libraries. Three of them help you with raw number crunching:</p>
+<ul>
+<li><strong>Numpy and Scipy</strong>: Two battle-proven libaries which build on <a href="https://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms">BLAS libraries</a>. So the computationally heavy stuff is executed in highly optimized libraries which are written in Fortran.</li>
+<li><strong>Tensorflow / PyTorch</strong>: Both libraries heavily rely on <a href="https://en.wikipedia.org/wiki/CUDA">CUDA</a> and CuDNN, meaning the code which does the number cruniching is executed on the GPU. No Python involved.</li>
+</ul>
+<h2 id="myth-python-can-use-multiple-cores_1">Myth: Python can use multiple cores</h2>
+<p>... because of the <a href="https://en.wikipedia.org/wiki/Global_interpreter_lock">GIL</a>.
+That is just plain wrong. Have a look at my <a href="https://martin-thoma.com/asyncio/">asyncio article</a>
+to get an overview over concurrency in Python.</p>
+<h2 id="myth-python-cannot-be-used-in-big-systems">Myth: Python cannot be used in big systems</h2>
+<p>Large systems might not need single heavy number crunching like BLAS libraries do. They might (a) have just "organizational complexity", meaning a lot of business logic or (b) a lot of single small requests comming into a web service.</p>
+<p>There are a lot of <a href="https://en.wikipedia.org/wiki/Programming_languages_used_in_most_popular_websites">pages</a> which say "Python is used at website XY". However,
+it's pretty hard to tell where and how exactly Python is used. It is a pretty
+awesome language for writing "glue code", meaning code which helps to keep
+things together. It's also nice for ad-hoc stuff which could mean that it is
+only used for that. But, and that is the point of this paragraph, you can also
+build big systems with Python. Here are some examples:</p>
+<ul>
+<li><strong>Instagram</strong> uses Django (sources: <a href="https://instagram-engineering.com/what-powers-instagram-hundreds-of-instances-dozens-of-technologies-adf2e22da2ad">2011</a>, <a href="https://instagram-engineering.com/web-service-efficiency-at-instagram-with-python-4976d078e366">2016</a>, <a href="https://instagram-engineering.com/copy-on-write-friendly-python-garbage-collection-ad6ed5233ddf">2017</a>): Instagram is at place 29 of the gloally most popular websites (<a href="https://web.archive.org/web/20200416015659/https://www.alexa.com/topsites">Alexa, April 2020</a>). The fact that Instagram uses Django for their website shows two things: You can build complex systems using Python and you can build systems that scale.</li>
+<li><strong>Pinterest</strong> uses Flask and Django (<a href="https://www.quora.com/What-challenges-has-Pinterest-encountered-with-Flask/answer/Steve-Cohen?srid=hXZd&amp;share=1">Quora 2015</a> by <a href="https://www.linkedin.com/in/icecreamcohen/">Steve Cohen</a>): Pinterest is also one of the 500 most-visited websites on earth.</li>
+<li><strong>Facebook</strong> (<a href="https://engineering.fb.com/production-engineering/python-in-production-engineering/">2016</a>): A lot of places, but all seem not super huge. Facebook has released the <a href="https://en.wikipedia.org/wiki/Tornado_(web_server)">Tornado Webserver</a> which they seemed to have used for their real-time updates[2^].</li>
+<li><strong>Dropbox</strong> makes heavy use of Python. They had Guido van Rossum working for them for quite a while and in 2019 they put a lot of effort in 2019 to update their code: <a href="https://dropbox.tech/application/our-journey-to-type-checking-4-million-lines-of-python">Our journey to type checking 4 million lines of Python</a></li>
+<li><strong>Netflix</strong> also uses Python in <a href="https://netflixtechblog.com/python-at-netflix-bba45dae649e">many places</a>.</li>
+</ul>
+<p>Other big players where I have seen claims, but no reliable source:</p>
+<ul>
+<li>Yahoo Maps, Yahoo Groups [1^]</li>
+<li>Google[1^] [3^]: I see this menioned all the time and you can find job postings for this, but no details what Google uses Python for.</li>
+<li>YouTube: [1^], [3^]</li>
+</ul>
+<h2 id="how-to-make-python-fast">How to make Python Fast</h2>
+<p>I will likely write way more about this, but here are some core ideas:</p>
+<ol>
+<li><strong>Analyze</strong>: Where do you spend most of your execution time. Is it mainly waiting for I/O? Then look at my <a href="https://martin-thoma.com/asyncio/">asyncio article</a>.</li>
+<li><strong>Use libraries</strong>: Python has a lot of awesome libraries which are well-maintaned. It takes a while to figure out which ones exist, but Numpy, Scipy, Tensorflow, PyTorch, Flask, Django, nltk, <a href="https://scikit-learn.org/stable/">scikit-learn</a>, <a href="https://spacy.io/">spacy</a>. And learn how to use them correctly. I had a 96x speedup just for using numpy for matrix multiplication. I had a 46x speedup by using numpy and a vectorized solution. Still pure Python in both cases.</li>
+<li><strong>Interpreters</strong>: You don't need to use the standard interpreter. <a href="https://www.pypy.org/">PyPy</a> might be way faster due to JIT compilation.</li>
+<li><strong>C-Bindings</strong>: If Python is to slow for a specific task, you don't need to abandon Python. Cython, ctypes, cffi, c extension and pybind11 are some of the options you have.</li>
+</ol>
+<h2 id="how-to-build-big-systems-with-python">How to build big Systems with Python</h2>
+<p>A lot of the answer is not Python specific and would require way more than just this small part of the article. Some tiny hints which help:</p>
+<ul>
+<li>Coding Standards: <a href="https://pre-commit.com/">pre-commit</a>, <a href="https://github.com/psf/black">black</a>, <a href="https://flake8.pycqa.org/en/latest/">flake8</a></li>
+<li><a href="https://docs.python.org/3/library/typing.html">Type hints</a> and <a href="http://mypy-lang.org/">mypy</a> for type checking</li>
+<li>Testing: <a href="https://docs.pytest.org/en/latest/">pytest</a></li>
+</ul>
+<h2 id="footnotes">Footnotes</h2>
+<p>[1^]: Python.org wiki: <a href="https://wiki.python.org/moin/OrganizationsUsingPython">Organizations using Python</a>
+[2^]: David Recordon: <a href="https://developers.facebook.com/blog/post/301">Tornado: Facebook's Real-Time Web Framework for Python</a>, 2018.
+[3^]: <a href="https://www.python.org/about/quotes/">Python Quotes</a>
+[4^]: <a href="http://cdsweb.cern.ch/journal/CERNBulletin/2006/31/News%20Articles/974627?ln=en">Python : The Holy Grail of Programming</a>, 2006.
+[5^]: <a href="https://en.wikipedia.org/wiki/Adam_D%27Angelo">Adam D'Angelo</a>: <a href="https://www.quora.com/Why-did-Quora-choose-Python-for-its-development-What-technological-challenges-did-the-founders-face-before-they-decided-to-go-with-Python-rather-than-PHP">Why did Quora choose Python for its development?</a>, 2014.
+[6^]: Ramchandra Apte: <a href="https://stackoverflow.com/a/11415005/562769">Is it feasible to compile Python to machine code?</a>, 2012.</p>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2020-05-20T20:00:00+02:00">Mai 20, 2020</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#python-ref">Python
+                    <span>115</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
