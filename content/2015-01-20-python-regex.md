@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Regular Expressions with Python
+slug: regular-expressions-with-python
+alias: python-re
 author: Martin Thoma
 date: 2015-01-20 13:35
 category: Code
@@ -12,6 +14,41 @@ programming language. This mini article shows two examples how to use them.
 
 The package which gives RegEx support is called
 [`re`](https://docs.python.org/3/library/re.html).
+
+## Matches
+
+The simplest applicataion of `re` is to check if a pattern matches a text:
+
+```python
+import re
+
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+pattern = "ipsum"
+
+if re.match(pattern, text):
+    print("The pattern matches the text")
+else:
+    print("The pattern doesn't match the text")
+```
+
+Please note that this does NOT match. If you want to match the complete text,
+you need `pattern = ".+ipsum.+"`... or use `search`
+
+## Search
+
+Check if a pattern is within a text:
+
+```python
+import re
+
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+pattern = "ipsum"
+
+if re.search(pattern, text):
+    print("Found match")
+else:
+    print("No match found")
+```
 
 
 ## Replacing Spaces
