@@ -571,7 +571,7 @@ Fabrics:
         <td>1 week</td>
         <td>1.79 EUR / kg</td>
         <td>32.58 EUR / year</td>
-        <td>1.79 EUR / 1.444 kg</td>
+        <td>2.01 EUR / 1.666 kg</td>
     </tr>
     <tr>
         <td><a href="https://en.wikipedia.org/wiki/Mandarin_orange">Mandarin orange</a> (Mandarinen)</td>
@@ -651,7 +651,7 @@ Fabrics:
         <td>2 weeks</td>
         <td>1.29 EUR / 125g</td>
         <td>15.48 EUR / year</td>
-        <td>0.99 EUR / 125g</td>
+        <td>3.28 EUR / 375g</td>
     </tr>
     <tr>
         <td><a href="https://en.wikipedia.org/wiki/Diospyros_kaki">Kaki</a> / Sharon</td>
@@ -898,7 +898,7 @@ Fabrics:
         <td>1 day</td>
         <td>0.85 / piece</td>
         <td>85.00 EUR / year</td>
-        <td>1.75 EUR / 2 piece</td>
+        <td>2.15 EUR / 3 piece</td>
     </tr>
     <tr>
         <td>Toast (Sandwichtoast)</td>
@@ -914,15 +914,15 @@ Fabrics:
         <td>4 days</td>
         <td>1.29 EUR / 500g</td>
         <td></td>
-        <td>3.87 EUR / 1500g</td>
+        <td>5.16 EUR / 2000g</td>
     </tr>
     <tr>
         <td>Croissants</td>
         <td>104 pieces / year</td>
         <td>1 day (3 weeks for backing)</td>
         <td>1.19 EUR / 4 pieces or 1.60 EUR / 1 piece at the baker</td>
-        <td>30.94 EUR / year</td>
-        <td>6.71 EUR / 10 piece</td>
+        <td>32.54 EUR / year</td>
+        <td>6.71 EUR / 11 piece</td>
     </tr>
     <tr>
         <td>🇩🇪 <a href="https://en.wikipedia.org/wiki/Pretzel">Laugenbrezel</a></td>
@@ -1050,7 +1050,7 @@ Fabrics:
         <td>2 weeks</td>
         <td>0.89 EUR / 150g</td>
         <td></td>
-        <td>3.56 EUR / 600g</td>
+        <td>4.45 EUR / 750g</td>
     </tr>
     <tr>
         <td>Nougat Creme (e.g. Nutella)</td>
@@ -1111,12 +1111,12 @@ I also count mixes like "Knorr fix" in here.
         <td>0.98 EUR / 140g</td>
     </tr>
     <tr>
-        <td>Knorr Fix (Nudelgratin / Lasagne / Geschnetzeltes)</td>
+        <td>Knorr Fix or Similar (Nudelgratin / Lasagne / Geschnetzeltes / Jägersauce)</td>
         <td></td>
+        <td>1 year (?)</td>
+        <td>0.39 / package</td>
         <td></td>
-        <td></td>
-        <td></td>
-        <td>2.82 EUR / 8 piece</td>
+        <td>3.21 EUR / 9 package</td>
     </tr>
     <tr>
         <td>Gemüsebrühe</td>
@@ -1212,7 +1212,7 @@ General Cooking:
         <td>2 years 9 months</td>
         <td>1.99 EUR / 250ml</td>
         <td></td>
-        <td>3.98 EUR / 500ml</td>
+        <td>5.97 EUR / 750ml</td>
     </tr>
     <tr>
         <td>Wheat Flour (Weizenmehl)</td>
@@ -1455,12 +1455,12 @@ General Cooking:
             <td>0</td>
         </tr>
         <tr>
-            <td>Prawn / Shrimp (Garnelen, e.g. <a href="https://en.wikipedia.org/wiki/Penaeus_monodon">Black Tiger</a>)</td>
+            <td>Prawn / Shrimp (Garnelen, e.g. <a href="https://en.wikipedia.org/wiki/Penaeus_monodon">Black Tiger</a>, Eismeergarnelen)</td>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
-            <td></td>
+            <td>4.79 EUR / 200g</td>
         </tr>
         <tr>
             <td>Rinderhackfleisch</td>
@@ -1525,7 +1525,7 @@ General Cooking:
             <td>2 weeks (?)</td>
             <td>0.29 EUR / piece</td>
             <td>45.37 EUR</td>
-            <td>22.08 EUR / 71 piece</td>
+            <td>23.37 EUR / 76 piece</td>
         </tr>
         <tr>
             <td>Natural Joghurt (Joghurt Pur)</td>
@@ -1541,7 +1541,7 @@ General Cooking:
             <td>months to years</td>
             <td></td>
             <td></td>
-            <td>43.44 EUR / 33 packages</td>
+            <td>45.33 EUR / 35 packages</td>
         </tr>
         <tr>
             <td>Savory (Chips, Nachos, Sauce for nachos, Bake Rolls, Cashew or other nuts)</td>
@@ -1717,7 +1717,7 @@ General Cooking:
             <td>2 years</td>
             <td>0.49 EUR / 200g</td>
             <td></td>
-            <td>0.49 EUR / 200g</td>
+            <td>0.98 EUR / 400g</td>
         </tr>
         <tr>
             <td>Geschälte Tomaten in der Dose</td>
@@ -1726,6 +1726,14 @@ General Cooking:
             <td>0.39 EUR / 240g</td>
             <td></td>
             <td>0.78 EUR / 480g</td>
+        </tr>
+        <tr>
+            <td>Zitronensaft</td>
+            <td></td>
+            <td>6 months</td>
+            <td>0.49 EUR / 200ml</td>
+            <td></td>
+            <td>0.49 EUR / 200ml</td>
         </tr>
         <tr>
             <td>Semmelknödel</td>
@@ -2043,7 +2051,7 @@ pills and maybe a couple of months for creams and ointment.
         <td>13 EUR</td>
         <td>Each 6 Weeks</td>
         <td>113.00 EUR / year</td>
-        <td>13 EUR / 1 time</td>
+        <td>33 EUR / 2 time</td>
     </tr>
     <tr>
         <td><a href="https://www.check24.de/handytarife">SIM card</a></td>
@@ -2100,6 +2108,6 @@ pills and maybe a couple of months for creams and ointment.
     </tr>
     <tr>
         <td>Dates / Girlfriend</td>
-        <td>31.99 EUR</td>
+        <td>33.29 EUR</td>
     </tr>
 </table>
