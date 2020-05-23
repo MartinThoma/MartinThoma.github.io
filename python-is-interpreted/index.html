@@ -112,18 +112,25 @@ MathJax.Hub.Queue(function() {
             
             <p>Python is interpreted. Python is a scripting language. I hear those two
 statements pretty often when people want to say that Python is slow or that
-Python is not suited for large systems. In this article I want to dispel those myths.</p>
+Python is not suited for large systems. In this article I want to dispel those
+myths.</p>
 <h2 id="interpreted-language">Interpreted Language</h2>
-<p>What does it mean to say Python "is" an interpreted language? If you mean that Python is usually interpreted, that statement is correct. If you mean that Python is always interpreted, you are wrong<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup>.</p>
+<p>What does it mean to say Python "is" an interpreted language? If you mean that
+Python is usually interpreted, that statement is correct. If you mean that
+Python is always interpreted, you are wrong<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup>.</p>
 <p>Usually, this comes with the connotation that Python is slow.</p>
 <h2 id="scripting-language">Scripting Language</h2>
-<p>Next, what does it mean to say Python "is" a scripting language. According to Wikipedia:</p>
+<p>Next, what does it mean to say Python "is" a scripting language. According to
+Wikipedia:</p>
 <blockquote>
-<p>A scripting or script language is a programming language for a special run-time environment that automates the execution of tasks</p>
+<p>A scripting or script language is a programming language for a special
+run-time environment that automates the execution of tasks</p>
 </blockquote>
-<p>That sound a lot like "interpreted language" to me. However, later in the article you can read</p>
+<p>That sound a lot like "interpreted language" to me. However, later in the
+article you can read</p>
 <blockquote>
-<p>with the term "script" often used for small programs (up to a few thousand lines of code)</p>
+<p>with the term "script" often used for small programs (up to a few thousand
+lines of code)</p>
 </blockquote>
 <p>Which leads to the myth that you can't build complex systems with Python.</p>
 <h2 id="myth-python-is-slow">Myth: Python is Slow</h2>
@@ -132,51 +139,104 @@ Python is not suited for large systems. In this article I want to dispel those m
 <p>However, they tend to forget other important properties like development speed,
 ease to find developers, flexibility of the built systems to adjust for future
 changes.</p>
-<p>A case in point is this claim about the speed of YouTube developers (<a href="https://news.ycombinator.com/item?id=16674628">ycombinator referencing "Python Interviews" by Mike Driscoll</a>). The fact that Python is well-suited for rapid prototyping is also appreciated at CERN<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>. Same for Quora<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>.</p>
+<p>A case in point is this claim about the speed of YouTube developers (<a href="https://news.ycombinator.com/item?id=16674628">ycombinator referencing "Python Interviews" by Mike Driscoll</a>).
+The fact that Python is well-suited for rapid prototyping is also appreciated
+at CERN<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>. Same for Quora<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>.</p>
 <h3 id="raw-number-crunching">Raw Number-Crunching</h3>
-<p>Python has a lot of awesome libraries. Three of them help you with raw number crunching:</p>
+<p>Python has a lot of awesome libraries. Three of them help you with raw number
+crunching:</p>
 <ul>
-<li><strong>Numpy and Scipy</strong>: Two battle-proven libaries which build on <a href="https://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms">BLAS libraries</a>. So the computationally heavy stuff is executed in highly optimized libraries which are written in Fortran.</li>
-<li><strong>Tensorflow / PyTorch</strong>: Both libraries heavily rely on <a href="https://en.wikipedia.org/wiki/CUDA">CUDA</a> and CuDNN, meaning the code which does the number cruniching is executed on the GPU. No Python involved.</li>
+<li><strong>Numpy and Scipy</strong>: Two battle-proven libaries which build on
+  <a href="https://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms">BLAS libraries</a>.
+  So the computationally heavy stuff is executed in highly optimized libraries
+  which are written in Fortran.</li>
+<li><strong>Tensorflow / PyTorch</strong>: Both libraries heavily rely on
+  <a href="https://en.wikipedia.org/wiki/CUDA">CUDA</a> and CuDNN, meaning the code which
+  does the number cruniching is executed on the GPU. No Python involved.</li>
 </ul>
 <h2 id="myth-python-can-use-multiple-cores_1">Myth: Python can use multiple cores</h2>
 <p>... because of the <a href="https://en.wikipedia.org/wiki/Global_interpreter_lock">GIL</a>.
-That is just plain wrong. Have a look at my <a href="https://martin-thoma.com/asyncio/">asyncio article</a>
-to get an overview over concurrency in Python.</p>
+That is just plain wrong. Have a look at my
+<a href="https://martin-thoma.com/asyncio/">asyncio article</a> to get an overview over
+concurrency in Python.</p>
 <h2 id="myth-python-cannot-be-used-in-big-systems">Myth: Python cannot be used in big systems</h2>
-<p>Large systems might not need single heavy number crunching like BLAS libraries do. They might (a) have just "organizational complexity", meaning a lot of business logic or (b) a lot of single small requests comming into a web service.</p>
-<p>There are a lot of <a href="https://en.wikipedia.org/wiki/Programming_languages_used_in_most_popular_websites">pages</a> which say "Python is used at website XY". However,
-it's pretty hard to tell where and how exactly Python is used. It is a pretty
-awesome language for writing "glue code", meaning code which helps to keep
-things together. It's also nice for ad-hoc stuff which could mean that it is
-only used for that. But, and that is the point of this paragraph, you can also
-build big systems with Python. Here are some examples:</p>
+<p>Large systems might not need single heavy number crunching like BLAS libraries
+do. They might (a) have just "organizational complexity", meaning a lot of
+business logic or (b) a lot of single small requests comming into a web
+service.</p>
+<p>There are a lot of
+<a href="https://en.wikipedia.org/wiki/Programming_languages_used_in_most_popular_websites">pages</a>
+which say "Python is used at website XY". However, it's pretty hard to tell
+where and how exactly Python is used. It is a pretty awesome language for
+writing "glue code", meaning code which helps to keep things together. It's
+also nice for ad-hoc stuff which could mean that it is only used for that. But,
+and that is the point of this paragraph, you can also build big systems with
+Python. Here are some examples:</p>
 <ul>
-<li><strong>Instagram</strong> uses Django (sources: <a href="https://instagram-engineering.com/what-powers-instagram-hundreds-of-instances-dozens-of-technologies-adf2e22da2ad">2011</a>, <a href="https://instagram-engineering.com/web-service-efficiency-at-instagram-with-python-4976d078e366">2016</a>, <a href="https://instagram-engineering.com/copy-on-write-friendly-python-garbage-collection-ad6ed5233ddf">2017</a>): Instagram is at place 29 of the gloally most popular websites (<a href="https://web.archive.org/web/20200416015659/https://www.alexa.com/topsites">Alexa, April 2020</a>). The fact that Instagram uses Django for their website shows two things: You can build complex systems using Python and you can build systems that scale.</li>
-<li><strong>Pinterest</strong> uses Flask and Django (<a href="https://www.quora.com/What-challenges-has-Pinterest-encountered-with-Flask/answer/Steve-Cohen?srid=hXZd&amp;share=1">Quora 2015</a> by <a href="https://www.linkedin.com/in/icecreamcohen/">Steve Cohen</a>): Pinterest is also one of the 500 most-visited websites on earth.</li>
-<li><strong>Facebook</strong> (<a href="https://engineering.fb.com/production-engineering/python-in-production-engineering/">2016</a>): A lot of places, but all seem not super huge. Facebook has released the <a href="https://en.wikipedia.org/wiki/Tornado_(web_server)">Tornado Webserver</a> which they seemed to have used for their real-time updates<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</li>
-<li><strong>Dropbox</strong> makes heavy use of Python. They had Guido van Rossum working for them for quite a while and in 2019 they put a lot of effort in 2019 to update their code: <a href="https://dropbox.tech/application/our-journey-to-type-checking-4-million-lines-of-python">Our journey to type checking 4 million lines of Python</a></li>
-<li><strong>Netflix</strong> also uses Python in <a href="https://netflixtechblog.com/python-at-netflix-bba45dae649e">many places</a>.</li>
+<li><strong>Instagram</strong> uses Django (sources:
+  <a href="https://instagram-engineering.com/what-powers-instagram-hundreds-of-instances-dozens-of-technologies-adf2e22da2ad">2011</a>,
+  <a href="https://instagram-engineering.com/web-service-efficiency-at-instagram-with-python-4976d078e366">2016</a>,
+  <a href="https://instagram-engineering.com/copy-on-write-friendly-python-garbage-collection-ad6ed5233ddf">2017</a>):
+  Instagram is at place 29 of the gloally most popular websites (<a href="https://web.archive.org/web/20200416015659/https://www.alexa.com/topsites">Alexa, April
+  2020</a>).
+  The fact that Instagram uses Django for their website shows two things: You
+  can build complex systems using Python and you can build systems that scale.</li>
+<li><strong>Pinterest</strong> uses Flask and Django (<a href="https://www.quora.com/What-challenges-has-Pinterest-encountered-with-Flask/answer/Steve-Cohen?srid=hXZd&amp;share=1">Quora
+  2015</a>
+  by <a href="https://www.linkedin.com/in/icecreamcohen/">Steve Cohen</a>): Pinterest is
+  also one of the 500 most-visited websites on earth.</li>
+<li><strong>Facebook</strong>
+  (<a href="https://engineering.fb.com/production-engineering/python-in-production-engineering/">2016</a>):
+  A lot of places, but all seem not super huge. Facebook has released the
+  <a href="https://en.wikipedia.org/wiki/Tornado_(web_server)">Tornado Webserver</a> which
+  they seemed to have used for their real-time updates<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</li>
+<li><strong>Dropbox</strong> makes heavy use of Python. They had Guido van Rossum working for
+  them for quite a while and in 2019 they put a lot of effort in 2019 to update
+  their code: <a href="https://dropbox.tech/application/our-journey-to-type-checking-4-million-lines-of-python">Our journey to type checking 4 million lines of
+  Python</a></li>
+<li><strong>Netflix</strong> also uses Python in <a href="https://netflixtechblog.com/python-at-netflix-bba45dae649e">many
+  places</a>.</li>
 </ul>
 <p>Other big players where I have seen claims, but no reliable source:</p>
 <ul>
 <li>Yahoo Maps, Yahoo Groups <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
-<li>Google<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup> <sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>: I see this menioned all the time and you can find job postings for this, but no details what Google uses Python for.</li>
+<li>Google<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup> <sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>: I see this menioned all the time and you can find job
+  postings for this, but no details what Google uses Python for.</li>
 <li>YouTube: <sup id="fnref3:1"><a class="footnote-ref" href="#fn:1">1</a></sup> <sup id="fnref2:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
 </ul>
 <h2 id="how-to-make-python-fast">How to make Python Fast</h2>
 <p>I will likely write way more about this, but here are some core ideas:</p>
 <ol>
-<li><strong>Analyze</strong>: Where do you spend most of your execution time. Is it mainly waiting for I/O? Then look at my <a href="https://martin-thoma.com/asyncio/">asyncio article</a>.</li>
-<li><strong>Use libraries</strong>: Python has a lot of awesome libraries which are well-maintaned. It takes a while to figure out which ones exist, but <a href="https://numpy.org/">Numpy</a>, <a href="https://www.scipy.org/">Scipy</a>, <a href="https://pandas.pydata.org/">Pandas</a>, <a href="https://dask.org/">Dask</a>, <a href="https://www.tensorflow.org/">Tensorflow</a>, <a href="https://pytorch.org/">PyTorch</a>, <a href="https://flask.palletsprojects.com/">Flask</a>, <a href="https://www.djangoproject.com/">Django</a>, <a href="https://www.nltk.org/">nltk</a>, <a href="https://scikit-learn.org/stable/">scikit-learn</a>, and <a href="https://spacy.io/">spacy</a> are certainly some of them. And learn how to use them correctly. I had a 96x speedup just for using numpy for matrix multiplication. I had a 46x speedup by using numpy and a vectorized solution. Still pure Python in both cases.</li>
-<li><strong>Interpreters</strong>: You don't need to use the standard interpreter. <a href="https://www.pypy.org/">PyPy</a> might be way faster due to JIT compilation.</li>
-<li><strong>C-Bindings</strong>: If Python is to slow for a specific task, you don't need to abandon Python. Cython, ctypes, cffi, c extension and pybind11 are some of the options you have.</li>
+<li><strong>Analyze</strong>: Where do you spend most of your execution time. Is it mainly
+   waiting for I/O? Then look at my <a href="https://martin-thoma.com/asyncio/">asyncio
+   article</a>.</li>
+<li><strong>Use libraries</strong>: Python has a lot of awesome libraries which are
+   well-maintaned. It takes a while to figure out which ones exist, but
+   <a href="https://numpy.org/">Numpy</a>, <a href="https://www.scipy.org/">Scipy</a>,
+   <a href="https://pandas.pydata.org/">Pandas</a>, <a href="https://dask.org/">Dask</a>,
+   <a href="https://www.tensorflow.org/">Tensorflow</a>, <a href="https://pytorch.org/">PyTorch</a>,
+   <a href="https://flask.palletsprojects.com/">Flask</a>,
+   <a href="https://www.djangoproject.com/">Django</a>, <a href="https://www.nltk.org/">nltk</a>,
+   <a href="https://scikit-learn.org/stable/">scikit-learn</a>, and
+   <a href="https://spacy.io/">spacy</a> are certainly some of them. And learn how to use
+   them correctly. I had a 96x speedup just for using numpy for matrix
+   multiplication. I had a 46x speedup by using numpy and a vectorized
+   solution. Still pure Python in both cases.</li>
+<li><strong>Interpreters</strong>: You don't need to use the standard interpreter.
+   <a href="https://www.pypy.org/">PyPy</a> might be way faster due to JIT compilation.</li>
+<li><strong>C-Bindings</strong>: If Python is to slow for a specific task, you don't need to
+   abandon Python. Cython, ctypes, cffi, c extension and pybind11 are some of
+   the options you have.</li>
 </ol>
 <h2 id="how-to-build-big-systems-with-python">How to build big Systems with Python</h2>
-<p>A lot of the answer is not Python specific and would require way more than just this small part of the article. Some tiny hints which help:</p>
+<p>A lot of the answer is not Python specific and would require way more than just
+this small part of the article. Some tiny hints which help:</p>
 <ul>
-<li>Coding Standards: <a href="https://pre-commit.com/">pre-commit</a>, <a href="https://github.com/psf/black">black</a>, <a href="https://flake8.pycqa.org/en/latest/">flake8</a></li>
-<li><a href="https://docs.python.org/3/library/typing.html">Type hints</a> and <a href="http://mypy-lang.org/">mypy</a> for type checking</li>
+<li>Coding Standards: <a href="https://pre-commit.com/">pre-commit</a>,
+  <a href="https://github.com/psf/black">black</a>,
+  <a href="https://flake8.pycqa.org/en/latest/">flake8</a></li>
+<li><a href="https://docs.python.org/3/library/typing.html">Type hints</a> and
+  <a href="http://mypy-lang.org/">mypy</a> for type checking</li>
 <li>Testing: <a href="https://docs.pytest.org/en/latest/">pytest</a></li>
 </ul>
 <h2 id="footnotes">Footnotes</h2>
@@ -236,7 +296,7 @@ build big systems with Python. Here are some examples:</p>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
                 <li><a href="../tags.html#python-ref">Python
-                    <span>115</span>
+                    <span>116</span>
 </a></li>
             </ul>
 <h4>Contact</h4>

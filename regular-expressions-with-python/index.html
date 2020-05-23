@@ -18,12 +18,12 @@
 
 <meta property="og:title" content="Regular Expressions with Python "/>
 <meta property="og:url" content="../regular-expressions-with-python/" />
-<meta property="og:description" content="Python supports regular expressions (RegEx) just as any other general purpose programming language. This mini article shows two examples how to use them. The package which gives RegEx support is called re. Replacing Spaces Replace multiple whitespace characters (spaces, tabs, newlines, ...) by a single space (by Nasir): import re text …" />
+<meta property="og:description" content="Python supports regular expressions (RegEx) just as any other general purpose programming language. This mini article shows two examples how to use them. The package which gives RegEx support is called re. Matches The simplest applicataion of re is to check if a pattern matches a text: import re text …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
 <meta property="og:article:published_time" content="2015-01-20T13:35:00+01:00" />
 <meta name="twitter:title" content="Regular Expressions with Python ">
-<meta name="twitter:description" content="Python supports regular expressions (RegEx) just as any other general purpose programming language. This mini article shows two examples how to use them. The package which gives RegEx support is called re. Replacing Spaces Replace multiple whitespace characters (spaces, tabs, newlines, ...) by a single space (by Nasir): import re text …">
+<meta name="twitter:description" content="Python supports regular expressions (RegEx) just as any other general purpose programming language. This mini article shows two examples how to use them. The package which gives RegEx support is called re. Matches The simplest applicataion of re is to check if a pattern matches a text: import re text …">
 <meta property="og:image" content="logos/python.png" />
 <meta name="twitter:image" content="logos/python.png" >
 
@@ -104,7 +104,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#replacing-spaces" title="Replacing Spaces">Replacing Spaces</a></li><li><a class="toc-href" href="#unquoting" title="Unquoting">Unquoting</a></li><li><a class="toc-href" href="#all-paragraphs" title="All paragraphs">All paragraphs</a></li><li><a class="toc-href" href="#common-regexes" title="Common RegExes">Common RegExes</a><ul><li><a class="toc-href" href="#numbers" title="Numbers">Numbers</a></li><li><a class="toc-href" href="#email" title="Email">Email</a></li></ul></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#matches" title="Matches">Matches</a></li><li><a class="toc-href" href="#search" title="Search">Search</a></li><li><a class="toc-href" href="#replacing-spaces" title="Replacing Spaces">Replacing Spaces</a></li><li><a class="toc-href" href="#unquoting" title="Unquoting">Unquoting</a></li><li><a class="toc-href" href="#all-paragraphs" title="All paragraphs">All paragraphs</a></li><li><a class="toc-href" href="#common-regexes" title="Common RegExes">Common RegExes</a><ul><li><a class="toc-href" href="#numbers" title="Numbers">Numbers</a></li><li><a class="toc-href" href="#email" title="Email">Email</a></li></ul></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -114,6 +114,32 @@ MathJax.Hub.Queue(function() {
 programming language. This mini article shows two examples how to use them.</p>
 <p>The package which gives RegEx support is called
 <a href="https://docs.python.org/3/library/re.html"><code>re</code></a>.</p>
+<h2 id="matches">Matches</h2>
+<p>The simplest applicataion of <code>re</code> is to check if a pattern matches a text:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">"Lorem ipsum dolor sit amet, consectetur adipiscing elit"</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="s2">"ipsum"</span>
+
+<span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"The pattern matches the text"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"The pattern doesn't match the text"</span><span class="p">)</span>
+</code></pre></div>
+<p>Please note that this does NOT match. If you want to match the complete text,
+you need <code>pattern = ".+ipsum.+"</code>... or use <code>search</code></p>
+<h2 id="search">Search</h2>
+<p>Check if a pattern is within a text:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">"Lorem ipsum dolor sit amet, consectetur adipiscing elit"</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="s2">"ipsum"</span>
+
+<span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Found match"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"No match found"</span><span class="p">)</span>
+</code></pre></div>
 <h2 id="replacing-spaces">Replacing Spaces</h2>
 <p>Replace multiple whitespace characters (spaces, tabs, newlines, ...) by a
 single space (by <a href="http://stackoverflow.com/a/1546245/562769">Nasir</a>):</p>
@@ -255,7 +281,7 @@ Description: Not a 100% email validation. It doesn't work with IP-Adresses, but 
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
                 <li><a href="../tags.html#python-ref">Python
-                    <span>115</span>
+                    <span>116</span>
 </a></li>
                 <li><a href="../tags.html#regex-ref">RegEx
                     <span>3</span>

@@ -14,14 +14,14 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="Big Data, Python, Code, " />
+<meta name="keywords" content="Big Data, Python, Bash, sorting, Code, " />
 
 <meta property="og:title" content="Big Data: Sorting "/>
 <meta property="og:url" content="../drafts/big-data-sorting.html" />
 <meta property="og:description" content="Big Data was a common buzzword in industry in 2012 until 2017. It is still common, but hopefully less of a buzzword. Now other other buzzwords are more common: trends.embed.renderExploreWidget(&#34;TIMESERIES&#34;, {&#34;comparisonItem&#34;:[{&#34;keyword&#34;:&#34;/m/0bs2j8q&#34;,&#34;geo&#34;:&#34;&#34;,&#34;time&#34;:&#34;2008-01-01 2020-03-24&#34;},{&#34;keyword&#34;:&#34;/m/01hyh_&#34;,&#34;geo&#34;:&#34;&#34;,&#34;time&#34;:&#34;2008-01-01 2020-03-24&#34;},{&#34;keyword&#34;:&#34;/m …" />
 <meta property="og:site_name" content="Martin Thoma" />
 <meta property="og:article:author" content="Martin Thoma" />
-<meta property="og:article:published_time" content="2020-03-24T20:00:00+01:00" />
+<meta property="og:article:published_time" content="2020-05-21T20:00:00+02:00" />
 <meta name="twitter:title" content="Big Data: Sorting ">
 <meta name="twitter:description" content="Big Data was a common buzzword in industry in 2012 until 2017. It is still common, but hopefully less of a buzzword. Now other other buzzwords are more common: trends.embed.renderExploreWidget(&#34;TIMESERIES&#34;, {&#34;comparisonItem&#34;:[{&#34;keyword&#34;:&#34;/m/0bs2j8q&#34;,&#34;geo&#34;:&#34;&#34;,&#34;time&#34;:&#34;2008-01-01 2020-03-24&#34;},{&#34;keyword&#34;:&#34;/m/01hyh_&#34;,&#34;geo&#34;:&#34;&#34;,&#34;time&#34;:&#34;2008-01-01 2020-03-24&#34;},{&#34;keyword&#34;:&#34;/m …">
 <meta property="og:image" content="logos/python.png" />
@@ -104,7 +104,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#data-generation" title="Data Generation">Data Generation</a><ul><li><a class="toc-href" href="#disk-space" title="Disk Space">Disk Space</a></li><li><a class="toc-href" href="#generate-it" title="Generate it!">Generate it!</a></li></ul></li><li><a class="toc-href" href="#bash-sorting_1" title="Bash Sorting">Bash Sorting</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#data-generation" title="Data Generation">Data Generation</a><ul><li><a class="toc-href" href="#disk-space" title="Disk Space">Disk Space</a></li><li><a class="toc-href" href="#generate-it" title="Generate it!">Generate it!</a></li></ul></li><li><a class="toc-href" href="#bash-sorting_1" title="Bash Sorting">Bash Sorting</a></li><li><a class="toc-href" href="#python" title="Python">Python</a><ul><li><a class="toc-href" href="#merge-sort" title="Merge Sort">Merge Sort</a></li><li><a class="toc-href" href="#trivial-radix-sort" title="Trivial Radix Sort">Trivial Radix Sort</a></li><li><a class="toc-href" href="#multi-process-radix-sort" title="Multi-process Radix Sort">Multi-process Radix Sort</a></li></ul></li><li><a class="toc-href" href="#see-also_1" title="See also">See also</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -196,29 +196,80 @@ time difference is not that huge. Everything as expected.</p>
 Lets say 550 million numbers. My machine needed about 0.05s to generate 10k, so
 I expect it to take <code>540540541 / 10_000  * 0.05 / 60 = 45 min</code>. A good time to
 get some food 🙂</p>
-<p>Done after 32 minutes. The file size is 20.4 GB.</p>
+<p>Done after 32&nbsp;minutes. The file size is 20.4&nbsp;GB.</p>
 <h2 id="bash-sorting_1">Bash Sorting</h2>
+<p>Sorting with standard unix tools - namely <code>split</code> and <code>sort</code> - is the simplest
+solution that popped to my mind which should also be pretty fast. I will
+wrap all commands in <code>time (the actual command)</code> so that you can see how
+fast they are.</p>
 <p>Chunk the data:</p>
-<div class="highlight"><pre><span></span><code>$ <span class="nb">time</span> split -l <span class="m">1000000</span> numbers-large.txt chunk
+<div class="highlight"><pre><span></span><code>$ <span class="nb">time</span> <span class="o">(</span>split -l <span class="m">10000000</span> numbers-large.txt chunk-<span class="o">)</span>
 
-real    <span class="m">108</span>,01s
-user    <span class="m">7</span>,34s
-sys    <span class="m">31</span>,64s
+real    <span class="m">89</span>,00s
+user    <span class="m">5</span>,16s
+sys    <span class="m">25</span>,29s
 </code></pre></div>
 <p>Sort the chunks:</p>
-<div class="highlight"><pre><span></span><code>$ <span class="nb">time</span> <span class="o">(</span><span class="k">for</span> X in chunk*<span class="p">;</span> <span class="k">do</span> sort -t<span class="s1">'|'</span> -k2 -nr &lt; <span class="nv">$X</span> &gt; sorted-<span class="nv">$X</span><span class="p">;</span> <span class="k">done</span><span class="o">)</span>
+<div class="highlight"><pre><span></span><code>$ <span class="nb">time</span> <span class="o">(</span><span class="k">for</span> X in chunk-*<span class="p">;</span> <span class="k">do</span> sort -n &lt; <span class="nv">$X</span> &gt; sorted-<span class="nv">$X</span><span class="p">;</span> <span class="k">done</span><span class="o">)</span>
 
-real    <span class="m">800</span>,93s
-user    <span class="m">3356</span>,56s
-sys    <span class="m">98</span>,59s
+real    <span class="m">625</span>,44s
+user    <span class="m">2768</span>,27s
+sys    <span class="m">85</span>,40s
 </code></pre></div>
 <p>Merge:</p>
-<div class="highlight"><pre><span></span><code>$ <span class="nb">time</span> <span class="o">(</span>sort -t<span class="s1">'|'</span> -k2 -nr -m sorted-chunk* &gt; sorted-huge-file<span class="o">)</span>
+<div class="highlight"><pre><span></span><code>$ <span class="nb">time</span> <span class="o">(</span>sort -n -m sorted-chunk* &gt; sorted.txt<span class="o">)</span>
 
-real    <span class="m">1592</span>,89s
-user    <span class="m">1506</span>,60s
-sys    <span class="m">77</span>,40s
+real    <span class="m">531</span>,50s
+user    <span class="m">470</span>,09s
+sys    <span class="m">52</span>,20s
 </code></pre></div>
+<p>In total, this approach needed <strong>20 min and 46 seconds</strong>.</p>
+<p>I will check other solutions for correctnes by the following command. It takes
+91s just to check if the two files are identical!</p>
+<div class="highlight"><pre><span></span><code>$ cmp -l shell-sort/sorted.txt other-solution.txt
+</code></pre></div>
+<h2 id="python">Python</h2>
+<p>Let's see how quick I can do it with Python!</p>
+<h3 id="merge-sort">Merge Sort</h3>
+<h3 id="trivial-radix-sort">Trivial Radix Sort</h3>
+<p>The idea is:</p>
+<ol>
+<li><strong>Chunking</strong>: Generate 90 chunks for all of the 2-letter prefixes (10, 11,
+   12, ... 97, 98, 99). Each chunk is now small enough to fit into memory.</li>
+<li><strong>Chunk sorting</strong>: Sort each chunk individually.</li>
+<li><strong>Combining</strong>: Combine all of the chunks. As they were created by prefixes,
+   this is just simply pasting the files together in the order of the prefixes.</li>
+</ol>
+<p>Timing:</p>
+<ol>
+<li>Chunking: 290.4s</li>
+<li>Chunk Sorting: 779.5s</li>
+<li>Combining: 208.4s</li>
+</ol>
+<p>In total, the Python Radix-Sort is at <strong>21 min and 30 seconds</strong>.</p>
+<h3 id="multi-process-radix-sort">Multi-process Radix Sort</h3>
+<p>Most of the time is spent on sorting. However, I only used one core. So we can
+improve the wall-clock execution time by running on multiple cores!</p>
+<p>To do so, we make a minor adjustment:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">sort_chunks</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
+
+    <span class="n">pool</span> <span class="o">=</span> <span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sort_chunk</span><span class="p">,</span> <span class="n">state</span><span class="p">[</span><span class="s2">"chunks_to_sort"</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">state</span>
+</code></pre></div>
+<p>Timing:</p>
+<ol>
+<li>Chunking: 290.4s</li>
+<li>Chunk Sorting: 266.2s</li>
+<li>Combining: 208.4s</li>
+</ol>
+<p>In total, the Python parallel Radix-Sort is at <strong>12 min and 45 seconds</strong>.</p>
+<h2 id="see-also_1">See also</h2>
+<p>StackExchange</p>
+<ul>
+<li><a href="https://stackoverflow.com/q/34090744/562769">How can I sort a 10GB file?</a>, 2015.</li>
+</ul>
             
             <div id="disqus_thread" class="no-print"></div>
 <script>
@@ -244,17 +295,23 @@ sys    <span class="m">77</span>,40s
         <section>
         <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2020-03-24T20:00:00+01:00">Mär 24, 2020</time>
+            <time pubdate="pubdate" datetime="2020-05-21T20:00:00+02:00">Mai 21, 2020</time>
             <br/>
             by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
             <h4>Category</h4>
             <a class="category-link" href="../categories.html#code-ref">Code</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#bash-ref">Bash
+                    <span>6</span>
+</a></li>
                 <li><a href="../tags.html#big-data-ref">Big Data
 </a></li>
                 <li><a href="../tags.html#python-ref">Python
-                    <span>115</span>
+                    <span>116</span>
+</a></li>
+                <li><a href="../tags.html#sorting-ref">sorting
+                    <span>2</span>
 </a></li>
             </ul>
 <h4>Contact</h4>
