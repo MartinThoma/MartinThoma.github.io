@@ -156,7 +156,7 @@ You can create custom keybindings via *Preferences Key Bindings (User)*
 
 I have these:
 
-```text
+```json
 [
 { "keys": ["ctrl+shift+r"], "command": "reindent", "args": { "single_line": false } },
 { "keys": ["shift+tab"], "command": "unindent", "args": {"single_line":true} },
