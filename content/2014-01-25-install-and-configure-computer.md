@@ -57,8 +57,8 @@ If possible, I will give the debian package names in the following list:
     * `pdf2svg librsvg2-bin`
 * Programming
     * `zsh` and [Oh-my-zsh](../working-terminal/)
-    * General Tools: `sudo apt-get install make curl wget vim direnv zsh sqlitebrowser meld diffpdf`
-    * Python: [`pyenv`](https://github.com/pyenv/pyenv), `pip install pip-tools`
+    * General Tools: `sudo apt-get install make curl wget tree htop vim direnv zsh sqlitebrowser meld diffpdf`
+    * Python: [`pyenv`](https://github.com/pyenv/pyenv), `pip install pip-tools black isort pre-commit`
     * MySQL: `sudo apt-get install mysql-server && sudo apt-get install phpmyadmin`
     * [VS Code](https://code.visualstudio.com/)
     * C/C++: `sudo apt-get install gcc g++ cmake build-essential gdb`
@@ -134,3 +134,14 @@ See [github.com/MartinThoma/dotfiles](https://github.com/MartinThoma/dotfiles).
 
 ## Data
 Download / copy all data back from GitHub / external HDDs to my internal HDD.
+
+## Themes
+
+Bigger sites:
+
+* [Mate-look.org](https://www.mate-look.org/)
+
+And some specific ones:
+
+* Mac: [McMojave](https://www.pling.com/p/1275087/)
+* [Balanzan](https://martin-thoma.com/balanzan-theme/)
