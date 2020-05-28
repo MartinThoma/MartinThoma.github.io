@@ -2002,7 +2002,7 @@ pills and maybe a couple of months for creams and ointment.
         <td>79.10 EUR</td>
         <td>Each month</td>
         <td>949.20 EUR / year</td>
-        <td>71.00 EUR / 250km</td>
+        <td>72.50 EUR / 466km</td>
     </tr>
     <tr>
         <td>Restaurant (work)</td>
@@ -2023,7 +2023,7 @@ pills and maybe a couple of months for creams and ointment.
         <td>15 EUR / person</td>
         <td></td>
         <td></td>
-        <td>160 EUR / 9 people (3 times in total)</td>
+        <td>173.60 EUR / 10 people (4 times in total)</td>
     </tr>
     <tr>
         <td>Bouldering</td>
@@ -2108,6 +2108,6 @@ pills and maybe a couple of months for creams and ointment.
     </tr>
     <tr>
         <td>Dates / Girlfriend</td>
-        <td>33.29 EUR</td>
+        <td>49.19 EUR</td>
     </tr>
 </table>
