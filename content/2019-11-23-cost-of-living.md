@@ -571,7 +571,7 @@ Fabrics:
         <td>1 week</td>
         <td>1.79 EUR / kg</td>
         <td>32.58 EUR / year</td>
-        <td>2.01 EUR / 1.666 kg</td>
+        <td>2.63 EUR / 2.006 kg</td>
     </tr>
     <tr>
         <td><a href="https://en.wikipedia.org/wiki/Mandarin_orange">Mandarin orange</a> (Mandarinen)</td>
@@ -587,7 +587,15 @@ Fabrics:
         <td>3 months (?)</td>
         <td>0.89 EUR / kg</td>
         <td>2.67 EUR / year</td>
-        <td>2.98 EUR / 1.5kg</td>
+        <td>3.74 EUR / 1.88kg</td>
+    </tr>
+    <tr>
+        <td>Birne</td>
+        <td></td>
+        <td>2 months</td>
+        <td>2.99 EUR / kg</td>
+        <td></td>
+        <td>1.15 EUR / 0.386 kg</td>
     </tr>
     <tr>
         <td>Nektarinen</td>
@@ -603,7 +611,7 @@ Fabrics:
         <td>3 weeks</td>
         <td>0.99 EUR / piece</td>
         <td>4.95 EUR / year</td>
-        <td>7.19 EUR / 7 piece</td>
+        <td>8.18 EUR / 8 piece</td>
     </tr>
     <tr>
         <td>Mango (Tin can)</td>
@@ -654,12 +662,12 @@ Fabrics:
         <td>3.28 EUR / 375g</td>
     </tr>
     <tr>
-        <td><a href="https://en.wikipedia.org/wiki/Diospyros_kaki">Kaki</a> / Sharon</td>
+        <td><a href="https://en.wikipedia.org/wiki/Diospyros_kaki">Kaki</a> / Sharonfrucht</td>
         <td>5 kg / year</td>
         <td>2 weeks (?)</td>
         <td>1.79 EUR / kg</td>
         <td>8.95 EUR / year</td>
-        <td>1 kg</td>
+        <td>2.58 EUR / 1.44 kg</td>
     </tr>
     <tr>
         <td>Figs medium dry (Feigen halbtrocken)</td>
@@ -744,10 +752,10 @@ Fabrics:
     <tr>
         <td>Purple cabbage coleslaw (🇩🇪 Tafelfertiger Rotkohl)</td>
         <td></td>
-        <td>1 year</td>
+        <td>2.5 years</td>
+        <td>1.39 EUR / 0.65 kg</td>
         <td></td>
-        <td></td>
-        <td>0.99 EUR / 650g</td>
+        <td>2.38 EUR / 1.3 kg</td>
     </tr>
     <tr>
         <td>Spring onion (🇩🇪 Frühlingszwiebeln / Lauchzwiebeln)</td>
@@ -849,9 +857,9 @@ Fabrics:
         <td><a href="https://en.wikipedia.org/wiki/Cucumber">Cucumber</a> (🇩🇪 Gurke)</td>
         <td></td>
         <td>1 week</td>
-        <td>0.35 EUR / piece</td>
+        <td>0.49 EUR / piece</td>
         <td></td>
-        <td>1.34 EUR / 2 piece</td>
+        <td>1.83 EUR / 3 piece</td>
     </tr>
     <tr>
         <td><a href="https://en.wikipedia.org/wiki/Avocado">Avocado</a></td>
@@ -898,7 +906,7 @@ Fabrics:
         <td>1 day</td>
         <td>0.85 / piece</td>
         <td>85.00 EUR / year</td>
-        <td>2.15 EUR / 3 piece</td>
+        <td>3.80 EUR / 5 piece</td>
     </tr>
     <tr>
         <td>Toast (Sandwichtoast)</td>
@@ -906,7 +914,7 @@ Fabrics:
         <td>2 weeks (?)</td>
         <td>0.89 EUR / 750g</td>
         <td>23.01 EUR / year</td>
-        <td>7.81 EUR / 5750g</td>
+        <td>8.70 EUR / 6500g</td>
     </tr>
     <tr>
         <td>Bread (Brot: Mehrkornbrot, Vollkornbrot, Kartoffelbrot)</td>
@@ -922,7 +930,7 @@ Fabrics:
         <td>1 day (3 weeks for backing)</td>
         <td>1.19 EUR / 4 pieces or 1.60 EUR / 1 piece at the baker</td>
         <td>32.54 EUR / year</td>
-        <td>6.71 EUR / 11 piece</td>
+        <td>10.11 EUR / 13 piece</td>
     </tr>
     <tr>
         <td>🇩🇪 <a href="https://en.wikipedia.org/wiki/Pretzel">Laugenbrezel</a></td>
@@ -946,7 +954,7 @@ Fabrics:
         <td>3 months</td>
         <td>1.39 EUR / 250g</td>
         <td>33.54 EUR / year</td>
-        <td>14.46 EUR / 2500g</td>
+        <td>15.71 EUR / 2750g</td>
     </tr>
     <tr>
         <td>Margarine</td>
@@ -981,12 +989,12 @@ Fabrics:
         <td>3.38 EUR / 400ml</td>
     </tr>
     <tr>
-        <td>Cheese (🇩🇪 Emmentaler Käse; Limburger)</td>
+        <td>Cheese (🇩🇪 Emmentaler; Limburger; Allgäuer Bergkäse)</td>
         <td>400g / 2 weeks</td>
         <td>4 months</td>
         <td>2.69 EUR / 400g</td>
         <td>67.34 EUR / year</td>
-        <td>28.30 EUR / 4.2kg</td>
+        <td>32.98 EUR / 4.7kg</td>
     </tr>
     <tr>
         <td>Frischkäse</td>
@@ -1010,15 +1018,15 @@ Fabrics:
         <td>0.69 EUR / 125 g (<abbr title="Abtropfgewicht">ATG</abbr>)</td>
         <td></td>
         <td></td>
-        <td>4.14 EUR / 750g</td>
+        <td>4.73 EUR / 775g</td>
     </tr>
     <tr>
-        <td>Sausage (<a href="https://en.wikipedia.org/wiki/Mortadella">Mortadella</a> Wurst)</td>
+        <td>Sausage (<a href="https://en.wikipedia.org/wiki/Mortadella">Mortadella</a> Wurst, Salami)</td>
         <td>1 package / month</td>
         <td>0.89 EUR / (package)?</td>
         <td></td>
         <td>10.68 EUR / year</td>
-        <td>0</td>
+        <td>1.19 EUR / 200g</td>
     </tr>
     <tr>
         <td>Vegetarian sausage (Veggi Aufschniitt)</td>
@@ -1037,20 +1045,28 @@ Fabrics:
         <td>3.26 EUR / 1750g</td>
     </tr>
     <tr>
-        <td>Obatzter</td>
+        <td>Obatzter (Obazda)</td>
         <td></td>
         <td>2 months</td>
+        <td>1.89 EUR / 125g</td>
         <td></td>
-        <td></td>
-        <td>3.47 EUR / 450g</td>
+        <td>5.36 EUR / 575g</td>
     </tr>
     <tr>
-        <td>Crème fraîche based spread (Tomaten-Mozarella Brotaufstrich)</td>
+        <td>Crème fraîche based spread (Tomaten-Mozzarella Brotaufstrich)</td>
         <td></td>
         <td>2 weeks</td>
         <td>0.89 EUR / 150g</td>
         <td></td>
-        <td>4.45 EUR / 750g</td>
+        <td>5.34 EUR / 900g</td>
+    </tr>
+    <tr>
+        <td>Antipasti (Brotaufstrich)</td>
+        <td></td>
+        <td>2 weeks</td>
+        <td>1.79 EUR / 150g</td>
+        <td></td>
+        <td>1.79 EUR / 150g</td>
     </tr>
     <tr>
         <td>Nougat Creme (e.g. Nutella)</td>
@@ -1455,6 +1471,14 @@ General Cooking:
             <td>0</td>
         </tr>
         <tr>
+            <td>Fish in tin can (Hering)</td>
+            <td></td>
+            <td>4 years</td>
+            <td>1.49 EUR / 200g</td>
+            <td></td>
+            <td>1.49 EUR / 200g</td>
+        </tr>
+        <tr>
             <td>Prawn / Shrimp (Garnelen, e.g. <a href="https://en.wikipedia.org/wiki/Penaeus_monodon">Black Tiger</a>, Eismeergarnelen)</td>
             <td></td>
             <td></td>
@@ -1495,6 +1519,14 @@ General Cooking:
             <td>0</td>
         </tr>
         <tr>
+            <td>Frikadellen</td>
+            <td></td>
+            <td>1 month?</td>
+            <td>1.99 EUR / 500g</td>
+            <td></td>
+            <td>1.99 EUR / 500g</td>
+        </tr>
+        <tr>
             <td><a href="https://en.wikipedia.org/wiki/Tuna">Tuna</a> in tin (Thunfisch in der Dose)</td>
             <td></td>
             <td>2.5 years</td>
@@ -1525,7 +1557,7 @@ General Cooking:
             <td>2 weeks (?)</td>
             <td>0.29 EUR / piece</td>
             <td>45.37 EUR</td>
-            <td>23.37 EUR / 76 piece</td>
+            <td>24.37 EUR / 80 piece</td>
         </tr>
         <tr>
             <td>Natural Joghurt (Joghurt Pur)</td>
@@ -1541,7 +1573,7 @@ General Cooking:
             <td>months to years</td>
             <td></td>
             <td></td>
-            <td>45.33 EUR / 35 packages</td>
+            <td>48.01 EUR / 37 packages</td>
         </tr>
         <tr>
             <td>Savory (Chips, Nachos, Sauce for nachos, Bake Rolls, Cashew or other nuts)</td>
@@ -1661,7 +1693,7 @@ General Cooking:
             <td>2 months</td>
             <td>1.99 EUR / 4 pieces</td>
             <td>11.94 EUR / year</td>
-            <td>5.97 EUR / 12 pieces</td>
+            <td>7.96 EUR / 16 pieces</td>
         </tr>
         <tr>
             <td>Wasser</td>
@@ -1741,7 +1773,7 @@ General Cooking:
             <td>1 year</td>
             <td>0.69 EUR / 200g (6 pieces)</td>
             <td></td>
-            <td>1.38 EUR / 200g (12 pieces)</td>
+            <td>2.07 EUR / 400g (18 pieces)</td>
         </tr>
         <tr>
             <td>Kartoffelsalat</td>
@@ -1880,6 +1912,20 @@ General Cooking:
         <td></td>
         <td>1.89 EUR / 6 pieces</td>
     </tr>
+    <tr>
+        <td>Taschentücher</td>
+        <td>1.85 EUR / 300 pieces</td>
+        <td></td>
+        <td></td>
+        <td>1.85 EUR / 300 pieces</td>
+    </tr>
+    <tr>
+        <td>Sonnencreme</td>
+        <td>3.45 EUR / 200ml</td>
+        <td></td>
+        <td></td>
+        <td>3.45 EUR / 200ml</td>
+    </tr>
     </tbody>
     <tfoot>
     <tr>
@@ -1980,6 +2026,14 @@ pills and maybe a couple of months for creams and ointment.
         <td></td>
         <td>0.40 EUR / 86g</td>
     </tr>
+    <tr>
+        <td>Clabin N 8g Lösung</td>
+        <td></td>
+        <td>3 years</td>
+        <td>9.97 EUR / 8g</td>
+        <td></td>
+        <td>9.97 EUR / 8g</td>
+    </tr>
 </table>
 
 
@@ -2009,7 +2063,7 @@ pills and maybe a couple of months for creams and ointment.
         <td></td>
         <td></td>
         <td></td>
-        <td>45 EUR / 4 time</td>
+        <td>55 EUR / 5 time</td>
     </tr>
     <tr>
         <td>Food for Work (e.g. Semmel)</td>
@@ -2074,6 +2128,13 @@ pills and maybe a couple of months for creams and ointment.
         <td>9.90 EUR / year</td>
         <td>0 EUR</td>
     </tr>
+    <tr>
+        <td>Hiking (Sleeping place, Food)</td>
+        <td></td>
+        <td></td>
+        <td>72.00 EUR / 1 hike</td>
+        <td></td>
+    </tr>
     </tbody>
     <tfoot>
         <tr>
@@ -2108,6 +2169,6 @@ pills and maybe a couple of months for creams and ointment.
     </tr>
     <tr>
         <td>Dates / Girlfriend</td>
-        <td>49.19 EUR</td>
+        <td>107.19 EUR</td>
     </tr>
 </table>
