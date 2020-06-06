@@ -480,6 +480,10 @@ which I think I really need... turns out, it's a lot of stuff.
         <td>12.90 EUR / 2 pieces</td>
     </tr>
     <tr>
+        <td>Fahrradketten-Öl</td>
+        <td>5.99 EUR / 60ml (Finish Line; total rippoff - you can get it for 4 EUR / 100ml)</td>
+    </tr>
+    <tr>
         <td>Schnürsenkel</td>
         <td>3.00 EUR</td>
         <td>1 year</td>
@@ -506,6 +510,10 @@ which I think I really need... turns out, it's a lot of stuff.
         <td>5 years</td>
         <td>6.00 EUR / year</td>
         <td>29.99 EUR / 1 piece</td>
+    </tr>
+    <tr>
+        <td>Briefmarke (Post)</td>
+        <td>1.75 / 2 letters or packages</td>
     </tr>
     <tr>
         <td>Nice letter Paper (Briefpapier)</td>
@@ -587,7 +595,7 @@ Fabrics:
         <td>3 months (?)</td>
         <td>0.89 EUR / kg</td>
         <td>2.67 EUR / year</td>
-        <td>3.74 EUR / 1.88kg</td>
+        <td>4.00 EUR / 2.056kg</td>
     </tr>
     <tr>
         <td>Birne</td>
@@ -595,7 +603,7 @@ Fabrics:
         <td>2 months</td>
         <td>2.99 EUR / kg</td>
         <td></td>
-        <td>1.15 EUR / 0.386 kg</td>
+        <td>1.79 EUR / 0.600 kg</td>
     </tr>
     <tr>
         <td>Nektarinen</td>
@@ -611,7 +619,7 @@ Fabrics:
         <td>3 weeks</td>
         <td>0.99 EUR / piece</td>
         <td>4.95 EUR / year</td>
-        <td>8.18 EUR / 8 piece</td>
+        <td>9.17 EUR / 9 piece</td>
     </tr>
     <tr>
         <td>Mango (Tin can)</td>
@@ -723,7 +731,7 @@ Fabrics:
         <td>3 months (?)</td>
         <td>0.99 EUR / 2kg</td>
         <td></td>
-        <td>3.67 EUR / 5 kg</td>
+        <td>4.03 EUR / 5.282 kg</td>
     </tr>
     <tr>
         <td>Brookkoli</td>
@@ -801,9 +809,9 @@ Fabrics:
         <td>Tomatos (🇩🇪 <a href="https://en.wikipedia.org/wiki/Cherry_tomato">Cherrystrauchtomaten</a>, Romana-Tomaten)</td>
         <td></td>
         <td>1 week</td>
-        <td>1.99 EUR / 250g (1 package)</td>
+        <td>0.99 EUR / 250g (1 package)</td>
         <td></td>
-        <td>6.36 EUR / 800g</td>
+        <td>7.35 EUR / 1050g</td>
     </tr>
     <tr>
         <td>Broccoli</td>
@@ -917,12 +925,12 @@ Fabrics:
         <td>8.70 EUR / 6500g</td>
     </tr>
     <tr>
-        <td>Bread (Brot: Mehrkornbrot, Vollkornbrot, Kartoffelbrot)</td>
+        <td>Bread (Brot: Malz-Mehrkornbrot, Vollkornbrot, Kartoffelbrot)</td>
         <td></td>
         <td>4 days</td>
         <td>1.29 EUR / 500g</td>
         <td></td>
-        <td>5.16 EUR / 2000g</td>
+        <td>6.45 EUR / 2500g</td>
     </tr>
     <tr>
         <td>Croissants</td>
@@ -954,7 +962,7 @@ Fabrics:
         <td>3 months</td>
         <td>1.39 EUR / 250g</td>
         <td>33.54 EUR / year</td>
-        <td>15.71 EUR / 2750g</td>
+        <td>17.00 EUR / 3000g</td>
     </tr>
     <tr>
         <td>Margarine</td>
@@ -1018,7 +1026,7 @@ Fabrics:
         <td>0.69 EUR / 125 g (<abbr title="Abtropfgewicht">ATG</abbr>)</td>
         <td></td>
         <td></td>
-        <td>4.73 EUR / 775g</td>
+        <td>6.11 EUR / 1025g</td>
     </tr>
     <tr>
         <td>Sausage (<a href="https://en.wikipedia.org/wiki/Mortadella">Mortadella</a> Wurst, Salami)</td>
@@ -1173,6 +1181,14 @@ General Cooking:
         <td>0.63 EUR / 200 g</td>
         <td>7.56 EUR / year</td>
         <td>2.13 EUR / 600g</td>
+    </tr>
+    <tr>
+        <td>Saure Sahne</td>
+        <td></td>
+        <td>2 weeks</td>
+        <td>0.40 EUR / 200 g</td>
+        <td></td>
+        <td>0.40 EUR / 200 g</td>
     </tr>
     <tr>
         <td>Creme Fraiche (30%)</td>
@@ -1468,7 +1484,7 @@ General Cooking:
             <td>days</td>
             <td>1.99 EUR / package</td>
             <td></td>
-            <td>0</td>
+            <td>3.19 EUR / 1 package</td>
         </tr>
         <tr>
             <td>Fish in tin can (Hering)</td>
@@ -1524,7 +1540,7 @@ General Cooking:
             <td>1 month?</td>
             <td>1.99 EUR / 500g</td>
             <td></td>
-            <td>1.99 EUR / 500g</td>
+            <td>3.98 EUR / 1000g</td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Tuna">Tuna</a> in tin (Thunfisch in der Dose)</td>
@@ -1568,12 +1584,12 @@ General Cooking:
             <td>2.03 EUR / 1675g</td>
         </tr>
         <tr>
-            <td>Sweets like Cookies (Chips, chocolate, cake, waffles, cookies; Süßigkeiten, Kakao-Schnitten, Kekse, Wassereis)</td>
+            <td>Sweets like Cookies (Chips, chocolate, cake, waffles, cookies; Süßigkeiten, Kakao-Schnitten, Kekse, Wassereis, Nuss-Strudel)</td>
             <td>-</td>
             <td>months to years</td>
             <td></td>
             <td></td>
-            <td>48.01 EUR / 37 packages</td>
+            <td>51.59 EUR / 39 packages</td>
         </tr>
         <tr>
             <td>Savory (Chips, Nachos, Sauce for nachos, Bake Rolls, Cashew or other nuts)</td>
@@ -1581,7 +1597,7 @@ General Cooking:
             <td></td>
             <td></td>
             <td></td>
-            <td>6.65 EUR / 5 packages</td>
+            <td>7.64 EUR / 6 packages</td>
         </tr>
         <tr>
             <td>Bakery non-sweet (Semmeln)</td>
@@ -1653,7 +1669,7 @@ General Cooking:
             <td>2 weeks?</td>
             <td>1.29 EUR / 10 pieces</td>
             <td>11.88 EUR / year</td>
-            <td>5.16 EUR / 40 pieces</td>
+            <td>6.45 EUR / 50 pieces</td>
         </tr>
         <tr>
             <td>Juice (Saft: Orangen-Nektar)</td>
@@ -1670,6 +1686,14 @@ General Cooking:
             <td>0.79 EUR / 1.5 L</td>
             <td>?</td>
             <td>0.79 EUR / 1.5 L</td>
+        </tr>
+        <tr>
+            <td>Water</td>
+            <td></td>
+            <td>1 year</td>
+            <td>0.11 EUR / 0.5 L</td>
+            <td></td>
+            <td>0.55 EUR / 2.5 L</td>
         </tr>
         <tr>
             <td>Malz</td>
@@ -1782,6 +1806,14 @@ General Cooking:
             <td>1.89 EUR / 750g</td>
             <td>?</td>
             <td>1.89 EUR / 750g</td>
+        </tr>
+        <tr>
+            <td>Müsli-Riegel (Granola)</td>
+            <td></td>
+            <td>6 months</td>
+            <td>0.99 EUR / 8 pieces (200 g total)</td>
+            <td></td>
+            <td>0.99 EUR / 8 pieces (200 g total)</td>
         </tr>
     </tbody>
 </table>
@@ -2145,6 +2177,27 @@ pills and maybe a couple of months for creams and ointment.
             <td>-</td>
         </tr>
     </tfoot>
+</table>
+
+## Leisure Time
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>2020</th>
+    </tr>
+    <tr>
+        <td>Books bought (Amazon, ReBuy)</td>
+        <td>24.25 EUR / 4 books</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
 </table>
 
 
