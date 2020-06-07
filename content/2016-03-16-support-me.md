@@ -138,7 +138,9 @@ Support me [via PayPal](https://www.paypal.me/MartinThoma).
 
 ## Contributions
 
-Thank you to all supporters :-)
+Thank you to all supporters 🙂
+
+Please let me know if you want me to post your name / a link here!
 
 <table class="table">
     <tr>
@@ -146,6 +148,12 @@ Thank you to all supporters :-)
         <th>Amount</th>
         <th>Name</th>
         <th>Message</th>
+    </tr>
+    <tr>
+        <td><time datetime="2020-05-17">17.05.2020</time></td>
+        <td><span class="price">10.00&nbsp;<span class="currency">Euro</span></span></td>
+        <td>Daniel P.</td>
+        <td>Thank you!</td>
     </tr>
     <tr>
         <td><time datetime="2020-01-02">02.01.2020</time></td>
