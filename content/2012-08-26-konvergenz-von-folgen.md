@@ -65,7 +65,9 @@ In Banachr&auml;umen kann man auch nachweisen, dass eine Folge eine Cauchy-Folge
 $\forall_{\varepsilon > 0} \exists_{n_0 \in \mathbb{N}}: \forall_{n,m\in\mathbb{N}, n>n_0, m>n_0}: |a_m- a_n| < \varepsilon$
 
 <strong>Beispiel:</strong>
-Mir f&auml;llt gerade kein Beispiel ein, bei dem man die Konvergenz sch&ouml;ner &uuml;ber das Cauchy-Kriterium zeigen kann als &uuml;ber die Beschr&auml;nktheit / Monotonie. Falls dir eines einf&auml;llt, kannst du es ja in den Kommentar schreiben. (mit <span class="code">&#091;latex&#093; \lim_{n \rightarrow \infty} 123 &#091;/latex&#093;</span> wird es auch als LaTeX dargestellt ;-))
+Mir f&auml;llt gerade kein Beispiel ein, bei dem man die Konvergenz sch&ouml;ner &uuml;ber das Cauchy-Kriterium zeigen kann als
+&uuml;ber die Beschr&auml;nktheit / Monotonie. Falls dir eines einf&auml;llt, kannst du es ja in den Kommentar schreiben.
+(mit <span class="code">&#091;latex&#093; \lim_{n \rightarrow \infty} 123 &#091;/latex&#093;</span> wird es auch als LaTeX dargestellt 😉)
 
 <h2>Weiteres</h2>
 

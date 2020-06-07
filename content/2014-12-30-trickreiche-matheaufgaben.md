@@ -53,7 +53,7 @@ Das Gewicht der Mücke ist also gleich dem Gewicht des Elefanten!</blockquote>
 Quelle: <a href="http://dsm-faq.wikidot.com/denksport">dsm-faq.wikidot.com/denksport</a>
 
 <h3>Auflösung</h3>
-Es empfiehlt sich, wie immer bei Umformungen, sich klar zu machen durch was man teilt. Es gilt: $(x-y-d) = 0$, es wurde also durch 0 geteilt. Dabei passieren schlimme Dinge. Unter anderem kann man aus einer Mücke einen Elefanten machen ;-)
+Es empfiehlt sich, wie immer bei Umformungen, sich klar zu machen durch was man teilt. Es gilt: $(x-y-d) = 0$, es wurde also durch 0 geteilt. Dabei passieren schlimme Dinge. Unter anderem kann man aus einer Mücke einen Elefanten machen 😉
 
 <h2>Jeder Mensch hat sein Idealgewicht</h2>
 <h3>Aufgabenstellung</h3>

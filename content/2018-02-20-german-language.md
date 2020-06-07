@@ -212,7 +212,7 @@ DE: Brandrodungswanderhackfeldbau
 EN: slash-and-burn migration hackfield cultivation
 ```
 
-I will add more another day :-)
+I will add more another day 🙂
 
 
 ## Missing Words

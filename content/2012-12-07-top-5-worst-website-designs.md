@@ -34,4 +34,4 @@ Here are some screenshots of the worst websites I have ever seen. Most of them u
             <figcaption class="text-center"><a href='http://www.5safepoints.com/'>5safepoints</a></figcaption>
         </figure>
 
-Do you know similar examples for bad website designs (Spambots might have a higher success rate for useful comments now. I'll have to check that ;-) )
+Do you know similar examples for bad website designs (Spambots might have a higher success rate for useful comments now. I'll have to check that 😉)

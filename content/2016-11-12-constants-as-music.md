@@ -124,4 +124,4 @@ If 0 is followed by...
      <li>... 9, duration is doubled</li>
  </ul>
 
-Let me know if you made something that sounds interesting :-)
+Let me know if you made something that sounds interesting 🙂

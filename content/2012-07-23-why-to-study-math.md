@@ -33,8 +33,8 @@ Although I guess you could continue this list, but the most important reason is 
 
 ## Jobs are better
 <figure class="aligncenter">
-            <a href="../images/2012/07/reddit-math-degree.png"><img src="../images/2012/07/reddit-math-degree.png" alt="What you earn with a math-degree ;-)" style="max-width:395px;max-height:398px" class="size-full wp-image-34701"/></a>
-            <figcaption class="text-center">What you earn with a math-degree ;-)</figcaption>
+            <a href="../images/2012/07/reddit-math-degree.png"><img src="../images/2012/07/reddit-math-degree.png" alt="What you earn with a math-degree 😉" style="max-width:395px;max-height:398px" class="size-full wp-image-34701"/></a>
+            <figcaption class="text-center">What you earn with a math-degree 😉</figcaption>
         </figure>
 
 

@@ -11,7 +11,7 @@ featured_image: logos/python.png
 In 2012 I wrote a series of articles about matrix
 multiplication. Now I'm preparing a course about speeding up Python. For this
 reason I need an example of code that is fairly simple to understand and can be
-optimized. So let's update the results of my old articles :-)
+optimized. So let's update the results of my old articles 🙂
 
 The code can be found in a git repository on GitHub ([github.com/MartinThoma/matrix-multiplication](https://github.com/MartinThoma/matrix-multiplication)) and you can have a look at the [old article](https://martin-thoma.com/matrix-multiplication-python-java-cpp/) as well, if you want.
 

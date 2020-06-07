@@ -155,9 +155,9 @@ You might also want to have a look at cross-validation.
 I'm not aware of public datasets for document classification, but you can easily
 create one by scraping wikipedia categories / subreddits.
 
-Leave a comment if I forgot something / you know more details :-)
+Leave a comment if I forgot something / you know more details 🙂
 
 
 ## Literature
 
-* Juan Ramos: [Using TF-IDF to Determine Word Relevance in Document Queries ](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.121.1424&rep=rep1&type=pdf)
+* Juan Ramos: [Using TF-IDF to Determine Word Relevance in Document Queries](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.121.1424&rep=rep1&type=pdf)

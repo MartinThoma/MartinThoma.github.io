@@ -7,11 +7,12 @@ category: Code
 tags: Java, Generics
 featured_image: 2012/07/java-thumb.png
 ---
-Some months ago, I had to improve some Java code for university. They gave us a model of a windows like file system and we had to make the code "cleaner". I think I've overdone the application of generics, but it's a nice example for generics ;-)
+Some months ago, I had to improve some Java code for university. They gave us a model of a windows like file system and we had to make the code "cleaner". I think I've overdone the application of generics, but it's a nice example for generics 😉
 
 You can download the <a href="../images/2012/10/Filesystem.zip">complete Eclipse project</a>.
 
-<h2>Computer.java</h2>
+## Computer.java
+
 ```java
 package edu.kit.filesystem;
 
@@ -124,6 +125,7 @@ public class Computer {
 ```
 
 <h2>Node.java</h2>
+
 ```java
 package edu.kit.filesystem;
 
@@ -150,6 +152,7 @@ public abstract class Node {
 ```
 
 <h2>NodeContainer.java</h2>
+
 ```java
 package edu.kit.filesystem;
 
@@ -162,6 +165,7 @@ public interface NodeContainer {
 ```
 
 <h2>HDD.java</h2>
+
 ```java
 package edu.kit.filesystem;
 
@@ -193,6 +197,7 @@ public class HDD extends Node implements NodeContainer {
 ```
 
 <h2>Directory.java</h2>
+
 ```java
 package edu.kit.filesystem;
 
@@ -225,6 +230,7 @@ public class Directory extends Node implements NodeContainer {
 ```
 
 <h2>ZipArchiv.java</h2>
+
 ```java
 package edu.kit.filesystem;
 
@@ -255,6 +261,7 @@ public class ZipArchiv extends File implements NodeContainer {
 ```
 
 <h2>File.java</h2>
+
 ```java
 package edu.kit.filesystem;
 

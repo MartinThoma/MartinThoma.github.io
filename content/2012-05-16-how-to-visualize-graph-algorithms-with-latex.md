@@ -7,7 +7,7 @@ category: Code
 tags: LaTeX, Tikz
 featured_image: 2012/01/latex-logo.png
 ---
-Tkiz is a very powerful TeX package. You can easily create visualizations of graphs and graph algorithms (if you have a template ;-) ). This post should give you a template to visualize graph algorithms with LaTeX.
+Tkiz is a very powerful TeX package. You can easily create visualizations of graphs and graph algorithms (if you have a template 😉). This post should give you a template to visualize graph algorithms with LaTeX.
 I recently found a great animation of Prim's algorithm done by <a href="http://www.texample.net/tikz/examples/prims-algorithm/">Kjell Magne Fauske</a>. I've edited his source files to show an eulerian path. This is how it looks like:
 <figure class="aligncenter">
             <a href="../images/2012/05/tikz-animation.gif"><img src="../images/2012/05/tikz-animation.gif" alt="LaTeX (Tikz) animation of an eulerian path" style="max-width:512px;max-height:228px" class="size-full wp-image-24611"/></a>
@@ -72,14 +72,19 @@ You should get something similar to this:
 
 <h3>Animate</h3>
 Animations can be created with Tikz by working with layers. You don't want to redraw the whole graph every time. Most of the time you want to overlay/underlay some parts of the graph. This can be achieved by declaring a new layer:
+
 ```latex
 \pgfdeclarelayer{NAME}
 ```
+
 Then you need to tell PGF which layers are to use in the next figure:
+
 ```latex
 \pgfsetlayers{LAYER LIST}
 ```
+
 The layer main should always be part of the list. Here is an example:
+
 ```latex
 \pgfdeclarelayer{background}
 \pgfdeclarelayer{foreground}
@@ -99,6 +104,7 @@ Now the magic begins. You consecutively add frames to the layer:
 The number (2, 10 and 12 in this example) indicate the frame in which it should be added. This is the absolute frame, but 1 is the first frame of the figure environment!
 
 <h3>Status quo</h3>
+
 ```latex
 \documentclass[hyperref={pdfpagelabels=false}]{beamer}
 \usepackage{lmodern}
@@ -150,10 +156,13 @@ The number (2, 10 and 12 in this example) indicate the frame in which it should 
 
 <h3>Simplify it</h3>
 You can make some definitions, e.g.:
+
 ```latex
 draw,line width=5pt,-,red!50
 ```
+
 can be replaced by
+
 ```latex
 \tikzstyle{selected edge} = [draw,line width=5pt,-,red!50]
 ```
@@ -169,6 +178,7 @@ You can make loops:
 
 
 <h2>The whole, working template</h2>
+
 ```latex
 \documentclass[hyperref={pdfpagelabels=false}]{beamer}
 \usepackage{lmodern}
