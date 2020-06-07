@@ -3,7 +3,6 @@ layout: post
 title: In-Ear Headphones
 slug: in-ear-headphones
 author: Martin Thoma
-status: draft
 date: 2020-06-04 20:00
 category: My bits and bytes
 tags: Headphones, Microphone, Review
@@ -21,6 +20,8 @@ just too afraid that I would loose one and I can't imagine that the microphone
 quality is good enough. I will also not look at on-ear / over-ear headphones.
 They are just too bulky for me most of the time. I want something that I can
 easily take with me.
+
+Please let me know if you have headphones you're really happy with 🙂
 
 
 ## Buying on Amazon
