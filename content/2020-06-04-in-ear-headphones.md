@@ -256,10 +256,18 @@ I ignored the model CX 100, as it seems to be inferior to the CX 300S.
 * Sound level pressure (SLP): 118 dB (1kHz/1Vrms)
 * [Review](https://www.youtube.com/watch?v=SJ1icC_rfSM)
 
+In one Amazon Review, I have read that the cables are not robust enough.
+Aparently the cables break easily. There are also photos about it which makes
+the statement more trustworthy.
+
 
 ## Ludos
 
-The old model is called Clamor, the new model is called Ultra.
+The old model is called Clamor, the new model is called Ultra. I tried them, but when I called my
+girlfriend she told me that there was a noise from the microphone. Also, the position of
+the microphone was directly at the splitter which is to far away.
+
+The magnets were pretty nice.
 
 
 * Foam H
