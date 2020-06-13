@@ -622,6 +622,14 @@ Fabrics:
         <td>9.17 EUR / 9 piece</td>
     </tr>
     <tr>
+        <td>Kirschen</td>
+        <td></td>
+        <td>2 weeks</td>
+        <td>5.90 EUR/kg</td>
+        <td></td>
+        <td>1.14 EUR / 0.194 kg</td>
+    </tr>
+    <tr>
         <td>Mango (Tin can)</td>
         <td></td>
         <td>1 year</td>
@@ -763,7 +771,7 @@ Fabrics:
         <td>2.5 years</td>
         <td>1.39 EUR / 0.65 kg</td>
         <td></td>
-        <td>2.38 EUR / 1.3 kg</td>
+        <td>3.77 EUR / 1.95 kg</td>
     </tr>
     <tr>
         <td>Spring onion (🇩🇪 Frühlingszwiebeln / Lauchzwiebeln)</td>
@@ -809,9 +817,9 @@ Fabrics:
         <td>Tomatos (🇩🇪 <a href="https://en.wikipedia.org/wiki/Cherry_tomato">Cherrystrauchtomaten</a>, Romana-Tomaten)</td>
         <td></td>
         <td>1 week</td>
-        <td>0.99 EUR / 250g (1 package)</td>
+        <td>1.49 EUR / 250g (1 package)</td>
         <td></td>
-        <td>7.35 EUR / 1050g</td>
+        <td>8.64 EUR / 1300g</td>
     </tr>
     <tr>
         <td>Broccoli</td>
@@ -930,7 +938,7 @@ Fabrics:
         <td>4 days</td>
         <td>1.29 EUR / 500g</td>
         <td></td>
-        <td>6.45 EUR / 2500g</td>
+        <td>10.32 EUR / 4000g</td>
     </tr>
     <tr>
         <td>Croissants</td>
@@ -962,7 +970,7 @@ Fabrics:
         <td>3 months</td>
         <td>1.39 EUR / 250g</td>
         <td>33.54 EUR / year</td>
-        <td>17.00 EUR / 3000g</td>
+        <td>18.39 EUR / 3250g</td>
     </tr>
     <tr>
         <td>Margarine</td>
@@ -1002,7 +1010,7 @@ Fabrics:
         <td>4 months</td>
         <td>2.69 EUR / 400g</td>
         <td>67.34 EUR / year</td>
-        <td>32.98 EUR / 4.7kg</td>
+        <td>38.36 EUR / 5.5kg</td>
     </tr>
     <tr>
         <td>Frischkäse</td>
@@ -1066,7 +1074,7 @@ Fabrics:
         <td>2 weeks</td>
         <td>0.89 EUR / 150g</td>
         <td></td>
-        <td>5.34 EUR / 900g</td>
+        <td>6.23 EUR / 1050g</td>
     </tr>
     <tr>
         <td>Antipasti (Brotaufstrich)</td>
@@ -1074,7 +1082,7 @@ Fabrics:
         <td>2 weeks</td>
         <td>1.79 EUR / 150g</td>
         <td></td>
-        <td>1.79 EUR / 150g</td>
+        <td>5.37 EUR / 450g</td>
     </tr>
     <tr>
         <td>Nougat Creme (e.g. Nutella)</td>
@@ -1172,7 +1180,7 @@ General Cooking:
         <td>2 months (?)</td>
         <td>0.65 EUR / L</td>
         <td>33.90 EUR / year</td>
-        <td>10.95 EUR / 16 L</td>
+        <td>12.37 EUR / 18 L</td>
     </tr>
     <tr>
         <td><a href="https://en.wikipedia.org/wiki/Whipped_cream">Whipped Cream</a> (Schlagsahne 30%)</td>
@@ -1221,6 +1229,14 @@ General Cooking:
         <td>0.99 EUR / L</td>
         <td>11.88 EUR / year</td>
         <td>5.95 EUR / 5 L</td>
+    </tr>
+    <tr>
+        <td>Olivenöl</td>
+        <td></td>
+        <td>1 year</td>
+        <td>3.59 EUR / 750 ml</td>
+        <td></td>
+        <td>3.59 EUR / 750 ml</td>
     </tr>
     <tr>
         <td>Sugar</td>
@@ -1568,12 +1584,12 @@ General Cooking:
     </thead>
     <tbody>
         <tr>
-            <td>Joghurt / Pudding / Sahne-Kefir / Milchreis</td>
+            <td>Joghurt / Pudding / Sahne-Kefir / Milchreis (also as powder: Paradiesecreme)</td>
             <td>3 pieces / week</td>
             <td>2 weeks (?)</td>
             <td>0.29 EUR / piece</td>
             <td>45.37 EUR</td>
-            <td>24.37 EUR / 80 piece</td>
+            <td>27.86 EUR / 91 piece</td>
         </tr>
         <tr>
             <td>Natural Joghurt (Joghurt Pur)</td>
@@ -1589,7 +1605,7 @@ General Cooking:
             <td>months to years</td>
             <td></td>
             <td></td>
-            <td>51.59 EUR / 39 packages</td>
+            <td>57.35 EUR / 43 packages</td>
         </tr>
         <tr>
             <td>Savory (Chips, Nachos, Sauce for nachos, Bake Rolls, Cashew or other nuts)</td>
@@ -1797,7 +1813,7 @@ General Cooking:
             <td>1 year</td>
             <td>0.69 EUR / 200g (6 pieces)</td>
             <td></td>
-            <td>2.07 EUR / 400g (18 pieces)</td>
+            <td>2.76 EUR / 600g (24 pieces)</td>
         </tr>
         <tr>
             <td>Kartoffelsalat</td>
@@ -1814,6 +1830,14 @@ General Cooking:
             <td>0.99 EUR / 8 pieces (200 g total)</td>
             <td></td>
             <td>0.99 EUR / 8 pieces (200 g total)</td>
+        </tr>
+        <tr>
+            <td>Crutons</td>
+            <td></td>
+            <td>18 months</td>
+            <td>0.79 EUR / 25g</td>
+            <td></td>
+            <td>0.79 EUR / 25g</td>
         </tr>
     </tbody>
 </table>
@@ -1841,10 +1865,10 @@ General Cooking:
     </tr>
     <tr>
         <td>8x200 Toilet paper (3 layers)</td>
-        <td>2.15 EUR / 6 rolls</td>
+        <td>2.15 EUR / 1600 Blatt (6 rolls)</td>
         <td>One Roll per week (?)</td>
         <td>14.02 EUR / year</td>
-        <td>5.50 EUR / 3200 Blatt</td>
+        <td>7.65 EUR / 4800 Blatt (12 rolls)</td>
     </tr>
     <tr>
         <td>Toothbrush (Oral-B Pulsar Zahnbürste)</td>
@@ -2223,5 +2247,13 @@ pills and maybe a couple of months for creams and ointment.
     <tr>
         <td>Dates / Girlfriend</td>
         <td>107.19 EUR</td>
+    </tr>
+    <tr>
+        <td>Battery (9V)</td>
+        <td>1.10 EUR</td>
+    </tr>
+    <tr>
+        <td>Other</td>
+        <td>0.55 EUR</td>
     </tr>
 </table>
