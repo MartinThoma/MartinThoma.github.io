@@ -690,9 +690,9 @@ Fabrics:
             <td>Figs medium dry (Feigen halbtrocken)</td>
             <td>?</td>
             <td>6 months</td>
-            <td>1.99 € / 250g</td>
+            <td>1.99 € / 650g</td>
             <td>?</td>
-            <td>250g</td>
+            <td>4.38 € / 650g</td>
         </tr>
         <tr>
             <td>Dates (Datteln)</td>
@@ -700,7 +700,7 @@ Fabrics:
             <td>9 months</td>
             <td>1.49 € / 250g</td>
             <td>17.88 € / year</td>
-            <td>2.98 / 500 g</td>
+            <td>4.17 € / 750 g</td>
         </tr>
         <tr>
             <td>Citrons (Zitronen)</td>
@@ -828,9 +828,9 @@ Fabrics:
             <td>Broccoli</td>
             <td></td>
             <td></td>
-            <td>1.49 € / piece</td>
+            <td>1.49 € / 500g</td>
             <td></td>
-            <td>1.78 € / 2 pieces</td>
+            <td>5.07 € / 1500g</td>
         </tr>
         <tr>
             <td>Corn in a can (🇩🇪Mais in der Dose)</td>
@@ -943,7 +943,7 @@ Fabrics:
             <td>4 days</td>
             <td>1.29 € / 500g</td>
             <td></td>
-            <td>10.32 € / 4000g</td>
+            <td>11.61 € / 4500g</td>
         </tr>
         <tr>
             <td>Croissants</td>
@@ -1013,9 +1013,9 @@ Fabrics:
             <td>Cheese (🇩🇪 Emmentaler; Limburger; Allgäuer Bergkäse)</td>
             <td>400g / 2 weeks</td>
             <td>4 months</td>
-            <td>2.69 € / 400g</td>
+            <td>2.69 € / 400g für Emmentaler; 1.99 € / 200g für Limburger</td>
             <td>67.34 € / year</td>
-            <td>38.36 € / 5.5kg</td>
+            <td>43.04 € / 6.1kg</td>
         </tr>
         <tr>
             <td>Frischkäse</td>
@@ -1023,7 +1023,7 @@ Fabrics:
             <td>6 weeks</td>
             <td>0.99 € / 125g</td>
             <td></td>
-            <td>2.97 € / 375g</td>
+            <td>3.96 € / 500g</td>
         </tr>
         <tr>
             <td>Cheese (🇩🇪 Schweizer Hartkäse; Appenzeller)</td>
@@ -1087,7 +1087,7 @@ Fabrics:
             <td>2 weeks</td>
             <td>1.79 € / 150g</td>
             <td></td>
-            <td>5.37 € / 450g</td>
+            <td>7.16 € / 600g</td>
         </tr>
         <tr>
             <td>Nougat Creme (e.g. Nutella)</td>
@@ -1095,7 +1095,7 @@ Fabrics:
             <td>1 year</td>
             <td>1.29 € / 400g</td>
             <td>?</td>
-            <td>1.29 € / 400g</td>
+            <td>2.58 € / 800g</td>
         </tr>
         <tr>
             <td>Honey (Honig)</td>
@@ -1189,7 +1189,7 @@ General Cooking:
             <td>2 months (?)</td>
             <td>0.65 € / L</td>
             <td>33.90 € / year</td>
-            <td>12.37 € / 18 L</td>
+            <td>13.08 € / 19 L</td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Whipped_cream">Whipped Cream</a> (Schlagsahne 30%)</td>
@@ -1419,8 +1419,8 @@ General Cooking:
         <tr>
             <td>Tofu</td>
             <td></td>
-            <td></td>
-            <td></td>
+            <td>1 month</td>
+            <td>1.99 € / 400g</td>
             <td></td>
             <td>1.99 € / 400g</td>
         </tr>
@@ -1439,6 +1439,14 @@ General Cooking:
             <td></td>
             <td></td>
             <td>0.99 € / 400ml</td>
+        </tr>
+        <tr>
+            <td>Gewürzmischung (AHG)</td>
+            <td></td>
+            <td>18 months</td>
+            <td>1.79 EUR / piece</td>
+            <td></td>
+            <td>5.37 EUR / 3 pieces</td>
         </tr>
     </tbody>
 </table>
@@ -1617,7 +1625,7 @@ General Cooking:
             <td>2 weeks (?)</td>
             <td>0.29 € / piece</td>
             <td>45.37 €</td>
-            <td>27.86 € / 91 piece</td>
+            <td>29.19 € / 96 piece</td>
         </tr>
         <tr>
             <td>Natural Joghurt (Joghurt Pur)</td>
@@ -1705,7 +1713,7 @@ General Cooking:
             <td>34 months</td>
             <td>0.99 € / 190g</td>
             <td></td>
-            <td>5.94 € / 1140g</td>
+            <td>6.93 € / 1330g</td>
         </tr>
         <tr>
             <td>Eggs (Eier)</td>
