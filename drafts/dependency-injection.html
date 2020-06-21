@@ -104,7 +104,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#examples" title="Examples">Examples</a><ul><li><a class="toc-href" href="#time" title="Time">Time</a></li><li><a class="toc-href" href="#query-builder" title="Query Builder">Query Builder</a></li></ul></li><li><a class="toc-href" href="#why-is-it-used_1" title="Why is it used?">Why is it used?</a></li><li><a class="toc-href" href="#when-not-to-use-it" title="When not to use it">When not to use it</a></li><li><a class="toc-href" href="#inversion-of-control" title="Inversion of Control">Inversion of Control</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#examples" title="Examples">Examples</a><ul><li><a class="toc-href" href="#time" title="Time">Time</a></li><li><a class="toc-href" href="#query-builder" title="Query Builder">Query Builder</a></li><li><a class="toc-href" href="#pytest-fixtures" title="Pytest Fixtures">Pytest Fixtures</a></li></ul></li><li><a class="toc-href" href="#why-is-it-used_1" title="Why is it used?">Why is it used?</a></li><li><a class="toc-href" href="#when-not-to-use-it" title="When not to use it">When not to use it</a></li><li><a class="toc-href" href="#inversion-of-control" title="Inversion of Control">Inversion of Control</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li><li><a class="toc-href" href="#footnotes" title="Footnotes">Footnotes</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -147,6 +147,7 @@ topic.</p>
 the <code>now</code> parameter. The dependency on <code>datetime</code> was removed for the imporant
 code path. Instead, the dependency on an explicitly set parameter <code>now</code> was
 added.</p>
+<p>More details to this in <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
 <h3 id="query-builder">Query Builder</h3>
 <div class="highlight"><pre><span></span><code><span class="err">def execute_query(db, sql):</span>
 <span class="err">    connection = db.connect()</span>
@@ -154,6 +155,15 @@ added.</p>
 </code></pre></div>
 <p>Here, the dependency is the database object <code>db</code>. It is injected in the
 function.</p>
+<h3 id="pytest-fixtures">Pytest Fixtures</h3>
+<blockquote>
+<p>Fixtures allow test functions to easily receive and work against specific
+pre-initialized application objects without having to care about
+import/setup/cleanup details. It&rsquo;s a prime example of dependency injection
+where fixture functions take the role of the injector and test functions are
+the consumers of fixture objects.</p>
+</blockquote>
+<p>Source: <a href="https://docs.pytest.org/en/stable/fixture.html#fixtures-a-prime-example-of-dependency-injection">Fixtures: a prime example of dependency injection</a></p>
 <h2 id="why-is-it-used_1">Why is it used?</h2>
 <p>Dependency injection can be used instead of global state. The advantages of
 dependency injection compared to having global state are:</p>
@@ -203,6 +213,15 @@ implement the thing from scratch.</p>
 <li>Ilya Pekelny: <a href="https://medium.com/@pekelny/inversion-of-control-python-anti-pattern-eff3943f64f">Inversion of Control &mdash; Python anti-pattern</a>, 2018.</li>
 <li>https://www.quora.com/unanswered/What-are-non-spring-examples-where-IoC-is-used-Python-examples-are-appreciated</li>
 </ul>
+<h2 id="footnotes">Footnotes</h2>
+<div class="footnote">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>Haki Benita: <a href="https://hakibenita.com/python-dependency-injection">Stop Using datetime.now!</a>, 2020.&nbsp;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+</ol>
+</div>
             
             <div id="disqus_thread" class="no-print"></div>
 <script>
@@ -283,7 +302,7 @@ implement the thing from scratch.</p>
 
     /*
     Create intra-page links
-    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    Requires that your headings already have an `id` attribute set
     For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
     Ignores `h1`, because you should only have one per page.
     The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
