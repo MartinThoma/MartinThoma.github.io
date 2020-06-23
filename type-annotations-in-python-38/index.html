@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Python, mypy, Code, " />
+
+<meta property="og:title" content="Type Annotations in Python 3.8 "/>
+<meta property="og:url" content="../https://medium.com/@MartinThoma/type-annotations-in-python-3-8-3b401384403d" />
+<meta property="og:description" content="One reason why Python is so easy to get started with is that it has dynamic types. You don’t have to specify the type of a variable, you just use variables as labels for containers of data. But in bigger projects, having types is helpful. If you have an …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2020-06-22T20:00:00+02:00" />
+<meta name="twitter:title" content="Type Annotations in Python 3.8 ">
+<meta name="twitter:description" content="One reason why Python is so easy to get started with is that it has dynamic types. You don’t have to specify the type of a variable, you just use variables as labels for containers of data. But in bigger projects, having types is helpful. If you have an …">
+<meta property="og:image" content="logos/python.png" />
+<meta name="twitter:image" content="logos/python.png" >
+
+        <title>Type Annotations in Python 3.8  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand" tabindex="-1">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../https://medium.com/@MartinThoma/type-annotations-in-python-3-8-3b401384403d"> Type Annotations in Python 3.8  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#hello-typed-annotated-world" title="Hello, Typed Annotated World!">Hello, Typed Annotated World!</a></li><li><a class="toc-href" href="#type-checking-with-mypy" title="Type Checking with mypy">Type Checking with mypy</a></li><li><a class="toc-href" href="#typing-list-dict-tuple-any" title="typing: List, Dict, Tuple, Any">typing: List, Dict, Tuple, Any</a></li><li><a class="toc-href" href="#stop-type-checking" title="Stop Type Checking">Stop Type Checking</a></li><li><a class="toc-href" href="#typing-union-and-optional" title="typing: Union and Optional">typing: Union and Optional</a></li><li><a class="toc-href" href="#typing-list-vs-sequence" title="typing: List vs Sequence">typing: List vs Sequence</a></li><li><a class="toc-href" href="#typing-dict-vs-mapping" title="typing: Dict vs Mapping">typing: Dict vs Mapping</a></li><li><a class="toc-href" href="#custom-types-not-all-strings-are-created-equal" title="Custom Types: Not all Strings are Created Equal">Custom Types: Not all Strings are Created Equal</a></li><li><a class="toc-href" href="#typingoverload" title="typing.overload">typing.overload</a></li><li><a class="toc-href" href="#protocols" title="Protocols">Protocols</a></li><li><a class="toc-href" href="#type-comments" title="Type comments">Type comments</a></li><li><a class="toc-href" href="#stub-files" title="Stub files">Stub files</a></li><li><a class="toc-href" href="#pyright-pyre-pytype" title="pyright, pyre, pytype">pyright, pyre, pytype</a></li><li><a class="toc-href" href="#pydantic" title="pydantic">pydantic</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>One reason why Python is so easy to get started with is that it has dynamic types. You don&rsquo;t have to specify the type of a variable, you just use variables as labels for containers of data. But in bigger projects, having types is helpful. If you have an undocumented function without types and maybe crappy variable naming, new developers will have a hard time. Luckily, variable annotations were added in Python 3.6 with <a href="https://www.python.org/dev/peps/pep-0526">PEP 526</a> 🎉</p>
+<p>This article is written in such a way that you can easily stop after the &ldquo;mypy&rdquo; section and take only a look at individual section then.</p>
+<h2 id="hello-typed-annotated-world">Hello, Typed Annotated World!</h2>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">a</span>
+
+
+<span class="c1"># Print the first 10 Fibonacci numbers</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"fib(</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">) = </span><span class="si">{</span><span class="n">fib</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+<p>So you can simply use the pattern</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">some_function</span><span class="p">(</span><span class="n">param_name</span> <span class="p">:</span> <span class="n">typename</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">return_type_name</span><span class="p">:</span>
+    <span class="o">...</span>  <span class="c1"># whatever the function does</span>
+</code></pre></div>
+<p>Having type annotations is nice, but you need to check them! The Python runtimes do not do that, no matter if you use cPython, pypy or something more exotic.</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2020/06/mypy.svg"><img alt="mypy logo" src="../images/2020/06/mypy.svg" style="width: 512px;"/></a>
+<figcaption class="text-center">mypy logo</figcaption>
+</figure>
+<h2 id="type-checking-with-mypy">Type Checking with mypy</h2>
+<p>Install mypy via pip install mypy and run it:</p>
+<div class="highlight"><pre><span></span><code>$ mypy . --ignore-missing-imports
+Success: no issues found in <span class="m">1</span> <span class="nb">source</span> file
+</code></pre></div>
+<p>The <a href="https://mypy.readthedocs.io/en/stable/command_line.html#cmdoption-mypy-ignore-missing-imports">--ignore-missing-imports</a> flag is necessary, because otherwise you will get a lot of messages like this:</p>
+<div class="highlight"><pre><span></span><code><span class="n">error</span><span class="o">:</span> <span class="n">Skipping</span> <span class="n">analyzing</span> <span class="err">&lsquo;</span><span class="n">setuptools</span><span class="err">&rsquo;</span><span class="o">:</span> <span class="n">found</span> <span class="n">module</span> <span class="n">but</span> <span class="n">no</span> <span class="n">type</span> <span class="n">hints</span> <span class="n">or</span> <span class="n">library</span> <span class="n">stubs</span>
+</code></pre></div>
+<p>In order to make it more convenient, I usually add a setup.cfg file in which I specify that I always want this flag to be applied:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[mypy]</span>
+<span class="na">ignore_missing_imports</span><span class="o">=</span><span class="s">true</span>
+</code></pre></div>
+<p>Then you can pip install pytest-mypy and make sure mypy is always executed when you run pytest by adding this section to your setup.cfg:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[tool:pytest]</span>
+<span class="na">addopts</span> <span class="o">=</span> <span class="s">--mypy</span>
+</code></pre></div>
+<p>It is important to note that the Python community and also mypy assumes that you come from a non-type annotated code base. They want to make it easy to you to switch to an annotated code and thus support <a href="https://en.wikipedia.org/wiki/Gradual_typing">gradual typing</a>. However, this means that you might miss errors if you don&rsquo;t annotate your code! Mypy has a lot of flags to help you to make the move. You don&rsquo;t need to annotate everything.</p>
+<h2 id="typing-list-dict-tuple-any">typing: List, Dict, Tuple, Any</h2>
+<p>The <a href="https://docs.python.org/3/library/typing.html">typing</a> module adds support for type hints. It contains some of the types you will use most often: List, Dict, and Tuple.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
+
+<span class="k">def</span> <span class="nf">fib_list</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+    <span class="n">fib_numbers</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">fib_numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fib_numbers</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">fib_numbers</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">fib_numbers</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"fib_list(10) = </span><span class="si">{</span><span class="n">fib_list</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+<p>Similarly, you can annotate that a dictionary maps strings to integers by Dict[str, int] . So List, Dict and Tuple are generics. Any is just a way to specify that you could have arbitrary data in those containers. It is reasonable to use Any in the beginning when you start to add type annotations to a bigger code base.</p>
+<h2 id="stop-type-checking">Stop Type Checking</h2>
+<p>As mentioned before, mypy and Python support gradual typing. And sometimes you need to silence the type checker to be able to continue (and hopefully fix it later 🤞). There are a couple of ways to do this with typing :</p>
+<p>typing.Any : Every type is of type Any.</p>
+<p><a href="https://docs.python.org/3/library/typing.html#typing.cast">typing.cast</a>(SomeClass, variable) : Sometimes mypy is not smart enough, so you can tell it which type you have. I did that a couple of times before I knew about typing.overload . Alternatively, you can also add assert <a href="https://docs.python.org/3/library/functions.html#isinstance">isinstance</a>(variable, Someclass)</p>
+<h1 id="type-ingore-explicitly-tell-the-typechecker-to-ignore-that-line">type: ingore : Explicitly tell the typechecker to ignore that line</h1>
+<h2 id="typing-union-and-optional">typing: Union and Optional</h2>
+<p>Pretty often, you want to accept multiple types. Then you use Union:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+
+<span class="k">def</span> <span class="nf">upcase</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mh">0x20</span> <span class="k">if</span> <span class="mh">0x61</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mh">0x7A</span> <span class="k">else</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">s</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">"need str or bytes"</span><span class="p">)</span>
+</code></pre></div>
+<p>As it happens pretty often that you need to accept some type and None , there is also typing.Optional . Optional[SomeType] is the same as Union[SomeType, None] .</p>
+<h2 id="typing-list-vs-sequence">typing: List vs Sequence</h2>
+<p>The type typing.List actually represents list . A typing.Sequence is &ldquo;an iterable with random access&rdquo; as <a href="https://stackoverflow.com/a/2921465/562769">Jochen Ritzel</a> put it so nicely. For example, a string is a Sequence[Any] , but not a List[Any] .</p>
+<h2 id="typing-dict-vs-mapping">typing: Dict vs Mapping</h2>
+<p>Similarly to the example List vs Sequence, the typing.Dict is meant mainly to represent a dict whereas typing.Mapping is more general. <a href="https://stackoverflow.com/a/52487800/562769">Stacksonstacks</a> gives a good answer.</p>
+<h2 id="custom-types-not-all-strings-are-created-equal">Custom Types: Not all Strings are Created Equal</h2>
+<p>Not all strings contain the same type of content. They can represent anuser_id , a user_name , a password_hash , &hellip;</p>
+<p>Especially for IDs I have seen this to become messy. I think it&rsquo;s pretty ridiculous to create an own class for those different string types as creating a class is usually development and maintenance overhead. So, what do you do?</p>
+<p>Don&rsquo;t worry, <a href="https://docs.python.org/3/library/typing.html#newtype">typing.NewType</a> got you covered!</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NewType</span>
+<span class="n">UserId</span> <span class="o">=</span> <span class="n">NewType</span><span class="p">(</span><span class="s2">"UserId"</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="typingoverload">typing.overload</h2>
+<p>typing.Union is actually an anti-pattern sometimes, because you can also <a href="https://docs.python.org/3/library/typing.html#typing.overload">overload</a> a function as <a href="https://github.com/python/mypy/issues/1693#issuecomment-618404849">Josh Reed</a> shows:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">overload</span>
+
+
+<span class="nd">@overload</span>
+<span class="k">def</span> <span class="nf">upcase</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="o">...</span>
+
+
+<span class="nd">@overload</span>
+<span class="k">def</span> <span class="nf">upcase</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+    <span class="o">...</span>
+
+
+<span class="k">def</span> <span class="nf">upcase</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mh">0x20</span> <span class="k">if</span> <span class="mh">0x61</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mh">0x7A</span> <span class="k">else</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">s</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">"need str or bytes"</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="protocols">Protocols</h2>
+<p><a href="https://www.python.org/dev/peps/pep-0544/">PEP 544</a> introduced structural subtyping and was introduced in Python 3.8. It feels like Interfaces in Java and works like this:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Protocol</span>
+
+
+<span class="k">class</span> <span class="nc">SupportsClose</span><span class="p">(</span><span class="n">Protocol</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="o">...</span>
+
+<span class="k">def</span> <span class="nf">finish_it</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="n">SupportsClose</span><span class="p">):</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">class</span> <span class="nc">Foo</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">close</span><span class="p">():</span>
+        <span class="k">pass</span>
+
+<span class="n">foo</span> <span class="o">=</span> <span class="n">Foo</span><span class="p">()</span>
+<span class="n">finish_it</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span>
+</code></pre></div>
+<p>Note that there is no function body. After that definition, you can then use SupportsClose like any type.</p>
+<p>The cool part is that the class Foo has no explicit relationship to SupportsClose ! It is only related by its structure!</p>
+<h2 id="type-comments">Type comments</h2>
+<p>Type hints which are given as comments like this are outdated since Python 3.6:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Sequence</span>
+
+
+<span class="k">def</span> <span class="nf">fib_list</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="c1"># type: (int) -&gt; Sequence[str]</span>
+    <span class="n">fib_numbers</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">fib_numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fib_numbers</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">fib_numbers</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+    <span class="k">return</span> <span class="s2">"adf"</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"fib_list(10) = </span><span class="si">{</span><span class="n">fib_list</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+<p>However, you might want to disable type checking for single lines:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># type: ignore</span>
+</code></pre></div>
+<h2 id="stub-files">Stub files</h2>
+<p>Stub files end in .pyi . If mypy finds a .py file and a .pyi file, it only loads the .pyi file. They are like header files in C++, but for Python. Instead of a function body, you use an Ellipsis ... :</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fib_list</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span> <span class="o">...</span>
+</code></pre></div>
+<h2 id="pyright-pyre-pytype">pyright, pyre, pytype</h2>
+<p><a href="https://github.com/microsoft/pyright">pyright</a> is a Python static type checker written by Microsoft, <a href="https://pyre-check.org/">pyre</a> is one by Facebook, and pytype is one by Google. All of them claim to be faster than mypy, all of them have lower adoption than mypy. I haven&rsquo;t used them so far.</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2020/06/pyre.png"><img alt="pyre logo" src="../images/2020/06/pyre.png" style="width: 512px;"/></a>
+<figcaption class="text-center">pyre logo</figcaption>
+</figure>
+<p>Install them:</p>
+<div class="highlight"><pre><span></span><code>$ pip install pyre-check pytype
+
+<span class="c1"># Yes, pyright is written in TypeScript...</span>
+$ npm install -g pyright
+</code></pre></div>
+<p>Run them:</p>
+<div class="highlight"><pre><span></span><code>$ pyright .
+$ pytype .
+</code></pre></div>
+<p>pyright was complaining a lot about stuff that is actually correct.</p>
+<h2 id="pydantic">pydantic</h2>
+<p>Variable annotations can also be used to remove a lot of boilerplate code. For example, <a href="https://pydantic-docs.helpmanual.io/">pydantic</a> can help you with serialization / deserialization:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Core Library modules</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
+<span class="c1"># Third party modules</span>
+<span class="kn">import</span> <span class="nn">pydantic.json</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">parse_obj_as</span>
+
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">age</span><span class="p">:</span> <span class="nb">int</span>
+
+
+<span class="c1"># Deserialize a JSON string</span>
+<span class="n">users_str</span> <span class="o">=</span> <span class="s1">'[{"name": "user1", "age": 15}, {"name": "user2", "age": 28}]'</span>
+<span class="n">users</span> <span class="o">=</span> <span class="n">parse_obj_as</span><span class="p">(</span><span class="n">List</span><span class="p">[</span><span class="n">User</span><span class="p">],</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">users_str</span><span class="p">))</span>
+
+<span class="c1"># Proof it!</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">users</span><span class="p">)</span>
+
+<span class="c1"># Serialize</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">([</span><span class="n">user</span><span class="o">.</span><span class="n">dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span><span class="p">]))</span>
+</code></pre></div>
+<p>Which gives:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[User(name='user1', age=15), User(name='user2', age=28)]</span>
+<span class="k">[{"name": "user1", "age": 15}, {"name": "user2", "age": 28}]</span>
+</code></pre></div>
+<p><a href="https://fastapi.tiangolo.com/features/#pydantic-features">FastAPI</a> uses pydantic directly.</p>
+<p>A cool thing about pydantic are the <a href="https://pydantic-docs.helpmanual.io/usage/types/#constrained-types">constrained types</a>: PositiveFloat, NegativeInt, constr, &hellip;</p>
+<h2 id="see-also">See also</h2>
+<ol>
+<li>Dustin Ingram: <a href="https://www.youtube.com/watch?v=2gBP1qN5T7I">Static Typing in Python</a> at PyGotham, 2019. On YouTube.</li>
+<li>Andreas Dewes: <a href="https://www.youtube.com/watch?v=vM2Zoy4Sxhk">Type Annotations in Python 3: Whats, whys &amp; wows!</a> at EuroPython Conference, 2017. On YouTube.</li>
+<li>Carl Meyer: <a href="https://www.youtube.com/watch?v=pMgmKJyWKn8">Type-checked Python in the real world</a> at PyCon, 2018. On YouTube.</li>
+</ol>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2020-06-22T20:00:00+02:00">Jun 22, 2020</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#mypy-ref">mypy
+                    <span>1</span>
+</a></li>
+                <li><a href="../tags.html#python-ref">Python
+                    <span>119</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="https://martin-thoma.com/feeds/index.xml">RSS-Feed</a></li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page" tabindex="-1">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page" tabindex="-1">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page" tabindex="-1">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
