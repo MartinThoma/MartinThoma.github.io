@@ -210,6 +210,14 @@ for sports.
 I can't find mine again. I vaguely remember that they were average, but not
 comfortable to wear.
 
+## Sport Wireless Earphones TB08
+
+I bought those a while ago and I'm pretty happy with them. They weight 22g,
+have a battery capacity of 130 mAh which (according to the producer) gives
+about 9h of play time. I can confirm that the play time is super high.
+
+They use Bluetooth version 5, are comfortable to wear when I'm going by bike.
+
 ## Panasonic RP-HJE120E1K
 
 I aparently bought the Panasonic RP-HJE120E1K for about 8 EUR. I really don't

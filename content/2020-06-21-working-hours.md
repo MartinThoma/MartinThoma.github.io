@@ -45,9 +45,9 @@ This leads to **140 hours per month** in average.
 
 This means you would need to make
 
-* 12.5k EUR per month
-* 715 EUR per day
-* 90 EUR per hour
+* 12&thinsp;500 EUR per month
+* 715&nbsp;EUR per day
+* 90&nbsp;EUR per hour
 
 to make the claim come true.
 
@@ -57,6 +57,13 @@ to make the claim come true.
 As a freelancer, you need to find clients. This takes time. Time which is work,
 but not paid. This means you have to make even more per day / per hour to
 compensate for this. Or simply work more.
+
+I'm not sure how much this actually takes more. My guess is that for a highly
+skilled person (both, technically and socially), this will more or less be a
+one-time investment. If you keep doing a good job, big companies will keep you.
+But then, events like Corona might simply make it impossible for you to keep
+your clients. I'm also uncertain how easy websites like [upwork.com](https://www.upwork.com/)
+or simply LinkedIn might make it to find new clients.
 
 
 ## Employers Share
@@ -75,7 +82,7 @@ income.
 
 ## TL;DR
 
-Yes, it is actually possible to get more than 150k EUR per year being a
+Yes, it is actually possible to get more than 150k&nbsp;EUR per year being a
 freelancer in Germany. But I imagine it to be pretty hard.
 
-Getting 50k EUR per year should not be too hard, though.
+Getting 50k&nbsp;EUR per year should not be too hard, though.

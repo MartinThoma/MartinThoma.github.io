@@ -157,6 +157,7 @@ this small part of the article. Some tiny hints which help:
   [mypy](http://mypy-lang.org/) for type checking
 * Testing: [pytest](https://docs.pytest.org/en/latest/)
 
+
 ## Footnotes
 
 [^1]: Python.org wiki: [Organizations using Python](https://wiki.python.org/moin/OrganizationsUsingPython)
@@ -165,3 +166,4 @@ this small part of the article. Some tiny hints which help:
 [^4]: [Python : The Holy Grail of Programming](http://cdsweb.cern.ch/journal/CERNBulletin/2006/31/News%20Articles/974627?ln=en), 2006.
 [^5]: [Adam D'Angelo](https://en.wikipedia.org/wiki/Adam_D%27Angelo): [Why did Quora choose Python for its development?](https://www.quora.com/Why-did-Quora-choose-Python-for-its-development-What-technological-challenges-did-the-founders-face-before-they-decided-to-go-with-Python-rather-than-PHP), 2014.
 [^6]: Ramchandra Apte: [Is it feasible to compile Python to machine code?](https://stackoverflow.com/a/11415005/562769), 2012.
+[^7]: Anders Hovmöller: [Python is slow - it doesn't have to be](https://kodare.net/2020/05/19/python-is-slow-does-not-have-to-be.html), 2020.

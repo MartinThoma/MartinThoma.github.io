@@ -141,6 +141,7 @@ a credit. Not even to speak about the additional paperwork it creates.
 See [Kettenvertrag](https://de.wikipedia.org/wiki/Kettenvertrag) for more
 information.
 
+
 ### Cookie Law
 
 The Problem: Virtually every website nowadays screams at you that it uses cookies.
