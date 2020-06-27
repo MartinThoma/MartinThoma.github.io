@@ -620,7 +620,7 @@ Fabrics:
             <td>3 weeks</td>
             <td>0.99 € / piece</td>
             <td>4.95 € / year</td>
-            <td>9.17 € / 9 piece</td>
+            <td>10.73 € / 10 piece</td>
         </tr>
         <tr>
             <td>Kirschen</td>
@@ -933,17 +933,17 @@ Fabrics:
             <td>Toast (Sandwichtoast)</td>
             <td>750g / week (?)</td>
             <td>2 weeks (?)</td>
-            <td>0.89 € / 750g</td>
+            <td>0.89 € / 750g or 0.68 € / 500g</td>
             <td>23.01 € / year</td>
             <td>8.70 € / 6500g</td>
         </tr>
         <tr>
-            <td>Bread (Brot: Malz-Mehrkornbrot, Vollkornbrot, Kartoffelbrot)</td>
+            <td>Bread (Brot: Eiweis-Brot, Malz-Mehrkornbrot, Vollkornbrot, Kartoffelbrot)</td>
             <td></td>
             <td>4 days</td>
-            <td>1.29 € / 500g</td>
+            <td>1.95 € / 500g and 1.29 € / 500g</td>
             <td></td>
-            <td>11.61 € / 4500g</td>
+            <td>13.56 € / 5000g</td>
         </tr>
         <tr>
             <td>Croissants</td>
@@ -951,7 +951,15 @@ Fabrics:
             <td>1 day (3 weeks for backing)</td>
             <td>1.19 € / 4 pieces or 1.60 € / 1 piece at the baker</td>
             <td>32.54 € / year</td>
-            <td>10.11 € / 13 piece</td>
+            <td>10.86 € / 14 piece</td>
+        </tr>
+        <tr>
+            <td>Käseschnecke</td>
+            <td></td>
+            <td>1 day</td>
+            <td>0.89 € / piece</td>
+            <td></td>
+            <td>0.89 € / 1 piece</td>
         </tr>
         <tr>
             <td>🇩🇪 <a href="https://en.wikipedia.org/wiki/Pretzel">Laugenbrezel</a></td>
@@ -967,7 +975,7 @@ Fabrics:
             <td>?</td>
             <td>1.29 € / 8 pieces</td>
             <td></td>
-            <td>1.29 € / 8 pieces</td>
+            <td>1.98 € / 9 pieces</td>
         </tr>
         <tr>
             <td>Butter (not salted)</td>
@@ -975,7 +983,7 @@ Fabrics:
             <td>3 months</td>
             <td>1.39 € / 250g</td>
             <td>33.54 € / year</td>
-            <td>18.39 € / 3250g</td>
+            <td>20.54 € / 3500g</td>
         </tr>
         <tr>
             <td>Margarine</td>
@@ -1240,6 +1248,14 @@ General Cooking:
             <td>5.95 € / 5 L</td>
         </tr>
         <tr>
+            <td>Rapsöl</td>
+            <td>1 L / month</td>
+            <td>1 year</td>
+            <td>0.97 € / L</td>
+            <td></td>
+            <td>0.97 € / 1 L</td>
+        </tr>
+        <tr>
             <td>Olivenöl</td>
             <td></td>
             <td>1 year</td>
@@ -1342,7 +1358,7 @@ General Cooking:
             <td>2 years</td>
             <td>1.89 € / kg</td>
             <td>11.34 € / year</td>
-            <td>9.95 € / 5kg</td>
+            <td>11.94 € / 6kg</td>
         </tr>
         <tr>
             <td>Sushi Rice</td>
@@ -1576,7 +1592,7 @@ General Cooking:
             <td>1 month</td>
             <td>2.59 € / 800g</td>
             <td>?</td>
-            <td>4.98 € / 1400g</td>
+            <td>7.37 € / 2200g</td>
         </tr>
         <tr>
             <td>Sausage (<a href="https://en.wikipedia.org/wiki/Weisswurst">Weißwurst</a>)</td>
@@ -1625,7 +1641,7 @@ General Cooking:
             <td>2 weeks (?)</td>
             <td>0.29 € / piece</td>
             <td>45.37 €</td>
-            <td>29.19 € / 96 piece</td>
+            <td>30.93 € / 101 piece</td>
         </tr>
         <tr>
             <td>Natural Joghurt (Joghurt Pur)</td>
@@ -1641,7 +1657,7 @@ General Cooking:
             <td>months to years</td>
             <td></td>
             <td></td>
-            <td>57.35 € / 43 packages</td>
+            <td>62.57 € / 46 packages</td>
         </tr>
         <tr>
             <td>Savory (Chips, Nachos, Sauce for nachos, Bake Rolls, Cashew or other nuts)</td>
@@ -1740,12 +1756,12 @@ General Cooking:
             <td>0.79 € / 1.5 L</td>
         </tr>
         <tr>
-            <td>Water</td>
+            <td>Water (Wasser)</td>
             <td></td>
             <td>1 year</td>
             <td>0.11 € / 0.5 L</td>
             <td></td>
-            <td>0.55 € / 2.5 L</td>
+            <td>0.66 € / 3.0 L</td>
         </tr>
         <tr>
             <td>Malz</td>
@@ -1770,14 +1786,6 @@ General Cooking:
             <td>1.99 € / 4 pieces</td>
             <td>11.94 € / year</td>
             <td>7.96 € / 16 pieces</td>
-        </tr>
-        <tr>
-            <td>Wasser</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>0.11 € / 0.5 L</td>
         </tr>
         <tr>
             <td>Canned Soup (Dosensuppe, Thai-Suppe, Bihun-Suppe)</td>
@@ -1857,7 +1865,7 @@ General Cooking:
             <td>2 weeks</td>
             <td>1.89 € / 750g</td>
             <td>?</td>
-            <td>1.89 € / 750g</td>
+            <td>3.38 € / 1500g</td>
         </tr>
         <tr>
             <td>Müsli-Riegel (Granola)</td>
@@ -1874,6 +1882,14 @@ General Cooking:
             <td>0.79 € / 25g</td>
             <td></td>
             <td>2.23 € / 150g</td>
+        </tr>
+        <tr>
+            <td>Pizza (ready-made)</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>2.59 EUR / 2 pieces</td>
         </tr>
     </tbody>
 </table>
@@ -1904,7 +1920,7 @@ General Cooking:
             <td>2.15 € / 1600 Blatt (6 rolls)</td>
             <td>One Roll per week (?)</td>
             <td>14.02 € / year</td>
-            <td>7.65 € / 4800 Blatt (12 rolls)</td>
+            <td>9.80 € / 6400 Blatt (18 rolls)</td>
         </tr>
         <tr>
             <td>Toothbrush (Oral-B Pulsar Zahnbürste)</td>
@@ -2152,7 +2168,7 @@ pills and maybe a couple of months for creams and ointment.
             <td>79.10 €</td>
             <td>Each month</td>
             <td>949.20 € / year</td>
-            <td>72.50 € / 466km</td>
+            <td>97.50 € / 596km</td>
         </tr>
         <tr>
             <td>Restaurant (work)</td>
