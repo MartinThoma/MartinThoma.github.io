@@ -100,6 +100,7 @@ of Remote Only work.
 ## Tools
 
 * Chat: **[Slack](https://slack.com/enterprise)**, HipChat
+* [Clockwise](https://www.getclockwise.com/)
 * Ticket System: Jira
 * Documentation:
 * Office: **[G-Suite](https://gsuite.google.com/intl/en/)**, [Office 365](https://www.microsoft.com/en-us/p/office-365-business/cfq7ttc0k62t?source=lp&activetab=pivot:overviewtab)
@@ -158,6 +159,249 @@ to have a product which is mainly on web:
         <td><a href="https://about.gitlab.com/jobs/">Jobs</a></td>
     </tr>
 </table>
+
+
+## Companies in Germany
+
+
+### PHP + Ruby
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Company</th>
+            <th>Employees</th>
+            <th>Business/product</th>
+            <th>Tech stack/skills</th>
+            <th>Jobs</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><a href="https://gebruederheitz.de/welcome/">Gebrueder Heitz</a></td>
+            <td>8</td>
+            <td>Web Agency</td>
+            <td>Typo3</td>
+            <td><a href="https://gebruederheitz.de/welcome/">Jobs</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://www.actyx.com/">actyx</a></td>
+            <td>24</td>
+            <td>Factory Automation</td>
+            <td>?</td>
+            <td><a href="https://careers.actyx.io/">Jobs</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://backhub.co/">backhub</a></td>
+            <td>?</td>
+            <td>Git Backups</td>
+            <td>Ruby, AWS</td>
+            <td><a href="https://backhub.co/jobs/">Jobs</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://www.br.de/">Bayrischer Rundfunk</a></td>
+            <td>3402</td>
+            <td>News</td>
+            <td>Java, J2EE, JPA, Maven/Ivy/Gradle, AWS, Docker</td>
+            <td><a href="https://www.br.de/extra/sep/stellenanzeige-senior-java-entwickler-100.html">Jobs</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://bryter.io/careers/">Bryter</a></td>
+            <td>~80</td>
+            <td>Enabling experts to automate decision-making</td>
+            <td>Vue.js, Kotlin, Docker, Kubernetes, PostgreSQL, Springboot, </td>
+            <td><a href="https://bryter.io/careers/">Jobs</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://www.easybill.de/">easybill</a></td>
+            <td>?</td>
+            <td>Create Bills</td>
+            <td>Ruby, PHP, Rails, Symfony, Ansible/Vagrant/Docker, CoffeeScript, Bootstrap, MySQL Percona Cluster, Redis, GlusterFS, Elasticsearch, </td>
+            <td><a href="https://www.easybill.de/jobs">Jobs</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://www.elastic.co/">elastic</a></td>
+            <td>?</td>
+            <td>Elastic Search Support</td>
+            <td>Elastic, Node.js, Java, </td>
+            <td><a href="https://www.elastic.co/de/about/careers/">Jobs</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://eyeo.com/">eyeo</a></td>
+            <td><a href="https://www.linkedin.com/company/eyeo-gmbh/">~150</a></td>
+            <td><a href="https://en.wikipedia.org/wiki/Adblock_Plus">Adblock Plus</a></td>
+            <td>Android (Kotlin/Java), AWS, GCP, Python, Ansible, Airflow, Kubernetes, Terraform, R</td>
+            <td><a href="https://eyeo.com/jobs/">eyeo</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://www.gettechtalent.com/">gettechtalent</a></td>
+            <td><a href="https://www.linkedin.com/company/gettechtalent/">2?</a></td>
+            <td>Hiring</td>
+            <td>AWS Stitch Data, Python, R, .NET, Matlab, MS Power BI, Qlik Sense, Tableau</td>
+            <td><a href="https://gettechtalent.recruitee.com/">Jobs</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://www.giantswarm.io/">Giant Swarm</a></td>
+            <td><a href="https://www.linkedin.com/company/giant-swarm/">60</a></td>
+            <td>Kubernetes</td>
+            <td>React/Redux, HTML, CSS, JavaScript, Golang, Kubernetes, </td>
+            <td><a href="https://www.giantswarm.io/">Jobs</a></td>
+        </tr>
+        <tr>
+            <td><a href="">Joyride</a></td>
+            <td>?</td>
+            <td>Online Dating</td>
+            <td>Android / iOS</td>
+            <td><a href="http://careers.joyridedating.com/">Jobs</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://inpsyde.com">inpyside</a></td>
+            <td>?</td>
+            <td>Wordpress</td>
+            <td>PHP, WooCommerce, git, Envoyer, Composer, JIRA & Confluence</td>
+            <td><a href="https://inpsyde.com/jobs/">Jobs</a></td>
+        </tr>
+        <tr>
+            <td>Komoot</td>
+            <td>?</td>
+            <td>Hiking Website</td>
+            <td>Kotlin/Java/Scala, Python, AWS/GCP/Azure, distributed and resilient web applications, IaC, CI/CD, Pandas, Numpy, Jupyter Notebooks, scikit-learn, Pytorch, Tensorflow, Docker</td>
+            <td><a href="https://www.komoot.de/jobs">Jobs</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://www.laterpay.net/">LaterPay</a></td>
+            <td>?</td>
+            <td>Payment</td>
+            <td>PHP (Wordpress), </td>
+            <td><a href="https://www.laterpay.net/">Jobs</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://www.lyska.cloud/">lyska</a></td>
+            <td><a href="https://www.linkedin.com/company/lyska">11?</a></td>
+            <td>eCommerce</td>
+            <td>PHP (symfony), elastic, redis, Docker, React, MariaDB, GCP</td>
+            <td>?</td>
+        </tr>
+        <tr>
+            <td><a href="https://owncloud.com/">owncloud</a></td>
+            <td></td>
+            <td></td>
+            <td>Apache/NGINX, MySQL/PostgreSQL, Ansible, Docker, Terraform, Golang</td>
+            <td><a href="https://owncloud.com/jobs/">Jobs</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://www.picdrop.com/">picdrop</a></td>
+            <td>?</td>
+            <td>Image sharing</td>
+            <td>React, Vue.js, PHP/Java/Golang</td>
+            <td><a href="https://picdrop.team/docs/join-the-team/#open-positions">Jobs</a></td>
+        </tr>
+        <tr>
+            <td>SkedGo</td>
+            <td>?</td>
+            <td>Mobility as a Service (MaaS)</td>
+            <td>?</td>
+            <td><a href="https://skedgo.com/about/jobs/">Jobs</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://socialhub.io/">SocialHub</a></td>
+            <td>?</td>
+            <td>Social Media Management</td>
+            <td>?</td>
+            <td><a href="https://socialhub.io/de/ueber-uns/jobs/">Jobs</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://www.socialsweethearts.de/de_DE/">socialsweethearts</a></td>
+            <td>?</td>
+            <td>Publishing</td>
+            <td>?</td>
+            <td><a href="https://apply.workable.com/socialsweethearts/">Jobs</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://sport1.de/"></a></td>
+            <td>?</td>
+            <td>Sports Website</td>
+            <td>React, TDD/BDD, TypeScript</td>
+            <td><a href="https://karriere.sport1-medien.de/">Jobs</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://travis-ci.org/">TravisCI</a></td>
+            <td>?</td>
+            <td>Developer Service</td>
+            <td><a href="https://stackshare.io/travis-ci/travis-ci">Stack</a>: Ruby (Rails)</td>
+            <td><a href="https://www.linkedin.com/company/travis-ci/jobs/">Jobs</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://virtualq.io/">virtualq</a></td>
+            <td>?</td>
+            <td>Telephone Hotline</td>
+            <td>?</td>
+            <td><a href="https://virtualq.io/karriere/">Jobs</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://www.yazio.com">yazio</a></td>
+            <td>?</td>
+            <td>Diet App</td>
+            <td>PHP (Symfony/Laravel/Zend), SQL, ML, git, REST,SASS/SCSS/LessCSS, jQuery, Bootstrap</td>
+            <td><a href="https://www.yazio.com/de/open-positions"></a></td>
+        </tr>
+    </tbody>
+</table>
+
+Many of those are from [Daniel Bayerleins List](https://github.com/danielbayerlein/remote-jobs-germany).
+
+### Python
+
+<table>
+    <thead>
+        <tr>
+            <th>Company</th>
+            <th>Employees</th>
+            <th>Business/product</th>
+            <th>Tech stack/skills</th>
+            <th>Jobs</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><a href="https://opencraft.com/">Opencraft</a></td>
+            <td>?</td>
+            <td>edX</td>
+            <td>Django, React, HTML+CSS+JS, MySQL/MongoDB/PostgreSQL, AWS/OpenStack, RabbitMQ/Redis/Elastic, git, iOS/Android, Ansible</td>
+            <td><a href="https://opencraft.com/jobs/open-source-developer/">Jobs</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://www.people-doc.com/">People Doc</a></td>
+            <td>?</td>
+            <td>Human Resources</td>
+            <td>SQL, Ansible</td>
+            <td><a href="https://www.people-doc.com/company/careers">Jobs</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://myhelpbuddy.com/">myhelpbuddy</a></td>
+            <td>?</td>
+            <td>Help with German Bureaucracy</td>
+            <td>Git, Gerrit, Jenkins, pytest, Pylint, JIRA</td>
+            <td><a href="https://myhelpbuddy.com/career/">Jobs</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://sprylab.com/de/python-backend-entwickler-m-w-d/">Sprylab</a></td>
+            <td>?</td>
+            <td>Plattform Development</td>
+            <td>Django/Flask, Swagger, Git, Scrum, Kanban, AWS/Azure, Docker, Kubernetes, Elasticsearch</td>
+            <td><a href="https://sprylab.com/de/jobs/">Jobs</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://www.scrapinghub.com/">Scrapinghub</a></td>
+            <td>?</td>
+            <td>Scraping Platform</td>
+            <td>TCP/IP, HTTP, TLS, firewalls, VLANs, DNS</td>
+            <td><a href="https://www.scrapinghub.com/jobs">Jobs</a></td>
+        </tr>
+    </tbody>
+</table>
+
+Mostly found via <a href="https://stackoverflow.com/jobs?id=393644&l=Germany&d=20&u=Km&r=true&tl=python">Stackoverflow.com/jobs</a>
 
 
 ## Sources
