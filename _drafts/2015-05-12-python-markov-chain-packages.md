@@ -3,11 +3,8 @@ layout: post
 title: Python Markov Chain Packages
 author: Martin Thoma
 date: 2014-11-22 17:19
-categories:
-- Code
-tags:
-- Python
-- Markov Chain
+categories: Code
+tags: Python, Markov Chain
 featured_image: logos/python.png
 ---
 Markov Chains are probabilistic processes which depend only on the previous
@@ -151,7 +148,7 @@ pyplot.xlabel("Steps")
 pyplot.ylabel("Probability")
 lines = []
 for i, shape in zip(range(6), ["x", "h", "H", "s", "8", "r+"]):
-    line, = pyplot.plot(plot_data[:, i], shape, label="S%i" % (i + 1))
+    (line,) = pyplot.plot(plot_data[:, i], shape, label="S%i" % (i + 1))
     lines.append(line)
 pyplot.legend(handles=lines, loc=1)
 pyplot.show()
