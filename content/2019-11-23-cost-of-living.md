@@ -628,7 +628,7 @@ Fabrics:
             <td>2 weeks</td>
             <td>5.90 €/kg</td>
             <td></td>
-            <td>2.01 € / 0.320 kg</td>
+            <td>4.80 € / 0.820 kg</td>
         </tr>
         <tr>
             <td>Mango (Tin can)</td>
@@ -652,7 +652,7 @@ Fabrics:
             <td>4 weeks</td>
             <td>2.99 € / kg</td>
             <td></td>
-            <td>8.93 € / 2.558kg</td>
+            <td>10.88 € / 3.058kg</td>
         </tr>
         <tr>
             <td>Annanas in a tin can</td>
@@ -790,7 +790,7 @@ Fabrics:
             <td>2 months (?)</td>
             <td>1.69 € / 2kg</td>
             <td>3.16 € / year</td>
-            <td>4.07 € / 4kg</td>
+            <td>5.22 € / 6kg</td>
         </tr>
         <tr>
             <td>Garlic (🇩🇪 Knoblauch)</td>
@@ -814,15 +814,15 @@ Fabrics:
             <td>1 month</td>
             <td>1.79 € / 250g</td>
             <td>21.48 € / year</td>
-            <td>1.79 € / 250g</td>
+            <td>4.23 € / 450g</td>
         </tr>
         <tr>
-            <td>Tomatos (🇩🇪 <a href="https://en.wikipedia.org/wiki/Cherry_tomato">Cherrystrauchtomaten</a>, Romana-Tomaten)</td>
+            <td>Tomatos (🇩🇪 <a href="https://en.wikipedia.org/wiki/Cherry_tomato">Cherrystrauchtomaten</a>, Romana-Tomaten, Rispen-Tomaten)</td>
             <td></td>
             <td>1 week</td>
             <td>1.49 € / 250g (1 package)</td>
             <td></td>
-            <td>8.64 € / 1300g</td>
+            <td>9.39 € / 1552g</td>
         </tr>
         <tr>
             <td>Broccoli</td>
@@ -871,6 +871,22 @@ Fabrics:
             <td>1.99 € / kg</td>
             <td>11.94 € / kg</td>
             <td>0.65 € / 0.328kg</td>
+        </tr>
+        <tr>
+            <td>Olives (entkernte Oliven im Glas)</td>
+            <td></td>
+            <td>3 years</td>
+            <td>0.57 € / 160g</td>
+            <td></td>
+            <td>0.57 € / 160g</td>
+        </tr>
+        <tr>
+            <td>Kapern</td>
+            <td></td>
+            <td>3 years</td>
+            <td>0.97 € / 60g</td>
+            <td></td>
+            <td>0.97 € / 60g</td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Cucumber">Cucumber</a> (🇩🇪 Gurke)</td>
@@ -943,7 +959,7 @@ Fabrics:
             <td>4 days</td>
             <td>1.95 € / 500g and 1.29 € / 500g</td>
             <td></td>
-            <td>13.56 € / 5000g</td>
+            <td>14.85 € / 5500g</td>
         </tr>
         <tr>
             <td>Croissants</td>
@@ -983,7 +999,7 @@ Fabrics:
             <td>3 months</td>
             <td>1.39 € / 250g</td>
             <td>33.54 € / year</td>
-            <td>20.54 € / 3500g</td>
+            <td>22.66 € / 3750g</td>
         </tr>
         <tr>
             <td>Margarine</td>
@@ -1018,12 +1034,12 @@ Fabrics:
             <td>3.38 € / 400ml</td>
         </tr>
         <tr>
-            <td>Cheese (🇩🇪 Emmentaler; Limburger; Allgäuer Bergkäse)</td>
+            <td>Cheese (🇩🇪 Emmentaler; Limburger; Allgäuer Bergkäse; Almzeit; Parmigiano Reggiano)</td>
             <td>400g / 2 weeks</td>
-            <td>4 months</td>
-            <td>2.69 € / 400g für Emmentaler; 1.99 € / 200g für Limburger</td>
+            <td>1 to 4 months</td>
+            <td>2.69 € / 400g für Emmentaler; 1.99 € / 200g für Limburger; 1.19 € / 150g für Almzeit; 4.84 € / 250g für Parmigiano</td>
             <td>67.34 € / year</td>
-            <td>43.04 € / 6.1kg</td>
+            <td>49.07 € / 6.50kg</td>
         </tr>
         <tr>
             <td>Frischkäse</td>
@@ -1031,7 +1047,7 @@ Fabrics:
             <td>6 weeks</td>
             <td>0.99 € / 125g</td>
             <td></td>
-            <td>3.96 € / 500g</td>
+            <td>4.95 € / 625g</td>
         </tr>
         <tr>
             <td>Cheese (🇩🇪 Schweizer Hartkäse; Appenzeller)</td>
@@ -1047,7 +1063,7 @@ Fabrics:
             <td>0.69 € / 125 g (<abbr title="Abtropfgewicht">ATG</abbr>)</td>
             <td></td>
             <td></td>
-            <td>7.29 € / 1275g</td>
+            <td>8.43 € / 1525g</td>
         </tr>
         <tr>
             <td>Sausage (<a href="https://en.wikipedia.org/wiki/Mortadella">Mortadella</a> Wurst, Salami)</td>
@@ -1077,17 +1093,25 @@ Fabrics:
             <td>Obatzter (Obazda)</td>
             <td></td>
             <td>2 months</td>
-            <td>1.89 € / 125g</td>
+            <td>1.49 € / 125g</td>
             <td></td>
-            <td>5.36 € / 575g</td>
+            <td>6.85 € / 600g</td>
         </tr>
         <tr>
-            <td>Crème fraîche based spread (Tomaten-Mozzarella Brotaufstrich)</td>
+            <td>Hummus</td>
+            <td></td>
+            <td>2 weeks</td>
+            <td>0.99 € / 200g</td>
+            <td></td>
+            <td>0.99 € / 200g</td>
+        </tr>
+        <tr>
+            <td>Crème fraîche based spread (Tomaten-Mozzarella Brotaufstrich / Thunfisch)</td>
             <td></td>
             <td>2 weeks</td>
             <td>0.89 € / 150g</td>
             <td></td>
-            <td>6.23 € / 1050g</td>
+            <td>7.12 € / 1200g</td>
         </tr>
         <tr>
             <td>Antipasti (Brotaufstrich)</td>
@@ -1104,6 +1128,14 @@ Fabrics:
             <td>1.29 € / 400g</td>
             <td>?</td>
             <td>2.58 € / 800g</td>
+        </tr>
+        <tr>
+            <td>Peanut Butter (Erdnuss-Creme)</td>
+            <td></td>
+            <td>1 year</td>
+            <td>1.69 € / 350g</td>
+            <td></td>
+            <td>1.69 € / 350g</td>
         </tr>
         <tr>
             <td>Honey (Honig)</td>
@@ -1237,7 +1269,7 @@ General Cooking:
             <td>1 year</td>
             <td>1.99 € / 750g</td>
             <td></td>
-            <td>9.95 € / 3750g</td>
+            <td>11.94 € / 4500g</td>
         </tr>
         <tr>
             <td>Sunflower oil (Sonnenblumenöl)</td>
@@ -1460,9 +1492,9 @@ General Cooking:
             <td>Gewürzmischung (AHG)</td>
             <td></td>
             <td>18 months</td>
-            <td>1.79 EUR / piece</td>
+            <td>1.79 € / piece</td>
             <td></td>
-            <td>5.37 EUR / 3 pieces</td>
+            <td>5.37 € / 3 pieces</td>
         </tr>
     </tbody>
 </table>
@@ -1484,10 +1516,10 @@ General Cooking:
         <tr>
             <td>Pasta (Hartweizengrieß Bandnudeln)</td>
             <td></td>
-            <td>2 years</td>
+            <td>2.5 years</td>
             <td>0.59 € / 500g</td>
             <td></td>
-            <td>2.08 € / 1000g</td>
+            <td>3.44 € / 1500g</td>
         </tr>
         <tr>
             <td>Tortelloni Pasta</td>
@@ -1536,15 +1568,15 @@ General Cooking:
             <td>days</td>
             <td>1.99 € / package</td>
             <td></td>
-            <td>3.19 € / 1 package</td>
+            <td>5.90 € / 2 package</td>
         </tr>
         <tr>
-            <td>Fish in tin can (Hering)</td>
+            <td>Fish in tin can (Hering / Thunfisch)</td>
             <td></td>
             <td>4 years</td>
             <td>1.49 € / 200g</td>
             <td></td>
-            <td>1.49 € / 200g</td>
+            <td>5.40 € / 460g</td>
         </tr>
         <tr>
             <td>Prawn / Shrimp / Meeresfrüchte (Garnelen, e.g. <a href="https://en.wikipedia.org/wiki/Penaeus_monodon">Black Tiger</a>, Eismeergarnelen)</td>
@@ -1641,7 +1673,7 @@ General Cooking:
             <td>2 weeks (?)</td>
             <td>0.29 € / piece</td>
             <td>45.37 €</td>
-            <td>30.93 € / 101 piece</td>
+            <td>32.81 € / 108 piece</td>
         </tr>
         <tr>
             <td>Natural Joghurt (Joghurt Pur)</td>
@@ -1652,12 +1684,12 @@ General Cooking:
             <td>2.03 € / 1675g</td>
         </tr>
         <tr>
-            <td>Sweets like Cookies (Chips, chocolate, cake, waffles, cookies; Süßigkeiten, Kakao-Schnitten, Kekse, Wassereis, Nuss-Strudel)</td>
+            <td>Sweets like Cookies (Chips, chocolate, cake, waffles, cookies; Süßigkeiten, Kakao-Schnitten, Kekse, Wassereis, Nuss-Strudel, Mozart-Kugeln)</td>
             <td>-</td>
             <td>months to years</td>
             <td></td>
             <td></td>
-            <td>62.57 € / 46 packages</td>
+            <td>66.09 € / 48 packages</td>
         </tr>
         <tr>
             <td>Savory (Chips, Nachos, Sauce for nachos, Bake Rolls, Cashew or other nuts)</td>
@@ -1756,6 +1788,14 @@ General Cooking:
             <td>0.79 € / 1.5 L</td>
         </tr>
         <tr>
+            <td>Wine (Wein)</td>
+            <td></td>
+            <td></td>
+            <td>2.13 € / 0.75 L</td>
+            <td></td>
+            <td>2.13 € / 0.75 L</td>
+        </tr>
+        <tr>
             <td>Water (Wasser)</td>
             <td></td>
             <td>1 year</td>
@@ -1785,7 +1825,7 @@ General Cooking:
             <td>2 months</td>
             <td>1.99 € / 4 pieces</td>
             <td>11.94 € / year</td>
-            <td>7.96 € / 16 pieces</td>
+            <td>9.89 € / 40 pieces</td>
         </tr>
         <tr>
             <td>Canned Soup (Dosensuppe, Thai-Suppe, Bihun-Suppe)</td>
@@ -1841,7 +1881,7 @@ General Cooking:
             <td></td>
             <td>0.39 € / 240g</td>
             <td></td>
-            <td>0.78 € / 480g</td>
+            <td>1.16 € / 720g</td>
         </tr>
         <tr>
             <td>Zitronensaft</td>
@@ -1889,7 +1929,7 @@ General Cooking:
             <td></td>
             <td></td>
             <td></td>
-            <td>2.59 EUR / 2 pieces</td>
+            <td>2.59 € / 2 pieces</td>
         </tr>
     </tbody>
 </table>
@@ -2033,6 +2073,13 @@ General Cooking:
             <td></td>
             <td></td>
             <td>3.45 € / 200ml</td>
+        </tr>
+        <tr>
+            <td>Rohrreiniger</td>
+            <td>1.45 € / 1 L</td>
+            <td></td>
+            <td></td>
+            <td>1.45 € / 1 L</td>
         </tr>
         </tbody>
         <tfoot>
@@ -2190,6 +2237,13 @@ pills and maybe a couple of months for creams and ointment.
             <td></td>
             <td></td>
             <td>173.60 € / 10 people (4 times in total)</td>
+        </tr>
+        <tr>
+            <td>Restaurant/Café (private, just drink)</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>5.30 € / 1 person</td>
         </tr>
         <tr>
             <td>Bouldering</td>
