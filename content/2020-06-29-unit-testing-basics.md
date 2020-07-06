@@ -4,7 +4,6 @@ title: Unit Testing in Python — The Basics
 URL: https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0
 alias: unit-testing-basics
 author: Martin Thoma
-status: draft
 date: 2020-06-29 20:00
 category: Code
 tags: Python, Unit Testing
