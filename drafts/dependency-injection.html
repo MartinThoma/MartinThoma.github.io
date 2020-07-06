@@ -124,6 +124,7 @@ state to explicit dependency of on a parameter.</p>
 we want to just get a filename. The simple solution is</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">datetime</span>
 
+
 <span class="k">def</span> <span class="nf">get_filename</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="sd">"""Get something like '2020-06-10-13-06-31.txt'."""</span>
     <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
@@ -133,6 +134,7 @@ we want to just get a filename. The simple solution is</p>
 suddenly have to use mocking for datetime.</p>
 <p>Or, you make the function a bit different:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">datetime</span>
+
 
 <span class="k">def</span> <span class="nf">get_filename</span><span class="p">(</span><span class="n">now</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="sd">"""Get something like '2020-06-10-13-06-31.txt'."""</span>
@@ -149,9 +151,9 @@ code path. Instead, the dependency on an explicitly set parameter <code>now</cod
 added.</p>
 <p>More details to this in <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
 <h3 id="query-builder">Query Builder</h3>
-<div class="highlight"><pre><span></span><code><span class="err">def execute_query(db, sql):</span>
-<span class="err">    connection = db.connect()</span>
-<span class="err">    connection.execute(sql)</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">execute_query</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">sql</span><span class="p">):</span>
+    <span class="n">connection</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+    <span class="n">connection</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
 </code></pre></div>
 <p>Here, the dependency is the database object <code>db</code>. It is injected in the
 function.</p>

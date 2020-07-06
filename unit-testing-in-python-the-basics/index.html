@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Python, Unit Testing, Code, " />
+
+<meta property="og:title" content="Unit Testing in Python — The Basics "/>
+<meta property="og:url" content="../https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0" />
+<meta property="og:description" content="Unit testing is the number one skill which separates people who just finished their degrees from people with practical experience. Especially for Python, that’s a shame as it is trivial to learn this skill. In this article, you will learn how to write and run unit tests in Python …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2020-06-29T20:00:00+02:00" />
+<meta name="twitter:title" content="Unit Testing in Python — The Basics ">
+<meta name="twitter:description" content="Unit testing is the number one skill which separates people who just finished their degrees from people with practical experience. Especially for Python, that’s a shame as it is trivial to learn this skill. In this article, you will learn how to write and run unit tests in Python …">
+<meta property="og:image" content="logos/python.png" />
+<meta name="twitter:image" content="logos/python.png" >
+
+        <title>Unit Testing in Python — The Basics  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand" tabindex="-1">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="../https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0"> Unit Testing in Python — The Basics  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#the-most-basic-unit-test" title="The most basic Unit Test">The most basic Unit Test</a></li><li><a class="toc-href" href="#vocabulary" title="Vocabulary">Vocabulary</a></li><li><a class="toc-href" href="#why-do-we-test-at-all" title="Why do we test at all?">Why do we test at all?</a></li><li><a class="toc-href" href="#test-coverage" title="Test Coverage">Test Coverage</a></li><li><a class="toc-href" href="#good-tests" title="Good Tests">Good Tests</a></li><li><a class="toc-href" href="#type-checking" title="Type Checking">Type Checking</a></li><li><a class="toc-href" href="#linting" title="Linting">Linting</a></li><li><a class="toc-href" href="#doctests" title="Doctests">Doctests</a></li><li><a class="toc-href" href="#test-execution-speed" title="Test Execution Speed">Test Execution Speed</a></li><li><a class="toc-href" href="#alternatives-unittest-and-nose" title="Alternatives: unittest and nose">Alternatives: unittest and nose</a></li><li><a class="toc-href" href="#more-testing-topics" title="More Testing Topics">More Testing Topics</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>Unit testing is the number one skill which separates people who just finished their degrees from people with practical experience. Especially for Python, that&rsquo;s a shame as it is trivial to learn this skill.</p>
+<p>In this article, you will learn how to write and run unit tests in Python as well as some interesting pytest plugins I usually use. Let&rsquo;s get started.</p>
+<h2 id="the-most-basic-unit-test">The most basic Unit Test</h2>
+<p>A unit test is atomic- it just tests one unit of code. Typically one function or one method of a class. As an example, let&rsquo;s say we want to test math_functions.py which contains the Fibonacci function and a function for the <a href="https://en.wikipedia.org/wiki/Collatz_conjecture">Collatz sequence</a>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">a</span>
+
+
+<span class="k">def</span> <span class="nf">next_collatz_element</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
+</code></pre></div>
+<p>We want to test this function. I will explain the reasons for testing and what testing means later. For now, let&rsquo;s just say we want to avoid programming errors.</p>
+<p>First, create a file test_math_functions.py :</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">math_functions</span> <span class="kn">import</span> <span class="n">fib</span><span class="p">,</span> <span class="n">next_collatz_element</span>
+
+
+<span class="k">def</span> <span class="nf">test_fib_basic_initial</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">fib</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="k">assert</span> <span class="n">fib</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+
+
+<span class="k">def</span> <span class="nf">test_fib_2</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">fib</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+
+
+<span class="k">def</span> <span class="nf">test_fib_3</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">fib</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+
+
+<span class="k">def</span> <span class="nf">test_collatz_1</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">next_collatz_element</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span>
+
+
+<span class="k">def</span> <span class="nf">test_collatz_2</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">next_collatz_element</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span>
+</code></pre></div>
+<p>Now, you have to install pytest:</p>
+<div class="highlight"><pre><span></span><code>$ pip install pytest
+</code></pre></div>
+<p>And run it:</p>
+<div class="highlight"><pre><span></span><code>$ <span class="nv">pytest</span>
+<span class="o">============</span> <span class="nb">test</span> session <span class="nv">starts</span> <span class="o">===================================</span>
+platform linux -- Python <span class="m">3</span>.8.1, pytest-5.4.3, py-1.9.0, pluggy-0.13.1
+rootdir: /home/moose/GitHub/MartinThoma/algorithms/medium/unit-testing
+collected <span class="m">5</span> items
+
+test_math_functions.py .....                                 <span class="o">[</span><span class="m">100</span>%<span class="o">]</span>
+
+<span class="o">============</span> <span class="m">5</span> passed in <span class="m">0</span>.03s <span class="o">=====================================</span>
+</code></pre></div>
+<p>Awesome! You can see that it took 0.03 seconds to execute. There are 5 dots after the test_math_functions.py . Those indicate that 5 tests were executed and successful.</p>
+<p>Let&rsquo;s break one test, e.g. test_fib_3 by setting assert fib(3) == 1337 . Then you see this:</p>
+<div class="highlight"><pre><span></span><code><span class="o">============</span> <span class="nb">test</span> session <span class="nv">starts</span> <span class="o">=================================</span>
+platform linux -- Python <span class="m">3</span>.8.1, pytest-5.4.3, py-1.9.0, pluggy-0.13.1
+rootdir: /home/moose/GitHub/MartinThoma/algorithms/medium/unit-testing
+collected <span class="m">5</span> items
+
+test_math_functions.py ..F..                                                    <span class="o">[</span><span class="m">100</span>%<span class="o">]</span>
+
+<span class="o">==================</span> <span class="nv">FAILURES</span> <span class="o">=======================================</span>
+_________________ test_fib_3 ______________________________________
+
+def test_fib_3<span class="o">()</span>:
+&gt;       assert fib<span class="o">(</span><span class="m">3</span><span class="o">)</span> <span class="o">==</span> <span class="m">3</span>
+E       assert <span class="nv">2</span> <span class="o">==</span> <span class="m">3</span>
+E        +  where <span class="nv">2</span> <span class="o">=</span> fib<span class="o">(</span><span class="m">3</span><span class="o">)</span>
+
+test_math_functions.py:14: <span class="nv">AssertionError</span>
+<span class="o">============</span> short <span class="nb">test</span> summary <span class="nv">info</span> <span class="o">===============================</span>
+FAILED test_math_functions.py::test_fib_3 - assert <span class="nv">2</span> <span class="o">==</span> <span class="nv">3</span>
+<span class="o">============</span> <span class="m">1</span> failed, <span class="m">4</span> passed in <span class="m">0</span>.03s <span class="o">===========================</span>
+</code></pre></div>
+<p>Great. Now you know how to write a unit test.</p>
+<h2 id="vocabulary">Vocabulary</h2>
+<p>The <em>units</em> we are testing in the section above are functions &mdash; fib and next_collatz_element .</p>
+<p>We have 5 <em>unit tests</em>; all of them in<em> </em>test_math_functions.py: The test_* functions.</p>
+<p>The pytest command-line executable is called a <em>test runner</em>. It executes (runs) the tests.</p>
+<p>A <em>test suite</em> is an arbitrary collection of tests. Usually, you mean all tests.</p>
+<h2 id="why-do-we-test-at-all">Why do we test at all?</h2>
+<ul>
+<li><strong>Trust</strong>: You checked at least some cases if they work. So others can have more trust in the quality of your work and you can also put more trust in it.</li>
+<li><strong>Breaking Changes</strong>: For a bigger project, it is sometimes hard to have every part in mind. By writing tests, you make it easier to change something and see if / where things break. This does not only help you but also team members. Including once that are not there yet.</li>
+<li><strong>Code Style</strong>: When you know that you have to write tests, you write some things slightly differently. Those slight differences usually improve the coding style. Sometimes, they are crucial. For example, if you have to thoroughly test your code you will make smaller chunks.</li>
+<li><strong>Documentation</strong>: Some test cases show a little bit of how the code is intended to be used.</li>
+</ul>
+<h2 id="test-coverage">Test Coverage</h2>
+<p>I hope at this point we agree that having tests is a good idea. But how many tests do you need? When did you test everything?</p>
+<p>A group of measures for this is the <em>test coverage</em>. There are two relevant types of test coverage: Line coverage and branch coverage.</p>
+<p>If you look at the Collatz function from above, there are 4 lines to test:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">next_collatz_element</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
+</code></pre></div>
+<p>If I execute next_collatz_element(4) , then it will execute lines 1&ndash;3. Line 4 and 5 will not be hit. This means a unit test like that could not detect an issue on line 4 or 5. It only covers 3 of 5 lines. One says that it has 60% line coverage.</p>
+<p>But sometimes 100% line coverage is not enough. Take a look at this example:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">fist_name</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">last_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Hello, </span><span class="si">{</span><span class="n">first_name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">last_name</span><span class="si">}</span><span class="s2">"</span>
+</code></pre></div>
+<p>If you test greet("Angela", "Merkel") you will have 100% line coverage. But you miss that if the last name is not given, the return value is None . In the given test, the if-statement in line 2 always evaluates to &ldquo;True&rdquo;. You don&rsquo;t cover a branch in the execution graph. So you have only 50% branch coverage.</p>
+<p><a href="https://pypi.org/project/pytest-cov/">pytest-cov</a> is a pytest plugin to measure branch coverage.</p>
+<ul>
+<li>Install it with pip install pytest-cover</li>
+<li>Use it by adding --cov=path/to/file or --cov=packagename to the pytest execution</li>
+<li>Get output to terminal by adding to pytest --cov-report term</li>
+<li>Get HTML output by adding --cov-report html:tests/reports/coverage</li>
+</ul>
+<p>There are <a href="https://pytest-cov.readthedocs.io/en/latest/reporting.html">more reporting capabilities</a>.</p>
+<h2 id="good-tests">Good Tests</h2>
+<p>It&rsquo;s pretty hard to write good tests and when you measure your test coverage it is tempting to quickly write a couple of bad tests.</p>
+<p>Worst is no testing at all.</p>
+<p>A little bit better is a test that just executes a function but does not check if the return value/the side effects are what you expect. So you simply run it to check if the code crashes.</p>
+<p>Happy-Tests where you check the output of the tested function and a typical input is even better. I call them <em>happy</em> because they test what you expect to get.</p>
+<p>In contrast, an <em>unhappy</em> execution path is dealing with unwanted inputs. This is also called <a href="https://en.wikipedia.org/wiki/Negative_testing">negative testing</a>. You check if you actually throw an error. Not throwing an error and silently failing is bad as it hides bugs.</p>
+<p><em>Property testing</em> is pretty cool. There you don&rsquo;t test for single values, but you check if a property is still held. For example, the output of a factorization function can be multiplied and should equal the input.</p>
+<h2 id="type-checking">Type Checking</h2>
+<p>If you use <a href="https://medium.com/@MartinThoma/type-annotations-in-python-3-8-3b401384403d">type annotations</a> (which you totally should!), then you can install <a href="https://pypi.org/project/pytest-mypy/">pytest-mpy</a> . You can then automatically run mypy over your code by adding --mypy to your pytest command.</p>
+<h2 id="linting">Linting</h2>
+<p><a href="https://en.wikipedia.org/wiki/Lint_(software)">Code linting</a> is the act of finding bugs, stylistic errors, and suspicious constructs from static code analysis.</p>
+<p>There are two linters I can recommend: <a href="https://github.com/psf/black">black</a> and <a href="https://flake8.pycqa.org/en/latest/">flake8</a>. You can run them with pytest by installing <a href="https://pypi.org/project/pytest-black/">pytest-black</a> and <a href="https://pypi.org/project/pytest-flake8/">pytest-flake8</a>. Again, if you want to execute it just add the flag --black or --flake8 to pytest:</p>
+<div class="highlight"><pre><span></span><code>$ pytest --flake8 --black
+</code></pre></div>
+<p>There is also <a href="https://pypi.org/project/pytest-mccabe/">pytest-mccabe</a> which tries to find sections in the cod which are to complex. This makes it easier for coworkers / your future self to understand the code. An alternative to pytest-mccabe outside of pytest is <a href="https://pypi.org/project/radon/">radon</a>. However, a lot of people don&rsquo;t like this type of test.</p>
+<h2 id="doctests">Doctests</h2>
+<p><a href="https://docs.python.org/3/library/doctest.html">Doctests</a> are a weird but pretty awesome part of Python. Python has Docstrings &mdash; the first string within a function/class which comes directly after the signature and which is not assigned. This is not just a comment, it has meaning and can be read through the execution:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    The fibonacci function.</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    &gt;&gt;&gt; fib(1)</span>
+<span class="sd">    1</span>
+<span class="sd">    &gt;&gt;&gt; fib(6)</span>
+<span class="sd">    8</span>
+<span class="sd">    """</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">a</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">doctest</span>
+
+    <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
+</code></pre></div>
+<p>If you execute this directly, the lines 19&ndash;21 will run the doctest. The doctest looks for <code>&gt;&gt;&gt;</code> within the docstrings and executes whatever follows as if it was entered in the interactive console. The next line is then the output which is compared to the output of the program.</p>
+<p>This is pretty awesome because it makes documentation testable!</p>
+<p>And, of course, you can also <a href="https://docs.pytest.org/en/stable/doctest.html">execute doctests with pytest</a>:</p>
+<div class="highlight"><pre><span></span><code>$ pytest --doctest-modules
+</code></pre></div>
+<h2 id="test-execution-speed">Test Execution Speed</h2>
+<p>It&rsquo;s important to keep the execution time of the tests low so that it doesn&rsquo;t feel bad to execute the test suite. I like to print the time of the 3 slowest tests which were performed. To <a href="https://docs.pytest.org/en/stable/usage.html#profiling-test-execution-duration">profile the tests</a> continuously, I simply add the durations flag:</p>
+<div class="highlight"><pre><span></span><code>$ pytest --durations<span class="o">=</span><span class="m">3</span>
+</code></pre></div>
+<h2 id="alternatives-unittest-and-nose">Alternatives: unittest and nose</h2>
+<p><a href="https://docs.python.org/3/library/unittest.html#module-unittest">unittest</a> is a core Python module and as such, I would prefer to use it. unittest feels pretty similar to <a href="https://en.wikipedia.org/wiki/JUnit">JUnit</a> which I would say is a disadvantage. Python is a different language with different patterns and expectations. One weirdness is that you have to put your tests in a class, even if you don&rsquo;t need to <a href="https://docs.python.org/3/library/unittest.html#unittest.TestCase.setUp">setUp()</a> or <a href="https://docs.python.org/3/library/unittest.html#unittest.TestCase.tearDown">tearDown()</a> anything. It uses camelCase for the method names which is against the Python conventions. You cannot simply assert Expression , but instead, have to use self.assertEqual , self.assertTrue , &hellip; (see the <a href="https://docs.python.org/3/library/unittest.html#assert-methods">complete list of assert methods</a>). And the error messages are not as expressive as the ones you get from Pytest.</p>
+<p>TL;DR: unittest and nose are no alternatives. pytest is the way to go.</p>
+<h2 id="more-testing-topics">More Testing Topics</h2>
+<p>There are many more topics in testing which this article doesn&rsquo;t cover. The testing pyramid (integration testing, end-to-end testing), testing web applications that have a database, GUI testing, testing machine learning models, and many more.</p>
+<p>The following topics will be covered by me in the next few weeks:</p>
+<ul>
+<li>Mocking, Patching and Dependency Injection</li>
+<li>tox and nox</li>
+<li>CI-Pipelines</li>
+<li>Test Automation</li>
+<li>Property-based Testing</li>
+<li>Mutation Testing</li>
+</ul>
+<p>Let me know if you&rsquo;re interested in other topics around testing with Python.</p>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2020-06-29T20:00:00+02:00">Jun 29, 2020</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#python-ref">Python
+                    <span>121</span>
+</a></li>
+                <li><a href="../tags.html#unit-testing-ref">Unit Testing
+                    <span>1</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="https://martin-thoma.com/feeds/index.xml">RSS-Feed</a></li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page" tabindex="-1">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page" tabindex="-1">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page" tabindex="-1">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

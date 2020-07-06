@@ -104,7 +104,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#hello-typed-annotated-world" title="Hello, Typed Annotated World!">Hello, Typed Annotated World!</a></li><li><a class="toc-href" href="#type-checking-with-mypy" title="Type Checking with mypy">Type Checking with mypy</a></li><li><a class="toc-href" href="#typing-list-dict-tuple-any" title="typing: List, Dict, Tuple, Any">typing: List, Dict, Tuple, Any</a></li><li><a class="toc-href" href="#stop-type-checking" title="Stop Type Checking">Stop Type Checking</a></li><li><a class="toc-href" href="#typing-union-and-optional" title="typing: Union and Optional">typing: Union and Optional</a></li><li><a class="toc-href" href="#typing-list-vs-sequence" title="typing: List vs Sequence">typing: List vs Sequence</a></li><li><a class="toc-href" href="#typing-dict-vs-mapping" title="typing: Dict vs Mapping">typing: Dict vs Mapping</a></li><li><a class="toc-href" href="#custom-types-not-all-strings-are-created-equal" title="Custom Types: Not all Strings are Created Equal">Custom Types: Not all Strings are Created Equal</a></li><li><a class="toc-href" href="#typingoverload" title="typing.overload">typing.overload</a></li><li><a class="toc-href" href="#protocols" title="Protocols">Protocols</a></li><li><a class="toc-href" href="#type-comments" title="Type comments">Type comments</a></li><li><a class="toc-href" href="#stub-files" title="Stub files">Stub files</a></li><li><a class="toc-href" href="#pyright-pyre-pytype" title="pyright, pyre, pytype">pyright, pyre, pytype</a></li><li><a class="toc-href" href="#pydantic" title="pydantic">pydantic</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#hello-typed-annotated-world" title="Hello, Typed Annotated World!">Hello, Typed Annotated World!</a></li><li><a class="toc-href" href="#type-checking-with-mypy" title="Type Checking with mypy">Type Checking with mypy</a></li><li><a class="toc-href" href="#typing-list-dict-tuple-any" title="typing: List, Dict, Tuple, Any">typing: List, Dict, Tuple, Any</a></li><li><a class="toc-href" href="#stop-type-checking" title="Stop Type Checking">Stop Type Checking</a></li><li><a class="toc-href" href="#typing-union-and-optional" title="typing: Union and Optional">typing: Union and Optional</a></li><li><a class="toc-href" href="#typing-list-vs-sequence" title="typing: List vs Sequence">typing: List vs Sequence</a></li><li><a class="toc-href" href="#typing-dict-vs-mapping" title="typing: Dict vs Mapping">typing: Dict vs Mapping</a></li><li><a class="toc-href" href="#many-more-types" title="Many more Types">Many more Types</a></li><li><a class="toc-href" href="#custom-types-not-all-strings-are-created-equal" title="Custom Types: Not all Strings are Created Equal">Custom Types: Not all Strings are Created Equal</a></li><li><a class="toc-href" href="#typingoverload" title="typing.overload">typing.overload</a></li><li><a class="toc-href" href="#protocols" title="Protocols">Protocols</a></li><li><a class="toc-href" href="#type-comments" title="Type comments">Type comments</a></li><li><a class="toc-href" href="#stub-files" title="Stub files">Stub files</a></li><li><a class="toc-href" href="#pyright-pyre-pytype" title="pyright, pyre, pytype">pyright, pyre, pytype</a></li><li><a class="toc-href" href="#pydantic" title="pydantic">pydantic</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -125,7 +125,7 @@ MathJax.Hub.Queue(function() {
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"fib(</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">) = </span><span class="si">{</span><span class="n">fib</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 <p>So you can simply use the pattern</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">some_function</span><span class="p">(</span><span class="n">param_name</span> <span class="p">:</span> <span class="n">typename</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">return_type_name</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">some_function</span><span class="p">(</span><span class="n">param_name</span><span class="p">:</span> <span class="n">typename</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">return_type_name</span><span class="p">:</span>
     <span class="o">...</span>  <span class="c1"># whatever the function does</span>
 </code></pre></div>
 <p>Having type annotations is nice, but you need to check them! The Python runtimes do not do that, no matter if you use cPython, pypy or something more exotic.</p>
@@ -139,7 +139,7 @@ MathJax.Hub.Queue(function() {
 Success: no issues found in <span class="m">1</span> <span class="nb">source</span> file
 </code></pre></div>
 <p>The <a href="https://mypy.readthedocs.io/en/stable/command_line.html#cmdoption-mypy-ignore-missing-imports">--ignore-missing-imports</a> flag is necessary, because otherwise you will get a lot of messages like this:</p>
-<div class="highlight"><pre><span></span><code><span class="n">error</span><span class="o">:</span> <span class="n">Skipping</span> <span class="n">analyzing</span> <span class="err">&lsquo;</span><span class="n">setuptools</span><span class="err">&rsquo;</span><span class="o">:</span> <span class="n">found</span> <span class="n">module</span> <span class="n">but</span> <span class="n">no</span> <span class="n">type</span> <span class="n">hints</span> <span class="n">or</span> <span class="n">library</span> <span class="n">stubs</span>
+<div class="highlight"><pre><span></span><code><span class="n">error</span><span class="o">:</span> <span class="n">Skipping</span> <span class="n">analyzing</span> <span class="s1">'setuptools'</span><span class="o">:</span> <span class="n">found</span> <span class="n">module</span> <span class="n">but</span> <span class="n">no</span> <span class="n">type</span> <span class="n">hints</span> <span class="n">or</span> <span class="n">library</span> <span class="n">stubs</span>
 </code></pre></div>
 <p>In order to make it more convenient, I usually add a setup.cfg file in which I specify that I always want this flag to be applied:</p>
 <div class="highlight"><pre><span></span><code><span class="k">[mypy]</span>
@@ -188,11 +188,13 @@ Success: no issues found in <span class="m">1</span> <span class="nb">source</sp
 <p>The type typing.List actually represents list . A typing.Sequence is &ldquo;an iterable with random access&rdquo; as <a href="https://stackoverflow.com/a/2921465/562769">Jochen Ritzel</a> put it so nicely. For example, a string is a Sequence[Any] , but not a List[Any] .</p>
 <h2 id="typing-dict-vs-mapping">typing: Dict vs Mapping</h2>
 <p>Similarly to the example List vs Sequence, the typing.Dict is meant mainly to represent a dict whereas typing.Mapping is more general. <a href="https://stackoverflow.com/a/52487800/562769">Stacksonstacks</a> gives a good answer.</p>
+<h2 id="many-more-types">Many more Types</h2>
 <h2 id="custom-types-not-all-strings-are-created-equal">Custom Types: Not all Strings are Created Equal</h2>
 <p>Not all strings contain the same type of content. They can represent anuser_id , a user_name , a password_hash , &hellip;</p>
 <p>Especially for IDs I have seen this to become messy. I think it&rsquo;s pretty ridiculous to create an own class for those different string types as creating a class is usually development and maintenance overhead. So, what do you do?</p>
 <p>Don&rsquo;t worry, <a href="https://docs.python.org/3/library/typing.html#newtype">typing.NewType</a> got you covered!</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NewType</span>
+
 <span class="n">UserId</span> <span class="o">=</span> <span class="n">NewType</span><span class="p">(</span><span class="s2">"UserId"</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="typingoverload">typing.overload</h2>
@@ -227,12 +229,15 @@ Success: no issues found in <span class="m">1</span> <span class="nb">source</sp
     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="o">...</span>
 
+
 <span class="k">def</span> <span class="nf">finish_it</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="n">SupportsClose</span><span class="p">):</span>
     <span class="n">obj</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
 
 <span class="k">class</span> <span class="nc">Foo</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">close</span><span class="p">():</span>
         <span class="k">pass</span>
+
 
 <span class="n">foo</span> <span class="o">=</span> <span class="n">Foo</span><span class="p">()</span>
 <span class="n">finish_it</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span>
@@ -259,7 +264,8 @@ Success: no issues found in <span class="m">1</span> <span class="nb">source</sp
 </code></pre></div>
 <h2 id="stub-files">Stub files</h2>
 <p>Stub files end in .pyi . If mypy finds a .py file and a .pyi file, it only loads the .pyi file. They are like header files in C++, but for Python. Instead of a function body, you use an Ellipsis ... :</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fib_list</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span> <span class="o">...</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fib_list</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+    <span class="o">...</span>
 </code></pre></div>
 <h2 id="pyright-pyre-pytype">pyright, pyre, pytype</h2>
 <p><a href="https://github.com/microsoft/pyright">pyright</a> is a Python static type checker written by Microsoft, <a href="https://pyre-check.org/">pyre</a> is one by Facebook, and pytype is one by Google. All of them claim to be faster than mypy, all of them have lower adoption than mypy. I haven&rsquo;t used them so far.</p>
@@ -352,7 +358,7 @@ $ pytype .
                     <span>1</span>
 </a></li>
                 <li><a href="../tags.html#python-ref">Python
-                    <span>119</span>
+                    <span>121</span>
 </a></li>
             </ul>
 <h4>Contact</h4>
