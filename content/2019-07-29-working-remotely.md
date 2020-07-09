@@ -403,6 +403,11 @@ Many of those are from [Daniel Bayerleins List](https://github.com/danielbayerle
 
 Mostly found via <a href="https://stackoverflow.com/jobs?id=393644&l=Germany&d=20&u=Km&r=true&tl=python">Stackoverflow.com/jobs</a>
 
+## List websites
+
+* [remote.co](https://remote.co/remote-jobs/)
+* [workingnomads.co](https://www.workingnomads.co/jobs)
+
 
 ## Sources
 
