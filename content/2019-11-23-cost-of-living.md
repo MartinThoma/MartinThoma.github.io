@@ -620,7 +620,7 @@ Fabrics:
             <td>3 weeks</td>
             <td>0.99 € / piece</td>
             <td>4.95 € / year</td>
-            <td>10.73 € / 10 piece</td>
+            <td>10.98 € / 11 piece</td>
         </tr>
         <tr>
             <td>Kirschen</td>
@@ -652,7 +652,7 @@ Fabrics:
             <td>4 weeks</td>
             <td>2.99 € / kg</td>
             <td></td>
-            <td>10.88 € / 3.058kg</td>
+            <td>14.56 € / 4.058kg</td>
         </tr>
         <tr>
             <td>Annanas in a tin can</td>
@@ -734,7 +734,7 @@ Fabrics:
             <td>3 months (?)</td>
             <td>0.75 € / 2kg</td>
             <td></td>
-            <td>0 €</td>
+            <td>2.49 € / 2.5 kg</td>
         </tr>
         <tr>
             <td>Carrots (🇩🇪 Karotten / Möhren)</td>
@@ -742,7 +742,7 @@ Fabrics:
             <td>3 months (?)</td>
             <td>0.99 € / 2kg</td>
             <td></td>
-            <td>4.03 € / 5.282 kg</td>
+            <td>4.39 € / 5.564 kg</td>
         </tr>
         <tr>
             <td>Brookkoli</td>
@@ -782,7 +782,7 @@ Fabrics:
             <td>2 weeks (?)</td>
             <td>0.59 € / bundle</td>
             <td>15.39 € / year</td>
-            <td>3.35 € / 5 bundles</td>
+            <td>3.94 € / 6 bundles</td>
         </tr>
         <tr>
             <td>Onion (🇩🇪 Speisezwiebeln)</td>
@@ -798,7 +798,7 @@ Fabrics:
             <td>2 months (?)</td>
             <td>0.89 € / 3 bulbs</td>
             <td>10.68 € / year</td>
-            <td>0.89 € / 3 bulbs</td>
+            <td>2.18 € / 9 bulbs</td>
         </tr>
         <tr>
             <td>Red beans (🇩🇪 Kidneybohnen)</td>
@@ -959,7 +959,7 @@ Fabrics:
             <td>4 days</td>
             <td>1.95 € / 500g and 1.29 € / 500g</td>
             <td></td>
-            <td>14.85 € / 5500g</td>
+            <td>16.14 € / 6000g</td>
         </tr>
         <tr>
             <td>Croissants</td>
@@ -1039,7 +1039,7 @@ Fabrics:
             <td>1 to 4 months</td>
             <td>2.69 € / 400g für Emmentaler; 1.99 € / 200g für Limburger; 1.19 € / 150g für Almzeit; 4.84 € / 250g für Parmigiano</td>
             <td>67.34 € / year</td>
-            <td>49.07 € / 6.50kg</td>
+            <td>51.76 € / 6.90kg</td>
         </tr>
         <tr>
             <td>Frischkäse</td>
@@ -1269,7 +1269,7 @@ General Cooking:
             <td>1 year</td>
             <td>1.99 € / 750g</td>
             <td></td>
-            <td>11.94 € / 4500g</td>
+            <td>13.93 € / 5250g</td>
         </tr>
         <tr>
             <td>Sunflower oil (Sonnenblumenöl)</td>
@@ -1476,9 +1476,9 @@ General Cooking:
             <td>Kleine Chilischoten</td>
             <td></td>
             <td>4 weeks</td>
-            <td></td>
-            <td></td>
             <td>1.49 € / 100g</td>
+            <td></td>
+            <td>2.48 € / 150g</td>
         </tr>
         <tr>
             <td>Kokusnussmilch</td>
@@ -1527,7 +1527,7 @@ General Cooking:
             <td>4 months</td>
             <td>0.69 € / 250g</td>
             <td>8.28 €</td>
-            <td>1.38 € / 500g</td>
+            <td>2.07 € / 750g</td>
         </tr>
         <tr>
             <td>Pesto</td>
@@ -1535,7 +1535,15 @@ General Cooking:
             <td>6 months</td>
             <td>1.99 € / 200g</td>
             <td></td>
-            <td>3.98 € / 400g</td>
+            <td>6.91 € / 600g</td>
+        </tr>
+        <tr>
+            <td>Nudelsoße</td>
+            <td></td>
+            <td></td>
+            <td>1.29 € / 400g</td>
+            <td></td>
+            <td>1.29 € / 400g</td>
         </tr>
         <tr>
             <td>Passierte Tomaten</td>
@@ -1673,7 +1681,7 @@ General Cooking:
             <td>2 weeks (?)</td>
             <td>0.29 € / piece</td>
             <td>45.37 €</td>
-            <td>32.81 € / 108 piece</td>
+            <td>33.80 € / 112 piece</td>
         </tr>
         <tr>
             <td>Natural Joghurt (Joghurt Pur)</td>
@@ -1689,7 +1697,7 @@ General Cooking:
             <td>months to years</td>
             <td></td>
             <td></td>
-            <td>66.09 € / 48 packages</td>
+            <td>67.01 € / 49 packages</td>
         </tr>
         <tr>
             <td>Savory (Chips, Nachos, Sauce for nachos, Bake Rolls, Cashew or other nuts)</td>
@@ -1769,7 +1777,7 @@ General Cooking:
             <td>2 weeks?</td>
             <td>1.29 € / 10 pieces</td>
             <td>11.88 € / year</td>
-            <td>6.45 € / 50 pieces</td>
+            <td>7.74 € / 60 pieces</td>
         </tr>
         <tr>
             <td>Juice (Saft: Orangen-Nektar)</td>
@@ -1777,7 +1785,7 @@ General Cooking:
             <td>?</td>
             <td>0.79 € / 1.5 L</td>
             <td>9.48 € / year</td>
-            <td>12.66 € / 22.5 L</td>
+            <td>13.45 € / 24.0 L</td>
         </tr>
         <tr>
             <td>Softdrinks (Eistee)</td>
@@ -2355,7 +2363,7 @@ pills and maybe a couple of months for creams and ointment.
         </tr>
         <tr>
             <td>Dates / Girlfriend</td>
-            <td>107.19 €</td>
+            <td>127.19 €</td>
         </tr>
         <tr>
             <td>Battery (9V)</td>
