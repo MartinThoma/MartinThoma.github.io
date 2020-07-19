@@ -6,7 +6,7 @@ alias: unit-testing-basics
 author: Martin Thoma
 date: 2020-06-29 20:00
 category: Code
-tags: Python, Unit Testing
+tags: Python, Unit Testing, pytest
 featured_image: logos/python.png
 ---
 Unit testing is the number one skill which separates people who just finished their degrees from people with practical experience. Especially for Python, that’s a shame as it is trivial to learn this skill.
