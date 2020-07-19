@@ -628,7 +628,7 @@ Fabrics:
             <td>2 weeks</td>
             <td>5.90 €/kg</td>
             <td></td>
-            <td>4.80 € / 0.820 kg</td>
+            <td>6.85 € / 1.442 kg</td>
         </tr>
         <tr>
             <td>Mango (Tin can)</td>
@@ -652,7 +652,7 @@ Fabrics:
             <td>4 weeks</td>
             <td>2.99 € / kg</td>
             <td></td>
-            <td>14.56 € / 4.058kg</td>
+            <td>16.25 € / 4.558kg</td>
         </tr>
         <tr>
             <td>Annanas in a tin can</td>
@@ -700,7 +700,7 @@ Fabrics:
             <td>9 months</td>
             <td>1.49 € / 250g</td>
             <td>17.88 € / year</td>
-            <td>4.17 € / 750 g</td>
+            <td>6.89 € / 1250 g</td>
         </tr>
         <tr>
             <td>Citrons (Zitronen)</td>
@@ -822,7 +822,7 @@ Fabrics:
             <td>1 week</td>
             <td>1.49 € / 250g (1 package)</td>
             <td></td>
-            <td>9.39 € / 1552g</td>
+            <td>9.93 € / 2096g</td>
         </tr>
         <tr>
             <td>Broccoli</td>
@@ -852,9 +852,9 @@ Fabrics:
             <td><a href="https://en.wikipedia.org/wiki/Capsicum">Pepper</a> (🇩🇪 Paprika)</td>
             <td>6 kg / year</td>
             <td>2 weeks</td>
-            <td>1.29 € / 500g</td>
+            <td>2.19 € / 500g</td>
             <td>15.48 € / year</td>
-            <td>2.33 € / 0.830 kg</td>
+            <td>4.52 € / 1.330 kg</td>
         </tr>
         <tr>
             <td>Champignons</td>
@@ -870,7 +870,7 @@ Fabrics:
             <td>1 month (?)</td>
             <td>1.99 € / kg</td>
             <td>11.94 € / kg</td>
-            <td>0.65 € / 0.328kg</td>
+            <td>1.00 € / 0.522kg</td>
         </tr>
         <tr>
             <td>Olives (entkernte Oliven im Glas)</td>
@@ -943,7 +943,7 @@ Fabrics:
             <td>1 day</td>
             <td>0.85 / piece</td>
             <td>85.00 € / year</td>
-            <td>3.80 € / 5 piece</td>
+            <td>4.23 € / 6 piece</td>
         </tr>
         <tr>
             <td>Toast (Sandwichtoast)</td>
@@ -959,7 +959,7 @@ Fabrics:
             <td>4 days</td>
             <td>1.95 € / 500g and 1.29 € / 500g</td>
             <td></td>
-            <td>16.14 € / 6000g</td>
+            <td>17.43 € / 6500g</td>
         </tr>
         <tr>
             <td>Croissants</td>
@@ -967,7 +967,7 @@ Fabrics:
             <td>1 day (3 weeks for backing)</td>
             <td>1.19 € / 4 pieces or 1.60 € / 1 piece at the baker</td>
             <td>32.54 € / year</td>
-            <td>10.86 € / 14 piece</td>
+            <td>12.23 € / 14 piece</td>
         </tr>
         <tr>
             <td>Käseschnecke</td>
@@ -999,7 +999,7 @@ Fabrics:
             <td>3 months</td>
             <td>1.39 € / 250g</td>
             <td>33.54 € / year</td>
-            <td>22.66 € / 3750g</td>
+            <td>25.56 € / 4250g</td>
         </tr>
         <tr>
             <td>Margarine</td>
@@ -1047,7 +1047,7 @@ Fabrics:
             <td>6 weeks</td>
             <td>0.99 € / 125g</td>
             <td></td>
-            <td>4.95 € / 625g</td>
+            <td>5.91 € / 750g</td>
         </tr>
         <tr>
             <td>Cheese (🇩🇪 Schweizer Hartkäse; Appenzeller)</td>
@@ -1063,7 +1063,7 @@ Fabrics:
             <td>0.69 € / 125 g (<abbr title="Abtropfgewicht">ATG</abbr>)</td>
             <td></td>
             <td></td>
-            <td>8.43 € / 1525g</td>
+            <td>9.61 € / 1775g</td>
         </tr>
         <tr>
             <td>Sausage (<a href="https://en.wikipedia.org/wiki/Mortadella">Mortadella</a> Wurst, Salami)</td>
@@ -1085,9 +1085,9 @@ Fabrics:
             <td>🇩🇪 Marmelade / Konfitüre (Strawberry, Preiselbeeren)</td>
             <td>?</td>
             <td>18 months</td>
-            <td>0.99 € / 450g</td>
+            <td>1.29 € / 450g</td>
             <td></td>
-            <td>3.26 € / 1750g</td>
+            <td>4.55 € / 2200g</td>
         </tr>
         <tr>
             <td>Obatzter (Obazda)</td>
@@ -1095,7 +1095,7 @@ Fabrics:
             <td>2 months</td>
             <td>1.49 € / 125g</td>
             <td></td>
-            <td>6.85 € / 600g</td>
+            <td>8.24 € / 725g</td>
         </tr>
         <tr>
             <td>Hummus</td>
@@ -1237,7 +1237,7 @@ General Cooking:
             <td>2 weeks</td>
             <td>0.63 € / 200 g</td>
             <td>7.56 € / year</td>
-            <td>2.13 € / 600g</td>
+            <td>2.76 € / 800g</td>
         </tr>
         <tr>
             <td>Saure Sahne</td>
@@ -1317,7 +1317,7 @@ General Cooking:
             <td>2 years 9 months</td>
             <td>1.99 € / 250ml</td>
             <td></td>
-            <td>5.97 € / 750ml</td>
+            <td>7.96 € / 1000ml</td>
         </tr>
         <tr>
             <td>Wheat Flour (Weizenmehl)</td>
@@ -1608,7 +1608,7 @@ General Cooking:
             <td>?</td>
             <td>2.69 € / 400g</td>
             <td>32.28 € / year</td>
-            <td>16.94 € / 2500g</td>
+            <td>19.93 € / 2900g</td>
         </tr>
         <tr>
             <td>Hähnchen-Schnitzel / Cordon Bleu</td>
@@ -1681,7 +1681,7 @@ General Cooking:
             <td>2 weeks (?)</td>
             <td>0.29 € / piece</td>
             <td>45.37 €</td>
-            <td>33.80 € / 112 piece</td>
+            <td>35.07 € / 117 piece</td>
         </tr>
         <tr>
             <td>Natural Joghurt (Joghurt Pur)</td>
@@ -1692,12 +1692,12 @@ General Cooking:
             <td>2.03 € / 1675g</td>
         </tr>
         <tr>
-            <td>Sweets like Cookies (Chips, chocolate, cake, waffles, cookies; Süßigkeiten, Kakao-Schnitten, Kekse, Wassereis, Nuss-Strudel, Mozart-Kugeln)</td>
+            <td>Sweets like Cookies (Chips, chocolate, cake, waffles, cookies; Süßigkeiten, Kakao-Schnitten, Kekse, Wassereis, Nuss-Strudel, Milchlaible, Mozart-Kugeln)</td>
             <td>-</td>
             <td>months to years</td>
             <td></td>
             <td></td>
-            <td>67.01 € / 49 packages</td>
+            <td>73.89 € / 53 packages</td>
         </tr>
         <tr>
             <td>Savory (Chips, Nachos, Sauce for nachos, Bake Rolls, Cashew or other nuts)</td>
@@ -1785,7 +1785,7 @@ General Cooking:
             <td>?</td>
             <td>0.79 € / 1.5 L</td>
             <td>9.48 € / year</td>
-            <td>13.45 € / 24.0 L</td>
+            <td>14.24 € / 25.5 L</td>
         </tr>
         <tr>
             <td>Softdrinks (Eistee)</td>
@@ -1794,6 +1794,14 @@ General Cooking:
             <td>0.79 € / 1.5 L</td>
             <td>?</td>
             <td>0.79 € / 1.5 L</td>
+        </tr>
+        <tr>
+            <td>Joghurt-Drink</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>0.69 € / (500ml?)</td>
         </tr>
         <tr>
             <td>Wine (Wein)</td>
@@ -2279,7 +2287,7 @@ pills and maybe a couple of months for creams and ointment.
             <td>13 €</td>
             <td>Each 6 Weeks</td>
             <td>113.00 € / year</td>
-            <td>33 € / 2 time</td>
+            <td>49 € / 3 time</td>
         </tr>
         <tr>
             <td><a href="https://www.check24.de/handytarife">SIM card</a></td>
@@ -2363,7 +2371,7 @@ pills and maybe a couple of months for creams and ointment.
         </tr>
         <tr>
             <td>Dates / Girlfriend</td>
-            <td>127.19 €</td>
+            <td>147.19 €</td>
         </tr>
         <tr>
             <td>Battery (9V)</td>
