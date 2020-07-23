@@ -935,7 +935,7 @@ Fabrics:
             <td>1 month (?)</td>
             <td>0.69 € / pice</td>
             <td>35.88 € / year</td>
-            <td>0.59 € / 1 piece</td>
+            <td>1.56 € / 2 piece</td>
         </tr>
         <tr>
             <td>Bread roll (🇩🇪 Brötchen / Semmel)</td>
@@ -959,7 +959,7 @@ Fabrics:
             <td>4 days</td>
             <td>1.95 € / 500g and 1.29 € / 500g</td>
             <td></td>
-            <td>17.43 € / 6500g</td>
+            <td>19.42 € / 7000g</td>
         </tr>
         <tr>
             <td>Croissants</td>
@@ -1039,7 +1039,7 @@ Fabrics:
             <td>1 to 4 months</td>
             <td>2.69 € / 400g für Emmentaler; 1.99 € / 200g für Limburger; 1.19 € / 150g für Almzeit; 4.84 € / 250g für Parmigiano</td>
             <td>67.34 € / year</td>
-            <td>51.76 € / 6.90kg</td>
+            <td>53.35 € / 7.10kg</td>
         </tr>
         <tr>
             <td>Frischkäse</td>
@@ -1047,7 +1047,7 @@ Fabrics:
             <td>6 weeks</td>
             <td>0.99 € / 125g</td>
             <td></td>
-            <td>5.91 € / 750g</td>
+            <td>6.87 € / 875g</td>
         </tr>
         <tr>
             <td>Cheese (🇩🇪 Schweizer Hartkäse; Appenzeller)</td>
@@ -1060,16 +1060,24 @@ Fabrics:
         <tr>
             <td>Cheese (Mozzarella)</td>
             <td></td>
-            <td>0.69 € / 125 g (<abbr title="Abtropfgewicht">ATG</abbr>)</td>
             <td></td>
+            <td>0.69 € / 125 g (<abbr title="Abtropfgewicht">ATG</abbr>)</td>
             <td></td>
             <td>9.61 € / 1775g</td>
         </tr>
         <tr>
+            <td>Ofenkäse</td>
+            <td></td>
+            <td>3 weeks</td>
+            <td>1.63 € / 180 g</td>
+            <td></td>
+            <td>1.63 € / 180 g</td>
+        </tr>
+        <tr>
             <td>Sausage (<a href="https://en.wikipedia.org/wiki/Mortadella">Mortadella</a> Wurst, Salami)</td>
             <td>1 package / month</td>
-            <td>0.89 € / (package)?</td>
             <td></td>
+            <td>0.89 € / (package)?</td>
             <td>10.68 € / year</td>
             <td>1.19 € / 200g</td>
         </tr>
@@ -1095,7 +1103,7 @@ Fabrics:
             <td>2 months</td>
             <td>1.49 € / 125g</td>
             <td></td>
-            <td>8.24 € / 725g</td>
+            <td>9.83 € / 850g</td>
         </tr>
         <tr>
             <td>Hummus</td>
@@ -1697,7 +1705,7 @@ General Cooking:
             <td>months to years</td>
             <td></td>
             <td></td>
-            <td>73.89 € / 53 packages</td>
+            <td>75.24 € / 54 packages</td>
         </tr>
         <tr>
             <td>Savory (Chips, Nachos, Sauce for nachos, Bake Rolls, Cashew or other nuts)</td>
@@ -1705,7 +1713,7 @@ General Cooking:
             <td></td>
             <td></td>
             <td></td>
-            <td>9.22 € / 8 packages</td>
+            <td>9.91 € / 9 packages</td>
         </tr>
         <tr>
             <td>Bakery non-sweet (Semmeln)</td>
@@ -1796,14 +1804,6 @@ General Cooking:
             <td>0.79 € / 1.5 L</td>
         </tr>
         <tr>
-            <td>Joghurt-Drink</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>0.69 € / (500ml?)</td>
-        </tr>
-        <tr>
             <td>Wine (Wein)</td>
             <td></td>
             <td></td>
@@ -1828,12 +1828,12 @@ General Cooking:
             <td>0.54 € / 1.0L</td>
         </tr>
         <tr>
-            <td>Milchgetränk / Joghurtgetränk</td>
+            <td>Milchgetränk / Joghurtgetränk / Joghurt-Drink</td>
             <td></td>
             <td>1 week (needs ❄️)</td>
             <td>0.39 € / 250ml</td>
             <td></td>
-            <td>0.39 € / 250ml</td>
+            <td>1.08 € / 750ml</td>
         </tr>
         <tr>
             <td>Camembert</td>
@@ -2238,7 +2238,7 @@ pills and maybe a couple of months for creams and ointment.
             <td></td>
             <td></td>
             <td></td>
-            <td>55 € / 5 time</td>
+            <td>65 € / 6 time</td>
         </tr>
         <tr>
             <td>Food for Work (e.g. Semmel)</td>
