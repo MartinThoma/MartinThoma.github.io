@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Python, pytest, Code, " />
+
+<meta property="og:title" content="Structuring Unit Tests "/>
+<meta property="og:url" content="https://towardsdatascience.com/unit-testing-in-python-structure-57acd51da923" />
+<meta property="og:description" content="Testing code is often pretty ugly: A lot of copy &amp; paste, the code is all over the place and hard to understand. In this article you will learn how to structure unit testing code in Python. Directory Layout I put the tests next to the package. So the tests are …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2020-07-25T20:00:00+02:00" />
+<meta name="twitter:title" content="Structuring Unit Tests ">
+<meta name="twitter:description" content="Testing code is often pretty ugly: A lot of copy &amp; paste, the code is all over the place and hard to understand. In this article you will learn how to structure unit testing code in Python. Directory Layout I put the tests next to the package. So the tests are …">
+<meta property="og:image" content="logos/python.png" />
+<meta name="twitter:image" content="logos/python.png" >
+
+        <title>Structuring Unit Tests  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand" tabindex="-1">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="https://towardsdatascience.com/unit-testing-in-python-structure-57acd51da923"> Structuring Unit Tests  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#directory-layout" title="Directory Layout">Directory Layout</a></li><li><a class="toc-href" href="#names-of-test-functions" title="Names of Test Functions">Names of Test Functions</a></li><li><a class="toc-href" href="#docstrings-of-test-functions" title="Docstrings of test functions">Docstrings of test functions</a></li><li><a class="toc-href" href="#pytest-markers" title="Pytest markers">Pytest markers</a></li><li><a class="toc-href" href="#shared-test-helpers" title="Shared test helpers">Shared test helpers</a></li><li><a class="toc-href" href="#pytest-configuration" title="Pytest configuration">Pytest configuration</a></li><li><a class="toc-href" href="#fixtures" title="fixtures">fixtures</a></li><li><a class="toc-href" href="#parametrizing-test-functions" title="Parametrizing test functions">Parametrizing test functions</a></li><li><a class="toc-href" href="#dependencies-between-tests" title="Dependencies between tests">Dependencies between tests</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>Testing code is often pretty ugly: A lot of copy &amp; paste, the code is all over
+the place and hard to understand. In this article you will learn how to
+structure unit testing code in Python.</p>
+<h2 id="directory-layout">Directory Layout</h2>
+<p>I put the tests next to the package. So the tests are not part of the package, only of the repository. The reason is simply to keep the package small.</p>
+<p>A part of my package <a href="https://github.com/MartinThoma/mpu">mpu</a> looks like this:</p>
+<div class="highlight"><pre><span></span><code>mpu &lt;-- Root of the git repository
+├── mpu &lt;-- Root of the package
+│   ├── datastructures/
+│   │   ├── __init__.py
+│   │   └── trie
+│   │       ├── char_trie.py
+│   │       └── __init__.py
+│   ├── geometry.py
+│   ├── image.py
+│   ├── __init__.py
+│   ├── io.py
+│   └── _version.py
+├── README.md
+├── requirements-dev.in
+├── requirements-dev.txt
+├── tests/
+│   ├── files/
+│   ├── test_char_trie.py
+│   ├── test_datastructures.py
+│   ├── test_geometry.py
+│   ├── test_image.py
+│   ├── test_io.py
+│   └── test_main.py
+└── tox.ini
+</code></pre></div>
+<p>You should notice the following:</p>
+<ol>
+<li>
+<p>The tests/ are side-by-side to the mpu/ directory which contains the code. The two alternatives are (1) to have a tests/ directory within the mpu/ package so that the tests get shipped with the code or (2) to put the test of a module next to the module. I would discourage (2) as I have never seen it for Python, but (1) is also <a href="https://github.com/pandas-dev/pandas/tree/master/pandas">commonly</a> <a href="https://github.com/scipy/scipy/tree/master/scipy/sparse">done</a> and <a href="https://docs.pytest.org/en/latest/goodpractices.html#tests-as-part-of-application-code">mentioned by pytest</a>.</p>
+</li>
+<li>
+<p>Every test file starts with test_ . That makes it easy to recognize which files contain the tests. It&rsquo;s the default of pytest and I don&rsquo;t see a reason to change it.</p>
+</li>
+</ol>
+<h2 id="names-of-test-functions">Names of Test Functions</h2>
+<p>When you have a fibonacci(n: int) -&gt; int function, you will likely have a test_fibonacci function. And when test suites grow, there might appear a test_fibonacci2 or something similar. Don&rsquo;t do that. I know, naming things is hard.</p>
+<p>You will see the name of this function when the test fails. Which name will help you to quickly understand what was tested?</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2020/07/geek-and-poke-tdd.jpg"><img alt="Comic by Oliver Widder on geek-and-poke.com" src="../images/2020/07/geek-and-poke-tdd.jpg" style="width: 512px;"/></a>
+<figcaption class="text-center">Comic by Oliver Widder on <a href="http://geek-and-poke.com/geekandpoke/2013/7/28/tdd">geek-and-poke.com</a></figcaption>
+</figure>
+<h2 id="docstrings-of-test-functions">Docstrings of test functions</h2>
+<p>Docstrings can be super helpful. Especially if the thing you need to test is complex. You can add details on why this test exists and how the expected values were calculated.</p>
+<p>On module level, you can add a docstring to tell the reader what should be within this test module. Do you test a specific module of the code base? Is it some common types of test you want to apply for different modules? Are there common issues that should be tested?</p>
+<p>Test level docstrings are used in a good way in parts of
+<a href="https://github.com/sympy/sympy/blob/master/sympy/solvers/tests/test_recurr.py#L78">sympy</a>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">recurrence_term</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+    <span class="sd">"""Compute RHS of recurrence in f(n) with coefficients in c."""</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">f</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)))</span>
+</code></pre></div>
+<p>There are tons of negative examples like this from Flask, where the docstring
+adds no value:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_jsonify_basic_types</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">test_value</span><span class="p">,</span> <span class="n">app</span><span class="p">,</span> <span class="n">client</span><span class="p">):</span>
+    <span class="sd">"""Test jsonify with basic types."""</span>
+
+
+<span class="o">...</span>
+
+
+<span class="k">def</span> <span class="nf">test_scriptinfo</span><span class="p">(</span><span class="n">test_apps</span><span class="p">,</span> <span class="n">monkeypatch</span><span class="p">):</span>
+    <span class="sd">"""Test of ScriptInfo."""</span>
+</code></pre></div>
+<p>I&rsquo;ve also checked my own code and I&rsquo;ve mainly seen neutral or negative uses of test level docstrings 😱</p>
+<h2 id="pytest-markers">Pytest markers</h2>
+<p>Pytest gives you the option to decorate your code with <code>@pytest.mark.foo</code>,
+where <code>foo</code> can be any arbitrary string you like. I use <code>@pytest.mark.slow</code> quite
+often. Then you can execute all tests which are not slow like this:</p>
+<div class="highlight"><pre><span></span><code>pytest -v -m <span class="s2">"not slow"</span>
+</code></pre></div>
+<p>I&rsquo;ve seen the marks high_memory and db in Pandas as well.</p>
+<h2 id="shared-test-helpers">Shared test helpers</h2>
+<p>Once in a while you need helper functions for your tests which appear in
+multiple tests. Now there are multiple ways how to deal with that:</p>
+<ol>
+<li>Duplicate the code</li>
+<li>Import the helper function from a test/foo.py file</li>
+<li>Import the helper function from the main package, e.g. within a test_helpers / tests directory.</li>
+<li>Import the helper function from one test_foo.py file</li>
+</ol>
+<p>I would not go for option (4) as it seems pretty arbitrary to put code there.
+Besides that, I see no clear best option:</p>
+<ol>
+<li>Is nice, because it keeps the test code easy to understand. You have to look
+   at most at two 3 files: The <code>foo.py</code>, the test_foo.py and the conftest.py
+   (see later). If you like <a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">DRY
+   code</a>, this is not
+   for you.</li>
+<li>You keep things DRY and you keep tests out of the production code. The
+   disadvantage is that it feels like building a separate, potentially
+   untested, code base.</li>
+<li>This way it&rsquo;s clear that you should test the test helpers. You expose them
+   to others who might need them as well. The disadvantage is that you extend
+   the production code you ship.</li>
+</ol>
+<h2 id="pytest-configuration">Pytest configuration</h2>
+<p>I usually put everything that configures pytest in thesetup.cfgand the fixtures
+in a <a href="https://docs.pytest.org/en/2.7.3/plugins.html">conftest.py</a> within
+<code>tests/</code>.</p>
+<h2 id="fixtures">fixtures</h2>
+<p>The Python style of writing tests is by creating a function which contains the
+test. This might seem weird to you if you come from a Java / JUnit-influenced
+testing world. There you have a class with a setUp and tearDown method and
+various methods for the single tests.</p>
+<p>For a long time, I&rsquo;ve used the old and uglyunittest.TestCase if I had a lot of
+tests which needed some common preparation &mdash; I thought there was no way around
+setUp and tearDown . I&rsquo;ve been wrong.</p>
+<p>Pytest fixtures can do exactly that. Their structure looks like this:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pytest</span>
+
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
+<span class="k">def</span> <span class="nf">client</span><span class="p">():</span>
+    <span class="c1"># setUp()</span>
+    <span class="n">obj</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># whatever you want to pass</span>
+    <span class="k">yield</span> <span class="n">obj</span>
+    <span class="c1"># tearDown()</span>
+
+
+<span class="k">def</span> <span class="nf">test_awesomeness</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
+    <span class="k">pass</span>
+</code></pre></div>
+<p>Note that the argument to test_awesomeness is called just like the fixture. That is no coincidence. It has to be the same name so that pytest passes the fixture.</p>
+<p>I usually define the fixtures in tests/conftest.py . Pytest will register them and supply them to your test automatically. No need to import the conftest.py anywhere.</p>
+<p>Here is an example to demonstrate that the tests are isolated:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pytest</span>
+
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
+<span class="k">def</span> <span class="nf">show_isolation</span><span class="p">():</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">42</span>
+    <span class="k">yield</span> <span class="n">a</span>
+    <span class="n">a</span> <span class="o">+=</span> <span class="mi">1</span>
+
+
+<span class="k">def</span> <span class="nf">test_foo</span><span class="p">(</span><span class="n">show_isolation</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">show_isolation</span> <span class="o">==</span> <span class="mi">42</span>
+
+
+<span class="k">def</span> <span class="nf">test_bar</span><span class="p">(</span><span class="n">show_isolation</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">show_isolation</span> <span class="o">==</span> <span class="mi">42</span>
+</code></pre></div>
+<p>If you want real examples, have a look at my tutorial <a href="https://medium.com/analytics-vidhya/how-to-test-flask-applications-aef12ae5181c">how to test Flask Applications</a>. There I show how to use fixtures to mock the database.</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2020/07/geek-and-poke-good-coders.jpg"><img alt="Comic by Oliver Widder from geek-and-poke.com" src="../images/2020/07/geek-and-poke-good-coders.jpg" style="width: 512px;"/></a>
+<figcaption class="text-center">Comic by Oliver Widder from <a href="http://geek-and-poke.com/geekandpoke/2011/7/24/good-coders.html">geek-and-poke.com</a></figcaption>
+</figure>
+<h2 id="parametrizing-test-functions">Parametrizing test functions</h2>
+<p>Have a look at the Fibonacci function:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">a</span>
+</code></pre></div>
+<p>Testing the first seven Fibonacci numbers seems like a good idea. You could create one test for each of them in <code>test_fib_many.py</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fibonacci</span> <span class="kn">import</span> <span class="n">fib</span>
+
+
+<span class="k">def</span> <span class="nf">test_fib_0</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">fib</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+
+
+<span class="k">def</span> <span class="nf">test_fib_1</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">fib</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+
+
+<span class="k">def</span> <span class="nf">test_fib_2</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">fib</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+
+
+<span class="k">def</span> <span class="nf">test_fib_3</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">fib</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+
+
+<span class="k">def</span> <span class="nf">test_fib_4</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">fib</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span>
+
+
+<span class="k">def</span> <span class="nf">test_fib_5</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">fib</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span>
+
+
+<span class="k">def</span> <span class="nf">test_fib_6</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">fib</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="o">==</span> <span class="mi">8</span>
+</code></pre></div>
+<p>Or you could test them all in <code>test_fib_one.py</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fibonacci</span> <span class="kn">import</span> <span class="n">fib</span>
+
+
+<span class="k">def</span> <span class="nf">test_fib_first_seven</span><span class="p">():</span>
+    <span class="n">n2expected</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">)]</span>
+    <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">expected</span> <span class="ow">in</span> <span class="n">n2expected</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">==</span> <span class="n">expected</span>
+</code></pre></div>
+<p>The <code>test_fib_one.py</code> will fail at the first example that fails. Assume you&rsquo;re
+asking students to hand in an implementation of Fibonacci as homework and one
+of them just hard-codes the first three cases. Another student gets it almost
+right, but starts with <code>1,1,2,3,5,8</code> instead of <code>0,1,1,2,3,5,8</code>. For both
+students, you would see only one failing test. You would see one example which
+didn&rsquo;t pass and why, but you wouldn&rsquo;t have a clue in which way the other
+examples were wrong.</p>
+<p>The <code>test_fib_many.py</code> will show you all mistakes. However, it is super
+verbose.</p>
+<p>There is a better way to test to combine both advantages: <a href="https://docs.pytest.org/en/stable/parametrize.html">Parametrizing test
+functions</a>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pytest</span>
+<span class="kn">from</span> <span class="nn">fibonacci</span> <span class="kn">import</span> <span class="n">fib</span>
+
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span>
+    <span class="s2">"n,expected"</span><span class="p">,</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">)]</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_route_status</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">==</span> <span class="n">expected</span>
+</code></pre></div>
+<p>The parametrization example looks similar to the <code>test_fib_one.py</code>, but it will
+fail for every single parameter which is wrong. As an example, I manipulated
+the Fibonacci function to return <code>42</code> for <code>n=2</code> and <code>n=3</code>. Here is how the
+error looks like with pytests parametrization:</p>
+<p><img alt="Screenshot taken by Martin Thoma" src="https://cdn-images-1.medium.com/max/2000/1*U7bFojobikHFYkvmF0RK_g.png"/><em>Screenshot taken by Martin Thoma</em></p>
+<p>Both, the test and the test output in case of failure are now more readable! I
+love this so much 😍</p>
+<h2 id="dependencies-between-tests">Dependencies between tests</h2>
+<p>In some cases, you know that a test will fail if another one has failed
+already. You could model that with
+<a href="https://pypi.org/project/pytest-dependency/">pytest-dependency</a>. However, I
+encourage you to think carefully about this. Maybe you can <a href="https://levelup.gitconnected.com/unit-testing-in-python-mocking-patching-and-dependency-injection-301280db2fed">patch dependencies
+away</a>
+to make sure you&rsquo;re only testing one thing in one unit test? Maybe the function
+you want to test can be split into multiple functions if it has too many
+dependencies?</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li>Brian K Okken: <a href="https://www.youtube.com/watch?v=2R1HELARjUk">Multiply your Testing Effectiveness with Parameterized Testing</a>, PyCon 2020. On YouTube.</li>
+</ul>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2020-07-25T20:00:00+02:00">Jul 25, 2020</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#pytest-ref">pytest
+                    <span>5</span>
+</a></li>
+                <li><a href="../tags.html#python-ref">Python
+                    <span>125</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="https://martin-thoma.com/feeds/index.xml">RSS-Feed</a></li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page" tabindex="-1">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page" tabindex="-1">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page" tabindex="-1">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
