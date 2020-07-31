@@ -5,7 +5,7 @@ URL: https://towardsdatascience.com/unit-testing-in-python-structure-57acd51da92
 author: Martin Thoma
 date: 2020-07-25 20:00
 category: Code
-tags: Python
+tags: Python, pytest
 featured_image: logos/python.png
 ---
 Testing code is often pretty ugly: A lot of copy & paste, the code is all over
