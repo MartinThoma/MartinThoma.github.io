@@ -176,6 +176,14 @@ def upcase(s):
         raise TypeError("need str or bytes")
 ```
 
+## Type checking only imports
+
+I've recently seen myself in the position that I made a pretty heavy import on
+module level, just because of type checking. This felt wrong, so I asked for
+help. The solution was simple:
+[`typing.TYPE_CHECKING`](https://mypy.readthedocs.io/en/stable/common_issues.html#import-cycles).
+This is `True` when running a type checker, but `False` during normal runs ❤️
+
 ## Protocols
 
 [PEP 544](https://www.python.org/dev/peps/pep-0544/) introduced structural subtyping and was introduced in Python 3.8. It feels like Interfaces in Java and works like this:
