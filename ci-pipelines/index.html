@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Python, DevOps, Code, " />
+
+<meta property="og:title" content="CI Pipelines "/>
+<meta property="og:url" content="https://towardsdatascience.com/ci-pipelines-for-python-projects-9ac2830d2e38" />
+<meta property="og:description" content="Continuous Integration is the practice of integrating code regularly with the main development branch. You can see the need for this when you look at huge projects like SciPy with currently 274 open pull requests (PRs). This means 274 different new features, bug fixes or other improvements want to be …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2020-07-30T20:00:00+02:00" />
+<meta name="twitter:title" content="CI Pipelines ">
+<meta name="twitter:description" content="Continuous Integration is the practice of integrating code regularly with the main development branch. You can see the need for this when you look at huge projects like SciPy with currently 274 open pull requests (PRs). This means 274 different new features, bug fixes or other improvements want to be …">
+<meta property="og:image" content="logos/python.png" />
+<meta name="twitter:image" content="logos/python.png" >
+
+        <title>CI Pipelines  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand" tabindex="-1">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="https://towardsdatascience.com/ci-pipelines-for-python-projects-9ac2830d2e38"> CI Pipelines  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#travis-ci" title="Travis CI">Travis CI</a></li><li><a class="toc-href" href="#github-actions" title="Github Actions">Github Actions</a></li><li><a class="toc-href" href="#circleci" title="CircleCI">CircleCI</a></li><li><a class="toc-href" href="#gitlab-ci" title="Gitlab CI">Gitlab CI</a></li><li><a class="toc-href" href="#azure-pipelines" title="Azure Pipelines">Azure Pipelines</a></li><li><a class="toc-href" href="#ci-service-comparison" title="CI Service Comparison">CI Service Comparison</a></li><li><a class="toc-href" href="#want-to-know-more-about-unit-testing" title="Want to know more about unit testing?">Want to know more about unit testing?</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>Continuous Integration is the practice of integrating code regularly with the main development branch. You can see the need for this when you look at huge projects like SciPy with currently <a href="https://github.com/scipy/scipy/pulls">274 open pull requests</a> (PRs). This means 274 different new features, bug fixes or other improvements want to be added. The maintainers likely don&rsquo;t know the contributors in person. While there is no way around looking at the contributed change, there is a good solution to make sure things are not horribly wrong: Unit Tests.</p>
+<p>Running the test suite for all of those pull requests costs quite a bit of time. The quicker the maintainers can see if the PR has issues and what the issues are, the better.</p>
+<p>The solution is a Continuous Integration Pipeline. The CI Pipeline is code which is automatically executed. Usually, there are several steps in the pipeline, like (1) unit testing with pytest (2) linting with tools like flake8 or pylint (3) type checking with mypy (4) manual review. There is an automatically generated comment which lets the maintainers and the contributor know about the status of the pipeline steps.</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2020/07/ci-feedback-github.png"><img alt="Automatic feedback given by Github Actions, Travis, Azure Pipelines and Circle CI. Some of the steps fail, some succeed. The steps have links so that the maintainers can look at the details." src="../images/2020/07/ci-feedback-github.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Automatic feedback given by Github Actions, Travis, Azure Pipelines and Circle CI. Some of the steps fail, some succeed. The steps have links so that the maintainers can look at the details.</figcaption>
+</figure>
+<p>In the following article, I will show you how to run unit tests automatically with various different CI Services such as Github Actions, Azure Pipelines, TravisCI and CircleCI.</p>
+<h2 id="travis-ci">Travis CI</h2>
+<p><a href="https://travis-ci.org/">Travis CI</a> was founded in 2011 and is the first CI service I&rsquo;ve used. It is configured via a .travis.yml file</p>
+<p>I&rsquo;ve almost always used it with the following script with minor variations:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<span class="nt">python</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">3.6</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">3.7</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">3.8</span>
+<span class="nt">install</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pip install coveralls tox-travis</span>
+<span class="nt">script</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">tox</span>
+<span class="nt">after_success</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">coveralls</span>
+</code></pre></div>
+<p>The <a href="https://github.com/tox-dev/tox-travis">tox-travis</a> package is awesome. I just made sure tox is working and then Travis worked as well. If you want a refresher about tox, have a look at <a href="https://medium.com/python-in-plain-english/unit-testing-in-python-tox-and-nox-833e4bbce729">the previous article</a> in this series.</p>
+<p>The configuration file looks for sure less scary than the one of Github Actions. The interface of Travis is also pretty and clean:</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2020/07/travis-overview.png"><img alt="Web interface of Travis" src="../images/2020/07/travis-overview.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Web interface of Travis</figcaption>
+</figure>
+<h2 id="github-actions">Github Actions</h2>
+<p><a href="https://github.com/features/actions">Github Actions</a> is the CI/CD solution integrated into Github. It was released in November 2019 and thus is the most recently released service. The main advantage it has over the others is the integration into Github. You can create a new action by clicking on the offered tabs:</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2020/07/github-action-create.png"><img alt="Start to create a Github Action" src="../images/2020/07/github-action-create.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Start to create a Github Action</figcaption>
+</figure>
+<p>The defaults are ok, but you might want to adjust a few things in the file. For example, I don&rsquo;t support any Python version older than 3.6 in my private projects. I also want to install the dependencies from my requirements.txt . If you want to adjust the file name, you can do it. Commit when it looks fine.</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2020/07/github-action-create-2.png"><img alt="The next steps to create a Github Action via the Web Interface" src="../images/2020/07/github-action-create-2.png" style="width: 512px;"/></a>
+<figcaption class="text-center">The next steps to create a Github Action via the Web Interface</figcaption>
+</figure>
+<p>Finally, you can see the nice green check mark indicating that the run was successful.</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2020/07/github-action-checkmark.png"><img alt="See that the run was successful in Github Actions" src="../images/2020/07/github-action-checkmark.png" style="width: 512px;"/></a>
+<figcaption class="text-center">See that the run was successful in Github Actions</figcaption>
+</figure>
+<p>You can also click on the Actions tab and inspect the last run:</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2020/07/github-action-inspect.png"><img alt="Inspect the last run" src="../images/2020/07/github-action-inspect.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Inspect the last run</figcaption>
+</figure>
+<h2 id="circleci">CircleCI</h2>
+<p>CircleCI is another possibility for a CI pipeline. They have a concept they call <a href="https://circleci.com/orbs/">Orbs</a> which is a re-usable set of configuration. It reminds me a bit of how you can have a Docker base image.</p>
+<p>The Python orb is on Github at <a href="https://github.com/circleci-public/python-orb">CircleCI-Public/python-orb</a>. The interesting parts are in src/commands . CircleCI has an <a href="https://circleci.com/orbs/registry/orb/circleci/python">example page</a> for the Python orb and a <a href="https://circleci.com/docs/2.0/language-python/">Python language overview</a>.</p>
+<p>The configuration I use for <a href="https://github.com/MartinThoma/mpu">mpu</a> only uses the checkout step. The rest is manually defined. The following is in .circleci/config.yml :</p>
+<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2.1</span>
+
+<span class="nt">orbs</span><span class="p">:</span>
+  <span class="nt">python</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">circleci/python@0.2.1</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+  <span class="nt">build-and-test</span><span class="p">:</span>
+    <span class="nt">executor</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python/default</span>
+    <span class="nt">steps</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">checkout</span>
+      <span class="p p-Indicator">-</span> <span class="nt">run</span><span class="p">:</span>
+          <span class="nt">command</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pip install -r requirements-dev.txt</span>
+          <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install Test requirements-dev</span>
+      <span class="p p-Indicator">-</span> <span class="nt">run</span><span class="p">:</span>
+          <span class="nt">command</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pip install -e .[all]</span>
+          <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install Pacakge</span>
+      <span class="p p-Indicator">-</span> <span class="nt">run</span><span class="p">:</span>
+          <span class="nt">command</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pytest</span>
+          <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Test</span>
+
+<span class="nt">workflows</span><span class="p">:</span>
+  <span class="nt">main</span><span class="p">:</span>
+    <span class="nt">jobs</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">build-and-test</span>
+</code></pre></div>
+<p>The CircleCI web interface looks nice and clean:</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2020/07/circleci-overview.png"><img alt="CircleCI Web Interface" src="../images/2020/07/circleci-overview.png" style="width: 512px;"/></a>
+<figcaption class="text-center">CircleCI Web Interface</figcaption>
+</figure>
+<p>I&rsquo;ve added CircleCI check to mpu and, of course, the badge should not be missing:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="n">![MartinThoma</span><span class="o">]</span><span class="p">(</span><span class="o">[</span><span class="n">https://circleci.com/gh/MartinThoma/mpu.svg?style=shield)</span><span class="o">]</span><span class="p">(</span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="n">app</span><span class="p">.</span><span class="n">circleci</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">pipelines</span><span class="o">/</span><span class="n">github</span><span class="o">/</span><span class="n">MartinThoma</span><span class="o">/</span><span class="n">mpu</span><span class="p">)</span><span class="err">]</span><span class="p">(</span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="n">circleci</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">gh</span><span class="o">/</span><span class="n">MartinThoma</span><span class="o">/</span><span class="n">mpu</span><span class="p">.</span><span class="n">svg</span><span class="vm">?</span><span class="n">style</span><span class="o">=</span><span class="n">shield</span><span class="p">)</span><span class="err">]</span><span class="p">(</span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="n">app</span><span class="p">.</span><span class="n">circleci</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">pipelines</span><span class="o">/</span><span class="n">github</span><span class="o">/</span><span class="n">MartinThoma</span><span class="o">/</span><span class="n">mpu</span><span class="p">))</span><span class="w"></span>
+</code></pre></div>
+<h2 id="gitlab-ci">Gitlab CI</h2>
+<p><a href="https://docs.gitlab.com/ee/ci/yaml/README.html">Gitlab CI</a> is similar to Github Actions in the sense that it is also integrated into the platform. You use a .gitlab-ci.yml file to configure it. However, I like Gitlab CI way more as it just seems so much cleaner.</p>
+<p>Let&rsquo;s take the linter <a href="https://gitlab.com/pycqa/flake8">Flake8</a> as an example. Their <a href="https://gitlab.com/pycqa/flake8/-/blob/master/.gitlab-ci.yml">.gitlab-ci.yml</a> is a bit lengthy, so I&rsquo;ve shortened it to only the test stage. They have a build and a release stage as well:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+
+<span class="nt">stages</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">test</span>
+
+<span class="nt">before_script</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pip install pip --upgrade</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pip install -r dev-requirements.txt</span>
+
+<span class="nt">after_script</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pip install codecov</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">codecov --token=7d117e6b-aab6-4283-ab19-166dafc38cf5</span>
+
+<span class="nt">python36</span><span class="p">:</span>
+  <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python:3.6</span>
+  <span class="nt">stage</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">test</span>
+  <span class="nt">script</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tox -e py36</span>
+
+<span class="nt">python37</span><span class="p">:</span>
+  <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python:3.7</span>
+  <span class="nt">stage</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">test</span>
+  <span class="nt">script</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tox -e py37</span>
+
+<span class="nt">python38</span><span class="p">:</span>
+  <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python:3.8</span>
+  <span class="nt">stage</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">test</span>
+  <span class="nt">script</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tox -e py38</span>
+
+<span class="nt">linters</span><span class="p">:</span>
+  <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python:3.7</span>
+  <span class="nt">stage</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">test</span>
+  <span class="nt">script</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tox -e linters</span>
+</code></pre></div>
+<p>In the web interface, it looks like this:</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2020/07/gitlab-pipelines.png"><img alt="Web interface of gitlab" src="../images/2020/07/gitlab-pipelines.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Web interface of gitlab</figcaption>
+</figure>
+<p>You can also tick a checkbox in the &ldquo;Settings&rdquo; section of your repository to prevent merges if the pipelines fail. You should do it.</p>
+<h2 id="azure-pipelines">Azure Pipelines</h2>
+<p>Azure is Microsoft's Cloud Platform, similar to AWS from Amazon or GCP from Google. As with all of those big cloud platforms, things are overly complicated. It&rsquo;s no comparison to the ease of Travis.</p>
+<p>There are many things I don&rsquo;t like about Azure Pipelines, especially that it requires the permission to make code changes. This is mainly done as a convenience feature so that it can create the configuration file azure-pipelines.yml . I hate that, because the CI solution should not touch my code. It should just read it. But as Github was bought by Microsoft and Azure Pipelines is also owned by Microsoft, I guess there is not too much harm in giving it access 🤷</p>
+<p>Azure Pipelines have one killer feature: You can execute stuff on Windows machines. Let&rsquo;s dive into the shortest path to get there:</p>
+<ol>
+<li>Go to <a href="http://azure.microsoft.com/services/devops/pipelines/">azure.microsoft.com/services/devops/pipelines</a></li>
+<li>Create a project</li>
+<li>Click on Pipelines -&gt; Create Pipeline -&gt; Github YAML -&gt; Pyton Package</li>
+<li>Use vmImage: 'VS2017-Win2016'</li>
+</ol>
+<p>It will create a azure-pipelines.yml in the project root:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># [https://docs.microsoft.com/azure/devops/pipelines/languages/python](https://docs.microsoft.com/azure/devops/pipelines/languages/python)</span>
+
+<span class="nt">trigger</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">master</span>
+
+<span class="nt">pool</span><span class="p">:</span>
+  <span class="nt">vmImage</span><span class="p">:</span> <span class="s">'VS2017-Win2016'</span>
+<span class="nt">strategy</span><span class="p">:</span>
+  <span class="nt">matrix</span><span class="p">:</span>
+    <span class="nt">Python36</span><span class="p">:</span>
+      <span class="nt">python.version</span><span class="p">:</span> <span class="s">'3.6'</span>
+    <span class="nt">Python37</span><span class="p">:</span>
+      <span class="nt">python.version</span><span class="p">:</span> <span class="s">'3.7'</span>
+
+<span class="nt">steps</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">task</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">UsePythonVersion@0</span>
+  <span class="nt">inputs</span><span class="p">:</span>
+    <span class="nt">versionSpec</span><span class="p">:</span> <span class="s">'$(python.version)'</span>
+  <span class="nt">displayName</span><span class="p">:</span> <span class="s">'Use</span><span class="nv"> </span><span class="s">Python</span><span class="nv"> </span><span class="s">$(python.version)'</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">script</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+    <span class="no">python -m pip install --upgrade pip</span>
+    <span class="no">pip install -r requirements-dev.txt</span>
+  <span class="nt">displayName</span><span class="p">:</span> <span class="s">'Install</span><span class="nv"> </span><span class="s">dependencies'</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">script</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+    <span class="no">pip install .[all]</span>
+  <span class="nt">displayName</span><span class="p">:</span> <span class="s">'Install</span><span class="nv"> </span><span class="s">package'</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">script</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+    <span class="no">pip install pytest pytest-azurepipelines</span>
+    <span class="no">pytest -vv</span>
+  <span class="nt">displayName</span><span class="p">:</span> <span class="s">'pytest'</span>
+</code></pre></div>
+<p>The first thing I did after the pipeline itself worked was to add a project badge:</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="o">!</span><span class="p">[</span><span class="n">Build</span> <span class="n">Status</span><span class="p">]([</span><span class="nl">https</span><span class="p">:</span><span class="c1">//dev.azure.com/martinthoma/mpu/_apis/build/status/MartinThoma.mpu?branchName=master)](https://dev.azure.com/martinthoma/mpu/_build/latest?definitionId=1&amp;branchName=master)](https://dev.azure.com/martinthoma/mpu/_apis/build/status/MartinThoma.mpu?branchName=master)](https://dev.azure.com/martinthoma/mpu/_build/latest?definitionId=1&amp;branchName=master))</span>
+</code></pre></div>
+<p>The main reason for adding the badge was that Azure tries to create new accounts for me. I have a super hard time coming back to the main overview page 😢</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2020/07/azure-overview.png"><img alt="Azure project overview page" src="../images/2020/07/azure-overview.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Azure project overview page</figcaption>
+</figure>
+<p>If you click on one of the failing jobs, you can see this:</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2020/07/azure-failing-pytest.png"><img alt="A failing pytest run" src="../images/2020/07/azure-failing-pytest.png" style="width: 512px;"/></a>
+<figcaption class="text-center">A failing pytest run</figcaption>
+</figure>
+<h2 id="ci-service-comparison">CI Service Comparison</h2>
+<p>The unique selling point of Azure is the possibility to run code on a Windows machine. The killer argument for Github Actions / Gitlab CI is the integration into github.com / Gitlab.</p>
+<p>Looking only at the <strong>Web Interface</strong>, I like CircleCI, Travis and Gitlab very much. Github Actions is a bit overloaded and I hate Azure pipelines because I cannot find an easy way to go to my account.</p>
+<p>The <strong>configuration file format</strong> is YAML for all of them. I like that most of the services have a leading dot for the file / folder, so that the CI config is hidden on Linux. Only Azure Pipelines wants to be visible. Looking at the configuration itself, Travis and Gitlab look cleanest to me. CircleCI offers the unique &ldquo;orb&rdquo; concept which I&rsquo;m not used to &mdash; that might make things way simpler on the long run.</p>
+<p>The <strong>execution speed</strong> of the steps felt pretty fast for CircleCI, but I didn&rsquo;t thoroughly test that one.</p>
+<p>All of the presented CI Services send an email when you broke the pipeline and when it&rsquo;s fixed again. I&rsquo;m uncertain how easy it is to set up other <strong>notifications</strong> like Slack messages. I have seen <a href="https://medium.com/better-programming/5-jenkins-plugins-you-should-use-867e39fbf532">Slack notifications for Jenkins</a> and for Gitlab.</p>
+<p>A point which I didn&rsquo;t bring up so far is <strong>continuous delivery (CD)</strong>. All of the presented services can also be used for CD. Would you like to read an article specifically about CD?</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2020/07/geek-and-poke-automated-tests.jpg"><img alt="Geek and Poke: CI" src="../images/2020/07/geek-and-poke-automated-tests.jpg" style="width: 512px;"/></a>
+<figcaption class="text-center">Geek and Poke: <a href="http://geek-and-poke.com/geekandpoke/2010/10/26/geekpokes-list-of-best-practices-today-continuous-integratio.html">CI</a></figcaption>
+</figure>
+<h2 id="want-to-know-more-about-unit-testing">Want to know more about unit testing?</h2>
+<p>In this series, we already had:</p>
+<ul>
+<li>Part 1: <a href="https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0">The basics of Unit Testing in Python</a></li>
+<li>Part 2: <a href="https://levelup.gitconnected.com/unit-testing-in-python-mocking-patching-and-dependency-injection-301280db2fed">Patching, Mocks and Dependency Injection</a></li>
+<li>Part 3: <a href="https://medium.com/analytics-vidhya/how-to-test-flask-applications-aef12ae5181c">How to test Flask applications</a> with Databases, Templates and Protected Pages</li>
+<li>Part 4: <a href="https://medium.com/python-in-plain-english/unit-testing-in-python-tox-and-nox-833e4bbce729">tox and nox</a></li>
+<li>Part 5: <a href="https://towardsdatascience.com/unit-testing-in-python-structure-57acd51da923">Structuring Unit Tests</a></li>
+<li>Part 6: CI-Pipelines</li>
+</ul>
+<p>In future articles, I will present:</p>
+<ul>
+<li>Property-based Testing</li>
+<li>Mutation Testing</li>
+<li>Static Code Analysis: Linters, Type Checking, and Code Complexity</li>
+</ul>
+<p>Let me know if you&rsquo;re interested in other topics around testing with Python.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li>Joaqu&iacute;n Menchaca: <a href="https://medium.com/@Joachim8675309/jenkins-ci-pipeline-with-python-8bf1a0234ec3">Jenkins CI Pipeline with Python</a>, 2019.</li>
+<li><a href="https://towardsdatascience.com/@andronovhopf">Elle O&rsquo;Brien</a>: <a href="https://towardsdatascience.com/what-data-scientists-need-to-know-about-devops-2f8bc6660284">What data scientists need to know about DevOps</a>, 2020.</li>
+</ul>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2020-07-30T20:00:00+02:00">Jul 30, 2020</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#devops-ref">DevOps
+                    <span>2</span>
+</a></li>
+                <li><a href="../tags.html#python-ref">Python
+                    <span>126</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="https://martin-thoma.com/feeds/index.xml">RSS-Feed</a></li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page" tabindex="-1">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page" tabindex="-1">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page" tabindex="-1">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

@@ -104,7 +104,7 @@ MathJax.Hub.Queue(function() {
     <div class="col-sm-2 col-md-2 table-of-content">
         <nav>
         <h4>Contents</h4>
-        <div id="toc"><ul><li><a class="toc-href" href="#hello-typed-annotated-world" title="Hello, Typed Annotated World!">Hello, Typed Annotated World!</a></li><li><a class="toc-href" href="#type-checking-with-mypy" title="Type Checking with mypy">Type Checking with mypy</a></li><li><a class="toc-href" href="#typing-list-dict-tuple-any" title="typing: List, Dict, Tuple, Any">typing: List, Dict, Tuple, Any</a></li><li><a class="toc-href" href="#stop-type-checking" title="Stop Type Checking">Stop Type Checking</a></li><li><a class="toc-href" href="#typing-union-and-optional" title="typing: Union and Optional">typing: Union and Optional</a></li><li><a class="toc-href" href="#typing-list-vs-sequence" title="typing: List vs Sequence">typing: List vs Sequence</a></li><li><a class="toc-href" href="#typing-dict-vs-mapping" title="typing: Dict vs Mapping">typing: Dict vs Mapping</a></li><li><a class="toc-href" href="#many-more-types" title="Many more Types">Many more Types</a></li><li><a class="toc-href" href="#custom-types-not-all-strings-are-created-equal" title="Custom Types: Not all Strings are Created Equal">Custom Types: Not all Strings are Created Equal</a></li><li><a class="toc-href" href="#typingoverload" title="typing.overload">typing.overload</a></li><li><a class="toc-href" href="#protocols" title="Protocols">Protocols</a></li><li><a class="toc-href" href="#type-comments" title="Type comments">Type comments</a></li><li><a class="toc-href" href="#stub-files" title="Stub files">Stub files</a></li><li><a class="toc-href" href="#pyright-pyre-pytype" title="pyright, pyre, pytype">pyright, pyre, pytype</a></li><li><a class="toc-href" href="#pydantic" title="pydantic">pydantic</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
+        <div id="toc"><ul><li><a class="toc-href" href="#hello-typed-annotated-world" title="Hello, Typed Annotated World!">Hello, Typed Annotated World!</a></li><li><a class="toc-href" href="#type-checking-with-mypy" title="Type Checking with mypy">Type Checking with mypy</a></li><li><a class="toc-href" href="#typing-list-dict-tuple-any" title="typing: List, Dict, Tuple, Any">typing: List, Dict, Tuple, Any</a></li><li><a class="toc-href" href="#stop-type-checking" title="Stop Type Checking">Stop Type Checking</a></li><li><a class="toc-href" href="#typing-union-and-optional" title="typing: Union and Optional">typing: Union and Optional</a></li><li><a class="toc-href" href="#typing-list-vs-sequence" title="typing: List vs Sequence">typing: List vs Sequence</a></li><li><a class="toc-href" href="#typing-dict-vs-mapping" title="typing: Dict vs Mapping">typing: Dict vs Mapping</a></li><li><a class="toc-href" href="#many-more-types" title="Many more Types">Many more Types</a></li><li><a class="toc-href" href="#custom-types-not-all-strings-are-created-equal" title="Custom Types: Not all Strings are Created Equal">Custom Types: Not all Strings are Created Equal</a></li><li><a class="toc-href" href="#typingoverload" title="typing.overload">typing.overload</a></li><li><a class="toc-href" href="#type-checking-only-imports" title="Type checking only&nbsp;imports">Type checking only&nbsp;imports</a></li><li><a class="toc-href" href="#protocols" title="Protocols">Protocols</a></li><li><a class="toc-href" href="#type-comments" title="Type comments">Type comments</a></li><li><a class="toc-href" href="#stub-files" title="Stub files">Stub files</a></li><li><a class="toc-href" href="#pyright-pyre-pytype" title="pyright, pyre, pytype">pyright, pyre, pytype</a></li><li><a class="toc-href" href="#pydantic" title="pydantic">pydantic</a></li><li><a class="toc-href" href="#see-also" title="See also">See also</a></li></ul></div>
         </nav>
     </div>
     <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
@@ -220,6 +220,12 @@ Success: no issues found in <span class="m">1</span> <span class="nb">source</sp
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">"need str or bytes"</span><span class="p">)</span>
 </code></pre></div>
+<h2 id="type-checking-only-imports">Type checking only&nbsp;imports</h2>
+<p>I've recently seen myself in the position that I made a pretty heavy import on
+module level, just because of type checking. This felt wrong, so I asked for
+help. The solution was simple:
+<a href="https://mypy.readthedocs.io/en/stable/common_issues.html#import-cycles"><code>typing.TYPE_CHECKING</code></a>.
+This is <code>True</code> when running a type checker, but <code>False</code> during normal runs ❤️</p>
 <h2 id="protocols">Protocols</h2>
 <p><a href="https://www.python.org/dev/peps/pep-0544/">PEP 544</a> introduced structural subtyping and was introduced in Python 3.8. It feels like Interfaces in Java and works like this:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Protocol</span>
@@ -358,7 +364,7 @@ $ pytype .
                     <span>1</span>
 </a></li>
                 <li><a href="../tags.html#python-ref">Python
-                    <span>125</span>
+                    <span>126</span>
 </a></li>
             </ul>
 <h4>Contact</h4>
