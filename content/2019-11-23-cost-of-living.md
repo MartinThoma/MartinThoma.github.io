@@ -205,11 +205,11 @@ which I think I really need... turns out, it's a lot of stuff.
             <td>0 € / 0 pieces</td>
         </tr>
         <tr>
-            <td>3x Funktionsshirt</td>
+            <td>4x Funktionsshirt</td>
             <td>63.00 €</td>
             <td>4 years</td>
             <td>15.75 € / year</td>
-            <td>0 € / 0 pieces</td>
+            <td>9.74 € / 1 pieces</td>
         </tr>
         <tr>
             <td>5x Business-Hemd</td>
@@ -336,11 +336,54 @@ which I think I really need... turns out, it's a lot of stuff.
 
 ## Hiking
 
-* Schlafsack
-* Rucksack
-* Wanderschuhe
-* Regenjacke
-* Fließjacke
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Durability</th>
+            <th>Per year</th>
+            <th>2020</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Schlafsack</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>17.54 € / 1 piece</td>
+        </tr>
+        <tr>
+            <td>Rucksack</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Wanderschuhe</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Regenjacke</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Fließjacke</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
 
 ## Expensive Stuff
 
@@ -742,7 +785,7 @@ Fabrics:
             <td>3 months (?)</td>
             <td>0.99 € / 2kg</td>
             <td></td>
-            <td>4.39 € / 5.564 kg</td>
+            <td>4.93 € / 5.842 kg</td>
         </tr>
         <tr>
             <td>Brookkoli</td>
@@ -782,7 +825,7 @@ Fabrics:
             <td>2 weeks (?)</td>
             <td>0.59 € / bundle</td>
             <td>15.39 € / year</td>
-            <td>3.94 € / 6 bundles</td>
+            <td>4.71 € / 7 bundles</td>
         </tr>
         <tr>
             <td>Onion (🇩🇪 Speisezwiebeln)</td>
@@ -1503,6 +1546,14 @@ General Cooking:
             <td>1.79 € / piece</td>
             <td></td>
             <td>5.37 € / 3 pieces</td>
+        </tr>
+        <tr>
+            <td>Zitronengraß</td>
+            <td></td>
+            <td>2 weeks?</td>
+            <td>1.46 € / 50g</td>
+            <td></td>
+            <td>1.46 € / 50g</td>
         </tr>
     </tbody>
 </table>
@@ -2238,7 +2289,7 @@ pills and maybe a couple of months for creams and ointment.
             <td></td>
             <td></td>
             <td></td>
-            <td>65 € / 6 time</td>
+            <td>70 € / 7 time</td>
         </tr>
         <tr>
             <td>Food for Work (e.g. Semmel)</td>
