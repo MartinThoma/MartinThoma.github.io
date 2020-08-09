@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../../../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Machine Learning, My bits and bytes, " />
+
+<meta property="og:title" content="Property-based Testing "/>
+<meta property="og:url" content="drafts/https://levelup.gitconnected.com/unit-testing-in-python-property-based-testing-892a741fc119.html" />
+<meta property="og:description" content="When you write unit tests, it’s hard to find the right test cases. You want to be certain that you covered all the interesting cases, but you could simply not know or forget one of them. For example, if you unit test a function which receives an integer, you …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2020-05-17T20:00:00+02:00" />
+<meta name="twitter:title" content="Property-based Testing ">
+<meta name="twitter:description" content="When you write unit tests, it’s hard to find the right test cases. You want to be certain that you covered all the interesting cases, but you could simply not know or forget one of them. For example, if you unit test a function which receives an integer, you …">
+<meta property="og:image" content="logos/star.png" />
+<meta name="twitter:image" content="logos/star.png" >
+
+        <title>Property-based Testing  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../../../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../../../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../../../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../../../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../../../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href="../../.." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand" tabindex="-1">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="../../..">Home</a></li>
+                            <li ><a href="../../../categories.html">Categories</a></li>
+                            <li ><a href="../../../tags.html">Tags</a></li>
+                            <li ><a href="../../../archives.html">Archives</a></li>
+                            <li><a href="../../../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../../../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="drafts/https://levelup.gitconnected.com/unit-testing-in-python-property-based-testing-892a741fc119.html"> Property-based Testing  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#example-integer-factorization" title="Example: Integer factorization">Example: Integer factorization</a></li><li><a class="toc-href" href="#what-did-hypothesis-generate" title="What did hypothesis generate?">What did hypothesis generate?</a></li><li><a class="toc-href" href="#where-can-i-apply-property-based-testing" title="Where can I apply property-based testing?">Where can I apply property-based testing?</a></li><li><a class="toc-href" href="#the-generate-to-test-pattern" title="The Generate to Test Pattern">The Generate to Test Pattern</a></li><li><a class="toc-href" href="#example-testing-data-structures" title="Example: Testing Data Structures">Example: Testing Data Structures</a></li><li><a class="toc-href" href="#string-verification" title="String Verification">String Verification</a></li><li><a class="toc-href" href="#invertible-functions" title="Invertible functions">Invertible functions</a></li><li><a class="toc-href" href="#oracles" title="Oracles">Oracles</a></li><li><a class="toc-href" href="#use-type-annotations" title="Use Type Annotations!">Use Type Annotations!</a></li><li><a class="toc-href" href="#the-name-of-the-game" title="The Name of the Game">The Name of the Game</a></li><li><a class="toc-href" href="#summary" title="Summary">Summary</a></li><li><a class="toc-href" href="#want-to-know-more-about-unit-testing" title="Want to know more about unit testing?">Want to know more about unit testing?</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p>When you write unit tests, it&rsquo;s hard to find the right test cases. You want to
+be certain that you covered all the interesting cases, but you could simply not
+know or forget one of them. For example, if you unit test a function which
+receives an integer, you might think about testing 0, 1, and 2. But did you
+think about negative numbers? What about big numbers?</p>
+<p>We were just thinking about a testing strategy for integers. A strategy is a
+generator of data. The property testing framework hypothesis offers <a href="https://hypothesis.readthedocs.io/en/latest/data.html">a lot of
+strategies</a> for many
+types. You can install it with pip install hypothesis .</p>
+<p>One thing we can do with those inputs &mdash; those tests strategies &mdash; is to check if
+the runtime is acceptable and if the tested function/method does not crash.</p>
+<p>It would be better if we compare the output of our function against something.
+A check for equality is likely not possible, so we need to know a property of
+our function. An invariant which we always expect to hold. We need to base our
+test on an inherent property of the function.</p>
+<p>To whet your appetite for property-based testing even more:</p>
+<p><center><iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/AfaNEebCDos" width="560"></iframe></center></p>
+<h2 id="example-integer-factorization">Example: Integer factorization</h2>
+<p>We have a function factorize(n : int) -&gt; List[int] which takes an integer and
+returns the prime factors:</p>
+<blockquote>
+<p>An integer n is called a prime number if it is positive and divisible by
+exactly two numbers: 1 and n.</p>
+</blockquote>
+<p>We want that the product of returned integers is the number itself. So this is
+how we design the functions behavior:</p>
+<ul>
+<li>factorize(0) = [0] &mdash; an exception would have been reasonable as well</li>
+<li>factorize(1) = [1] &mdash; strictly speaking, 1 is not a prime.</li>
+<li>factorize(-1) = [-1] &mdash; &hellip; and neither is -1</li>
+<li>factorize(-n) = [-1] + factorize(n) for n &gt; 1</li>
+</ul>
+<p>An implementation might look like this:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+
+<span class="k">def</span> <span class="nf">factorize</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">number</span> <span class="ow">in</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">number</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">number</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">factorize</span><span class="p">(</span><span class="o">-</span><span class="n">number</span><span class="p">)</span>
+    <span class="n">factors</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Treat the factor 2 on its own</span>
+    <span class="k">while</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">factors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">number</span> <span class="o">=</span> <span class="n">number</span> <span class="o">//</span> <span class="mi">2</span>
+    <span class="k">if</span> <span class="n">number</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">factors</span>
+
+    <span class="c1"># Now we only need to check uneven numbers</span>
+    <span class="c1"># up to the square root of the number</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">number</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">while</span> <span class="n">number</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">factors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">number</span> <span class="o">=</span> <span class="n">number</span> <span class="o">//</span> <span class="n">i</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">factors</span>
+</code></pre></div>
+<p>You might feel a bit uneasy about the condition in</p>
+<div class="highlight"><pre><span></span><code><span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">number</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="o">...</span>
+</code></pre></div>
+<p>so you write a test to check for the important cases:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Third party modules</span>
+<span class="kn">import</span> <span class="nn">pytest</span>
+
+<span class="c1"># First party modules</span>
+<span class="kn">from</span> <span class="nn">factorize</span> <span class="kn">import</span> <span class="n">factorize</span>
+
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span>
+    <span class="s2">"n,expected"</span><span class="p">,</span>
+    <span class="p">[</span>
+        <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]),</span>  <span class="c1"># 0</span>
+        <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]),</span>  <span class="c1"># 1</span>
+        <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span>  <span class="c1"># -1</span>
+        <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]),</span>  <span class="c1"># A prime, but negative</span>
+        <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">]),</span>  <span class="c1"># Just one prime</span>
+        <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">]),</span>  <span class="c1"># A different prime</span>
+        <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]),</span>  <span class="c1"># Different primes</span>
+        <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]),</span>  <span class="c1"># Multiple times the same prime</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_factorize</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">factorize</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">==</span> <span class="n">expected</span>
+</code></pre></div>
+<p>If the test parametrization is unfamiliar, you might want to
+<a href="https://towardsdatascience.com/unit-testing-in-python-structure-57acd51da923">read up on pytest.mark.parametrize</a>.
+It&rsquo;s awesome and those few lines run 8 tests:</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2020/08/pytest-parametrize.png"><img alt="Running pytest" src="../images/2020/08/pytest-parametrize.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Running pytest</figcaption>
+</figure>
+<p>How would a property-based test look like for factorize?</p>
+<p>First, we need to think about the property we want to test. For factorize as we
+designed it, we know that the product of the returned numbers is equal to the
+number itself. We can put in any integer, but if the integers become too big,
+the runtime will be too long. So let&rsquo;s constrain them in a reasonable range of
++/- one million:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Third party</span>
+<span class="kn">import</span> <span class="nn">hypothesis.strategies</span> <span class="k">as</span> <span class="nn">s</span>
+<span class="kn">from</span> <span class="nn">hypothesis</span> <span class="kn">import</span> <span class="n">given</span>
+
+<span class="c1"># First party</span>
+<span class="kn">from</span> <span class="nn">factorize</span> <span class="kn">import</span> <span class="n">factorize</span>
+
+
+<span class="nd">@given</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="n">min_value</span><span class="o">=-</span><span class="p">(</span><span class="mi">10</span> <span class="o">**</span> <span class="mi">6</span><span class="p">),</span> <span class="n">max_value</span><span class="o">=</span><span class="mi">10</span> <span class="o">**</span> <span class="mi">6</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">test_factorize_multiplication_property</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">"""The product of the integers returned by factorize(n) needs to be n."""</span>
+    <span class="n">factors</span> <span class="o">=</span> <span class="n">factorize</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">product</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">factor</span> <span class="ow">in</span> <span class="n">factors</span><span class="p">:</span>
+        <span class="n">product</span> <span class="o">*=</span> <span class="n">factor</span>
+    <span class="k">assert</span> <span class="n">product</span> <span class="o">==</span> <span class="n">n</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"factorize(</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">) returned </span><span class="si">{</span><span class="n">factors</span><span class="si">}</span><span class="s2">"</span>
+</code></pre></div>
+<p>Now we run the tests with <code>pytest</code>:</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2020/08/pytest-factorize-hypothesis.png"><img alt="Hypothesis found an issue!" src="../images/2020/08/pytest-factorize-hypothesis.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Hypothesis found an issue!</figcaption>
+</figure>
+<p>As you can see in the example above, hypothesis discovered that factorize(5)
+returned an empty list which does not multiply to 5. We can then quickly see
+that we actually made a mistake for all primes &mdash; we need to add the prime
+number. After adding the following line, the tests run just fine:</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">number</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">factors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+</code></pre></div>
+<p>A curious thing to notice in the failed example is that it is the smallest positive integer where it fails. This is no coincidence. The property-testing framework tries to find a simple example which makes the test fail. This process is called <a href="https://hypothesis.readthedocs.io/en/latest/data.html#shrinking">shrinking</a>.</p>
+<h2 id="what-did-hypothesis-generate">What did hypothesis generate?</h2>
+<p>You can have a look at examples like this:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">hypothesis</span> <span class="kn">import</span> <span class="n">strategies</span> <span class="k">as</span> <span class="n">st</span>
+
+<span class="n">st</span><span class="o">.</span><span class="n">lists</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">integers</span><span class="p">())</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="nb">sorted</span><span class="p">)</span><span class="o">.</span><span class="n">example</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="where-can-i-apply-property-based-testing">Where can I apply property-based testing?</h2>
+<p>This kind of pattern works for quite a couple of algorithms where verification
+is cheap:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Arg_max">Arg max</a>: Iterate over the list and ensure that no other element is larger.</li>
+<li>Solving a set of equations: Verify that the solution is actually a solution.</li>
+<li><a href="https://en.wikipedia.org/wiki/Constraint_satisfaction">Constraint satisfaction</a>: Verify that the solution satisfies all constraints.</li>
+<li>All <a href="https://en.wikipedia.org/wiki/NP-completeness">NP complete problems</a>: This is a set of decision problems where it is hard to find an answer, but easy to verify a found answer. An example is the traveling salesman. Given a set of cities which the salesman has to visit, is there a tour he can take which has a length of at most L? Given such a tour, it is easy to verify. Computing such a tour can be hard, though.</li>
+</ul>
+<p>Weaker, but still helpful are checks which verify if the returned value is in the set of candidates:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Greatest_common_divisor">Greatest common divisor</a>: Ensure that it actually <strong>is a</strong> divisor.</li>
+<li>Shortest path: Ensure it <strong>is a</strong> path.</li>
+<li>Sorting and ranking: Ensure exactly the same elements are in the list as
+  before. Maybe you can also test for the sorting/ranking criterion?</li>
+<li>Filtering: Assert that the relevant data is still there / that the other data
+  was removed.</li>
+</ul>
+<h2 id="the-generate-to-test-pattern">The Generate to Test Pattern</h2>
+<p>Sometimes it is easy to generate a sample to test the function you&rsquo;re
+interested in. For the factorization example above, you might have a list of
+known primes and you multiply random subsets of them. If you write a function
+that checks if a string is a palindrome, you can easily generate a palindrome
+first. If you want to check if a text contains a given string, you can add
+random text around that string and then check.</p>
+<h2 id="example-testing-data-structures">Example: Testing Data Structures</h2>
+<p>I&rsquo;ve implemented an interval data structure which has a method <code>issubset</code></p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">hypothesis</span> <span class="kn">import</span> <span class="n">given</span><span class="p">,</span> <span class="n">strategies</span> <span class="k">as</span> <span class="n">st</span>
+<span class="kn">from</span> <span class="nn">mpu.datastructures</span> <span class="kn">import</span> <span class="n">Interval</span>
+
+
+<span class="nd">@given</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">lists</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">integers</span><span class="p">(),</span> <span class="n">min_size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">max_size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="nb">sorted</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">test_interval_issubset</span><span class="p">(</span><span class="n">integer_list</span><span class="p">):</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">integer_list</span>
+    <span class="k">assert</span> <span class="n">Interval</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">Interval</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">d</span><span class="p">))</span>
+
+
+<span class="nd">@given</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">lists</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">integers</span><span class="p">(),</span> <span class="n">min_size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">max_size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="nb">sorted</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">test_interval_issubset_not</span><span class="p">(</span><span class="n">integer_list</span><span class="p">):</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">integer_list</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">Interval</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">Interval</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">))</span> <span class="ow">or</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">b</span> <span class="o">&lt;=</span> <span class="n">d</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">Interval</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">Interval</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">d</span><span class="p">))</span> <span class="ow">or</span> <span class="n">b</span> <span class="o">&lt;=</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="n">d</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">Interval</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">Interval</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span> <span class="ow">or</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="n">d</span> <span class="o">&lt;=</span> <span class="n">b</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">Interval</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">Interval</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">c</span><span class="p">))</span> <span class="ow">or</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">b</span> <span class="o">&lt;=</span> <span class="n">d</span> <span class="o">&lt;=</span> <span class="n">c</span>
+</code></pre></div>
+<h2 id="string-verification">String Verification</h2>
+<p><code>hypothesis</code> can generate some special strings, for example email addresses and
+IP addresses. This means you can easily check the positive cases for functions
+which decide if something is an IP address or an email address:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">hypothesis.strategies</span> <span class="k">as</span> <span class="nn">s</span>
+<span class="kn">from</span> <span class="nn">hypothesis</span> <span class="kn">import</span> <span class="n">given</span>
+
+<span class="kn">import</span> <span class="nn">mpu.string</span>  <span class="c1"># Martins Python Utilities</span>
+
+
+<span class="nd">@given</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">emails</span><span class="p">())</span>
+<span class="k">def</span> <span class="nf">test_is_email</span><span class="p">(</span><span class="n">email</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">mpu</span><span class="o">.</span><span class="n">string</span><span class="o">.</span><span class="n">is_email</span><span class="p">(</span><span class="n">email</span><span class="p">),</span> <span class="sa">f</span><span class="s2">"is_email(</span><span class="si">{</span><span class="n">email</span><span class="si">}</span><span class="s2">) returned False"</span>
+
+
+<span class="nd">@given</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">ip_addresses</span><span class="p">(</span><span class="n">v</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">test_is_ipv4</span><span class="p">(</span><span class="n">ip</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">mpu</span><span class="o">.</span><span class="n">string</span><span class="o">.</span><span class="n">is_ipv4</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ip</span><span class="p">)),</span> <span class="sa">f</span><span class="s2">"is_ipv4(</span><span class="si">{</span><span class="n">ip</span><span class="si">}</span><span class="s2">) returned False"</span>
+</code></pre></div>
+<h2 id="invertible-functions">Invertible functions</h2>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2020/08/inverse-function.svg"><img alt="A function and its inverse function" src="../images/2020/08/inverse-function.svg" style="width: 512px;"/></a>
+<figcaption class="text-center">A function and its inverse function</figcaption>
+</figure>
+<p>If you have a function and its inverse function, such as encrypt / decrypt or a
+serialize / deserialize function, you can test them together. The testing
+strategy should then just give values within the domain.</p>
+<p>For example, if we wanted to test b64encode / b64decode , the test would be:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">hypothesis</span> <span class="kn">import</span> <span class="n">given</span><span class="p">,</span> <span class="n">strategies</span> <span class="k">as</span> <span class="n">s</span>
+<span class="kn">from</span> <span class="nn">base64</span> <span class="kn">import</span> <span class="n">b64encode</span><span class="p">,</span> <span class="n">b64decode</span>
+
+
+<span class="nd">@given</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">binary</span><span class="p">())</span>
+<span class="k">def</span> <span class="nf">test_base64_encode_decode_together</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">b64decode</span><span class="p">(</span><span class="n">b64encode</span><span class="p">(</span><span class="n">data</span><span class="p">))</span> <span class="o">==</span> <span class="n">data</span>
+</code></pre></div>
+<p>This test now also documents that those two functions belong together and are
+meant to be used in this order.</p>
+<h2 id="oracles">Oracles</h2>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2020/08/oracles.jpg"><img alt="Photo by Jen Theodore" src="../images/2020/08/oracles.jpg" style="width: 512px;"/></a>
+<figcaption class="text-center">Photo by <a href="https://unsplash.com/@jentheodore">Jen Theodore</a> on <a href="https://unsplash.com">Unsplash</a></figcaption>
+</figure>
+<p>In complexity theory, an oracle is a black box which offers a solution to a
+problem in instant time. In this context, it is just a second implementation
+which we trust to be correct. If you have a complex algorithmic problem, you
+might first want to implement a brute-force solution and then test your faster
+algorithm against that easier to understand solution. The brute-force algorithm
+is the oracle.</p>
+<h2 id="use-type-annotations">Use Type Annotations!</h2>
+<p>I love type annotations 💓 I&rsquo;ve you&rsquo;re not using them, I highly recommend to
+read about <a href="https://medium.com/analytics-vidhya/type-annotations-in-python-3-8-3b401384403d">type annotations</a>
+and gradual typing.</p>
+<p>Type annotations are relevant for property-based testing as an annotated class
+can be used to generate random objects of that class. As a data scientist
+working on Machine Learning topics, I usually want this in my preprocessing /
+postprocessing steps, where the objects of interest might be rather
+complicated. Here is how hypothesis can support and generate those:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span> <span class="nn">hypothesis</span> <span class="kn">import</span> <span class="n">strategies</span> <span class="k">as</span> <span class="n">st</span>
+
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">PdfInfo</span><span class="p">:</span>
+    <span class="n">path</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">is_errornous</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">is_encrypted</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">nb_pages</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">nb_toc_top_level</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">nb_characters</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">user_attributes</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span>
+
+
+<span class="c1"># Usage in test to generate one PdfInfo:</span>
+<span class="c1"># @given(st.builds(PdfInfo))</span>
+
+<span class="c1"># Now show some samples:</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">builds</span><span class="p">(</span><span class="n">PdfInfo</span><span class="p">)</span><span class="o">.</span><span class="n">example</span><span class="p">())</span>
+
+<span class="c1">##########</span>
+<span class="c1"># Output #</span>
+<span class="c1">##########</span>
+<span class="c1"># PdfInfo(path='', is_errornous=False, is_encrypted=True,</span>
+<span class="c1">#         nb_pages=0, nb_toc_top_level=0, nb_characters=0, user_attributes={})</span>
+<span class="c1"># PdfInfo(path='', is_errornous=False, is_encrypted=True,</span>
+<span class="c1">#         nb_pages=-6679854645310868666, nb_toc_top_level=20135,</span>
+<span class="c1">#         nb_characters=-32,</span>
+<span class="c1">#         user_attributes={'\x02\x15\U0001189c&curren;\U000e7fde^&sup1;': None})</span>
+<span class="c1"># PdfInfo(path='', is_errornous=False, is_encrypted=False,</span>
+<span class="c1">#         nb_pages=0, nb_toc_top_level=0, nb_characters=0, user_attributes={})</span>
+<span class="c1"># PdfInfo(path='', is_errornous=True, is_encrypted=True,</span>
+<span class="c1">#         nb_pages=0, nb_toc_top_level=0, nb_characters=0, user_attributes={})</span>
+<span class="c1"># PdfInfo(path='', is_errornous=True, is_encrypted=False,</span>
+<span class="c1">#         nb_pages=0, nb_toc_top_level=0, nb_characters=0, user_attributes={})</span>
+<span class="c1"># PdfInfo(path='&not;&acute;&agrave;', is_errornous=True, is_encrypted=False,</span>
+<span class="c1">#         nb_pages=-17389, nb_toc_top_level=15767, nb_characters=124,</span>
+<span class="c1">#         user_attributes={})</span>
+<span class="c1"># PdfInfo(path='', is_errornous=True, is_encrypted=False,</span>
+<span class="c1">#         nb_pages=0, nb_toc_top_level=0, nb_characters=0, user_attributes={})</span>
+<span class="c1"># PdfInfo(path='', is_errornous=False, is_encrypted=False,</span>
+<span class="c1">#         nb_pages=0, nb_toc_top_level=0, nb_characters=0, user_attributes={})</span>
+<span class="c1"># PdfInfo(path='', is_errornous=False, is_encrypted=True,</span>
+<span class="c1">#         nb_pages=0, nb_toc_top_level=0, nb_characters=0, user_attributes={})</span>
+<span class="c1"># PdfInfo(path='', is_errornous=False, is_encrypted=False,</span>
+<span class="c1">#         nb_pages=0, nb_toc_top_level=0, nb_characters=0, user_attributes={})</span>
+</code></pre></div>
+<p>When you develop web applications with complex business logic it should also be
+helpful.</p>
+<h2 id="the-name-of-the-game">The Name of the Game</h2>
+<p>I have seen the same concept being called <em>generative testing</em> and also
+<em>data-driven testing</em>. The first one is fine; we do generate sample data for
+our tests.</p>
+<p>However, I would not call it <em>data-driven testing</em>. We didn&rsquo;t get real-world
+data to generate our test cases.</p>
+<p>It&rsquo;s also interesting to think about it the other way around: If we are now testing properties, what did we test before? <a href="https://www.youtube.com/watch?v=p84DMv8TQuo">Andrea Leopardi</a> calls it example-based or table-based testing.</p>
+<p>Example-based testing is good to cover known corner-cases, wheres property-based testing is good to discover unknown corner-cases.</p>
+<h2 id="summary">Summary</h2>
+<p>Property-based testing does not replace example-based testing, but complements
+example-based testing. It sometimes documents properties in a very concise form
+and helps to find unknown edge cases. It takes more time to execute
+property-based tests than to execute example-based tests. hypothesis is a good
+Python framework to write property-based tests.</p>
+<h2 id="want-to-know-more-about-unit-testing">Want to know more about unit testing?</h2>
+<p>In this series, we already had:</p>
+<ul>
+<li>Part 1: <a href="https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0">The basics of Unit Testing in Python</a></li>
+<li>Part 2: <a href="https://levelup.gitconnected.com/unit-testing-in-python-mocking-patching-and-dependency-injection-301280db2fed">Patching, Mocks and Dependency Injection</a></li>
+<li>Part 3: <a href="https://medium.com/analytics-vidhya/how-to-test-flask-applications-aef12ae5181c">How to test Flask applications</a> with Databases, Templates and Protected Pages</li>
+<li>Part 4: <a href="https://medium.com/python-in-plain-english/unit-testing-in-python-tox-and-nox-833e4bbce729">tox and nox</a></li>
+<li>Part 5: <a href="https://medium.com/python-in-plain-english/unit-testing-in-python-structure-57acd51da923">Structuring Unit Tests</a></li>
+<li>Part 6: <a href="https://levelup.gitconnected.com/ci-pipelines-for-python-projects-9ac2830d2e38">CI-Pipelines</a></li>
+<li>Part 7: <a href="https://levelup.gitconnected.com/unit-testing-in-python-property-based-testing-892a741fc119">Property-based Testing</a></li>
+</ul>
+<p>In future articles, I will present:</p>
+<ul>
+<li>Mutation Testing</li>
+<li>Static Code Analysis: Linters, Type Checking, and Code Complexity</li>
+</ul>
+<p>Let me know if you&rsquo;re interested in other topics around testing with Python.</p>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2020-05-17T20:00:00+02:00">Mai 17, 2020</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../../../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../../../categories.html#my-bits-and-bytes-ref">My bits and bytes</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../../../tags.html#machine-learning-ref">Machine Learning
+                    <span>80</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="https://martin-thoma.com/feeds/index.xml">RSS-Feed</a></li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page" tabindex="-1">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page" tabindex="-1">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page" tabindex="-1">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
