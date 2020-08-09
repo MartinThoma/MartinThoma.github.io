@@ -671,7 +671,7 @@ Fabrics:
             <td>2 weeks</td>
             <td>5.90 €/kg</td>
             <td></td>
-            <td>6.85 € / 1.442 kg</td>
+            <td>9.08 € / 1.938 kg</td>
         </tr>
         <tr>
             <td>Mango (Tin can)</td>
@@ -695,7 +695,7 @@ Fabrics:
             <td>4 weeks</td>
             <td>2.99 € / kg</td>
             <td></td>
-            <td>16.25 € / 4.558kg</td>
+            <td>17.54 € / 5.058kg</td>
         </tr>
         <tr>
             <td>Annanas in a tin can</td>
@@ -788,12 +788,12 @@ Fabrics:
             <td>4.93 € / 5.842 kg</td>
         </tr>
         <tr>
-            <td>Brookkoli</td>
+            <td>Brokkoli</td>
             <td></td>
             <td>2 weeks</td>
-            <td>1.49 € / 500g</td>
+            <td>1.39 € / 500g</td>
             <td></td>
-            <td>1.49 € / 500g</td>
+            <td>2.88 € / 1000g</td>
         </tr>
         <tr>
             <td>Zuckererbsen</td>
@@ -833,7 +833,7 @@ Fabrics:
             <td>2 months (?)</td>
             <td>1.69 € / 2kg</td>
             <td>3.16 € / year</td>
-            <td>5.22 € / 6kg</td>
+            <td>6.08 € / 7kg</td>
         </tr>
         <tr>
             <td>Garlic (🇩🇪 Knoblauch)</td>
@@ -1042,7 +1042,7 @@ Fabrics:
             <td>3 months</td>
             <td>1.39 € / 250g</td>
             <td>33.54 € / year</td>
-            <td>25.56 € / 4250g</td>
+            <td>27.01 € / 4500g</td>
         </tr>
         <tr>
             <td>Margarine</td>
@@ -1280,7 +1280,15 @@ General Cooking:
             <td>2 months (?)</td>
             <td>0.65 € / L</td>
             <td>33.90 € / year</td>
-            <td>13.08 € / 19 L</td>
+            <td>13.79 € / 20 L</td>
+        </tr>
+        <tr>
+            <td>Haferdrink</td>
+            <td></td>
+            <td>8 months</td>
+            <td>0.99 € / L</td>
+            <td></td>
+            <td>0.99 € / 1 L</td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Whipped_cream">Whipped Cream</a> (Schlagsahne 30%)</td>
@@ -1320,7 +1328,7 @@ General Cooking:
             <td>1 year</td>
             <td>1.99 € / 750g</td>
             <td></td>
-            <td>13.93 € / 5250g</td>
+            <td>15.92 € / 6000g</td>
         </tr>
         <tr>
             <td>Sunflower oil (Sonnenblumenöl)</td>
@@ -1328,7 +1336,7 @@ General Cooking:
             <td>1 year</td>
             <td>0.99 € / L</td>
             <td>11.88 € / year</td>
-            <td>5.95 € / 5 L</td>
+            <td>6.91 € / 6 L</td>
         </tr>
         <tr>
             <td>Rapsöl</td>
@@ -1426,6 +1434,14 @@ General Cooking:
             <td></td>
             <td></td>
             <td>7.97 € / 1390ml</td>
+        </tr>
+        <tr>
+            <td>Other Sauce (andere Soßen)</td>
+            <td></td>
+            <td>6 months</td>
+            <td></td>
+            <td></td>
+            <td>0.97 € / 250ml</td>
         </tr>
         <tr>
             <td>Kecap Manis (ABC)</td>
@@ -1662,6 +1678,14 @@ General Cooking:
             <td>9.29 € / 1200g</td>
         </tr>
         <tr>
+            <td>Next Level Burger Patties (Vegan)</td>
+            <td></td>
+            <td></td>
+            <td>2.41 € / 225g</td>
+            <td></td>
+            <td>2.41 € / 225g</td>
+        </tr>
+        <tr>
             <td>Chicken (Hähnchenfilet / Hähnchengeschnetzeltes / Hähnchen-Minutenschnitzel)</td>
             <td>4.8 kg</td>
             <td>?</td>
@@ -1717,6 +1741,14 @@ General Cooking:
             <td></td>
             <td>0.99 € / 195g (Abtropfgewicht)</td>
         </tr>
+        <tr>
+            <td>Ketchup</td>
+            <td></td>
+            <td>1.5 years</td>
+            <td>1.59 € / 860ml</td>
+            <td></td>
+            <td>1.59 € / 860ml</td>
+        </tr>
     </tbody>
 </table>
 
@@ -1740,7 +1772,7 @@ General Cooking:
             <td>2 weeks (?)</td>
             <td>0.29 € / piece</td>
             <td>45.37 €</td>
-            <td>35.07 € / 117 piece</td>
+            <td>35.94 € / 120 piece</td>
         </tr>
         <tr>
             <td>Natural Joghurt (Joghurt Pur)</td>
@@ -1756,7 +1788,15 @@ General Cooking:
             <td>months to years</td>
             <td></td>
             <td></td>
-            <td>75.24 € / 54 packages</td>
+            <td>77.76 € / 56 packages</td>
+        </tr>
+        <tr>
+            <td>Ice Cream</td>
+            <td></td>
+            <td></td>
+            <td>1.30 € / ball (1 ball = 80g)</td>
+            <td></td>
+            <td>3.90 € / 240g</td>
         </tr>
         <tr>
             <td>Savory (Chips, Nachos, Sauce for nachos, Bake Rolls, Cashew or other nuts)</td>
@@ -1828,7 +1868,7 @@ General Cooking:
             <td>34 months</td>
             <td>0.99 € / 190g</td>
             <td></td>
-            <td>6.93 € / 1330g</td>
+            <td>7.92 € / 1520g</td>
         </tr>
         <tr>
             <td>Eggs (Eier)</td>
@@ -1844,7 +1884,7 @@ General Cooking:
             <td>?</td>
             <td>0.79 € / 1.5 L</td>
             <td>9.48 € / year</td>
-            <td>14.24 € / 25.5 L</td>
+            <td>15.03 € / 27.0 L</td>
         </tr>
         <tr>
             <td>Softdrinks (Eistee)</td>
@@ -2278,11 +2318,11 @@ pills and maybe a couple of months for creams and ointment.
     </thead>
     <tbody>
         <tr>
-            <td>Public transportation - ÖPNV ticket (DB, Bahn, Reisen)</td>
+            <td>Public transportation - ÖPNV ticket (DB, Bahn, Reisen, FlixBus)</td>
             <td>79.10 €</td>
             <td>Each month</td>
             <td>949.20 € / year</td>
-            <td>97.50 € / 596km</td>
+            <td>141.50 € / 1380km</td>
         </tr>
         <tr>
             <td>Restaurant (work)</td>
@@ -2367,6 +2407,13 @@ pills and maybe a couple of months for creams and ointment.
             <td></td>
             <td>72.00 € / 1 hike</td>
             <td></td>
+        </tr>
+        <tr>
+            <td>Hotel</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>45 € / night</td>
         </tr>
     </tbody>
     <tfoot>
