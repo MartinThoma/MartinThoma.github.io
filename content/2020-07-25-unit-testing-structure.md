@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Structuring Unit Tests
-URL: https://towardsdatascience.com/unit-testing-in-python-structure-57acd51da923
+URL: https://medium.com/python-in-plain-english/unit-testing-in-python-structure-57acd51da923
 author: Martin Thoma
 date: 2020-07-25 20:00
 category: Code
@@ -11,7 +11,6 @@ featured_image: logos/python.png
 Testing code is often pretty ugly: A lot of copy & paste, the code is all over
 the place and hard to understand. In this article you will learn how to
 structure unit testing code in Python.
-
 
 ## Directory Layout
 

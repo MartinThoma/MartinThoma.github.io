@@ -2,7 +2,7 @@
 layout: post
 title: CI Pipelines
 slug: ci-pipelines
-URL: https://towardsdatascience.com/ci-pipelines-for-python-projects-9ac2830d2e38
+URL: https://levelup.gitconnected.com/ci-pipelines-for-python-projects-9ac2830d2e38
 author: Martin Thoma
 date: 2020-07-30 20:00
 category: Code
