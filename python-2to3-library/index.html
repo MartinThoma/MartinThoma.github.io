@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Python, Code, " />
+
+<meta property="og:title" content="How I moved a library from Python 2 to 3 "/>
+<meta property="og:url" content="https://towardsdatascience.com/how-i-moved-a-library-from-python-2-to-3-60fc2b2a21a1" />
+<meta property="og:description" content="Image by skylarvision from needpix.com Last year I’ve given a workshop about packaging Python projects. One of the participants was a bioinformatics researcher. She needed advice because she wanted to switch from Python 2 to Python 3, but a library she needed was only available for Python 2 …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2020-08-20T20:00:00+02:00" />
+<meta name="twitter:title" content="How I moved a library from Python 2 to 3 ">
+<meta name="twitter:description" content="Image by skylarvision from needpix.com Last year I’ve given a workshop about packaging Python projects. One of the participants was a bioinformatics researcher. She needed advice because she wanted to switch from Python 2 to Python 3, but a library she needed was only available for Python 2 …">
+<meta property="og:image" content="logos/python.png" />
+<meta name="twitter:image" content="logos/python.png" >
+
+        <title>How I moved a library from Python 2 to 3  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand" tabindex="-1">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="https://towardsdatascience.com/how-i-moved-a-library-from-python-2-to-3-60fc2b2a21a1"> How I moved a library from Python 2 to 3  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#local-setup" title="Local Setup">Local Setup</a></li><li><a class="toc-href" href="#general-project-setup" title="General project setup">General project setup</a></li><li><a class="toc-href" href="#print-statements" title="Print statements">Print statements</a></li><li><a class="toc-href" href="#keeping-python-2-compatibility" title="Keeping Python 2 Compatibility">Keeping Python 2 Compatibility</a></li><li><a class="toc-href" href="#iterators" title="Iterators">Iterators</a></li><li><a class="toc-href" href="#input-and-raw_input" title="input and raw_input">input and raw_input</a></li><li><a class="toc-href" href="#division-and-rounding" title="Division and Rounding">Division and Rounding</a></li><li><a class="toc-href" href="#unicode-and-strings" title="Unicode and Strings">Unicode and Strings</a></li><li><a class="toc-href" href="#pure-python-and-universal-wheels" title="Pure Python and Universal Wheels">Pure Python and Universal Wheels</a></li><li><a class="toc-href" href="#create-a-version-support-policy" title="Create a version support policy">Create a version support policy</a></li><li><a class="toc-href" href="#remove-python-2-compatibility" title="Remove Python 2 Compatibility">Remove Python 2 Compatibility</a></li><li><a class="toc-href" href="#use-the-new-stuff" title="Use the new stuff!">Use the new stuff!</a></li><li><a class="toc-href" href="#forking-the-project" title="Forking the project">Forking the project</a></li><li><a class="toc-href" href="#metaclasses" title="Metaclasses">Metaclasses</a></li><li><a class="toc-href" href="#tldr-how-do-i-move-from-python-2-to-python-3" title="TL;DR: How do I move from Python 2 to Python 3?">TL;DR: How do I move from Python 2 to Python 3?</a></li><li><a class="toc-href" href="#related-resources" title="Related Resources">Related Resources</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p><img alt="Image by skylarvision from needpix.com" src="https://cdn-images-1.medium.com/max/2560/1*uvS55XJ3-uUny7j1cgye6g.jpeg"/><em>Image by <a href="https://www.needpix.com/photo/download/1179523/phoenix-photoshop-adler-fire-eagle-digital-art-feuervogel-photoshop-composition-free-pictures">skylarvision from needpix.com</a></em></p>
+<p>Last year I&rsquo;ve given a workshop about packaging Python projects. One of the participants was a bioinformatics researcher. She needed advice because she wanted to switch from Python 2 to Python 3, but a library she needed was only available for Python 2. Moving the library to Python 3 was pretty interesting and I&rsquo;ll share here how I did it &mdash; or rather how I would do it if I had the same situation again.</p>
+<h2 id="local-setup">Local Setup</h2>
+<p>Make sure you can execute Python 2 and Python 3 locally. I like <a href="https://github.com/pyenv/pyenv">pyenv</a> for that:</p>
+<div class="highlight"><pre><span></span><code>$ pyenv install <span class="m">2</span>.7.18
+$ pyenv install <span class="m">3</span>.8.5
+$ pyenv <span class="nb">local</span> <span class="m">3</span>.8.5
+$ pip --version
+</code></pre></div>
+<p>Alternatively, you can <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-python.html#installing-a-different-version-of-python">use conda to switch between Python 2 and 3</a>.</p>
+<h2 id="general-project-setup">General project setup</h2>
+<p>The project should be under <strong>version control</strong> and you need to make sure that people can move back if they need to. You need to <strong>pin direct and transitive dependencies</strong>. You should have a <strong>reproducible environment</strong>, such as a <a href="https://makeitnew.io/docker-ab1a6bddf389">Docker container</a> with a fixed Python version like 2.7.18-slim-buster. Add a <strong>git tag</strong> for the current version, deploy the latest one to pypi, and support your users in pinning that version.</p>
+<p>Make sure that you document the current state of the migration to Python 3. Typically this is done via an issue tracker, e.g. the builtin one of Github or Jira.</p>
+<p>First make sure that you can execute the tests, that the test coverage is OK (see <a href="https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0">unit testing series</a>) and that the general style is OK (see lining todo). Set up a <a href="https://levelup.gitconnected.com/ci-pipelines-for-python-projects-9ac2830d2e38">CI / CD pipeline</a>.</p>
+<h2 id="print-statements">Print statements</h2>
+<p>In Python 2, you could write print statements:</p>
+<div class="highlight"><pre><span></span><code><span class="k">print</span> <span class="s2">"hello world"</span>
+</code></pre></div>
+<p>In Python 3, you have to write print functions:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">"hello world"</span><span class="p">)</span>
+</code></pre></div>
+<p>Luckily, you can also have print functions in Python 2. And confusingly, it does not behave the same way:</p>
+<div class="highlight"><pre><span></span><code>py2&gt;&gt;&gt; print(1, 2, 3)
+(1, 2, 3)
+py3&gt;&gt;&gt; print(1, 2, 3)
+1 2 3
+</code></pre></div>
+<p>You need to import the backported print function to make the Python 2 function behave like the Python 3 function:</p>
+<div class="highlight"><pre><span></span><code>py2&gt;&gt;&gt; from __future__ import print_function
+py2&gt;&gt;&gt; print(1, 2, 3)
+1 2 3
+</code></pre></div>
+<p>Note that I didn&rsquo;t use the print_function &mdash; I just imported it.</p>
+<p>Applying this small change is tedious, but you can use <a href="https://docs.python.org/3.8/library/2to3.html">2to3</a> to do it for you:</p>
+<div class="highlight"><pre><span></span><code>$ pip install 2to3
+$ 2to3 --fix<span class="o">=</span>print .
+</code></pre></div>
+<h2 id="keeping-python-2-compatibility">Keeping Python 2 Compatibility</h2>
+<p>You should have a version that works for Python 2 and Python 3 in exactly the same way for a while. For bigger projects with lots of dependencies, it&rsquo;s a big help if they can move gradually forward.</p>
+<p>Python 3 moved/renamed parts of the standard library. This breaks compatibility with Python 2. However, the workaround is simple:</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urlparse</span><span class="p">,</span> <span class="n">urlencode</span>
+    <span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">urlparse</span> <span class="kn">import</span> <span class="n">urlparse</span>
+    <span class="kn">from</span> <span class="nn">urllib</span> <span class="kn">import</span> <span class="n">urlencode</span>
+    <span class="kn">from</span> <span class="nn">urllib2</span> <span class="kn">import</span> <span class="n">urlopen</span>
+</code></pre></div>
+<p>Even nicer is the compatibility library six:</p>
+<div class="highlight"><pre><span></span><code>$ pip install six
+</code></pre></div>
+<p><code>six</code> can then be used like this in both, Python 2 and Python 3:</p>
+<div class="highlight"><pre><span></span><code>from six.moves.urllib.parse import urlparse, urlencode
+from six.moves.urllib.request import urlopen
+</code></pre></div>
+<p>When you write code only to keep the support for older versions, make sure you
+add a string that is easy to find. Something like &ldquo;support for Python 2&rdquo;</p>
+<h2 id="iterators">Iterators</h2>
+<p>Python 2 creates a list when you call <code>range(10)</code> whereas Python 3 creates a
+range object for the same code. In some rare cases, you actually need the list
+and thus need to change it to <code>list(range(10))</code>.</p>
+<h2 id="input-and-raw_input">input and raw_input</h2>
+<p>Python 2 has <a href="https://docs.python.org/2/library/functions.html#input">input</a> and <a href="https://docs.python.org/2/library/functions.html#raw_input">raw_input</a> , but Python 3 only has <a href="https://docs.python.org/3/library/functions.html#input">input</a>. The raw_input of Python 2 is like the input of Python 3.</p>
+<h2 id="division-and-rounding">Division and Rounding</h2>
+<p>If you apply / to two integers, Python 2 gives you an integer division. Python 3 gives you a float as a result. You can still do integer division with // which works in both, Python 2 and 3:</p>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; 1 / 2
+# Python 2: 0 vs Python 3: 0.5
+</code></pre></div>
+<p>The rounding behavior at x.5 also changed:</p>
+<ul>
+<li><a href="https://docs.python.org/2/library/functions.html#round">Python 2</a>: if two multiples are equally close, rounding is done away from 0</li>
+<li><a href="https://docs.python.org/3/library/functions.html#round">Python 3</a>: if two multiples are equally close, rounding is done toward the even choice</li>
+</ul>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; round(2.4)
+# Python 2: 2.0 vs Python 3: 2
+
+&gt;&gt;&gt; round(2.5)
+# Python 2: 3.0 vs Python 3: 2
+
+&gt;&gt;&gt; round(2.6)
+# Python 2: 3.0 vs Python 3: 3
+</code></pre></div>
+<p>There are ways to get the <a href="https://stackoverflow.com/q/21839140/562769">same rounding behavior in Python 2 and 3</a>.</p>
+<h2 id="unicode-and-strings">Unicode and Strings</h2>
+<p>Unicode was a big pain in Python 2 and got a lot simpler in Python 3. Unicode support was only added later to Python 2. In Python 2, there was a difference between a Unicode string and a string. Essentially, a string was a bytes object containing ASCII:</p>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; a = u"abc"
+&gt;&gt;&gt; type(a)
+&lt;type 'unicode'&gt;
+
+&gt;&gt;&gt; b = "abc"
+&gt;&gt;&gt; type(b)
+&lt;type 'str'&gt;
+
+&gt;&gt;&gt; c = b"abc"
+&gt;&gt;&gt; type(c)
+&lt;type 'str'&gt;
+
+&gt;&gt;&gt; ord('&ouml;')
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+TypeError: ord() expected a character, but string of length 2 found
+
+&gt;&gt;&gt; '&uuml;'[0]
+'\xc3'
+&gt;&gt;&gt; '&uuml;'[1]
+'\xbc'
+</code></pre></div>
+<p>In Python 3, it&rsquo;s the same:</p>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; a = u"abc"
+&gt;&gt;&gt; type(a)
+&lt;class 'str'&gt;
+
+&gt;&gt;&gt; b = "abc"
+&gt;&gt;&gt; type(b)
+&lt;class 'str'&gt;
+
+&gt;&gt;&gt; c = b"abc"
+&gt;&gt;&gt; type(c)
+&lt;class 'bytes'&gt;
+
+&gt;&gt;&gt; ord('&ouml;')
+246
+
+&gt;&gt;&gt; '&uuml;'[0]
+'&uuml;'
+</code></pre></div>
+<p>I could write a lot about Unicode and string representations, but to keep it
+brief:</p>
+<ul>
+<li>Python 2 u"somethin" is the same as Python 3 "something" or u"something"</li>
+<li>I would not use from <code>__future__ import unicode_literals</code>. You might want to
+  <a href="https://python-future.org/unicode_literals.html">read more about
+  unicode_literals</a>.</li>
+<li><a href="https://stackoverflow.com/q/26079392/562769">How is unicode represented internally in Python?</a></li>
+</ul>
+<h2 id="pure-python-and-universal-wheels">Pure Python and Universal Wheels</h2>
+<p>A wheel file is a form of distributing Python code. Python code is considered
+<a href="https://packaging.python.org/guides/distributing-packages-using-setuptools/#pure-python-wheels">pure</a>
+if it does not have C extensions. If pure Python code is compatible with Python
+2 and Python 3 and distributed via a wheel file, that file is called
+<a href="https://packaging.python.org/guides/distributing-packages-using-setuptools/#universal-wheels">universal</a>.
+It should work on every machine with every Python version.</p>
+<p>You should always distribute your code in form of a source distribution and a
+wheel distribution. If you can, try to create and publish one universal wheel.</p>
+<h2 id="create-a-version-support-policy">Create a version support policy</h2>
+<p><img alt="Photo by Sebastian Herrmann on Unsplash" src="https://cdn-images-1.medium.com/max/10162/0*npT3ah8HnHtz1Mq-"/><em>Photo by <a href="https://unsplash.com/@officestock?utm_source=medium&amp;utm_medium=referral">Sebastian Herrmann</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p>Library creators need to decide which Python versions they want to support.
+Newer versions of Python have killer features you want to have and supporting
+all versions takes a lot of time. Make it transparent which versions you want
+to support and when you want to drop the support. It&rsquo;s best to link this to
+bigger projects, e.g. the last 3 major Python versions.</p>
+<p>You should also know that the Python release cycle was changed in <a href="https://www.python.org/dev/peps/pep-0602/">PEP-602</a>.</p>
+<h2 id="remove-python-2-compatibility">Remove Python 2 Compatibility</h2>
+<p><img alt="Photo by JESHOOTS.COM on Unsplash" src="https://cdn-images-1.medium.com/max/8400/0*TnzggyB55C5IxhvW"/><em>Photo by <a href="https://unsplash.com/@jeshoots?utm_source=medium&amp;utm_medium=referral">JESHOOTS.COM</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<p>Supporting Python 2 means you need to add additional code and likely that you
+cannot use some of the killer features of newer Python versions.</p>
+<p>When you remove the support for a Python version, do it in one git commit so that the change is clear. Search for that string:</p>
+<div class="highlight"><pre><span></span><code>$ grep -rnI <span class="s2">"support for Python 2"</span>
+</code></pre></div>
+<h2 id="use-the-new-stuff">Use the new stuff!</h2>
+<p>Python 3 has some super cool features you should use when you can. Migrating to Python 3 opens up a whole new world: <a href="https://medium.com/python-in-plain-english/killer-features-by-python-version-c84ca12dba8">Killer Features by Python Version</a></p>
+<p><a href="https://github.com/asottile/pyupgrade">pyupgrade</a> can help you to use new-style syntax, such as:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">dict</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">y</span><span class="p">)</span>  <span class="c1"># -&gt; {a: b for a, b in y}</span>
+<span class="s2">"</span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># -&gt; '{} {}'.format(a, b)</span>
+</code></pre></div>
+<p>It&rsquo;s not strictly necessary to do this, but it makes your code more modern and easier to read.</p>
+<h2 id="forking-the-project">Forking the project</h2>
+<p>I was pretty lucky that the maintainers of propy were welcoming the changes. However, with free software, you are not bound by the maintainers&rsquo; support. You can simply create a so-called <em>fork</em>: A copy of the original project which you control.</p>
+<p><img alt="Scipy has over 3000 forks. Screenshot of Github by Martin Thoma" src="https://cdn-images-1.medium.com/max/2000/1*hCKfGX5UaIlATzolHLc5oA.png"/><em>Scipy has over 3000 forks. Screenshot of Github by Martin Thoma</em></p>
+<p>Forking happens all the time with free software. It&rsquo;s also a mode of development, where independent developers make changes in their copy (their fork) and create a merge request (Github calls this a pull request (PR)).</p>
+<p>You can also upload your fork to pypi, but please only do this if you want to maintain that fork and continue the independent development.</p>
+<h2 id="metaclasses">Metaclasses</h2>
+<p>There are topics like metaclasses and exception scopes which I haven&rsquo;t covered. If you need that, I recommend this tutorial by Mike M&uuml;ller:</p>
+<p><center><iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/JgIgEjASOlk" width="560"></iframe></center></p>
+<p><a href="undefined">Anders Hovm&ouml;ller</a> also wrote an interesting article about this topic. Check his &ldquo;surprises in production&rdquo; section:
+<a href="https://medium.com/@boxed/moving-a-large-and-old-codebase-to-python3-33a5a13f8c99">Moving a large and old codebase to Python3</a></p>
+<h2 id="tldr-how-do-i-move-from-python-2-to-python-3">TL;DR: How do I move from Python 2 to Python 3?</h2>
+<ol>
+<li>Get a professional Python 2 setup</li>
+<li>Move to a state where your codebase supports Python 2 and Python 3</li>
+<li>Let it run for a while, make sure it works</li>
+<li>Remove Python 2 support</li>
+</ol>
+<h2 id="related-resources">Related Resources</h2>
+<ul>
+<li>Mike M&uuml;ller: <a href="https://www.youtube.com/watch?v=JgIgEjASOlk">Migration from Python 2 to 3</a>, at PyCon US2020.</li>
+<li><a href="https://code.google.com/archive/p/protpy/downloads">protpy</a> was the library I moved. I created <a href="https://github.com/MartinThoma/propy3">propy3</a>.</li>
+</ul>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2020-08-20T20:00:00+02:00">Aug 20, 2020</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#python-ref">Python
+                    <span>128</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="https://martin-thoma.com/feeds/index.xml">RSS-Feed</a></li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page" tabindex="-1">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page" tabindex="-1">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page" tabindex="-1">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
