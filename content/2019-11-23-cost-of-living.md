@@ -2476,6 +2476,14 @@ pills and maybe a couple of months for creams and ointment.
             <td></td>
             <td>9.97 € / 8g</td>
         </tr>
+        <tr>
+            <td>Hühneraugen-Pflaster</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>2.95 € / 5 pieces</td>
+        </tr>
     </tbody>
 </table>
 
@@ -2506,7 +2514,7 @@ pills and maybe a couple of months for creams and ointment.
             <td></td>
             <td></td>
             <td></td>
-            <td>81 € / 8 time</td>
+            <td>94 € / 9 time</td>
         </tr>
         <tr>
             <td>Food for Work (e.g. Semmel)</td>
