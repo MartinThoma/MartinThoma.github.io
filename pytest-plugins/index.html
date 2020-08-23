@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Python, pytest, Code, " />
+
+<meta property="og:title" content="Pytest Plugins to Love ❤️ "/>
+<meta property="og:url" content="https://towardsdatascience.com/pytest-plugins-to-love-%EF%B8%8F-9c71635fbe22" />
+<meta property="og:description" content="Plugins can modify and extend a lot of aspects of pylint, including how the output is done Pytest is extensible and has plenty of plugins. You don’t need to use any of them, but you might find some very useful. I love this because you have an easy time …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2020-08-23T20:00:00+02:00" />
+<meta name="twitter:title" content="Pytest Plugins to Love ❤️ ">
+<meta name="twitter:description" content="Plugins can modify and extend a lot of aspects of pylint, including how the output is done Pytest is extensible and has plenty of plugins. You don’t need to use any of them, but you might find some very useful. I love this because you have an easy time …">
+<meta property="og:image" content="logos/python.png" />
+<meta name="twitter:image" content="logos/python.png" >
+
+        <title>Pytest Plugins to Love ❤️  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand" tabindex="-1">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="https://towardsdatascience.com/pytest-plugins-to-love-%EF%B8%8F-9c71635fbe22"> Pytest Plugins to Love ❤️  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#how-can-i-add-a-plugin" title="How can I add a plugin?">How can I add a plugin?</a></li><li><a class="toc-href" href="#how-many-pytest-plugins-exist" title="How many Pytest plugins exist?">How many Pytest plugins exist?</a></li><li><a class="toc-href" href="#the-shiny-ones" title="The shiny ones">The shiny ones</a></li><li><a class="toc-href" href="#we-need-speed" title="We need speed!">We need speed!</a></li><li><a class="toc-href" href="#the-unique-ones" title="The unique ones">The unique ones</a></li><li><a class="toc-href" href="#17-specialized-plugins-youll-know-if-you-need-them" title="17 Specialized Plugins &mdash; You&rsquo;ll know if you need them">17 Specialized Plugins &mdash; You&rsquo;ll know if you need them</a><ul><li><a class="toc-href" href="#web-development" title="Web Development">Web Development</a></li><li><a class="toc-href" href="#mocks-and-fixtures-for-aws" title="Mocks and Fixtures for AWS">Mocks and Fixtures for AWS</a></li></ul></li><li><a class="toc-href" href="#plugins-im-uncertain-about_1" title="Plugins I&rsquo;m uncertain about">Plugins I&rsquo;m uncertain about</a></li><li><a class="toc-href" href="#tldr" title="TL;DR">TL;DR</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2020/08/pytest-sugar-big.png"><img alt="Plugins can modify and extend a lot of aspects of pylint, including how the output is done" src="../images/2020/08/pytest-sugar-big.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Plugins can modify and extend a lot of aspects of pylint, including how the output is done</figcaption>
+</figure>
+<p>Pytest is extensible and has plenty of plugins. You don&rsquo;t need to use any of
+them, but you might find some very useful. I love this because you have an easy
+time to <a href="https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0">get started with unit
+testing</a>,
+while still finding amazing stuff when you&rsquo;re more experienced 🤩</p>
+<p>In this article, I&rsquo;ll show you examples of plugins I use and the plugins I
+found while writing this article. You might want to cover the <a href="https://medium.com/swlh/unit-testing-in-python-basics-21a9a57418a0">basics of unit
+testing</a>
+first or refresh <a href="https://medium.com/python-in-plain-english/unit-testing-in-python-structure-57acd51da923">testing details like
+fixtures</a>.</p>
+<h2 id="how-can-i-add-a-plugin">How can I add a plugin?</h2>
+<p>All plugins presented in this article can be installed via <code>pip</code>. Most of them
+are then already active. For example, when you install pytest-sugar via</p>
+<div class="highlight"><pre><span></span><code>pip install pytest-sugar
+</code></pre></div>
+<p>You can just execute pytest and the plugin will automatically work. Others need
+to be used more directly. For example, after installing <code>pytest-timeout</code> you
+need to specify the timeout parameter you want to use:</p>
+<div class="highlight"><pre><span></span><code>pytest --timeout<span class="o">=</span><span class="m">1</span>
+</code></pre></div>
+<p>Don&rsquo;t worry, I will explain those two plugins later 🙂</p>
+<h2 id="how-many-pytest-plugins-exist">How many Pytest plugins exist?</h2>
+<p>Searching on pypi.org for the trove classifier <code>Framework :: Pytest</code>, I found
+668 packages. A stunning 1053 packages have &ldquo;pytest&rdquo; in the name. 461 packages
+have both, the name and the trove classifier.</p>
+<p>I went through over 700 pytest-plugins for this article. I&rsquo;ve jumped over
+plugins that consider themselves to be in planning, pre-alpha, or alpha stage.
+I&rsquo;ve also skipped packages where I&rsquo;ve seen a TODO in the readme or if the
+package had less than 10 stars on GitHub.</p>
+<p>The packages I&rsquo;ve found make pytest sparkle ✨, improve the speed 🏎, are
+specialized to specific packages, or just unique in their behavior ❄️</p>
+<p>Last but not least, there are some plugins where I&rsquo;m not sure if they are
+awesome or if they are a bad idea. Let&rsquo;s jump right into it and have a look
+yourself!</p>
+<blockquote>
+<p><strong>Side note</strong>: Maybe you remember my <a href="https://towardsdatascience.com/static-code-analysis-for-python-bdce10b8d287#9026">side note on typo squatting</a>? I found a <a href="https://github.com/pypa/warehouse/issues/8462">fixable issue on PyPI</a> while writing this article, hopefully improving security for the community🎉</p>
+</blockquote>
+<h2 id="the-shiny-ones">The shiny ones</h2>
+<p>The default output of pytest is already good, but some plugins make it amazing.
+<a href="https://github.com/Teemu/pytest-sugar">pytest-sugar</a> is one of those plugins❤</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2020/08/pytest-sugar.png"><img alt="Pytest sugar changes the dots to checkmarks and the percentage to a bar." src="../images/2020/08/pytest-sugar.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Pytest sugar changes the dots to checkmarks and the percentage to a bar.</figcaption>
+</figure>
+<p>If those dots or checkmarks are too decent for you,
+give <a href="https://pypi.org/project/pytest-emoji/">pytest-emoji</a> and
+<a href="https://pypi.org/project/pytest-emoji-output/">pytest-emoji-out</a> a try 😃</p>
+<p>The summary output now looks good, but the diffs between the expected value and
+the actual value can be improved.
+<a href="https://pypi.org/project/pytest-icdiff/">pytest-icdiff</a> is a plugin I&rsquo;ve only
+found while researching this article &mdash; and it was love at first sight 🥰❤</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2020/08/pytest-error-message-normal-vs-icdiff.png"><img alt="Normal pytest output vs pytest-icdiff" src="../images/2020/08/pytest-error-message-normal-vs-icdiff.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Normal pytest output vs pytest-icdiff</figcaption>
+</figure>
+<p>Very similar is <a href="https://pypi.org/project/pytest-clarity/">pytest-clarity</a> &mdash; be aware, that pytest-clarity is only active when you execute pytest -vv:</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2020/08/pytest-error-message-normal-vs-clarity.png"><img alt="Comparison of the normal output with pytest-clarity" src="../images/2020/08/pytest-error-message-normal-vs-clarity.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Comparison of the normal output with pytest-clarity</figcaption>
+</figure>
+<p>Once you're happy with the terminal output, you might think about getting
+reports in the browser. This could help once you have to have a look at many
+things, want to scroll and search. Then
+<a href="https://pypi.org/project/pytest-html/">pytest-html</a> is your friend. It
+generates reports like this one:</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2020/08/pytest-html.png"><img alt="Output of pytest-html" src="../images/2020/08/pytest-html.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Output of pytest-html</figcaption>
+</figure>
+<p>Now that we are happy with the output, we want to make it lightning fast!</p>
+<h2 id="we-need-speed">We need speed!</h2>
+<p>Plugins can speed things up. For example, you can make pytest fail instantly
+with <a href="https://pypi.org/project/pytest-instafail/"><code>pytest-instafail</code></a> instead of
+executing all remaining tests. For tests which might take a long time or even
+result in an infinite loop in case of errors, I use
+<a href="https://pypi.org/project/pytest-timeout/"><code>pytest-timeout</code></a> ❤. That is
+especially helpful when you apply <a href="https://medium.com/analytics-vidhya/unit-testing-in-python-mutation-testing-7a70143180d8">Mutation
+testing</a>.</p>
+<p>We also want to use our machine properly by using
+<a href="https://pypi.org/project/pytest-xdist/"><code>pytest-xdist</code></a>. Install it, execute
+<code>pytest -n auto</code> and your tests run in parallel!
+<a href="https://pypi.org/project/pytest-parallel/"><code>pytest-parallel</code></a> might also be
+worth a shot.</p>
+<p>The most extreme speedup is not to execute stuff you don&rsquo;t need.
+<a href="https://github.com/anapaulagomes/pytest-picked"><code>pytest-picked</code></a> executes tests
+that are related to unstaged files which can be way less than your complete
+test suite.</p>
+<p>Going in a different direction, we want to make sure that the algorithms have
+some speed behavior. With
+<a href="https://pypi.org/project/pytest-benchmark/"><code>pytest-benchmark</code></a>, we can use
+the benchmark fixture to annotate parts of a test which we want to benchmark:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_argmax</span><span class="p">(</span><span class="n">benchmark</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">benchmark</span><span class="p">(</span><span class="n">mpu</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">argmax</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span> <span class="o">==</span> <span class="mi">2</span>
+</code></pre></div>
+<p>Running pytest then also gives this output, where you can see three functions
+to which I&rsquo;ve added a benchmark. Two of them test a factorization function. It
+should not be a surprise that factorizing 3072 takes longer than factorizing
+1024, but it is always astonishing to me how quickly the numbers grow. The
+argmax of 3 examples is super quick, but factorization just needs way more
+computation:</p>
+<figure class="wp-caption aligncenter img-thumbnail">
+<a href="../images/2020/08/pytest-benchmark.png"><img alt="Minimum, Mean and Maximum execution time, as well as the standard deviation and the interquartile range, give you some insights into the execution time distribution" src="../images/2020/08/pytest-benchmark.png" style="width: 512px;"/></a>
+<figcaption class="text-center">Minimum, Mean and Maximum execution time, as well as the standard deviation and the interquartile range, give you some insights into the execution time distribution</figcaption>
+</figure>
+<h2 id="the-unique-ones">The unique ones</h2>
+<p>Some plugins are unique and don&rsquo;t fit in any of the other categories:</p>
+<ul>
+<li><a href="https://pypi.org/project/pytest-cov">pytest-cov</a> : Get a test coverage
+  report 😍 ❤ I like to generate both, an HTML report and an output to the
+  terminal. In some settings, an XML report is also helpful.</li>
+<li><a href="https://pypi.org/project/pytest-socket/">pytest-socket</a> : Make certain that
+  you don&rsquo;t query anything non-local. Very nice ❤</li>
+<li><a href="https://github.com/pytest-dev/pytest-randomly">pytest-randomly</a> and
+  <a href="https://pypi.org/project/pytest-rng/">pytest-rng</a>: If you use
+  <code>random.random</code>, then the outcome depends on the random seed. This plugin
+  changes the seed.</li>
+<li><a href="https://pypi.org/project/pytest-random-order/">pytest-random-order</a> :
+  Execute the tests in a random order, to make sure you see when a test leaves
+  the system in a different state.</li>
+<li><a href="https://pypi.org/project/pytest-lazy-fixture/">pytest-lazy-fixtures</a> : Use
+  fixtures in <code>@pytest.mark.parametrize</code>.</li>
+<li><a href="https://pypi.org/project/pytest-freezegun/">pytest-freezegun</a> : Freeze time!
+  This is one I&rsquo;ve also mentioned in <a href="https://levelup.gitconnected.com/unit-testing-in-python-mocking-patching-and-dependency-injection-301280db2fed">my patching
+  article</a>.</li>
+<li><a href="https://pypi.org/project/pytest-leaks/">pytest-leaks</a> : Find resource leaks.
+  This requires a debug-built of Python!</li>
+<li><a href="https://github.com/tholo/pytest-flake8">pytest-flake8</a> : Run flake8 via
+  pytest. I did that for a long time, but when I learned
+  <a href="https://levelup.gitconnected.com/ci-pipelines-for-python-projects-9ac2830d2e38">how to use Continuous Integration pipelines</a>
+  more effectively, I stopped it. You can still execute flake8 directly.</li>
+<li><a href="https://pypi.org/project/pytest-mypy/">pytest-mypy</a> and pytest-mccabe: Same
+  story as for flake8. By the way, <a href="https://medium.com/analytics-vidhya/type-annotations-in-python-3-8-3b401384403d">type annotations are
+  awesome</a>!
+  I like to have those <a href="https://towardsdatascience.com/static-code-analysis-for-python-bdce10b8d287">static code analysis
+  tools</a>
+  in a linter step within the CI pipeline.</li>
+<li><a href="https://pypi.org/project/pytest-deadfixtures/">pytest-deadfixtures</a> : Point
+  out which fixtures are not used or duplicated.</li>
+</ul>
+<h2 id="17-specialized-plugins-youll-know-if-you-need-them">17 Specialized Plugins &mdash; You&rsquo;ll know if you need them</h2>
+<p>The following plugins are only interesting to you if you work with the applications for which they are written. They usually provide fixtures/mocks.</p>
+<ul>
+<li><a href="https://pypi.org/project/pytest-cookies/">pytest-cookie</a> : Supports testing
+  of <a href="https://github.com/cookiecutter/cookiecutter">cookiecutter</a> templates.</li>
+<li><a href="https://pypi.org/project/pytest-plt/">pytest-plt</a> and
+  <a href="https://pypi.org/project/pytest-mpl/">pytest-mpl</a>: Provides fixtures for
+  matplotlib.</li>
+<li><a href="https://pypi.org/project/pytest-responses/">pytest-responses</a> : Provides
+  fixtures for <a href="https://requests.readthedocs.io/en/master/"><code>requests</code></a>.</li>
+<li><a href="https://pypi.org/project/pytest-asyncio/">pytest-asyncio</a> : Use it when you
+  develop async functions.</li>
+<li><a href="https://pypi.org/project/pytest-qt/">pytest-qt</a> : GUI development via Qt /
+  PySide / PySide2.</li>
+</ul>
+<h3 id="web-development">Web Development</h3>
+<ul>
+<li><a href="https://pypi.org/project/pytest-djangoapp/">pytest-djangoapp</a> /
+  <a href="https://pypi.org/project/pytest-django-queries/">pytest-djangoqueries</a>:
+  Exposes tools for Django application developers to facilitate test authoring,
+  including settings override, template tag testing, and user creation.</li>
+<li>
+<dl>
+<dt><a href="https://pypi.org/project/pytest-flask/">pytest-flask</a> and</dt>
+<dt><a href="https://pypi.org/project/pytest-flask-sqlalchemy/">pytest-flask-sqlalchemy</a></dt>
+<dd>Provides fixtures for running tests in transactions using Flask-SQLAlchemy.</dd>
+</dl>
+</li>
+<li><a href="https://pypi.org/project/pytest-seleniumbase/">pytest-seleniumbase</a> /
+  <a href="https://pypi.org/project/pytest-sbase/">pytest-sbase</a> /
+  <a href="https://pypi.org/project/pytest-selenium/">pytest-selenium</a></li>
+</ul>
+<h3 id="mocks-and-fixtures-for-aws">Mocks and Fixtures for AWS</h3>
+<ul>
+<li><a href="https://pypi.org/project/moto/">moto</a> : Mocks for boto3 &mdash; AWS stuff. I don&rsquo;t
+  exactly love this one, but it is for sure the best you can do when you want
+  to test code that uses S3.</li>
+<li><a href="https://pypi.org/project/pytest-aws/">pytest-aws</a> : Testing AWS resource
+  configurations</li>
+<li><a href="https://pypi.org/project/pytest-lambda/">pytest-lambda</a> : Fixtures for AWS Lambda</li>
+<li><a href="https://pypi.org/project/pytest-localstack/">pytest-localstack</a> : Create AWS
+  integration tests via a Localstack Docker container</li>
+</ul>
+<h2 id="plugins-im-uncertain-about_1">Plugins I&rsquo;m uncertain about</h2>
+<p>The following plugins sounded cool for me when I first read about them, but for
+various reasons, I&rsquo;m uncertain if they are really a good idea:</p>
+<ul>
+<li><a href="https://github.com/okken/pytest-check">pytest-check</a> : Allows multiple
+  failures per test. At first, I loved the idea. Then I realized that this
+  might lead to worse tests as the tests start to do many things. On the other
+  hand, you might want to test a &ldquo;workflow&rdquo; once &mdash; so not a unit test, but an
+  integration test or even an end-to-end test. But then you would also need
+  intermediate results.</li>
+<li><a href="https://pypi.org/project/pytest_docker_tools/">pytest-docker-tools</a> and
+  <a href="https://github.com/pytest-docker-compose/pytest-docker-compose">pytest-docker-compose</a>:
+  I would just build the Docker image and execute the stuff in it.</li>
+<li><a href="https://pypi.org/project/pytest-mock/">pytest-mock</a> : Provides a mocker
+  fixture which is a thin wrapper around the patching API provided by the mock
+  package.</li>
+<li><a href="https://pypi.org/project/pytest-spec/"><code>pytest-spec</code></a>,
+  <a href="https://pypi.org/project/pytest-pspec/"><code>pytest-pspec</code></a>, and
+  <a href="https://pypi.org/project/pytest-testdox/">pytest-testdox</a> modify the pytest
+  output. They show what is tested. The tests should be written in such a way
+  that they represent the software specification &mdash; so the test is against a
+  part of the specification.</li>
+<li><a href="https://pypi.org/project/pytest-recording/">pytest-recording</a> : It should
+  record network interactions via VCR.py, but I didn&rsquo;t get it to work.</li>
+<li><a href="https://github.com/RKrahl/pytest-dependency">pytest-dependency</a> allows you
+  to specify which tests need to succeed for others to be able to succeed. Unit
+  tests should be independent and dependent code should be mocked&hellip;maybe. I&rsquo;m
+  not certain about that.</li>
+</ul>
+<h2 id="tldr">TL;DR</h2>
+<p>pytest is the tool of choice to run tests in Python. While it has reasonable
+defaults, it&rsquo;s extensive plugin system lets you customize it to make it even
+better.</p>
+<p>I love <a href="https://github.com/Teemu/pytest-sugar"><code>pytest-sugar</code></a> and
+<a href="https://pypi.org/project/pytest-icdiff/"><code>pytest-icdiff</code></a>, because they make
+the output of pytest easier to read.
+<a href="https://pypi.org/project/pytest-cov/"><code>pytest-cov</code></a> generates line- and branch
+coverage and thus is a valuable tool to find spots that need better tests. The
+next step is to run the tests. You really don&rsquo;t want to accidentally hit the
+production environment. This is where
+<a href="https://pypi.org/project/pytest-socket/"><code>pytest-socket</code></a> comes into play. It
+just blocks everything and reports it to you. The other type of issue are
+long-running tests that are potentially in infinite loops.pytest-timeout kills
+those tests after the specified amount of time.</p>
+<p>There are so many other plugins; many add fixtures for specific packages which
+are typically hard to test. You should now have a good idea of the many
+possibilities added by pytest plugins &mdash; use them!</p>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2020-08-23T20:00:00+02:00">Aug 23, 2020</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#pytest-ref">pytest
+                    <span>7</span>
+</a></li>
+                <li><a href="../tags.html#python-ref">Python
+                    <span>129</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="https://martin-thoma.com/feeds/index.xml">RSS-Feed</a></li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page" tabindex="-1">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page" tabindex="-1">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page" tabindex="-1">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
