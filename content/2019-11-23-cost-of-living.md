@@ -724,9 +724,9 @@ Fabrics:
             <td>Kiwi</td>
             <td>12 pieces / year</td>
             <td>2 weeks</td>
-            <td>0.39 / piece</td>
+            <td>0.29 € / piece to 0.39 € / piece</td>
             <td>4.68 € / year</td>
-            <td>1.45 € / 5 pieces</td>
+            <td>1.74 € / 6 pieces</td>
         </tr>
         <tr>
             <td><a href="https://en.wikipedia.org/wiki/Vaccinium">Blueberries</a> (Heidelbeeren)</td>
@@ -880,15 +880,15 @@ Fabrics:
             <td>1 week</td>
             <td>1.49 € / 250g (1 package)</td>
             <td></td>
-            <td>10.93 € / 2346g</td>
+            <td>12.28 € / 2846g</td>
         </tr>
         <tr>
             <td>Broccoli</td>
             <td></td>
             <td></td>
-            <td>1.49 € / 500g</td>
+            <td>0.86 € / 500g to 1.49 € / 500g</td>
             <td></td>
-            <td>5.07 € / 1500g</td>
+            <td>5.93 € / 2000g</td>
         </tr>
         <tr>
             <td>Corn in a can (🇩🇪Mais in der Dose)</td>
@@ -934,9 +934,9 @@ Fabrics:
             <td><a href="https://en.wikipedia.org/wiki/Zucchini">Zucchini</a></td>
             <td>6kg / year (<span title="one piece is about 262g">*</span>)</td>
             <td>1 month (?)</td>
-            <td>1.99 € / kg</td>
+            <td>0.89 € / kg to 1.99 € / kg</td>
             <td>11.94 € / kg</td>
-            <td>1.00 € / 0.522kg</td>
+            <td>1.40 € / 0.972kg</td>
         </tr>
         <tr>
             <td>Olives (entkernte Oliven im Glas)</td>
@@ -1025,7 +1025,7 @@ Fabrics:
             <td>4 days</td>
             <td>1.95 € / 500g and 1.29 € / 500g</td>
             <td></td>
-            <td>23.00 € / 8000g</td>
+            <td>25.98 € / 9000g</td>
         </tr>
         <tr>
             <td>Croissants</td>
@@ -1033,7 +1033,7 @@ Fabrics:
             <td>1 day (3 weeks for backing)</td>
             <td>1.19 € / 4 pieces or 1.60 € / 1 piece at the baker</td>
             <td>32.54 € / year</td>
-            <td>14.13 € / 15 piece</td>
+            <td>16.51 € / 23 piece</td>
         </tr>
         <tr>
             <td>Käseschnecke</td>
@@ -1105,7 +1105,7 @@ Fabrics:
             <td>1 to 4 months</td>
             <td>2.69 € / 400g für Emmentaler; 1.99 € / 200g für Limburger; 1.19 € / 150g für Almzeit; 4.84 € / 250g für Parmigiano</td>
             <td>67.34 € / year</td>
-            <td>63.46 € / 8.30kg</td>
+            <td>62.32 € / 8.70kg</td>
         </tr>
         <tr>
             <td>Frischkäse</td>
@@ -1177,7 +1177,7 @@ Fabrics:
             <td>2 weeks</td>
             <td>0.99 € / 200g</td>
             <td></td>
-            <td>0.99 € / 200g</td>
+            <td>2.91 € / 600g</td>
         </tr>
         <tr>
             <td>Crème fraîche based spread (Tomaten-Mozzarella Brotaufstrich / Thunfisch)</td>
@@ -1365,9 +1365,9 @@ General Cooking:
             <td>Müsli (Nougat/Granola Bits)</td>
             <td></td>
             <td>1 year</td>
-            <td>1.99 € / 750g</td>
+            <td>1.99 € / 750g or 2.49 / 500g</td>
             <td></td>
-            <td>17.91 € / 6750g</td>
+            <td>20.40 € / 7250g</td>
         </tr>
         <tr>
             <td>Sunflower oil (Sonnenblumenöl)</td>
@@ -1900,15 +1900,15 @@ General Cooking:
             <td>2 weeks (?)</td>
             <td>0.29 € / piece</td>
             <td>45.37 €</td>
-            <td>38.28 € / 129 piece</td>
+            <td>39.28 € / 133 piece</td>
         </tr>
         <tr>
             <td>Natural Joghurt (Joghurt Pur)</td>
             <td></td>
             <td></td>
-            <td>0.75 € / 500g</td>
+            <td>0.49 € / 500g to 0.75 € / 500g</td>
             <td></td>
-            <td>2.03 € / 1675g</td>
+            <td>2.52 € / 2175g</td>
         </tr>
         <tr>
             <td>Sweets like Cookies (chocolate, cake, waffles, cookies; Süßigkeiten, Kakao-Schnitten, Kekse, Wassereis, Nuss-Strudel, Milchlaible, Mozart-Kugeln)</td>
@@ -2012,7 +2012,7 @@ General Cooking:
             <td>?</td>
             <td>0.79 € / 1.5 L</td>
             <td>9.48 € / year</td>
-            <td>17.52 € / 31.5 L</td>
+            <td>18.28 € / 33.0 L</td>
         </tr>
         <tr>
             <td>Softdrinks (Eistee)</td>
@@ -2199,6 +2199,14 @@ General Cooking:
             <td>2.59 € / 2 pieces</td>
         </tr>
         <tr>
+            <td>Ready-made pizza dough (Pizza Teig)</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>1.15 € / 1 piece</td>
+        </tr>
+        <tr>
             <td>Kichererbsen in der Dose</td>
             <td></td>
             <td>3 years</td>
@@ -2254,6 +2262,13 @@ General Cooking:
             <td>(I started the year with about 380ml in Toothpaste... I don't think I will need to buy any)</td>
         </tr>
         <tr>
+            <td>Mundspülung</td>
+            <td>0.72 € / 500ml</td>
+            <td></td>
+            <td></td>
+            <td>0.72 € / 500ml</td>
+        </tr>
+        <tr>
             <td>Shampoo (sebamed Anti-Schuppen)</td>
             <td>2.45 € / 200ml</td>
             <td>200ml / 60 days</td>
@@ -2276,10 +2291,10 @@ General Cooking:
         </tr>
         <tr>
             <td>Washing agent (Waschmittel)</td>
-            <td>2.75 €</td>
+            <td>2.75 € (0.14 € / Washing)</td>
             <td>1 wash / week</td>
             <td>7.17 € / year</td>
-            <td>2.75 € / 1.1 L (20x Washing)</td>
+            <td>5.24 € / 2.2 L (40x Washing)</td>
         </tr>
         <tr>
             <td>Dishwasher Tabs</td>
@@ -2318,10 +2333,10 @@ General Cooking:
         </tr>
         <tr>
             <td>Spülmittel</td>
+            <td>0.86 € / 0.5 L</td>
             <td></td>
             <td></td>
-            <td></td>
-            <td>0.85 € / 1 L</td>
+            <td>1.71 € / 1.5 L</td>
         </tr>
         <tr>
             <td>Spülbürste</td>
