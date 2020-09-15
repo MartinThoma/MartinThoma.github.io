@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Martin Thoma" />
+        <meta name="copyright" content="Martin Thoma" />
+        <link title = "Martin Thoma"
+              type  = "application/opensearchdescription+xml"
+              rel   = "search"
+              href  = "../opensearch.xml">
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Python, Logging, Code, " />
+
+<meta property="og:title" content="Logging Basics in Python "/>
+<meta property="og:url" content="https://towardsdatascience.com/logging-basics-in-python-d0db13e538f9" />
+<meta property="og:description" content="The dmesg output. Screenshot taken by Martin Thoma. Logging is the act of recording information about the current state of execution. It’s typically done for two purposes: Debugging: To enable the developer to narrow down the cause of a system failure Monitoring: To enable people on operations to know …" />
+<meta property="og:site_name" content="Martin Thoma" />
+<meta property="og:article:author" content="Martin Thoma" />
+<meta property="og:article:published_time" content="2020-09-15T20:00:00+02:00" />
+<meta name="twitter:title" content="Logging Basics in Python ">
+<meta name="twitter:description" content="The dmesg output. Screenshot taken by Martin Thoma. Logging is the act of recording information about the current state of execution. It’s typically done for two purposes: Debugging: To enable the developer to narrow down the cause of a system failure Monitoring: To enable people on operations to know …">
+<meta property="og:image" content="logos/python.png" />
+<meta name="twitter:image" content="logos/python.png" >
+
+        <title>Logging Basics in Python  · Martin Thoma
+</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../static/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="../static/custom.css" media="screen">
+
+        <!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+        <link href="https://martin-thoma.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Martin Thoma - Full Atom Feed" />
+        <link href="https://martin-thoma.com/feeds/index.xml" type="application/rss+xml" rel="alternate" title="Martin Thoma - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav pull-left top-menu navbar-nav">
+                            <li><a href=".." style="font-family: 'Monaco', 'Inconsolata', 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, Monospace;
+                        font-size: 20px;" class="navbar-brand" tabindex="-1">Martin Thoma</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right top-menu navbar-nav">
+                            <li ><a href="..">Home</a></li>
+                            <li ><a href="../categories.html">Categories</a></li>
+                            <li ><a href="../tags.html">Tags</a></li>
+                            <li ><a href="../archives.html">Archives</a></li>
+                            <li><a href="../support-me/">Support me</a></li>
+                            <li><form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="search" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+                <div class="col-sm-10 col-md-10">
+<article>
+<div class="row">
+    <header class="page-header col-sm-10 col-md-10 col-md-offset-2">
+    <h1><a href="https://towardsdatascience.com/logging-basics-in-python-d0db13e538f9"> Logging Basics in Python  </a></h1>
+    </header>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-md-2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div id="toc"><ul><li><a class="toc-href" href="#hello-sweet-logging-world" title="Hello, Sweet logging World!">Hello, Sweet logging World!</a></li><li><a class="toc-href" href="#the-4-logging-classes" title="The 4 Logging Classes">The 4 Logging Classes</a><ul><li><a class="toc-href" href="#loggers" title="Loggers">Loggers</a></li><li><a class="toc-href" href="#log-handlers" title="Log Handlers">Log Handlers</a></li><li><a class="toc-href" href="#log-formatters" title="Log Formatters">Log Formatters</a></li><li><a class="toc-href" href="#log-filters" title="Log Filters">Log Filters</a></li></ul></li><li><a class="toc-href" href="#logging-vs-print-vs-exception_1" title="Logging vs print vs exception">Logging vs print vs exception</a></li><li><a class="toc-href" href="#warningswarn-vs-loggingwarning" title="Warnings.warn vs logging.warning">Warnings.warn vs logging.warning</a></li><li><a class="toc-href" href="#what-should-i-log" title="What should I log?">What should I log?</a></li><li><a class="toc-href" href="#best-practices" title="Best practices">Best practices</a></li><li><a class="toc-href" href="#silencing-loggers" title="Silencing loggers">Silencing loggers</a></li><li><a class="toc-href" href="#should-i-always-use-pythons-logging-library" title="Should I always use Pythons&rsquo; logging library?">Should I always use Pythons&rsquo; logging library?</a></li><li><a class="toc-href" href="#more-information" title="More information">More information</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="col-sm-8 col-md-8 article-content" id="contentAfterTitle">
+
+            
+            <p><img alt="The dmesg output. Screenshot taken by Martin Thoma." src="https://cdn-images-1.medium.com/max/3760/1*7bpeZdDGtnxRIFE0iYp7OQ.png"/><em>The <a href="https://en.wikipedia.org/wiki/Dmesg">dmesg</a> output. Screenshot taken by Martin Thoma.</em></p>
+<p>Logging is the act of recording information about the current state of execution. It&rsquo;s typically done for two purposes:</p>
+<ol>
+<li><strong>Debugging</strong>: To enable the developer to narrow down the cause of a system failure</li>
+<li><strong>Monitoring</strong>: To enable people on operations to know what is currently happening</li>
+</ol>
+<h2 id="hello-sweet-logging-world">Hello, Sweet logging World!</h2>
+<p>The simplest way to log is like this:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s2">"</span><span class="si">{asctime}</span><span class="s2"> </span><span class="si">{levelname:&lt;8}</span><span class="s2"> </span><span class="si">{message}</span><span class="s2">"</span><span class="p">,</span>
+    <span class="n">style</span><span class="o">=</span><span class="s2">"{"</span><span class="p">,</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
+    <span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Hello World!"</span><span class="p">)</span>
+</code></pre></div>
+<p>It gives output like this:</p>
+<div class="highlight"><pre><span></span><code>2020-09-07 22:40:32,101 INFO     Hello World!
+</code></pre></div>
+<p><strong>BasicConfig should probably not be used</strong>. Please continue reading &ldquo;the 4 logging classes&rdquo; to learn why 😁</p>
+<p><img alt="Image by Oliver Widder from geek-and-poke.com" src="https://cdn-images-1.medium.com/max/4960/1*g34WT6mRV4_UKC06OnUNeg.jpeg"/><em>Image by Oliver Widder from <a href="http://geek-and-poke.com/geekandpoke/2015/10/18/why-logging-is-so-important">geek-and-poke.com</a></em></p>
+<h2 id="the-4-logging-classes">The 4 Logging Classes</h2>
+<p>Python has a logger hierarchy in a tree structure. This means you can apply a log configuration for a single logger and make all child loggers behave the same way. This is useful if you want to configure a package. logging.basicConfig acts on the root logger. For this reason, it should only be used within application code, but not in library or framework code.</p>
+<p>Python distinguishes 4 main components that you can adjust to your needs: Loggers, handlers, filters, and formatters. They act on log records that are created when you pass your log message to the logger.</p>
+<h3 id="loggers">Loggers</h3>
+<p>A logger is an object you use to emit log records:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</code></pre></div>
+<p>You can emit 5 levels of log messages :</p>
+<ul>
+<li><strong>Debug</strong>: extremely detailed, you can use this if you have no clue at a certain part of the code what is happening. Remember to remove it again.</li>
+<li><strong>Info</strong>: nothing to worry about, but helpful to understand the system</li>
+<li><strong>Warning</strong>: something that could become a problem that happened. Maybe an event that might indicate an error if it happens too often. Maybe the remaining storage becomes low. Maybe the internet connection was broken. Maybe a file was not writable.</li>
+<li><strong>Error</strong>: an important event could not be executed, e.g. because of missing privileges or a file that should be read did not exist.</li>
+<li><strong>Critical</strong>: a problem that requires the app to restart happened. For example, a kill signal was received.</li>
+</ul>
+<p>You use it like this :</p>
+<div class="highlight"><pre><span></span><code><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"My first log message"</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"The specified file could not be opened."</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="log-handlers">Log Handlers</h3>
+<p>File handlers store stuff to files, stream handlers write logs to a stream:</p>
+<div class="highlight"><pre><span></span><code><span class="n">sh</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
+<span class="n">fh</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="s2">"spam.log"</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">sh</span><span class="p">)</span>
+</code></pre></div>
+<p>If you&rsquo;re using a file handler, consider using a <a href="https://docs.python.org/3/howto/logging-cookbook.html#using-file-rotation">RotatingFileHandler</a>. It will create a new file once the log file becomes too big. You can specify how many files there might be. When the maximum is reached, the oldest file is deleted.</p>
+<p>The <a href="https://docs.python.org/3/library/logging.handlers.html#httphandler">HTTPHandler</a> is also noteworthy because it allows you to integrate into other systems such as Slack.</p>
+<p>Commonly, you also want to set the log level to either the logger or the log handler:</p>
+<div class="highlight"><pre><span></span><code><span class="n">sh</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+</code></pre></div>
+<p><img alt="Image by Oliver Widder from geek-and-poke.com" src="https://cdn-images-1.medium.com/max/2000/1*QR-5wpqk0J2X3O1vlYSrqQ.jpeg"/><em>Image by Oliver Widder from g<a href="https://geekandpoke.typepad.com/geekandpoke/2010/01/geeks.html">eek-and-poke.com</a></em></p>
+<h3 id="log-formatters">Log Formatters</h3>
+<p>The log formatter changes the log message string. A formatter is attached to a log handler:</p>
+<div class="highlight"><pre><span></span><code><span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s2">"</span><span class="si">{asctime}</span><span class="s2"> </span><span class="si">{levelname:&lt;8}</span><span class="s2"> </span><span class="si">{message}</span><span class="s2">"</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">"{"</span><span class="p">)</span>
+<span class="n">sh</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
+</code></pre></div>
+<p>The style attribute is interesting. The default is % which means the format string then needs to be (asctime)s (levelname)-8s (message)s . I never really learned how the percentage style formatting works. I like to stick to the curly braces.</p>
+<p>There are way more <a href="https://docs.python.org/3/library/logging.html#logrecord-attributes">log record attributes</a> which you can use.</p>
+<h3 id="log-filters">Log Filters</h3>
+<p><a href="https://docs.python.org/3/library/logging.html#filter-objects">Log filters</a> provide the possibility to define which log records get shown:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">OnWeekendOnlyErrorsFilter</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">Filter</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>
+        <span class="n">is_weekday</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">weekday</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">5</span>
+        <span class="k">return</span> <span class="n">is_weekday</span> <span class="ow">or</span> <span class="n">record</span><span class="o">.</span><span class="n">levelno</span> <span class="o">&gt;=</span> <span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span>
+
+
+<span class="n">stdout_handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+<span class="n">stdout_handler</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">WARNING</span><span class="p">)</span>
+<span class="n">stdout_handler</span><span class="o">.</span><span class="n">addFilter</span><span class="p">(</span><span class="n">OnWeekendOnlyErrorsFilter</span><span class="p">())</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">stdout_handler</span><span class="p">)</span>
+</code></pre></div>
+<p><img alt="Photo by Nigel Tadyanehondo on Unsplash" src="https://cdn-images-1.medium.com/max/7872/0*LdnHX9sPcoVbJMbF"/><em>Photo by <a href="https://unsplash.com/@nxvision?utm_source=medium&amp;utm_medium=referral">Nigel Tadyanehondo</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<h2 id="logging-vs-print-vs-exception_1">Logging vs print vs exception</h2>
+<p>I&rsquo;ve been very confused about when I should simply print out information and when I should log out or when I should throw an exception.</p>
+<blockquote>
+<p>You throw an exception in a library function so that the user of that function can catch the exception and show the end-user a meaningful error message. The end-user should never see a traceback.</p>
+</blockquote>
+<p><strong>Logging is meant for other systems or developers</strong> who try to understand what happened to a system, whereas <strong>print is for the user</strong>. The confusing part is that print messages go by default to the standard error. You can easily do the same with print. I&rsquo;ve used it in the past to give the user feedback of what is currently happening, simply because logging had an easy way to include time stamps.</p>
+<p><img alt="Photo by Esteban Lopez on Unsplash" src="https://cdn-images-1.medium.com/max/7744/0*nCSTE1Mg5o-lyMj1"/><em>Photo by <a href="https://unsplash.com/@exxteban?utm_source=medium&amp;utm_medium=referral">Esteban Lopez</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<h2 id="warningswarn-vs-loggingwarning">Warnings.warn vs logging.warning</h2>
+<p>According to <a href="https://docs.python.org/3/howto/logging.html#when-to-use-logging">the official docs</a>, you have two options when you want to issue a warning regarding a particular runtime event:</p>
+<ul>
+<li><a href="https://docs.python.org/3/library/warnings.html#warnings.warn">warnings.warn()</a> in library code, if the issue is avoidable and the client application should be modified to eliminate the warning</li>
+<li><a href="https://docs.python.org/3/library/logging.html#logging.warning">logging.warning()</a> if there is nothing the client application can do about the situation, but the event should still be noted</li>
+</ul>
+<p>A typical use-case for warnings is <a href="https://docs.python.org/3/library/exceptions.html#DeprecationWarning">DeprecationWarning</a> with which a library can tell its users to remove a certain type of usage. Or Scipy warning you that no BLAS library was found.</p>
+<p><img alt="Too few log messages are bad, but too many can be problematic as well. Photo by Christa Dodoo on Unsplash" src="https://cdn-images-1.medium.com/max/8064/0*OmKMed1DyMeALh3k"/><em>Too few log messages are bad, but too many can be problematic as well. Photo by <a href="https://unsplash.com/@krystagrusseck?utm_source=medium&amp;utm_medium=referral">Christa Dodoo</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<h2 id="what-should-i-log">What should I log?</h2>
+<p>I typically log code that takes long to execute pretty well, whereas I don&rsquo;t add much logging to functions which are called super often and are fast. Most of the time there are initialization functions which load configuration. I always log the complete configuration but strip away credentials.</p>
+<p>I also log errors and rare exceptions.</p>
+<p>It&rsquo;s hard to find the right balance. Too many log messages make it hard to find relevant information. To few messages might mean that you didn&rsquo;t log the important information at all.</p>
+<h2 id="best-practices">Best practices</h2>
+<p>It&rsquo;s a common practice for applications to create a log.py or a logger.py file in which the logger is initiated, log handler, and formatters are added. <a href="https://github.com/OpenShot/openshot-qt">OpenShot</a> is doing it.</p>
+<p><img alt="Photo by Kristina Flour on Unsplash" src="https://cdn-images-1.medium.com/max/9640/0*-2fIUT_dAjXX0-2q"/><em>Photo by <a href="https://unsplash.com/@tinaflour?utm_source=medium&amp;utm_medium=referral">Kristina Flour</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></em></p>
+<h2 id="silencing-loggers">Silencing loggers</h2>
+<p>A common cause of frustration is log messages from 3rd party software which spam your application. If they behave well, it is easy to silence them: Get the logger and set the level to something high:</p>
+<div class="highlight"><pre><span></span><code><span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">"urllib3"</span><span class="p">)</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">CRITICAL</span><span class="p">)</span>
+</code></pre></div>
+<p>If you don&rsquo;t even want critical log records, you can set</p>
+<div class="highlight"><pre><span></span><code><span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">"urllib3"</span><span class="p">)</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">CRITICAL</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<p>To disable the child loggers as well:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Disable all child loggers of urllib3, e.g. urllib3.connectionpool</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">"urllib3"</span><span class="p">)</span><span class="o">.</span><span class="n">propagate</span> <span class="o">=</span> <span class="kc">False</span>
+</code></pre></div>
+<p>You can also remove all handlers / add the <a href="https://docs.python.org/3/library/logging.handlers.html#nullhandler">NullHandler</a>.</p>
+<h2 id="should-i-always-use-pythons-logging-library">Should I always use Pythons&rsquo; logging library?</h2>
+<p>For sure not! Some scripts are so short that logging isn&rsquo;t reasonable. Others, <a href="https://github.com/pirate/ArchiveBox/issues/468#issuecomment-688489159">like ArchiveBox</a>, implement their own specialized logging. And there are other logging libraries like <a href="https://pypi.org/project/structlog">structlog</a>.</p>
+<h2 id="more-information">More information</h2>
+<p>Similar information is available in an amazing PyCon talk by <a href="undefined">Curtis Maloney</a>:</p>
+<p>You can directly read the <a href="https://docs.python.org/3/library/logging.html">documentation</a> or the official <a href="https://docs.python.org/3/howto/logging.html">logging howto</a>. To me, <a href="https://stackoverflow.com/questions/tagged/logging+python">reading StackOverflow</a> is also often helpful.</p>
+<p>With those resources, I hope nobody has to struggle with Python logging again. If you still have questions, let me know (info@martin-thoma.de).</p>
+            
+            <div id="disqus_thread" class="no-print"></div>
+<script>
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        var d = document, s = d.createElement('script');
+
+        s.src = '//martinthoma.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="col-sm-2 col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2020-09-15T20:00:00+02:00">Sep 15, 2020</time>
+            <br/>
+            by <a rel="author" class="vcard author post-author" itemprop="author" href="../author/martin-thoma/"><span class="fn" itemscope="" itemtype="https://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a>
+            <h4>Category</h4>
+            <a class="category-link" href="../categories.html#code-ref">Code</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="../tags.html#logging-ref">Logging
+                    <span>2</span>
+</a></li>
+                <li><a href="../tags.html#python-ref">Python
+                    <span>131</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://twitter.com/themoosemind" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:info@martin-thoma.de" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="https://github.com/MartinThoma" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://stackoverflow.com/users/562769/martin-thoma" title="My Stackoverflow Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-stackoverflow sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer class="no-print">
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">Martin Thoma</span> - A blog about Code, the Web and Cyberculture</li>
+        <li><a href="https://martin-thoma.com/feeds/index.xml">RSS-Feed</a></li>
+        <li><a href="http://www.martin-thoma.de/privacy.htm">Datenschutzerkl&auml;rung</a></li>
+        <li><a href="http://www.martin-thoma.de/impressum.htm">Impressum</a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page" tabindex="-1">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page" tabindex="-1">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page" tabindex="-1">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="//code.jquery.com/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        <script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
