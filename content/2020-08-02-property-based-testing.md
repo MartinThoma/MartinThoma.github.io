@@ -6,7 +6,7 @@ author: Martin Thoma
 status: draft
 date: 2020-08-02 20:00
 category: Code
-tags: Machine Learning
+tags: Python, Testing, Unit Testing, fuzzing
 featured_image: logos/star.png
 ---
 When you write unit tests, it’s hard to find the right test cases. You want to
@@ -373,6 +373,9 @@ data to generate our test cases.
 It’s also interesting to think about it the other way around: If we are now testing properties, what did we test before? [Andrea Leopardi](https://www.youtube.com/watch?v=p84DMv8TQuo) calls it example-based or table-based testing.
 
 Example-based testing is good to cover known corner-cases, wheres property-based testing is good to discover unknown corner-cases.
+
+Property-based testing is almost the same as fuzzing. Nelson Elhage also makes
+this point in [Property-testing is fuzzing](https://blog.nelhage.com/post/property-testing-is-fuzzing/)
 
 ## Summary
 
